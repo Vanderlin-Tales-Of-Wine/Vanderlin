@@ -13,6 +13,7 @@
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
+	cmode_music = 'sound/music/adventurer/CombatMonk.ogg'
 
 /datum/outfit/job/roguetown/adventurer/monk
 	allowed_patrons = list(/datum/patron/divine/ravox)
