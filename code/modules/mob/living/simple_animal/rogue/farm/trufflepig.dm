@@ -52,6 +52,8 @@
 	tastes = list("mushroom" = 1)
 	sellprice = 30
 	rotprocess = null
+	stew_reagent = /datum/reagent/consumable/soup/stew/truffle
+
 /obj/item/reagent_containers/food/snacks/rogue/truffles/cooked
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 3)
@@ -71,6 +73,8 @@
 	cooked_smell = /datum/pollutant/food/truffles
 	color = "#ab7d6f"
 	tastes = list("mushroom" = 1)
+	stew_reagent = /datum/reagent/yuck/cursed_soup
+
 /obj/item/reagent_containers/food/snacks/rogue/toxicshrooms/cooked
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	color = "#835b4f"

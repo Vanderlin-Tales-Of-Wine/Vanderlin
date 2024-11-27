@@ -84,6 +84,7 @@
 	distill_reagent = /datum/reagent/consumable/ethanol/ale
 	distill_amt = 12
 	grind_results = list(/datum/reagent/floure = 10)
+	stew_reagent = /datum/reagent/consumable/soup/oatmeal
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
 	. += ..()
@@ -211,6 +212,7 @@
 	color_index = "bad"
 	poisonous = TRUE
 	possible_potion = "poison"
+	stew_reagent = /datum/reagent/yuck/cursed_soup
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed

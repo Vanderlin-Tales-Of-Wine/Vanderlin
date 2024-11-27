@@ -15,6 +15,7 @@
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/beer/onion
 	distill_amt = 6
+	stew_reagent = /datum/reagent/consumable/soup/veggie/onion
 
 /*	..................   Cabbage   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
@@ -23,7 +24,7 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried
 	cooked_smell = /datum/pollutant/food/fried_cabbage
-
+	stew_reagent = /datum/reagent/consumable/soup/veggie/cabbage
 
 /*	..................   Potato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
@@ -35,12 +36,13 @@
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
 	distill_amt = 8
+	stew_reagent = /datum/reagent/consumable/soup/veggie/potato
 
 /*	..................   Turnip   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/veg/turnip_sliced
 	name = "cleaned turnip"
 	icon_state = "turnip_sliced"
-
+	stew_reagent = /datum/reagent/consumable/soup/veggie/turnip
 
 /*	..................   Sunflower seeds   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/roastseeds

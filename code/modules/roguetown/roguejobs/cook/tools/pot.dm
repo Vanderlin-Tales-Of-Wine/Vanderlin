@@ -11,17 +11,41 @@
 	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
 
+	// Sorry Melbert for butchering your code
+	var/list/obj/item/added_ingredients
+
+
+/obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/reagent_containers/food/snacks/attacking_item, mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(isnull(attacking_item.stew_reagent))
+		to_chat(user, "<span class='notice'>Cooking this wouldn't make any stew!</span>")
+		return
+
+	// Not enough room
+	if(LAZYLEN(added_ingredients) >= FLOOR((reagents.get_reagent_amount(/datum/reagent/water) / 33), 1))
+		to_chat(user, "<span class='notice'>There's not enough room for another ingredient!</span>")
+		return
+
+	to_chat(user, "DEBUG MESSAGE. ROOM CHECK AND REAGENT CHECK PASSED.")
+	LAZYADD(added_ingredients, attacking_item)
+	to_chat(user, "ITEM SHOULD BE ADDED. CHECK added_ingredients VARIABLE.")
+	qdel(attacking_item)
+	return
+
 
 /obj/item/reagent_containers/glass/bucket/pot/update_icon()
 	cut_overlays()
-	if(reagents.total_volume > 0) 
-		if(reagents.total_volume <= 50) 
+	if(reagents.total_volume > 0)
+		if(reagents.total_volume <= 50)
 			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "pote_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
-		if(reagents.total_volume > 50) 
+		if(reagents.total_volume > 50)
 			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "pote_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
@@ -37,7 +61,7 @@
 	return TRUE
 
 /obj/item/reagent_containers/glass/bucket/pot/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
-	if(reagents.total_volume > 5) 
+	if(reagents.total_volume > 5)
 		new /obj/effect/decal/cleanable/food/mess/soup(get_turf(src))
 	..()
 

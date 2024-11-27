@@ -23,6 +23,7 @@
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 30 SECONDS
 	var/process_step // used for pie making and other similar modular foods
+	stew_reagent = /datum/reagent/consumable/soup/stew/gross // used to determine what reagent is made when cooking this food in a pot
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
@@ -71,6 +72,7 @@
 	slices_num = 0
 	slice_path = null
 	cooktime = 0
+	stew_reagent = /datum/reagent/yuck/cursed_soup
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -447,9 +449,9 @@
 					to_chat(M, "<span class='danger'>I feel bile rising...</span>")
 				if (2)
 					to_chat(M, "<span class='danger'>I feel nauseous...</span>")
-				if (2)
+				if (3)
 					to_chat(M, "<span class='danger'>My breath smells terrible...</span>")
-				if (2)
+				if (4)
 					to_chat(M, "<span class='danger'>My stomach churns...</span>")
 		if(prob(8))
 			M.emote("gag")

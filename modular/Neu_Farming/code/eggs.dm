@@ -12,6 +12,7 @@
 	grind_results = list()
 	rotprocess = 15 MINUTES
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/egg
+	stew_reagent = /datum/reagent/consumable/soup/egg // Blame eggs not being a rogue food subtype
 
 	var/fertile = FALSE
 

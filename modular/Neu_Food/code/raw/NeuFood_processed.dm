@@ -530,6 +530,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	become_rot_type = null
 	slice_path = null
+	stew_reagent = /datum/reagent/consumable/soup/cheese
 
 /obj/item/reagent_containers/food/snacks/rogue/cheese/gote
 	name = "fresh gote cheese"
@@ -571,6 +572,7 @@
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	baitpenalty = 0
 	isbait = TRUE
+	stew_reagent = /datum/reagent/consumable/soup/cheese
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 10,
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5,
 					/obj/item/reagent_containers/food/snacks/fish/angler = 1)

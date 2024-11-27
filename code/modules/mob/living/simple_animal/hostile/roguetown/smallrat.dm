@@ -15,6 +15,7 @@
 	max_integrity = 10
 	sellprice = 0
 	rotprocess = null
+	stew_reagent = /datum/reagent/yuck/cursed_soup
 
 /obj/item/reagent_containers/food/snacks/smallrat/onbite(mob/living/carbon/human/user)
 	if(loc == user)

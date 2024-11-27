@@ -74,6 +74,7 @@ All foods are distributed among various categories. Use common sense.
 	var/become_rot_type = null
 
 	var/mill_result = null
+	var/stew_reagent = null
 
 	var/fertamount = 50
 
@@ -589,3 +590,4 @@ All foods are distributed among various categories. Use common sense.
 	foodtype = GROSS
 	burntime = 0
 	cooktime = 0
+	stew_reagent = /datum/reagent/yuck/cursed_soup

@@ -34,6 +34,7 @@
 	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
+	stew_reagent = /datum/reagent/consumable/soup/stew/meat
 
 /*	.............   Pork, spidermeat, birdmeat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty //pork
@@ -87,6 +88,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
 	cooked_smell = /datum/pollutant/food/fried_chicken
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/chickenleg
+	stew_reagent = /datum/reagent/consumable/soup/stew/chicken
 
 /*	........   Fish sounds   ................ */
 /obj/item/reagent_containers/food/snacks/fish
@@ -146,14 +148,17 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	name = "minced meat"
+	stew_reagent = /datum/reagent/consumable/soup/stew/meat
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish
 	name = "minced fish"
 	icon_state = "fishmince"
+	stew_reagent = /datum/reagent/consumable/soup/stew/fish
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
 	name = "mince"
 	icon_state = "meatmince"
+	stew_reagent = /datum/reagent/consumable/soup/stew/chicken
 
 /*	..................   Sausage & Wiener   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage
