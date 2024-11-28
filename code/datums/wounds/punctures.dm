@@ -2,7 +2,7 @@
 	name = "puncture"
 	whp = 40
 	sewn_whp = 20
-	bleed_rate = 0.8
+	bleed_rate = 1
 	sewn_bleed_rate = 0.04
 	clotting_rate = 0.01
 	sewn_clotting_rate = 0.01
@@ -33,7 +33,7 @@
 	name = "gaping puncture"
 	whp = 40
 	sewn_whp = 20
-	bleed_rate = 2
+	bleed_rate = 3
 	sewn_bleed_rate = 0.1
 	clotting_rate = 0.01
 	sewn_clotting_rate = 0.01

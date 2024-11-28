@@ -389,8 +389,9 @@
 		if(AH?.mind)
 			dodge_score -= (AH.mind.get_skill_level(I.associated_skill) * 10) //this means at legendary -60 dodge rating
 
-	if(I.wbalance > 0)													//Enemy weapon is quick, so they get a bonus based on spddiff
-		dodge_score -= ((A.STASPD - D.STASPD) * 5)
+	if(I)
+		if(I.wbalance > 0)													//Enemy weapon is quick, so they get a bonus based on spddiff
+			dodge_score -= ((A.STASPD - D.STASPD) * 5)
 
 	dodge_score += (D.rmb_intent?.def_bonus)								//Dodge bonus from Poise
 

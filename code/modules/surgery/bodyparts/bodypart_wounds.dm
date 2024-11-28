@@ -182,8 +182,10 @@
 	if(user && dam)
 		if(user.goodluck(2))
 			dam += 10
+	if (damage_dividend < 0.4)
+		return FALSE
 	if(bclass in GLOB.dislocation_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 			used += 10
 		if(prob(used))
@@ -192,7 +194,7 @@
 			else
 				attempted_wounds += /datum/wound/dislocation
 	if(bclass in GLOB.fracture_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(user)
 			if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 				used += 10
@@ -202,7 +204,7 @@
 			attempted_wounds += /datum/wound/dislocation
 			attempted_wounds += /datum/wound/fracture
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(user)
 			if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				used += 10
@@ -228,6 +230,8 @@
 	if(user && dam)
 		if(user.goodluck(2))
 			dam += 10
+	if (damage_dividend < 0.4)
+		return FALSE
 	if((bclass in GLOB.cbt_classes) && (zone_precise == BODY_ZONE_PRECISE_GROIN))
 		var/cbt_multiplier = 1
 		if(user && HAS_TRAIT(user, TRAIT_NUTCRACKER))
@@ -238,7 +242,7 @@
 			owner.emote("groin", TRUE)
 			owner.Stun(10)
 	if((bclass in GLOB.fracture_bclasses) && (zone_precise != BODY_ZONE_PRECISE_STOMACH))
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
 			used += 10
 		if(HAS_TRAIT(src, TRAIT_BRITTLE))
@@ -249,7 +253,7 @@
 		if(prob(used))
 			attempted_wounds += fracture_type
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 4), 1)
+		used = round(damage_dividend * 30 + (dam / 4), 1)
 		if(user)
 			if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				used += 10
@@ -283,15 +287,17 @@
 	if(user && dam)
 		if(user.goodluck(2))
 			dam += 10
+	if (damage_dividend < 0.4)
+		return FALSE
 	if((bclass in GLOB.dislocation_bclasses) && (total_dam >= max_damage))
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(prob(used))
 			if(HAS_TRAIT(src, TRAIT_BRITTLE))
 				attempted_wounds += /datum/wound/fracture/neck
 			else
 				attempted_wounds += /datum/wound/dislocation/neck
 	if(bclass in GLOB.fracture_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(HAS_TRAIT(src, TRAIT_BRITTLE))
 			used += 20
 		if(user)
@@ -333,7 +339,7 @@
 				attempted_wounds += dislocation_type
 			attempted_wounds += fracture_type
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
+		used = round(damage_dividend * 30 + (dam / 6), 1)
 		if(user)
 			if(bclass == BCLASS_CHOP)
 				if(istype(user.rmb_intent, /datum/rmb_intent/strong))
