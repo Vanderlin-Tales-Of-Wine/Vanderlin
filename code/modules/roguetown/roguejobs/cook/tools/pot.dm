@@ -11,29 +11,29 @@
 	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
 
-	// Sorry Melbert for butchering your code
-	var/list/obj/item/added_ingredients
+	/// The list that holds all the ingredients in the pot
+	var/list/obj/item/added_ingredients /// The list that holds all the ingredients in the pot
 
 
 /obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/reagent_containers/food/snacks/attacking_item, mob/user, params)
-	. = ..()
-	if(.)
-		return
 
-	if(isnull(attacking_item.stew_reagent))
-		to_chat(user, "<span class='notice'>Cooking this wouldn't make any stew!</span>")
-		return
+	to_chat(user, "DEBUG MESSAGE. GAME REGISTERED THE ATTACKBY")
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
+		if(isnull(attacking_item.stew_reagent))
+			to_chat(user, "<span class='notice'>Cooking this wouldn't make any stew!</span>")
+			return
 
 	// Not enough room
-	if(LAZYLEN(added_ingredients) >= FLOOR((reagents.get_reagent_amount(/datum/reagent/water) / 33), 1))
-		to_chat(user, "<span class='notice'>There's not enough room for another ingredient!</span>")
-		return
+		if(LAZYLEN(added_ingredients) >= FLOOR((reagents.get_reagent_amount(/datum/reagent/water) / 33), 1))
+			to_chat(user, "<span class='notice'>There's not enough room for another ingredient!</span>")
+			return
 
-	to_chat(user, "DEBUG MESSAGE. ROOM CHECK AND REAGENT CHECK PASSED.")
-	LAZYADD(added_ingredients, attacking_item)
-	to_chat(user, "ITEM SHOULD BE ADDED. CHECK added_ingredients VARIABLE.")
-	qdel(attacking_item)
-	return
+		user.visible_message("<span class='info'>[user] places [attacking_item] into the pot.</span>")
+		to_chat(user, "DEBUG MESSAGE. ROOM CHECK AND REAGENT CHECK PASSED.")
+		LAZYADD(added_ingredients, attacking_item)
+		attacking_item.forceMove(added_ingredients)
+		to_chat(user, "ITEM SHOULD BE ADDED. CHECK added_ingredients VARIABLE.")
+
 
 
 /obj/item/reagent_containers/glass/bucket/pot/update_icon()
@@ -50,15 +50,6 @@
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
-
-
-/obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/reagent_containers/glass/bowl))
-		to_chat(user, "<span class='notice'>Filling the bowl...</span>")
-		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 70, FALSE)
-		if(do_after(user,2 SECONDS, target = src))
-			reagents.trans_to(I, reagents.total_volume)
-	return TRUE
 
 /obj/item/reagent_containers/glass/bucket/pot/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(reagents.total_volume > 5)

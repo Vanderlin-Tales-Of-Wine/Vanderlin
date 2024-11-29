@@ -74,7 +74,7 @@ All foods are distributed among various categories. Use common sense.
 	var/become_rot_type = null
 
 	var/mill_result = null
-	var/stew_reagent = null
+	var/stew_reagent = null // used to determine what reagent is made when cooking this food in a pot
 
 	var/fertamount = 50
 

@@ -23,7 +23,6 @@
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 30 SECONDS
 	var/process_step // used for pie making and other similar modular foods
-	stew_reagent = /datum/reagent/consumable/soup/stew/gross // used to determine what reagent is made when cooking this food in a pot
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
