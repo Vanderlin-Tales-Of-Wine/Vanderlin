@@ -301,34 +301,27 @@
 	key = "burp"
 	key_third_person = "burps"
 	message = "burps."
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_burp()
 	set name = "Burp"
 	set category = "Noises"
 	emote("burp", intentional = TRUE)
-/datum/emote/living/burp/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled noise."
+
 
 // ............... C ..................
 /datum/emote/living/chuckle
 	key = "chuckle"
 	key_third_person = "chuckles"
 	message = "chuckles."
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_chuckle()
 	set name = "Chuckle"
 	set category = "Noises"
 	emote("chuckle", intentional = TRUE)
-/datum/emote/living/chuckle/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled laugh."
 
 /datum/emote/living/choke
 	key = "choke"
@@ -357,6 +350,7 @@
 	key_third_person = "collapses"
 	message = "collapses."
 	emote_type = EMOTE_AUDIBLE
+
 /datum/emote/living/collapse/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
 	if(. && isliving(user))
@@ -373,33 +367,25 @@
 	key = "cough"
 	key_third_person = "coughs"
 	message = "coughs."
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_cough()
 	set name = "Cough"
 	set category = "Noises"
 	emote("cough", intentional = TRUE)
-/datum/emote/living/cough/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled noise."
 
 /datum/emote/living/clearthroat
 	key = "clearthroat"
 	key_third_person = "clearsthroat"
 	message = "clears their throat."
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_clearthroat()
 	set name = "Clearthroat"
 	set category = "Noises"
 	emote("clearthroat", intentional = TRUE)
-/datum/emote/living/clearthroat/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled noise."
 
 // ............... D ..................
 /datum/emote/living/dance
@@ -428,6 +414,7 @@
 	message_monkey = "lets out a faint chimper as it collapses and stops moving..."
 	message_simple =  "falls limp."
 	stat_allowed = UNCONSCIOUS
+
 /datum/emote/living/deathgasp/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/simple_animal/S = user
 	if(istype(S) && S.deathmessage)
@@ -599,26 +586,23 @@
 	key_third_person = "grins"
 	message = "grins."
 	emote_type = EMOTE_VISIBLE
+
 /mob/living/carbon/human/verb/emote_grin()
 	set name = "Grin"
 	set category = "Emotes"
 	emote("grin", intentional = TRUE)
+
 /datum/emote/living/groan
 	key = "groan"
 	key_third_person = "groans"
 	message = "groans."
+	message_muffled = "makes a muffled groan."
 	emote_type = EMOTE_AUDIBLE
 
 /mob/living/carbon/human/verb/emote_groan()
 	set name = "Groan"
 	set category = "Noises"
 	emote("groan", intentional = TRUE)
-/datum/emote/living/groan/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled groan."
 
 /datum/emote/living/grimace
 	key = "grimace"
@@ -662,34 +646,26 @@
 /datum/emote/living/huh
 	key = "huh"
 	key_third_person = "huhs"
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
 	nomsg = TRUE
+
 /mob/living/carbon/human/verb/emote_huh()
 	set name = "Huh"
 	set category = "Noises"
 	emote("huh", intentional = TRUE)
-/datum/emote/living/huh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled noise."
 
 /datum/emote/living/hum
 	key = "hum"
 	key_third_person = "hums"
 	message = "hums."
+	message_muffled = "makes a muffled hum."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_hum()
 	set name = "Hum"
 	set category = "Noises"
 	emote("hum", intentional = TRUE)
-/datum/emote/living/hum/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled hum."
 
 /datum/emote/living/hug
 	key = "hug"
@@ -698,10 +674,12 @@
 	message_param = "hugs %t."
 	emote_type = EMOTE_VISIBLE
 	restraint_check = TRUE
+
 /mob/living/carbon/human/verb/emote_hug()
 	set name = "Hug"
 	set category = "Emotes"
 	emote("hug", intentional = TRUE, targetted = TRUE)
+
 /datum/emote/living/hug/adjacentaction(mob/user, mob/target)
 	. = ..()
 	if(!user || !target)
@@ -773,22 +751,19 @@
 	key_third_person = "laughs"
 	message = "laughs."
 	message_mime = "laughs silently!"
+	message_muffled = "makes a muffled laugh."
 	emote_type = EMOTE_AUDIBLE
+
 /datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		return !C.silent
+
 /mob/living/carbon/human/verb/emote_laugh()
 	set name = "Laugh"
 	set category = "Noises"
 	emote("laugh", intentional = TRUE)
-/datum/emote/living/laugh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled laugh."
 
 /datum/emote/living/leap
 	key = "leap"
@@ -1047,18 +1022,19 @@
 	key = "scream"
 	key_third_person = "screams"
 	message = "screams!"
+	message_muffled = "makes a muffled scream."
 	message_mime = "acts out a scream!"
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_scream()
 	set name = "Scream"
 	set category = "Noises"
 	emote("scream", intentional = TRUE)
+
 /datum/emote/living/scream/can_run_emote(mob/living/user, status_check = TRUE , intentional)
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled scream!"
 		if(intentional)
 			if(!C.rogfat_add(3)) // I guess this is here to reduce spamming? Or some other concept? Reduced from 10
 				to_chat(C, "<span class='warning'>I try to scream but my voice fails me.</span>")
@@ -1094,17 +1070,13 @@
 	key = "sigh"
 	key_third_person = "sighs"
 	message = "sighs."
+	message_muffled = "makes a muffled sigh."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_sigh()
 	set name = "Sigh"
 	set category = "Noises"
 	emote("sigh", intentional = TRUE)
-/datum/emote/living/sigh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled sigh."
 
 /datum/emote/living/snore
 	key = "snore"
@@ -1140,17 +1112,13 @@
 	key = "shh"
 	key_third_person = "shhs"
 	message = "shooshes."
+	message_muffled = "makes a muffled shh."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_shh()
 	set name = "Shh"
 	set category = "Noises"
 	emote("shh", intentional = TRUE)
-/datum/emote/living/shh/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled shh."
 
 /datum/emote/living/smug
 	key = "smug"
@@ -1177,20 +1145,8 @@
 	key = "sneeze"
 	key_third_person = "sneezes"
 	message = "sneezes."
+	message_muffled = "makes a muffled sneeze."
 	emote_type = EMOTE_AUDIBLE
-/*
-/mob/living/carbon/human/verb/emote_sneeze()
-	set name = "Sneeze"
-	set category = "Noises"
-
-	emote("sneeze", intentional = TRUE)
-*/
-/datum/emote/living/sneeze/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled sneeze."
 
 // ............... T ..................
 /datum/emote/living/tremble
@@ -1230,33 +1186,25 @@
 	key = "whimper"
 	key_third_person = "whimpers"
 	message = "whimpers."
+	message_muffled = "makes a muffled whimper."
 	message_mime = "appears hurt."
+
 /mob/living/carbon/human/verb/emote_whimper()
 	set name = "Whimper"
 	set category = "Noises"
 	emote("whimper", intentional = TRUE)
-/datum/emote/living/whimper/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled whimper."
 
 /datum/emote/living/whistle
 	key = "whistle"
 	key_third_person = "whistles"
 	message = "whistles."
+	message_muffled = "makes a muffled noise."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_whistle()
 	set name = "Whistle"
 	set category = "Noises"
 	emote("whistle", intentional = TRUE)
-/datum/emote/living/whistle/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled noise."
 
 /datum/emote/living/wsmile
 	key = "wsmile"
@@ -1282,20 +1230,13 @@
 	key = "yawn"
 	key_third_person = "yawns"
 	message = "yawns."
+	message_muffled = "makes a muffled yawn."
 	emote_type = EMOTE_AUDIBLE
+
 /mob/living/carbon/human/verb/emote_yawn()
 	set name = "Yawn"
 	set category = "Noises"
 	emote("yawn", intentional = TRUE)
-/datum/emote/living/yawn/can_run_emote(mob/living/user, status_check = TRUE , intentional)
-	. = ..()
-	if(. && iscarbon(user))
-		var/mob/living/carbon/C = user
-		if(C.silent || !C.can_speak_vocal())
-			message = "makes a muffled yawn."
-
-
-
 
 // ............... Help ..................
 /datum/emote/living/help

@@ -62,6 +62,9 @@
 #define COMSIG_TOPIC "handle_topic"
 
 // /atom signals
+#define COMSIG_ATOM_REMOVE_TRAIT "atom_remove_trait"
+#define COMSIG_ATOM_ADD_TRAIT "atom_add_trait"
+
 //from SSatoms InitAtom - Only if the  atom was not deleted or failed initialization
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE "atom_init_success"
 //from SSatoms InitAtom - Only if the  atom was not deleted or failed initialization and has a loc

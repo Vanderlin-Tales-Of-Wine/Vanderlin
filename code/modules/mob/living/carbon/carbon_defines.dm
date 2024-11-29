@@ -3,7 +3,7 @@
 	gender = MALE
 	pressure_resistance = 15
 	base_intents = list(INTENT_HELP, INTENT_HARM)
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,GLAND_HUD,NANITE_HUD,DIAG_NANITE_FULL_HUD)
+	hud_possible = list(ANTAG_HUD)
 	has_limbs = 1
 	held_items = list(null, null)
 	var/list/internal_organs		= list()	//List of /obj/item/organ in the mob. They don't go in the contents for some reason I don't want to know.
@@ -70,7 +70,6 @@
 	var/stam_regen_start_time = 0 //used to halt stamina regen temporarily
 	var/stam_paralyzed = FALSE //knocks you down
 
-	var/domhand = 0
 	var/tiredness = 0
 	// How much total vitae a vampire can absorb from this mob. Once expended, you can't gain more from them.
 	var/vitae_pool = 5000

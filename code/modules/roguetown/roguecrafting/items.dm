@@ -91,8 +91,9 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/candle
-	name = "candle"
-	result = /obj/item/candle/yellow
+	name = "candle (x2)"
+	result = list(/obj/item/candle/yellow,
+				/obj/item/candle/yellow)
 	reqs = list(/obj/item/reagent_containers/food/snacks/fat = 1)
 
 /datum/crafting_recipe/roguetown/stoneaxe
@@ -121,23 +122,6 @@
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	craftdiff = 0
 
-
-/datum/crafting_recipe/roguetown/prosthetic/wood/left
-	name = "wooden left arm"
-	result = list(/obj/item/bodypart/l_arm/prosthetic/wood)
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-	/obj/item/roguegear = 1)
-	skillcraft = /datum/skill/craft/carpentry
-	craftdiff = 3
-
-/datum/crafting_recipe/roguetown/prosthetic/wood/right
-	name = "wooden right arm"
-	result = list(/obj/item/bodypart/r_arm/prosthetic/wood)
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-	/obj/item/roguegear = 1)
-	skillcraft = /datum/skill/craft/carpentry
-	craftdiff = 3
-
 /obj/item/rogueweapon/mace/woodclub/crafted
 	sellprice = 8
 
@@ -147,21 +131,6 @@
 	/obj/item/rogueweapon/polearm/woodstaff,
 	/obj/item/rogueweapon/polearm/woodstaff)
 	reqs = list(/obj/item/grown/log/tree = 1)
-
-/datum/crafting_recipe/roguetown/woodsword
-	name = "wood sword"
-	result = list(/obj/item/rogueweapon/mace/woodclub/train_sword,
-					/obj/item/rogueweapon/mace/woodclub/train_sword)
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 1
-
-/datum/crafting_recipe/roguetown/woodshield
-	name = "wooden shield"
-	result = /obj/item/rogueweapon/shield/wood/crafted
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-				/obj/item/natural/hide = 1)
-	skillcraft = /datum/skill/craft/carpentry
 
 /obj/item/rogueweapon/shield/wood/crafted
 	sellprice = 6
@@ -183,18 +152,29 @@
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/woodbowl
-	name = "wooden bowl"
+	name = "wooden bowls (x3)"
 	result = list(/obj/item/reagent_containers/glass/bowl,
+				/obj/item/reagent_containers/glass/bowl,
 				/obj/item/reagent_containers/glass/bowl)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
-
 /datum/crafting_recipe/roguetown/woodcup
-	name = "wooden cups"
+	name = "wooden cups (x3)"
 	result = list(/obj/item/reagent_containers/glass/cup/wooden/crafted,
 				/obj/item/reagent_containers/glass/cup/wooden/crafted,
 				/obj/item/reagent_containers/glass/cup/wooden/crafted)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
+
+/datum/crafting_recipe/roguetown/woodtray
+	name = "wooden trays (x2)"
+	result = list(/obj/item/storage/bag/tray,
+				/obj/item/storage/bag/tray)
+	reqs = list(/obj/item/grown/log/tree/small = 1)
+
+/datum/crafting_recipe/roguetown/pot
+	name = "stone pot"
+	result = /obj/item/reagent_containers/glass/bucket/pot
+	reqs = list(/obj/item/natural/stone = 2)
 
 /obj/item/reagent_containers/glass/cup/wooden/crafted
 	sellprice = 3
@@ -243,7 +223,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbaita
-	name = "sweetbait (a)"
+	name = "sweetbait (apple)"
 	result = /obj/item/bait/sweet
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/produce/apple = 2)
@@ -251,7 +231,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbait
-	name = "sweetbait (b)"
+	name = "sweetbait (berry)"
 	result = /obj/item/bait/sweet
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2)
@@ -329,6 +309,18 @@
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/stone = 1)
+	req_table = TRUE
+
+/datum/crafting_recipe/roguetown/stonearrow_five
+	name = "stone arrow (x5)"
+	result = list(
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone)
+	reqs = list(/obj/item/grown/log/tree/stick = 5,
+				/obj/item/natural/stone = 5)
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow

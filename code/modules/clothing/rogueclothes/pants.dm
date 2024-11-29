@@ -266,23 +266,3 @@
 	prevent_crits = ALL_EXCEPT_STAB
 	do_sound_plate = TRUE
 
-
-/obj/item/clothing/under/roguetown/blacksteel/platelegs
-	name = "Blacksteel Plate Chausses"
-	desc = "Reinforced leg plates forged of durable blacksteel."
-	gender = PLURAL
-	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
-	icon_state = "bklegs"
-	item_state = "bklegs"
-//	adjustable = CAN_CADJUST
-	sewrepair = FALSE
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80,  "piercing" = 50, "fire" = 0, "acid" = 0)
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
-	blocksound = PLATEHIT
-	var/do_sound = FALSE
-	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
-	anvilrepair = /datum/skill/craft/blacksmithing
-	smeltresult = /obj/item/ingot/blacksteel
-	r_sleeve_status = SLEEVE_NOMOD
-	l_sleeve_status = SLEEVE_NOMOD

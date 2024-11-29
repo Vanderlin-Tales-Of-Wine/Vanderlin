@@ -195,13 +195,6 @@
 
 	if(usr.incapacitated() || !usr.is_literate())
 		return
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		if(HAS_TRAIT(H, TRAIT_CLUMSY) && prob(25))
-			to_chat(H, "<span class='warning'>I cut myself on the paper! Ahhhh! Ahhhhh!</span>")
-			H.damageoverlaytemp = 9001
-			H.update_damage_hud()
-			return
 	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling", null, MAX_NAME_LEN)
 	if((loc == usr && usr.stat == CONSCIOUS))
 		name = "paper[(n_name ? text("- '[n_name]'") : null)]"

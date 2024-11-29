@@ -33,12 +33,6 @@
 		prayer_type = "CHAPLAIN PRAYER"
 		if(GLOB.deity)
 			deity = GLOB.deity
-	else if(isliving(usr))
-		var/mob/living/L = usr
-		if(HAS_TRAIT(L, TRAIT_SPIRITUAL))
-			cross.icon_state = "holylight"
-			font_color = "blue"
-			prayer_type = "SPIRITUAL PRAYER"
 
 	var/msg_tmp = msg
 	msg = "<span class='adminnotice'>[icon2html(cross, GLOB.admins)]<b><font color=[font_color]>[prayer_type][deity ? " (to [deity])" : ""]: </font>[ADMIN_FULLMONTY(src)] :</b> <span class='linkify'>[msg]</span></span>"

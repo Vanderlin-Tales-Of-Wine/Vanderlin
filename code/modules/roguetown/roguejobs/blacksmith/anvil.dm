@@ -46,7 +46,7 @@
 				T.update_icon()
 				update_icon()
 				return
-	
+
 	if(istype(W, /obj/item/ingot))
 		if(!hingot)
 			W.forceMove(src)
@@ -84,13 +84,13 @@
 			S.start()
 			breakthrough = 1
 			hingot.currecipe.numberofbreakthroughs++
-		
+
 		if(!hingot.currecipe.advance(user, breakthrough))
 			shake_camera(user, 1, 1)
 			playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)
-		
+
 		playsound(src,pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
-	
+
 		for(var/mob/M in GLOB.player_list)
 			if(!is_in_zweb(M.z,src.z))
 				continue
@@ -100,7 +100,7 @@
 				var/dist = get_dist(M_turf, loc)
 				if(dist < 7)
 					continue
-				M.playsound_local(M_turf, null, 100, 1, get_rand_frequency(), falloff = 5, S = far_smith_sound)				
+				M.playsound_local(M_turf, null, 100, 1, get_rand_frequency(), falloff = 5, S = far_smith_sound)
 
 		return
 
@@ -131,26 +131,26 @@
 		if(istype(hingot, R.req_bar))
 			if(!valid_types.Find(R.i_type))
 				valid_types += R.i_type
-	
+
 	if(!valid_types.len)
 		return
-	
+
 	var/i_type_choice = input(user, "Choose a category", "Anvil") as null|anything in valid_types
 	if(!i_type_choice)
 		return
-	
+
 	var/list/appro_recipe = list()
 	for(var/datum/anvil_recipe/R in GLOB.anvil_recipes)
 		if(R.i_type == i_type_choice && istype(hingot, R.req_bar))
 			appro_recipe += R
-	
+
 	for(var/I in appro_recipe)
 		var/datum/anvil_recipe/R = I
 		if(!R.req_bar)
 			appro_recipe -= R
 		if(!istype(hingot, R.req_bar))
 			appro_recipe -= R
-	
+
 	if(appro_recipe.len)
 		var/datum/chosen_recipe = input(user, "Choose what to start working on:", "Anvil") as null|anything in sortNames(appro_recipe.Copy())
 		if(!hingot.currecipe && chosen_recipe)
@@ -158,7 +158,7 @@
 			hingot.currecipe.material_quality += hingot.quality
 			previous_material_quality = hingot.quality
 			return TRUE
-	
+
 	return FALSE
 
 /obj/machinery/anvil/attack_hand(mob/user, params)

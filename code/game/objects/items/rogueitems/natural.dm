@@ -20,7 +20,12 @@
 			else
 				to_chat(user, "There's not enough space in [W].")
 			return
-	else if(istype(W, /obj/item/natural))
+	else
+		return ..()
+
+/obj/item/natural/attack_right(mob/user)
+	var/obj/item/W = user.get_active_held_item()
+	if(istype(W, /obj/item/natural))
 		var/obj/item/natural/B = W
 		if(B.bundletype == src.bundletype && src.bundletype != null)
 			var/obj/item/natural/bundle/N = new bundletype(src.loc)
@@ -28,9 +33,9 @@
 			to_chat(user, "You tie the [N.stackname] into a bundle.")
 			qdel(B)
 			qdel(src)
-	else
-		return ..()
-
+		else
+			return ..()
+	return ..()
 
 /obj/item/natural/bundle
 	name = "bundle"

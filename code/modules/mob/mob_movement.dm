@@ -191,13 +191,14 @@
 		mob.stop_attack(FALSE)
 		mob.changeNext_move(CLICK_CD_MELEE)
 
-	for(var/X in open_popups)
-//		var/datum/browser/popup = new(mob, X, "", 5, 5)
-//		popup.set_content()
-//		popup.open()
-//		popup.close()
-		mob << browse(null, "window=[X]")
-		open_popups -= X
+	for(var/datum/browser/X in open_popups)
+		if(!X.no_close_movement)
+	//		var/datum/browser/popup = new(mob, X, "", 5, 5)
+	//		popup.set_content()
+	//		popup.open()
+	//		popup.close()
+			mob << browse(null, "window=[X.window_id]")
+			open_popups -= X
 /**
  * Checks to see if you're being grabbed and if so attempts to break it
  *
@@ -637,24 +638,13 @@
 	return TRUE
 
 /mob/living/carbon/human/check_armor_skill()
-	if(istype(src.wear_armor, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_armor
-		if(CL.armor_class == AC_HEAVY)
-			if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
+	if(worn_armor_class == AC_HEAVY)
+		if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
+			return FALSE
+	if(worn_armor_class == AC_MEDIUM)
+		if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
+			if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
 				return FALSE
-		if(CL.armor_class == AC_MEDIUM)
-			if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-				if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
-					return FALSE
-	if(istype(src.wear_shirt, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_shirt
-		if(CL.armor_class == AC_HEAVY)
-			if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-				return FALSE
-		if(CL.armor_class == AC_MEDIUM)
-			if(!HAS_TRAIT(src, TRAIT_HEAVYARMOR))
-				if(!HAS_TRAIT(src, TRAIT_MEDIUMARMOR))
-					return FALSE
 	return TRUE
 
 /mob/living/proc/check_armor_weight()
@@ -682,24 +672,10 @@
 /mob/living/carbon/human/check_dodge_skill()
 	if(!HAS_TRAIT(src, TRAIT_DODGEEXPERT))
 		return FALSE
-	if(istype(src.wear_armor, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_armor
-		if(CL.armor_class == AC_HEAVY)
-			return FALSE
-		if(CL.armor_class == AC_MEDIUM)
-			return FALSE
-	if(istype(src.wear_shirt, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_shirt
-		if(CL.armor_class == AC_HEAVY)
-			return FALSE
-		if(CL.armor_class == AC_MEDIUM)
-			return FALSE
-	if(istype(src.wear_pants, /obj/item/clothing))
-		var/obj/item/clothing/CL = src.wear_pants
-		if(CL.armor_class == AC_HEAVY)
-			return FALSE
-		if(CL.armor_class == AC_MEDIUM)
-			return FALSE
+	if(worn_armor_class == AC_HEAVY)
+		return FALSE
+	if(worn_armor_class == AC_MEDIUM)
+		return FALSE
 	return TRUE
 
 /mob/proc/toggle_eye_intent(mob/user) //clicking the fixeye button either makes you fixeye or clears your target

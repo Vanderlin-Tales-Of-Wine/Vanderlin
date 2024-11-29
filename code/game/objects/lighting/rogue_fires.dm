@@ -114,6 +114,20 @@
 	pixel_y = 32
 	soundloop = null
 
+/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
+	pixel_x = 0
+	pixel_y = 0
+	switch(dirin)
+		if(NORTH)
+			pixel_y = 32
+		if(SOUTH)
+			pixel_y = -32
+		if(EAST)
+			pixel_x = 32
+		if(WEST)
+			pixel_x = -32
+	. = ..()
+
 /obj/machinery/light/rogue/wallfire/candle/attack_hand(mob/user)
 	if(isliving(user) && on)
 		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
@@ -191,6 +205,13 @@
 	torchy.spark_act()
 	. = ..()
 
+/obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
+	dir = turn(dirin, 180)
+	if(dir == SOUTH)
+		pixel_y = 32
+	QDEL_NULL(torchy)
+	. = ..()
+
 /obj/machinery/light/rogue/torchholder/process()
 	if(on)
 		if(torchy)
@@ -224,7 +245,7 @@
 		icon_state = "torchwall"
 
 /obj/machinery/light/rogue/torchholder/burn_out()
-	if(torchy.on)
+	if(torchy && torchy.on)
 		torchy.turn_off()
 	..()
 
@@ -252,14 +273,16 @@
 					user.update_inv_hands()
 		else
 			if(LR.on)
-				LR.forceMove(src)
+				if(!user.transferItemToLoc(LR, src))
+					return
 				torchy = LR
 				on = TRUE
 				update()
 				update_icon()
 				addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
 			else
-				LR.forceMove(src)
+				if(!user.transferItemToLoc(LR, src))
+					return
 				torchy = LR
 				update_icon()
 			playsound(src.loc, 'sound/foley/torchfixtureput.ogg', 70)
@@ -307,7 +330,7 @@
 	var/rawegg = FALSE
 
 /obj/machinery/light/rogue/hearth/Initialize()
-	boilloop = new(list(src), FALSE)
+	boilloop = new(src, FALSE)
 	. = ..()
 
 /obj/machinery/light/rogue/hearth/attackby(obj/item/W, mob/living/user, params)
@@ -452,6 +475,7 @@
 	fueluse = 15 MINUTES
 	bulb_colour = "#da5e21"
 	cookonme = TRUE
+	max_integrity = 30
 
 /obj/machinery/light/rogue/campfire/process()
 	..()
@@ -495,6 +519,7 @@
 	fueluse = 30 MINUTES
 	pass_flags = LETPASSTHROW
 	bulb_colour = "#eea96a"
+	max_integrity = 60
 
 /obj/machinery/light/rogue/campfire/densefire/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
@@ -509,7 +534,7 @@
 
 
 /obj/machinery/light/rogue/campfire/pyre
-	name = "Pyre"
+	name = "pyre"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "pyre1"
 	base_state = "pyre"

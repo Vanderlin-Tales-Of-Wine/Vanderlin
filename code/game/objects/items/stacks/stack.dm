@@ -24,8 +24,6 @@
 	var/full_w_class = WEIGHT_CLASS_NORMAL //The weight class the stack should have at amount > 2/3rds max_amount
 	var/novariants = TRUE //Determines whether the item should update it's sprites based on amount.
 	var/mats_per_stack = 0
-	///Datum material type that this stack is made of
-	var/material_type
 	//NOTE: When adding grind_results, the amounts should be for an INDIVIDUAL ITEM - these amounts will be multiplied by the stack size in on_grind()
 	var/obj/structure/table/tableVariant // we tables now (stores table variant to be built from this stack)
 
@@ -44,9 +42,6 @@
 		new type(loc, max_amount, FALSE)
 	if(!merge_type)
 		merge_type = type
-	if(custom_materials && custom_materials.len)
-		for(var/i in custom_materials)
-			custom_materials[getmaterialref(i)] = mats_per_stack * amount
 	. = ..()
 	if(merge)
 		for(var/obj/item/stack/S in loc)
@@ -54,13 +49,6 @@
 				merge(S)
 	var/list/temp_recipes = get_main_recipes()
 	recipes = temp_recipes.Copy()
-	if(material_type)
-		var/datum/material/M = getmaterialref(material_type) //First/main material
-		for(var/i in M.categories)
-			switch(i)
-				if(MAT_CATEGORY_RIGID)
-					var/list/temp = SSmaterials.rigid_stack_recipes.Copy()
-					recipes += temp
 	update_weight()
 	update_icon()
 
@@ -213,12 +201,6 @@
 			O.setDir(usr.dir)
 		use(R.req_amount * multiplier)
 
-		if(R.applies_mats && custom_materials && custom_materials.len)
-			var/list/used_materials = list()
-			for(var/i in custom_materials)
-				used_materials[getmaterialref(i)] = R.req_amount / R.res_amount * (MINERAL_MATERIAL_AMOUNT / custom_materials.len)
-			O.set_custom_materials(used_materials)
-
 		if (QDELETED(O))
 			return //It's a stack and has already been merged
 
@@ -305,10 +287,6 @@
 
 /obj/item/stack/proc/add(amount)
 	src.amount += amount
-	if(custom_materials && custom_materials.len)
-		for(var/i in custom_materials)
-			custom_materials[getmaterialref(i)] = MINERAL_MATERIAL_AMOUNT * src.amount
-		set_custom_materials() //Refresh
 	update_icon()
 	update_weight()
 

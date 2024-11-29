@@ -71,8 +71,8 @@
 	climbdiff = 4
 
 /turf/closed/wall/mineral/rogue/craftstone
-	name = "stone wall"
-	desc = "A wall of smooth, unyielding stone."
+	name = "craftstone wall"
+	desc = "A durable wall made from specially crafted stone."
 	icon = 'icons/turf/walls/craftstone.dmi'
 	icon_state = "box"
 	smooth = SMOOTH_MORE
@@ -91,7 +91,7 @@
 
 /turf/closed/wall/mineral/rogue/stonebrick
 	name = "brick wall"
-	desc = "Several bricks form this wall."
+	desc = "Several rows of bricks form this wall."
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 	smooth = SMOOTH_MORE
@@ -123,7 +123,7 @@
 
 
 /turf/closed/wall/mineral/rogue/wood
-	name = "wall"
+	name = "wooden wall"
 	desc = "A rough-hewn wall of wood."
 	icon = 'icons/turf/walls/roguewood.dmi'
 	icon_state = "wood"
@@ -175,16 +175,16 @@
 
 /turf/closed/wall/mineral/rogue/tent/OnCrafted(dirin)
 	dir = dirin
-	return
+	return ..()
 
 /turf/closed/wall/mineral/rogue/wooddark
-	name = "wooden wall"
+	name = "dark wood wall"
 	desc = "Made from durable, somewhat darker wood."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "corner"
 	smooth = SMOOTH_FALSE
 	blade_dulling = DULLING_BASHCHOP
-	max_integrity = 1100
+	max_integrity = 1500
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 //	sheet_type = /obj/item/grown/log/tree/lumber
@@ -193,26 +193,32 @@
 	neighborlay = "dirtedge"
 	climbdiff = 3
 
+/turf/closed/wall/mineral/rogue/wooddark/OnCrafted(dirin)
+	if(dirin == NORTH || dirin == SOUTH)
+		icon_state = "vertwooddark"
+	else
+		icon_state = "horizwooddark"
+	. = ..()
+
 /turf/closed/wall/mineral/rogue/wooddark/horizontal
-	name = "wooden wall"
 	icon_state = "horizwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/vertical
-	name = "wooden wall"
 	icon_state = "vertwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/end
-	name = "wooden wall"
 	icon_state = "endwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/slitted
-	name = "wooden wall"
 	icon_state = "slittedwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/window
-	name = "wooden window"
+	name = "dark wood window"
 	icon_state = "subwindow"
 	opacity = FALSE
+
+/turf/closed/wall/mineral/rogue/wooddark/window/OnCrafted(dirin)
+	return
 
 /turf/closed/wall/mineral/rogue/wooddark/window/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)) )
@@ -247,7 +253,7 @@
 
 /turf/closed/wall/mineral/rogue/decowood
 	name = "daub wall"
-	desc = "a wattle and daub wall."
+	desc = "A wattle and daub wall."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decowood"
 	smooth = SMOOTH_FALSE
@@ -270,7 +276,7 @@
 
 /turf/closed/wall/mineral/rogue/decostone
 	name = "decorated stone wall"
-	desc = "The masons did some good work here."
+	desc = "The mason did an excellent job etching details into this wall."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decostone-b"
 	smooth = SMOOTH_MORE
@@ -378,3 +384,20 @@
 	baseturfs = list(/turf/open/floor/rogue/concrete)
 	climbdiff = 1
 	damage_deflection = 20
+
+/turf/closed/wall/mineral/rogue/underbrick
+	name = "erebus stone wall"
+	desc = "The toils of hard-working shades."
+	icon = 'icons/turf/underbrick.dmi'
+	icon_state = "box"
+	smooth = SMOOTH_MORE
+	wallclimb = FALSE
+	blade_dulling = DULLING_BASH
+	max_integrity = 99999
+	sheet_type = null
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+	above_floor = /turf/open/floor/rogue/church
+	baseturfs = list(/turf/open/floor/rogue/church)
+	neighborlay = "dirtedge"
+	climbdiff = 6

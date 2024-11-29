@@ -150,7 +150,8 @@
 /atom/proc/OnCrafted(dirin)
 	return
 
-/obj/item/OnCrafted(dirin)
+/obj/structure/OnCrafted(dirin)
+	obj_flags |= CAN_BE_HIT
 	. = ..()
 
 /turf/open/OnCrafted(dirin)
@@ -174,6 +175,14 @@
 	var/list/contents = get_surroundings(user)
 //	var/send_feedback = 1
 	var/turf/T = get_step(user, user.dir)
+	var/obj/N
+	var/result_name
+	if(islist(R.result))
+		N = R.result[1]
+		result_name = N.name + "s"
+	else
+		N = R.result
+		result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
 		to_chat(user, "<span class='warning'>Need to craft this on a wall.</span>")
 		return
@@ -196,18 +205,18 @@
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
 				if(user.dir == S.dir)
-					to_chat(user, "<span class='warning'>Something in the way.</span>")
+					to_chat(user, "<span class='warning'>Something is in the way.</span>")
 					return
 				continue
 			if(R.structurecraft && istype(S, R.structurecraft))
 				testing("isstructurecraft")
 				continue
 			if(S.density)
-				to_chat(user, "<span class='warning'>Something in the way.</span>")
+				to_chat(user, "<span class='warning'>Something is in the way.</span>")
 				return
 		for(var/obj/machinery/M in T)
 			if(M.density)
-				to_chat(user, "<span class='warning'>Something in the way.</span>")
+				to_chat(user, "<span class='warning'>Something is in the way.</span>")
 				return
 	if(R.req_table)
 		if(!(locate(/obj/structure/table) in T))
@@ -253,14 +262,14 @@
 						return
 					else
 						prob2craft = CLAMP(prob2craft, 5, 99)
-						if(prob(prob2fail))
-							to_chat(user, "<span class='danger'>MISTAKE! I've failed to craft [R.name]!</span>")
-							continue
+						if(prob(prob2fail)) //critical fail
+							to_chat(user, "<span class='danger'>MISTAKE! I've completely fumbled the crafting of \the [result_name]!</span>")
+							return
 						if(!prob(prob2craft))
 							if(user.client?.prefs.showrolls)
-								to_chat(user, "<span class='danger'>I've failed to craft [R.name]. (Success chance: [prob2craft]%)</span>")
+								to_chat(user, "<span class='danger'>I've failed to craft \the [result_name]. (Success chance: [prob2craft]%)</span>")
 								continue
-								to_chat(user, "<span class='danger'>I've failed to craft [R.name].</span>")
+								to_chat(user, "<span class='danger'>I've failed to craft \the [result_name].</span>")
 							continue
 					var/list/parts = del_reqs(R, user)
 					if(islist(R.result))
@@ -278,8 +287,8 @@
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
 							I.OnCrafted(user.dir)
-					user.visible_message("<span class='notice'>[user] [R.verbage_tp] \a [R.name]!</span>", \
-										"<span class='notice'>I [R.verbage] \a [R.name]!</span>")
+					user.visible_message("<span class='notice'>[user] [R.verbage_tp] \the [result_name]!</span>", \
+										"<span class='notice'>I [R.verbage] \the [result_name]!</span>")
 					if(user.mind && R.skillcraft)
 						if(isliving(user))
 							var/mob/living/L = user

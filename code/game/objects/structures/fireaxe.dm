@@ -1,5 +1,5 @@
 /obj/structure/fireaxecabinet
-	name = "Sword rack"
+	name = "sword rack"
 	desc = ""
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "fireaxe"

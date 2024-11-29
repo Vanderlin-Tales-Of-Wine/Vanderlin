@@ -5,6 +5,9 @@
 	var/active = FALSE
 	/// Role preferences of the user, the things he clicks on to be preferred to be
 	var/list/role_preferences = list()
+	///are we viewing the page?
+	var/viewer = FALSE
+
 /datum/migrant_pref/New(datum/preferences/passed_prefs)
 	. = ..()
 	prefs = passed_prefs
@@ -67,6 +70,7 @@
 	//popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
+	client.prefs.migrant.viewer = TRUE
 
 /datum/migrant_pref/Topic(href, href_list)
 	var/client/client = prefs.parent
@@ -85,6 +89,7 @@
 	if(!client)
 		return
 	client.mob << browse(null, "window=migration")
+	client.prefs.migrant.viewer = FALSE
 
 
 /mob/living/carbon/human/proc/adv_hugboxing_start()

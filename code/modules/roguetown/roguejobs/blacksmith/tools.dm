@@ -78,7 +78,7 @@
 			playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)
 			user.visible_message("<span class='info'>[user] repairs [I]!</span>")
 			return
-	..()
+	. = ..()
 
 /obj/item/rogueweapon/hammer/claw
 	icon_state = "clawh"

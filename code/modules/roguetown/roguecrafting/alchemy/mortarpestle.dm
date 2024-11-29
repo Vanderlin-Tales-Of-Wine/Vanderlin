@@ -18,8 +18,8 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(to_grind)
 		var/obj/item/N = to_grind
-		N.loc = src.loc
-		to_chat(user, "<span class='notice'>I remove the [to_grind] from the mortar.</span>")
+		N.forceMove(get_turf(user))
+		to_chat(user, "<span class='notice'>I remove [to_grind] from the mortar.</span>")
 		to_grind = null
 		return
 	to_chat(user, "<span class='notice'>It's empty.</span>")
@@ -29,29 +29,49 @@
 		if(!to_grind)
 			to_chat(user, "<span class='warning'>There's nothing to grind.</span>")
 			return
+		var/datum/alch_grind_recipe/foundrecipe = find_recipe()
+		if(foundrecipe == null)
+			to_chat(user, "<span class='warning'>You dont think that will work!</span>")
+			return
 		user.visible_message("<span class='info'>[user] begins grinding up [I].</span>")
 		playsound(loc, 'sound/foley/mortarpestle.ogg', 100, FALSE)
 		if(do_after(user, 10, target = src))
-			var/obj/item/N = new to_grind.dust_result(src)
-			if(istype(N,/obj/item/rogueore) || istype(N,/obj/item/ingot))
+			for(var/output in foundrecipe.valid_outputs)
+				for(var/i in 1 to foundrecipe.valid_outputs[output])
+					new output(get_turf(src))
+			if(foundrecipe.bonus_chance_outputs.len > 0)
+				for(var/i in 1 to foundrecipe.bonus_chance_outputs.len)
+					if(foundrecipe.bonus_chance_outputs[foundrecipe.bonus_chance_outputs[i]] >= roll(1,100))
+						var/obj/item/bonusduck = foundrecipe.bonus_chance_outputs[i]
+						new bonusduck(get_turf(user))
+			if(istype(to_grind,/obj/item/rogueore) || istype(to_grind,/obj/item/ingot))
 				user.flash_fullscreen("whiteflash")
 				var/datum/effect_system/spark_spread/S = new()
 				var/turf/front = get_turf(src)
 				S.set_up(1, 1, front)
 				S.start()
-			N.loc = src.loc
-			to_grind = null
+			QDEL_NULL(to_grind)
 			if(user.mind)
-				user.mind.adjust_experience(/datum/skill/craft/alchemy, 25, FALSE)
+				user.mind.adjust_experience(/datum/skill/craft/alchemy, user.STAINT * user.mind.get_learning_boon(/datum/skill/craft/alchemy), FALSE)
 		return
-	else if(I.dust_result)
-		if(to_grind)
-			to_chat(user, "<span class='warning'>The mortar is full.</span>")
-			return
-		if(!user.transferItemToLoc(I,src))
-			to_chat(user, "<span class='warning'>[I] is stuck to my hand!</span>")
-			return
+	if(to_grind)
+		to_chat(user, "<span class='warning'>[src] is full!</span>")
+		return
+	if(!user.transferItemToLoc(I,src))
+		to_chat(user, "<span class='warning'>[I] is stuck to my hand!</span>")
+		return
+	if(!to_grind && user.transferItemToLoc(I,src))
 		to_chat(user, "<span class='info'>I add [I] to [src].</span>")
 		to_grind = I
 		return
 	..()
+///Looks through all the alch grind recipes to find what it should create, returns the correct one.
+/obj/item/mortar/proc/find_recipe()
+	for(var/datum/alch_grind_recipe/grindRec in GLOB.alch_grind_recipes)
+		if(grindRec.picky)
+			if(to_grind.type == grindRec.valid_input)
+				return grindRec
+		else
+			if(istype(to_grind,grindRec.valid_input))
+				return grindRec
+	return null

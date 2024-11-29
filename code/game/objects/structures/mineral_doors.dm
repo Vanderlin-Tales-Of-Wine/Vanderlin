@@ -654,7 +654,7 @@
 	over_state = "fancy_woodopen"
 
 /obj/structure/mineral_door/wood/deadbolt
-	desc = ""
+	desc = "This door comes with a deadbolt."
 	icon_state = "wooddir"
 	base_state = "wood"
 	var/lockdir
@@ -668,6 +668,7 @@
 /obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin)
 	dir = turn(dirin, 180)
 	lockdir = dir
+	. = ..()
 
 /obj/structure/mineral_door/wood/deadbolt/Initialize()
 	. = ..()
@@ -698,7 +699,7 @@
 		to_chat(user, span_warning("The door doesn't lock from this side."))
 
 /obj/structure/mineral_door/wood/donjon
-	desc = ""
+	desc = "This door has a built-in viewport."
 	icon_state = "donjondir"
 	base_state = "donjon"
 	keylock = TRUE
@@ -716,6 +717,7 @@
 	smeltresult = /obj/item/ingot/iron
 
 /obj/structure/mineral_door/wood/donjon/stone
+	name = "stone door"
 	desc = ""
 	icon_state = "stone"
 	base_state = "stone"
@@ -743,10 +745,18 @@
 /obj/structure/mineral_door/wood/donjon/stone/view_toggle(mob/user)
 	return
 
+/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin)
+	return ..()
+
 /obj/structure/mineral_door/wood/donjon/Initialize()
 	viewportdir = dir
 	icon_state = base_state
 	..()
+
+/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin)
+	dir = turn(dirin, 180)
+	viewportdir = dir
+	. = ..()
 
 /obj/structure/mineral_door/wood/donjon/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
@@ -766,7 +776,7 @@
 	if(get_dir(src,user) == viewportdir)
 		view_toggle(user)
 	else
-		to_chat(user, span_warning("The viewport doesn't toggle from this side."))
+		to_chat(user, span_warning("The viewport can't be moved from this side."))
 		return
 
 /obj/structure/mineral_door/wood/donjon/proc/view_toggle(mob/user)

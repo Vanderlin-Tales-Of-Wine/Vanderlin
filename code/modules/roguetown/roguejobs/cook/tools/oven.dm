@@ -15,6 +15,7 @@
 
 /obj/machinery/light/rogue/oven/OnCrafted(dirin)
 	dir = turn(dirin, 180)
+	. = ..()
 	update_icon()
 
 /obj/machinery/light/rogue/oven/attackby(obj/item/W, mob/living/user, params)
@@ -32,7 +33,7 @@
 			donefoods = FALSE
 			W.forceMove(src)
 			food += W
-			playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 50) // neu cooking			
+			playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 50) // neu cooking
 			user.visible_message("<span class='warning'>[user] puts something in the oven.</span>")
 			need_underlay_update = TRUE
 			update_icon()

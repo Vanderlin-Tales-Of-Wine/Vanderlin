@@ -41,14 +41,7 @@
 		var/list/names = list("Custom...")
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target
-			if(!isabductor(user))
-				for(var/i in 1 to 9)
-					names += human_target.dna.species.random_name(target.gender, TRUE)
-			else
-				for(var/i in 1 to 8)
-					names += "Subject [target.gender == MALE ? "i" : "o"]-[pick("a", "b", "c", "d", "e")]-[rand(10000, 99999)]"
-				//give one normal name in case they want to do regular plastic surgery
-				names += human_target.dna.species.random_name(target.gender, TRUE)
+			names += human_target.dna.species.random_name(target.gender, TRUE)
 		var/chosen_name = input(user, "Choose a new name to assign.", "Plastic Surgery") as null|anything in names
 		if(chosen_name == "Custom...")
 			chosen_name = input(user, "What name?", "Plastic surgery")

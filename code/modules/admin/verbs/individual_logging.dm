@@ -47,19 +47,21 @@
 
 	dat += "<hr style='background:#000000; border:0; height:1px'>"
 
-	var/log_source = M.logging;
-	if(source == LOGSRC_CLIENT && M.client) //if client doesn't exist just fall back to the mob log
-		log_source = M.client.player_details.logging //should exist, if it doesn't that's a bug, don't check for it not existing
-
+	var/log_source = M.logging
+	if(source == LOGSRC_CLIENT && M.client)
+		log_source = M.client.player_details.logging
+	var/list/concatenated_logs = list()
 	for(var/log_type in log_source)
 		var/nlog_type = text2num(log_type)
 		if(nlog_type & ntype)
-			var/list/reversed = log_source[log_type]
-			if(islist(reversed))
-				reversed = reverseRange(reversed.Copy())
-				for(var/entry in reversed)
-					dat += "<font size=2px><b>[entry]</b><br>[reversed[entry]]</font><br>"
-			dat += "<hr>"
+			var/list/all_the_entrys = log_source[log_type]
+			for(var/entry in all_the_entrys)
+				concatenated_logs += "<b>[entry]</b><br>[all_the_entrys[entry]]"
+	if(length(concatenated_logs))
+		sortTim(concatenated_logs, cmp = GLOBAL_PROC_REF(cmp_text_dsc)) //Sort by timestamp.
+		dat += "<font size=2px>"
+		dat += concatenated_logs.Join("<br>")
+		dat += "</font>"
 
 	usr << browse(dat, "window=invidual_logging_[key_name(M)];size=600x480")
 

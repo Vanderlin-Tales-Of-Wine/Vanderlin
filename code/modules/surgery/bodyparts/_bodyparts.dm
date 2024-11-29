@@ -115,6 +115,9 @@
 
 /obj/item/bodypart/onbite(mob/living/carbon/human/user)
 	if((user.mind && user.mind.has_antag_datum(/datum/antagonist/zombie)) || istype(user.dna.species, /datum/species/werewolf))
+		if(user.has_status_effect(/datum/status_effect/debuff/silver_curse))
+			to_chat(user, span_notice("My power is weakened, I cannot heal!"))
+			return
 		if(do_after(user, 50, target = src))
 			user.visible_message("<span class='warning'>[user] consumes [src]!</span>",\
 							"<span class='notice'>I consume [src]!</span>")
@@ -632,7 +635,8 @@
 /obj/item/bodypart/l_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
-		return BODYPART_DISABLED_PARALYSIS
+		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
+			return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_arm/set_disabled(new_disabled)
 	. = ..()
@@ -690,7 +694,8 @@
 /obj/item/bodypart/r_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
-		return BODYPART_DISABLED_PARALYSIS
+		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
+			return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_arm/set_disabled(new_disabled)
 	. = ..()
@@ -744,7 +749,8 @@
 /obj/item/bodypart/l_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-		return BODYPART_DISABLED_PARALYSIS
+		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
+			return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_leg/set_disabled(new_disabled)
 	. = ..()
@@ -794,7 +800,8 @@
 /obj/item/bodypart/r_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG))
-		return BODYPART_DISABLED_PARALYSIS
+		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
+			return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_leg/set_disabled(new_disabled)
 	. = ..()

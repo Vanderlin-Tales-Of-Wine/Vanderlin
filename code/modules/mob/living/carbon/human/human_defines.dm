@@ -4,7 +4,7 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "human_basic"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPCHEM_HUD,IMPTRACK_HUD, NANITE_HUD, DIAG_NANITE_FULL_HUD,ANTAG_HUD,GLAND_HUD,SENTIENT_DISEASE_HUD)
+	hud_possible = list(ANTAG_HUD)
 	hud_type = /datum/hud/human
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, INTENT_HARM)
 	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE, INTENT_GIVE)
@@ -74,6 +74,9 @@
 	var/obj/item/cloak = null
 	var/obj/item/clothing/wear_shirt = null
 
+	///for the intent of dodge this is your armor class that you have worn (its highest worn)
+	var/worn_armor_class = ARMOR_CLASS_NONE
+
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
 	var/name_override //For temporary visible name changes
@@ -141,3 +144,58 @@
 	/datum/rmb_intent/weak)
 
 	rot_type = /datum/component/rot/corpse
+
+//Checking the highest armor class worn
+//Limb armors use the second highest armor class
+/mob/living/carbon/human/proc/check_armor_class()
+	//Get Torso values
+	var/shirt_ac
+	var/chest_ac
+	var/torso_class = ARMOR_CLASS_NONE
+	if(istype(src.wear_shirt, /obj/item/clothing))
+		if(wear_shirt.armor_class)
+			shirt_ac = wear_shirt.armor_class
+		else
+			shirt_ac = 0
+	if(istype(src.wear_armor, /obj/item/clothing))
+		if(wear_armor.armor_class)
+			chest_ac = wear_armor.armor_class
+		else
+			chest_ac = 0
+
+	torso_class = max(shirt_ac, chest_ac)			//Use heaviest Torso Armor Class
+
+	//Get Limb values, use heaviest pair
+	var/list/accessories = list(head, wear_mask, wear_wrists, wear_neck, cloak, wear_pants, gloves, shoes, belt, s_store)
+	var/acc_class = ARMOR_CLASS_NONE
+	var/heavy_count = 0
+	var/medium_count = 0
+	var/light_count = 0
+	for(var/obj/item/clothing/AA in accessories)
+		switch(AA.armor_class)
+			if(AC_HEAVY)
+				heavy_count++
+				continue
+			if(AC_MEDIUM)
+				medium_count++
+				continue
+			if(AC_LIGHT)
+				light_count++
+				continue
+			if(ARMOR_CLASS_NONE)
+				continue
+
+	if(heavy_count >= 2)
+		acc_class = AC_HEAVY
+	else if(medium_count >= 2)
+		acc_class = AC_MEDIUM
+	else if(light_count >= 2)
+		acc_class = AC_LIGHT
+	else if(heavy_count == 1 && medium_count > 0)
+		acc_class = AC_MEDIUM
+	else if(medium_count == 1 && light_count > 0)
+		acc_class = AC_LIGHT
+
+	var/combined_armor = max(torso_class, acc_class)
+	worn_armor_class = combined_armor
+	return worn_armor_class

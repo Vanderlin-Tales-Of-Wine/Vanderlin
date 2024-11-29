@@ -4,32 +4,9 @@ GLOBAL_LIST_EMPTY(all_huds)
 
 //GLOBAL HUD LIST
 GLOBAL_LIST_INIT(huds, list(
-	DATA_HUD_SECURITY_BASIC = new/datum/atom_hud/data/human/security/basic(),
-	DATA_HUD_SECURITY_ADVANCED = new/datum/atom_hud/data/human/security/advanced(),
-	DATA_HUD_MEDICAL_BASIC = new/datum/atom_hud/data/human/medical/basic(),
-	DATA_HUD_MEDICAL_ADVANCED = new/datum/atom_hud/data/human/medical/advanced(),
-	DATA_HUD_DIAGNOSTIC_BASIC = new/datum/atom_hud/data/diagnostic/basic(),
-	DATA_HUD_DIAGNOSTIC_ADVANCED = new/datum/atom_hud/data/diagnostic/advanced(),
-	DATA_HUD_ABDUCTOR = new/datum/atom_hud/abductor(),
-	DATA_HUD_SENTIENT_DISEASE = new/datum/atom_hud/sentient_disease(),
-	DATA_HUD_AI_DETECT = new/datum/atom_hud/ai_detector(),
-	ANTAG_HUD_CULT = new/datum/atom_hud/antag(),
-	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
-	ANTAG_HUD_OPS = new/datum/atom_hud/antag(),
-	ANTAG_HUD_WIZ = new/datum/atom_hud/antag(),
-	ANTAG_HUD_SHADOW = new/datum/atom_hud/antag(),
+	ROGUE_HUD_MARRIED = new/datum/atom_hud/antag(),
 	ANTAG_HUD_TRAITOR = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_NINJA = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_CHANGELING = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_ABDUCTOR = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_DEVIL = new/datum/atom_hud/antag(),
-	ANTAG_HUD_SINTOUCHED = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_SOULLESS = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_BROTHER = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_OBSESSED = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_FUGITIVE = new/datum/atom_hud/antag(),
-
-	ROGUE_HUD_MARRIED = new/datum/atom_hud/antag()
+	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
 	))
 
 /datum/atom_hud

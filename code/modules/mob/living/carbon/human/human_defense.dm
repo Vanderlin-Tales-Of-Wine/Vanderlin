@@ -624,8 +624,6 @@
 	var/deep_examination = advanced
 	if(user == src)
 		m1 = "I am"
-		if(!deep_examination)
-			deep_examination = HAS_TRAIT(src, TRAIT_SELF_AWARE)
 		examination += "<span class='notice'>Let's see how I am doing.</span>"
 		if(!stat && !silent)
 			visible_message("<span class='notice'>[src] examines [p_them()]self.</span>", \
@@ -689,8 +687,6 @@
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/deep_examination = advanced
 	if(user == src)
-		if(!deep_examination)
-			deep_examination = HAS_TRAIT(src, TRAIT_SELF_AWARE)
 		examination += "<span class='notice'>Let's see how my [parse_zone(choice)] is doing.</span>"
 		if(!stat && !silent)
 			visible_message("<span class='notice'>[src] examines [p_their()] [parse_zone(choice)].</span>")

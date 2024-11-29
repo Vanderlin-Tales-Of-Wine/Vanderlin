@@ -43,7 +43,10 @@
 	user.changeNext_move(user.used_intent.clickcd)
 	. = ..()
 
-/obj/item/attackby(obj/item/I, mob/user, params)
+/obj/item/attackby(obj/item/I, mob/living/user, params)
+	if(user.try_slapcraft(src, I))
+		user.changeNext_move(CLICK_CD_FAST)
+		return TRUE
 	user.changeNext_move(user.used_intent.clickcd)
 	if(max_blade_int)
 		if(istype(I, /obj/item/natural/stone))

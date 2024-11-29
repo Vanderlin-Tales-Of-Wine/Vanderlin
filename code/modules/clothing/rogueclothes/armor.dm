@@ -791,7 +791,8 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
-
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/blacksteel
 
 
 // VAMPIRE ARMORS BELOW
@@ -848,42 +849,3 @@
 	name = "ancient ceremonial gloves"
 	icon_state = "vgloves"
 	smeltresult = /obj/item/ingot/steel
-
-
-/obj/item/clothing/suit/roguetown/armor/blacksteel/platechest
-	slot_flags = ITEM_SLOT_ARMOR
-	name = "Blacksteel Plate Armor"
-	desc = "A suit of Full Plate smithed of durable blacksteel."
-	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
-	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
-	icon_state = "bkarmor"
-	item_state = "bkarmor"
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80,  "piercing" = 100, "fire" = 0, "acid" = 0)
-	nodismemsleeves = TRUE
-	do_sound_plate = TRUE
-	blocking_behavior = null
-	max_integrity = 400
-	anvilrepair = /datum/skill/craft/blacksmithing
-	smeltresult = /obj/item/ingot/blacksteel
-	armor_class = AC_HEAVY
-	equip_delay_self = 12 SECONDS
-	unequip_delay_self = 12 SECONDS
-	equip_delay_other = 3 SECONDS
-	strip_delay = 6 SECONDS
-
-/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass
-	slot_flags = ITEM_SLOT_ARMOR
-	name = "Blacksteel Cuirass"
-	desc = "A basic cuirass forged from blacksteel. It's somewhat more durable than regular steel."
-	body_parts_covered = CHEST|VITALS
-	icon_state = "grenzelcuirass"
-	item_state = "grenzelcuirass"
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
-	armor = list("blunt" = 80, "slash" = 100, "stab" = 80,  "piercing" = 100, "fire" = 0, "acid" = 0)
-	nodismemsleeves = TRUE
-	blocking_behavior = null
-	max_integrity = 400
-	anvilrepair = /datum/skill/craft/blacksmithing
-	smeltresult = /obj/item/ingot/blacksteel
-	armor_class = AC_MEDIUM

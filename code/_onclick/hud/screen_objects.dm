@@ -120,6 +120,10 @@
 	var/last_craft
 
 /atom/movable/screen/craft/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["middle"])
+		usr?.client?.show_crafting_book()
+		return
 	if(world.time < lastclick + 3 SECONDS)
 		return
 	lastclick = world.time

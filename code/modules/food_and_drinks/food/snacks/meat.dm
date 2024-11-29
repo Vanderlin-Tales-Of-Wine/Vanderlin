@@ -6,7 +6,7 @@
 	name = "meat"
 	desc = ""
 	bitesize = 3
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/cooking_oil = 2) //Meat has fats that a food processor can process into cooking oil
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3) //Meat has fats that a food processor can process into cooking oil
 	cooked_type = /obj/item/reagent_containers/food/snacks/meat/steak/plain
 	slice_path = /obj/item/reagent_containers/food/snacks/meat/rawcutlet/plain
 	slices_num = 3
@@ -125,12 +125,6 @@
 	name = "pug meat"
 	desc = ""
 	foodtype = RAW | MEAT | GROSS
-
-
-/obj/item/reagent_containers/food/snacks/meat/slab/gorilla
-	name = "gorilla meat"
-	desc = ""
-	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/cooking_oil = 5) //Plenty of fat!
 
 
 ////////////////////////////////////// MEAT STEAKS ///////////////////////////////////////////////////////////

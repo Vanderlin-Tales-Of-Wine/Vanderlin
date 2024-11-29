@@ -29,6 +29,8 @@
 
 	cmode_music = 'sound/music/combat_guard.ogg'
 
+	forced_flaw = /datum/charflaw/noeyerandom
+
 /datum/outfit/job/roguetown/veteran/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet/leather

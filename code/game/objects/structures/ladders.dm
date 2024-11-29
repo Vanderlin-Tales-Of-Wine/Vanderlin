@@ -224,3 +224,4 @@
 			pixel_x = -4
 		if(EAST)
 			pixel_x = 4
+	. = ..()

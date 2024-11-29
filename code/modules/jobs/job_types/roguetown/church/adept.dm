@@ -130,6 +130,9 @@
 		H.mind.add_antag_datum(new_antag)
 		H.set_patron(/datum/patron/psydon)
 		H.verbs |= /mob/living/carbon/human/proc/torture_victim
+		if(!H.has_language(/datum/language/oldpsydonic))
+			H.grant_language(/datum/language/oldpsydonic)
+			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
 /datum/job/roguetown/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
 	..()

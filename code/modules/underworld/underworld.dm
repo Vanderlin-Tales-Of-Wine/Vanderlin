@@ -24,7 +24,9 @@
 				var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
 				O.livingname = mob.name
 				O.ckey = ckey
+				ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
 				O.set_patron(prefs.selected_patron)
+				SSdeath_arena.add_fighter(O)
 				SSdroning.area_entered(get_area(O), O.client)
 			verbs -= /client/proc/descend
 		if("No")

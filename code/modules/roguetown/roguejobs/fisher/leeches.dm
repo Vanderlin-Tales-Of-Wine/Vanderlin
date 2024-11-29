@@ -33,7 +33,6 @@
 	var/blood_maximum = BLOOD_VOLUME_SURVIVE
 	// Completely silent, no do_after and no visible_message
 	var/completely_silent = FALSE
-	possible_potion = "endpot"
 
 
 /obj/item/natural/worms/leech/Initialize()
@@ -211,7 +210,7 @@
 	drainage = 0
 	toxin_healing = -3
 	blood_storage = BLOOD_VOLUME_SURVIVE
-	blood_maximum = BLOOD_VOLUME_BAD	
+	blood_maximum = BLOOD_VOLUME_BAD
 
 /obj/item/natural/worms/leech/parasite/attack_self(mob/user)
 	. = ..()

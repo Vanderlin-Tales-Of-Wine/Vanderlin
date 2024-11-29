@@ -75,12 +75,22 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	/// Some wounds make no sense on a dismembered limb and need to go
 	var/qdel_on_droplimb = FALSE
 
+	/// Werewolf infection probability for bites on this wound
+	var/werewolf_infection_probability = 15
+	/// Time taken until werewolf infection comes in
+	var/werewolf_infection_time = 2 MINUTES
+	/// Actual infection timer
+	var/werewolf_infection_timer
+
 /datum/wound/Destroy(force)
 	. = ..()
 	if(bodypart_owner)
 		remove_from_bodypart()
 	else if(owner)
 		remove_from_mob()
+	if(werewolf_infection_timer)
+		deltimer(werewolf_infection_timer)
+		werewolf_infection_timer = null
 	bodypart_owner = null
 	owner = null
 
@@ -148,11 +158,11 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	else if(owner)
 		remove_from_mob()
 	LAZYADD(affected.wounds, src)
-	sortList(affected.wounds, GLOBAL_PROC_REF(cmp_wound_severity_dsc))
+	sortTim(affected.wounds, GLOBAL_PROC_REF(cmp_wound_severity_dsc))
 	bodypart_owner = affected
 	owner = bodypart_owner.owner
 	on_bodypart_gain(affected)
-	on_mob_gain(affected.owner)
+	INVOKE_ASYNC(src, PROC_REF(on_mob_gain), affected.owner) //this is literally a fucking lint error like new species cannot possible spawn with wounds until after its ass
 	if(crit_message)
 		var/message = get_crit_message(affected.owner, affected)
 		if(message)
@@ -162,6 +172,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		if(sounding)
 			playsound(affected.owner, sounding, 100, vary = FALSE)
 	return TRUE
+
 
 /// Effects when a wound is gained on a bodypart
 /datum/wound/proc/on_bodypart_gain(obj/item/bodypart/affected)
@@ -223,6 +234,11 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /datum/wound/proc/on_mob_gain(mob/living/affected)
 	if(mob_overlay)
 		affected.update_damage_overlays()
+	if(werewolf_infection_timer)
+		deltimer(werewolf_infection_timer)
+		werewolf_infection_timer = null
+		werewolf_infect_attempt()
+
 
 /// Removes this wound from a given, simpler than adding to a bodypart - No extra effects
 /datum/wound/proc/remove_from_mob()
@@ -249,7 +265,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /// Called on handle_wounds(), on the life() proc
 /datum/wound/proc/on_death()
 	return
-	
+
 /// Heals this wound by the given amount, and deletes it if it's healed completely
 /datum/wound/proc/heal_wound(heal_amount)
 	// Wound cannot be healed normally, whp is null
@@ -258,12 +274,13 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/amount_healed = min(whp, round(heal_amount, DAMAGE_PRECISION))
 	whp -= amount_healed
 	if(whp <= 0)
-		if(bodypart_owner)
-			remove_from_bodypart(src)
-		else if(owner)
-			remove_from_mob(src)
-		else
-			qdel(src)
+		if(!should_persist())
+			if(bodypart_owner)
+				remove_from_bodypart(src)
+			else if(owner)
+				remove_from_mob(src)
+			else
+				qdel(src)
 	return amount_healed
 
 /// Sews the wound up, changing its properties to the sewn ones
@@ -285,6 +302,16 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		owner?.update_damage_overlays()
 	return TRUE
 
+/// Checks if this wound has a special infection (zombie or werewolf)
+/datum/wound/proc/has_special_infection()
+	return (werewolf_infection_timer)
+
+/// Some wounds cannot go away naturally
+/datum/wound/proc/should_persist()
+	if(has_special_infection())
+		return TRUE
+	return FALSE
+
 /// Cauterizes the wound
 /datum/wound/proc/cauterize_wound()
 	if(!can_cauterize)
@@ -301,6 +328,41 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /// Checks if this wound is clotted
 /datum/wound/proc/is_clotted()
 	return !isnull(clotting_threshold) && (bleed_rate <= clotting_threshold)
+
+/datum/wound/proc/werewolf_infect_attempt()
+	if(QDELETED(src) || QDELETED(owner) || QDELETED(bodypart_owner))
+		return FALSE
+	if(werewolf_infection_timer || !ishuman(owner) || !prob(werewolf_infection_probability))
+		return
+	var/mob/living/carbon/human/human_owner = owner
+	if(!human_owner.can_werewolf())
+		return
+	if(human_owner.stat >= DEAD) //forget it
+		return
+	to_chat(human_owner, span_danger("I feel horrible... REALLY horrible..."))
+	human_owner.mob_timers["puke"] = world.time
+	human_owner.vomit(1, blood = TRUE, stun = FALSE)
+	werewolf_infection_timer = addtimer(CALLBACK(src, PROC_REF(wake_werewolf)), werewolf_infection_time, TIMER_STOPPABLE)
+	severity = WOUND_SEVERITY_BIOHAZARD
+	if(bodypart_owner)
+		sortTim(bodypart_owner.wounds, GLOBAL_PROC_REF(cmp_wound_severity_dsc))
+	return TRUE
+
+/datum/wound/proc/wake_werewolf()
+	if(QDELETED(src) || QDELETED(owner) || QDELETED(bodypart_owner))
+		return FALSE
+	if(!ishuman(owner))
+		return FALSE
+	var/mob/living/carbon/human/human_owner = owner
+	var/datum/antagonist/werewolf/wolfy = human_owner.werewolf_check()
+	if(!wolfy)
+		return FALSE
+	werewolf_infection_timer = null
+	owner.flash_fullscreen("redflash3")
+	to_chat(owner, span_danger("It hurts... Is this really the end for me?"))
+	owner.emote("scream") // heres your warning to others bro
+	owner.Knockdown(1)
+	return wolfy
 
 /// Returns whether or not this wound should embed a weapon
 /proc/should_embed_weapon(datum/wound/wound_or_boolean, obj/item/weapon)

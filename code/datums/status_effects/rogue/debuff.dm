@@ -77,7 +77,9 @@
 /datum/status_effect/debuff/silver_curse
 	id = "silver_curse"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/silver_curse
-	duration = 5 SECONDS
+	effectedstats = list("strength" = -2,"perception" = -2,"intelligence" = -2, "constitution" = -2, "endurance" = -2,"speed" = -2)
+	duration = 45 SECONDS
+
 /*	Pointless subtype, code doesnt handle it well, dont use
 /datum/status_effect/debuff/silver_curse/greater
 	duration = 10 SECONDS
@@ -87,28 +89,15 @@
 	desc = "My BANE!"
 	icon_state = "hunger3"
 
-//BROKEN CELIBACY
-
-/datum/status_effect/debuff/chastity
-	id = "chastity"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/chastity
-	effectedstats = list("fortune" = -6)
-	duration = 999 MINUTES
-
-/atom/movable/screen/alert/status_effect/debuff/chastity
-	name = "Pantheons Curse"
-	desc = "I have broken my oath of celibacy... what have I done"
-	icon_state = "hunger3"
-
 /datum/status_effect/debuff/wiz
 	id = "wiz"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/wiz
 	effectedstats = list("intelligence" = -5)
-	duration = 999 MINUTES
+	duration = -1
 
 /atom/movable/screen/alert/status_effect/debuff/wiz
 	name = "Fading Power"
-	desc = "My magical power wanes as I defile my body"
+	desc = "My magical power wanes..."
 	icon_state = "hunger3"
 ////////////////////
 
@@ -213,7 +202,7 @@
 
 /atom/movable/alert/status_effect/debuff/badmeal
 	name = "Foul Food!"
-	desc = "<span class='warning'>That tasted like zcum!"
+	desc = "<span class='warning'>That tasted vile!"
 	icon_state = "badmeal"
 
 /datum/status_effect/debuff/badmeal/on_apply()
@@ -253,7 +242,7 @@
 
 /datum/status_effect/debuff/rotfood/on_apply()
 	. = ..()
-	if(iscarbon(owner))
+	if(iscarbon(owner) && !(HAS_TRAIT(owner, TRAIT_ROT_EATER)))
 		var/mob/living/carbon/C = owner
 		C.add_nausea(200)
 		C.add_stress(/datum/stressevent/rotfood)

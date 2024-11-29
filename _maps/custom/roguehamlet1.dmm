@@ -19252,7 +19252,6 @@
 /obj/item/book/granter/spell/smoke,
 /obj/item/book/granter/spell/knock,
 /obj/item/book/granter/spell/forcewall,
-/obj/item/book/manual/wiki/cooking_to_serve_man,
 /obj/item/book/mimery{
 	name = "The Way of Silence"
 	},

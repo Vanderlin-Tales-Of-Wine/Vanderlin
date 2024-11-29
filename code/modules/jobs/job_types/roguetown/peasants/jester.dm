@@ -40,18 +40,34 @@
 	head = /obj/item/clothing/head/roguetown/jester
 	neck = /obj/item/clothing/neck/roguetown/coif
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(4,4,5), TRUE) // Pirouette, but falling and hurting yourself IS pretty funny.
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(1,2), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, pick(1,2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/riding, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/bombs, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, pick(1,2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(1,2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick(1,2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(4,5), TRUE) // Pirouette, but falling and hurting yourself IS pretty funny.
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(1,2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, pick(1,2,3,4,5,6), TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery) // Mock people to your heart's content!
 		H.STAINT = rand(1, 20)
 		H.STALUC = rand(1, 20)
-		H.cmode_music = 'sound/music/combat_jester.ogg'
+		H.STASTR = rand(1, 20)
+		H.STACON = rand(1, 20)
+		H.STAPER = rand(1, 20)
+		H.STASPD = rand(1, 20)
+
+		if(H.STASTR > 16)
+			H.cmode_music = 'sound/music/combat_jester3.ogg'
+		else
+			H.cmode_music = pick("sound/music/combat_jester.ogg","sound/music/combat_jester2.ogg")
+
 /*		if(H.gender == MALE)
 			if(H.dna?.species)
 				if(H.dna.species.id == "human")

@@ -87,7 +87,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 50
 	var/parentdeck = null
-	var/deckstyle = "nanotrasen"
+	var/deckstyle = "syndicate"
 	var/card_hitsound = null
 	var/card_force = 0
 	var/card_throwforce = 0
@@ -108,8 +108,8 @@
 	name = "deck of cards"
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
-	deckstyle = "nanotrasen"
-	icon_state = "deck_nanotrasen_full"
+	deckstyle = "syndicate"
+	icon_state = "deck_syndicate_full"
 	w_class = WEIGHT_CLASS_SMALL
 	var/cooldown = 0
 	var/list/cards = list()
@@ -223,7 +223,7 @@
 	name = "hand of cards"
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "nanotrasen_hand2"
+	icon_state = "syndicate_hand2"
 	w_class = WEIGHT_CLASS_TINY
 	var/list/currenthand = list()
 	var/choice = null
@@ -319,7 +319,7 @@
 	name = "card"
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "singlecard_down_nanotrasen"
+	icon_state = "singlecard_down_syndicate"
 	w_class = WEIGHT_CLASS_TINY
 	var/cardname = null
 	var/flipped = 0

@@ -212,21 +212,3 @@
 	icon_state = "human_spearhand"
 	allowed_race = list("human")
 	allowed_sex = list(MALE)
-
-/obj/item/clothing/gloves/roguetown/blacksteel/plategloves
-	name = "Blacksteel Plate Gauntlets"
-	desc = "A set of plate gauntlets forged of blacksteel."
-	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
-	icon_state = "bkgloves"
-	item_state = "bkgloves"
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80,  "piercing" = 100, "fire" = 0, "acid" = 0)
-	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
-	resistance_flags = null
-	blocksound = PLATEHIT
-	max_integrity = 400
-	blade_dulling = DULLING_BASH
-	break_sound = 'sound/foley/breaksound.ogg'
-	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
-	anvilrepair = /datum/skill/craft/blacksmithing
-	smeltresult = /obj/item/ingot/blacksteel

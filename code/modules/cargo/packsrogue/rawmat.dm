@@ -123,3 +123,9 @@
 		/obj/item/alch/sinew,
 		/obj/item/alch/sinew
 	)
+/datum/supply_pack/rogue/rawmats/riddle_of_steel
+	name = "Riddle of Steel"
+	cost = 1500
+	contains = list(
+		/obj/item/riddleofsteel
+	)

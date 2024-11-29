@@ -6,7 +6,6 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	f_title = "Princess"
 	allowed_races = list(
 		"Humen",
 		"Half-Elf"
@@ -83,7 +82,6 @@
 /datum/outfit/job/roguetown/heir/aristocrat/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC) // Pillow princesses (gender neutral)
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/roguekey/manor
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich

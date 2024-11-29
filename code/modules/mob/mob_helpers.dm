@@ -58,6 +58,144 @@
 		zone = pickweight(list(BODY_ZONE_HEAD = 1, BODY_ZONE_CHEST = 1, BODY_ZONE_L_ARM = 4, BODY_ZONE_R_ARM = 4, BODY_ZONE_L_LEG = 4, BODY_ZONE_R_LEG = 4))
 	return zone
 
+
+/proc/zone_ace_mod(zone)
+	var/zone_ace_mod = 1
+	switch(zone)
+		if(BODY_ZONE_PRECISE_R_EYE)
+			zone_ace_mod = 0.25
+		if(BODY_ZONE_PRECISE_L_EYE)
+			zone_ace_mod = 0.25
+		if(BODY_ZONE_PRECISE_NOSE)
+			zone_ace_mod = 0.3
+		if(BODY_ZONE_PRECISE_MOUTH)
+			zone_ace_mod = 0.7
+		if(BODY_ZONE_PRECISE_SKULL)
+			zone_ace_mod = 0.85
+		if(BODY_ZONE_PRECISE_EARS)
+			zone_ace_mod = 0.15
+		if(BODY_ZONE_PRECISE_NECK)
+			zone_ace_mod = 0.65
+		if(BODY_ZONE_PRECISE_L_HAND)
+			zone_ace_mod = 0.6
+		if(BODY_ZONE_PRECISE_R_HAND)
+			zone_ace_mod = 0.6
+		if(BODY_ZONE_PRECISE_L_FOOT)
+			zone_ace_mod = 0.45
+		if(BODY_ZONE_PRECISE_R_FOOT)
+			zone_ace_mod = 0.45
+		if(BODY_ZONE_PRECISE_GROIN)
+			zone_ace_mod = 0.65
+		if(BODY_ZONE_PRECISE_STOMACH)
+			zone_ace_mod = 0.9
+		if(BODY_ZONE_PRECISE_R_INHAND)
+			zone_ace_mod = 0.7
+		if(BODY_ZONE_PRECISE_L_INHAND)
+			zone_ace_mod = 0.7
+		if(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			zone_ace_mod = 1
+	return zone_ace_mod
+
+/proc/zone_simpmob_target(zone)
+	zone = pickweight(list(
+		BODY_ZONE_HEAD = 3,
+		BODY_ZONE_CHEST = 5,
+		BODY_ZONE_L_ARM = 2,
+		BODY_ZONE_R_ARM = 2,
+		BODY_ZONE_L_LEG = 4,
+		BODY_ZONE_R_LEG = 4,
+		BODY_ZONE_PRECISE_MOUTH = 1,
+		BODY_ZONE_PRECISE_NECK = 2,
+		BODY_ZONE_PRECISE_STOMACH = 3,
+		BODY_ZONE_PRECISE_GROIN = 3,
+		BODY_ZONE_PRECISE_L_HAND = 1,
+		BODY_ZONE_PRECISE_R_HAND = 1,
+		BODY_ZONE_PRECISE_L_FOOT = 3,
+		BODY_ZONE_PRECISE_R_FOOT = 3,
+		))
+	return zone
+
+/proc/relative_angular_facing(mob/living/user, mob/living/target)
+	var/target_facing = dir2angle(target.dir)
+	var/abs_angle = Get_Angle(target, user)
+	target_facing = 360 + (abs_angle - target_facing)
+	if(target_facing > 360)
+		target_facing -= 360
+	return angle2dir(target_facing)
+
+/proc/facing_zone(zone)
+	if(!zone)
+		return BODY_ZONE_CHEST
+	var/facing_zone
+	switch(zone)
+		if(BODY_ZONE_PRECISE_R_EYE)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_PRECISE_L_EYE)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_PRECISE_NOSE)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_PRECISE_MOUTH)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_L_ARM)
+			facing_zone = BODY_ZONE_FACING_L_ARM
+		if(BODY_ZONE_PRECISE_L_HAND)
+			facing_zone = BODY_ZONE_FACING_L_ARM
+		if(BODY_ZONE_R_ARM)
+			facing_zone = BODY_ZONE_FACING_R_ARM
+		if(BODY_ZONE_PRECISE_R_HAND)
+			facing_zone = BODY_ZONE_FACING_R_ARM
+		if(BODY_ZONE_L_LEG)
+			facing_zone = BODY_ZONE_FACING_L_LEG
+		if(BODY_ZONE_PRECISE_L_FOOT)
+			facing_zone = BODY_ZONE_FACING_L_LEG
+		if(BODY_ZONE_R_LEG)
+			facing_zone = BODY_ZONE_FACING_R_LEG
+		if(BODY_ZONE_PRECISE_R_FOOT)
+			facing_zone = BODY_ZONE_FACING_R_LEG
+		if(BODY_ZONE_PRECISE_GROIN)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_PRECISE_STOMACH)
+			facing_zone = BODY_ZONE_FACING_FRONT
+		if(BODY_ZONE_PRECISE_R_INHAND)
+			facing_zone = BODY_ZONE_FACING_R_ARM
+		if(BODY_ZONE_PRECISE_L_INHAND)
+			facing_zone = BODY_ZONE_FACING_L_ARM
+	return facing_zone
+
+///Convert a PRECISE ZONE into the BODY_ZONE
+/proc/check_subzone(zone)
+	if(!zone)
+		return FALSE
+	switch(zone)
+		if(BODY_ZONE_PRECISE_R_EYE)
+			return TRUE
+		if(BODY_ZONE_PRECISE_L_EYE)
+			return TRUE
+		if(BODY_ZONE_PRECISE_NOSE)
+			return TRUE
+		if(BODY_ZONE_PRECISE_MOUTH)
+			return TRUE
+		if(BODY_ZONE_PRECISE_SKULL)
+			return TRUE
+		if(BODY_ZONE_PRECISE_EARS)
+			return TRUE
+		if(BODY_ZONE_PRECISE_NECK)
+			return TRUE
+		if(BODY_ZONE_PRECISE_L_HAND)
+			return TRUE
+		if(BODY_ZONE_PRECISE_R_HAND)
+			return TRUE
+		if(BODY_ZONE_PRECISE_L_FOOT)
+			return TRUE
+		if(BODY_ZONE_PRECISE_R_FOOT)
+			return TRUE
+		if(BODY_ZONE_PRECISE_GROIN)
+			return TRUE
+		if(BODY_ZONE_PRECISE_STOMACH)
+			return TRUE
+		else
+			return FALSE
+
 ///Would this zone be above the neck
 /proc/above_neck(zone)
 	var/list/zones = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE)
@@ -847,7 +985,7 @@
 		else
 			colored_message = "<font color='[color]'>[message]</font>"
 
-	var/list/timestamped_message = list("[LAZYLEN(logging[smessage_type]) + 1]\[[time_stamp()]\] [key_name(src)] [loc_name(src)]" = colored_message)
+	var/list/timestamped_message = list("\[[time_stamp(format = "YYYY-MM-DD hh:mm:ss")]\] [key_name(src)] [loc_name(src)] (Event #[LAZYLEN(logging[smessage_type])])" = colored_message)
 
 	logging[smessage_type] += timestamped_message
 
@@ -905,6 +1043,6 @@
 		if(!J)
 			return "unknown"
 		used_title = J.title
-		if(J.f_title)
+		if((gender == FEMALE) && J.f_title)
 			used_title = J.f_title
 	return used_title

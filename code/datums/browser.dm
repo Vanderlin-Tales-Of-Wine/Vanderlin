@@ -26,10 +26,10 @@
 	if(!no_close_movement)
 		if(ismob(nuser))
 			if(user.client)
-				user.client.open_popups |= window_id
+				user.client.open_popups |= src
 		else
 			var/client/C = user
-			C.open_popups |= window_id
+			C.open_popups |= src
 	if (ntitle)
 		title = format_text(ntitle)
 	if (nwidth)

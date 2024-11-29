@@ -140,17 +140,35 @@
 	hostagetaker = null
 
 /obj/item/grabbing/attack(mob/living/M, mob/living/user)
+	if(M != grabbed)
+		return FALSE
 	if(!valid_check())
 		return FALSE
-	if(M != grabbed)
-		if(!istype(limb_grabbed, /obj/item/bodypart/head))
-			return FALSE
-		if(M != user)
-			return FALSE
-		user.changeNext_move(CLICK_CD_RESIST)
-		headbutt(user)
-		return
 	user.changeNext_move(CLICK_CD_MELEE)
+	var/skill_diff = 0
+	var/combat_modifier = 1
+	if(user.mind)
+		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling))
+	if(M.mind)
+		skill_diff -= (M.mind.get_skill_level(/datum/skill/combat/wrestling))
+
+	if(M.surrendering)																//If the target has surrendered
+		combat_modifier = 2
+
+	if(M.restrained())																//If the target is restrained
+		combat_modifier += 0.25
+
+	if(!(M.mobility_flags & MOBILITY_STAND) && user.mobility_flags & MOBILITY_STAND) //We are on the ground, target is not
+		combat_modifier += 0.1
+
+	if(user.cmode && !M.cmode)
+		combat_modifier += 0.3
+	else if(!user.cmode && M.cmode)
+		combat_modifier -= 0.3
+
+
+	combat_modifier *= ((skill_diff * 0.1) + 1)
+
 	switch(user.used_intent.type)
 		if(/datum/intent/grab/upgrade)
 			if(!(M.status_flags & CANPUSH) || HAS_TRAIT(M, TRAIT_PUSHIMMUNE))
@@ -490,11 +508,13 @@
 	if(C.apply_damage(damage, BRUTE, limb_grabbed, armor_block))
 		playsound(C.loc, "smallslash", 100, FALSE, -1)
 		limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
+		var/datum/wound/caused_wound = limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
 		if(user.mind)
-			if(ishuman(C) && user.mind.has_antag_datum(/datum/antagonist/werewolf))
-				var/mob/living/carbon/human/H = C
-				if(prob(25))
-					addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, werewolf_infect)), 3 MINUTES)
+			if(user.mind.has_antag_datum(/datum/antagonist/werewolf))
+				var/mob/living/carbon/human/human = user
+				caused_wound?.werewolf_infect_attempt()
+				if(prob(30))
+					human.werewolf_feed(C)
 			if(user.mind.has_antag_datum(/datum/antagonist/zombie))
 				var/mob/living/carbon/human/H = C
 				if(istype(H))

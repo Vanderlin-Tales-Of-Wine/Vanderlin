@@ -256,7 +256,6 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 
 	possible_item_intents = list(/datum/intent/fill, INTENT_POUR, INTENT_SPLASH, INTENT_GENERIC)
-	custom_materials = null
 	force = 5
 	throwforce = 10
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 0, "acid" = 50)

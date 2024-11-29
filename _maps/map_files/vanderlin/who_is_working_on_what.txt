@@ -1,0 +1,14 @@
+PUT YOUR NAME IN HERE IF YOU'RE WORKING ON SOMETHING OR EXPECT YOUR SHIT TO GET MERGE CONFLICTED.
+
+vanderlin.dmm [critical]
+	Cannibal Hunter
+	Aberra (aberrantquerist)
+
+vanderlin_forest.dmm [important]
+	Marabout (sanslesquellete)
+
+vanderlin_bog.dmm
+	The Duke of Ook
+
+vanderlin_mountain.dmm
+	Nobody

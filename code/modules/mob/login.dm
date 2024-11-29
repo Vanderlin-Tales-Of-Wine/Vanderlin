@@ -89,6 +89,14 @@
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 	log_message("Client [key_name(src)] has taken ownership of mob [src]([src.type])", LOG_OWNERSHIP)
 	SEND_SIGNAL(src, COMSIG_MOB_CLIENT_LOGIN, client)
+	addtimer(CALLBACK(src, PROC_REF(send_pref_messages)), 2 SECONDS)
+	if(client.holder)
+		client.hearallasghost()
+
+/mob/proc/send_pref_messages()
+	if(client.prefs)
+		for(var/message in client.prefs.preference_message_list)
+			to_chat(src, message)
 
 /**
  * Checks if the attached client is an admin and may deadmin them

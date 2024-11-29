@@ -4,103 +4,155 @@
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "irondust"
 	w_class = WEIGHT_CLASS_TINY
-	dust_result = null
+	/*
+		So, you're here about potions: TLDR - the cauldron takes up to 4 items, from this, makes 1 recipe. Major gives 3 points, med 2 points,minor 1 point.
+		If no recipe gets above 5 points, it makes nothing,otherwise It then makes the recipe with the HIGHEST POINTS.
+		all 3 of the below variables should be NULL or the type-path of the recipe to make.
+	*/
+	var/major_pot = null
+	var/med_pot = null
+	var/minor_pot = null
+	//Dont worry, these 3 are just to cache the 'smell' of their pot on initialization to not have to re-look every examine.
+	//No need to set them.
+	var/major_smell
+	var/med_smell
+	var/minor_smell
 
-// rune dust results
+/obj/item/alch/Initialize()
+	. = ..()
+	if(!isnull(major_pot))
+		var/datum/alch_cauldron_recipe/rec = locate(major_pot) in GLOB.alch_cauldron_recipes
+		major_smell = rec.smells_like
+	if(!isnull(med_pot))
+		var/datum/alch_cauldron_recipe/rec = locate(med_pot) in GLOB.alch_cauldron_recipes
+		med_smell = rec.smells_like
+	if(!isnull(minor_pot))
+		var/datum/alch_cauldron_recipe/rec = locate(minor_pot) in GLOB.alch_cauldron_recipes
+		minor_smell = rec.smells_like
 
-/obj/item/rune/spell/fire_rune
-	dust_result = /obj/item/alch/firedust
-
-/obj/item/rune/spell/air_rune
-	dust_result = /obj/item/alch/airdust
-
-/obj/item/rune/spell/water_rune
-	dust_result = /obj/item/alch/waterdust
-
-/obj/item/rune/spell/earth_rune
-	dust_result = /obj/item/alch/earthdust
-
-/obj/item/rune/spell/blank_rune
-	dust_result = /obj/item/alch/runedust
-
-//potion ingredients, sorted by potion
-
+/obj/item/alch/examine(mob/user)
+	if(user.mind)
+		var/alch_skill = user.mind.get_skill_level(/datum/skill/craft/alchemy)
+		var/perint = 0
+		if(isliving(user))
+			var/mob/living/lmob = user
+			perint = FLOOR((lmob.STAPER + lmob.STAINT)/2,1)
+		desc = initial(desc)
+		if(!isnull(major_smell))
+			if(alch_skill >= SKILL_LEVEL_NOVICE || perint >= 6)
+				desc += span_notice(" Smells strongly of [major_smell].")
+		if(!isnull(med_smell))
+			if(alch_skill >= SKILL_LEVEL_APPRENTICE || perint >= 10)
+				desc += span_notice(" Smells slightly of [med_smell].")
+		if(!isnull(minor_smell))
+			if(alch_skill >= SKILL_LEVEL_EXPERT || perint >= 16)
+				desc += span_notice(" Smells weakly of [minor_smell].")
+	. = ..()
 /obj/item/alch/viscera
 	name = "viscera"
 	icon_state = "viscera"
-	possible_potion = "healthpot"
+	major_pot = /datum/alch_cauldron_recipe/big_health_potion
+	med_pot = /datum/alch_cauldron_recipe/health_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
 
 /obj/item/alch/waterdust
 	name = "water rune dust"
 	icon_state = "runedust"
-	possible_potion = "mindcomp"
+	major_pot = /datum/alch_cauldron_recipe/int_potion
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/per_potion
 
 /obj/item/alch/bonemeal
 	name = "bone meal"
 	icon_state = "bonemeal"
-	possible_potion = "manapot"
+	major_pot = /datum/alch_cauldron_recipe/mana_potion
+	med_pot = /datum/alch_cauldron_recipe/per_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
 
 /obj/item/alch/seeddust
 	name = "seed dust"
 	icon_state = "seeddust"
-	possible_potion = "manapot"
+	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
+	med_pot = /datum/alch_cauldron_recipe/stamina_potion
+	minor_pot = /datum/alch_cauldron_recipe/disease_cure
 
 /obj/item/alch/runedust
 	name = "rune dust"
 	icon_state = "runedust"
-	possible_potion = "strongmana"
+	major_pot = /datum/alch_cauldron_recipe/int_potion
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/per_potion
 
 /obj/item/alch/coaldust
 	name = "coal dust"
 	icon_state = "coaldust"
-	possible_potion = "antidote"
+	major_pot = /datum/alch_cauldron_recipe/antidote
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/str_potion
 
 /obj/item/alch/silverdust
 	name = "silver dust"
 	icon_state = "silverdust"
-	possible_potion = "diseasecure"
+	major_pot = /datum/alch_cauldron_recipe/disease_cure
+	med_pot = /datum/alch_cauldron_recipe/antidote
+	minor_pot = /datum/alch_cauldron_recipe/big_health_potion
 
 /obj/item/alch/magicdust
 	name = "magicdust"
 	//icon_state = "magicdust"
-	possible_potion = "buffpot"
+	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
 /obj/item/alch/firedust
 	name = "fire rune dust"
 	icon_state = "runedust"
-	possible_potion = "bodycomp"
+	major_pot = /datum/alch_cauldron_recipe/str_potion
+	med_pot = /datum/alch_cauldron_recipe/con_potion
+	minor_pot = /datum/alch_cauldron_recipe/spd_potion
 
 /obj/item/alch/sinew
 	name = "sinew"
 	icon_state = "sinew"
 	dropshrink = 0.5
-	dust_result = /obj/item/alch/viscera
-	possible_potion = "strpot"
+	major_pot = /datum/alch_cauldron_recipe/stam_poison
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/health_potion
 
 /obj/item/alch/irondust
 	name = "iron dust"
 	icon_state = "irondust"
-	possible_potion = "strpot"
+	major_pot = /datum/alch_cauldron_recipe/end_potion
+	med_pot = /datum/alch_cauldron_recipe/con_potion
+	minor_pot = /datum/alch_cauldron_recipe/str_potion
 
 /obj/item/alch/airdust
 	name = "air rune dust"
 	icon_state = "runedust"
-	possible_potion = "stronghealth"
+	major_pot = /datum/alch_cauldron_recipe/spd_potion
+	med_pot = /datum/alch_cauldron_recipe/stamina_potion
+	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/swampdust
 	name = "swampweed dust"
 	icon_state = "tobaccodust"
-	possible_potion = "intpot"
+	major_pot = /datum/alch_cauldron_recipe/berrypoison
+	med_pot = /datum/alch_cauldron_recipe/big_stam_poison
+	minor_pot = /datum/alch_cauldron_recipe/end_potion
 
 /obj/item/alch/tobaccodust
 	name = "tobacco dust"
 	icon_state = "tobaccodust"
-	possible_potion = "perpot"
+	major_pot = /datum/alch_cauldron_recipe/per_potion
+	med_pot = /datum/alch_cauldron_recipe/stamina_potion
+	minor_pot = /datum/alch_cauldron_recipe/spd_potion
 
 /obj/item/alch/earthdust
 	name = "earth rune dust"
 	//icon_state = "earthdust"
-	possible_potion = "spiritcomp"
+	major_pot = /datum/alch_cauldron_recipe/con_potion
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/str_potion
 
 /obj/item/alch/bone
 	name = "tail bone"
@@ -109,8 +161,10 @@
 	force = 7
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
-	dust_result = /obj/item/alch/bonemeal
-	possible_potion = "conpot"
+
+	major_pot = /datum/alch_cauldron_recipe/disease_cure
+	med_pot = /datum/alch_cauldron_recipe/health_potion
+	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
 /obj/item/alch/horn
 	name = "troll horn"
@@ -119,18 +173,149 @@
 	force = 7
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
-	dust_result = /obj/item/alch/earthdust
 
-//Modifier ingredients
+	major_pot = /datum/alch_cauldron_recipe/str_potion
+	med_pot = /datum/alch_cauldron_recipe/con_potion
+	minor_pot = /datum/alch_cauldron_recipe/end_potion
+
 /obj/item/alch/golddust
 	name = "gold dust"
 	icon_state = "golddust"
-	possible_potion = "strong"
+
+	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	med_pot = /datum/alch_cauldron_recipe/con_potion
+	minor_pot = /datum/alch_cauldron_recipe/per_potion
 
 /obj/item/alch/feaudust
 	name = "feau dust"
 	icon_state = "feaudust"
-	possible_potion = "long"
+
+	major_pot = /datum/alch_cauldron_recipe/spd_potion
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/disease_cure
+
+/obj/item/alch/ozium
+	name = "alchemical ozium"
+	desc = "Alchemical processing has left it unfit for consumption."
+	icon_state = "whitepowder"
+
+	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
+	med_pot = /datum/alch_cauldron_recipe/lck_potion
+	minor_pot = /datum/alch_cauldron_recipe/int_potion
+
+//BEGIN THE HERBS
+
+/obj/item/alch/atropa
+	name = "atropa"
+	icon_state = "atropa"
+
+	major_pot = /datum/alch_cauldron_recipe/doompoison
+	med_pot = /datum/alch_cauldron_recipe/berrypoison
+	minor_pot = /datum/alch_cauldron_recipe/stam_poison
+
+/obj/item/alch/matricaria
+	name = "matricaria"
+	icon_state = "matricaria"
+
+	major_pot = /datum/alch_cauldron_recipe/berrypoison
+	med_pot = /datum/alch_cauldron_recipe/per_potion
+	minor_pot = /datum/alch_cauldron_recipe/doompoison
+
+/obj/item/alch/symphitum
+	name = "symphitum"
+	icon_state = "symphitum"
+
+	major_pot = /datum/alch_cauldron_recipe/health_potion
+	med_pot = /datum/alch_cauldron_recipe/stam_poison
+	minor_pot = /datum/alch_cauldron_recipe/antidote
+
+/obj/item/alch/taraxacum
+	name = "taraxacum"
+	icon_state = "taraxacum"
+
+	major_pot = /datum/alch_cauldron_recipe/stam_poison
+	med_pot = /datum/alch_cauldron_recipe/health_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
+
+/obj/item/alch/euphrasia
+	name = "euphrasia"
+	icon_state = "euphrasia"
+
+	major_pot = /datum/alch_cauldron_recipe/spd_potion
+	med_pot = /datum/alch_cauldron_recipe/stam_poison
+	minor_pot = /datum/alch_cauldron_recipe/int_potion
+
+/obj/item/alch/paris
+	name = "paris"
+	icon_state = "paris"
+
+	major_pot = /datum/alch_cauldron_recipe/big_stam_poison
+	med_pot = /datum/alch_cauldron_recipe/berrypoison
+	minor_pot = /datum/alch_cauldron_recipe/stam_poison
+
+/obj/item/alch/calendula
+	name = "calendula"
+	icon_state = "calendula"
+
+	major_pot = /datum/alch_cauldron_recipe/big_health_potion
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/health_potion
+
+/obj/item/alch/mentha
+	name = "mentha"
+	icon_state = "mentha"
+
+	major_pot = /datum/alch_cauldron_recipe/per_potion
+	med_pot = /datum/alch_cauldron_recipe/int_potion
+	minor_pot = /datum/alch_cauldron_recipe/stamina_potion
+
+/obj/item/alch/urtica
+	name = "urtica"
+	icon_state = "urtica"
+
+	major_pot = /datum/alch_cauldron_recipe/health_potion
+	med_pot = /datum/alch_cauldron_recipe/spd_potion
+	minor_pot = /datum/alch_cauldron_recipe/stamina_potion
+
+/obj/item/alch/salvia
+	name = "salvia"
+	icon_state = "salvia"
+
+	major_pot = /datum/alch_cauldron_recipe/con_potion
+	med_pot = /datum/alch_cauldron_recipe/str_potion
+	minor_pot = /datum/alch_cauldron_recipe/end_potion
+
+/obj/item/alch/hypericum
+	name = "hypericum"
+	icon_state = "hypericum"
+
+	major_pot = /datum/alch_cauldron_recipe/stamina_potion
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
+
+/obj/item/alch/benedictus
+	name = "benedictus"
+	icon_state = "benedictus"
+
+	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
+	med_pot = /datum/alch_cauldron_recipe/stamina_potion
+	minor_pot = /datum/alch_cauldron_recipe/int_potion
+
+/obj/item/alch/valeriana
+	name = "valeriana"
+	icon_state = "valeriana"
+
+	major_pot = /datum/alch_cauldron_recipe/health_potion
+	med_pot = /datum/alch_cauldron_recipe/spd_potion
+	minor_pot = /datum/alch_cauldron_recipe/stam_poison
+
+/obj/item/alch/artemisia
+	name = "artemisia"
+	icon_state = "artemisia"
+
+	major_pot = /datum/alch_cauldron_recipe/lck_potion
+	med_pot = /datum/alch_cauldron_recipe/spd_potion
+	minor_pot = /datum/alch_cauldron_recipe/health_potion
 
 //dust mix crafting
 /datum/crafting_recipe/roguetown/alch/feaudust

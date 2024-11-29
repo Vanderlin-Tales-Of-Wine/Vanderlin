@@ -379,6 +379,8 @@ SUBSYSTEM_DEF(migrants)
 			continue
 		if(!player.client.prefs)
 			continue
+		if(!player.client.prefs.migrant?.viewer)
+			continue
 		migrants += player.client
 	return migrants
 

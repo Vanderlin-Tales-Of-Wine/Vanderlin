@@ -26,11 +26,6 @@
 		m2 = "my"
 		m3 = "I have"
 
-	if(isliving(user))
-		var/mob/living/L = user
-		if(HAS_TRAIT(L, TRAIT_PROSOPAGNOSIA))
-			obscure_name = TRUE
-
 	if(name == "Unknown" || name == "Unknown Man" || name == "Unknown Woman")
 		obscure_name = TRUE
 

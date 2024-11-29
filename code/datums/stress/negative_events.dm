@@ -152,11 +152,6 @@
 	stressadd = 5
 	desc = "<span class='red'>Oh no! I've received divine punishment!</span>"
 
-/datum/stressevent/virginchurch
-	timer = 999 MINUTES
-	stressadd = 10
-	desc = "<span class='red'>I have broken my oath of chastity to The Gods!</span>"
-
 /datum/stressevent/badmeal
 	timer = 3 MINUTES
 	stressadd = 2
@@ -175,11 +170,6 @@
 	max_stacks = 3
 	stressadd_per_extra_stack = 2
 	desc = "<span class='red'>I puked on myself!</span>"
-
-/datum/stressevent/blueb
-	timer = 1 MINUTES
-	stressadd = 2
-	desc = "<span class='red'>My loins ache!</span>"
 
 /datum/stressevent/leechcult
 	timer = 1 MINUTES

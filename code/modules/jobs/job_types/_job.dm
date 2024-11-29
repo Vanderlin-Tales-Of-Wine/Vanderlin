@@ -127,6 +127,8 @@
 
 	var/wanderer_examine = FALSE
 
+	var/datum/charflaw/forced_flaw
+
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
 	return TRUE
 

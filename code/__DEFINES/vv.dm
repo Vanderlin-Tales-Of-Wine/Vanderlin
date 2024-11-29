@@ -79,7 +79,6 @@
 // /atom
 #define VV_HK_MODIFY_TRANSFORM "atom_transform"
 #define VV_HK_ADD_REAGENT "addreagent"
-#define VV_HK_TRIGGER_EMP "empulse"
 #define VV_HK_TRIGGER_EXPLOSION "explode"
 #define VV_HK_AUTO_RENAME "auto_rename"
 #define VV_HK_ADD_AI "add_ai"
@@ -97,12 +96,10 @@
 #define VV_HK_DROP_ALL "dropall"
 #define VV_HK_REGEN_ICONS "regen_icons"
 #define VV_HK_PLAYER_PANEL "player_panel"
-#define VV_HK_BUILDMODE "buildmode"
 #define VV_HK_DIRECT_CONTROL "direct_control"
 #define VV_HK_OFFER_GHOSTS "offer_ghosts"
 
 // /mob/living/carbon
-#define VV_HK_MAKE_AI "aiify"
 #define VV_HK_MODIFY_BODYPART "mod_bodypart"
 #define VV_HK_MODIFY_ORGANS "organs_modify"
 #define VV_HK_HALLUCINATION "force_hallucinate"
@@ -112,13 +109,7 @@
 
 // /mob/living/carbon/human
 #define VV_HK_COPY_OUTFIT "copy_outfit"
-#define VV_HK_MOD_MUTATIONS "quirkmut"
-#define VV_HK_MOD_QUIRKS "quirkmod"
-#define VV_HK_MAKE_MONKEY "human_monkify"
-#define VV_HK_MAKE_CYBORG "human_cyborgify"
-#define VV_HK_MAKE_SLIME "human_slimeify"
 #define VV_HK_SET_SPECIES "setspecies"
-#define VV_HK_PURRBATION "purrbation"
 
 // misc
 #define VV_HK_SPACEVINE_PURGE "spacevine_purge"

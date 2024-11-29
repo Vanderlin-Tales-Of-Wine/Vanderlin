@@ -39,8 +39,8 @@
 	food = 0
 	pooptype = null
 
-	STACON = 15
-	STASTR = 15
+	STACON = 6
+	STASTR = 6
 	STASPD = 5
 
 	ai_controller = /datum/ai_controller/mimic

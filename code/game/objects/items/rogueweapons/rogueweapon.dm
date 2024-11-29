@@ -79,7 +79,6 @@
 	block_chance = 0
 	armor_penetration = 5
 	sharpness = IS_SHARP
-	custom_materials = null
 	possible_item_intents = list(SWORD_CUT, SWORD_THRUST)
 	can_parry = TRUE
 	wlength = 45

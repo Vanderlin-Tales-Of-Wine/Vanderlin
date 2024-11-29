@@ -64,7 +64,7 @@
 	C.update_hair()
 
 /obj/item/organ/brain/prepare_eat(mob/living/carbon/human/H)
-	if(iszombie(H) || HAS_TRAIT(H, TRAIT_ROTMAN))//braaaaaains... otherwise, too important to eat.
+	if( HAS_TRAIT(H, TRAIT_ROTMAN))//braaaaaains... otherwise, too important to eat.
 		return ..()
 	return FALSE
 
@@ -83,11 +83,6 @@
 		if(!brainmob.stored_dna)
 			brainmob.stored_dna = new /datum/dna/stored(brainmob)
 		C.dna.copy_dna(brainmob.stored_dna)
-		if(HAS_TRAIT(L, TRAIT_BADDNA))
-			brainmob.status_traits[TRAIT_BADDNA] = L.status_traits[TRAIT_BADDNA]
-		var/obj/item/organ/zombie_infection/ZI = L.getorganslot(ORGAN_SLOT_ZOMBIE)
-		if(ZI)
-			brainmob.set_species(ZI.old_species)	//For if the brain is cloned
 	if(L.mind?.current)
 		L.mind.transfer_to(brainmob)
 //	to_chat(brainmob, "<span class='notice'>I feel slightly disoriented. That's normal when you're just a brain.</span>")

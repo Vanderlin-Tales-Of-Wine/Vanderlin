@@ -19734,7 +19734,6 @@
 /obj/item/book/rogue/nitebeast,
 /obj/item/book/rogue/tales1,
 /obj/item/book/granter/spell/smoke,
-/obj/item/book/manual/wiki/cooking_to_serve_man,
 /obj/item/book/mimery{
 	name = "The Way of Silence"
 	},

@@ -90,10 +90,6 @@
 	update_damage_hud()
 	update_health_hud()
 	update_mobility()
-	med_hud_set_health()
-	med_hud_set_status()
-	if(!gibbed && !QDELETED(src))
-		addtimer(CALLBACK(src, PROC_REF(med_hud_set_status)), (DEFIB_TIME_LIMIT * 10) + 1)
 	stop_pulling()
 
 	to_chat(src, span_green("A bleak afterlife awaits...but the Gods may let you walk again in another shape! Spirit, you must descend in a Journey to the Afterlife and wait there for judgment..."))

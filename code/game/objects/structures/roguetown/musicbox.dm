@@ -7,6 +7,7 @@
 	extra_range = 5
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
+	channel = CHANNEL_MUSIC
 
 /datum/looping_sound/musloop/on_hear_sound(mob/M)
 	. = ..()
@@ -36,7 +37,7 @@
 	var/list/music_tracks
 
 /obj/structure/roguemachine/musicbox/Initialize()
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 	music_tracks = MUSIC_TAV
 	. = ..()
 

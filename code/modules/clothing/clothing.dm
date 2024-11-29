@@ -212,33 +212,6 @@
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
 
-/obj/item/reagent_containers/food/snacks/clothing
-	name = "temporary moth clothing snack item"
-	desc = ""
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	tastes = list("dust" = 1, "lint" = 1)
-	foodtype = CLOTH
-
-/obj/item/clothing/attack(mob/M, mob/user, def_zone)
-	if(user.used_intent.type != INTENT_HARM)
-		var/obj/item/reagent_containers/food/snacks/clothing/clothing_as_food = new
-		clothing_as_food.name = name
-		if(clothing_as_food.attack(M, user, def_zone))
-			take_damage(15, sound_effect=FALSE)
-		qdel(clothing_as_food)
-	else
-		return ..()
-
-
-/*	if(damaged_clothes && istype(W, /obj/item/stack/sheet/cloth))
-		var/obj/item/stack/sheet/cloth/C = W
-		C.use(1)
-		update_clothes_damaged_state(FALSE)
-		obj_integrity = max_integrity
-		to_chat(user, "<span class='notice'>I fix the damage on [src] with [C].</span>")
-		return 1*/
-	return ..()
-
 /obj/item/clothing/Destroy()
 	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
 	return ..()
@@ -400,11 +373,6 @@ BLIND     // can't see anything
 				to_chat(usr, "<span class='notice'>My suit will now only report my exact vital lifesigns.</span>")
 			if(3)
 				to_chat(usr, "<span class='notice'>My suit will now report my exact vital lifesigns as well as my coordinate position.</span>")
-
-	if(ishuman(loc))
-		var/mob/living/carbon/human/H = loc
-		if(H.wear_pants == src)
-			H.update_suit_sensors()
 
 /obj/item/clothing/under/AltClick(mob/user)
 	if(..())

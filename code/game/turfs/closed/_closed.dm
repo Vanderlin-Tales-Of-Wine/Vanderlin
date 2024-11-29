@@ -165,7 +165,7 @@
 							climbsound = 'sound/foley/ladder.ogg'
 
 				if(myskill < climbdiff)
-					to_chat(user, "<span class='warning'>I can't climb here.</span>")
+					to_chat(user, "<span class='warning'>I'm not capable of climbing this.</span>")
 					return
 				used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
 			if(user.m_intent != MOVE_INTENT_SNEAK)

@@ -186,7 +186,6 @@
 	volume = 15
 	list_reagents = list(/datum/reagent/ozium = 15)
 	sellprice = 5
-	possible_potion = "perpot"
 
 /datum/reagent/ozium
 	name = "Ozium"
@@ -231,7 +230,6 @@
 	volume = 15
 	list_reagents = list(/datum/reagent/moondust = 15)
 	sellprice = 10
-	possible_potion = "intpot"
 
 /datum/reagent/moondust/overdose_process(mob/living/M)
 	M.adjustToxLoss(0.25*REM, 0)
@@ -272,7 +270,6 @@
 	volume = 18
 	list_reagents = list(/datum/reagent/moondust_purest = 18)
 	sellprice = 14
-	possible_potion = "spdpot"
 
 /datum/reagent/moondust_purest
 	name = "Purest Moondust"

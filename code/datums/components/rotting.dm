@@ -11,7 +11,7 @@
 	if(new_amount)
 		amount = new_amount
 
-	soundloop = new(list(parent), FALSE)
+	soundloop = new(parent, FALSE)
 
 	START_PROCESSING(SSroguerot, src)
 

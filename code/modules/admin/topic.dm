@@ -1437,6 +1437,29 @@
 		usr.client.cmd_admin_mod_antag_rep(C, href_list["modantagrep"])
 		show_player_panel(M)
 
+	else if(href_list["editpq"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
+		var/client/mob_client = M.client
+		var/amt2change = input("How much to modify the PQ by? (20 to -20, or 0 to just add a note)") as null|num
+		if(!check_rights(R_ADMIN,0))
+			amt2change = CLAMP(amt2change, -20, 20)
+		var/raisin = stripped_input("State a short reason for this change", "Game Master", "", null)
+		if(!amt2change && !raisin)
+			return
+		adjust_playerquality(amt2change, mob_client.ckey, usr.ckey, raisin)
+		for(var/client/C in GLOB.clients) // I hate this, but I'm not refactoring the cancer above this point.
+			if(lowertext(C.key) == lowertext(mob_client.ckey))
+				to_chat(C, "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">Your PQ has been adjusted by [amt2change] by [usr.key] for reason: [raisin]</span></span>")
+				return
+	else if(href_list["showpq"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
+		var/client/mob_client = M.client
+		check_pq_menu(mob_client.key)
+
 	else if(href_list["slowquery"])
 		if(!check_rights(R_ADMIN))
 			return

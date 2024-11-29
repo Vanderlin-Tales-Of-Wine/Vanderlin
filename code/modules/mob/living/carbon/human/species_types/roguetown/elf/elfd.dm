@@ -16,6 +16,8 @@
 	Conquered by Zizo, these elves hail from an underground expanse of \
 	newly-reborn empires. They lead harsh, matriarchal lives under the watchful guide of Zizo, \
 	the vast majority hoping to one day achieve such power and domination for themselves. \
+	Zizo's spawn, the last snow elves, integrated themselves- whether gleefully or resentfully- within the dark elf culture \
+	their grandmother had carved through conquest. \
 	To most in Psydonia, a dark elf is nothing more than a servant of Zizo waiting to betray for power, \
 	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
 	rarely receive fair treatment. \
@@ -88,15 +90,15 @@
 
 /datum/species/elf/dark/get_skin_list()
 	return sortList(list(
-		"Maggot" = SKIN_COLOR_MAGGOT,
-		"Cocoon" = SKIN_COLOR_COCOON,
-		"Ashen" = SKIN_COLOR_ASHEN,
-		"Spider Venom" = SKIN_COLOR_SPIDER_VENOM,
-		"Jackpoison" = SKIN_COLOR_JACKPOISON,
-		"Homunculus" = SKIN_COLOR_HOMUNCULUS,
-		"Arachnid Ichor" = SKIN_COLOR_ARACHNID_ICHOR,
-		"Zizo Descendant" = SKIN_COLOR_SNOW_ELF,
-		"Gloomhaven" = SKIN_COLOR_GLOOMHAVEN,
+		"Maggot" = SKIN_COLOR_MAGGOT, // - (Pale blue)
+		"Cocoon" = SKIN_COLOR_COCOON, // - (Pale purple)
+		"Ashen" = SKIN_COLOR_ASHEN, // - (Pale grey)
+		"Spider Venom" = SKIN_COLOR_SPIDER_VENOM, // - (Deep grey)
+		"Jackpoison" = SKIN_COLOR_JACKPOISON, // - (Grey-purple)
+		"Homunculus" = SKIN_COLOR_HOMUNCULUS, // - (Grey-blue)
+		"Arachnid Ichor" = SKIN_COLOR_ARACHNID_ICHOR, // - (Black-blue)
+		"Zizo Descendant" = SKIN_COLOR_SNOW_ELF, // - (Pale white)
+		"Gloomhaven" = SKIN_COLOR_GLOOMHAVEN, // - (Pink)
 	))
 
 /datum/species/elf/dark/get_hairc_list()

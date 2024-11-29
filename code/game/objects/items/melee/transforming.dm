@@ -26,8 +26,7 @@
 		AddComponent(/datum/component/butchering, 50, 100, 0, hitsound)
 
 /obj/item/melee/transforming/attack_self(mob/living/carbon/user)
-	if(transform_weapon(user))
-		clumsy_transform_effect(user)
+	transform_weapon(user)
 
 /obj/item/melee/transforming/attack(mob/living/target, mob/living/carbon/human/user)
 	var/nemesis_faction = FALSE
@@ -73,8 +72,3 @@
 	playsound(user, 'sound/blank.ogg', 35, TRUE)  //changed it from 50% volume to 35% because deafness
 	if(!supress_message_text)
 		to_chat(user, "<span class='notice'>[src] [active ? "is now active":"can now be concealed"].</span>")
-
-/obj/item/melee/transforming/proc/clumsy_transform_effect(mob/living/user)
-	if(clumsy_check && HAS_TRAIT(user, TRAIT_CLUMSY) && prob(50))
-		to_chat(user, "<span class='warning'>I accidentally cut myself with [src], like a doofus!</span>")
-		user.take_bodypart_damage(5,5)

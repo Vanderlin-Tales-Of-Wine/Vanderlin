@@ -144,6 +144,14 @@
 	popup.set_content(popup_window_data)
 	popup.open()
 
+/client/proc/stop_restart()
+	set category = "GameMaster"
+	set name = "Stop Restart"
+	if(!holder)
+		return
+	SSticker.reboot_anyway = null
+	message_admins("[usr] stopped the 15 minute reboot after a successful vote.")
+
 /client/proc/adjust_pq()
 	set category = "GameMaster"
 	set name = "AdjustPQ"
@@ -232,7 +240,7 @@
 	if(!curcomm)
 		curcomm = 0
 	return curcomm
-	
+
 /proc/get_eslpoints(key)
 	if(!key)
 		return

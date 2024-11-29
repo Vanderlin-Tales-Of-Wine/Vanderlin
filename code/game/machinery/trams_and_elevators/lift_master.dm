@@ -578,6 +578,9 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		platform.obj_flags &= ~BLOCK_Z_OUT_DOWN
 		platform.alpha = 0
 		for(var/atom/movable/movable in platform.lift_load)
+			if(ismob(movable))
+				platform.RemoveItemFromLift(movable)
+				continue
 			objects_pre_alpha |= movable
 			objects_pre_alpha[movable] = movable.alpha
 			ADD_TRAIT(movable, TRAIT_I_AM_INVISIBLE_ON_A_BOAT, REF(src))

@@ -27,4 +27,4 @@
 			user.mind.add_sleep_experience(/datum/skill/labor/lumberjacking, (user.STAINT*0.5))
 			qdel(I)
 			return
-	..()
+	. = ..()

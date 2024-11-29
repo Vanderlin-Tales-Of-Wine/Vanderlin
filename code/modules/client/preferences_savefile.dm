@@ -231,6 +231,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
 
+	check_new_keybindings()
+
 	//ROGUETOWN
 	parallax = PARALLAX_INSANE
 
@@ -594,3 +596,22 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S.ImportText("/",file("[path].txt"))
 
 #endif
+
+/datum/preferences/proc/check_new_keybindings()
+	var/list/keybind_names = list()
+	var/list/used_keys = list()
+	for(var/key in key_bindings)
+		keybind_names |= key_bindings[key]
+		used_keys |= key
+
+	if(!length(GLOB.hotkey_keybinding_list_by_key))
+		init_keybindings()
+	for(var/key in GLOB.hotkey_keybinding_list_by_key)
+		var/list/key_name = GLOB.hotkey_keybinding_list_by_key[key]
+		if(!(key_name[1] in keybind_names))
+			if(key in used_keys)
+				preference_message_list |= span_bold("[key_name[1]] is unbound and the default key is in use, please set the keybind yourself!")
+				continue
+			key_bindings |= key
+			key_bindings[key] = GLOB.hotkey_keybinding_list_by_key[key]
+			preference_message_list |= span_bold("[key_name[1]] was unbound and the default key was not in use it has been set to [key]!")

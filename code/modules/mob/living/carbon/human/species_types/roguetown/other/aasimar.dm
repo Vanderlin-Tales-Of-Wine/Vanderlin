@@ -18,7 +18,9 @@
 	Immortal offspring sculpted by one of the gods for use in servitude. \
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \
 	This species is often revered due to their celestial origin, but face great solitude \
-	as not many of their kind exist. An aasimar may be crafted with any number of materials. \
+	as not many of their kind exist. Many an aasimar will detest the reverance in which they are greeted with,\
+	for their greatest failure or unuse that lead to their discarding is not subject for celebration. \
+	An aasimar may be crafted with any number of materials. \
 	Many resemble sculptures of stones or ceramic in skin, but their insides are just as mortal as \
 	any other. "
 
@@ -112,15 +114,15 @@
 
 /datum/species/aasimar/get_skin_list()
 	return sortList(list(
-		"Planetar" = SKIN_COLOR_PLANETAR,
-		"Deva"	   = SKIN_COLOR_DEVA,
-		"Solar" = SKIN_COLOR_SOLAR,
-		"Empyrea" = SKIN_COLOR_EMPYREA,
-		"Gaeia" = SKIN_COLOR_GAEIA,
-		"Celestial" = SKIN_COLOR_CELESTIAL,
-		"Olympia" = SKIN_COLOR_OLYMPIA,
-		"Necral" = SKIN_COLOR_NECRAL,
-		"Abyssal" = SKIN_COLOR_ABYSSAL,
+		"Planetar" = SKIN_COLOR_PLANETAR, // - (Gold)
+		"Deva"	   = SKIN_COLOR_DEVA, // - (Sky blue)
+		"Solar" = SKIN_COLOR_SOLAR, // - (White stone)
+		"Empyrea" = SKIN_COLOR_EMPYREA, // - (Periwinkle blue)
+		"Gaeia" = SKIN_COLOR_GAEIA, // - (Orange)
+		"Celestial" = SKIN_COLOR_CELESTIAL, // - (Yellow)
+		"Olympia" = SKIN_COLOR_OLYMPIA, // - (Seafoam green)
+		"Necral" = SKIN_COLOR_NECRAL, // - (Black onyx)
+		"Abyssal" = SKIN_COLOR_ABYSSAL, // - (Deep blue)
 	))
 
 /datum/species/aasimar/get_hairc_list()

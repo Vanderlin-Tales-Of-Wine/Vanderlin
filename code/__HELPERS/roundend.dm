@@ -542,6 +542,7 @@
 	set waitfor = 0
 	to_chat(C,"<a href='?src=[C];playerlistrogue=1'>* SHOW PLAYER LIST *</a>")
 	to_chat(C,"<a href='?src=[C];commendsomeone=1'>* Commend a Character *</a>")
+	C.commendation_popup()
 
 /datum/action/report
 	name = "Show roundend report"

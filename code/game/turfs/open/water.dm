@@ -382,7 +382,7 @@
 /turf/open/water/river
 	name = "water"
 	desc = "Crystal clear water! Flowing swiflty along the river."
-	icon_state = "rivermove"
+	icon_state = "rivermove-dir"
 	icon = 'icons/turf/newwater.dmi'
 	water_level = 3
 	slowdown = 20

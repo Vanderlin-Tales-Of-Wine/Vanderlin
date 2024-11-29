@@ -4,7 +4,7 @@
 	var/emote_key
 
 /datum/keybinding/ghost/can_use(client/user)
-	return isobserver(user) ? TRUE : FALSE
+	return isobserver(user.mob) ? TRUE : FALSE
 
 /datum/keybinding/ghost/zlevel_upwards
 	hotkey_keys = list("Northeast") // PGUP

@@ -56,10 +56,6 @@
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(buildstacktype)
 			new buildstacktype(loc,buildstackamount)
-		else
-			for(var/i in custom_materials)
-				var/datum/material/M = i
-				new M.sheet_type(loc, FLOOR(custom_materials[M] / MINERAL_MATERIAL_AMOUNT, 1))
 	..()
 
 /obj/structure/chair/attack_paw(mob/user)
@@ -235,7 +231,6 @@
 		usr.visible_message("<span class='notice'>[usr] grabs \the [src.name].</span>", "<span class='notice'>I grab \the [src.name].</span>")
 		var/obj/item/C = new item_chair(loc)
 		item_chair = null
-		C.set_custom_materials(custom_materials)
 		TransferComponents(C)
 		usr.put_in_hands(C)
 		qdel(src)
@@ -262,7 +257,6 @@
 	hit_reaction_chance = 50
 	twohands_required = TRUE
 	obj_flags = CAN_BE_HIT
-//	custom_materials = list(/datum/material/iron = 2000)
 	var/break_chance = 23 //Likely hood of smashing the chair.
 	var/obj/structure/chair/origin_type = /obj/structure/chair
 
@@ -294,33 +288,13 @@
 
 	user.visible_message("<span class='notice'>[user] rights \the [src.name].</span>", "<span class='notice'>I right \the [name].</span>")
 	var/obj/structure/chair/C = new origin_type(get_turf(loc))
-	C.set_custom_materials(custom_materials)
 	TransferComponents(C)
 	C.setDir(user.dir)
 	qdel(src)
 
 /obj/item/chair/proc/smash(mob/living/user)
-//	var/stack_type = initial(origin_type.buildstacktype)
-//	if(!stack_type)
-//		return
-//	var/remaining_mats = initial(origin_type.buildstackamount)
-//	remaining_mats-- //Part of the chair was rendered completely unusable. It magically dissapears. Maybe make some dirt?
-//	if(remaining_mats)
-//		for(var/M=1 to remaining_mats)
-//			new stack_type(get_turf(loc))
-//	else if(custom_materials[getmaterialref(/datum/material/iron)])
-//		new /obj/item/stack/rods(get_turf(loc), 2)
 	qdel(src)
 
-
-
-/*
-/obj/item/chair/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
-	if(attack_type == UNARMED_ATTACK && prob(hit_reaction_chance))
-		owner.visible_message("<span class='danger'>[owner] fends off [attack_text] with [src]!</span>")
-		return 1
-	return 0
-*/
 /obj/item/chair/afterattack(atom/target, mob/living/carbon/user, proximity)
 	. = ..()
 	if(!proximity)
@@ -361,7 +335,6 @@
 	max_integrity = 70
 	hitsound = 'sound/blank.ogg'
 	origin_type = /obj/structure/chair/wood
-	custom_materials = null
 	break_chance = 50
 
 /obj/item/chair/wood/narsie_act()

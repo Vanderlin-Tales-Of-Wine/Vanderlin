@@ -20,7 +20,7 @@
 	is stubborn and ancient. They are revered craftsmen, sculptors, smiths, \
 	and miners. As an old saying goes, 'If you want it done right, lose 2 feet and grow a beard.' \
 	Despite their cultural praise, a long-standing fued remains between dwarves and elves \
-	stemming from old industrial practices. "
+	stemming from old industrial practices. Dwarves hold a strong alliance with humenkind."
 
 	skin_tone_wording = "Ore Attunement"
 
@@ -81,15 +81,15 @@
 
 /datum/species/dwarf/mountain/get_skin_list()
 	return sortList(list(
-		"Platinum" = SKIN_COLOR_PLATINUM,
-		"Aurum" = SKIN_COLOR_AURUM,
-		"Quicksilver" = SKIN_COLOR_QUICKSILVER,
-		"Brass" = SKIN_COLOR_BRASS,
-		"Iron" = SKIN_COLOR_IRON,
-		"Malachite" = SKIN_COLOR_MALACHITE,
-		"Obsidian" = SKIN_COLOR_OBSIDIAN,
-		"Brimstone" = SKIN_COLOR_BRIMSTONE,
-		"Cerargyrite" =	SKIN_COLOR_CERARGYRITE,
+		"Platinum" = SKIN_COLOR_PLATINUM, // - (White 1)
+		"Aurum" = SKIN_COLOR_AURUM, // - (White 2)
+		"Quicksilver" = SKIN_COLOR_QUICKSILVER, // - (White 3)
+		"Brass" = SKIN_COLOR_BRASS, // - (White 4)
+		"Iron" = SKIN_COLOR_IRON, // - (Tan)
+		"Malachite" = SKIN_COLOR_MALACHITE, // - (Middle-Eastern)
+		"Obsidian" = SKIN_COLOR_OBSIDIAN, // - (Black)
+		"Brimstone" = SKIN_COLOR_BRIMSTONE, // - (Black 2)
+		"Cerargyrite" =	SKIN_COLOR_CERARGYRITE, // - (Purple)
 	))
 
 /datum/species/dwarf/mountain/get_hairc_list()

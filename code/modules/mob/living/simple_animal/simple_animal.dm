@@ -11,6 +11,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	status_flags = CANPUSH
 
+	simpmob_attack = 45
+	simpmob_defend = 45
+
 	var/icon_living = ""
 	///Icon when the animal is dead. Don't use animated icons for this.
 	var/icon_dead = ""
@@ -293,7 +296,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			death()
 			SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 			return
-	med_hud_set_status()
 	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, stat)
 	if(footstep_type)
 		AddComponent(/datum/component/footstep, footstep_type)

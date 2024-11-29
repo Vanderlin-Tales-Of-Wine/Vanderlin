@@ -21,7 +21,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 		verbs += /mob/dead/proc/server_hop
 	set_focus(src)
 	return INITIALIZE_HINT_NORMAL
-	
+
 /mob/dead/Destroy()
 	GLOB.mob_list -= src
 	return ..()
@@ -106,7 +106,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 			else
 				dat += "<B>[job.title]</B> ([readiedas])<br>"
 	var/datum/browser/popup = new(src, "lobby_window", "<div align='center'>LOBBY</div>", 330, 430)
-	popup.set_window_options("can_close=0;can_minimize=0;can_maximize=0;can_resize=1;")
+	popup.set_window_options("can_minimize=0;can_maximize=0;can_resize=1;")
 	popup.set_content(dat.Join())
 	if(!client)
 		return

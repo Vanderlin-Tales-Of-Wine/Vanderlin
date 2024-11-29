@@ -52,7 +52,7 @@
 		bodysearch(D)
 		for(var/obj/structure/closet/burial_shroud/B in D)
 			bodysearch(B)
-	..()
+	. = ..()
 
 /obj/structure/gravemarker/proc/bodysearch(atom/movable/AM)
 	if(!AM)

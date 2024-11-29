@@ -15,6 +15,10 @@
 	mob_storage_capacity = 1
 	allow_dense = FALSE
 
+/obj/structure/closet/crate/chest/OnCrafted(dirin)
+	. = ..()
+	keylock = FALSE
+
 /obj/structure/closet/crate/chest/open(mob/living/user)
 	. = ..()
 	var/obj/structure/pressure_plate/AM = locate(/obj/structure/pressure_plate) in loc

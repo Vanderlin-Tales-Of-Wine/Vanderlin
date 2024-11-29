@@ -164,9 +164,9 @@ SUBSYSTEM_DEF(vote)
 		if(!active_admins)
 			SSticker.Reboot("Restart vote successful.", "restart vote")
 		else
-			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active gamemasters on.</span>")
+			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active gamemasters on, if nothing is done the server will restart in 15 minutes.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
-
+			SSticker.reboot_anyway = world.time + 15 MINUTES
 	return .
 
 /datum/controller/subsystem/vote/proc/submit_vote(vote)

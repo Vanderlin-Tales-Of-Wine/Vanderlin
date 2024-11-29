@@ -7,6 +7,7 @@
 	extra_range = 5
 	var/stress2give = /datum/stressevent/music
 	persistent_loop = TRUE
+	channel = CHANNEL_MUSIC
 
 /datum/looping_sound/dmusloop/on_hear_sound(mob/M)
 	. = ..()
@@ -34,7 +35,7 @@
 	var/curvol = 100
 
 /obj/item/dmusicbox/Initialize()
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 //	soundloop.start()
 	update_icon()
 	. = ..()

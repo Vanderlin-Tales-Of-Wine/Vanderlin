@@ -22,9 +22,9 @@
 		to_chat(user, span_info("The [src] slips through dead fingers..."))
 		user.dropItemToGround(src, TRUE)
 
-/obj/item/natural/stone/attackby(obj/item/W, mob/user, params)
+/obj/item/natural/stone/pre_attack_right(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(W, /obj/item/natural/stone))
+	if(istype(A, /obj/item/natural/stone))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
 		user.visible_message("<span class='info'>[user] strikes the stones together.</span>")
 		if(prob(10))
@@ -32,8 +32,8 @@
 			var/turf/front = get_step(user,user.dir)
 			S.set_up(1, 1, front)
 			S.start()
-	else
-		..()
+		return
+	. = ..()
 
 /obj/item/natural/rock
 	name = "rock"

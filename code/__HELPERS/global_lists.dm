@@ -6,7 +6,7 @@
 	//hair
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/hair, GLOB.hairstyles_list, GLOB.hairstyles_male_list, GLOB.hairstyles_female_list)
 	//facial hair
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, GLOB.facial_hairstyles_list, GLOB.facial_hairstyles_male_list, GLOB.facial_hairstyles_female_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/facial_hair, GLOB.facial_hairstyles_list, GLOB.facial_hairstyles_male_list, GLOB.facial_hairstyles_female_list, female_same = TRUE)
 	//underwear
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
 	//undershirt
@@ -55,14 +55,11 @@
 		GLOB.surgeries_list += new path()
 	sortList(GLOB.surgeries_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
 
-	//Materials
-	for(var/path in subtypesof(/datum/material))
-		var/datum/material/D = new path()
-		GLOB.materials_list[D.id] = D
-	sortList(GLOB.materials_list, GLOBAL_PROC_REF(cmp_typepaths_asc))
-
 	// Keybindings
 	init_keybindings()
+
+	init_slapcraft_steps()
+	init_slapcraft_recipes()
 
 	GLOB.emote_list = init_emote_list()
 
@@ -73,6 +70,10 @@
 	init_subtypes(/datum/status_effect/bardicbuff, GLOB.bard_buffs)
 
 	init_subtypes(/datum/artificer_recipe, GLOB.artificer_recipes)
+
+	init_subtypes(/datum/alch_grind_recipe, GLOB.alch_grind_recipes)
+
+	init_subtypes(/datum/alch_cauldron_recipe,GLOB.alch_cauldron_recipes)
 
 	for(var/i in 0 to 20)
 		GLOB.mouseicons_human += file("icons/effects/mousemice/swang/[i * 5].dmi")

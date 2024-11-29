@@ -9,6 +9,7 @@
 	The powerful genes of the twisted, corrupted remains that was once a fairer species shines clearly through their \
 	spawn. Whether said spawn shall follow their orcish parent's footsteps by the gorging of kin-flesh is yet to be seen, \
 	though most assume the worst.  \
+	An orc may look much like it's monstrous  progenitor, sporting tusks and natural strength. \
 	\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
@@ -139,4 +140,4 @@
 	return
 
 /datum/species/halforc/get_accent_list()
-	return strings("middlespeak.json", "middle")
+	return strings("strings/middlespeak.json", "full")

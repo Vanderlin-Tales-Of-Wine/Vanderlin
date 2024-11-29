@@ -5,7 +5,6 @@
 	icon_state = "chaff1"
 	desc = "Grain that has not yet been made suitable for grinding and baking."
 	var/canthresh = TRUE
-	possible_potion = "healthpot"
 
 /obj/item/natural/chaff/attack_right(mob/user)
 	if(foodextracted && !user.get_active_held_item())

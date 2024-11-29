@@ -32,7 +32,7 @@
 	max_integrity = 100
 	integrity_failure = 0.33
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/obj/structure/table, /obj/structure/table/greyscale)
+	canSmoothWith = list(/obj/structure/table)
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	blade_dulling = DULLING_BASHCHOP
@@ -80,6 +80,8 @@
 					"<span class='notice'>I place [user.pulling] onto [src].</span>")
 				user.stop_pulling()
 	return ..()
+
+/obj/structure/table/proc/after_added_effects(obj/item/item, mob/user)
 
 /obj/structure/table/attack_tk()
 	return FALSE
@@ -129,7 +131,6 @@
 	pushed_mob.visible_message("<span class='danger'>[user] slams [pushed_mob] onto \the [src]!</span>", \
 								"<span class='danger'>[user] slams you onto \the [src]!</span>")
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
-	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table)
 
 /obj/structure/table/proc/tableheadsmash(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.Knockdown(30)
@@ -177,6 +178,7 @@
 				//Clamp it so that the icon never moves more than 16 pixels in either direction (thus leaving the table turf)
 				I.pixel_x = initial(I.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 				I.pixel_y = initial(I.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
+				after_added_effects(I, user)
 				if(istype(I, /obj/item/rogue/instrument)) // SURPRISE SURPRISE, YET ANOTHER EXPLOIT PREVENTION.
 					var/obj/item/rogue/instrument/P = I
 					if(P.playing)
@@ -219,96 +221,11 @@
 			var/turf/T = get_turf(src)
 			if(buildstack)
 				new buildstack(T, buildstackamount)
-			else
-				for(var/i in custom_materials)
-					var/datum/material/M = i
-					new M.sheet_type(T, FLOOR(custom_materials[M] / MINERAL_MATERIAL_AMOUNT, 1))
 			if(!wrench_disassembly)
 				new frame(T)
 			else
 				new framestack(T, framestackamount)
 	qdel(src)
-
-
-/obj/structure/table/greyscale
-	icon = 'icons/obj/smooth_structures/table_greyscale.dmi'
-	icon_state = "table"
-	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	buildstack = null //No buildstack, so generate from mat datums
-
-
-/*
- * Glass tables
- */
-
-/obj/structure/table/glass
-	name = "glass table"
-	desc = ""
-	icon = 'icons/obj/smooth_structures/glass_table.dmi'
-	icon_state = "glass_table"
-	buildstack
-	canSmoothWith = null
-	max_integrity = 70
-	resistance_flags = ACID_PROOF
-	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 80, "acid" = 100)
-
-/obj/structure/table/glass/Initialize()
-	. = ..()
-//	debris += new frame
-//	debris += new /obj/item/natural/glass/shard
-
-/obj/structure/table/glass/Destroy()
-	. = ..()
-
-/obj/structure/table/glass/Crossed(atom/movable/AM)
-	. = ..()
-	if(flags_1 & NODECONSTRUCT_1)
-		return
-	if(!isliving(AM))
-		return
-	// Don't break if they're just flying past
-	if(AM.throwing)
-		addtimer(CALLBACK(src, PROC_REF(throw_check), AM), 5)
-	else
-		check_break(AM)
-
-/obj/structure/table/glass/proc/throw_check(mob/living/M)
-	if(M.loc == get_turf(src))
-		check_break(M)
-
-/obj/structure/table/glass/proc/check_break(mob/living/M)
-	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & FLYING))
-		table_shatter(M)
-
-/obj/structure/table/glass/proc/table_shatter(mob/living/L)
-	visible_message("<span class='warning'>[src] breaks!</span>",
-		"<span class='danger'>I hear breaking glass.</span>")
-	var/turf/T = get_turf(src)
-	playsound(T, "shatter", 50, TRUE)
-	for(var/I in debris)
-		var/atom/movable/AM = I
-		AM.forceMove(T)
-		debris -= AM
-		if(istype(AM, /obj/item/natural/glass/shard))
-			AM.throw_impact(L)
-	L.Paralyze(100)
-	qdel(src)
-
-/obj/structure/table/glass/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
-	if(!(flags_1 & NODECONSTRUCT_1))
-		if(!disassembled)
-			var/turf/T = get_turf(src)
-			playsound(T, "shatter", 50, TRUE)
-			for(var/X in debris)
-				var/atom/movable/AM = X
-				AM.forceMove(T)
-				debris -= AM
-	qdel(src)
-
-/obj/structure/table/glass/narsie_act()
-	color = NARSIE_WINDOW_COLOUR
-	for(var/obj/item/natural/glass/shard/S in debris)
-		S.color = NARSIE_WINDOW_COLOUR
 
 /*
  * Wooden tables
@@ -604,6 +521,12 @@
 
 /obj/structure/rack/rogue/deconstruct(disassembled = TRUE)
 	qdel(src)
+
+/obj/structure/rack/rogue/underworld
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "rack_underworld"
+	climbable = TRUE
+	climb_offset = 10
 
 /obj/structure/rack/rogue/shelf
 	icon = 'icons/roguetown/misc/structure.dmi'

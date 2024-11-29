@@ -2,6 +2,7 @@
 	var/name = "intent"
 	var/desc = ""
 	var/icon_state = ""
+	var/def_bonus = 0
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
 	if(!isliving(target))
@@ -60,11 +61,13 @@
 	name = "aimed"
 	desc = "Your attacks are more precise but have a longer recovery time. Higher critrate with precise attacks."
 	icon_state = "rmbaimed"
+	def_bonus = -20
 
 /datum/rmb_intent/strong
 	name = "strong"
 	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks."
 	icon_state = "rmbstrong"
+	def_bonus = -20
 
 /datum/rmb_intent/swift
 	name = "swift"
@@ -80,6 +83,7 @@
 	name = "feint"
 	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging."
 	icon_state = "rmbfeint"
+	def_bonus = 10
 
 /datum/status_effect/debuff/feinted
 	id = "nofeint"

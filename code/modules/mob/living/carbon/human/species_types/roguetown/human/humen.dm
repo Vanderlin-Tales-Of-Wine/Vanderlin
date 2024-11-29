@@ -68,17 +68,17 @@
 
 /datum/species/human/northern/get_skin_list()
 	return sortList(list(
-		"Ice Cap" = SKIN_COLOR_ICECAP,
-		"Arctic" = SKIN_COLOR_ARCTIC,
-		"Tundra" = SKIN_COLOR_TUNDRA,
-		"Continental" = SKIN_COLOR_CONTINENTAL,
-		"Temperate" = SKIN_COLOR_TEMPERATE,
-		"Coastal" = SKIN_COLOR_COASTAL,
-		"Subtropical" = SKIN_COLOR_SUBTROPICAL,
-		"Tropical Dry" = SKIN_COLOR_TROPICALDRY,
-		"Tropical Wet" = SKIN_COLOR_TROPICALWET,
-		"Desert" = SKIN_COLOR_DESERT,
-		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS,
+		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
+		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
+		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
+		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
+		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
+		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
+		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
+		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
+		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
+		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east)
+		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
 	))
 
 /datum/species/human/northern/get_hairc_list()

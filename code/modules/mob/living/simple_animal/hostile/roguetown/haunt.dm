@@ -114,7 +114,7 @@
 
 /obj/structure/bonepile/Initialize()
 	. = ..()
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 	soundloop.start()
 //	for(var/i in 1 to maxhaunts)
 	spawn_haunt()

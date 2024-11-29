@@ -18,10 +18,11 @@
 	Half-Elves are extremely diverse, as they bring in humen and elvish culture\
 	and it is widely considered that Half-Elf culture is simply a melting pot of \
 	various others condensing into one vibrant entity. \
+	Their longevity spanning too long for a human and short for an elf lead them to congregate together. \
 	Due to their heritage, Half-Elves tend to gain racial traits depending on how strong their fathers, or mothers, genes were. \
-	Half-Elves also typically try to find identity, in a world that sees them primarly as perversions."
+	Half-Elves also typically try to find identity."
 
-	skin_tone_wording = "Halfling Identity"
+	skin_tone_wording = "Half-Elven Identity"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
@@ -71,11 +72,16 @@
 
 /datum/species/human/halfelf/get_skin_list()
 	return sortList(list(
-		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN,
-		"Solar-Hue" = SKIN_COLOR_SOLAR_HUE,
-		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE,
-		"Amber-Stained" = SKIN_COLOR_AMBER_STAINED,
-		"Ebon-Born" = SKIN_COLOR_EBON_BORN,
+		"Zizo-Cursed" = SKIN_COLOR_ZIZO_CURSED, // - (Pale)
+		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN, // - (White 1)
+		"Solar-Hue" = SKIN_COLOR_SOLAR_HUE, // - (White 2)
+		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE, // - (White 3)
+		"Amber-Stained" = SKIN_COLOR_AMBER_STAINED, // - (White 4)
+		"Joshua-Aligned" = SKIN_COLOR_JOSHUA_ALIGNED, // - (Middle-Eastern)
+		"Arid-Birthed" = SKIN_COLOR_ARID_BIRTHED, // - (Black)
+		"Parasite-Taineted" = SKIN_COLOUR_PARASITE_TAINTED, // - (Light purple)
+		"Mushroom-Minded" = SKIN_COLOR_MUSHROOM_MINDED, // - (Mid purple)
+		"Cave-Attuned" = SKIN_COLOR_CAVE_ATTUNED, // - (Deep purple)
 	))
 
 /datum/species/human/halfelf/get_hairc_list()
@@ -104,7 +110,9 @@
 	"green - leaf" = "2f3c2e",
 	"green - moss" = "3b3c2a",
 
-	"white - ice" = "f4f4f4"
+	"white - ice" = "f4f4f4",
+	"white - cavedew" = "dee9ed",
+	"white - spiderweb" = "f4f4f4"
 
 	))
 

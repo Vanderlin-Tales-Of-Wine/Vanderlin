@@ -297,7 +297,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						spec_hair += X
 		if(FEMALE)
 			for(var/O in GLOB.facial_hairstyles_female_list)
-				X = GLOB.facial_hairstyles_list[O]
+				if(!istype(src, /datum/species/dwarf))
+					X = null
+				else
+					X = GLOB.facial_hairstyles_list[O]
 				if(X)
 					if(id in X.specuse)
 						spec_hair += X
@@ -1751,6 +1754,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						"<span class='danger'>I block [user]'s grab!</span>", "<span class='hear'>I hear a swoosh!</span>", COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, "<span class='warning'>My grab at [target] was blocked!</span>")
 		return FALSE
+
 	if(attacker_style && attacker_style.grab_act(user,target))
 		return TRUE
 	else
@@ -2031,8 +2035,24 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(user == target)
 		return FALSE
 	if(user.check_leg_grabbed(1) || user.check_leg_grabbed(2))
-		to_chat(user, "<span class='notice'>I can't move my leg!</span>")
-		return
+		if(user.check_leg_grabbed(1) && user.check_leg_grabbed(2))		//If both legs are grabbed
+			to_chat(user, span_notice("I can't move my leg!"))
+			return
+		else															//If only one leg is grabbed
+			var/mob/living/G = user.pulledby
+			var/userskill = 1
+			if(user.mind)
+				userskill = ((user.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+			var/grabberskill = 1
+			if(G?.mind)
+				grabberskill = ((G.mind.get_skill_level(/datum/skill/combat/wrestling) * 0.1) + 1)
+			if(((user.STASTR + rand(1, 6)) * userskill) < ((G.STASTR + rand(1, 6)) * grabberskill))
+				to_chat(user, span_notice("I can't move my leg!"))
+				user.changeNext_move(CLICK_CD_GRABBING)
+				return
+			else
+				user.resist_grab()
+
 	if(user.rogfat >= user.maxrogfat)
 		return FALSE
 	if(!(user.mobility_flags & MOBILITY_STAND))
@@ -2048,8 +2068,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				target.mind.attackedme[user.real_name] = world.time
 			var/selzone = accuracy_check(user.zone_selected, user, target, /datum/skill/combat/unarmed, user.used_intent)
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(selzone))
+			var/damage = (user.get_punch_dmg() * 1.4)
+			if(user.shoes)
+				damage *= (1 + (user.shoes.armor_class * 0.2))
 			var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
-			var/damage = user.get_punch_dmg() * 1.4
 			var/balance = 10
 			target.next_attack_msg.Cut()
 			var/nodmg = FALSE
@@ -2154,7 +2176,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!affecting)
 			affecting = target.get_bodypart(BODY_ZONE_CHEST)
 		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = BCLASS_BLUNT)
-		var/damage = user.get_punch_dmg()
+		var/damage = (user.get_punch_dmg() * 2.5)
+		if(user.shoes)
+			damage *= (1 + (user.shoes.armor_class * 0.2))
 		if(!target.apply_damage(damage, user.dna.species.attack_type, affecting, armor_block))
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
@@ -2209,8 +2233,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H, selzone)
 	// Allows you to put in item-specific reactions based on species
 	if(user != H)
-		if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armor_penetration))
-			return 0
+		if(H.can_see_cone(user))
+			if(H.check_shields(I, I.force, "the [I.name]", MELEE_ATTACK, I.armor_penetration))
+				return 0
 	if(H.check_block())
 		H.visible_message("<span class='warning'>[H] blocks [I]!</span>", \
 						"<span class='danger'>I block [I]!</span>")

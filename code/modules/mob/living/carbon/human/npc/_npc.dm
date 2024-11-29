@@ -23,6 +23,7 @@
 	var/next_passive_detect = 0
 	var/flee_in_pain = FALSE
 	var/stand_attempts = 0
+	var/attack_speed = 0
 
 	var/returning_home = FALSE
 
@@ -346,7 +347,7 @@
 		used_intent = a_intent
 		UnarmedAttack(L,1)
 
-	var/adf = used_intent.clickcd
+	var/adf = ((used_intent.clickcd + 8) - round((src.STASPD - 10) / 2) - attack_speed)
 	if(istype(rmb_intent, /datum/rmb_intent/aimed))
 		adf = round(adf * 1.4)
 	if(istype(rmb_intent, /datum/rmb_intent/swift))

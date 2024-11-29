@@ -5,6 +5,7 @@
 
 /datum/keybinding/client/admin_help
 	hotkey_keys = list("F1")
+	classic_keys = list("F1")
 	name = "admin_help"
 	full_name = "Admin Help"
 	description = "Ask an admin for help."

@@ -28,6 +28,17 @@
 			index = findtext(t, char)
 	return t
 
+// Removes punctuation
+/proc/strip_punctuation(t,limit=MAX_MESSAGE_LEN)
+	var/list/strip_chars = list(",",".","!","?")
+	t = copytext_char(t,1,limit)
+	for(var/char in strip_chars)
+		var/index = findtext(t, char)
+		while(index)
+			t = copytext_char(t, 1, index) + copytext_char(t, index+1)
+			index = findtext(t, char)
+	return t
+
 //Removes a few problematic characters
 /proc/sanitize_simple(t,list/repl_chars = list("\n"="#","\t"="#"))
 	for(var/char in repl_chars)

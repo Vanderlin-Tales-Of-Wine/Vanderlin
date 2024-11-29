@@ -25,7 +25,7 @@ GLOBAL_DATUM(error_cache, /datum/error_viewer/error_cache)
 	var/name = ""
 
 /datum/error_viewer/proc/browse_to(client/user, html)
-	var/datum/browser/browser = new(user.mob, "error_viewer", null, 600, 400)
+	var/datum/browser/noclose/browser = new(user.mob, "error_viewer", null, 600, 400)
 	browser.set_content(html)
 	browser.add_head_content({"
 	<style>

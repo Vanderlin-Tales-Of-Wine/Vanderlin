@@ -4898,8 +4898,14 @@
 	icon_state = "tablewood1"
 	},
 /obj/structure/fluff/wallclock,
-/obj/item/reagent_containers/food/snacks/butter,
-/obj/item/cooking/pan,
+/obj/item/reagent_containers/food/snacks/butter{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/cooking/pan{
+	pixel_y = 11;
+	pixel_x = -6
+	},
 /turf/open/floor/rogue/ruinedwood{
 	dir = 1;
 	icon_state = "vertw"

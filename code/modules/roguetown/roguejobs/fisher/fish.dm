@@ -27,18 +27,14 @@
 		if("gold")
 			sellprice = sellprice * 10
 			name = "legendary [initial(name)]"
-			dust_result = /obj/item/alch/waterdust
 		if("ultra")
 			sellprice = sellprice * 4
 			name = "ultra-rare [initial(name)]"
-			dust_result = /obj/item/alch/waterdust
 		if("rare")
 			sellprice = sellprice * 2
 			name = "rare [initial(name)]"
-			dust_result = /obj/item/alch/waterdust
 		if("com")
 			name = "common [initial(name)]"
-			possible_potion = "conpot"
 	if(!dead)
 		START_PROCESSING(SSobj, src)
 

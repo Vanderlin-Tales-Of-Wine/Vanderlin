@@ -170,19 +170,3 @@
 				continue
 			V.add_stress(/datum/stressevent/viewgib)
 	. = ..()
-
-/mob/living/carbon/human/proc/makeSkeleton()
-	ADD_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
-	set_species(/datum/species/skeleton)
-	return TRUE
-
-/mob/living/carbon/proc/Drain()
-	become_husk(CHANGELING_DRAIN)
-	ADD_TRAIT(src, TRAIT_BADDNA, CHANGELING_DRAIN)
-	blood_volume = 0
-	return TRUE
-
-/mob/living/carbon/proc/makeUncloneable()
-	ADD_TRAIT(src, TRAIT_BADDNA, MADE_UNCLONEABLE)
-	blood_volume = 0
-	return TRUE

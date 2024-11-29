@@ -90,6 +90,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/end_party = FALSE
 	var/last_lobby = 0
+	var/reboot_anyway
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	load_mode()
@@ -149,7 +150,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = 'sound/music/title.ogg'
+	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
 
 	if(!GLOB.syndicate_code_phrase)
 		GLOB.syndicate_code_phrase	= generate_code_phrase(return_list=TRUE)
@@ -175,14 +176,14 @@ SUBSYSTEM_DEF(ticker)
 	return ..()
 
 /datum/controller/subsystem/ticker/fire()
+	if(reboot_anyway)
+		if(world.time > reboot_anyway)
+			SSticker.Reboot("Restart vote successful and gamemaster did not want to stop the restart.", "restart vote")
+			reboot_anyway = null
 	switch(current_state)
 		if(GAME_STATE_STARTUP)
-//			if(Master.initializations_finished_with_no_players_logged_in)
-//			start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
-//			to_chat(world, "<span class='boldnotice'>Welcome to [station_name()]!</span>")
-//			send2chat(new /datum/tgs_message_content("New round starting on [SSmapping.config.map_name]!"), CONFIG_GET(string/chat_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			//Everyone who wants to be an observer is now spawned
 			create_observers()
@@ -298,30 +299,6 @@ SUBSYSTEM_DEF(ticker)
 	amt_ready = 999
 #endif
 
-
-	/*
-	for(var/mob/dead/new_player/player in GLOB.player_list)
-		if(!player)
-			continue
-		if(player.ready == PLAYER_READY_TO_PLAY)
-			amt_ready++
-
-	if(amt_ready > amt_ready_needed)
-		to_chat(world, "<span class='purple'>Not enough players to start the game</span>")
-	*/
-
-
-	/*	failedstarts++
-		if(failedstarts >= 13) // this stuff is for rougewar, a team deathmatch mode I guess.
-			to_chat(world, "<span class='greentext'>Starting ROGUEFIGHT...</span>")
-			var/icon/ikon
-			var/file_path = "icons/roguefight_title.dmi"
-			ASSERT(fexists(file_path))
-			ikon = new(fcopy_rsc(file_path))
-			if(SStitle.splash_turf && ikon)
-				SStitle.splash_turf.icon = ikon
-			for(var/mob/dead/new_player/player in GLOB.player_list)
-				player.playsound_local(player, 'sound/music/wartitle.ogg', 100, TRUE)*/
 	job_change_locked = TRUE
 	return TRUE
 

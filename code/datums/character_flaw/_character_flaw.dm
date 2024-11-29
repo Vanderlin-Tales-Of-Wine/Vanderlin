@@ -269,6 +269,36 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	head?.add_wound(/datum/wound/facial/eyes/left/permanent)
 	H.update_fov_angles()
 
+/datum/charflaw/noeyerandom
+	name = "Cyclops (L)"
+	desc = "I lost my left eye long ago. But it made me great at noticing things."
+
+/datum/charflaw/noeyerandom/on_mob_creation(mob/user)
+	. = ..()
+	switch(rand(1,2))
+		if(1)
+			name = "Cyclops (L)"
+			desc = "I lost my left eye long ago. But it made me great at noticing things."
+			if(!ishuman(user))
+				return
+			var/mob/living/carbon/human/H = user
+			if(!H.wear_mask)
+				H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch/left(H), SLOT_WEAR_MASK)
+			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+			head?.add_wound(/datum/wound/facial/eyes/left/permanent)
+			H.update_fov_angles()
+		else
+			name = "Cyclops (R)"
+			desc = "I lost my right eye long ago. But it made me great at noticing things."
+			if(!ishuman(user))
+				return
+			var/mob/living/carbon/human/H = user
+			if(!H.wear_mask)
+				H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch(H), SLOT_WEAR_MASK)
+			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
+			H.update_fov_angles()
+
 /datum/charflaw/hunted
 	name = "Hunted"
 	desc = "Something in my past has made me a target. I'm always looking over my shoulder."

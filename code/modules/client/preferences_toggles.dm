@@ -21,6 +21,14 @@
 	usr.client.prefs.ShowChoices(usr)
 #endif
 
+/client/verb/setup_character()
+	set name = "Game Preferences"
+	set category = "Options"
+	set desc = ""
+	if(prefs)
+		usr.client.prefs.current_tab = 1
+		usr.client.prefs.ShowChoices(usr, 4)
+
 /client/verb/toggle_fullscreen()
 	set name = "ToggleFullscreen"
 	set category = "Options"

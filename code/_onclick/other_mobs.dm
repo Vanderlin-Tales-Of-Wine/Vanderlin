@@ -15,7 +15,8 @@
 		return
 
 	if(check_arm_grabbed(used_hand))
-		to_chat(src, span_warning("Someone is grabbing my arm!"))
+		to_chat(src, "<span class='warning'>Someone is grabbing my arm!</span>")
+		resist_grab()
 		return
 
 	// Special glove functions:
@@ -203,15 +204,19 @@
 
 	next_attack_msg.Cut()
 
+	var/datum/wound/caused_wound
+	if(!nodmg)
+		caused_wound = affecting.bodypart_attacked_by(BCLASS_BITE, dam2do, user, user.zone_selected, crit_message = TRUE)
+
 	if(!nodmg)
 		playsound(src, "smallslash", 100, TRUE, -1)
 		if(istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			if(user.mind && mind)
-				if(user.mind.has_antag_datum(/datum/antagonist/werewolf))
-					if(!src.mind.has_antag_datum(/datum/antagonist/werewolf))
-						if(prob(10))
-							addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/human, werewolf_infect)), 3 MINUTES)
+				if(istype(user.dna.species, /datum/species/werewolf))
+					caused_wound?.werewolf_infect_attempt()
+					if(prob(30))
+						user.werewolf_feed(src)
 				if(user.mind.has_antag_datum(/datum/antagonist/zombie) && !src.mind.has_antag_datum(/datum/antagonist/zombie))
 					INVOKE_ASYNC(H, TYPE_PROC_REF(/mob/living/carbon/human, zombie_infect_attempt))
 
@@ -305,6 +310,7 @@
 					return
 				if(pulledby && pulledby != src)
 					to_chat(src, span_warning("I'm being grabbed."))
+					resist_grab()
 					return
 				if(IsOffBalanced())
 					to_chat(src, span_warning("I haven't regained my balance yet."))

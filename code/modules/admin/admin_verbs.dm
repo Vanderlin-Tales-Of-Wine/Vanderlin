@@ -8,6 +8,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
 	/client/proc/adjust_pq,
+	/client/proc/stop_restart,
 	/client/proc/hearallasghost,
 	/client/proc/admin_ghost,
 	/client/proc/ghost_up,
@@ -27,7 +28,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/admin_force_next_migrant_wave,
 	/client/proc/cmd_admin_say,
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
-	/client/proc/set_context_menu_enabled,
+	/client/proc/toggle_context_menu,
 	/client/proc/delete_player_book,
 	/client/proc/ShowAllFamilies,
 	)
@@ -126,8 +127,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/admin_change_sec_level,
 	/client/proc/run_weather,
 	/client/proc/run_particle_weather,
-	/client/proc/mass_zombie_infection,
-	/client/proc/mass_zombie_cure,
 	/client/proc/show_tip,
 	/client/proc/smite,
 	))
@@ -349,16 +348,17 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Adminverbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/client/proc/set_context_menu_enabled(Enable as num)
+/client/proc/toggle_context_menu()
 	set category = "Admin"
 	set name = "Right-click Menu"
-	if(holder)
-		if(Enable)
-			show_popup_menus = TRUE
-		else
-			show_popup_menus = FALSE
+	if(!holder)
+		return
+	if(show_popup_menus == FALSE)
+		show_popup_menus = TRUE
+		log_admin("[key_name(usr)] toggled context menu ON.")
 	else
 		show_popup_menus = FALSE
+		log_admin("[key_name(usr)] toggled context menu OFF.")
 
 /client/proc/admin_ghost()
 	set category = "GameMaster"
