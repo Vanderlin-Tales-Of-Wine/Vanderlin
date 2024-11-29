@@ -12,7 +12,7 @@
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
 
 	/// The list that holds all the ingredients in the pot
-	var/list/obj/item/added_ingredients /// The list that holds all the ingredients in the pot
+	var/list/added_ingredients /// The list that holds all the ingredients in the pot
 
 
 /obj/item/reagent_containers/glass/bucket/pot/attackby(obj/item/reagent_containers/food/snacks/attacking_item, mob/user, params)
@@ -23,7 +23,7 @@
 			to_chat(user, "<span class='notice'>Cooking this wouldn't make any stew!</span>")
 			return
 
-	// Not enough room
+		// Not enough room
 		if(LAZYLEN(added_ingredients) >= FLOOR((reagents.get_reagent_amount(/datum/reagent/water) / 33), 1))
 			to_chat(user, "<span class='notice'>There's not enough room for another ingredient!</span>")
 			return
