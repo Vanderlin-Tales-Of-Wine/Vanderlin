@@ -61,7 +61,7 @@
 	devotion_cost = -100
 //	req_inhand = list(/obj/item/roguecoin/gold)
 	/// Amount of PQ gained for reviving people
-	var/revive_pq = 0.25
+	var/revive_pq = 0
 
 /obj/effect/proc_holder/spell/invoked/revive/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
