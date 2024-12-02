@@ -2129,7 +2129,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					target_table = locate(/obj/structure/table) in target_shove_turf.contents
 					shove_blocked = TRUE
 			else
-				if(stander && target.curr_stamina < target.max_stamina) //if you are kicked with less than full stam, you are knocked down no matter what
+				if(stander && target.curr_stamina <= 0) //if you are kicked with no stam, you are knocked down no matter what
 					target.Knockdown(100)
 
 		if(shove_blocked && !target.is_shove_knockdown_blocked() && !target.buckled)
