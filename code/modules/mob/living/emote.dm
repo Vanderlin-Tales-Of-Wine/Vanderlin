@@ -1036,7 +1036,7 @@
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(intentional)
-			if(!C.rogfat_add(3)) // I guess this is here to reduce spamming? Or some other concept? Reduced from 10
+			if(!C.change_stamina(-3)) // I guess this is here to reduce spamming? Or some other concept? Reduced from 10
 				to_chat(C, "<span class='warning'>I try to scream but my voice fails me.</span>")
 				. = FALSE
 

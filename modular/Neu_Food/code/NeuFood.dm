@@ -436,7 +436,7 @@
 	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1*REM, 0)
 		M.adjustFireLoss(-0.1*REM, 0)
-		M.rogstam_add(2)
+		M.change_fatigue(2)
 		return
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		return
@@ -469,7 +469,7 @@
 			M.blood_volume = min(M.blood_volume+2, BLOOD_VOLUME_MAXIMUM)
 		M.adjustBruteLoss(-0.2*REM, 0)
 		M.adjustFireLoss(-0.2*REM, 0)
-		M.rogstam_add(5)
+		M.change_fatigue(5)
 		return
 	else
 		if(prob(12))

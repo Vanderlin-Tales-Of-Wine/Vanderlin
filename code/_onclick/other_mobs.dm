@@ -55,7 +55,7 @@
 				var/obj/AM = A
 				if(istype(AM) && !AM.anchored)
 					var/jadded = max(100-(STASTR*10),5)
-					if(rogfat_add(jadded))
+					if(change_stamina(-jadded))
 						visible_message(span_info("[src] pushes [AM]."))
 						PushAM(AM, MOVE_FORCE_STRONG)
 					else
@@ -347,7 +347,7 @@
 					if(!H.check_armor_skill())
 						jadded += 50
 						jrange = 1
-				if(rogfat_add(min(jadded,100)))
+				if(change_stamina(min(-jadded,100)))
 					if(jextra)
 						throw_at(A, jrange, 1, src, spin = FALSE)
 						while(src.throwing)
@@ -444,7 +444,7 @@
 				if(ranged_ability?.InterceptClickOn(src, params, A))
 					changeNext_move(mmb_intent.clickcd)
 					if(mmb_intent.releasedrain)
-						rogfat_add(mmb_intent.releasedrain)
+						change_stamina(-mmb_intent.releasedrain)
 				return
 
 //Return TRUE to cancel other attack hand effects that respect it.
@@ -548,7 +548,7 @@
 			var/obj/structure/AM = A
 			if(istype(AM) && !AM.anchored)
 				var/jadded = max(100-(STASTR*10),5)
-				if(rogfat_add(jadded))
+				if(change_stamina(-jadded))
 					visible_message(span_info("[src] pushes [AM]."))
 					PushAM(AM, MOVE_FORCE_STRONG)
 				else

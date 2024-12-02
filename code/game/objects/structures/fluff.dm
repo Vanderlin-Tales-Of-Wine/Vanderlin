@@ -787,7 +787,7 @@
 					user.changeNext_move(CLICK_CD_MELEE)
 					if(W.max_blade_int)
 						W.remove_bintegrity(5)
-					if(!L.rogfat_add(rand(4,6)))
+					if(!L.change_stamina(-rand(4,6)))
 						if(ishuman(L))
 							var/mob/living/carbon/human/H = L
 							if(H.tiredness >= 50)
