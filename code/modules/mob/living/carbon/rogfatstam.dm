@@ -1,60 +1,59 @@
-/mob/living/proc/update_rogfat() //update hud and regen after last_fatigued delay on taking
-	maxrogfat = maxrogstam / 10
+/mob/living/proc/update_curr_stam() ///Dont confuse this with a mobs stamina damage, this is their 'action stamina'
+	max_stamina = max_fatigue / 10
 
-	if(world.time > last_fatigued + 20) //regen fatigue
-		var/added = rogstam / maxrogstam
-		added = round(-10+ (added*-40))
+	if(world.time > last_stam_drained + 20) //regen stamina
+		var/regenerated = round(10+ ((curr_fatigue / max_fatigue)*40))
 		if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))
-			added = round(added * 0.5, 1)
-		if(rogfat >= 1)
-			rogfat_add(added)
+			regenerated = FLOOR(regenerated * 0.5, 1)
+		if(curr_stamina < max_stamina)
+			change_stamina(regenerated)
 		else
-			rogfat = 0
+			curr_stamina = max_stamina
 
 	update_health_hud()
 
-/mob/living/proc/update_rogstam()
+/mob/living/proc/update_fatigue()
 	var/athletics_skill = 0
 	if(mind)
 		athletics_skill = mind.get_skill_level(/datum/skill/misc/athletics)
-	maxrogstam = (STAEND + (athletics_skill/2 ) ) * 100
+	max_fatigue = (STAEND + (athletics_skill/2 ) ) * 100
 	if(cmode)
 		if(!HAS_TRAIT(src, TRAIT_BREADY))
-			rogstam_add(-2)
+			change_fatigue(-2)
 
-/mob/proc/rogstam_add(added as num)
+/mob/proc/change_fatigue(added as num)
 	return
 
-/mob/living/rogstam_add(added as num)
-	if(HAS_TRAIT(src, TRAIT_NOROGSTAM))
+/mob/living/change_fatigue(added as num)
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
 	if(m_intent == MOVE_INTENT_RUN)
 		var/boon = mind.get_learning_boon(/datum/skill/misc/athletics)
 		mind.adjust_experience(/datum/skill/misc/athletics, (STAINT*0.02) * boon)
-	rogstam += added
-	if(rogstam > maxrogstam)
-		rogstam = maxrogstam
+	curr_fatigue += added
+	if(curr_fatigue > max_fatigue)
+		curr_fatigue = max_fatigue
 		update_health_hud()
 		return FALSE
 	else
-		if(rogstam <= 0)
-			rogstam = 0
-			if(m_intent == MOVE_INTENT_RUN) //can't sprint at zero stamina
+		if(curr_fatigue <= 0)
+			curr_fatigue = 0
+			if(m_intent == MOVE_INTENT_RUN)
 				toggle_rogmove_intent(MOVE_INTENT_WALK)
 		update_health_hud()
 		return TRUE
 
-/mob/proc/rogfat_add(added as num)
+/mob/proc/change_stamina(added as num)
 	return TRUE
 
-/mob/living/rogfat_add(added as num, emote_override, force_emote = TRUE) //call update_rogfat here and set last_fatigued, return false when not enough fatigue left
-	if(HAS_TRAIT(src, TRAIT_NOROGSTAM))
+/mob/living/change_stamina(added as num, emote_override, force_emote = TRUE) //call update_stamina here and set last_stam_drained, return false when not enough fatigue left
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
-	rogfat = CLAMP(rogfat+added, 0, maxrogfat)
-	if(added > 0)
-		rogstam_add(added * -1)
-	if(added >= 5)
-		if(rogstam <= 0)
+	curr_stamina = CLAMP(curr_stamina+added, 0, max_stamina)
+	if(added < 0)
+		change_fatigue(added)
+	if(added <= -5)
+		if(curr_fatigue <= 0)
 			if(iscarbon(src))
 				var/mob/living/carbon/C = src
 				if(!HAS_TRAIT(C, TRAIT_NOHUNGER))
@@ -62,8 +61,8 @@
 						if(C.hydration <= 0)
 							C.heart_attack()
 							return FALSE
-	if(rogfat >= maxrogfat)
-		rogfat = maxrogfat
+	if(curr_stamina <= 0)
+		curr_stamina = 0
 		update_health_hud()
 		if(m_intent == MOVE_INTENT_RUN) //can't sprint at full fatigue
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
@@ -72,11 +71,11 @@
 		else
 			emote(emote_override, forced = force_emote)
 		blur_eyes(2)
-		last_fatigued = world.time + 30 //extra time before fatigue regen sets in
+		last_stam_drained = world.time + 30 //extra time before fatigue regen sets in
 		stop_attack()
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		flash_fullscreen("blackflash")
-		if(rogstam <= 0)
+		if(curr_fatigue <= 0)
 			addtimer(CALLBACK(src, PROC_REF(Knockdown), 30), 10)
 		addtimer(CALLBACK(src, PROC_REF(Immobilize), 30), 10)
 		if(iscarbon(src))
@@ -89,7 +88,8 @@
 						C.heart_attack()
 		return FALSE
 	else
-		last_fatigued = world.time
+		if (added < 0)
+			last_stam_drained = world.time
 		update_health_hud()
 		return TRUE
 
@@ -97,7 +97,7 @@
 	var/heart_attacking = FALSE
 
 /mob/living/carbon/proc/heart_attack()
-	if(HAS_TRAIT(src, TRAIT_NOROGSTAM))
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return
 	if(!heart_attacking)
 		var/mob/living/carbon/C = src
@@ -146,6 +146,6 @@
 			animate(transform = -newmatrix, time = 30, easing = QUAD_EASING)
 
 /mob/living/proc/rogfat_reset()
-	rogfat = 0
-	last_fatigued = 0
+	curr_stamina = 0
+	last_stam_drained = 0
 	return

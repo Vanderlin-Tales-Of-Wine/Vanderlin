@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Critical Resistance" = TRAIT_CRITICAL_RESISTANCE,
 		"Critical Weakness" = TRAIT_CRITICAL_WEAKNESS,
 		"Awoken" = TRAIT_MANIAC_AWOKEN,
-		"Indefatigable" = TRAIT_NOROGSTAM,
+		"Indefatigable" = TRAIT_NOFATIGUE,
 		"Fatal Insomnia" = TRAIT_NOSLEEP,
 		"Fast Sleeper" = TRAIT_FASTSLEEP,
 		"Nudist" = TRAIT_NUDIST,

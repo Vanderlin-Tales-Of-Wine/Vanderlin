@@ -76,7 +76,7 @@
 			var/mob/living/carbon/C = user
 			if(C.domhand)
 				used_str = C.get_str_arms(C.used_hand)
-			C.rogfat_add(max(30 - (used_str * 3), 0))
+			C.change_stamina(-max(30 - (used_str * 3), 0))
 		var/total_chance = 7 * user.mind.get_skill_level(hingot.currecipe.appro_skill)
 		var/breakthrough = 0
 		if(prob(1 + total_chance))

@@ -199,7 +199,7 @@
 		playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
 		user.Immobilize(2 SECONDS)
 		user.changeNext_move(2 SECONDS)
-		user.rogfat_add(5)
+		user.change_stamina(-5)
 		src.Immobilize(1 SECONDS)
 		src.changeNext_move(1 SECONDS)
 		return

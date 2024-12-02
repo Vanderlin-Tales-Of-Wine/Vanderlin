@@ -11,7 +11,7 @@
 	color = "#ff0000"
 	taste_description = "lifeblood"
 	overdose_threshold = 0
-	metabolization_rate = REAGENTS_METABOLISM * 3
+	metabolization_rate = REAGENTS_METABOLISM
 	alpha = 173
 
 /datum/reagent/medicine/healthpot/on_mob_life(mob/living/carbon/M)
@@ -31,16 +31,16 @@
 	description = "Quickly regenerates all types of damage."
 	color = "#820000be"
 	taste_description = "rich lifeblood"
-	metabolization_rate = REAGENTS_METABOLISM * 9
+	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/stronghealth/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.99)
 		M.blood_volume = min(M.blood_volume+80, BLOOD_VOLUME_MAXIMUM)
-		M.adjustBruteLoss(-15*REM, 0)
-		M.adjustFireLoss(-15*REM, 0)
-		M.adjustOxyLoss(-6, 0)
-		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -5*REM)
-		M.adjustCloneLoss(-5*REM, 0)
+		M.adjustBruteLoss(-8*REM, 0)
+		M.adjustFireLoss(-8*REM, 0)
+		M.adjustOxyLoss(-4, 0)
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -20*REM)
+		M.adjustCloneLoss(-8*REM, 0)
 	..()
 	. = 1
 
@@ -56,10 +56,9 @@
 	alpha = 173
 
 /datum/reagent/medicine/manapot/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.99)
-		M.rogstam_add(50)
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_fatigue(50)
 	..()
-	. = 1
 
 /datum/reagent/medicine/strongmana
 	name = "Strong Mana Potion"
@@ -68,10 +67,9 @@
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.99)
-		M.rogstam_add(200)
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_fatigue(250)
 	..()
-	. = 1
 
 /datum/reagent/medicine/stampot
 	name = "Stamina Potion"
@@ -83,9 +81,9 @@
 	metabolization_rate = REAGENTS_METABOLISM
 	alpha = 173
 
-/datum/reagent/medicine/manapot/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
-		M.rogstam_add(50)
+/datum/reagent/medicine/stampot/on_mob_life(mob/living/carbon/M)
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_stamina(1.5)
 	..()
 
 /datum/reagent/medicine/strongstam
@@ -94,9 +92,9 @@
 	color = "#13df00"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
-/datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
-		M.rogstam_add(200)
+/datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_stamina(6)
 	..()
 
 /datum/reagent/medicine/antidote
@@ -299,8 +297,8 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
 /datum/reagent/stampoison/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
-		M.rogstam_add(-25) //Slowly leech stamina
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_stamina(-1.5) //Slowly leech stam, and stop regen
 	return ..()
 
 /datum/reagent/strongstampoison
@@ -312,8 +310,8 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	metabolization_rate = REAGENTS_SLOW_METABOLISM * 3
 
 /datum/reagent/strongstampoison/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
-		M.rogstam_add(-150) //Rapidly leech stamina
+	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
+		M.change_stamina(-6) //Rapidly leech stam, and stop regen
 	return ..()
 
 

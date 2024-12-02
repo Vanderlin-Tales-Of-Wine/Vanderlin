@@ -1766,13 +1766,13 @@
 
 /atom/movable/screen/rogfat
 	name = "stamina"
-	icon_state = "fat100"
+	icon_state = "stambar100"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = rogueui_fat
 
 /atom/movable/screen/rogstam
 	name = "fatigue"
-	icon_state = "stam100"
+	icon_state = "fatbar100"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = rogueui_fat
 

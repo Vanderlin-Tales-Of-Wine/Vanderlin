@@ -317,7 +317,7 @@
 /mob/proc/do_parry(obj/item/W, parrydrain as num, mob/living/user)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(H.rogfat_add(parrydrain))
+		if(H.change_stamina(-parrydrain))
 			if(W)
 				playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
 			if(istype(rmb_intent, /datum/rmb_intent/riposte))
@@ -342,7 +342,7 @@
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(H.rogfat_add(parrydrain))
+		if(H.change_stamina(-parrydrain))
 			playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
 			return TRUE
@@ -374,7 +374,7 @@
 		I = AH.used_intent.masteritem
 
 	var/dodge_score = D.defprob
-	if(D.rogfat >= D.maxrogfat)
+	if(D.curr_stamina <= 0)
 		return FALSE
 	if(!(D.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
 		return FALSE
@@ -450,7 +450,7 @@
 			to_chat(src, span_info("Roll under [dodge_score] to dodge... [dodgeroll]"))
 		if(dodgeroll > dodge_score)
 			return FALSE
-		if(!DH.rogfat_add(max(drained, 5)))
+		if(!DH.change_stamina(max(-drained, -5)))
 			to_chat(src, span_warning("I'm too tired to dodge!"))
 			return FALSE
 	else																//Defender is non human

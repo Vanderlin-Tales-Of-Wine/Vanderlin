@@ -43,7 +43,7 @@
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
 	var/mob/living/carbon/human/L = owner.current
-	ADD_TRAIT(L, TRAIT_NOROGSTAM, "[type]")
+	ADD_TRAIT(L, TRAIT_NOFATIGUE, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
 	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")
 	ADD_TRAIT(L, TRAIT_NOPAIN, "[type]")
