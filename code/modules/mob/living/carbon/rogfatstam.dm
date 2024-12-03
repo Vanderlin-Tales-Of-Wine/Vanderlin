@@ -1,4 +1,7 @@
-/mob/living/proc/update_curr_stam() ///Dont confuse this with a mobs stamina damage, this is their 'action stamina'
+///Dont confuse this with a mobs stamina damage,
+///this is their 'action stamina',
+///this is similar to other codebases `update_rogfat`
+/mob/living/proc/update_curr_stam()
 	max_stamina = max_fatigue / 10
 
 	if(world.time > last_stam_drained + 20) //regen stamina
@@ -11,7 +14,7 @@
 			curr_stamina = max_stamina
 
 	update_health_hud()
-
+///This proc is equivilent to `update_rogstam` on other codebases.
 /mob/living/proc/update_fatigue()
 	var/athletics_skill = 0
 	if(mind)
@@ -21,6 +24,10 @@
 		if(!HAS_TRAIT(src, TRAIT_BREADY))
 			change_fatigue(-2)
 
+///If you're reading this as someone porting from another code-base:
+/// ***THIS IS IMPORTANT.***
+/// This function is identical to rogfat_add(number)!!!
+/// This changes the BLUE BAR.
 /mob/proc/change_fatigue(added as num)
 	return
 
@@ -46,7 +53,12 @@
 /mob/proc/change_stamina(added as num)
 	return TRUE
 
-/mob/living/change_stamina(added as num, emote_override, force_emote = TRUE) //call update_stamina here and set last_stam_drained, return false when not enough fatigue left
+///If you're reading this as someone porting from another code-base:
+/// ***THIS IS IMPORTANT.***
+///	This function is identical to rogstam_add(-number)!!!
+/// This changes the GREEN BAR, if porting, the number should be ***the opposite sign***
+/// **If you want to make someone MORE TIRED; SUBTRACT**
+/mob/living/change_stamina(added as num, emote_override, force_emote = TRUE)
 	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
 	curr_stamina = CLAMP(curr_stamina+added, 0, max_stamina)
@@ -145,7 +157,7 @@
 			animate(whole_screen, transform = newmatrix, time = 1, easing = QUAD_EASING)
 			animate(transform = -newmatrix, time = 30, easing = QUAD_EASING)
 
-/mob/living/proc/rogfat_reset()
-	curr_stamina = 0
+/mob/living/proc/stam_reset()
+	curr_stamina = max_stamina
 	last_stam_drained = 0
 	return
