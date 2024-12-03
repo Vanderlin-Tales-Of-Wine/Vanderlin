@@ -294,11 +294,11 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	reagent_state = LIQUID
 	color = "#083b1c"
 	taste_description = "breathlessness"
-	metabolization_rate = REAGENTS_SLOW_METABOLISM
+	metabolization_rate = REAGENTS_SLOW_METABOLISM * 3
 
 /datum/reagent/stampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(-1.5) //Slowly leech stam, and stop regen
+		M.change_stamina(-2.25) //Slowly leech stam, and stop regen
 	return ..()
 
 /datum/reagent/strongstampoison
@@ -307,11 +307,11 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	reagent_state = LIQUID
 	color = "#041d0e"
 	taste_description = "frozen air"
-	metabolization_rate = REAGENTS_SLOW_METABOLISM * 3
+	metabolization_rate = REAGENTS_SLOW_METABOLISM * 9
 
 /datum/reagent/strongstampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(-6) //Rapidly leech stam, and stop regen
+		M.change_stamina(-9) //Rapidly leech stam, and stop regen
 	return ..()
 
 
