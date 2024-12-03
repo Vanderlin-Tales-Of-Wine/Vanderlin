@@ -263,6 +263,12 @@ GLOBAL_VAR(restart_counter)
 	'sound/roundend/twohours.ogg',
 	'sound/roundend/rest.ogg',
 	'sound/roundend/gather.ogg',
+	'sound/roundend/bravery.ogg',
+	'sound/roundend/enjoy.ogg',
+	'sound/roundend/fatcuppapiss.ogg',
+	'sound/roundend/intermission.ogg',
+	'sound/roundend/motherfuckers.ogg',
+	'sound/roundend/poppop.ogg',
 	'sound/roundend/dwarfs.ogg')
 	for(var/client/thing in GLOB.clients)
 		if(!thing)

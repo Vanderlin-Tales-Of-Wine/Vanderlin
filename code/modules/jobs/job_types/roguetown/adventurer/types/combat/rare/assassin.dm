@@ -45,6 +45,9 @@
 	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Woodcutter")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
+	if(disguisechoice)
+		H.advjob = disguisechoice
+
 	switch(disguisechoice)
 		if("Bard")
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE) //Have to know to "PLAY" the part... Eh? Eh?

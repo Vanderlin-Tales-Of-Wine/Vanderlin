@@ -126,7 +126,7 @@
 		known_people[H.real_name]["VCOLOR"] = H.voice_color
 		var/used_title = H.get_role_title()
 		if(!used_title)
-			used_title = "unknown"
+			used_title = "Unknown"
 		known_people[H.real_name]["FJOB"] = used_title
 		known_people[H.real_name]["FGENDER"] = H.gender
 		known_people[H.real_name]["FAGE"] = H.age
@@ -150,7 +150,7 @@
 				if(H.gender == FEMALE && J.f_title)
 					used_title = J.f_title
 			if(!used_title)
-				used_title = "unknown"
+				used_title = "Unknown"
 			M.known_people[H.real_name]["FJOB"] = used_title
 			M.known_people[H.real_name]["FGENDER"] = H.gender
 			M.known_people[H.real_name]["FAGE"] = H.age

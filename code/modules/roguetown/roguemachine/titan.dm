@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 			return
 		newtax = CLAMP(newtax, 1, 99)
 		SStreasury.tax_value = newtax / 100
-		priority_announce("The new tax in Rockhill shall be [newtax] percent.", "The Generous Lord Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("The new tax in Rockhill shall be [newtax] percent.", "The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /obj/structure/roguemachine/titan/proc/give_job_popup(mob/living/carbon/human/user)
 	if(!Adjacent(user))
@@ -236,7 +236,7 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 	if(!SScommunications.can_announce(user))
 		return
 
-	priority_announce("Henceforth, the vassal known as [victim.real_name] shall have the title of [new_pos].", "The King Decrees", 'sound/misc/alert.ogg', "Captain")
+	priority_announce("Henceforth, the vassal known as [victim.real_name] shall have the title of [new_pos].", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /obj/structure/roguemachine/titan/proc/make_announcement(mob/living/user, raw_message)
 	if(!SScommunications.can_announce(user))
@@ -290,7 +290,7 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 		return
 	if(raw_message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= raw_message
-		priority_announce("[raw_message] is no longer an outlaw in Rockhill lands.", "The King Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("[raw_message] is no longer an outlaw in Rockhill lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 		return FALSE
 	var/found = FALSE
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -299,7 +299,7 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 	if(!found)
 		return FALSE
 	GLOB.outlawed_players += raw_message
-	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The King Decrees", 'sound/misc/alert.ogg', "Captain")
+	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /obj/structure/roguemachine/titan/proc/make_law(mob/living/user, raw_message)
 	if(!SScommunications.can_announce(user))

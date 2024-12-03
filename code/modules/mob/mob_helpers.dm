@@ -1043,7 +1043,7 @@
 	else if(job)
 		var/datum/job/J = SSjob.GetJob(job)
 		if(!J)
-			return "unknown"
+			return "Unknown"
 		used_title = J.title
 		if((gender == FEMALE) && J.f_title)
 			used_title = J.f_title

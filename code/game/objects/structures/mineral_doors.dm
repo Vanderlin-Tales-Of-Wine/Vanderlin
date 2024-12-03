@@ -20,7 +20,7 @@
 	var/door_opened = FALSE //if it's open or not.
 	var/isSwitchingStates = FALSE //don't try to change stats if we're already opening
 
-	var/close_delay = -1 //-1 if does not auto close.
+	var/close_delay = -1 //Time to close after opening. Negative number if does not auto close.
 	var/openSound = 'sound/blank.ogg'
 	var/closeSound = 'sound/blank.ogg'
 
@@ -41,7 +41,7 @@
 	var/rattlesound = 'sound/foley/doors/lockrattle.ogg'
 	var/masterkey = TRUE //if masterkey can open this regardless
 	var/kickthresh = 15
-	var/swing_closed = TRUE
+	var/bump_closed = TRUE
 
 	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
 
@@ -52,6 +52,8 @@
 	var/obj/item/repair_cost_first = null
 	var/obj/item/repair_cost_second = null
 	var/repair_skill = null
+
+	var/animate_time = 10 // How long should it take for the door to change states? Ideally matches the icon's animation length
 
 /obj/structure/mineral_door/onkick(mob/user)
 	if(isSwitchingStates)
@@ -95,7 +97,7 @@
 	update_icon()
 	isSwitchingStates = FALSE
 
-	if(close_delay != -1)
+	if(close_delay >= 0)
 		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
 /obj/structure/mineral_door/proc/force_closed()
@@ -174,13 +176,14 @@
 			door_rattle()
 			return
 		if(TryToSwitchState(AM))
-			if(swing_closed)
+			if(bump_closed)
 				if(isliving(AM))
 					var/mob/living/M = AM
+					var/delay = (close_delay >= 0) ? close_delay : 25
 					if(M.m_intent == MOVE_INTENT_SNEAK)
-						addtimer(CALLBACK(src, PROC_REF(Close), TRUE), 25)
+						addtimer(CALLBACK(src, PROC_REF(Close), TRUE), delay)
 					else
-						addtimer(CALLBACK(src, PROC_REF(Close), FALSE), 25)
+						addtimer(CALLBACK(src, PROC_REF(Close), FALSE), delay)
 
 
 /obj/structure/mineral_door/attack_paw(mob/user)
@@ -250,7 +253,7 @@
 	if(!windowed)
 		set_opacity(FALSE)
 	flick("[base_state]opening",src)
-	sleep(10)
+	sleep(animate_time)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
@@ -258,8 +261,8 @@
 	update_icon()
 	isSwitchingStates = FALSE
 
-	if(close_delay != -1)
-		addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
+	if(close_delay >= 0)
+		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
 /obj/structure/mineral_door/proc/Close(silent = FALSE)
 	if(isSwitchingStates || !door_opened)
@@ -271,7 +274,7 @@
 	if(!silent)
 		playsound(src, closeSound, 90)
 	flick("[base_state]closing",src)
-	sleep(10)
+	sleep(animate_time)
 	density = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
@@ -640,6 +643,8 @@
 	repair_cost_second = /obj/item/grown/log/tree/small
 	repair_skill = /datum/skill/craft/carpentry
 	metalizer_result = null
+	close_delay = 1 SECONDS
+	animate_time = 4
 
 /obj/structure/mineral_door/wood/window
 	opacity = FALSE
@@ -813,10 +818,11 @@
 	rattlesound = 'sound/foley/doors/lockrattlemetal.ogg'
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	ridethrough = TRUE
-	swing_closed = FALSE
+	bump_closed = FALSE
 	repair_cost_first = /obj/item/ingot/iron
 	repair_cost_second = /obj/item/ingot/iron
 	repair_skill = /datum/skill/craft/blacksmithing
+	animate_time = 6
 
 /obj/structure/mineral_door/bars/Initialize()
 	. = ..()
@@ -839,3 +845,4 @@
 	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
+	animate_time = 21
