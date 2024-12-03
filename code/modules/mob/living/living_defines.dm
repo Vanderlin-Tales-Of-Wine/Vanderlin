@@ -120,10 +120,14 @@
 
 	var/list/ownedSoullinks //soullinks we are the owner of
 	var/list/sharedSoullinks //soullinks we are a/the sharer of
-
+	///Formerly `maxrogstam`- How much fatigue a mob has maximum. The BLUE BAR.
 	var/max_fatigue = 1000
+	///Formerly `rogfat`- How much stamina a mob has maximum. The GREEN BAR.
 	var/max_stamina = 100
+	///Formerly `maxrogstam`- How much fatigue a mob has currently. The BLUE BAR.
 	var/curr_fatigue = 1000
+	///Formerly `rogfat`- How much stamina a mob has currently. The GREEN BAR.
+	///In other codebases, this goes *up* as you get more tired, in this one, it goes *down*
 	var/curr_stamina = 100
 
 	var/last_stam_drained = 0

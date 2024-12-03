@@ -181,8 +181,8 @@
 #define rogueui_stress "WEST-3,CENTER+3"
 #define rogueui_spells "WEST-4:2,SOUTH+8"
 
-#define rogueui_fat "WEST-1,CENTER+2"
-#define rogueui_stam "WEST-1:0,CENTER+4"
+#define stam_ui_loc "WEST-1,CENTER+2"
+#define fat_ui_loc "WEST-1:0,CENTER+4"
 #define rogueui_blood "WEST-1:6,CENTER+4:17"
 
 #define rogueui_cmode "WEST-1:-16,CENTER+1"

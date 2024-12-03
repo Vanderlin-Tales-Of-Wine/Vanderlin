@@ -1764,24 +1764,24 @@
 		if(R.stage == 2)
 			add_overlay("rainlay")
 
-/atom/movable/screen/rogfat
+/atom/movable/screen/stam_ui
 	name = "stamina"
 	icon_state = "stambar100"
 	icon = 'icons/mob/rogueheat.dmi'
-	screen_loc = rogueui_fat
+	screen_loc = stam_ui_loc
 
-/atom/movable/screen/rogstam
+/atom/movable/screen/fatigue_ui
 	name = "fatigue"
 	icon_state = "fatbar100"
 	icon = 'icons/mob/rogueheat.dmi'
-	screen_loc = rogueui_fat
+	screen_loc = stam_ui_loc
 
 /atom/movable/screen/heatstamover
 	name = ""
 	mouse_opacity = 0
 	icon_state = "heatstamover"
 	icon = 'icons/mob/rogueheat.dmi'
-	screen_loc = rogueui_fat
+	screen_loc = stam_ui_loc
 	layer = HUD_LAYER+0.1
 
 /atom/movable/screen/scannies
