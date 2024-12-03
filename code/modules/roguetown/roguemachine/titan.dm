@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(laws_of_the_land, initialize_laws_of_the_land())
 	GLOB.lord_decrees += raw_message
 	SScommunications.make_announcement(user, TRUE, raw_message)
 
-/obj/structure/roguemachine/titan/proc/make_outlaw(mob/living/user, raw_message)
+/obj/structure/roguemachine/titan/proc/make_outlaw(mob/living/carbon/human/user, raw_message)
 	if(!SScommunications.can_announce(user))
 		return
 	if(user.job)
