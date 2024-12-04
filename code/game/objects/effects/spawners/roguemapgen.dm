@@ -20,7 +20,9 @@
 		var/turf/T = get_turf(src)
 		var/loot_spawned = 0
 		var/chosenamout = rand(lootmin,lootmax)
-		while((chosenamout-loot_spawned) && spawned.len)
+		for(var/i in 1 to chosenamout)
+			if(!spawned.len)
+				break
 			var/lootspawn = pickweight(spawned)
 			while(islist(lootspawn))
 				lootspawn = pickweight(lootspawn)

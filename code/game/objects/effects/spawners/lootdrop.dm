@@ -12,7 +12,9 @@
 	if(loot && loot.len)
 		var/turf/T = get_turf(src)
 		var/loot_spawned = 0
-		while((lootcount-loot_spawned) && loot.len)
+		for(var/i in 1 to lootcount)
+			if(!loot.len)
+				break
 			var/lootspawn = pickweight(loot)
 			while(islist(lootspawn))
 				lootspawn = pickweight(lootspawn)
