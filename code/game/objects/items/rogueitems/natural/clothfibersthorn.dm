@@ -1,6 +1,6 @@
 /obj/item/natural/fibers
-	name = "fibers"
-	desc = "Plant fibers. The peasants make their living making these into clothing."
+	name = "fiber"
+	desc = "Plant fiber. The peasants make their living sewing these into fabrics and clothing."
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
@@ -15,34 +15,11 @@
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/fibers
 
-/obj/item/natural/fibers/attack_right(mob/user)
-	to_chat(user, "<span class='warning'>I start to collect [src]...</span>")
-	if(move_after(user, 5 SECONDS, target = src))
-		var/fibercount = 0
-		var/obj/item/natural/fibers/W = user.get_active_held_item()
-		if(istype(W))
-			fibercount++
-		for(var/obj/item/natural/fibers/F in get_turf(src))
-			fibercount++
-		while(fibercount > 0)
-			if(fibercount == 1)
-				new /obj/item/natural/fibers(get_turf(user))
-				fibercount--
-			else if(fibercount >= 2)
-				var/obj/item/natural/bundle/fibers/B = new(get_turf(user))
-				B.amount = clamp(fibercount, 2, 6)
-				B.update_bundle()
-				fibercount -= clamp(fibercount, 2, 6)
-		for(var/obj/item/natural/fibers/F in get_turf(src))
-			qdel(F)
-		if(istype(W))
-			qdel(W)
-
 /obj/item/natural/silk
 	name = "silk"
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Silken strands. Their usage in clothing is exotic in all places save the underdark"
+	desc = "Silken strands. Their usage in clothing is exotic in all places save the Underdark."
 	force = 0
 	throwforce = 0
 	color = "#e6e3db"
@@ -54,29 +31,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/silk
-
-/obj/item/natural/silk/attack_right(mob/user)
-	to_chat(user, "<span class='warning'>I start to collect [src]...</span>")
-	if(move_after(user, 5 SECONDS, target = src))
-		var/silkcount = 0
-		var/obj/item/natural/silk/W = user.get_active_held_item()
-		if(istype(W))
-			silkcount++
-		for(var/obj/item/natural/silk/F in get_turf(src))
-			silkcount++
-		while(silkcount > 0)
-			if(silkcount == 1)
-				new /obj/item/natural/silk(get_turf(user))
-				silkcount--
-			else if(silkcount >= 2)
-				var/obj/item/natural/bundle/silk/B = new(get_turf(user))
-				B.amount = clamp(silkcount, 2, 6)
-				B.update_bundle()
-				silkcount -= clamp(silkcount, 2, 6)
-		for(var/obj/item/natural/silk/F in get_turf(src))
-			qdel(F)
-		if(istype(W))
-			qdel(W)
 
 #ifdef TESTSERVER
 
@@ -356,34 +310,11 @@
 	stacktype = /obj/item/natural/worms
 	stackname = "worms"
 
-/obj/item/natural/worms/attack_right(mob/user)
-	to_chat(user, "<span class='warning'>I start to collect [src]...</span>")
-	if(move_after(user, 5 SECONDS, target = src))
-		var/wormcount = 0
-		var/obj/item/natural/worms/W = user.get_active_held_item()
-		if(istype(W))
-			wormcount++
-		for(var/obj/item/natural/worms/F in get_turf(src))
-			wormcount++
-		while(wormcount > 0)
-			if(wormcount == 1)
-				new /obj/item/natural/worms(user.drop_location())
-				wormcount--
-			else if(wormcount >= 2)
-				var/obj/item/natural/bundle/worms/B = new(user.drop_location())
-				B.amount = clamp(wormcount, 2, 12)
-				B.update_bundle()
-				wormcount -= clamp(wormcount, 2, 12)
-		for(var/obj/item/natural/worms/F in get_turf(src))
-			qdel(F)
-		if(istype(W))
-			qdel(W)
-
 /obj/item/natural/bundle/bone
 	name = "stack of bones"
 	icon_state = "bonestack1"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "bones, stacked together."
+	desc = "Bones stacked upon one another."
 	force = 0
 	throwforce = 0
 	maxamount = 6

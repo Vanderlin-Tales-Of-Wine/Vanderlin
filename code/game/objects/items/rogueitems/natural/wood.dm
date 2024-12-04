@@ -167,7 +167,6 @@
 	qdel(src)
 
 /obj/item/grown/log/tree/stick/attackby(obj/item/I, mob/living/user, params)
-	var/mob/living/carbon/human/H = user
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
@@ -184,11 +183,12 @@
 	if(istype(I, /obj/item/natural/bundle/stick))
 		var/obj/item/natural/bundle/stick/B = I
 		if(B.amount < B.maxamount)
-			H.visible_message("[user] adds the [src] to the bundle.")
+			to_chat(user, span_notice("You add [src] to [B]."))
 			B.amount += 1
 			B.update_bundle()
 			qdel(src)
-	..()
+		return
+	return ..()
 
 /obj/item/grown/log/tree/stick/attack_right(mob/living/user)
 	. = ..()
@@ -196,7 +196,7 @@
 	if(istype(I, /obj/item/grown/log/tree/stick))
 		var/obj/item/natural/bundle/stick/F = new(src.loc)
 		user.put_in_hands(F)
-		user.visible_message("[user] ties the sticks into a bundle.")
+		to_chat(user, "You collect the [F.stackname] into a bundle.")
 		qdel(I)
 		qdel(src)
 
