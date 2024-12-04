@@ -82,12 +82,12 @@
 		rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "deadite")
 		zombie.add_overlay(rotflies)
 	base_intents = zombie.base_intents
-//	STASTR = zombie.STASTR-1
-//	STASPD = zombie.STASPD-5
-//	STAINT = zombie.STAINT-5
-//	zombie.STACON = 5
-	zombie.STASPD = 2
-	zombie.STAINT = 1
+//	TOTALSTR = zombie.STASTR-1
+//	TOTALSPD = zombie.STASPD-5
+//	TOTALINT = zombie.STAINT-5
+//	zombie.TOTALCON = 5
+	zombie.TOTALSPD = 2
+	zombie.TOTALINT = 1
 	cmode_music = zombie.cmode_music
 //	cmode_music ='sound/music/combat_weird.ogg'
 	zombie.vitae_pool = 0 // Deadites have no vitae to drain from
@@ -116,17 +116,17 @@
 		if(zombie.charflaw)
 			zombie.charflaw.ephemeral = FALSE
 		zombie.update_body()
-		zombie.STASTR = STASTR
-		zombie.STASPD = STASPD
-		zombie.STAINT = STAINT
+		zombie.TOTALSTR = STASTR
+		zombie.TOTALSPD = STASPD
+		zombie.TOTALINT = STAINT
 		zombie.cmode_music = cmode_music
 		for(var/trait in traits_zombie)
 			REMOVE_TRAIT(zombie, trait, "[type]")
 		zombie.remove_client_colour(/datum/client_colour/monochrome)
 		if(has_turned && become_rotman)
-			zombie.STACON = max(zombie.STACON - 5, 1) //ur rotting bro
-			zombie.STASPD = max(zombie.STASPD - 5, 1)
-			zombie.STAINT = max(zombie.STAINT - 3, 1)
+			zombie.TOTALCON = max(zombie.STACON - 5, 1) //ur rotting bro
+			zombie.TOTALSPD = max(zombie.STASPD - 5, 1)
+			zombie.TOTALINT = max(zombie.STAINT - 3, 1)
 			for(var/trait in traits_rotman)
 				ADD_TRAIT(zombie, trait, "[type]")
 			to_chat(zombie, "<span class='green'>I no longer crave for flesh... <i>But I still feel ill.</i></span>")
@@ -196,8 +196,8 @@
 	zombie.update_body()
 	zombie.cmode_music = 'sound/music/combat_weird.ogg'
 
-	zombie.STASPD = 2
-	zombie.STAINT = 1
+	zombie.TOTALSPD = 2
+	zombie.TOTALINT = 1
 
 	zombie.vitae_pool = 0 // Again, just in case.
 

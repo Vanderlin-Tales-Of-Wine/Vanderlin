@@ -24,10 +24,10 @@
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
 	melee_damage_lower = 40
 	melee_damage_upper = 60
-	STACON = 15
-	STASTR = 16
-	STASPD = 2
-	STAEND = 16
+	TOTALCON = 15
+	TOTALSTR = 16
+	TOTALSPD = 2
+	TOTALEND = 16
 	deaggroprob = 0
 	defprob = 20
 	defdrain = 15
@@ -58,10 +58,10 @@
 	melee_damage_upper = 550
 	health = 666666
 	maxHealth = 666666
-	STACON = 66
-	STASTR = 66
-	STASPD = 66
-	STAEND = 66
+	TOTALCON = 66
+	TOTALSTR = 66
+	TOTALSPD = 66
+	TOTALEND = 66
 
 /mob/living/simple_animal/hostile/retaliate/rogue/blood/ascended/examine(mob/user)
 	. = ..()

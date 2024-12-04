@@ -42,10 +42,10 @@
 	melee_damage_upper = 50
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
-	STACON = 16
-	STASTR = 16
-	STASPD = 3
-	STAEND = 15
+	TOTALCON = 16
+	TOTALSTR = 16
+	TOTALSPD = 3
+	TOTALEND = 15
 
 	retreat_distance = 0
 	minimum_distance = 0

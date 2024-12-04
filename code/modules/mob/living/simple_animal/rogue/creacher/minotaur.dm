@@ -29,9 +29,9 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/rogue/meat, /obj/item/bodypart, /obj/item/organ)
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	pooptype = null
-	STACON = 19
-	STASTR = 16
-	STASPD = 5
+	TOTALCON = 19
+	TOTALSTR = 16
+	TOTALSPD = 5
 	deaggroprob = 0
 	defprob = 40
 	defdrain = 10

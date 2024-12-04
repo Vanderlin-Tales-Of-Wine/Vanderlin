@@ -32,10 +32,10 @@
 	response_disarm_simple = "gently push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
-	STASTR = 3
-	STAEND = 4
-	STASPD = 3
-	STACON = 3
+	TOTALSTR = 3
+	TOTALEND = 4
+	TOTALSPD = 3
+	TOTALCON = 3
 	var/turns_since_scan = 0
 	gold_core_spawnable = FRIENDLY_SPAWN
 
@@ -80,7 +80,7 @@
 /mob/living/simple_animal/pet/cat/rogue
 	name = "parent roguecat"
 	desc = "If you're seeing this, someone forgot to set a mob desc or it spawned the parent mob. Report to the Creators."
-	STASPD = 5
+	TOTALSPD = 5
 	var/isracist = TRUE // Hisses at dark elves if they try to pet it
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,

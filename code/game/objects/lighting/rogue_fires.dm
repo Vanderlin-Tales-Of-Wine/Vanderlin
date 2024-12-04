@@ -70,6 +70,13 @@
 	icon_state = "standingb1"
 	base_state = "standingb"
 
+/obj/machinery/light/rogue/firebowl/standing/blue/burn_out()
+	return FALSE
+
+/obj/machinery/light/rogue/firebowl/standing/blue/extinguish()
+	return FALSE
+
+
 /obj/machinery/light/rogue/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
 	icon_state = "[base_state]over"
 
@@ -146,6 +153,12 @@
 	bulb_colour = "#b9bcff"
 	icon_state = "wallcandleb1"
 	base_state = "wallcandleb"
+
+/obj/machinery/light/rogue/wallfire/candle/blue/extinguish()
+	return FALSE
+
+/obj/machinery/light/rogue/wallfire/candle/blue/burn_out()
+	return FALSE
 
 /obj/machinery/light/rogue/wallfire/candle/blue/r
 	pixel_y = 0

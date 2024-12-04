@@ -1,25 +1,149 @@
 /*	..................   Loot spawners   ................... */
 /obj/effect/spawner/roguemap/loot
-	icon_state = "loot"
-	probby = 50
+	icon_state = "lootblank"
+	probby = 100
 
 /obj/effect/spawner/roguemap/loot/common
+	icon_state = "lootlow"
 	spawned = list(
 		/obj/item/roguecoin/copper/pile = 15,
-		/obj/item/rogueweapon/knife/hunting = 10,
+		/obj/item/rogueweapon/knife/hunting = 5,
 		/obj/item/rogueweapon/knife/dagger = 8,
-		/obj/item/rogueweapon/knife/dagger/steel = 4,
-		/obj/item/rogueweapon/knife/dagger/silver = 2,
 		/obj/item/rogueweapon/sword/iron = 3,
-		/obj/item/rogueweapon/axe/iron = 10,
+		/obj/item/rogueweapon/axe/copper = 10,
 		/obj/item/rogueweapon/mace = 5,
-		/obj/item/quiver/arrows = 5,
-		/obj/item/rogueweapon/sword/short = 5,
 		/obj/item/clothing/suit/roguetown/armor/leather = 10,
-		/obj/item/clothing/suit/roguetown/armor/gambeson = 15,
 		/obj/item/clothing/gloves/roguetown/chain/iron = 3,
 		/obj/item/clothing/neck/roguetown/coif = 3,
-		/obj/item/clothing/shoes/roguetown/gladiator = 5
+		/obj/item/natural/poo = 5
+		)
+
+/obj/effect/spawner/roguemap/loot/medium
+	icon_state = "lootmed"
+	spawned = list(
+		/obj/item/roguecoin/silver/pile = 15,
+		/obj/item/rogueweapon/knife/dagger/steel = 4,
+		/obj/item/rogueweapon/axe/iron = 10,
+		/obj/item/quiver/arrows = 5,
+		/obj/item/rogueweapon/sword/short = 5,
+		/obj/item/clothing/suit/roguetown/armor/cuirass/iron = 10,
+		/obj/item/clothing/suit/roguetown/armor/gambeson = 10,
+		/obj/item/clothing/gloves/roguetown/chain/iron = 3,
+		/obj/item/clothing/neck/roguetown/gorget = 3,
+		/obj/item/roguestatue/gold/loot = 1
+		)
+
+/obj/effect/spawner/roguemap/loot/rare
+	icon_state = "loothigh"
+	spawned = list(
+		/obj/item/roguecoin/gold/pile = 15,
+		/obj/item/rogueweapon/knife/dagger/silver = 5,
+		/obj/item/rogueweapon/sword/long/greatsword = 3,
+		/obj/item/rogueweapon/axe/iron = 10,
+		/obj/item/ingot/gold = 5,
+		/obj/item/clothing/head/roguetown/crown/circlet = 2,
+		/obj/item/clothing/suit/roguetown/armor/medium/scale = 8,
+		/obj/item/clothing/suit/roguetown/armor/plate = 8,
+		/obj/item/clothing/gloves/roguetown/chain = 3,
+		/obj/item/clothing/neck/roguetown/bevor = 3,
+		/obj/item/clothing/under/roguetown/chainlegs = 5
+		)
+
+/obj/effect/spawner/roguemap/loot/magic
+	icon_state = "lootmagic"
+	spawned = list(
+		/obj/item/clothing/ring/active/nomag = 20,
+		/obj/item/clothing/ring/gold/protection = 10,
+		/obj/item/clothing/ring/gold/ravox = 6,
+		/obj/item/clothing/ring/silver/calm = 20,
+		/obj/item/clothing/ring/silver/noc = 6,
+		/obj/item/clothing/head/roguetown/crown/circlet/vision = 3,
+		/obj/item/clothing/head/roguetown/crown/circlet/sleepless = 3,
+		/obj/item/clothing/head/roguetown/crown/circlet/stink = 5,
+		/obj/item/clothing/neck/roguetown/talkstone = 10
+		)
+
+/obj/effect/spawner/roguemap/loot/coin
+	icon_state = "lootcoin"
+	spawned = list(
+		/obj/item/roguecoin/gold/pile = 5,
+		/obj/item/roguecoin/gold = 10,
+		/obj/item/roguecoin/silver/pile = 20,
+		/obj/item/roguecoin/silver = 25,
+		/obj/item/roguecoin/copper/pile = 30,
+		/obj/item/roguecoin/copper = 35
+		)
+
+/obj/effect/spawner/roguemap/loot/weapon
+	icon_state = "lootweapon"
+	spawned = list(
+		/obj/item/rogueweapon/mace/copperbludgeon = 15,
+		/obj/item/rogueweapon/axe/copper = 15,
+		/obj/item/rogueweapon/knife/copper = 15,
+		/obj/item/rogueweapon/sword/long/rider/copper = 15,
+		/obj/item/rogueweapon/sword/coppermesser = 15,
+		/obj/item/rogueweapon/polearm/spear/stone/copper = 15,
+		/obj/item/rogueweapon/axe/iron = 10,
+		/obj/item/rogueweapon/polearm/halberd/bardiche = 10,
+		/obj/item/rogueweapon/sword/rapier/ironestoc = 10,
+		/obj/item/rogueweapon/polearm/eaglebeak/lucerne = 10,
+		/obj/item/rogueweapon/mace = 10,
+		/obj/item/rogueweapon/sword/scimitar/messer = 10,
+		/obj/item/rogueweapon/flail/militia = 10,
+		/obj/item/rogueweapon/sword/short = 10,
+		/obj/item/rogueweapon/sword/long/greatsword/zwei = 10,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve = 10,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/bow = 10,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long = 5,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow = 5,
+		/obj/item/rogueweapon/axe/steel = 5,
+		/obj/item/rogueweapon/sword/long/greatsword = 5,
+		/obj/item/rogueweapon/sword/rapier = 5,
+		/obj/item/rogueweapon/sword/sabre = 5,
+		/obj/item/rogueweapon/mace/goden/steel = 5,
+		/obj/item/rogueweapon/mace/steel = 5,
+		/obj/item/rogueweapon/hammer/sledgehammer/war = 5
+		)
+
+/obj/effect/spawner/roguemap/loot/armor
+	icon_state = "lootarmor"
+	spawned = list(
+		/obj/item/clothing/mask/rogue/facemask/copper = 15,
+		/datum/anvil_recipe/armor/copper/bracers = 15,
+		/obj/item/clothing/head/roguetown/helmet/coppercap = 15,
+		/obj/item/clothing/suit/roguetown/armor/cuirass/copperchest = 15,
+		/obj/item/clothing/under/roguetown/chainlegs/iron = 10,
+		/obj/item/clothing/suit/roguetown/armor/chainmail/iron = 10,
+		/obj/item/clothing/suit/roguetown/armor/plate/iron = 10,
+		/obj/item/clothing/head/roguetown/helmet/heavy/ironplate = 10,
+		/obj/item/clothing/suit/roguetown/armor/leather/splint = 10,
+		/obj/item/clothing/suit/roguetown/armor/brigandine = 5,
+		/obj/item/clothing/head/roguetown/helmet/heavy/frog = 5,
+		/obj/item/clothing/head/roguetown/helmet/visored/hounskull = 5,
+		/obj/item/clothing/mask/rogue/facemask/steel = 5,
+		/obj/item/clothing/suit/roguetown/armor/plate/full = 5,
+		/obj/item/clothing/neck/roguetown/chaincoif = 5
+		)
+
+/obj/effect/spawner/roguemap/loot/food
+	icon_state = "lootfood"
+	spawned = list(
+		/obj/item/reagent_containers/food/snacks/rogue/bread = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/raisinbread = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/bun = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/cheesebun = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/frybread = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/peppersteak = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/friedegg = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/raisins = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/crackerscooked = 10
 		)
 
 /obj/effect/spawner/roguemap/sewerencounter

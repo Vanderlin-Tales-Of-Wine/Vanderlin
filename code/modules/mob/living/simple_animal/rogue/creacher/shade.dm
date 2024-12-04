@@ -64,9 +64,9 @@
 	search_objects = FALSE
 	//Why wander when you know your fate.
 	wander = FALSE
-	STACON = 6
-	STASTR = 6
-	STASPD = 6
+	TOTALCON = 6
+	TOTALSTR = 6
+	TOTALSPD = 6
 	deaggroprob = 0
 	// No they do not dodge.
 	defprob = 0

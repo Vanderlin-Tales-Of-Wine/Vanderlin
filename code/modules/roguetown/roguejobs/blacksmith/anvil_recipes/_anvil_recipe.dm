@@ -79,7 +79,7 @@
 						bar_health -= 5
 					if(5 to 6)
 						var/mob/living/L = user
-						if(L.badluck(4)) // Unlucky, not unskilled.
+						if(L.stat_roll(STATKEY_LCK,4,10,TRUE)) // Unlucky, not unskilled.
 							bar_health -= craftdiff
 				if(bar_health <= 0)
 					user.visible_message("<span class='danger'>[user] destroys the bar!</span>")

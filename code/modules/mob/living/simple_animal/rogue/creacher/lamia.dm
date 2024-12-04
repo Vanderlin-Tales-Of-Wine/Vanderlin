@@ -30,9 +30,9 @@
 	food_type = list(/obj/item/reagent_containers/food/snacks/rogue/meat, /obj/item/bodypart, /obj/item/organ)
 	footstep_type = null
 	pooptype = null
-	STACON = 6
-	STASTR = 11
-	STASPD = 12
+	TOTALCON = 6
+	TOTALSTR = 11
+	TOTALSPD = 12
 	deaggroprob = 0
 	defprob = 35
 	defdrain = 5

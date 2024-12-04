@@ -128,7 +128,7 @@
 /obj/item/alch/sinew
 	name = "sinew"
 	icon_state = "sinew"
-	dropshrink = 0.5
+	dropshrink = 0.9
 	major_pot = /datum/alch_cauldron_recipe/stam_poison
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/health_potion

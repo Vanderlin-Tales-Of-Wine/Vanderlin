@@ -53,7 +53,7 @@
 	boons = "Leeches will not latch onto you in murk."
 	added_traits = list(TRAIT_LEECHIMMUNE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
-	t1 = null
+	t1 = /obj/effect/proc_holder/spell/invoked/projectile/swordfish
 	t2 = null
 	t3 = null
 /datum/patron/divine/necra

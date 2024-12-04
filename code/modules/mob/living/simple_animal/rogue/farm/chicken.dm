@@ -2,6 +2,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/chicken
 	name = "\improper chicken"
 	desc = "A fat and mostly flightless bird. They produce eggs, or 'cackleberries'."
+	icon = 'icons/roguetown/mob/monster/chicken.dmi'
 	icon_state = "chicken_brown"
 	icon_living = "chicken_brown"
 	icon_dead = "chicken_brown_dead"
@@ -53,9 +54,9 @@
 	var/list/validColors = list("brown","black","white")
 	var/static/chicken_count = 0
 
-	STACON = 1
-	STASTR = 1
-	STASPD = 5
+	TOTALCON = 1
+	TOTALSTR = 1
+	TOTALSPD = 5
 	tame = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/rogue/chicken/get_sound(input)

@@ -32,10 +32,10 @@
 	melee_damage_lower = 25
 	melee_damage_upper = 35
 
-	STACON = 13
-	STASTR = 10
-	STASPD = 15
-	STAEND = 15
+	TOTALCON = 13
+	TOTALSTR = 10
+	TOTALSPD = 15
+	TOTALEND = 15
 
 	retreat_distance = 2
 	minimum_distance = 1

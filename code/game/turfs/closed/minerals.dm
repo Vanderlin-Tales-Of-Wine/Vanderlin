@@ -100,7 +100,7 @@
 		else
 			return
 	else
-		if(lastminer.goodluck(2) && mineralType)
+		if(lastminer.stat_roll(STATKEY_LCK,2,10) && mineralType)
 	//		to_chat(lastminer, span_notice("Bonus ducks!"))
 			new mineralType(src)
 		gets_drilled(lastminer, give_exp = FALSE)
@@ -119,7 +119,7 @@
 			if(prob(23))
 				new rockType(src)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
-	else if(user.goodluck(2))
+	else if(user.stat_roll(STATKEY_LCK,2,10))
 		var/newthing = pickweight(list(/obj/item/natural/rock/salt = 2, /obj/item/natural/rock/iron = 1, /obj/item/natural/rock/coal = 2))
 //		to_chat(user, "<span class='notice'>Bonus ducks!</span>")
 		new newthing(src)

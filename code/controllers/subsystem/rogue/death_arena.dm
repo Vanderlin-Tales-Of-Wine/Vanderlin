@@ -21,7 +21,6 @@ SUBSYSTEM_DEF(death_arena)
 	listclearnulls(tollless_clients)
 
 	for(var/client as anything in tollless_clients)
-
 		if(world.time > tollless_clients[client])
 			for(var/mob/living/carbon/spirit/spirit in waiting_fighters)
 				if(!spirit?.client)
@@ -101,7 +100,7 @@ SUBSYSTEM_DEF(death_arena)
 	fighters_heads = list()
 	tollless_clients -= user?.client?.key
 
-	for(var/mob/living/carbon/carbon in fighters)
+	for(var/mob/living/carbon/carbon as anything in fighters)
 		fighters -= carbon
 		if(carbon != user)
 			var/turf/spawn_loc = pick(GLOB.underworldcoinspawns)
@@ -158,8 +157,8 @@ SUBSYSTEM_DEF(death_arena)
 
 /datum/outfit/job/roguetown/arena_skeleton/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 1)
+	H.change_stat(STATKEY_STR, 1, TRUE)
+	H.change_stat(STATKEY_END, 1, TRUE)
 
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)

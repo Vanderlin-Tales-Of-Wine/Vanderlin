@@ -11,7 +11,7 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	obj_flags = CAN_BE_HIT
 	spillable = FALSE
-	var/closed //Put a cork in it!
+	var/closed = TRUE //Put a cork in it!
 	reagent_flags = TRANSPARENT
 	w_class = WEIGHT_CLASS_SMALL
 	drinksounds = list('sound/items/drink_bottle (1).ogg','sound/items/drink_bottle (2).ogg')

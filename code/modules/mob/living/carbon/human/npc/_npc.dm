@@ -405,9 +405,9 @@
 		probby += 85 //armor is loud as fuck
 		if (sneak_bonus)
 			probby += sneak_bonus // you don't get sneak bonus in heavy armor at all, on top of that
-	if (target.badluck(5))
+	if (target.stat_roll(STATKEY_LCK,5,10,TRUE))
 		probby += (10 - target.STALUC) * 5 // drop 5% chance for every bit of fortune we're missing
-	if (target.goodluck(5))
+	if (target.stat_roll(STATKEY_LCK,5,10))
 		probby -= (10 - target.STALUC) * 5 // make it 5% harder for every bit of fortune over 10 that we do have
 
 	if (prob(probby))

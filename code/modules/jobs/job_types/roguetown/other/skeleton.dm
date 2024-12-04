@@ -143,10 +143,10 @@
 			var/obj/item/rogueweapon/flail/militia/P = new()
 			H.put_in_hands(P, forced = TRUE)
 
-	H.STASTR = rand(8,10)
-	H.STASPD = rand(7,10)
-	H.STAINT = 1
-	H.STACON = 3
+	H.TOTALSTR = rand(8,10)
+	H.TOTALSPD = rand(7,10)
+	H.TOTALINT = 1
+	H.TOTALCON = 3
 	var/datum/antagonist/new_antag = new /datum/antagonist/skeleton()
 	H.mind.add_antag_datum(new_antag)
 

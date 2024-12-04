@@ -78,7 +78,9 @@
 	for(var/item in held_items)
 		if(istype(item, /obj/item/underworld/coin))
 			return
-	put_in_hands(new /obj/item/underworld/coin(get_turf(src)))
+	var/obj/item/underworld/coin/toll = new(get_turf(src))
+	if(!put_in_hands(toll))
+		to_chat(src,span_danger("A shine unlike you've seen before appears at your feet..."))
 	if(patron)
 		to_chat(src, "<span class='danger'>Your suffering has not gone unnoticed, [patron] has rewarded you with your toll.</span>")
 	else

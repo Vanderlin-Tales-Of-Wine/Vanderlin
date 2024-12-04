@@ -45,7 +45,7 @@
 			continue
 		woundies += wound
 	return woundies
-	
+
 /// Loops through our list of wounds and returns the first wound that is of the type specified by the path
 /mob/living/proc/has_wound(path, specific = FALSE)
 	if(!path)
@@ -104,7 +104,7 @@
 		return FALSE
 	var/do_crit = TRUE
 	if(user)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 		if(istype(user.rmb_intent, /datum/rmb_intent/weak))
 			do_crit = FALSE
@@ -158,7 +158,7 @@
 	var/list/attempted_wounds = list()
 	var/used
 	if(user)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 	if(bclass in GLOB.fracture_bclasses)
 		var/fracture_type = /datum/wound/fracture/chest
@@ -178,7 +178,7 @@
 		used = round(max(dam / 3, 1), 1)
 		if(prob(used))
 			attempted_wounds += /datum/wound/artery/chest
-		
+
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = simple_add_wound(wound_type, silent, crit_message)
 		if(applied)

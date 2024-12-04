@@ -185,13 +185,13 @@
 	dna.species.soundpack_m = new /datum/voicepack/skeleton()
 	dna.species.soundpack_f = new /datum/voicepack/skeleton()
 
-	src.STASTR = 6
-	src.STAPER = 8
-	src.STAEND = 8
-	src.STACON = 8
-	src.STAINT = 4
-	src.STASPD = 9
-	src.STALUC = 6
+	src.TOTALSTR = 6
+	src.TOTALPER = 8
+	src.TOTALEND = 8
+	src.TOTALCON = 8
+	src.TOTALINT = 4
+	src.TOTALSPD = 9
+	src.TOTALLUC = 6
 
 
 	cmode_music = 'sound/music/combat_cult.ogg'

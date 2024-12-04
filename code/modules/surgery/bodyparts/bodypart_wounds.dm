@@ -124,7 +124,7 @@
 			return FALSE
 	var/do_crit = TRUE
 	if(user)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 		if(istype(user.rmb_intent, /datum/rmb_intent/weak))
 			do_crit = FALSE
@@ -180,7 +180,7 @@
 	var/total_dam = get_damage()
 	var/damage_dividend = (total_dam / max_damage)
 	if(user && dam)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 	if(bclass in GLOB.dislocation_bclasses)
 		used = round(damage_dividend * 20 + (dam / 6), 1)
@@ -226,7 +226,7 @@
 	var/damage_dividend = (total_dam / max_damage)
 	var/resistance = HAS_TRAIT(owner, TRAIT_CRITICAL_RESISTANCE)
 	if(user && dam)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 	if((bclass in GLOB.cbt_classes) && (zone_precise == BODY_ZONE_PRECISE_GROIN))
 		var/cbt_multiplier = 1
@@ -281,7 +281,7 @@
 	if(user && (owner.dir == turn(get_dir(owner,user), 180)))
 		from_behind = TRUE
 	if(user && dam)
-		if(user.goodluck(2))
+		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 	if((bclass in GLOB.dislocation_bclasses) && (total_dam >= max_damage))
 		used = round(damage_dividend * 20 + (dam / 6), 1)

@@ -69,7 +69,7 @@
 		return FALSE
 	if(lying)
 		return FALSE
-	if(user.badluck(4))
+	if(user.stat_roll(STATKEY_LCK,4,10,TRUE))
 		var/list/usedp = list("Critical miss!", "Damn! Critical miss!", "No! Critical miss!", "It can't be! Critical miss!", "Betrayed by lady luck! Critical miss!", "Bad luck! Critical miss!", "Curse creation! Critical miss!", "What?! Critical miss!")
 		to_chat(user, "<span class='boldwarning'>[pick(usedp)]</span>")
 		flash_fullscreen("blackflash2")

@@ -36,7 +36,7 @@
 		var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
 		if(!BP)
 			return FALSE
-		if(C.badluck(5)) // UNLUCKY
+		if(C.stat_roll(STATKEY_LCK,5,10,TRUE))
 			add_mob_blood(C)
 			if(!BP.is_object_embedded(src))
 				BP.add_embedded_object(src)

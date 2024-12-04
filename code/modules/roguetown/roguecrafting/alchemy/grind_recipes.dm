@@ -92,6 +92,12 @@
 	valid_outputs = list(/obj/item/alch/seeddust = 1)
 	bonus_chance_outputs = list(/obj/item/alch/airdust =25,/obj/item/alch/earthdust = 25)
 
+/datum/alch_grind_recipe/seedsherb
+	picky = FALSE
+	valid_input = /obj/item/herbseed
+	valid_outputs = list(/obj/item/alch/seeddust = 1)
+	bonus_chance_outputs = list(/obj/item/alch/airdust =25,/obj/item/alch/earthdust = 25)
+
 /datum/alch_grind_recipe/ozium
 	valid_input = /obj/item/reagent_containers/powder/ozium
 	valid_outputs = list(/obj/item/alch/ozium = 1)

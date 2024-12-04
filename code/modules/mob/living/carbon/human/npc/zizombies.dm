@@ -251,10 +251,10 @@
 
 /datum/outfit/job/roguetown/species/zizombie/npc/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.STASTR = 9
-	H.STASPD = 7
-	H.STACON = 10
-	H.STAEND = 16//the zombies shouldn't get tired after all
+	H.TOTALSTR = 9
+	H.TOTALSPD = 7
+	H.TOTALCON = 10
+	H.TOTALEND = 16//the zombies shouldn't get tired after all
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
 	pants = /obj/item/clothing/under/roguetown/tights/vagrant
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
@@ -334,10 +334,10 @@
 
 /datum/outfit/job/roguetown/species/zizombie/npc/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.STASTR = 10
-	H.STASPD = 7
-	H.STACON = 10
-	H.STAEND = 16//the zizombies shouldn't get tired after all
+	H.TOTALSTR = 10
+	H.TOTALSPD = 7
+	H.TOTALCON = 10
+	H.TOTALEND = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,6)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -420,10 +420,10 @@
 
 /datum/outfit/job/roguetown/species/zizombie/npc/militiamen/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.STASTR = 10
-	H.STASPD = 7
-	H.STACON = 10
-	H.STAEND = 16//the zizombies shouldn't get tired after all
+	H.TOTALSTR = 10
+	H.TOTALSPD = 7
+	H.TOTALCON = 10
+	H.TOTALEND = 16//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior
@@ -502,10 +502,10 @@
 
 /datum/outfit/job/roguetown/species/zizombie/npc/GRENZEL/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.STASTR = 12
-	H.STASPD = 7
-	H.STACON = 10
-	H.STAEND = 20//the zizombies shouldn't get tired after all
+	H.TOTALSTR = 12
+	H.TOTALSPD = 7
+	H.TOTALCON = 10
+	H.TOTALEND = 20//the zizombies shouldn't get tired after all
 	var/loadout = rand(1,5)
 	switch(loadout)
 		if(1) //zizombie Warrior

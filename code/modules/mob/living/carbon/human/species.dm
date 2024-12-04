@@ -1944,7 +1944,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //		var/obj/machinery/disposal/bin/target_disposal_bin
 		var/shove_blocked = FALSE //Used to check if a shove is blocked so that if it is knockdown logic can be applied
 
-		if(prob(30 + generic_stat_comparison(user.STASTR, target.STACON) ))//check if we actually shove them
+		if(prob(clamp(30 + (user.stat_fight(target,STATKEY_CON,STATKEY_STR)*10),0,100)))//check if we actually shove them
 			//Thank you based whoneedsspace
 			target_collateral_mob = locate(/mob/living) in target_shove_turf.contents
 			if(target_collateral_mob)

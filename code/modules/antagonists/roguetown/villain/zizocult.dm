@@ -553,10 +553,10 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		H.mob_biotypes = MOB_UNDEAD
 		H.faction = list("undead")
 
-		H.STASPD = rand(7,10)
-		H.STAINT = 1
-		H.STACON = 3
-		H.STASTR = rand(8,17)
+		H.TOTALSPD = rand(7,10)
+		H.TOTALINT = 1
+		H.TOTALCON = 3
+		H.TOTALSTR = rand(8,17)
 
 		H.verbs |= /mob/living/carbon/human/proc/praise
 		H.verbs |= /mob/living/carbon/human/proc/communicate

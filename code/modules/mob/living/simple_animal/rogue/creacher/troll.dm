@@ -43,10 +43,10 @@
 	melee_damage_upper = 60
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
-	STACON = 16
-	STASTR = 16
-	STASPD = 2
-	STAEND = 17
+	TOTALCON = 16
+	TOTALSTR = 16
+	TOTALSPD = 2
+	TOTALEND = 17
 
 	retreat_distance = 0
 	minimum_distance = 0
@@ -171,10 +171,10 @@
 	maxHealth = 160
 	move_to_delay = 3 // FAST.
 	attack_sound = list('sound/vo/mobs/rat/aggro (1).ogg', 'sound/vo/mobs/rat/aggro (2).ogg', 'sound/vo/mobs/rat/aggro (3).ogg')
-	STACON = 5
-	STASTR = 5
-	STASPD = 10
-	STAEND = 5
+	TOTALCON = 5
+	TOTALSTR = 5
+	TOTALSPD = 10
+	TOTALEND = 5
 	remains_type = /obj/effect/decal/remains/cabbit
 	melee_damage_lower = 20
 	melee_damage_upper = 40

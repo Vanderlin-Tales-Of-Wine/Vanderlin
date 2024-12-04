@@ -17,7 +17,7 @@
 		soundloop = new soundloop(src, FALSE)
 		soundloop.start()
 	GLOB.fires_list += src
-	if(fueluse)
+	if(fueluse > 0)
 		fueluse = fueluse - (rand(fueluse*0.1,fueluse*0.3))
 	update_icon()
 	seton(TRUE)

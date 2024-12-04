@@ -287,12 +287,12 @@
 
 /datum/outfit/job/roguetown/npc/goblin/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.STASTR = rand(6, 10)
-	H.STAPER = rand(5, 10)
-	H.STAINT = rand(1, 4)
-	H.STACON = rand(4, 8)
-	H.STAEND = rand(8, 12)
-	H.STASPD = rand(8, 14)
+	H.TOTALSTR = rand(6, 10)
+	H.TOTALPER = rand(5, 10)
+	H.TOTALINT = rand(1, 4)
+	H.TOTALCON = rand(4, 8)
+	H.TOTALEND = rand(8, 12)
+	H.TOTALSPD = rand(8, 14)
 	if(is_species(H, /datum/species/goblin/hell))
 		H.STASTR += 6
 		H.STACON += 6

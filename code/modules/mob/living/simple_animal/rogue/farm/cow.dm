@@ -44,10 +44,10 @@
 	attack_verb_simple = "stomps"
 	melee_damage_lower = 10
 	melee_damage_upper = 12
-	STASPD = 4
-	STACON = 4
-	STASTR = 4
-	childtype = list(/mob/living/simple_animal/hostile/retaliate/rogue/cow/cowlet = 95, 
+	TOTALSPD = 4
+	TOTALCON = 4
+	TOTALSTR = 4
+	childtype = list(/mob/living/simple_animal/hostile/retaliate/rogue/cow/cowlet = 95,
 					/mob/living/simple_animal/hostile/retaliate/rogue/cow/cowlet/bullet = 5)
 	remains_type = /obj/effect/decal/remains/cow
 
@@ -194,9 +194,9 @@
 	melee_damage_upper = 45
 	retreat_distance = 0
 	minimum_distance = 0
-	STACON = 20
-	STASTR = 12
-	STASPD = 2
+	TOTALCON = 20
+	TOTALSTR = 12
+	TOTALSPD = 2
 	remains_type = /obj/effect/decal/remains/cow
 
 /mob/living/simple_animal/hostile/retaliate/rogue/bull/get_sound(input)
@@ -280,9 +280,9 @@
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1
 	melee_damage_upper = 6
-	STACON = 5
-	STASTR = 5
-	STASPD = 5
+	TOTALCON = 5
+	TOTALSTR = 5
+	TOTALSPD = 5
 	defprob = 50
 	adult_growth = /mob/living/simple_animal/hostile/retaliate/rogue/cow
 

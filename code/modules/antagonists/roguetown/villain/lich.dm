@@ -107,11 +107,11 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	//H.mind.adjust_skillrank(/datum/skill/misc/treatment, 4, TRUE)
 
-	H.change_stat("strength", -1)
-	H.change_stat("intelligence", 5)
-	H.change_stat("constitution", 5)
-	H.change_stat("endurance", -1)
-	H.change_stat("speed", -1)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_INT, 5)
+	H.change_stat(STATKEY_CON, 5)
+	H.change_stat(STATKEY_END, -1)
+	H.change_stat(STATKEY_SPD, -1)
 
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/command_undead)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/strengthen_undead)
