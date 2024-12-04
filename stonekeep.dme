@@ -601,6 +601,8 @@
 #include "code\datums\slapcrafting\_slapcrafting_recipe.dm"
 #include "code\datums\slapcrafting\_slapcrafting_recipe_book.dm"
 #include "code\datums\slapcrafting\_slapcrafting_step.dm"
+#include "code\datums\slapcrafting\orderless\_base.dm"
+#include "code\datums\slapcrafting\orderless\pies.dm"
 #include "code\datums\slapcrafting\recipes\_skill_recipes.dm"
 #include "code\datums\slapcrafting\recipes\carpentry\structures.dm"
 #include "code\datums\slapcrafting\recipes\engineering\structures.dm"

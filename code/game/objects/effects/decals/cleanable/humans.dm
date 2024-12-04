@@ -26,7 +26,7 @@
 /obj/effect/decal/cleanable/blood/weather_act_on(weather_trait, severity)
 	if(weather_trait != PARTICLEWEATHER_RAIN || !COOLDOWN_FINISHED(src, wash_cooldown))
 		return
-	wash_precent += min(10, severity / 4)
+	wash_precent += min(10, severity / 2)
 	alpha = 255 *((100 - wash_precent) * 0.01)
 	if(wash_precent >= 100)
 		qdel(src)

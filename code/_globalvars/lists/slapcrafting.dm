@@ -69,3 +69,15 @@ GLOBAL_LIST_EMPTY(slapcraft_recipes)
 			all_hints += recipe.examine_hint
 
 	return all_hints
+
+GLOBAL_LIST_EMPTY(orderless_slapcraft_recipes)
+/proc/init_orderless_slapcraft_recipes()
+	var/list/recipe_list = GLOB.orderless_slapcraft_recipes
+	for(var/datum/type as anything in typesof(/datum/orderless_slapcraft))
+		if(is_abstract(type))
+			continue
+		var/datum/orderless_slapcraft/recipe = new type()
+		///this is so we can easily get a list of all recipes from the attacked_item
+		if(!(recipe.starting_item in recipe_list))
+			recipe_list[recipe.starting_item] = list()
+		recipe_list[recipe.starting_item] |= recipe
