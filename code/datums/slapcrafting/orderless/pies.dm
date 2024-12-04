@@ -6,6 +6,7 @@
 	starting_item = /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
 	related_skill = /datum/skill/craft/cooking
 	skill_xp_gained = 20
+	action_time = 5 SECONDS
 
 	var/overlay_state = ""
 	var/pie_name

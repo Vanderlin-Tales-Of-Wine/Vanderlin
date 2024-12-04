@@ -94,6 +94,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
@@ -108,6 +109,7 @@
 				qdel(src)
 	else
 		return ..()
+
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated
 	icon_state = "wienerpotato_plated"
 	item_state = "plate_food"
@@ -118,6 +120,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	trash = /obj/item/cooking/platter
 	rotprocess = SHELFLIFE_EXTREME
+
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)

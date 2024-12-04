@@ -14,6 +14,7 @@
 	var/skill_xp_gained
 	///tldr say you want mince and fish mince pies but don't want fish mince to work as a mince for mince pie set fallback on mince pies
 	var/fallback = FALSE
+	var/action_time = 3 SECONDS
 
 /datum/orderless_slapcraft/New(loc, _source)
 	. = ..()
@@ -44,7 +45,7 @@
 
 /datum/orderless_slapcraft/proc/try_process_item(obj/item/attacking_item, mob/user)
 	var/return_value = FALSE
-	var/short_cooktime = (50 - ((user?.mind?.get_skill_level(related_skill)) * 5))
+	var/short_cooktime = (action_time - ((user?.mind?.get_skill_level(related_skill)) * 5))
 
 	for(var/obj/item/item as anything in requirements)
 		if(islist(item))
