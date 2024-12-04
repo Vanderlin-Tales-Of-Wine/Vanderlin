@@ -65,6 +65,7 @@
 
 /obj/effect/spawner/roguemap/loot/coin
 	icon_state = "lootcoin"
+	lootmax = 3
 	spawned = list(
 		/obj/item/roguecoin/gold/pile = 5,
 		/obj/item/roguecoin/gold = 10,
@@ -72,6 +73,34 @@
 		/obj/item/roguecoin/silver = 25,
 		/obj/item/roguecoin/copper/pile = 30,
 		/obj/item/roguecoin/copper = 35
+		)
+
+/obj/effect/spawner/roguemap/loot/coin/low
+	icon_state = "lootcoinlow"
+	spawned = list(
+		/obj/item/roguecoin/copper/pile = 75,
+		/obj/item/roguecoin/copper = 25
+		)
+
+/obj/effect/spawner/roguemap/loot/coin/med
+	icon_state = "lootcoinmed"
+	spawned = list(
+		/obj/item/roguecoin/silver/pile = 75,
+		/obj/item/roguecoin/silver = 25
+		)
+
+/obj/effect/spawner/roguemap/loot/coin/high
+	icon_state = "lootcoinhigh"
+	spawned = list(
+		/obj/item/roguecoin/gold/pile = 75,
+		/obj/item/roguecoin/gold = 25
+		)
+
+/obj/effect/spawner/roguemap/loot/coin/absurd
+	icon_state = "lootcoinabsurd"
+	spawned = list(
+		/obj/item/roguecoin/gold/pile = 50,
+		/obj/item/roguegem = 50
 		)
 
 /obj/effect/spawner/roguemap/loot/weapon
@@ -146,6 +175,39 @@
 		/obj/item/reagent_containers/food/snacks/rogue/crackerscooked = 10
 		)
 
+/obj/effect/spawner/roguemap/loot/potion_vitals
+	icon_state = "lootpotion"
+	spawned = list(
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/stronghealthpot = 5,
+		/obj/item/reagent_containers/glass/bottle/rogue/manapot = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongmanapot = 5,
+		/obj/item/reagent_containers/glass/bottle/rogue/stampot = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongstampot = 5
+	)
+
+/obj/effect/spawner/roguemap/loot/potion_poisons
+	icon_state = "lootpoison"
+	spawned = list(
+		/obj/item/reagent_containers/glass/bottle/rogue/poison = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongpoison = 5,
+		/obj/item/reagent_containers/glass/bottle/rogue/stampoison = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongstampoison = 5,
+		/obj/item/reagent_containers/glass/bottle/rogue/stampot = 10,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongstampot = 5
+	)
+
+/obj/effect/spawner/roguemap/loot/potion_stats
+	icon_state = "lootstatpot"
+	spawned = list(
+		/obj/item/reagent_containers/glass/bottle/vial/strpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/perpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/endpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/conpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/intpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/spdpot = 10,
+		/obj/item/reagent_containers/glass/bottle/vial/lucpot = 10
+	)
 /obj/effect/spawner/roguemap/sewerencounter
 	icon_state = "srat"
 	icon = 'icons/roguetown/mob/monster/rat.dmi'

@@ -20,11 +20,23 @@
 /obj/item/reagent_containers/glass/bottle/rogue/strongmanapot
 	list_reagents = list(/datum/reagent/medicine/strongmana = 45)
 
+/obj/item/reagent_containers/glass/bottle/rogue/stampot
+	list_reagents = list(/datum/reagent/medicine/stampot = 45)
+
+/obj/item/reagent_containers/glass/bottle/rogue/strongstampot
+	list_reagents = list(/datum/reagent/medicine/strongstam = 45)
+
 /obj/item/reagent_containers/glass/bottle/rogue/poison
 	list_reagents = list(/datum/reagent/berrypoison = 15)
 
 /obj/item/reagent_containers/glass/bottle/rogue/strongpoison
 	list_reagents = list(/datum/reagent/strongpoison = 15)
+
+/obj/item/reagent_containers/glass/bottle/rogue/stampoison
+	list_reagents = list(/datum/reagent/stampoison = 15)
+
+/obj/item/reagent_containers/glass/bottle/rogue/strongstampoison
+	list_reagents = list(/datum/reagent/strongstampoison = 15)
 
 /obj/item/reagent_containers/glass/bottle/rogue/killersice
 	list_reagents = list(/datum/reagent/killersice = 15)
@@ -58,6 +70,9 @@
 
 /obj/item/reagent_containers/glass/bottle/vial/spdpot
 	list_reagents = list(/datum/reagent/buff/speed = 30)
+
+/obj/item/reagent_containers/glass/bottle/vial/lucpot
+	list_reagents = list(/datum/reagent/buff/fortune = 30)
 
 //////////////////////////
 /// ALCOHOLIC BOTTLES ///	- add fancy var to retain custom descriptions when corking
