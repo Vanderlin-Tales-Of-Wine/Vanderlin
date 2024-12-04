@@ -188,7 +188,6 @@
 	})
 "anm" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/sunlight,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/exposed/under/basement)
 "anF" = (
@@ -7360,7 +7359,6 @@
 /area/rogue/indoors)
 "ifq" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf,
-/obj/effect/sunlight,
 /obj/effect/decal/remains/wolf,
 /turf/open/transparent/openspace,
 /area/rogue/under/cave{

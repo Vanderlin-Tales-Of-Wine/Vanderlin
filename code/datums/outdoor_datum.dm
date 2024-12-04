@@ -38,9 +38,15 @@ Sunlight System
 	var/weatherproof			 = FALSE        // If we have a weather overlay
 	var/turf/source_turf
 
+	var/mutable_appearance/sunlight_overlay
+	var/list/datum/lighting_corner/affecting_corners
+
 /atom/movable/outdoor_effect/Destroy(force)
 	if (!force)
 		return QDEL_HINT_LETMELIVE
+
+	//If we are a source of light - disable it, to fix out corner refs
+	disable_sunlight()
 
 	//Remove ourselves from our turf
 	if(source_turf && source_turf.outdoor_effect == src)
@@ -60,6 +66,75 @@ Sunlight System
 	source_turf.outdoor_effect = src
 
 
+/atom/movable/outdoor_effect/proc/disable_sunlight()
+	var/turf/T = list()
+	for(var/datum/lighting_corner/C in affecting_corners)
+		LAZYREMOVE(C.globAffect, src)
+		C.get_sunlight_falloff()
+		T |= C.masters
+	T |= source_turf /* get our calculated indoor lighting */
+	GLOB.SUNLIGHT_QUEUE_CORNER += T
+
+	//Empty our affecting_corners list
+	affecting_corners = null
+
+/atom/movable/outdoor_effect/proc/process_state()
+	switch(state)
+		if(SKY_BLOCKED)
+			disable_sunlight() /* Do our indoor processing */
+		if(SKY_VISIBLE_BORDER)
+			calc_sunlight_spread()
+
+#define hardSun 0.5 /* our hyperboloidy modifyer funky times - I wrote this in like, 2020 and can't remember how it works - I think it makes a 3D cone shape with a flat top */
+/* calculate the indoor corners we are affecting */
+#define SUN_FALLOFF(C, T) (1 - CLAMP01(sqrt((C.x - T.x) ** 2 + (C.y - T.y) ** 2 - hardSun) / max(1, GLOB.GLOBAL_LIGHT_RANGE)))
+
+
+/atom/movable/outdoor_effect/proc/calc_sunlight_spread()
+
+	var/list/turf/turfs                    = list()
+	var/datum/lighting_corner/C
+	var/turf/T
+	var/list/tempMasterList = list() /* to mimimize double ups */
+	var/list/corners  = list() /* corners we are currently affecting */
+
+	//Set lum so we can see things
+	var/oldLum = luminosity
+	luminosity = GLOB.GLOBAL_LIGHT_RANGE
+
+	for(T in view(CEILING(GLOB.GLOBAL_LIGHT_RANGE, 1), source_turf))
+		if(T.opacity) /* get_corners used to do opacity checks for arse */
+			continue
+		if (!T.lighting_corners_initialised)
+			T.generate_missing_corners()
+		corners |= T.corners
+		turfs += T
+
+	//restore lum
+	luminosity = oldLum
+
+	/* fix up the lists */
+	/* add ourselves and our distance to the corner */
+	LAZYINITLIST(affecting_corners)
+	var/list/L = corners - affecting_corners
+	affecting_corners += L
+	for (C in L)
+		LAZYSET(C.globAffect, src, SUN_FALLOFF(C,source_turf))
+		if(C.globAffect[src] > C.sunFalloff) /* if are closer than current dist, update the corner */
+			C.sunFalloff = C.globAffect[src]
+			tempMasterList |= C.masters
+
+
+	L = affecting_corners - corners // Now-gone corners, remove us from the affecting.
+	affecting_corners -= L
+	for (C in L)
+		LAZYREMOVE(C.globAffect, src)
+		C.get_sunlight_falloff()
+		tempMasterList |= C.masters
+
+
+	GLOB.SUNLIGHT_QUEUE_CORNER += tempMasterList /* update the boys */
+
 /* Related object changes */
 /* I moved this here to consolidate sunlight changes as much as possible, so its easily disabled */
 
@@ -74,8 +149,35 @@ Sunlight System
 /turf/var/weatherproof = TRUE
 /turf/open/transparent/openspace/weatherproof = FALSE
 
+/datum/lighting_corner/var/list/globAffect = list() /* list of sunlight objects affecting this corner */
+/datum/lighting_corner/var/sunFalloff = 0 /* smallest distance to sunlight turf, for sunlight falloff */
+
+/* loop through and find our strongest sunlight value */
+/datum/lighting_corner/proc/get_sunlight_falloff()
+	sunFalloff = 0
+
+	var/atom/movable/outdoor_effect/S
+	for(S in globAffect)
+		sunFalloff = sunFalloff < globAffect[S] ? globAffect[S] : sunFalloff
+
 /turf/proc/reassess_stack()
-	GLOB.SUNLIGHT_QUEUE_WORK += src
+	if(!SSlighting.initialized)
+		return
+
+	/* remove roof refs (not path for psuedo roof) so we can recalculate it */
+	if(pseudo_roof && !ispath(pseudo_roof))
+		pseudo_roof = null
+
+	var/list/SunlightUpdates = list()
+
+	//Add ourselves (we might not have corners initialized, and this handles it)
+	SunlightUpdates += src
+
+	for(var/datum/lighting_corner/corner in corners)
+		SunlightUpdates |= corner.masters
+
+	GLOB.SUNLIGHT_QUEUE_WORK += SunlightUpdates
+
 	var/turf/T = GET_TURF_BELOW(src)
 	if(T)
 		T.reassess_stack()
@@ -120,6 +222,7 @@ Sunlight System
 			for(var/obj/structure/thing in src.contents) // Checks to see if weatherproof objects on the tile
 				if(thing.weatherproof == TRUE)
 					.["WEATHERPROOF"] = TRUE // returns true to block the weather
+					.["SKYVISIBLE"] = FALSE
 					return .
 			.["WEATHERPROOF"] = weatherproof //If we are air or space, we aren't weatherproof
 		else //We are open, so assume open to the elements

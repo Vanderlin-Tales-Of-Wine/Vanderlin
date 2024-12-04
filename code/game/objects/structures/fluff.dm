@@ -253,7 +253,7 @@
 
 /obj/structure/bars/alt
 	icon_state = "bars_alt"
-	plane = -3
+	plane = GAME_PLANE
 	layer = WALL_OBJ_LAYER+0.05
 
 /obj/structure/bars/obj_break(damage_flag)

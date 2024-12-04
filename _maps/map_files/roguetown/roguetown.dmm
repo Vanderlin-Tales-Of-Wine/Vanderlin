@@ -6184,7 +6184,6 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town/roofs)
 "gLE" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/rtfield)
 "gMj" = (
@@ -7904,10 +7903,6 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "iIH" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/open/transparent/openspace,
 /area/rogue)
 "iJv" = (
@@ -8699,7 +8694,6 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "jIa" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
 "jId" = (
@@ -11849,7 +11843,6 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town)
 "nbT" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -15280,7 +15273,6 @@
 	},
 /area/rogue/indoors)
 "qJf" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},

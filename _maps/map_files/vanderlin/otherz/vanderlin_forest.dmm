@@ -869,10 +869,6 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors)
 "Pk" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 255;
-	endTurfY = 255
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/mountains)
 "Pp" = (

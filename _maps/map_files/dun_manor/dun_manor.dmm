@@ -4206,7 +4206,6 @@
 /area/rogue/indoors/town/manor)
 "dYg" = (
 /obj/effect/spawner/roguemap/hauntz_random,
-/obj/effect/sunlight,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "dYh" = (
@@ -21612,10 +21611,6 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/tavern)
 "vpx" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 155;
-	endTurfY = 155
-	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains)
 "vpI" = (

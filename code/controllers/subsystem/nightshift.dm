@@ -66,8 +66,6 @@ SUBSYSTEM_DEF(nightshift)
 
 /datum/controller/subsystem/nightshift/proc/update_nightshift()
 	set waitfor = FALSE
-	for(var/obj/effect/sunlight/L in GLOB.sunlights)
-		START_PROCESSING(SStodchange, L)
 	for(var/obj/A in GLOB.TodUpdate)
 		A.update_tod(GLOB.tod)
 	for(var/mob/living/M in GLOB.mob_list)

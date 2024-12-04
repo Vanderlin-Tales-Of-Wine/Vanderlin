@@ -1701,10 +1701,6 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "kB" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/woods_safe)
 "kD" = (

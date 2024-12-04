@@ -6,7 +6,6 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach/boat)
 "bK" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach)
 "bR" = (
@@ -34,10 +33,6 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
 "dz" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 155;
-	endTurfY = 45
-	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
 "dD" = (
@@ -112,7 +107,6 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach)
 "lH" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach/boat)
 "lK" = (
@@ -271,10 +265,6 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/beach)
 "Ee" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 155;
-	endTurfY = 45
-	},
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/beach)
 "El" = (

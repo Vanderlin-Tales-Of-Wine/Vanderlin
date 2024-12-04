@@ -57,14 +57,17 @@
 
 
 /obj/item/natural/rock/Initialize()
-	icon_state = "stonebig[rand(1,2)]"
+	if(!isnull(mineralType))
+		icon_state = "stonebigshiny[rand(1,2)]"
+	else
+		icon_state = "stonebig[rand(1,2)]"
 	..()
 
 
 /obj/item/natural/rock/Crossed(mob/living/L)
 	if(istype(L) && !L.throwing)
 		if(L.m_intent == MOVE_INTENT_RUN)
-			L.visible_message("<span class='warning'>[L] trips over the rock!</span>","<span class='warning'>I trip over the rock!</span>")
+			L.visible_message(span_warning("[L] trips over the rock!"),span_warning("I trip over the rock!"))
 			L.Knockdown(10)
 			L.consider_ambush()
 	..()
@@ -92,7 +95,7 @@
 /obj/item/natural/rock/attackby(obj/item/W, mob/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(W, /obj/item/natural/stone))
-		user.visible_message("<span class='info'>[user] strikes the stone against the rock.</span>")
+		user.visible_message(span_info("[user] strikes the stone against the rock.</span>"))
 		playsound(src.loc, 'sound/items/stonestone.ogg', 100)
 		if(prob(35))
 			var/datum/effect_system/spark_spread/S = new()
@@ -102,7 +105,7 @@
 		return
 	if(istype(W, /obj/item/natural/rock))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message("<span class='info'>[user] strikes the rocks together.</span>")
+		user.visible_message(span_info("[user] strikes the rocks together."))
 		if(prob(10))
 			var/datum/effect_system/spark_spread/S = new()
 			var/turf/front = get_turf(src)
@@ -134,4 +137,4 @@
 	mineralType = /obj/item/rogueore/tin
 
 /obj/item/natural/rock/gemerald
-	mineralType = /obj/item/natural/rock/gemerald
+	mineralType = /obj/item/roguegem

@@ -110,10 +110,6 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bog)
 "X" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/bog)
 "Y" = (

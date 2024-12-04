@@ -825,7 +825,6 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "dg" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/exposed/church)
 "dh" = (
@@ -4361,10 +4360,6 @@
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
 /area/rogue/indoors/town/bath)
 "qC" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 155;
-	endTurfY = 155
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/town)
 "qD" = (
@@ -5365,7 +5360,6 @@
 /turf/closed/wall/mineral/rogue/roofwall/center,
 /area/rogue/outdoors/town/roofs)
 "ux" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/outdoors/exposed/church)
 "uy" = (
@@ -10112,10 +10106,6 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/manor)
 "MG" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 155;
-	endTurfY = 155
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/rtfield)
 "MI" = (
@@ -12822,7 +12812,6 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/shop)
 "WI" = (
-/obj/effect/sunlight,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "WJ" = (

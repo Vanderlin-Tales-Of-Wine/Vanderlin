@@ -214,7 +214,6 @@
 	})
 "anm" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/sunlight,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/exposed/under/basement)
 "anF" = (
@@ -3954,10 +3953,6 @@
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
 "eoL" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 192
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/mountains)
 "epf" = (
@@ -7747,7 +7742,6 @@
 /area/rogue/indoors)
 "ifq" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf,
-/obj/effect/sunlight,
 /obj/effect/decal/remains/wolf,
 /turf/open/transparent/openspace,
 /area/rogue/under/cave{

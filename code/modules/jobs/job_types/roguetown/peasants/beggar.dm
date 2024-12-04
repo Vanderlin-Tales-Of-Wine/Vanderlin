@@ -27,7 +27,7 @@
 	min_pq = -100
 	can_random = FALSE
 
-	cmode_music = 'sound/music/combat_bum.ogg'
+	cmode_music = 'sound/music/nobility/CombatKnight.ogg'
 
 /datum/job/roguetown/vagrant/New()
 	. = ..()

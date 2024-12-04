@@ -129,8 +129,6 @@
 	if(T)
 		T.multiz_turf_del(src, UP)
 	STOP_PROCESSING(SSweather,src)
-	if(pollutants)
-		pollutants = null
 	if(force)
 		..()
 		//this will completely wipe turf state

@@ -140,10 +140,6 @@
 /turf/closed/mineral/rogue/salt,
 /area/rogue/outdoors/woods)
 "cL" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/woods)
 "cM" = (

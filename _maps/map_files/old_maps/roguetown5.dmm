@@ -7598,7 +7598,6 @@
 	},
 /area/rogue/outdoors/town)
 "Ci" = (
-/obj/effect/sunlight,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -7672,10 +7671,6 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "Cv" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/open/transparent/openspace,
 /area/rogue)
 "Cx" = (

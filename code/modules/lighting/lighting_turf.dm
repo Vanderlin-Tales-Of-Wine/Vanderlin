@@ -64,11 +64,18 @@
 	var/totallums = 0
 	var/thing
 	var/datum/lighting_corner/L
+	var/totalSunFalloff
 	for (thing in corners)
 		if(!thing)
 			continue
 		L = thing
 		totallums += L.lum_r + L.lum_b + L.lum_g
+		totalSunFalloff += L.sunFalloff
+
+	if(outdoor_effect && outdoor_effect.state)
+		totalSunFalloff = 4
+
+	totallums += totalSunFalloff / 4
 
 	totallums /= 12 // 4 corners, each with 3 channels, get the average.
 

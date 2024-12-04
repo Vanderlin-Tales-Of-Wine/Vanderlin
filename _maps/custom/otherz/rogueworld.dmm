@@ -202,10 +202,6 @@
 	},
 /area/rogue/outdoors/rtfield)
 "Ha" = (
-/obj/effect/landmark/mapGenerator/sunlights{
-	endTurfX = 128;
-	endTurfY = 128
-	},
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/rtfield)
 "Hp" = (

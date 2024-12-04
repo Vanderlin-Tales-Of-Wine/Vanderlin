@@ -66,7 +66,7 @@
 
 /turf/closed/mineral/attackby(obj/item/I, mob/user, params)
 	if (!user.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>I don't have the dexterity to do this!</span>")
+		to_chat(user, span_warning("I don't have the dexterity to do this!"))
 		return
 	lastminer = user
 	var/olddam = turf_integrity
@@ -173,8 +173,9 @@
 	T.ChangeTurf(type)
 
 /turf/closed/mineral/random
+	///if this isn't empty, swaps to one of them via pickweight
 	var/list/mineralSpawnChanceList = list()
-		//Currently, Adamantine won't spawn as it has no uses. -Durandan
+	///the chance to swap to something useful
 	var/mineralChance = 13
 	var/display_icon_state = "rock"
 
@@ -224,8 +225,28 @@
 
 /turf/closed/mineral/random/rogue/high
 	icon_state = "minrandhigh"
-	mineralChance = 60
+	mineralChance = 70
 	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/gold = 15 , /turf/closed/mineral/rogue/iron = 25, /turf/closed/mineral/rogue/silver = 15)//, /turf/closed/mineral/rogue/gemeralds = 10)
+
+/turf/closed/mineral/random/rogue/low_nonval
+	icon_state = "cticbad"
+	mineralChance = 30
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/copper = 15,/turf/closed/mineral/rogue/tin = 15, /turf/closed/mineral/rogue/iron = 25, /turf/closed/mineral/rogue/coal = 20)
+
+/turf/closed/mineral/random/rogue/high_nonval
+	icon_state = "cticgood"
+	mineralChance = 70
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/copper = 15,/turf/closed/mineral/rogue/tin = 15, /turf/closed/mineral/rogue/iron = 25, /turf/closed/mineral/rogue/coal = 20)
+
+/turf/closed/mineral/random/rogue/low_valuable
+	icon_state = "gsgbad"
+	mineralChance = 30
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/gold = 40 , /turf/closed/mineral/rogue/gemeralds = 20, /turf/closed/mineral/rogue/silver = 40)
+
+/turf/closed/mineral/random/rogue/high_valuable
+	icon_state = "gsggood"
+	mineralChance = 70
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/gold = 40 , /turf/closed/mineral/rogue/gemeralds = 20, /turf/closed/mineral/rogue/silver = 40)
 
 
 //begin actual mineral turfs
@@ -252,71 +273,64 @@
 
 
 /turf/closed/mineral/rogue/copper
-	desc = "seems rich in copper"
-	icon_state = "mingold"
+	icon_state = "coppbad"
 	mineralType = /obj/item/rogueore/copper
 	rockType = /obj/item/natural/rock/copper
 	spreadChance = 4
 	spread = 3
 
 /turf/closed/mineral/rogue/tin
-	icon_state = "mingold"
+	icon_state = "tinbad"
 	mineralType = /obj/item/rogueore/tin
 	rockType = /obj/item/natural/rock/tin
 	spreadChance = 15
 	spread = 5
 
 /turf/closed/mineral/rogue/silver
-	desc = "seems rich in silver"
-	icon_state = "mingold"
+	icon_state = "silverbad"
 	mineralType = /obj/item/rogueore/silver
 	rockType = /obj/item/natural/rock/silver
 	spreadChance = 2
 	spread = 2
 
 /turf/closed/mineral/rogue/gold
-	desc = "seems rich in gold"
-	icon_state = "mingold"
+	icon_state = "goldbad"
 	mineralType = /obj/item/rogueore/gold
 	rockType = /obj/item/natural/rock/gold
 	spreadChance = 2
 	spread = 2
 
 /turf/closed/mineral/rogue/salt
-	desc = "seems rich in salt"
-	icon_state = "mingold"
+	icon_state = "saltbad"
 	mineralType = /obj/item/reagent_containers/powder/salt
 	rockType = /obj/item/natural/rock/salt
 	spreadChance = 12
 	spread = 3
 
 /turf/closed/mineral/rogue/iron
-	desc = "seems rich in iron"
-	icon_state = "mingold"
+	icon_state = "ironbad"
 	mineralType = /obj/item/rogueore/iron
 	rockType = /obj/item/natural/rock/iron
 	spreadChance = 5
 	spread = 3
 
 /turf/closed/mineral/rogue/coal
-	desc = "seems rich in coal"
-	icon_state = "mingold"
+	icon_state = "coalbad"
 	mineralType = /obj/item/rogueore/coal
 	rockType = /obj/item/natural/rock/coal
 	spreadChance = 3
 	spread = 4
 
 /turf/closed/mineral/rogue/gemeralds
-	icon_state = "mingold"
-	desc = "there is an strange light on the stone?"
-	mineralType = /obj/item/roguegem/random
+	icon_state = "gembad"
+	mineralType = /obj/item/roguegem
 	rockType = /obj/item/natural/rock/gemerald
 	spreadChance = 3
 	spread = 2
 
 /turf/closed/mineral/rogue/bedrock
 	name = "rock"
-	desc = "seems too hard"
+	desc = "seems barren, and nigh indestructable"
 	icon_state = "rockyashbed"
 //	smooth_icon = 'icons/turf/walls/hardrock.dmi'
 	max_integrity = 10000000
@@ -324,6 +338,15 @@
 	above_floor = /turf/closed/mineral/rogue/bedrock
 
 /turf/closed/mineral/rogue/bedrock/attackby(obj/item/I, mob/user, params)
-	..()
-	to_chat(user, "<span class='warning'>TOO HARD!</span>")
-	turf_integrity = max_integrity
+	to_chat(user, span_warning("This is far to sturdy to be destroyed!"))
+	return FALSE
+
+/turf/closed/mineral/rogue/bedrock/TerraformTurf(path, new_baseturf, flags, defer_change = FALSE, ignore_air = FALSE)
+	return
+
+/turf/closed/mineral/rogue/bedrock/acid_act(acidpwr, acid_volume, acid_id)
+	return 0
+
+/turf/closed/mineral/rogue/bedrock/Melt()
+	to_be_destroyed = FALSE
+	return src
