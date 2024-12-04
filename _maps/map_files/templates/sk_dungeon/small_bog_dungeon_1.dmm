@@ -128,6 +128,15 @@
 /obj/structure/fluff/statue/gargoyle/moss,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bog)
+"uC" = (
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/obj/structure/fluff/railing/fence{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "uV" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/blocks,
@@ -190,6 +199,15 @@
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/bog)
+"BI" = (
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "BQ" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/bog)
@@ -200,6 +218,12 @@
 /obj/structure/table/church,
 /obj/item/clothing/head/roguetown/helmet/heavy/necked/necra,
 /turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/bog)
+"CZ" = (
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bog)
 "Dp" = (
 /obj/structure/well/fountain,
@@ -247,6 +271,15 @@
 /obj/item/roguecoin/silver,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/outdoors/bog)
+"OE" = (
+/obj/structure/fluff/railing/fence{
+	dir = 8
+	},
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "OM" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/rogue/ruinedwood/chevron,
@@ -266,6 +299,12 @@
 	},
 /obj/structure/fluff/railing/fence{
 	dir = 4
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
+"PC" = (
+/obj/structure/fluff/railing/fence{
+	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog)
@@ -339,6 +378,260 @@
 
 (1,1,1) = {"
 Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+Rk
+Rk
+"}
+(2,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+Rk
+Rk
+Rk
+lL
+Rk
+Rk
+"}
+(3,1,1) = {"
+Rk
+Rk
+lL
+lL
+Rk
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+lL
+lL
+lL
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+Rk
+Rk
+"}
+(4,1,1) = {"
+Rk
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+"}
+(5,1,1) = {"
+Rk
+lL
+Rk
+uC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+PC
+OE
+lL
+lL
+Rk
+"}
+(6,1,1) = {"
+Rk
+Rk
+Rk
+wK
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+wK
+Rk
+lL
+Rk
+"}
+(7,1,1) = {"
+Rk
+Rk
+Rk
 wK
 Rk
 Rk
@@ -372,9 +665,14 @@ hB
 hB
 fE
 Rk
+wK
+Rk
+lL
 Rk
 "}
-(2,1,1) = {"
+(8,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -409,9 +707,14 @@ hB
 wi
 gz
 Rk
+wK
+lL
+lL
 Rk
 "}
-(3,1,1) = {"
+(9,1,1) = {"
+Rk
+lL
 Rk
 wK
 lL
@@ -446,9 +749,14 @@ hB
 hB
 hB
 Rk
+wK
+lL
 Rk
+lL
 "}
-(4,1,1) = {"
+(10,1,1) = {"
+Rk
+lL
 Rk
 wK
 lL
@@ -483,9 +791,14 @@ Al
 hB
 wi
 cB
+wK
+lL
+Rk
 Rk
 "}
-(5,1,1) = {"
+(11,1,1) = {"
+lL
+lL
 Rk
 wK
 lL
@@ -520,9 +833,14 @@ Rk
 hB
 bA
 Rk
+wK
+lL
 Rk
+lL
 "}
-(6,1,1) = {"
+(12,1,1) = {"
+lL
+Rk
 Rk
 wK
 lL
@@ -557,9 +875,14 @@ hB
 hB
 Rk
 Rk
+wK
+lL
 Rk
+lL
 "}
-(7,1,1) = {"
+(13,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -594,9 +917,14 @@ wi
 hB
 Rk
 sA
-fE
+CZ
+Rk
+lL
+lL
 "}
-(8,1,1) = {"
+(14,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -631,9 +959,14 @@ gz
 fE
 Rk
 Rk
-fE
+CZ
+Rk
+lL
+Rk
 "}
-(9,1,1) = {"
+(15,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -668,9 +1001,14 @@ Rk
 Rk
 Rk
 fE
-fE
+CZ
+Rk
+lL
+Rk
 "}
-(10,1,1) = {"
+(16,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -705,9 +1043,14 @@ Ci
 Ci
 Ci
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(11,1,1) = {"
+(17,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -742,9 +1085,14 @@ AX
 ty
 ty
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(12,1,1) = {"
+(18,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -779,9 +1127,14 @@ ty
 ty
 ty
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(13,1,1) = {"
+(19,1,1) = {"
+lL
+Rk
 Rk
 Ty
 Sf
@@ -816,9 +1169,14 @@ wa
 Vj
 Vj
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(14,1,1) = {"
+(20,1,1) = {"
+Rk
+Rk
 Rk
 Ty
 Sf
@@ -853,9 +1211,14 @@ CW
 df
 df
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(15,1,1) = {"
+(21,1,1) = {"
+lL
+Rk
 Rk
 wK
 cB
@@ -890,9 +1253,14 @@ Tt
 mE
 nW
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(16,1,1) = {"
+(22,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -927,9 +1295,14 @@ gS
 df
 df
 Ci
+wK
+Rk
+lL
 Rk
 "}
-(17,1,1) = {"
+(23,1,1) = {"
+Rk
+Rk
 Rk
 wK
 Rk
@@ -964,9 +1337,14 @@ wa
 Vj
 Vj
 Ci
+wK
 Rk
+Rk
+lL
 "}
-(18,1,1) = {"
+(24,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -1001,9 +1379,14 @@ ty
 ty
 ty
 Ci
+wK
 Rk
+Rk
+lL
 "}
-(19,1,1) = {"
+(25,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -1038,9 +1421,14 @@ AX
 ty
 ty
 Ci
+wK
+Rk
+Rk
 Rk
 "}
-(20,1,1) = {"
+(26,1,1) = {"
+Rk
+Rk
 Rk
 wK
 Rk
@@ -1075,9 +1463,14 @@ Ci
 Ci
 Ci
 Ci
+wK
+lL
+Rk
 Rk
 "}
-(21,1,1) = {"
+(27,1,1) = {"
+Rk
+Rk
 Rk
 wK
 Rk
@@ -1112,9 +1505,14 @@ Al
 Rk
 Rk
 Rk
+wK
+lL
+lL
 Rk
 "}
-(22,1,1) = {"
+(28,1,1) = {"
+Rk
+Rk
 Rk
 wK
 Rk
@@ -1149,10 +1547,15 @@ Rk
 Rk
 Rk
 Rk
+wK
+Rk
+lL
 Rk
 "}
-(23,1,1) = {"
+(29,1,1) = {"
 Rk
+Rk
+lL
 wK
 Rk
 Rk
@@ -1186,9 +1589,14 @@ Tp
 Rk
 lL
 lL
+wK
+Rk
+lL
 lL
 "}
-(24,1,1) = {"
+(30,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -1223,9 +1631,14 @@ lL
 lL
 lL
 lL
+wK
+Rk
+Rk
 lL
 "}
-(25,1,1) = {"
+(31,1,1) = {"
+lL
+lL
 Rk
 wK
 Rk
@@ -1260,9 +1673,14 @@ lL
 lL
 lL
 lL
+wK
+Rk
+Rk
 lL
 "}
-(26,1,1) = {"
+(32,1,1) = {"
+lL
+lL
 Rk
 wK
 Rk
@@ -1297,9 +1715,14 @@ lL
 lL
 lL
 lL
+wK
+Rk
+Rk
 lL
 "}
-(27,1,1) = {"
+(33,1,1) = {"
+lL
+Rk
 Rk
 wK
 Rk
@@ -1334,9 +1757,14 @@ lL
 lL
 lL
 lL
+wK
+Rk
+Rk
 lL
 "}
-(28,1,1) = {"
+(34,1,1) = {"
+Rk
+lL
 Rk
 wK
 Rk
@@ -1371,9 +1799,14 @@ Tp
 Rk
 Tp
 Tp
+wK
 Rk
+Rk
+lL
 "}
-(29,1,1) = {"
+(35,1,1) = {"
+Rk
+Rk
 Rk
 Pw
 AT
@@ -1408,9 +1841,12 @@ AT
 AT
 AT
 AT
-AT
+BI
+Rk
+Rk
+lL
 "}
-(30,1,1) = {"
+(36,1,1) = {"
 Rk
 Rk
 Rk
@@ -1440,6 +1876,179 @@ Rk
 Rk
 Rk
 Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+"}
+(37,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+Rk
+lL
+lL
+lL
+Rk
+"}
+(38,1,1) = {"
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+lL
+lL
+lL
+lL
+Rk
+"}
+(39,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+"}
+(40,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+lL
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+Rk
+lL
+lL
+lL
+lL
+lL
 Rk
 Rk
 Rk
