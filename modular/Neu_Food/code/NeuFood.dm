@@ -5,7 +5,6 @@
  *						*
  * * * * * * * * * * * **/
 
-
 #define SIMPLE_COOKING_XPGAIN 10
 #define COMPLEX_COOKING_XPGAIN 25
 
@@ -22,7 +21,6 @@
 	foodtype = GRAIN
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 30 SECONDS
-	var/process_step // used for pie making and other similar modular foods
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()

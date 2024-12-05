@@ -348,7 +348,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/vial
 	name = "vial"
 	desc = "A vial with a cork."
-	icon = 'icons/roguetown/misc/alchemy.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "clear_vial1"
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)

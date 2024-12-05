@@ -577,7 +577,7 @@
 	})
 "aHC" = (
 /obj/structure/displaycase,
-/obj/item/rogueweapon/sword/sabre/lord,
+/obj/item/rogueweapon/sword/rapier/dec/lord,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/vault)
 "aHN" = (

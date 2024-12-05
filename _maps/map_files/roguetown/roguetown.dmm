@@ -9617,7 +9617,7 @@
 "kEn" = (
 /obj/structure/closet/crate/roguecloset/lord,
 /obj/item/clothing/suit/roguetown/armor/gambeson/arming,
-/obj/item/rogueweapon/sword/sabre/lord,
+/obj/item/rogueweapon/sword/rapier/dec/lord,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},

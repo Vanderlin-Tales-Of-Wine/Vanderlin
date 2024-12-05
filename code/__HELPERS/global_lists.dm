@@ -61,6 +61,8 @@
 	init_slapcraft_steps()
 	init_slapcraft_recipes()
 
+	init_orderless_slapcraft_recipes()
+
 	GLOB.emote_list = init_emote_list()
 
 	init_subtypes(/datum/crafting_recipe, GLOB.crafting_recipes)
