@@ -569,7 +569,7 @@
 		if(HAS_TRAIT(src, TRAIT_NOHUNGER))
 			return TRUE
 		add_nausea(-100)
-		change_fatigue(-50)
+		adjust_energy(-50)
 		if(is_mouth_covered()) //make this add a blood/vomit overlay later it'll be hilarious
 			if(message)
 				visible_message("<span class='danger'>[src] throws up all over [p_them()]self!</span>", \
@@ -656,7 +656,6 @@
 		return
 	var/total_burn	= 0
 //	var/total_brute	= 0
-	var/total_stamina = 0
 	var/total_tox = getToxLoss()
 	var/total_oxy = getOxyLoss()
 	var/used_damage = 0
@@ -675,7 +674,6 @@
 	if(used_damage < total_oxy)
 		used_damage = total_oxy
 	health = round(maxHealth - used_damage, DAMAGE_PRECISION)
-	staminaloss = round(total_stamina, DAMAGE_PRECISION)
 	update_stat()
 	update_mobility()
 
@@ -685,27 +683,12 @@
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
-/mob/living/carbon/update_stamina()
-	var/stam = getStaminaLoss()
-	if(stam > DAMAGE_PRECISION && (maxHealth - stam) <= crit_threshold && !stat)
-		enter_stamcrit()
-	else if(stam_paralyzed)
-		stam_paralyzed = FALSE
-	else
-		return
-	update_health_hud()
-
 /mob/living/carbon
 	var/lightning_flashing = FALSE
 
 /mob/living/carbon/update_sight()
 	if(!client)
 		return
-//	if(stat == DEAD)
-//		sight = (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-//		see_in_dark = 8
-//		see_invisible = SEE_INVISIBLE_OBSERVER
-//		return
 
 	sight = initial(sight)
 	lighting_alpha = initial(lighting_alpha)

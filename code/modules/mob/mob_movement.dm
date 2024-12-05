@@ -619,9 +619,9 @@
 		if(MOVE_INTENT_RUN)
 			if(isliving(src))
 				var/mob/living/L = src
-				if(L.curr_stamina <= 0)
+				if(L.stamina >= L.maximum_stamina)
 					return
-				if(L.curr_fatigue <= 0)
+				if(L.energy <= 0)
 					return
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L

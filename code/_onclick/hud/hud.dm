@@ -62,8 +62,9 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	var/atom/movable/screen/bloods
 	var/atom/movable/screen/healthdoll
 	var/atom/movable/screen/internals
-	var/atom/movable/screen/stam_ui/stam_ui
-	var/atom/movable/screen/fatigue_ui/fat_ui
+
+	var/atom/movable/screen/stamina/stamina
+	var/atom/movable/screen/energy/energy
 
 	var/image/object_overlay
 	var/atom/movable/screen/overlay_curloc

@@ -389,12 +389,6 @@
 	using.hud = src
 	static_inventory += using
 
-/*
-	healthdoll = new /atom/movable/screen/healthdoll()
-	healthdoll.icon = ui_style
-	healthdoll.hud = src
-	infodisplay += healthdoll
-*/
 	zone_select =  new /atom/movable/screen/zone_sel()
 	zone_select.icon = 'icons/mob/roguehud64.dmi'
 	zone_select.screen_loc = rogueui_targetdoll
@@ -404,11 +398,11 @@
 
 	zone_select.update_icon()
 
-	stam_ui = new /atom/movable/screen/stam_ui()
-	infodisplay += stam_ui
+	stamina = new /atom/movable/screen/stamina()
+	infodisplay += stamina
 
-	fat_ui = new /atom/movable/screen/fatigue_ui()
-	infodisplay += fat_ui
+	energy = new /atom/movable/screen/energy()
+	infodisplay += energy
 
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)

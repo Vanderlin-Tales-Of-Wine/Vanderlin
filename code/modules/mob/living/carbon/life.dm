@@ -22,10 +22,6 @@
 		handle_embedded_objects()
 		handle_blood()
 		handle_roguebreath()
-		var/bprv = handle_bodyparts()
-		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
-			update_stamina() //needs to go before updatehealth to remove stamcrit
-			updatehealth()
 		update_stress()
 		handle_nausea()
 		if(blood_volume > BLOOD_VOLUME_SURVIVE)
@@ -49,7 +45,7 @@
 			var/bleed_rate = get_bleed_rate()
 			var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
 			if(nutrition > 0 || yess)
-				change_fatigue(sleepy_mod * 20)
+				adjust_energy(sleepy_mod * 20)
 			if(hydration > 0 || yess)
 				if(!bleed_rate)
 					blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
@@ -80,7 +76,7 @@
 						to_chat(src, span_boldwarning("I can't sleep...[cause]"))
 					fallingas = 13
 				else
-					change_fatigue(buckled.sleepy * 10)
+					adjust_energy(buckled.sleepy * 10)
 			// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
 			else if(!(mobility_flags & MOBILITY_STAND))
 				if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
@@ -94,7 +90,7 @@
 						to_chat(src, span_boldwarning("I can't sleep...[cause]"))
 					fallingas = 13
 				else
-					change_fatigue(10)
+					adjust_energy(10)
 			else if(fallingas)
 				fallingas = 0
 			tiredness = min(tiredness + 1, 100)
@@ -242,17 +238,6 @@
 	if(HAS_TRAIT(src, TRAIT_NOBREATH))
 		return TRUE
 	return FALSE
-
-/mob/living/carbon/proc/handle_bodyparts()
-	var/stam_regen = FALSE
-	if(stam_regen_start_time <= world.time)
-		stam_regen = TRUE
-		if(stam_paralyzed)
-			. |= BODYPART_LIFE_UPDATE_HEALTH //make sure we remove the stamcrit
-	for(var/I in bodyparts)
-		var/obj/item/bodypart/BP = I
-		if(BP.needs_processing)
-			. |= BP.on_life(stam_regen)
 
 /mob/living/carbon/proc/handle_organs()
 	if(stat != DEAD)

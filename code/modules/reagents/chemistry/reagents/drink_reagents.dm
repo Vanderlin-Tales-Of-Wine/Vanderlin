@@ -30,7 +30,7 @@
 
 /datum/reagent/consumable/tomatojuice/on_mob_life(mob/living/carbon/M)
 	if(M.getFireLoss() && prob(20))
-		M.heal_bodypart_damage(0,1, 0)
+		M.heal_bodypart_damage(0,1)
 		. = 1
 	..()
 

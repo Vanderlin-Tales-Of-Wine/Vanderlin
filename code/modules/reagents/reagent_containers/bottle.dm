@@ -179,11 +179,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	desc = ""
 	list_reagents = list(/datum/reagent/toxin/pancuronium = 30)
 
-/obj/item/reagent_containers/glass/bottle/sodium_thiopental
-	name = "sodium thiopental bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/sodium_thiopental = 30)
-
 /obj/item/reagent_containers/glass/bottle/coniine
 	name = "coniine bottle"
 	desc = ""

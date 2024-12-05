@@ -57,7 +57,7 @@
 
 /datum/reagent/medicine/manapot/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_fatigue(50)
+		M.adjust_energy(50)
 	..()
 
 /datum/reagent/medicine/strongmana
@@ -68,7 +68,7 @@
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_fatigue(250)
+		M.adjust_energy(250)
 	..()
 
 /datum/reagent/medicine/stampot
@@ -83,7 +83,7 @@
 
 /datum/reagent/medicine/stampot/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(1.5)
+		M.adjust_stamina(1.5)
 	..()
 
 /datum/reagent/medicine/strongstam
@@ -94,7 +94,7 @@
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(6)
+		M.adjust_stamina(6)
 	..()
 
 /datum/reagent/medicine/antidote
@@ -298,10 +298,10 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/stampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(-2.25) //Slowly leech stam, and stop regen
+		M.adjust_stamina(-2.25) //Slowly leech stam, and stop regen
 	return ..()
 
-/datum/reagent/strongstampoison
+/datum/reagent/strongstampoisons
 	name = "Strong Stamina Poison"
 	description = ""
 	reagent_state = LIQUID
@@ -311,7 +311,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/strongstampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOFATIGUE))
-		M.change_stamina(-9) //Rapidly leech stam, and stop regen
+		M.adjust_stamina(-9) //Rapidly leech stam, and stop regen
 	return ..()
 
 

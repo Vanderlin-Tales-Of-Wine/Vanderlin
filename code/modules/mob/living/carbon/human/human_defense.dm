@@ -404,7 +404,7 @@
 	take_overall_damage(brute_loss,burn_loss)
 
 	//attempt to dismember bodyparts
-	if(severity >= 2)
+	if(severity <= 2)
 		var/max_limb_loss = rand(0, floor(3/severity))
 		for(var/X in bodyparts)
 			var/obj/item/bodypart/BP = X

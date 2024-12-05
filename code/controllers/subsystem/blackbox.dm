@@ -317,7 +317,7 @@ Versioning
 		"oxy" = L.getOxyLoss(),
 		"tox" = L.getToxLoss(),
 		"clone" = L.getCloneLoss(),
-		"stamina" = L.getStaminaLoss(),
+		"stamina" = 0,
 		"x_coord" = L.x,
 		"y_coord" = L.y,
 		"z_coord" = L.z,

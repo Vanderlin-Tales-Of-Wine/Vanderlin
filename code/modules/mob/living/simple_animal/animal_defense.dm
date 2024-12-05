@@ -167,7 +167,7 @@
 	if(user.check_leg_grabbed(1) || user.check_leg_grabbed(2))
 		to_chat(user, "<span class='notice'>I can't move my leg!</span>")
 		return
-	if(user.curr_stamina <= 0)
+	if(user.stamina >= user.maximum_stamina)
 		return FALSE
 	if(user.loc == target.loc)
 		to_chat(user, "<span class='warning'>I'm too close to get a good kick in.</span>")
@@ -190,7 +190,7 @@
 		target.lastattackerckey = user.ckey
 		if(target.mind)
 			target.mind.attackedme[user.real_name] = world.time
-		user.change_stamina(-15)
+		user.adjust_stamina(15)
 
 /mob/living/simple_animal/proc/attack_threshold_check(damage, damagetype = BRUTE, armorcheck = "blunt")
 	var/temp_damage = damage

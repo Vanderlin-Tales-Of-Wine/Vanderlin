@@ -318,16 +318,13 @@
 		grinded = null
 		to_chat(user, "<span class='notice'>I eject the item inside.</span>")
 
+//VANDERLIN TODO: add a stamina check for the system we actually use.
 /obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
 	..()
 	if(istype(I,/obj/item/pestle))
 		if(grinded)
-			if(user.getStaminaLoss() > 50)
-				to_chat(user, "<span class='warning'>I are too tired to work!</span>")
-				return
 			to_chat(user, "<span class='notice'>I start grinding...</span>")
 			if((do_after(user, 25, target = src)) && grinded)
-				user.adjustStaminaLoss(40)
 				if(grinded.juice_results) //prioritize juicing
 					grinded.on_juice()
 					reagents.add_reagent_list(grinded.juice_results)

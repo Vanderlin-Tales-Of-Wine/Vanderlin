@@ -57,7 +57,7 @@
 		if(!apply_damage(P.damage, P.damage_type, def_zone, armor))
 			nodmg = TRUE
 			next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
-		apply_effects(P.stun, 0, 0, 0,0, 0, 0, 0, armor, 0, P.jitter, P.paralyze, 0)
+		apply_effects(P.stun, 0, 0, 0,0, 0, 0, 0, armor, P.jitter, P.paralyze, 0)
 		if(!nodmg)
 			if(P.dismemberment)
 				check_projectile_dismemberment(P, def_zone,armor)
@@ -199,7 +199,7 @@
 		playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
 		user.Immobilize(2 SECONDS)
 		user.changeNext_move(2 SECONDS)
-		user.change_stamina(-5)
+		user.adjust_stamina(5)
 		src.Immobilize(1 SECONDS)
 		src.changeNext_move(1 SECONDS)
 		return
@@ -394,8 +394,6 @@
 		return FALSE
 	if(!(flags & SHOCK_ILLUSION))
 		adjustFireLoss(shock_damage)
-	else
-		adjustStaminaLoss(shock_damage)
 	visible_message(
 		"<span class='danger'>[src] was shocked by \the [source]!</span>", \
 		"<span class='danger'>I feel a powerful shock coursing through my body!</span>", \

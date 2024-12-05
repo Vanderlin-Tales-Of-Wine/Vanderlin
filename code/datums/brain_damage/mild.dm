@@ -116,7 +116,6 @@
 
 /datum/brain_trauma/mild/healthy/on_life()
 	owner.set_screwyhud(SCREWYHUD_HEALTHY) //just in case of hallucinations
-	owner.adjustStaminaLoss(-5) //no pain, no fatigue
 	..()
 
 /datum/brain_trauma/mild/healthy/on_lose()
@@ -147,7 +146,6 @@
 
 	else if(prob(3))
 		to_chat(owner, "<span class='warning'>I feel a sudden weakness in my muscles!</span>")
-		owner.adjustStaminaLoss(50)
 	..()
 
 /datum/brain_trauma/mild/muscle_spasms

@@ -327,11 +327,11 @@
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 15))
 			to_chat(user, "<span class='warning'>Not enough salted milk.</span>")
 			return
-		user.change_stamina(-40)
+		user.adjust_stamina(40) // forgot stamina is our lovely stamloss proc here
 		user.visible_message("<span class='info'>[user] churns butter...</span>")
 		playsound(get_turf(user), 'modular/Neu_Food/sound/churn.ogg', 100, TRUE, -1)
 		if(do_after(user,long_cooktime, target = src))
-			user.change_stamina(-50)
+			user.adjust_stamina(50)
 			if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted, 15)
 			if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 15))

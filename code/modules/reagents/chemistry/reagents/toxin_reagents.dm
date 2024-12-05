@@ -143,45 +143,6 @@
 	toxpwr = 2
 	taste_description = "fish"
 
-/datum/reagent/toxin/zombiepowder
-	name = "Zombie Powder"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
-	silent_toxin = TRUE
-	reagent_state = SOLID
-	color = "#669900" // rgb: 102, 153, 0
-	toxpwr = 0.5
-	taste_description = "death"
-	var/fakedeath_active = FALSE
-
-/datum/reagent/toxin/zombiepowder/on_mob_metabolize(mob/living/L)
-	..()
-	ADD_TRAIT(L, TRAIT_FAKEDEATH, type)
-
-/datum/reagent/toxin/zombiepowder/on_mob_end_metabolize(mob/living/L)
-	L.cure_fakedeath(type)
-	..()
-
-/datum/reagent/toxin/zombiepowder/reaction_mob(mob/living/L, method=TOUCH, reac_volume)
-	L.adjustOxyLoss(0.5*REM, 0)
-	if(method == INGEST)
-		fakedeath_active = TRUE
-		L.fakedeath(type)
-
-/datum/reagent/toxin/zombiepowder/on_mob_life(mob/living/M)
-	..()
-	if(fakedeath_active)
-		return TRUE
-	switch(current_cycle)
-		if(1 to 5)
-			M.confused += 1
-			M.drowsyness += 1
-			M.slurring += 3
-		if(5 to 8)
-			M.adjustStaminaLoss(40, 0)
-		if(9 to INFINITY)
-			fakedeath_active = TRUE
-			M.fakedeath(type)
-
 /datum/reagent/toxin/ghoulpowder
 	name = "Ghoul Powder"
 	description = "A strong neurotoxin that slows metabolism to a death-like state, while keeping the patient fully active. Causes toxin buildup if used too long."
@@ -345,20 +306,6 @@
 /datum/reagent/toxin/mutetoxin/on_mob_life(mob/living/carbon/M)
 	M.silent = max(M.silent, 3)
 	..()
-
-/datum/reagent/toxin/staminatoxin
-	name = "Tirizene"
-	description = "A nonlethal poison that causes extreme fatigue and weakness in its victim."
-	silent_toxin = TRUE
-	color = "#6E2828"
-	data = 13
-	toxpwr = 0
-
-/datum/reagent/toxin/staminatoxin/on_mob_life(mob/living/carbon/M)
-	M.adjustStaminaLoss(REM * data, 0)
-	data = max(data - 1, 3)
-	..()
-	. = 1
 
 /datum/reagent/toxin/histamine
 	name = "Histamine"
@@ -564,22 +511,6 @@
 	if(prob(20))
 		M.losebreath += 4
 	..()
-
-/datum/reagent/toxin/sodium_thiopental
-	name = "Sodium Thiopental"
-	description = "Sodium Thiopental induces heavy weakness in its target as well as unconsciousness."
-	silent_toxin = TRUE
-	reagent_state = LIQUID
-	color = "#6496FA"
-	metabolization_rate = 0.75 * REAGENTS_METABOLISM
-	toxpwr = 0
-
-/datum/reagent/toxin/sodium_thiopental/on_mob_life(mob/living/carbon/M)
-	if(current_cycle >= 10)
-		M.Sleeping(40, 0)
-	M.adjustStaminaLoss(10*REM, 0)
-	..()
-	return TRUE
 
 /datum/reagent/toxin/sulfonal
 	name = "Sulfonal"
@@ -802,44 +733,6 @@
 
 /datum/reagent/toxin/mimesbane/on_mob_end_metabolize(mob/living/L)
 	REMOVE_TRAIT(L, TRAIT_EMOTEMUTE, type)
-
-/datum/reagent/toxin/bonehurtingjuice //oof ouch
-	name = "Bone Hurting Juice"
-	description = "A strange substance that looks a lot like water. Drinking it is oddly tempting. Oof ouch."
-	silent_toxin = TRUE //no point spamming them even more.
-	color = "#AAAAAA77" //RGBA: 170, 170, 170, 77
-	toxpwr = 0
-	taste_description = "bone hurting"
-	overdose_threshold = 50
-
-/datum/reagent/toxin/bonehurtingjuice/on_mob_add(mob/living/carbon/M)
-	M.say("oof ouch my bones", forced = /datum/reagent/toxin/bonehurtingjuice)
-
-/datum/reagent/toxin/bonehurtingjuice/on_mob_life(mob/living/carbon/M)
-	M.adjustStaminaLoss(7.5, 0)
-	if(prob(20))
-		switch(rand(1, 3))
-			if(1)
-				M.say(pick("oof.", "ouch.", "my bones.", "oof ouch.", "oof ouch my bones."), forced = /datum/reagent/toxin/bonehurtingjuice)
-			if(2)
-				M.emote("me", 1, pick("oofs silently.", "looks like their bones hurt.", "grimaces, as though their bones hurt."))
-			if(3)
-				to_chat(M, "<span class='warning'>My bones hurt!</span>")
-	return ..()
-
-/datum/reagent/toxin/bonehurtingjuice/overdose_process(mob/living/carbon/M)
-	if(prob(4) && iscarbon(M)) //big oof
-		var/selected_part = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG) //God help you if the same limb gets picked twice quickly.
-		var/obj/item/bodypart/bp = M.get_bodypart(selected_part)
-		if(bp)
-			playsound(M, get_sfx("desceration"), 50, TRUE, -1)
-			M.visible_message("<span class='warning'>[M]'s bones hurt too much!!</span>", "<span class='danger'>My bones hurt too much!!</span>")
-			M.say("OOF!!", forced = /datum/reagent/toxin/bonehurtingjuice)
-			bp.receive_damage(0, 0, 200)
-		else //SUCH A LUST FOR REVENGE!!!
-			to_chat(M, "<span class='warning'>A phantom limb hurts!</span>")
-			M.say("Why are we still here, just to suffer?", forced = /datum/reagent/toxin/bonehurtingjuice)
-	return ..()
 
 /datum/reagent/toxin/bungotoxin
 	name = "Bungotoxin"

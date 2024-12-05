@@ -150,12 +150,6 @@
 	results = list(/datum/reagent/consumable/ethanol/toxins_special = 5)
 	required_reagents = list(/datum/reagent/consumable/ethanol/rum = 2, /datum/reagent/consumable/ethanol/vermouth = 1, /datum/reagent/toxin/plasma = 2)
 
-/datum/chemical_reaction/beepsky_smash
-	name = "Beepksy Smash"
-	id = "beepksysmash"
-	results = list(/datum/reagent/consumable/ethanol/beepsky_smash = 5)
-	required_reagents = list(/datum/reagent/consumable/limejuice = 2, /datum/reagent/consumable/ethanol/quadruple_sec = 2, /datum/reagent/iron = 1)
-
 /datum/chemical_reaction/irish_cream
 	name = "Irish Cream"
 	id = /datum/reagent/consumable/ethanol/irish_cream
@@ -665,19 +659,6 @@
 	results = list(/datum/reagent/consumable/ethanol/fernet_cola = 2)
 	required_reagents = list(/datum/reagent/consumable/ethanol/fernet = 1, /datum/reagent/consumable/space_cola = 1)
 
-
-/datum/chemical_reaction/fanciulli
-	name = "Fanciulli"
-	id = /datum/reagent/consumable/ethanol/fanciulli
-	results = list(/datum/reagent/consumable/ethanol/fanciulli = 2)
-	required_reagents = list(/datum/reagent/consumable/ethanol/manhattan = 1, /datum/reagent/consumable/ethanol/fernet = 1)
-
-/datum/chemical_reaction/branca_menta
-	name = "Branca Menta"
-	id = /datum/reagent/consumable/ethanol/branca_menta
-	results = list(/datum/reagent/consumable/ethanol/branca_menta = 3)
-	required_reagents = list(/datum/reagent/consumable/ethanol/fernet = 1, /datum/reagent/consumable/ethanol/creme_de_menthe = 1, /datum/reagent/consumable/ice = 1)
-
 /datum/chemical_reaction/blank_paper
 	name = "Blank Paper"
 	id = /datum/reagent/consumable/ethanol/blank_paper
@@ -708,12 +689,6 @@
 	results = list(/datum/reagent/consumable/ethanol/jack_rose = 4)
 	required_reagents = list(/datum/reagent/consumable/grenadine = 1, /datum/reagent/consumable/ethanol/applejack = 2, /datum/reagent/consumable/limejuice = 1)
 	mix_message = "As the grenadine incorporates, the beverage takes on a mellow, red-orange glow."
-
-/datum/chemical_reaction/turbo
-	name = "Turbo"
-	id = /datum/reagent/consumable/ethanol/turbo
-	results = list(/datum/reagent/consumable/ethanol/turbo = 5)
-	required_reagents = list(/datum/reagent/consumable/ethanol/moonshine = 2, /datum/reagent/nitrous_oxide = 1, /datum/reagent/consumable/ethanol/sugar_rush = 1, /datum/reagent/consumable/pwr_game = 1)
 
 /datum/chemical_reaction/rubberneck
 	name = "Rubberneck"
