@@ -12128,7 +12128,7 @@
 	icon_state = "longtable"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/rogueweapon/sword/sabre/lord,
+/obj/item/rogueweapon/sword/rapier/dec/lord,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
