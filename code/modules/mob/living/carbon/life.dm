@@ -45,7 +45,7 @@
 			var/bleed_rate = get_bleed_rate()
 			var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
 			if(nutrition > 0 || yess)
-				adjust_energy(sleepy_mod * 20)
+				change_fatigue(sleepy_mod * 20)
 			if(hydration > 0 || yess)
 				if(!bleed_rate)
 					blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
@@ -76,7 +76,7 @@
 						to_chat(src, span_boldwarning("I can't sleep...[cause]"))
 					fallingas = 13
 				else
-					adjust_energy(buckled.sleepy * 10)
+					change_fatigue(buckled.sleepy * 10)
 			// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
 			else if(!(mobility_flags & MOBILITY_STAND))
 				if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
@@ -90,7 +90,7 @@
 						to_chat(src, span_boldwarning("I can't sleep...[cause]"))
 					fallingas = 13
 				else
-					adjust_energy(10)
+					change_fatigue(10)
 			else if(fallingas)
 				fallingas = 0
 			tiredness = min(tiredness + 1, 100)

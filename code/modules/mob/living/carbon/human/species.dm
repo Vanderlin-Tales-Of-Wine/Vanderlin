@@ -1685,7 +1685,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	switch(H.nutrition)
 //		if(NUTRITION_LEVEL_FAT to INFINITY) //currently disabled/999999 define
-//			if(H.energy >= H.max_energy)
+//			if(H.curr_fatigue >= H.max_fatigue)
 //				H.apply_status_effect(/datum/status_effect/debuff/fat)
 		if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
 			H.apply_status_effect(/datum/status_effect/debuff/hungryt1)
@@ -2053,7 +2053,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else
 				user.resist_grab()
 
-	if(user.stamina >= user.maximum_stamina)
+	if(user.curr_stamina <= 0)
 		return FALSE
 	if(!(user.mobility_flags & MOBILITY_STAND))
 		return FALSE
@@ -2129,7 +2129,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					target_table = locate(/obj/structure/table) in target_shove_turf.contents
 					shove_blocked = TRUE
 			else
-				if(stander && target.stamina >= target.maximum_stamina) //if you are kicked while fatigued, you are knocked down no matter what
+				if(stander && target.curr_stamina <= 0) //if you are kicked with no stam, you are knocked down no matter what
 					target.Knockdown(100)
 
 		if(shove_blocked && !target.is_shove_knockdown_blocked() && !target.buckled)
@@ -2188,7 +2188,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		target.lastattackerckey = user.ckey
 		if(target.mind)
 			target.mind.attackedme[user.real_name] = world.time
-		user.adjust_stamina(15)
+		user.change_stamina(-15)
 		user.OffBalance(15)
 		target.forcesay(GLOB.hit_appends)
 

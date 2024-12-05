@@ -506,31 +506,56 @@
 				else if(stamina >= 0)
 					hud_used.stamina.icon_state = "fat100"
 
-		if(hud_used.energy)
+		if(hud_used.stam_ui)
 			if(stat != DEAD)
 				. = 1
-				if(energy <= 0)
-					hud_used.energy.icon_state = "stam0"
-				else if(energy > max_energy*0.90)
-					hud_used.energy.icon_state = "stam100"
-				else if(energy > max_energy*0.80)
-					hud_used.energy.icon_state = "stam90"
-				else if(energy > max_energy*0.70)
-					hud_used.energy.icon_state = "stam80"
-				else if(energy > max_energy*0.60)
-					hud_used.energy.icon_state = "stam70"
-				else if(energy > max_energy*0.50)
-					hud_used.energy.icon_state = "stam60"
-				else if(energy > max_energy*0.40)
-					hud_used.energy.icon_state = "stam50"
-				else if(energy > max_energy*0.30)
-					hud_used.energy.icon_state = "stam40"
-				else if(energy > max_energy*0.20)
-					hud_used.energy.icon_state = "stam30"
-				else if(energy > max_energy*0.10)
-					hud_used.energy.icon_state = "stam20"
-				else if(energy > 0)
-					hud_used.energy.icon_state = "stam10"
+				if(curr_stamina >= max_stamina)
+					hud_used.stam_ui.icon_state = "stambar100"
+				else if(curr_stamina > max_stamina*0.90)
+					hud_used.stam_ui.icon_state = "stambar90"
+				else if(curr_stamina > max_stamina*0.80)
+					hud_used.stam_ui.icon_state = "stambar80"
+				else if(curr_stamina > max_stamina*0.70)
+					hud_used.stam_ui.icon_state = "stambar70"
+				else if(curr_stamina > max_stamina*0.60)
+					hud_used.stam_ui.icon_state = "stambar60"
+				else if(curr_stamina > max_stamina*0.50)
+					hud_used.stam_ui.icon_state = "stambar50"
+				else if(curr_stamina > max_stamina*0.40)
+					hud_used.stam_ui.icon_state = "stambar40"
+				else if(curr_stamina > max_stamina*0.30)
+					hud_used.stam_ui.icon_state = "stambar30"
+				else if(curr_stamina > max_stamina*0.20)
+					hud_used.stam_ui.icon_state = "stambar20"
+				else if(curr_stamina > max_stamina*0.10)
+					hud_used.stam_ui.icon_state = "stambar10"
+				else if(curr_stamina >= 0)
+					hud_used.stam_ui.icon_state = "stambar0"
+		if(hud_used.fat_ui)
+			if(stat != DEAD)
+				. = 1
+				if(curr_fatigue <= 0)
+					hud_used.fat_ui.icon_state = "fatbar0"
+				else if(curr_fatigue > max_fatigue*0.90)
+					hud_used.fat_ui.icon_state = "fatbar100"
+				else if(curr_fatigue > max_fatigue*0.80)
+					hud_used.fat_ui.icon_state = "fatbar90"
+				else if(curr_fatigue > max_fatigue*0.70)
+					hud_used.fat_ui.icon_state = "fatbar80"
+				else if(curr_fatigue > max_fatigue*0.60)
+					hud_used.fat_ui.icon_state = "fatbar70"
+				else if(curr_fatigue > max_fatigue*0.50)
+					hud_used.fat_ui.icon_state = "fatbar60"
+				else if(curr_fatigue > max_fatigue*0.40)
+					hud_used.fat_ui.icon_state = "fatbar50"
+				else if(curr_fatigue > max_fatigue*0.30)
+					hud_used.fat_ui.icon_state = "fatbar40"
+				else if(curr_fatigue > max_fatigue*0.20)
+					hud_used.fat_ui.icon_state = "fatbar30"
+				else if(curr_fatigue > max_fatigue*0.10)
+					hud_used.fat_ui.icon_state = "fatbar20"
+				else if(curr_fatigue > 0)
+					hud_used.fat_ui.icon_state = "fatbar10"
 
 		if(hud_used.zone_select)
 			hud_used.zone_select.update_icon()

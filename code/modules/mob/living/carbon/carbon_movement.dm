@@ -24,4 +24,4 @@
 				adjust_nutrition(-(0.1))
 				adjust_hydration(-(0.1))
 		if(m_intent == MOVE_INTENT_RUN) //sprint fatigue add
-			adjust_stamina(2)
+			change_stamina(-2)

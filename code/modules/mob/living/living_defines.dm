@@ -129,12 +129,7 @@
 	///In other codebases, this goes *up* as you get more tired, in this one, it goes *down*
 	var/curr_stamina = 100
 
-	var/max_energy = 1000
-	var/maximum_stamina = 100
-	var/energy = 1000
-	var/stamina = 0
-
-	var/last_fatigued = 0
+	var/last_stam_drained = 0
 	var/last_ps = 0
 
 	var/ambushable = 0

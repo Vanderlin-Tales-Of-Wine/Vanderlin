@@ -24,7 +24,7 @@
 	var/has_turned = FALSE
 	/// Traits applied to the owner mob when we turn into a zombie
 	var/static/list/traits_zombie = list(
-		TRAIT_NOSTAMINA,
+		TRAIT_NOFATIGUE,
 		TRAIT_NOMOOD,
 		TRAIT_NOLIMBDISABLE,
 		TRAIT_NOHUNGER,

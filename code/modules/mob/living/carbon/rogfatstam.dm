@@ -1,63 +1,71 @@
-/mob/living/proc/update_stamina() //update hud and regen after last_fatigued delay on taking
-	maximum_stamina = max_energy / 10
+///Dont confuse this with a mobs stamina damage,
+///this is their 'action stamina',
+///this is similar to other codebases `update_rogfat`
+/mob/living/proc/update_curr_stam()
+	max_stamina = max_fatigue / 10
 
-	if(world.time > last_fatigued + 20) //regen fatigue
-		var/added = energy / max_energy
-		added = round(-10+ (added*-40))
+	if(world.time > last_stam_drained + 20) //regen stamina
+		var/regenerated = round(10+ ((curr_fatigue / max_fatigue)*40))
 		if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))
-			added = round(added * 0.5, 1)
-		if(stamina >= 1)
-			adjust_stamina(added)
+			regenerated = FLOOR(regenerated * 0.5, 1)
+		if(curr_stamina < max_stamina)
+			change_stamina(regenerated)
 		else
-			stamina = 0
+			curr_stamina = max_stamina
 
 	update_health_hud()
-
-/mob/living/proc/update_energy()
-	///this is kinda weird and not at the same time for energy being tied to this,
-	/// since energy is both a magical and physical system
+///This proc is equivilent to `update_rogstam` on other codebases.
+/mob/living/proc/update_fatigue()
 	var/athletics_skill = 0
 	if(mind)
 		athletics_skill = mind.get_skill_level(/datum/skill/misc/athletics)
-	max_energy = (STAEND + (athletics_skill / 2) ) * 100
+	max_fatigue = (STAEND + (athletics_skill/2 ) ) * 100
 	if(cmode)
 		if(!HAS_TRAIT(src, TRAIT_BREADY))
-			adjust_energy(-2)
+			change_fatigue(-2)
 
-/mob/proc/adjust_energy(added as num)
+///If you're reading this as someone porting from another code-base:
+/// ***THIS IS IMPORTANT.***
+/// This function is identical to rogfat_add(number)!!!
+/// This changes the BLUE BAR.
+/mob/proc/change_fatigue(added as num)
 	return
 
-/mob/living/adjust_energy(added as num)
-	///this trait affects both stamina and energy since they are part of the same system.
-	if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
+/mob/living/change_fatigue(added as num)
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
 	if(m_intent == MOVE_INTENT_RUN)
 		var/boon = mind.get_learning_boon(/datum/skill/misc/athletics)
 		mind.adjust_experience(/datum/skill/misc/athletics, (STAINT*0.02) * boon)
-	energy += added
-	if(energy > max_energy)
-		energy = max_energy
+	curr_fatigue += added
+	if(curr_fatigue > max_fatigue)
+		curr_fatigue = max_fatigue
 		update_health_hud()
 		return FALSE
 	else
-		if(energy <= 0)
-			energy = 0
-			if(m_intent == MOVE_INTENT_RUN) //can't sprint at zero stamina
+		if(curr_fatigue <= 0)
+			curr_fatigue = 0
+			if(m_intent == MOVE_INTENT_RUN)
 				toggle_rogmove_intent(MOVE_INTENT_WALK)
 		update_health_hud()
 		return TRUE
 
-/mob/proc/adjust_stamina(added as num)
+/mob/proc/change_stamina(added as num)
 	return TRUE
 
-/mob/living/adjust_stamina(added as num, emote_override, force_emote = TRUE) //call update_stamina here and set last_fatigued, return false when not enough fatigue left
-	if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
+///If you're reading this as someone porting from another code-base:
+/// ***THIS IS IMPORTANT.***
+///	This function is identical to rogstam_add(-number)!!!
+/// This changes the GREEN BAR, if porting, the number should be ***the opposite sign***
+/// **If you want to make someone MORE TIRED; SUBTRACT**
+/mob/living/change_stamina(added as num, emote_override, force_emote = TRUE)
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
-	stamina = CLAMP(stamina+added, 0, maximum_stamina)
-	if(added > 0)
-		adjust_energy(added * -1)
-	if(added >= 5)
-		if(energy <= 0)
+	curr_stamina = CLAMP(curr_stamina+added, 0, max_stamina)
+	if(added < 0)
+		change_fatigue(added)
+	if(added <= -5)
+		if(curr_fatigue <= 0)
 			if(iscarbon(src))
 				var/mob/living/carbon/C = src
 				if(!HAS_TRAIT(C, TRAIT_NOHUNGER))
@@ -65,8 +73,8 @@
 						if(C.hydration <= 0)
 							C.heart_attack()
 							return FALSE
-	if(stamina >= maximum_stamina)
-		stamina = maximum_stamina
+	if(curr_stamina <= 0)
+		curr_stamina = 0
 		update_health_hud()
 		if(m_intent == MOVE_INTENT_RUN) //can't sprint at full fatigue
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
@@ -79,7 +87,7 @@
 		stop_attack()
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		flash_fullscreen("blackflash")
-		if(energy <= 0)
+		if(curr_fatigue <= 0)
 			addtimer(CALLBACK(src, PROC_REF(Knockdown), 30), 10)
 		addtimer(CALLBACK(src, PROC_REF(Immobilize), 30), 10)
 		if(iscarbon(src))
@@ -101,7 +109,7 @@
 	var/heart_attacking = FALSE
 
 /mob/living/carbon/proc/heart_attack()
-	if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return
 	if(!heart_attacking)
 		var/mob/living/carbon/C = src
@@ -149,7 +157,7 @@
 			animate(whole_screen, transform = newmatrix, time = 1, easing = QUAD_EASING)
 			animate(transform = -newmatrix, time = 30, easing = QUAD_EASING)
 
-/mob/living/proc/stamina_reset()
-	stamina = 0
-	last_fatigued = 0
+/mob/living/proc/stam_reset()
+	curr_stamina = max_stamina
+	last_stam_drained = 0
 	return

@@ -398,11 +398,11 @@
 
 	zone_select.update_icon()
 
-	stamina = new /atom/movable/screen/stamina()
-	infodisplay += stamina
+	stam_ui = new /atom/movable/screen/stam_ui()
+	infodisplay += stam_ui
 
-	energy = new /atom/movable/screen/energy()
-	infodisplay += energy
+	fat_ui = new /atom/movable/screen/fatigue_ui()
+	infodisplay += fat_ui
 
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)
