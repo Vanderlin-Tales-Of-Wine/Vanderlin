@@ -281,15 +281,6 @@
 	minstr = 6
 	wbalance = HARD_TO_DODGE
 
-//................ Kings Sword ............... //
-/obj/item/rogueweapon/sword/sabre/lord
-	force = DAMAGE_SWORD_WIELD
-	name = "Kings Sword"
-	desc = "Passed down through the ages, a weapon that once carved a kingdom out now relegated to a decorative piece."
-	icon_state = "lord_rapier"
-	sellprice = 200
-	max_blade_int = 400
-
 //................ Shalal Sabre ............... //
 /obj/item/rogueweapon/sword/sabre/shalal
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
@@ -466,6 +457,14 @@
 	desc = "A rapier decorated with gold inlaid on its hilt. A regal weapon fit for nobility."
 	sellprice = 140
 
+//................ Lord's Rapier ............... //
+/obj/item/rogueweapon/sword/rapier/dec/lord
+	force = DAMAGE_SWORD_WIELD
+	name = "Lord's Rapier"
+	desc = "Passed down through the ages, a weapon that once carved a kingdom out now relegated to a decorative piece."
+	icon_state = "lord_rapier"
+	sellprice = 200
+	max_blade_int = 400
 
 /obj/item/rogueweapon/sword/rapier/silver
 	force = DAMAGE_SWORD-2
