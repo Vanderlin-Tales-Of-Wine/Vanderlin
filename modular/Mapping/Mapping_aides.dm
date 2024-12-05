@@ -197,6 +197,36 @@
 		/obj/item/reagent_containers/glass/bottle/rogue/strongstampot = 5
 	)
 
+/obj/effect/spawner/roguemap/loot/potion_ingredient
+	icon_state = "lootpotioning"
+	var/static/list/all_potion_ings = list()
+	spawned = list()
+
+/obj/effect/spawner/roguemap/loot/potion_ingredient/Initialize(mapload)
+	if(!all_potion_ings.len)
+		all_potion_ings = subtypesof(/obj/item/alch)
+	if(!spawned.len)
+		spawned = all_potion_ings.Copy()
+	return ..()
+
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb
+	icon_state = "lootpotionherb"
+	spawned = list(
+		/obj/item/alch/atropa = 5,
+		/obj/item/alch/matricaria = 5,
+		/obj/item/alch/symphitum = 5,
+		/obj/item/alch/taraxacum = 5,
+		/obj/item/alch/euphrasia = 5,
+		/obj/item/alch/paris = 5,
+		/obj/item/alch/calendula = 5,
+		/obj/item/alch/mentha = 5,
+		/obj/item/alch/urtica = 5,
+		/obj/item/alch/salvia = 5,
+		/obj/item/alch/hypericum = 5,
+		/obj/item/alch/benedictus = 5,
+		/obj/item/alch/valeriana = 5,
+		/obj/item/alch/artemisia = 5,
+	)
 /obj/effect/spawner/roguemap/loot/potion_stats
 	icon_state = "lootstatpot"
 	spawned = list(
