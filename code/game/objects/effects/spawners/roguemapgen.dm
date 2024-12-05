@@ -1,17 +1,48 @@
-/obj/effect/spawner/roguemap/Initialize(mapload)
-	..()
-	do_spawn()
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/spawner/roguemap/proc/do_spawn()
-	if(prob(probby))
-		var/obj/new_type = pick(spawned)
-		new new_type(get_turf(src))
-
 /obj/effect/spawner/roguemap
 	icon = 'icons/obj/structures_spawners.dmi'
+	///Chance to bother spawning anything
 	var/probby = 100
-	var/list/spawned
+	var/list/spawned		//a list of possible items to spawn e.g. list(/obj/item, /obj/structure, /obj/effect), can be weighted
+	var/lootmin = 1		//how many items will be spawned, at least.
+	var/lootmax = 1		//how many items will be spawned, at most
+	var/lootdoubles = TRUE	//if the same item can be spawned twice
+	var/fan_out_items = FALSE //Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
+/obj/effect/spawner/roguemap/proc/do_spawn()
+	if(prob(probby))
+		var/obj/new_type = pickweight(spawned)
+		new new_type(get_turf(src))
+
+/obj/effect/spawner/roguemap/Initialize(mapload)
+	..()
+	if(!prob(probby))
+		return INITIALIZE_HINT_QDEL
+	if(spawned && spawned.len > 1)
+		var/turf/T = get_turf(src)
+		var/loot_spawned = 0
+		var/chosenamout = rand(lootmin,lootmax)
+		for(var/i in 1 to chosenamout)
+			if(!spawned.len)
+				break
+			var/lootspawn = pickweight(spawned)
+			while(islist(lootspawn))
+				lootspawn = pickweight(lootspawn)
+			if(!lootdoubles)
+				spawned.Remove(lootspawn)
+
+			if(lootspawn)
+				var/atom/movable/spawned_loot = new lootspawn(T)
+				if (!fan_out_items)
+					if (pixel_x != 0)
+						spawned_loot.pixel_x = pixel_x
+					if (pixel_y != 0)
+						spawned_loot.pixel_y = pixel_y
+				else
+					if (loot_spawned)
+						spawned_loot.pixel_x = spawned_loot.pixel_y = ((!(loot_spawned%2)*loot_spawned/2)*-1)+((loot_spawned%2)*(loot_spawned+1)/2*1)
+			loot_spawned++
+	else
+		do_spawn()
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/spawner/roguemap/pit
 	icon_state = "pit"

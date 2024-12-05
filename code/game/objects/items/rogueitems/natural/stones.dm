@@ -138,3 +138,23 @@
 
 /obj/item/natural/rock/gemerald
 	mineralType = /obj/item/roguegem
+
+/obj/item/natural/rock/random_ore
+	name = "rock?"
+	desc = "Wait, this shouldn't be here?"
+	icon_state = "stonerandom"
+
+/obj/item/natural/rock/random/Initialize()
+	. = ..()
+	var/obj/item/natural/rock/theboi = pick(list(
+		/obj/item/natural/rock/gold,
+		/obj/item/natural/rock/iron,
+		/obj/item/natural/rock/coal,
+		/obj/item/natural/rock/salt,
+		/obj/item/natural/rock/silver,
+		/obj/item/natural/rock/copper,
+		/obj/item/natural/rock/tin,
+		/obj/item/natural/rock/gemerald
+	))
+	new theboi(get_turf(src))
+	return INITIALIZE_HINT_QDEL

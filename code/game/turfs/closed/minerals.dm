@@ -233,6 +233,11 @@
 	mineralChance = 30
 	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/copper = 15,/turf/closed/mineral/rogue/tin = 15, /turf/closed/mineral/rogue/iron = 25, /turf/closed/mineral/rogue/coal = 20)
 
+/turf/closed/mineral/random/rogue/med_nonval
+	icon_state = "cticmed"
+	mineralChance = 50
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/copper = 15,/turf/closed/mineral/rogue/tin = 15, /turf/closed/mineral/rogue/iron = 25, /turf/closed/mineral/rogue/coal = 20)
+
 /turf/closed/mineral/random/rogue/high_nonval
 	icon_state = "cticgood"
 	mineralChance = 70
@@ -241,6 +246,11 @@
 /turf/closed/mineral/random/rogue/low_valuable
 	icon_state = "gsgbad"
 	mineralChance = 30
+	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/gold = 40 , /turf/closed/mineral/rogue/gemeralds = 20, /turf/closed/mineral/rogue/silver = 40)
+
+/turf/closed/mineral/random/rogue/med_valuable
+	icon_state = "gsgmed"
+	mineralChance = 50
 	mineralSpawnChanceList = list(/turf/closed/mineral/rogue/gold = 40 , /turf/closed/mineral/rogue/gemeralds = 20, /turf/closed/mineral/rogue/silver = 40)
 
 /turf/closed/mineral/random/rogue/high_valuable
