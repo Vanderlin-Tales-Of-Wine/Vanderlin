@@ -20,18 +20,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 	/turf/open/transparent/openspace
 	)))
 
-GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
-	/area/rogue/outdoors/woods,
-	/area/rogue/indoors/shelter/woods,
-	/area/rogue/outdoors/river,
-	/area/rogue/outdoors/bog,
-	/area/rogue/indoors/shelter/bog,
-	/area/rogue/outdoors/rtfield,
-	/area/rogue/indoors/shelter/rtfield
-	)))
-
-#define isforestsex(A) (is_type_in_typecache(A, GLOB.our_forest_sex))
-
 #define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
 
 #define isopenturf(A) (istype(A, /turf/open))
