@@ -14,7 +14,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	charge_max = 2 MINUTES
-	devotion_cost = -30
+	devotion_cost = 30
 
 /obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
@@ -24,7 +24,7 @@
 		target.visible_message("<span class='warning'>[user] points at [target]'s eyes!</span>","<span class='warning'>My eyes are covered in darkness!</span>")
 		target.blind_eyes(3)
 		return ..()
-	return TRUE
+	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/invisibility
 	name = "Invisibility"
@@ -32,7 +32,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	charge_max = 60 SECONDS
+	charge_max = 2 MINUTES
 	range = 3
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
@@ -42,7 +42,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	miracle = TRUE
-	devotion_cost = -60
+	devotion_cost = 60
 
 /obj/effect/proc_holder/spell/invoked/invisibility/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
@@ -66,7 +66,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	charge_max = 15 MINUTES
-	devotion_cost = -40
+	devotion_cost = 40
 
 /obj/effect/proc_holder/spell/self/darkvision/cast(list/targets, mob/living/user)
 	playsound(get_turf(user), 'sound/magic/charged.ogg', 100, TRUE)
@@ -75,4 +75,54 @@
 		playsound(get_turf(user), 'sound/magic/magic_nulled.ogg', 60, TRUE, -1)
 		user.apply_status_effect(/datum/status_effect/buff/darkvision)
 		return ..()
-	return
+	return FALSE
+
+/obj/effect/proc_holder/spell/invoked/projectile/moondagger
+	name = "Moonlit Dagger"
+	desc = "Fire off a piercing moonlit-dagger, smiting unholy creechers!"
+	overlay_state = "moondagger"
+	clothes_req = list(/obj/item/clothing/neck/roguetown/psycross/noc)
+	invocation = "Begone foul beasts!"
+	invocation_type = "shout" //can be none, whisper, emote and shout
+	associated_skill = /datum/skill/magic/holy
+	charge_max = 40 SECONDS
+	devotion_cost = 40
+	projectile_type = /obj/projectile/magic/moondagger
+
+/obj/projectile/magic/moondagger
+	name = "moondagger"
+	icon_state = "moondagger"
+	nodamage = FALSE
+	damage_type = BRUTE
+	damage = DAMAGE_DAGGER * 1.5
+	range = 7
+	hitsound = 'sound/blank.ogg'
+
+/obj/projectile/magic/moondagger/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/datum/antagonist/werewolf/W = H.mind?.has_antag_datum(/datum/antagonist/werewolf/)
+		var/datum/antagonist/vampirelord/lesser/V = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+		var/datum/antagonist/vampirelord/V_lord = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/)
+		if(V)
+			if(V.disguised)
+				H.visible_message("<font color='white'>\The [src] weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+			else
+				H.visible_message("<font color='white'>\The [src] weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+		if(V_lord)
+			if(V_lord.vamplevel < 4 && !V)
+				H.visible_message("<font color='white'>\The [src] weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+			if(V_lord.vamplevel == 4 && !V)
+				H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
+		if(W && W.transformed == TRUE)
+			H.visible_message("<font color='white'>\The [src] weakens the curse temporarily!</font>")
+			to_chat(H, span_userdanger("I'm hit by my BANE!"))
+			H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+

@@ -27,7 +27,7 @@
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/invisibility
 	t2 = /obj/effect/proc_holder/spell/invoked/blindness
-	t3 = null
+	t3 = /obj/effect/proc_holder/spell/invoked/projectile/moondagger
 
 /datum/patron/divine/dendor
 	name = "Dendor"
@@ -77,6 +77,8 @@
 	worshippers = "Warriors, Sellswords, Guardsmen"
 	sins = "Cowardice, Cruelty, Stagnation"
 	boons = "None... yet."
+	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
+	t1 = /obj/effect/proc_holder/spell/self/call_to_arms
 
 /datum/patron/divine/xylix
 	name = "Xylix"
@@ -87,6 +89,8 @@
 	sins = "Boredom, Predictability, Routine"
 	boons = "You know the exact prices of items."
 	added_traits = list(TRAIT_SEEPRICES)
+	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
+	t1 = /obj/effect/proc_holder/spell/invoked/vicious_mimicry
 
 /datum/patron/divine/pestra
 	name = "Pestra"
@@ -110,6 +114,8 @@
 	worshippers = "Smiths, Miners, Sculptors"
 	sins = "Cheating, Shoddy Work, Suicide"
 	boons = "None... yet."
+	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
+	t1 = /obj/effect/proc_holder/spell/self/craft_buff
 
 /datum/patron/divine/eora
 	name = "Eora"
@@ -120,6 +126,6 @@
 	sins = "Sadism, Abandonment, Ruining Beauty"
 	boons = "None... yet."
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
-	t1 = /obj/effect/proc_holder/spell/invoked/bud
+	t1 = /obj/effect/proc_holder/spell/invoked/instill_perfection
 	t2 = /obj/effect/proc_holder/spell/invoked/projectile/eoracurse
-	t3 = null
+	t3 = /obj/effect/proc_holder/spell/invoked/bud

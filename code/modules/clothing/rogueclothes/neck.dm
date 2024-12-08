@@ -367,7 +367,7 @@
 /obj/item/clothing/neck/roguetown/psycross/silver/abyssor
 	name = "amulet of Abyssor"
 	desc = "Oceanshaper and guardian of the seas, make them remember his name."
-	icon_state = "malum_alt"
+	icon_state = "abyssor"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psycross/silver/necra
@@ -380,6 +380,12 @@
 	name = "amulet of Ravox"
 	desc = "Struggle. Challenge. And rise to struggle again. That is the sword of he who yet lives to fight again."
 	icon_state = "ravox"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psycross/silver/xylix
+	name = "amulet of Xylix"
+	desc = "Be not fooled, and be not afraid to."
+	icon_state = "xylix"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psycross/silver/eora
