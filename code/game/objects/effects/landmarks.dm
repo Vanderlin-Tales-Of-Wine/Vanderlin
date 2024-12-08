@@ -451,9 +451,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 /obj/effect/landmark/underworld_spawnpoint/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
-	GLOB.underworldcoinspawns += loc
+	GLOB.underworldspiritspawns += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/underworld_pull_location
+	name = "coin pull teleport zone"
+
+/obj/effect/landmark/underworld_pull_location/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+	GLOB.underworld_coinpull_locs += loc
+	return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/death_arena
 	name = "Death arena spawn 1"

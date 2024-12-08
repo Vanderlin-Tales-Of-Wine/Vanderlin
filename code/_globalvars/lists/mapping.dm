@@ -28,8 +28,8 @@ GLOBAL_LIST_EMPTY(newplayer_start)
 GLOBAL_LIST_EMPTY(prisonwarp)	//admin prisoners go to these
 GLOBAL_LIST_EMPTY(prisonwarped)	//list of players already warped
 GLOBAL_LIST_EMPTY(underworldspawn)
-GLOBAL_LIST_EMPTY(underworldcoinspawns)
-GLOBAL_LIST_EMPTY(underworldcoins)
+GLOBAL_LIST_EMPTY(underworldspiritspawns) //Where spirits can spawn
+GLOBAL_LIST_EMPTY(underworld_coinpull_locs) //When picking up coin maze, warp here
 GLOBAL_LIST_EMPTY(hauntstart)
 GLOBAL_LIST_EMPTY(testportals)
 GLOBAL_LIST_EMPTY(traveltiles)
