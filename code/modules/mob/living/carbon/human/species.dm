@@ -2095,7 +2095,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						target.visible_message("<span class='danger'>[user] stomps [target]![target.next_attack_msg.Join()]</span>", \
 										"<span class='danger'>I'm stomped by [user]![target.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening kick!</span>", COMBAT_MESSAGE_RANGE, user)
 						to_chat(user, "<span class='danger'>I stomp on [target]![target.next_attack_msg.Join()]</span>")
-			user.do_attack_animation(target, ATTACK_EFFECT_KICK)
 			target.next_attack_msg.Cut()
 			log_combat(user, target, "kicked")
 			user.OffBalance(balance)
