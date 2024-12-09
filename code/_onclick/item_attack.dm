@@ -115,8 +115,6 @@
 //		user.emote("attackgrunt")
 	var/datum/intent/cached_intent = user.used_intent
 	if(user.used_intent.swingdelay)
-		if(!user.used_intent.noaa)
-			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 		sleep(user.used_intent.swingdelay)
 	if(user.a_intent != cached_intent)
 		return
@@ -130,13 +128,12 @@
 		return
 	if((M.mobility_flags & MOBILITY_STAND))
 		if(M.checkmiss(user))
-			if(!user.used_intent.swingdelay)
-				user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 			return
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 		user.adjust_stamina(10)
 	if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 		user.adjust_stamina(10)
+	var/turf/turf_before = get_turf(M)
 	if(M.checkdefense(user.used_intent, user))
 		if(M.d_intent == INTENT_PARRY)
 			if(!M.get_active_held_item() && !M.get_inactive_held_item()) //we parried with a bracer, redirect damage
@@ -155,9 +152,10 @@
 				add_fingerprint(user)
 		if(M.d_intent == INTENT_DODGE)
 			if(!user.used_intent.swingdelay)
-				user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+				user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname)
 		return
-
+	if(!user.used_intent.noaa)
+		user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
 		var/offh = 0
 		var/obj/item/W = M.held_items[1]
@@ -515,6 +513,7 @@
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
 	if(force && !user.used_intent.tranged && !user.used_intent.tshield)
 		if(proximity_flag && isopenturf(target) && !user.used_intent?.noaa)
+			testing("AFTERATTACK 1")
 			var/adf = user.used_intent.clickcd
 			if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
 				adf = round(adf * 1.4)
@@ -525,6 +524,7 @@
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you
+			testing("AFTERATTACK 2")
 			var/adf = user.used_intent.clickcd
 			if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
 				adf = round(adf * 1.4)

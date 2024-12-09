@@ -225,7 +225,6 @@
 	if(W)
 		if(ismob(A))
 			if(CanReach(A,W))
-				do_attack_animation(get_turf(A), visual_effect_icon = used_intent.animname)
 				resolveAdjacentClick(A,W,params)
 				return
 
