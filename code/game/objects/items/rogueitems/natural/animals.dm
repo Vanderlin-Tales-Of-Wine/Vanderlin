@@ -97,6 +97,7 @@
 	var/damage = 10*(user.STASTR/20)
 	if(HAS_TRAIT(user, TRAIT_STRONGBITE))
 		damage = damage*2
+	user.do_attack_animation(src, ATTACK_EFFECT_BITE)
 	playsound(user.loc, "smallslash", 100, FALSE, -1)
 	user.next_attack_msg.Cut()
 	if(stat == DEAD)

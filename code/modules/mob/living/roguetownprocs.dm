@@ -222,13 +222,14 @@
 						else
 							U.mind?.adjust_experience(/datum/skill/combat/unarmed, max(round(U.STAINT/2), 0), FALSE)
 
+					var/obj/effect/temp_visual/dir_setting/block/blk = new(get_turf(src), get_dir(H, U))
+					blk.icon_state = "p[U.used_intent.animname]"
 					if(prob(66) && AB)
 						if((used_weapon.flags_1 & CONDUCT_1) && (AB.flags_1 & CONDUCT_1))
 							flash_fullscreen("whiteflash")
 							user.flash_fullscreen("whiteflash")
 							var/datum/effect_system/spark_spread/S = new()
-							var/turf/front = get_step(src,src.dir)
-							S.set_up(1, 1, front)
+							S.set_up(n = 1, loca = get_turf(src))
 							S.start()
 						else
 							flash_fullscreen("blackflash2")

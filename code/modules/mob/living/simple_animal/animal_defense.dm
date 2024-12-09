@@ -173,7 +173,6 @@
 		to_chat(user, "<span class='warning'>I'm too close to get a good kick in.</span>")
 		return FALSE
 	else
-		user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
 
 		var/shove_dir = get_dir(user.loc, target.loc)

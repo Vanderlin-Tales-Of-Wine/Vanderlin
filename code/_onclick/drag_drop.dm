@@ -299,7 +299,7 @@
 				chargedprog = 100
 				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 				if(istype(L.used_intent, /datum/intent/shield/block))
-					L.visible_message("<span class='danger'>[L] raises their shield to block!</span>")
+					L.visible_message("<span class='danger'>[L] prepares to do a shield bash!</span>")
 					playsound(L, 'sound/combat/shieldraise.ogg', 100, TRUE)
 			else
 				if(!L.adjust_stamina(L.used_intent.chargedrain))

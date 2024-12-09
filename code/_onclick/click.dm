@@ -225,6 +225,7 @@
 	if(W)
 		if(ismob(A))
 			if(CanReach(A,W))
+				do_attack_animation(get_turf(A), visual_effect_icon = used_intent.animname)
 				resolveAdjacentClick(A,W,params)
 				return
 
@@ -302,8 +303,8 @@
 						else
 							playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)
 							if(used_intent.miss_text)
-								visible_message("<span class='warning'>[src] [used_intent.miss_text]!</span>", \
-												"<span class='warning'>I [used_intent.miss_text]!</span>")
+								visible_message("<span class='warning'>[src] [used_intent.miss_text]</span>", \
+												"<span class='warning'>I [used_intent.miss_text]</span>")
 					aftermiss()
 					atkswinging = null
 					//update_warning()

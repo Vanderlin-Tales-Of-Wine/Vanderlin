@@ -44,7 +44,7 @@
 | Cut intent |
 \-----------*/
 /datum/intent/sword/cut
-	name = "strike"
+	name = "cut"
 	icon_state = "incut"
 	attack_verb = list("cuts", "slashes")
 	animname = "cut"

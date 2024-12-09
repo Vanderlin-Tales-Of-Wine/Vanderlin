@@ -1852,6 +1852,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		target.lastattackerckey = user.ckey
 		user.dna.species.spec_unarmedattacked(user, target)
 
+		user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
 		target.next_attack_msg.Cut()
 
 		var/nodmg = FALSE
@@ -2096,7 +2097,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 						to_chat(user, "<span class='danger'>I stomp on [target]![target.next_attack_msg.Join()]</span>")
 			target.next_attack_msg.Cut()
 			log_combat(user, target, "kicked")
-			user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 			user.OffBalance(balance)
 			if(!nodmg)
 				playsound(target, 'sound/combat/hits/kick/stomp.ogg', 100, TRUE, -1)
@@ -2108,7 +2108,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!target.kick_attack_check(user))
 			return 0
 
-		user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
 
 		var/turf/target_oldturf = target.loc
