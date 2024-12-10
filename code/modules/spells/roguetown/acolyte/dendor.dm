@@ -21,7 +21,7 @@
 	invocation = "The Treefather commands thee, be fruitful!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	miracle = TRUE
-	devotion_cost = -15
+	devotion_cost = 15
 
 /obj/effect/proc_holder/spell/targeted/blesscrop/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -53,6 +53,8 @@
 	invocation_type = "whisper"
 	cooldown_min = 10 MINUTES
 	releasedrain = 30
+	miracle = TRUE
+	devotion_cost = 15
 
 /obj/effect/proc_holder/spell/self/beastsense/cast(list/targets,mob/living/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -62,8 +64,9 @@
 	sleep(20)
 	if((iself(user)))	// already got night vision so lets not fuck it up, instead get +1 PER
 		user.apply_status_effect(/datum/status_effect/buff/beastsense_elf)
-		return ..()
-	user.apply_status_effect(/datum/status_effect/buff/beastsense)
+	else
+		user.apply_status_effect(/datum/status_effect/buff/beastsense)
+	return ..()
 
 
 //===========================================================================================
@@ -85,7 +88,7 @@
 	invocation = "Be still and calm, brotherbeast."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
-	devotion_cost = -60
+	devotion_cost = 60
 
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -95,6 +98,7 @@
 			continue
 		B.aggressive = 0
 		B.tamed(user)
+	return ..()
 
 
 //===========================================================================================
@@ -145,26 +149,29 @@
 	invocation_type = "shout"
 	cooldown_min = 25 MINUTES
 	releasedrain = 100
+	miracle = TRUE
+	devotion_cost = 100
 
 /obj/effect/proc_holder/spell/self/trollshape/cast(list/targets,mob/living/user = usr)
+	. = ..()
 	user.emote("rage", forced = TRUE)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 	user.Immobilize(30)
-	if(do_after(user,30))
-		playsound(get_turf(user), 'sound/foley/sewflesh.ogg', 100, TRUE)
-		user.emote("pain", forced = TRUE)
-		to_chat(user, span_warning("My body is transforming, growing! Unbearable pain, Dendor has answered your prayers!"))
-		user.do_jitter_animation(40)
-		user.Immobilize(40)
-		if(do_after(user,40))
-			playsound(get_turf(user), 'sound/gore/flesh_eat_03.ogg', 100, TRUE)
-			user.emote("pain", forced = TRUE)
-			user.Immobilize(20)
-			user.do_jitter_animation(20)
-			if(do_after(user,20))
-				playsound(get_turf(user), 'sound/vo/mobs/troll/idle1.ogg', 100, TRUE)
-				playsound(get_turf(user), 'sound/gore/flesh_eat_03.ogg', 140, TRUE)
-				user.apply_status_effect(/datum/status_effect/buff/trollshape)
-				to_chat(user, span_warning("For a time, I manifest the power of a troll!"))
-				return ..()
-	return FALSE
+	sleep(30)
+	playsound(get_turf(user), 'sound/foley/sewflesh.ogg', 100, TRUE)
+	user.emote("pain", forced = TRUE)
+	to_chat(user, span_warning("My body is transforming, growing! Unbearable pain, Dendor has answered your prayers!"))
+	user.do_jitter_animation(40)
+	user.Immobilize(40)
+	sleep(40)
+	playsound(get_turf(user), 'sound/gore/flesh_eat_03.ogg', 100, TRUE)
+	user.emote("pain", forced = TRUE)
+	user.Immobilize(20)
+	user.do_jitter_animation(20)
+	sleep(20)
+	playsound(get_turf(user), 'sound/vo/mobs/troll/idle1.ogg', 100, TRUE)
+	playsound(get_turf(user), 'sound/gore/flesh_eat_03.ogg', 140, TRUE)
+	user.apply_status_effect(/datum/status_effect/buff/trollshape)
+	to_chat(user, span_warning("For a time, I manifest the power of a troll!"))
+
+

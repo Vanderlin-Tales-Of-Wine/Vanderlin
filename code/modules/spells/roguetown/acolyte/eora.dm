@@ -1,4 +1,24 @@
-//eorite
+//eora
+
+/obj/effect/proc_holder/spell/invoked/instill_perfection
+	name = "Instill Perfection"
+	desc = "Grants target a super-natural beauty for a time, increasing their mood."
+	overlay_state = "perfume"
+	charge_max = 7.5 MINUTES
+	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/eora)
+	invocation = "Eora, lend some of your devine beauty!"
+	invocation_type = "shout"
+	releasedrain = 30
+	miracle = TRUE
+	devotion_cost = 25
+
+/obj/effect/proc_holder/spell/invoked/instill_perfection/cast(list/targets,mob/living/user = usr)
+	if(!isliving(targets[1]))
+		return FALSE
+	var/mob/living/selected = targets[1]
+	selected.apply_status_effect(/datum/status_effect/buff/divine_beauty)
+	return ..()
+
 
 /obj/item/clothing/head/peaceflower
 	name = "eoran bud"
@@ -49,13 +69,15 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy
-	charge_max = 60 SECONDS
+	charge_max = 5 MINUTES
+	miracle = TRUE
+	devotion_cost = 90
 
 /obj/effect/proc_holder/spell/invoked/bud/cast(list/targets, mob/living/user)
 	var/turf/T = get_turf(targets[1])
 	if(!isclosedturf(T))
 		new /obj/item/clothing/head/peaceflower(T)
-		return TRUE
+		return ..()
 	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Eora refuse to grow.</span>")
 	return FALSE
 
@@ -74,6 +96,8 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	charge_max = 10 SECONDS
+	miracle = TRUE
+	devotion_cost = 75
 
 
 /obj/projectile/magic/eora

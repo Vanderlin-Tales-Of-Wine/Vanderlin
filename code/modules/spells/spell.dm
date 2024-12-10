@@ -401,6 +401,9 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		if(action)
 			action.UpdateButtonIcon()
 		return TRUE
+	else
+		to_chat(user,span_warn("Your spell [name] fizzles!"))
+		revert_cast(user)
 
 /obj/effect/proc_holder/spell/proc/before_cast(list/targets)
 	if(overlay)
@@ -447,8 +450,8 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(miracle)
 		var/mob/living/carbon/human/C = user
 		var/datum/devotion/cleric_holder/D = C.cleric
-		D.update_devotion(devotion_cost)
-	return
+		D.update_devotion(-devotion_cost)
+	return TRUE
 
 /obj/effect/proc_holder/spell/proc/view_or_range(distance = world.view, center=usr, type="view")
 	switch(type)

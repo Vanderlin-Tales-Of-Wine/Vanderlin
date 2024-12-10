@@ -206,6 +206,7 @@
 	damtype = BRUTE
 
 /obj/item/flashlight/flare/torch/fire_act(added, maxstacks)
+	. = ..()
 	if(fuel)
 		if(!on)
 			playsound(src.loc, 'sound/items/firelight.ogg', 100)
@@ -218,7 +219,7 @@
 				var/mob/M = loc
 				M.update_inv_hands()
 			START_PROCESSING(SSobj, src)
-	..()
+			return TRUE
 
 /obj/item/flashlight/flare/torch/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
