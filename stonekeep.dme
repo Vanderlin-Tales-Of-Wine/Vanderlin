@@ -1600,6 +1600,7 @@
 #include "code\modules\roguetown\mapgen\forest.dm"
 #include "code\modules\roguetown\mapgen\mountains.dm"
 #include "code\modules\roguetown\mapgen\rogueoutdoors.dm"
+#include "code\modules\roguetown\mapgen\vanderlin\anvil.dm"
 #include "code\modules\roguetown\roguecrafting\cooking.dm"
 #include "code\modules\roguetown\roguecrafting\items.dm"
 #include "code\modules\roguetown\roguecrafting\leather.dm"
