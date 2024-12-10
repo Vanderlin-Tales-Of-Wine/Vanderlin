@@ -192,8 +192,8 @@
 	icon_state = "soultoken_floor"
 
 // why not also some mob stuff too
-/mob/living/simple_animal/hostile/rogue/demon
-	name = "demon"
+/mob/living/simple_animal/hostile/rogue/dragger
+	name = "dragger"
 	desc = ""
 	icon = 'icons/roguetown/underworld/enigma_dragger.dmi'
 	icon_state = "dragger"
@@ -240,10 +240,10 @@
 	canparry = TRUE
 	retreat_health = null
 
-/mob/living/simple_animal/hostile/rogue/demon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
+/mob/living/simple_animal/hostile/rogue/dragger/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE
 
-/mob/living/simple_animal/hostile/rogue/demon/simple_limb_hit(zone)
+/mob/living/simple_animal/hostile/rogue/dragger/simple_limb_hit(zone)
 	if(!zone)
 		return ""
 	switch(zone)
@@ -292,25 +292,25 @@
 
 	return ..()
 
-/mob/living/simple_animal/hostile/rogue/demon/taunted(mob/user)
+/mob/living/simple_animal/hostile/rogue/dragger/taunted(mob/user)
 	GiveTarget(user)
 	return
 
-/mob/living/simple_animal/hostile/rogue/demon/Initialize()
+/mob/living/simple_animal/hostile/rogue/dragger/Initialize()
 	. = ..()
 	set_light(2, 2, 2, l_color =  "#c0523f")
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 
 
-/mob/living/simple_animal/hostile/rogue/demon/death(gibbed)
+/mob/living/simple_animal/hostile/rogue/dragger/death(gibbed)
 	emote("death")
 	..()
 
-/mob/living/simple_animal/hostile/rogue/demon/Life()
+/mob/living/simple_animal/hostile/rogue/dragger/Life()
 	. = ..()
 
-/mob/living/simple_animal/hostile/rogue/demon/get_sound(input)
+/mob/living/simple_animal/hostile/rogue/dragger/get_sound(input)
 	switch(input)
 		if("laugh")
 			return pick('sound/vo/mobs/ghost/laugh (1).ogg','sound/vo/mobs/ghost/laugh (2).ogg','sound/vo/mobs/ghost/laugh (3).ogg','sound/vo/mobs/ghost/laugh (4).ogg','sound/vo/mobs/ghost/laugh (5).ogg','sound/vo/mobs/ghost/laugh (6).ogg')
@@ -323,7 +323,7 @@
 		if("aggro")
 			return pick('sound/vo/mobs/ghost/aggro (1).ogg','sound/vo/mobs/ghost/aggro (2).ogg','sound/vo/mobs/ghost/aggro (3).ogg','sound/vo/mobs/ghost/aggro (4).ogg','sound/vo/mobs/ghost/aggro (5).ogg','sound/vo/mobs/ghost/aggro (6).ogg')
 
-/mob/living/simple_animal/hostile/rogue/demon/AttackingTarget()
+/mob/living/simple_animal/hostile/rogue/dragger/AttackingTarget()
 	. = ..()
 	if(. && prob(8) && iscarbon(target))
 		var/mob/living/carbon/C = target
@@ -333,7 +333,7 @@
 		emote("laugh")
 
 /obj/effect/landmark/underworldsafe/Crossed(atom/movable/AM, oldloc)
-	if(istype(AM, /mob/living/simple_animal/hostile/rogue/demon))
+	if(istype(AM, /mob/living/simple_animal/hostile/rogue/dragger))
 		for(var/mob/living/carbon/human/A in view(4))
 			to_chat(A, "The monster's form dematerializes as it nears the Carriage.")
 		qdel(AM)

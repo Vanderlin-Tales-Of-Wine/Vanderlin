@@ -302,8 +302,8 @@
 						else
 							playsound(get_turf(src), used_intent.miss_sound, 100, FALSE)
 							if(used_intent.miss_text)
-								visible_message("<span class='warning'>[src] [used_intent.miss_text]!</span>", \
-												"<span class='warning'>I [used_intent.miss_text]!</span>")
+								visible_message("<span class='warning'>[src] [used_intent.miss_text]</span>", \
+												"<span class='warning'>I [used_intent.miss_text]</span>")
 					aftermiss()
 					atkswinging = null
 					//update_warning()

@@ -138,7 +138,7 @@
 	var/datum/devotion/cleric_holder/C = src.cleric
 	var/prayersesh = 0
 
-	visible_message("[src] kneels their head in prayer to the Gods.", "I kneel my head in prayer to [patron.name]")
+	visible_message("[src] kneels their head in prayer to the Gods.", "I kneel my head in prayer to [patron.name].")
 	for(var/i in 1 to 20)
 		if(do_after(src, 30))
 			if(C.devotion >= C.max_devotion)
