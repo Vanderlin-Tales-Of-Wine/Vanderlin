@@ -216,9 +216,9 @@
 			return BULLET_ACT_BLOCK
 		else
 			// Experience gain!
-			var/boon = sender.mind?.get_learning_boon(/datum/skill/magic/arcane)
-			var/amt2raise = sender.STAINT*2
-			sender.mind?.adjust_experience(/datum/skill/magic/arcane, floor(amt2raise * boon), FALSE)
+			var/boon = sender?.mind?.get_learning_boon(/datum/skill/magic/arcane)
+			var/amt2raise = sender?.STAINT*2
+			sender?.mind?.adjust_experience(/datum/skill/magic/arcane, floor(amt2raise * boon), FALSE)
 
 
 

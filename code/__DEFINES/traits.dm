@@ -40,6 +40,7 @@
 #define TRAIT_ANTISCRYING				"Anti-Scrying"
 #define TRAIT_SHOCKIMMUNE				"Shock Immunity"
 #define TRAIT_LEGENDARY_ALCHEMIST		"Expert Herb Finder"
+#define TRAIT_LIGHT_STEP				"Light Step" //Can't trigger /obj/structure/trap/'s
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
 
 // Divine patron trait bonuses:
@@ -144,6 +145,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DECEIVING_MEEKNESS = "People look at me and think I am a weakling. They are mistaken.",
 	TRAIT_THIEVESGUILD = "I am a member of the thieves guild!",
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
+	TRAIT_LIGHT_STEP = span_info("I will never trip a trap plate."),
 	))
 
 // trait accessor defines

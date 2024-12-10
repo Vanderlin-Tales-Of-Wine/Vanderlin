@@ -13,10 +13,10 @@
 		if(i > 1)
 			newshot()
 	if(click_cooldown_override)
-		user.changeNext_move(click_cooldown_override)
+		user?.changeNext_move(click_cooldown_override)
 	else
-		user.changeNext_move(CLICK_CD_RANGE)
-	user.newtonian_move(get_dir(target, user))
+		user?.changeNext_move(CLICK_CD_RANGE)
+	user?.newtonian_move(get_dir(target, user))
 	update_icon()
 	return TRUE
 
@@ -32,7 +32,7 @@
 	if (zone_override)
 		BB.def_zone = zone_override
 	else
-		BB.def_zone = user.zone_selected
+		BB.def_zone = user?.zone_selected
 	BB.suppressed = quiet
 
 	if(reagents && BB.reagents)
@@ -40,7 +40,11 @@
 		qdel(reagents)
 
 /obj/item/ammo_casing/proc/throw_proj(atom/target, turf/targloc, mob/living/user, params, spread)
-	var/turf/curloc = get_turf(user)
+	var/turf/curloc
+	if(user)
+		curloc = get_turf(user)
+	else
+		curloc = get_turf(src)
 	if (!istype(targloc) || !istype(curloc) || !BB)
 		return FALSE
 
@@ -55,7 +59,7 @@
 		if(target) //if the target is right on our location we'll skip the travelling code in the proj's fire()
 			direct_target = target
 	if(!direct_target)
-		BB.preparePixelProjectile(target, user, params, spread)
+		BB.preparePixelProjectile(target, isnull(user) ? src : user, params, spread)
 	BB.fire(null, direct_target)
 	BB = null
 	return TRUE
