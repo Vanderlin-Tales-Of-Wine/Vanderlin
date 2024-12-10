@@ -9,7 +9,7 @@
 /datum/outfit/job/roguetown/dwarven_company/captain/pre_equip(mob/living/carbon/human/H)
 	..()
 	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
-	cloak = /obj/item/clothing/cloak/cape/fur
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	head = /obj/item/clothing/head/roguetown/helmet/coppercap

@@ -3,7 +3,7 @@
 	name = "hat"
 	desc = ""
 	icon = 'icons/roguetown/clothing/head.dmi'
-	icon_state = "top_hat"
+	icon_state = "wizardhat"
 	dynamic_hair_suffix = "+generic"
 	bloody_icon_state = "helmetblood"
 	equip_sound = "rustle"
@@ -1300,21 +1300,6 @@
 /*----------------------\
 | Unique helmets & hats |	- Unique means no crafting them, no importing, nothing but spawn with the intended class
 \----------------------*/
-
-//............... Orc Helmet ............... //
-/obj/item/clothing/head/roguetown/helmet/orc
-	name = "orc helmet"
-	icon_state = "marauder_helm_item"
-	item_state = "marauder_helm"
-	icon = 'icons/roguetown/mob/monster/orc.dmi'
-	allowed_race = list("orc")
-	smeltresult = /obj/item/ingot/iron
-	sellprice = NO_MARKET_VALUE
-
-	armor = ARMOR_PADDED_GOOD
-	body_parts_covered = HEAD|EARS|HAIR|EYES
-	prevent_crits = ONLY_VITAL_ORGANS
-	max_integrity = INTEGRITY_POOR
 
 
 //............... Rare Helmets ............... //

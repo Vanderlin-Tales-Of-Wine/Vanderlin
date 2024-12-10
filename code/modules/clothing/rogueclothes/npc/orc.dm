@@ -36,7 +36,7 @@
 	name = "Orc Marauder Helmet"
 	icon_state = "marauder_helm_item"
 	item_state = "marauder_helm"
-	icon = 'icons/roguetown/clothing/head.dmi'
+	icon = 'icons/roguetown/mob/monster/orc.dmi'
 	allowed_race = list("orc")
 	smeltresult = /obj/item/ingot/iron
 	armor = list("blunt" = 60, "slash" = 60, "stab" = 60,  "piercing" = 0, "fire" = 0, "acid" = 0)
