@@ -46,7 +46,6 @@
 						G.returntolobby()
 						G.adjust_triumphs(-1)
 				if(alert("Travel with the boatman?", "", "Yes", "No") == "Yes")
-
 					// Check if the player's job is hiv+
 					var/datum/job/target_job = SSjob.GetJob(G.mind.assigned_role)
 					if(target_job)
@@ -56,13 +55,16 @@
 							// Store the current time for the player
 							GLOB.job_respawn_delays[G.ckey] = world.time + target_job.same_job_respawn_delay
 					verbs -= /client/proc/descend
-					for(var/turf/spawn_loc in GLOB.underworldcoinspawns)
-						var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
-						O.livingname = G.name
-						O.ckey = G.ckey
-						ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
-						SSdeath_arena.add_fighter(O)
-						SSdroning.area_entered(get_area(O), O.client)
+					if(!length(GLOB.underworldspiritspawns)) //That cant be good.
+						to_chat(usr, span_danger("Hell is full. Blood is now fuel. Alert an admin, as something is very wrong!"))
+						return
+					var/turf/spawn_loc = pick(GLOB.underworldspiritspawns)
+					var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
+					O.livingname = G.name
+					O.ckey = G.ckey
+					ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
+					SSdeath_arena.add_fighter(O,G.ghostize_time)
+					SSdroning.area_entered(get_area(O), O.client)
 				return
 
 //		var/take_triumph = FALSE
@@ -72,13 +74,16 @@
 				G.returntolobby()
 		if(alert("Travel with the boatman?", "", "Yes", "No") == "Yes")
 			verbs -= /client/proc/descend
-			for(var/turf/spawn_loc in GLOB.underworldcoinspawns)
-				var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
-				O.livingname = G.name
-				O.ckey = G.ckey
-				ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
-				SSdeath_arena.add_fighter(O)
-				SSdroning.area_entered(get_area(O), O.client)
+			if(!length(GLOB.underworldspiritspawns)) //That cant be good.
+				to_chat(usr, span_danger("Hell is full. Blood is now fuel. Alert an admin, as something is very wrong!"))
+				return
+			var/turf/spawn_loc = pick(GLOB.underworldspiritspawns)
+			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
+			O.livingname = G.name
+			O.ckey = G.ckey
+			ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
+			SSdeath_arena.add_fighter(O,G.ghostize_time)
+			SSdroning.area_entered(get_area(O), O.client)
 /*		if(world.time < G.ghostize_time + RESPAWNTIME)
 			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)
 			var/list/thingsz = list("My connection to the world is still too strong.",\
