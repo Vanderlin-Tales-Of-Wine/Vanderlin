@@ -18,10 +18,10 @@
 
 /obj/item/storage/keyring/Initialize()
     . = ..()
-    for(var/X in keys)
-        new X(src)
-    update_icon()
-    update_desc()
+	for(var/X in keys)
+		new X(src)
+	update_icon()
+	update_desc()
 
 /obj/item/storage/keyring/ComponentInitialize()
 	. = ..()
@@ -31,6 +31,7 @@
 	STR.max_items = 10
 	STR.attack_hand_interact = FALSE
 	STR.click_gather = TRUE
+	STR.allow_dump_out = TRUE
 	STR.rustle_sound = FALSE
 	STR.collection_mode = COLLECT_ONE
 	STR.set_holdable(list(
@@ -46,20 +47,20 @@
 		return TRUE
 
 /obj/item/storage/keyring/update_icon()
-    . = ..()
-    switch(contents.len)
-        if(0)
-            icon_state = "keyring0"
-        if(1)
-            icon_state = "keyring1"
-        if(2)
-            icon_state = "keyring2"
-        if(3)
-            icon_state = "keyring3"
-        if(4)
-            icon_state = "keyring4"
-        else
-            icon_state = "keyring5"
+	. = ..()
+	switch(contents.len)
+		if(0)
+			icon_state = "keyring0"
+		if(1)
+			icon_state = "keyring1"
+		if(2)
+			icon_state = "keyring2"
+		if(3)
+			icon_state = "keyring3"
+		if(4)
+			icon_state = "keyring4"
+		else
+			icon_state = "keyring5"
 
 /obj/item/storage/keyring/proc/update_desc()
 	if(contents.len)
@@ -70,13 +71,13 @@
 		desc = ""
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-    . = ..()
-    playsound(src, "sound/items/gems (1).ogg", 35, FALSE)
-    update_desc()
+	. = ..()
+	playsound(src, "sound/items/gems (1).ogg", 35, FALSE)
+	update_desc()
 
 /obj/item/storage/keyring/Exited(atom/movable/gone, direction)
-    . = ..()
-    update_desc()
+	. = ..()
+	update_desc()
 
 /obj/item/storage/keyring/getonmobprop(tag)
 	. = ..()
