@@ -15,7 +15,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/black
 	pants = /obj/item/clothing/under/roguetown/trou/shadowpants
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/knife/dagger/steel/dirk)
+	backpack_contents = list(/obj/item/key/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/knife/dagger/steel/dirk)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)

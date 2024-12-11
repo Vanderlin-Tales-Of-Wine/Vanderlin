@@ -40,10 +40,11 @@
 	var/allow_quick_empty = FALSE					//allow empty verb which allows dumping on the floor of everything inside quickly.
 	var/allow_quick_gather = FALSE					//allow toggle mob verb which toggles collecting all items from a tile.
 
-	var/allow_dump_out = FALSE
+	var/allow_dump_out = FALSE						//allow dumping out contents via LMB click-dragging
 
 	var/collection_mode = COLLECT_EVERYTHING
 
+	var/insert_verb = "tuck"						//you "tuck" things into a bag
 	var/insert_preposition = "in"					//you put things "in" a bag, but "on" a tray.
 
 	var/display_numerical_stacking = FALSE			//stack things of the same type and show as a single object with a number.
@@ -71,6 +72,7 @@
 
 	//Vrell - Used for repair bypass clicks
 	var/being_repaired = FALSE
+
 
 /datum/component/storage/Initialize(datum/component/storage/concrete/master)
 	if(!isatom(parent))
@@ -756,11 +758,11 @@
 		playsound(parent, "rustle", 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
-			to_chat(usr, "<span class='notice'>I tuck [I] [insert_preposition]to [parent].</span>")
+			to_chat(usr, "<span class='notice'>I [insert_verb] [I] [insert_preposition]to [parent].</span>")
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message("<span class='notice'>[M] tucks [I] [insert_preposition]to [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'>[M] [insert_verb]s [I] [insert_preposition]to [parent].</span>", MSG_VISUAL)
 		else
-			viewing.show_message("<span class='notice'>[M] tucks something [insert_preposition]to [parent].</span>", MSG_VISUAL)
+			viewing.show_message("<span class='notice'>[M] [insert_verb]s something [insert_preposition]to [parent].</span>", MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))

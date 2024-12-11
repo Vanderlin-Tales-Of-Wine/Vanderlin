@@ -34,7 +34,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/arming
 	if(prob(50))
 		armor = /obj/item/clothing/suit/roguetown/armor/gambeson
-	neck = /obj/item/roguekey/mercenary
+	neck = /obj/item/key/mercenary
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltr = /obj/item/rogueweapon/sword/sabre
 	if(prob(50))

@@ -35,7 +35,7 @@
 	head = /obj/item/clothing/head/roguetown/chaperon/greyscale/chaperonsecondary
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/keyring/steward
+	beltr = /obj/item/storage/keyring/steward
 	beltl = /obj/item/rogueweapon/knife/dagger/steel
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1, /obj/item/lockpickring/mundane = 1)

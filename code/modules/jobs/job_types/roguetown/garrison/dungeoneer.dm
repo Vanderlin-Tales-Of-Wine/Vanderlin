@@ -38,7 +38,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/dungeon
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/whip/antique
-	beltl = /obj/item/keyring/dungeoneer
+	beltl = /obj/item/storage/keyring/dungeoneer
 	backr = /obj/item/storage/backpack/rogue/satchel	// lack of satchel requires dealing with the merchant to correct, which requires entering town; not ideal. N.
 
 	if(H.mind)

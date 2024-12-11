@@ -53,7 +53,7 @@
 	beltl = /obj/item/rogueweapon/mace/spiked
 	backr = /obj/item/rogueweapon/shield/wood/adept
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)
+	backpack_contents = list(/obj/item/storage/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)
 
 	//Stats for class
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -96,7 +96,7 @@
 	backl = /obj/item/quiver/bolts
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
-	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)
+	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)
 
 	//Stats for class
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

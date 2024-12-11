@@ -34,7 +34,7 @@
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	belt = /obj/item/storage/belt/rogue/leather/cloth/lady
-	beltl = /obj/item/keyring/queen
+	beltl = /obj/item/storage/keyring/queen
 	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/clothing/head/roguetown/crown/circlet = 1)

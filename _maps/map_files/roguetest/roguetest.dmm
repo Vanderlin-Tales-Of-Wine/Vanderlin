@@ -499,8 +499,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
 "bs" = (
-/obj/item/roguekey/lord,
-/obj/item/roguekey/lord,
+/obj/item/key/lord,
+/obj/item/key/lord,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
 "bt" = (
@@ -748,7 +748,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "bU" = (
-/obj/item/roguekey/lord,
+/obj/item/key/lord,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "bV" = (
@@ -772,7 +772,7 @@
 /obj/item/rogueweapon/sword/long/greatsword,
 /obj/item/rogueweapon/sword/long/greatsword,
 /obj/item/rogueweapon/sword/long/greatsword,
-/obj/item/roguekey/lord,
+/obj/item/key/lord,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "bX" = (
@@ -782,7 +782,7 @@
 	},
 /obj/item/rogueweapon/flail/sflail,
 /obj/item/rogueweapon/flail/sflail,
-/obj/item/roguekey/lord,
+/obj/item/key/lord,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "bY" = (
@@ -948,7 +948,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "ct" = (
-/obj/item/roguekey/graveyard{
+/obj/item/key/graveyard{
 	lockid = "nightman"
 	},
 /turf/open/floor/rogue/cobble,
@@ -1083,7 +1083,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "cR" = (
-/obj/item/roguekey/merchant,
+/obj/item/key/merchant,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cS" = (

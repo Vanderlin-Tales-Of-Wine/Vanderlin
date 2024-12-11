@@ -40,7 +40,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/keyring/guard
+	beltl = /obj/item/storage/keyring/guard
 	beltr = /obj/item/quiver/arrows
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)

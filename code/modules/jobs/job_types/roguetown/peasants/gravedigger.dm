@@ -30,7 +30,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/roguekey/graveyard
+	beltl = /obj/item/key/graveyard
 	beltr = /obj/item/storage/belt/rogue/pouch
 	backr = /obj/item/rogueweapon/shovel
 	if(H.gender == FEMALE)

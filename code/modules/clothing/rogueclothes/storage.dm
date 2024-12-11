@@ -64,12 +64,12 @@
 //Bandit's belt starts with a simple needle and a key to their hideout.
 /obj/item/storage/belt/rogue/leather/bandit/PopulateContents()
 	new /obj/item/needle/thorn(src)
-	new /obj/item/roguekey/bandit(src)
+	new /obj/item/key/bandit(src)
 
 //Bandit's belt starts with a bandage and a key to their guildhall.
 /obj/item/storage/belt/rogue/leather/mercenary/PopulateContents()
 	new /obj/item/natural/cloth(src)
-	new /obj/item/roguekey/mercenary(src)
+	new /obj/item/key/mercenary(src)
 
 /obj/item/storage/belt/rogue/leather/mercenary/shalal
 	name = "shalal belt"

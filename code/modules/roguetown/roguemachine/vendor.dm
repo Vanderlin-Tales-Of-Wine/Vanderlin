@@ -18,8 +18,8 @@
 
 /obj/structure/roguemachine/vendor/attackby(obj/item/P, mob/user, params)
 
-	if(istype(P, /obj/item/roguekey))
-		var/obj/item/roguekey/K = P
+	if(istype(P, /obj/item/key))
+		var/obj/item/key/K = P
 		if(K.lockid == keycontrol)
 			locked = !locked
 			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
@@ -29,9 +29,9 @@
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			to_chat(user, "<span class='warning'>Wrong key.</span>")
 			return
-	if(istype(P, /obj/item/keyring))
-		var/obj/item/keyring/K = P
-		for(var/obj/item/roguekey/KE in K.keys)
+	if(istype(P, /obj/item/storage/keyring))
+		var/obj/item/storage/keyring/K = P
+		for(var/obj/item/key/KE in K.contents)
 			if(KE.lockid == keycontrol)
 				locked = !locked
 				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
@@ -260,12 +260,12 @@
 
 /obj/structure/roguemachine/vendor/inn/Initialize()
 	. = ..()
-	for(var/X in list(/obj/item/roguekey/roomi,/obj/item/roguekey/roomii,/obj/item/roguekey/roomiii))
+	for(var/X in list(/obj/item/key/roomi,/obj/item/key/roomii,/obj/item/key/roomiii))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 20
-	for(var/X in list(/obj/item/roguekey/roomhunt))
+	for(var/X in list(/obj/item/key/roomhunt))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
@@ -277,17 +277,17 @@
 
 /obj/structure/roguemachine/vendor/steward/Initialize()
 	. = ..()
-	for(var/X in list(/obj/item/roguekey/shops/shop1,/obj/item/roguekey/shops/shop2,/obj/item/roguekey/shops/shop3,/obj/item/roguekey/shops/shop4))
+	for(var/X in list(/obj/item/key/shops/shop1,/obj/item/key/shops/shop2,/obj/item/key/shops/shop3,/obj/item/key/shops/shop4))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 5
-	for(var/X in list(/obj/item/roguekey/houses/house2,/obj/item/roguekey/houses/house3))
+	for(var/X in list(/obj/item/key/houses/house2,/obj/item/key/houses/house3))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 100
-	for(var/X in list(/obj/item/roguekey/houses/house7))
+	for(var/X in list(/obj/item/key/houses/house7))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name

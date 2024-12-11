@@ -37,7 +37,7 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	beltl = /obj/item/roguekey/tavern
+	beltl = /obj/item/key/tavern
 	beltr = /obj/item/rogueweapon/knife/villager
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights/random

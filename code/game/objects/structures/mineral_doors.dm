@@ -309,7 +309,7 @@
 
 /obj/structure/mineral_door/attackby(obj/item/I, mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
-	if(istype(I, /obj/item/roguekey) || istype(I, /obj/item/keyring))
+	if(istype(I, /obj/item/key) || istype(I, /obj/item/storage/keyring))
 		if(!locked)
 			to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
 			door_rattle()
@@ -326,7 +326,7 @@
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/roguekey) || istype(item, /obj/item/keyring))
+	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
 		if(locked)
 			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
 			door_rattle()
@@ -390,12 +390,12 @@
 	if(lockbroken)
 		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I,/obj/item/keyring))
-		var/obj/item/keyring/R = I
-		if(!R.keys.len)
+	if(istype(I,/obj/item/storage/keyring))
+		var/obj/item/storage/keyring/R = I
+		if(!R.contents.len)
 			return
-		var/list/keysy = shuffle(R.keys.Copy())
-		for(var/obj/item/roguekey/K in keysy)
+		var/list/keysy = shuffle(R.contents.Copy())
+		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
 				if(!do_after(user, 10, TRUE, src))
 					break
@@ -407,7 +407,7 @@
 					door_rattle()
 		return
 	else
-		var/obj/item/roguekey/K = I
+		var/obj/item/key/K = I
 		if(K.lockhash == lockhash)
 			lock_toggle(user, is_right)
 			return
@@ -684,7 +684,7 @@
 /obj/structure/mineral_door/wood/deadbolt/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/roguekey) || istype(item, /obj/item/keyring))
+	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
 		if(locked)
 			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
 			door_rattle()
@@ -739,7 +739,7 @@
 /obj/structure/mineral_door/wood/donjon/stone/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/roguekey) || istype(item, /obj/item/keyring))
+	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
 		if(locked)
 			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
 			door_rattle()
@@ -767,7 +767,7 @@
 /obj/structure/mineral_door/wood/donjon/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/roguekey) || istype(item, /obj/item/keyring))
+	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
 		if(locked)
 			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
 			door_rattle()

@@ -45,7 +45,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/keyring/armorsmith
+		beltr = /obj/item/storage/keyring/armorsmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		H.change_stat("strength", 1)
 		H.change_stat("endurance", 2)
@@ -57,7 +57,7 @@
 		belt = /obj/item/storage/belt/rogue/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/keyring/armorsmith
+		beltr = /obj/item/storage/keyring/armorsmith
 		backl =	/obj/item/rogueweapon/hammer/sledgehammer
 		H.change_stat("strength", 1)
 		H.change_stat("endurance", 2)
@@ -109,7 +109,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/keyring/weaponsmith
+		beltr = /obj/item/storage/keyring/weaponsmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		backl =	/obj/item/rogueweapon/hammer/sledgehammer
 		H.change_stat("strength", 1)
@@ -122,7 +122,7 @@
 		belt = /obj/item/storage/belt/rogue/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/keyring/weaponsmith
+		beltr = /obj/item/storage/keyring/weaponsmith
 		H.change_stat("strength", 1)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)

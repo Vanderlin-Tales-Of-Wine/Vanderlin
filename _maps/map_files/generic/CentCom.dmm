@@ -368,7 +368,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "aR" = (
-/obj/item/roguekey/lord,
+/obj/item/key/lord,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "aS" = (
@@ -1085,9 +1085,9 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
-/obj/item/roguekey/vampire,
-/obj/item/roguekey/vampire,
-/obj/item/roguekey/vampire,
+/obj/item/key/vampire,
+/obj/item/key/vampire,
+/obj/item/key/vampire,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "dg" = (
@@ -1524,9 +1524,9 @@
 /area/rogue/indoors/bandit_lair)
 "hy" = (
 /obj/structure/table/wood/reinforced,
-/obj/item/keyring,
-/obj/item/keyring,
-/obj/item/keyring,
+/obj/item/storage/keyring,
+/obj/item/storage/keyring,
+/obj/item/storage/keyring,
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "hz" = (
@@ -3125,9 +3125,9 @@
 /area/rogue)
 "Fl" = (
 /obj/structure/closet/crate/chest/neu_iron,
-/obj/item/roguekey/bandit,
-/obj/item/roguekey/bandit,
-/obj/item/roguekey/bandit,
+/obj/item/key/bandit,
+/obj/item/key/bandit,
+/obj/item/key/bandit,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
 "Fn" = (

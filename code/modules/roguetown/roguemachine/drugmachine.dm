@@ -136,8 +136,8 @@
 
 
 /obj/structure/roguemachine/drugmachine/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/roguekey))
-		var/obj/item/roguekey/K = P
+	if(istype(P, /obj/item/key))
+		var/obj/item/key/K = P
 		if(K.lockid == "nightman")
 			locked = !locked
 			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
@@ -147,9 +147,9 @@
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			to_chat(user, "<span class='warning'>Wrong key.</span>")
 			return
-	if(istype(P, /obj/item/keyring))
-		var/obj/item/keyring/K = P
-		for(var/obj/item/roguekey/KE in K.keys)
+	if(istype(P, /obj/item/storage/keyring))
+		var/obj/item/storage/keyring/K = P
+		for(var/obj/item/key/KE in K.contents)
 			if(KE.lockid == "nightman")
 				locked = !locked
 				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)

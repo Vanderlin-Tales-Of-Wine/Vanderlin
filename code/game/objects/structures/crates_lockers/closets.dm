@@ -259,16 +259,15 @@
 /obj/structure/closet/attackby(obj/item/W, mob/user, params)
 	if(user in src)
 		return
-	if(istype(W, /obj/item/roguekey) || istype(W, /obj/item/keyring))
-		trykeylock(W, user)
-		return
+	if(istype(W, /obj/item/key) || istype(W, /obj/item/storage/keyring))
+		if(trykeylock(W, user))
+			return
 	if(istype(W, /obj/item/lockpick))
-		trypicklock(W, user)
-		return
+		if(trypicklock(W, user))
+			return
 	if(src.tool_interact(W,user))
 		return 1 // No afterattack
-	else
-		return ..()
+	return ..()
 
 /obj/structure/closet/proc/trykeylock(obj/item/I, mob/user)
 	if(opened)
@@ -279,27 +278,28 @@
 	if(broken)
 		to_chat(user, "<span class='warning'>The lock is broken.</span>")
 		return
-	if(istype(I,/obj/item/keyring))
-		var/obj/item/keyring/R = I
-		if(!R.keys.len)
+	if(istype(I,/obj/item/storage/keyring))
+		var/obj/item/storage/keyring/R = I
+		if(!R.contents.len)
 			return
-		var/list/keysy = shuffle(R.keys.Copy())
-		for(var/obj/item/roguekey/K in keysy)
+		var/list/keysy = shuffle(R.contents.Copy())
+		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
 				if(!do_after(user, 10, TRUE, src))
 					break
 			if(K.lockhash == lockhash)
 				togglelock(user)
-				break
+				return TRUE
 			else
 				if(user.cmode)
 					playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+		playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 		return
 	else
-		var/obj/item/roguekey/K = I
+		var/obj/item/key/K = I
 		if(K.lockhash == lockhash)
 			togglelock(user)
-			return
+			return TRUE
 		else
 			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 
@@ -351,9 +351,9 @@
 					var/boon = L.mind.get_learning_boon(/datum/skill/misc/lockpicking)
 					L.mind.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
 				if(lockprogress >= locktreshold)
-					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
+					to_chat(user, "<span class='deadsay'>The locking mechanism gives way.</span>")
 					togglelock(user)
-					break
+					return TRUE
 				else
 					continue
 			else

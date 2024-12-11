@@ -42,7 +42,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel = 1, /obj/item/keyring/hand = 1)
+	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
