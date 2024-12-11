@@ -17,7 +17,7 @@
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 
 /obj/item/storage/keyring/Initialize()
-    . = ..()
+	. = ..()
 	for(var/X in keys)
 		new X(src)
 	update_icon()
