@@ -2228,7 +2228,7 @@
 /area/rogue/indoors/town)
 "cdP" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment7,
+/obj/item/key/apartments/apartment7,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "ceb" = (
@@ -2237,7 +2237,7 @@
 /area/rogue/indoors/town/clocktower)
 "cef" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment22,
+/obj/item/key/apartments/apartment22,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "cei" = (
@@ -2486,7 +2486,7 @@
 /area/rogue/indoors/town/manor)
 "csv" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/roguekey/apartments/apartment3,
+/obj/item/key/apartments/apartment3,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "csy" = (
@@ -3147,7 +3147,7 @@
 /area/rogue/outdoors/river)
 "cYY" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment13,
+/obj/item/key/apartments/apartment13,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "cZn" = (
@@ -3626,7 +3626,7 @@
 /obj/structure/closet/crate/roguecloset{
 	lockid = "butler"
 	},
-/obj/item/roguekey/apartments/apartment1,
+/obj/item/key/apartments/apartment1,
 /obj/item/broom,
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
@@ -4511,7 +4511,7 @@
 /area/rogue/indoors/town/theatre)
 "esi" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment20,
+/obj/item/key/apartments/apartment20,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "est" = (
@@ -6002,7 +6002,7 @@
 /area/rogue/indoors/town/manor)
 "fRP" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/roguekey/apartments/apartment2,
+/obj/item/key/apartments/apartment2,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "fSj" = (
@@ -6152,7 +6152,7 @@
 /area/rogue/under/town/sewer)
 "fZM" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment24,
+/obj/item/key/apartments/apartment24,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "fZX" = (
@@ -8836,7 +8836,7 @@
 /area/rogue/indoors/town/garrison)
 "iyY" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment9,
+/obj/item/key/apartments/apartment9,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "izm" = (
@@ -8938,7 +8938,7 @@
 /area/rogue/outdoors/town/roofs)
 "iBR" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment23,
+/obj/item/key/apartments/apartment23,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "iBZ" = (
@@ -9242,7 +9242,7 @@
 /area/rogue/outdoors/town)
 "iSs" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment10,
+/obj/item/key/apartments/apartment10,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "iSJ" = (
@@ -10125,9 +10125,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums5,
-/obj/item/roguekey/apartments/slums5,
-/obj/item/roguekey/apartments/slums5,
+/obj/item/key/apartments/slums5,
+/obj/item/key/apartments/slums5,
+/obj/item/key/apartments/slums5,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "jPc" = (
@@ -12017,7 +12017,7 @@
 /area/rogue/under/town/basement)
 "lCZ" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment18,
+/obj/item/key/apartments/apartment18,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "lDc" = (
@@ -12321,7 +12321,7 @@
 /area/rogue/indoors/town/garrison)
 "lUN" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment19,
+/obj/item/key/apartments/apartment19,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "lUO" = (
@@ -12536,7 +12536,7 @@
 /area/rogue/indoors/town)
 "mhb" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment5,
+/obj/item/key/apartments/apartment5,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "mhn" = (
@@ -13223,7 +13223,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/roguekey/apartments/apartment12,
+/obj/item/key/apartments/apartment12,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "mPX" = (
@@ -13864,9 +13864,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums2,
-/obj/item/roguekey/apartments/slums2,
-/obj/item/roguekey/apartments/slums2,
+/obj/item/key/apartments/slums2,
+/obj/item/key/apartments/slums2,
+/obj/item/key/apartments/slums2,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/theatre)
 "nyz" = (
@@ -15474,9 +15474,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums1,
-/obj/item/roguekey/apartments/slums1,
-/obj/item/roguekey/apartments/slums1,
+/obj/item/key/apartments/slums1,
+/obj/item/key/apartments/slums1,
+/obj/item/key/apartments/slums1,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/theatre)
 "ppZ" = (
@@ -15709,7 +15709,7 @@
 /area/rogue/indoors/town)
 "pCE" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment21,
+/obj/item/key/apartments/apartment21,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "pCT" = (
@@ -18113,7 +18113,7 @@
 /area/rogue/outdoors/town)
 "sgi" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment17,
+/obj/item/key/apartments/apartment17,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "sgU" = (
@@ -18122,7 +18122,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/roguekey/apartments/penthouse1,
+/obj/item/key/apartments/penthouse1,
 /obj/effect/spawner/roguemap/loot/coin/med,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
@@ -18613,7 +18613,7 @@
 /area/rogue/indoors/town/dwarfin)
 "sEK" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment6,
+/obj/item/key/apartments/apartment6,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "sEM" = (
@@ -19042,9 +19042,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums3,
-/obj/item/roguekey/apartments/slums3,
-/obj/item/roguekey/apartments/slums3,
+/obj/item/key/apartments/slums3,
+/obj/item/key/apartments/slums3,
+/obj/item/key/apartments/slums3,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "sYp" = (
@@ -19286,7 +19286,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/roguekey/apartments/penthouse2,
+/obj/item/key/apartments/penthouse2,
 /obj/effect/spawner/roguemap/loot/coin/med,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
@@ -19593,7 +19593,7 @@
 /area/rogue/outdoors/river)
 "tvK" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment14,
+/obj/item/key/apartments/apartment14,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "twf" = (
@@ -21078,7 +21078,7 @@
 /area/rogue/under/town/sewer)
 "uXk" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment8,
+/obj/item/key/apartments/apartment8,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "uXD" = (
@@ -21364,9 +21364,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums4,
-/obj/item/roguekey/apartments/slums4,
-/obj/item/roguekey/apartments/slums4,
+/obj/item/key/apartments/slums4,
+/obj/item/key/apartments/slums4,
+/obj/item/key/apartments/slums4,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "vnC" = (
@@ -21510,7 +21510,7 @@
 /area/rogue/indoors/town/garrison)
 "vsJ" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment16,
+/obj/item/key/apartments/apartment16,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "vte" = (
@@ -21530,7 +21530,7 @@
 /area/rogue/indoors/villagegarrison)
 "vue" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment15,
+/obj/item/key/apartments/apartment15,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "vuq" = (
@@ -21716,7 +21716,7 @@
 /area/rogue/indoors/town/shop)
 "vBZ" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment4,
+/obj/item/key/apartments/apartment4,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "vCA" = (
@@ -23284,9 +23284,9 @@
 /obj/structure/chair/stool/rogue{
 	pixel_y = 5
 	},
-/obj/item/roguekey/apartments/slums6,
-/obj/item/roguekey/apartments/slums6,
-/obj/item/roguekey/apartments/slums6,
+/obj/item/key/apartments/slums6,
+/obj/item/key/apartments/slums6,
+/obj/item/key/apartments/slums6,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "xal" = (
@@ -24149,7 +24149,7 @@
 /area/rogue/indoors/town/church/chapel)
 "xUi" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/roguekey/houses/house3,
+/obj/item/key/houses/house3,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/wood,
@@ -24327,7 +24327,7 @@
 /area/rogue/outdoors/town)
 "ycs" = (
 /obj/structure/closet/crate/roguecloset/inn,
-/obj/item/roguekey/apartments/apartment11,
+/obj/item/key/apartments/apartment11,
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_x = 32;
 	pixel_y = 0

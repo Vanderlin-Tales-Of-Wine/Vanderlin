@@ -526,6 +526,36 @@
 	icon_state = ""
 	lockid = ""
 
+/obj/item/key/apartments/slums1
+	name = "slums I key"
+	icon_state = "brownkey"
+	lockid = "slums1"
+
+/obj/item/key/apartments/slums2
+	name = "slums II key"
+	icon_state = "brownkey"
+	lockid = "slums2"
+
+/obj/item/key/apartments/slums3
+	name = "slums III key"
+	icon_state = "brownkey"
+	lockid = "slums3"
+
+/obj/item/key/apartments/slums4
+	name = "slums IV key"
+	icon_state = "brownkey"
+	lockid = "slums4"
+
+/obj/item/key/apartments/slums5
+	name = "slums V key"
+	icon_state = "brownkey"
+	lockid = "slums5"
+
+/obj/item/key/apartments/slums6
+	name = "slums VI key"
+	icon_state = "brownkey"
+	lockid = "slums6"
+
 /obj/item/key/apartments/apartment1
 	name = "apartment i key"
 	icon_state = "brownkey"
@@ -570,6 +600,96 @@
 	name = "apartment ix key"
 	icon_state = "brownkey"
 	lockid = "apartment9"
+
+/obj/item/key/apartments/apartment10
+	name = "apartment x key"
+	icon_state = "brownkey"
+	lockid = "apartment10"
+
+/obj/item/key/apartments/apartment11
+	name = "apartment xi key"
+	icon_state = "brownkey"
+	lockid = "apartment11"
+
+/obj/item/key/apartments/apartment12
+	name = "apartment xii key"
+	icon_state = "brownkey"
+	lockid = "apartment12"
+
+/obj/item/key/apartments/apartment13
+	name = "apartment xiii key"
+	icon_state = "brownkey"
+	lockid = "apartment13"
+
+/obj/item/key/apartments/apartment14
+	name = "apartment xiv key"
+	icon_state = "brownkey"
+	lockid = "apartment14"
+
+/obj/item/key/apartments/apartment15
+	name = "apartment xv key"
+	icon_state = "brownkey"
+	lockid = "apartment15"
+
+/obj/item/key/apartments/apartment16
+	name = "apartment xvi key"
+	icon_state = "brownkey"
+	lockid = "apartment16"
+
+/obj/item/key/apartments/apartment17
+	name = "apartment xvii key"
+	icon_state = "brownkey"
+	lockid = "apartment17"
+
+/obj/item/key/apartments/apartment18
+	name = "apartment xviii key"
+	icon_state = "brownkey"
+	lockid = "apartment18"
+
+/obj/item/key/apartments/apartment19
+	name = "apartment xix key"
+	icon_state = "brownkey"
+	lockid = "apartment19"
+
+/obj/item/key/apartments/apartment20
+	name = "apartment xx key"
+	icon_state = "brownkey"
+	lockid = "apartment20"
+
+/obj/item/key/apartments/apartment21
+	name = "apartment xxi key"
+	icon_state = "brownkey"
+	lockid = "apartment21"
+
+/obj/item/key/apartments/apartment22
+	name = "apartment xxii key"
+	icon_state = "brownkey"
+	lockid = "apartment22"
+
+/obj/item/key/apartments/apartment23
+	name = "apartment xxiii key"
+	icon_state = "brownkey"
+	lockid = "apartment23"
+
+/obj/item/key/apartments/apartment24
+	name = "apartment xxiv key"
+	icon_state = "brownkey"
+	lockid = "apartment24"
+
+/obj/item/key/apartments/apartment25
+	name = "apartment xxv key"
+	icon_state = "brownkey"
+	lockid = "apartment25"
+
+/obj/item/key/apartments/penthouse1
+	name = "penthouse i key"
+	icon_state = "brownkey"
+	lockid = "penthouse1"
+
+/obj/item/key/apartments/penthouse2
+	name = "penthouse ii key"
+	icon_state = "brownkey"
+	lockid = "penthouse2"
 
 /obj/item/key/shops
 	name = ""
@@ -670,6 +790,11 @@
 	name = "theatre key"
 	icon_state = "mazekey"
 	lockid = "theatre"
+
+/obj/item/key/butcher
+	name = "butcher's key"
+	icon_state = "rustkey"
+	lockid = "butcher"
 
 /obj/item/key/elder
 	name = "mayor's key"
