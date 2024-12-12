@@ -27,7 +27,7 @@
 	can_random = FALSE
 	bypass_lastclass = TRUE
 
-	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/roguetown/prisoner/pre_equip(mob/living/carbon/human/H)
 	..()

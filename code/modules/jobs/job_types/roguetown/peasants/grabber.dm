@@ -24,6 +24,7 @@
 	min_pq = -50
 	display_order = JDO_GRABBER
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/job/roguetown/grabber/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

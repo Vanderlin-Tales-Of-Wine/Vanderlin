@@ -24,6 +24,7 @@
 	give_bank_account = TRUE
 	min_pq = -20
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/roguetown/beastmaster/pre_equip(mob/living/carbon/human/H)
 	..()

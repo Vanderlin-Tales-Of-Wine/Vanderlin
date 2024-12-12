@@ -22,6 +22,7 @@
 	give_bank_account = TRUE
 	min_pq = -10
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 
 /datum/outfit/job/roguetown/monk
 	name = "Acolyte"
