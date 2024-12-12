@@ -566,8 +566,6 @@
 			//If they're dead they shouldn't be getting hit by indirect fire
 			if((CHECK_BITFIELD(L.mobility_flags, MOBILITY_USE | MOBILITY_STAND | MOBILITY_MOVE) && L.stat == CONSCIOUS) || L.stat == DEAD)
 				return FALSE
-			if(L.lying)
-				return FALSE
 	return TRUE
 
 //Spread is FORCED!
