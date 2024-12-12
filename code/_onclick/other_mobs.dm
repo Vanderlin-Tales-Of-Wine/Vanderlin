@@ -182,6 +182,7 @@
 		to_chat(user, span_warning("Nothing to bite."))
 		return
 
+	user.do_attack_animation(src, ATTACK_EFFECT_BITE)
 	next_attack_msg.Cut()
 
 	var/nodmg = FALSE
@@ -384,6 +385,8 @@
 				return
 			if(INTENT_STEAL)
 				if(!A.Adjacent(src))
+					return
+				if(A == src)
 					return
 				if(ishuman(A))
 					var/mob/living/carbon/human/U = src

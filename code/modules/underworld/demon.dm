@@ -151,10 +151,10 @@
 		emote("laugh")
 
 /datum/intent/simple/slash
-	name = "chop"
+	name = "slash"
 	icon_state = "inchop"
 	attack_verb = list("cuts", "slashes")
-	animname = "cut"
+	animname = "slash"
 	blade_class = BCLASS_CHOP
 	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
 	chargetime = 0

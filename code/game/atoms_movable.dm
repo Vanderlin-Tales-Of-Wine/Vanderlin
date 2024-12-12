@@ -810,6 +810,8 @@
 	var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(get_turf(src), get_dir(src, A))
 	atk.icon_state = visual_effect_icon
 	atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	if(get_turf(A) == get_turf(src))
+		return
 	if(atk.dir & NORTH)
 		atk.pixel_y = 32
 	else if(atk.dir & SOUTH)
@@ -822,6 +824,21 @@
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'
 	duration = 3
+	alpha = 200
+
+/obj/effect/temp_visual/dir_setting/block //color is white by default, set to whatever is needed
+	icon = 'icons/effects/effects.dmi'
+	duration = 3.5
+	alpha = 100
+	layer = ABOVE_LIGHTING_LAYER
+	plane = ABOVE_LIGHTING_PLANE
+
+/obj/effect/temp_visual/dir_setting/block/Initialize(mapload, set_color)
+	if(set_color)
+		add_atom_colour(set_color, FIXED_COLOUR_PRIORITY)
+	. = ..()
+	pixel_x = rand(-12, 12)
+	pixel_y = rand(-9, 9)
 
 /atom/movable/proc/do_warning()
 	var/image/I

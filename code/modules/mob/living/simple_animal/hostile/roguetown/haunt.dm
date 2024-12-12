@@ -223,14 +223,3 @@
 		C.visible_message("<span class='danger'>\The [src] paralyzes \the [C] in fear!</span>", \
 				"<span class='danger'>\The [src] paralyzes me!</span>")
 		emote("laugh")
-
-/datum/intent/simple/slash
-	name = "chop"
-	icon_state = "inchop"
-	attack_verb = list("cuts", "slashes")
-	animname = "cut"
-	blade_class = BCLASS_CHOP
-	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
-	chargetime = 0
-	penfactor = 10
-	swingdelay = 8

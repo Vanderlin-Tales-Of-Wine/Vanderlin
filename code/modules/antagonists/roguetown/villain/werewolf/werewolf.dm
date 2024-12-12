@@ -138,7 +138,7 @@
 	icon_state = "inchop"
 	blade_class = BCLASS_CHOP
 	attack_verb = list("claws", "mauls", "eviscerates")
-	animname = "chop"
+	animname = "claw"
 	hitsound = "genslash"
 	penfactor = 50
 	candodge = TRUE
