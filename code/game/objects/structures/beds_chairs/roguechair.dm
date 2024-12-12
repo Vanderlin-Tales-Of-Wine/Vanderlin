@@ -45,13 +45,17 @@
 
 
 /obj/structure/chair/bench/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /obj/projectile))
+		return TRUE
 	if(get_dir(mover,loc) == dir)
-		return 0
+		return FALSE
 	return !density
 
-/obj/structure/chair/bench/CheckExit(atom/movable/O, turf/target)
-	if(get_dir(target, O.loc) == dir)
-		return 0
+/obj/structure/chair/bench/CheckExit(atom/movable/mover, turf/target)
+	if(istype(mover, /obj/projectile))
+		return TRUE
+	if(get_dir(target, mover.loc) == dir)
+		return FALSE
 	return !density
 
 /obj/structure/chair/bench/couch
