@@ -21,8 +21,8 @@
 	throw_speed = 1
 	throw_range = 1
 	icon_state = "beartrap"
-	desc = "A crude and rusty spring trap, used to snare interlopers, or prey on a hunt. Looks almost like falling apart."
-	var/rusty = TRUE // Is it an old trap? Will most likely be destroyed if not handled right
+	desc = "A crude and old spring trap, used to snare interlopers, or prey on a hunt. Looks almost like falling apart."
+	var/old = TRUE // Is it an old trap? Will most likely be destroyed if not handled right
 	var/armed = FALSE // Is it armed?
 	var/trap_damage = 90 // How much brute damage the trap will do to its victim
 	var/used_time = 12 SECONDS // How many seconds it takes to disarm the trap
@@ -128,8 +128,8 @@
 				L.mind?.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
 				to_chat(user, "<span class='notice'>I arm |the [src].</span>")
 			else
-				if(rusty)
-					user.visible_message("<span class='warning'>The rusty [src.name] breaks under stress!</span>")
+				if(old)
+					user.visible_message("<span class='warning'>The old [src.name] breaks under stress!</span>")
 					playsound(src.loc, 'sound/foley/breaksound.ogg', 100, TRUE, -1)
 					qdel(src)
 				else
@@ -189,6 +189,6 @@
 
 // When craftable beartraps get added, make these the ones crafted.
 /obj/item/restraints/legcuffs/beartrap/crafted
-	rusty = FALSE
+	old = FALSE
 	desc = "Curious is the trapmaker's art. Their efficacy unwitnessed by their own eyes."
 	smeltresult = /obj/item/ingot/iron
