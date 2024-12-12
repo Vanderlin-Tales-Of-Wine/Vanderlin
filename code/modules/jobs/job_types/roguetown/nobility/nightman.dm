@@ -26,6 +26,7 @@
 	give_bank_account = 100
 	min_pq = 1
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/outfit/job/roguetown/niteman/pre_equip(mob/living/carbon/human/H)
 	..()

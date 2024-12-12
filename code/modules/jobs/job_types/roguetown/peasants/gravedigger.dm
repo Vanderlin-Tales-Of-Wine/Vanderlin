@@ -23,6 +23,7 @@
 	give_bank_account = 34
 	min_pq = -50
 	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
 /datum/outfit/job/roguetown/undertaker/pre_equip(mob/living/carbon/human/H)
 	..()
