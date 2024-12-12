@@ -27,3 +27,4 @@
 	STR.max_combined_w_class = 21
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_items = 21
+	STR.allow_dump_out = TRUE

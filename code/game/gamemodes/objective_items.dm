@@ -33,7 +33,7 @@
 
 /datum/objective_item/steal/rogue/mkey
 	name = "the master key."
-	targetitem = /obj/item/roguekey/lord
+	targetitem = /obj/item/key/lord
 	difficulty = 3
 	excludefromjob = list("Lord", "Knight")
 

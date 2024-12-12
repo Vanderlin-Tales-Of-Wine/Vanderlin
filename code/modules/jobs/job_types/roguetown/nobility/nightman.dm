@@ -32,7 +32,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	beltr = /obj/item/keyring/niteman
+	beltr = /obj/item/storage/keyring/niteman
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

@@ -55,7 +55,7 @@
 /area/rogue/indoors)
 "cb" = (
 /obj/structure/table/wood/plain,
-/obj/item/roguekey/soilson,
+/obj/item/key/soilson,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
 "ce" = (
@@ -475,7 +475,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "mY" = (
-/obj/item/roguekey/elder,
+/obj/item/key/elder,
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
@@ -1197,7 +1197,7 @@
 /area/rogue/indoors)
 "IH" = (
 /obj/structure/table/wood/plain,
-/obj/item/roguekey/butcher,
+/obj/item/key/butcher,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
 "IJ" = (
@@ -1692,7 +1692,7 @@
 /area/rogue/indoors)
 "Vw" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/roguekey/butcher,
+/obj/item/key/butcher,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
 "VJ" = (
@@ -1728,7 +1728,7 @@
 "Wz" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/rogueweapon/thresher,
-/obj/item/roguekey/soilson,
+/obj/item/key/soilson,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},

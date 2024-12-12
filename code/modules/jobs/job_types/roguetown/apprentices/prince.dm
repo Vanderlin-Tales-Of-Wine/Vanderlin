@@ -53,7 +53,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/rogueweapon/sword
-	beltr = /obj/item/roguekey/manor
+	beltr = /obj/item/key/manor
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backr = /obj/item/storage/backpack/rogue/satchel
 	if(H.mind)
@@ -86,7 +86,7 @@
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/roguekey/manor
+	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights
@@ -130,7 +130,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/roguekey/manor
+	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights

@@ -39,7 +39,7 @@
 	cloak = /obj/item/clothing/cloak/half
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	belt = /obj/item/storage/belt/rogue/leather/black
-	beltr = /obj/item/keyring/mayor
+	beltr = /obj/item/storage/keyring/mayor
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	r_hand = /obj/item/rogueweapon/polearm/woodstaff/quarterstaff
 	if(H.mind)

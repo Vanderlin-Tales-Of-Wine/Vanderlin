@@ -55,8 +55,8 @@
 	if(!latched)
 		to_chat(user, span_warning("It's not latched shut!"))
 		return
-	if(istype(P, /obj/item/roguekey))
-		var/obj/item/roguekey/K = P
+	if(istype(P, /obj/item/key))
+		var/obj/item/key/K = P
 		if(K.lockid == "dungeon" || K.lockid == "garrison")
 			togglelock(user)
 			return attack_hand(user)
@@ -64,9 +64,9 @@
 			to_chat(user, "Wrong key.")
 			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 			return
-	if(istype(P, /obj/item/keyring))
-		var/obj/item/keyring/K = P
-		for(var/obj/item/roguekey/KE in K.keys)
+	if(istype(P, /obj/item/storage/keyring))
+		var/obj/item/storage/keyring/K = P
+		for(var/obj/item/key/KE in K.contents)
 			if(KE.lockid == "dungeoneer" || KE.lockid == "garrison")
 				togglelock(user)
 				return attack_hand(user)

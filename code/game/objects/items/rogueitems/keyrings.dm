@@ -1,6 +1,6 @@
 /////////////////// KEYRING ////////////////////
 
-/obj/item/keyring
+/obj/item/storage/keyring
 	name = "keyring"
 	desc = "A circular ring of metal for hooking additional rings."
 	icon_state = "keyring0"
@@ -10,20 +10,76 @@
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0
 	throwforce = 0
-	var/list/keys = list()
+	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	experimental_inhand = FALSE
 	dropshrink = 0.7
+	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 
-/obj/item/keyring/Initialize()
+/obj/item/storage/keyring/Initialize()
 	. = ..()
-	if(keys.len)
-		for(var/X in keys)
-			addtoring(new X())
-			keys -= X
+	for(var/X in keys)
+		new X(src)
 	update_icon()
+	update_desc()
 
-/obj/item/keyring/getonmobprop(tag)
+/obj/item/storage/keyring/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_combined_w_class = 20
+	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.max_items = 10
+	STR.attack_hand_interact = FALSE
+	STR.click_gather = TRUE
+	STR.allow_dump_out = TRUE
+	STR.rustle_sound = FALSE
+	STR.collection_mode = COLLECT_ONE
+	STR.set_holdable(list(
+		/obj/item/key,
+	))
+	STR.insert_verb = "slide"
+	STR.insert_preposition = "on"
+
+/obj/item/storage/keyring/attack_right(mob/user)
+	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
+	if(CP)
+		CP.rmb_show(user)
+		return TRUE
+
+/obj/item/storage/keyring/update_icon()
+	. = ..()
+	switch(contents.len)
+		if(0)
+			icon_state = "keyring0"
+		if(1)
+			icon_state = "keyring1"
+		if(2)
+			icon_state = "keyring2"
+		if(3)
+			icon_state = "keyring3"
+		if(4)
+			icon_state = "keyring4"
+		else
+			icon_state = "keyring5"
+
+/obj/item/storage/keyring/proc/update_desc()
+	if(contents.len)
+		desc = span_info("Holds \Roman[contents.len] key\s, including:")
+		for(var/obj/item/key/KE in contents)
+			desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
+	else
+		desc = ""
+
+/obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	playsound(src, "sound/items/gems (1).ogg", 35, FALSE)
+	update_desc()
+
+/obj/item/storage/keyring/Exited(atom/movable/gone, direction)
+	. = ..()
+	update_desc()
+
+/obj/item/storage/keyring/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -51,79 +107,6 @@
 "eflip" = 8)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
-/obj/item/keyring/proc/addtoring(obj/item/I)
-	if(!I || !istype(I))
-		return 0
-	I.loc = src
-	keys += I
-	update_icon()
-	update_desc()
-
-/obj/item/keyring/proc/removefromring(mob/user)
-	if(!keys.len)
-		return
-	var/obj/item/roguekey/K = keys[keys.len]
-	keys -= K
-	K.loc = user.loc
-	update_icon()
-	update_desc()
-	return K
-
-/obj/item/keyring/pre_attack(target, user, params)
-	. = ..()
-	var/used_hash
-	if(istype(target, /obj/structure/closet))
-		var/obj/structure/closet/C = target
-		if(C.masterkey)
-			used_hash = C.lockhash
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
-		if(D.masterkey)
-			used_hash = D.lockhash
-	for(var/obj/item/roguekey/K in keys)
-		if(istype(K, /obj/item/roguekey/lord))
-			K.lockhash = used_hash
-
-/obj/item/keyring/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/roguekey))
-		if(keys.len >= 10)
-			to_chat(user, "<span class='warning'>Too many keys.</span>")
-			return
-		user.dropItemToGround(I)
-		addtoring(I)
-	else
-		return ..()
-
-/obj/item/keyring/attack_right(mob/user)
-	if(keys.len)
-		to_chat(user, "<span class='notice'>I steal a key off the ring.</span>")
-		var/obj/item/roguekey/K = removefromring(user)
-		user.put_in_active_hand(K)
-
-/obj/item/keyring/update_icon()
-	..()
-	if(!keys.len)
-		icon_state = "keyring0"
-		return
-	if(keys.len >= 5)
-		icon_state = "keyring5"
-		return
-	switch(keys.len)
-		if(1)
-			icon_state = "keyring1"
-		if(2)
-			icon_state = "keyring2"
-		if(3)
-			icon_state = "keyring3"
-		if(4)
-			icon_state = "keyring4"
-
-/obj/item/keyring/proc/update_desc()
-	if(keys.len)
-		desc = "<span class='info'>\Roman [keys.len] keys.</span>"
-	else
-		desc = ""
 
 /obj/item/lockpickring
 	name = "lockpickring"
@@ -198,7 +181,7 @@
 /obj/item/lockpickring/attackby(obj/item/I, mob/user)
 	if(istype(I,/obj/item/lockpick))
 		if(picks.len >= 3)
-			to_chat(user, "<span class='warning'>Too many lockpicks.</span>")
+			to_chat(user, span_warning("Too many lockpicks."))
 			return
 		user.dropItemToGround(I)
 		addtoring(I)
@@ -207,7 +190,7 @@
 
 /obj/item/lockpickring/attack_right(mob/user)
 	if(picks.len)
-		to_chat(user, "<span class='notice'>I steal a pick off the ring.</span>")
+		to_chat(user, span_notice("I steal a pick off the ring."))
 		var/obj/item/lockpick/K = removefromring(user)
 		user.put_in_active_hand(K)
 
@@ -229,75 +212,75 @@
 
 /obj/item/lockpickring/proc/update_desc()
 	if(picks.len)
-		desc = "<span class='info'>\Roman [picks.len] lockpicks.</span>"
+		desc = span_info("\Roman[picks.len] lockpick\s.")
 	else
 		desc = ""
 
 /obj/item/lockpickring/mundane
 	picks = list(/obj/item/lockpick, /obj/item/lockpick, /obj/item/lockpick)
 
-/obj/item/keyring/captain
-	keys = list(/obj/item/roguekey/captain, /obj/item/roguekey/dungeon, /obj/item/roguekey/garrison, /obj/item/roguekey/walls, /obj/item/roguekey/manor, /obj/item/roguekey/guest)
+/obj/item/storage/keyring/captain
+	keys = list(/obj/item/key/captain, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/guest)
 
-/obj/item/keyring/queen
-	keys = list(/obj/item/roguekey/dungeon, /obj/item/roguekey/garrison, /obj/item/roguekey/walls, /obj/item/roguekey/manor, /obj/item/roguekey/queen, /obj/item/roguekey/guest)
+/obj/item/storage/keyring/queen
+	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/queen, /obj/item/key/guest)
 
-/obj/item/keyring/guard
-	keys = list(/obj/item/roguekey/dungeon, /obj/item/roguekey/garrison, /obj/item/roguekey/walls)
+/obj/item/storage/keyring/guard
+	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls)
 
-/obj/item/keyring/archivist
-	keys = list(/obj/item/roguekey/archive, /obj/item/roguekey/manor)
+/obj/item/storage/keyring/archivist
+	keys = list(/obj/item/key/archive, /obj/item/key/manor)
 
-/obj/item/keyring/merchant
-	keys = list(/obj/item/roguekey/shop, /obj/item/roguekey/merchant, /obj/item/roguekey/mercenary)
+/obj/item/storage/keyring/merchant
+	keys = list(/obj/item/key/shop, /obj/item/key/merchant, /obj/item/key/mercenary)
 
-/obj/item/keyring/mguard
-	keys = list(/obj/item/roguekey/dungeon, /obj/item/roguekey/garrison, /obj/item/roguekey/walls, /obj/item/roguekey/manor, /obj/item/roguekey/guest)
+/obj/item/storage/keyring/mguard
+	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/guest)
 
-/obj/item/keyring/mage
-	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/tower, /obj/item/roguekey/mage)
+/obj/item/storage/keyring/mage
+	keys = list(/obj/item/key/manor, /obj/item/key/tower, /obj/item/key/mage)
 
-/obj/item/keyring/innkeep
-	keys = list(/obj/item/roguekey/tavern, /obj/item/roguekey/roomhunt, /obj/item/roguekey/roomvi, /obj/item/roguekey/roomv, /obj/item/roguekey/roomiv, /obj/item/roguekey/roomiii, /obj/item/roguekey/roomii, /obj/item/roguekey/roomi)
+/obj/item/storage/keyring/innkeep
+	keys = list(/obj/item/key/tavern, /obj/item/key/roomhunt, /obj/item/key/roomvi, /obj/item/key/roomv, /obj/item/key/roomiv, /obj/item/key/roomiii, /obj/item/key/roomii, /obj/item/key/roomi)
 
-/obj/item/keyring/priest
-	keys = list(/obj/item/roguekey/priest, /obj/item/roguekey/confession, /obj/item/roguekey/church, /obj/item/roguekey/graveyard, /obj/item/roguekey/monastery, /obj/item/roguekey/inquisition, /obj/item/roguekey/manor)
+/obj/item/storage/keyring/priest
+	keys = list(/obj/item/key/priest, /obj/item/key/confession, /obj/item/key/church, /obj/item/key/graveyard, /obj/item/key/monastery, /obj/item/key/inquisition, /obj/item/key/manor)
 
-/obj/item/keyring/inquisitor
-	keys = list(/obj/item/roguekey/inquisition, /obj/item/roguekey/church)
+/obj/item/storage/keyring/inquisitor
+	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
 
-/obj/item/keyring/shepherd
-	keys = list(/obj/item/roguekey/inquisition, /obj/item/roguekey/church)
+/obj/item/storage/keyring/shepherd
+	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
 
-/obj/item/keyring/niteman
-	keys = list(/obj/item/roguekey/niteman, /obj/item/roguekey/nitemaiden)
+/obj/item/storage/keyring/niteman
+	keys = list(/obj/item/key/niteman, /obj/item/key/nitemaiden)
 
-/obj/item/keyring/hand
-	keys = list(/obj/item/roguekey/hand, /obj/item/roguekey/steward, /obj/item/roguekey/tavern, /obj/item/roguekey/church, /obj/item/roguekey/merchant, /obj/item/roguekey/dungeon, /obj/item/roguekey/walls, /obj/item/roguekey/garrison, /obj/item/roguekey/manor, /obj/item/roguekey/guest)
+/obj/item/storage/keyring/hand
+	keys = list(/obj/item/key/hand, /obj/item/key/steward, /obj/item/key/tavern, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/manor, /obj/item/key/guest)
 
-/obj/item/keyring/steward
-	keys = list(/obj/item/roguekey/steward, /obj/item/roguekey/vault, /obj/item/roguekey/manor, /obj/item/roguekey/warehouse)
+/obj/item/storage/keyring/steward
+	keys = list(/obj/item/key/steward, /obj/item/key/vault, /obj/item/key/manor, /obj/item/key/warehouse)
 
-/obj/item/keyring/dungeoneer
-	keys = list(/obj/item/roguekey/dungeon, /obj/item/roguekey/manor, /obj/item/roguekey/garrison, /obj/item/roguekey/walls)
+/obj/item/storage/keyring/dungeoneer
+	keys = list(/obj/item/key/dungeon, /obj/item/key/manor, /obj/item/key/garrison, /obj/item/key/walls)
 
-/obj/item/keyring/butler
-	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/butler)
+/obj/item/storage/keyring/butler
+	keys = list(/obj/item/key/manor, /obj/item/key/butler)
 
-/obj/item/keyring/jester
-	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/garrison, /obj/item/roguekey/walls)
+/obj/item/storage/keyring/jester
+	keys = list(/obj/item/key/manor, /obj/item/key/garrison, /obj/item/key/walls)
 
-/obj/item/keyring/weaponsmith
-	keys = list(/obj/item/roguekey/weaponsmith, /obj/item/roguekey/blacksmith)
+/obj/item/storage/keyring/weaponsmith
+	keys = list(/obj/item/key/weaponsmith, /obj/item/key/blacksmith)
 
-/obj/item/keyring/armorsmith
-	keys = list(/obj/item/roguekey/armorsmith, /obj/item/roguekey/blacksmith)
+/obj/item/storage/keyring/armorsmith
+	keys = list(/obj/item/key/armorsmith, /obj/item/key/blacksmith)
 
-/obj/item/keyring/mayor
-	keys = list(/obj/item/roguekey/veteran, /obj/item/roguekey/walls, /obj/item/roguekey/elder, /obj/item/roguekey/butcher, /obj/item/roguekey/soilson, /obj/item/roguekey/manor)
+/obj/item/storage/keyring/mayor
+	keys = list(/obj/item/key/veteran, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor)
 
-/obj/item/keyring/doctor
-	keys = list(/obj/item/roguekey/doctor, /obj/item/roguekey/manor)
+/obj/item/storage/keyring/doctor
+	keys = list(/obj/item/key/doctor, /obj/item/key/manor)
 
-/obj/item/keyring/veteran
-	keys = list(/obj/item/roguekey/veteran, /obj/item/roguekey/dungeon, /obj/item/roguekey/garrison, /obj/item/roguekey/walls, /obj/item/roguekey/elder, /obj/item/roguekey/butcher, /obj/item/roguekey/soilson)
+/obj/item/storage/keyring/veteran
+	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)

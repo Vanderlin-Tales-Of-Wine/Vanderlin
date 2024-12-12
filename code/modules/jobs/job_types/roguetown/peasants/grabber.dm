@@ -45,7 +45,7 @@
 		head = /obj/item/clothing/head/roguetown/headband/red
 		beltr = /obj/item/rogueweapon/mace/cudgel
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		neck = /obj/item/roguekey/warehouse
+		neck = /obj/item/key/warehouse
 		belt = /obj/item/storage/belt/rogue/leather/rope
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red
@@ -57,7 +57,7 @@
 		pants = /obj/item/clothing/under/roguetown/tights/sailor
 		beltr = /obj/item/rogueweapon/mace/cudgel
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		neck = /obj/item/roguekey/warehouse
+		neck = /obj/item/key/warehouse
 		belt = /obj/item/storage/belt/rogue/leather/rope
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea

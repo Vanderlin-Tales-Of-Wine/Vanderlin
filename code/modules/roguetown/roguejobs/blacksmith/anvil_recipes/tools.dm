@@ -7,7 +7,7 @@
 	recipe_name = "five Blank Keys"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/customblank
+	created_item = /obj/item/key_custom_blank
 	createmultiple = TRUE
 	createditem_num = 4
 	craftdiff = 0
@@ -100,11 +100,11 @@
 	created_item = /obj/item/rogueweapon/hoe
 	i_type = "Tools"
 
-/datum/anvil_recipe/tools/keyring
+/datum/anvil_recipe/tools/storage/keyring
 	name = "3x Keyrings"
 	recipe_name = "three Keyrings"
 	req_bar = /obj/item/ingot/iron
-	created_item = /obj/item/keyring
+	created_item = /obj/item/storage/keyring
 	createmultiple = TRUE
 	createditem_num = 2
 	craftdiff = 0

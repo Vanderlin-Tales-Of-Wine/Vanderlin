@@ -39,7 +39,7 @@
 	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltl = /obj/item/keyring/archivist
+	beltl = /obj/item/storage/keyring/archivist
 	backl = /obj/item/storage/backpack/rogue/satchel
 	neck = /obj/item/clothing/neck/roguetown/psycross/noc
 	backpack_contents = list(/obj/item/literary/apprentice = 1)

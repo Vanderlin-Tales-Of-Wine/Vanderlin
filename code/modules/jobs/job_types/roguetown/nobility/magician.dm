@@ -34,7 +34,7 @@
 	cloak = /obj/item/clothing/cloak/black_cloak
 	id = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/keyring/mage
+	beltr = /obj/item/storage/keyring/mage
 	backl = /obj/item/rogueweapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backpack_contents = list(/obj/item/scrying = 1)
