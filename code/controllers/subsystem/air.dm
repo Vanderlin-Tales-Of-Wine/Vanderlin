@@ -19,7 +19,6 @@ SUBSYSTEM_DEF(air)
 	var/cost_hotspots = 0
 	var/cost_superconductivity = 0
 
-	var/list/excited_groups = list()
 	var/list/active_turfs = list()
 	var/list/hotspots = list()
 
@@ -47,7 +46,6 @@ SUBSYSTEM_DEF(air)
 	msg += "SC:[round(cost_superconductivity,1)]|"
 	msg += "} "
 	msg += "AT:[active_turfs.len]|"
-	msg += "EG:[excited_groups.len]|"
 	msg += "HS:[hotspots.len]|"
 	msg += "HP:[high_pressure_delta.len]|"
 	msg += "AS:[active_super_conductivity.len]|"
@@ -163,21 +161,7 @@ SUBSYSTEM_DEF(air)
 			return
 
 /datum/controller/subsystem/air/proc/process_excited_groups(resumed = 0)
-	if (!resumed)
-		src.currentrun = excited_groups.Copy()
-	//cache for sanic speed (lists are references anyways)
-	var/list/currentrun = src.currentrun
-	while(currentrun.len)
-		var/datum/excited_group/EG = currentrun[currentrun.len]
-		currentrun.len--
-		EG.breakdown_cooldown++
-		EG.dismantle_cooldown++
-		if(EG.breakdown_cooldown >= EXCITED_GROUP_BREAKDOWN_CYCLES)
-			EG.self_breakdown()
-		else if(EG.dismantle_cooldown >= EXCITED_GROUP_DISMANTLE_CYCLES)
-			EG.dismantle()
-		if (MC_TICK_CHECK)
-			return
+	return
 
 
 /datum/controller/subsystem/air/proc/remove_from_active(turf/open/T)
@@ -189,29 +173,9 @@ SUBSYSTEM_DEF(air)
 	#endif
 	if(istype(T))
 		T.excited = 0
-		if(T.excited_group)
-			T.excited_group.garbage_collect()
 
 /datum/controller/subsystem/air/proc/add_to_active(turf/open/T, blockchanges = 1)
-	if(istype(T) && T.air)
-		#ifdef VISUALIZE_ACTIVE_TURFS
-		T.add_atom_colour("#00ff00", TEMPORARY_COLOUR_PRIORITY)
-		#endif
-		T.excited = 1
-		active_turfs |= T
-		if(currentpart == SSAIR_ACTIVETURFS)
-			currentrun |= T
-		if(blockchanges && T.excited_group)
-			T.excited_group.garbage_collect()
-	else if(T.flags_1 & INITIALIZED_1)
-		for(var/turf/S in T.atmos_adjacent_turfs)
-			add_to_active(S)
-	else if(map_loading)
-		if(queued_for_activation)
-			queued_for_activation[T] = T
-		return
-	else
-		T.requires_activation = TRUE
+	return
 
 /datum/controller/subsystem/air/StartLoadingMap()
 	LAZYINITLIST(queued_for_activation)
@@ -224,75 +188,10 @@ SUBSYSTEM_DEF(air)
 	queued_for_activation.Cut()
 
 /datum/controller/subsystem/air/proc/setup_allturfs()
-	var/list/turfs_to_init = block(locate(1, 1, 1), locate(world.maxx, world.maxy, world.maxz))
-	var/list/active_turfs = src.active_turfs
-	var/times_fired = ++src.times_fired
-
-	// Clear active turfs - faster than removing every single turf in the world
-	// one-by-one, and Initalize_Atmos only ever adds `src` back in.
-	active_turfs.Cut()
-
-	for(var/thing in turfs_to_init)
-		var/turf/T = thing
-		if (T.blocks_air)
-			continue
-		T.Initalize_Atmos(times_fired)
-		CHECK_TICK
-
-	if(active_turfs.len)
-		var/starting_ats = active_turfs.len
-		sleep(world.tick_lag)
-		var/timer = world.timeofday
-		log_mapping("There are [starting_ats] active turfs at roundstart caused by a difference of the air between the adjacent turfs. You can see its coordinates using \"Mapping -> Show roundstart AT list\" verb (debug verbs required).")
-		for(var/turf/T in active_turfs)
-			GLOB.active_turfs_startlist += T
-
-		//now lets clear out these active turfs
-		var/list/turfs_to_check = active_turfs.Copy()
-		do
-			var/list/new_turfs_to_check = list()
-			for(var/turf/open/T in turfs_to_check)
-				new_turfs_to_check += T.resolve_active_graph()
-			CHECK_TICK
-
-			active_turfs += new_turfs_to_check
-			turfs_to_check = new_turfs_to_check
-
-		while (turfs_to_check.len)
-		var/ending_ats = active_turfs.len
-		for(var/thing in excited_groups)
-			var/datum/excited_group/EG = thing
-			EG.self_breakdown(space_is_all_consuming = 1)
-			EG.dismantle()
-			CHECK_TICK
-		var/msg = ""
-		log_game("HEY! LISTEN! [DisplayTimeText(world.timeofday - timer)] were wasted processing [starting_ats] turf(s) (connected to [ending_ats] other turfs) with atmos differences at round start.")
-		to_chat(world, "<span class='boldannounce'>[msg]</span>")
-		warning(msg)
+	return
 
 /turf/open/proc/resolve_active_graph()
-	. = list()
-	var/datum/excited_group/EG = excited_group
-	if (blocks_air || !air)
-		return
-	if (!EG)
-		EG = new
-		EG.add_turf(src)
-
-	for (var/turf/open/ET in atmos_adjacent_turfs)
-		if ( ET.blocks_air || !ET.air)
-			continue
-
-		var/ET_EG = ET.excited_group
-		if (ET_EG)
-			if (ET_EG != EG)
-				EG.merge_groups(ET_EG)
-				EG = excited_group //merge_groups() may decide to replace our current EG
-		else
-			EG.add_turf(ET)
-		if (!ET.excited)
-			ET.excited = 1
-			. += ET
+	return list()
 
 /datum/controller/subsystem/air/proc/generate_atmos()
 	atmos_gen = list()
