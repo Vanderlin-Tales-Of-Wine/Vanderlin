@@ -229,6 +229,13 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 2
 
+/datum/crafting_recipe/roguetown/sewing/silkdress
+	name = "Silk dress"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/dress/silkdress)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 2)
+	craftdiff = 2
 
 /*.............. recipes requiring skill 3 ..............*/
 
@@ -245,6 +252,16 @@
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/sewing/silk_coat
+	name = "Silk dress"
+	result = list(obj/item/clothing/suit/roguetown/armor/leather/jacket/silk_coat)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 2
+				/obj/item/natural/hide = 1)
+	craftdiff = 3
+
 
 
 /* .............. recipes requiring skill 4 ..............*/
@@ -270,6 +287,27 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
+/datum/crafting_recipe/roguetown/sewing/merchant_jacket
+	name = "merchant jacket"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/merchant)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/feldsher
+	name = "feldsher jacket"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/feld)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/feldsher
+	name = "feldsher jacket"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/archivist)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 2)
+	craftdiff = 4
 
 /*.............. recipes requiring skill 5 ..............*/
 
@@ -278,7 +316,7 @@
 	result = list(/obj/item/clothing/cloak/lordcloak)
 	reqs = list(/obj/item/natural/fur = 2,
 				/obj/item/natural/hide = 4)
-	craftdiff = 4
+	craftdiff = 5
 
 /datum/crafting_recipe/roguetown/sewing/tribalrags
 	name = "tribal rags"
