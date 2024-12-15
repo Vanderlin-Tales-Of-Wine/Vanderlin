@@ -262,7 +262,12 @@
 				/obj/item/natural/hide = 1)
 	craftdiff = 3
 
-
+/datum/crafting_recipe/roguetown/sewing/jester
+	name = "jester jacket"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/jester)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
 
 /* .............. recipes requiring skill 4 ..............*/
 
@@ -301,14 +306,21 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
-/datum/crafting_recipe/roguetown/sewing/feldsher
-	name = "feldsher jacket"
+/datum/crafting_recipe/roguetown/sewing/archivist
+	name = "archivist robe"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/archivist)
 	reqs = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/fibers = 1,
 				/obj/item/natural/silk = 2)
 	craftdiff = 4
 
+/datum/crafting_recipe/roguetown/sewing/grenzelhoft
+	name = "feldsher jacket"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/feld)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/hide = 2)
+	craftdiff = 4
 /*.............. recipes requiring skill 5 ..............*/
 
 /datum/crafting_recipe/roguetown/sewing/lordcloak
