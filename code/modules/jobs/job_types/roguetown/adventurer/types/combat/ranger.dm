@@ -20,7 +20,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -30,7 +30,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)

@@ -19,22 +19,23 @@
 /datum/outfit/job/roguetown/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(0,0,1), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(0,1,1), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -45,8 +46,8 @@
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	beltl = /obj/item/quiver/bolts
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	beltl = /obj/item/quiver/arrows
 	neck = /obj/item/clothing/neck/roguetown/coif
 	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/rogueweapon/knife/dagger/steel)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
