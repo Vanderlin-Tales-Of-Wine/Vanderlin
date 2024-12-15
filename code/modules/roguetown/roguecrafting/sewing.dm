@@ -254,11 +254,11 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/sewing/silk_coat
-	name = "Silk dress"
+	name = "silk coat"
 	result = list(obj/item/clothing/suit/roguetown/armor/leather/jacket/silk_coat)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1,
-				/obj/item/natural/silk = 2
+				/obj/item/natural/silk = 2,
 				/obj/item/natural/hide = 1)
 	craftdiff = 3
 
