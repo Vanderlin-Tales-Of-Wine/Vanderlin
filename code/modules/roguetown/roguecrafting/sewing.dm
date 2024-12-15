@@ -315,7 +315,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/sewing/grenzelhoft
-	name = "feldsher jacket"
+	name = "grenzelhoft shirt"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/feld)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1,
