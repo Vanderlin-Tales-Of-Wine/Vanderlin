@@ -152,22 +152,6 @@ SUBSYSTEM_DEF(ticker)
 
 	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
 
-	if(!GLOB.syndicate_code_phrase)
-		GLOB.syndicate_code_phrase	= generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_phrase, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_phrase_regex = codeword_match
-
-	if(!GLOB.syndicate_code_response)
-		GLOB.syndicate_code_response = generate_code_phrase(return_list=TRUE)
-
-		var/codewords = jointext(GLOB.syndicate_code_response, "|")
-		var/regex/codeword_match = new("([codewords])", "ig")
-
-		GLOB.syndicate_code_response_regex = codeword_match
-
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 	if(CONFIG_GET(flag/randomize_shift_time))
 		gametime_offset = rand(0, 23) HOURS
@@ -410,9 +394,6 @@ SUBSYSTEM_DEF(ticker)
 		log_game("GAME SETUP: collect minds success")
 		equip_characters()
 		log_game("GAME SETUP: equip characters success")
-
-		GLOB.data_core.manifest()
-		log_game("GAME SETUP: manifest success")
 
 		transfer_characters()	//transfer keys to the new mobs
 		log_game("GAME SETUP: transfer characters success")

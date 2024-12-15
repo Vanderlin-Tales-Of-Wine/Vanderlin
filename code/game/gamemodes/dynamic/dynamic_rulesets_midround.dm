@@ -48,9 +48,6 @@
 				trimmed_list.Remove(M)
 				continue
 		if (M.mind)
-			if (restrict_ghost_roles && (M.mind.assigned_role in GLOB.exp_specialmap[EXP_TYPE_SPECIAL])) // Are they playing a ghost role?
-				trimmed_list.Remove(M)
-				continue
 			if (M.mind.assigned_role in restricted_roles) // Does their job allow it?
 				trimmed_list.Remove(M)
 				continue
@@ -156,54 +153,3 @@
 
 /datum/dynamic_ruleset/midround/from_ghosts/proc/setup_role(datum/antagonist/new_role)
 	return
-
-//////////////////////////////////////////////
-//                                          //
-//           SYNDICATE TRAITORS             //
-//                                          //
-//////////////////////////////////////////////
-
-/datum/dynamic_ruleset/midround/autotraitor
-	name = "Syndicate Sleeper Agent"
-	antag_datum = /datum/antagonist/traitor
-	antag_flag = ROLE_TRAITOR
-	protected_roles = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
-	restricted_roles = list("Cyborg", "AI", "Positronic Brain")
-	required_candidates = 1
-	weight = 7
-	cost = 10
-	requirements = list(50,40,30,20,10,10,10,10,10,10)
-	repeatable = TRUE
-	high_population_requirement = 10
-	flags = TRAITOR_RULESET
-
-/datum/dynamic_ruleset/midround/autotraitor/acceptable(population = 0, threat = 0)
-	var/player_count = mode.current_players[CURRENT_LIVING_PLAYERS].len
-	var/antag_count = mode.current_players[CURRENT_LIVING_ANTAGS].len
-	var/max_traitors = round(player_count / 10) + 1
-	if ((antag_count < max_traitors) && prob(mode.threat_level))//adding traitors if the antag population is getting low
-		return ..()
-	else
-		return FALSE
-
-/datum/dynamic_ruleset/midround/autotraitor/trim_candidates()
-	..()
-	for(var/mob/living/player in living_players)
-		if(is_centcom_level(player.z))
-			living_players -= player // We don't autotator people in CentCom
-			continue
-		if(player.mind && (player.mind.special_role || player.mind.antag_datums?.len > 0))
-			living_players -= player // We don't autotator people with roles already
-
-/datum/dynamic_ruleset/midround/autotraitor/ready(forced = FALSE)
-	if (required_candidates > living_players.len)
-		return FALSE
-	return ..()
-
-/datum/dynamic_ruleset/midround/autotraitor/execute()
-	var/mob/M = pick(living_players)
-	assigned += M
-	living_players -= M
-	var/datum/antagonist/traitor/newTraitor = new
-	M.mind.add_antag_datum(newTraitor)
-	return TRUE

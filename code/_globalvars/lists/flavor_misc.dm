@@ -91,55 +91,6 @@ GLOBAL_LIST_INIT(unarmed_parrysound, list(
 
 GLOBAL_LIST_INIT(ghost_forms_with_accessories_list, list("ghost")) //stores the ghost forms that support hair and other such things
 
-GLOBAL_LIST_INIT(ai_core_display_screens, sortList(list(
-	":thinking:",
-	"Alien",
-	"Angel",
-	"Banned",
-	"Bliss",
-	"Blue",
-	"Clown",
-	"Database",
-	"Dorf",
-	"Firewall",
-	"Fuzzy",
-	"Gentoo",
-	"Glitchman",
-	"Gondola",
-	"Goon",
-	"Hades",
-	"Heartline",
-	"Helios",
-	"House",
-	"Inverted",
-	"Matrix",
-	"Monochrome",
-	"Murica",
-	"Nanotrasen",
-	"Not Malf",
-	"President",
-	"Random",
-	"Rainbow",
-	"Red",
-	"Red October",
-	"Static",
-	"Syndicat Meow",
-	"Text",
-	"Too Deep",
-	"Triumvirate",
-	"Triumvirate-M",
-	"Weird")))
-
-/proc/resolve_ai_icon(input)
-	if(!input || !(input in GLOB.ai_core_display_screens))
-		return "ai"
-	else
-		if(input == "Random")
-			input = pick(GLOB.ai_core_display_screens - "Random")
-		return "ai-[lowertext(input)]"
-
-GLOBAL_LIST_INIT(security_depts_prefs, sortList(list(SEC_DEPT_RANDOM, SEC_DEPT_NONE, SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY)))
-
 	//Backpacks
 #define GBACKPACK "Grey Backpack"
 #define GSATCHEL "Grey Satchel"

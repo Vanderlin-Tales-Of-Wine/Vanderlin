@@ -3,50 +3,6 @@
 //to keep them, you can't cure your other traumas
 /datum/brain_trauma/special
 
-/datum/brain_trauma/special/godwoken
-	name = "Godwoken Syndrome"
-	desc = ""
-	scan_desc = ""
-	gain_text = "<span class='notice'>I feel a higher power inside your mind...</span>"
-	lose_text = "<span class='warning'>The divine presence leaves your head, no longer interested.</span>"
-
-/datum/brain_trauma/special/godwoken/on_life()
-	..()
-	if(prob(4))
-		if(prob(33) && (owner.IsStun() || owner.IsParalyzed() || owner.IsUnconscious()))
-			speak("unstun", TRUE)
-		else if(prob(60) && owner.health <= owner.crit_threshold)
-			speak("heal", TRUE)
-		else if(prob(30) && owner.used_intent.type == INTENT_HARM)
-			speak("aggressive")
-		else
-			speak("neutral", prob(25))
-
-/datum/brain_trauma/special/godwoken/on_gain()
-	ADD_TRAIT(owner, TRAIT_HOLY, TRAUMA_TRAIT)
-	..()
-
-/datum/brain_trauma/special/godwoken/on_lose()
-	REMOVE_TRAIT(owner, TRAIT_HOLY, TRAUMA_TRAIT)
-	..()
-
-/datum/brain_trauma/special/godwoken/proc/speak(type, include_owner = FALSE)
-	var/message
-	switch(type)
-		if("unstun")
-			message = pick_list_replacements(BRAIN_DAMAGE_FILE, "god_unstun")
-		if("heal")
-			message = pick_list_replacements(BRAIN_DAMAGE_FILE, "god_heal")
-		if("neutral")
-			message = pick_list_replacements(BRAIN_DAMAGE_FILE, "god_neutral")
-		if("aggressive")
-			message = pick_list_replacements(BRAIN_DAMAGE_FILE, "god_aggressive")
-		else
-			message = pick_list_replacements(BRAIN_DAMAGE_FILE, "god_neutral")
-
-	playsound(get_turf(owner), 'sound/blank.ogg', 200, TRUE, 5)
-	voice_of_god(message, owner, list("colossus","yell"), 2.5, include_owner, FALSE)
-
 /datum/brain_trauma/special/bluespace_prophet
 	name = "Bluespace Prophecy"
 	desc = ""

@@ -48,23 +48,3 @@
 	M.mind.special_role = antag_flag
 	M.mind.add_antag_datum(antag_datum)
 	return TRUE
-
-//////////////////////////////////////////////
-//                                          //
-//           SYNDICATE TRAITORS             //
-//                                          //
-//////////////////////////////////////////////
-
-/datum/dynamic_ruleset/latejoin/infiltrator
-	name = "Syndicate Infiltrator"
-	antag_datum = /datum/antagonist/traitor
-	antag_flag = ROLE_TRAITOR
-	protected_roles = list("Security Officer", "Warden", "Head of Personnel", "Detective", "Head of Security", "Captain")
-	restricted_roles = list("AI","Cyborg")
-	required_candidates = 1
-	weight = 7
-	cost = 5
-	requirements = list(40,30,20,10,10,10,10,10,10,10)
-	high_population_requirement = 10
-	repeatable = TRUE
-	flags = TRAITOR_RULESET

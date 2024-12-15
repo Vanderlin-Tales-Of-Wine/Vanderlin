@@ -126,8 +126,6 @@
 		ADD_TRAIT(character, trait, TRAIT_BAN_PUNISHMENT)
 
 /proc/is_total_antag_banned(ckey)
-	if(is_antag_banned(ckey, ROLE_SYNDICATE))
-		return TRUE
 	if(is_misc_banned(ckey, BAN_MISC_LEPROSY))
 		return TRUE
 	if(is_misc_banned(ckey, BAN_MISC_LUNATIC))

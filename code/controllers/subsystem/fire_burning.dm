@@ -32,6 +32,9 @@ SUBSYSTEM_DEF(fire_burning)
 		if(O.resistance_flags & ON_FIRE) //in case an object is extinguished while still in currentrun
 			if(!(O.resistance_flags & FIRE_PROOF))
 				O.take_damage(5, BURN, "fire", 0)
+				for(var/mob/living/carbon/human/H in view(2, O))
+					if(H.has_flaw(/datum/charflaw/addiction/pyromaniac))
+						H.sate_addiction()
 			else
 				O.extinguish()
 			if(!O.fire_burn_start)

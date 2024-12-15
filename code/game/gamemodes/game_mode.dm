@@ -433,16 +433,15 @@
 
 /proc/reopen_roundstart_suicide_roles()
 	var/list/valid_positions = list()
-	valid_positions += GLOB.engineering_positions
-	valid_positions += GLOB.medical_positions
-	valid_positions += GLOB.science_positions
-	valid_positions += GLOB.supply_positions
-	valid_positions += GLOB.civilian_positions
-	valid_positions += GLOB.security_positions
-	if(CONFIG_GET(flag/reopen_roundstart_suicide_roles_command_positions))
-		valid_positions += GLOB.command_positions //add any remaining command positions
-	else
-		valid_positions -= GLOB.command_positions //remove all command positions that were added from their respective department positions lists.
+	valid_positions += GLOB.youngfolk_positions
+	valid_positions += GLOB.noble_positions
+	valid_positions += GLOB.church_positions
+	valid_positions += GLOB.garrison_positions
+	valid_positions += GLOB.serf_positions
+	valid_positions += GLOB.peasant_positions
+	valid_positions += GLOB.apprentices_positions
+	valid_positions += GLOB.youngfolk_positions
+
 
 	var/list/reopened_jobs = list()
 	for(var/X in GLOB.suicided_mob_list)

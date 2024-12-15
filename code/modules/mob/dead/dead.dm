@@ -80,11 +80,22 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	for(var/datum/job/job in SSjob.occupations)
 		if(!job)
 			continue
+		if(!job.shows_in_list)
+			continue
 		var/readiedas = 0
 		var/list/PL = list()
 		for(var/mob/dead/new_player/player in GLOB.player_list)
 			if(!player)
 				continue
+			if(job.title == "Adventurer")
+				if(player.client.prefs.job_preferences["Court Agent"] == JP_HIGH)
+					if(player.ready == PLAYER_READY_TO_PLAY)
+						readiedas++
+						if(!(player.client.ckey in GLOB.hiderole))
+							if(player.client.prefs.real_name)
+								var/thing = "[player.client.prefs.real_name]"
+								PL += thing
+
 			if(player.client.prefs.job_preferences[job.title] == JP_HIGH)
 				if(player.ready == PLAYER_READY_TO_PLAY)
 					readiedas++
@@ -101,14 +112,12 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 				PL2 += "[PL[i]], "
 
 		var/str_job = job.title
-		if(job.title == "Court Agent")
-			str_job = "Adventurer"
-
 		if(readiedas)
 			if(PL2.len)
 				dat += "<B>[str_job]</B> ([readiedas]) - [PL2.Join()]<br>"
 			else
 				dat += "<B>[str_job]</B> ([readiedas])<br>"
+
 	var/datum/browser/popup = new(src, "lobby_window", "<div align='center'>LOBBY</div>", 330, 430)
 	popup.set_window_options("can_minimize=0;can_maximize=0;can_resize=1;")
 	popup.set_content(dat.Join())

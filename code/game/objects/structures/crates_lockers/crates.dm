@@ -19,7 +19,6 @@
 	open_sound_volume = 35
 	close_sound_volume = 50
 	drag_slowdown = 0
-	var/obj/item/paper/fluff/jobs/cargo/manifest/manifest
 	var/base_icon_state
 
 /obj/structure/closet/crate/Initialize()
@@ -43,35 +42,13 @@
 /obj/structure/closet/crate/update_icon()
 	icon_state = "[base_icon_state][opened ? "open" : ""]"
 
-	cut_overlays()
-	if(manifest)
-		add_overlay("manifest")
-
 /obj/structure/closet/crate/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
-	if(manifest)
-		tear_manifest(user)
 
 /obj/structure/closet/crate/open(mob/living/user)
 	. = ..()
-	if(. && manifest)
-		to_chat(user, "<span class='notice'>The manifest is torn off [src].</span>")
-		playsound(src, 'sound/blank.ogg', 75, TRUE)
-		manifest.forceMove(get_turf(src))
-		manifest = null
-		update_icon()
-
-/obj/structure/closet/crate/proc/tear_manifest(mob/user)
-	to_chat(user, "<span class='notice'>I tear the manifest off of [src].</span>")
-	playsound(src, 'sound/blank.ogg', 75, TRUE)
-
-	manifest.forceMove(loc)
-	if(ishuman(user))
-		user.put_in_hands(manifest)
-	manifest = null
-	update_icon()
 
 /obj/structure/closet/crate/coffin
 	name = "casket"
