@@ -57,7 +57,6 @@ SUBSYSTEM_DEF(air)
 
 /datum/controller/subsystem/air/Initialize(timeofday)
 	map_loading = FALSE
-	setup_allturfs()
 	gas_reactions = init_gas_reactions()
 	return ..()
 
@@ -222,53 +221,6 @@ SUBSYSTEM_DEF(air)
 	for(var/T in queued_for_activation)
 		add_to_active(T)
 	queued_for_activation.Cut()
-
-/datum/controller/subsystem/air/proc/setup_allturfs()
-	var/list/turfs_to_init = block(locate(1, 1, 1), locate(world.maxx, world.maxy, world.maxz))
-	var/list/active_turfs = src.active_turfs
-	var/times_fired = ++src.times_fired
-
-	// Clear active turfs - faster than removing every single turf in the world
-	// one-by-one, and Initalize_Atmos only ever adds `src` back in.
-	active_turfs.Cut()
-
-	for(var/thing in turfs_to_init)
-		var/turf/T = thing
-		if (T.blocks_air)
-			continue
-		T.Initalize_Atmos(times_fired)
-		CHECK_TICK
-
-	if(active_turfs.len)
-		var/starting_ats = active_turfs.len
-		sleep(world.tick_lag)
-		var/timer = world.timeofday
-		log_mapping("There are [starting_ats] active turfs at roundstart caused by a difference of the air between the adjacent turfs. You can see its coordinates using \"Mapping -> Show roundstart AT list\" verb (debug verbs required).")
-		for(var/turf/T in active_turfs)
-			GLOB.active_turfs_startlist += T
-
-		//now lets clear out these active turfs
-		var/list/turfs_to_check = active_turfs.Copy()
-		do
-			var/list/new_turfs_to_check = list()
-			for(var/turf/open/T in turfs_to_check)
-				new_turfs_to_check += T.resolve_active_graph()
-			CHECK_TICK
-
-			active_turfs += new_turfs_to_check
-			turfs_to_check = new_turfs_to_check
-
-		while (turfs_to_check.len)
-		var/ending_ats = active_turfs.len
-		for(var/thing in excited_groups)
-			var/datum/excited_group/EG = thing
-			EG.self_breakdown(space_is_all_consuming = 1)
-			EG.dismantle()
-			CHECK_TICK
-		var/msg = ""
-		log_game("HEY! LISTEN! [DisplayTimeText(world.timeofday - timer)] were wasted processing [starting_ats] turf(s) (connected to [ending_ats] other turfs) with atmos differences at round start.")
-		to_chat(world, "<span class='boldannounce'>[msg]</span>")
-		warning(msg)
 
 /turf/open/proc/resolve_active_graph()
 	. = list()

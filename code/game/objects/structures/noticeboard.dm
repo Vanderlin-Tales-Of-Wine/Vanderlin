@@ -25,9 +25,6 @@
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/paper))
-		if(!allowed(user))
-			to_chat(user, "<span class='warning'>I are not authorized to add notices!</span>")
-			return
 		if(notices < 5)
 			if(!user.transferItemToLoc(O, src))
 				return
@@ -44,7 +41,7 @@
 
 /obj/structure/noticeboard/ui_interact(mob/user)
 	. = ..()
-	var/auth = allowed(user)
+	var/auth = TRUE
 	var/dat = "<B>[name]</B><BR>"
 	for(var/obj/item/P in src)
 		if(istype(P, /obj/item/paper))

@@ -4445,7 +4445,7 @@
 /obj/machinery/light/rogue/wallfire{
 	pixel_y = 32
 	},
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/woodsman,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "dMm" = (
@@ -9768,13 +9768,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
-"iqL" = (
-/obj/structure/chair/stool/rogue,
-/obj/effect/landmark/start/woodsman{
-	dir = 1
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/tavern)
 "irf" = (
 /obj/structure/flora/roguegrass/bush_meagre,
 /turf/open/floor/rogue/dirt,
@@ -131185,7 +131178,7 @@ toB
 toB
 toB
 iUF
-iqL
+aCo
 jZz
 jZz
 jZz

@@ -36,6 +36,7 @@
 	. = ..()
 	my_turf = passed_turf
 	my_turf.pollution = src
+	my_turf.ImmediateCalculateAdjacentTurfs()
 	REGISTER_POLLUTION(src)
 
 /datum/pollution/Destroy()

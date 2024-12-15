@@ -293,10 +293,7 @@
 		podParam = new podParam() //If its just a path, instantiate it
 	pod = podParam
 	if (single_order)
-		if (istype(single_order, /datum/supply_order))
-			var/datum/supply_order/SO = single_order
-			SO.generate(pod)
-		else if (istype(single_order, /atom/movable))
+		if (istype(single_order, /atom/movable))
 			var/atom/movable/O = single_order
 			O.forceMove(pod)
 	for (var/mob/living/M in pod) //If there are any mobs in the supplypod, we want to forceMove them into the target. This is so that they can see where they are about to land, AND so that they don't get sent to the nullspace error room (as the pod is currently in nullspace)
