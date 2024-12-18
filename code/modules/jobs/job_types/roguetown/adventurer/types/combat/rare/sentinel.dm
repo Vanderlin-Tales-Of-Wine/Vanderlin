@@ -16,6 +16,7 @@
 	min_pq = 0
 	pickprob = 30
 	category_tags = list(CTAG_ADVENTURER)
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 /datum/advclass/combat/sentinel/equipme(mob/living/carbon/human/H)
 	if(H.gender == FEMALE)

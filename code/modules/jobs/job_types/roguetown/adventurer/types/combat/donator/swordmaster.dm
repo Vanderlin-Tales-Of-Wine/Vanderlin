@@ -8,6 +8,7 @@
 	min_pq = 2
 	pickprob = 15
 	category_tags = list(CTAG_ADVENTURER)
+	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
 
 /datum/outfit/job/roguetown/adventurer/swordmaster/pre_equip(mob/living/carbon/human/H)

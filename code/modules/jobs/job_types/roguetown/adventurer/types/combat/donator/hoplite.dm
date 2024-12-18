@@ -8,6 +8,7 @@
 	pickprob = 15 // Same as the other very rare classes
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 2 // Same as Bladesinger
+	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
 
 /datum/outfit/job/roguetown/adventurer/hoplite/pre_equip(mob/living/carbon/human/H)
