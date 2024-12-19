@@ -20,22 +20,34 @@
 		if("Astrata")
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/astrata
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
+		if("Noc")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/noc
+			wrists = /obj/item/clothing/neck/roguetown/psycross/noc
+		if("Dendor")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
+		if("Abyssor")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold // Placeholder
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver // Proper one uses Steel Malum Icon currently
 		if("Necra")
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/necra
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/necra
+		if("Ravox")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold // Placeholder
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
+		if("Xylix")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold // Placeholder
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver // Placeholder
+		if("Pestra")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
+		if("Malum")
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum_steel
 		if("Eora")
 			head = /obj/item/clothing/head/roguetown/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/eora
 			H.virginity = FALSE
-		if("Noc")
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/noc
-			wrists = /obj/item/clothing/neck/roguetown/psycross/noc
-		if("Pestra")
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
-			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
-		if("Ravox")
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold // Placeholder
-			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
 		else // Failsafe
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver
