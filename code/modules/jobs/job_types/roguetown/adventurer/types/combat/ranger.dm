@@ -20,7 +20,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -30,7 +30,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
@@ -53,7 +53,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/brown
 	if(prob(33))
 		cloak = /obj/item/clothing/cloak/raincloak/green
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backpack_contents = list(/obj/item/bait = 1, /obj/item/rogueweapon/knife/hunting = 1)
