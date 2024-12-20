@@ -245,7 +245,7 @@ SUBSYSTEM_DEF(mapping)
 	if(config.map_name == "Vanderlin") // Vanderlin
 		//otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_forest.json")  Uncomment when the others are 200x200.
 		//otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_mountain.json")
-		//otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_bog.json") Bog throws lighting error. Needs fixing before it can go in.
+		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_bog.json")
 		// Add dungeon map files here later, maybe we can pick from a list of them?
 	else //For Rogue map
 		otherZ += load_map_config("_maps/map_files/roguetown/otherz/smallforest.json")
