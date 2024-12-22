@@ -15,8 +15,9 @@
 
 /obj/structure/kneestingers/fire_act(added, maxstacks)
 	visible_message(span_warning("[src] catches fire!"))
-	new /obj/effect/hotspot(get_turf(src))
+	var/turf/T = get_turf(src)
 	qdel(src)
+	new /obj/effect/hotspot(T)
 
 /obj/structure/kneestingers/Crossed(AM as mob|obj)
 	if(isliving(AM))
