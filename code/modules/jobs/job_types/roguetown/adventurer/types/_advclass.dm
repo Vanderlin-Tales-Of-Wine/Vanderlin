@@ -30,6 +30,7 @@
 	//What categories we are going to sort it in
 	var/list/category_tags = list(CTAG_DISABLED)
 	var/displays_adv_job = TRUE
+	var/apprentice_name
 
 /datum/advclass/proc/equipme(mob/living/carbon/human/H)
 	// input sleeps....
@@ -49,6 +50,7 @@
 	if(TU)
 		if(horse)
 			new horse(TU)
+	H.mind?.apprentice_name = apprentice_name
 
 /*	for(var/trait in traits_applied)
 		ADD_TRAIT(H, trait, ADVENTURER_TRAIT) */

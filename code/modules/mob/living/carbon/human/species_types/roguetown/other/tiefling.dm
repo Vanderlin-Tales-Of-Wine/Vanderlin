@@ -135,6 +135,11 @@
 	"black - rogue" = "2b201b",
 	"black - midnight" = "1d1b2b",
 
+	"blond - pale" = "9d8d6e",
+	"blond - dirty" = "88754f",
+	"blond - drywheat" = "d5ba7b",
+	"blond - strawberry" = "c69b71",
+
 	"purple - arcane" = "3f2f42",
 
 	"blue - abyss" = "09282d",

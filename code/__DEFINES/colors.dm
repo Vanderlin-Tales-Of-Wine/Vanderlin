@@ -180,3 +180,5 @@
 		if("Dunked in water")
 			return CLOTHING_WET
 
+
+#define hex2num(X) text2num(X, 16)

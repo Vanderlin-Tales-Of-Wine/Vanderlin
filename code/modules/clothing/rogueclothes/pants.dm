@@ -116,8 +116,13 @@
 /obj/item/clothing/under/roguetown/trou/shadowpants
 	name = "silk tights"
 	desc = "Form-fitting legwear. Almost too form-fitting."
+	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobsilkpants.dmi'
+	sleeved = 'icons/roguetown/clothing/newclothes/onmob/sleeves_pants.dmi'
 	icon_state = "shadowpants"
-	//allowed_race = list("elf", "dark elf")
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/under/roguetown/loincloth
 	name = "loincloth"

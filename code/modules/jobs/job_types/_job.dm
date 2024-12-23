@@ -133,6 +133,15 @@
 
 	var/shows_in_list = TRUE
 
+	///can we have apprentices?
+	var/can_have_apprentices = TRUE
+	///the skills and % of xp they should transfer over to apprentices as they are trained.
+	var/list/trainable_skills = list()
+	///the maximum amount of apprentices that the owner can have
+	var/max_apprentices = 1
+	///if this is set its the name bestowed to the new apprentice otherwise its just name the [job_name] apprentice.
+	var/apprentice_name
+
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
 	return TRUE
 
@@ -161,6 +170,11 @@
 
 	if(!ishuman(H))
 		return
+
+	if(can_have_apprentices)
+		H.mind.apprentice_training_skills = trainable_skills.Copy()
+		H.mind.max_apprentices = max_apprentices
+		H.mind.apprentice_name = apprentice_name
 
 	roundstart_experience = skills
 

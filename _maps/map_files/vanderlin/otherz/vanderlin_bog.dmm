@@ -494,10 +494,6 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bog)
-"ga" = (
-/obj/machinery/light/rogue/oven,
-/turf/closed/wall/mineral/rogue/stone,
-/area/rogue/indoors/shelter/bog)
 "gd" = (
 /obj/structure/bed/rogue/inn,
 /obj/item/bedsheet/rogue/cloth,
@@ -2131,6 +2127,10 @@
 /area/rogue/indoors/shelter/bog)
 "CM" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/rogue/oven{
+	pixel_x = 0;
+	pixel_y = 31
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/bog)
 "CR" = (
@@ -2863,6 +2863,10 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/rogue/oven{
+	pixel_x = 0;
+	pixel_y = 31
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/bog)
 "NY" = (
@@ -31030,11 +31034,11 @@ Xx
 YW
 YW
 YW
-ga
+hf
 NV
 FY
 tM
-uo
+mC
 uo
 Pu
 hf
@@ -31232,7 +31236,7 @@ MQ
 Xx
 YW
 YW
-ga
+hf
 CM
 uo
 dP

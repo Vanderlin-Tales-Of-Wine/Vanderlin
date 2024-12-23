@@ -16,6 +16,7 @@
 	display_order = JDO_CHURCHLING
 	give_bank_account = TRUE
 	min_pq = -10
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/churchling/pre_equip(mob/living/carbon/human/H)
 	..()

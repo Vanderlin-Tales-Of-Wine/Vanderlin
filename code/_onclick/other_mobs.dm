@@ -94,6 +94,14 @@
 //		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.face_atom(src)
+
+	if(!user.get_active_held_item() && !user.cmode)
+		if(ishuman(src) && ishuman(user))
+			var/mob/living/carbon/human/target = src
+			if(target.age == AGE_CHILD && target.mind && !target.mind.apprentice)
+				user.mind?.make_apprentice(target)
+				return
+
 	if(user.cmode)
 		if(user.rmb_intent)
 			user.rmb_intent.special_attack(user, src)

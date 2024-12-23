@@ -24,6 +24,7 @@
 	min_pq = 1
 
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/mayor
 	name = "Mayor"

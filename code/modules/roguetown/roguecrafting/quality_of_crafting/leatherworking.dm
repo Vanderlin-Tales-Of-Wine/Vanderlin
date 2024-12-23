@@ -180,6 +180,7 @@
 
 /datum/repeatable_crafting_recipe/leather/papakha
 	name = "papakha hat"
+	attacking_atom = /obj/item/natural/fur
 	requirements = list(
 		/obj/item/natural/fur = 1,
 		/obj/item/natural/fibers = 2,
@@ -252,6 +253,7 @@
 
 /datum/repeatable_crafting_recipe/leather/volfmantle
 	name = "volf mantle"
+	attacking_atom = /obj/item/natural/fur/volf
 	requirements = list(
 		/obj/item/natural/fur/volf = 2,
 		/obj/item/natural/head/volf = 1,
@@ -303,6 +305,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/boots/masterwork
 	name = "masterwork leather boots"
 	output = /obj/item/clothing/shoes/roguetown/boots/leather/masterwork
+	attacking_atom = /obj/item/clothing/shoes/roguetown/boots/leather
 	requirements = list(/obj/item/clothing/shoes/roguetown/boots/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -311,6 +314,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/gloves/masterwork
 	name = "masterwork leather gloves"
 	output = /obj/item/clothing/gloves/roguetown/leather/masterwork
+	attacking_atom = /obj/item/clothing/gloves/roguetown/leather
 	requirements = list(/obj/item/clothing/gloves/roguetown/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -319,6 +323,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/bracers/masterwork
 	name = "masterwork leather bracers"
 	output = /obj/item/clothing/wrists/roguetown/bracers/leather/masterwork
+	attacking_atom = /obj/item/clothing/wrists/roguetown/bracers/leather
 	requirements = list(/obj/item/clothing/wrists/roguetown/bracers/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -327,6 +332,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/coat/masterwork
 	name = "masterwork leather coat"
 	output = /obj/item/clothing/suit/roguetown/armor/leather/masterwork
+	attacking_atom = /obj/item/clothing/suit/roguetown/armor/leather
 	requirements = list(/obj/item/clothing/suit/roguetown/armor/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -335,6 +341,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/helmet/masterwork
 	name = "masterwork leather helmet"
 	output = /obj/item/clothing/head/roguetown/helmet/leather/masterwork
+	attacking_atom = /obj/item/clothing/head/roguetown/helmet/leather
 	requirements = list(/obj/item/clothing/head/roguetown/helmet/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -343,6 +350,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/chausses/masterwork
 	name = "masterwork leather chausses"
 	output = /obj/item/clothing/under/roguetown/trou/leather/masterwork
+	attacking_atom = /obj/item/clothing/under/roguetown/trou/leather
 	requirements = list(/obj/item/clothing/under/roguetown/trou/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)

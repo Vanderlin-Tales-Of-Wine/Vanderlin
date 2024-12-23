@@ -18,6 +18,7 @@
 	give_bank_account = TRUE
 	give_bank_account = 5
 	min_pq = -5
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/innkeep_son/pre_equip(mob/living/carbon/human/H)
 	..()

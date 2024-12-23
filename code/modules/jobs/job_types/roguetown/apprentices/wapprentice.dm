@@ -17,6 +17,8 @@
 	display_order = JDO_WAPP
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
+	can_have_apprentices = FALSE
+
 
 /datum/outfit/job/roguetown/wapprentice/pre_equip(mob/living/carbon/human/H)
 	..()

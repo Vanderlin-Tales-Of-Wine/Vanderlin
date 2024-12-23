@@ -898,8 +898,15 @@
 	name = "stalker cloak"
 	desc = "A heavy leather cloak held together by a gilded pin. The pin depicts a spider with disconnected legs."
 	icon_state = "shadowcloak"
+	item_state = "shadowcloak"
 	color = null
-	//allowed_race = list("elf", "dark elf")
+	alternate_worn_layer = CLOAK_BEHIND_LAYER
+	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/shadowcloak.dmi'
+	sleeved = 'icons/roguetown/clothing/newclothes/onmob/shadowcloak.dmi'
+	nodismemsleeves = TRUE
+	inhand_mod = TRUE
+	toggle_icon_state = FALSE
+	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/cloak/half/shadowcloak/cult
 	name = "ominous cloak"

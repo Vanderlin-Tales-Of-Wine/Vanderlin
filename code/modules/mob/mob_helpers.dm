@@ -1055,5 +1055,6 @@
 				used_title = "Queen"
 			else
 				used_title = "King"
-
+	if(mind?.apprentice)
+		used_title = mind.our_apprentice_name
 	return used_title

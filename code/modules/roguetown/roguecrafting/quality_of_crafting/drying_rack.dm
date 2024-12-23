@@ -17,7 +17,7 @@
 	name = "dry westleach leaf"
 	output = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/westleach
-	requirements = list(/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 1)
+	requirements = list(/obj/item/reagent_containers/food/snacks/produce/westleach = 1)
 	attacking_atom = /obj/machinery/tanningrack
 
 	craft_time = 2 SECONDS

@@ -88,8 +88,10 @@
 
 /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 	desc = "Cloth gloves to absorb palm sweat while leaving the fingers free for fine manipulation."
+	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
+	sleeved = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
 	icon_state = "shadowgloves"
-	//allowed_race = list("elf", "dark elf")
+	salvage_result = /obj/item/natural/silk
 
 
 /obj/item/clothing/gloves/roguetown/angle

@@ -16,6 +16,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/noble
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	maximum_possible_slots = 2
+	apprentice_name = "Servant"
 
 
 /datum/outfit/job/roguetown/adventurer/noble/pre_equip(mob/living/carbon/human/H)

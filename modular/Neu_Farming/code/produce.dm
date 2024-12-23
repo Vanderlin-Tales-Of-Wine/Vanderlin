@@ -3,7 +3,7 @@
 	dried_type = null
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
-	sellprice = 1
+	sellprice = 0
 	force = 0
 	throwforce = 0
 	var/list/pipe_reagents = list()

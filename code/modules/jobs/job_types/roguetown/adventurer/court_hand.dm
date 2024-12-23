@@ -7,6 +7,8 @@
 	always_show_on_latechoices = FALSE
 	job_reopens_slots_on_death = FALSE
 	shows_in_list = FALSE
+	can_have_apprentices = FALSE
+
 
 //Hooking in here does not mess with their equipment procs
 /datum/job/roguetown/adventurer/courtagent/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

@@ -28,6 +28,7 @@
 	can_random = FALSE
 
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
+	can_have_apprentices = FALSE
 
 /datum/job/roguetown/vagrant/New()
 	. = ..()

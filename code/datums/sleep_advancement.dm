@@ -74,16 +74,19 @@
 	var/can_advance_post = enough_sleep_xp_to_advance(skill, 1)
 	var/capped_post = enough_sleep_xp_to_advance(skill, 2)
 	var/datum/skill/skillref = GetSkillRef(skill)
+	var/return_val = FALSE
 	if(!can_advance_pre && can_advance_post && !silent)
 		to_chat(mind.current, span_nicegreen(pick(list(
 			"I'm getting a better grasp at [lowertext(skillref.name)]...",
 			"With some rest, I feel like I can get better at [lowertext(skillref.name)]...",
 			"[skillref.name] starts making more sense to me...",
 		))))
+		return_val = TRUE
 	if(!capped_pre && capped_post && !silent)
 		to_chat(mind.current, span_nicegreen(pick(list(
 			"My [lowertext(skillref.name)] is not gonna get any better without some rest...",
 		))))
+	return return_val
 
 /datum/sleep_adv/proc/advance_cycle()
 	// Stuff

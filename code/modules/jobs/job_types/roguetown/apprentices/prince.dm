@@ -27,6 +27,9 @@
 	bypass_lastclass = TRUE
 	min_pq = 1
 
+	can_have_apprentices = FALSE
+
+
 /datum/job/roguetown/prince/after_spawn(mob/living/H, mob/M, latejoin)
 	. = ..()
 	SSfamilytree.AddRoyal(H, FAMILY_PROGENY)

@@ -67,7 +67,8 @@
 		return
 
 	M.key = key
-	client.verbs -= /client/proc/descend
+	if(client)
+		client.verbs -= /client/proc/descend
 	qdel(src)
 	return
 

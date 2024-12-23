@@ -24,6 +24,7 @@
 	display_order = JDO_SHEPHERD
 	bypass_lastclass = TRUE
 	min_pq = 0
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/adept
 	name = "Adept"

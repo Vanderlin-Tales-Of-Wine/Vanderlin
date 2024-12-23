@@ -26,6 +26,9 @@
 	min_pq = -20
 	bypass_lastclass = TRUE
 
+	can_have_apprentices = FALSE
+
+
 /datum/outfit/job/roguetown/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

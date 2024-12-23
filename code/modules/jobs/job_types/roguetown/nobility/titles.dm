@@ -9,6 +9,7 @@
 
 	outfit = /datum/outfit/job/roguetown/bogwarden
 	display_order = 6
+	can_have_apprentices = FALSE
 
 
 /datum/outfit/job/roguetown/bogwarden
@@ -32,6 +33,7 @@
 
 	outfit = /datum/outfit/job/roguetown/huntmaster
 	display_order = 6
+	can_have_apprentices = FALSE
 
 
 /datum/outfit/job/roguetown/huntmaster
@@ -54,6 +56,7 @@
 
 	outfit = /datum/outfit/job/roguetown/hetman
 	display_order = 6
+	can_have_apprentices = FALSE
 
 
 /datum/outfit/job/roguetown/hetman

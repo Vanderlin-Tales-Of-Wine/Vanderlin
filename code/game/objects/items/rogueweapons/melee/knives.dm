@@ -447,3 +447,41 @@
 	sellprice = 10
 
 
+/obj/item/rogueweapon/knife/throwingknife
+	name = "iron tossblade"
+	desc = ""
+	item_state = "bone_dagger"
+	force = 12
+	throwforce = 25
+	throw_speed = 4
+	max_integrity = 50
+	wdefense = 1
+	icon_state = "throw_knifei"
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 25, "embedded_fall_chance" = 20)
+
+/obj/item/rogueweapon/knife/throwingknife/steel
+	name = "steel tossblade"
+	desc = ""
+	item_state = "bone_dagger"
+	force = 12
+	throwforce = 25
+	throw_speed = 4
+	max_integrity = 100
+	wdefense = 1
+	icon_state = "throw_knifes"
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 30, "embedded_fall_chance" = 15)
+
+/obj/item/rogueweapon/knife/throwingknife/psydon
+	name = "psydonian tossblade"
+	desc = "An unconventional method of delivering silver to a heretic; but one PSYDON smiles at, all the same. Doubles as an 'actual' knife in a pinch."
+	item_state = "bone_dagger"
+	force = 12
+	throwforce = 25
+	throw_speed = 4
+	max_integrity = 150
+	wdefense = 3
+	icon_state = "throw_knifes"
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 0)
+	is_silver = TRUE
+	sellprice = 65
+	smeltresult = /obj/item/ingot/silver

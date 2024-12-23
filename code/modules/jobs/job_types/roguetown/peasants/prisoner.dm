@@ -28,6 +28,7 @@
 	bypass_lastclass = TRUE
 
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/prisoner/pre_equip(mob/living/carbon/human/H)
 	..()
