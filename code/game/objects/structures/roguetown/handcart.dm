@@ -228,6 +228,8 @@
 	else // not a mob or object
 		return FALSE
 
+	return TRUE
+
 /obj/structure/handcart/Move(atom/newloc, direct, glide_size_override)
 	. = ..()
 	if (. && pulledby && dir != pulledby.dir)
