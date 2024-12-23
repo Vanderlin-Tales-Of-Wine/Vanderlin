@@ -8,7 +8,8 @@
 	spawn_positions = 2
 	allowed_races = list(
 		"Humen",
-		"Half-Elf"
+		"Half-Elf",
+		"Elf"
 	)
 
 	spells = list(
