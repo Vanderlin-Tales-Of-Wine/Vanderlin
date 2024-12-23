@@ -30,7 +30,6 @@
 	if(ranged_ability)
 		ranged_ability.add_ranged_ability(src, "<span class='notice'>I currently have <b>[ranged_ability]</b> active!</span>")
 
-	testing("FUNERAL LOGIN")
 	if(!funeral_login())
 		log_game("[key_name(src)] on login: had an issue with funeral-checking logic.")
 

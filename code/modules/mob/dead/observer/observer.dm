@@ -223,9 +223,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	. = ..()
 
-	testing("OBSERVER INITIALIZE")
 	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
-		testing("GIVE GHOST VERBS")
 		verbs += /mob/dead/observer/verb/ghost_upward
 		verbs += /mob/dead/observer/verb/ghost_downward
 
