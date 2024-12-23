@@ -12,6 +12,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	spells = list(
 		/obj/effect/proc_holder/spell/self/grant_title,
 		/obj/effect/proc_holder/spell/self/grant_nobility,
+		/obj/effect/proc_holder/spell/self/convertrole/servant
 	)
 
 	allowed_races = list(
