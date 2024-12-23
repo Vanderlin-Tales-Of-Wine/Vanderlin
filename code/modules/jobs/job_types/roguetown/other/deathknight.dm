@@ -1,6 +1,6 @@
 /datum/job/roguetown/deathknight
 	title = "Death Knight"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 0

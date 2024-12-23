@@ -376,7 +376,7 @@
 	lockid = "mage"
 
 /obj/item/key/graveyard
-	desc = "This rusty key belongs to the Gravekeepers."
+	desc = "This rusty key belongs to the Gravetenders."
 	icon_state = "rustkey"
 	lockid = "graveyard"
 

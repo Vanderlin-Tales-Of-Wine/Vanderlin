@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ROT_EATER = span_necrosis("I can eat rotten food."),
 	TRAIT_ORGAN_EATER = span_bloody("I can eat organs and raw flesh."),
 	TRAIT_CRACKHEAD = span_love("I can use drugs as much as I want!"),
-	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed."),
+	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed after checking their heartbeat."),
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
 	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
 	TRAIT_LEECHIMMUNE = "Leeches are reluctant to bite me.",

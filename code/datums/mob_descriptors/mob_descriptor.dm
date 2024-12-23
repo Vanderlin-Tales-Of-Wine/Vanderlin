@@ -18,7 +18,7 @@
 		pre_string = "[prefix] "
 	if(suffix)
 		post_string = " [suffix]"
-	
+
 /datum/mob_descriptor/proc/get_pre_string(mob/living/described)
 	return pre_string
 
@@ -45,7 +45,7 @@
 	return "%THEY% [get_coalesce_text(described)]"
 
 /datum/mob_descriptor/proc/get_coalesce_text(mob/living/described, list/used_verbage)
-	return "[should_add_verbage(described, used_verbage) ? "[get_verbage(described)] " : ""][get_pre_string(described)][get_description(described)][post_string]"
+	return "[should_add_verbage(described, used_verbage) ? "[get_verbage(described)] " : ""][get_pre_string(described)][get_description(described)][post_string]."
 
 /datum/mob_descriptor/proc/get_description(mob/living/described)
 	return describe

@@ -753,4 +753,3 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	var/datum/browser/popup = new(usr, "ALLFAMILIES", "", 260, 400)
 	popup.set_content(dat)
 	popup.open()
-

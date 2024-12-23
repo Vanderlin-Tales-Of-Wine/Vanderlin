@@ -15,8 +15,7 @@
 	var/colour = "" //Any client.color-valid value
 	var/priority = 1 //Since only one client.color can be rendered on screen, we take the one with the highest priority value:
 	//eg: "Bloody screen" > "goggles colour" as the former is much more important
-
-
+	var/unique = FALSE //only add one instance of this colour_type
 /*
 	Adds an instance of colour_type to the mob's client_colours list
 	colour_type - a typepath (subtyped from /datum/client_colour)
@@ -26,6 +25,10 @@
 		return
 
 	var/datum/client_colour/CC = new colour_type()
+	if(CC.unique)
+		for(var/datum/cc in client_colours)
+			if(CC.type == cc.type)
+				return
 	client_colours |= CC
 	sortTim(client_colours, GLOBAL_PROC_REF(cmp_clientcolour_priority))
 	update_client_colour()
@@ -121,3 +124,6 @@
 
 /datum/client_colour/monochrome/blind
 	priority = 1
+
+/datum/client_colour/monochrome/death
+	unique = TRUE

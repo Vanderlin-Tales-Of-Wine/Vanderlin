@@ -1,6 +1,6 @@
 /datum/job/roguetown/skeleton
 	title = "skeleton"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 //	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 0

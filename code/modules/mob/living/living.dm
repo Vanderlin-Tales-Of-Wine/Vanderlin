@@ -592,7 +592,7 @@
 		return
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='notice'>[src] stands up.</span>")
+			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
 			if(move_after(src, 20, target = src))
 				set_resting(FALSE, FALSE)
 				return TRUE
@@ -610,7 +610,7 @@
 		return
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='info'>[src] stands up.</span>")
+			src.visible_message("<span class='info'>[src] begins standing up.</span>")
 			if(move_after(src, 20, target = src))
 				set_resting(FALSE, FALSE)
 		else
@@ -687,13 +687,17 @@
 		update_sight()
 		clear_alert("not_enough_oxy")
 		reload_fullscreen()
-		remove_client_colour(/datum/client_colour/monochrome)
+		remove_client_colour(/datum/client_colour/monochrome/death)
 		. = TRUE
 		if(mind)
 			for(var/S in mind.spell_list)
 				var/obj/effect/proc_holder/spell/spell = S
 				spell.updateButtonIcon()
 			mind.remove_antag_datum(/datum/antagonist/zombie)
+		if(ishuman(src))
+			var/mob/living/carbon/human/human = src
+			human.funeral = FALSE
+		client?.verbs -= /client/proc/descend
 
 /mob/living/proc/remove_CC(should_update_mobility = TRUE)
 	SetStun(0, FALSE)

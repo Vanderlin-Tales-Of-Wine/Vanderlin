@@ -56,12 +56,10 @@
 			. += "<span class='warning'>Better let this one sleep.</span>"
 
 /obj/structure/closet/dirthole/insertion_allowed(atom/movable/AM)
-	if(istype(AM, /obj/structure/closet/crate/chest) || istype(AM, /obj/structure/closet/burial_shroud))
+	if(istype(AM, /obj/structure/closet/crate/chest) || istype(AM, /obj/structure/closet/burial_shroud) || istype(AM, /obj/structure/closet/crate/coffin))
 		for(var/mob/living/M in contents)
 			return FALSE
 		for(var/obj/structure/closet/C in contents)
-			if(istype(C, /obj/structure/closet/crate/coffin))
-				return TRUE
 			return FALSE
 		return TRUE
 	. = ..()
