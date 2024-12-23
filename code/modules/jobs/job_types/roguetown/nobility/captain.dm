@@ -157,7 +157,7 @@
 	name = "Recruit Guardsmen"
 	new_role = "Garrison Recruit"
 	overlay_state = "recruit_guard"
-	recruitment_faction = "Watchman"
+	recruitment_faction = "Garrison"
 	recruitment_message = "Serve the town guard, %RECRUIT!"
 	accept_message = "FOR THE CROWN!"
 	refuse_message = "I refuse."
