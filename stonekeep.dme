@@ -1279,6 +1279,7 @@
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\anthrax.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\blackoak.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\boltslinger.dm"
+#include "code\modules\jobs\job_types\roguetown\other\merc_classes\corsair.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\grenzelhoft.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\steppesman.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\underdweller.dm"
