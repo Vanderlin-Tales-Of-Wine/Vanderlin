@@ -217,6 +217,15 @@
 	med_pot = /datum/alch_cauldron_recipe/lck_potion
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
+/obj/item/alch/transisdust
+	name = "Transis dust"
+	desc = "A long mix of herb that product a special powder."
+	icon_state = "whitepowder"
+
+	major_pot = /datum/alch_cauldron_recipe/gender_potion
+	med_pot = /datum/alch_cauldron_recipe/gender_potion
+	minor_pot = /datum/alch_cauldron_recipe/gender_potion
+
 //BEGIN THE HERBS
 
 /obj/item/alch/atropa

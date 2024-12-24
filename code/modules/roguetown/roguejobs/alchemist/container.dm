@@ -74,6 +74,8 @@
 /obj/item/reagent_containers/glass/bottle/vial/lucpot
 	list_reagents = list(/datum/reagent/buff/fortune = 30)
 
+/obj/item/reagent_containers/glass/bottle/vial/genderpot
+	list_reagents = list(/datum/reagent/medicine/gender_potion = 5)
 //////////////////////////
 /// ALCOHOLIC BOTTLES ///	- add fancy var to retain custom descriptions when corking
 //////////////////////////

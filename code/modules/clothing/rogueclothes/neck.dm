@@ -394,6 +394,34 @@
 	icon_state = "eora"
 	resistance_flags = FIRE_PROOF
 
+/obj/item/clothing/neck/roguetown/psycross/silver/holy/eora
+	name = "Eora's love potion"
+	desc = "Eora's blessing is upon thy, use me on someone else and you shall be soulbond."
+	icon_state = "eora"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psycross/silver/holy/eora/attack(mob/living/love_target, mob/user)
+	if(!isliving(love_target) || love_target.stat == DEAD)
+		to_chat(user, span_warning("The love potion only works on living things, sicko!"))
+		return ..()
+	if(user == love_target)
+		to_chat(user, span_warning("You can't drink the love potion. What are you, a narcissist?"))
+		return ..()
+	if(love_target.has_status_effect(/datum/status_effect/in_love))
+		to_chat(user, span_warning("[love_target] is already lovestruck!"))
+		return ..()
+
+	love_target.visible_message(span_danger("[user] starts to feed [love_target] a love potion!"),
+		span_userdanger("[user] starts to feed you a love potion!"))
+
+	if(!do_after(user, 50, target = love_target))
+		return
+	to_chat(user, span_notice("You feed [love_target] the love potion!"))
+	to_chat(love_target, span_notice("You develop feelings for [user], and anyone [user.p_they()] like[user.p_s()]."))
+	love_target.faction |= "[REF(user)]"
+	love_target.apply_status_effect(/datum/status_effect/in_love, user)
+	qdel(src)
+
 /obj/item/clothing/neck/roguetown/psycross/silver/pestra
 	name = "amulet of Pestra"
 	desc = "When pure, alcohol is best used as a cleanser of wounds and a cleanser of the palate."
