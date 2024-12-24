@@ -472,16 +472,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	first_time_text = "Skullcrack Inn"
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
-	droning_sound = 'sound/music/jukeboxes/tavern1.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = 'sound/music/jukeboxes/tavern2.ogg'
+	droning_sound = "sound/blank.ogg"
+	droning_sound_dusk = "sound/blank.ogg"
+	droning_sound_night = "sound/blank.ogg"
 	converted_type = /area/rogue/outdoors/exposed/tavern
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
-	droning_sound = 'sound/music/jukeboxes/tavern1.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = 'sound/music/jukeboxes/tavern2.ogg'
 
 /area/rogue/indoors/town/church
 	name = "church"
