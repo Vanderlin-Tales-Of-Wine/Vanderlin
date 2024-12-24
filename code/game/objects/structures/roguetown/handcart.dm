@@ -99,8 +99,6 @@
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 			return TRUE
 		return ..()
-	if(!insertion_allowed(O))
-		return
 	//only these intents should be able to move objects into handcarts
 	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grab/move)
 		if(isliving(O))
@@ -135,8 +133,6 @@
 				manage_upgrade()
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 	if(!user.cmode)
-		if(!insertion_allowed(I))
-			return
 		if(put_in(I, user))
 			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 		return
@@ -153,14 +149,14 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		var/fou
 		for(var/obj/item/I in T)
-			if(!insertion_allowed(I))
-				continue
 			put_in(I)
 			fou = TRUE
 		if(fou)
 			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
 
 /obj/structure/handcart/proc/put_in(atom/movable/O, mob/user)
+	if(!insertion_allowed(O))
+		return
 	var/weight = 0
 	if(isitem(O))
 		var/obj/item/I = O
@@ -194,7 +190,7 @@
 			add_overlay("ov_upgrade")
 		if(upgrade_level == 2)
 			add_overlay("ov_upgrade2")
-	if(stuff_shit.len)
+	if(length(stuff_shit))
 		icon_state = "cart-full"
 	else
 		icon_state = "cart-empty"
@@ -204,7 +200,7 @@
 	if(.)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(stuff_shit.len)
+	if(length(stuff_shit))
 		dump_contents()
 		visible_message(span_info("[user] dumps out [src]!"))
 		playsound(loc, 'sound/foley/cartdump.ogg', 100, FALSE, -1)
@@ -221,7 +217,6 @@
 			if(L.density)
 				return FALSE
 		L.stop_pulling()
-
 	else if(isobj(AM))
 		if((AM.density) || AM.anchored || AM.has_buckled_mobs())
 			return FALSE

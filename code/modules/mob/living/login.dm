@@ -30,6 +30,8 @@
 	if(ranged_ability)
 		ranged_ability.add_ranged_ability(src, "<span class='notice'>I currently have <b>[ranged_ability]</b> active!</span>")
 
+	if(!funeral_login())
+		log_game("[key_name(src)] on login: had an issue with funeral-checking logic.")
 
 /mob/living/proc/login_fade()
 	set waitfor = FALSE
@@ -42,3 +44,28 @@
 		return
 	client.screen -= F
 	do_time_change()
+
+// Handles players on login about death-related procs and notifications. Essentially a failsafe for client logouts/transfers. Called on /mob/living/Login().
+/mob/living/proc/funeral_login()
+	if(QDELETED(src) || QDELETED(mind))
+		return FALSE
+	if(!client)
+		return FALSE
+
+	if(isliving(src))
+		var/mob/living/L = src
+		if(L.stat >= DEAD)
+			client.verbs += /client/proc/descend
+		else if(L.stat < DEAD && !L.mind.has_antag_datum(/datum/antagonist/zombie))
+			client.verbs -= /client/proc/descend
+
+	if(isroguespirit(src))
+		var/mob/living/carbon/spirit/S = src
+		if(S.paid)
+			to_chat(src, span_rose("My toll to travel with the Carriageman has been paid for."))
+	else if(ishuman(mind.current))
+		var/mob/living/carbon/human/D = mind.current
+		if(D && D.stat >= DEAD && D.funeral)
+			to_chat(src, span_rose("My soul has found peace buried in consecrated ground."))
+
+	return TRUE

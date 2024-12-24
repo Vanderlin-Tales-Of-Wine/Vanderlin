@@ -99,7 +99,7 @@
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 
 /mob/living/carbon/human/proc/torture_victim()
-	set name = "ExtractConfession"
+	set name = "Extract Confession"
 	set category = "Inquisition"
 
 	var/obj/item/grabbing/I = get_active_held_item()

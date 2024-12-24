@@ -78,7 +78,7 @@
 		charge_counter = 0
 		start_recharge()
 		update_icon()
-	return TRUE
+	return ..()
 
 /obj/effect/proc_holder/spell/aimed/proc/fire_projectile(mob/living/user, atom/target)
 	current_amount--

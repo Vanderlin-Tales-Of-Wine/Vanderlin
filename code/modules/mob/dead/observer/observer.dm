@@ -69,11 +69,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/rogue
 	draw_icon = TRUE
 
-/mob/dead/observer/rogue/Initialize()
-	..()
-	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
-		verbs += /client/proc/descend
-
 /mob/dead/observer/rogue/nodraw
 	draw_icon = FALSE
 	icon = 'icons/roguetown/mob/misc.dmi'
@@ -228,6 +223,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	. = ..()
 
+	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
+		verbs += /mob/dead/observer/verb/ghost_upward
+		verbs += /mob/dead/observer/verb/ghost_downward
+
 	grant_all_languages()
 //	show_data_huds()
 //	data_huds_on = 1
@@ -250,11 +249,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	STOP_PROCESSING(SShaunting, src)
 
 	return ..()
-
-/mob/dead/observer/rogue/Destroy()
-	. = ..()
-	if(_list_find(verbs, /client/proc/descend) == TRUE) //sanity check
-		verbs -= /client/proc/descend
 
 /mob/dead/CanPass(atom/movable/mover, turf/target)
 	return 1
@@ -557,8 +551,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		qdel(M)
 		return
 
+	client?.verbs -= /client/proc/descend
 	M.key = key
-	client.verbs -= /client/proc/descend
 //	M.Login()	//wat
 	return
 

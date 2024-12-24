@@ -20,7 +20,13 @@
 	return
 
 /mob/dead/observer/rogue/DblClickOn(atom/A, params)
-	return
+	if(check_click_intercept(params, A))
+		return
+
+	if(can_reenter_corpse && mind && mind.current)
+		if(A == mind.current || (mind.current in A))
+			reenter_corpse()
+			return
 
 /mob/dead/observer/ClickOn(atom/A, params)
 	if(check_click_intercept(params,A))
