@@ -158,8 +158,8 @@
 	new_role = "Garrison Recruit"
 	overlay_state = "recruit_guard"
 	recruitment_faction = "Garrison"
-	recruitment_message = "Serve the town guard, %RECRUIT!"
-	accept_message = "FOR THE CROWN!"
+	recruitment_message = "Join the Guarrison, %RECRUIT!"
+	accept_message = "I swear fealty to the Crown and it's garrison !"
 	refuse_message = "I refuse."
 
 /obj/effect/proc_holder/spell/self/convertrole/guard/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)

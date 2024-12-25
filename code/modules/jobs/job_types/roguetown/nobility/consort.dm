@@ -189,7 +189,7 @@
 	new_role = "Servant"
 	overlay_state = "recruit_servant"
 	recruitment_faction = "Servants"
-	recruitment_message = "Serve the crown, %RECRUIT!"
-	accept_message = "FOR THE CROWN!"
+	recruitment_message = "Join the keep's servants, %RECRUIT!"
+	accept_message = "I serve the Crown !"
 	refuse_message = "I refuse."
 	charge_max = 100
