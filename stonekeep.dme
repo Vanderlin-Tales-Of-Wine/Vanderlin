@@ -839,6 +839,7 @@
 #include "code\game\objects\items\rogueweapons\ranged\ammo.dm"
 #include "code\game\objects\items\rogueweapons\ranged\blowgun.dm"
 #include "code\game\objects\items\rogueweapons\ranged\bows.dm"
+#include "code\game\objects\items\rogueweapons\ranged\cannon.dm"
 #include "code\game\objects\items\rogueweapons\ranged\crossbows.dm"
 #include "code\game\objects\items\rogueweapons\ranged\flintlock.dm"
 #include "code\game\objects\items\rogueweapons\ranged\slings.dm"
