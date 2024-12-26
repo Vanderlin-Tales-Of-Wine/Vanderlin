@@ -43,6 +43,7 @@
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 2)
+	H.change_stat("speed", -1) // fat fuck
 	H.change_stat("intelligence", 1) // Conan! What is best in life?
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
