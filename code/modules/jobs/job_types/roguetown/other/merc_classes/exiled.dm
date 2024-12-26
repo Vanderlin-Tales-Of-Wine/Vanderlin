@@ -28,7 +28,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE) // Valor pleases you, Crom.
 
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+	beltr = /obj/item/rogueweapon/sword/iron
 	neck = /obj/item/clothing/neck/roguetown/coif
 	pants = /obj/item/clothing/under/roguetown/loincloth
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -36,12 +36,11 @@
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	head = /obj/item/clothing/head/roguetown/helmet/leather
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backr = /obj/item/rogueweapon/sword/long/greatsword/zwei
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 
-	H.change_stat("strength", 2) // Zweihander requires 11 STR. If they drop the weapon fuck with this.
+	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 2)
 	H.change_stat("intelligence", 1) // Conan! What is best in life?
