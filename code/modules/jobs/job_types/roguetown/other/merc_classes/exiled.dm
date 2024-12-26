@@ -26,6 +26,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // Cut those trees #Morbiussweep
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE) // Valor pleases you, Crom.
 
 	beltr = /obj/item/rogueweapon/sword/iron
