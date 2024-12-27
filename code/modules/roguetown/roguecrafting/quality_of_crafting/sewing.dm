@@ -267,6 +267,12 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 3
 
+/datum/crafting_recipe/roguetown/sewing/jester
+	name = "jester jacket"
+	output = /obj/item/clothing/suit/roguetown/shirt/jester
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 3
 
 /* .............. recipes requiring skill 4 ..............*/
 
@@ -288,6 +294,20 @@
 	name = "bard hat"
 	output = /obj/item/clothing/head/roguetown/bardhat
 	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/merchant_jacket
+	name = "merchant jacket"
+	output = /obj/item/clothing/suit/roguetown/shirt/robe/merchant
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/feldsher
+	name = "feldsher jacket"
+	output = list(/obj/item/clothing/suit/roguetown/shirt/robe/feld)
+	requirements = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
@@ -372,6 +392,15 @@
 	requirements = list(/obj/item/natural/silk = 5)
 	craftdiff = 3
 
+
+/datum/crafting_recipe/roguetown/sewing/silk_coat
+	name = "silk coat - (2 cloth, 2 silk , 1 hide; LOOM, EXPERT)"
+	output = /obj/item/clothing/suit/roguetown/armor/leather/jacket/silk_coat
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/silk = 2,
+				/obj/item/natural/hide = 1)
+	craftdiff = 3
+
 /* craftdif of 4 = EXPERT */
 
 /datum/repeatable_crafting_recipe/sewing/astratarobe
@@ -400,6 +429,14 @@
 	output = /obj/item/clothing/suit/roguetown/shirt/robe/noc
 	requirements = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/silk = 1)
+	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/sewing/archivist
+	name = "archivist robe (3 cloths, 2 silk, 1 fiber; LOOM, EXPERT)"
+	output = /obj/item/clothing/suit/roguetown/shirt/robe/archivist
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 2)
 	craftdiff = 4
 
 /* craftdif of 5 = MASTER */
