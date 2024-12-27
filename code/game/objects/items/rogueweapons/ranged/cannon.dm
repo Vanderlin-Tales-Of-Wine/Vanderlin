@@ -67,7 +67,6 @@
 	fired_projectile.fired_from = src
 	fired_projectile.fire(dir2angle(dir))
 	QDEL_NULL(loaded)
-	SSticker.musketsshot++ // ????
 	playsound(src.loc, 'sound/misc/explode/explosion.ogg', 100, FALSE)
 	sleep(4)
 	new /obj/effect/particle_effect/smoke(get_turf(src))
