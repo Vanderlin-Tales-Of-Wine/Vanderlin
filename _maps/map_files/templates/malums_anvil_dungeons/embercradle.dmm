@@ -2460,7 +2460,6 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Hw" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/item/clothing/head/roguetown/helmet/heavy/necked/noc,
 /obj/item/clothing/cloak/stabard/templar/noc,
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,
@@ -2475,6 +2474,7 @@
 /obj/item/clothing/wrists/roguetown/nocwrappings,
 /obj/item/clothing/neck/roguetown/psycross/noc,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/carpet/purple,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "HB" = (
@@ -3026,7 +3026,6 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
 "Ou" = (
-/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/item/clothing/mask/rogue/facemask/goldmask,
 /obj/item/clothing/wrists/roguetown/bracers/hoplite,
 /obj/item/clothing/neck/roguetown/gorget/hoplite,
@@ -3037,6 +3036,7 @@
 /obj/item/clothing/shoes/roguetown/boots/armor/light,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/storage/belt/rogue/leather,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "OB" = (
