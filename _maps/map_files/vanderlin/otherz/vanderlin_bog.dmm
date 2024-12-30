@@ -101,6 +101,7 @@
 /obj/item/clothing/shoes/roguetown/boots,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/item/clothing/head/roguetown/crown/circlet/vision,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/shelter/bog)
 "bp" = (
@@ -661,6 +662,7 @@
 /area/rogue/indoors/shelter/bog)
 "id" = (
 /obj/structure/closet/crate/chest/gold,
+/obj/item/clothing/ring/gold/protection,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "ie" = (
@@ -53271,7 +53273,7 @@ oB
 Vd
 Vd
 Vz
-id
+Ws
 Vd
 oB
 oB
@@ -53874,7 +53876,7 @@ rP
 rP
 Vd
 bh
-Ws
+id
 rP
 Kw
 Av
