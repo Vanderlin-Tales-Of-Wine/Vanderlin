@@ -545,6 +545,7 @@
 #include "code\datums\elements\cleaning.dm"
 #include "code\datums\elements\earhealing.dm"
 #include "code\datums\elements\firestacker.dm"
+#include "code\datums\elements\lockpicking.dm"
 #include "code\datums\elements\relay_attackers.dm"
 #include "code\datums\elements\retaliate.dm"
 #include "code\datums\elements\snail_crawl.dm"
