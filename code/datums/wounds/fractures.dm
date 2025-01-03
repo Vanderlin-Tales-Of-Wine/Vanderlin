@@ -81,6 +81,7 @@
 		ADD_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 		ADD_TRAIT(affected, TRAIT_GARGLE_SPEECH, "[type]")
 		ADD_TRAIT(affected, TRAIT_DEAF, "[type]")
+		ADD_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 		affected.become_nearsighted()
 		if(iscarbon(affected))
 			var/mob/living/carbon/carbon_affected = affected
@@ -96,6 +97,7 @@
 		REMOVE_TRAIT(affected, TRAIT_PARALYSIS, "[type]")
 		REMOVE_TRAIT(affected, TRAIT_GARGLE_SPEECH, "[type]")
 		REMOVE_TRAIT(affected, TRAIT_DEAF, "[type]")
+		REMOVE_TRAIT(affected, TRAIT_NOPAIN, "[type]")
 		affected.cure_nearsighted()
 		if(iscarbon(affected))
 			var/mob/living/carbon/carbon_affected = affected

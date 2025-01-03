@@ -3,8 +3,8 @@
 	flag = GRAVETENDER
 	department_flag = CHURCHMEN
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 
 	allowed_races = list(
 		"Humen",

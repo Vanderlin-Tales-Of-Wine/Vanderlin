@@ -38,8 +38,9 @@
 		new /obj/item/grown/log/tree/stick(T)
 	..()
 
-/obj/structure/gravemarker/OnCrafted(dir, user)
+/obj/structure/gravemarker/OnCrafted(dir, mob/user)
 	icon_state = "gravemarker[rand(1,3)]"
 	for(var/obj/structure/closet/dirthole/hole in loc)
-		pacify_coffin(hole, user)
+		if(pacify_coffin(hole, user))
+			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("I consecrate [hole]."))
 	return ..()

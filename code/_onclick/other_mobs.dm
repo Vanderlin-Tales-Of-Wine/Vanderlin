@@ -95,7 +95,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	user.face_atom(src)
 
-	if(!user.get_active_held_item() && !user.cmode)
+	if(!user.get_active_held_item() && !user.cmode && src.givingto != user)
 		if(ishuman(src) && ishuman(user))
 			var/mob/living/carbon/human/target = src
 			if(target.age == AGE_CHILD && target.mind && !target.mind.apprentice)

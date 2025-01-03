@@ -163,7 +163,7 @@
 	if(!mind_key)
 		return
 	for(var/mob/living/carbon/spirit/spirit in GLOB.spirit_list)
-		if((spirit.key == mind_key) || (spirit.mind?.key == mind_key))
+		if((ckey(spirit.key) == ckey(mind_key)) || (ckey(spirit.mind?.key) == ckey(mind_key)))
 			return spirit
 
 /mob/living/carbon/spirit/get_spirit()

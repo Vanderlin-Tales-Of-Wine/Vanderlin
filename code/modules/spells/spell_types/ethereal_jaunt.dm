@@ -33,6 +33,7 @@
 	target.reset_perspective(holder)
 	target.notransform=0 //mob is safely inside holder now, no need for protection.
 	jaunt_steam(mobloc)
+	ADD_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
 
 	sleep(jaunt_duration)
 
@@ -48,6 +49,7 @@
 	new jaunt_in_type(mobloc, holder.dir)
 	target.setDir(holder.dir)
 	sleep(jaunt_in_time)
+	REMOVE_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
 	qdel(holder)
 	if(!QDELETED(target))
 		if(mobloc.density)
