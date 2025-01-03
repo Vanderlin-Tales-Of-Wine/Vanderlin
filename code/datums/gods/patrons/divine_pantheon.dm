@@ -50,24 +50,26 @@
 	flaws= "Reckless, Stubborn, Destructive"
 	worshippers = "Sailors of the Sea and Sky, Horrid Sea-Creachers, Fog Islanders"
 	sins = "Fear, Hubris, Forgetfulness"
-	boons = "Leeches will not latch onto you in murk."
+	boons = "Leeches will not latch onto you in dirty water."
 	added_traits = list(TRAIT_LEECHIMMUNE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/projectile/swordfish
-	t2 = null
-	t3 = null
+	t2 = /obj/effect/proc_holder/spell/self/summon_trident
+	t3 = /obj/effect/proc_holder/spell/invoked/ocean_embrace
+
 /datum/patron/divine/necra
 	name = "Necra"
 	domain = "Mother Goddess of Death and Decay"
 	desc = "The Veiled Lady, once close partner to Psydon. She created the nine others from his corpse, guiding them from the underworld."
 	flaws = "Unchanging, Apathetic, Easy to bore"
-	worshippers = "Orderlies, Gravekeepers, Mourners"
+	worshippers = "Orderlies, Gravetenders, Mourners"
 	sins = "Heretical Magic, Untimely Death, Disturbance of Rest"
 	boons = "You may see the presence of a soul in a body."
 	added_traits = list(TRAIT_SOUL_EXAMINE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/targeted/burialrite
-	t2 = /obj/effect/proc_holder/spell/targeted/churn
+	t2 = /obj/effect/proc_holder/spell/targeted/soulspeak
+	t3 = /obj/effect/proc_holder/spell/targeted/churn
 
 /datum/patron/divine/ravox
 	name = "Ravox"

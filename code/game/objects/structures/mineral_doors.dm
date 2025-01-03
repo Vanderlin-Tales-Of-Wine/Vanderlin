@@ -730,6 +730,8 @@
 	keylock = TRUE
 	max_integrity = 1000
 	over_state = "stoneopen"
+	openSound = 'sound/foley/doors/stoneopen.ogg'
+	closeSound = 'sound/foley/doors/stoneclose.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	repair_cost_first = /obj/item/natural/stone
 	repair_cost_second = /obj/item/natural/stone

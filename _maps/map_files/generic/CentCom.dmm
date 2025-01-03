@@ -2690,19 +2690,19 @@
 /area/rogue)
 "xO" = (
 /obj/structure/table/wood/fancy/black,
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman{
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary{
 	desc = "A rough jacket worn by Guild Officials.";
 	name = "Guild Jacket"
 	},
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman{
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary{
 	desc = "A rough jacket worn by Guild Officials.";
 	name = "Guild Jacket"
 	},
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman{
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary{
 	desc = "A rough jacket worn by Guild Officials.";
 	name = "Guild Jacket"
 	},
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman{
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary{
 	desc = "A rough jacket worn by Guild Officials.";
 	name = "Guild Jacket"
 	},
@@ -3424,9 +3424,9 @@
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea,
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea,
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea,
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman,
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman,
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman,
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary,
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary,
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary,
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan,
 /turf/open/floor/rogue/wood,
 /area/rogue)

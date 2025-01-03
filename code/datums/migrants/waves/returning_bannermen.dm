@@ -5,7 +5,9 @@
 	allowed_races = list(
 		"Humen",
 		"Dwarf",
-		"Aasimar")
+		"Aasimar",
+		"Half-Elf",
+		"Elf")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 	outfit = /datum/outfit/job/roguetown/serjeant_at_arms
@@ -56,7 +58,11 @@
 	name = "Bannermen Archer"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/roguetown/archer_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar")
+	allowed_races = list("Humen",
+		"Dwarf",
+		"Aasimar",
+		"Half-Elf",
+		"Elf")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 /datum/outfit/job/roguetown/archer_bannerman/pre_equip(mob/living/carbon/human/H)
@@ -102,7 +108,7 @@
 	name = "Bannermen Crossboman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/roguetown/crossbow_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar")
+	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 
@@ -150,7 +156,7 @@
 	name = "Bannermen Footman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/roguetown/footman_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar")
+	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 
@@ -189,7 +195,7 @@
 	name = "Bannermen Pikeman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/roguetown/pikeman_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar")
+	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 

@@ -8,7 +8,7 @@
 	outfit = /datum/outfit/job/roguetown/feldsher
 	display_order = JDO_FELDSHER
 	tutorial = "You have seen countless wounds over your time. Stitched the sores of blades, sealed honey over the bubous of plague. \
-	A thousand deaths stolen from the carriagemen, yet these people will still call you a charlatan. Prove them wrong, or right."
+	A thousand deaths stolen from the carriagemen, yet these people will still call you a charlatan. At least the apothecary understands you."
 	give_bank_account = 100
 	min_pq = 1
 

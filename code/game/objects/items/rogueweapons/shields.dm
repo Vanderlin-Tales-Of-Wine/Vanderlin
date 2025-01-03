@@ -100,7 +100,7 @@
 			GLOB.IconStates_cache |= icon
 			GLOB.IconStates_cache['icons/roguetown/weapons/wood_heraldry.dmi'] = istates
 
-		var/picked_name = input(user, "Choose a Heraldry", "ROGUETOWN", name) as null|anything in sortList(GLOB.IconStates_cache['icons/roguetown/weapons/wood_heraldry.dmi'])
+		var/picked_name = input(user, "Choose a Heraldry", "VANDERLIN", name) as null|anything in sortList(GLOB.IconStates_cache['icons/roguetown/weapons/wood_heraldry.dmi'])
 		if(!picked_name)
 			picked_name = "none"
 		var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/wood_heraldry.dmi', picked_name)
@@ -243,7 +243,7 @@
 			var/list/istates = J.IconStates()
 			GLOB.IconStates_cache |= icon
 			GLOB.IconStates_cache['icons/roguetown/weapons/shield_heraldry.dmi'] = istates
-		var/picked_name = input(user, "Choose a Heraldry", "ROGUETOWN", name) as null|anything in sortList(GLOB.IconStates_cache['icons/roguetown/weapons/shield_heraldry.dmi'])
+		var/picked_name = input(user, "Choose a Heraldry", "VANDERLIN", name) as null|anything in sortList(GLOB.IconStates_cache['icons/roguetown/weapons/shield_heraldry.dmi'])
 		if(!picked_name)
 			picked_name = "none"
 		var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/shield_heraldry.dmi', picked_name)

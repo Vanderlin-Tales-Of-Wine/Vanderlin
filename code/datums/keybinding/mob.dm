@@ -105,6 +105,26 @@
 	user.body_toggle_head()
 	return TRUE
 
+/datum/keybinding/mob/target_neck
+	hotkey_keys = list("Numpad7")
+	name = "target_neck"
+	full_name = "Target: Cycle Neck/Mouth"
+	description = ""
+
+/datum/keybinding/mob/target_neck/down(client/user)
+	user.body_neck()
+	return TRUE
+
+/datum/keybinding/mob/target_eyes
+	hotkey_keys = list("Numpad7")
+	name = "target_eyes"
+	full_name = "Target: Cycle Eyes"
+	description = ""
+
+/datum/keybinding/mob/target_eyes/down(client/user)
+	user.body_eyes()
+	return TRUE
+
 /datum/keybinding/mob/target_r_arm
 	hotkey_keys = list("Numpad4")
 	name = "target_r_arm"

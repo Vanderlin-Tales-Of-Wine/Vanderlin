@@ -133,7 +133,9 @@
 	holder = passed_holder
 	return ..()
 
-/datum/role_ban_panel/proc/show_ui(mob/user)
+/datum/role_ban_panel/proc/show_ui(mob/user, forced_key)
+	if(forced_key)
+		selected_ckey = forced_key
 	var/list/dat = list()
 	dat += "<center><a href='byond://?src=[REF(src)];task=apply'>APPLY BAN TO CKEY</a> - <a href='byond://?src=[REF(src)];task=reset'>Reset</a> - <a href='byond://?src=[REF(src)];task=check_bans'>Check Role Bans</a> </center>"
 	dat += "<BR><b>CKEY:</b> [selected_ckey] <a href='byond://?src=[REF(src)];task=ckey'>Change</a>"

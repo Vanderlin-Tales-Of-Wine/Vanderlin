@@ -50,7 +50,7 @@
 
 /datum/objective/werewolf
 	name = "conquer"
-	explanation_text = "Destroy all elder vampires in ROGUETOWN. I can sniff them in my true form."
+	explanation_text = "Destroy all elder vampires in Vanderlin. I can sniff them in my true form."
 	team_explanation_text = ""
 	triumph_count = 5
 
@@ -62,7 +62,7 @@
 
 /datum/objective/vampire
 	name = "conquer"
-	explanation_text = "Destroy all alpha werewolves in ROGUETOWN. I can detect them in my true form."
+	explanation_text = "Destroy all alpha werewolves in Vanderlin. I can detect them in my true form."
 	team_explanation_text = ""
 	triumph_count = 5
 

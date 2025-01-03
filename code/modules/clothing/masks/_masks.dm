@@ -5,6 +5,10 @@
 	slot_flags = ITEM_SLOT_MASK
 	strip_delay = 40
 	equip_delay_other = 40
+
+	grid_width = 64
+	grid_height = 32
+
 	var/modifies_speech = FALSE
 	var/mask_adjusted = 0
 	var/adjusted_flags = null

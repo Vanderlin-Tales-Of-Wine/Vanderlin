@@ -7,7 +7,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-	cmode_music = 'sound/music/cmode/combat_delf.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
 /datum/outfit/job/roguetown/mercenary/anthrax/pre_equip(mob/living/carbon/human/H)
 	..()

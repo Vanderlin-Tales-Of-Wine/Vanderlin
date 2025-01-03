@@ -6,10 +6,14 @@ SUBSYSTEM_DEF(ParticleWeather)
 	runlevels = RUNLEVEL_GAME
 	var/list/elligble_weather = list()
 	var/datum/particle_weather/runningWeather
+	var/datum/weather_effect/weather_special_effect
 	// var/list/next_hit = list() //Used by barometers to know when the next storm is coming
 
 	var/particles/weather/particleEffect
 	var/obj/weatherEffect
+
+	var/list/turfs_to_process = list()
+	var/list/weathered_turfs = list()
 
 /datum/controller/subsystem/ParticleWeather/fire()
 	// process active weather
@@ -21,6 +25,18 @@ SUBSYSTEM_DEF(ParticleWeather)
 			for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
 				runningWeather.weather_obj_act(act_on)
 
+			if(weather_special_effect)
+				if(!length(turfs_to_process))
+					if(!weathered_turfs)
+						return
+					turfs_to_process = weathered_turfs.Copy()
+				for(var/turf/turf in turfs_to_process)
+					if(QDELETED(weather_special_effect))
+						break
+					turfs_to_process -= turf
+					if(prob(weather_special_effect.probability))
+						turf.apply_weather_effect(weather_special_effect)
+					CHECK_TICK_LOW
 
 //This has been mangled - currently only supports 1 weather effect serverwide so I can finish this
 /datum/controller/subsystem/ParticleWeather/Initialize(start_timeofday)
@@ -86,6 +102,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 /datum/controller/subsystem/ParticleWeather/proc/stopWeather()
 	for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
 		act_on.weather = FALSE
+	weatherEffect.particles = null
 	QDEL_NULL(runningWeather)
 	QDEL_NULL(particleEffect)
-	QDEL_NULL(weatherEffect)
+	QDEL_NULL(weather_special_effect)

@@ -2141,7 +2141,7 @@
 /obj/structure/closet/crate/drawer,
 /obj/item/clothing/mask/cigarette/pipe/westman,
 /obj/machinery/light/rogue/wallfire/candle/blue,
-/obj/item/key/niteman,
+/obj/item/key/apothecary,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
 "cba" = (
@@ -17486,7 +17486,7 @@
 /obj/structure/mineral_door/wood{
 	locked = 1;
 	lockid = "nightman";
-	name = "Niteman's Office"
+	name = "Apothecary's Office"
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/bath)

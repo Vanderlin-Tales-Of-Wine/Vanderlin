@@ -239,7 +239,7 @@ USEBLACKLIST
 # FORUMURL N/A
 
 ## Wiki address
-WIKIURL https://wiki.monkestation.com/en/vanderlin/starter-guide
+WIKIURL https://wiki.monkestation.com/en/vanderlin
 
 ## Rules address
 RULESURL https://wiki.monkestation.com/en/vanderlin/rules

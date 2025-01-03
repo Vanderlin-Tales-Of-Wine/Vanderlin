@@ -158,7 +158,7 @@
 	icon_state = "chair_red"
 	item_chair = /obj/item/chair/rogue/chair_nobles/red
 /obj/item/chair/rogue/chair_nobles/red
-	icon_state = "chair_purple"
+	icon_state = "chair_red"
 	origin_type = /obj/structure/chair/wood/rogue/chair_noble/red
 
 /obj/item/chair/rogue/

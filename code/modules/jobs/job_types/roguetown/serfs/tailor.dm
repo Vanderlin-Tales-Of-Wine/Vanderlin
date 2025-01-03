@@ -20,6 +20,10 @@
 
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	head = /obj/item/clothing/head/roguetown/courtierhat
+	belt = /obj/item/storage/belt/rogue/leather
+	beltl = /obj/item/storage/keyring/tailor
+	backr = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
@@ -31,9 +35,9 @@
 		pants = /obj/item/clothing/under/roguetown/tights/red
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/red
-		cloak = /obj/item/clothing/cloak/raincloak/red
+		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	else
-		cloak = /obj/item/clothing/cloak/raincloak/purple
+		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/purple
 		pants = /obj/item/clothing/under/roguetown/tights/purple

@@ -62,17 +62,17 @@
 		if(CLERIC_T0)
 			if(progression >= CLERIC_REQ_1)
 				level = CLERIC_T1
-				usr.mind.AddSpell(new P.t1)
+				usr.mind.AddSpell(new P.t1, silent = FALSE)
 				return
 		if(CLERIC_T1)
 			if(progression >= CLERIC_REQ_2)
 				level = CLERIC_T2
-				usr.mind.AddSpell(new P.t2)
+				usr.mind.AddSpell(new P.t2, silent = FALSE)
 				return
 		if(CLERIC_T2)
 			if(progression >= CLERIC_REQ_3)
 				level = CLERIC_T3
-				usr.mind.AddSpell(new P.t3)
+				usr.mind.AddSpell(new P.t3, silent = FALSE)
 				to_chat(usr, span_notice("All my Gods miracles are now open to me..."))
 				return
 		if(CLERIC_T3) // already maxed out
@@ -150,6 +150,8 @@
 	set name = "Check Devotion"
 	set category = "Cleric"
 
+	if(!ishuman(src))
+		return
 	var/datum/devotion/cleric_holder/C = src.cleric
 	to_chat(src,"My devotion is [C.devotion].")
 
@@ -170,8 +172,10 @@
 	set name = "Give Prayer"
 	set category = "Cleric"
 
+	if(!ishuman(src))
+		return
 	var/datum/devotion/cleric_holder/C = src.cleric
-	if(!C)
+	if(!C || src.stat >= DEAD)
 		return
 	if(C.devotion >= C.max_devotion)
 		to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")

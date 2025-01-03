@@ -245,7 +245,10 @@
 	else if(turf_temp <= T0C)
 		breath_effect_prob = 15
 
+	var/turf/snow_turf = get_turf(src)
 	if(snow_shiver > world.time)
+		breath_effect_prob += 50
+	else if(snow_turf.snow)
 		breath_effect_prob += 50
 
 	if(prob(breath_effect_prob))

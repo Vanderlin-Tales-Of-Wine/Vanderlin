@@ -16,6 +16,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/sfighter
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
+	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 
 
 /datum/outfit/job/roguetown/adventurer/sfighter/pre_equip(mob/living/carbon/human/H)

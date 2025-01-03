@@ -41,6 +41,8 @@
 	sellprice = VALUE_COMMON_GOODS
 	armor = ARMOR_MINIMAL
 	body_parts_covered = CHEST
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/clothing/suit/roguetown/armor/medium	// Template, not for use
 	name = "Medium armor template"
@@ -108,6 +110,15 @@
 
 	armor = ARMOR_PADDED_GOOD
 
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/apothecary
+	name = "apothecary overcoat"
+	desc = "An armoured overcoat that can take a few hits. Men have lost their lives for less."
+	icon_state = "apothover"
+	item_state = "apothover"
+
+	armor = ARMOR_PADDED_GOOD
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dark
 	color = CLOTHING_DARK_INK
 
@@ -117,7 +128,6 @@
 	name = "padded dress"
 	desc = "Favored by the female nobility, to maintain both vitality and good taste while out hunting."
 	icon_state = "armordress"
-	allowed_sex = list(FEMALE)
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
@@ -296,12 +306,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 2
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/dropped(mob/living/carbon/human/user)
 	..()
@@ -328,7 +333,6 @@
 	desc = "An expertly padded coat made from the finest silks. Long may live the nobility that dons it."
 	icon_state = "bliaut"
 	sleevetype = "shirt"
-	allowed_sex = list(FEMALE)
 	sellprice = VALUE_LEATHER_ARMOR_LORD
 
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
@@ -339,7 +343,7 @@
 	..()
 
 //................ Silk Jacket ............... //
-/obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman
+/obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary
 	name = "silk jacket"
 	icon_state = "nightman"
 	desc = "Displaying wealth while keeping your guts safe from blades with thick leather pads underneath."
@@ -537,7 +541,6 @@
 	desc = "Metal plates partly hidden by cloth, fitted for a man."
 	icon_state = "surcoat"
 	item_state = "surcoat"
-	allowed_sex = list(MALE)	// trouble getting the sprites to work with females, sick of it, remains male only like it used to be
 	detail_tag = "_metal"		// metal bits are the details so keep them uncolorer = white
 	detail_color = COLOR_WHITE
 

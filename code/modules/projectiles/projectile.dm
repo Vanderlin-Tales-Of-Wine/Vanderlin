@@ -103,7 +103,7 @@
 
 	var/woundclass = null
 	var/embedchance = 0
-	var/obj/item/dropped = null
+	var/obj/item/dropped = null //Holds reference to object drop/embed. DO NOT SET TO TYPEPATH
 	var/ammo_type
 
 	var/arcshot = FALSE

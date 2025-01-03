@@ -16,7 +16,7 @@
 	return 0
 
 /turf/open/get_slowdown(mob/user)
-	return slowdown
+	return slowdown + snow?.get_slowdown()
 
 /turf
 	var/landsound = null

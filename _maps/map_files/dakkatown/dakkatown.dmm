@@ -11166,7 +11166,7 @@
 "QA" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/ring/silver,
-/obj/item/key/niteman,
+/obj/item/key/apothecary,
 /obj/item/key/nitemaiden,
 /obj/item/key/nitemaiden,
 /turf/open/floor/rogue/ruinedwood/chevron,

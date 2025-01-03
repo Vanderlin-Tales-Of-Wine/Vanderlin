@@ -193,6 +193,7 @@
 	embedder.is_embedded = TRUE
 	embedder.forceMove(src)
 	embedder.add_mob_blood(src)
+	embedder.embedded(src)
 	if(!silent)
 		emote("embed")
 	if(crit_message)
@@ -209,11 +210,13 @@
 		return FALSE
 	LAZYREMOVE(simple_embedded_objects, embedder)
 	embedder.is_embedded = FALSE
-	var/drop_location = drop_location()
-	if(drop_location)
-		embedder.forceMove(drop_location)
-	else
-		qdel(embedder)
+	embedder.unembedded()
+	if(!QDELETED(embedder))
+		var/drop_location = drop_location()
+		if(drop_location)
+			embedder.forceMove(drop_location)
+		else
+			qdel(embedder)
 	if(!has_embedded_objects())
 		clear_alert("embeddedobject")
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "embedded")

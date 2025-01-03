@@ -330,6 +330,9 @@
 
 /turf/Entered(atom/movable/AM)
 	..()
+	SEND_SIGNAL(src, COMSIG_TURF_ENTERED, AM)
+	SEND_SIGNAL(AM, COMSIG_MOVABLE_TURF_ENTERED, src)
+
 	if(explosion_level && AM.ex_check(explosion_id))
 		AM.ex_act(explosion_level)
 

@@ -136,6 +136,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/roguetown/items/lighting.dmi'
 	heat = 1000
 	spitoutmouth = FALSE
+
+	grid_width = 32
+	grid_height = 32
+
 	var/dragtime = 100
 	var/nextdragtime = 0
 	var/lit = FALSE

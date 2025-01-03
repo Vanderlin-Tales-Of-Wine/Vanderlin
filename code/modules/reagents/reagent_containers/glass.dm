@@ -6,7 +6,7 @@
 	volume = 50
 	reagent_flags = OPENCONTAINER|REFILLABLE
 	spillable = TRUE
-	possible_item_intents = list(INTENT_GENERIC, /datum/intent/fill, INTENT_POUR, INTENT_SPLASH)
+	possible_item_intents = list(INTENT_POUR, /datum/intent/fill, INTENT_SPLASH, INTENT_GENERIC)
 	resistance_flags = ACID_PROOF
 
 /datum/intent/fill

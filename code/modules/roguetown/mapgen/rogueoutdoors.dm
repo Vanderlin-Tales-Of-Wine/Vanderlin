@@ -16,7 +16,7 @@
 	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
 	spawnableAtoms = list(/obj/structure/flora/newtree = 5,
 							/obj/structure/flora/roguegrass/bush_meagre = 13,
-							/obj/structure/flora/roguegrass/herb/random = 3,
+							/obj/structure/flora/roguegrass/herb/random = 1,
 							/obj/structure/flora/roguegrass = 50,
 							/obj/structure/flora/roguegrass/maneater = 1,
 							/obj/structure/flora/roguegrass/pyroclasticflowers = 1,

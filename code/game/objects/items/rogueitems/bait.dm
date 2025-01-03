@@ -17,6 +17,8 @@
 	var/attraction_chance = 100
 	var/deployed = 0
 	resistance_flags = FLAMMABLE
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/bait/Initialize()
 	. = ..()

@@ -6,6 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
+	spells = /obj/effect/proc_holder/spell/self/convertrole/town_militia
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -67,3 +68,12 @@
 			H.change_stat("endurance", 1)
 			H.change_stat("intelligence", 2)
 	H.verbs |= /mob/proc/haltyell
+
+/obj/effect/proc_holder/spell/self/convertrole/town_militia
+	name = "Recruit Militiaman"
+	new_role = "Town Militiaman"
+	overlay_state = "recruit_guard"
+	recruitment_faction = "Garrison"
+	recruitment_message = "Join the Town Guard, %RECRUIT!"
+	accept_message = "I swear fealty to protect the town!"
+	refuse_message = "I refuse."

@@ -49,6 +49,7 @@
 	hosted_source.add_overlay(fill_state)
 
 /datum/orderless_slapcraft/pie/fish
+	name = "fish pie"
 	requirements = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish = 4)
 
 	overlay_state = "fill_fish"
@@ -59,6 +60,7 @@
 	finished_cooked_smell = /datum/pollutant/food/fish_pie
 
 /datum/orderless_slapcraft/pie/pot
+	name = "pot pie"
 	requirements = list(
 		list(
 			/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
@@ -79,6 +81,7 @@
 	finished_cooked_smell = /datum/pollutant/food/pot_pie
 
 /datum/orderless_slapcraft/pie/apple
+	name = "apple pie"
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/apple = 4,
 	)
@@ -89,6 +92,7 @@
 	finished_cooked_smell = /datum/pollutant/food/apple_pie
 
 /datum/orderless_slapcraft/pie/berry
+	name = "berry pie"
 	requirements = list(
 		list(
 			/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
@@ -106,6 +110,7 @@
 		finished_cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison
 
 /datum/orderless_slapcraft/pie/meat
+	name = "meat pie"
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef = 4
 	)

@@ -829,7 +829,7 @@
 	gripped_intents = list(/datum/intent/sword/chop)
 	icon_state = "exe"
 	name = "executioner's sword"
-	desc = "An ancient blade of ginormous stature, with a round ended tip. The pride and joy of Roguetown's greatest pastime, executions."
+	desc = "An ancient blade of ginormous stature, with a round ended tip. The pride and joy of Vanderlin's greatest pastime, executions."
 	minstr = 10
 	slot_flags = ITEM_SLOT_BACK
 

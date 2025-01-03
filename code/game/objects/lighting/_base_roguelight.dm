@@ -155,7 +155,7 @@
 		else
 			if(!on)
 				return
-		if (alert(usr, "Feed [W] to the fire?", "ROGUETOWN", "Yes", "No") != "Yes")
+		if (alert(usr, "Feed [W] to the fire?", "VANDERLIN", "Yes", "No") != "Yes")
 			return
 		qdel(W)
 		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")

@@ -469,19 +469,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/town/tavern
 	name = "tavern"
 	icon_state = "tavern"
-	first_time_text = "Skullcrack Inn"
+	first_time_text = "The Drunken Saiga"
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
-	droning_sound = 'sound/music/jukeboxes/tavern1.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = 'sound/music/jukeboxes/tavern2.ogg'
+	droning_sound = "sound/blank.ogg"
+	droning_sound_dusk = "sound/blank.ogg"
+	droning_sound_night = "sound/blank.ogg"
 	converted_type = /area/rogue/outdoors/exposed/tavern
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
-	droning_sound = 'sound/music/jukeboxes/tavern1.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = 'sound/music/jukeboxes/tavern2.ogg'
 
 /area/rogue/indoors/town/church
 	name = "church"
@@ -527,7 +524,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	return FALSE
 
 /area/rogue/indoors/town/entrance
-	first_time_text = "Roguetown"
+	first_time_text = "Vanderlin"
 	icon_state = "entrance"
 
 /area/rogue/indoors/town/clocktower

@@ -30,50 +30,67 @@
 
 /datum/outfit/job/roguetown/monk/pre_equip(mob/living/carbon/human/H)
 	..()
-	var/datum/patron/A = H.patron
 	H.virginity = TRUE
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltl = /obj/item/key/church
 	backl = /obj/item/rogueweapon/polearm/woodstaff/quarterstaff
 	backpack_contents = list(/obj/item/needle)
-	switch(A.name)
-		if("Astrata")
+	switch(H.patron?.type)
+		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
 			wrists = /obj/item/clothing/wrists/roguetown/wrappings
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/astrata
-		if("Necra")
+		if(/datum/patron/divine/necra) //Necra acolytes are now gravetenders
 			head = /obj/item/clothing/head/roguetown/padded/deathshroud
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/necra
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/necra
-		if("Eora")
+		if(/datum/patron/divine/eora)
 			head = /obj/item/clothing/head/roguetown/padded/operavisage
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/eora
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
-			H.virginity = FALSE
-		if("Noc")
+		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguetown/roguehood/nochood
 			neck = /obj/item/clothing/neck/roguetown/psycross/noc
 			wrists = /obj/item/clothing/wrists/roguetown/nocwrappings
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/noc
-		if("Pestra")
+		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/roguetown/roguehood/brown
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/green
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/phys
-		if("Dendor")
+		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/roguetown/padded/briarthorns
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
-
+		if(/datum/patron/divine/abyssor)
+			head = /obj/item/clothing/head/roguetown/roguehood/random
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/abyssor
+			shoes = /obj/item/clothing/shoes/roguetown/boots
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
+		if(/datum/patron/divine/ravox)
+			head = /obj/item/clothing/head/roguetown/roguehood/random
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
+			shoes = /obj/item/clothing/shoes/roguetown/boots
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
+		if(/datum/patron/divine/xylix)
+			head = /obj/item/clothing/head/roguetown/roguehood/random
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
+			shoes = /obj/item/clothing/shoes/roguetown/boots
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
+		if(/datum/patron/divine/malum)
+			head = /obj/item/clothing/head/roguetown/roguehood/random
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
+			shoes = /obj/item/clothing/shoes/roguetown/boots
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 		else // Failsafe
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver

@@ -11,7 +11,7 @@
 	var/list/steps
 
 	/// Type of the item that will be yielded as the result.
-	var/result_type
+	var/atom/result_type
 	/// Amount of how many resulting types will be crafted.
 	var/result_amount = 1
 	/// Instead of result type you can use this as associative list of types to amounts for a more varied output

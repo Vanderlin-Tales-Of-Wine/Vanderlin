@@ -686,19 +686,20 @@
 		obj_count++
 
 
-/datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/S)
+/datum/mind/proc/AddSpell(obj/effect/proc_holder/spell/S, silent = TRUE)
 	if(!S)
 		return
 	if(has_spell(S))
 		return
 	spell_list += S
-	to_chat(current, "<span class='boldnotice'>I have learned a new spell: [S]</span>")
+	if(!silent)
+		to_chat(current, "<span class='boldnotice'>I have learned a new spell: [S]</span>")
 	S.action.Grant(current)
 
 /datum/mind/proc/check_learnspell(obj/effect/proc_holder/spell/S)
 	if(!has_spell(/obj/effect/proc_holder/spell/self/learnspell)) //are we missing the learning spell?
 		if((spell_points - used_spell_points) > 0) //do we have points?
-			AddSpell(new /obj/effect/proc_holder/spell/self/learnspell(null)) //put it in
+			AddSpell(new /obj/effect/proc_holder/spell/self/learnspell(null), silent = FALSE) //put it in
 			return
 
 	if((spell_points - used_spell_points) <= 0) //are we out of points?

@@ -74,6 +74,11 @@
 	desc = "Improved grip for wielding disembowled organs."
 	icon_state = "surggloves"
 
+/obj/item/clothing/gloves/roguetown/leather/apothecary
+	name = "apothecary gloves"
+	desc = "Thick leather gloves for pulling thorny plants... or cracking skulls."
+	icon_state = "apothgloves"
+
 
 /obj/item/clothing/gloves/roguetown/fingerless
 	name = "fingerless gloves"
@@ -185,6 +190,9 @@
 	armor = ARMOR_PLATE
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = INTEGRITY_STRONGEST
+
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/clothing/gloves/roguetown/rare
 	icon = 'icons/roguetown/clothing/Racial_Armour.dmi'

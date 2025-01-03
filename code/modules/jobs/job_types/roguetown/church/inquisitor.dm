@@ -44,7 +44,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	cloak = /obj/item/clothing/cloak/cape/puritan
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	head = /obj/item/clothing/head/roguetown/helmet/leather/inquisitor
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	wrists = /obj/item/clothing/neck/roguetown/psycross/silver
@@ -63,7 +62,6 @@
 	H.name = "[honorary] [prev_name]"
 	H.confession_points = 10 // Starting with 10 points
 	H.purchase_history = list() // Initialize as an empty list to track purchases
-
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
@@ -86,7 +84,6 @@
 		H.change_stat("endurance", 1)
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
-			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 		if(H.mind.has_antag_datum(/datum/antagonist))
 			return
 		var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
@@ -97,9 +94,14 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	to_chat(H,"<span class='info'>\
+		-I can speak Old Psydonic with ,m before my speech.\n\
+		-The Holy Bishop of the Inquisition has sent you here on a task to root out evil within this town. Make The Holy Bishop proud!\n\
+		-You've also been gaven 10 favors to use at the mail machines, you can get more favor by sending signed confessions to The Holy Bishop. Spend your favors wisely.</span>"
+		)
 
 /mob/living/carbon/human/proc/torture_victim()
-	set name = "ExtractConfession"
+	set name = "Extract Confession"
 	set category = "Inquisition"
 
 	var/obj/item/grabbing/I = get_active_held_item()
@@ -107,10 +109,9 @@
 	if(istype(I))
 		if(ishuman(I.grabbed))
 			H = I.grabbed
-			/*if(H == src)
-				to_chat(src, "<span class='warning'>I already torture myself.</span>")
+			if(H == src)
+				to_chat(src, "<span class='warning'>I won't torture myself!</span>")
 				return
-			*/
 			var/painpercent = H.get_complex_pain() / (H.STAEND * 10)
 			painpercent = painpercent * 100
 			var/mob/living/carbon/C = H
@@ -178,8 +179,13 @@
 		if(length(confessions))
 			if(torture == TRUE) // Only scream your confession if it's due to torture.
 				say(pick(confessions), spans = list("torture"))
+			
+			
 			if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
 				testing("User is holding a confession.")
+				if(has_confessed==TRUE) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
+					to_chat(user, "<span class='warning'>[src.name] has already signed a confession! The holy bishop wouldn't want me to send him another...</span>")
+					return
 				var/obj/item/paper/confession/held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
 				if(!held_confession.signed) // Check to see if the confession is already signed.
 					held_confession.signed = real_name
@@ -222,6 +228,7 @@
 						if("Science")
 							held_confession.bad_type = "A DAMNED ANTI-THEIST"
 							held_confession.antag = "worshiper of nothing"
+					has_confessed = TRUE
 					held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
 					held_confession.update_icon_state()
 					return

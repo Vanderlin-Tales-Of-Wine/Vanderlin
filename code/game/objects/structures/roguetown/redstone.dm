@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		if(!istype(adjc, /obj/structure))
 			continue
 		structures += adjc
-	var/input = input("Choose structure to link", "ROGUETOWN") as null|anything in structures
+	var/input = input("Choose structure to link", "VANDERLIN") as null|anything in structures
 	if(input)
 		playsound(loc, 'sound/misc/keyboard_enter.ogg', 100, FALSE, -1)
 		if(istype(linked_thing, /obj/structure/repeater))

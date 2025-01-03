@@ -1,39 +1,4 @@
 // Verbs
-/client/proc/descend()
-	set name = "Journey to the Underworld"
-	set category = "Spirit"
-
-	switch(alert("Begin the long walk in the underworld to your judgement....",,"Yes","No"))
-		if("Yes")
-			if(istype(mob, /mob/living/carbon/human))
-				var/mob/living/carbon/human/D = mob
-				if(D.buried && D.funeral)
-					D.returntolobby()
-					return
-
-				// Check if the player's job is hiv+
-				var/datum/job/target_job = SSjob.GetJob(D.mind.assigned_role)
-				if(target_job)
-					if(target_job.job_reopens_slots_on_death)
-						target_job.current_positions = max(0, target_job.current_positions - 1)
-					if(target_job.same_job_respawn_delay)
-						// Store the current time for the player
-						GLOB.job_respawn_delays[src.ckey] = world.time + target_job.same_job_respawn_delay
-			if(!length(GLOB.underworldspiritspawns)) //That cant be good.
-				to_chat(usr, span_danger("Hell is full. Blood is now fuel. Alert an admin, as something is very wrong!"))
-				return
-			var/turf/spawn_loc = pick(GLOB.underworldspiritspawns)
-			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
-			O.livingname = mob.name
-			O.ckey = ckey
-			ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
-			O.set_patron(prefs.selected_patron)
-			SSdeath_arena.add_fighter(O,mob.mind?.last_death)
-			SSdroning.area_entered(get_area(O), O.client)
-			verbs -= /client/proc/descend
-		if("No")
-			usr << "You have second thoughts."
-
 /mob/verb/returntolobby()
 	set name = "{RETURN TO LOBBY}"
 	set category = "Options"
@@ -66,9 +31,8 @@
 		qdel(M)
 		return
 
+	client?.verbs -= /client/proc/descend
 	M.key = key
-	if(client)
-		client.verbs -= /client/proc/descend
 	qdel(src)
 	return
 
@@ -117,6 +81,7 @@
 			to_chat(ghost, "<br><font color=purple><span class='bold'>THE TOLL IS PAID, THROUGH THE CARRIAGE THE UNDERMAIDEN WAITS.</span></font>")
 			user << sound(pick('sound/misc/carriage1.ogg', 'sound/misc/carriage2.ogg', 'sound/misc/carriage3.ogg', 'sound/misc/carriage4.ogg'), 0, 0 ,0, 50)
 			ghost.paid = TRUE
+			SSdeath_arena.remove_fighter(ghost)
 			return
 		if(ghost.paid)
 			to_chat(ghost, "<br><font color=purple><span class='bold'>FURTHER PAYMENT WILL NOT CHANGE HER JUDGEMENT.</span></font>")
@@ -199,9 +164,9 @@
 	var/turf/moveloc = pick(GLOB.underworld_coinpull_locs)
 	fool.forceMove(moveloc)
 	if(fool.put_in_hands(toll))
-		to_chat(fool,span_alertwarning("\The [src] swiftly drags you under; but leaves you with \the [toll]!"))
+		to_chat(fool, span_alertwarning("\The [src] swiftly drags you under; but leaves you with \the [toll]!"))
 	else
-		to_chat(fool,span_alertwarning("\The [src] swiftly drags you under; but leaves \the [toll] at your feet!"))
+		to_chat(fool, span_alertwarning("\The [src] swiftly drags you under; but leaves \the [toll] at your feet!"))
 	set_coin_taken()
 
 /obj/structure/underworld/coinspawner/proc/set_coin_taken()

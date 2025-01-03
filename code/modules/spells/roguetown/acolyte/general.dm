@@ -64,8 +64,8 @@
 					conditional_buff = TRUE
 			if(/datum/patron/divine/abyssor)
 				target.visible_message(span_info("A mist of salt-scented vapour settles on [target]!"), span_notice("I'm invigorated by healing vapours!"))
-				// if our target is standing in water, heal a flat amount extra
-				if (istype(get_turf(target), /turf/open/water))
+				// if our user or target is standing in water, heal a flat amount extra
+				if (istype(get_turf(target), /turf/open/water) || istype(get_turf(user), /turf/open/water))
 					conditional_buff = TRUE
 					situational_bonus = 15
 			if(/datum/patron/divine/ravox)
@@ -199,7 +199,7 @@
 			target.adjustFireLoss(100)
 			target.Paralyze(50)
 			target.fire_act(1,5)
-			return TRUE
+			return ..()
 		target.visible_message("<span class='info'>A wreath of gentle light passes over [target]!</span>", "<span class='notice'>I'm bathed in holy light!</span>")
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
@@ -233,6 +233,7 @@
 	user.emote("rage", forced = TRUE)
 	playsound(get_turf(user), 'sound/magic/barbroar.ogg', 50, TRUE)
 	user.apply_status_effect(/datum/status_effect/buff/barbrage)
+	return TRUE
 
 // XYLIX
 
@@ -249,6 +250,7 @@
 		var/mob/living/victim = targets[1]
 		if(victim.can_hear())
 			victim.apply_status_effect(/datum/status_effect/debuff/viciousmockery)
+		return TRUE
 
 /obj/effect/proc_holder/spell/invoked/mockery/invocation(mob/user = usr)
 	if(ishuman(user))

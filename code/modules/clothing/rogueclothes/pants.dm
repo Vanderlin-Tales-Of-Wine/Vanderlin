@@ -124,6 +124,12 @@
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/silk
 
+/obj/item/clothing/under/roguetown/trou/apothecary
+	name = "apothecary trousers"
+	desc = "Heavily padded trousers. They're stained by countless herbs."
+	icon_state = "apothpants"
+	item_state = "apothpants"
+
 /obj/item/clothing/under/roguetown/loincloth
 	name = "loincloth"
 	desc = "Protects your modesty, but not much else."

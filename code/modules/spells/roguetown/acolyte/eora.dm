@@ -54,6 +54,45 @@
 			return
 	return ..()
 
+//Putting this here for now until we have a better place. Ook wants this to inject drugs eventually. I guess this is decent for now.
+/obj/item/clothing/head/corruptflower
+	name = "baothan bud"
+	desc = "A flower of gentle petals and sharp thorns, associated with Baotha. It is said that these allow their wearer to better commune with their goddess."
+	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	icon_state = "corruptflower"
+	item_state = "corruptflower"
+	dropshrink = 0.9
+	slot_flags = ITEM_SLOT_HEAD
+	body_parts_covered = NONE
+	dynamic_hair_suffix = ""
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
+	throw_speed = 1
+	throw_range = 3
+
+/obj/item/clothing/head/corruptflower/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_HEAD)
+		ADD_TRAIT(user, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
+		user.add_curse(/datum/curse/baotha)
+		to_chat(user, "<span class='userdanger'>FUCK YES. Party on!</b></span>")
+
+/obj/item/clothing/head/corruptflower/dropped(mob/living/carbon/human/user)
+	..()
+	user.remove_curse(/datum/curse/baotha)
+	if(user.patron != /datum/patron/inhumen/baotha)
+		REMOVE_TRAIT(user, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
+
+/obj/item/clothing/head/corruptflower/attack_hand(mob/user)
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(src == C.head)
+			to_chat(user, "<span class='warning'>Curse? What curse!? I feel great! Why would I ever want sobriety?</b></span>")
+			return
+	return ..()
+
 /obj/effect/proc_holder/spell/invoked/bud
 	name = "Eoran Bloom"
 	desc = ""

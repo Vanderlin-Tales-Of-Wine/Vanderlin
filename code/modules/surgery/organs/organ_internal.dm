@@ -6,6 +6,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	sellprice = 10
+
+	grid_width = 32
+	grid_height = 32
+
 	var/zone = BODY_ZONE_CHEST
 	var/slot
 	// DO NOT add slots with matching names to different zones - it will break internal_organs_slot list!

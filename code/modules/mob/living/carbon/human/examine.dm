@@ -217,7 +217,7 @@
 		if(glasses)
 			. += "[m3] [glasses.get_examine_string(user)] covering [m2] eyes."
 		else if(eye_color == BLOODCULT_EYE)
-			. += "<span class='warning'><B>[m2] eyes are glowing an unnatural red!</B></span>"
+			. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
 	if(ears && !(SLOT_HEAD in obscured))
@@ -441,7 +441,7 @@
 	if(length(msg))
 		. += "<span class='warning'>[msg.Join("\n")]</span>"
 
-	if(isliving(user))
+	if(isliving(user) && user != src)
 		var/mob/living/L = user
 		var/final_str = STASTR
 		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))

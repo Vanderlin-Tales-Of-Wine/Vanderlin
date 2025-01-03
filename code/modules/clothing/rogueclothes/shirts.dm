@@ -18,6 +18,9 @@
 	anvilrepair = null
 	smeltresult = /obj/item/ash
 
+	grid_width = 64
+	grid_height = 64
+
 /obj/item/clothing/suit/roguetown/shirt/undershirt
 	name = "shirt"
 	desc = ""
@@ -150,6 +153,16 @@
 	body_parts_covered = CHEST|VITALS
 	allowed_race = list("elf", "dark elf")
 
+/obj/item/clothing/suit/roguetown/shirt/apothshirt
+	name = "apothecary shirt"
+	desc = "When trudging through late-autumn forests, one needs to keep warm."
+	icon_state = "apothshirt"
+	item_state = "apothshirt"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	body_parts_covered = CHEST|VITALS
+
+
 /obj/item/clothing/suit/roguetown/shirt/rags
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "rags"
@@ -229,7 +242,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon_state = "dress"
 	item_state = "dress"
-	allowed_sex = list(FEMALE)
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 

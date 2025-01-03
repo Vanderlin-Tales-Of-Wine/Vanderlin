@@ -1,6 +1,6 @@
 /datum/job/roguetown/tester
 	title = "Tester"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 	department_flag = PEASANTS
 	faction = "Station"
 #ifdef TESTSERVER

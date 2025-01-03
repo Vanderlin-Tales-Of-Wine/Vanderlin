@@ -16,7 +16,7 @@
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_MAGICIAN
-	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier, blessed by Noc. \
+	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
 	Indebted to the ruler for funding yils of mystical studies in these dark times, \
 	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	outfit = /datum/outfit/job/roguetown/magician
@@ -37,9 +37,9 @@
 	beltr = /obj/item/storage/keyring/mage
 	backl = /obj/item/rogueweapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	backpack_contents = list(/obj/item/scrying = 1)
+	backpack_contents = list(/obj/item/scrying = 1, /obj/item/reagent_containers/glass/bottle/rogue/killersice = 1)
 	if(H.mind)
-		if(H.patron != /datum/patron/divine/noc)
+		if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))
 			H.set_patron(/datum/patron/divine/noc)
 
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)

@@ -43,6 +43,7 @@
 	var/recipe_link
 	/// Whether this step is optional. This is forbidden for first and last steps of recipes, and cannot be used on recipes with an order of SLAP_ORDER_FIRST_THEN_FREEFORM
 	var/optional = FALSE
+	var/start_verb = "to"
 
 /datum/slapcraft_step/New()
 	. = ..()

@@ -16,33 +16,19 @@
 				/obj/item/dice/fourdd6,
 				/obj/item/dice/d100
 				)
-
-/obj/item/storage/pill_bottle/dice/PopulateContents()
-	new /obj/item/dice/d4(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d8(src)
-	new /obj/item/dice/d10(src)
-	new /obj/item/dice/d12(src)
-	new /obj/item/dice/d20(src)
-//	var/picked = pick(special_die)
-//	new picked(src)
+	populate_contents = list(
+		/obj/item/dice/d4,
+		/obj/item/dice/d6,
+		/obj/item/dice/d6,
+		/obj/item/dice/d8,
+		/obj/item/dice/d10,
+		/obj/item/dice/d12,
+		/obj/item/dice/d20,
+	)
 
 /obj/item/storage/pill_bottle/dice/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
-
-/obj/item/storage/pill_bottle/dice/hazard
-
-/obj/item/storage/pill_bottle/dice/hazard/PopulateContents()
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	for(var/i in 1 to 2)
-		if(prob(7))
-			new /obj/item/dice/d6/ebony(src)
-		else
-			new /obj/item/dice/d6(src)
 
 /*****************************Dice********************************/
 

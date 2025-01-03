@@ -42,6 +42,32 @@
 	..()
 	. = 1
 
+/datum/reagent/medicine/gender_potion
+	name = "Gender Potion"
+	description = "Change the user's gender."
+	reagent_state = LIQUID
+	color = "#FF33FF"
+	taste_description = "organic scent"
+	overdose_threshold = 0
+	metabolization_rate = REAGENTS_METABOLISM * 5
+	alpha = 173
+
+/datum/reagent/medicine/gender_potion/on_mob_life(mob/living/carbon/M)
+	if(!istype(M) || M.stat == DEAD)
+		to_chat(M, span_warning("The potion can only be used on living things!"))
+		return
+	if(M.gender != MALE && M.gender != FEMALE)
+		to_chat(M, span_warning("The potion can only be used on gendered things!"))
+		return
+	if(M.gender == MALE)
+		M.gender = FEMALE
+		M.visible_message(span_boldnotice("[M] suddenly looks more feminine!"), span_boldwarning("You suddenly feel more feminine!"))
+	else
+		M.gender = MALE
+		M.visible_message(span_boldnotice("[M] suddenly looks more masculine!"), span_boldwarning("You suddenly feel more masculine!"))
+	M.regenerate_icons()
+	..()
+
 //Someone please remember to change this to actually do mana at some point?
 /datum/reagent/medicine/manapot
 	name = "Mana Potion"
@@ -62,6 +88,7 @@
 	name = "Strong Mana Potion"
 	description = "Gradually regenerates stamina."
 	color = "#0000ff"
+	taste_description = "raw power"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
@@ -88,6 +115,7 @@
 	name = "Strong Stamina Potion"
 	description = "Rapidly regenerates stamina."
 	color = "#13df00"
+	taste_description = "sparkly static"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)

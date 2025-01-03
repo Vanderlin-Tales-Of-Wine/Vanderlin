@@ -6,6 +6,7 @@
 	total_positions = 0
 	spawn_positions = 1
 
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -183,3 +184,13 @@
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+
+/obj/effect/proc_holder/spell/self/convertrole/servant
+	name = "Recruit Servant"
+	new_role = "Servant"
+	overlay_state = "recruit_servant"
+	recruitment_faction = "Servants"
+	recruitment_message = "Join the keep's servants, %RECRUIT!"
+	accept_message = "I serve the Crown !"
+	refuse_message = "I refuse."
+	charge_max = 100

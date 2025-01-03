@@ -5,13 +5,15 @@
 	name = "printing press"
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "Ppress_Clean"
-	desc = "The Archivist's wonder. Gears, ink, and wood blocks can turn the written word to the printed word."
+	desc = "The Archivist's wonder. Gears, ink, and wood b locks can turn the written word to the printed word."
 	density = TRUE
 	var/cooldown = 0
 	var/printing = FALSE
 	var/has_paper = FALSE
 	var/obj/item/paper/loaded_paper
 	var/obj/item/output_item // Variable to store the printed item
+
+	var/static/list/manuel_name_to_path = list()
 
 /obj/machinery/printingpress/attackby(obj/item/O, mob/user, params)
 	if(printing)
@@ -81,7 +83,7 @@
 	if(!has_paper)
 		to_chat(user, span_warning("[src] requires a blank piece of paper to print."))
 		return
-	var/choice = input(user, "Choose an option for \the [src]") in list("Print The Book", "Print a Tome of Justice", "Print from the Archive")
+	var/choice = input(user, "Choose an option for \the [src]") in list("Print The Book", "Print a Tome of Justice", "Print from the Archive", "Profession Manuel")
 	switch(choice)
 		if ("Print The Book")
 			start_printing(user, "bibble")
@@ -89,6 +91,16 @@
 			start_printing(user, "justice")
 		if ("Print from the Archive")
 			choose_search_parameters(user)
+		if("Profession Manuel")
+			if(!length(manuel_name_to_path))
+				for(var/obj/item/recipe_book/book as anything in subtypesof(/obj/item/recipe_book))
+					if(!initial(book.can_spawn))
+						continue
+					manuel_name_to_path |= initial(book.name)
+					manuel_name_to_path[initial(book.name)] = book
+			choice = input(user, "Choose an option for \the [src]") in manuel_name_to_path
+			if(choice)
+				start_printing(user, manuel_name_to_path[choice])
 
 /obj/machinery/printingpress/proc/start_printing(mob/user, print_type, id = null)
 	if(cooldown > world.time)
@@ -110,6 +122,12 @@
 		print_justice(user)
 	else if(print_type == "archive")
 		print_manuscript(user, id)
+	else if (ispath(print_type))
+		var/obj/item/recipe_book/path = print_type
+		var/obj/item/recipe_book/book = new path()
+		output_item = book
+		visible_message("<span class='notice'>The printing press hums as it produces [book.name].</span>")
+
 	// Printing is done
 	printing = FALSE
 	src.icon_state = "Ppress_Done"

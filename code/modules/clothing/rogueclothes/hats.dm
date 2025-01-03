@@ -543,6 +543,9 @@
 	body_parts_covered = COVERAGE_SKULL
 	prevent_crits = ALL_EXCEPT_STAB
 
+	grid_height = 64
+	grid_width = 64
+
 
 //................ Nasal Helmet ............... //
 /obj/item/clothing/head/roguetown/helmet/nasal

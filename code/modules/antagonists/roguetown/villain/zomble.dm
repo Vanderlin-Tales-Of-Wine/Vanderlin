@@ -14,11 +14,11 @@
 	var/ambushable = TRUE
 	var/soundpack_m
 	var/soundpack_f
-	var/STASTR
-	var/STASPD
-	var/STAINT
-	var/STACON
-	var/cmode_music
+	var/oldSTASTR
+	var/oldSTASPD
+	var/oldSTAINT
+	var/oldSTACON
+	var/old_cmode_music
 	var/list/base_intents
 	/// Whether or not we have been turned
 	var/has_turned = FALSE
@@ -54,6 +54,7 @@
 		TRAIT_ROTMAN,
 	)
 	var/mutable_appearance/rotflies
+	var/datum/language_holder/prev_language
 
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampirelord))
@@ -82,17 +83,20 @@
 		rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "deadite")
 		zombie.add_overlay(rotflies)
 	base_intents = zombie.base_intents
-	zombie.TOTALSTR = 6
-	zombie.TOTALCON = 5
-	zombie.TOTALSPD = 2
-	zombie.TOTALINT = 1
-	cmode_music = zombie.cmode_music
-	cmode_music ='sound/music/cmode/combat_weird.ogg'
+	oldSTASTR = zombie.STASTR
+	oldSTASPD = zombie.STASPD
+	oldSTAINT = zombie.STAINT
+	oldSTACON = zombie.STACON
+	zombie.change_stat(STATKEY_STR, 7, TRUE)
+	zombie.change_stat(STATKEY_SPD, 2, TRUE)
+	zombie.change_stat(STATKEY_INT, 1, TRUE)
+	zombie.change_stat(STATKEY_CON, 5, TRUE)
+	old_cmode_music = zombie.cmode_music
+	zombie.cmode_music ='sound/music/cmode/combat_weird.ogg'
 	zombie.vitae_pool = 0 // Deadites have no vitae to drain from
+	var/datum/language_holder/mob_language = zombie.get_language_holder()
+	prev_language = mob_language.copy()
 	zombie.remove_all_languages()
-//	zombie.remove_language(/datum/language/common)
-//	zombie.remove_language(/datum/language/dwarvish)
-//	zombie.remove_language(/datum/language/elvish)
 	zombie.grant_language(/datum/language/hellspeak)
 
 	return ..()
@@ -116,17 +120,18 @@
 		if(zombie.charflaw)
 			zombie.charflaw.ephemeral = FALSE
 		zombie.update_body()
-		zombie.TOTALSTR = STASTR
-		zombie.TOTALSPD = STASPD
-		zombie.TOTALINT = STAINT
-		zombie.cmode_music = cmode_music
+		zombie.change_stat(STATKEY_STR, oldSTASTR - 6)
+		zombie.change_stat(STATKEY_SPD, oldSTASPD - 2)
+		zombie.change_stat(STATKEY_INT, oldSTAINT - 1)
+		zombie.change_stat(STATKEY_CON, oldSTACON - 5)
+		zombie.cmode_music = old_cmode_music
 		for(var/trait in traits_zombie)
 			REMOVE_TRAIT(zombie, trait, "[type]")
 		zombie.remove_client_colour(/datum/client_colour/monochrome)
 		if(has_turned && become_rotman)
-			zombie.TOTALCON = max(zombie.STACON - 5, 1) //ur rotting bro
-			zombie.TOTALSPD = max(zombie.STASPD - 5, 1)
-			zombie.TOTALINT = max(zombie.STAINT - 3, 1)
+			zombie.change_stat(STATKEY_CON, -5)
+			zombie.change_stat(STATKEY_SPD, -5)
+			zombie.change_stat(STATKEY_INT, -3)
 			for(var/trait in traits_rotman)
 				ADD_TRAIT(zombie, trait, "[type]")
 			to_chat(zombie, "<span class='green'>I no longer crave for flesh... <i>But I still feel ill.</i></span>")
@@ -144,6 +149,8 @@
 			zombie_part.update_disabled()
 			zombie_part.update_limb()
 		zombie.update_body()
+		zombie.remove_language(/datum/language/hellspeak)
+		zombie.copy_known_languages_from(prev_language)
 	return ..()
 
 /datum/antagonist/zombie/proc/transform_zombie()

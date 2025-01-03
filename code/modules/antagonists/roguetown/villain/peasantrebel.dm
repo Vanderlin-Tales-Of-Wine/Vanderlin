@@ -127,7 +127,7 @@
 
 /obj/effect/proc_holder/spell/self/rebelconvert/cast(list/targets,mob/user = usr)
 	..()
-	var/inputty = input("Make a speech!", "ROGUETOWN") as text|null
+	var/inputty = input("Make a speech!", "VANDERLIN") as text|null
 	if(inputty)
 		user.say(inputty, forced = "spell")
 		var/datum/antagonist/prebel/PR = user.mind.has_antag_datum(/datum/antagonist/prebel)

@@ -258,3 +258,17 @@
 		return TRUE
 	else
 		return FALSE
+
+/datum/keybinding/living/pixelshift
+	hotkey_keys = list("B")
+	name = "pixel_shift"
+	full_name = "Pixel-Shift"
+	description = "Use this to pixel shift"
+
+/datum/keybinding/living/pixelshift/down(client/user)
+	user.mob.AddComponent(/datum/component/pixel_shift)
+	SEND_SIGNAL(user.mob, COMSIG_KB_LIVING_PIXEL_SHIFT_DOWN)
+
+
+/datum/keybinding/living/pixelshift/up(client/user)
+	SEND_SIGNAL(user.mob, COMSIG_KB_LIVING_ITEM_PIXEL_SHIFT_UP)

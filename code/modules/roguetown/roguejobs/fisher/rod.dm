@@ -10,6 +10,9 @@
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_BULKY
 
+	grid_height = 96
+	grid_width = 32
+
 	///the bait we have on the hook
 	var/obj/item/baited = null
 
@@ -84,14 +87,14 @@
 
 /obj/item/fishingrod/attackby(obj/item/I, mob/user, params)
 	if(baited && reel && hook && line)
-		return  ..()
+		return ..()
 
 	if(istype(I, /obj/item/fishing/bait) || istype(I, /obj/item/natural/worms) || istype(I, /obj/item/natural/bundle/worms) || istype(I, /obj/item/reagent_containers/food/snacks))
 		if(istype(I, /obj/item/fishing/bait) || istype(I, /obj/item/natural/worms))
 			if(!baited)
 				I.forceMove(src)
 				baited = I
-				user.visible_message("<span class='notice'>[user] hooks something to the line.</span>", "<span class='notice'>I hook [I] to my line.</span>")
+				user.visible_message("<span class='notice'>[user] hooks something to [src].</span>", "<span class='notice'>I hook [I] to [src].</span>")
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 		else if(istype(I, /obj/item/natural/bundle/worms))
 			if(!baited)
@@ -101,7 +104,7 @@
 				if(W.amount == 1)
 					new W.stacktype(get_turf(user))
 					qdel(W)
-				user.visible_message("<span class='notice'>[user] hooks something to the line.</span>", "<span class='notice'>I hook [W.stacktype] to my line.</span>")
+				user.visible_message("<span class='notice'>[user] hooks something to [src].</span>", "<span class='notice'>I hook [W.stacktype] to [src].</span>")
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 		else
 			if(!baited)
@@ -144,15 +147,14 @@
 	if(line)
 		attacheditems += line
 
-	if(!attacheditems)
-		to_chat(user, "<span class='notice'>There's nothing on this fishing rod!</span>")
+	if(!length(attacheditems))
+		to_chat(user, "<span class='notice'>There's nothing to remove on [src]!</span>")
 
 		return
 	else
-		var/obj/totake = input(user, "What will you take off?", "Fishing rod") as obj in attacheditems
+		var/obj/totake = input(user, "What will you take off?", "[src.name]") as obj in attacheditems
 		if(!totake)
 			return
-		totake.loc = get_turf(user)
 		if(totake == baited)
 			baited = null
 		else if(totake == reel)
@@ -161,25 +163,28 @@
 			hook = null
 		else if(totake == line)
 			line = null
+		user.put_in_hands(totake)
 		to_chat(user, "<span class='notice'>I take [totake] off of [src].</span>")
+		update_icon()
 		return
 
 /obj/item/fishingrod/examine(mob/user)
-	..()
+	. = ..()
 	if(baited)
-		to_chat(user, "<span class='info'>There's a [baited.name] stuck on here.</span>")
+		. += "<span class='info'>There's a [baited.name] stuck on here.</span>"
+
 	if(reel)
-		to_chat(user, "<span class='info'>There's a [reel.name] strung on this rod.</span>")
+		. += "<span class='info'>There's a [reel.name] strung on [src].</span>"
 	else
-		to_chat(user, "<span class='warning'>I'm missing the fishing line.</span>")
+		. += "<span class='warning'>It's missing a fishing line.</span>"
 
 	if(hook)
-		to_chat(user, "<span class='info'>There's a [hook.name] on this rod.</span>")
+		. += "<span class='info'>There's a [hook.name] on [src].</span>"
 	else
-		to_chat(user, "<span class='warning'>I'm missing the hook.</span>")
+		. += "<span class='warning'>It's missing a hook.</span>"
 
 	if(line)
-		to_chat(user, "<span class='info'>There's a [line.name] on this rod.</span>")
+		. += "<span class='info'>There's a [line.name] on [src].</span>"
 
 /obj/item/fishingrod/getonmobprop(tag)
 	. = ..()
@@ -309,7 +314,7 @@
 
 		return
 
-	if(!baited || !hook || !line)
+	if(!baited || !hook || !reel)
 		to_chat(user, "<span class='warning'>I'm missing something...</span>")
 		return
 
@@ -485,9 +490,6 @@
 
 	var/caught = FALSE
 
-	if(user.used_intent.type == POLEARM_BASH)
-		return ..()
-
 	if(!check_allowed_items(target,target_self=1))
 		return ..()
 	if(user.used_intent.type != ROD_CAST)
@@ -542,6 +544,8 @@
 					to_chat(user, "<span class='warning'>I must stand still to fish.</span>")
 					return
 			update_icon()
+		else //where all nonfishing intents end up
+			return ..()
 	else
 		//the actual game
 		currentlyfishing = TRUE
@@ -582,7 +586,7 @@
 			switch(currentstate)
 				if("wait")
 					if(waittime <= 0)
-						if(line.bobber)
+						if(line?.bobber)
 							to_chat(fisher, "<span class = 'notice'>The [line.name] dips in the water!</span>")
 							playsound(loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 						if(abs(currentmouse - lastmouse) > 1 && waittime / initialwait < 0.5)
@@ -657,7 +661,7 @@
 			sleep(1)
 
 	if(!caught)
-		to_chat(user, "<span class = 'warning'>Damn, got away...</span>")
+		to_chat(user, "<span class = 'warning'>Damn, it got away...</span>")
 	else
 		to_chat(user, "<span class = 'notice'>I pull something out of the water!</span>")
 		playsound(loc, 'sound/items/Fish_out.ogg', 100, TRUE)

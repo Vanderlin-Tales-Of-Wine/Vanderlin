@@ -8,6 +8,9 @@
 	throwforce = 0
 	slot_flags = ITEM_SLOT_HIP
 	icon = 'icons/roguetown/items/lighting.dmi'
+
+	grid_height = 32
+	grid_width = 32
 	var/flintcd = 0
 
 /obj/item/flint/attack_self(mob/living/user)

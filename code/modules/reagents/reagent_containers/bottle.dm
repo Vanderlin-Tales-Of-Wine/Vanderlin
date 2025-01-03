@@ -315,7 +315,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	name = "message bottle"
 	desc = "Inside is a scroll, pop it open and read the ancient wisdoms."
 	icon = 'icons/roguetown/items/cooking.dmi'
-	dropshrink = 0.5
+	dropshrink = 0.8
 	icon_state = "bottle_message"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/item/paper/contained
@@ -351,7 +351,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	possible_transfer_amounts = list(6)
 	volume = 30
 	fill_icon_thresholds = list(0, 25, 50, 75, 100)
-	dropshrink = 0.5
+	dropshrink = 0.8
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_BELT
 	obj_flags = CAN_BE_HIT
 	spillable = FALSE

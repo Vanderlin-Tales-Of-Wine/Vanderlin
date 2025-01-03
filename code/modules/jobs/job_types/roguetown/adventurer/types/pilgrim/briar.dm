@@ -15,7 +15,7 @@
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	head = /obj/item/clothing/head/roguetown/padded/briarthorns
+	mask = /obj/item/clothing/mask/rogue/druid
 	neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 	shirt = /obj/item/clothing/suit/roguetown/armor/leather/vest
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor

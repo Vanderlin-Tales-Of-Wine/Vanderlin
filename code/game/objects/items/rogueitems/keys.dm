@@ -14,6 +14,9 @@
 	drop_sound = 'sound/items/gems (1).ogg'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK
 
+	grid_height = 64
+	grid_width = 32
+
 /obj/item/key/Initialize()
 	. = ..()
 	if(lockid)
@@ -40,6 +43,9 @@
 	picklvl = 1
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK
 	destroy_sound = 'sound/items/pickbreak.ogg'
+
+	grid_width = 32
+	grid_height = 64
 
 //custom key
 /obj/item/key/custom
@@ -376,7 +382,7 @@
 	lockid = "mage"
 
 /obj/item/key/graveyard
-	desc = "This rusty key belongs to the Gravekeepers."
+	desc = "This rusty key belongs to the Gravetenders."
 	icon_state = "rustkey"
 	lockid = "graveyard"
 
@@ -388,7 +394,7 @@
 
 /obj/item/key/niteman
 	name = "apothecary's key"
-	desc = "The master key of Eora's House."
+	desc = "The master key of the bath house."
 	icon_state = "greenkey"
 	lockid = "nightman"
 
@@ -816,7 +822,7 @@
 /obj/item/key/apothecary
 	name = "apothecary's key"
 	icon_state = "rustkey"
-	lockid = "apothecary"
+	lockid = "nightman"
 
 /obj/item/key/weaponsmith
 	name = "weaponsmith's key"
@@ -827,3 +833,14 @@
 	name = "armorsmith's key"
 	icon_state = "rustkey"
 	lockid = "armorsmith"
+
+/obj/item/key/matron
+	name = "matron key"
+	icon_state = "rustkey"
+	lockid = "orphanage"
+
+/obj/item/key/clinic
+	name = "clinic key"
+	icon_state = "mazekey"
+	lockid = "clinic"
+

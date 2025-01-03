@@ -1,6 +1,4 @@
 /mob/living/proc/try_repeatable_craft(obj/item/attacked_item, obj/item/attacked_object)
-	if(!(attacked_object.type in GLOB.repeatable_crafting_recipes))
-		return FALSE
 	var/list/recipes = list()
 	for(var/path in GLOB.repeatable_crafting_recipes)
 		if(!istype(attacked_object, path))

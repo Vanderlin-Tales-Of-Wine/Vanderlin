@@ -10,6 +10,9 @@
 	dynamic_hair_suffix = "+generic"
 	bloody_icon_state = "helmetblood"
 
+	grid_height = 32
+	grid_width = 64
+
 /obj/item/clothing/head/Initialize()
 	. = ..()
 	if(ishuman(loc) && dynamic_hair_suffix)

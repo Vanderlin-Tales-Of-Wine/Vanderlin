@@ -20,6 +20,7 @@
 	icon_state = "together"
 	baseturfs = /turf/open/water
 	slowdown = 20
+	turf_flags = NONE
 	var/obj/effect/overlay/water/water_overlay
 	var/obj/effect/overlay/water/top/water_top_overlay
 	bullet_sizzle = TRUE

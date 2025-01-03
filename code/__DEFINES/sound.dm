@@ -222,7 +222,4 @@ GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/towngen.ogg',
 	'sound/music/area/townstreets.ogg',
 	'sound/music/area/underworlddrone.ogg',
-	'sound/music/jukeboxes/tav3.ogg',
-	'sound/music/jukeboxes/tavern1.ogg',
-	'sound/music/jukeboxes/tavern2.ogg',
 	))

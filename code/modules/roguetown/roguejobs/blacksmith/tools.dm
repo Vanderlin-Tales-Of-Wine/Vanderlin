@@ -13,6 +13,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = /obj/item/ingot/iron
+
+	grid_width = 32
+	grid_height = 64
 	var/can_smith = TRUE
 
 /obj/proc/unbreak()

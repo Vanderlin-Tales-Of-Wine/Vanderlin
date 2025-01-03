@@ -47,6 +47,7 @@ GLOBAL_LIST_INIT(bitfields, list(
 		"NOBLUDGEON" = NOBLUDGEON,
 		"ABSTRACT" = ABSTRACT,
 		"IN_STORAGE" = IN_STORAGE,
+		"SHRINK_ENCHANT" = SHRINK_ENCHANT,
 		),
 	"admin_flags" = list(
 		"BUILDMODE" = R_BUILD,

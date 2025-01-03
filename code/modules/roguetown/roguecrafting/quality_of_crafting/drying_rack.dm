@@ -1,8 +1,3 @@
-
-/datum/repeatable_crafting_recipe/cooking
-	abstract_type = /datum/repeatable_crafting_recipe/cooking
-	skillcraft = /datum/skill/craft/cooking
-
 /datum/repeatable_crafting_recipe/dryleaf
 	name = "dry swampweed"
 	output = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried

@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/fish
 	name = "fish"
 	desc = ""
-	icon_state = "carp"
+	icon_state = "carpcom"
 	icon = 'icons/roguetown/misc/fish.dmi'
 	verb_say = "glubs"
 	verb_yell = "glubs"

@@ -188,7 +188,7 @@
 /obj/item/rogueweapon/polearm/spear
 	force = DAMAGE_SPEAR
 	force_wielded = DAMAGE_SPEAR_WIELD
-	throwforce = DAMAGE_SPEAR_WIELD
+	throwforce = DAMAGE_SPEAR
 	possible_item_intents = list(SPEAR_THRUST, POLEARM_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(POLEARM_THRUST, SPEAR_CUT, POLEARM_BASH)
 	name = "spear"
@@ -256,6 +256,8 @@
 	smeltresult = /obj/item/ingot/copper
 	dropshrink = 0.9
 	sellprice = 15
+	throw_speed = 3
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 0, "embedded_ignore_throwspeed_threshold" = 1)
 
 /obj/item/rogueweapon/polearm/spear/stone/copper/getonmobprop(tag)
 	. = ..()

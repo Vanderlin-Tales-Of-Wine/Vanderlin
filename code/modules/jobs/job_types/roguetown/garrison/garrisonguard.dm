@@ -75,6 +75,7 @@ Design philosphy:
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	head = /obj/item/clothing/head/roguetown/helmet/nasal
 	backr = /obj/item/rogueweapon/shield/wood
+	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/sword/scimitar/messer
 	beltl = /obj/item/rogueweapon/mace
 	backpack_contents = list(/obj/item/storage/keyring/guard)
@@ -111,6 +112,7 @@ Design philosphy:
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
+	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/sword/scimitar/messer
 	backpack_contents = list(/obj/item/storage/keyring/guard)
 
@@ -155,6 +157,7 @@ Design philosphy:
 	head = /obj/item/clothing/head/roguetown/roguehood/red
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/quiver/arrows
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
 	backpack_contents = list(/obj/item/storage/keyring/guard)
@@ -195,6 +198,7 @@ Design philosphy:
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
 	beltr = /obj/item/rogueweapon/sword/rapier
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
+	backl = /obj/item/storage/backpack/rogue/satchel
 	head = /obj/item/clothing/head/roguetown/roguehood/red
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	backpack_contents = list(/obj/item/storage/keyring/guard)

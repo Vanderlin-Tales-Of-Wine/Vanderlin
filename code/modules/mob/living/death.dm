@@ -95,7 +95,7 @@
 	update_mobility()
 	stop_pulling()
 
-	to_chat(src, span_green("A bleak afterlife awaits...but the Gods may let you walk again in another shape! Spirit, you must descend in a Journey to the Afterlife and wait there for judgment..."))
+	to_chat(src, span_green("A bleak afterlife awaits... but the Gods may let you walk again in another shape! Spirit, you must descend in a Journey to the Underworld and wait there for judgment..."))
 
 	. = ..()
 
@@ -111,8 +111,8 @@
 		mob_timers["lastdied"] = world.time
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
 //		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
-		add_client_colour(/datum/client_colour/monochrome)
-		client.verbs += /client/proc/descend
+		add_client_colour(/datum/client_colour/monochrome/death)
+		client?.verbs += /client/proc/descend
 
 	for(var/s in ownedSoullinks)
 		var/datum/soullink/S = s
@@ -156,7 +156,7 @@
 		if ("coast", "coastforest")
 			locale = "somewhere betwixt Abyssor's realm and Dendor's bounty"
 		if ("indoors", "shop", "physician", "outdoors", "roofs", "manor", "wizard's tower", "garrison", "dungeon cell", "baths", "tavern")
-			locale = "the city of Azure Peak and all its bustling souls"
+			locale = "the city of Vanderlin and all its bustling souls"
 		if ("church")
 			locale = "a hallowed place, sworn to the Ten" // special bit for the church since it's sacred ground
 

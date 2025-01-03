@@ -60,13 +60,13 @@
 	name = "standing fire"
 	icon_state = "standing1"
 	base_state = "standing"
-	bulb_colour = "#ff9648"
+	bulb_colour = "#ff9e54"
 	cookonme = FALSE
 	crossfire = FALSE
 
 
 /obj/machinery/light/rogue/firebowl/standing/blue
-	bulb_colour = "#b9bcff"
+	bulb_colour = "#8468ff"
 	icon_state = "standingb1"
 	base_state = "standingb"
 
@@ -116,6 +116,7 @@
 	name = "candles"
 	icon_state = "wallcandle1"
 	base_state = "wallcandle"
+	bulb_colour = "#ffa35c"
 	crossfire = FALSE
 	cookonme = FALSE
 	pixel_y = 32
@@ -150,7 +151,7 @@
 	pixel_x = -32
 
 /obj/machinery/light/rogue/wallfire/candle/blue
-	bulb_colour = "#b9bcff"
+	bulb_colour = "#8d73ff"
 	icon_state = "wallcandleb1"
 	base_state = "wallcandleb"
 

@@ -26,6 +26,12 @@
 	sharpness = IS_SHARP
 	sellprice = 30
 
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/rogueweapon/knife/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item)
 /obj/item/rogueweapon/knife/getonmobprop(tag)
 	. = ..()
 	if(tag)
