@@ -1,5 +1,5 @@
 /obj/machinery/dye_bin
-	name = "expensive dye bin"
+	name = "luxury dye bin"
 	desc = "Precious extracts, oils, powders, will transform your plain clothes to displays of wealth and extravagance!"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "dye_bin_full"
@@ -173,7 +173,7 @@
 
 
 /obj/machinery/simple_dye_bin
-	name = "simple dye bin"
+	name = "cheap dye bin"
 	desc = "A barrel with a selection of cheap things that will stain your clothes in muted colors. Ash, clods of dirt, jacksberries and swampweed provides all the colors any peasant could want!"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "dye_bin_full"
@@ -226,6 +226,14 @@
 	return ..()
 
 /obj/machinery/simple_dye_bin/attackby(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/luxury_dyes))
+		playsound(src, "bubbles", 50, 1)
+		user.visible_message("<span class='notice'>[user] is adding the [I].</span>")
+		if(do_after(user, 3 SECONDS))
+			new /obj/machinery/dye_bin(get_turf(src.loc))
+			qdel(I)
+			qdel(src)
+			return
 	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/H = I
 		if(inserted)
@@ -339,3 +347,51 @@
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
 				"<span class='warning'>I kick [src]!</span>")
+
+// The dye recipes
+/datum/crafting_recipe/roguetown/cheapdyes
+	name = "cheap dyes"
+	result = /obj/item/cheap_dyes
+	reqs = list(
+	/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
+	/obj/item/natural/dirtclod = 1)
+	subtype_reqs = TRUE // so you can use any subtype of the berries and swampweed
+
+/datum/crafting_recipe/roguetown/cheapdyes/alt
+	reqs = list(
+	/obj/item/reagent_containers/food/snacks/produce/swampweed = 1,
+	/obj/item/natural/dirtclod = 1)
+
+/datum/crafting_recipe/roguetown/cheapdyes/alto
+	reqs = list(
+	/obj/item/reagent_containers/food/snacks/produce/swampweed = 1,
+	/obj/item/ash = 1)
+
+/datum/crafting_recipe/roguetown/cheapdyes/altest
+	reqs = list(
+	/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
+	/obj/item/ash = 1)
+
+// The dyes. Different paths so can be used in different slapcrafts easily.
+/obj/item/luxury_dyes
+	name = "luxury dyes"
+	desc = "Adding these to a dye bin will let you use even the rarest, most expensive dyes."
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "luxury_dyes"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/cheap_dyes
+	name = "cheap dyes"
+	desc = "Adding these to a wooden bin will let you use it to dye clothing."
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "cheap_dyes"
+	w_class = WEIGHT_CLASS_TINY
+
+// The ingame hint
+/obj/item/book/rogue/advice_weaving
+	name = "A hundred kinds of stitches"
+	desc = "Howe to weave, tailor, and sundry tailoring. By Agnea Corazzani."
+	icon_state ="book8_0"
+	base_icon_state = "book8"
+	bookfile = "AdviceWeaving.json"
+
