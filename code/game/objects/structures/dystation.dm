@@ -375,7 +375,7 @@
 // The dyes. Different paths so can be used in different slapcrafts easily.
 /obj/item/luxury_dyes
 	name = "luxury dyes"
-	desc = "Adding these to a dye bin will let you use even the rarest, most expensive dyes."
+	desc = "Adding these to a existing cheap dye bin will let you use even the rarest, most expensive dyes."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "luxury_dyes"
 	w_class = WEIGHT_CLASS_TINY
