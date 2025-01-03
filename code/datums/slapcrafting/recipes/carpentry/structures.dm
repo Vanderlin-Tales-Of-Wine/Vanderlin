@@ -68,16 +68,6 @@
 		)
 	result_type = /obj/item/roguebin
 
-/datum/slapcraft_recipe/carpentry/structure/dye_bin
-	name = "dye bin"
-	steps = list(
-		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
-		/datum/slapcraft_step/item/jacksberry,
-		/datum/slapcraft_step/item/dirtclod
-		)
-	result_type = /obj/machinery/simple_dye_bin
-
 /datum/slapcraft_recipe/carpentry/structure/chair
 	name = "wooden chair"
 	steps = list(
