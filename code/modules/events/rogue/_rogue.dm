@@ -23,18 +23,18 @@ GLOBAL_LIST_INIT(badomens, list())
 /datum/round_event_control/proc/badomen(eventreason)
 	var/used
 	switch(eventreason)
-		if("roundstart")
+		if(OMEN_ROUNDSTART)
 			used = "Zizo."
-		if("importantdeath")
+		if(OMEN_NOPRIEST)
 			used = "The Priest has perished! The Ten are weakened..."
-		if("skellysiege")
+		if(OMEN_SKELETONSIEGE)
 			used = "Unwelcome visitors!"
-		if("nolord")
+		if(OMEN_NOLORD)
 			used = "The Monarch is dead! We need a new ruler."
-		if("sunsteal")
+		if(OMEN_SUNSTEAL)
 			used = "The Sun, she is wounded!"
-		if("ascend")
-			used = "Zizo will rise once again."
+		if(OMEN_ASCEND)
+			used = "Zizo will rise once again!"
 	if(eventreason && used)
 		priority_announce(used, "Bad Omen", 'sound/misc/evilevent.ogg')
 

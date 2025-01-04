@@ -15,6 +15,7 @@
 	var/patron = null
 	var/devotion = 0
 	var/max_devotion = 1000
+	var/max_progression = 1000
 	var/progression = 0
 	var/level = CLERIC_T0
 	/// How much devotion is gained per process call
@@ -58,6 +59,8 @@
 	if(!prog_amt) // no point in the rest if it's just an expenditure
 		return
 	progression += prog_amt
+	if(progression > max_progression)
+		progression = max_progression
 	switch(level)
 		if(CLERIC_T0)
 			if(progression >= CLERIC_REQ_1)
@@ -91,14 +94,15 @@
 		H.mind.AddSpell(newspell)
 	level = CLERIC_T0
 	max_devotion = CLERIC_REQ_1 //Max devotion limit - Churchlings only get diagnose and lesser miracle.
+	max_progression = CLERIC_REQ_1
 
-// Cleric Spell Spawner
+// Priest Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells_priest(mob/living/carbon/human/H)
 	if(!H || !H.mind)
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, A.t0, A.t1, A.t2, A.t3, /obj/effect/proc_holder/spell/invoked/cure_rot)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, A.t0, A.t1, A.t2, A.t3, /obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -108,6 +112,7 @@
 	update_devotion(300, 900)
 	START_PROCESSING(SSpersecond, src)
 
+//Acolyte Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells(mob/living/carbon/human/H)
 	if(!H || !H.mind)
 		return
@@ -120,6 +125,7 @@
 		H.mind.AddSpell(new spell_type)
 	level = CLERIC_T1
 
+//Cleric Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells_cleric(mob/living/carbon/human/H)
 	if(!H || !H.mind)
 		return
@@ -131,8 +137,11 @@
 			continue
 		H.mind.AddSpell(new spell_type)
 	level = CLERIC_T1
-	max_devotion = 230
+	max_devotion = 180
+	max_progression = 180
+	update_devotion(50, 50)
 
+//Templar Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells_templar(mob/living/carbon/human/H)
 	if(!H || !H.mind)
 		return
@@ -144,7 +153,9 @@
 			continue
 		H.mind.AddSpell(new spell_type)
 	level = CLERIC_T0
-	max_devotion = 150
+	max_devotion = 230
+	max_progression = 230
+	update_devotion(50, 50)
 
 /mob/living/carbon/human/proc/devotionreport()
 	set name = "Check Devotion"
@@ -187,9 +198,25 @@
 			if(C.devotion >= C.max_devotion)
 				to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")
 				break
-			C.update_devotion(C.prayer_effectiveness, C.prayer_effectiveness)
-			prayersesh += C.prayer_effectiveness
+			var/devotion_multiplier = 1
+			if(mind)
+				devotion_multiplier += (mind.get_skill_level(/datum/skill/magic/holy) / 4)
+			C.update_devotion(floor(C.prayer_effectiveness * devotion_multiplier), floor(C.prayer_effectiveness * devotion_multiplier))
+			prayersesh += floor(C.prayer_effectiveness * devotion_multiplier)
 		else
 			visible_message("[src] concludes their prayer.", "I conclude my prayer.")
 			break
 	to_chat(src, "<font color='purple'>I gained [prayersesh] devotion!</font>")
+
+/datum/devotion/cleric_holder/proc/excommunicate()
+	prayer_effectiveness = 0
+	devotion = -1
+	to_chat(holder_mob, span_userdanger("I have been excommunicated! The Ten no longer listen to my prayers nor my requests."))
+	STOP_PROCESSING(SSpersecond, src)
+
+/datum/devotion/cleric_holder/proc/recommunicate()
+	prayer_effectiveness = initial(prayer_effectiveness)
+	devotion = 0
+	to_chat(holder_mob, span_boldnotice("I have been welcomed back into the folds of the Ten."))
+	if(passive_devotion_gain || passive_progression_gain)
+		START_PROCESSING(SSpersecond, src)

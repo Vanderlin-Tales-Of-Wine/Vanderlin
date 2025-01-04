@@ -99,6 +99,14 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 //	SSticker.rulermob = H
 
+/datum/job/roguetown/exlord //just used to change the lords title
+	title = "Ex-Monarch"
+	flag = LORD
+	department_flag = NOBLEMEN
+	faction = "Station"
+	total_positions = 0
+	spawn_positions = 0
+	display_order = JDO_LORD
 
 /proc/give_lord_surname(mob/living/carbon/human/family_guy, preserve_original = FALSE)
 	if(!GLOB.lordsurname)

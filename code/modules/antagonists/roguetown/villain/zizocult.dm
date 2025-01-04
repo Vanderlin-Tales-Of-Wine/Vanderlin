@@ -958,7 +958,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	for(var/mob/living/carbon/human/H in C.contents)
 		if(H.stat == DEAD)
 			H.gib(FALSE, FALSE, FALSE)
-			addomen("roundstart")
+			addomen(OMEN_ROUNDSTART)
 
 /datum/ritual/ascend
 	name = "ASCEND!"
@@ -987,8 +987,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 				break
 			VIRGIN.gib()
 		CM.cultascended = TRUE
-		addomen("ascend")
-		to_chat(user.mind, "<span class='userdanger'>I HAVE DONE IT! I HAVE REACHED A HIGHER FORM! ZIZO SMILES UPON ME WITH MALICE IN HIS EYES TOWARD THE ONES WHO LACK KNOWLEDGE AND UNDERSTANDING!</span>")
+		addomen(OMEN_ASCEND)
+		to_chat(user.mind, "<span class='userdanger'>I HAVE DONE IT! I HAVE REACHED A HIGHER FORM! ZIZO SMILES UPON ME WITH MALICE IN HER EYES TOWARD THE ONES WHO LACK KNOWLEDGE AND UNDERSTANDING!</span>")
 		var/mob/living/trl = new /mob/living/simple_animal/hostile/retaliate/rogue/blood/ascended(C)
 		trl.ckey = H.ckey
 		H.gib()

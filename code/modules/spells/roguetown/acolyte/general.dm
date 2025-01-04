@@ -13,7 +13,8 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	charge_max = 10 SECONDS
-	devotion_cost = 25
+	devotion_cost = 10
+	miracle = TRUE
 
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
@@ -23,7 +24,7 @@
 			target.cursed_freak_out()
 			return FALSE
 		if(HAS_TRAIT(target, TRAIT_ATHEISM_CURSE))
-			target.visible_message(span_danger("[target] recoils in disgust!"), span_userdanger("These fools are trying to cure me with religion!!"))
+			target.visible_message(span_danger("[target] recoils in disgust!"), span_userdanger("These fools are trying to cure me with religion!"))
 			target.cursed_freak_out()
 			return FALSE
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead

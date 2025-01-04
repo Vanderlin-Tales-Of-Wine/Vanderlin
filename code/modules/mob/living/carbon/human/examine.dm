@@ -48,7 +48,7 @@
 				display_as_wanderer = TRUE
 		else if(job)
 			var/datum/job/J = SSjob.GetJob(job)
-			if(J.wanderer_examine)
+			if(J?.wanderer_examine)
 				display_as_wanderer = TRUE
 			if(islatejoin)
 				is_returning = TRUE
@@ -95,7 +95,10 @@
 					. += family_text
 
 		if(real_name in GLOB.excommunicated_players)
-			. += "<span class='userdanger'>HERETIC! SHAME!</span>"
+			. += span_userdanger("EXCOMMUNICATED!")
+
+		if(real_name in GLOB.heretical_players)
+			. += span_userdanger("HERETIC! SHAME!")
 
 		if(real_name in GLOB.outlawed_players)
 			. += "<span class='userdanger'>OUTLAW!</span>"

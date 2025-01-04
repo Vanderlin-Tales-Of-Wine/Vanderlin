@@ -598,7 +598,7 @@
 		return		// not enough spell points
 	else
 		user.mind.used_spell_points += item.cost
-		user.mind.AddSpell(new item)
+		user.mind.AddSpell(new item, silent = FALSE)
 		addtimer(CALLBACK(user.mind, TYPE_PROC_REF(/datum/mind, check_learnspell), src), 2 SECONDS) //self remove if no points
 		return TRUE
 

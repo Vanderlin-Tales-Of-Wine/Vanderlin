@@ -178,6 +178,16 @@
 
 	category_tags = list(CTAG_CONSORT)
 
+/datum/job/roguetown/exlady //just used to change the consort title
+	title = "Ex-Consort"
+	flag = CONSORT
+	department_flag = NOBLEMEN
+	faction = "Station"
+	total_positions = 0
+	spawn_positions = 0
+	display_order = JDO_CONSORT
+	give_bank_account = TRUE
+
 /datum/outfit/job/roguetown/consort/courtesan/spy/pre_equip(mob/living/carbon/human/H)
 	. = ..()
 	H.grant_language(/datum/language/thievescant)
@@ -191,6 +201,6 @@
 	overlay_state = "recruit_servant"
 	recruitment_faction = "Servants"
 	recruitment_message = "Join the keep's servants, %RECRUIT!"
-	accept_message = "I serve the Crown !"
+	accept_message = "I serve the Crown!"
 	refuse_message = "I refuse."
 	charge_max = 100

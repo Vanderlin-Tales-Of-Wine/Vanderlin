@@ -1940,7 +1940,7 @@
 /area/rogue/indoors/town/church/chapel)
 "cfK" = (
 /obj/structure/fluff/statue/gargoyle/moss{
-	name = "Church of the Divine Pantheon"
+	name = "Church of the Ten"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
@@ -2342,7 +2342,7 @@
 /area/rogue/outdoors/town/roofs)
 "cAT" = (
 /obj/structure/fluff/statue/gargoyle/moss/candles{
-	name = "Church of the Divine Pantheon"
+	name = "Church of the Ten"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)

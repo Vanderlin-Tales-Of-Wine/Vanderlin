@@ -96,8 +96,6 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Paladins, while devout warriors spent WAY too much time studying the blade. No more acolyte+
-	C.update_devotion(50, 50)
-	C.holder_mob = H
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 

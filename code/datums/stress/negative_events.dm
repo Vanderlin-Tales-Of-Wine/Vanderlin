@@ -148,7 +148,7 @@
 	desc = "<span class='red'>YUCK! MAGGOTS!</span>"
 
 /datum/stressevent/psycurse
-	timer = 5 MINUTES
+	timer = INFINITY
 	stressadd = 5
 	desc = "<span class='red'>Oh no! I've received divine punishment!</span>"
 

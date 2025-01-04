@@ -146,7 +146,7 @@ SUBSYSTEM_DEF(vote)
 			if("endround")
 				if(. == "Continue Playing")
 					log_game("LOG VOTE: CONTINUE PLAYING AT [REALTIMEOFDAY]")
-					addomen("roundstart")
+					addomen(OMEN_ROUNDSTART)
 					GLOB.round_timer = GLOB.round_timer + (32 MINUTES)
 				else
 					log_game("LOG VOTE: ELSE  [REALTIMEOFDAY]")

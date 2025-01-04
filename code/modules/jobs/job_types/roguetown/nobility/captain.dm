@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	spells = /obj/effect/proc_holder/spell/self/convertrole/guard
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -158,7 +158,7 @@
 	overlay_state = "recruit_guard"
 	recruitment_faction = "Garrison"
 	recruitment_message = "Join the Guarrison, %RECRUIT!"
-	accept_message = "I swear fealty to the Crown and it's garrison !"
+	accept_message = "I swear fealty to the Crown and its garrison!"
 	refuse_message = "I refuse."
 
 /obj/effect/proc_holder/spell/self/convertrole/guard/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
