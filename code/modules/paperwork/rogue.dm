@@ -119,6 +119,7 @@
 	var/signedname
 	var/signedjob
 	var/list/orders = list()
+	var/list/fufilled_orders = list()
 	open = TRUE
 	textper = 150
 
@@ -175,7 +176,10 @@
 	if(orders.len)
 		info += "<ul>"
 		for(var/datum/supply_pack/A in orders)
-			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+			if(!A.contraband)
+				info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+			else
+				info += "<li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
 		info += "</ul>"
 
 	info += "<br/></font>"
@@ -368,3 +372,23 @@
 			info += "<s><li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[removed_name]</li></s><br/>"
 
 	info += "</div>"
+
+
+/obj/item/paper/scroll/sold_manifest
+	name = "Shipping Manifest"
+
+	var/list/count = list()
+	var/list/items = list()
+
+/obj/item/paper/scroll/sold_manifest/proc/rebuild_info()
+	info = null
+	info += "<div style='vertical-align:top'>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Sold Items</h2>"
+	info += "<hr/>"
+
+	if(length(items))
+		for(var/real_name in items)
+			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[count[real_name]]x[real_name] - [items[real_name]] mammons</li><br/>"
+
+	info += "</div>"
+

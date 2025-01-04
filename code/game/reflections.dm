@@ -4,6 +4,7 @@
 	plane = REFLECTION_PLANE
 	mouse_opacity = 0
 	pixel_y = -44
+	has_reflection = FALSE
 
 /obj/reflection/New(loc,mob/owner)
 	owner.vis_contents += src

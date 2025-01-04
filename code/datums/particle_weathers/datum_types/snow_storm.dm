@@ -154,11 +154,29 @@
 
 /obj/structure/snow/Destroy(force)
 	update_visuals_effects(src, FALSE)
+
+	for(var/atom/movable/movable in get_turf(src))
+		if(movable.get_filter("mob_moving_effect_mask"))
+			animate(movable.get_filter("mob_moving_effect_mask"), y = -32, time = 0)
+			if(ismob(movable))
+				movable:update_vision_cone()
+			for(var/mob/living/carbon/human/human in view(movable, 7))
+				human.update_vision_cone()
+
 	STOP_PROCESSING(SSslowobj, src)
 	snowed_turf.snow = null
 	snowed_turf = null
 
 	. = ..()
+
+	for(var/obj/structure/snow/bordered_snow in orange(get_turf(src), 1))
+		if(!bordered_snow)
+			continue
+		if(bordered_snow == src)
+			continue
+		bordered_snow.update_corners(ignored = src)
+		bordered_snow.update_overlays()
+
 
 /obj/structure/snow/process(delta_time)
 	update_overlays()
@@ -170,6 +188,7 @@
 	SIGNAL_HANDLER
 
 	var/list/contained_mobs = list()
+	var/turf/turf = get_turf(src)
 	for(var/mob/living/contained_mob in contents)
 		contained_mobs += contained_mob
 		SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_mob)
@@ -190,7 +209,6 @@
 
 
 	if(first)
-		var/turf/turf = get_turf(src)
 		for(var/mob/living/contained_mob in turf.contents)
 			contained_mobs += contained_mob
 			SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_mob)
@@ -209,7 +227,6 @@
 			contained_mobs += contained_machinery
 			SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_machinery)
 
-
 	RemoveElement(/datum/element/mob_overlay_effect)
 	if(replace)
 		AddElement(/datum/element/mob_overlay_effect, bleed_layer * 2.4, -6 + (bleed_layer * 3.5), 100)
@@ -226,7 +243,7 @@
 			contained_mobs += contained_machinery
 			SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_UPDATE, contained_machinery)
 
-/obj/structure/snow/proc/update_corners(propagate = FALSE)
+/obj/structure/snow/proc/update_corners(propagate = FALSE, obj/structure/ignored)
 	var/list/snow_dirs = list(list(), list(), list())
 	var/turf/turf = get_turf(src)
 	if(!turf)
@@ -239,6 +256,8 @@
 
 	for(var/obj/structure/snow/bordered_snow in orange(src, 1))
 		if(!bordered_snow)
+			continue
+		if(ignored == bordered_snow)
 			continue
 
 		if(propagate)

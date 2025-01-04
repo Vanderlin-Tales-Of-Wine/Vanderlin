@@ -611,7 +611,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			moving_platform.obj_flags |= BLOCK_Z_OUT_DOWN
 			moving_platform.alpha = 255
 
-/datum/lift_master/tram/proc/try_process_order()
+/datum/lift_master/tram/proc/try_process_order(fence = FALSE)
 	var/total_coin_value = 0
 	var/list/requested_supplies = list()
 	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
@@ -630,8 +630,12 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			continue
 
 		for(var/datum/supply_pack/requested as anything in requested_supplies)
-			if(total_coin_value >= requested.cost)
-				total_coin_value -= requested.cost
+			var/modifier = 1
+			if(fence)
+				if(!requested.contraband)
+					modifier = 1.5
+			if(total_coin_value >= FLOOR(requested.cost * modifier, 1))
+				total_coin_value -= FLOOR(requested.cost * modifier, 1)
 				SSmerchant.requestlist |= requested.contains
 
 		spawn_coins(total_coin_value, platform)
@@ -670,8 +674,11 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 	return TRUE
 
-/datum/lift_master/tram/proc/try_sell_items()
+/datum/lift_master/tram/proc/try_sell_items(fence = FALSE)
 	var/total_coin_value = 0
+	var/sell_modifer = 1
+	if(fence)
+		sell_modifer = 0.75
 
 	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
 		var/list/atom/movable/original_contents = list()
@@ -689,6 +696,8 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 			original_contents += resolved_contents
 
+		var/list/sold_items = list()
+		var/list/sold_count = list()
 		for(var/atom/movable/listed_atom in platform.lift_load)
 			if(listed_atom in original_contents)
 				continue
@@ -701,7 +710,46 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			if(istype(listed_atom, /obj/item/roguecoin))
 				continue
 
-			total_coin_value += listed_atom.sellprice
+			total_coin_value += FLOOR(listed_atom.sellprice * sell_modifer, 1)
+			if(!(initial(listed_atom.name) in sold_items))
+				sold_items |= initial(listed_atom.name)
+				sold_count |= initial(listed_atom.name)
+
+				sold_count[initial(listed_atom.name)] = 1
+				sold_items[initial(listed_atom.name)] = FLOOR(listed_atom.sellprice * sell_modifer, 1)
+
+			else
+				sold_count[initial(listed_atom.name)]++
+				sold_items[initial(listed_atom.name)] += FLOOR(listed_atom.sellprice * sell_modifer, 1)
+
 			qdel(listed_atom)
 
 		spawn_coins(total_coin_value, platform)
+
+		if(length(sold_items) && !fence)
+			var/scrolls_to_spawn = CEILING(length(sold_items) / 6, 1)
+			for(var/i = 1 to scrolls_to_spawn)
+				var/list/items = list()
+				var/list/count = list()
+				var/current_count = 0
+				for(var/b = 1 to length(sold_items))
+					if(current_count >= 6)
+						continue
+					current_count++
+					var/first_item = sold_items[1]
+					items |= first_item
+					items[first_item] = sold_items[first_item]
+					sold_items -= first_item
+
+					var/first_count = sold_count[1]
+					count |= first_item
+					count[first_count] = sold_count[first_count]
+					sold_items -= first_count
+
+
+				var/obj/structure/industrial_lift/tram/picked = pick(platform.moving_lifts)
+				var/turf/location = get_turf(picked)
+				var/obj/item/paper/scroll/sold_manifest/manifest = new /obj/item/paper/scroll/sold_manifest(location)
+				manifest.count = count.Copy()
+				manifest.items = items.Copy()
+				manifest.rebuild_info()

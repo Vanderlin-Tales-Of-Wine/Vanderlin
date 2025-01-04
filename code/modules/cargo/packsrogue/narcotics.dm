@@ -2,6 +2,7 @@
 	group = "Narcotics"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
+	contraband = TRUE
 
 /datum/supply_pack/rogue/narcotics/sigs
 	name = "Pipe Weed Zig"
