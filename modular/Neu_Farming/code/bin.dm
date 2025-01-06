@@ -153,6 +153,9 @@
 			new /obj/machinery/simple_dye_bin(src.loc)
 			qdel(src)
 			return
+	if(istype(I, /obj/item/luxury_dyes))
+		user.visible_message("<span class='notice'>add some cheap dyes first as a base.</span>")
+		return
 	if(!reagents || !reagents.maximum_volume) //trash
 		return ..()
 	if(istype(I, /obj/item/rogueweapon/tongs))
