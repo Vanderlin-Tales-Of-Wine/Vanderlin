@@ -130,6 +130,24 @@
 	icon_state = "apothpants"
 	item_state = "apothpants"
 
+/obj/item/clothing/under/roguetown/trou/artipants
+	name = "artificer trousers"
+	desc = "Thick leather trousers to protect from sparks or stray gear projectiles. Judging by the wear, its had plenty of use."
+	icon_state = "artipants"
+	item_state = "artipants"
+
+/obj/item/clothing/under/roguetown/trou/leathertights
+	name = "leather tights"
+	desc = "Classy leather tights, form-fitting but tasteful."
+	icon_state = "leathertights"
+	item_state = "leathertights"
+
+/obj/item/clothing/under/roguetown/trou/beltpants
+	name = "belt-buckled trousers"
+	desc = "Dark leather trousers adorned with far too many buckles to be pragmatic."
+	icon_state = "beltpants"
+	item_state = "beltpants"
+
 /obj/item/clothing/under/roguetown/loincloth
 	name = "loincloth"
 	desc = "Protects your modesty, but not much else."

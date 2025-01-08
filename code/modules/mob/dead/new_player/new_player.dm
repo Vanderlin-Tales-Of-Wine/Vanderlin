@@ -1,5 +1,5 @@
 #define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
-GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.txt"))
+GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json"))
 
 /mob/dead/new_player
 	var/ready = 0

@@ -22,6 +22,7 @@
 /datum/outfit/job/roguetown/templar
 	name = "Templar"
 	jobtype = /datum/job/roguetown/templar
+	allowed_patrons = ALL_TEMPLAR_PATRONS
 
 /datum/outfit/job/roguetown/templar/pre_equip(mob/living/carbon/human/H)
 	..()

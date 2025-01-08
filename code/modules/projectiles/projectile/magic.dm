@@ -294,6 +294,11 @@
 	else
 		if(isitem(target))
 			var/obj/item/I = target
+			var/mob/living/carbon/human/carbon_firer
+			if (ishuman(firer))
+				carbon_firer = firer
+				if (carbon_firer?.can_catch_item())
+					throw_target = get_turf(firer)
 			I.throw_at(throw_target, 200, 4)
 
 /obj/projectile/magic/sapping

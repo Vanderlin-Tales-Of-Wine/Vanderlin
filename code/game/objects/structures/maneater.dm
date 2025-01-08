@@ -37,7 +37,7 @@
 
 /obj/structure/flora/roguegrass/maneater/real/process()
 	if(!has_buckled_mobs())
-		if(world.time > last_eat + 50)
+		if(world.time > last_eat + 8 SECONDS)
 			var/list/around = view(1, src)
 			for(var/mob/living/M in around)
 				HasProximity(M)
@@ -55,17 +55,17 @@
 			STOP_PROCESSING(SSobj, src)
 			return TRUE
 	for(var/mob/living/L in buckled_mobs)
-		if(world.time > last_eat + 50)
+		if(world.time > last_eat + 8 SECONDS)
 			last_eat = world.time
 			L.flash_fullscreen("redflash3")
 			playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
 			if(iscarbon(L))
 				var/mob/living/carbon/C = L
 				src.visible_message("<span class='danger'>[src] starts to rip apart [C]!</span>")
-				spawn(50)
+				spawn(8 SECONDS)
 					if(C && (C.buckled == src))
 						var/obj/item/bodypart/limb
-						var/list/limb_list = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+						var/list/limb_list = list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
 						for(var/zone in limb_list)
 							limb = C.get_bodypart(zone)
 							if(limb)
@@ -87,7 +87,7 @@
 							return
 			else
 				src.visible_message("<span class='danger'>[src] starts to rip apart [L]!</span>")
-				spawn(50)
+				spawn(8 SECONDS)
 					if(L && (L.buckled == src))
 						L.gib()
 						return
@@ -129,7 +129,7 @@
 /obj/structure/flora/roguegrass/maneater/real/HasProximity(atom/movable/AM)
 	if(has_buckled_mobs())
 		return
-	if(world.time > last_eat + 50)
+	if(world.time > last_eat + 8 SECONDS)
 		var/list/around = view(src, 1) // scan for enemies
 		if(!(AM in around))
 			return

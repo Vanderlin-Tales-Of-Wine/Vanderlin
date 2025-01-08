@@ -1,5 +1,5 @@
-#define GUILLOTINE_BLADE_MAX_SHARP  10 // This is maxiumum sharpness and will decapitate without failure
-#define GUILLOTINE_DECAP_MIN_SHARP  7  // Minimum amount of sharpness for decapitation. Any less and it will just do severe brute damage
+#define GUILLOTINE_BLADE_MAX_SHARP  5 // This is maxiumum sharpness and will decapitate without failure
+#define GUILLOTINE_DECAP_MIN_SHARP  4 // Minimum amount of sharpness for decapitation. Any less and it will just do severe brute damage. 2 executions before it needs to be sharpened.
 #define GUILLOTINE_ANIMATION_LENGTH 5 // How many deciseconds the animation is
 #define GUILLOTINE_ANIMATION_RAISE_LENGTH 36
 #define GUILLOTINE_BLADE_RAISED     1
@@ -38,15 +38,17 @@
 /obj/structure/guillotine/examine(mob/user)
 	. = ..()
 
-	var/msg = "It is [anchored ? "wrenched to the floor." : "unsecured. A wrench should fix that."]<br/>"
+	var/msg = "The blade "
 
 	if (blade_status == GUILLOTINE_BLADE_RAISED)
-		msg += "The blade is raised, ready to fall, and"
+		msg += "is raised, ready to fall, and"
 
 		if (blade_sharpness >= GUILLOTINE_DECAP_MIN_SHARP)
 			msg += " looks sharp enough to decapitate without any resistance."
 		else
-			msg += " doesn't look particularly sharp. Perhaps a whetstone can be used to sharpen it."
+			msg += " doesn't look particularly sharp. Perhaps some kind of stone can be used to sharpen it."
+	else
+		msg += "has fallen already."
 
 	. += msg
 
@@ -124,6 +126,9 @@
 
 		playsound(src, 'sound/misc/guillotine.ogg', 100, TRUE)
 
+		// The delay is to making large crowds have a longer laster applause
+		var/delay_offset = 0
+
 		if(blade_sharpness >= GUILLOTINE_DECAP_MIN_SHARP || head.brute_dam >= 100)
 			if(head.dismemberable)
 				head.dismember()
@@ -148,18 +153,21 @@
 			add_overlay(mutable_appearance(icon, blood_overlay))
 
 			// The crowd is pleased
-			// The delay is to making large crowds have a longer laster applause
-			var/delay_offset = 0
 			for(var/mob/M in viewers(src, 7))
-				var/mob/living/carbon/C = M
-				if (iscarbon(C))
-					M.add_stress(/datum/stressevent/viewexecution)
-					addtimer(CALLBACK(C, TYPE_PROC_REF(/mob, emote), "clap"), delay_offset * 0.3)
-					delay_offset++
+				M.add_stress(/datum/stressevent/viewexecution)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob, emote), "clap"), delay_offset * 0.3)
+				delay_offset++
 		else
-			H.apply_damage(15 * blade_sharpness, BRUTE, head)
+			H.apply_damage(30 * blade_sharpness, BRUTE, head)
 			log_combat(user, H, "dropped the blade on", src, " non-fatally")
 			H.emote("scream")
+			// Executor has failed and was ashamed
+			user.add_stress(/datum/stressevent/guillotineexecutorfail)
+			// The crowd is unpleased
+			for(var/mob/M in viewers(src, 7))
+				M.add_stress(/datum/stressevent/guillotinefail)
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob, emote), "huh"), delay_offset * 0.3)
+				delay_offset++
 
 		if (blade_sharpness > 1)
 			blade_sharpness -= 1
@@ -207,7 +215,17 @@
 		to_chat(usr, "<span class='warning'>I need to raise the blade before placing someone!</span>")
 		return FALSE
 
-	return ..(M, force, FALSE)
+	if(iscarbon(M))
+		var/mob/living/carbon/carbon = M
+		if(carbon.handcuffed)
+			return ..(carbon, force, FALSE)
+
+	for(var/obj/item/grabbing/G in M.grabbedby)
+		if(G.grab_state == GRAB_AGGRESSIVE)
+			return ..(M, force, FALSE)
+
+	to_chat(usr, span_warning("I must grab them more forcefully to put them in [src]."))
+	return FALSE
 
 /obj/structure/guillotine/post_buckle_mob(mob/living/M)
 	if (!istype(M, /mob/living/carbon/human))

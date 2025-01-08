@@ -97,6 +97,9 @@
 	desc = "A simple brimmed hat that provides some relief from the sun."
 	icon_state = "brimmed"
 
+/obj/item/clothing/head/roguetown/articap
+	desc = "A sporting cap with a small gear adornment. Popular fashion amongst Heartfelt engineers."
+	icon_state = "articap"
 
 //................ Fur Hats ............... //
 /obj/item/clothing/head/roguetown/hatfur
@@ -182,8 +185,6 @@
 	desc = "A simple leather hat with a fancy plume on top. A corny attempt at appearing regal \
 			despite one's status. Typically worn by travelling minstrels of all kinds."
 	icon_state = "bardhat"
-
-
 
 /obj/item/clothing/head/roguetown/antlerhood
 	name = "antlerhood"
@@ -466,6 +467,11 @@
 /obj/item/clothing/head/roguetown/crown/nyle
 	name = "jewel of nyle"
 	icon_state = "nile"
+	sellprice = VALUE_GOLD_ITEM
+
+/obj/item/clothing/head/roguetown/crown/nyle/consortcrown
+	name = "jewel of nyle"
+	icon_state = "consortcrown"
 	sellprice = VALUE_GOLD_ITEM
 
 //................ Hennin ............... //
@@ -1452,6 +1458,13 @@
 	bloody_icon_state = "helmetblood_big"
 
 	prevent_crits =  MINOR_CRITICALS
+
+/obj/item/clothing/head/roguetown/wizhat/witch
+	name = "witch hat"
+	desc = ""
+	icon_state = "witchhat"
+	detail_tag = "_detail"
+	detail_color = CLOTHING_SOOT_BLACK
 
 /obj/item/clothing/head/roguetown/wizhat/gen
 	icon_state = "wizardhatgen"

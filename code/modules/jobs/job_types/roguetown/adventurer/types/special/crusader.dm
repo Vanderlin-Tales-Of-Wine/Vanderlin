@@ -17,6 +17,9 @@
 	pickprob = 30
 	min_pq = 0
 
+/datum/outfit/job/roguetown/adventurer/crusader
+	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/psydon)
+
 /datum/outfit/job/roguetown/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
 	..()
 
@@ -34,27 +37,6 @@
 	beltl = /obj/item/rogueweapon/sword/silver
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
 
-	// Run this first so that patron gets changed before assigning gear.
-	if(H.patron == /datum/patron/divine/noc)
-		H.set_patron(/datum/patron/divine/astrata)
-	if(H.patron == /datum/patron/divine/eora)
-		H.set_patron(/datum/patron/divine/necra)
-	if(H.patron == /datum/patron/godless)
-		H.set_patron(/datum/patron/divine/necra)
-	if(H.patron == /datum/patron/divine/pestra)
-		H.set_patron(/datum/patron/psydon)
-	if(H.patron == /datum/patron/divine/dendor)
-		H.set_patron(/datum/patron/psydon)
-	if(H.patron == /datum/patron/divine/malum)
-		H.set_patron(/datum/patron/psydon)
-	if(H.patron == /datum/patron/divine/xylix)
-		H.set_patron(/datum/patron/psydon)
-	if(H.patron == /datum/patron/divine/ravox)
-		H.set_patron(/datum/patron/psydon)
-	if(H.patron == /datum/patron/divine/abyssor)
-		H.set_patron(/datum/patron/psydon)
-
-	// Now we equip according to patron.
 	switch(H.patron?.name)
 		if("Astrata")
 			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold for Astrata regardless of gender
@@ -156,11 +138,7 @@
 
 /obj/item/clothing/cloak/cape/crusader/ComponentInitialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak/lord)
 
 /obj/item/clothing/cloak/cape/crusader/attack_right(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)

@@ -405,3 +405,15 @@
 		)
 	result_type = /obj/structure/table/wood/crafted
 	craftdiff = 0
+
+/datum/slapcraft_recipe/carpentry/structure/pillory
+	name = "pillory"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/item/iron,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/lock,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/structure/pillory
+	craftdiff = 2

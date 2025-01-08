@@ -23,11 +23,11 @@
 	var/target_turf = get_step(user, user.dir)
 	for(var/obj/structure/closet/crate/coffin/coffin in target_turf)
 		if(pacify_coffin(coffin, user))
-			user.visible_message("[user] consecrates [coffin].", "My funeral rites have been performed on [coffin]!")
+			user.visible_message(span_rose("[user] consecrates [coffin]."), span_rose("My funeral rites have been performed on [coffin]."))
 			return
 	for(var/obj/structure/closet/dirthole/hole in target_turf)
 		if(pacify_coffin(hole, user))
-			user.visible_message("[user] consecrates [hole].", "My funeral rites have been performed on [hole]!")
+			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("My funeral rites have been performed on [hole]."))
 			return
 	to_chat(user, span_warning("I failed to perform the rites."))
 

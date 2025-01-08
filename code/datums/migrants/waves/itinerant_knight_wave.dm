@@ -94,7 +94,7 @@
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/knight
 	downgrade_wave = /datum/migrant_wave/knight_down
-	weight = 35
+	weight = 10
 	roles = list(
 		/datum/migrant_role/itinerant_knight = 1,
 		/datum/migrant_role/itinerant_squire = 1,
@@ -106,7 +106,6 @@
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/knight
 	can_roll = FALSE
-	weight = 35
 	roles = list(
 		/datum/migrant_role/itinerant_knight = 1,
 	)

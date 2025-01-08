@@ -98,6 +98,11 @@
 	allowed_race = list("human", "tiefling", "elf", "dwarf", "aasimar")
 	salvage_result = /obj/item/natural/silk
 
+/obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
+	name = "heartfeltian suit"
+	desc = "Typical fashion of the best Heartfelt engineers."
+	icon_state = "artishirt"
+
 /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 	icon_state = "sailorblues"
 
@@ -186,6 +191,14 @@
 	sleevetype = "tunic"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+
+/obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
+	name = "fancy coat"
+	desc = "A fancy tunic and coat combo. How elegant."
+	icon_state = "noblecoat"
+	sleevetype = "noblecoat"
+	color = CLOTHING_WHITE
+	boobed = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/tribalrag
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -332,6 +345,66 @@
 	GLOB.lordcolor -= src
 	return ..()
 
+//Royal clothing:
+//................ Royal Dress (Ball Gown)............... //
+/obj/item/clothing/suit/roguetown/shirt/dress/royal
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	icon = 'icons/roguetown/clothing/shirts_royalty.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts_royalty.dmi'
+	name = "royal gown"
+	desc = "An elaborate ball gown, a favoured fashion of queens and elevated nobility in Enigma."
+	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	icon_state = "royaldress"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts_royalty.dmi'
+	boobed = TRUE
+	detail_tag = "_detail"
+	detail_color = CLOTHING_SOOT_BLACK
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/lordcolor(primary,secondary)
+	detail_color = primary
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+//................ Princess Dress ............... //
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "pristine dress"
+	desc = "A flowy, intricate dress made by the finest tailors in the land for the monarch's children."
+	icon_state = "princess"
+	boobed = TRUE
+	detail_color = CLOTHING_BERRY_BLUE
+
+//................ Prince Shirt   ............... //
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "gilded dress shirt"
+	desc = "A gold-embroidered dress shirt specially tailored for the monarch's children."
+	icon_state = "prince"
+	boobed = TRUE
+	detail_color = CLOTHING_ROYAL_MAJENTA
+
+// End royal clothes
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "dress"

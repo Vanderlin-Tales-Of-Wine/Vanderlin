@@ -14967,7 +14967,7 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
 	lockid = "doctor";
-	name = "feldscher"
+	name = "feldsher"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)

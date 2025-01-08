@@ -97,26 +97,34 @@
 		if(real_name in GLOB.excommunicated_players)
 			. += "<span class='userdanger'>HERETIC! SHAME!</span>"
 
+		if(real_name in GLOB.outlawed_players)
+			. += "<span class='userdanger'>OUTLAW!</span>"
+
 		if(iszizocultist(user) || iszizolackey(user))
 			if(virginity)
 				. += "<span class='userdanger'>VIRGIN!</span>"
 
-		if(real_name in GLOB.outlawed_players)
-			. += "<span class='userdanger'>OUTLAW!</span>"
 		if(mind && mind.special_role)
 			if(mind && mind.special_role == "Bandit" && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
 				. += "<span class='userdanger'>BANDIT!</span>"
-		else
 			if(mind && mind.special_role == "Vampire Lord")
 				. += "<span class='userdanger'>A MONSTER!</span>"
-
-		if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
-			. += span_green("They are also a member of the Thieves Guild.")
 
 		var/list/known_frumentarii = user.mind.cached_frumentarii
 		if(name in known_frumentarii)
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
 
+		if(user != src)
+			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
+				. += span_green("A member of the Thieves Guild.")
+
+			if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL))
+				. += span_purple("A fellow seeker of Her ascension.")
+
+			if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
+				var/atom/item = get_most_expensive()
+				if(item)
+					. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
 
 	if(HAS_TRAIT(src, TRAIT_MANIAC_AWOKEN))
 		. += span_userdanger("MANIAC!")
@@ -335,14 +343,32 @@
 	if(pulledby && pulledby.grab_state)
 		msg += "[m1] being grabbed by [pulledby]."
 
-	//Nutrition
+	//Nutrition and Thirst
+	var/list/msg_list = list()
 	if(nutrition < (NUTRITION_LEVEL_STARVING - 50))
-		msg += "[m1] looking starved."
+		msg_list += "[m1] looking emaciated."
 //	else if(nutrition >= NUTRITION_LEVEL_FAT)
 //		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
 //			msg += "[t_He] [t_is] plump and delicious looking - Like a fat little piggy. A tasty piggy."
 //		else
 //			msg += "[t_He] [t_is] quite chubby."
+	if(HAS_TRAIT(user, TRAIT_EXTEROCEPTION))
+		switch(nutrition)
+			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
+				msg_list += "[m1] looking peckish."
+			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
+				msg_list += "[m1] looking hungry."
+			if(NUTRITION_LEVEL_STARVING-50 to NUTRITION_LEVEL_STARVING)
+				msg_list += "[m1] looking starved."
+		switch(hydration)
+			if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
+				msg_list += "[m1] looking like [m2] mouth is dry."
+			if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
+				msg_list += "[m1] looking thirsty for a drink."
+			if(0 to HYDRATION_LEVEL_DEHYDRATED)
+				msg_list += "[m1] looking parched."
+	if(length(msg_list))
+		msg += msg_list.Join(" ")
 
 	//Fire/water stacks
 	if(fire_stacks > 0)

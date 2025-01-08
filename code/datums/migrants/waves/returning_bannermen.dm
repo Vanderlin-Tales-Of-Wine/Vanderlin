@@ -241,7 +241,7 @@
 	max_spawns = 2
 	shared_wave_type = /datum/migrant_wave/knight
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down
-	weight = 15
+	weight = 40
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_bannerman = 2,
@@ -256,7 +256,6 @@
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_one
 	can_roll = FALSE
-	weight = 15
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_bannerman = 1,
@@ -271,7 +270,6 @@
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_two
 	can_roll = FALSE
-	weight = 15
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_bannerman = 1,
@@ -285,7 +283,6 @@
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_three
 	can_roll = FALSE
-	weight = 15
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_bannerman = 1,
@@ -298,7 +295,6 @@
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_four
 	can_roll = FALSE
-	weight = 15
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_bannerman = 1,
@@ -309,7 +305,6 @@
 	name = "The Bannermen's return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	can_roll = FALSE
-	weight = 15
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 	)

@@ -126,6 +126,7 @@
 			A.diagonal_smooth(adjacencies)
 		else
 			A.cardinal_smooth(adjacencies)
+	SEND_SIGNAL(A, COMSIG_ATOM_SMOOTHED_ICON)
 
 /atom/proc/diagonal_smooth(adjacencies)
 	switch(adjacencies)

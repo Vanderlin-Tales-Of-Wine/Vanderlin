@@ -10,7 +10,7 @@ on:
 
 env:
   BYOND_MAJOR: 515
-  BYOND_MINOR: 1636
+  BYOND_MINOR: 1647
   SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:

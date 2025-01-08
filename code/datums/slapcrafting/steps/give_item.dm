@@ -98,3 +98,8 @@
 /datum/slapcraft_step/item/silk
 	desc = "Add some silk."
 	item_types = list(/obj/item/natural/silk)
+
+/datum/slapcraft_step/item/lock
+	desc = "Add a finished lock."
+	item_types = list(/obj/item/customlock/finished)
+	insert_item_into_result = TRUE //check contents of finished item to handle lock behavior

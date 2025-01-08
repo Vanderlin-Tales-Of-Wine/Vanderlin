@@ -39,7 +39,7 @@
 			SSfamilytree.AddRoyal(H, FAMILY_FATHER)
 
 /datum/outfit/job/roguetown/consort // Default equipment regardless of class.
-	head = /obj/item/clothing/head/roguetown/crown/nyle
+	head = /obj/item/clothing/head/roguetown/crown/nyle/consortcrown
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	id = /obj/item/clothing/ring/silver
 	belt = /obj/item/storage/belt/rogue/leather
@@ -66,10 +66,12 @@
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/arming
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket
 	else
 		pants = /obj/item/clothing/under/roguetown/tights/random
-		armor = pick(/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress, /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress/alt)
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket
+		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/winterdress
+
 
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -104,10 +106,11 @@
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea // this is kind of stupid but i love it anyway
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket // this is kind of stupid but i love it anyway
 	else
 		pants = /obj/item/clothing/under/roguetown/tights/random
-		armor = pick(/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress, /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress/alt)
+		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/winterdress
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

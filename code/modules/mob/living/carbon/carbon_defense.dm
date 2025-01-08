@@ -339,7 +339,7 @@
 	//Stun
 	var/should_stun = (!(flags & SHOCK_TESLA) || siemens_coeff > 0.5) && !(flags & SHOCK_NOSTUN)
 	if(!HAS_TRAIT(src, TRAIT_NOPAIN))
-		if(should_stun)
+		if(should_stun && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 			Paralyze(30)
 		//Jitter and other fluff.
 		jitteriness += 1000
@@ -352,7 +352,7 @@
 ///Called slightly after electrocute act to reduce jittering and apply a secondary stun.
 /mob/living/carbon/proc/secondary_shock(should_stun)
 	jitteriness = max(jitteriness - 990, 10)
-	if(should_stun)
+	if(should_stun && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 		Paralyze(60)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)

@@ -196,10 +196,11 @@
 	shared_wave_type = /datum/migrant_wave/rockhill_wave
 	downgrade_wave = /datum/migrant_wave/rockhill_wave_down
 	max_spawns = 1
-	weight = 15
+	weight = 30
 	roles = list(
 		/datum/migrant_role/rockhill/mayor = 1,
-		/datum/migrant_role/rockhill_knight = 2,
+		/datum/migrant_role/rockhill_knight = 1,
+		/datum/migrant_role/rockhill/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_guard = 4
 	)
 	greet_text = "The Mayor has it, something must be discussed with the rulers of Vanderlin which is why we're on our way over there."
@@ -212,7 +213,8 @@
 	roles = list(
 		/datum/migrant_role/rockhill/mayor = 1,
 		/datum/migrant_role/rockhill_knight = 1,
-		/datum/migrant_role/footman_guard = 3
+		/datum/migrant_role/rockhill/sergeant_at_arms = 1,
+		/datum/migrant_role/footman_guard = 2
 	)
 	greet_text = "The Mayor has it, something must be discussed with the rulers of Vanderlin which is why we're on our way over there."
 

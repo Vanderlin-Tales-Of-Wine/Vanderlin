@@ -42,7 +42,7 @@
 
 	H.become_blind("TRAIT_GENERIC")
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Woodcutter")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
@@ -193,21 +193,23 @@
 				shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 				pants = null
 			backpack_contents = list(/obj/item/neuFarm/seed/wheat=1,/obj/item/neuFarm/seed/apple=1,/obj/item/ash=1,/obj/item/rogueweapon/knife/villager=1)
-		if("Woodcutter")
+		if("Carpenter")
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the axe...
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			belt = /obj/item/storage/belt/rogue/leather/assassin
-			shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 			pants = /obj/item/clothing/under/roguetown/trou
-			head = /obj/item/clothing/head/roguetown/roguehood/random
+			head = pick(/obj/item/clothing/head/roguetown/hatfur, /obj/item/clothing/head/roguetown/hatblu, /obj/item/clothing/head/roguetown/brimmed)
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			backr = /obj/item/storage/backpack/rogue/satchel
-			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
+			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light/striped
-			beltr = /obj/item/rogueweapon/axe/iron
-			beltl = /obj/item/rogueweapon/knife/hunting
-			backpack_contents = list(/obj/item/flint = 1)
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+			beltl = /obj/item/rogueweapon/hammer/claw
+			backr = /obj/item/rogueweapon/axe/iron
+			backl = /obj/item/storage/backpack/rogue/backpack
+			backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
 
 	H.cure_blind("TRAIT_GENERIC")
 

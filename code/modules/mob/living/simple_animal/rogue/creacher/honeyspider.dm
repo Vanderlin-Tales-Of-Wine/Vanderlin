@@ -73,6 +73,7 @@
 
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+	ADD_TRAIT(src, TRAIT_WEBWALK, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/AttackingTarget()
 	. = ..()

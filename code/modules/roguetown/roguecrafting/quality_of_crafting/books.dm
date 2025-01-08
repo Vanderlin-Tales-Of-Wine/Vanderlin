@@ -213,7 +213,7 @@
 		/datum/repeatable_crafting_recipe/salo,
 		/datum/repeatable_crafting_recipe/saltfish,
 		/datum/repeatable_crafting_recipe/raisins,
-		/datum/repeatable_crafting_recipe/parchment_scrolls,
+		/datum/repeatable_crafting_recipe/parchment,
 	)
 
 /obj/item/recipe_book/underworld

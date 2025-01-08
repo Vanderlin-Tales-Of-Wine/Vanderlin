@@ -107,16 +107,23 @@
 	dropshrink = 0.6
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp
+	name = "cooked carp"
 	icon_state = "carpcooked"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish
+	name = "cooked clownfish"
 	icon_state = "clownfishcooked"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler
+	name = "cooked anglerfish"
 	icon_state = "anglercooked"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel
+	name = "cooked eel"
 	icon_state = "eelcooked"
+
+/obj/item/reagent_containers/food/snacks/rogue/fryfish/swordfish
+	name = "cooked swordfish"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp/rare
 	eat_effect = list(/datum/status_effect/buff/foodbuff, /datum/status_effect/buff/blessed)

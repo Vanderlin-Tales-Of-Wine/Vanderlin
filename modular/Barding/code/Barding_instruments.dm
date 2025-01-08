@@ -314,13 +314,13 @@
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
 	icon_state = "lute"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/lute (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/lute (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/lute (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/lute (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/lute (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/lute (6).ogg',
-	"Song 7" = 'modular/Barding/sound/instruments/lute (7).ogg',
+	"A Knight's Return" = 'modular/Barding/sound/instruments/lute (1).ogg',
+	"Amongst Fare Friends" = 'modular/Barding/sound/instruments/lute (2).ogg',
+	"The Road Traveled by Few" = 'modular/Barding/sound/instruments/lute (3).ogg',
+	"Tip Thine Tankard" = 'modular/Barding/sound/instruments/lute (4).ogg',
+	"A Reed On the Wind" = 'modular/Barding/sound/instruments/lute (5).ogg',
+	"Jests On Steel Ears" = 'modular/Barding/sound/instruments/lute (6).ogg',
+	"Merchant in the Mire" = 'modular/Barding/sound/instruments/lute (7).ogg',
 	"Soilson's Song" = 'modular/Barding/sound/instruments/lute (8).ogg')
 
 /obj/item/rogue/instrument/accord
@@ -329,12 +329,12 @@
 	icon_state = "accordion"
 	item_state = "accordion"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/accord (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/accord (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/accord (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/accord (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/accord (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/accord (6).ogg',
+	"Her Healing Tears" = 'modular/Barding/sound/instruments/accord (1).ogg',
+	"Peddler's Tale" = 'modular/Barding/sound/instruments/accord (2).ogg',
+	"We Toil Together" = 'modular/Barding/sound/instruments/accord (3).ogg',
+	"Just One More, Tavern Wench" = 'modular/Barding/sound/instruments/accord (4).ogg',
+	"Moonlight Carnival" = 'modular/Barding/sound/instruments/accord (5).ogg',
+	"'Ye Best Be Goin'" = 'modular/Barding/sound/instruments/accord (6).ogg',
 	"Song of the Falconeer" = 'modular/Barding/sound/instruments/accord (7).ogg',
 	"Dwarven Frolick" = 'modular/Barding/sound/instruments/accord (8).ogg'
 	)
@@ -346,13 +346,13 @@
 	icon_state = "guitar"
 	item_state = "guitar"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/guitar (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/guitar (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/guitar (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/guitar (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/guitar (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/guitar (6).ogg',
-	"Sunset ballad" = 'modular/Barding/sound/instruments/guitar (7).ogg',
+	"Fire-Cast Shadows" = 'modular/Barding/sound/instruments/guitar (1).ogg',
+	"The Forced Hand" = 'modular/Barding/sound/instruments/guitar (2).ogg',
+	"Regrets Unpaid" = 'modular/Barding/sound/instruments/guitar (3).ogg',
+	"'Took the Mammon and Ran'" = 'modular/Barding/sound/instruments/guitar (4).ogg',
+	"Poor Man's Tithe" = 'modular/Barding/sound/instruments/guitar (5).ogg',
+	"In His Arms Ye'll Find Me" = 'modular/Barding/sound/instruments/guitar (6).ogg',
+	"Sunset Ballad" = 'modular/Barding/sound/instruments/guitar (7).ogg',
 	"Romanza" = 'modular/Barding/sound/instruments/guitar (8).ogg',
 	"Malaguena" = 'modular/Barding/sound/instruments/guitar (9).ogg',
 	"Song of the Archer" = 'modular/Barding/sound/instruments/guitar (10).ogg',
@@ -368,9 +368,9 @@
 	desc = "An elven instrument of a great and proud heritage."
 	icon_state = "harp"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/harb (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/harb (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/harb (3).ogg',
+	"Through Thine Window, He Glanced" = 'modular/Barding/sound/instruments/harp (1).ogg',
+	"The Lady of Red Silks" = 'modular/Barding/sound/instruments/harp (2).ogg',
+	"Eora Doth Watches" = 'modular/Barding/sound/instruments/harp (3).ogg',
 	"Dance of the Mages" = 'modular/Barding/sound/instruments/harp (4).ogg',
 	"Trickster Wisps" = 'modular/Barding/sound/instruments/harp (5).ogg')
 
@@ -381,12 +381,12 @@
 	icon_prefix = "flute" // used for inhands switch
 	dynamic_icon = TRUE // used for inhands switch
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/flute (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/flute (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/flute (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/flute (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/flute (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/flute (6).ogg',
+	"Half-Dragon's Ten Mammon" = 'modular/Barding/sound/instruments/flute (1).ogg',
+	"The Local Favorite" = 'modular/Barding/sound/instruments/flute (2).ogg',
+	"Rous in the Cellar" = 'modular/Barding/sound/instruments/flute (3).ogg',
+	"Her Boots, So Incandescent" = 'modular/Barding/sound/instruments/flute (4).ogg',
+	"Moondust Minx" = 'modular/Barding/sound/instruments/flute (5).ogg',
+	"Quest to the Ends" = 'modular/Barding/sound/instruments/flute (6).ogg',
 	"Flower Melody" = 'modular/Barding/sound/instruments/flute (7).ogg',
 	"Noble Solace" = 'modular/Barding/sound/instruments/flute (8).ogg')
 
@@ -395,8 +395,8 @@
 	desc = "The adopted instrument of Aasimar, used for signaling and rhythmic marches alike."
 	icon_state = "drum"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/drum (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/drum (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/drum (3).ogg',
-	"Snare drum" = 'modular/Barding/sound/instruments/drum (4).ogg',
+	"Barbarian's Moot" = 'modular/Barding/sound/instruments/drum (1).ogg',
+	"Muster the Wardens" = 'modular/Barding/sound/instruments/drum (2).ogg',
+	"The Earth That Quakes" = 'modular/Barding/sound/instruments/drum (3).ogg',
+	"Marching Beat" = 'modular/Barding/sound/instruments/drum (4).ogg',
 	"Desert Heat" = 'modular/Barding/sound/instruments/drum (5).ogg')

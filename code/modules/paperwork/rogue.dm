@@ -1,5 +1,5 @@
 /obj/item/paper/scroll
-	name = "papyrus"
+	name = "parchment scroll"
 	icon_state = "scroll"
 	var/open = FALSE
 	slot_flags = null

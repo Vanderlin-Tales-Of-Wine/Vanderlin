@@ -1,3 +1,72 @@
+/mob/living
+	var/mutable_appearance/reflective_mask
+	var/mutable_appearance/reflective_icon
+
+
+/mob/living/update_overlays()
+	. = ..()
+	update_reflection()
+
+/mob/living/update_icon()
+	. = ..()
+	update_reflection()
+
+/mob/living/proc/create_reflection()
+	//Add custom reflection mask
+	var/mutable_appearance/MA = new()
+	//appearance stuff
+	MA.appearance = appearance
+	if(render_target)
+		MA.render_source = render_target
+	MA.plane = MANUAL_REFLECTIVE_MASK_PLANE
+	reflective_mask = MA
+	add_overlay(MA)
+
+	//Add custom reflection image
+	var/mutable_appearance/MAM = new()
+	//appearance stuff
+	MAM.appearance = appearance
+	if(render_target)
+		MAM.render_source = render_target
+	MAM.plane = MANUAL_REFLECTIVE_PLANE
+	//transform stuff
+	var/matrix/n_transform = MAM.transform
+	n_transform.Scale(1, -1)
+	MAM.transform = n_transform
+	MAM.vis_flags = VIS_INHERIT_DIR
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	I.Flip(NORTH)
+	MAM.filters += filter(type = "alpha", icon = I)
+	reflective_icon = MAM
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
+/mob/living/carbon/human/dummy/update_reflection()
+	return
+
+/mob/living/proc/update_reflection()
+	if(!reflective_icon)
+		create_reflection()
+	cut_overlay(reflective_icon)
+	reflective_icon.appearance = appearance
+	if(render_target)
+		reflective_icon.render_source = render_target
+	reflective_icon.plane = MANUAL_REFLECTIVE_PLANE
+	reflective_icon.pixel_y -= 32
+	//transform stuff
+	var/matrix/n_transform = reflective_icon.transform
+	n_transform.Scale(1, -1)
+	reflective_icon.transform = n_transform
+	reflective_icon.vis_flags = VIS_INHERIT_DIR
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	I.Flip(NORTH)
+	reflective_icon.filters += filter(type = "alpha", icon = I)
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
+
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -8,6 +77,8 @@
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	init_faith()
+
+	create_reflection()
 
 /mob/living/Destroy()
 	surgeries = null
@@ -641,7 +712,7 @@
 	update_rest_hud_icon()
 	update_mobility()
 
-//Recursive function to find everything a mob is holding. Really shitty proc tbh.
+//Recursive function to find everything a mob is holding. Really shitty proc tbh, you should use get_all_gear for carbons.
 /mob/living/get_contents()
 	var/list/ret = list()
 	ret |= contents						//add our contents
@@ -962,6 +1033,7 @@
 		Stun(150)
 		src.visible_message("<span class='notice'>[src] yields!</span>")
 		playsound(src, 'sound/misc/surrender.ogg', 100, FALSE, -1)
+		toggle_cmode()
 		sleep(150)
 	surrendering = 0
 

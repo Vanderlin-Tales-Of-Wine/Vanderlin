@@ -2,7 +2,7 @@
 	name = null
 	associated_faith = /datum/faith/inhumen_pantheon
 	confess_lines = list(
-		"PSYDON IS THE DEMIURGE!",
+		"PSYDON AND HIS CHILDREN ARE THE DEMIURGE!",
 		"THE TEN ARE WORTHLESS COWARDS!",
 		"THE TEN ARE DECEIVERS!"
 	)
@@ -44,11 +44,12 @@
 	flaws = "Pride, Greed, Orneryness"
 	worshippers = "Outlaws, Noble-Haters, Downtrodden Peasantry"
 	sins = "Clumsiness, Stupidity, Humility"
-	boons = "None... yet."
+	boons = "You can see the most expensive item someone is carrying."
+	added_traits = list(TRAIT_MATTHIOS_EYES)
 	confess_lines = list(
-		"Matthios steal my pain, and take me away from these HEATHENS!",
-		"Matthios is my true lord, he WILL steal me away from YOU!",
-		"I am a devoted of Matthios, I will sooner martyr than REPENT!",
+		"MATTHIOS STEALS FROM THE WORTHLESS!",
+		"MATTHIOS IS JUSTICE FOR THE COMMON MAN!",
+		"MATTHIOS IS MY LORD, I SHALL BE HIS MARTYR!",
 	)
 
 /datum/patron/inhumen/baotha
@@ -65,7 +66,6 @@
 		"JOY AT ALL COSTS! BAOTHA'S TEACHINGS REIGN!",
 		"BAOTHA'S WHISPERS CALM MY MIND!",
 	)
-
 
 /datum/patron/inhumen/graggar_zizo
 	name = "Graggazo"

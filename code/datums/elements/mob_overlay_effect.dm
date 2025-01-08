@@ -1,19 +1,5 @@
 ///The alpha mask used on mobs submerged in liquid turfs or standing on high ground
 #define MOB_MOVING_EFFECT_MASK "mob_moving_effect_mask"
-
-//This is the only practical way of writing these that actually produces sane lists
-/proc/alpha_mask_filter(x, y, icon/icon, render_source, flags)
-	. = list("type" = "alpha")
-	if(!isnull(x))
-		.["x"] = x
-	if(!isnull(y))
-		.["y"] = y
-	if(!isnull(icon))
-		.["icon"] = icon
-	if(!isnull(render_source))
-		.["render_source"] = render_source
-	if(!isnull(flags))
-		.["flags"] = flags
 ///mob_overlay_effect component. adds and removes
 /datum/element/mob_overlay_effect
 	element_flags = ELEMENT_BESPOKE | ELEMENT_DETACH

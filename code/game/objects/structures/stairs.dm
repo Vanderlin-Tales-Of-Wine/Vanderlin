@@ -14,6 +14,7 @@
 	layer = 2
 	obj_flags = CAN_BE_HIT
 	nomouseover = TRUE
+	has_reflection = FALSE
 
 /obj/structure/stairs/stone
 	name = "stone stairs"

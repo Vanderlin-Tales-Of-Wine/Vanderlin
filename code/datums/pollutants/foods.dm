@@ -85,12 +85,16 @@
 	scent = "cooked eel"
 
 /datum/pollutant/food/baked_clownfish
-	name = "cooked clown fish"
-	scent = "cooked clown fish"
+	name = "cooked clownfish"
+	scent = "cooked clownfish"
 
 /datum/pollutant/food/baked_angler
-	name = "cooked angler fish"
-	scent = "cooked angler fish"
+	name = "cooked anglerfish"
+	scent = "cooked anglerfish"
+
+/datum/pollutant/food/baked_swordfish
+	name = "cooked swordfish"
+	scent = "cooked swordfish"
 
 /datum/pollutant/food/truffles
 	name = "cooked truffles"
@@ -107,10 +111,6 @@
 /datum/pollutant/food/fried_chicken
 	name = "cooked chicken"
 	scent = "cooked chicken"
-
-/datum/pollutant/food/sausage
-	name = "cooked sausage"
-	scent = "cooked sausage"
 
 /datum/pollutant/food/sausage
 	name = "cooked sausage"

@@ -88,6 +88,9 @@
 
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
+	///our reflection child
+	var/tmp/obj/reflection/basic_reflection
+	var/has_reflection = FALSE
 
 /**
  * Called when an atom is created in byond (built in engine proc)
@@ -113,6 +116,9 @@
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
+
+	if(has_reflection)
+		basic_reflection = new/obj/reflection(null,src)
 
 /**
  * The primary method that objects are setup in SS13 with
@@ -172,8 +178,45 @@
 	ComponentInitialize()
 	InitializeAIController()
 
+	if(shine)
+		make_shiny(shine)
+
 	return INITIALIZE_HINT_NORMAL
 
+
+/atom/proc/make_shiny(_shine = SHINE_REFLECTIVE, _reflection_plane = REFLECTIVE_PLANE)
+	if(reflection || reflection_displacement)
+		if(shine != _shine)
+			cut_overlay(reflection)
+			cut_overlay(reflection_displacement)
+		else
+			return
+	var/r_overlay
+	switch(_shine)
+		if(SHINE_MATTE)
+			return
+		if(SHINE_REFLECTIVE)
+			r_overlay = "partialOverlay"
+		if(SHINE_SHINY)
+			r_overlay = "whiteOverlay"
+	reflection = mutable_appearance('icons/turf/overlays.dmi', r_overlay, plane = _reflection_plane)
+	reflection_displacement = mutable_appearance('icons/turf/overlays.dmi', "flip", plane = REFLECTIVE_DISPLACEMENT_PLANE)
+	reflection_displacement.appearance_flags = 0 //Have to do this to make map work. Why? IDK, displacements are special like that
+	var/masking_plane = _reflection_plane == REFLECTIVE_PLANE ? REFLECTIVE_ALL_PLANE : REFLECTIVE_ALL_ABOVE_PLANE
+	total_reflection_mask = mutable_appearance('icons/turf/overlays.dmi', "whiteFull", plane = masking_plane)
+	reflection.pixel_y -= 32
+	total_reflection_mask.pixel_y -= 32
+	reflection_displacement.pixel_y -= 32
+	add_overlay(reflection)
+	add_overlay(reflection_displacement)
+	add_overlay(total_reflection_mask)
+	shine = _shine
+
+/atom/proc/make_unshiny()
+	cut_overlay(reflection)
+	cut_overlay(reflection_displacement)
+	cut_overlay(total_reflection_mask)
+	shine = SHINE_MATTE
 /**
  * Late Intialization, for code that should run after all atoms have run Intialization
  *
@@ -220,6 +263,10 @@
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
 
+	if(basic_reflection)
+		if(ismovableatom(src))
+			src:vis_contents -= basic_reflection
+		QDEL_NULL(basic_reflection)
 	return ..()
 
 /atom/proc/handle_ricochet(obj/projectile/P)
@@ -1066,14 +1113,20 @@
 		update_filters()
 	return .
 
+/proc/cmp_filter_data_priority(list/A, list/B)
+	return A["priority"] - B["priority"]
+
 /atom/movable/proc/update_filters()
 	filters = null
-	sortTim(filter_data,associative = TRUE)
-	for(var/f in filter_data)
-		var/list/data = filter_data[f]
+	var/atom/atom_cast = src // filters only work with images or atoms.
+	atom_cast.filters = null
+	filter_data = sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
+	for(var/filter_raw in filter_data)
+		var/list/data = filter_data[filter_raw]
 		var/list/arguments = data.Copy()
 		arguments -= "priority"
-		filters += filter(arglist(arguments))
+		atom_cast.filters += filter(arglist(arguments))
+	UNSETEMPTY(filter_data)
 
 /atom/movable/proc/get_filter(name)
 	if(filter_data && filter_data[name])

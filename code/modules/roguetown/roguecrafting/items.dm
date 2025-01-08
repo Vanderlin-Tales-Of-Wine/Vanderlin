@@ -477,6 +477,11 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 2
 
+/datum/crafting_recipe/roguetown/parchment_scroll
+	name = "parchment scroll"
+	result = /obj/item/paper/scroll
+	reqs = list(/obj/item/paper = 3)
+
 // Woodcutting recipe
 /datum/crafting_recipe/roguetown/lumberjacking
 	skillcraft = /datum/skill/labor/lumberjacking

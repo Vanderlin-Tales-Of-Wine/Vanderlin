@@ -141,6 +141,12 @@
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 
+/obj/item/reagent_containers/food/snacks/organ/On_Consume(mob/living/eater)
+	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER))
+		eat_effect = /datum/status_effect/buff/foodbuff
+	. = ..()
+	eat_effect = initial(eat_effect)
+
 /obj/item/organ/Initialize()
 	. = ..()
 	if(accessory_type)

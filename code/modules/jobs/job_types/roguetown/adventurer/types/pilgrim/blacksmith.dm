@@ -15,7 +15,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/blacksmith
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Blacksmith"
+	apprentice_name = "Blacksmith Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
 	..()

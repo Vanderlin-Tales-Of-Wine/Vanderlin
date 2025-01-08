@@ -24,6 +24,12 @@
 	///Bitflags to determine lighting-related atom properties.
 	var/light_flags = NONE
 
+	///Reflective overlay
+	var/mutable_appearance/reflection
+	var/mutable_appearance/reflection_displacement
+	var/mutable_appearance/total_reflection_mask
+	var/shine = SHINE_MATTE
+
 /atom/movable
 	///Lazylist to keep track on the sources of illumination.
 	var/list/affected_dynamic_lights

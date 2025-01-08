@@ -16,7 +16,7 @@
 /datum/stressevent/viewdismembermaniac
 	timer = 2 MINUTES
 	stressadd = -1
-	desc = span_green("I've limbs fly. Hehe...")
+	desc = span_green("I saw limbs fly. Hehe...")
 
 /datum/stressevent/viewgibmaniac
 	timer = 2 MINUTES
@@ -26,7 +26,7 @@
 /datum/stressevent/viewexecution
 	timer = 5 MINUTES
 	stressadd = -2
-	desc = span_green("I saw a lawbreaker get punished!")
+	desc = span_green("Nice civilized entertainment.")
 
 /datum/stressevent/psyprayer
 	timer = 30 MINUTES
@@ -185,4 +185,4 @@
 /datum/stressevent/apprentice_making_me_proud
 	timer = 5 MINUTES
 	stressadd = -3
-	desc = span_green("My apprentice is getting better.")
+	desc = span_green("My apprentice is improving, all thanks to me!")

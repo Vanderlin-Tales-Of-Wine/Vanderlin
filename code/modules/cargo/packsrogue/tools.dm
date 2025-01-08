@@ -34,7 +34,7 @@
 	contains = /obj/item/sleepingbag
 
 /datum/supply_pack/rogue/tools/scroll
-	name = "Paper Scroll"
+	name = "Parchment Scroll"
 	cost = 2
 	contains = /obj/item/paper/scroll
 

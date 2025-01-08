@@ -9,7 +9,7 @@
 	"Aasimar"
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/seamstress
-	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Weaver"
 
 /datum/outfit/job/roguetown/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)

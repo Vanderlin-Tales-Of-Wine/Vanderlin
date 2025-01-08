@@ -827,6 +827,8 @@
 		return 1
 	var/boon = H.age == AGE_OLD ? 0.8 : 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
 	boon += get_skill_level(skill) / 10
+	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
+		boon += 0.05
 	return boon
 
 /datum/mind/proc/add_sleep_experience(skill, amt, silent = FALSE, check_apprentice = TRUE)
@@ -842,6 +844,10 @@
 				multiplier = apprentice_training_skills[skill]
 			if(apprentice.mind.get_skill_level(skill) <= (get_skill_level(skill) - 1))
 				multiplier += 0.25 //this means a base 35% of your xp is also given to nearby apprentices plus skill modifiers.
+			if(ishuman(current))
+				var/mob/living/carbon/human/H = current
+				if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //Base 50% of your xp is given to nearby apprentice
+					multiplier += 0.15
 			var/apprentice_amt = amt * 0.1 + multiplier
 			if(apprentice.mind.add_sleep_experience(skill, apprentice_amt, FALSE, FALSE))
 				current.add_stress(/datum/stressevent/apprentice_making_me_proud)
@@ -861,8 +867,11 @@
 	youngling.mind.apprentice = TRUE
 
 	var/datum/job/J = SSjob.GetJob(current:job)
-	var/title = "[J.title] Apprentice"
-	if(apprentice_name)
+	var/title = "[J.title]"
+	if(youngling.gender == FEMALE && J.f_title)
+		title = "[J.f_title]"
+	title += " Apprentice"
+	if(apprentice_name) //Needed for advclassses
 		title = apprentice_name
-	youngling.mind.our_apprentice_name = "[current.name]'s [title]"
-	to_chat(current, span_notice("[youngling.name] has become your apprentice."))
+	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
+	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))

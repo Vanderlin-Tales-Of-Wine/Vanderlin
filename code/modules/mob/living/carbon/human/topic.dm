@@ -144,7 +144,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(suiciding)
 			message += span_deadsay("[p_they(TRUE)] commited suicide... Nothing can be done...")
 		if(isobserver(user) || HAS_TRAIT(user, TRAIT_SOUL_EXAMINE))
-			if(!key && !get_ghost(FALSE, TRUE))
+			if(!key && !get_ghost(TRUE))
 				message += span_deadsay("[p_their(TRUE)] soul has departed for the Underworld.")
 			else
 				message += span_deadsay("[p_they(TRUE)] [p_are()] still earthbound.")

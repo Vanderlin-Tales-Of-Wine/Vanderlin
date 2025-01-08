@@ -16,7 +16,7 @@
 	name = "The Holy voyage"
 	shared_wave_type = /datum/migrant_wave/acolytes
 	downgrade_wave = /datum/migrant_wave/acolytes_down
-	weight = 20
+	weight = 40
 	roles = list(
 		/datum/migrant_role/acolytes = 4,
 	)

@@ -460,6 +460,7 @@
 
 /obj/item/storage/eggbasket/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/egg_basket)
 	if(!mapload)
 		return
 	for(var/obj/item/I in loc)
@@ -480,22 +481,6 @@
 		var/obj/item/reagent_containers/food/snacks/egg/I = pick(things)
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
-
-/obj/item/storage/eggbasket/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 20
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 9
-	STR.click_gather = TRUE
-	STR.attack_hand_interact = FALSE
-	STR.collection_mode = COLLECT_EVERYTHING
-	STR.dump_time = 0
-	STR.allow_quick_gather = FALSE
-	STR.allow_quick_empty = TRUE
-	STR.allow_look_inside = TRUE
-	STR.display_numerical_stacking = TRUE
-	CANHOLD_STATIC(STR, typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)))
 
 /obj/item/storage/eggbasket/update_icon()
 //	var/datum/component/storage/STR = GetComponent(/datum/component/storage)

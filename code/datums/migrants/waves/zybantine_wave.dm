@@ -296,7 +296,7 @@
 	name = "The Ziggurat expedition"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/zybantine_wave
-	weight = 30
+	weight = 25
 	downgrade_wave = /datum/migrant_wave/zybantine_wave_down
 	roles = list(
 		/datum/migrant_role/zybantine/emir = 1,

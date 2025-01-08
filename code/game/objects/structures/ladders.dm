@@ -9,6 +9,7 @@
 	var/obj/structure/ladder/up     //the ladder above this one
 	obj_flags = BLOCK_Z_OUT_DOWN
 	max_integrity = 0
+	has_reflection = FALSE
 
 /obj/structure/ladder/Initialize(mapload, obj/structure/ladder/up, obj/structure/ladder/down)
 	..()

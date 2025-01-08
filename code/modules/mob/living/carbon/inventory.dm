@@ -153,3 +153,24 @@
 /mob/living/carbon/proc/get_holding_bodypart_of_item(obj/item/I)
 	var/index = get_held_index_of_item(I)
 	return index && hand_bodyparts[index]
+
+//GetAllContents that is reasonable for carbons
+/mob/living/carbon/proc/get_all_gear()
+	var/list/processing_list = get_equipped_items(include_pockets = TRUE) + held_items
+	listclearnulls(processing_list) // handles empty hands
+	var/i = 0
+	while(i < length(processing_list))
+		var/atom/A = processing_list[++i]
+		var/datum/component/storage/STR = A.GetComponent(/datum/component/storage)
+		if(STR)
+			processing_list += STR.return_inv(TRUE)
+	return processing_list
+
+/mob/living/carbon/proc/get_most_expensive()
+	var/atom/movable/most_expensive = null
+	var/price = 0
+	for(var/atom/movable/atom in get_all_gear())
+		if(atom.sellprice > price)
+			most_expensive = atom
+			price = atom.sellprice
+	return most_expensive

@@ -207,7 +207,7 @@
 	name = "The Grenzelhoft visit"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/grenzelhoft_visit
-	weight = 30
+	weight = 25
 	downgrade_wave = /datum/migrant_wave/grenzelhoft_visit_down
 	roles = list(
 		/datum/migrant_role/grenzelhoft/count = 1,

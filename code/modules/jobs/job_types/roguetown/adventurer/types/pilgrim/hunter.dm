@@ -16,7 +16,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/hunter
 
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Hunter"
+	apprentice_name = "Hunter Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -77,4 +77,4 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Hunter"
+	apprentice_name = "Hunteress Apprentice"

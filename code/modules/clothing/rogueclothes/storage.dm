@@ -208,12 +208,12 @@
 		/obj/item/ammo_casing/caseless/rogue/bullet,
 	)
 
-//Amazon pouch
-/obj/item/storage/belt/rogue/pouch/amazon
+//Poison darts pouch
+/obj/item/storage/belt/rogue/pouch/pdarts
 	populate_contents = list(
-		/obj/item/natural/cloth,
-		/obj/item/ammo_casing/caseless/rogue/dart,
-		/obj/item/ammo_casing/caseless/rogue/dart,
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 	)
 
 /obj/item/storage/backpack/rogue //holding salvage vars for children

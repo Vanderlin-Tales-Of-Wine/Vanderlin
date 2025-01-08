@@ -203,7 +203,7 @@
 		return entry.eye_color
 	else
 		return "FFFFFF"
-	
+
 /datum/preferences/proc/get_chest_color()
 	var/list/zone_list = body_markings[BODY_ZONE_CHEST]
 	if(!zone_list)

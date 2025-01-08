@@ -1,10 +1,11 @@
 /datum/job/roguetown/tailor
 	title = "Tailor"
+	f_title = "Seamstress"
 	flag = TAILOR
 	department_flag = SERFS
 	faction = "Station"
 	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
-				sewing articles of slight protection, padding, and fashion for serf and noble alike."
+				sewing articles of protection, padding, and fashion for serf and noble alike."
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
@@ -14,7 +15,6 @@
 
 	outfit = /datum/outfit/job/roguetown/tailor
 
-
 /datum/outfit/job/roguetown/tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 
@@ -23,14 +23,19 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/keyring/tailor
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1)
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
+	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/rogueweapon/knife/scissors = 1)
+
+	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights/red
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
@@ -41,4 +46,6 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/purple
 		pants = /obj/item/clothing/under/roguetown/tights/purple
-
+	H.change_stat("intelligence", 2)
+	H.change_stat("speed", 2)
+	H.change_stat("perception", 1)

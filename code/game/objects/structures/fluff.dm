@@ -772,7 +772,7 @@
 					probby = min(probby, 99)
 					user.changeNext_move(CLICK_CD_MELEE)
 					if(W.max_blade_int)
-						W.remove_bintegrity(5)
+						W.remove_bintegrity(5, user)
 					if(!L.adjust_stamina(rand(4,6)))
 						if(ishuman(L))
 							var/mob/living/carbon/human/H = L

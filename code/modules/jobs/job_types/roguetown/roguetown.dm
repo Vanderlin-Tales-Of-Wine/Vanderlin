@@ -50,9 +50,12 @@
 				continue
 			possiblegods |= god
 			var/datum/patron/P = GLOB.patronlist[god]
-			if(P.associated_faith == old_patron.associated_faith) // Worst case scenario choose a patron within the same pantheon
+			if(P.associated_faith == old_patron.associated_faith) //Prioritize choosing a possible patron within our pantheon
 				godlist |= god
-		H.set_patron(default_patron || pick(possiblegods) || pick(godlist))
+		if(length(godlist))
+			H.set_patron(default_patron || pick(godlist))
+		else
+			H.set_patron(default_patron || pick(possiblegods))
 		if(old_patron != H.patron) // If the patron we selected first does not match the patron we end up with, display the message.
 			to_chat(H, "<span class='warning'>I've followed the word of [old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron].")
 

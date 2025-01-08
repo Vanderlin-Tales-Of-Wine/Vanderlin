@@ -96,3 +96,20 @@
 		/obj/item/alch/sinew,
 		/obj/item/alch/viscera
 		))
+
+/datum/component/storage/concrete/roguetown/egg_basket
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 5
+	screen_max_columns = 2
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = FALSE
+	allow_quick_empty = TRUE
+	insert_preposition = "in"
+
+/datum/component/storage/concrete/roguetown/egg_basket/New(datum/P, ...)
+	. = ..()
+	set_holdable(
+		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
+	))

@@ -43,6 +43,7 @@
 	nomouseover = FALSE
 	var/swimdir = FALSE
 	var/notake = FALSE // cant pick up with reagent containers
+	shine = SHINE_SHINY
 
 /turf/open/water/proc/dryup()
 	if(water_volume <= 0)
