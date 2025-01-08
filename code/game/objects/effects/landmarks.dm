@@ -378,6 +378,30 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	. = ..()
 	GLOB.delf_starts += loc
 
+/obj/effect/landmark/start/vampirelord
+	name = "Vampire Lord"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/vampirelord/Initialize()
+	. = ..()
+	GLOB.vlord_starts += loc
+
+/obj/effect/landmark/start/vampirespawn
+	name = "Vampire Spawn"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/vampireknight
+	name = "Death Knight"
+	icon_state = "arrow"
+	jobspawn_override = list("Death Knight")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/vampirespawn/Initialize()
+	. = ..()
+	GLOB.vspawn_starts += loc
+
 // Must be immediate because players will
 // join before SSatom initializes everything.
 INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)

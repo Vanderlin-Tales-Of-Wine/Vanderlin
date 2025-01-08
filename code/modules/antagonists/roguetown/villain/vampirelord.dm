@@ -157,6 +157,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/outfit/job/roguetown/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
+	var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampirelord()
+	H.mind.add_antag_datum(new_antag)
 	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
@@ -997,30 +999,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	spawntime = null
 	var/turf/destloc
 // LANDMARKS
-
-/obj/effect/landmark/start/vampirelord
-	name = "Vampire Lord"
-	icon_state = "arrow"
-	delete_after_roundstart = FALSE
-
-/obj/effect/landmark/start/vampirelord/Initialize()
-	. = ..()
-	GLOB.vlord_starts += loc
-
-/obj/effect/landmark/start/vampirespawn
-	name = "Vampire Spawn"
-	icon_state = "arrow"
-	delete_after_roundstart = FALSE
-
-/obj/effect/landmark/start/vampireknight
-	name = "Death Knight"
-	icon_state = "arrow"
-	jobspawn_override = list("Death Knight")
-	delete_after_roundstart = FALSE
-
-/obj/effect/landmark/start/vampirespawn/Initialize()
-	. = ..()
-	GLOB.vspawn_starts += loc
 
 /obj/effect/landmark/vteleport
 	name = "Teleport Destination"
