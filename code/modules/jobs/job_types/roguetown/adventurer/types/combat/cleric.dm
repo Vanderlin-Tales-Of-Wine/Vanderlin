@@ -32,36 +32,49 @@
 	beltl = /obj/item/rogueweapon/mace
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 
-	switch(H.patron?.name)
-		if("Astrata")
+	switch(H.patron?.type)
+		if(/datum/patron/divine/astrata)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
 			neck = /obj/item/clothing/neck/roguetown/chaincoif
-		if("Dendor")	// good helmet but no money
+		if(/datum/patron/divine/dendor)	// good helmet but no money
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
 			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak
 			beltr = /obj/item/rogueweapon/knife/stone
-		if("Necra")
+		if(/datum/patron/divine/necra)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			neck = /obj/item/clothing/neck/roguetown/gorget
-		if("Eora")
+		if(/datum/patron/divine/eora)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/eora
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
 			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 			H.virginity = FALSE
-		if("Ravox")
+		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
+			cloak =  /obj/item/clothing/cloak/stabard/templar/ravox
 			neck = /obj/item/clothing/neck/roguetown/gorget
-		if("Noc")
+		if(/datum/patron/divine/noc)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
 			neck = /obj/item/clothing/neck/roguetown/chaincoif
-		if("Pestra")
+		if(/datum/patron/divine/pestra)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
+			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+		if(/datum/patron/divine/abyssor)
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/abyssor
+			cloak = /obj/item/clothing/cloak/tabard/crusader
+			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+		if(/datum/patron/divine/malum)
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum
+			cloak = /obj/item/clothing/cloak/stabard/templar/malum
+			neck = /obj/item/clothing/neck/roguetown/gorget
+		if(/datum/patron/divine/xylix)
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
+			cloak = /obj/item/clothing/cloak/tabard/crusader
 			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 		else // Failsafe
 			cloak = /obj/item/clothing/cloak/tabard/crusader // Give us a generic crusade tabard
