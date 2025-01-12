@@ -11,7 +11,7 @@
 
 	/// Description of the plant
 	var/desc = "Sure is a plant."
-	var/icon = 'modular/Neu_Farming/icons/crops.dmi'
+	var/icon = 'icons/roguetown/misc/crops.dmi'
 	var/icon_state
 
 	/// Loot the plant will yield for uprooting it

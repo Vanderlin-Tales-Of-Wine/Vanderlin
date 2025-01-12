@@ -8,7 +8,7 @@
 /obj/structure/soil
 	name = "soil"
 	desc = "Dirt, ready to give life like a womb."
-	icon = 'modular/Neu_Farming/icons/soil.dmi'
+	icon = 'icons/roguetown/misc/soil.dmi'
 	icon_state = "soil"
 	density = FALSE
 	climbable = FALSE
