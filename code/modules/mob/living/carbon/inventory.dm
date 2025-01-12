@@ -23,7 +23,7 @@
 	return null
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
-/mob/living/carbon/equip_to_slot(obj/item/I, slot)
+/mob/living/carbon/equip_to_slot(obj/item/I, slot, initial)
 	if(!slot)
 		return
 	if(!istype(I))
@@ -75,11 +75,11 @@
 			not_handled = TRUE
 			if(backr)
 				testing("insert4")
-				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 			if(backl && not_handled)
 				testing("insert5")
-				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 
 		else

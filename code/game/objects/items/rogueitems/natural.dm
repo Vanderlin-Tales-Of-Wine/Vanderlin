@@ -125,6 +125,8 @@
 	. += span_notice("There are [amount] [stackname] in this bundle.")
 
 /obj/item/natural/bundle/pre_attack_right(atom/A, mob/living/user, params)
+	if(ismob(A))
+		return ..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(amount >= maxamount)
 		to_chat(user, span_warning("There's not enough space in [src]."))
@@ -134,6 +136,8 @@
 	for(var/obj/item/item in turflocation)
 		if(amount >= maxamount)
 			break
+		if(!istype(item, stacktype) && !istype(item, /obj/item/natural/bundle))
+			continue
 		if(!do_after(user, 5, TRUE, src))
 			break
 		if(item.loc != turflocation)

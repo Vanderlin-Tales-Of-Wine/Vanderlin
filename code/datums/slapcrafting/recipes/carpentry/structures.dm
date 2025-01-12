@@ -67,6 +67,7 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
 	result_type = /obj/item/roguebin
+	craftdiff = 0
 
 /datum/slapcraft_recipe/carpentry/structure/dye_bin
 	name = "dye bin"

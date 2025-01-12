@@ -605,9 +605,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 			if(edelay_type)
 				if(move_after(C, minone(unequip_delay_self-C.STASPD), target = C))
 					return TRUE
+				else
+					return FALSE
 			else
 				if(do_after(C, minone(unequip_delay_self-C.STASPD), target = C))
 					return TRUE
+				else
+					return FALSE
 
 	return TRUE
 
