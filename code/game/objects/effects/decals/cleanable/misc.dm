@@ -107,7 +107,7 @@
 /obj/effect/decal/cleanable/dirt/cobweb
 	name = "cobweb"
 	desc = ""
-	icon = 'modular/Mapping/icons/webbing.dmi'
+	icon = 'icons/roguetown/misc/webbing.dmi'
 	icon_state = "cobweb1"
 	gender = NEUTER
 	layer = WALL_OBJ_LAYER

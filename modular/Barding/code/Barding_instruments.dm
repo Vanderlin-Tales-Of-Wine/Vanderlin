@@ -2,10 +2,10 @@
 /obj/item/rogue/instrument
 	name = ""
 	desc = ""
-	icon = 'modular/Barding/icons/music.dmi'
+	icon = 'icons/roguetown/items/music.dmi'
 	icon_state = ""
-	lefthand_file = 'modular/Barding/icons/instruments_lefthand.dmi'
-	righthand_file = 'modular/Barding/icons/instruments_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/instruments_lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/instruments_righthand.dmi'
 	experimental_inhand = FALSE
 	possible_item_intents = list(/datum/intent/use)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK_R|ITEM_SLOT_BACK_L
