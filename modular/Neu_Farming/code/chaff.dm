@@ -1,5 +1,5 @@
 /obj/item/natural/chaff
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	var/foodextracted = null
 	name = "chaff"
 	icon_state = "chaff1"

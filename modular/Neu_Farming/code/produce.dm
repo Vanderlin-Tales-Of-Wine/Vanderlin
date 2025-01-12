@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/food/snacks/produce
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	dried_type = null
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL

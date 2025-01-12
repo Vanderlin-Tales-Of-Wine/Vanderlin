@@ -1,6 +1,6 @@
 /obj/item/herbseed
 	name = "herb seeds"
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "seeds"
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
