@@ -1678,6 +1678,7 @@
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\_base.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\books.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\cooking.dm"
+#include "code\modules\roguetown\roguecrafting\quality_of_crafting\crafting.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\drying_rack.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\fishing.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\generic.dm"

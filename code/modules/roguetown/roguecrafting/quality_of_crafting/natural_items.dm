@@ -1,7 +1,7 @@
 /datum/repeatable_crafting_recipe/survival
 	abstract_type = /datum/repeatable_crafting_recipe/survival
 
-/datum/repeatable_crafting_recipe/cloth
+/datum/repeatable_crafting_recipe/survival/cloth
 	name = "cloth"
 	requirements = list(
 		/obj/item/natural/fibers = 2

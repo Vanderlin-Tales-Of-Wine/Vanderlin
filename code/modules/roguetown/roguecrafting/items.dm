@@ -517,3 +517,9 @@
 	always_availible = FALSE
 	craftsound = null
 	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/wpsycross
+	name = "handheld psycross"
+	reqs = list(/obj/item/grown/log/tree/small = 1)
+	result = /obj/item/clothing/neck/roguetown/psycross
+	craftdiff = 0

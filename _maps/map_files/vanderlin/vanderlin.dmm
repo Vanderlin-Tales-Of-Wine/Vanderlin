@@ -3998,16 +3998,7 @@
 	},
 /area/rogue/indoors/butchershop)
 "cUm" = (
-/obj/structure/table/wood{
-	icon_state = "longtable";
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/candle/skull/lit{
-	pixel_x = 3;
-	pixel_y = 11
-	},
+/obj/machinery/printingpress,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "cUs" = (
@@ -20599,13 +20590,13 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "qcx" = (
-/obj/structure/table/wood{
-	icon_state = "longtable_mid";
-	dir = 1
-	},
 /obj/item/natural/feather{
 	pixel_x = -15;
 	pixel_y = 4
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable";
+	dir = 1
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
@@ -21082,6 +21073,10 @@
 "qvg" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
+	},
+/obj/item/candle/skull/lit{
+	pixel_x = 3;
+	pixel_y = 11
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
