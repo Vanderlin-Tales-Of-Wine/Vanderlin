@@ -65,17 +65,17 @@
 #define EXPENSIVE_DYES			list("Ash Grey","Chalk White","Cream","White","Blood Red","Plum Purple","Dark Ink","Forest Green","Sky Blue","Mustard Yellow", "Salmon", "Russet", "Maroon","Red Ochre", "Dunked in Water" )
 
 #define CLOTHING_DARK_INK		"#392f2f"
-#define CLOTHING_PLUM_PURPLE	"#4b2265"
-#define CLOTHING_SALMON			"#a56176"
-#define CLOTHING_BLOOD_RED		"#770d0d"
+#define CLOTHING_PLUM_PURPLE	"#47295a"
+#define CLOTHING_SALMON			"#935c6e"
+#define CLOTHING_BLOOD_RED		"#681616"
 
 #define CLOTHING_MAROON			"#672c0d"
 #define CLOTHING_RED_OCHRE		"#6f2d28"
-#define CLOTHING_RUSSET			"#733f18"
+#define CLOTHING_RUSSET			"#6c3f1c"
 #define CLOTHING_MUSTARD_YELLOW	"#979044"
-#define CLOTHING_YELLOW_OCHRE	"#9b7a02"
-#define CLOTHING_FOREST_GREEN	"#3f8b24"
-#define CLOTHING_SKY_BLUE		"#1b3c7a"
+#define CLOTHING_YELLOW_OCHRE	"#88701a"
+#define CLOTHING_FOREST_GREEN	"#57764c"
+#define CLOTHING_SKY_BLUE		"#2e4267"
 #define CLOTHING_MAGE_BLUE		"#4756d8"
 #define CLOTHING_MAGE_GREEN		"#759259"
 #define CLOTHING_MAGE_ORANGE	"#ad5e29"
@@ -84,7 +84,7 @@
 // Royal dyes ==========================
 #define CLOTHING_ROYAL_RED		"#8f3636"
 #define CLOTHING_ROYAL_MAJENTA	"#822b52"
-#define CLOTHING_FYRITIUS_DYE	"#b47011"
+#define CLOTHING_FYRITIUS_DYE	"#a5732c"
 #define CLOTHING_ROYAL_PURPLE	"#865c9c"
 #define CLOTHING_BARK_BROWN		"#685542"
 #define CLOTHING_ROYAL_BLACK	"#2f352f"

@@ -91,7 +91,7 @@
 
 /datum/outfit/job/roguetown/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/ironpot
+	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron

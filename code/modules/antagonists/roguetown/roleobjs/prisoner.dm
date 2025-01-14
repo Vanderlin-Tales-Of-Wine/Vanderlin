@@ -1,6 +1,7 @@
 
 /datum/antagonist/prisoner
 	name = "Prisoner"
+	antagpanel_category = "Prisoner"
 	increase_votepwr = FALSE
 	isgoodguy = TRUE
 
