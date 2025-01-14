@@ -86,6 +86,14 @@
 	output = /obj/item/clothing/cloak/raincloak/brown
 	craftdiff = 2
 
+/datum/repeatable_crafting_recipe/leather/belt
+	name = "leather belt"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/storage/belt/rogue/leather
+
 /datum/repeatable_crafting_recipe/leather/vest
 	name = "leather vest"
 	requirements = list(
@@ -126,7 +134,7 @@
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/fibers = 2,
 	)
-	output = /obj/item/quiver
+	output = /obj/item/ammo_holder/quiver
 
 /datum/repeatable_crafting_recipe/leather/tribal_cloak
 	name = "tribal pelt"
@@ -332,6 +340,25 @@
 	)
 	output = /obj/item/clothing/cloak/volfmantle
 	craftdiff = 2
+
+/datum/repeatable_crafting_recipe/leather/drum
+	name = "drum"
+	attacking_atom = /obj/item/grown/log/tree/small
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/grown/log/tree/small = 1,
+	)
+	output = /obj/item/rogue/instrument/drum
+
+/datum/repeatable_crafting_recipe/leather/quiver
+	name = "quiver"
+	attacking_atom = /obj/item/natural/hide
+	requirements = list(
+		/obj/item/natural/hide = 1,
+		/obj/item/natural/fibers = 2,
+	)
+	output = /obj/item/ammo_holder/quiver
+	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/leather/standalone
 	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone

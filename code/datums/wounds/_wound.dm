@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/qdel_on_droplimb = FALSE
 
 	/// Werewolf infection probability for bites on this wound
-	var/werewolf_infection_probability = 15
+	var/werewolf_infection_probability = 8
 	/// Time taken until werewolf infection comes in
 	var/werewolf_infection_time = 2 MINUTES
 	/// Actual infection timer

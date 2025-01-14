@@ -76,7 +76,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/keyring/guard
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
 	if(prob(30))
@@ -125,7 +125,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	beltl = /obj/item/storage/keyring/guard
-	beltr = /obj/item/quiver/bolts
+	beltr = /obj/item/ammo_holder/quiver/bolts
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
 	if(prob(30))

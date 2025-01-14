@@ -702,7 +702,7 @@
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/chop/long)
 	icon_state = "forgotten"
 	name = "forgotten blade"
-	desc = "A large silver-alloy sword made in a revisionist style, honoring Psydon. Best known as the prefered weapon of Inquisitorial Lodges"
+	desc = "A large silver-alloy sword made in a revisionist style, honoring Psydon. Best known as the prefered weapon of Inquisitorial Lodges."
 	max_blade_int = 240 // Integrity and blade retention is .8 of a steel sword
 	max_integrity = 400
 	smeltresult = /obj/item/ingot/silver

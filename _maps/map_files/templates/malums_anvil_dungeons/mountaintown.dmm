@@ -1126,7 +1126,7 @@
 "pw" = (
 /obj/structure/closet/crate/coffin,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/effect/spawner/roguemap/loot/armor,
 /obj/item/alch/bone{
 	name = "bone";
@@ -1522,7 +1522,7 @@
 /obj/structure/closet/crate/coffin,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/ammo_casing/caseless/rogue/bolt/pyro,
 /obj/item/ammo_casing/caseless/rogue/bolt/pyro,
 /obj/item/ammo_casing/caseless/rogue/bolt/pyro,

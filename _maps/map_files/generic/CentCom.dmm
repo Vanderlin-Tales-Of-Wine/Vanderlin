@@ -1797,11 +1797,11 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/ammo_casing/caseless/rogue/bolt/poison,
 /obj/item/ammo_casing/caseless/rogue/bolt/poison,
 /obj/item/ammo_casing/caseless/rogue/bolt/poison,
@@ -2192,7 +2192,7 @@
 /area/rogue)
 "qP" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
@@ -3015,7 +3015,7 @@
 "CV" = (
 /obj/structure/rack/rogue,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/vampire_manor)
 "CX" = (
@@ -4195,7 +4195,7 @@
 "TK" = (
 /obj/structure/rack/rogue,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/vampire_manor)
 "TM" = (
@@ -4335,12 +4335,12 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/item/ammo_casing/caseless/rogue/arrow/poison,
 /obj/item/ammo_casing/caseless/rogue/arrow/poison,
 /obj/item/ammo_casing/caseless/rogue/arrow/poison,

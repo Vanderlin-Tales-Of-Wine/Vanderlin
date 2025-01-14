@@ -144,10 +144,12 @@
 /obj/item/fishingrod/abyssor_trident/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(!is_embedded)
+		src.visible_message(span_warning("[src] dissipates into a splash of water!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		qdel(src)
 
 /obj/item/fishingrod/abyssor_trident/unembedded()
 	if(!QDELETED(src))
+		src.visible_message(span_warning("[src] dissipates into a splash of water!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		qdel(src)
 		return TRUE
 
@@ -206,17 +208,28 @@
 			target.cursed_freak_out()
 			return FALSE
 
-		if(target.mob_biotypes & MOB_UNDEAD) //knockdown + slow rather than direct damage
+		if(target.mob_biotypes & MOB_UNDEAD) //blasts with debuffs rather than direct damage
 			target.visible_message("<span class='danger'>[target] is drowned by turbulent tides!</span>", "<span class='userdanger'>I'm being drowned by turbulent tides!</span>")
-			target.adjustOxyLoss(100)
 			target.safe_throw_at(get_step(target, get_dir(user, target)), 1, 1, user, spin = TRUE, force = target.move_force)
+			target.adjustOxyLoss(80)
 			target.Knockdown(5)
 			target.Slowdown(60)
+			target.Dizzy(10)
+			target.blur_eyes(20)
+			target.emote("drown")
 			return ..()
 
 		target.visible_message("<span class='info'>A wave of replenishing water passes through [target]!</span>", "<span class='notice'>I'm engulfed in a wave of replenishing water!</span>")
 		wash_atom(target, CLEAN_STRONG)
+		var/situational_bonus = 1
+		var/list/water = typesof(/turf/open/water) - typesof(/turf/open/water/acid)
+		// the more water around us, the more we heal, up to times two
+		for (var/turf/O in oview(3, user))
+			if(O.type in water)
+				situational_bonus = min(situational_bonus + 0.1, 2)
+		if(situational_bonus != 1)
+			to_chat(user, "Channeling Abyssor's power is easier in these conditions!")
 		if(target.blood_volume > 0)
-			target.blood_volume += BLOOD_VOLUME_SAFE
+			target.blood_volume += BLOOD_VOLUME_OKAY * situational_bonus
 		return ..()
 	return FALSE

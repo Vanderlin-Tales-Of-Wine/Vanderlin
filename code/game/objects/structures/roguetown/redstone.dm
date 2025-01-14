@@ -242,7 +242,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	density = TRUE
 	anchored = TRUE
 	var/obj/item/containment
-	var/obj/item/quiver/ammo // used if the contained item is a bow or crossbow
+	var/obj/item/ammo_holder/ammo // used if the contained item is a bow or crossbow
 
 /obj/structure/activator/Initialize()
 	. = ..()
@@ -295,14 +295,14 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)
 	if(!user.cmode)
-		if(!containment && !istype(I, /obj/item/quiver) && !istype(I, /obj/item/roguegear))
+		if(!containment && !istype(I, /obj/item/ammo_holder/quiver) && !istype(I, /obj/item/roguegear))
 			if(!user.transferItemToLoc(I, src))
 				return
 			containment = I
 			playsound(src, 'sound/misc/chestclose.ogg', 25)
 			update_icon()
 			return
-		if(!ammo && istype(I, /obj/item/quiver))
+		if(!ammo && istype(I, /obj/item/ammo_holder/quiver))
 			if(!user.transferItemToLoc(I, src))
 				return
 			playsound(src, 'sound/misc/chestclose.ogg', 25)

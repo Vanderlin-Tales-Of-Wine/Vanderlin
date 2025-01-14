@@ -4179,7 +4179,7 @@
 /area/rogue)
 "ann" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "ano" = (
@@ -4229,7 +4229,7 @@
 /area/rogue)
 "anv" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "anw" = (
@@ -4469,7 +4469,7 @@
 /area/rogue)
 "aoe" = (
 /obj/structure/closet/crate/chest,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -5872,7 +5872,7 @@
 /area/rogue/indoors)
 "asm" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "asn" = (
@@ -7429,7 +7429,7 @@
 "axc" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/item/quiver,
+/obj/item/ammo_holder/quiver,
 /obj/item/ammo_casing/caseless/rogue/bolt,
 /obj/item/ammo_casing/caseless/rogue/bolt,
 /obj/item/ammo_casing/caseless/rogue/bolt,
@@ -11367,7 +11367,7 @@
 /area/rogue/outdoors/town)
 "aKf" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town)
 "aKg" = (
@@ -11490,7 +11490,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town)
 "aKx" = (
@@ -11505,7 +11505,7 @@
 	icon_state = "longtable_mid";
 	dir = 1
 	},
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town)
 "aKz" = (

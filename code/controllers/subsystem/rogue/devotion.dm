@@ -12,7 +12,7 @@
 
 /datum/devotion/cleric_holder
 	var/mob/living/carbon/human/holder_mob = null
-	var/patron = null
+	var/datum/patron/patron = null
 	var/devotion = 0
 	var/max_devotion = 1000
 	var/max_progression = 1000
@@ -26,12 +26,17 @@
 	var/prayer_effectiveness = 2
 
 /datum/devotion/cleric_holder/New(mob/living/carbon/human/holder, god)
+	. = ..()
 	holder_mob = holder
 	holder.cleric = src
 	patron = god
+	if(patron.type == /datum/patron/inhumen/zizo || patron.type == /datum/patron/divine/necra)
+		ADD_TRAIT(holder_mob, TRAIT_DEATHSIGHT, "devotion")
 
 /datum/devotion/cleric_holder/Destroy(force)
 	. = ..()
+	if(patron.type == /datum/patron/inhumen/zizo || patron.type == /datum/patron/divine/necra)
+		REMOVE_TRAIT(holder_mob, TRAIT_DEATHSIGHT, "devotion")
 	holder_mob?.cleric = null
 	holder_mob = null
 	patron = null
@@ -147,7 +152,7 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/churn, A.t0)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue

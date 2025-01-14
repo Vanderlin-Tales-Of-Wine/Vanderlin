@@ -158,7 +158,7 @@ Design philosphy:
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backl = /obj/item/storage/backpack/rogue/satchel
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
 	backpack_contents = list(/obj/item/storage/keyring/guard)
 

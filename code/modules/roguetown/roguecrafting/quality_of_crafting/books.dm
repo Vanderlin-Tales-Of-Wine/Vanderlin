@@ -214,6 +214,7 @@
 		/datum/repeatable_crafting_recipe/saltfish,
 		/datum/repeatable_crafting_recipe/raisins,
 		/datum/repeatable_crafting_recipe/parchment,
+		/datum/repeatable_crafting_recipe/crafting,
 	)
 
 /obj/item/recipe_book/underworld

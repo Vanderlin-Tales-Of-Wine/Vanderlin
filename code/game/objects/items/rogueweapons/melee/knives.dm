@@ -150,7 +150,8 @@
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
 			var/salvage_time = 70
-			salvage_time = (70 - ((user.mind.get_skill_level(/datum/skill/misc/sewing)) * 10))
+			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
+			salvage_time = (70 - (skill_level * 10))
 			if(!do_after(user, salvage_time, target = user))
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
@@ -158,9 +159,9 @@
 			if(istype(item, /obj/item/storage))
 				var/obj/item/storage/bag = item
 				bag.emptyStorage()
-			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
-			if(prob(50 - (skill_level * 10))) // We are dumb and we failed!
-				to_chat(user, span_info("I ruined some of the materials due to my lack of skill..."))
+			var/probability = max(0, 50 - (skill_level * 10))
+			if(prob(probability)) // We are dumb and we failed!
+				to_chat(user, span_warning("I ruined some of the materials due to my lack of skill..."))
 				playsound(item, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				qdel(item)
 				user.mind.add_sleep_experience(/datum/skill/misc/sewing, (user.STAINT)) //Getting exp for failing

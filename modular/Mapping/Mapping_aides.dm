@@ -24,7 +24,7 @@
 		/obj/item/roguecoin/silver/pile = 15,
 		/obj/item/rogueweapon/knife/dagger/steel = 4,
 		/obj/item/rogueweapon/axe/iron = 10,
-		/obj/item/quiver/arrows = 5,
+		/obj/item/ammo_holder/quiver/arrows = 5,
 		/obj/item/rogueweapon/sword/short = 5,
 		/obj/item/clothing/suit/roguetown/armor/cuirass/iron = 10,
 		/obj/item/clothing/suit/roguetown/armor/gambeson = 10,

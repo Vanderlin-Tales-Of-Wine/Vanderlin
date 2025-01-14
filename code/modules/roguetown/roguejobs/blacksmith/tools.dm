@@ -129,7 +129,7 @@
 	slot_flags = ITEM_SLOT_HIP
 	associated_skill = null
 	var/obj/item/ingot/hingot = null
-	var/hott = FALSE
+	var/hott = 0
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/rogueweapon/tongs/examine(mob/user)
@@ -160,14 +160,15 @@
 
 /obj/item/rogueweapon/tongs/proc/make_unhot(input)
 	if(hott == input)
-		hott = FALSE
+		hott = 0
+	update_icon()
 
 /obj/item/rogueweapon/tongs/attack_self(mob/user)
 	if(hingot)
 		if(isturf(user.loc))
 			hingot.forceMove(get_turf(user))
 			hingot = null
-			hott = FALSE
+			hott = 0
 			update_icon()
 
 /obj/item/rogueweapon/tongs/dropped()
@@ -175,7 +176,7 @@
 	if(hingot)
 		hingot.forceMove(get_turf(src))
 		hingot = null
-	hott = FALSE
+	hott = 0
 	update_icon()
 
 /obj/item/rogueweapon/tongs/getonmobprop(tag)

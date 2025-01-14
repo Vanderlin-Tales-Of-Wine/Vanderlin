@@ -202,18 +202,18 @@
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
 				if(user.dir == S.dir)
-					to_chat(user, "<span class='warning'>Something is in the way.</span>")
+					to_chat(user, "<span class='warning'>[S] is in the way.</span>")
 					return
 				continue
 			if(R.structurecraft && istype(S, R.structurecraft))
 				testing("isstructurecraft")
 				continue
 			if(S.density)
-				to_chat(user, "<span class='warning'>Something is in the way.</span>")
+				to_chat(user, "<span class='warning'>[S] is in the way.</span>")
 				return
 		for(var/obj/machinery/M in T)
 			if(M.density)
-				to_chat(user, "<span class='warning'>Something is in the way.</span>")
+				to_chat(user, "<span class='warning'>[M] is in the way.</span>")
 				return
 	if(R.req_table)
 		if(!(locate(/obj/structure/table) in T))

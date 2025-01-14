@@ -24,7 +24,7 @@
 
 	for(var/mob/M in view(10, src.loc))
 		if(M.client)
-			to_chat(M, "<span class='notice'>BELL RINGS</span>")
+			to_chat(M, "<span class='notice'>You hear a bell ringing.</span>")
 
 	user.visible_message("<span class='notice'>[user] rings [src].</span>")
 	ringing = TRUE

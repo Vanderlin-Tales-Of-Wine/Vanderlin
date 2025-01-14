@@ -4168,8 +4168,8 @@
 /area/rogue/indoors/town/manor)
 "dWu" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "dWJ" = (
@@ -6177,7 +6177,7 @@
 /area/rogue/outdoors/town)
 "fZy" = (
 /obj/structure/closet/crate/chest,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/rope/chain,
 /turf/open/floor/rogue/wood,
@@ -7182,7 +7182,7 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
 /obj/item/natural/saddle,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "gYI" = (
@@ -15991,11 +15991,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church/chapel)
 "pDE" = (
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/structure/closet/crate/roguecloset{
 	lockid = "butler"
 	},
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "pDJ" = (
@@ -19237,8 +19237,8 @@
 	},
 /area/rogue/under/cave)
 "sRU" = (
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/structure/closet/crate/roguecloset{
 	lockid = "butler"
 	},

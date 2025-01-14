@@ -24,11 +24,13 @@
 	offset_features = list(OFFSET_HANDS = list(0,2), OFFSET_HANDS_F = list(0,2))
 	soundpack_m = /datum/voicepack/werewolf
 	soundpack_f = /datum/voicepack/werewolf
-	specstats = list("strength" = 8, "perception" = 7, "intelligence" = -6, "constitution" = 8, "endurance" = 8, "speed" = 3, "fortune" = 0)
-	specstats_f = list("strength" = 8, "perception" = 7, "intelligence" = -6, "constitution" = 8, "endurance" = 8, "speed" = 3, "fortune" = 0)
+	specstats = list("strength" = 5, "perception" = 5, "intelligence" = -3, "constitution" = 5, "endurance" = 5, "speed" = 3, "fortune" = 0)
+	specstats_f = list("strength" = 5, "perception" = 5, "intelligence" = -3, "constitution" = 5, "endurance" = 5, "speed" = 3, "fortune" = 0)
 	enflamed_icon = "widefire"
 	mutanteyes = /obj/item/organ/eyes/night_vision/werewolf
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
+	bleed_mod = 0.2
+	pain_mod = 0.2
 
 /datum/species/werewolf/send_voice(mob/living/carbon/human/H)
 	playsound(get_turf(H), pick('sound/vo/mobs/wwolf/wolftalk1.ogg','sound/vo/mobs/wwolf/wolftalk2.ogg'), 100, TRUE, -1)

@@ -26,7 +26,7 @@
 	min_pq = 2
 
 /datum/outfit/job/roguetown/watchman/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots
@@ -77,10 +77,10 @@
 		switch(weapontypec)
 			if("Bow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-				backr = /obj/item/quiver/arrows
+				backr = /obj/item/ammo_holder/quiver/arrows
 			if("Crossbow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-				backr = /obj/item/quiver/bolts
+				backr = /obj/item/ammo_holder/quiver/bolts
 
 /datum/advclass/menatarms/watchman_pikeman
 	name = "Pikeman Men-At-Arms"

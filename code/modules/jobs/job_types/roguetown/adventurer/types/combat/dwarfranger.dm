@@ -18,7 +18,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backl = /obj/item/storage/backpack/rogue/satchel
-	beltl = /obj/item/quiver/bolts
+	beltl = /obj/item/ammo_holder/quiver/bolts
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron // Starts with better armor than a typical ranger (iron chainmail) but has no dodge expert or sneaking skill
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather

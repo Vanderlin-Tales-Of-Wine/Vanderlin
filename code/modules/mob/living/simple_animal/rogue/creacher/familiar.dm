@@ -2,6 +2,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf/familiar
 	icon = 'icons/roguetown/mob/monster/vol.dmi'
 	name = "familiar"
+	desc = "A spectral volf familiar created by arcane magicks."
 	icon_state = "spiritw"
 	icon_living = "spiritw"
 	icon_dead = null
@@ -25,6 +26,7 @@
 	remains_type = null
 	var/summoner = null
 	var/timeleft = 30 SECONDS
+	ai_controller = /datum/ai_controller/summon
 
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf/familiar/Initialize(mapload, mob/user)
 	. = ..()

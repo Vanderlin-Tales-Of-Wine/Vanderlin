@@ -168,7 +168,9 @@
 	boons = "You recover more energy when sleeping."
 	added_traits = list(TRAIT_BETTER_SLEEP)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
-	t1 = /obj/effect/proc_holder/spell/self/craft_buff
+	t1 = /obj/effect/proc_holder/spell/invoked/vigorouscraft
+	t2 = /obj/effect/proc_holder/spell/invoked/hammerfall
+	t3 = /obj/effect/proc_holder/spell/invoked/heatmetal
 	confess_lines = list(
 		"MALUM IS MY FORGE!",
 		"TRUE VALUE IS IN THE TOIL!",

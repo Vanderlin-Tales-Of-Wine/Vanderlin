@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/datum/faith/associated_faith = /datum/faith
 	/// Whether or not we are accessible in preferences
 	var/preference_accessible = TRUE
-	/// Some gods have related confessions, if they're evil and such
+	/// All gods have related confessions
 	var/list/confess_lines
 	/// Tier 0 spell
 	var/t0

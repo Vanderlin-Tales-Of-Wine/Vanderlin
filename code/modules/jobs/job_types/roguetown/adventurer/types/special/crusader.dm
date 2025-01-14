@@ -78,7 +78,7 @@
 		head = /obj/item/clothing/head/roguetown/helmet/heavy/crusader/t
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 		beltl = /obj/item/rogueweapon/knife/dagger/silver
-		beltr = /obj/item/quiver/bolts
+		beltr = /obj/item/ammo_holder/quiver/bolts
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	// Males are sword and shield based

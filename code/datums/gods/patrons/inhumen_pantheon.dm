@@ -79,6 +79,6 @@
 	confess_lines = list(
 		"WHERE AM I!",
 		"NONE OF THIS IS REAL!",
-		"WHO AM I WORSHIPPING!"
+		"WHO AM I WORSHIPPING?!"
 	)
 	non_faith = TRUE

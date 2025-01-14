@@ -218,13 +218,13 @@
 	switch(weapon_choice)
 		if("Sword + Recurve Bow")
 			r_hand = /obj/item/rogueweapon/sword/long
-			beltl = /obj/item/quiver/arrows
+			beltl = /obj/item/ammo_holder/quiver/arrows
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 
 		if("Axe + Crossbow")
 			r_hand = /obj/item/rogueweapon/axe/steel
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-			beltl = /obj/item/quiver/bolts
+			beltl = /obj/item/ammo_holder/quiver/bolts
 
 		if ("Spear + Shield")
 			r_hand = /obj/item/rogueweapon/spear
@@ -317,7 +317,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
-	beltl = /obj/item/quiver/arrows
+	beltl = /obj/item/ammo_holder/quiver/arrows
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long

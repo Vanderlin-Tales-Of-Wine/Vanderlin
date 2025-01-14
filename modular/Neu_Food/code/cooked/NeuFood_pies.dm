@@ -96,7 +96,7 @@
 	foodtype = GRAIN | DAIRY | MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
-	icon_state = "meat pie"
+	icon_state = "meatpie"
 	tastes = list("succulent meat and crispy butterdough" = 1)
 	filling_color = "#b43628"
 

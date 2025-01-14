@@ -316,7 +316,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/greedy
 	name = "Greedy"
-	desc = "I can't get enough of mammons, I need more and more! I've also become good at knowing how much things are worth"
+	desc = "I can't get enough of mammons, I need more and more! I've also become good at knowing how much things are worth."
 	var/last_checked_mammons = 0
 	var/required_mammons = 0
 	var/next_mammon_increase = 0

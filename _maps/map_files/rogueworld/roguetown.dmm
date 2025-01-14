@@ -9060,7 +9060,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -9308,7 +9308,7 @@
 /area/rogue/indoors/town/church/chapel)
 "FK" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "FL" = (
@@ -9356,7 +9356,7 @@
 /area/rogue/indoors/town/church/chapel)
 "FT" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "FU" = (
@@ -10337,7 +10337,7 @@
 /area/rogue/indoors/town/garrison)
 "Jl" = (
 /obj/structure/closet/crate/chest,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},

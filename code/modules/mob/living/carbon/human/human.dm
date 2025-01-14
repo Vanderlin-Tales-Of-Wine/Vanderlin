@@ -598,8 +598,6 @@
 			set_species(newtype)
 
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
-	if(user == target)
-		return FALSE
 	if(pulling == target && stat == CONSCIOUS)
 		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
 		if(user == target && can_piggyback(target))

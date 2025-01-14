@@ -162,7 +162,7 @@
 			facing_zone = BODY_ZONE_FACING_L_ARM
 	return facing_zone
 
-///Convert a PRECISE ZONE into the BODY_ZONE
+///Check whether a zone is a PRECISE ZONE
 /proc/check_subzone(zone)
 	if(!zone)
 		return FALSE

@@ -3,7 +3,7 @@
 	flag = MONK
 	department_flag = CHURCHMEN
 	faction = "Station"
-	total_positions = 3
+	total_positions = 4
 	spawn_positions = 4
 
 	allowed_races = list(
@@ -83,6 +83,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 		if(/datum/patron/divine/ravox)
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
@@ -100,6 +101,7 @@
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
+			backpack_contents += /obj/item/rogueweapon/hammer
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		else // Failsafe
 			head = /obj/item/clothing/head/roguetown/roguehood/random

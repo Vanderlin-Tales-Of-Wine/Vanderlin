@@ -47,7 +47,7 @@
 		H.revive(full_heal = FALSE, admin_revive = FALSE)
 		H.emote("breathgasp")
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -99,7 +99,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -151,7 +151,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -166,8 +166,8 @@
 			var/amt2raise = sender.STAINT*2
 			sender.mind?.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 			H.handle_blood()
-			H.visible_message("<span class='danger'>[target] has their blood ripped from their body!!</span>", \
-					"<span class='userdanger'>My blood erupts from my body!", "<span class='hear'>...</span>", COMBAT_MESSAGE_RANGE, target)
+			H.visible_message(span_danger("[target] has their blood ripped from their body!"), \
+					span_userdanger("My blood erupts from my body!"), span_hear("..."), COMBAT_MESSAGE_RANGE, target)
 			new /obj/effect/decal/cleanable/blood/puddle(H.loc)
 	qdel(src)
 
@@ -210,7 +210,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[src] fizzles on contact with [target]!</span>")
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -319,7 +319,7 @@
 	cost = 2
 
 /obj/projectile/energy/rogue3
-	name = "Arcane Bolt"
+	name = "arcane bolt"
 	icon_state = "arcane_barrage"
 	damage = 30
 	damage_type = BRUTE
@@ -363,7 +363,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		if(M.anti_magic_check())
-			visible_message("<span class='warning'>[target] repells the fetch!</span>")
+			visible_message(span_warning("[target] repells the fetch!"))
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
@@ -572,13 +572,20 @@
 //		/obj/effect/proc_holder/spell/targeted/ethereal_jaunt,
 //		/obj/effect/proc_holder/spell/aoe_turf/knock,
 		/obj/effect/proc_holder/spell/targeted/touch/darkvision,// 2 cost
-		/obj/effect/proc_holder/spell/invoked/message,
+		/obj/effect/proc_holder/spell/self/message,
 		/obj/effect/proc_holder/spell/invoked/blade_burst,
 		/obj/effect/proc_holder/spell/invoked/projectile/fetch,
 		/obj/effect/proc_holder/spell/invoked/projectile/arcanebolt,
 		/obj/effect/proc_holder/spell/targeted/touch/nondetection, // 1 cost
 		/obj/effect/proc_holder/spell/targeted/touch/prestidigitation,
 		/obj/effect/proc_holder/spell/invoked/featherfall,
+		/obj/effect/proc_holder/spell/invoked/projectile/acidsplash5e, //spells ported from azure in modular_azure
+		/obj/effect/proc_holder/spell/invoked/snap_freeze,
+		/obj/effect/proc_holder/spell/invoked/projectile/frostbolt,
+		/obj/effect/proc_holder/spell/invoked/gravity,
+		/obj/effect/proc_holder/spell/invoked/projectile/repel,
+		/obj/effect/proc_holder/spell/invoked/longstrider,
+		/obj/effect/proc_holder/spell/invoked/guidance,
 	)
 	for(var/i = 1, i <= spell_choices.len, i++)
 		choices["[spell_choices[i].name]: [spell_choices[i].cost]"] = spell_choices[i]
@@ -627,7 +634,7 @@
 
 //adapted from forcefields.dm, this needs to be destructible
 /obj/structure/forcefield_weak
-	name = "Arcyne Wall"
+	name = "arcyne wall"
 	desc = "A wall of pure arcyne force."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "forcefield"
@@ -720,7 +727,8 @@
 			playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
 			return
 		L.Immobilize(duration)
-		L.visible_message("<span class='warning'>[L] is held by tendrils of arcyne force!</span>")
+		L.OffBalance(duration)
+		L.visible_message(span_warning("[L] is held by tendrils of arcyne force!"))
 		new /obj/effect/temp_visual/slowdown_spell_aoe/long(get_turf(L))
 
 /obj/effect/temp_visual/slowdown_spell_aoe
@@ -731,46 +739,50 @@
 /obj/effect/temp_visual/slowdown_spell_aoe/long
 	duration = 3 SECONDS
 
-/obj/effect/proc_holder/spell/invoked/message
+/obj/effect/proc_holder/spell/self/message
 	name = "Message"
 	desc = "Latch onto the mind of one who is familiar to you, whispering a message into their head."
-	cost = 2
+	cost = 1
 	releasedrain = 30
-	chargedrain = 1
-	chargetime = 5 SECONDS
 	charge_max = 60 SECONDS
 	warnie = "spellwarning"
-	no_early_release = TRUE
-	movement_interrupt = TRUE
-	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "message"
+	var/identify_difficulty = 15 //the stat threshold needed to pass the identify check
 
-/obj/effect/proc_holder/spell/invoked/message/cast(list/targets, mob/user)
-	. = ..()
+/obj/effect/proc_holder/spell/self/message/cast(list/targets, mob/user)
 	var/input = input(user, "Who are you trying to contact?")
 	if(!input)
-		return
+		return FALSE
 	if(!user.key)
 		to_chat(user, span_warning("I sense a body, but the mind does not seem to be there."))
-		revert_cast()	//if the spell fails, cooldown is reset (waiting 1 minute cause your bad at spelling sux)
-		return
+		return FALSE
 	if(!user.mind || !user.mind.do_i_know(name=input))
 		to_chat(user, span_warning("I don't know anyone by that name."))
-		revert_cast()
-		return
+		return FALSE
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.real_name == input)
 			var/message = input(user, "You make a connection. What are you trying to say?")
 			if(!message)
-				return
-			to_chat(HL, "Arcyne whispers fill the back of my head, resolving into a clear, if distant, voice: </span><font color=#7246ff>\"[message]\"</font>")
+				return ..()
+			if(alert(user, "Send anonymously?", "", "Yes", "No") == "No") //yes or no popup, if you say No run this code
+				identify_difficulty = 0 //anyone can clear this
+
+			var/identified = FALSE
+			if(HL.STAPER >= identify_difficulty) //quick stat check
+				if(HL.mind)
+					if(HL.mind.do_i_know(name=user.real_name)) //do we know who this person is?
+						identified = TRUE // we do
+						to_chat(HL, "Arcyne whispers fill the back of my head, resolving into [user]'s voice: <font color=#7246ff>[message]</font>")
+			if(!identified) //we failed the check OR we just dont know who that is
+				to_chat(HL, "Arcyne whispers fill the back of my head, resolving into an unknown [user.gender == FEMALE ? "woman" : "man"]'s voice: <font color=#7246ff>[message]</font>")
+
 			log_game("[key_name(user)] sent a message to [key_name(HL)] with contents [message]")
 			// maybe an option to return a message, here?
-			return TRUE
+			return ..()
 	to_chat(user, span_warning("I seek a mental connection, but can't find [input]."))
-	revert_cast()
+	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/push_spell
 	name = "Repulse"
@@ -821,13 +833,13 @@
 				var/mob/living/M = AM
 				M.Paralyze(10)
 				M.adjustBruteLoss(5)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by [user]!</span>")
+				to_chat(M, span_danger("You're slammed into the floor by [user]!"))
 		else
 			new sparkle_path(get_turf(AM), get_dir(user, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(stun_amt)
-				to_chat(M, "<span class='danger'>You're thrown back by [user]!</span>")
+				to_chat(M, span_danger("You're thrown back by [user]!"))
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromcaster - 2, 0, distfromcaster))), 3, maxthrow))), 1,user, force = repulse_force)//So stuff gets tossed around at the same time.
 
 /obj/effect/proc_holder/spell/invoked/blade_burst
@@ -873,13 +885,14 @@
 	new /obj/effect/temp_visual/blade_burst(T)
 	for(var/mob/living/L in T.contents)
 		var/def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-		var/obj/item/bodypart/BP = L.get_bodypart(def_zone)
 		L.apply_damage(damage, BRUTE, def_zone)
-		BP?.add_wound(/datum/wound/fracture)
+		if(prob(33))
+			var/obj/item/bodypart/BP = L.get_bodypart(def_zone)
+			BP.add_wound(/datum/wound/fracture)
 		play_cleave = TRUE
 		L.adjustBruteLoss(damage)
 		playsound(T, "genslash", 80, TRUE)
-		to_chat(L, "<span class='userdanger'>I'm cut by arcyne force!</span>")
+		to_chat(L, span_userdanger("I'm cut by arcyne force!"))
 	if(play_cleave)
 		playsound(T,'sound/combat/newstuck.ogg', 80, TRUE, soundping = TRUE)
 	return TRUE
@@ -956,7 +969,7 @@
 	drawmessage = "I prepare to grant Darkvision."
 	dropmessage = "I release my arcyne focus."
 	school = "transmutation"
-	charge_max = 2 MINUTES
+	charge_max = 1 MINUTES
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	hand_path = /obj/item/melee/touch_attack/darkvision
@@ -1021,8 +1034,8 @@
 	cost = 3
 	releasedrain = 25
 	chargedrain = 1
-	chargetime = 4 SECONDS
-	charge_max = 5 MINUTES
+	chargetime = 1 SECONDS
+	charge_max = 1.5 MINUTES
 	warnie = "spellwarning"
 	school = "transmutation"
 	no_early_release = TRUE
@@ -1050,7 +1063,7 @@
 
 /obj/effect/proc_holder/spell/invoked/findfamiliar
 	name = "Find Familiar"
-	desc = "Summons a temporary spectral volf to aid you. Hostile to all but yourself. Summon with care."
+	desc = "Summons a temporary spectral volf to aid you. Prioritizes your target and is hostile to all but yourself. Summon with care."
 	school = "transmutation"
 	releasedrain = 30
 	chargedrain = 1
@@ -1060,8 +1073,6 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	charging_slowdown = 3
-	clothes_req = FALSE
-	active = FALSE
 	sound = 'sound/blank.ogg'
 	overlay_state = "forcewall"
 	range = -1
@@ -1070,8 +1081,17 @@
 	cost = 3
 
 /obj/effect/proc_holder/spell/invoked/findfamiliar/cast(list/targets,mob/user = usr)
-	var/turf/target_turf = get_turf(targets[1])
-	new /mob/living/simple_animal/hostile/retaliate/rogue/wolf/familiar(target_turf, user)
+	. = ..()
+	var/mob/M = new /mob/living/simple_animal/hostile/retaliate/rogue/wolf/familiar(get_turf(user), user)
+	var/atom/A = targets[1]
+	if(isliving(A))
+		M.ai_controller?.set_blackboard_key(BB_BASIC_MOB_PRIORITY_TARGETS, A)
+	else
+		var/turf/target_turf = get_turf(A)
+		var/list/turftargets = list()
+		for(var/mob/living/L in target_turf)
+			turftargets += L
+		M.ai_controller?.set_blackboard_key(BB_BASIC_MOB_PRIORITY_TARGETS, turftargets)
 	return TRUE
 
 #undef PRESTI_CLEAN

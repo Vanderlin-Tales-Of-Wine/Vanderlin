@@ -1429,7 +1429,7 @@
 	dir = 6;
 	icon_state = "largetable"
 	},
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "sZ" = (
@@ -3548,13 +3548,13 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "UZ" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Va" = (

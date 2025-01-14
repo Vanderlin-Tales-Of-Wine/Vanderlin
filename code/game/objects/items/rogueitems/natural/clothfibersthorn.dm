@@ -309,6 +309,7 @@
 /obj/item/natural/bundle/worms
 	name = "worms"
 	desc = "Multiple wriggly worms."
+	icon_state = "worm1"
 	color = "#964B00"
 	maxamount = 12
 	icon1 = "worm2"

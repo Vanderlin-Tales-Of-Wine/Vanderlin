@@ -81,8 +81,8 @@
 		capturedsoul.beingmoved = TRUE
 		capturedsoul.invisibility = INVISIBILITY_OBSERVER
 		capturedsoul.status_flags |= GODMODE
-		capturedsoul.density = FALSE
 		capturedsoul.Stun(61 SECONDS)
+		capturedsoul.density = FALSE
 		addtimer(CALLBACK(src, PROC_REF(return_soul), user, capturedsoul, itemstore), 60 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(return_soul_warning), user, capturedsoul), 50 SECONDS)
 		to_chat(user, "<font color='blue'>I feel a cold chill run down my spine, a ghastly presence has arrived.</font>")
@@ -120,7 +120,7 @@
 	charge_max = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
-	req_items = list(/obj/item/clothing/neck/roguetown/psycross)
+	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/necra)
 	sound = 'sound/magic/churn.ogg'
 	associated_skill = /datum/skill/magic/holy
 	invocation = "The Undermaiden rebukes!"

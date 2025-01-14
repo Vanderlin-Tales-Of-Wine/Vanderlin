@@ -129,7 +129,7 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue)
 "O" = (
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue)
 "P" = (

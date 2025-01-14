@@ -1608,8 +1608,8 @@
 "fY" = (
 /obj/structure/rack/rogue,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "fZ" = (
@@ -3022,7 +3022,7 @@
 /obj/item/rogueweapon/mace/cudgel,
 /obj/item/rogueweapon/whip,
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/cell)
 "lu" = (
@@ -11473,7 +11473,7 @@
 "RH" = (
 /obj/machinery/light/rogue/torchholder/c,
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "RI" = (
@@ -12802,7 +12802,7 @@
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/town/theatre)
 "WG" = (
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)

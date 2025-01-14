@@ -136,6 +136,11 @@
 	timer = 10 MINUTES
 	desc = span_green("This music is exceptional.")
 
+/datum/stressevent/eora
+	stressadd = -4
+	timer = INFINITY
+	desc = span_boldgreen("Eora brings me peace.")
+
 // Bard buffs below
 
 /datum/stressevent/bardicbuff
@@ -178,8 +183,8 @@
 	timer = 10 MINUTES
 
 /datum/stressevent/divine_beauty
-	stressadd = -5
-	desc = span_green("A soothing fragrance envelops me, and I feel clean as a whistle.")
+	stressadd = -2
+	desc = span_green("I feel touched by a divine beauty.")
 	timer = 5 MINUTES
 
 /datum/stressevent/apprentice_making_me_proud

@@ -185,7 +185,7 @@
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	sewrepair = FALSE
-	smeltresult = null
+	smeltresult = /obj/item/ingot/iron //no 1 to 1 conversion
 
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE

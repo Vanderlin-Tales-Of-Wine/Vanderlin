@@ -25,6 +25,7 @@
 #define TRAIT_INHUMANE_ANATOMY			"Inhumen Anatomy" //can't wear hats and shoes
 #define TRAIT_NASTY_EATER 				"Inhumen Digestion" //can eat rotten food, organs, poison berries, and drink murky water
 #define TRAIT_NOFALLDAMAGE1 		"Minor Fall Damage Immunity"
+#define TRAIT_NOFALLDAMAGE2 		"Total	 Fall Damage Immunity"
 #define TRAIT_DEATHSIGHT "Veiled Whispers" // Is notified when a player character dies, but not told exactly where or how.
 #define TRAIT_CYCLOPS_LEFT				"Cyclops (Left)" //poked left eye
 #define TRAIT_CYCLOPS_RIGHT				"Cyclops (Right)" //poked right eye
@@ -129,7 +130,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_KNEESTINGER_IMMUNITY = "I am immune to the shock of kneestingers.",
 	TRAIT_INHUMANE_ANATOMY = "My anatomy is inhumen, preventing me from wearing hats and shoes.",
 	TRAIT_NASTY_EATER = span_dead("I can eat bad food, and water that would be toxic to humen will not affect me."),
-	TRAIT_NOFALLDAMAGE1 = span_warning("I can easily handle minor falls."),
+	TRAIT_NOFALLDAMAGE1 = span_info("I can easily handle minor falls."),
+	TRAIT_NOFALLDAMAGE2 = span_info("I can handle a fall from any height."),
 	TRAIT_ROT_EATER = span_necrosis("I can eat rotten food."),
 	TRAIT_ORGAN_EATER = span_bloody("I can eat organs and raw flesh."),
 	TRAIT_CRACKHEAD = span_love("I can use drugs as much as I want!"),
@@ -396,5 +398,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define MADE_UNCLONEABLE "made-uncloneable"
 #define TIMESTOP_TRAIT "timestop"
 #define ADVENTURER_TRAIT "adventurer"
+#define TRAIT_LONGSTRIDER "longstrider"
+#define TRAIT_GUIDANCE "guidance"
 
 #define TRAIT_I_AM_INVISIBLE_ON_A_BOAT "invisible_on_tram"

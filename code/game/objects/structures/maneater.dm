@@ -56,6 +56,8 @@
 			return TRUE
 	for(var/mob/living/L in buckled_mobs)
 		if(world.time > last_eat + 8 SECONDS)
+			if(L.status_flags & GODMODE)
+				continue
 			last_eat = world.time
 			L.flash_fullscreen("redflash3")
 			playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
@@ -138,6 +140,8 @@
 			if(!aggroed)
 				if(L.m_intent == MOVE_INTENT_SNEAK)
 					return
+			if(L.status_flags & GODMODE)
+				return
 			aggroed = world.time
 			last_eat = world.time
 			update_icon()

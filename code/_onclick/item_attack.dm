@@ -438,34 +438,28 @@
 			return
 
 		if(ishuman(target) && target.mind)
-			var/mob/living/carbon/human/s_user = user
 			var/mob/living/carbon/human/H = target
 			var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 			var/datum/antagonist/vampirelord/lesser/V = H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
 			var/datum/antagonist/vampirelord/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
 			if(V)
 				if(V.disguised)
-					H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
-					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
 					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 					src.last_used = world.time
 				else
-					H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
-					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
 					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 					src.last_used = world.time
 			if(V_lord)
 				if(V_lord.vamplevel < 4 && !V)
-					H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
-					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
 					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 					src.last_used = world.time
 				if(V_lord.vamplevel == 4 && !V)
-					to_chat(s_user, "<font color='red'> The silver weapon fails!</font>")
-					H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
+					H.visible_message("<font color='red'> The silver weapon fails to affect [H]!</font>", span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
 			if(W && W.transformed == TRUE)
-				H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
-				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>",  span_userdanger("I'm hit by my BANE!"))
 				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 				src.last_used = world.time
 	return

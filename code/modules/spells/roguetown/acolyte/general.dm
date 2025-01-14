@@ -28,12 +28,12 @@
 			target.cursed_freak_out()
 			return FALSE
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
-			target.visible_message("<span class='danger'>[target] is burned by holy light!</span>", "<span class='userdanger'>I'm burned by holy light!</span>")
+			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
 			target.adjustFireLoss(30)
 			target.fire_act(1,5)
 			return TRUE
 		if(target.real_name in GLOB.excommunicated_players)
-			target.visible_message("<span class='warning'>The angry Gods sears [user]s flesh, blasphemer, heretic!</span>", "<span class='notice'>I am despised by the Gods, rejected, and they remind me with a wave of pain just how unlovable I am!</span>")
+			target.visible_message(span_warning("The angry Ten sear [user]s flesh, a foolish blasphemer and heretic!"), span_notice("I am despised by the Ten, rejected, and they remind me just how unlovable I am with a wave of pain!"))
 			target.emote("scream")
 			target.adjustFireLoss(20)
 			return TRUE
@@ -96,17 +96,18 @@
 				target.adjustToxLoss(-situational_bonus)
 				target.blood_volume += BLOOD_VOLUME_SURVIVE/2
 			if(/datum/patron/divine/malum)
-				target.visible_message("<span class='info'>A tempering heat is discharged out of [target]!</span>", "<span class='notice'>I feel the heat of a forge soothing my pains!</span>")
-				var/list/firey_stuff = list(/obj/machinery/light/rogue/torchholder, /obj/machinery/light/rogue/campfire, /obj/machinery/light/rogue/hearth, /obj/machinery/light/rogue/wallfire, /obj/machinery/light/rogue/wallfire/candle, /obj/machinery/light/rogue/forge)
+				target.visible_message(span_info("A tempering heat is discharged out of [target]!"), span_notice("I feel the heat of a forge soothing my pains!"))
+				// var/list/firey_stuff = list(/obj/machinery/light/rogue/torchholder, /obj/machinery/light/rogue/campfire, /obj/machinery/light/rogue/hearth, /obj/machinery/light/rogue/wallfire, /obj/machinery/light/rogue/wallfire/candle, /obj/machinery/light/rogue/forge, /obj/machinery/light/rogue/firebowl/stump)
 				// extra healing for every source of fire/light near us
 				situational_bonus = 0
-				for (var/obj/O in oview(5, user))
-					if (O in firey_stuff)
-						situational_bonus = min(situational_bonus + 5, 25)
+				for (var/obj/machinery/light/rogue/O in oview(5, user))
+					if(!O.on)
+						continue
+					situational_bonus = min(situational_bonus + 3, 25)
 				if (situational_bonus > 0)
 					conditional_buff = TRUE
 			if(/datum/patron/divine/eora)
-				target.visible_message("<span class='info'>An emanance of love blossoms around [target]!</span>", "<span class='notice'>I'm filled with the restorative warmth of love!</span>")
+				target.visible_message(span_info("An eminence of love blossoms around [target]!"), span_notice("I'm filled with the restorative warmth of love!"))
 				// if they're wearing an eoran bud (or are a pacifist), pretty much double the healing.
 				situational_bonus = 0
 				if (HAS_TRAIT(target, TRAIT_PACIFISM))
@@ -196,12 +197,12 @@
 			return FALSE
 
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
-			target.visible_message("<span class='danger'>[target] is burned by holy light!</span>", "<span class='userdanger'>I'm burned by holy light!</span>")
+			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
 			target.adjustFireLoss(100)
 			target.Paralyze(50)
 			target.fire_act(1,5)
 			return ..()
-		target.visible_message("<span class='info'>A wreath of gentle light passes over [target]!</span>", "<span class='notice'>I'm bathed in holy light!</span>")
+		target.visible_message(span_info("A wreath of gentle light passes over [target]!"), span_notice("I'm bathed in holy light!"))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))

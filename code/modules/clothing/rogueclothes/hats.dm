@@ -976,6 +976,12 @@
 	item_state = "malumhelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
+/obj/item/clothing/head/roguetown/helmet/heavy/ravox
+	name = "ravoxian helmet"
+	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles an heavily adorned visored sallet."
+	icon_state = "ravoxhelm"
+	item_state = "ravoxhelm"
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 //............... Sinistar (Graggar) Helmet ............... //
 /obj/item/clothing/head/roguetown/helmet/heavy/sinistar

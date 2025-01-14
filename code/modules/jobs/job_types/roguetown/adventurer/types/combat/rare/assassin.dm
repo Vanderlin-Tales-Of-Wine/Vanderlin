@@ -120,7 +120,7 @@
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			belt = /obj/item/storage/belt/rogue/leather/assassin
-			beltr = /obj/item/quiver/arrows
+			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/flashlight/flare/torch/lantern
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/bait = 1, /obj/item/rogueweapon/knife/hunting = 1)
 			gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -161,7 +161,7 @@
 				head = /obj/item/clothing/head/roguetown/fancyhat
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				beltr = /obj/item/rogueweapon/sword/rapier/dec
-				beltl = /obj/item/quiver/arrows
+				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 			else
 				H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) //Female nobles get the male noble's bow, but are less trained than an Assassin disguising as a Hunter. Balance.
@@ -171,7 +171,7 @@
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				beltr = /obj/item/rogueweapon/knife/dagger/steel/special
-				beltl = /obj/item/quiver/arrows
+				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 		if("Peasant")
 			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)

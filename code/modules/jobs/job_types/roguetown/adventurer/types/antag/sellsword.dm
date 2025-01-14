@@ -45,7 +45,7 @@
 	switch(weapon_choice)
 		if("Spear & Crossbow") //Deserter watchman. Maybe should be shield and spear? spear and crossbow is kinda clumsy
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
-			beltr = /obj/item/quiver/bolts
+			beltr = /obj/item/ammo_holder/quiver/bolts
 			r_hand = /obj/item/rogueweapon/polearm/spear/billhook
 			head = /obj/item/clothing/head/roguetown/helmet/kettle
 		if("Sword & Buckler") //Mercenary on the wrong side of the law

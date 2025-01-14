@@ -98,8 +98,8 @@
 /datum/status_effect/debuff/silver_curse
 	id = "silver_curse"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/silver_curse
-	effectedstats = list("strength" = -2,"perception" = -2,"intelligence" = -2, "constitution" = -2, "endurance" = -2,"speed" = -2)
-	duration = 45 SECONDS
+	effectedstats = list(STATKEY_STR = -2,STATKEY_PER = -2,STATKEY_INT = -2, STATKEY_CON = -2, STATKEY_END = -2, STATKEY_SPD = -2, STATKEY_LCK = -2)
+	duration = 1 MINUTES
 
 /*	Pointless subtype, code doesnt handle it well, dont use
 /datum/status_effect/debuff/silver_curse/greater
@@ -430,3 +430,23 @@
 	name = "Insight"
 	desc = "With some sleep in a coffin I feel like I could become better."
 	icon_state = "sleepy"
+
+/datum/status_effect/eorapacify
+	id = "eorapacify"
+	status_type = STATUS_EFFECT_REPLACE
+	tick_interval = 1
+	duration = 85
+	alert_type = null
+
+/datum/status_effect/eorapacify/on_creation(mob/living/new_owner, set_duration)
+	if(isnum(set_duration))
+		duration = set_duration
+	. = ..()
+
+/datum/status_effect/eorapacify/on_apply()
+	ADD_TRAIT(owner, TRAIT_PACIFISM, "[type]")
+	return ..()
+
+/datum/status_effect/eorapacify/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "[type]")
+	return ..()

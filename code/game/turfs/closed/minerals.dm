@@ -201,7 +201,7 @@
 /turf/closed/mineral/random/rogue
 //	layer = ABOVE_MOB_LAYER
 	name = "rock"
-	desc = "seems barren"
+	desc = "Seems barren."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "minrandbad"
 	smooth = SMOOTH_TRUE | SMOOTH_MORE
@@ -260,7 +260,7 @@
 /turf/closed/mineral/rogue
 //	layer = ABOVE_MOB_LAYER
 	name = "rock"
-	desc = "seems barren"
+	desc = "Seems barren."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "rockyash"
 	smooth = SMOOTH_TRUE | SMOOTH_MORE
@@ -336,7 +336,7 @@
 
 /turf/closed/mineral/rogue/bedrock
 	name = "rock"
-	desc = "seems barren, and nigh indestructable"
+	desc = "Seems barren, and nigh indestructable."
 	icon_state = "rockyashbed"
 //	smooth_icon = 'icons/turf/walls/hardrock.dmi'
 	max_integrity = 10000000

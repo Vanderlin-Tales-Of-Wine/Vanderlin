@@ -1,64 +1,41 @@
 
-/obj/item/quiver
-	name = "quiver"
+/obj/item/ammo_holder
 	desc = ""
-	icon_state = "quiver0"
-	item_state = "quiver"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
 	resistance_flags = NONE
 	max_integrity = 0
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
 	strip_delay = 20
-	var/max_storage = 20
+	var/max_storage
 	var/list/ammo_list = list()
+	sewrepair = TRUE
+	var/list/ammo_type
 
-/obj/item/quiver/attackby(obj/A,  mob/living/user, params)
-	if(A.type in subtypesof(/obj/item/ammo_casing/caseless/rogue))
-		if(ammo_list.len < max_storage)
-			user.transferItemToLoc(A, src, TRUE, TRUE)
-			ammo_list += A
-			update_icon()
-		else
-			to_chat(user, span_warning("\The [src] is full!"))
-		return
+/obj/item/ammo_holder/attackby(obj/A, loc, params)
+	for(var/i in ammo_type)
+		if(istype(A, i))
+			if(ammo_list.len < max_storage)
+				A.forceMove(src)
+				ammo_list += A
+				update_icon()
+			else
+				to_chat(loc, span_warning("Full!"))
+			return
 	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/bow))
 		var/obj/item/gun/ballistic/revolver/grenadelauncher/bow/B = A
 		if(ammo_list.len && !B.chambered)
 			for(var/AR in ammo_list)
 				if(istype(AR, /obj/item/ammo_casing/caseless/rogue/arrow))
 					ammo_list -= AR
-					B.attackby(AR, user, params)
+					B.attackby(AR, loc, params)
 					break
-				else
-					to_chat(user, span_warning("The ammunition doesn't fit [B]!"))
-					return
-			update_icon()
 		return
-	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
-		var/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/C = A
-		if(C.cocked)
-			if(ammo_list.len && !C.chambered)
-				for(var/BT in ammo_list)
-					if(istype(BT, /obj/item/ammo_casing/caseless/rogue/bolt))
-						ammo_list -= BT
-						C.attackby(BT, loc, params)
-						break
-					else
-						to_chat(user, span_warning("The ammunition doesn't fit [C]!"))
-						return
-				update_icon()
-		else
-			to_chat(loc, span_warning("I need to cock \the [src] first."))
-			return
-	. = ..()
+	..()
 
-/obj/item/quiver/attack_right(mob/user)
+/obj/item/ammo_holder/attack_right(mob/user)
 	if(ammo_list.len)
 		var/obj/O = ammo_list[ammo_list.len]
 		ammo_list -= O
@@ -67,25 +44,43 @@
 		update_icon()
 		return TRUE
 
-/obj/item/quiver/examine(mob/user)
+/obj/item/ammo_holder/examine(mob/user)
 	. = ..()
 	if(ammo_list.len)
 		. += span_notice("[ammo_list.len] inside.")
 
-/obj/item/quiver/update_icon()
+/obj/item/ammo_holder/update_icon()
 	if(ammo_list.len)
-		icon_state = "quiver1"
+		icon_state = "[item_state]1"
 	else
-		icon_state = "quiver0"
+		icon_state = "[item_state]0"
 
-/obj/item/quiver/arrows/Initialize()
+/obj/item/ammo_holder/quiver
+	name = "quiver"
+	icon_state = "quiver0"
+	item_state = "quiver"
+	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
+	max_storage = 20
+	ammo_type = list (/obj/item/ammo_casing/caseless/rogue/arrow, /obj/item/ammo_casing/caseless/rogue/bolt)
+
+/obj/item/ammo_holder/quiver/arrows/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/rogue/arrow/A = new()
 		ammo_list += A
 	update_icon()
 
-/obj/item/quiver/bolts/Initialize()
+/obj/item/ammo_holder/bullet
+	name = "bullet pouch"
+	icon_state = "pouch0"
+	item_state = "pouch"
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
+	max_storage = 10
+	ammo_type = list(/obj/item/ammo_casing/caseless/rogue/bullet)
+
+/obj/item/ammo_holder/quiver/bolts/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new()

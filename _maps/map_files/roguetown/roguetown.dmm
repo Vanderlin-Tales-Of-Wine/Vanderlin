@@ -2307,7 +2307,7 @@
 /area/rogue/outdoors/town/roofs)
 "cyS" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -4580,7 +4580,7 @@
 	},
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
 "eVO" = (
@@ -4714,7 +4714,7 @@
 /area/rogue/outdoors/town)
 "fdy" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/rope/chain,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)
@@ -12434,9 +12434,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "nGk" = (
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "nGv" = (
@@ -14895,7 +14895,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
 "qmM" = (
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -19523,8 +19523,8 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "vva" = (
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/structure/closet/crate/roguecloset,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)

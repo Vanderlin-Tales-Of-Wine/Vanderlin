@@ -12,6 +12,7 @@ PROCESSING_SUBSYSTEM_DEF(roguemachine)
 	var/list/death_queue = list()
 	var/last_death_report
 	var/obj/item/crown
+	var/obj/item/key
 
 /datum/controller/subsystem/processing/roguemachine/fire(resumed = 0)
 	. = ..()

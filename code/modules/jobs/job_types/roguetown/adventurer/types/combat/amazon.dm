@@ -28,7 +28,7 @@
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	shoes = /obj/item/clothing/shoes/roguetown/gladiator
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/amazon_chainkini

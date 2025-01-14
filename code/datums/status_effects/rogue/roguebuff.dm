@@ -5,7 +5,7 @@
 /datum/status_effect/buff/drunk
 	id = "drunk"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list("intelligence" = -1, "speed" = -1, "endurance" = 1)
+	effectedstats = list(STATKEY_INT = -1, STATKEY_SPD = -1, STATKEY_PER = 1)
 	duration = 12 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/drunk
@@ -431,8 +431,15 @@
 
 /atom/movable/screen/alert/status_effect/buff/divine_beauty
 	name = "Divine Beauty"
-	desc = span_nicegreen("Everything about me feels fresh and perfect!")
+	desc = span_nicegreen("Everything about myself feels beautiful!")
 	icon_state = "beauty"
+
+/datum/status_effect/buff/eoradrunk
+	id = "eoradrunk"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
+	effectedstats = list(STATKEY_STR = -2, STATKEY_LCK = -5, STATKEY_PER = -2, STATKEY_SPD = -3) //debuff stats important in attacking
+	duration = 20 SECONDS
+
 /*-----------------\
 |   Ravox Miracles |
 \-----------------*/
@@ -441,7 +448,7 @@
 	id = "call_to_arms"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/call_to_arms
 	duration = 2.5 MINUTES
-	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_CON = 1)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_CON = 2)
 
 /atom/movable/screen/alert/status_effect/buff/call_to_arms
 	name = "Call to Arms"
@@ -456,10 +463,10 @@
 	id = "crafting_buff_malum"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/craft_buff
 	duration = 2.5 MINUTES
-	effectedstats = list(STATKEY_INT = 3)
+	effectedstats = list(STATKEY_INT = 2)
 
 /atom/movable/screen/alert/status_effect/buff/craft_buff
-	name = "Exquisite Craftsdwarfship"
+	name = "Exquisite Craftsmanship"
 	desc = span_notice("I am inspired to create!")
 	icon_state = "malum_buff"
 

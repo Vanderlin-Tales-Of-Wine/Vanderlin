@@ -473,11 +473,12 @@
 				if(A.type == datum_type)
 					return A
 
-// Boolean. Returns true if the antag is actually "good", false otherwise.
+// Boolean. Returns true if all antag datums are actually "good", false otherwise.
 /datum/mind/proc/isactuallygood()
-	for(var/GG in antag_datums)
-		var/datum/antagonist/antaggy = GG
-		return antaggy.isgoodguy
+	var/is_good_guy = TRUE
+	for(var/datum/antagonist/GG in antag_datums)
+		is_good_guy &&= GG.isgoodguy
+	return is_good_guy
 
 
 /datum/mind/proc/equip_traitor(employer = "The Syndicate", silent = FALSE, datum/antagonist/uplink_owner)
@@ -699,7 +700,7 @@
 /datum/mind/proc/check_learnspell(obj/effect/proc_holder/spell/S)
 	if(!has_spell(/obj/effect/proc_holder/spell/self/learnspell)) //are we missing the learning spell?
 		if((spell_points - used_spell_points) > 0) //do we have points?
-			AddSpell(new /obj/effect/proc_holder/spell/self/learnspell(null), silent = FALSE) //put it in
+			AddSpell(new /obj/effect/proc_holder/spell/self/learnspell(null)) //put it in
 			return
 
 	if((spell_points - used_spell_points) <= 0) //are we out of points?

@@ -50,6 +50,7 @@
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)
 		reagents.add_reagent_list(list_reagents)
+	update_icon()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	return ..()

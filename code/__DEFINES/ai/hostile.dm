@@ -41,6 +41,7 @@
 
 ///Targetting subtrees
 #define BB_TARGETED_ACTION "BB_targeted_action"
+#define BB_BASIC_MOB_PRIORITY_TARGETS "BB_basic_priority_targets"
 #define BB_BASIC_MOB_CURRENT_TARGET "BB_basic_current_target"
 #define BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION "BB_basic_current_target_hiding_location"
 #define BB_TARGETTING_DATUM "targetting_datum"

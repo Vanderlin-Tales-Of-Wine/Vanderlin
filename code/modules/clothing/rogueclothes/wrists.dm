@@ -24,6 +24,7 @@
 	resistance_flags = FIRE_PROOF
 	anvilrepair = /datum/skill/craft/armorsmithing
 	sewrepair = FALSE
+	smeltresult = /obj/item/ingot/iron //no 1 to 1 conversion
 
 /obj/item/clothing/wrists/roguetown/bracers/leather
 	name = "leather bracers"
