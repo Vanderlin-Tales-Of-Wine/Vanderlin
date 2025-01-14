@@ -336,7 +336,8 @@
 	"Moonlight Carnival" = 'modular/Barding/sound/instruments/accord (5).ogg',
 	"'Ye Best Be Goin'" = 'modular/Barding/sound/instruments/accord (6).ogg',
 	"Song of the Falconeer" = 'modular/Barding/sound/instruments/accord (7).ogg',
-	"Dwarven Frolick" = 'modular/Barding/sound/instruments/accord (8).ogg'
+	"Dwarven Frolick" = 'modular/Barding/sound/instruments/accord (8).ogg',
+	"Beloved Blue" = 'modular/Barding/sound/instruments/accord (9).ogg',
 	)
 
 /obj/item/rogue/instrument/guitar
@@ -360,7 +361,8 @@
 	"Evolvado" = 'modular/Barding/sound/instruments/guitar (12).ogg',
 	"Asturias" = 'modular/Barding/sound/instruments/guitar (13).ogg',
 	"The Fools Journey" = 'modular/Barding/sound/instruments/guitar (14).ogg',
-	"Prelude to Sorrow" = 'modular/Barding/sound/instruments/guitar (15).ogg'
+	"Prelude to Sorrow" = 'modular/Barding/sound/instruments/guitar (15).ogg',
+	"The Queen's High Seas" = 'modular/Barding/sound/instruments/guitar (16).ogg'
 	)
 
 /obj/item/rogue/instrument/harp
@@ -372,7 +374,13 @@
 	"The Lady of Red Silks" = 'modular/Barding/sound/instruments/harp (2).ogg',
 	"Eora Doth Watches" = 'modular/Barding/sound/instruments/harp (3).ogg',
 	"Dance of the Mages" = 'modular/Barding/sound/instruments/harp (4).ogg',
-	"Trickster Wisps" = 'modular/Barding/sound/instruments/harp (5).ogg')
+	"Trickster Wisps" = 'modular/Barding/sound/instruments/harp (5).ogg',
+	"On the Breeze" = 'modular/Barding/sound/instruments/harp (6).ogg',
+	"Never Enough" = 'modular/Barding/sound/instruments/harp (7).ogg',
+	"Sundered Heart" = 'modular/Barding/sound/instruments/harp (8).ogg',
+	"Corridors of Time" = 'modular/Barding/sound/instruments/harp (9).ogg',
+	"Determination" = 'modular/Barding/sound/instruments/harp (10).ogg',
+	)
 
 /obj/item/rogue/instrument/flute // small rats approach a little when begin playing
 	name = "flute"
@@ -400,3 +408,46 @@
 	"The Earth That Quakes" = 'modular/Barding/sound/instruments/drum (3).ogg',
 	"Marching Beat" = 'modular/Barding/sound/instruments/drum (4).ogg',
 	"Desert Heat" = 'modular/Barding/sound/instruments/drum (5).ogg')
+
+/obj/item/rogue/instrument/hurdygurdy
+	name = "hurdy-gurdy"
+	desc = "A knob-driven, wooden string instrument that reminds you of the oceans far."
+	icon_state = "hurdygurdy"
+	song_list = list("Ruler's One Ring" = 'modular/Barding/sound/instruments/hurdy (1).ogg',
+	"Tangled Trod" = 'modular/Barding/sound/instruments/hurdy (2).ogg',
+	"Motus" = 'modular/Barding/sound/instruments/hurdy (3).ogg',
+	"Becalmed" = 'modular/Barding/sound/instruments/hurdy (4).ogg',
+	"The Bloody Throne" = 'modular/Barding/sound/instruments/hurdy (5).ogg',
+	"We Shall Sail Together" = 'modular/Barding/sound/instruments/hurdy (6).ogg'
+	)
+	experimental_inhand = TRUE //temporary inhand sprite
+
+/obj/item/rogue/instrument/viola
+	name = "viola"
+	desc = "The prim and proper Viola, often the first instrument nobles are taught."
+	icon_state = "viola"
+	song_list = list("Far Flung Tale" = 'modular/Barding/sound/instruments/viola (1).ogg',
+	"G Major Cello Suite No. 1" = 'modular/Barding/sound/instruments/viola (2).ogg',
+	"Ursine's Home" = 'modular/Barding/sound/instruments/viola (3).ogg',
+	"Mead, Gold and Blood" = 'modular/Barding/sound/instruments/viola (4).ogg',
+	"Gasgow's Reel" = 'modular/Barding/sound/instruments/viola (5).ogg',
+	)
+	experimental_inhand = TRUE
+
+/obj/item/rogue/instrument/vocals
+	name = "vocalist's talisman"
+	desc = "This talisman emanates a small shimmer of light. When held, it can amplify and even change one's voice."
+	icon_state = "vtalisman"
+	song_list = list("Harpy's Call (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (1).ogg',
+	"Necra's Lullaby (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (2).ogg',
+	"Death Touched Aasimar (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (3).ogg',
+	"Our Mother, Our Divine (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (4).ogg',
+	"Wed, Forever More (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (5).ogg',
+	"Paper Boats (Feminine + Vocals)" = 'modular/Barding/sound/instruments/vocalsf (6).ogg',
+	"The Dragon's Blood Surges (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (1).ogg',
+	"Timeless Temple (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (2).ogg',
+	"Angel's Earnt Halo (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (3).ogg',
+	"A Fabled Choir (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (4).ogg',
+	"A Pained Farewell (Masculine + Feminine)" = 'modular/Barding/sound/instruments/vocalsx (1).ogg'
+	)
+	experimental_inhand = TRUE
