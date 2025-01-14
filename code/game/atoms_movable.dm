@@ -34,6 +34,8 @@
 	glide_size = 6
 	appearance_flags = TILE_BOUND|PIXEL_SCALE
 	var/datum/forced_movement/force_moving = null	//handled soley by forced_movement.dm
+	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
+	var/datum/movement_packet/move_packet
 	var/movement_type = GROUND		//Incase you have multiple types, you automatically use the most useful one. IE: Skating on ice, flippers on water, flying over chasm/space, etc.
 	var/atom/movable/pulling
 	var/nodirchange = FALSE
@@ -192,7 +194,14 @@
 	var/move_dir = get_dir(pulling.loc, A)
 	if(!Process_Spacemove(move_dir))
 		return FALSE
+	var/turf/pre_turf = get_turf(pulling)
 	pulling.Move(get_step(pulling.loc, move_dir), move_dir, glide_size)
+	var/turf/post_turf = get_turf(pulling)
+	if(pre_turf.snow && !post_turf.snow)
+		SEND_SIGNAL(pre_turf.snow, COMSIG_MOB_OVERLAY_FORCE_REMOVE, pulling)
+		if(ismob(src))
+			var/mob/source = src
+			source.update_vision_cone()
 	return TRUE
 
 /mob/living/Move_Pulled(atom/A)
@@ -224,6 +233,8 @@
 /atom/movable/proc/set_glide_size(target = 0)
 	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
 	glide_size = target
+	if(basic_reflection)
+		basic_reflection.glide_size = target
 
 	for(var/atom/movable/AM in buckled_mobs)
 		AM.set_glide_size(target)
@@ -420,6 +431,11 @@
 	if(pulledby)
 		pulledby.stop_pulling()
 
+	if(move_packet)
+		if(!QDELETED(move_packet))
+			qdel(move_packet)
+		move_packet = null
+
 	if(orbiting)
 		orbiting.end_orbit(src)
 		orbiting = null
@@ -437,7 +453,7 @@
 
 /atom/movable/Uncross(atom/movable/AM, atom/newloc)
 	. = ..()
-	if(SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSS, AM) & COMPONENT_MOVABLE_BLOCK_UNCROSS)
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_UNCROSS, AM,) & COMPONENT_MOVABLE_BLOCK_UNCROSS)
 		return FALSE
 	if(isturf(newloc) && !CheckExit(AM, newloc))
 		return FALSE

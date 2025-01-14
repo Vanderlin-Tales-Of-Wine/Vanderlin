@@ -25,10 +25,7 @@
 	var/fancy_open = FALSE
 
 /obj/item/storage/fancy/PopulateContents()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(spawn_type)
-		for(var/i = 1 to STR.max_items)
-			new spawn_type(src)
+	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, spawn_type)
 
 /obj/item/storage/fancy/update_icon()
 	if(fancy_open)

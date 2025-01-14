@@ -27,7 +27,7 @@
 	..()
 	if(H.dna.species.id == "Dwarf")
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/niteman
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/apothecary
 		pants = /obj/item/clothing/under/roguetown/tights/black
 	else
 		if(H.gender == FEMALE)

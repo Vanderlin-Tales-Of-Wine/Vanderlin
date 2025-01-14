@@ -7,7 +7,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-	cmode_music = 'sound/music/cmode/combat_delf.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
 /datum/outfit/job/roguetown/mercenary/anthrax/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -59,7 +59,7 @@
 			mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask
 			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve //Coupled with the racial PER malus, abysmal damage, but good for poison arrows.
-			beltr = /obj/item/quiver/arrows
+			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/rogueweapon/sword/sabre/stalker
 
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)

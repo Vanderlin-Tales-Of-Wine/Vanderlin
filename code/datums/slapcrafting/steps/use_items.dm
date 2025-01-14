@@ -10,6 +10,7 @@
 
 /datum/slapcraft_step/use_item/masonry/hammer
 	desc = "Hammer the stones in place."
+	start_verb = "for"
 	item_types = list(/obj/item/rogueweapon/hammer)
 
 /datum/slapcraft_step/use_item/masonry/hammer/second

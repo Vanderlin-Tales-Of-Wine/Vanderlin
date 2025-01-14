@@ -33,7 +33,7 @@
 		if(H.mob_timers["mirrortime"])
 			if(world.time < H.mob_timers["mirrortime"] + 6 MINUTES)
 				var/list/options = list("hairstyle", "facial hairstyle", "hair color", "skin", "detail", "eye color")
-				var/chosen = input(user, "Change what?", "ROGUETOWN")  as null|anything in options
+				var/chosen = input(user, "Change what?", "VANDERLIN")  as null|anything in options
 				var/should_update
 				switch(chosen)
 					if("hairstyle")

@@ -101,6 +101,7 @@
 		if(used_verb)
 			used_verbage |= used_verb
 	string = treat_mob_descriptor_string(string, described)
+	string += "."
 	return string
 
 /proc/treat_mob_descriptor_string(string, mob/living/described)

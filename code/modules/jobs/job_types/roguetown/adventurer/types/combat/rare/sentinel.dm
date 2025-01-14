@@ -48,7 +48,7 @@
 		if(prob(50))
 			pants = /obj/item/clothing/under/roguetown/tights/black
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
-	beltl = /obj/item/quiver/arrows
+	beltl = /obj/item/ammo_holder/quiver/arrows
 	shoes = /obj/item/clothing/shoes/roguetown/ridingboots
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	belt = /obj/item/storage/belt/rogue/leather

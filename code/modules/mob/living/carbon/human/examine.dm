@@ -48,7 +48,7 @@
 				display_as_wanderer = TRUE
 		else if(job)
 			var/datum/job/J = SSjob.GetJob(job)
-			if(J.wanderer_examine)
+			if(J?.wanderer_examine)
 				display_as_wanderer = TRUE
 			if(islatejoin)
 				is_returning = TRUE
@@ -95,28 +95,39 @@
 					. += family_text
 
 		if(real_name in GLOB.excommunicated_players)
-			. += "<span class='userdanger'>HERETIC! SHAME!</span>"
+			. += span_userdanger("EXCOMMUNICATED!")
+
+		if(real_name in GLOB.heretical_players)
+			. += span_userdanger("HERETIC! SHAME!")
+
+		if(real_name in GLOB.outlawed_players)
+			. += "<span class='userdanger'>OUTLAW!</span>"
 
 		if(iszizocultist(user) || iszizolackey(user))
 			if(virginity)
 				. += "<span class='userdanger'>VIRGIN!</span>"
 
-		if(real_name in GLOB.outlawed_players)
-			. += "<span class='userdanger'>OUTLAW!</span>"
 		if(mind && mind.special_role)
 			if(mind && mind.special_role == "Bandit" && HAS_TRAIT(user, TRAIT_KNOWBANDITS))
 				. += "<span class='userdanger'>BANDIT!</span>"
-		else
 			if(mind && mind.special_role == "Vampire Lord")
 				. += "<span class='userdanger'>A MONSTER!</span>"
-
-		if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
-			. += span_green("They are also a member of the Thieves Guild.")
 
 		var/list/known_frumentarii = user.mind.cached_frumentarii
 		if(name in known_frumentarii)
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
 
+		if(user != src)
+			if(HAS_TRAIT(src, TRAIT_THIEVESGUILD) && HAS_TRAIT(user, TRAIT_THIEVESGUILD))
+				. += span_green("A member of the Thieves Guild.")
+
+			if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL))
+				. += span_purple("A fellow seeker of Her ascension.")
+
+			if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
+				var/atom/item = get_most_expensive()
+				if(item)
+					. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
 
 	if(HAS_TRAIT(src, TRAIT_MANIAC_AWOKEN))
 		. += span_userdanger("MANIAC!")
@@ -217,7 +228,7 @@
 		if(glasses)
 			. += "[m3] [glasses.get_examine_string(user)] covering [m2] eyes."
 		else if(eye_color == BLOODCULT_EYE)
-			. += "<span class='warning'><B>[m2] eyes are glowing an unnatural red!</B></span>"
+			. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
 	if(ears && !(SLOT_HEAD in obscured))
@@ -335,14 +346,32 @@
 	if(pulledby && pulledby.grab_state)
 		msg += "[m1] being grabbed by [pulledby]."
 
-	//Nutrition
+	//Nutrition and Thirst
+	var/list/msg_list = list()
 	if(nutrition < (NUTRITION_LEVEL_STARVING - 50))
-		msg += "[m1] looking starved."
+		msg_list += "[m1] looking emaciated."
 //	else if(nutrition >= NUTRITION_LEVEL_FAT)
 //		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
 //			msg += "[t_He] [t_is] plump and delicious looking - Like a fat little piggy. A tasty piggy."
 //		else
 //			msg += "[t_He] [t_is] quite chubby."
+	if(HAS_TRAIT(user, TRAIT_EXTEROCEPTION))
+		switch(nutrition)
+			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
+				msg_list += "[m1] looking peckish."
+			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
+				msg_list += "[m1] looking hungry."
+			if(NUTRITION_LEVEL_STARVING-50 to NUTRITION_LEVEL_STARVING)
+				msg_list += "[m1] looking starved."
+		switch(hydration)
+			if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
+				msg_list += "[m1] looking like [m2] mouth is dry."
+			if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
+				msg_list += "[m1] looking thirsty for a drink."
+			if(0 to HYDRATION_LEVEL_DEHYDRATED)
+				msg_list += "[m1] looking parched."
+	if(length(msg_list))
+		msg += msg_list.Join(" ")
 
 	//Fire/water stacks
 	if(fire_stacks > 0)
@@ -441,7 +470,7 @@
 	if(length(msg))
 		. += "<span class='warning'>[msg.Join("\n")]</span>"
 
-	if(isliving(user))
+	if(isliving(user) && user != src)
 		var/mob/living/L = user
 		var/final_str = STASTR
 		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
@@ -487,8 +516,8 @@
 			user.add_stress(/datum/stressevent/hunted)
 
 	// The Assassin's profane dagger can sniff out their targets, even masked.
-	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && (has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED)))
-		for(var/obj/item/I in user)
+	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
+		for(var/obj/item/I in get_all_gear())
 			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
 				user.visible_message("profane dagger whispers, <span class='danger'>\"That's [real_name]! Strike their heart!\"</span>")
 
@@ -509,6 +538,6 @@
 		if(E.examine_text)
 			var/new_text = replacetext(E.examine_text, "SUBJECTPRONOUN", pronoun_replacement)
 			new_text = replacetext(new_text, "[pronoun_replacement] is", "[pronoun_replacement] [p_are()]") //To make sure something become "They are" or "She is", not "They are" and "She are"
-			dat += "[new_text]\n" //dat.Join("\n") doesn't work here, for some reason
+			dat += "[new_text]" //dat.Join("\n") doesn't work here, for some reason
 	if(dat.len)
-		return dat.Join()
+		return dat.Join("\n")

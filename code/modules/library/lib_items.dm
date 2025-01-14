@@ -23,7 +23,7 @@
 	max_integrity = 200
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0,  "piercing" = 0, "fire" = 50, "acid" = 0)
 	var/state = 0
-	var/list/allowed_books = list(/obj/item/book, /obj/item/storage/book) //Things allowed in the bookcase
+	var/list/allowed_books = list(/obj/item/book, /obj/item/storage/book, /obj/item/recipe_book) //Things allowed in the bookcase
 
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()
@@ -71,13 +71,41 @@
 
 
 /obj/structure/bookcase/deconstruct(disassembled = TRUE)
-	for(var/obj/item/book/B in contents)
+	for(var/obj/item/B in contents)
 		B.forceMove(get_turf(src))
 	qdel(src)
 
 
 /obj/structure/bookcase/update_icon()
 	if((contents.len >= 1) && (contents.len <= 15))
-		icon_state = "[based][contents.len]"
+		icon_state = "[based][length(contents)]"
 	else
 		icon_state = "bookcase"
+
+/obj/structure/bookcase/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(!is_type_in_list(I, allowed_books))
+		return
+	if(length(contents) >= 15)
+		return
+	user.visible_message("[user] starts to put [I] into [src].", "You start to put [I] into [src].")
+	if(!do_after(user, 1.5 SECONDS, target = src))
+		return
+	I.forceMove(src)
+	update_icon()
+
+/obj/structure/bookcase/random_recipes
+	var/random_books = 4
+
+/obj/structure/bookcase/random_recipes/Initialize(mapload)
+	. = ..()
+	var/list/books = subtypesof(/obj/item/recipe_book)
+	for(var/obj/item/recipe_book/listed_book as anything in books)
+		if(initial(listed_book.can_spawn))
+			continue
+		books -= listed_book
+
+	for(var/i = 1 to random_books)
+		var/obj/item/recipe_book/book = pick(books)
+		new book(src)
+	update_icon()

@@ -50,7 +50,7 @@
 	icon_state = "paper"
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
-	throw_range = 1
+	throw_range = 2
 	throw_speed = 1
 	slot_flags = ITEM_SLOT_HEAD
 	body_parts_covered = HEAD

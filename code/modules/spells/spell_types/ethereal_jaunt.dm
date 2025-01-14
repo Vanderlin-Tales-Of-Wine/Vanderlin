@@ -18,6 +18,7 @@
 	associated_skill = /datum/skill/magic/arcane
 
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/cast(list/targets,mob/user = usr) //magnets, so mostly hardcoded
+	. = ..()
 	playsound(get_turf(user), 'sound/swap.ogg', 50, TRUE, -1)
 	for(var/mob/living/target in targets)
 		INVOKE_ASYNC(src, PROC_REF(do_jaunt), target)
@@ -32,6 +33,7 @@
 	target.reset_perspective(holder)
 	target.notransform=0 //mob is safely inside holder now, no need for protection.
 	jaunt_steam(mobloc)
+	ADD_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
 
 	sleep(jaunt_duration)
 
@@ -47,6 +49,7 @@
 	new jaunt_in_type(mobloc, holder.dir)
 	target.setDir(holder.dir)
 	sleep(jaunt_in_time)
+	REMOVE_TRAIT(target, TRAIT_UNTARGETTABLE, MAGIC_TRAIT)
 	qdel(holder)
 	if(!QDELETED(target))
 		if(mobloc.density)

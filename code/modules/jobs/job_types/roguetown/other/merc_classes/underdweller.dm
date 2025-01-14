@@ -40,7 +40,7 @@
 		H.change_stat("strength", 1)
 
 	if(H.dna.species.id == "dwarf")
-		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
+		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 		head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm

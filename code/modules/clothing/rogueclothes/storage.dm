@@ -16,15 +16,7 @@
 	fiber_salvage = TRUE
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
-	var/heldz_items = 3
-
-/obj/item/storage/belt/rogue/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 6
-		STR.max_w_class = WEIGHT_CLASS_SMALL
-		STR.max_items = heldz_items
+	component_type = /datum/component/storage/concrete/roguetown/belt
 
 /obj/item/storage/belt/rogue/attack_right(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -39,7 +31,6 @@
 	icon_state = "leather"
 	item_state = "leather"
 	equip_sound = 'sound/blank.ogg'
-	heldz_items = 3
 
 /obj/item/storage/belt/rogue/leather/dropped(mob/living/carbon/human/user)
 	..()
@@ -50,30 +41,28 @@
 			STR.remove_from_storage(I, get_turf(src))
 
 /obj/item/storage/belt/rogue/leather/assassin // Assassin's super edgy and cool belt can carry normal items (for poison vial, lockpick).
-	heldz_items = 3
+	component_type = /datum/component/storage/concrete/roguetown/belt/assassin
 
-/obj/item/storage/belt/rogue/leather/assassin/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 8
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = heldz_items
-//Assassin's belt starts with their unique dagger, a vial of highly-deadly poison, and a lockpick.
-/obj/item/storage/belt/rogue/leather/assassin/PopulateContents()
-	new /obj/item/reagent_containers/glass/bottle/rogue/poison(src)
-	new /obj/item/rogueweapon/knife/dagger/steel/profane(src)
-	new /obj/item/lockpick(src)
+	populate_contents = list(
+		/obj/item/reagent_containers/glass/bottle/rogue/poison,
+		/obj/item/rogueweapon/knife/dagger/steel/profane,
+		/obj/item/lockpick,
+	)
 
 //Bandit's belt starts with a simple needle and a key to their hideout.
-/obj/item/storage/belt/rogue/leather/bandit/PopulateContents()
-	new /obj/item/needle/thorn(src)
-	new /obj/item/key/bandit(src)
+
+/obj/item/storage/belt/rogue/leather/bandit
+	populate_contents = list(
+		/obj/item/needle/thorn,
+		/obj/item/key/bandit,
+	)
 
 //Bandit's belt starts with a bandage and a key to their guildhall.
-/obj/item/storage/belt/rogue/leather/mercenary/PopulateContents()
-	new /obj/item/natural/cloth(src)
-	new /obj/item/key/mercenary(src)
+/obj/item/storage/belt/rogue/leather/mercenary
+	populate_contents = list(
+		/obj/item/natural/cloth,
+		/obj/item/key/mercenary,
+	)
 
 /obj/item/storage/belt/rogue/leather/mercenary/shalal
 	name = "shalal belt"
@@ -118,15 +107,15 @@
 	icon_state = "rope"
 	item_state = "rope"
 	color = "#b9a286"
-	heldz_items = 1
 	salvage_result = /obj/item/rope
+	component_type = /datum/component/storage/concrete/roguetown/belt/cloth
 
 /obj/item/storage/belt/rogue/leather/cloth
 	name = "cloth sash"
 	desc = "A simple cloth sash."
 	icon_state = "cloth"
-	heldz_items = 1
 	salvage_result = /obj/item/natural/cloth
+	component_type = /datum/component/storage/concrete/roguetown/belt/cloth
 
 /obj/item/storage/belt/rogue/leather/cloth/lady
 	color = "#575160"
@@ -151,15 +140,11 @@
 	content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	fiber_salvage = FALSE
+	component_type = /datum/component/storage/concrete/roguetown/coin_pouch
 
-/obj/item/storage/belt/rogue/pouch/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 3
-		STR.not_while_equipped = FALSE
+/obj/item/storage/belt/rogue/pouch/coins
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/storage/belt/rogue/pouch/coins/mid/Initialize()
 	. = ..()
@@ -216,20 +201,20 @@
 			if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, H, null, TRUE, TRUE))
 				qdel(H)
 
-/obj/item/storage/belt/rogue/pouch/bullets/Initialize()
-	. = ..()
-	new /obj/item/ammo_casing/caseless/rogue/bullet(src)
-	new /obj/item/ammo_casing/caseless/rogue/bullet(src)
-	new /obj/item/ammo_casing/caseless/rogue/bullet(src)
+/obj/item/storage/belt/rogue/pouch/bullets
+	populate_contents = list(
+		/obj/item/ammo_casing/caseless/rogue/bullet,
+		/obj/item/ammo_casing/caseless/rogue/bullet,
+		/obj/item/ammo_casing/caseless/rogue/bullet,
+	)
 
-
-
-//Amazon pouch
-/obj/item/storage/belt/rogue/pouch/amazon/PopulateContents()
-	new /obj/item/natural/cloth(src)
-	new /obj/item/ammo_casing/caseless/rogue/dart(src)
-	new /obj/item/ammo_casing/caseless/rogue/dart(src)
-
+//Poison darts pouch
+/obj/item/storage/belt/rogue/pouch/pdarts
+	populate_contents = list(
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
+	)
 
 /obj/item/storage/backpack/rogue //holding salvage vars for children
 	sewrepair = TRUE
@@ -252,22 +237,16 @@
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
+	component_type = /datum/component/storage/concrete/roguetown/satchel
 
-/obj/item/storage/backpack/rogue/satchel/heartfelt/PopulateContents()
-	new /obj/item/natural/feather(src)
-	new /obj/item/paper/heartfelt/random(src)
-
+/obj/item/storage/backpack/rogue/satchel/heartfelt
+	populate_contents = list(
+		/obj/item/natural/feather,
+		/obj/item/paper/heartfelt/random,
+	)
 
 /obj/item/storage/backpack/rogue/satchel/black
 	color = CLOTHING_SOOT_BLACK
-
-/obj/item/storage/backpack/rogue/satchel/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 21
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 4
 
 /obj/item/storage/backpack/rogue/attack_right(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -288,15 +267,7 @@
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
 	bloody_icon_state = "bodyblood"
-
-/obj/item/storage/backpack/rogue/backpack/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 42
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 14
-		STR.not_while_equipped = TRUE
+	component_type = /datum/component/storage/concrete/roguetown/backpack
 
 /obj/item/storage/backpack/rogue/satchel/surgbag
 	name = "surgery bag"
@@ -304,27 +275,19 @@
 	item_state = "doctorbag"
 	icon_state = "doctorbag"
 	attack_verb = list("beats", "bludgeons")
-
-/obj/item/storage/backpack/rogue/satchel/surgbag/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 42
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 14
-
-/obj/item/storage/backpack/rogue/satchel/surgbag/PopulateContents()
-	new /obj/item/needle/blessed(src)
-	new /obj/item/rogueweapon/surgery/scalpel(src)
-	new /obj/item/rogueweapon/surgery/saw(src)
-	new /obj/item/rogueweapon/surgery/hemostat(src)
-	new /obj/item/rogueweapon/surgery/hemostat(src)
-	new /obj/item/rogueweapon/surgery/retractor(src)
-	new /obj/item/rogueweapon/surgery/bonesetter(src)
-	new /obj/item/rogueweapon/surgery/cautery(src)
-	new /obj/item/natural/worms/leech/parasite(src)
-	new /obj/item/rogueweapon/surgery/hammer(src)
-
+	populate_contents = list(
+		/obj/item/needle/blessed,
+		/obj/item/rogueweapon/surgery/scalpel,
+		/obj/item/rogueweapon/surgery/saw,
+		/obj/item/rogueweapon/surgery/hemostat,
+		/obj/item/rogueweapon/surgery/hemostat,
+		/obj/item/rogueweapon/surgery/retractor,
+		/obj/item/rogueweapon/surgery/bonesetter,
+		/obj/item/rogueweapon/surgery/cautery,
+		/obj/item/natural/worms/leech/parasite,
+		/obj/item/rogueweapon/surgery/hammer,
+	)
+	component_type = /datum/component/storage/concrete/roguetown/surgery_bag
 
 /obj/item/storage/belt/rogue/leather/knifebelt
 
@@ -336,7 +299,7 @@
 	var/max_storage = 8
 	var/list/arrows = list()
 	sewrepair = TRUE
-	heldz_items = 1
+	component_type = /datum/component/storage/concrete/roguetown/belt/knife_belt
 
 
 /obj/item/storage/belt/rogue/leather/knifebelt/attack_turf(turf/T, mob/living/user)

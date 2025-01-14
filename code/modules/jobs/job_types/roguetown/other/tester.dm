@@ -1,6 +1,6 @@
 /datum/job/roguetown/tester
 	title = "Tester"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 	department_flag = PEASANTS
 	faction = "Station"
 #ifdef TESTSERVER
@@ -13,6 +13,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",

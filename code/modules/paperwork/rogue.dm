@@ -1,5 +1,5 @@
 /obj/item/paper/scroll
-	name = "papyrus"
+	name = "parchment scroll"
 	icon_state = "scroll"
 	var/open = FALSE
 	slot_flags = null
@@ -119,6 +119,7 @@
 	var/signedname
 	var/signedjob
 	var/list/orders = list()
+	var/list/fufilled_orders = list()
 	open = TRUE
 	textper = 150
 
@@ -175,7 +176,10 @@
 	if(orders.len)
 		info += "<ul>"
 		for(var/datum/supply_pack/A in orders)
-			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+			if(!A.contraband)
+				info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+			else
+				info += "<li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
 		info += "</ul>"
 
 	info += "<br/></font>"
@@ -189,17 +193,23 @@
 	name = "confession"
 	icon_state = "confession"
 	desc = "A drab piece of parchment stained with the magical ink of the Order lodges. Looking at it fills you with profound guilt."
-	info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS  . THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,"
+	info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS ___. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,"
 	var/signed = null
 	var/antag = null // The literal name of the antag, like 'Bandit' or 'worshiper of Zizo'
 	var/bad_type = null // The type of the antag, like 'OUTLAW OF THE THIEF-LORD'
 	textper = 108
 	maxlen = 2000
+	var/confession_type = "antag" //for voluntary confessions
 
 /obj/item/paper/confession/attackby(obj/item/P, mob/living/carbon/human/user, params)
 	if(istype(P, /obj/item/natural/feather))
-		to_chat(user, "<span class='warning'>The paper resists my attempts to write upon it!</span>")
-		return
+		var/response = alert(user, "What voluntary confession do I want?","","Villainy", "Faith")
+		if(!response)
+			return
+		if(response == "Villainy")
+			confession_type = "antag"
+		else
+			confession_type = "patron"
 
 /obj/item/paper/confession/update_icon_state()
 	if(mailer)
@@ -218,16 +228,21 @@
 	testing("paper confession offer. target is [M], user is [user].")
 	if(signed)
 		return ..()
-	if(!M.stat)
-		to_chat(user, "<span class='info'>I courteously offer the confession to [M].</span>")
-		if(alert(M, "Sign the confession of your true nature?", "CONFESSION OF SIN", "Yes", "No") != "Yes")
-			return
-		if(M.stat)
-			return
-		if(signed)
-			return
-		testing("[M] is signing the confession.")
-		M.confess_sins(resist=FALSE, user=user, torture=FALSE)
+	if(M.stat >= UNCONSCIOUS) //unconscious cannot talk to confess, but soft crit can
+		return
+	to_chat(user, "<span class='info'>I courteously offer the confession to [M].</span>")
+	var/input = alert(M, "Sign the confession of your true nature?", "CONFESSION OF [confession_type == "antag" ? "VILLAINY" : "FAITH"]", "Yes", "No")
+	if(M.stat >= UNCONSCIOUS)
+		return
+	if(signed)
+		return
+	testing("[M] is signing the confession.")
+	if(input == "Yes")
+		to_chat(user, span_info("[M] has agreed to confess their true nature."))
+		M.confess_sins(confession_type, resist=FALSE, user=user, torture=FALSE)
+	else
+		to_chat(user, span_warning("[M] refused to sign the confession!"))
+	return
 
 /obj/item/paper/confession/read(mob/user)
 	if(!user.client || !user.hud_used)
@@ -304,7 +319,7 @@
 
 /obj/item/paper/scroll/frumentarii
 	name = "List of Known Agents"
-	desc = "A list of the hand's fingers."
+	desc = "A list of the Hand's fingers."
 
 	var/list/real_names = list()
 	var/list/removed_names = list()
@@ -326,7 +341,7 @@
 	if(!attacked_target.client)
 		return
 
-	var/choice = input(attacked_target,"Do you list to become one of the hands fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
+	var/choice = input(attacked_target,"Do you list to become one of the Hand's fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
 
 	if(choice != "Yes")
 		return
@@ -368,3 +383,23 @@
 			info += "<s><li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[removed_name]</li></s><br/>"
 
 	info += "</div>"
+
+
+/obj/item/paper/scroll/sold_manifest
+	name = "Shipping Manifest"
+
+	var/list/count = list()
+	var/list/items = list()
+
+/obj/item/paper/scroll/sold_manifest/proc/rebuild_info()
+	info = null
+	info += "<div style='vertical-align:top'>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Sold Items</h2>"
+	info += "<hr/>"
+
+	if(length(items))
+		for(var/real_name in items)
+			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[count[real_name]]x[real_name] - [items[real_name]] mammons</li><br/>"
+
+	info += "</div>"
+

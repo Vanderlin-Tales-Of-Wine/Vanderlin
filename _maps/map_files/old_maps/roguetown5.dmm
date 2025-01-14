@@ -1764,7 +1764,7 @@
 /area/rogue/indoors/town/bath)
 "gx" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "gy" = (
@@ -4264,7 +4264,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -11139,7 +11139,7 @@
 /area/rogue/under/town/basement)
 "Ul" = (
 /obj/structure/closet/crate/chest,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -11860,7 +11860,7 @@
 /area/rogue/indoors/town/garrison)
 "XV" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "XX" = (

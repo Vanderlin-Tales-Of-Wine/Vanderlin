@@ -23,6 +23,7 @@
 	bypass_lastclass = TRUE
 	give_bank_account = 60
 	min_pq = -10
+	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/roguetown/innkeep/pre_equip(mob/living/carbon/human/H)
 	..()

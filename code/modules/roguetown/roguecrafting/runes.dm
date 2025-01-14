@@ -57,6 +57,7 @@
 	pages_to_mastery = 3
 	var/spell
 	var/spellname = "no spell"
+	icon_state = "spellbookpower1_0" //temporary sprite
 
 /obj/item/rune/spell/on_start(mob/user)
 	user.visible_message("<span class='warning'>[user] begins siphoning the rune.</span>")
@@ -80,7 +81,7 @@
 /obj/item/rune/spell/fire_rune
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/fireball
 	spellname = "fireball"
-	icon_state = "fire_rune"
+	// icon_state = "fire_rune"
 	name = "fire rune"
 	desc = "Warm with power."
 	remarks = list("To understand these archaic things...", "Just catching them on fire won't do...", "Accounting for crosswinds... really?", "I think I just burned my hand...")
@@ -88,7 +89,7 @@
 /obj/item/rune/spell/water_rune
 	spell = /obj/effect/proc_holder/spell/targeted/ethereal_jaunt
 	spellname = "ethereal jaunt"
-	icon_state = "water_rune"
+	// icon_state = "water_rune"
 	name = "water rune"
 	desc = "A bit moist."
 	remarks = list("To understand these archaic things...", "Mana flows through all living things...", "This spell will fatigue me...", "The spell should flow like water...")
@@ -96,7 +97,7 @@
 /obj/item/rune/spell/air_rune
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt
 	spellname = "lightning"
-	icon_state = "air_rune"
+	// icon_state = "air_rune"
 	name = "air rune"
 	desc = "Cool to the touch."
 	remarks = list("To understand these archaic things...", "Done properly this could...", "I think I just shocked my hand...")
@@ -104,7 +105,7 @@
 /obj/item/rune/spell/earth_rune
 	spell = /obj/effect/proc_holder/spell/invoked/projectile/fetch
 	spellname = "fetch"
-	icon_state = "earth_rune"
+	// icon_state = "earth_rune"
 	name = "earth rune"
 	desc = "Heavier than it looks."
 	remarks = list("To understand these archaic things...", "I can only pull, not push...", "My mind feels like mud...")
@@ -112,7 +113,7 @@
 /obj/item/rune/spell/blank_rune
 	spell = null
 	spellname = "arcane magic"
-	icon_state = "blank_rune"
+	// icon_state = "blank_rune"
 	name = "rune essence"
 	desc = "The source of magic in our world."
 	remarks = list("My head hurts...", "I'll never understand this!", "I don't want to look away...")

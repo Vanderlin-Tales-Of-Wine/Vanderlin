@@ -20,7 +20,6 @@
 	whitelist_req = FALSE
 	give_bank_account = 120
 	min_pq = 2
-	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 /*
 /datum/job/roguetown/hand/special_job_check(mob/dead/new_player/player)
@@ -66,6 +65,7 @@
 	outfit = /datum/outfit/job/roguetown/hand/handclassic
 
 	category_tags = list(CTAG_HAND)
+	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 //Classical hand start - same as before, nothing changed.
 /datum/outfit/job/roguetown/hand/handclassic/pre_equip(mob/living/carbon/human/H)
@@ -100,6 +100,7 @@
 	outfit = /datum/outfit/job/roguetown/hand/spymaster
 
 	category_tags = list(CTAG_HAND)
+	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
 //Spymaster start. More similar to the rogue adventurer - loses heavy armor and sword skills for more sneaky stuff.
 /datum/outfit/job/roguetown/hand/spymaster/pre_equip(mob/living/carbon/human/H)
@@ -147,6 +148,7 @@
 	outfit = /datum/outfit/job/roguetown/hand/advisor
 
 	category_tags = list(CTAG_HAND)
+	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
 /datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)

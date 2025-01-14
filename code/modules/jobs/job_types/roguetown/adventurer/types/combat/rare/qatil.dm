@@ -15,7 +15,7 @@
 	pickprob = 25
 	category_tags = list(CTAG_ADVENTURER)
 
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
 /datum/outfit/job/roguetown/adventurer/qatil/pre_equip(mob/living/carbon/human/H)
 	..()

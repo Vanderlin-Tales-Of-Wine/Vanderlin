@@ -183,10 +183,7 @@
 		for(var/i in roundstart_experience)
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
-	if(spells)
-		for(var/S in spells)
-			if(H.mind)
-				H.mind.AddSpell(new S)
+	add_spells(H)
 
 	if(H.gender == FEMALE)
 		if(jobstats_f)
@@ -223,6 +220,20 @@
 
 	if(cmode_music)
 		H.cmode_music = cmode_music
+
+/datum/job/proc/add_spells(mob/living/H)
+	if(spells && H.mind)
+		for(var/S in spells)
+			if(H.mind.has_spell(S))
+				continue
+			H.mind.AddSpell(new S)
+
+/datum/job/proc/remove_spells(mob/living/H)
+	if(spells && H.mind)
+		for(var/S in spells)
+			if(!H.mind.has_spell(S))
+				continue
+			H.mind.RemoveSpell(S)
 
 /mob/living/carbon/human/proc/add_credit()
 	if(!mind || !client)

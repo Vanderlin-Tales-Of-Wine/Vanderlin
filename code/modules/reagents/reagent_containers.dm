@@ -4,6 +4,9 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	w_class = WEIGHT_CLASS_TINY
+
+	grid_height = 64
+	grid_width = 32
 	var/amount_per_transfer_from_this = 5
 	var/list/possible_transfer_amounts = list(5,10,15,20,25,30)
 	var/volume = 30
@@ -47,6 +50,7 @@
 /obj/item/reagent_containers/proc/add_initial_reagents()
 	if(list_reagents)
 		reagents.add_reagent_list(list_reagents)
+	update_icon()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	return ..()

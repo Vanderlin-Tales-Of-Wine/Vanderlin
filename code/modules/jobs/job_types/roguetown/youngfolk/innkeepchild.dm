@@ -19,6 +19,7 @@
 	give_bank_account = 5
 	min_pq = -5
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/roguetown/innkeep_son/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -94,7 +94,7 @@
 /area/rogue/outdoors/caves)
 "X" = (
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/item/clothing/head/roguetown/rare/elfplate/welfplate,
 /obj/item/clothing/cloak/raincloak/green,
 /obj/effect/decal/remains/human,

@@ -32,7 +32,7 @@
 	. = ..()
 //	. += "<span class='notice'>It is currently [open?"open, letting you pour liquids in.":"closed, letting you draw liquids."]</span>"
 
-/obj/structure/fermenting_barrel/proc/makeWine(obj/item/reagent_containers/food/snacks/produce/fruit)
+/obj/structure/fermenting_barrel/proc/makeWine(obj/item/reagent_containers/food/snacks/fruit)
 	if(fruit.reagents)
 		fruit.reagents.remove_reagent(/datum/reagent/consumable/nutriment, fruit.reagents.total_volume)
 		fruit.reagents.trans_to(src, fruit.reagents.total_volume)
@@ -43,26 +43,46 @@
 	playsound(src, "bubbles", 100, TRUE)
 
 /obj/structure/fermenting_barrel/attackby(obj/item/I, mob/user, params)
-	var/obj/item/reagent_containers/food/snacks/produce/fruit = I
-	if(istype(fruit))
-		if(!fruit.can_distill)
-			to_chat(user, "<span class='warning'>I can't ferment this into anything.</span>")
+	if(istype(I, /obj/item/reagent_containers/food/snacks/produce))
+		if(try_ferment(I, user))
+			playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
 			return TRUE
-		else if(!user.transferItemToLoc(I,src))
-			to_chat(user, "<span class='warning'>[I] is stuck to my hand!</span>")
-			return TRUE
-		to_chat(user, "<span class='info'>I place [I] into [src].</span>")
-		playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
-		addtimer(CALLBACK(src, PROC_REF(makeWine), fruit), rand(1 MINUTES, 3 MINUTES))
+	if(istype(I, /obj/item/storage/roguebag) && I.contents.len)
+		var/success
+		for(var/obj/item/reagent_containers/food/snacks/produce/bagged_fruit in I.contents)
+			if(try_ferment(bagged_fruit, user, TRUE))
+				var/datum/component/storage/STR = I.GetComponent(/datum/component/storage)
+				STR.remove_from_storage(bagged_fruit)
+				success = TRUE
+		if(success)
+			playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
+			to_chat(user, span_info("I dump the contents of [I] into [src]."))
+			I.update_icon()
+		else
+			to_chat(user, span_warning("There's nothing in [I] that I can ferment."))
 		return TRUE
 	..()
 
-/obj/structure/fermenting_barrel/attack_right(mob/user)
-	var/turf/T = get_turf(user)
-	for(var/obj/item/reagent_containers/food/snacks/produce/fruit in get_turf(T))
-		if(fruit.can_distill)
-			if(move_after(user, 1 SECONDS, target = src))
-				src.attackby(fruit, user)
+/obj/structure/fermenting_barrel/proc/try_ferment(obj/item/reagent_containers/food/snacks/fruit, mob/user, batch_process)
+	if(!fruit.can_distill)
+		if(!batch_process)
+			to_chat(user, span_warning("I can't ferment this into anything."))
+		return FALSE
+	else if(!user.transferItemToLoc(fruit,src))
+		if(!batch_process)
+			to_chat(user, span_warning("[fruit] is stuck to my hand!"))
+		return FALSE
+	if(!batch_process)
+		to_chat(user, span_info("I place [fruit] into [src]."))
+	addtimer(CALLBACK(src, PROC_REF(makeWine), fruit), rand(1 MINUTES, 3 MINUTES))
+	return TRUE
+
+// /obj/structure/fermenting_barrel/attack_right(mob/user)
+// 	var/turf/T = get_turf(user)
+// 	for(var/obj/item/reagent_containers/food/snacks/produce/fruit in get_turf(T))
+// 		if(fruit.can_distill)
+// 			if(move_after(user, 1 SECONDS, target = src))
+// 				src.attackby(fruit, user)
 
 //obj/structure/fermenting_barrel/attack_hand(mob/user)
 //	open = !open

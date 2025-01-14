@@ -23,32 +23,34 @@
 	var/see_in_dark = 8
 	var/tint = 0
 	var/eye_icon_state = "eyes"
-	var/old_eye_color = "fff"
 	var/flash_protect = FLASH_PROTECTION_NONE
 	var/see_invisible = SEE_INVISIBLE_LIVING
 	var/lighting_alpha
 	var/no_glasses
 	var/damaged	= FALSE	//damaged indicates that our eyes are undergoing some level of negative effect
 
-	var/eye_color = "#FFFFFF"
+	var/old_eye_color = "fff" //cache owners original eye color before inserting new eyes
+	var/eye_color = ""//set to a hex code to override a mob's eye color
 	var/heterochromia = FALSE
 	var/second_color = "#FFFFFF"
 
 
 /obj/item/organ/eyes/update_overlays()
 	. = ..()
-	if(eye_color && (icon_state == "eyeball"))
+	if(initial(eye_color) && (icon_state == "eyeball"))
 		var/mutable_appearance/iris_overlay = mutable_appearance(src.icon, "eyeball-iris")
 		iris_overlay.color = "#" + eye_color
 		. += iris_overlay
 
 /obj/item/organ/eyes/update_accessory_colors()
 	var/list/colors_list = list()
-	colors_list += eye_color
-	if(heterochromia)
-		colors_list += second_color
-	else
+	if(initial(eye_color))
 		colors_list += eye_color
+	if(initial(second_color))
+		if(heterochromia)
+			colors_list += second_color
+		else
+			colors_list += eye_color
 	accessory_colors = color_list_to_string(colors_list)
 
 /obj/item/organ/eyes/imprint_organ_dna(datum/organ_dna/organ_dna)
@@ -63,7 +65,7 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/HMN = owner
 		old_eye_color = HMN.eye_color
-		if(eye_color)
+		if(initial(eye_color))
 			HMN.eye_color = eye_color
 			HMN.regenerate_icons()
 		else
@@ -77,7 +79,7 @@
 
 /obj/item/organ/eyes/Remove(mob/living/carbon/M, special = 0)
 	. = ..()
-	if(ishuman(M) && eye_color)
+	if(ishuman(M))
 		var/mob/living/carbon/human/HMN = M
 		HMN.eye_color = old_eye_color
 		HMN.regenerate_icons()
@@ -140,6 +142,7 @@
 /obj/item/organ/eyes/night_vision/zombie
 	name = "undead eyes"
 	desc = ""
+	eye_color = "#FFFFFF"
 
 /obj/item/organ/eyes/night_vision/werewolf
 	name = "moonlight eyes"
@@ -149,6 +152,7 @@
 	name = "burning red eyes"
 	desc = ""
 	icon_state = "burning_eyes"
+	eye_color = BLOODCULT_EYE
 
 /obj/item/organ/eyes/night_vision/mushroom
 	name = "fung-eye"

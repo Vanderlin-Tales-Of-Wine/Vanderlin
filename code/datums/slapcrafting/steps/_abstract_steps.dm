@@ -1,6 +1,7 @@
 /datum/slapcraft_step/use_item
 	abstract_type = /datum/slapcraft_step/use_item
 	insert_item = FALSE
+	start_verb = "of"
 
 /datum/slapcraft_step/use_item/sewing
 	abstract_type = /datum/slapcraft_step/use_item/sewing

@@ -5,6 +5,7 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
@@ -16,7 +17,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/hunter
 
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Hunter"
+	apprentice_name = "Hunter Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -29,7 +30,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/storage/meatbag
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/bait = 1, /obj/item/rogueweapon/knife/hunting = 1, /obj/item/flashlight/flare/torch/lantern = 1)
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -67,6 +68,7 @@
 	allowed_sexes = list(FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
@@ -77,4 +79,4 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Hunter"
+	apprentice_name = "Hunteress Apprentice"

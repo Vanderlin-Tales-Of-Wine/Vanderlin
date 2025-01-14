@@ -92,19 +92,6 @@
 		prefs.save_preferences()
 
 		mob.update_channel_volume(CHANNEL_AMBIENCE, prefs.mastervol)
-/*
-/client/verb/help_rpguide()
-	set category = "Options"
-	set name = "zHelp-RPGuide"
-
-	src << link("https://cdn.discordapp.com/attachments/844865105040506891/938971395445112922/rpguide.jpg")
-
-/client/verb/help_uihelp()
-	set category = "Options"
-	set name = "zHelp-UIGuide"
-
-	src << link("https://cdn.discordapp.com/attachments/844865105040506891/938275090414579762/unknown.png")
-*/
 
 /client/proc/play_local_sound(S as sound)
 	set category = "Fun"

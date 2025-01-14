@@ -14,6 +14,7 @@
 
 		/datum/ai_planning_subtree/find_dead_bodies/bog_troll,
 		/datum/ai_planning_subtree/eat_dead_body/bog_troll,
+		/datum/ai_planning_subtree/no_target_hide,
 	)
 
 	idle_behavior = /datum/idle_behavior/nothing

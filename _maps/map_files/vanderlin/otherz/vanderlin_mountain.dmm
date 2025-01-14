@@ -690,7 +690,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "gz" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/quiver,
+/obj/item/ammo_holder/quiver,
 /obj/effect/spawner/roguemap/loot/common,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -1065,7 +1065,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "jD" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -3119,7 +3119,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "CE" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -4023,7 +4023,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "KX" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/effect/spawner/roguemap/loot/common,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"

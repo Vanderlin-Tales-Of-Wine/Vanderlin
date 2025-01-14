@@ -29,7 +29,7 @@
 	sellprice = 20
 
 /datum/repeatable_crafting_recipe/leather/gloves
-	name = "leather pouch"
+	name = "leather gloves"
 	output_amount = 2
 	output = /obj/item/clothing/gloves/roguetown/leather
 
@@ -51,21 +51,32 @@
 	name = "leather boots"
 	output = /obj/item/clothing/shoes/roguetown/boots/leather
 
+/datum/repeatable_crafting_recipe/leather/corset
+	name = "corset"
+	output = /obj/item/clothing/suit/roguetown/armor/corset
+
 /datum/repeatable_crafting_recipe/leather/sandals
 	name = "sandals"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 1
+	)
 	output = /obj/item/clothing/shoes/roguetown/sandals
 
 /datum/repeatable_crafting_recipe/leather/gladiator
-	name = "gladiator sandals"
+	name = "caligae"
 	requirements = list(
 		/obj/item/natural/hide/cured = 2,
+		/obj/item/natural/fibers = 1
 	)
 	output = /obj/item/clothing/shoes/roguetown/gladiator
 	sellprice = 17
+	craftdiff = 1
 
 /datum/repeatable_crafting_recipe/leather/hood
 	name = "leather hood"
 	output = /obj/item/clothing/head/roguetown/roguehood/brown
+	craftdiff = 2
 
 /datum/repeatable_crafting_recipe/leather/cloak
 	name = "leather cloak"
@@ -73,7 +84,40 @@
 		/obj/item/natural/hide/cured = 2,
 	)
 	output = /obj/item/clothing/cloak/raincloak/brown
+	craftdiff = 2
 
+/datum/repeatable_crafting_recipe/leather/belt
+	name = "leather belt"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/storage/belt/rogue/leather
+
+/datum/repeatable_crafting_recipe/leather/vest
+	name = "leather vest"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+	)
+	output = /obj/item/clothing/suit/roguetown/armor/leather/vest
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/leather/seajacket
+	name = "sea jacket"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+	)
+	output = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/leather/apron
+	name = "leather apron"
+	requirements = list(
+		/obj/item/natural/cloth = 2,
+		/obj/item/natural/hide/cured = 1,
+	)
+	output = /obj/item/clothing/cloak/apron/brown
+	craftdiff = 2
 
 /datum/repeatable_crafting_recipe/leather/cloakfur
 	name = "fur cloak"
@@ -90,7 +134,7 @@
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/fibers = 2,
 	)
-	output = /obj/item/quiver
+	output = /obj/item/ammo_holder/quiver
 
 /datum/repeatable_crafting_recipe/leather/tribal_cloak
 	name = "tribal pelt"
@@ -206,6 +250,42 @@
 	output = /obj/item/clothing/shoes/roguetown/boots/furlinedboots
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/leather/shortboots
+	name = "shortboots"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+	)
+	output = /obj/item/clothing/shoes/roguetown/shortboots
+	craftdiff = 1
+
+/datum/repeatable_crafting_recipe/leather/darkboots
+	name = "dark boots"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+		/obj/item/natural/cloth = 1
+	)
+	output = /obj/item/clothing/shoes/roguetown/boots
+	craftdiff = 2
+
+/datum/repeatable_crafting_recipe/leather/ridingboots
+	name = "riding boots"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 2,
+		/obj/item/natural/cloth = 1,
+	)
+	output = /obj/item/clothing/shoes/roguetown/ridingboots
+	craftdiff = 3
+
+/datum/repeatable_crafting_recipe/leather/nobleboots
+	name = "noble boots"
+	output = /obj/item/clothing/shoes/roguetown/nobleboot
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+		/obj/item/natural/fibers = 2,
+		/obj/item/natural/cloth = 2,
+	)
+	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/leather/backpack
 	name = "leather backpack"
@@ -261,6 +341,25 @@
 	output = /obj/item/clothing/cloak/volfmantle
 	craftdiff = 2
 
+/datum/repeatable_crafting_recipe/leather/drum
+	name = "drum"
+	attacking_atom = /obj/item/grown/log/tree/small
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/grown/log/tree/small = 1,
+	)
+	output = /obj/item/rogue/instrument/drum
+
+/datum/repeatable_crafting_recipe/leather/quiver
+	name = "quiver"
+	attacking_atom = /obj/item/natural/hide
+	requirements = list(
+		/obj/item/natural/hide = 1,
+		/obj/item/natural/fibers = 2,
+	)
+	output = /obj/item/ammo_holder/quiver
+	craftdiff = 1
+
 /datum/repeatable_crafting_recipe/leather/standalone
 	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone
 	attacking_atom = /obj/item/natural/hide/cured
@@ -287,7 +386,7 @@
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/leather/standalone/hood
-	name = "hardened leather hooded helmet"
+	name = "hardened leather helmet"
 	output = /obj/item/clothing/head/roguetown/helmet/leather/advanced
 	requirements = list(/obj/item/natural/hide/cured = 1,
 				/obj/item/natural/fibers = 1)

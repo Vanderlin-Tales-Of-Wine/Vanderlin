@@ -74,7 +74,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	switch(mode)
 		if(0)
 			if(findtext(message2recognize, "help"))
-				say("My commands are: Make Announcement, Make Decree, Make Law, Remove Law, Purge Laws, Declare Outlaw, Set Taxes, Change Position, Summon Crown, Nevermind")
+				say("My commands are: Make Announcement, Make Decree, Make Law, Remove Law, Purge Laws, Declare Outlaw, Set Taxes, Change Position, Summon Crown, Summon Key, Nevermind")
 				playsound(src, 'sound/misc/machinelong.ogg', 100, FALSE, -1)
 			if(findtext(message2recognize, "make announcement"))
 				if(nocrown)
@@ -187,8 +187,43 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 								say("[HC.real_name] wears the crown!")
 								playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 								return
-					I.forceMove(src.loc)
+						else
+							HC.dropItemToGround(I, TRUE) //If you're dead, forcedrop it, then move it.
+					H.put_in_hands(I)
 					say("The crown is summoned!")
+					playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+					playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+			if(findtext(message2recognize, "summon key"))
+				if(nocrown)
+					say("You need the crown.")
+					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+					return
+				if(!SSroguemachine.key)
+					new /obj/item/key/lord(src.loc)
+					say("The key is summoned!")
+					playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+					playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+				if(SSroguemachine.key)
+					var/obj/item/key/lord/I = SSroguemachine.key
+					if(!I)
+						I = new /obj/item/key/lord(src.loc)
+					if(I && !ismob(I.loc))
+						I.anti_stall()
+						I = new /obj/item/key/lord(src.loc)
+						say("The key is summoned!")
+						playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+						playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+						return
+					if(ishuman(I.loc))
+						var/mob/living/carbon/human/HC = I.loc
+						if(HC.stat != DEAD)
+							say("[HC.real_name] holds the key!")
+							playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+							return
+						else
+							HC.dropItemToGround(I, TRUE) //If you're dead, forcedrop it, then move it.
+					H.put_in_hands(I)
+					say("The key is summoned!")
 					playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 					playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		if(1)

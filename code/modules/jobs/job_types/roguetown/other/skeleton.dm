@@ -1,6 +1,6 @@
 /datum/job/roguetown/skeleton
 	title = "skeleton"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 //	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 0
@@ -9,6 +9,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",

@@ -58,16 +58,16 @@
 #define BLOODCRAWL_EAT 2
 
 //Mob bio-types flags
-#define MOB_ORGANIC 	1 << 0
-#define MOB_MINERAL		1 << 1
-#define MOB_ROBOTIC 	1 << 2
-#define MOB_UNDEAD		1 << 3
-#define MOB_HUMANOID 	1 << 4
-#define MOB_BUG 		1 << 5
-#define MOB_BEAST		1 << 6
-#define MOB_EPIC		1 << 7 //megafauna
-#define MOB_REPTILE		1 << 8
-#define MOB_SPIRIT		1 << 9
+#define MOB_ORGANIC 	(1<<0)
+#define MOB_MINERAL		(1<<1)
+#define MOB_ROBOTIC 	(1<<2)
+#define MOB_UNDEAD		(1<<3)
+#define MOB_HUMANOID 	(1<<4)
+#define MOB_BUG 		(1<<5)
+#define MOB_BEAST		(1<<6)
+#define MOB_EPIC		(1<<7) //megafauna
+#define MOB_REPTILE		(1<<8)
+#define MOB_SPIRIT		(1<<9)
 
 //Organ defines for carbon mobs
 #define ORGAN_ORGANIC   1
@@ -454,14 +454,14 @@
 #define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
 
 //AASIMAR SKIN TONES
-#define SKIN_COLOR_PLANETAR "ffd859" //Gold
+#define SKIN_COLOR_PLANETAR "474a4c" //Grey
 #define SKIN_COLOR_DEVA "b6f1f2" //Sky blue
 #define SKIN_COLOR_SOLAR "daeaeb" //WHITE
 #define SKIN_COLOR_EMPYREA "a9ded1" //Periwinkle blue
 #define SKIN_COLOR_GAEIA "db874f" //Orange
 #define SKIN_COLOR_CELESTIAL "e1c565" //Yellow
 #define SKIN_COLOR_OLYMPIA "c7f9cc" //Seafoam green
-#define SKIN_COLOR_NECRAL "23130c" //Black
+#define SKIN_COLOR_NECRAL "19132a" //Black
 #define SKIN_COLOR_ABYSSAL "22577a" //Deep blue
 
 //HALF ELF SKIN TONES
@@ -482,7 +482,7 @@
 #define SKIN_COLOR_SUNSTAINED "99401B" //Dark orange
 #define SKIN_COLOR_SUNDERED "D25E31" //Orange
 #define SKIN_COLOR_ARCANA "702845" //Dark violet
-#define SKIN_COLOR_FLAYER "590e8b" //Purple!
+#define SKIN_COLOR_FLAYER "450e47" //Purple!
 #define SKIN_COLOR_ZARCONUM "BA6A92" //Pink!
 #define SKIN_COLOR_ABYSS "41577C" //Navy blue
 #define SKIN_COLOR_ASH "A0AFC9" //Pale blue

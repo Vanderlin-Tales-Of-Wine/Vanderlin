@@ -64,6 +64,8 @@
 	inspec += "<br><span class='notice'><b>[name]</b> intent</span>"
 	if(desc)
 		inspec += "\n[desc]"
+	if(reach != 1)
+		inspec += "\n<b>Reach:</b> [reach]"
 	if(damfactor != 1)
 		inspec += "\n<b>Damage:</b> [damfactor]"
 	if(penfactor)

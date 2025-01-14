@@ -162,7 +162,7 @@
 			facing_zone = BODY_ZONE_FACING_L_ARM
 	return facing_zone
 
-///Convert a PRECISE ZONE into the BODY_ZONE
+///Check whether a zone is a PRECISE ZONE
 /proc/check_subzone(zone)
 	if(!zone)
 		return FALSE
@@ -664,7 +664,7 @@
 	if(isliving(src))
 		L = src
 	var/client/client = L.client
-	if(L.IsSleeping())
+	if(L.IsSleeping() || L.surrendering)
 		if(cmode)
 			playsound_local(src, 'sound/misc/comboff.ogg', 100)
 			SSdroning.play_area_sound(get_area(src), client)

@@ -46,6 +46,8 @@
 			var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
 			if(nutrition > 0 || yess)
 				adjust_energy(sleepy_mod * 20)
+			if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
+				adjust_energy(sleepy_mod * 4)
 			if(hydration > 0 || yess)
 				if(!bleed_rate)
 					blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
@@ -138,7 +140,7 @@
 					emote("painmoan")
 			else
 				if(painpercent >= 100)
-					if(prob(probby))
+					if(prob(probby) && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 						Immobilize(10)
 						emote("painscream")
 						stuttering += 5
@@ -245,7 +247,10 @@
 	else if(turf_temp <= T0C)
 		breath_effect_prob = 15
 
+	var/turf/snow_turf = get_turf(src)
 	if(snow_shiver > world.time)
+		breath_effect_prob += 50
+	else if(snow_turf.snow)
 		breath_effect_prob += 50
 
 	if(prob(breath_effect_prob))

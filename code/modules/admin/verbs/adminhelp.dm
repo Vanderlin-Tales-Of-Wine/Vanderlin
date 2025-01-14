@@ -108,6 +108,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(C.current_ticket)
 		C.current_ticket.initiator = C
 		C.current_ticket.AddInteraction("Client reconnected.")
+		SSplexora.aticket_connection(C.current_ticket, FALSE)
 
 //Dissasociate ticket
 /datum/admin_help_tickets/proc/ClientLogout(client/C)
@@ -115,6 +116,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		C.current_ticket.AddInteraction("Client disconnected.")
 		C.current_ticket.initiator = null
 		C.current_ticket = null
+		SSplexora.aticket_connection(C.current_ticket)
 
 //Get a ticket given a ckey
 /datum/admin_help_tickets/proc/CKey2ActiveTicket(ckey)
@@ -192,7 +194,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(is_bwoink)
 		AddInteraction("<font color='blue'>[key_name_admin(usr)] PM'd [LinkedReplyName()]</font>")
 		message_admins("<font color='blue'>Ticket [TicketHref("#[id]")] created</font>")
+		SSplexora.aticket_new(src, msg, is_bwoink, TRUE, usr.ckey)
 	else
+		SSplexora.aticket_new(src, msg, is_bwoink, FALSE)
 		MessageNoRecipient(msg)
 
 		//send it to irc if nobody is on and tell us how many were on
@@ -300,6 +304,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	message_admins(msg)
 	log_admin_private(msg)
 	SSblackbox.record_feedback("tally", "ahelp_stats", 1, "reopened")
+	SSplexora.aticket_reopened(src, usr.ckey)
 	TicketPanel()	//can only be done from here, so refresh it
 
 //private
@@ -434,14 +439,18 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		if("retitle")
 			Retitle()
 		if("reject")
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_REJECT)
 			Reject()
 		if("reply")
 			usr.client.cmd_ahelp_reply(initiator)
 		if("icissue")
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE, AHELP_CLOSEREASON_IC)
 			ICIssue()
 		if("close")
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_CLOSE)
 			Close()
 		if("resolve")
+			SSplexora.aticket_closed(src, usr.ckey, AHELP_CLOSETYPE_RESOLVE)
 			Resolve()
 		if("reopen")
 			Reopen()

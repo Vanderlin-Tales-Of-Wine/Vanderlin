@@ -157,6 +157,7 @@
 	faction = list("undead")
 	name = "zizombie"
 	real_name = "zizombie"
+	mob_biotypes |= MOB_UNDEAD
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

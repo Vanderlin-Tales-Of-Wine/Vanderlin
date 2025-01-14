@@ -46,6 +46,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 
 /datum/migrant_role/dark_itinerant_squire
 	name = "Underling Squire"
@@ -61,7 +62,7 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -89,6 +90,7 @@
 	if(H.gender == MALE && H.dna?.species)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/squire()
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 
 /datum/migrant_wave/evil_knight
 	name = "The Unknightly journey"

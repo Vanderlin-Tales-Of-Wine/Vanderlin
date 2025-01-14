@@ -2,5 +2,5 @@
     "map_name": "Vanderlin Bog",
     "map_path": "map_files/vanderlin/otherz",
     "map_file": "vanderlin_bog.dmm",
-	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
+	"traits": [{"Up": true}, {"Down": true}]
 }

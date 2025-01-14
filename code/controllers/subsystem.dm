@@ -120,6 +120,7 @@
 		Master.queue_priority_count += SS_priority
 
 	queue_next = queue_node
+
 	if (!queue_node)//we stopped at the end, add to tail
 		queue_prev = Master.queue_tail
 		if (Master.queue_tail)

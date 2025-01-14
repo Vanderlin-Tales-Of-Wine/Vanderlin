@@ -32,6 +32,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/toggle_context_menu,
 	/client/proc/delete_player_book,
 	/client/proc/ShowAllFamilies,
+	/datum/admins/proc/anoint_priest,
 	)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
@@ -753,4 +754,3 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	var/datum/browser/popup = new(usr, "ALLFAMILIES", "", 260, 400)
 	popup.set_content(dat)
 	popup.open()
-

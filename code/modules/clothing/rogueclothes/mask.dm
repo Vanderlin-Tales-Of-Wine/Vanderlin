@@ -8,6 +8,36 @@
 	sewrepair = TRUE
 	anvilrepair = null
 
+/obj/item/clothing/mask/rogue/goggles
+	name = "goggles"
+	icon_state = "artigoggles"
+	desc = "Protective goggles with green lenses. Perfect for staring into fires."
+	resistance_flags = FIRE_PROOF
+	slot_flags = list(ITEM_SLOT_HEAD, ITEM_SLOT_MASK)
+	body_parts_covered = EYES
+	toggle_icon_state = TRUE
+	adjustable = CAN_CADJUST
+
+/obj/item/clothing/mask/rogue/goggles/AdjustClothes(mob/user)
+	if(loc == user)
+		if(adjustable == CAN_CADJUST)
+			adjustable = CADJUSTED
+			if(toggle_icon_state)
+				icon_state = "[initial(icon_state)]_t"
+			flags_inv = null
+			body_parts_covered = EYES
+			if(ishuman(user))
+				var/mob/living/carbon/H = user
+				H.update_inv_wear_mask()
+				H.update_inv_head()
+		else if(adjustable == CADJUSTED)
+			ResetAdjust(user)
+			if(user)
+				if(ishuman(user))
+					var/mob/living/carbon/H = user
+					H.update_inv_wear_mask()
+					H.update_inv_head()
+
 /obj/item/clothing/mask/rogue/spectacles
 	name = "spectacles"
 	icon_state = "glasses"
@@ -102,6 +132,9 @@
 	resistance_flags = FLAMMABLE
 	toggle_icon_state = TRUE
 	experimental_onhip = TRUE
+
+/obj/item/clothing/mask/rogue/facemask/prisoner
+	clothing_flags = NONE //they're used to this being stuck on their face
 
 /obj/item/clothing/mask/rogue/facemask/prisoner/Initialize()
 	. = ..()

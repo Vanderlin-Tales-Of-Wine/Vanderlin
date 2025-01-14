@@ -13,6 +13,25 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 				redstone_attached |= S
 				S.redstone_attached |= src
 
+/obj/structure/vv_edit_var(var_name, var_value)
+	switch (var_name)
+		if ("redstone_id")
+			update_redstone_id(var_value)
+			datum_flags |= DF_VAR_EDITED
+			return TRUE
+
+	return ..()
+
+/obj/structure/proc/update_redstone_id(new_id)
+	if(new_id)
+		GLOB.redstone_objs |= src
+		redstone_attached = list()
+		for(var/obj/structure/S in GLOB.redstone_objs)
+			if(S.redstone_id == redstone_id)
+				redstone_attached |= S
+				S.redstone_attached |= src
+		redstone_id = new_id
+
 /obj/structure/proc/redstone_triggered()
 	return
 
@@ -140,7 +159,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		if(!istype(adjc, /obj/structure))
 			continue
 		structures += adjc
-	var/input = input("Choose structure to link", "ROGUETOWN") as null|anything in structures
+	var/input = input("Choose structure to link", "VANDERLIN") as null|anything in structures
 	if(input)
 		playsound(loc, 'sound/misc/keyboard_enter.ogg', 100, FALSE, -1)
 		if(istype(linked_thing, /obj/structure/repeater))
@@ -223,7 +242,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	density = TRUE
 	anchored = TRUE
 	var/obj/item/containment
-	var/obj/item/quiver/ammo // used if the contained item is a bow or crossbow
+	var/obj/item/ammo_holder/ammo // used if the contained item is a bow or crossbow
 
 /obj/structure/activator/Initialize()
 	. = ..()
@@ -276,14 +295,14 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)
 	if(!user.cmode)
-		if(!containment && !istype(I, /obj/item/quiver) && !istype(I, /obj/item/roguegear))
+		if(!containment && !istype(I, /obj/item/ammo_holder/quiver) && !istype(I, /obj/item/roguegear))
 			if(!user.transferItemToLoc(I, src))
 				return
 			containment = I
 			playsound(src, 'sound/misc/chestclose.ogg', 25)
 			update_icon()
 			return
-		if(!ammo && istype(I, /obj/item/quiver))
+		if(!ammo && istype(I, /obj/item/ammo_holder/quiver))
 			if(!user.transferItemToLoc(I, src))
 				return
 			playsound(src, 'sound/misc/chestclose.ogg', 25)

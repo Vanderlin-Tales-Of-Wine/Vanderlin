@@ -5,7 +5,7 @@
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/roguetown/bandit/knave
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/cmode/antag/combat_bandit2.ogg'
+	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
 /datum/outfit/job/roguetown/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -47,7 +47,7 @@
 	switch(weapon_choice)
 		if("Crossbow & Dagger") //Rogue
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
-			beltr = /obj/item/quiver/bolts
+			beltr = /obj/item/ammo_holder/quiver/bolts
 			cloak = /obj/item/clothing/cloak/raincloak/mortus //cool cloak
 			beltl = /obj/item/rogueweapon/knife/hunting
 			backr = /obj/item/storage/backpack/rogue/satchel

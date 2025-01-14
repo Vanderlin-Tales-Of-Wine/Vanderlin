@@ -35,18 +35,19 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	..()
 	if(L)
 		SSticker.select_ruler()
-		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Lord of Vanderlin.</span></span></b>")
-		to_chat(world, "<br>")
 		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob, lord_color_choice)), 50)
 	if(L.gender == MALE)
 		SSfamilytree.AddRoyal(L, FAMILY_FATHER)
+		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is King of Vanderlin.</span></span></b>")
+		to_chat(world, "<br>")
 	else
 		SSfamilytree.AddRoyal(L, FAMILY_MOTHER)
+		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
+		to_chat(world, "<br>")
 
 /datum/outfit/job/roguetown/lord/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/crown/serpcrown
-	cloak = /obj/item/clothing/cloak/lordcloak
 	backr = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
@@ -78,13 +79,16 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/arming
 		shoes = /obj/item/clothing/shoes/roguetown/boots
+		cloak = /obj/item/clothing/cloak/lordcloak
 		if(H.dna?.species)
 			if(H.dna.species.id == "human")
 				H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
 	else
 		pants = /obj/item/clothing/under/roguetown/tights/random
-		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dress/alt
+		armor = /obj/item/clothing/suit/roguetown/shirt/dress/royal
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
+		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
+		wrists = /obj/item/clothing/wrists/roguetown/royalsleeves
 
 		if(H.wear_mask)
 			if(istype(H.wear_mask, /obj/item/clothing/mask/rogue/eyepatch))
@@ -99,6 +103,14 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 //	SSticker.rulermob = H
 
+/datum/job/roguetown/exlord //just used to change the lords title
+	title = "Ex-Monarch"
+	flag = LORD
+	department_flag = NOBLEMEN
+	faction = "Station"
+	total_positions = 0
+	spawn_positions = 0
+	display_order = JDO_LORD
 
 /proc/give_lord_surname(mob/living/carbon/human/family_guy, preserve_original = FALSE)
 	if(!GLOB.lordsurname)

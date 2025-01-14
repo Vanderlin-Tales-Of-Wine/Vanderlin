@@ -291,9 +291,6 @@
 		if(beltr || beltl)
 			dropItemToGround(beltr, TRUE, silent = FALSE)
 			dropItemToGround(beltl, TRUE, silent = FALSE)
-		var/obj/item/storage/S = I
-		if(istype(S))
-			S.emptyStorage()
 		belt = null
 		if(!QDELETED(src))
 			update_inv_belt()
@@ -346,6 +343,7 @@
 		if(!QDELETED(src))
 			update_inv_mouth()
 	check_armor_class()
+	update_reflection()
 
 //	if(!QDELETED(src))
 //		if(I.eweight)

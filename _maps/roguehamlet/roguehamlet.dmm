@@ -4076,7 +4076,7 @@
 	dir = 6
 	},
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town/garrison)
@@ -8571,7 +8571,7 @@
 	})
 "jam" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
@@ -10006,7 +10006,7 @@
 	},
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/clothing/suit/roguetown/armor/leather/vest,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/town/dwarf)
@@ -10477,7 +10477,7 @@
 /obj/structure/rack/rogue{
 	pixel_y = 6
 	},
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow{
 	pixel_y = 7
 	},
@@ -15075,7 +15075,7 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
 	lockid = "doctor";
-	name = "feldscher"
+	name = "feldsher"
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
@@ -20021,7 +20021,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/entrance{
 	first_time_text = "Rockhamlet"
@@ -21252,7 +21252,7 @@
 	})
 "vEY" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
@@ -23486,7 +23486,7 @@
 /area/rogue/under/town/sewer)
 "xPs" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)

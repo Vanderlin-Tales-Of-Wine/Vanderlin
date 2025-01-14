@@ -17,7 +17,7 @@
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
-		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
+		if(target.mob_biotypes & MOB_UNDEAD) //negative energy helps the undead
 			var/obj/item/bodypart/affecting = target.get_bodypart(check_zone(user.zone_selected))
 			if(affecting)
 				if(affecting.heal_damage(50, 50))

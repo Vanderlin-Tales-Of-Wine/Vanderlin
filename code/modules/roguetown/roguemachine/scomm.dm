@@ -159,7 +159,7 @@
 //SCOMSTONE                 SCOMSTONE
 
 /obj/item/scomstone
-	name = "emerald ring"
+	name = "scomstone ring"
 	desc = "Gold and glittering green."
 	icon = 'icons/roguetown/clothing/rings.dmi'
 	icon_state = "ring_emerald"

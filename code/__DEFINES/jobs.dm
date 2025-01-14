@@ -122,6 +122,7 @@
 #define CLERIC		(1<<1)
 #define PURITAN		(1<<2)
 #define MONK		(1<<3)
+#define GRAVETENDER	(1<<4)
 
 #define SERFS			(1<<3)
 
@@ -131,7 +132,8 @@
 #define MASON		(1<<3)
 #define TAILOR		(1<<4)
 #define ARTIFICER	(1<<5)
-#define SCRIBE		(1<<6)
+#define MATRON 		(1<<6)
+#define SCRIBE		(1<<7)
 
 #define PEASANTS		(1<<4)
 
@@ -140,9 +142,8 @@
 #define BEASTMASTER	(1<<2)
 #define FISHER		(1<<4)
 #define LUMBERJACK	(1<<5)
-#define GRAVEDIGGER	(1<<6)
-#define MINER		(1<<7)
-#define BUTLER		(1<<8)
+#define MINER		(1<<6)
+#define BUTLER		(1<<7)
 #define JESTER		(1<<8)
 #define ADVENTURER	(1<<9)
 #define COOK		(1<<10)
@@ -196,7 +197,8 @@
 #define JDO_PRIEST 12
 #define JDO_CLERIC 13
 #define JDO_MONK 14
-#define JDO_CHURCHLING 15
+#define JDO_GRAVETENDER 15
+#define JDO_CHURCHLING 15.1
 
 #define JDO_PURITAN 16
 #define JDO_SHEPHERD 17
@@ -222,11 +224,10 @@
 
 #define JDO_BUTCHER 28.1
 #define JDO_SOILSON 28.2
-
+#define JDO_MATRON 28.3
 #define JDO_GRAVEMAN 29
 
-#define JDO_NITEMAN 29.1
-//#define JDO_NITEMAIDEN 29.2
+#define JDO_APOTHECARY 29.1
 
 #define JDO_JESTER 30
 #define JDO_PRISONER 31

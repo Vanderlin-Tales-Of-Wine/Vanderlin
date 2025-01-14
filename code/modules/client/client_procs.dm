@@ -365,9 +365,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		reconnecting = TRUE
 		player_details = GLOB.player_details[ckey]
 		player_details.byond_version = full_version
+		player_details.byond_build = byond_build
 	else
 		player_details = new(ckey)
 		player_details.byond_version = full_version
+		player_details.byond_build = byond_build
 		GLOB.player_details[ckey] = player_details
 
 

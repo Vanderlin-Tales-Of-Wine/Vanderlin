@@ -56,7 +56,7 @@
 									"<span class='userdanger'>[user] is trying to tie my arms with [src.name]!</span>")
 
 				playsound(loc, cuffsound, 100, TRUE, -2)
-				if(do_mob(user, C, 60) && C.get_num_arms(FALSE))
+				if(do_mob(user, C, 60 * (C.surrendering ? 0.5 : 1)) && C.get_num_arms(FALSE))
 					apply_cuffs(C, user)
 					C.visible_message("<span class='warning'>[user] ties [C] with [src.name].</span>", \
 										"<span class='danger'>[user] ties me up with [src.name].</span>")
@@ -170,7 +170,7 @@
 /obj/item/net/proc/ensnare(mob/living/carbon/C)
 	if(!C.legcuffed && C.get_num_legs(FALSE) >= 2)
 		visible_message("<span class='danger'>\The [src] ensnares [C]!</span>")
-		C.legcuffed = src 
+		C.legcuffed = src
 		forceMove(C)
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
@@ -188,7 +188,7 @@
 			M.update_inv_legcuffed()
 			if(M.has_status_effect(/datum/status_effect/debuff/netted))
 				M.remove_status_effect(/datum/status_effect/debuff/netted)
-	return ..()	
+	return ..()
 
 /obj/structure/noose
 	name = "noose"

@@ -314,13 +314,13 @@
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
 	icon_state = "lute"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/lute (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/lute (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/lute (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/lute (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/lute (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/lute (6).ogg',
-	"Song 7" = 'modular/Barding/sound/instruments/lute (7).ogg',
+	"A Knight's Return" = 'modular/Barding/sound/instruments/lute (1).ogg',
+	"Amongst Fare Friends" = 'modular/Barding/sound/instruments/lute (2).ogg',
+	"The Road Traveled by Few" = 'modular/Barding/sound/instruments/lute (3).ogg',
+	"Tip Thine Tankard" = 'modular/Barding/sound/instruments/lute (4).ogg',
+	"A Reed On the Wind" = 'modular/Barding/sound/instruments/lute (5).ogg',
+	"Jests On Steel Ears" = 'modular/Barding/sound/instruments/lute (6).ogg',
+	"Merchant in the Mire" = 'modular/Barding/sound/instruments/lute (7).ogg',
 	"Soilson's Song" = 'modular/Barding/sound/instruments/lute (8).ogg')
 
 /obj/item/rogue/instrument/accord
@@ -329,14 +329,15 @@
 	icon_state = "accordion"
 	item_state = "accordion"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/accord (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/accord (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/accord (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/accord (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/accord (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/accord (6).ogg',
+	"Her Healing Tears" = 'modular/Barding/sound/instruments/accord (1).ogg',
+	"Peddler's Tale" = 'modular/Barding/sound/instruments/accord (2).ogg',
+	"We Toil Together" = 'modular/Barding/sound/instruments/accord (3).ogg',
+	"Just One More, Tavern Wench" = 'modular/Barding/sound/instruments/accord (4).ogg',
+	"Moonlight Carnival" = 'modular/Barding/sound/instruments/accord (5).ogg',
+	"'Ye Best Be Goin'" = 'modular/Barding/sound/instruments/accord (6).ogg',
 	"Song of the Falconeer" = 'modular/Barding/sound/instruments/accord (7).ogg',
-	"Dwarven Frolick" = 'modular/Barding/sound/instruments/accord (8).ogg'
+	"Dwarven Frolick" = 'modular/Barding/sound/instruments/accord (8).ogg',
+	"Beloved Blue" = 'modular/Barding/sound/instruments/accord (9).ogg',
 	)
 
 /obj/item/rogue/instrument/guitar
@@ -346,13 +347,13 @@
 	icon_state = "guitar"
 	item_state = "guitar"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/guitar (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/guitar (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/guitar (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/guitar (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/guitar (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/guitar (6).ogg',
-	"Sunset ballad" = 'modular/Barding/sound/instruments/guitar (7).ogg',
+	"Fire-Cast Shadows" = 'modular/Barding/sound/instruments/guitar (1).ogg',
+	"The Forced Hand" = 'modular/Barding/sound/instruments/guitar (2).ogg',
+	"Regrets Unpaid" = 'modular/Barding/sound/instruments/guitar (3).ogg',
+	"'Took the Mammon and Ran'" = 'modular/Barding/sound/instruments/guitar (4).ogg',
+	"Poor Man's Tithe" = 'modular/Barding/sound/instruments/guitar (5).ogg',
+	"In His Arms Ye'll Find Me" = 'modular/Barding/sound/instruments/guitar (6).ogg',
+	"Sunset Ballad" = 'modular/Barding/sound/instruments/guitar (7).ogg',
 	"Romanza" = 'modular/Barding/sound/instruments/guitar (8).ogg',
 	"Malaguena" = 'modular/Barding/sound/instruments/guitar (9).ogg',
 	"Song of the Archer" = 'modular/Barding/sound/instruments/guitar (10).ogg',
@@ -360,7 +361,8 @@
 	"Evolvado" = 'modular/Barding/sound/instruments/guitar (12).ogg',
 	"Asturias" = 'modular/Barding/sound/instruments/guitar (13).ogg',
 	"The Fools Journey" = 'modular/Barding/sound/instruments/guitar (14).ogg',
-	"Prelude to Sorrow" = 'modular/Barding/sound/instruments/guitar (15).ogg'
+	"Prelude to Sorrow" = 'modular/Barding/sound/instruments/guitar (15).ogg',
+	"The Queen's High Seas" = 'modular/Barding/sound/instruments/guitar (16).ogg'
 	)
 
 /obj/item/rogue/instrument/harp
@@ -368,11 +370,17 @@
 	desc = "An elven instrument of a great and proud heritage."
 	icon_state = "harp"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/harb (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/harb (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/harb (3).ogg',
+	"Through Thine Window, He Glanced" = 'modular/Barding/sound/instruments/harp (1).ogg',
+	"The Lady of Red Silks" = 'modular/Barding/sound/instruments/harp (2).ogg',
+	"Eora Doth Watches" = 'modular/Barding/sound/instruments/harp (3).ogg',
 	"Dance of the Mages" = 'modular/Barding/sound/instruments/harp (4).ogg',
-	"Trickster Wisps" = 'modular/Barding/sound/instruments/harp (5).ogg')
+	"Trickster Wisps" = 'modular/Barding/sound/instruments/harp (5).ogg',
+	"On the Breeze" = 'modular/Barding/sound/instruments/harp (6).ogg',
+	"Never Enough" = 'modular/Barding/sound/instruments/harp (7).ogg',
+	"Sundered Heart" = 'modular/Barding/sound/instruments/harp (8).ogg',
+	"Corridors of Time" = 'modular/Barding/sound/instruments/harp (9).ogg',
+	"Determination" = 'modular/Barding/sound/instruments/harp (10).ogg',
+	)
 
 /obj/item/rogue/instrument/flute // small rats approach a little when begin playing
 	name = "flute"
@@ -381,12 +389,12 @@
 	icon_prefix = "flute" // used for inhands switch
 	dynamic_icon = TRUE // used for inhands switch
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/flute (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/flute (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/flute (3).ogg',
-	"Song 4" = 'modular/Barding/sound/instruments/flute (4).ogg',
-	"Song 5" = 'modular/Barding/sound/instruments/flute (5).ogg',
-	"Song 6" = 'modular/Barding/sound/instruments/flute (6).ogg',
+	"Half-Dragon's Ten Mammon" = 'modular/Barding/sound/instruments/flute (1).ogg',
+	"The Local Favorite" = 'modular/Barding/sound/instruments/flute (2).ogg',
+	"Rous in the Cellar" = 'modular/Barding/sound/instruments/flute (3).ogg',
+	"Her Boots, So Incandescent" = 'modular/Barding/sound/instruments/flute (4).ogg',
+	"Moondust Minx" = 'modular/Barding/sound/instruments/flute (5).ogg',
+	"Quest to the Ends" = 'modular/Barding/sound/instruments/flute (6).ogg',
 	"Flower Melody" = 'modular/Barding/sound/instruments/flute (7).ogg',
 	"Noble Solace" = 'modular/Barding/sound/instruments/flute (8).ogg')
 
@@ -395,8 +403,51 @@
 	desc = "The adopted instrument of Aasimar, used for signaling and rhythmic marches alike."
 	icon_state = "drum"
 	song_list = list(
-	"Song 1" = 'modular/Barding/sound/instruments/drum (1).ogg',
-	"Song 2" = 'modular/Barding/sound/instruments/drum (2).ogg',
-	"Song 3" = 'modular/Barding/sound/instruments/drum (3).ogg',
-	"Snare drum" = 'modular/Barding/sound/instruments/drum (4).ogg',
+	"Barbarian's Moot" = 'modular/Barding/sound/instruments/drum (1).ogg',
+	"Muster the Wardens" = 'modular/Barding/sound/instruments/drum (2).ogg',
+	"The Earth That Quakes" = 'modular/Barding/sound/instruments/drum (3).ogg',
+	"Marching Beat" = 'modular/Barding/sound/instruments/drum (4).ogg',
 	"Desert Heat" = 'modular/Barding/sound/instruments/drum (5).ogg')
+
+/obj/item/rogue/instrument/hurdygurdy
+	name = "hurdy-gurdy"
+	desc = "A knob-driven, wooden string instrument that reminds you of the oceans far."
+	icon_state = "hurdygurdy"
+	song_list = list("Ruler's One Ring" = 'modular/Barding/sound/instruments/hurdy (1).ogg',
+	"Tangled Trod" = 'modular/Barding/sound/instruments/hurdy (2).ogg',
+	"Motus" = 'modular/Barding/sound/instruments/hurdy (3).ogg',
+	"Becalmed" = 'modular/Barding/sound/instruments/hurdy (4).ogg',
+	"The Bloody Throne" = 'modular/Barding/sound/instruments/hurdy (5).ogg',
+	"We Shall Sail Together" = 'modular/Barding/sound/instruments/hurdy (6).ogg'
+	)
+	experimental_inhand = TRUE //temporary inhand sprite
+
+/obj/item/rogue/instrument/viola
+	name = "viola"
+	desc = "The prim and proper Viola, often the first instrument nobles are taught."
+	icon_state = "viola"
+	song_list = list("Far Flung Tale" = 'modular/Barding/sound/instruments/viola (1).ogg',
+	"G Major Cello Suite No. 1" = 'modular/Barding/sound/instruments/viola (2).ogg',
+	"Ursine's Home" = 'modular/Barding/sound/instruments/viola (3).ogg',
+	"Mead, Gold and Blood" = 'modular/Barding/sound/instruments/viola (4).ogg',
+	"Gasgow's Reel" = 'modular/Barding/sound/instruments/viola (5).ogg',
+	)
+	experimental_inhand = TRUE
+
+/obj/item/rogue/instrument/vocals
+	name = "vocalist's talisman"
+	desc = "This talisman emanates a small shimmer of light. When held, it can amplify and even change one's voice."
+	icon_state = "vtalisman"
+	song_list = list("Harpy's Call (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (1).ogg',
+	"Necra's Lullaby (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (2).ogg',
+	"Death Touched Aasimar (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (3).ogg',
+	"Our Mother, Our Divine (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (4).ogg',
+	"Wed, Forever More (Feminine)" = 'modular/Barding/sound/instruments/vocalsf (5).ogg',
+	"Paper Boats (Feminine + Vocals)" = 'modular/Barding/sound/instruments/vocalsf (6).ogg',
+	"The Dragon's Blood Surges (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (1).ogg',
+	"Timeless Temple (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (2).ogg',
+	"Angel's Earnt Halo (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (3).ogg',
+	"A Fabled Choir (Masculine)" = 'modular/Barding/sound/instruments/vocalsm (4).ogg',
+	"A Pained Farewell (Masculine + Feminine)" = 'modular/Barding/sound/instruments/vocalsx (1).ogg'
+	)
+	experimental_inhand = TRUE

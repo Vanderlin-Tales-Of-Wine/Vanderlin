@@ -109,7 +109,8 @@
 	//Familytree datum
 	//I dont know how to do UI huds so this will have to do for now.
 	var/family_UI = FALSE
-	var/spouse_name
+	var/mob/living/carbon/spouse_mob
+	var/image/spouse_indicator
 	var/setspouse
 	var/familytree_pref = FAMILY_NONE
 	var/datum/heritage/family_datum
@@ -126,6 +127,7 @@
 
 	var/confession_points = 0 // Used to track how many confessions the Inquisitor has gotten signed. Used to buy items at mailboxes.
 	var/purchase_history = null // Used to track what the Inquisitor has bought from the mailbox.
+	var/has_confessed = FALSE // Used to track if they have confessed it was written onto a confession paper
 
 	var/merctype = 0 // Used for mercenary backgrounds - check mail.dm
 	var/tokenclaimed = FALSE // Check for one-time tri reward.

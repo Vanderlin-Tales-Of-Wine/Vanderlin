@@ -5,11 +5,17 @@
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	desc = ""
 	w_class = WEIGHT_CLASS_TINY
+
+	grid_width = 32
+	grid_height = 32
 	var/bundletype = null
 	var/quality = SMELTERY_LEVEL_NORMAL // To not ruin blacksmith recipes
 
 /obj/item/natural/attackby(obj/item/W, mob/living/user)
 	if(istype(W, /obj/item/natural/bundle))
+		if(item_flags & IN_STORAGE)
+			to_chat(user, span_warning("It's hard to find [W] in my bag."))
+			return
 		var/obj/item/natural/bundle/B = W
 		if(istype(src, B.stacktype))
 			if(B.amount < B.maxamount)
@@ -30,10 +36,10 @@
 			if(!user.temporarilyRemoveItemFromInventory(src))
 				return TRUE
 			var/obj/item/natural/bundle/N = new bundletype(loc)
-			user.put_in_active_hand(N)
 			to_chat(user, span_notice("You collect the [N.stackname] into a bundle."))
 			qdel(B)
 			qdel(src)
+			user.put_in_active_hand(N)
 			return TRUE
 	return ..()
 
@@ -55,6 +61,10 @@
 	var/icon3 = null
 	var/stacktype = /obj/item/natural/fibers/
 	var/stackname = "fibers"
+	var/items_per_increase = 5
+
+	var/base_width = 32
+	var/base_height = 32
 
 /obj/item/natural/bundle/attackby(obj/item/W, mob/living/user)
 	if(istype(W, /obj/item/natural/bundle))
@@ -77,6 +87,8 @@
 				B.update_bundle()
 				qdel(src)
 	else if(istype(W, stacktype))
+		if(item_flags & IN_STORAGE)
+			return
 		if(src.amount < src.maxamount)
 			to_chat(user, span_notice("You add [W] to [src]."))
 			src.amount++
@@ -88,6 +100,8 @@
 		return ..()
 
 /obj/item/natural/bundle/attack_right(mob/user)
+	if(item_flags & IN_STORAGE)
+		return
 	var/mob/living/carbon/human/H = user
 	switch(amount)
 		if(2)
@@ -111,6 +125,8 @@
 	. += span_notice("There are [amount] [stackname] in this bundle.")
 
 /obj/item/natural/bundle/pre_attack_right(atom/A, mob/living/user, params)
+	if(ismob(A))
+		return ..()
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(amount >= maxamount)
 		to_chat(user, span_warning("There's not enough space in [src]."))
@@ -120,6 +136,8 @@
 	for(var/obj/item/item in turflocation)
 		if(amount >= maxamount)
 			break
+		if(!istype(item, stacktype) && !istype(item, /obj/item/natural/bundle))
+			continue
 		if(!do_after(user, 5, TRUE, src))
 			break
 		if(item.loc != turflocation)
@@ -154,3 +172,21 @@
 	else
 		if(icon3 != null)
 			icon_state = icon3
+	var/increases = FLOOR(amount / items_per_increase, 1)
+
+	var/height = FALSE
+	grid_height = base_height
+	grid_width = base_width
+	for(var/i = 1 to increases)
+		if(height)
+			height = FALSE
+			grid_height += 32
+		else
+			height = TRUE
+			grid_width += 32
+	if(item_flags & IN_STORAGE)
+		var/obj/item/location = loc
+		var/datum/component/storage/storage = location.GetComponent(/datum/component/storage)
+
+		storage.update_item(src)
+		storage.orient2hud()

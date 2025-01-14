@@ -431,6 +431,7 @@ SILICON_MAX_LAW_AMOUNT 12
 ## You probably want humans on your space station, but technically speaking you can turn them off without any ill effect
 ROUNDSTART_RACES humann
 ROUNDSTART_RACES dwarfm
+ROUNDSTART_RACES rakshari
 ROUNDSTART_RACES tiefling
 ROUNDSTART_RACES humans
 ROUNDSTART_RACES halfelf

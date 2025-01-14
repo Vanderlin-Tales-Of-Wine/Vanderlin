@@ -205,16 +205,16 @@
 /datum/config_entry/string/banappeals
 
 /datum/config_entry/string/wikiurl
-	config_entry_value = "https://wiki.stonekeep.xyz/index.php"
+	config_entry_value = "https://wiki.monkestation.com/en/vanderlin"
 
 /datum/config_entry/string/forumurl
 	config_entry_value = ""
 
 /datum/config_entry/string/rulesurl
-	config_entry_value = "https://wiki.stonekeep.xyz/index.php/Rules"
+	config_entry_value = "https://wiki.monkestation.com/vanderlin/rules"
 
 /datum/config_entry/string/githuburl
-	config_entry_value = "https://github.com/Darkrp-community/OpenKeep"
+	config_entry_value = "https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin"
 
 /datum/config_entry/string/roundstatsurl
 

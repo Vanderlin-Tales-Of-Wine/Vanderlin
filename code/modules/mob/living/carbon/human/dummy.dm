@@ -7,6 +7,10 @@
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
+/mob/living/carbon/human/dummy/Initialize()
+	. = ..()
+	GLOB.human_list -= src //we dont want dummies in this list
+
 /mob/living/carbon/human/dummy/Destroy()
 	in_use = FALSE
 	return ..()

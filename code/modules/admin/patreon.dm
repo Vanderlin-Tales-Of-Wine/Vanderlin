@@ -232,6 +232,7 @@ GLOBAL_LIST_EMPTY(anonymize)
 /mob/dead/new_player/verb/anonymize()
 	set category = "Options"
 	set name = "Anonymize"
+	set hidden = 1
 	if(!client)
 		return
 	if(get_playerquality(client.ckey) <= -5)
@@ -246,7 +247,7 @@ GLOBAL_LIST_EMPTY(anonymize)
 	else
 		if(alert(src, "Enable Anonymize? This will hide your BYOND name from anyone except \
 		Dungeon Masters while playing here, useful for dealing with negative OOC bias or \
-		maintaining privacy from other BYOND users.", "ROGUETOWN", "YES", "NO") == "YES")
+		maintaining privacy from other BYOND users.", "VANDERLIN", "YES", "NO") == "YES")
 			if(GLOB.respawncounts[client.ckey])
 				to_chat(src, "<span class='warning'>You have already spawned.</span>")
 				return

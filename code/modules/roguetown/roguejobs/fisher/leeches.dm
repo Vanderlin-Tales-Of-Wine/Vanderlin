@@ -17,6 +17,7 @@
 		"embedded_fall_chance" = 0,
 		"embedded_bloodloss"= 0,
 	)
+	bundletype = null
 	/// Consistent AKA no lore
 	var/consistent = FALSE
 	/// Are we giving or receiving blood?

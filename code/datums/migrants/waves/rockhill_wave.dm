@@ -56,6 +56,7 @@
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 /datum/migrant_role/rockhill_knight
 	name = "Knight of Rockhill"
@@ -107,6 +108,7 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 /datum/migrant_role/heartfelt/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
@@ -182,6 +184,7 @@
 		H.change_stat("endurance", 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
 /datum/migrant_role/footman_guard
 	name = "Guardsmen of Rockhill"
@@ -196,10 +199,11 @@
 	shared_wave_type = /datum/migrant_wave/rockhill_wave
 	downgrade_wave = /datum/migrant_wave/rockhill_wave_down
 	max_spawns = 1
-	weight = 15
+	weight = 30
 	roles = list(
 		/datum/migrant_role/rockhill/mayor = 1,
-		/datum/migrant_role/rockhill_knight = 2,
+		/datum/migrant_role/rockhill_knight = 1,
+		/datum/migrant_role/rockhill/sergeant_at_arms = 1,
 		/datum/migrant_role/footman_guard = 4
 	)
 	greet_text = "The Mayor has it, something must be discussed with the rulers of Vanderlin which is why we're on our way over there."
@@ -212,7 +216,8 @@
 	roles = list(
 		/datum/migrant_role/rockhill/mayor = 1,
 		/datum/migrant_role/rockhill_knight = 1,
-		/datum/migrant_role/footman_guard = 3
+		/datum/migrant_role/rockhill/sergeant_at_arms = 1,
+		/datum/migrant_role/footman_guard = 2
 	)
 	greet_text = "The Mayor has it, something must be discussed with the rulers of Vanderlin which is why we're on our way over there."
 

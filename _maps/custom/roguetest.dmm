@@ -966,11 +966,11 @@
 	icon_state = "tablewood2";
 	dir = 10
 	},
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cz" = (
@@ -991,12 +991,12 @@
 	icon_state = "tablewood2";
 	dir = 10
 	},
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cB" = (
@@ -1049,9 +1049,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "cM" = (
-/obj/structure/roguemachine/steward,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors)
+/obj/structure/trench,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
 "cN" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
@@ -1066,6 +1066,9 @@
 /area/rogue/outdoors)
 "cQ" = (
 /obj/structure/roguemachine/scomm,
+/obj/structure/lever{
+	redstone_id = "test2"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "cR" = (
@@ -1099,8 +1102,21 @@
 "cX" = (
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors)
+"gV" = (
+/obj/structure/water_dam{
+	dir = 1;
+	redstone_id = "test"
+	},
+/turf/open/water/acid,
+/area/rogue/outdoors)
 "hP" = (
 /obj/item/rogueweapon/polearm/woodstaff/aries,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors)
+"iV" = (
+/obj/structure/lever{
+	redstone_id = "test"
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "qw" = (
@@ -1132,6 +1148,10 @@
 /obj/effect/landmark/start/consort,
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors)
+"QB" = (
+/obj/structure/trench,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "QR" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
@@ -1144,6 +1164,13 @@
 "Uv" = (
 /turf/closed,
 /area/rogue)
+"US" = (
+/obj/structure/water_dam{
+	dir = 8;
+	redstone_id = "test2"
+	},
+/turf/open/water,
+/area/rogue/outdoors)
 "Wo" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue)
@@ -1418,10 +1445,10 @@ Uv
 ab
 ab
 ag
+cM
 aj
 aj
-aj
-aj
+cM
 av
 ab
 ax
@@ -1460,10 +1487,10 @@ Uv
 ab
 ab
 af
-aj
+cM
 ao
 aj
-aj
+cM
 aw
 ab
 ax
@@ -1502,10 +1529,10 @@ Uv
 ab
 ab
 ag
-aj
-aj
-aj
-aj
+cM
+cM
+cM
+cM
 aw
 ab
 ax
@@ -1544,8 +1571,8 @@ Uv
 ab
 ab
 ag
-aj
-aj
+cM
+cM
 aj
 aj
 aw
@@ -1587,7 +1614,7 @@ ab
 ab
 ah
 aj
-aj
+cM
 ae
 ah
 ah
@@ -1628,9 +1655,9 @@ Uv
 ab
 ab
 cQ
-aJ
-al
-al
+iV
+QB
+gV
 aQ
 al
 ai
@@ -1671,7 +1698,7 @@ ab
 ab
 cK
 aJ
-al
+QB
 al
 al
 al
@@ -1713,7 +1740,7 @@ ab
 ab
 cL
 aJ
-al
+QB
 aJ
 al
 al
@@ -1753,9 +1780,9 @@ aj
 cU
 Fo
 cU
-cM
-qw
 aJ
+qw
+US
 cC
 al
 al

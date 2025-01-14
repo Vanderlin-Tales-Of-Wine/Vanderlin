@@ -6,6 +6,7 @@
 #define BAN_MISC_LEPROSY "Leprosy"
 #define BAN_MISC_OOC "OOC"
 #define BAN_MISC_DEADCHAT "Deadchat"
+#define BAN_MISC_LOOC "LOOC"
 
 #define ALL_MISC_BANS list(,\
 	BAN_MISC_RESPAWN,\
@@ -14,6 +15,7 @@
 	BAN_MISC_LUNATIC,\
 	BAN_MISC_OOC,\
 	BAN_MISC_DEADCHAT,\
+	BAN_MISC_LOOC,\
 )
 
 #define ALL_ANTAG_BANS list(,\

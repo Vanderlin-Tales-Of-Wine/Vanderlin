@@ -2,7 +2,7 @@
 
 /client/verb/who()
 	set name = "Whom"
-	set category = "Options"
+	set category = "OOC"
 
 	var/msg = ""
 
@@ -40,7 +40,6 @@
 				if(C.mob.mind)
 					if(C.mob.mind.special_role)
 						entry += " - <b><font color='red'>[C.mob.mind.special_role]</font></b>"
-			entry += " ([CheckIPCountry(C.address)])"
 			if(C.whitelisted())
 				wled++
 				entry += "(WL)"

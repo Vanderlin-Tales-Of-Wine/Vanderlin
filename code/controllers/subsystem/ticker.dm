@@ -275,7 +275,7 @@ SUBSYSTEM_DEF(ticker)
 	if(("Monarch" in readied_jobs))
 		rulertype = "Monarch"
 	else
-		var/list/stuffy = list("Set a Ruler to 'high' in your class preferences to start the game!", "PLAY Ruler NOW!", "A Ruler is required to start.", "Pray for a Ruler.", "One day, there will be a Ruler.", "Just try playing Ruler.", "If you don't play Ruler, the game will never start.", "We need at least one Ruler to start the game.", "We're waiting for you to pick Ruler to start.", "Still no Ruler is readied..", "I'm going to lose my mind if we don't get a Ruler readied up.","No. The game will not start because there is no Ruler.","What's the point of ROGUETOWN without a Ruler?")
+		var/list/stuffy = list("Set a Ruler to 'high' in your class preferences to start the game!", "PLAY Ruler NOW!", "A Ruler is required to start.", "Pray for a Ruler.", "One day, there will be a Ruler.", "Just try playing Ruler.", "If you don't play Ruler, the game will never start.", "We need at least one Ruler to start the game.", "We're waiting for you to pick Ruler to start.", "Still no Ruler is readied..", "I'm going to lose my mind if we don't get a Ruler readied up.","No. The game will not start because there is no Ruler.","What's the point of Vanderlin without a Ruler?")
 		to_chat(world, "<span class='purple'>[pick(stuffy)]</span>")
 		return FALSE
 
@@ -430,6 +430,7 @@ SUBSYSTEM_DEF(ticker)
 
 	log_game("GAME SETUP: Game start took [(world.timeofday - init_start)/10]s")
 	round_start_time = world.time
+	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING, world.time)
 	round_start_irl = REALTIMEOFDAY
 
 	SSdbcore.SetRoundStart()
@@ -559,6 +560,8 @@ SUBSYSTEM_DEF(ticker)
 				var/atom/movable/screen/splash/S = new(living.client, TRUE)
 				S.Fade(TRUE)
 			livings += living
+			GLOB.character_ckey_list[living.real_name] = living.ckey
+
 	if(livings.len)
 		addtimer(CALLBACK(src, PROC_REF(release_characters), livings), 30, TIMER_CLIENT_TIME)
 

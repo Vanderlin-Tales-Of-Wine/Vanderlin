@@ -1,5 +1,6 @@
 ///this is a super simple base compared to slapcrafting
 /datum/orderless_slapcraft
+	var/name = "Generic Recipe"
 	abstract_type = /datum/orderless_slapcraft
 
 	///if set we read this incases of creating radials
@@ -57,7 +58,7 @@
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 				requirements[item]--
 				if(requirements[item] <= 0)
-					requirements -= item
+					requirements -= list(item) // See Remove() behavior documentation
 				return_value = TRUE
 				step_process(user, attacking_item)
 				qdel(attacking_item)
@@ -123,3 +124,90 @@
 		attacked_object.in_progress_slapcraft = new recipe.type(null, attacked_object)
 		return attacked_object.in_progress_slapcraft.try_process_item(attacking_item, src)
 
+
+
+/datum/orderless_slapcraft/proc/generate_html(mob/user)
+	var/client/client = user
+	if(!istype(client))
+		client = user.client
+	SSassets.transport.send_assets(client, list("try4_border.png", "try4.png", "slop_menustyle2.css"))
+	user << browse_rsc('html/book.png')
+	var/html = {"
+		<!DOCTYPE html>
+		<html lang="en">
+		<meta charset='UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+			body {
+				font-family: "Charm", cursive;
+				font-size: 1.2em;
+				text-align: center;
+				margin: 20px;
+				background-color: #f4efe6;
+				color: #3e2723;
+				background-color: rgb(31, 20, 24);
+				background:
+					url('[SSassets.transport.get_asset_url("try4_border.png")]'),
+					url('book.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+
+			}
+			h1 {
+				text-align: center;
+				font-size: 2.5em;
+				border-bottom: 2px solid #3e2723;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+			.icon {
+				width: 96px;
+				height: 96px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+		</style>
+		<body>
+		  <div>
+		    <h1>[name]</h1>
+		    <div>
+		      <strong>Requirements</strong>
+			  <br>
+		"}
+	html += "<strong class=class='scroll'>start the process with</strong> <br>[icon2html(new starting_item, user)] <br> [initial(starting_item.name)]<br>"
+	html += "<strong> then add </strong> <br>"
+	for(var/atom/path as anything in requirements)
+		var/count = requirements[path]
+		if(islist(path))
+			var/first = TRUE
+			var/list/paths = path
+			for(var/atom/sub_path as anything in paths)
+				html += "[icon2html(new sub_path, user)] [count] of any [initial(sub_path.name)]<br>"
+				if(!first)
+					html += "or <br>"
+				first = FALSE
+		else
+			html += "[icon2html(new path, user)] [count] of any [initial(path.name)]<br>"
+
+	html += {"
+		</div>
+		<div>
+		"}
+
+	html += "<strong class=class='scroll'>finish with</strong> <br> [icon2html(new finishing_item, user)] <br> any [initial(finishing_item.name)]<br>"
+
+
+	html += {"
+		</div>
+		</div>
+	</body>
+	</html>
+	"}
+	return html
+
+/datum/orderless_slapcraft/proc/show_menu(mob/user)
+	user << browse(generate_html(user),"window=recipe;size=500x810")

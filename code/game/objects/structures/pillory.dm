@@ -16,6 +16,7 @@
 	var/latched = FALSE
 	var/locked = FALSE
 	var/base_icon = "pillory_single"
+	var/list/lockcheck = list("dungeon", "garrison")
 
 /obj/structure/pillory/double
 	icon_state = "pillory_double"
@@ -29,11 +30,17 @@
 	LAZYINITLIST(buckled_mobs)
 	. = ..()
 
+/obj/structure/pillory/OnCrafted(dirin)
+	. = ..()
+	for(var/obj/item/customlock/finished/lock in contents)
+		lockcheck = list(lock.lockhash)
+		qdel(lock)
+		desc = "To keep the criminals locked! This has a custom lock installed."
+		return
+
 /obj/structure/pillory/examine(mob/user)
 	. = ..()
-
-	var/msg = "It is [latched ? "latched" : "unlatched"] and [locked ? "locked." : "unlocked."]<br/>"
-	. += msg
+	. += span_info("It is [latched ? "latched" : "unlatched"] and [locked ? "locked." : "unlocked."]")
 
 /obj/structure/pillory/attack_right(mob/living/user)
 	. = ..()
@@ -57,19 +64,22 @@
 		return
 	if(istype(P, /obj/item/key))
 		var/obj/item/key/K = P
-		if(K.lockid == "dungeon" || K.lockid == "garrison")
+		if((K.lockid in lockcheck) || (K.lockhash in lockcheck))
 			togglelock(user)
-			return attack_hand(user)
+			return
 		else
-			to_chat(user, "Wrong key.")
+			to_chat(user, span_warning("Wrong key."))
 			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 			return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
 		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == "dungeoneer" || KE.lockid == "garrison")
+			if((KE.lockid in lockcheck) || (KE.lockhash in lockcheck))
 				togglelock(user)
-				return attack_hand(user)
+				return
+		to_chat(user, span_warning("Wrong key."))
+		playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+		return
 
 /obj/structure/pillory/proc/togglelatch(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)
@@ -111,7 +121,17 @@
 		to_chat(usr, span_warning("It doesn't look like [M.p_they()] can fit into this properly!"))
 		return FALSE // Can't hold non-humanoids
 
-	return ..(M, force, FALSE)
+	if(iscarbon(M))
+		var/mob/living/carbon/carbon = M
+		if(carbon.handcuffed)
+			return ..(carbon, force, FALSE)
+
+	for(var/obj/item/grabbing/G in M.grabbedby)
+		if(G.grab_state == GRAB_AGGRESSIVE)
+			return ..(M, force, FALSE)
+
+	to_chat(usr, span_warning("I must grab them more forcefully to put them in [src]."))
+	return FALSE
 
 /obj/structure/pillory/post_buckle_mob(mob/living/M)
 	if (!istype(M, /mob/living/carbon/human))
@@ -157,7 +177,7 @@
 				latched = FALSE
 				return ..()
 		else
-			to_chat(usr, span_warning("Unlock it first!"))
+			to_chat(usr, span_warning("Unlatch it first!"))
 			return FALSE
 	else
 		density = TRUE

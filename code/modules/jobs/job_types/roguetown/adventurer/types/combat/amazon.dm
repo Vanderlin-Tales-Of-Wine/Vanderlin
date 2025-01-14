@@ -23,12 +23,12 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-	neck = /obj/item/storage/belt/rogue/pouch/amazon
+	neck = /obj/item/storage/belt/rogue/pouch/pdarts
 	backl = /obj/item/rogueweapon/polearm/spear
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun
-	beltr = /obj/item/quiver/arrows
+	beltr = /obj/item/ammo_holder/quiver/arrows
 	shoes = /obj/item/clothing/shoes/roguetown/gladiator
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/amazon_chainkini
@@ -40,3 +40,5 @@
 	H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)

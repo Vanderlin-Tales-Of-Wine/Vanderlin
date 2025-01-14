@@ -8,7 +8,6 @@
 		/datum/slapcraft_step/item/stone/fourth,
 		)
 	result_type = /obj/machinery/light/rogue/smelter
-	craftsound = null
 
 /datum/slapcraft_recipe/masonry/structure/great_smelter
 	name = "great furnace"
@@ -20,7 +19,6 @@
 		/datum/slapcraft_step/item/coal,
 		)
 	result_type = /obj/machinery/light/rogue/smelter/great
-	craftsound = null
 
 /datum/slapcraft_recipe/masonry/structure/forge
 	name = "forge"
@@ -33,7 +31,6 @@
 		/datum/slapcraft_step/item/small_log,
 		)
 	result_type = /obj/machinery/light/rogue/forge
-	craftsound = null
 
 /datum/slapcraft_recipe/masonry/structure/sharp_wheel
 	name = "sharpening wheel"
@@ -42,7 +39,6 @@
 		/datum/slapcraft_step/item/iron,
 		)
 	result_type = /obj/structure/fluff/grindwheel
-	craftsound = null
 
 /datum/slapcraft_recipe/masonry/structure/oven
 	name = "oven"
@@ -54,7 +50,6 @@
 		/datum/slapcraft_step/use_item/masonry/hammer,
 		)
 	result_type = /obj/machinery/light/rogue/oven
-	craftsound = 'sound/foley/Building-01.ogg'
 
 //Oven will shift icon based on dir
 /datum/slapcraft_recipe/masonry/structure/oven/check_craft_requirements(mob/user, turf/T)
@@ -71,23 +66,30 @@
 		/datum/slapcraft_step/use_item/masonry/hammer
 	)
 	result_type = /obj/structure/mineral_door/wood/donjon/stone
-	craftsound = 'sound/foley/Building-01.ogg'
+
+/datum/slapcraft_recipe/masonry/structure/stonetable_small
+	name = "stone table"
+	steps = list(
+		/datum/slapcraft_step/item/stone,
+		/datum/slapcraft_step/use_item/masonry/hammer,
+		/datum/slapcraft_step/item/stone/second,
+		/datum/slapcraft_step/use_item/masonry/hammer/second
+	)
+	result_type = /obj/structure/table/stone_small
+	craftdiff = 0
 
 /datum/slapcraft_recipe/masonry/structure/cauldron
 	name = "cauldron"
 	steps = list(
 		/datum/slapcraft_step/item/iron,
-		/datum/slapcraft_step/item/iron/second,
 		/datum/slapcraft_step/use_item/masonry/hammer,
 		/datum/slapcraft_step/item/stone,
 		/datum/slapcraft_step/item/stone/second,
 		/datum/slapcraft_step/item/stone/third,
-		/datum/slapcraft_step/item/stone/fourth,
 		/datum/slapcraft_step/use_item/masonry/hammer/second,
 		/datum/slapcraft_step/item/small_log,
 		)
 	result_type = /obj/machinery/light/rogue/cauldron
-	craftsound = 'sound/foley/Building-01.ogg'
 
 /datum/slapcraft_recipe/masonry/structure/stonestairsd
 	name = "stone stairs (down)"
@@ -146,7 +148,6 @@
 		/datum/slapcraft_step/item/glass/second,
 		)
 	result_type = /obj/structure/roguewindow/stained
-	craftsound = 'sound/foley/Building-01.ogg'
 	craftdiff = 2
 
 
@@ -161,7 +162,6 @@
 		/datum/slapcraft_step/item/glass,
 		)
 	result_type = /obj/structure/roguewindow/openclose
-	craftsound = 'sound/foley/Building-01.ogg'
 
 /datum/slapcraft_recipe/masonry/structure/window
 	name = "solid glass window"
@@ -172,4 +172,3 @@
 		/datum/slapcraft_step/item/glass,
 		)
 	result_type = /obj/structure/roguewindow/solid
-	craftsound = 'sound/foley/Building-01.ogg'

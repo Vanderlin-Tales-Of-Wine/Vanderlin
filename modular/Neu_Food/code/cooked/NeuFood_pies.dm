@@ -10,7 +10,7 @@
 /*	........   Pie making   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
 	name = "pie bottom"
-	desc = "The foundation of the fantastical.."
+	desc = "The foundation of the fantastical."
 	icon_state = "piebottom"
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = /datum/status_effect/debuff/uncookedfood

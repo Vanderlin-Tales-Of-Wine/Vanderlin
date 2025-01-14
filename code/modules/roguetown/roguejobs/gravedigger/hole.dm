@@ -56,12 +56,10 @@
 			. += "<span class='warning'>Better let this one sleep.</span>"
 
 /obj/structure/closet/dirthole/insertion_allowed(atom/movable/AM)
-	if(istype(AM, /obj/structure/closet/crate/chest) || istype(AM, /obj/structure/closet/burial_shroud))
+	if(istype(AM, /obj/structure/closet/crate/chest) || istype(AM, /obj/structure/closet/burial_shroud) || istype(AM, /obj/structure/closet/crate/coffin))
 		for(var/mob/living/M in contents)
 			return FALSE
 		for(var/obj/structure/closet/C in contents)
-			if(istype(C, /obj/structure/closet/crate/coffin))
-				return TRUE
 			return FALSE
 		return TRUE
 	. = ..()
@@ -79,7 +77,7 @@
 			if(do_after(user, 10 SECONDS, target = src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					testing("remove reagent proc complete")
-					var/turf/open/water/creatable/W = new(get_turf(src))
+					var/turf/open/water/river/creatable/W = new(get_turf(src))
 					W.water_reagent = master_reagent.type
 					W.water_volume = clamp(master_reagent.volume, 1, 100)
 					W.update_icon()
@@ -313,8 +311,9 @@
 
 /obj/structure/closet/dirthole/Destroy()
 	QDEL_NULL(abovemob)
-	if(mastert && mastert.holie == src)
-		mastert.holie = null
+	if(istype(mastert))
+		if(mastert && mastert?.holie == src)
+			mastert.holie = null
 	return ..()
 
 /obj/structure/closet/dirthole/post_buckle_mob(mob/living/M)

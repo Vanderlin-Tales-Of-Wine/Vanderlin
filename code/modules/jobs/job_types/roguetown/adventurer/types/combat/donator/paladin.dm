@@ -16,42 +16,42 @@
 	..()
 	H.virginity = TRUE
 
-	switch(H.patron?.name)
-		if("Psydon")
+	switch(H.patron?.type)
+		if(/datum/patron/psydon)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/roguetown/psycross/g
-		if("Astrata")
+		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/astrata
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
-		if("Noc")
+		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/noc
 			wrists = /obj/item/clothing/neck/roguetown/psycross/noc
-		if("Dendor")
+		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
-		if("Abyssor")
+		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket // Placeholder
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/abyssor
-		if("Necra")
+		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/necra
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/necra
-		if("Ravox")
+		if(/datum/patron/divine/ravox)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket // Placeholder
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
-		if("Xylix")
+		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket // Placeholder
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
-		if("Pestra")
+		if(/datum/patron/divine/pestra)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
-		if("Malum")
+		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum
-		if("Eora")
+		if(/datum/patron/divine/eora)
 			head = /obj/item/clothing/head/roguetown/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/eora
 			H.virginity = FALSE
-		if("Baotha", "Graggar", "Zizo", "Matthios", "Graggazo", "Godless")
+		if(/datum/patron/inhumen/baotha, /datum/patron/inhumen/graggar, /datum/patron/inhumen/zizo, /datum/patron/inhumen/matthios, /datum/patron/inhumen/graggar_zizo, /datum/patron/godless)
 			head = /obj/item/clothing/head/roguetown/jester
 			if(H.mind)
 				H.change_stat("fortune", -20)
@@ -96,8 +96,6 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Paladins, while devout warriors spent WAY too much time studying the blade. No more acolyte+
-	C.update_devotion(50, 50)
-	C.holder_mob = H
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 

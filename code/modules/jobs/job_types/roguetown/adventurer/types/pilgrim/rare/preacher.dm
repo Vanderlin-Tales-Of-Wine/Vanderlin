@@ -12,7 +12,7 @@
 	pickprob = 30
 	min_pq = 0
 
-	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
+	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
 /datum/outfit/job/roguetown/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -29,7 +29,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")

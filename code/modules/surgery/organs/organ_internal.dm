@@ -6,6 +6,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	sellprice = 10
+
+	grid_width = 32
+	grid_height = 32
+
 	var/zone = BODY_ZONE_CHEST
 	var/slot
 	// DO NOT add slots with matching names to different zones - it will break internal_organs_slot list!
@@ -26,7 +30,7 @@
 	var/now_fixed
 	var/high_threshold_cleared
 	var/low_threshold_cleared
-	dropshrink = 0.5
+	dropshrink = 0.85
 
 	/// Whether the organ is fully internal and should not be seen by bare eyes.
 	var/visible_organ = FALSE
@@ -136,6 +140,12 @@
 	grind_results = list(/datum/reagent/organpoison = 3)
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
+
+/obj/item/reagent_containers/food/snacks/organ/On_Consume(mob/living/eater)
+	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER))
+		eat_effect = /datum/status_effect/buff/foodbuff
+	. = ..()
+	eat_effect = initial(eat_effect)
 
 /obj/item/organ/Initialize()
 	. = ..()

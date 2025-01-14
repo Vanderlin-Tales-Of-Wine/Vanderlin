@@ -290,11 +290,16 @@
 		if(L.anti_magic_check() || !firer)
 			L.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
 			return BULLET_ACT_BLOCK
-		L.throw_at(throw_target, 200, 4)
+		L.throw_at(throw_target, 200, 3) //4 is the default threshold speed to embed
 	else
 		if(isitem(target))
 			var/obj/item/I = target
-			I.throw_at(throw_target, 200, 4)
+			var/mob/living/carbon/human/carbon_firer
+			if (ishuman(firer))
+				carbon_firer = firer
+				if (carbon_firer?.can_catch_item())
+					throw_target = get_turf(firer)
+			I.throw_at(throw_target, 200, 3)
 
 /obj/projectile/magic/sapping
 	name = "bolt of sapping"

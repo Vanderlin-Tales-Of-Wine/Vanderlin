@@ -45,9 +45,9 @@
 		handle_vamp_dreams()
 		if(IsSleeping())
 			if(health > 0)
+				remove_status_effect(/datum/status_effect/debuff/trainsleep)
 				if(has_status_effect(/datum/status_effect/debuff/sleepytime))
 					remove_status_effect(/datum/status_effect/debuff/sleepytime)
-					remove_stress(/datum/stressevent/sleepytime)
 					if(mind)
 						mind.sleep_adv.advance_cycle()
 					var/datum/game_mode/chaosmode/C = SSticker.mode
@@ -74,6 +74,7 @@
 		handle_liver()
 		update_stamina()
 		update_energy()
+		handle_environment()
 		if(charflaw && !charflaw.ephemeral)
 			charflaw.flaw_on_life(src)
 		if(health <= 0)

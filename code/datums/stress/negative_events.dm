@@ -148,7 +148,7 @@
 	desc = "<span class='red'>YUCK! MAGGOTS!</span>"
 
 /datum/stressevent/psycurse
-	timer = 5 MINUTES
+	timer = INFINITY
 	stressadd = 5
 	desc = "<span class='red'>Oh no! I've received divine punishment!</span>"
 
@@ -284,7 +284,7 @@
 /datum/stressevent/sleepfloornoble
 	timer = 3 MINUTES
 	stressadd = 6
-	desc = "<span class='red'>I slept on the floor! What am I?! An animal?!</span>"
+	desc = "<span class='red'>I slept on the floor! What am I, an animal?!</span>"
 
 /datum/stressevent/sadfate
 	timer = 60 MINUTES
@@ -300,3 +300,13 @@
 	stressadd = 10
 	desc = span_boldred("No... I want to go back...")
 	timer = 999 MINUTES
+
+/datum/stressevent/guillotinefail
+	timer = 5 MINUTES
+	stressadd = 3
+	desc = span_red("This execution is horrifying!")
+
+/datum/stressevent/guillotineexecutorfail
+	timer = 15 MINUTES
+	stressadd = 5
+	desc = span_boldred("I have failed the guillotine drop! What a shame!")

@@ -14,9 +14,12 @@
 	sellprice = 30
 	dropshrink = 0.6
 
+	grid_height = 32
+	grid_width = 32
+
 	var/mob/current_owner
 	var/last_scry
-	var/cooldown = 30 SECONDS	
+	var/cooldown = 30 SECONDS
 
 /obj/item/scrying/eye
 	name = "accursed eye"

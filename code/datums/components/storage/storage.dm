@@ -29,8 +29,8 @@
 	var/locked = FALSE								//when locked nothing can see inside or use it.
 
 	var/max_w_class = WEIGHT_CLASS_SMALL			//max size of objects that will fit.
-	var/max_combined_w_class = 14					//max combined sizes of objects that will fit.
-	var/max_items = 7								//max number of objects that will fit.
+	var/max_combined_w_class = 1000					//max combined sizes of objects that will fit.
+	var/max_items = 1000								//max number of objects that will fit.
 
 	var/emp_shielded = FALSE
 
@@ -432,7 +432,7 @@
 				cy++
 				if(cy - screen_start_y >= rows)
 					break
-	closer.screen_loc = "[screen_start_x + cols]:[screen_pixel_x],[screen_start_y]:[screen_pixel_y]"
+	closer.screen_loc = "[screen_start_x]:[screen_pixel_x],[screen_start_y+rows]:[screen_pixel_y]"
 
 /datum/component/storage/proc/show_to(mob/M)
 	if(!M.client)

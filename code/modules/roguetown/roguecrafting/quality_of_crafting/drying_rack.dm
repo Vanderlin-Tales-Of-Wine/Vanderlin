@@ -1,8 +1,3 @@
-
-/datum/repeatable_crafting_recipe/cooking
-	abstract_type = /datum/repeatable_crafting_recipe/cooking
-	skillcraft = /datum/skill/craft/cooking
-
 /datum/repeatable_crafting_recipe/dryleaf
 	name = "dry swampweed"
 	output = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
@@ -115,19 +110,19 @@
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
 	)
 
-/datum/repeatable_crafting_recipe/parchment_scrolls
-	name = "parchment scrolls"
-	output = /obj/item/paper/scroll
-	output_amount = 5
-	starting_atom = /obj/item/grown/log/tree/small
+/datum/repeatable_crafting_recipe/parchment
+	name = "parchment"
+	output = /obj/item/paper
+	output_amount = 6
+	starting_atom = /obj/item/natural/hide
 	requirements = list(
-		/obj/item/grown/log/tree/small = 1,
+		/obj/item/natural/hide = 1,
 	)
 	reagent_requirements = list(
-		/datum/reagent/water = 50
+		/datum/reagent/water = 45
 	)
 	attacking_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
-	crafting_message = "starts making some scrolls"
-	craftdiff = 1
+	crafting_message = "starts making some parchment"
+	craftdiff = 0

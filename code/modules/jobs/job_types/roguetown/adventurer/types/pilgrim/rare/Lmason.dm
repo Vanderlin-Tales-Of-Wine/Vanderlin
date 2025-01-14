@@ -10,7 +10,7 @@
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	maximum_possible_slots = 1
 	pickprob = 15
-	apprentice_name = "Mason"
+	apprentice_name = "Mason Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/grandmastermason/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -41,6 +41,8 @@
 	throw_speed = 2
 	throw_range = 3
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	grid_width = 64
+	grid_height = 32
 	var/plank_name = "wooden planks"
 	var/static/list/accepted = typecacheof(list(/*/obj/item/reagent_containers/food/snacks/grown/tobacco,
 	/obj/item/reagent_containers/food/snacks/grown/tea,

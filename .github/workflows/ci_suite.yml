@@ -10,7 +10,7 @@ on:
 
 env:
   BYOND_MAJOR: 515
-  BYOND_MINOR: 1636
+  BYOND_MINOR: 1647
   SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:
@@ -69,6 +69,10 @@ jobs:
         with:
           path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
           key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4.2.0
+        with:
+          dotnet-version: 9.x
       - name: Install OpenDream
         uses: robinraju/release-downloader@v1.9
         with:

@@ -107,6 +107,7 @@
 					to_chat(src, msg)
 				return
 			else if(msg) // you want to continue if there's no message instead of returning now
+				SSplexora.aticket_pm(current_ticket, msg)
 				current_ticket.MessageNoRecipient(msg)
 				return
 
@@ -125,6 +126,7 @@
 				if(holder)
 					to_chat(src, "<span class='danger'>Error: Admin-PM: Client not found.</span>")
 				else
+					SSplexora.aticket_pm(current_ticket, msg)
 					current_ticket.MessageNoRecipient(msg)
 				return
 
@@ -163,6 +165,7 @@
 
 			else		//recipient is an admin but sender is not
 				var/replymsg = "Reply PM from-<b>[key_name(src, recipient, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span>"
+				SSplexora.aticket_pm(current_ticket, msg)
 				admin_ticket_log(src, "<font color='red'>[replymsg]</font>")
 				to_chat(recipient, "<span class='danger'>[replymsg]</span>")
 				to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>")
@@ -180,7 +183,7 @@
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>")
 
 				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
-
+				SSplexora.aticket_pm(current_ticket, msg, src)
 				//always play non-admin recipients the adminhelp sound
 				SEND_SOUND(recipient, sound('sound/blank.ogg'))
 

@@ -36,7 +36,7 @@
 	abstract_type = /datum/slapcraft_recipe/masonry/structure
 	anchor_craft = TRUE
 	subcategory = SLAP_SUBCAT_STRUCTURE
-	craftsound = 'sound/foley/Building-01.ogg'
+	craftsound = 'sound/foley/Building-02.ogg'
 
 /datum/slapcraft_recipe/masonry/structure/check_craft_requirements(mob/user, turf/T)
 	if(istype(T,/turf/open/transparent/openspace))

@@ -146,15 +146,16 @@ SUBSYSTEM_DEF(vote)
 			if("endround")
 				if(. == "Continue Playing")
 					log_game("LOG VOTE: CONTINUE PLAYING AT [REALTIMEOFDAY]")
-					addomen("roundstart")
+					addomen(OMEN_ROUNDSTART)
 					GLOB.round_timer = GLOB.round_timer + (32 MINUTES)
 				else
 					log_game("LOG VOTE: ELSE  [REALTIMEOFDAY]")
 					var/datum/game_mode/chaosmode/C = SSticker.mode
 					if(istype(C))
 						log_game("LOG VOTE: ROUNDVOTEEND [REALTIMEOFDAY]")
-						to_chat(world, "\n<font color='purple'>15 minutes remain.</font>")
+						to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL]</font>")
 						C.roundvoteend = TRUE
+						C.round_ends_at = GLOB.round_timer + ROUND_END_TIME
 	if(restart)
 		var/active_admins = 0
 		for(var/client/C in GLOB.admins)
@@ -166,7 +167,7 @@ SUBSYSTEM_DEF(vote)
 		else
 			to_chat(world, "<span style='boldannounce'>Notice:Restart vote will not restart the server automatically because there are active gamemasters on, if nothing is done the server will restart in 15 minutes.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
-			SSticker.reboot_anyway = world.time + 15 MINUTES
+			SSticker.force_ending = world.time + 15 MINUTES
 	return .
 
 /datum/controller/subsystem/vote/proc/submit_vote(vote)

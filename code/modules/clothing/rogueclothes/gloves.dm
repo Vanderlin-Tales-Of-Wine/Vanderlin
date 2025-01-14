@@ -74,6 +74,11 @@
 	desc = "Improved grip for wielding disembowled organs."
 	icon_state = "surggloves"
 
+/obj/item/clothing/gloves/roguetown/leather/apothecary
+	name = "apothecary gloves"
+	desc = "Thick leather gloves for pulling thorny plants... or cracking skulls."
+	icon_state = "apothgloves"
+
 
 /obj/item/clothing/gloves/roguetown/fingerless
 	name = "fingerless gloves"
@@ -87,7 +92,8 @@
 	max_integrity = INTEGRITY_POOR
 
 /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
-	desc = "Cloth gloves to absorb palm sweat while leaving the fingers free for fine manipulation."
+	name = "silk gloves"
+	desc = "Silk gloves to absorb palm sweat while leaving the fingers free for fine manipulation."
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
 	sleeved = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
 	icon_state = "shadowgloves"
@@ -179,12 +185,15 @@
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	sewrepair = FALSE
-	smeltresult = null
+	smeltresult = /obj/item/ingot/iron //no 1 to 1 conversion
 
 	armor_class = AC_HEAVY
 	armor = ARMOR_PLATE
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = INTEGRITY_STRONGEST
+
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/clothing/gloves/roguetown/rare
 	icon = 'icons/roguetown/clothing/Racial_Armour.dmi'

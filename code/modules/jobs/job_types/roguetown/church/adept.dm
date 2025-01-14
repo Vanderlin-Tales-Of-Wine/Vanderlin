@@ -29,6 +29,7 @@
 /datum/outfit/job/roguetown/adept
 	name = "Adept"
 	jobtype = /datum/job/roguetown/adept
+	allowed_patrons = list(/datum/patron/psydon)
 
 /datum/outfit/job/roguetown/adept // Base outfit for Adepts, before loadouts
 	belt = /obj/item/storage/belt/rogue/leather
@@ -80,6 +81,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	H.mind?.teach_crafting_recipe(/datum/crafting_recipe/roguetown/confessional)
 
 // Reformed Thief, a class balanced to rogue. Axe and crossbow focus.
 /datum/advclass/adept/rthief
@@ -98,7 +100,7 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	backl = /obj/item/quiver/bolts
+	backl = /obj/item/ammo_holder/quiver/bolts
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
 	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)

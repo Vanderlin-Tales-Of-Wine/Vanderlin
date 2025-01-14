@@ -49,6 +49,7 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
+	H.cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 
 /datum/migrant_role/mig_prisoner
@@ -87,6 +88,7 @@
 		H.change_stat("speed", -1)
 		H.change_stat("constitution", -1)
 		H.change_stat("endurance", -1)
+	H.cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/migrant_role/prisoner_guard
 	name = "Guard"
@@ -126,6 +128,7 @@
 		H.change_stat("constitution", 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 	H.verbs |= /mob/proc/haltyell
 
 /datum/migrant_wave/prisoner_convoy

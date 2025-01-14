@@ -483,6 +483,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	become_rot_type = null
 	rotprocess = null
+	sellprice = 60
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge
 	name = "wedge of cheese"
@@ -509,6 +510,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
 	become_rot_type = null
 	rotprocess = null
+	sellprice = 10
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
 	name = "slice of cheese"

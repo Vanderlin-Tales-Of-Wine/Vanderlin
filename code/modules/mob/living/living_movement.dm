@@ -78,6 +78,8 @@
 /mob/living/proc/update_turf_movespeed(turf/open/T)
 	if(isopenturf(T))
 		var/usedslow = T.get_slowdown(src)
+		if(HAS_TRAIT(src, TRAIT_LONGSTRIDER))
+			usedslow = max(0, usedslow - 2)
 		if(HAS_TRAIT(src, TRAIT_TRAM_MOVER))
 			usedslow = 0
 		if(usedslow != 0)

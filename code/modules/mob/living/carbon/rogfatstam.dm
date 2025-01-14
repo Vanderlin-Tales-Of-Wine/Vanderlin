@@ -1,7 +1,8 @@
 /mob/living/proc/update_stamina() //update hud and regen after last_fatigued delay on taking
 	maximum_stamina = max_energy / 10
 
-	if(world.time > last_fatigued + 20) //regen fatigue
+	var/delay = (HAS_TRAIT(src, TRAIT_APRICITY) && GLOB.tod == "day") ? 13 : 20
+	if(world.time > last_fatigued + delay) //regen fatigue
 		var/added = energy / max_energy
 		added = round(-10+ (added*-40))
 		if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))

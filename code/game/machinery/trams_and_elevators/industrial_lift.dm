@@ -22,6 +22,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 	plane = GAME_PLANE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER //no TILE_BOUND since we're potentially multitile
+	has_reflection = FALSE
 
 	///ID used to determine what lift types we can merge with
 	var/lift_id = BASIC_LIFT_ID
@@ -125,11 +126,11 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 
 	lift_load -= potential_rider
 	potential_rider.plane = initial(potential_rider.plane)
-	potential_rider.layer--
+	potential_rider.layer -= 2
 	REMOVE_TRAIT(potential_rider, TRAIT_TRAM_MOVER, REF(src))
 	changed_gliders -= potential_rider
 
-	UnregisterSignal(potential_rider, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE))
+	UnregisterSignal(potential_rider, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, COMSIG_MOVABLE_UNCROSSED))
 
 	if(!length(held_cargo))
 		SEND_SIGNAL(src, COMSIG_TRAM_EMPTY)
@@ -149,9 +150,10 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 
 	lift_load += new_lift_contents
 	new_lift_contents.plane = 3
-	new_lift_contents.layer++
+	new_lift_contents.layer += 2
 	ADD_TRAIT(new_lift_contents, TRAIT_TRAM_MOVER, REF(src))
 	RegisterSignal(new_lift_contents, COMSIG_PARENT_QDELETING, PROC_REF(RemoveItemFromLift))
+	RegisterSignal(new_lift_contents, COMSIG_MOVABLE_UNCROSSED, PROC_REF(UncrossedRemoveItemFromLift))
 
 	return TRUE
 
@@ -169,6 +171,8 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 					continue
 
 				initial_contents += new_initial_contents
+
+				movable_contents.vis_contents -= movable_contents?.basic_reflection
 
 ///signal handler for COMSIG_MOVABLE_UPDATE_GLIDE_SIZE: when a movable in lift_load changes its glide_size independently.
 ///adds that movable to a lazy list, movables in that list have their glide_size updated when the tram next moves

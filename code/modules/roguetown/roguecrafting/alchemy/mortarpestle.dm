@@ -4,14 +4,14 @@
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "pestle"
 	force = 7
-	dropshrink = 0.5
+	dropshrink = 0.9
 
 /obj/item/mortar
 	name = "alchemical mortar"
 	desc = "An industrial mortar used to grind alchemical ingredients."
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "mortar"
-	dropshrink = 0.5
+	dropshrink = 0.9
 	var/obj/item/to_grind
 
 /obj/item/mortar/attack_right(mob/user)

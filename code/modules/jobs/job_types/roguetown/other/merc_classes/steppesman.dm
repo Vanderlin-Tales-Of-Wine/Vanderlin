@@ -11,7 +11,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
 /datum/outfit/job/roguetown/mercenary/steppesman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -23,7 +23,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	beltr = /obj/item/rogueweapon/sword/sabre
-	beltl= /obj/item/quiver/arrows
+	beltl= /obj/item/ammo_holder/quiver/arrows
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	pants = /obj/item/clothing/under/roguetown/tights/red
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor

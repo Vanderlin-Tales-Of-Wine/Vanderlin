@@ -3337,7 +3337,7 @@
 /area/rogue/outdoors/rtfield)
 "lx" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -5092,8 +5092,8 @@
 /area/rogue/indoors/town/garrison)
 "sh" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -6501,8 +6501,8 @@
 /area/rogue/indoors/town/dwarfin)
 "xz" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolts,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/cave)
 "xA" = (
@@ -8830,7 +8830,7 @@
 	pixel_y = 32
 	},
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -9349,7 +9349,7 @@
 /area/rogue/indoors/town/church)
 "HW" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
 "HX" = (
@@ -9746,7 +9746,7 @@
 /area/rogue/indoors/town/garrison)
 "Jl" = (
 /obj/structure/closet/crate/chest,
-/obj/item/quiver/bolts,
+/obj/item/ammo_holder/quiver/bolts,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},

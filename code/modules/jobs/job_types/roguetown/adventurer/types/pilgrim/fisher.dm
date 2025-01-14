@@ -5,6 +5,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
@@ -15,7 +16,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/fisher
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	apprentice_name = "Fisher"
+	apprentice_name = "Fisher Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/fisher/pre_equip(mob/living/carbon/human/H)
 	..()

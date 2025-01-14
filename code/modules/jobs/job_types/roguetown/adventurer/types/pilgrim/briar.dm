@@ -15,7 +15,7 @@
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	head = /obj/item/clothing/head/roguetown/padded/briarthorns
+	mask = /obj/item/clothing/mask/rogue/druid
 	neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 	shirt = /obj/item/clothing/suit/roguetown/armor/leather/vest
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
@@ -57,7 +57,6 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_predator)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
-	C.holder_mob = H
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	C.grant_spells(H)
 	if((H.facial_hairstyle == "Wise Hermit") || (H.facial_hairstyle == "Knightly") || (H.facial_hairstyle == "Raider") || (H.facial_hairstyle == "Rumata") || (H.facial_hairstyle == "Choppe") || (H.facial_hairstyle == "Full Beard") || (H.facial_hairstyle == "Fullest Beard") || (H.facial_hairstyle == "Drinker") || (H.facial_hairstyle == "Knowledge") || (H.facial_hairstyle == "Brew") || (H.facial_hairstyle == "Ranger"))

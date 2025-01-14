@@ -13,6 +13,9 @@
 	anvilrepair = null
 	smeltresult = /obj/item/ash
 
+	grid_width = 64
+	grid_height = 64
+
 
 //////////////////////////
 /// TABARD
@@ -65,7 +68,6 @@
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	picked = TRUE
 	if(design != "None")
 		detail_tag = design
 	switch(design)
@@ -84,6 +86,16 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		color = initial(color)
+		detail_tag = initial(detail_tag)
+		detail_color = initial(detail_color)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/tabard/knight
 	color = CLOTHING_PLUM_PURPLE
@@ -133,6 +145,14 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_color = initial(detail_color)
+		color = initial(color)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
 	picked = TRUE
 
 /obj/item/clothing/cloak/tabard/crusader/tief/attack_right(mob/user)
@@ -154,6 +174,14 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_color = initial(detail_color)
+		color = initial(color)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
 	picked = TRUE
 
 /obj/item/clothing/cloak/tabard/knight/guard
@@ -171,7 +199,6 @@
 		return
 	if(!chosen)
 		return
-	picked = TRUE
 	switch(chosen)
 		if("Split")
 			detail_tag = "_spl"
@@ -185,6 +212,14 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/tabard/knight/guard/Initialize()
 	. = ..()
@@ -260,7 +295,6 @@
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	picked = TRUE
 	switch(design)
 		if("Split")
 			detail_tag = "_spl"
@@ -277,6 +311,16 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_color = initial(detail_color)
+		color = initial(color)
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/stabard/guard
 	desc = "A tabard with the lord's heraldic colors. This one is worn typically by guards."
@@ -293,7 +337,6 @@
 		return
 	if(!chosen)
 		return
-	picked = TRUE
 	switch(chosen)
 		if("Split")
 			detail_tag = "_spl"
@@ -307,6 +350,14 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/stabard/guard/Initialize()
 	. = ..()
@@ -410,7 +461,7 @@
 	item_state = "tabard_malum"
 
 /obj/item/clothing/cloak/stabard/templar/eora
-	name = "surcoat of the eoran order" //This SHOULDNT be used, Eorites dont have templars since they are all pansy pacifists
+	name = "surcoat of the eoran order"
 	icon_state = "tabard_eora"
 	item_state = "tabard_eora"
 
@@ -418,6 +469,11 @@
 	name = "surcoat of the pestran order"
 	icon_state = "tabard_pestra"
 	item_state = "tabard_pestra"
+
+/obj/item/clothing/cloak/stabard/templar/ravox
+	name = "surcoat of the ravoxian order"
+	icon_state = "tabard_ravox"
+	item_state = "tabard_ravox"
 
 //////////////////////////
 /// SURCOATS
@@ -444,7 +500,6 @@
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	picked = TRUE
 	switch(design)
 		if("Split")
 			detail_tag = "_spl"
@@ -461,6 +516,16 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_color = initial(detail_color)
+		color = initial(color)
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/stabard/surcoat/update_icon()
 	cut_overlays()
@@ -486,7 +551,6 @@
 		return
 	if(!chosen)
 		return
-	picked = TRUE
 	switch(chosen)
 		if("Split")
 			detail_tag = "_spl"
@@ -500,7 +564,14 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
 
 /obj/item/clothing/cloak/stabard/surcoat/guard/Initialize()
 	. = ..()
@@ -521,6 +592,7 @@
 	GLOB.lordcolor -= src
 	return ..()
 
+//Royal cloaks.
 /obj/item/clothing/cloak/lordcloak
 	name = "lordly cloak"
 	desc = "Ermine trimmed, handed down."
@@ -534,7 +606,6 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
-//	allowed_sex = list("male")
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
 	detail_tag = "_det"
 	detail_color = CLOTHING_PLUM_PURPLE
@@ -569,12 +640,7 @@
 
 /obj/item/clothing/cloak/lordcloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_BULKY
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak/lord)
 
 /obj/item/clothing/cloak/lordcloak/dropped(mob/living/carbon/human/user)
 	..()
@@ -583,6 +649,24 @@
 		var/list/things = STR.contents()
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
+
+/obj/item/clothing/cloak/lordcloak/ladycloak
+	name = "ladylike shortcloak"
+	desc = "Ermine trimmed, handed down."
+	color = null
+	icon_state = "shortcloak"
+	item_state = "shortcloak"
+	alternate_worn_layer = CLOAK_BEHIND_LAYER
+	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+	boobed = TRUE
+	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	sleevetype = "shirt"
+	nodismemsleeves = TRUE
+	allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf", "halforc")
+	detail_tag = "_detail"
+	detail_color = CLOTHING_SOOT_BLACK
+
+//End royal cloaks.
 
 /obj/item/clothing/cloak/apron
 	name = "apron"
@@ -593,10 +677,11 @@
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
 	boobed = TRUE
-	salvage_result = /obj/item/natural/hide/cured
+	salvage_result = /obj/item/natural/cloth
 
 /obj/item/clothing/cloak/apron/brown
 	color = CLOTHING_BARK_BROWN
+	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/cloak/apron/waist
 	name = "apron"
@@ -661,12 +746,7 @@
 
 /obj/item/clothing/cloak/raincloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/raincloak/dropped(mob/living/carbon/human/user)
 	..()
@@ -879,12 +959,7 @@
 
 /obj/item/clothing/cloak/half/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/half/dropped(mob/living/carbon/human/user)
 	..()
@@ -944,14 +1019,28 @@
 	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_MUSTARD_YELLOW, CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_FOREST_GREEN, CLOTHING_BERRY_BLUE)
 	..()
 
+/obj/item/clothing/cloak/matron
+	name = "matron cloak"
+	desc = "A cloak that only the meanest of old crones bother to wear."
+	icon_state = "matroncloak"
+	icon = 'icons/roguetown/clothing/cloaks.dmi'
+	mob_overlay_icon ='icons/roguetown/clothing/onmob/cloaks.dmi'
+	body_parts_covered = CHEST|GROIN|VITALS|ARMS
+	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	sleevetype = "shirt"
+	slot_flags = ITEM_SLOT_CLOAK
+	nodismemsleeves = TRUE
+	sleevetype = "shirt"
+	slot_flags = ITEM_SLOT_CLOAK
+
 //............... Battle Nun ........................... (unique kit for the role, tabard for aesthetics)
 /obj/item/clothing/cloak/battlenun
 	name = "nun vestments"
 	desc = "Chaste, righteous, merciless to the wicked."
 	color = null
 	icon_state = "battlenun"
-	item_state = "battlenun"
 	allowed_sex = list(FEMALE)
+	item_state = "battlenun"
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK

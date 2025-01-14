@@ -23,7 +23,7 @@
 	return null
 
 //This is an UNSAFE proc. Use mob_can_equip() before calling this one! Or rather use equip_to_slot_if_possible() or advanced_equip_to_slot_if_possible()
-/mob/living/carbon/equip_to_slot(obj/item/I, slot)
+/mob/living/carbon/equip_to_slot(obj/item/I, slot, initial)
 	if(!slot)
 		return
 	if(!istype(I))
@@ -75,11 +75,11 @@
 			not_handled = TRUE
 			if(backr)
 				testing("insert4")
-				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+				if(SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 			if(backl && not_handled)
 				testing("insert5")
-				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE))
+				if(SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, I, src, TRUE, !initial)) // If inital is true, item is from job datum and should be silent
 					not_handled = FALSE
 
 		else
@@ -153,3 +153,24 @@
 /mob/living/carbon/proc/get_holding_bodypart_of_item(obj/item/I)
 	var/index = get_held_index_of_item(I)
 	return index && hand_bodyparts[index]
+
+//GetAllContents that is reasonable for carbons
+/mob/living/carbon/proc/get_all_gear()
+	var/list/processing_list = get_equipped_items(include_pockets = TRUE) + held_items
+	listclearnulls(processing_list) // handles empty hands
+	var/i = 0
+	while(i < length(processing_list))
+		var/atom/A = processing_list[++i]
+		var/datum/component/storage/STR = A.GetComponent(/datum/component/storage)
+		if(STR)
+			processing_list += STR.return_inv(TRUE)
+	return processing_list
+
+/mob/living/carbon/proc/get_most_expensive()
+	var/atom/movable/most_expensive = null
+	var/price = 0
+	for(var/atom/movable/atom in get_all_gear())
+		if(atom.sellprice > price)
+			most_expensive = atom
+			price = atom.sellprice
+	return most_expensive

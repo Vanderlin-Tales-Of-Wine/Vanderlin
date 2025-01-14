@@ -549,6 +549,14 @@
 #define SOIL_NUTRIMENT_DECAY_RATE 0.5 / (1 MINUTES)
 
 /obj/structure/soil/proc/process_soil(dt)
+	var/found_irrigation = FALSE
+	for(var/obj/structure/irrigation_channel/channel in range(2, src))
+		if(!istype(channel))
+			continue
+		if(!channel.water_logged)
+			continue
+		found_irrigation = TRUE
+		break
 	// If plant exists and is not dead, nutriment or water is not zero, reset the decay timer
 	if(nutrition > 0 || water > 0 || (plant != null && plant_health > 0))
 		soil_decay_time = SOIL_DECAY_TIME
@@ -556,7 +564,10 @@
 		// Otherwise, "decay" the soil
 		soil_decay_time = max(soil_decay_time - dt, 0)
 
-	adjust_water(-dt * SOIL_WATER_DECAY_RATE)
+	if(!found_irrigation)
+		adjust_water(-dt * SOIL_WATER_DECAY_RATE)
+	else
+		adjust_water(dt)
 	adjust_nutrition(-dt * SOIL_NUTRIMENT_DECAY_RATE)
 
 	tilled_time = max(tilled_time - dt, 0)

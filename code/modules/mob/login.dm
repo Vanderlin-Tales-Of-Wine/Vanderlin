@@ -94,7 +94,7 @@
 		client.hearallasghost()
 
 /mob/proc/send_pref_messages()
-	if(client.prefs)
+	if(client?.prefs)
 		for(var/message in client.prefs.preference_message_list)
 			to_chat(src, message)
 

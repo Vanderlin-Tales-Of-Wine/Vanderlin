@@ -13,6 +13,8 @@
 	reagent_flags = INJECTABLE
 	resistance_flags = FLAMMABLE
 	destroy_sound
+	grid_width = 32
+	grid_height = 32
 	var/do_random_pixel_offset = TRUE
 	var/foodtype = NONE
 	var/last_check_time

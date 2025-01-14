@@ -71,7 +71,7 @@
 
 /obj/item/alch/waterdust
 	name = "water rune dust"
-	icon_state = "runedust"
+	icon_state = "water_runedust"
 	major_pot = /datum/alch_cauldron_recipe/int_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	minor_pot = /datum/alch_cauldron_recipe/per_potion
@@ -113,14 +113,14 @@
 
 /obj/item/alch/magicdust
 	name = "magicdust"
-	//icon_state = "magicdust"
+	icon_state = "magic_runedust"
 	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
 /obj/item/alch/firedust
 	name = "fire rune dust"
-	icon_state = "runedust"
+	icon_state = "fire_runedust"
 	major_pot = /datum/alch_cauldron_recipe/str_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
 	minor_pot = /datum/alch_cauldron_recipe/spd_potion
@@ -142,20 +142,20 @@
 
 /obj/item/alch/airdust
 	name = "air rune dust"
-	icon_state = "runedust"
+	icon_state = "air_runedust"
 	major_pot = /datum/alch_cauldron_recipe/spd_potion
 	med_pot = /datum/alch_cauldron_recipe/stamina_potion
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/swampdust
 	name = "swampweed dust"
-	icon_state = "tobaccodust"
+	icon_state = "swampdust"
 	major_pot = /datum/alch_cauldron_recipe/berrypoison
 	med_pot = /datum/alch_cauldron_recipe/big_stam_poison
 	minor_pot = /datum/alch_cauldron_recipe/end_potion
 
 /obj/item/alch/tobaccodust
-	name = "tobacco dust"
+	name = "westleach dust"
 	icon_state = "tobaccodust"
 	major_pot = /datum/alch_cauldron_recipe/per_potion
 	med_pot = /datum/alch_cauldron_recipe/stamina_potion
@@ -163,7 +163,7 @@
 
 /obj/item/alch/earthdust
 	name = "earth rune dust"
-	//icon_state = "earthdust"
+	icon_state = "earth_runedust"
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/str_potion
@@ -211,11 +211,20 @@
 /obj/item/alch/ozium
 	name = "alchemical ozium"
 	desc = "Alchemical processing has left it unfit for consumption."
-	icon_state = "whitepowder"
+	icon_state = "darkredpowder"
 
 	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
 	med_pot = /datum/alch_cauldron_recipe/lck_potion
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
+
+/obj/item/alch/transisdust
+	name = "Transis dust"
+	desc = "A long mix of herb that product a special powder."
+	icon_state = "transisdust"
+
+	major_pot = /datum/alch_cauldron_recipe/gender_potion
+	med_pot = /datum/alch_cauldron_recipe/gender_potion
+	minor_pot = /datum/alch_cauldron_recipe/gender_potion
 
 //BEGIN THE HERBS
 

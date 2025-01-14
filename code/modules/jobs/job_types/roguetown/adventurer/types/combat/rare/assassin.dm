@@ -15,6 +15,7 @@
 	maximum_possible_slots = 2
 	min_pq = 0
 	pickprob = 100
+	displays_adv_job = FALSE //this prevents advjob from being set back to "Assassin" in equipme
 
 /datum/outfit/job/roguetown/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -41,8 +42,9 @@
 		H.mind.add_antag_datum(new_antag)
 
 	H.become_blind("TRAIT_GENERIC")
+	H.advjob = "Assassin"
 	// Assassin now spawns disguised as one of the non-combat drifters. You never know who will stab you in the back.
-	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Woodcutter")
+	var/disguises = list("Bard", "Beggar", "Fisher", "Hunter", "Miner", "Noble", "Peasant", "Carpenter")
 	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
 
 	if(disguisechoice)
@@ -118,7 +120,7 @@
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			belt = /obj/item/storage/belt/rogue/leather/assassin
-			beltr = /obj/item/quiver/arrows
+			beltr = /obj/item/ammo_holder/quiver/arrows
 			beltl = /obj/item/flashlight/flare/torch/lantern
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/bait = 1, /obj/item/rogueweapon/knife/hunting = 1)
 			gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -159,7 +161,7 @@
 				head = /obj/item/clothing/head/roguetown/fancyhat
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				beltr = /obj/item/rogueweapon/sword/rapier/dec
-				beltl = /obj/item/quiver/arrows
+				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 			else
 				H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) //Female nobles get the male noble's bow, but are less trained than an Assassin disguising as a Hunter. Balance.
@@ -169,7 +171,7 @@
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				beltr = /obj/item/rogueweapon/knife/dagger/steel/special
-				beltl = /obj/item/quiver/arrows
+				beltl = /obj/item/ammo_holder/quiver/arrows
 				backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 		if("Peasant")
 			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
@@ -193,21 +195,23 @@
 				shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 				pants = null
 			backpack_contents = list(/obj/item/neuFarm/seed/wheat=1,/obj/item/neuFarm/seed/apple=1,/obj/item/ash=1,/obj/item/rogueweapon/knife/villager=1)
-		if("Woodcutter")
+		if("Carpenter")
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the axe...
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			belt = /obj/item/storage/belt/rogue/leather/assassin
-			shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 			pants = /obj/item/clothing/under/roguetown/trou
-			head = /obj/item/clothing/head/roguetown/roguehood/random
+			head = pick(/obj/item/clothing/head/roguetown/hatfur, /obj/item/clothing/head/roguetown/hatblu, /obj/item/clothing/head/roguetown/brimmed)
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			backr = /obj/item/storage/backpack/rogue/satchel
-			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
+			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light/striped
-			beltr = /obj/item/rogueweapon/axe/iron
-			beltl = /obj/item/rogueweapon/knife/hunting
-			backpack_contents = list(/obj/item/flint = 1)
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+			beltl = /obj/item/rogueweapon/hammer/claw
+			backr = /obj/item/rogueweapon/axe/iron
+			backl = /obj/item/storage/backpack/rogue/backpack
+			backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
 
 	H.cure_blind("TRAIT_GENERIC")
 

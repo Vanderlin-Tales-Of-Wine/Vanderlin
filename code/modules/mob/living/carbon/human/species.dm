@@ -154,12 +154,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/child_icon = 'icons/roguetown/mob/bodies/c/child.dmi'
 	var/child_dam_icon = 'icons/roguetown/mob/bodies/dam/dam_child.dmi'
 	var/list/offset_features_child = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
-	OFFSET_CLOAK = list(0,-4), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,-4), \
+	OFFSET_CLOAK = list(0,-4), OFFSET_FACEMASK = list(0,-4), OFFSET_HEAD = list(0,-4), \
 	OFFSET_FACE = list(0,-4), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
 	OFFSET_NECK = list(0,-4), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
 	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,-3), \
 	OFFSET_ID_F = list(0,0), OFFSET_GLOVES_F = list(0,0), OFFSET_HANDS_F = list(0,-3), \
-	OFFSET_CLOAK_F = list(0,-4), OFFSET_FACEMASK_F = list(0,0), OFFSET_HEAD_F = list(0,-4), \
+	OFFSET_CLOAK_F = list(0,-4), OFFSET_FACEMASK_F = list(0,-4), OFFSET_HEAD_F = list(0,-4), \
 	OFFSET_FACE_F = list(0,-4), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
 	OFFSET_NECK_F = list(0,-4), OFFSET_MOUTH_F = list(0,0), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
@@ -2258,8 +2258,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return
 
 		if(INTENT_GRAB)
-			if(!M.has_hand_for_held_index(M.active_hand_index, TRUE)) //we obviously have a hadn, but we need to check for fingers/prosthetics
-				to_chat(M, "<span class='warning'>I can't move the fingers.</span>")
+			if(!M.has_hand_for_held_index(M.active_hand_index, TRUE)) //we obviously have a hand, but we need to check for fingers/prosthetics
+				to_chat(M, "<span class='warning'>I can't move the fingers of my [M.active_hand_index == 1 ? "left" : "right"] hand.</span>")
 				return
 			grab(M, H, attacker_style)
 			return

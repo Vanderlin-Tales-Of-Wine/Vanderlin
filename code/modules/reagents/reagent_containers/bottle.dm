@@ -76,6 +76,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	if(closed)
 		reagent_flags = TRANSPARENT
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
 		GLOB.weather_act_upon_list -= src
 		if(!fancy)
@@ -84,6 +85,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		reagent_flags = OPENCONTAINER
 		reagents.flags = reagent_flags
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
+		to_chat(user, span_notice("You thumb off the cork from [src]."))
 		spillable = TRUE
 		GLOB.weather_act_upon_list |= src
 		if(!fancy)
@@ -315,7 +317,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	name = "message bottle"
 	desc = "Inside is a scroll, pop it open and read the ancient wisdoms."
 	icon = 'icons/roguetown/items/cooking.dmi'
-	dropshrink = 0.5
+	dropshrink = 0.8
 	icon_state = "bottle_message"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/item/paper/contained
@@ -351,7 +353,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	possible_transfer_amounts = list(6)
 	volume = 30
 	fill_icon_thresholds = list(0, 25, 50, 75, 100)
-	dropshrink = 0.5
+	dropshrink = 0.8
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_BELT
 	obj_flags = CAN_BE_HIT
 	spillable = FALSE
@@ -394,10 +396,12 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		reagent_flags = TRANSPARENT
 		reagents.flags = reagent_flags
 		desc = "A vial with a cork."
+		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
 	else
 		reagent_flags = OPENCONTAINER
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You thumb off the cork from [src]."))
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
 		desc = "An open vial, easy to drink quickly."
 		spillable = TRUE

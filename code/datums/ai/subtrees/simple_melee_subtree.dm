@@ -23,7 +23,7 @@
 
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/bog_troll
-	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/bog_troll
+	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack
 
 /datum/ai_planning_subtree/basic_melee_attack_subtree/mimic
 	melee_attack_behavior = /datum/ai_behavior/basic_melee_attack/mimic

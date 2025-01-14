@@ -15,6 +15,12 @@
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
+	component_type = /datum/component/storage/concrete/roguetown/sack
+
+/obj/item/storage/roguebag/examine(mob/user)
+	. = ..()
+	if(length(contents))
+		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
 
 /obj/item/storage/roguebag/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -63,22 +69,6 @@
 		icon_state = "cbag"
 		w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/storage/roguebag/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 20
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
-	STR.max_items = 20
-	STR.click_gather = TRUE
-	STR.attack_hand_interact = FALSE
-	STR.collection_mode = COLLECT_EVERYTHING
-	STR.dump_time = 0
-	STR.allow_quick_gather = TRUE
-	STR.allow_quick_empty = TRUE
-	STR.allow_look_inside = FALSE
-	STR.display_numerical_stacking = TRUE
-
-
 /obj/item/storage/roguebag/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -117,6 +107,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	resistance_flags = NONE
 	max_integrity = 300
+	component_type = /datum/component/storage/concrete/roguetown/sack/meat
 
 /obj/item/storage/meatbag/attack_right(mob/user)
 	. = ..()
@@ -131,29 +122,6 @@
 		var/obj/item/I = pick(things)
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
-
-/obj/item/storage/meatbag/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 100
-	STR.max_items = 25
-	STR.insert_preposition = "in"
-	STR.click_gather = TRUE
-	STR.attack_hand_interact = FALSE
-	STR.collection_mode = COLLECT_EVERYTHING
-	STR.dump_time = 0
-	STR.allow_quick_gather = TRUE
-	STR.allow_quick_empty = TRUE
-	STR.allow_look_inside = TRUE
-	STR.display_numerical_stacking = TRUE
-	STR.set_holdable(list(
-		/obj/item/reagent_containers/food/snacks/rogue/meat,
-		/obj/item/reagent_containers/food/snacks/fat,
-		/obj/item/natural/fur,
-		/obj/item/natural/hide,
-		/obj/item/alch/sinew,
-		/obj/item/alch/viscera
-		))
 
 /obj/item/storage/meatbag/getonmobprop(tag)
 	. = ..()

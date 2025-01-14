@@ -24,7 +24,7 @@
 	///our crafting difficulty
 	var/craftdiff = 1
 	///our skilltype
-	var/datum/skill/skillcraft
+	var/datum/skill/skillcraft = /datum/skill/craft/crafting
 
 	///the amount of time the atom in question spends doing this recipe
 	var/craft_time = 1 SECONDS
@@ -72,9 +72,6 @@
 	var/list/copied_reagent_requirements = reagent_requirements.Copy()
 	var/list/copied_tool_usage = tool_usage.Copy()
 	var/list/usable_contents = list()
-	if(uses_attacking_atom)
-		usable_contents |= attacked_item.type
-		usable_contents[attacked_item.type]++
 
 	for(var/obj/item/I in user.held_items)
 		if(istype(I, /obj/item/natural/bundle))
@@ -298,7 +295,7 @@
 							if(item:amount == 0)
 								usable_contents -= item
 								qdel(item)
-							user.visible_message("[user] starts picking up [sub_item]", "You start picking up [sub_item]")
+							user.visible_message("[user] starts picking up [sub_item].", "You start picking up [sub_item].")
 							if(do_after(user, ground_use_time, target = item))
 								if(put_items_in_hand)
 									user.put_in_active_hand(sub_item)
@@ -312,7 +309,7 @@
 						if(early_break)
 							break
 
-					user.visible_message("[user] starts picking up [item]", "You start picking up [item]")
+					user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
 					if(do_after(user, ground_use_time, target = item))
 						user.put_in_active_hand(item)
 						active_item = item
@@ -631,3 +628,117 @@
 /datum/repeatable_crafting_recipe/proc/move_items_back(list/items, mob/user)
 	for(var/obj/item/item in items)
 		item.forceMove(user.drop_location())
+
+/datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
+	var/client/client = user
+	if(!istype(client))
+		client = user.client
+	SSassets.transport.send_assets(client, list("try4_border.png", "try4.png", "slop_menustyle2.css"))
+	user << browse_rsc('html/book.png')
+	var/html = {"
+		<!DOCTYPE html>
+		<html lang="en">
+		<meta charset='UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+			body {
+				font-family: "Charm", cursive;
+				font-size: 1.2em;
+				text-align: center;
+				margin: 20px;
+				background-color: #f4efe6;
+				color: #3e2723;
+				background-color: rgb(31, 20, 24);
+				background:
+					url('[SSassets.transport.get_asset_url("try4_border.png")]'),
+					url('book.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+
+			}
+			h1 {
+				text-align: center;
+				font-size: 2.5em;
+				border-bottom: 2px solid #3e2723;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+			.icon {
+				width: 96px;
+				height: 96px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+		</style>
+		<body>
+		  <div>
+		    <h1>[name]</h1>
+		    <div>
+		      <strong>Requirements</strong>
+			  <br>
+		"}
+	for(var/atom/path as anything in requirements)
+		var/count = requirements[path]
+		if(subtypes_allowed)
+			html += "[icon2html(new path, user)] [count] of any [initial(path.name)]<br>"
+		else
+			html += "[icon2html(new path, user)] [count] [initial(path.name)]<br>"
+
+	html += {"
+		</div>
+		<div>
+		"}
+
+	if(length(tool_usage))
+		html += {"
+		<br>
+		<div>
+		    <strong>Required Tools</strong>
+			<br>
+			  "}
+		for(var/atom/path as anything in tool_usage)
+			if(subtypes_allowed)
+				html += "[icon2html(new path, user)] any [initial(path.name)]<br>"
+			else
+				html += "[icon2html(new path, user)] [initial(path.name)]<br>"
+		html += {"
+			</div>
+		<div>
+		"}
+
+	if(length(reagent_requirements))
+		html += {"
+		<br>
+		<div>
+		    <strong>Required Liquids</strong>
+			<br>
+			  "}
+		for(var/atom/path as anything in reagent_requirements)
+			var/count = reagent_requirements[path]
+			html += "[CEILING(count / 3, 1)] oz of [initial(path.name)]<br>"
+		html += {"
+			</div>
+		<div>
+		"}
+
+	html += "<strong class=class='scroll'>start the process with</strong> <br>[icon2html(new attacking_atom, user)] <br> [initial(attacking_atom.name)]<br>"
+	if(subtypes_allowed)
+		html += "<strong class=class='scroll'>using</strong> <br> [icon2html(new starting_atom, user)] <br> any [initial(starting_atom.name)]<br>"
+	else
+		html += "<strong class=class='scroll'>using</strong> <br> [icon2html(new starting_atom, user)] <br> [initial(starting_atom.name)]<br>"
+
+
+	html += {"
+		</div>
+		</div>
+	</body>
+	</html>
+	"}
+	return html
+
+/datum/repeatable_crafting_recipe/proc/show_menu(mob/user)
+	user << browse(generate_html(user),"window=recipe;size=500x810")

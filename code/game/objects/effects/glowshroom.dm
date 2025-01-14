@@ -12,14 +12,12 @@
 	max_integrity = 30
 	blade_dulling = DULLING_CUT
 	resistance_flags = FLAMMABLE
-	var/burned = FALSE
 
 /obj/structure/kneestingers/fire_act(added, maxstacks)
-	if(!burned)
-		burned = TRUE
-		visible_message(span_warning("[src] catches fire!"))
-		new /obj/effect/hotspot(get_turf(src))
-		qdel(src)
+	visible_message(span_warning("[src] catches fire!"))
+	var/turf/T = get_turf(src)
+	qdel(src)
+	new /obj/effect/hotspot(T)
 
 /obj/structure/kneestingers/Crossed(AM as mob|obj)
 	if(isliving(AM))

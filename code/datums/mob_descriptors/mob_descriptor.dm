@@ -18,7 +18,7 @@
 		pre_string = "[prefix] "
 	if(suffix)
 		post_string = " [suffix]"
-	
+
 /datum/mob_descriptor/proc/get_pre_string(mob/living/described)
 	return pre_string
 

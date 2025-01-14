@@ -118,6 +118,7 @@
 	base_icon_state = "ledger"
 	title = "Catatoma"
 	dat = "To create a shipping order, use a papyrus on me."
+	var/fence = FALSE
 
 /obj/item/book/rogue/secret/ledger/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper/scroll/cargo))
@@ -135,8 +136,11 @@
 		var/list/pax = list()
 		for(var/pack in SSmerchant.supply_packs)
 			var/datum/supply_pack/PA = SSmerchant.supply_packs[pack]
+			if(PA.contraband && !fence)
+				continue
 			if(PA.group == picked_cat)
 				pax += PA
+
 		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
 		if(!picked_pack)
 			return
@@ -158,6 +162,8 @@
 		var/list/pax = list()
 		for(var/pack in SSmerchant.supply_packs)
 			var/datum/supply_pack/PA = SSmerchant.supply_packs[pack]
+			if(PA.contraband && !fence)
+				continue
 			if(PA.group == picked_cat)
 				pax += PA
 		var/datum/supply_pack/picked_pack = input(user, "Shipments", "Shipping Ledger") as null|anything in sortList(pax)
@@ -171,6 +177,11 @@
 		qdel(P)
 		user.put_in_active_hand(C)
 	..()
+
+/obj/item/book/rogue/secret/ledger/fence
+	name = "Smuggler's Manifest"
+	title = " Smuggler's Manifest"
+	fence = TRUE
 
 /obj/item/book/rogue/bibble
 	name = "The Book"

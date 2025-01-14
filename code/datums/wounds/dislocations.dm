@@ -47,9 +47,9 @@
 	REMOVE_TRAIT(affected, TRAIT_BRITTLE, "[type]")
 	switch(affected.body_zone)
 		if(BODY_ZONE_R_LEG)
-			affected.owner.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG)
+			affected.owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG)
 		if(BODY_ZONE_L_LEG)
-			affected.owner.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG)
+			affected.owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG)
 
 /datum/wound/dislocation/on_mob_gain(mob/living/affected)
 	. = ..()

@@ -51,7 +51,7 @@
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/rogueweapon/knife/dagger/steel/special
-		beltl = /obj/item/quiver/arrows
+		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	if(H.gender == MALE)
 		H.change_stat("constitution", 1)
@@ -63,6 +63,6 @@
 		head = /obj/item/clothing/head/roguetown/fancyhat
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/rogueweapon/sword/rapier/dec
-		beltl = /obj/item/quiver/arrows
+		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

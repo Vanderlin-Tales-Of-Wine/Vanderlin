@@ -136,12 +136,14 @@
 #define INIT_ORDER_MINOR_MAPPING	-40
 #define INIT_ORDER_PATH				-50
 #define INIT_ORDER_DISCORD			-60
+#define INIT_ORDER_PLEXORA 			-61
 #define INIT_ORDER_PERSISTENCE		-95
 #define INIT_ORDER_CHAT				-100 //Should be last to ensure chat remains smooth during init.
 
 // Subsystem fire priority, from lowest to highest priority
 // If the subsystem isn't listed here it's either DEFAULT or PROCESS (if it's a processing subsystem child)
-
+#define FIRE_PRIORITY_SLOW_OBJECTS 5
+#define FIRE_PRIORITY_ENCHANTMENT 10
 #define FIRE_PRIORITY_ROLE_CLASS_HANDLER 10
 #define FIRE_PRIORITY_PING			10
 #define FIRE_PRIORITY_WET_FLOORS	10

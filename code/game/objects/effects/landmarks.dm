@@ -138,7 +138,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/manorguardsman
-	name = "Royal Guard"
+	name = "Royal Knight"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/veteran
@@ -154,7 +154,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/watchman
-	name = "Gatekeeper"
+	name = "Men-at-arms"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/forestwarden
@@ -170,7 +170,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/woodsman
-	name = "Mayor"
+	name = "Town Elder"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/priest
@@ -198,7 +198,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/nightman
-	name = "Niteman"
+	name = "Apothecary"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/nightmaiden
@@ -248,6 +248,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Scribe"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/matron
+	name = "Matron"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/farmer
 	name = "Soilson"
 	icon_state = "arrow"
@@ -261,7 +265,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/gravedigger
-	name = "Gravedigger"
+	name = "Gravetender"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/mercenary

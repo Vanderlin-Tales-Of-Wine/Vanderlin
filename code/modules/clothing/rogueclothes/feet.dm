@@ -60,6 +60,15 @@
 	item_state = "ridingboots"
 	sellprice = 10
 
+/obj/item/clothing/shoes/roguetown/apothboots
+	name = "apothecary boots"
+	desc = "Boots designed for the toil of tincture gathering and mixing."
+	gender = PLURAL
+	icon_state = "apothboots"
+	item_state = "apothboots"
+	armor = list("blunt" = 15, "slash" = 15, "stab" = 15,  "piercing" = 5, "fire" = 0, "acid" = 0)
+	sellprice = 10
+
 ///obj/item/clothing/shoes/roguetown/ridingboots/Initialize()
 //	. = ..()
 //	AddComponent(/datum/component/squeak, list('sound/foley/spurs (1).ogg'sound/blank.ogg'=1), 50)
@@ -95,7 +104,7 @@
 	sellprice = 20
 
 /obj/item/clothing/shoes/roguetown/gladiator
-	name = "leather sandals"
+	name = "caligae"
 	desc = "Open design sandals made from sturdy leather. Can be typically seen worn by gladiators."
 	gender = PLURAL
 	icon_state = "gladiator"

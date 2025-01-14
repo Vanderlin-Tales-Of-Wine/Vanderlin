@@ -140,7 +140,7 @@
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			beltr = /obj/item/rogueweapon/knife/hunting
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-			beltl = /obj/item/quiver/arrows
+			beltl = /obj/item/ammo_holder/quiver/arrows
 			mask = /obj/item/clothing/mask/rogue/shepherd/rag
 
 			var/helmet2choose = pickweight(list("Hood" = 1, "Volfhelm" = 1))

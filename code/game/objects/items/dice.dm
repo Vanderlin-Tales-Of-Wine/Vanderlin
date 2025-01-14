@@ -16,33 +16,19 @@
 				/obj/item/dice/fourdd6,
 				/obj/item/dice/d100
 				)
-
-/obj/item/storage/pill_bottle/dice/PopulateContents()
-	new /obj/item/dice/d4(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d8(src)
-	new /obj/item/dice/d10(src)
-	new /obj/item/dice/d12(src)
-	new /obj/item/dice/d20(src)
-//	var/picked = pick(special_die)
-//	new picked(src)
+	populate_contents = list(
+		/obj/item/dice/d4,
+		/obj/item/dice/d6,
+		/obj/item/dice/d6,
+		/obj/item/dice/d8,
+		/obj/item/dice/d10,
+		/obj/item/dice/d12,
+		/obj/item/dice/d20,
+	)
 
 /obj/item/storage/pill_bottle/dice/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
-
-/obj/item/storage/pill_bottle/dice/hazard
-
-/obj/item/storage/pill_bottle/dice/hazard/PopulateContents()
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	for(var/i in 1 to 2)
-		if(prob(7))
-			new /obj/item/dice/d6/ebony(src)
-		else
-			new /obj/item/dice/d6(src)
 
 /*****************************Dice********************************/
 
@@ -59,6 +45,7 @@
 
 	var/rigged = DICE_NOT_RIGGED
 	var/rigged_value
+	var/permanently_rigged = FALSE
 
 /obj/item/dice/Initialize()
 	. = ..()
@@ -69,6 +56,26 @@
 /obj/item/dice/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
+
+/obj/item/dice/attack_right(mob/user)
+	if(HAS_TRAIT(user, TRAIT_BLACKLEG))
+		var/list/possible_outcomes = list()
+		var/special = FALSE
+		if(special_faces.len == sides)
+			possible_outcomes.Add(special_faces)
+			special = TRUE
+		else
+			for(var/i in 1 to sides)
+				possible_outcomes += i
+		var/outcome = input(user, "What will you rig the next roll to?", "XYLIX") as null|anything in possible_outcomes
+		if(special)
+			outcome = special_faces.Find(outcome)
+		if(!outcome)
+			return
+		rigged = DICE_BASICALLY_RIGGED
+		rigged_value = outcome
+		return
+	. = ..()
 
 /obj/item/dice/d1
 	name = "d1"
@@ -188,10 +195,13 @@
 /obj/item/dice/proc/diceroll(mob/user)
 	result = roll(sides)
 	if(rigged != DICE_NOT_RIGGED && result != rigged_value)
-		if(rigged == DICE_BASICALLY_RIGGED && prob(CLAMP(1/(sides - 1) * 100, 25, 80)))
+		if(rigged == DICE_BASICALLY_RIGGED && prob(CLAMP(1/(sides - 1) * 100, 40, 80)))
 			result = rigged_value
 		else if(rigged == DICE_TOTALLY_RIGGED)
 			result = rigged_value
+	if(!permanently_rigged)
+		rigged = DICE_NOT_RIGGED
+		rigged_value = null
 
 	. = result
 
@@ -206,11 +216,11 @@
 		result = (result - 1)*10
 	if(special_faces.len == sides)
 		result = special_faces[result]
-	if(user != null) //Dice was rolled in someone's hand
-		user.visible_message("<span class='notice'>[user] has thrown [src]. It lands on [result]. [comment]</span>", \
-							"<span class='notice'>I throw [src]. It lands on [result]. [comment]</span>", \
+	if(user != null) //Dice was rolled by someone
+		user.visible_message("<span class='notice'>[user] has rolled [src]. It lands on [result]. [comment]</span>", \
+							"<span class='notice'>I roll [src]. It lands on [result]. [comment]</span>", \
 							"<span class='hear'>I hear [src] rolling, it sounds like a [fake_result].</span>")
-	else if(!src.throwing) //Dice was thrown and is coming to rest
+	else if(!src.throwing) //Dice was knocked around and is coming to rest
 		visible_message("<span class='notice'>[src] rolls to a stop, landing on [result]. [comment]</span>")
 
 /obj/item/dice/update_icon()

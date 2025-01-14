@@ -312,7 +312,7 @@
 "zX" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue)
 "Bu" = (

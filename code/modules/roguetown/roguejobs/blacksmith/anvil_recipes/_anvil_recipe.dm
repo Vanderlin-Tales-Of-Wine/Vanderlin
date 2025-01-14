@@ -117,7 +117,7 @@
 
 /datum/anvil_recipe/proc/item_added(mob/user)
 	needed_item = null
-	user.visible_message("<span class='info'>[user] adds a [needed_item_text]</span>")
+	user.visible_message("<span class='info'>[user] adds a [needed_item_text].</span>")
 	needed_item_text = null
 
 /datum/anvil_recipe/proc/handle_creation(obj/item/I)

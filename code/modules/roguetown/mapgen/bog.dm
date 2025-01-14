@@ -16,7 +16,7 @@
 							/obj/structure/flora/roguegrass/bush_meagre = 7,
 							/obj/structure/flora/roguegrass/bush_meagre/bog = 4,
 							/obj/structure/flora/roguegrass/maneater = 1,
-							/obj/structure/flora/roguegrass/herb/random = 65,
+							/obj/structure/flora/roguegrass/herb/random = 20,
 							/obj/structure/flora/roguegrass = 23,
 							/obj/structure/chair/bench/ancientlog = 20,
 							/obj/item/natural/rock = 30,

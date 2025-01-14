@@ -127,47 +127,6 @@
 	hammers_per_item = 10
 	craftdiff = 3
 
-// --------- WEAPON -----------
-
-/datum/artificer_recipe/wood/weapons //Again, a bit silly, but is important
-	name = "Wooden Staff"
-	created_item = /obj/item/rogueweapon/polearm/woodstaff
-	additional_items = list(/obj/item/natural/wood/plank = 2)
-	hammers_per_item = 3
-	i_type = "Weapons"
-
-/datum/artificer_recipe/wood/weapons/bow // easier recipe for bows
-	name = "Wooden Bow (+1 Fiber)"
-	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-	hammers_per_item = 3
-	additional_items = list(/obj/item/natural/wood/plank = 1, /obj/item/natural/fibers = 1)
-
-/datum/artificer_recipe/wood/weapons/wsword
-	name = "Wooden Sword"
-	created_item = /obj/item/rogueweapon/mace/woodclub/train_sword
-	additional_items = list(/obj/item/natural/wood/plank = 1)
-	hammers_per_item = 3
-
-/datum/artificer_recipe/wood/weapons/wshield
-	name = "Wooden Shield"
-	created_item = /obj/item/rogueweapon/shield/wood/crafted
-	additional_items = list(/obj/item/natural/wood/plank = 2)
-	hammers_per_item = 6
-	craftdiff = 2
-
-/obj/item/rogueweapon/shield/wood/crafted
-	sellprice = 6
-
-/datum/artificer_recipe/wood/weapons/hshield
-	name = "Heater Shield (+1 Hide)"
-	created_item = /obj/item/rogueweapon/shield/heater/crafted
-	additional_items = list(/obj/item/natural/wood/plank = 2, /obj/item/natural/hide = 1)
-	hammers_per_item = 6
-	craftdiff = 3
-
-/obj/item/rogueweapon/shield/heater/crafted
-	sellprice = 6
-
 // --------- Ammo -----------
 
 /datum/artificer_recipe/iron/ammo/lead_bullet
@@ -292,14 +251,6 @@
 	created_item = /obj/item/bodypart/r_leg/prosthetic/iron
 
 // --------- Psycross -----------
-
-/datum/artificer_recipe/wood/psycross
-	name = "Psycross"
-	required_item = /obj/item/natural/wood/plank
-	created_item = /obj/item/clothing/neck/roguetown/psycross
-	hammers_per_item = 5
-	craftdiff = 1
-	i_type = "Psycross"
 
 /datum/artificer_recipe/silver/psycross
 	name = "silver Psycross"

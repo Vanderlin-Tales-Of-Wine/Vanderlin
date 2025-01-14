@@ -405,11 +405,11 @@
 	remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#000000")
 	cut_overlay(MA)
 
-/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
+/mob/living/carbon/human/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=TRUE, no_tk=FALSE) //changed so humans by default have dexterity
 	if(!(mobility_flags & MOBILITY_UI))
 		to_chat(src, "<span class='warning'>I can't do that right now!</span>")
 		return FALSE
-	return TRUE
+	return ..()
 
 /mob/living/carbon/human/resist_restraints()
 	if(wear_armor && wear_armor.breakouttime)
@@ -598,8 +598,6 @@
 			set_species(newtype)
 
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
-	if(user == target)
-		return FALSE
 	if(pulling == target && stat == CONSCIOUS)
 		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
 		if(user == target && can_piggyback(target))

@@ -1,6 +1,6 @@
 /datum/job/roguetown/prisoner
 	title = "Prisoner"
-	flag = GRAVEDIGGER
+	flag = GRAVETENDER
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 0
@@ -9,6 +9,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
@@ -27,7 +28,7 @@
 	can_random = FALSE
 	bypass_lastclass = TRUE
 
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
+	cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 	can_have_apprentices = FALSE
 
 /datum/outfit/job/roguetown/prisoner/pre_equip(mob/living/carbon/human/H)

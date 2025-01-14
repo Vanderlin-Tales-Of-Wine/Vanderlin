@@ -41,8 +41,8 @@
 
 /datum/outfit/job/roguetown/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	var/datum/patron/ourpatron = H.patron // Store the initial patron selected before spawning on this var
-	if(length(allowed_patrons) && (!ourpatron || !(ourpatron.type in allowed_patrons)))
+	var/datum/patron/old_patron = H.patron // Store the initial patron selected before spawning on this var
+	if(length(allowed_patrons) && (!old_patron || !(old_patron.type in allowed_patrons)))
 		var/list/datum/patron/possiblegods = list()
 		var/list/datum/patron/godlist = list()
 		for(var/god in GLOB.patronlist)
@@ -50,14 +50,14 @@
 				continue
 			possiblegods |= god
 			var/datum/patron/P = GLOB.patronlist[god]
-			if(P.associated_faith == ourpatron.associated_faith) // At least choose a patron within our list of POSSIBLE patrons
+			if(P.associated_faith == old_patron.associated_faith) //Prioritize choosing a possible patron within our pantheon
 				godlist |= god
 		if(length(godlist))
 			H.set_patron(default_patron || pick(godlist))
 		else
 			H.set_patron(default_patron || pick(possiblegods))
-	if(ourpatron != H.patron) // If the patron we selected first does not match the patron we end up with, display the message.
-		to_chat(H, "<span class='warning'>I've followed the word of [ourpatron] all my life, but the path I tread todae has guided mine faith towards [H.patron].")
+		if(old_patron != H.patron) // If the patron we selected first does not match the patron we end up with, display the message.
+			to_chat(H, "<span class='warning'>I've followed the word of [old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron].")
 
 	if(H.mind)
 		if(H.dna)

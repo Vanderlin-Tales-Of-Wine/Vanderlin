@@ -412,7 +412,7 @@
 /area/rogue/outdoors/woods)
 "lv" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/woods)
 "lw" = (
@@ -999,7 +999,7 @@
 /area/rogue/outdoors/rtfield)
 "Dt" = (
 /obj/structure/rack/rogue,
-/obj/item/quiver/arrows,
+/obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors)
 "Du" = (

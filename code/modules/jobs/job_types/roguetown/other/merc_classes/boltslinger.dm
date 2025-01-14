@@ -4,6 +4,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
@@ -26,7 +27,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/mercenary
 	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
 	beltr = /obj/item/rogueweapon/sword/iron
-	beltl = /obj/item/quiver/bolts
+	beltl = /obj/item/ammo_holder/quiver/bolts
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backl = /obj/item/storage/backpack/rogue/satchel
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black

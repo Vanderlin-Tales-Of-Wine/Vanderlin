@@ -88,7 +88,12 @@
 	/// Visual features of the bodypart, such as hair and accessories
 	var/list/bodypart_features
 
+	grid_width = 32
+	grid_height = 64
+
 	resistance_flags = FLAMMABLE
+
+	var/wound_icon_state
 
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
@@ -127,27 +132,35 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(held_item)
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
-			var/used_time = 210
-			if(user.mind)
-				used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 30)
-			visible_message("[user] begins to butcher \the [src].")
-			playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
-			var/steaks = 0
-			switch(user.mind.get_skill_level(/datum/skill/labor/butchering))
-				if(3)
-					steaks = 1
-				if(4 to 5)
-					steaks = 2
-				if(6)
-					steaks = 3 // the steaks have never been higher
-			var/amt2raise = user.STAINT/3
-			if(do_after(user, used_time, target = src))
-				for(steaks, steaks>0, steaks--)
-					new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
-				new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-				user.mind.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
-				qdel(src)
+			if(!skeletonized)
+				var/used_time = 210
+				if(user.mind)
+					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 30)
+				visible_message("[user] begins to butcher \the [src].")
+				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
+				var/steaks = 0
+				switch(user.mind.get_skill_level(/datum/skill/labor/butchering))
+					if(3)
+						steaks = 1
+					if(4 to 5)
+						steaks = 2
+					if(6)
+						steaks = 3 // the steaks have never been higher
+				var/amt2raise = user.STAINT/3
+				if(do_after(user, used_time, target = src))
+					var/obj/item/reagent_containers/food/snacks/rogue/meat/steak/steak
+					for(steaks, steaks>0, steaks--)
+						steak = new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
+						if(rotted)
+							steak.become_rotten()
+					steak = new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
+					if(rotted)
+						steak.become_rotten()
+					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+					user.mind.adjust_experience(/datum/skill/labor/butchering, amt2raise, FALSE)
+					qdel(src)
+			else
+				to_chat(user, span_warning("[src] has no meat to butcher."))
 	..()
 
 /obj/item/bodypart/attack(mob/living/carbon/C, mob/user)
@@ -467,7 +480,10 @@
 			if(burnstate)
 				. += image('icons/mob/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]_[icon_gender]", -DAMAGE_LAYER, image_dir)
 
-	var/image/limb = image(layer = -BODYPARTS_LAYER, dir = image_dir)
+	var/mutable_appearance/limb = mutable_appearance(layer = -BODYPARTS_LAYER)
+	if(wound_icon_state)
+		limb.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[wound_icon_state]_flesh"), flags = MASK_INVERSE)
+	limb.dir = image_dir
 	var/image/aux
 
 	. += limb
@@ -495,10 +511,24 @@
 			limb.icon = species_icon
 			if(should_draw_gender)
 				limb.icon_state = "[body_zone][skel]"
+				if(wound_icon_state)
+					var/mutable_appearance/skeleton = mutable_appearance(layer = -(BODY_LAYER))
+					skeleton.icon = species_icon
+					skeleton.icon_state = "[body_zone]_s"
+					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					skeleton.dir = image_dir
+					. += skeleton
 			else if(use_digitigrade)
 				limb.icon_state = "digitigrade_[use_digitigrade]_[body_zone]"
 			else
 				limb.icon_state = "[body_zone][skel]"
+				if(wound_icon_state)
+					var/mutable_appearance/skeleton = mutable_appearance(layer = -(BODY_LAYER))
+					skeleton.icon = species_icon
+					skeleton.icon_state = "[body_zone]_s"
+					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					skeleton.dir = image_dir
+					. += skeleton
 		else
 			limb.icon = 'icons/mob/human_parts.dmi'
 			if(should_draw_gender)
@@ -507,8 +537,15 @@
 				limb.icon_state = "[species_id]_[body_zone]"
 		if(aux_zone)
 			if(!hideaux)
-				aux = image(limb.icon, "[aux_zone][skel]", -aux_layer, image_dir)
+				aux = image(limb.icon, "[aux_zone][skel]", -(aux_layer), image_dir)
 				. += aux
+				if(wound_icon_state)
+					var/mutable_appearance/skeleton = mutable_appearance(layer = -(aux_layer))
+					skeleton.icon = species_icon
+					skeleton.icon_state = "[aux_zone]_s"
+					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					skeleton.dir = image_dir
+					. += skeleton
 
 	else
 		limb.icon = species_icon
@@ -548,6 +585,9 @@
 	offset = OFFSET_ARMOR
 	offset_f = OFFSET_ARMOR_F
 	dismemberable = FALSE
+
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/bodypart/chest/set_disabled(new_disabled)
 	. = ..()

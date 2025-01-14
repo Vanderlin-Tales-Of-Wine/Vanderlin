@@ -15,8 +15,14 @@
 	alpha = 173
 
 /datum/reagent/medicine/healthpot/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.99)
+	if(volume >= 60)
+		M.reagents.remove_reagent(/datum/reagent/medicine/healthpot, 2) //No overhealing.
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
 		M.blood_volume = min(M.blood_volume+20, BLOOD_VOLUME_MAXIMUM)
+	var/list/wCount = M.get_wounds()
+	if(wCount.len > 0)
+		M.heal_wounds(3) //at a motabalism of .5 U a tick this translates to 120WHP healing with 20 U Most wounds are unsewn 15-100. This is powerful on single wounds but rapidly weakens at multi wounds.
+	if(volume > 0.99)
 		M.adjustBruteLoss(-1.75*REM, 0)
 		M.adjustFireLoss(-1.75*REM, 0)
 		M.adjustOxyLoss(-1.25, 0)
@@ -32,8 +38,17 @@
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/stronghealth/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.99)
+	if(volume >= 60)
+		M.reagents.remove_reagent(/datum/reagent/medicine/healthpot, 2) //No overhealing.
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
 		M.blood_volume = min(M.blood_volume+80, BLOOD_VOLUME_MAXIMUM)
+	else
+		//can overfill you with blood, but at a slower rate
+		M.blood_volume = min(M.blood_volume+10, BLOOD_VOLUME_MAXIMUM)
+	var/list/wCount = M.get_wounds()
+	if(wCount.len > 0)
+		M.heal_wounds(6) //at a motabalism of .5 U a tick this translates to 240WHP healing with 20 U Most wounds are unsewn 15-100.
+	if(volume > 0.99)
 		M.adjustBruteLoss(-7*REM, 0)
 		M.adjustFireLoss(-7*REM, 0)
 		M.adjustOxyLoss(-5, 0)
@@ -42,10 +57,36 @@
 	..()
 	. = 1
 
+/datum/reagent/medicine/gender_potion
+	name = "Gender Potion"
+	description = "Change the user's gender."
+	reagent_state = LIQUID
+	color = "#FF33FF"
+	taste_description = "organic scent"
+	overdose_threshold = 0
+	metabolization_rate = REAGENTS_METABOLISM * 5
+	alpha = 173
+
+/datum/reagent/medicine/gender_potion/on_mob_life(mob/living/carbon/M)
+	if(!istype(M) || M.stat == DEAD)
+		to_chat(M, span_warning("The potion can only be used on living things!"))
+		return
+	if(M.gender != MALE && M.gender != FEMALE)
+		to_chat(M, span_warning("The potion can only be used on gendered things!"))
+		return
+	if(M.gender == MALE)
+		M.gender = FEMALE
+		M.visible_message(span_boldnotice("[M] suddenly looks more feminine!"), span_boldwarning("You suddenly feel more feminine!"))
+	else
+		M.gender = MALE
+		M.visible_message(span_boldnotice("[M] suddenly looks more masculine!"), span_boldwarning("You suddenly feel more masculine!"))
+	M.regenerate_icons()
+	..()
+
 //Someone please remember to change this to actually do mana at some point?
 /datum/reagent/medicine/manapot
 	name = "Mana Potion"
-	description = "Gradually regenerates stamina."
+	description = "Gradually regenerates energy."
 	reagent_state = LIQUID
 	color = "#000042"
 	taste_description = "sweet mana"
@@ -60,8 +101,9 @@
 
 /datum/reagent/medicine/strongmana
 	name = "Strong Mana Potion"
-	description = "Gradually regenerates stamina."
+	description = "Rapidly regenerates energy."
 	color = "#0000ff"
+	taste_description = "raw power"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
@@ -88,6 +130,7 @@
 	name = "Strong Stamina Potion"
 	description = "Rapidly regenerates stamina."
 	color = "#13df00"
+	taste_description = "sparkly static"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)

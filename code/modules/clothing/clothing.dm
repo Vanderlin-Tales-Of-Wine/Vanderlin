@@ -233,6 +233,8 @@
 	var/mob/M = usr
 
 	if(!M.incapacitated() && loc == M && istype(over_object, /atom/movable/screen/inventory/hand))
+		if(!allow_attack_hand_drop(M))
+			return
 		var/atom/movable/screen/inventory/hand/H = over_object
 		if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
 			add_fingerprint(usr)
