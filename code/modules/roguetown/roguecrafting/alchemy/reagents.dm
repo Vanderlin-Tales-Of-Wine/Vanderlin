@@ -181,7 +181,7 @@
 	testing("str pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/strengthpot))
 		return ..()
-	if(M.reagents.has_reagent(/datum/status_effect/buff/alch/strengthpot,4))
+	if(M.reagents.has_reagent(/datum/reagent/buff/strength,4))
 		M.apply_status_effect(/datum/status_effect/buff/alch/strengthpot)
 		M.reagents.remove_reagent(/datum/reagent/buff/strength, M.reagents.get_reagent_amount(/datum/reagent/buff/strength))
 	return ..()

@@ -60,7 +60,7 @@
 	screen_pixel_y = 0
 	screen_start_x = 1
 	screen_start_y = 10
-	rustle_sound = TRUE
+	// rustle_sound = TRUE
 	/// Exactly what it sounds like, this makes it use the new RE4-like inventory system
 	var/grid = FALSE
 	var/grid_box_size

@@ -235,6 +235,7 @@
 	associated_skill = /datum/skill/combat/swords
 	wdefense = ULTMATE_PARRY
 	metalizer_result = /obj/item/rogueweapon/sword/iron
+	max_integrity = 240
 
 /obj/item/rogueweapon/mace/woodclub/train_sword/getonmobprop(tag)
 	. = ..()

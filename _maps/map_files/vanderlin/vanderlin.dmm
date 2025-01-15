@@ -4404,6 +4404,10 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
+"dpD" = (
+/obj/effect/spawner/roguemap/hauntz_random,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue/outdoors/river)
 "dpG" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -6295,7 +6299,6 @@
 	icon_state = "longtable";
 	dir = 1
 	},
-/obj/structure/mirror,
 /obj/item/perfume/random,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
@@ -15333,6 +15336,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/outdoors/river)
+"lLE" = (
+/obj/effect/spawner/roguemap/hauntz_random,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/cavewet)
 "lLJ" = (
 /obj/structure/chair/wood/rogue/chair3{
 	dir = 4
@@ -15772,6 +15779,7 @@
 /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket,
 /obj/item/clothing/suit/roguetown/shirt/dress/royal,
 /obj/item/clothing/wrists/roguetown/royalsleeves,
+/obj/item/clothing/cloak/lordcloak/ladycloak,
 /turf/open/floor/rogue/tile/masonic{
 	dir = 4
 	},
@@ -22785,6 +22793,9 @@
 /obj/item/rogue/instrument/harp,
 /obj/item/rogue/instrument/lute,
 /obj/structure/closet/crate/chest/neu,
+/obj/item/rogue/instrument/hurdygurdy,
+/obj/item/rogue/instrument/vocals,
+/obj/item/rogue/instrument/viola,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "rPD" = (
@@ -23145,6 +23156,9 @@
 /obj/item/rogue/instrument/flute,
 /obj/structure/closet/crate/chest,
 /obj/item/rogue/instrument/accord,
+/obj/item/rogue/instrument/viola,
+/obj/item/rogue/instrument/vocals,
+/obj/item/rogue/instrument/hurdygurdy,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "sfk" = (
@@ -24776,6 +24790,10 @@
 	},
 /turf/closed/wall/mineral/rogue/pipe,
 /area/rogue/indoors/town/clocktower)
+"tpc" = (
+/obj/structure/closet/crate/chest/neu,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/town/sewer)
 "tpe" = (
 /obj/structure/rack/rogue,
 /obj/item/clothing/neck/roguetown/chaincoif,
@@ -24896,6 +24914,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/clocktower)
+"ttL" = (
+/obj/structure/closet/crate/chest/crate,
+/turf/open/floor/rogue/herringbone,
+/area/rogue/under/town/sewer)
 "ttQ" = (
 /obj/structure/flora/roguegrass/bush_meagre,
 /obj/structure/fluff/railing/wood{
@@ -26476,7 +26498,7 @@
 /area/rogue/indoors/town/manor)
 "uAo" = (
 /obj/structure/stairs,
-/turf/closed/mineral/rogue,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/orphanage)
 "uAK" = (
 /obj/machinery/light/rogue/wallfire/candle{
@@ -27012,6 +27034,14 @@
 "uWi" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /obj/structure/bookcase/random_recipes,
+/obj/item/recipe_book/underworld,
+/obj/item/recipe_book/survival,
+/obj/item/recipe_book/sewing,
+/obj/item/recipe_book/masonry,
+/obj/item/recipe_book/leatherworking,
+/obj/item/recipe_book/engineering,
+/obj/item/recipe_book/cooking,
+/obj/item/recipe_book/carpentry,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
 	},
@@ -27672,7 +27702,10 @@
 	dir = 1;
 	icon_state = "woodwindowdir"
 	},
-/turf/closed/wall/mineral/rogue/decowood,
+/obj/structure/bars/bent,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
 /area/rogue/indoors/town/shop)
 "vwl" = (
 /obj/structure/table/wood{
@@ -28272,6 +28305,10 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern)
+"vXx" = (
+/obj/effect/spawner/roguemap/hauntz_random,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cave)
 "vXR" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -53144,7 +53181,7 @@ lfU
 kDp
 hbV
 kDp
-qXV
+tpc
 vgJ
 nYn
 nYn
@@ -53549,7 +53586,7 @@ kDp
 hbV
 kDp
 qXV
-qXV
+ttL
 nYn
 nYn
 vMb
@@ -53751,7 +53788,7 @@ kDp
 hbV
 kDp
 qXV
-qXV
+tpc
 nYn
 nYn
 nYn
@@ -54352,7 +54389,7 @@ cDP
 cDP
 oGi
 lfU
-qXV
+tpc
 kDp
 hbV
 kDp
@@ -54762,7 +54799,7 @@ hbV
 kDp
 qXV
 qXV
-qXV
+ttL
 nYn
 nYn
 nYn
@@ -54958,7 +54995,7 @@ cDP
 cDP
 nhr
 lfU
-qXV
+ttL
 kDp
 hbV
 kDp
@@ -55160,7 +55197,7 @@ cDP
 cDP
 lmI
 hHH
-qXV
+ttL
 kDp
 hbV
 kDp
@@ -55362,7 +55399,7 @@ cDP
 cDP
 nhr
 hHH
-qXV
+tpc
 kDp
 hbV
 kDp
@@ -55569,7 +55606,7 @@ kDp
 hbV
 kDp
 vjB
-qXV
+tpc
 qXV
 qMe
 vgJ
@@ -56579,7 +56616,7 @@ kDp
 hbV
 kDp
 uuw
-qXV
+ttL
 qXV
 qMe
 vgJ
@@ -56978,7 +57015,7 @@ cDP
 cDP
 oGi
 lfU
-qXV
+ttL
 kDp
 hbV
 kDp
@@ -57786,13 +57823,13 @@ cDP
 kqi
 oGi
 lfU
-qXV
+tpc
 kDp
 hbV
 kDp
 qXV
 qXV
-qXV
+tpc
 bhT
 vgJ
 vMb
@@ -57993,8 +58030,8 @@ kDp
 hbV
 kDp
 vjB
-qXV
-qXV
+tpc
+ttL
 vgJ
 vgJ
 vMb
@@ -76295,7 +76332,7 @@ rEw
 rEw
 rEw
 rEw
-rEw
+dpD
 rEw
 rEw
 rEw
@@ -80968,7 +81005,7 @@ eNd
 szt
 inE
 inE
-inE
+lLE
 inE
 szt
 szt
@@ -133889,7 +133926,7 @@ lim
 qQe
 lpz
 nDY
-nDY
+uzB
 cjt
 dXy
 ksw
@@ -143130,7 +143167,7 @@ dRv
 nnw
 nnw
 nxk
-dRv
+vXx
 dRv
 dRv
 swE
@@ -144740,7 +144777,7 @@ nxk
 nxk
 nxk
 sxc
-dRv
+vXx
 nnw
 nnw
 dRv

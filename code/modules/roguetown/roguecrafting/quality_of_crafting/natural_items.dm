@@ -134,7 +134,7 @@
 /datum/repeatable_crafting_recipe/survival/alchemy_mortar
 	name = "alchemical mortar"
 	requirements = list(
-		/obj/item/natural/stone = 3,
+		/obj/item/natural/stone = 2,
 	)
 
 	starting_atom = /obj/item/rogueweapon/knife

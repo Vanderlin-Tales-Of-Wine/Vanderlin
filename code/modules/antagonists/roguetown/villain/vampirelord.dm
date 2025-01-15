@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	confess_lines = list(
 		"I AM ANCIENT",
 		"I AM THE LAND",
-		"CHILD OF KAIN!",
+		"FIRSTBORNE CHILD OF KAIN!",
 	)
 	var/isspawn = FALSE
 	var/disguised = FALSE
@@ -187,6 +187,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		owner.current.RemoveSpell(batform)
 		QDEL_NULL(batform)
 	return ..()
+
 /datum/antagonist/vampirelord/proc/add_objective(datum/objective/O)
 	var/datum/objective/V = new O
 	objectives += V

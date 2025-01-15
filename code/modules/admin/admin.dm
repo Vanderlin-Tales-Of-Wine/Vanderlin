@@ -838,5 +838,5 @@
 	M.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	M.verbs |= /mob/living/carbon/human/proc/churchcurse
 	M.verbs |= /mob/living/carbon/human/proc/churchannouncement
-	GLOB.badomens -= OMEN_NOPRIEST
+	removeomen(OMEN_NOPRIEST)
 	priority_announce("Astrata has anointed [M.real_name] as the new head of the Church of the Ten!", title = "Astrata Shines!", sound = 'sound/misc/bell.ogg')

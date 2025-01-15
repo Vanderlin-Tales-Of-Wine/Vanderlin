@@ -20,7 +20,7 @@
 	sleep_healing = 0
 	embed_chance = 0
 
-	werewolf_infection_probability = 100
+	werewolf_infection_probability = 50
 
 /datum/wound/artery/can_stack_with(datum/wound/other)
 	if(istype(other, /datum/wound/artery) && (type == other.type))

@@ -36,7 +36,7 @@
 
 	var/silent = FALSE								//whether this makes a message when things are put in.
 	var/click_gather = FALSE						//whether this can be clicked on items to pick it up rather than the other way around.
-	var/rustle_sound = TRUE							//play rustle sound on interact.
+	var/rustle_sound = "rustle"							//play rustle sound on interact. empty string or null to silence
 	var/allow_quick_empty = FALSE					//allow empty verb which allows dumping on the floor of everything inside quickly.
 	var/allow_quick_gather = FALSE					//allow toggle mob verb which toggles collecting all items from a tile.
 
@@ -308,7 +308,8 @@
 //	to_chat(M, "<span class='notice'>I start dumping out [parent].</span>")
 //	var/turf/T = get_turf(A)
 	var/list/things = contents()
-	playsound(A, "rustle", 50, FALSE, -5)
+	if(rustle_sound)
+		playsound(A, rustle_sound, 50, FALSE, -5)
 //	var/datum/progressbar/progress = new(M, length(things), T)
 //	while (do_after(M, dump_time, TRUE, T, FALSE, CALLBACK(src, PROC_REF(mass_remove_from_storage), T, things, progress)))
 //		stoplag(1)
@@ -546,7 +547,8 @@
 //			to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
 			return FALSE
 		if(dump_destination.storage_contents_dump_act(src, M))
-			playsound(A, "rustle", 50, TRUE, -5)
+			if(rustle_sound)
+				playsound(A, rustle_sound, 50, TRUE, -5)
 			return TRUE
 	update_icon()
 	return FALSE
@@ -771,7 +773,7 @@
 	if(silent && !override)
 		return
 	if(rustle_sound)
-		playsound(parent, "rustle", 50, TRUE, -5)
+		playsound(parent, rustle_sound, 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
 			to_chat(usr, "<span class='notice'>I [insert_verb] [I] [insert_preposition]to [parent].</span>")
@@ -847,7 +849,7 @@
 		return
 
 	if(rustle_sound)
-		playsound(A, "rustle", 50, TRUE, -5)
+		playsound(A, rustle_sound, 50, TRUE, -5)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -893,7 +895,7 @@
 		return
 
 	if(rustle_sound)
-		playsound(A, "rustle", 50, TRUE, -5)
+		playsound(A, rustle_sound, 50, TRUE, -5)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -956,7 +958,8 @@
 	if(!quickdraw)
 		A.add_fingerprint(user)
 		user_show_to_mob(user)
-		playsound(A, "rustle", 50, TRUE, -5)
+		if(rustle_sound)
+			playsound(A, rustle_sound, 50, TRUE, -5)
 		return
 
 	if(!user.incapacitated())

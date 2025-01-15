@@ -4,7 +4,7 @@
 	speech_verb = "intones"
 	ask_verb = "inquires"
 	exclaim_verb = "invokes"
-	key = "o"
+	// key = "o"
 	sentence_chance = 8
 	space_chance = 95 //very high due to the potential length of each syllable
 	var/static/list/base_syllables = list(

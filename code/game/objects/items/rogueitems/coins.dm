@@ -196,7 +196,7 @@
 			icon_state = "[base_type]5"
 		if(11 to 15)
 			icon_state = "[base_type]10"
-		if(16 to MAX_COIN_STACK_SIZE)
+		if(16 to INFINITY)
 			icon_state = "[base_type]15"
 
 

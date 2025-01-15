@@ -295,14 +295,13 @@
 		T.holie = src
 		if(T.muddy)
 			if(!(locate(/obj/item/natural/worms) in T))
-				if(prob(55))
-					if(prob(20))
-						if(prob(5))
-							new /obj/item/natural/worms/grubs(T)
-						else
-							new /obj/item/natural/worms/leech(T)
+				if(prob(40))
+					if(prob(10))
+						new /obj/item/natural/worms/grubs(T)
 					else
-						new /obj/item/natural/worms(T)
+						new /obj/item/natural/worms/leech(T)
+				else
+					new /obj/item/natural/worms(T)
 		else
 			if(!(locate(/obj/item/natural/stone) in T))
 				if(prob(23))

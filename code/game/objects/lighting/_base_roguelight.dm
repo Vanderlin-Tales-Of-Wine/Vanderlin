@@ -157,6 +157,8 @@
 				return
 		if (alert(usr, "Feed [W] to the fire?", "VANDERLIN", "Yes", "No") != "Yes")
 			return
+		if(!(W in user.held_items)|| !user.temporarilyRemoveItemFromInventory(W))
+			return
 		qdel(W)
 		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")
 		if(initial(fueluse))

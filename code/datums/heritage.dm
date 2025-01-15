@@ -242,6 +242,7 @@
 /datum/heritage/proc/SpeciesCalculation(datum/species/fledgling_species, datum/species/dad_species, datum/species/mom_species)
 	var/list/mixes = list(
 		"human+elf+" = /datum/species/human/halfelf,
+		"human+horc+" = /datum/species/halforc,
 		)
 	var/mix_text = ""
 	//Extremely straightforward basic parentage
@@ -253,6 +254,15 @@
 		mix_text += "human+"
 	if(istype(dad_species, /datum/species/elf) || istype(mom_species, /datum/species/elf))
 		mix_text += "elf+"
+	if(istype(dad_species, /datum/species/elf/dark) || istype(mom_species, /datum/species/elf/dark))
+		mix_text += "darkelf+"
+	if(istype(dad_species, /datum/species/dwarf/mountain) || istype(mom_species, /datum/species/dwarf/mountain))
+		mix_text += "dwarf+"
+	if(istype(dad_species, /datum/species/tieberian) || istype(mom_species, /datum/species/tieberian))
+		mix_text += "tiefling+"
+	if(istype(dad_species, /datum/species/rakshari	) || istype(mom_species, /datum/species/rakshari	))
+		mix_text += "rakshari+"
+
 	//If new hyrbids are made add the logic of their conception here.
 	if(istype(fledgling_species, mixes[mix_text]))
 		return TRUE
@@ -264,6 +274,14 @@
 	. = list(core_species.type)
 	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/elf))
 		. += /datum/species/human/halfelf
+	if(istype(core_species, /datum/species/elf/dark) || istype(core_species, /datum/species/human/northern))
+		. += /datum/species/human/halfelf
+	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/dwarf/mountain))
+		. += /datum/species/dwarf/mountain
+	if(istype(core_species, /datum/species/human/northern) || istype(core_species, /datum/species/halforc))
+		. += /datum/species/halforc
+	if(istype(core_species, /datum/species/elf/dark) || istype(core_species, /datum/species/elf))
+		. += list(/datum/species/elf,/datum/species/elf/dark)
 
 /*
 * Taken from marriage alter. This formats a name into its surname
@@ -319,12 +337,10 @@
 		return FALSE
 	for(var/mob/living/carbon/human/H in family_icons)
 		if(toggle_true)
-			iconer.family_UI = FALSE
 			iconer.client.images.Remove(family_icons[H])
 			continue
 		if(!H || H == iconer)
 			continue
-		iconer.family_UI = TRUE
 		iconer.client.images.Add(family_icons[H])
 
 //Sloppy bandaid way to apply latejoin family member icons.
@@ -346,6 +362,15 @@
 	family_icons[famicon] = I
 	return list(famicon = I)
 
+/mob/living/carbon/human/proc/ApplySpouseUI(toggle_true = FALSE)
+	if(!spouse_mob)
+		return
+	if(!spouse_indicator)
+		spouse_indicator = new('icons/relations.dmi', loc = spouse_mob, icon_state = "related")
+	if(toggle_true)
+		client.images.Remove(spouse_indicator)
+		return
+	client.images.Add(spouse_indicator)
 /*
 * Returns what UI icon this person should have.
 */
@@ -358,6 +383,8 @@
 /mob/living/carbon/human/verb/ReturnFamilyList()
 	set name = "List Family"
 	set category = "Memory"
+	if(spouse_mob)
+		to_chat(src, span_info("[spouse_mob.real_name] is the name of your lover."))
 	if(family_datum)
 		family_datum.ListFamily(src)
 	else
@@ -367,8 +394,14 @@
 /mob/living/carbon/human/verb/ToggleFamilyUI()
 	set name = "Toggle Family UI"
 	set category = "Memory"
+	if(spouse_mob)
+		ApplySpouseUI(family_UI)
 	if(family_datum)
 		family_datum.ApplyUI(src, family_UI)
-		to_chat(src, "FamilyUI Toggled [family_UI ? "On" : "Off"]")
 	else
 		to_chat(src, "Your not part of any notable family.")
+	if(family_UI)
+		family_UI = FALSE
+	else
+		family_UI = TRUE
+	to_chat(src, "FamilyUI Toggled [family_UI ? "On" : "Off"]")

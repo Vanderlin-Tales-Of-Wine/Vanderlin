@@ -40,7 +40,7 @@
 		if(!user.get_bodypart(BODY_ZONE_L_ARM) || !user.get_bodypart(BODY_ZONE_R_ARM))
 			return
 		else
-			return "clap"
+			return ..()
 
 /datum/emote/living/carbon/gnarl
 	key = "gnarl"

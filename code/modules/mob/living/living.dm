@@ -247,6 +247,7 @@
 	if(m_intent == MOVE_INTENT_RUN && dir == get_dir(src, M))
 		if(isliving(M))
 			var/sprint_distance = sprinted_tiles
+			var/instafail = FALSE
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 
 			var/mob/living/L = M
@@ -257,7 +258,8 @@
 			switch(sprint_distance)
 				// Point blank
 				if(0 to 1)
-					self_points -= 6
+					self_points -= 99
+					instafail = TRUE
 				// One to two tile between the people
 				if(2 to 3)
 					self_points -= 3
@@ -288,11 +290,15 @@
 			var/playsound = FALSE
 			if(apply_damage(15, BRUTE, "head", run_armor_check("head", "blunt", damage = 20)))
 				playsound = TRUE
-			if(L.apply_damage(15, BRUTE, "chest", L.run_armor_check("chest", "blunt", damage = 10)))
-				playsound = TRUE
+			if(!instafail)
+				if(L.apply_damage(15, BRUTE, "chest", L.run_armor_check("chest", "blunt", damage = 10)))
+					playsound = TRUE
 			if(playsound)
 				playsound(src, "genblunt", 100, TRUE)
-			visible_message(span_warning("[src] charges into [L]!"), span_warning("I charge into [L]!"))
+			if(!instafail)
+				visible_message(span_warning("[src] charges into [L]!"), span_warning("I charge into [L]!"))
+			else
+				visible_message(span_warning("[src] smashes facefirst into [L]!"), span_warning("I charge into [L] too early!"))
 			return TRUE
 
 	//okay, so we didn't switch. but should we push?

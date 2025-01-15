@@ -22,7 +22,7 @@
 	selection_color = "#0d6929"
 	outfit = /datum/outfit/job/roguetown/forestwarden
 	give_bank_account = 50
-	min_pq = 4
+	min_pq = 5
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/outfit/job/roguetown/forestwarden/pre_equip(mob/living/carbon/human/H)

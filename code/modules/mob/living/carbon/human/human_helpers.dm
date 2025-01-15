@@ -137,13 +137,14 @@
 /mob/living/carbon/human/proc/RomanticPartner(mob/living/carbon/human/H)
 	if(!ishuman(H))
 		return
-	if(spouse_name == H.real_name)
+	if(spouse_mob == H)
 		return TRUE
 
 /mob/living/carbon/human/proc/IsWedded(mob/living/carbon/human/wedder)
-	if(spouse_name)
+	if(spouse_mob)
 		return TRUE
 
+//Instead of putting the spouse variable everywhere its all funneled through this proc.
 /mob/living/carbon/human/proc/MarryTo(mob/living/carbon/human/spouse)
 	if(!ishuman(spouse))
 		return
@@ -154,21 +155,31 @@
 		groommale = TRUE
 	if(spouse.gender == MALE)
 		bridemale = TRUE
-	spouse_name = spouse.real_name
-	spouse.spouse_name = real_name
+	spouse_mob = spouse
+	spouse.spouse_mob = src
 	//If the bride is male then we assign her status in the family as father.
-	if(family_datum)
-		if(family_datum.patriarch == src || family_datum.matriarch == src)
-			family_datum.TransferFamilies(spouse, bridemale ? FAMILY_FATHER : FAMILY_MOTHER)
-			return
-		else
-			family_datum.TransferFamilies(spouse, FAMILY_INLAW)
-	if(brides_family)
-		if(brides_family.patriarch == spouse || brides_family.matriarch == spouse)
-			brides_family.TransferFamilies(spouse, groommale ? FAMILY_FATHER : FAMILY_MOTHER)
-			return
-		else
-			family_datum.TransferFamilies(spouse, FAMILY_INLAW)
+	//Im going to use this wacky tech to shorten the code. -IP
+	var/checkgender = bridemale
+	var/datum/heritage/checkfamdat = family_datum
+	var/mob/living/carbon/human/who_we_check1 = src
+	var/mob/living/carbon/human/who_we_transfer = spouse
+	for(var/cycle = 1 to 2)
+		//If cycle one is done then run again but with cycle 2 variables.
+		if(cycle == 2)
+			checkgender = groommale
+			checkfamdat = brides_family
+			who_we_check1 = spouse
+			who_we_transfer = src
+		//Do we have a family datum?
+		if(checkfamdat)
+			//Is the person being checked the patriarch or the matriarch? If not assign the person being transfered as a inlaw.
+			if(checkfamdat.patriarch == who_we_check1 || checkfamdat.matriarch == who_we_check1)
+				checkfamdat.TransferFamilies(who_we_transfer, checkgender ? FAMILY_FATHER : FAMILY_MOTHER)
+				break
+			else
+				checkfamdat.TransferFamilies(who_we_transfer, FAMILY_INLAW)
+				break
+	return checkfamdat
 
 //Perspective stranger looks at --> src
 /mob/living/carbon/human/proc/ReturnRelation(mob/living/carbon/human/stranger)

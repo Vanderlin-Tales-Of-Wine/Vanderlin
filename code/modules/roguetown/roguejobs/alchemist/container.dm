@@ -77,10 +77,10 @@
 /obj/item/reagent_containers/glass/bottle/vial/genderpot
 	list_reagents = list(/datum/reagent/medicine/gender_potion = 5)
 
-/obj/item/reagent_containers/glass/vial/rogue/strongpoison
+/obj/item/reagent_containers/glass/bottle/vial/strongpoison
 	list_reagents = list(/datum/reagent/strongpoison = 30)
 
-/obj/item/reagent_containers/glass/vial/rogue/antidote
+/obj/item/reagent_containers/glass/bottle/vial/antidote
 	list_reagents = list(/datum/reagent/medicine/antidote = 30)
 
 //////////////////////////

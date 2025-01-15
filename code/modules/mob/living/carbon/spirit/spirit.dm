@@ -198,6 +198,7 @@
 /// Proc that finds the client associated with a given corpse and either 1. Lets ghosts skip Underworld and return to lobby 2. Gives spirits a toll
 /proc/pacify_corpse(mob/living/corpse, mob/user, coin_pq = PQ_GAIN_BURIAL_COIN)
 	if(QDELETED(corpse) || QDELETED(corpse.mind) || (corpse.stat != DEAD))
+		testing("pacify_corpse fail ([corpse.mind?.key || "no key"])")
 		return FALSE
 	// funeral + buried will make Journey to Underworld function as return to lobby
 	if(ishuman(corpse))
@@ -231,7 +232,8 @@
 	if(ghost)
 		var/user_acknowledgement = user ? user.real_name : "a mysterious force"
 		to_chat(ghost, span_rose("My soul finds peace buried in consecrated ground, thanks to [user_acknowledgement]."))
-		return TRUE
+		// return TRUE
 
-	testing("pacify_corpse fail ([corpse.mind?.key || "no key"])")
-	return FALSE
+	//It can reach here if you take too long to bury someone and they already respawn, but we still want to give the burial message
+	// testing("pacify_corpse fail ([corpse.mind?.key || "no key"])")
+	return TRUE
