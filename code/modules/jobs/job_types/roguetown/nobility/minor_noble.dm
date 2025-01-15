@@ -1,7 +1,7 @@
-/datum/advclass/pilgrim/noble
-	name = "Noble"
-	tutorial = "The blood of a noble family runs through your veins. Perhaps you are visiting from some place far away, \
-	looking to enjoy the hospitality of the ruler of Vanderlin. You have many mammons to your name, but with wealth comes \
+/datum/job/roguetown/minor_noble
+	title = "Noble"
+	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
+	of Vanderlin still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -13,13 +13,18 @@
 		"Dark Elf",
 		"Half-Orc"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/noble
-	category_tags = list(CTAG_PILGRIM)
-	maximum_possible_slots = 2
+	outfit = /datum/outfit/job/roguetown/noble
+	faction = "Station"
+	display_order = JDO_MINOR_NOBLE
+	flag = MINOR_NOBLE
+	department_flag = NOBLEMEN
 	apprentice_name = "Servant"
+	total_positions = 2
+	spawn_positions = 2
+	min_pq = 1
+	give_bank_account = 60
 
-
-/datum/outfit/job/roguetown/adventurer/noble/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/noble/pre_equip(mob/living/carbon/human/H)
 	..()
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
@@ -51,7 +56,7 @@
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/rogueweapon/knife/dagger/steel/special
-		beltl = /obj/item/ammo_holder/quiver/arrows
+		beltl = /obj/item/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	if(H.gender == MALE)
 		H.change_stat("constitution", 1)
@@ -63,6 +68,6 @@
 		head = /obj/item/clothing/head/roguetown/fancyhat
 		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 		beltr = /obj/item/rogueweapon/sword/rapier/dec
-		beltl = /obj/item/ammo_holder/quiver/arrows
+		beltl = /obj/item/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

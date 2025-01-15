@@ -272,6 +272,34 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Mercenary"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/fisher
+	name = "Fisher"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/hunter
+	name = "Hunter"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/physicker
+	name = "Physicker"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/minor_noble
+	name = "Noble"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/miner
+	name = "Miner"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/carpenter
+	name = "Carpenter"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/bard
+	name = "Bard"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/vagrant
 	name = "Beggar"
 	icon_state = "arrow"
