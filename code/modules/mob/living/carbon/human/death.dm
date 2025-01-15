@@ -170,3 +170,14 @@
 				continue
 			V.add_stress(/datum/stressevent/viewgib)
 	. = ..()
+
+/mob/living/carbon/human/revive(full_heal, admin_revive)
+	. = ..()
+	if(!.)
+		return
+	var/datum/job/human_job = SSjob.GetJob(job)
+	switch(human_job.type)
+		if(/datum/job/roguetown/lord)
+			removeomen(OMEN_NOLORD)
+		if(/datum/job/roguetown/priest)
+			removeomen(OMEN_NOPRIEST)

@@ -77,9 +77,10 @@
 			to_chat(user, "<span class='warning'>The needle has no thread left!</span>")
 			return
 		if(!I.sewrepair || !I.max_integrity)
+			to_chat(user, span_warning("[I] can't be repaired!"))
 			return
 		if(I.obj_integrity == I.max_integrity)
-			to_chat(user, span_warning("This is not damaged!"))
+			to_chat(user, span_warning("[I] is not damaged!"))
 			return
 		if(!I.ontable())
 			to_chat(user, span_warning("I should put this on a table first."))
@@ -87,7 +88,7 @@
 		var/armor_value = 0
 		var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
 		for(var/key in I.armor.getList()) // Here we are checking if the armor value of the item is 0 so we can know if the item is armor without having to make a snowflake var
-			armor_value += I.armor[key]
+			armor_value += I.armor.getRating(key)
 		if((armor_value == 0 && skill_level < 1) || (armor_value > 0 && skill_level < 2))
 			to_chat(user, span_warning("I should probably not be doing this..."))
 		playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)

@@ -25,7 +25,7 @@
 	outfit = /datum/outfit/job/roguetown/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
-	min_pq = 1
+	min_pq = 5
 
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 

@@ -52,6 +52,7 @@
 	..()
 	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	C.grant_language(/datum/language/common)
+	C.grant_language(/datum/language/orcish)
 
 	//var/mob/living/carbon/human/species/halforc/H = C
 	/*

@@ -120,7 +120,8 @@
 /datum/antagonist/vampire/proc/finalize_vampire()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/vampintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
-
+/datum/antagonist/vampire/proc/handle_vitae(change)
+	vitae += change
 
 /datum/antagonist/vampire/on_life(mob/user)
 	if(!user)
@@ -175,7 +176,9 @@
 	set name = "Disguise"
 	set category = "VAMPIRE"
 
-	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampirelord/VD = mind?.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD) //THIS IS SLOP
+		VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(world.time < VD.last_transform + 30 SECONDS)
@@ -232,6 +235,8 @@
 	var/cooldown_time = 3000 // Five minutes cooldown
 
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD) //THIS IS SLOP
+		VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -279,6 +284,8 @@
 	var/cooldown_time = 3000 // Five minutes cooldown
 
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD) //THIS IS SLOP
+		VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -327,6 +334,8 @@
 	var/cooldown_time = 6000 // Ten minutes cooldown, you get an anticrit 100 melee armor for free with the stats.
 
 	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
+	if(!VD) //THIS IS SLOP
+		VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -345,7 +354,7 @@
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
-	VD.vitae -= 500
+	VD.handle_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/fortitude)
 	to_chat(src, "<span class='greentext'>! ARMOR OF DARKNESS !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -404,13 +413,15 @@
 		silver_curse_status = TRUE
 		break
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD) //THIS IS SLOP
+		VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
 		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
 		return
 	if(silver_curse_status)
-		to_chat(src, "<span class='warning'>My BANE is not letting me REGEN!.</span>")
+		to_chat(src, "<span class='warning'>My BANE is not letting me REGENERATE!.</span>")
 		return
 	if(VD.vitae < 500)
 		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
@@ -426,6 +437,12 @@
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
 	fully_heal(admin_revive = TRUE)
+	var/obj/item/organ/eyes/eyes = licker.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(licker, TRUE)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(licker)
 	cooldown = TRUE
 	sleep(cooldown_time)
 	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")

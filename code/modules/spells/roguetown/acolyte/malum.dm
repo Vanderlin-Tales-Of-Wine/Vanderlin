@@ -174,7 +174,7 @@
 		damagedwalls.take_damage(damage,BRUTE,"blunt",1)
 	for (var/turf/closed/mineral/aoemining in view(radius, T))
 		aoemining.lastminer = user
-		aoemining.take_damage(damage,BRUTE,"blunt",1)
+		aoemining.take_damage(damage*2,BRUTE,"blunt",1)
 
 /obj/effect/temp_visual/lavastaff
 	icon_state = "lavastaff_warn"

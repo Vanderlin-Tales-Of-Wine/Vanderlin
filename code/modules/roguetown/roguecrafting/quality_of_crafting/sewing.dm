@@ -610,7 +610,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/silkchaperone
 	name = "silk hat"
-	output = /obj/item/clothing/head/roguetown/chaperon/greyscale/random/silk
+	output = /obj/item/clothing/head/roguetown/chaperon/greyscale/silk
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 2)
 	craftdiff = 4
