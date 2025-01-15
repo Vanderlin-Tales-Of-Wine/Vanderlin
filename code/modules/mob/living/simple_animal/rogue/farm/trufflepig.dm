@@ -42,7 +42,7 @@
 //	........   Truffles   ................
 /obj/item/reagent_containers/food/snacks/rogue/truffles
 	name = "truffles"
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/truffles/cooked
@@ -63,7 +63,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/toxicshrooms
 	name = "truffles"
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/toxicshrooms/cooked

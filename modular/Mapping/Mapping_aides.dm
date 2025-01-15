@@ -412,12 +412,10 @@
 	return ..()
 
 /obj/structure/fluff/walldeco/xylfrown
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "wall_sad"
 	pixel_y = 32
 
 /obj/structure/fluff/walldeco/xylsmile
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "wall_funny"
 	pixel_y = 32
 
@@ -457,7 +455,7 @@
 
 /obj/structure/spider/stickyweb
 	name = "web"
-	icon = 'modular/Mapping/icons/webbing.dmi'
+	icon = 'icons/roguetown/misc/webbing.dmi'
 	icon_state = "stickyweb1"
 	resistance_flags = FLAMMABLE
 	alpha = 109
@@ -544,7 +542,7 @@
 /*	..................   Various mapping aides   ................... */
 
 /obj/structure/roguethrone/statues
-	icon = 'modular/Mapping/icons/96x96.dmi'
+	icon = 'icons/roguetown/misc/throne_alt.dmi'
 
 /obj/machinery/light/rogue/wallfire/big_fireplace
 	icon_state = "fireplace1"
@@ -565,7 +563,7 @@
 
 /obj/structure/circle_protection
 	name = "circle of protection"
-	icon = 'modular/Mapping/icons/96x96.dmi'
+	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "circle"
 	alpha = 180
 	pixel_y = -32
@@ -609,7 +607,7 @@
 /obj/structure/nocdevice
 	name = "NOC Device"
 	desc = "A intricate lunar observation machine, that allows its user to study the face of Noc in the sky, reflecting he true whereabouts of hidden beings.."
-	icon = 'modular/Mapping/icons/96x96.dmi'
+	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "nocdevice"
 	plane = -1
 	layer = 4.2
@@ -666,7 +664,7 @@
 /obj/structure/giantfur
 	name = "giant fur"
 	desc = "Pelt of some gigantic animal, made into a mat."
-	icon = 'modular/Mapping/icons/96x96.dmi'
+	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "fur"
 	density = FALSE
 	anchored = TRUE
@@ -691,7 +689,6 @@
 
 /*	..................   Wall decorations   ................... */
 /obj/structure/fluff/walldeco/bath // suggestive stonework
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "bath1"
 	pixel_x = -32
 	alpha = 210
@@ -741,7 +738,6 @@
 /obj/effect/decal/shadow_floor
 	name = ""
 	desc = ""
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "shadow_floor"
 	mouse_opacity = 0
 
@@ -773,7 +769,6 @@
 		icon_state = "bath[rand(1,8)]"
 
 /obj/structure/fluff/walldeco/vinez // overlay vines for more flexibile mapping
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "vinez"
 
 /obj/structure/fluff/walldeco/vinez/l
@@ -829,9 +824,8 @@
 
 /obj/machinery/light/rogue/wallfire/candle/lamp // cant get them to start unlit but they work as is
 	name = "candle lamp"
-	icon = 'modular/Mapping/icons/decoration.dmi'
-	icon_state = "candle"
-	base_state = "candle"
+	icon_state = "candlelamp"
+	base_state = "candlelamp"
 	layer = WALL_OBJ_LAYER+0.1
 	light_power = 0.9
 	light_outer_range =  6
@@ -979,7 +973,6 @@
 	pixel_y = -27
 
 /obj/structure/fluff/walldeco/skullspike // for ground really
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "skullspike"
 	plane = -1
 	layer = ABOVE_MOB_LAYER

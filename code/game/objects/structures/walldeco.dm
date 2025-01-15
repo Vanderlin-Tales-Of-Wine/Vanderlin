@@ -235,7 +235,6 @@
 	icon_state = "medposter6"
 
 /obj/structure/fluff/walldeco/skullspike // for ground really
-	icon = 'modular/Mapping/icons/decoration.dmi'
 	icon_state = "skullspike"
 	plane = -1
 	layer = ABOVE_MOB_LAYER
