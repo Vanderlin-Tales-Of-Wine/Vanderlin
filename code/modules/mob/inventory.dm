@@ -269,6 +269,7 @@
 	if(. && I) //ensure the item exists and that it was dropped properly.
 		I.pixel_x = initial(I.pixel_x) + rand(-6,6)
 		I.pixel_y = initial(I.pixel_x) + rand(-6,6)
+		I.afterdrop()
 
 //for when the item will be immediately placed in a loc other than the ground
 /mob/proc/transferItemToLoc(obj/item/I, newloc = null, force = FALSE, silent = TRUE)
@@ -447,6 +448,10 @@
 	set name = "quick-equip"
 	set hidden = 1
 
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_quick_equip)))
+
+///proc extender of [/mob/verb/quick_equip] used to make the verb queuable if the server is overloaded
+/mob/proc/execute_quick_equip()
 	var/obj/item/I = get_active_held_item()
 	if (I)
 		I.equip_to_best_slot(src)

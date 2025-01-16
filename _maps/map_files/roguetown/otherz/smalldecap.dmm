@@ -886,10 +886,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cavelava)
-"xy" = (
-/obj/structure/table/wood/treestump/shroomstump/,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/caves)
 "xI" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/retaliate/rogue/troll,
@@ -32451,7 +32447,7 @@ HO
 zH
 zH
 Ku
-xy
+Ku
 oc
 oc
 oc
@@ -33749,7 +33745,7 @@ HO
 HO
 Jk
 ZM
-xy
+Ku
 Ku
 Ku
 mL

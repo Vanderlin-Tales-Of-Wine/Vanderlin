@@ -419,3 +419,13 @@
 		)
 	result_type = /obj/structure/pillory
 	craftdiff = 2
+
+/datum/slapcraft_recipe/carpentry/structure/easel
+	name = "wooden easel"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/item/stick,
+		/datum/slapcraft_step/item/stick/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer
+		)
+	result_type = /obj/structure/easel

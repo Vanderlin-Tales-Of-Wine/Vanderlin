@@ -75,8 +75,8 @@
 		/obj/item/grown/log/tree/small = 1,
 	)
 
-	starting_atom = /obj/item/natural/stone
-	attacking_atom = /obj/item/grown/log/tree/small
+	attacking_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/grown/log/tree/small
 	output = /obj/item/rogueweapon/axe/stone
 	craftdiff = 0
 	uses_attacking_atom = TRUE
@@ -88,8 +88,8 @@
 		/obj/item/grown/log/tree/stick = 1,
 	)
 
-	starting_atom = /obj/item/natural/stone
-	attacking_atom = /obj/item/grown/log/tree/stick
+	attacking_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/rogueweapon/knife/stone
 	craftdiff = 0
 	uses_attacking_atom = TRUE
@@ -101,8 +101,8 @@
 		/obj/item/rogueweapon/polearm/woodstaff = 1,
 	)
 
-	starting_atom = /obj/item/natural/stone
-	attacking_atom = /obj/item/rogueweapon/polearm/woodstaff
+	starting_atom = /obj/item/rogueweapon/polearm/woodstaff
+	attacking_atom = /obj/item/natural/stone
 	output = /obj/item/rogueweapon/polearm/spear/stone
 	craftdiff = 0
 	uses_attacking_atom = TRUE

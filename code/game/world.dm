@@ -27,7 +27,7 @@ GLOBAL_VAR(restart_counter)
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
 
-	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
 
 	GLOB.revdata = new
 
@@ -293,7 +293,7 @@ GLOBAL_VAR(restart_counter)
 	var/s = ""
 	s += "<center><a href=\"https://discord.gg/zNAGFDcQ\">"
 #ifdef MATURESERVER
-	s += "<big><b>Vanderlin - IN-DEVELOPMENT PLAYTEST (Hosted by Monkestation)</b></big></a><br>"
+	s += "<big><b>Vanderlin - Now 24/7 (Hosted by Monkestation)</b></big></a><br>"
 	s += "<b>Dark Medieval Fantasy Roleplay<b><br>"
 
 #else

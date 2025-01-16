@@ -6439,8 +6439,8 @@
 /area/rogue/indoors/town)
 "eMz" = (
 /obj/structure/fluff/traveltile{
-	aportalgoesto = "vanderlin-mountain_town-mountain";
-	aportalid = "vanderlin-mountain_town-town"
+	aportalgoesto = "forestdecapout";
+	aportalid = "forestdecapin"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cavelava)
@@ -73218,7 +73218,7 @@ xYa
 xYa
 xYa
 xYa
-xYa
+hQv
 xYa
 xYa
 xYa
@@ -73622,7 +73622,7 @@ shy
 xYa
 xYa
 xYa
-hQv
+xYa
 xYa
 xYa
 xYa

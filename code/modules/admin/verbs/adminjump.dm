@@ -155,3 +155,23 @@
 		else
 			to_chat(src, "Failed to move mob to a valid location.")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Send Mob") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/spawn_in_test_area()
+	set name = "Spawn in Test Area"
+	set desc = ""
+	set category = "GameMaster"
+	if(!src.holder)
+//		//to_chat(src, "Only administrators may use this command.")
+		return
+
+	var/turf/warp_place = pick(GLOB.admin_warp)
+	if(!warp_place)
+		return
+
+	var/mob/living/carbon/human/new_human = new (warp_place)
+
+	var/datum/outfit/outfit = new /datum/outfit/job/roguetown/tailor
+	outfit.equip(new_human)
+
+	prefs.copy_to(new_human, TRUE, FALSE)
+	new_human.ckey = ckey

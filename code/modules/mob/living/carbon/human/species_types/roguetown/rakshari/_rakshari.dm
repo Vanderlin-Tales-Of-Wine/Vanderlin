@@ -26,8 +26,10 @@
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/rakshari.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/rakshari.dmi'
+	child_icon = 'icons/roguetown/mob/bodies/c/child-rakshari.dmi'
 	custom_clothes = FALSE
-	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
+	custom_clothes = FALSE
+	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	species_traits = list(EYECOLOR,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
 

@@ -146,6 +146,24 @@ GLOBAL_PROTECT(href_token)
 /datum/admins/vv_edit_var(var_name, var_value)
 	return FALSE //nice try trialmin
 
+/datum/admins/proc/admin_command(command, target)
+	var/mob/resolved = locate(target)
+	if(QDELETED(resolved))
+		return
+
+	switch(command)
+		if(FLAG_GIB)
+			resolved.gib()
+		if(FLAG_PP)
+			show_player_panel(resolved)
+		if(FLAG_VV)
+			owner.debug_variables(resolved)
+		if(FLAG_JUMP)
+			owner.jumptomob(resolved)
+		if(FLAG_JUMP_GHOST)
+			if(!isobserver(owner))
+				owner.admin_ghost()
+			owner.jumptomob(resolved)
 /*
 checks if usr is an admin with at least ONE of the flags in rights_required. (Note, they don't need all the flags)
 if rights_required == 0, then it simply checks if they are an admin.
@@ -205,3 +223,34 @@ you will have to do something like if(client.rights & R_ADMIN) myself.
 
 /proc/HrefTokenFormField(forceGlobal = FALSE)
 	return "<input type='hidden' name='admin_token' value='[RawHrefToken(forceGlobal)]'>"
+
+/atom
+	var/list/message_flags = list(FLAG_JUMP, FLAG_JUMP_GHOST, FLAG_PP, FLAG_VV)
+
+/atom/proc/get_message_flags()
+	var/built_string = "\["
+	var/first = TRUE
+	for(var/flag in message_flags)
+		if(first)
+			built_string += {""[flag]""}
+			first = FALSE
+		else
+			built_string += {","[flag]""}
+	built_string += "\]"
+	return built_string
+
+/atom/proc/get_admin_flags()
+	return "\[\]"
+
+/mob/get_admin_flags()
+	var/built_string = "\["
+	if(client?.holder)
+		var/first = TRUE
+		for(var/flag in client?.holder?.rank?.admin_flags)
+			if(first)
+				built_string += {""[flag]""}
+				first = FALSE
+			else
+				built_string += {","[flag]""}
+	built_string += "\]"
+	return built_string

@@ -43,7 +43,6 @@
 	nomouseover = FALSE
 	var/swimdir = FALSE
 	var/notake = FALSE // cant pick up with reagent containers
-	shine = SHINE_SHINY
 	var/set_relationships_on_init = TRUE
 	var/list/blocked_flow_directions = list("2" = 0, "1" = 0, "8" = 0, "4" = 0)
 	var/we_cut = FALSE
@@ -122,8 +121,6 @@
 		QDEL_NULL(water_top_overlay)
 		for(var/obj/effect/overlay/water/water in contents)
 			qdel(water)
-		make_unshiny()
-		shine = 0
 		we_cut = TRUE
 		var/mutable_appearance/dirty = mutable_appearance('icons/turf/floors.dmi', "dirt")
 		add_overlay(dirty)
@@ -277,7 +274,6 @@
 	roguesmooth(adjacencies)
 
 /turf/open/water/roguesmooth(adjacencies)
-	make_unshiny()
 	var/list/Yeah = ..()
 	if(water_overlay)
 		water_overlay.cut_overlays(TRUE)
@@ -287,7 +283,6 @@
 		water_top_overlay.cut_overlays(TRUE)
 		if(Yeah)
 			water_top_overlay.add_overlay(Yeah)
-	make_shiny(initial(shine))
 
 /turf/open/water/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()

@@ -95,7 +95,6 @@
 	W.skin_armor = new /obj/item/clothing/suit/roguetown/armor/skin_armor/werewolf_skin(W)
 	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 	W.spawn_gibs(FALSE)
-	apply_status_effect(STATUS_EFFECT_STASIS, null, TRUE)
 	src.forceMove(W)
 
 	W.after_creation()
@@ -121,16 +120,17 @@
 	W.TOTALSTR = 15
 	W.TOTALCON = 15
 	W.TOTALEND = 15
+	W.dodgetime = 36
 
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
 
 	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
 
+	ADD_TRAIT(W, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_ZJUMP, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
-	ADD_TRAIT(W, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_BASHDOORS, TRAIT_GENERIC)
 	// ADD_TRAIT(W, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -167,7 +167,6 @@
 		W.death(gibbed)
 
 	W.forceMove(get_turf(src))
-	W.remove_status_effect(STATUS_EFFECT_STASIS)
 
 	REMOVE_TRAIT(W, TRAIT_NOMOOD, TRAIT_GENERIC)
 
@@ -177,6 +176,7 @@
 	W.copy_known_languages_from(WA.stored_language)
 	W.mind.known_skills = WA.stored_skills.Copy()
 	W.mind.skill_experience = WA.stored_experience.Copy()
+	W.dodgetime = 12
 
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/howl)
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/claws)

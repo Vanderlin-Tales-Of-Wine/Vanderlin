@@ -506,6 +506,8 @@
 
 /mob/living/Stat()
 	..()
+	if(!client)
+		return
 	if(statpanel("Stats"))
 		stat("STR: \Roman [STASTR]")
 		stat("PER: \Roman [STAPER]")
@@ -517,6 +519,8 @@
 
 /mob/living/carbon/Stat()
 	..()
+	if(!client)
+		return
 	add_abilities_to_panel()
 
 /mob/living/carbon/attack_ui(slot)

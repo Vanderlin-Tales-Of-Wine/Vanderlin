@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/fire()
 	if(reboot_anyway)
 		if(world.time > reboot_anyway)
-			SSticker.Reboot("Restart vote successful and gamemaster did not want to stop the restart.", "restart vote")
+			force_ending = TRUE
 			reboot_anyway = null
 	switch(current_state)
 		if(GAME_STATE_STARTUP)

@@ -35,8 +35,13 @@
 	if(require_comms_key && !key_valid)
 		return "Bad Key"
 	input -= "key"
-	. = Run(input)
-	if(islist(.))
+	if (input["json"])
+		. = Run(input + json_decode(input["json"]))
+	else
+		. = Run(input)
+	if (input["format"] == "json")
+		. = json_encode(.)
+	else if(islist(.))
 		. = list2params(.)
 
 /datum/world_topic/proc/Run(list/input)

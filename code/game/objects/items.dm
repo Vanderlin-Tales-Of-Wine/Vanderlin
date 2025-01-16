@@ -588,6 +588,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	else
 		if(twohands_required)
 			wield(user)
+	afterpickup(user)
 
 /atom/proc/ontable()
 	if(!isturf(src.loc))
@@ -678,6 +679,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
 	item_flags |= IN_INVENTORY
+
+// called just as an item is picked up (loc is not yet changed)
+/obj/item/proc/afterpickup(mob/user)
+
+/obj/item/proc/afterdrop(mob/user)
+
 
 // called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder)

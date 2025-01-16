@@ -15,7 +15,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/roguetown/vagrant
 	bypass_lastclass = TRUE

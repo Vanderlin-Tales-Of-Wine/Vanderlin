@@ -4,6 +4,10 @@ SUBSYSTEM_DEF(librarian)
 	flags = SS_NO_FIRE
 	var/list/books = list()
 
+/datum/controller/subsystem/librarian/Initialize(start_timeofday)
+	update_books()
+	return ..()
+
 /datum/controller/subsystem/librarian/proc/get_book(input)
 	if(!input)
 		return list()
@@ -11,6 +15,32 @@ SUBSYSTEM_DEF(librarian)
 		return books[input]
 	books[input] = file2book(input)
 	return books[input]
+
+
+/datum/controller/subsystem/librarian/proc/get_books(search_title, search_author, search_category)
+	var/list/return_books = list()
+	if(!search_title && !search_author && !search_category)
+		return list()
+	if(books.Find(search_title))
+		return_books |= list(books[search_title])
+
+	if(search_author)
+		for(var/book in books)
+			var/list/book_info = books[book]
+			if(book_info["author"] == search_author)
+				return_books|= list(books[book])
+
+	if(search_category)
+		if(search_category == "Any")
+			for(var/book in books)
+				return_books |= list(books[book])
+
+		for(var/book in books)
+			var/list/book_info = books[book]
+			if(book_info["category"] == search_category)
+				return_books |= list(books[book])
+
+	return return_books
 
 /proc/file2book(filename)
 	if(!filename)
@@ -28,7 +58,7 @@ SUBSYSTEM_DEF(librarian)
 	testing("file4")
 	return list()
 
-/datum/controller/subsystem/librarian/proc/playerbook2file(input, book_title = "Unknown", author = "Unknown", author_ckey = "Unknown", icon = "basic_book")
+/datum/controller/subsystem/librarian/proc/playerbook2file(input, book_title = "Unknown", author = "Unknown", author_ckey = "Unknown", icon = "basic_book", category = "Myths & Tales")
 	if(!input)
 		return "There is no text in the book!"
 	if(fexists("data/player_generated_books/[url_encode(book_title)].json"))
@@ -38,7 +68,7 @@ SUBSYSTEM_DEF(librarian)
 
 	testing("playerbook2file1")
 
-	var/list/contents = list("book_title" = "[book_title]", "author" = "[author]", "author_ckey" = "[author_ckey]", "icon" = "[icon]",  "text" = "[input]")
+	var/list/contents = list("book_title" = "[book_title]", "author" = "[author]", "author_ckey" = "[author_ckey]", "icon" = "[icon]",  "text" = "[input]", "category" = category)
 	//url_encode should escape all the characters that do not belong in a file name. If not, god help us
 	var/file_name = "data/player_generated_books/[url_encode(book_title)].json"
 	text2file(json_encode(contents), file_name)
@@ -67,6 +97,9 @@ SUBSYSTEM_DEF(librarian)
 		if(isnull(contents))
 			testing("playerfile2")
 			return list()
+		if(!("category" in contents))
+			contents |= "category"
+			contents["category"] = "Thesis"
 		return contents
 	testing("playerfile4")
 	return list()
@@ -98,3 +131,12 @@ SUBSYSTEM_DEF(librarian)
 		return json_list
 	else
 		message_admins("!!! _book_titles.json no longer exists, previous book title list has been lost. !!!")
+
+/datum/controller/subsystem/librarian/proc/update_books()
+	books = list()
+	books = pull_player_book_titles()
+	for(var/book in books)
+		if(!length(file2playerbook(book)))
+			books -= book
+			continue
+		books[book] = file2playerbook(book)

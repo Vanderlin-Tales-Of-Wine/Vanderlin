@@ -10,7 +10,7 @@
 		handle_waking_up(owner.current)
 	else
 		handle_maniac_hallucinations(owner.current)
-	handle_maniac_floors(owner.current)
+	//handle_maniac_floors(owner.current)
 	handle_maniac_walls(owner.current)
 
 

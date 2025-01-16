@@ -7,6 +7,7 @@
 	//open_sound = 'sound/machines/trapdoor/trapdoor_open.ogg'
 	//close_sound = 'sound/machines/trapdoor/trapdoor_shut.ogg'
 	can_buckle = TRUE
+	buckle_lying = FALSE
 	/// Whether we're on a set of rails or just on the ground
 	var/on_rails = FALSE
 	/// How many turfs we are travelling, also functions as speed (more momentum = faster)

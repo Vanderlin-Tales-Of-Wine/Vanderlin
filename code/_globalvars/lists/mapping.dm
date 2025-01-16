@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(generic_event_spawns)			//handles clockwork portal+eminence te
 GLOBAL_LIST_EMPTY(jobspawn_overrides)			//These will take precedence over normal spawnpoints if created.
 
 GLOBAL_LIST_EMPTY(bandit_starts)
+GLOBAL_LIST_EMPTY(admin_warp)
 GLOBAL_LIST_EMPTY(vlord_starts)
 GLOBAL_LIST_EMPTY(vspawn_starts)
 GLOBAL_LIST_EMPTY(dknight_starts)

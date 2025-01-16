@@ -127,6 +127,8 @@
 
 /mob/living/simple_animal/parrot/Stat()
 	..()
+	if(!client)
+		return
 	if(statpanel("Status"))
 		stat("Held Item", held_item)
 		stat("Mode",a_intent)

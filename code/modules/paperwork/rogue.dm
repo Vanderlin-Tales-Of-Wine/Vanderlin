@@ -9,6 +9,7 @@
 	textper = 108
 	maxlen = 2000
 	throw_range = 3
+	var/old_render = TRUE
 
 
 /obj/item/paper/scroll/attackby(obj/item/P, mob/living/carbon/human/user, params)
@@ -61,13 +62,23 @@
 		return
 	/*font-size: 125%;*/
 	if(in_range(user, src) || isobserver(user))
-		user.hud_used.reads.icon_state = "scroll"
-		user.hud_used.reads.show()
-		user.hud_used.reads.maptext = info
-		user.hud_used.reads.maptext_width = 230
-		user.hud_used.reads.maptext_height = 200
-		user.hud_used.reads.maptext_y = 150
-		user.hud_used.reads.maptext_x = 120
+		if(old_render)
+			user << browse_rsc('html/book.png')
+			var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
+			<html><head><style type=\"text/css\">
+			body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
+			dat += "[info]<br>"
+			dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+			dat += "</body></html>"
+			user << browse(dat, "window=reading;size=460x300;can_close=0;can_minimize=0;can_maximize=0;can_resize=0")
+		else
+			user.hud_used.reads.icon_state = "scroll"
+			user.hud_used.reads.show()
+			user.hud_used.reads.maptext = info
+			user.hud_used.reads.maptext_width = 230
+			user.hud_used.reads.maptext_height = 200
+			user.hud_used.reads.maptext_y = 150
+			user.hud_used.reads.maptext_x = 120
 
 		onclose(user, "reading", src)
 	else
@@ -122,6 +133,7 @@
 	var/list/fufilled_orders = list()
 	open = TRUE
 	textper = 150
+	old_render = FALSE
 
 /obj/item/paper/scroll/cargo/Destroy()
 	for(var/datum/supply_pack/SO in orders)
@@ -259,7 +271,8 @@
 		user.hud_used.reads.show()
 		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 					<html><head><style type=\"text/css\">
-					body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
+					body { background-image:url('book.png');background-repeat: repeat; }</style>
+					</head><body scroll=yes>"}
 		dat += "[info]<br>"
 		dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
 		dat += "</body></html>"
@@ -319,7 +332,8 @@
 
 /obj/item/paper/scroll/frumentarii
 	name = "List of Known Agents"
-	desc = "A list of the Hand's fingers."
+	desc = "A list of the hand's fingers."
+	old_render = FALSE
 
 	var/list/real_names = list()
 	var/list/removed_names = list()
@@ -387,7 +401,7 @@
 
 /obj/item/paper/scroll/sold_manifest
 	name = "Shipping Manifest"
-
+	old_render = FALSE
 	var/list/count = list()
 	var/list/items = list()
 

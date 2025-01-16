@@ -1,72 +1,3 @@
-/mob/living
-	var/mutable_appearance/reflective_mask
-	var/mutable_appearance/reflective_icon
-
-
-/mob/living/update_overlays()
-	. = ..()
-	update_reflection()
-
-/mob/living/update_icon()
-	. = ..()
-	update_reflection()
-
-/mob/living/proc/create_reflection()
-	//Add custom reflection mask
-	var/mutable_appearance/MA = new()
-	//appearance stuff
-	MA.appearance = appearance
-	if(render_target)
-		MA.render_source = render_target
-	MA.plane = MANUAL_REFLECTIVE_MASK_PLANE
-	reflective_mask = MA
-	add_overlay(MA)
-
-	//Add custom reflection image
-	var/mutable_appearance/MAM = new()
-	//appearance stuff
-	MAM.appearance = appearance
-	if(render_target)
-		MAM.render_source = render_target
-	MAM.plane = MANUAL_REFLECTIVE_PLANE
-	//transform stuff
-	var/matrix/n_transform = MAM.transform
-	n_transform.Scale(1, -1)
-	MAM.transform = n_transform
-	MAM.vis_flags = VIS_INHERIT_DIR
-	//filters
-	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
-	I.Flip(NORTH)
-	MAM.filters += filter(type = "alpha", icon = I)
-	reflective_icon = MAM
-	add_overlay(reflective_icon)
-	update_vision_cone()
-
-/mob/living/carbon/human/dummy/update_reflection()
-	return
-
-/mob/living/proc/update_reflection()
-	if(!reflective_icon)
-		create_reflection()
-	cut_overlay(reflective_icon)
-	reflective_icon.appearance = appearance
-	if(render_target)
-		reflective_icon.render_source = render_target
-	reflective_icon.plane = MANUAL_REFLECTIVE_PLANE
-	reflective_icon.pixel_y -= 32
-	//transform stuff
-	var/matrix/n_transform = reflective_icon.transform
-	n_transform.Scale(1, -1)
-	reflective_icon.transform = n_transform
-	reflective_icon.vis_flags = VIS_INHERIT_DIR
-	//filters
-	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
-	I.Flip(NORTH)
-	reflective_icon.filters += filter(type = "alpha", icon = I)
-	add_overlay(reflective_icon)
-	update_vision_cone()
-
-
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -77,8 +8,6 @@
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	init_faith()
-
-	create_reflection()
 
 /mob/living/Destroy()
 	surgeries = null
@@ -592,10 +521,14 @@
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
 		return FALSE
+	return ..()
+
+/mob/living/_pointed(atom/pointing_at)
 	if(!..())
 		return FALSE
-	visible_message("<span class='name'>[src]</span> points at [A].", "<span class='notice'>I point at [A].</span>")
-	return TRUE
+	log_message("points at [pointing_at]", LOG_EMOTE)
+	visible_message("<span class='infoplain'>[span_name("[src]")] points at [pointing_at].</span>", span_notice("You point at [pointing_at]."))
+
 
 /mob/living/verb/succumb(whispered as null, reaper as null)
 	set hidden = TRUE
@@ -612,7 +545,7 @@
 		death()
 
 /mob/living/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE, check_immobilized = FALSE, ignore_stasis = FALSE)
-	if(stat || IsUnconscious() || IsStun() || IsParalyzed() || (!ignore_restraints && restrained(ignore_grab)) || (!ignore_stasis && IS_IN_STASIS(src)))
+	if(stat || IsUnconscious() || IsStun() || IsParalyzed() || (!ignore_restraints && restrained(ignore_grab)))
 		return TRUE
 
 /mob/living/canUseStorage()
@@ -994,6 +927,10 @@
 	set name = "Resist"
 	set category = "IC"
 	set hidden = 1
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_resist)))
+
+///proc extender of [/mob/living/verb/resist] meant to make the process queable if the server is overloaded when the verb is called
+/mob/living/proc/execute_resist()
 	if(!can_resist() || surrendering)
 		return
 
@@ -1477,7 +1414,7 @@
 	var/stun = IsStun()
 	var/knockdown = IsKnockdown()
 	var/ignore_legs = get_leg_ignore()
-	var/canmove = !IsImmobilized() && !stun && conscious && !paralyzed && !buckled && (!stat_softcrit || !pulledby) && !chokehold && !IsFrozen() && !IS_IN_STASIS(src) && (has_arms || ignore_legs || has_legs)
+	var/canmove = !IsImmobilized() && !stun && conscious && !paralyzed && !buckled && (!stat_softcrit || !pulledby) && !chokehold && !IsFrozen() && (has_arms || ignore_legs || has_legs)
 	if(canmove)
 		mobility_flags |= MOBILITY_MOVE
 	else

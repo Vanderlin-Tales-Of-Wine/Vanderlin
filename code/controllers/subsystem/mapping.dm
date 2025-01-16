@@ -215,7 +215,8 @@ SUBSYSTEM_DEF(mapping)
 	#ifndef LOWMEMORYMODE
 	if(config.map_name == "Vanderlin") // Vanderlin
 		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_forest.json")
-		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_mountain.json")
+		//otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_mountain.json")
+		otherZ += load_map_config("_maps/map_files/roguetown/otherz/smalldecap.json")
 		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_bog.json")
 		// Add dungeon map files here later, maybe we can pick from a list of them?
 	else //For Rogue map

@@ -15,9 +15,8 @@
 	name = "werewolf"
 	id = "werewolf"
 	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
-	inherent_traits = list(TRAIT_NOSTAMINA,TRAIT_RESISTHEAT,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_NODISMEMBER)
+	inherent_traits = list(TRAIT_NOSTAMINA, TRAIT_RESISTHEAT,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_NODISMEMBER)
 	inherent_biotypes = MOB_HUMANOID
-	armor = 30
 	no_equip = list(SLOT_SHIRT, SLOT_HEAD, SLOT_WEAR_MASK, SLOT_ARMOR, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_CLOAK, SLOT_BELT, SLOT_BACK_R, SLOT_BACK_L, SLOT_S_STORE)
 	nojumpsuit = 1
 	sexes = 1
@@ -85,3 +84,8 @@
 
 /datum/species/werewolf/random_name(gender,unique,lastname)
 	return "WEREVOLF"
+
+/datum/species/werewolf/check_species_weakness(obj/item, mob/living/attacker, mob/living/parent)
+	if(parent.has_status_effect(/datum/status_effect/debuff/silver_curse))
+		return 0.75
+	return 0

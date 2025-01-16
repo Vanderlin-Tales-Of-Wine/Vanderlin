@@ -229,6 +229,9 @@
 		if(MUTE_DEADCHAT)
 			mute_string = "deadchat and DSAY"
 			feedback_string = "Deadchat"
+		if(MUTE_MEDITATE)
+			mute_string = "meditate"
+			feedback_string = "Meditate"
 		if(MUTE_ALL)
 			mute_string = "everything"
 			feedback_string = "Everything"

@@ -31,6 +31,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/toggle_context_menu,
 	/client/proc/delete_player_book,
+	/client/proc/manage_paintings,
 	/client/proc/ShowAllFamilies,
 	/datum/admins/proc/anoint_priest,
 	)
@@ -87,6 +88,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
 	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
+	/client/proc/spawn_in_test_area,
 	/client/proc/cmd_admin_direct_narrate,	/*send text directly to a player with no padding. Useful for narratives and fluff-text*/
 	/client/proc/cmd_admin_world_narrate,	/*sends text to all players with no padding*/
 	/client/proc/cmd_admin_local_narrate,	/*sends text to all mobs within view of atom*/
@@ -738,10 +740,34 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set name = "Delete Player Made Book"
 	if(!holder)
 		return
-	if(SSlibrarian.del_player_book(input(src, "What is the book file you want to delete? (spaces and other characters are their url encode versions for the file name, so for example spaces are +)")))
+	var/book = input(src, "What is the book file you want to delete?") in SSlibrarian.books
+	if(SSlibrarian.del_player_book(book))
 		to_chat(src, "<span class='notice'>Book has been successfully deleted</span>")
 	else
 		to_chat(src, "<span class='notice'> Either the book file doesn't exist or you have failed to type it in properly (remember characters have been url encoded for the file name)</span>")
+
+
+/client/proc/manage_paintings()
+	set category = "Admin"
+	set name = "Manage Player Made Paintings"
+	if(!holder)
+		return
+
+	var/list/paintings = list()
+
+	paintings |= SSpaintings.paintings
+	var/dat = "<h3>Paintings:</h3><br>"
+	dat += "<table><tr><th>Picture</th><th>Title</th><th>Author</th><th>Delete</th></tr>"
+	for(var/paint_name in paintings)
+		var/list/painting = paintings[paint_name]
+		var/icon/painting_icon = icon("data/player_generated_paintings/paintings/[painting["painting_title"]].png")
+		src << browse_rsc(painting_icon, "[paint_name].png")
+		dat += "<tr><td><img height=128 src='[painting["painting_title"]].png'/></td><td>[painting["painting_title"]]</td><td>[painting["author_ckey"]]</td><td><a href='byond://?src=[REF(src)];delete_painting=1;id=[painting["painting_title"]]'>Delete</a></td></tr>"
+	if (!length(paintings))
+		dat += "<tr><td colspan='4'>No results found.</td></tr>"
+
+	dat += "</table>"
+	src << browse(dat, "window=painting_deletion")
 
 //Family Tree Subsystem
 /client/proc/ShowAllFamilies()

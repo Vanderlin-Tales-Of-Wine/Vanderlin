@@ -18,6 +18,7 @@
 	var/list/providers = list()
 	///this is just a list we can access for the sake of checking, this is basically just a number getting random addition every check to keep unique
 	var/check_id = 0
+	var/obj/structure/taking_from
 
 /obj/structure/water_pipe/Initialize()
 	. = ..()
@@ -34,6 +35,8 @@
 
 		for(var/obj/structure/structure in cardinal_turf)
 			if(!structure.accepts_water_input)
+				continue
+			if(!structure.valid_water_connection(direction))
 				continue
 			set_connection(get_dir(src, structure))
 
@@ -74,14 +77,18 @@
 			Pressure:[water_pressure]
 			Fluid:[carrying_reagent ? initial(carrying_reagent.name) : "Nothing"]</span>"}
 
-/obj/structure/water_pipe/proc/make_provider(datum/reagent/reagent, pressure)
+/obj/structure/water_pipe/proc/make_provider(datum/reagent/reagent, pressure, obj/structure/giver)
 	check_id++
+	taking_from = giver
 	propagate_change(check_id, reagent, pressure, src)
 
 /obj/structure/water_pipe/proc/remove_provider(datum/reagent/reagent, pressure)
 	check_id++
+	taking_from = null
 	propagate_change(check_id, reagent, pressure, null, src)
 
+/obj/structure/water_pipe/proc/use_pressure(pressure)
+	taking_from?.use_water_pressure(pressure)
 
 /obj/structure/water_pipe/proc/build_connected(list/last_checked)
 	if(src in last_checked)

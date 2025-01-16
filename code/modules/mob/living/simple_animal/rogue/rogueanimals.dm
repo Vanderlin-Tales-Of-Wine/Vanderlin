@@ -69,7 +69,6 @@
 	//If the creature is doing something they should STOP MOVING.
 	var/can_act = TRUE
 	//Trolls eat more than wolves
-	var/food_max = 50
 	var/deaggroprob = 10
 	var/eat_forever
 

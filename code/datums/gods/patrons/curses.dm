@@ -207,7 +207,7 @@
 	. = ..()
 	handle_maniac_visions(owner, hallucinations)
 	handle_maniac_hallucinations(owner)
-	handle_maniac_floors(owner)
+	//handle_maniac_floors(owner)
 	handle_maniac_walls(owner)
 
 // cursed_freak_out() is freak_out() without stress adjustments

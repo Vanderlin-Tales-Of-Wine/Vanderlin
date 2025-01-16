@@ -798,7 +798,6 @@
 
 	damage_deflection = 10
 	max_integrity = 800
-	shine = SHINE_SHINY
 
 /turf/open/floor/rogue/churchmarble/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)

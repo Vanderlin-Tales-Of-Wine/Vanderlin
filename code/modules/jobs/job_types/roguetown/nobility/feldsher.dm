@@ -62,4 +62,4 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)

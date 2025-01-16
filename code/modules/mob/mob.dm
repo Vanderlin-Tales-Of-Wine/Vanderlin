@@ -286,8 +286,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
-	if(isliving(src))
-		src:update_reflection()
 	return TRUE
 
 /**
@@ -395,7 +393,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	set name = "Examine"
 	set category = "IC"
 	set hidden = 1
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(run_examinate), A))
 
+/mob/proc/run_examinate(atom/A)
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
 		return
@@ -427,7 +427,16 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
-	set hidden = 1
+	set category = "Object"
+
+	if(istype(A, /obj/effect/temp_visual/point))
+		return FALSE
+
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
+
+/// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
+/// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
+/mob/proc/_pointed(atom/A)
 	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
