@@ -144,6 +144,9 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_CONSORT 		"CAT_CONSORT" 		// Consort classes
 #define CTAG_VETERAN		"CAT_VETERAN"		// Veteran class - Handles Veteran class selector
 #define CTAG_MENATARMS		"CAT_MENATARMS"
+#define CTAG_GRENZELHOFT_INVASION "CAT_GRENZELHOF_INVASION" // ERT-like only migration wave
+#define CTAG_ZYBANTU_INVASION "CAT_ZYBANTU_INVASION" // ERT-like only migration wave
+#define CTAG_ROCKHILL_INVASION "CAT_ROCKHILL_INVASION" // ERT-like only migration wave
 
 /*
 	Defines for the triumph buy datum categories
