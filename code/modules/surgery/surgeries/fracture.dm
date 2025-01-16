@@ -49,11 +49,16 @@
 	return TRUE
 
 /datum/surgery_step/set_bone/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
-	display_results(user, target, "<span class='notice'>I successfully set the bone in [target]'s [parse_zone(target_zone)].</span>",
-		"<span class='notice'>[user] successfully sets the bone in [target]'s [parse_zone(target_zone)]!</span>",
-		"<span class='notice'>[user] successfully sets the bone in [target]'s [parse_zone(target_zone)]!</span>")
+	var/success = FALSE
 	var/obj/item/bodypart/bodypart = target.get_bodypart(check_zone(target_zone))
 	if(bodypart)
 		for(var/datum/wound/fracture/bone in bodypart.wounds)
-			bone.set_bone()
+			if(bone.set_bone())
+				success = TRUE
+	if(success)
+		display_results(user, target, "<span class='notice'>I successfully set the bone in [target]'s [parse_zone(target_zone)].</span>",
+		"<span class='notice'>[user] successfully sets the bone in [target]'s [parse_zone(target_zone)]!</span>",
+		"<span class='notice'>[user] successfully sets the bone in [target]'s [parse_zone(target_zone)]!</span>")
+	else
+		to_chat(user, span_warning("There are no more fractures to set in [target]'s [parse_zone(target_zone)]."))
 	return TRUE

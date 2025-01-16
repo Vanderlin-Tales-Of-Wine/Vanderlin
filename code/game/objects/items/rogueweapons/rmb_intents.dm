@@ -63,7 +63,7 @@
 
 /datum/rmb_intent/strong
 	name = "strong"
-	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks."
+	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks. Intentionally fails surgery steps."
 	icon_state = "rmbstrong"
 	def_bonus = -20
 

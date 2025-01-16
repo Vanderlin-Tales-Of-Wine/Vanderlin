@@ -1,10 +1,10 @@
 /datum/surgery/amputation
 	name = "Amputation"
 	steps = list(
-		/datum/surgery_step/incise, 
-		/datum/surgery_step/clamp, 
-		/datum/surgery_step/retract, 
-		/datum/surgery_step/saw, 
+		/datum/surgery_step/incise,
+		/datum/surgery_step/clamp,
+		/datum/surgery_step/retract,
+		/datum/surgery_step/saw,
 		/datum/surgery_step/amputate,
 	)
 	possible_locs = list(
@@ -19,15 +19,16 @@
 /datum/surgery_step/amputate
 	name = "Amputate"
 	implements = list(
-		TOOL_SCALPEL = 75, 
+		TOOL_SCALPEL = 80,
 		TOOL_SAW = 60,
+		TOOL_IMPROVISED_SAW = 50,
 		TOOL_SHARP = 40,
 	)
 	possible_locs = list(
 		BODY_ZONE_HEAD,
-		BODY_ZONE_R_ARM, 
-		BODY_ZONE_L_ARM, 
-		BODY_ZONE_R_LEG, 
+		BODY_ZONE_R_ARM,
+		BODY_ZONE_L_ARM,
+		BODY_ZONE_R_LEG,
 		BODY_ZONE_L_LEG,
 	)
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)

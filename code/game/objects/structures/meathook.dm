@@ -29,12 +29,12 @@
 		if(L.stat == DEAD)
 			if(L.blood_drained >= 60)
 				if(L.skinned)
-					. += span_warning("The [L] has had its blood fully drained and its been skinned. I can butcher it with a cleaver.")
+					. += span_warning("[L] has been fully drained of blood and skinned. I can butcher it with a cleaver.")
 				else
-					. += span_warning("The [L] has had its blood fully drained. I can skin it with a knife.")
+					. += span_warning("[L] has had its blood fully drained. I can skin it with a knife.")
 			else
-				if(L.blood_drained > 1)
-					. += span_warning("The [L] is having its blood drained and its been skinned or I can skin it with a knife, but I may lose some parts.")
+				if(draining_blood && L.blood_drained > 1)
+					. += span_warning("[L] is having its blood drained. If I try to skin or butcher it now, I may lose some parts.")
 				else
 					. += span_warning("There is a corpse ready to be worked on. I might need a knife for this.")
 
@@ -100,7 +100,7 @@
 		release_mob(M)
 
 /obj/structure/meathook/process()
-	if(!length(buckled_mobs))
+	if(!length(buckled_mobs) || !draining_blood)
 		STOP_PROCESSING(SSmachines, src)
 		return
 	var/mob/living/L = buckled_mobs[1]
@@ -139,6 +139,7 @@
 	unbuckle_mob(M,force=1)
 	M.emote("scream")
 	M.AdjustParalyzed(20)
+	draining_blood = FALSE
 
 /obj/structure/meathook/Destroy()
 	if(has_buckled_mobs())
@@ -181,6 +182,7 @@
 		to_chat(user, span_notice("You start to cut [butchery_target] to start draining their blood."))
 		var/cut_time = 4 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		if(do_after(user, cut_time, FALSE, src))
+			butchery_target.blood_drained++
 			START_PROCESSING(SSmachines, src)
 			draining_blood = TRUE
 		return
@@ -214,7 +216,7 @@
 	if(!butchery_target.skinned)
 		return
 
-	if(user.used_intent == /datum/intent/dagger/chop/cleaver)
+	if(user.used_intent.type == /datum/intent/dagger/chop/cleaver)
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("You start to butcher [butchery_target]."))
 		if(do_after(user, cut_time, FALSE, src))

@@ -153,7 +153,7 @@
 			if(affecting)
 				if(affecting.heal_damage(healing, healing))
 					C.update_damage_overlays()
-				if(affecting.heal_wounds(healing))
+				if(affecting.heal_wounds(healing/4))
 					C.update_damage_overlays()
 		else
 			target.adjustBruteLoss(-healing)
@@ -209,7 +209,7 @@
 			if(affecting)
 				if(affecting.heal_damage(50, 50))
 					C.update_damage_overlays()
-				if(affecting.heal_wounds(50))
+				if(affecting.heal_wounds(25))
 					C.update_damage_overlays()
 		else
 			target.adjustBruteLoss(-50)

@@ -392,7 +392,7 @@
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
-		new /obj/item/sleepingbag(get_turf(src))
+		user.put_in_hands(new /obj/item/sleepingbag(get_turf(src)))
 		qdel(src)
 
 /obj/item/sleepingbag
@@ -409,9 +409,6 @@
 		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
 		return
 	for(var/obj/A in T)
-		if(istype(A, /obj/structure))
-			to_chat(user, "<span class='warning'>I need some free space to deploy a [src] here!</span>")
-			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
 			to_chat(user, "<span class='warning'>There is already something here!</span>")
 			return

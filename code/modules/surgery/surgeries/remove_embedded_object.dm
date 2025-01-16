@@ -10,6 +10,7 @@
 	name = "Remove embedded objects"
 	implements = list(
 		TOOL_HEMOSTAT = 80,
+		TOOL_IMPROVISED_HEMOSTAT = 65,
 		TOOL_HAND = 50,
 	)
 	time = 3.2 SECONDS

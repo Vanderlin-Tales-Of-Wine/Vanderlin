@@ -218,6 +218,7 @@
 	smeltresult = /obj/item/ingot/iron
 	grid_width = 32
 	grid_height = 96
+	tool_behaviour = TOOL_IMPROVISED_HEMOSTAT
 
 /obj/item/rogueweapon/tongs/examine(mob/user)
 	. = ..()
