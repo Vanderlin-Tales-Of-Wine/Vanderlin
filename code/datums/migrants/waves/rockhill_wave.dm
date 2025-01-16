@@ -5,7 +5,7 @@
 	allowed_sexes = list(MALE,FEMALE)
 	allowed_races = list("Humen","Dwarf")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
 /datum/outfit/job/roguetown/rockhill/mayor/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt

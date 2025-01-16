@@ -15,6 +15,7 @@
 		"Aasimar",
 		"Half-Orc")
 
+
 /datum/outfit/job/roguetown/gaoler/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/menacing
@@ -27,7 +28,7 @@
 	beltr = /obj/item/rogueweapon/whip/antique
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/storage/keyring/dungeoneer = 1)
+	backpack_contents = list(/obj/item/storage/keyring/dungeoneer = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
@@ -111,7 +112,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
-	backpack_contents = list(/obj/item/storage/keyring/guard)
+	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
