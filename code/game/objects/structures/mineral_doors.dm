@@ -120,6 +120,7 @@
 	if(lockhash)
 		GLOB.lockhashes += lockhash
 	else if(keylock)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), 1)
 		if(lockid)
 			if(GLOB.lockids[lockid])
 				lockhash = GLOB.lockids[lockid]
@@ -315,13 +316,10 @@
 			door_rattle()
 			return
 		trykeylock(I, user)
-	if(istype(I, /obj/item/lockpick))
-		trypicklock(I, user)
+	if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
+		repairdoor(I,user)
 	else
-		if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-			repairdoor(I,user)
-		else
-			return ..()
+		return ..()
 
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
