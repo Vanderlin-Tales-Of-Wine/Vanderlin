@@ -22,7 +22,7 @@
 	var/disguised = TRUE
 	var/vitae = 2000
 	var/last_transform
-	var/is_lesser = FALSE
+	var/isspawn = FALSE
 	var/cache_skin
 	var/cache_eyes
 	var/cache_hair
@@ -47,14 +47,14 @@
 
 /datum/antagonist/vampire/lesser //le shitcode faec
 	name = "Lesser Vampire"
-	is_lesser = TRUE
+	isspawn = TRUE
 	increase_votepwr = FALSE
 
 /datum/antagonist/vampire/lesser/roundend_report()
 	return
 
 /datum/antagonist/vampire/on_gain()
-	if(!is_lesser)
+	if(!isspawn)
 		owner.adjust_skillrank(/datum/skill/combat/wrestling, 6, TRUE)
 		owner.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
 		ADD_TRAIT(owner.current, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -77,13 +77,13 @@
 	if(increase_votepwr)
 		forge_vampire_objectives()
 	finalize_vampire()
-//	if(!is_lesser)
+//	if(!isspawn)
 //		if(isnull(batform))
 //			batform = new
 //			owner.current.AddSpell(batform)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
-	if(!is_lesser)
+	if(!isspawn)
 		owner.current.verbs |= /mob/living/carbon/human/proc/blood_strength
 		owner.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
 		owner.current.verbs |= /mob/living/carbon/human/proc/blood_fortitude
