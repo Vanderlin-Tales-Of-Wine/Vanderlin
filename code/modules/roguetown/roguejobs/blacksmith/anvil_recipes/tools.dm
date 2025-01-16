@@ -101,7 +101,7 @@
 	recipe_name = "a blacksmithing Hammer"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/grown/log/tree/stick)
-	created_item = /obj/item/rogueweapon/hammer
+	created_item = /obj/item/rogueweapon/hammer/iron
 	i_type = "Tools"
 
 /datum/anvil_recipe/tools/hoe

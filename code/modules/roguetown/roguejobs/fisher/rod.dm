@@ -3,8 +3,8 @@
 	possible_item_intents = list(POLEARM_BASH, ROD_AUTO, ROD_CAST)
 	name = "fishing rod"
 	desc = ""
-	icon_state = "rod"
-	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
+	icon_state = "rod1"
+	icon = 'icons/roguetown/weapons/tools.dmi'
 	sharpness = IS_BLUNT
 	wlength = 33
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
@@ -743,6 +743,10 @@
 	update_icon()
 
 /obj/item/fishingrod/fisher
+
+/obj/item/fishingrod/fisher/New()
+	. = ..()
+	icon_state = "rod[rand(1,3)]"
 
 /obj/item/fishingrod/fisher/Initialize()
 	. = ..()

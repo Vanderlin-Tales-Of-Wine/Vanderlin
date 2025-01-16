@@ -48,6 +48,9 @@
 
 /datum/skill/misc/music
 	name = "Music"
+	dreams = list(
+		"...you bang your open palm against the top of the drum, the sound of warfare clattering all about you... you march forward, screaming to your brethren to continue... you feel a bolt bite your chest, and yet your heart still beats..."
+	)
 
 /datum/skill/misc/medicine
 	name = "Medicine"

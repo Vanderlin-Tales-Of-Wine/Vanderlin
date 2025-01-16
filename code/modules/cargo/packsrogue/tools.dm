@@ -79,7 +79,7 @@
 /datum/supply_pack/rogue/tools/hammer
 	name = "Hammer"
 	cost = 20
-	contains = /obj/item/rogueweapon/hammer
+	contains = /obj/item/rogueweapon/hammer/iron
 
 /datum/supply_pack/rogue/tools/shovel
 	name = "Shovel"

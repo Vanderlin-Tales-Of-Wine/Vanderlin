@@ -927,7 +927,7 @@
 /obj/item/clothing/suit/roguetown/shirt/undershirt,
 /obj/item/clothing/gloves/roguetown/leather,
 /obj/item/storage/belt/rogue/leather,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /obj/item/clothing/shoes/roguetown/boots/leather,
 /obj/item/clothing/head/roguetown/softcap,

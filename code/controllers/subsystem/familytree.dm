@@ -138,7 +138,7 @@ SUBSYSTEM_DEF(familytree)
 	var/list/low_priority_houses = list()
 	var/list/high_priority_houses = list()
 	for(var/datum/heritage/I in families)
-		if(I.housename || I.family.len >= 1)
+		if(I.housename && (I.family.len >= 1 && I.family.len < 8))
 			high_priority_houses.Add(I)
 		else
 			low_priority_houses.Add(I)

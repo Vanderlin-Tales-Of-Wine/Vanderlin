@@ -84,11 +84,106 @@
 			return
 	. = ..()
 
-/obj/item/rogueweapon/hammer/claw
-	icon_state = "clawh"
+/obj/item/rogueweapon/hammer/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -8,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/hammer/iron
+	icon_state = "hammer"
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
+	experimental_onhip = FALSE
+	experimental_onback = FALSE
+
+/obj/item/rogueweapon/hammer/steel
+	icon_state = "hammer_s"
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
+	experimental_onhip = FALSE
+	experimental_onback = FALSE
+
+/obj/item/rogueweapon/hammer/wood
+	name = "wooden mallet"
+	desc = "A wooden mallet is an artificers second best friend! But it may also come in handy to a smith..."
+	icon_state = "hammer_w"
+	dropshrink = 0.9
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
+	experimental_onhip = FALSE
+	experimental_onback = FALSE
+	force = 4
+	smeltresult = null
+	can_smith = FALSE
+/obj/item/rogueweapon/hammer/wood/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.5,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -8,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/hammer/copper
+	force = 8
+	possible_item_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
+	name = "copper hammer"
+	desc = "A simple and rough copper hammer."
+	icon_state = "chammer"
+	icon = 'icons/roguetown/weapons/tools.dmi'
+	sharpness = IS_BLUNT
+	//dropshrink = 0.8
+	wlength = 10
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	associated_skill = /datum/skill/combat/axesmaces
+	smeltresult = /obj/item/ingot/copper
+
+/obj/item/rogueweapon/hammer/sledgehammer
+	force = 15
+	force_wielded = 25
+	possible_item_intents = list(/datum/intent/mace/strike)
+	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
+	name = "sledgehammer"
+	desc = "It's almost asking to be put to work."
+	icon_state = "sledgehammer"
+	icon = 'icons/roguetown/weapons/32.dmi'
+	sharpness = IS_BLUNT
+	//dropshrink = 0.8
+	wlength = 10
+	wbalance = -1 // Heavy
+	gripsprite = TRUE
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_NORMAL
+	associated_skill = /datum/skill/combat/axesmaces
+	smeltresult = /obj/item/ingot/iron
+
+/obj/item/rogueweapon/hammer/sledgehammer/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -8,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 3,"sy" = 4,"nx" = -1,"ny" = 4,"wx" = -8,"wy" = 3,"ex" = 7,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 15,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/rogueweapon/hammer/sledgehammer/war
+	force = 15
+	force_wielded = 30
+	possible_item_intents = list(/datum/intent/mace/strike)
+	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
+	name = "steel warhammer"
+	desc = "A heavy steel warhammer, a weapon designed to make knights run in fear, the best option for a common soldier against a knight."
+	icon_state = "warbonker"
+	icon = 'icons/roguetown/weapons/32.dmi'
+	max_integrity = 500
+	smeltresult = /obj/item/ingot/steel
 
 /*
-/obj/item/rogueweapon/hammer/claw/attack_turf(turf/T, mob/living/user)
+/obj/item/rogueweapon/hammer/steel/attack_turf(turf/T, mob/living/user)
 	if(!user.cmode)
 		if(T.hammer_repair && T.max_integrity && !T.obj_broken)
 			var/repair_percent = 0.05
@@ -104,16 +199,6 @@
 			return
 	..()
 */
-
-/obj/item/rogueweapon/hammer/getonmobprop(tag)
-	. = ..()
-	if(tag)
-		switch(tag)
-			if("gen")
-				return list("shrink" = 0.6,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -8,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
-			if("onbelt")
-				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
 
 
 /obj/item/rogueweapon/tongs
@@ -190,67 +275,3 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/rogueweapon/hammer/wood
-	name = "wooden mallet"
-	desc = "A wooden mallet is an artificers second best friend! But it may also come in handy to a smith..."
-	icon_state = "whammer"
-	force = 4
-	smeltresult = null
-	can_smith = FALSE
-
-/obj/item/rogueweapon/hammer/copper
-	force = 8
-	possible_item_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
-	name = "copper hammer"
-	desc = "A simple and rough copper hammer."
-	icon_state = "chammer"
-	icon = 'icons/roguetown/weapons/tools.dmi'
-	sharpness = IS_BLUNT
-	//dropshrink = 0.8
-	wlength = 10
-	slot_flags = ITEM_SLOT_HIP
-	w_class = WEIGHT_CLASS_NORMAL
-	associated_skill = /datum/skill/combat/axesmaces
-	smeltresult = /obj/item/ingot/copper
-
-/obj/item/rogueweapon/hammer/sledgehammer
-	force = 15
-	force_wielded = 25
-	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
-	name = "sledgehammer"
-	desc = "It's almost asking to be put to work."
-	icon_state = "sledgehammer"
-	icon = 'icons/roguetown/weapons/32.dmi'
-	sharpness = IS_BLUNT
-	//dropshrink = 0.8
-	wlength = 10
-	wbalance = -1 // Heavy
-	gripsprite = TRUE
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
-	w_class = WEIGHT_CLASS_NORMAL
-	associated_skill = /datum/skill/combat/axesmaces
-	smeltresult = /obj/item/ingot/iron
-
-/obj/item/rogueweapon/hammer/sledgehammer/getonmobprop(tag)
-	. = ..()
-	if(tag)
-		switch(tag)
-			if("gen")
-				return list("shrink" = 0.6,"sx" = -9,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -8,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
-			if("wielded")
-				return list("shrink" = 0.6,"sx" = 3,"sy" = 4,"nx" = -1,"ny" = 4,"wx" = -8,"wy" = 3,"ex" = 7,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 15,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
-			if("onbelt")
-				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
-/obj/item/rogueweapon/hammer/sledgehammer/war
-	force = 15
-	force_wielded = 30
-	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
-	name = "steel warhammer"
-	desc = "A heavy steel warhammer, a weapon designed to make knights run in fear, the best option for a common soldier against a knight."
-	icon_state = "warbonker"
-	icon = 'icons/roguetown/weapons/32.dmi'
-	max_integrity = 500
-	smeltresult = /obj/item/ingot/steel

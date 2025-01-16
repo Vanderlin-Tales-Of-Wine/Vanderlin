@@ -2,6 +2,8 @@
 /datum/antagonist/purishep
 	name = "Inquisition"
 	antagpanel_category = "Inquisition"
+	roundend_category = "Inquisition"
+	show_name_in_check_antagonists = TRUE
 	increase_votepwr = FALSE
 	isgoodguy = TRUE
 

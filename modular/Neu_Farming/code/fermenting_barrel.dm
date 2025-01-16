@@ -45,7 +45,7 @@
 /obj/structure/fermenting_barrel/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/produce))
 		if(try_ferment(I, user))
-			playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
+			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 			return TRUE
 	if(istype(I, /obj/item/storage/roguebag) && I.contents.len)
 		var/success
@@ -55,7 +55,7 @@
 				STR.remove_from_storage(bagged_fruit)
 				success = TRUE
 		if(success)
-			playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
+			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 			to_chat(user, span_info("I dump the contents of [I] into [src]."))
 			I.update_icon()
 		else

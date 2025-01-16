@@ -394,7 +394,7 @@
 	pixel_x = 10
 	},
 /obj/machinery/anvil,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
 "Ll" = (

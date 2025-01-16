@@ -51,7 +51,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/rogueweapon/hammer/claw
+	beltl = /obj/item/rogueweapon/hammer/steel
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backr = /obj/item/rogueweapon/polearm/halberd/bardiche/woodcutter // A specialist in cutting trees would carry an impressive axe
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/hunting = 1, /obj/item/key/artificer = 1)

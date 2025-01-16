@@ -3,6 +3,7 @@
 	antagpanel_category = "Zombie"
 	antag_hud_type = ANTAG_HUD_TRAITOR
 	antag_hud_name = "zombie"
+	show_name_in_check_antagonists = TRUE
 	show_in_roundend = FALSE
 	/// SET TO FALSE IF WE DON'T TURN INTO ROTMEN WHEN REMOVED
 	var/become_rotman = FALSE

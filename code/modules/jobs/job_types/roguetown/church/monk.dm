@@ -101,7 +101,7 @@
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
-			backpack_contents += /obj/item/rogueweapon/hammer
+			backpack_contents += /obj/item/rogueweapon/hammer/iron
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		else // Failsafe
 			head = /obj/item/clothing/head/roguetown/roguehood/random

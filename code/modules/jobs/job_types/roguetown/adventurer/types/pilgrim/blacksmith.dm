@@ -21,7 +21,7 @@
 	..()
 	belt = /obj/item/storage/belt/rogue/leather
 
-	beltr = /obj/item/rogueweapon/hammer
+	beltr = /obj/item/rogueweapon/hammer/iron
 	beltl = /obj/item/rogueweapon/tongs
 
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor

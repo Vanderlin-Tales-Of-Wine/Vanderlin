@@ -24,7 +24,7 @@
 /obj/item/clothing/head/peaceflower
 	name = "eoran bud"
 	desc = "A flower of gentle petals, associated with Eora or Necra. Usually adorned as a headress or laid at graves as a symbol of love or peace."
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	icon_state = "peaceflower"
 	item_state = "peaceflower"
@@ -70,7 +70,7 @@
 /obj/item/clothing/head/corruptflower
 	name = "baothan bud"
 	desc = "A flower of gentle petals and sharp thorns, associated with Baotha. It is said that these allow their wearer to better commune with their goddess."
-	icon = 'modular/Neu_Farming/icons/produce.dmi'
+	icon = 'icons/roguetown/items/produce.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	icon_state = "corruptflower"
 	item_state = "corruptflower"
