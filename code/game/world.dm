@@ -250,10 +250,17 @@ GLOBAL_VAR(restart_counter)
 			continue
 		thing << sound(round_end_sound)
 
-	to_chat(world, "Please be patient as the server restarts. You will be automatically reconnected in about 60 seconds.")
-	Master.Shutdown()	//run SS shutdowns? rtchange
+	if (reason || fast_track) //special reboot, do none of the normal stuff
+		if (usr)
+			log_admin("[key_name(usr)] Has requested an immediate world restart via client side debugging tools")
+			message_admins("[key_name_admin(usr)] Has requested an immediate world restart via client side debugging tools")
+		to_chat(world, span_boldannounce("Rebooting World immediately due to host request."))
+		SSplexora.Shutdown(PLEXORA_SHUTDOWN_HARDEST, usr ? key_name(usr) : null)
+	else
+		SSplexora.Shutdown(PLEXORA_SHUTDOWN_HARD, usr ? key_name(usr) : null)
+		to_chat(world, "Please be patient as the server restarts. You will be automatically reconnected in about 60 seconds.")
+		Master.Shutdown() //run SS shutdowns
 
-	TgsReboot()
 
 #ifdef UNIT_TESTS
 	FinishTestRun()
@@ -287,6 +294,8 @@ GLOBAL_VAR(restart_counter)
 
 	log_world("World rebooted at [time_stamp()]")
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
+
+	TgsReboot() // TGS can decide to kill us right here, so it's important to do it last
 	..()
 
 /world/proc/update_status()

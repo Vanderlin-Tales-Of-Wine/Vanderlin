@@ -220,6 +220,8 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 #endif
 	log_world(msg)
 
+	SSplexora.serverinitdone(time)
+
 	if (!current_runlevel)
 		SetRunLevel(1)
 

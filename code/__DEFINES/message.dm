@@ -1,4 +1,4 @@
-#define EXTERNALREPLYCOUNT 2 // monkestation edit
+#define EXTERNALREPLYCOUNT 2
 #define EXTERNAL_PM_USER "IRCKEY"
 
 #define AHELP_CLOSETYPE_CLOSE 0

@@ -108,6 +108,7 @@ SUBSYSTEM_DEF(plexora)
 	var/datum/http_response/response = request.into_response()
 	if (response.errored)
 		plexora_is_alive = FALSE
+		log_admin("Failed to check if Plexora is alive! She probably isn't. Check config on both sides")
 		CRASH("Failed to check if Plexora is alive! She probably isn't. Check config on both sides")
 	else
 		var/list/json_body = json_decode(response.body)
@@ -163,6 +164,7 @@ SUBSYSTEM_DEF(plexora)
 		"init_time" = time,
 	))
 
+// This DOES get called, refer to init proc, it uses a signal.
 /datum/controller/subsystem/plexora/proc/roundstarted()
 	http_basicasync("serverupdates", list(
 		"type" = "roundstart",
@@ -217,6 +219,16 @@ SUBSYSTEM_DEF(plexora)
 		"defconlevel" = level,
 	))
 
+/datum/controller/subsystem/plexora/proc/new_note(list/note)
+	// note["replay_pass"] = CONFIG_GET(string/replay_password)
+	http_basicasync("noteupdates", note)
+
+/datum/controller/subsystem/plexora/proc/new_ban(list/ban)
+	// TODO: It might be easier to just send off a ban ID to Plexora, but oh well.
+	// list values are in sql_ban_system.dm
+	// ban["replay_pass"] = CONFIG_GET(string/replay_password)
+	http_basicasync("banupdates", ban)
+
 // Maybe we should consider that, if theres no admin_ckey when creating a new ticket,
 // This isnt a bwoink. Other wise if it does exist, it is a bwoink.
 /datum/controller/subsystem/plexora/proc/aticket_new(datum/admin_help/ticket, msg_raw, is_bwoink, urgent, admin_ckey = null)
@@ -233,7 +245,7 @@ SUBSYSTEM_DEF(plexora)
 		"urgent" = urgent,
 		"msg_raw" = msg_raw,
 		"opened_at" = rustg_unix_timestamp(),
-		"replay_pass" = "NONE",
+		// "replay_pass" = CONFIG_GET(string/replay_password),
 		"icon_b64" = icon2base64(getFlatIcon(ticket.initiator.mob, SOUTH, no_anim = TRUE)),
 		"admin_ckey" = admin_ckey,
 	))
