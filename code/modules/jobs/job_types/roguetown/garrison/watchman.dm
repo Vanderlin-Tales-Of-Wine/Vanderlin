@@ -23,10 +23,10 @@
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 	give_bank_account = 15
-	min_pq = 2
+	min_pq = 6
 
 /datum/outfit/job/roguetown/watchman/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots
@@ -91,7 +91,7 @@
 
 /datum/outfit/job/roguetown/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/ironpot
+	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron

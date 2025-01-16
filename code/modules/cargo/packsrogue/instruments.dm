@@ -37,3 +37,18 @@
 	name = "Drum"
 	cost = 10
 	contains = /obj/item/rogue/instrument/drum
+
+/datum/supply_pack/rogue/instruments/hurdygurdy
+	name = "Hurdy-Gurdy"
+	cost = 30
+	contains = list(/obj/item/rogue/instrument/hurdygurdy)
+
+/datum/supply_pack/rogue/instruments/viola
+	name = "Viola"
+	cost = 30
+	contains = list(/obj/item/rogue/instrument/viola)
+
+/datum/supply_pack/rogue/instruments/vocals
+	name = "Vocalist's Talisman"
+	cost = 40
+	contains = list(/obj/item/rogue/instrument/vocals)

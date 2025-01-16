@@ -189,6 +189,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 								return
 						else
 							HC.dropItemToGround(I, TRUE) //If you're dead, forcedrop it, then move it.
+					I.forceMove(src.loc)
 					H.put_in_hands(I)
 					say("The crown is summoned!")
 					playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
@@ -222,6 +223,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 							return
 						else
 							HC.dropItemToGround(I, TRUE) //If you're dead, forcedrop it, then move it.
+					I.forceMove(src.loc)
 					H.put_in_hands(I)
 					say("The key is summoned!")
 					playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)

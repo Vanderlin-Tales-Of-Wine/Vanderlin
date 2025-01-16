@@ -440,12 +440,12 @@
 			max_purchases = 3
 		),
 		"Vial Of Strong Poison (5)" = list(
-			list(type = /obj/item/reagent_containers/glass/vial/rogue/strongpoison, count = 1),
+			list(type = /obj/item/reagent_containers/glass/bottle/vial/strongpoison, count = 1),
 			cost = 5,
 			max_purchases = 1
 		),
 		"Vial Of Antidote (2)" = list(
-			list(type = /obj/item/reagent_containers/glass/vial/rogue/antidote, count = 1),
+			list(type = /obj/item/reagent_containers/glass/bottle/vial/antidote, count = 1),
 			cost = 2,
 			max_purchases = 1
 		),

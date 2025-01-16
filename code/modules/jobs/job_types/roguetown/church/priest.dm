@@ -22,11 +22,13 @@
 
 	display_order = JDO_PRIEST
 	give_bank_account = 115
-	min_pq = 4
+	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
+	min_pq = 10
 	selection_color = "#c2a45d"
 	spells = list(
 		/obj/effect/proc_holder/spell/self/convertrole/templar,
-		/obj/effect/proc_holder/spell/self/convertrole/monk
+		/obj/effect/proc_holder/spell/self/convertrole/monk,
+		/obj/effect/proc_holder/spell/self/convertrole/churchling,
 	)
 
 /datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
@@ -233,4 +235,36 @@
 		return
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
 	C.grant_spells(recruit)
+	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+
+/obj/effect/proc_holder/spell/self/convertrole/churchling
+	name = "Recruit Churchling"
+	new_role = "Churchling"
+	overlay_state = "recruit_acolyte"
+	recruitment_faction = "Church"
+	recruitment_message = "Serve the Ten, %RECRUIT!"
+	accept_message = "FOR THE TEN!"
+	refuse_message = "I refuse."
+
+/obj/effect/proc_holder/spell/self/convertrole/churchling/can_convert(mob/living/carbon/human/recruit)
+	//wtf
+	if(QDELETED(recruit))
+		return FALSE
+	//need a mind
+	if(!recruit.mind)
+		return FALSE
+	//only orphans who aren't apprentices
+	if(recruit.job == "Orphan" && !recruit.mind.apprentice)
+		return FALSE
+	//need to see their damn face
+	if(!recruit.get_face_name(null))
+		return FALSE
+	return TRUE
+
+/obj/effect/proc_holder/spell/self/convertrole/churchling/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+	. = ..()
+	if(!.)
+		return
+	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(recruit, recruit.patron)
+	C.grant_spells_churchling(recruit)
 	recruit.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

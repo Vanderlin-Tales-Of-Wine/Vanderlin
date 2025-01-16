@@ -112,7 +112,7 @@
 	return TRUE
 
 /datum/status_effect/light_buff/proc/add_light(mob/living/source)
-	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj = source.mob_light(potency)
+	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj = source.mob_light(_power = potency)
 	LAZYSET(mobs_affected, source, mob_light_obj)
 	RegisterSignal(source, COMSIG_PARENT_QDELETING, PROC_REF(on_living_holder_deletion))
 

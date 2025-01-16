@@ -53,18 +53,24 @@
 	beltr = /obj/item/rogueweapon/knife/dagger/steel/special
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backpack_contents = list(/obj/item/flint)
-	if(H.dna?.species)
-		if(H.dna.species.id == "human")
-			backr = /obj/item/rogue/instrument/lute
-		if(H.dna.species.id == "dwarf")
-			backr = /obj/item/rogue/instrument/accord
-			H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
-		if(H.dna.species.id == "elf")
-			backr = /obj/item/rogue/instrument/harp
-		if(H.dna.species.id == "tiefling")
-			backr = /obj/item/rogue/instrument/guitar
-		if(H.dna.species.id == "aasimar")
-			backr = /obj/item/rogue/instrument/drum // March along the drums of war.
+
+	var/instruments = list(
+		"Harp" = /obj/item/rogue/instrument/harp,
+		"Lute" = /obj/item/rogue/instrument/lute,
+		"Accordion" = /obj/item/rogue/instrument/accord,
+		"Guitar" = /obj/item/rogue/instrument/guitar,
+		"Flute" = /obj/item/rogue/instrument/flute,
+		"Drum" = /obj/item/rogue/instrument/drum,
+		"Hurdy-Gurdy" = /obj/item/rogue/instrument/hurdygurdy,
+		"Viola" = /obj/item/rogue/instrument/viola)
+	var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
+	H.set_blindness(0)
+	if(instrument_choice && instruments[instrument_choice])
+		backr = instruments[instrument_choice]
+	else
+		backr = /obj/item/rogue/instrument/lute
+	if(H.dna?.species?.id == "dwarf")
+		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
 	H.change_stat("perception", 1)

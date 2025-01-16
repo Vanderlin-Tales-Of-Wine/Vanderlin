@@ -651,6 +651,13 @@ ____________End of Example*/
 	bookfile = "AdviceFarming.json"
 	random_cover = TRUE
 
+/obj/item/book/rogue/advice_weaving
+	name = "A hundred kinds of stitches"
+	desc = "Howe to weave, tailor, and sundry tailoring. By Agnea Corazzani."
+	icon_state ="book8_0"
+	base_icon_state = "book8"
+	bookfile = "AdviceWeaving.json"
+
 /obj/item/book/rogue/yeoldecookingmanual // new book with some tips to learn
 	name = "Ye olde ways of cookinge"
 	desc = "Penned by Svend Fatbeard, butler in the fourth generation"

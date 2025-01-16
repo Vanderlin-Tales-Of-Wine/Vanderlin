@@ -789,6 +789,8 @@
 	return
 
 /mob/proc/RightClickOn(atom/A, params)
+	if(stat >= UNCONSCIOUS)
+		return
 	if(A.Adjacent(src))
 		if(A.loc == src && (A == get_active_held_item()) )
 			A.rmb_self(src)

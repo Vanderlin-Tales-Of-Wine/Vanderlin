@@ -7,7 +7,7 @@
 	/// Restricts sexes if list is not null
 	var/list/allowed_sexes
 	/// Restricts ages if list is not null
-	var/list/allowed_ages
+	var/list/allowed_ages = ALL_AGES_LIST
 	/// Typepath of outfit for the migrant role
 	var/outfit
 	/// Typepath of the antag datum for the migrant role

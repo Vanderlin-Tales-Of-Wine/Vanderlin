@@ -1,5 +1,5 @@
 /datum/job/roguetown/royalguard
-	title = "Royal Guard"
+	title = "Royal Knight"
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	faction = "Station"
@@ -22,7 +22,7 @@
 
 	outfit = /datum/outfit/job/roguetown/royalguard
 	give_bank_account = 30
-	min_pq = 2
+	min_pq = 8
 	selection_color = "#920909"
 
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
@@ -53,7 +53,7 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs
 	cloak = /obj/item/clothing/cloak/tabard/knight/guard
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/arming
 	armor = /obj/item/clothing/suit/roguetown/armor/brigandine // Wear the King's colors.
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 	beltl = /obj/item/storage/keyring/mguard

@@ -21,7 +21,7 @@
 	. = ..()
 	for(var/X in keys)
 		var/obj/item/key/new_key = new X(loc)
-		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, TRUE))
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
 
 	update_icon()
@@ -59,7 +59,6 @@
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	playsound(src, "sound/items/gems (1).ogg", 35, FALSE)
 	update_desc()
 
 /obj/item/storage/keyring/Exited(atom/movable/gone, direction)

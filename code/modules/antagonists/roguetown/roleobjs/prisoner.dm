@@ -1,6 +1,9 @@
 
 /datum/antagonist/prisoner
 	name = "Prisoner"
+	antagpanel_category = "Prisoner"
+	roundend_category = "Prisoners"
+	show_name_in_check_antagonists = TRUE
 	increase_votepwr = FALSE
 	isgoodguy = TRUE
 

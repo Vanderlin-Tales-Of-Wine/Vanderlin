@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
-	"Royal Guard",
+	"Royal Knight",
 	"Veteran",
 	"Garrison Guard",
 	"Men-at-arms",

@@ -463,9 +463,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	circle = "Servantry"
 	center_requirement = /mob/living/carbon/human
 
-	function = /proc/convert
+	function = /proc/convert_cultist
 
-/proc/convert(mob/user, turf/C)
+/proc/convert_cultist(mob/user, turf/C)
 	var/datum/game_mode/chaosmode/M = SSticker.mode
 	testing("NOW TESTING CONVERT")
 

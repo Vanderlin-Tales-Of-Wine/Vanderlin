@@ -91,7 +91,7 @@
 	icon = 'icons/roguetown/weapons/64.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/rogue_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/rogue_righthand.dmi'
-	icon_state = "pitchfork"
+	icon_state = "tridentgold"
 	pixel_y = -16
 	pixel_x = -16
 	inhand_x_dimension = 64

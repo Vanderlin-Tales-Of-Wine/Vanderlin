@@ -112,6 +112,11 @@
 		var/yea = pick("[src] is broken!", "[src] is useless!", "[src] is destroyed!")
 		destroy_message = "<span class='warning'>[yea]</span>"
 
+/obj/item/rogueweapon/attack_hand(mob/user)
+	if(istype(user, /mob/living/carbon/human/species/werewolf)) //slop fix
+		return TRUE
+	. = ..()
+
 /obj/item/rogueweapon/pickup(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_RAVOX_CURSE))
