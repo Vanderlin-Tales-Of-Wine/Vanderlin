@@ -18,9 +18,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Thief-Borne"=/datum/charflaw/addiction/kleptomaniac,
 	"Pain Freek"=/datum/charflaw/addiction/masochist,
+	"Hunted"=/datum/charflaw/hunted,
+	"Schizophrenic" = /datum/charflaw/schizophrenic,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
-	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,
-	"Hunted"=/datum/charflaw/hunted))
+	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,))
 
 /datum/charflaw
 	var/name

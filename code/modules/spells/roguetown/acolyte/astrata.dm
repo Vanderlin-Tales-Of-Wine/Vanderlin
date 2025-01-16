@@ -83,7 +83,7 @@
 			target.gib()
 			return ..()
 		if(!target.revive(full_heal = FALSE))
-			to_chat(user, "<span class='warning'>Nothing happens.</span>")
+			to_chat(user, "<span class='warning'>Astrata's light fails to heal [target]!</span>")
 			return FALSE
 		testing("revived2")
 		var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()

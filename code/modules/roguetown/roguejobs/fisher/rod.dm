@@ -362,10 +362,12 @@
 	var/list/deepfishlist = list(/obj/item/reagent_containers/food/snacks/fish/angler = 1)
 	if(istype(targeted, /turf/open/water/swamp))
 		fishpicker = list(/obj/item/reagent_containers/food/snacks/fish/eel = 6,
-							/obj/item/reagent_containers/food/snacks/fish/carp = 2)
+							/obj/item/reagent_containers/food/snacks/fish/carp = 2,
+							/obj/item/reagent_containers/food/snacks/fish/shrimp = 1)
 	else if(istype(targeted, /turf/open/water/swamp/deep))
 		fishpicker = list(/obj/item/reagent_containers/food/snacks/fish/eel = 5,
-							/obj/item/reagent_containers/food/snacks/fish/carp = 3)
+							/obj/item/reagent_containers/food/snacks/fish/carp = 3,
+							/obj/item/reagent_containers/food/snacks/fish/shrimp = 1)
 		deepmod += 1
 	else if(istype(targeted, /turf/open/water/cleanshallow))
 		fishpicker = list(/obj/item/reagent_containers/food/snacks/fish/eel = 3,

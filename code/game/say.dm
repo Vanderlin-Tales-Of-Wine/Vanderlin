@@ -90,6 +90,10 @@ GLOBAL_LIST_INIT(freqtospan, list(
 					arrowpart = " ⇙"
 				if(SOUTHEAST)
 					arrowpart = " ⇘"
+			if(speakturf.z > sourceturf.z)
+				arrowpart += " ⇈"
+			if(speakturf.z < sourceturf.z)
+				arrowpart += " ⇊"
 			if(istype(speaker, /mob/living))
 				var/mob/living/L = speaker
 				namepart = "Unknown [(L.gender == FEMALE) ? "Woman" : "Man"]"

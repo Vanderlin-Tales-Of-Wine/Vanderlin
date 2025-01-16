@@ -121,10 +121,11 @@
 				continue
 			human_target.visible_message("<span class='info'>\The [organ] attaches itself to [human_target]!</span>", \
 								"<span class='notice'>\The [organ] attaches itself to me!</span>")
-		if(!(human_target.mob_biotypes & MOB_UNDEAD))
-			for(var/obj/item/bodypart/limb as anything in human_target.bodyparts)
-				limb.rotted = FALSE
-				limb.skeletonized = FALSE
+		// if(!(human_target.mob_biotypes & MOB_UNDEAD))
+		// 	for(var/obj/item/bodypart/limb as anything in human_target.bodyparts)
+		// 		limb.rotted = FALSE
+		// 		limb.skeletonized = FALSE
+		user.update_inv_hands()
 		human_target.update_body()
 		return ..()
 	return FALSE
@@ -168,8 +169,6 @@
 		if(!has_rot)
 			to_chat(user, "<span class='warning'>Nothing happens.</span>")
 			return FALSE
-		if(GLOB.tod == "night")
-			to_chat(user, "<span class='warning'>Let there be light.</span>")
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
 			S.AOE_flash(user, range = 8)
 		testing("curerot2")

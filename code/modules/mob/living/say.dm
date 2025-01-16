@@ -278,12 +278,20 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/static/list/eavesdropping_modes = list(MODE_WHISPER = TRUE, MODE_WHISPER_CRIT = TRUE)
 	var/eavesdrop_range = 0
 	var/Zs_too = FALSE
+	var/listener_has_ceiling	= TRUE
+	var/speaker_has_ceiling		= TRUE
+
+	var/turf/speaker_turf = get_turf(src)
+	var/turf/speaker_ceiling = get_step_multiz(speaker_turf, UP)
+	if(speaker_ceiling)
+		if(istransparentturf(speaker_ceiling))
+			speaker_has_ceiling = FALSE
 	if(eavesdropping_modes[message_mode])
 		eavesdrop_range = EAVESDROP_EXTRA_RANGE
 	if(message_mode != MODE_WHISPER)
+		Zs_too = TRUE
 		if(say_test(message) == "2")	//CIT CHANGE - ditto
 			message_range += 10
-			Zs_too = TRUE
 	var/list/listening = get_hearers_in_view(message_range+eavesdrop_range, source)
 	var/list/the_dead = list()
 //	var/list/yellareas	//CIT CHANGE - adds the ability for yelling to penetrate walls and echo throughout areas
@@ -321,9 +329,36 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
 	for(var/_AM in listening)
 		var/atom/movable/AM = _AM
+		var/turf/listener_turf = get_turf(AM)
+		var/turf/listener_ceiling = get_step_multiz(listener_turf, UP)
+		if(listener_ceiling)
+			if(istransparentturf(listener_ceiling))
+				listener_has_ceiling = FALSE
 		if(!Zs_too && !isobserver(AM))
 			if(AM.z != src.z)
 				continue
+		if(Zs_too && AM.z != AM.z)
+			if(AM.z < src.z && listener_has_ceiling)	//Listener is below the speaker and has a ceiling above them
+				continue
+			if(AM.z > src.z && speaker_has_ceiling)		//Listener is above the speaker and the speaker has a ceiling above
+				continue
+			if(listener_has_ceiling && speaker_has_ceiling)	//Both have a ceiling, on different z-levels -- no hearing at all
+				continue
+			var/listener_obstructed = TRUE
+			var/speaker_obstructed = TRUE
+			if(src != AM)	//We always hear ourselves.
+				if(!speaker_has_ceiling && isliving(AM))
+					var/mob/living/M = AM
+					for(var/mob/living/MH in viewers(world.view, speaker_ceiling))
+						if(M == MH)
+							speaker_obstructed = FALSE
+
+				if(!listener_has_ceiling)
+					for(var/mob/living/ML in viewers(world.view, listener_ceiling))
+						if(ML == src)
+							listener_obstructed = FALSE
+				if(listener_obstructed && speaker_obstructed)
+					continue
 		if(eavesdrop_range && get_dist(source, AM) > message_range && !(the_dead[AM]))
 			AM.Hear(eavesrendered, src, message_language, eavesdropping, , spans, message_mode)
 		else

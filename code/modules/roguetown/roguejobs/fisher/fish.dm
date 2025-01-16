@@ -93,6 +93,14 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel
 	cooked_smell = /datum/pollutant/food/baked_eel
 
+/obj/item/reagent_containers/food/snacks/fish/shrimp
+	name = "shrimp"
+	desc = "As shrimple as that."
+	icon_state = "shrimp"
+	sellprice = 2
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
+	cooked_smell = /datum/pollutant/food/baked_shrimp
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish
 	icon = 'icons/roguetown/misc/fish.dmi'
@@ -124,6 +132,11 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/swordfish
 	name = "cooked swordfish"
+
+/obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
+	icon_state = "shrimpcooked"
+	name = "cooked shrimp"
+	tastes = list("shrimp" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp/rare
 	eat_effect = list(/datum/status_effect/buff/foodbuff, /datum/status_effect/buff/blessed)
