@@ -79,7 +79,9 @@
 				H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		if("Caretaker")
 			beltl = /obj/item/rogueweapon/sword/khopesh
-			/obj/item/clothing/cloak/half/blue
+			cloak = /obj/item/clothing/cloak/half/blue
+			backr = /obj/item/storage/backpack/rogue/satchel
+			r_hand = /obj/item/storage/backpack/rogue/satchel/surgbag
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
