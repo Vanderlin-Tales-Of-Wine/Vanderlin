@@ -108,7 +108,7 @@
 	head = /obj/item/clothing/head/roguetown/rare/grenzelplate
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	backpack_contents = (/obj/projectile/bullet/reusable/bullet = 3,/obj/item/gun/ballistic/revolver/grenadelauncher/pistol = 1)
+	backpack_contents = list(/obj/projectile/bullet/reusable/bullet = 3,/obj/item/gun/ballistic/revolver/grenadelauncher/pistol = 1)
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
@@ -138,7 +138,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, pick(1,1,2), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, pick(3,4), TRUE) /
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, pick(3,4), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)

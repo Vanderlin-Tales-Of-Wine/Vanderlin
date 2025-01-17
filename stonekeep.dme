@@ -614,6 +614,7 @@
 #include "code\datums\migrants\migrant_wave.dm"
 #include "code\datums\migrants\waves\crusader_wave.dm"
 #include "code\datums\migrants\waves\dark_itinerant_knight_wave.dm"
+#include "code\datums\migrants\waves\divine_retribution.dm"
 #include "code\datums\migrants\waves\dwarven_company.dm"
 #include "code\datums\migrants\waves\follower_of_the_tens.dm"
 #include "code\datums\migrants\waves\grenzelhoft_invasion_wave.dm"
