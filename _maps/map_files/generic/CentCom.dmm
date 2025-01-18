@@ -26,12 +26,12 @@
 /area/rogue)
 "ae" = (
 /obj/structure/closet/crate/chest,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "af" = (
@@ -1518,7 +1518,7 @@
 /area/rogue/indoors/bandit_lair)
 "ht" = (
 /obj/machinery/anvil/crafted,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/bandit_lair)
@@ -2118,7 +2118,7 @@
 /area/rogue)
 "pP" = (
 /obj/machinery/anvil,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)

@@ -208,7 +208,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light/striped
 			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
-			beltl = /obj/item/rogueweapon/hammer/claw
+			beltl = /obj/item/rogueweapon/hammer/steel
 			backr = /obj/item/rogueweapon/axe/iron
 			backl = /obj/item/storage/backpack/rogue/backpack
 			backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)

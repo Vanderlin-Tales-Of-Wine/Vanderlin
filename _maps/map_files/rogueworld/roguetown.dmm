@@ -10572,7 +10572,7 @@
 /area/rogue/indoors/town/shop)
 "Kb" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},

@@ -16,7 +16,7 @@
 
 /datum/outfit/job/roguetown/adventurer/masterblacksmith/pre_equip(mob/living/carbon/human/H)
 	..()
-	beltr = /obj/item/rogueweapon/hammer
+	beltr = /obj/item/rogueweapon/hammer/iron
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backr =	/obj/item/rogueweapon/hammer/sledgehammer
 	pants = /obj/item/clothing/under/roguetown/trou

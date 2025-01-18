@@ -1,10 +1,15 @@
 /datum/skill/labor
 	abstract_type = /datum/skill/labor
 	name = "Labor"
-	desc = ""
+	dreams = list(
+		"...all work, no play... all work, no play... all work, no play..."
+	)
 
 /datum/skill/labor/mining
 	name = "Mining"
+	dreams = list(
+		"...your masters scream as the man and his guards are slain by the knight... your brothers tremble, screaming and staring as the horror looms over the hero. you grab your pick, and begin to break the chains..."
+	)
 
 /datum/skill/labor/mining/get_skill_speed_modifier(level)
 	switch(level)
@@ -25,6 +30,9 @@
 
 /datum/skill/labor/farming
 	name = "Farming"
+	dreams = list(
+		"...you plant your thumb into the dirt, before pulling it back - gently placing a seed into the crevice..."
+	)
 
 /datum/skill/labor/taming
 	name = "Taming"
@@ -35,7 +43,7 @@
 /datum/skill/labor/mathematics
 	name = "Mathematics"
 	dreams = list(
-		"...arches... mathematically perfect... ah..."
+		"...the hydra, a mathematically perfect beast... you lop one head off, two sprout, then four, eight, sixteen, thirty-two, sixty-four... there is a symmetry to this... the trees are like blood, vascular like the erosion of the canyons... the beat of the music marches to your heart..."
 	)
 
 /datum/skill/labor/fishing

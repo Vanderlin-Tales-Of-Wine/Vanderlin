@@ -2900,7 +2900,7 @@
 /area/rogue/outdoors/bog)
 "QG" = (
 /obj/structure/table/wood/plain,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "QJ" = (

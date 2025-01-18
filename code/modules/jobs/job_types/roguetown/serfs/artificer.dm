@@ -56,7 +56,7 @@
 	mask = /obj/item/clothing/mask/rogue/goggles
 	backl = /obj/item/storage/backpack/rogue/backpack
 	id = /obj/item/clothing/ring/silver/makers_guild
-	backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1, /obj/item/key/artificer = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/rogueweapon/knife/villager)
+	backpack_contents = list(/obj/item/rogueweapon/hammer/steel = 1, /obj/item/key/artificer = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/rogueweapon/knife/villager)
 
 	H.change_stat("strength", 1)
 	H.change_stat("intelligence", 2)

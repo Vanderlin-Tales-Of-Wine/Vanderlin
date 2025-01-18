@@ -39,12 +39,12 @@
 /area/rogue/indoors)
 "ak" = (
 /obj/structure/closet/crate/chest,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "al" = (
@@ -90,11 +90,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "aq" = (
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "ar" = (
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "as" = (

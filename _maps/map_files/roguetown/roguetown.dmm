@@ -11002,7 +11002,7 @@
 "mhq" = (
 /obj/item/rogueweapon/tongs,
 /obj/structure/closet/crate/roguecloset/dark,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
 "mhz" = (
@@ -13623,7 +13623,7 @@
 "oPx" = (
 /obj/structure/closet/crate/roguecloset/dark,
 /obj/item/rogueweapon/tongs,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
 "oPy" = (
@@ -20584,8 +20584,8 @@
 /area/rogue/under/town/basement)
 "wDo" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/hammer/claw,
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/indoors/town/dwarfin)
 "wDW" = (

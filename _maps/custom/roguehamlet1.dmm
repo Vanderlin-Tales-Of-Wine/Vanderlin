@@ -13425,8 +13425,8 @@
 /area/rogue/outdoors/exposed/under/basement)
 "oyu" = (
 /obj/structure/closet/crate/roguecloset/inn/chest,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/town/dwarf)
 "oyy" = (
@@ -15586,7 +15586,7 @@
 	layer = 2.8
 	},
 /obj/item/rogueweapon/tongs,
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/town/dwarf)
 "qHo" = (
@@ -21073,7 +21073,7 @@
 "whL" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/tongs,
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/town/dwarf)
 "wiz" = (
