@@ -179,6 +179,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		answer_schizohelp(locate(href_list["schizohelp"]))
 		return
 
+	if(href_list["delete_painting"])
+		if(!holder)
+			return
+		SSpaintings.del_player_painting(href_list["id"])
+		SSpaintings.update_paintings()
 	switch(href_list["_src_"])
 		if("holder")
 			hsrc = holder
@@ -204,7 +209,17 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if(QDELETED(real_src))
 			return
 
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
+
 	..()	//redirect to hsrc.Topic()
+
+///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
+///so we cant queue it without this
+/client/proc/_Topic(datum/hsrc, href, list/href_list)
+	return hsrc.Topic(href, href_list)
 
 /client/proc/is_content_unlocked()
 	if(!prefs.unlock_content)
@@ -276,7 +291,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
-//	chatOutput = new /datum/chatOutput(src)
+	chatOutput = new /datum/chatOutput(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(connection != "seeker" && connection != "web")//Invalid connection type.
@@ -284,6 +299,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
+
+	spawn() // Goonchat does some non-instant checks in start()
+		chatOutput.start()
 
 	GLOB.ahelp_tickets.ClientLogin(src)
 	var/connecting_admin = FALSE //because de-admined admins connecting should be treated like admins.
@@ -964,6 +982,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if (clicklimiter[SECOND_COUNT] > scl)
 //			to_chat(src, "<span class='danger'>My previous click was ignored because you've done too many in a second</span>")
 			return
+
+	//check if the server is overloaded and if it is then queue up the click for next tick
+	//yes having it call a wrapping proc on the subsystem is fucking stupid glad we agree unfortunately byond insists its reasonable
+	if(!QDELETED(object) && TRY_QUEUE_VERB(VERB_CALLBACK(object, TYPE_PROC_REF(/atom, _Click), location, control, params), VERB_HIGH_PRIORITY_QUEUE_THRESHOLD, SSinput, control))
+		return
 
 	if (prefs.hotkeys)
 		// If hotkey mode is enabled, then clicking the map will automatically

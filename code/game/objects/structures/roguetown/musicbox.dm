@@ -68,6 +68,8 @@
 	var/playing = FALSE // If music is playing or not. playmusic() deals with this don't mess with it.
 	var/curvol = 50 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
 	var/playuponspawn = FALSE // Does the music box start playing music when it first spawns in? MAPPERS MAY TOUCH THIS.
+	var/locked = FALSE
+	var/lockid = null
 
 /obj/structure/roguemachine/musicbox/Initialize()
 	. = ..()
@@ -78,14 +80,24 @@
 		update_icon()
 
 /obj/structure/roguemachine/musicbox/Destroy()
-	. = ..()
+	playmusic("STOP")
 	del(soundloop)
+	. = ..()
 
 /obj/structure/roguemachine/musicbox/update_icon()
 	icon_state = "music[playing]"
 
+/obj/structure/roguemachine/musicbox/examine(mob/user)
+	. = ..()
+	. += "Volume: [curvol]/100"
+	if(lockid)
+		if(locked)
+			. += span_info("It's locked- under a [lockid] key!")
+		else
+			. += span_info("It's unlocked- under a [lockid] key!")
+
 /obj/structure/roguemachine/musicbox/proc/playmusic(mode="TOGGLE") // "TOGGLE" | "START" | "STOP"
-	playsound(loc, 'sound/misc/Bug.ogg', 100, FALSE, -1)
+	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 	if(mode=="TOGGLE")
 		if(!playing)
 			if(curfile)
@@ -109,12 +121,17 @@
 		playing = FALSE
 		soundloop.stop()
 
-/obj/structure/roguemachine/musicbox/attack_hand(mob/living/user)
+/obj/structure/roguemachine/musicbox/attack_hand(mob/user)
 	. = ..()
+	
 	if(.)
 		return
 
 	user.changeNext_move(CLICK_CD_MELEE)
+
+	if(locked)
+		to_chat(user, span_info("\The [src] is locked..."))
+		return
 
 	var/button_selection = input(user, "What button do I press?", "\The [src]") as null | anything in list("Stop/Start","Change Song","Change Volume")
 	if(!Adjacent(user))
@@ -166,29 +183,57 @@
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
 		volume_selection = clamp(volume_selection, 0, 100)
 		curvol = volume_selection
-		playsound(loc, 'sound/misc/Bug.ogg', 100, FALSE, -1)
+		playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 		playmusic("STOP")
 		playmusic("START")
 		if(curvol<volume_selection)
-			to_chat(user, span_info("I make \the [src] gets louder."))
+			to_chat(user, span_info("I make \the [src] louder."))
 		else
-			to_chat(user, span_info("I make \the [src] gets quieter."))
-
+			to_chat(user, span_info("I make \the [src] quieter."))
 	update_icon()
 
+/obj/structure/roguemachine/musicbox/attackby(obj/item/useitem, mob/living/user, params)
+	. = ..()
+	user.changeNext_move(CLICK_CD_MELEE)
+	if(lockid)
+		if(istype(useitem, /obj/item/key))
+			var/obj/item/key/K = useitem
+			if(K.lockid == lockid || K.lockid == "lord") // All locks obey THE King's master key.
+				locked = !locked
+				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+				if(locked==TRUE)
+					user.visible_message(span_info("[user] locks \the [src]."),span_info("I lock \the [src]."))
+				else
+					user.visible_message(span_info("[user] unlocks \the [src]."),span_info("I unlock \the [src]."))
+				return
+			else
+				playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+				to_chat(user, "<span class='warning'>Wrong key.</span>")
+				return
+		if(istype(useitem, /obj/item/storage/keyring))
+			var/obj/item/storage/keyring/K = useitem
+			for(var/obj/item/key/KE in K.contents)
+				if(KE.lockid == lockid)
+					locked = !locked
+					playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+					return
+
+/obj/structure/roguemachine/musicbox/mannor
+	lockid = "mannor"
+
 /obj/structure/roguemachine/musicbox/tavern
+	lockid = "tavern"
+	curvol = 30
+	playuponspawn = TRUE
 	init_curfile = list(\
-		'sound/music/jukeboxes/_misc/_generic.ogg',\
 		'sound/music/jukeboxes/_misc/Andrei_Kabak-Pathologic.ogg',\
 		'sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg',\
 		'sound/music/jukeboxes/chill/ac-lol.ogg',
 		'sound/music/jukeboxes/chill/ac-balthasar.ogg',\
 		'sound/music/jukeboxes/chill/vivalaluna-damla.ogg',\
 	)
-	curvol = 65
-	playuponspawn = TRUE
-	
-/obj/structure/roguemachine/musicbox/Initialize()
+
+/obj/structure/roguemachine/musicbox/tavern/Initialize()
 	. = ..()
 	soundloop.extra_range = 12
 	soundloop.falloff = 6

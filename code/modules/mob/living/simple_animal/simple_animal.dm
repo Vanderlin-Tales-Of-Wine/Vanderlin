@@ -165,6 +165,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/footstep_type
 
 	var/food = 0	//increase to make poop
+	var/food_max = 50
 	var/production = 0
 	var/pooptype = /obj/item/natural/poo/horse
 	var/pooprog = 0

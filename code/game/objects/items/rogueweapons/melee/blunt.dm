@@ -28,6 +28,8 @@
 	wbalance = EASY_TO_DODGE
 	sellprice = 20
 	blade_dulling = DULLING_BASHCHOP
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/rogueweapon/mace/getonmobprop(tag)
 	if(tag)
@@ -207,6 +209,7 @@
 	wbalance = HARD_TO_DODGE
 	sellprice = 15
 	wdefense = MEDIOCHRE_PARRY
+
 
 /obj/item/rogueweapon/mace/cudgel/getonmobprop(tag)
 	. = ..()

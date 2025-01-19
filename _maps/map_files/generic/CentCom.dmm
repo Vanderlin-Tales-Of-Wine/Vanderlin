@@ -1418,6 +1418,7 @@
 /area/rogue/indoors/vampire_manor)
 "fy" = (
 /obj/structure/chair/bench/couchablack/r,
+/obj/effect/landmark/start/admin,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue)
 "fC" = (
@@ -2293,6 +2294,11 @@
 "rQ" = (
 /turf/closed,
 /area/rogue)
+"rS" = (
+/obj/structure/chair/stool/rogue,
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
 "rY" = (
 /obj/structure/table/wood/plain,
 /obj/item/rogueweapon/knife/cleaver,
@@ -2890,6 +2896,11 @@
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/maniac,
+/area/rogue)
+"AD" = (
+/obj/structure/chair/stool/rogue,
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/wood,
 /area/rogue)
 "AI" = (
 /obj/structure/fluff/railing/fence,
@@ -3956,6 +3967,13 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
+"Ra" = (
+/obj/structure/chair/wood/rogue{
+	dir = 8
+	},
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/woodturned,
+/area/rogue)
 "Rb" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -9192,7 +9210,7 @@ RH
 Lt
 aN
 nL
-nL
+AD
 nL
 aN
 Lt
@@ -10364,7 +10382,7 @@ bM
 bM
 bM
 bM
-VJ
+rS
 fm
 jn
 jn
@@ -10752,7 +10770,7 @@ sI
 sZ
 SP
 SP
-sl
+Ra
 SP
 SP
 an

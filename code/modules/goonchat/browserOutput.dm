@@ -1,3 +1,5 @@
+#define MAX_COOKIE_LENGTH 5
+
 /*********************************
 For the main html chat area
 *********************************/
@@ -9,11 +11,14 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 /datum/chatOutput
 	var/client/owner	 //client ref
 	var/loaded       = FALSE // Has the client loaded the browser output area?
-	var/list/messageQueue //If they haven't loaded chat, this is where messages will go until they do
+	var/list/messageQueue = list()//If they haven't loaded chat, this is where messages will go until they do
 	var/cookieSent   = FALSE // Has the client sent a cookie for analysis
 	var/broken       = FALSE
 	var/list/connectionHistory //Contains the connection history passed from chat cookie
 	var/adminMusicVolume = 50 //This is for the Play Global Sound verb
+	var/total_checks = 0
+	var/load_attempts = 0
+
 
 /datum/chatOutput/New(client/C)
 	owner = C
@@ -33,6 +38,9 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		alert(owner.mob, "Updated chat window does not exist. If you are using a custom skin file please allow the game to update.")
 		return
 
+	if(!owner) // In case the client vanishes before winexists returns
+		return 0
+
 	if(winget(owner, "browseroutput", "is-visible") == "true") //Already setup
 		doneLoading()
 
@@ -45,15 +53,30 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	set waitfor = FALSE
 	if(!owner)
 		return
-
+	if(loaded)
+		return
 	var/datum/asset/stuff = get_asset_datum(/datum/asset/group/goonchat)
 	stuff.send(owner)
 
 	owner << browse(file('code/modules/goonchat/browserassets/html/browserOutput.html'), "window=browseroutput")
 
+	if (load_attempts < 5) //To a max of 5 load attempts
+		spawn(20 SECONDS)
+			if (owner && !loaded)
+				load_attempts++
+				load()
+	else
+		return
+
 /datum/chatOutput/Topic(href, list/href_list)
 	if(usr.client != owner)
 		return TRUE
+
+	if(href_list["admin_command"])
+		if(!owner.holder)
+			return
+		owner.holder.admin_command(href_list["admin_command"], href_list["target"])
+		return
 
 	// Build arguments.
 	// Arguments are in the form "param[paramname]=thing"
@@ -92,7 +115,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 
 //Called on chat output done-loading by JS.
 /datum/chatOutput/proc/doneLoading()
-	if(loaded)
+	if(loaded || !owner)
 		return
 
 	testing("Chat loaded for [owner.ckey]")
@@ -109,7 +132,6 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 
 	syncRegex()
 
-	//do not convert to to_chat
 	SEND_TEXT(owner, "<span class=\"userdanger\">Failed to load fancy chat, reverting to old chat. Certain features won't work.</span>")
 
 /datum/chatOutput/proc/showChat()
@@ -130,7 +152,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		regexes["show_filtered_ic_chat"] = list(
 			config.ic_filter_regex.name,
 			"ig",
-			"<span class='boldwarning'>$1</span>"
+			span_boldwarning("$1")
 		)
 
 	if (regexes.len)
@@ -176,10 +198,19 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 		return
 
 	if(cookie != "none")
+		var/regex/simple_crash_regex = new /regex("(\\\[ *){5}")
+		if(simple_crash_regex.Find(cookie))
+			message_admins("[key_name(src.owner)] tried to crash the server using malformed JSON")
+			log_admin("[key_name(owner)] tried to crash the server using malformed JSON")
+			return
 		var/list/connData = json_decode(cookie)
 		if (connData && islist(connData) && connData.len > 0 && connData["connData"])
 			connectionHistory = connData["connData"] //lol fuck
 			var/list/found = new()
+			if(connectionHistory.len > MAX_COOKIE_LENGTH)
+				message_admins("[key_name(src.owner)] was kicked for an invalid ban cookie)")
+				qdel(owner)
+				return
 			for(var/i in connectionHistory.len to 1 step -1)
 				var/list/row = src.connectionHistory[i]
 				if (!row || row.len < 3 || (!row["ckey"] || !row["compid"] || !row["ip"])) //Passed malformed history object

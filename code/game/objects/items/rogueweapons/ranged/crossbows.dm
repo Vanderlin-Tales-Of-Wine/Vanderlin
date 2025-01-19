@@ -71,8 +71,7 @@
 		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/firearms) * 3.5)
 		//per block
 		newtime = newtime + 20
-		// Perception aint gonna help you with loading a musket, bud
-		//newtime = newtime - (mastermob.STAPER)
+		newtime = newtime - (mastermob.STAPER)
 		if(newtime > 0)
 			return newtime
 		else

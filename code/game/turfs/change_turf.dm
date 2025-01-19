@@ -68,13 +68,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		testing("fuck3")
 		return new path(src)
 
-	var/isopenspa = FALSE
-	if(istype(src, /turf/open/transparent/openspace))
-		isopenspa = TRUE
-	else
-		if(path == /turf/open/transparent/openspace)
-			isopenspa = TRUE
-
 	var/old_opacity = opacity
 	var/old_dynamic_lighting = dynamic_lighting
 	var/old_affecting_lights = affecting_lights
@@ -88,8 +81,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	blueprint_data = null
 
 	var/oldPA = primary_area
-
-	STOP_PROCESSING(SSweather,src)
 
 	var/list/old_baseturfs = baseturfs
 
@@ -121,16 +112,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	W.blueprint_data = old_bp
 
 	W.primary_area = oldPA
-
-	START_PROCESSING(SSweather,W)
-	if(isopenspa)
-		var/turf/belo = get_step_multiz(W, DOWN)
-		for(var/x in 1 to 5)
-			if(belo)
-				START_PROCESSING(SSweather,belo)
-				belo = get_step_multiz(belo, DOWN)
-			else
-				break
 
 	if(SSlighting.initialized)
 		if(SSoutdoor_effects.initialized)

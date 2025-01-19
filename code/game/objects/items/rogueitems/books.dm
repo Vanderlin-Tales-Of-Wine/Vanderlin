@@ -427,14 +427,17 @@
 	base_icon_state = "[player_book_icon]"
 	pages = list("<b3><h3>Title: [player_book_title]<br>Author: [player_book_author]</b><h3>[player_book_text]")
 
-/obj/item/book/rogue/playerbook/Initialize(mapload, in_round_player_generated, mob/living/in_round_player_mob, text)
+/obj/item/book/rogue/playerbook/Initialize(mapload, in_round_player_generated, mob/living/in_round_player_mob, text, title)
 	. = ..()
 	is_in_round_player_generated = in_round_player_generated
 	if(is_in_round_player_generated)
 		INVOKE_ASYNC(src, PROC_REF(update_book_data), in_round_player_mob, text)
 	else
 		player_book_titles = SSlibrarian.pull_player_book_titles()
-		player_book_content = SSlibrarian.file2playerbook(pick(player_book_titles))
+		if(title)
+			player_book_content = SSlibrarian.file2playerbook(title)
+		else
+			player_book_content = SSlibrarian.file2playerbook(pick(player_book_titles))
 		player_book_title = player_book_content["book_title"]
 		player_book_author = player_book_content["author"]
 		player_book_author_ckey = player_book_content["author_ckey"]
@@ -453,6 +456,25 @@
 	var/compiled_pages = null
 	var/list/page_texts = list()
 	var/qdel_source = FALSE
+
+	var/author = "anonymous"
+	var/content = ""
+	var/category = "Unspecified"
+	var/ckey = ""
+	var/newicon = "basic_book_0"
+	var/written = FALSE
+	var/select_icon = "basic_book"
+	var/list/book_icons = list(
+		"Simple green" = "basic_book",
+		"Simple black" = "book",
+		"Simple red" = "book2",
+		"Simple blue" = "book3",
+		"Simple dark yellow" = "book4",
+		"Brown with dark corners" = "book5",
+		"Heavy purple with dark corners" = "book6",
+		"Light purple with gold leaf" = "book7",
+		"Light blue with gold leaf" = "book8",
+		"Grey with gold leaf" = "knowledge")
 
 /obj/item/manuscript/attackby(obj/item/I, mob/living/user)
 	// why is a book crafting kit using the craft system, but crafting a book isn't? Well the crafting system for *some reason* is made in such a way as to make reworking it to allow you to put reqs vars in the crafted item near *impossible.*
@@ -479,6 +501,10 @@
 	desc = "A [number_of_pages] page written piece, with aspirations of becoming a book."
 	page_texts += P.info
 	compiled_pages += "<p>[P.info]</p>"
+	if(user?.client && user.hud_used)
+		if(user.hud_used.reads)
+			user.hud_used.reads.destroy_read()
+		user << browse(null, "window=reading")
 	qdel(P)
 
 	update_icon()
@@ -533,6 +559,36 @@
 		onclose(user, "reading", src)
 	else
 		return "<span class='warning'>I'm too far away to read it.</span>"
+
+
+/obj/item/manuscript/attack_right(mob/user)
+	. = ..()
+	var/obj/item/P = user.get_active_held_item()
+	if(istype(P, /obj/item/natural/feather))
+		// Prompt user to populate manuscript fields
+		var/newtitle = dd_limittext(sanitize_hear_message(input(user, "Enter the title of the manuscript:") as text|null), MAX_CHARTER_LEN)
+		var/newauthor = dd_limittext(sanitize_hear_message(input(user, "Enter the author's name:") as text|null), MAX_CHARTER_LEN)
+		var/newcategory = input(user, "Select the category of the manuscript:") in list("Apocrypha & Grimoires", "Myths & Tales", "Legends & Accounts", "Thesis", "Eoratica")
+		var/newicon = book_icons[input(user, "Choose a book style", "Book Style") as anything in book_icons]
+
+		if (newtitle && newauthor && newcategory)
+			name = newtitle
+			author = newauthor
+			category = newcategory
+			ckey = user.ckey
+			select_icon = newicon
+			icon_state = "paperwrite"
+			to_chat(user, "<span class='notice'>You have successfully written the manuscript.</span>")
+			var/complete = input(user, "Is the manuscript finished?") in list("Yes", "No")
+			if(complete == "Yes" && compiled_pages)
+				written = TRUE
+		else
+			to_chat(user, "<span class='notice'>You must fill out all fields to complete the manuscript.</span>")
+		return
+	else if(istype(P, /obj/item/natural/feather) && written)
+		to_chat(user, "<span class='notice'>The manuscript has already been written.</span>")
+		return
+	return ..()
 
 /obj/item/manuscript/update_icon()
 	. = ..()

@@ -23,17 +23,18 @@
 
 /datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.virginity = TRUE
 	if(H.gender == FEMALE)
-		H.virginity = TRUE
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/silkdressprimary
+		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/stewarddress
 	else
-		shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/tunicprimary
-		pants = /obj/item/clothing/under/roguetown/tights
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
+		pants = /obj/item/clothing/under/roguetown/trou/leathertights
+
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
-	head = /obj/item/clothing/head/roguetown/chaperon/greyscale/chaperonsecondary
+	head = /obj/item/clothing/head/roguetown/stewardtophat
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
+	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/steward
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/steward
 	beltl = /obj/item/rogueweapon/knife/dagger/steel

@@ -162,7 +162,7 @@
 	..()
 
 /obj/structure/pillory/post_unbuckle_mob(mob/living/M)
-	//M.regenerate_icons()
+	M.regenerate_icons()
 	M.reset_offsets("bed_buckle")
 	icon_state = "[base_icon]"
 	update_icon()

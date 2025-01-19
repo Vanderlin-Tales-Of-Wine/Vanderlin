@@ -3,9 +3,9 @@
 	greet_text = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Monarch."
 	outfit = /datum/outfit/job/roguetown/rockhill/mayor
 	allowed_sexes = list(MALE,FEMALE)
-	allowed_races = list("Humen","Dwarf")
+	allowed_races = list("Humen","Dwarf","Elf","Half-Elf")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
 /datum/outfit/job/roguetown/rockhill/mayor/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
@@ -14,16 +14,16 @@
 	head = /obj/item/clothing/head/roguetown/helmet
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	cloak = /obj/item/clothing/cloak/lordcloak
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	gloves = /obj/item/clothing/gloves/roguetown/leather/black
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	beltl = /obj/item/rogueweapon/sword/long
 	if(H.gender == FEMALE)
-		head = /obj/item/clothing/head/roguetown/hennin
+		head = /obj/item/clothing/head/roguetown/courtierhat
 		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		cloak = /obj/item/clothing/cloak/lordcloak
+		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		beltr = /obj/item/rogueweapon/sword/rapier
 		id = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/roguetown/nobleboot
@@ -42,16 +42,16 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.change_stat("strength", 1)
-		H.change_stat("intelligence", 3)
-		H.change_stat("endurance", 3)
+		H.change_stat("intelligence", 2)
+		H.change_stat("endurance", 2)
 		H.change_stat("speed", 1)
 		H.change_stat("perception", 2)
-		H.change_stat("fortune", 5)
+		H.change_stat("fortune", 3)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
@@ -62,7 +62,7 @@
 	name = "Knight of Rockhill"
 	greet_text = "You are a Knight of Rockhill, the notable of said town has taken the journey to your liege, you are to ensure their safety."
 	outfit = /datum/outfit/job/roguetown/rockhill/knight
-	allowed_races = list("Humen")
+	allowed_races = list("Humen","Dwarf","Elf","Half-Elf","Aasimar")
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
 /datum/outfit/job/roguetown/rockhill/knight/pre_equip(mob/living/carbon/human/H)
@@ -96,7 +96,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-		H.change_stat("strength", 3)
+		H.change_stat("strength", 2)
 		H.change_stat("perception", 1)
 		H.change_stat("intelligence", 2)
 		H.change_stat("constitution", 2)
@@ -104,7 +104,6 @@
 		H.change_stat("speed", -1)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

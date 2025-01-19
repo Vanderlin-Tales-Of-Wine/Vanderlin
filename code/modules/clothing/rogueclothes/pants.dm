@@ -343,3 +343,10 @@
 	prevent_crits = ALL_EXCEPT_STAB
 	do_sound_plate = TRUE
 
+/obj/item/clothing/under/roguetown/platelegs/captain
+	name = "captain's chausses"
+	desc = "Cuisses made of plated steel, offering additional protection against blunt force. These are specially fitted for the captain."
+	icon_state = "capplateleg"
+	item_state = "capplateleg"
+	icon = 'icons/roguetown/clothing/special/captain.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'

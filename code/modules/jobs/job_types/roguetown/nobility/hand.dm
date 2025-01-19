@@ -34,7 +34,7 @@
 */
 
 /datum/outfit/job/roguetown/hand
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 	belt = /obj/item/storage/belt/rogue/leather/steel
 
 /datum/job/roguetown/hand/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -69,10 +69,10 @@
 
 //Classical hand start - same as before, nothing changed.
 /datum/outfit/job/roguetown/hand/handclassic/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/hand
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/handjacket
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	beltr = /obj/item/rogueweapon/sword/rapier/dec
 	if(H.mind)
@@ -152,7 +152,7 @@
 
 //Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors.
 /datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1) //starts with a vial of poison, like all wizened evil advisors do!
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/hand

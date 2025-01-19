@@ -32,6 +32,7 @@
 					ammo_list -= AR
 					B.attackby(AR, loc, params)
 					break
+		update_icon()
 		return
 	..()
 

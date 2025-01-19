@@ -72,6 +72,7 @@
 		H.change_stat("perception", 2)
 		H.change_stat("endurance", -3)
 		H.change_stat("speed", -1)
+		H.verbs |= /mob/proc/haltyell
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4)) // Rolls for either a bow or a Crossbow
 		switch(weapontypec)
@@ -115,5 +116,6 @@
 		H.change_stat("endurance", -1)
 		H.change_stat("constitution", 1)
 		H.change_stat("speed", 1)
+		H.verbs |= /mob/proc/haltyell
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

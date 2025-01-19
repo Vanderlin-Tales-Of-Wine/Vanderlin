@@ -211,6 +211,7 @@
 	finished_smell = /datum/pollutant/food/cabbage_stew
 
 /datum/pot_recipe/cooking/turnip_stew
+	name = "turnip stew"
 	cooking_time = 70 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/veggie/turnip
 	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/veg/turnip_sliced = 1)

@@ -189,7 +189,7 @@
 /datum/reagent/buff/perception
 	name = "Perception"
 	color = "#ffff00"
-	taste_description = "sweets"
+	taste_description = "cat piss"
 
 /datum/reagent/buff/perception/on_mob_life(mob/living/carbon/M)
 	testing("per pot in system")
@@ -202,8 +202,8 @@
 
 /datum/reagent/buff/intelligence
 	name = "Intelligence"
-	color = "#00ff90"
-	taste_description = "sweets"
+	color = "#438127"
+	taste_description = "bog water"
 
 /datum/reagent/buff/intelligence/on_mob_life(mob/living/carbon/M)
 	testing("int pot in system")
@@ -216,8 +216,8 @@
 
 /datum/reagent/buff/constitution
 	name = "Constitution"
-	color = "#ffff00"
-	taste_description = "sweets"
+	color = "#130604"
+	taste_description = "bile"
 
 /datum/reagent/buff/constitution/on_mob_life(mob/living/carbon/M)
 	testing("con pot in system")
@@ -231,7 +231,7 @@
 /datum/reagent/buff/endurance
 	name = "Endurance"
 	color = "#ffff00"
-	taste_description = "sweets"
+	taste_description = "gote urine"
 
 /datum/reagent/buff/endurance/on_mob_life(mob/living/carbon/M)
 	testing("end pot in system")
@@ -245,7 +245,7 @@
 /datum/reagent/buff/speed
 	name = "Speed"
 	color = "#ffff00"
-	taste_description = "sweets"
+	taste_description = "raw egg yolk"
 
 /datum/reagent/buff/speed/on_mob_life(mob/living/carbon/M)
 	testing("spd pot in system")
@@ -259,7 +259,7 @@
 /datum/reagent/buff/fortune
 	name = "Fortune"
 	color = "#ffff00"
-	taste_description = "sweets"
+	taste_description = "pig urine"
 
 /datum/reagent/buff/fortune/on_mob_life(mob/living/carbon/M)
 	testing("luck pot in system")

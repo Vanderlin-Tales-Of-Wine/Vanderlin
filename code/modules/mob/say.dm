@@ -62,7 +62,7 @@
 ///Speak as a dead person (ghost etc)
 /mob/proc/say_dead(message)
 	return
-/*
+/* 
 	var/name = real_name
 	var/alt_name = ""
 

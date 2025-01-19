@@ -82,7 +82,7 @@
 #define TRAIT_IWASUNZOMBIFIED "iwasunzombified" //prevents PQ gain from curing a zombie twice
 #define TRAIT_ZIZOID_HUNTED "zizoidhunted" // Used to signal character has been marked by death by the Zizoid cult
 #define TRAIT_LEPROSY "Leprosy"
-
+#define TRAIT_SCHIZO_FLAW "Schizophrenic"
 
 // JOB RELATED TRAITS
 

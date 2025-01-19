@@ -273,11 +273,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		//Ambience if combat mode is off
 		SSdroning.area_entered(src, living_arrived.client)
 		SSdroning.play_loop(src, living_arrived.client)
-		var/found = FALSE
-		for(var/datum/weather/rain/R in SSweather.curweathers)
-			found = TRUE
-		if(found)
-			SSdroning.play_rain(src, living_arrived.client)
 
 //	L.play_ambience(src)
 
@@ -404,19 +399,9 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		SSdroning.area_entered(src, boarder.client)
 		boarder.client.update_ambience_pref()
 		SSdroning.play_loop(src, boarder.client)
-		var/found = FALSE
-		for(var/datum/weather/rain/R in SSweather.curweathers)
-			found = TRUE
-		if(found)
-			SSdroning.play_rain(get_area(boarder.client), boarder.client)
 
 /area/reconnect_game(mob/living/boarder)
 	. = ..()
 	if(istype(boarder) && boarder.client)
 		SSdroning.area_entered(src, boarder.client)
 		SSdroning.play_loop(src, boarder.client)
-		var/found = FALSE
-		for(var/datum/weather/rain/R in SSweather.curweathers)
-			found = TRUE
-		if(found)
-			SSdroning.play_rain(get_area(boarder.client), boarder.client)

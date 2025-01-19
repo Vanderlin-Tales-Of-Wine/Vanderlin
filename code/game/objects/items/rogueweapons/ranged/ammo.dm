@@ -22,6 +22,7 @@
 	dropshrink = 0.8
 	max_integrity = 10
 	force = 10
+	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
@@ -35,7 +36,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = BOLT_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_SHOT
 	flag =  "piercing"
 	speed = 0.3
 	accuracy = 85 //Crossbows have higher accuracy
@@ -154,6 +155,7 @@
 	dropshrink = 0.8
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
+	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -167,7 +169,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = ARROW_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_SHOT
 	flag =  "piercing"
 	speed = 0.4
 

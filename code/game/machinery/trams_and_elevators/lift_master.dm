@@ -625,6 +625,18 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				total_coin_value += listed_atom.get_real_price()
 				qdel(listed_atom)
 
+			for(var/atom/movable/inside in listed_atom.get_all_contents())
+				if(inside == listed_atom)
+					continue
+				if(istype(inside, /obj/item/paper/scroll/cargo))
+					var/obj/item/paper/scroll/cargo/cargo_manifest = inside
+					requested_supplies += cargo_manifest.orders.Copy()
+					qdel(inside)
+
+				if(istype(inside, /obj/item/roguecoin))
+					total_coin_value += inside.get_real_price()
+					qdel(inside)
+
 		if(!length(requested_supplies))
 			spawn_coins(total_coin_value, platform)
 			continue
@@ -722,6 +734,32 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				sold_count[initial(listed_atom.name)]++
 				sold_items[initial(listed_atom.name)] += FLOOR(listed_atom.sellprice * sell_modifer, 1)
 
+			for(var/atom/movable/inside in listed_atom.get_all_contents())
+				if(inside == listed_atom)
+					continue
+				if(inside in original_contents)
+					continue
+				if(!inside.sellprice)
+					continue
+				if(istype(inside, /obj/item/paper/scroll/cargo))
+					continue
+				if(istype(inside, /obj/structure/closet/crate/chest))
+					continue
+				if(istype(inside, /obj/item/roguecoin))
+					continue
+
+				total_coin_value += FLOOR(inside.sellprice * sell_modifer, 1)
+				if(!(initial(inside.name) in sold_items))
+					sold_items |= initial(inside.name)
+					sold_count |= initial(inside.name)
+
+					sold_count[initial(inside.name)] = 1
+					sold_items[initial(inside.name)] = FLOOR(inside.sellprice * sell_modifer, 1)
+
+				else
+					sold_count[initial(inside.name)]++
+					sold_items[initial(inside.name)] += FLOOR(inside.sellprice * sell_modifer, 1)
+
 			qdel(listed_atom)
 
 		spawn_coins(total_coin_value, platform)
@@ -753,3 +791,13 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				manifest.count = count.Copy()
 				manifest.items = items.Copy()
 				manifest.rebuild_info()
+
+///Returns the src and all recursive contents as a list.
+/atom/proc/get_all_contents(ignore_flag_1)
+	. = list(src)
+	var/i = 0
+	while(i < length(.))
+		var/atom/checked_atom = .[++i]
+		if(checked_atom.flags_1 & ignore_flag_1)
+			continue
+		. += checked_atom.contents

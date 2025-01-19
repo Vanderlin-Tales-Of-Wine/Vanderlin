@@ -84,6 +84,8 @@
 
 /mob/living/carbon/monkey/Stat()
 	..()
+	if(!client)
+		return
 	if(statpanel("Status"))
 		stat(null, "Intent: [a_intent]")
 		stat(null, "Move Mode: [m_intent]")

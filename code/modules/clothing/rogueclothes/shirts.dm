@@ -108,6 +108,14 @@
 	desc = "A tunic exposing much of the shoulders and neck. Shoulders?! How scandalous..."
 	icon_state = "lowcut"
 
+/obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
+	name = "fancy tunic"
+	desc = "A button-down shirt woven from fine sliks with a decorated front and cuffs."
+	icon_state = "fancyshirt"
+	icon = 'icons/roguetown/clothing/special/hand.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/hand.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/hand.dmi'
+
 /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 	icon_state = "sailorblues"
 
@@ -350,6 +358,15 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/silkdressprimary/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
+
+/obj/item/clothing/suit/roguetown/shirt/dress/stewarddress
+	name = "steward's dress"
+	desc = "A victorian-styled black dress with shining bronze buttons."
+	icon = 'icons/roguetown/clothing/special/steward.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/steward.dmi'
+	icon_state = "stewarddress"
+	sleeved = FALSE
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 //Royal clothing:
 //................ Royal Dress (Ball Gown)............... //

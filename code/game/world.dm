@@ -1,7 +1,16 @@
 #define RESTART_COUNTER_PATH "data/round_counter.txt"
+/// Load byond-tracy. If USE_BYOND_TRACY is defined, then this is ignored and byond-tracy is always loaded.
+#define USE_TRACY_PARAMETER "tracy"
 
 GLOBAL_VAR(restart_counter)
-
+GLOBAL_VAR(tracy_log)
+GLOBAL_PROTECT(tracy_log)
+GLOBAL_VAR(tracy_initialized)
+GLOBAL_PROTECT(tracy_initialized)
+GLOBAL_VAR(tracy_init_error)
+GLOBAL_PROTECT(tracy_init_error)
+GLOBAL_VAR(tracy_init_reason)
+GLOBAL_PROTECT(tracy_init_reason)
 /**
  * World creation
  *
@@ -18,6 +27,47 @@ GLOBAL_VAR(restart_counter)
  * Nothing happens until something moves. ~Albert Einstein
  *
  */
+/world/proc/_()
+	var/static/_ = world.Genesis()
+
+
+/**
+ * THIS !!!SINGLE!!! PROC IS WHERE ANY FORM OF INIITIALIZATION THAT CAN'T BE PERFORMED IN MASTER/NEW() IS DONE
+ * NOWHERE THE FUCK ELSE
+ * I DON'T CARE HOW MANY LAYERS OF DEBUG/PROFILE/TRACE WE HAVE, YOU JUST HAVE TO DEAL WITH THIS PROC EXISTING
+ * I'M NOT EVEN GOING TO TELL YOU WHERE IT'S CALLED FROM BECAUSE I'M DECLARING THAT FORBIDDEN KNOWLEDGE
+ * SO HELP ME GOD IF I FIND ABSTRACTION LAYERS OVER THIS!
+ */
+/world/proc/Genesis(tracy_initialized = FALSE)
+	RETURN_TYPE(/datum/controller/master)
+
+	// monkestation edit: some tracy refactoring
+	if(!tracy_initialized)
+		GLOB.tracy_initialized = FALSE
+#ifndef OPENDREAM
+	if(!tracy_initialized)
+#ifdef USE_BYOND_TRACY
+#warn USE_BYOND_TRACY is enabled
+		var/should_init_tracy = TRUE
+		GLOB.tracy_init_reason = "USE_BYOND_TRACY defined"
+#else
+		var/should_init_tracy = FALSE
+		if(USE_TRACY_PARAMETER in params)
+			should_init_tracy = TRUE
+			GLOB.tracy_init_reason = "world.params"
+		if(fexists(TRACY_ENABLE_PATH))
+			GLOB.tracy_init_reason ||= "enabled for round"
+			SEND_TEXT(world.log, "[TRACY_ENABLE_PATH] exists, initializing byond-tracy!")
+			should_init_tracy = TRUE
+			fdel(TRACY_ENABLE_PATH)
+#endif
+		if(should_init_tracy)
+			init_byond_tracy()
+			Genesis(tracy_initialized = TRUE)
+			return
+#endif
+	// THAT'S IT, WE'RE DONE, THE. FUCKING. END.
+	Master = new
 
 /world/New()
 
@@ -27,7 +77,7 @@ GLOBAL_VAR(restart_counter)
 
 	make_datum_references_lists()	//initialises global lists for referencing frequently used datums (so that we only ever do it once)
 
-	TgsNew(minimum_required_security_level = TGS_SECURITY_TRUSTED)
+	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
 
 	GLOB.revdata = new
 
@@ -125,6 +175,11 @@ GLOBAL_VAR(restart_counter)
 		GLOB.picture_logging_prefix = "O_[override_dir]_"
 		GLOB.picture_log_directory = "data/picture_logs/[override_dir]"
 
+	if(GLOB.tracy_log)
+		rustg_file_write("[GLOB.tracy_log]", "[GLOB.log_directory]/tracy.loc")
+	else if(!isnull(GLOB.tracy_init_error))
+		stack_trace("byond-tracy failed to initialize: [GLOB.tracy_init_error]")
+
 	GLOB.world_game_log = "[GLOB.log_directory]/game.log"
 	GLOB.world_mecha_log = "[GLOB.log_directory]/mecha.log"
 	GLOB.world_virus_log = "[GLOB.log_directory]/virus.log"
@@ -145,6 +200,7 @@ GLOBAL_VAR(restart_counter)
 	GLOB.world_job_debug_log = "[GLOB.log_directory]/job_debug.log"
 	GLOB.world_paper_log = "[GLOB.log_directory]/paper.log"
 	GLOB.tgui_log = "[GLOB.log_directory]/tgui.log"
+	set_db_log_directory()
 
 #ifdef UNIT_TESTS
 	GLOB.test_log = file("[GLOB.log_directory]/tests.log")
@@ -175,6 +231,42 @@ GLOBAL_VAR(restart_counter)
 	// but those are both private, so let's put the commit info in the runtime
 	// log which is ultimately public.
 	log_runtime(GLOB.revdata.get_log_message())
+
+/proc/set_db_log_directory()
+	set waitfor = FALSE
+	if(!GLOB.round_id || !SSdbcore.IsConnected())
+		return
+	var/datum/DBQuery/set_log_directory = SSdbcore.NewQuery({"
+		UPDATE [format_table_name("round")]
+		SET
+			`log_directory` = :log_directory
+		WHERE
+			`id` = :round_id
+	"}, list("log_directory" = GLOB.log_directory, "round_id" = GLOB.round_id))
+	set_log_directory.Execute()
+	QDEL_NULL(set_log_directory)
+
+/proc/get_log_directory_by_round_id(round_id)
+	if(!isnum(round_id) || round_id <= 0 || !SSdbcore.IsConnected())
+		return
+	var/datum/DBQuery/query_log_directory = SSdbcore.NewQuery({"
+		SELECT `log_directory`
+		FROM
+			[format_table_name("round")]
+		WHERE
+			`id` = :round_id
+	"}, list("round_id" = round_id))
+	if(!query_log_directory.warn_execute())
+		qdel(query_log_directory)
+		return
+	if(!query_log_directory.NextRow())
+		qdel(query_log_directory)
+		CRASH("Failed to get log directory for round [round_id]")
+	var/log_directory = query_log_directory.item[1]
+	QDEL_NULL(query_log_directory)
+	if(!rustg_file_exists(log_directory))
+		CRASH("Log directory '[log_directory]' for round ID [round_id] doesn't exist!")
+	return log_directory
 
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC //redirect to server tools if necessary
@@ -281,19 +373,21 @@ GLOBAL_VAR(restart_counter)
 		if(do_hard_reboot)
 			log_world("World hard rebooted at [time_stamp()]")
 			shutdown_logging() // See comment below.
+			shutdown_byond_tracy()
 			TgsEndProcess()
 	else
 		testing("tgsavailable [TgsAvailable()]")
 
 	log_world("World rebooted at [time_stamp()]")
 	shutdown_logging() // Past this point, no logging procs can be used, at risk of data loss.
+	shutdown_byond_tracy()
 	..()
 
 /world/proc/update_status()
 	var/s = ""
 	s += "<center><a href=\"https://discord.gg/zNAGFDcQ\">"
 #ifdef MATURESERVER
-	s += "<big><b>Vanderlin - IN-DEVELOPMENT PLAYTEST (Hosted by Monkestation)</b></big></a><br>"
+	s += "<big><b>Vanderlin - Now 24/7 (Hosted by Monkestation)</b></big></a><br>"
 	s += "<b>Dark Medieval Fantasy Roleplay<b><br>"
 
 #else
@@ -312,6 +406,10 @@ GLOBAL_VAR(restart_counter)
 #endif
 	status = s
 	return s
+
+/world/Del()
+	shutdown_byond_tracy()
+	. = ..()
 /*
 /world/proc/update_status()
 
@@ -417,3 +515,40 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/on_tickrate_change()
 	SStimer?.reset_buckets()
+
+/world/proc/init_byond_tracy()
+	if(!fexists(TRACY_DLL_PATH))
+		SEND_TEXT(world.log, "Error initializing byond-tracy: [TRACY_DLL_PATH] not found!")
+		CRASH("Error initializing byond-tracy: [TRACY_DLL_PATH] not found!")
+
+	var/init_result = call_ext(TRACY_DLL_PATH, "init")("block")
+	if(length(init_result) != 0 && init_result[1] == ".") // if first character is ., then it returned the output filename
+		SEND_TEXT(world.log, "byond-tracy initialized (logfile: [init_result])")
+		GLOB.tracy_initialized = TRUE
+		return GLOB.tracy_log = init_result
+	else if(init_result == "already initialized")
+		GLOB.tracy_initialized = TRUE
+		SEND_TEXT(world.log, "byond-tracy already initialized ([GLOB.tracy_log ? "logfile: [GLOB.tracy_log]" : "no logfile"])")
+	else if(init_result != "0")
+		GLOB.tracy_init_error = init_result // monkestation edit: log tracy errors
+		SEND_TEXT(world.log, "Error initializing byond-tracy: [init_result]")
+		CRASH("Error initializing byond-tracy: [init_result]")
+	else
+		GLOB.tracy_initialized = TRUE
+		SEND_TEXT(world.log, "byond-tracy initialized (no logfile)")
+
+/world/proc/shutdown_byond_tracy()
+	if(GLOB.tracy_initialized)
+		SEND_TEXT(world.log, "Shutting down byond-tracy")
+		GLOB.tracy_initialized = FALSE
+		call_ext(TRACY_DLL_PATH, "destroy")()
+
+/world/proc/flush_byond_tracy()
+	// if GLOB.tracy_log is set, that means we're using para-tracy, which should have this.
+	if(GLOB.tracy_initialized && GLOB.tracy_log)
+		SEND_TEXT(world.log, "Flushing byond-tracy log")
+		var/flush_result = call_ext(TRACY_DLL_PATH, "flush")()
+		if(flush_result != "0")
+			SEND_TEXT(world.log, "Error flushing byond-tracy log: [flush_result]")
+			CRASH("Error flushing byond-tracy log: [flush_result]")
+		SEND_TEXT(world.log, "Flushed byond-tracy log")

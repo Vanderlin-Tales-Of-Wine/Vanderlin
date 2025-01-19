@@ -53,15 +53,14 @@
 			to_chat(user, span_boldwarning("[needsate_text]"))
 	if(!sated)
 		var/mob/living/carbon/V = user
-		/*
+
 		switch(world.time - unsate_time)
 			if(0 to 5 MINUTES)
 				V.add_stress(/datum/stressevent/vice1)
 			if(5 MINUTES to 15 MINUTES)
 				V.add_stress(/datum/stressevent/vice2)
 			if(15 MINUTES to INFINITY)
-				V.add_stress(/datum/stressevent/vice3)*/
-		V.add_stress(/datum/stressevent/vice)
+				V.add_stress(/datum/stressevent/vice3)
 		if(debuff)
 			H.apply_status_effect(debuff)
 

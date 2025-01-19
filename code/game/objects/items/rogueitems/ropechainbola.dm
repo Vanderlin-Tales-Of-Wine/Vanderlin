@@ -51,7 +51,7 @@
 
 	if(user.aimheight > 4)
 		if(!C.handcuffed)
-			if(C.get_num_arms(TRUE))
+			if(C.get_num_arms(FALSE))
 				C.visible_message("<span class='warning'>[user] is trying to tie [C]'s arms with [src.name]!</span>", \
 									"<span class='userdanger'>[user] is trying to tie my arms with [src.name]!</span>")
 

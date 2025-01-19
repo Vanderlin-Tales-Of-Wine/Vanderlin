@@ -41,6 +41,11 @@
 
 // #define UNIT_TESTS			//Enables unit tests
 
+// If this is uncommented, will attempt to load and initialize prof.dll/libprof.so by default.
+// Even if it's not defined, you can pass "tracy" via -params in order to try to load it.
+// We do not ship byond-tracy. Build it yourself here: https://github.com/mafemergency/byond-tracy/
+// #define USE_BYOND_TRACY
+
 #if defined(CIBUILDING) && !defined(OPENDREAM)
 #define UNIT_TESTS
 #endif

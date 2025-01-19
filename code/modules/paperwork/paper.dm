@@ -185,7 +185,7 @@
 	dat += "[t]<br>"
 	dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
 	dat += "</body></html>"
-	user << browse(dat, "window=reading;size=500x400;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=0;border=0")
+	user << browse(dat, "window=reading;size=500x400;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=1;border=0")
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"

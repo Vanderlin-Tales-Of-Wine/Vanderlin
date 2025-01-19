@@ -419,6 +419,9 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
 
+/datum/repeatable_crafting_recipe/leather/standalone/bracers
+	abstract_type = TRUE
+
 /datum/repeatable_crafting_recipe/leather/standalone/bracers/masterwork
 	name = "masterwork leather bracers"
 	output = /obj/item/clothing/wrists/roguetown/bracers/leather/masterwork

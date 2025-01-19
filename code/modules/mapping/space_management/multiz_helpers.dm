@@ -11,13 +11,13 @@
 	. = list(center_z)
 	var/other_z = center_z
 	var/offset
-	while((offset = SSmapping.multiz_levels[other_z]["[DOWN]"]))
+	while((offset = SSmapping.multiz_levels[other_z][Z_LEVEL_DOWN]))
 		other_z -= offset
 		if(other_z in .)
 			break	// no infinite loops
 		. += other_z
 	other_z = center_z
-	while((offset = SSmapping.multiz_levels[other_z]["[UP]"]))
+	while((offset = SSmapping.multiz_levels[other_z][Z_LEVEL_UP]))
 		other_z += offset
 		if(other_z in .)
 			break	// no infinite loops

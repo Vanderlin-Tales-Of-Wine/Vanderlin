@@ -138,7 +138,7 @@ SUBSYSTEM_DEF(familytree)
 	var/list/low_priority_houses = list()
 	var/list/high_priority_houses = list()
 	for(var/datum/heritage/I in families)
-		if(I.housename && (I.family.len >= 1 && I.family.len < 8))
+		if(I.housename && (I.family.len >= 1 && I.family.len < 6))
 			high_priority_houses.Add(I)
 		else
 			low_priority_houses.Add(I)
@@ -149,11 +149,11 @@ SUBSYSTEM_DEF(familytree)
 		if(i == 2)
 			what_we_checkin = low_priority_houses
 		for(var/datum/heritage/I in what_we_checkin)
-			if(I.dominant_species == species)
+			if(I.dominant_species == species && (I.family.len >= 1 && I.family.len < 4))
 				chosen_house = I
 				break
 			//Its weird to be placed as a foster child in a family with no people in it.
-			if(prob(10) && I.family.len > 1)
+			if(prob(20) && (I.family.len > 1 && I.family.len <= 8))
 				chosen_house = I
 				adopted = TRUE
 				break
@@ -315,7 +315,7 @@ SUBSYSTEM_DEF(familytree)
 	var/list/low_priority_houses = list()
 	var/list/high_priority_houses = list()
 	for(var/datum/heritage/I in families)
-		if(I.housename || (I.family.len >= 1 && I.family.len <= 6))
+		if(I.housename && (I.family.len >= 1 && I.family.len > 6))
 			high_priority_houses.Add(I)
 		else
 			low_priority_houses.Add(I)
@@ -328,6 +328,9 @@ SUBSYSTEM_DEF(familytree)
 			what_we_checkin = low_priority_houses
 		for(var/datum/heritage/I in what_we_checkin)
 			if(I.dominant_species == species)
+				chosen_house = I
+				break
+			if(prob(2) && (I.family.len > 1))
 				chosen_house = I
 				break
 		if(chosen_house)

@@ -23,70 +23,8 @@
 	if (!isnum(amount) || amount < 1)
 		return
 
-	// First, get the total number of available books in the category
-	var/datum/DBQuery/query_count_books = SSdbcore.NewQuery({"
-		SELECT COUNT(*) FROM library
-		WHERE deleted <> 1 AND approved = 1 AND (:category IS NULL OR category = :category)
-	"}, list("category" = src.category))
-
-	var/total_books = 0
-	if (query_count_books && query_count_books.Execute() && query_count_books.NextRow())
-		total_books = text2num(query_count_books.item[1])
-	if(query_count_books)
-		qdel(query_count_books)
-
-	if(total_books == 0)
-		return
-
-	// Adjust amount to be the minimum of requested amount and total available books
-	amount = min(amount, total_books)
-
-	// Now fetch random books without duplicates
-	var/datum/DBQuery/query_get_random_books = SSdbcore.NewQuery({"
-		SELECT author, title, content, category, select_icon
-		FROM library
-		WHERE isnull(deleted) AND approved = 1 AND (:category IS NULL OR category = :category)
-		ORDER BY RAND() LIMIT :limit
-	"}, list("category" = src.category, "limit" = amount * 2)) // Fetch extra in case of duplicates
-
-	if (query_get_random_books && query_get_random_books.Execute())
-		var/list/added_titles = list()
-		while (query_get_random_books.NextRow())
-			var/title = query_get_random_books.item[2]
-			// Check if we have already added this book (by title)
-			if(title in added_titles)
-				continue // Skip duplicate
-			var/author = query_get_random_books.item[1]
-			var/content = query_get_random_books.item[3]
-			var/category_db = query_get_random_books.item[4]
-			var/select_icon = query_get_random_books.item[5]
-
-			// Check if the bookcase has space
-			if(length(src.contents) >= 15)
-				break // Bookcase is full
-
-			var/obj/item/book/rogue/B = new()
-			B.author = author
-			B.title = title
-			B.pages = list("<b3><h3>Title: [B.title]<br>Author: [B.author]</b><h3>[content]")
-			B.name = B.title
-			B.category = category_db
-			if (select_icon)
-				B.icon_state = "[select_icon]_0"
-				B.base_icon_state = select_icon
-			else
-				B.icon_state = "book[rand(1,8)]"
-
-			// Place the book into the bookcase's contents
-			B.loc = src
-
-			. += B
-			added_titles += title
-
-			if(length(src.contents) >= amount)
-				break // Reached desired amount of books
-	if(query_get_random_books)
-		qdel(query_get_random_books)
+	for(var/i = 1 to amount)
+		new /obj/item/book/rogue/playerbook(src)
 
 /obj/structure/bookcase/random/update_icon()
 	if((length(contents) >= 1) && (length(contents) <= 15))

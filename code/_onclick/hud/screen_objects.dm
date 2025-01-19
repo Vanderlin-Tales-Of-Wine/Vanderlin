@@ -1769,11 +1769,8 @@
 		if("dawn")
 			icon_state = "dawn"
 			name = "Sir Sun - Dawn"
-	for(var/datum/weather/rain/R in SSweather.curweathers)
-		if(R.stage < 2)
-			add_overlay("clouds")
-		if(R.stage == 2)
-			add_overlay("rainlay")
+	if(SSParticleWeather.runningWeather.target_trait == PARTICLEWEATHER_RAIN)
+		add_overlay("rainlay")
 
 /atom/movable/screen/stamina
 	name = "stamina"

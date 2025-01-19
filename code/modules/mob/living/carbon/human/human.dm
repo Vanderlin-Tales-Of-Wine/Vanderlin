@@ -139,6 +139,8 @@
 
 /mob/living/carbon/human/Stat()
 	..()
+	if(!client)
+		return
 	if(mind)
 		var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
 		if(VD)
@@ -436,13 +438,13 @@
 	if(hud_used.clock)
 		hud_used.clock.update_icon()
 
-/mob/living/carbon/human/update_health_hud()
+/mob/living/carbon/human/update_health_hud(stamina_only = FALSE)
 	if(!client || !hud_used)
 		return
 	if(dna.species.update_health_hud())
 		return
 	else
-		if(hud_used.bloods)
+		if(hud_used.bloods && !stamina_only)
 			var/bloodloss = ((BLOOD_VOLUME_NORMAL - blood_volume) / BLOOD_VOLUME_NORMAL) * 100
 
 			var/burnhead = 0
@@ -532,8 +534,8 @@
 				else if(energy > 0)
 					hud_used.energy.icon_state = "stam10"
 
-		if(hud_used.zone_select)
-			hud_used.zone_select.update_icon()
+	if(hud_used.zone_select && !stamina_only)
+		hud_used.zone_select.update_icon()
 
 /mob/living/carbon/human/fully_heal(admin_revive = FALSE)
 	dna?.species.spec_fully_heal(src)
@@ -548,7 +550,7 @@
 /mob/living/carbon/human/check_weakness(obj/item/weapon, mob/living/attacker)
 	. = ..()
 	if (dna && dna.species)
-		. += dna.species.check_species_weakness(weapon, attacker)
+		. += dna.species.check_species_weakness(weapon, attacker, src)
 
 /mob/living/carbon/human/is_literate()
 	if(mind)

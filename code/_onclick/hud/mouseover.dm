@@ -72,7 +72,7 @@
 			p.client.mouseovertext.movethis(PM, TRUE)
 		else
 			p.client.mouseovertext.movethis(PM)
-		if(((rotation_structure && rotation_network) || istype(src, /obj/structure/water_pipe)) && HAS_TRAIT(p, TRAIT_ENGINEERING_GOGGLES))
+		if(((rotation_structure && rotation_network) || istype(src, /obj/structure/water_pipe)) || accepts_water_input && HAS_TRAIT(p, TRAIT_ENGINEERING_GOGGLES))
 			var/rotation_chat = return_rotation_chat(p.client.mouseovertext)
 			p.client.mouseovertext.maptext = {"[rotation_chat]
 			<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
@@ -242,5 +242,5 @@
 /client/proc/genmouseobj()
 	mouseovertext = new /atom/movable/screen/movable/mouseover/maptext
 	mouseoverbox = new /atom/movable/screen/movable/mouseover
-	var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/roguefonts)
+	var/datum/asset/stuff = get_asset_datum(/datum/asset/simple/namespaced/roguefonts)
 	stuff.send(src)

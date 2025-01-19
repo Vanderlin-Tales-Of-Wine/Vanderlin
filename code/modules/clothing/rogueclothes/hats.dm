@@ -61,9 +61,15 @@
 			Thou wilt be alone on these barren lands."
 	icon_state = "fisherhat"
 
-/obj/item/clothing/head/roguetown/flathat
-	name = "flat hat"
-	icon_state = "flathat"
+/obj/item/clothing/head/roguetown/stewardtophat
+	name = "top hat"
+	icon_state = "stewardtophat"
+	icon = 'icons/roguetown/clothing/special/steward.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+	bloody_icon = 'icons/effects/blood64x64.dmi'
+	bloody_icon_state = "helmetblood_big"
 
 /obj/item/clothing/head/roguetown/knitcap
 	name = "knit cap"
@@ -832,7 +838,13 @@
 /obj/item/clothing/head/roguetown/helmet/visored/knight/black
 	color = CLOTHING_SOOT_BLACK
 
-
+//................. Captain's Helmet .............. //
+/obj/item/clothing/head/roguetown/helmet/visored/captain
+	name = "captain's helmet"
+	desc = "An elegant barbute, fitted with the gold trim and polished metal of nobility."
+	icon = 'icons/roguetown/clothing/special/captain.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+	icon_state = "capbarbute"
 
 //......................................................................................................
 /*------------------\

@@ -211,7 +211,6 @@
 				update_icon()
 				if(soundloop)
 					soundloop.start()
-				addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
 				return TRUE
 
 /obj/machinery/light/rogue/torchholder/Initialize()
@@ -278,7 +277,6 @@
 					on = TRUE
 					update()
 					update_icon()
-					addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
 					return
 			if(!LR.on && on)
 				if(LR.fuel > 0)
@@ -293,7 +291,6 @@
 				on = TRUE
 				update()
 				update_icon()
-				addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
 			else
 				if(!user.transferItemToLoc(LR, src))
 					return
@@ -338,6 +335,7 @@
 	climb_offset = 14
 	on = FALSE
 	cookonme = TRUE
+	soundloop = /datum/looping_sound/fireloop
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
 	var/datum/looping_sound/boilloop/boilloop
@@ -500,6 +498,7 @@
 	bulb_colour = "#da5e21"
 	cookonme = TRUE
 	max_integrity = 30
+	soundloop = /datum/looping_sound/fireloop
 
 /obj/machinery/light/rogue/campfire/process()
 	..()

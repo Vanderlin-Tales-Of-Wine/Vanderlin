@@ -280,6 +280,8 @@ SUBSYSTEM_DEF(plexora)
 	))
 
 /datum/controller/subsystem/plexora/proc/aticket_connection(datum/admin_help/ticket, is_disconnect = TRUE)
+	if(!ticket)
+		return
 	if(!enabled) return
 	http_basicasync("atickets/connection_notice", list(
 		"id" = ticket.id,

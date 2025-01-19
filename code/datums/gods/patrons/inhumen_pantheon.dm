@@ -13,7 +13,7 @@
 	desc = "Snow Elf who slaughtered Her kind in ascension, conquered and remade the Dark Elven empires in Her name. She proves that any with will can achieve divinity... though at a cost."
 	flaws = "Hubris, Superiority, Fury"
 	worshippers = "Dark Elves, Aspirants, Necromancers"
-	sins = "Resistance, Deceit, Wastefulness"
+	sins = "Pearl-clutching, Moralism, Wastefulness"
 	boons = "You know other followers of Zizo when you see them."
 	added_traits = list(TRAIT_CABAL)
 	confess_lines = list(

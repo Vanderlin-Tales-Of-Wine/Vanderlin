@@ -151,17 +151,6 @@
 	obj_flags |= CAN_BE_HIT
 	. = ..()
 
-/turf/open/OnCrafted(dirin)
-	. = ..()
-	START_PROCESSING(SSweather,src)
-	var/turf/belo = get_step_multiz(src, DOWN)
-	for(var/x in 1 to 5)
-		if(belo)
-			START_PROCESSING(SSweather,belo)
-			belo = get_step_multiz(belo, DOWN)
-		else
-			break
-
 /datum/crafting_recipe/proc/TurfCheck(mob/user, turf/T)
 	return TRUE
 

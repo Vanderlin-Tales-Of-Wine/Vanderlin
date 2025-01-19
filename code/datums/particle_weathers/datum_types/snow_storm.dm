@@ -179,7 +179,12 @@
 
 
 /obj/structure/snow/process(delta_time)
+	if(!SSParticleWeather.runningWeather)
+		damage_act(3)
+	else if(!istype(SSParticleWeather.runningWeather, /datum/weather_effect/snow))
+		damage_act(6)
 	update_overlays()
+
 
 /obj/structure/snow/proc/get_slowdown()
 	return 1.5 * bleed_layer
@@ -307,7 +312,7 @@
 
 
 /obj/structure/snow/proc/weathered(datum/weather_effect/effect)
-	if(progression < bleed_layer * 8)
+	if(progression < bleed_layer * 32)
 		progression++
 	else
 		if(bleed_layer >= 3)
@@ -334,14 +339,6 @@
 	if(!bleed_layer)
 		qdel(src)
 		return
-
-	switch(bleed_layer)
-		if(1)
-			layer = BELOW_OBJ_LAYER
-		if(2)
-			layer = BELOW_OBJ_LAYER
-		if(3)
-			layer = OBJ_LAYER
 
 	update_corners(TRUE)
 	update_overlays()

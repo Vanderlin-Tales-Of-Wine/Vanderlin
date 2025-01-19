@@ -12,7 +12,7 @@
 		else
 			stamina = 0
 
-	update_health_hud()
+	update_health_hud(TRUE)
 
 /mob/living/proc/update_energy()
 	///this is kinda weird and not at the same time for energy being tied to this,
@@ -38,14 +38,14 @@
 	energy += added
 	if(energy > max_energy)
 		energy = max_energy
-		update_health_hud()
+		update_health_hud(TRUE)
 		return FALSE
 	else
 		if(energy <= 0)
 			energy = 0
 			if(m_intent == MOVE_INTENT_RUN) //can't sprint at zero stamina
 				toggle_rogmove_intent(MOVE_INTENT_WALK)
-		update_health_hud()
+		update_health_hud(TRUE)
 		return TRUE
 
 /mob/proc/adjust_stamina(added as num)
@@ -68,7 +68,7 @@
 							return FALSE
 	if(stamina >= maximum_stamina)
 		stamina = maximum_stamina
-		update_health_hud()
+		update_health_hud(TRUE)
 		if(m_intent == MOVE_INTENT_RUN) //can't sprint at full fatigue
 			toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 		if(!emote_override)
@@ -94,7 +94,7 @@
 		return FALSE
 	else
 		last_fatigued = world.time
-		update_health_hud()
+		update_health_hud(TRUE)
 		return TRUE
 
 /mob/living/carbon
