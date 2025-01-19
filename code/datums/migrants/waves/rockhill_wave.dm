@@ -195,7 +195,7 @@
 
 /datum/migrant_wave/rockhill_wave
 	name = "The Mayor's visit"
-	shared_wave_type = /datum/migrant_wave/rockhill_wave
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	downgrade_wave = /datum/migrant_wave/rockhill_wave_down
 	max_spawns = 1
 	weight = 30
@@ -209,7 +209,7 @@
 
 /datum/migrant_wave/rockhill_wave_down
 	name = "The Mayor's visit"
-	shared_wave_type = /datum/migrant_wave/rockhill_wave
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	downgrade_wave = /datum/migrant_wave/rockhill_wave_down_one
 	can_roll = FALSE
 	roles = list(
@@ -222,7 +222,7 @@
 
 /datum/migrant_wave/rockhill_wave_down_one
 	name = "The Mayor's visit"
-	shared_wave_type = /datum/migrant_wave/rockhill_wave
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/rockhill/mayor = 1,
