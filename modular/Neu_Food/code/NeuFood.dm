@@ -21,6 +21,31 @@
 	foodtype = GRAIN
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 30 SECONDS
+	var/requires_table = FALSE // mostly a way to avoid a lot of bugs
+	var/skillcheck	// got enough skill to make this?
+	var/foodbuff_skillcheck // is the cook good enough to add buff?
+	var/skill_lacking = "Your skill is lacking."
+
+/obj/item/reagent_containers/food/snacks/rogue/attackby(obj/item/I, mob/user, params)
+	if(user.mind)
+		if(skillcheck)
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 3) // cooks with less than 3 skill don´t know this recipe
+				to_chat(user, span_warning(skill_lacking))
+				return
+		if(foodbuff_skillcheck)		// cooks with less than 4 skill don´t add bonus buff
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 3)
+				to_chat(user, span_warning(skill_lacking))
+				return
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
+
+	if(requires_table)
+		var/found_table = locate(/obj/structure/table) in (loc)
+		if(!isturf(loc)&& (found_table))
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+			return
+	. = ..()
+
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
@@ -554,189 +579,26 @@
 | Meals on platters |
 \------------------*/
 
+/*	..................   Food platter   ................... */
 /obj/item/cooking/platter/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked))
+	if(findtext("[I.type]", "/plated")) //All plated food items have /plated at end of path
+		to_chat(user, span_warning("[I] in your hand appears to already be plated."))
+		return
+	if(istype(I, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/S = I
 		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated(loc)
-				qdel(I)
-				qdel(src)
+			if (S.plateable == TRUE)
+				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+				if(do_after(user,2 SECONDS, target = src))
+					var/path = text2path("[S.type]/plated")
+					new path(loc)
+					qdel(I)
+					qdel(src)
+			else
+				to_chat(user, span_warning("[S] cannot be plated."))
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/spiced))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated/spiced(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/peppersteak))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/peppersteak/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/onionsteak))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/onionsteak/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedrat))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/friedrat/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/hcakeslice))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/hcakeslice/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/ccakeslice))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/ccakeslice/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/bun_grenz))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/bun_grenz/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienercabbage))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienercabbage/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotato))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wieneronions))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wieneronions/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/frybirdtato))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/royaltruffles))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/royaltruffles/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/royaltruffles_poisoned))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/royaltruffles_poisoned/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-
+			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
 	else
 		return ..()
 

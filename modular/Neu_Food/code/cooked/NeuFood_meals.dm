@@ -19,6 +19,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/peppersteak/plated
 	icon_state = "peppersteak_plated"
 	item_state = "plate_food"
@@ -43,6 +44,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/onionsteak/plated
 	icon_state = "onionsteak_plated"
 	item_state = "plate_food"
@@ -71,6 +73,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/wienercabbage/plated
 	icon_state = "wienercabbage_plated"
 	item_state = "plate_food"
@@ -94,7 +97,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
@@ -147,6 +150,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/wieneronions/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
@@ -196,6 +200,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated
 	icon_state = "wpotonion_plated"
 	item_state = "plate_food"
@@ -215,13 +220,14 @@
 
 /*	.................   Valerian Omelette   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
 	tastes = list("fried cackleberries" = 1, "cheese" = 1)
 	name = "valerian omelette"
 	desc = "Fried cackleberries on a bed of half-melted cheese, a dish from distant lands."
 	icon_state = "omelette"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian/plated
 	icon_state = "omelette_plated"
 	item_state = "plate_food"
@@ -355,6 +361,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato/plated
 	icon_state = "frybirdtato_plated"
 	item_state = "plate_food"
@@ -383,6 +390,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/royaltruffles/plated
 	icon_state = "royaltruffles_plated"
 	item_state = "plate_food"
@@ -405,6 +413,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	plateable = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/royaltruffles_poisoned/plated
 	icon_state = "royaltruffles_plated"
 	item_state = "plate_food"

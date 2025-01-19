@@ -72,7 +72,7 @@ All foods are distributed among various categories. Use common sense.
 	var/eat_effect
 	var/rotprocess = FALSE
 	var/become_rot_type = null
-
+	var/plateable = FALSE //if it can be plated or not
 	var/mill_result = null
 
 	var/fertamount = 50
