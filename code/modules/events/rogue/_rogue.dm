@@ -33,15 +33,15 @@ GLOBAL_LIST_INIT(badomens, list())
 	var/used
 	switch(eventreason)
 		if(OMEN_ROUNDSTART)
-			used = "Zizo."
+			used = "Zizo's apocalypse rings the death toll in the land once more..."
 		if(OMEN_NOPRIEST)
 			used = "The Priest has perished! The Ten are weakened..."
 		if(OMEN_SKELETONSIEGE)
 			used = "Unwelcome visitors!"
 		if(OMEN_NOLORD)
-			used = "The Monarch is dead! We need a new ruler."
+			used = "The Monarch has been felled! Our town is at the mercy of invaders."
 		if(OMEN_SUNSTEAL)
-			used = "The Sun, she is wounded!"
+			used = "The Sun is wounded! Astrata retreats to the heavens."
 		if(OMEN_ASCEND)
 			used = "Zizo will rise once again!"
 	if(eventreason && used)
