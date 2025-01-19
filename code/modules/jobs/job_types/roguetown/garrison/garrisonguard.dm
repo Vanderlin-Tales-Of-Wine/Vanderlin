@@ -51,6 +51,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 
 /* ! ! ! Class Selection Section Below ! ! !
 Design philosphy:
@@ -171,7 +172,7 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -193,13 +194,12 @@ Design philosphy:
 
 /datum/outfit/job/roguetown/guardsman/fencer/pre_equip(mob/living/carbon/human/H)
 	..()
-	//Gets studded leather (which hopefully will be renamed splint mail at some point...) and a chain coif
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/advanced
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	beltr = /obj/item/rogueweapon/sword/rapier
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
 	backl = /obj/item/storage/backpack/rogue/satchel
-	head = /obj/item/clothing/head/roguetown/roguehood/red
+	head = /obj/item/clothing/head/roguetown/helmet/ironpot
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	backpack_contents = list(/obj/item/storage/keyring/guard)
 
@@ -209,13 +209,67 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", 2)
+	H.change_stat("fortune",2)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
+
+/datum/advclass/garrison/arcane_potential
+	name = "Garrison Magos"
+	tutorial = "You always sense something was special with you. Yet you've only discovered recently you could wield arcane powers."
+	outfit = /datum/outfit/job/roguetown/guardsman/arcane_potential
+
+	category_tags = list(CTAG_GARRISON)
+
+/datum/outfit/job/roguetown/guardsman/arcane_potential/pre_equip(mob/living/carbon/human/H)
+	..()
+	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
+	pants = /obj/item/clothing/under/roguetown/trou/leather
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
+	armor = /obj/item/clothing/suit/roguetown/shirt/robe/black
+	belt = /obj/item/storage/belt/rogue/leather/rope
+	beltr = /obj/item/reagent_containers/glass/bottle/rogue/manapot
+	backr = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
+	mask = /obj/item/clothing/mask/rogue/shepherd/clothmask
+	neck = /obj/item/clothing/neck/roguetown/coif
+	head = /obj/item/clothing/head/roguetown/roguehood/red
+	r_hand = /obj/item/rogueweapon/polearm/woodstaff/quarterstaff/iron
+	if(H.mind)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
+
+		if(H.age == AGE_MIDDLEAGED)
+			head = /obj/item/clothing/head/roguetown/wizhat/gen
+			H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+			H.change_stat("speed", -1)
+			H.change_stat("intelligence", 1)
+			H.change_stat("perception", 1)
+			H.mind.adjust_spellpoints(1)
+		H.change_stat("intelligence", 3)
+		H.change_stat("constitution", 1)
+		H.change_stat("endurance", -1)
+		H.mind.adjust_spellpoints(1)
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+		H.verbs |= /mob/proc/haltyell
 
 /mob/proc/haltyell()
 	set name = "HALT!"
