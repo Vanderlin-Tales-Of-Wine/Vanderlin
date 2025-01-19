@@ -212,7 +212,7 @@
 /datum/migrant_wave/grenzelhoft_visit
 	name = "The Grenzelhoft visit"
 	max_spawns = 1
-	shared_wave_type = /datum/migrant_wave/grenzelhoft_visit
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/grenzelhoft_visit_down
 	roles = list(
@@ -225,7 +225,7 @@
 /datum/migrant_wave/grenzelhoft_visit_down
 	name = "The Grenzelhoft visit"
 	max_spawns = 1
-	shared_wave_type = /datum/migrant_wave/grenzelhoft_visit
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/grenzelhoft/count = 1,
