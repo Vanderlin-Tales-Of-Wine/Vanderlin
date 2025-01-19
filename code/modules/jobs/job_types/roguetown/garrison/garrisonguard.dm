@@ -259,7 +259,8 @@ Design philosphy:
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
-
+		if(H.patron != /datum/patron/divine/noc)
+			H.set_patron(/datum/patron/divine/noc)
 		if(H.age == AGE_MIDDLEAGED)
 			head = /obj/item/clothing/head/roguetown/wizhat/gen
 			H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
