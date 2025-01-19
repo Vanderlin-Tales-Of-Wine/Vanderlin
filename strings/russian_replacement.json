@@ -1,11 +1,17 @@
 {
 
     "russian": {
+		"yes": "da",
+		"hello": "privyet",
 		"c": "k",
 		"kh": "ch",
-		"r": "rr",
-		"yes": "da",
-		"hello": "privyet"
+		"d": "Д",
+		"h": "н",
+		"t": "т",
+		"u": "ц",
+		"k": "к",
+		"w": "ш",
+		"r": "я",
+		"e": "э"
 		}
-		
 }

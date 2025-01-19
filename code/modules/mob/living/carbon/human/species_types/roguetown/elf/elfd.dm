@@ -135,5 +135,5 @@
 /datum/species/elf/dark/random_surname()
 	return " [pick(world.file2list("strings/rt/names/elf/elfsnf.txt"))]"
 
-/datum/species/elf/dark/get_accent_list()
+/datum/species/elf/dark/get_accent(mob/living/carbon/human/H)
 	return strings("french_replacement.json", "french")

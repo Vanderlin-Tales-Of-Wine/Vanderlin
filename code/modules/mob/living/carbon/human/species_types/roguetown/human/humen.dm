@@ -67,17 +67,15 @@
 
 /datum/species/human/northern/get_skin_list()
 	return sortList(list(
-		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
-		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
-		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
-		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
-		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
-		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
-		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
-		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
-		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
-		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east)
-		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
+		"Grenzelhoft" = SKIN_COLOR_GRENZELHOFT,
+		"Lowlander" = SKIN_COLOR_LOWLANDER,
+		"Mainlander" = SKIN_COLOR_MAINLANDER,
+		"Steppe" = SKIN_COLOR_STEPPE,
+		"Valorian" = SKIN_COLOR_VALORIAN,
+		"Heartfelt" = SKIN_COLOR_HEARTFELT,
+		"Islander" = SKIN_COLOR_ISLANDER,
+		"Southlander" = SKIN_COLOR_SOUTHLANDER,
+		"Zybantu" = SKIN_COLOR_ZYBANTU,
 	))
 
 /datum/species/human/northern/get_hairc_list()
@@ -129,3 +127,13 @@
 
 /datum/species/human/northern/random_surname()
 	return " [pick(world.file2list("strings/rt/names/human/humnorlast.txt"))]"
+
+/datum/species/human/northern/get_accent(mob/living/carbon/human/H)
+	switch(H.skin_tone)
+		if(SKIN_COLOR_GRENZELHOFT)
+			return strings("german_replacement.json", "german")
+		if(SKIN_COLOR_HEARTFELT)
+			return strings("steppes_replacement.json", "steppes") //I have no idea
+		if(SKIN_COLOR_MAINLANDER)
+			return strings("anglish_replacement.json", "anglish")
+	return null

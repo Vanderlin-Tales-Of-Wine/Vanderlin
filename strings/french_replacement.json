@@ -1,8 +1,6 @@
 {
 
     "french": {
-		"shi": "shee",
-		"thi": "zee",
 		"them ": "zem ",
 		"that ": "zat ",
 		"will": "weell",
@@ -10,7 +8,6 @@
 		"throw": "zrow",
 		"though": "zough",
 		"thought": "zhoght",
-		"with": "weef",
 		"those": "zose",
 		"they": "zey",
 		"another": "anozer",
@@ -19,28 +16,37 @@
 		"Mother" : "Mozer",
 		"Father" : "Fazer",
 		" yes ": " yis ",
-        	" and ": " et ", 
+        " and ": " et ",
 		"the ": "l' ",
 		"I ": "j' ",
 		"I'm ": "j' ",
-        	"bye": [
-           		 "adieu",
-			"au revoir"
-       		 ], 
 		"cake": "gateau",
-      		  "captain": "capitaine", 
-     		   "dad": "papa", 
-        "hello": [
-            "'allo", 
-            "bonjour",
-			"salut"
-        ], 
-        "mom ": "mama ", 
-	"shit": "merde",
-        "spaghetti": "macaroni", 
-        "thanks": "merci",  
-        "thank you": "merci",   
-        "wine": "vine"
-		}
-		
+      	"captain": "capitaine",
+        "mom ": "mama ",
+        "spaghetti": "macaroni",
+		"no": "non",
+        "yes": "oui",
+        "I'm": "j'",
+        "a": "un",
+        "and": "et",
+        "the": "l'",
+        "I": "j'",
+        "with": "weeth",
+        "of": "de",
+        "bye": ["adieu", "au revoir"],
+        "mom": "mama",
+        "dad": "papa",
+        "good": "bon",
+        "bad": "mal",
+        "shit": "merde",
+        "my": "mon",
+        "thanks": "merci",
+        "thank you": "merci",
+        "hello": ["'allo", "bonjour", "salut"],
+        "wine": "vin",
+        "what's": "quel est",
+        "who's": "qui est",
+		"shi": "shee",
+        "thi": "thee"
+	}
 }

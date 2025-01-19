@@ -1,7 +1,7 @@
 /datum/species
 	var/amtfail = 0
 
-/datum/species/proc/get_accent_list()
+/datum/species/proc/get_accent(mob/living/carbon/human)
 	return
 
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
@@ -41,7 +41,7 @@
 					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
 					message = replacetextEx(message, " [key]", " [value]")
 
-		var/list/species_accent = get_accent_list()
+		var/list/species_accent = get_accent(source)
 		if(species_accent)
 			if(message[1] != "*")
 				message = " [message]"

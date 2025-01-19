@@ -1,13 +1,39 @@
 {
-
-    "spanish": {
-		"thi": "thee",
-		"s": "ss",
-		"r": "rr",
-		"ish": "eesh",
-		"is": "es",
-		"thanks": "gracias",
-		"in": "en"
-		}
-		
+		"spanish": {
+			"hello": "hola",
+			"hey" : "hola",
+			"goodbye": "adios",
+			"bye": "adios",
+			"my": "mi",
+			"it": "et",
+			"please": "por favor",
+			"yes": "sí",
+			"good": "bueno",
+			"bad": "malo",
+			"is": "es",
+			"in": "en",
+			"of": "de",
+			"the": "el",
+			"shit": "mierda",
+			"wine": "vino",
+			"what happened": "que paso",
+			"captain": "capitán",
+			"thats lovely": "que adorable",
+			"sir": "señor",
+			"lady": "señora",
+			"thanks": "gracias",
+			"bean": "frijol",
+			"beans": "frijoles",
+			"cat": "gato",
+			"motherfucker": "Cabron",
+			"friend": "amigo",
+			"tomato": "tomate",
+			"whore": "puta",
+			"bitch": "puta",
+			"bitches": "putas",
+			"cheese": "queso",
+			"shi": "chee",
+			"thi": "thee",
+			"sh": "ch"
+	}
 }

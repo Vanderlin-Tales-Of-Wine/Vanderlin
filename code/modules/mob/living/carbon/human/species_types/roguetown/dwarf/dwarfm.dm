@@ -143,6 +143,8 @@
 /datum/species/dwarf/mountain/random_surname()
 	return " [pick(world.file2list("strings/rt/names/dwarf/dwarmlast.txt"))]"
 
+/datum/species/dwarf/mountain/get_accent(mob/living/carbon/human/H)
+	return strings("dwarf_replacement.json", "dwarf")
 
 
 /*------------------\

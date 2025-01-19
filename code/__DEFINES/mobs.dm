@@ -441,17 +441,16 @@
 #define SKIN_COLOR_CRIMSON_ELF "4e3729" //Black 2
 
 //HUMEN SKIN TONES
-#define SKIN_COLOR_ICECAP "fff0e9" //Pale as SHIT!!
-#define SKIN_COLOR_ARCTIC "ffe0d1" //White 1
-#define SKIN_COLOR_TUNDRA "fcccb3" //White 2
-#define SKIN_COLOR_CONTINENTAL "edc6b3" //White 3
-#define SKIN_COLOR_TEMPERATE "e2b9a3" //White 4
-#define SKIN_COLOR_COASTAL "d9a284" //Tan
-#define SKIN_COLOR_SUBTROPICAL "c9a893" //Mediterranean 1
-#define SKIN_COLOR_TROPICALDRY "ba9882" //Mediterranean 2
-#define SKIN_COLOR_TROPICALWET "ac8369" //Latin
-#define SKIN_COLOR_DESERT "9c6f52" //Middle-east
-#define SKIN_COLOR_CRIMSONLANDS "4e3729" //Black
+#define SKIN_COLOR_GRENZELHOFT "ffe0d1"
+#define SKIN_COLOR_LOWLANDER "fcccb3"
+#define SKIN_COLOR_MAINLANDER "edc6b3"
+#define SKIN_COLOR_HEARTFELT "e2b9a3"
+#define SKIN_COLOR_VALORIAN "d9a284"
+#define SKIN_COLOR_STEPPE "c9a893"
+#define SKIN_COLOR_ISLANDER "ba9882"
+#define SKIN_COLOR_SOUTHLANDER "ac8369"
+#define SKIN_COLOR_ZYBANTU "9c6f52"
+#define SKIN_COLOR_CRIMSONLANDS "684e3d"
 
 //AASIMAR SKIN TONES
 #define SKIN_COLOR_PLANETAR "474a4c" //Grey
