@@ -32,7 +32,6 @@
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/noc)
 			H.set_patron(/datum/patron/divine/noc)
-
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
