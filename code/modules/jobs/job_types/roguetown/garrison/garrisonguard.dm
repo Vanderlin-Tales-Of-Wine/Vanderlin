@@ -95,6 +95,7 @@ Design philosphy:
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 1)
+	H.change_stat("fortune", 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
@@ -128,8 +129,9 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.change_stat("strength", 2)
+	H.change_stat("fortune", 1)
 	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 1)
+	H.change_stat("constitution", 2)
 	H.change_stat("speed", -1) // Stronk and gets training in hard hitting polearms, but slower
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
@@ -213,7 +215,7 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", 2)
-	H.change_stat("fortune",2)
+	H.change_stat("fortune", 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
