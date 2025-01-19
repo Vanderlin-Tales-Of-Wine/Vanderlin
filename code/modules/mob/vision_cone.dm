@@ -320,6 +320,8 @@
 /mob/proc/show_cone()
 	if(!client)
 		return
+	if(hud_used?.fov?.alpha == 255)
+		return
 	if(hud_used?.fov)
 		hud_used.fov.alpha = 255
 		hud_used.fov_blocker.alpha = 255
@@ -328,6 +330,8 @@
 
 /mob/proc/hide_cone()
 	if(!client)
+		return
+	if(hud_used?.fov?.alpha == 0)
 		return
 	if(hud_used?.fov)
 		hud_used.fov.alpha = 0

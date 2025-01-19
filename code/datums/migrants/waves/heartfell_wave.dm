@@ -5,7 +5,8 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
+
 /datum/outfit/job/roguetown/heartfelt/lord/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
@@ -52,7 +53,8 @@
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
+
 /datum/outfit/job/roguetown/heartfelt/lady/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/hennin
@@ -93,7 +95,8 @@
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
+
 /datum/outfit/job/roguetown/heartfelt/hand/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
@@ -134,7 +137,7 @@
 	outfit = /datum/outfit/job/roguetown/heartfelt/knight
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
 /datum/outfit/job/roguetown/heartfelt/knight/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet
@@ -301,8 +304,8 @@
 /datum/migrant_wave/heartfelt
 	name = "The Court of Heartfelt"
 	max_spawns = 1
-	shared_wave_type = /datum/migrant_wave/heartfelt
-	weight = 50
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
+	weight = 25
 	downgrade_wave = /datum/migrant_wave/heartfelt_down
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
@@ -315,7 +318,7 @@
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes!"
 /datum/migrant_wave/heartfelt_down
 	name = "The Court of Heartfelt"
-	shared_wave_type = /datum/migrant_wave/heartfelt
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,

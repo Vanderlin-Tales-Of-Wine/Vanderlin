@@ -1,10 +1,11 @@
 /datum/migrant_role/dwarven_company/captain
-	name = "Foreman"
-	greet_text = "You are the foreman of a dwarven's expedition, following the steps of Matthios you shall lead your party to Malum's tomb."
+	name = "Captain"
+	greet_text = "You are the captain of a dwarven's expedition, following the steps of Matthios you shall lead your party to Malum's tomb."
 	outfit = /datum/outfit/job/roguetown/dwarven_company/captain
 
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/dwarven_company/captain/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -43,14 +44,17 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 /datum/migrant_role/dwarven_company/weaponsmith
 	name = "Weapon Smith"
-	greet_text = " You are the weaponsmith of a dwarven expedition, obey your foremand as they lead you in Matthios steps into the tomb of Malum."
+	greet_text = " You are the weaponsmith of a dwarven expedition, obey your captain as they lead you in Matthios steps into the tomb of Malum."
 	outfit = /datum/outfit/job/roguetown/dwarven_company/weaponsmith
 
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/dwarven_company/weaponsmith/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -72,6 +76,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
@@ -103,12 +108,13 @@
 		H.change_stat("speed", -1)
 
 /datum/migrant_role/dwarven_company/armorsmith
-	name = "Weapon Smith"
-	greet_text = " You are the armorsmith of a dwarven expedition, obey your foremand as they lead you in Matthios steps into the tomb of Malum."
+	name = "Armor Smith"
+	greet_text = " You are the armorsmith of a dwarven expedition, obey your captain as they lead you in Matthios steps into the tomb of Malum."
 	outfit = /datum/outfit/job/roguetown/dwarven_company/armorsmith
 
 	allowed_races = list("Dwarf")
 	grant_lit_torch = TRUE
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/dwarven_company/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -130,6 +136,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) //
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)

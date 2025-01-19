@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/fire()
 	if(reboot_anyway)
 		if(world.time > reboot_anyway)
-			SSticker.Reboot("Restart vote successful and gamemaster did not want to stop the restart.", "restart vote")
+			force_ending = TRUE
 			reboot_anyway = null
 	switch(current_state)
 		if(GAME_STATE_STARTUP)
@@ -456,6 +456,7 @@ SUBSYSTEM_DEF(ticker)
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 */
 	PostSetup()
+	INVOKE_ASYNC(world, TYPE_PROC_REF(/world, flush_byond_tracy))
 	log_game("GAME SETUP: postsetup success")
 
 	return TRUE

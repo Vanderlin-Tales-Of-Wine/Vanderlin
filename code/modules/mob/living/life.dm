@@ -29,27 +29,26 @@
 	if(!loc)
 		return
 
-	if(!IS_IN_STASIS(src))
-		//Breathing, if applicable
-		handle_breathing(times_fired)
-		if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
-			handle_wounds()
-			handle_embedded_objects()
-			handle_blood()
-			//passively heal even wounds with no passive healing
-			for(var/datum/wound/wound as anything in get_wounds())
-				wound.heal_wound(1)
+	//Breathing, if applicable
+	handle_breathing(times_fired)
+	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
+		handle_wounds()
+		handle_embedded_objects()
+		handle_blood()
+		//passively heal even wounds with no passive healing
+		for(var/datum/wound/wound as anything in get_wounds())
+			wound.heal_wound(1)
 
-		if (QDELETED(src)) // diseases can qdel the mob via transformations
-			return
+	if (QDELETED(src)) // diseases can qdel the mob via transformations
+		return
 
-		//Random events (vomiting etc)
-		handle_random_events()
+	//Random events (vomiting etc)
+	handle_random_events()
 
-		handle_gravity()
+	handle_gravity()
 
-		handle_traits() // eye, ear, brain damages
-		handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
+	handle_traits() // eye, ear, brain damages
+	handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
 
 	update_sneak_invis()
 	handle_fire()
@@ -74,11 +73,10 @@
 		return
 	if(!loc)
 		return
-	if(!IS_IN_STASIS(src))
-		if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
-			handle_wounds()
-			handle_embedded_objects()
-			handle_blood()
+	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
+		handle_wounds()
+		handle_embedded_objects()
+		handle_blood()
 	update_sneak_invis()
 	handle_fire()
 	handle_typing_indicator()

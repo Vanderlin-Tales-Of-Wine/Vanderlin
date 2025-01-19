@@ -376,12 +376,12 @@
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message("<span class='warning'>[user] taunts [M]!</span>", "<span class='warning'>I taunt [M]!</span>", ignored_mobs = targetl)
+		user.visible_message("<span class='red'>[user] taunts [M]!</span>", "<span class='warning'>I red [M]!</span>", ignored_mobs = targetl)
 		user.emote("taunt")
 		if(M.client)
 			M.taunted(user)
 			if(M.can_see_cone(user))
-				to_chat(M, "<span class='danger'>[user] taunts me!</span>")
+				to_chat(M, "<span class='red'>[user] taunts me!</span>")
 		else
 			M.taunted(user)
 	return

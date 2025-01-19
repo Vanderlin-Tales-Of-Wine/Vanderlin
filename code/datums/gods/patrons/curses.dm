@@ -12,10 +12,11 @@
 /datum/curse/proc/on_death()
 	return
 
-/datum/curse/proc/on_gain(mob/living/carbon/human/owner)
+/datum/curse/proc/on_gain(mob/living/carbon/human/owner, silent = FALSE)
 	ADD_TRAIT(owner, trait, TRAIT_CURSE)
-	to_chat(owner, span_userdanger("Something is wrong... I feel cursed."))
-	to_chat(owner, span_danger(description))
+	if(!silent)
+		to_chat(owner, span_userdanger("Something is wrong... I feel cursed."))
+		to_chat(owner, span_danger(description))
 	owner.playsound_local(get_turf(owner), 'sound/misc/cursed.ogg', 80, FALSE, pressure_affected = FALSE)
 	return
 
@@ -31,12 +32,12 @@
 		var/datum/curse/C = curse
 		C.on_life(src)
 
-/mob/living/carbon/human/proc/add_curse(datum/curse/C)
+/mob/living/carbon/human/proc/add_curse(datum/curse/C, silent = FALSE)
 	if(is_cursed(C))
 		return FALSE
 	C = new C()
 	curses += C
-	C.on_gain(src)
+	C.on_gain(src, silent)
 	return TRUE
 
 /mob/living/carbon/human/proc/remove_curse(datum/curse/C)
@@ -113,6 +114,11 @@
 	description = "I can no longer distinguish reality from delusion."
 	trait = TRAIT_ZIZO_CURSE
 	var/atom/movable/screen/fullscreen/maniac/hallucinations
+
+/datum/curse/schizophrenic //zizo curse but without the jumpscares and meta hallucinations
+	name = "Schizophrenic"
+	description = "I can see and hear things others cannot."
+	trait = TRAIT_SCHIZO_FLAW
 
 /datum/curse/graggar
 	name = "Graggar's Curse"
@@ -207,8 +213,15 @@
 	. = ..()
 	handle_maniac_visions(owner, hallucinations)
 	handle_maniac_hallucinations(owner)
-	handle_maniac_floors(owner)
+	//handle_maniac_floors(owner)
 	handle_maniac_walls(owner)
+
+/datum/curse/schizophrenic/on_life(mob/living/carbon/human/owner)
+	. = ..()
+	if(prob(0.5))
+		INVOKE_ASYNC(owner, GLOBAL_PROC_REF(handle_maniac_mob_hallucination), owner)
+	else if(prob(2))
+		INVOKE_ASYNC(owner, GLOBAL_PROC_REF(handle_maniac_object_hallucination), owner)
 
 // cursed_freak_out() is freak_out() without stress adjustments
 // bandaid deserves a second look

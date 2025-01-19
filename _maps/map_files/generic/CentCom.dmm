@@ -26,12 +26,12 @@
 /area/rogue)
 "ae" = (
 /obj/structure/closet/crate/chest,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "af" = (
@@ -1418,6 +1418,7 @@
 /area/rogue/indoors/vampire_manor)
 "fy" = (
 /obj/structure/chair/bench/couchablack/r,
+/obj/effect/landmark/start/admin,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue)
 "fC" = (
@@ -1518,7 +1519,7 @@
 /area/rogue/indoors/bandit_lair)
 "ht" = (
 /obj/machinery/anvil/crafted,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/bandit_lair)
@@ -2118,7 +2119,7 @@
 /area/rogue)
 "pP" = (
 /obj/machinery/anvil,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
@@ -2292,6 +2293,11 @@
 /area/rogue)
 "rQ" = (
 /turf/closed,
+/area/rogue)
+"rS" = (
+/obj/structure/chair/stool/rogue,
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/hexstone,
 /area/rogue)
 "rY" = (
 /obj/structure/table/wood/plain,
@@ -2890,6 +2896,11 @@
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel/maniac,
+/area/rogue)
+"AD" = (
+/obj/structure/chair/stool/rogue,
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/wood,
 /area/rogue)
 "AI" = (
 /obj/structure/fluff/railing/fence,
@@ -3956,6 +3967,13 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
+"Ra" = (
+/obj/structure/chair/wood/rogue{
+	dir = 8
+	},
+/obj/effect/landmark/start/admin,
+/turf/open/floor/rogue/woodturned,
+/area/rogue)
 "Rb" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -9192,7 +9210,7 @@ RH
 Lt
 aN
 nL
-nL
+AD
 nL
 aN
 Lt
@@ -10364,7 +10382,7 @@ bM
 bM
 bM
 bM
-VJ
+rS
 fm
 jn
 jn
@@ -10752,7 +10770,7 @@ sI
 sZ
 SP
 SP
-sl
+Ra
 SP
 SP
 an

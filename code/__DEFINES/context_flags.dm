@@ -1,0 +1,7 @@
+#define FLAG_PM "Private Message"
+#define FLAG_SM "Subtle Message"
+#define FLAG_GIB "Gib"
+#define FLAG_JUMP "Jump To"
+#define FLAG_JUMP_GHOST "Jump To As Ghost"
+#define FLAG_PP "Player Panel"
+#define FLAG_VV "View Variables"

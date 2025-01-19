@@ -8,7 +8,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/grenzelhoft_migration/count
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/grenzelhoft_migration/count/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -63,7 +63,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/grenzelhoft_migration/countess
 	grant_lit_torch = TRUE
-	advjob_examine = FALSE
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/grenzelhoft_migration/countess/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -114,6 +114,7 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/roguetown/grenzelhoft_migration/grenzelhoft_knight
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/grenzelhoft_migration/grenzelhoft_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -164,6 +165,7 @@
 		"Dwarf"
 	)
 	outfit = /datum/outfit/job/roguetown/grenzelhoft_migration/grenzelhoft_men_at_arms
+	show_wanderer_examine = FALSE
 
 /datum/outfit/job/roguetown/grenzelhoft_migration/grenzelhoft_men_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -210,7 +212,7 @@
 /datum/migrant_wave/grenzelhoft_visit
 	name = "The Grenzelhoft visit"
 	max_spawns = 1
-	shared_wave_type = /datum/migrant_wave/grenzelhoft_visit
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/grenzelhoft_visit_down
 	roles = list(
@@ -223,7 +225,7 @@
 /datum/migrant_wave/grenzelhoft_visit_down
 	name = "The Grenzelhoft visit"
 	max_spawns = 1
-	shared_wave_type = /datum/migrant_wave/grenzelhoft_visit
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/grenzelhoft/count = 1,

@@ -22,7 +22,7 @@
 
 	outfit = /datum/outfit/job/roguetown/royalguard
 	give_bank_account = 30
-	min_pq = 2
+	min_pq = 8
 	selection_color = "#920909"
 
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'

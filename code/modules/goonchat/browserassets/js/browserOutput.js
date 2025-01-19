@@ -25,11 +25,11 @@ var $messages, $subOptions, $subAudio, $selectedSub, $contextMenu, $filterMessag
 var opts = {
 	//General
 	'messageCount': 0, //A count...of messages...
-	'messageLimit': 2053, //A limit...for the messages...
+	'messageLimit': 200, //A limit...for the messages...
 	'scrollSnapTolerance': 10, //If within x pixels of bottom
 	'clickTolerance': 10, //Keep focus if outside x pixels of mousedown position on mouseup
 	'imageRetryDelay': 50, //how long between attempts to reload images (in ms)
-	'imageRetryLimit': 50, //how many attempts should we make? 
+	'imageRetryLimit': 50, //how many attempts should we make?
 	'popups': 0, //Amount of popups opened ever
 	'wasd': false, //Is the user in wasd mode?
 	'priorChatHeight': 0, //Thing for height-resizing detection
@@ -42,7 +42,7 @@ var opts = {
 	'highlightTerms': [],
 	'highlightLimit': 5,
 	'highlightColor': '#FFFF00', //The color of the highlighted message
-	'pingDisabled': false, //Has the user disabled the ping counter
+	'pingDisabled': true, //Has the user disabled the ping counter
 
 	//Ping display
 	'lastPang': 0, //Timestamp of the last response from the server.
@@ -67,7 +67,7 @@ var opts = {
 	'updatedVolume': 0, //The volume level that is sent to the server
 	'musicStartAt': 0, //The position the music starts playing
 	'musicEndAt': 0, //The position the music... stops playing... if null, doesn't apply (so the music runs through)
-	
+
 	'defaultMusicVolume': 25,
 
 	'messageCombining': false,
@@ -161,7 +161,7 @@ function byondDecode(message) {
 	// The replace for + is because FOR SOME REASON, BYOND replaces spaces with a + instead of %20, and a plus with %2b.
 	// Marvelous.
 	message = message.replace(/\+/g, "%20");
-	try { 
+	try {
 		// This is a workaround for the above not always working when BYOND's shitty url encoding breaks. (byond bug id:2399401)
 		if (decodeURIComponent) {
 			message = decodeURIComponent(message);
@@ -728,7 +728,6 @@ $(function() {
 	******************************************/
 	var savedConfig = {
 		fontsize: getCookie('fontsize'),
-		lineheight: getCookie('lineheight'),
 		'spingDisabled': getCookie('pingdisabled'),
 		'shighlightTerms': getCookie('highlightterms'),
 		'shighlightColor': getCookie('highlightcolor'),
@@ -740,10 +739,6 @@ $(function() {
 	if (savedConfig.fontsize) {
 		$messages.css('font-size', savedConfig.fontsize);
 		internalOutput('<span class="internal boldnshit">Loaded font size setting of: '+savedConfig.fontsize+'</span>', 'internal');
-	}
-	if (savedConfig.lineheight) {
-		$("body").css('line-height', savedConfig.lineheight);
-		internalOutput('<span class="internal boldnshit">Loaded line height setting of: '+savedConfig.lineheight+'</span>', 'internal');
 	}
 	if(savedConfig.sdarkmode == 'true'){
 		swap();
@@ -784,7 +779,7 @@ $(function() {
 	else{
 		$('#adminMusic').prop('volume', opts.defaultMusicVolume / 100);
 	}
-	
+
 	if (savedConfig.smessagecombining) {
 		if (savedConfig.smessagecombining == 'false') {
 			opts.messageCombining = false;
@@ -820,8 +815,8 @@ $(function() {
 	$('body').on('mousedown', function(e) {
 		var $target = $(e.target);
 
-		if ($contextMenu && opts.hasOwnProperty('contextMenuTarget') && opts.contextMenuTarget) {
-			hideContextMenu();
+		if ($contextMenu) {
+			$contextMenu.hide();
 			return false;
 		}
 
@@ -987,20 +982,6 @@ $(function() {
 		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
 	});
 
-	$('#decreaseLineHeight').click(function(e) {
-		savedConfig.lineheight = Math.max(parseFloat(savedConfig.lineheight || 1.2) - 0.1, 0.1).toFixed(1);
-		$("body").css({'line-height': savedConfig.lineheight});
-		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
-	});
-
-	$('#increaseLineHeight').click(function(e) {
-		savedConfig.lineheight = (parseFloat(savedConfig.lineheight || 1.2) + 0.1).toFixed(1);
-		$("body").css({'line-height': savedConfig.lineheight});
-		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
-	});
-
 	$('#togglePing').click(function(e) {
 		if (opts.pingDisabled) {
 			$('#ping').slideDown('fast');
@@ -1013,27 +994,38 @@ $(function() {
 	});
 
 	$('#saveLog').click(function(e) {
-		// Requires IE 10+ to issue download commands. Just opening a popup
-		// window will cause Ctrl+S to save a blank page, ignoring innerHTML.
-		if (!window.Blob) {
-			output('<span class="big red">This function is only supported on IE 10 and up. Upgrade if possible.</span>', 'internal');
-			return;
-		}
+		var date = new Date();
+		var fname = 'Azure Peak Chat Log ' +
+					date.getFullYear() + '-' +
+					(date.getMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1) + '-' +
+					(date.getDate() < 10 ? '0' : '') + date.getDate() + ' ' +
+					(date.getHours() < 10 ? '0' : '') + date.getHours() +
+					(date.getMinutes() < 10 ? '0' : '') + date.getMinutes() +
+					(date.getSeconds() < 10 ? '0' : '') + date.getSeconds() +
+					'.html';
 
 		$.ajax({
 			type: 'GET',
 			url: 'browserOutput_white.css',
 			success: function(styleData) {
-				var blob = new Blob(['<head><title>Chat Log</title><style>', styleData, '</style></head><body>', $messages.html(), '</body>']);
+				var blob = new Blob([
+					'<head><title>Vanderlin Chat Log</title><style>',
+					styleData,
+					'</style></head><body>',
+					$messages.html(),
+					'</body>'
+				], { type: 'text/html;charset=utf-8' });
 
-				var fname = 'SS13 Chat Log';
-				var date = new Date(), month = date.getMonth(), day = date.getDay(), hours = date.getHours(), mins = date.getMinutes(), secs = date.getSeconds();
-				fname += ' ' + date.getFullYear() + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
-				fname += ' ' + (hours < 10 ? '0' : '') + hours + (mins < 10 ? '0' : '') + mins + (secs < 10 ? '0' : '') + secs;
-				fname += '.html';
-
-				window.navigator.msSaveBlob(blob, fname);
-			}
+				if (window.navigator.msSaveBlob) {
+					window.navigator.msSaveBlob(blob, fname);
+				} else {
+					var link = document.createElement('a');
+					link.href = URL.createObjectURL(blob);
+					link.download = fname;
+					link.click();
+					URL.revokeObjectURL(link.href);
+				}
+			},
 		});
 	});
 
@@ -1100,7 +1092,7 @@ $(function() {
 		$messages.empty();
 		opts.messageCount = 0;
 	});
-	
+
 	$('#musicVolumeSpan').hover(function() {
 		$('#musicVolumeText').addClass('hidden');
 		$('#musicVolume').removeClass('hidden');
@@ -1127,9 +1119,9 @@ $(function() {
 	});
 
 	$('img.icon').error(iconError);
-	
-	
-		
+
+
+
 
 	/*****************************************
 	*

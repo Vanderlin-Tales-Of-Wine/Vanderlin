@@ -96,6 +96,10 @@
 	name = "cooked swordfish"
 	scent = "cooked swordfish"
 
+/datum/pollutant/food/baked_shrimp
+	name = "cooked shrimp"
+	scent = "cooked shrimp"
+
 /datum/pollutant/food/truffles
 	name = "cooked truffles"
 	scent = "cooked truffles"

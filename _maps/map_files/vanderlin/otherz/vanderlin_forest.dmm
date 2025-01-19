@@ -1148,6 +1148,10 @@
 "WP" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/outdoors/woods)
+"WV" = (
+/obj/structure/fluff/traveltile/bandit,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/woods)
 "Xk" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
@@ -1424,9 +1428,9 @@ Sy
 Sy
 Sy
 Sy
-Sy
-Sy
-Sy
+WV
+WV
+WV
 Sy
 Sy
 Sy
@@ -1537,7 +1541,7 @@ yg
 Aj
 eP
 eP
-wV
+eP
 Aj
 yg
 yg
@@ -31194,7 +31198,7 @@ wV
 Aj
 yg
 sA
-Sk
+sA
 Sk
 WP
 UR

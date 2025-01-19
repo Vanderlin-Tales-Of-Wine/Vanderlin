@@ -675,7 +675,6 @@
 "gw" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/bottle/rogue/beer/fireleaf,
-/obj/item/clothing/head/roguetown/flathat,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "gx" = (

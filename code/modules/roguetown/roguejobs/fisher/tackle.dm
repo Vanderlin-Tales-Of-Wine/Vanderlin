@@ -131,7 +131,8 @@
 /obj/item/fishing/bait/dough
 	name = "doughy bait"
 	desc = "A small amount of dough, rolled into a ball. Tends to attract carps."
-	fishinglist = list(/obj/item/reagent_containers/food/snacks/fish/carp = 2)
+	fishinglist = list(/obj/item/reagent_containers/food/snacks/fish/carp = 4,
+						/obj/item/reagent_containers/food/snacks/fish/shrimp = 1)
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "doughslice"
 
@@ -139,8 +140,9 @@
 	name = "gray bait"
 	desc = "A small amount of dough and meat, rolled into a ball. Attracts a little bit of everything."
 	icon_state = "mixedbait"
-	fishinglist = list(/obj/item/reagent_containers/food/snacks/fish/carp = 1,
-					/obj/item/reagent_containers/food/snacks/fish/eel = 1)
+	fishinglist = list(/obj/item/reagent_containers/food/snacks/fish/carp = 3,
+					/obj/item/reagent_containers/food/snacks/fish/eel = 3,
+					/obj/item/reagent_containers/food/snacks/fish/shrimp = 1)
 
 /obj/item/fishing/bait/speckled
 	name = "speckled bait"

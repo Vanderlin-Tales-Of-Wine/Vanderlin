@@ -20,6 +20,8 @@
 	max_integrity = 100 // Flimsy instruments of wood.
 	destroy_message = "falls apart!"
 	dropshrink = 0.8
+	grid_height = 64
+	grid_width = 32
 	var/datum/looping_sound/dmusloop/soundloop
 	var/list/song_list = list()
 	var/playing = FALSE
@@ -193,7 +195,7 @@
 								while(playing)
 									L.apply_status_effect(buff2use)
 									var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-									user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon)) // And gain exp
+									user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.1) // And gain exp
 									sleep(10 * world.tick_lag) // Sanity to avoid infinite loop
 							else
 								return
@@ -203,7 +205,7 @@
 							while(playing)
 								L.apply_status_effect(buff2use)
 								var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-								user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon)) // and gain exp
+								user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.1) // and gain exp
 								sleep(10 * world.tick_lag) // Sanity to avoid infinite loop
 					else
 						return
@@ -213,14 +215,14 @@
 					L.add_stress(bardbonus) // Give us the extra mood regardless.
 				while(playing) // Grant us exp even if we did not apply buffs to anyone.
 					var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-					user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon))
+					user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon * 0.1))
 					sleep(10 * world.tick_lag) // Gain exp every 1 second delay of playing
 
 		// BARDIC BUFFS CODE END //
 
 		while(playing)
 			var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-			user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon))
+			user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon * 0.1))
 			sleep(10 * world.tick_lag) // Gain exp every 1 second delay of playing
 
 	else
@@ -366,7 +368,7 @@
 	)
 
 /obj/item/rogue/instrument/harp
-	name = "harp"
+	name = "lyre"
 	desc = "An elven instrument of a great and proud heritage."
 	icon_state = "harp"
 	song_list = list(

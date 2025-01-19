@@ -1,7 +1,7 @@
+#define BLOWDART_DAMAGE		20
 #define ARROW_DAMAGE		33
 #define BOLT_DAMAGE			44
 #define BULLET_DAMAGE		80
-#define BLOWDART_DAMAGE		20
 #define ARROW_PENETRATION	25
 #define BOLT_PENETRATION	50
 #define BULLET_PENETRATION	100
@@ -22,6 +22,7 @@
 	dropshrink = 0.8
 	max_integrity = 10
 	force = 10
+	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
@@ -35,7 +36,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = BOLT_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_SHOT
 	flag =  "piercing"
 	speed = 0.3
 	accuracy = 85 //Crossbows have higher accuracy
@@ -154,6 +155,7 @@
 	dropshrink = 0.8
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
+	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -167,7 +169,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = ARROW_PENETRATION
-	woundclass = BCLASS_STAB
+	woundclass = BCLASS_SHOT
 	flag =  "piercing"
 	speed = 0.4
 
@@ -400,6 +402,11 @@
 | Darts |
 \------*/
 
+
+/*------\
+| Darts |
+\------*/
+
 /obj/item/ammo_casing/caseless/rogue/dart
 	name = "dart"
 	desc = "A thorn fasioned into a primitive dart."
@@ -407,7 +414,7 @@
 	caliber = "dart"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "dart"
-	dropshrink = 0.8
+	dropshrink = 0.9
 	max_integrity = 10
 	force = 10
 
@@ -419,24 +426,25 @@
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "dart_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/dart
-	range = 10
+	range = 6
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
-	embedchance = 100
+	embedchance = 0
+	armor_penetration = 0
 	woundclass = BCLASS_STAB
-	flag = "dart"
+	flag = "piercing"
 	speed = 0.3
 	accuracy = 50
 
 //................ Poison Dart ............... //
 /obj/item/ammo_casing/caseless/rogue/dart/poison
 	name = "poison dart"
-	desc = "A dart with it's tip drenched in poison."
+	desc = "A dart with it's tip drenched in a weak poison."
 	projectile_type = /obj/projectile/bullet/reusable/dart/poison
 	icon_state = "dart_poison"
 
 /obj/projectile/bullet/reusable/dart/poison
 	name = "poison dart"
-	desc = "A dart with its tip drenched in poison."
+	desc = "A dart with its tip drenched in a powerful poison."
 	var/piercing = FALSE
 
 /obj/projectile/bullet/reusable/dart/poison/Initialize()
@@ -462,10 +470,10 @@
 	reagents.handle_reactions()
 	return BULLET_ACT_HIT
 
+#undef BLOWDART_DAMAGE
 #undef ARROW_DAMAGE
 #undef BOLT_DAMAGE
 #undef BULLET_DAMAGE
-#undef BLOWDART_DAMAGE
 #undef ARROW_PENETRATION
 #undef BOLT_PENETRATION
 #undef BULLET_PENETRATION

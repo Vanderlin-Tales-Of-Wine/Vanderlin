@@ -36,9 +36,17 @@
 /obj/structure/proc/update_animation_effect()
 	return
 
+/obj/structure/proc/valid_water_connection(direction)
+	return TRUE
+
+/obj/structure/proc/use_water_pressure(pressure)
+	return
+
 /obj/structure/proc/find_rotation_network()
 	var/turf/step_forward = get_step(src, dir)
 	for(var/obj/structure/structure in step_forward.contents)
+		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+			continue
 		if(structure.rotation_network)
 			if(rotation_network)
 				if(!structure.try_network_merge(src))
@@ -49,6 +57,8 @@
 
 	var/turf/step_back = get_step(src, GLOB.reverse_dir[dir])
 	for(var/obj/structure/structure in step_back.contents)
+		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+			continue
 		if(structure.rotation_network)
 			if(rotation_network)
 				if(!structure.try_network_merge(src))
@@ -136,6 +146,8 @@
 	for(var/obj/structure/structure in step_forward.contents)
 		if(structure in checked)
 			continue
+		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+			continue
 		if(structure.rotation_network)
 			propagate_rotation_change(structure, checked, FALSE)
 
@@ -144,6 +156,8 @@
 		for(var/obj/structure/structure in step_back.contents)
 			if(structure.rotation_network)
 				if(structure in checked)
+					continue
+				if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
 					continue
 				if(structure.rotation_network)
 					propagate_rotation_change(structure, checked, FALSE)
@@ -167,6 +181,8 @@
 /obj/structure/proc/rotation_break()
 	visible_message(span_warning("[src] breaks apart from the opposing directions!"))
 	playsound(src, 'sound/foley/cartdump.ogg', 75)
+	var/obj/item/rotation_contraption/new_contraption = new (get_turf(src))
+	new_contraption.set_type(src.type)
 	qdel(src)
 
 /obj/structure/proc/set_rotations_per_minute(speed)
@@ -211,3 +227,107 @@
 			continue
 		connected |= surrounding.return_connected(deleted, passed, network)
 	return connected
+
+/obj/item/rotation_contraption
+	name = ""
+	desc = ""
+
+	w_class =  WEIGHT_CLASS_SMALL
+	grid_height = 32
+	grid_width = 32
+
+	var/obj/structure/placed_type
+	var/in_stack = 1
+
+/obj/item/rotation_contraption/Initialize()
+	. = ..()
+	var/matrix/resize = matrix()
+	resize.Scale(0.5, 0.5)
+	resize.Turn(45)
+
+	transform = resize
+
+	if(placed_type)
+		set_type(placed_type)
+
+	for(var/obj/item/rotation_contraption/contraption in loc)
+		if(contraption == src)
+			continue
+		if(!istype(contraption, src.type))
+			continue
+		if(placed_type != contraption.placed_type)
+			continue
+
+		in_stack += contraption.in_stack
+		qdel(contraption)
+	update_overlays()
+
+
+/obj/item/rotation_contraption/afterpickup(mob/user)
+	. = ..()
+	var/matrix/resize = matrix()
+	resize.Scale(0.5, 0.5)
+	resize.Turn(45)
+	transform = resize
+	if(ispath(parent_type, /obj/structure/rotation_piece/cog/large))
+		transform.Scale(1.5, 1.5)
+
+/obj/item/rotation_contraption/afterdrop(mob/user)
+	. = ..()
+	var/matrix/resize = matrix()
+	resize.Scale(0.5, 0.5)
+	resize.Turn(45)
+	transform = resize
+	if(ispath(parent_type, /obj/structure/rotation_piece/cog/large))
+		transform.Scale(1.5, 1.5)
+
+/obj/item/rotation_contraption/proc/set_type(obj/structure/parent_type)
+	icon = initial(parent_type.icon)
+	icon_state = initial(parent_type.icon_state)
+	if(ispath(parent_type, /obj/structure/rotation_piece/cog/large))
+		transform.Scale(1.5, 1.5)
+	name = initial(parent_type.name)
+	desc = initial(parent_type.desc)
+	placed_type = parent_type
+
+/obj/item/rotation_contraption/attack_turf(turf/T, mob/living/user)
+	. = ..()
+	if(!istype(T))
+		return
+	if(is_blocked_turf(T))
+		return
+	for(var/obj/structure/structure in T.contents)
+		if(structure.rotation_structure)
+			return
+
+	visible_message("[user] starts placing down [src]", "You start to place [src]")
+	if(!do_after(user, 1 SECONDS, target = T))
+		return
+	new placed_type(T)
+	in_stack--
+	if(in_stack <= 0)
+		qdel(src)
+	else
+		update_overlays()
+
+/obj/item/rotation_contraption/update_overlays()
+	. = ..()
+	if(in_stack > 1)
+		name = "pile of [initial(placed_type.name)] x [in_stack]"
+	else
+		name = initial(placed_type.name)
+
+/obj/item/rotation_contraption/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(!istype(I, src.type))
+		return
+	if(placed_type != I:placed_type)
+		return
+
+	I:in_stack += in_stack
+	visible_message("[user] starts collecting [src].", "You start collecting.")
+	qdel(src)
+	I.update_overlays()
+
+/obj/item/rotation_contraption/cog
+	placed_type = /obj/structure/rotation_piece/cog

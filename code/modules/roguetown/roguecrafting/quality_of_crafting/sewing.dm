@@ -608,6 +608,13 @@
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
 
+/datum/repeatable_crafting_recipe/sewing/weaving/silkchaperone
+	name = "silk hat"
+	output = /obj/item/clothing/head/roguetown/chaperon/greyscale/silk
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/silk = 2)
+	craftdiff = 4
+
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowpants
 	name = "silk pants"
 	output = /obj/item/clothing/under/roguetown/trou/shadowpants

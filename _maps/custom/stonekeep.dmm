@@ -9862,7 +9862,7 @@
 "JE" = (
 /obj/structure/closet/crate/roguecloset/dark,
 /obj/item/rogueweapon/tongs,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
 "JF" = (
@@ -12563,8 +12563,8 @@
 /area/rogue/outdoors/exposed/dwarf)
 "UM" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/hammer/claw,
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/indoors/town/dwarfin)
 "UN" = (
@@ -12715,7 +12715,7 @@
 "Vn" = (
 /obj/item/rogueweapon/tongs,
 /obj/structure/closet/crate/roguecloset/dark,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
 "Vo" = (

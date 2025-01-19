@@ -502,7 +502,7 @@
 		bloodiness = 20
 
 /turf/open/floor/rogue/dirt/road
-	name = "dirt"
+	name = "dirt road"
 	desc = "The dirt is pocked with the scars of countless steps."
 	icon_state = "road"
 	layer = MID_TURF_LAYER
@@ -666,7 +666,7 @@
 
 /turf/open/floor/rogue/volcanic
 	name = "dirt"
-	desc = "The dirt is pocked with the scars of countless steps."
+	desc = "The dirt is pocked with the scars of tectonic movement."
 	icon_state = "lavafloor"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
@@ -798,7 +798,6 @@
 
 	damage_deflection = 10
 	max_integrity = 800
-	shine = SHINE_SHINY
 
 /turf/open/floor/rogue/churchmarble/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)

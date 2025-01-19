@@ -13,7 +13,7 @@
 /datum/outfit/job/roguetown/adventurer/corsair
 	head = /obj/item/clothing/head/roguetown/helmet/leather/headscarf
 	pants = /obj/item/clothing/under/roguetown/tights/sailor
-	belt = /obj/item/storage/belt/rogue/leather
+	belt = /obj/item/storage/belt/rogue/leather/mercenary
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/natural/worms/leech = 2, /obj/item/storage/belt/rogue/pouch/coins/mid)
@@ -28,7 +28,7 @@
 
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE) // Swords / Nonlethal.
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Swords / Nonlethal.
 		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE) // For jumping off roofs. Don't lower.
@@ -40,6 +40,6 @@
 
 	shirt = pick(/obj/item/clothing/suit/roguetown/shirt/undershirt/sailor, /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	H.change_stat("endurance", 1)
-	H.change_stat("perception", -3) // We don't want them using ranged weapons, period.
+	H.change_stat("endurance", 3)
+	H.change_stat("perception", -2) // We don't want them using ranged weapons, period.
 	H.change_stat("speed", 2) // Hit-And-Run.

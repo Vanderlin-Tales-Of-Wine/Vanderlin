@@ -236,7 +236,7 @@ SUBSYSTEM_DEF(garbage)
 /datum/controller/subsystem/garbage/proc/HardDelete(datum/D, override = FALSE)
 	if(!D)
 		return
-	if(!enable_hard_deletes)
+	if(!enable_hard_deletes && !override)
 		failed_hard_deletes |= D
 		return
 	var/time = world.timeofday

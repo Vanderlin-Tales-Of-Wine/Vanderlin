@@ -91,7 +91,7 @@
 	icon = 'icons/roguetown/weapons/64.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/rogue_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/rogue_righthand.dmi'
-	icon_state = "pitchfork"
+	icon_state = "tridentgold"
 	pixel_y = -16
 	pixel_x = -16
 	inhand_x_dimension = 64
@@ -178,7 +178,8 @@
 	baitpenalty = 10
 	sizemod = list("tiny" = -2, "small" = -2, "normal" = -1, "large" = 1, "prize" = 1)
 	fishinglist = list(/obj/item/reagent_containers/food/snacks/fish/carp = 1,
-					/obj/item/reagent_containers/food/snacks/fish/eel = 1)
+					/obj/item/reagent_containers/food/snacks/fish/eel = 1,
+					/obj/item/reagent_containers/food/snacks/fish/shrimp = 1)
 	deeplist = list(/obj/item/reagent_containers/food/snacks/fish/angler = 1,
 					/obj/item/reagent_containers/food/snacks/fish/clownfish = 1)
 

@@ -231,7 +231,7 @@
 			if(!B.rotted)
 				B.rotted = TRUE
 				should_update = TRUE
-			if(B.rotted)
+			if(B.rotted && amount < 16 MINUTES)
 				var/turf/open/T = C.loc
 				if(istype(T))
 					T.pollute_turf(/datum/pollutant/rot, 10)

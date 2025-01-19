@@ -84,7 +84,7 @@
 
 /obj/structure/soil/proc/try_handle_seed_planting(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/neuFarm/seed))
-		playsound(src, pick('modular/Neu_Farming/sound/touch1.ogg','modular/Neu_Farming/sound/touch2.ogg','modular/Neu_Farming/sound/touch3.ogg'), 170, TRUE)
+		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 		if(do_after(user, get_farming_do_time(user, 15), target = src))
 			var/obj/item/neuFarm/seed/seeds = attacking_item
 			seeds.try_plant_seed(user, src)

@@ -16,7 +16,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backl = /obj/item/storage/backpack/rogue/backpack
 	beltl = /obj/item/rogueweapon/pick
-	beltr = /obj/item/rogueweapon/hammer
+	beltr = /obj/item/rogueweapon/hammer/iron
 	backpack_contents = list(/obj/item/bomb = 1, /obj/item/flint = 1)
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)

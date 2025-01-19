@@ -39,12 +39,12 @@
 /area/rogue/indoors)
 "ak" = (
 /obj/structure/closet/crate/chest,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "al" = (
@@ -90,11 +90,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "aq" = (
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "ar" = (
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "as" = (
@@ -251,7 +251,8 @@
 	pixel_y = 32
 	},
 /turf/open/water/acid{
-	water_volume = 500
+	water_volume = 500;
+	water_reagent = /datum/reagent/consumable/milk
 	},
 /area/rogue/outdoors)
 "aN" = (
@@ -1127,6 +1128,10 @@
 /obj/structure/rotation_piece/cog/large,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"hi" = (
+/obj/structure/fluff/millstone,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "hP" = (
 /obj/item/rogueweapon/polearm/woodstaff/aries,
 /turf/open/floor/rogue/cobble,
@@ -1180,6 +1185,12 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"rB" = (
+/obj/structure/rotation_piece/cog/large{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "ss" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors)
@@ -1226,10 +1237,26 @@
 /obj/structure/rotation_piece,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"Az" = (
+/obj/structure/rotation_piece/cog{
+	dir = 4
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
+"AO" = (
+/obj/structure/rotation_piece{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "BE" = (
 /obj/structure/minecart_rail{
 	dir = 4
 	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
+"CO" = (
+/obj/structure/gearbox,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
 "Fo" = (
@@ -1260,6 +1287,10 @@
 "QR" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
+"Sz" = (
+/obj/structure/boiler,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors)
 "Ty" = (
 /obj/effect/landmark/start/lord{
 	dir = 8
@@ -4316,7 +4347,7 @@ al
 al
 cN
 al
-Ua
+Sz
 at
 ab
 ae
@@ -5600,8 +5631,8 @@ XC
 xp
 XC
 fe
-al
-al
+rB
+rB
 at
 ab
 ag
@@ -5851,7 +5882,7 @@ al
 al
 al
 at
-al
+Az
 cN
 al
 cN
@@ -6108,7 +6139,7 @@ al
 al
 al
 at
-al
+Az
 cN
 al
 aL
@@ -6365,14 +6396,14 @@ al
 al
 al
 at
-al
-cN
+CO
+xp
 XC
 Mn
 eE
-cN
-al
-al
+xp
+Mn
+hi
 at
 ab
 cQ
@@ -7653,7 +7684,7 @@ at
 XC
 cN
 aL
-al
+Az
 al
 ab
 aj
@@ -7906,11 +7937,11 @@ al
 al
 al
 XC
-Mn
+al
 XC
-al
-al
-al
+Mn
+Mn
+AO
 at
 ab
 ab

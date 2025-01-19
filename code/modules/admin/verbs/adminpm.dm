@@ -59,11 +59,16 @@
 	if (!msg)
 		message_admins("[key_name_admin(src)] has cancelled their reply to [key_name_admin(C, 0, 0)]'s admin help.")
 		return
-	cmd_admin_pm(whom, msg)
+	cmd_admin_pm(whom, msg, TRUE)
 
 //takes input from cmd_admin_pm_context, cmd_admin_pm_panel or /client/Topic and sends them a PM.
 //Fetching a message if needed. src is the sender and C is the target client
-/client/proc/cmd_admin_pm(whom, msg)
+/client/proc/cmd_admin_pm(whom, msg, reply = FALSE)
+	var/datum/admin_help/ticket = current_ticket
+	if(reply && whom)
+		if(!ticket)
+			ticket = whom:current_ticket
+
 	if(prefs.muted & MUTE_ADMINHELP)
 		to_chat(src, "<span class='danger'>Error: Admin-PM: You are unable to use admin PM-s (muted).</span>")
 		return
@@ -183,7 +188,7 @@
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[msg]</span></span>")
 
 				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
-				SSplexora.aticket_pm(current_ticket, msg, src)
+				SSplexora.aticket_pm(recipient.current_ticket, msg, src)
 				//always play non-admin recipients the adminhelp sound
 				SEND_SOUND(recipient, sound('sound/blank.ogg'))
 

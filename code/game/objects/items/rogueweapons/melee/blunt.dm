@@ -28,6 +28,8 @@
 	wbalance = EASY_TO_DODGE
 	sellprice = 20
 	blade_dulling = DULLING_BASHCHOP
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/rogueweapon/mace/getonmobprop(tag)
 	if(tag)
@@ -208,6 +210,7 @@
 	sellprice = 15
 	wdefense = MEDIOCHRE_PARRY
 
+
 /obj/item/rogueweapon/mace/cudgel/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -235,6 +238,7 @@
 	associated_skill = /datum/skill/combat/swords
 	wdefense = ULTMATE_PARRY
 	metalizer_result = /obj/item/rogueweapon/sword/iron
+	max_integrity = 240
 
 /obj/item/rogueweapon/mace/woodclub/train_sword/getonmobprop(tag)
 	. = ..()

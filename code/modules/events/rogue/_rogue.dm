@@ -15,10 +15,19 @@ GLOBAL_LIST_INIT(badomens, list())
 	if(!name)
 		return FALSE
 
+/proc/hasomen(input)
+	return (input in GLOB.badomens)
+
 /proc/addomen(input)
 	if(!(input in GLOB.badomens))
 		testing("Omen added: [input]")
 		GLOB.badomens += input
+
+/proc/removeomen(input)
+	if(!hasomen(input))
+		return
+	testing("Omen removed: [input]")
+	GLOB.badomens -= input
 
 /datum/round_event_control/proc/badomen(eventreason)
 	var/used

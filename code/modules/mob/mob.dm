@@ -286,8 +286,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
-	if(isliving(src))
-		src:update_reflection()
 	return TRUE
 
 /**
@@ -395,7 +393,9 @@ GLOBAL_VAR_INIT(mobids, 1)
 	set name = "Examine"
 	set category = "IC"
 	set hidden = 1
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(run_examinate), A))
 
+/mob/proc/run_examinate(atom/A)
 	if(isturf(A) && !(sight & SEE_TURFS) && !(A in view(client ? client.view : world.view, src)))
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
 		return
@@ -427,7 +427,16 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
-	set hidden = 1
+	set category = "Object"
+
+	if(istype(A, /obj/effect/temp_visual/point))
+		return FALSE
+
+	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(_pointed), A))
+
+/// possibly delayed verb that finishes the pointing process starting in [/mob/verb/pointed()].
+/// either called immediately or in the tick after pointed() was called, as per the [DEFAULT_QUEUE_OR_CALL_VERB()] macro
+/mob/proc/_pointed(atom/A)
 	if(!src || !isturf(src.loc) || !(A in view(client.view, src)))
 		return FALSE
 	if(istype(A, /obj/effect/temp_visual/point))
@@ -700,8 +709,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 /mob/Stat()
 	..()
 	// && check_rights(R_ADMIN,0)
-	var/ticker_time = world.time - SSticker.round_start_time
-	var/time_left = SSticker.mode?.round_ends_at - ticker_time
 	if(client && client.holder)
 		if(statpanel("Status"))
 			if (client)
@@ -712,8 +719,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 				stat(null, "Next Map: [cached.map_name]")
 			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
 			stat(null, "Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
-				stat("Round End: [DisplayTimeText(time_left)]")
 			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
 			stat(null, "TimeOfDay: [GLOB.tod]")
 			stat(null, "IC Time: [station_time_timestamp()] [station_time()]")
@@ -723,8 +728,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(statpanel("RoundInfo"))
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
-				stat("Round End: [DisplayTimeText(time_left)]")
 			stat("TimeOfDay: [GLOB.tod]")
 
 	if(client && client.holder && check_rights(R_ADMIN,0))

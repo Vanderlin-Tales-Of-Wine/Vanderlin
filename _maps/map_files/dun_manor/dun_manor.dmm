@@ -5418,7 +5418,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/ingot/copper,
 /obj/item/ingot/copper,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
@@ -5490,8 +5490,8 @@
 /area/rogue/indoors/town/bath)
 "frx" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/hammer/claw,
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -6077,7 +6077,7 @@
 /obj/machinery/light/rogue/torchholder/l,
 /obj/item/ingot/copper,
 /obj/item/ingot/copper,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
@@ -14547,7 +14547,7 @@
 	icon_state = "tablewood1"
 	},
 /obj/item/paper/bsmith,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/dwarfin)

@@ -18,9 +18,6 @@
 	blade_dulling = DULLING_BASHCHOP
 	obj_flags = CAN_BE_HIT
 
-/obj/item/roguebin/weather_trigger(W)
-	if(W==/datum/weather/rain)
-		START_PROCESSING(SSweather,src)
 
 /obj/item/roguebin/Initialize()
 	if(!base_state)
@@ -145,10 +142,11 @@
 	return FALSE
 
 /obj/item/roguebin/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/ash) || istype(I, /obj/item/natural/dirtclod) || istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry))
+	if(istype(I, /obj/item/cheap_dyes))
+		playsound(src, "bubbles", 50, 1)
 		if(do_after(user,3 SECONDS, target = src))
 			qdel(I)
-			user.visible_message("<span class='info'>[user] mixed in some dye into [src].</span>")
+			user.visible_message("<span class='info'>[user] adds dye to [src].</span>")
 			new /obj/machinery/simple_dye_bin(src.loc)
 			qdel(src)
 			return

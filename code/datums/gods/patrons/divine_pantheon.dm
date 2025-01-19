@@ -149,7 +149,7 @@
 	boons = "You may consume rotten food without being sick."
 	added_traits = list(TRAIT_ROT_EATER)
 	t0 = /obj/effect/proc_holder/spell/invoked/diagnose
-	t1 = /obj/effect/proc_holder/spell/invoked/heal
+	t1 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t2 = /obj/effect/proc_holder/spell/invoked/attach_bodypart
 	t3 = /obj/effect/proc_holder/spell/invoked/cure_rot
 	confess_lines = list(

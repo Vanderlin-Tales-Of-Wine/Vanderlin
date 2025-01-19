@@ -45,7 +45,7 @@
 //		to_chat(usr, "<span class='warning'>I can't do custom emotes. (NOT WHITELISTED)</span>")
 //		return
 	if(client)
-		if(get_playerquality(client.ckey) <= -10)
+		if(get_playerquality(client.ckey) <= -20)
 			to_chat(usr, "<span class='warning'>I can't use custom emotes. (LOW PQ)</span>")
 			return
 	var/message = input(usr, "", "me") as text|null

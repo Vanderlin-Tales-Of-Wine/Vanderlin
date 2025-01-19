@@ -138,7 +138,7 @@ SUBSYSTEM_DEF(familytree)
 	var/list/low_priority_houses = list()
 	var/list/high_priority_houses = list()
 	for(var/datum/heritage/I in families)
-		if(I.housename || I.family.len >= 1)
+		if(I.housename && (I.family.len >= 1 && I.family.len < 6))
 			high_priority_houses.Add(I)
 		else
 			low_priority_houses.Add(I)
@@ -149,11 +149,11 @@ SUBSYSTEM_DEF(familytree)
 		if(i == 2)
 			what_we_checkin = low_priority_houses
 		for(var/datum/heritage/I in what_we_checkin)
-			if(I.dominant_species == species)
+			if(I.dominant_species == species && (I.family.len >= 1 && I.family.len < 4))
 				chosen_house = I
 				break
 			//Its weird to be placed as a foster child in a family with no people in it.
-			if(prob(10) && I.family.len > 1)
+			if(prob(20) && (I.family.len > 1 && I.family.len <= 8))
 				chosen_house = I
 				adopted = TRUE
 				break
@@ -311,11 +311,12 @@ SUBSYSTEM_DEF(familytree)
 */
 /datum/controller/subsystem/familytree/proc/AssignAuntUncle(mob/living/carbon/human/H)
 	var/species = H.dna.species.type
+	var/inlaw = FALSE
 	var/datum/heritage/chosen_house
 	var/list/low_priority_houses = list()
 	var/list/high_priority_houses = list()
 	for(var/datum/heritage/I in families)
-		if(I.housename || (I.family.len >= 1 && I.family.len <= 6))
+		if(I.housename && (I.family.len >= 1 && I.family.len > 6))
 			high_priority_houses.Add(I)
 		else
 			low_priority_houses.Add(I)
@@ -327,14 +328,18 @@ SUBSYSTEM_DEF(familytree)
 		if(i == 2)
 			what_we_checkin = low_priority_houses
 		for(var/datum/heritage/I in what_we_checkin)
-			if(I.dominant_species == species)
+			if((I.dominant_species == species && (I.family.len > 1 || I.family.len <=6 )) && I.housename)
 				chosen_house = I
+				break
+			if((prob(2) && (I.family.len > 1)) && I.housename)
+				chosen_house = I
+				inlaw = TRUE
 				break
 		if(chosen_house)
 			break
 
 	if(chosen_house)
-		chosen_house.addToHouse(H, FAMILY_OMMER)
+		chosen_house.addToHouse(H, inlaw ?  FAMILY_INLAW : FAMILY_OMMER)
 
 /*
 * For admins to view EVERY FAMILY and see all the

@@ -107,9 +107,6 @@
 
 	queue_smooth_neighbors(src)
 
-	if(shine)
-		make_shiny(shine)
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy(force)
@@ -123,7 +120,6 @@
 	T = GET_TURF_BELOW(src)
 	if(T)
 		T.multiz_turf_del(src, UP)
-	STOP_PROCESSING(SSweather,src)
 	if(force)
 		..()
 		//this will completely wipe turf state
@@ -353,7 +349,6 @@
 			O.make_unfrozen()
 	if(!AM.zfalling)
 		zFall(AM)
-	trigger_weather(AM)
 
 /turf/proc/is_plasteel_floor()
 	return FALSE

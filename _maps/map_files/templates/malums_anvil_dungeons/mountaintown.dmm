@@ -2950,7 +2950,7 @@
 "PJ" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/rogueweapon/tongs,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PK" = (
@@ -2968,7 +2968,7 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Qa" = (
-/obj/item/rogueweapon/hammer/claw,
+/obj/item/rogueweapon/hammer/steel,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Qb" = (
@@ -3673,7 +3673,7 @@
 "Zk" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/item/rogueweapon/hammer,
+/obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Zm" = (

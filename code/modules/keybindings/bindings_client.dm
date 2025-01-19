@@ -97,12 +97,6 @@
 	mob.focus?.key_up(_key, src)
 	mob.update_mouse_pointer()
 
-// Called every game tick
-/client/keyLoop()
-	holder?.keyLoop(src)
-	if(mob)
-		mob.focus?.keyLoop(src)
-
 /client/verb/activeInput()
 	set hidden = 1
 	if(isliving(mob))

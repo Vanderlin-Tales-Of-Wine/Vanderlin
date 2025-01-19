@@ -61,9 +61,15 @@
 			Thou wilt be alone on these barren lands."
 	icon_state = "fisherhat"
 
-/obj/item/clothing/head/roguetown/flathat
-	name = "flat hat"
-	icon_state = "flathat"
+/obj/item/clothing/head/roguetown/stewardtophat
+	name = "top hat"
+	icon_state = "stewardtophat"
+	icon = 'icons/roguetown/clothing/special/steward.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+	bloody_icon = 'icons/effects/blood64x64.dmi'
+	bloody_icon_state = "helmetblood_big"
 
 /obj/item/clothing/head/roguetown/knitcap
 	name = "knit cap"
@@ -131,10 +137,16 @@
 	desc = "A comfortable and fashionable headgear."
 	icon_state = "chap_alt"
 	flags_inv = HIDEEARS
-
+	color = CLOTHING_LINEN
 /obj/item/clothing/head/roguetown/chaperon/greyscale/random/Initialize()
 	. = ..()
-	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_FOREST_GREEN, CLOTHING_FYRITIUS_DYE, CLOTHING_ROYAL_MAJENTA, CLOTHING_MUSTARD_YELLOW,CLOTHING_SALMON, CLOTHING_SKY_BLUE, CLOTHING_YELLOW_OCHRE, CLOTHING_RED_OCHRE, CLOTHING_RUSSET)
+	color = RANDOM_NOBLE_DYES
+
+/obj/item/clothing/head/roguetown/chaperon/greyscale/silk
+	icon_state = "chap_silk"
+/obj/item/clothing/head/roguetown/chaperon/greyscale/silk/random/Initialize()
+	. = ..()
+	color = RANDOM_NOBLE_DYES
 
 /obj/item/clothing/head/roguetown/chaperon/greyscale/chaperonsecondary
 	color = CLOTHING_PLUM_PURPLE
@@ -826,7 +838,13 @@
 /obj/item/clothing/head/roguetown/helmet/visored/knight/black
 	color = CLOTHING_SOOT_BLACK
 
-
+//................. Captain's Helmet .............. //
+/obj/item/clothing/head/roguetown/helmet/visored/captain
+	name = "captain's helmet"
+	desc = "An elegant barbute, fitted with the gold trim and polished metal of nobility."
+	icon = 'icons/roguetown/clothing/special/captain.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+	icon_state = "capbarbute"
 
 //......................................................................................................
 /*------------------\

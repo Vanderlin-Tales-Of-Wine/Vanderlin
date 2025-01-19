@@ -57,7 +57,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/list/mutant_bodyparts = list() 	// Visible CURRENT bodyparts that are unique to a species. DO NOT USE THIS AS A LIST OF ALL POSSIBLE BODYPARTS AS IT WILL FUCK SHIT UP! Changes to this list for non-species specific bodyparts (ie cat ears and tails) should be assigned at organ level if possible. Layer hiding is handled by handle_mutant_bodyparts() below.
 	var/list/mutant_organs = list()		//Internal organs that are unique to this race.
 	var/speedmod = 0	// this affects the race's speed. positive numbers make it move slower, negative numbers make it move faster
-	var/armor = 0		// overall defense for the race... or less defense, if it's negative.
 	var/brutemod = 1	// multiplier for brute damage
 	var/burnmod = 1		// multiplier for burn damage
 	var/coldmod = 1		// multiplier for cold damage
@@ -1625,7 +1624,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(chem.overdose_threshold && chem.volume >= chem.overdose_threshold)
 		chem.overdosed = TRUE
 
-/datum/species/proc/check_species_weakness(obj/item, mob/living/attacker)
+/datum/species/proc/check_species_weakness(obj/item, mob/living/attacker, mob/living/parent)
 	return 0 //This is not a boolean, it's the multiplier for the damage that the user takes from the item.It is added onto the check_weakness value of the mob, and then the force of the item is multiplied by this value
 
 /**
@@ -2314,7 +2313,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(I)
 				I.take_damage(1, BRUTE, I.damage_type)
 		if(!nodmg)
-			var/datum/wound/crit_wound = affecting.bodypart_attacked_by(user.used_intent.blade_class, (Iforce * weakness) * ((100-(armor_block+armor))/100), user, selzone, crit_message = TRUE)
+			var/datum/wound/crit_wound = affecting.bodypart_attacked_by(user.used_intent.blade_class, (Iforce * weakness) * ((100-(armor_block))/100), user, selzone, crit_message = TRUE)
 			if(should_embed_weapon(crit_wound, I))
 				var/can_impale = TRUE
 				if(!affecting)
@@ -2412,7 +2411,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, forced = FALSE, spread_damage = FALSE)
 	SEND_SIGNAL(H, COMSIG_MOB_APPLY_DAMGE, damage, damagetype, def_zone)
 	var/hit_percent = 1
-	damage = max(damage - (blocked + armor),0)
+	damage = max(damage - (blocked),0)
 //	var/hit_percent =  (100-(blocked+armor))/100
 	hit_percent = (hit_percent * (100-H.physiology.damage_resistance))/100
 	if(!damage || (!forced && hit_percent <= 0))

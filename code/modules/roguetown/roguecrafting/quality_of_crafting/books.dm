@@ -3,6 +3,8 @@
 /obj/item/recipe_book
 	icon = 'icons/roguetown/items/books.dmi'
 
+	grid_width = 32
+	grid_height = 64
 	var/list/types = list()
 	var/mob/current_reader
 	var/open
@@ -257,4 +259,17 @@
 
 	types = list(
 		/datum/slapcraft_recipe/masonry,
+	)
+
+/obj/item/recipe_book/art
+	name = "The Artisan's Palette"
+	desc = "Created by Elara Moondance, Visionary Painter and Culinary Alchemist"
+	icon_state ="book3_0"
+	base_icon_state = "book3"
+
+	types = list(
+		/datum/repeatable_crafting_recipe/canvas,
+		/datum/repeatable_crafting_recipe/paint_palette,
+		/datum/repeatable_crafting_recipe/paintbrush,
+		/datum/slapcraft_recipe/carpentry/structure/easel,
 	)

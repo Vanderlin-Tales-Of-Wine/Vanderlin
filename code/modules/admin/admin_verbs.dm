@@ -31,6 +31,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/toggle_context_menu,
 	/client/proc/delete_player_book,
+	/client/proc/manage_paintings,
 	/client/proc/ShowAllFamilies,
 	/datum/admins/proc/anoint_priest,
 	)
@@ -87,6 +88,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/jumptokey,				/*allows us to jump to the location of a mob with a certain ckey*/
 	/client/proc/jumptomob,				/*allows us to jump to a specific mob*/
 	/client/proc/jumptoturf,			/*allows us to jump to a specific turf*/
+	/client/proc/spawn_in_test_area,
 	/client/proc/cmd_admin_direct_narrate,	/*send text directly to a player with no padding. Useful for narratives and fluff-text*/
 	/client/proc/cmd_admin_world_narrate,	/*sends text to all players with no padding*/
 	/client/proc/cmd_admin_local_narrate,	/*sends text to all mobs within view of atom*/
@@ -123,7 +125,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/reset_ooc,
 	/client/proc/forceEvent,
 	/client/proc/admin_change_sec_level,
-	/client/proc/run_weather,
 	/client/proc/run_particle_weather,
 	/client/proc/show_tip,
 	/client/proc/smite,
@@ -187,6 +188,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/reload_configuration,
 	/datum/admins/proc/create_or_modify_area,
 	/client/proc/returntolobby,
+	/client/proc/tracy_next_round,
+	/client/proc/start_tracy,
 	/client/proc/set_tod_override
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
@@ -738,10 +741,34 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set name = "Delete Player Made Book"
 	if(!holder)
 		return
-	if(SSlibrarian.del_player_book(input(src, "What is the book file you want to delete? (spaces and other characters are their url encode versions for the file name, so for example spaces are +)")))
+	var/book = input(src, "What is the book file you want to delete?") in SSlibrarian.books
+	if(SSlibrarian.del_player_book(book))
 		to_chat(src, "<span class='notice'>Book has been successfully deleted</span>")
 	else
 		to_chat(src, "<span class='notice'> Either the book file doesn't exist or you have failed to type it in properly (remember characters have been url encoded for the file name)</span>")
+
+
+/client/proc/manage_paintings()
+	set category = "Admin"
+	set name = "Manage Player Made Paintings"
+	if(!holder)
+		return
+
+	var/list/paintings = list()
+
+	paintings |= SSpaintings.paintings
+	var/dat = "<h3>Paintings:</h3><br>"
+	dat += "<table><tr><th>Picture</th><th>Title</th><th>Author</th><th>Delete</th></tr>"
+	for(var/paint_name in paintings)
+		var/list/painting = paintings[paint_name]
+		var/icon/painting_icon = icon("data/player_generated_paintings/paintings/[painting["painting_title"]].png")
+		src << browse_rsc(painting_icon, "[paint_name].png")
+		dat += "<tr><td><img height=128 src='[painting["painting_title"]].png'/></td><td>[painting["painting_title"]]</td><td>[painting["author_ckey"]]</td><td><a href='byond://?src=[REF(src)];delete_painting=1;id=[painting["painting_title"]]'>Delete</a></td></tr>"
+	if (!length(paintings))
+		dat += "<tr><td colspan='4'>No results found.</td></tr>"
+
+	dat += "</table>"
+	src << browse(dat, "window=painting_deletion")
 
 //Family Tree Subsystem
 /client/proc/ShowAllFamilies()
@@ -754,3 +781,58 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	var/datum/browser/popup = new(usr, "ALLFAMILIES", "", 260, 400)
 	popup.set_content(dat)
 	popup.open()
+
+/client/proc/tracy_next_round()
+	set name = "Toggle Tracy Next Round"
+	set desc = "Toggle running the byond-tracy profiler next round"
+	set category = "Debug"
+	if(!check_rights_for(src, R_DEBUG))
+		return
+#ifndef OPENDREAM
+	if(!fexists(TRACY_DLL_PATH))
+		to_chat(src, span_danger("byond-tracy library ([TRACY_DLL_PATH]) not present!"))
+		return
+	if(fexists(TRACY_ENABLE_PATH))
+		fdel(TRACY_ENABLE_PATH)
+	else
+		rustg_file_write("[ckey]", TRACY_ENABLE_PATH)
+	message_admins(span_adminnotice("[key_name_admin(src)] [fexists(TRACY_ENABLE_PATH) ? "enabled" : "disabled"] the byond-tracy profiler for next round."))
+	log_admin("[key_name(src)] [fexists(TRACY_ENABLE_PATH) ? "enabled" : "disabled"] the byond-tracy profiler for next round.")
+#else
+	to_chat(src, span_danger("byond-tracy is not supported on OpenDream, sorry!"))
+#endif
+
+/client/proc/start_tracy()
+	set name = "Run Tracy Now"
+	set desc = "Start running the byond-tracy profiler immediately."
+	set category = "Debug"
+	if(!check_rights_for(src, R_DEBUG))
+		return
+#ifndef OPENDREAM
+	if(GLOB.tracy_initialized)
+		to_chat(src, span_warning("byond-tracy is already running!"))
+		return
+	else if(GLOB.tracy_init_error)
+		to_chat(src, span_danger("byond-tracy failed to initialize during an earlier attempt: [GLOB.tracy_init_error]"))
+		return
+	else if(!fexists(TRACY_DLL_PATH))
+		to_chat(src, span_danger("byond-tracy library ([TRACY_DLL_PATH]) not present!"))
+		return
+	message_admins(span_adminnotice("[key_name_admin(src)] is trying to start the byond-tracy profiler."))
+	log_admin("[key_name(src)] is trying to start the byond-tracy profiler.")
+	GLOB.tracy_initialized = FALSE
+	GLOB.tracy_init_reason = "[ckey]"
+	world.init_byond_tracy()
+	if(GLOB.tracy_init_error)
+		to_chat(src, span_danger("byond-tracy failed to initialize: [GLOB.tracy_init_error]"))
+		message_admins(span_adminnotice("[key_name_admin(src)] tried to start the byond-tracy profiler, but it failed to initialize ([GLOB.tracy_init_error])"))
+		log_admin("[key_name(src)] tried to start the byond-tracy profiler, but it failed to initialize ([GLOB.tracy_init_error])")
+		return
+	to_chat(src, span_notice("byond-tracy successfully started!"))
+	message_admins(span_adminnotice("[key_name_admin(src)] started the byond-tracy profiler."))
+	log_admin("[key_name(src)] started the byond-tracy profiler.")
+	if(GLOB.tracy_log)
+		rustg_file_write("[GLOB.tracy_log]", "[GLOB.log_directory]/tracy.loc")
+#else
+	to_chat(src, span_danger("byond-tracy is not supported on OpenDream, sorry!"))
+#endif

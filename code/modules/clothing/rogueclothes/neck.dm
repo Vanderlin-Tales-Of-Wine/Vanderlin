@@ -118,7 +118,7 @@
 					H.update_inv_head()
 
 /obj/item/clothing/neck/roguetown/keffiyeh/red
-	color = COLOR_MAROON
+	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/neck/roguetown/keffiyeh/yellow
 	color = CLOTHING_PEAR_YELLOW
@@ -134,9 +134,6 @@
 
 /obj/item/clothing/neck/roguetown/keffiyeh/purple
 	color = CLOTHING_ROYAL_PURPLE
-
-/obj/item/clothing/neck/roguetown/keffiyeh/teal
-	color = CLOTHING_ROYAL_TEAL
 
 /obj/item/clothing/neck/roguetown/keffiyeh/black
 	color = CLOTHING_ROYAL_BLACK

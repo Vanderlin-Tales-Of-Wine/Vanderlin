@@ -10,7 +10,7 @@
 		handle_waking_up(owner.current)
 	else
 		handle_maniac_hallucinations(owner.current)
-	handle_maniac_floors(owner.current)
+	//handle_maniac_floors(owner.current)
 	handle_maniac_walls(owner.current)
 
 
@@ -34,7 +34,11 @@
 	//Talking objects
 	else if(prob(4))
 		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_object_hallucination), target)
-
+	//Meta hallucinations
+	else if(prob(1) && prob(5))
+		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_bwoink_hallucination), target)
+	else if(prob(1) && prob(2))
+		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_admin_ban_hallucination), target)
 /proc/handle_maniac_object_hallucination(mob/living/target)
 	var/list/objects = list()
 	for(var/obj/object in view(target))
@@ -74,7 +78,7 @@
 	var/language = target.get_random_understood_language()
 	var/message = target.compose_message(speaker, language, speech)
 	target.playsound_local(target, pick(speech_sounds), vol = 60, vary = FALSE)
-	if(target.client.prefs?.chat_on_map)
+	if(target.client?.prefs?.chat_on_map)
 		target.create_chat_message(speaker, language, speech, spans = list(target.speech_span))
 	to_chat(target, message)
 
@@ -141,25 +145,10 @@
 	target.client.images -= mob_image
 
 /proc/handle_maniac_floors(mob/living/target)
-	if(!target.client)
-		return
-	//Floors go crazy go stupid
-	for(var/turf/open/floor in view(target))
-		if(!prob(7))
-			continue
-		INVOKE_ASYNC(target, GLOBAL_PROC_REF(handle_maniac_floor), floor, target)
+	return
 
 /proc/handle_maniac_floor(turf/open/floor, mob/living/target)
-	var/mutable_appearance/fake_floor = image(floor.icon, floor, floor.icon_state, floor.layer + 0.01)
-	target.client.images += fake_floor
-	var/offset = pick(-3,-2, -1, 1, 2, 3)
-	var/disappearfirst = rand(1 SECONDS, 3 SECONDS) * abs(offset)
-	animate(fake_floor, pixel_y = offset, time = disappearfirst, flags = ANIMATION_RELATIVE)
-	sleep(disappearfirst)
-	var/disappearsecond = rand(1 SECONDS, 3 SECONDS) * abs(offset)
-	animate(fake_floor, pixel_y = -offset, time = disappearsecond, flags = ANIMATION_RELATIVE)
-	sleep(disappearsecond)
-	target.client?.images -= fake_floor
+	return
 
 /proc/handle_maniac_walls(mob/living/target)
 	if(!target.client)
@@ -204,3 +193,31 @@
 	animate(fake_floor, pixel_y = -offset, time = disappearsecond, flags = ANIMATION_RELATIVE)
 	sleep(disappearsecond)
 	dreamer.client?.images -= fake_floor
+
+/proc/handle_maniac_admin_bwoink_hallucination(mob/living/target)
+	var/fakemin = "Trey Liam"
+	if(length(GLOB.admin_datums))
+		var/datum/admins/badmin = GLOB.admin_datums[pick(GLOB.admin_datums)]
+		if(badmin?.owner?.key)
+			fakemin = badmin.owner.key
+	var/message = ""
+	message = pick_list_replacements("maniac.json", "dreamer_ahelp")
+	to_chat(target, "<font color='red' size='4'><b>-- Administrator private message --</b></font>")
+	to_chat(target, span_adminsay("Admin PM from-<b><span style='color: #0b4990;'>[fakemin]</span></b>: [message]"))
+	to_chat(target, span_adminsay("<i>Click on the administrator's name to die.</i>"))
+	SEND_SOUND(target, sound('sound/adminhelp.ogg'))
+
+/proc/handle_maniac_admin_ban_hallucination(mob/living/target)
+	var/fakemin = "Trey Liam"
+	if(length(GLOB.admin_datums))
+		var/datum/admins/badmin = GLOB.admin_datums[pick(GLOB.admin_datums)]
+		if(badmin?.owner?.key)
+			fakemin = badmin.owner.key
+	var/message = ""
+	var/ban_appeal = pick("your grave", "WAKE UP WAKE UP WAKE UP")
+	message = pick_list_replacements("maniac.json", "dreamer_ban")
+	to_chat(target, span_boldannounce("<BIG>You have been banned by [fakemin] from the server.\nReason: [message]</BIG>"))
+	to_chat(target, span_boldannounce("This is a permanent ban. The round ID is [GLOB.rogue_round_id]."))
+	to_chat(target, span_boldannounce("To appeal this ban go to <span style='color: #0099cc;'>[ban_appeal].</span>"))
+	to_chat(target, "<div class='connectionClosed internal'>You are either AFK, experiencing lag or the connection has closed.</div>")
+	SEND_SOUND(target, sound(null))

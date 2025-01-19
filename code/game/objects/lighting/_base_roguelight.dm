@@ -5,7 +5,7 @@
 	fueluse = 60 MINUTES
 	bulb_colour = "#f9ad80"
 	bulb_power = 1
-	var/datum/looping_sound/soundloop = /datum/looping_sound/fireloop
+	var/datum/looping_sound/soundloop
 	pass_flags = LETPASSTHROW
 	flags_1 = NODECONSTRUCT_1
 	var/cookonme = FALSE
@@ -22,10 +22,6 @@
 	update_icon()
 	seton(TRUE)
 	. = ..()
-
-/obj/machinery/light/rogue/weather_trigger(W)
-	if(W==/datum/weather/rain)
-		START_PROCESSING(SSweather,src)
 
 /obj/machinery/light/rogue/OnCrafted(dirin)
 	. = ..()
@@ -90,14 +86,7 @@
 		update_icon()
 		if(soundloop)
 			soundloop.start()
-		addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
 		return TRUE
-
-/obj/proc/trigger_weather()
-	if(!QDELETED(src))
-		if(isturf(loc))
-			var/turf/T = loc
-			T.trigger_weather(src)
 
 /obj/machinery/light/rogue/Crossed(atom/movable/AM, oldLoc)
 	..()
@@ -156,6 +145,8 @@
 			if(!on)
 				return
 		if (alert(usr, "Feed [W] to the fire?", "VANDERLIN", "Yes", "No") != "Yes")
+			return
+		if(!(W in user.held_items)|| !user.temporarilyRemoveItemFromInventory(W))
 			return
 		qdel(W)
 		user.visible_message("<span class='warning'>[user] feeds [W] to [src].</span>")

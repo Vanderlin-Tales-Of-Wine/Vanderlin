@@ -31,6 +31,10 @@
 		return FALSE
 	if(HAS_TRAIT(C, TRAIT_NODISMEMBER))
 		return FALSE
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		if(human_owner.checkcritarmor(zone_precise, bclass))
+			return FALSE
 
 	var/obj/item/bodypart/affecting = C.get_bodypart(BODY_ZONE_CHEST)
 	if(affecting && dismember_wound)
@@ -308,12 +312,12 @@
 
 	name = "[owner.real_name]'s head"
 	. = ..()
-	if(brainmob)
-		QDEL_NULL(brainmob)
-	var/obj/item/organ/brain/BR = locate(/obj/item/organ/brain) in contents
-	if(BR)
-		if(BR.brainmob)
-			QDEL_NULL(BR.brainmob)
+	// if(brainmob)
+	// 	QDEL_NULL(brainmob)
+	// var/obj/item/organ/brain/BR = locate(/obj/item/organ/brain) in contents
+	// if(BR)
+	// 	if(BR.brainmob)
+	// 		QDEL_NULL(BR.brainmob)
 
 //Attach a limb to a human and drop any existing limb of that type.
 /obj/item/bodypart/proc/replace_limb(mob/living/carbon/C, special)

@@ -277,7 +277,7 @@
 		else
 			if(include_link)
 				. += "<a href='?priv_msg=[ckey]'>"
-			. += key
+			. += "[key]"
 		if(!C)
 			. += "\[DC\]"
 

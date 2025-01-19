@@ -860,6 +860,41 @@
 	GLOB.lordcolor -= src
 	return ..()
 
+/obj/item/clothing/cloak/captain
+	name = "captain's cape"
+	desc = "A cape with a gold embroided heraldry of Vanderlin."
+	icon = 'icons/roguetown/clothing/special/captain.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+	sleevetype = "shirt"
+	icon_state = "capcloak"
+	detail_tag = "_detail"
+	alternate_worn_layer = CLOAK_BEHIND_LAYER
+	detail_color = CLOTHING_BERRY_BLUE
+
+/obj/item/clothing/cloak/captain/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/cloak/captain/lordcolor(primary,secondary)
+	detail_color = primary
+	update_icon()
+
+/obj/item/clothing/cloak/captain/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/cloak/captain/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
 
 /obj/item/clothing/cloak/cape/archivist
 	icon_state = "puritan_cape"
@@ -1030,7 +1065,6 @@
 	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
 	nodismemsleeves = TRUE
-	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
 
 //............... Battle Nun ........................... (unique kit for the role, tabard for aesthetics)
