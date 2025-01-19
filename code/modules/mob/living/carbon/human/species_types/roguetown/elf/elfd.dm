@@ -40,7 +40,7 @@
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	hairyness = "t3"
 	mutant_bodyparts = list("ears")
-	mutanteyes = /obj/item/organ/eyes/elf
+	mutanteyes = /obj/item/organ/eyes/elf/less
 	use_f = TRUE
 	soundpack_m = /datum/voicepack/male/elf
 	soundpack_f = /datum/voicepack/female/elf
