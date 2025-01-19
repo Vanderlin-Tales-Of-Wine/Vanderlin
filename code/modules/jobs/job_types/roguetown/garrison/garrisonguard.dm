@@ -57,8 +57,9 @@
 Design philosphy:
 - Footman, specializes in using axes/maces and shields. - Medium armor
 - Pikeman, specializes in polearms with some bonus stats. - Medium armor
-- Archer, specializes in bow/crossbow and daggers. - Dodge expert, no armor training, some crafting stats (low)
-- Fencer, specializes in swords and daggers. - Dodge expert, no armor training
+- Archer, specializes in bow/crossbow and daggers. - Dodge expert, some crafting stats (low)
+- Fencer, specializes in swords and daggers. - Dodge expert
+- Arcane wielder, specialize in arcane powers
 */
 
 /datum/advclass/garrison/footman
@@ -225,6 +226,7 @@ Design philosphy:
 	name = "Garrison Magos"
 	tutorial = "You always sense something was special with you. Yet you've only discovered recently you could wield arcane powers."
 	outfit = /datum/outfit/job/roguetown/guardsman/arcane_potential
+	maximum_possible_slots = 1
 
 	category_tags = list(CTAG_GARRISON)
 
