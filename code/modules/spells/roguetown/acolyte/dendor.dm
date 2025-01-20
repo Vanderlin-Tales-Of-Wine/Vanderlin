@@ -143,7 +143,7 @@
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers
 	name = "Fungal Illumination"
 	range = 1
-	overlay_state = "blesscrop"
+	overlay_state = "kneestinger"
 	releasedrain = 30
 	charge_max = 30 SECONDS
 	max_targets = 0
