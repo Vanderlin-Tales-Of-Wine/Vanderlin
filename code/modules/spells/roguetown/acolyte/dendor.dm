@@ -103,6 +103,41 @@
 
 //===========================================================================================
 
+// ---------------------- ENTANGLE ----------------------------
+
+/obj/effect/proc_holder/spell/invoked/entangler
+	name = "Entangle"
+	overlay_state = "entangle"
+	releasedrain = 30
+	chargedrain = 0
+	chargetime = 0
+	range = 15
+	warnie = "spellwarning"
+	movement_interrupt = FALSE
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = TRUE
+	sound = 'sound/items/dig_shovel.ogg'
+	invocation = "By the Treefather's will, entwine and restrain."
+	invocation_type = "whisper"
+	charge_max = 60 SECONDS
+	
+/obj/effect/proc_holder/spell/invoked/entangler/cast(list/targets, mob/living/user)
+    . = ..()
+    user.faction |= "plants"
+    var/turf/T = get_turf(targets[1])
+    user.visible_message("<font color='green'>[user] points at [T]!</font>")
+    var/already_grown = locate(/obj/structure/flora/roguegrass/tangler/real) in (T.contents)
+    var/area/area = get_area(T)
+    if(!area.outdoors)
+        to_chat(user, span_notice("The open air is more suited for Dendors miracles..."))
+        return FALSE
+    if(already_grown)
+        to_chat(user, span_notice("There's no room for more vines..."))
+        return FALSE
+    sound = 'sound/magic/webspin.ogg'
+    new /obj/structure/flora/roguegrass/tangler/real(T)
+    return ..()
+
 // ---------------------- FUNGAL ILLUMINATION ----------------------------
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers
