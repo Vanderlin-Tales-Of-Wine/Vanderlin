@@ -930,6 +930,7 @@
 #include "code\game\objects\structures\stairs.dm"
 #include "code\game\objects\structures\statues.dm"
 #include "code\game\objects\structures\tables_racks.dm"
+#include "code\game\objects\structures\tangler.dm"
 #include "code\game\objects\structures\tanning_rack.dm"
 #include "code\game\objects\structures\target_stake.dm"
 #include "code\game\objects\structures\toilet.dm"
