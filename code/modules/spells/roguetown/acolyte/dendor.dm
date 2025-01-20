@@ -120,6 +120,7 @@
 	invocation = "By the Treefather's will, entwine and restrain."
 	invocation_type = "whisper"
 	charge_max = 60 SECONDS
+	devotion_cost = 15
 	
 /obj/effect/proc_holder/spell/invoked/entangler/cast(list/targets, mob/living/user)
     . = ..()
@@ -153,6 +154,7 @@
 	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/dendor)
 	invocation = "Treefather light the way."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
+	devotion_cost = 20
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
