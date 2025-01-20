@@ -261,7 +261,7 @@ Design philosphy:
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
 		if(H.patron != /datum/patron/divine/noc)
 			H.set_patron(/datum/patron/divine/noc)
-		if(H.age == AGE_MIDDLEAGED)
+		if(H.age == AGE_IMMORTAL)
 			head = /obj/item/clothing/head/roguetown/wizhat/gen
 			H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 			H.change_stat("speed", -1)
