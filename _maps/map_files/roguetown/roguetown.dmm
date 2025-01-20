@@ -10936,10 +10936,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
-"mdx" = (
-/obj/effect/landmark/start/barkeep,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/town/tavern)
 "mdQ" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 8
@@ -79941,7 +79937,7 @@ sUi
 sUi
 vQk
 hyI
-mdx
+nXZ
 dsA
 nNL
 gaU

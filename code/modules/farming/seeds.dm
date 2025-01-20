@@ -79,19 +79,19 @@
 
 /obj/item/neuFarm/seed/westleach
 	seed_identity = "westleach leaf seeds"
-	plant_def_type = /datum/plant_def/pipeweed
+	plant_def_type = /datum/plant_def/westleach
 
 /obj/item/neuFarm/seed/swampleaf
 	seed_identity = "swampweed seeds"
-	plant_def_type = /datum/plant_def/sweetleaf
+	plant_def_type = /datum/plant_def/swampweed
 
 /obj/item/neuFarm/seed/berryrogue
 	seed_identity = "berry seeds"
-	plant_def_type = /datum/plant_def/berry
+	plant_def_type = /datum/plant_def/jacksberry
 
 /obj/item/neuFarm/seed/poison_berries
 	seed_identity = "berry seeds"
-	plant_def_type = /datum/plant_def/berry_poison
+	plant_def_type = /datum/plant_def/jacksberry_poison
 
 /obj/item/neuFarm/seed/cabbage
 	seed_identity = "cabbage seeds"

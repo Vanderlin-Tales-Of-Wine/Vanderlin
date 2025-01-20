@@ -17,7 +17,7 @@
 	hud_type = /datum/hud/monkey
 
 /mob/living/carbon/monkey/Initialize(mapload, cubespawned=FALSE, mob/spawner)
-	verbs += /mob/living/proc/mob_sleep
+	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
 
 	if(unique_name) //used to exclude pun pun

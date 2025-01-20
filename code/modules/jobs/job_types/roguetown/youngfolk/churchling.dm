@@ -17,6 +17,12 @@
 	give_bank_account = TRUE
 	min_pq = -10
 	can_have_apprentices = FALSE
+	allowed_patrons = ALL_TEMPLE_PATRONS
+
+/datum/outfit/job/roguetown/churchling
+	name = "Churchling"
+	jobtype = /datum/job/roguetown/churchling
+	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/roguetown/churchling/pre_equip(mob/living/carbon/human/H)
 	..()

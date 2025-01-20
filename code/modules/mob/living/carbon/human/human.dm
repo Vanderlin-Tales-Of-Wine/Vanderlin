@@ -7,7 +7,7 @@
 	if(held_item && (user.zone_selected == BODY_ZONE_PRECISE_MOUTH))
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			if(has_stubble)
-				playsound(src, 'modular/Barding/sound/actions/shaving.ogg', 100, TRUE, -1)
+				playsound(src, 'sound/foley/shaving.ogg', 100, TRUE, -1)
 				if(user == src)
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] stubble with [held_item].</span>")
 				else
@@ -18,7 +18,7 @@
 				else
 					held_item.melee_attack_chain(user, src, params)
 			else if(facial_hairstyle != "None")
-				playsound(src, 'modular/Barding/sound/actions/shaving.ogg', 100, TRUE, -1)
+				playsound(src, 'sound/foley/shaving.ogg', 100, TRUE, -1)
 				if(user == src)
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] facehairs with [held_item].</span>")
 				else
@@ -57,7 +57,7 @@
 #endif
 
 /mob/living/carbon/human/Initialize()
-	verbs += /mob/living/proc/mob_sleep
+	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
 
 	icon_state = ""		//Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.

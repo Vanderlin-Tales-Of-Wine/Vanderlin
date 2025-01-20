@@ -614,7 +614,7 @@
 		if(!user.is_literate())
 			to_chat(user, "<span class='warning'>I don't know any verba.</span>")
 			return
-		if((user.used_intent.blade_class == BCLASS_STAB) && (W.wlength == WLENGTH_SHORT))
+		if(((user.used_intent.blade_class == BCLASS_STAB) || (user.used_intent.blade_class == BCLASS_CUT)) && (W.wlength == WLENGTH_SHORT))
 			if(wrotesign)
 				to_chat(user, "<span class='warning'>Something is already carved here.</span>")
 				return

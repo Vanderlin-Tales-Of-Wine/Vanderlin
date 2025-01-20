@@ -79,9 +79,10 @@
 	var/mob/living/living_user = user
 	if(user.doing)
 		return
+	if(user.used_intent.type != INTENT_DISARM)
+		return
 	if(istype(living_user) && (living_user.cmode))
 		return
-
 	if(is_tipped)
 		INVOKE_ASYNC(src, PROC_REF(try_untip), source, user)
 	else

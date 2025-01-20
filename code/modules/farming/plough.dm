@@ -1,8 +1,7 @@
 /obj/structure/plough
 	name = "plough"
 	desc = "A wooden plough with iron blades to till the earth for crops."
-	icon = 'modular/Neu_Farming/icons/plough_big.dmi'
-//	icon = 'modular/Neu_Farming/icons/plough.dmi'
+	icon = 'icons/roguetown/misc/plough.dmi'
 	icon_state = "plough"
 	density = TRUE
 	max_integrity = 600
@@ -10,11 +9,10 @@
 	climbable = FALSE
 	facepull = FALSE
 	drag_slowdown = 6
-	pixel_x = -8
+	pixel_x = -12
 
 /obj/structure/plough/Moved(oldLoc, movement_dir)
 	. = ..()
-//	if(pulledby && pulledby.m_intent == MOVE_INTENT_SNEAK) replaced with bigger drag slowdown
 	if((dir == WEST) || (dir == EAST))
 		if(pulledby)
 			user_tries_tilling(pulledby, get_turf(src))
@@ -24,9 +22,9 @@
 		playsound(location,'sound/items/dig_shovel.ogg', 100, TRUE)
 		location.ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
 		if(user.buckled)
-			apply_farming_fatigue(user, 4)
+			apply_farming_fatigue(user, 5)
 		else
-			apply_farming_fatigue(user, 8)
+			apply_farming_fatigue(user, 10)
 		return
 	if(istype(location, /turf/open/floor/rogue/dirt))
 		playsound(location,'sound/items/dig_shovel.ogg', 100, TRUE)
@@ -36,8 +34,8 @@
 		else
 			new /obj/structure/soil(location)
 			if(user.buckled)
-				apply_farming_fatigue(user, 4)
+				apply_farming_fatigue(user, 5)
 			else
-				apply_farming_fatigue(user, 8)
+				apply_farming_fatigue(user, 10)
 
 		return

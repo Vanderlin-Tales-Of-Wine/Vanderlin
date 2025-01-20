@@ -217,6 +217,7 @@
 	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP
 	lumber = null
 	lumber_amount = 0
+	tool_behaviour = TOOL_IMPROVISED_RETRACTOR
 
 /obj/item/natural/wood/plank
 	name = "wood plank"

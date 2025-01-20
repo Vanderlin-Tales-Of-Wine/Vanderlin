@@ -1,9 +1,0 @@
-{
-    "map_name": "Dun Manor",
-    "map_path": "map_files/dun_manor",
-    "map_file": "dun_manor.dmm",
-	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true}],
-	"minetype": null,
-	"space_empty_levels": 0,
-	"space_ruin_levels": 0
-}

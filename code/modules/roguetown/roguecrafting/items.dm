@@ -464,7 +464,7 @@
 	craftdiff = 0
 /datum/crafting_recipe/roguetown/bonespear
 	name = "bone spear"
-	result = /obj/item/rogueweapon/spear/bonespear
+	result = /obj/item/rogueweapon/polearm/spear/bonespear
 	reqs = list(/obj/item/rogueweapon/polearm/woodstaff = 1,
 				/obj/item/alch/bone = 2,
 				/obj/item/natural/fibers = 1)
@@ -523,3 +523,24 @@
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	result = /obj/item/clothing/neck/roguetown/psycross
 	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/impsaw
+	name = "improvised saw"
+	result = /obj/item/rogueweapon/surgery/saw/improv
+	reqs = list(/obj/item/natural/fibers = 1, /obj/item/natural/stone = 1, /obj/item/grown/log/tree/stick = 1)
+	craftdiff = 1
+	skillcraft = /datum/skill/craft/crafting
+
+/datum/crafting_recipe/roguetown/impretra
+	name = "improvised clamp"
+	result = /obj/item/rogueweapon/surgery/hemostat/improv
+	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2)
+	craftdiff = 1
+	skillcraft = /datum/skill/craft/crafting
+
+/datum/crafting_recipe/roguetown/imphemo
+	name = "improvised retractor"
+	result = /obj/item/rogueweapon/surgery/retractor/improv
+	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2)
+	craftdiff = 1
+	skillcraft = /datum/skill/craft/crafting

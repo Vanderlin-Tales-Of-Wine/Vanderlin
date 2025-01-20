@@ -3,12 +3,11 @@
 #define MAX_PLANT_NUTRITION 300
 #define MAX_PLANT_WEEDS 100
 #define SOIL_DECAY_TIME 20 MINUTES
-#define FARMING_XPGAIN 10
 
 /obj/structure/soil
 	name = "soil"
 	desc = "Dirt, ready to give life like a womb."
-	icon = 'modular/Neu_Farming/icons/soil.dmi'
+	icon = 'icons/roguetown/misc/soil.dmi'
 	icon_state = "soil"
 	density = FALSE
 	climbable = FALSE
@@ -70,7 +69,6 @@
 
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)
-	//user.mind.adjust_experience(/datum/skill/labor/farming, FARMING_XPGAIN, FALSE)
 
 /obj/structure/soil/proc/try_handle_harvest(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/sickle))
@@ -155,7 +153,7 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/soil/proc/try_handle_deweed(obj/item/attacking_item, mob/user, params)
+/obj/structure/soil/proc/try_handle_deweed(obj/item/attacking_item, mob/living/user, params)
 	if(weeds < MAX_PLANT_WEEDS * 0.3)
 		return FALSE
 	if(attacking_item == null)
@@ -164,11 +162,13 @@
 			apply_farming_fatigue(user, 20)
 			to_chat(user, span_notice("I rip out the weeds."))
 			deweed()
+			add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 0.2)
 		return TRUE
 	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
 		apply_farming_fatigue(user, 10)
 		to_chat(user, span_notice("I rip out the weeds with the [attacking_item]"))
 		deweed()
+		add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 0.2)
 		return TRUE
 	return FALSE
 
@@ -188,13 +188,12 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/soil/attack_hand(mob/user)
+/obj/structure/soil/attack_hand(mob/living/user)
 	if(plant && produce_ready)
 		to_chat(user, span_notice("I begin collecting the produce..."))
 		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			user_harvests(user)
-			user.mind.adjust_experience(/datum/skill/labor/farming, FARMING_XPGAIN, FALSE)
 		return
 	if(plant && plant_dead)
 		to_chat(user, span_notice("I begin to remove the dead crop..."))
@@ -205,7 +204,7 @@
 			to_chat(user, span_notice("I remove the crop."))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			uproot()
-			user.mind.adjust_experience(/datum/skill/labor/farming, FARMING_XPGAIN, FALSE)
+			add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 0.2)
 		return
 	. = ..()
 

@@ -3,7 +3,8 @@
 	roundend_category = "aspirant"
 	antagpanel_category = "Aspirant"
 	job_rank = ROLE_ASPIRANT
-	show_in_roundend = FALSE
+	show_name_in_check_antagonists = TRUE
+	show_in_roundend = TRUE
 	confess_lines = list(
 		"THE CHOSEN MUST TAKE THE THRONE!",
 	)
@@ -11,34 +12,34 @@
 
 /datum/antagonist/aspirant/supporter
 	name = "Supporter"
+	show_name_in_check_antagonists = TRUE
+	show_in_roundend = TRUE
 
 /datum/antagonist/aspirant/loyalist
 	name = "Loyalist"
+	show_name_in_check_antagonists = TRUE
+	show_in_roundend = TRUE
 
 /datum/antagonist/aspirant/ruler
 	name = "Ruler"
+	show_name_in_check_antagonists = TRUE
+	show_in_roundend = FALSE
 
 /datum/antagonist/aspirant/on_gain()
 	. = ..()
 	owner.special_role = ROLE_ASPIRANT
 
 /datum/antagonist/aspirant/greet()
-	to_chat(owner, span_danger("I have grown weary of being near the throne, but never on it. I have decided that it is time I ruled Enigma."))
+	to_chat(owner, span_danger("I have grown weary of being near the throne, but never on it. I have decided that it is time I ruled Vanderlin."))
 	..()
 
 /datum/antagonist/aspirant/loyalist/greet()
-	to_chat(owner, span_danger("Long live the Duke! I love my ruler. But I have heard that some seek to overthrow them. I cannot let that happen."))
+	to_chat(owner, span_danger("Long live the Monarch! I love my ruler. But I have heard that some seek to overthrow them. I cannot let that happen."))
 
 /datum/antagonist/aspirant/supporter/greet()
-	to_chat(owner, span_danger("Long live the Duke! But not this one. I have been approached by an Aspirant and swayed to their cause. I must ensure they take the throne."))
+	to_chat(owner, span_danger("Long live the Monarch! But not this one. I have been approached by an Aspirant and swayed to their cause. I must ensure they take the throne."))
 
 /datum/antagonist/aspirant/ruler/greet() // No alert for the ruler to always keep them guessing.
-
-/datum/antagonist/prebel/can_be_owned(datum/mind/new_owner)
-	. = ..()
-	if(.)
-		if(!(new_owner.assigned_role in GLOB.noble_positions) || !(new_owner.assigned_role in GLOB.garrison_positions))
-			return FALSE
 
 /datum/antagonist/aspirant/on_gain()
 	. = ..()
@@ -83,7 +84,7 @@
 // OBJECTIVES
 /datum/objective/aspirant/coup/one
 	name = "Aspirant"
-	explanation_text = "I must ensure that I am crowned as the Duke."
+	explanation_text = "I must ensure that I am crowned as the Monarch."
 	triumph_count = 5
 
 /datum/objective/aspirant/coup/one/check_completion()
@@ -94,7 +95,7 @@
 
 /datum/objective/aspirant/coup/two
 	name = "Moral"
-	explanation_text = "I am no kinslayer, I must make sure that the duke doesn't die."
+	explanation_text = "I am no kinslayer, I must make sure that the Monarch doesn't die."
 	triumph_count = 10
 	var/initialruler
 
@@ -124,7 +125,7 @@
 
 /datum/objective/aspirant/loyal/two
 	name = "Loyalist"
-	explanation_text = "I must ensure that the duke continues to reign."
+	explanation_text = "I must ensure that the Monarch continues to reign."
 	triumph_count = 3
 	var/initialruler
 

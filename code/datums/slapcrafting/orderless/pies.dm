@@ -62,16 +62,8 @@
 /datum/orderless_slapcraft/pie/pot
 	name = "pot pie"
 	requirements = list(
-		list(
-			/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
-			/obj/item/reagent_containers/food/snacks/rogue/cheese,
-			/obj/item/reagent_containers/food/snacks/egg) = 2,
-		/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced = 1,
-		list(
-			/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
-			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
-			/obj/item/reagent_containers/food/snacks/fat) = 1
-		)
+		/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced = 3,
+	)
 
 	overlay_state = "fill_pot"
 	pie_name = "pot pie"
