@@ -16,14 +16,6 @@
 	craftdiff = 0
 	uses_attacking_atom = TRUE
 
-/datum/repeatable_crafting_recipe/fishing/bait/dough
-	name = "doughy bait"
-	starting_atom = /obj/item/reagent_containers/powder/flour
-	requirements = list(
-		/obj/item/reagent_containers/powder/flour = 2,
-	)
-	attacking_atom = /obj/item/reagent_containers/powder/flour
-
 /datum/repeatable_crafting_recipe/fishing/bait/gray
 	name = "gray bait"
 	output_amount = 5

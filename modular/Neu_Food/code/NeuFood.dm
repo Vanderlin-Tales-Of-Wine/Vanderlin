@@ -20,31 +20,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	foodtype = GRAIN
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	cooktime = 30 SECONDS
-	var/requires_table = FALSE // mostly a way to avoid a lot of bugs
-	var/skillcheck	// got enough skill to make this?
-	var/foodbuff_skillcheck // is the cook good enough to add buff?
-	var/skill_lacking = "Your skill is lacking."
-
-/obj/item/reagent_containers/food/snacks/rogue/attackby(obj/item/I, mob/user, params)
-	if(user.mind)
-		if(skillcheck)
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 3) // cooks with less than 3 skill don´t know this recipe
-				to_chat(user, span_warning(skill_lacking))
-				return
-		if(foodbuff_skillcheck)		// cooks with less than 4 skill don´t add bonus buff
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 3)
-				to_chat(user, span_warning(skill_lacking))
-				return
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
-
-	if(requires_table)
-		var/found_table = locate(/obj/structure/table) in (loc)
-		if(!isturf(loc)&& (found_table))
-			to_chat(user, span_warning("Put [src] on a table before working it!"))
-			return
-	. = ..()
+	cooktime = 25 SECONDS
 
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
@@ -520,21 +496,24 @@
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
 	sellprice = 0
+	requires_table = TRUE
 	var/water_added
 /obj/item/reagent_containers/powder/flour/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
 	..()
 	qdel(src)
-/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
+/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
+	..()
 	var/obj/item/reagent_containers/R = I
-	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
+		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
+		to_chat(user, span_notice("Kneading in more powder..."))
+		if(do_after(user,short_cooktime, target = src))
+			new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
+			qdel(I)
+			qdel(src)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 	if(!istype(R) || (water_added))
-		return ..()
-	if(isturf(loc)&& (!found_table))
-		to_chat(user, "<span class='notice'>Need a table...</span>")
 		return ..()
 	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
 		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
@@ -550,13 +529,17 @@
 	return TRUE
 
 /obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
+	..()
 	if(water_added)
+		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
-		if(do_after(user,3 SECONDS, target = src))
-			new /obj/item/reagent_containers/food/snacks/rogue/dough_base(loc)
+		if(do_after(user,short_cooktime, target = src))
+			var/obj/item/reagent_containers/food/snacks/rogue/dough_base/newdough= new(get_turf(user))
+			user.put_in_hands(newdough)
 			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
 			qdel(src)
-	else ..()
+
+
 
 // -------------- SALT -----------------
 /obj/item/reagent_containers/powder/salt

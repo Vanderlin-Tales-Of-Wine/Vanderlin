@@ -72,7 +72,7 @@ All foods are distributed among various categories. Use common sense.
 	var/eat_effect
 	var/rotprocess = FALSE
 	var/become_rot_type = null
-	var/plateable = FALSE //if it can be plated or not
+
 	var/mill_result = null
 
 	var/fertamount = 50
@@ -91,6 +91,11 @@ All foods are distributed among various categories. Use common sense.
 
 	var/list/sizemod = null
 	var/list/raritymod = null
+
+	var/plateable = FALSE //if it can be plated or not
+	var/skillcheck	// got enough skill to make this?
+	var/foodbuff_skillcheck // is the cook good enough to add buff?
+	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
 
 /datum/intent/food
 	name = "feed"
@@ -369,25 +374,10 @@ All foods are distributed among various categories. Use common sense.
 
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
+	. = ..()
 	if(istype(W, /obj/item/storage))
 		..() // -> item/attackby()
 		return 0
-/*	if(istype(W, /obj/item/reagent_containers/food/snacks))
-		var/obj/item/reagent_containers/food/snacks/S = W
-		if(custom_food_type && ispath(custom_food_type))
-			if(S.w_class > WEIGHT_CLASS_SMALL)
-				to_chat(user, "<span class='warning'>[S] is too big for [src]!</span>")
-				return 0
-			if(!S.customfoodfilling || istype(W, /obj/item/reagent_containers/food/snacks/customizable) || istype(W, /obj/item/reagent_containers/food/snacks/pizzaslice/custom) || istype(W, /obj/item/reagent_containers/food/snacks/cakeslice/custom))
-				to_chat(user, "<span class='warning'>[src] can't be filled with [S]!</span>")
-				return 0
-			if(contents.len >= 20)
-				to_chat(user, "<span class='warning'>I can't add more ingredients to [src]!</span>")
-				return 0
-			var/obj/item/reagent_containers/food/snacks/customizable/C = new custom_food_type(get_turf(src))
-			C.initialize_custom_food(src, S, user)
-			return 0
-*/
 
 	if(W.get_sharpness() && W.wlength == WLENGTH_SHORT)
 		if(slice_bclass == BCLASS_CHOP)
@@ -401,7 +391,17 @@ All foods are distributed among various categories. Use common sense.
 		else if(slice(W, user))
 			return 1
 
-	..()
+	if(user.mind)
+		if(skillcheck)
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 3) // cooks with less than 3 skill don´t know this recipe
+				to_chat(user, span_warning(skill_lacking))
+				return
+		if(foodbuff_skillcheck)		// cooks with less than 4 skill don´t add bonus buff
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 3)
+				to_chat(user, span_warning(skill_lacking))
+				return
+
+//	..()
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
 	..()

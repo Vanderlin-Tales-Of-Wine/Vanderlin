@@ -18,8 +18,9 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_EXTREME
 	requires_table = TRUE
-/obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/user, params)
-	. = ..()
+	do_random_pixel_offset = FALSE
+/obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
+	..()
 	if(istype(I, /obj/item/reagent_containers/powder/flour))
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
 		to_chat(user, span_notice("Kneading in more powder..."))
@@ -27,9 +28,8 @@
 			new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
 			qdel(I)
 			qdel(src)
-			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
-	else
-		return ..()
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+
 
 /obj/item/reagent_containers/food/snacks/rogue/dough
 	name = "dough"
@@ -44,8 +44,9 @@
 	rotprocess = SHELFLIFE_EXTREME
 	slice_sound = TRUE
 	requires_table = TRUE
+	do_random_pixel_offset = FALSE
 /obj/item/reagent_containers/food/snacks/rogue/dough/attackby(obj/item/I, mob/user, params)
-	. = ..()
+	..()
 	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
 		to_chat(user, span_notice("Kneading butter into the dough..."))
@@ -76,8 +77,6 @@
 			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
 			qdel(I)
 			qdel(src)
-	else
-		return ..()
 
 /*	.................   Smalldough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/doughslice
@@ -91,6 +90,7 @@
 	rotprocess = SHELFLIFE_EXTREME
 	requires_table = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/doughslice/attackby(obj/item/I, mob/user, params)
+	..()
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese/gote))
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
 		to_chat(user, span_notice("Adding fresh gote cheese..."))
@@ -114,8 +114,8 @@
 			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
 			qdel(I)
 			qdel(src)
-	else
-		return ..()
+//	else
+//		return ..()
 
 
 
