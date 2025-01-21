@@ -112,7 +112,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
 	name = "pot pie"
 	desc = ""
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
+	slices_num = 6
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_FILLING)
 	tastes = list("succulent filling and crispy butterdough" = 1)
 	filling_color = "#755430"
 	foodtype = GRAIN | DAIRY | MEAT

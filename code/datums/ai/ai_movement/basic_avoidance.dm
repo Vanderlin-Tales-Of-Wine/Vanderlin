@@ -19,6 +19,11 @@
 		if(!isturf(movable_pawn.loc)) //No moving if not on a turf
 			can_move = FALSE
 
+		if(isliving(movable_pawn))
+			var/mob/living/living_pawn = movable_pawn
+			if(!(living_pawn.mobility_flags & MOBILITY_MOVE))
+				can_move = FALSE
+
 		var/current_loc = get_turf(movable_pawn)
 
 		var/turf/target_turf = get_step_towards(movable_pawn, controller.current_movement_target)

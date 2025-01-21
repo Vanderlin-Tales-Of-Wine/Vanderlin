@@ -31,7 +31,7 @@
 	var/vipmessage
 	var/defenses = FALSE
 
-/obj/structure/mineral_door/secret/redstone_triggered()
+/obj/structure/mineral_door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else

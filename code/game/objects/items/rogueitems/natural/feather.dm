@@ -15,3 +15,16 @@
 	muteinmouth = TRUE
 	spitoutmouth = FALSE
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/natural/feather/pre_attack_right(atom/A, mob/living/carbon/human/user, params)
+	if(istype(A, /obj/item/paper/confession))
+		var/obj/item/paper/confession/confessional = A
+		var/response = alert(user, "What voluntary confession do I want?","","Villainy", "Faith")
+		if(!response)
+			return
+		if(response == "Villainy")
+			confessional.confession_type = "antag"
+		else
+			confessional.confession_type = "patron"
+		return TRUE
+	return ..()

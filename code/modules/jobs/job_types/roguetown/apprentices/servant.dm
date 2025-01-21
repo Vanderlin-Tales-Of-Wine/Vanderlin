@@ -17,7 +17,7 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	allowed_ages = list(AGE_ADULT, AGE_IMMORTAL)
+	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to. You work your fingers to the bone nearly every dae, and have naught to show for it but boney fingers. Perhaps this week you will finally be recognized, or allowed some respite?"
 

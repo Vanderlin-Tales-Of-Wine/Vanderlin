@@ -44,7 +44,7 @@
 				return
 			var/turf/spawn_loc = pick(GLOB.underworldspiritspawns)
 			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
-			O.livingname = mob.name
+			O.livingname = mob.real_name
 			O.ckey = ckey
 			ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
 			O.set_patron(prefs.selected_patron)

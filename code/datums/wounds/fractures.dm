@@ -46,6 +46,8 @@
 		return FALSE
 	sleep_healing = max(sleep_healing, 1)
 	passive_healing = max(passive_healing, 1)
+	heal_wound(initial(whp)/1.6) //heal a little more than of maximum fracture
+	can_set = FALSE
 	return TRUE
 
 /datum/wound/fracture/head

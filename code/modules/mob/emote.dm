@@ -1,3 +1,12 @@
+///How confused a carbon must be before they will not vomit
+#define BEYBLADE_PUKE_THRESHOLD (0 SECONDS)
+///How must nutrition is lost when a carbon pukes
+#define BEYBLADE_PUKE_NUTRIENT_LOSS 60
+///How often a carbon becomes penalized
+#define BEYBLADE_DIZZINESS_PROBABILITY 20
+///How long the screenshake lasts
+#define BEYBLADE_DIZZINESS_DURATION (1 SECONDS)
+
 //The code execution of the emote datum is located at code/datums/emotes.dm
 /mob/proc/emote(act, m_type = null, message = null, intentional = FALSE, forced = FALSE, targetted = FALSE, custom_me = FALSE)
 	var/oldact = act
@@ -62,29 +71,51 @@
 	. = ..()
 	if(.)
 		user.SpinAnimation(7,1)
-
+*/
 /datum/emote/spin
 	key = "spin"
 	key_third_person = "spins"
 	restraint_check = TRUE
 	mob_type_allowed_typecache = list(/mob/living, /mob/dead/observer)
 	mob_type_ignore_stat_typecache = list(/mob/dead/observer)
+	mute_time = 5 SECONDS
 
-/datum/emote/living/carbon/human/spin/can_run_emote(mob/user, status_check = TRUE , intentional)
-	return FALSE
+/mob/living/carbon/human/verb/emote_spin()
+	set name = "Spin"
+	set category = "Emotes"
+	emote("spin", intentional = TRUE)
 
+/datum/emote/spin/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+	. = ..()
+	if(!iscarbon(user))
+		return FALSE
+	if(user.IsImmobilized())
+		return FALSE
 
-/datum/emote/spin/run_emote(mob/user, params ,  type_override, intentional)
+/datum/emote/spin/run_emote(mob/living/carbon/user, params ,  type_override, intentional)
 	. = ..()
 	if(.)
-		user.spin(20, 1)
+		user.spin(4, 1)
+		user.Immobilize(5)
 
-		if(iscyborg(user) && user.has_buckled_mobs())
-			var/mob/living/silicon/robot/R = user
-			var/datum/component/riding/riding_datum = R.GetComponent(/datum/component/riding)
-			if(riding_datum)
-				for(var/mob/M in R.buckled_mobs)
-					riding_datum.force_dismount(M)
-			else
-				R.unbuckle_all_mobs()
-*/
+		if(user.dizziness > BEYBLADE_PUKE_THRESHOLD)
+			user.vomit(BEYBLADE_PUKE_NUTRIENT_LOSS, distance = 0)
+			return
+
+		if(prob(BEYBLADE_DIZZINESS_PROBABILITY))
+			to_chat(user, span_warning("You feel woozy from spinning."))
+			user.Dizzy(BEYBLADE_DIZZINESS_DURATION)
+
+		// if(iscyborg(user) && user.has_buckled_mobs())
+		// 	var/mob/living/silicon/robot/R = user
+		// 	var/datum/component/riding/riding_datum = R.GetComponent(/datum/component/riding)
+		// 	if(riding_datum)
+		// 		for(var/mob/M in R.buckled_mobs)
+		// 			riding_datum.force_dismount(M)
+		// 	else
+		// 		R.unbuckle_all_mobs()
+
+#undef BEYBLADE_PUKE_THRESHOLD
+#undef BEYBLADE_PUKE_NUTRIENT_LOSS
+#undef BEYBLADE_DIZZINESS_PROBABILITY
+#undef BEYBLADE_DIZZINESS_DURATION

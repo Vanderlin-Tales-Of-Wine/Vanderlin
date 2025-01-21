@@ -227,7 +227,7 @@
 			beltl = /obj/item/ammo_holder/quiver/bolts
 
 		if ("Spear + Shield")
-			r_hand = /obj/item/rogueweapon/spear
+			r_hand = /obj/item/rogueweapon/polearm/spear
 			backl = /obj/item/rogueweapon/shield/tower/metal
 
 /datum/advclass/veteran/merc

@@ -56,11 +56,25 @@
 	objectives -= O
 
 /datum/antagonist/werewolf/proc/forge_werewolf_objectives()
-	if(!(locate(/datum/objective/escape) in objectives))
-		var/datum/objective/werewolf/escape_objective = new
-		escape_objective.owner = owner
-		add_objective(escape_objective)
-		return
+	var/list/primary = pick(list("1","2"))
+	var/list/secondary = pick(list("1", "2"))
+	switch(primary)
+		if("1")
+			var/datum/objective/werewolf/conquer/T = new
+			objectives += T
+		if("2")
+			var/datum/objective/werewolf/spread/T = new
+			objectives += T
+	switch(secondary)
+		if("1")
+			var/datum/objective/werewolf/infiltrate/one/T = new
+			objectives += T
+		if("2")
+			var/datum/objective/werewolf/infiltrate/two/T = new
+			objectives += T
+
+	var/datum/objective/werewolf/survive/survive = new
+	objectives += survive
 
 /datum/antagonist/werewolf/greet()
 	to_chat(owner.current, span_userdanger("Ever since that bite, I have been a [name]."))

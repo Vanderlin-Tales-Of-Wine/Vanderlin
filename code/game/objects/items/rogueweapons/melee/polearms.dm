@@ -425,14 +425,15 @@
 	throwforce = 25
 	sellprice = 10
 
-/obj/item/rogueweapon/spear/bonespear
+/obj/item/rogueweapon/polearm/spear/bonespear
 	force = 18
 	force_wielded = 22
 	name = "bone spear"
-	desc = "A spear made of bones..."
-	icon_state = "bonespear"
-	pixel_y = -16
-	pixel_x = -16
+	desc = "A spear made of bones."
+	// icon_state = "bonespear"
+	icon_state = "stonespear_sk"
+	// pixel_y = -16
+	// pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	bigboy = TRUE
