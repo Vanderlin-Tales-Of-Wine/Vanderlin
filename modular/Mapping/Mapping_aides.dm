@@ -166,7 +166,7 @@
 		/obj/item/reagent_containers/food/snacks/rogue/peppersteak = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/friedegg = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried = 10,
+		/obj/item/reagent_containers/food/snacks/rogue/meat/ham = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried = 10,

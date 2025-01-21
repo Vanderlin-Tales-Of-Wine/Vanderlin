@@ -22,11 +22,11 @@
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 25 SECONDS
 
-
+/*
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
 	eatverb = pick("bite","chew","nibble","gobble","chomp")
-
+*/
 /obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	bitesize = 3
@@ -496,7 +496,6 @@
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
 	sellprice = 0
-	requires_table = TRUE
 	var/water_added
 /obj/item/reagent_containers/powder/flour/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
@@ -504,32 +503,34 @@
 	qdel(src)
 /obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
 	..()
-	var/obj/item/reagent_containers/R = I
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
-		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-		to_chat(user, span_notice("Kneading in more powder..."))
-		if(do_after(user,short_cooktime, target = src))
-			new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
-			qdel(I)
-			qdel(src)
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
-	if(!istype(R) || (water_added))
-		return ..()
-	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
-		return TRUE
-	to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
-	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
-	if(do_after(user,2 SECONDS, target = src))
-		name = "wet powder"
-		desc = "Destined for greatness, at your hands."
-		R.reagents.remove_reagent(/datum/reagent/water, 10)
-		water_added = TRUE
-		color = "#d9d0cb"
-	return TRUE
+	var/found_table = locate(/obj/structure/table) in (loc)
+	var/obj/item/reagent_containers/glass/R = I
+	if(isturf(loc)&& (found_table))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
+			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Kneading in more powder..."))
+			if(do_after(user,short_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+		if(!istype(R) || (water_added))
+			return ..()
+		if(!R.reagents.has_reagent(/datum/reagent/water, 10))
+			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+			return TRUE
+		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+		playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
+		if(do_after(user,2 SECONDS, target = src))
+			name = "wet powder"
+			desc = "Destined for greatness, at your hands."
+			R.reagents.remove_reagent(/datum/reagent/water, 10)
+			water_added = TRUE
+			color = "#d9d0cb"
+	else
+		to_chat(user, span_warning("Put [src] on a table before working it!"))
 
 /obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
-	..()
 	if(water_added)
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
@@ -538,6 +539,8 @@
 			user.put_in_hands(newdough)
 			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
 			qdel(src)
+	else
+		..()
 
 
 

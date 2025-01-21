@@ -374,7 +374,7 @@ All foods are distributed among various categories. Use common sense.
 
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
-	. = ..()
+	..()
 	if(istype(W, /obj/item/storage))
 		..() // -> item/attackby()
 		return 0
@@ -383,13 +383,13 @@ All foods are distributed among various categories. Use common sense.
 		if(slice_bclass == BCLASS_CHOP)
 			user.visible_message("<span class='notice'>[user] chops [src]!</span>")
 			slice(W, user)
-			return 1
+			return TRUE
 		if(slice_bclass == BCLASS_CUT)
 			user.visible_message("<span class='notice'>[user] slices [src]!</span>")
 			slice(W, user)
-			return 1
+			return TRUE
 		else if(slice(W, user))
-			return 1
+			return TRUE
 
 	if(user.mind)
 		if(skillcheck)
@@ -401,7 +401,6 @@ All foods are distributed among various categories. Use common sense.
 				to_chat(user, span_warning(skill_lacking))
 				return
 
-//	..()
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
 	..()
@@ -426,7 +425,7 @@ All foods are distributed among various categories. Use common sense.
 				reagents.add_reagent(r_id, amount)
 
 /obj/item/reagent_containers/food/snacks/proc/slice(obj/item/W, mob/user)
-	if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
+	if((slices_num <= 1 || !slices_num) || !slice_path) //is the food sliceable?
 		return FALSE
 
 	if ( \

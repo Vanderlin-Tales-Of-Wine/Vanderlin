@@ -68,7 +68,7 @@
 			/obj/item/reagent_containers/food/snacks/egg) = 2,
 		/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced = 1,
 		list(
-			/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+			/obj/item/reagent_containers/food/snacks/rogue/meat/fatty,
 			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
 			/obj/item/reagent_containers/food/snacks/fat) = 1
 		)

@@ -31,7 +31,7 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
 	cooked_smell = /datum/pollutant/food/fried_meat
-	slices_num = 2
+	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
 
@@ -40,20 +40,12 @@
 	name = "raw pigflesh"
 	icon_state = "meatcutlet"
 	color = "#f093c3"
-	slices_num = 2
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/bacon
-	chopping_sound = TRUE
-
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon
-	name = "raw bacon"
-	icon_state = "bacon"
-	slice_path = null
-	slices_num = 0
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/ham
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/ham
 	cooked_smell = /datum/pollutant/food/bacon
-	filling_color = "#8a0000"
-	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bacon
+	slices_num = 1
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
+	chopping_sound = TRUE
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider // Low-nutrient, kind of gross. Survival food.
 	name = "strange meat"
