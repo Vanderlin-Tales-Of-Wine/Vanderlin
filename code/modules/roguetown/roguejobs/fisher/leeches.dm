@@ -4,7 +4,7 @@
 	name = "leech"
 	desc = "A disgusting, blood-sucking parasite."
 	icon = 'icons/roguetown/items/surgery.dmi'
-	icon_state = "leech"
+	icon_state = "leech_alt"
 	baitpenalty = 0
 	isbait = TRUE
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 5,
@@ -47,9 +47,6 @@
 	if(!drainage)
 		return PROCESS_KILL
 	blood_storage = max(blood_storage - drainage, 0)
-
-/obj/item/natural/worms/update_icon()
-	icon_state = "leech"
 
 /obj/item/natural/worms/leech/examine(mob/user)
 	. = ..()
@@ -128,12 +125,12 @@
 	if(consistent)
 		return FALSE
 	var/static/list/all_colors = list(
-		"#9860ff" = 8,
-		"#bcff49" = 4,
-		"#ffce49" = 2,
-		"#79ddff" = 2,
-		"#ff7878" = 1,
-		"#ff31e4" = 1,
+		"#8471a7" = 8,
+		"#94ad6a" = 4,
+		"#af995e" = 2,
+		"#83a7b3" = 2,
+		"#b88383" = 1,
+		"#bc69b1" = 1,
 	)
 	var/static/list/all_adjectives = list(
 		"blood-sucking" = 20,
@@ -165,9 +162,10 @@
 	var/evilness_rating = rand(0, MAX_LEECH_EVILNESS)
 	switch(evilness_rating)
 		if(MAX_LEECH_EVILNESS to INFINITY) //maximized evilness holy shit
-			color = "#ff0000"
+			color = "#dc4b4b"
 			adjectives += pick("evil", "malevolent", "misanthropic")
 			descs += "<span class='danger'>This one is bursting with hatred!</span>"
+			icon_state = "leech"
 		if(5) //this leech is painfully average, it gets no adjectives
 			if(prob(3))
 				adjectives += pick("average", "ordinary", "boring")
@@ -202,6 +200,7 @@
 	name = "the parasite"
 	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes."
 	icon_state = "parasite"
+	dropshrink = 0.9
 	baitpenalty = 0
 	isbait = TRUE
 	color = null
@@ -228,6 +227,7 @@
 /obj/item/natural/worms/leech/propaganda
 	name = "accursed leech"
 	desc = "A leech like none other."
+	icon_state = "leech"
 	drainage = 0
 	blood_sucking = 0
 	completely_silent = TRUE

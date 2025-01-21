@@ -297,7 +297,7 @@
 			if(!(locate(/obj/item/natural/worms) in T))
 				if(prob(40))
 					if(prob(10))
-						new /obj/item/natural/worms/grubs(T)
+						new /obj/item/natural/worms/grub_silk(T)
 					else
 						new /obj/item/natural/worms/leech(T)
 				else

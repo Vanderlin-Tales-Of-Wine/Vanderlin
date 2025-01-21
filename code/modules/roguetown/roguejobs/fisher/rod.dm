@@ -1,6 +1,6 @@
 /obj/item/fishingrod
 	force = 12
-	possible_item_intents = list(POLEARM_BASH, ROD_AUTO, ROD_CAST)
+	possible_item_intents = list(ROD_AUTO, ROD_CAST, POLEARM_BASH)
 	name = "fishing rod"
 	desc = ""
 	icon_state = "rod1"
@@ -191,7 +191,7 @@
 	if(tag)
 		switch(tag)
 			if("gen")
-				return list("shrink" = 0.7,"sx" = -14,"sy" = 3,"nx" = 14,"ny" = 3,"wx" = -12,"wy" = 4,"ex" = 6,"ey" = 5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+				return list("shrink" = 0.7,"sx" = -13,"sy" = 3,"nx" = 14,"ny" = 3,"wx" = -12,"wy" = 4,"ex" = 6,"ey" = 5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
@@ -515,7 +515,7 @@
 								fishchance -= fpp // Deduct a penalty the lower our fishing level is (-0 at legendary)
 						if(prob(fishchance)) // Finally, roll the dice to see if we fish.
 							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
-							to_chat(user, "<span class='notice'>Something tugs the line!</span>")
+							to_chat(user, "<span class='notice'>Something tugs the line! Time to pull it out.</span>")
 							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 							if(!do_after(user,ow, target = target))
 								var/mob/living/fisherman = user
