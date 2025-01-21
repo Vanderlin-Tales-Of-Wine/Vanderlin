@@ -196,7 +196,7 @@
 	icon_state = "handpie"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MINCE_NUTRITION)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MEATSLAB_NUTRITION)
 	tastes = list("crispy dough" = 1)
 	rotprocess = null
 	dropshrink = 0.8

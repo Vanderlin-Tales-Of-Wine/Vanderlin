@@ -167,6 +167,8 @@
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
+
+
 /*
 	if(requires_table)
 		if (
@@ -174,6 +176,6 @@
 			!(locate(/obj/structure/table/optable) in src.loc) && \
 			!(locate(/obj/item/storage/bag/tray) in src.loc))
 			to_chat(user, "<span class='warning'>I need to use a table.</span>")
-			return
-		else ..()
+			return FALSE
+
 */
