@@ -20,6 +20,7 @@
 GLOBAL_VAR_INIT(tod, FALSE)
 GLOBAL_VAR_INIT(forecast, FALSE)
 GLOBAL_VAR_INIT(todoverride, FALSE)
+/// The current day of the week, range from 1-7 (Moon's Dae - Sun's Dae)
 GLOBAL_VAR_INIT(dayspassed, FALSE)
 
 /proc/settod()
