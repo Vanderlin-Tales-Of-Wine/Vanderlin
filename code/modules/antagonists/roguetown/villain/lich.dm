@@ -73,6 +73,7 @@
 	eyes.Insert(L)
 	for(var/obj/item/bodypart/B in L.bodyparts)
 		B.skeletonize(FALSE)
+	L.unequip_everything()
 	L.equipOutfit(/datum/outfit/job/roguetown/lich)
 	L.set_patron(/datum/patron/inhumen/zizo)
 

@@ -253,6 +253,10 @@
 #define COMSIG_LIVING_DEATH "living_death"
 // /mob/living/carbon signals
 #define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"					//from base of mob/living/carbon/soundbang_act(): (list(intensity))
+#define COMSIG_CARBON_ON_HANDLE_BLOOD "human_on_handle_blood"
+	#define HANDLE_BLOOD_HANDLED (1<<0)
+	#define HANDLE_BLOOD_NO_NUTRITION_DRAIN (1<<1)
+	#define HANDLE_BLOOD_NO_EFFECTS (1<<2)
 
 // /mob/living/simple_animal/hostile signals
 #define COMSIG_HOSTILE_ATTACKINGTARGET "hostile_attackingtarget"

@@ -151,7 +151,7 @@
 /obj/item/organ/eyes/night_vision/nightmare
 	name = "burning red eyes"
 	desc = ""
-	icon_state = "burning_eyes"
+	// icon_state = "burning_eyes"
 	eye_color = BLOODCULT_EYE
 
 /obj/item/organ/eyes/night_vision/mushroom

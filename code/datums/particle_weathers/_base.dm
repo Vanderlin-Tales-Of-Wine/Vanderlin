@@ -81,9 +81,9 @@
 
 
 	/// See above - this is the lowest possible duration
-	var/weather_duration_lower = 1 MINUTES
+	var/weather_duration_lower = 7 MINUTES
 	/// See above - this is the highest possible duration
-	var/weather_duration_upper = 3 MINUTES
+	var/weather_duration_upper = 20 MINUTES
 
 	// Keep this between 1 and 100
 	// Gentle rain shouldn't use the max rain wind speed, nor should a storm be a gentle breeze

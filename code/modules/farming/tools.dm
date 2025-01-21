@@ -7,7 +7,6 @@
 	desc = "Crushes grain, or skulls."
 	icon_state = "thresher"
 	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
-//	icon = 'icons/roguetown/weapons/64.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	sharpness = IS_BLUNT
 	wlength = WLENGTH_LONG
@@ -192,26 +191,36 @@
 	possible_item_intents = list(DAGGER_CUT)
 	name = "sickle"
 	desc = "Rusted blade, worn handle, symbol of toil."
-	icon_state = "sickle"
-	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
-//	icon = 'icons/roguetown/weapons/tools.dmi'
+	icon_state = "sickle1"
+	icon = 'icons/roguetown/weapons/tools.dmi'
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
+	experimental_onhip = FALSE
+	experimental_onback = FALSE
 	sharpness = IS_SHARP
 	wlength = 10
 	slot_flags = ITEM_SLOT_HIP
 	thrown_bclass = BCLASS_CUT
+	wdefense = BAD_PARRY
 	drop_sound = 'sound/foley/dropsound/blade_drop.ogg'
 	max_blade_int = 50
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/knives
+
+/obj/item/rogueweapon/sickle/New()
+	. = ..()
+	if(icon_state == "sickle1")
+		icon_state = "sickle[rand(1,3)]"
 
 /obj/item/rogueweapon/sickle/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
 			if("gen")
-				return list("shrink" = 0.6,"sx" = -10,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -7,"wy" = 1,"ex" = 6,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+				return list("shrink" = 0.6,"sx" = -8,"sy" = 1,"nx" = 12,"ny" = 1,"wx" = -7,"wy" = 1,"ex" = 4,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
 
 /*------\
 |  Hoe  |
@@ -237,10 +246,8 @@
 
 	force = 5
 	force_wielded = 10
-	wdefense = 2
+	wdefense = MEDIOCHRE_PARRY
 	wlength = 66
-
-
 
 /obj/item/rogueweapon/hoe/getonmobprop(tag)
 	. = ..()
@@ -350,7 +357,7 @@
 
 	force = 10
 	force_wielded = 22
-	wdefense = 2
+	wdefense = MEDIOCHRE_PARRY
 	wlength = WLENGTH_LONG
 
 /obj/item/rogueweapon/pitchfork/getonmobprop(tag)
@@ -450,7 +457,7 @@
 
 /obj/item/storage/eggbasket
 	name = "egg basket"
-	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
+	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "eggbasket"
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'

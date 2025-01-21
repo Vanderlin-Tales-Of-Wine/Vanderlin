@@ -139,8 +139,6 @@
 	..()
 
 /mob/living/fire_act(added, maxstacks)
-	if(HAS_TRAIT(src,TRAIT_MOB_FIRE_IMMUNE))
-		return
 	if(added > 20)
 		added = 20
 	if(maxstacks > 20)

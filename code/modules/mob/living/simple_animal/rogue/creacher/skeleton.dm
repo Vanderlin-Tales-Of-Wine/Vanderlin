@@ -6,7 +6,7 @@
 	icon_living = "skeleton"
 	icon_dead = "skeleton_dead"
 	gender = MALE
-	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_UNDEAD
 	robust_searching = 1
 	turns_per_move = 1
 	move_to_delay = 3
@@ -58,7 +58,7 @@
 	icon_living = "skeleton_spear"
 	icon_dead = ""
 	attack_sound = 'sound/foley/pierce.ogg'
-	loot = list(/obj/item/alch/bone,	/obj/item/alch/bone, /obj/item/alch/bone,	/obj/item/rogueweapon/spear, /obj/item/skull)
+	loot = list(/obj/item/alch/bone,	/obj/item/alch/bone, /obj/item/alch/bone,	/obj/item/rogueweapon/polearm/spear, /obj/item/skull)
 
 /mob/living/simple_animal/hostile/rogue/skeleton/guard
 	name = "Skeleton"

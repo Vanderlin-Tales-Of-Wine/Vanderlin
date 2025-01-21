@@ -1,5 +1,16 @@
 // This mode will become the main basis for the typical roguetown round. Based off of chaos mode.
-GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "None", "Aspirants", "Bandits", "Maniac", "Cultists", "Lich", "CANCEL"))
+GLOBAL_LIST_INIT(roguegamemodes, list(
+	"Rebellion",
+	"Vampires and Werewolves",
+	"Vampires",
+	"Werewolves",
+	"None",
+	"Aspirants",
+	"Bandits",
+	"Maniac",
+	"Cultists",
+	"Lich",
+	"CANCEL"))
 
 /datum/game_mode/chaosmode
 	name = "roguemode"
@@ -24,6 +35,7 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 // DEBUG
 	var/list/forcedmodes = list()
 	var/mob/living/carbon/human/vlord = null
+	var/mob/living/carbon/human/species/werewolf = null
 // GAMEMODE SPECIFIC
 	var/banditcontrib = 0
 	var/banditgoal = 1
@@ -138,60 +150,85 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 			switch(G)
 				if("Rebellion")
 					pick_rebels()
+					message_admins("The Peasant Rebellion has been force selected to spawn.")
 					log_game("Major Antagonist: Rebellion")
 				if("Vampires and Werewolves")
 					pick_vampires()
 					pick_werewolves()
+					message_admins("Vampires and Werewolves have been force selected to spawn.")
 					log_game("Major Antagonist: Vampires and Werewolves")
+				if("Vampires")
+					pick_vampires()
+					log_game("Major Antagonist: Vampires")
+				if("Werewolves")
+					pick_werewolves()
+					log_game("Major Antagonist: Werewolves")
 				if("Bandits")
 					pick_bandits()
+					message_admins("Bandits have been force selected to spawn.")
 					log_game("Minor Antagonist: Bandit")
 				if("Aspirants")
 					pick_aspirants()
+					message_admins("The Aspirant has been force selected to spawn.")
 					log_game("Minor Antagonist: Aspirant")
 				if("Maniac")
 					pick_maniac()
+					message_admins("The Maniac has been force selected to spawn.")
 					log_game("Minor Antagonist: Maniac")
 				if("Lich")
 					pick_lich()
+					message_admins("The Lich has been force selected to spawn.")
 					log_game("Minor Antagonist: Lich")
 				if("Cultists")
 					pick_cultist()
+					message_admins("The Zizoid cult has been foce selected to spawn.")
 					log_game("Major Antagonist: Cultists")
 				if("None")
+					message_admins("No antagonist will be selected.")
 					log_game("Major Antagonist: None")
 		return TRUE
 
-	var/major_roll = pick(1,2,3)
+	var/major_roll = pick(1,2,3,4,5,6,7)
 	switch(major_roll)
 		if(1)
 			pick_rebels()
+			message_admins("The Peasnat Rebellion has been selected as a major antagonist.")
 			log_game("Major Antagonist: Peasant Rebellion")
 		if(2)
 			pick_cultist()
+			message_admins ("The Zizoid cult has been selected as a major antagonist.")
 			log_game("Major Antagonist: Cultists")
 		if(3)
 			//WWs and Vamps now normally roll together
+			message_admins("Werewolves against Vampire has been selected as the major antagonists.")
 			pick_vampires()
 			pick_werewolves()
 			log_game("Major Antagonist: Vampires and Werewolves")
-		//if(4)
-		//	log_game("Major Antagonist: None")
+		if(4)
+			pick_vampires()
+			log_game("Major Antagonist: Vampires")
+		if(5)
+			pick_werewolves()
+			log_game("Major Antagonist: Werewolves")
+		if(6)
+			pick_lich()
+			log_game("Major Antagonist: Lich")
+		if(7)
+			log_game("Major Antagonist: None")
 
 	if(prob(80))
 		pick_bandits()
+		message_admins("Bandits have been selected as a minor antagonist.")
 		log_game("Minor Antagonist: Bandit")
 
 	if(prob(45))
 		pick_aspirants()
+		message_admins("Aspirants have been selected as a minor antagonist.")
 		log_game("Minor Antagonist: Aspirant")
-
-	if(prob(30))
-		pick_lich()
-		log_game("Minor Antagonist: Lich")
 
 	if(prob(10))
 		pick_maniac()
+		message_admins("The Maniac has been selected as a minor antagonist.")
 		log_game("Minor Antagonist: Maniac")
 
 	return TRUE
@@ -201,15 +238,31 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 	banditgoal = rand(200,400)
 	restricted_jobs = list("Monarch",
 	"Consort",
+	"Prince",
+	"Princess",
+	"Hand",
+	"Steward",
+	"Feldsher",
+	"Town Elder",
+	"Captain",
+	"Archivist",
 	"Merchant",
 	"Priest",
-	"Knight",
-	"Goblin Chief",
-	"Goblin Cook",
-	"Goblin Guard",
-	"Goblin Rabble",
-	"Goblin Smith",
-	"Goblin Shaman")
+	"Templar",
+	"Acolytes",
+	"Royal Knight",
+	"Garrison Guard",
+	"Jailor",
+	"Court Magician",
+	"Men-at-arms",
+	"Dungeoneer",
+	"Forest Warden",
+	"Inquisitor",
+	"Adepts",
+	"Forest Guard",
+	"Squire",
+	"Veteran")
+
 	var/num_bandits = 0
 	if(num_players() >= 12)
 		// 1 bandit per 12 players,
@@ -256,6 +309,8 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 					continue
 				if(candidate.assigned_role in GLOB.church_positions) // Many of these guys vanishing would suck
 					continue
+				if(candidate.assigned_role in GLOB.garrison_positions)
+					continue
 
 				allantags -= candidate
 				pre_bandits += candidate
@@ -271,8 +326,8 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 
 
 /datum/game_mode/chaosmode/proc/pick_aspirants()
-	var/list/possible_jobs_aspirants = list("Heir", "Heiress", "Retinue Captain", "Steward", "Hand", "Knight")
-	var/list/possible_jobs_helpers = list("Retinue Captain", "Heir", "Heiress", "Hand",  "Steward", "Knight")
+	var/list/possible_jobs_aspirants = list("Consort" ,"Hand" ,"Prince" ,"Captain", "Steward", "Court Magician","Archivist","Town Elder")
+	var/list/possible_jobs_helpers = list("Consort" ,"Hand" ,"Prince" ,"Captain" ,"Steward" ,"Court Magician ","Archivist", "Royal Knight", "Town Elder","Veteran")
 	var/list/rolesneeded = list("Aspirant","Loyalist","Supporter")
 
 	antag_candidates = get_players_for_role(ROLE_ASPIRANT)
@@ -286,6 +341,7 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 						couper.special_role = ROLE_ASPIRANT
 						rolesneeded -= R
 						testing("[key_name(couper)] has been selected as an Aspirant")
+						message_admins("The Aspirant has selected.")
 						log_game("[key_name(couper)] has been selected as a Aspirant")
 					else continue
 				if("Supporter")
@@ -294,8 +350,9 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 						pre_aspirants += couper
 						couper.special_role = "Supporter"
 						rolesneeded -= R
-						testing("[key_name(couper)] has been selected as an Aspirant")
-						log_game("[key_name(couper)] has been selected as a Aspirant")
+						testing("[key_name(couper)] has been selected as a Supporter")
+						message_admins("The Aspirant supports have been selected.")
+						log_game("[key_name(couper)] has been selected as a Supporter")
 					else continue
 				if("Loyalist")
 					if(couper.assigned_role in possible_jobs_helpers)
@@ -303,8 +360,9 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 						pre_aspirants += couper
 						couper.special_role = "Loyalist"
 						rolesneeded -= R
-						testing("[key_name(couper)] has been selected as an Aspirant")
-						log_game("[key_name(couper)] has been selected as a Aspirant")
+						testing("[key_name(couper)] has been selected as a Loyalist")
+						message_admins("The Loyalists have been selected.")
+						log_game("[key_name(couper)] has been selected as a Loyalist")
 					else continue
 
 
@@ -364,24 +422,34 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 /datum/game_mode/chaosmode/proc/pick_cultist()
 	var/remaining = 3 // 1 heresiarch, 2 cultists
 	restricted_jobs = list("Monarch",
-	"Consort",
-	"Priest",
-	"Merchant",
 	"Bandit",
-	"Knight",
-	"Retinue Captain",
-	"Gatemaster",
-	"Warden",
+	"Assasin",
+	"Consort",
+	"Prince",
+	"Princess",
+	"Hand",
+	"Steward",
+	"Feldsher",
+	"Town Elder",
+	"Captain",
+	"Archivist",
+	"Merchant",
+	"Priest",
+	"Royal Knight",
+	"Garrison Guard",
+	"Jailor",
+	"Court Magician",
+	"Men-at-arms",
+	"Dungeoneer",
+	"Forest Warden",
 	"Inquisitor",
-	"Confessor",
-	"Acolyte",
-	"Goblin Chief",
-	"Goblin Cook",
-	"Goblin Guard",
-	"Goblin Rabble",
-	"Goblin Smith",
-	"Goblin Shaman"
-	)
+	"Adepts",
+	"Forest Guard",
+	"Squire",
+	"Veteran",
+	"Templar",
+	"Acolytes",
+	"Apothecary")
 	antag_candidates = get_players_for_role(ROLE_ZIZOIDCULTIST)
 	antag_candidates = shuffle(antag_candidates)
 	for(var/datum/mind/villain in antag_candidates)
@@ -411,26 +479,30 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 	"Consort",
 	"Dungeoneer",
 	"Inquisitor",
-	"Confessor",
-	"Watchman",
-	"Man at Arms",
+	"Men-at-arms",
 	"Priest",
 	"Acolyte",
-	"Cleric",
-	"Retinue Captain",
-	"Court Magos",
-	"Templar",
-	"Vanguard",
-	"Warden",
-	"Knight",
-	"Mortician",
+	"Prince",
+	"Princess",
+	"Hand",
+	"Steward",
+	"Feldsher",
+	"Town Elder",
+	"Captain",
+	"Archivist",
+	"Merchant",
+	"Royal Knight",
+	"Garrison Guard",
+	"Jailor",
+	"Court Magician",
+	"Dungeoneer",
+	"Forest Warden",
+	"Adepts",
+	"Forest Guard",
+	"Squire",
+	"Veteran",
 	"Mercenary",
-	"Goblin Chief",
-	"Goblin Cook",
-	"Goblin Guard",
-	"Goblin Rabble",
-	"Goblin Smith",
-	"Goblin Shaman"
+	"Apothecary"
 	)
 	antag_candidates = get_players_for_role(ROLE_LICH)
 	var/datum/mind/lichman = pick_n_take(antag_candidates)
@@ -457,27 +529,34 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 	"Consort",
 	"Dungeoneer",
 	"Inquisitor",
-	"Confessor",
-	"Watchman",
-	"Man at Arms",
+	"Men-at-arms",
 	"Merchant",
 	"Priest",
 	"Acolyte",
-	"Cleric",
-	"Retinue Captain",
-	"Court Magos",
+	"Adepts",
 	"Templar",
-	"Vanguard",
-	"Warden",
-	"Knight",
 	"Bandit",
-	"Goblin Chief",
-	"Goblin Cook",
-	"Goblin Guard",
-	"Goblin Rabble",
-	"Goblin Smith",
-	"Goblin Shaman"
-	)
+	"Prince",
+	"Princess",
+	"Hand",
+	"Steward",
+	"Feldsher",
+	"Town Elder",
+	"Captain",
+	"Archivist",
+	"Merchant",
+	"Royal Knight",
+	"Garrison Guard",
+	"Jailor",
+	"Court Magician",
+	"Forest Warden",
+	"Inquisitor",
+	"Adepts",
+	"Forest Guard",
+	"Squire",
+	"Veteran",
+	"Apothecary")
+
 	antag_candidates = get_players_for_role(ROLE_NBEAST)
 	antag_candidates = shuffle(antag_candidates)
 	for(var/datum/mind/vampire in antag_candidates)
@@ -511,28 +590,35 @@ GLOBAL_LIST_INIT(roguegamemodes, list("Rebellion", "Vampires and Werewolves", "N
 	"Consort",
 	"Dungeoneer",
 	"Inquisitor",
-	"Confessor",
-	"Watchman",
-	"Man at Arms",
+	"Men-at-Arms",
 	"Priest",
 	"Acolyte",
-	"Cleric",
-	"Retinue Captain",
-	"Court Magos",
+	"Adepts",
 	"Templar",
-	"Vanguard",
-	"Warden",
-	"Knight",
-	"Mortician",
 	"Mercenary",
 	"Bandit",
-	"Goblin Chief",
-	"Goblin Cook",
-	"Goblin Guard",
-	"Goblin Rabble",
-	"Goblin Smith",
-	"Goblin Shaman"
-	)
+	"Prince",
+	"Princess",
+	"Hand",
+	"Steward",
+	"Feldsher",
+	"Town Elder",
+	"Captain",
+	"Archivist",
+	"Merchant",
+	"Priest",
+	"Royal Knight",
+	"Garrison Guard",
+	"Jailor",
+	"Court Magician",
+	"Men-at-arms",
+	"Forest Warden",
+	"Inquisitor",
+	"Adepts",
+	"Forest Guard",
+	"Squire",
+	"Veteran",
+	"Apothecary")
 
 	var/num_werewolves = rand(1,2)
 	antag_candidates = get_players_for_role(ROLE_WEREWOLF)

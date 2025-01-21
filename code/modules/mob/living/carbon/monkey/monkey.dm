@@ -17,7 +17,7 @@
 	hud_type = /datum/hud/monkey
 
 /mob/living/carbon/monkey/Initialize(mapload, cubespawned=FALSE, mob/spawner)
-	verbs += /mob/living/proc/mob_sleep
+	// verbs += /mob/living/proc/mob_sleep
 	verbs += /mob/living/proc/lay_down
 
 	if(unique_name) //used to exclude pun pun
@@ -39,7 +39,7 @@
 		SSmobs.cubemonkeys += src
 
 	create_dna(src)
-	dna.initialize_dna(random_blood_type())
+	dna.initialize_dna()
 	AddComponent(/datum/component/footstep, FOOTSTEP_MOB_BAREFOOT, 1, 2)
 
 /mob/living/carbon/monkey/Destroy()

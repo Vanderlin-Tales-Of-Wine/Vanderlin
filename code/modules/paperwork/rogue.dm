@@ -213,15 +213,17 @@
 	maxlen = 2000
 	var/confession_type = "antag" //for voluntary confessions
 
-/obj/item/paper/confession/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	if(istype(P, /obj/item/natural/feather))
-		var/response = alert(user, "What voluntary confession do I want?","","Villainy", "Faith")
-		if(!response)
-			return
-		if(response == "Villainy")
-			confession_type = "antag"
-		else
-			confession_type = "patron"
+/obj/item/paper/confession/examine(mob/user)
+	. = ..()
+	. += span_info("Left click with a feather to sign, right click to change confession type.")
+
+/obj/item/paper/confession/attackby(atom/A, mob/living/user, params)
+	if(signed)
+		return ..()
+	if(istype(A, /obj/item/natural/feather))
+		attempt_confession(user)
+		return TRUE
+	return ..()
 
 /obj/item/paper/confession/update_icon_state()
 	if(mailer)
@@ -241,8 +243,16 @@
 	if(signed)
 		return ..()
 	if(M.stat >= UNCONSCIOUS) //unconscious cannot talk to confess, but soft crit can
+		return ..()
+	if(!ishuman(M))
+		return ..()
+	to_chat(user, span_info("I courteously offer the confession to [M]."))
+	attempt_confession(M, user)
+	return
+
+/obj/item/paper/confession/proc/attempt_confession(mob/living/carbon/human/M, mob/user)
+	if(!ishuman(M))
 		return
-	to_chat(user, "<span class='info'>I courteously offer the confession to [M].</span>")
 	var/input = alert(M, "Sign the confession of your true nature?", "CONFESSION OF [confession_type == "antag" ? "VILLAINY" : "FAITH"]", "Yes", "No")
 	if(M.stat >= UNCONSCIOUS)
 		return
@@ -250,10 +260,10 @@
 		return
 	testing("[M] is signing the confession.")
 	if(input == "Yes")
-		to_chat(user, span_info("[M] has agreed to confess their true nature."))
-		M.confess_sins(confession_type, resist=FALSE, user=user, torture=FALSE)
+		M.visible_message(span_info("[M] has agreed to confess their true [confession_type == "antag" ? "villainy" : "faith"]."), span_info("I agree to confess my true nature."))
+		M.confess_sins(confession_type, resist=FALSE, user=user, torture=FALSE, confession_paper = src)
 	else
-		to_chat(user, span_warning("[M] refused to sign the confession!"))
+		M.visible_message(span_boldwarning("[M] refused to sign the confession!"), span_boldwarning("I refused to sign the confession!"))
 	return
 
 /obj/item/paper/confession/read(mob/user)
@@ -280,6 +290,12 @@
 		onclose(user, "reading", src)
 	else
 		return "<span class='warning'>I'm too far away to read it.</span>"
+
+/obj/item/paper/confession/rmb_self(mob/user)
+	return TRUE
+
+/obj/item/paper/confession/attack_right(mob/user)
+	return TRUE
 
 /obj/item/merctoken
 	name = "mercenary token"

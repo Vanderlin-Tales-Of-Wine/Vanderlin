@@ -390,7 +390,7 @@
 		else
 			dodge_score += ((D.STASPD * 10))
 	if(A)
-		dodge_score -= A.STASPD * 5
+		dodge_score -= A.STASPD * 8
 	if(I)
 		if(AH?.mind)
 			dodge_score -= (AH.mind.get_skill_level(I.associated_skill) * 10) //this means at legendary -60 dodge rating
@@ -419,10 +419,8 @@
 				dodge_speed = floor(dodge_speed * 0.8)
 				drained += 8
 		dodge_score += (DI.wdodgebonus)
-
 	dodge_score += (D.used_intent.idodgebonus)							//Some weapon intents help with dodging
-
-	if(DH)
+	if(istype(DH))
 		if(!DH?.check_armor_skill() || DH?.legcuffed)
 			DH.Knockdown(1)
 			return FALSE

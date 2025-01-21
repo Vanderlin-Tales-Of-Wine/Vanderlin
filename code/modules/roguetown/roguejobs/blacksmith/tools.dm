@@ -1,3 +1,6 @@
+/*----------\
+|  Hammers  |
+\----------*/
 
 /obj/item/rogueweapon/hammer
 	force = 10
@@ -6,8 +9,8 @@
 	desc = ""
 	icon_state = "hammer"
 	icon = 'icons/roguetown/weapons/tools.dmi'
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
 	sharpness = IS_BLUNT
-	//dropshrink = 0.8
 	wlength = 10
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
@@ -93,24 +96,24 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+// --------- IRON HAMMER -----------
 /obj/item/rogueweapon/hammer/iron
 	icon_state = "hammer"
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
 
+// --------- STEEL HAMMER -----------
 /obj/item/rogueweapon/hammer/steel
 	icon_state = "hammer_s"
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
 
+// --------- MALLET -----------
 /obj/item/rogueweapon/hammer/wood
 	name = "wooden mallet"
 	desc = "A wooden mallet is an artificers second best friend! But it may also come in handy to a smith..."
 	icon_state = "hammer_w"
 	dropshrink = 0.9
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
 	force = 4
@@ -200,6 +203,9 @@
 	..()
 */
 
+/*----------\
+|  Tongs  |
+\----------*/
 
 /obj/item/rogueweapon/tongs
 	force = 5
@@ -218,6 +224,7 @@
 	smeltresult = /obj/item/ingot/iron
 	grid_width = 32
 	grid_height = 96
+	tool_behaviour = TOOL_IMPROVISED_HEMOSTAT
 
 /obj/item/rogueweapon/tongs/examine(mob/user)
 	. = ..()

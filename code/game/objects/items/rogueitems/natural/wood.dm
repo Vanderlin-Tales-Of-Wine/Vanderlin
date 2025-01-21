@@ -195,10 +195,10 @@
 	var/obj/item/I = user.get_active_held_item()
 	if(istype(I, /obj/item/grown/log/tree/stick))
 		var/obj/item/natural/bundle/stick/F = new(src.loc)
-		user.put_in_hands(F)
-		to_chat(user, "You collect the [F.stackname] into a bundle.")
 		qdel(I)
 		qdel(src)
+		user.put_in_hands(F)
+		to_chat(user, "You collect the [F.stackname] into a bundle.")
 
 /obj/item/grown/log/tree/stake
 	name = "stake"
@@ -217,6 +217,7 @@
 	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP
 	lumber = null
 	lumber_amount = 0
+	tool_behaviour = TOOL_IMPROVISED_RETRACTOR
 
 /obj/item/natural/wood/plank
 	name = "wood plank"

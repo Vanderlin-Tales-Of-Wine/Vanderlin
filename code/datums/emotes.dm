@@ -63,8 +63,8 @@
 			if(M != user)
 				mobsadjacent += M
 		if(mobsadjacent.len)
-			chosenmob = input("[key] who?") in mobsadjacent
-		if(chosenmob)
+			chosenmob = input("[key] who?") as null|anything in mobsadjacent
+		if(istype(chosenmob))
 			if(user.Adjacent(chosenmob))
 				params = chosenmob.name
 				adjacentaction(user, chosenmob)

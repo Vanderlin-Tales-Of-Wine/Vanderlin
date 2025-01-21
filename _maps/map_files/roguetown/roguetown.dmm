@@ -8999,15 +8999,15 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
 "jYL" = (
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = 7;
 	pixel_y = -8
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = -1;
 	pixel_y = 1
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = -10;
 	pixel_y = 10
 	},
@@ -10936,10 +10936,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
-"mdx" = (
-/obj/effect/landmark/start/barkeep,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/town/tavern)
 "mdQ" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 8
@@ -12570,12 +12566,12 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern)
 "nNM" = (
-/obj/item/natural/worms/leeches,
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech,
+/obj/item/natural/worms/leech{
 	pixel_x = 7;
 	pixel_y = -8
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = -14;
 	pixel_y = -7
 	},
@@ -14170,19 +14166,19 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/chapel)
 "puw" = (
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = 7;
 	pixel_y = -8
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = -10;
 	pixel_y = 11
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = 1;
 	pixel_y = 3
 	},
-/obj/item/natural/worms/leeches{
+/obj/item/natural/worms/leech{
 	pixel_x = -7;
 	pixel_y = -3
 	},
@@ -79941,7 +79937,7 @@ sUi
 sUi
 vQk
 hyI
-mdx
+nXZ
 dsA
 nNL
 gaU

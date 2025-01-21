@@ -4,11 +4,13 @@
 /obj/structure/composter
 	name = "composter"
 	desc = "A wooden fencing with space for discarded produce to turn into compost."
-	icon = 'modular/Neu_Farming/icons/composter.dmi'
+	icon = 'icons/roguetown/misc/composter.dmi'
 	icon_state = "composter"
-	density = FALSE
+	density = TRUE
 	max_integrity = 200
 	anchored = TRUE
+	climbable = TRUE
+	climb_offset = 4
 	var/unflipped_compost = 0
 	var/flipped_compost = 0
 	var/ready_compost = 0
@@ -184,6 +186,6 @@
 /obj/item/compost
 	name = "compost"
 	desc = "Decomposed produce ready to give life to plants."
-	icon = 'modular/Neu_Farming/icons/composter.dmi'
+	icon = 'icons/roguetown/misc/composter.dmi'
 	icon_state = "compost"
 	w_class = WEIGHT_CLASS_SMALL

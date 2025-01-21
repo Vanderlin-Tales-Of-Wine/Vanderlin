@@ -15,6 +15,20 @@
 	var/wash_precent = 0
 	COOLDOWN_DECLARE(wash_cooldown)
 
+
+/obj/effect/decal/cleanable/blood/add_blood_DNA(list/blood_DNA_to_add)
+	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
+	var/first_dna = isnull(D) ? 0 : length(D.blood_DNA)
+	if(!..())
+		return FALSE
+
+	// Imperfect, ends up with some blood types being double-set-up, but harmless (for now)
+	for(var/new_blood in blood_DNA_to_add)
+		var/datum/blood_type/blood = GLOB.blood_types[blood_DNA_to_add[new_blood]]
+		blood.set_up_blood(src, first_dna == 0)
+	update_icon()
+	return TRUE
+
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/user)
 	. = ..()
 	if(ishuman(user))
@@ -72,7 +86,7 @@
 	icon_state = "floor1-old"
 
 /obj/effect/decal/cleanable/blood/old/Initialize(mapload)
-	add_blood_DNA(list("Non-human DNA" = random_blood_type())) // Needs to happen before ..()
+	add_blood_DNA(list("Non-human DNA" = random_human_blood_type())) // Needs to happen before ..()
 	. = ..()
 	icon_state = "[icon_state]-old" //change from the normal blood icon selected from random_icon_states in the parent's Initialize to the old dried up blood.
 
@@ -195,7 +209,7 @@
 	. = ..()
 	setDir(pick(1,2,4,8))
 	icon_state += "-old"
-	add_blood_DNA(list("Non-human DNA" = random_blood_type()))
+	add_blood_DNA(list("Non-human DNA" = random_human_blood_type()))
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"

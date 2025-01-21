@@ -30,6 +30,7 @@
 
 	bleed_rate = min(get_bleed_rate(), 10)
 
+
 	if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume && !bleed_rate)
 		blood_volume = min(blood_volume+0.5, BLOOD_VOLUME_MAXIMUM)
 
@@ -78,6 +79,9 @@
 /mob/living/carbon/handle_blood()
 	if(HAS_TRAIT(src, TRAIT_HUSK)) //cryosleep or husked people do not pump the blood.
 		return
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_CARBON_ON_HANDLE_BLOOD)
+	if(sigreturn & HANDLE_BLOOD_HANDLED)
+		return
 	blood_volume = min(blood_volume, BLOOD_VOLUME_MAXIMUM)
 	var/bleed_rate = get_bleed_rate()
 	if(dna?.species)
@@ -90,58 +94,45 @@
 			return
 
 	//Blood regeneration if there is some space
-	if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume && !bleed_rate)
-		var/nutrition_ratio = 1
-//			switch(nutrition)
-//				if(0 to NUTRITION_LEVEL_STARVING)
-//					nutrition_ratio = 0.2
-//				if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
-//					nutrition_ratio = 0.4
-//				if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
-//					nutrition_ratio = 0.6
-//				if(NUTRITION_LEVEL_FED to NUTRITION_LEVEL_WELL_FED)
-//					nutrition_ratio = 0.8
-//				else
-//					nutrition_ratio = 1
-//			if(satiety > 80)
-//				nutrition_ratio *= 1.25
-//			adjust_hydration(-nutrition_ratio * HUNGER_FACTOR) //get thirsty twice as fast when regenning blood
-		blood_volume = min(BLOOD_VOLUME_NORMAL, blood_volume + 0.5 * nutrition_ratio)
+	if(!(sigreturn & HANDLE_BLOOD_NO_NUTRITION_DRAIN))
+		if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume && !bleed_rate)
+			blood_volume = min(BLOOD_VOLUME_NORMAL, blood_volume + 0.5)
 
 	//Effects of bloodloss
-	if(!HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
-		switch(blood_volume)
-			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-				if(prob(3))
-					to_chat(src, "<span class='warning'>I feel dizzy.</span>")
-				remove_status_effect(/datum/status_effect/debuff/bleedingworse)
-				remove_status_effect(/datum/status_effect/debuff/bleedingworst)
-				apply_status_effect(/datum/status_effect/debuff/bleeding)
-			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-				if(prob(3))
-					blur_eyes(6)
-					to_chat(src, "<span class='warning'>I feel faint.</span>")
-				remove_status_effect(/datum/status_effect/debuff/bleeding)
-				remove_status_effect(/datum/status_effect/debuff/bleedingworst)
-				apply_status_effect(/datum/status_effect/debuff/bleedingworse)
-			if(0 to BLOOD_VOLUME_BAD)
-				if(prob(3))
-					blur_eyes(6)
-					to_chat(src, "<span class='warning'>I feel faint.</span>")
-				if(prob(3) && !IsUnconscious())
-					Unconscious(rand(5 SECONDS,10 SECONDS))
-					to_chat(src, "<span class='warning'>I feel drained.</span>")
-				remove_status_effect(/datum/status_effect/debuff/bleedingworse)
-				remove_status_effect(/datum/status_effect/debuff/bleeding)
-				apply_status_effect(/datum/status_effect/debuff/bleedingworst)
-		if(blood_volume <= BLOOD_VOLUME_BAD)
-			adjustOxyLoss(1)
-			//if(blood_volume <= BLOOD_VOLUME_SURVIVE)
-				//adjustOxyLoss(2)
-	else
-		remove_status_effect(/datum/status_effect/debuff/bleeding)
-		remove_status_effect(/datum/status_effect/debuff/bleedingworse)
-		remove_status_effect(/datum/status_effect/debuff/bleedingworst)
+	if(!(sigreturn & HANDLE_BLOOD_NO_EFFECTS))
+		if(!HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
+			switch(blood_volume)
+				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+					if(prob(3))
+						to_chat(src, "<span class='warning'>I feel dizzy.</span>")
+					remove_status_effect(/datum/status_effect/debuff/bleedingworse)
+					remove_status_effect(/datum/status_effect/debuff/bleedingworst)
+					apply_status_effect(/datum/status_effect/debuff/bleeding)
+				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+					if(prob(3))
+						blur_eyes(6)
+						to_chat(src, "<span class='warning'>I feel faint.</span>")
+					remove_status_effect(/datum/status_effect/debuff/bleeding)
+					remove_status_effect(/datum/status_effect/debuff/bleedingworst)
+					apply_status_effect(/datum/status_effect/debuff/bleedingworse)
+				if(0 to BLOOD_VOLUME_BAD)
+					if(prob(3))
+						blur_eyes(6)
+						to_chat(src, "<span class='warning'>I feel faint.</span>")
+					if(prob(3) && !IsUnconscious())
+						Unconscious(rand(5 SECONDS,10 SECONDS))
+						to_chat(src, "<span class='warning'>I feel drained.</span>")
+					remove_status_effect(/datum/status_effect/debuff/bleedingworse)
+					remove_status_effect(/datum/status_effect/debuff/bleeding)
+					apply_status_effect(/datum/status_effect/debuff/bleedingworst)
+			if(blood_volume <= BLOOD_VOLUME_BAD)
+				adjustOxyLoss(1)
+				//if(blood_volume <= BLOOD_VOLUME_SURVIVE)
+					//adjustOxyLoss(2)
+		else
+			remove_status_effect(/datum/status_effect/debuff/bleeding)
+			remove_status_effect(/datum/status_effect/debuff/bleedingworse)
+			remove_status_effect(/datum/status_effect/debuff/bleedingworst)
 
 	//Bleeding out
 	if(bleed_rate)
@@ -210,7 +201,8 @@
 
 //Gets blood from mob to a container or other mob, preserving all data in it.
 /mob/living/proc/transfer_blood_to(atom/movable/AM, amount, forced)
-	if(!blood_volume || !AM.reagents)
+	var/datum/blood_type/blood = get_blood_type()
+	if(isnull(blood) || !AM.reagents)
 		return 0
 	if(blood_volume < BLOOD_VOLUME_BAD && !forced)
 		return 0
@@ -218,82 +210,24 @@
 	if(blood_volume < amount)
 		amount = blood_volume
 
-	var/blood_id = get_blood_id()
-	if(!blood_id)
-		return 0
-
 	blood_volume -= amount
 
-	var/list/blood_data = get_blood_data(blood_id)
-
-	if(iscarbon(AM))
-		var/mob/living/carbon/C = AM
-		if(blood_id == C.get_blood_id())//both mobs have the same blood substance
-			if(blood_id == /datum/reagent/blood) //normal blood
-				if(!(blood_data["blood_type"] in get_safe_blood(C.dna.blood_type)))
-					C.reagents.add_reagent(/datum/reagent/toxin, amount * 0.5)
-					return 1
-
-			C.blood_volume = min(C.blood_volume + round(amount, 0.1), BLOOD_VOLUME_MAXIMUM)
-			return 1
-
-	AM.reagents.add_reagent(blood_id, amount, blood_data, bodytemperature)
+	AM.reagents.add_reagent(blood.reagent_type, amount, blood.get_blood_data(src), bodytemperature)
 	return 1
 
 
-/mob/living/proc/get_blood_data(blood_id)
-	return
+/mob/living/proc/get_blood_type()
+	RETURN_TYPE(/datum/blood_type)
+	return GLOB.blood_types[/datum/blood_type/animal]
 
-/mob/living/carbon/get_blood_data(blood_id)
-	if(blood_id == /datum/reagent/blood) //actual blood reagent
-		var/blood_data = list()
-		//set the blood data
-		blood_data["donor"] = src
 
-		blood_data["blood_DNA"] = copytext(dna.unique_enzymes,1,0)
-		var/list/temp_chem = list()
-		for(var/datum/reagent/R in reagents.reagent_list)
-			temp_chem[R.type] = R.volume
-		blood_data["trace_chem"] = list2params(temp_chem)
-		if(mind)
-			blood_data["mind"] = mind
-		else if(last_mind)
-			blood_data["mind"] = last_mind
-		if(ckey)
-			blood_data["ckey"] = ckey
-		else if(last_mind)
-			blood_data["ckey"] = ckey(last_mind.key)
-
-		if(!suiciding)
-			blood_data["cloneable"] = 1
-		blood_data["blood_type"] = copytext(dna.blood_type,1,0)
-		blood_data["gender"] = gender
-		blood_data["real_name"] = real_name
-		blood_data["features"] = dna.features
-		blood_data["factions"] = faction
-		return blood_data
-
-//get the id of the substance this mob use as blood.
-/mob/proc/get_blood_id()
-	return
-
-/mob/living/simple_animal/get_blood_id()
-	if(blood_volume)
-		return /datum/reagent/blood
-
-/mob/living/carbon/monkey/get_blood_id()
-	if(!(HAS_TRAIT(src, TRAIT_HUSK)))
-		return /datum/reagent/blood
-
-/mob/living/carbon/human/get_blood_id()
-	if(HAS_TRAIT(src, TRAIT_HUSK))
-		return
-	if(dna?.species)
-		if(dna.species.exotic_blood)
-			return dna.species.exotic_blood
-		if((NOBLOOD in dna.species.species_traits))
-			return
-	return /datum/reagent/blood
+/mob/living/carbon/human/get_blood_type()
+	RETURN_TYPE(/datum/blood_type)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || isnull(dna))
+		return null
+	if(dna.species.exotic_bloodtype)
+		return GLOB.blood_types[dna.species.exotic_bloodtype]
+	return GLOB.blood_types[dna.human_blood_type]
 
 // This is has more potential uses, and is probably faster than the old proc.
 /proc/get_safe_blood(bloodtype)
@@ -323,7 +257,8 @@
 	if(!iscarbon(src))
 		if(!HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 			return
-	if(!get_blood_id())
+	var/datum/blood_type/blood = get_blood_type()
+	if(isnull(blood))
 		return
 	if(!T)
 		T = get_turf(src)
@@ -331,19 +266,23 @@
 	if(istype(T, /turf/open/water))
 		var/turf/open/water/W = T
 		if(!W.children)
-			W.water_reagent = /datum/reagent/blood // this is dumb, but it works for now
+			W.water_reagent = blood.reagent_type // this is dumb, but it works for now
 			W.mapped = FALSE // no infinite vitae glitch
 			W.water_volume = 10
 			W.update_icon()
 		return
-	new /obj/effect/decal/cleanable/blood/splatter(T)
+	var/obj/effect/decal/cleanable/blood/splatter/splatter = new /obj/effect/decal/cleanable/blood/splatter(T)
+
+	splatter.transfer_mob_blood_dna(src)
+	splatter.update_icon()
 	T?.pollute_turf(/datum/pollutant/metallic_scent, 30)
 
 /mob/living/proc/add_drip_floor(turf/T, amt)
 	if(!iscarbon(src))
 		if(!HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
 			return
-	if(!get_blood_id())
+	var/datum/blood_type/blood = get_blood_type()
+	if(isnull(blood))
 		return
 	if(!T)
 		T = get_turf(src)
@@ -351,7 +290,7 @@
 	if(amt > 3)
 		if(istype(T, /turf/open/water))
 			var/turf/open/water/W = T
-			W.water_reagent = /datum/reagent/blood // this is dumb, but it works for now
+			W.water_reagent = blood.reagent_type // this is dumb, but it works for now
 			W.mapped = FALSE // no infinite vitae glitch
 			W.water_maximum = 10
 			W.water_volume = 10
@@ -360,15 +299,19 @@
 	var/obj/effect/decal/cleanable/blood/puddle/P = locate() in T
 	if(P)
 		P.blood_vol += amt
+		P.transfer_mob_blood_dna(src)
 		P.update_icon()
 	else
 		var/obj/effect/decal/cleanable/blood/drip/D = locate() in T
 		if(D)
 			D.blood_vol += amt
 			D.drips++
+			D.transfer_mob_blood_dna(src)
 			D.update_icon()
 		else
-			new /obj/effect/decal/cleanable/blood/drip(T)
+			var/obj/effect/decal/cleanable/blood/drip/splatter = new /obj/effect/decal/cleanable/blood/drip(T)
+			splatter.transfer_mob_blood_dna(src)
+			splatter.update_icon()
 
 /mob/living/carbon/human/add_splatter_floor(turf/T, small_drip)
 	if(!(NOBLOOD in dna.species.species_traits))

@@ -69,6 +69,7 @@
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	tool_behaviour = TOOL_HEMOSTAT
+	sharpness = IS_BLUNT
 
 /obj/item/rogueweapon/surgery/retractor
 	name = "speculum"
@@ -84,10 +85,11 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	thrown_bclass = BCLASS_BLUNT
 	tool_behaviour = TOOL_RETRACTOR
+	sharpness = IS_BLUNT
 
 /obj/item/rogueweapon/surgery/bonesetter
-	name = "bone forceps"
-	desc = "A tool used to clamp down on hard tissue."
+	name = "bone-setter"
+	desc = "A tool used to manipulate joints and bones."
 	icon_state = "bonesetter"
 	possible_item_intents = list(/datum/intent/use)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
@@ -95,12 +97,13 @@
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	tool_behaviour = TOOL_BONESETTER
+	sharpness = IS_BLUNT
 
 /obj/item/rogueweapon/surgery/cautery
 	name = "cautery iron"
 	desc = "A tool used to cauterize wounds. Heat it up before use."
 	icon_state = "cauteryiron"
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/use)
+	possible_item_intents = list(/datum/intent/use, /datum/intent/mace/strike, /datum/intent/mace/smash)
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/parrygen.ogg')
 	swingsound = BLUNTWOOSH_MED
@@ -168,7 +171,7 @@
 	name = "examination hammer"
 	desc = "A small hammer used to check a patient's reactions and diagnose their condition."
 	icon_state = "kneehammer"
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/use)
+	possible_item_intents = list(/datum/intent/use, /datum/intent/mace/strike, /datum/intent/mace/smash)
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/parrygen.ogg')
 	swingsound = BLUNTWOOSH_MED
@@ -192,7 +195,7 @@
 			user.visible_message("<span class='info'>[user] begins smacking themself with a small hammer.</span>")
 		else
 			user.visible_message("<span class='info'>[user] begins to smack [A] with a small hammer.</span>")
-		if(do_after(user, 5 SECONDS, target = A))
+		if(do_after(user, 2.5 SECONDS, target = A))
 			A.visible_message("<span class='info'>[A] jerks their knee after the hammer strikes!</span>")
 			if(prob(1))
 				playsound(user, 'sound/misc/bonk.ogg', 100, FALSE, -1)

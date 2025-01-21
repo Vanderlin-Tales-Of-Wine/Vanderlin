@@ -70,8 +70,9 @@
 		list(
 			/obj/item/reagent_containers/food/snacks/rogue/meat/fatty,
 			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
+			/obj/item/reagent_containers/food/snacks/rogue/meat/mince,
 			/obj/item/reagent_containers/food/snacks/fat) = 1
-		)
+	)
 
 	overlay_state = "fill_pot"
 	pie_name = "pot pie"

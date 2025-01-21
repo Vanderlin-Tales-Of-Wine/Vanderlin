@@ -8,6 +8,7 @@
 	var/stress_generator = FALSE
 	var/last_stress_added = 0
 	var/accepts_water_input = FALSE
+	var/giving_stress = TRUE
 
 	var/datum/rotation_network/rotation_network
 
@@ -30,7 +31,7 @@
 
 /obj/structure/LateInitialize()
 	. = ..()
-	if(rotation_structure)
+	if(rotation_structure && !QDELETED(src))
 		find_rotation_network()
 
 /obj/structure/proc/update_animation_effect()
@@ -108,17 +109,29 @@
 	if(connector.rotation_direction && connector.rotation_direction != rotation_direction)
 		if(connector.rotations_per_minute && rotations_per_minute)
 			return FALSE
+	if(connector.stress_generator && connector.giving_stress && !stress_generator)
+		return FALSE
 	return TRUE
 
 /obj/structure/proc/try_network_merge(obj/structure/connector)
 	if(!can_connect(connector))
 		return FALSE
+	if(!rotation_network)
+		return FALSE
+	if(src in connector.rotation_network.connected)
+		return FALSE
 	rotation_network.total_stress += connector.rotation_network.total_stress
 	rotation_network.used_stress += connector.rotation_network.used_stress
+	var/connector_stress = connector.rotation_network.total_stress
 	for(var/obj/structure/child in connector.rotation_network.connected)
+		if(src == child)
+			return FALSE
 		connector.rotation_network.remove_connection(child)
 		rotation_network.add_connection(child)
-	propagate_rotation_change(connector)
+	if(connector_stress)
+		rotation_network.rebuild_group()
+	else
+		propagate_rotation_change(connector)
 	return TRUE
 
 /obj/structure/proc/propagate_rotation_change(obj/structure/connector, list/checked, first = FALSE)

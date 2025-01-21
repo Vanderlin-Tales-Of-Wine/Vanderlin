@@ -1,8 +1,8 @@
 #define FAST_GROWING 5 MINUTES
 #define VERY_FAST_GROWING 4 MINUTES
-#define HUNGRINESS_DEMANDING 30
-#define HUNGRINESS_NORMAL 20
-#define HUNGRINESS_TINY 10
+#define HUNGRINESS_DEMANDING 35
+#define HUNGRINESS_NORMAL 25
+#define HUNGRINESS_TINY 15
 
 /datum/plant_def
 	abstract_type = /datum/plant_def
@@ -11,7 +11,7 @@
 
 	/// Description of the plant
 	var/desc = "Sure is a plant."
-	var/icon = 'modular/Neu_Farming/icons/crops.dmi'
+	var/icon = 'icons/roguetown/misc/crops.dmi'
 	var/icon_state
 
 	/// Loot the plant will yield for uprooting it
@@ -36,7 +36,7 @@
 	var/maturation_nutrition = HUNGRINESS_NORMAL
 
 	/// How much nutrition will the plant require to make produce
-	var/produce_nutrition = HUNGRINESS_TINY
+	var/produce_nutrition = 20
 
 	/// If not perennial, the plant will uproot itself upon harvesting first produce
 	var/perennial = FALSE
@@ -45,7 +45,7 @@
 	var/weed_immune = FALSE
 
 	/// The rate at which the plant drains water, if zero then it'll be able to live without water
-	var/water_drain_rate = 1 / (2 MINUTES)
+	var/water_drain_rate = 2 / (1 MINUTES)
 
 	/// Color all seeds of this plant def will have, randomised on init
 	var/seed_color
@@ -81,7 +81,7 @@
 	icon_state = "wheat"
 	produce_type = /obj/item/natural/chaff/wheat
 	produce_amount_min = 3
-	produce_amount_max = 6
+	produce_amount_max = 5
 	uproot_loot = list(/obj/item/natural/fibers, /obj/item/natural/fibers)
 	water_drain_rate = 0
 
@@ -90,44 +90,42 @@
 	icon_state = "oat"
 	produce_type = /obj/item/natural/chaff/oat
 	produce_amount_min = 3
-	produce_amount_max = 6
+	produce_amount_max = 5
 	uproot_loot = list(/obj/item/natural/fibers, /obj/item/natural/fibers)
 	water_drain_rate = 0
 
-/datum/plant_def/pipeweed
+/datum/plant_def/westleach
 	name = "westleach leaf"
 	icon_state = "westleach"
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/westleach
-	produce_amount_min = 3
-	produce_amount_max = 6
-	water_drain_rate = 0
-
-/datum/plant_def/sweetleaf
-	name = "swampweed"
-	icon_state = "swampweed"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/swampweed
 	produce_amount_min = 3
 	produce_amount_max = 5
 	water_drain_rate = 0
 
 
+
 //................ Perennial plants ...............................	(Don't need replanting but generally needs more nutrition refills)
-/datum/plant_def/berry
+/datum/plant_def/jacksberry
 	name = "jacksberry bush"
 	icon_state = "berry"
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
-	produce_amount_min = 3
+	produce_amount_min = 2
 	produce_amount_max = 4
 	maturation_nutrition = HUNGRINESS_DEMANDING
+	maturation_time = FAST_GROWING
 
-/datum/plant_def/berry_poison
+/datum/plant_def/jacksberry_poison
 	name = "jacksberry bush"
 	icon_state = "berry"
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
 	uproot_loot = list(/obj/item/grown/log/tree/stick)
 	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+	maturation_time = FAST_GROWING
 
 /datum/plant_def/apple
 	name = "apple tree"
@@ -135,6 +133,8 @@
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/apple
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
 	maturation_nutrition = HUNGRINESS_DEMANDING
 
 /datum/plant_def/pear
@@ -143,6 +143,8 @@
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/pear
 	uproot_loot = list(/obj/item/grown/log/tree/small)
 	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
 	maturation_nutrition = HUNGRINESS_DEMANDING
 
 //................ Nutrition-efficient plants ...............................
@@ -153,15 +155,26 @@
 	produce_amount_min = 3
 	produce_amount_max = 5
 	maturation_nutrition = HUNGRINESS_TINY
+	water_drain_rate = 1 / (1 MINUTES)
 
 /datum/plant_def/turnip
 	name = "turnip patch"
 	icon_state = "turnip"
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/turnip
-	produce_amount_min = 5
-	produce_amount_max = 7
+	produce_amount_min = 4
+	produce_amount_max = 6
 	maturation_nutrition = HUNGRINESS_TINY
 	maturation_time = FAST_GROWING
+	water_drain_rate = 1 / (1 MINUTES)
+
+//................ Water-efficient plants ...............................
+/datum/plant_def/swampweed
+	name = "swampweed"
+	icon_state = "swampweed"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/swampweed
+	produce_amount_min = 3
+	produce_amount_max = 5
+	water_drain_rate = 0
 
 //................ Flowers ...............................
 /datum/plant_def/sunflower
@@ -172,7 +185,7 @@
 	produce_amount_max = 4
 	maturation_nutrition = HUNGRINESS_TINY
 	maturation_time = VERY_FAST_GROWING
-	water_drain_rate = 0
+	water_drain_rate = 1 / (2 MINUTES)
 
 /datum/plant_def/fyritiusflower
 	name = "fyritius flowers"
@@ -181,6 +194,7 @@
 	produce_amount_min = 1
 	produce_amount_max = 3
 	maturation_time = FAST_GROWING
+	water_drain_rate = 1 / (2 MINUTES)
 
 /datum/plant_def/poppy
 	name = "poppies"
@@ -189,6 +203,7 @@
 	produce_amount_min = 1
 	produce_amount_max = 2
 	maturation_nutrition = HUNGRINESS_DEMANDING
+	water_drain_rate = 1 / (2 MINUTES)
 
 /*
 /datum/plant_def/garlic

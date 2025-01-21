@@ -1,6 +1,101 @@
 //NOT using the existing /obj/machinery/door type, since that has some complications on its own, mainly based on its
 //machineryness
-
+/proc/lockid_to_lockpick_difficulty(lockid)
+	if(!lockid)
+		return 5
+	switch(lockid)
+		if("vault")
+			return 1
+		if("lord")
+			return 1
+		if("manor")
+			return 2
+		if("guest")
+			return 2
+		if("butler")
+			return 3
+		if("dungeon")
+			return 2
+		if("garrison")
+			return 2
+		if("forrestgarrison")
+			return 2
+		if("soilson")
+			return 4
+		if("warehouse")
+			return 3
+		if("sheriff")
+			return 3
+		if("merchant")
+			return 2
+		if("shop")
+			return 5
+		if("tavern")
+			return 5
+		if("roomi")
+			return 6
+		if("roomii")
+			return 6
+		if("roomiii")
+			return 6
+		if("roomiv")
+			return 6
+		if("roomv")
+			return 6
+		if("roomvi")
+			return 6
+		if("medroomi")
+			return 5
+		if("medroomii")
+			return 5
+		if("medroomiii")
+			return 5
+		if("medroomiv")
+			return 5
+		if("medroomv")
+			return 5
+		if("medroomvi")
+			return 5
+		if("luxroomi")
+			return 3
+		if("luxroomi")
+			return 3
+		if("luxroomii")
+			return 3
+		if("luxroomiii")
+			return 3
+		if("luxroomiv")
+			return 3
+		if("luxroomv")
+			return 3
+		if("luxroomvi")
+			return 3
+		if("blacksmith")
+			return 3
+		if("butcher")
+			return 3
+		if("walls")
+			return 2
+		if("priest")
+			return 3
+		if("hpriest")
+			return 2
+		if("tower")
+			return 3
+		if("mage")
+			return 2
+		if("artificer")
+			return 4
+		if("confession")
+			return 1
+		if("hand")
+			return 1
+		if("steward")
+			return 2
+		if("doctor")
+			return 3
+		else
+			return 5
 /obj/structure/mineral_door
 	name = "metal door"
 	density = TRUE
@@ -120,6 +215,7 @@
 	if(lockhash)
 		GLOB.lockhashes += lockhash
 	else if(keylock)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 		if(lockid)
 			if(GLOB.lockids[lockid])
 				lockhash = GLOB.lockids[lockid]
@@ -315,13 +411,10 @@
 			door_rattle()
 			return
 		trykeylock(I, user)
-	if(istype(I, /obj/item/lockpick))
-		trypicklock(I, user)
+	if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
+		repairdoor(I,user)
 	else
-		if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-			repairdoor(I,user)
-		else
-			return ..()
+		return ..()
 
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)

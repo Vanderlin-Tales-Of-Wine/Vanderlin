@@ -45,9 +45,9 @@
 		var/choice = input(user, "Do you want to add the manuscript to the archive?") in list("Yes", "No")
 		if(choice == "Yes")
 			upload_manuscript(user, M)
-			// Optionally delete the manuscript after uploading
-			qdel(M)
-			to_chat(user, span_notice("The manuscript has been uploaded and removed from your inventory."))
+			// // Optionally delete the manuscript after uploading
+			// qdel(M)
+			to_chat(user, span_notice("The manuscript has been uploaded."))
 		else
 			to_chat(user, span_notice("You decide not to upload the manuscript."))
 		return
@@ -101,7 +101,7 @@
 	if(!has_paper)
 		to_chat(user, span_warning("[src] requires a blank piece of paper to print."))
 		return
-	var/choice = input(user, "Choose an option for \the [src]") in list("Print The Book", "Print a Tome of Justice", "Print from the Archive", "Profession Manuel")
+	var/choice = input(user, "Choose an option for \the [src]") as null|anything in list("Print The Book", "Print a Tome of Justice", "Print from the Archive", "Profession Manuel")
 	switch(choice)
 		if ("Print The Book")
 			start_printing(user, "bibble")

@@ -26,17 +26,29 @@
 				icon_state = "[initial(icon_state)]_t"
 			flags_inv = null
 			body_parts_covered = EYES
+			REMOVE_TRAIT(user, TRAIT_ENGINEERING_GOGGLES, "[ref(src)]")
 			if(ishuman(user))
 				var/mob/living/carbon/H = user
 				H.update_inv_wear_mask()
 				H.update_inv_head()
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
+			ADD_TRAIT(user, TRAIT_ENGINEERING_GOGGLES, "[ref(src)]")
 			if(user)
 				if(ishuman(user))
 					var/mob/living/carbon/H = user
 					H.update_inv_wear_mask()
 					H.update_inv_head()
+
+/obj/item/clothing/mask/rogue/goggles/dropped(mob/user)
+	. = ..()
+	REMOVE_TRAIT(user, TRAIT_ENGINEERING_GOGGLES, "[ref(src)]")
+
+/obj/item/clothing/mask/rogue/goggles/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_WEAR_MASK)
+		if(adjustable == CAN_CADJUST)
+			ADD_TRAIT(user, TRAIT_ENGINEERING_GOGGLES, "[ref(src)]")
 
 /obj/item/clothing/mask/rogue/spectacles
 	name = "spectacles"

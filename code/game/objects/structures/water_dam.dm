@@ -9,7 +9,7 @@
 	var/blocking = FALSE
 
 
-/obj/structure/water_dam/redstone_triggered()
+/obj/structure/water_dam/redstone_triggered(mob/user)
 	. = ..()
 	toggle_blocking()
 
