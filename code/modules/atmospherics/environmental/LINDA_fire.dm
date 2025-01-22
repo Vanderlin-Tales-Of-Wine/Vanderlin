@@ -100,15 +100,6 @@
 		var/mutable_appearance/fusion_overlay = mutable_appearance('icons/effects/atmospherics.dmi', "fusion_gas")
 		fusion_overlay.blend_mode = BLEND_ADD
 		fusion_overlay.alpha = fusion_amt * 255
-		var/mutable_appearance/rainbow_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "druggy")
-		rainbow_overlay.blend_mode = BLEND_ADD
-		rainbow_overlay.alpha = fusion_amt * 255
-		rainbow_overlay.appearance_flags = RESET_COLOR
-		heat_r = LERP(heat_r,150,fusion_amt)
-		heat_g = LERP(heat_g,150,fusion_amt)
-		heat_b = LERP(heat_b,150,fusion_amt)
-		add_overlay(fusion_overlay)
-		add_overlay(rainbow_overlay)
 
 	set_light(l_color = rgb(LERP(250,heat_r,greyscale_fire),LERP(160,heat_g,greyscale_fire),LERP(25,heat_b,greyscale_fire)))
 
