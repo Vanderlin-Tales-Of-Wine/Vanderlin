@@ -3,8 +3,8 @@
 	flag = MONK
 	department_flag = CHURCHMEN
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 4
+	spawn_positions = 4
 
 	allowed_races = list(
 		"Humen",
@@ -20,7 +20,7 @@
 
 	display_order = JDO_MONK
 	give_bank_account = TRUE
-	min_pq = 4
+	min_pq = -10
 	bypass_lastclass = TRUE
 
 /datum/outfit/job/roguetown/monk
@@ -112,10 +112,10 @@
 
 
 	if(H.mind)
+		if(H.patron != /datum/patron/divine/pestra)
+			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-		if(/datum/patron/divine/pestra)
-			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) // They get this and a wooden staff to defend themselves
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
