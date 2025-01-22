@@ -1182,6 +1182,7 @@
 	body_parts_covered = HEAD|HAIR
 	prevent_crits =  MINOR_CRITICALS
 	max_integrity = INTEGRITY_POOR
+	clothing_flags = NONE
 
 
 //............... Arming Cap ............... //

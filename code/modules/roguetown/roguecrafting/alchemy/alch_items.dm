@@ -180,11 +180,13 @@
 	if(closed)
 		reagent_flags = TRANSPARENT
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
 		desc = initial(desc)
 	else
 		reagent_flags = OPENCONTAINER
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You thumb off the cork from [src]."))
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
 		spillable = TRUE
 		desc += "The cork appears to be off."

@@ -240,6 +240,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/proc/tamed(mob/user)
 	INVOKE_ASYNC(src, PROC_REF(emote), "lower_head", null, null, null, TRUE)
 	tame = TRUE
+	faction += "[REF(user)]"
 	stop_automated_movement_when_pulled = TRUE
 	if(user)
 		owner = user

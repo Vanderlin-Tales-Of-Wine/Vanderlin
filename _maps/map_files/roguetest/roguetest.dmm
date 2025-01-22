@@ -98,8 +98,10 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "as" = (
-/obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/waterwheel,
+/turf/open/water/river{
+	dir = 8
+	},
 /area/rogue/indoors)
 "at" = (
 /turf/closed/mineral/rogue/bedrock,
@@ -1156,6 +1158,18 @@
 /obj/structure/water_pump,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"mx" = (
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
+"mY" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
+"ne" = (
+/obj/structure/rotation_piece/cog/large,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
 "oH" = (
 /obj/structure/lever{
 	redstone_id = "test2"
@@ -1237,6 +1251,10 @@
 /obj/structure/rotation_piece,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"zc" = (
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
 "Az" = (
 /obj/structure/rotation_piece/cog{
 	dir = 4
@@ -1284,6 +1302,10 @@
 /obj/structure/rotation_piece,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"Nb" = (
+/obj/structure/rotation_piece/cog,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
 "QR" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
@@ -1782,14 +1804,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -2039,14 +2061,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+mx
+aj
+aj
+aj
+aj
+mx
+ab
 aa
 aa
 aa
@@ -2296,14 +2318,14 @@ at
 at
 at
 at
-at
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aj
+as
+ne
+aj
+mY
+Nb
+ab
 aa
 aa
 aa
@@ -2553,14 +2575,14 @@ Ua
 Ua
 Ua
 Ua
-at
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+Nb
+mY
+Nb
+aj
+aj
+aj
+ab
 aa
 aa
 aa
@@ -2810,14 +2832,14 @@ al
 al
 al
 Ua
-at
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aj
+aj
+aj
+aj
+aj
+aj
+ab
 aa
 aa
 aa
@@ -3067,14 +3089,14 @@ Ua
 Ua
 Ua
 Ua
-at
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+aj
+aj
+aj
+aj
+aj
+aj
+ab
 aa
 aa
 aa
@@ -3324,14 +3346,14 @@ al
 al
 al
 al
-at
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+zc
+aj
+aj
+aj
+aj
+zc
+ab
 aa
 aa
 aa
@@ -3583,7 +3605,7 @@ ab
 ab
 ab
 ab
-ab
+aj
 ab
 ab
 ab
@@ -3840,7 +3862,7 @@ ab
 ab
 ab
 ab
-ab
+aj
 ab
 ab
 ax
@@ -4097,7 +4119,7 @@ ad
 ak
 an
 ap
-as
+aj
 au
 ab
 ax

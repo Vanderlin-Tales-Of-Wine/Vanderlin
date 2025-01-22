@@ -60,6 +60,7 @@
 	var/goal
 	var/progress
 	var/doneset
+	var/aghost_toggle
 
 /atom
 	var/blockscharging = FALSE
@@ -70,6 +71,7 @@
 /client/MouseDown(object, location, control, params)
 	if(mob.incapacitated())
 		return
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
 
 	tcompare = object
 
@@ -177,6 +179,7 @@
 /client/MouseUp(object, location, control, params)
 	charging = 0
 //	mob.update_warning()
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params)
 
 	mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 

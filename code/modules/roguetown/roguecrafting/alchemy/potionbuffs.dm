@@ -56,7 +56,7 @@
 	id = "spdpot"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/alch/speedpot
 	effectedstats = list("speed" = 3)
-	duration = 300
+	duration = 930
 
 /atom/movable/screen/alert/status_effect/buff/alch/speedpot
 	name = "Speed"

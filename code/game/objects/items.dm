@@ -260,6 +260,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(grid_height <= 0)
 		grid_height = (w_class * world.icon_size)
 
+	if(is_silver)
+		enchant(/datum/enchantment/silver)
 	update_transform()
 
 

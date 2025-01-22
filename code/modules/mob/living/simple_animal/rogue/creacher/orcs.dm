@@ -72,7 +72,7 @@
 	icon_dead = "orcmarauder_spear"
 	base_intents = list(/datum/intent/simple/spear)
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/orcmarauder,
-			/obj/item/rogueweapon/spear,
+			/obj/item/rogueweapon/polearm/spear,
 			/obj/effect/decal/cleanable/blood)
 
 /mob/living/simple_animal/hostile/rogue/orc/orc_marauder/ravager
@@ -100,7 +100,7 @@
 	attack_verb_simple = "stab"
 	attack_sound = 'sound/blank.ogg'
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
-			/obj/item/rogueweapon/spear/bonespear,
+			/obj/item/rogueweapon/polearm/spear/bonespear,
 			/obj/effect/decal/cleanable/blood)
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 
@@ -109,7 +109,7 @@
 	icon_living = "savageorc_spear2"
 	icon_dead = "savageorc_spear2"
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc2,
-			/obj/item/rogueweapon/spear/bonespear,
+			/obj/item/rogueweapon/polearm/spear/bonespear,
 			/obj/effect/decal/cleanable/blood)
 
 /mob/living/simple_animal/hostile/rogue/orc/get_sound(input)

@@ -9,7 +9,7 @@
 		"Humen",
 		"Half-Elf"
 	)
-	allowed_ages = list(AGE_ADULT)
+	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
 	tutorial = "Your master once saw potential in you, something you are uncertain if they still do with your recent studies. The path to using magic is something treacherous and untamed, and you are still decades away from calling yourself even a journeyman in the field. Listen and serve, and someday you will earn your hat."
 
@@ -50,3 +50,4 @@
 
 	H.change_stat("intelligence", 1)
 	H.change_stat("speed", -1)
+	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)

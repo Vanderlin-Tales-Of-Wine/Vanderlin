@@ -13,38 +13,3 @@
 /obj/item/clothing/neck/cloak/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return(OXYLOSS)
-
-/obj/item/clothing/neck/cloak/hos
-	name = "head of security's cloak"
-	desc = ""
-	icon_state = "hoscloak"
-
-/obj/item/clothing/neck/cloak/qm
-	name = "quartermaster's cloak"
-	desc = ""
-
-/obj/item/clothing/neck/cloak/cmo
-	name = "chief medical officer's cloak"
-	desc = ""
-	icon_state = "cmocloak"
-
-/obj/item/clothing/neck/cloak/ce
-	name = "chief engineer's cloak"
-	desc = ""
-	icon_state = "cecloak"
-	resistance_flags = FIRE_PROOF
-
-/obj/item/clothing/neck/cloak/rd
-	name = "research director's cloak"
-	desc = ""
-	icon_state = "rdcloak"
-
-/obj/item/clothing/neck/cloak/cap
-	name = "captain's cloak"
-	desc = ""
-	icon_state = "capcloak"
-
-/obj/item/clothing/neck/cloak/hop
-	name = "head of personnel's cloak"
-	desc = ""
-	icon_state = "hopcloak"

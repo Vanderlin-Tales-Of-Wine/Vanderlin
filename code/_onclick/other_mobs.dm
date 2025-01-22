@@ -98,7 +98,9 @@
 	if(!user.get_active_held_item() && !user.cmode && src.givingto != user)
 		if(ishuman(src) && ishuman(user))
 			var/mob/living/carbon/human/target = src
-			if(target.age == AGE_CHILD && target.mind && !target.mind.apprentice)
+			var/datum/job/job = SSjob.GetJob(target.job)
+			if((target.age == AGE_CHILD || job?.type == /datum/job/roguetown/vagrant) && target.mind && !target.mind.apprentice)
+				to_chat(user, span_notice("You offer apprenticeship to [target]"))
 				user.mind?.make_apprentice(target)
 				return
 

@@ -109,6 +109,9 @@
 	if(istype(I, /obj/item/rogueweapon/tongs))
 		var/obj/item/rogueweapon/tongs/T = I
 		if(!T.hingot)
+			if(item_flags & IN_STORAGE)
+				if(!SEND_SIGNAL(loc, COMSIG_TRY_STORAGE_TAKE, src, user.loc, TRUE))
+					return ..()
 			forceMove(T)
 			T.hingot = src
 			T.hott = null

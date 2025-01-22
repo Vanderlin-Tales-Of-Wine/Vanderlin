@@ -6,7 +6,7 @@
 	item_chair = null
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
-	sleepy = 0.5
+	sleepy = 0.55
 //	pixel_y = 10
 	layer = OBJ_LAYER
 	metalizer_result = /obj/item/roguestatue/iron/deformed
@@ -377,7 +377,7 @@
 /obj/structure/bed/rogue/shit
 	name = "uncomfortable bed"
 	icon_state = "shitbed"
-	sleepy = 0.5
+	sleepy = 0.75
 	metalizer_result = null
 
 /obj/structure/bed/rogue/sleepingbag
@@ -386,13 +386,13 @@
 	icon_state = "sleepingcloth"
 	attacked_sound = 'sound/foley/cloth_rip.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
-	sleepy = 0.5
+	sleepy = 0.75
 
 /obj/structure/bed/rogue/sleepingbag/MiddleClick(mob/user, params)
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
-		new /obj/item/sleepingbag(get_turf(src))
+		user.put_in_hands(new /obj/item/sleepingbag(get_turf(src)))
 		qdel(src)
 
 /obj/item/sleepingbag
@@ -409,9 +409,6 @@
 		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
 		return
 	for(var/obj/A in T)
-		if(istype(A, /obj/structure))
-			to_chat(user, "<span class='warning'>I need some free space to deploy a [src] here!</span>")
-			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
 			to_chat(user, "<span class='warning'>There is already something here!</span>")
 			return

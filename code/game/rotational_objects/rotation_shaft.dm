@@ -37,13 +37,13 @@
 
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
-		for(var/obj/structure/structure in step_back.contents)
+		for(var/obj/structure/structure in step_back?.contents)
 			if(direction != dir && direction != GLOB.reverse_dir[dir])
 				if(!istype(structure, /obj/structure/rotation_piece/cog) && !istype(structure, /obj/structure/water_pump))
 					continue
 			if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
 				continue
-			if(structure.rotation_network)
+			if(structure.rotation_network && !QDELETED(structure.rotation_network))
 				if(rotation_network)
 					if(!structure.try_network_merge(src))
 						rotation_break()

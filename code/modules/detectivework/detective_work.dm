@@ -64,6 +64,32 @@
 /atom/proc/add_blood_DNA(list/dna)						//ASSOC LIST DNA = BLOODTYPE
 	return FALSE
 
+/atom
+	/// Cached mixed color of all blood DNA on us
+	VAR_PROTECTED/cached_blood_dna_color
+
+/atom/proc/get_blood_dna_color()
+	if(cached_blood_dna_color)
+		return cached_blood_dna_color
+
+	var/list/colors = list()
+	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
+	var/list/all_dna = D?.blood_DNA
+	for(var/dna_sample in all_dna)
+		var/datum/blood_type/blood = GLOB.blood_types[all_dna[dna_sample]]
+		colors += blood.color
+
+	var/final_color = pop(colors)
+	for(var/color in colors)
+		final_color = BlendRGB(final_color, color, 0.5)
+	cached_blood_dna_color = final_color
+	return final_color
+
+/obj/effect/decal/cleanable/blood/drip/get_blood_dna_color()
+	var/datum/component/forensics/D = GetComponent(/datum/component/forensics)
+	var/list/all_dna = D?.blood_DNA
+	return GLOB.blood_types[all_dna[all_dna[1]]]?.color
+
 /obj/add_blood_DNA(list/dna)
 	. = ..()
 	if(length(dna))

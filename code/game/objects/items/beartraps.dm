@@ -27,6 +27,8 @@
 	var/trap_damage = 90 // How much brute damage the trap will do to its victim
 	var/used_time = 12 SECONDS // How many seconds it takes to disarm the trap
 	max_integrity = 100
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/restraints/legcuffs/beartrap/attack_hand(mob/user)
 	var/boon = user?.mind?.get_learning_boon(/datum/skill/craft/traps)

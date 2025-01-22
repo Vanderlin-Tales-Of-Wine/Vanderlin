@@ -266,9 +266,9 @@
 	charge_max = 15 SECONDS
 
 /obj/effect/proc_holder/spell/self/command_undead/cast(mob/user = usr)
-	..()
+	. = ..()
 
-	var/message = input("Speak to your minions!", "LICH") as text|null
+	var/message = input(user, "Speak to your minions!", "LICH") as text|null
 
 	if(!message)
 		return

@@ -162,7 +162,7 @@
 
 /obj/item/fishing/reel/abytrident
 	name = "trident shaft"
-	linehealth = 12
+	linehealth = 14
 	difficultymod = 1
 
 /obj/item/fishing/hook/abytrident

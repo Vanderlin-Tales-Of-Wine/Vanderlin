@@ -186,7 +186,7 @@
 		testing("[src] gave into torture.")
 		confess_sins(confession_type, resist=FALSE, user=user)
 
-/mob/living/carbon/human/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/human/user, torture=TRUE)
+/mob/living/carbon/human/proc/confess_sins(confession_type = "antag", resist, mob/living/carbon/human/user, torture=TRUE, obj/item/paper/confession/confession_paper)
 	var/static/list/innocent_lines = list(
 		"I DON'T KNOW!",
 		"STOP THE PAIN!!",
@@ -224,63 +224,79 @@
 				say(pick(confessions), spans = list("torture"))
 			else
 				say(pick(confessions))
-			if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
+			if(has_confessed==TRUE) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
+				visible_message(span_warning("[src.name] has already signed a confession!"), "I have already signed a confession!")
+				return
+			var/obj/item/paper/confession/held_confession
+			testing("confession paper: [confession_paper]")
+			if(istype(confession_paper))
+				held_confession = confession_paper
+			else if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
 				testing("User is holding a confession.")
-				if(has_confessed==TRUE) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
-					to_chat(user, span_warning("[src.name] has already signed a confession! The Holy Bishop wouldn't want me to send a duplicate..."))
-					return
-				var/obj/item/paper/confession/held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
-				if(!held_confession.signed) // Check to see if the confession is already signed.
-					// held_confession.bad_type = "AN EVILDOER" // In case new antags are added with confession lines but have yet to be added here.
-					//this is no longer reliable as all patrons have confess lines now
-					switch(antag_type)
-						if("Bandit")
-							held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
-							held_confession.antag = antag_type
-						if("Matthios")
-							held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
-							held_confession.antag = "worshiper of" + antag_type
-						if("Maniac")
-							held_confession.bad_type = "A MANIAC DELUDED BY MADNESS"
-							held_confession.antag = antag_type
-						if("Assassin")
-							held_confession.bad_type = "A DEATH CULTIST"
-							held_confession.antag = antag_type
-						if("Zizoid Lackey")
-							held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
-							held_confession.antag = antag_type
-						if("Zizoid Cultist")
-							held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
-							held_confession.antag = antag_type
-						if("Zizo")
-							held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
-							held_confession.antag = "worshiper of" + antag_type
-						if("Werewolf")
-							held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
-							held_confession.antag = antag_type
-						if("Vampire")
-							held_confession.bad_type = "A SCION OF KAINE"
-							held_confession.antag = antag_type
-						if("Vampire Lord")
-							held_confession.bad_type = "THE BLOOD-LORD OF ENIGMA"
-							held_confession.antag = antag_type
-						if("Graggar")
-							held_confession.bad_type = "A FOLLOWER OF THE DARK SUN"
-							held_confession.antag = "worshiper of" + antag_type
-						if("Science")
-							held_confession.bad_type = "A DAMNED ANTI-THEIST"
-							held_confession.antag = "worshiper of nothing"
-						if("Peasant Rebel")
-							return // Inquisitors don't care about peasant revolts targeting the King
-						else
-							return // good job you tortured an innocent person
-					has_confessed = TRUE
-					held_confession.signed = real_name
-					held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
-					held_confession.update_icon_state()
-					return
+				held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
+			if(!held_confession?.signed) // Check to see if the confession is already signed.
+				// held_confession.bad_type = "AN EVILDOER" // In case new antags are added with confession lines but have yet to be added here.
+				//this is no longer reliable as all patrons have confess lines now
+				switch(antag_type)
+					if("Bandit")
+						held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
+						held_confession.antag = antag_type
+					if("Matthios")
+						held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
+						held_confession.antag = "worshiper of" + antag_type
+					if("Maniac")
+						held_confession.bad_type = "A MANIAC DELUDED BY MADNESS"
+						held_confession.antag = antag_type
+					if("Assassin")
+						held_confession.bad_type = "A DEATH CULTIST"
+						held_confession.antag = antag_type
+					if("Zizoid Lackey")
+						held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
+						held_confession.antag = antag_type
+					if("Zizoid Cultist")
+						held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
+						held_confession.antag = antag_type
+					if("Zizo")
+						held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
+						held_confession.antag = "worshiper of" + antag_type
+					if("Werewolf")
+						held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
+						held_confession.antag = antag_type
+					if("Lesser Verewolf")
+						held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
+						held_confession.antag = antag_type
+					if("Vampire")
+						held_confession.bad_type = "A SCION OF KAINE"
+						held_confession.antag = antag_type
+					if("Lesser Vampire")
+						held_confession.bad_type = "A SCION OF KAINE"
+						held_confession.antag = antag_type
+					if("Vampire Lord")
+						held_confession.bad_type = "THE BLOOD-LORD OF ENIGMA"
+						held_confession.antag = antag_type
+					if("Vampire Spawn")
+						held_confession.bad_type = "AN UNDERLING OF THE BLOOD-LORD"
+						held_confession.antag = antag_type
+					if("Graggar")
+						held_confession.bad_type = "A FOLLOWER OF THE DARK SUN"
+						held_confession.antag = "worshiper of" + antag_type
+					if("Godless")
+						held_confession.bad_type = "A DAMNED ANTI-THEIST"
+						held_confession.antag = "worshiper of nothing"
+					if("Peasant Rebel")
+						return // Inquisitors don't care about peasant revolts targeting the King
+					else
+						return // good job you tortured an innocent person
+				has_confessed = TRUE
+				held_confession.signed = real_name
+				held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
+				held_confession.update_icon_state()
+			return
 		else
-			say(pick(innocent_lines), spans = list("torture"))
+			if(torture) // Only scream your confession if it's due to torture.
+				say(pick(innocent_lines), spans = list("torture"))
+			else
+				say(pick(innocent_lines))
 			return
 	to_chat(src, span_good("I resist the torture!"))
 	say(pick(innocent_lines), spans = list("torture"))
