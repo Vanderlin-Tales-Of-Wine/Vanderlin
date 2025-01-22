@@ -40,7 +40,12 @@
 	. = ..()
 	if(!.)
 		return
-	return bodypart.has_wound(/datum/wound/fracture)
+	var/can_set = FALSE
+	for(var/datum/wound/fracture/bone in bodypart.wounds)
+		can_set ||= bone.can_set
+	if(!can_set)
+		to_chat(user, span_warning("There are no more fractures to set in [target]'s [parse_zone(target_zone)]."))
+	return can_set
 
 /datum/surgery_step/set_bone/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I begin to set the bone in [target]'s [parse_zone(target_zone)]...</span>",

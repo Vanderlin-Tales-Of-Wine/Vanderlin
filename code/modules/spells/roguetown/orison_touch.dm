@@ -21,7 +21,7 @@
 	name = "\improper lesser prayer"
 	desc = "The fundamental teachings of theology return to you:\n \
 		<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion.\n \
-		<b>Touch</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Known to sometimes scare the rats inside the SCOMlines. Can be used on light sources at range, and it will cause them flicker.\n \
+		<b>Touch</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Can be used on light sources at range, and it will cause them flicker.\n \
 		<b>Use</b>: Issue a prayer for illumination, causing you or another living creature to begin glowing with light for five minutes - this stacks each time you cast it, with no upper limit. Using thaumaturgy on a person will remove this blessing from them, and MMB on your praying hand will remove any light blessings from yourself."
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/fill, INTENT_HELP, /datum/intent/use)
@@ -163,18 +163,29 @@
 
 /atom/movable/screen/alert/status_effect/thaumaturgy
 	name = "Thaumaturgical Voice"
-	desc = "The power of my god will make the next thing I say carry much further!"
+	desc = "The power of my god will make the next thing I say much louder!"
 	icon_state = "stressvg"
 
 /datum/status_effect/thaumaturgy
 	id = "thaumaturgy"
 	alert_type = /atom/movable/screen/alert/status_effect/thaumaturgy
 	duration = 30 SECONDS
-	var/potency = 1
 
-/datum/status_effect/thaumaturgy/on_creation(mob/living/new_owner, skill_power)
-	potency = skill_power
-	return ..()
+/datum/status_effect/thaumaturgy/on_creation(mob/living/new_owner)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(new_owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+
+/datum/status_effect/thaumaturgy/on_remove(mob/living/new_owner)
+	. = ..()
+	UnregisterSignal(new_owner, COMSIG_MOB_SAY)
+
+/datum/status_effect/thaumaturgy/proc/handle_speech(datum/source, list/speech_args)
+	SIGNAL_HANDLER
+	speech_args[SPEECH_SPANS] |= list(SPAN_REALLYBIG)
+	UnregisterSignal(owner, COMSIG_MOB_SAY)
+	owner.remove_status_effect(/datum/status_effect/thaumaturgy)
 
 /obj/item/melee/touch_attack/orison/proc/thaumaturgy(thing, mob/living/carbon/human/user)
 	var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
@@ -185,7 +196,7 @@
 
 		if (!user.has_status_effect(/datum/status_effect/thaumaturgy))
 			if (do_after(user, cast_time, target = user))
-				user.apply_status_effect(/datum/status_effect/thaumaturgy, holy_skill)
+				user.apply_status_effect(/datum/status_effect/thaumaturgy)
 				user.visible_message(span_notice("[user] throws open [user.p_their()] eyes, suddenly emboldened!"), span_notice("A feeling of power wells up in my throat: speak, and many will hear!"))
 				return thaumaturgy_devotion
 		else

@@ -37,9 +37,9 @@
 	ADD_TRAIT(affected, TRAIT_BRITTLE, "[type]")
 	switch(affected.body_zone)
 		if(BODY_ZONE_R_LEG)
-			affected.owner.add_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG, multiplicative_slowdown = DISLOCATED_ADD_SLOWDOWN)
+			owner.add_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG, multiplicative_slowdown = DISLOCATED_ADD_SLOWDOWN)
 		if(BODY_ZONE_L_LEG)
-			affected.owner.add_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG, multiplicative_slowdown = DISLOCATED_ADD_SLOWDOWN)
+			owner.add_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG, multiplicative_slowdown = DISLOCATED_ADD_SLOWDOWN)
 
 /datum/wound/dislocation/on_bodypart_loss(obj/item/bodypart/affected)
 	. = ..()
@@ -47,9 +47,9 @@
 	REMOVE_TRAIT(affected, TRAIT_BRITTLE, "[type]")
 	switch(affected.body_zone)
 		if(BODY_ZONE_R_LEG)
-			affected.owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG)
+			owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_RIGHT_LEG)
 		if(BODY_ZONE_L_LEG)
-			affected.owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG)
+			owner?.remove_movespeed_modifier(MOVESPEED_ID_DISLOCATION_LEFT_LEG)
 
 /datum/wound/dislocation/on_mob_gain(mob/living/affected)
 	. = ..()

@@ -18,6 +18,7 @@
 	//open dream is shitting and crying over this file that exists only here and I can't tell why
 	//cmode_music = 'sound/music/combat_bum.ogg'
 	can_have_apprentices = FALSE
+	bypass_lastclass = TRUE
 
 /datum/job/roguetown/orphan/New()
 	. = ..()

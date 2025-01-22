@@ -117,7 +117,7 @@
 	icon_state = "ledger_0"
 	base_icon_state = "ledger"
 	title = "Catatoma"
-	dat = "To create a shipping order, use a papyrus on me."
+	dat = "To create a shipping order, use a scroll on me."
 	var/fence = FALSE
 
 /obj/item/book/rogue/secret/ledger/attackby(obj/item/I, mob/user, params)

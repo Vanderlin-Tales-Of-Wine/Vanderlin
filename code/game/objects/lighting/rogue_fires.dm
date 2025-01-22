@@ -415,7 +415,7 @@
 		if(istype(attachment, /obj/item/cooking/pan))
 			if(food)
 				if(rawegg)
-					to_chat(user, "<span class='notice'>Throws away the raw egg.</span>")
+					to_chat(user, "<span class='notice'>You throw away the raw egg.</span>")
 					rawegg = FALSE
 					qdel(food)
 					update_icon()

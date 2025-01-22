@@ -12,6 +12,11 @@
 	var/static/approved_jobs = list(/datum/job/roguetown/merchant, /datum/job/roguetown/grabber, /datum/job/roguetown/steward)
 	max_integrity = 999999
 
+/obj/structure/dock_bell/examine(mob/user)
+	. = ..()
+	. += span_info("The dock bell can be rung by sanctioned workers in [COOLDOWN_TIMELEFT(src, ring_bell)] seconds.")
+	. += span_info("The dock bell can be rung by outsiders in [COOLDOWN_TIMELEFT(src, outsider_ring_bell)] seconds.")
+
 /obj/structure/dock_bell/attack_hand(mob/user)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, ring_bell))

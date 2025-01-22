@@ -1,6 +1,0 @@
-{
-    "map_name": "dakkaforest",
-    "map_path": "map_files/dakkatown/otherz",
-    "map_file": "dakkaforest.dmm",
-	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
-}

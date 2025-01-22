@@ -77,7 +77,7 @@
 		if(istype(I, /obj/item/natural/bundle))
 			var/bundle_path = I:stacktype
 			usable_contents |= bundle_path
-			usable_contents[bundle_path] += attacked_item:amount
+			usable_contents[bundle_path] += I:amount
 		else
 			usable_contents |= I.type
 			usable_contents[I.type]++

@@ -32,6 +32,8 @@
 	var/list/overlay_to_index = list()
 	var/current_overlays = 0
 
+	var/loads_painting = FALSE
+
 /obj/item/canvas/Initialize()
 	. = ..()
 	used_canvas = new
@@ -214,6 +216,13 @@
 
 	host.update_drawing(x, y, current_color)
 
-/obj/item/random_painting/Initialize()
+/obj/item/canvas/random_painting
+	loads_painting = TRUE
+
+/obj/item/canvas/random_painting/Initialize()
 	. = ..()
 	icon = SSpaintings.get_random_painting("32x32")
+	var/icon/new_icon = getFlatIcon(src)
+	new_icon.Scale(160, 160)
+	used_canvas.draw.Blend(new_icon, ICON_OVERLAY)
+	used_canvas.icon = used_canvas.draw

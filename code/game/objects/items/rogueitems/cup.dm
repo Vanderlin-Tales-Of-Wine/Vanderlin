@@ -54,14 +54,6 @@
 	last_used = 0
 	is_silver = TRUE
 
-/obj/item/reagent_containers/glass/cup/silver/funny_attack_effects(mob/living/target, mob/living/user, nodmg)
-	. = ..()
-	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
-		var/datum/antagonist/vampirelord/VD = target.mind.has_antag_datum(/datum/antagonist/vampirelord)
-		if(!VD.disguised)
-			target.Knockdown(30)
-			target.Stun(30)
-
 /obj/item/reagent_containers/glass/cup/silver/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	. = ..()
 	if(ishuman(M))

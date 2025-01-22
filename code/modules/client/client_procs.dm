@@ -157,12 +157,25 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/list/selections = GLOB.character_ckey_list.Copy()
 	if(!selections.len)
 		return
-	var/selection = input(src,"Which Character?") as null|anything in sortList(selections)
+	var/list/selection_w_title = list()
+	var/list/human_mobs = GLOB.human_list.Copy()
+	for(var/real_name in selections)
+		var/ckey =  GLOB.character_ckey_list[real_name]
+		var/mob/living/carbon/human/H
+		for(var/mob/mob in human_mobs)
+			if(mob?.real_name == real_name)
+				H = mob
+				break
+		if(QDELETED(H) || !istype(H))
+			selection_w_title[real_name] = ckey
+		else
+			selection_w_title["[real_name], [H.get_role_title()]"] = ckey
+	var/selection = input(src,"Which Character?") as null|anything in sortList(selection_w_title)
 	if(!selection)
 		return
 	if(commendedsomeone)
 		return
-	var/theykey = selections[selection]
+	var/theykey = selection_w_title[selection]
 	if(theykey == ckey)
 		to_chat(src,"You can't commend yourself.")
 		return
@@ -936,6 +949,12 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		ip_intel = res.intel
 
 /client/Click(atom/object, atom/location, control, params)
+	if(click_intercept_time)
+		if(click_intercept_time >= world.time)
+			click_intercept_time = 0 //Reset and return. Next click should work, but not this one.
+			return
+		click_intercept_time = 0 //Just reset. Let's not keep re-checking forever.
+
 	var/ab = FALSE
 	var/list/L = params2list(params)
 

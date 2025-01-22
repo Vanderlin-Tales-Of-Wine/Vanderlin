@@ -17,6 +17,12 @@
 	give_bank_account = TRUE
 	min_pq = -10
 	can_have_apprentices = FALSE
+	allowed_patrons = ALL_TEMPLE_PATRONS
+
+/datum/outfit/job/roguetown/churchling
+	name = "Churchling"
+	jobtype = /datum/job/roguetown/churchling
+	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/roguetown/churchling/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -29,7 +35,6 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	neck = /obj/item/clothing/neck/roguetown/psycross
 	if(H.gender == FEMALE)
 		head = /obj/item/clothing/head/roguetown/armingcap
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
@@ -41,7 +46,28 @@
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	beltl = /obj/item/storage/keyring/priest
-
+	neck = /obj/item/clothing/neck/roguetown/psycross/silver
+	switch(H.patron?.type)
+		if(/datum/patron/divine/astrata)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
+		if(/datum/patron/divine/necra) //Necra acolytes are now gravetenders
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/necra
+		if(/datum/patron/divine/eora)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/eora
+		if(/datum/patron/divine/noc)
+			neck = /obj/item/clothing/neck/roguetown/psycross/noc
+		if(/datum/patron/divine/pestra)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
+		if(/datum/patron/divine/dendor)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
+		if(/datum/patron/divine/abyssor)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/abyssor
+		if(/datum/patron/divine/ravox)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
+		if(/datum/patron/divine/xylix)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
+		if(/datum/patron/divine/malum)
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
 
 	H.change_stat("perception", 1)
 	H.change_stat("speed", 2)

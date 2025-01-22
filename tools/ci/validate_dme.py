@@ -23,7 +23,6 @@ FORBID_INCLUDE = [
 
     # Unfinished
     r'code/modules/mob/dead/new_player/misc.dm', # mostly duplicate code, needs a pass over it
-    r'code/modules/cargo/packsrogue/rawmat.dm',
 
     # Dakkatown is unused
     r'code/modules/roguetown/mapgen/dakkamg/dakkaambush.dm',

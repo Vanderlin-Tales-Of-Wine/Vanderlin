@@ -2,10 +2,11 @@
 /obj/item/rogue/instrument
 	name = ""
 	desc = ""
-	icon = 'modular/Barding/icons/music.dmi'
+	icon = 'icons/roguetown/items/music.dmi'
 	icon_state = ""
-	lefthand_file = 'modular/Barding/icons/instruments_lefthand.dmi'
-	righthand_file = 'modular/Barding/icons/instruments_righthand.dmi'
+	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	possible_item_intents = list(/datum/intent/use)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK_R|ITEM_SLOT_BACK_L
@@ -17,16 +18,32 @@
 	throwforce = 0
 	throw_range = 4
 	blade_dulling = DULLING_BASH
-	max_integrity = 100 // Flimsy instruments of wood.
+	max_integrity = 80 // Flimsy instruments of wood.
 	destroy_message = "falls apart!"
 	dropshrink = 0.8
 	grid_height = 64
 	grid_width = 32
-	var/datum/looping_sound/dmusloop/soundloop
+	var/datum/looping_sound/instrument/soundloop
 	var/list/song_list = list()
 	var/playing = FALSE
 	var/dynamic_icon
 	var/icon_prefix
+
+/datum/looping_sound/instrument
+	mid_sounds = list()
+	mid_length = 60
+	volume = 100
+	falloff = 2
+	extra_range = 5
+	var/stress2give = /datum/stressevent/music
+	persistent_loop = TRUE
+
+/datum/looping_sound/instrument/on_hear_sound(mob/M)
+	. = ..()
+	if(stress2give)
+		if(isliving(M))
+			var/mob/living/carbon/L = M
+			L.add_stress(stress2give)
 
 /obj/item/rogue/instrument/equipped(mob/living/user, slot)
 	. = ..()
@@ -314,6 +331,7 @@
 	name = "lute"
 	desc = "The favored instrument of Eora, made of wood and simple string."
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
+	force = 5
 	icon_state = "lute"
 	song_list = list(
 	"A Knight's Return" = 'modular/Barding/sound/instruments/lute (1).ogg',
@@ -390,6 +408,9 @@
 	icon_state = "flute"
 	icon_prefix = "flute" // used for inhands switch
 	dynamic_icon = TRUE // used for inhands switch
+	dropshrink = 0.6
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_SMALL
 	song_list = list(
 	"Half-Dragon's Ten Mammon" = 'modular/Barding/sound/instruments/flute (1).ogg',
 	"The Local Favorite" = 'modular/Barding/sound/instruments/flute (2).ogg',
