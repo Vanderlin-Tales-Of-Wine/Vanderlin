@@ -239,7 +239,7 @@ Design philosphy:
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltr = /obj/item/reagent_containers/glass/bottle/rogue/manapot
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1)
+	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/storage/keyring/guard = 1)
 	mask = /obj/item/clothing/mask/rogue/shepherd/clothmask
 	neck = /obj/item/clothing/neck/roguetown/coif
 	head = /obj/item/clothing/head/roguetown/roguehood/red
