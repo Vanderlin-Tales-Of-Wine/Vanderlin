@@ -461,6 +461,24 @@
 	var/msg = "has created a [isnull(duration) ? "permanent" : "temporary [time_message]"] [applies_to_admins ? "admin " : ""][roles_to_ban[1] == "Server" ? "server ban" : "role ban from [roles_to_ban.len] roles"] for [target]."
 	log_admin_private("[kn] [msg][roles_to_ban[1] == "Server" ? "" : " Roles: [roles_to_ban.Join(", ")]"] Reason: [reason]")
 	message_admins("[kna] [msg][roles_to_ban[1] == "Server" ? "" : " Roles: [roles_to_ban.Join("\n")]"]\nReason: [reason]")
+	var/datum/client_interface/mock_player = new(player_key)
+	mock_player.prefs = new /datum/preferences(mock_player)
+
+	var/list/plexora_ban = list(
+		"ckey" = player_ckey,
+		"roles" = roles_to_ban,
+		"expiration_time" = duration,
+		"expiration_interval" = interval,
+		"reason" = reason,
+		"admin_ckey" = admin_ckey,
+		"admin_key_name" = key_name(usr),
+		"round_id" = GLOB.round_id,
+		"round_timer" = ROUND_TIME(),
+		"world_time" = world.time,
+	)
+
+	plexora_ban["total_playtime"] = mock_player.get_exp_living()
+	SSplexora.new_ban(plexora_ban)
 	if(applies_to_admins)
 		send2irc("BAN ALERT","[kn] [msg]")
 	if(player_ckey)

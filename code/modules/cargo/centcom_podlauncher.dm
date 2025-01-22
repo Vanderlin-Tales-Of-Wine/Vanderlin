@@ -424,7 +424,6 @@ force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.adm
 			. = TRUE
 		if("giveLauncher") //Enters the "Launch Mode". When the launcher is activated, temp_pod is cloned, and the result it filled and launched anywhere the user clicks (unless specificTarget is true)
 			launcherActivated = !launcherActivated
-			updateCursor(launcherActivated) //Update the cursor of the user to a cool looking target icon
 			. = TRUE
 		if("clearBay") //Delete all mobs and objs in the selected bay
 			if(alert(usr, "This will delete all objs and mobs in [bay]. Are you sure?", "Confirmation", "Delete that shit", "No") == "Delete that shit")
@@ -434,21 +433,6 @@ force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.adm
 
 /datum/centcom_podlauncher/ui_close() //Uses the destroy() proc. When the user closes the UI, we clean up the temp_pod and supplypod_selector variables.
 	qdel(src)
-
-/datum/centcom_podlauncher/proc/updateCursor(launching) //Update the moues of the user
-	if (holder) //Check to see if we have a client
-		if (launching) //If the launching param is true, we give the user new mouse icons.
-			holder.mouse_up_icon = 'icons/effects/supplypod_target.dmi' //Icon for when mouse is released
-			holder.mouse_down_icon = 'icons/effects/supplypod_down_target.dmi' //Icon for when mouse is pressed
-			holder.mouse_pointer_icon = holder.mouse_up_icon //Icon for idle mouse (same as icon for when released)
-			holder.click_intercept = src //Create a click_intercept so we know where the user is clicking
-		else
-			var/mob/M = holder.mob
-			holder.mouse_up_icon = null
-			holder.mouse_down_icon = null
-			holder.click_intercept = null
-			if (M)
-				M.update_mouse_pointer() //set the moues icons to null, then call update_moues_pointer() which resets them to the correct values based on what the mob is doing (in a mech, holding a spell, etc)()
 
 /datum/centcom_podlauncher/proc/InterceptClickOn(user,params,atom/target) //Click Intercept so we know where to send pods where the user clicks
 	var/list/pa = params2list(params)
@@ -576,7 +560,6 @@ force_open = FALSE, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.adm
 		qdel(M)
 
 /datum/centcom_podlauncher/Destroy() //The Destroy() proc. This is called by ui_close proc, or whenever the user leaves the game
-	updateCursor(FALSE) //Make sure our moues cursor resets to default. False means we are not in launch mode
 	qdel(temp_pod) //Delete the temp_pod
 	qdel(selector) //Delete the selector effect
 	. = ..()

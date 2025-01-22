@@ -23,8 +23,6 @@
 	var/visor_flags_cover = 0	//same as above, but for flags_cover
 //what to toggle when toggled with weldingvisortoggle()
 	var/visor_vars_to_toggle = VISOR_FLASHPROTECT | VISOR_TINT | VISOR_VISIONFLAGS | VISOR_DARKNESSVIEW | VISOR_INVISVIEW
-	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
 	var/alt_desc = null
 	var/toggle_message = null
 	var/alt_toggle_message = null

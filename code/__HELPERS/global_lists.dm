@@ -36,8 +36,6 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/legs, GLOB.legs_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings, GLOB.r_wings_list,roundstart = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, GLOB.caps_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
-
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))

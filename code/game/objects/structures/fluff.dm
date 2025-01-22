@@ -3,7 +3,6 @@
 /obj/structure/fluff
 	name = "fluff structure"
 	desc = ""
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "minibar"
 	anchored = TRUE
 	density = FALSE
@@ -11,21 +10,6 @@
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = 150
 	var/deconstructible = TRUE
-
-/obj/structure/fluff/paper
-	name = "dense lining of papers"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "paper"
-	deconstructible = FALSE
-
-/obj/structure/fluff/paper/corner
-	icon_state = "papercorner"
-
-/obj/structure/fluff/paper/stack
-	name = "dense stack of papers"
-	desc = ""
-	icon_state = "paperstack"
 
 /obj/structure/fluff/big_chain
 	name = "giant chain"
@@ -1345,79 +1329,6 @@
 	if(M.flash_act())
 		var/diff = power - M.confused
 		M.confused += min(power, diff)
-
-
-//================================
-/obj/structure/fluff/beach_towel
-	name = "beach towel"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "railing"
-	density = FALSE
-	anchored = TRUE
-	deconstructible = FALSE
-
-/obj/structure/fluff/beach_umbrella
-	name = "beach umbrella"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "brella"
-	density = FALSE
-	anchored = TRUE
-	deconstructible = FALSE
-
-/obj/structure/fluff/beach_umbrella/security
-	icon_state = "hos_brella"
-
-/obj/structure/fluff/beach_umbrella/science
-	icon_state = "rd_brella"
-
-/obj/structure/fluff/beach_umbrella/engine
-	icon_state = "ce_brella"
-
-/obj/structure/fluff/beach_umbrella/cap
-	icon_state = "cap_brella"
-
-/obj/structure/fluff/beach_umbrella/syndi
-	icon_state = "syndi_brella"
-
-/obj/structure/fluff/clockwork
-	name = "Clockwork Fluff"
-	icon = 'icons/obj/clockwork_objects.dmi'
-	deconstructible = FALSE
-
-/obj/structure/fluff/clockwork/alloy_shards
-	name = "replicant alloy shards"
-	desc = ""
-	icon_state = "alloy_shards"
-
-/obj/structure/fluff/clockwork/alloy_shards/small
-	icon_state = "shard_small1"
-
-/obj/structure/fluff/clockwork/alloy_shards/medium
-	icon_state = "shard_medium1"
-
-/obj/structure/fluff/clockwork/alloy_shards/medium_gearbit
-	icon_state = "gear_bit1"
-
-/obj/structure/fluff/clockwork/alloy_shards/large
-	icon_state = "shard_large1"
-
-/obj/structure/fluff/clockwork/blind_eye
-	name = "blind eye"
-	desc = ""
-	icon_state = "blind_eye"
-
-/obj/structure/fluff/clockwork/fallen_armor
-	name = "fallen armor"
-	desc = ""
-	icon_state = "fallen_armor"
-
-/obj/structure/fluff/clockwork/clockgolem_remains
-	name = "clockwork golem scrap"
-	desc = ""
-	icon_state = "clockgolem_dead"
-
 
 /obj/structure/fluff/statue/shisha
 	name = "shisha pipe"

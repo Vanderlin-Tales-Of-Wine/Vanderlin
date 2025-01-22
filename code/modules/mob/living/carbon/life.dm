@@ -359,9 +359,6 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	if(druggy)
 		adjust_drugginess(-1)
 
-	if(hallucination)
-		handle_hallucinations()
-
 	if(drunkenness)
 		drunkenness = max(drunkenness - (drunkenness * 0.04) - 0.01, 0)
 		if(drunkenness >= 1)

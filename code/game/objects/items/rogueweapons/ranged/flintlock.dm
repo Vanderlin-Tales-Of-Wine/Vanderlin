@@ -5,7 +5,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	icon_state = "puffer_uncocked_ramrod"
-	item_state = "gun"
+	item_state = "puffer"
 	bigboy = FALSE
 	recoil = 8
 	randomspread = 2

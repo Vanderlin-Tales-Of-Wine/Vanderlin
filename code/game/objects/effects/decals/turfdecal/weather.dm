@@ -16,10 +16,6 @@
 	icon = 'icons/turf/decals.dmi'
 	icon_state = "dirt_side"
 
-/obj/effect/turf_decal/weather/sand
-	name = "sand siding"
-	icon = 'icons/misc/beach.dmi'
-	icon_state = "sand_side"
 
 /obj/effect/turf_decal/weather/sand/light
 	icon_state = "lightsand_side"

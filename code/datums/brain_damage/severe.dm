@@ -209,7 +209,6 @@
 				to_chat(owner, "<span class='warning'>I feel really lonely...</span>")
 			else
 				to_chat(owner, "<span class='warning'>You're going mad with loneliness!</span>")
-				owner.hallucination += 30
 
 		if(5)
 			if(!high_stress)

@@ -366,8 +366,6 @@
 	if(change_icon_to_default)
 		if(status == BODYPART_ORGANIC)
 			icon = species_icon
-		else if(status == BODYPART_ROBOTIC)
-			icon = DEFAULT_BODYPART_ICON_ROBOTIC
 
 	if(owner)
 		owner.updatehealth()
@@ -495,9 +493,6 @@
 				limb.icon_state = "[animal_origin]_husk_[body_zone]"
 			else
 				limb.icon_state = "[animal_origin]_[body_zone]"
-		else
-			limb.icon = 'icons/mob/augmentation/augments.dmi'
-			limb.icon_state = "[animal_origin]_[body_zone]"
 		return
 
 //	if((body_zone != BODY_ZONE_HEAD && body_zone != BODY_ZONE_CHEST))

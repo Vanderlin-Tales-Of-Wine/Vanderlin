@@ -20,7 +20,6 @@ LINEN BINS
 	resistance_flags = FLAMMABLE
 	dying_key = DYE_REGISTRY_BEDSHEET
 
-	dog_fashion = /datum/dog_fashion/head/ghost
 	var/list/dream_messages = list("white")
 	var/datum/weakref/signal_sleeper //this is our goldylocks
 

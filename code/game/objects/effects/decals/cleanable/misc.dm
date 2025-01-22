@@ -209,10 +209,3 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xfloor1"
 	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
-
-/obj/effect/decal/cleanable/confetti
-	name = "confetti"
-	desc = ""
-	icon = 'icons/effects/confetti_and_decor.dmi'
-	icon_state = "confetti"
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //the confetti itself might be annoying enough

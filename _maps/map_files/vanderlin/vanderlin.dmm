@@ -6979,7 +6979,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker{
+/obj/item/clothing/mask/cigarette/rollie/cannabis{
 	pixel_y = 8
 	},
 /obj/item/candle/yellow{
@@ -7585,10 +7585,10 @@
 /area/rogue/indoors/town/clocktower)
 "fuu" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker{
+/obj/item/clothing/mask/cigarette/rollie/cannabis{
 	pixel_y = 8
 	},
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker{
+/obj/item/clothing/mask/cigarette/rollie/cannabis{
 	pixel_y = 8
 	},
 /obj/item/clothing/mask/cigarette/pipe/crafted{
@@ -23742,7 +23742,7 @@
 /obj/item/reagent_containers/powder/spice,
 /obj/item/reagent_containers/powder/spice,
 /obj/item/reagent_containers/powder/moondust,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/clothing/mask/cigarette/rollie/cannabis,
 /turf/open/floor/rogue/metal{
 	icon_state = "plating2"
 	},
