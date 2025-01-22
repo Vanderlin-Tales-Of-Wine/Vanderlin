@@ -126,11 +126,3 @@
 				qdel(AM)
 				return
 			aggroed = world.time
-
-/obj/structure/flora/roguegrass/tangler/real/attackby(obj/item/W, mob/user, params)
-	if("plants" in user.faction)
-		return
-	. = ..()
-	aggroed = world.time
-	update_icon()
-
