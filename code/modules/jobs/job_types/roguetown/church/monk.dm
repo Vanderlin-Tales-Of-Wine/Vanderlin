@@ -3,8 +3,8 @@
 	flag = MONK
 	department_flag = CHURCHMEN
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 2
+	spawn_positions = 2
 
 	allowed_races = list(
 		"Humen",
@@ -20,7 +20,7 @@
 
 	display_order = JDO_MONK
 	give_bank_account = TRUE
-	min_pq = -10
+	min_pq = 4
 	bypass_lastclass = TRUE
 
 /datum/outfit/job/roguetown/monk
