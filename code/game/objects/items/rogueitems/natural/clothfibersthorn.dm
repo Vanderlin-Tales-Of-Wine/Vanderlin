@@ -5,7 +5,7 @@
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
 	throwforce = 0
-	color = "#6c6042"
+	color = "#454032"
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
@@ -22,7 +22,7 @@
 	desc = "Silken strands. Their usage in clothing is exotic in all places save the Underdark."
 	force = 0
 	throwforce = 0
-	color = "#bcc1dc"
+	color = "#e6e3db"
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
@@ -211,7 +211,7 @@
 	force = 0
 	throwforce = 0
 	maxamount = 6
-	color = "#6c6042"
+	color = "#454032"
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH
@@ -236,7 +236,7 @@
 	force = 0
 	throwforce = 0
 	maxamount = 6
-	color = "#bcc1dc"
+	color = "#e6e3db"
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
 	slot_flags = ITEM_SLOT_MOUTH

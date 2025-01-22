@@ -4,7 +4,7 @@
 	name = "leech"
 	desc = "A disgusting, blood-sucking parasite."
 	icon = 'icons/roguetown/items/surgery.dmi'
-	icon_state = "leech_alt"
+	icon_state = "leech"
 	baitpenalty = 0
 	isbait = TRUE
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 5,
@@ -165,7 +165,6 @@
 			color = "#dc4b4b"
 			adjectives += pick("evil", "malevolent", "misanthropic")
 			descs += "<span class='danger'>This one is bursting with hatred!</span>"
-			icon_state = "leech"
 		if(5) //this leech is painfully average, it gets no adjectives
 			if(prob(3))
 				adjectives += pick("average", "ordinary", "boring")
