@@ -4,16 +4,13 @@
 	if(!check_rights(R_DEBUG))
 		return
 
-	if(GLOB.Debug2)
-		GLOB.Debug2 = 0
-		message_admins("[key_name(src)] toggled debugging off.")
-		log_admin("[key_name(src)] toggled debugging off.")
-	else
-		GLOB.Debug2 = 1
-		message_admins("[key_name(src)] toggled debugging on.")
-		log_admin("[key_name(src)] toggled debugging on.")
+	GLOB.Debug = !GLOB.Debug
 
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Debug Two") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	var/message ="[key_name(src)] toggled debugging [GLOB.Debug ? "on" : "off"]."
+	message_admins(message)
+	log_admin(message)
+
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Debug") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
 

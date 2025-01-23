@@ -365,15 +365,15 @@ SUBSYSTEM_DEF(ticker)
 
 	src.mode.after_DO()
 
-	if(!GLOB.Debug2)
+	if(GLOB.Debug)
+		message_admins("<span class='notice'>DEBUG: Bypassing prestart checks...</span>")
+	else
 		if(!can_continue)
 			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
 			QDEL_NULL(mode)
 			message_admins("<B>Error setting up [GLOB.master_mode].</B> Reverting to pre-game lobby.")
 			SSjob.ResetOccupations()
-			return 0
-	else
-		message_admins("<span class='notice'>DEBUG: Bypassing prestart checks...</span>")
+			return FALSE
 
 	log_game("GAME SETUP: Divide Occupations success")
 
