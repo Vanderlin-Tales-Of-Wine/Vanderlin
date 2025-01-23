@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(plexora)
 		default_headers
 	).begin_async()
 
-/datum/controller/subsystem/plexora/Shutdown(hard = FALSE, requestedby)
+/datum/controller/subsystem/plexora/proc/_Shutdown(hard = FALSE, requestedby)
 	http_basicasync("serverupdates", list(
 		"type" = "servershutdown",
 		"timestamp" = rustg_unix_timestamp(),
