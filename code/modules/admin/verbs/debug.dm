@@ -6,7 +6,7 @@
 
 	GLOB.Debug = !GLOB.Debug
 
-	var/message ="[key_name(src)] toggled debugging [GLOB.Debug ? "on" : "off"]."
+	var/message = "[key_name(src)] toggled debugging [GLOB.Debug ? "on" : "off"]."
 	message_admins(message)
 	log_admin(message)
 
