@@ -366,7 +366,7 @@ SUBSYSTEM_DEF(ticker)
 	src.mode.after_DO()
 
 	if(GLOB.Debug)
-		message_admins("<span class='notice'>DEBUG: Bypassing prestart checks...</span>")
+		debug_admins(span_notice("Bypassing prestart checks..."))
 	else
 		if(!can_continue)
 			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
