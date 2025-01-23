@@ -10,6 +10,14 @@
 | Dough |
 \------*/
 
+/obj/item/reagent_containers/food/snacks/proc/table_required(mob/living/user)
+	if (
+		!(locate(/obj/structure/table) in src.loc) && \
+		!(locate(/obj/structure/table/optable) in src.loc) && \
+		!(locate(/obj/item/storage/bag/tray) in src.loc))
+		to_chat(user, "<span class='warning'>I need to use a table.</span>")
+		return FALSE
+
 /*	.................   Dough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/dough_base
 	name = "unfinished dough"
@@ -17,8 +25,10 @@
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_EXTREME
+	requires_table = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
-	..()
+	. = ..()
+/*
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/powder/flour))
@@ -31,6 +41,15 @@
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 	else
 		to_chat(user, span_warning("Put [src] on a table before working it!"))
+*/
+	if(istype(I, /obj/item/reagent_containers/powder/flour))
+		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
+		to_chat(user, span_notice("Kneading in more powder..."))
+		if(do_after(user,short_cooktime, target = src))
+			new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
+			qdel(I)
+			qdel(src)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
 /obj/item/reagent_containers/food/snacks/rogue/dough
 	name = "dough"
@@ -102,7 +121,8 @@
 	tastes = list("dough" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/doughslice/attackby(obj/item/I, mob/living/user, params)
-	..()
+	. = ..()
+/*
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese/gote))
@@ -130,7 +150,16 @@
 				qdel(src)
 	else
 		to_chat(user, span_warning("Put [src] on a table before working it!"))
-
+*/
+	table_required()
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
+		to_chat(user, span_notice("Adding fresh cheese..."))
+		if(do_after(user,short_cooktime, target = src))
+			new /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw(loc)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			qdel(I)
+			qdel(src)
 
 
 /*------------\

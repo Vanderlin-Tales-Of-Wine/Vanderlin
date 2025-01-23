@@ -374,7 +374,7 @@ All foods are distributed among various categories. Use common sense.
 
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
-	..()
+	. = ..()
 	if(istype(W, /obj/item/storage))
 		..() // -> item/attackby()
 		return 0
@@ -566,7 +566,7 @@ All foods are distributed among various categories. Use common sense.
 	w_class = WEIGHT_CLASS_NORMAL
 	var/stored_item = 0
 
-/obj/item/reagent_containers/food/snacks/store/attackby(obj/item/W, mob/user, params)
+/obj/item/reagent_containers/food/snacks/store/attackby(obj/item/W, mob/living/user, params)
 	..()
 	if(W.w_class <= WEIGHT_CLASS_SMALL & !istype(W, /obj/item/reagent_containers/food/snacks)) //can't slip snacks inside, they're used for custom foods.
 		if(W.get_sharpness())

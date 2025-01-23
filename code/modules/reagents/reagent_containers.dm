@@ -21,6 +21,7 @@
 	var/poursounds
 	var/short_cooktime = FALSE  // based on cooking skill
 	var/long_cooktime = FALSE  // based on cooking skill
+	var/requires_table = FALSE
 
 	COOLDOWN_DECLARE(fill_cooldown)
 
@@ -162,20 +163,24 @@
 	. = ..()
 
 
-/obj/item/reagent_containers/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 
-
-/*
 	if(requires_table)
 		if (
 			!(locate(/obj/structure/table) in src.loc) && \
 			!(locate(/obj/structure/table/optable) in src.loc) && \
 			!(locate(/obj/item/storage/bag/tray) in src.loc))
 			to_chat(user, "<span class='warning'>I need to use a table.</span>")
-			return FALSE
+			return
 
-*/
+ //	if(!. = ..()) return
+
+
+//		else
+//			return ..()
+//	else
+//		return ..()
