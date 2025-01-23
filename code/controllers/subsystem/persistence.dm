@@ -14,7 +14,6 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/controller/subsystem/persistence/Initialize()
 	LoadPoly()
-	LoadTrophies()
 	LoadRecentModes()
 	if(CONFIG_GET(flag/use_antag_rep))
 		LoadAntagReputation()
@@ -25,25 +24,6 @@ SUBSYSTEM_DEF(persistence)
 	for(var/mob/living/simple_animal/parrot/Poly/P in GLOB.alive_mob_list)
 		twitterize(P.speech_buffer, "polytalk")
 		break //Who's been duping the bird?!
-
-/datum/controller/subsystem/persistence/proc/LoadTrophies()
-	if(fexists("data/npc_saves/TrophyItems.sav")) //legacy compatability to convert old format to new
-		var/savefile/S = new /savefile("data/npc_saves/TrophyItems.sav")
-		var/saved_json
-		S >> saved_json
-		if(!saved_json)
-			return
-		saved_trophies = json_decode(saved_json)
-		fdel("data/npc_saves/TrophyItems.sav")
-	else
-		var/json_file = file("data/npc_saves/TrophyItems.json")
-		if(!fexists(json_file))
-			return
-		var/list/json = json_decode(file2text(json_file))
-		if(!json)
-			return
-		saved_trophies = json["data"]
-	SetUpTrophies(saved_trophies.Copy())
 
 /datum/controller/subsystem/persistence/proc/LoadRecentModes()
 	var/json_file = file("data/RecentModes.json")
@@ -64,34 +44,7 @@ SUBSYSTEM_DEF(persistence)
 		return
 	antag_rep = json_decode(json)
 
-/datum/controller/subsystem/persistence/proc/SetUpTrophies(list/trophy_items)
-	for(var/A in GLOB.trophy_cases)
-		var/obj/structure/displaycase/trophy/T = A
-		if (T.showpiece)
-			continue
-		T.added_roundstart = TRUE
-
-		var/trophy_data = pick_n_take(trophy_items)
-
-		if(!islist(trophy_data))
-			continue
-
-		var/list/chosen_trophy = trophy_data
-
-		if(!chosen_trophy || isemptylist(chosen_trophy)) //Malformed
-			continue
-
-		var/path = text2path(chosen_trophy["path"]) //If the item no longer exist, this returns null
-		if(!path)
-			continue
-
-		T.showpiece = new /obj/item/showpiece_dummy(T, path)
-		T.trophy_message = chosen_trophy["message"]
-		T.placer_key = chosen_trophy["placer_key"]
-		T.update_icon()
-
 /datum/controller/subsystem/persistence/proc/CollectData()
-	CollectTrophies()
 	CollectRoundtype()				//THIS IS PERSISTENCE, NOT THE LOGGING PORTION.
 	if(CONFIG_GET(flag/use_antag_rep))
 		CollectAntagReputation()
@@ -107,14 +60,6 @@ SUBSYSTEM_DEF(persistence)
 	if(fexists(frame_path))
 		return json_decode(file2text(frame_path))
 
-
-/datum/controller/subsystem/persistence/proc/CollectTrophies()
-	var/json_file = file("data/npc_saves/TrophyItems.json")
-	var/list/file_data = list()
-	file_data["data"] = remove_duplicate_trophies(saved_trophies)
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(file_data))
-
 /datum/controller/subsystem/persistence/proc/remove_duplicate_trophies(list/trophies)
 	var/list/ukeys = list()
 	. = list()
@@ -125,14 +70,6 @@ SUBSYSTEM_DEF(persistence)
 		else
 			. += list(trophy)
 			ukeys[tkey] = TRUE
-
-/datum/controller/subsystem/persistence/proc/SaveTrophy(obj/structure/displaycase/trophy/T)
-	if(!T.added_roundstart && T.showpiece)
-		var/list/data = list()
-		data["path"] = T.showpiece.type
-		data["message"] = T.trophy_message
-		data["placer_key"] = T.placer_key
-		saved_trophies += list(data)
 
 /datum/controller/subsystem/persistence/proc/CollectRoundtype()
 	saved_modes[3] = saved_modes[2]

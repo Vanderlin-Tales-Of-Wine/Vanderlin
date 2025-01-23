@@ -233,6 +233,7 @@
 
 	sleep(10 SECONDS)
 	ready_for_reboot = TRUE
+	SSplexora.roundended()
 	standard_reboot()
 
 /datum/controller/subsystem/ticker/proc/get_end_reason()

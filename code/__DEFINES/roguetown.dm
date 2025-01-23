@@ -144,6 +144,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_CONSORT 		"CAT_CONSORT" 		// Consort classes
 #define CTAG_VETERAN		"CAT_VETERAN"		// Veteran class - Handles Veteran class selector
 #define CTAG_MENATARMS		"CAT_MENATARMS"
+#define CTAG_SERVANT		"CAT_SERVANT" 		// Servant class - 4 type of servant to fill in someplace.
 
 /*
 	Defines for the triumph buy datum categories

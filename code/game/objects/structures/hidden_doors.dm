@@ -20,6 +20,7 @@
 	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
+	redstone_structure = TRUE
 
 	var/over_state = "woodover"
 

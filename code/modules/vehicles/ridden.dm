@@ -21,12 +21,6 @@
 		else
 			. += "<span class='notice'>Alt-click [src] to remove the key.</span>"
 
-/obj/vehicle/ridden/generate_action_type(actiontype)
-	var/datum/action/vehicle/ridden/A = ..()
-	. = A
-	if(istype(A))
-		A.vehicle_ridden_target = src
-
 /obj/vehicle/ridden/post_unbuckle_mob(mob/living/M)
 	remove_occupant(M)
 	return ..()

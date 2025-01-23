@@ -201,29 +201,6 @@
 /datum/status_effect/pacify/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "status_effect")
 
-/datum/status_effect/stacking/saw_bleed
-	id = "saw_bleed"
-	tick_interval = 6
-	delay_before_decay = 5
-	stack_threshold = 10
-	max_stacks = 10
-	overlay_file = 'icons/effects/bleed.dmi'
-	underlay_file = 'icons/effects/bleed.dmi'
-	overlay_state = "bleed"
-	underlay_state = "bleed"
-	var/bleed_damage = 200
-
-/datum/status_effect/stacking/saw_bleed/fadeout_effect()
-	new /obj/effect/temp_visual/bleed(get_turf(owner))
-
-/datum/status_effect/stacking/saw_bleed/threshold_cross_effect()
-	owner.adjustBruteLoss(bleed_damage)
-	var/turf/T = get_turf(owner)
-	new /obj/effect/temp_visual/bleed/explode(T)
-	for(var/d in GLOB.alldirs)
-		new /obj/effect/temp_visual/dir_setting/bloodsplatter(T, d)
-	playsound(T, "desceration", 100, TRUE, -1)
-
 /datum/status_effect/neck_slice
 	id = "neck_slice"
 	status_type = STATUS_EFFECT_UNIQUE

@@ -3,9 +3,6 @@
 	desc = ""
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pill"
-	item_state = "pill"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	possible_transfer_amounts = list()
 	volume = 50
 	grind_results = list()
@@ -92,13 +89,6 @@
 	desc = ""
 	list_reagents = list(/datum/reagent/consumable/sugar = 10, /datum/reagent/drug/space_drugs = 10)
 	icon_state = "pill_happy"
-
-
-/obj/item/reagent_containers/pill/lsd
-	name = "sunshine pill"
-	desc = ""
-	list_reagents = list(/datum/reagent/drug/mushroomhallucinogen = 15, /datum/reagent/toxin/mindbreaker = 15)
-	icon_state = "pill14"
 
 
 /obj/item/reagent_containers/pill/aranesp

@@ -112,7 +112,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/big_health_potion
 
 /obj/item/alch/magicdust
-	name = "magicdust"
+	name = "magic dust"
 	icon_state = "magic_runedust"
 	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
@@ -218,7 +218,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/transisdust
-	name = "Transis dust"
+	name = "transis dust"
 	desc = "A long mix of herb that product a special powder."
 	icon_state = "transisdust"
 

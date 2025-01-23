@@ -3,8 +3,8 @@
 	flag = GRABBER
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 6
+	spawn_positions = 6
 
 	allowed_races = list(
 		"Humen",

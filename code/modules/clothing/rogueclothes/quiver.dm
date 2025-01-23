@@ -60,8 +60,6 @@
 	name = "quiver"
 	icon_state = "quiver0"
 	item_state = "quiver"
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
 	max_storage = 20
 	ammo_type = list (/obj/item/ammo_casing/caseless/rogue/arrow, /obj/item/ammo_casing/caseless/rogue/bolt)

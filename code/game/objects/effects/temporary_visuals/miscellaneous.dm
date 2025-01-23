@@ -141,23 +141,6 @@
 	. = ..()
 	update_icon()
 
-/obj/effect/temp_visual/bsa_splash
-	name = "\improper Bluespace energy wave"
-	desc = ""
-	icon = 'icons/effects/beam_splash.dmi'
-	icon_state = "beam_splash_l"
-	layer = ABOVE_ALL_MOB_LAYER
-	pixel_y = -16
-	duration = 50
-
-/obj/effect/temp_visual/bsa_splash/Initialize(mapload, dir)
-	. = ..()
-	switch(dir)
-		if(WEST)
-			icon_state = "beam_splash_w"
-		if(EAST)
-			icon_state = "beam_splash_e"
-
 /obj/effect/temp_visual/wizard
 	name = "water"
 	icon = 'icons/mob/mob.dmi'
@@ -384,33 +367,6 @@
 	I.alpha = 255
 	I.appearance_flags = RESET_ALPHA
 	animate(I, alpha = 0, time = duration)
-
-/obj/effect/temp_visual/bleed
-	name = "bleed"
-	icon = 'icons/effects/bleed.dmi'
-	icon_state = "bleed0"
-	duration = 10
-	var/shrink = TRUE
-
-/obj/effect/temp_visual/bleed/Initialize(mapload, atom/size_calc_target)
-	. = ..()
-	var/size_matrix = matrix()
-	if(size_calc_target)
-		layer = size_calc_target.layer + 0.01
-		var/icon/I = icon(size_calc_target.icon, size_calc_target.icon_state, size_calc_target.dir)
-		size_matrix = matrix() * (I.Height()/world.icon_size)
-		transform = size_matrix //scale the bleed overlay's size based on the target's icon size
-	var/matrix/M = transform
-	if(shrink)
-		M = size_matrix*0.1
-	else
-		M = size_matrix*2
-	animate(src, alpha = 20, transform = M, time = duration, flags = ANIMATION_PARALLEL)
-
-/obj/effect/temp_visual/bleed/explode
-	icon_state = "bleed10"
-	duration = 12
-	shrink = FALSE
 
 /obj/effect/temp_visual/warp_cube
 	duration = 5

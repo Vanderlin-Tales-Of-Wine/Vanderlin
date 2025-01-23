@@ -396,9 +396,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	name = "Vampire Spawn"
 	antag_hud_name = "Vspawn"
 	confess_lines = list(
-		"THE CRIMSON CALLS!",
+		"THE CRIMSON MASTER CALLS!",
 		"MY MASTER COMMANDS",
-		"THE SUN IS ENEMY!",
+		"THE SUN IS THE ANATHEMA OF OUR MASTER!",
 	)
 	isspawn = TRUE
 

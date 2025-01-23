@@ -48,6 +48,8 @@
 	var/we_cut = FALSE
 	var/childless = FALSE
 
+	var/cached_use = 0
+
 /turf/open/water/proc/set_watervolume(volume, list/adjusted_turfs)
 	water_volume = volume
 	if(!length(adjusted_turfs))
@@ -178,10 +180,10 @@
 	. = ..()
 
 /turf/open/water/river/creatable/attackby(obj/item/C, mob/user, params)
-	if(!river_processes)
-		return
 	if(istype(C, /obj/item/reagent_containers/glass/bucket/wooden))
 		try_modify_water(user, C)
+		return
+	. = ..()
 
 /turf/open/water/river/creatable/proc/try_modify_water(mob/user, obj/item/reagent_containers/glass/bucket/wooden/bucket)
 	if(user.used_intent.type == /datum/intent/splash)
@@ -213,6 +215,10 @@
 	check_surrounding_water()
 
 /turf/open/water/process()
+	if(cached_use)
+		adjust_originate_watervolume(cached_use)
+		cached_use = 0
+
 	if(water_overlay && water_volume <= 0 && !istype(src, /turf/open/water/river/creatable))
 		dryup()
 

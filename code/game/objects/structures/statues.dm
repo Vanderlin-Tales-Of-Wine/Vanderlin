@@ -26,3 +26,31 @@
 			if(drop_amt > 0)
 				new material_drop_type(get_turf(src), drop_amt)
 	qdel(src)
+
+//******Decoration objects
+//***Bone statues and giant skeleton parts.
+/obj/structure/statue/bone
+	anchored = TRUE
+	max_integrity = 120
+	impressiveness = 18 // Carved from the bones of a massive creature, it's going to be a specticle to say the least
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/statue/bone/rib
+	name = "collosal rib"
+	desc = ""
+	oreAmount = 4
+	icon = 'icons/obj/statuelarge.dmi'
+	icon_state = "rib"
+
+/obj/structure/statue/bone/skull
+	name = "collosal skull"
+	desc = ""
+	oreAmount = 12
+	icon = 'icons/obj/statuelarge.dmi'
+	icon_state = "skull"
+
+/obj/structure/statue/bone/skull/half
+	desc = ""
+	oreAmount = 6
+	icon = 'icons/obj/statuelarge.dmi'
+	icon_state = "skull-half"

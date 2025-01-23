@@ -253,27 +253,6 @@
 
 	qdel(src)
 
-/mob/living/carbon/human/proc/corgize()
-	if (notransform)
-		return
-	notransform = TRUE
-	Paralyze(1, ignore_canstun = TRUE)
-	for(var/obj/item/W in src)
-		dropItemToGround(W)
-	regenerate_icons()
-	icon = null
-	invisibility = INVISIBILITY_MAXIMUM
-	for(var/t in bodyparts)	//this really should not be necessary
-		qdel(t)
-
-	var/mob/living/simple_animal/pet/dog/corgi/new_corgi = new /mob/living/simple_animal/pet/dog/corgi (loc)
-	new_corgi.a_intent = INTENT_HARM
-	new_corgi.key = key
-
-	to_chat(new_corgi, "<B>I am now a Corgi. Yap Yap!</B>")
-	. = new_corgi
-	qdel(src)
-
 /mob/living/carbon/human/Animalize()
 
 	var/list/mobtypes = typesof(/mob/living/simple_animal)
@@ -339,8 +318,6 @@
 
 //Good mobs!
 	if(ispath(MP, /mob/living/simple_animal/pet/cat))
-		return 1
-	if(ispath(MP, /mob/living/simple_animal/pet/dog/corgi))
 		return 1
 	if(ispath(MP, /mob/living/simple_animal/parrot))
 		return 1 //Parrots are no longer unfinished! -Nodrak

@@ -20,8 +20,6 @@
 
 	var/list/dent_decals
 
-/turf/closed/wall/attack_tk()
-	return
 
 /turf/closed/wall/handle_ricochet(obj/projectile/P)			//A huge pile of shitcode!
 	var/turf/p_turf = get_turf(P)

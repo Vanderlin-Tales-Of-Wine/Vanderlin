@@ -84,7 +84,6 @@
 #define BODYPART_DISABLED_CLAMPED 5 //limb is clamped by a hemostat or speculum
 
 #define DEFAULT_BODYPART_ICON_ORGANIC 'icons/mob/human_parts_greyscale.dmi'
-#define DEFAULT_BODYPART_ICON_ROBOTIC 'icons/mob/augmentation/augments.dmi'
 
 #define MONKEY_BODYPART "monkey"
 #define DEVIL_BODYPART "devil"
