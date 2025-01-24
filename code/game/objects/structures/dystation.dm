@@ -47,24 +47,13 @@
 
 /obj/machinery/dye_bin/Destroy()
 	inserted?.forceMove(drop_location())
-	return ..()
-
-/obj/machinery/dye_bin/Destroy()
-	layer = 2.8
-	icon_state = "washbin_destroy"
 	density = FALSE
-	GLOB.machines.Remove(src)
-	if(!speed_process)
-		STOP_PROCESSING(SSmachines, src)
-	else
-		STOP_PROCESSING(SSfastprocess, src)
-	return ..()
-/*
-/obj/machinery/dye_bin/obj_break(damage_flag)
+	layer = 2.8
 	icon_state = "washbin_destroy"
 	sleep (5)
 	return ..()
-*/
+
+
 /obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
 	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/H = I
