@@ -33,7 +33,6 @@
 /obj/item/roguebin/Destroy()
 	layer = 2.8
 	icon_state = "washbin_destroy"
-	sleep(5)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()

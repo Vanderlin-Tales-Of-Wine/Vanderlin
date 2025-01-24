@@ -50,6 +50,7 @@
 	return ..()
 
 /obj/machinery/dye_bin/Destroy()
+	layer = 2.8
 	icon_state = "washbin_destroy"
 	density = FALSE
 	GLOB.machines.Remove(src)
@@ -57,15 +58,13 @@
 		STOP_PROCESSING(SSmachines, src)
 	else
 		STOP_PROCESSING(SSfastprocess, src)
-	dropContents()
-	playsound(get_turf(src), 'sound/combat/hits/onwood/destroywalldoor.ogg', 40, TRUE, -1)
 	return ..()
-
+/*
 /obj/machinery/dye_bin/obj_break(damage_flag)
 	icon_state = "washbin_destroy"
 	sleep (5)
 	return ..()
-
+*/
 /obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
 	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/H = I
@@ -226,6 +225,7 @@
 	return ..()
 
 /obj/machinery/simple_dye_bin/Destroy()
+	layer = 2.8
 	icon_state = "washbin_destroy"
 	density = FALSE
 	GLOB.machines.Remove(src)
@@ -234,7 +234,6 @@
 	else
 		STOP_PROCESSING(SSfastprocess, src)
 	dropContents()
-	playsound(get_turf(src), 'sound/combat/hits/onwood/destroywalldoor.ogg', 40, TRUE, -1)
 	return ..()
 
 /obj/machinery/simple_dye_bin/attackby(obj/item/I, mob/living/user)
