@@ -46,6 +46,7 @@
 		)
 
 /obj/machinery/dye_bin/Destroy()
+	. = ..()
 	inserted?.forceMove(get_turf(src))
 	layer = 2.8
 	icon_state = "washbin_destroy"
@@ -56,6 +57,10 @@
 	else
 		STOP_PROCESSING(SSfastprocess, src)
 	dropContents()
+
+/obj/machinery/obj_break(damage_flag)
+	icon_state = "washbin_destroy"
+	sleep (5)
 	return ..()
 
 /obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
@@ -214,6 +219,7 @@
 		)
 
 /obj/machinery/simple_dye_bin/Destroy()
+	. = ..()
 	inserted?.forceMove(drop_location())
 	layer = 2.8
 	icon_state = "washbin_destroy"
@@ -224,7 +230,6 @@
 	else
 		STOP_PROCESSING(SSfastprocess, src)
 	dropContents()
-	return ..()
 
 /obj/machinery/simple_dye_bin/attackby(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/luxury_dyes))
