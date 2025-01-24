@@ -49,7 +49,6 @@
 	inserted?.forceMove(get_turf(src))
 	layer = 2.8
 	icon_state = "washbin_destroy"
-	sleep(5)
 	density = FALSE
 	GLOB.machines.Remove(src)
 	if(!speed_process)
@@ -218,7 +217,6 @@
 	inserted?.forceMove(drop_location())
 	layer = 2.8
 	icon_state = "washbin_destroy"
-	sleep(5)
 	density = FALSE
 	GLOB.machines.Remove(src)
 	if(!speed_process)
