@@ -59,12 +59,7 @@
 	else
 		STOP_PROCESSING(SSfastprocess, src)
 	return ..()
-/*
-/obj/machinery/dye_bin/obj_break(damage_flag)
-	icon_state = "washbin_destroy"
-	sleep (5)
-	return ..()
-*/
+
 /obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
 	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
 		var/obj/item/clothing/head/mob_holder/H = I
