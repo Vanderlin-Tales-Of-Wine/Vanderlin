@@ -47,9 +47,6 @@
 
 /obj/machinery/dye_bin/Destroy()
 	inserted?.forceMove(get_turf(src))
-	return ..()
-
-/obj/machinery/dye_bin/Destroy()
 	layer = 2.8
 	icon_state = "washbin_destroy"
 	sleep(5)
@@ -219,9 +216,6 @@
 
 /obj/machinery/simple_dye_bin/Destroy()
 	inserted?.forceMove(drop_location())
-	return ..()
-
-/obj/machinery/simple_dye_bin/Destroy()
 	layer = 2.8
 	icon_state = "washbin_destroy"
 	sleep(5)
