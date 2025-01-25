@@ -1657,6 +1657,7 @@
 #include "code\modules\reagents\chemistry\recipes\special.dm"
 #include "code\modules\reagents\chemistry\recipes\toxins.dm"
 #include "code\modules\reagents\reagent_containers\bottle.dm"
+#include "code\modules\reagents\reagent_containers\carafe.dm"
 #include "code\modules\reagents\reagent_containers\glass.dm"
 #include "code\modules\reagents\reagent_containers\patch.dm"
 #include "code\modules\reagents\reagent_containers\pill.dm"
