@@ -53,7 +53,7 @@
 	beltl = /obj/item/rogueweapon/hammer/steel
 	backr = /obj/item/rogueweapon/axe/iron
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
+	backpack_contents = list(/obj/item/key/artificer, /obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
 	H.change_stat("strength", 1)
 	H.change_stat("intelligence", 1)
 	H.change_stat("constitution", 1)
