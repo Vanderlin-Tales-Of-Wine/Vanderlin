@@ -95,7 +95,7 @@
 	icon_state = "bun"
 /obj/item/reagent_containers/food/snacks/rotten/egg
 	name = "rotted cackleberry"
-	icon_state = "egg"
+	icon_state = "egg2"
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
@@ -364,7 +364,7 @@
 	name = "vegetable soup"
 	description = ""
 	reagent_state = LIQUID
-	nutriment_factor = 8
+	nutriment_factor = 7
 	taste_mult = 4
 	hydration = 8
 
@@ -387,6 +387,7 @@
 /datum/reagent/consumable/soup/egg
 	color = "#dedbaf"
 	taste_description = "egg soup"
+	nutriment_factor = 12
 
 /datum/reagent/consumable/soup/cheese // A thicker soup, almost on the level of old oatmeal. But less hydration than other soups
 	name = "cheese soup"
@@ -402,7 +403,7 @@
 	name = "thick stew"
 	description = "All manners of edible bits went into this."
 	reagent_state = LIQUID
-	nutriment_factor = 16
+	nutriment_factor = 14
 	taste_mult = 4
 
 /datum/reagent/consumable/soup/stew/chicken

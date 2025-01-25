@@ -3,7 +3,7 @@
 	icon = 'modular/Neu_Food/icons/food.dmi'
 	name = "cackleberry"
 	desc = ""
-	icon_state = "egg"
+	icon_state = "egg1"
 	dropshrink = 0.8
 	list_reagents = list(/datum/reagent/consumable/eggyolk = 5)
 	cooked_type = null
@@ -16,6 +16,10 @@
 	cooktime = 20 SECONDS
 
 	var/fertile = FALSE
+
+/obj/item/reagent_containers/food/snacks/egg/New()
+	. = ..()
+	icon_state = "egg[rand(1,2)]"
 
 /obj/item/reagent_containers/food/snacks/egg/become_rotten()
 	. = ..()
