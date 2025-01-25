@@ -294,6 +294,7 @@
 					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 						continue
 					if(istype(item, /obj/item/natural/bundle))
+						var/early_continue = TRUE
 						var/bundle_path = item:stacktype
 						var/early_break = FALSE
 						for(var/path in copied_requirements)
@@ -317,9 +318,13 @@
 									copied_requirements[requirement]--
 									active_item = sub_item
 									early_break = TRUE
+									early_continue = FALSE
 									break
+
 						if(early_break)
 							break
+						if(early_continue)
+							continue
 
 					user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
 					if(do_after(user, ground_use_time, target = item))
@@ -334,6 +339,7 @@
 					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 						continue
 					if(istype(item, /obj/item/natural/bundle))
+						var/early_continue = TRUE
 						var/bundle_path = item:stacktype
 						var/early_break = FALSE
 						for(var/path in copied_requirements)
@@ -357,9 +363,13 @@
 									copied_requirements[requirement]--
 									active_item = sub_item
 									early_break = TRUE
+									early_continue = FALSE
 									break
+
 						if(early_break)
 							break
+						if(early_continue)
+							continue
 
 					to_chat(user, "You start grabbing [item] from your bag.")
 					if(do_after(user, storage_use_time, target = item))
@@ -387,7 +397,7 @@
 			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 				continue
 			if(istype(item, /obj/item/natural/bundle))
-				var/continue_early = FALSE
+				var/continue_early = TRUE
 				var/bundle_path = item:stacktype
 				for(var/path in copied_requirements)
 					if(QDELETED(item))
@@ -412,7 +422,7 @@
 								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
 								if(copied_requirements[requirement] <= 0)
 									copied_requirements -= requirement
-									continue_early = TRUE
+									continue_early = FALSE
 									break
 				if(continue_early)
 					continue

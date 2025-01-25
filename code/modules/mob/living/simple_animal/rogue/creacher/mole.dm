@@ -37,7 +37,7 @@
 					/obj/item/organ)
 
 	base_intents = list(/datum/intent/simple/claw)
-	attack_sound = list('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
+	attack_sound = list('sound/vo/mobs/mole/MoleAttack1.ogg','sound/vo/mobs/mole/MoleAttack2.ogg')
 	melee_damage_lower = 20
 	melee_damage_upper = 40
 
