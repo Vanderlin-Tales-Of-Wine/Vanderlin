@@ -4,7 +4,9 @@
         "What are you going to do for a face when the troll wants his arse back?!",
         "I pass wind at thy general vacinity!",
         "That's a face not even Eora could love!",
-        "I shall ne'er desist from thee, nor shall I ever disappoint thee much~"
+        "I shall ne'er desist from thee, nor shall I ever disappoint thee much~",
+        "Your brain is like a hardtack after a long voyage!",
+        "Look, look how terrible they are!"
 	],
     "elf_mockery": [
         "As graceful as a drunken mole, I see!",
@@ -32,7 +34,8 @@
         "You're in for a world of hurt, impudent one.",
         "Your name shall be stricken down from the annals of history.",
         "I couldn't sing your praises even if I were forged to!",
-        "What manner of blabbering creecher art thou?"
+        "What manner of blabbering creecher art thou?",
+        "Dost thou even hoist?"
 	],
     "elfd_mockery": [
         "Hah! the air above must have dulled your wits!",
@@ -43,9 +46,17 @@
         "Do you even know how to fight, or do you just flail and hope for a hit?"
 	],
     "halforc_mockery": [
-        "With your fighting skills, I'm surprised you've lived this long."
+        "With your fighting skills, I'm surprised you've lived this long.",
+        "Come closer, i will slap the shit out of you",
+        "Ah, Fuck off, You sack of shit!",
+        "You swing well, but miss terribly!",
+        "I'll bite your legs down!"
 	],
     "rakshari_mockery": [
-
+        "You're terrible! Look, look how terrible they are!",
+        "You do actually know how to use that thing?",
+        "I desire that we become better strangers!",
+        "Look, take your practice swings and call me when you're ready to fight.",
+        "You'll never be half the man your mother is!"
 	]
 }
