@@ -8,7 +8,7 @@
 	possible_transfer_amounts = list(12)
 	volume = 96 // Four full cups
 	fill_icon_thresholds = list(0, 25, 50, 75, 100)
-	dropshrink = 0.8
+	dropshrink = 0.7
 	obj_flags = CAN_BE_HIT
 	spillable = TRUE
 	var/closed = FALSE
@@ -65,9 +65,23 @@
 		return FALSE
 
 /obj/item/reagent_containers/glass/carafe/gold
-	name = "gold carafe"
+	name = "golden carafe"
 	desc = "An opulent golden container with a flared lip, most often used for serving water and wine"
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "gold_carafe"
 	dropshrink = 0.8
 	sellprice = 65
+	
+/* Spawning full */
+
+/obj/item/reagent_containers/glass/carafe/water
+	list_reagents = list(/datum/reagent/water = 96)
+
+/obj/item/reagent_containers/glass/carafe/redwine
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
+
+/obj/item/reagent_containers/glass/carafe/silver/redwine
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
+
+/obj/item/reagent_containers/glass/carafe/gold/redwine
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
