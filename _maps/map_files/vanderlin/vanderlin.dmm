@@ -1105,6 +1105,13 @@
 /obj/effect/landmark/start/carpenter,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
+"aJR" = (
+/obj/effect/decal/cleanable/glass,
+/obj/structure/rousman_hole,
+/turf/open/floor/rogue/tile{
+	icon_state = "greenstone"
+	},
+/area/rogue/under/town/sewer)
 "aJU" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/metal/barograte,
@@ -14523,6 +14530,12 @@
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
+"kmK" = (
+/obj/structure/rousman_hole,
+/turf/open/floor/rogue/tile{
+	icon_state = "greenstone"
+	},
+/area/rogue/under/town/sewer)
 "kmM" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -48421,7 +48434,7 @@ oGi
 cDP
 cDP
 lfU
-oGi
+kmK
 cDP
 cDP
 cDP
@@ -48951,7 +48964,7 @@ nYn
 xfD
 vMb
 kky
-oGi
+kmK
 oGi
 oGi
 oGi
@@ -52390,7 +52403,7 @@ vgJ
 vgJ
 vgJ
 lfU
-lmI
+aJR
 nhr
 oGi
 lfU
@@ -55252,7 +55265,7 @@ oGi
 oGi
 oGi
 oGi
-oGi
+kmK
 cDP
 cDP
 oGi
@@ -56229,7 +56242,7 @@ vgJ
 vgJ
 vgJ
 lfU
-oGi
+kmK
 lmI
 cDP
 cDP
@@ -56272,7 +56285,7 @@ lfU
 oGi
 cDP
 cDP
-oGi
+kmK
 lfU
 wtL
 nMS
@@ -62956,7 +62969,7 @@ oGi
 oGi
 oGi
 oGi
-oGi
+kmK
 oGi
 oGi
 oGi
@@ -64924,7 +64937,7 @@ vgJ
 vgJ
 lfU
 oLM
-oGi
+kmK
 pbT
 lfU
 vgJ

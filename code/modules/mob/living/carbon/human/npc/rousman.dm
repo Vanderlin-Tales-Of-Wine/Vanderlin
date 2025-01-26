@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 					/obj/item/bodypart/r_arm/rousman, /obj/item/bodypart/r_leg/rousman, /obj/item/bodypart/l_leg/rousman)
 	rot_type = /datum/component/rot/corpse/rousman
 	ambushable = FALSE
-	base_intents = list(INTENT_STEAL, INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw, /datum/intent/simple/bite, /datum/intent/jump)
+	base_intents = list(INTENT_STEAL, INTENT_HELP, INTENT_DISARM, /datum/intent/unarmed/claw, /datum/intent/simple/bite, /datum/intent/jump)
 	possible_rmb_intents = list()
 	vitae_pool = 200
 
@@ -339,7 +339,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 			//try again later
 			addtimer(CALLBACK(src, PROC_REF(pre_activate_check)), try_activating_timer)
 			return
-	if(activated == FALSE && already_ambushed == FALSE && prob(25))
+	if(activated == FALSE && already_ambushed == FALSE && prob(50))
 		//better luck next time, adds a bit of randomness
 		addtimer(CALLBACK(src, PROC_REF(pre_activate_check)), try_activating_timer)
 		return
