@@ -51,7 +51,7 @@
 	output = /obj/item/reagent_containers/food/snacks/fat/salo
 	starting_atom = /obj/item/reagent_containers/food/snacks/fat
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/fat = 1,
+		/obj/item/reagent_containers/food/snacks/fat = 2,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
 	attacking_atom = /obj/machinery/tanningrack

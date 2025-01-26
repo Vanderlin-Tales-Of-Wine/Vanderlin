@@ -13,7 +13,7 @@
 /*	.............   Raw meat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION)
 	name = "meat"
 	icon_state = "meatslab"
 	slice_batch = TRUE // so it takes more time, changed from FALSE

@@ -89,7 +89,7 @@
 	slices_num = 4
 	bitesize = 5
 	slice_batch = FALSE
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION)
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice
 	tastes = list("salted meat" = 1)
 	rotprocess = null
@@ -171,7 +171,7 @@
 /obj/item/reagent_containers/food/snacks/fat/salo
 	name = "salo"
 	icon_state = "salo4"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_FAT_NUTRITION+COOKED_FAT_NUTRITION)
 	bitesize = 4
 	slice_path = /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	slices_num = 4
@@ -201,7 +201,7 @@
 	bitesize = 2
 	slices_num = FALSE
 	slice_path = FALSE
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 
 
 
@@ -423,7 +423,7 @@
 	name = "fresh cheese"
 	icon_state = "freshcheese"
 	bitesize = 1
-	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION)
+	list_reagents = list(/datum/reagent/consumable/nutriment = CHEESE_NUTRITION)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("cheese" = 1)
 	foodtype = GRAIN
@@ -439,7 +439,7 @@
 	name = "wheel of cheese"
 	icon_state = "cheesewheel"
 	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION*4)
+	list_reagents = list(/datum/reagent/consumable/nutriment = CHEESE_NUTRITION*4)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("cheese" = 1)
 	eat_effect = null
@@ -490,7 +490,7 @@
 	name = "slice of cheese"
 	icon_state = "cheese_slice"
 	bitesize = 1
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("cheese" = 1)
 	eat_effect = null

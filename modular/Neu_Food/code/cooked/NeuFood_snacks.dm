@@ -13,7 +13,7 @@
 	name = "frysteak"
 	desc = "A slab of beastflesh, fried to a perfect medium-rare"
 	icon_state = "frysteak"
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION)
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm steak" = 1)
 
@@ -59,7 +59,7 @@
 /*	.............   Fried Cackleberry   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg
 	trash = null
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION)
 	tastes = list("fried cackleberry" = 1)
 	name = "fried cackleberry"
 	desc = "A favorite dish among Astratans."
@@ -83,7 +83,7 @@
 
 /*	.............   Twin fried cackleberries   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION+EGG_NUTRITION)
 	tastes = list("fried cackleberries" = 1)
 	name = "fried cackleberries"
 	desc = "Double the yolks, double the fun."
@@ -110,7 +110,7 @@
 	desc = "Poultry scorched to a perfect delicious crisp."
 	icon_state = "frybird"
 	fried_type = null
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -143,7 +143,7 @@
 	slices_num = 0
 	filling_color = "#8a0000"
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bacon
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+1)
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/rogue/truffles/Initialize()
@@ -182,7 +182,7 @@
 	desc = "Whatever it was, its roasted."
 	icon_state = "friedspider"
 	eat_effect = null
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION) // raw meat nutrition but without getting sick
 	rotprocess = SHELFLIFE_DECENT
 
 
@@ -198,7 +198,7 @@
 	desc = "Delicious flesh stuffed in a intestine casing."
 	icon_state = "wiener"
 	fried_type = null
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION)
 	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -248,7 +248,7 @@
 	icon_state = "cabbage_fried"
 	desc = "A peasant's delight."
 	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
@@ -271,7 +271,7 @@
 	desc = "A dwarven favorite, as a meal or a game of hot potato."
 	icon_state = "potato_baked"
 	bitesize = 4
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -303,7 +303,7 @@
 	desc = "Seared onions roasted to a delicious set of rings."
 	icon_state = "onion_fried"
 	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("savoury morsel" = 1)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
@@ -326,7 +326,7 @@
 	desc = "Potato bits, well roasted."
 	icon_state = "potato_fried"
 	bitesize = 3
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm potato" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried/attackby(obj/item/I, mob/living/user, params)

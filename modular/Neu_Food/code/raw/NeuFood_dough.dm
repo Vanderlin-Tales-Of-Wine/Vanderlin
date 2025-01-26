@@ -399,6 +399,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast
 	cooked_smell = /datum/pollutant/food/toast
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION)
 	bitesize = 2
 	rotprocess = SHELFLIFE_LONG
 	dropshrink = 0.8
@@ -441,6 +442,7 @@
 	name = "toast"
 	icon_state = "toast"
 	tastes = list("crispy bread" = 1)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	cooked_type = null
 	bitesize = 2
 	rotprocess = null
@@ -460,7 +462,7 @@
 	name = "buttered toast"
 	icon_state = "toast_butter"
 	tastes = list("butter" = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + BREADSLICE_NUTRITION)
 
 // -------------- BREAD WITH FOOD ON IT (not american sandwich) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/sandwich
@@ -472,21 +474,25 @@
 	tastes = list("salumoi" = 1,"bread" = 1)
 	name = "salumoi bread"
 	icon_state = "bread_salami"
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + SNACK_POOR + 2)
 	foodtype = GRAIN | MEAT
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/cheese
 	tastes = list("cheese" = 1,"bread" = 1)
 	name = "cheese bread"
 	icon_state = "bread_cheese"
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + 2 + 2)
 	foodtype = GRAIN | DAIRY
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/egg
 	tastes = list("cheese" = 1,"cackleberry" = 1)
 	name = "cackleberry bread"
 	icon_state = "bread_egg"
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + EGG_NUTRITION + 2)
 	foodtype = GRAIN | MEAT
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/salo
 	tastes = list("salty fat" = 1)
 	name = "salo bread"
 	icon_state = "bread_salo"
+	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + SNACK_POOR + 2)
 	foodtype = GRAIN | MEAT
 
 
@@ -691,7 +697,7 @@
 	name = "fresh cheese bun"
 	desc = "A treat from the Grenzelhoft kitchen."
 	icon_state = "cheesebun"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION+FRESHCHEESE_NUTRITION)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION+CHEESE_NUTRITION)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("crispy bread and cream cheese" = 1)
 	foodtype = GRAIN | DAIRY
