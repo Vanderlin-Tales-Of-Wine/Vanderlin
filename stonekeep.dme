@@ -1356,6 +1356,7 @@
 #include "code\modules\jobs\job_types\roguetown\serfs\artificer.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\blacksmith.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\carpenter.dm"
+#include "code\modules\jobs\job_types\roguetown\serfs\gaffer.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\innkeep.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\matron.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\physicker.dm"

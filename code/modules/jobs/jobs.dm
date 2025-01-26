@@ -45,6 +45,7 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	"Matron",
 	"Physicker",
 	"Scribe",
+	"Gaffer",
 	))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
