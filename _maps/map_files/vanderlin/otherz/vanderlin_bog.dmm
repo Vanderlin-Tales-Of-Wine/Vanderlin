@@ -81,7 +81,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bog)
 "bh" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "bj" = (
@@ -2960,7 +2960,7 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "RB" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "RE" = (
@@ -3098,7 +3098,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "TD" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/shelter/bog)
 "TE" = (
