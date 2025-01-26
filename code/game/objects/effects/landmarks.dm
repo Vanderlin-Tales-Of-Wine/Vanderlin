@@ -337,7 +337,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/gaffer
-	name = "gaffer"
+	name = "Gaffer"
 	icon_state = "arrow"
 //yrf
 
