@@ -11,7 +11,7 @@
 	reagent_flags = OPENCONTAINER
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
-	dropshrink = 0.8
+	dropshrink = 0.75
 	w_class = WEIGHT_CLASS_NORMAL
 	volume = 24
 	obj_flags = CAN_BE_HIT
@@ -50,6 +50,7 @@
 	name = "silver goblet"
 	desc = "A silver goblet, its surface adorned with intricate carvings and runes."
 	icon_state = "silver"
+	dropshrink = 0.65
 	sellprice = 30
 	last_used = 0
 	is_silver = TRUE
@@ -68,9 +69,11 @@
 	name = "golden goblet"
 	desc = "A golden gilded goblet which gleams pathetically despite it's illustrious metal."
 	icon_state = "golden"
+	dropshrink = 0.65
 	sellprice = 50
 
 /obj/item/reagent_containers/glass/cup/skull
 	name = "skull goblet"
 	desc = "The hollow eye sockets tell you of forgotten, dark rituals."
 	icon_state = "skull"
+	dropshrink = 0.8
