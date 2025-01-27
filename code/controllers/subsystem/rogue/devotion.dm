@@ -123,7 +123,7 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(A.t0, A.t1)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, A.t0, A.t1)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -136,7 +136,7 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(A.t0, A.t1)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, A.t0, A.t1)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -152,7 +152,7 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, /obj/effect/proc_holder/spell/targeted/abrogation, A.t0)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
