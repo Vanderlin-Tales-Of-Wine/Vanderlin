@@ -8,7 +8,7 @@
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes, it makes it feel more like "it could've been anyone, but you got me"
-	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen as the next Gaffer after the mysterious death of your predecessor. Gone are the days of dodging volve's teeth and swinging iron. Today your life is engrossed with two things: administrative work, and feeding the monstrous Head Eater that resides under the Guilds floors (doesn't exist yet :O). Unify the adventures and mercenaries and give them the quests they foolishly hunger for. Act as the Guild representative in the town, organize expeditions, and make sure they bring back the heads of any slain monsters or bandits. For the Head Eater hungers..."
+	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen as the next Gaffer after the mysterious death of your predecessor. Gone are the days of dodging volve's teeth and swinging iron. Today your life is engrossed with two things: administrative work, and feeding the monstrous Head Eater that resides under the Guilds floors (doesn't exist yet :O) ). Unify the adventures and mercenaries and give them the quests they foolishly hunger for. Act as the Guild representative in the town, organize expeditions, and make sure they bring back the heads of any slain monsters or bandits. For the Head Eater hungers..."
 
 	display_order = JDO_GAFFER
 	bypass_lastclass = TRUE
@@ -24,7 +24,7 @@
 
 
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1, /obj/item/merctoken = 2, /obj/item/natural/feather, /obj/item/paper = 4, (/obj/item/rogueweapon/knife/dagger/steel))
+	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1, /obj/item/merctoken = 2, /obj/item/natural/feather, /obj/item/paper = 3, /obj/item/rogueweapon/knife/dagger/steel, /obj/item/paper)
 	backl = /obj/item/rogueweapon/sword/long
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	beltl = /obj/item/storage/keyring/gaffer
