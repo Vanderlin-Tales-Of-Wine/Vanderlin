@@ -52,7 +52,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	neck = /obj/item/clothing/neck/roguetown/coif/cloth
+	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

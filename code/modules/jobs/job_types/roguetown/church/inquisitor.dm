@@ -201,7 +201,7 @@
 		resist_chance = (STAINT + STAEND) + 10
 		if(confession_type == "antag")
 			resist_chance += 25
-	if(!resist || (resist_chance && prob(resist_chance)))
+	if(!resist || (resist_chance && !prob(resist_chance)))
 		var/list/confessions = list()
 		var/antag_type = null
 		testing(" User is [user]. confess_sins")
@@ -242,8 +242,8 @@
 						held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
 						held_confession.antag = antag_type
 					if("Matthios")
-						held_confession.bad_type = "AN OUTLAW OF THE THIEF-LORD"
-						held_confession.antag = "worshiper of" + antag_type
+						held_confession.bad_type = "A FOLLOWER OF THE THIEF-LORD"
+						held_confession.antag = "worshiper of " + antag_type
 					if("Maniac")
 						held_confession.bad_type = "A MANIAC DELUDED BY MADNESS"
 						held_confession.antag = antag_type
@@ -257,8 +257,8 @@
 						held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
 						held_confession.antag = antag_type
 					if("Zizo")
-						held_confession.bad_type = "A SERVANT OF THE FORBIDDEN ONE"
-						held_confession.antag = "worshiper of" + antag_type
+						held_confession.bad_type = "A FOLLOWER OF THE FORBIDDEN ONE"
+						held_confession.antag = "worshiper of " + antag_type
 					if("Werewolf")
 						held_confession.bad_type = "A BEARER OF DENDOR'S CURSE"
 						held_confession.antag = antag_type
@@ -279,10 +279,13 @@
 						held_confession.antag = antag_type
 					if("Graggar")
 						held_confession.bad_type = "A FOLLOWER OF THE DARK SUN"
-						held_confession.antag = "worshiper of" + antag_type
+						held_confession.antag = "worshiper of " + antag_type
 					if("Godless")
 						held_confession.bad_type = "A DAMNED ANTI-THEIST"
 						held_confession.antag = "worshiper of nothing"
+					if("Baotha")
+						held_confession.bad_type = "A FOLLOWER OF THE REMORSELESS RUINER"
+						held_confession.antag = "worshiper of " + antag_type
 					if("Peasant Rebel")
 						return // Inquisitors don't care about peasant revolts targeting the King
 					else

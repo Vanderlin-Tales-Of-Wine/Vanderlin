@@ -466,8 +466,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				to_chat(user, "<span class='warning'>It has to be dried first!</span>")
 		else
 			to_chat(user, "<span class='warning'>It is already packed!</span>")
-	else if(istype(O, /obj/item/reagent_containers/powder/ozium))
-		var/obj/item/reagent_containers/powder/ozium/G = O
+	else if(istype(O, /obj/item/reagent_containers/powder))
+		var/obj/item/reagent_containers/powder/G = O
 		if(!packeditem)
 			to_chat(user, "<span class='notice'>I stuff [O] into [src].</span>")
 			smoketime = initial(smoketime)

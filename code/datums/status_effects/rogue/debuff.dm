@@ -48,7 +48,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/hungry)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt1)
 
 /datum/status_effect/debuff/hungryt2/refresh()
 	. = ..()
@@ -78,8 +77,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/starving)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt1)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt2)
 
 /datum/status_effect/debuff/hungryt3/refresh()
 	. = ..()
@@ -163,7 +160,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/thirst)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
 
 /datum/status_effect/debuff/thirstyt2/refresh()
 	. = ..()
@@ -193,8 +189,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/parched)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
 
 /datum/status_effect/debuff/thirstyt3/refresh()
 	. = ..()

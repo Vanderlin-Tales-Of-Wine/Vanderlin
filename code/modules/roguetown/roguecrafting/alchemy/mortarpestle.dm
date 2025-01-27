@@ -12,6 +12,7 @@
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "mortar"
 	dropshrink = 0.9
+	color = COLOR_LIME
 	var/obj/item/to_grind
 
 /obj/item/mortar/attack_right(mob/user)
@@ -27,7 +28,7 @@
 /obj/item/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
 	if(istype(I,/obj/item/pestle))
 		if(!to_grind)
-			if(user.try_repeatable_craft(src, I, user))
+			if(user.try_recipes(src, I, user))
 				user.changeNext_move(CLICK_CD_FAST)
 				return TRUE
 			to_chat(user, "<span class='warning'>There's nothing to grind.</span>")
@@ -42,11 +43,21 @@
 			for(var/output in foundrecipe.valid_outputs)
 				for(var/i in 1 to foundrecipe.valid_outputs[output])
 					new output(get_turf(src))
+			var/bonus_modifier = 1
+			switch(user.mind?.get_learning_boon(/datum/skill/craft/alchemy))
+				if(SKILL_LEVEL_JOURNEYMAN)
+					bonus_modifier = 1.4
+				if(SKILL_LEVEL_EXPERT)
+					bonus_modifier = 1.6
+				if(SKILL_LEVEL_MASTER)
+					bonus_modifier = 1.8
+				if(SKILL_LEVEL_LEGENDARY)
+					bonus_modifier = 2
 			if(foundrecipe.bonus_chance_outputs.len > 0)
 				for(var/i in 1 to foundrecipe.bonus_chance_outputs.len)
-					if(foundrecipe.bonus_chance_outputs[foundrecipe.bonus_chance_outputs[i]] >= roll(1,100))
+					if((foundrecipe.bonus_chance_outputs[foundrecipe.bonus_chance_outputs[i]] * bonus_modifier) >= roll(1,100))
 						var/obj/item/bonusduck = foundrecipe.bonus_chance_outputs[i]
-						new bonusduck(get_turf(user))
+						new bonusduck(get_turf(src))
 			if(istype(to_grind,/obj/item/rogueore) || istype(to_grind,/obj/item/ingot))
 				user.flash_fullscreen("whiteflash")
 				var/datum/effect_system/spark_spread/S = new()
@@ -67,7 +78,8 @@
 		to_chat(user, "<span class='info'>I add [I] to [src].</span>")
 		to_grind = I
 		return
-	..()
+	. = ..()
+
 ///Looks through all the alch grind recipes to find what it should create, returns the correct one.
 /obj/item/mortar/proc/find_recipe()
 	for(var/datum/alch_grind_recipe/grindRec in GLOB.alch_grind_recipes)

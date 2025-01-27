@@ -361,9 +361,11 @@
 			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
 				var/obj/item/reagent_containers/food/snacks/S = W
 				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
-					playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, 0)
-					sleep(25) // to get egg crack before frying hiss
-					W.icon_state = "rawegg" // added
+					if(W.icon_state != "rawegg")
+						playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
+						if(!do_after(user, 25))
+							return
+						W.icon_state = "rawegg" // added
 					rawegg = TRUE
 				if(!food)
 					S.forceMove(src)

@@ -119,6 +119,9 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/profane/Move(n, direct)
 	return
 
+/mob/dead/observer/profane/canZMove(direction, turf/target)
+	return
+
 /mob/dead/observer/Initialize()
 	set_invisibility(GLOB.observer_default_invisibility)
 

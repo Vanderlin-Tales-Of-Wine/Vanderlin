@@ -12,24 +12,20 @@
 	slot_flags = ITEM_SLOT_HIP
 	force = 5
 	hitsound = 'sound/items/bsmith1.ogg'
-	var/cooldown = 3 SECONDS
-	var/ringing = FALSE
+	COOLDOWN_DECLARE(bell_ring)
 
 /obj/item/handheld_bell/attack_self(mob/user)
 	. = ..()
-	if(ringing)
+	if(!COOLDOWN_FINISHED(src, bell_ring))
 		return
 	playsound(src.loc, 'sound/misc/handbell.ogg', 50, 1)
 
-
+	user.visible_message("<span class='notice'>[user] rings [src].</span>", span_notice("You ring [src]."))
 	for(var/mob/M in view(10, src.loc))
-		if(M.client)
-			to_chat(M, "<span class='notice'>You hear a bell ringing.</span>")
+		if(M != user && M.client)
+			to_chat(M, "<span class='notice'>You hear a small bell ringing.</span>")
 
-	user.visible_message("<span class='notice'>[user] rings [src].</span>")
-	ringing = TRUE
-	sleep(cooldown)
-	ringing = FALSE
+	COOLDOWN_START(src, bell_ring, 4 SECONDS)
 
 /obj/item/handheld_bell/proc/sound_bell(mob/living/user)
 	user.visible_message("<span class='warning'>[user] rings the bell!</span>")

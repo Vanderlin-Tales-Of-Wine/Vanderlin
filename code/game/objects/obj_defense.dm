@@ -31,7 +31,7 @@
 /obj/proc/run_obj_armor(damage_amount, damage_type, damage_flag = 0, attack_dir, armor_penetration = 0)
 	if(damage_flag == "blunt" && damage_amount < damage_deflection)
 		testing("damtest55")
-		return 1
+		return 0
 	if(damage_type != BRUTE && damage_type != BURN)
 		testing("damtest66")
 		return 0

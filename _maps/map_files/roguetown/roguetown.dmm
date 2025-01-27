@@ -9245,7 +9245,7 @@
 /obj/item/reagent_containers/food/snacks/produce/onion,
 /obj/item/reagent_containers/food/snacks/produce/cabbage,
 /obj/item/reagent_containers/food/snacks/rogue/cheddar,
-/obj/item/reagent_containers/honeycomb,
+/obj/item/reagent_containers/food/snacks/rogue/honey,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/rogue/truffles,
@@ -17922,7 +17922,7 @@
 /area/rogue/indoors/town/bath)
 "tOd" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/broom,
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/wood/nosmooth,
