@@ -15,7 +15,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/carpenter
 
-	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Carpenter Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/carpenter/pre_equip(mob/living/carbon/human/H)
@@ -46,7 +46,7 @@
 	beltl = /obj/item/rogueweapon/hammer/steel
 	backr = /obj/item/rogueweapon/axe/iron
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1, /obj/item/key/artificer = 1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1) // Tree chopping builds endurance
 	H.change_stat("intelligence", 1)

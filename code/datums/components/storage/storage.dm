@@ -57,8 +57,6 @@
 	var/attack_hand_interact = TRUE					//interact on attack hand.
 	var/quickdraw = FALSE							//altclick interact
 
-	var/datum/action/item_action/storage_gather_mode/modeswitch_action
-
 	//Screen variables: Do not mess with these vars unless you know what you're doing. They're not defines so storage that isn't in the same location can be supported in the future.
 	var/screen_max_columns = INFINITY							//These two determine maximum screen sizes.
 	var/screen_max_rows = 9
@@ -120,8 +118,6 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(mousedrop_onto))
 	RegisterSignal(parent, COMSIG_MOUSEDROPPED_ONTO, PROC_REF(mousedrop_receive))
 
-	update_actions()
-
 /datum/component/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -129,8 +125,6 @@
 	LAZYCLEARLIST(is_using)
 	return ..()
 
-/datum/component/storage/PreTransfer()
-	update_actions()
 
 /datum/component/storage/proc/set_holdable(can_hold_list, cant_hold_list)
 	can_hold_description = generate_hold_desc(can_hold_list)
@@ -149,22 +143,6 @@
 		desc += "\a [initial(valid_item.name)]"
 
 	return "\n\t<span class='notice'>[desc.Join("\n\t")]</span>"
-
-/datum/component/storage/proc/update_actions()
-	QDEL_NULL(modeswitch_action)
-	return
-/*
-	if(!isitem(parent) || !allow_quick_gather)
-		return
-	var/obj/item/I = parent
-	modeswitch_action = new(I)
-	RegisterSignal(modeswitch_action, COMSIG_ACTION_TRIGGER, PROC_REF(action_trigger))
-	if(I.obj_flags & IN_INVENTORY)
-		var/mob/M = I.loc
-		if(!istype(M))
-			return
-		modeswitch_action.Grant(M)
-*/
 
 /datum/component/storage/proc/change_master(datum/component/storage/concrete/new_master)
 	if(new_master == src || (!isnull(new_master) && !istype(new_master)))
@@ -931,7 +909,6 @@
 
 /datum/component/storage/proc/signal_on_pickup(datum/source, mob/user)
 	var/atom/A = parent
-	update_actions()
 	for(var/mob/M in range(1, A))
 		if(M.active_storage == src)
 			close(M)

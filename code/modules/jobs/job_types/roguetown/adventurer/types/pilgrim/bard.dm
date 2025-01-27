@@ -18,7 +18,7 @@
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/bard
-	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"
 
 /datum/outfit/job/roguetown/adventurer/bard/pre_equip(mob/living/carbon/human/H)

@@ -336,53 +336,6 @@
 			spell.recharging = FALSE
 			spell.update_icon()
 
-/obj/projectile/magic/wipe
-	name = "bolt of possession"
-	icon_state = "wipe"
-
-/obj/projectile/magic/wipe/on_hit(target)
-	. = ..()
-	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		if(M.anti_magic_check())
-			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
-			return BULLET_ACT_BLOCK
-		for(var/x in M.get_traumas())//checks to see if the victim is already going through possession
-			if(istype(x, /datum/brain_trauma/special/imaginary_friend/trapped_owner))
-				M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
-				return BULLET_ACT_BLOCK
-		to_chat(M, "<span class='warning'>My mind has been opened to possession!</span>")
-		possession_test(M)
-		return BULLET_ACT_HIT
-
-/obj/projectile/magic/wipe/proc/possession_test(mob/living/carbon/M)
-	var/datum/brain_trauma/special/imaginary_friend/trapped_owner/trauma = M.gain_trauma(/datum/brain_trauma/special/imaginary_friend/trapped_owner)
-	var/poll_message = "Do you want to play as [M.real_name]?"
-	if(M.mind && M.mind.assigned_role)
-		poll_message = "[poll_message] Job:[M.mind.assigned_role]."
-	if(M.mind && M.mind.special_role)
-		poll_message = "[poll_message] Status:[M.mind.special_role]."
-	else if(M.mind)
-		var/datum/antagonist/A = M.mind.has_antag_datum(/datum/antagonist/)
-		if(A)
-			poll_message = "[poll_message] Status:[A.name]."
-	var/list/mob/dead/observer/candidates = pollCandidatesForMob(poll_message, ROLE_ASPIRANT, null, FALSE, 100, M)
-	if(M.stat == DEAD)//boo.
-		return
-	if(LAZYLEN(candidates))
-		var/mob/dead/observer/C = pick(candidates)
-		to_chat(M, span_boldnotice("I have been noticed by a ghost and it has possessed me!"))
-		var/oldkey = M.key
-		M.ghostize(0)
-		M.key = C.key
-		trauma.friend.key = oldkey
-		trauma.friend.reset_perspective(null)
-		trauma.friend.Show()
-		trauma.friend_initialized = TRUE
-	else
-		to_chat(M, "<span class='notice'>My mind has managed to go unnoticed in the spirit world.</span>")
-		qdel(trauma)
-
 /obj/projectile/magic/aoe
 	name = "Area Bolt"
 	desc = ""

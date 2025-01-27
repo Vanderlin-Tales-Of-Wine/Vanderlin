@@ -662,6 +662,7 @@
 	output = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	requirements = list(/obj/item/natural/cloth = 6,
 				/obj/item/natural/fibers = 4)
+	starting_atom = /obj/item/natural/cloth
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/armordress

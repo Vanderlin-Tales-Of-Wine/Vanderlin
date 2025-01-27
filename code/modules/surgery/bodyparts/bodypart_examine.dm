@@ -69,12 +69,6 @@
 
 		var/brute = brute_dam
 		var/burn = burn_dam
-		if(user?.hallucinating())
-			if(prob(30))
-				brute += rand(20,40)
-			if(prob(30))
-				burn += rand(20,40)
-
 		if(brute >= DAMAGE_PRECISION)
 			switch(brute/max_damage)
 				if(0.75 to INFINITY)
@@ -134,11 +128,6 @@
 
 	var/brute = brute_dam
 	var/burn = burn_dam
-	if(user?.hallucinating())
-		if(prob(30))
-			brute += rand(20,40)
-		if(prob(30))
-			burn += rand(20,40)
 
 	if(advanced)
 		if(brute)

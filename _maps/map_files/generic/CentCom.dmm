@@ -4642,8 +4642,6 @@
 /turf/closed/wall/mineral/rogue/underbrick/fake_world,
 /area/rogue)
 "YJ" = (
-/obj/item/reagent_containers/food/condiment/milk,
-/obj/item/reagent_containers/food/condiment/milk,
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/rogue/tile,
 /area/rogue)

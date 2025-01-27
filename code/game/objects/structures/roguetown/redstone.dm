@@ -2,12 +2,15 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 
 /obj/structure
+	var/redstone_structure = FALSE
 	var/redstone_id
 	var/list/redstone_attached = list()
 
-/obj/structure/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/structure/MouseDrop(obj/structure/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!isstructure(over))
+		return
+	if(!over.redstone_structure || !redstone_structure)
 		return
 
 	usr.visible_message("[usr] starts tinkering with [over], rewiring it.", "You start tinkering with [over], rewiring it.")
@@ -58,6 +61,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	density = FALSE
 	anchored = TRUE
 	max_integrity = 3000
+	redstone_structure = TRUE
 	var/toggled = FALSE
 
 /obj/structure/lever/attack_hand(mob/user)
@@ -121,6 +125,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	max_integrity = 5
 	density = TRUE
 	anchored = TRUE
+	redstone_structure = TRUE
 	var/mode = 1 // 1 means repeat 5 times, 2 means random, 0 means indefinite but has chance to explode, 3 means indefinite no chance to explode
 	var/obj/structure/linked_thing // because redstone code is weird
 
@@ -218,6 +223,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	max_integrity = 45 // so it gets destroyed when used to explode a bomb
 	density = FALSE
 	anchored = TRUE
+	redstone_structure = TRUE
 
 /obj/structure/pressure_plate/Crossed(atom/movable/AM)
 	. = ..()
@@ -256,6 +262,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	w_class = WEIGHT_CLASS_HUGE // mechanical stuff is usually pretty heavy.
 	density = TRUE
 	anchored = TRUE
+	redstone_structure = TRUE
 	var/obj/item/containment
 	var/obj/item/ammo_holder/ammo // used if the contained item is a bow or crossbow
 
@@ -365,6 +372,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	anchored = TRUE
 	layer = ABOVE_OPEN_TURF_LAYER
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+	redstone_structure = TRUE
 	var/togg = FALSE
 	var/base_state = "floorhatch"
 	max_integrity = 0
@@ -405,6 +413,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	max_integrity = 0
 	nomouseover = TRUE
 	mouse_opacity = 0
+	redstone_structure = TRUE
 
 /obj/structure/floordoor/gatehatch/Initialize()
 	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
@@ -454,6 +463,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/changing_state = FALSE
 	layer = ABOVE_OPEN_TURF_LAYER
 	max_integrity = 0
+	redstone_structure = TRUE
 
 /obj/structure/kybraxor/redstone_triggered(mob/user)
 	if(changing_state)

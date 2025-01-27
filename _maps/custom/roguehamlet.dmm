@@ -3682,7 +3682,7 @@
 	dir = 8
 	},
 /obj/item/book/rogue/law,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/clothing/mask/cigarette/rollie/cannabis,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/cell)
 "ebE" = (
@@ -4915,7 +4915,7 @@
 /obj/item/paper/scroll,
 /obj/item/rogueweapon/knife/dagger/steel,
 /obj/item/reagent_containers/glass/bottle/rogue/poison,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/clothing/mask/cigarette/rollie/cannabis,
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath/redhouse)
@@ -6771,7 +6771,7 @@
 /area/rogue/indoors)
 "hio" = (
 /obj/structure/rack/rogue,
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
+/obj/item/clothing/mask/cigarette/rollie/cannabis,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
 "hjk" = (

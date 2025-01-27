@@ -11,28 +11,6 @@
 	. = ..()
 	QDEL_IN(src, 10)
 
-/obj/effect/overlay/palmtree_r
-	name = "palm tree"
-	icon = 'icons/misc/beach2.dmi'
-	icon_state = "palm1"
-	density = TRUE
-	layer = WALL_OBJ_LAYER
-	anchored = TRUE
-
-/obj/effect/overlay/palmtree_l
-	name = "palm tree"
-	icon = 'icons/misc/beach2.dmi'
-	icon_state = "palm2"
-	density = TRUE
-	layer = WALL_OBJ_LAYER
-	anchored = TRUE
-
-/obj/effect/overlay/coconut
-	gender = PLURAL
-	name = "coconuts"
-	icon = 'icons/misc/beach.dmi'
-	icon_state = "coconuts"
-
 /obj/effect/overlay/sparkles
 	gender = PLURAL
 	name = "sparkles"

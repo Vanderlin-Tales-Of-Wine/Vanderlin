@@ -5,8 +5,6 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL

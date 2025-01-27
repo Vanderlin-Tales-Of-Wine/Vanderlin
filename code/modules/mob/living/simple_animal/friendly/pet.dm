@@ -1,5 +1,5 @@
 /mob/living/simple_animal/pet
-	icon = 'icons/mob/pets.dmi'
+	icon = 'icons/roguetown/mob/monster/pets.dmi'
 	mob_size = MOB_SIZE_SMALL
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	blood_volume = BLOOD_VOLUME_NORMAL
@@ -14,7 +14,6 @@
 	response_harm_simple = "kick"
 
 /mob/living/simple_animal/pet/giraffe
-	icon = 'icons/roguetown/mob/monster/pets.dmi'
 	icon_state = "gg"
 	icon_living = "gg"
 	icon_dead = "gg_dead"

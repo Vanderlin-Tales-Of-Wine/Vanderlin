@@ -18,7 +18,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/physicker
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	maximum_possible_slots = 4
+	maximum_possible_slots = 2
 	apprentice_name = "Physicker Apprentice"
 
 /datum/outfit/job/roguetown/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
@@ -33,6 +33,7 @@
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/phys
 	neck = /obj/item/clothing/neck/roguetown/phys
 	r_hand = /obj/item/storage/backpack/rogue/satchel/surgbag
+	beltl = /obj/item/key/clinic
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)

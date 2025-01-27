@@ -860,10 +860,14 @@
 		return
 	if(length(apprentices) >= max_apprentices)
 		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
+		return
 
 	var/choice = input(youngling, "Do you wish to become [current.name]'s apprentice?") as anything in list("Yes", "No")
 	if(choice != "Yes")
 		to_chat(current, span_warning("[youngling] has rejected your apprenticeship!"))
+		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
 		return
 	apprentices |= WEAKREF(youngling)
 	youngling.mind.apprentice = TRUE

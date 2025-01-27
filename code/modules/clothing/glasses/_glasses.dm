@@ -48,7 +48,6 @@
 	flash_protect = FLASH_PROTECTION_WELDER
 	tint = 3
 	darkness_view = 1
-	dog_fashion = /datum/dog_fashion/head
 
 /obj/item/clothing/glasses/blindfold/equipped(mob/living/carbon/human/user, slot)
 	. = ..()

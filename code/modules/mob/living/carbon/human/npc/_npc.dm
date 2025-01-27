@@ -133,6 +133,8 @@
 	if(!turf_of_target)
 		back_to_idle()
 		return 0
+	if(!(mobility_flags & MOBILITY_MOVE))
+		return 0
 	var/target_z = turf_of_target.z
 	if(turf_of_target?.z == z)
 		if(myPath.len <= 0)
@@ -278,6 +280,8 @@
 						continue
 					if(blacklistItems[I])
 						continue
+					if(HAS_TRAIT(I, TRAIT_NODROP))
+						continue
 					if(I.force > 7)
 						equip_item(I)
 
@@ -286,7 +290,7 @@
 				back_to_idle()
 				return TRUE
 
-			if(Adjacent(target) && isturf(target.loc))	// if right next to perp
+			if(Adjacent(target) && isturf(target.loc) && !IsDeadOrIncap())	// if right next to perp
 				frustration = 0
 				face_atom(target)
 				monkey_attack(target)

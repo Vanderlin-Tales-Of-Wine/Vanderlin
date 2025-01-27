@@ -151,25 +151,21 @@
 		return*/
 
 /obj/item/reagent_containers/food/condiment/peppermill
-	name = "use the other version"
-
-/obj/item/reagent_containers/food/condiment/milk
-	name = "space milk"
+	name = "pepper mill"
 	desc = ""
-	icon_state = "milk"
-	item_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
-	list_reagents = list(/datum/reagent/consumable/milk = 50)
+	icon_state = "peppermillsmall"
+	icon_empty = "emptyshaker"
+	possible_transfer_amounts = list(1,20) //for clown turning the lid off
+	amount_per_transfer_from_this = 1
+	volume = 20
+	list_reagents = list(/datum/reagent/consumable/blackpepper = 20)
 
-/obj/item/reagent_containers/food/condiment/soymilk
-	name = "soy milk"
+/obj/item/reagent_containers/food/condiment/flour
+	name = "flour sack"
 	desc = ""
-	icon_state = "soymilk"
-	item_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
-	list_reagents = list(/datum/reagent/consumable/soymilk = 50)
+	icon_state = "flour"
+	item_state = "flour"
+	list_reagents = list(/datum/reagent/consumable/flour = 30)
 
 /obj/item/reagent_containers/food/condiment/rice
 	name = "rice sack"

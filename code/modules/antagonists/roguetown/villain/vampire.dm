@@ -409,7 +409,7 @@
 	var/cooldown_time = 6000 // Ten minutes cooldown, it's a goddamn AHEAL
 
 	var/silver_curse_status = FALSE
-	for(var/datum/status_effect/debuff/silver_curse in status_effects)
+	for(var/datum/status_effect/debuff/silver_curse/SC in status_effects)
 		silver_curse_status = TRUE
 		break
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)

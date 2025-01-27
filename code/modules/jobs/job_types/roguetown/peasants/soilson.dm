@@ -3,8 +3,8 @@
 	flag = FARMER
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 11
+	spawn_positions = 11
 	display_order = JDO_SOILSON
 	bypass_lastclass = TRUE
 	allowed_sexes = list(MALE, FEMALE)
@@ -47,7 +47,22 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-
+		if(prob(5))
+			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, pick(0,1,1), TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
+			H.change_stat("strength", 1)
+			H.change_stat("endurance", 1)
 		H.change_stat("strength", 1)
 		H.change_stat("constitution", 1)
 		H.change_stat("endurance", 1)

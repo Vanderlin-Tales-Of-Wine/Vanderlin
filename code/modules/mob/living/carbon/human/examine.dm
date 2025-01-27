@@ -515,12 +515,6 @@
 		if(skipface && user.has_flaw(/datum/charflaw/hunted))
 			user.add_stress(/datum/stressevent/hunted)
 
-	// The Assassin's profane dagger can sniff out their targets, even masked.
-	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
-		for(var/obj/item/I in get_all_gear())
-			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
-				user.visible_message("profane dagger whispers, <span class='danger'>\"That's [real_name]! Strike their heart!\"</span>")
-
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	for(var/line in lines)
 		. += span_info(line)
@@ -528,6 +522,13 @@
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))
 		. += trait_exam
+
+	// The Assassin's profane dagger can sniff out their targets, even masked.
+	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
+		for(var/obj/item/I in get_all_gear())
+			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
+				. += "profane dagger whispers, <span class='danger'>\"That's [real_name]! Strike their heart!\"</span>"
+				break
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()

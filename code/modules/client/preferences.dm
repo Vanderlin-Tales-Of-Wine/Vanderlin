@@ -1846,18 +1846,6 @@ Slots: [job.spawn_positions]</span>
 					if(new_legs)
 						features["legs"] = new_legs
 
-				if("moth_wings")
-					var/new_moth_wings
-					new_moth_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.moth_wings_list
-					if(new_moth_wings)
-						features["moth_wings"] = new_moth_wings
-
-				if("moth_markings")
-					var/new_moth_markings
-					new_moth_markings = input(user, "Choose your character's markings:", "Character Preference") as null|anything in GLOB.moth_markings_list
-					if(new_moth_markings)
-						features["moth_markings"] = new_moth_markings
-
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
 					var/new_s_tone = input(user, "Choose your character's skin tone:", "Sun")  as null|anything in listy
