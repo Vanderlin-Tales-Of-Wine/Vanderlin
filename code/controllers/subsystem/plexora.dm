@@ -653,7 +653,7 @@ SUBSYSTEM_DEF(plexora)
 	// Nullcheck because we run a winset in window flash and I do not trust byond
 	if(!QDELETED(recipient))
 		//always play non-admin recipients the adminhelp sound
-		SEND_SOUND(recipient, 'sound/misc/yeoldebwoink.ogg')
+		SEND_SOUND(recipient, 'sound/misc/adminhelp.ogg')
 
 		recipient.externalreplyamount = EXTERNALREPLYCOUNT
 
