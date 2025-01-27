@@ -176,8 +176,8 @@
 				t_out += ascii2text(ascii_char)
 				last_char_group = 2
 
-			// ~   |   @  :  #  $  %  &  *  +
-			if(126,124,64,58,35,36,37,38,42,43)			//Other symbols that we'll allow (mainly for AI)
+			// ~   |   @  :  #  $  %  &  *  + ,
+			if(126,124,64,58,35,36,37,38,42,43,44)			//Other symbols that we'll allow (mainly for AI)
 				if(!last_char_group)
 					continue	//suppress at start of string
 				if(!allow_numbers)
