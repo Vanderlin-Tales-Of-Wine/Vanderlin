@@ -1,97 +1,97 @@
 /obj/structure/flora/roguegrass/tangler
-    name = "twisting shrub"
-    desc = "Green, spiky and....I think I saw it move!"
-    icon = 'icons/roguetown/mob/monster/tangler.dmi'
-    icon_state = "tangler_hidden"
-    max_integrity = 5
-    var/faction = list("plants")
+	name = "twisting shrub"
+	desc = "Green, spiky and....I think I saw it move!"
+	icon = 'icons/roguetown/mob/monster/tangler.dmi'
+	icon_state = "tangler_hidden"
+	max_integrity = 5
+	var/faction = list("plants")
 
 /obj/structure/flora/roguegrass/tangler/update_icon()
-    return
+	return
 
 /obj/structure/flora/roguegrass/tangler/real
-    var/aggroed = 1
-    max_integrity = 40
-    integrity_failure = 0.15
-    attacked_sound = 'sound/misc/woodhit.ogg'
-    var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/rogue/meat,/obj/item/compost,
+	var/aggroed = 1
+	max_integrity = 40
+	integrity_failure = 0.15
+	attacked_sound = 'sound/misc/woodhit.ogg'
+	var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/rogue/meat,/obj/item/compost,
 /obj/item/natural/poo)
-    var/last_eat
-    buckle_lying = 0
-    buckle_prevents_pull = 1
+	var/last_eat
+	buckle_lying = 0
+	buckle_prevents_pull = 1
 
 /obj/structure/flora/roguegrass/tangler/real/Initialize()
-    . = ..()
-    proximity_monitor = new(src, 1)
+	. = ..()
+	proximity_monitor = new(src, 1)
 
 /obj/structure/flora/roguegrass/tangler/real/Destroy()
-    QDEL_NULL(proximity_monitor)
-    unbuckle_all_mobs()
-    STOP_PROCESSING(SSobj, src)
-    . = ..()
+	QDEL_NULL(proximity_monitor)
+	unbuckle_all_mobs()
+	STOP_PROCESSING(SSobj, src)
+	. = ..()
 
 /obj/structure/flora/roguegrass/tangler/real/obj_break(damage_flag)
-    ..()
-    QDEL_NULL(proximity_monitor)
-    unbuckle_all_mobs()
-    STOP_PROCESSING(SSobj, src)
-    update_icon()
+	..()
+	QDEL_NULL(proximity_monitor)
+	unbuckle_all_mobs()
+	STOP_PROCESSING(SSobj, src)
+	update_icon()
 
 /obj/structure/flora/roguegrass/tangler/real/process()
-    if(!has_buckled_mobs())
-        if(world.time > last_eat + 5)
-            var/list/around = view(1, src)
-            for(var/mob/living/M in around)
-                HasProximity(M)
-                return
-            for(var/obj/item/F in around)
-                if(is_type_in_list(F, eatablez))
-                    aggroed = world.time
-                    last_eat = world.time
-                    playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-                    qdel(F)
-                    return
-        if(world.time > aggroed + 10 SECONDS)
-            aggroed = 0
-            update_icon()
-            STOP_PROCESSING(SSobj, src)
-            return TRUE
+	if(!has_buckled_mobs())
+		if(world.time > last_eat + 5)
+			var/list/around = view(1, src)
+			for(var/mob/living/M in around)
+				HasProximity(M)
+				return
+			for(var/obj/item/F in around)
+				if(is_type_in_list(F, eatablez))
+					aggroed = world.time
+					last_eat = world.time
+					playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
+					qdel(F)
+					return
+		if(world.time > aggroed + 10 SECONDS)
+			aggroed = 0
+			update_icon()
+			STOP_PROCESSING(SSobj, src)
+			return TRUE
 
 /obj/structure/flora/roguegrass/tangler/real/update_icon()
-    if(obj_broken)
-        name = "dry vine"
-        desc = ""
-        icon_state = "tangler-dead"
-        return
-    if(aggroed)
-        name = "twisting vine"
-        var/list/icon_states = list("tangler_1", "tangler_2", "tangler_3")
-        icon_state = pick(icon_states)
-    else
-        name = "twisting shrub"
-        icon_state = "tangler-hidden"
+	if(obj_broken)
+		name = "dry vine"
+		desc = ""
+		icon_state = "tangler-dead"
+		return
+	if(aggroed)
+		name = "twisting vine"
+		var/list/icon_states = list("tangler_1", "tangler_2", "tangler_3")
+		icon_state = pick(icon_states)
+	else
+		name = "twisting shrub"
+		icon_state = "tangler-hidden"
 
 /obj/structure/flora/roguegrass/tangler/real/user_unbuckle_mob(mob/living/M, mob/user)
-    if(obj_broken)
-        ..()
-        return
-    if(isliving(user))
-        var/mob/living/L = user
-        var/time2mount = CLAMP((L.STASTR * 2), 1, 99)
-        user.changeNext_move(CLICK_CD_RAPID)
-        if(user != M)
-            if(prob(time2mount))
-                ..()
-            else
-                user.visible_message("<span class='warning'>[user] tries to pull [M] free of [src]!</span>")
-            return
-        if(prob(time2mount))
-            ..()
-        else
-            user.visible_message("<span class='warning'>[user] tries to break free of [src]!</span>")
+	if(obj_broken)
+		..()
+		return
+	if(isliving(user))
+		var/mob/living/L = user
+		var/time2mount = CLAMP((L.STASTR * 2), 1, 99)
+		user.changeNext_move(CLICK_CD_RAPID)
+		if(user != M)
+			if(prob(time2mount))
+				..()
+			else
+				user.visible_message("<span class='warning'>[user] tries to pull [M] free of [src]!</span>")
+			return
+		if(prob(time2mount))
+			..()
+		else
+			user.visible_message("<span class='warning'>[user] tries to break free of [src]!</span>")
 
 /obj/structure/flora/roguegrass/tangler/real/user_buckle_mob(mob/living/M, mob/living/user)
-    return
+	return
 
 /obj/structure/flora/roguegrass/tangler/real/HasProximity(atom/movable/AM)
 	if(has_buckled_mobs())
