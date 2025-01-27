@@ -175,7 +175,7 @@
 				to_chat(recipient, "<span class='danger'>[replymsg]</span>")
 				to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>")
 
-			SEND_SOUND(recipient, sound('sound/misc/adminhelp.ogg'))
+			SEND_SOUND(recipient, sound('sound/misc/yeoldebwoink.ogg'))
 
 		else
 			if(holder)	//sender is an admin but recipient is not. Do BIG RED TEXT
@@ -190,7 +190,7 @@
 				admin_ticket_log(recipient, "<font color='purple'>PM From [key_name_admin(src)]: [keywordparsedmsg]</font>")
 				SSplexora.aticket_pm(recipient.current_ticket, msg, src)
 				//always play non-admin recipients the adminhelp sound
-				SEND_SOUND(recipient, sound('sound/blank.ogg'))
+				SEND_SOUND(recipient, sound('sound/misc/yeoldebwoink.ogg'))
 
 				//AdminPM popup for ApocStation and anybody else who wants to use it. Set it with POPUP_ADMIN_PM in config.txt ~Carn
 				if(CONFIG_GET(flag/popup_admin_pm))
