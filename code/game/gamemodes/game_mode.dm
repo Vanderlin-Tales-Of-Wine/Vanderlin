@@ -501,7 +501,7 @@
 						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='boldannounce'>Ghosted</span>)\n"
 						continue //Ghosted while alive
 
-	log_admin(msg.Join())
+	log_admin(msg.Join()) //vanderlin edit: adds roundstart logouts to the admin log in game.log (currently)
 	for (var/C in GLOB.admins)
 		to_chat(C, msg.Join())
 
