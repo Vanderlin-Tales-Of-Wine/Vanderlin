@@ -410,7 +410,7 @@
 						if(item:amount == 0)
 							usable_contents -= item
 							qdel(item)
-						user.visible_message("[user] starts picking up [sub_item]", "You start picking up [sub_item]")
+						user.visible_message("[user] starts picking up [sub_item].", "You start picking up [sub_item].")
 						if(do_after(user, ground_use_time, target = item))
 							if(put_items_in_hand)
 								user.put_in_active_hand(item)
@@ -428,7 +428,7 @@
 					continue
 
 
-			user.visible_message("[user] starts picking up [item]", "You start picking up [item]")
+			user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
 			if(do_after(user, ground_use_time, target = item))
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
@@ -616,6 +616,7 @@
 				if(put_items_in_hand)
 					active_item = null
 
+				var/list/outputs = list()
 				for(var/spawn_count = 1 to output_amount)
 					var/obj/item/new_item = new output(get_turf(user))
 
@@ -629,7 +630,10 @@
 								continue
 							parts += listed
 						new_item.CheckParts(parts)
+						new_item.OnCrafted(user.dir)
 						parts = null
+
+					outputs += new_item
 
 				for(var/obj/item/deleted in to_delete)
 					to_delete -= deleted
@@ -642,16 +646,31 @@
 							amt2raise += (craftdiff * 10)
 						if(amt2raise > 0)
 							user.mind.add_sleep_experience(skillcraft, amt2raise, FALSE)
-
+				move_products(outputs, user)
 			else
 				move_items_back(to_delete, user)
 				return
 		else
 			move_items_back(to_delete, user)
+			move_products(list(), user)
 
 /datum/repeatable_crafting_recipe/proc/move_items_back(list/items, mob/user)
 	for(var/obj/item/item in items)
 		item.forceMove(user.drop_location())
+	user.update_inv_hands() //the consequences of forcemoving
+
+//Attempt to put tools in hand first. Then puts a random item from products in hand.
+/datum/repeatable_crafting_recipe/proc/move_products(list/products, mob/user)
+	var/list/copied_tool_usage = tool_usage.Copy()
+	for(var/turf/listed_turf in range(1, user))
+		for(var/obj/item in listed_turf.contents)
+			for(var/tool in copied_tool_usage)
+				if(istype(item, tool))
+					copied_tool_usage -= tool
+					user.put_in_hands(item)
+					break
+	if(length(products))
+		user.put_in_hands(pick(products))
 
 /datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
 	var/client/client = user

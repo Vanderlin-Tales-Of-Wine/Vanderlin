@@ -54,6 +54,8 @@
 	return
 
 /obj/item/herbseed/proc/become_plant(obj/structure/soil/soil,to_make)
+	if(QDELETED(src) || QDELETED(soil))
+		return
 	if(ispath(to_make))
 		var/obj/structure/flora/roguegrass/herb/newplant = new to_make
 		newplant.forceMove(get_turf(soil))

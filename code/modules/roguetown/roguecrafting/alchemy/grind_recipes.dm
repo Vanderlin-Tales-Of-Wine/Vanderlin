@@ -196,6 +196,3 @@
 	valid_input = /obj/item/alch/artemisia
 	valid_outputs = list(/obj/item/herbseed/artemisia = 1)
 
-/datum/alch_grind_recipe/transistus
-	valid_input = list(/obj/item/alch/artemisia,/obj/item/alch/benedictus,/obj/item/alch/hypericum,/obj/item/alch/salvia,/obj/item/alch/atropa,/obj/item/alch/taraxacum)
-	valid_outputs = list(/obj/item/alch/transisdust = 1)
