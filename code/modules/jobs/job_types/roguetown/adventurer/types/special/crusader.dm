@@ -135,6 +135,8 @@
 	icon_state = "crusader_helmt2"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
+	worn_x_dimension = 32
+	worn_y_dimension = 32
 
 /obj/item/clothing/cloak/cape/crusader/ComponentInitialize()
 	. = ..()

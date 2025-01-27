@@ -43,4 +43,4 @@
 		/obj/item/alch/magicdust = 1,
 		/obj/item/reagent_containers/powder/moondust = 1
 	)
-	craftdiff = 5
+	craftdiff = 4

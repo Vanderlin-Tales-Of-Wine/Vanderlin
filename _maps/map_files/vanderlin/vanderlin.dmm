@@ -12006,7 +12006,7 @@
 /obj/structure/stationary_bell{
 	pixel_x = -32;
 	pixel_y = -24;
-	name = "clock bell"
+	name = "clock tower bell"
 	},
 /turf/open/floor/rogue/metal{
 	icon_state = "plating2"

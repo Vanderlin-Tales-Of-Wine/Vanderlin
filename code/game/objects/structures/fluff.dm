@@ -1014,7 +1014,7 @@
 						var/mob/living/carbon/human/thegroom
 						var/mob/living/carbon/human/thebride
 						//Did anyone get cold feet on the wedding?
-						for(var/mob/M in viewers(src, 7))
+						for(var/mob/M in viewers(src, 2))
 							testing("check [M]")
 							if(thegroom && thebride)
 								break
