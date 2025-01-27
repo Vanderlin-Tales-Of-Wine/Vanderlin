@@ -31,14 +31,16 @@ All foods are distributed among various categories. Use common sense.
 /obj/item/reagent_containers/food/snacks
 	name = "snack"
 	desc = ""
-	icon = 'icons/obj/food/food.dmi'
+	icon = 'modular/Neu_Food/icons/food.dmi'
 	icon_state = null
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
+	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+
 	obj_flags = UNIQUE_RENAME
 	grind_results = list() //To let them be ground up to transfer their reagents
 	possible_item_intents = list(/datum/intent/food)
-	var/bitesize = 3
+	foodtype = GRAIN
+	var/bitesize = 3 // how many times you need to bite to consume it fully
 	var/bitecount = 0
 	var/trash = null
 	var/slice_path    // for sliceable food. path of the item resulting from the slicing
@@ -60,7 +62,7 @@ All foods are distributed among various categories. Use common sense.
 	var/list/tastes  // for example list("crisps" = 2, "salt" = 1)
 
 	var/cooking = 0
-	var/cooktime = 0
+	var/cooktime = 25 SECONDS
 	var/burning = 0
 	var/burntime = 5 MINUTES
 	var/warming = 5 MINUTES		//if greater than 0, have a brief period where the food buff applies while its still hot
@@ -93,8 +95,11 @@ All foods are distributed among various categories. Use common sense.
 	var/list/raritymod = null
 
 	var/plateable = FALSE //if it can be plated or not
-	var/skillcheck	// got enough skill to make this?
 	var/foodbuff_skillcheck // is the cook good enough to add buff?
+	var/modified = FALSE // for tracking if food has been changed
+	var/quality = 1  // used to track foodbuffs and such
+
+	var/skillcheck	// got enough skill to make this?
 	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
 
 /datum/intent/food
@@ -380,6 +385,8 @@ All foods are distributed among various categories. Use common sense.
 		return 0
 
 	if(W.get_sharpness() && W.wlength == WLENGTH_SHORT)
+		if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
+			return FALSE
 		if(slice_bclass == BCLASS_CHOP)
 			user.visible_message("<span class='notice'>[user] chops [src]!</span>")
 			slice(W, user)
@@ -393,13 +400,41 @@ All foods are distributed among various categories. Use common sense.
 
 	if(user.mind)
 		if(skillcheck)
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 3) // cooks with less than 3 skill don´t know this recipe
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2) // cooks with less than 2 skill don´t know this recipe
 				to_chat(user, span_warning(skill_lacking))
 				return
-		if(foodbuff_skillcheck)		// cooks with less than 4 skill don´t add bonus buff
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 3)
-				to_chat(user, span_warning(skill_lacking))
-				return
+		if(foodbuff_skillcheck)		// cooks with less than 3 skill don´t add bonus buff
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
+				tastes = list("blandness" = 1)
+				quality = 0
+				switch(rand(1,4))
+					if(1)
+						name = "unappealing [name]"
+						desc = "It is made without love or care."
+					if(2)
+						name = "sloppy [name]"
+						desc = "It barely looks like food."
+					if(3)
+						name = "failed [name]"
+						desc = "It is a disgrace to cooking."
+					if(4)
+						name = "woeful [name]"
+						desc = "Cooking that might cause a divorce."
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+				eat_effect = /datum/status_effect/buff/foodbuff
+				quality = 2
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 4)
+				quality = 3
+				switch(rand(1,3))
+					if(1)
+						name = "masterful [name]"
+						desc = "[desc] It looks perfect."
+					if(2)
+						name = "exquisite [name]"
+						desc = "[desc] It smells like heaven."
+					if(3)
+						name = "perfected [name]"
+						desc = "[desc] It is a triumph of cooking."
 
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
@@ -425,7 +460,7 @@ All foods are distributed among various categories. Use common sense.
 				reagents.add_reagent(r_id, amount)
 
 /obj/item/reagent_containers/food/snacks/proc/slice(obj/item/W, mob/user)
-	if((slices_num <= 1 || !slices_num) || !slice_path) //is the food sliceable?
+	if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
 		return FALSE
 
 	if ( \
@@ -603,3 +638,19 @@ All foods are distributed among various categories. Use common sense.
 	foodtype = GROSS
 	burntime = 0
 	cooktime = 0
+
+// Proc to handle visuals from plating
+/obj/item/reagent_containers/food/snacks/proc/plated()
+	item_state = "plate_food"
+	experimental_inhand = FALSE
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+
+// Proc for important vars when reaching meal level
+/obj/item/reagent_containers/food/snacks/proc/meal_properties()
+	plateable = TRUE
+	modified = TRUE
+	foodbuff_skillcheck = TRUE
+	rotprocess = SHELFLIFE_DECENT
+	bitesize = 5

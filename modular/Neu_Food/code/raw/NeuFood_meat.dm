@@ -39,8 +39,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty //pork
 	name = "raw pigflesh"
 	icon_state = "pigflesh"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/ham
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/ham
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/ham
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/ham
 	cooked_smell = /datum/pollutant/food/bacon
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
@@ -49,19 +49,19 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider // Low-nutrient, kind of gross. Survival food.
 	name = "strange meat"
 	icon_state = "spidermeat"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/strange
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/strange
 	cooked_smell = /datum/pollutant/food/fried_meat
 	slice_path = null
 	slices_num = 0
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry
 	name = "plucked bird"
-	icon_state = "halfchicken"
+	icon_state = "poultry"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
 	cooked_smell = /datum/pollutant/food/fried_chicken
-	fried_type = null
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
 	slices_num = 2
 	slice_sound = TRUE
 	ingredient_size = 4
@@ -71,11 +71,11 @@
 	name = "bird meat"
 	icon_state = "chickencutlet"
 	ingredient_size = 2
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
 	slices_num = 1
 	slice_bclass = BCLASS_CHOP
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
 	cooked_smell = /datum/pollutant/food/fried_chicken
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/chickenleg
 
@@ -83,6 +83,16 @@
 /obj/item/reagent_containers/food/snacks/fish
 	chopping_sound = TRUE
 
+/*	........   Cooked food template   ................ */ // No choppping double cooking etc prefixed
+/obj/item/reagent_containers/food/snacks/cooked
+	name = "cooked meat"
+	desc = ""
+	icon_state = "frysteak"
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION)
+	rotprocess = SHELFLIFE_DECENT
+	filling_color = "#8f433a"
+	foodtype = MEAT
+	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
 
 
 /*-----------------------\
@@ -141,15 +151,15 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
 	name = "mince"
-	icon_state = "meatmince"
+	icon_state = "birdmince"
 
 /*	..................   Sausage & Wiener   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage
 	name = "raw sausage"
 	icon_state = "raw_wiener"
 	ingredient_size = 1
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/sausage
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/sausage
 	cooked_smell = /datum/pollutant/food/sausage
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/sausage
 
@@ -157,8 +167,8 @@
 	name = "raw wiener"
 	icon_state = "raw_wiener"
 	ingredient_size = 1
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/wiener
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/wiener
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/sausage/wiener
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/sausage/wiener
 	cooked_smell = /datum/pollutant/food/sausage
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/sausage
 

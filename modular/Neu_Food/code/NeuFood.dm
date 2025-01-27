@@ -13,20 +13,6 @@
 | Food templates |
 \---------------*/
 
-/obj/item/reagent_containers/food/snacks/rogue // base food type, for icons and cooktime, and to make it work with processes like pie making
-	icon = 'modular/Neu_Food/icons/food.dmi'
-	desc = ""
-	slices_num = 0
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	foodtype = GRAIN
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	cooktime = 25 SECONDS
-
-/*
-/obj/item/reagent_containers/food/snacks/rogue/Initialize()
-	. = ..()
-	eatverb = pick("bite","chew","nibble","gobble","chomp")
-*/
 /obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	bitesize = 3
@@ -568,26 +554,26 @@
 
 /*	..................   Food platter   ................... */
 /obj/item/cooking/platter/attackby(obj/item/I, mob/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(findtext("[I.type]", "/plated")) //All plated food items have /plated at end of path
-		to_chat(user, span_warning("[I] in your hand appears to already be plated."))
-		return
 	if(istype(I, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = I
-		if(isturf(loc)&& (found_table))
-			if (S.plateable == TRUE)
-				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-				if(do_after(user,2 SECONDS, target = src))
-					var/path = text2path("[S.type]/plated")
-					new path(loc)
-					qdel(I)
-					qdel(src)
-			else
-				to_chat(user, span_warning("[S] cannot be plated."))
+		if (S.plateable == TRUE)
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			if(do_after(user,1 SECONDS, target = src))
+				S.plated()
+				S.trash = /obj/item/cooking/platter
+				S.plateable = FALSE
+				S.rotprocess =  SHELFLIFE_LONG
+				S.w_class = WEIGHT_CLASS_NORMAL
+				S.bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
+				var/mutable_appearance/platter = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "platter")
+				S.underlays += platter
+				qdel(src)
 		else
-			to_chat(user, span_warning("You need to put [src] on a table to work on it."))
+			to_chat(user, span_warning("[S] cannot be plated."))
 	else
 		return ..()
+
+
 
 
 

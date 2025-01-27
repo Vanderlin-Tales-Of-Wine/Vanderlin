@@ -1,1 +1,9 @@
 /obj/item/rogueweapon/hammer/steel : /obj/item/rogueweapon/hammer/claw{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/bun_grenz/plated{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/bun_grenz{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/egg : /obj/item/reagent_containers/food/snacks/rogue/friedegg{@OLD}
+/obj/item/reagent_containers/food/snacks/rogue/preserved/potato/baked : /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions{@OLD}
+/obj/item/reagent_containers/peppermill : /obj/item/reagent_containers/food/condiment/peppermill{@OLD}
+
+/obj/item/reagent_containers/food/snacks/preserved : /obj/item/reagent_containers/food/snacks/rogue/preserved{@OLD}

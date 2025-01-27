@@ -17,10 +17,9 @@
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_EXTREME
-	requires_table = TRUE
+//	requires_table = TRUE
 /obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
-/*
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/powder/flour))
@@ -33,15 +32,8 @@
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 	else
 		to_chat(user, span_warning("Put [src] on a table before working it!"))
-*/
-	if(istype(I, /obj/item/reagent_containers/powder/flour))
-		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-		to_chat(user, span_notice("Kneading in more powder..."))
-		if(do_after(user,short_cooktime, target = src))
-			new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
-			qdel(I)
-			qdel(src)
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+
+
 
 /obj/item/reagent_containers/food/snacks/rogue/dough
 	name = "dough"
@@ -160,6 +152,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
+	skillcheck = TRUE
+	skill_lacking = "Cakes are not for the unskilled."
 /obj/item/reagent_containers/food/snacks/rogue/butterdough/attackby(obj/item/I, mob/living/user, params)
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -420,7 +414,7 @@
 			qdel(I)
 			user.put_in_hands(sammich)
 			qdel(src)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedegg))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			var/obj/item/reagent_containers/food/snacks/rogue/sandwich/egg/sammich= new(get_turf(user))
@@ -669,16 +663,22 @@
 	rotprocess = SHELFLIFE_EXTREME
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bun
 /obj/item/reagent_containers/food/snacks/rogue/bun/attackby(obj/item/I, mob/living/user, params)
-	..()
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked))
-		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-		to_chat(user, "<span class='notice'>Pushing the wiener through the bun...</span>")
+	if(modified)
+		return TRUE
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
+		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			var/obj/item/reagent_containers/food/snacks/rogue/bun_grenz/hotdog= new(get_turf(user))
-			user.put_in_hands(hotdog)
+			name = "grenzelbun"
+			desc = "Originally an elven cuisine composed of mortal races flesh and bread, the classic wiener in a bun, now modified and staple food of Grenzelhoft cuisine."
+			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
+			tastes = list("savory sausage" = 1, "bread" = 1)
+			icon_state = "grenzbun"
+			foodtype = GRAIN | MEAT
+			modified = TRUE
+			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-			qdel(src)
+	return ..()
 
 
 /*	.................   Cheese bun   ................... */

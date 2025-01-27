@@ -29,8 +29,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
 	name = "potato cuts"
 	icon_state = "potato_sliced"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato/fried
 	cooked_smell = /datum/pollutant/food/baked_potato
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
