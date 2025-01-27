@@ -7861,7 +7861,7 @@
 /area/rogue)
 "ayw" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/meat/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
 /turf/open/floor/rogue/blocks{
 	icon_state = "newstone2"
 	},
@@ -8568,9 +8568,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
-/obj/item/reagent_containers/food/snacks/rogue/meat/ham,
-/obj/item/reagent_containers/food/snacks/rogue/meat/ham,
-/obj/item/reagent_containers/food/snacks/rogue/meat/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
