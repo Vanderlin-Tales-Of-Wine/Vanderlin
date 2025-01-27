@@ -82,7 +82,7 @@
 		head = /obj/item/clothing/head/roguetown/helmet/kettle
 	else // High roller gets an iron chain coif and nasal helmet
 		neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-		head = /obj/item/clothing/head/roguetown/helmet
+		head = /obj/item/clothing/head/roguetown/helmet/nasal
 
 	H.change_stat("strength", 2)
 	H.change_stat("endurance", 1)
