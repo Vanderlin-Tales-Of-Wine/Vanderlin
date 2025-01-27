@@ -867,6 +867,8 @@
 	if(choice != "Yes")
 		to_chat(current, span_warning("[youngling] has rejected your apprenticeship!"))
 		return
+	if(length(apprentices) >= max_apprentices)
+		return
 	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
 		return
 	apprentices |= WEAKREF(youngling)
