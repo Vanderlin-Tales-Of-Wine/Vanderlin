@@ -312,7 +312,7 @@
 	buckle_lying = 90
 	pixel_y = 5
 	sleepy = 2
-	debris = list(/obj/item/grown/log/tree/small = 1)
+	debris = list(/obj/item/natural/wood/plank = 1)
 	metalizer_result = /obj/machinery/anvil/crafted
 
 // ------------ GOOD BEDS ----------------------
