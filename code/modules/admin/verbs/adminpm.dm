@@ -175,7 +175,7 @@
 				to_chat(recipient, "<span class='danger'>[replymsg]</span>")
 				to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[msg]</span></span>")
 
-			SEND_SOUND(recipient, sound('sound/misc/yeoldebwoink.ogg'))
+			SEND_SOUND(recipient, sound('sound/misc/adminhelp.ogg'))
 
 		else
 			if(holder)	//sender is an admin but recipient is not. Do BIG RED TEXT

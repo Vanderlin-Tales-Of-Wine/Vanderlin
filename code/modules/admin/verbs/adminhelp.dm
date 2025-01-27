@@ -268,7 +268,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	for(var/client/X in GLOB.admins)
 		if(X.ckey == "dwasint") ///I FUCKING HATE THIS SOUND
 			continue
-		SEND_SOUND(X, sound('sound/misc/yeoldebwoink.ogg'))
+		SEND_SOUND(X, sound('sound/misc/adminhelp.ogg'))
 		window_flash(X, ignorepref = TRUE)
 		to_chat(X, admin_msg)
 
