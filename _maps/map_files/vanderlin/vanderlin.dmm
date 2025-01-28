@@ -4308,6 +4308,14 @@
 "cZn" = (
 /turf/closed/wall/mineral/rogue/roofwall/innercorner,
 /area/rogue/indoors/town)
+"cZw" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8;
+	icon_state = "churchslate"
+	},
+/obj/structure/fermenting_barrel/random/water,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/clinic_large)
 "cZI" = (
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -31868,6 +31876,7 @@
 	},
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /obj/structure/fluff/walldeco/church/line,
+/obj/structure/fermenting_barrel,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "xiQ" = (
@@ -140532,7 +140541,7 @@ acx
 pyS
 cWn
 ybp
-clJ
+cZw
 xiv
 ybp
 bwy
