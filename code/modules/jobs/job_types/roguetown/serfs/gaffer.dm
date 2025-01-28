@@ -8,7 +8,7 @@
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes, it makes it feel more like "it could've been anyone, but you got me"
-	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen as the next Gaffer. Gone are the excitements of your past, today your life is engrossed with two things: administrative work, and feeding the monstrous Head Eater (doesn't exist yet :O) ). Act as the Mercenaries Guild representative in town, and make sure your members bring back the heads of any slain monsters or bandits. For the Head Eater hungers..."
+	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen as the next Gaffer. Gone are the excitements of your past, today your life is engrossed with two things: administrative work, and feeding the monstrous Head Eater (doesn't exist yet :O) ). Act as the Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters or bandits. For the Head Eater hungers..."
 
 	display_order = JDO_GAFFER
 	bypass_lastclass = TRUE
