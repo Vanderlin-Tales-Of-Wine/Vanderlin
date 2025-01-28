@@ -2837,7 +2837,7 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/item/reagent_containers/food/snacks/produce/apple,
 /obj/item/reagent_containers/food/snacks/fortunecookie,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged,
+/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/magician)
 "drL" = (
@@ -2916,7 +2916,7 @@
 /obj/item/reagent_containers/powder/salt,
 /obj/item/reagent_containers/powder/salt,
 /obj/item/reagent_containers/powder/salt,
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern)
 "dud" = (
@@ -6510,8 +6510,8 @@
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/storage/belt/rogue/pouch/coins/rich,
 /obj/item/clothing/suit/roguetown/armor/gambeson,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "hlA" = (
@@ -6997,7 +6997,7 @@
 "hOB" = (
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/storage/belt/rogue/pouch/coins/poor,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "hOH" = (
@@ -7082,9 +7082,9 @@
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/clothing/neck/roguetown/coif,
 /obj/item/storage/belt/rogue/pouch/coins/poor,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "hRu" = (
@@ -10761,7 +10761,7 @@
 "lLu" = (
 /obj/item/book/rogue/knowledge1,
 /obj/structure/chair/bench/couchablack/r,
-/obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice,
+/obj/item/reagent_containers/food/snacks/raisbread_slice,
 /obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/magician)
@@ -11031,7 +11031,7 @@
 	})
 "lYm" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern)
 "lYx" = (
@@ -21459,10 +21459,10 @@
 	},
 /obj/item/reagent_containers/powder/salt,
 /obj/machinery/light/rogue/wallfire/candle,
-/obj/item/reagent_containers/food/condiment/peppermill,
-/obj/item/reagent_containers/food/condiment/peppermill,
-/obj/item/reagent_containers/food/condiment/peppermill,
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
+/obj/item/reagent_containers/peppermill,
+/obj/item/reagent_containers/peppermill,
+/obj/item/reagent_containers/peppermill,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/under/basement)
 "wEg" = (

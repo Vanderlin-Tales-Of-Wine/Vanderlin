@@ -34,7 +34,7 @@
 
 /datum/repeatable_crafting_recipe/coppiette
 	name = "coppiette"
-	output = /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
+	output = /obj/item/reagent_containers/food/snacks/cooked/coppiette
 	starting_atom = /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,

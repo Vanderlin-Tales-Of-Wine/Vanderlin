@@ -281,7 +281,7 @@
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = SHELFLIFE_LONG
-	slices_num = 1
+	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
 	chopping_sound = TRUE
 
@@ -291,6 +291,7 @@
 	desc = "A wonderful vegetable with many layers and a broad flavor profile."
 	seed = /obj/item/neuFarm/seed/onion
 	icon_state = "onion"
+	dropshrink = 0.9
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
 	tastes = list("onion" = 1)
@@ -328,7 +329,7 @@
 	filling_color = "#d8d8b6"
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato/baked
+	cooked_type = /obj/item/reagent_containers/food/snacks/preserved/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES

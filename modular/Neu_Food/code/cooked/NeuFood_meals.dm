@@ -11,22 +11,20 @@
 \---------------*/
 
 /*	.................   Chicken roast   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
-	desc = "A plump bird, roasted to a perfect temperature and bears a crispy skin."
-	eat_effect = null
-	slices_num = 0
+/obj/item/reagent_containers/food/snacks/cooked/roastchicken
 	name = "roast bird"
+	desc = "A plump bird, roasted to a perfect temperature and bears a crispy skin."
 	icon_state = "roast"
 	tastes = list("tasty birdmeat" = 1)
 	bitesize = 6
-	cooked_type = null
-	slice_path = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+COOKED_MEAT_NUTRITION+1)
 	rotprocess = SHELFLIFE_LONG
 	plateable = TRUE
 	foodbuff_skillcheck = TRUE
-/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/cooked/roastchicken/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
 	else if(istype(mill))

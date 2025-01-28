@@ -28,8 +28,8 @@
 	ingredient_size = 2
 	name = "raw meat"
 	icon_state = "meatcutlet"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_smell = /datum/pollutant/food/fried_meat
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
@@ -59,9 +59,9 @@
 	name = "plucked bird"
 	icon_state = "poultry"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
+	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/roastchicken
 	cooked_smell = /datum/pollutant/food/fried_chicken
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
+	fried_type = /obj/item/reagent_containers/food/snacks/cooked/roastchicken
 	slices_num = 2
 	slice_sound = TRUE
 	ingredient_size = 4
@@ -116,7 +116,7 @@
 	qdel(src)
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince) && (!modified))
 		if(isturf(loc)&& (found_table))
 			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -127,7 +127,7 @@
 				qdel(src)
 		else
 			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/fat))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/fat) && (!modified))
 		if(isturf(loc)&& (found_table))
 			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)

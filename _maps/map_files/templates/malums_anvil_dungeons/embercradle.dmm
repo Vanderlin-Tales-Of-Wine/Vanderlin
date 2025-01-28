@@ -3217,7 +3217,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "Qs" = (
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked,
+/obj/item/reagent_containers/food/snacks/preserved/potato_baked,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)

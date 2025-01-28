@@ -18142,9 +18142,9 @@
 /area/rogue/indoors/town)
 "tZH" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
 "tZS" = (

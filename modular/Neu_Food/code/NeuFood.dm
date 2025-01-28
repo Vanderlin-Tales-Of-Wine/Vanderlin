@@ -19,7 +19,7 @@
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	do_random_pixel_offset = FALSE // disables the random placement on creation for this object
 
-/obj/item/reagent_containers/food/snacks/rogue/preserved // just convenient way to group food with long rotprocess
+/obj/item/reagent_containers/food/snacks/preserved // just convenient way to group food with long rotprocess
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	rotprocess = SHELFLIFE_EXTREME
@@ -598,12 +598,12 @@
 * Salumoi
 * Uncut pie
 * Raw potato, onion
+* Uncut raisin bread
 
 /*	.................   Extreme shelflife   ................... */
 
 * Raw cabbage
 * Uncut bread loaf
-* Uncut raisin bread
 * Most plated dishes
 
 /*	.................   Long shelflife   ................... */

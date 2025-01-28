@@ -150,16 +150,6 @@
 		new/obj/effect/decal/cleanable/food/salt(target)
 		return*/
 
-/obj/item/reagent_containers/food/condiment/peppermill
-	name = "pepper mill"
-	desc = ""
-	icon_state = "peppermillsmall"
-	icon_empty = "emptyshaker"
-	possible_transfer_amounts = list(1,20) //for clown turning the lid off
-	amount_per_transfer_from_this = 1
-	volume = 20
-	list_reagents = list(/datum/reagent/consumable/blackpepper = 20)
-
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = ""

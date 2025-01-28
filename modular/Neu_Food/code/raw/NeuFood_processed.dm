@@ -124,19 +124,15 @@
 	tastes = list("salted meat" = 1)
 
 // -------------- COPPIETTE (dried meat) -----------------
-/obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
-	eat_effect = null
+/obj/item/reagent_containers/food/snacks/cooked/coppiette
 	name = "coppiette"
 	icon_state = "jerk5"
 	desc = "Dried meat sticks."
 	fried_type = null
 	bitesize = 5
-	slice_path = null
 	tastes = list("salted meat" = 1)
-	rotprocess = null
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/coppiette/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/cooked/coppiette/On_Consume(mob/living/eater)
 	..()
 	if(bitecount == 1)
 		icon_state = "jerk4"
@@ -148,7 +144,7 @@
 		icon_state = "jerk1"
 
 // -------------- SALTFISH -----------------
-/obj/item/reagent_containers/food/snacks/rogue/saltfish
+/obj/item/reagent_containers/food/snacks/saltfish
 	eat_effect = null
 	icon = 'icons/roguetown/misc/fish.dmi'
 	name = "saltfish"
@@ -162,7 +158,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	dropshrink = 0.6
 
-/obj/item/reagent_containers/food/snacks/rogue/saltfish/CheckParts(list/parts_list, datum/crafting_recipe/R)
+/obj/item/reagent_containers/food/snacks/saltfish/CheckParts(list/parts_list, datum/crafting_recipe/R)
 	for(var/obj/item/reagent_containers/food/snacks/M in parts_list)
 		icon_state = "[initial(M.icon_state)]dried"
 		qdel(M)
@@ -248,7 +244,6 @@
 
 // -------------- BUTTER -----------------
 /obj/item/reagent_containers/food/snacks/butter
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	name = "stick of butter"
 	desc = ""
 	icon_state = "butter6"
@@ -446,31 +441,29 @@
 	rotprocess = SHELFLIFE_LONG
 	slices_num = 6
 	slice_batch = TRUE
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge
+	slice_path = /obj/item/reagent_containers/food/snacks/cheese_wedge
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
 	slice_sound = TRUE
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
 	name = "wheel of aged cheese"
 	icon_state = "blue_cheese"
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
+	slice_path = /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	become_rot_type = null
 	rotprocess = null
 	sellprice = 60
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge
+/obj/item/reagent_containers/food/snacks/cheese_wedge
 	name = "wedge of cheese"
 	icon_state = "cheese_wedge"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("cheese" = 1)
-	eat_effect = null
 	rotprocess = SHELFLIFE_LONG
-	slices_num = 3
 	slice_batch = TRUE
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
-	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
+	become_rot_type = /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	baitpenalty = 0
 	isbait = TRUE
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 10,
@@ -478,7 +471,7 @@
 					/obj/item/reagent_containers/food/snacks/fish/angler = 1,
 					/obj/item/reagent_containers/food/snacks/fish/shrimp = 3)
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
+/obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	name = "wedge of aged cheese"
 	icon_state = "blue_cheese_wedge"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged

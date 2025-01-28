@@ -6837,8 +6837,8 @@
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/storage/belt/rogue/pouch/coins/rich,
 /obj/item/clothing/suit/roguetown/armor/gambeson,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/item/reagent_containers/powder/salt,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
@@ -7352,7 +7352,7 @@
 "hOB" = (
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/storage/belt/rogue/pouch/coins/poor,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/item/reagent_containers/powder/salt,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
@@ -7455,9 +7455,9 @@
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/clothing/neck/roguetown/coif,
 /obj/item/storage/belt/rogue/pouch/coins/poor,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "hRu" = (
@@ -11166,7 +11166,7 @@
 "lIB" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/clothing/cloak/raincloak/blue,
-/obj/item/reagent_containers/food/snacks/rogue/breadslice/toast,
+/obj/item/reagent_containers/food/snacks/toast,
 /obj/item/reagent_containers/glass/bottle/rogue/water,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/garrison)
@@ -14994,8 +14994,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/pastry,
 /obj/item/reagent_containers/food/snacks/rogue/frybread,
 /obj/item/reagent_containers/food/snacks/rogue/biscuit,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged,
-/obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice,
+/obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
+/obj/item/reagent_containers/food/snacks/raisbread_slice,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/magician)
 "pro" = (
@@ -19638,7 +19638,7 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/reagent_containers/food/snacks/rogue/frybread,
 /obj/item/reagent_containers/food/snacks/rogue/frybread,
-/obj/item/reagent_containers/food/snacks/rogue/raisinbread,
+/obj/item/reagent_containers/food/snacks/raisinbread,
 /obj/structure/fluff/railing/border{
 	dir = 1;
 	icon_state = "border"

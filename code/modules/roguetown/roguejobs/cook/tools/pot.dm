@@ -271,7 +271,7 @@
 	finished_smell = /datum/pollutant/food/cheese_soup
 
 /datum/pot_recipe/cooking/cheese_soup/wedge
-	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge = 1)
+	required_items = list(/obj/item/reagent_containers/food/snacks/cheese_wedge = 1)
 
 /datum/pot_recipe/drugs
 	abstract_type = /datum/pot_recipe/drugs

@@ -154,7 +154,7 @@
 	icon_state = "berries"
 	tastes = list("berry" = 1)
 	bitesize = 5
-	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.4)
 	dropshrink = 0.75
 	var/color_index = "good"
 	can_distill = TRUE
@@ -326,7 +326,7 @@
 	filling_color = "#d8d8b6"
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato/baked
+	cooked_type = /obj/item/reagent_containers/food/snacks/preserved/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES

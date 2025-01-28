@@ -146,58 +146,18 @@
 | Handpie |
 \--------*/		// dwarven pie on the go, good shelflife until bitten, made from pie dough and mince, truffles or jacksberries
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw
-	name = "raw handpie"
-	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
-	icon_state = "handpie_raw"
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
-	cooked_smell = /datum/pollutant/food/pie_base
-	w_class = WEIGHT_CLASS_NORMAL
-	dropshrink = 0.8
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mushroom
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | VEGETABLES
-	tastes = list("delicious truffles" = 1)
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | MEAT
-	tastes = list("succulent meat" = 1)
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/cheese
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | DAIRY
-	tastes = list("hot cheese" = 1)
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/apple
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | FRUIT
-	tastes = list("sweet apple" = 1)
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | FRUIT
-	tastes = list("sweet berry" = 1)
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison
-	list_reagents = list(/datum/reagent/berrypoison = 5)
-	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | FRUIT
-	tastes = list("bitter berry" = 1)
-
 /obj/item/reagent_containers/food/snacks/rogue/handpie
 	name = "handpie"
-	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
+	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time. This one is pretty dry."
 	icon_state = "handpie"
-	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+COOKED_MEAT_NUTRITION)
 	tastes = list("crispy dough" = 1)
-	rotprocess = null
 	dropshrink = 0.8
+
+/obj/item/reagent_containers/food/snacks/rogue/handpie/good
+	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
+	eat_effect = /datum/status_effect/buff/foodbuff
 
 /obj/item/reagent_containers/food/snacks/rogue/handpie/On_Consume(mob/living/eater)
 	..()

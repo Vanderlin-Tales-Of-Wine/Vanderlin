@@ -7,7 +7,7 @@
 
 
 /*	.............   Frysteak   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
+/obj/item/reagent_containers/food/snacks/cooked/frysteak
 	eat_effect = null
 	slices_num = 0
 	name = "frysteak"
@@ -17,7 +17,9 @@
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm steak" = 1)
 	plateable = TRUE
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/cooked/frysteak/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -42,7 +44,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		to_chat(user, "<span class='notice'>Adding onions...</span>")
 		if(do_after(user,short_cooktime, target = src))
@@ -67,9 +69,11 @@
 	icon_state = "friedegg"
 	warming = 5 MINUTES
 /obj/item/reagent_containers/food/snacks/cooked/egg/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "[name] twins"
@@ -78,7 +82,7 @@
 			list_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION+EGG_NUTRITION)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge))	// cheese to make it a proper meal thus unlocking plating and using the food buff check
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese_wedge) && (!modified))	// cheese to make it a proper meal thus unlocking plating and using the food buff check
 		if(icon_state == "seggs")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,short_cooktime, target = src))
@@ -99,9 +103,11 @@
 	desc = "Poultry scorched to a perfect delicious crisp."
 	icon_state = "frybird"
 /obj/item/reagent_containers/food/snacks/cooked/frybird/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/potato))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "[name] and tatos"
@@ -124,9 +130,11 @@
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bacon
 	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+1)
 /obj/item/reagent_containers/food/snacks/cooked/ham/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "royal truffles"
@@ -138,7 +146,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "royal truffles"
@@ -173,10 +181,13 @@
 	icon_state = "wiener"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION)
 	rotprocess = SHELFLIFE_EXTREME
-/obj/item/reagent_containers/food/snacks/cooked/sausage/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/cooked/sausage/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/cabbage_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on cabbage"
@@ -189,7 +200,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/potato))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on tato"
@@ -202,7 +213,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener and onions"
@@ -215,7 +226,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/bun))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/bun) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "grenzelbun"
@@ -241,7 +252,7 @@
 \---------------*/
 
 /*	.............   Cooked cabbage   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried
+/obj/item/reagent_containers/food/snacks/preserved/cabbage_fried
 	name = "cooked cabbage"
 	icon_state = "cabbage_fried"
 	desc = "A peasant's delight."
@@ -249,8 +260,12 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
+/obj/item/reagent_containers/food/snacks/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	if(modified)
+		return TRUE
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on cabbage"
 			desc = "A rich and heavy meal, perfect ration for a soldier on the march."
@@ -266,17 +281,19 @@
 
 
 /*	.............   Baked potato   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato/baked
+/obj/item/reagent_containers/food/snacks/preserved/potato/baked
 	name = "baked potatos"
 	desc = "A dwarven favorite, as a meal or a game of hot potato."
 	icon_state = "potato_baked"
 	bitesize = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato/baked/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/preserved/potato/baked/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on tato"
@@ -289,7 +306,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "[name] and tatos"
@@ -305,7 +322,7 @@
 
 
 /*	.............   Fried onions   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried
+/obj/item/reagent_containers/food/snacks/preserved/onion_fried
 	name = "fried onion"
 	desc = "Seared onions roasted to a delicious set of rings."
 	icon_state = "onion_fried"
@@ -313,10 +330,12 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("savoury morsel" = 1)
 	rotprocess = SHELFLIFE_DECENT
-/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener and onions"
 			desc = "Stout and flavourful."
@@ -331,7 +350,7 @@
 	return ..()
 
 /*	.............   Fried potato   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato/fried
+/obj/item/reagent_containers/food/snacks/preserved/potato/fried
 	name = "fried potato"
 	desc = "Potato bits, well roasted."
 	icon_state = "potato_fried"
@@ -339,10 +358,12 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm potato" = 1)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato/fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/preserved/potato/fried/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on tato"
@@ -355,7 +376,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "[name] and tatos"

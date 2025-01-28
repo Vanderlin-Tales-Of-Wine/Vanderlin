@@ -161,9 +161,3 @@
 		add_overlay(filling)
 	. = ..()
 
-
-/obj/item/reagent_containers/attackby(obj/item/I, mob/living/user, params)
-	. = ..()
-	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))

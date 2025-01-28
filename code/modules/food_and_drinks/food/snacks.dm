@@ -40,6 +40,7 @@ All foods are distributed among various categories. Use common sense.
 	grind_results = list() //To let them be ground up to transfer their reagents
 	possible_item_intents = list(/datum/intent/food)
 	foodtype = GRAIN
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	var/bitesize = 3 // how many times you need to bite to consume it fully
 	var/bitecount = 0
 	var/trash = null
@@ -98,6 +99,7 @@ All foods are distributed among various categories. Use common sense.
 	var/foodbuff_skillcheck // is the cook good enough to add buff?
 	var/modified = FALSE // for tracking if food has been changed
 	var/quality = 1  // used to track foodbuffs and such
+	var/filling // used to simplify tastes etc for fillings in pies and the like
 
 	var/skillcheck	// got enough skill to make this?
 	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
@@ -654,3 +656,38 @@ All foods are distributed among various categories. Use common sense.
 	foodbuff_skillcheck = TRUE
 	rotprocess = SHELFLIFE_DECENT
 	bitesize = 5
+
+// Proc for making raw handpiel
+/obj/item/reagent_containers/food/snacks/proc/handpied(mob/living/user)
+	modified = TRUE
+	rotprocess = SHELFLIFE_DECENT
+	name = "raw handpie"
+	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
+	icon_state = "handpie_raw"
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
+	cooked_smell = /datum/pollutant/food/pie_base
+	w_class = WEIGHT_CLASS_NORMAL
+	dropshrink = 0.8
+	if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+		cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie/good
+		fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie/good
+	if(filling == "truffles")
+		foodtype = GRAIN | VEGETABLES
+		tastes = list("delicious truffles" = 1)
+	if(filling == "mince")
+		foodtype = GRAIN | MEAT
+		tastes = list("succulent meat" = 1)
+	if(filling == "poisonberry")
+		list_reagents = list(/datum/reagent/berrypoison = 5)
+		foodtype = GRAIN | FRUIT
+		tastes = list("bitter berry" = 1)
+	if(filling == "apples")
+		foodtype = GRAIN | FRUIT
+		tastes = list("juicy apple" = 1)
+	if(filling == "goatcheese")
+		foodtype = GRAIN | DAIRY
+		tastes = list("gote cheese" = 1)
+	if(filling == "cheese")
+		foodtype = GRAIN | DAIRY
+		tastes = list("melted cheese" = 1)

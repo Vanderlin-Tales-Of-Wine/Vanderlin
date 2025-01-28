@@ -3193,7 +3193,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /obj/item/cooking/pan,
 /turf/open/floor/rogue/tile{
 	icon_state = "linoleum"
@@ -8632,7 +8632,7 @@
 	icon_state = "largetable";
 	dir = 9
 	},
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /obj/item/key/roomhunt,
 /turf/open/floor/rogue/tile{
 	icon_state = "tile"

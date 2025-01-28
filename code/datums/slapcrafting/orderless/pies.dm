@@ -63,7 +63,7 @@
 	name = "pot pie"
 	requirements = list(
 		list(
-			/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
+			/obj/item/reagent_containers/food/snacks/cheese_wedge,
 			/obj/item/reagent_containers/food/snacks/rogue/cheese,
 			/obj/item/reagent_containers/food/snacks/egg) = 2,
 		/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced = 1,

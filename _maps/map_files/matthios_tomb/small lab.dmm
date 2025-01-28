@@ -328,7 +328,7 @@
 /area/rogue)
 "Ga" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/meat/coppiette,
+/obj/item/reagent_containers/food/snacks/cooked/coppiette,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue)
 "Hv" = (

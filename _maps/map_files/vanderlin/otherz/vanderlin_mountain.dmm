@@ -1528,7 +1528,7 @@
 	},
 /area/rogue/indoors/mountains/anvil/surface/building)
 "nD" = (
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/mountains/anvil/lower/building)
