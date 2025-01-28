@@ -151,7 +151,7 @@
 	else if(!H.givingto && H.get_active_held_item()) //offer item
 		if(get_empty_held_indexes())
 			var/obj/item/I = H.get_active_held_item()
-			if(HAS_TRAIT(I, TRAIT_NODROP))
+			if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
 				return
 			H.givingto = src
 			H.lastgibto = world.time
