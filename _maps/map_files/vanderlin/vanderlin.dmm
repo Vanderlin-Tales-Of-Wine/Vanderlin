@@ -26143,7 +26143,7 @@
 /area/rogue/indoors/town/magician)
 "thO" = (
 /obj/structure/closet/crate/chest/crafted,
-/obj/item/reagent_containers/food/snacks/rogue/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "thQ" = (
@@ -30548,7 +30548,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
-/obj/item/reagent_containers/food/snacks/rogue/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/fat,
 /obj/item/reagent_containers/food/snacks/rogue/cheese,

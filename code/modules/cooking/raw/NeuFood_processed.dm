@@ -7,7 +7,6 @@
 
 // -------------- FAT -----------------
 /obj/item/reagent_containers/food/snacks/fat
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	name = "fat"
 	desc = ""
 	icon_state = "fat"
@@ -30,19 +29,16 @@
 		return ..()
 
 // -------------- SPIDER HONEY -----------------
-/obj/item/reagent_containers/food/snacks/rogue/honey
+/obj/item/reagent_containers/food/snacks/spiderhoney
 	name = "spider honey"
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	icon_state = "spiderhoney"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("sweetness and spiderwebs" = 1)
-	eat_effect = null
-	rotprocess = null
 
 // -------------- RAISINS -----------------
-/obj/item/reagent_containers/food/snacks/rogue/raisins
+/obj/item/reagent_containers/food/snacks/raisins
 	name = "raisins"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "raisins5"
@@ -54,7 +50,7 @@
 	eat_effect = null
 	rotprocess = null
 
-/obj/item/reagent_containers/food/snacks/rogue/raisins/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/raisins/On_Consume(mob/living/eater)
 	..()
 	if(bitecount == 1)
 		icon_state = "raisins4"
@@ -65,7 +61,7 @@
 	if(bitecount == 4)
 		icon_state = "raisins1"
 
-/obj/item/reagent_containers/food/snacks/rogue/raisins/CheckParts(list/parts_list, datum/crafting_recipe/R)
+/obj/item/reagent_containers/food/snacks/raisins/CheckParts(list/parts_list, datum/crafting_recipe/R)
 	..()
 	for(var/obj/item/reagent_containers/food/snacks/M in parts_list)
 		color = M.filling_color
@@ -74,7 +70,7 @@
 			M.reagents.trans_to(src, M.reagents.total_volume)
 		qdel(M)
 
-/obj/item/reagent_containers/food/snacks/rogue/raisins/poison
+/obj/item/reagent_containers/food/snacks/raisins/poison
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR, /datum/reagent/berrypoison = 4)
 	tastes = list("bitter dried fruit" = 1)
 
@@ -230,7 +226,7 @@
 			return
 		user.adjust_stamina(40) // forgot stamina is our lovely stamloss proc here
 		user.visible_message("<span class='info'>[user] churns butter...</span>")
-		playsound(get_turf(user), 'modular/Neu_Food/sound/churn.ogg', 100, TRUE, -1)
+		playsound(get_turf(user), 'sound/foley/churn.ogg', 100, TRUE, -1)
 		if(do_after(user,long_cooktime, target = src))
 			user.adjust_stamina(40)
 			if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15))
@@ -277,10 +273,8 @@
 			changefood(slice_path, eater)
 
 /obj/item/reagent_containers/food/snacks/butterslice
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	icon_state = "butter_slice"
 	name = "butter"
-	desc = ""
 	foodtype = DAIRY
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 
@@ -407,7 +401,7 @@
 		return ..()
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesewheel_three/proc/maturing_done()
-	playsound(src.loc, 'modular/Neu_Food/sound/rustle2.ogg', 100, TRUE, -1)
+	playsound(src.loc, 'sound/foley/rustle2.ogg', 100, TRUE, -1)
 	new /obj/item/reagent_containers/food/snacks/rogue/cheddar(loc)
 	new /obj/item/natural/cloth(loc)
 	qdel(src)

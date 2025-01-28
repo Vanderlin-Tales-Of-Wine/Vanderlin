@@ -170,4 +170,4 @@
 /datum/supply_pack/rogue/food/honey
 	name = "Honey"
 	cost = 15
-	contains = /obj/item/reagent_containers/food/snacks/rogue/honey
+	contains = /obj/item/reagent_containers/food/snacks/spiderhoney

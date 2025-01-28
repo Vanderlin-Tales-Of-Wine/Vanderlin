@@ -8406,7 +8406,7 @@
 /area/rogue/indoors/town/church/chapel)
 "jlI" = (
 /obj/machinery/tanningrack,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"

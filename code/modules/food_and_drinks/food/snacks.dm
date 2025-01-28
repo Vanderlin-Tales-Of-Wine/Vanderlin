@@ -31,10 +31,10 @@ All foods are distributed among various categories. Use common sense.
 /obj/item/reagent_containers/food/snacks
 	name = "snack"
 	desc = ""
-	icon = 'modular/Neu_Food/icons/food.dmi'
+	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = null
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 
 	obj_flags = UNIQUE_RENAME
 	grind_results = list() //To let them be ground up to transfer their reagents
@@ -475,9 +475,9 @@ All foods are distributed among various categories. Use common sense.
 		return FALSE
 
 	if(slice_sound)
-		playsound(get_turf(user), 'modular/Neu_Food/sound/slicing.ogg', 60, TRUE, -1) // added some choppy sound
+		playsound(get_turf(user), 'sound/foley/slicing.ogg', 60, TRUE, -1) // added some choppy sound
 	if(chopping_sound)
-		playsound(get_turf(user), 'modular/Neu_Food/sound/chopping_block.ogg', 60, TRUE, -1) // added some choppy sound
+		playsound(get_turf(user), 'sound/foley/chopping_block.ogg', 60, TRUE, -1) // added some choppy sound
 	if(slice_batch)
 		if(!do_after(user, 30, target = src))
 			return FALSE
@@ -657,37 +657,3 @@ All foods are distributed among various categories. Use common sense.
 	rotprocess = SHELFLIFE_DECENT
 	bitesize = 5
 
-// Proc for making raw handpiel
-/obj/item/reagent_containers/food/snacks/proc/handpied(mob/living/user)
-	modified = TRUE
-	rotprocess = SHELFLIFE_DECENT
-	name = "raw handpie"
-	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
-	icon_state = "handpie_raw"
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
-	cooked_smell = /datum/pollutant/food/pie_base
-	w_class = WEIGHT_CLASS_NORMAL
-	dropshrink = 0.8
-	if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
-		cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie/good
-		fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie/good
-	if(filling == "truffles")
-		foodtype = GRAIN | VEGETABLES
-		tastes = list("delicious truffles" = 1)
-	if(filling == "mince")
-		foodtype = GRAIN | MEAT
-		tastes = list("succulent meat" = 1)
-	if(filling == "poisonberry")
-		list_reagents = list(/datum/reagent/berrypoison = 5)
-		foodtype = GRAIN | FRUIT
-		tastes = list("bitter berry" = 1)
-	if(filling == "apples")
-		foodtype = GRAIN | FRUIT
-		tastes = list("juicy apple" = 1)
-	if(filling == "goatcheese")
-		foodtype = GRAIN | DAIRY
-		tastes = list("gote cheese" = 1)
-	if(filling == "cheese")
-		foodtype = GRAIN | DAIRY
-		tastes = list("melted cheese" = 1)

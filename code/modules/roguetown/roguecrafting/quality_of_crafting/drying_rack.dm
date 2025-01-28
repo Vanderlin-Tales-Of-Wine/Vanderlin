@@ -80,7 +80,7 @@
 
 /datum/repeatable_crafting_recipe/raisins
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins
+	output = /obj/item/reagent_containers/food/snacks/raisins
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
@@ -96,7 +96,7 @@
 
 /datum/repeatable_crafting_recipe/raisins_poison
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins/poison
+	output = /obj/item/reagent_containers/food/snacks/raisins/poison
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1,

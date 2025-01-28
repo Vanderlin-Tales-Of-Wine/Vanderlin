@@ -29,7 +29,7 @@
 			return TRUE
 		mill.icon_state = "peppermill_grind"
 		to_chat(user, "You start rubbing the steak with black pepper.")
-		playsound(get_turf(user), 'modular/Neu_Food/sound/peppermill.ogg', 100, TRUE, -1)
+		playsound(get_turf(user), 'sound/foley/peppermill.ogg', 100, TRUE, -1)
 		if(do_after(user,3 SECONDS, target = src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
 				to_chat(user, "There's not enough black pepper to make anything with.")
@@ -37,10 +37,9 @@
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			name = "peppersteak"
 			desc = "Roasted flesh flanked with a generous coating of ground pepper for intense flavor."
-			var/mutable_appearance/spice = mutable_appearance('modular/Neu_Food/icons/food.dmi', "frysteak_spice")
+			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "frysteak_spice")
 			overlays += spice
 			tastes = list("spicy red meat" = 2)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
@@ -53,7 +52,6 @@
 			desc = "[desc] Garnished with tender fried onion, juices made into a simple sauce."
 			icon_state = "onionsteak"
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+1)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -67,7 +65,7 @@
 	name = "fried cackleberry"
 	desc = "A staple of Astratan midsummer festival eating."
 	icon_state = "friedegg"
-	warming = 5 MINUTES
+
 /obj/item/reagent_containers/food/snacks/cooked/egg/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -115,7 +113,6 @@
 			icon_state = "frybirdtato"
 			tastes = list("frybird" = 1, "warm tato" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+2)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -142,7 +139,6 @@
 			icon_state = "royaltruffles"
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+COOKED_MEAT_NUTRITION+2)
 			tastes = list("salted ham" = 1, "divine truffles" = 1)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -154,7 +150,6 @@
 			icon_state = "royaltruffles"
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION, /datum/reagent/berrypoison = 10)
 			tastes = list("salted ham" = 1, "divine truffles" = 1)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -188,7 +183,7 @@
 	if(modified)
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/cabbage_fried) && (!modified))
-		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
+		playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on cabbage"
 			desc = "A rich and heavy meal, perfect ration for a soldier on the march."
@@ -196,7 +191,6 @@
 			tastes = list("savory sausage" = 2, "cabbage" = 1)
 			icon_state = "wienercabbage"
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -209,7 +203,6 @@
 			tastes = list("savory sausage" = 1, "potato" = 1)
 			icon_state = "wienerpotato"
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -222,7 +215,6 @@
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
 			tastes = list("savory sausage" = 1, "fried onions" = 1)
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -235,7 +227,6 @@
 			tastes = list("savory sausage" = 1, "bread" = 1)
 			icon_state = "grenzbun"
 			foodtype = GRAIN | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -273,7 +264,6 @@
 			tastes = list("savory sausage" = 2, "cabbage" = 1)
 			icon_state = "wienercabbage"
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -302,7 +292,6 @@
 			tastes = list("savory sausage" = 1, "potato" = 1)
 			icon_state = "wienerpotato"
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -314,7 +303,6 @@
 			icon_state = "frybirdtato"
 			tastes = list("frybird" = 1, "warm tato" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+2)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -329,7 +317,7 @@
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("savoury morsel" = 1)
-	rotprocess = SHELFLIFE_DECENT
+	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -343,7 +331,6 @@
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
 			tastes = list("savory sausage" = 1, "fried onions" = 1)
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -357,7 +344,7 @@
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm potato" = 1)
-	rotprocess = SHELFLIFE_LONG
+	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/preserved/potato/fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -372,7 +359,6 @@
 			tastes = list("savory sausage" = 1, "potato" = 1)
 			icon_state = "wienerpotato"
 			foodtype = VEGETABLES | MEAT
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -384,9 +370,50 @@
 			icon_state = "frybirdtato"
 			tastes = list("frybird" = 1, "warm tato" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+2)
-			modified = TRUE
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
 	return ..()
 
+
+/*---------------\
+| Chicken meals |
+\---------------*/
+
+/*	.................   Chicken roast   ................... */
+/obj/item/reagent_containers/food/snacks/cooked/roastchicken
+	name = "roast bird"
+	desc = "A plump bird, roasted to a perfect temperature and bears a crispy skin."
+	icon_state = "roast"
+	tastes = list("tasty birdmeat" = 1)
+	bitesize = 6
+	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+COOKED_MEAT_NUTRITION+1)
+	rotprocess = SHELFLIFE_LONG
+	plateable = TRUE
+	foodbuff_skillcheck = TRUE
+/obj/item/reagent_containers/food/snacks/cooked/roastchicken/attackby(obj/item/I, mob/living/user, params)
+	var/obj/item/reagent_containers/peppermill/mill = I
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	if(modified)
+		return TRUE
+	else if(istype(mill))
+		if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
+			to_chat(user, "There's not enough black pepper to make anything with.")
+			return TRUE
+		mill.icon_state = "peppermill_grind"
+		to_chat(user, "You start rubbing the bird roast with black pepper.")
+		playsound(get_turf(user), 'sound/foley/peppermill.ogg', 100, TRUE, -1)
+		if(do_after(user,3 SECONDS, target = src))
+			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
+				to_chat(user, "There's not enough black pepper to make anything with.")
+				return TRUE
+			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
+			name = "spiced [name]"
+			desc = "A plump bird, roasted to perfection, spiced to taste divine."
+			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "roast_spice")
+			overlays += spice
+			tastes = list("spicy birdmeat" = 2)
+			modified = TRUE
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+	return ..()

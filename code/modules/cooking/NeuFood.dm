@@ -5,9 +5,6 @@
  *						*
  * * * * * * * * * * * **/
 
-#define SIMPLE_COOKING_XPGAIN 10
-#define COMPLEX_COOKING_XPGAIN 25
-
 
 /*---------------\
 | Food templates |
@@ -50,7 +47,6 @@
 
 /obj/item/reagent_containers/food/snacks/rotten
 	name = "rotten food"
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
 	slices_num = 0
@@ -95,7 +91,7 @@
 	icon_state = "meatmince"
 /obj/item/reagent_containers/food/snacks/rotten/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess/rotting/get_turf(src)
-	playsound(get_turf(src), 'modular/Neu_Food/sound/meatslap.ogg', 100, TRUE, -1)
+	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
 	..()
 	qdel(src)
 
@@ -162,16 +158,16 @@
 
 /obj/item/kitchen/rollingpin
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/glass/bowl
 	name = "wooden bowl"
 	desc = "It is the empty space that makes the bowl useful."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
 	force = 5
 	throwforce = 5
@@ -311,8 +307,8 @@
 	name = "platter"
 	desc = "Made from fired clay or wood."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "platter"
 	resistance_flags = NONE
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
@@ -420,8 +416,8 @@
 	metabolization_rate = 0.3
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
 	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
-		M.adjustBruteLoss(-0.1*REM, 0)
-		M.adjustFireLoss(-0.1*REM, 0)
+		M.adjustBruteLoss(-0.1)
+		M.adjustFireLoss(-0.1)
 		M.adjust_energy(2)
 		return
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
@@ -453,8 +449,8 @@
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		if(M.blood_volume < BLOOD_VOLUME_NORMAL)
 			M.blood_volume = min(M.blood_volume+2, BLOOD_VOLUME_MAXIMUM)
-		M.adjustBruteLoss(-0.2*REM, 0)
-		M.adjustFireLoss(-0.2*REM, 0)
+		M.adjustBruteLoss(-0.2, 0)
+		M.adjustFireLoss(-0.2, 0)
 		M.adjust_energy(5)
 		return
 	else
@@ -462,9 +458,9 @@
 			M.emote("gag")
 			M.add_nausea(9)
 			if(isdwarf(M))
-				M.adjustToxLoss(2, 0)
+				M.adjustToxLoss(2)
 			else
-				M.adjustToxLoss(5, 0)
+				M.adjustToxLoss(5)
 	..()
 	. = TRUE
 
@@ -494,7 +490,7 @@
 	var/obj/item/reagent_containers/glass/R = I
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
-			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading in more powder..."))
 			if(do_after(user,short_cooktime, target = src))
 				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
@@ -507,7 +503,7 @@
 			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
 			return TRUE
 		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
-		playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
+		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
 		if(do_after(user,2 SECONDS, target = src))
 			name = "wet powder"
 			desc = "Destined for greatness, at your hands."
@@ -517,14 +513,14 @@
 	else
 		to_chat(user, span_warning("Put [src] on a table before working it!"))
 
-/obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
+/obj/item/reagent_containers/powder/flour/attack_hand(mob/living/user)
 	if(water_added)
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
+		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			var/obj/item/reagent_containers/food/snacks/rogue/dough_base/newdough= new(get_turf(user))
 			user.put_in_hands(newdough)
-			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(src)
 	else
 		..()

@@ -93,7 +93,7 @@
 	filling_color = "#8f433a"
 	foodtype = MEAT
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
-
+	warming = 5 MINUTES
 
 /*-----------------------\
 | Mince & Sausage making |
@@ -111,10 +111,12 @@
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/mince
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess(get_turf(src))
-	playsound(get_turf(src), 'modular/Neu_Food/sound/meatslap.ogg', 100, TRUE, -1)
+	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
 	..()
 	qdel(src)
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/attackby(obj/item/I, mob/living/user, params)
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince) && (!modified))
 		if(isturf(loc)&& (found_table))

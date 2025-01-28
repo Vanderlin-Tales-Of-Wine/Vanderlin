@@ -207,7 +207,7 @@
 /area/rogue/indoors/town/garrison)
 "amZ" = (
 /obj/machinery/tanningrack,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"

@@ -3346,10 +3346,10 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "SP" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "SR" = (
