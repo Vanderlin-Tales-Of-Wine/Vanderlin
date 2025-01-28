@@ -151,6 +151,8 @@
 	else if(!H.givingto && H.get_active_held_item()) //offer item
 		if(get_empty_held_indexes())
 			var/obj/item/I = H.get_active_held_item()
+			if(HAS_TRAIT(I, TRAIT_NODROP))
+				return
 			H.givingto = src
 			H.lastgibto = world.time
 			to_chat(src, span_notice("[H.name] offers [I] to me."))

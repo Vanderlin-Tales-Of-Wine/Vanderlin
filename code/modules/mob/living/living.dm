@@ -797,6 +797,7 @@
 		return FALSE
 	if(buckled || lying)
 		wallpressed = FALSE
+		update_wallpress_slowdown()
 		reset_offsets("wall_press")
 		return FALSE
 	var/turf/newwall = get_step(newloc, wallpressed)
