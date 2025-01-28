@@ -14,8 +14,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION)
-	name = "meat"
-	icon_state = "meatslab"
+	icon_state = "meat1"
 	slice_batch = TRUE // so it takes more time, changed from FALSE
 	filling_color = "#8f433a"
 	rotprocess = SHELFLIFE_SHORT
@@ -27,16 +26,18 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	ingredient_size = 2
 	name = "raw meat"
-	icon_state = "meatcutlet"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_smell = /datum/pollutant/food/fried_meat
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak/New()
+	. = ..()
+	icon_state = "meat[rand(1,3)]"
 
-/*	.............   Pork, spidermeat, birdmeat   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/fatty //pork
+/*	.............   Pigflesh, spidermeat, birdmeat   ................ */
+/obj/item/reagent_containers/food/snacks/rogue/meat/fatty
 	name = "raw pigflesh"
 	icon_state = "pigflesh"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/ham

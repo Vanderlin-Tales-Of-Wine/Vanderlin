@@ -12512,7 +12512,7 @@
 	pixel_x = 10;
 	pixel_y = 0
 	},
-/obj/item/reagent_containers/food/snacks/rogue/royaltruffles/plated{
+/obj/item/reagent_containers/food/snacks/cooked/frybird{
 	pixel_x = -7;
 	pixel_y = 4
 	},

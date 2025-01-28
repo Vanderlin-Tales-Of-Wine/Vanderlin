@@ -544,7 +544,7 @@
 				S.rotprocess =  SHELFLIFE_LONG
 				S.w_class = WEIGHT_CLASS_NORMAL
 				S.bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
-				var/mutable_appearance/platter = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "platter")
+				var/mutable_appearance/platter = mutable_appearance(icon, "platter")
 				S.underlays += platter
 				qdel(src)
 		else
