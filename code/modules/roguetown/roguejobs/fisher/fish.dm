@@ -118,21 +118,29 @@
 	name = "cooked carp"
 	icon_state = "carpcooked"
 	plateable = TRUE
+	plating_alt_icon = TRUE
+	plated_iconstate = "carp_plated"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish
 	name = "cooked clownfish"
 	icon_state = "clownfishcooked"
 	plateable = TRUE
+	plating_alt_icon = TRUE
+	plated_iconstate = "clown_plated"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler
 	name = "cooked anglerfish"
 	icon_state = "anglercooked"
 	plateable = TRUE
+	plating_alt_icon = TRUE
+	plated_iconstate = "angler_plated"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel
 	name = "cooked eel"
 	icon_state = "eelcooked"
 	plateable = TRUE
+	plating_alt_icon = TRUE
+	plated_iconstate = "eel_plated"
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/swordfish
 	name = "cooked swordfish"

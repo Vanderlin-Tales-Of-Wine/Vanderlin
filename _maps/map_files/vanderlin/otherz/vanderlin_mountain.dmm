@@ -2327,8 +2327,8 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "vn" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/reagent_containers/glass/bowl,

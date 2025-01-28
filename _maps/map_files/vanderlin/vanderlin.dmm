@@ -4067,14 +4067,14 @@
 /obj/item/reagent_containers/glass/bowl,
 /obj/item/reagent_containers/glass/bowl,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
 "cOg" = (
@@ -9932,7 +9932,7 @@
 	pixel_x = 19;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated{
+/obj/item/reagent_containers/food/snacks/cooked/sausage{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -20746,19 +20746,19 @@
 /area/rogue/indoors/town/orphanage)
 "pfV" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = -10;
 	pixel_y = 2
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = 11;
 	pixel_y = 9
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = -4;
 	pixel_y = 10
 	},
@@ -28143,14 +28143,14 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},

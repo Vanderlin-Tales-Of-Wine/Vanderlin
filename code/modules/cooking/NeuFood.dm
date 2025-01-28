@@ -12,12 +12,10 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
-	bitesize = 3
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	do_random_pixel_offset = FALSE // disables the random placement on creation for this object
 
 /obj/item/reagent_containers/food/snacks/preserved // just convenient way to group food with long rotprocess
-	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	rotprocess = SHELFLIFE_EXTREME
 
@@ -49,9 +47,6 @@
 	name = "rotten food"
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
-	slices_num = 0
-	slice_path = null
-	cooktime = 0
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -102,37 +97,38 @@
 | Kitchen tools |
 \--------------*/
 
-/obj/item/kitchen/spoon
-	name = "wooden spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, or to churn butter with."
+/obj/item/kitchen
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	icon_state = "spoon"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/kitchen/ironspoon
+/obj/item/kitchen/spoon
+	name = "wooden spoon"
+	desc = "Traditional utensil for shoveling soup into your mouth, or to churn butter with."
+	icon_state = "spoon"
+
+/obj/item/kitchen/spoon/iron
 	name = "iron spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, now made with iron for that metallic taste!"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "spoon_iron"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/fork
 	name = "wooden fork"
 	desc = "Traditional utensil for stabbing your food in order to shove it into your mouth."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/kitchen/ironfork
+/obj/item/kitchen/fork/iron
 	name = "iron fork"
-	desc = "Traditional utensil for stabbing your food, now made with iron for extra stabbiness!"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork_iron"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/kitchen/platter
+	name = "platter"
+	desc = "Made from fired clay or wood."
+	icon_state = "platter"
+	resistance_flags = NONE
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/glass/bowl
 	name = "bowl"
@@ -157,9 +153,6 @@
 	icon_state = "bowl_iron"
 
 /obj/item/kitchen/rollingpin
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/glass/bowl
@@ -188,31 +181,31 @@
 	if(reagents)
 		if(reagents.total_volume > 0)
 			if(reagents.total_volume <= 11)
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_low")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_low")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 		if(reagents.total_volume > 11)
 			if(reagents.total_volume <= 22)
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_half")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_half")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 		if(reagents.total_volume > 22)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/oatmeal, 10))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_oatmeal")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_oatmeal")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_full")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
 				add_overlay(filling)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 17))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_stew")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_stew")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
 				add_overlay(filling)
 			else
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_full")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 	else
@@ -303,16 +296,7 @@
 	list_reagents = list(/datum/reagent/consumable/blackpepper = 5)
 	reagent_flags = TRANSPARENT
 
-/obj/item/cooking/platter
-	name = "platter"
-	desc = "Made from fired clay or wood."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	icon_state = "platter"
-	resistance_flags = NONE
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	experimental_inhand = FALSE
+
 
 
 
@@ -474,7 +458,6 @@
 /obj/item/reagent_containers/powder/flour
 	name = "powder"
 	desc = "With this ambition, we build an empire."
-	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
@@ -549,14 +532,14 @@
 \------------------*/
 
 /*	..................   Food platter   ................... */
-/obj/item/cooking/platter/attackby(obj/item/I, mob/user, params)
+/obj/item/kitchen/platter/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = I
 		if (S.plateable == TRUE)
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,1 SECONDS, target = src))
 				S.plated()
-				S.trash = /obj/item/cooking/platter
+				S.trash = /obj/item/kitchen/platter
 				S.plateable = FALSE
 				S.rotprocess =  SHELFLIFE_LONG
 				S.w_class = WEIGHT_CLASS_NORMAL
@@ -568,8 +551,6 @@
 			to_chat(user, span_warning("[S] cannot be plated."))
 	else
 		return ..()
-
-
 
 
 

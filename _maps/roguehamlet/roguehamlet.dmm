@@ -5397,8 +5397,8 @@
 /area/rogue/outdoors/mountains)
 "fEa" = (
 /obj/structure/rack/rogue,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter{
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter{
 	pixel_y = -5
 	},
 /obj/structure/fluff/railing/border{

@@ -66,7 +66,7 @@ All foods are distributed among various categories. Use common sense.
 	var/cooktime = 25 SECONDS
 	var/burning = 0
 	var/burntime = 5 MINUTES
-	var/warming = 5 MINUTES		//if greater than 0, have a brief period where the food buff applies while its still hot
+	var/warming		//if greater than 0, have a brief period where the food buff applies while its still hot
 
 	var/cooked_color = "#91665c"
 	var/burned_color = "#302d2d"
@@ -103,6 +103,8 @@ All foods are distributed among various categories. Use common sense.
 
 	var/skillcheck	// got enough skill to make this?
 	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
+	var/plating_alt_icon
+	var/plated_iconstate
 
 /datum/intent/food
 	name = "feed"
@@ -643,11 +645,14 @@ All foods are distributed among various categories. Use common sense.
 
 // Proc to handle visuals from plating
 /obj/item/reagent_containers/food/snacks/proc/plated()
+	icon = 'icons/roguetown/items/food.dmi'
 	item_state = "plate_food"
 	experimental_inhand = FALSE
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	if(plating_alt_icon)
+		icon_state = plated_iconstate
 
 // Proc for important vars when reaching meal level
 /obj/item/reagent_containers/food/snacks/proc/meal_properties()

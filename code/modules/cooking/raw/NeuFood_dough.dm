@@ -164,7 +164,7 @@
 			to_chat(user, span_notice("Working cackleberry into the dough, shaping it into a cake..."))
 			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/cake_base(loc)
+				new /obj/item/reagent_containers/food/snacks/cake(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
 				qdel(src)
@@ -808,33 +808,45 @@
 \------*/
 
 /*	.................   Cake   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/cake_base
+/obj/item/reagent_containers/food/snacks/cake
 	name = "cake base"
-	desc = "With this sweet thing, you shall make them sing."
+	desc = "With this sweet thing, you shall make them sing. With jacksberry filling a cheesecake can be made. A more exotic cake requires pear filling."
 	icon_state = "cake"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/cake_base/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/cake/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(user.mind)
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
+			to_chat(user, "<span class='notice'>Adding some juicy fruit filling...</span>")
 			if(do_after(user,long_cooktime, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked(loc)
+				new /obj/item/reagent_containers/food/snacks/chescake_poison(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
 				qdel(I)
 				qdel(src)
 		else
 			to_chat(user, span_warning("Put [src] on a table before working it!"))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/spiderhoney))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/produce/pear))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Slathering the cake with delicious honey...</span>")
 			if(do_after(user,long_cooktime, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/hcakeuncooked(loc)
+				new /obj/item/reagent_containers/food/snacks/zybcake(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
+				qdel(I)
+				qdel(src)
+		else
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry))
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, "<span class='notice'>Adding some juicy fruit filling...</span>")
+			if(do_after(user,long_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/chescake(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
 				qdel(I)
 				qdel(src)
@@ -843,94 +855,185 @@
 	else
 		return ..()
 
+/obj/item/reagent_containers/food/snacks/chescake
+	name = "cheesecake base"
+	desc = "With this sweet thing, you shall make them sing. Lacking fresh cheese glazing."
+	icon_state = "cake_filled"
+	w_class = WEIGHT_CLASS_NORMAL
+	foodtype = GRAIN | DAIRY
+	rotprocess = SHELFLIFE_LONG
+/obj/item/reagent_containers/food/snacks/chescake/attackby(obj/item/I, mob/living/user, params)
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
+			if(do_after(user,long_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/chescake_ready(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
+				qdel(I)
+				qdel(src)
+		else
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+	else
+		return ..()
+
+/obj/item/reagent_containers/food/snacks/chescake_poison
+	name = "cheesecake base"
+	desc = "With this sweet thing, you shall make them sing. Lacking fresh cheese glazing."
+	icon_state = "cake_filled"
+	w_class = WEIGHT_CLASS_NORMAL
+	foodtype = GRAIN | DAIRY
+	rotprocess = SHELFLIFE_LONG
+/obj/item/reagent_containers/food/snacks/chescake_poison/attackby(obj/item/I, mob/living/user, params)
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
+			if(do_after(user,long_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/chescake_poison_ready(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
+				qdel(I)
+				qdel(src)
+		else
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+	else
+		return ..()
+
+/obj/item/reagent_containers/food/snacks/zybcake
+	name = "zybantu cake base"
+	desc = "With this sweet thing, you shall make them sing. Lacking spider-honey glazing."
+	icon_state = "cake_filled"
+	w_class = WEIGHT_CLASS_NORMAL
+	foodtype = GRAIN | DAIRY
+	rotprocess = SHELFLIFE_LONG
+/obj/item/reagent_containers/food/snacks/chescake/attackby(obj/item/I, mob/living/user, params)
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/spiderhoney))
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+			to_chat(user, "<span class='notice'>Spreading spider-honey on the cake...</span>")
+			if(do_after(user,long_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/zybcake_ready(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
+				qdel(I)
+				qdel(src)
+		else
+			to_chat(user, span_warning("Put [src] on a table before working it!"))
+	else
+		return ..()
+
+
+
 // -------------- SPIDER-HONEY CAKE (Zybantu) -----------------
-/obj/item/reagent_containers/food/snacks/rogue/hcakeuncooked
+/obj/item/reagent_containers/food/snacks/zybcake_ready
 	name = "unbaked cake"
 	icon_state = "honeycakeuncook"
 	slices_num = 0
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/hcake
+	cooked_type = /obj/item/reagent_containers/food/snacks/zybcake_cooked
 	cooked_smell = /datum/pollutant/food/honey_cake
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
-	foodtype = GRAIN | DAIRY | SUGAR
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/rogue/hcake
+/obj/item/reagent_containers/food/snacks/zybcake_cooked
 	name = "zybantine cake"
-	desc = "Cake glazed with honey, in the famous Zybantu fashion, a delicious sweet treat."
+	desc = "Cake glazed with honey, in the famous Zybantu fashion, a delicious sweet treat. Said to be very hard to poison, perhaps the honey counteracting such malicious concotions."
 	icon_state = "honeycake"
-	slices_num = 8
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
-	list_reagents = list(/datum/reagent/consumable/nutriment = 48)
+	slices_num = 6
+	slice_path = /obj/item/reagent_containers/food/snacks/zybcake_slice
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*6)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("cake"=1, "delicious honeyfrosting"=1)
-	foodtype = GRAIN | DAIRY | SUGAR
+	tastes = list("cake"=1, "pear" = 1, "delicious honeyfrosting"=1)
 	slice_batch = TRUE
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	bitesize = 16
+	bitesize = 6
 
-/obj/item/reagent_containers/food/snacks/rogue/hcakeslice
+/obj/item/reagent_containers/food/snacks/zybcake_slice
 	name = "zybantine cake slice"
 	icon_state = "honeycakeslice"
 	slices_num = 0
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
-	cooked_type = null
-	foodtype = GRAIN | DAIRY | SUGAR
-	bitesize = 3
+	foodtype = GRAIN | FRUIT | SUGAR
+	tastes = list("cake"=1, "pear" = 1, "delicious honeyfrosting"=1)
 	eat_effect = /datum/status_effect/buff/foodbuff
-	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/hcakeslice/plated
-	icon_state = "honeycakeslice_plated"
-	rotprocess = SHELFLIFE_EXTREME
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	trash = /obj/item/cooking/platter
+	rotprocess = SHELFLIFE_DECENT
+	plateable = TRUE
 
 // -------------- CHEESECAKE -----------------
 
-/obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked
+/obj/item/reagent_containers/food/snacks/chescake_ready
 	name = "unbaked cake of cheese"
 	icon_state = "cheesecakeuncook"
 	slices_num = 0
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/ccake
+	cooked_type = /obj/item/reagent_containers/food/snacks/cheesecake_cooked
 	cooked_smell = /datum/pollutant/food/cheese_cake
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	foodtype = GRAIN | DAIRY | SUGAR
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/rogue/ccake
+/obj/item/reagent_containers/food/snacks/chescake_poison_ready
+	name = "unbaked cake of cheese"
+	icon_state = "cheesecakeuncook"
+	slices_num = 0
+	cooked_type = /obj/item/reagent_containers/food/snacks/cheesecake_poison_cooked
+	cooked_smell = /datum/pollutant/food/cheese_cake
+	w_class = WEIGHT_CLASS_NORMAL
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/cheesecake_cooked
 	name = "cheesecake"
 	desc = "Humenity's favored creation."
 	icon_state = "cheesecake"
-	slices_num = 8
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/ccakeslice
-	list_reagents = list(/datum/reagent/consumable/nutriment = 48)
+	slices_num = 6
+	slice_path = /obj/item/reagent_containers/food/snacks/cheesecake_slice
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*6)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("cake"=1, "creamy cheese"=1)
+	tastes = list("cake"=1, "jacksberry" = 1, "creamy cheese"=1)
 	foodtype = GRAIN | DAIRY | SUGAR
 	slice_batch = TRUE
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	bitesize = 16
+	bitesize = 6
 
-/obj/item/reagent_containers/food/snacks/rogue/ccakeslice
+/obj/item/reagent_containers/food/snacks/cheesecake_slice
 	name = "cheesecake slice"
 	icon_state = "cheesecake_slice"
 	slices_num = 0
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("cake"=1, "jacksberry" = 1, "creamy cheese"=1)
 	w_class = WEIGHT_CLASS_NORMAL
-	cooked_type = null
 	foodtype = GRAIN | DAIRY | SUGAR
-	bitesize = 2
 	eat_effect = /datum/status_effect/buff/foodbuff
-	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/ccakeslice/plated
-	icon_state = "cheesecake_slice_plated"
-	rotprocess = SHELFLIFE_EXTREME
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	trash = /obj/item/cooking/platter
+	rotprocess = SHELFLIFE_DECENT
+	plateable = TRUE
 
+/obj/item/reagent_containers/food/snacks/cheesecake_poison_cooked
+	name = "cheesecake"
+	desc = "Humenity's favored creation."
+	icon_state = "cheesecake"
+	slices_num = 6
+	slice_path = /obj/item/reagent_containers/food/snacks/cheesecake_poison_slice
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT*6, /datum/reagent/berrypoison = 24)
+	w_class = WEIGHT_CLASS_NORMAL
+	tastes = list("cake"=1, "sour berry" = 1, "creamy cheese"=1)
+	foodtype = GRAIN | DAIRY | SUGAR
+	slice_batch = TRUE
+	slice_sound = TRUE
+	rotprocess = SHELFLIFE_LONG
+	eat_effect = /datum/status_effect/buff/foodbuff
+	bitesize = 6
+
+/obj/item/reagent_containers/food/snacks/cheesecake_poison_slice
+	name = "cheesecake slice"
+	icon_state = "cheesecake_slice"
+	slices_num = 0
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/berrypoison = 6)
+	tastes = list("cake"=1, "sour berry" = 1, "creamy cheese"=1)
+	w_class = WEIGHT_CLASS_NORMAL
+	foodtype = GRAIN | DAIRY | SUGAR
+	rotprocess = SHELFLIFE_DECENT
+	plateable = TRUE

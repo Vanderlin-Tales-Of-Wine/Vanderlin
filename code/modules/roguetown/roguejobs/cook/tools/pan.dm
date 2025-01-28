@@ -1,9 +1,5 @@
 /obj/item/cooking/pan
 	name = "frypan"
-	desc = ""
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "pan"
 	experimental_inhand = FALSE
 
@@ -15,7 +11,7 @@
 	slot_flags = ITEM_SLOT_HIP
 	can_parry = TRUE
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
-	wdefense = 5
+	wdefense = ULTMATE_PARRY
 	ingsize = 3
 
 /obj/item/cooking/pan/examine(mob/user)
