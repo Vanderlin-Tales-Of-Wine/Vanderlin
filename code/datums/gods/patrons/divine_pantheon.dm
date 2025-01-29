@@ -3,6 +3,20 @@
 	associated_faith = /datum/faith/divine_pantheon
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 
+/datum/patron/divine/can_pray(mob/living/follower)
+	//you can pray anywhere inside a church
+	if(istype(get_area(follower), /area/rogue/indoors/town/church))
+		return TRUE
+
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(!cross.obj_broken)
+			return TRUE
+
+	to_chat(follower, span_danger("I need a nearby Pantheon Cross for my prayers to be heard..."))
+	return FALSE
+
+/* ----------------- */
+
 /datum/patron/divine/astrata
 	name = "Astrata"
 	domain = "Goddess of Order, the Sun Queen"

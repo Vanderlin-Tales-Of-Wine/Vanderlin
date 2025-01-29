@@ -12,3 +12,11 @@
 		"THE SUCCESSORS HALT HIS RETURN!",
 		"PSYDON LIVES!",
 	)
+
+/datum/patron/psydon/can_pray(mob/living/carbon/human/follower)
+	/// we kind of assume that the follower is human here so ummm
+	if(istype(follower.wear_neck, /obj/item/clothing/neck/roguetown/psycross))
+		return TRUE
+
+	to_chat(follower, span_danger("I can not talk to Him... I need His cross on my neck!"))
+	return FALSE

@@ -143,6 +143,7 @@
 #include "code\__DEFINES\dcs\signals\signals_ticker.dm"
 #include "code\__DEFINES\dcs\signals\signals_tram.dm"
 #include "code\__DEFINES\dcs\signals\signals_turf.dm"
+#include "code\__DEFINES\dcs\signals\signals_mob\signals_carbon.dm"
 #include "code\__DEFINES\dcs\signals\signals_mob\signals_living.dm"
 #include "code\__DEFINES\dcs\signals\signals_mob\signals_mob.dm"
 #include "code\__DEFINES\dcs\signals_atoms\lighting.dm"

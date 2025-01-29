@@ -1,11 +1,23 @@
 /datum/patron/inhumen
 	name = null
 	associated_faith = /datum/faith/inhumen_pantheon
+
+	profane_words = list()
 	confess_lines = list(
 		"PSYDON AND HIS CHILDREN ARE THE DEMIURGE!",
 		"THE TEN ARE WORTHLESS COWARDS!",
 		"THE TEN ARE DECEIVERS!"
 	)
+
+/datum/patron/inhumen/can_pray(mob/living/follower)
+	for(var/obj/structure/fluff/psycross/cross in view(7, get_turf(follower)))
+		if(!cross.obj_broken)
+			to_chat(follower, span_danger("That accursed cross won't let me commune with the Forbidden One!"))
+			return FALSE
+
+	return TRUE
+
+/* ----------------- */
 
 /datum/patron/inhumen/zizo
 	name = "Zizo"
