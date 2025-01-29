@@ -10,7 +10,7 @@
 | Raw meats and cuts |
 \-------------------*/
 
-/*	.............   Raw meat   ................ */
+// Template
 /obj/item/reagent_containers/food/snacks/rogue/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION)
@@ -23,6 +23,7 @@
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
 
+/*	.............   Raw meat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	ingredient_size = 2
 	name = "raw meat"
@@ -35,6 +36,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/New()
 	. = ..()
 	icon_state = "meat[rand(1,3)]"
+
+/obj/item/reagent_containers/food/snacks/rogue/meat/human
+	name = "manflesh"
 
 /*	.............   Pigflesh, spidermeat, birdmeat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty
@@ -118,6 +122,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince) && (!modified))
 		if(isturf(loc)&& (found_table))

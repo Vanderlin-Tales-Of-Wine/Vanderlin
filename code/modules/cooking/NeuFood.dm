@@ -10,7 +10,7 @@
 | Food templates |
 \---------------*/
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
+/obj/item/reagent_containers/food/snacks/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	do_random_pixel_offset = FALSE // disables the random placement on creation for this object
@@ -471,12 +471,14 @@
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/glass/R = I
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading in more powder..."))
 			if(do_after(user,short_cooktime, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
+				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
 				qdel(src)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -543,6 +545,7 @@
 				S.plateable = FALSE
 				S.rotprocess =  SHELFLIFE_LONG
 				S.w_class = WEIGHT_CLASS_NORMAL
+				S.dropshrink = 0.9
 				S.bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
 				var/mutable_appearance/platter = mutable_appearance(icon, "platter")
 				S.underlays += platter

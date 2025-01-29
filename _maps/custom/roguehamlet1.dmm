@@ -10761,7 +10761,7 @@
 "lLu" = (
 /obj/item/book/rogue/knowledge1,
 /obj/structure/chair/bench/couchablack/r,
-/obj/item/reagent_containers/food/snacks/raisbread_slice,
+/obj/item/reagent_containers/food/snacks/rbread_slice,
 /obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/magician)

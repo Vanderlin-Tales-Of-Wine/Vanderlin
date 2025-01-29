@@ -2,8 +2,8 @@
 /obj/item/reagent_containers/food/snacks/spiderhoney
 	name = "honeycomb"
 	desc = ""
-	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "honey"
+	dropshrink = 0.8
 	possible_transfer_amounts = list()
 	spillable = FALSE
 	disease_amount = 0

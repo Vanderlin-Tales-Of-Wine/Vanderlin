@@ -2,8 +2,8 @@
 /datum/orderless_slapcraft/pie
 	abstract_type = /datum/orderless_slapcraft/pie
 
-	finishing_item = /obj/item/reagent_containers/food/snacks/rogue/piedough
-	starting_item = /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
+	finishing_item = /obj/item/reagent_containers/food/snacks/piedough
+	starting_item = /obj/item/reagent_containers/food/snacks/foodbase/piebottom
 	related_skill = /datum/skill/craft/cooking
 	skill_xp_gained = 20
 	action_time = 5 SECONDS
@@ -19,7 +19,7 @@
 	var/fill_states = 3
 
 /datum/orderless_slapcraft/pie/try_finish(mob/living/user)
-	var/obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom/source = hosted_source
+	var/obj/item/reagent_containers/food/snacks/foodbase/piebottom/source = hosted_source
 
 	source.cut_overlays()
 	var/mutable_appearance/piebottom = mutable_appearance(source.icon, "pieuncooked")

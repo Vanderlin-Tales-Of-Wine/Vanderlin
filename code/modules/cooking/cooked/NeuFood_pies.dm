@@ -8,7 +8,7 @@
 
 
 /*	........   Pie making   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
+/obj/item/reagent_containers/food/snacks/foodbase/piebottom
 	name = "pie bottom"
 	desc = "The foundation of the fantastical."
 	icon_state = "piebottom"
@@ -146,7 +146,7 @@
 | Handpie |
 \--------*/		// dwarven pie on the go, good shelflife until bitten, made from pie dough and mince, truffles or jacksberries
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw
 	name = "raw handpie"
 	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
 	icon_state = "handpie_raw"
@@ -156,33 +156,33 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	dropshrink = 0.8
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mushroom
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/mushroom
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | VEGETABLES
 	tastes = list("delicious truffles" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/mince
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | MEAT
 	tastes = list("succulent meat" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/cheese
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/cheese
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY
 	tastes = list("hot cheese" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/apple
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/apple
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
 	tastes = list("sweet apple" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/berry
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
 	tastes = list("sweet berry" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison
+/obj/item/reagent_containers/food/snacks/foodbase/handpieraw/poison
 	list_reagents = list(/datum/reagent/berrypoison = 5)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT

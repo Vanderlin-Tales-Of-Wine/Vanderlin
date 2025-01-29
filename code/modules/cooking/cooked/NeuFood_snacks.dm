@@ -175,6 +175,7 @@
 	desc = "Delicious flesh stuffed in a intestine casing."
 	icon_state = "wiener"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION)
+	tastes = list("savory sausage" = 2)
 	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/cooked/sausage/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
@@ -187,7 +188,7 @@
 			name = "wiener on cabbage"
 			desc = "A rich and heavy meal, perfect ration for a soldier on the march."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
-			tastes = list("savory sausage" = 2, "cabbage" = 1)
+			tastes = list("cabbage" = 1)
 			icon_state = "wienercabbage"
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
@@ -199,7 +200,7 @@
 			name = "wiener on tato"
 			desc = "Stout and nourishing."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+2)
-			tastes = list("savory sausage" = 1, "potato" = 1)
+			tastes = list("fried potato" = 1)
 			icon_state = "wienerpotato"
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
@@ -212,7 +213,7 @@
 			desc = "Stout and flavourful."
 			icon_state = "wieneronion"
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
-			tastes = list("savory sausage" = 1, "fried onions" = 1)
+			tastes = list("fried onions" = 1)
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -223,7 +224,7 @@
 			name = "grenzelbun"
 			desc = "Originally an elven cuisine composed of mortal races flesh and bread, the classic wiener in a bun, now modified and staple food of Grenzelhoft cuisine."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
-			tastes = list("savory sausage" = 1, "bread" = 1)
+			tastes = list("bread" = 1)
 			icon_state = "grenzbun"
 			foodtype = GRAIN | MEAT
 			meal_properties()

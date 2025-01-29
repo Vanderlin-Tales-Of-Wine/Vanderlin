@@ -14991,11 +14991,11 @@
 /area/rogue/indoors/town)
 "prj" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/food/snacks/rogue/pastry,
-/obj/item/reagent_containers/food/snacks/rogue/frybread,
+/obj/item/reagent_containers/food/snacks/pastry,
+/obj/item/reagent_containers/food/snacks/frybread,
 /obj/item/reagent_containers/food/snacks/rogue/biscuit,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/raisbread_slice,
+/obj/item/reagent_containers/food/snacks/rbread_slice,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/magician)
 "pro" = (
@@ -19636,8 +19636,8 @@
 /area/rogue/under/town/basement)
 "ufL" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/frybread,
-/obj/item/reagent_containers/food/snacks/rogue/frybread,
+/obj/item/reagent_containers/food/snacks/frybread,
+/obj/item/reagent_containers/food/snacks/frybread,
 /obj/item/reagent_containers/food/snacks/raisinbread,
 /obj/structure/fluff/railing/border{
 	dir = 1;
