@@ -55,6 +55,7 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shrine/volf)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_prey)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_predator)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/Shillelagh)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
@@ -76,6 +77,14 @@
 	category = CAT_NONE
 	subtype_reqs = TRUE // so you can use any subtype of the items
 	req_table = FALSE
+
+/datum/crafting_recipe/dendor/Shillelagh
+	name = "Shillelagh (unique)"
+	result = /obj/item/rogueweapon/mace/goden/shillelagh
+	reqs = list(/obj/item/grown/log/tree/small = 1,
+				/obj/item/ash = 1,
+				/obj/item/reagent_containers/food/snacks/fat =1 )
+	craftdiff = 2
 
 /datum/crafting_recipe/dendor/visage
 	name = "druids mask (unique)"
