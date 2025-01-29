@@ -395,16 +395,17 @@
 	for(var/obj/item/I in held_items)
 		qdel(I)
 
-/mob/living/carbon/human/proc/smart_equipbag() // take most recent item out of bag or place held item in bag
+/// Smartly equips / takes an item out / puts it in the left back slot or the right.
+/mob/living/carbon/human/proc/smart_equipbag(slot = SLOT_BACK_L) // take most recent item out of bag or place held item in bag
 	if(incapacitated())
 		return
 	var/obj/item/thing = get_active_held_item()
-	var/obj/item/equipped_back = get_item_by_slot(SLOT_BACK)
+	var/obj/item/equipped_back = get_item_by_slot(slot)
 	if(!equipped_back) // We also let you equip a backpack like this
 		if(!thing)
 			to_chat(src, "<span class='warning'>I have no backpack to take something out of!</span>")
 			return
-		if(equip_to_slot_if_possible(thing, SLOT_BACK))
+		if(equip_to_slot_if_possible(thing, slot))
 			update_inv_hands()
 		return
 	if(!SEND_SIGNAL(equipped_back, COMSIG_CONTAINS_STORAGE)) // not a storage item
