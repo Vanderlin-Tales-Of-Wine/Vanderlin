@@ -43,7 +43,6 @@
 			M.emote(pick("twitch_s","chuckle"))
 	if(M.has_flaw(/datum/charflaw/addiction/junkie))
 		M.sate_addiction()
-	M.apply_status_effect(/datum/status_effect/buff/druqks)
 	..()
 
 /atom/movable/screen/fullscreen/druqks
@@ -63,20 +62,23 @@
 /datum/reagent/druqks/on_mob_metabolize(mob/living/M)
 	M.overlay_fullscreen("druqk", /atom/movable/screen/fullscreen/druqks)
 	M.set_drugginess(30)
-	M.update_body_parts_head_only()
+	M.apply_status_effect(/datum/status_effect/buff/druqks)
 	if(M.client)
 		ADD_TRAIT(M, TRAIT_DRUQK, "based")
 		SSdroning.area_entered(get_area(M), M.client)
+	M.update_body_parts_head_only()
 //			if(M.client.screen && M.client.screen.len)
 //				var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in M.client.screen
 //				PM.backdrop(M.client.mob)
 
 /datum/reagent/druqks/on_mob_end_metabolize(mob/living/M)
 	M.clear_fullscreen("druqk")
-	M.update_body_parts_head_only()
+	M.set_drugginess(0)
+	M.remove_status_effect(/datum/status_effect/buff/druqks)
 	if(M.client)
 		REMOVE_TRAIT(M, TRAIT_DRUQK, "based")
 		SSdroning.play_area_sound(get_area(M), M.client)
+	M.update_body_parts_head_only()
 //		if(M.client.screen && M.client.screen.len)
 ///			var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in M.client.screen
 //			PM.backdrop(M.client.mob)
