@@ -15,11 +15,13 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	head = /obj/item/clothing/head/roguetown/helmet/coppercap
 	backr = /obj/item/rogueweapon/shield/wood
-	backl = /obj/item/rogueweapon/sword/scimitar/falchion
+	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+	beltl = /obj/item/rogueweapon/sword/scimitar/falchion
 	pants = /obj/item/clothing/under/roguetown/trou
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
 	H.change_stat("strength", 3)
 	H.change_stat("perception", 2)
 	H.change_stat("intelligence", 1)

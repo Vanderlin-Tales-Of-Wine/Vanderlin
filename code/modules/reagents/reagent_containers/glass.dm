@@ -198,7 +198,7 @@
 	..()
 
 /obj/item/reagent_containers/glass/bucket
-	name = "bucket"
+	name = "bugged bucket please report to mappers"
 	desc = ""
 	icon = 'icons/roguetown/items/misc.dmi'
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -303,7 +303,7 @@
 
 /obj/item/reagent_containers/glass/mortar
 	name = "mortar"
-	desc = ""
+	desc = "Designed to juice and grind ingredients."
 	icon_state = "mortar"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5, 10, 15, 20, 25, 30, 50, 100)

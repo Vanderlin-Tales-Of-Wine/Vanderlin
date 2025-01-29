@@ -27,7 +27,7 @@
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
 
-/datum/job/roguetown/adventurer/villager/New()
+/datum/job/roguetown/villager/New()
 	. = ..()
 	for(var/X in GLOB.peasant_positions)
 		peopleiknow += X
