@@ -12371,6 +12371,12 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
+"iPq" = (
+/obj/effect/landmark/start/gaffer{
+	dir = 4
+	},
+/turf/open/floor/rogue/carpet/green,
+/area/rogue/indoors/town/merc_guild)
 "iPy" = (
 /obj/structure/stairs{
 	dir = 8;
@@ -90829,7 +90835,7 @@ ehF
 jMD
 xkb
 mAn
-mAn
+iPq
 mAn
 mAn
 nEc
