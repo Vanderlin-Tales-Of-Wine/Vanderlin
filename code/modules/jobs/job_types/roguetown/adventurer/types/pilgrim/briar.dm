@@ -78,7 +78,7 @@
 	subtype_reqs = TRUE // so you can use any subtype of the items
 	req_table = FALSE
 
-/datum/crafting_recipe/dendor/Shillelagh
+/datum/crafting_recipe/dendor/shillelagh
 	name = "Shillelagh (unique)"
 	result = /obj/item/rogueweapon/mace/goden/shillelagh
 	reqs = list(/obj/item/grown/log/tree/small = 1,
