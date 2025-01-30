@@ -71,7 +71,7 @@
 	icon_state = "gold_carafe"
 	dropshrink = 0.8
 	sellprice = 65
-	
+
 /* Spawning full */
 
 /obj/item/reagent_containers/glass/carafe/water
