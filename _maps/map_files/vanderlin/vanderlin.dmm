@@ -6953,6 +6953,12 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
+"eSP" = (
+/obj/structure/bed/rogue/wool,
+/obj/item/bedsheet/rogue/fabric,
+/obj/effect/landmark/start/gaffer,
+/turf/open/floor/rogue/carpet,
+/area/rogue/indoors/town/merc_guild)
 "eTs" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt,
@@ -7407,7 +7413,7 @@
 "fjH" = (
 /obj/structure/mineral_door/wood/green{
 	locked = 1;
-	lockid = "mercenary"
+	lockid = "gaffer"
 	},
 /turf/open/floor/rogue/carpet/green,
 /area/rogue/indoors/town/merc_guild)
@@ -9965,6 +9971,10 @@
 "hbV" = (
 /turf/open/floor/rogue/metal,
 /area/rogue/under/town/sewer)
+"hbX" = (
+/obj/structure/roguemachine/scomm/l,
+/turf/open/floor/rogue/carpet/green,
+/area/rogue/indoors/town/merc_guild)
 "hcg" = (
 /turf/open/water/river{
 	dir = 8
@@ -15565,7 +15575,7 @@
 /area/rogue/indoors/town/manor)
 "ldq" = (
 /obj/structure/lever/hidden{
-	redstone_id = "mercenary"
+	redstone_id = "gaffer"
 	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/merc_guild)
@@ -20512,8 +20522,8 @@
 /area/rogue/indoors/town/cell)
 "oUp" = (
 /obj/effect/mapping_helpers/secret_door_creator{
-	name = "Mercenary Secret Door";
-	redstone_id = "mercenary"
+	name = "Guild Secret Door";
+	redstone_id = "gaffer"
 	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/merc_guild)
@@ -22105,7 +22115,7 @@
 "qjP" = (
 /obj/structure/mineral_door/wood/green{
 	locked = 1;
-	lockid = "mercenary"
+	lockid = "gaffer"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/town/sewer)
@@ -26507,7 +26517,7 @@
 "trv" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
-	lockid = "mercenary";
+	lockid = "gaffer";
 	locked = 1
 	},
 /turf/open/floor/rogue/wood/nosmooth,
@@ -31664,6 +31674,14 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
+"xdJ" = (
+/obj/structure/mineral_door/wood/violet{
+	locked = 1;
+	lockid = "gaffer";
+	name = "bedroom"
+	},
+/turf/open/floor/rogue/woodturned/nosmooth,
+/area/rogue/indoors/town/merc_guild)
 "xei" = (
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/tile{
@@ -90634,7 +90652,7 @@ jMD
 poi
 mAn
 tWU
-mAn
+hbX
 mAn
 fjH
 pGO
@@ -90843,7 +90861,7 @@ pGO
 pGO
 rPu
 nEc
-iMV
+xdJ
 nEc
 jMD
 jMD
@@ -91249,7 +91267,7 @@ fZk
 jMD
 sFA
 dlq
-nxE
+eSP
 jMD
 elp
 elp
