@@ -40,6 +40,7 @@
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	H.change_stat(STATKEY_STR, -2)
 	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
