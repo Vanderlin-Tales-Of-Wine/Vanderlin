@@ -5,7 +5,7 @@
 /datum/status_effect/buff/drunk
 	id = "drunk"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list(STATKEY_INT = -1, STATKEY_SPD = -1, STATKEY_PER = 1)
+	effectedstats = list(STATKEY_INT = -1, STATKEY_SPD = -1, STATKEY_CON = 1)
 	duration = 12 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/drunk
