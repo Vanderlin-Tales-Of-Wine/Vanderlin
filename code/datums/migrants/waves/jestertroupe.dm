@@ -21,21 +21,21 @@
 	armor = /obj/item/clothing/suit/roguetown/shirt/jester
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+	beltr = /obj/item/rogueweapon/knife/villager
 	head = /obj/item/clothing/head/roguetown/jester
 	neck = /obj/item/clothing/neck/roguetown/coif
 	mask = /obj/item/clothing/mask/rogue/lordmask
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, pick(1,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, pick(2,3), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(1,2), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(4,5,5,6), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,2,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,2,2,3), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, pick(2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(3,4), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick(2,3,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick(2,2,3,3,4,), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(4,4,4,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
@@ -46,30 +46,30 @@
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/CombatJester2.ogg'
 
-	/mob/living/carbon/human/proc/ventriloquate() // THIS WAVE GENUINELY INCOMPLETE WITHOUT THIS. SO MUCH JAPE POTENTIAL.
-	set name = "Ventriloquism"
-	set category = "Japes"
-
-	var/obj/item/grabbing/I = get_active_held_item()
-	if(!I)
-		to_chat(src, "<span class='warning'>I need to be holding or grabbing something!</span>")
-		return
-	var/message = input(usr, "What do you want to ventriloquate?", "Ventriloquism!") as text | null
-	if(!message)
-		return
-	I.say(message)
-	log_admin("[key_name(usr)] ventriloquated [I] at [AREACOORD(I)] to say \"[message]\"")
-
+	var/instruments = list(
+		"Harp" = /obj/item/rogue/instrument/harp,
+		"Lute" = /obj/item/rogue/instrument/lute,
+		"Accordion" = /obj/item/rogue/instrument/accord,
+		"Guitar" = /obj/item/rogue/instrument/guitar,
+		"Flute" = /obj/item/rogue/instrument/flute,
+		"Drum" = /obj/item/rogue/instrument/drum,
+		"Hurdy-Gurdy" = /obj/item/rogue/instrument/hurdygurdy,
+		"Viola" = /obj/item/rogue/instrument/viola)
+	var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
+	H.set_blindness(0)
+	if(instrument_choice && instruments[instrument_choice])
+		backr = instruments[instrument_choice]
+	else
+		backr = /obj/item/rogue/instrument/lute
 
 /datum/migrant_wave/jestertroupe
 	name = "The Circus"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/jestertroupe
 	downgrade_wave = /datum/migrant_wave/jestertroupe_down
-	weight = 8
+	weight = 10
 	roles = list(
-		/datum/migrant_role/jestertroupe
-	 = 3,
+		/datum/migrant_role/jestertroupe = 3
 	)
 	greet_text = "Bread and Circuses. That's how little it takes to entertain the peasantry. You aren't funny for money, you're funny by nature."
 
@@ -79,7 +79,6 @@
 	can_roll = FALSE
 	weight = 35
 	roles = list(
-		/datum/migrant_role/jestertroupe
-	 = 1,
+		/datum/migrant_role/jestertroupe = 1,
 	)
 	greet_text = "Bread and Circuses. That's how little it takes to entertain the peasantry. You aren't funny for money, you're funny by nature."
