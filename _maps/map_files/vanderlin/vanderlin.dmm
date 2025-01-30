@@ -6243,7 +6243,7 @@
 /area/rogue/outdoors/river)
 "esY" = (
 /obj/structure/roguemachine/vendor{
-	keycontrol = "tavern"
+	keycontrol = "butcher"
 	},
 /turf/closed/wall/mineral/rogue/wooddark/end{
 	icon_state = "endwooddark";
@@ -8088,7 +8088,7 @@
 /area/rogue/indoors/town/shop)
 "fJi" = (
 /obj/structure/roguemachine/vendor{
-	keycontrol = "tavern"
+	keycontrol = "soilson"
 	},
 /turf/closed/wall/mineral/rogue/wood/window,
 /area/rogue/outdoors/rtfield/safe)
