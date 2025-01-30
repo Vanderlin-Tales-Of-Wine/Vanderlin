@@ -19,8 +19,13 @@
 	well_climb = "DOWN"
 
 /obj/structure/well/climb_up
+	name = "bucket rope"
 	desc = "A rope at the bottom of a well, you can climb up it if you want."
+	icon = 'icons/roguetown/misc/tallstructure.dmi'
+	icon_state = "rope"
 	well_climb = "UP"
+	density = FALSE
+	layer = 4
 
 /obj/structure/well/fountain
 	name = "water fountain"

@@ -18,6 +18,8 @@
 	blade_dulling = DULLING_BASHCHOP
 	obj_flags = CAN_BE_HIT
 
+/obj/item/roguebin/alt	// probably unnecessary
+	icon_state = "washbin2"
 
 /obj/item/roguebin/Initialize()
 	if(!base_state)

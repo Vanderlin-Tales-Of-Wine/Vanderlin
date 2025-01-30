@@ -65,6 +65,7 @@
 #define COMSIG_PARENT_QDELETING "parent_qdeleting"
 /// generic topic handler (usr, href_list)
 #define COMSIG_TOPIC "handle_topic"
+#define COMSIG_PARENT_TRAP_TRIGGERED "trap_triggered_parent"
 
 // /atom signals
 #define COMSIG_ATOM_REMOVE_TRAIT "atom_remove_trait"

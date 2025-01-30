@@ -502,14 +502,20 @@
 
 /obj/item/clothing/head/roguetown/crown/serpcrown
 	name = "crown of Vanderlin"
-	desc = "Heavy is the weight of the crown, and even heavier the responsability it infers to its wearer."
+	desc = "Heavy is the weight of the crown, and even heavier the responsibility it infers to its wearer."
 	icon_state = "serpcrown"
 	sellprice = VALUE_EXTREME
 	resistance_flags = FIRE_PROOF|ACID_PROOF|LAVA_PROOF|UNACIDABLE|INDESTRUCTIBLE
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/Initialize()
 	. = ..()
-	SSroguemachine.crown = src
+	if(type == /obj/item/clothing/head/roguetown/crown/serpcrown)
+		SSroguemachine.crown = src
+
+/obj/item/clothing/head/roguetown/crown/serpcrown/proc/anti_stall()
+	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	SSroguemachine.crown = null //Do not harddel.
+	qdel(src) //Anti-stall
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/surplus
 	name = "crown"

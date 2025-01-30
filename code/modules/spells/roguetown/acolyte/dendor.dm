@@ -143,11 +143,11 @@
 	name = "Troll Shape"
 	desc = "Borrow power from the Troll, his favored beast."
 	overlay_state = "trollshape"
-	charge_max = 30 MINUTES // cast once every 30 minutes, lasts for 3 minutes
+	charge_max = 12 MINUTES // cast once every 30 minutes, lasts for 3 minutes || Monkey station edit, changed it down from 30 to 12!
 	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/dendor)
 	invocation = "DENDOR; LEND ME YOUR POWER!!"
 	invocation_type = "shout"
-	cooldown_min = 25 MINUTES
+	cooldown_min = 6 MINUTES
 	releasedrain = 100
 	miracle = TRUE
 	devotion_cost = 100
