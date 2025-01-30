@@ -22,6 +22,8 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltr = /obj/item/rogueweapon/knife/villager
+	backl = /obj/item/rogue/instrument/lute
+	backr = /obj/item/rogue/instrument/viola
 	head = /obj/item/clothing/head/roguetown/jester
 	neck = /obj/item/clothing/neck/roguetown/coif
 	mask = /obj/item/clothing/mask/rogue/lordmask
@@ -45,22 +47,6 @@
 	H.verbs |= /mob/living/carbon/human/proc/ventriloquate
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/CombatJester2.ogg'
-
-	var/instruments = list(
-		"Harp" = /obj/item/rogue/instrument/harp,
-		"Lute" = /obj/item/rogue/instrument/lute,
-		"Accordion" = /obj/item/rogue/instrument/accord,
-		"Guitar" = /obj/item/rogue/instrument/guitar,
-		"Flute" = /obj/item/rogue/instrument/flute,
-		"Drum" = /obj/item/rogue/instrument/drum,
-		"Hurdy-Gurdy" = /obj/item/rogue/instrument/hurdygurdy,
-		"Viola" = /obj/item/rogue/instrument/viola)
-	var/instrument_choice = input("Choose your instrument.", "XYLIX") as anything in instruments
-	H.set_blindness(0)
-	if(instrument_choice && instruments[instrument_choice])
-		backr = instruments[instrument_choice]
-	else
-		backr = /obj/item/rogue/instrument/lute
 
 /datum/migrant_wave/jestertroupe
 	name = "The Circus"
