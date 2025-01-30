@@ -23,7 +23,7 @@
 	outfit = /datum/outfit/job/roguetown/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
-	min_pq = 5
+	min_pq = 4
 
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
@@ -49,6 +49,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 
 /* ! ! ! Class Selection Section Below ! ! !
 Design philosphy:
@@ -89,9 +90,9 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
@@ -124,10 +125,10 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("speed", -1) // Stronk and gets training in hard hitting polearms, but slower
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -1) // Stronk and gets training in hard hitting polearms, but slower
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
@@ -175,9 +176,9 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.change_stat("perception", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("speed", 2)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_SPD, 2)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
@@ -192,12 +193,12 @@ Design philosphy:
 /datum/outfit/job/roguetown/guardsman/fencer/pre_equip(mob/living/carbon/human/H)
 	..()
 	//Gets studded leather (which hopefully will be renamed splint mail at some point...) and a chain coif
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/advanced
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	beltr = /obj/item/rogueweapon/sword/rapier
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
 	backl = /obj/item/storage/backpack/rogue/satchel
-	head = /obj/item/clothing/head/roguetown/roguehood/red
+	head = /obj/item/clothing/head/roguetown/helmet/ironpot
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	backpack_contents = list(/obj/item/storage/keyring/guard)
 
@@ -207,10 +208,11 @@ Design philosphy:
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_SPD, 2)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/proc/haltyell
