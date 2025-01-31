@@ -989,8 +989,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_races) && !(user.client.prefs.pref_species.name in job.allowed_races))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
+				if(!(user.client.triumph_ids.Find("race_all")))
+					HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+					continue
 			if(length(job.allowed_patrons) && !(user.client.prefs.selected_patron.type in job.allowed_patrons))
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
