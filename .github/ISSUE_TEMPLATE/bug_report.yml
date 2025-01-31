@@ -17,18 +17,6 @@ body:
       - label: I have searched the bug with a few keywords, and I confirm this bug was not yet reported.
         required: true
 
-- type: dropdown
-  id: location
-  attributes:
-    label: Map
-    multiple: true
-    description: Where did the bug happen?
-    options:
-      - Dun Manor
-      - DakkaTown
-  validations:
-    required: true
-
 - type: textarea
   id: what-happened
   attributes:
