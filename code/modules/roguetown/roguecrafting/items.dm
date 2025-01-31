@@ -265,6 +265,7 @@
 				/obj/item/reagent_containers/glass/bottle = 1)
 	craftdiff = 2
 	skillcraft = /datum/skill/craft/engineering
+	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/pyrobolt
 	name = "pyroclastic bolt"

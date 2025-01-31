@@ -217,5 +217,6 @@
 /obj/item/reagent_containers/glass/bottle/rogue/aflask
 	name = "alchemical flask"
 	desc = "A small metal flask used for the secure storing of alchemical powders."
+	icon = 'icons/roguetown/items/cooking.dmi'
 	list_reagents = list(/datum/reagent/blastpowder = 30)
 	icon_state = "aflask"

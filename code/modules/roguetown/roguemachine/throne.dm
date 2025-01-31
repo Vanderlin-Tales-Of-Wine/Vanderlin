@@ -41,3 +41,6 @@
 	M.color = secondary
 	add_overlay(M)
 	GLOB.lordcolor -= src
+
+/obj/structure/roguethrone/statues	// alt version with more statue but covers side tables less.
+	icon = 'icons/roguetown/misc/throne_alt.dmi'

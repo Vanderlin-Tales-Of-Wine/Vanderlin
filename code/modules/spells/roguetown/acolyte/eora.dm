@@ -97,13 +97,22 @@
 	if(user.patron != /datum/patron/inhumen/baotha)
 		REMOVE_TRAIT(user, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
 
-/obj/item/clothing/head/corruptflower/attack_hand(mob/user)
+/obj/item/clothing/head/corruptflower/proc/cursed_check(mob/living/user)
+	// return true if we should be unequippable, return false if not
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
 			to_chat(user, "<span class='warning'>Curse? What curse!? I feel great! Why would I ever want sobriety?</b></span>")
-			return
-	return ..()
+			return TRUE
+	return FALSE
+
+/obj/item/clothing/head/corruptflower/attack_hand(mob/user)
+	if (!cursed_check(usr))
+		return ..()
+
+/obj/item/clothing/head/corruptflower/MouseDrop(atom/over_object)
+	if (!cursed_check(usr))
+		return ..()
 
 /obj/effect/proc_holder/spell/invoked/bud
 	name = "Eoran Bloom"
