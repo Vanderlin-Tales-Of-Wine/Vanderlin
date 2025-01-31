@@ -1,8 +1,8 @@
 GLOBAL_LIST_EMPTY(preferences_datums)
-GLOBAL_LIST_EMPTY(chosen_names)
-GLOBAL_LIST_INIT(name_adjustments, list())
 
-#define TOPIC(target, args) "byond://[target]?[args]"
+GLOBAL_LIST_EMPTY(chosen_names)
+
+GLOBAL_LIST_INIT(name_adjustments, list())
 
 /datum/preferences
 	var/client/parent
@@ -286,7 +286,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			if(check_nameban(user.ckey))
 				dat += "<a href='?_src_=prefs;preference=name;task=input'>NAMEBANNED</a><BR>"
 			else
-				dat += "<a href='byond://?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>\[R\]</a>"
+				dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>\[R\]</a>"
 
 			dat += "<BR>"
 			dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
