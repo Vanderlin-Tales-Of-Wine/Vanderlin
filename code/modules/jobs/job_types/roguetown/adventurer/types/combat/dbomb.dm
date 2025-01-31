@@ -31,6 +31,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	switch(pick(1,2))
 		if (1)
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
