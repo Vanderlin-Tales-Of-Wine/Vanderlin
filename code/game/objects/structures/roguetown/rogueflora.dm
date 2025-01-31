@@ -790,7 +790,7 @@
 
 /obj/structure/flora/roguegrass/bush_meagre/Initialize()
 	if(silky)
-		goodie = /obj/item/reagent_containers/food/snacks/grub/silk
+		goodie = /obj/item/natural/worms/grub_silk
 	else
 		if(prob(30))
 			tobacco = TRUE
@@ -902,18 +902,4 @@
 	silky = TRUE
 
 
-/obj/item/reagent_containers/food/snacks/grub/silk
-	name = "silk grub"
-	desc = "Squeeze hard to force out the silk string."
-	icon = 'icons/roguetown/items/natural.dmi'
-	icon_state = "grub"
-	color = CLOTHING_MUSTARD_YELLOW
-	list_reagents = list(/datum/reagent/consumable/soup/stew/gross = 1)
-
-/obj/item/reagent_containers/food/snacks/grub/silk/attack_self(mob/living/user)
-	user.visible_message(span_notice("[user] crushes [src], forcing the silk out."), span_notice("I crush [src], forcing the silk out."))
-	playsound(get_turf(src), 'modular/Neu_Food/sound/meatslap.ogg', 100, TRUE, -1)
-	var/obj/item/natural/silk/M = new
-	qdel(src)
-	user.put_in_hands(M)
 

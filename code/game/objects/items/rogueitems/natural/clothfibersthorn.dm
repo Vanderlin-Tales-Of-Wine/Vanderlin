@@ -306,14 +306,14 @@
 /obj/item/natural/bundle/worms
 	name = "worms"
 	desc = "Multiple wriggly worms."
-	icon_state = "worm1"
+	icon_state = "worm2"
 	color = "#964B00"
-	maxamount = 12
+	maxamount = 6
 	icon1 = "worm2"
-	icon1step = 4
-	icon2 = "worm4"
-	icon2step = 6
-	icon3 = "worm6"
+	icon1step = 3
+	icon2 = "worm3"
+	icon2step = 5
+	icon3 = "worm4"
 	stacktype = /obj/item/natural/worms
 	stackname = "worms"
 
