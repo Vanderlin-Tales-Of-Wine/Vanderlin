@@ -23,7 +23,7 @@
 	//PQ_boost_divider = 10
 
 	wanderer_examine = TRUE
-	always_show_on_latechoices = TRUE
+	always_show_on_latechoices = FALSE
 	job_reopens_slots_on_death = FALSE //no endless stream of bandits, unless the migration waves deem it so
 	same_job_respawn_delay = 30 MINUTES
 

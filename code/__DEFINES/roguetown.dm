@@ -137,6 +137,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_CHALLENGE 		"CAT_CHALLENGE"  	// Challenge class - Meant to be free for everyone
 #define CTAG_MERCENARY		"CAT_MERCENARY"
 #define CTAG_GARRISON		"CAT_GARRISON"
+#define CTAG_FORGARRISON	"CAT_FORGARRISON"
 #define CTAG_ADEPT			"CAT_ADEPT" // Used for Adept class selection
 #define CTAG_SQUIRE 		"CAT_SQUIRE" // Squire Love, Classes, as above.
 #define CTAG_HEIR			"CAT_HEIR"
