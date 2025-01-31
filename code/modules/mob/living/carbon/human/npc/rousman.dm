@@ -54,16 +54,52 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	flee_in_pain = TRUE
 	wander = TRUE
 
+/////////////////////////////////////////////////////////////////////////////
 /obj/item/bodypart/chest/rousman
 	dismemberable = 1
+	icon = 'icons/roguetown/mob/monster/rousman.dmi'
+	icon_state = "rousman_chest"
+/obj/item/bodypart/chest/rousman/update_icon_dropped()
+	return
+/obj/item/bodypart/chest/rousman/get_limb_icon(dropped, hideaux = FALSE)
+	return
+
 /obj/item/bodypart/l_arm/rousman
 	dismemberable = 1
+	icon = 'icons/roguetown/mob/monster/rousman.dmi'
+	icon_state = "rousman_l_arm"
+/obj/item/bodypart/l_arm/rousman/update_icon_dropped()
+	return
+/obj/item/bodypart/l_arm/rousman/get_limb_icon(dropped, hideaux = FALSE)
+	return
+
 /obj/item/bodypart/r_arm/rousman
 	dismemberable = 1
+	icon = 'icons/roguetown/mob/monster/rousman.dmi'
+	icon_state = "rousman_r_arm"
+/obj/item/bodypart/r_arm/rousman/update_icon_dropped()
+	return
+/obj/item/bodypart/r_arm/rousman/get_limb_icon(dropped, hideaux = FALSE)
+	return
+
 /obj/item/bodypart/r_leg/rousman
 	dismemberable = 1
+	icon = 'icons/roguetown/mob/monster/rousman.dmi'
+	icon_state = "rousman_r_leg"
+/obj/item/bodypart/r_leg/rousman/update_icon_dropped()
+	return
+/obj/item/bodypart/r_leg/rousman/get_limb_icon(dropped, hideaux = FALSE)
+	return
+
 /obj/item/bodypart/l_leg/rousman
 	dismemberable = 1
+	icon = 'icons/roguetown/mob/monster/rousman.dmi'
+	icon_state = "rousman_l_leg"
+/obj/item/bodypart/l_leg/rousman/update_icon_dropped()
+	return
+/obj/item/bodypart/l_leg/rousman/get_limb_icon(dropped, hideaux = FALSE)
+	return
+/////////////////////////////////////////////////////////////////////////////
 
 /obj/item/bodypart/head/rousman/update_icon_dropped()
 	return
@@ -356,6 +392,8 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	return ..()
 
 /obj/structure/rousman_hole/proc/ambush(mob/living/carbon/human/ambushed_mob)
+	if(already_ambushed == TRUE)
+		return
 	for(var/i in 1 to rand(skulking_vermin))
 		var/mob/living/carbon/human/species/rousman/ambush/A = new /mob/living/carbon/human/species/rousman/ambush(get_turf(src))
 		A.del_on_deaggro = 1 MINUTES
