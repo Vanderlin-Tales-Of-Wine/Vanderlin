@@ -29,7 +29,7 @@
 				L.adjust_fire_stacks(6)
 				L.IgniteMob()
 			return ..()
-	to_chat(user, span_userdanger("Your mouth starts to move on its own!"))
+	to_chat(victim, span_userdanger("Your mouth starts to move on its own!"))
 	victim.say(forced_speak, forced = "spell")
 	victim.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
 	user.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
