@@ -5,7 +5,10 @@
 		"kh": "ch",
 		"r": "rr",
 		"yes": "da",
-		"hello": "privyet"
+		"hello": "privyet",
+		"bye": "poka",
+		"goodbye": "do svidania",
+		"farewell": "do svidania"
 		}
-		
+
 }
