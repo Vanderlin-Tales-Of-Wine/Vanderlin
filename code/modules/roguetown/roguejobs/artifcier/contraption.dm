@@ -142,6 +142,8 @@
 		new_door.locked = I.locked
 		if(I.lockid)
 			new_door.lockid = I.lockid
+		if(I.lockhash)
+			new_door.lockhash = I.lockhash
 		qdel(I)
 	else
 		var/obj/I = O
