@@ -331,7 +331,7 @@
 		var/mob/living/carbon/human/cardUser = user
 		if(cardUser.is_holding(src))
 			cardUser.visible_message("<span class='notice'>[cardUser] checks [cardUser.p_their()] card.</span>", "<span class='notice'>The card reads: [cardname].</span>")
-		else if(HAS_TRAIT(user, TRAIT_BLACKLEG) && prob(15))
+		else if(HAS_TRAIT(user, TRAIT_BLACKLEG))
 			. += span_notice("Peeking under the card, you see the card reads: [cardname].")
 		else
 			. += "<span class='warning'>I need to have the card in your hand to check it!</span>"

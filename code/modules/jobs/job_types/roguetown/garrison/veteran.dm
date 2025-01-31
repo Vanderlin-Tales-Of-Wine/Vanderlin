@@ -61,6 +61,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	cloak = /obj/item/clothing/cloak/half/vet
 	belt = /obj/item/storage/belt/rogue/leather/black
+	H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
@@ -120,6 +121,7 @@
 	r_hand = /obj/item/rogueweapon/polearm/spear/billhook
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
+	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -174,6 +176,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
+	H.cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -253,6 +256,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
+	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -294,6 +298,7 @@
 			r_hand = /obj/item/rogueweapon/sword/long/greatsword/zwei
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			H.change_stat("strength", 1) // needs minimum strength to actually use the fucking sword
 		if("Halberd")
 			r_hand = /obj/item/rogueweapon/polearm/halberd
 			H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE) // SO, fun fact. The description of the grenzel halbardier says they specialize in axes, but they get no axe skill. Maybe this guy is where that rumor came from.
@@ -323,6 +328,7 @@
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
+	H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1, /obj/item/storage/keyring/veteran = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -380,6 +386,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
+	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/silver = 1, /obj/item/storage/keyring/veteran = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

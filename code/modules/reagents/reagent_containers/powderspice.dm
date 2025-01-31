@@ -23,6 +23,7 @@
 /datum/reagent/druqks
 	name = "Drukqs"
 	description = ""
+	taste_description = "something spicy"
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 16
 	metabolization_rate = 0.2
@@ -107,7 +108,7 @@
 			var/mob/living/carbon/C = M
 			var/obj/item/bodypart/CH = C.get_bodypart(BODY_ZONE_HEAD)
 			if(!CH)
-				to_chat(user, "<span class='warning'>[C.p_theyre(TRUE)] missing something.</span>")
+				to_chat(user, "<span class='warning'>[C.p_theyre(TRUE)] missing their head.</span>")
 			user.visible_message("<span class='danger'>[user] attempts to force [C] to inhale [src].</span>", \
 								"<span class='danger'>[user] attempts to force me to inhale [src]!</span>")
 			if(C.cmode)
@@ -190,6 +191,7 @@
 /datum/reagent/ozium
 	name = "Ozium"
 	description = ""
+	taste_description = "a flash of white"
 	color = "#60A584" // rgb: 96, 165, 132
 	overdose_threshold = 16
 	metabolization_rate = 0.2
@@ -209,7 +211,7 @@
 	//if(prob(10))
 	//	M.playsound_local(get_turf(M), 'sound/misc/jumpscare (2).ogg', 25)
 	//	M.flash_fullscreen("hey")														WHAT THE HELL? WHY?
-	if(prob(20))
+	if(prob(5))
 		M.flash_fullscreen("whiteflash")
 	M.apply_status_effect(/datum/status_effect/buff/ozium)
 	..()
@@ -231,6 +233,14 @@
 	list_reagents = list(/datum/reagent/moondust = 15)
 	sellprice = 16
 
+/datum/reagent/moondust
+	name = "Moondust"
+	description = ""
+	taste_description = "gunpowder"
+	color = "#bfc3b5"
+	overdose_threshold = 50
+	metabolization_rate = 0.2
+
 /datum/reagent/moondust/overdose_process(mob/living/M)
 	M.adjustToxLoss(0.25*REM, 0)
 	..()
@@ -250,7 +260,7 @@
 	if(M.has_flaw(/datum/charflaw/addiction/junkie))
 		M.sate_addiction()
 	M.apply_status_effect(/datum/status_effect/buff/moondust)
-	if(prob(10))
+	if(prob(2))
 		M.flash_fullscreen("whiteflash")
 	..()
 
@@ -274,6 +284,7 @@
 /datum/reagent/moondust_purest
 	name = "Purest Moondust"
 	description = ""
+	taste_description = "gunpowder"
 	color = "#bfc3b5"
 	overdose_threshold = 50
 	metabolization_rate = 0.2

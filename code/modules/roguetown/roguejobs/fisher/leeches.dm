@@ -48,9 +48,6 @@
 		return PROCESS_KILL
 	blood_storage = max(blood_storage - drainage, 0)
 
-/obj/item/natural/worms/update_icon()
-	icon_state = "leech"
-
 /obj/item/natural/worms/leech/examine(mob/user)
 	. = ..()
 	switch(blood_storage/blood_maximum)

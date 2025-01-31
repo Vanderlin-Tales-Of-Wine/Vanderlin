@@ -26143,7 +26143,7 @@
 /area/rogue/indoors/town/magician)
 "thO" = (
 /obj/structure/closet/crate/chest/crafted,
-/obj/item/reagent_containers/honeycomb,
+/obj/item/reagent_containers/food/snacks/rogue/honey,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "thQ" = (
@@ -26724,7 +26724,7 @@
 /area/rogue/outdoors/town)
 "tAU" = (
 /obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/magician)
 "tAV" = (
@@ -31268,7 +31268,7 @@
 /area/rogue/outdoors/river)
 "wOk" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/natural/cloth{
 	pixel_y = 12
 	},
