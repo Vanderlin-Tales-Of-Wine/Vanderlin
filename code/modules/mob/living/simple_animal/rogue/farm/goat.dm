@@ -89,7 +89,8 @@
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur/gote = 2,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1)
+						/obj/item/alch/bone = 1,
+						/obj/item/natural/head/gote = 1)
 
 	health = FEMALE_GOTE_HEALTH
 	maxHealth = FEMALE_GOTE_HEALTH
@@ -218,7 +219,8 @@
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur/gote = 2,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1)
+						/obj/item/alch/bone = 1,
+						/obj/item/natural/head/gote = 1)
 
 	health = MALE_GOTE_HEALTH
 	maxHealth = MALE_GOTE_HEALTH
