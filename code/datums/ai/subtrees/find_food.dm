@@ -6,7 +6,7 @@
 	. = ..()
 	if(istype(controller.pawn, /mob/living/simple_animal/hostile/retaliate/rogue))
 		var/mob/living/simple_animal/hostile/retaliate/rogue/mob = controller.pawn
-		if(mob.food == mob.food_max && !mob.eat_forever)
+		if((mob.food >= (mob.food_max - 30)) && !mob.eat_forever)
 			return // not hungry
 
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
@@ -25,7 +25,7 @@
 	. = ..()
 	if(istype(controller.pawn, /mob/living/simple_animal))
 		var/mob/living/simple_animal/hostile/retaliate/rogue/mob = controller.pawn
-		if(mob.food == mob.food_max && !mob.eat_forever)
+		if((mob.food >= (mob.food_max - 30)) && !mob.eat_forever)
 			return // not hungry
 
 	var/atom/target = controller.blackboard[BB_BASIC_MOB_FOOD_TARGET]
