@@ -78,7 +78,10 @@
 			if(do_after(user, 10 SECONDS, target = src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					testing("remove reagent proc complete")
-					var/turf/open/water/river/creatable/W = new(get_turf(src))
+					var/turf/structure_turf = get_turf(src)
+					var/turf/open/water/W = structure_turf.PlaceOnTop(/turf/open/water/river/creatable)
+					if(!W) // how did this happen
+						return
 					W.water_reagent = master_reagent.type
 					W.water_volume = clamp(reagent_volume, 1, 100)
 					W.update_icon()
@@ -128,6 +131,9 @@
 		if(stage == 3)
 			var/turf/underT = get_step_multiz(src, DOWN)
 			if(underT && isopenturf(underT) && mastert)
+				user.visible_message("[user] starts digging out the bottom of [src]", "You start digging out the bottom of [src].")
+				if(!do_after(user, 10 SECONDS * attacking_shovel.time_multiplier, target = src))
+					return TRUE
 				attacking_shovel.heldclod = new(attacking_shovel)
 				attacking_shovel.update_icon()
 				playsound(mastert,'sound/items/dig_shovel.ogg', 100, TRUE)

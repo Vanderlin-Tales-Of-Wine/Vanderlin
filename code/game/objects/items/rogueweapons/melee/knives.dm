@@ -123,7 +123,7 @@
 	wdefense = MEDIOCHRE_PARRY
 	wbalance = HARD_TO_DODGE
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 30
+	sellprice = 10
 
 
 /obj/item/rogueweapon/knife/scissors
@@ -239,7 +239,7 @@
 	desc = "Thin, sharp, pointed death."
 	icon_state = "idagger"
 	smeltresult = null
-	sellprice = 15
+	sellprice = 12
 
 //................ Steel Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel

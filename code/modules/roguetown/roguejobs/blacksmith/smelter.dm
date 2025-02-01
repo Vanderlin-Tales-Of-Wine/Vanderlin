@@ -38,6 +38,8 @@
 					var/tyme = world.time
 					T.hott = tyme
 					addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/rogueweapon/tongs, make_unhot), tyme), 50)
+					if(istype(T, /obj/item/rogueweapon/tongs/stone))
+						T.take_damage(1, BRUTE, "blunt")
 				T.update_icon()
 				return
 			if(on)

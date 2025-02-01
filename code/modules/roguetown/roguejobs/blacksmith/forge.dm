@@ -19,5 +19,7 @@
 			addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/rogueweapon/tongs, make_unhot), tyme), 100)
 			T.update_icon()
 			user.visible_message("<span class='info'>[user] heats the bar.</span>")
-			return
+			if(istype(W, /obj/item/rogueweapon/tongs/stone))
+				W.take_damage(1, BRUTE, "blunt")
+			return TRUE
 	return ..()

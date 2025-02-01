@@ -256,7 +256,7 @@
 		if(C.vampire_werewolf() == "vampire")
 			end_reason = "When the Vampires finished sucking the town dry, they moved on to the next one."
 		if(C.vampire_werewolf() == "werewolf")
-			end_reason = "The Werevolves formed an unholy clan, marauding Rockhill until the end of its daes."
+			end_reason = "The Werevolves formed an unholy clan, marauding Vanderlin until the end of its daes."
 
 		if(C.cultascended)
 			end_reason = "ZIZOZIZOZIZOZIZO"

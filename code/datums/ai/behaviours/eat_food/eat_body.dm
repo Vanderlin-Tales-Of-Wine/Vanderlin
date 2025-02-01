@@ -22,8 +22,12 @@
 	controller.set_blackboard_key(hiding_location_key, hiding_target)
 
 	basic_mob.face_atom()
+	if(!is_dead(target))
+		finish_action(controller, FALSE)
 	basic_mob.visible_message(span_danger("[basic_mob] starts to rip apart [target]!"))
-	if(do_after(basic_mob, 10 SECONDS, target = target))
+	if(do_after(basic_mob, 10 SECONDS, target = target, extra_checks = CALLBACK(src, PROC_REF(is_dead), target)))
+		if(!is_dead(target))
+			finish_action(controller, FALSE)
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/limb
@@ -47,8 +51,11 @@
 			if(basic_mob.attack_sound)
 				playsound(basic_mob, pick(basic_mob.attack_sound), 100, TRUE, -1)
 			target.gib()
-	finish_action(controller, TRUE)
-
+			if(istype(basic_mob, /mob/living/simple_animal/hostile/retaliate/rogue))
+				var/mob/living/simple_animal/hostile/retaliate/rogue/mob = basic_mob
+				mob.food = mob.food_max // yummy
+			finish_action(controller, TRUE)
+	finish_action(controller, FALSE)
 
 /datum/ai_behavior/eat_dead_body/finish_action(datum/ai_controller/controller, succeeded, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
@@ -68,3 +75,6 @@
 	if(!succeeded)
 		controller.clear_blackboard_key(target_key)
 		controller.pawn.icon_state = "mimic"
+
+/datum/ai_behavior/eat_dead_body/proc/is_dead(mob/living/target)
+	return !QDELETED(target) && target.stat >= DEAD

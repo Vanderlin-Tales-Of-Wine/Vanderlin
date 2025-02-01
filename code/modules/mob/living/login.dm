@@ -55,7 +55,7 @@
 	if(isliving(src))
 		var/mob/living/L = src
 		if(L.stat >= DEAD)
-			client.verbs += /client/proc/descend
+			client.verbs |= /client/proc/descend
 		else if(L.stat < DEAD && !L.mind.has_antag_datum(/datum/antagonist/zombie))
 			client.verbs -= /client/proc/descend
 	else if(isroguespirit(src))
@@ -65,7 +65,7 @@
 	else if(isliving(mind?.current))
 		var/mob/living/L = mind.current
 		if(L?.stat >= DEAD)
-			client.verbs += /client/proc/descend
+			client.verbs |= /client/proc/descend
 			if(ishuman(L))
 				var/mob/living/carbon/human/D = L
 				if(D.funeral)

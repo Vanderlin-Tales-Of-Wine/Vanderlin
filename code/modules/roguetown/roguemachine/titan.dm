@@ -284,6 +284,10 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 	victim.job = new_pos
+	victim.migrant_type = null
+	if(ishuman(victim))
+		var/mob/living/carbon/human/human = victim
+		human.advjob = new_pos
 	if(!SScommunications.can_announce(user))
 		return
 

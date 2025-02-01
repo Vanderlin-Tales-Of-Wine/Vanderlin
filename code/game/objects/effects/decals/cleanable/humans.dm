@@ -44,7 +44,7 @@
 	alpha = 255 *((100 - wash_precent) * 0.01)
 	if(wash_precent >= 100)
 		qdel(src)
-	COOLDOWN_START(src, wash_cooldown, 15 SECONDS)
+	COOLDOWN_START(src, wash_cooldown, 7.5 SECONDS)
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()

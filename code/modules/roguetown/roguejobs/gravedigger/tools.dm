@@ -27,6 +27,7 @@
 	max_blade_int = 50
 	grid_width = 32
 	grid_height = 96
+	var/time_multiplier = 1 //multipler to do_after times
 
 /obj/item/rogueweapon/shovel/pre_attack(atom/A, mob/living/user, params)
 	. = ..()
@@ -116,9 +117,10 @@
 			if(D.planted_crop)
 				return
 			user.visible_message("[user] starts digging an irrigation channel.", "You start digging an irrigation channel.")
-			if(!do_after(user, 5 SECONDS, target = D))
+			if(!do_after(user, 5 SECONDS * time_multiplier, target = D))
 				return
 			new /obj/structure/irrigation_channel(D)
+			return TRUE
 
 	else if(user.used_intent.type == /datum/intent/shovelscoop)
 		if(istype(T, /turf/open/floor/rogue/dirt))
@@ -221,7 +223,8 @@
 
 /obj/item/rogueweapon/shovel/small
 	force = 2
-	possible_item_intents = list(/datum/intent/shovelscoop, /datum/intent/mace/strike/shovel)
+	force_wielded = 5
+	possible_item_intents = list(/datum/intent/shovelscoop, /datum/intent/irrigate, /datum/intent/mace/strike/shovel)
 	name = "spade"
 	icon_state = "spade"
 	item_state = "spade"
@@ -233,6 +236,7 @@
 	wdefense = BAD_PARRY
 	max_blade_int = 0
 	grid_height = 64
+	time_multiplier = 2
 
 /obj/item/rogueweapon/shovel/small/getonmobprop(tag)
 	. = ..()

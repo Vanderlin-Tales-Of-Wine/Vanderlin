@@ -21,5 +21,8 @@
 /datum/wound/bruise/large
 	name = "massive hematoma"
 	whp = 40
+	bleed_rate = 0.9
+	clotting_rate = 0.02
+	clotting_threshold = 0.3
 	sew_threshold = 75
 	woundpain = 25

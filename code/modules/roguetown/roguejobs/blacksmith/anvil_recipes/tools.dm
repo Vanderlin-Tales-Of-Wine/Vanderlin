@@ -62,6 +62,14 @@
 	created_item = /obj/item/rogueweapon/knife/scissors/steel
 	i_type = "Tools"
 
+/datum/anvil_recipe/tools/pick/steel
+	name = "Steel Pick (+Stick)"
+	recipe_name = "a digging Pick"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/rogueweapon/pick/steel
+	i_type = "Tools"
+
 /datum/anvil_recipe/tools/frypan
 	name = "Pan"
 	recipe_name = "a Frypan"

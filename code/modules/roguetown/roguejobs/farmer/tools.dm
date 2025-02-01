@@ -13,6 +13,7 @@
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	icon_state = "choe"
 	smeltresult = /obj/item/ingot/copper
+	time_multiplier = 0.5
 
 /obj/item/rogueweapon/sickle/copper
 	force = 10
