@@ -91,9 +91,10 @@
 
 /obj/structure/soil/proc/try_handle_uprooting(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
+		var/obj/item/rogueweapon/shovel/shovel = attacking_item
 		to_chat(user, span_notice("I begin to uproot the crop..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 4 SECONDS * shovel.time_multiplier), target = src))
 			to_chat(user, span_notice("I uproot the crop."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			uproot()
@@ -102,9 +103,10 @@
 
 /obj/structure/soil/proc/try_handle_tilling(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
+		var/obj/item/rogueweapon/hoe/hoe = attacking_item
 		to_chat(user, span_notice("I begin to till the soil..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * hoe.time_multiplier), target = src))
 			to_chat(user, span_notice("I till the soil."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			user_till_soil(user)
@@ -177,8 +179,9 @@
 		return FALSE
 	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
 		to_chat(user, span_notice("I begin flattening the soil with \the [attacking_item]..."))
+		var/obj/item/rogueweapon/shovel/shovel = attacking_item
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * shovel.time_multiplier), target = src))
 			if(plant)
 				return FALSE
 			apply_farming_fatigue(user, 10)
