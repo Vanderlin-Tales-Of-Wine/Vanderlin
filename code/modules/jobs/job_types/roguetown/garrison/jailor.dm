@@ -38,11 +38,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE) // He has lost his trusty whip a long time ago
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE) // He uses this quite often to get the truth out of liars
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(3,4,4,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(3,4,4,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(4,4,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(4,4,4,5), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // He needs to sew his prisoners back up
+		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) // He needs to SUTURE his prisoners up too
 		//H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	// He's really strong- but anyone is faster than him, the question is can they run for long enough? (Also remember they are an elderly man)
 	H.change_stat("strength", pick(4,4,5))
