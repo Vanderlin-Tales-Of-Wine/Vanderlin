@@ -132,7 +132,7 @@
 	if(istype(used_item, /obj/item/rogueweapon/mace/church))
 		for(var/mob/M in GLOB.player_list) // @everyone
 			if(M.client && M.can_hear()) // Disregard NPC's with no mind and sleeping/unconscious people
-				to_chat(M, "<span class='notice'>The church bell rings, echoing solemnly far and wide across the realm.</span>")
+				to_chat(M, "<span class='notice'>[src] rings, echoing solemnly far and wide across the realm.</span>")
 				M.playsound_local(M, 'sound/misc/bell.ogg', 50, 1)
 		visible_message("<span class='notice'>[user] uses the [used_item] to ring the [src].</span>")
 		ringing = TRUE

@@ -24,6 +24,7 @@
 		/obj/item/reagent_containers/powder/ozium = 1
 	)
 	craftdiff = 3
+	sellprice = 16
 
 /datum/repeatable_crafting_recipe/narcotics/moondust
 	name = "Moondust"
@@ -34,6 +35,7 @@
 		/obj/item/reagent_containers/powder/ozium = 1
 	)
 	craftdiff = 3
+	sellprice = 16
 
 /datum/repeatable_crafting_recipe/narcotics/moondustpurify
 	name = "Purify Moondust"
@@ -43,4 +45,5 @@
 		/obj/item/alch/magicdust = 1,
 		/obj/item/reagent_containers/powder/moondust = 1
 	)
-	craftdiff = 5
+	craftdiff = 4
+	sellprice = 20

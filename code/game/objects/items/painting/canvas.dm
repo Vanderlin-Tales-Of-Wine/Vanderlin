@@ -57,11 +57,11 @@
 	. = ..()
 	if(user.cmode)
 		if(anchored)
-			to_chat(user, "You start unmounting [src]")
+			to_chat(user, "You start unmounting [src].")
 			if(!do_after(user, 3 SECONDS, target = src))
 				return
 			anchored = FALSE
-			to_chat(user, "You unmount [src]")
+			to_chat(user, "You unmount [src].")
 
 /obj/item/canvas/attack_right(mob/user)
 	. = ..()
@@ -100,9 +100,10 @@
 
 /obj/item/canvas/attack_turf(turf/T, mob/living/user)
 	. = ..()
-	to_chat(user, "You start mounting [src] to [T]")
+	to_chat(user, "You start mounting [src] to [T].")
 	if(!do_after(user, 3 SECONDS, target = T))
 		return
+	user.dropItemToGround(src)
 	forceMove(T)
 	pixel_x = 0
 	pixel_y = 0

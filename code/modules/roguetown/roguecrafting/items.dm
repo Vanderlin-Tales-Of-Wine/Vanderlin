@@ -264,7 +264,7 @@
 				/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 				/obj/item/reagent_containers/glass/bottle = 1)
 	craftdiff = 2
-	skillcraft = /datum/skill/craft/engineering
+	skillcraft = /datum/skill/craft/bombs
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/pyrobolt

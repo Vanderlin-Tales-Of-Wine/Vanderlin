@@ -16,6 +16,7 @@
 			return
 		new_name = reject_bad_name(new_name)
 		if(new_name)
+			new_name = capitalize(new_name)
 			if(new_name in GLOB.chosen_names)
 				to_chat(src, "<font color='red'>The name is taken.</font>")
 				return
