@@ -104,6 +104,7 @@
 
 // --------- STEEL HAMMER -----------
 /obj/item/rogueweapon/hammer/steel
+	name = "claw hammer"
 	icon_state = "hammer_s"
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
