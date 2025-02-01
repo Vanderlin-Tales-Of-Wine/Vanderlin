@@ -117,7 +117,7 @@
 		return
 
 	zombie.cut_overlay(rotflies)
-	zombie.verbs -= /mob/living/carbon/human/proc/zombie_seek
+	zombie.remove_verbs(/mob/living/carbon/human/proc/zombie_seek)
 	zombie.mind?.special_role = special_role
 	zombie.ambushable = ambushable
 	if(zombie.dna?.species)

@@ -79,15 +79,80 @@
 /datum/asset/group/tgui
 
 
+/datum/asset/group/statpanel
+	children = list(
+		/datum/asset/simple/statpanel_images,
+		/datum/asset/simple/jquery,
+		/datum/asset/simple/namespaced/js_content
+	)
+
+/datum/asset/simple/namespaced/js_content
+	legacy = TRUE
+	assets = list(
+		"prototype.js" = 'code/modules/stat_panel/html/js/prototype.js',
+		"scriptaculous.js" = 'code/modules/stat_panel/html/js/scriptaculous.js',
+		"effects.js" = 'code/modules/stat_panel/html/js/effects.js',
+		"controls.js" = 'code/modules/stat_panel/html/js/controls.js',
+		"slider.js" = 'code/modules/stat_panel/html/js/slider.js',
+		"livepipe.js" = 'code/modules/stat_panel/html/js/livepipe.js',
+		"scrollbar.js" = 'code/modules/stat_panel/html/js/scrollbar.js',
+	)
+	parents = list()
+
+/datum/asset/simple/statpanel_images
+	legacy = TRUE
+	assets = list(
+		"arcanos.png" = 'code/modules/stat_panel/html/images/arcanos.png',
+		"button_chrome.png" = 'code/modules/stat_panel/html/images/button_chrome.png',
+		"button_note.png" = 'code/modules/stat_panel/html/images/button_note.png',
+		"button_options.png" = 'code/modules/stat_panel/html/images/button_options.png',
+		"button_pig.png" = 'code/modules/stat_panel/html/images/button_pig.png',
+		"cond.ttf" = 'code/modules/stat_panel/html/images/cond.ttf',
+		"craft.png" = 'code/modules/stat_panel/html/images/craft.png',
+		"cross.png" = 'code/modules/stat_panel/html/images/cross.png',
+		"crown.png" = 'code/modules/stat_panel/html/images/crown.png',
+		"dead.png" = 'code/modules/stat_panel/html/images/dead.png',
+		"emotes.png" = 'code/modules/stat_panel/html/images/emotes.png',
+		"fangs.png" = 'code/modules/stat_panel/html/images/fangs.png',
+		"gpc.png" = 'code/modules/stat_panel/html/images/gpc.png',
+		"heart.png" = 'code/modules/stat_panel/html/images/heart.png',
+		"Panel.png" = 'code/modules/stat_panel/html/images/Panel.png',
+		"plot.png" = 'code/modules/stat_panel/html/images/plot.png',
+		"pointer.cur" = 'code/modules/stat_panel/html/images/pointer.cur',
+		"stats.png" = 'code/modules/stat_panel/html/images/stats.png',
+		"stats1.png" = 'code/modules/stat_panel/html/images/stats1.png',
+		"thanati.png" = 'code/modules/stat_panel/html/images/thanati.png',
+		"verbs.png" = 'code/modules/stat_panel/html/images/verbs.png',
+		"villain.png" = 'code/modules/stat_panel/html/images/villain.png',
+		"uibutton.ogg" = 'code/modules/stat_panel/html/images/uibutton.ogg',
+	)
+
 /datum/asset/group/goonchat
 	children = list(
 		/datum/asset/simple/jquery,
 		/datum/asset/simple/purify,
 		/datum/asset/simple/namespaced/goonchat,
 		/datum/asset/spritesheet/goonchat,
+		/datum/asset/simple/goonchat_images,
+		/datum/asset/simple/namespaced/js_content,
 		/datum/asset/simple/namespaced/fontawesome,
 		/datum/asset/simple/namespaced/roguefonts
 	)
+
+/datum/asset/simple/goonchat_images
+	legacy = TRUE
+	assets = list(
+		"chatbg.png"            			= 'code/modules/goonchat/browserassets/images/chatbg.png',
+		"chatscrollbar-bg.png"				= 'code/modules/goonchat/browserassets/images/chatscrollbar-bg.png',
+		"chatscrollbar-scrolldown.png"		= 'code/modules/goonchat/browserassets/images/chatscrollbar-scrolldown.png',
+		"chatscrollbar-scrollup.png"		= 'code/modules/goonchat/browserassets/images/chatscrollbar-scrollup.png',
+		"chatscroller-b.png"				= 'code/modules/goonchat/browserassets/images/chatscroller-b.png',
+		"chatscroller-m.png"				= 'code/modules/goonchat/browserassets/images/chatscroller-m.png',
+		"chatscroller-t.png"				= 'code/modules/goonchat/browserassets/images/chatscroller-t.png',
+		"chatshadow.png"					= 'code/modules/goonchat/browserassets/images/chatshadow.png',
+		"helpbg.png"						= 'code/modules/goonchat/browserassets/images/helpbg.png'
+	)
+
 
 
 /datum/asset/simple/purify
@@ -108,8 +173,8 @@
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"errorHandler.js"             = 'code/modules/goonchat/browserassets/js/errorHandler.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
-		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-		"browserOutput_white.css"  = 'code/modules/goonchat/browserassets/css/browserOutput.css',
+		"scrollbar_chat.js"             = 'code/modules/goonchat/browserassets/js/scrollbar_chat.js',
+		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css'
 	)
 	parents = list()
 

@@ -19,3 +19,6 @@
 
 	update_icon(preferred_form)
 	updateghostimages()
+
+	spawn(0)
+		updateStatPanel()

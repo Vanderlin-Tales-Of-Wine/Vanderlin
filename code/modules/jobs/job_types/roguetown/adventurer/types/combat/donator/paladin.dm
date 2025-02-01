@@ -97,7 +97,7 @@
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Paladins, while devout warriors spent WAY too much time studying the blade. No more acolyte+
 	C.grant_spells_templar(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.add_verbs(list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray))
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

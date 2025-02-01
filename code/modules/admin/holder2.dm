@@ -73,6 +73,7 @@ GLOBAL_PROTECT(href_token)
 		return
 	GLOB.deadmins -= target
 	GLOB.admin_datums[target] = src
+	winset(ckey2client(target), "outputwindow.csay", "is-visible=true")
 	deadmined = FALSE
 	if (GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
@@ -86,11 +87,12 @@ GLOBAL_PROTECT(href_token)
 		return
 	GLOB.deadmins[target] = src
 	GLOB.admin_datums -= target
+	winset(usr, "outputwindow.csay", "is-visible=false")
 	deadmined = TRUE
 	var/client/C
 	if ((C = owner) || (C = GLOB.directory[target]))
 		disassociate()
-		C.verbs += /client/proc/readmin
+		C.add_verbs(/client/proc/readmin)
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())
@@ -110,7 +112,7 @@ GLOBAL_PROTECT(href_token)
 		owner = C
 		owner.holder = src
 		owner.add_admin_verbs()	//TODO <--- todo what? the proc clearly exists and works since its the backbone to our entire admin system
-		owner.verbs -= /client/proc/readmin
+		owner.remove_verbs(/client/proc/readmin)
 		GLOB.admins |= C
 
 /datum/admins/proc/disassociate()

@@ -822,10 +822,10 @@
 			if(found)
 				GLOB.excommunicated_players |= HL.real_name
 				HL.cleric?.excommunicate()
-				HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
-				HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
-				HL.verbs -= /mob/living/carbon/human/proc/churchcurse
-				HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
+				HL.remove_verbs(/mob/living/carbon/human/proc/coronate_lord)
+				HL.remove_verbs(/mob/living/carbon/human/proc/churchexcommunicate)
+				HL.remove_verbs(/mob/living/carbon/human/proc/churchcurse)
+				HL.remove_verbs(/mob/living/carbon/human/proc/churchannouncement)
 				J?.remove_spells(HL)
 
 	J?.add_spells(M)
@@ -834,7 +834,7 @@
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)
 	C.grant_spells_priest(M)
-	M.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	M.add_verbs(list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray))
 	M.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	M.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	M.verbs |= /mob/living/carbon/human/proc/churchcurse

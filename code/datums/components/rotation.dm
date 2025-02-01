@@ -55,18 +55,18 @@
 	if(rotation_flags & ROTATION_VERBS)
 		var/atom/movable/AM = parent
 		if(rotation_flags & ROTATION_FLIP)
-			AM.verbs += /atom/movable/proc/simple_rotate_flip
+			AM.add_verbs(/atom/movable/proc/simple_rotate_flip)
 		if(src.rotation_flags & ROTATION_CLOCKWISE)
-			AM.verbs += /atom/movable/proc/simple_rotate_clockwise
+			AM.add_verbs(/atom/movable/proc/simple_rotate_clockwise)
 		if(src.rotation_flags & ROTATION_COUNTERCLOCKWISE)
-			AM.verbs += /atom/movable/proc/simple_rotate_counterclockwise
+			AM.add_verbs(/atom/movable/proc/simple_rotate_counterclockwise)
 
 /datum/component/simple_rotation/proc/remove_verbs()
 	if(parent)
 		var/atom/movable/AM = parent
-		AM.verbs -= /atom/movable/proc/simple_rotate_flip
-		AM.verbs -= /atom/movable/proc/simple_rotate_clockwise
-		AM.verbs -= /atom/movable/proc/simple_rotate_counterclockwise
+		AM.remove_verbs(/atom/movable/proc/simple_rotate_flip)
+		AM.remove_verbs(/atom/movable/proc/simple_rotate_clockwise)
+		AM.remove_verbs(/atom/movable/proc/simple_rotate_counterclockwise)
 
 /datum/component/simple_rotation/proc/remove_signals()
 	UnregisterSignal(parent, list(COMSIG_CLICK_ALT, COMSIG_PARENT_EXAMINE, COMSIG_PARENT_ATTACKBY))

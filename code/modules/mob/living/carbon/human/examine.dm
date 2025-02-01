@@ -33,7 +33,7 @@
 		obscure_name = FALSE
 
 	if(obscure_name)
-		. = list("<span class='info'>ø ------------ ø\nThis is <EM>Unknown</EM>.")
+		. = list("<div class='firstdivexamineplyr'><div class='boxexamineplyr'><span class='statustext'>This is <EM>Unknown</EM>.")
 	else
 		on_examine_face(user)
 		var/used_name = name
@@ -53,13 +53,13 @@
 			if(islatejoin)
 				is_returning = TRUE
 		if(display_as_wanderer)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name].")
+			. = list("<div class='firstdivexamineplyr'><div class='boxexamineplyr'><span class='statustext'>This is <EM>[used_name]</EM>, the wandering [race_name].")
 		else if(mind?.apprentice)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, [used_title].")
+			. = list("<div class='firstdivexamineplyr'><div class='boxexamineplyr'><span class='statustext'>This is <EM>[used_name]</EM>, [used_title].")
 		else if(used_title)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
+			. = list("<div class='firstdivexamineplyr'><div class='boxexamineplyr'><span class='statustext'>This is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
 		else
-			. = list("<span class='info'>ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name].")
+			. = list("<div class='firstdivexamineplyr'><div class='boxexamineplyr'><span class='statustext'>This is the <EM>[used_name]</EM>, the [race_name].")
 
 		if(GLOB.lord_titles[real_name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
@@ -150,7 +150,7 @@
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
 
 	if(wear_shirt && !(SLOT_SHIRT in obscured))
-		. += "[m3] [wear_shirt.get_examine_string(user)]."
+		. += "<span class='statustext'>[m3] [wear_shirt.get_examine_string(user)].</span>"
 
 	//uniform
 	if(wear_pants && !(SLOT_PANTS in obscured))

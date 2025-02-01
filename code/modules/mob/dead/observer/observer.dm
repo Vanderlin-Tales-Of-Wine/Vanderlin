@@ -125,8 +125,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/Initialize()
 	set_invisibility(GLOB.observer_default_invisibility)
 
-	verbs += list(
-		/mob/dead/observer/proc/tray_view)
+	add_verbs(list(
+		/mob/dead/observer/proc/tray_view))
 
 	if(icon_state in GLOB.ghost_forms_with_directions_list)
 		ghostimage_default = image(src.icon,src,src.icon_state + "")
@@ -213,8 +213,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	real_name = name
 
 	if(!fun_verbs)
-		verbs -= /mob/dead/observer/verb/boo
-		verbs -= /mob/dead/observer/verb/possess
+		remove_verbs(/mob/dead/observer/verb/boo)
+		remove_verbs(/mob/dead/observer/verb/possess)
 
 	GLOB.dead_mob_list += src
 
@@ -227,8 +227,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	. = ..()
 
 	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
-		verbs += /mob/dead/observer/verb/ghost_upward
-		verbs += /mob/dead/observer/verb/ghost_downward
+		add_verbs(/mob/dead/observer/verb/ghost_upward)
+		add_verbs(/mob/dead/observer/verb/ghost_downward)
 
 	grant_all_languages()
 //	show_data_huds()
@@ -556,7 +556,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		qdel(M)
 		return
 
-	client?.verbs -= /client/proc/descend
+	client?.remove_verbs(/client/proc/descend)
 	M.key = key
 //	M.Login()	//wat
 	return
@@ -1064,11 +1064,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			ghostimage_simple.icon_state = icon_state
 		if("fun_verbs")
 			if(fun_verbs)
-				verbs += /mob/dead/observer/verb/boo
-				verbs += /mob/dead/observer/verb/possess
+				add_verbs(/mob/dead/observer/verb/boo)
+				add_verbs(/mob/dead/observer/verb/possess)
 			else
-				verbs -= /mob/dead/observer/verb/boo
-				verbs -= /mob/dead/observer/verb/possess
+				remove_verbs(/mob/dead/observer/verb/boo)
+				remove_verbs(/mob/dead/observer/verb/possess)
 
 /mob/dead/observer/reset_perspective(atom/A)
 	if(client)

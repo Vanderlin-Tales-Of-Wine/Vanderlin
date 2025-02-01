@@ -31,7 +31,7 @@
 		qdel(M)
 		return
 
-	client?.verbs -= /client/proc/descend
+	client?.remove_verbs(/client/proc/descend)
 	M.key = key
 	qdel(src)
 	return

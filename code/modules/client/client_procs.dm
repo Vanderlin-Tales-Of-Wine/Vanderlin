@@ -86,6 +86,40 @@ GLOBAL_LIST_EMPTY(respawncounts)
 				to_chat(src, span_danger("Your previous action was ignored because you've done too many in a second"))
 				return
 
+	if(href_list["_src_"] == "stat")
+		if(href_list["spload"] == "1")
+			statpanel_loaded = TRUE
+			init_panel()
+		if(href_list["modernbrowser"] == "1")
+			statpanel_loaded = TRUE
+		if(href_list["buttonpig"] == "1")
+			src << 'sound/uibutton.ogg'
+			who()
+		if(href_list["buttonchrome"] == "1")
+			src << 'sound/uibutton.ogg'
+			if(current_button == "chrome")
+				return
+			current_button = "chrome"
+			newtext(html_verbs[current_button])
+		if(href_list["buttonoptions"] == "1")
+			src << 'sound/uibutton.ogg'
+			if(current_button == "options")
+				return
+			current_button = "options"
+			newtext(html_verbs[current_button])
+		if(href_list["buttonnote"] == "1")
+			src << 'sound/uibutton.ogg'
+			if(current_button == "note")
+				return
+			current_button = "note"
+			newtext(mob.noteUpdate())
+		if(href_list["buttondynamic"])
+			src << 'sound/uibutton.ogg'
+			if(current_button == href_list["buttondynamic"])
+				return
+			current_button = href_list["buttondynamic"]
+			newtext(html_verbs[current_button])
+
 	//Logs all hrefs, except chat pings
 	if(!(href_list["_src_"] == "chat" && href_list["proc"] == "ping" && LAZYLEN(href_list) == 2))
 		log_href("[src] (usr:[usr]\[[COORD(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
@@ -326,7 +360,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		holder.owner = src
 		connecting_admin = TRUE
 	else if(GLOB.deadmins[ckey])
-		verbs += /client/proc/readmin
+		add_verbs(/client/proc/readmin)
 		connecting_admin = TRUE
 	if(CONFIG_GET(flag/autoadmin))
 		if(!GLOB.admin_datums[ckey])
@@ -360,7 +394,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	fps = prefs.clientfps
 
 	if(fexists(roundend_report_file()))
-		verbs += /client/proc/show_previous_roundend_report
+		add_verbs(/client/proc/show_previous_roundend_report)
 
 	var/full_version = "[byond_version].[byond_build ? byond_build : "xxx"]"
 	log_access("Login: [key_name(src)] from [address ? address : "localhost"]-[computer_id] || BYOND v[full_version]")
@@ -1020,9 +1054,9 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 /client/proc/add_verbs_from_config()
 	if(CONFIG_GET(flag/see_own_notes))
-		verbs += /client/proc/self_notes
+		add_verbs(/client/proc/self_notes)
 	if(CONFIG_GET(flag/use_exp_tracking))
-		verbs += /client/proc/self_playtime
+		add_verbs(/client/proc/self_playtime)
 
 
 #undef UPLOAD_LIMIT

@@ -298,7 +298,7 @@
 		H.change_stat(STATKEY_SPD, -1)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_priest(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.add_verbs(list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray))
 	H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
 /datum/migrant_wave/heartfelt

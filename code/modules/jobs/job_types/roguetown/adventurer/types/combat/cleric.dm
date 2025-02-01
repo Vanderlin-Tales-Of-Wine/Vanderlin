@@ -103,5 +103,5 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // Even if it has limited slots, it is a common drifter role available to anyone. Their armor also is not heavy, so medium armor training is enough
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_cleric(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.add_verbs(list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray))
 
