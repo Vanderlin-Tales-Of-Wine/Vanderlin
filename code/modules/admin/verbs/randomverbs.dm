@@ -433,7 +433,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/confirm = alert(src, "Do you want to announce the contents of the report to the crew?", "Announce", "Yes", "No", "Cancel")
 	switch(confirm)
 		if("Yes")
-			priority_announce(input, null, 'sound/blank.ogg')
+			priority_announce(input, GLOB.command_name, 'sound/blank.ogg')
 		if("Cancel")
 			return
 
