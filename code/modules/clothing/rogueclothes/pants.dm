@@ -350,3 +350,16 @@
 	item_state = "capplateleg"
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+
+/obj/item/clothing/under/roguetown/platelegs/rust
+	name = "rusted chausses"
+	desc = "Old rusted chausses made of plated iron. They'll still protect your legs quite well."
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rustpants"
+	item_state = "rustpants"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR/2
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD
