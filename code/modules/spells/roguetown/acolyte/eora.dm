@@ -198,7 +198,7 @@
 		var/mob/living/carbon/C = target
 		C.OffBalance(50)
 		C.visible_message(span_info("A purple haze shrouds [target]!"), span_notice("I feel incredibly drunk..."))
-		C.reagents.add_reagent(/datum/reagent/berrypoison, 3)
+		C.reagents.add_reagent(/datum/reagent/berrypoison, 1)
 		C.apply_status_effect(/datum/status_effect/debuff/eoradrunk)
 		C.blur_eyes(20)
 		return BULLET_ACT_HIT
@@ -245,7 +245,7 @@
 		var/mob/living/L = AM
 		playsound(src,'sound/blank.ogg',50, TRUE, -1)
 		L.OffBalance(50)
-		L.reagents.add_reagent(/datum/reagent/berrypoison, 3)
+		L.reagents.add_reagent(/datum/reagent/berrypoison, 1)
 		L.apply_status_effect(/datum/status_effect/debuff/eoradrunk)
 		L.visible_message(span_info("A purple haze shrouds [L]!"), span_notice("I feel incredibly drunk..."))
 		L.blur_eyes(20)
