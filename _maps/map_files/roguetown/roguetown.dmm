@@ -9245,7 +9245,7 @@
 /obj/item/reagent_containers/food/snacks/produce/onion,
 /obj/item/reagent_containers/food/snacks/produce/cabbage,
 /obj/item/reagent_containers/food/snacks/rogue/cheddar,
-/obj/item/reagent_containers/food/snacks/rogue/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/rogue/truffles,
@@ -17897,12 +17897,12 @@
 /area/rogue/indoors/town)
 "tLW" = (
 /obj/structure/rack/rogue,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /obj/item/storage/bag/tray,
 /obj/item/storage/bag/tray,
 /obj/item/storage/bag/tray,
@@ -18142,9 +18142,9 @@
 /area/rogue/indoors/town)
 "tZH" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
-/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
+/obj/item/reagent_containers/food/snacks/cheese_wedge,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors)
 "tZS" = (
@@ -19803,11 +19803,11 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/kitchen/ironfork,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/fork/iron,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "vOZ" = (

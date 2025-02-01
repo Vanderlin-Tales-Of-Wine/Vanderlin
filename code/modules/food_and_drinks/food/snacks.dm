@@ -31,14 +31,17 @@ All foods are distributed among various categories. Use common sense.
 /obj/item/reagent_containers/food/snacks
 	name = "snack"
 	desc = ""
-	icon = 'icons/obj/food/food.dmi'
+	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = null
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+
 	obj_flags = UNIQUE_RENAME
 	grind_results = list() //To let them be ground up to transfer their reagents
 	possible_item_intents = list(/datum/intent/food)
-	var/bitesize = 3
+	foodtype = GRAIN
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	var/bitesize = 3 // how many times you need to bite to consume it fully
 	var/bitecount = 0
 	var/trash = null
 	var/slice_path    // for sliceable food. path of the item resulting from the slicing
@@ -60,10 +63,10 @@ All foods are distributed among various categories. Use common sense.
 	var/list/tastes  // for example list("crisps" = 2, "salt" = 1)
 
 	var/cooking = 0
-	var/cooktime = 0
+	var/cooktime = 25 SECONDS
 	var/burning = 0
 	var/burntime = 5 MINUTES
-	var/warming = 5 MINUTES		//if greater than 0, have a brief period where the food buff applies while its still hot
+	var/warming		//if greater than 0, have a brief period where the food buff applies while its still hot
 
 	var/cooked_color = "#91665c"
 	var/burned_color = "#302d2d"
@@ -91,6 +94,17 @@ All foods are distributed among various categories. Use common sense.
 
 	var/list/sizemod = null
 	var/list/raritymod = null
+
+	var/plateable = FALSE //if it can be plated or not
+	var/foodbuff_skillcheck // is the cook good enough to add buff?
+	var/modified = FALSE // for tracking if food has been changed
+	var/quality = 1  // used to track foodbuffs and such
+	var/filling // used to simplify tastes etc for fillings in pies and the like
+
+	var/skillcheck	// got enough skill to make this?
+	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
+	var/plating_alt_icon
+	var/plated_iconstate
 
 /datum/intent/food
 	name = "feed"
@@ -369,39 +383,63 @@ All foods are distributed among various categories. Use common sense.
 
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
+	. = ..()
 	if(istype(W, /obj/item/storage))
 		..() // -> item/attackby()
 		return 0
-/*	if(istype(W, /obj/item/reagent_containers/food/snacks))
-		var/obj/item/reagent_containers/food/snacks/S = W
-		if(custom_food_type && ispath(custom_food_type))
-			if(S.w_class > WEIGHT_CLASS_SMALL)
-				to_chat(user, "<span class='warning'>[S] is too big for [src]!</span>")
-				return 0
-			if(!S.customfoodfilling || istype(W, /obj/item/reagent_containers/food/snacks/customizable) || istype(W, /obj/item/reagent_containers/food/snacks/pizzaslice/custom) || istype(W, /obj/item/reagent_containers/food/snacks/cakeslice/custom))
-				to_chat(user, "<span class='warning'>[src] can't be filled with [S]!</span>")
-				return 0
-			if(contents.len >= 20)
-				to_chat(user, "<span class='warning'>I can't add more ingredients to [src]!</span>")
-				return 0
-			var/obj/item/reagent_containers/food/snacks/customizable/C = new custom_food_type(get_turf(src))
-			C.initialize_custom_food(src, S, user)
-			return 0
-*/
 
 	if(W.get_sharpness() && W.wlength == WLENGTH_SHORT)
+		if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?
+			return FALSE
 		if(slice_bclass == BCLASS_CHOP)
 			user.visible_message("<span class='notice'>[user] chops [src]!</span>")
 			slice(W, user)
-			return 1
+			return TRUE
 		if(slice_bclass == BCLASS_CUT)
 			user.visible_message("<span class='notice'>[user] slices [src]!</span>")
 			slice(W, user)
-			return 1
+			return TRUE
 		else if(slice(W, user))
-			return 1
+			return TRUE
 
-	..()
+	if(user.mind)
+		if(skillcheck)
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2) // cooks with less than 2 skill don´t know this recipe
+				to_chat(user, span_warning(skill_lacking))
+				return
+		if(foodbuff_skillcheck)		// cooks with less than 3 skill don´t add bonus buff
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
+				tastes = list("blandness" = 1)
+				quality = 0
+				switch(rand(1,4))
+					if(1)
+						name = "unappealing [name]"
+						desc = "It is made without love or care."
+					if(2)
+						name = "sloppy [name]"
+						desc = "It barely looks like food."
+					if(3)
+						name = "failed [name]"
+						desc = "It is a disgrace to cooking."
+					if(4)
+						name = "woeful [name]"
+						desc = "Cooking that might cause a divorce."
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+				eat_effect = /datum/status_effect/buff/foodbuff
+				quality = 2
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 4)
+				quality = 3
+				switch(rand(1,3))
+					if(1)
+						name = "masterful [name]"
+						desc = "[desc] It looks perfect."
+					if(2)
+						name = "exquisite [name]"
+						desc = "[desc] It smells like heaven."
+					if(3)
+						name = "perfected [name]"
+						desc = "[desc] It is a triumph of cooking."
+
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
 	..()
@@ -439,9 +477,9 @@ All foods are distributed among various categories. Use common sense.
 		return FALSE
 
 	if(slice_sound)
-		playsound(get_turf(user), 'modular/Neu_Food/sound/slicing.ogg', 60, TRUE, -1) // added some choppy sound
+		playsound(get_turf(user), 'sound/foley/slicing.ogg', 60, TRUE, -1) // added some choppy sound
 	if(chopping_sound)
-		playsound(get_turf(user), 'modular/Neu_Food/sound/chopping_block.ogg', 60, TRUE, -1) // added some choppy sound
+		playsound(get_turf(user), 'sound/foley/chopping_block.ogg', 60, TRUE, -1) // added some choppy sound
 	if(slice_batch)
 		if(!do_after(user, 30, target = src))
 			return FALSE
@@ -567,7 +605,7 @@ All foods are distributed among various categories. Use common sense.
 	w_class = WEIGHT_CLASS_NORMAL
 	var/stored_item = 0
 
-/obj/item/reagent_containers/food/snacks/store/attackby(obj/item/W, mob/user, params)
+/obj/item/reagent_containers/food/snacks/store/attackby(obj/item/W, mob/living/user, params)
 	..()
 	if(W.w_class <= WEIGHT_CLASS_SMALL & !istype(W, /obj/item/reagent_containers/food/snacks)) //can't slip snacks inside, they're used for custom foods.
 		if(W.get_sharpness())
@@ -604,3 +642,23 @@ All foods are distributed among various categories. Use common sense.
 	foodtype = GROSS
 	burntime = 0
 	cooktime = 0
+
+// Proc to handle visuals from plating
+/obj/item/reagent_containers/food/snacks/proc/plated()
+	icon = 'icons/roguetown/items/food.dmi'
+	item_state = "plate_food"
+	experimental_inhand = FALSE
+	inhand_x_dimension = 32
+	inhand_y_dimension = 32
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	if(plating_alt_icon)
+		icon_state = plated_iconstate
+
+// Proc for important vars when reaching meal level
+/obj/item/reagent_containers/food/snacks/proc/meal_properties()
+	plateable = TRUE
+	modified = TRUE
+	foodbuff_skillcheck = TRUE
+	rotprocess = SHELFLIFE_DECENT
+	bitesize = 5
+

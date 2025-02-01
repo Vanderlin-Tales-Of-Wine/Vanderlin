@@ -107,8 +107,8 @@
 	icon_state = "ros"
 	icon = 'icons/roguetown/items/gems.dmi'
 	desc = "Flesh, mind."
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_MOUTH
 	dropshrink = 0.4

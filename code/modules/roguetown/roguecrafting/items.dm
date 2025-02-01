@@ -141,8 +141,8 @@
 
 /datum/crafting_recipe/roguetown/woodplatter
 	name = "wood platters (x2)"
-	result = list(/obj/item/cooking/platter,
-				/obj/item/cooking/platter)
+	result = list(/obj/item/kitchen/platter,
+				/obj/item/kitchen/platter)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/pipe

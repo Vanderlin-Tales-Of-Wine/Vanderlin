@@ -28,7 +28,7 @@
 	id = "foodbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/foodbuff
 	effectedstats = list("constitution" = 1,"endurance" = 1)
-	duration = 10 MINUTES
+	duration = 15 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/foodbuff
 	name = "Great Meal"

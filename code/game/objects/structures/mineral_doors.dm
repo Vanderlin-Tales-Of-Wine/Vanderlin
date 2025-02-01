@@ -937,8 +937,8 @@
 	base_state = "serving"
 	max_integrity = 250
 	over_state = "servingopen"
-	openSound = 'modular/Neu_Food/sound/blindsopen.ogg'
-	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
+	openSound = 'sound/foley/blindsopen.ogg'
+	closeSound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
 	animate_time = 21

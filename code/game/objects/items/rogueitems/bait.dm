@@ -4,8 +4,6 @@
 	desc = "Horrid smell to me, wonderful smell to big game."
 	icon_state = "bait"
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	var/check_counter = 0

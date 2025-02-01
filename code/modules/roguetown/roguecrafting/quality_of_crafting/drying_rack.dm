@@ -34,7 +34,7 @@
 
 /datum/repeatable_crafting_recipe/coppiette
 	name = "coppiette"
-	output = /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
+	output = /obj/item/reagent_containers/food/snacks/cooked/coppiette
 	starting_atom = /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,
@@ -51,7 +51,7 @@
 	output = /obj/item/reagent_containers/food/snacks/fat/salo
 	starting_atom = /obj/item/reagent_containers/food/snacks/fat
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/fat = 1,
+		/obj/item/reagent_containers/food/snacks/fat = 2,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
 	attacking_atom = /obj/machinery/tanningrack
@@ -80,7 +80,7 @@
 
 /datum/repeatable_crafting_recipe/raisins
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins
+	output = /obj/item/reagent_containers/food/snacks/raisins
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
@@ -96,7 +96,7 @@
 
 /datum/repeatable_crafting_recipe/raisins_poison
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins/poison
+	output = /obj/item/reagent_containers/food/snacks/raisins/poison
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1,

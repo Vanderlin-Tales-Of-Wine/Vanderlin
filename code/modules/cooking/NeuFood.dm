@@ -5,35 +5,17 @@
  *						*
  * * * * * * * * * * * **/
 
-#define SIMPLE_COOKING_XPGAIN 10
-#define COMPLEX_COOKING_XPGAIN 25
-
 
 /*---------------\
 | Food templates |
 \---------------*/
 
-/obj/item/reagent_containers/food/snacks/rogue // base food type, for icons and cooktime, and to make it work with processes like pie making
-	icon = 'modular/Neu_Food/icons/food.dmi'
-	desc = ""
-	slices_num = 0
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
-	foodtype = GRAIN
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	cooktime = 30 SECONDS
-
-/obj/item/reagent_containers/food/snacks/rogue/Initialize()
-	. = ..()
-	eatverb = pick("bite","chew","nibble","gobble","chomp")
-
-/obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
+/obj/item/reagent_containers/food/snacks/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
-	bitesize = 3
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	do_random_pixel_offset = FALSE // disables the random placement on creation for this object
 
-/obj/item/reagent_containers/food/snacks/rogue/preserved // just convenient way to group food with long rotprocess
-	bitesize = 3
+/obj/item/reagent_containers/food/snacks/preserved // just convenient way to group food with long rotprocess
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	rotprocess = SHELFLIFE_EXTREME
 
@@ -63,12 +45,8 @@
 
 /obj/item/reagent_containers/food/snacks/rotten
 	name = "rotten food"
-	icon = 'modular/Neu_Food/icons/food.dmi'
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
-	slices_num = 0
-	slice_path = null
-	cooktime = 0
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -94,7 +72,7 @@
 	icon_state = "bun"
 /obj/item/reagent_containers/food/snacks/rotten/egg
 	name = "rotted cackleberry"
-	icon_state = "egg"
+	icon_state = "egg2"
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
@@ -108,7 +86,7 @@
 	icon_state = "meatmince"
 /obj/item/reagent_containers/food/snacks/rotten/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess/rotting/get_turf(src)
-	playsound(get_turf(src), 'modular/Neu_Food/sound/meatslap.ogg', 100, TRUE, -1)
+	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
 	..()
 	qdel(src)
 
@@ -119,37 +97,38 @@
 | Kitchen tools |
 \--------------*/
 
-/obj/item/kitchen/spoon
-	name = "wooden spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, or to churn butter with."
+/obj/item/kitchen
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	icon_state = "spoon"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/kitchen/ironspoon
+/obj/item/kitchen/spoon
+	name = "wooden spoon"
+	desc = "Traditional utensil for shoveling soup into your mouth, or to churn butter with."
+	icon_state = "spoon"
+
+/obj/item/kitchen/spoon/iron
 	name = "iron spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, now made with iron for that metallic taste!"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "spoon_iron"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/fork
 	name = "wooden fork"
 	desc = "Traditional utensil for stabbing your food in order to shove it into your mouth."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
 
-/obj/item/kitchen/ironfork
+/obj/item/kitchen/fork/iron
 	name = "iron fork"
-	desc = "Traditional utensil for stabbing your food, now made with iron for extra stabbiness!"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork_iron"
-	force = 0
-	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/kitchen/platter
+	name = "platter"
+	desc = "Made from fired clay or wood."
+	icon_state = "platter"
+	resistance_flags = NONE
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/glass/bowl
 	name = "bowl"
@@ -174,17 +153,14 @@
 	icon_state = "bowl_iron"
 
 /obj/item/kitchen/rollingpin
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
 	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/glass/bowl
 	name = "wooden bowl"
 	desc = "It is the empty space that makes the bowl useful."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
 	force = 5
 	throwforce = 5
@@ -205,31 +181,31 @@
 	if(reagents)
 		if(reagents.total_volume > 0)
 			if(reagents.total_volume <= 11)
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_low")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_low")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 		if(reagents.total_volume > 11)
 			if(reagents.total_volume <= 22)
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_half")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_half")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 		if(reagents.total_volume > 22)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/oatmeal, 10))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_oatmeal")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_oatmeal")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_full")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
 				add_overlay(filling)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 17))
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_stew")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_stew")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
 				add_overlay(filling)
 			else
-				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_full")
+				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 	else
@@ -320,16 +296,7 @@
 	list_reagents = list(/datum/reagent/consumable/blackpepper = 5)
 	reagent_flags = TRANSPARENT
 
-/obj/item/cooking/platter
-	name = "platter"
-	desc = "Made from fired clay or wood."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
-	icon_state = "platter"
-	resistance_flags = NONE
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	experimental_inhand = FALSE
+
 
 
 
@@ -363,7 +330,7 @@
 	name = "vegetable soup"
 	description = ""
 	reagent_state = LIQUID
-	nutriment_factor = 8
+	nutriment_factor = 7
 	taste_mult = 4
 	hydration = 8
 
@@ -386,6 +353,7 @@
 /datum/reagent/consumable/soup/egg
 	color = "#dedbaf"
 	taste_description = "egg soup"
+	nutriment_factor = 12
 
 /datum/reagent/consumable/soup/cheese // A thicker soup, almost on the level of old oatmeal. But less hydration than other soups
 	name = "cheese soup"
@@ -401,7 +369,7 @@
 	name = "thick stew"
 	description = "All manners of edible bits went into this."
 	reagent_state = LIQUID
-	nutriment_factor = 16
+	nutriment_factor = 14
 	taste_mult = 4
 
 /datum/reagent/consumable/soup/stew/chicken
@@ -432,8 +400,8 @@
 	metabolization_rate = 0.3
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
 	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
-		M.adjustBruteLoss(-0.1*REM, 0)
-		M.adjustFireLoss(-0.1*REM, 0)
+		M.adjustBruteLoss(-0.1)
+		M.adjustFireLoss(-0.1)
 		M.adjust_energy(2)
 		return
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
@@ -465,8 +433,8 @@
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		if(M.blood_volume < BLOOD_VOLUME_NORMAL)
 			M.blood_volume = min(M.blood_volume+2, BLOOD_VOLUME_MAXIMUM)
-		M.adjustBruteLoss(-0.2*REM, 0)
-		M.adjustFireLoss(-0.2*REM, 0)
+		M.adjustBruteLoss(-0.2, 0)
+		M.adjustFireLoss(-0.2, 0)
 		M.adjust_energy(5)
 		return
 	else
@@ -474,9 +442,9 @@
 			M.emote("gag")
 			M.add_nausea(9)
 			if(isdwarf(M))
-				M.adjustToxLoss(2, 0)
+				M.adjustToxLoss(2)
 			else
-				M.adjustToxLoss(5, 0)
+				M.adjustToxLoss(5)
 	..()
 	. = TRUE
 
@@ -490,7 +458,6 @@
 /obj/item/reagent_containers/powder/flour
 	name = "powder"
 	desc = "With this ambition, we build an empire."
-	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
@@ -500,38 +467,50 @@
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
 	..()
 	qdel(src)
-/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
+	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
-	var/obj/item/reagent_containers/R = I
+	var/obj/item/reagent_containers/glass/R = I
 	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
-	if(!istype(R) || (water_added))
-		return ..()
-	if(isturf(loc)&& (!found_table))
-		to_chat(user, "<span class='notice'>Need a table...</span>")
-		return ..()
-	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
-		return TRUE
-	to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
-	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
-	if(do_after(user,2 SECONDS, target = src))
-		name = "wet powder"
-		desc = "Destined for greatness, at your hands."
-		R.reagents.remove_reagent(/datum/reagent/water, 10)
-		water_added = TRUE
-		color = "#d9d0cb"
-	return TRUE
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+	if(isturf(loc)&& (found_table))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
+			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
+			to_chat(user, span_notice("Kneading in more powder..."))
+			if(do_after(user,short_cooktime, target = src))
+				new /obj/item/reagent_containers/food/snacks/dough(loc)
+				qdel(I)
+				qdel(src)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+		if(!istype(R) || (water_added))
+			return ..()
+		if(!R.reagents.has_reagent(/datum/reagent/water, 10))
+			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+			return TRUE
+		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
+		if(do_after(user,2 SECONDS, target = src))
+			name = "wet powder"
+			desc = "Destined for greatness, at your hands."
+			R.reagents.remove_reagent(/datum/reagent/water, 10)
+			water_added = TRUE
+			color = "#d9d0cb"
+	else
+		to_chat(user, span_warning("Put [src] on a table before working it!"))
 
-/obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
+/obj/item/reagent_containers/powder/flour/attack_hand(mob/living/user)
 	if(water_added)
-		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
-		if(do_after(user,3 SECONDS, target = src))
-			new /obj/item/reagent_containers/food/snacks/rogue/dough_base(loc)
-			user.mind.adjust_experience(/datum/skill/craft/cooking, SIMPLE_COOKING_XPGAIN, FALSE)
+		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
+		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
+		if(do_after(user,short_cooktime, target = src))
+			var/obj/item/reagent_containers/food/snacks/rogue/dough_base/newdough= new(get_turf(user))
+			user.put_in_hands(newdough)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(src)
-	else ..()
+	else
+		..()
+
+
 
 // -------------- SALT -----------------
 /obj/item/reagent_containers/powder/salt
@@ -554,189 +533,25 @@
 | Meals on platters |
 \------------------*/
 
-/obj/item/cooking/platter/attackby(obj/item/I, mob/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked))
-		if(isturf(loc)&& (found_table))
+/*	..................   Food platter   ................... */
+/obj/item/kitchen/platter/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/S = I
+		if (S.plateable == TRUE)
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated(loc)
-				qdel(I)
+			if(do_after(user,1 SECONDS, target = src))
+				S.plated()
+				S.trash = /obj/item/kitchen/platter
+				S.plateable = FALSE
+				S.rotprocess =  SHELFLIFE_LONG
+				S.w_class = WEIGHT_CLASS_NORMAL
+				S.dropshrink = 0.9
+				S.bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
+				var/mutable_appearance/platter = mutable_appearance(icon, "platter")
+				S.underlays += platter
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/spiced))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated/spiced(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/peppersteak))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/peppersteak/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/onionsteak))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/onionsteak/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedrat))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/friedrat/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/hcakeslice))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/hcakeslice/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/ccakeslice))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/ccakeslice/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/bun_grenz))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/bun_grenz/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienercabbage))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienercabbage/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotato))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wieneronions))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wieneronions/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/frybirdtato))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/royaltruffles))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/royaltruffles/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/royaltruffles_poisoned))
-		if(isturf(loc)&& (found_table))
-			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,2 SECONDS, target = src))
-				new /obj/item/reagent_containers/food/snacks/rogue/royaltruffles_poisoned/plated(loc)
-				qdel(I)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
-
+			to_chat(user, span_warning("[S] cannot be plated."))
 	else
 		return ..()
 
@@ -763,12 +578,12 @@
 * Salumoi
 * Uncut pie
 * Raw potato, onion
+* Uncut raisin bread
 
 /*	.................   Extreme shelflife   ................... */
 
 * Raw cabbage
 * Uncut bread loaf
-* Uncut raisin bread
 * Most plated dishes
 
 /*	.................   Long shelflife   ................... */

@@ -201,8 +201,8 @@
 	name = "bugged bucket please report to mappers"
 	desc = ""
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	max_integrity = 300
@@ -248,6 +248,23 @@
 		slot_equipment_priority.Insert(index, SLOT_HEAD)
 		return
 	return ..()
+
+/obj/item/reagent_containers/glass/bucket/attackby(obj/item/I, mob/user, params)
+	..()
+	if(istype(I, /obj/item/reagent_containers/powder/salt))
+		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+			to_chat(user, "<span class='warning'>Not enough milk.</span>")
+			return
+		to_chat(user, "<span class='warning'>Adding salt to the milk.</span>")
+		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+		if(do_after(user,2 SECONDS, target = src))
+			if(reagents.has_reagent(/datum/reagent/consumable/milk, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted, 15)
+			if(reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk/gote, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted_gote, 15)
+			qdel(I)
 
 /obj/item/reagent_containers/glass/bucket/wooden
 	name = "bucket"

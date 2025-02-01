@@ -281,7 +281,7 @@
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = SHELFLIFE_LONG
-	slices_num = 3
+	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
 	chopping_sound = TRUE
 
@@ -291,6 +291,7 @@
 	desc = "A wonderful vegetable with many layers and a broad flavor profile."
 	seed = /obj/item/neuFarm/seed/onion
 	icon_state = "onion"
+	dropshrink = 0.9
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
 	tastes = list("onion" = 1)
@@ -304,10 +305,7 @@
 	chopping_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 
-/*/obj/item/reagent_containers/food/snacks/produce/onion/slice(obj/item/W, mob/user) I cant do it. Below causes a runtime its true but its so tiny! And this new one is so damn boring.
-	. = ..()
-	to_chat(user, "<span class='notice'>My eyes sting a little...</span>") */
-/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/user)
+/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/living/user) // ROGTODO watering eyes
 	var/datum/effect_system/smoke_spread/transparent/S = new	//Since the onion is destroyed when it's sliced,
 	var/splat_location = get_turf(src)	//we need to set up the smoke beforehand
 	S.attach(splat_location)
@@ -328,7 +326,7 @@
 	filling_color = "#d8d8b6"
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
+	cooked_type = /obj/item/reagent_containers/food/snacks/preserved/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES
