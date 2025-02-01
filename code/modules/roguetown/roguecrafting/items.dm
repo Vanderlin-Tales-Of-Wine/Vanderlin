@@ -296,7 +296,7 @@
 	result = list(/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 	/obj/item/natural/fibers = 8,
-	/obj/item/reagent_containers/food/snacks/fat)
+	/obj/item/reagent_containers/food/snacks/fat = 1)
 	skillcraft = /datum/skill/craft/carpentry
 	structurecraft = /obj/machinery/light/rogue/campfire
 	craftdiff = 3
