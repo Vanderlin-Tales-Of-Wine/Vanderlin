@@ -390,7 +390,7 @@
 		else
 			dodge_score += ((D.STASPD * 10))
 	if(A)
-		dodge_score -= A.STASPD * 8
+		dodge_score -= A.STASPD * 7
 	if(I)
 		if(AH?.mind)
 			dodge_score -= (AH.mind.get_skill_level(I.associated_skill) * 10) //this means at legendary -60 dodge rating

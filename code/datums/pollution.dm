@@ -111,7 +111,7 @@
 	if(dominant_pollutant.descriptor == SCENT_DESC_ODOR)
 		to_chat(sniffer, span_warning(smell_string))
 	else
-		to_chat(sniffer, span_notice(smell_string))
+		to_chat(sniffer, span_info(smell_string))
 
 /datum/pollution/proc/scrub_amount(amount_to_scrub, update_active = TRUE)
 	if(amount_to_scrub >= total_amount || !isopenturf(my_turf) || QDELING(my_turf))

@@ -157,7 +157,9 @@
 		amt += ((BPinteg) * dna?.species?.pain_mod)
 	return amt
 
-
+/mob/living/carbon/human/get_complex_pain()
+	. = ..()
+	. *= physiology.pain_mod
 
 ///////////////
 // BREATHING //

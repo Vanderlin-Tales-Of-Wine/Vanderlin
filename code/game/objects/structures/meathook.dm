@@ -33,7 +33,7 @@
 				else
 					. += span_warning("[L] has had its blood fully drained. I can skin it with a knife.")
 			else
-				if(draining_blood && L.blood_drained > 1)
+				if(draining_blood && L.blood_drained > 0)
 					. += span_warning("[L] is having its blood drained. If I try to skin or butcher it now, I may lose some parts.")
 				else
 					. += span_warning("There is a corpse ready to be worked on. I might need a knife for this.")
@@ -106,6 +106,7 @@
 	var/mob/living/L = buckled_mobs[1]
 	if(L.blood_drained > 60)
 		L.blood_drained = 60
+		draining_blood = FALSE
 		STOP_PROCESSING(SSmachines, src)
 		return
 	L.blood_drained++
@@ -249,6 +250,7 @@
 					var/obj/item/I = new listed_item(get_turf(user))
 					I.add_mob_blood(butchery_target)
 			butchery_target.gib()
+			draining_blood = FALSE
 			var/boon = user.mind.get_learning_boon(/datum/skill/labor/butchering)
 			var/amt2raise = user.STAINT
 			user.mind.add_sleep_experience(/datum/skill/labor/butchering, amt2raise * boon, FALSE)

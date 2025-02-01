@@ -276,7 +276,7 @@
 		return TRUE
 
 	if(iscarbon(target))
-		if(targeteditem in target.held_items)
+		if(target.is_holding(targeteditem))
 			handle_heating_in_hand(target, targeteditem, user)
 		else
 			handle_heating_equipped(target, targeteditem, user)
@@ -285,10 +285,12 @@
 /obj/effect/proc_holder/spell/invoked/heatmetal/proc/handle_heating_in_hand(mob/living/carbon/target, obj/item/targeteditem, mob/user)
 	var/adth_damage_to_apply = 10 //How much damage should burning your hand before dropping the item do.
 	var/obj/item/bodypart/affecting
-	if(targeteditem == target.held_items[2])
-		affecting = target.get_bodypart(BODY_ZONE_R_ARM)
-	else
-		affecting = target.get_bodypart(BODY_ZONE_L_ARM)
+	var/hand_index = target.get_held_index_of_item(targeteditem)
+	switch(hand_index)
+		if(2)
+			affecting = target.get_bodypart(BODY_ZONE_R_ARM)
+		if(1)
+			affecting = target.get_bodypart(BODY_ZONE_L_ARM)
 	if(!affecting)
 		return
 	affecting.receive_damage(burn = adth_damage_to_apply)

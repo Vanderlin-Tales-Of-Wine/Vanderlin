@@ -434,12 +434,6 @@
 	desc = span_nicegreen("Everything about myself feels beautiful!")
 	icon_state = "beauty"
 
-/datum/status_effect/buff/eoradrunk
-	id = "eoradrunk"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list(STATKEY_STR = -2, STATKEY_LCK = -5, STATKEY_PER = -2, STATKEY_SPD = -3) //debuff stats important in attacking
-	duration = 20 SECONDS
-
 /*-----------------\
 |   Ravox Miracles |
 \-----------------*/
