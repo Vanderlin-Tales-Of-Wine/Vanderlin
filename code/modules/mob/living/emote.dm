@@ -40,52 +40,21 @@
 		return
 
 	/* admin stuff */
-	var/follower_ident = "[follower.key]/([follower.real_name])"
+	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron.name])"
 	message_admins("[follower_ident] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
 	log_prayer(span_info("[follower_ident] prays: [prayer]"))
 
 	follower.whisper(prayer)
 
-	if(SEND_SIGNAL(follower, COMSIG_CARBON_PRAYED, prayer) & CARBON_PRAY_CANCEL)
+	if(SEND_SIGNAL(follower, COMSIG_CARBON_PRAY, prayer) & CARBON_PRAY_CANCEL)
 		return
 
-	patron.hear_prayer(follower, prayer)
-	if(!in_literal_hell)
-		for(var/mob/living/crit_guy in hearers(2, follower)) //as of writing succumb_timer does literally nothing btw
-			crit_guy.succumb_timer = world.time
+	if(patron.hear_prayer(follower, prayer))
+		if(follower.has_flaw(/datum/charflaw/addiction/godfearing)) //make this a fucking signal!!!!
+			follower.sate_addiction() //why is this being handled by the mob!!!! and why does this cover every addiction??
 
-/datum/emote/living/proc/check_prayer_underworld(mob/living/L, message)
-	if(!L || !message)
-		return FALSE
-	var/list/bannedwords = list("zizo","cock","dick","fuck","shit","pussy","ass","cuck","fucker","fucked","cunt","asshole")
-	var/message2recognize = sanitize_hear_message(message)
-	var/mob/living/carbon/spirit/M = L
-	for(var/T in bannedwords)
-		if(findtext(message2recognize, T))
-			//put this idiot SOMEWHERE
-			var/list/turfs = list()
-			for(var/turf/U in /area/rogue/underworld)
-				if(U.density)
-					continue
-				turfs.Add(U)
-
-			var/turf/U = safepick(turfs)
-			if(!U) //fuck
-				return FALSE
-			to_chat(L, "<font color='yellow'>INSOLENT WRETCH, YOUR STRUGGLE CONTINUES</font>")
-			L.forceMove(T)
-			return FALSE
-	if(length(message2recognize) <= 15)
-		to_chat(L, span_danger("My prayer was kinda short..."))
-		return FALSE
-
-	. = TRUE //the prayer has succeeded by this point forward
-
-	if(findtext(message2recognize, "[M.patron]"))
-		L.playsound_local(L, 'sound/misc/notice (2).ogg', 100, FALSE)
-		to_chat(L, "<font color='yellow'>I, [M.patron], have heard your prayer and yet cannot aid you.</font>")
-		var/obj/item/underworld/coin/aid = new() //aids you anyways
-		L.put_in_active_hand(aid)
+	for(var/mob/living/crit_guy in hearers(2, follower)) //as of writing succumb_timer does literally nothing btw
+		crit_guy.succumb_timer = world.time
 
 // ............... Me (custom emote) ..................
 /datum/emote/living/custom

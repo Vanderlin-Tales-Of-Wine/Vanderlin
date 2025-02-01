@@ -14,7 +14,7 @@
 	)
 
 /datum/patron/psydon/can_pray(mob/living/carbon/human/follower)
-	/// we kind of assume that the follower is human here so ummm
+	//We just kind of assume the follower is a human here
 	if(istype(follower.wear_neck, /obj/item/clothing/neck/roguetown/psycross))
 		return TRUE
 

@@ -18,7 +18,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/flaws = "This spagetti code"
 	///Strong that represents what this god views as sins
 	var/sins = "Codersocks"
-	/// What boons the god may offer:______qdel_list_wrapper(list/L)
+	/// What boons the god may offer
 	var/boons = "Code errors"
 	/// Faith this god belongs to
 	var/datum/faith/associated_faith = /datum/faith
@@ -50,23 +50,24 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	for(var/trait in added_traits)
 		REMOVE_TRAIT(pious, trait, "[type]")
 
+/* -----PRAYERS----- */
+
 /// Called when a patron's follower attempts to pray.
 /// Returns TRUE if they satisfy the needed conditions.
 /datum/patron/proc/can_pray(mob/living/follower)
-	SHOULD_CALL_PARENT(FALSE)
-	return TRUE // how nice!
+	return TRUE
 
 /// Called when a patron's follower prays to them.
 /// Returns TRUE if their prayer was heard and the patron was not insulted
-/datum/patron/proc/hear_prayer(mob/living/follower, message, in_underworld)
+/datum/patron/proc/hear_prayer(mob/living/follower, message)
 	if(!follower || !message)
 		return FALSE
 	var/prayer = sanitize_hear_message(message)
 
 	if(length(profane_words))
-		for(var/word in profane_words)
-			if(findtext(prayer, word))
-				punish_prayer(follower, in_underworld)
+		for(var/profanity in profane_words)
+			if(findtext(prayer, profanity))
+				punish_prayer(follower)
 				return FALSE
 
 	if(length(prayer) <= 15)
@@ -75,20 +76,19 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 
 	. = TRUE //the prayer has succeeded by this point forward
 
-	if(follower.has_flaw(/datum/charflaw/addiction/godfearing)) //make this a fucking signal!!!!
-		follower.sate_addiction() //why is this being handled by the mob!!!!
+	if(findtext(prayer, name))
+		reward_prayer(follower)
 
-	if(findtext(prayer, "[follower.patron]"))
-		reward_prayer(follower, in_underworld)
-
-/// The follower has offended the Patron and is now being punished.
-/datum/patron/proc/punish_prayer(mob/living/follower, in_underworld)
+/// The follower has somehow offended the patron and is now being punished.
+/datum/patron/proc/punish_prayer(mob/living/follower)
 	follower.adjust_fire_stacks(100)
 	follower.IgniteMob()
 	SSticker.pplsmited++
 	follower.add_stress(/datum/stressevent/psycurse)
 
-/// The follower has prayed correctly to the Patron and is being rewarded.
-/datum/patron/proc/reward_prayer(mob/living/follower, in_underworld)
+/// The follower has prayed in a special way to the patron and is being rewarded.
+/datum/patron/proc/reward_prayer(mob/living/follower)
+	SHOULD_CALL_PARENT(TRUE)
+
 	follower.playsound_local(follower, 'sound/misc/notice (2).ogg', 100, FALSE)
 	follower.add_stress(/datum/stressevent/psyprayer)
