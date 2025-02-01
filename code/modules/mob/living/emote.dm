@@ -20,124 +20,41 @@
 
 	emote("pray", intentional = TRUE)
 
-/mob/living/carbon/human/proc/canpray()
-	var/turf/L = get_turf(src)
-
-	if(istype(src.patron, /datum/patron/divine))
-		var/area/A = get_area(L)
-		var/found = FALSE
-		for(var/obj/structure/fluff/psycross/P in view(4, get_turf(L)) )
-			if(!P.obj_broken)
-				found = TRUE
-		if(found)
-			return TRUE
-		if(istype(A, /area/rogue/indoors/town/church))
-			return TRUE
-		to_chat(src, "<span class='danger'>I need a nearby Pantheon Cross for my prayers to be heard...</span>")
-		return FALSE
-
-	if(istype(src.patron, /datum/patron/inhumen))
-		var/found = FALSE
-		for(var/obj/structure/fluff/psycross/P in view(7, get_turf(L)) )
-			if(!P.obj_broken)
-				found = TRUE
-		if(!found) // Cant pray to ZIZO if you're in the sight of the gods, stupid!
-			return TRUE
-		to_chat(src, "<span class='danger'>That accursed cross won't let me commune with the Forbidden One!</span>")
-		return FALSE
-
-	if(istype(src.patron, /datum/patron/psydon))
-		if(istype(wear_neck, /obj/item/clothing/neck/roguetown/psycross))
-			return TRUE
-		to_chat(src, "<span class='danger'>I can not talk to Him... I need His cross on my neck!</span>")
-		return FALSE
-
-	return TRUE // If you have any different god then I guess just pray whereever
-
 /datum/emote/living/pray/run_emote(mob/user, params, type_override, intentional)
-	if(ishuman(user))
-		var/mob/living/carbon/human/L = user
-		var/area/C = get_area(user)
-		if(HAS_TRAIT(usr, TRAIT_ATHEISM_CURSE))
-			to_chat(usr, span_danger("Praying is for fools."))
-			return
-		if(!L.canpray())
-			if(!istype(C, /area/rogue/underworld))
-				return
-		var/msg = input("Whisper your prayer:", "Prayer") as text|null
-		if(msg)
-			L.whisper(msg)
-			L.roguepray(msg)
-			if(istype(C, /area/rogue/underworld))
-				L.check_prayer_underworld(L,msg)
-				return
-			L.check_prayer(L,msg)
-			for(var/mob/living/LICKMYBALLS in hearers(2,src))
-				LICKMYBALLS.succumb_timer = world.time
+	if(HAS_TRAIT(user, TRAIT_ATHEISM_CURSE))
+		to_chat(user, span_danger("Praying is for fools."))
+		return
 
-/mob/living/proc/check_prayer(mob/living/L,message)
-	if(!L || !message)
-		return FALSE
-	var/list/bannedwords = list("zizo","cock","dick","fuck","shit","pussy","cuck","fucker","fucked","cunt","asshole")
-	var/message2recognize = sanitize_hear_message(message)
-	var/mob/living/carbon/human/M = L
-	var/mob/living/carbon/V = L
-	if(istype(M.patron, /datum/patron/inhumen))
-		bannedwords = list()
-	for(var/T in bannedwords)
-		if(findtext(message2recognize, T))
-			V.add_stress(/datum/stressevent/psycurse)
-			L.adjust_fire_stacks(100)
-			SSticker.pplsmited++
-			L.IgniteMob()
-			return FALSE
-	if(length(message2recognize) > 15)
-		if(L.has_flaw(/datum/charflaw/addiction/godfearing))
-			L.sate_addiction()
-		if(L.mob_timers[MT_PSYPRAY])
-			if(world.time < L.mob_timers[MT_PSYPRAY] + 1 MINUTES)
-				L.mob_timers[MT_PSYPRAY] = world.time
-				return FALSE
-		else
-			L.mob_timers[MT_PSYPRAY] = world.time
-		if(!findtext(message2recognize, "[M.patron]"))
-			return FALSE
-		else
-			L.playsound_local(L, 'sound/misc/notice (2).ogg', 100, FALSE)
-			V.add_stress(/datum/stressevent/psyprayer)
-			return TRUE
-	else to_chat(L, "<span class='danger'>My prayer was kinda short...</span>")
+	if(!intentional || (!ishuman(user) && !isroguespirit(user)))
+		return ..() //they get to do a fake prayer cause they SUCK
 
-/mob/living/proc/check_prayer_underworld(mob/living/L,message)
-	if(!L || !message)
-		return FALSE
-	var/list/bannedwords = list("zizo","cock","dick","fuck","shit","pussy","ass","cuck","fucker","fucked","cunt","asshole")
-	var/message2recognize = sanitize_hear_message(message)
-	var/mob/living/carbon/spirit/M = L
-	for(var/T in bannedwords)
-		var/list/turfs = list()
-		if(findtext(message2recognize, T))
-			for(var/turf/U in /area/rogue/underworld)
-				if(U.density)
-					continue
-				turfs.Add(U)
+	var/mob/living/carbon/follower = user
+	var/datum/patron/patron = follower.patron
 
-			var/turf/U = safepick(turfs)
-			if(!U)
-				return
-			to_chat(L, "<font color='yellow'>INSOLENT WRETCH, YOUR STRUGGLE CONTINUES</font>")
-			L.forceMove(T)
-			return FALSE
-	if(length(message2recognize) > 15)
-		if(findtext(message2recognize, "[M.patron]"))
-			L.playsound_local(L, 'sound/misc/notice (2).ogg', 100, FALSE)
-			to_chat(L, "<font color='yellow'>I, [M.patron], have heard your prayer and yet cannot aid you.</font>")
-			var/obj/item/underworld/coin/C = new
-			L.put_in_active_hand(C)
-			return TRUE
-		else
-			return TRUE
-	else to_chat(L, "<span class='danger'>My prayer was kinda short...</span>")
+	var/in_literal_hell = ( istype(get_area(user), /area/rogue/underworld) )
+	if(!in_literal_hell && !patron?.can_pray(follower))
+		return
+
+	var/prayer = input("Whisper your prayer:", "Prayer") as text|null
+	if(!prayer)
+		return
+
+	/* admin stuff */
+	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
+	message_admins("[follower_ident] [ADMIN_JMP(follower)] prays: [span_info(prayer)]")
+	log_prayer(span_info("[follower_ident] prays: [prayer]"))
+
+	follower.whisper(prayer)
+
+	if(SEND_SIGNAL(follower, COMSIG_CARBON_PRAY, prayer) & CARBON_PRAY_CANCEL)
+		return
+
+	if(patron.hear_prayer(follower, prayer))
+		if(follower.has_flaw(/datum/charflaw/addiction/godfearing)) //make this a fucking signal!!!!
+			follower.sate_addiction() //why is this being handled by the mob!!!! and why does this cover every addiction??
+
+	for(var/mob/living/crit_guy in hearers(2, follower)) //as of writing succumb_timer does literally nothing btw
+		crit_guy.succumb_timer = world.time
 
 // ............... Me (custom emote) ..................
 /datum/emote/living/custom
