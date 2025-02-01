@@ -1,9 +1,9 @@
 /datum/job/roguetown/deathknight
 	title = "Death Knight"
-	flag = GRAVETENDER
-	department_flag = PEASANTS
+	flag = DEATHKNIGHT
+	department_flag = UNDEAD
 	faction = "Station"
-	total_positions = 0
+	total_positions = -1
 	spawn_positions = 0
 
 	allowed_sexes = list(MALE, FEMALE)
