@@ -4,12 +4,24 @@
 	icon_state = "largetable";
 	dir = 9
 	},
+/obj/item/reagent_containers/glass/carafe/water{
+	pixel_y = 3;
+	pixel_x = 1
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "aaS" = (
 /obj/structure/table/wood{
 	icon_state = "longtable_mid";
 	dir = 1
+	},
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -6;
+	pixel_y = 7
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
@@ -1618,11 +1630,18 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/key/apartments/apartment1,
-/obj/item/key/apartments/apartment2,
-/obj/item/key/apartments/apartment3,
-/obj/item/key/apartments/apartment4,
-/obj/item/key/apartments/apartment5,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = 7;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/carafe/gold/redwine{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = 7;
+	pixel_y = 4
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/steward)
 "bdv" = (
@@ -1727,7 +1746,9 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
-/obj/item/reagent_containers/glass/bottle/rogue/wine,
+/obj/item/reagent_containers/glass/carafe/gold/redwine{
+	pixel_y = 12
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/manor)
 "bho" = (
@@ -1870,6 +1891,7 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/reagent_containers/glass/carafe/silver,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
 "bpn" = (
@@ -1997,7 +2019,9 @@
 "buv" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/clothing/ring/silver,
-/obj/item/reagent_containers/glass/cup/golden,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = -5
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "buD" = (
@@ -2430,6 +2454,10 @@
 	dir = 10
 	},
 /obj/item/candle/yellow,
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = 9;
+	pixel_y = 7
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "bFj" = (
@@ -3844,6 +3872,10 @@
 	dir = 5
 	},
 /obj/item/candle/yellow,
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = -6;
+	pixel_y = -6
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "cFN" = (
@@ -4383,6 +4415,10 @@
 /obj/structure/table/wood{
 	icon_state = "largetable";
 	dir = 10
+	},
+/obj/item/reagent_containers/glass/carafe{
+	pixel_x = 6;
+	pixel_y = 11
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
@@ -5359,9 +5395,13 @@
 	icon_state = "longtable";
 	dir = 1
 	},
-/obj/item/reagent_containers/glass/bottle/rogue/wine{
-	pixel_x = 2;
-	pixel_y = 6
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_y = 6;
+	pixel_x = -7
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
@@ -10466,6 +10506,14 @@
 /obj/structure/table/wood{
 	icon_state = "map2"
 	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = 7;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -7;
+	pixel_y = 7
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor)
 "hyo" = (
@@ -10923,6 +10971,17 @@
 "hPu" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/butchershop)
+"hPx" = (
+/obj/structure/table/wood{
+	icon_state = "largetable";
+	dir = 9
+	},
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/turf/open/floor/carpet/red,
+/area/rogue/indoors/town/manor)
 "hPD" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/structure/chair/wood/rogue/chair_noble,
@@ -11455,6 +11514,13 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
+"iju" = (
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 3;
+	pixel_x = 2
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/manor)
 "ijE" = (
 /obj/effect/landmark/start/steward{
 	dir = 4
@@ -11768,6 +11834,10 @@
 /obj/structure/table/wood{
 	icon_state = "largetable";
 	dir = 6
+	},
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_x = -5;
+	pixel_y = 15
 	},
 /obj/item/candle/yellow,
 /turf/open/floor/carpet/red,
@@ -12332,6 +12402,13 @@
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
+"iOw" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/carafe{
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "iOF" = (
 /obj/structure/flora/roguegrass/herb/salvia,
 /turf/open/floor/rogue/dirt,
@@ -13411,6 +13488,10 @@
 	},
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/manor)
+"jAE" = (
+/obj/item/roguestatue/gold,
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/town/vault)
 "jAR" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/blocks,
@@ -13661,7 +13742,12 @@
 	dir = 10
 	},
 /obj/item/reagent_containers/glass/cup/wooden{
-	pixel_y = 4
+	pixel_y = 11;
+	pixel_x = 11
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 3;
+	pixel_x = 2
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
@@ -16710,7 +16796,14 @@
 /obj/structure/table/wood{
 	icon_state = "map1"
 	},
-/obj/item/candle/yellow,
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_y = 16;
+	pixel_x = 7
+	},
+/obj/item/candle/yellow{
+	pixel_x = -3;
+	pixel_y = 5
+	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor)
 "meb" = (
@@ -18148,6 +18241,9 @@
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/machinery/light/rogue/torchholder/l{
 	dir = 1
+	},
+/obj/item/reagent_containers/glass/carafe/silver{
+	pixel_y = 7
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/manor)
@@ -22578,6 +22674,15 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/inquisition)
+"qBC" = (
+/obj/structure/closet/crate/roguecloset/crafted,
+/obj/item/clothing/shoes/roguetown/boots,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_y = 1;
+	pixel_x = 1
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/manor)
 "qBL" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/smithy)
@@ -23842,6 +23947,14 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_x = 7;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_x = -6;
+	pixel_y = 7
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "rCu" = (
@@ -24256,13 +24369,13 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/reagent_containers/glass/cup/silver{
+/obj/item/reagent_containers/glass/cup/golden{
 	pixel_x = 8;
-	pixel_y = 0
+	pixel_y = 7
 	},
-/obj/item/reagent_containers/glass/cup/silver{
-	pixel_x = -5;
-	pixel_y = 2
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = -8;
+	pixel_y = 7
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/manor)
@@ -25084,7 +25197,15 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
-/obj/item/key/warehouse,
+/obj/item/key/warehouse{
+	pixel_x = 10;
+	pixel_y = 6
+	},
+/obj/item/key/apartments/apartment5,
+/obj/item/key/apartments/apartment4,
+/obj/item/key/apartments/apartment3,
+/obj/item/key/apartments/apartment2,
+/obj/item/key/apartments/apartment1,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/steward)
 "swU" = (
@@ -26643,7 +26764,9 @@
 /area/rogue/outdoors/town)
 "txZ" = (
 /obj/structure/table/vtable,
-/obj/item/reagent_containers/glass/cup/silver,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_y = 12
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "tyD" = (
@@ -27232,6 +27355,16 @@
 	dir = 1
 	},
 /area/rogue/outdoors/mountains)
+"tQp" = (
+/obj/structure/table/wood{
+	icon_state = "largetable";
+	dir = 8
+	},
+/obj/item/reagent_containers/glass/carafe{
+	pixel_x = 6
+	},
+/turf/open/floor/rogue/blocks/stonered,
+/area/rogue/indoors/town/manor)
 "tQz" = (
 /obj/machinery/light/rogue/torchholder{
 	icon_state = "torchwall1";
@@ -27333,6 +27466,14 @@
 /area/rogue/outdoors/town)
 "tUC" = (
 /obj/structure/table/vtable/v2,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_y = 14;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/glass/carafe/gold/redwine{
+	pixel_x = -12;
+	pixel_y = 12
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "tVj" = (
@@ -27997,6 +28138,14 @@
 /obj/structure/table/wood{
 	icon_state = "largetable";
 	dir = 9
+	},
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = -3;
+	pixel_y = -6
+	},
+/obj/item/reagent_containers/glass/cup/steel{
+	pixel_x = 9;
+	pixel_y = 7
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
@@ -31801,6 +31950,13 @@
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/clinic_large)
+"xiJ" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/carafe/gold{
+	pixel_y = 7
+	},
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/manor)
 "xiQ" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/twig,
@@ -54951,7 +55107,7 @@ tHe
 tHe
 tHe
 mcU
-xaU
+jAE
 xaU
 xaU
 rOK
@@ -56163,7 +56319,7 @@ vgJ
 vgJ
 vgJ
 mcU
-xaU
+jAE
 xaU
 xaU
 cGo
@@ -90780,7 +90936,7 @@ kwV
 xXb
 xXb
 whf
-owo
+iOw
 meN
 bxI
 meN
@@ -93763,7 +93919,7 @@ kHd
 oDt
 fVT
 cui
-oji
+tQp
 oji
 bxb
 oDt
@@ -95556,8 +95712,8 @@ vgJ
 bJN
 tpL
 ahA
-mso
-vwo
+qBC
+iju
 vwo
 bJN
 ccH
@@ -97397,7 +97553,7 @@ tuc
 dIR
 vwo
 mwT
-usl
+hPx
 bFc
 bJN
 jdk
@@ -134973,8 +135129,8 @@ xGB
 xGB
 xGB
 xGB
-xGB
 wDw
+xGB
 xGB
 xGB
 xGB
@@ -135377,8 +135533,8 @@ xGB
 xGB
 xGB
 xGB
-xGB
 ivr
+xGB
 xGB
 xGB
 xGB
@@ -138190,7 +138346,7 @@ dWX
 hBf
 iLD
 qvt
-ilD
+xiJ
 atH
 bJN
 fTz
