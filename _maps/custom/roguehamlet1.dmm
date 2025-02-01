@@ -4715,7 +4715,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "feU" = (
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile,
@@ -6313,7 +6313,7 @@
 	first_time_text = "Blackwine Manor"
 	})
 "gXo" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stone/window/moss,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -10863,7 +10863,7 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/dwarfin)
 "lPu" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -11895,7 +11895,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 5
 	},
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/carpet,
@@ -14147,7 +14147,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/shelter/rtfield)
 "peE" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -19895,7 +19895,7 @@
 	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
 	})
 "uYS" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/town/tavern)
 "uYT" = (

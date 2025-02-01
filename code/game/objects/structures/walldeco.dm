@@ -199,16 +199,6 @@
 	name = "banner"
 	icon_state = "moon"
 
-/obj/structure/fluff/walldeco/rpainting
-	name = "painting"
-	icon_state = "painting_1"
-
-/obj/structure/fluff/walldeco/rpainting/forest
-	icon_state = "painting_2"
-
-/obj/structure/fluff/walldeco/rpainting/crown
-	icon_state = "painting_3"
-
 /obj/structure/fluff/walldeco/med
 	name = "diagram"
 	icon_state = "medposter"
