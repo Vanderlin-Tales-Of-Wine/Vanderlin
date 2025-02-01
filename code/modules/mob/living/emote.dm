@@ -94,12 +94,6 @@
 	if(length(message2recognize) > 15)
 		if(L.has_flaw(/datum/charflaw/addiction/godfearing))
 			L.sate_addiction()
-		if(L.mob_timers[MT_PSYPRAY])
-			if(world.time < L.mob_timers[MT_PSYPRAY] + 1 MINUTES)
-				L.mob_timers[MT_PSYPRAY] = world.time
-				return FALSE
-		else
-			L.mob_timers[MT_PSYPRAY] = world.time
 		if(!findtext(message2recognize, "[M.patron]"))
 			return FALSE
 		else

@@ -62,8 +62,8 @@
 		var/painpercent = get_complex_pain() / (STAEND * 10)
 		painpercent = painpercent * 100
 
-		if(world.time > mob_timers["painstun"])
-			mob_timers["painstun"] = world.time + 100
+		if(world.time > mob_timers[MT_PAINSTUN])
+			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
 			if(lying || IsKnockdown())
@@ -77,7 +77,7 @@
 						stuttering += 5
 						addtimer(CALLBACK(src, PROC_REF(Stun), 110), 10)
 						addtimer(CALLBACK(src, PROC_REF(Knockdown), 110), 10)
-						mob_timers["painstun"] = world.time + 160
+						mob_timers[MT_PAINSTUN] = world.time + 16 SECONDS
 					else
 						emote("painmoan")
 						stuttering += 5

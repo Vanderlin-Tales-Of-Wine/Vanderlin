@@ -120,14 +120,13 @@
 	if(H == src)
 		to_chat(src, "<span class='warning'>I know what's behind my own ears!</span>")
 		return
-	if(mob_timers["lasttrick"])
-		if(world.time < mob_timers["lasttrick"] + 20 SECONDS)
-			to_chat(src, "<span class='warning'>I need a moment before I can do another trick!</span>")
-			return
+	if(!MOBTIMER_FINISHED(src, MT_LASTTRICK, 20 SECONDS))
+		to_chat(src, "<span class='warning'>I need a moment before I can do another trick!</span>")
+		return
 	qdel(I)
 	src.put_in_hands(J)
 	src.visible_message("<span class='notice'>[src] reaches behind [H]'s ear with a grin, shaking their closed hand for a moment before revealing [J] held in it!</span>")
-	mob_timers["lasttrick"] = world.time
+	MOBTIMER_SET(src, MT_LASTTRICK)
 
 /mob/living/carbon/human/proc/get_japery()
 	var/japery_list = list(

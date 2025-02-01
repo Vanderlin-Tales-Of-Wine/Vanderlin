@@ -322,7 +322,7 @@
 		return
 	to_chat(src, "<span class='danger'>I feel horrible... REALLY horrible after that...</span>")
 	if(blood_volume)
-		mob_timers["puke"] = world.time
+		MOBTIMER_SET(src, MT_PUKE)
 		vomit(1, blood = TRUE, stun = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(wake_zombie)), 1 MINUTES)
 	return zombie_antag

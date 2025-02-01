@@ -457,27 +457,32 @@
 		return
 	if(mind.has_antag_datum(/datum/antagonist/zombie))
 		return
-	if(mob_timers["becoming_vampire"])
+
+	if(MOBTIMER_EXISTS(src, MT_VAMPTRANSFORM))
 		return
-	mob_timers["becoming_vampire"] = world.time
+	MOBTIMER_SET(src, MT_VAMPTRANSFORM)
+
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living/carbon/human, vampire_finalize)), 2 MINUTES)
 	to_chat(src, "<span class='danger'>I feel sick...</span>")
 	src.playsound_local(get_turf(src), 'sound/music/horror.ogg', 80, FALSE, pressure_affected = FALSE)
 	flash_fullscreen("redflash3")
 
-/mob/living/carbon/human/proc/vampire_finalize()
+/mob/living/carbon/human/proc/can_be_vampire()
 	if(!mind)
-		mob_timers["becoming_vampire"] = null
-		return
+		return FALSE
 	if(mind.has_antag_datum(/datum/antagonist/vampire))
-		mob_timers["becoming_vampire"] = null
-		return
+		return FALSE
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
-		mob_timers["becoming_vampire"] = null
-		return
+		return FALSE
 	if(mind.has_antag_datum(/datum/antagonist/zombie))
-		mob_timers["becoming_vampire"] = null
+		return FALSE
+	return TRUE
+
+/mob/living/carbon/human/proc/vampire_finalize()
+	if(!can_be_vampire())
+		MOBTIMER_UNSET(src, MT_VAMPTRANSFORM)
 		return
+
 	var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire/lesser()
 	mind.add_antag_datum(new_antag)
 	Sleeping(100)
