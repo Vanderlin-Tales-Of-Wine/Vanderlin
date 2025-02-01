@@ -1,3 +1,9 @@
+/*
+ * Handles traditional invisibility given from spells or potions.
+ * We don't use mob.invisibility here on purpose,
+ * because it risks being overridden by other systems.
+ */
+
 /datum/status_effect/invisibility
 	id = "invisibility"
 	status_type = STATUS_EFFECT_REFRESH
@@ -13,8 +19,11 @@
 /datum/status_effect/invisibility/on_apply()
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_IMPERCEPTIBLE, id)
+
+	// don't show a message to other people if we're sneaking
+	var/viewing_message = owner.rogue_sneaking ? null : span_warning("[owner] fades into nothing!")
 	owner.visible_message( \
-		span_warning("[owner] fades into nothing!"), \
+		viewing_message, \
 		span_notice("My form fades away.") \
 	)
 	animate(owner, alpha = 0, time = 1 SECONDS, easing = EASE_IN)
