@@ -6,8 +6,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	tutorial = "Your eyes have seen true terror in The Crimson Valley Asylum- men ripping one another apart for\
-	their own entertainment. You now live in this town- a quiet peaceful place compared Asylum you used to guard."
+	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum - men, ripping apart one another for their own entertainment - not for sport, not for sadism, for blood. You now live in this kingdom - a quiet peaceful place compared to the Asylum you once warded, having once kept bloodthirsty churls locked in the dark."
 	allowed_races = list( // They're from Crimson Valley Asylum- only a select of houses are in position of guard there.
 		"Humen",
 		"Dwarf",
@@ -47,7 +46,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) // He needs to SUTURE his prisoners up too
 		//H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	// He's really strong- but anyone is faster than him, the question is can they run for long enough? (Also remember they are an elderly man)
-	H.change_stat("strength", pick(4,4,5))
+	H.change_stat("strength", 5)
 	H.change_stat("endurance", pick(4,5,6))
 	H.change_stat("constitution", -2)
 	H.change_stat("speed", -4) // To balance out how strong he is
