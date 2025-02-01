@@ -409,7 +409,6 @@
 	icon_prefix = "flute" // used for inhands switch
 	dynamic_icon = TRUE // used for inhands switch
 	dropshrink = 0.6
-	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_SMALL
 	song_list = list(
 	"Half-Dragon's Ten Mammon" = 'sound/instruments/flute (1).ogg',

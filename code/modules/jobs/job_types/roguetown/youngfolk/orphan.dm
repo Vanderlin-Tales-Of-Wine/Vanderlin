@@ -43,10 +43,6 @@
 	if(prob(30))
 		head = pick(/obj/item/clothing/head/roguetown/knitcap, /obj/item/clothing/head/roguetown/bardhat, /obj/item/clothing/head/roguetown/courtierhat, /obj/item/clothing/head/roguetown/fancyhat)
 	if(prob(15))
-		id = pick(typesof(/obj/item/clothing/ring/silver, /obj/item/clothing/ring/gold))
-		if(prob(50))
-			H.STASTR = H.STASTR + roll(1,4) // "He whom holds the ring has the power."
-	if(prob(15))
 		r_hand = pick(/obj/item/rogue/instrument/lute, /obj/item/rogue/instrument/accord, /obj/item/rogue/instrument/guitar, /obj/item/rogue/instrument/flute, /obj/item/rogue/instrument/hurdygurdy, /obj/item/rogue/instrument/viola)
 		if(H.mind)
 			H.mind.adjust_skillrank(/datum/skill/misc/music, pick(2,3,4), TRUE)

@@ -21,6 +21,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 5, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/bombs, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
@@ -31,6 +32,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	switch(pick(1,2))
 		if (1)
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather

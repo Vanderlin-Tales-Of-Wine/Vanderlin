@@ -109,8 +109,7 @@
 	density = TRUE
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
-	var/cooldown = 3 SECONDS
-	var/ringing = FALSE
+	COOLDOWN_DECLARE(bell_ring)
 
 /*
 	/obj/structure/stationary_bell/Initialize()
@@ -127,17 +126,14 @@
 */
 
 /obj/structure/stationary_bell/attackby(obj/item/used_item, mob/user)
-	if(ringing)
-		return
 	if(istype(used_item, /obj/item/rogueweapon/mace/church))
+		if(!COOLDOWN_FINISHED(src, bell_ring))
+			return
 		for(var/mob/M in GLOB.player_list) // @everyone
 			if(M.client && M.can_hear()) // Disregard NPC's with no mind and sleeping/unconscious people
-				to_chat(M, "<span class='notice'>The church bell rings, echoing solemnly far and wide across the realm.</span>")
+				to_chat(M, "<span class='notice'>[src] rings, echoing solemnly far and wide across the realm.</span>")
 				M.playsound_local(M, 'sound/misc/bell.ogg', 50, 1)
 		visible_message("<span class='notice'>[user] uses the [used_item] to ring the [src].</span>")
-		ringing = TRUE
-		sleep(cooldown)
-		ringing = FALSE
+		COOLDOWN_START(src, bell_ring, 5 SECONDS)
 	else
-
 		return ..()

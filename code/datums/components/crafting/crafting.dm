@@ -201,7 +201,8 @@
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
-			to_chat(user, "<span class='warning'>There isn't \a [initial(R.name)] nearby.</span>")
+			var/atom/A = R.structurecraft
+			to_chat(user, "<span class='warning'>There isn't \a [initial(A.name)] nearby.</span>")
 			return
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))
