@@ -803,7 +803,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				for(var/turf/turf in src)
 					if(turf.density)
 						continue
-					if(is_type_in_list(turf.type, unsafe_turfs))
+					if(is_type_in_list(turf, unsafe_turfs))
 						continue
 					turfs.Add(turf)
 
