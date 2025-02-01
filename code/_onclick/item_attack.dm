@@ -64,9 +64,10 @@
 	return FALSE
 
 /obj/attackby(obj/item/I, mob/living/user, params)
-	if(user.try_recipes(src, I, user))
-		user.changeNext_move(CLICK_CD_FAST)
-		return TRUE
+	if(!user.cmode)
+		if(user.try_recipes(src, I, user))
+			user.changeNext_move(CLICK_CD_FAST)
+			return TRUE
 
 	if(I.obj_flags_ignore)
 		return I.attack_obj(src, user)

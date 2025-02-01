@@ -207,6 +207,9 @@
 		return
 	var/contents = "<center>People that [name] knows:</center><BR>"
 	for(var/P in known_people)
+		if(!length(known_people[P]))
+			known_people -= P
+			continue
 		var/fcolor = known_people[P]["VCOLOR"]
 		if(!fcolor)
 			continue

@@ -265,6 +265,9 @@
 /obj/item/clothing/head/roguetown/roguehood/black
 	color = CLOTHING_SOOT_BLACK
 
+/obj/item/clothing/head/roguetown/roguehood/green
+	color = CLOTHING_FOREST_GREEN
+
 /obj/item/clothing/head/roguetown/roguehood/random/Initialize()
 	color = pick( CLOTHING_PEASANT_BROWN, CLOTHING_SPRING_GREEN, CLOTHING_CHESTNUT, CLOTHING_YELLOW_OCHRE)
 	..()
