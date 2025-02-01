@@ -33,6 +33,15 @@
 			S.set_up(1, 1, front)
 			S.start()
 		return
+	if(istype(A, /obj/item/natural/rock))
+		user.visible_message(span_info("[user] strikes the stone against the rock.</span>"))
+		playsound(src.loc, 'sound/items/stonestone.ogg', 100)
+		if(prob(35))
+			var/datum/effect_system/spark_spread/S = new()
+			var/turf/front = get_step(user,user.dir)
+			S.set_up(1, 1, front)
+			S.start()
+		return
 	. = ..()
 
 /obj/item/natural/rock
@@ -94,21 +103,12 @@
 
 /obj/item/natural/rock/pre_attack_right(atom/A, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(A, /obj/item/natural/stone))
-		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message(span_info("[user] strikes the stones together."))
-		if(prob(10))
-			var/datum/effect_system/spark_spread/S = new()
-			var/turf/front = get_step(user,user.dir)
-			S.set_up(1, 1, front)
-			S.start()
-		return
 	if(istype(A, /obj/item/natural/rock))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
 		user.visible_message(span_info("[user] strikes the rocks together."))
 		if(prob(10))
 			var/datum/effect_system/spark_spread/S = new()
-			var/turf/front = get_turf(src)
+			var/turf/front = get_step(user,user.dir)
 			S.set_up(1, 1, front)
 			S.start()
 		return
