@@ -1451,9 +1451,9 @@
 	item_state = "human_spearplate"
 	allowed_sex = list(MALE)
 	allowed_race = list("human")
-	flags_inv = HIDEEARS
+	flags_inv = HIDEEARS|HIDEFACE
 	clothing_flags = CANT_SLEEP_IN
-	body_parts_covered = HEAD|EARS|HAIR
+	body_parts_covered = HEAD|EARS|HAIR|NOSE|MOUTH
 
 //............... Hoplite Helmet ............... //
 /obj/item/clothing/head/roguetown/rare/hoplite // Unique Hoplite kit

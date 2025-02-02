@@ -71,17 +71,6 @@
 	result_type = /obj/item/roguebin
 	craftdiff = 0
 
-/datum/slapcraft_recipe/carpentry/structure/simple_dye_bin
-	name = "simple dye bin"
-	steps = list(
-		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
-		/datum/slapcraft_step/item/jacksberry,
-		/datum/slapcraft_step/item/dirtclod
-		)
-	result_type = /obj/machinery/simple_dye_bin
-	craftdiff = 0
-
 /datum/slapcraft_recipe/carpentry/structure/chair
 	name = "wooden chair"
 	steps = list(

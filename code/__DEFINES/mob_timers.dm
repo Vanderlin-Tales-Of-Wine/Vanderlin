@@ -47,5 +47,4 @@
 	// Unfortunately, they break mobtimer convention.
 	// I've separated then here for clarity's sake.
 
-	#define MT_INVISIBILITY "invisibility"
 	#define MT_PAINSTUN "painstun"

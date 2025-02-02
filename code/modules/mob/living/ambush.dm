@@ -8,6 +8,8 @@
 		return FALSE
 	if(stat) //what?
 		return FALSE
+	if(status_flags & GODMODE)
+		return FALSE
 	return ambushable
 
 /mob/living/proc/consider_ambush()
