@@ -315,7 +315,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 	var/datum/progressbar/progbar
 	if(progress)
-		progbar = new(user, delay, user) //V: progbars are always put on the user's turf
+		progbar = new(user, delay, target || user)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
@@ -395,7 +395,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 	var/datum/progressbar/progbar
 	if(progress)
-		progbar = new(user, delay, user) //V: progbars are always put on the user's turf
+		progbar = new(user, delay, target || user)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time

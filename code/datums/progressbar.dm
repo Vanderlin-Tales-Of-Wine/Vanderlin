@@ -5,7 +5,7 @@
 	/// The progress bar visual element.
 	var/obj/effect/world_progressbar/bar
 	///The target where this progress bar is applied and where it is shown.
-	var/atom/bar_loc //! In VANDERLIN, this will always be `get_turf(user)`
+	var/atom/bar_loc
 	/// The mob whose client sees the progress bar.
 	var/mob/user
 	/// The client seeing the progress bar.
@@ -31,12 +31,12 @@
 		return
 
 	goal = goal_number
-	bar_loc = get_turf(User)
-	bar = new /obj/effect/world_progressbar(bar_loc)
+	bar_loc = get_turf(User) //V: /tg/ uses target as bar_loc
+	bar = new /obj/effect/world_progressbar(bar_loc) //V
 	user = User
 
 	LAZYADDASSOC(user.progressbars, bar_loc, src)
-	var/list/bars = user.progressbars[bar.loc]
+	var/list/bars = user.progressbars[bar_loc]
 	listindex = length(bars)
 
 	if(user.client)
@@ -107,12 +107,8 @@
 	progress = clamp(progress, 0, goal)
 	if(progress == last_progress)
 		return
-
 	last_progress = progress
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
-
-	if(progress >= goal)
-		qdel(src)
 
 ///Called on progress end, be it successful or a failure. Wraps ups things to delete the datum and bar.
 /datum/progressbar/proc/end_progress()
@@ -121,7 +117,7 @@
 
 	animate(bar, alpha = 0, time = PROGRESSBAR_ANIMATION_TIME)
 
-	QDEL_IN(bar, PROGRESSBAR_ANIMATION_TIME)
+	QDEL_IN(src, PROGRESSBAR_ANIMATION_TIME)
 
 #undef PROGRESSBAR_ANIMATION_TIME
 #undef PROGRESSBAR_HEIGHT
