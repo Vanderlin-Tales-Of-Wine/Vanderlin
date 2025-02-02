@@ -54,8 +54,6 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shrine)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shrine/saiga)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shrine/volf)
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_prey)
-		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_predator)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_growing)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_stinging)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_devouring)
