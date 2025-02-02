@@ -66,7 +66,7 @@
 		playsound(user, "rustle", 50, TRUE)
 	var/do_time = using_tool ? 2 SECONDS : 9 SECONDS
 	var/fatigue = using_tool ? 10 : 30
-	if(do_after(user, get_farming_do_time(user, do_time), target = src))
+	if(do_after(user, get_farming_do_time(user, do_time), src))
 		apply_farming_fatigue(user, fatigue)
 		if(using_tool)
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)

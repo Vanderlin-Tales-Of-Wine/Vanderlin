@@ -54,7 +54,7 @@
 		else
 			if(C.mind)
 				used_time -= max((C.mind.get_skill_level(/datum/skill/craft/traps) * 2 SECONDS), 2 SECONDS)
-			if(do_after(user, used_time, target = src))
+			if(do_after(user, used_time, src))
 				armed = FALSE
 				anchored = FALSE
 				update_icon()
@@ -118,7 +118,7 @@
 	var/boon = user?.mind?.get_learning_boon(/datum/skill/craft/traps)
 	if(ishuman(user) && !user.stat && !user.restrained())
 		var/mob/living/L = user
-		if(do_after(user, 50 - (L.STASTR*2), target = user))
+		if(do_after(user, (5 SECONDS) - (L.STASTR*2), user))
 			if(prob(50 + (L.mind.get_skill_level(/datum/skill/craft/traps) * 10))) // 100% chance to set traps properly at Master trapping
 				armed = TRUE // Impossible to use in hand if it's armed
 				L.dropItemToGround(src) // We drop it instantly on the floor beneath us

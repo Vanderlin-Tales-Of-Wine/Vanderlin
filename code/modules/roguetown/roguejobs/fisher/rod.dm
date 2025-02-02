@@ -487,7 +487,7 @@
 
 
 	var/sl = user.mind.get_skill_level(/datum/skill/labor/fishing) // User's skill level
-	var/ft = 120 //Time to get a catch, in ticks
+	var/fishing_time = 12 SECONDS //Time to get a catch, in ticks
 	var/fpp =  100 - (40 + (sl * 10)) // Fishing power penalty based on fishing skill level
 
 	var/caught = FALSE
@@ -500,8 +500,8 @@
 				user.visible_message("<span class='warning'>[user] casts a line!</span>", \
 									"<span class='notice'>I cast a line.</span>")
 				playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
-				ft -= (sl * 1 SECONDS) //every skill lvl is -1 seconds
-				if(do_after(user,ft, target = target))
+				fishing_time -= (sl * 1 SECONDS) //every skill lvl is -1 seconds
+				if(do_after(user, fishing_time, target))
 					if(baited)
 						var/bp = baited.baitpenalty // Penalty to fishing chance based on how good bait is. Lower is better.
 						var/fishchance = 100 // Total fishing chance, deductions applied below
@@ -514,10 +514,10 @@
 								fishchance -= bp // Deduct penalties from bait quality, if any
 								fishchance -= fpp // Deduct a penalty the lower our fishing level is (-0 at legendary)
 						if(prob(fishchance)) // Finally, roll the dice to see if we fish.
-							var/ow = 30 + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
+							var/opportunity_window = 3 SECONDS + (sl * 10) // Opportunity window, in ticks. Longer means you get more time to cancel your bait
 							to_chat(user, "<span class='notice'>Something tugs the line!</span>")
 							playsound(src.loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
-							if(!do_after(user,ow, target = target))
+							if(!do_after(user, opportunity_window, target))
 								var/mob/living/fisherman = user
 								var/boon = user.mind.get_learning_boon(/datum/skill/labor/fishing)
 								caught = TRUE

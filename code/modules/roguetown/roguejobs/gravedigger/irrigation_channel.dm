@@ -116,14 +116,14 @@
 		var/obj/item/rogueweapon/shovel/shovel = I
 		if(!shovel.heldclod)
 			user.visible_message("[user] starts diggin a trench.", "You start digging a trench.")
-			if(!do_after(user, 10 SECONDS, target = src))
+			if(!do_after(user, 10 SECONDS, src))
 				return
 			new /obj/structure/trench(get_turf(src))
 			qdel(src)
 			return
 
 		user.visible_message("[user] starts filling [src].", "You start filling [src].")
-		if(!do_after(user, 4 SECONDS, target = src))
+		if(!do_after(user, 4 SECONDS, src))
 			return
 		QDEL_NULL(shovel.heldclod)
 		qdel(src)

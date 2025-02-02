@@ -93,7 +93,7 @@
 		return
 	if(user == O) //try to climb into or onto it
 		if(!(user.mobility_flags & MOBILITY_STAND))
-			if(!do_after(user, 20, target = src))
+			if(!do_after(user, 2 SECONDS, src))
 				return FALSE
 			if(put_in(O))
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)

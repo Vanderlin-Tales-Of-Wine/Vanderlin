@@ -626,7 +626,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 				else
 					return FALSE
 			else
-				if(do_after(C, minone(unequip_delay_self-C.STASPD), target = C))
+				if(do_after(C, minone(unequip_delay_self-C.STASPD), C))
 					return TRUE
 				else
 					return FALSE
@@ -1123,7 +1123,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 				return
 
 		else
-			if(!do_after(user, delay, target=target, extra_checks=tool_check))
+			if(!do_after(user, delay, target, extra_checks=tool_check))
 				return
 	else
 		// Invoke the extra checks once, just in case.

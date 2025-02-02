@@ -314,7 +314,7 @@
 			return
 
 	visible_message("[user] starts placing down [src]", "You start to place [src]")
-	if(!do_after(user, 1 SECONDS, target = T))
+	if(!do_after(user, 1 SECONDS, T))
 		return
 	new placed_type(T)
 	in_stack--

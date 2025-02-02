@@ -23,7 +23,7 @@
 
 	basic_mob.face_atom()
 	basic_mob.visible_message(span_danger("[basic_mob] starts to rip apart [target]!"))
-	if(do_after(basic_mob, 10 SECONDS, target = target))
+	if(do_after(basic_mob, 10 SECONDS, target))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/limb

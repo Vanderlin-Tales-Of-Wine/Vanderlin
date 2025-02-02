@@ -1588,7 +1588,7 @@
 	user.visible_message("<span class='warning'>[user] starts trying to scoop up [src]!</span>", \
 					"<span class='danger'>I start trying to scoop up [src]...</span>", null, null, src)
 	to_chat(src, "<span class='danger'>[user] starts trying to scoop you up!</span>")
-	if(!do_after(user, 20, target = src))
+	if(!do_after(user, 2 SECONDS, src))
 		return FALSE
 	mob_pickup(user)
 	return TRUE
@@ -1686,13 +1686,11 @@
 	changeNext_move(CLICK_CD_EXHAUSTED)
 	if(m_intent != MOVE_INTENT_SNEAK)
 		visible_message("<span class='info'>[src] looks around.</span>")
-	var/looktime = 50 - (STAPER * 2)
-	if(do_after(src, looktime, target = src))
+	var/looktime = 5 SECONDS - (STAPER * 2)
+	if(do_after(src, looktime))
 		// var/huhsneak
 		SEND_GLOBAL_SIGNAL(COMSIG_MOB_ACTIVE_PERCEPTION,src)
-		for(var/mob/living/M in view(7,src))
-			if(M == src)
-				continue
+		for(var/mob/living/M in oview(7,src))
 			if(see_invisible < M.invisibility)
 				continue
 			if(M.mob_timers[MT_INVISIBILITY] > world.time) // Check if the mob is affected by the invisibility spell
@@ -1786,13 +1784,13 @@
 	if(T.can_see_sky())
 		do_time_change()
 
-	var/ttime = 10
+	var/ttime = 1 SECONDS
 	if(STAPER > 5)
-		ttime = 10 - (STAPER - 5)
+		ttime -= (STAPER - 5)
 		if(ttime < 0)
 			ttime = 0
 
-	if(!do_after(src, ttime, target = src))
+	if(!do_after(src, ttime))
 		return
 	reset_perspective(ceiling)
 	update_cone_show()
@@ -1850,15 +1848,15 @@
 
 	if(!OS)
 		return
-	var/ttime = 10
+	var/ttime = 1 SECONDS
 	if(STAPER > 5)
-		ttime = 10 - (STAPER - 5)
+		ttime -= (STAPER - 5)
 		if(ttime < 0)
 			ttime = 0
 
 	visible_message("<span class='info'>[src] looks down through [T].</span>")
 
-	if(!do_after(src, ttime, target = src))
+	if(!do_after(src, ttime))
 		return
 
 	changeNext_move(CLICK_CD_MELEE)

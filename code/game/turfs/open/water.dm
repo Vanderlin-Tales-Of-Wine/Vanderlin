@@ -191,7 +191,7 @@
 			var/datum/reagent/master_reagent = bucket.reagents.get_master_reagent()
 			var/water_count = bucket.reagents.get_reagent_amount(master_reagent)
 			user.visible_message("[user] starts to fill [src].", "You start to fill [src].")
-			if(do_after(user, 3 SECONDS, target = src))
+			if(do_after(user, 3 SECONDS, src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					playsound(src, 'sound/foley/waterenter.ogg', 100, FALSE)
 					adjust_originate_watervolume(water_count)
@@ -328,7 +328,7 @@
 				return
 			if(water_volume <= 0)
 				return
-			if(do_after(user, 8, target = src))
+			if(do_after(user, 8 DECISECONDS, src))
 				user.changeNext_move(CLICK_CD_MELEE)
 				playsound(user, 'sound/foley/drawwater.ogg', 100, FALSE)
 				if(!mapped && C.reagents.add_reagent(water_reagent, 10))
@@ -345,7 +345,7 @@
 			if(water_volume >= water_maximum)
 				to_chat(user, "<span class='warning'>\The [src] is full.</span>")
 				return
-			if(do_after(user, 8, target = src))
+			if(do_after(user, 8 DECISECONDS, src))
 				user.changeNext_move(CLICK_CD_MELEE)
 				playsound(user, 'sound/foley/drawwater.ogg', 100, FALSE)
 				if(!mapped && C.reagents.remove_reagent(water_reagent,  C.reagents.total_volume))
@@ -366,7 +366,7 @@
 		var/item2wash = user.get_active_held_item()
 		if(!item2wash)
 			user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
-			if(do_after(L, 30, target = src))
+			if(do_after(L, 3 SECONDS, src))
 				if(wash_in)
 					wash_atom(user, CLEAN_STRONG)
 				var/datum/reagents/reagents = new()
@@ -381,7 +381,7 @@
 					update_icon()*/
 		else
 			user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
-			if(do_after(L, 30, target = src))
+			if(do_after(L, 3 SECONDS, src))
 				if(wash_in)
 					wash_atom(item2wash, CLEAN_STRONG)
 				playsound(user, pick(wash), 100, FALSE)
@@ -401,7 +401,7 @@
 				return
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 		user.visible_message("<span class='info'>[user] starts to drink from [src].</span>")
-		if(do_after(L, 25, target = src))
+		if(do_after(L, 2.5 SECONDS, src))
 			var/datum/reagents/reagents = new()
 			reagents.add_reagent(water_reagent, 2)
 			reagents.trans_to(L, reagents.total_volume, transfered_by = user, method = INGEST)

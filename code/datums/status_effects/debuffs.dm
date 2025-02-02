@@ -162,7 +162,7 @@
 /atom/movable/screen/alert/status_effect/strandling/Click(location, control, params)
 	. = ..()
 	to_chat(mob_viewer, "<span class='notice'>I attempt to remove the durathread strand from around my neck.</span>")
-	if(do_after(mob_viewer, 35, null, mob_viewer))
+	if(do_after(mob_viewer, 3.5 SECONDS, mob_viewer))
 		if(isliving(mob_viewer))
 			var/mob/living/L = mob_viewer
 			to_chat(mob_viewer, "<span class='notice'>I succesfuly remove the durathread strand.</span>")

@@ -1565,12 +1565,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(!I.equip_delay_self || bypass_equip_delay_self)
 		return TRUE
 	if(HAS_TRAIT(H, TRAIT_CHUNKYFINGERS))
-		return do_after(H, 5 MINUTES, target = H)
+		return do_after(H, 5 MINUTES)
 //	H.visible_message("<span class='notice'>[H] start putting on [I]...</span>", "<span class='notice'>I start putting on [I]...</span>")
 	if(I.edelay_type)
 		return move_after(H, minone(I.equip_delay_self-H.STASPD), target = H)
 	else
-		return do_after(H, minone(I.equip_delay_self-H.STASPD), target = H)
+		return do_after(H, minone(I.equip_delay_self-H.STASPD))
 
 /datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
 	return

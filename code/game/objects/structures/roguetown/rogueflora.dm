@@ -162,7 +162,7 @@
 	if(istype(I, /obj/item/rogueweapon/shovel))
 		to_chat(user, "I start unearthing the stump...")
 		playsound(loc,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, 50))
+		if(do_after(user, 5 SECONDS))
 			user.visible_message("<span class='notice'>[user] unearths \the [src].</span>", \
 								"<span class='notice'>I unearth \the [src].</span>")
 			if(isunburnt)
@@ -310,7 +310,7 @@
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(1,5), target = src))
+		if(do_after(L, rand(1,5) DECISECONDS, src))
 #ifndef MATURESERVER
 			if(!looty.len && (world.time > res_replenish))
 				loot_replenish()
@@ -459,7 +459,7 @@
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(1,5), target = src))
+		if(do_after(L, rand(1,5) DECISECONDS, src))
 #ifndef MATURESERVER
 			if(!looty2.len && (world.time > res_replenish2))
 				loot_replenish2()
@@ -519,7 +519,7 @@
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(1,5), target = src))
+		if(do_after(L, rand(1,5) DECISECONDS, src))
 #ifndef MATURESERVER
 			if(!looty2.len && (world.time > res_replenish2))
 				loot_replenish2()
@@ -548,7 +548,7 @@
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(1,5), target = src))
+		if(do_after(L, rand(1,5) DECISECONDS, src))
 #ifndef MATURESERVER
 			if(!looty3.len && (world.time > res_replenish3))
 				loot_replenish3()
@@ -707,7 +707,7 @@
 	prob2findstuff = prob2findstuff + ( user.STAPER * 4 )
 	user.visible_message(span_noticesmall("[user] searches through [src]."))
 
-	if(do_after(L, rand(5,20), target = src))
+	if(do_after(L, rand(5 DECISECONDS, 2 SECONDS), src))
 
 		if(islooted)
 			to_chat(user, span_warning("Picked clean."))
@@ -847,7 +847,7 @@
 	luckydouble = ( user.STALUC * 2 )
 	user.visible_message(span_noticesmall("[user] searches through [src]."))
 
-	if(do_after(L, rand(5,20), target = src))
+	if(do_after(L, rand(5 DECISECONDS, 2 SECONDS), src))
 
 		if(islooted)
 			to_chat(user, span_warning("Picked clean."))

@@ -236,17 +236,17 @@
 		return FALSE
 
 	M.visible_message("<span class='danger'>[user] attempts to tie \the [src] over [M]'s neck!</span>")
-	if(do_after(user, user == M ? 0:5 SECONDS, M))
+	if(do_after(user, (user == M ? 0 : 5 SECONDS), M))
 		if(buckle_mob(M))
 			user.visible_message("<span class='warning'>[user] ties \the [src] over [M]'s neck!</span>")
 			if(user == M)
-				to_chat(M, "<span class='userdanger'>You tie \the [src] over your neck!</span>")
+				to_chat(M, "<span class='userdanger'>I tie \the [src] over my neck...</span>")
 			else
-				to_chat(M, "<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
+				to_chat(M, "<span class='userdanger'>[user] ties \the [src] over my neck!</span>")
 			playsound(user.loc, 'sound/foley/noosed.ogg', 50, 1, -1)
 			return TRUE
 	user.visible_message("<span class='warning'>[user] fails to tie \the [src] over [M]'s neck!</span>")
-	to_chat(user, "<span class='warning'>You fail to tie \the [src] over [M]'s neck!</span>")
+	to_chat(user, "<span class='warning'>I fail to tie \the [src] over [M]'s neck.</span>")
 	return FALSE
 
 /obj/structure/noose/post_buckle_mob(mob/living/M)

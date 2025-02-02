@@ -185,7 +185,7 @@
 	if(skill_type)
 		time_to_do *=  (2 / max(1, user.mind?.get_skill_level(skill_type)))
 
-	if(!do_after(user, time_to_do, target = item))
+	if(!do_after(user, time_to_do, item))
 		return FALSE
 	return TRUE
 

@@ -75,7 +75,7 @@
 			testing("reagent check complete")
 			var/datum/reagent/master_reagent = bucket.reagents.get_master_reagent()
 			var/reagent_volume = master_reagent.volume
-			if(do_after(user, 10 SECONDS, target = src))
+			if(do_after(user, 10 SECONDS, src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					testing("remove reagent proc complete")
 					var/turf/open/water/river/creatable/W = new(get_turf(src))

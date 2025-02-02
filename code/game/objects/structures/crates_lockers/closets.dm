@@ -285,7 +285,7 @@
 		var/list/keysy = shuffle(R.contents.Copy())
 		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
-				if(!do_after(user, 10, TRUE, src))
+				if(!do_after(user, 1 SECONDS, src, (IGNORE_HELD_ITEM)))
 					break
 			if(K.lockhash == lockhash)
 				togglelock(user)
@@ -340,7 +340,7 @@
 
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, target = src))
+			if(!do_after(user, picktime, src))
 				break
 			if(prob(pickchance))
 				lockprogress += moveup

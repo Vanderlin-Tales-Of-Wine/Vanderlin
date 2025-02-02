@@ -82,10 +82,10 @@
 				var/obj/structure/chair/CH = locate() in L.loc
 				if(CH)
 					myskill += 1
-			used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
+			used_time = max(7 SECONDS - (myskill * 1 SECONDS) - (L.STASPD * 3), 3 SECONDS)
 		playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
 		user.visible_message("<span class='warning'>[user] starts to climb [src].</span>", "<span class='warning'>I start to climb [src]...</span>")
-		if(do_after(L, used_time, target = src))
+		if(do_after(L, used_time, src))
 			var/pulling = user.pulling
 			if(ismob(pulling))
 				user.pulling.forceMove(target)

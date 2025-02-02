@@ -110,7 +110,7 @@
 /obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
 	to_chat(user, "<span class='notice'>Resetting circuitry...</span>")
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
-	if(do_after(user, 20, target = src))
+	if(do_after(user, 2 SECONDS, src))
 		to_chat(user, "<span class='notice'>I [locked ? "disable" : "re-enable"] the locking modules.</span>")
 		locked = !locked
 		update_icon()
