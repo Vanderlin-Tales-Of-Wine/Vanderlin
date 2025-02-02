@@ -135,7 +135,7 @@
 /atom/movable/screen/alert/status_effect/asleep
 	name = "Asleep"
 	desc = ""
-	icon_state = "asleep"
+	icon_state = "sleeping"
 
 //GOLEM GANG
 

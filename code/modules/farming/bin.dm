@@ -4,12 +4,13 @@
 	name = "wood bin"
 	desc = "A washbin, a trashbin, a bloodbin... Your choices are limitless."
 	icon = 'icons/roguetown/misc/structure.dmi'
-	icon_state = "washbin1"
+	icon_state = "washbin"
 	var/base_state
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	density = TRUE
 	opacity = FALSE
 	anchored = FALSE
-	max_integrity = 300
+	max_integrity = 80
 	w_class = WEIGHT_CLASS_GIGANTIC
 	var/kover = FALSE
 	drag_slowdown = 2
@@ -24,7 +25,6 @@
 /obj/item/roguebin/Initialize()
 	if(!base_state)
 		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
-		icon_state = "washbin[rand(1,2)]"
 		base_state = icon_state
 	AddComponent(/datum/component/storage/concrete/roguetown/bin)
 	. = ..()
@@ -33,6 +33,8 @@
 	update_icon()
 
 /obj/item/roguebin/Destroy()
+	layer = 2.8
+	icon_state = "washbin_destroy"
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()
@@ -146,10 +148,18 @@
 /obj/item/roguebin/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/cheap_dyes))
 		playsound(src, "bubbles", 50, 1)
+		user.visible_message(span_info("[user] adds dye to [src]."))
 		if(do_after(user, 3 SECONDS, src))
 			qdel(I)
-			user.visible_message("<span class='info'>[user] adds dye to [src].</span>")
 			new /obj/machinery/simple_dye_bin(src.loc)
+			qdel(src)
+			return
+	if(istype(I, /obj/item/luxury_dyes))
+		playsound(src, "bubbles", 50, 1)
+		user.visible_message("<span class='info'>[user] adds dye to [src].</span>")
+		if(do_after(user, 3 SECONDS))
+			new /obj/machinery/dye_bin(get_turf(src.loc))
+			qdel(I)
 			qdel(src)
 			return
 	if(!reagents || !reagents.maximum_volume) //trash
@@ -249,3 +259,9 @@
 
 /obj/item/roguebin/trash/StorageBlock(obj/item/I, mob/user)
 	return FALSE
+
+/obj/item/roguebin/trash/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/cheap_dyes))
+		return
+	if(istype(I, /obj/item/luxury_dyes))
+		return

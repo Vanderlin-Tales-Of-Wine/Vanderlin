@@ -41,7 +41,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/key/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor)
+	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
 
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)

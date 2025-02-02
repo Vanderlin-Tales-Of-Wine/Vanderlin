@@ -169,21 +169,28 @@ GLOBAL_LIST_EMPTY(ritualslist)
 // VERBS
 
 /mob/living/carbon/human/proc/praise()
-	set name = "Praise the Lord!"
+	set name = "Praise the Dark Lady!"
 	set category = "ZIZO"
+
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
 
 /mob/living/carbon/human/proc/communicate()
-	set name = "Communicate"
+	set name = "Communicate with Cult"
 	set category = "ZIZO"
 
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
 	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
 		return
 	whisper("O schlet'a ty'schkotot ty'skvoro...")
 	sleep(5)
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
 	whisper("[speak]")
 
 	for(var/datum/mind/V in C.cultists)

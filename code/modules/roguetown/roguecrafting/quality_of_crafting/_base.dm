@@ -309,7 +309,7 @@
 							if(bundle.amount == 0)
 								usable_contents -= item
 								qdel(item)
-							user.visible_message("[user] starts picking up [sub_item].", "You start picking up [sub_item].")
+							user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
 							if(do_after(user, ground_use_time, item))
 								if(put_items_in_hand)
 									user.put_in_active_hand(sub_item)
@@ -327,7 +327,7 @@
 						if(early_continue)
 							continue
 
-					user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
+					user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
 					if(do_after(user, ground_use_time, item))
 						user.put_in_active_hand(item)
 						active_item = item
@@ -411,7 +411,7 @@
 						if(item:amount == 0)
 							usable_contents -= item
 							qdel(item)
-						user.visible_message("[user] starts picking up [sub_item].", "You start picking up [sub_item].")
+						user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
 						if(do_after(user, ground_use_time, item))
 							if(put_items_in_hand)
 								user.put_in_active_hand(item)
@@ -429,7 +429,7 @@
 					continue
 
 
-			user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
+			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
 			if(do_after(user, ground_use_time, item))
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
@@ -473,7 +473,7 @@
 					var/reagent_value = container.reagents.get_reagent_amount(required_path)
 					if(!reagent_value)
 						continue
-					user.visible_message("[user] starts to incorporate some liquid into [name].", "You start to pour some liquid into [name].")
+					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 					if(put_items_in_hand)
 						if(!do_after(user, storage_use_time, container))
 							continue
@@ -502,7 +502,7 @@
 					var/turf/container_loc = get_turf(container)
 					var/stored_pixel_x = container.pixel_x
 					var/stored_pixel_y = container.pixel_y
-					user.visible_message("[user] starts to incorporate some liquid into [name].", "You start to pour some liquid into [name].")
+					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 					if(put_items_in_hand)
 						if(!do_after(user, ground_use_time, container))
 							continue
@@ -537,7 +537,7 @@
 						if(!do_after(user, storage_use_time, potential_tool))
 							continue
 						user.put_in_active_hand(potential_tool)
-					user.visible_message("[user] [tool_path_extra[1]].", "You [tool_path_extra[2]].")
+					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 2)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
 					if(!do_after(user, tool_use_time, potential_tool))
@@ -559,7 +559,7 @@
 						if(!do_after(user, storage_use_time, potential_tool))
 							continue
 						user.put_in_active_hand(potential_tool)
-					user.visible_message("[user] [tool_path_extra[1]].", "You [tool_path_extra[2]].")
+					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 3)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
 					if(!do_after(user, tool_use_time, potential_tool))
@@ -574,7 +574,7 @@
 
 		if(!length(copied_requirements) && !length(copied_reagent_requirements) && !length(copied_tool_usage))
 			if(crafting_message)
-				user.visible_message("[user] [crafting_message].", "You [crafting_message].")
+				user.visible_message(span_small("[user] [crafting_message]."), span_small("I [crafting_message]."))
 			if(do_after(user, craft_time, attacked_item))
 				var/prob2craft = 25
 				var/prob2fail = 1

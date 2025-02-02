@@ -103,6 +103,7 @@
 	to_chat(user, "I start mounting [src] to [T]...")
 	if(!do_after(user, 3 SECONDS, T))
 		return
+	user.dropItemToGround(src)
 	forceMove(T)
 	pixel_x = 0
 	pixel_y = 0

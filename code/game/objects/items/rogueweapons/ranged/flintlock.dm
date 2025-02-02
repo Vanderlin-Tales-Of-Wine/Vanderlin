@@ -89,6 +89,7 @@
 		return
 	if(wound)
 		to_chat(user, "<span class='info'>\The [src]'s mechanism is already wound!</span>")
+		return
 	var/windtime = 3.5
 	windtime = windtime - (user.mind.get_skill_level(/datum/skill/combat/firearms) / 2)
 	if(do_after(user, windtime SECONDS, src) && !wound)
@@ -117,6 +118,14 @@
 		update_icon() // Update the icon state after handling the ramrod
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/pistol/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
+	if(!cocked)
+		return
+	if(!rammed)
+		return
+	if(!powdered)
+		return
+	if(!wound)
+		return
 	if(user.client)
 		if(user.client.chargedprog >= 100)
 			spread = 0
@@ -135,14 +144,6 @@
 		if(user.STAPER > 10)
 			BB.damage = BB.damage * (user.STAPER / 10)
 		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/firearms) * 3) //+3 accuracy per level in firearms
-	if(!cocked)
-		return
-	if(!rammed)
-		return
-	if(!powdered)
-		return
-	if(!wound)
-		return
 	playsound(src.loc, 'sound/combat/Ranged/muskclick.ogg', 100, FALSE)
 	cocked = FALSE
 	rammed = FALSE

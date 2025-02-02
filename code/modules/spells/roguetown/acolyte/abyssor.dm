@@ -54,7 +54,7 @@
 	if(ismob(target))
 		var/mob/hit = target
 		if(hit.anti_magic_check())
-			hit.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			hit.visible_message(span_warning("[src] vanishes on contact with [target]!"))
 			return BULLET_ACT_BLOCK
 	if(!dropped)
 		dropped = new /obj/item/reagent_containers/food/snacks/fish/swordfish()
@@ -210,7 +210,7 @@
 			return FALSE
 
 		if(target.mob_biotypes & MOB_UNDEAD) //blasts with debuffs rather than direct damage
-			target.visible_message("<span class='danger'>[target] is drowned by turbulent tides!</span>", "<span class='userdanger'>I'm being drowned by turbulent tides!</span>")
+			target.visible_message(span_danger("[target] is drowned by turbulent tides!"), span_userdanger("I'm being drowned by turbulent tides!"))
 			target.safe_throw_at(get_step(target, get_dir(user, target)), 1, 1, user, spin = TRUE, force = target.move_force)
 			target.adjustOxyLoss(80)
 			target.Knockdown(5)
@@ -220,7 +220,7 @@
 			target.emote("drown")
 			return ..()
 
-		target.visible_message("<span class='info'>A wave of replenishing water passes through [target]!</span>", "<span class='notice'>I'm engulfed in a wave of replenishing water!</span>")
+		target.visible_message(span_info("A wave of replenishing water passes through [target]!"), span_notice("I'm engulfed in a wave of replenishing water!"))
 		wash_atom(target, CLEAN_STRONG)
 		var/situational_bonus = 1
 		var/list/water = typesof(/turf/open/water) - typesof(/turf/open/water/acid)
