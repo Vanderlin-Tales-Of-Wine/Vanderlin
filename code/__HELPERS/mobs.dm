@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 		if(
 			QDELETED(user) || QDELETED(target) \
-			|| (!user.doing) \ //V:
+			|| (!user.doing) /* V: */ \
 			/*|| (!(timed_action_flags & IGNORE_TARGET_IN_DOAFTERS) && !(target in user.do_afters)) \*/
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc) \
@@ -325,7 +325,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 		if(
 			QDELETED(user) \
-			|| (!user.doing) \ //V:
+			|| (!user.doing) /* V: */ \
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && user.incapacitated()) \
@@ -343,86 +343,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			)
 			. = FALSE
 			break
-
-	/* */
-	user.doing = FALSE
-	/* */
-	if(!QDELETED(progbar))
-		progbar.end_progress()
-
-/proc/move_after(mob/user, delay, needhand = 1, atom/target = null, progress = 1, datum/callback/extra_checks = null) //do_after copypasta but you can move
-	if(!user)
-		return FALSE
-	/* */
-	if(user.doing)
-		return FALSE
-	user.doing = 1
-	/* */
-	var/atom/Tloc = null
-	if(target && !isturf(target))
-		Tloc = target.loc
-
-	var/atom/Uloc = user.loc
-
-	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = TRUE
-
-	var/holding = user.get_active_held_item()
-
-	var/holdingnull = TRUE //User's hand started out empty, check for an empty hand
-	if(holding)
-		holdingnull = FALSE //Users hand started holding something, check to see if it's still holding that
-
-	delay *= user.do_after_coefficent()
-
-	var/datum/progressbar/progbar
-	if(progress)
-		progbar = new(user, delay, target || user)
-
-	var/endtime = world.time + delay
-	var/starttime = world.time
-	. = TRUE
-	while(world.time < endtime)
-		stoplag(1)
-		if(!QDELETED(progbar))
-			progbar.update(world.time - starttime)
-
-		if(drifting && !user.inertia_dir)
-			drifting = FALSE
-			Uloc = user.loc
-
-		if(QDELETED(user) || user.stat || !Tloc?.Adjacent(Uloc) || (extra_checks && !extra_checks.Invoke()))
-			. = FALSE
-			break
-
-		/* */
-		if(!user.doing)
-			. = FALSE
-			break
-		/* */
-
-		if(isliving(user))
-			var/mob/living/L = user
-			if(L.IsStun() || L.IsParalyzed())
-				. = FALSE
-				break
-
-		if(!QDELETED(Tloc) && (QDELETED(target) || Tloc != target.loc))
-			if((Uloc != Tloc || Tloc != user) && !drifting)
-				. = FALSE
-				break
-
-		if(needhand)
-			//This might seem like an odd check, but you can still need a hand even when it's empty
-			//i.e the hand is used to pull some item/tool out of the construction
-			if(!holdingnull)
-				if(!holding)
-					. = FALSE
-					break
-			if(user.get_active_held_item() != holding)
-				. = FALSE
-				break
 
 	/* */
 	user.doing = FALSE
@@ -461,9 +381,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 	var/endtime = world.time + time
 	var/starttime = world.time
-	var/mob/living/L
-	if(isliving(user))
-		L = user
 	. = TRUE
 	while(world.time < endtime)
 		stoplag(1)
@@ -479,7 +396,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			user_loc = user.loc
 
 		if(
-			!(user.doing) \ //V:
+			!(user.doing) /* V: */ \
 			|| !((timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user_loc != user.loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && user.incapacitated()) \

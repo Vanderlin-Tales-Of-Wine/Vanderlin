@@ -734,7 +734,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			time2mount = 40
 	if(ssaddle)
 		playsound(src, 'sound/foley/saddledismount.ogg', 100, TRUE)
-	if(!move_after(M,time2mount, target = src))
+	if(!do_after(M, time2mount, src, (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE)))
 		if(amt < 3) // Skilled prevents you from fumbling
 			M.Paralyze(50)
 			M.Stun(50)
@@ -763,7 +763,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			else
 				time2mount = 50
 
-		if(!move_after(M,time2mount, target = src))
+		if(!do_after(M, time2mount, src))
 			return
 		if(user.incapacitated())
 			return

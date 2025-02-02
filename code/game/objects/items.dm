@@ -87,8 +87,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/equip_delay_self = 1
 	// In deciseconds, how long does it take for us to take off a piece of clothing or equipment. Normally will have same value as equip_delay_self
 	var/unequip_delay_self = 1
-	// Boolean. If true, can be moving while equipping (for helmets etc)
-	var/edelay_type = 1
+	/// Boolean. If true, can be moving while equipping (for helmets etc)
+	var/edelay_type = TRUE
 	// In deciseconds, how long an item takes to be put on another person via the undressing menu.
 	var/equip_delay_other = 20
 	//In deciseconds, how long an item takes to remove from another person via the undressing menu.
@@ -584,7 +584,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 
 	if(!ontable() && isturf(loc))
-		if(!move_after(user,3,target = src))
+		if(!do_after(user, 3 DECISECONDS, src))
 			return
 
 	//If the item is in a storage item, take it out
@@ -620,16 +620,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(!(src in C.held_items) && unequip_delay_self)
 			if(unequip_delay_self >= 10)
 				C.visible_message(span_smallnotice("[C] starts taking off [src]..."), span_smallnotice("I start taking off [src]..."))
-			if(edelay_type)
-				if(move_after(C, minone(unequip_delay_self-C.STASPD), target = C))
-					return TRUE
-				else
-					return FALSE
-			else
-				if(do_after(C, minone(unequip_delay_self-C.STASPD), C))
-					return TRUE
-				else
-					return FALSE
+
+			var/doafter_flags = edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
+			return do_after(C, minone(unequip_delay_self-C.STASPD), timed_action_flags = doafter_flags)
 
 	return TRUE
 

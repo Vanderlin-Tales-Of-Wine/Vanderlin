@@ -607,7 +607,7 @@
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
 			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
-			if(move_after(src, 20, target = src))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
 				set_resting(FALSE, FALSE)
 				return TRUE
 		else
@@ -625,7 +625,7 @@
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
 			src.visible_message("<span class='info'>[src] begins standing up.</span>")
-			if(move_after(src, 20, target = src))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
 				set_resting(FALSE, FALSE)
 		else
 			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
