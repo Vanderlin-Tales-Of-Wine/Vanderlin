@@ -181,7 +181,7 @@
 			RightClickOn(A, params)
 			return
 
-	if(incapacitated(ignore_restraints = 1))
+	if(incapacitated(ignore_restraints = TRUE))
 		return
 
 	if(!atkswinging)
