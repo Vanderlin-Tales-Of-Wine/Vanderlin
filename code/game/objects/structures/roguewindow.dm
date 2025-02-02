@@ -156,15 +156,6 @@
 	else
 		to_chat(user, "<span class='warning'>The window doesn't close from this side.</span>")
 
-/obj/structure/roguewindow/openclose/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/knife/dagger) && !climbable && !user.cmode)
-		to_chat(user, span_notice("I start trying to pry the window open..."))
-		if(do_after(user, 60, target = src))
-			playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
-			src.force_open()
-	else
-		return ..()
-
 /obj/structure/roguewindow/proc/open_up(mob/user)
 	visible_message("<span class='info'>[user] opens [src].</span>")
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
@@ -178,7 +169,7 @@
 	update_icon()
 
 /obj/structure/roguewindow/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
+	if(istype(mover) && (mover.pass_flags & PASSTABLE) && climbable)
 		return 1
 	if(isliving(mover))
 		if(mover.throwing)

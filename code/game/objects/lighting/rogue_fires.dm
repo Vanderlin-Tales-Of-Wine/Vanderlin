@@ -178,15 +178,6 @@
 	pixel_x = 32
 	pixel_y = 0
 
-/*	.............   Candle lamp   ................ */
-/obj/machinery/light/rogue/wallfire/candle/lamp // cant get them to start unlit but they work as is
-	name = "candle lamp"
-	icon_state = "candle"
-	base_state = "candle"
-	layer = WALL_OBJ_LAYER+0.1
-	light_power = 0.9
-	light_outer_range =  6
-
 /obj/machinery/light/rogue/torchholder
 	name = "sconce"
 	icon_state = "torchwall1"
@@ -370,11 +361,9 @@
 			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
 				var/obj/item/reagent_containers/food/snacks/S = W
 				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
-					if(W.icon_state != "rawegg")
-						playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
-						if(!do_after(user, 25))
-							return
-						W.icon_state = "rawegg" // added
+					playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, 0)
+					sleep(25) // to get egg crack before frying hiss
+					W.icon_state = "rawegg" // added
 					rawegg = TRUE
 				if(!food)
 					S.forceMove(src)

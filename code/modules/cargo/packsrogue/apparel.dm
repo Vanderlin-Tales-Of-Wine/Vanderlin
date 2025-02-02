@@ -247,8 +247,3 @@
 	name = "Backpack"
 	cost = 20
 	contains = /obj/item/storage/backpack/rogue/backpack
-
-/datum/supply_pack/rogue/apparel/luxurydyes
-	name = "Luxury Dyes"
-	cost = 70
-	contains = /obj/item/luxury_dyes

@@ -6,14 +6,7 @@
 	name = "thresher"
 	desc = "Crushes grain, or skulls."
 	icon_state = "thresher"
-	icon = 'icons/roguetown/weapons/tools.dmi'
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	experimental_inhand = FALSE
-	experimental_onback = FALSE
-	experimental_onhip = FALSE
-	gripspriteonmob = TRUE
+	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	sharpness = IS_BLUNT
 	wlength = WLENGTH_LONG
@@ -102,6 +95,34 @@
 "eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.4,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/*
+/obj/item/rogueweapon/thresher/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.7,"sx" = -7,"sy" = 1,"nx" = 8,"ny" = 1,"wx" = -5,"wy" = 0,"ex" = 2,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 32,"eturn" = -32,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.7,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -4,"wy" = -2,"ex" = 5,"ey" = -3,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+*/
+/obj/item/rogueweapon/thresher/Initialize()
+	. = ..()
+	pixel_y = -16
+	pixel_x = -16
+
+/obj/item/rogueweapon/thresher/dropped()
+	. = ..()
+	pixel_y = -16
+	pixel_x = -16
+
+/obj/item/rogueweapon/thresher/equipped()
+	. = ..()
+	pixel_y = 0
+	pixel_x = 0
+
 
 /obj/item/rogueweapon/thresher/afterattack(obj/target, mob/user, proximity)
 	if(user.used_intent.type == /datum/intent/flailthresh)
@@ -209,15 +230,8 @@
 	name = "hoe"
 	desc = ""
 	icon_state = "hoe"
-	icon = 'icons/roguetown/weapons/tools.dmi'
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	experimental_inhand = FALSE
-	experimental_onback = FALSE
-	experimental_onhip = FALSE
-	gripspriteonmob = TRUE
-
+	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
+//	icon = 'icons/roguetown/weapons/tools.dmi'
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
@@ -325,14 +339,8 @@
 	name = "pitchfork"
 	desc = "Compost, chaff, hay, it matters not."
 	icon_state = "pitchfork"
-	icon = 'icons/roguetown/weapons/tools.dmi'
-	mob_overlay_icon = 'icons/roguetown/onmob/onmob.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	experimental_inhand = FALSE
-	experimental_onback = FALSE
-	experimental_onhip = FALSE
-	gripspriteonmob = TRUE
+	icon = 'modular/Neu_Farming/icons/farmtools.dmi'
+//	icon = 'icons/roguetown/weapons/64.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	blade_dulling = DULLING_BASHCHOP

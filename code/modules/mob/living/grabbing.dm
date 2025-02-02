@@ -140,16 +140,10 @@
 	hostagetaker = null
 
 /obj/item/grabbing/attack(mob/living/M, mob/living/user)
+	if(M != grabbed)
+		return FALSE
 	if(!valid_check())
 		return FALSE
-	if(M != grabbed)
-		if(!istype(limb_grabbed, /obj/item/bodypart/head))
-			return FALSE
-		if(M != user)
-			return FALSE
-		user.changeNext_move(CLICK_CD_RESIST)
-		headbutt(user)
-		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/skill_diff = 0
 	var/combat_modifier = 1

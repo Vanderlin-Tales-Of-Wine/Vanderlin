@@ -164,7 +164,6 @@
 	zombie.update_body()
 	zombie.remove_language(/datum/language/hellspeak)
 	zombie.copy_known_languages_from(prev_language)
-	zombie.toggle_cmode()
 
 	// Bandaid to fix the zombie ghostizing not allowing you to re-enter
 	var/mob/dead/observer/ghost = zombie.get_ghost(TRUE)

@@ -49,7 +49,11 @@
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		target.apply_status_effect(/datum/status_effect/invisibility, 30 SECONDS)
+		target.visible_message("<span class='warning'>[target] starts to fade into thin air!</span>", "<span class='notice'>You start to become invisible!</span>")
+		animate(target, alpha = 0, time = 1 SECONDS, easing = EASE_IN)
+		target.mob_timers[MT_INVISIBILITY] = world.time + 30 SECONDS
+		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, update_sneak_invis), TRUE), 30 SECONDS)
+		addtimer(CALLBACK(target, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[target] fades back into view."), span_warning("You become visible again!")), 15 SECONDS)
 		return ..()
 	return FALSE
 

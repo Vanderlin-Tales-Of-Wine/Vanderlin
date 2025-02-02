@@ -161,23 +161,23 @@
 		N = R.result
 		result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
-		to_chat(user, "<span class='warning'>I need to craft this on a wall.</span>")
+		to_chat(user, "<span class='warning'>Need to craft this on a wall.</span>")
 		return
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
 	if(!R.TurfCheck(user, T))
-		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
+		to_chat(user, "<span class='warning'>I can't craft here.</span>")
 		return
 	if(istype(T, /turf/open/water))
-		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
+		to_chat(user, "<span class='warning'>I can't craft here.</span>")
 		return
 	if(isturf(R.result))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, "<span class='warning'>I can't build this near a travel point.</span>")
+			to_chat(user, "<span class='warning'>I can't craft here.</span>")
 			return
 	if(ispath(R.result, /obj/structure) || ispath(R.result, /obj/machinery))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, "<span class='warning'>I can't build this near a travel point.</span>")
+			to_chat(user, "<span class='warning'>I can't craft here.</span>")
 			return
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
@@ -201,8 +201,7 @@
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
-			var/atom/A = R.structurecraft
-			to_chat(user, "<span class='warning'>There isn't \a [initial(A.name)] nearby.</span>")
+			to_chat(user, "<span class='warning'>I'm missing something.</span>")
 			return
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))

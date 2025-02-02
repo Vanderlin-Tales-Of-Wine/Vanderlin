@@ -797,7 +797,6 @@
 		return FALSE
 	if(buckled || lying)
 		wallpressed = FALSE
-		update_wallpress_slowdown()
 		reset_offsets("wall_press")
 		return FALSE
 	var/turf/newwall = get_step(newloc, wallpressed)
@@ -1696,7 +1695,7 @@
 				continue
 			if(see_invisible < M.invisibility)
 				continue
-			if(HAS_TRAIT(M, TRAIT_IMPERCEPTIBLE)) // Check if the mob is affected by the invisibility spell
+			if(M.mob_timers[MT_INVISIBILITY] > world.time) // Check if the mob is affected by the invisibility spell
 				continue
 			var/probby = 3 * STAPER
 			if(M.mind)

@@ -96,20 +96,6 @@
 	createditem_num = 2
 	craftdiff = 2
 
-/datum/anvil_recipe/tools/carafegold
-	name = "Golden Carafe"
-	recipe_name = "Golden Carafe"
-	req_bar = /obj/item/ingot/gold
-	created_item = /obj/item/reagent_containers/glass/carafe/gold
-	craftdiff = 0
-
-/datum/anvil_recipe/tools/carafesilver
-	name = "Silver Carafe"
-	recipe_name = "Silver Carafe"
-	req_bar = /obj/item/ingot/silver
-	created_item = /obj/item/reagent_containers/glass/carafe/silver
-	craftdiff = 0
-
 /datum/anvil_recipe/tools/hammer
 	name = "Hammer (+Stick)"
 	recipe_name = "a blacksmithing Hammer"

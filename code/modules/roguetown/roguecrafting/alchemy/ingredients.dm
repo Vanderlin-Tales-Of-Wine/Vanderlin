@@ -196,7 +196,7 @@
 	name = "gold dust"
 	icon_state = "golddust"
 
-	major_pot = /datum/alch_cauldron_recipe/mana_potion
+	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
 	minor_pot = /datum/alch_cauldron_recipe/per_potion
 
@@ -313,7 +313,7 @@
 	icon_state = "hypericum"
 
 	major_pot = /datum/alch_cauldron_recipe/stamina_potion
-	med_pot = /datum/alch_cauldron_recipe/mana_potion
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	minor_pot = /datum/alch_cauldron_recipe/antidote
 
 /obj/item/alch/benedictus
@@ -345,38 +345,21 @@
 	name = "feau dust"
 	result = list(/obj/item/alch/feaudust,
 				/obj/item/alch/feaudust)
-	reqs = list(/obj/item/alch/irondust = 1,
+	reqs = list(/obj/item/alch/irondust = 2,
 				/obj/item/alch/golddust = 1)
-	structurecraft = /obj/structure/table
-	verbage = "mix"
-	verbage_tp = "mixes"
+	structurecraft = /obj/structure/table/wood
+	verbage = "mixes"
 	craftsound = 'sound/foley/scribble.ogg'
 	skillcraft = /datum/skill/craft/alchemy
-	craftdiff = 2
+	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/alch/magicdust
 	name = "magic dust"
 	result = list(/obj/item/alch/magicdust)
 	reqs = list(/obj/item/alch/waterdust = 1, /obj/item/alch/firedust = 1,
 				/obj/item/alch/airdust = 1, /obj/item/alch/earthdust = 1)
-	structurecraft = /obj/structure/table
-	verbage = "mix"
-	verbage_tp = "mixes"
+	structurecraft = /obj/structure/table/wood
+	verbage = "mixes"
 	craftsound = 'sound/foley/scribble.ogg'
 	skillcraft = /datum/skill/craft/alchemy
-	craftdiff = 3
-
-/datum/crafting_recipe/roguetown/alch/transistus
-	name = "transis dust"
-	result = /obj/item/alch/transisdust
-	reqs = list(/obj/item/alch/artemisia = 1,
-		/obj/item/alch/benedictus = 1,
-		/obj/item/alch/hypericum = 1,
-		/obj/item/alch/salvia = 1,
-		/obj/item/alch/atropa = 1,
-		/obj/item/alch/taraxacum =1)
-	structurecraft = /obj/structure/table
-	verbage = "mix"
-	verbage_tp = "mixes"
-	skillcraft = /datum/skill/craft/alchemy
-	craftdiff = 4
+	craftdiff = 0

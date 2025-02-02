@@ -21,32 +21,31 @@
 	bypass_lastclass = TRUE
 	selection_color = "#0d6929"
 	outfit = /datum/outfit/job/roguetown/forestwarden
-	give_bank_account = 45
+	give_bank_account = 50
 	min_pq = 5
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/outfit/job/roguetown/forestwarden/pre_equip(mob/living/carbon/human/H)
 	..()
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
+	armor = /obj/item/clothing/suit/roguetown/armor/leather
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/furlinedboots
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	head = /obj/item/clothing/head/roguetown/helmet/kettle/slit
-	gloves = /obj/item/clothing/gloves/roguetown/leather
-	neck = /obj/item/clothing/neck/roguetown/bevor
+	neck = /obj/item/key/forrestgarrison
 	belt = /obj/item/storage/belt/rogue/leather
+	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1, /obj/item/rope/chain = 1)
 	beltl = /obj/item/rogueweapon/axe/iron
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	backr = /obj/item/rogueweapon/polearm/halberd/bardiche/woodcutter
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/rogueweapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/signal_horn = 1)
+	backpack_contents = list(/obj/item/signal_horn = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
@@ -54,14 +53,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 		H.change_stat("strength", 3)
 		H.change_stat("perception", 1)
-		H.change_stat("intelligence", 3)
+		H.change_stat("intelligence", 2)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", 1)
 	H.verbs |= /mob/proc/haltyell

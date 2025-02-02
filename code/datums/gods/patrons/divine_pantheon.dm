@@ -109,8 +109,6 @@
 	added_traits = list(TRAIT_SHARPER_BLADES)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/self/call_to_arms
-	t2 = /obj/effect/proc_holder/spell/self/divine_strike
-	t3 = /obj/effect/proc_holder/spell/invoked/persistence
 	confess_lines = list(
 		"RAVOX IS JUSTICE!",
 		"THROUGH STRIFE, GRACE!",
@@ -128,7 +126,6 @@
 	added_traits = list(TRAIT_BLACKLEG)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/vicious_mimicry
-	t2 = /obj/effect/proc_holder/spell/invoked/wheel
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
 		"NOC IS NIGHT!",

@@ -12,7 +12,6 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 60
 	var/obj/item/canvas/painting = null
-	anchored = FALSE
 
 //Adding canvases
 /obj/structure/easel/attackby(obj/item/I, mob/user, params)

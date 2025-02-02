@@ -1312,12 +1312,3 @@
 /turf/open/floor/rogue/naturalstone/turf_destruction(damage_flag)
 	. = ..()
 	return
-
-/turf/open/floor/rogue/sandstone
-	icon_state = "sandstone"
-	footstep = FOOTSTEP_STONE
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	landsound = 'sound/foley/jumpland/grassland.wav'
-

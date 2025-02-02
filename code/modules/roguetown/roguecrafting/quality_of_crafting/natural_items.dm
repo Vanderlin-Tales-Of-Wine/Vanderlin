@@ -147,7 +147,7 @@
 /datum/repeatable_crafting_recipe/survival/pestle
 	name = "pestle"
 	requirements = list(
-		/obj/item/natural/stone = 1,
+		/obj/item/natural/stone = 2,
 	)
 
 	starting_atom = /obj/item/rogueweapon/knife

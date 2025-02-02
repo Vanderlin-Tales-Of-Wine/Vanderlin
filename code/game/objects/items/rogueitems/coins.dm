@@ -113,10 +113,7 @@
 		return ..()
 	if(quantity == 1)
 		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
-			var/outcome = alert(user, "What will you rig the next coin flip to?","XYLIX","Heads","Tails","Play fair")
-			if(QDELETED(src) || !user.is_holding(src))
-				return
-			switch(outcome)
+			switch(alert(user, "What will you rig the next coin flip to?","XYLIX","Heads","Tails","Play fair"))
 				if("Heads")
 					rigged_outcome = 1
 				if("Tails")
@@ -133,8 +130,6 @@
 		if(quantity == 1)
 			amt_text = ""
 		var/amount = input(user, "How many [plural_name] to split?[amt_text]", null, round(quantity/2, 1)) as null|num
-		if(QDELETED(src) || !user.is_holding(src))
-			return
 		amount = clamp(amount, 0, quantity)
 		amount = round(amount, 1) // no taking non-integer coins
 		if(!amount)

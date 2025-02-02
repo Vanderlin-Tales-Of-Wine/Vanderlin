@@ -76,7 +76,7 @@
 
 	starting_atom = /obj/item/natural/wood/plank
 	attacking_atom = /obj/item/natural/wood/plank
-	output = /obj/item/rogueweapon/shield/heater/crafted
+	output = /obj/item/rogueweapon/shield/wood/crafted
 	craftdiff = 2
 	uses_attacking_atom = TRUE
 

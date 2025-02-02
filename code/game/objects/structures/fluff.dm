@@ -873,7 +873,7 @@
 	if(user.mind)
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
 		if(B)
-			if(istype(W, /obj/item/roguecoin) || istype(W, /obj/item/roguegem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/reagent_containers/glass/carafe) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/roguetown/crown/circlet) || istype(W, /obj/item/roguestatue))
+			if(istype(W, /obj/item/roguecoin) || istype(W, /obj/item/roguegem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/roguetown/crown/circlet) || istype(W, /obj/item/roguestatue))
 				if(B.tri_amt >= 10)
 					to_chat(user, "<span class='warning'>The mouth doesn't open.</span>")
 					return
@@ -993,13 +993,8 @@
 
 /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
 	name = "shrine to Dendor"
-	desc = "The life force of a Saiga has consecrated this holy place.<br/> Present jacksberries, westleach leaves, and eels for crafting a worthy sacrifice."
+	desc = "The life force of a Saiga has consecrated this holy place.<br/> Present jacksberries, westleach leaves, and silk grubs for crafting a worthy sacrifice."
 	icon_state = "shrine_dendor_saiga"
-
-/obj/structure/fluff/psycross/crafted/shrine/dendor_gote
-	name = "shrine to Dendor"
-	desc = "The life force of a Gote has consecrated this holy place.<br/> Present poppies, swampweed leaves, and silk grubs for crafting a worthy sacrifice."
-	icon_state = "shrine_dendor_gote"
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
 	if(user.mind)
@@ -1019,7 +1014,7 @@
 						var/mob/living/carbon/human/thegroom
 						var/mob/living/carbon/human/thebride
 						//Did anyone get cold feet on the wedding?
-						for(var/mob/M in viewers(src, 2))
+						for(var/mob/M in viewers(src, 7))
 							testing("check [M]")
 							if(thegroom && thebride)
 								break

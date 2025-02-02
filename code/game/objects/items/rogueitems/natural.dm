@@ -31,9 +31,6 @@
 
 /obj/item/natural/pre_attack_right(atom/A, mob/living/user, params)
 	if(istype(A, /obj/item/natural))
-		if(item_flags & IN_STORAGE)
-			to_chat(user, span_warning("It's hard to find [src] in my bag."))
-			return
 		var/obj/item/natural/B = A
 		if(bundletype && bundletype == B.bundletype)
 			if(!user.temporarilyRemoveItemFromInventory(src))

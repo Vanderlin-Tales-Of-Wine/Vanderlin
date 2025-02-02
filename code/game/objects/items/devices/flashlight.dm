@@ -343,7 +343,6 @@
 	on_damage = 5
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
-	smeltresult = /obj/item/ingot/copper
 
 /obj/item/flashlight/flare/torch/lantern/copper/getonmobprop(tag)
 	. = ..()

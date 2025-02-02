@@ -207,9 +207,6 @@
 		return
 	var/contents = "<center>People that [name] knows:</center><BR>"
 	for(var/P in known_people)
-		if(!length(known_people[P]))
-			known_people -= P
-			continue
 		var/fcolor = known_people[P]["VCOLOR"]
 		if(!fcolor)
 			continue
@@ -869,8 +866,6 @@
 	var/choice = input(youngling, "Do you wish to become [current.name]'s apprentice?") as anything in list("Yes", "No")
 	if(choice != "Yes")
 		to_chat(current, span_warning("[youngling] has rejected your apprenticeship!"))
-		return
-	if(length(apprentices) >= max_apprentices)
 		return
 	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
 		return

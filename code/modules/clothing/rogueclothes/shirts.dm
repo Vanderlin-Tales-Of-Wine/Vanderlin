@@ -133,7 +133,7 @@
 	body_parts_covered = CHEST|ARM_RIGHT|VITALS
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/Initialize()
-	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
+	color = pick(CLOTHING_MUD_BROWN, CLOTHING_PEAR_YELLOW, CLOTHING_BOG_GREEN, CLOTHING_BARK_BROWN	)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt
@@ -145,7 +145,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick("#6b5445", "#435436", "#704542", "#79763f")
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/uncolored

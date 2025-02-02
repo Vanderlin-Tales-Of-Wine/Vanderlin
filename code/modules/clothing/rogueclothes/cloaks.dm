@@ -954,7 +954,7 @@
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 	body_parts_covered = CHEST|GROIN|VITALS
 	allowed_sex = list(MALE, FEMALE)
-	// allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf")
+	allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf")
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	nodismemsleeves = TRUE
 	boobed = FALSE

@@ -89,18 +89,17 @@
 
 		var/yeae = TRUE
 		if(buckled)
-			if(istype(buckled, /obj/structure/fluff/psycross) || istype(buckled, /obj/machinery/light/rogue/campfire/pyre))
-				if((real_name in GLOB.excommunicated_players) || (real_name in GLOB.heretical_players))
+			if(istype(buckled, /obj/structure/fluff/psycross))
+				if(real_name in GLOB.excommunicated_players)
 					yeae = FALSE
 					tris2take += -2
 				if(real_name in GLOB.outlawed_players)
 					yeae = FALSE
-		if(istype(src, /mob/living/carbon/human/species/skeleton/death_arena))
-			tris2take = 0
+
 		if(tris2take)
 			adjust_triumphs(tris2take)
 		else
-			if(!istype(src, /mob/living/carbon/human/species/skeleton/death_arena) && get_triumphs() > 0)
+			if(get_triumphs() > 0)
 				adjust_triumphs(-1)
 
 		if(job == "Monarch")

@@ -444,30 +444,20 @@
 /datum/repeatable_crafting_recipe/sewing/fancyhat
 	name = "fancy hat"
 	output = /obj/item/clothing/head/roguetown/fancyhat
-	requirements = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1,
-				/obj/item/natural/feather = 1)
-	craftdiff = 4
-
-/datum/repeatable_crafting_recipe/sewing/courtierhat
-	name = "courtier hat"
-	output = /obj/item/clothing/head/roguetown/courtierhat
-	requirements = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1,
-				/obj/item/natural/feather = 1)
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/bardhat
 	name = "bard hat"
 	output = /obj/item/clothing/head/roguetown/bardhat
-	requirements = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1,
-				/obj/item/natural/feather = 1)
+	requirements = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/chaperonhat
 	name = "chaperon hat"
-	output = /obj/item/clothing/head/roguetown/chaperon/greyscale
+	output = /obj/item/clothing/head/roguetown/chaperon
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
@@ -534,7 +524,7 @@
 /* craftdif of 2 = APPRENTICE */
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowgloves
-	name = "gloves"
+	name = "silk gloves"
 	output = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 1)
@@ -584,7 +574,7 @@
 	craftdiff = 3
 
 /datum/repeatable_crafting_recipe/sewing/weaving/noblecoat
-	name = "coat (fancy)"
+	name = "fancy coat"
 	output = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	requirements = list(/obj/item/natural/cloth = 3,
 			/obj/item/natural/silk = 1)
@@ -612,21 +602,21 @@
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowshirt
-	name = "shirt (dark)"
+	name = "silk shirt"
 	output = /obj/item/clothing/suit/roguetown/shirt/shadowshirt
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/silkchaperone
-	name = "hat (chaperone)"
+	name = "silk hat"
 	output = /obj/item/clothing/head/roguetown/chaperon/greyscale/silk
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 2)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowpants
-	name = "pants (dark)"
+	name = "silk pants"
 	output = /obj/item/clothing/under/roguetown/trou/shadowpants
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)

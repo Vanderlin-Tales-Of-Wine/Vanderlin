@@ -1,9 +1,6 @@
 //copper tools
 
 /obj/item/rogueweapon/hoe/copper
-	experimental_inhand = TRUE
-	experimental_onback = TRUE
-	experimental_onhip = TRUE
 	force = 10
 	force_wielded = 15
 	possible_item_intents = list(/datum/intent/pick)
@@ -25,9 +22,6 @@
 
 
 /obj/item/rogueweapon/pitchfork/copper
-	experimental_inhand = TRUE
-	experimental_onback = TRUE
-	experimental_onhip = TRUE
 	force = 10
 	force_wielded = 15
 	possible_item_intents = list(POLEARM_THRUST, POLEARM_BASH)

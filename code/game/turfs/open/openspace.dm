@@ -156,7 +156,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 //			P.zfalling = TRUE
 		P.forceMove(target)
 //			P.zfalling = FALSE
-		P.visible_message(span_danger("[P] flies down from above!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		P.original = target
 		P.process_hit(target, P.select_target(target))
 		//bump

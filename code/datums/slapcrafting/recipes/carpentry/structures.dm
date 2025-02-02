@@ -48,7 +48,6 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
 	result_type = /obj/structure/mineral_door/wood/donjon
-	craftdiff = 2
 
 /datum/slapcraft_recipe/carpentry/structure/fancydoor
 	name = "fancy wooden door"
@@ -58,7 +57,6 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
 	result_type = /obj/structure/mineral_door/wood/fancywood
-	craftdiff = 3
 
 /datum/slapcraft_recipe/carpentry/structure/roguebin
 	name = "wooden bin"
@@ -69,6 +67,17 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
 	result_type = /obj/item/roguebin
+	craftdiff = 0
+
+/datum/slapcraft_recipe/carpentry/structure/simple_dye_bin
+	name = "simple dye bin"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/jacksberry,
+		/datum/slapcraft_step/item/dirtclod
+		)
+	result_type = /obj/machinery/simple_dye_bin
 	craftdiff = 0
 
 /datum/slapcraft_recipe/carpentry/structure/chair
@@ -95,7 +104,6 @@
 		/datum/slapcraft_step/item/silk
 		)
 	result_type = /obj/structure/chair/wood/rogue/fancy/crafted
-	craftdiff = 2
 
 /obj/structure/chair/wood/rogue/fancy/crafted
 	item_chair = /obj/item/chair/rogue/fancy/crafted
@@ -421,26 +429,3 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
 	result_type = /obj/structure/easel
-
-/datum/slapcraft_recipe/carpentry/structure/optable
-	name = "operating table"
-	steps = list(
-		/datum/slapcraft_step/item/plank,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
-		/datum/slapcraft_step/item/plank/second,
-		/datum/slapcraft_step/use_item/carpentry/hammer/second,
-		)
-	result_type = /obj/structure/table/optable
-	craftdiff = 2
-
-/datum/slapcraft_recipe/carpentry/structure/meathook
-	name = "meathook"
-	steps = list(
-		/datum/slapcraft_step/item/plank,
-		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
-		/datum/slapcraft_step/item/stone,
-		/datum/slapcraft_step/use_item/carpentry/hammer/second,
-		)
-	result_type = /obj/structure/meathook
-	craftdiff = 1

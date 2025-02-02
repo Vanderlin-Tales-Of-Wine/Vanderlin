@@ -64,10 +64,9 @@
 	return FALSE
 
 /obj/attackby(obj/item/I, mob/living/user, params)
-	if(!user.cmode)
-		if(user.try_recipes(src, I, user))
-			user.changeNext_move(CLICK_CD_FAST)
-			return TRUE
+	if(user.try_recipes(src, I, user))
+		user.changeNext_move(CLICK_CD_FAST)
+		return TRUE
 
 	if(I.obj_flags_ignore)
 		return I.attack_obj(src, user)
@@ -359,11 +358,9 @@
 	newforce = (newforce * user.used_intent.damfactor) * dullfactor
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * round(user.client?.chargedprog / 100, 0.1)
-	// newforce = round(newforce, 1)
+	newforce = round(newforce, 1)
 	if(!(user.mobility_flags & MOBILITY_STAND))
 		newforce *= 0.5
-	if(user.has_status_effect(/datum/status_effect/divine_strike))
-		newforce += 5
 	// newforce is rounded upto the nearest intiger.
 	newforce = round(newforce,1)
 	//This is returning the maximum of the arguments meaning this is to prevent negative values.

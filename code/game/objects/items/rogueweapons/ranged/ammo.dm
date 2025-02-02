@@ -176,7 +176,6 @@
 //................ Stone Arrow ............... //
 /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	name = "stone arrow"
-	desc = "A fletched projectile with a stone tip."
 	icon_state = "stonearrow"
 	projectile_type = /obj/projectile/bullet/reusable/arrow/stone //weaker projectile
 	max_integrity = 5
@@ -191,7 +190,7 @@
 //................ Poison Arrow ............... //
 /obj/item/ammo_casing/caseless/rogue/arrow/poison
 	name = "poison arrow"
-	desc = "An arrow with its tip drenched in a weak poison."
+	desc = "An arrow with it's tip drenched in a weak poison."
 	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/weak
 	icon_state = "arrow_poison"
 
@@ -429,7 +428,8 @@
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/dart
 	range = 6
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
-	embedchance = 100
+	embedchance = 0
+	armor_penetration = 0
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 0.3
@@ -438,13 +438,13 @@
 //................ Poison Dart ............... //
 /obj/item/ammo_casing/caseless/rogue/dart/poison
 	name = "poison dart"
-	desc = "A dart with its tip drenched in a weak poison."
+	desc = "A dart with it's tip drenched in a weak poison."
 	projectile_type = /obj/projectile/bullet/reusable/dart/poison
 	icon_state = "dart_poison"
 
 /obj/projectile/bullet/reusable/dart/poison
 	name = "poison dart"
-	desc = "A dart with its tip drenched in a weak poison."
+	desc = "A dart with its tip drenched in a powerful poison."
 	var/piercing = FALSE
 
 /obj/projectile/bullet/reusable/dart/poison/Initialize()

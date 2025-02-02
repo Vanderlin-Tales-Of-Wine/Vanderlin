@@ -83,12 +83,6 @@
 	icon_state = "saigahead"
 	layer = 3.1
 
-/obj/item/natural/head/gote
-	name = "gote head"
-	desc = "the head of a fiery gote."
-	icon_state = "gotehead"
-	layer = 3.1
-
 //RTD make this a storage item and make clickign on animals with things put it in storage
 /obj/item/natural/saddle
 	name = "saddle"

@@ -19,7 +19,6 @@
 
 	var/stun_mod = 1      	// % stun modifier
 	var/bleed_mod = 1     	// % bleeding modifier
-	var/pain_mod = 1		// % pain modifier
 	var/datum/armor/armor 	// internal armor datum
 
 	var/hunger_mod = 1		//% of hunger rate taken per tick.

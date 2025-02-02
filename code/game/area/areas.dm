@@ -74,7 +74,6 @@
 	var/soundenv = 0
 
 	var/first_time_text = null
-	var/custom_area_sound = null
 
 	/// typecache to limit the areas that atoms in this area can smooth with, used for shuttles IIRC
 	var/list/canSmoothWithAreas
@@ -298,11 +297,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	T.maptext_height = 209
 	T.maptext_x = 12
 	T.maptext_y = 64
-	if(A.custom_area_sound)
-		playsound_local(src, A.custom_area_sound, 125, FALSE)
-	else
-		playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
-
+	playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
 	animate(T, alpha = 255, time = 10, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 

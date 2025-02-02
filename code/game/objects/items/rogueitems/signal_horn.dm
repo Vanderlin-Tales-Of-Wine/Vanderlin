@@ -7,20 +7,15 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_height = 32
 	grid_width = 64
-	COOLDOWN_DECLARE(sound_horn)
 
 /obj/item/signal_horn/attack_self(mob/living/user)
 	. = ..()
-	if(!COOLDOWN_FINISHED(src, sound_horn))
-		to_chat(user, span_warning("[src] is not ready to be used yet!"))
-		return
-	user.visible_message(span_warning("[user] is about to sound [src]!"))
+	user.visible_message("<span class='warning'>[user] is about to sound the [src]!</span>")
 	if(do_after(user, 15))
 		sound_horn(user)
-		COOLDOWN_START(src, sound_horn, 1 MINUTES)
 
 /obj/item/signal_horn/proc/sound_horn(mob/living/user)
-	user.visible_message(span_warning("[user] sounds the alarm!"))
+	user.visible_message("<span class='warning'>[user] sounds the alarm!</span>")
 	playsound(src, 'sound/items/signalhorn.ogg', 100, TRUE)
 	var/turf/origin_turf = get_turf(src)
 
@@ -69,4 +64,4 @@
 
 		//sound played for other players
 		player.playsound_local(get_turf(player), 'sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)
-		to_chat(player, span_warning("I hear the horn alarm somewhere[disttext][dirtext]!"))
+		to_chat(player, "<span class='warning'>I hear the horn alarm somewhere[disttext][dirtext]!</span>")

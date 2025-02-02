@@ -5988,7 +5988,7 @@
 /area/rogue/outdoors/woods)
 "gos" = (
 /obj/structure/fluff/walldeco/mona,
-/obj/item/clothing/head/roguetown/crown/serpcrown/surplus,
+/obj/item/clothing/head/roguetown/crown/serpcrown,
 /obj/item/rogueweapon/lordscepter,
 /turf/open/floor/rogue/tile/kitchen,
 /area/rogue/indoors/town/vault)

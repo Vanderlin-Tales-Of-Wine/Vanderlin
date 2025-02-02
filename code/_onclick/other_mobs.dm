@@ -99,10 +99,8 @@
 		if(ishuman(src) && ishuman(user))
 			var/mob/living/carbon/human/target = src
 			var/datum/job/job = SSjob.GetJob(target.job)
-			if(length(user.mind?.apprentices) >= user.mind?.max_apprentices)
-				return
 			if((target.age == AGE_CHILD || job?.type == /datum/job/roguetown/vagrant) && target.mind && !target.mind.apprentice)
-				to_chat(user, span_notice("You offer apprenticeship to [target]."))
+				to_chat(user, span_notice("You offer apprenticeship to [target]"))
 				user.mind?.make_apprentice(target)
 				return
 
@@ -151,8 +149,6 @@
 	else if(!H.givingto && H.get_active_held_item()) //offer item
 		if(get_empty_held_indexes())
 			var/obj/item/I = H.get_active_held_item()
-			if(HAS_TRAIT(I, TRAIT_NODROP) || I.item_flags & ABSTRACT)
-				return
 			H.givingto = src
 			H.lastgibto = world.time
 			to_chat(src, span_notice("[H.name] offers [I] to me."))
