@@ -82,7 +82,7 @@
 	alpha = 200
 	last_trigger = world.time
 	animate(src, alpha = initial(alpha), time = time_between_triggers)
-	if(do_atom(src,src,time_between_triggers,TRUE))
+	if(do_atom(src, src, time_between_triggers, IGNORE_HELD_ITEM))
 		nomouseover = TRUE
 
 /obj/structure/trap/Crossed(atom/movable/AM)
