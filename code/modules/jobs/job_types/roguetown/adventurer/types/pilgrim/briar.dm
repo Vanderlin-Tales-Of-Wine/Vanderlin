@@ -45,6 +45,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -93,6 +94,14 @@
 	verbage = "consecrate"
 	verbage_tp = "consecrates"
 	craftsound = 'sound/foley/Building-01.ogg'
+
+/datum/crafting_recipe/dendor/shillelagh
+	name = "Shillelagh (unique)"
+	result = /obj/item/rogueweapon/mace/goden/shillelagh
+	reqs = list(/obj/item/grown/log/tree/small = 1,
+				/obj/item/ash = 1,
+				/obj/item/reagent_containers/food/snacks/fat =1 )
+	craftdiff = 2
 
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
