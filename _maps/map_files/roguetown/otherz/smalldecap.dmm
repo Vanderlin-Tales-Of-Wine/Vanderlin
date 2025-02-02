@@ -751,7 +751,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/cavelava)
 "tc" = (
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/town/dwarfin)
 "td" = (

@@ -34,6 +34,8 @@
 
 /obj/item/storage/belt/rogue/leather/dropped(mob/living/carbon/human/user)
 	..()
+	if(QDELETED(src))
+		return
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()
@@ -203,11 +205,13 @@
 		/obj/item/ammo_casing/caseless/rogue/bullet,
 		/obj/item/ammo_casing/caseless/rogue/bullet,
 		/obj/item/ammo_casing/caseless/rogue/bullet,
+		/obj/item/ammo_casing/caseless/rogue/bullet,
 	)
 
 //Poison darts pouch
 /obj/item/storage/belt/rogue/pouch/pdarts
 	populate_contents = list(
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,

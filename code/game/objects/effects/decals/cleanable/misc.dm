@@ -107,7 +107,7 @@
 /obj/effect/decal/cleanable/dirt/cobweb
 	name = "cobweb"
 	desc = ""
-	icon = 'modular/Mapping/icons/webbing.dmi'
+	icon = 'icons/roguetown/misc/webbing.dmi'
 	icon_state = "cobweb1"
 	gender = NEUTER
 	layer = WALL_OBJ_LAYER
@@ -209,3 +209,14 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xfloor1"
 	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
+
+/*	.................   Dye spill   ................... */
+/obj/effect/decal/cleanable/dyes
+	name = "spilled dyes"
+	icon = 'icons/effects/tomatodecal.dmi'
+	icon_state = "flour"
+	random_icon_states = list("flour", "smashed_plant")
+	beauty = -100
+/obj/effect/decal/cleanable/dyes/Initialize()
+	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
+	..()
