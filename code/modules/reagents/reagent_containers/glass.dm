@@ -68,7 +68,7 @@
 				if(M != user)
 					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
 								"<span class='danger'>[user] attempts to feed you something.</span>")
-					if(!do_mob(user, M))
+					if(!do_after(user, 3 SECONDS, M))
 						return
 					if(!reagents || !reagents.total_volume)
 						return // The drink might be empty after the delay, such as by spam-feeding

@@ -295,7 +295,7 @@
 		if(attack_sound)
 			playsound(src, pick(attack_sound), 100, TRUE, -1)
 		//If their health is decreased at all during the 10 seconds the dismemberment will fail and they will lose target.
-		if(do_mob(user = src, target = L, time = 10 SECONDS, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), check_health, FALSE)))
+		if(do_after(user = src, delay = 10 SECONDS, target = L, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), check_health, FALSE)))
 			//If its carbon remove a limb, if its some animal just gib it.
 			if(iscarbon(L))
 				var/mob/living/carbon/C = L

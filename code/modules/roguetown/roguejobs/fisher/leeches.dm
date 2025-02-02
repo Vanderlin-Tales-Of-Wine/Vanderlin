@@ -73,12 +73,14 @@
 		if(!affecting)
 			return
 		if(!get_location_accessible(H, check_zone(user.zone_selected)))
-			to_chat(user, "<span class='warning'>Something in the way.</span>")
+			to_chat(user, "<span class='warning'>Something in the way.</span>") //ooooooooooooooo
 			return
-		var/used_time = (70 - (H.mind.get_skill_level(/datum/skill/misc/medicine) * 10))/2
+		var/used_time
 		if(completely_silent)
 			used_time = 0
-		if(!do_mob(user, H, used_time))
+		else
+			used_time = (7 SECONDS - (H.mind.get_skill_level(/datum/skill/misc/medicine) * 1 SECONDS))/2
+		if(!do_after(user, used_time, H))
 			return
 		if(!H)
 			return

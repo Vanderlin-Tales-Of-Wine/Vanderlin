@@ -54,7 +54,7 @@
 									"<span class='userdanger'>[user] is trying to tie my arms with [src.name]!</span>")
 
 				playsound(loc, cuffsound, 100, TRUE, -2)
-				if(do_mob(user, C, 60 * (C.surrendering ? 0.5 : 1)) && C.get_num_arms(FALSE))
+				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.get_num_arms(FALSE))
 					apply_cuffs(C, user)
 					C.visible_message("<span class='warning'>[user] ties [C] with [src.name].</span>", \
 										"<span class='danger'>[user] ties me up with [src.name].</span>")
@@ -73,7 +73,7 @@
 									"<span class='userdanger'>[user] is trying to tie my legs with [src.name]!</span>")
 
 				playsound(loc, cuffsound, 30, TRUE, -2)
-				if(do_mob(user, C, 60) && (C.get_num_legs(FALSE) < 2))
+				if(do_after(user, 6 SECONDS, C) && (C.get_num_legs(FALSE) < 2))
 					apply_cuffs(C, user)
 					C.visible_message("<span class='warning'>[user] ties [C]'s legs with [src.name].</span>", \
 										"<span class='danger'>[user] ties my legs with [src.name].</span>")

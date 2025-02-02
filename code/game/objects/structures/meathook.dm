@@ -45,7 +45,7 @@
 	if(VIABLE_MOB_CHECK(user.pulling) && !has_buckled_mobs())
 		var/mob/living/L = user.pulling
 		L.visible_message(span_danger("[user] starts hanging [L] on [src]!"), span_danger("[user] starts hanging you on [src]]!"), span_hear("I hear the sound of clanging chains..."))
-		if(do_mob(user, src, 120))
+		if(do_after(user, 12 SECONDS, src))
 			if(has_buckled_mobs())
 				return
 			if(L.buckled)

@@ -347,7 +347,7 @@
 	if(C.cpr_time < world.time + 30)
 		visible_message("<span class='notice'>[src] is trying to perform CPR on [C.name]!</span>", \
 						"<span class='notice'>I try to perform CPR on [C.name]... Hold still!</span>")
-		if(!do_mob(src, C))
+		if(!do_after(src, 3 SECONDS, C))
 			to_chat(src, "<span class='warning'>I fail to perform CPR on [C]!</span>")
 			return 0
 

@@ -111,7 +111,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		else
 			return
 
-		if(do_mob(usr, src, POCKET_STRIP_DELAY/delay_denominator)) //placing an item into the pocket is 4 times faster
+		if(do_after(usr, POCKET_STRIP_DELAY/delay_denominator, src)) //placing an item into the pocket is 4 times faster
 			if(pocket_item)
 				if(pocket_item == (pocket_id == SLOT_R_STORE ? r_store : l_store)) //item still in the pocket we search
 					dropItemToGround(pocket_item)

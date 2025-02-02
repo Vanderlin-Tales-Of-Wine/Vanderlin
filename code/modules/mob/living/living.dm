@@ -1152,7 +1152,7 @@
 					"<span class='danger'>[src] tries to remove my [what.name].</span>", null, null, src)
 	to_chat(src, "<span class='danger'>I try to remove [who]'s [what.name]...</span>")
 	what.add_fingerprint(src)
-	if(do_mob(src, who, what.strip_delay * surrender_mod))
+	if(do_after(src, what.strip_delay * surrender_mod, who))
 		if(what && Adjacent(who))
 			if(islist(where))
 				var/list/L = where
@@ -1192,7 +1192,7 @@
 		who.visible_message("<span class='notice'>[src] tries to put [what] on [who].</span>", \
 						"<span class='notice'>[src] tries to put [what] on you.</span>", null, null, src)
 		to_chat(src, "<span class='notice'>I try to put [what] on [who]...</span>")
-		if(do_mob(src, who, what.equip_delay_other))
+		if(do_after(src, what.equip_delay_other, who))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 				if(temporarilyRemoveItemFromInventory(what))
 					if(where_list)

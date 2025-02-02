@@ -211,60 +211,6 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 
 GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
-/// Timed action involving two mobs, the user and the target.
-/proc/do_mob(mob/user, mob/target, time = 3 SECONDS, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
-	if(!user || !target)
-		return FALSE
-	/* */
-	if(user.doing)
-		return FALSE
-	user.doing = TRUE
-	/* */
-	var/user_loc = user.loc
-
-	var/drifting = FALSE
-	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = TRUE
-
-	var/target_loc = target.loc
-
-	var/holding = user.get_active_held_item()
-	var/datum/progressbar/progbar
-	if(progress)
-		progbar = new(user, time, target)
-
-	var/endtime = world.time+time
-	var/starttime = world.time
-	. = TRUE
-
-	while(world.time < endtime)
-		stoplag(1)
-		if(!QDELETED(progbar))
-			progbar.update(world.time - starttime)
-
-		if(drifting && !user.inertia_dir)
-			drifting = FALSE
-			user_loc = user.loc
-
-		if(
-			QDELETED(user) || QDELETED(target) \
-			|| (!user.doing) /* V: */ \
-			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
-			|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc) \
-			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
-			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && user.incapacitated()) \
-			|| (extra_checks && !extra_checks.Invoke()) \
-			)
-			. = FALSE
-			break
-
-	/* */
-	user.doing = FALSE
-	/* */
-	if(!QDELETED(progbar))
-		progbar.end_progress()
-
-
 //some additional checks as a callback for for do_afters that want to break on losing health or on the mob taking action
 /mob/proc/break_do_after_checks(list/checked_health, check_clicks)
 	if(check_clicks && next_move > world.time)
