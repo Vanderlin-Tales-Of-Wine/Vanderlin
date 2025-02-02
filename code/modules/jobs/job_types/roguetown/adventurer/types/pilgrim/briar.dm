@@ -57,7 +57,7 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_growing)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_stinging)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/sacrifice_devouring)
-    H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
