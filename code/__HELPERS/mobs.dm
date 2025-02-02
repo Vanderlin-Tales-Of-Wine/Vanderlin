@@ -228,6 +228,21 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 /// Set when the mob is in a do_esque proc.
 /mob/var/doing = FALSE
 
+/**
+ * Timed action involving one mob user. Target is optional. \
+ * Checks that `user` does not move, change hands, get stunned, etc. for the
+ * given `delay`. Returns `TRUE` on success or `FALSE` on failure.
+ *
+ * @param {mob} user - The mob performing the action. \
+ * @param {number} delay - The time in deciseconds. Use the SECONDS define for readability. `1 SECONDS` is 10 deciseconds. \
+ * @param {atom} target - The target of the action. This is where the progressbar will display. \
+ * @param {flag} timed_action_flags - Flags to control the behavior of the timed action. \
+ * @param {boolean} progress - Whether to display a progress bar / cogbar. \
+ * @param {datum/callback} extra_checks - Additional checks to perform before the action is executed. \
+ *
+ * ~~@param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.~~ \
+ * ~~@param {number} max_interact_count - The maximum amount of interactions allowed.~~
+ */
 /proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
 	if(!user)
 		return FALSE
