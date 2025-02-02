@@ -209,57 +209,64 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			. = "#6a6a6a"
 
 
-GLOBAL_LIST_EMPTY(species_list)
+GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
-/proc/do_mob(mob/user , mob/target, time = 30, uninterruptible = 0, progress = 1, datum/callback/extra_checks = null)
+/// Timed action involving two mobs, the user and the target.
+/proc/do_mob(mob/user, mob/target, time = 3 SECONDS, uninterruptible = FALSE, progress = TRUE, datum/callback/extra_checks = null)
 	if(!user || !target)
-		return 0
+		return FALSE
 
+	/* */
 	if(user.doing)
-		return 0
-	user.doing = 1
+		return FALSE
+	user.doing = TRUE
+	/* */
 
 	var/user_loc = user.loc
 
-	var/drifting = 0
+	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = 1
+		drifting = TRUE
 
 	var/target_loc = target.loc
 
 	var/holding = user.get_active_held_item()
 	var/datum/progressbar/progbar
-	if (progress)
+	if(progress)
 		progbar = new(user, time, target)
 
 	var/endtime = world.time+time
 	var/starttime = world.time
-	. = 1
-	while (world.time < endtime)
+	. = TRUE
+	while(world.time < endtime)
 		stoplag(1)
-		if (progress)
+		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
+
 		if(QDELETED(user) || QDELETED(target))
-			. = 0
+			. = FALSE
 			break
-
+		/* */
 		if(!user.doing)
-			. = 0
+			. = FALSE
 			break
-
+		/* */
 		if(uninterruptible)
 			continue
 
 		if(drifting && !user.inertia_dir)
-			drifting = 0
+			drifting = FALSE
 			user_loc = user.loc
 
 		if((!drifting && user.loc != user_loc) || target.loc != target_loc || user.get_active_held_item() != holding || user.incapacitated() || (extra_checks && !extra_checks.Invoke()))
-			. = 0
+			. = FALSE
 			break
-	user.doing = 0
-	if (progress)
-		qdel(progbar)
+
+	/* */
+	user.doing = FALSE
+	/* */
+	if(!QDELETED(progbar))
+		progbar.end_progress()
 
 
 //some additional checks as a callback for for do_afters that want to break on losing health or on the mob taking action
@@ -276,68 +283,71 @@ GLOBAL_LIST_EMPTY(species_list)
 		checked_health["health"] = health
 	return ..()
 
-/mob
-	var/doing = 0
+/// Set when the mob is in a do_esque proc.
+/// I'm not fond of it.
+/mob/var/doing = FALSE
 
-/proc/do_after(mob/user, delay, needhand = 1, atom/target = null, progress = 1, datum/callback/extra_checks = null)
+/proc/do_after(mob/user, delay, needhand = TRUE, atom/target = null, progress = TRUE, datum/callback/extra_checks = null)
 	if(!user)
-		return 0
-
+		return FALSE
+	/* */
 	if(user.doing)
-		return 0
+		return FALSE
 	user.doing = 1
-
+	/* */
 	var/atom/Tloc = null
 	if(target && !isturf(target))
 		Tloc = target.loc
 
 	var/atom/Uloc = user.loc
 
-	var/drifting = 0
+	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = 1
+		drifting = TRUE
 
 	var/holding = user.get_active_held_item()
 
-	var/holdingnull = 1 //User's hand started out empty, check for an empty hand
+	var/holdingnull = TRUE //User's hand started out empty, check for an empty hand
 	if(holding)
-		holdingnull = 0 //Users hand started holding something, check to see if it's still holding that
+		holdingnull = FALSE //Users hand started holding something, check to see if it's still holding that
 
 	delay *= user.do_after_coefficent()
 
 	var/datum/progressbar/progbar
-	if (progress)
-		progbar = new(user, delay, user)
+	if(progress)
+		progbar = new(user, delay, user) //V: progbars are always put on the user's turf
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
-	. = 1
-	while (world.time < endtime)
+	. = TRUE
+	while(world.time < endtime)
 		stoplag(1)
-		if (progress)
+		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
 
 		if(drifting && !user.inertia_dir)
-			drifting = 0
+			drifting = FALSE
 			Uloc = user.loc
 
 		if(QDELETED(user) || user.stat || (!drifting && user.loc != Uloc) || (extra_checks && !extra_checks.Invoke()))
-			. = 0
+			. = FALSE
 			break
 
+		/* */
 		if(!user.doing)
-			. = 0
+			. = FALSE
 			break
+		/* */
 
 		if(isliving(user))
 			var/mob/living/L = user
 			if(L.IsStun() || L.IsParalyzed())
-				. = 0
+				. = FALSE
 				break
 
 		if(!QDELETED(Tloc) && (QDELETED(target) || Tloc != target.loc))
 			if((Uloc != Tloc || Tloc != user) && !drifting)
-				. = 0
+				. = FALSE
 				break
 
 		if(needhand)
@@ -345,77 +355,79 @@ GLOBAL_LIST_EMPTY(species_list)
 			//i.e the hand is used to pull some item/tool out of the construction
 			if(!holdingnull)
 				if(!holding)
-					. = 0
+					. = FALSE
 					break
 			if(user.get_active_held_item() != holding)
-				. = 0
+				. = FALSE
 				break
-	user.doing = 0
-	if (progress)
-		qdel(progbar)
+
+	/* */
+	user.doing = FALSE
+	/* */
+	if(!QDELETED(progbar))
+		progbar.end_progress()
 
 /proc/move_after(mob/user, delay, needhand = 1, atom/target = null, progress = 1, datum/callback/extra_checks = null) //do_after copypasta but you can move
 	if(!user)
-		return 0
-
+		return FALSE
+	/* */
 	if(user.doing)
-		return 0
+		return FALSE
 	user.doing = 1
-
+	/* */
 	var/atom/Tloc = null
 	if(target && !isturf(target))
 		Tloc = target.loc
 
 	var/atom/Uloc = user.loc
 
-	var/drifting = 0
+	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = 1
+		drifting = TRUE
 
 	var/holding = user.get_active_held_item()
 
-	var/holdingnull = 1 //User's hand started out empty, check for an empty hand
+	var/holdingnull = TRUE //User's hand started out empty, check for an empty hand
 	if(holding)
-		holdingnull = 0 //Users hand started holding something, check to see if it's still holding that
+		holdingnull = FALSE //Users hand started holding something, check to see if it's still holding that
 
 	delay *= user.do_after_coefficent()
 
 	var/datum/progressbar/progbar
-	if (progress)
-		progbar = new(user, delay, user)
+	if(progress)
+		progbar = new(user, delay, user) //V: progbars are always put on the user's turf
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
-	. = 1
-	while (world.time < endtime)
+	. = TRUE
+	while(world.time < endtime)
 		stoplag(1)
-		if (progress)
+		if(!QDELETED(progbar))
 			progbar.update(world.time - starttime)
 
 		if(drifting && !user.inertia_dir)
-			drifting = 0
+			drifting = FALSE
 			Uloc = user.loc
 
-		Uloc = user.loc
-		Tloc = target.loc
-
 		if(QDELETED(user) || user.stat || !Tloc?.Adjacent(Uloc) || (extra_checks && !extra_checks.Invoke()))
-			. = 0
+			. = FALSE
 			break
 
+		/* */
 		if(!user.doing)
-			. = 0
+			. = FALSE
 			break
+		/* */
 
 		if(isliving(user))
 			var/mob/living/L = user
 			if(L.IsStun() || L.IsParalyzed())
-				. = 0
+				. = FALSE
 				break
 
 		if(!QDELETED(Tloc) && (QDELETED(target) || Tloc != target.loc))
 			if((Uloc != Tloc || Tloc != user) && !drifting)
-				. = 0
+				. = FALSE
 				break
 
 		if(needhand)
@@ -423,34 +435,36 @@ GLOBAL_LIST_EMPTY(species_list)
 			//i.e the hand is used to pull some item/tool out of the construction
 			if(!holdingnull)
 				if(!holding)
-					. = 0
+					. = FALSE
 					break
 			if(user.get_active_held_item() != holding)
-				. = 0
+				. = FALSE
 				break
-	user.doing = 0
-	if (progress)
-		qdel(progbar)
+
+	/* */
+	user.doing = FALSE
+	/* */
+	if(!QDELETED(progbar))
+		progbar.end_progress()
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
 	return
 
 /proc/do_after_mob(mob/user, list/targets, time = 30, uninterruptible = 0, progress = 1, datum/callback/extra_checks, required_mobility_flags = MOBILITY_STAND)
-	if(!user || !targets)
-		return 0
+	if(!user || !islist(targets) || !length(targets))
+		return  FALSE
 
+	/* */
 	if(user.doing)
-		return 0
-	user.doing = 1
-
-	if(!islist(targets))
-		targets = list(targets)
+		return FALSE
+	user.doing = TRUE
+	/* */
 	var/user_loc = user.loc
 
-	var/drifting = 0
+	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
-		drifting = 1
+		drifting = TRUE
 
 	var/list/originalloc = list()
 	for(var/atom/target in targets)
@@ -466,37 +480,39 @@ GLOBAL_LIST_EMPTY(species_list)
 	var/mob/living/L
 	if(isliving(user))
 		L = user
-	. = 1
+	. = TRUE
 	mainloop:
 		while(world.time < endtime)
 			stoplag(1)
-			if(progress)
+			if(!QDELETED(progbar))
 				progbar.update(world.time - starttime)
 			if(QDELETED(user) || !targets)
-				. = 0
+				. = FALSE
 				break
 			if(!user.doing)
-				. = 0
+				. = FALSE
 				break
 
 			if(uninterruptible)
 				continue
 
 			if(drifting && !user.inertia_dir)
-				drifting = 0
+				drifting = FALSE
 				user_loc = user.loc
 
 			if(L && !CHECK_MULTIPLE_BITFIELDS(L.mobility_flags, required_mobility_flags))
-				. = 0
+				. = FALSE
 				break
 
 			for(var/atom/target in targets)
 				if((!drifting && user_loc != user.loc) || QDELETED(target) || originalloc[target] != target.loc || user.get_active_held_item() != holding || user.incapacitated() || (extra_checks && !extra_checks.Invoke()))
-					. = 0
+					. = FALSE
 					break mainloop
+	/* */
 	user.doing = 0
-	if(progbar)
-		qdel(progbar)
+	/* */
+	if(!QDELETED(progbar))
+		progbar.end_progress()
 
 /proc/is_species(A, species_datum)
 	. = FALSE
