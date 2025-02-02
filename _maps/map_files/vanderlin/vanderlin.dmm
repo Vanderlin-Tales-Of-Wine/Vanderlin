@@ -208,6 +208,9 @@
 	icon_state = "woodwindowdir";
 	dir = 8
 	},
+/obj/structure/bars/alt{
+	pixel_y = -3
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "ahj" = (
@@ -2022,9 +2025,8 @@
 "buv" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/clothing/ring/silver,
-/obj/item/reagent_containers/glass/cup/golden{
-	pixel_x = -5
-	},
+/obj/item/roguegem/blue,
+/obj/item/roguegem/yellow,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "buD" = (
@@ -9676,10 +9678,9 @@
 /area/rogue/outdoors/town)
 "gPu" = (
 /obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/roguecoin/gold/pile,
+/obj/item/roguecoin/copper/pile,
 /obj/item/roguecoin/silver/pile,
-/obj/item/roguecoin/gold/pile,
-/obj/item/reagent_containers/glass/cup/silver,
+/obj/item/roguecoin/copper/pile,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "gPG" = (
@@ -16999,6 +17000,18 @@
 /area/rogue/under/town/basement)
 "mjW" = (
 /obj/structure/rack/rogue/shelf/biggest,
+/obj/item/reagent_containers/glass/bottle/vial{
+	pixel_y = 12;
+	pixel_x = 3
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_y = 5;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_y = 4;
+	pixel_x = -6
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "mkl" = (
@@ -30677,6 +30690,18 @@
 "wmz" = (
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/town/sewer)
+"wmU" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "wmV" = (
 /obj/structure/rack/rogue,
 /obj/machinery/light/rogue/wallfire/candle/l,
@@ -172064,7 +172089,7 @@ acx
 acx
 jjT
 aJu
-wTm
+wmU
 mzf
 pBa
 pBa
