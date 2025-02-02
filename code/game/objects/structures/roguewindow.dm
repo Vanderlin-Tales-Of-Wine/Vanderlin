@@ -178,7 +178,7 @@
 	update_icon()
 
 /obj/structure/roguewindow/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSTABLE) && climbable)
+	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
 		return 1
 	if(isliving(mover))
 		if(mover.throwing)
