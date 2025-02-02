@@ -90,12 +90,14 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
