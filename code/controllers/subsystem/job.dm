@@ -553,7 +553,7 @@ SUBSYSTEM_DEF(job)
 	return amt_picked
 
 /datum/controller/subsystem/job/proc/validate_required_jobs(list/required_jobs)
-	if(!required_jobs.len || SSticker.totalPlayers <= 5) //Five or fewer players we skip the check because it's almost certainly dev testing
+	if(!required_jobs.len || SSticker.start_immediately == TRUE) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 		return TRUE
 	for(var/required_group in required_jobs)
 		var/group_ok = TRUE
