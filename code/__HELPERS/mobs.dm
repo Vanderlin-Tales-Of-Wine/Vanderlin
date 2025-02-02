@@ -249,7 +249,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 		if(
 			QDELETED(user) || QDELETED(target) \
 			|| (!user.doing) /* V: */ \
-			/*|| (!(timed_action_flags & IGNORE_TARGET_IN_DOAFTERS) && !(target in user.do_afters)) \*/
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
@@ -290,13 +289,12 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	/* */
 	if(user.doing)
 		return FALSE
-	user.doing = 1
+	user.doing = TRUE
 	/* */
-	var/atom/target_loc = null
-	if(target && !isturf(target))
-		target_loc = target.loc
+
 
 	var/atom/user_loc = user.loc
+	var/atom/target_loc = target?.loc
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -311,6 +309,8 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	if(progress)
 		progbar = new(user, delay, target || user)
 
+	//SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN) //tg#70848
+
 	var/endtime = world.time + delay
 	var/starttime = world.time
 	. = TRUE
@@ -324,24 +324,18 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			drifting = FALSE
 			user_loc = user.loc
 
-		if(
-			QDELETED(user) \
+		if(QDELETED(user) \
 			|| (!user.doing) /* V: */ \
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && user.incapacitated()) \
-			|| (extra_checks && !extra_checks.Invoke()) \
-		)
+			|| (extra_checks && !extra_checks.Invoke()))
 			. = FALSE
 			break
 
-		if(
-			!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) \
-			&& !drifting \
-			&& !QDELETED(target_loc) \
-			&& (QDELETED(target) || target_loc != target.loc) \
-			&& ((user_loc != target_loc || target_loc != user)) \
-			)
+		if(target && (user != target) && \
+			(QDELETED(target) \
+			|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc)))
 			. = FALSE
 			break
 
@@ -350,6 +344,8 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	/* */
 	if(!QDELETED(progbar))
 		progbar.end_progress()
+
+	//SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED) //tg#70848
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
