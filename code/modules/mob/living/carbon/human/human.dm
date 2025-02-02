@@ -12,7 +12,7 @@
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] stubble with [held_item].</span>")
 				else
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s stubble with [held_item].</span>")
-				if(do_after(user, 5 SECONDS, src, (IGNORE_HELD_ITEM)))
+				if(do_after(user, 5 SECONDS, src))
 					has_stubble = FALSE
 					update_hair()
 				else
@@ -23,7 +23,7 @@
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] facehairs with [held_item].</span>")
 				else
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s facehairs with [held_item].</span>")
-				if(do_after(user, 5 SECONDS, src, (IGNORE_HELD_ITEM)))
+				if(do_after(user, 5 SECONDS, src))
 					facial_hairstyle = "None"
 					update_hair()
 					SSticker.beardshavers++
@@ -635,7 +635,7 @@
 			visible_message("<span class='notice'>[src] starts lifting [target] onto their back..</span>")
 		else
 			visible_message("<span class='notice'>[src] starts lifting [target] onto their shoulder..</span>")
-		if(do_after(src, carrydelay, target, (IGNORE_HELD_ITEM)))
+		if(do_after(src, carrydelay, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 				buckle_mob(target, TRUE, TRUE, 90, 0, 0)

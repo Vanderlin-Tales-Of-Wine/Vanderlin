@@ -76,7 +76,7 @@
 	if(!in_range(src, user))
 		return
 	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
-	if(!do_after(user, 3 SECONDS, src, (IGNORE_HELD_ITEM)))
+	if(!do_after(user, 3 SECONDS, src))
 		return
 	user.visible_message("<span class='notice'>[user] climbs down [src].</span>", "<span class='notice'>I climb down [src].</span>")
 	src.add_fingerprint(user)

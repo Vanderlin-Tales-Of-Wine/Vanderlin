@@ -181,7 +181,7 @@
 			return
 		var/cut_time = 4 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I prepare to drain [butchery_target]'s blood by cutting the skin..."))
-		if(do_after(user, cut_time, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			butchery_target.blood_drained++
 			START_PROCESSING(SSmachines, src)
 			draining_blood = TRUE
@@ -190,7 +190,7 @@
 	if(!butchery_target.skinned && (user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I start to skin [butchery_target]."))
-		if(do_after(user, cut_time, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
 				if(ispath(listed_item, /obj/item/natural/hide) || ispath(listed_item, /obj/item/natural/fur))
@@ -219,7 +219,7 @@
 	if(user.used_intent.type == /datum/intent/dagger/chop/cleaver)
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I start to butcher [butchery_target]."))
-		if(do_after(user, cut_time, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
 				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/rogue/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))

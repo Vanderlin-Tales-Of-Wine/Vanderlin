@@ -154,7 +154,7 @@
 			break
 		if(!istype(item, stacktype) && !istype(item, /obj/item/natural/bundle))
 			continue
-		if(!do_after(user, 5 DECISECONDS, src, (IGNORE_HELD_ITEM)))
+		if(!do_after(user, 5 DECISECONDS, src))
 			break
 		if(item.loc != turflocation)
 			continue

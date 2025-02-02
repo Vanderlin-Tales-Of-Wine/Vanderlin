@@ -320,7 +320,7 @@
 			buckle_cd = 3 SECONDS
 		visible_message("<span class='warning'>[src] attempts to struggle free!</span>", \
 					"<span class='notice'>I attempt to struggle free...</span>")
-		if(do_after(src, buckle_cd, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(src, buckle_cd, timed_action_flags = (IGNORE_HELD_ITEM)))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
@@ -376,14 +376,14 @@
 		cuff_break = INSTANT_CUFFBREAK
 	if(!cuff_break)
 		to_chat(src, "<span class='notice'>I attempt to remove [I]...</span>")
-		if(do_after(src, breakouttime, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='danger'>I fail to remove [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
 		to_chat(src, "<span class='notice'>I attempt to break [I]...</span>")
-		if(do_after(src, breakouttime, src, (!IGNORE_HELD_ITEM)))
+		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='danger'>I fail to break [I]!</span>")

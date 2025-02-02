@@ -490,7 +490,7 @@
 		var/list/keysy = shuffle(R.contents.Copy())
 		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
-				if(!do_after(user, 1 SECONDS, src, (IGNORE_HELD_ITEM)))
+				if(!do_after(user, 1 SECONDS, src))
 					break
 			if(K.lockhash == lockhash)
 				lock_toggle(user)
