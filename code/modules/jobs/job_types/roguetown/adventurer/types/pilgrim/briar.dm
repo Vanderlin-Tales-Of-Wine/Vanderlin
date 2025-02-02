@@ -41,10 +41,11 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
