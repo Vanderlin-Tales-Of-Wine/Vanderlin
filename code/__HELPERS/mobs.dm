@@ -434,7 +434,8 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	. = 1
 	return
 
-/proc/do_after_mob(mob/user, list/targets, time = 30, uninterruptible = 0, progress = 1, datum/callback/extra_checks, required_mobility_flags = MOBILITY_STAND)
+/// Timed action involving at least one mob user and a list of targets.
+/proc/do_after_mob(mob/user, list/targets, time = 3 SECONDS, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
 	if(!user || !islist(targets) || !length(targets))
 		return  FALSE
 
@@ -464,35 +465,41 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	if(isliving(user))
 		L = user
 	. = TRUE
-	mainloop:
-		while(world.time < endtime)
-			stoplag(1)
-			if(!QDELETED(progbar))
-				progbar.update(world.time - starttime)
-			if(QDELETED(user) || !targets)
+	while(world.time < endtime)
+		stoplag(1)
+
+		if(!QDELETED(progbar))
+			progbar.update(world.time - starttime)
+		if(QDELETED(user) || !length(targets))
+			. = FALSE
+			break
+
+		if(drifting && !user.inertia_dir)
+			drifting = FALSE
+			user_loc = user.loc
+
+		if(
+			!(user.doing) \ //V:
+			|| !((timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user_loc != user.loc) \
+			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
+			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && user.incapacitated()) \
+			|| (extra_checks && !extra_checks.Invoke()) \
+			)
+			. = FALSE
+			break
+
+		for(var/atom/target as anything in targets)
+			if(
+				(QDELETED(target)) \
+				|| (!(timed_action_flags & IGNORE_TARGET_LOC_CHANGE) && originalloc[target] != target.loc) \
+				)
 				. = FALSE
 				break
-			if(!user.doing)
-				. = FALSE
-				break
 
-			if(uninterruptible)
-				continue
-
-			if(drifting && !user.inertia_dir)
-				drifting = FALSE
-				user_loc = user.loc
-
-			if(L && !CHECK_MULTIPLE_BITFIELDS(L.mobility_flags, required_mobility_flags))
-				. = FALSE
-				break
-
-			for(var/atom/target in targets)
-				if((!drifting && user_loc != user.loc) || QDELETED(target) || originalloc[target] != target.loc || user.get_active_held_item() != holding || user.incapacitated() || (extra_checks && !extra_checks.Invoke()))
-					. = FALSE
-					break mainloop
+		if(!.) // In case the for-loop found a reason to break out of the while.
+			break
 	/* */
-	user.doing = 0
+	user.doing = FALSE
 	/* */
 	if(!QDELETED(progbar))
 		progbar.end_progress()
