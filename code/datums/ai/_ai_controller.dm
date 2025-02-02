@@ -57,6 +57,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	var/paused_until = 0
 
 	var/failed_sneak_check = 0
+	///Time at which controller became inactive
+	var/inactive_timestamp
 
 
 /datum/ai_controller/New(atom/new_pawn)
@@ -290,10 +292,14 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	switch(ai_status)
 		if(AI_STATUS_ON)
 			SSai_controllers.active_ai_controllers += src
+			SSai_controllers.inactive_ai_controllers -= src
+			inactive_timestamp = null
 			START_PROCESSING(SSai_behaviors, src)
 		if(AI_STATUS_OFF)
 			STOP_PROCESSING(SSai_behaviors, src)
 			SSai_controllers.active_ai_controllers -= src
+			SSai_controllers.inactive_ai_controllers += src
+			inactive_timestamp = world.time
 			CancelActions()
 
 /datum/ai_controller/proc/PauseAi(time)

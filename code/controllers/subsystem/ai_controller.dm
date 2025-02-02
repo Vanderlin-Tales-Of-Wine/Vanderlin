@@ -10,6 +10,10 @@ SUBSYSTEM_DEF(ai_controllers)
 	var/list/ai_subtrees = list()
 	///List of all ai controllers currently running
 	var/list/active_ai_controllers = list()
+	///List of all AI controllers that are not running
+	var/list/inactive_ai_controllers = list()
+
+#define AI_STATUS_OFF_MAX_TIME 5 SECONDS
 
 /datum/controller/subsystem/ai_controllers/Initialize(timeofday)
 	setup_subtrees()
@@ -30,3 +34,15 @@ SUBSYSTEM_DEF(ai_controllers)
 		ai_controller.SelectBehaviors(wait * 0.1)
 		if(!LAZYLEN(ai_controller.current_behaviors)) //Still no plan
 			COOLDOWN_START(ai_controller, failed_planning_cooldown, AI_FAILED_PLANNING_COOLDOWN)
+	for(var/datum/ai_controller/ai_controller as anything in inactive_ai_controllers)
+		if(isnull(ai_controller.pawn))
+			inactive_ai_controllers -= ai_controller
+			continue
+		if(ai_controller.inactive_timestamp + AI_STATUS_OFF_MAX_TIME < world.time)
+			var/mob/living/mob_pawn = ai_controller.pawn
+			if(mob_pawn.stat != DEAD) // We don't remove it from the inactive controller in the case it's revived yada yada.
+				mob_pawn.ai_controller.set_ai_status(AI_STATUS_ON) // Adds it back to the active AI controllers on next fire.
+				continue
+			ai_controller.inactive_timestamp = world.time // Acts as a cooldown.
+
+#undef AI_STATUS_OFF_MAX_TIME

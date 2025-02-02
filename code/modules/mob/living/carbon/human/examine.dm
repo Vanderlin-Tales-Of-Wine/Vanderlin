@@ -88,7 +88,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
 			if(RomanticPartner(stranger))
-				. += "<span class='love'>It's my spouse.</span>"
+				. += span_love("<B>It's my spouse.</B>")
 			if(family_datum == stranger.family_datum && family_datum)
 				var/family_text = ReturnRelation(user)
 				if(family_text)
