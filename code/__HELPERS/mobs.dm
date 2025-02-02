@@ -256,7 +256,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	if(progress)
 		progbar = new(user, delay, target || user)
 
-	//SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN) //tg#70848
+	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
 	var/endtime = world.time + delay
 	var/starttime = world.time
@@ -292,7 +292,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	if(!QDELETED(progbar))
 		progbar.end_progress()
 
-	//SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED) //tg#70848
+	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
