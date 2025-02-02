@@ -284,7 +284,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 /// I'm not fond of it.
 /mob/var/doing = FALSE
 
-/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks = null)
+/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
 	if(!user)
 		return FALSE
 	/* */
