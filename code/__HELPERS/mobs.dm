@@ -225,9 +225,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 		checked_health["health"] = health
 	return ..()
 
-/// Set when the mob is in a do_esque proc.
-/mob/var/doing = FALSE
-
 /**
  * Timed action involving one mob user. Target is optional. \
  * Checks that `user` does not move, change hands, get stunned, etc. for the
