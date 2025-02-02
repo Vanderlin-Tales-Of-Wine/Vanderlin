@@ -40,7 +40,6 @@
 	#define MT_FOUNDSNEAK "found_sneak"
 
 	#define MT_MADELOVE "made_love" // sexerlin //unused
-	#define MT_PSYPRAY "psy_pray" //unused
 
 /* SPECIAL MOBTIMERS */
 	// These use timers as you would think mobtimers should be used.
