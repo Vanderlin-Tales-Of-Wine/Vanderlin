@@ -232,6 +232,8 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 /proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
 	if(!user)
 		return FALSE
+	if(!isnum(delay))
+		CRASH("do_after was passed a non-number delay: [delay || "null"].")
 	/* */
 	if(user.doing)
 		return FALSE
