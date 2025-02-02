@@ -552,7 +552,7 @@
 
 /obj/structure/soil/proc/process_soil(dt)
 	var/found_irrigation = FALSE
-	for(var/obj/structure/irrigation_channel/channel in range(2, src))
+	for(var/obj/structure/irrigation_channel/channel in range(1, src))
 		if(!istype(channel))
 			continue
 		if(!channel.water_logged)
