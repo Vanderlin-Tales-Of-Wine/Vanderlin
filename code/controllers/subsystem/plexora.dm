@@ -125,6 +125,7 @@ SUBSYSTEM_DEF(plexora)
 	// Send current status to Plexora
 	var/datum/world_topic/status/status_handler = new()
 	var/list/status = status_handler.Run()
+	status["round_id"] = GLOB.round_id
 
 	http_request(
 		RUSTG_HTTP_METHOD_POST,

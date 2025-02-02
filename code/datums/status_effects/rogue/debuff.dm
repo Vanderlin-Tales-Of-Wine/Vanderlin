@@ -48,7 +48,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/hungry)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt1)
 
 /datum/status_effect/debuff/hungryt2/refresh()
 	. = ..()
@@ -78,8 +77,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/starving)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt1)
-		C.remove_status_effect(/datum/status_effect/debuff/hungryt2)
 
 /datum/status_effect/debuff/hungryt3/refresh()
 	. = ..()
@@ -163,7 +160,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/thirst)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
 
 /datum/status_effect/debuff/thirstyt2/refresh()
 	. = ..()
@@ -193,8 +189,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/parched)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
-		C.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
 
 /datum/status_effect/debuff/thirstyt3/refresh()
 	. = ..()
@@ -450,3 +444,14 @@
 /datum/status_effect/eorapacify/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_PACIFISM, "[type]")
 	return ..()
+
+/datum/status_effect/debuff/eoradrunk
+	id = "eoradrunk"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/drunk
+	effectedstats = list(STATKEY_STR = -2, STATKEY_LCK = -5, STATKEY_PER = -2, STATKEY_SPD = -3) //debuff stats important in attacking
+	duration = 20 SECONDS
+
+/atom/movable/screen/alert/status_effect/debuff/drunk
+	name = "Eoran Wine"
+	desc = span_warning("I am intoxicated from ambromsia not meant for mortal mouths.\n")
+	icon_state = "drunk"
