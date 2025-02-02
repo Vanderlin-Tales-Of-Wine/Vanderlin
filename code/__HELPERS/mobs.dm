@@ -304,7 +304,8 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 	var/holding = user.get_active_held_item()
 
-	delay *= user.do_after_coefficent()
+	if(!(timed_action_flags & IGNORE_SLOWDOWNS))
+		delay *= user.do_after_coefficent()
 
 	var/datum/progressbar/progbar
 	if(progress)
