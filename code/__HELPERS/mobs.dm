@@ -240,7 +240,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 	user.doing = TRUE
 	/* */
 
-
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
 
