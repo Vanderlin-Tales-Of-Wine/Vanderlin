@@ -208,9 +208,6 @@
 	icon_state = "woodwindowdir";
 	dir = 8
 	},
-/obj/structure/bars/alt{
-	pixel_y = -3
-	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "ahj" = (
@@ -1612,7 +1609,7 @@
 /turf/open/floor/rogue/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "bde" = (
-/obj/structure/fluff/walldeco/painting/skull,
+/obj/structure/fluff/walldeco/rpainting,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/town/basement)
 "bdl" = (
@@ -2025,8 +2022,9 @@
 "buv" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/clothing/ring/silver,
-/obj/item/roguegem/yellow,
-/obj/item/roguegem/blue,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = -5
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "buD" = (
@@ -3203,7 +3201,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/river)
 "chl" = (
-/obj/structure/fluff/walldeco/painting/castle{
+/obj/structure/fluff/walldeco/rpainting/forest{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
@@ -3344,7 +3342,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/sewer)
 "cmP" = (
-/obj/structure/fluff/walldeco/painting/castle,
+/obj/structure/fluff/walldeco/rpainting/forest,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town/manor)
 "cnl" = (
@@ -5129,7 +5127,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "dGe" = (
-/obj/structure/fluff/walldeco/painting/skull{
+/obj/structure/fluff/walldeco/rpainting{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile,
@@ -9010,7 +9008,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician)
 "grN" = (
-/obj/structure/fluff/walldeco/painting/crown,
+/obj/structure/fluff/walldeco/rpainting/crown,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town/manor)
 "grT" = (
@@ -9678,9 +9676,10 @@
 /area/rogue/outdoors/town)
 "gPu" = (
 /obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/roguecoin/copper/pile,
+/obj/item/roguecoin/gold/pile,
 /obj/item/roguecoin/silver/pile,
-/obj/item/roguecoin/copper/pile,
+/obj/item/roguecoin/gold/pile,
+/obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "gPG" = (
@@ -10024,18 +10023,6 @@
 "hau" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/town)
-"haN" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/glass/carafe/silver/redwine{
-	pixel_y = 8;
-	pixel_x = -8
-	},
-/obj/item/reagent_containers/glass/cup/silver{
-	pixel_x = 6;
-	pixel_y = 4
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town)
 "haW" = (
 /obj/structure/flora/newleaf/corner{
 	dir = 9
@@ -17012,14 +16999,6 @@
 /area/rogue/under/town/basement)
 "mjW" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 4;
-	pixel_y = 5
-	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "mkl" = (
@@ -20879,6 +20858,13 @@
 /obj/structure/composter/halffull,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/safe)
+"pds" = (
+/obj/effect/decal/cleanable/glass,
+/obj/structure/rousman_hole,
+/turf/open/floor/rogue/tile{
+	icon_state = "greenstone"
+	},
+/area/rogue/under/town/sewer)
 "pec" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/rogue/blocks,
@@ -23404,7 +23390,7 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/clinic_large)
 "rbe" = (
-/obj/structure/fluff/walldeco/painting/castle,
+/obj/structure/fluff/walldeco/rpainting/forest,
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/town/basement)
 "rbP" = (
@@ -31347,11 +31333,17 @@
 	dir = 9
 	},
 /obj/item/reagent_containers/glass/cup,
-/obj/structure/fluff/walldeco/painting/crown{
+/obj/structure/fluff/walldeco/rpainting/crown{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
+"wGS" = (
+/obj/structure/rousman_hole,
+/turf/open/floor/rogue/tile{
+	icon_state = "greenstone"
+	},
+/area/rogue/under/town/sewer)
 "wHb" = (
 /obj/structure/lever/hidden{
 	redstone_id = 517
@@ -48715,7 +48707,7 @@ oGi
 cDP
 cDP
 lfU
-oGi
+wGS
 cDP
 cDP
 cDP
@@ -49246,7 +49238,7 @@ xfD
 vMb
 kky
 oGi
-oGi
+wGS
 oGi
 oGi
 oGi
@@ -51716,7 +51708,7 @@ nZs
 nZs
 lfU
 lmI
-oGi
+wGS
 nhr
 oDG
 oGi
@@ -52684,7 +52676,7 @@ vgJ
 vgJ
 vgJ
 lfU
-lmI
+pds
 nhr
 oGi
 lfU
@@ -55544,7 +55536,7 @@ oGi
 oGi
 oGi
 oGi
-oGi
+wGS
 oGi
 oGi
 cDP
@@ -56163,7 +56155,7 @@ lfU
 oGi
 cDP
 cDP
-oGi
+wGS
 lfU
 wGn
 avA
@@ -56523,7 +56515,7 @@ vgJ
 vgJ
 vgJ
 lfU
-oGi
+wGS
 lmI
 cDP
 cDP
@@ -56783,7 +56775,7 @@ bUM
 bUM
 iNX
 bUM
-oGi
+wGS
 cDP
 cDP
 cDP
@@ -62039,7 +62031,7 @@ oGi
 cDP
 cDP
 kqi
-oGi
+wGS
 lfU
 nRZ
 nRZ
@@ -64405,7 +64397,7 @@ vgJ
 vgJ
 vgJ
 gxZ
-oGi
+wGS
 oGi
 oGi
 oGi
@@ -172072,7 +172064,7 @@ acx
 acx
 jjT
 aJu
-haN
+wTm
 mzf
 pBa
 pBa
