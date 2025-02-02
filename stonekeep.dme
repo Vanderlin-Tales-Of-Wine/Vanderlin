@@ -1878,6 +1878,7 @@
 #include "modular\Barding\code\music_effect.dm"
 #include "modular\Mapping\Mapping_aides.dm"
 #include "modular\Mapping\hammer\hammer_mapping_helpers.dm"
+#include "modular\modular_azure\code\autopunctuation.dm"
 #include "modular\modular_azure\code\necra.dm"
 #include "modular\modular_azure\code\wizard.dm"
 #include "modular\modular_hearthstone\code\interface\LOOC.dm"

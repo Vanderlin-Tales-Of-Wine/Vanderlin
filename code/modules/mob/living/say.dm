@@ -98,6 +98,9 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!message || message == "")
 		return
 
+	//allow player to format their speech
+	message = replacetextEx(message, regex(@"^([/+]*)(.*?)([/+]*)$"), /proc/format_dialogue)
+
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
 		to_chat(src, "<span class='warning'>That message contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span></span>")
@@ -489,3 +492,45 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			return .
 
 	. = ..()
+
+
+/*
+	If a player types "//bold text//" into the chat then this proc recieves the following parameters due to regex:
+		group1 - "//"
+		group2 - "bold text"
+		group3 - "//"
+	The automatical capitalization and punctuation procs are then applied to group2, which then becomes:
+		"Bold text."
+	group2 is then recombined with group1 and group3 (if they exist) and stored in message:
+		"//Bold text.//"
+	Before being returned, this message is then passed through yet another regex replace proc and the slashes are converted to their correct tags:
+		return "<b>Bold text.</b>"
+	If the player only inputted slashes (e.g. "////////") the proc immediately returns null, and no chat message appears.
+*/
+/proc/format_dialogue(match, group1, group2, group3)
+	if (!group2)
+		return
+	var/message = capitalize(group2)
+	message = autopunct_bare(message)
+	if (group1)
+		message = group1 + message
+	if (group3)
+		message = message + group3
+	message = replacetextEx(message, regex(@"(///([^/]+?)///)|(//([^/]+?)//)|(/([^/]+?)/)", "g"), /proc/format_dialogue_html)
+	message = replacetextEx(message, regex(@"(\+([^+]+?)\+)", "g"), /proc/format_dialogue_html_2)
+	return message
+
+//replace designated player formatting characters with their corresponding html tags
+/proc/format_dialogue_html(match, group1, group2, group3, group4, group5, group6)
+	if (group5)
+		return "<i>" + group6 + "</i>"
+	else if (group3)
+		return "<b>" + group4 + "</b>"
+	else if (group1)
+		return "<i><b>" + group2 + "</b></i>"
+	return match
+/proc/format_dialogue_html_2(match, group1, group2)
+	if (group1)
+		return "<b>" + group2 + "</b>"
+	return match
+
