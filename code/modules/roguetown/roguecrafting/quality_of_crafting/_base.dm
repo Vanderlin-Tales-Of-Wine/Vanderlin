@@ -294,6 +294,7 @@
 					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 						continue
 					if(istype(item, /obj/item/natural/bundle))
+						var/early_continue = TRUE
 						var/bundle_path = item:stacktype
 						var/early_break = FALSE
 						for(var/path in copied_requirements)
@@ -307,7 +308,7 @@
 							if(item:amount == 0)
 								usable_contents -= item
 								qdel(item)
-							user.visible_message("[user] starts picking up [sub_item].", "You start picking up [sub_item].")
+							user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("You start picking up [sub_item]."))
 							if(do_after(user, ground_use_time, target = item))
 								if(put_items_in_hand)
 									user.put_in_active_hand(sub_item)
@@ -317,11 +318,15 @@
 									copied_requirements[requirement]--
 									active_item = sub_item
 									early_break = TRUE
+									early_continue = FALSE
 									break
+
 						if(early_break)
 							break
+						if(early_continue)
+							continue
 
-					user.visible_message("[user] starts picking up [item].", "You start picking up [item].")
+					user.visible_message(span_small("[user] starts picking up [item]."), span_small("You start picking up [item]."))
 					if(do_after(user, ground_use_time, target = item))
 						user.put_in_active_hand(item)
 						active_item = item
@@ -334,6 +339,7 @@
 					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 						continue
 					if(istype(item, /obj/item/natural/bundle))
+						var/early_continue = TRUE
 						var/bundle_path = item:stacktype
 						var/early_break = FALSE
 						for(var/path in copied_requirements)
@@ -357,9 +363,13 @@
 									copied_requirements[requirement]--
 									active_item = sub_item
 									early_break = TRUE
+									early_continue = FALSE
 									break
+
 						if(early_break)
 							break
+						if(early_continue)
+							continue
 
 					to_chat(user, "You start grabbing [item] from your bag.")
 					if(do_after(user, storage_use_time, target = item))
@@ -387,7 +397,7 @@
 			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 				continue
 			if(istype(item, /obj/item/natural/bundle))
-				var/continue_early = FALSE
+				var/continue_early = TRUE
 				var/bundle_path = item:stacktype
 				for(var/path in copied_requirements)
 					if(QDELETED(item))
@@ -400,7 +410,7 @@
 						if(item:amount == 0)
 							usable_contents -= item
 							qdel(item)
-						user.visible_message("[user] starts picking up [sub_item]", "You start picking up [sub_item]")
+						user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("You start picking up [sub_item]."))
 						if(do_after(user, ground_use_time, target = item))
 							if(put_items_in_hand)
 								user.put_in_active_hand(item)
@@ -412,13 +422,13 @@
 								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
 								if(copied_requirements[requirement] <= 0)
 									copied_requirements -= requirement
-									continue_early = TRUE
+									continue_early = FALSE
 									break
 				if(continue_early)
 					continue
 
 
-			user.visible_message("[user] starts picking up [item]", "You start picking up [item]")
+			user.visible_message(span_small("[user] starts picking up [item]."), span_small("You start picking up [item]."))
 			if(do_after(user, ground_use_time, target = item))
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
@@ -462,7 +472,7 @@
 					var/reagent_value = container.reagents.get_reagent_amount(required_path)
 					if(!reagent_value)
 						continue
-					user.visible_message("[user] starts to incorporate some liquid into [name].", "You start to pour some liquid into [name].")
+					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 					if(put_items_in_hand)
 						if(!do_after(user, storage_use_time, target = container))
 							continue
@@ -491,7 +501,7 @@
 					var/turf/container_loc = get_turf(container)
 					var/stored_pixel_x = container.pixel_x
 					var/stored_pixel_y = container.pixel_y
-					user.visible_message("[user] starts to incorporate some liquid into [name].", "You start to pour some liquid into [name].")
+					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
 					if(put_items_in_hand)
 						if(!do_after(user, ground_use_time, target = container))
 							continue
@@ -526,7 +536,7 @@
 						if(!do_after(user, storage_use_time, target = potential_tool))
 							continue
 						user.put_in_active_hand(potential_tool)
-					user.visible_message("[user] [tool_path_extra[1]].", "You [tool_path_extra[2]].")
+					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 2)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
 					if(!do_after(user, tool_use_time, target = potential_tool))
@@ -548,7 +558,7 @@
 						if(!do_after(user, storage_use_time, target = potential_tool))
 							continue
 						user.put_in_active_hand(potential_tool)
-					user.visible_message("[user] [tool_path_extra[1]].", "You [tool_path_extra[2]].")
+					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 3)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
 					if(!do_after(user, tool_use_time, target = potential_tool))
@@ -563,7 +573,7 @@
 
 		if(!length(copied_requirements) && !length(copied_reagent_requirements) && !length(copied_tool_usage))
 			if(crafting_message)
-				user.visible_message("[user] [crafting_message].", "You [crafting_message].")
+				user.visible_message(span_small("[user] [crafting_message]."), span_small("You [crafting_message]."))
 			if(do_after(user, craft_time, target = attacked_item))
 				var/prob2craft = 25
 				var/prob2fail = 1
@@ -606,6 +616,7 @@
 				if(put_items_in_hand)
 					active_item = null
 
+				var/list/outputs = list()
 				for(var/spawn_count = 1 to output_amount)
 					var/obj/item/new_item = new output(get_turf(user))
 
@@ -619,7 +630,10 @@
 								continue
 							parts += listed
 						new_item.CheckParts(parts)
+						new_item.OnCrafted(user.dir)
 						parts = null
+
+					outputs += new_item
 
 				for(var/obj/item/deleted in to_delete)
 					to_delete -= deleted
@@ -632,16 +646,31 @@
 							amt2raise += (craftdiff * 10)
 						if(amt2raise > 0)
 							user.mind.add_sleep_experience(skillcraft, amt2raise, FALSE)
-
+				move_products(outputs, user)
 			else
 				move_items_back(to_delete, user)
 				return
 		else
 			move_items_back(to_delete, user)
+			move_products(list(), user)
 
 /datum/repeatable_crafting_recipe/proc/move_items_back(list/items, mob/user)
 	for(var/obj/item/item in items)
 		item.forceMove(user.drop_location())
+	user.update_inv_hands() //the consequences of forcemoving
+
+//Attempt to put tools in hand first. Then puts a random item from products in hand.
+/datum/repeatable_crafting_recipe/proc/move_products(list/products, mob/user)
+	var/list/copied_tool_usage = tool_usage.Copy()
+	for(var/turf/listed_turf in range(1, user))
+		for(var/obj/item in listed_turf.contents)
+			for(var/tool in copied_tool_usage)
+				if(istype(item, tool))
+					copied_tool_usage -= tool
+					user.put_in_hands(item)
+					break
+	if(length(products))
+		user.put_in_hands(pick(products))
 
 /datum/repeatable_crafting_recipe/proc/generate_html(mob/user)
 	var/client/client = user

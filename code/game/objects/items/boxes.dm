@@ -3,8 +3,6 @@
 	desc = ""
 	icon_state = "box"
 	item_state = "syringe_kit"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	resistance_flags = FLAMMABLE
 	drop_sound = 'sound/items/matchboxdrop.ogg'
 	pickup_sound =  'sound/blank.ogg'

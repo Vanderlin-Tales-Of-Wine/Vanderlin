@@ -60,8 +60,6 @@
 	name = "quiver"
 	icon_state = "quiver0"
 	item_state = "quiver"
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
 	max_storage = 20
 	ammo_type = list (/obj/item/ammo_casing/caseless/rogue/arrow, /obj/item/ammo_casing/caseless/rogue/bolt)
@@ -73,6 +71,13 @@
 		ammo_list += A
 	update_icon()
 
+/obj/item/ammo_holder/quiver/bolts/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new()
+		ammo_list += A
+	update_icon()
+
 /obj/item/ammo_holder/bullet
 	name = "bullet pouch"
 	icon_state = "pouch0"
@@ -80,10 +85,3 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	max_storage = 10
 	ammo_type = list(/obj/item/ammo_casing/caseless/rogue/bullet)
-
-/obj/item/ammo_holder/quiver/bolts/Initialize()
-	. = ..()
-	for(var/i in 1 to max_storage)
-		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new()
-		ammo_list += A
-	update_icon()

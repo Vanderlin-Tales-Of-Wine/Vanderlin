@@ -535,6 +535,23 @@ CREATE TABLE `achievement_metadata` (
 ) ENGINE=InnoDB;
 
 --
+-- Table structure for table `discord_links`
+--
+DROP TABLE IF EXISTS `discord_links`;
+CREATE TABLE `discord_links` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ckey` varchar(32) NOT NULL,
+  `discord_id` bigint(20) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `one_time_token` varchar(100) NOT NULL,
+  `valid` tinyint(1) NOT NULL DEFAULT 0,
+  `cached_state` tinyint(3) unsigned DEFAULT NULL,
+  `cached_timestamp` timestamp NULL DEFAULT NULL,
+  `cached_username` tinytext DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+--
 -- Table structure for table `ticket`
 --
 DROP TABLE IF EXISTS `ticket`;

@@ -1,18 +1,3 @@
-/atom/movable/screen/ghost
-	icon = 'icons/mob/screen_ghost.dmi'
-
-/atom/movable/screen/ghost/MouseEntered()
-//	flick(icon_state + "_anim", src)
-	..()
-
-/atom/movable/screen/ghost/jumptomob
-	name = "Jump to mob"
-	icon_state = "jumptomob"
-
-/atom/movable/screen/ghost/jumptomob/Click()
-	var/mob/dead/observer/G = usr
-	G.jumptomob()
-
 /atom/movable/screen/ghost/orbit
 	name = "Orbit"
 	icon_state = "orbit"

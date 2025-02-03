@@ -21,29 +21,31 @@
 			M.emote(pick("twitch_s","giggle"))
 		else
 			M.emote(pick("twitch_s","chuckle"))
-	M.apply_status_effect(/datum/status_effect/buff/weed)
 	if(M.has_flaw(/datum/charflaw/addiction/smoker))
 		M.sate_addiction()
 	..()
 
+/datum/reagent/drug/space_drugs/on_mob_metabolize(mob/living/M)
+	..()
+	M.set_drugginess(30)
+	M.apply_status_effect(/datum/status_effect/buff/weed)
+	M.overlay_fullscreen("weedsm", /atom/movable/screen/fullscreen/weedsm)
+	M.update_body_parts_head_only()
+
+/*
+	if(M.client)
+		SSdroning.area_entered(get_area(M), M.client)
+*/
+
 /datum/reagent/drug/space_drugs/on_mob_end_metabolize(mob/living/M)
+	M.set_drugginess(0)
 	M.clear_fullscreen("weedsm")
+	M.remove_status_effect(/datum/status_effect/buff/weed)
 	M.update_body_parts_head_only()
 
 /*
 	if(M.client)
 		SSdroning.play_area_sound(get_area(M), M.client)
-*/
-
-/datum/reagent/drug/space_drugs/on_mob_metabolize(mob/living/M)
-	..()
-	M.set_drugginess(30)
-	M.update_body_parts_head_only()
-	M.overlay_fullscreen("weedsm", /atom/movable/screen/fullscreen/weedsm)
-
-/*
-	if(M.client)
-		SSdroning.area_entered(get_area(M), M.client)
 */
 
 /atom/movable/screen/fullscreen/weedsm

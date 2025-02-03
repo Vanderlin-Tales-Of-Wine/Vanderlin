@@ -34,6 +34,8 @@
 
 /obj/item/storage/belt/rogue/leather/dropped(mob/living/carbon/human/user)
 	..()
+	if(QDELETED(src))
+		return
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()
@@ -129,9 +131,6 @@
 	icon = 'icons/roguetown/clothing/storage.dmi'
 	mob_overlay_icon = null
 	icon_state = "pouch"
-	item_state = "pouch"
-	lefthand_file = 'icons/mob/inhands/equipment/belt_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("whips", "lashes")
@@ -206,11 +205,13 @@
 		/obj/item/ammo_casing/caseless/rogue/bullet,
 		/obj/item/ammo_casing/caseless/rogue/bullet,
 		/obj/item/ammo_casing/caseless/rogue/bullet,
+		/obj/item/ammo_casing/caseless/rogue/bullet,
 	)
 
 //Poison darts pouch
 /obj/item/storage/belt/rogue/pouch/pdarts
 	populate_contents = list(
+		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,
 		/obj/item/ammo_casing/caseless/rogue/dart/poison,
@@ -228,8 +229,6 @@
 	icon_state = "satchel"
 	item_state = "satchel"
 	icon = 'icons/roguetown/clothing/storage.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	resistance_flags = NONE

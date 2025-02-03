@@ -13,14 +13,6 @@
 	if(timeleft)
 		QDEL_IN(src, timeleft)
 
-/obj/effect/forcefield/cult
-	desc = ""
-	name = "glowing wall"
-	icon = 'icons/effects/cult_effects.dmi'
-	icon_state = "cultshield"
-	CanAtmosPass = ATMOS_PASS_NO
-	timeleft = 200
-
 ///////////Mimewalls///////////
 
 /obj/effect/forcefield/mime

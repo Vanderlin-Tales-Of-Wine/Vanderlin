@@ -802,10 +802,6 @@
 		return B.eye_blind
 	return FALSE
 
-///Is the mob hallucinating?
-/mob/proc/hallucinating()
-	return FALSE
-
 
 // moved out of admins.dm because things other than admin procs were calling this.
 /**

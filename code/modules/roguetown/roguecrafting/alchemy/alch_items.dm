@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/glass/alchemical
 	name = "alchemical vial"
 	desc = "A cute bottle, conviniently holding 3 swigs of a fluid."
-	icon = 'icons/roguetown/misc/alchemy.dmi'
+	icon = 'icons/roguetown/items/glass_reagent_container.dmi'
 	icon_state = "vial_bottle"
 	amount_per_transfer_from_this = 9
 	possible_transfer_amounts = list(9)
@@ -180,11 +180,13 @@
 	if(closed)
 		reagent_flags = TRANSPARENT
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You carefully press the cork back into the mouth of [src]."))
 		spillable = FALSE
 		desc = initial(desc)
 	else
 		reagent_flags = OPENCONTAINER
 		reagents.flags = reagent_flags
+		to_chat(user, span_notice("You thumb off the cork from [src]."))
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
 		spillable = TRUE
 		desc += "The cork appears to be off."

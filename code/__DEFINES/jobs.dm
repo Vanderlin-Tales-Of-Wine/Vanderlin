@@ -105,6 +105,7 @@
 #define MERCHANT	(1<<7)
 #define FELDSHER    (1<<8)
 #define NIGHTMAN    (1<<9)
+#define MINOR_NOBLE	(1<<10)
 
 #define GARRISON		(1<<1)
 
@@ -133,7 +134,8 @@
 #define TAILOR		(1<<4)
 #define ARTIFICER	(1<<5)
 #define MATRON 		(1<<6)
-#define SCRIBE		(1<<7)
+#define PHYSICKER	(1<<7)
+#define SCRIBE		(1<<8)
 
 #define PEASANTS		(1<<4)
 
@@ -148,6 +150,8 @@
 #define ADVENTURER	(1<<9)
 #define COOK		(1<<10)
 #define GRABBER		(1<<11)
+#define BARD	(1<<12)
+#define CHEESEMAKER (1<<13)
 #define MIGRANT		(1<<16)
 #define BANDIT		(1<<17)
 
@@ -177,11 +181,13 @@
 #define JDO_PRINCE 1.2
 #define JDO_HAND 2
 #define JDO_STEWARD 3
+#define JDO_MINOR_NOBLE 3.5
 
 #define JDO_MAGICIAN 4
 #define JDO_WAPP 5
 
 #define JDO_FELDSHER 6
+#define JDO_PHYSICKER 6.1
 
 #define JDO_CAPTAIN 7
 #define JDO_ROYALGUARD 7.1
@@ -224,23 +230,28 @@
 
 #define JDO_BUTCHER 28.1
 #define JDO_SOILSON 28.2
-#define JDO_MATRON 28.3
+#define JDO_FISHER 28.3
+#define JDO_HUNTER 28.4
+#define JDO_CARPENTER 28.6
+#define JDO_CHEESEMAKER 28.7
+#define JDO_MINER 28.8
+#define JDO_MATRON 28.9
 #define JDO_GRAVEMAN 29
 
 #define JDO_APOTHECARY 29.1
 
 #define JDO_JESTER 30
+#define JDO_BARD 30.1
 #define JDO_PRISONER 31
 
 #define JDO_CHIEF 32
-#define JDO_VILLAGER 33
 
-#define JDO_ADVENTURER 33.1
-#define JDO_PILGRIM 33.2
-#define JDO_MIGRANT  33.3
-#define JDO_BANDIT 33.3
+#define JDO_ADVENTURER 33
+#define JDO_PILGRIM 34.2
+#define JDO_MIGRANT  34.3
+#define JDO_BANDIT 34.3
 
-#define JDO_MERCENARY 34
+#define JDO_MERCENARY 35
 
-#define JDO_VAGRANT 35
-#define JDO_ORPHAN 36
+#define JDO_VAGRANT 36
+#define JDO_ORPHAN 37

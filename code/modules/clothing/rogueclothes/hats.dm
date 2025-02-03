@@ -265,6 +265,9 @@
 /obj/item/clothing/head/roguetown/roguehood/black
 	color = CLOTHING_SOOT_BLACK
 
+/obj/item/clothing/head/roguetown/roguehood/green
+	color = CLOTHING_FOREST_GREEN
+
 /obj/item/clothing/head/roguetown/roguehood/random/Initialize()
 	color = pick( CLOTHING_PEASANT_BROWN, CLOTHING_SPRING_GREEN, CLOTHING_CHESTNUT, CLOTHING_YELLOW_OCHRE)
 	..()
@@ -502,14 +505,20 @@
 
 /obj/item/clothing/head/roguetown/crown/serpcrown
 	name = "crown of Vanderlin"
-	desc = "Heavy is the weight of the crown, and even heavier the responsability it infers to its wearer."
+	desc = "Heavy is the weight of the crown, and even heavier the responsibility it infers to its wearer."
 	icon_state = "serpcrown"
 	sellprice = VALUE_EXTREME
 	resistance_flags = FIRE_PROOF|ACID_PROOF|LAVA_PROOF|UNACIDABLE|INDESTRUCTIBLE
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/Initialize()
 	. = ..()
-	SSroguemachine.crown = src
+	if(type == /obj/item/clothing/head/roguetown/crown/serpcrown)
+		SSroguemachine.crown = src
+
+/obj/item/clothing/head/roguetown/crown/serpcrown/proc/anti_stall()
+	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	SSroguemachine.crown = null //Do not harddel.
+	qdel(src) //Anti-stall
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/surplus
 	name = "crown"
@@ -1182,6 +1191,7 @@
 	body_parts_covered = HEAD|HAIR
 	prevent_crits =  MINOR_CRITICALS
 	max_integrity = INTEGRITY_POOR
+	clothing_flags = NONE
 
 
 //............... Arming Cap ............... //
@@ -1441,9 +1451,9 @@
 	item_state = "human_spearplate"
 	allowed_sex = list(MALE)
 	allowed_race = list("human")
-	flags_inv = HIDEEARS
+	flags_inv = HIDEEARS|HIDEFACE
 	clothing_flags = CANT_SLEEP_IN
-	body_parts_covered = HEAD|EARS|HAIR
+	body_parts_covered = HEAD|EARS|HAIR|NOSE|MOUTH
 
 //............... Hoplite Helmet ............... //
 /obj/item/clothing/head/roguetown/rare/hoplite // Unique Hoplite kit

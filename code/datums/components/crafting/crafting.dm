@@ -3,16 +3,7 @@
 		return COMPONENT_INCOMPATIBLE
 	var/mob/living/L = parent
 	L.craftingthing = src
-//	RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(create_mob_button))
-/*
-/datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
-	var/datum/hud/H = user.hud_used
-	var/atom/movable/screen/craft/C = new()
-	C.icon = H.ui_style
-	H.static_inventory += C
-	CL.screen += C
-	RegisterSignal(C, COMSIG_CLICK, PROC_REF(roguecraft))
-*/
+
 /datum/component/personal_crafting
 	var/busy
 	var/viewing_category = 1 //typical powergamer starting on the Weapons tab
@@ -170,23 +161,23 @@
 		N = R.result
 		result_name = N.name
 	if(isopenturf(T) && R.wallcraft)
-		to_chat(user, "<span class='warning'>Need to craft this on a wall.</span>")
+		to_chat(user, "<span class='warning'>I need to craft this on a wall.</span>")
 		return
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
 	if(!R.TurfCheck(user, T))
-		to_chat(user, "<span class='warning'>I can't craft here.</span>")
+		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
 		return
 	if(istype(T, /turf/open/water))
-		to_chat(user, "<span class='warning'>I can't craft here.</span>")
+		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
 		return
 	if(isturf(R.result))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, "<span class='warning'>I can't craft here.</span>")
+			to_chat(user, "<span class='warning'>I can't build this near a travel point.</span>")
 			return
 	if(ispath(R.result, /obj/structure) || ispath(R.result, /obj/machinery))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, "<span class='warning'>I can't craft here.</span>")
+			to_chat(user, "<span class='warning'>I can't build this near a travel point.</span>")
 			return
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
@@ -210,7 +201,8 @@
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
-			to_chat(user, "<span class='warning'>I'm missing something.</span>")
+			var/atom/A = R.structurecraft
+			to_chat(user, "<span class='warning'>There isn't \a [initial(A.name)] nearby.</span>")
 			return
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))

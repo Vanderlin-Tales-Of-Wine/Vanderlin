@@ -74,12 +74,13 @@
 		if(bucket.reagents)
 			testing("reagent check complete")
 			var/datum/reagent/master_reagent = bucket.reagents.get_master_reagent()
+			var/reagent_volume = master_reagent.volume
 			if(do_after(user, 10 SECONDS, target = src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					testing("remove reagent proc complete")
 					var/turf/open/water/river/creatable/W = new(get_turf(src))
 					W.water_reagent = master_reagent.type
-					W.water_volume = clamp(master_reagent.volume, 1, 100)
+					W.water_volume = clamp(reagent_volume, 1, 100)
 					W.update_icon()
 					playsound(W, 'sound/foley/waterenter.ogg', 100, FALSE)
 					QDEL_NULL(src) // Somehow this actually makes it disappear. Hilarious.

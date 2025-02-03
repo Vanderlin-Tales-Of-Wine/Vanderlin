@@ -399,7 +399,6 @@
 			hide_from(living_viewer)
 	if(!worn_check_aggressive(parent, user, TRUE))
 		hide_from(user)
-	update_actions()
 
 /datum/component/storage/proc/worn_check(obj/item/storing, mob/user, no_message = FALSE)
 	. = TRUE

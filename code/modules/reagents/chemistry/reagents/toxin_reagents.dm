@@ -142,17 +142,6 @@
 	..()
 	. = 1
 
-/datum/reagent/toxin/mindbreaker
-	name = "Mindbreaker Toxin"
-	description = "A powerful hallucinogen. Not a thing to be messed with. For some mental patients. it counteracts their symptoms and anchors them to reality."
-	color = "#B31008" // rgb: 139, 166, 233
-	toxpwr = 0
-	taste_description = "sourness"
-
-/datum/reagent/toxin/mindbreaker/on_mob_life(mob/living/carbon/M)
-	M.hallucination += 5
-	return ..()
-
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"

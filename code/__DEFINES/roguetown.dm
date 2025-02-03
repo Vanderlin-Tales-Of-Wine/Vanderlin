@@ -137,6 +137,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_CHALLENGE 		"CAT_CHALLENGE"  	// Challenge class - Meant to be free for everyone
 #define CTAG_MERCENARY		"CAT_MERCENARY"
 #define CTAG_GARRISON		"CAT_GARRISON"
+#define CTAG_FORGARRISON	"CAT_FORGARRISON"
 #define CTAG_ADEPT			"CAT_ADEPT" // Used for Adept class selection
 #define CTAG_SQUIRE 		"CAT_SQUIRE" // Squire Love, Classes, as above.
 #define CTAG_HEIR			"CAT_HEIR"
@@ -144,6 +145,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_CONSORT 		"CAT_CONSORT" 		// Consort classes
 #define CTAG_VETERAN		"CAT_VETERAN"		// Veteran class - Handles Veteran class selector
 #define CTAG_MENATARMS		"CAT_MENATARMS"
+#define CTAG_SERVANT		"CAT_SERVANT" 		// Servant class - 4 type of servant to fill in someplace.
 
 /*
 	Defines for the triumph buy datum categories
@@ -363,7 +365,8 @@ BCLASS_CHOP, \
 BCLASS_BLUNT, \
 BCLASS_STAB, \
 BCLASS_BITE, \
-BCLASS_TWIST)
+BCLASS_TWIST, \
+BCLASS_SHOT)
 
 #define ALL_EXCEPT_STAB list(\
 BCLASS_CUT, \

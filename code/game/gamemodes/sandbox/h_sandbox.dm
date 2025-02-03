@@ -22,7 +22,6 @@ GLOBAL_VAR_INIT(hsboxspawn, TRUE)
 	var/hsbinfo = null
 	//items that shouldn't spawn on the floor because they would bug or act weird
 	var/static/list/spawn_forbidden = list(
-		/obj/item/tk_grab,
 		/obj/projectile)
 
 /datum/hSB/proc/update()

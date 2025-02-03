@@ -5,6 +5,7 @@
 	icon = 'icons/obj/railing.dmi'
 	icon_state = "border"
 	alpha = 190
+	redstone_structure = TRUE
 
 	var/blocking = FALSE
 

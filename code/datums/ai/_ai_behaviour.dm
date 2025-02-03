@@ -34,4 +34,4 @@
 /datum/ai_behavior/proc/clear_movement_target(datum/ai_controller/controller)
 	if (controller.movement_target_source != type)
 		return
-	controller.set_movement_target(type, null)
+	controller.set_movement_target(type, controller.pawn.loc)

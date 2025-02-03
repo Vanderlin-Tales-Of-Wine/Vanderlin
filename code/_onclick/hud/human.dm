@@ -1,5 +1,4 @@
 /atom/movable/screen/human
-	icon = 'icons/mob/screen_midnight.dmi'
 
 /atom/movable/screen/human/toggle
 	name = "toggle"

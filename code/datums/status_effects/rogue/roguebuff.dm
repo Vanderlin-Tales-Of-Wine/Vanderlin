@@ -5,7 +5,7 @@
 /datum/status_effect/buff/drunk
 	id = "drunk"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list(STATKEY_INT = -1, STATKEY_SPD = -1, STATKEY_PER = 1)
+	effectedstats = list(STATKEY_INT = -1, STATKEY_SPD = -1, STATKEY_CON = 1)
 	duration = 12 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/drunk
@@ -63,7 +63,7 @@
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("intelligence" = 5,"speed" = 3,"fortune" = -5)
+	effectedstats = list("intelligence" = 4,"speed" = 2,"fortune" = -5)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/druqks/on_apply()
@@ -101,7 +101,7 @@
 /datum/status_effect/buff/ozium
 	id = "ozium"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = -5, "perception" = 2)
+	effectedstats = list("speed" = -4, "perception" = 2)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/ozium/on_apply()
@@ -121,7 +121,7 @@
 /datum/status_effect/buff/moondust
 	id = "moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 3, "endurance" = 3)
+	effectedstats = list("speed" = 2, "endurance" = 2, "intelligence" = -4)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/moondust/nextmove_modifier()
@@ -142,7 +142,7 @@
 /datum/status_effect/buff/moondust_purest
 	id = "purest moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 5, "endurance" = 5)
+	effectedstats = list("speed" = 4, "endurance" = 4, "intelligence" = -2)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/moondust_purest/nextmove_modifier()
@@ -433,12 +433,6 @@
 	name = "Divine Beauty"
 	desc = span_nicegreen("Everything about myself feels beautiful!")
 	icon_state = "beauty"
-
-/datum/status_effect/buff/eoradrunk
-	id = "eoradrunk"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list(STATKEY_STR = -2, STATKEY_LCK = -5, STATKEY_PER = -2, STATKEY_SPD = -3) //debuff stats important in attacking
-	duration = 20 SECONDS
 
 /*-----------------\
 |   Ravox Miracles |

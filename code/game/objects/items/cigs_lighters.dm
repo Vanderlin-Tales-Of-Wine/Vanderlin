@@ -149,8 +149,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/type_butt = /obj/item/cigbutt
 	var/lastHolder = null
 	var/smoketime = 180 // 1 is 2 seconds, so a single cigarette will last 6 minutes.
+	var/smoke_multiplier = 1.5 // multiplier to smoke slightly faster than depletion rate
+	var/highest_metab_time = 0
+	var/total_transferred = 0
 	var/chem_volume = 30
-	var/smoke_all = TRUE /// Should we smoke all of the chems in the cig before it runs out. Splits each puff to take a portion of the overall chems so by the end you'll always have consumed all of the chems inside.
 	var/list/list_reagents = list(/datum/reagent/drug/nicotine = 15)
 
 /obj/item/clothing/mask/cigarette/suicide_act(mob/user)
@@ -258,26 +260,31 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/proc/handle_reagents()
 	if(reagents.total_volume)
-		var/to_smoke = REAGENTS_METABOLISM
 		if(iscarbon(loc))
 			var/mob/living/carbon/C = loc
 			if (src == C.mouth) // if it's in the human/monkey mouth, transfer reagents to the mob
-				var/fraction = min(REAGENTS_METABOLISM/reagents.total_volume, 1)
 				/*
-				 * Given the amount of time the cig will last, and how often we take a hit, find the number
-				 * of chems to give them each time so they'll have smoked it all by the end.
+				 * Ingest reagents from the cig/pipe based on each of their metabolism rate, with the result being that
+				 * you slowly increase the amount of the reagents in your system until the end of the cig or pipe
 				 */
-				if (smoke_all)
-					if(!smoketime)
-						to_smoke = reagents.total_volume
-					else
-						to_smoke = reagents.total_volume/smoketime
+				// If you're at the end of the cig/pipe, make sure the rest of the chems are gone (helps with any fractional leftovers at the end of smoketime)
+				if(smoketime <= 1)
+					reagents.trans_to(C, reagents.total_volume)
+					reagents.remove_any(reagents.total_volume)
 
-				reagents.reaction(C, INGEST, fraction)
-				if(!reagents.trans_to(C, to_smoke))
-					reagents.remove_any(to_smoke)
+				// For each reagent, calculate the transfer rate
+				for(var/datum/reagent/R in reagents.reagent_list)
+					// Rounded up, important to avoid issues
+					var/transfer_rate = CEILING((R.metabolization_rate * smoke_multiplier), 0.1)
+					reagents.remove_reagent(R.type, transfer_rate)
+					C.reagents.add_reagent(R.type, transfer_rate)
+					total_transferred = transfer_rate + total_transferred
+				//Ensure INGEST reactions based on what was transferred
+				reagents.reaction(C, INGEST, total_transferred)
 				return
-		reagents.remove_any(to_smoke)
+		// Burn reagents even if it's not in your mouth
+		for(var/datum/reagent/R in reagents.reagent_list)
+			reagents.remove_reagent(R.type, R.metabolization_rate * smoke_multiplier)
 
 /obj/item/clothing/mask/cigarette/process()
 	var/turf/location = get_turf(src)
@@ -285,6 +292,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //		M.IgniteMob()
 	smoketime--
 	if(smoketime < 1)
+		reagents.remove_any(reagents.total_volume)
 		if(iscarbon(loc))
 			var/mob/living/carbon/M = loc
 			M.dropItemToGround(src, silent = TRUE)
@@ -294,9 +302,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		qdel(src)
 		return
 	open_flame()
-	if((reagents && reagents.total_volume) && (nextdragtime <= world.time))
+	handle_reagents()
+//  Doesn't work with new system, instead we have a constant stream of reagents every tick
+/*	if((reagents && reagents.total_volume) && (nextdragtime <= world.time))
 		nextdragtime = world.time + dragtime
 		handle_reagents()
+*/
 
 /obj/item/clothing/mask/cigarette/attack_self(mob/user)
 	if(lit)
@@ -362,9 +373,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/cigarette/rollie/cannabis
 	list_reagents = list(/datum/reagent/drug/space_drugs = 30)
-
-/obj/item/clothing/mask/cigarette/rollie/mindbreaker
-	list_reagents = list(/datum/reagent/toxin/mindbreaker = 35, /datum/reagent/toxin/lipolicide = 15)
 
 /obj/item/cigbutt
 	name = "roach"
@@ -458,25 +466,32 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(!packeditem)
 			if(G.dry == 1)
 				to_chat(user, "<span class='notice'>I stuff [O] into [src].</span>")
-				smoketime = initial(smoketime)
 				packeditem = 1
 //				name = "[O.name]-packed [initial(name)]"
 				if(G.pipe_reagents?.len)
 					reagents.add_reagent_list(G.pipe_reagents)
 //					O.reagents.trans_to(src, O.reagents.total_volume, transfered_by = user)
+				//Get the highest metabolization rate among the reagents in the pipe, and set the smoke rate to slightly above that so it's absorbed faster than it depletes
+				for(var/datum/reagent/R in reagents.reagent_list)
+					if (R.volume / CEILING((R.metabolization_rate * smoke_multiplier), 0.1) > highest_metab_time)
+						highest_metab_time = (R.volume / CEILING((R.metabolization_rate * smoke_multiplier), 0.1) )
+				smoketime = highest_metab_time
 				qdel(O)
 			else
 				to_chat(user, "<span class='warning'>It has to be dried first!</span>")
 		else
 			to_chat(user, "<span class='warning'>It is already packed!</span>")
-	else if(istype(O, /obj/item/reagent_containers/powder/ozium))
-		var/obj/item/reagent_containers/powder/ozium/G = O
+	else if(istype(O, /obj/item/reagent_containers/powder))
+		var/obj/item/reagent_containers/powder/G = O
 		if(!packeditem)
 			to_chat(user, "<span class='notice'>I stuff [O] into [src].</span>")
-			smoketime = initial(smoketime)
 			packeditem = 1
 			if(G.list_reagents?.len)
 				reagents.add_reagent_list(G.list_reagents)
+			for(var/datum/reagent/R in reagents.reagent_list)
+				if (R.volume / CEILING((R.metabolization_rate * smoke_multiplier), 0.1) > highest_metab_time)
+					highest_metab_time = (R.volume / CEILING((R.metabolization_rate * smoke_multiplier), 0.1) )
+			smoketime = highest_metab_time
 			qdel(O)
 		else
 			to_chat(user, "<span class='warning'>It is already packed!</span>")

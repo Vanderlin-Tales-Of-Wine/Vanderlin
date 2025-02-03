@@ -118,6 +118,7 @@
 //Handle any extras after buckling
 //Called on buckle_mob()
 /atom/movable/proc/post_buckle_mob(mob/living/M)
+	M.update_wallpress()
 
 //same but for unbuckle
 /atom/movable/proc/post_unbuckle_mob(mob/living/M)

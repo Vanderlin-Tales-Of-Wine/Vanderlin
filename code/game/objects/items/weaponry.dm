@@ -59,8 +59,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	desc = ""
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
-	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
 	force = 3
 	throwforce = 5
 	throw_speed = 2

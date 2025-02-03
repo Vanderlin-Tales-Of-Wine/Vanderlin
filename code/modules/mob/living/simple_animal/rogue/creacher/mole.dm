@@ -37,9 +37,9 @@
 					/obj/item/organ)
 
 	base_intents = list(/datum/intent/simple/claw)
-	attack_sound = list('sound/vo/mobs/saiga/attack (1).ogg','sound/vo/mobs/saiga/attack (2).ogg')
+	attack_sound = list('sound/vo/mobs/mole/MoleAttack1.ogg','sound/vo/mobs/mole/MoleAttack2.ogg')
 	melee_damage_lower = 20
-	melee_damage_upper = 40
+	melee_damage_upper = 25
 
 	TOTALCON = 8
 	TOTALSTR = 12
@@ -51,7 +51,7 @@
 	deaggroprob = 0
 	defprob = 30
 	defdrain = 10
-	del_on_deaggro = 99 SECONDS
+	del_on_deaggro = 60 SECONDS
 	retreat_health = 0.4
 	food = 0
 
