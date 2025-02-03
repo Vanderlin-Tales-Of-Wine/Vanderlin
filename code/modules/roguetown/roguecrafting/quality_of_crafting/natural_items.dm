@@ -134,7 +134,7 @@
 	craftdiff = 0
 	uses_attacking_atom = TRUE
 
-/datum/repeatable_crafting_recipe/survival/stone_pick
+/datum/repeatable_crafting_recipe/survival/stone_spear
 	name = "stone spear"
 	requirements = list(
 		/obj/item/natural/stone = 1,
