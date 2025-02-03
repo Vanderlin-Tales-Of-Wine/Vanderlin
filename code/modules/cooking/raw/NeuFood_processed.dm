@@ -344,6 +344,7 @@
 	name = "unfinished cheese wheel"
 	icon_state = "cheesewheel_1"
 	w_class = WEIGHT_CLASS_BULKY
+	do_random_pixel_offset = FALSE
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
@@ -362,6 +363,7 @@
 	name = "unfinished cheese wheel"
 	icon_state = "cheesewheel_2"
 	w_class = WEIGHT_CLASS_BULKY
+	do_random_pixel_offset = FALSE
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_two/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
@@ -382,6 +384,7 @@
 	name = "unfinished cheese wheel"
 	icon_state = "cheesewheel_3"
 	w_class = WEIGHT_CLASS_BULKY
+	do_random_pixel_offset = FALSE
 	var/mature_proc = PROC_REF(maturing_done)
 
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_three/attackby(obj/item/I, mob/living/user, params)
@@ -430,6 +433,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/cheddar
 	name = "wheel of cheese"
 	icon_state = "cheesewheel"
+	dropshrink = 0.8
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = CHEESE_NUTRITION*4)
 	w_class = WEIGHT_CLASS_NORMAL
@@ -453,13 +457,14 @@
 /obj/item/reagent_containers/food/snacks/cheese_wedge
 	name = "wedge of cheese"
 	icon_state = "cheese_wedge"
-	bitesize = 3
+	dropshrink = 0.8
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("cheese" = 1)
 	rotprocess = SHELFLIFE_LONG
 	slice_batch = TRUE
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
+	slices_num = 3
 	become_rot_type = /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	baitpenalty = 0
 	isbait = TRUE
@@ -480,6 +485,7 @@
 	name = "slice of cheese"
 	icon_state = "cheese_slice"
 	bitesize = 1
+	dropshrink = 0.8
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("cheese" = 1)
