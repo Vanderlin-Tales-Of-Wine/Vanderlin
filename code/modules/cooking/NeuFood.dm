@@ -54,14 +54,14 @@
 
 /obj/item/reagent_containers/food/snacks/rotten/meat
 	name = "rotten meat"
-	icon_state = "meatcutlet"
+	icon_state = "meat1"
 /obj/item/reagent_containers/food/snacks/rotten/bacon
 	name = "rotten meat"
-	icon_state = "bacon"
+	icon_state = "pigflesh"
 /obj/item/reagent_containers/food/snacks/rotten/sausage
 	icon_state = "raw_wiener"
 /obj/item/reagent_containers/food/snacks/rotten/poultry
-	icon_state = "halfchicken"
+	icon_state = "poultry"
 /obj/item/reagent_containers/food/snacks/rotten/chickenleg
 	icon_state = "chickencutlet"
 /obj/item/reagent_containers/food/snacks/rotten/breadslice

@@ -33,11 +33,14 @@
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
-/* needs to be child proofed
+
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/New()
 	. = ..()
-	icon_state = "meat[rand(1,3)]"
-*/
+	if(icon_state == "meat1")
+		icon_state = "meat[rand(1,3)]"
+
+
+
 /obj/item/reagent_containers/food/snacks/rogue/meat/human
 	name = "manflesh"
 
