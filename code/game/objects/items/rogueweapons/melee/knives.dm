@@ -123,7 +123,7 @@
 	wdefense = MEDIOCHRE_PARRY
 	wbalance = HARD_TO_DODGE
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 30
+	sellprice = 6
 
 
 /obj/item/rogueweapon/knife/scissors

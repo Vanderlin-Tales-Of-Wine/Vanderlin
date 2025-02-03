@@ -197,15 +197,20 @@
 	verbage_tp = "puts together"
 
 /datum/crafting_recipe/roguetown/stonearrow
-	name = "stone arrow"
-	result = /obj/item/ammo_casing/caseless/rogue/arrow/stone
+	name = "stone arrow (x2)"
+	result = list(/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone)
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/stone = 1)
-	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/stonearrow_five
-	name = "stone arrow (x5)"
+	name = "stone arrow (x10)"
 	result = list(
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
@@ -213,7 +218,6 @@
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone)
 	reqs = list(/obj/item/grown/log/tree/stick = 5,
 				/obj/item/natural/stone = 5)
-	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow
 	name = "poison arrow"
@@ -264,7 +268,7 @@
 				/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 				/obj/item/reagent_containers/glass/bottle = 1)
 	craftdiff = 2
-	skillcraft = /datum/skill/craft/engineering
+	skillcraft = /datum/skill/craft/bombs
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/pyrobolt
@@ -296,7 +300,7 @@
 	result = list(/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 	/obj/item/natural/fibers = 8,
-	/obj/item/reagent_containers/food/snacks/fat)
+	/obj/item/reagent_containers/food/snacks/fat = 1)
 	skillcraft = /datum/skill/craft/carpentry
 	structurecraft = /obj/machinery/light/rogue/campfire
 	craftdiff = 3

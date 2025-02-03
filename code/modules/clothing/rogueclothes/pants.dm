@@ -90,7 +90,7 @@
 	body_parts_covered = GROIN|LEG_RIGHT
 
 /obj/item/clothing/under/roguetown/tights/vagrant/Initialize()
-	color = pick("#6b5445", "#435436", "#704542", "#79763f")
+	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
 	..()
 
 /obj/item/clothing/under/roguetown/tights/sailor

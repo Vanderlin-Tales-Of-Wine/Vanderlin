@@ -120,3 +120,20 @@
 	finished_icon_state = "meatpie_raw"
 	finished_cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
 	finished_cooked_smell = /datum/pollutant/food/meat_pie
+
+
+
+
+/*	.................   Cheap dye crafting   ................... */
+/datum/orderless_slapcraft/cheapdye
+	recipe_name = "Cheap dyes"
+	starting_item = /obj/item/ash
+	related_skill = /datum/skill/misc/sewing
+	skill_xp_gained = 2
+	requirements = list(
+		list(
+			/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
+			/obj/item/reagent_containers/food/snacks/produce/jacksberry,
+			/obj/item/reagent_containers/food/snacks/produce/swampweed) = 2
+	)
+	output_item = /obj/item/cheap_dyes
