@@ -141,7 +141,7 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-		queue_smooth(src)
+			queue_smooth(src)
 
 	if(!river_processes)
 		icon_state = "together"
@@ -242,7 +242,7 @@
 			water_overlay = new()
 		if(!water_top_overlay)
 			water_top_overlay = new()
-		queue_smooth(src)
+			queue_smooth(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
@@ -625,7 +625,7 @@
 			water_overlay = new(src)
 		if(!water_top_overlay)
 			water_top_overlay = new(src)
-		queue_smooth(src)
+			queue_smooth(src)
 
 	if(water_overlay)
 		water_overlay.color = water_reagent.color
