@@ -443,7 +443,7 @@
 		user.visible_message(span_reallybig("UNWORTHY HANDS TOUCH MY VISAGE, CEASE OR BE PUNISHED"))
 		spawn(30)
 			if(loc == user)
-				user.adjust_fire_stacks(3)
+				user.adjust_divine_fire_stacks(3)
 				user.IgniteMob()
 		return
 	else
@@ -463,7 +463,7 @@
 		to_chat(user, "<font color='yellow'>UNWORTHY HANDS TOUCH THE VISAGE, CEASE OR BE PUNISHED</font>")
 		spawn(30)
 			if(loc == user)
-				user.adjust_fire_stacks(5)
+				user.adjust_divine_fire_stacks(5)
 				user.IgniteMob()
 		return
 	else

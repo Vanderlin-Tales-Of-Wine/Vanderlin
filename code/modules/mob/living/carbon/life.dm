@@ -22,9 +22,9 @@
 	handle_roguebreath()
 	update_stress()
 	handle_nausea()
-	if(blood_volume > BLOOD_VOLUME_SURVIVE)
+	if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		if(!heart_attacking)
-			if(oxyloss)
+			if(oxyloss && health > 0)
 				adjustOxyLoss(-1.6)
 		else
 			if(getOxyLoss() < 20)
