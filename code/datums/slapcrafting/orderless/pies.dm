@@ -136,8 +136,10 @@
 /datum/orderless_slapcraft/pie/meat
 	name = "meat pie"
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef = 3
-	)
+		/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef = 2,
+		list(
+			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
+			/obj/item/reagent_containers/food/snacks/egg) = 1)
 	overlay_state = "fill_meat"
 	pie_name = "meat pie"
 
