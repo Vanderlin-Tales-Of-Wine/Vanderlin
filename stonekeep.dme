@@ -1754,6 +1754,7 @@
 #include "code\modules\roguetown\roguejobs\gravedigger\irrigation_channel.dm"
 #include "code\modules\roguetown\roguejobs\gravedigger\tools.dm"
 #include "code\modules\roguetown\roguejobs\gravedigger\trench.dm"
+#include "code\modules\roguetown\roguejobs\miner\rogueingotstack.dm"
 #include "code\modules\roguetown\roguejobs\miner\rogueores.dm"
 #include "code\modules\roguetown\roguejobs\miner\tools.dm"
 #include "code\modules\roguetown\roguejobs\tailor\loom.dm"
