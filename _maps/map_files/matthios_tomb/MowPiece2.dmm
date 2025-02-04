@@ -103,7 +103,7 @@
 /area/rogue)
 "s" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple,
+/obj/item/reagent_containers/food/snacks/pie/cooked/apple,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue)
 "t" = (

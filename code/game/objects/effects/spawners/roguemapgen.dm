@@ -285,7 +285,7 @@
 /obj/effect/spawner/roguemap/loot/food
 	icon_state = "lootfood"
 	spawned = list(
-		/obj/item/reagent_containers/food/snacks/rogue/bread = 10,
+		/obj/item/reagent_containers/food/snacks/bread = 10,
 		/obj/item/reagent_containers/food/snacks/raisinbread = 10,
 		/obj/item/reagent_containers/food/snacks/bun = 10,
 		/obj/item/reagent_containers/food/snacks/cheesebun = 10,

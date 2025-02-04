@@ -21,17 +21,17 @@
 | Pie templates |
 \--------------*/
 
-/obj/item/reagent_containers/food/snacks/rogue/pie
+/obj/item/reagent_containers/food/snacks/pie
 	name = "pie"
 	desc = ""
 	color = "#e7e2df"
 	dropshrink = 0.8
 	var/stunning = FALSE
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked
+/obj/item/reagent_containers/food/snacks/pie/cooked
 	icon_state = "pie"
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_FILLING)
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice
 	slices_num = 5
 	slice_batch = TRUE
 	warming = 10 MINUTES
@@ -40,12 +40,12 @@
 	chopping_sound = TRUE
 	dropshrink = 0.8
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+/obj/item/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(!.) //if we're not being caught
 		splat(hit_atom)
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/proc/splat(atom/movable/hit_atom)
+/obj/item/reagent_containers/food/snacks/pie/proc/splat(atom/movable/hit_atom)
 	if(isliving(loc)) //someone caught us!
 		return
 	var/turf/T = get_turf(hit_atom)
@@ -60,7 +60,7 @@
 		L.visible_message("<span class='warning'>[L] is hit by [src]!</span>", "<span class='danger'>I'm hit by [src]!</span>")
 	qdel(src)
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/CheckParts(list/parts_list)
+/obj/item/reagent_containers/food/snacks/pie/CheckParts(list/parts_list)
 	..()
 	for(var/obj/item/reagent_containers/food/snacks/M in parts_list)
 		filling_color = M.filling_color
@@ -71,7 +71,7 @@
 			M.reagents.trans_to(src, M.reagents.total_volume)
 		qdel(M)
 
-/obj/item/reagent_containers/food/snacks/rogue/pieslice
+/obj/item/reagent_containers/food/snacks/pieslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("pie" = 1)
 	name = "pie slice"
@@ -84,55 +84,55 @@
 	color = "#e7e2df"
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good
+/obj/item/reagent_containers/food/snacks/pieslice/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/pot
+/obj/item/reagent_containers/food/snacks/pieslice/good/pot
 	filling_color = "#9d8c3b"
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/fish
+/obj/item/reagent_containers/food/snacks/pieslice/good/fish
 	filling_color = "#bb5a93"
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/meat
+/obj/item/reagent_containers/food/snacks/pieslice/good/meat
 	filling_color = "#b44f44"
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/berry
+/obj/item/reagent_containers/food/snacks/pieslice/good/berry
 	filling_color = "#394da5"
-/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/apple
+/obj/item/reagent_containers/food/snacks/pieslice/good/apple
 	filling_color = "#eca48c"
 
 // -------------- MEAT PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat // bae item
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat // bae item
 	name = "meat pie"
 	desc = ""
 	foodtype = GRAIN | DAIRY | MEAT
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEATPIE_NUTRITION)
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat
 	icon_state = "meatpie"
 	tastes = list("meat and butterdough" = 1)
 	filling_color = "#b44f44"
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat/good
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/meat
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/meat
 	tastes = list("succulent meat and crispy butterdough" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat/good/New()
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/good/New()
 	. = ..()
 	good_quality_descriptors()
 
 // -------------- FISH PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/fish
 	name = "fish pie"
 	icon_state = "fishpie"
 	tastes = list("baked fish and butterdough" = 1)
 	filling_color = "#bb5a93"
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish/good
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/fish/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/fish
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/fish
 	tastes = list("baked fish and crispy butterdough" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish/good/New()
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/fish/good/New()
 	. = ..()
 	good_quality_descriptors()
 
 // -------------- POT PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
+/obj/item/reagent_containers/food/snacks/pie/cooked/pot
 	name = "pot pie"
 	desc = ""
 	slices_num = 6
@@ -141,16 +141,16 @@
 	filling_color = "#9d8c3b"
 	foodtype = GRAIN | DAIRY | MEAT
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot/good
+/obj/item/reagent_containers/food/snacks/pie/cooked/pot/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/pot
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/pot
 	tastes = list("succulent filling and crispy butterdough" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/pot/good/New()
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/pot/good/New()
 	. = ..()
 	good_quality_descriptors()
 
 // -------------- BERRY PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry
+/obj/item/reagent_containers/food/snacks/pie/cooked/berry
 	name = "berry pie"
 	desc = ""
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION)
@@ -158,16 +158,16 @@
 	tastes = list("butterdough" = 1, "berries" = 1)
 	filling_color = "#394da5"
 
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry/good
+/obj/item/reagent_containers/food/snacks/pie/cooked/berry/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/berry
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/berry
 	tastes = list("crispy butterdough" = 1, "sweet berries" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry/good/New()
+/obj/item/reagent_containers/food/snacks/pie/cooked/berry/good/New()
 	. = ..()
 	good_quality_descriptors()
 
 // -------------- POISON PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison
+/obj/item/reagent_containers/food/snacks/pie/cooked/poison
 	name = "berry pie"
 	slices_num = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION, /datum/reagent/berrypoison = 12)
@@ -175,17 +175,17 @@
 	filling_color = "#394da5"
 
 // -------------- APPLE PIE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple
+/obj/item/reagent_containers/food/snacks/pie/cooked/apple
 	name = "apple pie"
 	desc = ""
 	slices_num = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION)
 	tastes = list("apples and butterdough" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple/good
+/obj/item/reagent_containers/food/snacks/pie/cooked/apple/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/apple
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/apple
 	tastes = list("baked apples and crispy butterdough" = 1)
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple/good/New()
+/obj/item/reagent_containers/food/snacks/pie/cooked/apple/good/New()
 	. = ..()
 	good_quality_descriptors()
 

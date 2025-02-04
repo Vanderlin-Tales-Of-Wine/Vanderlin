@@ -45,7 +45,7 @@
 	name = "manflesh"
 	foodtype = RAW | MEAT | GROSS
 
-/*	.............   Pigflesh, spidermeat, birdmeat   ................ */
+/*	.............   Pigflesh, strange meat, birdmeat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty
 	name = "raw pigflesh"
 	icon_state = "pigflesh"

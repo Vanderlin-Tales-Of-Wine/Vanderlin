@@ -42,7 +42,7 @@
 	slices_num = 2
 	slice_batch = TRUE
 	slice_path = /obj/item/reagent_containers/food/snacks/dough_slice
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/bread
+	cooked_type = /obj/item/reagent_containers/food/snacks/bread
 	cooked_smell = /datum/pollutant/food/bread
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_LONG
@@ -293,7 +293,7 @@
 /obj/item/reagent_containers/food/snacks/piedough/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/truffles))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/truffles))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, "<span class='notice'>Making a handpie...</span>")
 		if(do_after(user,short_cooktime, target = src))
@@ -399,7 +399,7 @@
 \----------------*/
 
 /*	.................   Bread   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/bread
+/obj/item/reagent_containers/food/snacks/bread
 	name = "bread loaf"
 	desc = "One of the staple foods of the world, with the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
 	icon_state = "loaf6"
@@ -412,13 +412,13 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
 
-/obj/item/reagent_containers/food/snacks/rogue/bread/update_icon()
+/obj/item/reagent_containers/food/snacks/bread/update_icon()
 	if(slices_num)
 		icon_state = "loaf[slices_num]"
 	else
 		icon_state = "loaf_slice"
 
-/obj/item/reagent_containers/food/snacks/rogue/bread/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/bread/On_Consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)

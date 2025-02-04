@@ -27,7 +27,7 @@
 			playsound(get_turf(src),'sound/items/dig_shovel.ogg', 70, TRUE)
 			if(user.used_intent.type == /datum/intent/shovelscoop)
 				if(do_after(user, 3 SECONDS, target = src))
-					new /obj/item/reagent_containers/food/snacks/rogue/truffles(get_turf(src))
+					new /obj/item/reagent_containers/food/snacks/truffles(get_turf(src))
 					hidden_truffles = FALSE
 	if(hidden_toxicshrooms)
 		if(istype(W, /obj/item/rogueweapon/shovel))
@@ -40,7 +40,7 @@
 
 
 //	........   Truffles   ................
-/obj/item/reagent_containers/food/snacks/rogue/truffles
+/obj/item/reagent_containers/food/snacks/truffles
 	name = "truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
@@ -52,7 +52,7 @@
 	tastes = list("mushroom" = 1)
 	sellprice = 30
 	rotprocess = null
-/obj/item/reagent_containers/food/snacks/rogue/truffles/Initialize()
+/obj/item/reagent_containers/food/snacks/truffles/Initialize()
 	icon_state = pick("mushroom1_full","mushroom1_full","mushroom1_full")
 	. = ..()
 /obj/item/reagent_containers/food/snacks/cooked/truffle
@@ -124,7 +124,7 @@
 
 	health = FEMALE_GOTE_HEALTH
 	maxHealth = FEMALE_GOTE_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/rogue/truffles)
+	food_type = list(/obj/item/reagent_containers/food/snacks/truffles)
 	pooptype = /obj/item/natural/poo/horse
 	tame = TRUE
 	remains_type = /obj/effect/decal/remains/pig
@@ -181,7 +181,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/trufflepig/Life()
 	. = ..()
 	if((src.loc) && isturf(src.loc))
-		for(var/obj/item/reagent_containers/food/snacks/rogue/truffles/M in view(1,src))
+		for(var/obj/item/reagent_containers/food/snacks/truffles/M in view(1,src))
 			if(Adjacent(M))
 				walk_towards(src, M, 1)
 				sleep(3)
@@ -215,7 +215,7 @@
 		trufflesearch(t, 5)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/trufflepig/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/rogue/truffles))
+	if(istype(O, /obj/item/reagent_containers/food/snacks/truffles))
 		visible_message("<span class='notice'>The pig munches the truffles, looking happy.</span>")
 		hangry_meter = 0
 		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)

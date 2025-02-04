@@ -652,7 +652,7 @@
 	alpha = 255
 	pixel_x = -16
 	climb_offset = 14
-	stump_loot = /obj/item/reagent_containers/food/snacks/rogue/truffles
+	stump_loot = /obj/item/reagent_containers/food/snacks/truffles
 
 /obj/structure/table/wood/treestump/shroomstump/Initialize()
 	. = ..()

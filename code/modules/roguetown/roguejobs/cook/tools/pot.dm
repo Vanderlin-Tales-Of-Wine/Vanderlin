@@ -260,7 +260,7 @@
 	name = "truffle stew"
 	cooking_time = 80 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/stew/truffle
-	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/truffles = 1)
+	required_items = list(/obj/item/reagent_containers/food/snacks/truffles = 1)
 	finished_smell = /datum/pollutant/food/truffle_stew
 
 /datum/pot_recipe/cooking/cheese_soup
