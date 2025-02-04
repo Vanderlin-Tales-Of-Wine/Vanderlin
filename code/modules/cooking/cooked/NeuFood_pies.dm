@@ -136,7 +136,7 @@
 	name = "pot pie"
 	desc = ""
 	slices_num = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_FILLING)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEATPIE_NUTRITION)
 	tastes = list("mysterious filling and butterdough" = 1)
 	filling_color = "#9d8c3b"
 	foodtype = GRAIN | DAIRY | MEAT

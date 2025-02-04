@@ -163,8 +163,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
-	skillcheck = TRUE
-	skill_lacking = "Cakes are not for the unskilled."
 /obj/item/reagent_containers/food/snacks/rogue/butterdough/attackby(obj/item/I, mob/living/user, params)
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -173,6 +171,9 @@
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2) // cooks with less than 2 skill don´t know this recipe
+				to_chat(user, span_warning("Cakes are not for the likes of you."))
+				return
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Working egg into the dough, shaping it into a cake..."))
 			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
@@ -474,7 +475,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "egg bread"
+			name = "cackleberry bread"
 			icon_state = "bread_egg"
 			tastes = list("bread" = 1,"egg" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + EGG_NUTRITION + 2)

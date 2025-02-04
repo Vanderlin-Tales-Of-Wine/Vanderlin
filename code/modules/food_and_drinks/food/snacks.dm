@@ -101,8 +101,6 @@ All foods are distributed among various categories. Use common sense.
 	var/quality = 1  // used to track foodbuffs and such
 	var/filling // used to simplify tastes etc for fillings in pies and the like
 
-	var/skillcheck	// got enough skill to make this?
-	var/skill_lacking = "Your skill is lacking." // the message displayed when skillcheck fails
 	var/plating_alt_icon
 	var/plated_iconstate
 
@@ -403,10 +401,6 @@ All foods are distributed among various categories. Use common sense.
 			return TRUE
 
 	if(user.mind)
-		if(skillcheck)
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2) // cooks with less than 2 skill don´t know this recipe
-				to_chat(user, span_warning(skill_lacking))
-				return
 		if(foodbuff_skillcheck)		// cooks with less than 3 skill don´t add bonus buff
 			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
 				tastes = list("blandness" = 1)
