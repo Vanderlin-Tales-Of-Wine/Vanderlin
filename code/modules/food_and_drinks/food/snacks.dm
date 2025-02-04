@@ -99,10 +99,9 @@ All foods are distributed among various categories. Use common sense.
 	var/foodbuff_skillcheck // is the cook good enough to add buff?
 	var/modified = FALSE // for tracking if food has been changed
 	var/quality = 1  // used to track foodbuffs and such
-	var/filling // used to simplify tastes etc for fillings in pies and the like
 
-	var/plating_alt_icon
-	var/plated_iconstate
+	var/plating_alt_icon // for food items not sprited in a way that fits the plating underlay, you can instead have a alt sprite specifically for its plated version.
+	var/plated_iconstate // used in afterattack to switch the above on or off
 
 /datum/intent/food
 	name = "feed"
