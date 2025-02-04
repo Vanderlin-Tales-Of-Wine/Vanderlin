@@ -650,11 +650,11 @@
 
 			else
 				move_items_back(to_delete, user)
-			return TRUE
+
 		else
 			move_items_back(to_delete, user)
 			move_products(list(), user)
-			return TRUE
+	return TRUE
 
 /datum/repeatable_crafting_recipe/proc/move_items_back(list/items, mob/user)
 	for(var/obj/item/item in items)
