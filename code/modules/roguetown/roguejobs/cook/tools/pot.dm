@@ -3,7 +3,7 @@
 	name = "pot"
 	desc = "The peasants friend, when filled with boiling water it will turn the driest oats to filling oatmeal."
 
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "pote"
 
 	sharpness = IS_BLUNT
@@ -83,13 +83,13 @@
 	cut_overlays()
 	if(reagents.total_volume > 0)
 		if(reagents.total_volume <= 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "pote_half")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "pote_full")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
@@ -238,7 +238,7 @@
 	name = "spider stew"
 	cooking_time = 90 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/stew/gross
-	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1)
+	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 1)
 	finished_smell = /datum/pollutant/food/potato_stew
 
 /datum/pot_recipe/cooking/generic_meat_stew

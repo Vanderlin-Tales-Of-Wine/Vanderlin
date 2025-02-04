@@ -1,7 +1,7 @@
 
 /obj/item/reagent_containers/food/snacks/egg
-	name = "cackleberry"
-	desc = ""
+	name = "egg"
+	desc = "Also known as cackleberries amongst the peasants."
 	icon_state = "egg1"
 	dropshrink = 0.8
 	list_reagents = list(/datum/reagent/consumable/eggyolk = 5)

@@ -19,7 +19,7 @@
 	filling_color = "#8f433a"
 	rotprocess = SHELFLIFE_SHORT
 	chopping_sound = TRUE
-	foodtype = MEAT
+	foodtype = RAW | MEAT
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
 
@@ -30,7 +30,7 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_smell = /datum/pollutant/food/fried_meat
-	slices_num = 1
+	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
 
@@ -43,6 +43,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/human
 	name = "manflesh"
+	foodtype = RAW | MEAT | GROSS
 
 /*	.............   Pigflesh, spidermeat, birdmeat   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/fatty
@@ -51,13 +52,13 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/ham
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/ham
 	cooked_smell = /datum/pollutant/food/bacon
-	slices_num = 1
+	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	chopping_sound = TRUE
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/spider // Low-nutrient, kind of gross. Survival food.
+/obj/item/reagent_containers/food/snacks/rogue/meat/strange // Low-nutrient, kind of gross. Survival food.
 	name = "strange meat"
-	icon_state = "spidermeat"
+	icon_state = "strange_meat"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/strange
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/strange
 	cooked_smell = /datum/pollutant/food/fried_meat
@@ -81,7 +82,7 @@
 	icon_state = "chickencutlet"
 	ingredient_size = 2
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
-	slices_num = 1
+	slices_num = 2
 	slice_bclass = BCLASS_CHOP
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
@@ -91,6 +92,7 @@
 /*	........   Fish sounds   ................ */
 /obj/item/reagent_containers/food/snacks/fish
 	chopping_sound = TRUE
+	slices_num = 2
 
 /*	........   Cooked food template   ................ */ // No choppping double cooking etc prefixed
 /obj/item/reagent_containers/food/snacks/cooked
@@ -110,7 +112,7 @@
 
 /*	.............   Minced meat & stuffing sausages   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince
-	name = "mince"
+	name = "mince template. BUGREPORT"
 	icon_state = "meatmince"
 	ingredient_size = 2
 	slice_path = null
@@ -156,14 +158,36 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	name = "minced meat"
+	icon_state = "meatmince"
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef/cooked
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef/cooked
+	eat_effect = null
+	foodtype = MEAT
+	rotprocess = SHELFLIFE_DECENT
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	color = "#a0655f"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish
 	name = "minced fish"
 	icon_state = "fishmince"
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish/cooked
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish/cooked
+	eat_effect = null
+	foodtype = MEAT
+	rotprocess = SHELFLIFE_DECENT
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	color = "#a0655f"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
 	name = "mince"
 	icon_state = "birdmince"
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked
+	eat_effect = null
+	foodtype = MEAT
+	rotprocess = SHELFLIFE_DECENT
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	color = "#a0655f"
 
 /*	..................   Sausage & Wiener   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage

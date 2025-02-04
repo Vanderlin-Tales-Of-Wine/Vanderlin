@@ -282,7 +282,7 @@
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 
 /obj/item/reagent_containers/glass/bucket/wooden/alter // just new look, trying it on for size
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 
 /obj/item/reagent_containers/glass/bucket/wooden/getonmobprop(tag)
 	. = ..()
@@ -300,13 +300,13 @@
 
 	if(reagents.total_volume > 0)
 		if(reagents.total_volume <= 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_half")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_full")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)

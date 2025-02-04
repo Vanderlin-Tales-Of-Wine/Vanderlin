@@ -71,7 +71,7 @@
 	name = "moldy bun"
 	icon_state = "bun"
 /obj/item/reagent_containers/food/snacks/rotten/egg
-	name = "rotted cackleberry"
+	name = "rotted egg"
 	icon_state = "egg2"
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
@@ -98,7 +98,7 @@
 \--------------*/
 
 /obj/item/kitchen
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	force = 0
@@ -158,7 +158,7 @@
 /obj/item/reagent_containers/glass/bowl
 	name = "wooden bowl"
 	desc = "It is the empty space that makes the bowl useful."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
@@ -289,7 +289,7 @@
 
 /obj/item/reagent_containers/peppermill // new with some animated art
 	name = "pepper mill"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "peppermill"
 	layer = CLOSED_BLASTDOOR_LAYER // obj layer + a little, small obj layering above convenient
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'

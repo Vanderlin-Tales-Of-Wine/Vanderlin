@@ -174,7 +174,7 @@
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, span_notice("Working cackleberry into the dough, shaping it into a cake..."))
+			to_chat(user, span_notice("Working egg into the dough, shaping it into a cake..."))
 			playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				new /obj/item/reagent_containers/food/snacks/cake(loc)
@@ -224,7 +224,7 @@
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 				to_chat(user, "<span class='notice'>Cutting the dough in strips and making a prezzel...</span>")
 				if(do_after(user,short_cooktime, target = src))
-					if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 2)
+					if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
 						new /obj/item/reagent_containers/food/snacks/foodbase/prezzel_raw/good(loc)
 					else
 						new /obj/item/reagent_containers/food/snacks/foodbase/prezzel_raw(loc)
@@ -234,7 +234,10 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Adding raisins to the dough...</span>")
 			if(do_after(user,short_cooktime, target = src))
-				new /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw(loc)
+				if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
+					new /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw/good(loc)
+				else
+					new /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw(loc)
 				qdel(I)
 				qdel(src)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -281,6 +284,7 @@
 	name = "piedough"
 	desc = "The beginning of greater things to come."
 	icon_state = "piedough"
+	dropshrink = 0.9
 	cooked_type = /obj/item/reagent_containers/food/snacks/foodbase/piebottom
 	cooked_smell = /datum/pollutant/food/pie_base
 	w_class = WEIGHT_CLASS_NORMAL
@@ -470,9 +474,9 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "cackleberry bread"
+			name = "egg bread"
 			icon_state = "bread_egg"
-			tastes = list("bread" = 1,"cackleberry" = 1)
+			tastes = list("bread" = 1,"egg" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + EGG_NUTRITION + 2)
 			foodtype = GRAIN | MEAT
 			modified = TRUE
@@ -695,7 +699,6 @@
 	icon_state = "frybread"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy bread with a soft inside" = 1)
-	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = null
 
 /*	.................   Pastry   ................... */
@@ -706,31 +709,34 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy butterdough" = 1)
 	rotprocess = SHELFLIFE_EXTREME
-	eat_effect = /datum/status_effect/buff/foodbuff
 
-/*	.................   Biscuit   ................... */
+/*	.................   Raisin Biscuit   ................... */
 /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw
 	name = "uncooked raisin biscuit"
 	icon_state = "biscuit_raw"
-	color = "#ecce61"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	cooked_smell = /datum/pollutant/food/biscuit
 	eat_effect = null
 	rotprocess = SHELFLIFE_EXTREME
+/obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw/good
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit/good
 
 /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"
-	filling_color = "#F0E68C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
+/obj/item/reagent_containers/food/snacks/rogue/biscuit/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+/obj/item/reagent_containers/food/snacks/rogue/biscuit/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 /obj/item/reagent_containers/food/snacks/foodbase/biscuitpoison_raw
 	name = "uncooked raisin biscuit"
 	icon_state = "biscuit_raw"
-	color = "#ecce61"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit_poison
 	cooked_smell = /datum/pollutant/food/biscuit
 	eat_effect = null
@@ -740,7 +746,6 @@
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"
-	filling_color = "#F0E68C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR, /datum/reagent/berrypoison = 4)
 	tastes = list("crispy butterdough" = 1, "bitter raisins" = 1)
 
@@ -764,7 +769,9 @@
 /obj/item/reagent_containers/food/snacks/prezzel/good
 	name = "prezzel"
 	eat_effect = /datum/status_effect/buff/foodbuff
-
+/obj/item/reagent_containers/food/snacks/prezzel/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 /*------\
 | Cakes |

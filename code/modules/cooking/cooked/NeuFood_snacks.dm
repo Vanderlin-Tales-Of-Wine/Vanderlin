@@ -58,11 +58,11 @@
 	return ..()
 
 
-/*	.............   Fried Cackleberry   ................ */
+/*	.............   Fried egg   ................ */
 /obj/item/reagent_containers/food/snacks/cooked/egg
 	list_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION)
-	tastes = list("fried cackleberry" = 1)
-	name = "fried cackleberry"
+	tastes = list("fried egg" = 1)
+	name = "fried egg"
 	desc = "A staple of Astratan midsummer festival eating."
 	icon_state = "friedegg"
 
@@ -160,7 +160,7 @@
 /obj/item/reagent_containers/food/snacks/cooked/strange
 	name = "fried strange meat"
 	desc = "Whatever it was, its roasted."
-	icon_state = "friedspider"
+	icon_state = "fried_strange"
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION) // raw meat nutrition but without getting sick
 
 

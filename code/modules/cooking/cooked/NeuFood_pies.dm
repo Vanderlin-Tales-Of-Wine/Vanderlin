@@ -14,7 +14,7 @@
 	icon_state = "piebottom"
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = /datum/status_effect/debuff/uncookedfood
-
+	dropshrink = 0.9
 
 
 /*--------------\
@@ -38,7 +38,6 @@
 	eat_effect = null
 	foodtype = GRAIN | DAIRY
 	chopping_sound = TRUE
-	eat_effect = /datum/status_effect/buff/foodbuff
 	dropshrink = 0.8
 
 /obj/item/reagent_containers/food/snacks/rogue/pie/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
@@ -78,33 +77,59 @@
 	name = "pie slice"
 	desc = ""
 	icon_state = "slice"
+	dropshrink = 0.9
 	filling_color = "#FFFFFF"
 	foodtype = GRAIN | DAIRY
 	warming = 5 MINUTES
-	bitesize = 3
-	eat_effect = /datum/status_effect/buff/foodbuff
 	color = "#e7e2df"
 	rotprocess = SHELFLIFE_LONG
+
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/pot
+	filling_color = "#9d8c3b"
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/fish
+	filling_color = "#bb5a93"
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/meat
+	filling_color = "#b44f44"
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/berry
+	filling_color = "#394da5"
+/obj/item/reagent_containers/food/snacks/rogue/pieslice/good/apple
+	filling_color = "#eca48c"
 
 // -------------- MEAT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat // bae item
 	name = "meat pie"
 	desc = ""
-	eat_effect = /datum/status_effect/buff/foodbuff
 	foodtype = GRAIN | DAIRY | MEAT
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEATPIE_NUTRITION)
 
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
 	icon_state = "meatpie"
+	tastes = list("meat and butterdough" = 1)
+	filling_color = "#b44f44"
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/meat
 	tastes = list("succulent meat and crispy butterdough" = 1)
-	filling_color = "#b43628"
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 // -------------- FISH PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish
 	name = "fish pie"
 	icon_state = "fishpie"
-	tastes = list("baked fish and crispy butterdough" = 1)
-	filling_color = "#d44197"
+	tastes = list("baked fish and butterdough" = 1)
+	filling_color = "#bb5a93"
 
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/fish
+	tastes = list("baked fish and crispy butterdough" = 1)
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 // -------------- POT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
@@ -112,35 +137,57 @@
 	desc = ""
 	slices_num = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_FILLING)
-	tastes = list("succulent filling and crispy butterdough" = 1)
-	filling_color = "#755430"
+	tastes = list("mysterious filling and butterdough" = 1)
+	filling_color = "#9d8c3b"
 	foodtype = GRAIN | DAIRY | MEAT
+
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/pot
+	tastes = list("succulent filling and crispy butterdough" = 1)
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/pot/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 // -------------- BERRY PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry
 	name = "berry pie"
 	desc = ""
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION)
 	slices_num = 4
+	tastes = list("butterdough" = 1, "berries" = 1)
+	filling_color = "#394da5"
+
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/berry
 	tastes = list("crispy butterdough" = 1, "sweet berries" = 1)
-	filling_color = "#4a62cf"
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 // -------------- POISON PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison
 	name = "berry pie"
 	slices_num = 4
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD, /datum/reagent/berrypoison = 12)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION, /datum/reagent/berrypoison = 12)
 	tastes = list("crispy butterdough" = 1, "bitter berries" =1)
-	filling_color = "#4a62cf"
+	filling_color = "#394da5"
 
 // -------------- APPLE PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple
 	name = "apple pie"
 	desc = ""
 	slices_num = 4
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION)
+	tastes = list("apples and butterdough" = 1)
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/rogue/pieslice/good/apple
 	tastes = list("baked apples and crispy butterdough" = 1)
-
+/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 /*--------\
 | Handpie |
@@ -153,11 +200,11 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/handpie
 	fried_type = /obj/item/reagent_containers/food/snacks/handpie
 	cooked_smell = /datum/pollutant/food/pie_base
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
 	dropshrink = 0.8
 
 /obj/item/reagent_containers/food/snacks/foodbase/handpieraw/mushroom
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | VEGETABLES
 	tastes = list("delicious truffles" = 1)
@@ -173,11 +220,13 @@
 	tastes = list("hot cheese" = 1)
 
 /obj/item/reagent_containers/food/snacks/foodbase/handpieraw/apple
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
 	tastes = list("sweet apple" = 1)
 
 /obj/item/reagent_containers/food/snacks/foodbase/handpieraw/berry
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
 	tastes = list("sweet berry" = 1)
@@ -193,7 +242,7 @@
 	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time. This is pretty dry."
 	icon_state = "handpie"
 	bitesize = 4
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+COOKED_MEAT_NUTRITION)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
 	tastes = list("dry dough" = 1)
 	dropshrink = 0.8
 
@@ -202,6 +251,9 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
 	tastes = list("crispy dough" = 1)
+/obj/item/reagent_containers/food/snacks/handpie/good/New()
+	. = ..()
+	good_quality_descriptors()
 
 /obj/item/reagent_containers/food/snacks/handpie/On_Consume(mob/living/eater)
 	..()

@@ -429,7 +429,7 @@ All foods are distributed among various categories. Use common sense.
 				quality = 2
 			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 4)
 				quality = 3
-				switch(rand(1,3))
+				switch(rand(1,5))
 					if(1)
 						name = "masterful [name]"
 						desc = "[desc] It looks perfect."
@@ -439,6 +439,12 @@ All foods are distributed among various categories. Use common sense.
 					if(3)
 						name = "perfected [name]"
 						desc = "[desc] It is a triumph of cooking."
+					if(4)
+						name = "gourmet [name]"
+						desc = "[desc] It is fit for royalty."
+					if(5)
+						name = "delicious [name]"
+						desc = "[desc] It is a masterwork."
 
 //Called when you finish tablecrafting a snack.
 /obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
@@ -661,4 +667,18 @@ All foods are distributed among various categories. Use common sense.
 	foodbuff_skillcheck = TRUE
 	rotprocess = SHELFLIFE_DECENT
 	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/proc/good_quality_descriptors()
+	switch(rand(1,4))
+		if(1)
+			name = "good [name]"
+		if(2)
+			name = "fine [name]"
+		if(3)
+			name = "appealing [name]"
+		if(4)
+			name = "nice [name]"
+	filling_color = filling_color
+	update_snack_overlays(src)
+
 
