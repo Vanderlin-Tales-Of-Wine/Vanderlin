@@ -94,6 +94,7 @@
 		return
 	if(client)
 		client.show_game_over()
+	status_flags |= GODMODE
 
 /mob/living/do_game_over()
 	..()
