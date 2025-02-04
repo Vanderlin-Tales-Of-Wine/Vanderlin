@@ -130,7 +130,7 @@
 /datum/supply_pack/rogue/food/hardtack
 	name = "Hardtack"
 	cost = 6
-	contains = /obj/item/reagent_containers/food/snacks/rogue/crackerscooked
+	contains = /obj/item/reagent_containers/food/snacks/hardtack
 
 /datum/supply_pack/rogue/food/cheese
 	name = "Cheese Wheel"

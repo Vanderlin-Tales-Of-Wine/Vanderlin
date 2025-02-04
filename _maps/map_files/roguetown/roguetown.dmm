@@ -223,10 +223,10 @@
 /area/rogue/under/town/basement)
 "anE" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "anO" = (
@@ -2719,9 +2719,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "cXJ" = (
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -3270,7 +3270,7 @@
 /area/rogue/indoors/town/tavern)
 "dCX" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "dDh" = (
@@ -3313,7 +3313,7 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "dFP" = (
@@ -5482,7 +5482,7 @@
 /area/rogue/indoors/town/manor)
 "gas" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "gaU" = (
@@ -11359,7 +11359,7 @@
 /area/rogue/outdoors/town/roofs)
 "myO" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/rope/chain,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
@@ -12716,7 +12716,7 @@
 /area/rogue/indoors/town/manor)
 "nTY" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -13568,7 +13568,7 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/reagent_containers/glass/bottle,
 /obj/item/reagent_containers/glass/bottle,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/town/basement)
 "oNp" = (
@@ -19467,7 +19467,7 @@
 /area/rogue/outdoors/town)
 "vtQ" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement)
 "vtW" = (
@@ -21010,10 +21010,10 @@
 "xaP" = (
 /obj/machinery/light/rogue/torchholder/r,
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "xbe" = (

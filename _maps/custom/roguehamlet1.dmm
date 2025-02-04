@@ -373,7 +373,7 @@
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/storage/belt/rogue/pouch/coins/poor,
 /obj/item/rogueweapon/knife/stone,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/sewer)
 "awX" = (
@@ -13410,7 +13410,7 @@
 	})
 "oxu" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "oxH" = (
@@ -15201,10 +15201,10 @@
 "qkV" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/town/garrison)
 "qkY" = (
@@ -16002,7 +16002,7 @@
 "raA" = (
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /obj/item/clothing/cloak/raincloak/blue,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/reagent_containers/glass/bottle/rogue/water,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/garrison)
@@ -16602,7 +16602,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 3
 	},
 /turf/open/floor/rogue/twig,
@@ -18035,9 +18035,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/manorgarri)
 "tiW" = (
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/structure/closet/crate/roguecloset/inn/chest,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church)

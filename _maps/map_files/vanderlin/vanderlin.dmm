@@ -8388,7 +8388,7 @@
 	icon_state = "alt_largetable";
 	dir = 6
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -10131,7 +10131,7 @@
 /area/rogue/indoors/town/manor)
 "hhi" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/cell)
 "hht" = (
@@ -12063,19 +12063,19 @@
 /area/rogue/indoors/town)
 "iBu" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = -7;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 6;
 	pixel_y = 6
 	},

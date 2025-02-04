@@ -2474,9 +2474,9 @@
 /area/rogue/outdoors/bog/inhumen_camp)
 "up" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/vampire_manor)
 "uy" = (
@@ -3795,7 +3795,7 @@
 /area/rogue)
 "On" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/reagent_containers/food/snacks/fat/salo,
 /obj/item/reagent_containers/food/snacks/rogue/bread,
 /turf/open/floor/rogue/ruinedwood/turned/darker,

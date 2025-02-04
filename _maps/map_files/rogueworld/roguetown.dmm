@@ -355,7 +355,7 @@
 /area/rogue/under/town/basement)
 "bu" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement)
 "bv" = (
@@ -386,7 +386,7 @@
 /area/rogue/under/town/basement)
 "bz" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -798,10 +798,10 @@
 "cQ" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "cR" = (
@@ -3968,10 +3968,10 @@
 "nB" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "nC" = (
@@ -6472,7 +6472,7 @@
 /area/rogue/outdoors/town)
 "wb" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/warehouse)
 "wc" = (
@@ -9882,7 +9882,7 @@
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
 "HN" = (

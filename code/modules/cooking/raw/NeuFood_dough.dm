@@ -252,12 +252,12 @@
 	name = "raw hardtack"
 	desc = "Doughy, soft, unacceptable."
 	icon_state = "raw_tack"
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/crackerscooked
+	cooked_type = /obj/item/reagent_containers/food/snacks/hardtack
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked
+/obj/item/reagent_containers/food/snacks/hardtack
 	name = "hardtack"
 	desc = "Very, very hard and dry."
 	icon_state = "tack6"
@@ -267,7 +267,7 @@
 	bitesize = 6
 	rotprocess = null
 
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/hardtack/On_Consume(mob/living/eater)
 	..()
 	if(bitecount == 1)
 		icon_state = "tack5"
@@ -522,7 +522,7 @@
 
 /*	.................   Raisin bread   ................... */
 /obj/item/reagent_containers/food/snacks/raisindough
-	name = "loaf of raisins"
+	name = "dough of raisins"
 	icon_state = "dough_raisin"
 	slices_num = 0
 	cooked_type = /obj/item/reagent_containers/food/snacks/raisinbread
@@ -715,35 +715,35 @@
 /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw
 	name = "uncooked raisin biscuit"
 	icon_state = "biscuit_raw"
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
+	cooked_type = /obj/item/reagent_containers/food/snacks/biscuit
 	cooked_smell = /datum/pollutant/food/biscuit
 	eat_effect = null
 	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw/good
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit/good
+	cooked_type = /obj/item/reagent_containers/food/snacks/biscuit/good
 
-/obj/item/reagent_containers/food/snacks/rogue/biscuit
+/obj/item/reagent_containers/food/snacks/biscuit
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
-/obj/item/reagent_containers/food/snacks/rogue/biscuit/good
+/obj/item/reagent_containers/food/snacks/biscuit/good
 	eat_effect = /datum/status_effect/buff/foodbuff
-/obj/item/reagent_containers/food/snacks/rogue/biscuit/good/New()
+/obj/item/reagent_containers/food/snacks/biscuit/good/New()
 	. = ..()
 	good_quality_descriptors()
 
 /obj/item/reagent_containers/food/snacks/foodbase/biscuitpoison_raw
 	name = "uncooked raisin biscuit"
 	icon_state = "biscuit_raw"
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit_poison
+	cooked_type = /obj/item/reagent_containers/food/snacks/biscuit_poison
 	cooked_smell = /datum/pollutant/food/biscuit
 	eat_effect = null
 	rotprocess = SHELFLIFE_EXTREME
 
-/obj/item/reagent_containers/food/snacks/rogue/biscuit_poison
+/obj/item/reagent_containers/food/snacks/biscuit_poison
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"

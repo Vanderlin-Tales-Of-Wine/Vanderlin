@@ -32,7 +32,7 @@
 /obj/structure/table/vtable,
 /obj/item/reagent_containers/glass/cup/silver,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/rogueweapon/knife/dagger/silver,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/caves)
@@ -100,7 +100,7 @@
 /obj/item/reagent_containers/glass/bottle/rogue/whitewine,
 /obj/item/reagent_containers/glass/cup/silver,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/caves)
 "R" = (

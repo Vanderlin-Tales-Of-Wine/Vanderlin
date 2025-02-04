@@ -299,7 +299,7 @@
 		/obj/item/reagent_containers/food/snacks/preserved/onion_fried = 10,
 		/obj/item/reagent_containers/food/snacks/raisins = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/crackerscooked = 10
+		/obj/item/reagent_containers/food/snacks/hardtack = 10
 		)
 
 /obj/effect/spawner/roguemap/loot/potion_vitals

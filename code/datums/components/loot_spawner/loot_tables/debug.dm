@@ -19,7 +19,7 @@
 			/obj/item/lockpick = 25,
 		),
 		list(
-			/obj/item/reagent_containers/food/snacks/rogue/biscuit = 25,
+			/obj/item/reagent_containers/food/snacks/biscuit = 25,
 			/obj/item/reagent_containers/food/snacks/toast = 10,
 		)
 	)

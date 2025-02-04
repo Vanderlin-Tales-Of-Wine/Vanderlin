@@ -881,7 +881,7 @@
 /area/rogue/outdoors/bog)
 "lV" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "lW" = (
@@ -1738,8 +1738,8 @@
 /area/rogue/outdoors/mountains)
 "yi" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "yo" = (
@@ -2918,9 +2918,9 @@
 /area/rogue/indoors/shelter/bog)
 "QQ" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "QR" = (
