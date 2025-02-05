@@ -1,5 +1,5 @@
 /datum/job/roguetown/skeleton
-	title = "skeleton"
+	title = "Skeleton"
 	flag = SKELETON
 	department_flag = UNDEAD
 	faction = "Station"
