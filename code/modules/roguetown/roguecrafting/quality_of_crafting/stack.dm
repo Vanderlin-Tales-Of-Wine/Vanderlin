@@ -1,5 +1,5 @@
-/obj/item/ingotstack
-	name = "ingot stack"
+/obj/item/stack
+	name = "stack"
 	icon = 'icons/roguetown/items/ore.dmi'
 	icon_state = "stackcop2"
 	desc = "You shouldn't be seeing this."
@@ -15,12 +15,18 @@
 	var/base_width = 32
 	var/base_height = 32
 
+/obj/item/stack/Initialize()
+	. = ..()
+	var/obj/item/I = stacktype
+	sellprice = amount * (I.sellprice)
+	update_stack()
+
 /obj/item/ingot/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/ingotstack))
+	if(istype(W, /obj/item/stack))
 		if(item_flags & IN_STORAGE)
 			to_chat(user, span_warning("It's hard to find [W] in my bag."))
 			return
-		var/obj/item/ingotstack/B = W
+		var/obj/item/stack/B = W
 		if(istype(src, B.stacktype))
 			if(B.amount < B.maxamount)
 				B.amount++
@@ -42,7 +48,7 @@
 		if(stacktype && stacktype == B.stacktype)
 			if(!user.temporarilyRemoveItemFromInventory(src))
 				return TRUE
-			var/obj/item/ingotstack/N = new stacktype(loc)
+			var/obj/item/stack/N = new stacktype(loc)
 			to_chat(user, span_notice("You place the [N.stackname] into a stack."))
 			qdel(B)
 			qdel(src)
@@ -51,12 +57,12 @@
 	return ..()
 
 
-/obj/item/ingotstack/attackby(obj/item/W, mob/living/user)
+/obj/item/stack/attackby(obj/item/W, mob/living/user)
 	if(amount <= 0) //how did you manage to do this
 		qdel(src)
 		return
-	if(istype(W, /obj/item/ingotstack))
-		var/obj/item/ingotstack/B = W
+	if(istype(W, /obj/item/stack))
+		var/obj/item/stack/B = W
 		if(src.stacktype == B.stacktype)
 			if(src.amount + B.amount > maxamount)
 				amount = (src.amount + B.amount) - maxamount
@@ -87,7 +93,7 @@
 	else
 		return ..()
 
-/obj/item/ingotstack/attack_right(mob/user)
+/obj/item/stack/attack_right(mob/user)
 	if(item_flags & IN_STORAGE)
 		return
 	if(amount <= 0) //how did you manage to do this
@@ -118,11 +124,11 @@
 			to_chat(user, span_notice("You remove \a [F] from [src]."))
 	update_stack()
 
-/obj/item/ingotstack/examine(mob/user)
+/obj/item/stack/examine(mob/user)
 	. = ..()
 	. += span_notice("There are [amount] [stackname] in this stack.")
 
-/obj/item/ingotstack/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/stack/pre_attack_right(atom/A, mob/living/user, params)
 	if(amount <= 0) //how did you manage to do this
 		qdel(src)
 		return
@@ -137,7 +143,7 @@
 	for(var/obj/item/item in turflocation)
 		if(amount >= maxamount)
 			break
-		if(!istype(item, stacktype) && !istype(item, /obj/item/ingotstack))
+		if(!istype(item, stacktype) && !istype(item, /obj/item/stack))
 			continue
 		if(!do_after(user, 5, TRUE, src))
 			break
@@ -146,8 +152,8 @@
 		if(istype(item, stacktype))
 			amount++
 			qdel(item)
-		else if(istype(item, /obj/item/ingotstack))
-			var/obj/item/ingotstack/B = item
+		else if(istype(item, /obj/item/stack))
+			var/obj/item/stack/B = item
 			if(B.stacktype == stacktype)
 				if(amount + B.amount > maxamount)
 					B.amount = (amount + B.amount) - maxamount
@@ -163,10 +169,12 @@
 		update_stack()
 	return TRUE
 
-/obj/item/ingotstack/proc/update_stack()
+/obj/item/stack/proc/update_stack()
 	icon_state = "[iconstatename][amount]"
 	var/increases = FLOOR(amount / items_per_increase, 1)
 	var/height = FALSE
+	var/obj/item/I = stacktype
+	sellprice = amount * (I.sellprice)
 	grid_height = base_height
 	grid_width = base_width
 	for(var/i = 1 to increases)
@@ -182,7 +190,7 @@
 		storage.update_item(src)
 		storage.orient2hud()
 
-/obj/item/ingotstack/gold
+/obj/item/stack/gold
 	name = "gold ingot stack"
 	desc = "A glimmering pile of gold ingots."
 	stacktype = /obj/item/ingot/gold
@@ -190,7 +198,7 @@
 	stackname = "gold ingots"
 	icon_state = "stackgold2"
 
-/obj/item/ingotstack/iron
+/obj/item/stack/iron
 	name = "iron ingot stack"
 	desc = "A neat pile of iron ingots."
 	stacktype = /obj/item/ingot/iron
@@ -199,7 +207,7 @@
 	icon_state = "stackiron2"
 
 
-/obj/item/ingotstack/copper
+/obj/item/stack/copper
 	name = "copper ingot stack"
 	desc = "A neat pile of copper ingots."
 	stacktype = /obj/item/ingot/copper
@@ -207,7 +215,7 @@
 	stackname = "copper ingots"
 	icon_state = "stackcop2"
 
-/obj/item/ingotstack/tin
+/obj/item/stack/tin
 	name = "tin ingot stack"
 	desc = "A neat pile of tin ingots."
 	stacktype = /obj/item/ingot/tin
@@ -215,7 +223,7 @@
 	stackname = "tin ingots"
 	icon_state = "stacktin2"
 
-/obj/item/ingotstack/bronze
+/obj/item/stack/bronze
 	name = "bronze ingot stack"
 	desc = "A neat pile of bronze ingots."
 	stacktype = /obj/item/ingot/bronze
@@ -223,7 +231,7 @@
 	stackname = "bronze ingots"
 	icon_state = "stackbronze2"
 
-/obj/item/ingotstack/silver
+/obj/item/stack/silver
 	name = "silver ingot stack"
 	desc = "A shiny pile of silver ingots."
 	stacktype = /obj/item/ingot/silver
@@ -231,7 +239,7 @@
 	stackname = "silver ingots"
 	icon_state = "stacksilv2"
 
-/obj/item/ingotstack/steel
+/obj/item/stack/steel
 	name = "steel ingot stack"
 	desc = "A neat pile of steel ingots begging to be turned into weaponry."
 	stacktype = /obj/item/ingot/steel
@@ -239,7 +247,7 @@
 	stackname = "steel ingots"
 	icon_state = "stacksteel2"
 
-/obj/item/ingotstack/blacksteel
+/obj/item/stack/blacksteel
 	name = "blacksteel ingot stack"
 	desc = "A neat pile of blacksteel ingots. An armoursmith's dream."
 	stacktype = /obj/item/ingot/blacksteel
