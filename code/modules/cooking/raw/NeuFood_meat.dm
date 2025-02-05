@@ -104,7 +104,6 @@
 	filling_color = "#8f433a"
 	foodtype = MEAT
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
-	warming = 5 MINUTES
 
 /*-----------------------\
 | Mince & Sausage making |

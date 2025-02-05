@@ -403,21 +403,24 @@
 	name = "bread loaf"
 	desc = "One of the staple foods of the world, with the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
 	icon_state = "loaf6"
+	base_icon_state = "loaf"
 	dropshrink = 0.8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("bread" = 1)
 	slice_batch = FALSE
 	slice_sound = TRUE
-	rotprocess = SHELFLIFE_EXTREME
+	rotprocess = SHELFLIFE_LONG
+	become_rot_type = /obj/item/reagent_containers/food/snacks/stale_bread
 
 /obj/item/reagent_containers/food/snacks/bread/update_icon()
 	if(slices_num)
-		icon_state = "loaf[slices_num]"
+		icon_state = "[base_icon_state][slices_num]"
 	else
-		icon_state = "loaf_slice"
+		icon_state = "[base_icon_state]_slice"
 
 /obj/item/reagent_containers/food/snacks/bread/On_Consume(mob/living/eater)
 	..()
@@ -513,53 +516,59 @@
 	icon_state = "toast"
 	tastes = list("crispy bread" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/badrecipe
+	rotprocess = SHELFLIFE_EXTREME
 
+/obj/item/reagent_containers/food/snacks/stale_bread
+	name = "stale bread"
+	desc = "Old. Is that mold? Not fit for slicing, just eating in sullen silence."
+	icon_state = "loaf6"
+	color = "#92908a"
+	dropshrink = 0.8
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
+	tastes = list("stale bread" = 1)
 
+/obj/item/reagent_containers/food/snacks/stale_bread/raisin
+	icon_state = "raisinbread6"
+/obj/item/reagent_containers/food/snacks/stale_bread/raisin/poison
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 12)
 
 /*	.................   Raisin bread   ................... */
 /obj/item/reagent_containers/food/snacks/raisindough
 	name = "dough of raisins"
 	icon_state = "dough_raisin"
 	slices_num = 0
-	cooked_type = /obj/item/reagent_containers/food/snacks/raisinbread
+	cooked_type = /obj/item/reagent_containers/food/snacks/bread/raisin
 	cooked_smell = /datum/pollutant/food/raisin_bread
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
-	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/raisinbread
+/obj/item/reagent_containers/food/snacks/bread/raisin
 	name = "raisin loaf"
 	desc = "Bread with raisins has a sweet taste and is both filling and preserves well."
 	icon_state = "raisinbread6"
-	dropshrink = 0.8
-	slices_num = 6
+	base_icon_state = "raisinbread"
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/raisin
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION+SNACK_DECENT)
-	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("bread" = 1,"dried fruit" = 1)
-	slice_batch = FALSE
-	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
+	become_rot_type = /obj/item/reagent_containers/food/snacks/stale_bread/raisin
 
-/obj/item/reagent_containers/food/snacks/raisinbread/update_icon()
-	if(slices_num)
-		icon_state = "raisinbread[slices_num]"
-	else
-		icon_state = "raisinbread_slice"
+/obj/item/reagent_containers/food/snacks/raisindough_poison
+	name = "loaf of raisins"
+	icon_state = "raisinbreaduncooked"
+	slices_num = 0
+	cooked_type = /obj/item/reagent_containers/food/snacks/bread/raisin/poison
+	cooked_smell = /datum/pollutant/food/raisin_bread
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 12)
+	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/reagent_containers/food/snacks/raisinbread/On_Consume(mob/living/eater)
-	..()
-	if(slices_num)
-		if(bitecount == 1)
-			slices_num = 5
-		if(bitecount == 2)
-			slices_num = 4
-		if(bitecount == 3)
-			slices_num = 3
-		if(bitecount == 4)
-			slices_num = 2
-		if(bitecount == 5)
-			changefood(slice_path, eater)
+/obj/item/reagent_containers/food/snacks/bread/raisin/poison
+	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE, /datum/reagent/berrypoison = 6)
+	tastes = list("bread" = 1,"bitter fruit" = 1)
+	become_rot_type = /obj/item/reagent_containers/food/snacks/stale_bread/raisin/poison
 
 /obj/item/reagent_containers/food/snacks/breadslice/raisin
 	name = "raisinbread slice"
@@ -568,50 +577,6 @@
 	tastes = list("bread" = 1,"dried fruit" = 1)
 	rotprocess = SHELFLIFE_EXTREME
 
-/obj/item/reagent_containers/food/snacks/raisindough_poison
-	name = "loaf of raisins"
-	icon_state = "raisinbreaduncooked"
-	slices_num = 0
-	cooked_type = /obj/item/reagent_containers/food/snacks/raisinbread_poison
-	cooked_smell = /datum/pollutant/food/raisin_bread
-	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 12)
-	w_class = WEIGHT_CLASS_NORMAL
-	rotprocess = SHELFLIFE_LONG
-
-/obj/item/reagent_containers/food/snacks/raisinbread_poison
-	name = "raisin loaf"
-	desc = "Bread enhanced with sweet raisins for a perfect addition to any meal."
-	icon_state = "raisinbread6"
-	slices_num = 6
-	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE, /datum/reagent/berrypoison = 6)
-	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("bread" = 1,"dried fruit" = 1)
-	slice_batch = FALSE
-	slice_sound = TRUE
-	rotprocess = SHELFLIFE_EXTREME
-	eat_effect = /datum/status_effect/buff/foodbuff
-
-/obj/item/reagent_containers/food/snacks/raisinbread_poison/update_icon()
-	if(slices_num)
-		icon_state = "raisinbread[slices_num]"
-	else
-		icon_state = "raisinbread_slice"
-
-/obj/item/reagent_containers/food/snacks/raisinbread_poison/On_Consume(mob/living/eater)
-	..()
-	if(slices_num)
-		if(bitecount == 1)
-			slices_num = 5
-		if(bitecount == 2)
-			slices_num = 4
-		if(bitecount == 3)
-			slices_num = 3
-		if(bitecount == 4)
-			slices_num = 2
-		if(bitecount == 5)
-			changefood(slice_path, eater)
-
 /obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
 	name = "raisin loaf slice"
 	icon_state = "raisinbread_slice"
@@ -619,6 +584,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/badrecipe
 	tastes = list("bread" = 1,"dried fruit" = 1)
 	rotprocess = SHELFLIFE_LONG
+
 
 /*-----------\
 | Bread buns |
@@ -661,7 +627,6 @@
 	name = "raw cheese bun"
 	desc = "Portable, quaint and entirely consumable"
 	icon_state = "cheesebun_raw"
-	color = "#ecce61"
 	cooked_type = /obj/item/reagent_containers/food/snacks/cheesebun
 	cooked_smell = /datum/pollutant/food/cheese_bun
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)

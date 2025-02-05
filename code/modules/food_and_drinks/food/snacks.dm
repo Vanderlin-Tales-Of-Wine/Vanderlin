@@ -66,7 +66,7 @@ All foods are distributed among various categories. Use common sense.
 	var/cooktime = 25 SECONDS
 	var/burning = 0
 	var/burntime = 5 MINUTES
-	var/warming		//if greater than 0, have a brief period where the food buff applies while its still hot
+	var/warming		//if greater than 0, have a brief period where the food buff applies while its still hot. On 2025-02-05 testing didn´t show it did anything. ROGTODO.
 
 	var/cooked_color = "#91665c"
 	var/burned_color = "#302d2d"
@@ -102,6 +102,7 @@ All foods are distributed among various categories. Use common sense.
 
 	var/plating_alt_icon // for food items not sprited in a way that fits the plating underlay, you can instead have a alt sprite specifically for its plated version.
 	var/plated_iconstate // used in afterattack to switch the above on or off
+	var/base_icon_state // used for procs manipulating icons when sliced and the like
 
 /datum/intent/food
 	name = "feed"

@@ -19446,7 +19446,7 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/reagent_containers/food/snacks/frybread,
 /obj/item/reagent_containers/food/snacks/frybread,
-/obj/item/reagent_containers/food/snacks/raisinbread,
+/obj/item/reagent_containers/food/snacks/bread/raisin,
 /obj/structure/fluff/railing/border{
 	dir = 1;
 	icon_state = "border"

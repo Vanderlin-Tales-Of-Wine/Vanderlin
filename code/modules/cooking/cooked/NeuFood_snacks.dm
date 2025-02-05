@@ -162,7 +162,7 @@
 	desc = "Whatever it was, its roasted."
 	icon_state = "fried_strange"
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION) // raw meat nutrition but without getting sick
-
+	plateable = TRUE
 
 
 /*---------------\

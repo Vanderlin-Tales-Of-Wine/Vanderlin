@@ -286,7 +286,7 @@
 	icon_state = "lootfood"
 	spawned = list(
 		/obj/item/reagent_containers/food/snacks/bread = 10,
-		/obj/item/reagent_containers/food/snacks/raisinbread = 10,
+		/obj/item/reagent_containers/food/snacks/bread/raisin = 10,
 		/obj/item/reagent_containers/food/snacks/bun = 10,
 		/obj/item/reagent_containers/food/snacks/cheesebun = 10,
 		/obj/item/reagent_containers/food/snacks/frybread = 10,

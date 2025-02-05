@@ -34,7 +34,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/pieslice
 	slices_num = 5
 	slice_batch = TRUE
-	warming = 10 MINUTES
 	eat_effect = null
 	foodtype = GRAIN | DAIRY
 	chopping_sound = TRUE
@@ -80,7 +79,6 @@
 	dropshrink = 0.9
 	filling_color = "#FFFFFF"
 	foodtype = GRAIN | DAIRY
-	warming = 5 MINUTES
 	color = "#e7e2df"
 	rotprocess = SHELFLIFE_LONG
 

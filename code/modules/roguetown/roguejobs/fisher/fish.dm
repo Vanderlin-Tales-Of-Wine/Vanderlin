@@ -111,7 +111,6 @@
 	desc = "Abyssor's bounty, make sure to eat the eyes!"
 	icon_state = "carpcooked"
 	foodtype = MEAT
-	warming = 5 MINUTES
 	dropshrink = 0.6
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp

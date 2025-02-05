@@ -124,19 +124,35 @@
 
 /obj/item/kitchen/platter
 	name = "platter"
-	desc = "Made from fired clay or wood."
+	desc = "Made from wood."
 	icon_state = "platter"
 	resistance_flags = NONE
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	experimental_inhand = FALSE
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/kitchen/platter/clay
+	desc = "Made from fired clay."
+	icon_state = "platter_clay"
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	resistance_flags = FIRE_PROOF
+
+/obj/item/kitchen/platter/copper
+	desc = "Made from thin metal."
+	icon_state = "platter_copper"
+	resistance_flags = FIRE_PROOF
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
 
 /obj/item/reagent_containers/glass/bowl
 	name = "bowl"
 	desc = "It is the empty space that makes the bowl useful."
 	icon = 'icons/roguetown/items/cooking.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "bowl"
 	force = 5
-	throwforce = 10
+	throwforce = 5
 	reagent_flags = OPENCONTAINER
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
@@ -148,33 +164,12 @@
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
 	metalizer_result = /obj/item/roguecoin/copper
+	var/in_use // so you can't spam eating with spoon
 
+/obj/item/reagent_containers/glass/bowl/copper
+	icon_state = "bowl_copper"
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
-
-/obj/item/kitchen/rollingpin
-	experimental_inhand = FALSE
-
-/obj/item/reagent_containers/glass/bowl
-	name = "wooden bowl"
-	desc = "It is the empty space that makes the bowl useful."
-	icon = 'icons/roguetown/items/cooking.dmi'
-	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
-	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
-	icon_state = "bowl"
-	force = 5
-	throwforce = 5
-	reagent_flags = OPENCONTAINER
-	amount_per_transfer_from_this = 7
-	possible_transfer_amounts = list(7)
-	dropshrink = 0.9
-	w_class = WEIGHT_CLASS_NORMAL
-	volume = 33
-	obj_flags = CAN_BE_HIT
-	sellprice = 1
-	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
-	fillsounds = list('sound/items/fillcup.ogg')
-	var/in_use // so you can't spam eating with spoon
 
 /obj/item/reagent_containers/glass/bowl/update_icon()
 	cut_overlays()
