@@ -122,7 +122,7 @@
 		/obj/item/natural/hide = 1,
 	)
 	reagent_requirements = list(
-		/datum/reagent/water = 45
+		/datum/reagent/water = 33
 	)
 	attacking_atom = /obj/machinery/tanningrack
 
