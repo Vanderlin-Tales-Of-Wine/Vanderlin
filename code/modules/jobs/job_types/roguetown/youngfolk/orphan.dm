@@ -9,7 +9,7 @@
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_ages = list(AGE_CHILD)
 
-	tutorial = "Your parrents are dead and you have no home. Will you make something of yourself or will you die in the streets as a nobody."
+	tutorial = "Your parents are dead and you have no home. Will you make something of yourself or will you die in the streets as a nobody."
 
 	outfit = /datum/outfit/job/roguetown/orphan
 	display_order = JDO_ORPHAN

@@ -2179,7 +2179,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
-/obj/structure/fluff/walldeco/innsign/saiga,
+/obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "cwV" = (
@@ -15887,7 +15887,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "qpX" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern/saiga)
 "qqn" = (
@@ -16618,7 +16618,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/bath/redhouse)
 "rec" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern/saiga)
 "rej" = (
