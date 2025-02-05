@@ -14,11 +14,11 @@
 	var/finished_icon_state
 	var/finished_cooked_type
 	var/finished_cooked_smell
-	var/finished_filling_color
+	var/finished_filling_color	// to give pies the filling color they should have
 	var/pie_roof
 
 	var/fill_states = 3
-	var/superior_cooked_type
+	var/superior_cooked_type	// what cooking path if user got good cooking skills?
 
 /datum/orderless_slapcraft/pie/try_finish(mob/living/user)
 	var/obj/item/reagent_containers/food/snacks/foodbase/piebottom/source = hosted_source
