@@ -11166,7 +11166,7 @@
 "lIB" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/clothing/cloak/raincloak/blue,
-/obj/item/reagent_containers/food/snacks/toast,
+/obj/item/reagent_containers/food/snacks/breadslice/toast,
 /obj/item/reagent_containers/glass/bottle/rogue/water,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/garrison)
@@ -14995,7 +14995,7 @@
 /obj/item/reagent_containers/food/snacks/frybread,
 /obj/item/reagent_containers/food/snacks/biscuit,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/item/reagent_containers/food/snacks/rbread_slice,
+/obj/item/reagent_containers/food/snacks/breadslice/raisin,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/magician)
 "pro" = (

@@ -403,6 +403,7 @@
 	name = "bread loaf"
 	desc = "One of the staple foods of the world, with the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
 	icon_state = "loaf6"
+	dropshrink = 0.8
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
@@ -437,7 +438,7 @@
 	name = "sliced bread"
 	desc = "A bit of comfort to start your dae."
 	icon_state = "loaf_slice"
-	cooked_type = /obj/item/reagent_containers/food/snacks/toast
+	cooked_type = /obj/item/reagent_containers/food/snacks/breadslice/toast
 	cooked_smell = /datum/pollutant/food/toast
 	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION)
 	rotprocess = SHELFLIFE_LONG
@@ -451,73 +452,68 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "salumoi bread"
+			name = "[name] & salumoi"
 			desc = "[desc] A thick slice of salumoi has been added."
-			icon_state = "bread_salami"
+			add_overlay("salumoid")
 			tastes = list("salumoi" = 1,"bread" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + SNACK_POOR + 2)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR + 2)
 			foodtype = GRAIN | MEAT
 			modified = TRUE
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheddarslice))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "cheese bread"
+			name = "[name] & cheese"
 			desc = "[desc] Fat cheese slices has been added."
-			icon_state = "bread_cheese"
+			add_overlay("cheesed")
 			tastes = list("cheese" = 1,"bread" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + 2 + 2)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR + 1)
 			foodtype = GRAIN | DAIRY
 			modified = TRUE
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "cackleberry bread"
-			icon_state = "bread_egg"
+			name = "[name] & egg"
+			add_overlay("egged")
 			tastes = list("bread" = 1,"egg" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + EGG_NUTRITION + 2)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION + 2)
 			foodtype = GRAIN | MEAT
 			modified = TRUE
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/fat/salo/slice))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
-			name = "salo bread"
-			icon_state = "bread_salo"
+			name = "[name] & salo"
+			add_overlay("salod")
 			tastes = list("bread" = 1,"salted fat" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + SNACK_POOR + 2)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR + 2)
 			foodtype = GRAIN | MEAT
 			modified = TRUE
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user,short_cooktime, target = src))
+			name = "buttered [name]"
+			add_overlay("buttered")
+			tastes = list("butter" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+			foodtype = GRAIN | DAIRY
+			modified = TRUE
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/toast
+/obj/item/reagent_containers/food/snacks/breadslice/toast
 	name = "toasted bread"
 	icon_state = "toast"
 	tastes = list("crispy bread" = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION)
-/obj/item/reagent_containers/food/snacks/toast/attackby(obj/item/I, mob/living/user, params)
-	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-	if(modified)
-		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
-		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
-			name = "buttered [name]"
-			desc = "[desc] A thick layer of butter is spread on it."
-			icon_state = "toast_butter"
-			tastes = list("butter" = 1)
-			list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION + BREADSLICE_NUTRITION)
-			modified = TRUE
-			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
-			qdel(I)
-	return ..()
+	cooked_type = /obj/item/reagent_containers/food/snacks/badrecipe
+
 
 
 /*	.................   Raisin bread   ................... */
@@ -535,8 +531,9 @@
 	name = "raisin loaf"
 	desc = "Bread with raisins has a sweet taste and is both filling and preserves well."
 	icon_state = "raisinbread6"
+	dropshrink = 0.8
 	slices_num = 6
-	slice_path = /obj/item/reagent_containers/food/snacks/rbread_slice
+	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/raisin
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION+SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("bread" = 1,"dried fruit" = 1)
@@ -564,14 +561,12 @@
 		if(bitecount == 5)
 			changefood(slice_path, eater)
 
-/obj/item/reagent_containers/food/snacks/rbread_slice
-	name = "raisin loaf slice"
+/obj/item/reagent_containers/food/snacks/breadslice/raisin
+	name = "raisinbread slice"
 	icon_state = "raisinbread_slice"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION+2)
 	tastes = list("bread" = 1,"dried fruit" = 1)
-	rotprocess = SHELFLIFE_LONG
-	eat_effect = /datum/status_effect/buff/foodbuff
-	dropshrink = 0.8
+	rotprocess = SHELFLIFE_EXTREME
 
 /obj/item/reagent_containers/food/snacks/raisindough_poison
 	name = "loaf of raisins"
@@ -588,7 +583,7 @@
 	desc = "Bread enhanced with sweet raisins for a perfect addition to any meal."
 	icon_state = "raisinbread6"
 	slices_num = 6
-	slice_path = /obj/item/reagent_containers/food/snacks/rbread_slice_poison
+	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE, /datum/reagent/berrypoison = 6)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("bread" = 1,"dried fruit" = 1)
@@ -617,17 +612,13 @@
 		if(bitecount == 5)
 			changefood(slice_path, eater)
 
-/obj/item/reagent_containers/food/snacks/rbread_slice_poison
+/obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
 	name = "raisin loaf slice"
 	icon_state = "raisinbread_slice"
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1, /datum/reagent/berrypoison = 1)
-	w_class = WEIGHT_CLASS_NORMAL
-	cooked_type = null
-	tastes = list("spelt" = 1,"dried fruit" = 1)
-	bitesize = 2
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR, /datum/reagent/berrypoison = 4)
+	cooked_type = /obj/item/reagent_containers/food/snacks/badrecipe
+	tastes = list("bread" = 1,"dried fruit" = 1)
 	rotprocess = SHELFLIFE_LONG
-	eat_effect = /datum/status_effect/buff/foodbuff
-	dropshrink = 0.8
 
 /*-----------\
 | Bread buns |

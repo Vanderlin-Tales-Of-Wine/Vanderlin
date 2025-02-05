@@ -20,7 +20,7 @@
 		),
 		list(
 			/obj/item/reagent_containers/food/snacks/biscuit = 25,
-			/obj/item/reagent_containers/food/snacks/toast = 10,
+			/obj/item/reagent_containers/food/snacks/breadslice/toast = 10,
 		)
 	)
 
