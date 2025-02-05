@@ -10390,7 +10390,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "lxr" = (
-/obj/structure/fluff/walldeco/innsign/trophy{
+/obj/structure/fluff/walldeco/sign/trophy{
 	desc = "A somewhat unfitting sign for a physician's office.";
 	name = "Medicae Office";
 	pixel_y = -32

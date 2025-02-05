@@ -1,9 +1,9 @@
 /datum/job/roguetown/skeleton
-	title = "skeleton"
-	flag = GRAVETENDER
-//	department_flag = PEASANTS
+	title = "Skeleton"
+	flag = SKELETON
+	department_flag = UNDEAD
 	faction = "Station"
-	total_positions = 0
+	total_positions = -1
 	spawn_positions = 0
 
 	allowed_sexes = list(MALE, FEMALE)

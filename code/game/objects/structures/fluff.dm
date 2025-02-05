@@ -62,6 +62,8 @@
 		return 1
 	if(isobserver(mover))
 		return 1
+	if(mover.movement_type & FLYING)
+		return 1
 	if(isliving(mover))
 		var/mob/living/M = mover
 		if(!(M.mobility_flags & MOBILITY_STAND))
@@ -92,6 +94,8 @@
 	if(O.throwing)
 		return 1
 	if(isobserver(O))
+		return 1
+	if(O.movement_type & FLYING)
 		return 1
 	if(isliving(O))
 		var/mob/living/M = O
