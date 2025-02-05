@@ -169,6 +169,24 @@
 		return FALSE
 	return TRUE
 
+/datum/slapcraft_recipe/carpentry/structure/lanternpost
+	name = "lantern post"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/item/small_log/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/stick,
+		/datum/slapcraft_step/item/stick/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/machinery/light/rogue/lanternpost/unfixed
+
+/datum/slapcraft_recipe/carpentry/structure/lanternpost/check_craft_requirements(mob/user, turf/T)
+	for(var/obj/machinery/light/rogue/lanternpost/L in T)
+		return FALSE
+	for(var/obj/machinery/light/roguestreet/R in T)
+		return FALSE
+	return ..()
 
 /datum/slapcraft_recipe/carpentry/structure/psycrss
 	name = "wooden cross"

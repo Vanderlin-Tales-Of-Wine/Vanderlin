@@ -254,6 +254,11 @@
 		START_PROCESSING(SSobj, src)
 		M.set_mob_offsets("bed_buckle", _x = 0, _y = 10)
 
+/obj/structure/noose/gallows/post_buckle_mob(mob/living/M)
+	if(has_buckled_mobs())
+		START_PROCESSING(SSobj, src)
+		M.set_mob_offsets("bed_buckle", _x = 6, _y = 16)
+
 /obj/structure/noose/post_unbuckle_mob(mob/living/M)
 	STOP_PROCESSING(SSobj, src)
 	M.reset_offsets("bed_buckle")
