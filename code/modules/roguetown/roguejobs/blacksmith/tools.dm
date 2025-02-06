@@ -258,21 +258,26 @@
 		hott = 0
 	update_icon()
 
-/obj/item/rogueweapon/tongs/attack_self(mob/user)
-	if(hingot)
-		if(isturf(user.loc))
-			hingot.forceMove(get_turf(user))
-			hingot = null
-			hott = 0
-			update_icon()
-
-/obj/item/rogueweapon/tongs/dropped()
-	. = ..()
-	if(hingot)
-		hingot.forceMove(get_turf(src))
+///Places the ingot on the atom, this can be either a turf or a table
+/obj/item/rogueweapon/tongs/proc/place_ingot_to_atom(atom/A, mob/user)
+	if(hingot && (isturf(A) || istype(A, /obj/structure/table)))
+		hingot.forceMove(get_turf(A))
 		hingot = null
-	hott = 0
-	update_icon()
+		hott = 0
+		update_icon()
+	else if(hingot)
+		to_chat(user, "<span class='warning'>Cannot place ingot there!</span>")
+
+/obj/item/rogueweapon/tongs/attack_self(mob/user)
+	place_ingot_to_atom(get_turf(user), user)
+
+/obj/item/rogueweapon/tongs/dropped(mob/user)
+	. = ..()
+	place_ingot_to_atom(get_turf(src), user)
+
+/obj/item/rogueweapon/tongs/pre_attack_right(atom/A, mob/living/user, params)
+	. = ..()
+	place_ingot_to_atom(get_turf(A), user)
 
 /obj/item/rogueweapon/tongs/getonmobprop(tag)
 	. = ..()

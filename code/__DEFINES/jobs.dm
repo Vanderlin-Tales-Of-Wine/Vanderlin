@@ -150,7 +150,7 @@
 #define ADVENTURER	(1<<9)
 #define COOK		(1<<10)
 #define GRABBER		(1<<11)
-#define BARD	(1<<12)
+#define BARD		(1<<12)
 #define CHEESEMAKER (1<<13)
 #define MIGRANT		(1<<16)
 #define BANDIT		(1<<17)
@@ -166,6 +166,11 @@
 #define INNKEEPCHILD    (1<<1)
 #define CHURCHLING      (1<<2)
 #define ORPHAN		    (1<<3)
+
+#define UNDEAD		(1<<10)
+
+#define DEATHKNIGHT (1<<0)
+#define SKELETON	(1<<1)
 
 #define JCOLOR_NOBLE "#9c40bf"
 #define JCOLOR_MERCHANT "#c2b449"
