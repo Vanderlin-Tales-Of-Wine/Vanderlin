@@ -78,7 +78,7 @@
 	if(charflaw && !charflaw.ephemeral)
 		charflaw.flaw_on_life(src)
 	if(health <= 0)
-		apply_damage(2, OXY)
+		apply_damage(1, OXY)
 	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 		if(mob_timers["slo"])
 			if(world.time > mob_timers["slo"] + 90 SECONDS)

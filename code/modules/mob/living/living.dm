@@ -1362,8 +1362,6 @@
 
 /mob/living/proc/adjust_divine_fire_stacks(add_fire_stacks) //Adjusting the amount of divine_fire_stacks we have on person. Always call before adjust_fire_stacks for proper extinguish behavior
 	divine_fire_stacks = CLAMP(divine_fire_stacks + add_fire_stacks, 0, 100)
-	// if(on_fire && fire_stacks <= 0 && (divine_fire_stacks <= 0))
-	// 	ExtinguishMob()
 
 //Share fire evenly between the two mobs
 //Called in MobBump() and Crossed()
