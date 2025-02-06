@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/t3
 
 	/// List of words that this god considers profane.
-	var/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","ass","cuck","fucker","fucked","cunt","asshole")
+	var/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","cuck","cunt","asshole")
 
 	///our traits thats applied by set_patron and removed when changed
 	var/list/added_traits
