@@ -787,7 +787,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	if(!damned || !message)
 		return
 
-	var/static/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","ass","cuck","fucker","fucked","cunt","asshole")
+	var/static/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","cuck","cunt","asshole")
 	var/prayer = sanitize_hear_message(message)
 
 	for(var/profanity in profane_words)
