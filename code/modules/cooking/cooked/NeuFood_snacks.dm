@@ -43,7 +43,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 
-	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/onion_fried) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		to_chat(user, "<span class='notice'>Adding onions...</span>")
 		if(do_after(user,short_cooktime, target = src))
@@ -105,7 +105,7 @@
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/potato) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "[name] and tatos"
@@ -182,7 +182,7 @@
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/cabbage_fried) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cabbage_fried) && (!modified))
 		playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on cabbage"
@@ -194,7 +194,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/potato) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener on tato"
@@ -206,7 +206,7 @@
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/preserved/onion_fried) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(do_after(user,short_cooktime, target = src))
 			name = "wiener and onions"
@@ -243,7 +243,7 @@
 \---------------*/
 
 /*	.............   Cooked cabbage   ................ */
-/obj/item/reagent_containers/food/snacks/preserved/cabbage_fried
+/obj/item/reagent_containers/food/snacks/cabbage_fried
 	name = "cooked cabbage"
 	icon_state = "cabbage_fried"
 	desc = "A peasant's delight."
@@ -251,7 +251,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
@@ -271,14 +271,14 @@
 
 
 /*	.............   Baked potato   ................ */
-/obj/item/reagent_containers/food/snacks/preserved/potato/baked
+/obj/item/reagent_containers/food/snacks/potato/baked
 	name = "baked potatos"
 	desc = "A dwarven favorite, as a meal or a game of hot potato."
 	icon_state = "potato_baked"
 	bitesize = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/preserved/potato/baked/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/potato/baked/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
@@ -310,7 +310,7 @@
 
 
 /*	.............   Fried onions   ................ */
-/obj/item/reagent_containers/food/snacks/preserved/onion_fried
+/obj/item/reagent_containers/food/snacks/onion_fried
 	name = "fried onion"
 	desc = "Seared onions roasted to a delicious set of rings."
 	icon_state = "onion_fried"
@@ -318,7 +318,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("savoury morsel" = 1)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
@@ -337,7 +337,7 @@
 	return ..()
 
 /*	.............   Fried potato   ................ */
-/obj/item/reagent_containers/food/snacks/preserved/potato/fried
+/obj/item/reagent_containers/food/snacks/potato/fried
 	name = "fried potato"
 	desc = "Potato bits, well roasted."
 	icon_state = "potato_fried"
@@ -345,7 +345,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm potato" = 1)
 	rotprocess = SHELFLIFE_EXTREME
-/obj/item/reagent_containers/food/snacks/preserved/potato/fried/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/potato/fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)

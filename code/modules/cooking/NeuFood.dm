@@ -15,10 +15,6 @@
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	do_random_pixel_offset = FALSE // disables the random placement on creation for this object
 
-/obj/item/reagent_containers/food/snacks/preserved // just convenient way to group food with long rotprocess
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
-	rotprocess = SHELFLIFE_EXTREME
-
 /obj/effect/decal/cleanable/food/mess // decal applied when throwing minced meat for example
 	name = "mess"
 	desc = ""
@@ -92,7 +88,6 @@
 
 
 
-
 /*--------------\
 | Kitchen tools |
 \--------------*/
@@ -103,6 +98,7 @@
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
+	var/base_item
 
 /obj/item/kitchen/spoon
 	name = "wooden spoon"
@@ -126,23 +122,31 @@
 	name = "platter"
 	desc = "Made from wood."
 	icon_state = "platter"
+	dropshrink = 0.9
 	resistance_flags = NONE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	experimental_inhand = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
+	base_item = /obj/item/kitchen/platter
 
 /obj/item/kitchen/platter/clay
 	desc = "Made from fired clay."
 	icon_state = "platter_clay"
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
 	resistance_flags = FIRE_PROOF
+	base_item = /obj/item/kitchen/platter/clay
+/obj/item/kitchen/platter/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
+	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
+	..()
+	qdel(src)
 
 /obj/item/kitchen/platter/copper
 	desc = "Made from thin metal."
 	icon_state = "platter_copper"
 	resistance_flags = FIRE_PROOF
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
-
+	base_item = /obj/item/kitchen/platter/copper
 
 /obj/item/reagent_containers/glass/bowl
 	name = "bowl"
@@ -166,25 +170,37 @@
 	metalizer_result = /obj/item/roguecoin/copper
 	var/in_use // so you can't spam eating with spoon
 
-/obj/item/reagent_containers/glass/bowl/copper
-	icon_state = "bowl_copper"
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+/obj/item/reagent_containers/glass/bowl/clay
+	desc = "Made from fired clay."
+	icon_state = "bowl_clay"
+	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+/obj/item/reagent_containers/glass/bowl/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
+	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
+	..()
+	qdel(src)
 
 /obj/item/reagent_containers/glass/bowl/update_icon()
 	cut_overlays()
+	var/mutable_appearance/steam = mutable_appearance(icon, "steam")
 	if(reagents)
 		if(reagents.total_volume > 0)
-			if(reagents.total_volume <= 11)
+			if(reagents.total_volume < 1)
+				icon_state = "bowl"
+				underlays.Cut()
+			if(reagents.total_volume <= 10)
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_low")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
-		if(reagents.total_volume > 11)
-			if(reagents.total_volume <= 22)
+		if(reagents.total_volume > 10)
+			if(reagents.total_volume <= 20)
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_half")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
-		if(reagents.total_volume > 22)
+		if(reagents.total_volume > 20)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/oatmeal, 10))
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_oatmeal")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
@@ -192,19 +208,22 @@
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17))
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				icon_state = "bowl_steam"
+				underlays += steam
 				add_overlay(filling)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 17))
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_stew")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
-				icon_state = "bowl_steam"
+				underlays += steam
 				add_overlay(filling)
 			else
 				var/mutable_appearance/filling = mutable_appearance(icon, "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
+		else
+			underlays.Cut()
 	else
 		icon_state = "bowl"
+		underlays.Cut()
 
 /obj/item/reagent_containers/glass/bowl/on_reagent_change(changetype)
 	..()
@@ -360,11 +379,11 @@
 	taste_mult = 4
 	hydration = 4
 
-/datum/reagent/consumable/soup/stew
+/datum/reagent/consumable/soup/stew // can all be made with mince ie half meat so has to stay nutrient poor
 	name = "thick stew"
 	description = "All manners of edible bits went into this."
 	reagent_state = LIQUID
-	nutriment_factor = 14
+	nutriment_factor = 11
 	taste_mult = 4
 
 /datum/reagent/consumable/soup/stew/chicken
@@ -374,6 +393,10 @@
 /datum/reagent/consumable/soup/stew/meat
 	color = "#80432a"
 	taste_description = "meat stew"
+
+/datum/reagent/consumable/soup/stew/meat_meagre
+	color = "#80432a"
+	taste_description = "meagre meat stew"
 
 /datum/reagent/consumable/soup/stew/fish
 	color = "#c7816e"
@@ -536,13 +559,13 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,1 SECONDS, target = src))
 				S.plated()
-				S.trash = /obj/item/kitchen/platter
+				S.trash = base_item
 				S.plateable = FALSE
 				S.rotprocess =  SHELFLIFE_LONG
 				S.w_class = WEIGHT_CLASS_NORMAL
 				S.dropshrink = 0.9
 				S.bonus_reagents = list(/datum/reagent/consumable/nutriment = 2)
-				var/mutable_appearance/platter = mutable_appearance(icon, "platter")
+				var/mutable_appearance/platter = mutable_appearance(icon, icon_state)
 				S.underlays += platter
 				qdel(src)
 		else

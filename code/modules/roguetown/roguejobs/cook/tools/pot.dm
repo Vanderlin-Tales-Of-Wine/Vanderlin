@@ -15,6 +15,9 @@
 
 	var/static/list/checker_recipes = list()
 
+/obj/item/reagent_containers/glass/bucket/pot/copper
+	icon_state = "pote_copper"
+
 /obj/item/reagent_containers/glass/bucket/pot/Destroy()
 	. = ..()
 	in_progress_recipes = null
@@ -234,8 +237,8 @@
 /datum/pot_recipe/cooking/chicken_stew/cutlet
 	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet = 1)
 
-/datum/pot_recipe/cooking/spider_stew
-	name = "spider stew"
+/datum/pot_recipe/cooking/questionable_stew
+	name = "questionable stew"
 	cooking_time = 90 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/stew/gross
 	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 1)
@@ -245,10 +248,14 @@
 	name = "meat stew"
 	cooking_time = 90 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/stew/meat
+//	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef = 1)
 	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat = 1)
 	finished_smell = /datum/pollutant/food/meat_stew
 	fallback = TRUE
-
+/*
+/datum/pot_recipe/cooking/generic_meat_stew/steak
+	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1)
+*/
 /datum/pot_recipe/cooking/egg_soup
 	name = "egg soup"
 	cooking_time = 80 SECONDS

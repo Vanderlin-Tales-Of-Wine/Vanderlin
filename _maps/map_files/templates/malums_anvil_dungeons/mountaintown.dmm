@@ -2384,7 +2384,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "HI" = (
 /obj/item/storage/roguebag,
-/obj/item/reagent_containers/food/snacks/preserved/potato_baked{
+/obj/item/reagent_containers/food/snacks/potato_baked{
 	pixel_x = -6
 	},
 /obj/structure/table/wood/plain_alt,

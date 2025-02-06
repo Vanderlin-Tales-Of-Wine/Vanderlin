@@ -213,6 +213,7 @@
 	flags_inv = HIDEHAIR
 	reagent_flags = OPENCONTAINER
 	obj_flags = CAN_BE_HIT
+	possible_item_intents = list( /datum/intent/fill, INTENT_POUR, INTENT_SPLASH, INTENT_GENERIC )
 	gripped_intents = list(INTENT_POUR)
 	resistance_flags = NONE
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 75, "acid" = 50) //Weak melee protection, because you can wear it on your head

@@ -39,6 +39,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("sweetness and spiderwebs" = 1)
 
+
 // -------------- RAISINS -----------------
 /obj/item/reagent_containers/food/snacks/raisins
 	name = "raisins"
@@ -49,8 +50,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried fruit" = 1)
 	foodtype = GRAIN
-	eat_effect = null
-	rotprocess = null
 
 /obj/item/reagent_containers/food/snacks/raisins/On_Consume(mob/living/eater)
 	..()

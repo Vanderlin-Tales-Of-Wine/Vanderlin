@@ -176,6 +176,9 @@
 		desc = ""
 	. = ..()
 
+/obj/effect/decal/cleanable/shreds/clay
+	color = "#916258"
+
 /obj/effect/decal/cleanable/glitter
 	name = "generic glitter pile"
 	desc = ""

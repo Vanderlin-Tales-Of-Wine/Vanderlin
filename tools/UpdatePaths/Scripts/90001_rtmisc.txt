@@ -8,7 +8,7 @@
 
 /obj/item/reagent_containers/food/snacks/cooked/egg : /obj/item/reagent_containers/food/snacks/rogue/friedegg{@OLD}
 
-/obj/item/reagent_containers/food/snacks/preserved/potato/baked : /obj/item/reagent_containers/food/snacks/preserved/potato_baked{@OLD}
+/obj/item/reagent_containers/food/snacks/potato/baked : /obj/item/reagent_containers/food/snacks/potato_baked{@OLD}
 /obj/item/reagent_containers/food/snacks/spiderhoney : /obj/item/reagent_containers/food/snacks/rogue/honey{@OLD}
 /obj/item/reagent_containers/food/snacks/raisins : /obj/item/reagent_containers/food/snacks/rogue/raisins{@OLD}
 
