@@ -29900,7 +29900,7 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -31268,7 +31268,7 @@
 /area/rogue/outdoors/river)
 "wOk" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/bucket/wooden,
+/obj/item/reagent_containers/glass/bucket,
 /obj/item/natural/cloth{
 	pixel_y = 12
 	},
