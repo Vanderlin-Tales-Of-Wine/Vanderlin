@@ -20,9 +20,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
 	if (!isturf(src.loc) || \
-		!(locate(/obj/structure/table) in src.loc) && \
+		(!(locate(/obj/structure/table) in src.loc) && \
 		!(locate(/obj/structure/table/optable) in src.loc) && \
-		!(locate(/obj/item/storage/bag/tray) in src.loc))
+		!(locate(/obj/item/plate) in src.loc)))
 		to_chat(user, "<span class='warning'>I need to use a table.</span>")
 		return FALSE
 	if(user.mind)

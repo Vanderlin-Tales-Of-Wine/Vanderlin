@@ -403,7 +403,7 @@
 				var/mob/user = src
 				if(user.used_intent)
 					usedreach = user.used_intent.reach
-			if(isturf(target) || isturf(target.loc) || (target in direct_access)) //Directly accessible atoms
+			if(isturf(target) || isturf(target.loc) || (target in direct_access) || (ismovable(target) && target.flags_1 & IS_ONTOP_1)) //Directly accessible atoms
 				if(Adjacent(target) || (tool && CheckToolReach(src, target, usedreach))) //Adjacent or reaching attacks
 					return TRUE
 
