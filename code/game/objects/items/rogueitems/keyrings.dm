@@ -287,4 +287,4 @@
 	keys = list(/obj/item/key/warehouse, /obj/item/key/shop)
 
 /obj/item/storage/keyring/gaffer
-	keys = list(/obj/item/key/gaffer, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary)
+	keys = list(/obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary)
