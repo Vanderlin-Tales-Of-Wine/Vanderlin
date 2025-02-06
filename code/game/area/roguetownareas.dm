@@ -799,7 +799,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 			)
 
 			var/static/list/turfs = list()
-			if(!length(turfs)) //there is a lot of turfs, let's only do this once
+			if(!length(turfs)) //there are a lot of turfs, let's only do this once
 				for(var/turf/turf in src)
 					if(turf.density)
 						continue
