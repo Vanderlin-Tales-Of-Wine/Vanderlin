@@ -157,7 +157,6 @@
 		if(I.playing)
 			return
 
-	var/note_color = "#7f7f7f" // uses MMO item rarity color grading
 	var/curfile = input(user, "Which song do you want to play?", "Pick a song", name) as null|anything in song_list
 	if(!curfile)
 		return
@@ -165,6 +164,7 @@
 	if(!curfile)
 		return
 
+	var/note_color = "#7f7f7f" // uses MMO item rarity color grading
 	var/stressevent = /datum/stressevent/music
 	switch(music_level)
 		if(1)
