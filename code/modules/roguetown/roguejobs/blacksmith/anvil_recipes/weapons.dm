@@ -2,6 +2,7 @@
 	appro_skill = /datum/skill/craft/weaponsmithing
 	craftdiff = 1
 	i_type = "Weapons"
+	abstract_type = /datum/anvil_recipe/weapons
 
 // SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
 
