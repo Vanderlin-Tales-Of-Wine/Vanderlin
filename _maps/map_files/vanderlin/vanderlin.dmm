@@ -5055,6 +5055,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/item/key/garrison{
+	pixel_x = 5
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/steward)
 "dEl" = (
@@ -8203,6 +8206,10 @@
 	dir = 4;
 	icon_state = "border"
 	},
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "fME" = (
@@ -25187,13 +25194,20 @@
 /area/rogue/outdoors/mountains)
 "svn" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
 /obj/structure/fluff/railing/border{
 	dir = 4;
 	icon_state = "border"
+	},
+/obj/item/key_custom_blank,
+/obj/item/key_custom_blank{
+	pixel_y = 6;
+	pixel_z = null;
+	pixel_x = -6
+	},
+/obj/item/key_custom_blank{
+	pixel_y = 4;
+	pixel_z = null;
+	pixel_x = 4
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -27689,15 +27703,41 @@
 /obj/item/key/manor,
 /obj/item/key/walls,
 /obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
-/obj/item/key/doctor,
+/obj/item/key/steward{
+	pixel_x = 5;
+	pixel_y = 15
+	},
+/obj/item/key/church{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/key/dungeon{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/key/graveyard{
+	pixel_x = -9;
+	pixel_y = -6
+	},
+/obj/item/key/garrison{
+	pixel_y = -4
+	},
+/obj/item/key/artificer{
+	pixel_y = -12;
+	pixel_x = -4
+	},
+/obj/item/key/mercenary{
+	pixel_x = -12;
+	pixel_y = -4
+	},
+/obj/item/key/tavern{
+	pixel_x = -12;
+	pixel_y = 12
+	},
+/obj/item/key/doctor{
+	pixel_x = 9;
+	pixel_y = 3
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/steward)
 "uaD" = (
