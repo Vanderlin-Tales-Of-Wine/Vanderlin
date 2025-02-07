@@ -1,5 +1,5 @@
 /obj/item/rogueweapon/pick
-	force = 10
+	force = 16
 	possible_item_intents = list(/datum/intent/pick)
 	name = "pick"
 	desc = ""
@@ -26,7 +26,7 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/rogueweapon/pick/copper
-	force = 7
+	force = 13
 	possible_item_intents = list(/datum/intent/pick)
 	name = "copper pick"
 	desc = ""
@@ -40,3 +40,23 @@
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = /obj/item/ingot/copper
 
+/obj/item/rogueweapon/pick/steel
+	name = "steel pick"
+	desc = "With a reinforced handle and sturdy shaft, this is a superior tool for delving in the darkness."
+	force = 19
+	icon_state = "steelpick"
+	possible_item_intents = list(/datum/intent/pick)
+	gripped_intents = list(/datum/intent/pick)
+	max_integrity = 600
+	smeltresult = /obj/item/ingot/steel
+
+/obj/item/rogueweapon/pick/stone
+	name = "stone pick"
+	desc = "Stone versus sharp stone, who wins?"
+	force = 10
+	icon_state = "stonepick"
+	possible_item_intents = list(/datum/intent/pick)
+	gripped_intents = list(/datum/intent/pick)
+	max_integrity = 250
+	smeltresult = null
+	anvilrepair = null

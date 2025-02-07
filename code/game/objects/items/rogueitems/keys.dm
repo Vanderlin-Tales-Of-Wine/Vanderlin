@@ -106,7 +106,8 @@
 
 /obj/item/key/lord/Initialize()
 	. = ..()
-	SSroguemachine.key = src
+	if(!istype(loc, /mob/living/carbon/human/dummy))
+		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()
 	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))

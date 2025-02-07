@@ -647,12 +647,14 @@
 						if(amt2raise > 0)
 							user.mind.add_sleep_experience(skillcraft, amt2raise, FALSE)
 				move_products(outputs, user)
+
 			else
 				move_items_back(to_delete, user)
-				return
+
 		else
 			move_items_back(to_delete, user)
 			move_products(list(), user)
+	return TRUE
 
 /datum/repeatable_crafting_recipe/proc/move_items_back(list/items, mob/user)
 	for(var/obj/item/item in items)
