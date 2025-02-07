@@ -15,7 +15,7 @@
 	var/placement_offset = -15
 
 /obj/item/plate/attackby(obj/item/I, mob/user, params)
-	if(!istype(I, /obj/item/reagent_containers/food) && !istype(I, /obj/item/reagent_containers/glass/cup))
+	if(!istype(I, /obj/item/reagent_containers/food) && !istype(I, /obj/item/reagent_containers/glass/cup) && !istype(I, /obj/item/reagent_containers/glass/bowl))
 		to_chat(user, span_notice("[src] isn't made to carry that!"))
 		return
 	if(contents.len >= max_items)
