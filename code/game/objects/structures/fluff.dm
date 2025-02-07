@@ -24,7 +24,7 @@
 /obj/structure/fluff/railing
 	name = "railing"
 	desc = ""
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/roguetown/misc/railing.dmi'
 	icon_state = "railing"
 	density = FALSE
 	anchored = TRUE
@@ -139,7 +139,6 @@
 	name = "stone railing"
 	icon_state = "stonehedge"
 	blade_dulling = DULLING_BASHCHOP
-	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/railing/border
 	name = "border"
@@ -150,7 +149,6 @@
 /obj/structure/fluff/railing/fence
 	name = "palisade"
 	desc = "A sturdy fence of wooden stakes."
-	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "fence"
 	density = TRUE
 	opacity = TRUE
