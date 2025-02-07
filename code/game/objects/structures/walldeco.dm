@@ -199,16 +199,6 @@
 	name = "banner"
 	icon_state = "moon"
 
-/obj/structure/fluff/walldeco/rpainting
-	name = "painting"
-	icon_state = "painting_1"
-
-/obj/structure/fluff/walldeco/rpainting/forest
-	icon_state = "painting_2"
-
-/obj/structure/fluff/walldeco/rpainting/crown
-	icon_state = "painting_3"
-
 /obj/structure/fluff/walldeco/med
 	name = "diagram"
 	icon_state = "medposter"
@@ -242,14 +232,17 @@
 	pixel_y = 24
 
 /*	..................   The Drunken Saiga   ................... */
-/obj/structure/fluff/walldeco/innsign/saiga
+/obj/structure/fluff/walldeco/sign/saiga
 	name = "The Drunken Saiga"
-	icon_state = "bar_saiga"
+	icon_state = "shopsign_inn_saiga_right"
 	plane = -1
 	pixel_x = 3
 	pixel_y = 16
 
-/obj/structure/fluff/walldeco/innsign/trophy
+/obj/structure/fluff/walldeco/sign/saiga/left
+	icon_state = "shopsign_inn_saiga_left"
+
+/obj/structure/fluff/walldeco/sign/trophy
 	name = "saiga trophy"
 	icon_state = "saiga_trophy"
 	pixel_y = 32
@@ -259,6 +252,46 @@
 	name = "feldsher sign"
 	icon_state = "feldsher"
 	pixel_y = 32
+
+/*	..................   Weaponsmith Sign   ................... */
+/obj/structure/fluff/walldeco/sign/weaponsmithsign
+	name = "weaponsmith shop sign"
+	icon_state = "shopsign_weaponsmith_right"
+	plane = -1
+	pixel_y = 16
+
+/obj/structure/fluff/walldeco/sign/weaponsmithsign/left
+	icon_state = "shopsign_weaponsmith_left"
+
+/*	..................   Armorsmith Sign   ................... */
+/obj/structure/fluff/walldeco/sign/armorsmithsign
+	name = "armorsmith shop sign"
+	icon_state = "shopsign_armorsmith_right"
+	plane = -1
+	pixel_y = 16
+
+/obj/structure/fluff/walldeco/sign/armorsmithsign/left
+	icon_state = "shopsign_armorsmith_left"
+
+/*	..................   Merchant Sign   ................... */
+/obj/structure/fluff/walldeco/sign/merchantsign
+	name = "merchant shop sign"
+	icon_state = "shopsign_merchant_right"
+	plane = -1
+	pixel_y = 16
+
+/obj/structure/fluff/walldeco/sign/merchantsign/left
+	icon_state = "shopsign_merchant_left"
+
+/*	..................   Apothecary Sign   ................... */
+/obj/structure/fluff/walldeco/sign/apothecarysign
+	name = "apothecary sign"
+	icon_state = "shopsign_apothecary_right"
+	plane = -1
+	pixel_y = 16
+
+/obj/structure/fluff/walldeco/sign/apothecarysign/left
+	icon_state = "shopsign_apothecary_left"
 
 
 /*	..................   Wall decorations   ................... */

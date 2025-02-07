@@ -389,14 +389,14 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/woodengreatflail
-	name = "great wooden flail"
+	name = "thresher"
 	skillcraft = /datum/skill/craft/carpentry
 	reqs = list(/obj/item/rope = 1,
 			/obj/item/grown/log/tree/stick = 1, /obj/item/grown/log/tree/small = 1)
 	tools = list(/obj/item/rogueweapon/hammer)
 	req_table = TRUE
 	result = list(/obj/item/rogueweapon/thresher)
-	craftdiff = 2
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/bigflail
 	name = "great militia flail"

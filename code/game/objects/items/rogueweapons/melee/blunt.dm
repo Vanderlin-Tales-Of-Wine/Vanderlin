@@ -321,7 +321,7 @@
 
 //................ Shillelagh ............... //
 /obj/item/rogueweapon/mace/goden/shillelagh		// The Briar signature weapon. Sturdy oak war club.
-	gripped_intents = list(/datum/intent/mace/smash/heavy)
+	gripped_intents = list(/datum/intent/mace/smash/wood)
 	name = "shillelagh"
 	desc = "Big old oak branch, carved to a deadly weapon."
 	icon_state = "shillelagh"

@@ -1454,7 +1454,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "fi" = (
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/royalblack,
@@ -2352,7 +2352,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "ip" = (
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_x = -32
 	},
 /obj/effect/landmark/start/squire{
@@ -2518,7 +2518,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "iS" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile{
@@ -2880,7 +2880,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "jU" = (
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/wood,
@@ -2929,7 +2929,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "kb" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
 /obj/structure/table/wood{
@@ -3071,7 +3071,7 @@
 	dir = 8
 	},
 /obj/item/candle/yellow/lit,
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/woodturned,

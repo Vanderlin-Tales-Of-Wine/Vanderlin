@@ -218,7 +218,7 @@
 				return FALSE
 		L.stop_pulling()
 	else if(isobj(AM))
-		if((AM.density) || AM.anchored || AM.has_buckled_mobs())
+		if((AM.density) || AM.anchored || AM.has_buckled_mobs() || iseffect(AM))
 			return FALSE
 		else
 			if(isitem(AM))

@@ -40,7 +40,7 @@
 /area/rogue)
 "hq" = (
 /obj/structure/floordoor/gatehatch/inner,
-/obj/structure/fluff/walldeco/innsign/saiga,
+/obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/rogue/dirt,
 /area/rogue)
 "hr" = (
@@ -93,7 +93,7 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "mD" = (
-/obj/structure/fluff/walldeco/innsign/saiga,
+/obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/rogue/dirt,
 /area/rogue)
 "of" = (
@@ -112,7 +112,7 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "pm" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "px" = (

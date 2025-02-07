@@ -340,15 +340,15 @@
 /obj/structure/flora/roguegrass/bush/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
-	if(get_dir(loc, target) == dir)
-		return 0
+	// if(get_dir(loc, target) == dir)
+	// 	return 0
 	return 1
 
 /obj/structure/flora/roguegrass/bush/CheckExit(atom/movable/mover as mob|obj, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
 		return 1
-	if(get_dir(mover.loc, target) == dir)
-		return 0
+	// if(get_dir(mover.loc, target) == dir)
+	// 	return 0
 	return 1
 
 // bush crossing

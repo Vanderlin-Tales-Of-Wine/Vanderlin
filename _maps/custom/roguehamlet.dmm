@@ -2189,7 +2189,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
-/obj/structure/fluff/walldeco/innsign/saiga,
+/obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "cwV" = (
@@ -3122,7 +3122,7 @@
 /area/rogue/under/town/sewer)
 "dAr" = (
 /obj/structure/bed/rogue/wooldouble,
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/herringbone,
@@ -3498,7 +3498,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/cave/spider)
 "dUz" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -4836,7 +4836,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "feU" = (
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile,
@@ -6576,7 +6576,7 @@
 	first_time_text = "Blackwine Manor"
 	})
 "gXo" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -12287,7 +12287,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 5
 	},
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/carpet,
@@ -13401,7 +13401,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/exposed/magiciantower)
 "odw" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = 32
 	},
 /turf/open/floor/carpet/inn,
@@ -14563,7 +14563,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/shelter/rtfield)
 "peE" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/carpet,
@@ -15764,7 +15764,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
 "qpX" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern/saiga)
 "qqn" = (
@@ -16445,7 +16445,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/bath/redhouse)
 "rec" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern/saiga)
 "rej" = (
@@ -20411,7 +20411,7 @@
 	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
 	})
 "uYS" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/town/tavern/saiga)
 "uYT" = (

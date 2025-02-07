@@ -60,7 +60,7 @@
 /area/rogue/under/town/basement)
 "aex" = (
 /obj/structure/chair/bench/coucha,
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/red,
@@ -93,7 +93,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/town/basement)
 "age" = (
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/hexstone,
@@ -1595,7 +1595,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "bNu" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/blocks,
@@ -8586,7 +8586,7 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "jBA" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town)
 "jBZ" = (
@@ -10390,7 +10390,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "lxr" = (
-/obj/structure/fluff/walldeco/innsign/trophy{
+/obj/structure/fluff/walldeco/feldshersign{
 	desc = "A somewhat unfitting sign for a physician's office.";
 	name = "Medicae Office";
 	pixel_y = -32
@@ -11015,7 +11015,7 @@
 /turf/closed/wall/mineral/rogue/wooddark/window,
 /area/rogue/indoors/town)
 "miz" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -11771,7 +11771,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "mUD" = (
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/wood,
@@ -12890,7 +12890,7 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/vault)
 "ocW" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -14556,7 +14556,7 @@
 /area/rogue/under/town/basement)
 "pSc" = (
 /obj/structure/chair/stool/rogue,
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -15399,7 +15399,7 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "qRe" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/tile{
@@ -16290,7 +16290,7 @@
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
 /area/rogue/indoors/town/garrison)
 "rUX" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/town/basement)
 "rVn" = (

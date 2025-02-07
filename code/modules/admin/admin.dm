@@ -809,6 +809,8 @@
 		return
 	if(M.mind.assigned_role == "Priest")
 		return
+	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
+		return
 	var/datum/job/J = SSjob.GetJobType(/datum/job/roguetown/priest)
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.mind)
