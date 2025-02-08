@@ -50,7 +50,7 @@
 	item_damage_type = "slash"
 	blade_class = BCLASS_CHOP
 
-/// Skewer something.
+/// Skewer something. Implies the object is big and long.
 /datum/intent/impale
 	name = "impale"
 	icon_state = "instab"
@@ -61,6 +61,7 @@
 	blade_class = BCLASS_STAB
 	item_damage_type = "stab"
 
+/// Thrust into something. Implies the object is small and short.
 /datum/intent/stab
 	name = "stab"
 	icon_state = "instab"
@@ -86,6 +87,18 @@
 	blade_class = BCLASS_PICK
 	chargetime = 0
 	swingdelay = 3
+
+/datum/intent/snip // The salvaging intent! Used only for the scissors for now!
+	name = "snip"
+	icon_state = "insnip"
+	chargetime = 0
+	noaa = TRUE
+	candodge = FALSE
+	canparry = FALSE
+	misscost = 0
+	no_attack = TRUE
+	releasedrain = 0
+	blade_class = BCLASS_PUNCH
 
 /* RANGED */
 /datum/intent/shoot //shooting crossbows or other guns, no parrydrain

@@ -4,7 +4,7 @@
 /obj/item/rogueweapon/knife
 	force = DAMAGE_KNIFE
 	throwforce = DAMAGE_KNIFE
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger, /datum/intent/chop/dagger)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	icon = 'icons/roguetown/weapons/32.dmi'
 	gripsprite = FALSE
@@ -41,80 +41,40 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/datum/intent/dagger
-	clickcd = 8
-
 /*-----------\
 | Cut intent |	small AP, fast
 \-----------*/
-/datum/intent/dagger/cut
-	name = "cut"
-	icon_state = "incut"
-	attack_verb = list("cuts", "slashes")
-	animname = "cut"
-	blade_class = BCLASS_CUT
-	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
+/datum/intent/cut/dagger
 	penfactor = 10
 	chargetime = 0
 	swingdelay = 1
 	clickcd = 10	// between normal and fast
-	item_damage_type = "slash"
 
 /*------------\
 | Stab intent |	good AP, fast
 \---------.--*/
-/datum/intent/dagger/thrust
-	name = "stab"
-	icon_state = "instab"
-	attack_verb = list("stabs")
-	animname = "stab"
-	blade_class = BCLASS_STAB
-	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
+/datum/intent/stab/dagger
 	penfactor = 30
 	chargetime = 0
 	clickcd = CLICK_CD_FAST
 	swingdelay = 1
-	item_damage_type = "stab"
-
-/*------------\
-| Pick intent |	great AP. Not actually used anywhere.
-\------------*/
-/*
-/datum/intent/dagger/thrust/pick
-	name = "thrust"
-	attack_verb = list("stabs", "impales")
-	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 50
-	clickcd = CLICK_CD_MELEE
-	swingdelay = 1
-	blade_class = BCLASS_PICK
-*/
 
 /*------------\
 | Chop intent |	small AP, bonus damage
 \------------*/
-/datum/intent/dagger/chop
-	name = "chop"
-	icon_state = "inchop"
-	attack_verb = list("chops")
-	animname = "chop"
-	blade_class = BCLASS_CHOP
+/datum/intent/chop/dagger
 	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
+
 	penfactor = 10
 	damfactor = 1.5
 	swingdelay = 1
 	clickcd = CLICK_CD_MELEE
-	item_damage_type = "slash"
-
-/datum/intent/dagger/chop/cleaver
-	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
-	damfactor = 2
 
 //................ Hunting Knife ............... //
 /obj/item/rogueweapon/knife/hunting
 	force = DAMAGE_DAGGER
 	throwforce = DAMAGE_KNIFE
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger, /datum/intent/chop/dagger)
 	name = "hunting knife"
 	desc = "Loyal companion to hunters and poachers, from humble bone to truest steel, disembowel your prey with glee."
 	icon_state = "huntingknife"
@@ -127,23 +87,11 @@
 
 
 /obj/item/rogueweapon/knife/scissors
-	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/cut, /datum/intent/snip)
+	possible_item_intents = list(/datum/intent/stab/dagger, /datum/intent/cut/dagger, /datum/intent/snip)
 	max_integrity = 100
 	name = "iron scissors"
 	desc = "Scissors made of iron that may be used to salvage usable materials from clothing."
 	icon_state = "iscissors"
-
-/datum/intent/snip // The salvaging intent! Used only for the scissors for now!
-	name = "snip"
-	icon_state = "insnip"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	canparry = FALSE
-	misscost = 0
-	no_attack = TRUE
-	releasedrain = 0
-	blade_class = BCLASS_PUNCH
 
 /obj/item/rogueweapon/knife/scissors/attack_obj(obj/O, mob/living/user) //This is scissor action! We're putting this here not to lose sight of it!
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
@@ -196,7 +144,7 @@
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/chop/dagger/cleaver)
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')
 	throwforce = 15
@@ -208,12 +156,16 @@
 	wbalance = 0 // Except this one, too huge and used to chop
 	dropshrink = 0.9
 
+/datum/intent/chop/dagger/cleaver
+	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
+	damfactor = 2
+
 //................ Hack-Knife ............... //
 /obj/item/rogueweapon/knife/cleaver/combat
 	name = "hack-knife"
 	desc = "A short blade that even the weakest of hands can aspire to do harm with."
 	force = 10
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/chop/dagger)
 	icon_state = "combatknife"
 	throwforce = 16
 	max_integrity = 180
@@ -234,7 +186,7 @@
 
 //................ Iron Dagger ............... //
 /obj/item/rogueweapon/knife/dagger
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger)
 	name = "iron dagger"
 	desc = "Thin, sharp, pointed death."
 	icon_state = "idagger"
@@ -391,7 +343,7 @@
 /obj/item/rogueweapon/knife/stone
 	force = DAMAGE_KNIFE
 	throwforce = DAMAGE_KNIFE
-	possible_item_intents = list(/datum/intent/dagger/cut,/datum/intent/dagger/chop)
+	possible_item_intents = list(/datum/intent/cut/dagger,/datum/intent/chop/dagger)
 	name = "stone knife"
 	desc = "A tool favored by the wood-elves, easy to make, useful for skinning the flesh of beast and man alike."
 	icon_state = "stone_knife"
@@ -405,14 +357,14 @@
 
 //................ Villager Knife ............... //
 /obj/item/rogueweapon/knife/villager
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger, /datum/intent/chop/dagger)
 	name = "villager knife"
 	desc = "The loyal companion of simple peasants, able to cut hard bread and carve wood. A versatile kitchen utensil and tool."
 	icon_state = "villagernife"
 	smeltresult = null
 
 /obj/item/rogueweapon/knife/copper
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger)
 	name = "copper dagger"
 	desc = "A dagger of an older design, the copper serves decent enough."
 	icon_state = "cdagger"

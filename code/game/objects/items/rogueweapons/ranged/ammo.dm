@@ -15,7 +15,7 @@
 	name = "bolt"
 	desc = "A small and sturdy bolt, with simple plume and metal tip, alongside a groove to load onto a crossbow."
 	projectile_type = /obj/projectile/bullet/reusable/bolt
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger)
 	caliber = "regbolt"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "bolt"
@@ -153,7 +153,7 @@
 	icon_state = "arrow"
 	force = 20
 	dropshrink = 0.8
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger)
 	max_integrity = 20
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 

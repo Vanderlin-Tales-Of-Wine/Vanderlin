@@ -160,8 +160,8 @@
 #define MACE_SMASH			/datum/intent/mace/smash
 #define MACE_STRIKE			/datum/intent/mace/strike
 
-#define DAGGER_CUT			/datum/intent/dagger/cut
-#define DAGGER_THRUST		/datum/intent/dagger/thrust
+#define DAGGER_CUT			/datum/intent/cut/dagger
+#define DAGGER_THRUST		/datum/intent/stab/dagger
 #define ICEPICK_STAB		/datum/intent/dagger/icepick
 
 #define MAUL_SMASH			/datum/intent/maul/smash
