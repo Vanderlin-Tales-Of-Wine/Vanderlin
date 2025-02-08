@@ -242,7 +242,7 @@
 	if(istype(SSticker.mode, /datum/game_mode/chaosmode))
 		var/datum/game_mode/chaosmode/C = SSticker.mode
 		if(C.check_for_lord)
-			if(!C.check_for_lord())
+			if(!C.check_for_lord(forced = TRUE))
 				end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
 								"Without a Monarch, they were doomed to be eaten by nite creachers.",
 								"Without a Monarch, they were doomed to become victims of Gehenna.",

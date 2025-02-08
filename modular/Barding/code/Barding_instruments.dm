@@ -87,7 +87,7 @@
 
 	user.apply_status_effect(/datum/status_effect/buff/playing_music) // Handles regular stress event in tick()
 	var/boon = user?.mind?.get_learning_boon(/datum/skill/misc/music)
-	user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.05) // And gain exp
+	user?.mind?.adjust_experience(/datum/skill/misc/music, ceil((user.STAINT*0.2) * boon) * 0.15) // And gain exp
 
 	if(!HAS_TRAIT(user, TRAIT_BARDIC_TRAINING))
 		return
@@ -96,6 +96,8 @@
 		if(!L.client)
 			continue
 		if(!L.can_hear()) // Only good people who can hear music will get buffed
+			continue
+		if((L.mob_biotypes & MOB_UNDEAD) && !(user.mob_biotypes & MOB_UNDEAD))
 			continue
 		L.add_stress(/datum/stressevent/bardicbuff)
 		if(!instrument_buff)
