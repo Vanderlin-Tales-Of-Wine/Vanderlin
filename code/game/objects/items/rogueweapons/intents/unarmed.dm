@@ -5,14 +5,13 @@
 /datum/intent/help
 	name = "touch"
 	icon_state = "intouch"
-	chargetime = 0
 	noaa = TRUE
+	rmb_ranged = TRUE
 
-	intent_flags = (INTENT_UNDODGEABLE)
+	intent_flags = (INTENT_UNARMED | INTENT_UNDODGEABLE)
 
 	misscost = 0
 	releasedrain = 0
-	rmb_ranged = TRUE
 
 /datum/intent/help/rmb_ranged(mob/target, mob/user)
 	if(!istype(target))
@@ -26,18 +25,20 @@
 
 	target.waved(user)
 
-/datum/intent/shove
+/datum/intent/disarm
 	name = "shove"
 	icon_state = "inshove"
 	attack_verb = list("shoves", "pushes")
-	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
+
+	intent_flags = (INTENT_UNARMED)
+
 	misscost = 5
 	releasedrain = 10
 	item_damage_type = "blunt"
 
-/datum/intent/shove/rmb_ranged(mob/target, mob/user)
+/datum/intent/disarm/rmb_ranged(mob/target, mob/user)
 	if(!istype(target))
 		return
 
@@ -53,14 +54,13 @@
 	name = "grab"
 	icon_state = "ingrab"
 	attack_verb = list("grabs")
-	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
+
+	intent_flags = (INTENT_UNARMED | INTENT_UNPARRYABLE)
+
 	releasedrain = 10
 	misscost = 5
-
-	intent_flags = (INTENT_UNPARRYABLE)
-
 	item_damage_type = "blunt"
 
 /datum/intent/grab/rmb_ranged(mob/target, mob/user)
@@ -75,30 +75,57 @@
 
 	target.beckoned(user)
 
-/datum/intent/punch
+/datum/intent/harm
 	name = "punch"
 	icon_state = "inpunch"
 	attack_verb = list("punches", "jabs", "clocks", "strikes")
-	chargetime = 0
 	animname = "punch"
 	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
-	misscost = 5
-	releasedrain = 5
-	swingdelay = 0
-	rmb_ranged = TRUE
-	blade_class = BCLASS_PUNCH
 	miss_text = "swings a fist at the air!"
 	miss_sound = "punchwoosh"
+
+	intent_flags = (INTENT_UNARMED)
+
+	misscost = 5
+	releasedrain = 5
+	rmb_ranged = TRUE
+	blade_class = BCLASS_PUNCH
 	item_damage_type = "blunt"
 
-/datum/intent/punch/rmb_ranged(mob/target, mob/user)
+/datum/intent/harm/rmb_ranged(mob/target, mob/user)
 	if(!istype(target))
 		return
 
 	user.visible_message( \
-		"<span class='red'>[user] taunts [target]!</span>", \
-		"<span class='warning'>I taunt [target]!</span>", \
+		span_red("[user] taunts [target]!"), \
+		span_warning("I taunt [target]!"), \
 		ignored_mobs = list(target) \
 	)
 
 	target.taunted(user)
+
+/datum/intent/harm/claw
+	name = "claw"
+	icon_state = "inclaw"
+	attack_verb = list("claws", "scratches", "rends", "tears")
+	animname = "claw"
+	hitsound = "smallslash"
+	miss_text = "claws the air!"
+	miss_sound = "blunthwoosh"
+
+	blade_class = BCLASS_CUT
+	item_damage_type = "slash"
+	penfactor = 20
+
+
+/// Zizo ascended harm intent.
+/datum/intent/harm/claw/ascended
+	attack_verb = list("claws", "mauls", "eviscerates")
+	hitsound = "genslash"
+	miss_text = "slashes the air!"
+	miss_sound = "bluntwooshlarge"
+
+	blade_class = BCLASS_CHOP
+	penfactor = 131
+	damfactor = 40
+	item_damage_type = "slash"

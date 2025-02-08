@@ -20,7 +20,7 @@
 					/obj/item/bodypart,
 					/obj/item/organ)
 
-	base_intents = list(/datum/intent/unarmed/claw)
+	base_intents = list(/datum/intent/harm/claw)
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
 	melee_damage_lower = 40
 	melee_damage_upper = 60
@@ -53,7 +53,7 @@
 	icon_living = "ascend"
 	icon = 'icons/mob/32x64.dmi'
 	move_to_delay = 0
-	base_intents = list(/datum/intent/unarmed/ascendedclaw)
+	base_intents = list(/datum/intent/harm/claw/ascended)
 	melee_damage_lower = 250
 	melee_damage_upper = 550
 	health = 666666
@@ -110,7 +110,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/blood/taunted(mob/user)
 	. = ..()
-	
+
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

@@ -105,9 +105,9 @@
 
 //intent defines
 #define INTENT_HELP			/datum/intent/help
+#define INTENT_DISARM		/datum/intent/disarm
 #define INTENT_GRAB			/datum/intent/grab
-#define INTENT_DISARM		/datum/intent/shove
-#define INTENT_HARM			/datum/intent/punch
+#define INTENT_HARM			/datum/intent/harm
 
 //mmb intents
 #define INTENT_KICK		/datum/intent/kick

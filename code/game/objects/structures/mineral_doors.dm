@@ -295,9 +295,13 @@
 	if(isSwitchingStates)
 		return
 	if(locked)
-		if( user.used_intent.type == /datum/intent/unarmed/claw )
+		if(istype(user.used_intent, /datum/intent/harm/claw))
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='warning'>The deadite claws at the door!!</span>")
+			visible_message( \
+				span_warning("[user] claws at [src]!"), \
+				span_warning("I claw at [src]."), \
+				span_warning("I hear metal being ripped apart.")
+			)
 			take_damage(40, "brute", "slash", 1)
 			return
 		if(isliving(user))
@@ -305,11 +309,14 @@
 			if(L.m_intent == MOVE_INTENT_SNEAK)
 				to_chat(user, span_warning("This door is locked."))
 				return
-		if(world.time >= last_bump+20)
+		if(world.time >= last_bump + 2 SECONDS)
 			last_bump = world.time
 			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
-			user.visible_message(span_warning("[user] knocks on [src]."), \
-				span_notice("I knock on [src]."))
+			user.visible_message( \
+				span_warning("[user] knocks on [src]."), \
+				span_notice("I knock on [src]."), \
+				span_warning("I hear knocking.") \
+			)
 		return
 	return TryToSwitchState(user)
 

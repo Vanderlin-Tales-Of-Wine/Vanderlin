@@ -11,7 +11,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 					/obj/item/bodypart/r_arm/rousman, /obj/item/bodypart/r_leg/rousman, /obj/item/bodypart/l_leg/rousman)
 	rot_type = /datum/component/rot/corpse/rousman
 	ambushable = FALSE
-	base_intents = list(INTENT_STEAL, INTENT_HELP, INTENT_DISARM, /datum/intent/unarmed/claw, /datum/intent/simple/bite, /datum/intent/jump)
+	base_intents = list(INTENT_STEAL, INTENT_HELP, INTENT_DISARM, /datum/intent/harm/claw, /datum/intent/simple/bite, /datum/intent/jump)
 	possible_rmb_intents = list()
 	vitae_pool = 200
 

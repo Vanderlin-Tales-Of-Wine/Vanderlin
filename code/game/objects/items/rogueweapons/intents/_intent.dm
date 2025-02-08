@@ -423,40 +423,6 @@
 	candodge = TRUE
 	canparry = TRUE
 
-/datum/intent/unarmed/claw	// defined as attack with some AP
-	name = "claw"
-	icon_state = "inclaw"
-	attack_verb = list("claws", "scratches", "rends", "tears")
-	animname = "claw"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	penfactor = 20
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "claws the air!"
-	miss_sound = "blunthwoosh"
-	chargetime = 0
-	misscost = 5
-	releasedrain = 5
-	swingdelay = 0
-	rmb_ranged = TRUE
-	item_damage_type = "slash"
-
-/datum/intent/unarmed/ascendedclaw
-	name = "claw"
-	icon_state = "inclaw"
-	attack_verb = list("claws", "mauls", "eviscerates")
-	animname = "claw"
-	blade_class = BCLASS_CHOP
-	hitsound = "genslash"
-	penfactor = 131
-	damfactor = 40
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "slashes the air!"
-	miss_sound = "bluntwooshlarge"
-	item_damage_type = "slash"
-
 /datum/intent/simple/sting
 	name = "sting"
 	icon_state = "instrike"
