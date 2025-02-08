@@ -420,6 +420,7 @@
 	GiveTarget(M)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/beckoned(mob/user)
+	. = ..()
 	if(tame && !stop_automated_movement)
 		stop_automated_movement = TRUE
 		Goto(user,move_to_delay)

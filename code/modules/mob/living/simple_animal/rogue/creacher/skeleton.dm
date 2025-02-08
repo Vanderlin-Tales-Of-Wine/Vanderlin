@@ -136,7 +136,9 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/rogue/skeleton/beckoned(mob/user)
-	if (can_control(user))
+	. = ..()
+
+	if(can_control(user))
 		for(var/mob/living/simple_animal/hostile/rogue/skeleton/target in viewers(user))
 			target.LoseTarget()
 			target.search_objects = 2

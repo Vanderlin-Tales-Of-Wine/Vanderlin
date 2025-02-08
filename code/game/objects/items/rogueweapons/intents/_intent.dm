@@ -10,7 +10,7 @@
 #define INTENT_UNDODGEABLE (1<<1)
 /// This intent cannot be parried.
 #define INTENT_UNPARRYABLE (1<<2)
-/// This intent will not attack atoms on a turf.
+/// Turns off auto aiming, also turns off the 'swooshes'.
 #define INTENT_NOAUTOAIM (1<<2)
 
 /datum/intent
@@ -32,13 +32,16 @@
 	var/canparry = TRUE //! DEPRECATED
 	var/candodge = TRUE //! DEPRECATED
 
+	var/tranged = 0
+	var/tshield = FALSE //! probably needed or something
+	var/no_attack = FALSE //causes a return in /attack() but still allows to be used in attackby(
+
 	var/iparrybonus = 0
 	var/idodgebonus = 0
 	var/chargetime = 0 //if above 0, this attack must be charged to reach full damage
 	var/chargedrain = 0 //how mcuh fatigue is removed every second when at max charge
 	var/releasedrain = 1 //drain when we go off, regardless
 	var/misscost = 1	//extra drain from missing only, ALSO APPLIED IF ENEMY DODGES
-	var/tranged = 0
 	var/noaa = FALSE //turns off auto aiming, also turns off the 'swooshes'
 	var/warnie = ""
 	var/pointer = 'icons/effects/mousemice/human_attack.dmi'
@@ -48,7 +51,6 @@
 	var/no_early_release = FALSE //we can't shoot off early
 	var/movement_interrupt = FALSE //we cancel charging when changing mob direction, for concentration spells
 	var/rmb_ranged = FALSE //we execute a proc with the same name when rmbing at range with no offhand intent selected
-	var/tshield = FALSE //probably needed or something
 	var/datum/looping_sound/chargedloop = null
 	var/keep_looping = TRUE
 	var/damfactor = 1 //multiplied by weapon's force for damage
@@ -56,7 +58,6 @@
 	var/charging_slowdown = 0
 	var/warnoffset = 0
 	var/swingdelay = 0
-	var/no_attack = FALSE //causes a return in /attack() but still allows to be used in attackby(
 	var/reach = 1 //In tiles, how far this weapon can reach; 1 for adjacent, which is default
 	var/miss_text //THESE ARE FOR UNARMED MISSING ATTACKS
 	var/miss_sound //THESE ARE FOR UNARMED MISSING ATTACKS
@@ -176,62 +177,64 @@
 /datum/intent/use
 	name = "use"
 	icon_state = "inuse"
-	noaa = TRUE
-	candodge = FALSE
-	canparry = FALSE
-	misscost = 0
-	no_attack = TRUE
-	releasedrain = 0
 	blade_class = BCLASS_PUNCH
+
 	item_damage_type = "blunt"
+	intent_flags = (INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+	noaa = TRUE
+	no_attack = TRUE
+
+	misscost = 0
+	releasedrain = 0
 
 /datum/intent/kick
 	name = "kick"
+	pointer = 'icons/effects/mousemice/human_kick.dmi'
+	animname = "kick"
 
+	item_damage_type = "blunt"
 	intent_flags = (INTENT_UNARMED)
 
 	swingdelay = 5
 	misscost = 20
-	animname = "kick"
-	pointer = 'icons/effects/mousemice/human_kick.dmi'
-	item_damage_type = "blunt"
 
 /datum/intent/bite
 	name = "bite"
+	attack_verb = list("bites")
 
+	item_damage_type = "stab"
 	intent_flags = (INTENT_UNARMED)
 
 	chargedrain = 0
 	chargetime = 0
 	swingdelay = 0
-	attack_verb = list("bites")
-	item_damage_type = "stab"
 
 /datum/intent/jump
 	name = "jump"
-	candodge = FALSE
-	canparry = FALSE
+	pointer = 'icons/effects/mousemice/human_jump.dmi'
+
+	intent_flags = (INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+	noaa = TRUE
+
 	chargedrain = 0
 	chargetime = 0
-	noaa = TRUE
-	pointer = 'icons/effects/mousemice/human_jump.dmi'
 
 /datum/intent/steal
 	name = "steal"
-	candodge = FALSE
-	canparry = FALSE
+	intent_flags = (INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+
 	chargedrain = 0
 	chargetime = 0
 	noaa = TRUE
 
 /datum/intent/give
 	name = "give"
-	candodge = FALSE
-	canparry = FALSE
+	pointer = 'icons/effects/mousemice/human_give.dmi'
+	intent_flags = (INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+
 	chargedrain = 0
 	chargetime = 0
 	noaa = TRUE
-	pointer = 'icons/effects/mousemice/human_give.dmi'
 
 /datum/intent/spell
 	name = "spell"
@@ -241,6 +244,7 @@
 	warnie = "aimwarn"
 	warnoffset = 0
 
+// No clue why these are here
 /datum/looping_sound/invokegen
 	mid_sounds = list('sound/magic/charging.ogg')
 	mid_length = 130
@@ -275,7 +279,9 @@
 	name = "hit"
 	icon_state = "instrike"
 	attack_verb = list("hit", "strike")
+
 	item_damage_type = "blunt"
+
 	chargetime = 0
 	swingdelay = 0
 
@@ -283,10 +289,12 @@
 	name = "stab"
 	icon_state = "instab"
 	attack_verb = list("stab")
-	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	animname = "stab"
+	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
+
 	blade_class = BCLASS_STAB
 	item_damage_type = "stab"
+
 	chargetime = 0
 	swingdelay = 0
 
@@ -295,8 +303,10 @@
 	icon_state = "inpick"
 	attack_verb = list("picks","impales")
 	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
+
 	item_damage_type = "stab"
 	animname = "strike"
+
 	blade_class = BCLASS_PICK
 	chargetime = 0
 	swingdelay = 3

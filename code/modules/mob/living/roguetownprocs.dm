@@ -503,7 +503,10 @@
 	return
 
 /mob/proc/beckoned(mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	
+	if(can_see_cone(user))
+		to_chat(src, span_green("[user] beckons me to come closer."))
 
 /mob/proc/get_punch_dmg()
 	return

@@ -55,7 +55,7 @@
 			M.shood(user)
 	return
 
-/datum/intent/unarmed/grab
+/datum/intent/grab
 	name = "grab"
 	icon_state = "ingrab"
 	attack_verb = list("grabs")
@@ -68,17 +68,17 @@
 	canparry = FALSE
 	item_damage_type = "blunt"
 
-/datum/intent/unarmed/grab/rmb_ranged(atom/target, mob/user)
-	if(ismob(target))
-		var/mob/M = target
-		var/list/targetl = list(target)
-		user.visible_message("<span class='green'>[user] beckons [M] to come closer.</span>", "<span class='green'>I beckon [M] to come closer.</span>", ignored_mobs = targetl)
-		if(M.client)
-			if(M.can_see_cone(user))
-				to_chat(M, "<span class='green'>[user] beckons me to come closer.</span>")
-		else
-			M.beckoned(user)
-	return
+/datum/intent/grab/rmb_ranged(mob/target, mob/user)
+	if(!istype(target))
+		return
+
+	user.visible_message( \
+		span_green("[user] beckons [target] to come closer."), \
+		span_green("I beckon [target] to come closer."), \
+		ignored_mobs = list(target) \
+	)
+
+	target.beckoned(user)
 
 /datum/intent/unarmed/help
 	name = "touch"
