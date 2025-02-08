@@ -1,6 +1,6 @@
 /* Generic actions. */
 
-/* TOOLS */
+/* ------TOOLS------ */
 /datum/intent/use
 	name = "use"
 	icon_state = "inuse"
@@ -14,7 +14,10 @@
 	misscost = 0
 	releasedrain = 0
 
-/* WEAPONS */
+/* ------WEAPONS------ */
+/* MELEE */
+
+/// The most generic intent.
 /datum/intent/hit
 	name = "hit"
 	icon_state = "instrike"
@@ -24,6 +27,39 @@
 
 	chargetime = 0
 	swingdelay = 0
+
+/// Slice something.
+/datum/intent/cut
+	name = "cut"
+	icon_state = "incut"
+	attack_verb = list("cuts", "slashes")
+	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
+	animname = "cut"
+
+	item_damage_type = "slash"
+	blade_class = BCLASS_CUT
+
+/// Swing at something.
+/datum/intent/chop
+	name = "chop"
+	icon_state = "inchop"
+	attack_verb = list("chops", "hacks")
+	animname = "chop"
+	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
+
+	item_damage_type = "slash"
+	blade_class = BCLASS_CHOP
+
+/// Skewer something.
+/datum/intent/impale
+	name = "impale"
+	icon_state = "instab"
+	attack_verb = list("stabs")
+	animname = "stab"
+	warnie = "mobwarning" // I think it's supposed to be here?
+	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
+	blade_class = BCLASS_STAB
+	item_damage_type = "stab"
 
 /datum/intent/stab
 	name = "stab"
@@ -51,6 +87,7 @@
 	chargetime = 0
 	swingdelay = 3
 
+/* RANGED */
 /datum/intent/shoot //shooting crossbows or other guns, no parrydrain
 	name = "shoot"
 	icon_state = "inshoot"

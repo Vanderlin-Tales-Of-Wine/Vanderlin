@@ -319,7 +319,7 @@
 	wdefense = AVERAGE_PARRY
 
 /obj/item/rogueweapon/sword/scimitar/falchion
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/chop/axe)
 	name = "falchion"
 	desc = "Broad blade, excellent steel, a design inspired by Malum the dwarves claim."
 	icon_state = "falchion_old"
@@ -331,7 +331,7 @@
 	name = "messer"
 	desc = "Straight iron blade, simple cutting edge, no nonsense and a popular northern blade."
 	icon_state = "imesser"
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/chop/axe)
 	minstr = 8 // Heavy blade used by orcs
 	wbalance = EASY_TO_DODGE
 	sellprice = 20

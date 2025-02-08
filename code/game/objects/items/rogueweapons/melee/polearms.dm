@@ -305,8 +305,8 @@
 /obj/item/rogueweapon/polearm/halberd/bardiche
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_AXE_WIELD
-	possible_item_intents = list(/datum/intent/axe/cut)
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop/great, /datum/intent/axe/thrust)
+	possible_item_intents = list(/datum/intent/cut/axe)
+	gripped_intents = list(/datum/intent/cut/axe,/datum/intent/chop/axe/great, /datum/intent/impale/axe)
 	name = "bardiche"
 	desc = "A grand axe of northernly design, renowned for easily chopping off limbs clean with brutal strength."
 	icon_state = "bardiche"

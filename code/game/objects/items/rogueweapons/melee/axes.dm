@@ -6,8 +6,8 @@
 	parrysound = "parrywood"
 	swingsound = BLADEWOOSH_MED
 	associated_skill = /datum/skill/combat/axesmaces
-	possible_item_intents = list(/datum/intent/axe/cut)
-	gripped_intents = list(/datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/cut/axe)
+	gripped_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe)
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_BACK
 	wlength = WLENGTH_NORMAL
@@ -18,59 +18,37 @@
 | Chop intent |	small AP, fewer protect vs this crit (more delimb?)
 \------------*/
 
-/datum/intent/axe/chop
-	name = "chop"
-	icon_state = "inchop"
-	blade_class = BCLASS_CHOP
-	attack_verb = list("chops", "hacks")
-	animname = "chop"
-	hitsound = list('sound/combat/hits/bladed/genchop (1).ogg', 'sound/combat/hits/bladed/genchop (2).ogg', 'sound/combat/hits/bladed/genchop (3).ogg')
+/datum/intent/chop/axe
 	penfactor = AP_AXE_CHOP
 	swingdelay = 1
 	misscost = 5
-	item_damage_type = "slash"
 
-/datum/intent/axe/chop/great//unique long attack for axes, basically you swing really really hard, stills worse than a polearm like the bardiche or spear
+/// unique long attack for axes, basically you swing really really hard, stills worse than a polearm like the bardiche or spear
+/datum/intent/chop/axe/great
 	penfactor = AP_HEAVYAXE_CHOP
 	reach = 2
 	chargetime = 1
-	item_damage_type = "slash"
 
 
 /*------------\
-| Cut intent |	small AP
+|  Cut intent |	small AP
 \------------*/
 
-/datum/intent/axe/cut
-	name = "cut"
-	icon_state = "incut"
-	blade_class = BCLASS_CUT
-	attack_verb = list("cuts", "slashes")
-	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
-	animname = "cut"
+/datum/intent/cut/axe
 	penfactor = AP_AXE_CUT
 	swingdelay = 0
 	misscost = 5
-	item_damage_type = "slash"
 
 /*--------------\
 | Impale intent |	big AP
 \--------------*/
 
-/datum/intent/axe/thrust
-	name = "impale"
-	blade_class = BCLASS_STAB
-	attack_verb = list("stabs")
-	animname = "stab"
-	icon_state = "instab"
+/datum/intent/impale/axe
 	reach = 2
 	chargetime = 1
-	warnie = "mobwarning"
-	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	penfactor = AP_HEAVYAXE_STAB
 	swingdelay = 1
 	misscost = 10
-	item_damage_type = "stab"
 
 //................ Stone Axe ............... //
 /obj/item/rogueweapon/axe/stone
@@ -109,7 +87,6 @@
 	icon_state = "battleaxe"
 	max_blade_int = 500
 	smeltresult = /obj/item/ingot/steel
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	parrysound = "sword"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	minstr = 10 //meant to be a orc weapon or barbarian weapon
@@ -134,14 +111,13 @@
 /obj/item/rogueweapon/axe/iron
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_AXE_WIELD
-	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe)
 	name = "iron axe"
 	desc = "Tool, weapon, loyal iron companion."
 	icon_state = "axe"
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STANDARD
 	smeltresult = /obj/item/ingot/iron
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	parrysound = "sword"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 
@@ -161,8 +137,8 @@
 	desc = "An odd mix of a pickaxe front and a hatchet blade back, capable of being switched between."
 	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = "paxe"
-	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/pick)
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/cut/axe, /datum/intent/pick)
+	gripped_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe)
 	wlength = WLENGTH_NORMAL
 	max_blade_int = 300
 	max_integrity = INTEGRITY_STRONGEST
@@ -188,12 +164,11 @@
 	icon_state = "saxe"
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_AXE_WIELD
-	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe)
 	max_blade_int = 300
 	max_integrity = INTEGRITY_STRONGEST
 	smeltresult = /obj/item/ingot/steel
 	resistance_flags = FIRE_PROOF
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	wdefense = AVERAGE_PARRY
 	minstr = 6
 	sellprice = 35
@@ -246,7 +221,7 @@
 	bigboy = TRUE
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_HEAVYAXE_WIELD
-	possible_item_intents = list(/datum/intent/axe/cut)
+	possible_item_intents = list(/datum/intent/cut/axe)
 	name = "woodcutter axe"
 	desc = "The tool, weapon, and loyal companion of woodcutters. Able to chop mighty trees and repel the threats of the forest."
 	icon_state = "woodcutter"
@@ -254,7 +229,7 @@
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STRONG
 	smeltresult = /obj/item/ingot/iron
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop/great)
+	gripped_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe/great)
 	parrysound = list('sound/combat/parry/wood/parrywood (1).ogg', 'sound/combat/parry/wood/parrywood (2).ogg', 'sound/combat/parry/wood/parrywood (3).ogg')
 	swingsound = BLADEWOOSH_MED
 	resistance_flags = FLAMMABLE // Weapon made mostly of wood
@@ -283,7 +258,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_AXE_WIELD
-	possible_item_intents = list(/datum/intent/axe/cut)
+	possible_item_intents = list(/datum/intent/cut/axe)
 	name = "footman war axe"
 	desc = "An enormous spiked axe. The ideal choice for a militiaman wanting to cut a fancy noble whoreson down to size."
 	icon_state = "warcutter"
@@ -292,7 +267,7 @@
 	max_integrity = INTEGRITY_STRONG
 	bigboy = TRUE
 	smeltresult = /obj/item/ingot/iron
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop/great, /datum/intent/axe/thrust, /datum/intent/pick)
+	gripped_intents = list(/datum/intent/cut/axe, /datum/intent/chop/axe/great, /datum/intent/impale/axe, /datum/intent/pick)
 	parrysound = list('sound/combat/parry/wood/parrywood (1).ogg', 'sound/combat/parry/wood/parrywood (2).ogg', 'sound/combat/parry/wood/parrywood (3).ogg')
 	swingsound = BLADEWOOSH_MED
 	resistance_flags = FLAMMABLE // Weapon made mostly of wood
@@ -322,7 +297,7 @@
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
 	force = 18
 	force_wielded = 22
-	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
+	possible_item_intents = list(/datum/intent/cut/axe,/datum/intent/chop/axe)
 	name = "bone axe"
 	desc = "A rough axe made of bones"
 	icon_state = "boneaxe"
@@ -338,7 +313,6 @@
 	w_class = WEIGHT_CLASS_BULKY
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
-	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 
 /obj/item/rogueweapon/axe/boneaxe/getonmobprop(tag)
 	if(tag)

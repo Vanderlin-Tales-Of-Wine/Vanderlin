@@ -138,8 +138,8 @@
 #define ELFSWORD_CUT		/datum/intent/sword/cut/elf
 #define ELFSWORD_THRUST		/datum/intent/sword/thrust/elf
 
-#define AXE_CUT				/datum/intent/axe/cut
-#define AXE_CHOP			/datum/intent/axe/chop
+#define AXE_CUT				/datum/intent/cut/axe
+#define AXE_CHOP			/datum/intent/chop/axe
 
 #define SPEAR_THRUST		/datum/intent/polearm/thrust/spear
 #define POLEARM_BASH			/datum/intent/polearm/bash
@@ -149,10 +149,10 @@
 
 #define MESSER_CHOP			/datum/intent/sword/chop/messer
 
-#define OHAXE_STRIKE		/datum/intent/axe/cut/dwarf
-#define OHAXE_THRUST		/datum/intent/axe/thrust/dwarf
+#define OHAXE_STRIKE		/datum/intent/cut/axe/dwarf
+#define OHAXE_THRUST		/datum/intent/impale/axe/dwarf
 #define OHAXE_SMASH			/datum/intent/axe/smash/dwarf
-#define OHAXE_CHOP			/datum/intent/axe/chop/dwarf
+#define OHAXE_CHOP			/datum/intent/chop/axe/dwarf
 
 #define BIGSWORD_CHOP		/datum/intent/sword/chop/bigsword
 #define BIGSWORD_CUT		/datum/intent/sword/cut/bigsword
