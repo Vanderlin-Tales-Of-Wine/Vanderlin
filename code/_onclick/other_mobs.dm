@@ -31,7 +31,7 @@
 	SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, A, proximity)
 	if(isliving(A))
 		var/mob/living/L = A
-		if(!(user.used_intent.intent_flags & INTENT_NOAUTOAIM))
+		if(!(used_intent.intent_flags & INTENT_NOAUTOAIM))
 			playsound(get_turf(src), pick(GLOB.unarmed_swingmiss), 100, FALSE)
 		if(L.checkmiss(src))
 			return

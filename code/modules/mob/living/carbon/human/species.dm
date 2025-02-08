@@ -2225,6 +2225,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		to_chat(M, "<span class='warning'>I attempt to touch [H]!</span>")
 		return 0
 	SEND_SIGNAL(M, COMSIG_MOB_ATTACK_HAND, M, H, attacker_style)
+
+	/* Figure out our intent type */
 	switch(M.used_intent.type)
 		if(INTENT_HELP)
 			help(M, H, attacker_style)
@@ -2240,7 +2242,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(INTENT_DISARM)
 			disarm(M, H, attacker_style)
 			return
-	if(istype(M.used_intent, /datum/intent/unarmed))
+
+	if(istype(M.used_intent, /datum/intent/harm))
 		harm(M, H, attacker_style)
 
 /datum/species/proc/spec_attacked_by(obj/item/I, mob/living/user, obj/item/bodypart/affecting, intent, mob/living/carbon/human/H, selzone)

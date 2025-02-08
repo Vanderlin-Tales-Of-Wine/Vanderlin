@@ -13,7 +13,7 @@
 	var/obj/item/masteritem
 	var/mob/living/mastermob
 
-	var/datum/intent/abstract_type = /datum/intent
+	abstract_type = /datum/intent
 
 	/// Modifiers for how this intent behaves.
 	var/intent_flags = NONE
