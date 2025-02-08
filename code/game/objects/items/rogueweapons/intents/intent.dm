@@ -64,37 +64,38 @@
 
 /datum/intent/proc/examine(mob/user)
 	var/list/inspec = list("----------------------")
-	inspec += "<br><span class='notice'><b>[name]</b> intent</span>"
+	inspec += span_notice("<b>[name]</b> intent")
 	if(desc)
-		inspec += "\n[desc]"
+		inspec += "[desc]"
 	if(reach != 1)
-		inspec += "\n<b>Reach:</b> [reach]"
+		inspec += "<b>Reach:</b> [reach]"
 	if(damfactor != 1)
-		inspec += "\n<b>Damage:</b> [damfactor]"
+		inspec += "<b>Damage:</b> [damfactor]"
 	if(penfactor)
-		inspec += "\n<b>Armor Penetration:</b> [penfactor]"
+		inspec += "<b>Armor Penetration:</b> [penfactor]"
 	if(get_chargetime())
-		inspec += "\n<b>Charge Time</b>"
+		inspec += "<b>Charge Time</b>"
 	if(movement_interrupt)
-		inspec += "\n<b>Interrupted by Movement</b>"
+		inspec += "<b>Interrupted by Movement</b>"
 	if(no_early_release)
-		inspec += "\n<b>No Early Release</b>"
+		inspec += "<b>No Early Release</b>"
 	if(chargedrain)
-		inspec += "\n<b>Drain While Charged:</b> [chargedrain]"
+		inspec += "<b>Drain While Charged:</b> [chargedrain]"
 	if(releasedrain)
-		inspec += "\n<b>Drain On Release:</b> [releasedrain]"
+		inspec += "<b>Drain On Release:</b> [releasedrain]"
 	if(misscost)
-		inspec += "\n<b>Drain On Miss:</b> [misscost]"
+		inspec += "<b>Drain On Miss:</b> [misscost]"
 	if(clickcd != CLICK_CD_MELEE)
-		inspec += "\n<b>Recovery Time:</b> "
+		var/recovery_time
 		if(clickcd < CLICK_CD_MELEE)
-			inspec += "Quick"
-		if(clickcd > CLICK_CD_MELEE)
-			inspec += "Slow"
+			recovery_time = "Quick"
+		else
+			recovery_time = "Slow"
+		inspec += "<b>Recovery Time:</b> [recovery_time]"
 
-	inspec += "<br>----------------------"
+	inspec += "----------------------"
 
-	to_chat(user, "[inspec.Join()]")
+	to_chat(user, "[inspec.Join("\n")]")
 
 /datum/intent/proc/get_chargetime()
 	return chargetime

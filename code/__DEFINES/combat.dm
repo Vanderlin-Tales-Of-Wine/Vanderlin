@@ -104,10 +104,10 @@
 #define ATTACK_EFFECT_BOOP		"boop" //Honk
 
 //intent defines
-#define INTENT_HELP			 /datum/intent/unarmed/help
-#define INTENT_GRAB			 /datum/intent/unarmed/grab
-#define INTENT_DISARM		 /datum/intent/unarmed/shove
-#define INTENT_HARM			 /datum/intent/unarmed/punch
+#define INTENT_HELP			/datum/intent/unarmed/help
+#define INTENT_GRAB			/datum/intent/unarmed/grab
+#define INTENT_DISARM		/datum/intent/unarmed/shove
+#define INTENT_HARM			/datum/intent/unarmed/punch
 
 //mmb intents
 #define INTENT_KICK		/datum/intent/kick
