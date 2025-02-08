@@ -257,16 +257,16 @@
 
 /turf/proc/grabbedintents(mob/living/user)
 	//RTD up and down
-	return list(/datum/intent/grab/move)
+	return list(/datum/intent/grabbing/move)
 
 /obj/proc/grabbedintents(mob/living/user, precise)
-	return list(/datum/intent/grab/move)
+	return list(/datum/intent/grabbing/move)
 
 /obj/item/grabbedintents(mob/living/user, precise)
-	return list(/datum/intent/grab/remove, /datum/intent/grab/twistitem)
+	return list(/datum/intent/grabbing/remove, /datum/intent/grabbing/twistitem)
 
 /mob/proc/grabbedintents(mob/living/user, precise)
-	return list(/datum/intent/grab/move)
+	return list(/datum/intent/grabbing/move)
 
 /mob/living/proc/send_grabbed_message(mob/living/carbon/user)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))

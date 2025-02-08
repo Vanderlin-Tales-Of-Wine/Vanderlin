@@ -4,7 +4,7 @@
 	icon_state = "pulling"
 	icon = 'icons/mob/roguehudgrabs.dmi'
 	w_class = WEIGHT_CLASS_HUGE
-	possible_item_intents = list(/datum/intent/grab/upgrade)
+	possible_item_intents = list(/datum/intent/grabbing/upgrade)
 	item_flags = ABSTRACT
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	grab_state = 0 //this is an atom/movable var i guess
@@ -176,12 +176,12 @@
 	combat_modifier *= ((skill_diff * 0.1) + 1)
 
 	switch(user.used_intent.type)
-		if(/datum/intent/grab/upgrade)
+		if(/datum/intent/grabbing/upgrade)
 			if(!(M.status_flags & CANPUSH) || HAS_TRAIT(M, TRAIT_PUSHIMMUNE))
 				to_chat(user, "<span class='warning'>Can't get a grip!</span>")
 				return FALSE
 			M.grippedby(user)
-		if(/datum/intent/grab/choke)
+		if(/datum/intent/grabbing/choke)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M) && M != user)
 					var/mob/living/carbon/C = M
@@ -192,7 +192,7 @@
 					C.visible_message("<span class='danger'>[user] [pick("chokes", "strangles")] [C]!</span>", \
 									"<span class='userdanger'>[user] [pick("chokes", "strangles")] me!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
 					to_chat(user, "<span class='danger'>I [pick("choke", "strangle")] [C]!</span>")
-		if(/datum/intent/grab/hostage)
+		if(/datum/intent/grabbing/hostage)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(ishuman(M) && M != user)
 					var/mob/living/carbon/human/H = M
@@ -208,20 +208,20 @@
 
 						U.hostage = H
 						H.hostagetaker = U
-		if(/datum/intent/grab/twist)
+		if(/datum/intent/grabbing/twist)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M))
 					twistlimb(user)
-		if(/datum/intent/grab/twistitem)
+		if(/datum/intent/grabbing/twistitem)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(ismob(M))
 					twistitemlimb(user)
-		if(/datum/intent/grab/remove)
+		if(/datum/intent/grabbing/remove)
 			if(isitem(sublimb_grabbed))
 				removeembeddeditem(user)
 			else
 				user.stop_pulling()
-		if(/datum/intent/grab/shove)
+		if(/datum/intent/grabbing/shove)
 			if(!(user.mobility_flags & MOBILITY_STAND))
 				to_chat(user, "<span class='warning'>I must stand..</span>")
 				return
@@ -357,10 +357,10 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	switch(user.used_intent.type)
-		if(/datum/intent/grab/move)
+		if(/datum/intent/grabbing/move)
 			if(isturf(T))
 				user.Move_Pulled(T)
-		if(/datum/intent/grab/smash)
+		if(/datum/intent/grabbing/smash)
 			if(!(user.mobility_flags & MOBILITY_STAND))
 				to_chat(user, "<span class='warning'>I must stand..</span>")
 				return
@@ -388,7 +388,7 @@
 	if(!valid_check())
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(user.used_intent.type == /datum/intent/grab/smash)
+	if(user.used_intent.type == /datum/intent/grabbing/smash)
 		if(isstructure(O) && O.blade_dulling != DULLING_CUT)
 			if(!(user.mobility_flags & MOBILITY_STAND))
 				to_chat(user, "<span class='warning'>I must stand..</span>")
@@ -418,56 +418,47 @@
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limbsmashed [limb_grabbed] ")
 
-/datum/intent/grab
+/datum/intent/grabbing
 	intent_flags = (INTENT_UNARMED | INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
 
 	chargetime = 0
 	noaa = TRUE
 	no_attack = TRUE
 
-/datum/intent/grab/move
+/datum/intent/grabbing/move
 	name = "grab move"
-	desc = ""
 	icon_state = "inmove"
 
-/datum/intent/grab/upgrade
+/datum/intent/grabbing/upgrade
 	name = "upgrade grab"
-	desc = ""
 	icon_state = "ingrab"
 
-/datum/intent/grab/smash
+/datum/intent/grabbing/smash
 	name = "smash"
-	desc = ""
 	icon_state = "insmash"
 
-/datum/intent/grab/twist
+/datum/intent/grabbing/twist
 	name = "twist"
-	desc = ""
 	icon_state = "intwist"
 
-/datum/intent/grab/choke
+/datum/intent/grabbing/choke
 	name = "choke"
-	desc = ""
 	icon_state = "inchoke"
 
-/datum/intent/grab/hostage
+/datum/intent/grabbing/hostage
 	name = "hostage"
-	desc = ""
 	icon_state = "inhostage"
 
-/datum/intent/grab/shove
+/datum/intent/grabbing/shove
 	name = "shove"
-	desc = ""
 	icon_state = "intackle"
 
-/datum/intent/grab/twistitem
+/datum/intent/grabbing/twistitem
 	name = "twist in wound"
-	desc = ""
 	icon_state = "intwist"
 
-/datum/intent/grab/remove
+/datum/intent/grabbing/remove
 	name = "remove"
-	desc = ""
 	icon_state = "intake"
 
 

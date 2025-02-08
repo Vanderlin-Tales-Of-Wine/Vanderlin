@@ -96,7 +96,7 @@
 	return FALSE
 
 /obj/machinery/dye_bin/ui_interact(mob/user)
-	if( user.used_intent.type == /datum/intent/grab )
+	if( user.used_intent.type == /datum/intent/grabbing ) //not how that works
 		return
 	if( user.used_intent.type == /datum/intent/unarmed/shove )
 		return ..()
@@ -276,7 +276,7 @@
 	ui_interact(user)
 
 /obj/machinery/simple_dye_bin/ui_interact(mob/user)
-	if( user.used_intent.type == /datum/intent/grab )
+	if( user.used_intent.type == /datum/intent/grabbing )
 		return
 	if( user.used_intent.type == /datum/intent/unarmed/shove )
 		return ..()

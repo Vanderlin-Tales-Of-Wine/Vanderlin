@@ -100,7 +100,7 @@
 			return TRUE
 		return ..()
 	//only these intents should be able to move objects into handcarts
-	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grab/move)
+	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grabbing/move)
 		if(isliving(O))
 			var/list/targets = list(O, src)
 			if(!do_after_mob(user, targets, 20))
