@@ -4,15 +4,6 @@
 //#define CLICK_CD_RANGE 4
 //#define CLICK_CD_RAPID 2
 
-/// This intent is considered "unarmed", used for skill checks.
-#define INTENT_UNARMED (1<<0)
-/// This intent cannot be dodged.
-#define INTENT_UNDODGEABLE (1<<1)
-/// This intent cannot be parried.
-#define INTENT_UNPARRYABLE (1<<2)
-/// Turns off auto aiming, also turns off the 'swooshes'.
-#define INTENT_NOAUTOAIM (1<<2)
-
 /datum/intent
 	var/name = "intent"
 	var/desc = ""
@@ -21,6 +12,8 @@
 	var/list/attack_verb = list("hits", "strikes")
 	var/obj/item/masteritem
 	var/mob/living/mastermob
+
+	var/datum/intent/abstract_type = /datum/intent
 
 	/// Modifiers for how this intent behaves.
 	var/intent_flags = NONE
@@ -31,8 +24,9 @@
 
 	var/canparry = TRUE //! DEPRECATED
 	var/candodge = TRUE //! DEPRECATED
+	var/noaa = FALSE //turns off auto aiming, also turns off the 'swooshes'
 
-	var/tranged = 0
+	var/tranged = FALSE
 	var/tshield = FALSE //! probably needed or something
 	var/no_attack = FALSE //causes a return in /attack() but still allows to be used in attackby(
 
@@ -42,7 +36,6 @@
 	var/chargedrain = 0 //how mcuh fatigue is removed every second when at max charge
 	var/releasedrain = 1 //drain when we go off, regardless
 	var/misscost = 1	//extra drain from missing only, ALSO APPLIED IF ENEMY DODGES
-	var/noaa = FALSE //turns off auto aiming, also turns off the 'swooshes'
 	var/warnie = ""
 	var/pointer = 'icons/effects/mousemice/human_attack.dmi'
 	var/clickcd = CLICK_CD_MELEE //the cd invoked clicking on stuff with this intent
@@ -347,184 +340,3 @@
 /datum/intent/arc/prewarning()
 	if(masteritem && mastermob)
 		mastermob.visible_message("<span class='warning'>[mastermob] aims [masteritem]!</span>")
-
-/datum/intent/simple/headbutt
-	name = "headbutt"
-	icon_state = "instrike"
-	attack_verb = list("headbutts", "rams")
-	animname = "smash"
-	blade_class = BCLASS_BLUNT
-	hitsound = "punch_hard"
-	chargetime = 0
-	penfactor = 13
-	swingdelay = 0
-	candodge = TRUE
-	canparry = TRUE
-	item_damage_type = "blunt"
-	miss_text = "thrusts their head at nothing!"
-	miss_sound = PUNCHWOOSH
-
-/datum/intent/simple/claw
-	name = "claw"
-	icon_state = "inclaw"
-	attack_verb = list("slashes", "claws")
-	animname = "claw"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 5
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "slashes the air!"
-	item_damage_type = "slash"
-
-/datum/intent/simple/peck
-	name = "peck"
-	icon_state = "instrike"
-	attack_verb = list("pecks", "scratches")
-	animname = "blank22"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 2
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "pecks the air!"
-	item_damage_type = "stab"
-
-/datum/intent/simple/bite
-	name = "bite"
-	icon_state = "instrike"
-	attack_verb = list("bites")
-	animname = "bite"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 0
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-	item_damage_type = "stab"
-	miss_text = "bites the air!"
-
-//Applies no wounds.
-/datum/intent/simple/touch
-	name = "touch"
-	icon_state = "instrike"
-	attack_verb = list("grasps", "touches", "taps")
-	animname = "blank22"
-	blade_class = null
-	hitsound = "punch_hard"
-	chargetime = 0
-	penfactor = 25
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-
-/datum/intent/simple/sting
-	name = "sting"
-	icon_state = "instrike"
-	attack_verb = list("stings")
-	animname = "blank22"
-	blade_class = BCLASS_STAB
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 1
-	swingdelay = 0
-	candodge = FALSE
-	canparry = FALSE
-	miss_text = "stings the air!"
-	item_damage_type = "stab"
-
-/datum/intent/simple/bigbite
-	name = "big bite"
-	icon_state = "instrike"
-	attack_verb = list("gnashes", "viciously bites")
-	animname = "bite"
-	blade_class = BCLASS_CHOP
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 20
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-	item_damage_type = "stab"
-	miss_text = "bites the air!"
-	miss_sound = PUNCHWOOSH
-
-/datum/intent/simple/stab
-	name = "stab"
-	icon_state = "instrike"
-	attack_verb = list("impales", "stabs")
-	animname = "stab"
-	blade_class = BCLASS_STAB
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 25
-	swingdelay = 1
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "stabs the air!"
-	item_damage_type = "stab"
-
-/datum/intent/simple/axe
-	name = "hack"
-	icon_state = "instrike"
-	attack_verb = list("hacks at", "chops at", "bashes")
-	animname = "chop"
-	blade_class = BCLASS_CUT
-	hitsound = list("genchop", "genslash")
-	chargetime = 0
-	penfactor = 0
-	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
-	item_damage_type = "slash"
-
-/datum/intent/simple/spear
-	name = "spear"
-	icon_state = "instrike"
-	attack_verb = list("stabs", "skewers", "bashes")
-	animname = "stab"
-	blade_class = BCLASS_CUT
-	hitsound = list("genthrust", "genstab")
-	chargetime = 0
-	penfactor = 0
-	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
-	item_damage_type = "stab"
-
-/datum/intent/simple/wereclaw
-	name = "claw"
-	icon_state = "instrike"
-	attack_verb = list("claws", "pecks")
-	animname = "claw"
-	blade_class = BCLASS_CHOP
-	hitsound = "genslash"
-	chargetime = 0
-	penfactor = 10
-	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "slashes the air!"
-	miss_sound = BLADEWOOSH_LARGE
-	item_damage_type = "slash"
-
-/datum/intent/simple/werebite
-	name = "bite"
-	icon_state = "instrike"
-	attack_verb = list("bites")
-	animname = "bite"
-	blade_class = BCLASS_BITE
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 30
-	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "bites the air!"
-	miss_sound = PUNCHWOOSH
-	item_damage_type = "stab"

@@ -419,6 +419,7 @@
 	log_combat(user, C, "limbsmashed [limb_grabbed] ")
 
 /datum/intent/grabbing
+	abstract_type = /datum/intent/grabbing
 	intent_flags = (INTENT_UNARMED | INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
 
 	chargetime = 0

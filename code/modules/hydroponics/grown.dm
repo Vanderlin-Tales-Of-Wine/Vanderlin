@@ -23,7 +23,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/W, mob/user, params)
 	if(W && isturf(loc))
-		if(seed && (user.used_intent.blade_class == BCLASS_BLUNT) && (!user.used_intent.noaa))
+		if(seed && (user.used_intent.blade_class == BCLASS_BLUNT) && !(user.used_intent.intent_flags & INTENT_NOAUTOAIM))
 			playsound(src,'sound/items/seedextract.ogg', 100, FALSE)
 			user.visible_message("<span class='info'>[user] extracts the seeds.</span>")
 			if(prob(5))
