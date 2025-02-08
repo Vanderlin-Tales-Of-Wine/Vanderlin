@@ -78,7 +78,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
 "sE" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue)
 "tj" = (
@@ -185,7 +185,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "FB" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue)
 "GG" = (
@@ -197,7 +197,7 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "HK" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue)
 "Ip" = (
@@ -220,7 +220,7 @@
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue)
 "LH" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue)
 "Ob" = (

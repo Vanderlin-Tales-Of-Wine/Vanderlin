@@ -23,7 +23,7 @@
 	aggro_vision_range = 6
 
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1,
-						/obj/item/alch/horn = 2)
+						/obj/item/alch/horn = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1,
 						/obj/item/natural/hide = 2,
 						/obj/item/alch/horn = 2)
@@ -57,7 +57,7 @@
 	retreat_health = 0
 	food_max = 250
 	food = 0
-	dodgetime = 20
+	dodgetime = 50
 	aggressive = TRUE
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll

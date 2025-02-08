@@ -42,7 +42,9 @@
 		"Russet" ="#583f2c",
 		"Yellow Ochre" ="#685e3b",
 		"Red Ochre" = "#573936",
-		"Maroon" ="#533727"
+		"Maroon" ="#533727",
+		"Swampweed" ="#00713d",
+		"Ocean" ="#45749d"
 		)
 
 /obj/machinery/dye_bin/Destroy()
@@ -59,6 +61,15 @@
 	else
 		STOP_PROCESSING(SSfastprocess, src)
 	return ..()
+
+/obj/machinery/dye_bin/proc/apply_dye(mob/living/carbon/human/user, obj/item/clothing/item_to_dye, color)
+	if (!item_to_dye || !color)
+		return
+	if (item_to_dye.detail_tag)
+		item_to_dye.detail_color = color
+		item_to_dye.update_icon()
+	else
+		item_to_dye.add_atom_colour(color, FIXED_COLOUR_PRIORITY)
 
 /obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
 	if(allow_mobs && istype(I, /obj/item/clothing/head/mob_holder))
@@ -138,7 +149,7 @@
 	if(href_list["paint"])
 		if(!inserted)
 			return
-		inserted.add_atom_colour(activecolor, FIXED_COLOUR_PRIORITY)
+		apply_dye(usr, inserted, activecolor)
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 50, FALSE)
 		updateUsrDialog()
 
@@ -231,6 +242,15 @@
 	dropContents()
 	return ..()
 
+/obj/machinery/simple_dye_bin/proc/apply_dye(mob/living/carbon/human/user, obj/item/clothing/item_to_dye, color)
+	if (!item_to_dye || !color)
+		return
+	if (item_to_dye.detail_tag)
+		item_to_dye.detail_color = color
+		item_to_dye.update_icon()
+	else
+		item_to_dye.add_atom_colour(color, FIXED_COLOUR_PRIORITY)
+
 /obj/machinery/simple_dye_bin/attackby(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/luxury_dyes))
 		playsound(src, "bubbles", 50, 1)
@@ -318,7 +338,7 @@
 	if(href_list["paint"])
 		if(!inserted)
 			return
-		inserted.add_atom_colour(activecolor, FIXED_COLOUR_PRIORITY)
+		apply_dye(usr, inserted, activecolor)
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 50, FALSE)
 		updateUsrDialog()
 

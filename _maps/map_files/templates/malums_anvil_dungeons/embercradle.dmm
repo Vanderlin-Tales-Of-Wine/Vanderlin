@@ -372,7 +372,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
 "gj" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon)
 "go" = (
@@ -2172,7 +2172,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "DP" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon)
 "DS" = (
@@ -3287,7 +3287,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "RO" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "RQ" = (
@@ -3409,7 +3409,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "TB" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "TG" = (

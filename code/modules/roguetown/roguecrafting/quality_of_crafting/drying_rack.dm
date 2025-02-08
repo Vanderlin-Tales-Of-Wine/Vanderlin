@@ -114,12 +114,15 @@
 	name = "parchment"
 	output = /obj/item/paper
 	output_amount = 6
-	starting_atom = /obj/item/natural/hide
+	starting_atom = /obj/item/rogueweapon/knife
+	tool_usage = list(
+		/obj/item/rogueweapon/knife = list("starts to prepare the hide", "start to prepare the hide", 'sound/combat/hits/bladed/genstab (1).ogg'),
+	)
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
 	reagent_requirements = list(
-		/datum/reagent/water = 45
+		/datum/reagent/water = 33
 	)
 	attacking_atom = /obj/machinery/tanningrack
 

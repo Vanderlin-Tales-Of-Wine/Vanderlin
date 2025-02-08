@@ -75,7 +75,6 @@
 	produce_amount_max = 4
 	maturation_time = FAST_GROWING
 
-//................ Water-free plants ...............................
 /datum/plant_def/wheat
 	name = "wheat stalks"
 	icon_state = "wheat"
@@ -83,7 +82,9 @@
 	produce_amount_min = 3
 	produce_amount_max = 5
 	uproot_loot = list(/obj/item/natural/fibers, /obj/item/natural/fibers)
-	water_drain_rate = 0
+	maturation_nutrition = 30
+	maturation_time = FAST_GROWING
+	produce_time = 2 MINUTES
 
 /datum/plant_def/oat
 	name = "oat stalks"
@@ -92,7 +93,9 @@
 	produce_amount_min = 3
 	produce_amount_max = 5
 	uproot_loot = list(/obj/item/natural/fibers, /obj/item/natural/fibers)
-	water_drain_rate = 0
+	maturation_nutrition = 30
+	maturation_time = FAST_GROWING
+	produce_time = 2 MINUTES
 
 /datum/plant_def/westleach
 	name = "westleach leaf"
@@ -100,7 +103,9 @@
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/westleach
 	produce_amount_min = 3
 	produce_amount_max = 5
-	water_drain_rate = 0
+	maturation_nutrition = 30
+	maturation_time = FAST_GROWING
+	produce_time = 2 MINUTES
 
 
 

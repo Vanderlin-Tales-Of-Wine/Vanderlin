@@ -57,7 +57,7 @@
 	food_max = 250
 	food = 0
 
-	dodgetime = 15
+	dodgetime = 45
 	aggressive = TRUE
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll // Placeholder until Troll remains are sprited.

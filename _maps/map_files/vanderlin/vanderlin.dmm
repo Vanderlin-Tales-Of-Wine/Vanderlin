@@ -1607,7 +1607,7 @@
 /turf/open/floor/rogue/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "bde" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/town/basement)
 "bdl" = (
@@ -3199,7 +3199,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/river)
 "chl" = (
-/obj/structure/fluff/walldeco/rpainting/forest{
+/obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
@@ -3340,7 +3340,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/sewer)
 "cmP" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town/manor)
 "cnl" = (
@@ -5051,6 +5051,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/item/key/garrison{
+	pixel_x = 5
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/steward)
 "dEl" = (
@@ -5123,7 +5126,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "dGe" = (
-/obj/structure/fluff/walldeco/rpainting{
+/obj/structure/fluff/walldeco/painting/skull{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/tile,
@@ -8199,6 +8202,10 @@
 	dir = 4;
 	icon_state = "border"
 	},
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "fME" = (
@@ -9004,7 +9011,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician)
 "grN" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town/manor)
 "grT" = (
@@ -21190,7 +21197,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "psB" = (
-/obj/structure/fluff/walldeco/sign/trophy{
+/obj/structure/fluff/walldeco/feldshersign{
 	desc = "A somewhat unfitting sign for a physician's office.";
 	name = "Medicae Office"
 	},
@@ -23378,7 +23385,7 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors/town/clinic_large)
 "rbe" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/town/basement)
 "rbP" = (
@@ -25181,13 +25188,20 @@
 /area/rogue/outdoors/mountains)
 "svn" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
 /obj/structure/fluff/railing/border{
 	dir = 4;
 	icon_state = "border"
+	},
+/obj/item/key_custom_blank,
+/obj/item/key_custom_blank{
+	pixel_y = 6;
+	pixel_z = null;
+	pixel_x = -6
+	},
+/obj/item/key_custom_blank{
+	pixel_y = 4;
+	pixel_z = null;
+	pixel_x = 4
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -27687,15 +27701,41 @@
 /obj/item/key/manor,
 /obj/item/key/walls,
 /obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
-/obj/item/key/doctor,
+/obj/item/key/steward{
+	pixel_x = 5;
+	pixel_y = 15
+	},
+/obj/item/key/church{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/key/dungeon{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/item/key/graveyard{
+	pixel_x = -9;
+	pixel_y = -6
+	},
+/obj/item/key/garrison{
+	pixel_y = -4
+	},
+/obj/item/key/artificer{
+	pixel_y = -12;
+	pixel_x = -4
+	},
+/obj/item/key/mercenary{
+	pixel_x = -12;
+	pixel_y = -4
+	},
+/obj/item/key/tavern{
+	pixel_x = -12;
+	pixel_y = 12
+	},
+/obj/item/key/doctor{
+	pixel_x = 9;
+	pixel_y = 3
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/steward)
 "uaD" = (
@@ -28070,7 +28110,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "unF" = (
-/obj/structure/fluff/walldeco/sign/trophy{
+/obj/structure/fluff/walldeco/feldshersign{
 	desc = "A somewhat unfitting sign for a physician's office.";
 	name = "Medicae Office"
 	},
@@ -31332,7 +31372,7 @@
 	dir = 9
 	},
 /obj/item/reagent_containers/glass/cup,
-/obj/structure/fluff/walldeco/rpainting/crown{
+/obj/structure/fluff/walldeco/painting/crown{
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/wood,

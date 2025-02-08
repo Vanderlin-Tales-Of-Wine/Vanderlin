@@ -121,6 +121,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/handle_automated_movement()
 	set waitfor = FALSE
+	if(ai_controller)
+		return ..()
 	if(!stop_automated_movement && wander && !doing)
 		if(ssaddle && has_buckled_mobs())
 			return FALSE

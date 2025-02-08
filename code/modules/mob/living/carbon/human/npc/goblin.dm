@@ -108,9 +108,12 @@
 /obj/item/bodypart/head/goblin/skeletonize()
 	. = ..()
 	icon_state = "goblin_skel_head"
-	sellprice = 2
+	if(sellprice)
+		sellprice = 2
 
-
+/obj/item/bodypart/head/goblin/drop_organs(mob/user, violent_removal)
+	. = ..()
+	sellprice = 0
 
 /datum/species/goblin
 	name = "goblin"
@@ -224,6 +227,9 @@
 		QDEL_NULL(eyes)
 	eyes = new /obj/item/organ/eyes/night_vision/nightmare
 	eyes.Insert(src)
+	for(var/slot in internal_organs_slot)
+		var/obj/item/organ/organ = internal_organs_slot[slot]
+		organ.sellprice = 5
 	src.underwear = "Nude"
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
