@@ -44,11 +44,11 @@
 \--------------*/
 
 /datum/intent/impale/axe
-	reach = 2
 	chargetime = 1
 	penfactor = AP_HEAVYAXE_STAB
 	swingdelay = 1
 	misscost = 10
+	warnie = "mobwarning"
 
 //................ Stone Axe ............... //
 /obj/item/rogueweapon/axe/stone

@@ -14,10 +14,10 @@
 	misscost = 0
 	releasedrain = 0
 
-/* ------WEAPONS------ */
-/* MELEE */
+/* ------MELEE WEAPONS------ */
 
-/// The most generic intent.
+/* BLUNT */
+/// The most generic blunt intent. Hit something.
 /datum/intent/hit
 	name = "hit"
 	icon_state = "instrike"
@@ -28,7 +28,19 @@
 	chargetime = 0
 	swingdelay = 0
 
-/// Slice something.
+/// Give something a good firm blow.
+/datum/intent/strike
+	name = "strike"
+	icon_state = "instrike"
+	blade_class = BCLASS_BLUNT
+	attack_verb = list("strikes", "hits")
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+	item_damage_type = "blunt"
+
+	chargetime = 0
+
+/* SLASH */
+/// The most generic slash intent. Slice something.
 /datum/intent/cut
 	name = "cut"
 	icon_state = "incut"
@@ -50,16 +62,17 @@
 	item_damage_type = "slash"
 	blade_class = BCLASS_CHOP
 
-/// Skewer something. Implies the object is big and long.
+/// Lean in and skewer something.
 /datum/intent/impale
 	name = "impale"
-	icon_state = "instab"
-	attack_verb = list("stabs")
+	icon_state = "inimpale"
+	attack_verb = list("impales", "skewers")
 	animname = "stab"
-	warnie = "mobwarning" // I think it's supposed to be here?
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	blade_class = BCLASS_STAB
 	item_damage_type = "stab"
+
+	reach = 2
 
 /// Thrust into something. Implies the object is small and short.
 /datum/intent/stab

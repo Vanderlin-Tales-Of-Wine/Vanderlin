@@ -46,16 +46,10 @@
 | Strike intent |	moderate AP
 \--------------*/
 /datum/intent/mace/strike
-	name = "strike"
-	blade_class = BCLASS_BLUNT
-	attack_verb = list("strikes", "hits")
-	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
 	penfactor = AP_CLUB_STRIKE
 	swingdelay = 0
-	icon_state = "instrike"
 	misscost = 5
-	item_damage_type = "blunt"
 
 /datum/intent/mace/strike/wood
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
