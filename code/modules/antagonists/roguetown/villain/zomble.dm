@@ -73,11 +73,13 @@
 
 /datum/antagonist/zombie/on_gain()
 	var/mob/living/carbon/human/zombie = owner?.current
-	if(zombie)
-		var/obj/item/bodypart/head = zombie.get_bodypart(BODY_ZONE_HEAD)
-		if(!head)
-			qdel(src)
-			return
+	if(!zombie)
+		qdel(src)
+		return
+	var/obj/item/bodypart/head = zombie.get_bodypart(BODY_ZONE_HEAD)
+	if(!head)
+		qdel(src)
+		return
 	zombie_start = world.time
 	was_i_undead = zombie.mob_biotypes & MOB_UNDEAD
 	special_role = zombie.mind?.special_role
