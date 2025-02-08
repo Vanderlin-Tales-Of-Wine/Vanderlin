@@ -411,6 +411,8 @@
 	walk(src,0)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/shood(mob/user)
+	. = ..()
+
 	if(tame)
 		Retaliate()
 

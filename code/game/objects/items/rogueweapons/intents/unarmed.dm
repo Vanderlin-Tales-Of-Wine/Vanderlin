@@ -32,7 +32,7 @@
 			M.taunted(user)
 	return
 
-/datum/intent/unarmed/shove
+/datum/intent/shove
 	name = "shove"
 	icon_state = "inshove"
 	attack_verb = list("shoves", "pushes")
@@ -43,17 +43,17 @@
 	releasedrain = 10
 	item_damage_type = "blunt"
 
-/datum/intent/unarmed/shove/rmb_ranged(atom/target, mob/user)
-	if(ismob(target))
-		var/mob/M = target
-		var/list/targetl = list(target)
-		user.visible_message("<span class='blue'>[user] shoos [M] away.</span>", "<span class='blue'>I shoo [M] away.</span>", ignored_mobs = targetl)
-		if(M.client)
-			if(M.can_see_cone(user))
-				to_chat(M, "<span class='blue'>[user] shoos me away.</span>")
-		else
-			M.shood(user)
-	return
+/datum/intent/shove/rmb_ranged(mob/target, mob/user)
+	if(!istype(target))
+		return
+
+	user.visible_message( \
+		span_blue("[user] shoos [target] away."), \
+		span_blue("I shoo [target] away."), \
+		ignored_mobs = list(target) \
+	)
+
+	target.shood(user)
 
 /datum/intent/grab
 	name = "grab"
@@ -64,8 +64,9 @@
 	rmb_ranged = TRUE
 	releasedrain = 10
 	misscost = 5
-	candodge = TRUE
-	canparry = FALSE
+
+	intent_flags = (INTENT_UNPARRYABLE)
+
 	item_damage_type = "blunt"
 
 /datum/intent/grab/rmb_ranged(mob/target, mob/user)

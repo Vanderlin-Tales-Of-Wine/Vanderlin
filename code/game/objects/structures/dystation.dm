@@ -98,7 +98,7 @@
 /obj/machinery/dye_bin/ui_interact(mob/user)
 	if( user.used_intent.type == /datum/intent/grabbing ) //not how that works
 		return
-	if( user.used_intent.type == /datum/intent/unarmed/shove )
+	if( user.used_intent.type == INTENT_DISARM )
 		return ..()
 	if(!is_operational())
 		return ..()
@@ -278,7 +278,7 @@
 /obj/machinery/simple_dye_bin/ui_interact(mob/user)
 	if( user.used_intent.type == /datum/intent/grabbing )
 		return
-	if( user.used_intent.type == /datum/intent/unarmed/shove )
+	if( user.used_intent.type == INTENT_DISARM )
 		return ..()
 	if(!is_operational())
 		return ..()
