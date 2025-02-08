@@ -4,6 +4,10 @@
 //#define CLICK_CD_RANGE 4
 //#define CLICK_CD_RAPID 2
 
+#define INTENT_UNARMED (1<<0)
+#define INTENT_DODGEABLE (1<<1)
+#define INTENT_PARRYABLE (1<<2)
+
 /datum/intent
 	var/name = "intent"
 	var/desc = ""
@@ -13,7 +17,6 @@
 	var/obj/item/masteritem
 	var/mob/living/mastermob
 	var/unarmed = FALSE
-	var/intent_type
 	var/animname = "strike"
 	var/blade_class = BCLASS_BLUNT
 	var/list/hitsound = list('sound/combat/hits/blunt/bluntsmall (1).ogg', 'sound/combat/hits/blunt/bluntsmall (2).ogg')
@@ -94,25 +97,13 @@
 	to_chat(user, "[inspec.Join()]")
 
 /datum/intent/proc/get_chargetime()
-	if(chargetime)
-		return chargetime
-	else
-		return 0
+	return chargetime
 
 /datum/intent/proc/get_chargedrain()
-	if(chargedrain)
-		return chargedrain
-	else
-		return 0
+	return chargedrain
 
 /datum/intent/proc/get_releasedrain()
-	if(releasedrain)
-		return releasedrain
-	else
-		return 0
-
-/datum/intent/proc/parrytime()
-	return 0
+	return releasedrain
 
 /datum/intent/proc/prewarning()
 	return
