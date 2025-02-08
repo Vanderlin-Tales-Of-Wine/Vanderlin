@@ -104,7 +104,7 @@
 #define ATTACK_EFFECT_BOOP		"boop" //Honk
 
 //intent defines
-#define INTENT_HELP			/datum/intent/unarmed/help
+#define INTENT_HELP			/datum/intent/help
 #define INTENT_GRAB			/datum/intent/grab
 #define INTENT_DISARM		/datum/intent/shove
 #define INTENT_HARM			/datum/intent/punch

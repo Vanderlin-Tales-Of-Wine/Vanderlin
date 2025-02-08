@@ -493,12 +493,19 @@
 
 /* ------------ */
 
+/mob/proc/waved(mob/user, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(can_see_cone(user))
+		to_chat(src, span_green("[user] gives me a friendly wave."))
+		//TODO: COMSIG_MOB_WAVED (mob/user, silent)
+
 /mob/proc/shood(mob/user, silent = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(can_see_cone(user))
 		to_chat(src, span_blue("[user] shoos me away."))
-		//TODO: COMSIG_MOB_SHOOD (mob/user)
+		//TODO: COMSIG_MOB_SHOOD (mob/user, silent)
 
 
 /mob/proc/beckoned(mob/user, silent = FALSE)
@@ -507,7 +514,7 @@
 	if(can_see_cone(user))
 		if(!silent)
 			to_chat(src, span_green("[user] beckons me to come closer."))
-		//TODO: COMSIG_MOB_BECKONED (mob/user)
+		//TODO: COMSIG_MOB_BECKONED (mob/user, silent)
 
 /mob/proc/taunted(mob/user, silent = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
@@ -515,7 +522,7 @@
 	if(can_see_cone(user))
 		if(!silent)
 			to_chat(src, span_red("[user] taunts me!"))
-		//TODO: COMSIG_MOB_TAUNTED (mob/user)
+		//TODO: COMSIG_MOB_TAUNTED (mob/user, silent)
 
 		for(var/mob/living/simple_animal/hostile/retaliate/A in viewers(7, src))
 			if(A.owner == user)

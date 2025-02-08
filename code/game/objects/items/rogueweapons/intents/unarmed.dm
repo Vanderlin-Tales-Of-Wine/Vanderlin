@@ -1,4 +1,30 @@
-/datum/intent/unarmed
+/* Contains the basic help/disarm/grab/harm intents.
+ *
+ */
+
+/datum/intent/help
+	name = "touch"
+	icon_state = "intouch"
+	chargetime = 0
+	noaa = TRUE
+
+	intent_flags = (INTENT_UNDODGEABLE)
+
+	misscost = 0
+	releasedrain = 0
+	rmb_ranged = TRUE
+
+/datum/intent/help/rmb_ranged(mob/target, mob/user)
+	if(!istype(target))
+		return
+
+	user.visible_message( \
+		span_green("[user] waves friendly at [target]."), \
+		span_green("I wave friendly at [target]."), \
+		ignored_mobs = list(target) \
+	)
+
+	target.waved(user)
 
 /datum/intent/shove
 	name = "shove"
@@ -49,26 +75,6 @@
 
 	target.beckoned(user)
 
-/datum/intent/unarmed/help
-	name = "touch"
-	icon_state = "intouch"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	misscost = 0
-	releasedrain = 0
-	rmb_ranged = TRUE
-
-/datum/intent/unarmed/help/rmb_ranged(atom/target, mob/user)
-	if(ismob(target))
-		var/mob/M = target
-		var/list/targetl = list(target)
-		user.visible_message("<span class='green'>[user] waves friendly at [M].</span>", "<span class='green'>I wave friendly at [M].</span>", ignored_mobs = targetl)
-		if(M.client)
-			if(M.can_see_cone(user))
-				to_chat(M, "<span class='green'>[user] gives me a friendly wave.</span>")
-	return
-
 /datum/intent/punch
 	name = "punch"
 	icon_state = "inpunch"
@@ -80,8 +86,6 @@
 	releasedrain = 5
 	swingdelay = 0
 	rmb_ranged = TRUE
-	candodge = TRUE
-	canparry = TRUE
 	blade_class = BCLASS_PUNCH
 	miss_text = "swings a fist at the air!"
 	miss_sound = "punchwoosh"
