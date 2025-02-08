@@ -1,4 +1,10 @@
-/* Generic actions. */
+/*
+ * Generic actions.
+ *
+ * Ideally, try to fit your intent into one of the already existing generic intents.
+ * If it would look and act awfully like an intent that already exists, just subtype it.
+ * If you can't, then make a new one.
+ */
 
 /* ------TOOLS------ */
 /datum/intent/use
@@ -7,12 +13,60 @@
 	blade_class = BCLASS_PUNCH
 
 	item_damage_type = "blunt"
-	intent_flags = (INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+	intent_flags = (INTENT_UNPARRYABLE | INTENT_UNDODGEABLE)
 	noaa = TRUE
 	no_attack = TRUE
 
 	misscost = 0
 	releasedrain = 0
+
+/datum/intent/tie
+	name = "tie"
+	icon_state = "intie"
+
+	noaa = TRUE
+	intent_flags = (INTENT_UNPARRYABLE | INTENT_UNDODGEABLE)
+
+	misscost = 0
+
+/datum/intent/till
+	name = "hoe"
+	icon_state = "inhoe"
+
+	noaa = TRUE
+	intent_flags = (INTENT_UNDODGEABLE)
+
+	chargetime = 0
+	misscost = 0
+
+/datum/intent/fill
+	name = "fill"
+	icon_state = "infill"
+	noaa = TRUE
+	intent_flags = (INTENT_UNDODGEABLE)
+
+	chargetime = 0
+	misscost = 0
+
+/datum/intent/pour
+	name = "feed"
+	icon_state = "infeed"
+
+	noaa = TRUE
+	intent_flags = (INTENT_UNDODGEABLE)
+
+	chargetime = 0
+	misscost = 0
+
+/datum/intent/splash
+	name = "splash"
+	icon_state = "insplash"
+
+	noaa = TRUE
+	intent_flags = (INTENT_UNDODGEABLE)
+
+	chargetime = 0
+	misscost = 0
 
 /* ------MELEE WEAPONS------ */
 
@@ -106,8 +160,9 @@
 	icon_state = "insnip"
 	chargetime = 0
 	noaa = TRUE
-	candodge = FALSE
-	canparry = FALSE
+
+	intent_flags = (INTENT_UNPARRYABLE | INTENT_UNDODGEABLE)
+
 	misscost = 0
 	no_attack = TRUE
 	releasedrain = 0

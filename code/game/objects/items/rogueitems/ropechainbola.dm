@@ -17,15 +17,6 @@
 	firefuel = 5 MINUTES
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
-/datum/intent/tie
-	name = "tie"
-	icon_state = "intie"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	canparry = FALSE
-	misscost = 0
-
 /obj/item/rope/Destroy()
 	if(iscarbon(loc))
 		var/mob/living/carbon/M = loc

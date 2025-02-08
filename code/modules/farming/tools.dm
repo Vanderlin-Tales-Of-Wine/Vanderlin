@@ -311,14 +311,6 @@
 			return
 	. = ..()
 
-/datum/intent/till
-	name = "hoe"
-	icon_state = "inhoe"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	misscost = 0
-
 /obj/item/rogueweapon/hoe/stone
 	name = "stone hoe"
 	desc = "A makeshift hoe made out of stone."

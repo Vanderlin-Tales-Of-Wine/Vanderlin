@@ -45,10 +45,10 @@
 	chargetime = 5
 	recovery = 5
 	penfactor = 5
+	intent_flags = (INTENT_UNPARRYABLE)
 	reach = 2
 	misscost = 7
 	icon_state = "inlash"
-	canparry = FALSE //Has reach and can't be parried, but needs to be charged and punishes misses.
 	item_damage_type = "slash"
 
 /*-------------\
@@ -64,7 +64,6 @@
 	penfactor = 10
 	reach = 1
 	icon_state = "incrack"
-	canparry = TRUE
 	item_damage_type = "slash"
 
 //................ Repenta En ............... //

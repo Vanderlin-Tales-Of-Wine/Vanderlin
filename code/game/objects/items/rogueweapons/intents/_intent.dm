@@ -22,7 +22,6 @@
 	var/blade_class = BCLASS_BLUNT
 	var/list/hitsound = list('sound/combat/hits/blunt/bluntsmall (1).ogg', 'sound/combat/hits/blunt/bluntsmall (2).ogg')
 
-	var/canparry = TRUE //! DEPRECATED
 	var/candodge = TRUE //! DEPRECATED
 	var/noaa = FALSE //turns off auto aiming, also turns off the 'swooshes'
 

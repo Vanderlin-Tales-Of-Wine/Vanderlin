@@ -71,7 +71,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/taunted(mob/user)
 	. = ..()
-	
+
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)
@@ -147,8 +147,6 @@
 	chargetime = 0
 	penfactor = 5
 	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
 	item_damage_type = "stab"
 
 /datum/intent/simple/minotaur_axe
@@ -161,6 +159,4 @@
 	chargetime = 20
 	penfactor = 10
 	swingdelay = 3
-	candodge = TRUE
-	canparry = TRUE
 	item_damage_type = "stab"

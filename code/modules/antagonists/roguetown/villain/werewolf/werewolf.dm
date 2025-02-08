@@ -155,8 +155,6 @@
 	animname = "claw"
 	hitsound = "genslash"
 	penfactor = 30
-	candodge = TRUE
-	canparry = TRUE
 	miss_text = "slashes the air!"
 	miss_sound = "bluntwooshlarge"
 	item_damage_type = "slash"
