@@ -4,24 +4,34 @@
 //#define CLICK_CD_RANGE 4
 //#define CLICK_CD_RAPID 2
 
+/// This intent is considered "unarmed", used for skill checks.
 #define INTENT_UNARMED (1<<0)
-#define INTENT_DODGEABLE (1<<1)
-#define INTENT_PARRYABLE (1<<2)
+/// This intent cannot be dodged.
+#define INTENT_UNDODGEABLE (1<<1)
+/// This intent cannot be parried.
+#define INTENT_UNPARRYABLE (1<<2)
+/// This intent will not attack atoms on a turf.
+#define INTENT_NOAUTOAIM (1<<2)
 
 /datum/intent
 	var/name = "intent"
 	var/desc = ""
-//	icon = 'icons/mob/roguehud.dmi'		so you can find the icons
+	//icon = 'icons/mob/roguehud.dmi'		so you can find the icons
 	var/icon_state = "instrike"
 	var/list/attack_verb = list("hits", "strikes")
 	var/obj/item/masteritem
 	var/mob/living/mastermob
-	var/unarmed = FALSE
+
+	/// Modifiers for how this intent behaves.
+	var/intent_flags = NONE
+
 	var/animname = "strike"
 	var/blade_class = BCLASS_BLUNT
 	var/list/hitsound = list('sound/combat/hits/blunt/bluntsmall (1).ogg', 'sound/combat/hits/blunt/bluntsmall (2).ogg')
-	var/canparry = TRUE
-	var/candodge = TRUE
+
+	var/canparry = TRUE //! DEPRECATED
+	var/candodge = TRUE //! DEPRECATED
+
 	var/iparrybonus = 0
 	var/idodgebonus = 0
 	var/chargetime = 0 //if above 0, this attack must be charged to reach full damage
@@ -64,9 +74,11 @@
 
 /datum/intent/proc/examine(mob/user)
 	var/list/inspec = list("----------------------")
+
 	inspec += span_notice("<b>[name]</b> intent")
+
 	if(desc)
-		inspec += "[desc]"
+		inspec += desc
 	if(reach != 1)
 		inspec += "<b>Reach:</b> [reach]"
 	if(damfactor != 1)
@@ -85,7 +97,7 @@
 		inspec += "<b>Drain On Release:</b> [releasedrain]"
 	if(misscost)
 		inspec += "<b>Drain On Miss:</b> [misscost]"
-	if(clickcd != CLICK_CD_MELEE)
+	if(clickcd != CLICK_CD_MELEE) // maybe the one time <=> could be useful
 		var/recovery_time
 		if(clickcd < CLICK_CD_MELEE)
 			recovery_time = "Quick"
@@ -126,17 +138,6 @@
 		master.damage_type = item_damage_type
 	return
 
-/datum/intent/proc/height2limb(height as num)
-	var/list/returned
-	switch(height)
-		if(2)
-			returned += list(BODY_ZONE_HEAD)
-		if(1)
-			returned += list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_CHEST)
-		if(0)
-			returned += list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
-	return returned
-
 /datum/intent/New(Mastermob, Masteritem)
 	..()
 	if(Mastermob)
@@ -175,7 +176,6 @@
 /datum/intent/use
 	name = "use"
 	icon_state = "inuse"
-	chargetime = 0
 	noaa = TRUE
 	candodge = FALSE
 	canparry = FALSE
@@ -187,27 +187,23 @@
 
 /datum/intent/kick
 	name = "kick"
-	candodge = TRUE
-	canparry = TRUE
-	chargetime = 0
-	chargedrain = 0
-	noaa = FALSE
+
+	intent_flags = (INTENT_UNARMED)
+
 	swingdelay = 5
 	misscost = 20
-	unarmed = TRUE
 	animname = "kick"
 	pointer = 'icons/effects/mousemice/human_kick.dmi'
 	item_damage_type = "blunt"
 
 /datum/intent/bite
 	name = "bite"
-	candodge = TRUE
-	canparry = TRUE
+
+	intent_flags = (INTENT_UNARMED)
+
 	chargedrain = 0
 	chargetime = 0
 	swingdelay = 0
-	unarmed = TRUE
-	noaa = FALSE
 	attack_verb = list("bites")
 	item_damage_type = "stab"
 
@@ -344,7 +340,7 @@
 
 
 /datum/intent/unarmed
-	unarmed = TRUE
+
 
 /datum/intent/unarmed/punch
 	name = "punch"

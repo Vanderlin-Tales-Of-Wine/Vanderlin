@@ -419,11 +419,10 @@
 	log_combat(user, C, "limbsmashed [limb_grabbed] ")
 
 /datum/intent/grab
-	unarmed = TRUE
+	intent_flags = (INTENT_UNARMED | INTENT_UNDODGEABLE | INTENT_UNPARRYABLE)
+
 	chargetime = 0
 	noaa = TRUE
-	candodge = FALSE
-	canparry = FALSE
 	no_attack = TRUE
 
 /datum/intent/grab/move

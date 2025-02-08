@@ -107,7 +107,7 @@
 					log_combat(user, target, "shoved")
 			return TRUE
 
-	if(M.used_intent.unarmed)
+	if(M.used_intent.intent_flags & INTENT_UNARMED)
 		var/atk_verb = pick(M.used_intent.attack_verb)
 		if(HAS_TRAIT(M, TRAIT_PACIFISM))
 			to_chat(M, "<span class='warning'>I don't want to hurt [src]!</span>")
