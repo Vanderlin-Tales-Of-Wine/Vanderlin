@@ -94,6 +94,8 @@
 			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
 /mob/living/simple_animal/hostile/retaliate/rogue/trollbog/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

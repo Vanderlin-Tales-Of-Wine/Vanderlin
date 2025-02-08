@@ -70,6 +70,8 @@
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

@@ -141,6 +141,8 @@
 			return pick('sound/vo/mobs/pig/grunt (1).ogg','sound/vo/mobs/pig/grunt (2).ogg')
 
 /mob/living/simple_animal/hostile/retaliate/rogue/trufflepig/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

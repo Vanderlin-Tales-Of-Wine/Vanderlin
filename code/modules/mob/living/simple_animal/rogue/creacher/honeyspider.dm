@@ -113,6 +113,8 @@
 			return pick('sound/vo/mobs/spider/idle (1).ogg','sound/vo/mobs/spider/idle (2).ogg','sound/vo/mobs/spider/idle (3).ogg','sound/vo/mobs/spider/idle (4).ogg')
 
 /mob/living/simple_animal/hostile/retaliate/rogue/spider/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

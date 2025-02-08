@@ -1,37 +1,5 @@
 /datum/intent/unarmed
 
-/datum/intent/unarmed/punch
-	name = "punch"
-	icon_state = "inpunch"
-	attack_verb = list("punches", "jabs", "clocks", "strikes")
-	chargetime = 0
-	animname = "punch"
-	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
-	misscost = 5
-	releasedrain = 5
-	swingdelay = 0
-	rmb_ranged = TRUE
-	candodge = TRUE
-	canparry = TRUE
-	blade_class = BCLASS_PUNCH
-	miss_text = "swings a fist at the air!"
-	miss_sound = "punchwoosh"
-	item_damage_type = "blunt"
-
-/datum/intent/unarmed/punch/rmb_ranged(atom/target, mob/user)
-	if(ismob(target))
-		var/mob/M = target
-		var/list/targetl = list(target)
-		user.visible_message("<span class='red'>[user] taunts [M]!</span>", "<span class='warning'>I red [M]!</span>", ignored_mobs = targetl)
-		user.emote("taunt")
-		if(M.client)
-			M.taunted(user)
-			if(M.can_see_cone(user))
-				to_chat(M, "<span class='red'>[user] taunts me!</span>")
-		else
-			M.taunted(user)
-	return
-
 /datum/intent/shove
 	name = "shove"
 	icon_state = "inshove"
@@ -100,3 +68,33 @@
 			if(M.can_see_cone(user))
 				to_chat(M, "<span class='green'>[user] gives me a friendly wave.</span>")
 	return
+
+/datum/intent/punch
+	name = "punch"
+	icon_state = "inpunch"
+	attack_verb = list("punches", "jabs", "clocks", "strikes")
+	chargetime = 0
+	animname = "punch"
+	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
+	misscost = 5
+	releasedrain = 5
+	swingdelay = 0
+	rmb_ranged = TRUE
+	candodge = TRUE
+	canparry = TRUE
+	blade_class = BCLASS_PUNCH
+	miss_text = "swings a fist at the air!"
+	miss_sound = "punchwoosh"
+	item_damage_type = "blunt"
+
+/datum/intent/punch/rmb_ranged(mob/target, mob/user)
+	if(!istype(target))
+		return
+
+	user.visible_message( \
+		"<span class='red'>[user] taunts [target]!</span>", \
+		"<span class='warning'>I taunt [target]!</span>", \
+		ignored_mobs = list(target) \
+	)
+
+	target.taunted(user)

@@ -296,6 +296,8 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/rogue/dragger/taunted(mob/user)
+	. = ..()
+	
 	GiveTarget(user)
 	return
 

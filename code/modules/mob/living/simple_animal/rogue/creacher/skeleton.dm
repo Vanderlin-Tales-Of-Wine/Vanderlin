@@ -123,6 +123,8 @@
 			emote(pick("idle"), TRUE)
 
 /mob/living/simple_animal/hostile/rogue/skeleton/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	GiveTarget(user)
 	return
@@ -147,7 +149,7 @@
 
 /mob/living/simple_animal/hostile/rogue/skeleton/shood(mob/user)
 	. = ..()
-	
+
 	if (can_control(user))
 		for(var/mob/living/simple_animal/hostile/rogue/skeleton/target in viewers(user))
 			target.RegainSearchObjects()
