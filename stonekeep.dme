@@ -867,6 +867,7 @@
 #include "code\game\objects\items\rogueweapons\rogueweapon.dm"
 #include "code\game\objects\items\rogueweapons\shields.dm"
 #include "code\game\objects\items\rogueweapons\intents\_intent.dm"
+#include "code\game\objects\items\rogueweapons\intents\alt.dm"
 #include "code\game\objects\items\rogueweapons\intents\simple.dm"
 #include "code\game\objects\items\rogueweapons\intents\unarmed.dm"
 #include "code\game\objects\items\rogueweapons\melee\axes.dm"
