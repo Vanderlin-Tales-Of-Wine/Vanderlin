@@ -140,10 +140,6 @@
 	add_fingerprint(user)
 
 	switch(href_list["action"])
-		if("close")
-			user << browse(null, "window=colormate")
-			return
-
 		if("select")
 			var/choice = input(user,"Choose your dye:", "Dyes", null) as null|anything in selectable_colors
 			if(!choice)
@@ -177,16 +173,14 @@
 		if("eject")
 			if(!inserted)
 				return
-			inserted.forceMove(get_turf(user))
-			var/removed = inserted
+
+			user.put_in_hands(inserted)
+			user.visible_message( \
+				span_notice("[user] removes [inserted] from [src]."), \
+				span_notice("I remove [inserted] from [src].") \
+			)
 			inserted = null
 
-			user.put_in_hands(removed)
-			user.visible_message( \
-				span_notice("[user] removes [removed] from [src]."), \
-				span_notice("I remove [removed] from [src].") \
-			)
-			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
 			icon_state = initial(icon_state)
 			update_icon()
 
