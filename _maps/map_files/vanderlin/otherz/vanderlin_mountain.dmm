@@ -4658,7 +4658,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "Qm" = (
-/obj/structure/fluff/walldeco/innsign/trophy,
+/obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Qr" = (

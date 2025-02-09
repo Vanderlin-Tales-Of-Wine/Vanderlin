@@ -10,11 +10,11 @@
 	throw_speed = 0.5
 	var/fuze = 50
 	var/lit = FALSE
-	var/prob2fail = 23
+	var/prob2fail = 10
 	var/lit_state = "clear_bomb_lit"
 
 /obj/item/bomb/homemade
-	prob2fail = 30
+	prob2fail = 20
 
 /obj/item/bomb/homemade/Initialize()
 	. = ..()
