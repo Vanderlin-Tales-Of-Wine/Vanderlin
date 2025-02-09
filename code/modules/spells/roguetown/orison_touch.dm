@@ -380,7 +380,7 @@
 		var/drip_speed = 56 - (holy_skill * 8)
 		var/fatigue_spent = 0
 		var/fatigue_used = max(3, holy_skill)
-		while (do_after(user, drip_speed, target = thing))
+		while(do_after(user, drip_speed, thing))
 			if (thing.reagents.holder_full() || (user.cleric.devotion - fatigue_used <= 0))
 				break
 

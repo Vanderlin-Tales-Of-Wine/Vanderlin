@@ -188,8 +188,8 @@
 			var/obj/item/rogueweapon/shovel/shovel = C
 			if(!shovel.heldclod)
 				return
-			user.visible_message("[user] starts filling in [src].", "You start filling in [src].")
-			if(!do_after(user, 10 SECONDS * shovel.time_multiplier, target = src))
+			user.visible_message("[user] starts filling in [src].", "I start filling in [src].")
+			if(!do_after(user, 10 SECONDS * shovel.time_multiplier, src))
 				return
 			QDEL_NULL(shovel.heldclod)
 			shovel.update_icon()

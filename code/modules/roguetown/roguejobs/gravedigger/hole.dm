@@ -131,8 +131,8 @@
 		if(stage == 3)
 			var/turf/underT = get_step_multiz(src, DOWN)
 			if(underT && isopenturf(underT) && mastert)
-				user.visible_message("[user] starts digging out the bottom of [src]", "You start digging out the bottom of [src].")
-				if(!do_after(user, 10 SECONDS * attacking_shovel.time_multiplier, target = src))
+				user.visible_message("[user] starts digging out the bottom of [src]", "I start digging out the bottom of [src].")
+				if(!do_after(user, 10 SECONDS * attacking_shovel.time_multiplier, src))
 					return TRUE
 				attacking_shovel.heldclod = new(attacking_shovel)
 				attacking_shovel.update_icon()
