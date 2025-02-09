@@ -14,7 +14,7 @@
 		var/datum/plant_def/def = GLOB.plant_defs[plant_def_type]
 		color = def.seed_color
 	if(icon_state == "seeds")
-		icon_state = "seeds[rand(1,3)]"
+		icon_state = pick("seeds","seedsB","seedsC","seedsD")
 
 /obj/item/neuFarm/seed/Crossed(mob/living/L)
 	. = ..()

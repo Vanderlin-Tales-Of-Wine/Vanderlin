@@ -44,23 +44,14 @@
 /obj/item/reagent_containers/food/snacks/raisins
 	name = "raisins"
 	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "raisins5"
+	icon_state = "raisins"
+	base_icon_state = "raisins"
+	biting = TRUE
 	bitesize = 5
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried fruit" = 1)
 	foodtype = GRAIN
-
-/obj/item/reagent_containers/food/snacks/raisins/On_Consume(mob/living/eater)
-	..()
-	if(bitecount == 1)
-		icon_state = "raisins4"
-	if(bitecount == 2)
-		icon_state = "raisins3"
-	if(bitecount == 3)
-		icon_state = "raisins2"
-	if(bitecount == 4)
-		icon_state = "raisins1"
 
 /obj/item/reagent_containers/food/snacks/raisins/CheckParts(list/parts_list, datum/crafting_recipe/R)
 	..()
@@ -123,22 +114,14 @@
 // -------------- COPPIETTE (dried meat) -----------------
 /obj/item/reagent_containers/food/snacks/cooked/coppiette
 	name = "coppiette"
-	icon_state = "jerk5"
 	desc = "Dried meat sticks."
-	fried_type = null
+	icon_state = "coppiette"
+	base_icon_state = "coppiette"
+	biting = TRUE
 	bitesize = 5
+	fried_type = null
 	tastes = list("salted meat" = 1)
 
-/obj/item/reagent_containers/food/snacks/cooked/coppiette/On_Consume(mob/living/eater)
-	..()
-	if(bitecount == 1)
-		icon_state = "jerk4"
-	if(bitecount == 2)
-		icon_state = "jerk3"
-	if(bitecount == 3)
-		icon_state = "jerk2"
-	if(bitecount == 4)
-		icon_state = "jerk1"
 
 // -------------- SALTFISH -----------------
 /obj/item/reagent_containers/food/snacks/saltfish

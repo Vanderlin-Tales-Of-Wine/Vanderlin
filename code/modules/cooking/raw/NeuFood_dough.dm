@@ -16,7 +16,7 @@
 	desc = "With a little more ambition, you will conquer."
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
-	rotprocess = SHELFLIFE_EXTREME
+	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(user.mind)
@@ -50,8 +50,8 @@
 /obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/I, mob/living/user, params)
 	..()
 	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*14))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
 		if(isturf(loc)&& (found_table))
@@ -194,8 +194,8 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/frybread
 	cooked_type = /obj/item/reagent_containers/food/snacks/pastry
 	cooked_smell = /datum/pollutant/food/pastry
-	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_EXTREME
+	w_class = WEIGHT_CLASS_NORMAL
 /obj/item/reagent_containers/food/snacks/butterdough_slice/attackby(obj/item/I, mob/living/user, params)
 	..()
 	if(user.mind)
@@ -260,25 +260,14 @@
 /obj/item/reagent_containers/food/snacks/hardtack
 	name = "hardtack"
 	desc = "Very, very hard and dry."
-	icon_state = "tack6"
-	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
-	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("spelt" = 1)
+	icon_state = "tack"
+	base_icon_state = "tack"
+	biting = TRUE
 	bitesize = 6
+	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
+	tastes = list("spelt" = 1)
 	rotprocess = null
 
-/obj/item/reagent_containers/food/snacks/hardtack/On_Consume(mob/living/eater)
-	..()
-	if(bitecount == 1)
-		icon_state = "tack5"
-	if(bitecount == 2)
-		icon_state = "tack4"
-	if(bitecount == 3)
-		icon_state = "tack3"
-	if(bitecount == 4)
-		icon_state = "tack2"
-	if(bitecount == 5)
-		icon_state = "tack1"
 
 /*	.................   Piedough   ................... */
 /obj/item/reagent_containers/food/snacks/piedough
@@ -595,16 +584,19 @@
 	name = "bun"
 	desc = "Portable, quaint and entirely consumable"
 	icon_state = "bun"
+	base_icon_state = "bun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
+	biting = TRUE
 	tastes = list("bread" = 1)
-	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
-	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bun
 /obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
+		return TRUE
+	if(bitecount >0)
+		to_chat(user, span_warning("Leftovers aren´t suitable for this."))
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
@@ -614,6 +606,7 @@
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
 			tastes = list("savory sausage" = 1)
 			icon_state = "grenzbun"
+			base_icon_state = "grenzbun"
 			foodtype = GRAIN | MEAT
 			modified = TRUE
 			meal_properties()
@@ -637,13 +630,13 @@
 	name = "cheese bun"
 	desc = "A treat from the Grenzelhoft kitchen."
 	icon_state = "cheesebun"
+	base_icon_state = "cheesebun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION+CHEESE_NUTRITION)
-	w_class = WEIGHT_CLASS_NORMAL
+	biting = TRUE
 	tastes = list("crispy bread and cream cheese" = 1)
 	foodtype = GRAIN | DAIRY
-	bitesize = 2
+	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_DECENT
-
 
 
 /*---------\
@@ -654,18 +647,24 @@
 	name = "frybread"
 	desc = "Flatbread fried at high heat with butter to give it a crispy outside. Staple of the elven kitchen."
 	icon_state = "frybread"
+	base_icon_state = "frybread"
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy bread with a soft inside" = 1)
 	rotprocess = null
+
 
 /*	.................   Pastry   ................... */
 /obj/item/reagent_containers/food/snacks/pastry
 	name = "pastry"
 	desc = "Favored among children and sweetlovers."
 	icon_state = "pastry"
+	base_icon_state = "pastry"
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy butterdough" = 1)
 	rotprocess = SHELFLIFE_EXTREME
+
 
 /*	.................   Raisin Biscuit   ................... */
 /obj/item/reagent_containers/food/snacks/foodbase/biscuit_raw
@@ -682,9 +681,10 @@
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"
+	base_icon_state = "biscuit"
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
-	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/biscuit/good
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/biscuit/good/New()
@@ -703,13 +703,17 @@
 	name = "biscuit"
 	desc = "A treat made for a wretched dog like you."
 	icon_state = "biscuit"
+	base_icon_state = "biscuit"
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR, /datum/reagent/berrypoison = 4)
 	tastes = list("crispy butterdough" = 1, "bitter raisins" = 1)
+
 
 /*	.................   Prezzel   ................... */
 /obj/item/reagent_containers/food/snacks/foodbase/prezzel_raw
 	name = "uncooked prezzel"
 	icon_state = "prezzel_raw"
+	dropshrink = 0.8
 	cooked_type = /obj/item/reagent_containers/food/snacks/prezzel
 	cooked_smell = /datum/pollutant/food/prezzel
 	eat_effect = null
@@ -721,6 +725,9 @@
 	name = "lacklustre prezzel"
 	desc = "The next best thing since sliced bread, naturally, made by a dwarf."
 	icon_state = "prezzel"
+	base_icon_state = "prezzel"
+	dropshrink = 0.8
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy butterdough" = 1)
 /obj/item/reagent_containers/food/snacks/prezzel/good
@@ -888,13 +895,16 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	bitesize = 6
+
 
 /obj/item/reagent_containers/food/snacks/zybcake_slice
 	name = "zybantine cake slice"
-	icon_state = "honeycakeslice"
+	icon_state = "hcake_slice"
+	base_icon_state = "hcake_slice"
 	dropshrink = 0.8
 	slices_num = 0
+	bitesize = 2
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT | SUGAR
@@ -904,7 +914,6 @@
 	plateable = TRUE
 
 // -------------- CHEESECAKE -----------------
-
 /obj/item/reagent_containers/food/snacks/chescake_ready
 	name = "unbaked cake of cheese"
 	icon_state = "cheesecakeuncook"
@@ -940,13 +949,15 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/cheesecake_slice
 	name = "cheesecake slice"
 	icon_state = "cheesecake_slice"
+	base_icon_state = "cheesecake_slice"
 	dropshrink = 0.8
 	slices_num = 0
+	bitesize = 2
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("cake"=1, "jacksberry" = 1, "creamy cheese"=1)
 	w_class = WEIGHT_CLASS_NORMAL
@@ -975,11 +986,14 @@
 /obj/item/reagent_containers/food/snacks/cheesecake_poison_slice
 	name = "cheesecake slice"
 	icon_state = "cheesecake_slice"
+	base_icon_state = "cheesecake_slice"
 	dropshrink = 0.8
 	slices_num = 0
+	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/berrypoison = 6)
 	tastes = list("cake"=1, "sour berry" = 1, "creamy cheese"=1)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY | SUGAR
 	rotprocess = SHELFLIFE_DECENT
 	plateable = TRUE
+

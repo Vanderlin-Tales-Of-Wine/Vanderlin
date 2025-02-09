@@ -41,6 +41,7 @@ All foods are distributed among various categories. Use common sense.
 	possible_item_intents = list(/datum/intent/food)
 	foodtype = GRAIN
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	w_class = WEIGHT_CLASS_SMALL
 	var/bitesize = 3 // how many times you need to bite to consume it fully
 	var/bitecount = 0
 	var/trash = null
@@ -98,11 +99,12 @@ All foods are distributed among various categories. Use common sense.
 	var/plateable = FALSE //if it can be plated or not
 	var/foodbuff_skillcheck // is the cook good enough to add buff?
 	var/modified = FALSE // for tracking if food has been changed
-	var/quality = 1  // used to track foodbuffs and such
+	var/quality = 1  // used to track foodbuffs and such. Somewhat basic, could be combined with the foodbuff system directly perhaps
 
 	var/plating_alt_icon // for food items not sprited in a way that fits the plating underlay, you can instead have a alt sprite specifically for its plated version.
 	var/plated_iconstate // used in afterattack to switch the above on or off
 	var/base_icon_state // used for procs manipulating icons when sliced and the like
+	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
 
 /datum/intent/food
 	name = "feed"
@@ -176,6 +178,7 @@ All foods are distributed among various categories. Use common sense.
 		slices_num = 0
 		slice_path = null
 		cooktime = 0
+		modified = TRUE
 		return TRUE
 
 
@@ -632,6 +635,11 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
+/obj/item/reagent_containers/food/snacks/On_Consume(mob/living/eater)
+	..()
+	if(biting)
+		icon_state = "[base_icon_state][bitecount]"
+
 
 /obj/item/reagent_containers/food/snacks/badrecipe
 	name = "burned mess"
@@ -643,6 +651,7 @@ All foods are distributed among various categories. Use common sense.
 	burntime = 0
 	cooktime = 0
 
+
 // Proc to handle visuals from plating
 /obj/item/reagent_containers/food/snacks/proc/plated()
 	icon = 'icons/roguetown/items/food.dmi'
@@ -650,7 +659,7 @@ All foods are distributed among various categories. Use common sense.
 	experimental_inhand = FALSE
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
-	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	if(plating_alt_icon)
 		icon_state = plated_iconstate
 
@@ -662,6 +671,7 @@ All foods are distributed among various categories. Use common sense.
 	rotprocess = SHELFLIFE_DECENT
 	bitesize = 5
 
+// A way to insert quality naming when the procs dont fire
 /obj/item/reagent_containers/food/snacks/proc/good_quality_descriptors()
 	switch(rand(1,4))
 		if(1)
@@ -674,5 +684,6 @@ All foods are distributed among various categories. Use common sense.
 			name = "nice [name]"
 	filling_color = filling_color
 	update_snack_overlays(src)
+
 
 

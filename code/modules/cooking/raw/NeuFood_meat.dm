@@ -14,9 +14,10 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION)
-	icon_state = "meat1"
+	icon_state = "meat"
 	slice_batch = TRUE // so it takes more time, changed from FALSE
 	filling_color = "#8f433a"
+	bitesize = 1
 	rotprocess = SHELFLIFE_SHORT
 	chopping_sound = TRUE
 	foodtype = RAW | MEAT
@@ -36,9 +37,8 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/New()
 	. = ..()
-	if(icon_state == "meat1")
-		icon_state = "meat[rand(1,3)]"
-
+	if(icon_state == "meat")
+		icon_state = pick("meat","meatB","meatC")
 
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/human
@@ -114,6 +114,7 @@
 	name = "mince template. BUGREPORT"
 	icon_state = "meatmince"
 	ingredient_size = 2
+	bitesize = 1
 	slice_path = null
 	filling_color = "#8a0000"
 	rotprocess = SHELFLIFE_TINY

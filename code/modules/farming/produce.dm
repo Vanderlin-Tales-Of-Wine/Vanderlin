@@ -188,15 +188,15 @@
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/update_icon()
 	cut_overlays()
-	var/used_state = "berriesc5"
+	var/used_state = "berriesc0"
 	if(bitecount == 1)
-		used_state = "berriesc4"
-	if(bitecount == 2)
-		used_state = "berriesc3"
-	if(bitecount == 3)
-		used_state = "berriesc2"
-	if(bitecount == 4)
 		used_state = "berriesc1"
+	if(bitecount == 2)
+		used_state = "berriesc2"
+	if(bitecount == 3)
+		used_state = "berriesc3"
+	if(bitecount == 4)
+		used_state = "berriesc4"
 	var/image/item_overlay = image(used_state)
 	item_overlay.color = filling_color
 	add_overlay(item_overlay)

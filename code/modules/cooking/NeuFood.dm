@@ -37,7 +37,7 @@
 
 /*-------------\
 | Rotting food |
-\-------------*/	// needed so you can prevent cooking combos with rotted food and add gross effects etc. Food not combinable/processable don't need this type.
+\-------------*/	// needed so you can prevent cooking combos with rotted food and add gross effects etc. Food not combinable/processable don't need this type. Its clunkly, should be replaced with some sort of check in the procs ROGTODO
 
 /obj/item/reagent_containers/food/snacks/rotten
 	name = "rotten food"
@@ -50,7 +50,7 @@
 
 /obj/item/reagent_containers/food/snacks/rotten/meat
 	name = "rotten meat"
-	icon_state = "meat1"
+	icon_state = "meat"
 /obj/item/reagent_containers/food/snacks/rotten/bacon
 	name = "rotten meat"
 	icon_state = "pigflesh"
@@ -63,9 +63,6 @@
 /obj/item/reagent_containers/food/snacks/rotten/breadslice
 	name = "moldy bread"
 	icon_state = "loaf_slice"
-/obj/item/reagent_containers/food/snacks/rotten/bun
-	name = "moldy bun"
-	icon_state = "bun"
 /obj/item/reagent_containers/food/snacks/rotten/egg
 	name = "rotted egg"
 	icon_state = "egg2"
@@ -490,7 +487,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/glass/R = I
 	if(user.mind)
-		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
@@ -507,7 +504,7 @@
 			return TRUE
 		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
 		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
-		if(do_after(user,2 SECONDS, target = src))
+		if(do_after(user,15, target = src))
 			name = "wet powder"
 			desc = "Destined for greatness, at your hands."
 			R.reagents.remove_reagent(/datum/reagent/water, 10)
