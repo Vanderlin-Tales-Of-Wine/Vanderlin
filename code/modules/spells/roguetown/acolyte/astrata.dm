@@ -35,6 +35,9 @@
 		var/obj/O = targets[1]
 		if(O.fire_act())
 			user.visible_message("<font color='yellow'>[user] points at [O], igniting it with sacred flames!</font>")
+			var/mob/living/carbon/human/C = user
+			var/datum/devotion/cleric_holder/D = C.cleric
+			D.update_devotion(25)
 			return ..()
 		else
 			to_chat(user, "<span class='warning'>You point at [O], but it fails to catch fire.</span>")
