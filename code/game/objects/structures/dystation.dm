@@ -229,7 +229,7 @@
 	. += span_info("Putting these into a wooden bin will turn it into a dye bin.")
 	. += span_info("Putting these into an existing dye bin will add the colors into it.")
 	var/colors_ref = "byond://?src=[REF(src)];action=colors"
-	. += span_noticesmall("I could look at the selection of <a href=[colors_ref]>colors</a>...")
+	. += span_info(span_notice("I could look at the selection of <a href=[colors_ref]>colors</a>...")) //ew
 
 /obj/item/dye_pack/Topic(href, href_list)
 	. = ..()
