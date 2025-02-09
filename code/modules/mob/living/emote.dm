@@ -407,7 +407,6 @@
 /datum/emote/living/dance/proc/danceanim(mob/living/user, repeats = 10)
 	var/start_y = user.pixel_y
 	var/offset = 2  // Height of the bop
-	ping_sound_through_walls(user.loc)
 	for (var/i = 1 to repeats)
 		user.pixel_y = start_y + offset  // Move up
 		sleep(1)
