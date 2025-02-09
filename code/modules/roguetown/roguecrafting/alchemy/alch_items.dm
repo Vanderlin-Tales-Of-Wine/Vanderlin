@@ -57,7 +57,7 @@
 				if(M != user)
 					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
 								"<span class='danger'>[user] attempts to feed you something.</span>")
-					if(!do_mob(user, M))
+					if(!do_after(user, 3 SECONDS, M))
 						return
 					if(!reagents || !reagents.total_volume)
 						return // The drink might be empty after the delay, such as by spam-feeding
@@ -90,7 +90,7 @@
 			if(poursounds)
 				playsound(user.loc,pick(poursounds), 100, TRUE)
 		for(var/i in 1 to 10)
-			if(do_after(user, 8, target = target))
+			if(do_after(user, 8 DECISECONDS, target))
 				if(!reagents.total_volume)
 					break
 				if(target.reagents.holder_full())
@@ -114,7 +114,7 @@
 		user.visible_message("<span class='notice'>[user] fills [src] with [target].</span>", \
 							"<span class='notice'>I fill [src] with [target].</span>")
 		for(var/i in 1 to 10)
-			if(do_after(user, 8, target = target))
+			if(do_after(user, 8 DECISECONDS, target))
 				if(reagents.holder_full())
 					break
 				if(!target.reagents.total_volume)

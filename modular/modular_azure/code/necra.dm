@@ -39,9 +39,9 @@
 	ADD_TRAIT(living_target, TRAIT_NODEATH, "avert_spell")
 
 	var/our_holy_skill = user.mind?.get_skill_level(associated_skill)
-	var/tickspeed = 30 + (5 * our_holy_skill)
+	var/tickspeed = 3 SECONDS + (5 * our_holy_skill)
 
-	while (do_after(user, tickspeed, target = living_target))
+	while(do_after(user, tickspeed, living_target))
 		user.adjust_energy(-2.5)
 
 		living_target.adjustOxyLoss(-10)

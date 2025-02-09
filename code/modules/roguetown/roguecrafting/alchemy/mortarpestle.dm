@@ -39,7 +39,7 @@
 			return
 		user.visible_message("<span class='info'>[user] begins grinding up [I].</span>")
 		playsound(loc, 'sound/foley/mortarpestle.ogg', 100, FALSE)
-		if(do_after(user, 10, target = src))
+		if(do_after(user, 1 SECONDS, src))
 			for(var/output in foundrecipe.valid_outputs)
 				for(var/i in 1 to foundrecipe.valid_outputs[output])
 					new output(get_turf(src))

@@ -95,7 +95,7 @@
 	if(powered)
 		mill_progress += rotations_per_minute * 2
 	else
-		if(do_after(user, 2 SECONDS, target = src))
+		if(do_after(user, 2 SECONDS, src))
 			mill_progress += 50
 		else
 			return FALSE

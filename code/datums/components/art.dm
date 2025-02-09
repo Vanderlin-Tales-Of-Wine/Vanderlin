@@ -35,7 +35,7 @@
 
 /datum/component/art/proc/on_attack_hand(datum/source, mob/M)
 	to_chat(M, "<span class='notice'>I start examining [parent]...</span>")
-	if(!do_after(M, 20, target = parent))
+	if(!do_after(M, 2 SECONDS, parent))
 		return
 	on_obj_examine(source, M)
 

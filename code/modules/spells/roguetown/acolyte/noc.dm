@@ -66,7 +66,7 @@
 
 /obj/effect/proc_holder/spell/self/darkvision/cast(list/targets, mob/living/user)
 	playsound(get_turf(user), 'sound/magic/charged.ogg', 100, TRUE)
-	if (do_after(user,4 SECONDS))
+	if(do_after(user, 4 SECONDS))
 		to_chat(user, span_notice("Your prayer is answered, the darkness lowers its veil."))
 		playsound(get_turf(user), 'sound/magic/magic_nulled.ogg', 60, TRUE, -1)
 		user.apply_status_effect(/datum/status_effect/buff/darkvision)

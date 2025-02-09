@@ -187,7 +187,7 @@
 	}
 	var/action = apply ? "adding" : "removing"
 	user.visible_message("[user] presses thumb on [mob_target]'s forehead and begins [action] Dendor's mark to [mob_target].")
-	if (do_after(user, 50, target = mob_target))//5 second application
+	if(do_after(user, 5 SECONDS, mob_target))//5 second application
 		if (apply)
 			add_vinemark(mob_target, user)
 		else

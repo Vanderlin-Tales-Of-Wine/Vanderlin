@@ -83,7 +83,7 @@
 /obj/structure/soil/proc/try_handle_seed_planting(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
-		if(do_after(user, get_farming_do_time(user, 15), target = src))
+		if(do_after(user, get_farming_do_time(user, 15), src))
 			var/obj/item/neuFarm/seed/seeds = attacking_item
 			seeds.try_plant_seed(user, src)
 		return TRUE
@@ -94,7 +94,7 @@
 		var/obj/item/rogueweapon/shovel/shovel = attacking_item
 		to_chat(user, span_notice("I begin to uproot the crop..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 4 SECONDS * shovel.time_multiplier), target = src))
+		if(do_after(user, get_farming_do_time(user, 4 SECONDS * shovel.time_multiplier), src))
 			to_chat(user, span_notice("I uproot the crop."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			uproot()
@@ -106,7 +106,7 @@
 		var/obj/item/rogueweapon/hoe/hoe = attacking_item
 		to_chat(user, span_notice("I begin to till the soil..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS * hoe.time_multiplier), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * hoe.time_multiplier), src))
 			to_chat(user, span_notice("I till the soil."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			user_till_soil(user)
@@ -160,7 +160,7 @@
 		return FALSE
 	if(attacking_item == null)
 		to_chat(user, span_notice("I begin ripping out the weeds with my hands..."))
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS), src))
 			apply_farming_fatigue(user, 20)
 			to_chat(user, span_notice("I rip out the weeds."))
 			deweed()
@@ -181,7 +181,7 @@
 		to_chat(user, span_notice("I begin flattening the soil with \the [attacking_item]..."))
 		var/obj/item/rogueweapon/shovel/shovel = attacking_item
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS * shovel.time_multiplier), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * shovel.time_multiplier), src))
 			if(plant)
 				return FALSE
 			apply_farming_fatigue(user, 10)
@@ -194,13 +194,13 @@
 /obj/structure/soil/attack_hand(mob/living/user)
 	if(plant && produce_ready)
 		to_chat(user, span_notice("I begin collecting the produce..."))
-		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 4 SECONDS), src))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			user_harvests(user)
 		return
 	if(plant && plant_dead)
 		to_chat(user, span_notice("I begin to remove the dead crop..."))
-		if(do_after(user, get_farming_do_time(user, 6 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 6 SECONDS), src))
 			if(!plant || !plant_dead)
 				return
 			apply_farming_fatigue(user, 10)

@@ -95,7 +95,7 @@
 		if(kover)
 			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
 				"<span class='notice'>I start to pick up [src]...</span>")
-			if(do_after(user, 30, target = src))
+			if(do_after(user, 3 SECONDS, src))
 				kover = FALSE
 				update_icon()
 			return
@@ -118,12 +118,12 @@
 			var/item2wash = user.get_active_held_item()
 			if(!item2wash)
 				user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
-				if(do_after(L, 30, target = src))
+				if(do_after(L, 3 SECONDS, src))
 					wash_atom(user, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			else
 				user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
-				if(do_after(L, 30, target = src))
+				if(do_after(L, 3 SECONDS, src))
 					wash_atom(item2wash, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
@@ -149,7 +149,7 @@
 	if(istype(I, /obj/item/dye_pack))
 		var/obj/item/dye_pack/pack = I
 		user.visible_message(span_info("[user] begins to add [pack] to [src]..."))
-		if(do_after(user, 3 SECONDS, target = src))
+		if(do_after(user, 3 SECONDS, src))
 			playsound(src, "bubbles", 50, 1)
 			new /obj/machinery/dye_bin(get_turf(src), pack)
 			qdel(src)

@@ -212,6 +212,9 @@
 	///List of progress bars this mob is currently seeing for actions
 	var/list/progressbars = null	//for stacking do_after bars
 
+	/// Set to TRUE when the mob is in the middle of a do_after. Not to be changed directly.
+	var/doing = FALSE
+
 	///Allows a datum to intercept all click calls this mob is the source of
 	var/datum/click_intercept
 
