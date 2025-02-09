@@ -65,7 +65,7 @@
 			span_info("[user] begins to add [pack] to [src]..."), \
 			span_info("I begin to add [pack] to [src]...") \
 		)
-		if(do_after(user, 3 SECONDS, target = src))
+		if(do_after(user, 3 SECONDS, src))
 			add_dye_pack(pack)
 
 		return
@@ -161,7 +161,7 @@
 				span_notice("I begin to dye [inserted]..."), \
 				span_hear("I hear something moving in water.") \
 			)
-			if(do_after(user, 5 SECONDS, target = src))
+			if(do_after(user, 5 SECONDS, src))
 				apply_dye(user, inserted, active_color)
 
 		if("clear")
@@ -173,7 +173,7 @@
 				span_notice("I begin to bleach [inserted]..."), \
 				span_hear("I hear something moving in water.") \
 			)
-			if(do_after(user, 5 SECONDS, target = src))
+			if(do_after(user, 5 SECONDS, src))
 				inserted.remove_atom_colour(FIXED_COLOUR_PRIORITY)
 
 		if("eject")
