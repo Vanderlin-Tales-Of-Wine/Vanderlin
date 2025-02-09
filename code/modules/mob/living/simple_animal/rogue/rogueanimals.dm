@@ -359,43 +359,40 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/Life()
 	. = ..()
-	if(.)
-		if(enemies.len)
-			if(prob(5))
-				emote("cidle")
-			if(prob(deaggroprob))
-				if(mob_timers["aggro_time"])
-					if(world.time > mob_timers["aggro_time"] + 30 SECONDS)
-						enemies = list()
-						src.visible_message(span_info("[src] calms down."))
-						LoseTarget()
-				else
-					mob_timers["aggro_time"] = world.time
-		else
-			if(prob(8))
-				emote("idle")
-			if(adult_growth)
-				growth_prog += 0.5
-				if(growth_prog >= 100)
-					if(isturf(loc))
-						var/mob/living/simple_animal/A = new adult_growth(loc)
-						if(tame)
-							A.tame = TRUE
-						qdel(src)
-						return
+	if(!.)
+		return
+
+	if(length(enemies))
+		if(prob(5))
+			emote("cidle")
+		if(prob(deaggroprob))
+			if(MOBTIMER_EXISTS(src, MT_AGGROTIME))
+				if(MOBTIMER_FINISHED(src, MT_AGGROTIME, 30 SECONDS))
+					enemies = list()
+					src.visible_message(span_info("[src] calms down."))
+					LoseTarget()
 			else
-				if(childtype)
-					make_babies()
+				MOBTIMER_SET(src, MT_AGGROTIME)
+	else
+		if(prob(8))
+			emote("idle")
+		if(adult_growth)
+			growth_prog += 0.5
+			if(growth_prog >= 100)
+				if(isturf(loc))
+					var/mob/living/simple_animal/A = new adult_growth(loc)
+					if(tame)
+						A.tame = TRUE
+					qdel(src)
+					return
+		else
+			if(childtype)
+				make_babies()
 
 
 /mob/living/simple_animal/hostile/retaliate/rogue/Retaliate()
-//	if(!enemies.len && message)
-//		src.visible_message("<span class='warning'>[src] panics!</span>")
-//	if(flee)
-//		retreat_distance = 10
-//		minimum_distance = 10
-	mob_timers["aggro_time"] = world.time
-	..()
+	MOBTIMER_SET(src, MT_AGGROTIME)
+	. = ..()
 
 
 //Prevents certain items from being targeted as food.

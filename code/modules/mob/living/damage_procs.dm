@@ -135,8 +135,8 @@
 /mob/living/proc/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE)
 	if(!forced && (status_flags & GODMODE))
 		return FALSE
-	if(mob_timers && amount > 0)
-		mob_timers["lastoxydam"] = world.time
+	if(amount > 0)
+		MOBTIMER_SET(src, MT_LASTOXYDAM)
 	oxyloss = CLAMP((oxyloss + (amount * CONFIG_GET(number/damage_multiplier))), 0, maxHealth * 2)
 	if(updating_health)
 		updatehealth()

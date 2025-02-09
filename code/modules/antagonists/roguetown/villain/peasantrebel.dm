@@ -141,11 +141,11 @@
 		return
 	if(!client)
 		return
-	if(mind)
-		if(mind.special_role)
-			return
-	if(mob_timers["rebeloffer"])
+	if(mind.special_role)
 		return
+	if(MOBTIMER_EXISTS(src, MT_REBELOFFER))
+		return
+
 	var/datum/team/prebels/RT = mind_datum.rev_team
 	var/shittime = world.time
 	playsound_local(src, 'sound/misc/rebel.ogg', 100, FALSE)
@@ -153,7 +153,9 @@
 	if(world.time > shittime + 35 SECONDS)
 		to_chat(src,"<span class='danger'>Too late.</span>")
 		return
-	mob_timers["rebeloffer"] = world.time
+
+	MOBTIMER_SET(src, MT_REBELOFFER)
+
 	if(garbaggio == "Yes")
 		if(mind_datum.add_revolutionary(mind))
 			RT.offers2join += "<span class='info'><B>[real_name]</B> <span class='blue'>ACCEPTED</span> [guy.real_name]: \"[offer]\"</span>"

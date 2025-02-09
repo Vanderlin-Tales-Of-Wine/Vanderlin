@@ -109,7 +109,7 @@
 	if(stat >= DEAD) //do shit the natural way i guess
 		return
 	to_chat(src, span_danger("I feel horrible... REALLY horrible..."))
-	mob_timers["puke"] = world.time
+	MOBTIMER_SET(src, MT_PUKE)
 	vomit(1, blood = TRUE, stun = FALSE)
 	return wolfy
 

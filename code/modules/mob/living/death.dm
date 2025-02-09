@@ -108,7 +108,7 @@
 //		flick("gameover",H)
 //		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade)), 29)
 		H.Fade()
-		mob_timers["lastdied"] = world.time
+		MOBTIMER_SET(src, MT_LASTDIED)
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
 //		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
 		add_client_colour(/datum/client_colour/monochrome/death)

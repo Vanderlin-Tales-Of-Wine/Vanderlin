@@ -8,7 +8,9 @@
 			var/datum/job/j = SSjob.GetJob(job)
 			if(!j.antag_job)
 				j.current_positions--
-		mob_timers["mirrortime"] = world.time
+
+		MOBTIMER_SET(src, MT_MIRRORTIME)
+		
 		var/begin_time = world.time
 		var/new_name = input(src, "What should your [input] name be?", "VANDERLIN")
 		if(world.time > begin_time + 60 SECONDS)
