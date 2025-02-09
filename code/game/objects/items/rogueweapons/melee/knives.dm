@@ -238,7 +238,7 @@
 	desc = "Thin, sharp, pointed death."
 	icon_state = "idagger"
 	smeltresult = null
-	sellprice = 15
+	sellprice = 12
 
 //................ Steel Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel

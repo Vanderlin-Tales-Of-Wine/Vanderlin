@@ -97,6 +97,7 @@
 		if((B.mob_biotypes & MOB_UNDEAD))
 			continue
 		B.aggressive = 0
+		B.ai_controller?.CancelActions()
 		B.tamed(user)
 	return ..()
 

@@ -102,4 +102,4 @@
 
 	else if(istype(target_recipe, /datum/repeatable_crafting_recipe))
 		var/datum/repeatable_crafting_recipe/recipe = target_recipe
-		recipe.start_recipe(second_item, first_item, src)
+		return recipe.start_recipe(second_item, first_item, src)

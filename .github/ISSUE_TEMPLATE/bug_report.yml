@@ -24,8 +24,7 @@ body:
     multiple: true
     description: Where did the bug happen?
     options:
-      - Dun Manor
-      - DakkaTown
+      - Vanderlin
   validations:
     required: true
 

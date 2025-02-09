@@ -72,7 +72,7 @@
 			to_chat(user, span_warning("You anchor [src]."))
 		playsound(src,pick('sound/foley/woodclimb.ogg'), 100, TRUE)
 		return
-	..()
+	. = ..()
 
 /obj/machinery/tanningrack/update_icon()
 	cut_overlays()
