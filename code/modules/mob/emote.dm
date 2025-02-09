@@ -47,6 +47,12 @@
 		AM.Hear(rendered, src, message_language, message, , spans, message_mode)
 //	if(intentional)
 //		to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
+
+
+/mob/proc/dance_flip()
+	if(dir == WEST)
+		emote("flip")
+
 /*
 /datum/emote/flip
 	key = "flip"
