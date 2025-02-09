@@ -1112,7 +1112,7 @@
 /mob/living/carbon/human/verb/emote_shakehead()
 	set name = "Shakehead"
 	set category = "Emotes"
-	emote("shake", intentional = TRUE)
+	emote("shakehead", intentional = TRUE)
 
 /datum/emote/living/shiver
 	key = "shiver"
