@@ -256,39 +256,39 @@
 	sellprice = 30
 
 	selectable_colors = list(
-		"Bleach" ="#ffffff",
-		"Ash Grey" ="#676262",
-		"Chalk White" ="#c7c0b5",
-		"Linen" ="#a1a17a",
+		"Bleach" = "#ffffff",
+		"Ash Grey" = "#676262",
+		"Chalk White" = "#c7c0b5",
+		"Linen" =  "#a1a17a",
 
-		"Blood Red" ="#763434",
-		"Plum Purple" ="#4b3c54",
-		"Dark Ink" ="#392f2f",
-		"Forest Green" ="#45553f",
-		"Sky Blue" ="#40445f",
-		"Mustard Yellow" ="#646149",
+		"Blood Red" = "#763434",
+		"Plum Purple" = "#4b3c54",
+		"Dark Ink" = "#392f2f",
+		"Forest Green" = "#45553f",
+		"Sky Blue" = "#40445f",
+		"Mustard Yellow" = "#646149",
 
-		"Royal Black" ="#2f352f", //
-		"Royal Red" ="#813434", //
-		"Royal Majenta" ="#822b52", //
-		//"Bark Brown"="#685542",
-		//"Bog Green" ="#4f693b",
-		"Mage Green" ="#60794a",
-		"Royal Teal" ="#3b817a", //
-		"Pear Yellow" ="#a19f52",
-		"Mage Yellow" ="#a79730",
-		//"Fyritius Orange" ="#9b7540",
-		"Mage Orange" ="#935329",
-		"Royal Purple" ="#865c9c", //
-		"Mage Blue" ="#454fa6",
+		"Royal Black" = "#2f352f", //
+		"Royal Red" = "#813434", //
+		"Royal Majenta" = "#822b52", //
+		//"Bark Brown"= "#685542",
+		//"Bog Green" = "#4f693b",
+		"Mage Green" = "#60794a",
+		"Royal Teal" = "#3b817a", //
+		"Pear Yellow" = "#a19f52",
+		"Mage Yellow" = "#a79730",
+		//"Fyritius Orange" = "#9b7540",
+		"Mage Orange" = "#935329",
+		"Royal Purple" = "#865c9c", //
+		"Mage Blue" = "#454fa6",
 
-		"Salmon" ="#70545e",
-		"Russet" ="#583f2c",
-		"Yellow Ochre" ="#685e3b",
-		"Red Ochre" = "#573936",
-		"Maroon" ="#533727",
-		"Swampweed" ="#00713d",
-		"Ocean" ="#45749d"
+		"Salmon" = "#70545e",
+		"Russet" = "#583f2c",
+		"Yellow Ochre" = "#685e3b",
+		"Red Ochre" =  "#573936",
+		"Maroon" = "#533727",
+		"Swampweed" = "#00713d",
+		"Ocean" = "#45749d"
 	)
 
 /obj/item/dye_pack/cheap
@@ -299,26 +299,26 @@
 	sellprice = 3
 
 	selectable_colors = list(
-		"Bleach" ="#ffffff",
-		"Ash Grey" ="#676262",
-		"Chalk White" ="#c7c0b5",
-		"Linen" ="#a1a17a",
+		"Bleach" = "#ffffff",
+		"Ash Grey" = "#676262",
+		"Chalk White" = "#c7c0b5",
+		"Linen" = "#a1a17a",
 
-		"Soot Black" ="#414145",
-		//"Royal Black" ="#2f352f",
-		"Winestain Red" ="#673c3c",
-		//"Royal Red" ="#8f3636",
-		//"Royal Majenta" ="#822b52",
-		"Peasant Brown" ="#634f44",
-		"Chestnut" ="#604631",
-		"Bark Brown" ="#685542", //
-		"Mud Brown" ="#6f5f4d",
-		"Old Leather" ="#473f39",
-		"Spring Green" ="#41493a",
-		"Bog Green" ="#4f693b", //
-		//"Royal Teal" ="#3b817a",
-		"Berry Blue" ="#39404d",
-		"Pear Yellow" ="#a19f52",
-		"Fyritius Orange" ="#9b7540", //
-		//"Royal Purple" ="#865c9c"
+		"Soot Black" = "#414145",
+		//"Royal Black" = "#2f352f",
+		"Winestain Red" = "#673c3c",
+		//"Royal Red" = "#8f3636",
+		//"Royal Majenta" = "#822b52",
+		"Peasant Brown" = "#634f44",
+		"Chestnut" = "#604631",
+		"Bark Brown" = "#685542", //
+		"Mud Brown" = "#6f5f4d",
+		"Old Leather" = "#473f39",
+		"Spring Green" = "#41493a",
+		"Bog Green" = "#4f693b", //
+		//"Royal Teal" = "#3b817a",
+		"Berry Blue" = "#39404d",
+		"Pear Yellow" = "#a19f52",
+		"Fyritius Orange" = "#9b7540", //
+		//"Royal Purple" = "#865c9c"
 	)
