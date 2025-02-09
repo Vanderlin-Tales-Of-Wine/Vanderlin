@@ -175,12 +175,12 @@
 	force = 7
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
+	bundletype = /obj/item/bundle/bone
 
 	major_pot = /datum/alch_cauldron_recipe/disease_cure
 	med_pot = /datum/alch_cauldron_recipe/health_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
-	bundletype = obj/item/bundle/bone
 
 /obj/item/alch/horn
 	name = "troll horn"
