@@ -10998,6 +10998,15 @@
 "hNY" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician)
+"hOf" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/bed/rogue/mediocre,
+/obj/item/bedsheet/rogue/cloth,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town)
 "hOg" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -21382,12 +21391,11 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town)
 "pzP" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
+/obj/structure/mineral_door/wood/window{
+	lockid = "shop1";
+	name = "Tailor Shop";
+	locked = 1
 	},
-/obj/structure/bed/rogue/mediocre,
-/obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "pAp" = (
@@ -96199,7 +96207,7 @@ svU
 svU
 nlk
 lKm
-aPs
+pzP
 nlk
 svU
 rnJ
@@ -137206,7 +137214,7 @@ tnN
 fpE
 erd
 wXO
-pzP
+hOf
 erd
 iBK
 hQZ
