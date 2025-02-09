@@ -98,7 +98,7 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
@@ -154,7 +154,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/uncolored
@@ -319,7 +319,7 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
@@ -351,7 +351,7 @@
 	color = CLOTHING_FOREST_GREEN
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/random/Initialize()
-	color = RANDOM_NOBLE_DYES
+	color = pick_assoc(GLOB.noble_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/silkdressprimary

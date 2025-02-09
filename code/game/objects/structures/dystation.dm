@@ -16,12 +16,15 @@
 	/// Packs that this bin will initialize with
 	var/list/initial_packs = list(/obj/item/dye_pack/cheap)
 	/// List of all colors currently usable in this bin.
-	/// Recompiled when inserted_packs changes.
 	var/list/selectable_colors = list()
 
 /obj/machinery/dye_bin/luxury
 	icon_state = "dye_bin_luxury"
-	initial_packs = list(/obj/item/dye_pack/luxury)
+	initial_packs = list(
+		/obj/item/dye_pack/luxury,
+		/obj/item/dye_pack/royal,
+		/obj/item/dye_pack/misc,
+	)
 
 /obj/machinery/dye_bin/Initialize(mapload, obj/item/dye_pack/inserted_pack)
 	. = ..()
@@ -32,7 +35,7 @@
 	else
 		add_dye_pack(inserted_pack)
 
-	active_color = selectable_colors[pick(selectable_colors)] //lol
+	active_color = pick_assoc(selectable_colors)
 
 /obj/machinery/dye_bin/Destroy()
 	layer = 2.8 //?
@@ -70,7 +73,7 @@
 
 	if(!I.sewrepair) // ????
 		if(I.force < 8) // ?????????
-			to_chat(user, span_warning("I do not think this item can be dyed this way."))
+			to_chat(user, span_warning("I do not think \the [I] can be dyed this way."))
 		return ..()
 
 	/* ---------- */
@@ -199,7 +202,7 @@
 
 	if(prob(user.STASTR * 8))
 		visible_message( \
-			span_warning("[p_they()] fall[p_s()] over, spilling out [p_their()] contents!"), \
+			span_warning("[p_they(TRUE)] fall[p_s()] over, spilling out [p_their()] contents!"), \
 			null, \
 			span_warning("Something was knocked over!")
 		)
@@ -214,6 +217,7 @@
 /obj/item/dye_pack //abstract
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "bait" //placeholder
+	gender = PLURAL
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0.7
 	var/list/selectable_colors = list()
@@ -234,7 +238,7 @@
 				to_chat(usr, span_ooc("<i>This is a bug. Please report this on the GitHub.</i>"))
 				return
 
-			var/list/message_parts = list(span_notice("I can discern these colors..."))
+			var/list/message_parts = list(span_info("I can discern these colors..."))
 			for(var/key in selectable_colors)
 				var/value = selectable_colors[key]
 
@@ -248,77 +252,47 @@
 	. = ..()
 	qdel(src)
 
-/obj/item/dye_pack/luxury
-	name = "luxury dyes"
-	desc = "Extravagant, colorful dyes hailing from all across Psydonia, from Grenzelhoft to Heartfelt."
-	icon_state = "luxury_dyes"
-	gender = PLURAL
-	sellprice = 30
-
-	selectable_colors = list(
-		"Bleach" = "#ffffff",
-		"Ash Grey" = "#676262",
-		"Chalk White" = "#c7c0b5",
-		"Linen" =  "#a1a17a",
-
-		"Blood Red" = "#763434",
-		"Plum Purple" = "#4b3c54",
-		"Dark Ink" = "#392f2f",
-		"Forest Green" = "#45553f",
-		"Sky Blue" = "#40445f",
-		"Mustard Yellow" = "#646149",
-
-		"Royal Black" = "#2f352f", //
-		"Royal Red" = "#813434", //
-		"Royal Majenta" = "#822b52", //
-		//"Bark Brown"= "#685542",
-		//"Bog Green" = "#4f693b",
-		"Mage Green" = "#60794a",
-		"Royal Teal" = "#3b817a", //
-		"Pear Yellow" = "#a19f52",
-		"Mage Yellow" = "#a79730",
-		//"Fyritius Orange" = "#9b7540",
-		"Mage Orange" = "#935329",
-		"Royal Purple" = "#865c9c", //
-		"Mage Blue" = "#454fa6",
-
-		"Salmon" = "#70545e",
-		"Russet" = "#583f2c",
-		"Yellow Ochre" = "#685e3b",
-		"Red Ochre" =  "#573936",
-		"Maroon" = "#533727",
-		"Swampweed" = "#00713d",
-		"Ocean" = "#45749d"
-	)
-
 /obj/item/dye_pack/cheap
 	name = "cheap dyes"
 	desc = "A handful of muted dyes made from natural elements."
 	icon_state = "cheap_dyes"
-	gender = PLURAL
 	sellprice = 3
 
-	selectable_colors = list(
-		"Bleach" = "#ffffff",
-		"Ash Grey" = "#676262",
-		"Chalk White" = "#c7c0b5",
-		"Linen" = "#a1a17a",
+/obj/item/dye_pack/cheap/Initialize()
+	selectable_colors = GLOB.peasant_dyes.Copy()
+	. = ..()
 
-		"Soot Black" = "#414145",
-		//"Royal Black" = "#2f352f",
-		"Winestain Red" = "#673c3c",
-		//"Royal Red" = "#8f3636",
-		//"Royal Majenta" = "#822b52",
-		"Peasant Brown" = "#634f44",
-		"Chestnut" = "#604631",
-		"Bark Brown" = "#685542", //
-		"Mud Brown" = "#6f5f4d",
-		"Old Leather" = "#473f39",
-		"Spring Green" = "#41493a",
-		"Bog Green" = "#4f693b", //
-		//"Royal Teal" = "#3b817a",
-		"Berry Blue" = "#39404d",
-		"Pear Yellow" = "#a19f52",
-		"Fyritius Orange" = "#9b7540", //
-		//"Royal Purple" = "#865c9c"
+/obj/item/dye_pack/luxury
+	name = "luxury dyes"
+	desc = "An assortment of rich, colorful dyes, hailing from all across Enigma. This would certainly cost a pretty zenny."
+	icon_state = "luxury_dyes"
+	sellprice = 30
+
+/obj/item/dye_pack/luxury/Initialize()
+	selectable_colors = GLOB.noble_dyes.Copy()
+	. = ..()
+
+/obj/item/dye_pack/royal
+	name = "royal dyes"
+	desc = "Dyes with powders hailing from all across Psydonia, from Grentzelhoft to Heartfelt. \
+		Vibrant and pleasing to the eyes, only the highest in the social hierarchy are seen with these colors."
+	icon_state = "luxury_dyes"
+	sellprice = 300
+
+/obj/item/dye_pack/royal/Initialize()
+	selectable_colors = GLOB.royal_dyes.Copy()
+	. = ..()
+
+// No clue where to sort these so...
+/obj/item/dye_pack/misc
+	name = "miscellaneous dyes"
+	desc = "The variety of color quality is perplexing. Extremly rich tones are bundled with drab, uninteresting colors."
+	selectable_colors = list(
+		"Mage Green" = CLOTHING_MAGE_GREEN,
+		"Mage Yellow" = CLOTHING_MAGE_YELLOW,
+		"Mage Orange" = CLOTHING_MAGE_ORANGE,
+		"Mage Blue" = CLOTHING_MAGE_BLUE,
+		"Blood Red" = CLOTHING_BLOOD_RED,
+		"Swampweed" = "#00713d",
+		"Ocean" = "#45749d",
 	)
