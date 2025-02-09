@@ -16,7 +16,7 @@
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5,
 					/obj/item/reagent_containers/food/snacks/fish/angler = 1)
 	drop_sound = 'sound/foley/dropsound/food_drop.ogg'
-	bundletype = /obj/item/natural/bundle/worms
+	bundletype = /obj/item/bundle/worms
 
 /obj/item/natural/worms/grubs
 	name = "grub"
