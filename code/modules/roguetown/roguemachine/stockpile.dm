@@ -85,8 +85,8 @@
 
 /obj/structure/roguemachine/stockpile/proc/attemptsell(obj/item/I, mob/H, message = TRUE, sound = TRUE)
 	for(var/datum/roguestock/R in SStreasury.stockpile_datums)
-		if(istype(I, /obj/item/natural/bundle))
-			var/obj/item/natural/bundle/B = I
+		if(istype(I, /obj/item/bundle))
+			var/obj/item/bundle/B = I
 			if(B.stacktype == R.item_type)
 				R.held_items += B.amount
 				if(message == TRUE)

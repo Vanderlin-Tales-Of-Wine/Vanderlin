@@ -13,7 +13,7 @@
 	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
-	bundletype = /obj/item/natural/bundle/fibers
+	bundletype = /obj/item/bundle/fibers
 
 /obj/item/natural/silk
 	name = "silk"
@@ -30,7 +30,7 @@
 	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
-	bundletype = /obj/item/natural/bundle/silk
+	bundletype = /obj/item/bundle/silk
 
 #ifdef TESTSERVER
 
@@ -65,7 +65,7 @@
 	muteinmouth = TRUE
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
-	bundletype = /obj/item/natural/bundle/cloth
+	bundletype = /obj/item/bundle/cloth
 	var/wet = 0
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
@@ -203,10 +203,10 @@
 				L.update_sneak_invis(TRUE)
 			L.consider_ambush()
 
-/obj/item/natural/bundle/fibers
+/obj/item/bundle/fibers
 	name = "fiber bundle"
 	desc = "Fibers, bundled together."
-	icon_state = "fibersroll1"
+	icon_state = "fibersroll2"
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
 	throwforce = 0
@@ -220,17 +220,16 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/fibers
-	icon1step = 3
-	icon2step = 6
+	iconstatename = "fibersroll"
 
-/obj/item/natural/bundle/fibers/full
+/obj/item/bundle/fibers/full
 	icon_state = "fibersroll2"
 	amount = 6
 	firefuel = 30 MINUTES
 
-/obj/item/natural/bundle/silk
+/obj/item/bundle/silk
 	name = "silken weave"
-	icon_state = "fibersroll1"
+	icon_state = "fibersroll2"
 	possible_item_intents = list(/datum/intent/use)
 	desc = "Silk neatly woven together."
 	force = 0
@@ -245,12 +244,11 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/silk
-	icon1step = 3
-	icon2step = 6
+	iconstatename = "fibersroll"
 
-/obj/item/natural/bundle/cloth
+/obj/item/bundle/cloth
 	name = "bundle of cloth"
-	icon_state = "clothroll1"
+	icon_state = "clothroll2"
 	possible_item_intents = list(/datum/intent/use)
 	desc = "A cloth roll of several pieces of fabric."
 	force = 0
@@ -262,15 +260,12 @@
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/cloth
 	stackname = "cloth"
-	icon1 = "clothroll1"
-	icon1step = 5
-	icon2 = "clothroll2"
-	icon2step = 10
+	iconstatename = "clothroll"
 
-/obj/item/natural/bundle/stick
+/obj/item/bundle/stick
 	name = "bundle of sticks"
 	desc = "A bundle of wooden sticks, looks like they all need to stick together!"
-	icon_state = "stickbundle1"
+	icon_state = "stickbundle2"
 	possible_item_intents = list(/datum/intent/use)
 	maxamount = 10
 	force = 0
@@ -281,11 +276,7 @@
 	spitoutmouth = FALSE
 	stacktype = /obj/item/grown/log/tree/stick
 	stackname = "sticks"
-	icon1 = "stickbundle1"
-	icon1step = 4
-	icon2 = "stickbundle2"
-	icon2step = 7
-	icon3 = "stickbundle3"
+	iconstatename = "stickbundle"
 
 /obj/item/natural/bowstring
 	name = "fibre bowstring"
@@ -303,23 +294,20 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 
-/obj/item/natural/bundle/worms
+/obj/item/bundle/worms
 	name = "worms"
 	desc = "Multiple wriggly worms."
-	icon_state = "worm1"
+	icon_state = "worm2"
 	color = "#964B00"
 	maxamount = 12
-	icon1 = "worm2"
-	icon1step = 4
-	icon2 = "worm4"
-	icon2step = 6
-	icon3 = "worm6"
 	stacktype = /obj/item/natural/worms
 	stackname = "worms"
+	iconstatename = "worm"
 
-/obj/item/natural/bundle/bone
+/obj/item/bundle/bone
 	name = "stack of bones"
-	icon_state = "bonestack1"
+	icon = 'icons/roguetown/misc/alchemy.dmi'
+	icon_state = "bone"
 	possible_item_intents = list(/datum/intent/use)
 	desc = "Bones stacked upon one another."
 	force = 0
@@ -334,26 +322,24 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/alch/bone
+	iconstatename = "bone"
 	stackname = "bones"
-	icon1 = "bonestack1"
-	icon1step = 2
-	icon2 = "bonestack2"
-	icon2step = 4
 
-/obj/item/natural/bundle/bone/full
+
+/obj/item/bundle/bone/full
 	amount = 6
 
 /*/obj/item/alch/bone/attackby(obj/item/I, mob/living/user, params)
 	var/mob/living/carbon/human/H = user
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(I, /obj/item/alch/bone))
-		var/obj/item/natural/bundle/bone/F = new(src.loc)
+		var/obj/item/bundle/bone/F = new(src.loc)
 		H.put_in_hands(F)
 		H.visible_message("[user] ties the bones into a bundle.")
 		qdel(I)
 		qdel(src)
-	if(istype(I, /obj/item/natural/bundle/bone))
-		var/obj/item/natural/bundle/bone/B = I
+	if(istype(I, /obj/item/bundle/bone))
+		var/obj/item/bundle/bone/B = I
 		if(B.amount < B.maxamount)
 			H.visible_message("[user] adds the [src] to the bundle.")
 			B.amount += 1

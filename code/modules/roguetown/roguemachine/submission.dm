@@ -19,7 +19,7 @@
 			return
 This is a filter that blocks use of the machine for that role. Could be expanded, made more complex, made for races or whatever.*/
 		var/mob/living/carbon/human/H = user
-		if(istype(P, /obj/item/natural/bundle))
+		if(istype(P, /obj/item/bundle))
 			say("Single item entries only. Please unstack.")
 			return
 		if(istype(P, /obj/item/roguecoin))

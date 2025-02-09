@@ -90,8 +90,8 @@
 			continue
 		if(I.flags_1 & HOLOGRAM_1)
 			continue
-		if(istype(I, /obj/item/natural/bundle))
-			var/obj/item/natural/bundle/B = I
+		if(istype(I, /obj/item/bundle))
+			var/obj/item/bundle/B = I
 			.["other"][B.stacktype] += B.amount
 		else if(I.tool_behaviour)
 			.["tool_behaviour"] += I.tool_behaviour
@@ -347,9 +347,9 @@
 						RC.on_reagent_change()
 					else
 						surroundings -= RC
-			else if(ispath(A, /obj/item/natural) || A == /obj/item/grown/log/tree/stick)
+			else if(ispath(A, /obj/item/))
 				while(amt > 0)
-					for(var/obj/item/natural/bundle/B in get_environment(user))
+					for(var/obj/item/bundle/B in get_environment(user))
 						if(B.stacktype == A)
 							if(B.amount > amt)
 								B.amount -= amt

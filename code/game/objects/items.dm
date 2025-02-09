@@ -242,6 +242,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/fiber_salvage = FALSE
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
+	// Bundle item type, not set to anything unless bundleable
+	var/bundletype
+
 
 /obj/item/Initialize()
 	. = ..()

@@ -180,6 +180,8 @@
 	med_pot = /datum/alch_cauldron_recipe/health_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
+	bundletype = obj/item/bundle/bone
+
 /obj/item/alch/horn
 	name = "troll horn"
 	icon_state = "horn"
