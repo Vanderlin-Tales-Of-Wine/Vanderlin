@@ -1031,6 +1031,9 @@
 /obj/item/clothing/cloak/half/red
 	color = CLOTHING_BLOOD_RED
 
+/obj/item/clothing/cloak/half/linen //added for the aasmiar mercs
+	color = CLOTHING_LINEN
+
 /obj/item/clothing/cloak/half/vet
 	name = "town watch cloak"
 	icon_state = "guardcloak"

@@ -1340,6 +1340,7 @@
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\corsair.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\exiled.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\grenzelhoft.dm"
+#include "code\modules\jobs\job_types\roguetown\other\merc_classes\peltasta.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\steppesman.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\underdweller.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\zybantine.dm"
