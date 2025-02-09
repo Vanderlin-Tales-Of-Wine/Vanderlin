@@ -123,7 +123,7 @@
 
 /datum/reagent/medicine/stampot/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_stamina(-1.5)
+		M.adjust_stamina(-6)
 	..()
 
 /datum/reagent/medicine/strongstam
@@ -131,11 +131,11 @@
 	description = "Rapidly regenerates stamina."
 	color = "#13df00"
 	taste_description = "sparkly static"
-	metabolization_rate = REAGENTS_METABOLISM * 3
+	metabolization_rate = REAGENTS_METABOLISM
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_stamina(-6)
+		M.adjust_stamina(-32) // pretty much infinite stamina during the duration
 	..()
 
 /datum/reagent/medicine/antidote
@@ -170,7 +170,7 @@
 /datum/reagent/buff
 	description = ""
 	reagent_state = LIQUID
-	metabolization_rate = REAGENTS_METABOLISM
+	metabolization_rate = REAGENTS_METABOLISM * 0.5 // buff potions last 2 times longer
 
 /datum/reagent/buff/strength
 	name = "Strength"
@@ -181,7 +181,7 @@
 	testing("str pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/strengthpot))
 		return ..()
-	if(M.reagents.has_reagent(/datum/reagent/buff/strength,4))
+	if(M.reagents.has_reagent(/datum/reagent/buff/strength,5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/strengthpot)
 		M.reagents.remove_reagent(/datum/reagent/buff/strength, M.reagents.get_reagent_amount(/datum/reagent/buff/strength))
 	return ..()
@@ -195,7 +195,7 @@
 	testing("per pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/perceptionpot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/perception),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/perception),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/perceptionpot)
 		M.reagents.remove_reagent(/datum/reagent/buff/perception, M.reagents.get_reagent_amount(/datum/reagent/buff/perception))
 	return ..()
@@ -209,7 +209,7 @@
 	testing("int pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/intelligencepot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/intelligence),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/intelligence),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/intelligencepot)
 		M.reagents.remove_reagent(/datum/reagent/buff/intelligence, M.reagents.get_reagent_amount(/datum/reagent/buff/intelligence))
 	return ..()
@@ -223,7 +223,7 @@
 	testing("con pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/constitutionpot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/constitution),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/constitution),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/constitutionpot)
 		M.reagents.remove_reagent(/datum/reagent/buff/constitution, M.reagents.get_reagent_amount(/datum/reagent/buff/constitution))
 	return ..()
@@ -237,7 +237,7 @@
 	testing("end pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/endurancepot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/endurance),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/endurance),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/endurancepot)
 		M.reagents.remove_reagent(/datum/reagent/buff/endurance, M.reagents.get_reagent_amount(/datum/reagent/buff/endurance))
 	return ..()
@@ -251,7 +251,7 @@
 	testing("spd pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/speedpot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/speed),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/speed),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/speedpot)
 		M.reagents.remove_reagent(/datum/reagent/buff/speed, M.reagents.get_reagent_amount(/datum/reagent/buff/speed))
 	return ..()
@@ -265,7 +265,7 @@
 	testing("luck pot in system")
 	if(M.has_status_effect(/datum/status_effect/buff/alch/fortunepot))
 		return ..()
-	if(M.reagents.has_reagent((/datum/reagent/buff/fortune),4))
+	if(M.reagents.has_reagent((/datum/reagent/buff/fortune),5))
 		M.apply_status_effect(/datum/status_effect/buff/alch/fortunepot)
 		M.reagents.remove_reagent(/datum/reagent/buff/fortune, M.reagents.get_reagent_amount(/datum/reagent/buff/fortune))
 	return ..()
