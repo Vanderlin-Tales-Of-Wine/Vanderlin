@@ -527,7 +527,7 @@
 	icon_state = "dirtW2"
 	water_level = 2
 	slowdown = 20
-	wash_in = TRUE
+	wash_in = FALSE
 	water_reagent = /datum/reagent/water/gross/sewer
 
 /turf/open/water/swamp/Initialize()
@@ -594,7 +594,6 @@
 	icon_state = "rockw2"
 	water_level = 2
 	slowdown = 15
-	wash_in = TRUE
 	water_reagent = /datum/reagent/water
 
 /turf/open/water/cleanshallow/Initialize()
@@ -610,7 +609,6 @@
 	icon = 'icons/turf/newwater.dmi'
 	water_level = 3
 	slowdown = 20
-	wash_in = TRUE
 	swim_skill = TRUE
 	var/river_processing
 	var/river_processes = TRUE
