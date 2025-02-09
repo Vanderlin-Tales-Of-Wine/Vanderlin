@@ -195,8 +195,11 @@
 /obj/item/dice/proc/diceroll(mob/user)
 	result = roll(sides)
 	if(rigged != DICE_NOT_RIGGED && result != rigged_value)
-		if(rigged == DICE_BASICALLY_RIGGED && prob(CLAMP(1/(sides - 1) * 100, 40, 80)))
-			result = rigged_value
+		if(rigged == DICE_BASICALLY_RIGGED)
+			if(prob(80))
+				result = rigged_value
+			else
+				to_chat(user,"<span class='big'>Xylix laughs at your pitiable attempt at sleight of hand.</span>")
 		else if(rigged == DICE_TOTALLY_RIGGED)
 			result = rigged_value
 	if(!permanently_rigged)
