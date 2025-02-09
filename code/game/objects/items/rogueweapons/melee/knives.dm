@@ -149,10 +149,9 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/salvage_time = 70
 			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
-			salvage_time = (70 - (skill_level * 10))
-			if(!do_after(user, salvage_time, target = user))
+			var/salvage_time = (7 SECONDS - (skill_level * 10))
+			if(!do_after(user, salvage_time, user))
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
 				new /obj/item/natural/fibers(get_turf(item))
@@ -239,7 +238,7 @@
 	desc = "Thin, sharp, pointed death."
 	icon_state = "idagger"
 	smeltresult = null
-	sellprice = 15
+	sellprice = 12
 
 //................ Steel Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel

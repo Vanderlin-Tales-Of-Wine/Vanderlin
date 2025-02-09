@@ -664,7 +664,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
 			qdel(src)
 		else
-			if(!do_mob(user, H, 2 SECONDS))
+			if(!do_after(user, 2 SECONDS, H))
 				return
 			if(M.cmode)
 				user.electrocute_act(30)

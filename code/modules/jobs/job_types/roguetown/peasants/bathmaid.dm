@@ -115,7 +115,7 @@
 
 	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")	// Applies the special bonus only if Nitemaiden using the soap
 	playsound(src.loc, pick('sound/items/soaping.ogg'), 100)
-	if(do_after(user, 5 SECONDS, target = target))
+	if(do_after(user, 5 SECONDS, target))
 		if(user.job == "Nitemaiden")
 			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
 			to_chat(target, span_warning("I feel so relaxed and clean!"))

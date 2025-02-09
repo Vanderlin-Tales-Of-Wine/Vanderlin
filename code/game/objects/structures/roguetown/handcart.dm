@@ -93,7 +93,7 @@
 		return
 	if(user == O) //try to climb into or onto it
 		if(!(user.mobility_flags & MOBILITY_STAND))
-			if(!do_after(user, 20, target = src))
+			if(!do_after(user, 2 SECONDS, src))
 				return FALSE
 			if(put_in(O))
 				playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
@@ -102,8 +102,7 @@
 	//only these intents should be able to move objects into handcarts
 	if(user.used_intent.type == INTENT_HELP || user.used_intent.type == /datum/intent/grab/move)
 		if(isliving(O))
-			var/list/targets = list(O, src)
-			if(!do_after_mob(user, targets, 20))
+			if(!do_after(user, 2 SECONDS, O))
 				return FALSE
 		if(put_in(O))
 			playsound(loc, 'sound/foley/cartadd.ogg', 100, FALSE, -1)
@@ -218,7 +217,7 @@
 				return FALSE
 		L.stop_pulling()
 	else if(isobj(AM))
-		if((AM.density) || AM.anchored || AM.has_buckled_mobs())
+		if((AM.density) || AM.anchored || AM.has_buckled_mobs() || iseffect(AM))
 			return FALSE
 		else
 			if(isitem(AM))

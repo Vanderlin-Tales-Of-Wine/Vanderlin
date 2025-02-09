@@ -718,3 +718,40 @@
 	requirements = list(/obj/item/natural/fibers = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 5
+
+/* craftdif of 6 = LEGENDARY */
+// IDK how to balance these
+/datum/repeatable_crafting_recipe/sewing/weaving/springgown
+	name = "gown (spring)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/silk = 4)
+	craftdiff = 6
+	sellprice = 85
+
+/datum/repeatable_crafting_recipe/sewing/weaving/summergown
+	name = "gown (summer)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
+	requirements = list(/obj/item/natural/fibers = 2,
+				/obj/item/natural/cloth = 1, 
+				/obj/item/natural/silk = 3)
+	craftdiff = 6
+	sellprice = 70
+
+/datum/repeatable_crafting_recipe/sewing/weaving/fallgown
+	name = "gown (fall, silk)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/fallgown
+	requirements = list(/obj/item/natural/fibers = 3,
+				/obj/item/natural/silk = 2,
+				/obj/item/natural/cloth = 2)
+	craftdiff = 6
+	sellprice = 75
+
+/datum/repeatable_crafting_recipe/sewing/weaving/wintergown
+	name = "gown (winter)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/wintergown
+	requirements = list(/obj/item/natural/fibers = 3,
+				/obj/item/natural/silk = 2,
+				/obj/item/natural/fur/cabbit = 1)
+	craftdiff = 6
+	sellprice = 90

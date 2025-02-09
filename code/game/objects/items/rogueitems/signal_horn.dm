@@ -15,7 +15,7 @@
 		to_chat(user, span_warning("[src] is not ready to be used yet!"))
 		return
 	user.visible_message(span_warning("[user] is about to sound [src]!"))
-	if(do_after(user, 15))
+	if(do_after(user, 1.5 SECONDS))
 		sound_horn(user)
 		COOLDOWN_START(src, sound_horn, 1 MINUTES)
 

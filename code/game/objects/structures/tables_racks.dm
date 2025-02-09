@@ -68,7 +68,7 @@
 			if(user.used_intent.type == INTENT_HELP)
 				pushed_mob.visible_message("<span class='notice'>[user] begins to place [pushed_mob] onto [src]...</span>", \
 									"<span class='danger'>[user] begins to place [pushed_mob] onto [src]...</span>")
-				if(do_after(user, 35, target = pushed_mob))
+				if(do_after(user, 3.5 SECONDS, pushed_mob))
 					tableplace(user, pushed_mob)
 				else
 					return

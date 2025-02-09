@@ -40,8 +40,8 @@
 		return
 
 	if(target.reagents.has_reagent(/datum/reagent/water))
-		to_chat(user, span_notice("You start to wash [src] in [target]."))
-		if(!do_after(user, 1 SECONDS, target = target))
+		to_chat(user, span_notice("I start to wash [src] in [target]..."))
+		if(!do_after(user, 1 SECONDS, target))
 			return
 		current_color = null
 		update_overlays()

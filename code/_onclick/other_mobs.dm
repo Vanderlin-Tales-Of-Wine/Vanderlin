@@ -418,7 +418,7 @@
 						if(!(zone_selected in stealablezones))
 							to_chat(src, span_warning("What am I going to steal from there?"))
 							return
-						if(do_after(U, 2 SECONDS, target = V, progress = 0))
+						if(do_after(U, 2 SECONDS, V, progress = FALSE))
 							switch(U.zone_selected)
 								if("chest")
 									if (V.get_item_by_slot(SLOT_BACK_L))
