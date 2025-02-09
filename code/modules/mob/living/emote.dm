@@ -935,7 +935,7 @@
 
 /datum/emote/living/scream/painscream
 	key = "painscream"
-	message = "yells out in pain!"
+	message = "screams in pain!"
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 
@@ -1105,7 +1105,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /datum/emote/living/shakehead
-	key = "shake"
+	key = "shakehead"
 	key_third_person = "shakeshead"
 	message = "shakes their head."
 	emote_type = EMOTE_VISIBLE
