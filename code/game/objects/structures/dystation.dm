@@ -137,10 +137,13 @@
 	if(!.)
 		return
 
+	if(href_list["close"]) //the window will refuse to close if we don't do this ourselves
+		usr << browse(null, "window=colormate")
+		return
+
 	var/mob/living/user = usr
 	if(!istype(user))
 		return
-	add_fingerprint(user)
 
 	switch(href_list["action"])
 		if("select")
