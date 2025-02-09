@@ -163,6 +163,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/gripsprite = FALSE //use alternate grip sprite for inhand
 	var/gripspriteonmob = FALSE //use alternate sprite for onmob
 
+	/// Item will be scaled by this factor when on the ground.
 	var/dropshrink = 0
 
 	var/wlength = WLENGTH_NORMAL		//each weapon length class has its own inherent dodge properties
