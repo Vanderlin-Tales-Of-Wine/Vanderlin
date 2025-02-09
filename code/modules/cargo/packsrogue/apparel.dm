@@ -251,4 +251,4 @@
 /datum/supply_pack/rogue/apparel/luxurydyes
 	name = "Luxury Dyes"
 	cost = 70
-	contains = /obj/item/luxury_dyes
+	contains = /obj/item/dye_pack/luxury

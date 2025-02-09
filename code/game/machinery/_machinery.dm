@@ -30,7 +30,7 @@
 	var/climb_offset = 0 //offset up when climbed
 	var/mob/living/structureclimber
 
-/obj/machinery/Initialize()
+/obj/machinery/Initialize(mapload, ...)
 	if(!armor)
 		armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 10, "fire" = 50, "acid" = 70)
 	. = ..()
