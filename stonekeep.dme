@@ -1231,7 +1231,6 @@
 #include "code\modules\hydroponics\plant_genes.dm"
 #include "code\modules\hydroponics\sample.dm"
 #include "code\modules\hydroponics\seeds.dm"
-#include "code\modules\hydroponics\grown\towercap.dm"
 #include "code\modules\jobs\job_exp.dm"
 #include "code\modules\jobs\jobs.dm"
 #include "code\modules\jobs\job_types\_job.dm"
