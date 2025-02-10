@@ -13,6 +13,7 @@ Format:
 	votable (is this map votable)
 endmap
 
+#map CentCom
 map vanderlin
 	default
 	votable
