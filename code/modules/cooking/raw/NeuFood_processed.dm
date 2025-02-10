@@ -332,7 +332,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
-			if(do_after(user,short_cooktime, src))
+			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_two(loc)
 				qdel(I)
 				qdel(src)
@@ -353,7 +353,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
-			if(do_after(user,short_cooktime, src))
+			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_three(loc)
 				qdel(I)
 				qdel(src)
@@ -377,7 +377,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
-			if(do_after(user,short_cooktime, src))
+			if(do_after(user, short_cooktime, src))
 				qdel(I)
 				name = "maturing cheese wheel"
 				icon_state = "cheesewheel_end"

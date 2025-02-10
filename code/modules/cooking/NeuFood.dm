@@ -271,8 +271,6 @@
 				if(M != user)
 					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
 								"<span class='danger'>[user] attempts to feed you something.</span>")
-//					if(!do_mob(user, M)) proc got nuked unsure how it will affect
-//						return
 					if(!reagents || !reagents.total_volume)
 						return // The drink might be empty after the delay, such as by spam-feeding
 					M.visible_message("<span class='danger'>[user] feeds [M] something.</span>", \
@@ -492,7 +490,7 @@
 		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading in more powder..."))
-			if(do_after(user,short_cooktime, src))
+			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
 				qdel(src)
@@ -517,7 +515,7 @@
 	if(water_added)
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
-		if(do_after(user,short_cooktime, src))
+		if(do_after(user, short_cooktime, src))
 			var/obj/item/reagent_containers/food/snacks/rogue/dough_base/newdough= new(get_turf(user))
 			user.put_in_hands(newdough)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))

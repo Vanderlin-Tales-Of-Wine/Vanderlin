@@ -35,7 +35,7 @@
 		mill.icon_state = "peppermill_grind"
 		to_chat(user, "You start rubbing the steak with black pepper.")
 		playsound(get_turf(user), 'sound/foley/peppermill.ogg', 100, TRUE, -1)
-		if(do_after(user,3 SECONDS, target = src))
+		if(do_after(user, 3 SECONDS, src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
 				to_chat(user, "There's not enough black pepper to make anything with.")
 				return TRUE
@@ -51,7 +51,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		to_chat(user, "<span class='notice'>Adding onions...</span>")
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 1, "caramelized onions" = 1)
 			name = "[name] and onions"
 			desc = "[desc] Garnished with tender fried onion, juices made into a simple sauce."
@@ -65,7 +65,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 		to_chat(user, "<span class='notice'>Adding potato...</span>")
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			tastes = list("roasted meat" = 2, "potato" = 1)
 			name = "[name] and potato"
 			desc = "[desc] Served with potatos, this will nourish even a starving volf."
@@ -99,7 +99,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/egg) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "[name] twins"
 			desc = "[desc] There are two of them."
 			icon_state = "seggs"
@@ -110,7 +110,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese_wedge) && (!modified))	// cheese to make it a proper meal thus unlocking plating and using the food buff check
 		if(icon_state == "seggs")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,short_cooktime, target = src))
+			if(do_after(user, short_cooktime, src))
 				name = "valorian omelette"
 				desc = "Fried cackleberries on a bed of half-melted cheese, a dish from distant lands."
 				list_reagents = list(/datum/reagent/consumable/nutriment = EGG_NUTRITION+EGG_NUTRITION+CHEESE_NUTRITION+1)
@@ -137,7 +137,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "[name] and tatos"
 			desc = "[desc] Some warm tatos accompany it."
 			icon_state = "frybirdtato"
@@ -169,7 +169,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "royal truffles"
 			desc = "The height of decadence, a precious truffle pig, turned into a amusing meal, served on a bed of its beloved golden truffles."
 			icon_state = "royaltruffles"
@@ -181,7 +181,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "royal truffles"
 			desc = "The height of decadence, a precious truffle pig, turned into a amusing meal, served on a bed of its beloved golden truffles."
 			icon_state = "royaltruffles"
@@ -228,7 +228,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cabbage_fried) && (!modified))
 		playsound(src, 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener on cabbage"
 			desc = "A rich and heavy meal, perfect ration for a soldier on the march."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
@@ -241,7 +241,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/potato) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener on tato"
 			desc = "Stout and nourishing."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+2)
@@ -254,7 +254,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/onion_fried) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener and onions"
 			desc = "Stout and flavourful."
 			icon_state = "wieneronion"
@@ -267,7 +267,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/bun) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "grenzelbun"
 			desc = "Originally an elven cuisine composed of mortal races flesh and bread, the classic wiener in a bun, now modified and staple food of Grenzelhoft cuisine."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
@@ -309,7 +309,7 @@
 		to_chat(user, span_warning("Leftovers aren´t suitable for this."))
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener on cabbage"
 			desc = "A rich and heavy meal, perfect ration for a soldier on the march."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
@@ -343,7 +343,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener on tato"
 			desc = "Stout and nourishing."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+2)
@@ -356,7 +356,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "[name] and tatos"
 			desc = "[desc] Some warm tatos accompany it."
 			icon_state = "frybirdtato"
@@ -388,7 +388,7 @@
 		to_chat(user, span_warning("Leftovers aren´t suitable for this."))
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener and onions"
 			desc = "Stout and flavourful."
 			icon_state = "wieneronion"
@@ -423,7 +423,7 @@
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/sausage) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "wiener on tato"
 			desc = "Stout and nourishing."
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+2)
@@ -436,7 +436,7 @@
 			qdel(I)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cooked/frybird) && (!modified))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		if(do_after(user,short_cooktime, target = src))
+		if(do_after(user, short_cooktime, src))
 			name = "[name] and tatos"
 			desc = "[desc] Some warm tatos accompany it."
 			icon_state = "frybirdtato"
@@ -482,7 +482,7 @@
 		mill.icon_state = "peppermill_grind"
 		to_chat(user, "You start rubbing the bird roast with black pepper.")
 		playsound(get_turf(user), 'sound/foley/peppermill.ogg', 100, TRUE, -1)
-		if(do_after(user,3 SECONDS, target = src))
+		if(do_after(user,3 SECONDS, src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
 				to_chat(user, "There's not enough black pepper to make anything with.")
 				return TRUE
