@@ -209,9 +209,9 @@
 			if(R.craftsound)
 				playsound(T, R.craftsound, 100, TRUE)
 //			var/time2use = round(R.time / 3)
-			var/time2use = 10
+			var/time2use = 1 SECONDS
 			for(var/i = 1 to 100)
-				if(do_after(user, time2use, target = user))
+				if(do_after(user, time2use, user))
 					contents = get_surroundings(user)
 					if(!check_contents(R, contents))
 						return ", missing component."

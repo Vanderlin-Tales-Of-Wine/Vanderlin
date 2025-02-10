@@ -503,3 +503,11 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define CANTHOLD_STATIC(comp, L) \
 	var/static/list/canthold_typecache = L; \
 	comp.cant_hold = canthold_typecache
+
+// timed_action_flags parameter for `/proc/do_after`
+#define IGNORE_USER_LOC_CHANGE (1<<0)
+#define IGNORE_TARGET_LOC_CHANGE (1<<1)
+#define IGNORE_HELD_ITEM (1<<2)
+#define IGNORE_INCAPACITATED (1<<3)
+/// Used to prevent important slowdowns from being abused by drugs like kronkaine
+#define IGNORE_SLOWDOWNS (1<<4)

@@ -146,7 +146,7 @@
 			if(r_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
@@ -173,7 +173,7 @@
 			if(l_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1

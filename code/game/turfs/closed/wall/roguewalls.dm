@@ -361,7 +361,7 @@
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(5,10), target = src))
+		if(do_after(L, rand(5 DECISECONDS, 1 SECONDS), src))
 			if(!res && world.time > res_replenish)
 				res = rand(1,3)
 			if(res && prob(50))

@@ -155,7 +155,7 @@
 	},
 /area/rogue/indoors/town)
 "ajp" = (
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/shop)
 "ajF" = (
@@ -1146,7 +1146,7 @@
 /area/rogue)
 "bnP" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/cell)
 "boJ" = (
@@ -1206,7 +1206,7 @@
 /area/rogue/outdoors/exposed/manorgarri)
 "bsq" = (
 /obj/item/roguebin/water/gross,
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /obj/item/natural/cloth,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
@@ -2567,7 +2567,7 @@
 /area/rogue/indoors/town/church)
 "cSd" = (
 /obj/structure/table/vtable,
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /obj/item/rogueweapon/knife/dagger/steel{
 	pixel_x = 10;
 	pixel_y = 6
@@ -9840,7 +9840,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/under/basement)
 "kmE" = (
-/obj/structure/mirror/alt{
+/obj/structure/mirror{
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -10205,7 +10205,7 @@
 	first_time_text = "Blackwine Manor"
 	})
 "kFZ" = (
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/redhouse)
@@ -17778,7 +17778,7 @@
 "sme" = (
 /obj/item/rogueweapon/sword/rapier,
 /obj/item/natural/cloth,
-/obj/structure/mirror/alt,
+/obj/structure/mirror,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "smq" = (
@@ -20400,7 +20400,7 @@
 "uOM" = (
 /obj/structure/table/vtable,
 /obj/structure/mirror/fancy{
-	icon_state = "fancymirror_alt"
+	icon_state = "fancymirror"
 	},
 /obj/item/reagent_containers/glass/cup/steel{
 	pixel_x = 12;
@@ -21425,7 +21425,7 @@
 /obj/item/roguebin/water/gross,
 /obj/structure/mirror/fancy{
 	desc = "Your reflection seems to be the other way... er... right way around.";
-	icon_state = "fancymirror_alt";
+	icon_state = "fancymirror";
 	name = "magic mirror"
 	},
 /turf/open/floor/rogue/tile,

@@ -102,7 +102,7 @@
 	if(istype(I, /obj/item/reagent_containers/glass/bowl))
 		to_chat(user, "<span class='notice'>Filling the bowl...</span>")
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 70, FALSE)
-		if(do_after(user,2 SECONDS, target = src))
+		if(do_after(user, 2 SECONDS, src))
 			reagents.trans_to(I, reagents.total_volume)
 	return TRUE
 

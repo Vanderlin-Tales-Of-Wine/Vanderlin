@@ -92,7 +92,7 @@
 		return
 	var/windtime = 3.5
 	windtime = windtime - (user.mind.get_skill_level(/datum/skill/combat/firearms) / 2)
-	if(do_after(user, windtime SECONDS, TRUE, src) && !wound)
+	if(do_after(user, windtime SECONDS, src) && !wound)
 		to_chat(user, "<span class='info'>I wind \the [src]'s mechanism.</span>")
 		playsound(src.loc, 'sound/foley/winding.ogg', 100, FALSE)
 		wound = TRUE
@@ -181,7 +181,7 @@
 				to_chat(user, "<span class='warning'>I need to powder the [src] before I can ram it.</span>")
 				return
 			if(!rammed)
-				if(do_after(user, ramtime SECONDS, TRUE, src))
+				if(do_after(user, ramtime SECONDS, src))
 					to_chat(user, "<span class='info'>I ram \the [src].</span>")
 					playsound(src.loc, 'sound/foley/nockarrow.ogg', 100, FALSE)
 					rammed = TRUE

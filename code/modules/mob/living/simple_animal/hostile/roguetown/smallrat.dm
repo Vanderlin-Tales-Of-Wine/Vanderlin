@@ -23,9 +23,9 @@
 				to_chat(user, "<span class='warning'>It's dead.</span>")
 				return
 			var/datum/antagonist/vampirelord/VD = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-			if(do_after(user, 30, target = src))
+			if(do_after(user, 3 DECISECONDS, src))
 				user.visible_message("<span class='warning'>[user] drinks from [src]!</span>",\
-				"<span class='warning'>I drink from [src]!</span>")
+				"<span class='warning'>I drink from [src].</span>")
 				playsound(user.loc, 'sound/misc/drink_blood.ogg', 100, FALSE, -4)
 				VD.handle_vitae(50)
 				dead = TRUE

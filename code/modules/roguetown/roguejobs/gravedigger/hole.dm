@@ -75,7 +75,7 @@
 			testing("reagent check complete")
 			var/datum/reagent/master_reagent = bucket.reagents.get_master_reagent()
 			var/reagent_volume = master_reagent.volume
-			if(do_after(user, 10 SECONDS, target = src))
+			if(do_after(user, 10 SECONDS, src))
 				if(bucket.reagents.remove_reagent(master_reagent.type, clamp(master_reagent.volume, 1, 100)))
 					testing("remove reagent proc complete")
 					var/turf/structure_turf = get_turf(src)
@@ -131,8 +131,8 @@
 		if(stage == 3)
 			var/turf/underT = get_step_multiz(src, DOWN)
 			if(underT && isopenturf(underT) && mastert)
-				user.visible_message("[user] starts digging out the bottom of [src]", "You start digging out the bottom of [src].")
-				if(!do_after(user, 10 SECONDS * attacking_shovel.time_multiplier, target = src))
+				user.visible_message("[user] starts digging out the bottom of [src]", "I start digging out the bottom of [src].")
+				if(!do_after(user, 10 SECONDS * attacking_shovel.time_multiplier, src))
 					return TRUE
 				attacking_shovel.heldclod = new(attacking_shovel)
 				attacking_shovel.update_icon()
@@ -217,13 +217,12 @@
 		actuallyismob = 1
 	else if(!isitem(O))
 		return
-	var/list/targets = list(O, src)
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] [actuallyismob ? "tries to ":""]stuff [O] into [src].</span>", \
 						"<span class='warning'>I [actuallyismob ? "try to ":""]stuff [O] into [src].</span>", \
 						"<span class='hear'>I hear clanging.</span>")
 	if(actuallyismob)
-		if(do_after_mob(user, targets, 40))
+		if(do_after(user, 4 SECONDS, O))
 			user.visible_message("<span class='notice'>[user] stuffs [O] into [src].</span>", \
 								"<span class='notice'>I stuff [O] into [src].</span>", \
 								"<span class='hear'>I hear a loud bang.</span>")
@@ -304,7 +303,7 @@
 			if(!(locate(/obj/item/natural/worms) in T))
 				if(prob(40))
 					if(prob(10))
-						new /obj/item/natural/worms/grubs(T)
+						new /obj/item/natural/worms/grub_silk(T)
 					else
 						new /obj/item/natural/worms/leech(T)
 				else

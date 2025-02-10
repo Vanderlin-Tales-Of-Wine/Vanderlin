@@ -20,7 +20,7 @@
 		if(isturf(loc)&& (found_table))
 			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			if(do_after(user,long_cooktime, target = src))
+			if(do_after(user, long_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/rogue/meat/sausage(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
@@ -194,6 +194,26 @@
 /datum/reagent/consumable/milk/salted
 	taste_description = "salty milk"
 
+/obj/item/reagent_containers/attackby(obj/item/I, mob/user, params) // add cook time to containers & salted milk for butter churning
+	..()
+	if(user.mind)
+		short_cooktime = (70 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
+		long_cooktime = (120 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
+	if(istype(I, /obj/item/reagent_containers/powder/salt))
+		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+			to_chat(user, "<span class='warning'>Not enough milk.</span>")
+			return
+		to_chat(user, "<span class='warning'>Adding salt to the milk.</span>")
+		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+		if(do_after(user, 2 SECONDS, src))
+			if(reagents.has_reagent(/datum/reagent/consumable/milk, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted, 15)
+			if(reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk/gote, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted_gote, 15)
+			qdel(I)
+
 
 
 /*-------\
@@ -210,9 +230,9 @@
 			return
 		user.adjust_stamina(40) // forgot stamina is our lovely stamloss proc here
 		user.visible_message("<span class='info'>[user] churns butter...</span>")
-		playsound(get_turf(user), 'sound/foley/churn.ogg', 100, TRUE, -1)
-		if(do_after(user,long_cooktime, target = src))
-			user.adjust_stamina(40)
+		playsound(get_turf(user), 'modular/Neu_Food/sound/churn.ogg', 100, TRUE, -1)
+		if(do_after(user, long_cooktime, src))
+			user.adjust_stamina(50)
 			if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 15))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted, 15)
 			if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 15))
@@ -276,14 +296,14 @@
 		if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 5))
 			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			if(do_after(user,long_cooktime, target = src))
+			if(do_after(user, long_cooktime, src))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted, 5)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
 				new /obj/item/reagent_containers/food/snacks/rogue/cheese(drop_location())
 		else if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 5))
 			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			if(do_after(user,long_cooktime, target = src))
+			if(do_after(user, long_cooktime, src))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted_gote, 5)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
 				new /obj/item/reagent_containers/food/snacks/rogue/cheese/gote(drop_location())
@@ -312,7 +332,7 @@
 		if(isturf(loc)&& (found_table))
 			user.visible_message("<span class='info'>[user] starts packing the cloth with fresh cheese...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
-			if(do_after(user,3 SECONDS, target = src))
+			if(do_after(user,3 SECONDS, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
@@ -332,7 +352,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
-			if(do_after(user,short_cooktime, target = src))
+			if(do_after(user,short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_two(loc)
 				qdel(I)
 				qdel(src)
@@ -353,7 +373,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
-			if(do_after(user,short_cooktime, target = src))
+			if(do_after(user,short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_three(loc)
 				qdel(I)
 				qdel(src)
@@ -377,7 +397,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
-			if(do_after(user,short_cooktime, target = src))
+			if(do_after(user,short_cooktime, src))
 				qdel(I)
 				name = "maturing cheese wheel"
 				icon_state = "cheesewheel_end"
