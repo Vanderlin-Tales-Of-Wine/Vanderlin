@@ -149,7 +149,7 @@
 	name = "wood pipe"
 	result = /obj/item/clothing/mask/cigarette/pipe/crafted
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
-	craftdiff = 2
+	craftdiff = 1
 	tools = list(/obj/item/rogueweapon/knife)
 
 /obj/item/clothing/mask/cigarette/pipe/crafted
