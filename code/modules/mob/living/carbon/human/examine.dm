@@ -64,14 +64,6 @@
 		if(GLOB.lord_titles[real_name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
-        // ✅ NEW: Combat Mode Display (from first version)
-		if(cmode)
-			. += "<span class='warning'>This person is tense and focused.</span>"
-		else
-			. += "<span class='info'>This person is relaxed.</span>"
-
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 		if(dna.species.use_skintones)
 			var/skin_tone_wording = dna.species.skin_tone_wording ? lowertext(dna.species.skin_tone_wording) : "skin tone"
 			var/list/skin_tones = dna.species.get_skin_list()
@@ -495,7 +487,6 @@
 				. += "<span class='warning'>[t_He] look[p_s()] weaker than I.</span>"
 			if(-INFINITY to -5)
 				. += "<span class='warning'><B>[t_He] look[p_s()] much weaker than I.</B></span>"
-    // ✅ NEW: Combat Mode Display
 
 	if(Adjacent(user))
 		if(isobserver(user))
