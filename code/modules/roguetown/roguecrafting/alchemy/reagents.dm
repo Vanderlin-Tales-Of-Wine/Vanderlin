@@ -118,7 +118,7 @@
 	color = "#129c00"
 	taste_description = "sweet tea"
 	overdose_threshold = 0
-	metabolization_rate = REAGENTS_METABOLISM
+	metabolization_rate = REAGENTS_METABOLISM * 0.25
 	alpha = 173
 
 /datum/reagent/medicine/stampot/on_mob_life(mob/living/carbon/M)
@@ -131,7 +131,7 @@
 	description = "Rapidly regenerates stamina."
 	color = "#13df00"
 	taste_description = "sparkly static"
-	metabolization_rate = REAGENTS_METABOLISM
+	metabolization_rate = REAGENTS_METABOLISM * 0.5
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
