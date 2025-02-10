@@ -67,7 +67,7 @@
 		else
 			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
 								"<span class='notice'>I begin to apply \the [src] on [H]'s lips...</span>")
-			if(do_after(user, 20, target = H))
+			if(do_after(user, 2 SECONDS, H))
 				user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
 									"<span class='notice'>I apply \the [src] on [H]'s lips.</span>")
 				H.lip_style = "lipstick"
@@ -93,7 +93,7 @@
 			else
 				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
 									"<span class='notice'>I begin to wipe off [H]'s lipstick...</span>")
-				if(do_after(user, 10, target = H))
+				if(do_after(user, 1 SECONDS, H))
 					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
 										"<span class='notice'>I wipe off [H]'s lipstick.</span>")
 					H.lip_style = null
@@ -145,7 +145,7 @@
 						to_chat(user, "<span class='warning'>The mask is in the way!</span>")
 						return
 					user.visible_message("<span class='notice'>[user] tries to change [H]'s facial hairstyle using [src].</span>", "<span class='notice'>I try to change [H]'s facial hairstyle using [src].</span>")
-					if(new_style && do_after(user, 60, target = H))
+					if(new_style && do_after(user, 6 SECONDS, H))
 						user.visible_message("<span class='notice'>[user] successfully changes [H]'s facial hairstyle using [src].</span>", "<span class='notice'>I successfully change [H]'s facial hairstyle using [src].</span>")
 						H.facial_hairstyle = new_style
 						H.update_hair()
@@ -167,14 +167,14 @@
 				if(H == user) //shaving yourself
 					user.visible_message("<span class='notice'>[user] starts to shave [user.p_their()] facial hair with [src].</span>", \
 										"<span class='notice'>I take a moment to shave your facial hair with [src]...</span>")
-					if(do_after(user, 50, target = H))
+					if(do_after(user, 5 SECONDS, H))
 						user.visible_message("<span class='notice'>[user] shaves [user.p_their()] facial hair clean with [src].</span>", \
 											"<span class='notice'>I finish shaving with [src]. Fast and clean!</span>")
 						shave(H, location)
 				else
 					user.visible_message("<span class='warning'>[user] tries to shave [H]'s facial hair with [src].</span>", \
 										"<span class='notice'>I start shaving [H]'s facial hair...</span>")
-					if(do_after(user, 50, target = H))
+					if(do_after(user, 5 SECONDS, H))
 						user.visible_message("<span class='warning'>[user] shaves off [H]'s facial hair with [src].</span>", \
 											"<span class='notice'>I shave [H]'s facial hair clean off.</span>")
 						shave(H, location)
@@ -191,7 +191,7 @@
 					to_chat(user, "<span class='warning'>The headgear is in the way!</span>")
 					return
 				user.visible_message("<span class='notice'>[user] tries to change [H]'s hairstyle using [src].</span>", "<span class='notice'>I try to change [H]'s hairstyle using [src].</span>")
-				if(new_style && do_after(user, 60, target = H))
+				if(new_style && do_after(user, 6 SECONDS, H))
 					user.visible_message("<span class='notice'>[user] successfully changes [H]'s hairstyle using [src].</span>", "<span class='notice'>I successfully change [H]'s hairstyle using [src].</span>")
 					H.hairstyle = new_style
 					H.update_hair()
@@ -211,7 +211,7 @@
 				if(H == user) //shaving yourself
 					user.visible_message("<span class='notice'>[user] starts to shave [user.p_their()] head with [src].</span>", \
 										"<span class='notice'>I start to shave your head with [src]...</span>")
-					if(do_after(user, 5, target = H))
+					if(do_after(user, 5 DECISECONDS, H)) //?
 						user.visible_message("<span class='notice'>[user] shaves [user.p_their()] head with [src].</span>", \
 											"<span class='notice'>I finish shaving with [src].</span>")
 						shave(H, location)
@@ -219,7 +219,7 @@
 					var/turf/H_loc = H.loc
 					user.visible_message("<span class='warning'>[user] tries to shave [H]'s head with [src]!</span>", \
 										"<span class='notice'>I start shaving [H]'s head...</span>")
-					if(do_after(user, 50, target = H))
+					if(do_after(user, 5 SECONDS, H))
 						if(H_loc == H.loc)
 							user.visible_message("<span class='warning'>[user] shaves [H]'s head bald with [src]!</span>", \
 												"<span class='notice'>I shave [H]'s head bald.</span>")

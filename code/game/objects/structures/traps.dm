@@ -82,8 +82,10 @@
 	alpha = 200
 	last_trigger = world.time
 	animate(src, alpha = initial(alpha), time = time_between_triggers)
-	if(do_atom(src,src,time_between_triggers,TRUE))
-		nomouseover = TRUE
+	addtimer(CALLBACK(src, PROC_REF(unflare)), time_between_triggers, (TIMER_UNIQUE|TIMER_CLIENT_TIME))
+
+/obj/structure/trap/proc/unflare()
+	nomouseover = TRUE
 
 /obj/structure/trap/Crossed(atom/movable/AM)
 	if(is_type_in_typecache(AM, ignore_typecache))

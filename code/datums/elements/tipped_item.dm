@@ -31,7 +31,7 @@
 	return COMPONENT_NO_ATTACK
 
 /datum/element/tipped_item/proc/start_dipping(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
-	if(!do_after(attacker, 2 SECONDS, target = attacked_container))
+	if(!do_after(attacker, 2 SECONDS, attacked_container))
 		return
 	attacked_container.reagents.trans_to(dipper, 0.5, transfered_by = attacker)
 	attacker.visible_message(span_danger("[attacker] dips [dipper] in [attacked_container]!"), "You dip [dipper] in [attacked_container]!", vision_distance = 2)

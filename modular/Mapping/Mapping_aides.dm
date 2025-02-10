@@ -78,7 +78,7 @@
 	var/amount = rand(1, 2)
 	if(user.used_intent.type == /datum/intent/snip)
 		snip_time = (50 - (sewing_skill * 10))
-		if(!do_after(user, snip_time, target = user))
+		if(!do_after(user, snip_time))
 			return TRUE
 		for(var/i = 1; i <= amount; i++)
 			new /obj/item/natural/silk (get_turf(src))
@@ -138,12 +138,12 @@
 	max_integrity = 40
 
 /obj/structure/spider/cocoon/container_resist(mob/living/user)
-	var/breakout_time = 600
+	var/breakout_time = 1 MINUTES
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
 	to_chat(user, "<span class='notice'>I struggle against the tight bonds... (This will take about [DisplayTimeText(breakout_time)].)</span>")
 	visible_message("<span class='notice'>I see something struggling and writhing in \the [src]!</span>")
-	if(do_after(user,(breakout_time), target = src))
+	if(do_after(user, breakout_time, src))
 		if(!user || user.stat != CONSCIOUS || user.loc != src)
 			return
 		qdel(src)
@@ -227,7 +227,7 @@
 /obj/structure/circle_protection/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/powder/salt))
 		to_chat(user, "<span class='notice'>Restoring the salt lines...</span>")
-		if(do_after(user,10 SECONDS, target = src))
+		if(do_after(user, 10 SECONDS, src))
 			depleted = FALSE
 			alpha = 180
 			qdel(I)

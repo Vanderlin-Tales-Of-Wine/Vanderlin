@@ -65,8 +65,10 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/endspanpart = "</span></span>"
 
 	//Message
-	var/messagepart = " <span class='message'>[lang_treat(speaker, message_language, raw_message, spans, message_mode)]</span></span>"
+	var/messagepart = "[lang_treat(speaker, message_language, raw_message, spans, message_mode)]"
+	messagepart = " <span class='message'>[messagepart]</span></span>"
 
+	//Arrow
 	var/arrowpart = ""
 
 	if(istype(src,/mob/living))
@@ -129,38 +131,60 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(!input)
 		input = "..."
 
+	var/say_mod
+
+	var/mob/living/living_speaker = src
+	if(istype(living_speaker) && living_speaker.cmode)
+		say_mod = "—"
+	else
+		say_mod = say_mod(input, message_mode)
+		say_mod = "[say_mod]," //acknowledge the comma
+
 	if(copytext(input, length(input) - 1) == "!!")
 		spans |= SPAN_YELL
 
-	var/spanned = attach_spans(input, spans)
-	if(isliving(src))
-		var/mob/living/L = src
-		if(L.cmode)
-			return "— \"[spanned]\""
-	return "[say_mod(input, message_mode)], \"[spanned]\""
+	/* all inputs should be fully figured out past this point */
 
-/atom/movable/proc/quoteless_say_quote(input, list/spans = list(speech_span), message_mode)
+	var/processed_input = say_emphasis(input)
+	processed_input = attach_spans(processed_input, spans)
+
+	var/processed_say_mod = say_emphasis(say_mod) // port custom emotes one day?
+
+	return "[processed_say_mod] \"[processed_input]\""
+
+/atom/movable/proc/quoteless_say_quote(input, list/spans = list(speech_span), message_mode) //what the fuck.
 	var/pos = findtext(input, "*")
-	return pos? copytext(input, pos + 1) : input
+	var/final_quoteless = pos ? copytext(input, pos + 1) : input
+	return say_emphasis(final_quoteless)
 
 /atom/movable/proc/check_language_hear(language)
 	return FALSE
 
+/// Transforms the speech emphasis mods from [/atom/movable/proc/say_emphasis] into the appropriate HTML tags. Includes escaping backslash (\)
+#define ENCODE_HTML_EMPHASIS(input, char, html, varname) \
+	var/static/regex/##varname = regex("(?<!\\\\)[char](.+?)(?<!\\\\)[char]", "g");\
+	input = varname.Replace_char(input, "<[html]>$1</[html]>")
+
+/// Scans the input sentence for speech emphasis modifiers, notably |italics|, +bold+, and _underline_ -mothblocks
+/atom/movable/proc/say_emphasis(input)
+	ENCODE_HTML_EMPHASIS(input, "\\|", "i", italics)
+	ENCODE_HTML_EMPHASIS(input, "\\+", "b", bold)
+	ENCODE_HTML_EMPHASIS(input, "_", "u", underline)
+	var/static/regex/remove_escape_backlashes = regex("\\\\(_|\\+|\\|)", "g") // Removes backslashes used to escape text modification.
+	input = remove_escape_backlashes.Replace_char(input, "$1")
+	return input
+
+#undef ENCODE_HTML_EMPHASIS
+
+// tg#69799 please i beg
 /atom/movable/proc/lang_treat(atom/movable/speaker, datum/language/language, raw_message, list/spans, message_mode, no_quote = FALSE)
+	var/atom/movable/source = speaker.GetSource() || speaker //is the speaker virtual
 	if(has_language(language) || check_language_hear(language))
-		var/atom/movable/AM = speaker.GetSource()
-		if(AM) //Basically means "if the speaker is virtual"
-			return no_quote ? AM.quoteless_say_quote(raw_message, spans, message_mode) : AM.say_quote(raw_message, spans, message_mode)
-		else
-			return no_quote ? speaker.quoteless_say_quote(raw_message, spans, message_mode) : speaker.say_quote(raw_message, spans, message_mode)
+		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mode) : source.say_quote(raw_message, spans, message_mode)
 	else if(language)
-		var/atom/movable/AM = speaker.GetSource()
 		var/datum/language/D = GLOB.language_datum_instances[language]
 		raw_message = D.scramble(raw_message)
-		if(AM)
-			return no_quote ? AM.quoteless_say_quote(raw_message, spans, message_mode) : AM.say_quote(raw_message, spans, message_mode)
-		else
-			return no_quote ? speaker.quoteless_say_quote(raw_message, spans, message_mode) : speaker.say_quote(raw_message, spans, message_mode)
+		return no_quote ? source.quoteless_say_quote(raw_message, spans, message_mode) : source.say_quote(raw_message, spans, message_mode)
 	else
 		return "makes a strange sound."
 
