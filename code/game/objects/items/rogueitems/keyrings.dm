@@ -281,7 +281,7 @@
 	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
 
 /obj/item/storage/keyring/tailor
-	keys = list(/obj/item/key/shops/shop1, /obj/item/key/shops/shopwarehouse1)
+	keys = list(/obj/item/key/tailor)
 
 /obj/item/storage/keyring/stevedore
 	keys = list(/obj/item/key/warehouse, /obj/item/key/shop)
