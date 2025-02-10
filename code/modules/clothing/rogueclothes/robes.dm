@@ -96,7 +96,7 @@
 	name = "wizard's robe"
 	desc = "What wizard's ensemble would be complete without robes?"
 	icon_state = "wizardrobes"
-	allowed_race = list("human", "tiefling", "dwarf" , "aasimar", "elf")
+	allowed_race = list("human", "tiefling", "dwarf" , "aasimar", "elf", "half-elf")
 	sellprice = 100
 
 /obj/item/clothing/suit/roguetown/shirt/robe/magus
