@@ -63,13 +63,15 @@
 				snuff()
 			else
 				explosion(T, light_impact_range = 1, hotspot_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+				qdel(src)
 		else
 			if(prob(prob2fail))
 				snuff()
 			else
 				playsound(T, 'sound/items/firesnuff.ogg', 100)
 				new /obj/item/natural/glass/shard (T)
-	qdel(src)
+				qdel(src)
+
 
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
