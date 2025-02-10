@@ -162,7 +162,7 @@
 		if(T.contents.len > 0) // If the tray isn't empty
 			for(var/obj/item/scattered_item as anything in T.contents)
 				scattered_item.forceMove(drop_location())
-			user.visible_message("<span class='notice'>[user] empties [I] on [src].</span>")
+			user.visible_message(span_notice("[user] empties [I] on [src]."))
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 

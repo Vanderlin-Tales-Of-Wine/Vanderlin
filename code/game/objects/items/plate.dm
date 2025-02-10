@@ -89,6 +89,13 @@
 		scattered_item.pixel_y = scatter_vector[2]
 		scattered_item.throw_impact(hit_atom, throwingdatum)
 
+/obj/item/plate/attack_self(mob/user)
+	. = ..()
+	if(contents.len > 0) // If the tray isn't empty
+		for(var/obj/item/scattered_item as anything in contents)
+			scattered_item.forceMove(drop_location())
+		user.visible_message(span_notice("[user] empties [src] on the floor."))
+
 /obj/item/plate/tray
 	name = "tray"
 	desc = "Best used when hosting for banquets or drunken taverns."
