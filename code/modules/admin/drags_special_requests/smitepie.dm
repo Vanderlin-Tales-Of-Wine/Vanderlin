@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/smite
-    desc = "If you put this close to your ear, you can hear the screams of the damned."
+	desc = "If you put this close to your ear, you can hear the screams of the damned."
 
 
 GLOBAL_LIST_EMPTY(transformation_animation_objects)
