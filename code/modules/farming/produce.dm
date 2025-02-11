@@ -214,8 +214,11 @@
 		else
 			. += "<span class='notice'>This berry looks safe to eat.</span>"
 	// Non-Foragers with high farming skill can detect poisoned berries
-	else if(farminglvl >= 3 && poisonous)
-		. += "<span class='warning'>These berries appear to be poisonous.</span>"
+	else if(farminglvl >= 3)
+		if(poisonous)
+			. += "<span class='warning'>These berries appear to be poisonous.</span>"
+		else
+			. += "<span class='notice'>This berry looks safe to eat.</span>"
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
