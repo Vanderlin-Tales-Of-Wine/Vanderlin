@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/smite
-    desc = "If you put this close to your ear, you can hear the screams of the damned"
+    desc = "If you put this close to your ear, you can hear the screams of the damned."
 
 
 GLOBAL_LIST_EMPTY(transformation_animation_objects)
@@ -8,6 +8,8 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	var/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat/tomb = new(get_turf(target))
 	target.forceMove(tomb)
 	target.AddComponent(/datum/component/itembound, tomb)
+	var/mob/living/carbon/target_mob = target
+	target_mob.notransform = FALSE
 
 /atom/movable/proc/transformation_animation(result_appearance, time = 3 SECONDS, transform_appearance)
 	var/list/transformation_objects = GLOB.transformation_animation_objects[src] || list()
