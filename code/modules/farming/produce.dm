@@ -212,13 +212,11 @@
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
 	. = ..()
-	if(poisonous)
-		if(HAS_TRAIT(user, TRAIT_FORAGER))
+	if(HAS_TRAIT(user, TRAIT_FORAGER))
+		if(poisonous)
 			. += "<span class='warning'>This berry looks suspicious. I sense it might be poisoned.</span>"
 		else
-			. += "<span class='notice'>This berry looks normal.</span>"
-	else
-		. += "<span class='notice'>This berry looks normal.</span>"
+			. += "<span class='notice'>This berry looks safe to eat.</span>"
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
