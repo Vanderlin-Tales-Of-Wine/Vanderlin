@@ -69,6 +69,7 @@
 		H.change_stat("intelligence", -1)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	if(H.gender == MALE)

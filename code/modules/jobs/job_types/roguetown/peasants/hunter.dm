@@ -65,3 +65,4 @@
 		else
 			H.change_stat("intelligence", 1)
 			H.change_stat("perception", 3)
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

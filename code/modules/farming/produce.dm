@@ -210,6 +210,16 @@
 	color_index = "bad"
 	poisonous = TRUE
 
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
+	. = ..()
+	if(poisonous)
+		if(HAS_TRAIT(user, TRAIT_FORAGER))
+			. += "<span class='warning'>This berry looks suspicious. I sense it might be poisoned.</span>"
+		else
+			. += "<span class='notice'>This berry looks normal.</span>"
+	else
+		. += "<span class='notice'>This berry looks normal.</span>"
+
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
 	seed = /obj/item/neuFarm/seed/swampleaf
