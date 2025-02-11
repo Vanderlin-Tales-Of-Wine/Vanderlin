@@ -5374,9 +5374,9 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
+/obj/item/plate/tray,
+/obj/item/plate/tray,
+/obj/item/plate/tray,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "sc" = (

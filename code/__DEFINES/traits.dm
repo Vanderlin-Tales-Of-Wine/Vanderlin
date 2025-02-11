@@ -43,7 +43,6 @@
 #define TRAIT_LEGENDARY_ALCHEMIST		"Expert Herb Finder"
 #define TRAIT_LIGHT_STEP				"Light Step" //Can't trigger /obj/structure/trap/'s
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
-#define TRAIT_MOB_FIRE_IMMUNE			"Fire Immune" //Just says no to fire_act()
 #define TRAIT_ENGINEERING_GOGGLES		"Engineering Goggles"
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
 
@@ -51,7 +50,7 @@
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
 #define TRAIT_ROT_EATER					"Blessing of Pestra" //can eat rotten food
 #define TRAIT_KNEESTINGER_IMMUNITY		"Blessing of Dendor" //Can move through kneestingers.
-#define TRAIT_LEECHIMMUNE				"Unleechable" //leeches wont attach in dirty water turfs
+#define TRAIT_LEECHIMMUNE				"Unleechable" //leeches drain very little blood
 #define TRAIT_SHARPER_BLADES			"Sharper Blades" //Weapons lose less blade integrity
 #define TRAIT_BETTER_SLEEP				"Better Sleep" //Recover more energy (blue bar) when sleeping
 #define TRAIT_EXTEROCEPTION				"Exteroception" //See others' hunger and thirst
@@ -139,7 +138,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed after checking their heartbeat."),
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
 	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
-	TRAIT_LEECHIMMUNE = "Leeches are reluctant to bite me.",
+	TRAIT_LEECHIMMUNE = "Leeches are reluctant to drain my blood.",
 	TRAIT_ASSASSIN = "My soul has been tainted by Graggar, god of murder.",
 	TRAIT_BARDIC_TRAINING = "Xylixian inspiration grants my songs boons and ailments.",
 	TRAIT_GRAVEROBBER = "Necra favors my grim deeds, I can unearth graves without being cursed by her.",
@@ -158,7 +157,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_THIEVESGUILD = "I am a member of the thieves guild!",
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
 	TRAIT_LIGHT_STEP = span_info("I will never trip a trap plate."),
-	TRAIT_MOB_FIRE_IMMUNE = span_info("I am immune to most scorching flames."),
+	TRAIT_NOFIRE = span_info("I am immune to most scorching flames."),
 	TRAIT_ENGINEERING_GOGGLES = span_info("I can find out more information from mechanical devices."),
 	TRAIT_SHARPER_BLADES = "My weapons lose their sharpness slower.",
 	TRAIT_BETTER_SLEEP = "I recover more energy when sleeping.",

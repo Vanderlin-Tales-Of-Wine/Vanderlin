@@ -11986,7 +11986,7 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/town)
 "mBF" = (
-/obj/item/storage/bag/tray/psy,
+/obj/item/plate/tray/psy,
 /obj/structure/table/wood{
 	dir = 10;
 	icon_state = "tablewood2"

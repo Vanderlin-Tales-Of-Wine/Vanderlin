@@ -9,17 +9,16 @@
 
 /datum/outfit/job/roguetown/bandit/hedgeknight/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet
-	gloves = /obj/item/clothing/gloves/roguetown/chain
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-	cloak = /obj/item/clothing/cloak/tabard/blkknight
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/rust
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/rust
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dark 
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
+	gloves = /obj/item/clothing/gloves/roguetown/plate/rust
+	pants = /obj/item/clothing/under/roguetown/platelegs/rust
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light/rust
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/sword/long/death // ow the edge. it's just spraypainted. no weapon choice you MUST use a sword
+	beltr = /obj/item/rogueweapon/sword/long
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger = 1)

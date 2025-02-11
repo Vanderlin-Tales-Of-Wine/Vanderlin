@@ -78,7 +78,7 @@
 		playsound(user, 'sound/misc/astratascream.ogg', 80,  falloff = 0.2)
 		spawn(30)
 			if(loc == user)
-				user.adjust_fire_stacks(5)
+				user.adjust_divine_fire_stacks(5)
 				user.IgniteMob()
 	..()
 

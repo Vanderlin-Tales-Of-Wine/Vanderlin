@@ -102,7 +102,7 @@
 	if(pulledby)
 		Retaliate()
 		GiveTarget(pulledby)
-	if(fire_stacks <= 0)
+	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
 
 

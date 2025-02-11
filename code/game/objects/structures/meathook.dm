@@ -65,6 +65,7 @@
 			m90.Translate(12,12)
 			animate(L, transform = m90, time = 3)
 			L.pixel_y = L.get_standard_pixel_x_offset(180)
+			draining_blood = FALSE
 	else if (has_buckled_mobs())
 		for(var/mob/living/L in buckled_mobs)
 			user_unbuckle_mob(L, user)
@@ -101,10 +102,11 @@
 
 /obj/structure/meathook/process()
 	if(!length(buckled_mobs) || !draining_blood)
+		draining_blood = FALSE
 		STOP_PROCESSING(SSmachines, src)
 		return
 	var/mob/living/L = buckled_mobs[1]
-	if(L.blood_drained > 60)
+	if(L.blood_drained >= 60)
 		L.blood_drained = 60
 		draining_blood = FALSE
 		STOP_PROCESSING(SSmachines, src)
@@ -184,8 +186,8 @@
 		to_chat(user, span_notice("I prepare to drain [butchery_target]'s blood by cutting the skin..."))
 		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			butchery_target.blood_drained++
-			START_PROCESSING(SSmachines, src)
 			draining_blood = TRUE
+			START_PROCESSING(SSmachines, src)
 		return
 
 	if(!butchery_target.skinned && (user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
@@ -250,7 +252,6 @@
 					var/obj/item/I = new listed_item(get_turf(user))
 					I.add_mob_blood(butchery_target)
 			butchery_target.gib()
-			draining_blood = FALSE
 			var/boon = user.mind.get_learning_boon(/datum/skill/labor/butchering)
 			var/amt2raise = user.STAINT
 			user.mind.add_sleep_experience(/datum/skill/labor/butchering, amt2raise * boon, FALSE)
