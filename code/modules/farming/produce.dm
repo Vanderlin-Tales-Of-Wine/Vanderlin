@@ -176,12 +176,6 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
-	. += ..()
-	if(farminglvl >= 3 && poisonous == TRUE)
-		. += "These berries appear to be poisonous."
-
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
 	..()
 	update_icon()
@@ -211,12 +205,17 @@
 	poisonous = TRUE
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
+	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
 	. = ..()
+	// Foragers can always detect if a berry is safe or poisoned
 	if(HAS_TRAIT(user, TRAIT_FORAGER))
 		if(poisonous)
 			. += "<span class='warning'>This berry looks suspicious. I sense it might be poisoned.</span>"
 		else
 			. += "<span class='notice'>This berry looks safe to eat.</span>"
+	// Non-Foragers with high farming skill can detect poisoned berries
+	else if(farminglvl >= 3 && poisonous)
+		. += "<span class='warning'>These berries appear to be poisonous.</span>"
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
