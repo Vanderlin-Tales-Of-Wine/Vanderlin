@@ -78,26 +78,6 @@
 	misscost = 12
 
 
-//................ Militia Flail ............... //
-/obj/item/rogueweapon/flail/militia
-	name = "militia flail"
-	desc = "A lucky hit from such a flail can squash a cheap helmet along with the wearer's skull."
-	icon_state = "militiaflail"
-
-//................ Wooden Flail ............... // Obsolete by the thresher? No smash so its bad
-/obj/item/rogueweapon/flail/towner
-	force = DAMAGE_WEAK_FLAIL
-	possible_item_intents = list(/datum/intent/mace/strike/wood)
-	gripped_intents = list(/datum/intent/flailthresh, /datum/intent/mace/strike/wood)
-	name = "wooden flail"
-	desc = "During peacetime these flails are used to thresh wheat. During wartime - to chase off marauders."
-	icon_state = "peasantflail"
-	smeltresult = /obj/item/rogueore/coal //is mostly wood
-	max_integrity = 200
-	minstr = 5
-	sellprice = 10
-
-
 //................ Steel Flail ............... //
 /obj/item/rogueweapon/flail/sflail
 	force = DAMAGE_GOOD_FLAIL
@@ -109,12 +89,12 @@
 	max_integrity = 500
 	sellprice = 35
 
-//................ Peasant Flail ............... // A little confusing still
+//................ Great Flail ............... //
 /obj/item/rogueweapon/flail/peasant
 	force = DAMAGE_NORMAL_FLAIL
 	force_wielded = DAMAGE_GOOD_FLAIL
-	name = "peasant flail"
-	desc = "What used to be a humble thresher by design, has become a deadly flail with extended range and punch. Favored by the peasantry militia or knight errants."
+	name = "great flail"
+	desc = "Inspired by the humble thresher, this is a deadly flail with great range and punch. Favored by the peasantry militia or knight errants."
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "bigflail"
 	possible_item_intents = list(/datum/intent/flail/strike/long)

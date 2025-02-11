@@ -246,7 +246,7 @@
 		/obj/item/rogueweapon/polearm/eaglebeak/lucerne = 10,
 		/obj/item/rogueweapon/mace = 10,
 		/obj/item/rogueweapon/sword/scimitar/messer = 10,
-		/obj/item/rogueweapon/flail/militia = 10,
+		/obj/item/rogueweapon/flail = 10,
 		/obj/item/rogueweapon/sword/short = 10,
 		/obj/item/rogueweapon/sword/long/greatsword/zwei = 10,
 		/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve = 10,

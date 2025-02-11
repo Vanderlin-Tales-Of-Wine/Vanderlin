@@ -187,14 +187,6 @@
 	createditem_num = 2
 	craftdiff = 0
 
-/datum/anvil_recipe/weapons/iron/flail_iron
-	name = "Militia flail (+Chain, +Stick)"
-	recipe_name = "a militia flail"
-	req_bar = /obj/item/ingot/iron
-	additional_items = list(/obj/item/rope/chain, /obj/item/grown/log/tree/stick)
-	created_item = /obj/item/rogueweapon/flail/militia
-
-
 /datum/anvil_recipe/weapons/iron/lucerne
 	name = "Lucerne (+Bar, +Small Log)"
 	recipe_name = "a Lucerne"
@@ -489,8 +481,8 @@
 	created_item = /obj/item/rogueweapon/mace/warhammer/steel
 	craftdiff = 2
 
-/datum/anvil_recipe/weapons/steel/peasant_flail
-	name = "Peasant Flail (+Chain, +Small Log)"
+/datum/anvil_recipe/weapons/steel/great_flail
+	name = "Great Flail (+Chain, +Small Log)"
 	recipe_name = "a two-handed flail"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/iron
