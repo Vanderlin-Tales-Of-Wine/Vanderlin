@@ -80,6 +80,7 @@
 	hitsound = list('sound/combat/shieldbash_wood.ogg')
 	warnie = "shieldwarn"
 	item_damage_type = "blunt"
+	charge_pointer = "shield"
 
 /datum/intent/shield/block/metal
 	hitsound = list('sound/combat/shieldbash_metal.ogg')

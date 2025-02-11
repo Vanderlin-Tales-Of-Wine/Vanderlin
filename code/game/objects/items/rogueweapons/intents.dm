@@ -29,6 +29,7 @@
 	var/noaa = FALSE //turns off auto aiming, also turns off the 'swooshes'
 	var/warnie = ""
 	var/pointer = 'icons/effects/mousemice/human_attack.dmi'
+	var/charge_pointer = null // The name of the '[charge_pointer]_charged.dmi' and '[charge_pointer]_charging.dmi' icon files in '/icons/effects/mousemice/swang/' for when the player needs to charge a windup 
 	var/clickcd = CLICK_CD_MELEE //the cd invoked clicking on stuff with this intent
 	var/recovery = 0		//RTD unable to move for this duration after an attack without becoming off balance
 	var/list/charge_invocation //list of stuff to say while charging
@@ -252,6 +253,7 @@
 	chargetime = 0
 	warnie = "aimwarn"
 	warnoffset = 0
+	charge_pointer = "spell"
 
 /datum/looping_sound/invokegen
 	mid_sounds = list('sound/magic/charging.ogg')
