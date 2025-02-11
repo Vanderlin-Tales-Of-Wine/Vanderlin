@@ -355,7 +355,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	throw_speed = 0.5
 	item_state = "spliffoff"
 	smoketime = 120 // four minutes
-	chem_volume = 50
+	chem_volume = 60
 	list_reagents = null
 	muteinmouth = FALSE
 
@@ -365,14 +365,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	pixel_y = rand(-5, 5)
 
 /obj/item/clothing/mask/cigarette/rollie/nicotine
-	list_reagents = list(/datum/reagent/drug/nicotine = 30)
+	list_reagents = list(/datum/reagent/drug/nicotine = 60)
 
 /obj/item/clothing/mask/cigarette/rollie/trippy
 	list_reagents = list(/datum/reagent/drug/nicotine = 15, /datum/reagent/drug/mushroomhallucinogen = 35)
 	starts_lit = TRUE
 
 /obj/item/clothing/mask/cigarette/rollie/cannabis
-	list_reagents = list(/datum/reagent/drug/space_drugs = 30)
+	list_reagents = list(/datum/reagent/drug/space_drugs = 60)
 
 /obj/item/cigbutt
 	name = "roach"

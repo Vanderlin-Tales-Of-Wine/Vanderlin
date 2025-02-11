@@ -11511,7 +11511,7 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/town)
 "mBF" = (
-/obj/item/storage/bag/tray/psy,
+/obj/item/plate/tray/psy,
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
 	dir = 10
@@ -17184,7 +17184,7 @@
 /area/rogue/indoors/town/garrison)
 "smq" = (
 /obj/structure/table/wood,
-/obj/item/storage/bag/tray,
+/obj/item/plate/tray,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern)
 "smY" = (

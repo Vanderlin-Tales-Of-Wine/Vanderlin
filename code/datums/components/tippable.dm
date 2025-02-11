@@ -203,7 +203,7 @@
  * tipped_mob - the mob who was tipped, and is freeing itself
  */
 /datum/component/tippable/proc/right_self(mob/living/tipped_mob)
-	if(!is_tipped || QDELETED(tipped_mob))
+	if(!is_tipped || QDELETED(tipped_mob) || tipped_mob.stat >= UNCONSCIOUS)
 		return
 
 	set_tipped_status(tipped_mob, FALSE)

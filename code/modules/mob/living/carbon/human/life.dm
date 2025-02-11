@@ -42,55 +42,55 @@
 		for(var/datum/antagonist/A in mind.antag_datums)
 			A.on_life(src)
 
-		handle_vamp_dreams()
-		if(IsSleeping())
-			if(health > 0)
-				remove_status_effect(/datum/status_effect/debuff/trainsleep)
-				if(has_status_effect(/datum/status_effect/debuff/sleepytime))
-					remove_status_effect(/datum/status_effect/debuff/sleepytime)
+	handle_vamp_dreams()
+	if(IsSleeping())
+		if(health > 0)
+			remove_status_effect(/datum/status_effect/debuff/trainsleep)
+			if(has_status_effect(/datum/status_effect/debuff/sleepytime))
+				remove_status_effect(/datum/status_effect/debuff/sleepytime)
+				if(mind)
+					mind.sleep_adv.advance_cycle()
+				var/datum/game_mode/chaosmode/C = SSticker.mode
+				if(istype(C))
 					if(mind)
-						mind.sleep_adv.advance_cycle()
-					var/datum/game_mode/chaosmode/C = SSticker.mode
-					if(istype(C))
-						if(mind)
-							if(!mind.antag_datums || !mind.antag_datums.len)
-								allmig_reward++
-								to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-								if(C.allmig)
-									if(allmig_reward > 3)
-										adjust_triumphs(1)
-		if(HAS_TRAIT(src, TRAIT_LEPROSY))
-			if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
-				if(prob(10))
-					to_chat(src, span_warning("My skin opens up and bleeds..."))
-					mob_timers["leper_bleed"] = world.time
-					var/obj/item/bodypart/part = pick(bodyparts)
-					if(part)
-						part.add_wound(/datum/wound/slash)
-			adjustToxLoss(0.3)
-		//heart attack stuff
-		handle_curses()
-		handle_heart()
-		handle_liver()
-		update_stamina()
-		update_energy()
-		handle_environment()
-		if(charflaw && !charflaw.ephemeral)
-			charflaw.flaw_on_life(src)
-		if(health <= 0)
-			adjustOxyLoss(0.3)
-		if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-			if(mob_timers["slo"])
-				if(world.time > mob_timers["slo"] + 90 SECONDS)
-					Sleeping(100)
-			else
-				mob_timers["slo"] = world.time
+						if(!mind.antag_datums || !mind.antag_datums.len)
+							allmig_reward++
+							to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
+							if(C.allmig)
+								if(allmig_reward > 3)
+									adjust_triumphs(1)
+	if(HAS_TRAIT(src, TRAIT_LEPROSY))
+		if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
+			if(prob(10))
+				to_chat(src, span_warning("My skin opens up and bleeds..."))
+				mob_timers["leper_bleed"] = world.time
+				var/obj/item/bodypart/part = pick(bodyparts)
+				if(part)
+					part.add_wound(/datum/wound/slash)
+		adjustToxLoss(0.3)
+	//heart attack stuff
+	handle_curses()
+	handle_heart()
+	handle_liver()
+	update_stamina()
+	update_energy()
+	handle_environment()
+	if(charflaw && !charflaw.ephemeral)
+		charflaw.flaw_on_life(src)
+	if(health <= 0)
+		apply_damage(1, OXY)
+	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+		if(mob_timers["slo"])
+			if(world.time > mob_timers["slo"] + 90 SECONDS)
+				Sleeping(100)
 		else
-			if(mob_timers["slo"])
-				mob_timers["slo"] = null
+			mob_timers["slo"] = world.time
+	else
+		if(mob_timers["slo"])
+			mob_timers["slo"] = null
 
-		if(dna?.species)
-			dna.species.spec_life(src) // for mutantraces
+	if(dna?.species)
+		dna.species.spec_life(src) // for mutantraces
 
 	if(!typing)
 		set_typing_indicator(FALSE)
@@ -146,9 +146,9 @@
 		. = dna.species.handle_fire(src) //do special handling based on the mob's species. TRUE = they are immune to the effects of the fire.
 
 	if(!last_fire_update)
-		last_fire_update = fire_stacks
-	if((fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks <= 10 && last_fire_update > 10))
-		last_fire_update = fire_stacks
+		last_fire_update = fire_stacks + divine_fire_stacks
+	if((fire_stacks + divine_fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks + divine_fire_stacks <= 10 && last_fire_update > 10))
+		last_fire_update = fire_stacks + divine_fire_stacks
 		update_fire()
 
 
@@ -168,7 +168,7 @@
 	//If firestacks are high enough
 	if(!dna || dna.species.CanIgniteMob(src))
 		if(!on_fire)
-			if(fire_stacks > 10)
+			if(fire_stacks + divine_fire_stacks > 10)
 				Immobilize(30)
 				emote("firescream", TRUE)
 			else

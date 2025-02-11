@@ -2238,10 +2238,10 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town)
 "crs" = (
-/obj/item/storage/bag/tray{
+/obj/item/plate/tray{
 	pixel_y = 32
 	},
-/obj/item/storage/bag/tray{
+/obj/item/plate/tray{
 	pixel_y = 32
 	},
 /turf/open/floor/rogue/blocks,
@@ -17903,9 +17903,9 @@
 /obj/item/kitchen/platter,
 /obj/item/kitchen/platter,
 /obj/item/kitchen/platter,
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
+/obj/item/plate/tray,
+/obj/item/plate/tray,
+/obj/item/plate/tray,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "tLY" = (

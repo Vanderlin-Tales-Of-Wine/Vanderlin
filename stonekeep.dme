@@ -814,6 +814,7 @@
 #include "code\game\objects\items\hot_potato.dm"
 #include "code\game\objects\items\hourglass.dm"
 #include "code\game\objects\items\kitchen.dm"
+#include "code\game\objects\items\plate.dm"
 #include "code\game\objects\items\scrolls.dm"
 #include "code\game\objects\items\shooting_range.dm"
 #include "code\game\objects\items\soap.dm"

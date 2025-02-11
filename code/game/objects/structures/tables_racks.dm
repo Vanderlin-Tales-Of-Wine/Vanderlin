@@ -157,11 +157,12 @@
 				deconstruct(TRUE, 1)
 			return
 
-	if(istype(I, /obj/item/storage/bag/tray))
-		var/obj/item/storage/bag/tray/T = I
+	if(istype(I, /obj/item/plate/tray))
+		var/obj/item/plate/tray/T = I
 		if(T.contents.len > 0) // If the tray isn't empty
-			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location())
-			user.visible_message("<span class='notice'>[user] empties [I] on [src].</span>")
+			for(var/obj/item/scattered_item as anything in T.contents)
+				scattered_item.forceMove(drop_location())
+			user.visible_message(span_notice("[user] empties [I] on [src]."))
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 

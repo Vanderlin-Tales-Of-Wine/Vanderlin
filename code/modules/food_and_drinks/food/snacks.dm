@@ -472,9 +472,9 @@ All foods are distributed among various categories. Use common sense.
 
 	if ( \
 			!isturf(src.loc) || \
-			!(locate(/obj/structure/table) in src.loc) && \
+			(!(locate(/obj/structure/table) in src.loc) && \
 			!(locate(/obj/structure/table/optable) in src.loc) && \
-			!(locate(/obj/item/storage/bag/tray) in src.loc) \
+			!(locate(/obj/item/plate) in src.loc)) \
 		)
 		to_chat(user, "<span class='warning'>I need to use a table.</span>")
 		return FALSE

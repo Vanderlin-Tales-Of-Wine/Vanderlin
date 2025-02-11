@@ -3,6 +3,12 @@ GLOBAL_LIST_EMPTY(ghost_images_simple) //this is a list of all ghost images as t
 
 GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
+GLOBAL_LIST_INIT(ghost_verbs, list(
+	/mob/dead/observer/verb/ghost_upward,
+	/mob/dead/observer/verb/ghost_downward,
+	/mob/dead/observer/proc/reenter_corpse
+))
+
 /mob/dead/observer
 	name = "ghost"
 	desc = "" //jinkies!
@@ -108,6 +114,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	sight = 0
 	see_in_dark = 0
 	hud_type = /datum/hud/obs
+	can_reenter_corpse = FALSE
 
 /mob/dead/observer/screye/Move(n, direct)
 	return
@@ -227,8 +234,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	. = ..()
 
 	if(!(istype(src, /mob/dead/observer/rogue/arcaneeye)))
-		verbs += /mob/dead/observer/verb/ghost_upward
-		verbs += /mob/dead/observer/verb/ghost_downward
+		verbs += GLOB.ghost_verbs
 
 	grant_all_languages()
 //	show_data_huds()
@@ -488,9 +494,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	Moved(oldloc, direct)
 
 /mob/dead/observer/proc/reenter_corpse()
-	set category = "Ghost"
+	set category = "Spirit"
 	set name = "Re-enter Corpse"
-	set hidden = 1
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
@@ -498,6 +503,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(!can_reenter_corpse)
 		to_chat(src, "<span class='warning'>I cannot re-enter my body.</span>")
+		return
+	if(istype(src, /mob/dead/observer/profane))
+		to_chat(src, "<span class='warning'>My spirit has been snatched away by Graggar!</span>")
 		return
 	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
 		to_chat(usr, "<span class='warning'>Another consciousness is in your body...It is resisting you.</span>")

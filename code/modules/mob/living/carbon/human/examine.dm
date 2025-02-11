@@ -267,14 +267,17 @@
 
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
 		// Damage
-		switch(temp)
-			if(5 to 25)
+		var/max_health = 1 //let's not divide by 0
+		for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+			max_health += bodypart.max_damage
+		switch(temp/max_health)
+			if(0.0625 to 0.125)
 				msg += "[m1] a little wounded."
-			if(25 to 50)
+			if(0.125 to 0.25)
 				msg += "[m1] wounded."
-			if(50 to 100)
+			if(0.25 to 0.5)
 				msg += "<B>[m1] severely wounded.</B>"
-			if(100 to INFINITY)
+			if(0.5 to INFINITY)
 				msg += "<span class='danger'>[m1] gravely wounded.</span>"
 
 	// Blood volume
@@ -374,9 +377,9 @@
 		msg += msg_list.Join(" ")
 
 	//Fire/water stacks
-	if(fire_stacks > 0)
+	if(fire_stacks + divine_fire_stacks > 0)
 		msg += "[m1] covered in something flammable."
-	else if(fire_stacks < 0)
+	else if(fire_stacks < 0 && !on_fire)
 		msg += "[m1] soaked."
 
 	//Status effects
