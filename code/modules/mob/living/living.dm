@@ -874,8 +874,8 @@
 	..()
 	if(olddir != dir)
 		stop_looking()
-		if(doing)
-			doing = 0
+		// if(doing)
+		// 	doing = 0
 		if(client)
 			update_vision_cone()
 
