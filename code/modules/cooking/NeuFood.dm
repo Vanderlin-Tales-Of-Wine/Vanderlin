@@ -133,7 +133,7 @@
 	resistance_flags = FIRE_PROOF
 	base_item = /obj/item/kitchen/platter/clay
 /obj/item/kitchen/platter/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
-	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
+	new /obj/effect/decal/cleanable/debris/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
 	..()
 	qdel(src)
@@ -175,7 +175,7 @@
 	icon_state = "bowl_clay"
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
 /obj/item/reagent_containers/glass/bowl/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
-	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
+	new /obj/effect/decal/cleanable/debris/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
 	..()
 	qdel(src)
