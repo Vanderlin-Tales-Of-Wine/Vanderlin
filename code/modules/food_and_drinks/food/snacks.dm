@@ -409,7 +409,7 @@ All foods are distributed among various categories. Use common sense.
 			if(user.mind.get_skill_level(/datum/skill/craft/cooking) <= 1) // cooks with 0 skill make shitty meals when trying to be fancy
 				tastes = list("blandness" = 1)
 				quality = 0
-				switch(rand(1,4))
+				switch(rand(1,6))
 					if(1)
 						name = "unappealing [name]"
 						desc = "It is made without love or care."
@@ -422,11 +422,41 @@ All foods are distributed among various categories. Use common sense.
 					if(4)
 						name = "woeful [name]"
 						desc = "Cooking that might cause a divorce."
+					if(5)
+						name = "soggy [name]"
+						desc = "If there be gods of cooking they must be dead."
+					if(6)
+						name = "bland [name]"
+						desc = "Is this food?"
 			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 2)
 				eat_effect = /datum/status_effect/buff/foodbuff
 				quality = 2
-			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 4)
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) == 4)
 				quality = 3
+				switch(rand(1,7))
+					if(1)
+						name = "fine [name]"
+						desc = "[desc] It looks tasty."
+					if(2)
+						name = "tasty [name]"
+						desc = "[desc] It smells good."
+					if(3)
+						name = "well-made [name]"
+						desc = "[desc] This is fine cooking."
+					if(4)
+						name = "appealing [name]"
+						desc = "[desc] It seem to call out to you."
+					if(5)
+						name = "appetising [name]"
+						desc = "[desc] Your mouth waters at the sight."
+					if(6)
+						name = "savory [name]"
+						desc = "[desc] It will make a fine meal."
+					if(7)
+						name = "flavorful [name]"
+						desc = "[desc] It looks like good eating."
+			if(user.mind.get_skill_level(/datum/skill/craft/cooking) >= 5)
+				quality = 4
 				switch(rand(1,5))
 					if(1)
 						name = "masterful [name]"
