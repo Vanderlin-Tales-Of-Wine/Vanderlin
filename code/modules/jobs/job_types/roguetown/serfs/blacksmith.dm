@@ -39,21 +39,10 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)
-	if(H.gender == MALE)
+
 		pants = /obj/item/clothing/under/roguetown/trou
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
-		belt = /obj/item/storage/belt/rogue/leather
-		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/armorsmith
-		cloak = /obj/item/clothing/cloak/apron/brown
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
-	else
-		pants = /obj/item/clothing/under/roguetown/trou
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
@@ -103,26 +92,15 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
-	if(H.gender == MALE)
+
 		pants = /obj/item/clothing/under/roguetown/trou
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
+		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 		beltr = /obj/item/storage/keyring/weaponsmith
-		cloak = /obj/item/clothing/cloak/apron/brown
 		backl =	/obj/item/rogueweapon/hammer/sledgehammer
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
-	else
-		pants = /obj/item/clothing/under/roguetown/trou
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shoes = /obj/item/clothing/shoes/roguetown/shortboots
-		belt = /obj/item/storage/belt/rogue/leather
-		cloak = /obj/item/clothing/cloak/apron/brown
-		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/weaponsmith
 		H.change_stat("strength", 1)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
