@@ -262,7 +262,6 @@
 		lastplayed = 0
 		doneset = 0
 		chargedprog = 0
-		mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
 		START_PROCESSING(SSmousecharge, src)
 
 /client/Destroy()
@@ -284,23 +283,24 @@
 		if(progress < goal)
 			progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
-	//		mouseprog = round(text2num("[((progress / goal) * 20)]"), 1)
-	//		mouse_pointer_icon = GLOB.mouseicons_human[mouseprog]
-	//		testing("mouse[mouseprog]")
-//			if(sections && chargedprog > lastplayed)
-//				L.say(L.used_intent.charge_invocation[part])
-//				part++
-//				lastplayed = sections * part
+			if(!mob.used_intent.charge_pointer)
+				var/mouseprog = round(text2num("[((progress / goal) * 20)]"), 1)
+				mouse_pointer_icon = GLOB.mouseicons_human[mouseprog]
+			else
+				mouse_pointer_icon = file("icons/effects/mousemice/swang/[mob.used_intent.charge_pointer]_charging.dmi")
 		else
 			if(!doneset)
 				doneset = 1
+				chargedprog = 100
+				if(!mob.used_intent.charge_pointer)
+					mouse_pointer_icon = 'icons/effects/mousemice/swang/100.dmi'
+				else
+					mouse_pointer_icon = file("icons/effects/mousemice/swang/[mob.used_intent.charge_pointer]_charged.dmi")
 //				if(sections)
 //					L.say(L.used_intent.charge_invocation[L.used_intent.charge_invocation.len])
 				if(L.curplaying && !L.used_intent.keep_looping)
 					playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
 					L.curplaying.on_mouse_up()
-				chargedprog = 100
-				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 				if(istype(L.used_intent, /datum/intent/shield/block))
 					L.visible_message("<span class='danger'>[L] prepares to do a shield bash!</span>")
 					playsound(L, 'sound/combat/shieldraise.ogg', 100, TRUE)
