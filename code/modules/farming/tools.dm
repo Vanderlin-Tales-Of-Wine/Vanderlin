@@ -36,7 +36,7 @@
 	force = 12
 	force_wielded = 25
 	possible_item_intents = list(MACE_STRIKE)
-	gripped_intents = list(/datum/intent/flail/strike/long, /datum/intent/flail/strike/smash/long, /datum/intent/flailthresh,)
+	gripped_intents = list(/datum/intent/flail/strike, /datum/intent/flail/strike/smash, /datum/intent/flailthresh,)
 	name = "military flail"
 	desc = "Crushes skulls, or grain."
 	icon_state = "military"
