@@ -48,8 +48,9 @@
 	REMOVE_POLLUTION_CURRENTRUN(src)
 	SET_UNACTIVE_POLLUTION(src)
 	UNREGISTER_POLLUTION(src)
-	if(my_turf?.pollution == src)
-		my_turf.pollution = null
+	if(isopenturf(my_turf))
+		if(my_turf?.pollution == src)
+			my_turf.pollution = null
 	return ..()
 
 /datum/pollution/proc/touch_act(mob/living/carbon/victim)

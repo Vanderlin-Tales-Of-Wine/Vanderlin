@@ -522,13 +522,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	generate_clickcatcher()
 	apply_clickcatcher()
 
-	if(prefs.lastchangelog != GLOB.changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		//to_chat(src, "<span class='info'>I have unread updates in the changelog.</span>")
-		if(CONFIG_GET(flag/aggressive_changelog))
-			changelog()
-		else
-			winset(src, "infowindow.changelog", "font-style=bold")
-
 	if(prefs.toggles & TOGGLE_FULLSCREEN)
 		toggle_fullscreeny(TRUE)
 	else

@@ -19,6 +19,8 @@
 	if(!ambushable())
 		return
 	var/area/AR = get_area(src)
+	if(!length(AR.ambush_mobs))
+		return
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
@@ -59,7 +61,7 @@
 		if(isturf(RS.loc))
 			testing("foundshroom")
 			possible_targets += RS.loc
-	if(possible_targets.len)
+	if(length(possible_targets))
 		mob_timers["ambushlast"] = world.time
 		for(var/mob/living/V in victimsa)
 			V.mob_timers["ambushlast"] = world.time

@@ -70,17 +70,20 @@
 		if(CLERIC_T0)
 			if(progression >= CLERIC_REQ_1)
 				level = CLERIC_T1
-				usr.mind.AddSpell(new P.t1, silent = FALSE)
+				if(P.t1)
+					usr.mind.AddSpell(new P.t1, silent = FALSE)
 				return
 		if(CLERIC_T1)
 			if(progression >= CLERIC_REQ_2)
 				level = CLERIC_T2
-				usr.mind.AddSpell(new P.t2, silent = FALSE)
+				if(P.t2)
+					usr.mind.AddSpell(new P.t2, silent = FALSE)
 				return
 		if(CLERIC_T2)
 			if(progression >= CLERIC_REQ_3)
 				level = CLERIC_T3
-				usr.mind.AddSpell(new P.t3, silent = FALSE)
+				if(P.t3)
+					usr.mind.AddSpell(new P.t3, silent = FALSE)
 				to_chat(usr, span_notice("All my Gods miracles are now open to me..."))
 				return
 		if(CLERIC_T3) // already maxed out
