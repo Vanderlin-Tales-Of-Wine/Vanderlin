@@ -25,7 +25,7 @@
 	beltl = /obj/item/storage/keyring/tailor
 	backr = /obj/item/storage/backpack/rogue/satchel
 	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/luxury_dyes = 1, /obj/item/book/rogue/advice_weaving = 1, /obj/item/rogueweapon/knife/villager = 1)
+	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/book/rogue/advice_weaving = 1, /obj/item/rogueweapon/knife/villager = 1)
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, pick(3,4), TRUE)
