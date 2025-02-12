@@ -227,7 +227,7 @@
 /obj/structure/roguewindow/obj_break(damage_flag)
 	if(!brokenstate)
 		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-		new /obj/item/natural/glass/shard (get_turf(src))
+		new /obj/item/natural/glass_shard (get_turf(src))
 		climbable = TRUE
 		brokenstate = TRUE
 	update_icon()

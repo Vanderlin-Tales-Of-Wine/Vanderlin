@@ -6940,7 +6940,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "eOm" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "eOr" = (
@@ -8382,7 +8382,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "fRl" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
@@ -15929,7 +15929,7 @@
 	},
 /area/rogue/under/town/basement)
 "lmI" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
 	},
@@ -20925,7 +20925,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/safe)
 "pds" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /obj/structure/rousman_hole,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
@@ -21210,7 +21210,7 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/steward)
 "ppZ" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
 "pqd" = (
@@ -23965,7 +23965,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/river)
 "rxQ" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
@@ -29365,7 +29365,7 @@
 /turf/open/floor/rogue/blocks/newstone,
 /area/rogue/under/town/basement)
 "vfM" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/rogue/wood,
@@ -30004,7 +30004,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "vFk" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /obj/structure/table/wood/large/corner{
 	dir = 9
 	},
@@ -32143,7 +32143,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "xhu" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "xhH" = (

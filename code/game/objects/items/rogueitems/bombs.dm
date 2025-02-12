@@ -70,7 +70,7 @@
 				snuff()
 			else
 				playsound(T, 'sound/items/firesnuff.ogg', 100)
-				new /obj/item/natural/glass/shard (T)
+				new /obj/item/natural/glass_shard (T)
 	qdel(src)
 
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

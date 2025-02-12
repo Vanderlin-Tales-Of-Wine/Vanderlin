@@ -3535,7 +3535,7 @@
 	},
 /area/rogue/indoors/town/shop)
 "dSc" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "dSj" = (

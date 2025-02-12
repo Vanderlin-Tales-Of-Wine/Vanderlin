@@ -101,8 +101,8 @@
 	SplashReagents(location, TRUE)
 	// Start the break
 	playsound(location, "glassbreak", 100, TRUE)
-	new /obj/effect/decal/cleanable/glass (location)
-	var/obj/item/natural/glass/shard/bottleshard = new(location)
+	new /obj/effect/decal/cleanable/debris/glassy (location)
+	var/obj/item/natural/glass_shard/bottleshard = new(location)
 	bottleshard.pixel_x = rand(-6,6)
 	bottleshard.pixel_y = rand(-6,6)
 	// If someone got hit- wound them with the glass shard

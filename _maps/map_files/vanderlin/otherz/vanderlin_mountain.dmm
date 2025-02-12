@@ -1719,7 +1719,7 @@
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/obj/item/natural/glass/shard,
+/obj/item/natural/glass_shard,
 /turf/open/floor/rogue/wood/nosmooth/saiga,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "pK" = (
