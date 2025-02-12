@@ -135,6 +135,8 @@
 
 	var/list/valid_types = list()
 	for(var/datum/anvil_recipe/R in GLOB.anvil_recipes)
+		if(is_abstract(R.type)) //these recipes are initialized
+			continue
 		if(istype(hingot, R.req_bar))
 			if(!valid_types.Find(R.i_type))
 				valid_types += R.i_type
@@ -148,6 +150,8 @@
 
 	var/list/appro_recipe = list()
 	for(var/datum/anvil_recipe/R in GLOB.anvil_recipes)
+		if(is_abstract(R.type))
+			continue
 		if(R.i_type == i_type_choice && istype(hingot, R.req_bar))
 			appro_recipe += R
 

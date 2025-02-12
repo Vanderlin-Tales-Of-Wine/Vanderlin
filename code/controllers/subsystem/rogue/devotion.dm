@@ -40,7 +40,7 @@
 	holder_mob?.cleric = null
 	holder_mob = null
 	patron = null
-	STOP_PROCESSING(SSpersecond, src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /datum/devotion/cleric_holder/process()
 	if(!passive_devotion_gain && !passive_progression_gain)
@@ -115,7 +115,7 @@
 	level = CLERIC_T3
 	passive_devotion_gain = 1 //1 devotion per second
 	update_devotion(300, 900)
-	START_PROCESSING(SSpersecond, src)
+	START_PROCESSING(SSprocessing, src)
 
 //Acolyte Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells(mob/living/carbon/human/H)
@@ -217,11 +217,11 @@
 	prayer_effectiveness = 0
 	devotion = -1
 	to_chat(holder_mob, span_userdanger("I have been excommunicated! The Ten no longer listen to my prayers nor my requests."))
-	STOP_PROCESSING(SSpersecond, src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /datum/devotion/cleric_holder/proc/recommunicate()
 	prayer_effectiveness = initial(prayer_effectiveness)
 	devotion = 0
 	to_chat(holder_mob, span_boldnotice("I have been welcomed back into the folds of the Ten."))
 	if(passive_devotion_gain || passive_progression_gain)
-		START_PROCESSING(SSpersecond, src)
+		START_PROCESSING(SSprocessing, src)
