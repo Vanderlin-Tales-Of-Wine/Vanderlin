@@ -213,10 +213,12 @@
 			C.chatOutput.stopMusic()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stop All Playing Sounds") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+// if you are seeing this please move this to client/verbs.dm
 /client/verb/preload_sounds()
 	set category = "Options"
 	set name = "Preload Ambience"
 
 	for(var/music in GLOB.ambience_files)
-		mob.playsound_local(mob, music, 0.1)
-		sleep(10)
+		usr << load_resource(music, -1)
+	
+	to_chat(usr, span_ooc("Ambience music has been cached for this connection."))
