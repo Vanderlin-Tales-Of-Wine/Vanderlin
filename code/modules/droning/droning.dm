@@ -78,6 +78,8 @@ SUBSYSTEM_DEF(droning)
 			last_phase(area_player, listener, shouldskip = FALSE)
 
 /datum/controller/subsystem/droning/proc/play_combat_music(music = null, client/dreamer)
+	if(dreamer?.prefs.musicvol)
+		return
 	if(!music || !dreamer)
 		return
 
@@ -104,6 +106,8 @@ SUBSYSTEM_DEF(droning)
 	dreamer.last_droning_sound = combat_music.file
 
 /datum/controller/subsystem/droning/proc/last_phase(area/area_player, client/listener, shouldskip = FALSE)
+	if(listener?.prefs.musicvol)
+		return
 	if(!area_player || !listener)
 		return
 	if(!listener?.droning_sound)
@@ -156,6 +160,7 @@ SUBSYSTEM_DEF(droning)
 	victim.last_droning_sound = null
 
 /datum/controller/subsystem/droning/proc/play_loop(area/area_entered, client/dreamer)
+	if(dreamer?.prefs.musicvol)
 	if(!area_entered || !dreamer)
 		return
 	//kill the previous looping
