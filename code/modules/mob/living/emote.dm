@@ -302,10 +302,40 @@
 	message = "dances."
 	restraint_check = TRUE
 	emote_type = EMOTE_VISIBLE
+	mute_time = 50
+	var/repeats
+
+/datum/emote/living/attnwhistle/can_run_emote(mob/living/user, status_check = TRUE , intentional)
+	. = ..()
+/datum/emote/living/dance/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(. && iscarbon(user))
+		var/mob/living/carbon/L = user
+		if(!(L.mobility_flags & MOBILITY_STAND))
+			message = "flops on the ground like a fish."
+			L.adjust_stamina(20)
+			return
+		else
+			L.Immobilize(50)
+			dance_rotate(user, CALLBACK(user, TYPE_PROC_REF(/mob, dance_flip)))
+			danceanim(user)
+			L.adjust_stamina(20)
+
+/datum/emote/living/dance/proc/danceanim(mob/living/user, repeats = 10)
+	var/start_y = user.pixel_y
+	var/offset = 2  // Height of the bop
+	for (var/i = 1 to repeats)
+		user.pixel_y = start_y + offset  // Move up
+		sleep(1)
+		user.pixel_y = start_y  // Move down
+		sleep(4)
+	user.pixel_y = start_y  // Ensure it resets to the original position
 /mob/living/carbon/human/verb/emote_dance()
 	set name = "Dance"
 	set category = "Emotes"
 	emote("dance", intentional = TRUE)
+
+
 
 /datum/emote/living/death
 	key = "death"
