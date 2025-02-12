@@ -213,7 +213,7 @@
 	desc = "Stranded and hanging, limp and dead."
 	icon_state = "gallows"
 	pixel_y = 0
-	max_integrity = 9999
+	max_integrity = 50
 
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -226,6 +226,25 @@
 				buckled_mob.adjustBruteLoss(10)
 				buckled_mob.Knockdown(60)
 	return ..()
+
+/obj/structure/noose/attackby(obj/item/W, mob/user, params)
+	if (W.get_sharpness())
+		if(do_after(user, 10, target = src))
+			new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
+			new /obj/item/rope(loc)
+			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+			user.visible_message("<span class='notice'>[user] cuts down the noose from the gallows.</span>", "<span class='notice'>I cut down the noose from the gallows.</span>")
+			src.Destroy()
+	else
+		return ..()
+
+/obj/structure/noose/bullet_act(obj/projectile/P)
+	. = ..()
+	new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
+	new /obj/item/rope(loc)
+	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+	visible_message("<span class='danger'>The noose is shot down from the gallows!</span>")
+	src.Destroy()
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)
 	if(!in_range(user, src) || user.stat != CONSCIOUS || !iscarbon(M))
