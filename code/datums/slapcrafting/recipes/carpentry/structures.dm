@@ -161,8 +161,6 @@
 	var/turf/checking = get_step_multiz(T, UP)
 	if(!checking)
 		return FALSE
-	if(!isopenturf(checking))
-		return FALSE
 	if(istype(checking,/turf/open/transparent/openspace))
 		return FALSE
 	for(var/obj/structure/noose/N in T)
