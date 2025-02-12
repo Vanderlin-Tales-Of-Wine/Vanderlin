@@ -366,16 +366,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			return FALSE
 	return TRUE
 
-/datum/objective/nuclear
-	name = "nuclear"
-	explanation_text = "Destroy the station with a nuclear device."
-	martyr_compatible = 1
-
-/datum/objective/nuclear/check_completion()
-	if(SSticker && SSticker.mode && SSticker.mode.station_was_nuked)
-		return TRUE
-	return FALSE
-
 GLOBAL_LIST_EMPTY(possible_items)
 /datum/objective/steal
 	name = "steal"

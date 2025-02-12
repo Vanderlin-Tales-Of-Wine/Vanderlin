@@ -13,6 +13,9 @@ SUBSYSTEM_DEF(merchant)
 	var/list/orderhistory = list()
 
 
+	var/list/trade_requests = list()
+	var/list/sending_stuff = list()
+
 	var/datum/lift_master/tram/cargo_boat
 	var/cargo_docked = TRUE
 
@@ -45,6 +48,13 @@ SUBSYSTEM_DEF(merchant)
 		new_item.forceMove(boat_turf)
 		for(var/obj/structure/industrial_lift/lift in cargo_boat.lift_platforms)
 			lift.held_cargo |= new_item
+
+	for(var/atom/movable/item as anything in sending_stuff)
+		var/turf/boat_turf = pick(boat_spaces)
+		if(ispath(item))
+			new item(boat_turf)
+		else
+			item.forceMove(boat_turf)
 
 	requestlist = list()
 	cargo_docked = FALSE

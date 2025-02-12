@@ -614,6 +614,38 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 /datum/lift_master/tram/proc/try_process_order(fence = FALSE)
 	var/total_coin_value = 0
 	var/list/requested_supplies = list()
+	var/list/request_fufillment = list()
+	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
+		for(var/atom/movable/listed_atom in platform.lift_load)
+			if(!fence)
+				for(var/datum/trade_request/request in SSmerchant.trade_requests)
+					if(listed_atom.type == request.input_atom || (ispath(request.input_atom, /obj/item/reagent_containers/glass/bottle/rogue) && istype(listed_atom, /obj/item/reagent_containers/glass/bottle/rogue)))
+						if(istype(listed_atom, /obj/item/reagent_containers/glass/bottle/rogue))
+							var/obj/item/reagent_containers/glass/bottle/rogue/input_bottle = request.input_atom
+							if(initial(input_bottle.list_reagents))
+								var/passed = FALSE
+								var/list/input_reagents = initial(input_bottle.list_reagents)
+								for(var/datum/reagent/reagent as anything in initial(input_bottle.list_reagents))
+									var/obj/item/reagent_containers/glass/bottle/rogue/bottle = listed_atom
+									if(bottle.reagents.has_reagent(reagent, input_reagents[reagent] * 0.5))
+										passed = TRUE
+								if(!passed)
+									continue
+						if(!(request in request_fufillment))
+							request_fufillment |= request
+							request_fufillment[request] = list()
+						request_fufillment[request] |= listed_atom
+						if(length(request_fufillment[request]) >= request.input_amount)
+							for(var/atom/atom in request_fufillment[request])
+								request_fufillment[request] -= atom
+								qdel(atom)
+							for(var/i = 1 to request.output_amount)
+								SSmerchant.sending_stuff += request.output_atom
+							request.total_trade--
+							if(request.total_trade <= 0)
+								SSmerchant.trade_requests -= request
+								qdel(request)
+
 	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
 		for(var/atom/movable/listed_atom in platform.lift_load)
 			if(istype(listed_atom, /obj/item/paper/scroll/cargo))

@@ -35,9 +35,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 /datum/antagonist/zizocultist/on_gain()
 	. = ..()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/mob/living/carbon/human/H = owner.current
-	C.cultists |= owner
+	SSmapping.retainer.cultists |= owner
 	H.set_patron(/datum/patron/inhumen/zizo)
 
 	owner.special_role = "Zizoid Lackey"
@@ -104,8 +103,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	triumph_count = 5
 
 /datum/objective/zizo/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.cultascended)
+	if(SSmapping.retainer.cult_ascended)
 		return TRUE
 
 /datum/objective/zizoserve
@@ -115,8 +113,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	triumph_count = 3
 
 /datum/objective/zizoserve/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.cultascended)
+	if(SSmapping.retainer.cult_ascended)
 		return TRUE
 
 /datum/antagonist/zizocultist/proc/add_objective(datum/objective/O)
@@ -183,7 +180,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
 		return
@@ -193,7 +189,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 	whisper("[speak]")
 
-	for(var/datum/mind/V in C.cultists)
+	for(var/datum/mind/V in SSmapping.retainer.cultists)
 		to_chat(V, "<span class='boldnotice'>A message from [src.real_name]: \"[speak]\"</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
@@ -431,9 +427,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	set name = "Release Lackey"
 	set category = "ZIZO"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/mob/living/carbon/human/possible = list()
-	for(var/datum/mind/V in C.cultists)
+	for(var/datum/mind/V in SSmapping.retainer.cultists)
 		if(V.special_role == "Zizoid Lackey")
 			possible |= V.current
 
@@ -445,7 +440,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			to_chat(choice, "<span class='userdanger'>I HAVE FAILED MY LEADER! I HAVE FAILED ZIZO! NOTHING ELSE BUT DEATH REMAINS FOR ME NOW!</span>")
 			sleep(20)
 			choice.gib() // Cooler than dusting.
-			C.cultists -= choice.mind
+			SSmapping.retainer.cultists -= choice.mind
 
 // RITUAL DATUMS
 
@@ -473,7 +468,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/convert_cultist
 
 /proc/convert_cultist(mob/user, turf/C)
-	var/datum/game_mode/chaosmode/M = SSticker.mode
 	testing("NOW TESTING CONVERT")
 
 	for(var/mob/living/carbon/human/H in C.contents)
@@ -487,7 +481,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			if(istype(H.wear_neck, /obj/item/clothing/neck/roguetown/psycross))
 				to_chat(user.mind, "<span class='danger'>\"They are wearing my bane...\"</span>")
 				return
-			if(M.cultists.len >= 8)
+			if(length(SSmapping.retainer.cultists) >= 8)
 				to_chat(user.mind, "<span class='danger'>\"The veil is too strong to support more than seven lackeys.\"</span>")
 				return
 			var/datum/antagonist/zizocultist/PR = user.mind.has_antag_datum(/datum/antagonist/zizocultist)
@@ -980,8 +974,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/ascend
 
 /proc/ascend(mob/user, turf/C)
-	var/datum/game_mode/chaosmode/CM = SSticker.mode
-
 	for(var/mob/living/carbon/human/H in C.contents)
 		if(!iszizocultist(H))
 			return
@@ -995,7 +987,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			if(!VIRGIN.virginity && VIRGIN.stat != DEAD)
 				break
 			VIRGIN.gib()
-		CM.cultascended = TRUE
+		SSmapping.retainer.cult_ascended = TRUE
 		addomen(OMEN_ASCEND)
 		to_chat(user.mind, "<span class='userdanger'>I HAVE DONE IT! I HAVE REACHED A HIGHER FORM! ZIZO SMILES UPON ME WITH MALICE IN HER EYES TOWARD THE ONES WHO LACK KNOWLEDGE AND UNDERSTANDING!</span>")
 		var/mob/living/trl = new /mob/living/simple_animal/hostile/retaliate/rogue/blood/ascended(C)
@@ -1003,9 +995,9 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		H.gib()
 		to_chat(world, "\n<font color='purple'>15 minutes remain.</font>")
 		for(var/mob/living/carbon/human/V in GLOB.human_list)
-			if(V.mind in CM.cultists)
+			if(V.mind in SSmapping.retainer.cultists)
 				V.add_stress(/datum/stressevent/lovezizo)
 			else
 				V.add_stress(/datum/stressevent/hatezizo)
-		CM.roundvoteend = TRUE
+		SSgamemode.roundvoteend = TRUE
 		break

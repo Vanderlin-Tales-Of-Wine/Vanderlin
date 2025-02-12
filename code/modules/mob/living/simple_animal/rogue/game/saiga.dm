@@ -14,7 +14,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/find_food()
 	..()
-	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
+	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
 	if(SV)
 		SV.eat(src)
 		food = max(food + 30, 100)
@@ -31,8 +31,8 @@
 		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/UniqueAttack()
-	if(istype(target, /obj/structure/spacevine))
-		var/obj/structure/spacevine/SV = target
+	if(istype(target, /obj/structure/vine))
+		var/obj/structure/vine/SV = target
 		SV.eat(src)
 		food = max(food + 30, food_max + 50)
 		return
@@ -268,7 +268,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saigabuck/eat_plants()
 	//..()
-	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
+	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
 	if(SV)
 		SV.eat(src)
 		food = max(food + 30, 100)

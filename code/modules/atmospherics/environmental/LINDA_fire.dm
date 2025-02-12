@@ -24,17 +24,17 @@
 	blend_mode = BLEND_ADD
 
 	var/volume = 125
-	var/temperature = 100+T0C
+	var/temperature = 1000+T0C
 	var/just_spawned = TRUE
 	var/bypassing = FALSE
 	var/visual_update_tick = 0
-	var/life = 20
+	var/life = 35
 	var/firelevel = 1 //RTD new firehotspot mechanics
 
-//obj/effect/hotspot/extinguish() handled in other_reagents
-//	if(isturf(loc))
-//		new /obj/effect/temp_visual/small_smoke(src.loc)
-//	qdel(src)
+/obj/effect/hotspot/extinguish()
+	if(isturf(loc))
+		new /obj/effect/temp_visual/small_smoke(src.loc)
+	qdel(src)
 
 /obj/effect/hotspot/Initialize(mapload, starting_volume, starting_temperature)
 	. = ..()
@@ -46,6 +46,19 @@
 	perform_exposure()
 	setDir(pick(GLOB.cardinals))
 	air_update_turf()
+	GLOB.weather_act_upon_list |= src
+	GLOB.active_fires |= src
+
+/obj/effect/hotspot/Destroy()
+	. = ..()
+	GLOB.weather_act_upon_list -= src
+	GLOB.active_fires -= src
+
+/obj/effect/hotspot/weather_act_on(weather_trait, severity)
+	if(weather_trait != PARTICLEWEATHER_RAIN)
+		return
+	life -= 1 * (severity / 5)
+
 
 /obj/effect/hotspot/proc/perform_exposure()
 
@@ -130,8 +143,6 @@
 		qdel(src)
 		return
 
-	icon_state = "[rand(1,3)]"
-
 	life--
 
 	if(life <= 0)
@@ -163,5 +174,43 @@
 	name = "fire"
 	light_color = LIGHT_COLOR_FIRE
 	light_outer_range =  LIGHT_RANGE_FIRE
+
+/obj/effect/hotspot/proc/handle_automatic_spread()
+	///maybe add sound probably not
+
+	for(var/obj/object in loc)
+		if(QDELETED(object) || isnull(object))
+			continue
+		var/can_break = TRUE
+		if((object.resistance_flags & INDESTRUCTIBLE) || (object.resistance_flags & FIRE_PROOF))
+			can_break = FALSE
+		if(!can_break)
+			continue
+		object.fire_act(temperature * firelevel)
+
+	var/burn_power = 0
+	if(isfloorturf(get_turf(src)))
+		var/turf/floor= get_turf(src)
+		floor.burn_power = max(0, floor.burn_power - (1 * firelevel))
+		if(floor.burn_power == 0)
+			extinguish()
+		burn_power += floor.burn_power
+		if(prob(floor.spread_chance))
+			change_firelevel(min(3, firelevel+1))
+
+		if(burn_power)
+			for(var/turf/ranged_floor in range(1, src))
+				if(ranged_floor == src || !ranged_floor.burn_power)
+					continue
+				var/obj/effect/hotspot/located_fire = locate() in ranged_floor
+				if(prob(ranged_floor.spread_chance) && !located_fire)
+					if(ranged_floor.liquids)
+						ranged_floor.fire_act(temperature * firelevel)
+						continue
+					new /obj/effect/hotspot(ranged_floor, volume, temperature)
+
+/obj/effect/hotspot/proc/change_firelevel(level = 1)
+	firelevel = level
+	icon_state = "[firelevel]"
 
 #undef INSUFFICIENT

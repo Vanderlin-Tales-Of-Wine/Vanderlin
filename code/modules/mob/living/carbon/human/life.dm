@@ -50,15 +50,6 @@
 				remove_status_effect(/datum/status_effect/debuff/sleepytime)
 				if(mind)
 					mind.sleep_adv.advance_cycle()
-				var/datum/game_mode/chaosmode/C = SSticker.mode
-				if(istype(C))
-					if(mind)
-						if(!mind.antag_datums || !mind.antag_datums.len)
-							allmig_reward++
-							to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-							if(C.allmig)
-								if(allmig_reward > 3)
-									adjust_triumphs(1)
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
 			if(prob(10))

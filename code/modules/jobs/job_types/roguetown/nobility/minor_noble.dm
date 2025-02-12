@@ -26,6 +26,9 @@
 	min_pq = 1
 	give_bank_account = 60
 
+/datum/outfit/job/roguetown/noble
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/noble/pre_equip(mob/living/carbon/human/H)
 	..()
 	var/prev_real_name = H.real_name

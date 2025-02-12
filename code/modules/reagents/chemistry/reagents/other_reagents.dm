@@ -139,8 +139,7 @@
 
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in T)
 	if(hotspot)
-		new /obj/effect/temp_visual/small_smoke(T)
-		qdel(hotspot)
+		hotspot.extinguish()
 
 /*
  *	Water reaction to an object

@@ -146,6 +146,9 @@
 	explosion_block = 4
 	hardness = 7
 
+	burn_power = 20
+	spread_chance = 4
+
 /turf/closed/wall/mineral/rogue/wood/window
 	name = "wooden window"
 	desc = "A window with a rough-hewn wooden frame."
@@ -181,6 +184,9 @@
 	explosion_block = 0
 	hardness = 70
 
+	burn_power = 20
+	spread_chance = 9
+
 
 /turf/closed/wall/mineral/rogue/tent/OnCrafted(dirin)
 	dir = dirin
@@ -203,6 +209,9 @@
 	climbdiff = 3
 	explosion_block = 4
 	hardness = 7
+
+	burn_power = 20
+	spread_chance = 4
 
 /turf/closed/wall/mineral/rogue/wooddark/OnCrafted(dirin)
 	if(dirin == NORTH || dirin == SOUTH)
@@ -252,6 +261,10 @@
 	climbdiff = 3
 	hardness = 7
 
+	burn_power = 20
+	spread_chance = 2
+
+
 /turf/closed/wall/mineral/rogue/roofwall/center
 	icon_state = "roofTurf_I"
 
@@ -281,6 +294,9 @@
 	climbdiff = 3
 	explosion_block = 4
 	hardness = 7
+
+	burn_power = 20
+	spread_chance = 4
 
 /turf/closed/wall/mineral/rogue/decowood/Initialize()
 	. = ..()

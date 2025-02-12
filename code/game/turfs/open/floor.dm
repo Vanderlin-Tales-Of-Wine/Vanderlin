@@ -20,6 +20,11 @@
 	var/list/broken_states
 	var/list/burnt_states
 
+	///the chance this turf has to spread, basically 3% by default
+	spread_chance = 3
+	///means fires last at base 15 seconds
+	burn_power = 15
+
 	tiled_dirt = TRUE
 
 /turf/open/floor/Initialize(mapload)

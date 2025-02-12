@@ -38,6 +38,9 @@
 		else
 			SSfamilytree.AddRoyal(H, FAMILY_FATHER)
 
+/datum/outfit/job/roguetown/consort
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/consort // Default equipment regardless of class.
 	head = /obj/item/clothing/head/roguetown/crown/nyle/consortcrown
 	shoes = /obj/item/clothing/shoes/roguetown/boots

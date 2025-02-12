@@ -165,9 +165,8 @@
 				return
 			if(!SSticker.HasRoundStarted())
 				alert("The game hasn't started yet!")
-			else if (SSticker.mode)
-				alert("The game mode is [SSticker.mode.name]")
-			else alert("For some reason there's a SSticker, but not a game mode")
+			else
+				alert("The game mode is Storytellers")
 		if("manifest")
 			if(!check_rights(R_ADMIN))
 				return

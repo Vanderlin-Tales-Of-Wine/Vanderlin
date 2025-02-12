@@ -23,6 +23,9 @@
 	give_bank_account = 100
 	min_pq = 1
 
+/datum/outfit/job/roguetown/archivist
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.dna.species.id == "Dwarf")
