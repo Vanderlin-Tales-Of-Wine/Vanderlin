@@ -35,7 +35,7 @@
 	name = "scalpel"
 	desc = "A tool used to carve precisely into the flesh of the sickly."
 	icon_state = "scalpel"
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab/dagger)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
@@ -46,7 +46,7 @@
 	name = "saw"
 	desc = "A tool used to carve through bone."
 	icon_state = "bonesaw"
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/chop/dagger/cleaver)
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')

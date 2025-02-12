@@ -107,6 +107,8 @@
 			return pick('sound/vo/mobs/rat/rat_life.ogg','sound/vo/mobs/rat/rat_life2.ogg','sound/vo/mobs/rat/rat_life3.ogg')
 
 /mob/living/simple_animal/hostile/retaliate/rogue/bigrat/taunted(mob/user)
+	. = ..()
+
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

@@ -131,6 +131,8 @@
 			emote(pick("idle"), TRUE)
 
 /mob/living/simple_animal/hostile/rogue/orc/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	GiveTarget(user)
 	return

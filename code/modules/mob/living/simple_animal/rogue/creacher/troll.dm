@@ -37,7 +37,7 @@
 					/obj/item/bodypart,
 					/obj/item/organ)
 
-	base_intents = list(/datum/intent/unarmed/claw, /datum/intent/simple/bigbite)
+	base_intents = list(/datum/intent/harm/claw, /datum/intent/simple/bigbite)
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
 	melee_damage_lower = 40
 	melee_damage_upper = 60
@@ -92,7 +92,8 @@
 			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
 /mob/living/simple_animal/hostile/retaliate/rogue/troll/taunted(mob/user)
-	emote("aggro")
+	. = ..()
+
 	Retaliate()
 	GiveTarget(user)
 	return

@@ -9,30 +9,6 @@
 	possible_item_intents = list(INTENT_POUR, /datum/intent/fill, INTENT_SPLASH, INTENT_GENERIC)
 	resistance_flags = ACID_PROOF
 
-/datum/intent/fill
-	name = "fill"
-	icon_state = "infill"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	misscost = 0
-
-/datum/intent/pour
-	name = "feed"
-	icon_state = "infeed"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	misscost = 0
-
-/datum/intent/splash
-	name = "splash"
-	icon_state = "insplash"
-	chargetime = 0
-	noaa = TRUE
-	candodge = FALSE
-	misscost = 0
-
 /obj/item/reagent_containers/glass/attack(mob/M, mob/user, obj/target)
 	testing("a1")
 	if(istype(M))

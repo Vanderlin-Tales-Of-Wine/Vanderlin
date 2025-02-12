@@ -35,7 +35,7 @@
 	desc = "A sharp shard of glass."
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "large"
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/stab)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/stab)
 	force = 3
 	throwforce = 5
 	item_state = "shard-glass"

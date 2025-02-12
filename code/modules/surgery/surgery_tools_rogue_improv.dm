@@ -2,7 +2,7 @@
 	name = "improvised saw"
 	desc = "A tool used to carve through bone crudely, but better than nothing."
 	icon_state = "bonesaw_wood"
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
+	possible_item_intents = list(/datum/intent/cut/dagger, /datum/intent/chop/dagger/cleaver)
 	slot_flags = ITEM_SLOT_HIP
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')

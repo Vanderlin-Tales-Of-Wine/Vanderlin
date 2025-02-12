@@ -104,10 +104,10 @@
 #define ATTACK_EFFECT_BOOP		"boop" //Honk
 
 //intent defines
-#define INTENT_HELP			 /datum/intent/unarmed/help
-#define INTENT_GRAB			 /datum/intent/unarmed/grab
-#define INTENT_DISARM		 /datum/intent/unarmed/shove
-#define INTENT_HARM			 /datum/intent/unarmed/punch
+#define INTENT_HELP			/datum/intent/help
+#define INTENT_DISARM		/datum/intent/disarm
+#define INTENT_GRAB			/datum/intent/grab
+#define INTENT_HARM			/datum/intent/harm
 
 //mmb intents
 #define INTENT_KICK		/datum/intent/kick
@@ -130,16 +130,16 @@
 #define RANGED_FIRE		/datum/intent/shoot
 
 //Weapon intents
-#define SWORD_CUT		 /datum/intent/sword/cut
-#define SWORD_THRUST	 /datum/intent/sword/thrust
-#define SWORD_CHOP		 /datum/intent/sword/chop //2h swords only
-#define SWORD_STRIKE	 /datum/intent/sword/strike //mordhau grip
+#define SWORD_CUT		 /datum/intent/cut/sword
+#define SWORD_THRUST	 /datum/intent/stab/sword
+#define SWORD_CHOP		 /datum/intent/chop/sword //2h swords only
+#define SWORD_STRIKE	 /datum/intent/strike/sword //mordhau grip
 
-#define ELFSWORD_CUT		/datum/intent/sword/cut/elf
-#define ELFSWORD_THRUST		/datum/intent/sword/thrust/elf
+#define ELFSWORD_CUT		/datum/intent/cut/sword/elf
+#define ELFSWORD_THRUST		/datum/intent/stab/sword/elf
 
-#define AXE_CUT				/datum/intent/axe/cut
-#define AXE_CHOP			/datum/intent/axe/chop
+#define AXE_CUT				/datum/intent/cut/axe
+#define AXE_CHOP			/datum/intent/chop/axe
 
 #define SPEAR_THRUST		/datum/intent/polearm/thrust/spear
 #define POLEARM_BASH			/datum/intent/polearm/bash
@@ -147,21 +147,21 @@
 
 #define POLEARM_THRUST		/datum/intent/polearm/thrust
 
-#define MESSER_CHOP			/datum/intent/sword/chop/messer
+#define MESSER_CHOP			/datum/intent/chop/sword/messer
 
-#define OHAXE_STRIKE		/datum/intent/axe/cut/dwarf
-#define OHAXE_THRUST		/datum/intent/axe/thrust/dwarf
+#define OHAXE_STRIKE		/datum/intent/cut/axe/dwarf
+#define OHAXE_THRUST		/datum/intent/impale/axe/dwarf
 #define OHAXE_SMASH			/datum/intent/axe/smash/dwarf
-#define OHAXE_CHOP			/datum/intent/axe/chop/dwarf
+#define OHAXE_CHOP			/datum/intent/chop/axe/dwarf
 
-#define BIGSWORD_CHOP		/datum/intent/sword/chop/bigsword
-#define BIGSWORD_CUT		/datum/intent/sword/cut/bigsword
+#define BIGSWORD_CHOP		/datum/intent/chop/sword/bigsword
+#define BIGSWORD_CUT		/datum/intent/cut/sword/bigsword
 
 #define MACE_SMASH			/datum/intent/mace/smash
 #define MACE_STRIKE			/datum/intent/mace/strike
 
-#define DAGGER_CUT			/datum/intent/dagger/cut
-#define DAGGER_THRUST		/datum/intent/dagger/thrust
+#define DAGGER_CUT			/datum/intent/cut/dagger
+#define DAGGER_THRUST		/datum/intent/stab/dagger
 #define ICEPICK_STAB		/datum/intent/dagger/icepick
 
 #define MAUL_SMASH			/datum/intent/maul/smash

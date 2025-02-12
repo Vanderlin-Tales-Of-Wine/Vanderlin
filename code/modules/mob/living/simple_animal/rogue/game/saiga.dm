@@ -248,6 +248,8 @@
 		tamed(owner)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saigabuck/taunted(mob/user)
+	. = ..()
+	
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)

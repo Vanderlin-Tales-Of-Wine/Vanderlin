@@ -167,10 +167,10 @@
 			D.GiveTarget(user)
 
 /mob/living/simple_animal/hostile/rogue/haunt/taunted(mob/user)
+	. = ..()
 	GiveTarget(user)
-	return
 
-/mob/living/simple_animal/hostile/rogue/haunt/Initialize()
+/mob/living/simple_animal/hostile/rogue/haunt/Initialize() //whyyyy is this all the way down here man
 	. = ..()
 	set_light(2, 2, 2, l_color = "#c0523f")
 	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)

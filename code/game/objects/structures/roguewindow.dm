@@ -214,12 +214,20 @@
 		return
 	if(brokenstate)
 		return
-	if( user.used_intent.type == /datum/intent/unarmed/claw )
-		to_chat(user, "<span class='warning'>The deadite smashes the window!!</span>")
+	if(istype(user.used_intent, /datum/intent/harm/claw))
+		visible_message( \
+			span_warning("[user] easily smashes [src] apart!"), \
+			span_warning("I smash [src] open."), \
+			span_warning("I hear glass violently shattering!"), \
+		)
 		obj_break()
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	src.visible_message("<span class='info'>[user] knocks on [src].</span>")
+	visible_message( \
+		span_warning("[user] knocks on [src]."), \
+		span_info("I knock on [src]."), \
+		span_warning("I hear knocking on glass.") \
+	)
 	add_fingerprint(user)
 	playsound(src, 'sound/misc/glassknock.ogg', 100)
 
