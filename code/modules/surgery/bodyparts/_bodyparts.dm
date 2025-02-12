@@ -96,12 +96,12 @@
 	var/wound_icon_state
 
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
-	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
+	return list(/datum/intent/grabbing/move, /datum/intent/grabbing/twist, /datum/intent/grabbing/smash)
 
 /obj/item/bodypart/chest/grabbedintents(mob/living/user, precise)
 	if(precise == BODY_ZONE_PRECISE_GROIN)
-		return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/shove)
-	return list(/datum/intent/grab/move, /datum/intent/grab/shove)
+		return list(/datum/intent/grabbing/move, /datum/intent/grabbing/twist, /datum/intent/grabbing/shove)
+	return list(/datum/intent/grabbing/move, /datum/intent/grabbing/shove)
 
 /obj/item/bodypart/Destroy()
 	if(owner)

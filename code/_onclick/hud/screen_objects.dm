@@ -433,9 +433,7 @@
 		add_overlay(border1, TRUE)
 
 /atom/movable/screen/act_intent/rogintent/Click(location, control, params)
-
 	var/list/modifiers = params2list(params)
-
 	var/mob/user = hud?.mymob
 	if(usr != user)
 		return TRUE
@@ -443,63 +441,19 @@
 	user.playsound_local(user, 'sound/misc/click.ogg', 100)
 
 	if(usr.client.prefs.toggles & INTENT_STYLE)
-		var/_x = text2num(params2list(params)["icon-x"])
-		var/_y = text2num(params2list(params)["icon-y"])
+		var/_x = text2num(modifiers[ICON_X])
+		var/_y = text2num(modifiers[ICON_Y])
 		var/clicked = get_index_at_loc(_x, _y)
 		if(!clicked)
 			return
-/*		if(_x<=64)
-			if(user.active_hand_index == 2)
-				if(modifiers["right"])
-					if(clicked != user.l_index)
-						user.rog_intent_change(clicked,1)
-					else
-						if(user.oactive)
-							user.oactive = FALSE
-//						else
-//							user.oactive = TRUE
-						switch_intent(user.r_index, user.l_index, user.oactive)
-					return
-				if(!user.swap_hand(1))
-					return
-			if(modifiers["left"])
-				if(modifiers["shift"])
-					user.examine_intent(clicked, FALSE)
-					return
-			user.rog_intent_change(clicked)
-		else*/
-//			if(user.active_hand_index == 1)
-//				if(modifiers["right"])
-//					if(clicked != user.r_index)
-//						user.rog_intent_change(clicked,1)
-//					else
-//						if(user.oactive)
-//							user.oactive = FALSE
-//						else
-//							user.oactive = TRUE
-//						switch_intent(user.r_index, user.l_index, user.oactive)
-//					return
-//				if(!user.swap_hand(2))
-//					return
-		if(modifiers["left"])
-			if(modifiers["shift"])
-				user.examine_intent(clicked, FALSE)
-				return
+
+		if(modifiers[BUTTON_CHANGED] == LEFT_CLICK && modifiers[SHIFT_CLICKED])
+			user.examine_intent(clicked, FALSE)
+			return
+		
 		user.rog_intent_change(clicked)
 
 /atom/movable/screen/act_intent/rogintent/proc/get_index_at_loc(xl, yl)
-/*	if(xl<=64)
-		if(xl<32)
-			if(yl>16)
-				return 1
-			else
-				return 3
-		else
-			if(yl>16)
-				return 2
-			else
-				return 4
-	else*/
 	if(xl > 64)
 		if(xl<96)
 			if(yl>16)

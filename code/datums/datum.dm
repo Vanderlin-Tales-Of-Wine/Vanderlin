@@ -47,6 +47,8 @@
 	* add_timer() returns the truthy value of -1 when not stoppable, and else a truthy numeric index
 	*/
 	var/list/cooldowns
+
+	/// wtf??? get rid of this!
 	var/abstract_type = /datum
 
 #ifdef TESTING

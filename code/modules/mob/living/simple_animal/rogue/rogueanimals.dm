@@ -413,6 +413,8 @@
 	walk(src,0)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/shood(mob/user)
+	. = ..()
+
 	if(tame)
 		Retaliate()
 
@@ -422,6 +424,7 @@
 	GiveTarget(M)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/beckoned(mob/user)
+	. = ..()
 	if(tame && !stop_automated_movement)
 		stop_automated_movement = TRUE
 		Goto(user,move_to_delay)

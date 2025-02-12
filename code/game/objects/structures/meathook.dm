@@ -180,7 +180,7 @@
 				butcher = butchery_target.butcher_results
 
 	if(!draining_blood && butchery_target.blood_drained < 60)
-		if(!(user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
+		if(!(istype(user.used_intent, /datum/intent/cut)))
 			return
 		var/cut_time = 4 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I prepare to drain [butchery_target]'s blood by cutting the skin..."))
@@ -190,7 +190,7 @@
 			START_PROCESSING(SSmachines, src)
 		return
 
-	if(!butchery_target.skinned && (user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
+	if(!butchery_target.skinned && istype(user.used_intent, /datum/intent/cut))
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I start to skin [butchery_target]."))
 		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
@@ -219,7 +219,7 @@
 	if(!butchery_target.skinned)
 		return
 
-	if(user.used_intent.type == /datum/intent/dagger/chop/cleaver)
+	if(user.used_intent.type == /datum/intent/chop/dagger/cleaver)
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
 		to_chat(user, span_notice("I start to butcher [butchery_target]."))
 		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))

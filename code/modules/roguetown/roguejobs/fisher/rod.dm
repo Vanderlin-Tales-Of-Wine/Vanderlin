@@ -73,10 +73,10 @@
 
 /datum/intent/auto
 	name = "auto reel"
+	icon_state = "auto"
 	chargetime = 0
 	noaa = TRUE
 	misscost = 0
-	icon_state = "auto"
 	no_attack = TRUE
 
 /obj/item/fishingrod/attack_self(mob/user)

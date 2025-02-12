@@ -9,7 +9,7 @@
 					/obj/item/bodypart/r_arm/zizombie, /obj/item/bodypart/r_leg/zizombie, /obj/item/bodypart/l_leg/zizombie)
 	rot_type = /datum/component/rot/corpse/zizombie
 	ambushable = FALSE
-	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw, /datum/intent/simple/bite, /datum/intent/kick)
+	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/harm/claw, /datum/intent/simple/bite, /datum/intent/kick)
 	possible_rmb_intents = list()
 
 /mob/living/carbon/human/species/zizombie/npc

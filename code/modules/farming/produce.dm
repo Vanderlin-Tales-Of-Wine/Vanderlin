@@ -28,7 +28,7 @@
 /obj/item/reagent_containers/food/snacks/produce/attackby(obj/item/weapon, mob/user, params)
 	if(weapon && isturf(loc))
 		var/turf/location = get_turf(src)
-		if(seed && (user.used_intent.blade_class == BCLASS_BLUNT) && (!user.used_intent.noaa))
+		if(seed && (user.used_intent.blade_class == BCLASS_BLUNT) && !(user.used_intent.intent_flags & INTENT_NOAUTOAIM))
 			playsound(src,'sound/items/seedextract.ogg', 100, FALSE)
 			if(prob(5))
 				user.visible_message("<span class='info'>[user] fails to extract the seeds.</span>")

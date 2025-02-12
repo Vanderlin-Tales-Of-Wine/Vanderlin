@@ -130,7 +130,7 @@
 			if(has_status_effect(/datum/status_effect/debuff/riposted))
 				return FALSE
 			last_parry = world.time
-			if(intenty && !intenty.canparry)
+			if(intenty.intent_flags & INTENT_UNPARRYABLE)
 				return FALSE
 			var/drained = user.defdrain
 			var/weapon_parry = FALSE
@@ -270,9 +270,8 @@
 			last_dodge = world.time
 			if(src.loc == user.loc)
 				return FALSE
-			if(intenty)
-				if(!intenty.candodge)
-					return FALSE
+			if(intenty?.intent_flags & INTENT_UNDODGEABLE)
+				return FALSE
 			if(candodge)
 				var/list/dirry = list()
 				var/dx = x - user.x
@@ -432,12 +431,9 @@
 					dodge_score += (DH.mind.get_skill_level(I.associated_skill) * 10)
 
 		else //the enemy attacked us unarmed or is nonhuman
-			if(AH)
-				if(AH.used_intent.unarmed)
-					if(AH.mind)
-						dodge_score -= (AH.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
-					if(DH.mind)
-						dodge_score += (DH.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
+			if(AH?.used_intent.intent_flags & INTENT_UNARMED)
+				dodge_score -= (AH.mind?.get_skill_level(/datum/skill/combat/unarmed) * 10)
+				dodge_score += (DH.mind?.get_skill_level(/datum/skill/combat/unarmed) * 10)
 
 		switch(DH.worn_armor_class)
 			if(AC_LIGHT)
@@ -495,19 +491,46 @@
 /mob/proc/food_tempted(/obj/item/W, mob/user)
 	return
 
-/mob/proc/taunted(mob/user)
-	for(var/mob/living/simple_animal/hostile/retaliate/A in view(7,src))
-		if(A.owner == user)
-			A.emote("aggro")
-			A.Retaliate()
-			A.GiveTarget(src)
-	return
+/* ------------ */
 
-/mob/proc/shood(mob/user)
-	return
+/mob/proc/waved(mob/user, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
 
-/mob/proc/beckoned(mob/user)
-	return
+	if(can_see_cone(user))
+		to_chat(src, span_green("[user] gives me a friendly wave."))
+		//TODO: COMSIG_MOB_WAVED (mob/user, silent)
+
+/mob/proc/shood(mob/user, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(can_see_cone(user))
+		to_chat(src, span_blue("[user] shoos me away."))
+		//TODO: COMSIG_MOB_SHOOD (mob/user, silent)
+
+
+/mob/proc/beckoned(mob/user, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(can_see_cone(user))
+		if(!silent)
+			to_chat(src, span_green("[user] beckons me to come closer."))
+		//TODO: COMSIG_MOB_BECKONED (mob/user, silent)
+
+/mob/proc/taunted(mob/user, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(can_see_cone(user))
+		if(!silent)
+			to_chat(src, span_red("[user] taunts me!"))
+		//TODO: COMSIG_MOB_TAUNTED (mob/user, silent)
+
+		for(var/mob/living/simple_animal/hostile/retaliate/A in viewers(7, src))
+			if(A.owner == user)
+				A.emote("aggro")
+				A.Retaliate()
+				A.GiveTarget(src)
+
+/* ------------ */
 
 /mob/proc/get_punch_dmg()
 	return
