@@ -26,7 +26,7 @@
 			if(isliving(user))
 				var/mob/living/L = user
 				L.add_stress(/datum/stressevent/psycurse)
-				L.adjust_fire_stacks(6)
+				L.adjust_divine_fire_stacks(6)
 				L.IgniteMob()
 			return ..()
 	to_chat(victim, span_userdanger("Your mouth starts to move on its own!"))

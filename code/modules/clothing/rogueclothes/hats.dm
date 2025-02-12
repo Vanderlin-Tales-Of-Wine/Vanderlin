@@ -16,6 +16,7 @@
 	smeltresult = /obj/item/ash // Helmets have pre-defined smeltresults, this is for hats
 	body_parts_covered = COVERAGE_SKULL
 	sellprice = VALUE_CHEAP_CLOTHING
+	edelay_type = 1
 
 	max_integrity = INTEGRITY_WORST
 
@@ -244,7 +245,6 @@
 	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	var/default_hidden = null
@@ -975,7 +975,7 @@
 	icon_state = "necrahelm"
 
 //............... Dendor Helmet ............... //	This one seems a bit out of place
-/obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
 	name = "dendor helmet"
 	desc = "A great helmet with twisted metalwork that imitates the twisting of bark, or the horns of a beast."
 	icon_state = "dendorhelm"
@@ -991,7 +991,7 @@
 
 
 //............... Pestra Helmet ............... //
-/obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/pestrahelm
 	name = "pestran helmet"
 	desc = "A great helmet made of coarse, tainted steel. It is modeled after a plagued carrion, a blessed abomination of Pestra."
 	icon_state = "pestrahelm"
@@ -999,14 +999,14 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 //................ Malum Helmet ............. //
-/obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm
 	name = "malumite helmet"
 	desc = "A great helmet of sturdy dark steel. Its chiseled countenance reminds the viewer of Malum's stern gaze."
 	icon_state = "malumhelm"
 	item_state = "malumhelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
-/obj/item/clothing/head/roguetown/helmet/heavy/ravox
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/ravox
 	name = "ravoxian helmet"
 	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles an heavily adorned visored sallet."
 	icon_state = "ravoxhelm"

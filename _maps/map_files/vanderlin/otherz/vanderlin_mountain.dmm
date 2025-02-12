@@ -1090,7 +1090,7 @@
 "jR" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/clothing/cloak/stabard/templar/malum,
-/obj/item/clothing/head/roguetown/helmet/heavy/malumhelm,
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "jS" = (
