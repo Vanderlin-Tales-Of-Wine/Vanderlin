@@ -128,6 +128,12 @@
 		for(var/person in list("Jack", "Queen", "King"))
 			cards += "[person] of [suit]"
 
+/obj/item/toy/cards/deck/examine(mob/user)
+	. = ..()
+	if(ishuman(user))
+		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
+			. += span_notice("Lifting up the top card, you see it reads: [cards[1]].")
+
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 //ATTACK HAND NOT CALLING PARENT
 /obj/item/toy/cards/deck/attack_hand(mob/user)
@@ -166,10 +172,49 @@
 
 /obj/item/toy/cards/deck/attack_self(mob/user)
 	if(cooldown < world.time - 50)
-		cards = shuffle(cards)
+		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
+			var/outcome = alert(user, "How do you want to shuffle the deck?","XYLIX","False Shuffle","Force Top Card","Play fair")
+			switch(outcome)
+				if("False Shuffle")
+					user.visible_message("<span class='notice'>[user] shuffles the deck.</span>", "<span class='notice'>I false shuffle the deck.</span>")
+				if("Force Top Card")
+					user.set_machine(src)
+					interact(user)
+				if("Play fair")
+					cards = shuffle(cards)
+					user.visible_message("<span class='notice'>[user] shuffles the deck.</span>", "<span class='notice'>I shuffle the deck.</span>")
+		else
+			cards = shuffle(cards)
+			user.visible_message("<span class='notice'>[user] shuffles the deck.</span>", "<span class='notice'>I shuffle the deck.</span>")
 		playsound(src, 'sound/blank.ogg', 50, TRUE)
-		user.visible_message("<span class='notice'>[user] shuffles the deck.</span>", "<span class='notice'>I shuffle the deck.</span>")
 		cooldown = world.time
+
+/obj/item/toy/cards/deck/ui_interact(mob/user)
+	. = ..()
+	var/dat = "The deck has<BR>"
+	for(var/t in cards)
+		dat += "<A href='byond://?src=[REF(src)];pick=[t]'>A [t].</A><BR>"
+	dat += "Which card would you like to force?"
+	var/datum/browser/popup = new(user, "deck", "Which card to force?", 400, 240)
+	popup.set_content(dat)
+	popup.open()
+
+/obj/item/toy/cards/deck/Topic(href, href_list)
+	if(..())
+		return
+	if(usr.stat || !ishuman(usr))
+		return
+	var/mob/living/carbon/human/cardUser = usr
+	if(!(cardUser.mobility_flags & MOBILITY_USE))
+		return
+	if(href_list["pick"])
+		var/choice = href_list["pick"]
+		src.cards -= choice
+		cards = shuffle(cards)
+		cards.Insert(1,choice)
+		cardUser.visible_message("<span class='notice'>[cardUser] shuffles the deck.</span>", "<span class='notice'>I shuffle the deck, sneakily putting the [choice] on top.</span>")
+		cardUser << browse(null, "window=deck")
+		return
 
 /obj/item/toy/cards/deck/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/toy/cards/singlecard))
