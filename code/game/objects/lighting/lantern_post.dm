@@ -17,6 +17,10 @@
 	desc = "The lamptern is permanently built into the structure of this one."
 	permanent = TRUE
 
+/obj/machinery/light/rogue/lanternpost/unfixed
+	desc = "The lamptern can be added to and removed from this one."
+	permanent = FALSE
+
 /obj/machinery/light/rogue/lanternpost/fire_act(added, maxstacks)
 	if(torchy)
 		if(!on)
@@ -30,9 +34,10 @@
 					soundloop.start()
 				return TRUE
 
-/obj/machinery/light/rogue/lanternpost/Initialize()
-	torchy = new /obj/item/flashlight/flare/torch/lantern(src)
-	torchy.spark_act()
+/obj/machinery/light/rogue/lanternpost/Initialize(mapload)
+	if (mapload)
+		torchy = new /obj/item/flashlight/flare/torch/lantern(src)
+		torchy.spark_act()
 	. = ..()
 
 /obj/machinery/light/rogue/lanternpost/process()
@@ -68,7 +73,7 @@
 		icon_state = "streetlantern"
 
 /obj/machinery/light/rogue/lanternpost/burn_out()
-	if(torchy.on)
+	if (torchy && torchy.on)
 		torchy.turn_off()
 	..()
 
@@ -106,4 +111,18 @@
 				update_icon()
 			playsound(src.loc, 'sound/foley/torchfixtureput.ogg', 100)
 		return
-	. = ..()
+	if(istype(W, /obj/item/rope)&&!istype(W, /obj/item/rope/chain))
+		if(!torchy)
+			to_chat(user, "<span class='notice'>Tying a noose around the lantern post...</span>")
+			if(do_after(user, 20, target = src))
+				new /obj/structure/noose/gallows(loc)
+				playsound(src.loc, 'sound/foley/noose_idle.ogg', 100)
+				qdel(W)
+				qdel(src)
+		else
+			if(torchy && !permanent)
+				to_chat(user, "<span class='notice'>You've got to take off the lantern first!</span>")
+			else
+				to_chat(user, "<span class='notice'>There's no place for a rope on this one.</span>")
+	else
+		. = ..()
