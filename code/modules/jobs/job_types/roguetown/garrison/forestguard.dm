@@ -85,6 +85,7 @@
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", 1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Bows and Knives
 /datum/advclass/forestguard/ranger
@@ -123,6 +124,7 @@
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Hand to Hand
 /datum/advclass/forestguard/brawler
@@ -161,3 +163,4 @@
 		H.change_stat("speed", -1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

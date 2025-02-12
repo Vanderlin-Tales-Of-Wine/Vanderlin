@@ -44,3 +44,4 @@
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/key/artificer = 1)
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1) // Tree chopping builds endurance
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

@@ -40,6 +40,7 @@
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 3) //It's all about speed and perception
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) //gets dodge expert but no medium armor training - gotta stay light
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	H.adjust_blindness(-3)
 	var/weapons = list("Crossbow & Dagger", "Bow & Sword")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
