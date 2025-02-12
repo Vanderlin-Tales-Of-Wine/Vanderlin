@@ -349,12 +349,12 @@
 				var/jextra = FALSE
 				if(m_intent == MOVE_INTENT_RUN)
 					OffBalance(30)
-					jadded = 15
+					jadded = 60
 					jrange = 3
 					jextra = TRUE
 				else
 					OffBalance(20)
-					jadded = 10
+					jadded = 30
 					jrange = 2
 				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
