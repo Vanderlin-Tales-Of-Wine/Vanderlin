@@ -95,7 +95,7 @@
 /area/rogue/outdoors/bog)
 "kp" = (
 /obj/machinery/tanningrack,
-/obj/item/reagent_containers/food/snacks/meat/rawcutlet,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/natural/hide,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/bog)
@@ -406,7 +406,7 @@
 /area/rogue/outdoors/bog)
 "HT" = (
 /obj/structure/table/wood/plain,
-/obj/item/reagent_containers/food/snacks/meat/cutlet/plain,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/bog)
 "Jk" = (

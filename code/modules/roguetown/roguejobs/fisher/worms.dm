@@ -39,7 +39,7 @@
 
 /obj/item/natural/worms/grub_silk/attack_self(mob/living/user)
 	user.visible_message(span_notice("[user] crushes [src], forcing the silk out."), span_notice("I crush [src], forcing the silk out."))
-	playsound(get_turf(src), 'modular/Neu_Food/sound/meatslap.ogg', 100, TRUE, -1)
+	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
 	var/obj/item/natural/silk/M = new
 	qdel(src)
 	user.put_in_hands(M)

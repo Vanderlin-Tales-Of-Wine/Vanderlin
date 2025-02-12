@@ -98,7 +98,7 @@
 /area/rogue/indoors/shelter/bog)
 "r" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},

@@ -998,7 +998,7 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/reagent_containers/food/snacks/rogue/meat/salami,
-/obj/item/reagent_containers/food/snacks/rogue/bread,
+/obj/item/reagent_containers/food/snacks/bread,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "aIr" = (
@@ -4106,14 +4106,14 @@
 /obj/item/reagent_containers/glass/bowl,
 /obj/item/reagent_containers/glass/bowl,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
 "cOg" = (
@@ -7080,8 +7080,8 @@
 /obj/item/reagent_containers/food/snacks/produce/onion,
 /obj/item/reagent_containers/food/snacks/produce/onion,
 /obj/item/reagent_containers/food/snacks/produce/onion,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /turf/open/floor/rogue/blocks/stonered,
@@ -8420,7 +8420,7 @@
 	icon_state = "alt_largetable";
 	dir = 6
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -10042,7 +10042,7 @@
 	pixel_x = 19;
 	pixel_y = 3
 	},
-/obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated{
+/obj/item/reagent_containers/food/snacks/cooked/sausage{
 	pixel_x = 1;
 	pixel_y = 5
 	},
@@ -10161,7 +10161,7 @@
 /area/rogue/indoors/town/manor)
 "hhi" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/cell)
 "hht" = (
@@ -12101,19 +12101,19 @@
 /area/rogue/indoors/town)
 "iBu" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = -7;
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 5;
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -12667,7 +12667,7 @@
 	pixel_x = 10;
 	pixel_y = 0
 	},
-/obj/item/reagent_containers/food/snacks/rogue/royaltruffles/plated{
+/obj/item/reagent_containers/food/snacks/cooked/frybird{
 	pixel_x = -7;
 	pixel_y = 4
 	},
@@ -18835,7 +18835,7 @@
 /turf/open/floor/rogue/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "nAD" = (
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
 	},
@@ -20968,19 +20968,19 @@
 /area/rogue/indoors/town/orphanage)
 "pfV" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = -10;
 	pixel_y = 2
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = 11;
 	pixel_y = 9
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = 4;
 	pixel_y = 1
 	},
-/obj/item/kitchen/ironspoon{
+/obj/item/kitchen/spoon/iron{
 	pixel_x = -4;
 	pixel_y = 10
 	},
@@ -26416,7 +26416,7 @@
 /area/rogue/indoors/town/magician)
 "thO" = (
 /obj/structure/closet/crate/chest/crafted,
-/obj/item/reagent_containers/food/snacks/rogue/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "thQ" = (
@@ -28489,14 +28489,14 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -30894,7 +30894,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
-/obj/item/reagent_containers/food/snacks/rogue/honey,
+/obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/fat,
 /obj/item/reagent_containers/food/snacks/rogue/cheese,

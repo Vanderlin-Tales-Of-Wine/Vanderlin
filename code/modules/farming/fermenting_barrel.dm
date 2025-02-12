@@ -81,7 +81,7 @@
 // 	var/turf/T = get_turf(user)
 // 	for(var/obj/item/reagent_containers/food/snacks/produce/fruit in get_turf(T))
 // 		if(fruit.can_distill)
-// 			if(move_after(user, 1 SECONDS, target = src))
+// 			if(move_after(user, 1 SECONDS, src))
 // 				src.attackby(fruit, user)
 
 //obj/structure/fermenting_barrel/attack_hand(mob/user)

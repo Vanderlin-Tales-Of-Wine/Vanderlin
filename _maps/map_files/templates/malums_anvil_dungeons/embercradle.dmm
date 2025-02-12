@@ -1135,7 +1135,7 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
-/obj/item/kitchen/ironfork,
+/obj/item/kitchen/fork/iron,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "pp" = (
@@ -1201,10 +1201,10 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1844,7 +1844,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "yR" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
+/obj/item/alch/bone,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1940,10 +1940,10 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ay" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Az" = (
@@ -1975,9 +1975,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "AO" = (
@@ -3217,7 +3217,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "Qs" = (
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked,
+/obj/item/reagent_containers/food/snacks/potato_baked,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3346,14 +3346,14 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "SP" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
-/obj/item/reagent_containers/food/snacks/rogue/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
+/obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "SR" = (
-/obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,
+/obj/item/alch/bone,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
