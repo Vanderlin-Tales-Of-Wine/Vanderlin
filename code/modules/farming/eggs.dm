@@ -1,7 +1,7 @@
 
 /obj/item/reagent_containers/food/snacks/egg
-	name = "egg"
-	desc = "Also known as cackleberries amongst the peasants."
+	name = "cackleberry"
+	desc = "Also known as eggs in some far away corners of the world."
 	icon_state = "egg"
 	list_reagents = list(/datum/reagent/consumable/eggyolk = 5)
 	cooked_type = null
