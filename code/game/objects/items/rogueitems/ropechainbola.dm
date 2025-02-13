@@ -229,7 +229,7 @@
 
 /obj/structure/noose/attackby(obj/item/W, mob/user, params)
 	if (W.get_sharpness())
-		if(do_after(user, 10, target = src))
+		if(do_after(user, 1 SECONDS, src))
 			new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 			new /obj/item/rope(loc)
 			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
