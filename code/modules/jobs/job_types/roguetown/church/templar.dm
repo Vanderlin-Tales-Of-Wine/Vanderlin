@@ -100,7 +100,7 @@
 		H.change_stat("strength", 2)
 		H.change_stat("constitution", 2)
 		H.change_stat("endurance", 2)
-		H.change_stat("perception", 01
+		H.change_stat("perception", 0)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	switch(H.patron?.type)
 		if(/datum/patron/divine/abyssor)
