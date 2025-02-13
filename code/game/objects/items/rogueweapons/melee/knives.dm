@@ -284,7 +284,7 @@
 /obj/item/rogueweapon/knife/dagger/steel/profane/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_ASSASSIN))
-		. += "profane dagger whispers, <span class='danger'>\"Here we are!\"</span>"
+		. += "profane dagger whispers, \"[span_danger("Here we are!")]\""
 
 /obj/item/rogueweapon/knife/dagger/steel/profane/pickup(mob/living/M)
 	. = ..()
