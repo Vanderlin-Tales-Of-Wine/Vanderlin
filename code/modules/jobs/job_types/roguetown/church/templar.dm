@@ -41,7 +41,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 		if(/datum/patron/divine/necra)
@@ -50,8 +50,8 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 		if(/datum/patron/divine/pestra)
-			neck = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/pestrahelm
+			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/eora)
@@ -63,12 +63,12 @@
 			H.virginity = FALSE
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/ravox
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/abyssor)
@@ -100,9 +100,13 @@
 		H.change_stat("strength", 2)
 		H.change_stat("constitution", 2)
 		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat("perception", 1)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	switch(H.patron?.type)
+		if(/datum/patron/divine/abyssor)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			backl = /obj/item/rogueweapon/polearm/billhook
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/rogueweapon/mace/warhammer/steel
