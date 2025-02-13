@@ -244,7 +244,7 @@
 	new /obj/item/rope(loc)
 	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
 	visible_message("<span class='danger'>The noose is shot down from the gallows!</span>")
-	src.Destroy()
+	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)
 	if(!in_range(user, src) || user.stat != CONSCIOUS || !iscarbon(M))
