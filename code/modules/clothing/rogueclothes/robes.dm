@@ -96,15 +96,12 @@
 	name = "wizard's robe"
 	desc = "What wizard's ensemble would be complete without robes?"
 	icon_state = "wizardrobes"
-	allowed_race = list("human", "tiefling", "dwarf" , "aasimar", "elf", "half-elf")
 	sellprice = 100
 
 /obj/item/clothing/suit/roguetown/shirt/robe/magus
 	name = "magus's robe"
 	desc = "A dark padded robe worn by only the most mysterious of mages, the magi."
 	icon_state = "warlock"
-	allowed_sex = list(MALE)
-	allowed_race = list("human", "tiefling", "aasimar")
 	sellprice = 150
 
 	armor = list("blunt" = 40, "slash" = 40, "stab" = 40,  "piercing" = 15, "fire" = 0, "acid" = 0)
