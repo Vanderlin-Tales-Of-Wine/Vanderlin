@@ -233,8 +233,8 @@
 			new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 			new /obj/item/rope(loc)
 			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
-			user.visible_message("<span class='notice'>[user] cuts down the noose from the gallows.</span>", "<span class='notice'>I cut down the noose from the gallows.</span>")
-			src.Destroy()
+			user.visible_message(span_notice("[user] cuts the noose down from the gallows."), span_notice("I cut the noose down from the gallows."), span_hear("I hear something snap."))
+			qdel(src)
 	else
 		return ..()
 
@@ -243,8 +243,8 @@
 	new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 	new /obj/item/rope(loc)
 	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
-	visible_message("<span class='danger'>The noose is shot down from the gallows!</span>")
-	src.Destroy()
+	visible_message(span_danger("The noose is shot down from the gallows!"))
+	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)
 	if(!in_range(user, src) || user.stat != CONSCIOUS || !iscarbon(M))
