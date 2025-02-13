@@ -44,7 +44,6 @@
 	name = "necromancer robes"
 	desc = "Eerie black garb of death."
 	icon_state = "warlock"
-	sleeved = null
 
 /obj/item/clothing/suit/roguetown/shirt/robe/dendor
 	name = "briar robe"
