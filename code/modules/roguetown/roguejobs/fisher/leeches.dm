@@ -112,6 +112,8 @@
 			return TRUE
 	else
 		var/blood_extracted = min(blood_maximum - blood_storage, user.blood_volume, blood_sucking)
+		if(HAS_TRAIT(user, TRAIT_LEECHIMMUNE))
+			blood_extracted *= 0.05 // 95% drain reduction
 		user.blood_volume = max(user.blood_volume - blood_extracted, 0)
 		blood_storage += blood_extracted
 		if((blood_storage >= blood_maximum) || (user.blood_volume <= 0))

@@ -154,7 +154,7 @@
 
 	if(!rolled_classes.len)
 		linked_client.mob.returntolobby()
-		message_admins("CLASS_SELECT_HANDLER HAD PERSON WITH 0 CLASS SELECT OPTIONS. THIS IS REALLY BAD! RETURNED THEM TO LOBBY")
+		message_admins("[linked_client.ckey] had 0 classes to select options, returned them to lobby. Please ask what class they were rolling and tell coders.")
 
 // Something is calling to tell this datum a class it rolled is currently maxed out.
 // More shitcode!

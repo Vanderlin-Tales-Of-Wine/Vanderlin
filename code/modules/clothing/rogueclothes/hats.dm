@@ -443,7 +443,7 @@
 		user.visible_message(span_reallybig("UNWORTHY HANDS TOUCH MY VISAGE, CEASE OR BE PUNISHED"))
 		spawn(30)
 			if(loc == user)
-				user.adjust_fire_stacks(3)
+				user.adjust_divine_fire_stacks(3)
 				user.IgniteMob()
 		return
 	else
@@ -463,7 +463,7 @@
 		to_chat(user, "<font color='yellow'>UNWORTHY HANDS TOUCH THE VISAGE, CEASE OR BE PUNISHED</font>")
 		spawn(30)
 			if(loc == user)
-				user.adjust_fire_stacks(5)
+				user.adjust_divine_fire_stacks(5)
 				user.IgniteMob()
 		return
 	else
@@ -663,6 +663,8 @@
 	name = "kettle helmet"
 	desc = "A lightweight steel helmet generally worn by crossbowmen and garrison archers. This one has eyeslits for the paranoid."
 	icon_state = "slitkettle"
+	flags_cover = HEADCOVERSEYES
+	body_parts_covered = HEAD|HAIR|EARS|EYES
 
 
 //................ Iron Pot Helmet ............... //
@@ -902,14 +904,15 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/rust
 	name = "rusted barbute"
 	desc = "A rusted barbute. Relatively fragile, and might turn your hair brown, but offers good protection."
-	icon_state = "rustbarbuta"
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rusthelm"
+	item_state = "rusthelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	smeltresult = /obj/item/ingot/iron
-	sellprice = VALUE_LEATHER_HELMET
-
+	sellprice = VALUE_IRON_ARMOR/2
 	armor = ARMOR_PLATE_BAD
-	max_integrity = INTEGRITY_STANDARD // shitty rusted iron
-
+	max_integrity = INTEGRITY_STANDARD
 
 //............... Great Helm ............... //
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket

@@ -384,10 +384,10 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "dX" = (
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -1120,8 +1120,8 @@
 /obj/structure/closet/crate/chest/old_crate{
 	name = "meat crate"
 	},
-/obj/item/reagent_containers/food/snacks/rogue/meat/spider,
-/obj/item/reagent_containers/food/snacks/rogue/meat/spider,
+/obj/item/reagent_containers/food/snacks/rogue/meat/strange,
+/obj/item/reagent_containers/food/snacks/rogue/meat/strange,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /obj/item/reagent_containers/food/snacks/fat,
@@ -1528,7 +1528,7 @@
 	},
 /area/rogue/indoors/mountains/anvil/surface/building)
 "nD" = (
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried,
+/obj/item/reagent_containers/food/snacks/cooked/frysteak,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1805,9 +1805,9 @@
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/outdoors/mountains/anvil/grove)
 "qz" = (
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
-/obj/item/reagent_containers/food/snacks/rogue/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
+/obj/item/reagent_containers/food/snacks/truffles,
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -2327,8 +2327,8 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "vn" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/reagent_containers/glass/bowl,
@@ -3927,11 +3927,11 @@
 	pixel_y = 3;
 	pixel_x = 6
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = -4;
 	pixel_x = -4
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 9;
 	pixel_x = -4
 	},
@@ -5032,7 +5032,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "TL" = (
 /obj/structure/table/wood/plain,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "TQ" = (

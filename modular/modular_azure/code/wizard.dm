@@ -228,11 +228,11 @@
 /obj/effect/proc_holder/spell/invoked/gravity // to do: get scroll icon
 	name = "Gravity"
 	desc = "Weighten space around someone, crushing them and knocking them to the floor. Stronger opponets will resist and be made off-balanced."
-	cost = 1
+	cost = 2
 	releasedrain = 20
 	chargedrain = 1
 	chargetime = 7
-	charge_max = 15 SECONDS
+	charge_max = 20 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE

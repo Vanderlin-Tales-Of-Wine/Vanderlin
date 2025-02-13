@@ -2474,9 +2474,9 @@
 /area/rogue/outdoors/bog/inhumen_camp)
 "up" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/vampire_manor)
 "uy" = (
@@ -2632,11 +2632,11 @@
 /area/rogue)
 "xe" = (
 /obj/structure/table/wood/plain,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter{
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter{
 	pixel_y = 3
 	},
-/obj/item/cooking/platter{
+/obj/item/kitchen/platter{
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/peppermill{
@@ -3231,8 +3231,8 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/natural/worms/leech,
 /obj/item/natural/worms,
-/obj/item/reagent_containers/food/snacks/rogue/meat/spider,
-/obj/item/reagent_containers/food/snacks/rogue/meat/spider,
+/obj/item/reagent_containers/food/snacks/rogue/meat/strange,
+/obj/item/reagent_containers/food/snacks/rogue/meat/strange,
 /obj/item/natural/worms/leech,
 /obj/item/natural/worms,
 /turf/open/floor/rogue/dirt,
@@ -3795,9 +3795,9 @@
 /area/rogue)
 "On" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/item/reagent_containers/food/snacks/fat/salo,
-/obj/item/reagent_containers/food/snacks/rogue/bread,
+/obj/item/reagent_containers/food/snacks/bread,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
 "Oq" = (

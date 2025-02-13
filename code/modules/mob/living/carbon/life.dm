@@ -22,7 +22,7 @@
 	handle_roguebreath()
 	update_stress()
 	handle_nausea()
-	if(blood_volume > BLOOD_VOLUME_SURVIVE)
+	if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		if(!heart_attacking)
 			if(oxyloss)
 				adjustOxyLoss(-1.6)
@@ -515,7 +515,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			head.cremation_progress += rand(1,4)
 			if(head.cremation_progress >= 50)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
-					limb.skeletonize()
+					head.skeletonize()
 					should_update_body = TRUE
 					head.drop_limb()
 					head.visible_message("<span class='warning'>[src]'s head crumbles into ash!</span>")

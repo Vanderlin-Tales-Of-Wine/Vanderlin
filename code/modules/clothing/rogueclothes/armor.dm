@@ -633,10 +633,13 @@
 
 //................ Rusted Breastplate ............... //
 /obj/item/clothing/suit/roguetown/armor/cuirass/iron/rust
-	name = "rusted breastplate"
+	name = "rusted curiass"
 	desc = "Old but still useful to keep sharp objects from your innards."
-	icon_state = "rusthalf"
-	item_state = "rusthalf"
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rustcuriass"
+	item_state = "rustcuriass"
 	sellprice = VALUE_IRON_ARMOR/2
 
 	max_integrity = INTEGRITY_POOR
@@ -752,12 +755,15 @@
 /obj/item/clothing/suit/roguetown/armor/plate/rust
 	name = "rusted half-plate"
 	desc = "Old glory, old defeats, most of the rust comes from damp and not the blood of previous wearers, one would hope."
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
 	icon_state = "rustplate"
 	item_state = "rustplate"
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR/2
-
-	max_integrity = INTEGRITY_STRONG
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD
 
 
 //................ Brigandine ............... //

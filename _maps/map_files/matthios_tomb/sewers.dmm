@@ -134,7 +134,7 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "X" = (
-/obj/item/reagent_containers/food/snacks/rogue/cheesebun,
+/obj/item/reagent_containers/food/snacks/cheesebun,
 /obj/structure/ladder,
 /obj/item/natural/poo{
 	pixel_x = -10;

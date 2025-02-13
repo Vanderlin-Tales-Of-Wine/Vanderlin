@@ -6,7 +6,7 @@
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 7
 	},
 /turf/open/floor/rogue/hexstone,
@@ -77,7 +77,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 8;
 	pixel_x = 5
 	},
