@@ -754,7 +754,8 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison))
+
+	if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison) || istype(I, /obj/item/reagent_containers/food/snacks/raisins/poison))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Adding some juicy fruit filling...</span>")
@@ -776,7 +777,7 @@
 				qdel(src)
 		else
 			to_chat(user, span_warning("Put [src] on a table before working it!"))
-	else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry))
+	else if(istype(I, /obj/item/reagent_containers/food/snacks/produce/jacksberry) || istype(I, /obj/item/reagent_containers/food/snacks/raisins) || istype(I, /obj/item/reagent_containers/food/snacks/produce/apple))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Adding some juicy fruit filling...</span>")
