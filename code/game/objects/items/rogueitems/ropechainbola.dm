@@ -234,7 +234,7 @@
 			new /obj/item/rope(loc)
 			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
 			user.visible_message("<span class='notice'>[user] cuts down the noose from the gallows.</span>", "<span class='notice'>I cut down the noose from the gallows.</span>")
-			src.Destroy()
+			qdel(src)
 	else
 		return ..()
 
