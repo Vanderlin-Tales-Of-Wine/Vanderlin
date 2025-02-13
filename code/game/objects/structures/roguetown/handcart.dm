@@ -22,7 +22,7 @@
 /obj/structure/handcart/examine(mob/user)
 	. = ..()
 	if(upgrade)
-		. += span_notice("This cart has a [upgrade.name] installed.")
+		. += span_notice("This cart has \an [upgrade] installed.")
 
 /obj/structure/handcart/Initialize(mapload)
 	if(mapload)		// if closed, any item at the crate's loc is put in the contents
