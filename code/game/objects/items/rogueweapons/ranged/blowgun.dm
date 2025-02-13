@@ -57,6 +57,12 @@
 		BB.damage *= damfactor // Apply blow's inherent damage multiplier regardless of PER
 		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
 	. = ..()
+	if(.)
+		if(istype(user) && user.mind)
+			var/modifier = 1/(spread+1)
+			var/boon = user.mind.get_learning_boon(/datum/skill/combat/bows)
+			var/amt2raise = user.STAINT/2
+			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier * 0.5, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/update_icon()
 	. = ..()

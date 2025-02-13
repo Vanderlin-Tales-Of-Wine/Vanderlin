@@ -161,6 +161,12 @@
 		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/crossbows) * 3) //+3 accuracy per level in crossbows
 	cocked = FALSE
 	. = ..()
+	if(.)
+		if(istype(user) && user.mind)
+			var/modifier = 1/(spread+1)
+			var/boon = user.mind.get_learning_boon(/datum/skill/combat/crossbows)
+			var/amt2raise = user.STAINT/2
+			user.mind.adjust_experience(/datum/skill/combat/crossbows, amt2raise * boon * modifier * 0.5, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/update_icon()
 	. = ..()
