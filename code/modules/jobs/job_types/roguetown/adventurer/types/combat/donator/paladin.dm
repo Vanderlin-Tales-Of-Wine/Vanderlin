@@ -87,10 +87,7 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", -2)
-		if(H.patron != /datum/patron/divine/necra)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/churn)
-		else
-			H.change_stat("fortune", 1)	// instead of duped churn necrans gets more fortune
+		H.change_stat("fortune", 1)
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

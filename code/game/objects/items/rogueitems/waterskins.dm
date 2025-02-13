@@ -49,7 +49,7 @@
 	if(!cleaned)
 		return
 	playsound(src, 'sound/items/waterfilter.ogg', 40, TRUE)
-	visible_message(span_hear("I hear whizzing clockwork and gurgling water within [src]."), vision_distance = COMBAT_MESSAGE_RANGE)
+	audible_message(span_hear("I hear whizzing clockwork and gurgling water within [src]."), hearing_distance = COMBAT_MESSAGE_RANGE)
 	if (prob(25))
 		var/obj/smoke = new /obj/effect/temp_visual/small_smoke(get_turf(src))
 		smoke.layer = ABOVE_MOB_LAYER

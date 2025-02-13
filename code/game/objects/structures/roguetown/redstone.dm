@@ -19,7 +19,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		to_chat(user, span_warning("I do not know how to use [multitool]..."))
 		return
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
-	if(!do_after(usr, 8 SECONDS, src))
+	if(!do_after(user, 8 SECONDS, src))
 		return
 	var/datum/effect_system/spark_spread/S = new()
 	var/turf/front = get_turf(src)

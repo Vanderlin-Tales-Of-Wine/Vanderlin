@@ -42,7 +42,7 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
 	. = ..()
-	if(chambered)
+	if(chambered && slot != SLOT_HANDS)
 		chambered = null
 		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
 			CB.forceMove(drop_location())

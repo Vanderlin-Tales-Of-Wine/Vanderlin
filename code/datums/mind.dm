@@ -834,7 +834,7 @@
 		boon = 0.8
 	else if(H.age == AGE_CHILD)
 		boon = 1.1
-	boon += get_skill_level(skill) / 15
+	boon += get_skill_level(skill) / 10
 	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
 		boon += 0.05
 	return boon

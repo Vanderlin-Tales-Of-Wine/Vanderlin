@@ -506,14 +506,6 @@
 	reqs = list(/obj/item/natural/wood/plank = 2)
 	craftdiff = 3
 
-// /datum/crafting_recipe/roguetown/lumberjacking/cart_upgrade2
-// 	name = "reliable wooden cog"
-// 	result = /obj/item/roguegear/wood/reliable
-// 	reqs = list(/obj/item/grown/log/tree/small = 4,
-// 				/obj/item/roguegear/wood/basic = 1,
-// 				/obj/item/ingot/iron = 1)
-// 	craftdiff = 4
-
 /datum/crafting_recipe/roguetown/wood_hammer
 	name = "wooden mallet"
 	result = /obj/item/rogueweapon/hammer/wood
