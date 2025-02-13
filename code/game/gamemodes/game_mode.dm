@@ -80,22 +80,22 @@
 
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start()
-	var/playerC = 0
-	for(var/i in GLOB.new_player_list)
-		var/mob/dead/new_player/player = i
+	if(GLOB.Debug)
+		debug_admins(span_notice("GAME STARTING WITHOUT PLAYER NUMBER CHECKS, THIS WILL PROBABLY BREAK SHIT."))
+		return TRUE
+
+	var/players_readied = 0
+	for(var/mob/dead/new_player/player in GLOB.new_player_list)
 		if(player.ready == PLAYER_READY_TO_PLAY)
-			playerC++
-	if(!GLOB.Debug2)
-		if(playerC < required_players || (maximum_players >= 0 && playerC > maximum_players))
-			return 0
+			players_readied++
+	if(players_readied < required_players || (maximum_players && (players_readied > maximum_players)))
+		return FALSE
+
 	antag_candidates = get_players_for_role(antag_flag)
-	if(!GLOB.Debug2)
-		if(antag_candidates.len < required_enemies)
-			return 0
-		return 1
-	else
-		message_admins("<span class='notice'>DEBUG: GAME STARTING WITHOUT PLAYER NUMBER CHECKS, THIS WILL PROBABLY BREAK SHIT.</span>")
-		return 1
+	if(length(antag_candidates) < required_enemies)
+		return FALSE
+	return TRUE
+
 
 
 ///Attempts to select players for special roles the mode might have.
