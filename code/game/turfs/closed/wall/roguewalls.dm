@@ -182,7 +182,7 @@
 	hardness = 70
 
 
-/turf/closed/wall/mineral/rogue/tent/OnCrafted(dirin)
+/turf/closed/wall/mineral/rogue/tent/OnCrafted(dirin, mob/user)
 	dir = dirin
 	return ..()
 
@@ -204,7 +204,7 @@
 	explosion_block = 4
 	hardness = 7
 
-/turf/closed/wall/mineral/rogue/wooddark/OnCrafted(dirin)
+/turf/closed/wall/mineral/rogue/wooddark/OnCrafted(dirin, mob/user)
 	if(dirin == NORTH || dirin == SOUTH)
 		icon_state = "vertwooddark"
 	else
@@ -229,7 +229,7 @@
 	opacity = FALSE
 	explosion_block = 1
 
-/turf/closed/wall/mineral/rogue/wooddark/window/OnCrafted(dirin)
+/turf/closed/wall/mineral/rogue/wooddark/window/OnCrafted(dirin, mob/user)
 	return
 
 /turf/closed/wall/mineral/rogue/wooddark/window/CanPass(atom/movable/mover, turf/target)

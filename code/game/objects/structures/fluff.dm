@@ -119,7 +119,7 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/OnCrafted(dirin)
+/obj/structure/fluff/railing/OnCrafted(dirin, mob/user)
 	dir = dirin
 	var/lay = getwlayer(dir)
 	if(lay)
@@ -167,7 +167,7 @@
 	..()
 	smooth_fences()
 
-/obj/structure/fluff/railing/fence/OnCrafted(dirin)
+/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
 	smooth_fences()
 

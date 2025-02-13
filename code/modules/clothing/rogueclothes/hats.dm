@@ -663,6 +663,8 @@
 	name = "kettle helmet"
 	desc = "A lightweight steel helmet generally worn by crossbowmen and garrison archers. This one has eyeslits for the paranoid."
 	icon_state = "slitkettle"
+	flags_cover = HEADCOVERSEYES
+	body_parts_covered = HEAD|HAIR|EARS|EYES
 
 
 //................ Iron Pot Helmet ............... //

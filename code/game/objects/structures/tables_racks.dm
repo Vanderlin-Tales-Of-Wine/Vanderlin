@@ -177,24 +177,6 @@
 				I.pixel_x = initial(I.pixel_x) + CLAMP(text2num(click_params["icon-x"]) - 16, -(world.icon_size/2), world.icon_size/2)
 				I.pixel_y = initial(I.pixel_y) + CLAMP(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 				after_added_effects(I, user)
-				if(istype(I, /obj/item/rogue/instrument)) // SURPRISE SURPRISE, YET ANOTHER EXPLOIT PREVENTION.
-					var/obj/item/rogue/instrument/P = I
-					if(P.playing)
-						P.playing = FALSE
-						P.soundloop.stop()
-						for(var/mob/living/carbon/L in viewers(7))
-							var/mob/living/carbon/buffed = L
-							if(buffed.mind?.has_antag_datum(/datum/antagonist))
-								if(buffed.mind?.isactuallygood())
-									for(var/datum/status_effect/bardicbuff/b in L.status_effects)
-										buffed.remove_status_effect(b)
-										return TRUE
-								else
-									return TRUE
-							else
-								for(var/datum/status_effect/bardicbuff/b in L.status_effects)
-									buffed.remove_status_effect(b)
-									return TRUE
 				return TRUE
 
 	return ..()

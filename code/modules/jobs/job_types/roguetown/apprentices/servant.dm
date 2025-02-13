@@ -66,7 +66,7 @@
 			cloak = /obj/item/clothing/cloak/apron
 
 /datum/advclass/servant/keep
-	name = "Keep's servant"
+	name = "Keep's Servant"
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to."
 	outfit = /datum/outfit/job/roguetown/servant/keep
 	maximum_possible_slots = 5
@@ -79,7 +79,7 @@
 		neck = /obj/item/key/manor
 
 /datum/advclass/servant/inn
-	name = "Innkeeper's servant"
+	name = "Innkeeper's Servant"
 	tutorial = "The Innkeeper needed waiters and here am I, serving the food, drinks and ensuring the rooms are clean."
 	outfit = /datum/outfit/job/roguetown/servant/inn
 	maximum_possible_slots = 2
@@ -92,7 +92,7 @@
 		neck = /obj/item/key/tavern
 
 /datum/advclass/servant/matron_assistant
-	name = "Matron's servant"
+	name = "Matron's Servant"
 	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	outfit = /datum/outfit/job/roguetown/servant/matron_assistant
 	maximum_possible_slots = 2

@@ -16,10 +16,10 @@
 	var/ambushable = TRUE
 	var/soundpack_m
 	var/soundpack_f
-	var/oldSTASTR
-	var/oldSTASPD
-	var/oldSTAINT
-	var/oldSTACON
+	var/oldSTASTR = 7
+	var/oldSTASPD = 2
+	var/oldSTAINT = 1
+	var/oldSTACON = 5
 	var/old_cmode_music
 	var/list/base_intents
 	var/datum/language_holder/prev_language
@@ -73,11 +73,13 @@
 
 /datum/antagonist/zombie/on_gain()
 	var/mob/living/carbon/human/zombie = owner?.current
-	if(zombie)
-		var/obj/item/bodypart/head = zombie.get_bodypart(BODY_ZONE_HEAD)
-		if(!head)
-			qdel(src)
-			return
+	if(!zombie)
+		qdel(src)
+		return
+	var/obj/item/bodypart/head = zombie.get_bodypart(BODY_ZONE_HEAD)
+	if(!head)
+		qdel(src)
+		return
 	zombie_start = world.time
 	was_i_undead = zombie.mob_biotypes & MOB_UNDEAD
 	special_role = zombie.mind?.special_role
@@ -88,14 +90,6 @@
 		rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "deadite")
 		zombie.add_overlay(rotflies)
 	base_intents = zombie.base_intents
-	oldSTASTR = zombie.STASTR
-	oldSTASPD = zombie.STASPD
-	oldSTAINT = zombie.STAINT
-	oldSTACON = zombie.STACON
-	zombie.change_stat(STATKEY_STR, 7, TRUE)
-	zombie.change_stat(STATKEY_SPD, 2, TRUE)
-	zombie.change_stat(STATKEY_INT, 1, TRUE)
-	zombie.change_stat(STATKEY_CON, 5, TRUE)
 	old_cmode_music = zombie.cmode_music
 	patron = zombie.patron
 	stored_skills = owner.known_skills.Copy()
@@ -130,7 +124,7 @@
 	if(zombie.charflaw)
 		zombie.charflaw.ephemeral = FALSE
 	zombie.update_body()
-	zombie.change_stat(STATKEY_STR, oldSTASTR - 6)
+	zombie.change_stat(STATKEY_STR, oldSTASTR - 7)
 	zombie.change_stat(STATKEY_SPD, oldSTASPD - 2)
 	zombie.change_stat(STATKEY_INT, oldSTAINT - 1)
 	zombie.change_stat(STATKEY_CON, oldSTACON - 5)
@@ -220,6 +214,17 @@
 	zombie.update_body()
 	zombie.cmode_music = 'sound/music/cmode/combat_weird.ogg'
 	zombie.set_patron(/datum/patron/inhumen/zizo)
+
+	for(var/datum/status_effect/effect in zombie.status_effects) //necessary to prevent exploits
+		zombie.remove_status_effect(effect)
+	oldSTASTR = zombie.STASTR
+	oldSTASPD = zombie.STASPD
+	oldSTAINT = zombie.STAINT
+	oldSTACON = zombie.STACON
+	zombie.change_stat(STATKEY_STR, 7, TRUE)
+	zombie.change_stat(STATKEY_SPD, 2, TRUE)
+	zombie.change_stat(STATKEY_INT, 1, TRUE)
+	zombie.change_stat(STATKEY_CON, 5, TRUE)
 
 	zombie.vitae_pool = 0 // Again, just in case.
 

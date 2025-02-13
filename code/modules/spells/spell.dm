@@ -274,7 +274,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 		if(miracle)
 			var/datum/devotion/cleric_holder/D = H.cleric
-			if(!D.check_devotion(devotion_cost))
+			if(!D?.check_devotion(devotion_cost))
 				to_chat(H, "<span class='warning'>I don't have enough devotion!</span>")
 				return FALSE
 	else
