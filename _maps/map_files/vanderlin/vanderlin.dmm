@@ -4037,6 +4037,12 @@
 "cKz" = (
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/shop)
+"cKB" = (
+/obj/effect/landmark/start/sapprentice{
+	dir = 1
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/smithy)
 "cKJ" = (
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town)
@@ -8643,13 +8649,11 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "gbp" = (
-/obj/effect/landmark/start/sapprentice{
-	dir = 1
-	},
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32;
 	pixel_x = 0
 	},
+/obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/smithy)
 "gbC" = (
@@ -30318,6 +30322,10 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/cell)
+"vJy" = (
+/obj/structure/fluff/grindwheel,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/smithy)
 "vJz" = (
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
@@ -95057,7 +95065,7 @@ pMR
 qBL
 pMR
 svp
-pnI
+vJy
 pnI
 pnI
 pnI
@@ -95457,7 +95465,7 @@ sTi
 aFU
 mCU
 dFv
-pnI
+cKB
 tja
 pnI
 oZO
