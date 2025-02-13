@@ -86,7 +86,7 @@
 		qdel(cog)
 		playsound(src, pick('sound/combat/hits/onwood/fence_hit1.ogg', 'sound/combat/hits/onwood/fence_hit2.ogg', 'sound/combat/hits/onwood/fence_hit3.ogg'), 100, FALSE)
 		shake_camera(user, 1, 1)
-		to_chat(user, span_notice("I upgrade [src] with [cog].")
+		to_chat(user, span_notice("I upgrade [src] with [cog]."))
 		update_icon()
 		return
 	if(!user.cmode)
