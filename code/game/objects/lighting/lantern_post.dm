@@ -113,16 +113,16 @@
 		return
 	if(istype(W, /obj/item/rope)&&!istype(W, /obj/item/rope/chain))
 		if(!torchy)
-			to_chat(user, "<span class='notice'>Tying a noose around the lantern post...</span>")
-			if(do_after(user, 20, target = src))
+			user.visible_message(span_notice("[user] begins to tie a noose on [src]..."), span_notice("I begin to tie a noose on [src]..."))
+			if(do_after(user, 2 SECONDS, src))
 				new /obj/structure/noose/gallows(loc)
 				playsound(src.loc, 'sound/foley/noose_idle.ogg', 100)
 				qdel(W)
 				qdel(src)
 		else
 			if(torchy && !permanent)
-				to_chat(user, "<span class='notice'>You've got to take off the lantern first!</span>")
+				to_chat(user, span_warning("I must remove [torchy] from [src] before I can tie [W]."))
 			else
-				to_chat(user, "<span class='notice'>There's no place for a rope on this one.</span>")
+				to_chat(user, span_warning("There's no place for a rope on this one."))
 	else
 		. = ..()
