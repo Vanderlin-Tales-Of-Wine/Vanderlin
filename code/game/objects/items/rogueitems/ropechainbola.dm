@@ -233,7 +233,11 @@
 			new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 			new /obj/item/rope(loc)
 			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+<<<<<<< HEAD
 			user.visible_message(span_notice("[user] cuts the noose down from the gallows."), span_notice("I cut the noose down from the gallows."), span_hear("I hear something snap."))
+=======
+			user.visible_message("<span class='notice'>[user] cuts down the noose from the gallows.</span>", "<span class='notice'>I cut down the noose from the gallows.</span>")
+>>>>>>> b961bea77987f5e1a7f673a99b4909327f9d261b
 			qdel(src)
 	else
 		return ..()
@@ -243,7 +247,11 @@
 	new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 	new /obj/item/rope(loc)
 	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
+<<<<<<< HEAD
 	visible_message(span_danger("The noose is shot down from the gallows!"))
+=======
+	visible_message("<span class='danger'>The noose is shot down from the gallows!</span>")
+>>>>>>> b961bea77987f5e1a7f673a99b4909327f9d261b
 	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)

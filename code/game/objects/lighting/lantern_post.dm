@@ -73,7 +73,7 @@
 		icon_state = "streetlantern"
 
 /obj/machinery/light/rogue/lanternpost/burn_out()
-	if (torchy && torchy.on)
+	if (torchy?.on)
 		torchy.turn_off()
 	..()
 
