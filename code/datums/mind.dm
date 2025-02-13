@@ -829,8 +829,12 @@
 	var/mob/living/carbon/human/H = current
 	if(!istype(H))
 		return 1
-	var/boon = H.age == AGE_OLD ? 0.8 : 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
-	boon += get_skill_level(skill) / 10
+	var/boon = 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
+	if(H.age == AGE_OLD)
+		boon = 0.8
+	else if(H.age == AGE_CHILD)
+		boon = 1.1
+	boon += get_skill_level(skill) / 15
 	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
 		boon += 0.05
 	return boon

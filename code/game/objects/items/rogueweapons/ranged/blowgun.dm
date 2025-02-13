@@ -15,7 +15,6 @@
 	var/cocked = FALSE
 	cartridge_wording = "dart"
 	fire_sound = 'sound/combat/Ranged/blowgun_shot.ogg'
-	associated_skill =  /datum/skill/combat/bows
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/getonmobprop(tag)
 	. = ..()
@@ -29,17 +28,6 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/shoot_with_empty_chamber()
 	update_icon()
 	return
-
-/obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/dropped()
-	. = ..()
-	if(chambered)
-		chambered = null
-		var/num_unloaded = 0
-		for(var/obj/item/ammo_casing/CB in get_ammo_list(FALSE, TRUE))
-			CB.forceMove(drop_location())
-			num_unloaded++
-		if (num_unloaded)
-			update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	if(user.get_num_arms(FALSE) < 1)

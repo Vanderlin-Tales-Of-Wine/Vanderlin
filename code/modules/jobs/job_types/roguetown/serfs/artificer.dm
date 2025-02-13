@@ -22,7 +22,7 @@
 	tutorial = "You are one of the greatest minds of Heartfelt- an artificer, an engineer. You will build the future, regardless of what superstition the more mystical minded may spout. You know your machines' inner workings as well as you do stone, down to the last cog."
 
 	outfit = /datum/outfit/job/roguetown/mason
-	display_order = JDO_MASON
+	display_order = JDO_ARTIFICER
 	bypass_lastclass = TRUE
 	give_bank_account = 8
 	min_pq = -50

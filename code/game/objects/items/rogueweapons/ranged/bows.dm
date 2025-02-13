@@ -22,7 +22,6 @@
 	verbage = "nock"
 	cartridge_wording = "arrow"
 	load_sound = 'sound/foley/nockarrow.ogg'
-	associated_skill = /datum/skill/combat/bows
 	metalizer_result = /obj/item/restraints/legcuffs/beartrap/armed
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/getonmobprop(tag)
@@ -40,6 +39,15 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/shoot_with_empty_chamber()
 	update_icon()
 	return
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
+	. = ..()
+	if(chambered)
+		chambered = null
+		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
+			CB.forceMove(drop_location())
+//			CB.bounce_away(FALSE, NONE)
+		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped()
 	. = ..()
