@@ -16,10 +16,10 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(!multitool.current_charge)
 		return
 	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
-		to_chat(user, span_warning("You have no idea how to use [multitool]!"))
+		to_chat(user, span_warning("I do not know how to use [multitool]..."))
 		return
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
-	if(!do_after(usr, 8 SECONDS, target = src))
+	if(!do_after(usr, 8 SECONDS, src))
 		return
 	var/datum/effect_system/spark_spread/S = new()
 	var/turf/front = get_turf(src)
@@ -339,7 +339,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		return
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
-		rotcomp.HandRot(null,usr,ROTATION_CLOCKWISE)
+		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
 	return TRUE
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)

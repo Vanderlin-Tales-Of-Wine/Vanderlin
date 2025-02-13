@@ -56,10 +56,7 @@
 	if(ammo_list.len)
 		var/list/unique_ammos = list()
 		for(var/obj/item/ammo_casing/ammo in ammo_list)
-			if(unique_ammos[ammo.name])
-				unique_ammos[ammo.name] += 1
-			else
-				unique_ammos[ammo.name] = 1
+			unique_ammos[ammo.name] += 1
 		for(var/ammo_name in unique_ammos)
 			. += span_info("[unique_ammos[ammo_name]] [ammo_name][unique_ammos[ammo_name] > 1 ? "s" : ""].")
 
