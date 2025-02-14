@@ -93,7 +93,7 @@ GLOBAL_LIST_INIT(available_ui_styles, sortList(list(
 	else
 		hand_slots.Cut()
 
-	for(var/mytype in subtypesof(/atom/movable/screen/plane_master))
+	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - list(/atom/movable/screen/plane_master/wall_fov))
 		var/atom/movable/screen/plane_master/instance = new mytype()
 		plane_masters["[instance.plane]"] = instance
 		instance.backdrop(mymob)
