@@ -133,17 +133,17 @@ SUBSYSTEM_DEF(droning)
 			sound_killer.status = SOUND_UPDATE
 			SEND_SOUND(listener, sound_killer)
 			sleep(1)
-		listener.droning_sound = null
-		listener.last_droning_sound = null
+		listener?.droning_sound = null
+		listener?.last_droning_sound = null
 		var/sound/droning = sound(pick(area_player.droning_sound_current), area_player.droning_repeat, area_player.droning_wait, area_player.droning_channel, listener?.prefs.musicvol)
 
-		if(HAS_TRAIT(listener.mob, TRAIT_SCHIZO_AMBIENCE))
+		if(HAS_TRAIT(listener?.mob, TRAIT_SCHIZO_AMBIENCE))
 			droning.file = 'sound/music/dreamer_is_still_asleep.ogg'
-		else if(HAS_TRAIT(listener.mob, TRAIT_DRUQK))
+		else if(HAS_TRAIT(listener?.mob, TRAIT_DRUQK))
 			droning.file = 'sound/music/spice.ogg'
 
-		listener.droning_sound = droning
-		listener.last_droning_sound = area_player.droning_sound_current
+		listener?.droning_sound = droning
+		listener?.last_droning_sound = area_player.droning_sound_current
 		SEND_SOUND(listener, droning)
 
 /datum/controller/subsystem/droning/proc/kill_droning(client/victim)

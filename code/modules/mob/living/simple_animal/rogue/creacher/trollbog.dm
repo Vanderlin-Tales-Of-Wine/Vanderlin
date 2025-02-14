@@ -23,11 +23,11 @@
 	vision_range = 6
 	aggro_vision_range = 6
 
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 1,
 						/obj/item/natural/hide = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1,
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 1,
 						/obj/item/natural/hide = 3)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 2,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 2,
 						/obj/item/natural/hide = 4)
 
 	health = BOGTROLL_HEALTH
@@ -104,7 +104,7 @@
 	if(pulledby)
 		Retaliate()
 		GiveTarget(pulledby)
-	if(fire_stacks <= 0)
+	if(fire_stacks + divine_fire_stacks <= 0)
 		adjustHealth(-rand(40,50))
 
 

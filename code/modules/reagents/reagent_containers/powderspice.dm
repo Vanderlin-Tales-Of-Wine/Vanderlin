@@ -117,7 +117,7 @@
 				if(!CH.grabbedby)
 					to_chat(user, "<span class='info'>[C.p_they(TRUE)] steals [C.p_their()] face from it.</span>")
 					return FALSE
-			if(!do_mob(user, M, 10))
+			if(!do_after(user, 1 SECONDS, M))
 				return FALSE
 
 	playsound(M, 'sound/items/sniff.ogg', 100, FALSE)

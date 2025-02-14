@@ -119,7 +119,7 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/OnCrafted(dirin)
+/obj/structure/fluff/railing/OnCrafted(dirin, mob/user)
 	dir = dirin
 	var/lay = getwlayer(dir)
 	if(lay)
@@ -167,7 +167,7 @@
 	..()
 	smooth_fences()
 
-/obj/structure/fluff/railing/fence/OnCrafted(dirin)
+/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
 	smooth_fences()
 
@@ -744,7 +744,7 @@
 	to_chat(H, "<span class='notice'>[message2send]</span>")
 
 	if(random_message == 2)
-		if(do_after(H, 25, target = src))
+		if(do_after(H, 2.5 SECONDS, src))
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
@@ -850,7 +850,7 @@
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/honey))
+	if(istype(W, /obj/item/reagent_containers/food/snacks/spiderhoney))
 		if(user.mind)
 			if(user.mind.special_role == "Dark Elf")
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)

@@ -349,12 +349,12 @@
 				var/jextra = FALSE
 				if(m_intent == MOVE_INTENT_RUN)
 					OffBalance(30)
-					jadded = 15
+					jadded = 60
 					jrange = 3
 					jextra = TRUE
 				else
 					OffBalance(20)
-					jadded = 10
+					jadded = 30
 					jrange = 2
 				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
@@ -418,7 +418,7 @@
 						if(!(zone_selected in stealablezones))
 							to_chat(src, span_warning("What am I going to steal from there?"))
 							return
-						if(do_after(U, 2 SECONDS, target = V, progress = 0))
+						if(do_after(U, 2 SECONDS, V, progress = FALSE))
 							switch(U.zone_selected)
 								if("chest")
 									if (V.get_item_by_slot(SLOT_BACK_L))

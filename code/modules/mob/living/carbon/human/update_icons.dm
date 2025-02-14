@@ -72,7 +72,7 @@ There are several things that need to be remembered:
 	..()
 
 /mob/living/carbon/human/update_fire()
-	if(fire_stacks < 10)
+	if(fire_stacks + divine_fire_stacks < 10)
 		return ..("Generic_mob_burning")
 	else
 		var/burning = dna?.species?.enflamed_icon

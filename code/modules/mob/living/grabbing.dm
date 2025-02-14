@@ -670,7 +670,7 @@
 				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
 					if("Yes")
 						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
-						if(do_after(user, 30))
+						if(do_after(user, 3 SECONDS))
 							C.visible_message(span_red("[C] rises as a new spawn!"))
 							if(istype(VDrinker, /datum/antagonist/vampirelord))
 								var/datum/antagonist/vampirelord/lesser/new_antag = new /datum/antagonist/vampirelord/lesser()

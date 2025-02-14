@@ -115,15 +115,15 @@
 	if((user.used_intent.type == /datum/intent/shovelscoop) || (user.used_intent.type == /datum/intent/irrigate))
 		var/obj/item/rogueweapon/shovel/shovel = I
 		if(!shovel.heldclod)
-			user.visible_message("[user] starts digging a trench.", "You start digging a trench.")
-			if(!do_after(user, 10 SECONDS * shovel.time_multiplier, target = src))
+			user.visible_message("[user] starts digging a trench.", "I start digging a trench.")
+			if(!do_after(user, 10 SECONDS * shovel.time_multiplier, src))
 				return
 			new /obj/structure/trench(get_turf(src))
 			qdel(src)
 			return TRUE
 
 		user.visible_message("[user] starts filling [src].", "You start filling [src].")
-		if(!do_after(user, 4 SECONDS * shovel.time_multiplier, target = src))
+		if(!do_after(user, 4 SECONDS * shovel.time_multiplier, src))
 			return
 		QDEL_NULL(shovel.heldclod)
 		shovel.update_icon()

@@ -590,7 +590,7 @@
 		rogue_sneaking = TRUE
 		return
 	var/turf/T = get_turf(src)
-	var/light_amount = T.get_lumcount()
+	var/light_amount = T?.get_lumcount()
 	var/used_time = 50
 
 	if(rogue_sneaking) //If sneaking, check if they should be revealed

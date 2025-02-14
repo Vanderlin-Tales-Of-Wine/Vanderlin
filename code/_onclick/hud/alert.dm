@@ -188,12 +188,12 @@
 	desc = ""
 	icon_state = "gross3"
 
-/atom/movable/screen/alert/hot
+/atom/movable/screen/alert/status_effect/debuff/hot
 	name = "Too Hot"
 	desc = ""
 	icon_state = "hot"
 
-/atom/movable/screen/alert/cold
+/atom/movable/screen/alert/status_effect/debuff/cold
 	name = "Too Cold"
 	desc = ""
 	icon_state = "cold"

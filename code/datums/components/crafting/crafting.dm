@@ -135,10 +135,10 @@
 			return FALSE
 	return TRUE
 
-/atom/proc/OnCrafted(dirin)
+/atom/proc/OnCrafted(dirin, mob/user)
 	return
 
-/obj/structure/OnCrafted(dirin)
+/obj/structure/OnCrafted(dirin, mob/user)
 	obj_flags |= CAN_BE_HIT
 	. = ..()
 
@@ -209,9 +209,9 @@
 			if(R.craftsound)
 				playsound(T, R.craftsound, 100, TRUE)
 //			var/time2use = round(R.time / 3)
-			var/time2use = 10
+			var/time2use = 1 SECONDS
 			for(var/i = 1 to 100)
-				if(do_after(user, time2use, target = user))
+				if(do_after(user, time2use, user))
 					contents = get_surroundings(user)
 					if(!check_contents(R, contents))
 						return ", missing component."
@@ -255,16 +255,16 @@
 						for(var/IT in L)
 							var/atom/movable/I = new IT(T)
 							I.CheckParts(parts, R)
-							I.OnCrafted(user.dir)
+							I.OnCrafted(user.dir, user)
 					else
 						if(ispath(R.result, /turf))
 							var/turf/X = T.PlaceOnTop(R.result)
 							if(X)
-								X.OnCrafted(user.dir)
+								X.OnCrafted(user.dir, user)
 						else
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
-							I.OnCrafted(user.dir)
+							I.OnCrafted(user.dir, user)
 					user.visible_message("<span class='notice'>[user] [R.verbage_tp] \the [result_name]!</span>", \
 										"<span class='notice'>I [R.verbage] \the [result_name]!</span>")
 					if(user.mind && R.skillcraft)

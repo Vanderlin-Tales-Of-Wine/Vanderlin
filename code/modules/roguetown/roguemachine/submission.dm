@@ -101,7 +101,7 @@ This is a filter that blocks use of the machine for that role. Could be expanded
 /obj/structure/roguemachine/submission/attack_right(mob/living/user) // Allows a way to sell piles without clicking 40 times. Simply dump out a pile, stand on top, and right click
 	var/turf/T = get_turf(user)
 	for(var/obj/item/P in get_turf(T))
-		if(move_after(user, 1 SECONDS, target = src))
+		if(do_after(user, 1 SECONDS, src))
 			src.attackby(P, user)
 
 /*				//Var for keeping track of timer

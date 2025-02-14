@@ -61,7 +61,7 @@
 	GLOB.lordcolor -= src
 
 
-/obj/structure/stairs/OnCrafted(dirin)
+/obj/structure/stairs/OnCrafted(dirin, mob/user)
 	dir = dirin
 	var/turf/partner = get_step_multiz(get_turf(src), UP)
 	partner = get_step(partner, dirin)
@@ -72,7 +72,7 @@
 		stairs.dir = dir
 	. = ..()
 
-/obj/structure/stairs/d/OnCrafted(dirin)
+/obj/structure/stairs/d/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	var/turf/partner = get_step_multiz(get_turf(src), DOWN)
 	partner = get_step(partner, dirin)
@@ -83,7 +83,7 @@
 		stairs.dir = dir
 	return
 
-/obj/structure/stairs/stone/d/OnCrafted(dirin)
+/obj/structure/stairs/stone/d/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	var/turf/partner = get_step_multiz(get_turf(src), DOWN)
 	partner = get_step(partner, dirin)

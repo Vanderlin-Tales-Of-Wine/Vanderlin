@@ -7,8 +7,7 @@
 	icon = 'icons/roguetown/items/books.dmi'
 
 /obj/item/rune/proc/turn_page(mob/user)
-	//playsound(user, pick('sound/blank.ogg'), 30, TRUE)
-	if(do_after(user,50, user))
+	if(do_after(user, 5 SECONDS))
 		return TRUE
 	return FALSE
 
@@ -46,7 +45,7 @@
 			on_stopped()
 			reading = FALSE
 			return
-	if(do_after(user,50, user))
+	if(do_after(user, 5 SECONDS))
 		on_finished(user)
 		reading = FALSE
 	return TRUE

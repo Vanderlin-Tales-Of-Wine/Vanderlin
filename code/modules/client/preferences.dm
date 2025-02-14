@@ -178,7 +178,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(!selected_patron)
 		selected_patron = GLOB.patronlist[default_patron]
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
-	C.update_movement_keys()
+	if(isclient(C))
+		C.update_movement_keys()
 	real_name = pref_species.random_name(gender,1)
 	if(!loaded_preferences_successfully)
 		save_preferences()
@@ -989,8 +990,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_races) && !(user.client.prefs.pref_species.name in job.allowed_races))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
+				if(!(user.client.triumph_ids.Find("race_all")))
+					HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+					continue
 			if(length(job.allowed_patrons) && !(user.client.prefs.selected_patron.type in job.allowed_patrons))
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue

@@ -228,7 +228,7 @@
 //			if (TICK_CHECK)
 //				progress.update(progress.goal - things.len)
 //				return TRUE
-//	qdel(progress)
+//	progress.end_progress()
 //	to_chat(M, "<span class='notice'>I put everything I could [insert_preposition] [parent].</span>")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
@@ -291,7 +291,7 @@
 //	var/datum/progressbar/progress = new(M, length(things), T)
 //	while (do_after(M, dump_time, TRUE, T, FALSE, CALLBACK(src, PROC_REF(mass_remove_from_storage), T, things, progress)))
 //		stoplag(1)
-//	qdel(progress)
+//	progress.end_progress()
 	var/turf/T = get_step(user, user.dir)
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))

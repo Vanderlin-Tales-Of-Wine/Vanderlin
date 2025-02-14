@@ -149,10 +149,9 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/salvage_time = 70
 			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
-			salvage_time = (70 - (skill_level * 10))
-			if(!do_after(user, salvage_time, target = user))
+			var/salvage_time = (7 SECONDS - (skill_level * 10))
+			if(!do_after(user, salvage_time, user))
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
 				new /obj/item/natural/fibers(get_turf(item))
@@ -189,8 +188,8 @@
 /obj/item/rogueweapon/knife/cleaver
 	name = "cleaver"
 	desc = "A chef's tool turned armament, cleave off cumbersome flesh with rudimentary ease."
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "cleav"
 	item_state = "cleav"
 	experimental_inhand = FALSE
