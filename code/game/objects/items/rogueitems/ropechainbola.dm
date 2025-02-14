@@ -213,7 +213,7 @@
 	desc = "Stranded and hanging, limp and dead."
 	icon_state = "gallows"
 	pixel_y = 0
-	max_integrity = 50
+	max_integrity = 100
 
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -230,20 +230,26 @@
 /obj/structure/noose/attackby(obj/item/W, mob/user, params)
 	if (W.get_sharpness())
 		if(do_after(user, 1 SECONDS, src))
-			new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 			new /obj/item/rope(loc)
 			playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
-			user.visible_message(span_notice("[user] cuts the noose down from the gallows."), span_notice("I cut the noose down from the gallows."), span_hear("I hear something snap."))
+			if (istype(src, /obj/structure/noose/gallows))
+				new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
+				user.visible_message(span_notice("[user] cuts the noose down from the gallows."), span_notice("I cut the noose down from the gallows."), span_hear("I hear something snap."))
+			else
+				user.visible_message(span_notice("[user] cuts down the noose."), span_notice("I cut down the noose."), span_hear("I hear something snap."))
 			qdel(src)
 	else
 		return ..()
 
 /obj/structure/noose/bullet_act(obj/projectile/P)
 	. = ..()
-	new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
 	new /obj/item/rope(loc)
 	playsound(src, 'sound/foley/dropsound/cloth_drop.ogg', 50, TRUE)
-	visible_message(span_danger("The noose is shot down from the gallows!"))
+	if (istype(src, /obj/structure/noose/gallows))
+		new /obj/machinery/light/rogue/lanternpost/unfixed(loc)
+		visible_message(span_danger("The noose is shot down from the gallows!"))
+	else
+		visible_message(span_danger("The noose is shot down!"))
 	qdel(src)
 
 /obj/structure/noose/user_buckle_mob(mob/living/M, mob/user, check_loc)

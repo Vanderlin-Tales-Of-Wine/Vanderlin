@@ -165,7 +165,7 @@
 		return FALSE
 	if(istype(checking,/turf/open/transparent/openspace))
 		return FALSE
-	for(var/obj/structure/noose/N in T)
+	if(locate(/obj/structure/noose) in T)
 		return FALSE
 	return TRUE
 
@@ -182,9 +182,7 @@
 	result_type = /obj/machinery/light/rogue/lanternpost/unfixed
 
 /datum/slapcraft_recipe/carpentry/structure/lanternpost/check_craft_requirements(mob/user, turf/T)
-	for(var/obj/machinery/light/rogue/lanternpost/L in T)
-		return FALSE
-	for(var/obj/machinery/light/roguestreet/R in T)
+	if((locate(/obj/machinery/light/rogue/lanternpost) in T)||(locate(/obj/machinery/light/roguestreet) in T)||(locate(/obj/structure/noose) in T))
 		return FALSE
 	return ..()
 
