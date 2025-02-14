@@ -7,58 +7,58 @@
 // if the edit to the file is removed in a later commit,
 // the label will not be removed
 export const file_labels = {
-	'GitHub': {
+	'github': {
 		filepaths: ['.github'],
 	},
 	'SQL': {
 		filepaths: ['SQL'],
 	},
-	'Map Edit': {
+	'mapping': {
 		filepaths: ['_maps'],
 	},
-	'Tools': {
+	'tooling': {
 		filepaths: ['tools'],
 	},
-	'Config Update': {
+	'config': {
 		filepaths: ['config', 'code/controllers/configuration/entries'],
 	},
-	'Sprites': {
+	'sprites': {
 		filepaths: ['icons', 'icons/roguetown'],
 	},
-	'Sound': {
+	'sound': {
 		filepaths: ['sound'],
 	},
-	'UI': {
-		filepaths: ['tgui'],
-	}
+	'music': {
+		filepaths: ['sound/music'],
+	},
+	// 'UI': {
+	// 	filepaths: ['tgui'],
+	// },
 }
 
 // Title Labels
 //
 // Add a label based on keywords in the title
 export const title_labels = {
-	'Logging' : {
+	'logging' : {
 		keywords: ['log', 'logging'],
 	},
-	'Removal' : {
+	'removal' : {
 		keywords: ['remove', 'delete'],
 	},
-	'Refactor' : {
+	'code maintenance' : {
 		keywords: ['refactor'],
 	},
-	'Unit Tests' : {
+	'unit tests' : {
 		keywords: ['unit test'],
 	},
-	'April Fools' : {
-		keywords: ['[april fools]'],
-	},
-	'Do Not Merge' : {
+	// 'April Fools' : {
+	// 	keywords: ['[april fools]'],
+	// },
+	'DO NOT MERGE' : {
 		keywords: ['[dnm]', '[do not merge]'],
 	},
-	'GBP: No Update' : {
-		keywords: ['[no gbp]'],
-	},
-	'Test Merge Only' : {
+	'TEST MERGE ONLY' : {
 		keywords: ['[tm only]', '[test merge only]'],
 	},
 }
@@ -68,52 +68,52 @@ export const title_labels = {
 // Adds labels based on keywords in the changelog
 // TODO use the existing changelog parser
 export const changelog_labels = {
-	'Fix': {
+	'fix': {
 		default_text: 'fixed a few things',
 		keywords: ['fix', 'fixes', 'bugfix'],
 	},
-	'Quality of Life': {
+	'quality of life': {
 		default_text: 'made something easier to use',
 		keywords: ['qol'],
 	},
-	'Sound': {
+	'sound': {
 		default_text: 'added/modified/removed audio or sound effects',
 		keywords: ['sound'],
 	},
-	'Feature': {
+	'feature': {
 		default_text: 'Added new mechanics or gameplay changes',
 		alt_default_text: 'Added more things',
 		keywords: ['add', 'adds', 'rscadd'],
 	},
-	'Removal': {
+	'removal': {
 		default_text: 'Removed old things',
 		keywords: ['del', 'dels', 'rscdel'],
 	},
-	'Sprites': {
+	'sprites': {
 		default_text: 'added/modified/removed some icons or images',
 		keywords: ['image'],
 	},
-	'Grammar and Formatting': {
-		default_text: 'fixed a few typos',
-		keywords: ['typo', 'spellcheck'],
-	},
-	'Balance': {
+	// 'Grammar and Formatting': {
+	// 	default_text: 'fixed a few typos',
+	// 	keywords: ['typo', 'spellcheck'],
+	// },
+	'balance': {
 		default_text: 'rebalanced something',
 		keywords: ['balance'],
 	},
-	'Code Improvement': {
+	'code maintenance': {
 		default_text: 'changed some code',
-		keywords: ['code_imp', 'code'],
+		keywords: ['code_imp', 'code', 'refactor'],
 	},
-	'Refactor': {
-		default_text: 'refactored some code',
-		keywords: ['refactor'],
-	},
-	'Config Update': {
+	// 'Refactor': {
+	// 	default_text: 'refactored some code',
+	// 	keywords: ['refactor'],
+	// },
+	'config': {
 		default_text: 'changed some config setting',
 		keywords: ['config'],
 	},
-	'Administration': {
+	'administration': {
 		default_text: 'messed with admin stuff',
 		keywords: ['admin'],
 	},
