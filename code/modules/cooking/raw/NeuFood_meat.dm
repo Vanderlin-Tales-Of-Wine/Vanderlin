@@ -35,12 +35,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/New()
-	. = ..()
-	if(icon_state == "meat")
-		icon_state = pick("meat","meatB","meatC")
-
-
 /obj/item/reagent_containers/food/snacks/rogue/meat/human
 	name = "manflesh"
 	foodtype = RAW | MEAT | GROSS

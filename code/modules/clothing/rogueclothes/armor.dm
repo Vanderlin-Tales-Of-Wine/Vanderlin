@@ -25,7 +25,6 @@
 	sleevetype = "shirt"
 	bloody_icon_state = "bodyblood"
 	boobed = TRUE
-	edelay_type = 1
 	equip_delay_self = 3 SECONDS
 	unequip_delay_self = 2 SECONDS
 	resistance_flags = FIRE_PROOF

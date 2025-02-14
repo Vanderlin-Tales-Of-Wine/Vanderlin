@@ -202,7 +202,7 @@
 	var/prayersesh = 0
 	visible_message("[src] kneels their head in prayer.", "I kneel my head in prayer to [patron.name].")
 	for(var/i in 1 to 50)
-		if(do_after(src, 3 SECONDS))
+		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE)))
 			if(C.devotion >= C.max_devotion)
 				to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")
 				break

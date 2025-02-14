@@ -183,6 +183,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
+	var/mob/living/carbon/human/H = src
 	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
@@ -194,7 +195,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	whisper("[speak]")
 
 	for(var/datum/mind/V in C.cultists)
-		to_chat(V, "<span class='boldnotice'>A message from [src.real_name]: \"[speak]\"</span>")
+		to_chat(V, "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#8a13bd'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span>: [speak]</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
 	testing("[key_name(src)] used cultist telepathy to say: [speak]")
