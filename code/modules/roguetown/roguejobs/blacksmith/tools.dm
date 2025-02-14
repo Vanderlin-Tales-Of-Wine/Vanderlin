@@ -82,6 +82,7 @@
 	if(isitem(O) && !user.cmode)
 		var/obj/item/attacked_item = O
 		if(!attacked_item.anvilrepair || !attacked_item.max_integrity || attacked_item.obj_broken || (attacked_item.obj_integrity >= attacked_item.max_integrity) || !isturf(attacked_item.loc))
+			to_chat(user, span_warning("[attacked_item] cannot be repaired any further."))
 			return
 
 		if(blacksmith_mind.get_skill_level(attacked_item.anvilrepair) <= 0)
@@ -110,6 +111,7 @@
 	if(isstructure(O) && !user.cmode)
 		var/obj/structure/attacked_structure = O
 		if(!attacked_structure.hammer_repair || !attacked_structure.max_integrity || attacked_structure.obj_broken)
+			to_chat(user, span_warning("[attacked_structure] cannot be repaired any further."))
 			return
 		if(blacksmith_mind.get_skill_level(attacked_structure.hammer_repair) <= 0)
 			to_chat(user, span_warning("I don't know how to repair this.."))
