@@ -42,7 +42,7 @@
 		H.change_stat("speed", 1)
 
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou/leather
+		pants = /obj/item/clothing/under/roguetown/leather
 	else
 		pants = /obj/item/clothing/under/roguetown/tights
 		if(prob(50))

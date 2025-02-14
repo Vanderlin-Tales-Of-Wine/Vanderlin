@@ -248,7 +248,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.
 	head = /obj/item/clothing/head/roguetown/helmet/skullcap/grenzelhoft
 	armor = /obj/item/clothing/suit/roguetown/armor/cuirass/iron
-	pants = /obj/item/clothing/under/roguetown/grenzelpants
+	pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 	gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 	beltl = /obj/item/rogueweapon/sword/short
@@ -318,7 +318,7 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather

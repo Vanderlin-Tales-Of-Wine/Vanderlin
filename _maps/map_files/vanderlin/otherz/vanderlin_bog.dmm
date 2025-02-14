@@ -97,7 +97,7 @@
 /obj/item/rogueweapon/knife/dagger/steel/dirk,
 /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves,
 /obj/item/clothing/mask/rogue/shepherd/shadowmask,
-/obj/item/clothing/under/roguetown/trou/shadowpants,
+/obj/item/clothing/under/roguetown/padded/shadowpants,
 /obj/item/clothing/shoes/roguetown/boots,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,

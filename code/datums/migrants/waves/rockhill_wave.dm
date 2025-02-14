@@ -145,7 +145,7 @@
 /datum/outfit/job/roguetown/rockhill/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/half/vet
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond
 	armor = /obj/item/clothing/suit/roguetown/armor/medium/scale

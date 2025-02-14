@@ -32,7 +32,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/apothecary
 	shoes = /obj/item/clothing/shoes/roguetown/apothboots
 	shirt = /obj/item/clothing/suit/roguetown/shirt/apothshirt
-	pants = /obj/item/clothing/under/roguetown/trou/apothecary
+	pants = /obj/item/clothing/under/roguetown/padded/apothecary
 	gloves = /obj/item/clothing/gloves/roguetown/leather/apothecary
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/keyring/niteman

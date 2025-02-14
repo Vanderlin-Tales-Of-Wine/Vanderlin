@@ -367,11 +367,11 @@
 	icon_state = "tablewood2";
 	dir = 10
 	},
-/obj/item/clothing/under/roguetown/trou,
-/obj/item/clothing/under/roguetown/trou,
-/obj/item/clothing/under/roguetown/trou,
-/obj/item/clothing/under/roguetown/trou,
-/obj/item/clothing/under/roguetown/trou,
+/obj/item/clothing/under/roguetown/padded,
+/obj/item/clothing/under/roguetown/padded,
+/obj/item/clothing/under/roguetown/padded,
+/obj/item/clothing/under/roguetown/padded,
+/obj/item/clothing/under/roguetown/padded,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)
 "aZ" = (

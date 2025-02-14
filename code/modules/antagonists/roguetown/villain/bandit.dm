@@ -112,7 +112,7 @@
 
 			switch(pick(1,2))
 				if (1) //worse leg protection, better neck protection, and a face mask
-					pants = /obj/item/clothing/under/roguetown/trou/leather
+					pants = /obj/item/clothing/under/roguetown/leather
 					neck = /obj/item/clothing/neck/roguetown/chaincoif
 					mask = /obj/item/clothing/mask/rogue/facemask
 				if (2) //better leg protection, worse neck protection
@@ -138,7 +138,7 @@
 			H.change_stat("speed", 2)
 
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			pants = /obj/item/clothing/under/roguetown/leather
 			beltr = /obj/item/rogueweapon/knife/hunting
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			beltl = /obj/item/ammo_holder/quiver/arrows
@@ -185,7 +185,7 @@
 
 			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			pants = /obj/item/clothing/under/roguetown/leather
 			beltl = /obj/item/clothing/mask/rogue/shepherd/rag
 			neck = /obj/item/clothing/neck/roguetown/coif
 

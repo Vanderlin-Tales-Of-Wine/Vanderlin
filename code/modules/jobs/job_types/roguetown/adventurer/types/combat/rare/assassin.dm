@@ -129,7 +129,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) //Use the pickaxe...
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			head = /obj/item/clothing/head/roguetown/armingcap
-			pants = /obj/item/clothing/under/roguetown/trou
+			pants = /obj/item/clothing/under/roguetown/padded
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light/striped
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
@@ -177,7 +177,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 			belt = /obj/item/storage/belt/rogue/leather/assassin
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
-			pants = /obj/item/clothing/under/roguetown/trou
+			pants = /obj/item/clothing/under/roguetown/padded
 			head = /obj/item/clothing/head/roguetown/strawhat
 			shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
@@ -200,7 +200,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, -2, TRUE)
 			belt = /obj/item/storage/belt/rogue/leather/assassin
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
-			pants = /obj/item/clothing/under/roguetown/trou
+			pants = /obj/item/clothing/under/roguetown/padded
 			head = pick(/obj/item/clothing/head/roguetown/hatfur, /obj/item/clothing/head/roguetown/hatblu, /obj/item/clothing/head/roguetown/brimmed)
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			backr = /obj/item/storage/backpack/rogue/satchel

@@ -34,7 +34,7 @@
 	..()
 	head = /obj/item/clothing/head/roguetown/padded/deathshroud
 	neck = /obj/item/clothing/neck/roguetown/psycross/silver/necra
-	pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+	pants = /obj/item/clothing/under/roguetown/leather/mourning
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/necra
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather

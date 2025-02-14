@@ -22037,8 +22037,8 @@
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/shoes/roguetown/boots,
 /obj/item/clothing/shoes/roguetown/boots,
-/obj/item/clothing/under/roguetown/trou/leather,
-/obj/item/clothing/under/roguetown/trou/leather,
+/obj/item/clothing/under/roguetown/leather,
+/obj/item/clothing/under/roguetown/leather,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "yjJ" = (

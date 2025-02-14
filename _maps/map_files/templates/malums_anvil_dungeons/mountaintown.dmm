@@ -2963,8 +2963,8 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "PO" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/clothing/under/roguetown/trou/leather,
-/obj/item/clothing/under/roguetown/trou,
+/obj/item/clothing/under/roguetown/leather,
+/obj/item/clothing/under/roguetown/padded,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Qa" = (

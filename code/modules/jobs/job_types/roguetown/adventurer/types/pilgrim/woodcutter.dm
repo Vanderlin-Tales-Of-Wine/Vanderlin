@@ -31,7 +31,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	head = /obj/item/clothing/head/roguetown/brimmed
 	neck = /obj/item/clothing/neck/roguetown/coif
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather

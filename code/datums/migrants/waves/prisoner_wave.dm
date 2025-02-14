@@ -20,7 +20,7 @@
 	..()
 	head = /obj/item/clothing/head/roguetown/menacing
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	cloak = /obj/item/clothing/cloak/stabard/dungeon
@@ -108,7 +108,7 @@
 	backr = /obj/item/rogueweapon/shield/wood
 	beltr = /obj/item/rogueweapon/sword/scimitar/messer
 	beltl = /obj/item/rogueweapon/mace
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather

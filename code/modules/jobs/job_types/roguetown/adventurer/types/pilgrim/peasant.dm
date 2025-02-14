@@ -35,7 +35,7 @@
 
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	head = /obj/item/clothing/head/roguetown/strawhat
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather

@@ -511,7 +511,7 @@
 	switch(loadout)
 		if(1) //zizombie Warrior
 			r_hand = /obj/item/rogueweapon/sword/long/greatsword/zwei
-			pants = /obj/item/clothing/under/roguetown/grenzelpants
+			pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 			gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 			belt = /obj/item/storage/belt/rogue/leather
@@ -523,7 +523,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 		if(2) //zizombie Warrior
 			r_hand = /obj/item/rogueweapon/polearm/halberd
-			pants = /obj/item/clothing/under/roguetown/grenzelpants
+			pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 			gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 			belt = /obj/item/storage/belt/rogue/leather
@@ -535,7 +535,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 		if(3) //zizombie Warrior
 			r_hand = /obj/item/rogueweapon/polearm/eaglebeak
-			pants = /obj/item/clothing/under/roguetown/grenzelpants
+			pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 			gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 			belt = /obj/item/storage/belt/rogue/leather
@@ -548,7 +548,7 @@
 		if(4) //zizombie Warrior
 			r_hand = /obj/item/rogueweapon/sword/short
 			l_hand = /obj/item/rogueweapon/knife/dagger
-			pants = /obj/item/clothing/under/roguetown/grenzelpants
+			pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 			gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 			belt = /obj/item/storage/belt/rogue/leather
@@ -560,7 +560,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 		if(5) //zizombie Warrior
 			r_hand = /obj/item/rogueweapon/axe/battle
-			pants = /obj/item/clothing/under/roguetown/grenzelpants
+			pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 			gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 			belt = /obj/item/storage/belt/rogue/leather

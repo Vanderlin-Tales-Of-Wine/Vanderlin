@@ -36,7 +36,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	mask = /obj/item/clothing/mask/rogue/facemask
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	wrists = /obj/item/clothing/neck/roguetown/psycross/silver
 
@@ -101,7 +101,7 @@
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backl = /obj/item/ammo_holder/quiver/bolts
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/raincloak/brown
 	backpack_contents = list(/obj/item/lockpick = 1, /obj/item/storage/keyring/shepherd = 1, /obj/item/rogueweapon/knife/dagger/silver = 1)
 

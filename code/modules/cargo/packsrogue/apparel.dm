@@ -166,12 +166,12 @@
 /datum/supply_pack/rogue/apparel/trousers
 	name = "Cloth Trousers"
 	cost = 4
-	contains = /obj/item/clothing/under/roguetown/trou
+	contains = /obj/item/clothing/under/roguetown/padded
 
 /datum/supply_pack/rogue/apparel/leather_trousers
 	name = "Leather Trousers"
 	cost = 10
-	contains = /obj/item/clothing/under/roguetown/trou/leather
+	contains = /obj/item/clothing/under/roguetown/leather
 
 /datum/supply_pack/rogue/apparel/simpleshoes
 	name = "Simple Shoes"

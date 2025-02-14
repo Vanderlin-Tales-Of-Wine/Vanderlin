@@ -32,7 +32,7 @@
 	..()
 	head = /obj/item/clothing/head/roguetown/menacing
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor	// Small storage. N.
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	cloak = /obj/item/clothing/cloak/stabard/dungeon

@@ -40,7 +40,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
@@ -51,7 +51,7 @@
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
@@ -104,7 +104,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
@@ -116,7 +116,7 @@
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
