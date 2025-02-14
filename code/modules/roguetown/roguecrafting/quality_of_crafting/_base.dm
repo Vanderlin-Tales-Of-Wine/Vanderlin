@@ -294,18 +294,19 @@
 					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/bundle))
 						continue
 					if(istype(item, /obj/item/bundle))
+						var/obj/item/bundle/b = item
 						var/early_continue = TRUE
-						var/bundle_path = bundle.stacktype
+						var/bundle_path = b.bundletype
 						var/early_break = FALSE
 						for(var/path in copied_requirements)
 							if(QDELETED(item))
 								break
 							if(!ispath(bundle_path, path))
 								continue
-							bundle.amount--
+							b.amount--
 							var/obj/item/sub_item = new bundle_path(get_turf(item))
 							usable_contents += sub_item
-							if(bundle.amount == 0)
+							if(b.amount == 0)
 								usable_contents -= item
 								qdel(item)
 							user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
