@@ -222,6 +222,8 @@
 	salvage_result = /obj/item/natural/hide/cured
 	max_integrity = INTEGRITY_POOR
 	armor = ARMOR_LEATHER_BAD
+	r_sleeve_status = SLEEVE_NOMOD
+	l_sleeve_status = SLEEVE_NOMOD
 
 /obj/item/clothing/under/roguetown/leather/beltpants
 	name = "belt-buckled trousers"
@@ -266,10 +268,8 @@
 /obj/item/clothing/under/roguetown/chainlegs
 	name = "chain chausses"
 	desc = "Chain mail chausses made of exquisite steel rings boasting superior protection."
-	gender = PLURAL
 	icon_state = "chain_legs"
 	item_state = "chain_legs"
-//	adjustable = CAN_CADJUST
 	sewrepair = FALSE
 	resistance_flags = FIRE_PROOF
 	blocksound = CHAINHIT
@@ -311,10 +311,8 @@
 /obj/item/clothing/under/roguetown/platelegs
 	name = "plated chausses"
 	desc = "Cuisses made of plated steel, offering additional protection against blunt force."
-	gender = PLURAL
 	icon_state = "heavyleggies" // Finally a sprite
 	item_state = "heavyleggies"
-	// adjustable = CAN_CADJUST
 	sewrepair = FALSE
 	blocksound = PLATEHIT
 	equip_delay_self = 30
