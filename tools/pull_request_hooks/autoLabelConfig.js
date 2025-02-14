@@ -33,7 +33,7 @@ export const file_labels = {
 	},
 	// 'UI': {
 	// 	filepaths: ['tgui'],
-	// }
+	// },
 }
 
 // Title Labels
