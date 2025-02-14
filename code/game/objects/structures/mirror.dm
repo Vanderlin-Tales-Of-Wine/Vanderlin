@@ -129,14 +129,14 @@
 	if(!broken && !(flags_1 & NODECONSTRUCT_1))
 		icon_state = "[icon_state]1"
 		if(!mapload)
-			new /obj/item/natural/glass/shard (get_turf(src))
+			new /obj/item/natural/glass_shard (get_turf(src))
 		broken = TRUE
 	..()
 
 /obj/structure/mirror/deconstruct(disassembled = TRUE)
 //	if(!(flags_1 & NODECONSTRUCT_1))
 //		if(!disassembled)
-//			new /obj/item/natural/glass/shard( src.loc )
+//			new /obj/item/natural/glass_shard( src.loc )
 	..()
 
 /obj/structure/mirror/welder_act(mob/living/user, obj/item/I)
