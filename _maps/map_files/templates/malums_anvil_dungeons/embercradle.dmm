@@ -2196,9 +2196,9 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Ed" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar,
+/obj/item/reagent_containers/food/snacks/cheesewheel,
+/obj/item/reagent_containers/food/snacks/cheesewheel,
+/obj/item/reagent_containers/food/snacks/cheesewheel,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Eg" = (
@@ -2313,7 +2313,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Fu" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/reagent_containers/food/snacks/rogue/friedrat,
+/obj/item/reagent_containers/food/snacks/fried_rat,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/mountains/anvil/dungeon)
 "FD" = (

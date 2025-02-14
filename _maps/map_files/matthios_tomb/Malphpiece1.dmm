@@ -96,7 +96,7 @@
 "K" = (
 /obj/structure/table/wood/plain/alt,
 /obj/machinery/light/rogue/wallfire/candle/weak/l,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/rogue/cobblerock/alt,
 /area/rogue/outdoors/caves)

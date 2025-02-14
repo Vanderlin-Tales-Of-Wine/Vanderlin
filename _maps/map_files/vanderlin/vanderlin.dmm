@@ -3424,10 +3424,10 @@
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
 "coU" = (
@@ -24835,8 +24835,8 @@
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/butter,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -31021,10 +31021,10 @@
 /obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/fat,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "wqd" = (

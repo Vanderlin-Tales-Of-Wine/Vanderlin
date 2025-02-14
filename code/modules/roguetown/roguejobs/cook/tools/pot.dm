@@ -274,7 +274,7 @@
 	name = "cheese soup"
 	cooking_time = 80 SECONDS
 	produced_reagent = /datum/reagent/consumable/soup/cheese
-	required_items = list(/obj/item/reagent_containers/food/snacks/rogue/cheese = 1)
+	required_items = list(/obj/item/reagent_containers/food/snacks/fresh_cheese = 1)
 	finished_smell = /datum/pollutant/food/cheese_soup
 
 /datum/pot_recipe/cooking/cheese_soup/wedge

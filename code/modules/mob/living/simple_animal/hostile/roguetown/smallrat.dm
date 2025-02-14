@@ -10,7 +10,7 @@
 	obj_flags = CAN_BE_HIT
 	var/dead = FALSE
 	eat_effect = /datum/status_effect/debuff/uncookedfood
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/friedrat
+	fried_type = /obj/item/reagent_containers/food/snacks/fried_rat
 	cooked_smell = /datum/pollutant/food/fried_rat
 	max_integrity = 10
 	sellprice = 0
@@ -37,7 +37,7 @@
 			return
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/rogue/friedrat
+/obj/item/reagent_containers/food/snacks/fried_rat
 	name = "fried rat"
 	icon_state = "cookedrat"
 	bitesize = 2
