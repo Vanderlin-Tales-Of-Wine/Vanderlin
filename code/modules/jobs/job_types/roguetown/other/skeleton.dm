@@ -141,7 +141,7 @@
 			var/obj/item/rogueweapon/sword/long/rider/copper/P = new()
 			H.put_in_hands(P, forced = TRUE)
 		if (6)
-			var/obj/item/rogueweapon/flail/militia/P = new()
+			var/obj/item/rogueweapon/flail/P = new()
 			H.put_in_hands(P, forced = TRUE)
 
 	H.TOTALSTR = rand(8,10)
