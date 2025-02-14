@@ -179,7 +179,7 @@
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/roguecoin/copper/pile,
 /obj/item/reagent_containers/glass/bottle/rogue/stronghealthpot,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged,
 /turf/open/floor/rogue/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "Gy" = (
@@ -246,8 +246,8 @@
 /obj/item/roguecoin/gold/pile,
 /obj/item/storage/belt/rogue/leather/plaquegold,
 /obj/structure/closet/crate/chest/gold,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged,
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged,
 /obj/item/lockpick,
 /obj/item/lockpick,
 /obj/item/lockpick,

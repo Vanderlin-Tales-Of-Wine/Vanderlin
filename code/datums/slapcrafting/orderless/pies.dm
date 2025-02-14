@@ -77,7 +77,7 @@
 		list(
 			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
 			/obj/item/reagent_containers/food/snacks/cheese_wedge,
-			/obj/item/reagent_containers/food/snacks/rogue/cheese,
+			/obj/item/reagent_containers/food/snacks/fresh_cheese,
 			/obj/item/reagent_containers/food/snacks/egg,
 			/obj/item/reagent_containers/food/snacks/fat,
 			/obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced,
@@ -87,7 +87,7 @@
 		list(
 			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
 			/obj/item/reagent_containers/food/snacks/cheese_wedge,
-			/obj/item/reagent_containers/food/snacks/rogue/cheese,
+			/obj/item/reagent_containers/food/snacks/fresh_cheese,
 			/obj/item/reagent_containers/food/snacks/egg,
 			/obj/item/reagent_containers/food/snacks/fat) = 1
 	)

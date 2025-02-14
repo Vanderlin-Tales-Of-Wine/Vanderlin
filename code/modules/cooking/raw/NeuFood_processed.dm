@@ -279,14 +279,14 @@
 			if(do_after(user, long_cooktime, src))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted, 5)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
-				new /obj/item/reagent_containers/food/snacks/rogue/cheese(drop_location())
+				new /obj/item/reagent_containers/food/snacks/fresh_cheese(drop_location())
 		else if(reagents.has_reagent(/datum/reagent/consumable/milk/salted_gote, 5))
 			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 			if(do_after(user, long_cooktime, src))
 				reagents.remove_reagent(/datum/reagent/consumable/milk/salted_gote, 5)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT))
-				new /obj/item/reagent_containers/food/snacks/rogue/cheese/gote(drop_location())
+				new /obj/item/reagent_containers/food/snacks/fresh_cheese/gote(drop_location())
 
 		var/obj/item/natural/cloth/T = I
 		if(T.wet && !T.return_blood_DNA())
@@ -308,7 +308,7 @@
 /*	............   Making cheese wheel   ................ */
 /obj/item/natural/cloth/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/fresh_cheese))
 		if(isturf(loc)&& (found_table))
 			user.visible_message("<span class='info'>[user] starts packing the cloth with fresh cheese...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
@@ -329,7 +329,7 @@
 	do_random_pixel_offset = FALSE
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/fresh_cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			if(do_after(user, short_cooktime, src))
@@ -350,7 +350,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/fresh_cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			if(do_after(user, short_cooktime, src))
@@ -373,7 +373,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/fresh_cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -390,13 +390,13 @@
 
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_three/proc/maturing_done()
 	playsound(src.loc, 'sound/foley/rustle2.ogg', 100, TRUE, -1)
-	new /obj/item/reagent_containers/food/snacks/rogue/cheddar(loc)
+	new /obj/item/reagent_containers/food/snacks/cheesewheel(loc)
 	new /obj/item/natural/cloth(loc)
 	qdel(src)
 
 
 // -------------- CHEESE -----------------
-/obj/item/reagent_containers/food/snacks/rogue/cheese
+/obj/item/reagent_containers/food/snacks/fresh_cheese
 	name = "fresh cheese"
 	icon_state = "freshcheese"
 	bitesize = 1
@@ -409,10 +409,10 @@
 	become_rot_type = null
 	slice_path = null
 
-/obj/item/reagent_containers/food/snacks/rogue/cheese/gote
+/obj/item/reagent_containers/food/snacks/fresh_cheese/gote
 	name = "fresh gote cheese"
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddar
+/obj/item/reagent_containers/food/snacks/cheesewheel
 	name = "wheel of cheese"
 	icon_state = "cheesewheel"
 	dropshrink = 0.8
@@ -425,10 +425,10 @@
 	slices_num = 6
 	slice_batch = TRUE
 	slice_path = /obj/item/reagent_containers/food/snacks/cheese_wedge
-	become_rot_type = /obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
+	become_rot_type = /obj/item/reagent_containers/food/snacks/cheesewheel/aged
 	slice_sound = TRUE
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged
 	name = "wheel of aged cheese"
 	icon_state = "blue_cheese"
 	slice_path = /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
@@ -445,7 +445,7 @@
 	tastes = list("cheese" = 1)
 	rotprocess = SHELFLIFE_LONG
 	slice_batch = TRUE
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
+	slice_path = /obj/item/reagent_containers/food/snacks/cheese_slice
 	slices_num = 3
 	become_rot_type = /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	baitpenalty = 0
@@ -458,12 +458,12 @@
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged
 	name = "wedge of aged cheese"
 	icon_state = "blue_cheese_wedge"
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
+	slice_path = /obj/item/reagent_containers/food/snacks/cheese_slice/aged
 	become_rot_type = null
 	rotprocess = null
 	sellprice = 10
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddarslice
+/obj/item/reagent_containers/food/snacks/cheese_slice
 	name = "slice of cheese"
 	icon_state = "cheese_slice"
 	bitesize = 1
@@ -482,7 +482,7 @@
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5,
 					/obj/item/reagent_containers/food/snacks/fish/shrimp = 3)
 
-/obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
+/obj/item/reagent_containers/food/snacks/cheese_slice/aged
 	name = "slice of aged cheese"
 	icon_state = "blue_cheese_slice"
 	become_rot_type = null

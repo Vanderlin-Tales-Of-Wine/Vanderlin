@@ -135,7 +135,7 @@
 /datum/supply_pack/rogue/food/cheese
 	name = "Cheese Wheel"
 	cost = 30
-	contains = /obj/item/reagent_containers/food/snacks/rogue/cheddar
+	contains = /obj/item/reagent_containers/food/snacks/cheesewheel
 
 /datum/supply_pack/rogue/food/salami
 	name = "Salami Stick"

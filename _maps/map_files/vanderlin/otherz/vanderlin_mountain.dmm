@@ -63,7 +63,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "aF" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
+/obj/item/reagent_containers/food/snacks/cheesewheel/aged,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "aG" = (

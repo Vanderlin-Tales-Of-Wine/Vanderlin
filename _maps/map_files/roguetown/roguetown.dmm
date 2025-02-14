@@ -9244,7 +9244,7 @@
 /obj/structure/rack/rogue/shelf,
 /obj/item/reagent_containers/food/snacks/produce/onion,
 /obj/item/reagent_containers/food/snacks/produce/cabbage,
-/obj/item/reagent_containers/food/snacks/rogue/cheddar,
+/obj/item/reagent_containers/food/snacks/cheesewheel,
 /obj/item/reagent_containers/food/snacks/spiderhoney,
 /obj/item/reagent_containers/food/snacks/produce/potato,
 /obj/item/reagent_containers/food/snacks/produce/potato,
@@ -11219,7 +11219,7 @@
 	pixel_x = 4;
 	pixel_y = -1
 	},
-/obj/item/reagent_containers/food/snacks/rogue/friedrat{
+/obj/item/reagent_containers/food/snacks/fried_rat{
 	pixel_x = -4;
 	pixel_y = 8
 	},
@@ -16243,8 +16243,8 @@
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/item/reagent_containers/food/snacks/butter,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
-/obj/item/reagent_containers/food/snacks/rogue/cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
+/obj/item/reagent_containers/food/snacks/fresh_cheese,
 /turf/open/floor/rogue/tile{
 	icon_state = "tavern"
 	},
