@@ -100,7 +100,8 @@
 		/obj/item/natural/fur,
 		/obj/item/natural/hide,
 		/obj/item/alch/sinew,
-		/obj/item/alch/viscera
+		/obj/item/alch/viscera,
+		/obj/item/alch/bone
 		))
 
 /datum/component/storage/concrete/roguetown/egg_basket

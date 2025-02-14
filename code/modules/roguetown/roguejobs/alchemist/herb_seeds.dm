@@ -10,7 +10,7 @@
 
 /obj/item/herbseed/Initialize()
 	. = ..()
-	if(icon_state == "seeds")
+	if(icon_state == "seeds" && prob(25))
 		icon_state = "seeds[rand(1,3)]"
 
 /obj/item/herbseed/examine(mob/user)

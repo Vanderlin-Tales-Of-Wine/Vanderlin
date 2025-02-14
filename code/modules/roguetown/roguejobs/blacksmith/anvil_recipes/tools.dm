@@ -4,13 +4,13 @@
 	abstract_type = /datum/anvil_recipe/tools
 
 /datum/anvil_recipe/tools/blankeys
-	name = "5x Blank Custom Keys"
-	recipe_name = "five Blank Keys"
+	name = "3x Blank Custom Keys"
+	recipe_name = "three Blank Keys"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
 	created_item = /obj/item/key_custom_blank
 	createmultiple = TRUE
-	createditem_num = 4
+	createditem_num = 2
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/chains
@@ -24,23 +24,21 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/cogiron
-	name = "3x Cogs"
-	recipe_name = "three Cogs"
+	name = "Cog"
+	recipe_name = "a Cog"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/roguegear
-	createmultiple = TRUE
-	createditem_num = 2
+	created_item = /obj/item/roguegear/metal/iron
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/cogstee
-	name = "4x Cogs"
-	recipe_name = "four Cogs"
+	name = "2x Cogs"
+	recipe_name = "two Cogs"
 	req_bar = /obj/item/ingot/steel
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/roguegear
+	created_item = /obj/item/roguegear/metal/steel
 	createmultiple = TRUE
-	createditem_num = 3
+	createditem_num = 1
 
 /datum/anvil_recipe/tools/cups
 	name = "3x Metal Cups"
@@ -151,13 +149,13 @@
 	created_item = /obj/item/flashlight/flare/torch/lantern
 
 /datum/anvil_recipe/tools/locks
-	name = "5x Custom Locks"
-	recipe_name = "five Locks"
+	name = "3x Custom Locks"
+	recipe_name = "three Locks"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
 	created_item = /obj/item/customlock
 	createmultiple = TRUE
-	createditem_num = 4
+	createditem_num = 2
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/lockpicks
@@ -184,7 +182,7 @@
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/restraints/legcuffs/beartrap/crafted
 	appro_skill = /datum/skill/craft/traps
-	craftdiff = 0
+	craftdiff = 1
 
 /datum/anvil_recipe/tools/fishinghooks
 	name = "3x Fishing hooks"

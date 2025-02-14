@@ -926,7 +926,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "aasimarplate"
 	allowed_race = list("aasimar")
-	smeltresult = null // No bronze ingots yet, unfortunately
+	smeltresult = /obj/item/ingot/bronze
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
 
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS

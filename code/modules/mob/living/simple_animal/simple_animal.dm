@@ -9,7 +9,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	maxHealth = 20
 	gender = PLURAL //placeholder
 
-	status_flags = CANPUSH
+	status_flags = CANPUSH|CANSLOWDOWN|CANSTUN
 
 	simpmob_attack = 45
 	simpmob_defend = 45

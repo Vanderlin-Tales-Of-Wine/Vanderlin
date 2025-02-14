@@ -185,7 +185,7 @@
 
 
 	/// bitflags defining which status effects can be inflicted (replaces canknockdown, canstun, etc)
-	var/status_flags = CANSTUN|CANKNOCKDOWN|CANUNCONSCIOUS|CANPUSH
+	var/status_flags = CANSTUN|CANKNOCKDOWN|CANUNCONSCIOUS|CANPUSH|CANSLOWDOWN
 
 	/// Can they interact with station electronics
 	var/has_unlimited_silicon_privilege = 0

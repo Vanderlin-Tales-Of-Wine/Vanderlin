@@ -160,3 +160,4 @@
 	chargetime = 0
 	penfactor = 10
 	swingdelay = 3
+	item_damage_type = "slash"

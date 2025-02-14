@@ -166,6 +166,8 @@ GLOBAL_DATUM_INIT(acid_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 ///Called when the obj is exposed to fire.
 /obj/fire_act(added, maxstacks)
+	if(QDELETED(src))
+		return
 	if(isturf(loc))
 		var/turf/T = loc
 		if(T.intact && level == 1) //fire can't damage things hidden below the floor.

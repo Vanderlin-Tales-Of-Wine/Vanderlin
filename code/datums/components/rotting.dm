@@ -51,7 +51,11 @@
 		if(is_zombie)
 			var/datum/antagonist/zombie/Z = C.mind.has_antag_datum(/datum/antagonist/zombie)
 			if(Z && !Z.has_turned && !Z.revived && C.stat == DEAD)
-				Z.wake_zombie()
+				if(istype(C.loc, /obj/structure/closet/dirthole) || istype(C.loc, /obj/structure/closet/crate/coffin))
+					if(amount > 3 MINUTES)
+						Z.wake_zombie()
+				else
+					Z.wake_zombie()
 
 	var/findonerotten = FALSE
 	var/shouldupdate = FALSE

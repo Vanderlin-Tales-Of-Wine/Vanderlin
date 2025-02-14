@@ -15,6 +15,11 @@
 	can_sew = TRUE
 	can_cauterize = TRUE
 
+/datum/wound/slash/can_apply_to_bodypart(obj/item/bodypart/affected)
+	. = ..()
+	if(affected.status == BODYPART_ROBOTIC)
+		return FALSE
+
 /datum/wound/slash/small
 	name = "small slash"
 	whp = 15

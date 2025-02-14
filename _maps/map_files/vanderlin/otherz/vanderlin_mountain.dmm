@@ -5282,8 +5282,8 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Wi" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/cart_upgrade/level_1,
-/obj/item/cart_upgrade/level_1,
+/obj/item/roguegear/wood/basic,
+/obj/item/roguegear/wood/basic,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/mountains/anvil/lower/building)
 "Wj" = (

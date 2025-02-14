@@ -265,6 +265,8 @@
 /obj/structure/closet/dirthole/open(mob/living/user)
 	if(opened)
 		return
+	stage = 3
+	climb_offset = 0
 	opened = TRUE
 	dump_contents()
 	update_icon()
@@ -335,3 +337,13 @@
 	. = ..()
 	update_abovemob()
 
+/obj/structure/closet/dirthole/relaymove(mob/user)
+	if(user.stat || !isturf(loc) || !isliving(user))
+		return
+	if(locked && !user.mind?.has_antag_datum(/datum/antagonist/zombie))
+		if(message_cooldown <= world.time)
+			message_cooldown = world.time + 50
+			to_chat(user, "<span class='warning'>I'm trapped!</span>")
+		return
+	locked = FALSE
+	container_resist(user)

@@ -12,6 +12,11 @@
 	can_cauterize = FALSE
 	passive_healing = 0.5
 
+/datum/wound/bite/can_apply_to_bodypart(obj/item/bodypart/affected)
+	. = ..()
+	if(affected.status == BODYPART_ROBOTIC)
+		return FALSE
+
 /datum/wound/bite/small
 	name = "nip"
 	whp = 15

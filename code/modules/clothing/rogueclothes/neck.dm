@@ -279,7 +279,7 @@
 	name = "bronze gorget"
 	desc = "A heavy collar of great age, meant to protect the neck."
 	icon_state = "aasimarneck"
-	smeltresult = null // No bronze ingots yet
+	smeltresult = /obj/item/ingot/bronze
 	armor = ARMOR_MAILLE_GOOD
 
 

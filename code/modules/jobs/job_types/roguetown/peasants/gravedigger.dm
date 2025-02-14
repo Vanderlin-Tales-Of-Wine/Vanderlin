@@ -41,6 +41,7 @@
 	beltl = /obj/item/storage/keyring/gravetender
 	beltr = /obj/item/storage/belt/rogue/pouch
 	backr = /obj/item/rogueweapon/shovel
+	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // these are basically the acolyte skills with a bit of other stuff
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)

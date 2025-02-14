@@ -124,11 +124,6 @@
 			if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL))
 				. += span_purple("A fellow seeker of Her ascension.")
 
-			if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
-				var/atom/item = get_most_expensive()
-				if(item)
-					. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
-
 	if(HAS_TRAIT(src, TRAIT_MANIAC_AWOKEN))
 		. += span_userdanger("MANIAC!")
 
@@ -145,6 +140,10 @@
 						. += shit
 		if(user.mind?.has_antag_datum(/datum/antagonist/vampirelord) || user.mind?.has_antag_datum(/datum/antagonist/vampire))
 			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
+		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
+			var/atom/item = get_most_expensive()
+			if(item)
+				. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))

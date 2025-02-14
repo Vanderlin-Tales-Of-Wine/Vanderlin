@@ -87,7 +87,7 @@
 		urhealedamt_burn *= 0.55
 		umsg += " as best as you can while they have clothing on"
 		tmsg += " as best as they can while [target] has clothing on"
-	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)
+	target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn, required_status = BODYPART_ORGANIC)
 	display_results(user, target, "<span class='notice'>[umsg].</span>",
 		"[tmsg].",
 		"[tmsg].")
@@ -103,7 +103,7 @@
 		urdamageamt_brute += round((target.getBruteLoss()/(missinghpbonus*2)),0.1)
 		urdamageamt_burn += round((target.getFireLoss()/(missinghpbonus*2)),0.1)
 
-	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn)
+	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn, required_status = BODYPART_ORGANIC)
 	return TRUE
 
 /********************BRUTE STEPS********************/

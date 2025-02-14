@@ -82,6 +82,7 @@
 	icon_state = "aasimarwrist"
 	item_state = "aasimarwrist"
 	armor = list("blunt" = 70, "slash" = 70, "stab" = 70,  "piercing" = 50, "fire" = 0, "acid" = 0) // Less protection than steel
+	smeltresult = /obj/item/ingot/bronze
 
 //copper bracers
 

@@ -22,6 +22,11 @@
 
 	werewolf_infection_probability = 50
 
+/datum/wound/artery/can_apply_to_bodypart(obj/item/bodypart/affected)
+	. = ..()
+	if(affected.status == BODYPART_ROBOTIC)
+		return FALSE
+
 /datum/wound/artery/can_stack_with(datum/wound/other)
 	if(istype(other, /datum/wound/artery) && (type == other.type))
 		return FALSE

@@ -40,19 +40,20 @@
 		S.start()
 		var/skill = user.mind.get_skill_level(material.artrecipe.appro_skill)
 		if(material.artrecipe.progress == 100)
-			new material.artrecipe.created_item(get_turf(src))
-			var/obj/item/created_item_instance = new(material.artrecipe.created_item)
+			for(var/i in 1 to material.artrecipe.created_amount)
+				new material.artrecipe.created_item(get_turf(src))
+			var/obj/item/created_item_instance = material.artrecipe.created_item
 			user.visible_message(span_info("[user] creates \a [created_item_instance.name]."))
-			user.mind.add_sleep_experience(material.artrecipe.appro_skill, (user.STAINT * (material.artrecipe.craftdiff * 5))) //may need to be adjusted
+			user.mind.add_sleep_experience(material.artrecipe.appro_skill, (user.STAINT * (material.artrecipe.craftdiff + 1)/2) * user.mind?.get_learning_boon(material.artrecipe.appro_skill)) //may need to be adjusted
 			qdel(material)
 			material = null
 			update_icon()
 			return
 		if(skill < material.artrecipe.craftdiff)
-			if(prob(25))
+			if(prob(max(0, 25 - user.goodluck(2) - (skill * 2))))
 				to_chat(user, span_warning("Ah yes, my incompetence bears fruit."))
 				playsound(src,'sound/combat/hits/onwood/destroyfurniture.ogg', 100, FALSE)
-				user.mind.add_sleep_experience(material.artrecipe.appro_skill, (user.STAINT * material.artrecipe.craftdiff)) // Getting exp for failing
+				user.mind.add_sleep_experience(material.artrecipe.appro_skill, (user.STAINT * material.artrecipe.craftdiff * 0.25)) // Getting exp for failing
 				qdel(material)
 				material = null
 				return
