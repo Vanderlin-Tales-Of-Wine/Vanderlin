@@ -19,7 +19,7 @@
 	beltr = /obj/item/rogueweapon/hammer/iron
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backr =	/obj/item/rogueweapon/hammer/sledgehammer
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 	neck = /obj/item/storage/belt/rogue/pouch/coins/mid

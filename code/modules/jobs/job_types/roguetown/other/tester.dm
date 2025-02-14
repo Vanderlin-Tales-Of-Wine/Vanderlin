@@ -41,7 +41,7 @@
 	if(prob(50))
 		beltr = /obj/item/rogueweapon/sword/arming
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	if(H.gender == FEMALE)
 		pants = /obj/item/clothing/under/roguetown/tights/black

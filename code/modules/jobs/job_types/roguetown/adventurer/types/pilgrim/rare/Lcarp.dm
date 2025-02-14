@@ -45,7 +45,7 @@
 	head = pick(/obj/item/clothing/head/roguetown/hatfur, /obj/item/clothing/head/roguetown/hatblu, /obj/item/clothing/head/roguetown/brimmed)
 	neck = /obj/item/clothing/neck/roguetown/coif
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather

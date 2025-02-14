@@ -15,7 +15,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/knife/cleaver /// proper self defense an tree aquiring
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backl = /obj/item/storage/backpack/rogue/satchel/surgbag

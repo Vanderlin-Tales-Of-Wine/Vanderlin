@@ -37,7 +37,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou/leather
+		pants = /obj/item/clothing/under/roguetown/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	else
 		pants = /obj/item/clothing/under/roguetown/tights

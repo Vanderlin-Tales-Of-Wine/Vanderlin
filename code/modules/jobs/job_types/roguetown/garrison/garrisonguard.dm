@@ -45,7 +45,7 @@
 
 //Universal stuff for all guards, regardless of their class selection.
 /datum/outfit/job/roguetown/guardsman
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather

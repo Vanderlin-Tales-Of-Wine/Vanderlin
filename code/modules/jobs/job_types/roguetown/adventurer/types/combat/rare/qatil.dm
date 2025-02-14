@@ -38,7 +38,7 @@
 		H.change_stat("speed", 2)
 		H.change_stat("endurance", 1)
 
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	beltr = /obj/item/rogueweapon/knife/dagger/steel/special
 	shoes = /obj/item/clothing/shoes/roguetown/shalal
 	gloves = /obj/item/clothing/gloves/roguetown/angle

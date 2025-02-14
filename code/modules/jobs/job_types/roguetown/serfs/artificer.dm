@@ -47,7 +47,7 @@
 
 	head = /obj/item/clothing/head/roguetown/articap
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/artijacket
-	pants = /obj/item/clothing/under/roguetown/trou/artipants
+	pants = /obj/item/clothing/under/roguetown/padded/artipants
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 	belt = /obj/item/storage/belt/rogue/leather

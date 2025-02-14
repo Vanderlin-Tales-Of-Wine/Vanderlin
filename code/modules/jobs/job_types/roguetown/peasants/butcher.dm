@@ -39,7 +39,7 @@
 	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/truffles, /obj/item/rogueweapon/knife/hunting)
 
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	else
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random

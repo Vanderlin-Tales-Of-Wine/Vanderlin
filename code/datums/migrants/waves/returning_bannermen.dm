@@ -15,7 +15,7 @@
 /datum/outfit/job/roguetown/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/half/vet
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond
 	armor = /obj/item/clothing/suit/roguetown/armor/medium/scale
@@ -68,7 +68,7 @@
 	show_wanderer_examine = FALSE
 /datum/outfit/job/roguetown/archer_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
@@ -116,14 +116,14 @@
 
 /datum/outfit/job/roguetown/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	beltl = /obj/item/storage/keyring/guard
 	beltr = /obj/item/ammo_holder/quiver/bolts
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
@@ -172,7 +172,7 @@
 	backr = /obj/item/rogueweapon/shield/wood
 	beltr = /obj/item/rogueweapon/sword/scimitar/messer
 	beltl = /obj/item/rogueweapon/mace
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
@@ -210,7 +210,7 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	beltr = /obj/item/rogueweapon/sword/scimitar/messer
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather

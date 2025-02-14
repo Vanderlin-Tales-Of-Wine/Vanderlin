@@ -22,7 +22,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
 	if(H.mind)

@@ -27,7 +27,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/clothing/ring/gold
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
-	pants = /obj/item/clothing/under/roguetown/grenzelpants
+	pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/veryrich)
 	if(H.gender == FEMALE)

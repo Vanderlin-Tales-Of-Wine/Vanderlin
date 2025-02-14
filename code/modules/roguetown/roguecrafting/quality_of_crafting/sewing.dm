@@ -180,7 +180,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/clothtrou
 	name = "cloth trousers"
-	output = /obj/item/clothing/under/roguetown/trou
+	output = /obj/item/clothing/under/roguetown/padded
 	requirements = list(/obj/item/natural/cloth = 4,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
@@ -627,7 +627,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowpants
 	name = "pants (dark)"
-	output = /obj/item/clothing/under/roguetown/trou/shadowpants
+	output = /obj/item/clothing/under/roguetown/padded/shadowpants
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
@@ -733,7 +733,7 @@
 	name = "gown (summer)"
 	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
 	requirements = list(/obj/item/natural/fibers = 2,
-				/obj/item/natural/cloth = 1, 
+				/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)
 	craftdiff = 6
 	sellprice = 70

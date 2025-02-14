@@ -12,7 +12,7 @@
 	cloak = /obj/item/clothing/cloak/half/shadowcloak
 	wrists = /obj/item/clothing/wrists/roguetown/nocwrappings
 	gloves = /obj/item/clothing/gloves/roguetown/chain/iron/shadowgauntlets
-	pants = /obj/item/clothing/under/roguetown/trou/shadowpants
+	pants = /obj/item/clothing/under/roguetown/padded/shadowpants
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shadowshirt
 	armor = /obj/item/clothing/suit/roguetown/armor/rare/elfplate
 	shoes = /obj/item/clothing/shoes/roguetown/boots/rare/elfplate

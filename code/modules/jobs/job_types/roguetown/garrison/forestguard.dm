@@ -32,7 +32,7 @@
 	..()
 	cloak = /obj/item/clothing/cloak/raincloak/green
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/furlinedboots
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather

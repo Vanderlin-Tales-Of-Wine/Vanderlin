@@ -30,7 +30,7 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	//H.mind.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	mask = /obj/item/clothing/mask/rogue/facemask/steel

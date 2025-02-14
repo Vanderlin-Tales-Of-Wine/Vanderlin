@@ -40,7 +40,7 @@
 
 /datum/repeatable_crafting_recipe/leather/pants
 	name = "leather pants"
-	output = /obj/item/clothing/under/roguetown/trou/leather
+	output = /obj/item/clothing/under/roguetown/leather
 
 /datum/repeatable_crafting_recipe/leather/shoes
 	name = "leather shoes"
@@ -394,7 +394,7 @@
 
 /datum/repeatable_crafting_recipe/leather/standalone/chausses
 	name = "hardened leather chausses"
-	output = /obj/item/clothing/under/roguetown/trou/leather/advanced
+	output = /obj/item/clothing/under/roguetown/leather/advanced
 	requirements = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
@@ -451,9 +451,9 @@
 
 /datum/repeatable_crafting_recipe/leather/standalone/chausses/masterwork
 	name = "masterwork leather chausses"
-	output = /obj/item/clothing/under/roguetown/trou/leather/masterwork
-	attacking_atom = /obj/item/clothing/under/roguetown/trou/leather
-	requirements = list(/obj/item/clothing/under/roguetown/trou/leather = 1,
+	output = /obj/item/clothing/under/roguetown/leather/masterwork
+	attacking_atom = /obj/item/clothing/under/roguetown/leather
+	requirements = list(/obj/item/clothing/under/roguetown/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5

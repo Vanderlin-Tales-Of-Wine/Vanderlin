@@ -30,7 +30,7 @@
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/furlinedboots
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/slit

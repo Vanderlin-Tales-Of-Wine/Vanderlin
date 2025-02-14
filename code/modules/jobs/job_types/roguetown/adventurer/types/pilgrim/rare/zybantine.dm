@@ -34,7 +34,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/clothing/ring/gold/guild_mercator
 	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/purple
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	neck = /obj/item/clothing/neck/roguetown/shalal/emir
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/veryrich)
 	if(H.gender == FEMALE)

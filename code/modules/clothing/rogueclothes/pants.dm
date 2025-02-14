@@ -2,6 +2,7 @@
 	slot_flags = ITEM_SLOT_PANTS
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
+	gender = PLURAL
 	body_parts_covered = GROIN|LEGS
 	resistance_flags = FLAMMABLE // Most made of cloth
 	prevent_crits = list(BCLASS_LASHING)
@@ -48,10 +49,8 @@
 /obj/item/clothing/under/roguetown/tights
 	name = "tights"
 	desc = "Comfortable loose pants."
-	gender = PLURAL
 	icon_state = "tights"
 	item_state = "tights"
-//	adjustable = CAN_CADJUST
 
 /obj/item/clothing/under/roguetown/tights/random/Initialize()
 	color = RANDOM_PEASANT_DYES
@@ -100,53 +99,17 @@
 /obj/item/clothing/under/roguetown/webs
 	name = "webbing"
 	desc = "A fine webbing made from spidersilk, popular fashion within the underdark."
-	gender = PLURAL
 	icon_state = "webs"
 	item_state = "webs"
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
 	salvage_result = /obj/item/natural/silk
 
-/obj/item/clothing/under/roguetown/trou/leather/mourning
-	name = "mourning trousers"
-	desc = "Dark trousers worn by morticians while performing burial rites."
-	icon_state = "leathertrou"
-	color = "#151615"
-
-/obj/item/clothing/under/roguetown/trou/shadowpants
-	name = "silk tights"
-	desc = "Form-fitting legwear. Almost too form-fitting."
-	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobsilkpants.dmi'
-	sleeved = 'icons/roguetown/clothing/newclothes/onmob/sleeves_pants.dmi'
-	icon_state = "shadowpants"
-	r_sleeve_status = SLEEVE_NORMAL
-	l_sleeve_status = SLEEVE_NORMAL
-	salvage_amount = 1
-	salvage_result = /obj/item/natural/silk
-
-/obj/item/clothing/under/roguetown/trou/apothecary
-	name = "apothecary trousers"
-	desc = "Heavily padded trousers. They're stained by countless herbs."
-	icon_state = "apothpants"
-	item_state = "apothpants"
-
-/obj/item/clothing/under/roguetown/trou/artipants
-	name = "artificer trousers"
-	desc = "Thick leather trousers to protect from sparks or stray gear projectiles. Judging by the wear, its had plenty of use."
-	icon_state = "artipants"
-	item_state = "artipants"
-
-/obj/item/clothing/under/roguetown/trou/leathertights
+/obj/item/clothing/under/roguetown/leathertights
 	name = "leather tights"
 	desc = "Classy leather tights, form-fitting but tasteful."
 	icon_state = "leathertights"
 	item_state = "leathertights"
-
-/obj/item/clothing/under/roguetown/trou/beltpants
-	name = "belt-buckled trousers"
-	desc = "Dark leather trousers adorned with far too many buckles to be pragmatic."
-	icon_state = "beltpants"
-	item_state = "beltpants"
 
 /obj/item/clothing/under/roguetown/loincloth
 	name = "loincloth"
@@ -197,50 +160,40 @@
 |			 	 |
 \---------------*/
 
-/obj/item/clothing/under/roguetown/trou
+/obj/item/clothing/under/roguetown/padded
 	name = "work trousers"
 	desc = "Padded pants for hardy workers."
-	gender = PLURAL
 	icon_state = "trou"
 	item_state = "trou"
-//	adjustable = CAN_CADJUST
-	sewrepair = TRUE
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
-	r_sleeve_status = SLEEVE_NORMAL
-	l_sleeve_status = SLEEVE_NORMAL
-
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/cloth
+	max_integrity = INTEGRITY_POOR
 	armor = ARMOR_PADDED_BAD
 	prevent_crits = MINOR_CRITICALS
-	salvage_amount = 1
-	salvage_result = /obj/item/natural/hide/cured
 
-/obj/item/clothing/under/roguetown/trou/leather
-	name = "leather trousers"
-	desc = "Standard leather pants for hardy workers."
-	icon_state = "leathertrou"
-	armor = ARMOR_LEATHER
-	max_integrity = INTEGRITY_POOR
+/obj/item/clothing/under/roguetown/padded/shadowpants
+	name = "silk tights"
+	desc = "Form-fitting legwear. Almost too form-fitting."
+	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobsilkpants.dmi'
+	sleeved = 'icons/roguetown/clothing/newclothes/onmob/sleeves_pants.dmi'
+	icon_state = "shadowpants"
+	salvage_result = /obj/item/natural/silk
 
-/obj/item/clothing/under/roguetown/trou/leather/advanced
-	name = "hardened leather chausses"
-	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."
-	max_integrity = 200
-	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
-	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20,"fire" = 0, "acid" = 0)
+/obj/item/clothing/under/roguetown/padded/apothecary
+	name = "apothecary trousers"
+	desc = "Heavily padded trousers. They're stained by countless herbs."
+	icon_state = "apothpants"
+	item_state = "apothpants"
 
-/obj/item/clothing/under/roguetown/trou/leather/masterwork
-	name = "masterwork leather chausses"
-	desc = "These chausses are a craftsmanship marvel. Made with the finest leather. Strong, nimible, reliable."
-	max_integrity = 250
-	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP)
-	armor = list("blunt" = 100, "slash" = 70, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
+/obj/item/clothing/under/roguetown/padded/artipants
+	name = "artificer trousers"
+	desc = "Thick leather trousers to protect from sparks or stray gear projectiles. Judging by the wear, its had plenty of use."
+	icon_state = "artipants"
+	item_state = "artipants"
 
-/obj/item/clothing/under/roguetown/trou/leather/masterwork/Initialize()
-	. = ..()
-	filters += filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
-
-/obj/item/clothing/under/roguetown/grenzelpants
+/obj/item/clothing/under/roguetown/padded/grenzelpants
 	name = "grenzelhoftian paumpers"
 	desc = "Padded pants for extra comfort and protection, adorned in vibrant colors."
 	icon_state = "grenzelpants"
@@ -249,10 +202,9 @@
 	detail_tag = "_detail"
 	colorgrenz = TRUE
 	armor = ARMOR_PADDED
-	prevent_crits = MINOR_CRITICALS
 	max_integrity = INTEGRITY_STANDARD
 
-/obj/item/clothing/under/roguetown/grenzelpants/update_icon()
+/obj/item/clothing/under/roguetown/padded/grenzelpants/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -260,6 +212,48 @@
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
+
+
+/obj/item/clothing/under/roguetown/leather
+	name = "leather trousers"
+	desc = "Standard leather pants for hardy workers."
+	icon_state = "leathertrou"
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/hide/cured
+	max_integrity = INTEGRITY_POOR
+	armor = ARMOR_LEATHER_BAD
+
+/obj/item/clothing/under/roguetown/leather/beltpants
+	name = "belt-buckled trousers"
+	desc = "Dark leather trousers adorned with far too many buckles to be pragmatic."
+	icon_state = "beltpants"
+	item_state = "beltpants"
+
+/obj/item/clothing/under/roguetown/leather/mourning
+	name = "mourning trousers"
+	desc = "Dark trousers worn by morticians while performing burial rites."
+	icon_state = "leathertrou"
+	color = "#151615"
+
+/obj/item/clothing/under/roguetown/leather/advanced
+	name = "hardened leather chausses"
+	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."
+	max_integrity = INTEGRITY_STANDARD
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20,"fire" = 0, "acid" = 0)
+
+/obj/item/clothing/under/roguetown/leather/masterwork
+	name = "masterwork leather chausses"
+	desc = "These chausses are a craftsmanship marvel. Made with the finest leather. Strong, nimible, reliable."
+	max_integrity = 250
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP)
+	armor = list("blunt" = 100, "slash" = 70, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/under/roguetown/leather/masterwork/Initialize()
+	. = ..()
+	filters += filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
+
+
 
 
 //..................................................................................................................................

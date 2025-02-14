@@ -37,14 +37,14 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, pick(4,6), TRUE)
 //Requires a lot of sprites, so this is just a placeholder
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 		cloak = /obj/item/clothing/cloak/apron/brown
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		belt = /obj/item/storage/belt/rogue/leather

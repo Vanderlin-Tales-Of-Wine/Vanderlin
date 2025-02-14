@@ -27,7 +27,7 @@
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	cloak = /obj/item/clothing/cloak/apron/brown
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueore/coal=1, /obj/item/rogueore/iron=1)

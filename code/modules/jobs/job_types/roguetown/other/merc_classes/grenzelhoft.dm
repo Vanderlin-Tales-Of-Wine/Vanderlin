@@ -35,7 +35,7 @@
 
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	pants = /obj/item/clothing/under/roguetown/grenzelpants
+	pants = /obj/item/clothing/under/roguetown/padded/grenzelpants
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 	gloves = /obj/item/clothing/gloves/roguetown/angle/grenzel
 	belt = /obj/item/storage/belt/rogue/leather/mercenary

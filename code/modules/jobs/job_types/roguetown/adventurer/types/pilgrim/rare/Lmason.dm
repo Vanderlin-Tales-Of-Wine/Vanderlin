@@ -32,7 +32,7 @@
 	head = /obj/item/clothing/head/roguetown/hatblu
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 	cloak = /obj/item/clothing/cloak/apron/waist/bar
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather

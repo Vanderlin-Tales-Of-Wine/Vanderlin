@@ -26,7 +26,7 @@
 /datum/outfit/job/roguetown/adventurer/fishermaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		neck = /obj/item/storage/belt/rogue/pouch/coins/mid
@@ -55,7 +55,7 @@
 			H.change_stat("constitution", 2)
 			H.change_stat("perception", 2)
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 		neck = /obj/item/storage/belt/rogue/pouch/coins/mid

@@ -48,7 +48,7 @@
 			head = /obj/item/clothing/head/roguetown/padded/deathshroud
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/necra
 			shoes = /obj/item/clothing/shoes/roguetown/boots
-			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+			pants = /obj/item/clothing/under/roguetown/leather/mourning
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/necra
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 		if(/datum/patron/divine/eora)

@@ -18,7 +18,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	beltl = /obj/item/rogueweapon/sword/scimitar/falchion
-	pants = /obj/item/clothing/under/roguetown/trou
+	pants = /obj/item/clothing/under/roguetown/padded
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
@@ -85,7 +85,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
@@ -98,7 +98,7 @@
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
@@ -145,7 +145,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(1,2), TRUE)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
@@ -158,7 +158,7 @@
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
 	else
-		pants = /obj/item/clothing/under/roguetown/trou
+		pants = /obj/item/clothing/under/roguetown/padded
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots

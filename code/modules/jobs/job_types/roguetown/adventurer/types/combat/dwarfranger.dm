@@ -12,7 +12,7 @@
 /datum/outfit/job/roguetown/adventurer/dranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/roguehood/uncolored
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	belt = /obj/item/storage/belt/rogue/leather

@@ -8757,7 +8757,7 @@
 /obj/item/clothing/under/roguetown/tights/random,
 /obj/item/clothing/under/roguetown/tights/random,
 /obj/item/clothing/under/roguetown/tights/random,
-/obj/item/clothing/under/roguetown/trou/leather,
+/obj/item/clothing/under/roguetown/leather,
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
@@ -28697,11 +28697,11 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/clothing/under/roguetown/trou{
+/obj/item/clothing/under/roguetown/padded{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/under/roguetown/trou/leather,
+/obj/item/clothing/under/roguetown/leather,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "uCn" = (
@@ -31210,7 +31210,7 @@
 /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut,
 /obj/item/clothing/suit/roguetown/shirt/tunic/random,
 /obj/item/clothing/suit/roguetown/shirt/tunic/random,
-/obj/item/clothing/under/roguetown/trou,
+/obj/item/clothing/under/roguetown/padded,
 /obj/item/clothing/under/roguetown/tights,
 /obj/item/clothing/under/roguetown/tights,
 /obj/item/clothing/under/roguetown/skirt/random,

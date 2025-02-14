@@ -13,7 +13,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/black
-	pants = /obj/item/clothing/under/roguetown/trou/shadowpants
+	pants = /obj/item/clothing/under/roguetown/padded/shadowpants
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/key/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/knife/dagger/steel/dirk)
 	if(H.mind)

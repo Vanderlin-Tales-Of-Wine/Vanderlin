@@ -28,7 +28,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/stewarddress
 	else
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
-		pants = /obj/item/clothing/under/roguetown/trou/leathertights
+		pants = /obj/item/clothing/under/roguetown/leathertights
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
