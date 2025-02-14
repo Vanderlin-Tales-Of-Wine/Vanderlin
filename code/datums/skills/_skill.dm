@@ -29,3 +29,10 @@
 	if(!dreams)
 		return null
 	return pick(dreams)
+
+/datum/skill/Topic(href, href_list) //This calls for the skill's description, when they click the ? in mind/print_levels
+	. = ..()
+	switch(href_list["action"])
+		if("examine")
+			to_chat(usr, span_info(desc))
+			return
