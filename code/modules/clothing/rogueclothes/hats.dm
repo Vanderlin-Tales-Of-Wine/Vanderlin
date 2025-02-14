@@ -141,13 +141,13 @@
 	color = CLOTHING_LINEN
 /obj/item/clothing/head/roguetown/chaperon/greyscale/random/Initialize()
 	. = ..()
-	color = RANDOM_NOBLE_DYES
+	color = pick_assoc(GLOB.noble_dyes)
 
 /obj/item/clothing/head/roguetown/chaperon/greyscale/silk
 	icon_state = "chap_silk"
 /obj/item/clothing/head/roguetown/chaperon/greyscale/silk/random/Initialize()
 	. = ..()
-	color = RANDOM_NOBLE_DYES
+	color = pick_assoc(GLOB.noble_dyes)
 
 /obj/item/clothing/head/roguetown/chaperon/greyscale/chaperonsecondary
 	color = CLOTHING_PLUM_PURPLE

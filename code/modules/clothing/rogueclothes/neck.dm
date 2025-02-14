@@ -124,7 +124,7 @@
 	color = CLOTHING_PEAR_YELLOW
 
 /obj/item/clothing/neck/roguetown/keffiyeh/orange
-	color = CLOTHING_FYRITIUS_DYE
+	color = CLOTHING_FYRITIUS_ORANGE
 
 /obj/item/clothing/neck/roguetown/keffiyeh/green
 	color = CLOTHING_BOG_GREEN
