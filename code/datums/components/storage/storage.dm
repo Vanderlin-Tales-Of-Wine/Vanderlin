@@ -296,6 +296,7 @@
 	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Try to drop on user turf instead
 		T = get_turf(user)
 		if(istype(T, /turf/closed))
+			to_chat(user, span_warning("Something in the way."))
 			return
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))
