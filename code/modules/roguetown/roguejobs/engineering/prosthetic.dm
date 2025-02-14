@@ -140,6 +140,7 @@
 	sellprice = 30
 	anvilrepair = /datum/skill/craft/engineering
 	smeltresult = /obj/item/ingot/iron
+	punch_modifier = 1.2
 
 /obj/item/bodypart/r_arm/prosthetic/iron
 	name = "iron right arm"
@@ -153,6 +154,7 @@
 	sellprice = 30
 	anvilrepair = /datum/skill/craft/engineering
 	smeltresult = /obj/item/ingot/iron
+	punch_modifier = 1.2
 
 /obj/item/bodypart/l_leg/prosthetic/iron
 	name = "iron left leg"
@@ -197,6 +199,7 @@
 	sellprice = 40
 	anvilrepair = /datum/skill/craft/engineering
 	smeltresult = /obj/item/ingot/steel
+	punch_modifier = 1.4
 
 /obj/item/bodypart/r_arm/prosthetic/steel
 	name = "steel right arm"
@@ -210,6 +213,7 @@
 	sellprice = 40
 	anvilrepair = /datum/skill/craft/engineering
 	smeltresult = /obj/item/ingot/steel
+	punch_modifier = 1.4
 
 /obj/item/bodypart/l_leg/prosthetic/steel
 	name = "steel left leg"

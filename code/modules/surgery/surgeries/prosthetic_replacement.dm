@@ -39,6 +39,8 @@
 /datum/surgery_step/add_prosthetic/tool_check(mob/user, obj/item/tool)
 	. = ..()
 	var/obj/item/bodypart/bodypart = tool
+	if(!istype(tool))
+		return FALSE
 	if(bodypart.status != bodypart_status)
 		return FALSE
 
@@ -67,6 +69,7 @@
 	display_results(user, target, "<span class='notice'>I succeed transplanting [target]'s [parse_zone(target_zone)].</span>",
 		"<span class='notice'>[user] successfully transplants [target]'s [parse_zone(target_zone)] with [tool]!</span>",
 		"<span class='notice'>[user] successfully transplants [target]'s [parse_zone(target_zone)]!</span>")
+	user.update_inv_hands() // attach_limb moves to nullspace
 	return TRUE
 
 /datum/surgery/prosthetic_replacement/prosthetic

@@ -95,6 +95,8 @@
 
 	var/wound_icon_state
 
+	var/punch_modifier = 1 // for modifying arm punching damage
+
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 
