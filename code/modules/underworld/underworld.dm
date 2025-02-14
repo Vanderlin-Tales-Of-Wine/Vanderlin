@@ -120,6 +120,7 @@
 		switch(alert("Are you ready to be judged?",,"Yes","No"))
 			if("Yes")
 				playsound(user, 'sound/misc/deadbell.ogg', 50, TRUE, -2, ignore_walls = TRUE)
+				add_abstract_elastic_data("combat", "coin_revive", 1)
 				user.returntolobby()
 			if("No")
 				to_chat(user,span_notice("You delay fate."))

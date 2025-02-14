@@ -18,14 +18,14 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 		//if we got to here without silently ending, the byond bug has been fixed.
 		log_world("The bug with recursion runtimes has been fixed. Please remove the snowflake check from world/Error in [__FILE__]:[__LINE__]")
 		return //this will never happen.
-	
+
 	else if(copytext(E.name,1,18) == "Out of resources!")
 		log_world("BYOND out of memory. Restarting")
 		log_game("BYOND out of memory. Restarting")
 		TgsEndProcess()
 		Reboot(reason = 1)
 		return ..()
-	
+
 	if (islist(stack_trace_storage))
 		for (var/line in splittext(E.desc, "\n"))
 			if (text2ascii(line) != 32)
@@ -134,4 +134,10 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 
 	// This writes the regular format (unwrapping newlines and inserting timestamps as needed).
 	log_runtime("runtime error: [E.name]\n[E.desc]")
+	add_elastic_data_immediate("runtimes", list(
+		"name" = E.name,
+		"desc" = E.desc,
+		"file" = "[E.file || "unknown"]",
+		"line" = E.line,
+	))
 #endif
