@@ -12,7 +12,7 @@
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/rust
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/rust
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dark 
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dark
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	gloves = /obj/item/clothing/gloves/roguetown/plate/rust
 	pants = /obj/item/clothing/under/roguetown/platelegs/rust

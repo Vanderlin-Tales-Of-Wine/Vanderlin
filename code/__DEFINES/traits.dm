@@ -45,6 +45,7 @@
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
 #define TRAIT_ENGINEERING_GOGGLES		"Engineering Goggles"
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
+#define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
