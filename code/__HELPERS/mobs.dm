@@ -460,6 +460,6 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			return
 		AM.setDir(i)
 		callperrotate?.Invoke()
-		sleep(1)
+		sleep(5)
 	if(set_original_dir)
 		AM.setDir(originaldir)
