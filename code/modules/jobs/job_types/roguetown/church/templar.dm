@@ -100,11 +100,11 @@
 		H.change_stat("strength", 2)
 		H.change_stat("constitution", 2)
 		H.change_stat("endurance", 2)
-		H.change_stat("perception", 0)
+		H.change_stat("speed", -1)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	switch(H.patron?.type)
 		if(/datum/patron/divine/abyssor)
-            H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
             backl = /obj/item/rogueweapon/polearm/billhook
             beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 		if(/datum/patron/divine/malum)
