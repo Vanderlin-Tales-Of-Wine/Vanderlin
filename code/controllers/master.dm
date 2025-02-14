@@ -243,6 +243,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
 	Master.StartProcessing(0)
+	SSgamemode.handle_picking_storyteller()
 	#ifdef LOWMEMORYMODE
 	low_memory_force_start()
 	#endif

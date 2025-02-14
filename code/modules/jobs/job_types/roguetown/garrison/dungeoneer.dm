@@ -28,6 +28,9 @@
 
 	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 
+/datum/outfit/job/roguetown/dungeoneer
+	job_bitflag = BITFLAG_GARRISON
+
 /datum/outfit/job/roguetown/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/menacing

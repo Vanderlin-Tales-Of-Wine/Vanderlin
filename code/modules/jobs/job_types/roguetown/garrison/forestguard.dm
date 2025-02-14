@@ -28,6 +28,9 @@
 	outfit = /datum/outfit/job/roguetown/forestguard
 	advclass_cat_rolls = list(CTAG_FORGARRISON = 20)
 
+/datum/outfit/job/roguetown/forestguard
+	job_bitflag = BITFLAG_GARRISON
+
 /datum/outfit/job/roguetown/forestguard/pre_equip(mob/living/carbon/human/H)
 	..()
 	cloak = /obj/item/clothing/cloak/raincloak/green

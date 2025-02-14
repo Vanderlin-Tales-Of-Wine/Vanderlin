@@ -45,6 +45,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
 		to_chat(world, "<br>")
 
+/datum/outfit/job/roguetown/lord
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/lord/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/crown/serpcrown

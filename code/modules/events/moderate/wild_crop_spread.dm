@@ -1,0 +1,26 @@
+/datum/round_event_control/wild_crops
+	name = "Wild Crop Sprout"
+	track = EVENT_TRACK_MODERATE
+	typepath = /datum/round_event/wild_crops
+	weight = 7
+	max_occurrences = 10
+	min_players = 0
+	earliest_start = 12 MINUTES
+
+	tags = list(
+		TAG_NATURE,
+		TAG_BOON,
+	)
+
+/datum/round_event/wild_crops/start()
+	. = ..()
+	var/list/turfs = get_area_turfs(/area/rogue/outdoors/woods, subtypes = TRUE)
+	for(var/i = 1 to rand(2, 12))
+		var/failing = TRUE
+		while(failing)
+			var/turf/turf = pick(turfs) ///sometimes the dumber ways are the more efficent
+			if(!istype(turf, /turf/open/floor/rogue/dirt) && !istype(turf, /turf/open/floor/rogue/grass) && !istype(turf, /turf/open/floor/rogue/snow))
+				continue
+			new /obj/structure/wild_plant(turf)
+			failing = FALSE
+

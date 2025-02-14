@@ -176,6 +176,8 @@
 						/turf/open/floor/rogue/snow/rough)
 	max_integrity = 1200
 
+	spread_chance = 25
+
 /turf/open/floor/rogue/grass/Initialize()
 	dir = pick(GLOB.cardinals)
 //	GLOB.dirt_list += src
@@ -241,6 +243,7 @@
 						/turf/open/floor/rogue/snow/patchy,
 						/turf/open/floor/rogue/snow/rough)
 	neighborlay = "snowedge"
+	spread_chance = 0
 
 /turf/open/floor/rogue/snow/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -269,6 +272,8 @@
 						/turf/open/floor/rogue/snow/patchy,
 						/turf/open/floor/rogue/snow/rough)
 	neighborlay = "snowroughedge"
+
+	spread_chance = 0
 
 /turf/open/floor/rogue/snowrough/Initialize()
 	dir = pick(GLOB.cardinals)
@@ -325,6 +330,8 @@
 	muddy = FALSE
 	bloodiness = 20
 	dirt_amt = 3
+
+	spread_chance = 8
 
 /turf/open/floor/rogue/dirt
 	name = "dirt"

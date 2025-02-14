@@ -26,6 +26,9 @@
 	min_pq = 6
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 
+/datum/outfit/job/roguetown/magician
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/magician/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/wizhat/gen

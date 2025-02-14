@@ -21,6 +21,9 @@
 	min_pq = 2
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
+/datum/outfit/job/roguetown/steward
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
