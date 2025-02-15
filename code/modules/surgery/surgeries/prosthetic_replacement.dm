@@ -39,7 +39,7 @@
 /datum/surgery_step/add_prosthetic/tool_check(mob/user, obj/item/tool)
 	. = ..()
 	var/obj/item/bodypart/bodypart = tool
-	if(!istype(tool))
+	if(!istype(bodypart))
 		return FALSE
 	if(bodypart.status != bodypart_status)
 		return FALSE

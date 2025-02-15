@@ -290,7 +290,6 @@
 	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
 	var/turf/turf = get_turf(O)
 	playsound(O, pick('sound/combat/hits/burn (1).ogg','sound/combat/hits/burn (2).ogg'), 100)
-	new /obj/effect/decal/cleanable/ash(turf)
 	O.moveToNullspace()
 	if(misfire_chance && prob(max(0, misfire_chance - user.stat_roll(STATKEY_LCK,2,10) - skill)))
 		misfire(O, user)
