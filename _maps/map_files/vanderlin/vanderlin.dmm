@@ -3780,7 +3780,7 @@
 /area/rogue/outdoors/rtfield/safe)
 "cCd" = (
 /obj/structure/mineral_door/wood/window{
-	name = "armoursmith"
+	lockid = "tavern"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/tavern)
@@ -94652,7 +94652,7 @@ fKH
 oXQ
 oqs
 lzw
-pnI
+vJy
 pnI
 pnI
 qBL
