@@ -498,7 +498,7 @@
 // Woodcutting recipe
 /datum/crafting_recipe/roguetown/lumberjacking
 	skillcraft = /datum/skill/labor/lumberjacking
-	tools = list(/obj/item/rogueweapon/knife/hunting = 1)
+	tools = list(/obj/item/rogueweapon/knife = 1)
 
 /datum/crafting_recipe/roguetown/lumberjacking/cart_upgrade
 	name = "wooden cog"
