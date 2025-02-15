@@ -73,6 +73,9 @@ GLOBAL_LIST_INIT(noble_dyes, list(
 	"Yellow Ochre" = CLOTHING_YELLOW_OCHRE,
 	"Ash Grey" = CLOTHING_ASH_GREY,
 	"Russet" = CLOTHING_RUSSET,
+	"Blood Red" = CLOTHING_BLOOD_RED,
+	"Swampweed" = CLOTHING_SWAMPWEED,
+	"Ocean" = CLOTHING_OCEAN,
 ))
 GLOBAL_PROTECT(noble_dyes)
 

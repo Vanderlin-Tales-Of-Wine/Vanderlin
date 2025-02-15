@@ -252,3 +252,13 @@
 	name = "Luxury Dyes"
 	cost = 70
 	contains = /obj/item/dye_pack/luxury
+
+/datum/supply_pack/rogue/apparel/royaldyes
+	name = "Royal Dyes"
+	cost = 130
+	contains = /obj/item/dye_pack/royal
+
+/datum/supply_pack/rogue/apparel/luxurydyes
+	name = "Magician's Dyes"
+	cost = 70
+	contains = /obj/item/dye_pack/mage

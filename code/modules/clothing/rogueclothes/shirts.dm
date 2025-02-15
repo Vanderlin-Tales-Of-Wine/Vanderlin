@@ -552,7 +552,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts_gown.dmi'
 	boobed = TRUE
 	detail_tag = "_detail"
-	detail_color = "#00713d"
+	detail_color = CLOTHING_SWAMPWEED
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR

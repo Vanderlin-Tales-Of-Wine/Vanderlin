@@ -41,7 +41,7 @@
 	else
 		START_PROCESSING(SSfastprocess, src)
 
-	if (occupant_typecache)
+	if(occupant_typecache)
 		occupant_typecache = typecacheof(occupant_typecache)
 
 	return INITIALIZE_HINT_LATELOAD

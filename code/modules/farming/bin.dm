@@ -151,13 +151,13 @@
 		user.visible_message(span_info("[user] begins to add [pack] to [src]..."))
 		if(do_after(user, 3 SECONDS, src))
 			playsound(src, "bubbles", 50, 1)
-			new /obj/machinery/dye_bin(get_turf(src), pack)
+			new /obj/structure/dye_bin(get_turf(src), pack)
 			qdel(src)
 		return
 
 	if(!reagents || !reagents.maximum_volume) //trash
 		return ..()
-	
+
 	if(istype(I, /obj/item/rogueweapon/tongs))
 		var/obj/item/rogueweapon/tongs/T = I
 		if(T.hingot && istype(T.hingot))

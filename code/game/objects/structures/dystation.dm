@@ -1,5 +1,5 @@
 /*	.................   Luxury dye bin   ................... */
-/obj/machinery/dye_bin
+/obj/structure/dye_bin
 	name = "dye bin"
 	desc = "A wooden barrel with various dyes, used to stain clothes into new colors."
 	icon = 'icons/roguetown/misc/structure.dmi'
@@ -16,17 +16,33 @@
 	/// Packs that this bin will initialize with
 	var/list/initial_packs = list(/obj/item/dye_pack/cheap)
 	/// List of all colors currently usable in this bin.
-	var/list/selectable_colors = list()
+	var/final/list/selectable_colors = list(
+		// This is to let you bleach out colors.
+		"Bleach Out" = "#FFFFFF",
+	)
 
-/obj/machinery/dye_bin/luxury
+/obj/structure/dye_bin/luxury
 	icon_state = "dye_bin_luxury"
 	initial_packs = list(
 		/obj/item/dye_pack/luxury,
 		/obj/item/dye_pack/royal,
-		/obj/item/dye_pack/misc,
+		/obj/item/dye_pack/mage,
 	)
 
-/obj/machinery/dye_bin/Initialize(mapload, obj/item/dye_pack/inserted_pack)
+/obj/structure/dye_bin/deconstruct(disassembled)
+	visible_message( \
+		span_warning("[src] falls over, spilling out [p_their()] contents!"), \
+		null, \
+		span_warning("Something was knocked over!")
+	)
+	new /obj/effect/decal/cleanable/dyes(get_turf(src))
+	var/obj/item/roguebin/I = new(loc)
+	I.kover = TRUE
+	I.update_icon()
+	return ..()
+
+
+/obj/structure/dye_bin/Initialize(mapload, obj/item/dye_pack/inserted_pack)
 	. = ..()
 	if(mapload || !inserted_pack)
 		for(var/pack_path in initial_packs)
@@ -37,33 +53,18 @@
 
 	active_color = pick_assoc(selectable_colors)
 
-/obj/machinery/dye_bin/Destroy()
-	layer = 2.8 //?
-	icon_state = "washbin_destroy"
-	density = FALSE
-	return ..()
-
-/obj/machinery/dye_bin/proc/add_dye_pack(obj/item/dye_pack/new_pack)
+/obj/structure/dye_bin/proc/add_dye_pack(obj/item/dye_pack/new_pack)
 	new_pack.forceMove(src) //GIVE ME THAT
 	selectable_colors |= new_pack.selectable_colors
 	qdel(new_pack)
 
-/obj/machinery/dye_bin/proc/apply_dye(mob/living/carbon/human/user, obj/item/clothing/item_to_dye, color)
-	if (!item_to_dye || !color)
-		return
-	if (item_to_dye.detail_tag)
-		item_to_dye.detail_color = color
-		item_to_dye.update_icon()
-	else
-		item_to_dye.add_atom_colour(color, FIXED_COLOUR_PRIORITY)
-
-/obj/machinery/dye_bin/attackby(obj/item/I, mob/living/user)
+/obj/structure/dye_bin/attackby(obj/item/I, mob/living/user)
 	if(istype(I, /obj/item/dye_pack))
 		. = TRUE
 		var/obj/item/dye_pack/pack = I
 		user.visible_message( \
-			span_info("[user] begins to add [pack] to [src]..."), \
-			span_info("I begin to add [pack] to [src]...") \
+			span_notice("[user] begins to add [pack] to [src]..."), \
+			span_notice("I begin to add [pack] to [src]...") \
 		)
 		if(do_after(user, 3 SECONDS, src))
 			add_dye_pack(pack)
@@ -86,9 +87,6 @@
 		var/obj/item/clothing/head/mob_holder/fellow = I
 		fellow.release() //is this not a bug?
 
-	if(user.mind?.get_skill_level(/datum/skill/misc/sewing) <= 2) // We're not letting people with 0 knowledge in sewing do dying, so they don't step on the toes of the seamstress
-		to_chat(user, span_warning("I do not know enough about this craft..."))
-		return
 	if(inserted)
 		to_chat(user, span_warning("There is already something inside the dye bin."))
 		return
@@ -104,16 +102,10 @@
 	icon_state = "dye_bin_full"
 	updateUsrDialog()
 
-/obj/machinery/dye_bin/attack_hand(mob/living/user)
+/obj/structure/dye_bin/attack_hand(mob/living/user)
 	ui_interact(user)
 
-/obj/machinery/dye_bin/AllowDrop()
-	return FALSE
-
-/obj/machinery/dye_bin/ui_interact(mob/living/user)
-	if(!is_operational())
-		return
-	user.set_machine(src)
+/obj/structure/dye_bin/ui_interact(mob/living/user)
 	var/list/dat = list("<STYLE> * {text-align: center;} </STYLE>")
 	if(!inserted)
 		dat += "No item inserted."
@@ -122,19 +114,25 @@
 		dat += "Item inserted: \the [inserted]<BR>"
 		dat += "<A href='byond://?src=[ref];action=eject'>Remove item.</A>"
 		dat += "<HR>"
+
 		dat += "Color: <font color='[active_color]'>&#9899;</font>"
 		dat += "<BR>"
-		dat += "<A href='byond://?src=[ref];action=paint'>Apply new dye.</A> | "
-		dat += "<A href='byond://?src=[ref];action=select'>Select new color.</A> | "
-		dat += "<A href='byond://?src=[ref];action=clear'>Bleach out the color.</A>"
+		dat += "<A href='byond://?src=[ref];action=select'>Select new color.</A>"
+		dat += "<BR>"
+
+		dat += "<A href='byond://?src=[ref];action=paint;type=base'>Taint with dye.</A>"
+		if(isclothing(inserted))
+			var/obj/item/clothing/cloth = inserted
+			if(cloth.detail_tag)
+				dat += " | <A href='byond://?src=[ref];action=paint;type=detail'>Apply dye to accent.</A>"
 
 	var/datum/browser/menu = new(user, "colormate","<CENTER>[src]</CENTER>", 400, 400, src)
 	menu.set_content(dat.Join())
 	menu.open()
 
-/obj/machinery/dye_bin/Topic(href, href_list)
+/obj/structure/dye_bin/Topic(href, href_list)
 	. = ..()
-	if(!.)
+	if(.)
 		return
 
 	if(href_list["close"]) //the window will refuse to close if we don't do this ourselves
@@ -143,6 +141,8 @@
 
 	var/mob/living/user = usr
 	if(!istype(user))
+		return
+	if(!user.canUseTopic(src, TRUE))
 		return
 
 	switch(href_list["action"])
@@ -155,26 +155,30 @@
 		if("paint")
 			if(!inserted)
 				return
-			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 50, FALSE)
-			user.visible_message( \
-				span_notice("[user] begins to dye [inserted]..."), \
-				span_notice("I begin to dye [inserted]..."), \
-				span_hear("I hear something moving in water.") \
-			)
-			if(do_after(user, 5 SECONDS, src))
-				apply_dye(user, inserted, active_color)
-
-		if("clear")
-			if(!inserted)
+			if(!active_color)
 				return
+			if(user.mind?.get_skill_level(/datum/skill/misc/sewing) <= 2) // We're not letting people with 0 knowledge in sewing do dying, so they don't step on the toes of the seamstress
+				to_chat(user, span_warning("I do not know enough about this craft..."))
+				return
+
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 50, FALSE)
 			user.visible_message( \
-				span_notice("[user] begins to bleach [inserted]..."), \
-				span_notice("I begin to bleach [inserted]..."), \
+				null, \
+				null, \
 				span_hear("I hear something moving in water.") \
 			)
 			if(do_after(user, 5 SECONDS, src))
-				inserted.remove_atom_colour(FIXED_COLOUR_PRIORITY)
+				if(href_list["type"] == "detail" && isclothing(inserted))
+					var/obj/item/clothing/cloth = inserted
+					cloth.detail_color = active_color
+					cloth.update_icon()
+				else
+					inserted.add_atom_colour(active_color, FIXED_COLOUR_PRIORITY)
+
+				user.visible_message( \
+					span_notice("[user] dyes [inserted] in [src]."), \
+					span_notice("I dye [inserted] in [src]."), \
+				)
 
 		if("eject")
 			if(!inserted)
@@ -192,7 +196,7 @@
 
 	updateUsrDialog()
 
-/obj/machinery/dye_bin/onkick(mob/living/user)
+/obj/structure/dye_bin/onkick(mob/living/user)
 	if(!istype(user))
 		return
 
@@ -204,16 +208,7 @@
 	)
 
 	if(prob(user.STASTR * 8))
-		visible_message( \
-			span_warning("[p_they(TRUE)] fall[p_s()] over, spilling out [p_their()] contents!"), \
-			null, \
-			span_warning("Something was knocked over!")
-		)
-		new /obj/effect/decal/cleanable/dyes(get_turf(src))
-		var/obj/item/roguebin/I = new(loc)
-		I.kover = TRUE
-		I.update_icon()
-		qdel(src)
+		deconstruct(FALSE)
 
 /*	.................   Dyes   ................... */
 
@@ -277,25 +272,22 @@
 
 /obj/item/dye_pack/royal
 	name = "royal dyes"
-	desc = "Dyes with powders hailing from all across Psydonia, from Grentzelhoft to Heartfelt. \
+	desc = "Dyes with powders hailing from all across Psydonia, from Kingsfield to Heartfelt. \
 		Vibrant and pleasing to the eyes, only the highest in the social hierarchy are seen with these colors."
 	icon_state = "luxury_dyes"
-	sellprice = 300
+	sellprice = 70
 
 /obj/item/dye_pack/royal/Initialize()
 	selectable_colors = GLOB.royal_dyes.Copy()
 	. = ..()
 
 // No clue where to sort these so...
-/obj/item/dye_pack/misc
-	name = "miscellaneous dyes"
-	desc = "The variety of color quality is perplexing. Extremly rich tones are bundled with drab, uninteresting colors."
+/obj/item/dye_pack/mage
+	name = "magician dyes"
+	desc = "The pigmentation in these colors are bright and rich. Unusual."
 	selectable_colors = list(
 		"Mage Green" = CLOTHING_MAGE_GREEN,
 		"Mage Yellow" = CLOTHING_MAGE_YELLOW,
 		"Mage Orange" = CLOTHING_MAGE_ORANGE,
 		"Mage Blue" = CLOTHING_MAGE_BLUE,
-		"Blood Red" = CLOTHING_BLOOD_RED,
-		"Swampweed" = "#00713d",
-		"Ocean" = "#45749d",
 	)
