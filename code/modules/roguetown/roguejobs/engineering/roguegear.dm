@@ -5,6 +5,8 @@
 	icon_state = ""
 	w_class = WEIGHT_CLASS_SMALL
 	smeltresult = null
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/roguegear/metal
 	name = "cog"
@@ -25,6 +27,8 @@
 	var/cart_capacity = 0
 	var/misfire_modification
 	var/name_prefix
+	grid_height = 64
+	grid_width = 32
 
 /obj/item/roguegear/wood/basic
 	name = "wooden cog"

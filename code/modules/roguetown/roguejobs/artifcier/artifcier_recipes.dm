@@ -254,11 +254,11 @@
 	name = "Bronze Left Arm (+2 Cogs)"
 	required_item = /obj/item/ingot/bronze
 	created_item = /obj/item/bodypart/l_arm/prosthetic/bronze
-	hammers_per_item = 15
+	hammers_per_item = 10
 	craftdiff = 4
 	additional_items = list(/obj/item/roguegear/metal = 2)
 
-/datum/artificer_recipe/prosthetica/bronze/arm_right
+/datum/artificer_recipe/prosthetics/bronze/arm_right
 	name = "Bronze Right Arm (+2 Cogs)"
 	created_item = /obj/item/bodypart/r_arm/prosthetic/bronze
 
@@ -312,7 +312,7 @@
 	name = "Iron Left Arm (+1 Cog)"
 	created_item = /obj/item/bodypart/l_arm/prosthetic/iron
 	required_item = /obj/item/ingot/iron
-	additional_items = list(/obj/item/natural/wood/plank = 1, /obj/item/roguegear/metal = 1)
+	additional_items = list(/obj/item/roguegear/metal = 1)
 	hammers_per_item = 4
 	craftdiff = 2
 
