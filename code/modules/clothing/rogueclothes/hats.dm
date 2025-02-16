@@ -1472,6 +1472,7 @@
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
+	smeltresult = /obj/item/ingot/bronze
 
 
 /*-------------------\

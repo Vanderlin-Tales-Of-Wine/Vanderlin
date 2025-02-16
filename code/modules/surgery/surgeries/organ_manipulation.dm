@@ -42,6 +42,8 @@
 	surgery_flags = SURGERY_INCISED | SURGERY_RETRACTED
 	skill_min = SKILL_LEVEL_JOURNEYMAN
 	skill_median = SKILL_LEVEL_EXPERT
+	preop_sound = 'sound/surgery/organ2.ogg'
+	success_sound = 'sound/surgery/organ1.ogg'
 	/// Implements used to extract an organ - This really should be split into two different steps...
 	var/list/implements_extract = list(
 		TOOL_HEMOSTAT = 80,

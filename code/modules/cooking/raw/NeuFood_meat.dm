@@ -173,7 +173,7 @@
 	color = "#a0655f"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
-	name = "mince"
+	name = "mince poultry"
 	icon_state = "birdmince"
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked

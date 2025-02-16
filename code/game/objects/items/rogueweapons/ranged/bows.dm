@@ -22,7 +22,6 @@
 	verbage = "nock"
 	cartridge_wording = "arrow"
 	load_sound = 'sound/foley/nockarrow.ogg'
-	associated_skill = /datum/skill/combat/bows
 	metalizer_result = /obj/item/restraints/legcuffs/beartrap/armed
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/getonmobprop(tag)
@@ -40,6 +39,15 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/shoot_with_empty_chamber()
 	update_icon()
 	return
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/equipped(mob/user, slot, initial)
+	. = ..()
+	if(chambered && slot != SLOT_HANDS)
+		chambered = null
+		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
+			CB.forceMove(drop_location())
+//			CB.bounce_away(FALSE, NONE)
+		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/dropped()
 	. = ..()
@@ -92,6 +100,12 @@
 		BB.damage *= damfactor // Apply bow's inherent damage multiplier regardless of PER
 		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/bows) * 5) //+5 accuracy per level in bows. Bonus accuracy will not drop-off.
 	. = ..()
+	if(.)
+		if(istype(user) && user.mind)
+			var/modifier = 1/(spread+1)
+			var/boon = user.mind.get_learning_boon(/datum/skill/combat/bows)
+			var/amt2raise = user.STAINT/2
+			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier * 0.5, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/update_icon()
 	. = ..()
