@@ -531,31 +531,22 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	spawning = TRUE
 	close_spawn_windows()
 
-	mind.active = FALSE
+	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)
 	if(QDELETED(src) || !client)
 		return // Disconnected while checking for the appearance ban.
 
-	var/is_antag
-	if(mind in GLOB.pre_setup_antags)
-		is_antag = TRUE
+	mind.transfer_to(spawning_mob)
+
+	var/is_antag = (mind in GLOB.pre_setup_antags)
 
 	client.prefs.copy_to(spawning_mob, antagonist = is_antag)
 	//spawning_mob.dna.update_dna_identity()
-	// if(mind)
-	// 	if(transfer_after)
-	// 		mind.late_joiner = TRUE
-	// 	mind.active = 0					//we wish to transfer the key manually
-	// 	mind.transfer_to(H)					//won't transfer key since the mind is not active
 
-	spawning_mob.name = real_name
-
-	new_character = . = spawning_mob
+	new_character = (. = spawning_mob)
 
 	spawning_mob.after_creation()
 
-	// if(transfer_after)
-	// 	transfer_character()
 	GLOB.chosen_names += spawning_mob.real_name
 
 

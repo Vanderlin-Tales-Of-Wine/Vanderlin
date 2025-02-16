@@ -82,7 +82,7 @@ SUBSYSTEM_DEF(job)
 		SetupOccupations()
 	return type_occupations[jobtype]
 
-/datum/controller/subsystem/job/proc/AssignRole(mob/player, datum/job/job, latejoin = FALSE)
+/datum/controller/subsystem/job/proc/AssignRole(mob/dead/new_player/player, datum/job/job, latejoin = FALSE)
 	JobDebug("Running AR, Player: [player], Rank: [job?.type || "null"], LJ: [latejoin]")
 	if(!player?.mind || !job)
 		JobDebug("AR has failed, Player: [player], Rank: [job.get_informed_title(player)]")
@@ -97,6 +97,7 @@ SUBSYSTEM_DEF(job)
 	if(!latejoin)
 		position_limit = job.spawn_positions
 	JobDebug("Player: [player] is now Rank: [job.get_informed_title(player)], JCP:[job.current_positions], JPL:[position_limit]")
+	player.mind.set_assigned_role(job)
 	unassigned -= player
 	job.current_positions++
 	. = TRUE //V:
@@ -603,7 +604,7 @@ SUBSYSTEM_DEF(job)
 			handle_auto_deadmin_roles(player_client, job.title)
 
 	if(player_client)
-		to_chat(player_client, "<span class='infoplain'><b>As the [job.get_informed_title()] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
+		to_chat(player_client, "<span class='infoplain'><b>As the [job.get_informed_title(equipping)] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
 
 	//job.radio_help_message(equipping)
 

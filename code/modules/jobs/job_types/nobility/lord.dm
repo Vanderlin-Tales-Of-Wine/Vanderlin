@@ -6,6 +6,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	flag = LORD
 	department_flag = NOBLEMEN
 	faction = "Station"
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE
 	total_positions = 0
 	spawn_positions = 1
 

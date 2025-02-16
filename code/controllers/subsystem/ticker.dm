@@ -202,9 +202,9 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-#ifdef MATURESERVER
+				#ifdef MATURESERVER
 				send_tip_of_the_round()
-#endif
+				#endif
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -319,7 +319,6 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: Divide Occupations success")
 
 	CHECK_TICK
-
 
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
@@ -490,10 +489,6 @@ SUBSYSTEM_DEF(ticker)
 		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
 			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
 		CHECK_TICK
-	// sortTim(valid_characters, GLOBAL_PROC_REF(cmp_assignedrole_dsc))
-	// for(var/mob/character as anything in valid_characters)
-	// 	var/mob/new_player = valid_characters[character]
-	// 	SSjob.EquipRank(new_player, character.mind.assigned_role, new_player.client)
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
 	var/list/livings = list()
