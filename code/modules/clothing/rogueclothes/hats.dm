@@ -276,6 +276,38 @@
 	color = pick(CLOTHING_MAGE_BLUE, CLOTHING_MAGE_GREEN, CLOTHING_MAGE_ORANGE, CLOTHING_MAGE_YELLOW)
 	..()
 
+/obj/item/clothing/head/roguetown/roguehood/guard
+	color = CLOTHING_PLUM_PURPLE
+
+/obj/item/clothing/head/roguetown/roguehood/guard/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/head/roguetown/roguehood/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond
+	color = CLOTHING_BLOOD_RED
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/lordcolor(primary,secondary)
+	if(secondary)
+		color = secondary
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 /obj/item/clothing/head/roguetown/roguehood/AdjustClothes(mob/user)
 	if(loc == user)
 		if(adjustable == CAN_CADJUST)

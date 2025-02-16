@@ -46,9 +46,9 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/menatarms/watchman_swordsmen
-	name = "Swordbearer Men-At-Arms"
+	name = "Fencer Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you've got a sword and are quite good with it- \
+	You were quite a good dancer, you've blended that skill with your blade- \
 	exanguinated personally by one of the Monarch's best. \
 	You are poor, and your belly is yet full. \
 	\n\
@@ -58,13 +58,12 @@
 
 /datum/outfit/job/roguetown/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/sallet
+	head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/advanced
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	gloves = /obj/item/clothing/gloves/roguetown/chain
-	beltr = /obj/item/rogueweapon/sword/short
-	beltl = /obj/item/rogueweapon/sword
+	beltr = /obj/item/rogueweapon/sword/rapier
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
@@ -78,14 +77,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("perception", -1)
-		H.change_stat("endurance", -1)
-		H.change_stat("constitution", 1)
-		H.change_stat("speed", 1)
-		H.verbs |= /mob/proc/haltyell
-		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/menatarms/watchman_ranger
 	name = "Archer Men-At-Arms"
