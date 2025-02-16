@@ -2,7 +2,7 @@
 	title = "Men-at-arms"
 	flag = WATCHMAN
 	department_flag = GARRISON
-	display_order = JDO_WATCHMAN
+	display_order = JDO_MENATARMS
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
@@ -44,6 +44,48 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+
+/datum/advclass/menatarms/watchman_swordsmen
+	name = "Swordbearer Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you've got a sword and are quite good with it- \
+	exanguinated personally by one of the Monarch's best. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	outfit = /datum/outfit/job/roguetown/watchman/pikeman
+	category_tags = list(CTAG_MENATARMS)
+
+/datum/outfit/job/roguetown/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
+	..()
+	head = /obj/item/clothing/head/roguetown/helmet/sallet
+	cloak = /obj/item/clothing/cloak/stabard/guard
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	gloves = /obj/item/clothing/gloves/roguetown/chain
+	beltr = /obj/item/rogueweapon/sword/short
+	beltl = /obj/item/rogueweapon/sword
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
+	if(H.mind)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.change_stat("strength", 2)
+		H.change_stat("perception", -1)
+		H.change_stat("endurance", -1)
+		H.change_stat("constitution", 1)
+		H.change_stat("speed", 1)
+		H.verbs |= /mob/proc/haltyell
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 /datum/advclass/menatarms/watchman_ranger
 	name = "Archer Men-At-Arms"

@@ -857,6 +857,24 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 	icon_state = "capbarbute"
 
+//................. Town Watch Helmet .............. //
+/obj/item/clothing/head/roguetown/helmet/townwatch
+	name = "town watch helmet"
+	desc = "An old archaic helmet of a symbol long forgotten."
+	icon_state = "guardhelm"
+
+	body_parts_covered = COVERAGE_HEAD_NOSE
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	block2add = FOV_BEHIND
+	max_integrity = INTEGRITY_STANDARD
+	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_HIP
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR_UNUSUAL
+
+/obj/item/clothing/head/roguetown/helmet/townwatch/alt
+	desc = "An old archaic helmet of a symbol long forgotten. The shape resembles the bars of a prison."
+	icon_state = "gatehelm"
+
 //......................................................................................................
 /*------------------\
 |			 	 	|
@@ -1607,16 +1625,6 @@
 /*----------\
 | Graveyard |	- Not used or ingame in any way except admeme spawning them.
 \-----------*/
-
-/obj/item/clothing/head/roguetown/helmet/heavy/captain
-	name = "barred helmet"
-	desc = "An archaic helmet whose shape resembles bars of a gate."
-	icon_state = "gatehelm"
-	emote_environment = 3
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	block2add = FOV_RIGHT|FOV_LEFT
-	smeltresult = /obj/item/ingot/iron
-	sellprice = VALUE_IRON_ITEM
 
 /obj/item/clothing/head/roguetown/priesthat // bishops mitre really
 	name = "priest's hat"

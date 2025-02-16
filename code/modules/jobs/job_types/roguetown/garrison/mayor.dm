@@ -86,4 +86,4 @@
 	faction = "Station"
 	total_positions = 0
 	spawn_positions = 0
-	display_order = JDO_GARRISONGUARD
+	display_order = JDO_CITYWATCHMEN

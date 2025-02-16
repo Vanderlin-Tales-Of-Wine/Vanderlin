@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	tutorial = "Your eyes have seen true terror in The Crimson Valley Asylum- men ripping one another apart for\
-	their own entertainment. You now live in this town- a quiet peaceful place compared Asylum you used to guard."
+	their own entertainment. You now live in this town- where you have the job of assisting the City Watchmen. It's much more quiet here."
 	allowed_races = list( // They're from Crimson Valley Asylum- only a select of houses are in position of guard there.
 		"Humen",
 		"Dwarf",

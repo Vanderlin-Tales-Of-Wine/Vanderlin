@@ -250,7 +250,7 @@ SUBSYSTEM_DEF(migrants)
 	if(spawn_on_location)
 		character.forceMove(assignment.spawn_location)
 
-	if(role.grant_lit_torch)
+	if(role.grant_lit_torch==TRUE)
 		grant_lit_torch(character)
 
 	role.after_spawn(character)
