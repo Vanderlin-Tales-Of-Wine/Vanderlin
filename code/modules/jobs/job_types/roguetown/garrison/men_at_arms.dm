@@ -6,7 +6,13 @@
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	tutorial = "Like a hound on a leash, you stand vigilant for your masters. You live better than the rest of the taffers in this kingdom - infact, you take shifts manning the gate with your brethren, keeping the savages out, keeping the shit-covered knaves away from your foppish superiors. It will be a cold day in hell when you and your compatriots are slain, and nobody in this town will care. The nobility needs good men, and they only come in a pair of pairs."
+	tutorial = "Like a hound on a leash, you stand vigilant for your masters. \
+	You live better than the rest of the taffers in this kingdom-- \
+	infact, you take shifts manning the gate with your brethren, \
+	keeping the savages out, keeping the shit-covered knaves away from your foppish superiors. \
+	It will be a cold day in hell when you and your compatriots are slain, and nobody in this town will care. \
+	The nobility needs good men, and they only come in a pair of pairs."
+
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -41,7 +47,11 @@
 
 /datum/advclass/menatarms/watchman_ranger
 	name = "Archer Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. You are poor, and your belly is yet full. TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
 	outfit = /datum/outfit/job/roguetown/watchman/ranger
 
 	category_tags = list(CTAG_MENATARMS)
@@ -84,7 +94,12 @@
 
 /datum/advclass/menatarms/watchman_pikeman
 	name = "Pikeman Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. Now you get to stare at them in the eyes, watching as they bleed, exanguinated personally by one of the Monarch's best. You are poor, and your belly is yet full. TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you get to stare at them in the eyes, watching as they bleed, \
+	exanguinated personally by one of the Monarch's best. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
 	outfit = /datum/outfit/job/roguetown/watchman/pikeman
 
 	category_tags = list(CTAG_MENATARMS)
