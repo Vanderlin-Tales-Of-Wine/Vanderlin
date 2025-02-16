@@ -189,6 +189,7 @@ SUBSYSTEM_DEF(migrants)
 	return turfs
 
 /datum/controller/subsystem/migrants/proc/spawn_migrant(datum/migrant_wave/wave, datum/migrant_assignment/assignment, spawn_on_location)
+	//TODO
 	var/rank = "Migrant"
 	var/mob/dead/new_player/newplayer = assignment.client.mob
 	var/ckey = assignment.client.ckey

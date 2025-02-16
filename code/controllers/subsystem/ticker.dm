@@ -200,9 +200,9 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-#ifdef MATURESERVER
+				#ifdef MATURESERVER
 				send_tip_of_the_round()
-#endif
+				#endif
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -355,11 +355,6 @@ SUBSYSTEM_DEF(ticker)
 	can_continue = src.mode.pre_setup()		//Choose antagonists
 	CHECK_TICK
 
-//	if(istype(mode, /datum/game_mode/roguewar))
-//		unready_all()
-
-	CHECK_TICK
-
 	can_continue = can_continue && SSjob.DivideOccupations(mode.required_jobs) 				//Distribute jobs
 	CHECK_TICK
 
@@ -378,14 +373,6 @@ SUBSYSTEM_DEF(ticker)
 	log_game("GAME SETUP: Divide Occupations success")
 
 	CHECK_TICK
-//	if(hide_mode)
-//		var/list/modes = new
-//		for (var/datum/game_mode/M in runnable_modes)
-//			modes += M.name
-//		modes = sortList(modes)
-//		message_admins("<b>The gamemode is: secret!\nPossibilities:</B> [english_list(modes)]")
-//	else
-//		mode.announce()
 
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
@@ -557,10 +544,6 @@ SUBSYSTEM_DEF(ticker)
 		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
 			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
 		CHECK_TICK
-	// sortTim(valid_characters, GLOBAL_PROC_REF(cmp_assignedrole_dsc))
-	// for(var/mob/character as anything in valid_characters)
-	// 	var/mob/new_player = valid_characters[character]
-	// 	SSjob.EquipRank(new_player, character.mind.assigned_role, new_player.client)
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
 	var/list/livings = list()
