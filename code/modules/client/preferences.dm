@@ -703,9 +703,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "<b>Preferred Map:</b> <a href='?_src_=prefs;preference=preferred_map;task=input'>[p_map]</a><br>"
 
 			dat += "<b>Play Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'>[(toggles & SOUND_LOBBY) ? "Enabled":"Disabled"]</a><br>"
-*/
-
-
+			*/
 			dat += "</td><td width='300px' height='300px' valign='top'>"
 
 			dat += "<h2>Special Role Settings</h2>"
@@ -934,8 +932,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
 
 	else
-//		HTML += "<b>Choose class preferences</b><br>"
-//		HTML += "<div align='center'>Left-click to raise a class preference, right-click to lower it.<br></div>"
+		//HTML += "<b>Choose class preferences</b><br>"
+		//HTML += "<div align='center'>Left-click to raise a class preference, right-click to lower it.<br></div>"
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
 		if(joblessrole != RETURNTOLOBBY && joblessrole != BERANDOMJOB) // this is to catch those that used the previous definition and reset.
 			joblessrole = RETURNTOLOBBY
@@ -955,8 +953,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				continue
 
 			index += 1
-//			if((index >= limit) || (job.title in splitJobs))
-			if(index >= limit)
+			if(index >= limit) //|| (job.title in splitJobs))
 				width += widthPerColumn
 				if((index < limit) && (lastJob != null))
 					//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
@@ -1009,52 +1006,52 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			if(length(job.allowed_sexes) && !(user.client.prefs.gender in job.allowed_sexes))
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
-//			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
-//				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
-//				continue
-/*			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
+			/*
+			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
+				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
+				continue
+			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
 				HTML += "<b><span class='dark'><a href='?_src_=prefs;preference=job;task=tutorial;tut='[job.tutorial]''>[used_name]</a></span></b>"
 			else
-				HTML += "<span class='dark'><a href='?_src_=prefs;preference=job;task=tutorial;tut='[job.tutorial]''>[used_name]</a></span>"*/
+				HTML += "<span class='dark'><a href='?_src_=prefs;preference=job;task=tutorial;tut='[job.tutorial]''>[used_name]</a></span>"
+			*/
 
 			HTML += {"
+				<style>
 
-<style>
+					.tutorialhover {
+						position: relative;
+						display: inline-block;
+						border-bottom: 1px dotted black;
+					}
 
+					.tutorialhover .tutorial {
 
-.tutorialhover {
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black;
-}
+						visibility: hidden;
+						width: 280px;
+						background-color: black;
+						color: #e3c06f;
+						text-align: center;
+						border-radius: 6px;
+						padding: 5px 0;
 
-.tutorialhover .tutorial {
+						position: absolute;
+						z-index: 1;
+						top: 100%;
+						left: 50%;
+						margin-left: -140px;
+					}
 
-	visibility: hidden;
-	width: 280px;
-	background-color: black;
-	color: #e3c06f;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px 0;
+					.tutorialhover:hover .tutorial{
+						visibility: visible;
+					}
 
-	position: absolute;
-	z-index: 1;
-	top: 100%;
-	left: 50%;
-	margin-left: -140px;
-}
+				</style>
 
-.tutorialhover:hover .tutorial{
-	visibility: visible;
-}
-
-</style>
-
-<div class="tutorialhover">[used_name]</font>
-<span class="tutorial">[job.tutorial]<br>
-Slots: [job.spawn_positions]</span>
-</div>
+				<div class="tutorialhover">[used_name]</font>
+				<span class="tutorial">[job.tutorial]<br>
+				Slots: [job.spawn_positions]</span>
+				</div>
 
 			"}
 
@@ -1088,14 +1085,15 @@ Slots: [job.spawn_positions]</span>
 					prefLowerLevel = 1
 
 			HTML += "<a class='white' href='?_src_=prefs;preference=job;task=setJobLevel;level=[prefUpperLevel];text=[rank]' oncontextmenu='javascript:return setJobPrefRedirect([prefLowerLevel], \"[rank]\");'>"
-
-//			if(rank == SSjob.overflow_role)//Overflow is special
-//				if(job_preferences[SSjob.overflow_role] == JP_LOW)
-//					HTML += "<font color=green>Yes</font>"
-//				else
-//					HTML += "<font color=red>No</font>"
-//				HTML += "</a></td></tr>"
-//				continue
+			/*
+			if(rank == SSjob.overflow_role)//Overflow is special
+				if(job_preferences[SSjob.overflow_role] == JP_LOW)
+					HTML += "<font color=green>Yes</font>"
+				else
+					HTML += "<font color=red>No</font>"
+				HTML += "</a></td></tr>"
+				continue
+			*/
 
 			HTML += "<font color=[prefLevelColor]>[prefLevelLabel]</font>"
 			HTML += "</a></td></tr>"
@@ -1106,12 +1104,12 @@ Slots: [job.spawn_positions]</span>
 		HTML += "</td'></tr></table>"
 		HTML += "</center></table><br>"
 
-//		var/message = "Be an [SSjob.overflow_role] if preferences unavailable"
-//		if(joblessrole == BERANDOMJOB)
-//			message = "Get random job if preferences unavailable"
-//		else if(joblessrole == RETURNTOLOBBY)
-//			message = "Return to lobby if preferences unavailable"
-//		HTML += "<center><br><a href='?_src_=prefs;preference=job;task=random'>[message]</a></center>"
+		//var/message = "Be an [SSjob.overflow_role] if preferences unavailable"
+		//if(joblessrole == BERANDOMJOB)
+		//	message = "Get random job if preferences unavailable"
+		//else if(joblessrole == RETURNTOLOBBY)
+		//	message = "Return to lobby if preferences unavailable"
+		//HTML += "<center><br><a href='?_src_=prefs;preference=job;task=random'>[message]</a></center>"
 		if(user.client.prefs.lastclass)
 			HTML += "<center><a href='?_src_=prefs;preference=job;task=triumphthing'>PLAY AS [user.client.prefs.lastclass] AGAIN</a></center>"
 		else
@@ -1161,11 +1159,11 @@ Slots: [job.spawn_positions]</span>
 		if(1)
 			jpval = JP_HIGH
 
-//	if(role == SSjob.overflow_role)
-//		if(job_preferences[job.title] == JP_LOW)
-//			jpval = null
-//		else
-//			jpval = JP_LOW
+	//if(role == SSjob.overflow_role)
+	//	if(job_preferences[job.title] == JP_LOW)
+	//		jpval = null
+	//	else
+	//		jpval = JP_LOW
 
 	SetJobPreferenceLevel(job, jpval)
 	SetChoices(user)
@@ -1216,9 +1214,9 @@ Slots: [job.spawn_positions]</span>
 			var/datum/keybinding/kb = i
 			if(!length(user_binds[kb.name]))
 				dat += "<label>[kb.full_name]</label> <a href ='?_src_=prefs;preference=keybinds;task=keybindings_capture;keybinding=[kb.name];old_key=["Unbound"]'>Unbound</a>"
-//						var/list/default_keys = hotkeys ? kb.hotkey_keys : kb.classic_keys
-//						if(LAZYLEN(default_keys))
-//							dat += "| Default: [default_keys.Join(", ")]"
+			//	var/list/default_keys = hotkeys ? kb.hotkey_keys : kb.classic_keys
+			//	if(LAZYLEN(default_keys))
+			//		dat += "| Default: [default_keys.Join(", ")]"
 				dat += "<br>"
 			else
 				var/bound_key = user_binds[kb.name][1]
@@ -1635,7 +1633,7 @@ Slots: [job.spawn_positions]</span>
 					new_hairstyle = input(user, "Choose your character's hairstyle:", "Barber")  as null|anything in hairlist
 					if(new_hairstyle)
 						hairstyle = new_hairstyle
-/*
+				/*
 				if("next_hairstyle")
 					hairstyle = next_list_item(hairstyle, hairlist)
 
@@ -1646,7 +1644,7 @@ Slots: [job.spawn_positions]</span>
 					var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character Preference","#"+facial_hair_color) as color|null
 					if(new_facial)
 						facial_hair_color = sanitize_hexcolor(new_facial)
-*/
+				*/
 				if("facial_hairstyle")
 					var/list/spec_hair = pref_species.get_spec_facial_list(gender)
 					var/list/hairlist = list()
@@ -1695,10 +1693,10 @@ Slots: [job.spawn_positions]</span>
 					if(new_hairstyle)
 						accessory = new_hairstyle
 
-//				if("detail_color")
-//					var/new_underwear_color = input(user, "Choose your detail's color:", "Strange Ink") as color|null
-//					if(new_underwear_color)
-//						detail_color = new_underwear_color
+				//if("detail_color")
+				//	var/new_underwear_color = input(user, "Choose your detail's color:", "Strange Ink") as color|null
+				//	if(new_underwear_color)
+				//		detail_color = new_underwear_color
 
 				if("detail")
 					var/list/spec_detail = pref_species.get_spec_detail_list(gender)
@@ -1963,7 +1961,7 @@ Slots: [job.spawn_positions]</span>
 					else
 						setspouse = null
 				if("alignment")
-///					to_chat(user, "<font color='puple'>Alignment is how you communicate to the Game Masters if your character follows a certain set of behavior restrictions. This allows you to </font>")
+					//to_chat(user, "<font color='puple'>Alignment is how you communicate to the Game Masters if your character follows a certain set of behavior restrictions. This allows you to </font>")
 					var/new_alignment = input(user, "Alignment is how you communicate to the Game Masters and other players the intent of your character. Your character will be under less administrative scrutiny for evil actions if you choose evil alignments, but you will experience subtle disadvantages. Alignment is overwritten for antagonists.", "Alignment") as null|anything in ALL_ALIGNMENTS_LIST
 					if(new_alignment)
 						alignment = new_alignment
@@ -1974,7 +1972,8 @@ Slots: [job.spawn_positions]</span>
 					else
 						winset(user, null, "input.focus=true command=activeInput input.background-color=[COLOR_INPUT_DISABLED]  input.text-color = #ad9eb4")
 
-/*				if("keybindings_capture")
+				/*
+				if("keybindings_capture")
 					var/datum/keybinding/kb = GLOB.keybindings_by_name[href_list["keybinding"]]
 					var/old_key = href_list["old_key"]
 					CaptureKeybinding(user, kb, old_key)
@@ -2037,7 +2036,8 @@ Slots: [job.spawn_positions]</span>
 						return
 					hotkeys = (choice == "Do It")
 					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
-					user.client.update_movement_keys()*/
+					user.client.update_movement_keys()
+				*/
 				if("chat_on_map")
 					chat_on_map = !chat_on_map
 				if("see_chat_non_mob")
@@ -2268,11 +2268,11 @@ Slots: [job.spawn_positions]</span>
 
 	character.gender = gender
 	character.domhand = domhand
-//#ifdef MATURESERVER
-//	character.alignment = alignment
-//#else
-//	character.alignment = ALIGNMENT_TN
-//#endif
+	//#ifdef MATURESERVER
+	//character.alignment = alignment
+	//#else
+	//character.alignment = ALIGNMENT_TN
+	//#endif
 
 	character.eye_color = eye_color
 	character.voice_color = voice_color
