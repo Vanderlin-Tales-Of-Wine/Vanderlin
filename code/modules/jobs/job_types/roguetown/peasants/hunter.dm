@@ -1,8 +1,9 @@
 /datum/job/roguetown/hunter
 	title = "Hunter"
 	f_title = "Huntress"
-	tutorial = "Peasants that thrive on the woods, hunting creechers for pelt and hide, \
-				or the boons of Dendor for their meat to sell, or consume."
+	tutorial = "Silent and yet full of life, the forests of Dendor grant you both happiness and misery. \
+	In tales you've heard of small woodland creechers frolicking, now there is only the beastspawn of Graggar and Dendor... \
+	And yet you seek beasts small enough to skin, scalp, and sell. Take heed, lest you become a beast yourself."
 	faction = "Station"
 	allowed_sexes = list(MALE,FEMALE)
 	flag = HUNTER

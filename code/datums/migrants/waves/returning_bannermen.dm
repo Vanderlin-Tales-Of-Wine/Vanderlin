@@ -23,16 +23,17 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/sword/arming
+	beltl = /obj/item/storage/keyring/guard
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
@@ -53,7 +54,9 @@
 		H.change_stat("endurance", 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
+	H.verbs |= /mob/proc/haltyell
 
 /datum/migrant_role/archer_bannerman
 	name = "Bannermen Archer"
@@ -107,7 +110,7 @@
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
 /datum/migrant_role/crossbow_bannerman
-	name = "Bannermen Crossboman"
+	name = "Bannermen Crossbowman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/roguetown/crossbow_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
@@ -312,5 +315,5 @@
 	roles = list(
 		/datum/migrant_role/sergeant_at_arms = 1,
 	)
-	greet_text = "You were apart of an expedition sent by the King to Kingsfield, as it is done, you now return."
+	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 

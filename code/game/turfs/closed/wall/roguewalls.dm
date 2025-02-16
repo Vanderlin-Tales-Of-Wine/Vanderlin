@@ -230,6 +230,8 @@
 	explosion_block = 1
 
 /turf/closed/wall/mineral/rogue/wooddark/window/OnCrafted(dirin, mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+	add_abstract_elastic_data("crafting", "[name]", 1)
 	return
 
 /turf/closed/wall/mineral/rogue/wooddark/window/CanPass(atom/movable/mover, turf/target)

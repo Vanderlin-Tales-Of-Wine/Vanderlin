@@ -281,6 +281,7 @@
 	if(ismob(target))
 		var/mob/living/M = target
 		M.adjust_fire_stacks(6)
+		M.IgniteMob()
 //		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, my at about 65 damage if you stop drop and roll immediately
 	var/turf/T
 	if(isturf(target))
