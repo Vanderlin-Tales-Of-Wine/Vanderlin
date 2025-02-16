@@ -210,15 +210,15 @@
 	// Foragers can always detect if a berry is safe or poisoned
 	if(HAS_TRAIT(user, TRAIT_FORAGER))
 		if(poisonous)
-			. += "<span class='warning'>This berry looks suspicious. I sense it might be poisoned.</span>"
+			. += span_warning("This berry looks suspicious. I sense it might be poisoned.")
 		else
-			. += "<span class='notice'>This berry looks safe to eat.</span>"
+			. += span_notice("This berry looks safe to eat.")
 	// Non-Foragers with high farming skill can detect poisoned berries
 	else if(farminglvl >= 3)
 		if(poisonous)
-			. += "<span class='warning'>These berries appear to be poisonous.</span>"
+			. += span_warning("These berries appear to be poisonous.</span>")
 		else
-			. += "<span class='notice'>This berry looks safe to eat.</span>"
+			. += span_notice("This berry looks safe to eat.")
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
