@@ -515,12 +515,7 @@
 	var/jobtext = ""
 	if(ply.assigned_role)
 		jobtext = " the <b>[ply.assigned_role]</b>"
-	var/usede = ply.key
-	if(ply.key)
-		usede = ckey(ply.key)
-		if(ckey(ply.key) in GLOB.anonymize)
-//			if(check_whitelist(ckey(ply.key)))
-			usede = get_fake_key(ckey(ply.key))
+	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
 		if(ply.current.real_name != ply.name)

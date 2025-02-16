@@ -39,7 +39,8 @@
 
 	var/memory
 
-	var/assigned_role
+	/// Job datum indicating the mind's role. This should always exist after initialization, as a reference to a singleton.
+	var/datum/job/roguetown/assigned_role
 	var/special_role
 	var/list/restricted_roles = list()
 
@@ -109,6 +110,7 @@
 	src.key = key
 	soulOwner = src
 	martial_art = default_martial_art
+	set_assigned_role(SSjob.GetJobType(/datum/job/unassigned))
 	sleep_adv = new /datum/sleep_adv(src)
 
 /datum/mind/Destroy()
@@ -798,14 +800,16 @@
 			if(istype(O,objective_type))
 				return TRUE
 
+/// Setter for the assigned_role job datum.
+/datum/mind/proc/set_assigned_role(datum/job/new_role)
+	if(assigned_role == new_role)
+		return
+	. = assigned_role
+	assigned_role = new_role
+
 /mob/proc/sync_mind()
 	mind_initialize()	//updates the mind (or creates and initializes one if one doesn't exist)
-	mind.active = 1		//indicates that the mind is currently synced with a client
-
-/datum/mind/proc/has_martialart(string)
-	if(martial_art && martial_art.id == string)
-		return martial_art
-	return FALSE
+	mind.active = TRUE	//indicates that the mind is currently synced with a client
 
 /mob/dead/new_player/sync_mind()
 	return
@@ -828,12 +832,6 @@
 /mob/living/carbon/mind_initialize()
 	..()
 	last_mind = mind
-
-//HUMAN
-/mob/living/carbon/human/mind_initialize()
-	..()
-	if(!mind.assigned_role)
-		mind.assigned_role = "Unassigned" //default
 
 // Get a bonus multiplier dependant on age to apply to exp gains. Arg is a skill path.
 /datum/mind/proc/get_learning_boon(skill)

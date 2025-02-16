@@ -1632,11 +1632,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/doafter_flags = I.edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
 	return do_after(H, min((I.equip_delay_self - H.STASPD), 1), timed_action_flags = doafter_flags)
 
-/datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/// Equips the necessary species-relevant gear before putting on the rest of the uniform.
+/datum/species/proc/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	return
 
-/datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.update_mutant_bodyparts()
+/datum/species/proc/post_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	return
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.type == exotic_blood)

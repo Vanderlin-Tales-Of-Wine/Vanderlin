@@ -34,9 +34,7 @@
 		if(gender == MALE)
 			real_name = "Lord [real_name]"
 	mind.name = real_name
-	var/fakekey = ckey
-	if(ckey in GLOB.anonymize)
-		fakekey = get_fake_key(ckey)
+	var/fakekey = get_display_ckey(ckey)
 	GLOB.character_list[mobid] = "[fakekey] was [real_name] ([input])<BR>"
 	if(GLOB.character_ckey_list[old_name])
 		GLOB.character_ckey_list -= old_name

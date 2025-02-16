@@ -437,8 +437,7 @@ SUBSYSTEM_DEF(ticker)
 			explosion(epi, 0, 256, 512, 0, TRUE, TRUE, 0, TRUE)
 
 /datum/controller/subsystem/ticker/proc/create_characters()
-	for(var/i in GLOB.new_player_list)
-		var/mob/dead/new_player/player = i
+	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
 		if(!player)
 			message_admins("THERES A FUCKING NULL IN THE NEW_PLAYER_LIST, REPORT IT TO STONEKEEP DEVELOPMENT STAFF NOW!")
 			continue
@@ -447,7 +446,11 @@ SUBSYSTEM_DEF(ticker)
 			continue
 		if(player.ready == PLAYER_READY_TO_PLAY)
 			GLOB.joined_player_list += player.ckey
-			player.create_character(FALSE)
+			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
+			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
+				player.new_player_panel()
+				continue
+			player.create_character(destination)
 		else
 			player.new_player_panel()
 		CHECK_TICK
@@ -470,17 +473,27 @@ SUBSYSTEM_DEF(ticker)
 		CHECK_TICK
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	var/list/valid_characters = list()
-	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
-		var/mob/living/carbon/human/player = new_player.new_character
-		if(istype(player) && player.mind?.assigned_role)
-			if(player.mind.assigned_role != player.mind.special_role)
-				valid_characters[player] = new_player
-	sortTim(valid_characters, GLOBAL_PROC_REF(cmp_assignedrole_dsc))
-	for(var/mob/character as anything in valid_characters)
-		var/mob/new_player = valid_characters[character]
-		SSjob.EquipRank(new_player, character.mind.assigned_role, joined_late = FALSE)
+	for(var/mob/dead/new_player/new_player_mob as anything in GLOB.new_player_list)
+		if(!isliving(new_player_mob.new_character))
+			CHECK_TICK
+			continue
+		var/mob/living/carbon/human/new_player_living = new_player_mob.new_character
+		if(!new_player_living.mind || is_unassigned_job(new_player_living.mind.assigned_role))
+			CHECK_TICK
+			continue
+		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
+		// // replaced with job flags
+		// if(player_assigned_role != player.mind.special_role)
+		// 	valid_characters[player] = new_player_mob
+		if(ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits))
+			//nothing here, this gets compiled away, but quirks would go here
+		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
+			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
 		CHECK_TICK
+	// sortTim(valid_characters, GLOBAL_PROC_REF(cmp_assignedrole_dsc))
+	// for(var/mob/character as anything in valid_characters)
+	// 	var/mob/new_player = valid_characters[character]
+	// 	SSjob.EquipRank(new_player, character.mind.assigned_role, new_player.client)
 
 /datum/controller/subsystem/ticker/proc/transfer_characters()
 	var/list/livings = list()

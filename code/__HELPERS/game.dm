@@ -536,3 +536,32 @@ block( \
 		return FALSE
 
 	return pick(possible_loc)
+
+/// Assoc list of ckeys to fake names.
+/// Is not cleaned, but that shouldn't be an issue.
+GLOBAL_LIST_EMPTY(fake_ckeys)
+
+/// Returns this user's display ckey, used in OOC contexts.
+/proc/get_display_ckey(key)
+	if(!key || !istext(key))
+		return "some invalid"
+	var/ckey = ckey(key)
+
+	if(!(ckey in GLOB.anonymize))
+		return ckey
+	if(GLOB.fake_ckeys[ckey])
+		return GLOB.fake_ckeys[ckey]
+
+	//Generating a new one instead
+	var/valid_name
+	do
+		var/name_attempt = "[capitalize(pick(GLOB.first_names))] [pick(GLOB.ooctitle)]"
+		for(var/X in GLOB.fake_ckeys)
+			if(GLOB.fake_ckeys[X] == name_attempt)
+				continue
+
+		valid_name = name_attempt
+	while(!valid_name)
+
+	GLOB.fake_ckeys[ckey] = valid_name
+	return valid_name

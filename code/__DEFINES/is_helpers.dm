@@ -147,3 +147,7 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	/obj/item/reagent_containers/food/snacks/produce/onion,
 	/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
 	)))
+
+// Jobs
+#define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
+#define is_assistant_job(job_type) (istype(job_type, /datum/job/assistant))

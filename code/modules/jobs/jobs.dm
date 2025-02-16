@@ -131,7 +131,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 GLOBAL_LIST_INIT(exp_specialmap, list(
 	EXP_TYPE_LIVING = list(), // all living mobs
 	EXP_TYPE_ANTAG = list(),
-	EXP_TYPE_GHOST = list() // dead people, observers
+	EXP_TYPE_GHOST = list(), // dead people, observers
 ))
 GLOBAL_PROTECT(exp_jobsmap)
 GLOBAL_PROTECT(exp_specialmap)
@@ -143,6 +143,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!job_title)
 		return list()
 
-	for(var/datum/job/J in SSjob.occupations)
-		if(J.title == job_title)
-			return J.department_head //this is a list
+	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+		if(job.title == job_title)
+			return job.department_head //this is a list

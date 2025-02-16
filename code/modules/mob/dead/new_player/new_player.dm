@@ -2,37 +2,25 @@
 GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json"))
 
 /mob/dead/new_player
-	var/ready = 0
-	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
-	var/topjob = "Hero!"
 	flags_1 = NONE
-
 	invisibility = INVISIBILITY_ABSTRACT
-
-//	hud_type = /datum/hud/new_player
-
 	density = FALSE
 	stat = DEAD
 	hud_possible = list()
 
-	var/mob/living/new_character	//for instant transfer once the round is set up
-
-	//Used to make sure someone doesn't get spammed with messages if they're ineligible for roles
+	var/ready = FALSE
+	/// Referenced when you want to delete the new_player later on in the code.
+	var/spawning = FALSE
+	/// For instant transfer once the round is set up
+	var/mob/living/new_character
+	/// Used to make sure someone doesn't get spammed with messages if they're ineligible for roles
 	var/ineligible_for_roles = FALSE
 
-	var/brohand
-
 /mob/dead/new_player/Initialize()
-//	if(client && SSticker.state == GAME_STATE_STARTUP)
-//		var/atom/movable/screen/splash/S = new(client, TRUE, TRUE)
-//		S.Fade(TRUE)
-
 	if(length(GLOB.newplayer_start))
 		forceMove(pick(GLOB.newplayer_start))
 	else
 		forceMove(locate(1,1,1))
-
-	ComponentInitialize()
 
 	. = ..()
 
@@ -41,7 +29,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/Destroy()
 	GLOB.new_player_list -= src
 	return ..()
-
 
 ///Say verb
 /mob/dead/new_player/say_verb(message as text)
@@ -98,15 +85,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	if(href_list["show_keybinds"])
 		client.prefs.ShowChoices(src, 3)
-		return 1
-
-	if(href_list["sethand"])
-		if(brohand == href_list["sethand"])
-			brohand = null
-			to_chat(src, "<span class='boldwarning'>Your Hand is REJECTED, sire.</span>")
-			return 1
-		brohand = href_list["sethand"]
-		to_chat(src, "<span class='boldnotice'>Your Hand is selected, sire.</span>")
 		return 1
 
 	if(href_list["ready"])
@@ -298,44 +276,45 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 //used for latejoining
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
+	var/datum/job/job = SSjob.GetJob(rank)
+	//TODO: This fucking sucks.
 	if(has_world_trait(/datum/world_trait/skeleton_siege))
-		if(rank != "Skeleton")
+		if(is_skeleton_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 		else
 			return JOB_AVAILABLE
 	else
-		if(rank == "Skeleton")
+		if(is_skeleton_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 
 	if(has_world_trait(/datum/world_trait/goblin_siege))
-		if(rank != "Goblin")
+		if(is_goblin_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 		else
 			return JOB_AVAILABLE
 	else
-		if(rank == "Goblin")
+		if(is_goblin_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 
 	if(has_world_trait(/datum/world_trait/rousman_siege))
-		if(rank != "Rousman")
+		if(is_rousman_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 		else
 			return JOB_AVAILABLE
 	else
-		if(rank == "Rousman")
+		if(is_rousman_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 
 	if(has_world_trait(/datum/world_trait/death_knight))
-		if(rank != "Death Knight")
+		if(is_deathknight_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 		else
 			return JOB_AVAILABLE
 	else
-		if(rank == "Death Knight")
+		if(is_deathknight_job(job))
 			return JOB_UNAVAILABLE_GENERIC
 
-	var/datum/job/job = SSjob.GetJob(rank)
-	if(!job)
+	if(!(job.job_flags & JOB_NEW_PLAYER_JOINABLE))
 		return JOB_UNAVAILABLE_GENERIC
 	// Check if the player is on cooldown for the hiv+ role
 	if((job.same_job_respawn_delay) && (ckey in GLOB.job_respawn_delays))
@@ -343,18 +322,14 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			return JOB_UNAVAILABLE_JOB_COOLDOWN
 
 	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
-		if(job.title == "Assistant")
+		if(is_assistant_job(job))
 			if(isnum(client.player_age) && client.player_age <= 14) //Newbies can always be assistants
 				return JOB_AVAILABLE
-			for(var/datum/job/J in SSjob.occupations)
-				if(J && J.current_positions < J.total_positions && J.title != job.title)
+			for(var/datum/job/other_job as anything in SSjob.joinable_occupations)
+				if(other_job.current_positions < other_job.total_positions && other_job != job)
 					return JOB_UNAVAILABLE_SLOTFULL
 		else
 			return JOB_UNAVAILABLE_SLOTFULL
-//	if(job.title == "Adventurer" && latejoin)
-//		for(var/datum/job/J in SSjob.occupations)
-//			if(J && J.total_positions && J.current_positions < 1 && J.title != job.title && (IsJobUnavailable(J.title))
-//				return JOB_UNAVAILABLE_GENERIC //we can't play adventurer if there isn't 1 of every other job that we can play
 	if(is_banned_from(ckey, rank))
 		return JOB_UNAVAILABLE_BANNED
 	if(CONFIG_GET(flag/usewhitelist))
@@ -397,7 +372,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
-		to_chat(src, "<span class='warning'>[get_job_unavailable_error_message(error, rank)]</span>")
+		alert(src, span_boldwarning(get_job_unavailable_error_message(error, rank)))
 		return FALSE
 
 	if(SSticker.late_join_disabled)
@@ -411,52 +386,36 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	SSticker.queued_players -= src
 	SSticker.queue_delay = 4
 
-	testing("basedtest 1")
-
-	SSjob.AssignRole(src, rank, 1)
-	testing("basedtest 2")
-	var/mob/living/character = create_character(TRUE)	//creates the human and transfers vars and mind
-	testing("basedtest 3")
-	character.islatejoin = TRUE
-	var/equip = SSjob.EquipRank(character, rank, TRUE)
-	testing("basedtest 4")
-
-	if(isliving(equip))	//Borgs get borged in the equip, so we need to make sure we handle the new mob.
-		character = equip
-
 	var/datum/job/job = SSjob.GetJob(rank)
-	testing("basedtest 5")
 
-	if(job && !job.override_latejoin_spawn(character))
-		testing("basedtest 6")
-		SSjob.SendToLateJoin(character)
-		testing("basedtest 7")
-//		if(!arrivals_docked)
-		var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
-		Spl.Fade(TRUE)
-//			character.playsound_local(get_turf(character), 'sound/blank.ogg', 25)
+	SSjob.AssignRole(src, job, 1)
 
+	mind.late_joiner = TRUE
 
+	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
+	if(!destination)
+		CRASH("Failed to find a latejoin spawn point.")
+	var/mob/living/character = create_character(destination)
+	character.islatejoin = TRUE
+	if(!character)
+		CRASH("Failed to create a character for latejoin.")
+	transfer_character()
+
+	SSjob.EquipRank(character, job, TRUE)
 	SSticker.minds += character.mind
-
 	var/mob/living/carbon/human/humanc
 	if(ishuman(character))
 		humanc = character	//Let's retypecast the var to be human,
-	GLOB.joined_player_list += character.ckey
+
 	if(humanc)
-		var/fakekey = character.ckey
-		if(character.ckey in GLOB.anonymize)
-			fakekey = get_fake_key(character.ckey)
-		GLOB.character_list[character.mobid] = "[fakekey] was [character.real_name] ([rank])<BR>"
+		var/fakekey = get_display_ckey(character.ckey)
+		GLOB.character_list[character.mobid] = "[fakekey] was [character.real_name] ([job.title])<BR>"
 		GLOB.character_ckey_list[character.real_name] = character.ckey
-		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [rank]")
-	if(GLOB.respawncounts[character.ckey])
-		var/AN = GLOB.respawncounts[character.ckey]
-		AN++
-		GLOB.respawncounts[character.ckey] = AN
-	else
-		GLOB.respawncounts[character.ckey] = 1
-//	add_roundplayed(character.ckey)
+		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [job.title]")
+
+	GLOB.joined_player_list += character.ckey
+	GLOB.respawncounts[character.ckey] += 1
+
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 
 
@@ -567,34 +526,37 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	popup.set_content(jointext(dat, ""))
 	popup.open(FALSE) // 0 is passed to open so that it doesn't use the onclose() proc
 
-/mob/dead/new_player/proc/create_character(transfer_after)
-	spawning = 1
+/// Creates, assigns and returns the new_character to spawn as. Assumes a valid mind.assigned_role exists.
+/mob/dead/new_player/proc/create_character(atom/destination)
+	spawning = TRUE
 	close_spawn_windows()
 
-	var/mob/living/carbon/human/H = new(loc)
+	mind.active = FALSE
+	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)
+	if(QDELETED(src) || !client)
+		return // Disconnected while checking for the appearance ban.
 
 	var/is_antag
 	if(mind in GLOB.pre_setup_antags)
 		is_antag = TRUE
 
-	client.prefs.copy_to(H, antagonist = is_antag)
-	H.dna.update_dna_identity()
-	if(mind)
-		if(transfer_after)
-			mind.late_joiner = TRUE
-		mind.active = 0					//we wish to transfer the key manually
-		mind.transfer_to(H)					//won't transfer key since the mind is not active
+	client.prefs.copy_to(spawning_mob, antagonist = is_antag)
+	//spawning_mob.dna.update_dna_identity()
+	// if(mind)
+	// 	if(transfer_after)
+	// 		mind.late_joiner = TRUE
+	// 	mind.active = 0					//we wish to transfer the key manually
+	// 	mind.transfer_to(H)					//won't transfer key since the mind is not active
 
-	H.name = real_name
+	spawning_mob.name = real_name
 
-	. = H
-	new_character = .
+	new_character = . = spawning_mob
 
-	H.after_creation()
+	spawning_mob.after_creation()
 
-	if(transfer_after)
-		transfer_character()
-	GLOB.chosen_names += H.real_name
+	// if(transfer_after)
+	// 	transfer_character()
+	GLOB.chosen_names += spawning_mob.real_name
 
 
 /mob/proc/after_creation()
@@ -607,14 +569,15 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 /mob/dead/new_player/proc/transfer_character()
 	. = new_character
-	if(.)
-		new_character.key = key		//Manually transfer the key to log them in
-		new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
-		var/area/joined_area = get_area(new_character.loc)
-		if(joined_area)
-			joined_area.on_joining_game(new_character)
-		new_character = null
-		qdel(src)
+	if(!.)
+		return
+	new_character.key = key		//Manually transfer the key to log them in
+	new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+	var/area/joined_area = get_area(new_character.loc)
+	if(joined_area)
+		joined_area.on_joining_game(new_character)
+	new_character = null
+	qdel(src)
 
 
 /mob/dead/new_player/Move()
@@ -634,6 +597,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	winshow(src, "stonekeep_prefwin", FALSE)
 	src << browse(null, "window=preferences_browser")
 	src << browse(null, "window=lobby_window")
+
 // Used to make sure that a player has a valid job preference setup, used to knock players out of eligibility for anything if their prefs don't make sense.
 // A "valid job preference setup" in this situation means at least having one job set to low, or not having "return to lobby" enabled
 // Prevents "antag rolling" by setting antag prefs on, all jobs to never, and "return to lobby if preferences not availible"

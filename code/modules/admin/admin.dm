@@ -598,7 +598,7 @@
 
 	dat += "<table>"
 
-	for(var/j in SSjob.occupations)
+	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
 		count++
 		var/J_title = html_encode(job.title)
