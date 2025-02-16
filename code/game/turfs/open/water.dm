@@ -494,17 +494,23 @@
 /turf/open/water/sewer/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
-		if(!prob(3))
+		var/mob/living/living = AM
+		var/chance = 3
+		if(living.m_intent == MOVE_INTENT_RUN)
+			chance *= 2
+		else if(living.m_intent == MOVE_INTENT_SNEAK)
+			chance /= 2
+		if(!prob(chance))
 			return
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
-			if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// 	return
+			if(C.blood_volume <= 0)
 				return
-			if(C.blood_volume < 10)
-				return
-			var/zonee = list(BODY_ZONE_R_LEG,BODY_ZONE_L_LEG)
-			for(var/X in zonee)
-				var/obj/item/bodypart/BP = C.get_bodypart(X)
+			var/list/zonee = list(BODY_ZONE_R_LEG,BODY_ZONE_L_LEG)
+			for(var/i = 1, i <= zonee.len, i++)
+				var/obj/item/bodypart/BP = C.get_bodypart(pick_n_take(zonee))
 				if(!BP)
 					continue
 				if(BP.skeletonized)
@@ -538,17 +544,23 @@
 /turf/open/water/swamp/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
-		if(!prob(3))
+		var/mob/living/living = AM
+		var/chance = 3
+		if(living.m_intent == MOVE_INTENT_RUN)
+			chance *= 2
+		else if(living.m_intent == MOVE_INTENT_SNEAK)
+			chance /= 2
+		if(!prob(chance))
 			return
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
-			if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// 	return
+			if(C.blood_volume <= 0)
 				return
-			if(C.blood_volume < 10)
-				return
-			var/zonee = list(BODY_ZONE_R_LEG,BODY_ZONE_L_LEG)
-			for(var/X in zonee)
-				var/obj/item/bodypart/BP = C.get_bodypart(X)
+			var/list/zonee = list(BODY_ZONE_R_LEG,BODY_ZONE_L_LEG)
+			for(var/i = 1, i <= zonee.len, i++)
+				var/obj/item/bodypart/BP = C.get_bodypart(pick_n_take(zonee))
 				if(!BP)
 					continue
 				if(BP.skeletonized)
@@ -568,17 +580,23 @@
 /turf/open/water/swamp/deep/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	if(isliving(AM) && !AM.throwing)
-		if(!prob(8))
+		var/mob/living/living = AM
+		var/chance = 8
+		if(living.m_intent == MOVE_INTENT_RUN)
+			chance *= 2
+		else if(living.m_intent == MOVE_INTENT_SNEAK)
+			chance /= 2
+		if(!prob(chance))
 			return
 		if(iscarbon(AM))
 			var/mob/living/carbon/C = AM
-			if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+			// 	return
+			if(C.blood_volume <= 0)
 				return
-			if(C.blood_volume < 10)
-				return
-			var/zonee = list(BODY_ZONE_CHEST,BODY_ZONE_R_LEG,BODY_ZONE_L_LEG,BODY_ZONE_R_ARM,BODY_ZONE_L_ARM)
-			for(var/X in zonee)
-				var/obj/item/bodypart/BP = C.get_bodypart(X)
+			var/list/zonee = list(BODY_ZONE_CHEST,BODY_ZONE_R_LEG,BODY_ZONE_L_LEG,BODY_ZONE_R_ARM,BODY_ZONE_L_ARM)
+			for(var/i = 1, i <= zonee.len, i++)
+				var/obj/item/bodypart/BP = C.get_bodypart(pick_n_take(zonee))
 				if(!BP)
 					continue
 				if(BP.skeletonized)

@@ -23,6 +23,7 @@
 	max_integrity = 10
 	force = 10
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
@@ -156,6 +157,7 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -418,6 +420,7 @@
 	dropshrink = 0.9
 	max_integrity = 10
 	force = 10
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/dart
 	name = "dart"

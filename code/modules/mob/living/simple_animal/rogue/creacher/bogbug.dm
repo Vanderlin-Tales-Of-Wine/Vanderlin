@@ -15,10 +15,10 @@
 	vision_range = 9
 	aggro_vision_range = 9
 
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider= 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider= 1,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange= 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange= 1,
 						/obj/item/natural/hide = 1)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 2,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/strange = 2,
 						/obj/item/natural/hide = 2)
 
 	health = BOGBUG_HEALTH

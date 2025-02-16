@@ -212,7 +212,7 @@
 
 
 
-/obj/structure/wallladder/OnCrafted(dirin)
+/obj/structure/wallladder/OnCrafted(dirin, mob/user)
 	dir = dirin
 	layer = BELOW_MOB_LAYER
 	switch(dir)

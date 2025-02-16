@@ -41,7 +41,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 		if(/datum/patron/divine/necra)
@@ -50,8 +50,8 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 		if(/datum/patron/divine/pestra)
-			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+			neck = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/pestrahelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/eora)
@@ -63,12 +63,12 @@
 			H.virginity = FALSE
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/ravox
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/ravox
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/abyssor)

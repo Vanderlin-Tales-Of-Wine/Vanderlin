@@ -1,6 +1,7 @@
 /datum/anvil_recipe/tools
 	i_type = "Utilities"
 	craftdiff = 1
+	abstract_type = /datum/anvil_recipe/tools
 
 /datum/anvil_recipe/tools/blankeys
 	name = "5x Blank Custom Keys"
@@ -250,10 +251,22 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/pote
-	name = "Iron pot"
+	name = "Cooking pot (iron)"
 	recipe_name = "a cooking pot"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/reagent_containers/glass/bucket/pot
+	craftdiff = 1
+
+/datum/anvil_recipe/tools/pote/copper
+	name = "Cooking pot (copper)"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/reagent_containers/glass/bucket/pot/copper
+
+/datum/anvil_recipe/tools/platter
+	name = "Platter (copper)"
+	recipe_name = "a platter"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/kitchen/platter/copper
 	craftdiff = 1
 
 /datum/anvil_recipe/tools/hoe/copper

@@ -253,6 +253,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
+	var/user_dir = user.dir
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -287,6 +288,7 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
+			|| (!(timed_action_flags & IGNORE_USER_DIR_CHANGE) && user.dir != user_dir) \
 			|| (extra_checks && !extra_checks.Invoke()))
 			. = FALSE
 			break

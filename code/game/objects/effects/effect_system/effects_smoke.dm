@@ -260,6 +260,16 @@
 	opacity = FALSE
 	lifetime = 3
 
+//Same as the base type, but the smoke produced is not opaque
+/datum/effect_system/smoke_spread/chem/transparent
+	effect_type = /obj/effect/particle_effect/smoke/chem/transparent
+
+/obj/effect/particle_effect/smoke/chem/transparent
+	opaque = FALSE
+	alpha = 50
+	opacity = FALSE
+	lifetime = 3
+
 /proc/do_smoke(range=0, location=null, smoke_type=/obj/effect/particle_effect/smoke)
 	var/datum/effect_system/smoke_spread/smoke = new
 	smoke.effect_type = smoke_type

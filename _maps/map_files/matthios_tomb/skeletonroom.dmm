@@ -264,7 +264,7 @@
 /area/rogue)
 "TG" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/food/snacks/rogue/raisinbread_poison,
+/obj/item/reagent_containers/food/snacks/bread/raisin_poison,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "UK" = (
