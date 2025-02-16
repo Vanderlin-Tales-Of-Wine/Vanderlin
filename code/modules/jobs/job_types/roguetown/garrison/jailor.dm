@@ -6,7 +6,9 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum - men, ripping apart one another for their own entertainment - not for sport, not for sadism, for blood. You now live in this kingdom - a quiet peaceful place compared to the Asylum you once warded, having once kept bloodthirsty churls locked in the dark."
+	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum - men, ripping apart one another for \
+	their own entertainment - not for sport, not for sadism, for blood. You now live in this kingdom - a quiet peaceful place \
+	compared to the Asylum you once warded, having once kept bloodthirsty churls locked in the dark."
 	allowed_races = list( // They're from Crimson Valley Asylum- only a select of houses are in position of guard there.
 		"Humen",
 		"Dwarf",
