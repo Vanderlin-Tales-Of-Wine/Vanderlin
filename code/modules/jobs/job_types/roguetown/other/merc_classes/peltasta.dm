@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/peltasta
 	name = "Peltasta"
-	tutorial = "Traveling light, carrying a shield and spear, you've floated around from towns past, to eventually become a merenary for hire.dsa"
+	tutorial = "Traveling light, carrying a shield and spear, you've floated around from towns past, to eventually become a merenary for hire"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Aasimar")
 	outfit = /datum/outfit/job/roguetown/mercenary/peltasta
