@@ -11,6 +11,7 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
+		"Aasimar",
 		"Dwarf"
 	)
 	allowed_sexes = list(MALE, FEMALE)
@@ -150,6 +151,8 @@
 		recruit.say(accept_message, forced = "[name]")
 	if(new_role)
 		recruit.job = new_role
+		recruit.advjob = new_role
+		recruit.migrant_type = null
 	return TRUE
 
 /obj/effect/proc_holder/spell/self/convertrole/guard

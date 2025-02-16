@@ -53,7 +53,7 @@
 			for(var/listed_item in item)
 				if(!istype(attacking_item, listed_item))
 					continue
-				if(!do_after(user, short_cooktime, target = hosted_source))
+				if(!do_after(user, short_cooktime, hosted_source))
 					return
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 				requirements[item]--
@@ -65,7 +65,7 @@
 				break
 
 		if(istype(attacking_item, item))
-			if(!do_after(user, short_cooktime, target = hosted_source))
+			if(!do_after(user, short_cooktime, hosted_source))
 				return
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			requirements[item]--

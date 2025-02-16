@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		return
 
 	usr.visible_message("[usr] starts tinkering with [over], rewiring it.", "You start tinkering with [over], rewiring it.")
-	if(!do_after(usr, 10 SECONDS, target = over))
+	if(!do_after(usr, 10 SECONDS, over))
 		return
 
 	if(!redstone_id)
@@ -68,10 +68,10 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(isliving(user))
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
-		var/used_time = 100 - (L.STASTR * 10)
+		var/used_time = 10 SECONDS - (L.STASTR * 1 SECONDS)
 		user.visible_message("<span class='warning'>[user] pulls the lever.</span>")
 		log_game("[key_name(user)] pulled the lever with redstone id \"[redstone_id]\"")
-		if(do_after(user, used_time, target = user))
+		if(do_after(user, used_time))
 			for(var/obj/structure/O in redstone_attached)
 				spawn(0) O.redstone_triggered(user)
 			toggled = !toggled

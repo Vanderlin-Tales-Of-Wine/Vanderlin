@@ -388,13 +388,13 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					var/obj/structure/meathook/hook = buckled
 					hook.butchery(user, src)
 					return
-				var/used_time = 210
+				var/used_time = 21 SECONDS
 				if(user.mind)
-					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 30)
+					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
 				visible_message("[user] begins to butcher [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				var/amt2raise = user.STAINT // this is due to the fact that butchering is not as spammable as training a sword because you cant just spam click
-				if(do_after(user, used_time, target = src))
+				if(do_after(user, used_time, src))
 					user.mind.add_sleep_experience(/datum/skill/labor/butchering, amt2raise * boon, FALSE)
 					butcher(user)
 	..()
@@ -520,9 +520,9 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/handle_fire()
 	. = ..()
-	if(fire_stacks > 0)
+	if(fire_stacks + divine_fire_stacks > 0)
 		apply_damage(5, BURN)
-		if(fire_stacks > 5)
+		if(fire_stacks + divine_fire_stacks > 5)
 			apply_damage(10, BURN)
 
 //mob/living/simple_animal/IgniteMob()
@@ -734,7 +734,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			time2mount = 40
 	if(ssaddle)
 		playsound(src, 'sound/foley/saddledismount.ogg', 100, TRUE)
-	if(!move_after(M,time2mount, target = src))
+	if(!do_after(M, time2mount, src, (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE)))
 		if(amt < 3) // Skilled prevents you from fumbling
 			M.Paralyze(50)
 			M.Stun(50)
@@ -763,7 +763,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			else
 				time2mount = 50
 
-		if(!move_after(M,time2mount, target = src))
+		if(!do_after(M, time2mount, src))
 			return
 		if(user.incapacitated())
 			return
@@ -929,7 +929,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		to_chat(user, span_warning("The udder is dry. Wait a bit longer..."))
 		user.changeNext_move(10)
 		return
-	if(do_after(user, 1 SECONDS, target = src))
+	if(do_after(user, 1 SECONDS, src))
 		reagents.trans_to(O, rand(5,10))
 		user.visible_message(span_notice("[user] milks [src] using \the [O]"))
 		playsound(O, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 100, TRUE, -1)

@@ -225,7 +225,6 @@
 	smeltresult = /obj/item/ingot/iron
 	grid_width = 32
 	grid_height = 96
-	tool_behaviour = TOOL_IMPROVISED_HEMOSTAT
 
 /obj/item/rogueweapon/tongs/examine(mob/user)
 	. = ..()
@@ -258,21 +257,26 @@
 		hott = 0
 	update_icon()
 
-/obj/item/rogueweapon/tongs/attack_self(mob/user)
-	if(hingot)
-		if(isturf(user.loc))
-			hingot.forceMove(get_turf(user))
-			hingot = null
-			hott = 0
-			update_icon()
-
-/obj/item/rogueweapon/tongs/dropped()
-	. = ..()
-	if(hingot)
-		hingot.forceMove(get_turf(src))
+///Places the ingot on the atom, this can be either a turf or a table
+/obj/item/rogueweapon/tongs/proc/place_ingot_to_atom(atom/A, mob/user)
+	if(hingot && (isturf(A) || istype(A, /obj/structure/table)))
+		hingot.forceMove(get_turf(A))
 		hingot = null
-	hott = 0
-	update_icon()
+		hott = 0
+		update_icon()
+	else if(hingot)
+		to_chat(user, "<span class='warning'>Cannot place ingot there!</span>")
+
+/obj/item/rogueweapon/tongs/attack_self(mob/user)
+	place_ingot_to_atom(get_turf(user), user)
+
+/obj/item/rogueweapon/tongs/dropped(mob/user)
+	. = ..()
+	place_ingot_to_atom(get_turf(src), user)
+
+/obj/item/rogueweapon/tongs/pre_attack_right(atom/A, mob/living/user, params)
+	. = ..()
+	place_ingot_to_atom(get_turf(A), user)
 
 /obj/item/rogueweapon/tongs/getonmobprop(tag)
 	. = ..()
@@ -283,3 +287,20 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/rogueweapon/tongs/stone
+	name = "stone tongs"
+	icon_state = "stonetongs"
+	force = 3
+	smeltresult = null
+	anvilrepair = null
+	max_integrity = 20
+
+/obj/item/rogueweapon/tongs/stone/update_icon()
+	. = ..()
+	if(!hingot)
+		icon_state = "stonetongs"
+	else
+		if(hott)
+			icon_state = "stonetongsi1"
+		else
+			icon_state = "stonetongsi0"

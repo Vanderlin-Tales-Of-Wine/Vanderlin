@@ -181,7 +181,7 @@
 			RightClickOn(A, params)
 			return
 
-	if(incapacitated(ignore_restraints = 1))
+	if(incapacitated(ignore_restraints = TRUE))
 		return
 
 	if(!atkswinging)
@@ -403,7 +403,7 @@
 				var/mob/user = src
 				if(user.used_intent)
 					usedreach = user.used_intent.reach
-			if(isturf(target) || isturf(target.loc) || (target in direct_access)) //Directly accessible atoms
+			if(isturf(target) || isturf(target.loc) || (target in direct_access) || (ismovable(target) && target.flags_1 & IS_ONTOP_1)) //Directly accessible atoms
 				if(Adjacent(target) || (tool && CheckToolReach(src, target, usedreach))) //Adjacent or reaching attacks
 					return TRUE
 
@@ -440,8 +440,9 @@
 		if(1)
 			return FALSE //here.Adjacent(there)
 		if(2 to INFINITY)
-			var/obj/dummy = new(get_turf(here))
+			var/obj/effect/dummy = new(get_turf(here))
 			dummy.pass_flags |= PASSTABLE
+			dummy.movement_type = FLYING
 			dummy.invisibility = INVISIBILITY_ABSTRACT
 			for(var/i in 1 to reach) //Limit it to that many tries
 				var/turf/T = get_step(dummy, get_dir(dummy, there))

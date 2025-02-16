@@ -1848,7 +1848,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Ag" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/item/clothing/head/roguetown/helmet/heavy/malumhelm,
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Aq" = (
@@ -2384,7 +2384,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "HI" = (
 /obj/item/storage/roguebag,
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked{
+/obj/item/reagent_containers/food/snacks/potato_baked{
 	pixel_x = -6
 	},
 /obj/structure/table/wood/plain_alt,
@@ -2660,11 +2660,11 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Lr" = (
 /obj/structure/rack/rogue/shelf/big,
-/obj/item/cooking/platter,
-/obj/item/cooking/platter,
+/obj/item/kitchen/platter,
+/obj/item/kitchen/platter,
 /obj/item/rogueweapon/knife/villager,
-/obj/item/kitchen/ironfork,
-/obj/item/kitchen/ironfork,
+/obj/item/kitchen/fork/iron,
+/obj/item/kitchen/fork/iron,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon)
 "Lt" = (

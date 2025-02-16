@@ -73,7 +73,7 @@
 	dir = pick(GLOB.cardinals)
 	. = ..()
 
-/turf/open/floor/rogue/twig/OnCrafted(dirin)
+/turf/open/floor/rogue/twig/OnCrafted(dirin, mob/user)
 	. = ..()
 	dir = dirin
 
@@ -171,9 +171,6 @@
 	neighborlay = "grassedge"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
-						/turf/open/floor/rogue/grass/red,
-						/turf/open/floor/rogue/grass/yel,
-						/turf/open/floor/rogue/grass/cold,
 						/turf/open/floor/rogue/snow,
 						/turf/open/floor/rogue/snow/patchy,
 						/turf/open/floor/rogue/snow/rough)
@@ -184,74 +181,43 @@
 //	GLOB.dirt_list += src
 	. = ..()
 
+/turf/open/floor/rogue/grass/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
+
 /turf/open/floor/rogue/grass/turf_destruction(damage_flag)
 	. = ..()
 	ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
 
-
+/turf/open/floor/rogue/grass/mixyel
+	icon_state = "grass_yelmix"
+	neighborlay = "grass_yelmixedge"
+	canSmoothWith = list(/turf/open/floor/rogue/grass,
+	/turf/open/floor/rogue/snow)
 
 /turf/open/floor/rogue/grass/red
 	name = "red grass"
 	desc = "Grass, ripe with Dendor's blood."
 	icon_state = "grass_red"
-	layer = MID_TURF_LAYER
-	footstep = FOOTSTEP_GRASS
-	barefootstep = FOOTSTEP_SOFT_BAREFOOT
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
-	landsound = 'sound/foley/jumpland/grassland.wav'
-	slowdown = 0
 	neighborlay = "grass_rededge"
-	smooth = SMOOTH_TRUE
-
-/turf/open/floor/rogue/grassred/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
-
-/turf/open/floor/rogue/grassred/cardinal_smooth(adjacencies)
-	roguesmooth(adjacencies)
+	canSmoothWith = list(/turf/open/floor/rogue/grass,
+	/turf/open/floor/rogue/snow)
 
 /turf/open/floor/rogue/grass/yel
 	name = "yellow grass"
 	desc = "Grass, blessed by Astrata's light."
 	icon_state = "grass_yel"
-	layer = MID_TURF_LAYER
-	footstep = FOOTSTEP_GRASS
-	barefootstep = FOOTSTEP_SOFT_BAREFOOT
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
-	landsound = 'sound/foley/jumpland/grassland.wav'
-	slowdown = 0
 	neighborlay = "grass_yeledge"
-	smooth = SMOOTH_TRUE
-
-/turf/open/floor/rogue/grassyel/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
-
-/turf/open/floor/rogue/grassyel/cardinal_smooth(adjacencies)
-	roguesmooth(adjacencies)
+	canSmoothWith = list(/turf/open/floor/rogue/grass,
+	/turf/open/floor/rogue/snow)
 
 /turf/open/floor/rogue/grass/cold
 	name = "tundra grass"
 	desc = "Grass, frigid and touched by winter."
 	icon_state = "grass_cold"
-	layer = MID_TURF_LAYER
-	footstep = FOOTSTEP_GRASS
-	barefootstep = FOOTSTEP_SOFT_BAREFOOT
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	tiled_dirt = FALSE
-	landsound = 'sound/foley/jumpland/grassland.wav'
-	slowdown = 0
 	neighborlay = "grass_coldedge"
-	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/rogue/grass,
+	/turf/open/floor/rogue/snow)
 
-/turf/open/floor/rogue/grasscold/Initialize()
-	dir = pick(GLOB.cardinals)
-	. = ..()
-
-/turf/open/floor/rogue/grasscold/cardinal_smooth(adjacencies)
-	roguesmooth(adjacencies)
 
 /*	..................   Snow   ................... */
 

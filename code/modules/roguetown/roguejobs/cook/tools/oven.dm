@@ -13,7 +13,7 @@
 	var/lastsmoke = 0
 	var/need_underlay_update = TRUE
 
-/obj/machinery/light/rogue/oven/OnCrafted(dirin)
+/obj/machinery/light/rogue/oven/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	. = ..()
 	update_icon()

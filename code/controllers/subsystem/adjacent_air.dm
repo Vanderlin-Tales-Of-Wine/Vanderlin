@@ -133,7 +133,7 @@ SUBSYSTEM_DEF(adjacent_air)
 	if(!isturf(loc) && command)
 		return
 	var/turf/T = get_turf(loc)
-	T.air_update_turf(command)
+	T?.air_update_turf(command)
 
 /turf/air_update_turf(command = 0)
 	if(command)

@@ -275,7 +275,7 @@
 	var/success_prob = max(get_success_probability(user, target, target_zone, tool, intent), 0)
 
 	var/modded_time = round(time * speed_mod, 1)
-	if(!do_after(user, modded_time, target = target))
+	if(!do_after(user, modded_time, target))
 		LAZYREMOVE(target.surgeries, target_zone)
 		return FALSE
 

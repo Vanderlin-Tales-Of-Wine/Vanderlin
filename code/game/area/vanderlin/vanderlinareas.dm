@@ -24,6 +24,7 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/rogue/mole = 40,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
+				/mob/living/carbon/human/species/rousman/ambush = 30,
 				/mob/living/carbon/human/species/orc/ambush = 20,
 				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 5)
 
@@ -34,6 +35,7 @@
 				/turf/open/floor/rogue/naturalstone)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/rogue/mole = 60,
+				/mob/living/carbon/human/species/rousman/ambush = 20,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,)
 
 /area/rogue/under/mountains/anvil/lower/building
@@ -99,6 +101,7 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
+				/mob/living/carbon/human/species/rousman/ambush = 20,
 				/mob/living/carbon/human/species/orc/ambush = 20)
 
 /area/rogue/outdoors/mountains/anvil/castle
@@ -111,6 +114,7 @@
 				/turf/open/floor/rogue/cobblerock)
 	ambush_mobs = list(
 				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
+				/mob/living/carbon/human/species/rousman/ambush = 20,
 				/mob/living/carbon/human/species/orc/ambush = 20)
 
 /area/rogue/outdoors/mountains/anvil/grove

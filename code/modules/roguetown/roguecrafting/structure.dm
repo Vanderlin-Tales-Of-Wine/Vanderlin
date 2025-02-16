@@ -57,6 +57,15 @@
 	verbage = "build"
 	verbage_tp = "builds"
 
+/datum/crafting_recipe/roguetown/structure/standingblue
+	name = "standing fire (blue)"
+	result = /obj/machinery/light/rogue/firebowl/standing/blue
+	reqs = list(/obj/item/natural/stone = 1,
+				/obj/item/rogueore/coal = 1,
+				/obj/item/ash = 1)
+	verbage = "build"
+	verbage_tp = "builds"
+
 /datum/crafting_recipe/roguetown/structure/rack
 	name = "rack"
 	result = /obj/structure/rack/rogue
@@ -106,6 +115,16 @@
 	name = "wall candles"
 	result = /obj/machinery/light/rogue/wallfire/candle
 	reqs = list(/obj/item/natural/stone = 1, /obj/item/candle/yellow = 1)
+	verbage = "build"
+	verbage_tp = "builds"
+	skillcraft = /datum/skill/craft/masonry
+	wallcraft = TRUE
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/structure/wallcandleblue
+	name = "wall candles (blue)"
+	result = /obj/machinery/light/rogue/wallfire/candle/blue
+	reqs = list(/obj/item/natural/stone = 1, /obj/item/candle/yellow = 1, /obj/item/ash = 1)
 	verbage = "build"
 	verbage_tp = "builds"
 	skillcraft = /datum/skill/craft/masonry

@@ -146,7 +146,7 @@
 			if(r_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
@@ -173,7 +173,7 @@
 			if(l_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
@@ -240,6 +240,19 @@
 /obj/item/clothing/Destroy()
 	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
 	return ..()
+
+/obj/item/clothing/attack(mob/living/M, mob/living/user, def_zone)
+	if(M.on_fire)
+		if(user == M)
+			return
+		user.changeNext_move(CLICK_CD_MELEE)
+		M.visible_message(span_warning("[user] pats out the flames on [M] with [src]!"))
+		M.adjust_divine_fire_stacks(-2)
+		if(M.fire_stacks > 0)
+			M.adjust_fire_stacks(-2)
+		take_damage(10, BURN, "fire")
+	else
+		return ..()
 
 /obj/item/clothing/dropped(mob/user)
 	..()

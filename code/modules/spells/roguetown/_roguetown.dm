@@ -100,6 +100,9 @@
 		if(istype(P, /obj/projectile/magic/bloodsteal))
 			var/obj/projectile/magic/bloodsteal/B = P
 			B.sender = user
+		if(istype(P, /obj/projectile/magic/fetch))
+			var/obj/projectile/magic/fetch/B = P
+			B.sender = user
 		P.firer = user
 		P.preparePixelProjectile(target, user)
 		for(var/V in projectile_var_overrides)

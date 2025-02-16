@@ -1656,7 +1656,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /obj/item/cooking/pan,
 /turf/open/floor/rogue/tile{
 	icon_state = "linoleum"
@@ -2089,7 +2089,7 @@
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
 "agT" = (
@@ -2338,10 +2338,10 @@
 "ahM" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "ahN" = (
@@ -3523,7 +3523,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "als" = (
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/structure/closet/crate/chest,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
@@ -4108,8 +4108,8 @@
 /obj/structure/closet/crate/chest{
 	lockid = "priest"
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -5890,7 +5890,7 @@
 /obj/item/clothing/suit/roguetown/shirt/rags,
 /obj/item/clothing/suit/roguetown/shirt/rags,
 /obj/item/clothing/suit/roguetown/shirt/rags,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "asq" = (
@@ -6786,7 +6786,7 @@
 /area/rogue)
 "avb" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/wood,
 /area/rogue)
@@ -7626,7 +7626,7 @@
 /area/rogue)
 "axK" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "axL" = (
@@ -7861,7 +7861,7 @@
 /area/rogue)
 "ayw" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
 /turf/open/floor/rogue/blocks{
 	icon_state = "newstone2"
 	},
@@ -7920,7 +7920,7 @@
 /area/rogue)
 "ayF" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
 "ayG" = (
@@ -8568,9 +8568,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
-/obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
+/obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
@@ -10934,7 +10934,7 @@
 /area/rogue/indoors)
 "aIC" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "aID" = (
@@ -11201,7 +11201,7 @@
 /area/rogue/outdoors/town)
 "aJA" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
 "aJB" = (
@@ -13756,7 +13756,7 @@
 	icon_state = "largetable";
 	dir = 9
 	},
-/obj/item/reagent_containers/food/condiment/peppermill,
+/obj/item/reagent_containers/peppermill,
 /turf/open/floor/rogue/tile{
 	icon_state = "tile"
 	},

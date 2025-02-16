@@ -88,5 +88,5 @@
 		H.advsetup = 0
 		H.invisibility = initial(H.invisibility)
 		H.cure_blind("bard_select")
-		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory // dis line sux its basically a loop anyways if i remember
+		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory // dis line sux its basically a loop anyways if i remember
 		qdel(GET_IT_OUT)

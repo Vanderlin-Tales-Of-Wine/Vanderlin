@@ -34,7 +34,7 @@
 
 /datum/repeatable_crafting_recipe/coppiette
 	name = "coppiette"
-	output = /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
+	output = /obj/item/reagent_containers/food/snacks/cooked/coppiette
 	starting_atom = /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,
@@ -51,7 +51,7 @@
 	output = /obj/item/reagent_containers/food/snacks/fat/salo
 	starting_atom = /obj/item/reagent_containers/food/snacks/fat
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/fat = 1,
+		/obj/item/reagent_containers/food/snacks/fat = 2,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
 	attacking_atom = /obj/machinery/tanningrack
@@ -80,7 +80,7 @@
 
 /datum/repeatable_crafting_recipe/raisins
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins
+	output = /obj/item/reagent_containers/food/snacks/raisins
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
@@ -96,7 +96,7 @@
 
 /datum/repeatable_crafting_recipe/raisins_poison
 	name = "raisins"
-	output = /obj/item/reagent_containers/food/snacks/rogue/raisins/poison
+	output = /obj/item/reagent_containers/food/snacks/raisins/poison
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry/poison
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1,
@@ -114,12 +114,15 @@
 	name = "parchment"
 	output = /obj/item/paper
 	output_amount = 6
-	starting_atom = /obj/item/natural/hide
+	starting_atom = /obj/item/rogueweapon/knife
+	tool_usage = list(
+		/obj/item/rogueweapon/knife = list("starts to prepare the hide", "start to prepare the hide", 'sound/combat/hits/bladed/genstab (1).ogg'),
+	)
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
 	reagent_requirements = list(
-		/datum/reagent/water = 45
+		/datum/reagent/water = 33
 	)
 	attacking_atom = /obj/machinery/tanningrack
 

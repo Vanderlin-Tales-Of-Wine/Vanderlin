@@ -195,10 +195,10 @@
 			user.visible_message("<span class='info'>[user] begins smacking themself with a small hammer.</span>")
 		else
 			user.visible_message("<span class='info'>[user] begins to smack [A] with a small hammer.</span>")
-		if(do_after(user, 2.5 SECONDS, target = A))
+		if(do_after(user, 2.5 SECONDS, A))
 			A.visible_message("<span class='info'>[A] jerks their knee after the hammer strikes!</span>")
 			if(prob(1))
 				playsound(user, 'sound/misc/bonk.ogg', 100, FALSE, -1)
 			var/mob/living/carbon/human/human_target = A
-			human_target.check_for_injuries(user)
+			human_target.check_for_injuries(user, additional = TRUE)
 	return ..()

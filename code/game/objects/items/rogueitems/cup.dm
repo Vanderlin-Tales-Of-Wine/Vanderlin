@@ -1,9 +1,9 @@
 /obj/item/reagent_containers/glass/cup
 	name = "metal cup"
 	desc = "An iron cup, it's rim gnawed upon and grimey."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	icon_state = "iron"
 	force = 5
@@ -26,7 +26,7 @@
 	cut_overlays()
 
 	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "[icon_state]filling")
+		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "[icon_state]filling")
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)

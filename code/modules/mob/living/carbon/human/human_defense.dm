@@ -615,7 +615,7 @@
 	if(src == M)
 		if(has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
 			to_chat(src, "<span class='notice'>I attempt to remove the durathread strand from around my neck.</span>")
-			if(do_after(src, 35, null, src))
+			if(do_after(src, 3.5 SECONDS, src))
 				to_chat(src, "<span class='notice'>I succesfuly remove the durathread strand.</span>")
 				remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 			return
@@ -629,7 +629,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE)
+/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE, additional = FALSE)
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/m1
 	var/deep_examination = advanced
@@ -687,7 +687,9 @@
 			examination += "<span class='info'>☼ [capitalize(parse_zone(body_zone))]: <span class='deadsay'><b>MISSING</b></span></span>"
 			continue
 		examination += bodypart.check_for_injuries(user, deep_examination)
-
+	if(additional)
+		examination += span_info(span_green("[getToxLoss()] TOXIN"))
+		examination += span_info(span_blue("[getOxyLoss()] OXYGEN"))
 	examination += "ø ------------ ø</span>"
 	if(!silent)
 		to_chat(user, examination.Join("\n"))

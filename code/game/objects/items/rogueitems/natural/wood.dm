@@ -24,10 +24,10 @@
 /obj/item/grown/log/tree/attacked_by(obj/item/I, mob/living/user) //This serves to reward woodcutting
 	if(user.used_intent.blade_class == BCLASS_CHOP && lumber_amount && lumber)
 		var/skill_level = user.mind.get_skill_level(/datum/skill/labor/lumberjacking)
-		var/lumber_time = (40 - (skill_level * 5))
+		var/lumber_time = (4 SECONDS - (skill_level * 5))
 		var/minimum = 1
 		playsound(src, 'sound/misc/woodhit.ogg', 100, TRUE)
-		if(!do_after(user, lumber_time, target = user))
+		if(!do_after(user, lumber_time, user))
 			return
 		if(skill_level > 0) // If skill level is 1 or higher, we get more minimum wood!
 			minimum = 2
@@ -59,10 +59,10 @@
 
 	if(user.used_intent.blade_class == BCLASS_CHOP && lumber_amount && lumber_alt)
 		var/skill_level = user.mind.get_skill_level(/datum/skill/labor/lumberjacking)
-		var/lumber_time = (40 - (skill_level * 5))
+		var/lumber_time = (4 SECONDS - (skill_level * 5))
 		var/minimum = 1
 		playsound(src, 'sound/misc/woodhit.ogg', 100, TRUE)
-		if(!do_after(user, lumber_time, target = user))
+		if(!do_after(user, lumber_time, user))
 			return
 		if(skill_level > 0) // If skill level is 1 or higher, we get more minimum wood!
 			minimum = 2
@@ -170,7 +170,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS))
 			user.visible_message("<span class='notice'>[user] sharpens [src].</span>")
 			var/obj/item/grown/log/tree/stake/S = new /obj/item/grown/log/tree/stake(get_turf(src.loc))
 			if(user.is_holding(src))
@@ -183,7 +183,7 @@
 	if(istype(I, /obj/item/natural/bundle/stick))
 		var/obj/item/natural/bundle/stick/B = I
 		if(B.amount < B.maxamount)
-			to_chat(user, span_notice("You add [src] to [B]."))
+			to_chat(user, span_notice("I add [src] to [B]."))
 			B.amount += 1
 			B.update_bundle()
 			qdel(src)
