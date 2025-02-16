@@ -454,6 +454,7 @@
 			legcuffed.forceMove(drop_location())
 			legcuffed.dropped()
 			legcuffed = null
+			remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			update_inv_legcuffed()
 			return TRUE
 
