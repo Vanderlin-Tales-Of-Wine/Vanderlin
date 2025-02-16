@@ -413,6 +413,7 @@
 	if (legcuffed)
 		var/obj/item/W = legcuffed
 		legcuffed = null
+		remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 		update_inv_legcuffed()
 		if (client)
 			client.screen -= W

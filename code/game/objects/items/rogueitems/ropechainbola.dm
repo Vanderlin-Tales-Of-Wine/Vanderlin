@@ -169,7 +169,7 @@
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 		to_chat(C, "<span class='danger'>\The [src] entraps you!</span>")
-		C.Knockdown(knockdown)
+		//C.Knockdown(knockdown)
 		C.apply_status_effect(/datum/status_effect/debuff/netted)
 		playsound(src, 'sound/blank.ogg', 50, TRUE)
 
@@ -179,6 +179,7 @@
 		var/mob/living/carbon/M = loc
 		if(M.legcuffed == src)
 			M.legcuffed = null
+			M.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			M.update_inv_legcuffed()
 			if(M.has_status_effect(/datum/status_effect/debuff/netted))
 				M.remove_status_effect(/datum/status_effect/debuff/netted)
