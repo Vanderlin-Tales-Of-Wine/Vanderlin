@@ -77,7 +77,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 	dat += "</center>"
 
-	for(var/datum/job/job in SSjob.occupations)
+	for(var/datum/job/job in SSjob.joinable_occupations)
 		if(!job)
 			continue
 		if(!job.shows_in_list)

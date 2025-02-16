@@ -919,8 +919,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/width = widthPerColumn
 
 	var/HTML = "<center>"
-	if(SSjob.occupations.len <= 0)
-//		HTML += "The job SSticker is not yet finished creating jobs, please try again later"
+	if(!length(SSjob.joinable_occupations))
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
 
 	else
@@ -937,7 +936,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 		//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 		var/datum/job/lastJob
-		for(var/datum/job/job in sortList(SSjob.occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
+		for(var/datum/job/job in sortList(SSjob.joinable_occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
 			if(!job.total_positions && !job.spawn_positions)
 				continue
 
@@ -1061,9 +1060,6 @@ Slots: [job.spawn_positions]</span>
 					prefLevelColor = "slateblue"
 					prefUpperLevel = 4
 					prefLowerLevel = 2
-					var/mob/dead/new_player/P = user
-					if(istype(P))
-						P.topjob = job.title
 				if(JP_MEDIUM)
 					prefLevelLabel = "Medium"
 					prefLevelColor = "green"
@@ -1131,7 +1127,7 @@ Slots: [job.spawn_positions]</span>
 	return TRUE
 
 /datum/preferences/proc/UpdateJobPreference(mob/user, role, desiredLvl)
-	if(!SSjob || SSjob.occupations.len <= 0)
+	if(!SSjob || !length(SSjob.joinable_occupations))
 		return
 	var/datum/job/job = SSjob.GetJob(role)
 

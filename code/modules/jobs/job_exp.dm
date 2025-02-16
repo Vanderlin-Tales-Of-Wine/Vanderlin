@@ -91,7 +91,7 @@ GLOBAL_PROTECT(exp_to_update)
 	return_text += "</UL>"
 	var/list/jobs_locked = list()
 	var/list/jobs_unlocked = list()
-	for(var/datum/job/job in SSjob.occupations)
+	for(var/datum/job/job in SSjob.joinable_occupations)
 		if(job.exp_requirements && job.exp_type)
 			if(!job_is_xp_locked(job.title))
 				continue

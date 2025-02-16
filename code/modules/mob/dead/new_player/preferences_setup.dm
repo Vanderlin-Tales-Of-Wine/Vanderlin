@@ -92,12 +92,12 @@
 
 	// Set up the dummy for its photoshoot
 	var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+	#warn TODO:
 	copy_to(mannequin, 1, TRUE, TRUE)
 
 	if(previewJob)
-		testing("previewjob")
 		mannequin.job = previewJob.title
-		previewJob.equip(mannequin, TRUE, preference_source = parent)
+		mannequin.dress_up_as_job(previewJob, TRUE)
 
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
