@@ -25,7 +25,7 @@
 	outfit = /datum/outfit/job/roguetown/watchman
 	advclass_cat_rolls = list(CTAG_MENATARMS = 20)
 	bypass_lastclass = TRUE
-	cmode_music = 'sound/music/cmode/nobility/CombatManAtArms'
+	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
 	give_bank_account = 15
 	min_pq = 6
 
