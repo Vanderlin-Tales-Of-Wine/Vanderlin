@@ -293,15 +293,15 @@
 //		stoplag(1)
 //	progress.end_progress()
 	var/turf/T = get_step(user, user.dir)
+	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Try to drop on user turf instead
+		T = get_turf(user)
+		if(istype(T, /turf/closed))
+			to_chat(user, span_warning("Something in the way."))
+			return
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))
 			to_chat(user, "<span class='warning'>Something in the way.</span>")
 			return
-
-	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Don't dump the sack out on that
-		to_chat(user, "<span class='warning'>Something in the way.</span>")
-		return
-
 	for(var/obj/item/I in things) // If the above aren't true, dump the sack onto the tile in front of us
 		things -= I
 //		if(I.loc != real_location)

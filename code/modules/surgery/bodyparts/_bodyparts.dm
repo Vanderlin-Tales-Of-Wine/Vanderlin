@@ -95,6 +95,8 @@
 
 	var/wound_icon_state
 
+	var/punch_modifier = 1 // for modifying arm punching damage
+
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 
@@ -635,8 +637,7 @@
 /obj/item/bodypart/l_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_arm/set_disabled(new_disabled)
 	. = ..()
@@ -693,8 +694,7 @@
 /obj/item/bodypart/r_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_arm/set_disabled(new_disabled)
 	. = ..()
@@ -747,8 +747,7 @@
 /obj/item/bodypart/l_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_leg/set_disabled(new_disabled)
 	. = ..()
@@ -797,8 +796,7 @@
 /obj/item/bodypart/r_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_leg/set_disabled(new_disabled)
 	. = ..()

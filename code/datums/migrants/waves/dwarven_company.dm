@@ -17,7 +17,7 @@
 	backr = /obj/item/rogueweapon/shield/wood
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/flashlight/flare/torch/lantern
-	beltl = /obj/item/rogueweapon/sword/scimitar/falchion
+	beltl = /obj/item/rogueweapon/pick/paxe
 	pants = /obj/item/clothing/under/roguetown/trou
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/rogue/satchel
@@ -26,16 +26,16 @@
 	H.change_stat("perception", 2)
 	H.change_stat("intelligence", 1)
 	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 3)
-	H.change_stat("speed", 2)
+	H.change_stat("endurance", 2)
+	H.change_stat("speed", 1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 5, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)

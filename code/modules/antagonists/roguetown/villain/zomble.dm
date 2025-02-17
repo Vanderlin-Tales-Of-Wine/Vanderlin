@@ -261,9 +261,6 @@
 	if(zombie.stat != DEAD && !infected_wake)
 		qdel(src)
 		return
-	if(istype(zombie.loc, /obj/structure/closet/dirthole) || istype(zombie.loc, /obj/structure/closet/crate/coffin))
-		qdel(src)
-		return
 
 	zombie.blood_volume = BLOOD_VOLUME_MAXIMUM
 	zombie.setOxyLoss(0, updating_health = FALSE, forced = TRUE) //zombles dont breathe

@@ -1,9 +1,8 @@
 /datum/job/roguetown/bard
 	title = "Bard"
-	tutorial = "Bards make up one of the largest populations of \
-	registered adventurers in Enigma, mostly because they are \
-	the last ones in a party to die. Their wish is to experience \
-	the greatest adventures of the age and write amazing songs about them."
+	tutorial = "Bards make up one of the largest populations of registered adventurers in Enigma, mostly because they are \
+	the last ones in a party to die. Their wish is to experience the greatest adventures of the age and write amazing songs \
+	about them. This is not your story, for you are the storyteller."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
