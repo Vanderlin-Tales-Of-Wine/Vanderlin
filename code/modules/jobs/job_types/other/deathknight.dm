@@ -1,8 +1,10 @@
 /datum/job/deathknight
 	title = "Death Knight"
+	tutorial = null
 	flag = DEATHKNIGHT
 	department_flag = UNDEAD
-	faction = "Station"
+	faction = FACTION_STATION
+	job_flags = (JOB_EQUIP_RANK)
 	total_positions = -1
 	spawn_positions = 0
 
@@ -16,7 +18,6 @@
 		"Dark Elf",
 		"Half-Orc"
 	)
-	tutorial = ""
 
 	outfit = /datum/outfit/job/deathknight
 	show_in_credits = FALSE
@@ -29,8 +30,6 @@
 	if(L)
 		var/mob/living/carbon/human/H = L
 		if(M.mind)
-			M.mind.special_role = "Death Knight"
-			M.mind.assigned_role = "Death Knight"
 			M.mind.current.job = null
 		if(H.dna && H.dna.species)
 			H.dna.species.species_traits |= NOBLOOD
@@ -48,7 +47,6 @@
 		H.regenerate_limb(BODY_ZONE_L_ARM)
 		for(var/obj/item/bodypart/B in H.bodyparts)
 			B.skeletonize()
-//		H.remove_all_languages()
 		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 		H.update_a_intents()
 		H.cmode_music = 'sound/music/cmode/combat_weird.ogg'

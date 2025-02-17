@@ -1,7 +1,7 @@
 
 #define ENGSEC			(1<<0)
 
-#define CAPTAIN_SS13	(1<<0)
+//#define CAPTAIN	(1<<0)
 #define HOS				(1<<1)
 #define WARDEN			(1<<2)
 #define DETECTIVE		(1<<3)

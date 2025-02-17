@@ -2,7 +2,8 @@
 	title = "Inquisitor"
 	flag = PURITAN
 	department_flag = CHURCHMEN
-	faction = "Station"
+	faction = FACTION_STATION
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	total_positions = 1
 	spawn_positions = 1
 
@@ -13,10 +14,11 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_sexes = list(MALE, FEMALE)
 
-	tutorial = "A recent arrival from Grenzelhoft, you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. You have been sent by your leader, the Holy Bishop, to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
-	whitelist_req = FALSE
+	tutorial = "A recent arrival from Grenzelhoft, \
+	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
+	You have been sent by your leader, the Holy Bishop, \
+	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 
 	outfit = /datum/outfit/job/inquisitor
 	display_order = JDO_PURITAN

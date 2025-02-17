@@ -1,6 +1,10 @@
 /datum/job
 	/// The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
 	var/title = "NOPE"
+	/// The title of this job given to female mobs. Fluff, not as important as [var/title].
+	var/f_title = null
+	/// When joining the round, this text will be shown to the player.
+	var/tutorial = null
 
 	/// Determines who can demote this position
 	var/department_head = list()
@@ -9,8 +13,8 @@
 	var/list/head_announce = null
 
 	//Bitflags for the job
-	var/flag = NONE //Deprecated
-	var/department_flag = NONE //Deprecated
+	var/flag = NONE
+	var/department_flag = NONE
 	var/auto_deadmin_role_flags = NONE
 
 	//Players will be allowed to spawn in as jobs that are set to "Station"
@@ -81,10 +85,6 @@
 
 	var/list/jobstats
 	var/list/jobstats_f
-
-	var/f_title = null
-
-	var/tutorial = null
 
 	var/whitelist_req = FALSE
 
@@ -238,6 +238,7 @@
 	return
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping)
+	//could be a deprecated system? it was here before the refactor too, so
 	var/datum/bank_account/bank_account = new(real_name, equipping)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
@@ -346,8 +347,6 @@
 
 /// Returns an atom where the mob should spawn in.
 /datum/job/proc/get_roundstart_spawn_point()
-	//TG: if(random_spawns_possible)
-
 	if(length(GLOB.jobspawn_overrides[title]))
 		return pick(GLOB.jobspawn_overrides[title])
 	var/obj/effect/landmark/start/spawn_point = get_default_roundstart_spawn_point()
@@ -399,30 +398,20 @@
 /mob/living/proc/apply_prefs_job(client/player_client, datum/job/job)
 
 
-// /mob/living/carbon/human/apply_prefs_job(client/player_client, datum/job/job)
-// 	var/fully_randomize = is_banned_from(player_client.ckey, "Appearance")
-// 	if(!player_client)
-// 		return // Disconnected while checking for the appearance ban.
-// 	if(fully_randomize)
-// 		if(CONFIG_GET(flag/enforce_human_authority) && (job.departments & DEPARTMENT_COMMAND))
-// 			if(player_client.prefs.pref_species.id != SPECIES_HUMAN)
-// 				player_client.prefs.pref_species = new /datum/species/human
-// 			player_client.prefs.randomise_appearance_prefs(~RANDOMIZE_SPECIES)
-// 		else
-// 			player_client.prefs.randomise_appearance_prefs()
-// 		player_client.prefs.apply_prefs_to(src)
-// 		if(GLOB.current_anonymous_theme)
-// 			fully_replace_character_name(null, GLOB.current_anonymous_theme.anonymous_name(src))
-// 	else
-// 		var/is_antag = (player_client.mob.mind in GLOB.pre_setup_antags)
-// 		if(CONFIG_GET(flag/enforce_human_authority) && (job.departments & DEPARTMENT_COMMAND))
-// 			player_client.prefs.randomise[RANDOM_SPECIES] = FALSE
-// 			if(player_client.prefs.pref_species.id != SPECIES_HUMAN)
-// 				player_client.prefs.pref_species = new /datum/species/human
-// 		player_client.prefs.safe_transfer_prefs_to(src, TRUE, is_antag)
-// 		if(CONFIG_GET(flag/force_random_names))
-// 			player_client.prefs.real_name = player_client.prefs.pref_species.random_name(player_client.prefs.gender, TRUE)
-// 	dna.update_dna_identity()
+/mob/living/carbon/human/apply_prefs_job(client/player_client, datum/job/job)
+	var/fully_randomize = is_banned_from(player_client.ckey, "Appearance")
+	if(!player_client)
+		return // Disconnected while checking for the appearance ban.
+	if(fully_randomize)
+		player_client.prefs.randomise_appearance_prefs()
+		player_client.prefs.apply_prefs_to(src)
+		//V: port anonymous themes?
+	else
+		var/is_antag = (player_client.mob.mind in GLOB.pre_setup_antags)
+		player_client.prefs.safe_transfer_prefs_to(src, TRUE, is_antag)
+		if(CONFIG_GET(flag/force_random_names))
+			player_client.prefs.real_name = player_client.prefs.pref_species.random_name(player_client.prefs.gender, TRUE)
+	dna.update_dna_identity()
 
 /* ROGUETOWN */
 

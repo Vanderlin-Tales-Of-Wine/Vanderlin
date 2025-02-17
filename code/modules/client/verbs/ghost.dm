@@ -21,6 +21,8 @@
 	set category = "Spirit"
 
 	switch(alert("Begin the long walk in the Underworld to your judgement?",,"Yes","No"))
+		if("No")
+			to_chat(usr, span_warning("You have second thoughts."))
 		if("Yes")
 			if(isroguespirit(mob)) //HONEYPOT CODE, REMOVE LATER
 				message_admins("[key] IS TRYING TO CRASH THE SERVER BY SPAWNING SPIRITS AS A SPIRIT!")
@@ -30,7 +32,7 @@
 				return
 			var/datum/mind/mind = mob.mind
 			// Check if the player's job is hiv+
-			var/datum/job/target_job = SSjob.GetJob(mind?.assigned_role)
+			var/datum/job/target_job = mind.assigned_role
 			if(target_job)
 				if(target_job.job_reopens_slots_on_death)
 					target_job.current_positions = max(0, target_job.current_positions - 1)
@@ -56,5 +58,3 @@
 			var/area/rogue/underworld/underworld = get_area(spawn_loc)
 			underworld.Entered(O, null)
 			verbs -= /client/proc/descend
-		if("No")
-			usr << "You have second thoughts."

@@ -582,7 +582,7 @@ SUBSYSTEM_DEF(job)
 		to_chat(player, span_notice("*-----------------*"))
 		to_chat(player, span_notice(tutorial))
 
-//Gives the player the stuff he should have with his rank
+/// Gives the player the stuff they should have with their rank
 /datum/controller/subsystem/job/proc/EquipRank(mob/living/equipping, datum/job/job, client/player_client)
 	equipping.job = job.title
 
@@ -590,8 +590,8 @@ SUBSYSTEM_DEF(job)
 
 	equipping.mind?.set_assigned_role(job)
 
-	if(player_client)
-		to_chat(player_client, "<span class='infoplain'><b>You are the [job.get_informed_title(equipping)].</b></span>")
+	// if(player_client)
+	// 	to_chat(player_client, "<span class='infoplain'><b>You are the [job.get_informed_title(equipping)].</b></span>")
 
 	equipping.on_job_equipping(job)
 
@@ -603,24 +603,24 @@ SUBSYSTEM_DEF(job)
 		else
 			handle_auto_deadmin_roles(player_client, job.title)
 
-	if(player_client)
-		to_chat(player_client, "<span class='infoplain'><b>As the [job.get_informed_title(equipping)] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
+	// if(player_client)
+	// 	to_chat(player_client, "<span class='infoplain'><b>As the [job.get_informed_title(equipping)] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
 
 	//job.radio_help_message(equipping)
 
 	if(player_client)
 		if(job.req_admin_notify)
 			to_chat(player_client, "<span class='infoplain'><b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b></span>")
-		if(CONFIG_GET(number/minimal_access_threshold))
-			to_chat(player_client, span_notice("<B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B>"))
+		// if(CONFIG_GET(number/minimal_access_threshold))
+		// 	to_chat(player_client, span_notice("<B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B>"))
 		SSpersistence.antag_rep_change[player_client.ckey] += job.GetAntagRep()
 		var/related_policy = get_policy(job.title)
 		if(related_policy)
 			to_chat(player_client, related_policy)
 
-	if(ishuman(equipping))
-		var/mob/living/carbon/human/wageslave = equipping
-		wageslave.add_memory("Your account ID is [wageslave.account_id].")
+	// if(ishuman(equipping))
+	// 	var/mob/living/carbon/human/wageslave = equipping
+	// 	wageslave.add_memory("Your account ID is [wageslave.account_id].")
 
 	job.after_spawn(equipping, player_client)
 

@@ -25,7 +25,7 @@
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 					category = "humans"
-					mob_data += list("job" = H.mind.assigned_role, "species" = H.dna.species.name)
+					mob_data += list("job" = H.mind.assigned_role.title, "species" = H.dna.species.name)
 			else
 				category = "others"
 				mob_data += list("typepath" = m.type)
@@ -514,7 +514,7 @@
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
 	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role]</b>"
+		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply)]</b>"
 	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)

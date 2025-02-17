@@ -1,9 +1,13 @@
 
 /datum/job/vagrant
 	title = "Beggar"
+	tutorial = "The stench of your piss-laden clothes dont bug you anymore, \
+	the glances of disgust and loathing others give you is just a friendly greeting; \
+	the only reason you've not been killed already is because volfs are known to be repelled by decaying flesh. \
+	You're going to be a solemn reminder of what happens when something unwanted is born into this world."
 	flag = APPRENTICE
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 15
 	spawn_positions = 15
 
@@ -22,9 +26,8 @@
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
-	tutorial = "The stench of your piss-laden clothes dont bug you anymore, the glances of disgust and loathing others give you is just a friendly greeting; the only reason you've not been killed already is because volfs are known to be repelled by decaying flesh. You're going to be a solemn reminder of what happens when something unwanted is born into this world."
 	display_order = JDO_VAGRANT
-	show_in_credits = FALSE
+	show_in_credits = FALSE //why not?
 	min_pq = -100
 	can_random = FALSE
 

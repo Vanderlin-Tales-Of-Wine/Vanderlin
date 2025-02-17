@@ -58,9 +58,11 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
 	return pick(GLOB.socks_list)
 
+/// TO BE DELETED
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 
+/// TO BE DELETED
 /proc/random_features()
 	if(!GLOB.tails_list_human.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human)

@@ -1003,7 +1003,8 @@
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
 	if(user.mind)
-		if((user.mind.assigned_role == "Priest")	||	(user.mind.assigned_role == "Acolyte") && (user.patron.type == /datum/patron/divine/eora))
+		if((is_priest_job(user.mind.assigned_role)) \
+			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
 
 			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))

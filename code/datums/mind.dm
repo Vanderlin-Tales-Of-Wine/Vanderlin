@@ -40,7 +40,7 @@
 	var/memory
 
 	/// Job datum indicating the mind's role. This should always exist after initialization, as a reference to a singleton.
-	var/datum/job/roguetown/assigned_role
+	var/datum/job/assigned_role
 	var/special_role
 	var/list/restricted_roles = list()
 
@@ -130,7 +130,7 @@
 			if(M.special_role == role)
 				is_role = TRUE
 			else
-				if(M.assigned_role == role)
+				if(M.assigned_role.title == role)
 					is_role = TRUE
 		if(is_role)
 			. += M
@@ -802,8 +802,10 @@
 
 /// Setter for the assigned_role job datum.
 /datum/mind/proc/set_assigned_role(datum/job/new_role)
+	if(!istype(new_role))
+		new_role = ispath(new_role) ? SSjob.GetJobType(new_role) : SSjob.GetJob(new_role)
 	if(assigned_role == new_role)
-		return
+		return assigned_role
 	. = assigned_role
 	assigned_role = new_role
 

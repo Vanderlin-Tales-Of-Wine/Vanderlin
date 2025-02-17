@@ -108,9 +108,9 @@
 
 		if(yeae)
 			if(mind)
-				if((mind.assigned_role == "Monarch"))
+				if((is_lord_job(mind.assigned_role)))
 					addomen(OMEN_NOLORD)			// Re-adding at Ook's request.
-				if(mind.assigned_role == "Priest")
+				if(is_priest_job(mind.assigned_role))
 					addomen(OMEN_NOPRIEST)	// message changed to reflect only priest for now, change it if more roles added. (Priest dying causes Bad Omen)
 
 		if(!gibbed && yeae)
