@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(migrants)
 	var/mob/living/character = newplayer.create_character(TRUE)	//creates the human and transfers vars and mind
 
 	character.islatejoin = TRUE
-	SSjob.EquipRank(character, rank, TRUE)
+	SSjob.EquipRank(character, rank, character.client)
 
 	var/datum/migrant_role/role = MIGRANT_ROLE(assignment.role_type)
 	character.migrant_type = assignment.role_type

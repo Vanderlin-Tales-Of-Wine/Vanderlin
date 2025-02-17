@@ -107,26 +107,11 @@
 
 	))
 
-/datum/species/human/northern/random_name(gender,unique,lastname)
+/datum/species/human/northern/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/human/humnorm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/human/humnorf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/humnorf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/human/humnorf.txt") )
-	return randname
-
-/datum/species/human/northern/random_surname()
-	return " [pick(world.file2list("strings/rt/names/human/humnorlast.txt"))]"
+/datum/species/human/northern/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/human/humnorlast.txt')
+	return last_names

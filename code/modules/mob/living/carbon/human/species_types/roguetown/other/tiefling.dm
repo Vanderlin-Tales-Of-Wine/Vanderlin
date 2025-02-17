@@ -47,7 +47,8 @@
 	mutant_bodyparts = list("ears","tail_human","horns")
 	soundpack_m = /datum/voicepack/male
 	soundpack_f = /datum/voicepack/female
-	offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
+	offset_features = list(
+		OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
 	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
 	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
 	OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
@@ -116,7 +117,7 @@
 	return TRUE
 
 /datum/species/tieberian/get_skin_list()
-	return sortList(list(
+	var/static/list/skin_colors = sortList(list(
 		"Crimson Land" = SKIN_COLOR_CRIMSON_LAND, // - (Bright red)
 		"Sun Stained" = SKIN_COLOR_SUNSTAINED, // - (Dark orange)
 		"Sundered" = SKIN_COLOR_SUNDERED, //  - (Orange)
@@ -132,51 +133,39 @@
 		"Arlenneth" = SKIN_COLOR_ARLENNETH, // - (Lavender blue)
 	))
 
+	return skin_colors
+
 /datum/species/tieberian/get_hairc_list()
-	return sortList(list(
-	"black - oil" = "181a1d",
-	"black - cave" = "201616",
-	"black - rogue" = "2b201b",
-	"black - midnight" = "1d1b2b",
+	var/static/list/hair_colors = sortList(list(
+		"black - oil" = "#181a1d",
+		"black - cave" = "#201616",
+		"black - rogue" = "#2b201b",
+		"black - midnight" = "#1d1b2b",
 
-	"blond - pale" = "9d8d6e",
-	"blond - dirty" = "88754f",
-	"blond - drywheat" = "d5ba7b",
-	"blond - strawberry" = "c69b71",
+		"blond - pale" = "#9d8d6e",
+		"blond - dirty" = "#88754f",
+		"blond - drywheat" = "#d5ba7b",
+		"blond - strawberry" = "#c69b71",
 
-	"purple - arcane" = "3f2f42",
+		"purple - arcane" = "#3f2f42",
 
-	"blue - abyss" = "09282d",
+		"blue - abyss" = "#09282d",
 
-	"red - demonic" = "480808",
-	"red - impish" = "641010",
-	"red - rubescent" = "8d5858"
-
+		"red - demonic" = "#480808",
+		"red - impish" = "#641010",
+		"red - rubescent" = "#8d5858"
 	))
 
-/datum/species/tieberian/random_name(gender,unique,lastname)
+	return hair_colors
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/other/tiefm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/other/tieff.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/other/tiefm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/other/tieff.txt") )
-	return randname
+/datum/species/tieberian/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/other/tiefm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/other/tiefm.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-/datum/species/tieberian/random_surname()
-	return " [pick(world.file2list("strings/rt/names/other/tieflast.txt"))]"
+/datum/species/tieberian/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/other/tieflast.txt')
+	return last_names
 
 /datum/species/tieberian/get_accent_list()
 	return strings("spanish_replacement.json", "spanish")
