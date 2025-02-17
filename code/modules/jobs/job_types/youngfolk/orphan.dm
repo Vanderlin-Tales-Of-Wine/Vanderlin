@@ -2,14 +2,17 @@
 	title = "Orphan"
 	flag = ORPHAN
 	department_flag = YOUNGFOLK
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 12
 	spawn_positions = 12
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_ages = list(AGE_CHILD)
 
-	tutorial = "Your parents are dead and you have no home. Will you make something of yourself or will you die in the streets as a nobody."
+	tutorial = "Before you could even form words, you were abandoned, or perhaps lost. \
+	Ever since, you have lived in the Orphanage under the Matron. \
+	Your parents are dead and you have no home. \
+	Will you make something of yourself, or will you die in the streets as a nobody?"
 
 	outfit = /datum/outfit/job/orphan
 	display_order = JDO_ORPHAN

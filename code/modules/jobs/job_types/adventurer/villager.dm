@@ -7,7 +7,9 @@
 	total_positions = 0
 	spawn_positions = 0
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	tutorial = "You've lived in this shithole for effectively all your life. You are not an explorer, nor exactly a warrior in many cases. You're just some average poor bastard who thinks they'll be something someday."
+	tutorial = "You've lived in this shithole for effectively all your life. \
+	You are not an explorer, nor exactly a warrior in many cases. \
+	You're just some average poor bastard who thinks they'll be something someday."
 	advclass_cat_rolls = list(CTAG_TOWNER = 20)
 	outfit = null
 	outfit_female = null
@@ -16,8 +18,6 @@
 	min_pq = -100
 	same_job_respawn_delay = 0
 	bypass_lastclass = TRUE
-
-
 
 /datum/job/villager/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

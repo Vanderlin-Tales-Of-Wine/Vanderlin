@@ -5,24 +5,25 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 
 /datum/job/adventurer
 	title = "Adventurer"
+	tutorial = "Hero of nothing, adventurer by trade. \
+	Whatever led you to this fate is up to the wind to decide, \
+	and you've never fancied yourself for much other than the thrill. \
+	Someday your pride is going to catch up to you, \
+	and you're going to find out why most men don't end up in the annals of history."
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	flag = ADVENTURER
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 14
 	spawn_positions = 14
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	tutorial = "Hero of nothing, adventurer by trade. Whatever led you to this fate is up to the wind to decide, and you've never fancied yourself for much other than the thrill. Someday your pride is going to catch up to you, and you're going to find out why most men don't end up in the annals of history."
-
 
 	outfit = null
 	outfit_female = null
 
-	var/isvillager = FALSE
-	var/ispilgrim = FALSE
 	display_order = JDO_ADVENTURER
 	show_in_credits = FALSE
 	min_pq = 2
-	always_show_on_latechoices = TRUE
 	job_reopens_slots_on_death = TRUE
 	same_job_respawn_delay = 15 MINUTES
 	bypass_lastclass = TRUE
@@ -32,9 +33,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	can_have_apprentices = FALSE
 
 
-/datum/job/adventurer/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/adventurer/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		if(advclass_cat_rolls)
-			hugboxify_for_class_selection(H)
+	if(spawned && advclass_cat_rolls)
+		hugboxify_for_class_selection(spawned)
