@@ -2289,6 +2289,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		O = character.get_bodypart(BODY_ZONE_L_ARM)
 		if(O)
 			O.drop_limb()
+			qdel(O)
 		character.regenerate_limb(BODY_ZONE_R_ARM)
 		character.regenerate_limb(BODY_ZONE_L_ARM)
 		var/datum/job/target_job = parent.mob?.mind?.assigned_role

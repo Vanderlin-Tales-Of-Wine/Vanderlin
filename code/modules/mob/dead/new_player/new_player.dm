@@ -401,7 +401,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		CRASH("Failed to create a character for latejoin.")
 	transfer_character()
 
-	SSjob.EquipRank(character, job, TRUE)
+	SSjob.EquipRank(character, job, character.client)
 	SSticker.minds += character.mind
 	var/mob/living/carbon/human/humanc
 	if(ishuman(character))

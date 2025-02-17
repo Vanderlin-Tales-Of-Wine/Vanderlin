@@ -1,8 +1,14 @@
 /datum/job/squire
 	title = "Squire"
+	tutorial = "You've always had greater aspirations than the simple life of a peasant. \n\
+	You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. \n\
+	The Captain took notice of your potential, and recruited you as a personal ward. \
+	\n\n\
+	Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
+	faction = FACTION_STATION
 	flag = SQUIRE
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
 	total_positions = 2
 	spawn_positions = 2
 
@@ -14,8 +20,6 @@
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)
-
-	tutorial = "You've always had greater aspirations than the simple life of a peasant. You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. The Captain took notice of your potential, and recruited you as a personal ward. Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
 
 	outfit = /datum/outfit/job/squire
 	display_order = JDO_SQUIRE

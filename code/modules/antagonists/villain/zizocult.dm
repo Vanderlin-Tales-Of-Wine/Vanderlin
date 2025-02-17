@@ -510,18 +510,20 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/skeletaljaunt
 
 /proc/skeletaljaunt(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
-		if(H == user)
+	for(var/mob/living/carbon/human/target in C.contents)
+		if(target == user)
 			return
-		if(iszizocultist(H))
-			to_chat(H.mind, span_warning("\"I will not let my strongest follower become a mindless brute.\""))
+		if(iszizocultist(target))
+			to_chat(target.mind, span_danger("\"I will not let my strongest follower become a mindless brute.\""))
 			return
 
 		var/static/datum/job/summon_job = SSjob.GetJobType(/datum/job/roguetown/skeleton/zizoid)
-		SSjob.EquipRank(user, summon_job, user.client)
+		target.mind?.set_assigned_role(summon_job)
+		target.dress_up_as_job(summon_job)
+		summon_job.after_spawn(target, target.client)
 
-		to_chat(H, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
-		to_chat(H, span_userdanger("My master is [user]."))
+		to_chat(target, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
+		to_chat(target, span_userdanger("My master is [user]."))
 		break
 
 /datum/ritual/thecall
