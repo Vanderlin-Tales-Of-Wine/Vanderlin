@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(aiEyes)
 GLOBAL_LIST_EMPTY(language_datum_instances)
 GLOBAL_LIST_EMPTY(all_languages)
 
-GLOBAL_LIST_EMPTY(sentient_disease_instances)
+GLOBAL_LIST_EMPTY(species_list)
 
 GLOBAL_LIST_EMPTY(latejoin_ai_cores)
 

@@ -537,13 +537,8 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		return // Disconnected while checking for the appearance ban.
 
 	mind.transfer_to(spawning_mob)
-
-	var/is_antag = (mind in GLOB.pre_setup_antags)
-
-	client.prefs.copy_to(spawning_mob, antagonist = is_antag)
-	//spawning_mob.dna.update_dna_identity()
-
-	new_character = (. = spawning_mob)
+	//client.init_verbs()
+	new_character = . = spawning_mob //right into left
 
 	spawning_mob.after_creation()
 

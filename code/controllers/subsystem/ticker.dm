@@ -6,9 +6,7 @@
 		player.ready = PLAYER_READY_TO_PLAY
 
 	SSticker.start_immediately = TRUE
-	sleep(1 SECONDS)
-	SSticker.fire()
-
+	//SSticker.fire()
 GLOBAL_VAR_INIT(round_timer, INITIAL_ROUND_TIMER)
 
 SUBSYSTEM_DEF(ticker)
@@ -481,11 +479,7 @@ SUBSYSTEM_DEF(ticker)
 			CHECK_TICK
 			continue
 		var/datum/job/player_assigned_role = new_player_living.mind.assigned_role
-		// // replaced with job flags
-		// if(player_assigned_role != player.mind.special_role)
-		// 	valid_characters[player] = new_player_mob
-		if(ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits))
-			//nothing here, this gets compiled away, but quirks would go here
+		//if(ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits)) // for quirks
 		if(player_assigned_role.job_flags & JOB_EQUIP_RANK)
 			SSjob.EquipRank(new_player_living, player_assigned_role, new_player_mob.client)
 		CHECK_TICK

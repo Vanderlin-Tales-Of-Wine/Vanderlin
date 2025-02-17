@@ -632,8 +632,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			first_names = GLOB.first_names_female
 		else
 			first_names = GLOB.first_names_male
+		A.apply_prefs_to(H)
 		A.real_name = "[pick(first_names)]"
-		A.copy_to(H)
 		H.dna.update_dna_identity()
 		break
 

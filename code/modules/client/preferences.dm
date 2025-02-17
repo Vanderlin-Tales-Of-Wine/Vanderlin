@@ -86,6 +86,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/list/randomise = list(
+		(RANDOM_BODY) = TRUE,
+		(RANDOM_BODY_ANTAG) = TRUE,
 		(RANDOM_UNDERWEAR) = TRUE,
 		(RANDOM_UNDERWEAR_COLOR) = TRUE,
 		(RANDOM_UNDERSHIRT) = TRUE,
@@ -945,7 +947,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 		//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 		var/datum/job/lastJob
-		for(var/datum/job/job in sortList(SSjob.joinable_occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
+		for(var/datum/job/job as anything in sortList(SSjob.joinable_occupations, GLOBAL_PROC_REF(cmp_job_display_asc)))
 			if(!job.total_positions && !job.spawn_positions)
 				continue
 
@@ -1140,7 +1142,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		return
 	var/datum/job/job = SSjob.GetJob(role)
 
-	if(!job)
+	if(!job || !(job.job_flags & JOB_NEW_PLAYER_JOINABLE))
 		user << browse(null, "window=mob_occupation")
 		ShowChoices(user,4)
 		return
@@ -1148,7 +1150,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if (!isnum(desiredLvl))
 		to_chat(user, "<span class='danger'>UpdateJobPreference - desired level was not a number. Please notify coders!</span>")
 		ShowChoices(user,4)
-		return
+		CRASH("UpdateJobPreference called with desiredLvl value of [isnull(desiredLvl) ? "null" : desiredLvl]")
 
 	var/jpval = null
 	switch(desiredLvl)
@@ -1508,12 +1510,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					skin_tone = skins[pick(skins)]
 				if("species")
 					random_species()
-					accessory = "Nothing"
-					detail = "Nothing"
 				if("all")
-					randomise_appearance_prefs(~(RANDOMIZE_GENDER))
-					accessory = "Nothing"
-					detail = "Nothing"
+					apply_character_randomization_prefs()
 
 		if("input")
 
@@ -1764,7 +1762,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 							to_chat(user, "[pref_species.desc]")
 						age = pick(pref_species.possible_ages)
 						to_chat(user, "<font color='red'>Classes reset.</font>")
-						randomise_appearance_prefs(~(RANDOMIZE_GENDER))
+						randomise_appearance_prefs(~(RANDOMIZE_SPECIES))
 						accessory = "Nothing"
 
 				if("charflaw")
@@ -1932,7 +1930,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						real_name = real_name = pref_species.random_name(gender,1)
 						ResetJobs()
 						to_chat(user, "<font color='red'>Classes reset.</font>")
-						randomise_appearance_prefs(~(RANDOMIZE_GENDER))
+						randomise_appearance_prefs(~(RANDOMIZE_GENDER | RANDOMIZE_SPECIES))
 						accessory = "Nothing"
 						detail = "Nothing"
 				if("domhand")
@@ -2208,9 +2206,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						choice = choices[choice]
 						if(!load_character(choice))
 							randomise_appearance_prefs()
-							accessory = "Nothing"
-							detail = "Nothing"
-							real_name = pref_species.random_name(gender,1)
 							save_character()
 
 				if("tab")
@@ -2222,52 +2217,42 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 
 
-/datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1, roundstart_checks = TRUE, character_setup = FALSE, antagonist = FALSE)
-	if(randomise[RANDOM_SPECIES] && !character_setup)
-		random_species()
-
-	if((randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG] && antagonist) && !character_setup)
-		slot_randomized = TRUE
-		randomise_appearance_prefs(~(RANDOMIZE_GENDER))
-
-	var/datum/species/chosen_species
-	chosen_species = pref_species.type
-	if(!(pref_species.name in GLOB.roundstart_races))
-		chosen_species = /datum/species/human/northern
+/// Sanitization checks to be performed before using these preferences.
+/datum/preferences/proc/sanitize_chosen_prefs()
+	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req > parent.patreonlevel()))
 		pref_species = new /datum/species/human/northern
-		randomise_appearance_prefs(~(RANDOMIZE_GENDER))
-	if(parent)
-		if(pref_species.patreon_req > parent.patreonlevel())
-			chosen_species = /datum/species/human/northern
-			pref_species = new /datum/species/human/northern
-			randomise_appearance_prefs(~(RANDOMIZE_GENDER))
+		save_character()
 
-	character.age = age
-	character.dna.features = features.Copy()
-	character.gender = gender
-	character.set_species(chosen_species, icon_update = FALSE, pref_load = src)
+	if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == "human"))
+		var/firstspace = findtext(real_name, " ")
+		var/name_length = length(real_name)
+		if(!firstspace)	//we need a surname
+			real_name += " [pick(GLOB.last_names)]"
+		else if(firstspace == name_length)
+			real_name += "[pick(GLOB.last_names)]"
 
-	if((randomise[RANDOM_NAME] || randomise[RANDOM_NAME_ANTAG] && antagonist) && !character_setup)
-		slot_randomized = TRUE
-		real_name = pref_species.random_name(gender)
+/// Applies the randomization prefs, sanitizes the result and then applies the preference to the human mob.
+/// This is good if you are applying prefs to a mob as if they were joining the round.
+/datum/preferences/proc/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
+	apply_character_randomization_prefs(is_antag)
+	sanitize_chosen_prefs()
+	apply_prefs_to(character, icon_updates)
 
-	if(roundstart_checks)
-		if(CONFIG_GET(flag/humans_need_surnames) && (pref_species.id == "human"))
-			var/firstspace = findtext(real_name, " ")
-			var/name_length = length(real_name)
-			if(!firstspace)	//we need a surname
-				real_name += " [pick(GLOB.last_names)]"
-			else if(firstspace == name_length)
-				real_name += "[pick(GLOB.last_names)]"
-
+/// Applies the given preferences to a human mob. Calling this directly will skip sanitisation.
+/// This is good if you are applying prefs to a mob as if you were cloning them.
+/datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
+	character.set_species(pref_species.type, icon_update = FALSE, pref_load = src)
 	if(real_name in GLOB.chosen_names)
 		character.real_name = pref_species.random_name(gender)
 	else
 		character.real_name = real_name
 	character.name = character.real_name
 
+	character.age = age
 	character.gender = gender
-	character.domhand = domhand
+	character.dna.features = features.Copy()
+	character.dna.real_name = character.real_name
+
 	//#ifdef MATURESERVER
 	//character.alignment = alignment
 	//#else
@@ -2275,7 +2260,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	//#endif
 
 	character.eye_color = eye_color
-	character.voice_color = voice_color
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
 	if(organ_eyes)
 		organ_eyes.eye_color = eye_color
@@ -2290,7 +2274,13 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	character.undershirt = undershirt
 	character.detail = detail
 	character.socks = socks
+
+	/* V: */
+	character.domhand = domhand
+	character.voice_color = voice_color
 	character.set_patron(selected_patron)
+	character.familytree_pref = family
+	character.setspouse = setspouse
 
 	if(charflaw)
 		var/obj/item/bodypart/O = character.get_bodypart(BODY_ZONE_R_ARM)
@@ -2309,8 +2299,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.charflaw = new charflaw.type()
 		character.charflaw.on_mob_creation(character)
 
-	character.dna.real_name = character.real_name
-
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)
 		for(var/datum/role_ban_instance/ban as anything in bans.bans)
@@ -2327,6 +2315,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(is_misc_banned(parent.ckey, BAN_MISC_PUNISHMENT_CURSE))
 		ADD_TRAIT(character, TRAIT_PUNISHMENT_CURSE, TRAIT_BAN_PUNISHMENT)
 
+	/* V */
+
 	if("tail_lizard" in pref_species.default_features)
 		character.dna.species.mutant_bodyparts |= "tail_lizard"
 
@@ -2334,9 +2324,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
-
-	character.familytree_pref = family
-	character.setspouse = setspouse
 
 /datum/preferences/proc/get_default_name(name_id)
 	switch(name_id)
