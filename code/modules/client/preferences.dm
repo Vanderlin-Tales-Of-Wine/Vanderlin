@@ -1758,8 +1758,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 							features["mcolor"] = pref_species.default_color
 						real_name = pref_species.random_name(gender,1)
 						ResetJobs()
-						if(pref_species.desc)
-							to_chat(user, "[pref_species.desc]")
 						age = pick(pref_species.possible_ages)
 						to_chat(user, "<font color='red'>Classes reset.</font>")
 						randomise_appearance_prefs(~(RANDOMIZE_SPECIES))

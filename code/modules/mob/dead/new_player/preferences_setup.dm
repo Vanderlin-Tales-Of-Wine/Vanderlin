@@ -1,4 +1,5 @@
 /// Fully randomizes everything in the character.
+// Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
 	if(randomise_flags & RANDOMIZE_SPECIES)
 		var/rando_race = GLOB.species_list[pick(GLOB.roundstart_races)]
