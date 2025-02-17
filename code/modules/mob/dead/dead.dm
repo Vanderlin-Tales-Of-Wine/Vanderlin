@@ -82,15 +82,15 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 			continue
 		if(!job.shows_in_list)
 			continue
-		var/readiedas = 0
+		var/readied_as = 0
 		var/list/PL = list()
 		for(var/mob/dead/new_player/player in GLOB.player_list)
 			if(!player)
 				continue
-			if(job.title == "Adventurer")
+			if(is_adventurer_job(job))
 				if(player.client.prefs.job_preferences["Court Agent"] == JP_HIGH)
 					if(player.ready == PLAYER_READY_TO_PLAY)
-						readiedas++
+						readied_as++
 						if(!(player.client.ckey in GLOB.hiderole))
 							if(player.client.prefs.real_name)
 								var/thing = "[player.client.prefs.real_name]"
@@ -98,7 +98,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 			if(player.client.prefs.job_preferences[job.title] == JP_HIGH)
 				if(player.ready == PLAYER_READY_TO_PLAY)
-					readiedas++
+					readied_as++
 					if(!(player.client.ckey in GLOB.hiderole))
 						if(player.client.prefs.real_name)
 							var/thing = "[player.client.prefs.real_name]"
@@ -112,11 +112,11 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 				PL2 += "[PL[i]], "
 
 		var/str_job = job.title
-		if(readiedas)
+		if(readied_as)
 			if(PL2.len)
-				dat += "<B>[str_job]</B> ([readiedas]) - [PL2.Join()]<br>"
+				dat += "<B>[str_job]</B> ([readied_as]) - [PL2.Join()]<br>"
 			else
-				dat += "<B>[str_job]</B> ([readiedas])<br>"
+				dat += "<B>[str_job]</B> ([readied_as])<br>"
 
 	var/datum/browser/popup = new(src, "lobby_window", "<div align='center'>LOBBY</div>", 330, 430)
 	popup.set_window_options("can_minimize=0;can_maximize=0;can_resize=1;")

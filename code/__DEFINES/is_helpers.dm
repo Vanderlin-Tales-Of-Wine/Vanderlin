@@ -151,3 +151,4 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 // Jobs
 #define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
 #define is_assistant_job(job_type) (istype(job_type, /datum/job/assistant))
+#define is_adventurer_job(job_type) (istype(job_type, /datum/job/roguetown/adventurer))
