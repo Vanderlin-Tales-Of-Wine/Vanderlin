@@ -409,6 +409,9 @@
 
 /// MASTERWORK
 
+/datum/repeatable_crafting_recipe/leather/standalone/boots
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/boots
+
 /datum/repeatable_crafting_recipe/leather/standalone/boots/masterwork
 	name = "masterwork leather boots"
 	output = /obj/item/clothing/shoes/roguetown/boots/leather/masterwork
@@ -417,6 +420,9 @@
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
+
+/datum/repeatable_crafting_recipe/leather/standalone/gloves
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/gloves
 
 /datum/repeatable_crafting_recipe/leather/standalone/gloves/masterwork
 	name = "masterwork leather gloves"
@@ -428,7 +434,7 @@
 	craftdiff = 5
 
 /datum/repeatable_crafting_recipe/leather/standalone/bracers
-	abstract_type = TRUE
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/bracers
 
 /datum/repeatable_crafting_recipe/leather/standalone/bracers/masterwork
 	name = "masterwork leather bracers"
@@ -439,6 +445,9 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
 
+/datum/repeatable_crafting_recipe/leather/standalone/coat
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/coat
+
 /datum/repeatable_crafting_recipe/leather/standalone/coat/masterwork
 	name = "masterwork leather coat"
 	output = /obj/item/clothing/suit/roguetown/armor/leather/masterwork
@@ -448,6 +457,9 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
 
+/datum/repeatable_crafting_recipe/leather/standalone/helmet
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/helmet
+
 /datum/repeatable_crafting_recipe/leather/standalone/helmet/masterwork
 	name = "masterwork leather helmet"
 	output = /obj/item/clothing/head/roguetown/helmet/leather/masterwork
@@ -456,6 +468,9 @@
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 5
+
+/datum/repeatable_crafting_recipe/leather/standalone/chausses
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/chausses
 
 /datum/repeatable_crafting_recipe/leather/standalone/chausses/masterwork
 	name = "masterwork leather chausses"
