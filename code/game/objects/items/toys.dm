@@ -208,7 +208,7 @@
 	var/mob/living/carbon/human/cardUser = usr
 	if(!(cardUser.mobility_flags & MOBILITY_USE))
 		return
-	if(href_list["pick"])
+	if(href_list["pick"] && HAS_TRAIT(cardUser, TRAIT_BLACKLEG))
 		var/choice = href_list["pick"]
 		src.cards -= choice
 		cards = shuffle(cards)
