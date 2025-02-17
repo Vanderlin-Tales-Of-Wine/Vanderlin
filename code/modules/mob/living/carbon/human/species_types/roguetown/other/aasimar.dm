@@ -14,15 +14,17 @@
 /datum/species/aasimar
 	name = "Aasimar"
 	id = "aasimar"
-	desc = "<b>Aasimar</b><br> \
-	Immortal offspring sculpted by one of the gods for use in servitude. \
+	desc = "Immortal offspring sculpted by the Gods for use in servitude. \
+	\n\
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \
-	This species is often revered due to their celestial origin, but face great solitude \
-	as not many of their kind exist. Many an aasimar will detest the reverance in which they are greeted with,\
+	This species is often revered due to their celestial origin, \
+	but face great solitude as not many of their kind exist. \
+	Many an aasimar will detest the reverance in which they are greeted with, \
 	for their greatest failure or unuse that lead to their discarding is not subject for celebration. \
+	\n\
 	An aasimar may be crafted with any number of materials. \
-	Many resemble sculptures of stones or ceramic in skin, but their insides are just as mortal as \
-	any other. "
+	Many resemble sculptures of stones or ceramic in skin, \
+	but their insides are just as mortal as any other."
 
 	skin_tone_wording = "Crafted With"
 	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry aasimar

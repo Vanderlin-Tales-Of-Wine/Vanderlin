@@ -12,16 +12,18 @@
 /datum/species/elf/dark
 	name = "Dark Elf"
 	id = "elf"
-	desc = "<b>Dark Elf</b><br>\
-	Conquered by Zizo, these elves hail from an underground expanse of \
-	newly-reborn empires. They lead harsh, matriarchal lives under the watchful guide of Zizo, \
+	desc = "Zizo's conquered. \
+	\n\n\
+	These elves hail from an underground expanse of newly-reborn empires. \
+	They lead harsh, matriarchal lives under the watchful gaze of Zizo, \
 	the vast majority hoping to one day achieve such power and domination for themselves. \
 	Zizo's spawn, the last snow elves, integrated themselves- whether gleefully or resentfully- within the dark elf culture \
 	their grandmother had carved through conquest. \
+	\n\n\
 	To most in Psydonia, a dark elf is nothing more than a servant of Zizo waiting to betray for power, \
 	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
 	rarely receive fair treatment. \
-	\
+	\n\n\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Parent House"

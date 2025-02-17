@@ -2,16 +2,24 @@
 	race = /datum/species/halforc
 
 /datum/species/halforc
-	name = "Half-Orc"
 	id = "halforc"
-	desc = "<b>Half-Orcs</b><br>\
-	Half-orcs are born from an orc parent, and the other unknown. Whatever the circumstances of their birth, \
-	the powerful genes of the twisted, corrupted remains that was once a fairer species shines clearly through their \
-	spawn. Whether said spawn shall follow their orcish parent's footsteps by the gorging of kin-flesh is yet to be seen, \
-	though most assume the worst.  \
-	An orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
-	\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
+	name = "Half-Orc"
+	desc = "The bastards of Graggar. \
+	\n\n\
+	Half-Orcs are the offspring of orcs and another race, \
+	the powerful Graggarite genes of the former corrupting and maiming those of their fairer mates. \
+	This causes their children to be severely deformed, looking much more like their monstrous progenitor. \
+	\n\n\
+	Due to their orcish parent's refusal to nurture them, \
+	as well as their other parent often rejecting or attacking them, \
+	most Half-Orcs will grow as orphans. \
+	Their rejection by the rest of society causes their growth to stunt, \
+	often making them hostile and prone to violence. Because of this, most will assume the worst in them, \
+	believing that they are cursed to follow their orcish parent's footsteps in the gorging of kin-flesh. \
+	\n\n\
+	A Half-Orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
+	\n\n\
+	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Clan"
 

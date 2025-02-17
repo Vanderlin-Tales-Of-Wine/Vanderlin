@@ -12,13 +12,16 @@
 /datum/species/dwarf/mountain
 	name = "Dwarf"
 	id = "dwarf"
-	desc = "<b>Dwarf</b><br>\
+	desc = "Malum's chosen.\
+	\n\n\
 	A proud and robust species of stunted folk, \
 	the dwarves are known for their pride in martial strength \
 	and their tenacity towards their ancient customs. \
-	A Dwarf, much like the rock that they carve their fortress out of \
-	is stubborn and ancient. They are revered craftsmen, sculptors, smiths, \
-	and miners. As an old saying goes, 'If you want it done right, lose 2 feet and grow a beard.' \
+	A Dwarf, much like the rock that they carve their fortress out of, is stubborn and ancient. \
+	\n\n\
+	They are revered craftsmen, sculptors, smiths, and miners. \
+	As an old and mostly out-of-date saying goes, \"If you want it done right, lose 2 feet and grow a beard.\" \
+	\n\n\
 	Despite their cultural praise, a long-standing fued remains between dwarves and elves \
 	stemming from old industrial practices. Dwarves hold a strong alliance with humenkind."
 

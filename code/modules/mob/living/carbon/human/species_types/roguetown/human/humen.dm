@@ -12,11 +12,12 @@
 /datum/species/human/northern
 	name = "Humen"
 	id = "human"
-	desc = "<b>Humen</b><br>\
-	Humenity, creation in Psydon's image. \
-	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
+	desc = "Humenity, creation in Psydon's image. \
+	\n\n\
 	Humens come from a vast swathe of cultures and ethnicities all around Psydonia, most of which \
 	have historically been at odds with one another and other species. \
+	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
+	\n\n\
 	Humens tend to find fortune easier than the other species, and are so diverse that no other trait \
 	are dominant in their species..."
 

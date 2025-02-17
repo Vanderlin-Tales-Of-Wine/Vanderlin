@@ -10,16 +10,20 @@
 /datum/species/human/halfelf
 	name = "Half-Elf"
 	id = "human"
-	desc = "<b>Half Elf</b><br>\
-	The child of an Elf and Humen, Half-Elves are generally frowned \
-	upon by more conservative peoples, although as species tensions lower, \
-	more and more half-elves are being born. To the point that some scholars \
-	worry that someday, it may be impossible to distinguish the two species. \
-	Half-Elves are extremely diverse, as they bring in humen and elvish culture\
-	and it is widely considered that Half-Elf culture is simply a melting pot of \
+	desc = "The child of Elf and Humen. \
+	\n\
+	Half-Elves are generally frowned upon by more conservative peoples, \
+	although as species tensions lower, more and more half-elves are being born. \
+	To the point that some scholars worry that someday, \
+	it may be impossible to distinguish the two species. \
+	\n\
+	Half-Elves are extraordinarily diverse, as they combine both Humen and Elvish culture. \
+	It is widely considered that Half-Elf culture is simply a melting pot of \
 	various others condensing into one vibrant entity. \
+	\n\
 	Their longevity spanning too long for a human and short for an elf lead them to congregate together. \
-	Due to their heritage, Half-Elves tend to gain species traits depending on how strong their fathers, or mothers, genes were. \
+	Due to their heritage, Half-Elves tend to gain species traits \
+	depending on how strong their fathers, or mothers, genes were. \
 	Half-Elves also typically try to find identity."
 
 	skin_tone_wording = "Half-Elven Identity"
