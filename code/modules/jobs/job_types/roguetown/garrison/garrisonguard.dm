@@ -46,6 +46,7 @@
 
 //................. City Watchmen Base .............. //
 /datum/outfit/job/roguetown/guardsman/pre_equip(mob/living/carbon/human/H)
+	. = ..()
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
 	pants = pick(/obj/item/clothing/under/roguetown/tights/guard, /obj/item/clothing/under/roguetown/tights/guardsecond)
 	wrists = /obj/item/rope/chain
@@ -96,7 +97,7 @@
 //................. Archer .............. //
 /datum/advclass/garrison/archer
 	name = "City Watch Archer"
-	tutorial = "You are a member of the City Watch. Your training with bows and crossbows makes you a formidable threat when perched atop the walls or rooftops, raining arrows or bolts down upon foes with impunity."
+	tutorial = "You are a member of the City Watch. Your training with bows makes you a formidable threat when perched atop the walls or rooftops, raining arrows down upon foes with impunity."
 	outfit = /datum/outfit/job/roguetown/guardsman/archer
 	category_tags = list(CTAG_GARRISON)
 
@@ -114,7 +115,7 @@
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE) // Main Weapon
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE) // You don't even have access to crossbows
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Backup
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
