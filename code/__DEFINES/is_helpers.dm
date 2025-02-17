@@ -149,6 +149,27 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	)))
 
 // Jobs
-#define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
-#define is_assistant_job(job_type) (istype(job_type, /datum/job/assistant))
-#define is_adventurer_job(job_type) (istype(job_type, /datum/job/roguetown/adventurer))
+// Meta\Unsorted
+	//#define is__job(job_type) (istype(job_type, /datum/job/roguetown/)) //template for easy filling in
+	#define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
+	#define is_assistant_job(job_type) (istype(job_type, /datum/job/assistant)) //SS13 leftover
+// Nobility
+	#define is_lord_job(job_type) (istype(job_type, /datum/job/roguetown/lord))
+	#define is_consort_job(job_type) (istype(job_type, /datum/job/roguetown/consort))
+	#define is_merchant_job(job_type) (istype(job_type, /datum/job/roguetown/merchant))
+// Garrison
+// Church
+	#define is_priest_job(job_type) (istype(job_type, /datum/job/roguetown/priest))
+	#define is_monk_job(job_type) (istype(job_type, /datum/job/roguetown/monk))
+	#define is_inquisitor_job(job_type) (istype(job_type, /datum/job/roguetown/inquisitor))
+	#define is_adept_job(job_type) (istype(job_type, /datum/job/roguetown/adept))
+// Serfs
+// Peasantry
+	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/roguetown/adventurer))
+	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/roguetown/mercenary))
+	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/roguetown/vagrant))
+
+// seemingly deprecated:
+//"Preacher" //as a job, there is an equivalent class
+//"Witch Hunter"
+//"Shepherd"

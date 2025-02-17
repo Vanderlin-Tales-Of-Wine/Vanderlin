@@ -1,4 +1,4 @@
-/// Fully randomizes everything in the character.
+/// Randomizes our character preferences according to enabled bitflags.
 // Reflect changes in [mob/living/carbon/human/proc/randomize_human_appearance]
 /datum/preferences/proc/randomise_appearance_prefs(randomise_flags = ALL)
 	if(randomise_flags & RANDOMIZE_SPECIES)
@@ -41,7 +41,7 @@
 		features = random_features()
 
 
-/// Randomizes the character according to preferences.
+/// Randomizes our character preferences according to enabled randomise preferences.
 /datum/preferences/proc/apply_character_randomization_prefs(antag_override = FALSE)
 	if(!randomise[RANDOM_BODY] && !(antag_override && randomise[RANDOM_BODY_ANTAG]))
 		return // Prefs say "no, thank you"
