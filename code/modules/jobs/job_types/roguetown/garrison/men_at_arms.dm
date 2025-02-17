@@ -30,9 +30,9 @@
 	min_pq = 6
 
 /datum/outfit/job/roguetown/watchman/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
+	. = ..()
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	pants = /obj/item/clothing/under/roguetown/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/keyring/manorguard
@@ -44,6 +44,52 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+
+
+/datum/advclass/menatarms/watchman_pikeman
+	name = "Pikeman Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you get to stare at them in the eyes, watching as they bleed, \
+	exanguinated personally by one of the Monarch's best. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	outfit = /datum/outfit/job/roguetown/watchman/pikeman
+
+	category_tags = list(CTAG_MENATARMS)
+
+/datum/outfit/job/roguetown/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
+	..()
+	head = /obj/item/clothing/head/roguetown/helmet/kettle
+	cloak = /obj/item/clothing/cloak/stabard/guard
+	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+	gloves = /obj/item/clothing/gloves/roguetown/chain
+	beltr = /obj/item/rogueweapon/sword/arming
+	backr = /obj/item/rogueweapon/polearm/spear/billhook
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
+	if(H.mind)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_PER, -1)
+		H.change_stat(STATKEY_END, -1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_SPD, 1)
+		H.verbs |= /mob/proc/haltyell
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 /datum/advclass/menatarms/watchman_swordsmen
 	name = "Fencer Men-At-Arms"
@@ -61,6 +107,7 @@
 	head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/advanced
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	beltr = /obj/item/rogueweapon/sword/rapier
@@ -100,8 +147,10 @@
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	beltr = /obj/item/rogueweapon/mace/cudgel
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
@@ -130,47 +179,3 @@
 			if("Crossbow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 				backr = /obj/item/ammo_holder/quiver/bolts
-
-/datum/advclass/menatarms/watchman_pikeman
-	name = "Pikeman Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you get to stare at them in the eyes, watching as they bleed, \
-	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
-	outfit = /datum/outfit/job/roguetown/watchman/pikeman
-
-	category_tags = list(CTAG_MENATARMS)
-
-/datum/outfit/job/roguetown/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
-	..()
-	head = /obj/item/clothing/head/roguetown/helmet/kettle
-	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-	gloves = /obj/item/clothing/gloves/roguetown/chain
-	beltr = /obj/item/rogueweapon/sword/arming
-	backr = /obj/item/rogueweapon/polearm/spear/billhook
-	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_STR, 2)
-		H.change_stat(STATKEY_PER, -1)
-		H.change_stat(STATKEY_END, -1)
-		H.change_stat(STATKEY_CON, 1)
-		H.change_stat(STATKEY_SPD, 1)
-		H.verbs |= /mob/proc/haltyell
-		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
