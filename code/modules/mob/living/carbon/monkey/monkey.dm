@@ -8,8 +8,8 @@
 	pass_flags = PASSTABLE
 	ventcrawler = VENTCRAWLER_NUDE
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/monkey = 5)
-	type_of_meat = /obj/item/reagent_containers/food/snacks/meat/slab/monkey
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5)
+	type_of_meat = /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	gib_type = /obj/effect/decal/cleanable/blood/gibs
 	unique_name = TRUE
 	bodyparts = list(/obj/item/bodypart/chest/monkey, /obj/item/bodypart/head/monkey, /obj/item/bodypart/l_arm/monkey,

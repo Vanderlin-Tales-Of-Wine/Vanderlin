@@ -7,6 +7,7 @@
 	abstract_type = /datum/slapcraft_recipe/carpentry/structure
 	anchor_craft = TRUE
 	subcategory = SLAP_SUBCAT_STRUCTURE
+	assembly_weight_class = WEIGHT_CLASS_HUGE
 	craftsound = 'sound/foley/Building-01.ogg'
 
 /datum/slapcraft_recipe/carpentry/structure/check_craft_requirements(mob/user, turf/T)
@@ -31,6 +32,7 @@
 	abstract_type = /datum/slapcraft_recipe/masonry
 	skillcraft = /datum/skill/craft/masonry
 	category = SLAP_CAT_MASONRY
+	assembly_weight_class = WEIGHT_CLASS_HUGE
 
 /datum/slapcraft_recipe/masonry/structure
 	abstract_type = /datum/slapcraft_recipe/masonry/structure
@@ -59,6 +61,7 @@
 	abstract_type = /datum/slapcraft_recipe/engineering
 	skillcraft =/datum/skill/craft/engineering
 	category = SLAP_CAT_ENGINEERING
+	assembly_weight_class = WEIGHT_CLASS_HUGE
 
 /datum/slapcraft_recipe/engineering/structure
 	abstract_type = /datum/slapcraft_recipe/engineering/structure

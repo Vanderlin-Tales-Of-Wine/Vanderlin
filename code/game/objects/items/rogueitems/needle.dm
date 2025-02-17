@@ -3,8 +3,6 @@
 	desc = "A firm needle affixed with a simple thread, Pestra's most favored tool."
 	icon_state = "needle"
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	force = 0
 	throwforce = 0
@@ -61,7 +59,7 @@
 			return
 		else
 			to_chat(user, "I begin threading the needle with additional fibers...")
-			if(do_after(user, 6 SECONDS - user.mind.get_skill_level(/datum/skill/misc/sewing), target = I))
+			if(do_after(user, 6 SECONDS - user.mind.get_skill_level(/datum/skill/misc/sewing), I))
 				stringamt += 5
 				to_chat(user, "I replenish the needle's thread!")
 				qdel(I)
@@ -93,8 +91,8 @@
 			to_chat(user, span_warning("I should probably not be doing this..."))
 		playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 		var/skill_multiplied = (skill_level * 10)
-		var/sewtime = (60 - skill_multiplied)
-		if(!do_after(user, sewtime, target = I))
+		var/sewtime = (6 SECONDS - skill_multiplied)
+		if(!do_after(user, sewtime, I))
 			return
 		if((armor_value == 0 && skill_level > 0) || (armor_value > 0 && skill_level > 1)) //If not armor but skill level at least 1 or Armor and skill level at least 2
 			user.visible_message(span_info("[user] repairs [I]!"))
@@ -155,7 +153,7 @@
 	while(!QDELETED(target_wound) && !QDELETED(src) && \
 		!QDELETED(user) && (target_wound.sew_progress < target_wound.sew_threshold) && \
 		stringamt >= 1)
-		if(!do_after(doctor, 20, target = patient))
+		if(!do_after(doctor, 2 SECONDS, patient))
 			break
 		playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 		target_wound.sew_progress = min(target_wound.sew_progress + moveup, target_wound.sew_threshold)

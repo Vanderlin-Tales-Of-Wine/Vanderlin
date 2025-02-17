@@ -1,7 +1,8 @@
 /datum/job/roguetown/fisher
 	title = "Fisher"
-	tutorial = "Simple folk with an affinity for catching fish out of any body of water, \
-				they are decent cooks and swimmers, living off the gifts of Abyssor."
+	tutorial = "Abyssor is angry. Neglected and shunned, his boons yet shy from your hook. \
+	Alone, in the stillness of nature, your bag is empty, and yet you fish. Pluck the children of god from their trance, \
+	and stare into the water to see the reflection of a drowned body in the making."
 	faction = "Station"
 	flag = FISHER
 	department_flag = PEASANTS

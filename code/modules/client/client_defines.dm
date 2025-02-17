@@ -147,3 +147,5 @@
 	var/rain_sound = FALSE
 	var/last_droning_sound
 	var/sound/droning_sound
+
+	var/list/triumph_ids = list() //I am not sure if i should put it here, but if it work? this check for specific triumph IDs.

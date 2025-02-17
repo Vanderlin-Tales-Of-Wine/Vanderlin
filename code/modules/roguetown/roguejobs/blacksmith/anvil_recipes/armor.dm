@@ -2,10 +2,12 @@
 	appro_skill = /datum/skill/craft/armorsmithing
 	i_type = "Armor"
 	craftdiff = 1
+	abstract_type = /datum/anvil_recipe/armor
 
 // --------- COPPER -----------
 
 /datum/anvil_recipe/armor/copper
+	abstract_type = /datum/anvil_recipe/armor/copper
 
 /datum/anvil_recipe/armor/copper/mask
 	name = "Copper mask"
@@ -50,6 +52,7 @@
 /datum/anvil_recipe/armor/iron
 	req_bar = /obj/item/ingot/iron
 	craftdiff = 0
+	abstract_type = /datum/anvil_recipe/armor/iron
 
 /datum/anvil_recipe/armor/iron/chainleg
 	name = "Iron Chain Chausses"

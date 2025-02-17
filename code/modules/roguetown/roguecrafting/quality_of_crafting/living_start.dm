@@ -29,13 +29,10 @@
 
 	if(!length(recipes))
 		return FALSE
-	if(length(recipes) == 1)
-		return execute_recipe(recipes[1], attacked_object, attacked_item)
-	else
-		var/datum/recipe  = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
-		if(!recipe)
-			return
-		return execute_recipe(recipe, attacked_object, attacked_item)
+	var/datum/recipe  = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
+	if(!recipe)
+		return
+	return execute_recipe(recipe, attacked_object, attacked_item)
 
 /mob/living/proc/execute_recipe(datum/slapcraft_recipe/target_recipe, obj/item/first_item, obj/item/second_item)
 	if(!target_recipe)
@@ -102,4 +99,4 @@
 
 	else if(istype(target_recipe, /datum/repeatable_crafting_recipe))
 		var/datum/repeatable_crafting_recipe/recipe = target_recipe
-		recipe.start_recipe(second_item, first_item, src)
+		return recipe.start_recipe(second_item, first_item, src)

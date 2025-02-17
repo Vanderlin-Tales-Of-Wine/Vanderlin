@@ -6,10 +6,10 @@
 	id = "halforc"
 	desc = "<b>Half-Orcs</b><br>\
 	Half-orcs are born from an orc parent, and the other unknown. Whatever the circumstances of their birth, \
-	The powerful genes of the twisted, corrupted remains that was once a fairer species shines clearly through their \
+	the powerful genes of the twisted, corrupted remains that was once a fairer species shines clearly through their \
 	spawn. Whether said spawn shall follow their orcish parent's footsteps by the gorging of kin-flesh is yet to be seen, \
 	though most assume the worst.  \
-	An orc may look much like it's monstrous  progenitor, sporting tusks and natural strength. \
+	An orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
 	\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 

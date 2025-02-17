@@ -307,7 +307,7 @@
 		return
 	to_chat(user, span_notice("You begin to gather the ammunition..."))
 	for(var/obj/item/rogueweapon/knife/throwingknife/arrow in T.contents)
-		if(do_after(user, 5))
+		if(do_after(user, 5 DECISECONDS))
 			if(!eatarrow(arrow))
 				break
 

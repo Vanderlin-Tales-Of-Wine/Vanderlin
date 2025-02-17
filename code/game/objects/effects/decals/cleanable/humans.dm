@@ -25,7 +25,7 @@
 	// Imperfect, ends up with some blood types being double-set-up, but harmless (for now)
 	for(var/new_blood in blood_DNA_to_add)
 		var/datum/blood_type/blood = GLOB.blood_types[blood_DNA_to_add[new_blood]]
-		blood.set_up_blood(src, first_dna == 0)
+		blood?.set_up_blood(src, first_dna == 0)
 	update_icon()
 	return TRUE
 
@@ -44,7 +44,7 @@
 	alpha = 255 *((100 - wash_precent) * 0.01)
 	if(wash_precent >= 100)
 		qdel(src)
-	COOLDOWN_START(src, wash_cooldown, 15 SECONDS)
+	COOLDOWN_START(src, wash_cooldown, 7.5 SECONDS)
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()

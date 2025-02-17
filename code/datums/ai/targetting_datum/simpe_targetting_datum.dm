@@ -36,7 +36,7 @@
 
 	if(isliving(the_target)) //Targetting vs living mobs
 		var/mob/living/L = the_target
-		if(faction_check(living_mob, L) || L.stat)
+		if(faction_check(living_mob, L) || L.stat >= DEAD) //basic targetting doesn't target dead people
 			return FALSE
 		return TRUE
 

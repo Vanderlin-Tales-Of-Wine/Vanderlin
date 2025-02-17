@@ -24,20 +24,20 @@
 /obj/item/grown/log/tree/attacked_by(obj/item/I, mob/living/user) //This serves to reward woodcutting
 	if(user.used_intent.blade_class == BCLASS_CHOP && lumber_amount && lumber)
 		var/skill_level = user.mind.get_skill_level(/datum/skill/labor/lumberjacking)
-		var/lumber_time = (40 - (skill_level * 5))
+		var/lumber_time = (4 SECONDS - (skill_level * 5))
 		var/minimum = 1
 		playsound(src, 'sound/misc/woodhit.ogg', 100, TRUE)
-		if(!do_after(user, lumber_time, target = user))
+		if(!do_after(user, lumber_time, user))
 			return
 		if(skill_level > 0) // If skill level is 1 or higher, we get more minimum wood!
 			minimum = 2
 		lumber_amount = rand(minimum, max(round(skill_level), minimum))
-		var/essense_sound_played = FALSE //This is here so the sound wont play multiple times if the essense itself spawns multiple times
+		var/essence_sound_played = FALSE //This is here so the sound wont play multiple times if the essence itself spawns multiple times
 		for(var/i = 0; i < lumber_amount; i++)
 			if(prob(skill_level + prob(CLAMP((user.STALUC - 10)*2,0,100))))
 				new /obj/item/grown/log/tree/small/essence(get_turf(src))
-				if(!essense_sound_played)
-					essense_sound_played = TRUE
+				if(!essence_sound_played)
+					essence_sound_played = TRUE
 					to_chat(user, span_warning("Dendor watches over us..."))
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 			else
@@ -59,20 +59,20 @@
 
 	if(user.used_intent.blade_class == BCLASS_CHOP && lumber_amount && lumber_alt)
 		var/skill_level = user.mind.get_skill_level(/datum/skill/labor/lumberjacking)
-		var/lumber_time = (40 - (skill_level * 5))
+		var/lumber_time = (4 SECONDS - (skill_level * 5))
 		var/minimum = 1
 		playsound(src, 'sound/misc/woodhit.ogg', 100, TRUE)
-		if(!do_after(user, lumber_time, target = user))
+		if(!do_after(user, lumber_time, user))
 			return
 		if(skill_level > 0) // If skill level is 1 or higher, we get more minimum wood!
 			minimum = 2
 		lumber_amount = rand(minimum, max(round(skill_level), minimum))
-		var/essense_sound_played = FALSE //This is here so the sound wont play multiple times if the essense itself spawns multiple times
+		var/essence_sound_played = FALSE //This is here so the sound wont play multiple times if the essence itself spawns multiple times
 		for(var/i = 0; i < lumber_amount; i++)
 			if(prob(skill_level + prob(CLAMP((user.STALUC - 10)*2,0,100))))
 				new /obj/item/grown/log/tree/small/essence(get_turf(src))
-				if(!essense_sound_played)
-					essense_sound_played = TRUE
+				if(!essence_sound_played)
+					essence_sound_played = TRUE
 					to_chat(user, span_warning("Dendor watches over us..."))
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 			else
@@ -170,7 +170,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS))
 			user.visible_message("<span class='notice'>[user] sharpens [src].</span>")
 			var/obj/item/grown/log/tree/stake/S = new /obj/item/grown/log/tree/stake(get_turf(src.loc))
 			if(user.is_holding(src))
@@ -183,7 +183,7 @@
 	if(istype(I, /obj/item/natural/bundle/stick))
 		var/obj/item/natural/bundle/stick/B = I
 		if(B.amount < B.maxamount)
-			to_chat(user, span_notice("You add [src] to [B]."))
+			to_chat(user, span_notice("I add [src] to [B]."))
 			B.amount += 1
 			B.update_bundle()
 			qdel(src)
@@ -250,7 +250,7 @@
 
 /obj/item/grown/log/tree/small/essence
 	name = "essence of lumber"
-	desc = "A mystical essense embued with the power of Dendor. Very good source of fuel."
+	desc = "A mystical essence embued with the power of Dendor. Very good source of fuel."
 	icon_state = "lessence"
 	static_debris = null
 	firefuel = 60 MINUTES // Extremely poweful fuel.

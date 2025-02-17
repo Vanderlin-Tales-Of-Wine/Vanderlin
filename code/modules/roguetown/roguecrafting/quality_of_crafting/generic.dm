@@ -3,10 +3,9 @@
 	output = /obj/item/clothing/mask/cigarette/rollie/nicotine
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 1,
-		/obj/item/paper = 1
+		/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 2
 	)
-	attacking_atom = /obj/item/paper
+	attacking_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a westleach zig"
@@ -19,10 +18,9 @@
 	output = /obj/item/clothing/mask/cigarette/rollie/cannabis
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
-		/obj/item/paper = 1
+		/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2
 	)
-	attacking_atom = /obj/item/paper
+	attacking_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a swampweed zig"

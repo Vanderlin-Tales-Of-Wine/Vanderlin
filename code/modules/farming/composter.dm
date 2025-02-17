@@ -66,7 +66,7 @@
 		playsound(user, "rustle", 50, TRUE)
 	var/do_time = using_tool ? 2 SECONDS : 9 SECONDS
 	var/fatigue = using_tool ? 10 : 30
-	if(do_after(user, get_farming_do_time(user, do_time), target = src))
+	if(do_after(user, get_farming_do_time(user, do_time), src))
 		apply_farming_fatigue(user, fatigue)
 		if(using_tool)
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
@@ -86,6 +86,8 @@
 		compost_value = 150
 	if(istype(attacking_item, /obj/item/natural/chaff))
 		compost_value = 150
+	if(istype(attacking_item, /obj/item/alch/bone))
+		compost_value = 100
 	if(istype(attacking_item, /obj/item/trash))
 		compost_value = 50
 	if(compost_value > 0)
@@ -189,3 +191,5 @@
 	icon = 'icons/roguetown/misc/composter.dmi'
 	icon_state = "compost"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32

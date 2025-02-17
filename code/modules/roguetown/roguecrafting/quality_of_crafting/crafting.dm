@@ -74,7 +74,7 @@
 		/obj/item/natural/hide = 1,
 	)
 
-	starting_atom = /obj/item/natural/wood/plank
+	starting_atom = /obj/item/natural/hide
 	attacking_atom = /obj/item/natural/wood/plank
 	output = /obj/item/rogueweapon/shield/heater/crafted
 	craftdiff = 2

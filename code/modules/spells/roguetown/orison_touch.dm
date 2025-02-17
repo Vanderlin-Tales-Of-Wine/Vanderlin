@@ -145,7 +145,7 @@
 		else
 			user.visible_message(span_notice("[user] closes [user.p_their()] eyes and places a glowing hand upon [user.p_their()] chest..."), span_notice("Blessed [user.patron.name], I ask but for a light to guide the way..."))
 
-		if (do_after(user, cast_time, target = thing))
+		if(do_after(user, cast_time, thing))
 			var/mob/living/living_thing = thing
 			var/light_power = clamp(4 + (holy_skill - 3), 4, 7)
 
@@ -195,7 +195,7 @@
 		user.visible_message(span_notice("[user] lowers [user.p_their()] head solemnly, whispered prayers spilling from [user.p_their()] lips..."), span_notice("O holy [user.patron.name], share unto me a sliver of your power..."))
 
 		if (!user.has_status_effect(/datum/status_effect/thaumaturgy))
-			if (do_after(user, cast_time, target = user))
+			if(do_after(user, cast_time))
 				user.apply_status_effect(/datum/status_effect/thaumaturgy)
 				user.visible_message(span_notice("[user] throws open [user.p_their()] eyes, suddenly emboldened!"), span_notice("A feeling of power wells up in my throat: speak, and many will hear!"))
 				return thaumaturgy_devotion
@@ -318,10 +318,10 @@
 		user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer and extends a hand over [thing] as water begins to stream from [user.p_their()] fingertips..."), span_notice("I utter forth a plea to [user.patron.name] for succour, and hold my hand out above [thing]..."))
 
 		var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
-		var/drip_speed = 56 - (holy_skill * 8)
+		var/drip_speed = 5.6 SECONDS - (holy_skill * 8)
 		var/fatigue_spent = 0
 		var/fatigue_used = max(3, holy_skill)
-		while (do_after(user, drip_speed, target = thing))
+		while(do_after(user, drip_speed, thing))
 			if (thing.reagents.holder_full() || (user.cleric.devotion - fatigue_used <= 0))
 				break
 
@@ -380,7 +380,7 @@
 		var/drip_speed = 56 - (holy_skill * 8)
 		var/fatigue_spent = 0
 		var/fatigue_used = max(3, holy_skill)
-		while (do_after(user, drip_speed, target = thing))
+		while(do_after(user, drip_speed, thing))
 			if (thing.reagents.holder_full() || (user.cleric.devotion - fatigue_used <= 0))
 				break
 

@@ -27,7 +27,7 @@
 
 /datum/status_effect/freon/proc/owner_resist()
 	to_chat(owner, "<span class='notice'>I start breaking out of the ice cube...</span>")
-	if(do_mob(owner, owner, 40))
+	if(do_after(owner, 4 SECONDS))
 		if(!QDELETED(src))
 			to_chat(owner, "<span class='notice'>I break out of the ice cube!</span>")
 			owner.remove_status_effect(/datum/status_effect/freon)

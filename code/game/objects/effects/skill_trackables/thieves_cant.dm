@@ -25,7 +25,7 @@
 	to_chat(user, "The etchings say: [span_notice(thieves_message)]")
 
 /obj/effect/skill_tracker/thieves_cant/proc/write_message(mob/user, message)
-	if(!do_after(user, 5 SECONDS, target = src))
+	if(!do_after(user, 5 SECONDS, src))
 		return
 	thieves_message = message
 

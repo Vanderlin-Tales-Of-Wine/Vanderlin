@@ -9,9 +9,10 @@
 	dropshrink = 0.6
 	drop_sound = 'sound/foley/dropsound/book_drop.ogg'
 	force = 5
-	associated_skill = /datum/skill/misc/reading
 	var/random_cover
 	var/category = null
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/book/rogue/getonmobprop(tag)
 	. = ..()
