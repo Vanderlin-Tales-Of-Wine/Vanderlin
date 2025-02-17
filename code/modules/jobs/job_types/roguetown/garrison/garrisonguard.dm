@@ -75,9 +75,9 @@
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE) // Main weapon
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE) // Main off-hand weapon
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // Backup
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Backup
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
@@ -112,7 +112,7 @@
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE) // Main Weapon
+		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE) // Main Weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE) // You don't even have access to crossbows
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Backup
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -151,14 +151,14 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/polearm/spear
-	beltl = /obj/item/rogueweapon/knife/dagger/steel/special
+	beltl = /obj/item/rogueweapon/sword/short
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	backpack_contents = list(/obj/item/storage/keyring/guard)
+	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 
 	//Stats for class
-	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
