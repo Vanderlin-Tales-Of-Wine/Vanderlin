@@ -54,7 +54,7 @@
 	update_icon()
 
 /obj/item/dice/suicide_act(mob/user)
-	user.visible_message(span_suicide())
+	user.visible_message(span_suicide("[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (OXYLOSS)
 
 /obj/item/dice/attack_right(mob/user)
