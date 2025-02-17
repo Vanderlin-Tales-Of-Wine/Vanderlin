@@ -72,7 +72,7 @@
 
 /datum/component/loot_spawner/proc/start_loot(atom/source, mob/user)
 	user.visible_message("[user] [action_text] [parent].")
-	if(!do_after(user, action_time, target = source))
+	if(!do_after(user, action_time, source))
 		return
 	loot.spawn_loot(user)
 
@@ -83,6 +83,6 @@
 	SEND_SIGNAL(parent, COMSIG_PARENT_TRAP_TRIGGERED, user)
 
 /datum/component/loot_spawner/proc/start_reset(atom/source, obj/item/L, mob/living/user)
-	if(!do_after(user, action_time, target = source))
+	if(!do_after(user, action_time, source))
 		return
 	needs_reset = FALSE

@@ -1,8 +1,6 @@
 
 /obj/item/natural
 	icon = 'icons/roguetown/items/natural.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	desc = ""
 	w_class = WEIGHT_CLASS_TINY
 
@@ -31,6 +29,9 @@
 
 /obj/item/natural/pre_attack_right(atom/A, mob/living/user, params)
 	if(istype(A, /obj/item/natural))
+		if(item_flags & IN_STORAGE)
+			to_chat(user, span_warning("It's hard to find [src] in my bag."))
+			return
 		var/obj/item/natural/B = A
 		if(bundletype && bundletype == B.bundletype)
 			if(!user.temporarilyRemoveItemFromInventory(src))
@@ -154,7 +155,7 @@
 			break
 		if(!istype(item, stacktype) && !istype(item, /obj/item/natural/bundle))
 			continue
-		if(!do_after(user, 5, TRUE, src))
+		if(!do_after(user, 5 DECISECONDS, src))
 			break
 		if(item.loc != turflocation)
 			continue

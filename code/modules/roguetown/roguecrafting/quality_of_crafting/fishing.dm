@@ -19,7 +19,7 @@
 /datum/repeatable_crafting_recipe/fishing/bait/dough
 	name = "doughy bait"
 	output = /obj/item/fishing/bait/dough
-	starting_atom = /obj/item/reagent_containers/powder/flour
+	starting_atom = /obj/item/reagent_containers/food/snacks/dough_slice
 	requirements = list(
 		/obj/item/reagent_containers/powder/flour = 2,
 	)

@@ -13,7 +13,7 @@
 
 /datum/element/tipped_item/Detach(datum/source, force)
 	. = ..()
-	UnregisterSignal(source, list(COMSIG_PARENT_EXAMINE, COMSIG_ITEM_ATTACK_OBJ, COMSIG_ITEM_AFTERATTACK))
+	UnregisterSignal(source, list(COMSIG_PARENT_EXAMINE, COMSIG_ITEM_PRE_ATTACK, COMSIG_ITEM_AFTERATTACK))
 
 /datum/element/tipped_item/proc/check_dip(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
 	SIGNAL_HANDLER
@@ -24,12 +24,14 @@
 		return
 	if(dipper.reagents.total_volume == dipper.reagents.maximum_volume)
 		return
+	if(attacker.cmode)
+		return
 
 	INVOKE_ASYNC(src, PROC_REF(start_dipping), dipper, attacked_container, attacker)
-
+	return COMPONENT_NO_ATTACK
 
 /datum/element/tipped_item/proc/start_dipping(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
-	if(!do_after(attacker, 2 SECONDS, target = attacked_container))
+	if(!do_after(attacker, 2 SECONDS, attacked_container))
 		return
 	attacked_container.reagents.trans_to(dipper, 0.5, transfered_by = attacker)
 	attacker.visible_message(span_danger("[attacker] dips [dipper] in [attacked_container]!"), "You dip [dipper] in [attacked_container]!", vision_distance = 2)

@@ -369,7 +369,7 @@
 			return BULLET_ACT_BLOCK
 		else
 			// Experience gain!
-			var/boon = sender.mind?.get_learning_boon(/datum/skill/magic/arcane)
+			var/boon = sender?.mind?.get_learning_boon(/datum/skill/magic/arcane)
 			var/amt2raise = sender.STAINT
 			sender.mind?.adjust_experience(/datum/skill/magic/arcane, floor(amt2raise * boon), FALSE)
 
@@ -486,7 +486,7 @@
 
 	if (mote.loc == src)
 		user.visible_message(span_notice("[user] holds open the palm of [user.p_their()] hand and concentrates..."), span_notice("I hold open the palm of my hand and concentrate on my arcyne power..."))
-		if (do_after(user, src.motespeed, target = user))
+		if(do_after(user, motespeed))
 			mote.orbit(user, 18, pick(list(TRUE, FALSE)), 2000, 48, TRUE)
 			return TRUE
 		return FALSE
@@ -519,14 +519,14 @@
 
 	if (istype(target, /obj/effect/decal/cleanable))
 		user.visible_message(span_notice("[user] gestures at \the [target.name], arcyne power slowly scouring it away..."), span_notice("I begin to scour \the [target.name] away with my arcyne power..."))
-		if (do_after(user, src.cleanspeed, target = target))
+		if(do_after(user, cleanspeed, target))
 			to_chat(user, span_notice("I expunge \the [target.name] with my mana."))
 			qdel(target)
 			return TRUE
 		return FALSE
 	else
 		user.visible_message(span_notice("[user] gestures at \the [target.name], tiny motes of arcyne power surging over [target.p_them()]..."), span_notice("I begin to clean \the [target.name] with my arcyne power..."))
-		if (do_after(user, src.cleanspeed, target = target))
+		if(do_after(user, cleanspeed, target))
 			to_chat(user, span_notice("I render \the [target.name] clean."))
 			for (var/obj/effect/decal/cleanable/C in target)
 				qdel(C)
@@ -948,7 +948,7 @@
 			to_chat(user, span_warning("I require some ash in a free hand."))
 			return
 
-		if(!do_after(user, 5 SECONDS, target = spelltarget))
+		if(!do_after(user, 5 SECONDS, spelltarget))
 			return
 
 		qdel(sacrifice)
@@ -991,7 +991,7 @@
 /obj/item/melee/touch_attack/darkvision/afterattack(atom/target, mob/living/carbon/user, proximity)
 	if(isliving(target))
 		var/mob/living/spelltarget = target
-		if(!do_after(user, 5 SECONDS, target = spelltarget))
+		if(!do_after(user, 5 SECONDS, spelltarget))
 			return
 		spelltarget.apply_status_effect(/datum/status_effect/buff/darkvision)
 		user.adjust_stamina(80)

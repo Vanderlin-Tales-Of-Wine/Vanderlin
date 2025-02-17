@@ -2,7 +2,10 @@
 	name = "artificer table"
 	steps = list(
 		/datum/slapcraft_step/item/plank,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/stone,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/item/stone/second,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		)
 	result_type = /obj/machinery/artificer_table
 	craftsound = null
@@ -12,7 +15,7 @@
 	steps = list(
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/stick,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		)
 	result_type = /obj/structure/lever
 	craftsound = 'sound/foley/Building-01.ogg'
@@ -22,7 +25,7 @@
 	steps = list(
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		)
 	result_type = /obj/structure/floordoor
 	craftsound = 'sound/foley/Building-01.ogg'
@@ -45,7 +48,7 @@
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/plank,
 		/datum/slapcraft_step/item/plank/second,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		)
 	result_type = /obj/structure/pressure_plate
 	craftsound = 'sound/foley/Building-01.ogg'
@@ -56,7 +59,7 @@
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/iron,
 		/datum/slapcraft_step/item/iron/second,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		/datum/slapcraft_step/item/stick,
 		)
 	result_type = /obj/structure/repeater
@@ -68,10 +71,10 @@
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/cog/second,
 		/datum/slapcraft_step/item/iron,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		/datum/slapcraft_step/item/small_log,
 		/datum/slapcraft_step/item/small_log/second,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer/second,
 		)
 	result_type = /obj/structure/activator
 	craftsound = 'sound/foley/Building-01.ogg'
@@ -81,7 +84,7 @@
 	steps = list(
 		/datum/slapcraft_step/item/cog,
 		/datum/slapcraft_step/item/iron,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/use_item/engineering/hammer,
 		)
 	result_type = /obj/structure/bars/passage
 	craftsound = 'sound/foley/Building-01.ogg'

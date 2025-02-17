@@ -176,8 +176,8 @@
 /datum/intent/proc/on_mouse_up()
 	if(chargedloop)
 		chargedloop.stop()
-	if(mastermob.curplaying == src)
-		mastermob.curplaying = null
+	if(mastermob?.curplaying == src)
+		mastermob?.curplaying = null
 
 
 /datum/intent/use

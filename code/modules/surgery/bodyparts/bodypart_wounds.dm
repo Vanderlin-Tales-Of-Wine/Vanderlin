@@ -97,6 +97,8 @@
 
 /// Returns the total bleed rate on this bodypart
 /obj/item/bodypart/proc/get_bleed_rate()
+	if(NOBLOOD in owner?.dna?.species?.species_traits)
+		return 0
 	var/bleed_rate = 0
 	if(bandage && !HAS_BLOOD_DNA(bandage))
 		return 0
@@ -111,7 +113,10 @@
 	bleed_rate = max(round(bleed_rate, 0.1), 0)
 	var/surgery_flags = get_surgery_flags()
 	if(surgery_flags & SURGERY_CLAMPED)
-		return min(bleed_rate, 0.5)
+		bleed_rate = min(bleed_rate, 0.5)
+	switch(burn_dam/max_damage)
+		if(0.75 to INFINITY)
+			bleed_rate += 5
 	return bleed_rate
 
 /// Called after a bodypart is attacked so that wounds and critical effects can be applied
@@ -249,7 +254,7 @@
 		if(prob(used))
 			attempted_wounds += fracture_type
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 4), 1)
+		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(user)
 			if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
 				used += 10

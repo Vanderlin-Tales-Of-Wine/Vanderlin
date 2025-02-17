@@ -18,6 +18,7 @@
 	var/mob/living/selected = targets[1]
 	selected.apply_status_effect(/datum/status_effect/buff/divine_beauty)
 	wash_atom(selected, CLEAN_WEAK)
+	selected.AddComponent(/datum/component/temporary_pollution_emission, pick(subtypesof(/datum/pollutant/fragrance)), 1, 2 MINUTES)
 	return ..()
 
 
@@ -41,20 +42,26 @@
 /obj/item/clothing/head/peaceflower/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot == SLOT_HEAD)
+		RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 		ADD_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
 		user.add_stress(/datum/stressevent/eora)
 
-/obj/item/clothing/head/peaceflower/dropped(mob/living/carbon/human/user)
-	..()
-	REMOVE_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
-	user.remove_stress(/datum/stressevent/eora)
+/obj/item/clothing/head/peaceflower/proc/item_removed(mob/living/carbon/wearer, obj/item/dropped_item)
+	SIGNAL_HANDLER
+	if(dropped_item != src)
+		return
+	UnregisterSignal(wearer, COMSIG_MOB_UNEQUIPPED_ITEM)
+	REMOVE_TRAIT(wearer, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
+	wearer.remove_stress(/datum/stressevent/eora)
 
 /obj/item/clothing/head/peaceflower/proc/peace_check(mob/living/user)
 	// return true if we should be unequippable, return false if not
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
-			to_chat(user, "<span class='warning'>I feel at peace. <b style='color:pink'>Why would I want anything else?</b></span>")
+			to_chat(user, "<span class='warning'><b style='color:pink'>I need some time to distance myself from peace.</b></span>")
+			if(do_after(user, 4 SECONDS))
+				return FALSE
 			return TRUE
 	return FALSE
 
@@ -69,7 +76,7 @@
 //Putting this here for now until we have a better place. Ook wants this to inject drugs eventually. I guess this is decent for now.
 /obj/item/clothing/head/corruptflower
 	name = "baothan bud"
-	desc = "A flower of gentle petals and sharp thorns, associated with Baotha. It is said that these allow their wearer to better commune with their goddess."
+	desc = "A flower of dark petals and sharp thorns, associated with Baotha. It is said that these allow their wearer to better commune with their goddess."
 	icon = 'icons/roguetown/items/produce.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	icon_state = "corruptflower"
@@ -91,18 +98,21 @@
 		user.add_curse(/datum/curse/baotha)
 		to_chat(user, "<span class='userdanger'>FUCK YES. Party on!</b></span>")
 
-/obj/item/clothing/head/corruptflower/dropped(mob/living/carbon/human/user)
-	..()
-	user.remove_curse(/datum/curse/baotha)
-	if(user.patron != /datum/patron/inhumen/baotha)
-		REMOVE_TRAIT(user, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
+/obj/item/clothing/head/corruptflower/proc/item_removed(mob/living/carbon/human/wearer, obj/item/dropped_item)
+	SIGNAL_HANDLER
+	if(dropped_item != src)
+		return
+	UnregisterSignal(wearer, COMSIG_MOB_UNEQUIPPED_ITEM)
+	wearer.remove_curse(/datum/curse/baotha)
+	if(wearer.patron != /datum/patron/inhumen/baotha)
+		REMOVE_TRAIT(wearer, TRAIT_CRACKHEAD, "corruptflower_[REF(src)]")
 
 /obj/item/clothing/head/corruptflower/proc/cursed_check(mob/living/user)
 	// return true if we should be unequippable, return false if not
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
-			to_chat(user, "<span class='warning'>Curse? What curse!? I feel great! Why would I ever want sobriety?</b></span>")
+			to_chat(user, "<span class='userdanger'>Curse? What curse!? I feel great! Why would I ever want sobriety?</span>")
 			return TRUE
 	return FALSE
 
@@ -118,7 +128,7 @@
 	name = "Eoran Bloom"
 	desc = ""
 	clothes_req = FALSE
-	range = 7
+	range = 2
 	overlay_state = "pflower"
 	sound = list('sound/magic/magnet.ogg')
 	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/eora)
@@ -134,11 +144,22 @@
 	devotion_cost = 75
 
 /obj/effect/proc_holder/spell/invoked/bud/cast(list/targets, mob/living/user)
+	var/target = targets[1]
+	if(istype(target, /mob/living/carbon/human)) //Putting flower on head check
+		var/mob/living/carbon/human/C = target
+		if(!C.cmode && !C.get_item_by_slot(SLOT_HEAD))
+			var/obj/item/clothing/head/peaceflower/F = new(get_turf(C))
+			C.equip_to_slot_if_possible(F, SLOT_HEAD, TRUE, TRUE)
+			to_chat(C, "<span class='info'><b style='color:pink'>A flower of Eora blooms on my head. I feel at peace.</b></span>")
+			return ..()
+		else
+			to_chat(user, "<span class='warning'>The target's head is covered. The flowers of Eora need an open space to bloom.</span>")
+			return FALSE
 	var/turf/T = get_turf(targets[1])
 	if(!isclosedturf(T))
 		new /obj/item/clothing/head/peaceflower(T)
 		return ..()
-	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Eora refuse to grow.</span>")
+	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Eora refuse to bloom.</span>")
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/projectile/eoracurse
@@ -177,8 +198,8 @@
 		var/mob/living/carbon/C = target
 		C.OffBalance(50)
 		C.visible_message(span_info("A purple haze shrouds [target]!"), span_notice("I feel incredibly drunk..."))
-		C.reagents.add_reagent(/datum/reagent/berrypoison, 3)
-		C.apply_status_effect(/datum/status_effect/buff/eoradrunk)
+		C.reagents.add_reagent(/datum/reagent/berrypoison, 1)
+		C.apply_status_effect(/datum/status_effect/debuff/eoradrunk)
 		C.blur_eyes(20)
 		return BULLET_ACT_HIT
 //		C.reagents.add_reagent(/datum/reagent/moondust, 3)
@@ -224,8 +245,8 @@
 		var/mob/living/L = AM
 		playsound(src,'sound/blank.ogg',50, TRUE, -1)
 		L.OffBalance(50)
-		L.reagents.add_reagent(/datum/reagent/berrypoison, 3)
-		L.apply_status_effect(/datum/status_effect/buff/eoradrunk)
+		L.reagents.add_reagent(/datum/reagent/berrypoison, 1)
+		L.apply_status_effect(/datum/status_effect/debuff/eoradrunk)
 		L.visible_message(span_info("A purple haze shrouds [L]!"), span_notice("I feel incredibly drunk..."))
 		L.blur_eyes(20)
 //		if(isanimal(L))

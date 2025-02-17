@@ -18,7 +18,6 @@
 	cartridge_wording = "bolt"
 	load_sound = 'sound/foley/nockarrow.ogg'
 	fire_sound = 'sound/combat/Ranged/crossbow-small-shot-02.ogg'
-	associated_skill = /datum/skill/combat/crossbows
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/getonmobprop(tag)
 	. = ..()
@@ -37,7 +36,7 @@
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/crossbows) * 3)
+		newtime = newtime - (mastermob.mind?.get_skill_level(/datum/skill/combat/crossbows) * 3)
 		//per block
 		newtime = newtime + 20
 		newtime = newtime - (mastermob.STAPER)
@@ -102,7 +101,7 @@
 		var/newtime = chargetime
 		//skill block
 		newtime = newtime + 18
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/crossbows) * 3)
+		newtime = newtime - (mastermob.mind?.get_skill_level(/datum/skill/combat/crossbows) * 3)
 		//per block
 		newtime = newtime + 20
 		newtime = newtime - (mastermob.STAPER)
@@ -124,7 +123,7 @@
 	else
 		if(!cocked)
 			to_chat(user, "<span class='info'>I step on the stirrup and use all my might...</span>")
-			if(do_after(user, 40 - user.STASTR, target = user))
+			if(do_after(user, (4 SECONDS - user.STASTR), user))
 				playsound(user, 'sound/combat/Ranged/crossbow_medium_reload-01.ogg', 100, FALSE)
 				cocked = TRUE
 		else
@@ -162,6 +161,12 @@
 		BB.bonus_accuracy += (user.mind.get_skill_level(/datum/skill/combat/crossbows) * 3) //+3 accuracy per level in crossbows
 	cocked = FALSE
 	. = ..()
+	if(.)
+		if(istype(user) && user.mind)
+			var/modifier = 1/(spread+1)
+			var/boon = user.mind.get_learning_boon(/datum/skill/combat/crossbows)
+			var/amt2raise = user.STAINT/2
+			user.mind.adjust_experience(/datum/skill/combat/crossbows, amt2raise * boon * modifier * 0.5, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/update_icon()
 	. = ..()

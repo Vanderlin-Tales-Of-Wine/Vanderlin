@@ -123,7 +123,7 @@
 	wdefense = MEDIOCHRE_PARRY
 	wbalance = HARD_TO_DODGE
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 30
+	sellprice = 6
 
 
 /obj/item/rogueweapon/knife/scissors
@@ -149,10 +149,9 @@
 	if(user.used_intent.type == /datum/intent/snip && istype(O, /obj/item))
 		var/obj/item/item = O
 		if(item.sewrepair && item.salvage_result) // We can only salvage objects which can be sewn!
-			var/salvage_time = 70
 			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
-			salvage_time = (70 - (skill_level * 10))
-			if(!do_after(user, salvage_time, target = user))
+			var/salvage_time = (7 SECONDS - (skill_level * 10))
+			if(!do_after(user, salvage_time, user))
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
 				new /obj/item/natural/fibers(get_turf(item))
@@ -189,8 +188,8 @@
 /obj/item/rogueweapon/knife/cleaver
 	name = "cleaver"
 	desc = "A chef's tool turned armament, cleave off cumbersome flesh with rudimentary ease."
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "cleav"
 	item_state = "cleav"
 	experimental_inhand = FALSE
@@ -239,7 +238,7 @@
 	desc = "Thin, sharp, pointed death."
 	icon_state = "idagger"
 	smeltresult = null
-	sellprice = 15
+	sellprice = 12
 
 //................ Steel Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel
@@ -275,12 +274,17 @@
 
 //................ Profane Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel/profane
-//	name = "profane dagger"
+	// name = "profane dagger"
 	// desc = "A profane dagger made of cursed black steel. Whispers emanate from the gem on its hilt."
 	sellprice = 250
 	icon_state = "pdagger"
 	smeltresult = null
 	embedding = list("embed_chance" = 0) // Embedding the cursed dagger has the potential to cause duping issues. Keep it like this unless you want to do a lot of bug hunting.
+
+/obj/item/rogueweapon/knife/dagger/steel/profane/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_ASSASSIN))
+		. += "profane dagger whispers, \"[span_danger("Here we are!")]\""
 
 /obj/item/rogueweapon/knife/dagger/steel/profane/pickup(mob/living/M)
 	. = ..()

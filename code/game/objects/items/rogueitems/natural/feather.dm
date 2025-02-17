@@ -19,12 +19,16 @@
 /obj/item/natural/feather/pre_attack_right(atom/A, mob/living/carbon/human/user, params)
 	if(istype(A, /obj/item/paper/confession))
 		var/obj/item/paper/confession/confessional = A
+		if(confessional.signed)
+			return ..()
 		var/response = alert(user, "What voluntary confession do I want?","","Villainy", "Faith")
 		if(!response)
 			return
 		if(response == "Villainy")
 			confessional.confession_type = "antag"
+			confessional.name = "confession of villainy"
 		else
 			confessional.confession_type = "patron"
+			confessional.name = "confession of faith"
 		return TRUE
 	return ..()

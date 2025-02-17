@@ -14,8 +14,8 @@
 
 /obj/structure/dock_bell/examine(mob/user)
 	. = ..()
-	. += span_info("The dock bell can be rung by sanctioned workers after [COOLDOWN_TIMELEFT(src, ring_bell)] seconds.")
-	. += span_info("The dock bell can be rung by outsiders after [COOLDOWN_TIMELEFT(src, outsider_ring_bell)] seconds.")
+	. += span_info("The dock bell can be rung by sanctioned workers after [COOLDOWN_TIMELEFT(src, ring_bell)/10] seconds.")
+	. += span_info("The dock bell can be rung by outsiders after [COOLDOWN_TIMELEFT(src, outsider_ring_bell)/10] seconds.")
 
 /obj/structure/dock_bell/attack_hand(mob/user)
 	. = ..()
@@ -25,7 +25,7 @@
 	if(user_job && !(initial(user_job.type) in approved_jobs))
 		if(!COOLDOWN_FINISHED(src, outsider_ring_bell))
 			return
-	if(!do_after(user, 5 SECONDS, target = src))
+	if(!do_after(user, 5 SECONDS, src))
 		return
 	if(!COOLDOWN_FINISHED(src, ring_bell))
 		return

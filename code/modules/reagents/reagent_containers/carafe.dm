@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/glass/carafe
 	name = "glass carafe"
 	desc = "A slightly grimey glass container with a flared lip, most often used for serving water and wine"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "glass_carafe"
 	w_class = WEIGHT_CLASS_SMALL
 	amount_per_transfer_from_this = 12 // Half a cup
@@ -47,7 +47,6 @@
 /obj/item/reagent_containers/glass/carafe/silver
 	name = "silver carafe"
 	desc = "A shining silver container with a flared lip, most often used for serving water and wine"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "silver_carafe"
 	dropshrink = 0.8
 	sellprice = 45
@@ -67,7 +66,6 @@
 /obj/item/reagent_containers/glass/carafe/gold
 	name = "golden carafe"
 	desc = "An opulent golden container with a flared lip, most often used for serving water and wine"
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "gold_carafe"
 	dropshrink = 0.8
 	sellprice = 65

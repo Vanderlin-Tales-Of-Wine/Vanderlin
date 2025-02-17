@@ -1,3 +1,12 @@
+/obj/item/clothing/update_icon()
+	cut_overlays()
+	if (get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if (get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
 /obj/item/clothing/suit/roguetown/shirt
 	slot_flags = ITEM_SLOT_SHIRT
 	body_parts_covered = CHEST|VITALS
@@ -56,7 +65,7 @@
 	color = CLOTHING_FOREST_GREEN
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-	color = CLOTHING_BLOOD_RED
+	color = CLOTHING_PLUM_PURPLE
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard/Initialize()
 	. = ..()
@@ -69,9 +78,8 @@
 	GLOB.lordcolor -= src
 	return ..()
 
-
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond
-	color = CLOTHING_PLUM_PURPLE
+	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond/Initialize()
 	. = ..()
@@ -133,7 +141,7 @@
 	body_parts_covered = CHEST|ARM_RIGHT|VITALS
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/Initialize()
-	color = pick(CLOTHING_MUD_BROWN, CLOTHING_PEAR_YELLOW, CLOTHING_BOG_GREEN, CLOTHING_BARK_BROWN	)
+	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt
@@ -145,7 +153,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/random/Initialize()
-	color = pick("#6b5445", "#435436", "#704542", "#79763f")
+	color = RANDOM_PEASANT_DYES
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/uncolored
@@ -533,11 +541,43 @@
 	if(!picked)
 		INVOKE_ASYNC(src, PROC_REF(get_player_input))
 
-/obj/item/clothing/suit/roguetown/shirt/grenzelhoft/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
+/obj/item/clothing/suit/roguetown/shirt/dress/gown
+	icon = 'icons/roguetown/clothing/shirts_gown.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/shirts_gown.dmi'
+	name = "spring gown"
+	desc = "A delicate gown that captures the essence of the season’s renewal."
+	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	icon_state = "springgown"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts_gown.dmi'
+	boobed = TRUE
+	detail_tag = "_detail"
+	detail_color = "#00713d"
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	var/picked = FALSE
+	colorgrenz = TRUE
+
+/obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "summer gown"
+	desc = "A breezy, flowing gown fit for warm weathers."
+	icon_state = "summergown"
+	boobed = TRUE
+	detail_color = "#e395bb"
+
+/obj/item/clothing/suit/roguetown/shirt/dress/gown/wintergown
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "winter gown"
+	desc = "A warm, elegant gown adorned with soft fur for cold."
+	icon_state = "wintergown"
+	boobed = TRUE
+	detail_color = "#45749d"
+
+/obj/item/clothing/suit/roguetown/shirt/dress/gown/fallgown
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "fall gown"
+	desc = "A long sleeved, solemn gown signifies the season's nearing end."
+	icon_state = "fallgown"
+	boobed = TRUE
+	detail_color = "#8b3f00"

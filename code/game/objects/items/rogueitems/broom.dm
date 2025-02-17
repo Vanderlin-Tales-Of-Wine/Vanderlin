@@ -27,7 +27,7 @@
 
 /obj/item/broom/attack_obj(obj/O, mob/living/user)
 	testing("attackobj")
-	if(do_after(user, 30, target = O))
+	if(do_after(user, 3 SECONDS, O))
 		if(istype(O, /obj/effect/decal/cleanable/dirt))
 			user.visible_message("<span class='notice'>[user] sweeps \the [O.name].</span>", "<span class='notice'>I sweep \the [O.name].</span>")
 			playsound(user, "clothwipe", 100, TRUE)
@@ -37,7 +37,7 @@
 			return
 
 /obj/item/broom/attack_turf(turf/T, mob/living/user)
-	if(do_after(user, 30, target = T))
+	if(do_after(user, 3 SECONDS, T))
 		if(istype(T, /turf/open/water))
 			..()
 		for(var/obj/effect/decal/cleanable/dirt/C in T)

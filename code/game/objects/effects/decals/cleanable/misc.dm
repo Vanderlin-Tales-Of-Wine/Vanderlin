@@ -176,6 +176,9 @@
 		desc = ""
 	. = ..()
 
+/obj/effect/decal/cleanable/shreds/clay
+	color = "#916258"
+
 /obj/effect/decal/cleanable/glitter
 	name = "generic glitter pile"
 	desc = ""
@@ -209,3 +212,14 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "xfloor1"
 	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
+
+/*	.................   Dye spill   ................... */
+/obj/effect/decal/cleanable/dyes
+	name = "spilled dyes"
+	icon = 'icons/effects/tomatodecal.dmi'
+	icon_state = "flour"
+	random_icon_states = list("flour", "smashed_plant")
+	beauty = -100
+/obj/effect/decal/cleanable/dyes/Initialize()
+	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
+	..()

@@ -18,17 +18,23 @@
 	for(var/i in ammo_type)
 		if(istype(A, i))
 			if(ammo_list.len < max_storage)
-				A.forceMove(src)
+				if(ismob(loc))
+					var/mob/mob = loc
+					mob.transferItemToLoc(A, src)
+				else
+					A.forceMove(src)
 				ammo_list += A
 				update_icon()
 			else
 				to_chat(loc, span_warning("Full!"))
 			return
-	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/bow))
-		var/obj/item/gun/ballistic/revolver/grenadelauncher/bow/B = A
-		if(ammo_list.len && !B.chambered)
-			for(var/AR in ammo_list)
-				if(istype(AR, /obj/item/ammo_casing/caseless/rogue/arrow))
+	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher))
+		var/obj/item/gun/ballistic/revolver/grenadelauncher/B = A
+		var/obj/item/ammo_box/gun_magazine = B.mag_type
+		var/obj/item/ammo_casing/caseless/rogue/gun_ammo = initial(gun_magazine?.ammo_type)
+		if(ammo_list.len && gun_ammo && !B.chambered)
+			for(var/AR in reverseList(ammo_list))
+				if(istype(AR, gun_ammo))
 					ammo_list -= AR
 					B.attackby(AR, loc, params)
 					break
@@ -48,7 +54,11 @@
 /obj/item/ammo_holder/examine(mob/user)
 	. = ..()
 	if(ammo_list.len)
-		. += span_notice("[ammo_list.len] inside.")
+		var/list/unique_ammos = list()
+		for(var/obj/item/ammo_casing/ammo in ammo_list)
+			unique_ammos[ammo.name] += 1
+		for(var/ammo_name in unique_ammos)
+			. += span_info("[unique_ammos[ammo_name]] [ammo_name][unique_ammos[ammo_name] > 1 ? "s" : ""].")
 
 /obj/item/ammo_holder/update_icon()
 	if(ammo_list.len)

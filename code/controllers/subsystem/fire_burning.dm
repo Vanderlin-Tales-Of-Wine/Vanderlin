@@ -19,10 +19,15 @@ SUBSYSTEM_DEF(fire_burning)
 
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
+	var/fire_multiplier = CONFIG_GET(number/damage_multiplier/fire)
+	var/max_fire_damage_per_tick = CONFIG_GET(number/per_tick/max_fire_damage)
+	/// The longer the burn timer / stack the more intense the burn damage. Increases by  (Default: 5)
+	var/fire_intensity = 5
 
 	while(currentrun.len)
 		var/obj/O = currentrun[currentrun.len]
 		currentrun.len--
+		fire_intensity = fire_intensity + CLAMP(fire_multiplier, 1, INFINITY) // 6 -> 7 -> 8 etc...
 		if (!O || QDELETED(O))
 			processing -= O
 			if (MC_TICK_CHECK)
@@ -31,7 +36,8 @@ SUBSYSTEM_DEF(fire_burning)
 
 		if(O.resistance_flags & ON_FIRE) //in case an object is extinguished while still in currentrun
 			if(!(O.resistance_flags & FIRE_PROOF))
-				O.take_damage(5, BURN, "fire", 0)
+				// Minimum of 8 burn per tick. Config for max fire damage per tick found in game_options.
+				O.take_damage((2 * fire_multiplier) + CLAMP(fire_intensity, 0, max_fire_damage_per_tick), BURN, "fire", 0)
 				for(var/mob/living/carbon/human/H in view(2, O))
 					if(H.has_flaw(/datum/charflaw/addiction/pyromaniac))
 						H.sate_addiction()

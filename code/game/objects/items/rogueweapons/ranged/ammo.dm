@@ -23,6 +23,7 @@
 	max_integrity = 10
 	force = 10
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
@@ -36,7 +37,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = BOLT_PENETRATION
-	woundclass = BCLASS_SHOT
+	woundclass = BCLASS_STAB
 	flag =  "piercing"
 	speed = 0.3
 	accuracy = 85 //Crossbows have higher accuracy
@@ -156,6 +157,7 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -169,13 +171,14 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	armor_penetration = ARROW_PENETRATION
-	woundclass = BCLASS_SHOT
+	woundclass = BCLASS_STAB
 	flag =  "piercing"
 	speed = 0.4
 
 //................ Stone Arrow ............... //
 /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	name = "stone arrow"
+	desc = "A fletched projectile with a stone tip."
 	icon_state = "stonearrow"
 	projectile_type = /obj/projectile/bullet/reusable/arrow/stone //weaker projectile
 	max_integrity = 5
@@ -190,7 +193,7 @@
 //................ Poison Arrow ............... //
 /obj/item/ammo_casing/caseless/rogue/arrow/poison
 	name = "poison arrow"
-	desc = "An arrow with it's tip drenched in a weak poison."
+	desc = "An arrow with its tip drenched in a weak poison."
 	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/weak
 	icon_state = "arrow_poison"
 
@@ -278,6 +281,7 @@
 	if(ismob(target))
 		var/mob/living/M = target
 		M.adjust_fire_stacks(6)
+		M.IgniteMob()
 //		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, my at about 65 damage if you stop drop and roll immediately
 	var/turf/T
 	if(isturf(target))
@@ -417,6 +421,7 @@
 	dropshrink = 0.9
 	max_integrity = 10
 	force = 10
+	firing_effect_type = null
 
 /obj/projectile/bullet/reusable/dart
 	name = "dart"
@@ -428,8 +433,7 @@
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/dart
 	range = 6
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
-	embedchance = 0
-	armor_penetration = 0
+	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 0.3
@@ -438,13 +442,13 @@
 //................ Poison Dart ............... //
 /obj/item/ammo_casing/caseless/rogue/dart/poison
 	name = "poison dart"
-	desc = "A dart with it's tip drenched in a weak poison."
+	desc = "A dart with its tip drenched in a weak poison."
 	projectile_type = /obj/projectile/bullet/reusable/dart/poison
 	icon_state = "dart_poison"
 
 /obj/projectile/bullet/reusable/dart/poison
 	name = "poison dart"
-	desc = "A dart with its tip drenched in a powerful poison."
+	desc = "A dart with its tip drenched in a weak poison."
 	var/piercing = FALSE
 
 /obj/projectile/bullet/reusable/dart/poison/Initialize()

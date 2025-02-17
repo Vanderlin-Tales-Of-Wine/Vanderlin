@@ -169,25 +169,33 @@ GLOBAL_LIST_EMPTY(ritualslist)
 // VERBS
 
 /mob/living/carbon/human/proc/praise()
-	set name = "Praise the Lord!"
+	set name = "Praise the Dark Lady!"
 	set category = "ZIZO"
+
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
 
 /mob/living/carbon/human/proc/communicate()
-	set name = "Communicate"
+	set name = "Communicate with Cult"
 	set category = "ZIZO"
 
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
+	var/mob/living/carbon/human/H = src
 	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
 		return
 	whisper("O schlet'a ty'schkotot ty'skvoro...")
 	sleep(5)
+	if(stat >= UNCONSCIOUS || !can_speak_vocal())
+		return
 	whisper("[speak]")
 
 	for(var/datum/mind/V in C.cultists)
-		to_chat(V, "<span class='boldnotice'>A message from [src.real_name]: \"[speak]\"</span>")
+		to_chat(V, "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#8a13bd'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span>: [speak]</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
 	testing("[key_name(src)] used cultist telepathy to say: [speak]")
@@ -657,7 +665,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			to_chat(H, "<span class='notice'>My elixir of life is stagnant once again.</span>")
 			qdel(src)
 		else
-			if(!do_mob(user, H, 2 SECONDS))
+			if(!do_after(user, 2 SECONDS, H))
 				return
 			if(M.cmode)
 				user.electrocute_act(30)

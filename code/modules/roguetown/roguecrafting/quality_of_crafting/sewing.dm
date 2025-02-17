@@ -444,20 +444,30 @@
 /datum/repeatable_crafting_recipe/sewing/fancyhat
 	name = "fancy hat"
 	output = /obj/item/clothing/head/roguetown/fancyhat
-	requirements = list(/obj/item/natural/cloth = 2,
-				/obj/item/natural/fibers = 1)
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/feather = 1)
+	craftdiff = 4
+
+/datum/repeatable_crafting_recipe/sewing/courtierhat
+	name = "courtier hat"
+	output = /obj/item/clothing/head/roguetown/courtierhat
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/feather = 1)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/bardhat
 	name = "bard hat"
 	output = /obj/item/clothing/head/roguetown/bardhat
-	requirements = list(/obj/item/natural/cloth = 2,
-				/obj/item/natural/fibers = 1)
+	requirements = list(/obj/item/natural/cloth = 1,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/feather = 1)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/chaperonhat
 	name = "chaperon hat"
-	output = /obj/item/clothing/head/roguetown/chaperon
+	output = /obj/item/clothing/head/roguetown/chaperon/greyscale
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
@@ -524,7 +534,7 @@
 /* craftdif of 2 = APPRENTICE */
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowgloves
-	name = "silk gloves"
+	name = "gloves"
 	output = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 1)
@@ -574,7 +584,7 @@
 	craftdiff = 3
 
 /datum/repeatable_crafting_recipe/sewing/weaving/noblecoat
-	name = "fancy coat"
+	name = "coat (fancy)"
 	output = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	requirements = list(/obj/item/natural/cloth = 3,
 			/obj/item/natural/silk = 1)
@@ -602,21 +612,21 @@
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowshirt
-	name = "silk shirt"
+	name = "shirt (dark)"
 	output = /obj/item/clothing/suit/roguetown/shirt/shadowshirt
 	requirements = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/silkchaperone
-	name = "silk hat"
+	name = "hat (chaperone)"
 	output = /obj/item/clothing/head/roguetown/chaperon/greyscale/silk
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 2)
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/shadowpants
-	name = "silk pants"
+	name = "pants (dark)"
 	output = /obj/item/clothing/under/roguetown/trou/shadowpants
 	requirements = list(/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)
@@ -708,3 +718,40 @@
 	requirements = list(/obj/item/natural/fibers = 2,
 				/obj/item/natural/silk = 3)
 	craftdiff = 5
+
+/* craftdif of 6 = LEGENDARY */
+// IDK how to balance these
+/datum/repeatable_crafting_recipe/sewing/weaving/springgown
+	name = "gown (spring)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/silk = 4)
+	craftdiff = 6
+	sellprice = 85
+
+/datum/repeatable_crafting_recipe/sewing/weaving/summergown
+	name = "gown (summer)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
+	requirements = list(/obj/item/natural/fibers = 2,
+				/obj/item/natural/cloth = 1,
+				/obj/item/natural/silk = 3)
+	craftdiff = 6
+	sellprice = 70
+
+/datum/repeatable_crafting_recipe/sewing/weaving/fallgown
+	name = "gown (fall, silk)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/fallgown
+	requirements = list(/obj/item/natural/fibers = 3,
+				/obj/item/natural/silk = 2,
+				/obj/item/natural/cloth = 2)
+	craftdiff = 6
+	sellprice = 75
+
+/datum/repeatable_crafting_recipe/sewing/weaving/wintergown
+	name = "gown (winter)"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/wintergown
+	requirements = list(/obj/item/natural/fibers = 3,
+				/obj/item/natural/silk = 2,
+				/obj/item/natural/fur/cabbit = 1)
+	craftdiff = 6
+	sellprice = 90

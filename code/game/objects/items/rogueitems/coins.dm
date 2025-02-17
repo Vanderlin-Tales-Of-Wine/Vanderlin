@@ -8,8 +8,6 @@
 	desc = ""
 	icon = 'icons/roguetown/items/valuable.dmi'
 	icon_state = ""
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_MOUTH
 	dropshrink = 0.2
@@ -113,7 +111,10 @@
 		return ..()
 	if(quantity == 1)
 		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
-			switch(alert(user, "What will you rig the next coin flip to?","XYLIX","Heads","Tails","Play fair"))
+			var/outcome = alert(user, "What will you rig the next coin flip to?","XYLIX","Heads","Tails","Play fair")
+			if(QDELETED(src) || !user.is_holding(src))
+				return
+			switch(outcome)
 				if("Heads")
 					rigged_outcome = 1
 				if("Tails")
@@ -130,6 +131,8 @@
 		if(quantity == 1)
 			amt_text = ""
 		var/amount = input(user, "How many [plural_name] to split?[amt_text]", null, round(quantity/2, 1)) as null|num
+		if(QDELETED(src) || !user.is_holding(src))
+			return
 		amount = clamp(amount, 0, quantity)
 		amount = round(amount, 1) // no taking non-integer coins
 		if(!amount)

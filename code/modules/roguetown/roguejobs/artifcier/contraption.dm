@@ -8,14 +8,46 @@
 	w_class = WEIGHT_CLASS_SMALL
 	smeltresult = /obj/item/ingot/bronze
 	slot_flags = ITEM_SLOT_HIP
-	var/obj/item/accepted_power_source = /obj/item/roguegear
+	var/obj/item/accepted_power_source = /obj/item/roguegear/metal
 	/// This is the amount of charges we get per power source
 	var/charge_per_source = 5
 	var/current_charge = 0
 	var/misfire_chance
+	var/sneaky_misfire_chance
 	/// Are we misfiring? Important for chain reactions.
 	var/misfiring = FALSE
 	obj_flags_ignore = TRUE
+	/// If this contraption should accept cogs that alter its behaviour
+	var/special_cog = FALSE
+
+/obj/item/contraption/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.5,
+"sx" = -6,
+"sy" = -2,
+"nx" = 9,
+"ny" = -1,
+"wx" = -6,
+"wy" = -1,
+"ex" = -2,
+"ey" = -3,
+"northabove" = 0,
+"southabove" = 1,
+"eastabove" = 1,
+"westabove" = 0,
+"nturn" = 21,
+"sturn" = -18,
+"wturn" = -18,
+"eturn" = 21,
+"nflip" = 0,
+"sflip" = 8,
+"wflip" = 8,
+"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/contraption/examine(mob/user)
 	. = ..()
@@ -32,8 +64,10 @@
 			. += span_warning("You calculate this contraptions chance of failure to be anywhere between [max(0, (misfire_chance - skill) - rand(4))]% and [max(2, (misfire_chance - skill) + rand(3))]%.")
 		else
 			. += span_warning("It seems slightly unstable...")
+	if(skill >= 6 && sneaky_misfire_chance)
+		. += span_warning("This contraption has a chance for catastrophic failure in the hands of the inexperient.")
 
-/obj/item/contraption/proc/battery_collapse(obj/O, mob/living/user)
+/obj/item/contraption/proc/battery_collapse(atom/A, mob/living/user)
 	to_chat(user, span_info("The [accepted_power_source.name] wastes away into nothing."))
 	playsound(src, pick('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg'), 100, FALSE)
 	shake_camera(user, 1, 1)
@@ -43,22 +77,42 @@
 	S.start()
 	return
 
-/obj/item/contraption/proc/misfire(obj/O, mob/living/user)
+/obj/item/contraption/proc/misfire(atom/A, mob/living/user)
 	user.mind.add_sleep_experience(/datum/skill/craft/engineering, (user.STAINT * 5))
 	to_chat(user, span_info("Oh fuck."))
 	playsound(src, 'sound/misc/bell.ogg', 100)
-	addtimer(CALLBACK(src, PROC_REF(misfire_result)), rand(5, 30))
+	addtimer(CALLBACK(src, PROC_REF(misfire_result), A, user), rand(5, 30))
 
-/obj/item/contraption/proc/misfire_result()
+/obj/item/contraption/proc/misfire_result(atom/A, mob/living/user)
 	misfiring = TRUE
 	explosion(src, light_impact_range = 3, flame_range = 1, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
 	qdel(src)
 
+/obj/item/contraption/proc/charge_deduction(atom/A, mob/living/user, deduction)
+	current_charge -= deduction
+	if(!current_charge)
+		addtimer(CALLBACK(src, PROC_REF(battery_collapse), A, user), 5)
+
 /obj/item/contraption/attackby(obj/item/I, mob/user, params)
+	var/datum/effect_system/spark_spread/S = new()
+	var/turf/front = get_turf(src)
+	if(istype(I, /obj/item/roguegear/wood) && special_cog)
+		var/obj/item/roguegear/wood/cog = I
+		if(cog.misfire_modification)
+			misfire_chance = CLAMP(misfire_chance + cog.misfire_modification, 0, 100)
+		if(cog.name_prefix)
+			name = "[cog.name_prefix] [initial(name)]"
+		else
+			name = initial(name)
+		qdel(cog)
+		playsound(src, pick('sound/combat/hits/onwood/fence_hit1.ogg', 'sound/combat/hits/onwood/fence_hit2.ogg', 'sound/combat/hits/onwood/fence_hit3.ogg'), 100, FALSE)
+		shake_camera(user, 1, 1)
+		S.set_up(1, 1, front)
+		S.start()
+		to_chat(user, "<span class='warning'>I use [cog] to modify [src]!</span>")
+		return
 	if(istype(I, accepted_power_source))
 		user.changeNext_move(CLICK_CD_FAST)
-		var/datum/effect_system/spark_spread/S = new()
-		var/turf/front = get_turf(src)
 		S.set_up(1, 1, front)
 		S.start()
 		if(current_charge)
@@ -72,28 +126,31 @@
 			qdel(I)
 			addtimer(CALLBACK(src, PROC_REF(play_clock_sound)), 5)
 	if(istype(I, /obj/item/rogueweapon/hammer))
-		user.changeNext_move(CLICK_CD_FAST)
-		flick(off_icon, src)
-		user.visible_message(span_info("[user] beats the [name] into submission!"))
-		playsound(src, pick('sound/combat/hits/onmetal/sheet (1).ogg', 'sound/combat/hits/onmetal/sheet (2).ogg', 'sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg'), 100, TRUE)
-		shake_camera(user, 1, 1)
-		var/datum/effect_system/spark_spread/S = new()
-		var/turf/front = get_turf(I)
-		S.set_up(1, 1, front)
-		S.start()
-		var/probability = rand(1, 100)
-		if(!current_charge)
-			misfire(I, user)
-			return
-		if(probability <= 5)
-			misfire(I, user)
-		else if(probability <= 40)
-			if(current_charge < charge_per_source)
-				current_charge += 1
-			misfire_chance = rand(1, 30)
-		else
-			misfire_chance = rand(10, 100)
+		hammer_action(I, user)
 	..()
+
+/obj/item/contraption/proc/hammer_action(obj/item/I, mob/user)
+	user.changeNext_move(CLICK_CD_FAST)
+	flick(off_icon, src)
+	user.visible_message(span_info("[user] beats the [name] into submission!"))
+	playsound(src, pick('sound/combat/hits/onmetal/sheet (1).ogg', 'sound/combat/hits/onmetal/sheet (2).ogg', 'sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg'), 100, TRUE)
+	shake_camera(user, 1, 1)
+	var/datum/effect_system/spark_spread/S = new()
+	var/turf/front = get_turf(I)
+	S.set_up(1, 1, front)
+	S.start()
+	var/probability = rand(1, 100)
+	if(!current_charge)
+		misfire(I, user)
+		return
+	if(probability <= 5)
+		misfire(I, user)
+	else if(probability <= 40)
+		if(current_charge < charge_per_source)
+			current_charge += 1
+		misfire_chance = rand(1, 30)
+	else
+		misfire_chance = rand(10, 100)
 
 /obj/item/contraption/proc/play_clock_sound()
 	playsound(src, 'sound/misc/clockloop.ogg', 25, TRUE)
@@ -112,9 +169,9 @@
 	on_icon = "metalizer_flick"
 	off_icon = "metalizer_off"
 	w_class = WEIGHT_CLASS_BULKY
-	smeltresult = /obj/item/ingot/bronze
 	misfire_chance = 15
 	charge_per_source = 5
+	special_cog = TRUE
 
 /obj
 	/// This is the result when the wood metalizer artifact is used on this item
@@ -142,21 +199,31 @@
 		new_door.locked = I.locked
 		if(I.lockid)
 			new_door.lockid = I.lockid
+		if(I.lockhash)
+			new_door.lockhash = I.lockhash
 		qdel(I)
 	else
 		var/obj/I = O
 		new I.metalizer_result(get_turf(I))
 		qdel(I)
 	flick(on_icon, src)
-	current_charge -= 1
+	charge_deduction(O, user, 1)
 	shake_camera(user, 1, 1)
 	playsound(src, 'sound/magic/swap.ogg', 100, TRUE)
 	user.mind.add_sleep_experience(/datum/skill/craft/engineering, (user.STAINT / 2))
 	if(misfire_chance && prob(max(0, misfire_chance - user.stat_roll(STATKEY_LCK,2,10) - skill)))
 		misfire(O, user)
-	if(!current_charge)
-		addtimer(CALLBACK(src, PROC_REF(battery_collapse), O, user), rand(5))
 	return
+
+/obj/item/contraption/wood_metalizer/misfire_result()
+	misfiring = TRUE
+	for(var/obj/object in oview(3, src))
+		if(object.metalizer_result)  // Check if the object is within the flame range
+			new object.metalizer_result(get_turf(object))
+			playsound(object, 'sound/magic/swap.ogg', 100, TRUE)
+			qdel(object)
+	explosion(src, heavy_impact_range = 1, light_impact_range = 3, flame_range = 1, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+	qdel(src)
 
 /obj/item/contraption/smelter
 	name = "portable smelter"
@@ -169,6 +236,7 @@
 	accepted_power_source = /obj/item/rogueore/coal
 	misfire_chance = 10
 	charge_per_source = 6
+	special_cog = TRUE
 
 /obj/item/contraption/smelter/misfire_result()
 	misfiring = TRUE
@@ -180,18 +248,17 @@
 				var/obj/item/contraption/I = object
 				if(I.misfiring)
 					continue
-				I.misfire_result()
+				addtimer(CALLBACK(I, PROC_REF(misfire_result)), rand(5))
 				continue
 			object.popcorn_smelt()
 
-	explosion(src, flame_range = 3, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+	explosion(src, light_impact_range = 3, flame_range = 1, hotspot_range = 1, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
 	qdel(src)
 
 /obj/proc/popcorn_smelt()
 	var/turf/T = get_turf(src)
 	moveToNullspace()
 	playsound(T, pick('sound/combat/hits/burn (1).ogg','sound/combat/hits/burn (2).ogg'), 50)
-	new /obj/effect/decal/cleanable/ash(T)
 	addtimer(CALLBACK(src, PROC_REF(popcorn_smelt_result), T), rand(10, 40))
 
 /obj/proc/popcorn_smelt_result(turf)
@@ -213,7 +280,7 @@
 		S.start()
 		return
 	user.mind.add_sleep_experience(/datum/skill/craft/engineering, (user.STAINT / 3))
-	current_charge -= 1
+	charge_deduction(O, user, 1)
 	flick(on_icon, src)
 	playsound(loc, 'sound/misc/machinevomit.ogg', 50, TRUE)
 	addtimer(CALLBACK(src, PROC_REF(smelt_part2), O, user), 5)
@@ -223,11 +290,119 @@
 	var/skill = user.mind.get_skill_level(/datum/skill/craft/engineering)
 	var/turf/turf = get_turf(O)
 	playsound(O, pick('sound/combat/hits/burn (1).ogg','sound/combat/hits/burn (2).ogg'), 100)
-	new /obj/effect/decal/cleanable/ash(turf)
 	O.moveToNullspace()
 	if(misfire_chance && prob(max(0, misfire_chance - user.stat_roll(STATKEY_LCK,2,10) - skill)))
 		misfire(O, user)
-	if(!current_charge)
-		addtimer(CALLBACK(src, PROC_REF(battery_collapse), O, user), rand(5))
 	addtimer(CALLBACK(O, PROC_REF(popcorn_smelt_result), turf), 20)
 	return
+
+/obj/item/contraption/shears
+	name = "amputation shears"
+	desc = "A powered shear used for achieving a clean separation between limb and patient. Keeping the patient still is imperative to aligning the blades."
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "shears"
+	on_icon = "shears"
+	off_icon = "shears"
+	w_class = WEIGHT_CLASS_BULKY
+	smeltresult = /obj/item/ingot/bronze
+	charge_per_source = 4
+
+/obj/item/contraption/shears/hammer_action(obj/item/I, mob/user)
+	return
+
+/obj/item/contraption/shears/attack(mob/living/amputee, mob/living/user)
+	if(!current_charge)
+		return
+
+	if(!iscarbon(amputee))
+		return
+
+	var/targeted_zone = check_zone(user.zone_selected)
+	if(targeted_zone == BODY_ZONE_CHEST || targeted_zone == BODY_ZONE_HEAD)
+		to_chat(user, span_warning("I can't amputate that!"))
+		return
+
+	var/mob/living/carbon/patient = amputee
+
+	if(HAS_TRAIT(patient, TRAIT_NODISMEMBER))
+		to_chat(user, span_warning("[patient]'s limbs look too sturdy to amputate."))
+		return
+
+	var/obj/item/bodypart/limb_snip_candidate
+
+	limb_snip_candidate = patient.get_bodypart(targeted_zone)
+	if(!limb_snip_candidate)
+		to_chat(user, span_warning("[patient] is already missing that limb, what more do you want?"))
+		return
+
+	var/amputation_speed_mod = 1
+
+	patient.visible_message(span_danger("[user] begins to secure [src] around [patient]'s [limb_snip_candidate.name]."), span_userdanger("[user] begins to secure [src] around your [limb_snip_candidate.name]!"))
+	playsound(get_turf(patient), 'sound/misc/ratchet.ogg', 20, TRUE)
+	if(patient.stat >= UNCONSCIOUS || patient.buckled || locate(/obj/structure/table/optable) in get_turf(patient))
+		amputation_speed_mod *= 0.5
+	if(patient.stat != DEAD && (patient.jitteriness || patient.mobility_flags & MOBILITY_STAND)) //jittering will make it harder to secure the shears, even if you can't otherwise move
+		amputation_speed_mod *= 1.5 //15*0.5*1.5=11.25
+
+	var/skill_modifier = 1.5 - (user.mind?.get_skill_level(/datum/skill/craft/engineering) / 6)
+	if(do_after(user, 15 SECONDS * amputation_speed_mod * skill_modifier, target = patient))
+		playsound(get_turf(patient), 'sound/misc/guillotine.ogg', 20, TRUE)
+		limb_snip_candidate.drop_limb(TRUE)
+		user.visible_message(span_danger("[src] violently slams shut, amputating [patient]'s [limb_snip_candidate.name]."), span_notice("You amputate [patient]'s [limb_snip_candidate.name] with [src]."))
+		charge_deduction(amputee, user, 1)
+
+//Shamelessly stolen multitool code
+/obj/item/contraption/linker
+	name = "engineering linker"
+	desc = "This strange contraption is able to connect machinery through an unknown calibration method, allowing them to communicate over long distances."
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "multitool"
+	w_class = WEIGHT_CLASS_NORMAL
+	tool_behaviour = TOOL_MULTITOOL
+	var/datum/buffer // simple machine buffer for device linkage
+	smeltresult = /obj/item/ingot/bronze
+	charge_per_source = 8
+	grid_height = 96
+	grid_width = 96
+
+/obj/item/contraption/linker/hammer_action(obj/item/I, mob/user)
+	return
+
+/obj/item/contraption/linker/Destroy()
+	if(buffer)
+		remove_buffer(buffer)
+	return ..()
+
+/obj/item/contraption/linker/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 0)
+		. += span_notice("Its buffer [buffer ? "contains [buffer]." : "is empty."]")
+	else
+		. += span_notice("All you can make out is a bunch of gibberish.")
+
+/obj/item/contraption/linker/attack_self(mob/user)
+	. = ..()
+	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 1)
+		to_chat(user, "You wipe [src] of its stored buffer.")
+		remove_buffer(src)
+	else
+		to_chat(user, span_warning("You have no idea how to use [src]!"))
+
+/obj/item/contraption/linker/proc/set_buffer(datum/buffer)
+	if(src.buffer)
+		UnregisterSignal(src.buffer, COMSIG_PARENT_QDELETING)
+		remove_buffer(src.buffer)
+	src.buffer = buffer
+	if(!QDELETED(buffer))
+		RegisterSignal(buffer, COMSIG_PARENT_QDELETING, PROC_REF(remove_buffer))
+
+/**
+ * Called when the buffer's stored object is deleted
+ *
+ * This proc does not clear the buffer of the multitool, it is here to
+ * handle the deletion of the object the buffer references
+ */
+/obj/item/contraption/linker/proc/remove_buffer(datum/source)
+	SIGNAL_HANDLER
+	SEND_SIGNAL(src, COMSIG_MULTITOOL_REMOVE_BUFFER, source)
+	buffer = null

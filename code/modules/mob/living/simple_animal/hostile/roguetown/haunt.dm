@@ -26,7 +26,7 @@
 	harm_intent_damage = 1
 	obj_damage = 1
 	melee_damage_lower = 15
-	melee_damage_upper = 25
+	melee_damage_upper = 20
 	attack_same = FALSE
 	attack_sound = 'sound/combat/wooshes/bladed/wooshmed (1).ogg'
 	dodge_sound = 'sound/combat/dodge.ogg'
