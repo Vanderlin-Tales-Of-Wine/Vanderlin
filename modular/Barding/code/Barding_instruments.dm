@@ -150,9 +150,7 @@
 	if(playing)
 		terminate_playing(user)
 		return
-	var/music_level = 0
-	if(user.mind)
-		music_level = user.mind.get_skill_level(/datum/skill/misc/music)
+	var/music_level = user.mind?.get_skill_level(/datum/skill/misc/music)
 	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
 	for(var/obj/item/rogue/instrument/I in user.held_items) //sorry it's too annoying
@@ -165,6 +163,13 @@
 	curfile = song_list[curfile]
 	if(!curfile)
 		return
+	if(!user.is_holding(src))
+		return
+	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
+		return
+	for(var/obj/item/rogue/instrument/I in user.held_items) //sorry it's too annoying
+		if(I.playing)
+			return
 
 	var/note_color = "#7f7f7f" // uses MMO item rarity color grading
 	var/stressevent = /datum/stressevent/music
