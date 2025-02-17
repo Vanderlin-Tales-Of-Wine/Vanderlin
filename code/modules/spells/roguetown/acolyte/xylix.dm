@@ -22,7 +22,7 @@
 	var/list/bannedwords = list("zizo","graggar","matthios","baotha","inhumen","heresy")
 	forced_speak = sanitize_hear_message(forced_speak)
 	for(var/T in bannedwords)  //astrata smites naughty xylixans
-		if(findtext(forced_speak, T))
+		if((victim.job == "Monarch" || (victim.job == "Priest")) || findtext(forced_speak, T))
 			if(isliving(user))
 				var/mob/living/L = user
 				L.add_stress(/datum/stressevent/psycurse)

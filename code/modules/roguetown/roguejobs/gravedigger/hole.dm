@@ -103,8 +103,9 @@
 
 	if(attacking_shovel.heldclod)
 		playsound(loc,'sound/items/empty_shovel.ogg', 100, TRUE)
-		QDEL_NULL(attacking_shovel.heldclod)
 		if(stage == 3) //close grave
+			if(!do_after(user, 5 SECONDS * attacking_shovel.time_multiplier, src)) //can't have nice things can we
+				return
 			stage = 4
 			climb_offset = 10
 			locked = TRUE
@@ -125,6 +126,7 @@
 			update_icon()
 			if(stage == 0)
 				qdel(src)
+		QDEL_NULL(attacking_shovel.heldclod)
 		attacking_shovel.update_icon()
 		return
 	else
@@ -265,8 +267,9 @@
 /obj/structure/closet/dirthole/open(mob/living/user)
 	if(opened)
 		return
-	stage = 3
-	climb_offset = 0
+	if(stage == 4)
+		stage = 3
+		climb_offset = 0
 	opened = TRUE
 	dump_contents()
 	update_icon()

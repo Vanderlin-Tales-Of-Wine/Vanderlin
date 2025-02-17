@@ -94,6 +94,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define STRESS_NEUTRAL 2
 #define STRESS_GOOD 1
 #define STRESS_VGOOD 0
+#define MAX_STRESS_BUFFER 5
 
 /*	........   Nutrition defines   ................ */
 #define MEAL_FILLING 30

@@ -71,7 +71,7 @@
 	name = "heater shield"
 	requirements = list(
 		/obj/item/natural/wood/plank = 2,
-		/obj/item/natural/hide = 1,
+		/obj/item/natural/hide/cured = 1,
 	)
 
 	starting_atom = /obj/item/natural/hide

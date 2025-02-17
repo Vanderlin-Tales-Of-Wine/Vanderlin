@@ -2,8 +2,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 
 
 /obj/structure
-	var/redstone_structure = FALSE
-	var/redstone_id
+	var/redstone_structure = FALSE //If you want the structure to interact with player built redstone
+	var/redstone_id //Used for connecting mapload structures
 	var/list/redstone_attached = list()
 
 /obj/structure/multitool_act(mob/living/user, obj/item/I)
@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(!multitool.current_charge)
 		return
 	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
-		to_chat(user, span_warning("I do not know how to use [multitool]..."))
+		to_chat(user, span_warning("I have no idea how to use [multitool]!"))
 		return
 	user.visible_message("[user] starts tinkering with [src].", "You start tinkering with [src].")
 	if(!do_after(user, 8 SECONDS, src))
@@ -25,13 +25,19 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	var/turf/front = get_turf(src)
 	S.set_up(1, 1, front)
 	S.start()
-	if(!redstone_id)
-		update_redstone_id("[rand(99999, 999999)]_[REF(src)]")
 	if(isstructure(multitool.buffer))
 		var/obj/structure/buffer_structure = multitool.buffer
-		if(!buffer_structure.redstone_id) // sanity check
-			buffer_structure.update_redstone_id("[rand(99999, 999999)]_[REF(buffer_structure)]")
-		update_redstone_id(buffer_structure.redstone_id)
+		if(src == buffer_structure)
+			to_chat(user, "You uncalibrate [src] from all its connections.")
+			for(var/obj/structure/O in redstone_attached)
+				O.redstone_attached -= src
+				redstone_attached -= O
+			GLOB.redstone_objs -= src
+			return
+		buffer_structure.redstone_attached |= src
+		redstone_attached |= buffer_structure
+		GLOB.redstone_objs |= src
+		GLOB.redstone_objs |= buffer_structure
 		to_chat(user, "You calibrate [src] to the output of [buffer_structure].")
 	else
 		to_chat(user, "You store the internal schematics of [src] on [multitool].")
@@ -165,20 +171,27 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		return TRUE
 	return FALSE
 
+/obj/structure/repeater/attack_right(mob/user)
+	. = ..()
+	if(user.get_active_held_item())
+		return
+	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
+	if(rotcomp)
+		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
+	return TRUE
+
 /obj/structure/repeater/attack_hand(mob/user)
 	. = ..()
+	if(user.mind?.get_skill_level(/datum/skill/craft/engineering) < 1)
+		to_chat(user, span_warning("I have no idea how to use [src]!"))
+		return
 	if(user.used_intent.type == INTENT_HARM)
-		if(user.cmode)
-			var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
-			if(rotcomp)
-				rotcomp.HandRot(null,usr,ROTATION_CLOCKWISE)
-			return
 		playsound(loc, 'sound/combat/hits/punch/punch (1).ogg', 100, FALSE, -1)
 		sleep(1)
 		switch(mode)
 			if(0)
 				mode = 1
-				say("Mode: REPEATER")
+				say("Mode: REPEATER 5 TIMES")
 				playsound(loc, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 			if(1)
 				mode = 2
@@ -192,11 +205,11 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	playsound(loc, 'sound/misc/keyboard_enter.ogg', 100, FALSE, -1)
 	linked_thing = null
 	var/list/structures = list()
-	for(var/adjc in get_step(src, dir).contents)
-		if(!istype(adjc, /obj/structure))
+	for(var/obj/structure/adjc in get_step(src, dir).contents)
+		if(!adjc.redstone_structure)
 			continue
 		structures += adjc
-	var/input = input("Choose structure to link", "VANDERLIN") as null|anything in structures
+	var/input = input("Choose structure to link", "REPEATER") as null|anything in structures
 	if(input)
 		playsound(loc, 'sound/misc/keyboard_enter.ogg', 100, FALSE, -1)
 		if(istype(linked_thing, /obj/structure/repeater))
@@ -343,14 +356,14 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return TRUE
 
 /obj/structure/activator/attackby(obj/item/I, mob/user, params)
-	if(!containment && istype(I, /obj/item/gun/ballistic/revolver/grenadelauncher))
+	if(!containment && (istype(I, /obj/item/gun/ballistic/revolver/grenadelauncher) || istype(I, /obj/item/bomb) || istype(I, /obj/item/flint)))
 		if(!user.transferItemToLoc(I, src))
 			return ..()
 		containment = I
 		playsound(src, 'sound/misc/chestclose.ogg', 25)
 		update_icon()
 		return TRUE
-	if(!ammo && istype(I, /obj/item/ammo_holder/quiver))
+	if(!ammo && istype(I, /obj/item/ammo_holder))
 		if(!user.transferItemToLoc(I, src))
 			return
 		playsound(src, 'sound/misc/chestclose.ogg', 25)
@@ -380,6 +393,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 				if(istype(BT, gun_ammo))
 					ammo.ammo_list -= BT
 					BT.fire_casing(get_step(src, dir), null, null, null, null, pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_CHEST), 0,  src)
+					ammo.contents -= BT
+					ammo.update_icon()
 					break
 
 /obj/structure/floordoor

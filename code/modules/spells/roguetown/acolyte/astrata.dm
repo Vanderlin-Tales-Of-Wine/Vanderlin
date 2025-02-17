@@ -80,22 +80,23 @@
 		if(GLOB.tod == "night")
 			to_chat(user, "<span class='warning'>Let there be light.</span>")
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
-			S.AOE_flash(user, range = 8)
+			S.AOE_flash(user, range = 7)
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
 			target.visible_message("<span class='danger'>[target] is unmade by holy light!</span>", "<span class='userdanger'>I'm unmade by holy light!</span>")
 			target.gib()
 			return ..()
+		if(target.stat == DEAD && target.can_be_revived()) //we have to grab ghost first
+			var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
+			//GET OVER HERE!
+			if(underworld_spirit)
+				var/mob/dead/observer/ghost = underworld_spirit.ghostize()
+				qdel(underworld_spirit)
+				ghost.mind.transfer_to(target, TRUE)
+			target.grab_ghost(force = TRUE) // even suicides
 		if(!target.revive(full_heal = FALSE))
 			to_chat(user, "<span class='warning'>Astrata's light fails to heal [target]!</span>")
 			return FALSE
 		testing("revived2")
-		var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
-		//GET OVER HERE!
-		if(underworld_spirit)
-			var/mob/dead/observer/ghost = underworld_spirit.ghostize()
-			qdel(underworld_spirit)
-			ghost.mind.transfer_to(target, TRUE)
-		target.grab_ghost(force = TRUE) // even suicides
 		target.emote("breathgasp")
 		target.Jitter(100)
 		target.update_body()
