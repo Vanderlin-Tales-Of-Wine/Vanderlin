@@ -1025,7 +1025,7 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
 
 	if(prefs)
-		prefs.copy_to(body,TRUE,FALSE)
+		prefs.apply_prefs_to(body, TRUE)
 
 	var/datum/outfit/outfit = outfit_override || job?.outfit
 	if(job)
