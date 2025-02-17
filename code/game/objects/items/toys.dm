@@ -132,7 +132,7 @@
 	. = ..()
 	if(ishuman(user))
 		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
-			. += span_notice("Lifting up the top card, you see it reads: [cards[1]].")
+			. += span_notice("Peeking under the top card, you see it reads: [cards[1]].")
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 //ATTACK HAND NOT CALLING PARENT
