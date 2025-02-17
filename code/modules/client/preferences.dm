@@ -932,7 +932,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/HTML = "<center>"
 	if(!length(SSjob.joinable_occupations))
 		HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
-
 	else
 		//HTML += "<b>Choose class preferences</b><br>"
 		//HTML += "<div align='center'>Left-click to raise a class preference, right-click to lower it.<br></div>"

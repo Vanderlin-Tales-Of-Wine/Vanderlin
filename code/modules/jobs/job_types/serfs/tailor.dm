@@ -1,11 +1,12 @@
 /datum/job/tailor
 	title = "Tailor"
 	f_title = "Seamstress"
-	flag = TAILOR
-	department_flag = SERFS
-	faction = "Station"
 	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
 				sewing articles of protection, padding, and fashion for serf and noble alike."
+	flag = TAILOR
+	department_flag = SERFS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = ALL_PLAYER_RACES_BY_NAME

@@ -1,9 +1,12 @@
 /datum/job/innkeep_son
 	title = "Innkeepers Son"
 	f_title = "Innkeepers Daughter"
+	tutorial = "One nite the Innkeeper took you in during a harsh winter, \
+	you've been thankful ever since." //rewrite probably?
 	flag = INNKEEPCHILD
 	department_flag = YOUNGFOLK
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 
@@ -11,7 +14,6 @@
 
 	allowed_ages = list(AGE_CHILD)
 
-	tutorial = "One nite the Innkeeper took you in durring a harsh winter, you've been thankful ever since."
 
 	outfit = /datum/outfit/job/innkeep_son
 	display_order = JDO_INNKEEP_CHILD

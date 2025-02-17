@@ -1,12 +1,20 @@
 /datum/job/inquisitor
 	title = "Inquisitor"
+	tutorial = "A recent arrival from Grenzelhoft, \
+	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
+	You have been sent by your leader, the Holy Bishop, \
+	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	flag = PURITAN
 	department_flag = CHURCHMEN
-	faction = FACTION_STATION
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PURITAN
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 8
+	bypass_lastclass = TRUE
 
+	allowed_races = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -15,15 +23,7 @@
 		"Aasimar"
 	)
 
-	tutorial = "A recent arrival from Grenzelhoft, \
-	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
-	You have been sent by your leader, the Holy Bishop, \
-	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
-
 	outfit = /datum/outfit/job/inquisitor
-	display_order = JDO_PURITAN
-	min_pq = 8
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
 /datum/job/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

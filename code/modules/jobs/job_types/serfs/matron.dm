@@ -1,8 +1,12 @@
 /datum/job/matron
 	title = "Matron"
+	tutorial = "You are the Matron of the orphanage, \
+	an old strict lady whom oversee the 'wellbeing' of the orphans, \
+	you show them your tricks and you'll make them just as good as you one day."
 	flag = JESTER
 	department_flag = PEASANTS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 
@@ -17,7 +21,6 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = "You are the Matron of the orphanage, an old strict lady whom oversee the 'wellbeing' of the orphans, you show them your tricks and you'll make them just as good as you one day."
 	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL)
 	display_order = JDO_MATRON
 	outfit = /datum/outfit/job/matron

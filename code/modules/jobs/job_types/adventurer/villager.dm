@@ -1,23 +1,26 @@
 
 /datum/job/villager
 	title = "Towner"
-	flag = ADVENTURER
-	department_flag = PEASANTS
-	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	tutorial = "You've lived in this shithole for effectively all your life. \
 	You are not an explorer, nor exactly a warrior in many cases. \
 	You're just some average poor bastard who thinks they'll be something someday."
+	flag = ADVENTURER
+	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = "Station"
+	total_positions = 0
+	spawn_positions = 0
+	min_pq = -100
+	banned_leprosy = FALSE
+	bypass_lastclass = TRUE
+
 	advclass_cat_rolls = list(CTAG_TOWNER = 20)
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
 	outfit = null
 	outfit_female = null
-	banned_leprosy = FALSE
 	give_bank_account = TRUE
-	min_pq = -100
-	same_job_respawn_delay = 0
-	bypass_lastclass = TRUE
 
 /datum/job/villager/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

@@ -5,14 +5,14 @@
 	Fulfill desires and whims of the court that they would rather not be publicly known. \
 	Your position is anything but secure, and any mistake can leave you disowned and charged like the petty criminal you are. \
 	Garrison and Court members know who you are."
-
-	total_positions = 2
+	job_flags = (JOB_NEW_PLAYER_JOINABLE)
+	total_positions = 0
 	spawn_positions = 2
+	min_pq = 8
 
 	outfit = null
 	outfit_female = null
 
-	min_pq = 8
 	always_show_on_latechoices = FALSE
 	job_reopens_slots_on_death = FALSE
 	shows_in_list = FALSE

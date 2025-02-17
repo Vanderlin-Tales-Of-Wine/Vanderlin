@@ -1,11 +1,20 @@
 /datum/job/royalguard
 	title = "Royal Knight"
+	tutorial = "You're an elite member of the Garrison, \
+	awarded with knighthood for your prowess and loyalty. \
+	Be a stalwart guardian for the royal family, and serve them until your dying breath."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_ROYALGUARD
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+	min_pq = 8
+	bypass_lastclass = TRUE
+	selection_color = "#920909"
 
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -14,17 +23,9 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You're an elite member of the Garrison, awarded with knighthood for your prowess and loyalty. Be a stalwart guardian for the royal family, and serve them until your dying breath."
-	display_order = JDO_ROYALGUARD
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/royalguard
 	give_bank_account = 30
-	min_pq = 8
-	selection_color = "#920909"
-
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
 /datum/job/royalguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

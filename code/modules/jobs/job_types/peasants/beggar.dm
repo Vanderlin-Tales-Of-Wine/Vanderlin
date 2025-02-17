@@ -7,32 +7,24 @@
 	You're going to be a solemn reminder of what happens when something unwanted is born into this world."
 	flag = APPRENTICE
 	department_flag = PEASANTS
+	display_order = JDO_VAGRANT
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 15
 	spawn_positions = 15
-
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Rakshari"
-	)
-	outfit = /datum/outfit/job/vagrant
+	min_pq = -100
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
-	display_order = JDO_VAGRANT
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	outfit = /datum/outfit/job/vagrant
 	show_in_credits = FALSE //why not?
-	min_pq = -100
 	can_random = FALSE
 
-	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/job/vagrant/New()
 	. = ..()

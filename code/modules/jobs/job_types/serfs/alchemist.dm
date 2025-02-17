@@ -1,8 +1,10 @@
 /datum/job/alchemist
 	title = "Alchemist"
+	tutorial = "You came to Vanderlin either to seek knowledge or riches."
 	flag = ALCHEMIST
 	department_flag = SERFS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -13,8 +15,6 @@
 		"Dwarf",
 		"Aasimar"
 	)
-
-	tutorial = "You came to Vanderlin either to seek knowledge or riches."
 
 	outfit = /datum/outfit/job/alchemist
 	display_order = 6

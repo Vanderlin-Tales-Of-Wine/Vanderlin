@@ -1,8 +1,18 @@
 /datum/job/templar
 	title = "Templar"
+	tutorial = "Templars are warriors who have forsaken wealth and title \
+	in lieu of service to the church, due to either zealotry or a past shame. \
+	They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. \
+	Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	flag = 0 //unset!!
 	department_flag = CHURCHMEN
-	faction = "Station"
-	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_TEMPLAR
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+	min_pq = 4
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -12,12 +22,9 @@
 		"Half-Elf",
 	)
 	allowed_patrons = ALL_TEMPLAR_PATRONS
+
 	outfit = /datum/outfit/job/templar
-	total_positions = 2
-	spawn_positions = 2
-	display_order = JDO_TEMPLAR
 	give_bank_account = 0
-	min_pq = 4
 
 /datum/outfit/job/templar
 	name = "Templar"

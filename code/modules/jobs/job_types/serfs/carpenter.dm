@@ -2,7 +2,10 @@
 	title = "Carpenter"
 	tutorial = "Others may regard your work as crude and demeaning, but you understand deep in your soul the beauty of woodchopping. \
 	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
-	faction = "Station"
+	flag = LUMBERJACK
+	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -16,8 +19,6 @@
 	)
 	total_positions = 6
 	spawn_positions = 4
-	flag = LUMBERJACK
-	department_flag = PEASANTS
 	display_order = JDO_CARPENTER
 	outfit = /datum/outfit/job/carpenter
 

@@ -93,14 +93,6 @@
 	dodgecd = FALSE
 	dodgetime = 0
 
-	var/list/possibleclass = list()
-	var/list/special_classes = list()
-	var/list/shuffle_special= list()
-	var/list/shuffle_combat = list()
-	var/classesunlocked = FALSE
-	var/advsetup = 0
-
-
 //	var/alignment = ALIGNMENT_TN
 
 	var/advjob = null

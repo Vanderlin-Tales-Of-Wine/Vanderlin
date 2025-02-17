@@ -13,7 +13,6 @@
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = /datum/outfit/job/tester
-	plevel_req = 0
 	display_order = JDO_MERCENARY
 
 /datum/outfit/job/tester/pre_equip(mob/living/carbon/human/H)

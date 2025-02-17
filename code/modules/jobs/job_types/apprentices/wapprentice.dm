@@ -1,7 +1,14 @@
 /datum/job/wapprentice
 	title = "Magician's Apprentice"
+	tutorial = "Your master once saw potential in you, \
+	something you are uncertain if they still do with your recent studies. \
+	The path to using magic is something treacherous and untamed, \
+	and you are still decades away from calling yourself even a journeyman in the field. \
+	Listen and serve, and someday you will earn your hat."
+	flag = APPRENTICE
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -11,7 +18,6 @@
 	)
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
-	tutorial = "Your master once saw potential in you, something you are uncertain if they still do with your recent studies. The path to using magic is something treacherous and untamed, and you are still decades away from calling yourself even a journeyman in the field. Listen and serve, and someday you will earn your hat."
 
 	outfit = /datum/outfit/job/wapprentice
 	display_order = JDO_WAPP

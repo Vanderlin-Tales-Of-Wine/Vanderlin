@@ -9,10 +9,15 @@
 	flag = PRIEST
 	department_flag = CHURCHMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PRIEST
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 10
+	selection_color = "#c2a45d"
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -20,24 +25,15 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/priest
 
-	display_order = JDO_PRIEST
-	give_bank_account = 115
-	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
-	min_pq = 10
-	selection_color = "#c2a45d"
+	outfit = /datum/outfit/job/priest
 	spells = list(
 		/obj/effect/proc_holder/spell/self/convertrole/templar,
 		/obj/effect/proc_holder/spell/self/convertrole/monk,
 		/obj/effect/proc_holder/spell/self/convertrole/churchling,
 	)
 
-/datum/outfit/job/priest
-	job_bitflag = BITFLAG_CHURCH
-
-/datum/outfit/job/priest/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord

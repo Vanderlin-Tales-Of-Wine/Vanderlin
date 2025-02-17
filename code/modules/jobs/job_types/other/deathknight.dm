@@ -1,4 +1,9 @@
+<<<<<<<< HEAD:code/modules/jobs/job_types/other/deathknight.dm
 /datum/job/deathknight
+========
+/// Unused, presumably this was for chaos mode
+/datum/job/roguetown/deathknight
+>>>>>>>> b1eb9db47 (oh my god):code/modules/jobs/job_types/roguetown/villains/deathknight.dm
 	title = "Death Knight"
 	tutorial = null
 	flag = DEATHKNIGHT
@@ -23,12 +28,20 @@
 	show_in_credits = FALSE
 	give_bank_account = FALSE
 
+<<<<<<<< HEAD:code/modules/jobs/job_types/other/deathknight.dm
 /datum/job/deathknight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	SSmapping.find_and_remove_world_trait(/datum/world_trait/death_knight)
 	SSmapping.retainer.death_knights |= L.mind
+========
+/datum/job/roguetown/deathknight/after_spawn(mob/living/spawned, client/player_client)
+	var/datum/game_mode/chaosmode/C = SSticker.mode
+	C.deathknightspawn = FALSE
+	C.deathknights |= spawned.mind
+>>>>>>>> b1eb9db47 (oh my god):code/modules/jobs/job_types/roguetown/villains/deathknight.dm
 	..()
 	if(L)
-		var/mob/living/carbon/human/H = L
+		// copy-paste of skeleton job, to be refactored
+		var/mob/living/carbon/human/H = spawned
 		if(M.mind)
 			M.mind.current.job = null
 		if(H.dna && H.dna.species)

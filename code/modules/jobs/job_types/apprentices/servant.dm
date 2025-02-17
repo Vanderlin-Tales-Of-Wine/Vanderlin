@@ -1,22 +1,17 @@
 /datum/job/servant
 	title = "Servant"
+	tutorial = "You work your fingers to the bone nearly every dae, \
+	and have naught to show for it but boney fingers. \
+	Perhaps this week you will finally be recognized, or allowed some respite?"
 	flag = SERVANT
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 9
 	spawn_positions = 9
 
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
 
@@ -27,8 +22,6 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-
-	tutorial = "You work your fingers to the bone nearly every dae, and have naught to show for it but boney fingers. Perhaps this week you will finally be recognized, or allowed some respite?"
 
 	outfit = /datum/outfit/job/servant
 	display_order = JDO_SERVANT
@@ -93,7 +86,8 @@
 
 /datum/advclass/servant/matron_assistant
 	name = "Matron's Servant"
-	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
+	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
+	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
 

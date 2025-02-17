@@ -1,13 +1,24 @@
 /datum/job/veteran
 	title = "Veteran"
+	tutorial = "You've known combat your entire life. \
+	There isn't a way to kill a man you havent practiced in the tapestries of war itself. \
+	You wouldn't call yourself a hero-- \
+	those belong to the men left rotting in the fields where you honed your ancient trade. \
+	You don't sleep well at night anymore, you don't like remembering what you've had to do to survive. \
+	Trading adventure for stable pay was the only logical solution, \
+	and maybe someday you'll get to lay down the blade and rest your weary body..."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	display_order = JDO_VET
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 10 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
 	allowed_sexes = list(MALE, FEMALE) //same as town guard
+	allowed_ages = list(AGE_OLD, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -15,30 +26,26 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	tutorial = "You've known combat your entire life. There isn't a way to kill a man you havent practiced in the tapestries of war itself. You wouldn't call yourself a hero--those belong to the men left rotting in the fields where you honed your ancient trade. You don't sleep well at night anymore, you don't like remembering what you've had to do to survive. Trading adventure for stable pay was the only logical solution, and maybe someday you'll get to lay down the blade and rest your weary body..."
-	allowed_ages = list(AGE_OLD, AGE_IMMORTAL)
+
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
-	display_order = JDO_VET
 	give_bank_account = 35
-	min_pq = 10 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	can_have_apprentices = FALSE
 
 
-/datum/job/veteran/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/veteran/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-		if(istype(H.cloak, /obj/item/clothing/cloak/half/vet))
-			var/obj/item/clothing/S = H.cloak
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = "veteran cloak ([index])"
+	var/mob/living/carbon/human/H = spawned
+	H.advsetup = 1
+	H.invisibility = INVISIBILITY_MAXIMUM
+	H.become_blind("advsetup")
+	if(istype(H.cloak, /obj/item/clothing/cloak/half/vet))
+		var/obj/item/clothing/S = H.cloak
+		var/index = findtext(H.real_name, " ")
+		if(index)
+			index = copytext(H.real_name, 1,index)
+		if(!index)
+			index = H.real_name
+		S.name = "veteran cloak ([index])"
 
 
 /datum/advclass/veteran/battlemaster

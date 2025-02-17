@@ -1,10 +1,17 @@
 /datum/job/consort
 	title = "Consort"
+	tutorial = "Yours was a marriage of political convenience rather than love, \
+	yet you have remained the ruling monarch's good friend and confidant throughout your marriage. \
+	But your love and loyalty will be tested, for daggers are equally pointed at your throat."
 	flag = CONSORT
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
+	display_order = JDO_CONSORT
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 1
+	min_pq = 6
+	bypass_lastclass = TRUE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
 	allowed_races = list(
@@ -13,18 +20,12 @@
 		"Half-Elf"
 	)
 
-	tutorial = "Yours was a marriage of political convenience rather than love, yet you have remained the ruling monarch's good friend and confidant throughout your marriage. But your love and loyalty will be tested, for daggers are equally pointed at your throat."
-
 	outfit = /datum/outfit/job/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
-
-	display_order = JDO_CONSORT
-	bypass_lastclass = TRUE
-	min_pq = 6
 	give_bank_account = 500
-
-	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	apprentice_name = "Servant"
+	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
+
 
 /datum/job/consort/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

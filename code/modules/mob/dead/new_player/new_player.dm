@@ -322,14 +322,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			return JOB_UNAVAILABLE_JOB_COOLDOWN
 
 	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
-		if(is_assistant_job(job))
-			if(isnum(client.player_age) && client.player_age <= 14) //Newbies can always be assistants
-				return JOB_AVAILABLE
-			for(var/datum/job/other_job as anything in SSjob.joinable_occupations)
-				if(other_job.current_positions < other_job.total_positions && other_job != job)
-					return JOB_UNAVAILABLE_SLOTFULL
-		else
-			return JOB_UNAVAILABLE_SLOTFULL
+		return JOB_UNAVAILABLE_SLOTFULL
 	if(is_banned_from(ckey, rank))
 		return JOB_UNAVAILABLE_BANNED
 	if(CONFIG_GET(flag/usewhitelist))
@@ -427,14 +420,15 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	dat += "<table><tr><td valign='top'>"
 	var/column_counter = 0
 
-	var/list/omegalist = list()
-	omegalist += list(GLOB.noble_positions)
-	omegalist += list(GLOB.garrison_positions)
-	omegalist += list(GLOB.church_positions)
-	omegalist += list(GLOB.peasant_positions)
-	omegalist += list(GLOB.apprentices_positions)
-	omegalist += list(GLOB.serf_positions)
-	omegalist += list(GLOB.youngfolk_positions)
+	var/static/list/omegalist = list(
+		list(GLOB.noble_positions),
+		list(GLOB.garrison_positions),
+		list(GLOB.church_positions),
+		list(GLOB.peasant_positions),
+		list(GLOB.apprentices_positions),
+		list(GLOB.serf_positions),
+		list(GLOB.youngfolk_positions),
+	)
 
 	for(var/list/category in omegalist)
 		if(!SSjob.name_occupations[category[1]])
