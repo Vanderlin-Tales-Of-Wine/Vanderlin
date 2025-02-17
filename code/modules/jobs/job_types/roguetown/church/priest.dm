@@ -1,7 +1,5 @@
-
 /datum/job/roguetown/priest
-	title = "Priest"
-	f_title = "Priestess"
+	title = "Priest"; f_title = "Priestess"
 	tutorial = "You are a devoted follower of Astrata. \
 	The divine is all that matters in an immoral world. \
 	The Sun Queen and her pantheon rule over all, and you will preach their wisdom to Vanderlin. \
@@ -14,8 +12,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 10
-	selection_color = "#c2a45d"
 	bypass_lastclass = TRUE
+	selection_color = "#c2a45d"
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(

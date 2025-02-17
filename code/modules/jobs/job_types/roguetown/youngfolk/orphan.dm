@@ -5,7 +5,7 @@
 	Will you make something of yourself, or will you die in the streets as a nobody?"
 	flag = ORPHAN
 	department_flag = YOUNGFOLK
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 12
 	spawn_positions = 12

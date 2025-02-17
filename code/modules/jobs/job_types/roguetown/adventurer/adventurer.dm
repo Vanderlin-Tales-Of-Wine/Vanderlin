@@ -15,7 +15,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_ADVENTURER
 	faction = FACTION_STATION
-	total_positions = 14
+	total_positions = 0
 	spawn_positions = 14
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 

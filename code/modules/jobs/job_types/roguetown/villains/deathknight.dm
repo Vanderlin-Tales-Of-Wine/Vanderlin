@@ -4,7 +4,7 @@
 	tutorial = null
 	flag = DEATHKNIGHT
 	department_flag = UNDEAD
-	faction = FACTION_STATION
+	faction = FACTION_STATION //?
 	job_flags = (JOB_EQUIP_RANK)
 	total_positions = -1
 	spawn_positions = 0
