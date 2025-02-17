@@ -5,10 +5,10 @@
 	The Captain took notice of your potential, and recruited you as a personal ward. \
 	\n\n\
 	Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
-	faction = FACTION_STATION
 	flag = SQUIRE
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 

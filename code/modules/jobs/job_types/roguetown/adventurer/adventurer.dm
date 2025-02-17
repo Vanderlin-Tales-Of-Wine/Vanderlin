@@ -10,9 +10,10 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	and you've never fancied yourself for much other than the thrill. \
 	Someday your pride is going to catch up to you, \
 	and you're going to find out why most men don't end up in the annals of history."
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	flag = ADVENTURER
 	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_ADVENTURER
 	faction = FACTION_STATION
 	total_positions = 14
 	spawn_positions = 14
@@ -21,7 +22,6 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	outfit = null
 	outfit_female = null
 
-	display_order = JDO_ADVENTURER
 	show_in_credits = FALSE
 	min_pq = 2
 	job_reopens_slots_on_death = TRUE

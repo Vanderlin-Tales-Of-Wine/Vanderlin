@@ -1,3 +1,4 @@
+/// Unused, presumably this was for chaos mode
 /datum/job/roguetown/deathknight
 	title = "Death Knight"
 	tutorial = null
@@ -23,13 +24,14 @@
 	show_in_credits = FALSE
 	give_bank_account = FALSE
 
-/datum/job/roguetown/deathknight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/deathknight/after_spawn(mob/living/spawned, client/player_client)
 	var/datum/game_mode/chaosmode/C = SSticker.mode
 	C.deathknightspawn = FALSE
-	C.deathknights |= L.mind
+	C.deathknights |= spawned.mind
 	..()
 	if(L)
-		var/mob/living/carbon/human/H = L
+		// copy-paste of skeleton job, to be refactored
+		var/mob/living/carbon/human/H = spawned
 		if(M.mind)
 			M.mind.current.job = null
 		if(H.dna && H.dna.species)

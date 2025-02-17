@@ -4,9 +4,10 @@
 				residence as feldshers in, often end up becoming wandering physickers. \
 				Capable doctors nonetheless, they journey from place to place offering \
 				their services."
-	faction = "Station"
 	flag = PHYSICKER
 	department_flag = SERFS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

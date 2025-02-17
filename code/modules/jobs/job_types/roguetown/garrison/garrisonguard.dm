@@ -1,12 +1,20 @@
 /datum/job/roguetown/guardsman
 	title = "Garrison Guard"
+	tutorial = "You are a soldier in the ruler's garrison. \
+	Your experience, training, and equipment may vary... \
+	but you are the first line of defense against the horrors that encroach on Vanderlin."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_GARRISONGUARD
+	faction = FACTION_STATION
 	total_positions = 8
 	spawn_positions = 8
+	min_pq = 4
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -14,16 +22,10 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You are a soldier in the ruler's garrison. Your experience, training, and equipment may vary... but you are the first line of defense against the horrors that encroach on Vanderlin."
-	display_order = JDO_GARRISONGUARD
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/roguetown/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
-	min_pq = 4
 
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 

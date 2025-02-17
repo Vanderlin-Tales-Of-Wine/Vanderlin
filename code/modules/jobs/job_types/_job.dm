@@ -32,9 +32,6 @@
 	/// Whether this job clears a slot when you get a rename prompt.
 	var/antag_job = FALSE
 
-	/// Supervisors, who this person answers to directly
-	var/supervisors = ""
-
 	/// Selection screen color
 	var/selection_color = "#dbdce3"
 
@@ -100,8 +97,6 @@
 	var/min_pq = -999
 
 	var/show_in_credits = TRUE
-
-	var/announce_latejoin = TRUE
 
 	var/give_bank_account = FALSE
 

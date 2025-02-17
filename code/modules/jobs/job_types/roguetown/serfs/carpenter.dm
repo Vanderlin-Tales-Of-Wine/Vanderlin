@@ -2,7 +2,10 @@
 	title = "Carpenter"
 	tutorial = "Woodsmen and women that dedicate their lives to chopping wood \
 	for profit, and expertly building things out of it."
-	faction = "Station"
+	flag = LUMBERJACK
+	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -16,8 +19,6 @@
 	)
 	total_positions = 6
 	spawn_positions = 4
-	flag = LUMBERJACK
-	department_flag = PEASANTS
 	display_order = JDO_CARPENTER
 	outfit = /datum/outfit/job/roguetown/carpenter
 

@@ -1,4 +1,5 @@
-/* T: Skeletons should honestly just be a species.
+/*
+ * T: Skeletons should honestly just be a species.
  * In fact, they normally are on other codebases.
  * This will need refactoring for sure.
  */
@@ -8,10 +9,11 @@
 	tutorial = "Rattle rattle, click clack."
 	flag = SKELETON
 	department_flag = UNDEAD
-	faction = FACTION_STATION //this seems wrong?
 	job_flags = (JOB_EQUIP_RANK)
+	faction = FACTION_STATION //this seems wrong?
 	total_positions = -1
 	spawn_positions = 0
+	antag_job = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
