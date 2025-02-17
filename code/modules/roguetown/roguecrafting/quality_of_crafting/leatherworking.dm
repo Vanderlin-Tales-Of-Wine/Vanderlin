@@ -136,6 +136,14 @@
 	)
 	output = /obj/item/ammo_holder/quiver
 
+/datum/repeatable_crafting_recipe/leather/dartpouch
+	name = "dart pouch"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/ammo_holder/dartpouch
+
 /datum/repeatable_crafting_recipe/leather/tribal_cloak
 	name = "tribal pelt"
 	attacking_atom = /obj/item/natural/hide

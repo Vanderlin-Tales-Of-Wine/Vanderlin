@@ -53,7 +53,7 @@
 	You are poor, and your belly is yet full. \
 	\n\
 	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
-	outfit = /datum/outfit/job/roguetown/watchman/pikeman
+	outfit = /datum/outfit/job/roguetown/watchman/swordsmen
 	category_tags = list(CTAG_MENATARMS)
 
 /datum/outfit/job/roguetown/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
@@ -125,7 +125,7 @@
 		var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4)) // Rolls for either a bow or a Crossbow
 		switch(weapontypec)
 			if("Bow")
-				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
 				backr = /obj/item/ammo_holder/quiver/arrows
 			if("Crossbow")
 				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
@@ -151,7 +151,7 @@
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	beltr = /obj/item/rogueweapon/sword/arming
-	backr = /obj/item/rogueweapon/polearm/spear
+	backr = /obj/item/rogueweapon/polearm/spear/billhook
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
