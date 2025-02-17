@@ -27,7 +27,7 @@
 	)
 
 /obj/item/storage/pill_bottle/dice/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (OXYLOSS)
 
 /*****************************Dice********************************/
@@ -54,7 +54,7 @@
 	update_icon()
 
 /obj/item/dice/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide())
 	return (OXYLOSS)
 
 /obj/item/dice/attack_right(mob/user)
@@ -199,7 +199,7 @@
 			if(prob(80))
 				result = rigged_value
 			else
-				to_chat(user,"<span class='big'>Xylix laughs at your pitiable attempt at sleight of hand.</span>")
+				to_chat(user,span_big("Xylix laughs at your pitiable attempt at sleight of hand."))
 		else if(rigged == DICE_TOTALLY_RIGGED)
 			result = rigged_value
 	if(!permanently_rigged)
@@ -220,11 +220,11 @@
 	if(special_faces.len == sides)
 		result = special_faces[result]
 	if(user != null) //Dice was rolled by someone
-		user.visible_message("<span class='notice'>[user] has rolled [src]. It lands on [result]. [comment]</span>", \
-							"<span class='notice'>I roll [src]. It lands on [result]. [comment]</span>", \
-							"<span class='hear'>I hear [src] rolling, it sounds like a [fake_result].</span>")
+		user.visible_message(span_notice("[user] has rolled [src]. It lands on [result]. [comment]"), \
+							span_notice("I roll [src]. It lands on [result]. [comment]"), \
+							span_hear("I hear [src] rolling, it sounds like a [fake_result]."))
 	else if(!src.throwing) //Dice was knocked around and is coming to rest
-		visible_message("<span class='notice'>[src] rolls to a stop, landing on [result]. [comment]</span>")
+		visible_message(span_notice("[src] rolls to a stop, landing on [result]. [comment]"))
 
 /obj/item/dice/update_icon()
 	cut_overlays()
