@@ -5,7 +5,7 @@
 	But your love and loyalty will be tested, for daggers are equally pointed at your throat."
 	flag = CONSORT
 	department_flag = NOBLEMEN
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CONSORT
 	faction = FACTION_STATION
 	total_positions = 0

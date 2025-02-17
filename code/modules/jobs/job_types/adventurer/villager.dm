@@ -1,4 +1,3 @@
-
 /datum/job/villager
 	title = "Towner"
 	tutorial = "You've lived in this shithole for effectively all your life. \
@@ -20,6 +19,7 @@
 
 	outfit = null
 	outfit_female = null
+
 	give_bank_account = TRUE
 
 /datum/job/villager/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

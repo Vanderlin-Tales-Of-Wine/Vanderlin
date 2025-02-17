@@ -1,4 +1,3 @@
-
 /datum/job/priest
 	title = "Priest"
 	f_title = "Priestess"
@@ -14,8 +13,8 @@
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 10
-	selection_color = "#c2a45d"
 	bypass_lastclass = TRUE
+	selection_color = "#c2a45d"
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(

@@ -6,13 +6,21 @@
 	flag = SERVANT
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_SERVANT
 	faction = FACTION_STATION
 	total_positions = 9
 	spawn_positions = 9
-
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	min_pq = -20
+	bypass_lastclass = TRUE
 
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	outfit = /datum/outfit/job/servant
+	give_bank_account = TRUE
+
+	can_have_apprentices = FALSE
+
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
 
 /datum/job/servant/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -23,7 +31,7 @@
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
 
-	outfit = /datum/outfit/job/servant
+	outfit = /datum/outfit/job/roguetown/servant
 	display_order = JDO_SERVANT
 	give_bank_account = TRUE
 	min_pq = -20

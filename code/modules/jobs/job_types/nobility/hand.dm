@@ -13,6 +13,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	min_pq = 8
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -23,7 +24,6 @@
 	)
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
-	bypass_lastclass = TRUE
 	give_bank_account = 120
 
 /datum/outfit/job/hand

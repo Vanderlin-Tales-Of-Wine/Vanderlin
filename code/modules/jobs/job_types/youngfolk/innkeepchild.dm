@@ -6,20 +6,17 @@
 	flag = INNKEEPCHILD
 	department_flag = YOUNGFOLK
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_INNKEEP_CHILD
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = -5
 
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_CHILD)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	allowed_ages = list(AGE_CHILD)
-
-
 	outfit = /datum/outfit/job/innkeep_son
-	display_order = JDO_INNKEEP_CHILD
-	give_bank_account = TRUE
-	give_bank_account = 5
-	min_pq = -5
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
