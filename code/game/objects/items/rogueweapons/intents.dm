@@ -623,6 +623,8 @@
 	canparry = TRUE
 	item_damage_type = "slash"
 
+
+
 /datum/intent/simple/spear
 	name = "spear"
 	icon_state = "instrike"

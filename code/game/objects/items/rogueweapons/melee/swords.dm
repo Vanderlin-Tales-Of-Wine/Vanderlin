@@ -94,6 +94,17 @@
 	warnie = "mobwarning"
 	item_damage_type = "slash"
 
+/datum/intent/sword/chop/raider
+	name = "cleave"
+	attack_verb = list("cleaves", "rends")
+	penfactor = AP_SWORD_CHOP+5
+	damfactor = 1.5
+	chargetime = 1.5
+	swingdelay = 0.9
+	misscost = 15
+	warnie = "mobwarning"
+	item_damage_type = "slash"
+
 /*------------\
 | Stab intent |
 \------------*/
@@ -492,6 +503,8 @@
 | Twohanded Swords |
 \-----------------*/
 
+
+
 //................ Long Sword ............... //
 /obj/item/rogueweapon/sword/long
 	force_wielded = DAMAGE_LONGSWORD_WIELD
@@ -540,6 +553,7 @@
 	max_integrity = INTEGRITY_STRONG
 	static_price = TRUE
 	sellprice = 45 // Old and chipped
+
 
 
 // Repurposing this unused sword for the Paladin job as a heavy counter against vampires.
@@ -647,6 +661,37 @@
 				return list("shrink" = 0.6,"sx" = 3,"sy" = 4,"nx" = -1,"ny" = 4,"wx" = -8,"wy" = 3,"ex" = 7,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 15,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onback")
 				return list("shrink" = 0.6,"sx" = -1,"sy" = 3,"nx" = -1,"ny" = 2,"wx" = 3,"wy" = 4,"ex" = -1,"ey" = 5,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 20,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+//................ Raider Sword ............... //
+
+/obj/item/rogueweapon/sword/long/greatsword/raider
+	possible_item_intents = list(/datum/intent/sword/cut/zwei, /datum/intent/sword/thrust/zwei, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/chop/raider)
+	force_wielded = DAMAGE_GREATSWORD_WIELD
+	name = "Raider Sword"
+	desc = "An oversized long sword capable of splitting men in two with great ease"
+	icon_state = "raidersword"
+	swingsound = BLADEWOOSH_HUGE
+	wlength = WLENGTH_GREAT
+	slot_flags = ITEM_SLOT_BACK
+	gripsprite = TRUE
+	minstr = 16
+	wbalance = EASY_TO_DODGE
+	sellprice = 150
+
+/obj/item/rogueweapon/sword/long/greatsword/raider/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.6,"sx" = -6,"sy" = 6,"nx" = 6,"ny" = 7,"wx" = 0,"wy" = 5,"ex" = -1,"ey" = 7,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -50,"sturn" = 40,"wturn" = 50,"eturn" = -50,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.6,"sx" = 3,"sy" = 4,"nx" = -1,"ny" = 4,"wx" = -8,"wy" = 3,"ex" = 7,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 15,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+			if("onback")
+				return list("shrink" = 0.6,"sx" = -1,"sy" = 3,"nx" = -1,"ny" = 2,"wx" = 3,"wy" = 4,"ex" = -1,"ey" = 5,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 20,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
+
+
+
 
 //................ Flamberge ............... //
 /obj/item/rogueweapon/sword/long/greatsword/flamberge
