@@ -176,16 +176,17 @@
 			var/outcome = alert(user, "How do you want to shuffle the deck?","XYLIX","False Shuffle","Force Top Card","Play fair")
 			switch(outcome)
 				if("False Shuffle")
-					user.visible_message(span_notice("[user] shuffles the deck."), span_notice("I false shuffle the deck."))
+					to_chat(user, span_notice("I shuffle the cards, then reverse the shuffle. Sneaky."))
 				if("Force Top Card")
 					user.set_machine(src)
 					interact(user)
 				if("Play fair")
+					to_chat(user, span_notice("I, in a surprising show of good faith, shuffle the deck fairly."))
 					cards = shuffle(cards)
-					user.visible_message(span_notice("[user] shuffles the deck."), span_notice("I shuffle the deck."))
 		else
+			to_chat(user, span_notice("I shuffle the deck."))
 			cards = shuffle(cards)
-			user.visible_message(span_notice("[user] shuffles the deck."), span_notice("I shuffle the deck."))
+		user.visible_message(span_notice("[user] shuffles the deck."))
 		playsound(src, 'sound/blank.ogg', 50, TRUE)
 		cooldown = world.time
 
@@ -212,7 +213,7 @@
 		src.cards -= choice
 		cards = shuffle(cards)
 		cards.Insert(1,choice)
-		cardUser.visible_message(span_notice("[cardUser] shuffles the deck."), span_notice("I shuffle the deck, sneakily putting the [choice] on top."))
+		to_chat(cardUser, span_notice("I shuffle the deck, sneakily putting the [choice] on top."))
 		cardUser << browse(null, "window=deck")
 		return
 
