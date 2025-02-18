@@ -156,40 +156,24 @@
 	for(var/datum/stressevent/D in negative_stressors)
 		if(eventL)
 			if(D.type in eventL)
-				var/stress_amount = 0
-				for(var/i in 1 to D.stacks)
-					stress_amount += -1*D.get_stress()
-					D.stacks--
+				adjust_stress(-1*D.get_stress())
 				negative_stressors -= D
-				adjust_stress(stress_amount)
 				qdel(D)
 		else
 			if(D.type == event)
-				var/stress_amount = 0
-				for(var/i in 1 to D.stacks)
-					stress_amount += -1*D.get_stress()
-					D.stacks--
+				adjust_stress(-1*D.get_stress())
 				negative_stressors -= D
-				adjust_stress(stress_amount)
 				qdel(D)
 	for(var/datum/stressevent/D in positive_stressors)
 		if(eventL)
 			if(D.type in eventL)
-				var/stress_amount = 0
-				for(var/i in 1 to D.stacks)
-					stress_amount += -1*D.get_stress()
-					D.stacks--
-				negative_stressors -= D
-				adjust_stress(stress_amount)
+				adjust_stress(-1*D.get_stress())
+				positive_stressors -= D
 				qdel(D)
 		else
 			if(D.type == event)
-				var/stress_amount = 0
-				for(var/i in 1 to D.stacks)
-					stress_amount += -1*D.get_stress()
-					D.stacks--
-				negative_stressors -= D
-				adjust_stress(stress_amount)
+				adjust_stress(-1*D.get_stress())
+				positive_stressors -= D
 				qdel(D)
 	return TRUE
 
