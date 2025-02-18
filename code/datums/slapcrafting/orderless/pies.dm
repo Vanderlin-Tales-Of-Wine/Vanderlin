@@ -75,20 +75,20 @@
 	name = "pot pie"
 	requirements = list(
 		list(
-			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
 			/obj/item/reagent_containers/food/snacks/cheese_wedge,
 			/obj/item/reagent_containers/food/snacks/rogue/cheese,
-			/obj/item/reagent_containers/food/snacks/egg,
-			/obj/item/reagent_containers/food/snacks/fat,
+			/obj/item/reagent_containers/food/snacks/butterslice,
+			/obj/item/reagent_containers/food/snacks/egg) = 1,
+		list(
 			/obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced,
 			/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced,
 			/obj/item/reagent_containers/food/snacks/rogue/veg/turnip_sliced,
-			/obj/item/reagent_containers/food/snacks/rogue/roastseeds) = 2,
+			/obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced,
+			/obj/item/reagent_containers/food/snacks/rogue/roastseeds) = 1,
 		list(
 			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry,
-			/obj/item/reagent_containers/food/snacks/cheese_wedge,
-			/obj/item/reagent_containers/food/snacks/rogue/cheese,
-			/obj/item/reagent_containers/food/snacks/egg,
+			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
+			/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish,
 			/obj/item/reagent_containers/food/snacks/fat) = 1
 	)
 

@@ -97,6 +97,8 @@
 
 /// Returns the total bleed rate on this bodypart
 /obj/item/bodypart/proc/get_bleed_rate()
+	if(NOBLOOD in owner?.dna?.species?.species_traits)
+		return 0
 	var/bleed_rate = 0
 	if(bandage && !HAS_BLOOD_DNA(bandage))
 		return 0

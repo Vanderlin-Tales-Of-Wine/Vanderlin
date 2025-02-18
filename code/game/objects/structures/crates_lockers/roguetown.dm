@@ -15,7 +15,7 @@
 	mob_storage_capacity = 1
 	allow_dense = FALSE
 
-/obj/structure/closet/crate/chest/OnCrafted(dirin)
+/obj/structure/closet/crate/chest/OnCrafted(dirin, mob/user)
 	. = ..()
 	keylock = FALSE
 

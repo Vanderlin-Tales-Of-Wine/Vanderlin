@@ -12,6 +12,11 @@
 
 	werewolf_infection_probability = 0
 
+/datum/wound/bruise/can_apply_to_bodypart(obj/item/bodypart/affected)
+	. = ..()
+	if(affected.status == BODYPART_ROBOTIC)
+		return FALSE
+
 /datum/wound/bruise/small
 	name = "bruise"
 	whp = 15

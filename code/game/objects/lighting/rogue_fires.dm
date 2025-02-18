@@ -123,7 +123,7 @@
 	pixel_y = 32
 	soundloop = null
 
-/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
+/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
 	pixel_y = 0
 	switch(dirin)

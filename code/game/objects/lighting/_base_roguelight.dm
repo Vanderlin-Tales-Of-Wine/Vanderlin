@@ -23,7 +23,7 @@
 	seton(TRUE)
 	. = ..()
 
-/obj/machinery/light/rogue/OnCrafted(dirin)
+/obj/machinery/light/rogue/OnCrafted(dirin, mob/user)
 	. = ..()
 	can_damage = TRUE
 	burn_out()

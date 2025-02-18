@@ -147,6 +147,8 @@
 			return FALSE
 		if(M != user)
 			return FALSE
+		if(!user.cmode)
+			return FALSE
 		user.changeNext_move(CLICK_CD_RESIST)
 		headbutt(user)
 		return

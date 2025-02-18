@@ -16,6 +16,7 @@
 	smeltresult = /obj/item/ash // Helmets have pre-defined smeltresults, this is for hats
 	body_parts_covered = COVERAGE_SKULL
 	sellprice = VALUE_CHEAP_CLOTHING
+	edelay_type = 1
 
 	max_integrity = INTEGRITY_WORST
 
@@ -244,7 +245,6 @@
 	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	edelay_type = 1
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	var/default_hidden = null
@@ -275,6 +275,38 @@
 /obj/item/clothing/head/roguetown/roguehood/mage/Initialize()
 	color = pick(CLOTHING_MAGE_BLUE, CLOTHING_MAGE_GREEN, CLOTHING_MAGE_ORANGE, CLOTHING_MAGE_YELLOW)
 	..()
+
+/obj/item/clothing/head/roguetown/roguehood/guard
+	color = CLOTHING_PLUM_PURPLE
+
+/obj/item/clothing/head/roguetown/roguehood/guard/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/head/roguetown/roguehood/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond
+	color = CLOTHING_BLOOD_RED
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/lordcolor(primary,secondary)
+	if(secondary)
+		color = secondary
+
+/obj/item/clothing/head/roguetown/roguehood/guardsecond/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
 
 /obj/item/clothing/head/roguetown/roguehood/AdjustClothes(mob/user)
 	if(loc == user)
@@ -857,6 +889,24 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 	icon_state = "capbarbute"
 
+//................. Town Watch Helmet .............. //
+/obj/item/clothing/head/roguetown/helmet/townwatch
+	name = "town watch helmet"
+	desc = "An old archaic helmet of a symbol long forgotten."
+	icon_state = "guardhelm"
+
+	body_parts_covered = COVERAGE_HEAD_NOSE
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
+	block2add = FOV_BEHIND
+	max_integrity = INTEGRITY_STANDARD
+	slot_flags = ITEM_SLOT_HEAD | ITEM_SLOT_HIP
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR_UNUSUAL
+
+/obj/item/clothing/head/roguetown/helmet/townwatch/alt
+	desc = "An old archaic helmet of a symbol long forgotten. The shape resembles the bars of a prison."
+	icon_state = "gatehelm"
+
 //......................................................................................................
 /*------------------\
 |			 	 	|
@@ -975,7 +1025,7 @@
 	icon_state = "necrahelm"
 
 //............... Dendor Helmet ............... //	This one seems a bit out of place
-/obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
 	name = "dendor helmet"
 	desc = "A great helmet with twisted metalwork that imitates the twisting of bark, or the horns of a beast."
 	icon_state = "dendorhelm"
@@ -991,7 +1041,7 @@
 
 
 //............... Pestra Helmet ............... //
-/obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/pestrahelm
 	name = "pestran helmet"
 	desc = "A great helmet made of coarse, tainted steel. It is modeled after a plagued carrion, a blessed abomination of Pestra."
 	icon_state = "pestrahelm"
@@ -999,14 +1049,14 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 //................ Malum Helmet ............. //
-/obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm
 	name = "malumite helmet"
 	desc = "A great helmet of sturdy dark steel. Its chiseled countenance reminds the viewer of Malum's stern gaze."
 	icon_state = "malumhelm"
 	item_state = "malumhelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
-/obj/item/clothing/head/roguetown/helmet/heavy/ravox
+/obj/item/clothing/head/roguetown/helmet/heavy/necked/ravox
 	name = "ravoxian helmet"
 	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles an heavily adorned visored sallet."
 	icon_state = "ravoxhelm"
@@ -1472,6 +1522,7 @@
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR
+	smeltresult = /obj/item/ingot/bronze
 
 
 /*-------------------\
@@ -1606,16 +1657,6 @@
 /*----------\
 | Graveyard |	- Not used or ingame in any way except admeme spawning them.
 \-----------*/
-
-/obj/item/clothing/head/roguetown/helmet/heavy/captain
-	name = "barred helmet"
-	desc = "An archaic helmet whose shape resembles bars of a gate."
-	icon_state = "gatehelm"
-	emote_environment = 3
-	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	block2add = FOV_RIGHT|FOV_LEFT
-	smeltresult = /obj/item/ingot/iron
-	sellprice = VALUE_IRON_ITEM
 
 /obj/item/clothing/head/roguetown/priesthat // bishops mitre really
 	name = "priest's hat"

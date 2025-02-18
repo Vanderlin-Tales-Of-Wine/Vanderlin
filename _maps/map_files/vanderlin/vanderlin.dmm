@@ -4844,6 +4844,10 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/rtfield/safe)
+"dti" = (
+/obj/effect/landmark/observer_start,
+/turf/open/transparent/openspace,
+/area/rogue/outdoors/town)
 "dtq" = (
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/indoors/town)
@@ -95247,7 +95251,7 @@ lsl
 bDU
 iSk
 iSk
-iSk
+dti
 iSk
 iSk
 bDU

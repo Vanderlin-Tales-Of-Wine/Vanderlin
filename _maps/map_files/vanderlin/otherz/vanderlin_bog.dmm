@@ -1309,9 +1309,6 @@
 /obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/cooked/ham,
 /obj/item/reagent_containers/food/snacks/cooked/ham,
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince,
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince,
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
@@ -1438,7 +1435,7 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince,
+/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef,
 /obj/item/rogueweapon/knife/cleaver{
 	pixel_x = 0;
 	pixel_y = -9

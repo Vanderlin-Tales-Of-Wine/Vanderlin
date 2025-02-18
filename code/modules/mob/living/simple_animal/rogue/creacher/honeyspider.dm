@@ -29,8 +29,8 @@
 
 	base_intents = list(/datum/intent/simple/bite)
 	attack_sound = list('sound/vo/mobs/spider/attack (1).ogg','sound/vo/mobs/spider/attack (2).ogg','sound/vo/mobs/spider/attack (3).ogg','sound/vo/mobs/spider/attack (4).ogg')
-	melee_damage_lower = 20
-	melee_damage_upper = 25
+	melee_damage_lower = 17
+	melee_damage_upper = 22
 
 	TOTALCON = 6
 	TOTALSTR = 10

@@ -134,7 +134,7 @@
 	return
 
 /mob/living/carbon/human/handle_environment()
-	dna.species.handle_environment(src)
+	dna?.species.handle_environment(src)
 
 ///FIRE CODE
 /mob/living/carbon/human/handle_fire()
