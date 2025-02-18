@@ -93,6 +93,38 @@
 	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
 	..()
 
+/obj/item/clothing/under/roguetown/tights/guard
+	color = CLOTHING_PLUM_PURPLE
+
+/obj/item/clothing/under/roguetown/tights/guard/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/under/roguetown/tights/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+/obj/item/clothing/under/roguetown/tights/guardsecond
+	color = CLOTHING_BLOOD_RED
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/lordcolor(primary,secondary)
+	if(secondary)
+		color = secondary
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 /obj/item/clothing/under/roguetown/tights/sailor
 	name = "pants"
 	icon_state = "sailorpants"

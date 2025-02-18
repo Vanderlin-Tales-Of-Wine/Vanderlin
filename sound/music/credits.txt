@@ -5,8 +5,7 @@ combat_desertrider.ogg: Two Fingers- You Ain't Down
 combat_grenzelhoft.ogg: Helbrede - Sons of Tyr
 combat_jester.ogg: OFF - Pepper Steak
 combat_bandit.ogg: Deus Ex - Battery Park Combat
-combat_bandit2.ogg: Cruelty Squad  - Rent DUe
-combat_werewolf.ogg: Filmmaker - Federal Bestiary
+combat_bandit2.ogg: Cruelty Squad  - Rent Due
 combat_physician.ogg: Pathologic (Classic) - Utroba Aggression
 combat_dwarf.ogg: Filip Lackovic - Drums of the Horde
 combat_assassin2.ogg: Fear & Hunger 2: Termina - Monologue With The Moon
@@ -59,6 +58,7 @@ ABedOfMoss - Matron
 Archetype of the Dark Star - Werewolf
 heliotrix - Priest / Astratan Theme
 DEMESNE - Lich
+Ready or Not - Man-at-Arms
 
 
     SeanPhillips (https://youtube.com/@seanphillipsmusic / www.seanphillipsmusic.co.uk)
@@ -68,6 +68,7 @@ Bewildered Magic - Wizard Tower
 
     flleeppyy / fleepy (https://flleeppyy.bandcamp.com/ / https://fleepy.tv/)
 Neglection - Title1
+Veil of Heresy - Cultist Theme
 
 
 

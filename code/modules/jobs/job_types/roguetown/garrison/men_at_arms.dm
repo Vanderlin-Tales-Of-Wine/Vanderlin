@@ -9,7 +9,7 @@
 	flag = WATCHMAN
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
-	display_order = JDO_WATCHMAN
+	display_order = JDO_MENATARMS
 	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
@@ -27,7 +27,7 @@
 
 	outfit = /datum/outfit/job/roguetown/watchman
 	advclass_cat_rolls = list(CTAG_MENATARMS = 20)
-	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg' // Placeholder!
+	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
 	give_bank_account = 15
 
 /datum/outfit/job/roguetown/watchman/pre_equip(mob/living/carbon/human/H)
@@ -45,6 +45,45 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+
+/datum/advclass/menatarms/watchman_swordsmen
+	name = "Fencer Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	You were quite a good dancer, you've blended that skill with your blade- \
+	exanguinated personally by one of the Monarch's best. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	outfit = /datum/outfit/job/roguetown/watchman/pikeman
+	category_tags = list(CTAG_MENATARMS)
+
+/datum/outfit/job/roguetown/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
+	..()
+	head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
+	cloak = /obj/item/clothing/cloak/stabard/guard
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/advanced
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	gloves = /obj/item/clothing/gloves/roguetown/chain
+	beltr = /obj/item/rogueweapon/sword/rapier
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special)
+	if(H.mind)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, 2)
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/menatarms/watchman_ranger
 	name = "Archer Men-At-Arms"

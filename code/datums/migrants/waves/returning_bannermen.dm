@@ -85,7 +85,7 @@
 	if(prob(30))
 		head = /obj/item/clothing/head/roguetown/helmet/kettle
 	else
-		head = /obj/item/clothing/head/roguetown/roguehood/red
+		head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -134,7 +134,7 @@
 	if(prob(30))
 		head = /obj/item/clothing/head/roguetown/helmet/kettle
 	else
-		head = /obj/item/clothing/head/roguetown/roguehood/red
+		head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)

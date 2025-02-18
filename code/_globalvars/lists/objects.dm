@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(reverse_dir, list(2, 1, 3, 8, 10, 9, 11, 4, 6, 5, 7, 12, 14, 13
 GLOBAL_LIST_EMPTY(mob_spawners) 		    // All mob_spawn objects
 
 GLOBAL_LIST_INIT(rod_jobs, list(
-	"Garrison Guard",
+	"City Watchmen",
 	"Captain",
 	"Dungeoneer",
 	"Royal Guard",

@@ -65,7 +65,7 @@
 	color = CLOTHING_FOREST_GREEN
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-	color = CLOTHING_BLOOD_RED
+	color = CLOTHING_PLUM_PURPLE
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guard/Initialize()
 	. = ..()
@@ -78,9 +78,8 @@
 	GLOB.lordcolor -= src
 	return ..()
 
-
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond
-	color = CLOTHING_PLUM_PURPLE
+	color = CLOTHING_BLOOD_RED
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond/Initialize()
 	. = ..()
