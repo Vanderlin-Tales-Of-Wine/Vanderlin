@@ -131,7 +131,7 @@
 	skill_quality -= floor(numberofhits * 0.25)
 	var/modifier // Multiplier which will determine quality of final product depending on final skill_quality calculation
 	switch(skill_quality)
-		if(BLACKSMITH_LEVEL_MIN to BLACKSMITH_LEVEL_SPOIL)
+		if(-INFINITY to BLACKSMITH_LEVEL_SPOIL)
 			I.name = "ruined [I.name]"
 			modifier = 0.3
 		if(BLACKSMITH_LEVEL_AWFUL)
@@ -151,7 +151,7 @@
 		if(BLACKSMITH_LEVEL_FLAWLESS)
 			I.name = "flawless [I.name]"
 			modifier = 1.2
-		if(BLACKSMITH_LEVEL_LEGENDARY to BLACKSMITH_LEVEL_MAX)
+		if(BLACKSMITH_LEVEL_LEGENDARY to INFINITY)
 			I.name = "masterwork [I.name]"
 			modifier = 1.3
 
