@@ -59,7 +59,7 @@
 	if(C)
 		if(C.buckled)
 			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/rogue/campfire/pyre))
-				if(C.real_name in GLOB.excommunicated_players || (C.real_name in GLOB.heretical_players))
+				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
 	if(stress2give)
 		for(var/mob/living/carbon/CA in hearers(world.view, C))
