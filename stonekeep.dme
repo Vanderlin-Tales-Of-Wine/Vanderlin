@@ -1376,6 +1376,7 @@
 #include "code\modules\jobs\job_types\roguetown\serfs\scribe.dm"
 #include "code\modules\jobs\job_types\roguetown\serfs\tailor.dm"
 #include "code\modules\jobs\job_types\roguetown\villains\bandit.dm"
+#include "code\modules\jobs\job_types\roguetown\villains\deathknight.dm"
 #include "code\modules\jobs\job_types\roguetown\villains\skeleton.dm"
 #include "code\modules\jobs\job_types\roguetown\youngfolk\churchling.dm"
 #include "code\modules\jobs\job_types\roguetown\youngfolk\innkeepchild.dm"
