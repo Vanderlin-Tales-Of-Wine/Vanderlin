@@ -20,8 +20,8 @@
 /mob/living/carbon
 	var/stress = 0
 	var/list/stress_timers = list()
-	var/oldstress = 0
-	var/stressbuffer = -1
+	var/oldstress = 1
+	var/stressbuffer = 1
 	var/list/negative_stressors = list()
 	var/list/positive_stressors = list()
 
@@ -30,10 +30,10 @@
 	stress = stress + stressbuffer
 	stressbuffer = 0
 	if(stress > STRESS_MAX)
-		stressbuffer = STRESS_MAX - stress //uncapped bad stress
+		stressbuffer = STRESS_MAX - stress
 		stress = STRESS_MAX
 	if(stress < 0)
-		stressbuffer = max(stress, -MAX_STRESS_BUFFER)
+		stressbuffer = stress
 		stress = 0
 
 /mob/living/carbon/update_stress()
@@ -46,43 +46,32 @@
 	for(var/datum/stressevent/D in negative_stressors)
 		if(D.timer)
 			if(world.time > D.time_added + D.timer)
-				remove_stress(D)
+				adjust_stress(-1*D.stressadd)
+				negative_stressors -= D
+				qdel(D)
 	for(var/datum/stressevent/D in positive_stressors)
 		if(D.timer)
 			if(world.time > D.time_added + D.timer)
-				remove_stress(D)
+				adjust_stress(-1*D.stressadd)
+				positive_stressors -= D
+				qdel(D)
 
 	if(stress != oldstress)
 		if(stress > oldstress)
 			to_chat(src, "<span class='red'>I gain stress.</span>")
 		else
 			to_chat(src, "<span class='green'>I gain peace.</span>")
+		for(var/datum/status_effect/stress/i in status_effects)
+			remove_status_effect(i)
 		switch(stress)
 			if(STRESS_VGOOD)
 				apply_status_effect(/datum/status_effect/stress/stressvgood)
-				remove_status_effect(/datum/status_effect/stress/stressbad)
-				remove_status_effect(/datum/status_effect/stress/stressvbad)
-				remove_status_effect(/datum/status_effect/stress/stressinsane)
-			if(STRESS_VGOOD to STRESS_BAD)
-				remove_status_effect(/datum/status_effect/stress/stressvgood)
-				remove_status_effect(/datum/status_effect/stress/stressbad)
-				remove_status_effect(/datum/status_effect/stress/stressvbad)
-				remove_status_effect(/datum/status_effect/stress/stressinsane)
 			if(STRESS_BAD to STRESS_VBAD)
 				apply_status_effect(/datum/status_effect/stress/stressbad)
-				remove_status_effect(/datum/status_effect/stress/stressvgood)
-				remove_status_effect(/datum/status_effect/stress/stressvbad)
-				remove_status_effect(/datum/status_effect/stress/stressinsane)
 			if(STRESS_VBAD to STRESS_INSANE)
 				apply_status_effect(/datum/status_effect/stress/stressvbad)
-				remove_status_effect(/datum/status_effect/stress/stressvgood)
-				remove_status_effect(/datum/status_effect/stress/stressbad)
-				remove_status_effect(/datum/status_effect/stress/stressinsane)
 			if(STRESS_INSANE to STRESS_MAX)
 				apply_status_effect(/datum/status_effect/stress/stressinsane)
-				remove_status_effect(/datum/status_effect/stress/stressvgood)
-				remove_status_effect(/datum/status_effect/stress/stressbad)
-				remove_status_effect(/datum/status_effect/stress/stressvbad)
 
 		if(hud_used)
 			if(hud_used.stressies)
@@ -109,42 +98,32 @@
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
 		return FALSE
 	var/datum/stressevent/N = new event()
-	var/found = FALSE
+	var/countofus = 0
 	if(N.stressadd > 0)
 		for(var/datum/stressevent/D in negative_stressors)
 			if(D.type == event)
-				found = TRUE
-				if(D.stacks >= D.max_stacks)
-					continue
+				countofus++
 				D.time_added = world.time
-				var/pre_stack = D.get_stress()
-				D.stacks++
-				var/post_stack = D.get_stress()
 				if(N.stressadd > D.stressadd)
 					D.stressadd = N.stressadd
-				adjust_stress(post_stack-pre_stack)
 	else
 		for(var/datum/stressevent/D in positive_stressors)
 			if(D.type == event)
-				found = TRUE
-				if(D.stacks >= D.max_stacks)
-					continue
+				countofus++
 				D.time_added = world.time
-				var/pre_stack = D.get_stress()
-				D.stacks++
-				var/post_stack = D.get_stress()
 				if(N.stressadd < D.stressadd)
 					D.stressadd = N.stressadd
-				adjust_stress(post_stack-pre_stack)
-	if(found)
-		return TRUE
-	N.time_added = world.time
-	N.stacks = 1
+	if(N.max_stacks) //we need to check if we should be added
+		if(countofus >= N.max_stacks)
+			return
+	else //we refreshed the timer
+		if(countofus >= 1)
+			return
 	if(N.stressadd > 0)
 		negative_stressors += N
 	else
 		positive_stressors += N
-	adjust_stress(N.get_stress())
+	adjust_stress(N.stressadd)
 	return TRUE
 
 /mob/living/carbon/remove_stress(event)
@@ -156,23 +135,23 @@
 	for(var/datum/stressevent/D in negative_stressors)
 		if(eventL)
 			if(D.type in eventL)
-				adjust_stress(-1*D.get_stress())
+				adjust_stress(-1*D.stressadd)
 				negative_stressors -= D
 				qdel(D)
 		else
 			if(D.type == event)
-				adjust_stress(-1*D.get_stress())
+				adjust_stress(-1*D.stressadd)
 				negative_stressors -= D
 				qdel(D)
 	for(var/datum/stressevent/D in positive_stressors)
 		if(eventL)
 			if(D.type in eventL)
-				adjust_stress(-1*D.get_stress())
+				adjust_stress(-1*D.stressadd)
 				positive_stressors -= D
 				qdel(D)
 		else
 			if(D.type == event)
-				adjust_stress(-1*D.get_stress())
+				adjust_stress(-1*D.stressadd)
 				positive_stressors -= D
 				qdel(D)
 	return TRUE
