@@ -1,7 +1,7 @@
 /datum/job/roguetown/carpenter
 	title = "Carpenter"
 	tutorial = "Others may regard your work as crude and demeaning, but you understand deep in your soul the beauty of woodchopping. \
-	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civiliation is built."
+	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
