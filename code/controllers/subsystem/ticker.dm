@@ -492,9 +492,6 @@ SUBSYSTEM_DEF(ticker)
 		if(living)
 			qdel(player)
 			living.notransform = TRUE
-			if(living.client)
-				var/atom/movable/screen/splash/S = new(living.client, TRUE)
-				S.Fade(TRUE)
 			livings += living
 			GLOB.character_ckey_list[living.real_name] = living.ckey
 

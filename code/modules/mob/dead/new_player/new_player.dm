@@ -556,6 +556,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	var/area/joined_area = get_area(new_character.loc)
 	if(joined_area)
 		joined_area.on_joining_game(new_character)
+	if(new_character.client)
+		var/atom/movable/screen/splash/Spl = new(new_character.client, TRUE)
+		Spl.Fade(TRUE)
 	new_character = null
 	qdel(src)
 

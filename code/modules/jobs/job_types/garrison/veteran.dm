@@ -14,7 +14,8 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	min_pq = 10 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
+	//Should...probably actually be a veteran of at least a few weeks before trying to teach others
+	min_pq = 10
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
 	allowed_sexes = list(MALE, FEMALE) //same as town guard
