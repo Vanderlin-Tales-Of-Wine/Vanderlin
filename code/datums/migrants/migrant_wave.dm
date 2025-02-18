@@ -26,7 +26,7 @@
 	var/downgrade_wave
 	/// If defined, this will be the wave type to increment for purposes of checking `max_spawns`
 	var/shared_wave_type = null
-		/// Whether we want to spawn people on the rolled location, this may not be desired for bandits or other things that set the location
+	/// Whether we want to spawn people on the rolled location, this may not be desired for bandits or other things that set the location
 	var/spawn_on_location = TRUE
 
 /datum/migrant_wave/proc/get_roles_amount()
