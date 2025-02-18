@@ -26,7 +26,7 @@
 	display_order = JDO_PRINCE
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
-	min_pq = 1
+	min_pq = 4
 
 	can_have_apprentices = FALSE
 
