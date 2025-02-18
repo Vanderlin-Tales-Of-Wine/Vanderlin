@@ -222,7 +222,7 @@
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
-	name = "steel warhammer"
+	name = "large steel warhammer"
 	desc = "A heavy steel warhammer, a weapon designed to make knights run in fear, the best option for a common soldier against a knight."
 	icon_state = "warbonker"
 	icon = 'icons/roguetown/weapons/32.dmi'
