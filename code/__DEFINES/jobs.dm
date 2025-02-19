@@ -106,7 +106,14 @@
 #define JOB_NEW_PLAYER_JOINABLE (1<<4)
 
 #define FACTION_NONE "None"
+#define FACTION_NEUTRAL "Neutral"
 #define FACTION_STATION "Station" //V: Station means the main city
+#define FACTION_UNDEAD "Undead"
+#define FACTION_PLANTS "Plants"
+#define FACTION_VINES "Vines" //Seemingly unused
+#define FACTION_CABAL "Cabal" //Seemingly unused
+#define FACTION_RATS "Rats"
+#define FACTION_ORCS "Orcs"
 
 #define NOBLEMEN		(1<<0)
 

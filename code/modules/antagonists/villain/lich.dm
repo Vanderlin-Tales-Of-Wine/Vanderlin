@@ -61,7 +61,7 @@
 	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
 	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
-	L.faction = list("undead")
+	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
@@ -151,7 +151,7 @@
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
 		B.skeletonize(FALSE)
 
-	bigbad.faction = list("undead")
+	bigbad.faction = list(FACTION_UNDEAD)
 	if(bigbad.charflaw)
 		QDEL_NULL(bigbad.charflaw)
 	bigbad.mob_biotypes |= MOB_UNDEAD

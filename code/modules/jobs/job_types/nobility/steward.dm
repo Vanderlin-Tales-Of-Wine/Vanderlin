@@ -6,7 +6,7 @@
 	and you know just what lengths they'll go to in order to get even more. Keep your festering economy and your rats alive, theyre the only two things you can weigh any trust into anymore."
 	flag = STEWARD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 

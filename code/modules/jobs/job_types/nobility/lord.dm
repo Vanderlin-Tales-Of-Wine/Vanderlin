@@ -113,7 +113,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	title = "Ex-Monarch"
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_LORD

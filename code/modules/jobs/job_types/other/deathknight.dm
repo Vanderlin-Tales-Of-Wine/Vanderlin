@@ -74,7 +74,7 @@
 		QDEL_NULL(H.charflaw)
 	H.update_body()
 	H.mob_biotypes = MOB_UNDEAD
-	H.faction = list("undead")
+	H.faction = list(FACTION_UNDEAD)
 	H.name = "Death Knight"
 	H.real_name = "Death Knight"
 	ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
