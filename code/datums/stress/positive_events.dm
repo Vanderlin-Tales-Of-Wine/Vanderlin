@@ -118,19 +118,19 @@
 	desc = span_green("This music is relaxing.")
 
 /datum/stressevent/music/three
-	stressadd = -2
+	stressadd = -1
 	desc = span_green("This music is wonderful.")
 
 /datum/stressevent/music/four
-	stressadd = -3
+	stressadd = -2
 	desc = span_green("This music is exceptional.")
 
 /datum/stressevent/music/five
-	stressadd = -4
+	stressadd = -2
 	desc = span_green("This music is enchanting.")
 
 /datum/stressevent/music/six
-	stressadd = -5
+	stressadd = -3
 	desc = span_green("This music is divine.")
 
 /datum/stressevent/eora
