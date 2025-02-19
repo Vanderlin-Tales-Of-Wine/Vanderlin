@@ -44,13 +44,11 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	backl = /obj/item/storage/backpack/rogue/satchel
 
-/datum/job/roguetown/forestguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/forestguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 // Axes Maces and Swords
 /datum/advclass/forestguard/infantry

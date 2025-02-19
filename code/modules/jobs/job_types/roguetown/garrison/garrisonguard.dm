@@ -29,21 +29,19 @@
 
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
-/datum/job/roguetown/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/guardsman/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-		if(istype(H.cloak, /obj/item/clothing/cloak/half/guard))
-			var/obj/item/clothing/S = H.cloak
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = "guard's half cloak ([index])"
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
+	if(istype(spawned.cloak, /obj/item/clothing/cloak/half/guard))
+		var/obj/item/clothing/S = spawned.cloak
+		var/index = findtext(spawned.real_name, " ")
+		if(index)
+			index = copytext(spawned.real_name, 1,index)
+		if(!index)
+			index = spawned.real_name
+		S.name = "guard's half cloak ([index])"
 
 //................. City Watchmen Base .............. //
 /datum/outfit/job/roguetown/guardsman/pre_equip(mob/living/carbon/human/H)

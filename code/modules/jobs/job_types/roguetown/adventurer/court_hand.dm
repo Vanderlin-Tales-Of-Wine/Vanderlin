@@ -24,5 +24,5 @@
 	if(ishuman(spawned))
 		GLOB.roundstart_court_agents += spawned.real_name
 	..()
-	if(spawned && advclass_cat_rolls)
+	if(advclass_cat_rolls)
 		hugboxify_for_class_selection(spawned)

@@ -114,6 +114,7 @@
 #define FACTION_CABAL "Cabal" //Seemingly unused
 #define FACTION_RATS "Rats"
 #define FACTION_ORCS "Orcs"
+#define FACTION_BUMS "Bums"
 
 #define NOBLEMEN		(1<<0)
 
