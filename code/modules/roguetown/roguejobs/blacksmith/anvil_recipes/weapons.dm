@@ -206,7 +206,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/iron/sledgehammer
-	name = "Large Steel Warhammer (+Small Log)"
+	name = "Sledgehammer (+Small Log)"
 	recipe_name = "a big hammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/iron
@@ -313,7 +313,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/steel/warhammer
-	name = "Large Steel Warhammer (+Small Log)"
+	name = "Steel Sledgehammer (+Small Log)"
 	recipe_name = "a big warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel
