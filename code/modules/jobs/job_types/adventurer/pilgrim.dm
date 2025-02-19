@@ -23,9 +23,7 @@
 	can_have_apprentices = FALSE
 
 
-/datum/job/pilgrim/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/pilgrim/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		if(advclass_cat_rolls)
-			hugboxify_for_class_selection(H)
+	if(advclass_cat_rolls)
+		hugboxify_for_class_selection(spawned)

@@ -148,9 +148,8 @@
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
-/datum/job/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
+/datum/job/adept/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	if(H)
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")

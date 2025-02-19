@@ -27,17 +27,13 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
 
-/datum/job/consort/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-		if(H.gender == FEMALE)
-			SSfamilytree.AddRoyal(H, FAMILY_MOTHER)
-		else
-			SSfamilytree.AddRoyal(H, FAMILY_FATHER)
+	var/mob/living/carbon/human/H = spawned
+	H.advsetup = TRUE
+	H.invisibility = INVISIBILITY_MAXIMUM
+	H.become_blind("advsetup")
+	SSfamilytree.AddRoyal(H, (H.gender == FEMALE) ? FAMILY_MOTHER : FAMILY_FATHER)
 
 /datum/outfit/job/consort
 	job_bitflag = BITFLAG_ROYALTY

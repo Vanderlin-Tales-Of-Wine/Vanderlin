@@ -35,14 +35,12 @@
 	can_have_apprentices = FALSE
 
 
-/datum/job/prince/after_spawn(mob/living/H, mob/M, latejoin)
+/datum/job/prince/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(H, FAMILY_PROGENY)
-	if(ishuman(H))
-		var/mob/living/carbon/human/Q = H
-		Q.advsetup = 1
-		Q.invisibility = INVISIBILITY_MAXIMUM
-		Q.become_blind("advsetup")
+	SSfamilytree.AddRoyal(spawned, FAMILY_PROGENY)
+	spawned.advsetup = 1
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 /datum/advclass/heir
 	displays_adv_job = FALSE

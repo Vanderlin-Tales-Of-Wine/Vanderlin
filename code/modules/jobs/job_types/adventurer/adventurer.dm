@@ -35,5 +35,5 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 
 /datum/job/adventurer/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(spawned && advclass_cat_rolls)
+	if(advclass_cat_rolls)
 		hugboxify_for_class_selection(spawned)

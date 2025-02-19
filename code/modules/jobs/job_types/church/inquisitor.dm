@@ -26,14 +26,14 @@
 	outfit = /datum/outfit/job/inquisitor
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/job/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/inquisitor/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(!L.mind)
+	if(!spawned.mind)
 		return
-	if(L.mind.has_antag_datum(/datum/antagonist))
+	if(spawned.mind.has_antag_datum(/datum/antagonist))
 		return
 	var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
-	L.mind.add_antag_datum(new_antag)
+	spawned.mind.add_antag_datum(new_antag)
 
 /datum/outfit/job/inquisitor
 	name = "Inquisitor"
