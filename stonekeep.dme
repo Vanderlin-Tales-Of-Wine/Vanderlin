@@ -1352,7 +1352,6 @@
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\underdweller.dm"
 #include "code\modules\jobs\job_types\roguetown\other\merc_classes\zybantine.dm"
 #include "code\modules\jobs\job_types\roguetown\peasants\bard.dm"
-#include "code\modules\jobs\job_types\roguetown\peasants\bathmaid.dm"
 #include "code\modules\jobs\job_types\roguetown\peasants\beggar.dm"
 #include "code\modules\jobs\job_types\roguetown\peasants\butcher.dm"
 #include "code\modules\jobs\job_types\roguetown\peasants\butler.dm"
