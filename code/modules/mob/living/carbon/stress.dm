@@ -109,6 +109,8 @@
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
 		return FALSE
 	var/datum/stressevent/N = new event()
+	if(!N.can_apply(src))
+		return FALSE
 	var/found = FALSE
 	if(N.stressadd > 0)
 		for(var/datum/stressevent/D in negative_stressors)

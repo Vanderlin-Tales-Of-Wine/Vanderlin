@@ -283,12 +283,12 @@
 
 /datum/stressevent/sleepfloor
 	timer = 1 MINUTES
-	stressadd = 3
+	stressadd = 2
 	desc = "<span class='red'>I slept on the floor. It was uncomfortable.</span>"
 
 /datum/stressevent/sleepfloornoble
 	timer = 3 MINUTES
-	stressadd = 6
+	stressadd = 4
 	desc = "<span class='red'>I slept on the floor! What am I, an animal?!</span>"
 
 /datum/stressevent/sadfate
