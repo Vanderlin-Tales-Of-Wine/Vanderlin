@@ -401,6 +401,9 @@
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "sleepingcloth_rolled"
 	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_BACK
+	grid_height = 64
+	grid_width = 96
 
 /obj/item/sleepingbag/MiddleClick(mob/user, params)
 	..()
