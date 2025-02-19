@@ -45,6 +45,18 @@
 			GLOB.chemical_reactions_list[id] += D
 			break // Don't bother adding ourselves to other reagent ids, it is redundant
 
+/proc/build_chemical_reagent_color_list()
+	if(GLOB.chemical_reagents_color_list)
+		return
+
+	var/paths = subtypesof(/datum/reagent)
+	GLOB.chemical_reagents_color_list = list()
+
+	for(var/path in paths)
+		var/datum/reagent/D = new path()
+		if (D.random_reagent_color == TRUE)
+			GLOB.chemical_reagents_color_list[D.name] = "#" + uppertext(random_color())
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 /datum/reagents
@@ -690,6 +702,13 @@
 	cached_reagents += R
 	R.holder = src
 	R.volume = amount
+
+	// New reagent color check
+	if (R.random_reagent_color == TRUE)
+		if(!GLOB.chemical_reagents_color_list)
+			build_chemical_reagent_color_list()
+		R.color = GLOB.chemical_reagents_color_list[R.name]
+
 	if(data)
 		R.data = data
 		R.on_new(data)
