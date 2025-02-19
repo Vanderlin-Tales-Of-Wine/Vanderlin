@@ -1,21 +1,21 @@
 /datum/stressevent/vice
 	timer = 5 MINUTES
-	stressadd = 5
+	stressadd = 3
 	desc = list(span_boldred("I don't indulge my vice."),span_boldred("I need to sate my vice."))
 
 /datum/stressevent/vice1
 	timer = 5 MINUTES
-	stressadd = 3
+	stressadd = 2
 	desc = list("<span class='red'>I don't indulge my vice.</span>","<span class='red'>I need to sate my vice.</span>")
 
 /datum/stressevent/vice2
 	timer = 5 MINUTES
-	stressadd = 5
+	stressadd = 4
 	desc = list("<span class='red'>I don't need it. I don't need it. I don't need it.</span>","<span class='red'>I'm better than my vices.</span>")
 
 /datum/stressevent/vice3
 	timer = 5 MINUTES
-	stressadd = 7
+	stressadd = 6
 	desc = list("<span class='red'>If I don't sate my desire soon, I am going to kill myself..</span>","<span class='red'>I need it. I need it. I need it.</span>")
 
 /*
@@ -42,7 +42,7 @@
 
 /datum/stressevent/starving
 	timer = 10 MINUTES
-	stressadd = 5
+	stressadd = 3
 	desc = "<span class='red'>I'm starving.</span>"
 
 /datum/stressevent/drym
