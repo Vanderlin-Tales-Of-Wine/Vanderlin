@@ -177,17 +177,17 @@
 	desc = list("<span class='red'>There's a little goblin in my head telling me to do things and I don't like it!</span>","<span class='red'>\"Kill your friends.\"</span>","<span class='red'>\"Make them bleed.\"</span>","<span class='red'>\"Give them no time to squeal.\"</span>","<span class='red'>\"Praise Zizo.\"</span>","<span class='red'>\"Death to the Ten.\"</span>","<span class='red'>\"The Weeper weeps his last.\"</span>")
 
 /datum/stressevent/delf
-	timer = 1 MINUTES
+	timer = 30 SECONDS
 	stressadd = 1
 	desc = "<span class='red'>A loathesome dark elf.</span>"
 
 /datum/stressevent/tieb
-	timer = 1 MINUTES
+	timer = 30 SECONDS
 	stressadd = 1
 	desc = "<span class='red'>Helldweller... better stay away.</span>"
 
 /datum/stressevent/horc
-	timer = 1 MINUTES
+	timer = 30 SECONDS
 	stressadd = 1
 	desc = "<span class='red'>A beast in human skin.</span>"
 
