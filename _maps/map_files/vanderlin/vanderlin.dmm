@@ -32140,6 +32140,10 @@
 "wYj" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/town/manor)
+"wYq" = (
+/obj/effect/landmark/start/courtagent,
+/turf/open/floor/rogue/blocks/newstone,
+/area/rogue/indoors/town/manor)
 "wYV" = (
 /obj/structure/stairs{
 	dir = 8
@@ -98007,7 +98011,7 @@ bET
 rDr
 rDr
 bJN
-rTe
+wYq
 faL
 iME
 faL
@@ -98411,7 +98415,7 @@ bET
 rDr
 rDr
 bJN
-rTe
+wYq
 faL
 faL
 faL
