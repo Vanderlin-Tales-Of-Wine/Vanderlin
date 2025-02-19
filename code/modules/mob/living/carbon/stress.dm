@@ -30,10 +30,10 @@
 	stress = stress + stressbuffer
 	stressbuffer = 0
 	if(stress > STRESS_MAX)
-		stressbuffer = STRESS_MAX - stress //uncapped bad stress
+		stressbuffer = STRESS_MAX - stress
 		stress = STRESS_MAX
 	if(stress < 0)
-		stressbuffer = max(stress, -MAX_STRESS_BUFFER)
+		stressbuffer = stress
 		stress = 0
 
 /mob/living/carbon/update_stress()
