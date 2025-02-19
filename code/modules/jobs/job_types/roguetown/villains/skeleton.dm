@@ -72,7 +72,7 @@
 		QDEL_NULL(H.charflaw)
 	H.update_body()
 	H.mob_biotypes = MOB_UNDEAD
-	H.faction = list("undead")
+	H.faction = list(FACTION_UNDEAD)
 	ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
