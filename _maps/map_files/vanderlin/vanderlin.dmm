@@ -461,6 +461,7 @@
 /obj/structure/chair/wood/rogue/chair_noble/purple{
 	dir = 1
 	},
+/obj/effect/landmark/start/courtagent,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/manor)
 "ark" = (
@@ -32139,10 +32140,6 @@
 /area/rogue/indoors/town/garrison)
 "wYj" = (
 /turf/closed/wall/mineral/rogue/wooddark,
-/area/rogue/indoors/town/manor)
-"wYq" = (
-/obj/effect/landmark/start/courtagent,
-/turf/open/floor/rogue/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "wYV" = (
 /obj/structure/stairs{
@@ -98011,7 +98008,7 @@ bET
 rDr
 rDr
 bJN
-wYq
+rTe
 faL
 iME
 faL
@@ -98415,7 +98412,7 @@ bET
 rDr
 rDr
 bJN
-wYq
+rTe
 faL
 faL
 faL
