@@ -35,38 +35,15 @@
 				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
 			else
 				msg = "It's seen some light use, but it's still pretty fresh."
-	. += "<span class='notice'>[msg]</span>"
+	. += span_notice("[msg]")
 
 // Washing Implements
 
-/obj/item/soap/bathing
+/obj/item/soap/bath
 	name = "herbal soap"
 	desc = "A soap made from various herbs."
 
-/obj/item/soap/bathing/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/slippery, 80)
-
-/obj/item/soap/bathing/examine(mob/user)
-	. = ..()
-	var/max_uses = initial(uses)
-	var/msg = "It looks like it was freshly made."
-	if(uses != max_uses)
-		var/percentage_left = uses / max_uses
-		switch(percentage_left)
-			if(0 to 0.2)
-				msg = "There's just a tiny bit left of what it used to be, you're not sure it'll last much longer."
-			if(0.21 to 0.4)
-				msg = "It's dissolved quite a bit, but there's still some life to it."
-			if(0.41 to 0.6)
-				msg = "It's past its prime, but it's definitely still good."
-			if(0.61 to 0.85)
-				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
-			else
-				msg = "It's seen some light use, but it's still pretty fresh."
-	. += "<span class='notice'>[msg]</span>"
-
-/obj/item/soap/bathing/attack(mob/living/carbon/human/target, mob/living/carbon/user)
+/obj/item/soap/bath/attack(mob/living/carbon/human/target, mob/living/carbon/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
 	if(!istype(bathspot, /turf/open/water/bath))
