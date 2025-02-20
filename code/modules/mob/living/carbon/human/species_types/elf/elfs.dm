@@ -13,8 +13,7 @@
 /datum/species/elf/snow
 	name = "Elf"
 	id = "elf"
-	desc = "Psydonia's first.\
-	\n\n\
+	desc = "<b>Elf</b><br>\
 	Elves, the first species of Psydonia, are characterized by lengthened age, \
 	low fertility, and magical aptitude originating from a vast array of tribal cultures and sub-races. \
 	With the ascension of Zizo, the entire culture of snow-elves was all but destroyed, \
@@ -132,14 +131,29 @@
 
 	))
 
-/datum/species/elf/snow/get_possible_names(gender = MALE)
-	var/static/list/male_names = world.file2list('strings/rt/names/elf/elfwm.txt')
-	var/static/list/female_names = world.file2list('strings/rt/names/elf/elfwf.txt')
-	return (gender == FEMALE) ? female_names : male_names
+/datum/species/elf/snow/random_name(gender,unique,lastname)
 
-/datum/species/elf/snow/get_possible_surnames(gender = MALE)
-	var/static/list/last_names = world.file2list('strings/rt/names/elf/elfwlast.txt')
-	return last_names
+	var/randname
+	if(unique)
+		if(gender == MALE)
+			for(var/i in 1 to 10)
+				randname = pick( world.file2list("strings/rt/names/elf/elfwm.txt") )
+				if(!findname(randname))
+					break
+		if(gender == FEMALE)
+			for(var/i in 1 to 10)
+				randname = pick( world.file2list("strings/rt/names/elf/elfwf.txt") )
+				if(!findname(randname))
+					break
+	else
+		if(gender == MALE)
+			randname = pick( world.file2list("strings/rt/names/elf/elfwm.txt") )
+		if(gender == FEMALE)
+			randname = pick( world.file2list("strings/rt/names/elf/elfwf.txt") )
+	return randname
+
+/datum/species/elf/snow/random_surname()
+	return " [pick(world.file2list("strings/rt/names/elf/elfwlast.txt"))]"
 
 /datum/species/elf/snow/get_accent_list()
 	return strings("russian_replacement.json", "russian")
