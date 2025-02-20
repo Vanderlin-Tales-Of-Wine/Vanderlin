@@ -985,7 +985,7 @@
 ///////////////////////////
 
 /datum/sprite_accessory/underwear
-	icon = 'icons/mob/clothing/underwear.dmi'
+	icon = 'icons/roguetown/mob/underwear.dmi'
 	use_static = FALSE
 /*#ifdef MATURESERVER
 /datum/sprite_accessory/underwear/nude
@@ -1022,6 +1022,21 @@
 /datum/sprite_accessory/underwear/female_leotard
 	name = "Femleotard"
 	icon_state = "female_leotard"
+	gender = FEMALE
+	specuse = ALL_RACES_LIST
+	roundstart = FALSE
+
+//For use on Younglings
+/datum/sprite_accessory/underwear/child
+	name = "Youngling"
+	icon_state = "child"
+	gender = MALE
+	specuse = ALL_RACES_LIST
+	roundstart = FALSE
+
+/datum/sprite_accessory/underwear/child_f
+	name = "FemYoungling"
+	icon_state = "child_f"
 	gender = FEMALE
 	specuse = ALL_RACES_LIST
 	roundstart = FALSE
