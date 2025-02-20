@@ -8589,7 +8589,7 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "fXw" = (
-/obj/machinery/simple_dye_bin,
+/obj/structure/dye_bin,
 /turf/open/floor/rogue/tile/kitchen,
 /area/rogue/indoors/town)
 "fXF" = (
@@ -16660,7 +16660,7 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/shop)
 "lPj" = (
-/obj/machinery/simple_dye_bin,
+/obj/structure/dye_bin,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/under/town/sewer)
 "lPq" = (
@@ -23645,7 +23645,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "rcU" = (
-/obj/machinery/dye_bin,
+/obj/structure/dye_bin/luxury,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/shop)
 "rdn" = (
@@ -30807,7 +30807,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "wgd" = (
-/obj/machinery/dye_bin,
+/obj/structure/dye_bin/luxury,
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "wgu" = (
@@ -33580,7 +33580,7 @@
 /area/rogue/indoors/town/dwarfin)
 "ycX" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
-/obj/machinery/dye_bin,
+/obj/structure/dye_bin/luxury,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/shop)
 "ydx" = (

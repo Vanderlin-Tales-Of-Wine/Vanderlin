@@ -45,3 +45,51 @@ GLOBAL_LIST_INIT(rod_jobs, list(
 	"Huntmaster of the Murderwoods",
 	"Hetman of Mount Decapitation",
 ))
+
+/* COLORS */
+GLOBAL_LIST_INIT(peasant_dyes, list(
+	"Linen" = CLOTHING_LINEN,
+	"Canvas" = CLOTHING_CANVAS,
+	"Soot Black" = CLOTHING_SOOT_BLACK,
+	"Winestain Red" = CLOTHING_WINESTAIN_RED,
+	"Peasant Brown" = CLOTHING_PEASANT_BROWN,
+	"Mud Brown" = CLOTHING_MUD_BROWN,
+	"Chestnut" = CLOTHING_CHESTNUT,
+	"Old Leather" = CLOTHING_OLD_LEATHER,
+	"Spring Green" = CLOTHING_SPRING_GREEN,
+	"Berry Blue" = CLOTHING_BERRY_BLUE,
+))
+GLOBAL_PROTECT(peasant_dyes)
+
+GLOBAL_LIST_INIT(noble_dyes, list(
+	"Dark Ink" = CLOTHING_DARK_INK,
+	"Plum Purple" = CLOTHING_PLUM_PURPLE,
+	"Salmon" = CLOTHING_SALMON,
+	"Maroon" = CLOTHING_MAROON,
+	"Red Ochre" =  CLOTHING_RED_OCHRE,
+	"Forest Green" = CLOTHING_FOREST_GREEN,
+	"Sky Blue" = CLOTHING_SKY_BLUE,
+	"Mustard Yellow" = CLOTHING_MUSTARD_YELLOW,
+	"Yellow Ochre" = CLOTHING_YELLOW_OCHRE,
+	"Ash Grey" = CLOTHING_ASH_GREY,
+	"Russet" = CLOTHING_RUSSET,
+	"Blood Red" = CLOTHING_BLOOD_RED,
+	"Swampweed" = CLOTHING_SWAMPWEED,
+	"Ocean" = CLOTHING_OCEAN,
+))
+GLOBAL_PROTECT(noble_dyes)
+
+GLOBAL_LIST_INIT(royal_dyes, list(
+	"Royal Black" = CLOTHING_ROYAL_BLACK,
+	"Royal Red" = CLOTHING_ROYAL_RED,
+	"Royal Purple" = CLOTHING_ROYAL_PURPLE,
+	"Royal Majenta" = CLOTHING_ROYAL_MAJENTA,
+	"Royal Teal" = CLOTHING_ROYAL_TEAL,
+
+	"Bark Brown" = CLOTHING_BARK_BROWN,
+	"Bog Green" = CLOTHING_BOG_GREEN,
+	"Fyritius Orange" = CLOTHING_FYRITIUS_ORANGE,
+	"Pear Yellow" = CLOTHING_PEAR_YELLOW,
+	"Chalk White" = CLOTHING_CHALK_WHITE,
+))
+GLOBAL_PROTECT(royal_dyes)

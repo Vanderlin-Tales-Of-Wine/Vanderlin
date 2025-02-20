@@ -146,24 +146,18 @@
 	return FALSE
 
 /obj/item/roguebin/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/cheap_dyes))
-		playsound(src, "bubbles", 50, 1)
-		user.visible_message(span_info("[user] adds dye to [src]."))
+	if(istype(I, /obj/item/dye_pack))
+		var/obj/item/dye_pack/pack = I
+		user.visible_message(span_info("[user] begins to add [pack] to [src]..."))
 		if(do_after(user, 3 SECONDS, src))
-			qdel(I)
-			new /obj/machinery/simple_dye_bin(src.loc)
+			playsound(src, "bubbles", 50, 1)
+			new /obj/structure/dye_bin(get_turf(src), pack)
 			qdel(src)
-			return
-	if(istype(I, /obj/item/luxury_dyes))
-		playsound(src, "bubbles", 50, 1)
-		user.visible_message("<span class='info'>[user] adds dye to [src].</span>")
-		if(do_after(user, 3 SECONDS))
-			new /obj/machinery/dye_bin(get_turf(src.loc))
-			qdel(I)
-			qdel(src)
-			return
+		return
+
 	if(!reagents || !reagents.maximum_volume) //trash
 		return ..()
+
 	if(istype(I, /obj/item/rogueweapon/tongs))
 		var/obj/item/rogueweapon/tongs/T = I
 		if(T.hingot && istype(T.hingot))
@@ -261,7 +255,6 @@
 	return FALSE
 
 /obj/item/roguebin/trash/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/cheap_dyes))
+	if(istype(I, /obj/item/dye_pack)) //it works... but we can do better, surely?
 		return
-	if(istype(I, /obj/item/luxury_dyes))
-		return
+	. = ..()

@@ -3515,7 +3515,7 @@
 /turf/open/floor/rogue/metal,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XL" = (
-/obj/machinery/simple_dye_bin,
+/obj/structure/dye_bin,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XM" = (

@@ -276,6 +276,9 @@
 		. = L[picked]
 		L.Cut(picked,picked+1)			//Cut is far more efficient that Remove()
 
+/// Fetch a random value from an associated list.
+#define pick_assoc(L) L[pick(L)]
+
 //Returns the top(last) element from the list and removes it from the list (typical stack function)
 /proc/pop(list/L)
 	if(L.len)

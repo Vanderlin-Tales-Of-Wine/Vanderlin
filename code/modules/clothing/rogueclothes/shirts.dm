@@ -97,7 +97,7 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
@@ -153,7 +153,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/uncolored
@@ -318,7 +318,7 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
@@ -350,7 +350,7 @@
 	color = CLOTHING_FOREST_GREEN
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/random/Initialize()
-	color = RANDOM_NOBLE_DYES
+	color = pick_assoc(GLOB.noble_dyes)
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/silkdressprimary
@@ -551,7 +551,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts_gown.dmi'
 	boobed = TRUE
 	detail_tag = "_detail"
-	detail_color = "#00713d"
+	detail_color = CLOTHING_SWAMPWEED
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR

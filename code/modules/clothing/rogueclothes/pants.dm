@@ -54,7 +54,7 @@
 //	adjustable = CAN_CADJUST
 
 /obj/item/clothing/under/roguetown/tights/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/under/roguetown/tights/uncolored

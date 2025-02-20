@@ -51,7 +51,7 @@
 /datum/supply_pack/rogue/tools/dyebin
 	name = "Fine dyes"
 	cost = 200
-	contains = /obj/machinery/dye_bin
+	contains = /obj/structure/dye_bin
 
 
 /datum/supply_pack/rogue/tools/candles
