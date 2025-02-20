@@ -375,7 +375,7 @@
 
 /obj/item/contraption/linker/examine(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 0)
+	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 1)
 		. += span_notice("Its buffer [buffer ? "contains [buffer]." : "is empty."]")
 	else
 		. += span_notice("All you can make out is a bunch of gibberish.")
