@@ -222,7 +222,7 @@
 	created_item = /obj/item/rogueweapon/mace
 
 /datum/anvil_recipe/weapons/iron/warhammer
-	name = "Warhammer (+1 Stick)"
+	name = "Iron Warhammer (+1 Stick)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/iron
@@ -473,7 +473,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/steel/swarhammer
-	name = "Warhammer (+Bar)"
+	name = "Steel Warhammer (+Bar)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel
