@@ -1542,7 +1542,6 @@
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\elf\_elf.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\elf\elfd.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\elf\elfs.dm"
-#include "code\modules\mob\living\carbon\human\species_types\roguetown\elf\elfw.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\human\_human.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\human\humen.dm"
 #include "code\modules\mob\living\carbon\human\species_types\roguetown\other\aasimar.dm"
