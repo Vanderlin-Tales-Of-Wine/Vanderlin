@@ -37,7 +37,7 @@
 /datum/supply_pack/narcotics/soap
 	name = "Herbal Soap"
 	cost = 20
-	contains = /obj/item/soap/bathing
+	contains = /obj/item/soap/bath
 
 /datum/supply_pack/narcotics/perfume
 	name = "Perfume"
