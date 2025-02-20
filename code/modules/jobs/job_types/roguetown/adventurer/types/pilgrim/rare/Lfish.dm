@@ -63,7 +63,7 @@
 		backr = /obj/item/storage/backpack/rogue/satchel
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
 		belt = /obj/item/storage/belt/rogue/leather
-		beltr = /obj/item/fishingrod
+		beltr = /obj/item/fishingrod/fisher
 		beltl = /obj/item/rogueweapon/knife/hunting
 		backpack_contents = list(/obj/item/natural/worms = 2,/obj/item/rogueweapon/shovel/small=1)
 		if(H.mind)

@@ -41,10 +41,11 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/dendor/shillelagh)
 
 		if(H.age == AGE_OLD)
@@ -120,7 +121,7 @@
 /datum/crafting_recipe/dendor/sacrifice_growing
 	name = "green sacrifice to Dendor (unique)"
 	structurecraft = /obj/structure/fluff/psycross/crafted/shrine/dendor_gote
-	reqs = list(/obj/item/reagent_containers/food/snacks/grub/silk = 1,
+	reqs = list(/obj/item/natural/worms/grub_silk = 1,
 				/obj/item/reagent_containers/food/snacks/produce/swampweed = 1,
 				/obj/item/reagent_containers/food/snacks/produce/poppy = 1)
 	result = /obj/item/blessing_of_dendor_growing

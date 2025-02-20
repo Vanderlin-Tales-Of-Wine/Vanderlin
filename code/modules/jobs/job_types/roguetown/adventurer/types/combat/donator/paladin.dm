@@ -27,7 +27,7 @@
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/noc
 			wrists = /obj/item/clothing/neck/roguetown/psycross/noc
 		if(/datum/patron/divine/dendor)
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket // Placeholder
@@ -42,10 +42,10 @@
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket // Placeholder
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
 		if(/datum/patron/divine/pestra)
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/pestrahelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/pestra
 		if(/datum/patron/divine/malum)
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/malumhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/malumhelm
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/malum
 		if(/datum/patron/divine/eora)
 			head = /obj/item/clothing/head/roguetown/helmet/sallet/eoran
@@ -87,10 +87,7 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", -2)
-		if(H.patron != /datum/patron/divine/necra)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/churn)
-		else
-			H.change_stat("fortune", 1)	// instead of duped churn necrans gets more fortune
+		H.change_stat("fortune", 1)
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

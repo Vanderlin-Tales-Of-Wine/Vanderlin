@@ -66,8 +66,6 @@
 	item_state = "eggbox"
 	icon_state = "eggbox"
 	icon_type = "egg"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	name = "egg box"
 	desc = ""
 	spawn_type = /obj/item/reagent_containers/food/snacks/egg

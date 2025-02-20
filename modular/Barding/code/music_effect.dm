@@ -24,8 +24,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/playing_music
 	var/effect_color
 	var/datum/stressevent/stress_to_apply
-	var/pulse = 0
-	var/ticks_to_apply = 10
+	tick_interval = 10
 
 /datum/status_effect/buff/playing_music/on_creation(mob/living/new_owner, stress, colour)
 	stress_to_apply = stress
@@ -35,15 +34,12 @@
 /datum/status_effect/buff/playing_music/tick()
 	var/obj/effect/temp_visual/music_rogue/M = new /obj/effect/temp_visual/music_rogue(get_turf(owner))
 	M.color = effect_color
-	pulse += 1
-	if (pulse >= ticks_to_apply)
-		pulse = 0
-		for (var/mob/living/carbon/human/H in hearers(7, owner))
-			if (!H.client)
-				continue
-			if(!H.can_hear())
-				continue
-			if (!H.has_stress(stress_to_apply))
-				H.add_stress(stress_to_apply)
-				if (prob(50))
-					to_chat(H, stress_to_apply.desc)
+	for (var/mob/living/carbon/human/H in hearers(7, owner))
+		if (!H.client)
+			continue
+		if(!H.can_hear())
+			continue
+		if (!H.has_stress(stress_to_apply))
+			H.add_stress(stress_to_apply)
+			if (prob(50))
+				to_chat(H, stress_to_apply.desc)

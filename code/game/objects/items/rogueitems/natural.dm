@@ -1,8 +1,6 @@
 
 /obj/item/natural
 	icon = 'icons/roguetown/items/natural.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	desc = ""
 	w_class = WEIGHT_CLASS_TINY
 
@@ -157,7 +155,7 @@
 			break
 		if(!istype(item, stacktype) && !istype(item, /obj/item/natural/bundle))
 			continue
-		if(!do_after(user, 5, TRUE, src))
+		if(!do_after(user, 5 DECISECONDS, src))
 			break
 		if(item.loc != turflocation)
 			continue

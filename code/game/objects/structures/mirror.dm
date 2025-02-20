@@ -12,9 +12,6 @@
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
 	pixel_y = 32
 
-/obj/structure/mirror/alt	// kind of unnecessary, could just replace old sprite with this and phase out
-	icon_state = "mirror_alt"
-
 /obj/structure/mirror/fancy
 	icon_state = "fancymirror"
 	pixel_y = 32

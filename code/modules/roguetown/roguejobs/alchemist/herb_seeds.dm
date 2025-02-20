@@ -10,7 +10,7 @@
 
 /obj/item/herbseed/Initialize()
 	. = ..()
-	if(icon_state == "seeds")
+	if(icon_state == "seeds" && prob(25))
 		icon_state = "seeds[rand(1,3)]"
 
 /obj/item/herbseed/examine(mob/user)
@@ -35,7 +35,7 @@
 		return
 	else if(istype(T, /turf/open/floor/rogue/dirt))
 		to_chat(user, span_notice("I begin making a mound for the seeds..."))
-		if(do_after(user, get_farming_do_time(user, 10 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 10 SECONDS), src))
 			apply_farming_fatigue(user, 30)
 			soil = get_soil_on_turf(T)
 			if(!soil)

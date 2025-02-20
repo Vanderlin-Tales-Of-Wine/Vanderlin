@@ -32,18 +32,19 @@
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand over the fire.</span>")
 
-			if(do_after(H, 15, target = src))
-				var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(H, "<span class='warning'>HOT!</span>")
-				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					H.update_damage_overlays()
+			if(do_after(H, 1.5 SECONDS, src))
+				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+				// 	H.update_damage_overlays()
+				H.adjust_bodytemperature(40)
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
 	else
 		if(icon_state == "[base_state]over")
 			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
 				"<span class='notice'>I start to pick up [src]...</span>")
-			if(do_after(user, 30, target = src))
+			if(do_after(user, 3 SECONDS, src))
 				icon_state = "[base_state]0"
 			return
 
@@ -122,7 +123,7 @@
 	pixel_y = 32
 	soundloop = null
 
-/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
+/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
 	pixel_y = 0
 	switch(dirin)
@@ -371,7 +372,7 @@
 				var/obj/item/reagent_containers/food/snacks/S = W
 				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
 					if(W.icon_state != "rawegg")
-						playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
+						playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
 						if(!do_after(user, 25))
 							return
 						W.icon_state = "rawegg" // added
@@ -450,11 +451,12 @@
 			var/mob/living/carbon/human/H = user
 			if(istype(H))
 				H.visible_message("<span class='info'>[H] warms \his hand over the embers.</span>")
-				if(do_after(H, 50, target = src))
-					var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-					to_chat(H, "<span class='warning'>HOT!</span>")
-					if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-						H.update_damage_overlays()
+				if(do_after(H, 5 SECONDS, src))
+					// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+					// to_chat(H, "<span class='warning'>HOT!</span>")
+					// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+					// 	H.update_damage_overlays()
+					H.adjust_bodytemperature(40)
 			return TRUE
 
 
@@ -535,11 +537,12 @@
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand near the fire.</span>")
 
-			if(do_after(H, 100, target = src))
-				var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(H, "<span class='warning'>HOT!</span>")
-				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					H.update_damage_overlays()
+			if(do_after(H, 10 SECONDS, src))
+				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+				// 	H.update_damage_overlays()
+				H.adjust_bodytemperature(40)
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
 /obj/machinery/light/rogue/campfire/densefire

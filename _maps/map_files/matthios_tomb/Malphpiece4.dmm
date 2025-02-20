@@ -12,7 +12,7 @@
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/outdoors/caves)
 "cm" = (
-/obj/structure/fluff/walldeco/rpainting/forest,
+/obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/outdoors/caves)
 "cP" = (
@@ -20,7 +20,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/caves)
 "dv" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
+/obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/outdoors/caves)
 "dE" = (
@@ -213,7 +213,7 @@
 /turf/open/floor/rogue/dirt/ambush,
 /area/rogue/outdoors/caves)
 "Qf" = (
-/obj/structure/fluff/walldeco/rpainting,
+/obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/outdoors/caves)
 "QX" = (

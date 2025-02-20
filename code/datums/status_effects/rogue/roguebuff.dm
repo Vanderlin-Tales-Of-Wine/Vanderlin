@@ -28,7 +28,7 @@
 	id = "foodbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/foodbuff
 	effectedstats = list("constitution" = 1,"endurance" = 1)
-	duration = 10 MINUTES
+	duration = 15 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/foodbuff
 	name = "Great Meal"
@@ -489,8 +489,8 @@
 
 // SKELETON BARD BUFF ALERT
 /atom/movable/screen/alert/status_effect/bardbuff
-	name = "Musical buff"
-	desc = "My stats have been buffed by music!"
+	name = "Musical Buff"
+	desc = "My skills are improved by music!"
 	icon_state = "intelligence"
 
 // TIER 1 - WEAK
@@ -498,62 +498,69 @@
 	name = "Enlightening (+1 INT)"
 	id = "bardbuff_int"
 	effectedstats = list("intelligence" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/intelligence
+
+/atom/movable/screen/alert/status_effect/bardbuff/intelligence
+	name = "Enlightening"
 
 // TIER 2 - AVERAGE
 /datum/status_effect/bardicbuff/endurance
 	name = "Invigorating (+1 END)"
 	id = "bardbuff_end"
 	effectedstats = list("endurance" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/endurance
+
+/atom/movable/screen/alert/status_effect/bardbuff/endurance
+	name = "Invigorating"
 
 // TIER 3 - SKILLED
 /datum/status_effect/bardicbuff/constitution
 	name = "Fortitude (+1 CON)"
 	id = "bardbuff_con"
 	effectedstats = list("constitution" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/constitution
+
+/atom/movable/screen/alert/status_effect/bardbuff/constitution
+	name = "Fortitude"
 
 // TIER 4 - EXPERT
 /datum/status_effect/bardicbuff/speed
 	name = "Inspiring (+1 SPD)"
 	id = "bardbuff_spd"
 	effectedstats = list("speed" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/speed
+
+/atom/movable/screen/alert/status_effect/bardbuff/speed
+	name = "Inspiring"
 
 // TIER 5 - MASTER
 /datum/status_effect/bardicbuff/ravox
 	name = "Empowering (+1 STR, +1 PER)"
 	id = "bardbuff_str"
 	effectedstats = list("strength" = 1, "perception" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/ravox
+
+/atom/movable/screen/alert/status_effect/bardbuff/ravox
+	name = "Empowering"
 
 // TIER 6 - LEGENDARY
 /datum/status_effect/bardicbuff/awaken
-	name = "Awaken! (purges sleep)"
+	name = "Awaken! (+energy, +stamina, +1 FOR)"
 	id = "bardbuff_awaken"
-	effectedstats = list("fortune" = 1)
+	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/awaken
+	effectedstats = list(STATKEY_LCK = 1)
 
-/datum/status_effect/bardicbuff/awaken/on_apply()
-	if(iscarbon(owner))
-		var/mob/living/carbon/O = owner
-		if(owner.mind?.has_antag_datum(/datum/antagonist))
-			if(owner.mind.isactuallygood()) // Check for "good antags"
-				for(var/S in effectedstats)
-					owner.change_stat(S, effectedstats[S])
-				if(O.has_status_effect(/datum/status_effect/debuff/sleepytime))
-					O.remove_status_effect(/datum/status_effect/debuff/sleepytime)
-					O.tiredness = 0
-					if(O.IsSleeping())
-						O.SetSleeping(0) // WAKE UP!
-					O.adjust_triumphs(1) // Before people start crying about muh triumph lost
-					to_chat(O, span_nicegreen("Astrata's blessed light cleanses away your tiredness!"))
-			else
-				return
-		else
-			for(var/S in effectedstats)
-				owner.change_stat(S, effectedstats[S])
-			if(O.has_status_effect(/datum/status_effect/debuff/sleepytime))
-				O.remove_status_effect(/datum/status_effect/debuff/sleepytime)
-				O.tiredness = 0
-				if(O.IsSleeping())
-					O.SetSleeping(0) // GRAB A BRUSH AND PUT A LITTLE MAKEUP
-				O.adjust_triumphs(1) // Before people start crying about muh triumph lost
-				to_chat(O, span_nicegreen("Astrata's blessed light cleanses away your tiredness!"))
-			else
-				return
+/atom/movable/screen/alert/status_effect/bardbuff/awaken
+	name = "Awaken!"
+
+/datum/status_effect/bardicbuff/awaken/tick()
+	for (var/mob/living/carbon/human/H in hearers(7, owner))
+		if (!H.client)
+			continue
+		if(!H.can_hear())
+			continue
+		if(H.mind?.has_antag_datum(/datum/antagonist))
+			if(!H.mind?.isactuallygood())
+				continue
+		H.adjust_energy(1)
+		H.adjust_stamina(-0.5, internal_regen = FALSE)

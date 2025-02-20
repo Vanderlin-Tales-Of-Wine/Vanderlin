@@ -128,7 +128,7 @@
 	name = "Eoran Bloom"
 	desc = ""
 	clothes_req = FALSE
-	range = 7
+	range = 2
 	overlay_state = "pflower"
 	sound = list('sound/magic/magnet.ogg')
 	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/eora)

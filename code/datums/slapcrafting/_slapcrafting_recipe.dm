@@ -271,7 +271,7 @@
 	//Finally, CheckParts on the resulting items.
 	for(var/atom/movable/result_item as anything in results)
 		result_item.CheckParts()
-		result_item.OnCrafted(user.dir) //Here so we can handle any items placed into resulting items
+		result_item.OnCrafted(user.dir, user) //Here so we can handle any items placed into resulting items
 
 /// Runs when the last step tries to be performed and cancels the step if it returns FALSE. Could be used to validate location in structure construction via slap crafting.
 /datum/slapcraft_recipe/proc/can_finish(mob/living/user, obj/item/slapcraft_assembly/assembly)

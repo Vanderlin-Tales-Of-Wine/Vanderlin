@@ -226,14 +226,16 @@
 	walking_stick = TRUE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	smeltresult = /obj/item/ingot/iron
-	possible_item_intents = list(/datum/intent/pick)
+	possible_item_intents = list(POLEARM_BASH)
 	gripped_intents = list(TILL_INTENT,/datum/intent/pick,POLEARM_BASH)
 	associated_skill = /datum/skill/combat/polearms
 
 	force = 5
-	force_wielded = 10
+	force_wielded = 7
 	wdefense = MEDIOCHRE_PARRY
 	wlength = 66
+	var/time_multiplier = 1
+	max_integrity = 150
 
 /obj/item/rogueweapon/hoe/getonmobprop(tag)
 	. = ..()
@@ -291,14 +293,14 @@
 		user.changeNext_move(CLICK_CD_MELEE)
 		if(istype(T, /turf/open/floor/rogue/grass))
 			playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
-			if (do_after(user, 3 SECONDS, target = src))
+			if(do_after(user, 3 SECONDS * time_multiplier, src))
 				apply_farming_fatigue(user, 10)
 				T.ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
 				playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
 			return
 		if(istype(T, /turf/open/floor/rogue/dirt))
 			playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
-			if(do_after(user, 2 SECONDS, target = src))
+			if(do_after(user, 2 SECONDS * time_multiplier, src))
 				playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
 				var/obj/structure/soil/soil = get_soil_on_turf(T)
 				if(soil)
@@ -316,6 +318,17 @@
 	noaa = TRUE
 	candodge = FALSE
 	misscost = 0
+
+/obj/item/rogueweapon/hoe/stone
+	name = "stone hoe"
+	desc = "A makeshift hoe made out of stone."
+	icon_state = "stonehoe"
+	force = 3
+	force_wielded = 5
+	smeltresult = null
+	anvilrepair = null
+	max_integrity = 100
+	time_multiplier = 2
 
 /*------------\
 |  Pitchfork  |

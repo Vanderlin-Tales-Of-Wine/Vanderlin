@@ -84,6 +84,9 @@
 	var/replaced_by
 	/// Repeatable surgery steps will repeat until failure
 	var/repeating = FALSE
+	var/preop_sound //Sound played when the step is started
+	var/success_sound //Sound played if the step succeeded
+	var/failure_sound //Sound played if the step fails
 
 /datum/surgery_step/proc/can_do_step(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, try_to_fail = FALSE)
 	if(!user || !target)
@@ -271,21 +274,28 @@
 		LAZYREMOVE(target.surgeries, target_zone)
 		return FALSE
 
+	play_preop_sound(user, target, target_zone, tool) // Here because most steps overwrite preop
+
 	var/speed_mod = get_speed_modifier(user, target, target_zone, tool, intent)
 	var/success_prob = max(get_success_probability(user, target, target_zone, tool, intent), 0)
 
 	var/modded_time = round(time * speed_mod, 1)
-	if(!do_after(user, modded_time, target = target))
+	if(!do_after(user, modded_time, target))
 		LAZYREMOVE(target.surgeries, target_zone)
 		return FALSE
 
 	LAZYREMOVE(target.surgeries, target_zone)
 	var/success = !try_to_fail && (prob(success_prob)) && chem_check(target)
 	if(success && success(user, target, target_zone, tool, intent))
+		if(ishuman(user))
+			var/mob/living/carbon/human/doctor = user
+			user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/3))
+		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 			initiate(user, target, target_zone, tool, intent, try_to_fail)
 		return TRUE
 	else if(failure(user, target, target_zone, tool, intent, success_prob))
+		play_failure_sound(user, target, target_zone, tool)
 		if(user.client?.prefs.showrolls)
 			if(try_to_fail)
 				to_chat(user, "<span class='warning'>Intentional surgery fail... [success_prob]%</span>")
@@ -302,17 +312,40 @@
 		"<span class='notice'>[user] begins to perform surgery on [target].</span>")
 	return TRUE
 
+/datum/surgery_step/proc/play_preop_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	if(!preop_sound)
+		return
+	var/sound_file_use
+	if(islist(preop_sound))
+		for(var/typepath in preop_sound)//iterate and assign subtype to a list, works best if list is arranged from subtype first and parent last
+			if(istype(tool, typepath))
+				sound_file_use = preop_sound[typepath]
+				break
+	else
+		sound_file_use = preop_sound
+	playsound(get_turf(target), sound_file_use, 75, TRUE, -2)
+
 /datum/surgery_step/proc/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I succeed.</span>",
 		"<span class='notice'>[user] succeeds!</span>",
 		"<span class='notice'>[user] finishes.</span>")
 	return TRUE
 
+/datum/surgery_step/proc/play_success_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	if(!success_sound)
+		return
+	playsound(get_turf(target), success_sound, 75, TRUE, -2)
+
 /datum/surgery_step/proc/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
 	display_results(user, target, "<span class='warning'>I screw up!</span>",
 		"<span class='warning'>[user] screws up!</span>",
 		"<span class='notice'>[user] finishes.</span>", TRUE) //By default the patient will notice if the wrong thing has been cut
 	return TRUE
+
+/datum/surgery_step/proc/play_failure_sound(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	if(!failure_sound)
+		return
+	playsound(get_turf(target), failure_sound, 75, TRUE, -2)
 
 /// Replaces visible_message during operations so only people looking over the surgeon can tell what they're doing, allowing for shenanigans.
 /datum/surgery_step/proc/display_results(mob/user, mob/living/carbon/target, self_message, detailed_message, vague_message, target_detailed = FALSE)
