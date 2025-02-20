@@ -109,7 +109,7 @@
 	desc = span_green("That was an amazing bath.")
 
 /datum/stressevent/music
-	timer = 1 MINUTES
+	timer = 30 SECONDS
 	stressadd = 0 // you suck at music
 	desc = span_green("This music is pleasant.")
 
