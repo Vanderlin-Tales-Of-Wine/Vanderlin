@@ -16,7 +16,7 @@
 	},
 /area/rogue)
 "bO" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /obj/structure/mineral_door/wood/fancywood{
@@ -48,7 +48,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue)
 "kc" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /obj/item/roguecoin/copper/pile,
@@ -94,7 +94,7 @@
 /area/rogue)
 "oY" = (
 /obj/structure/mineral_door/swing_door,
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /turf/open/floor/rogue/tile,
@@ -295,7 +295,7 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "UB" = (
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_y = -5
 	},
 /turf/open/water/bath,
