@@ -10,7 +10,7 @@
 	var/lockhash = 0
 	var/lockid = null
 	drop_sound = 'sound/items/gems (1).ogg'
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK|ITEM_SLOT_RING
 
 	grid_height = 64
 	grid_width = 32
