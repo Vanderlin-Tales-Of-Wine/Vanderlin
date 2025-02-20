@@ -331,7 +331,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/basement)
 "avV" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -1434,7 +1434,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "bHT" = (
-/obj/structure/chair/bench/couch/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/under/town/basement)
 "bIe" = (
@@ -4253,10 +4253,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
-"eEM" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/concrete,
-/area/rogue/outdoors/exposed/under/basement)
 "eFD" = (
 /obj/item/rogueweapon/shield/wood,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -6172,9 +6168,7 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/exposed/under/basement)
 "gKV" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/effect/landmark/start/nightman,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/indoors/town/bath)
@@ -10475,7 +10469,7 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/town/dwarf)
 "lzR" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/indoors/town/bath)
 "lAJ" = (
@@ -10760,7 +10754,7 @@
 /area/rogue)
 "lLu" = (
 /obj/item/book/rogue/knowledge1,
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /obj/item/reagent_containers/food/snacks/breadslice/raisin,
 /obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -11660,7 +11654,7 @@
 	pixel_y = -10;
 	pixel_x = 10
 	},
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /obj/item/clothing/mask/cigarette/rollie/nicotine,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/magician)
@@ -16871,14 +16865,6 @@
 "rWD" = (
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/spiderbase)
-"rWF" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
-/turf/open/floor/rogue/herringbone,
-/area/rogue/indoors/town/manor{
-	first_time_text = "Blackwine Manor"
-	})
 "rWR" = (
 /obj/structure/bars/cemetery,
 /obj/structure/flora/roguegrass,
@@ -17187,9 +17173,6 @@
 /obj/item/plate/tray,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/tavern)
-"smY" = (
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/town)
 "snE" = (
 /obj/effect/spawner/roguemap/tree,
 /obj/structure/flora/roguegrass,
@@ -17871,7 +17854,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bog)
 "sXH" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = 0
 	},
@@ -35530,7 +35513,7 @@ ygq
 gtw
 qio
 gtw
-eEM
+anm
 usN
 lEl
 gtw
@@ -56529,7 +56512,7 @@ rAW
 ogl
 rAW
 dvI
-smY
+jGc
 pov
 kTK
 nKA
@@ -56719,12 +56702,12 @@ xZX
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
-smY
+jGc
 pKw
-smY
+jGc
 nKA
 nKA
 nKA
@@ -58069,10 +58052,10 @@ lfI
 ozQ
 pms
 iLK
-smY
+jGc
 pKw
 xHC
-smY
+jGc
 pKw
 xHC
 kGQ
@@ -58096,7 +58079,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 xrF
 xrF
 xHC
@@ -58264,7 +58247,7 @@ pms
 pms
 cCn
 pKw
-smY
+jGc
 xHC
 pKw
 pKw
@@ -58281,8 +58264,8 @@ gey
 hUy
 nKA
 nKA
-smY
-smY
+jGc
+jGc
 pKw
 pKw
 kmR
@@ -58456,7 +58439,7 @@ slK
 lfI
 pms
 cCn
-smY
+jGc
 xrF
 tFN
 qer
@@ -59228,7 +59211,7 @@ ozQ
 pzz
 slK
 slK
-smY
+jGc
 lfI
 pms
 tEb
@@ -59239,7 +59222,7 @@ pgK
 gBZ
 pgK
 qer
-smY
+jGc
 nKA
 nZC
 nKA
@@ -59442,7 +59425,7 @@ dxB
 mFe
 pKw
 pKw
-smY
+jGc
 nKA
 iId
 mRE
@@ -59637,7 +59620,7 @@ mFe
 mFe
 pKw
 pKw
-smY
+jGc
 iId
 twz
 dTc
@@ -59831,7 +59814,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 iId
 kmR
 gcr
@@ -60220,7 +60203,7 @@ mFe
 pKw
 pKw
 pKw
-smY
+jGc
 nKA
 nKA
 nKA
@@ -60239,7 +60222,7 @@ pKw
 lfI
 ozQ
 nKz
-smY
+jGc
 xCC
 jgY
 wAB
@@ -60399,15 +60382,11 @@ vWg
 dxL
 heN
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
-smY
-pKw
-pKw
-pKw
-pKw
+jGc
 pKw
 pKw
 pKw
@@ -60420,7 +60399,11 @@ pKw
 pKw
 pKw
 pKw
-smY
+pKw
+pKw
+pKw
+pKw
+jGc
 bOM
 pKw
 xHC
@@ -60432,7 +60415,7 @@ xHC
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 byF
 rij
@@ -60581,8 +60564,8 @@ xWa
 vfu
 vZm
 asj
-smY
-smY
+jGc
+jGc
 tZR
 gFs
 pKE
@@ -60590,43 +60573,43 @@ fGK
 tZR
 pCp
 nXK
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pdq
-smY
+jGc
 pKw
-smY
+jGc
 pKw
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pKw
-smY
+jGc
 pdq
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pKw
-smY
+jGc
 pKw
-smY
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
+jGc
 pdq
-smY
-smY
+jGc
+jGc
 pKw
 pKw
-smY
-smY
-smY
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
+jGc
+jGc
+jGc
 pdq
 byF
 vxz
@@ -60788,7 +60771,7 @@ ygV
 vWg
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
@@ -60796,7 +60779,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
@@ -60817,10 +60800,10 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 ygV
 jFj
-smY
+jGc
 pKw
 mUT
 vTh
@@ -60989,7 +60972,7 @@ lfI
 uXz
 pKw
 pKw
-smY
+jGc
 rpx
 xrF
 awX
@@ -61183,7 +61166,7 @@ mwG
 rrI
 xIT
 pKw
-smY
+jGc
 rSm
 pSa
 pSa
@@ -61570,8 +61553,8 @@ mes
 iFi
 gvb
 nKA
-smY
-smY
+jGc
+jGc
 pSa
 rSm
 kFZ
@@ -61587,7 +61570,7 @@ tKP
 hZE
 pSa
 iUY
-smY
+jGc
 pKw
 pKw
 lVe
@@ -61959,7 +61942,7 @@ iIr
 mwG
 dTE
 nKA
-smY
+jGc
 rSm
 pSa
 gdc
@@ -62303,7 +62286,7 @@ nAp
 uTy
 uTy
 gXo
-rWF
+avV
 njK
 xvR
 fwR
@@ -62760,7 +62743,7 @@ dZd
 wwJ
 dZd
 pjU
-smY
+jGc
 pms
 bXs
 nAp
@@ -62951,10 +62934,10 @@ lfI
 lfI
 ozQ
 lfI
-smY
+jGc
 ozQ
-smY
-smY
+jGc
+jGc
 pms
 bXs
 xDL
@@ -63141,13 +63124,13 @@ bPA
 tZR
 tZR
 oFX
-smY
+jGc
 lfI
 lfI
-smY
+jGc
 lfI
 pKw
-smY
+jGc
 pms
 pms
 bXs
@@ -63335,7 +63318,7 @@ cjO
 vWe
 wks
 bHN
-smY
+jGc
 lfI
 jma
 pKw
@@ -63530,10 +63513,10 @@ lfI
 pKw
 mRF
 pKw
-smY
-smY
+jGc
+jGc
 lfI
-smY
+jGc
 mvo
 lfI
 pms
@@ -63719,14 +63702,14 @@ wpE
 kkq
 xPW
 xrF
-smY
+jGc
 pKw
-smY
+jGc
 odw
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
 lfI
 mFe
 ozQ
@@ -63920,7 +63903,7 @@ cDx
 cDx
 oII
 pKw
-smY
+jGc
 jGc
 oII
 oII
@@ -64114,7 +64097,7 @@ tcZ
 cDx
 wVF
 pKw
-smY
+jGc
 czT
 ePz
 ePz
@@ -64308,7 +64291,7 @@ geB
 oAV
 sCi
 vVI
-smY
+jGc
 pLb
 eSc
 aVL
@@ -64502,7 +64485,7 @@ hOu
 oAV
 bmb
 xQc
-smY
+jGc
 dFG
 frr
 frr

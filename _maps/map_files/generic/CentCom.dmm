@@ -990,11 +990,11 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "cI" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "cJ" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/structure/fluff/wallclock/vampire,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
@@ -1359,7 +1359,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
 "eF" = (
-/obj/structure/chair/bench/couch/redright,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
 "eP" = (
@@ -1417,7 +1417,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/vampire_manor)
 "fy" = (
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /obj/effect/landmark/start/admin,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue)
@@ -2499,7 +2499,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "uP" = (
-/obj/structure/chair/bench/couch/redleft,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
 "uU" = (
@@ -3015,7 +3015,7 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "CK" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue)
 "CM" = (
