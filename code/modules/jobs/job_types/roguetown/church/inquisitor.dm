@@ -45,7 +45,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot/inqboots
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	head = /obj/item/clothing/head/roguetown/helmet/leather/inqhat
-	mask = /obj/item/clothing/mask/rogue/spectacles/inqglasses
 	gloves = /obj/item/clothing/gloves/roguetown/angle/inqgloves
 	wrists = /obj/item/clothing/neck/roguetown/psycross/silver
 	backr = /obj/item/storage/backpack/rogue/satchel
