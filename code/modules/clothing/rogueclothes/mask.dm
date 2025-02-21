@@ -71,6 +71,14 @@
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = EYES
 
+/obj/item/clothing/mask/rogue/spectacles/inqglasses
+	name = "crimson spectacles"
+	icon = 'icons/roguetown/clothing/inquisition.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+	desc = "Spectacles evoking the stained glass of Grenzelhoftian cathedrals. See all evil."
+	icon_state = "bglasses"
+	item_state = "bglasses"
+
 /obj/item/clothing/mask/rogue/spectacles/Initialize()
 	. = ..()
 	AddComponent(/datum/component/spill, null, 'sound/blank.ogg')
