@@ -1312,6 +1312,14 @@
 	desc = "A black top hat with a buckle on top, favored by Witch Hunters and Inquisitors."
 	icon_state = "puritan_hat"
 
+/obj/item/clothing/head/roguetown/helmet/leather/inqhat
+	name = "inquisitorial hat"
+	icon = 'icons/roguetown/clothing/inquisition.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+	desc = "A wide-brimmed leather hat, adorned with a crimson-dyed feather. Death has come to your little town."
+	icon_state = "inqhat"
+	item_state = "inqhat"
+
 //............... Ominous Hood ............... //
 /obj/item/clothing/head/roguetown/helmet/leather/hood_ominous // a leather coif locked to headslot since you cannot pull it back. Crit prevent between armor items a little weird, this is leather coif, compare to helmet
 	name = "ominous hood"
