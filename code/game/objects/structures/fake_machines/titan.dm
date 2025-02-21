@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	var/notlord
 	if(SSticker.rulermob != H)
 		notlord = TRUE
-	var/message2recognize = sanitize_hear_message(raw_message)
+	var/message2recognize = sanitize_hear_message(original_message)
 
 	if(mode)
 		if(findtext(message2recognize, "nevermind") || findtext(message2recognize, "cancel"))
@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			make_decree(H, raw_message)
 			mode = 0
 		if(3)
-			make_outlaw(H, raw_message)
+			make_outlaw(H, original_message)
 			mode = 0
 		if(4)
 			make_law(H, raw_message)
