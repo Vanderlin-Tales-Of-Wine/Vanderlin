@@ -14,7 +14,7 @@
 /datum/species/aasimar
 	name = "Aasimar"
 	id = "aasimar"
-	desc = "Immortal offspring sculpted by the Gods for use in servitude. \
+	desc = "Immortal offspring sculpted by the gods for use in servitude. \
 	\n\n\
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \
 	This species is often revered due to their celestial origin, \
