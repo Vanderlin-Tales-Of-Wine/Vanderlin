@@ -16,7 +16,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	mask = /obj/item/clothing/mask/rogue/goggles
-	beltr = /obj/item/rogueweapon/sword/rapier/silver
+	beltr = /obj/item/rogueweapon/sword/rapier
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	backr = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/clothing/ring/silver
