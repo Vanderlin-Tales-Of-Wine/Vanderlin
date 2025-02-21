@@ -119,6 +119,16 @@
 	icon_state = "grenzelgloves"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 
+/obj/item/clothing/gloves/roguetown/angle/inqgloves
+	name = "inquisitorial gloves"
+	icon = 'icons/roguetown/clothing/inquisition.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+	desc = "Gloves of worn leather. Alas, the psydonian fetish wrapped around one is but a powerless replica."
+	icon_state = "inqgloves"
+	item_state = "inqgloves"
+	sleeved = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+
+
 
 
 //..................................................................................................................................
