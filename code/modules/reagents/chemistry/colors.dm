@@ -10,6 +10,11 @@
 		vol_temp = R.volume
 		vol_counter += vol_temp
 
+		if (R.random_reagent_color == TRUE)
+			if(!GLOB.chemical_reagents_color_list)
+				build_chemical_reagent_color_list()
+			R.color = GLOB.chemical_reagents_color_list[R.name]
+
 		if(!mixcolor)
 			mixcolor = R.color
 
