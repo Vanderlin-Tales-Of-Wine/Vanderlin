@@ -24,7 +24,7 @@
 	\n\n\
 	A longstanding fued remains between elves and dwarves. \
 	Elvenkind has yet to forgive the dwarves for their destruction of homeland \
-	and pillaging of natural resources within the former snow-elf territory. \
+	and pillaging of natural resources within the former snow-elf territory. \n\
 	To elves, it was the greatest signifier of disrespect for those lost. "
 
 	skin_tone_wording = "Tribal Identity"
