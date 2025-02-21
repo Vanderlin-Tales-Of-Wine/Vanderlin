@@ -1716,6 +1716,7 @@
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\narcotics.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\natural_items.dm"
 #include "code\modules\roguetown\roguecrafting\quality_of_crafting\sewing.dm"
+#include "code\modules\roguetown\roguecrafting\quality_of_crafting\stack.dm"
 #include "code\modules\roguetown\roguejobs\alchemist\container.dm"
 #include "code\modules\roguetown\roguejobs\alchemist\herb_flora.dm"
 #include "code\modules\roguetown\roguejobs\alchemist\herb_seeds.dm"
