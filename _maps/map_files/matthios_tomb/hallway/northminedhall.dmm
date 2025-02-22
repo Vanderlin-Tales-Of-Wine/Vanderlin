@@ -1,0 +1,454 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/natural/stone{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"c" = (
+/obj/item/natural/stone{
+	pixel_x = 11
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"d" = (
+/obj/item/natural/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"e" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"h" = (
+/obj/item/natural/stone{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"i" = (
+/obj/item/natural/stone{
+	pixel_x = 9;
+	pixel_y = -8
+	},
+/obj/item/rogueweapon/axe/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"k" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"l" = (
+/obj/item/natural/stone{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"m" = (
+/obj/item/natural/stone{
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"t" = (
+/obj/item/natural/rock/gemerald,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"v" = (
+/obj/item/rogueweapon/knife/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"w" = (
+/obj/structure/kneestingers,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"x" = (
+/obj/item/natural/stone{
+	pixel_x = -8
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"A" = (
+/obj/item/natural/stone{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/obj/item/natural/stone{
+	pixel_y = -5;
+	pixel_x = 12
+	},
+/obj/item/natural/stone{
+	pixel_y = 7
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"B" = (
+/obj/item/natural/stone{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/item/natural/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"C" = (
+/obj/structure/bed/rogue/shit,
+/obj/item/clothing/cloak/raincloak,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"G" = (
+/obj/item/flashlight/flare/torch{
+	pixel_x = -10
+	},
+/obj/item/clothing/head/roguetown/antlerhood{
+	pixel_x = 11
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"H" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"I" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"M" = (
+/obj/structure/roguetent,
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"P" = (
+/obj/item/natural/stone{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/item/ammo_casing/caseless/rogue/arrow/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"R" = (
+/obj/item/rogueweapon/axe/stone,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"V" = (
+/obj/item/natural/stone,
+/obj/item/natural/stone{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"Z" = (
+/obj/structure/ladder/earth,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+
+(1,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(2,1,1) = {"
+I
+e
+e
+a
+I
+I
+e
+h
+A
+M
+e
+e
+G
+v
+I
+e
+e
+a
+I
+e
+"}
+(3,1,1) = {"
+e
+e
+I
+e
+I
+I
+e
+I
+d
+I
+I
+I
+C
+Z
+I
+d
+I
+e
+I
+e
+"}
+(4,1,1) = {"
+H
+e
+I
+a
+e
+I
+a
+I
+e
+e
+e
+I
+I
+I
+I
+e
+I
+e
+a
+k
+"}
+(5,1,1) = {"
+e
+e
+I
+I
+I
+I
+e
+I
+e
+I
+e
+I
+V
+e
+e
+h
+d
+I
+I
+e
+"}
+(6,1,1) = {"
+I
+e
+e
+B
+e
+h
+e
+a
+e
+I
+P
+e
+e
+I
+d
+I
+e
+e
+I
+e
+"}
+(7,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+
+(1,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(2,1,2) = {"
+I
+e
+e
+e
+I
+I
+e
+w
+e
+d
+c
+e
+d
+x
+I
+e
+e
+w
+I
+e
+"}
+(3,1,2) = {"
+e
+e
+I
+w
+I
+I
+w
+I
+w
+I
+I
+I
+e
+Z
+I
+w
+I
+i
+I
+e
+"}
+(4,1,2) = {"
+e
+e
+I
+e
+e
+e
+l
+w
+c
+I
+t
+I
+e
+I
+I
+e
+I
+e
+e
+e
+"}
+(5,1,2) = {"
+e
+e
+I
+I
+I
+I
+e
+I
+t
+I
+e
+I
+e
+w
+e
+m
+e
+I
+I
+e
+"}
+(6,1,2) = {"
+I
+e
+R
+e
+e
+I
+e
+e
+I
+I
+e
+e
+e
+I
+t
+I
+e
+e
+I
+e
+"}
+(7,1,2) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}

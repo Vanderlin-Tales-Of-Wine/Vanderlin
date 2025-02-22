@@ -748,3 +748,12 @@
 	. = ..()
 	if(race)
 		set_species(race)
+	return INITIALIZE_HINT_LATELOAD
+
+/mob/living/carbon/human/species/LateInitialize()
+	. = ..()
+	var/turf/turf = get_turf(loc)
+	if(turf)
+		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+			faction |= "matthios"
+			SSmobs.matthios_mobs |= src

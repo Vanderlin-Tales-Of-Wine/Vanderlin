@@ -226,6 +226,9 @@ SUBSYSTEM_DEF(mapping)
 	#endif
 	//For all maps
 	otherZ += load_map_config("_maps/map_files/roguetown/otherz/underworld.json")
+	#ifndef NO_DUNGEON
+	otherZ += load_map_config("_maps/map_files/vanderlin/otherz/dungeon.json")
+	#endif
 //	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
 	if(otherZ.len)
 		for(var/datum/map_config/OtherZ in otherZ)
@@ -323,14 +326,6 @@ SUBSYSTEM_DEF(mapping)
 
 	next_map_config = VM
 	return TRUE
-/*
-/datum/controller/subsystem/mapping/proc/preloadTemplates(path = "_maps/templates/") //see master controller setup
-
-	var/list/filelist = flist(path)
-	for(var/map in filelist)
-		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
-		map_templates[T.name] = T
-*/
 
 //Precache the templates via map template datums, not directly from files
 //This lets us preload as many files as we want without explicitely loading ALL of them into cache (ie WIP maps or what have you)

@@ -8,7 +8,7 @@
 	var/lootdoubles = TRUE	//if the same item can be spawned twice
 	var/fan_out_items = FALSE //Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
 /obj/effect/spawner/roguemap/proc/do_spawn()
-	if(prob(probby))
+	if(prob(probby) && length(spawned))
 		var/obj/new_type = pickweight(spawned)
 		new new_type(get_turf(src))
 

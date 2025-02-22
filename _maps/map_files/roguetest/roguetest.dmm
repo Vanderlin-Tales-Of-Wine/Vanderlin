@@ -246,7 +246,6 @@
 /area/rogue/outdoors)
 "aM" = (
 /obj/structure/water_dam{
-	dir = 2;
 	redstone_id = "test2"
 	},
 /obj/effect/waterfall/acid{
@@ -1043,12 +1042,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/vault)
 "cG" = (
-/obj/structure/roguemachine/mail,
+/obj/structure/dungeon_entry/center,
 /turf/open/floor/rogue/cobble,
-/area/rogue/outdoors)
-"cH" = (
-/obj/item/roguemachine/mastermail,
-/turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors)
 "cI" = (
 /obj/structure/guillotine,
@@ -1176,6 +1171,10 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"pQ" = (
+/obj/structure/dungeon_entry,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/vault)
 "qw" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/cobble,
@@ -1194,9 +1193,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods)
 "ro" = (
-/obj/structure/minecart_rail{
-	dir = 2
-	},
+/obj/structure/minecart_rail,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
 "rB" = (
@@ -8736,13 +8733,13 @@ ac
 ac
 ac
 ab
-cF
+pQ
 am
 cF
 ab
 ab
 at
-cG
+aJ
 aJ
 aJ
 aJ
@@ -8993,7 +8990,7 @@ ac
 ac
 ac
 ab
-bP
+am
 am
 cF
 ab
@@ -9250,12 +9247,12 @@ ac
 ac
 ac
 ab
-ab
+am
 am
 ab
 ab
 ab
-cH
+at
 aJ
 aJ
 aJ

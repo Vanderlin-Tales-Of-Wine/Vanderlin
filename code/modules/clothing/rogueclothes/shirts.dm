@@ -539,6 +539,11 @@
 /obj/item/clothing/suit/roguetown/shirt/grenzelhoft/Initialize()
 	. = ..()
 	if(!picked)
+		var/mob/living/carbon/human/L = loc
+		if(!istype(L))
+			return
+		if(!L.client)
+			return
 		INVOKE_ASYNC(src, PROC_REF(get_player_input))
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gown

@@ -61,6 +61,8 @@
 
 //#define LOWMEMORYMODE //uncomment this to load centcom and roguetest and thats it.
 
+//#define NO_DUNGEON //comment this to load dungeons.
+
 #ifdef LOWMEMORYMODE
 #define FORCE_MAP "_maps/roguetest.json"
 #endif

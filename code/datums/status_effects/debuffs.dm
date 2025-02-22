@@ -108,6 +108,9 @@
 	. = ..()
 
 /datum/status_effect/incapacitating/sleeping/tick()
+	if(!owner.client)
+		return
+
 	var/mob/living/carbon/carbon_owner = iscarbon(owner) ? owner : null
 	var/mob/living/carbon/human/human_owner = ishuman(owner) ? owner : null
 

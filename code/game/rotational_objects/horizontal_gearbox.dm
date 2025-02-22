@@ -10,7 +10,7 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if(structure.dir != direction && structure.dir != GLOB.reverse_dir[direction])
+			if((structure.dir != direction && structure.dir != GLOB.reverse_dir[direction]) && !istype(structure, /obj/structure/gearbox))
 				continue
 			if(structure.rotation_network)
 				if(rotation_network)

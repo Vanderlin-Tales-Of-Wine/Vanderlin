@@ -1,0 +1,889 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bF" = (
+/obj/effect/decal/remains/bigrat,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"bR" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"bS" = (
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"cG" = (
+/obj/effect/decal/cleanable/shreds,
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"cR" = (
+/obj/structure/rack/rogue/shelf,
+/obj/effect/decal/cleanable/shreds,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"dD" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"eH" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/transparent/openspace,
+/area/rogue)
+"fH" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"fO" = (
+/obj/effect/decal/remains/bigrat,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"gp" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"gV" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"hl" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"hm" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"hp" = (
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"is" = (
+/obj/item/roguegem/green,
+/turf/closed/wall/mineral/rogue/underbrick,
+/area/rogue)
+"iH" = (
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue)
+"iK" = (
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"jr" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"jY" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"lr" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"lG" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"mC" = (
+/obj/effect/decal/cleanable/shreds,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"mK" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"nR" = (
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue)
+"nW" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"oO" = (
+/obj/structure/mineral_door/wood/violet,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"ps" = (
+/obj/item/natural/rock,
+/turf/closed/wall/mineral/rogue/underbrick,
+/area/rogue)
+"qk" = (
+/obj/structure/mineral_door/wood/violet,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"rq" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"rO" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"rX" = (
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue)
+"sQ" = (
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"tz" = (
+/area/rogue)
+"tT" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"ue" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"ur" = (
+/obj/structure/stairs,
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue)
+"wU" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"xm" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"xD" = (
+/obj/effect/decal/cleanable/shreds,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"xE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"ym" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"yw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"zE" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"Ax" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"BB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Ce" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"DX" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"GC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Ha" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"Hj" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/structure/rack/rogue/shelf,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"Hs" = (
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Ht" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue)
+"Hx" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"In" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"It" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"IT" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Ku" = (
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"LE" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue)
+"NW" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"Ra" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/obj/structure/bookcase,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Rg" = (
+/turf/closed/wall/mineral/rogue/underbrick,
+/area/rogue)
+"Si" = (
+/obj/effect/decal/remains/bigrat,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"Sr" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/structure/rack/rogue/shelf,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"Tw" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"UC" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"UX" = (
+/obj/structure/bookcase,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/obj/item/book/rogue/random_book,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"VP" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+"Xx" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/churchrough,
+/area/rogue)
+"XA" = (
+/obj/structure/rack/rogue/shelf,
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/turf/open/floor/rogue/ruinedwood/darker,
+/area/rogue)
+
+(1,1,1) = {"
+zE
+zE
+zE
+zE
+zE
+Ku
+Ku
+gp
+Ku
+Ku
+zE
+zE
+zE
+zE
+zE
+"}
+(2,1,1) = {"
+zE
+Rg
+Rg
+Rg
+Rg
+Rg
+qk
+Rg
+qk
+Rg
+Rg
+Rg
+Rg
+Rg
+zE
+"}
+(3,1,1) = {"
+zE
+Rg
+Rg
+ps
+Sr
+ue
+Ku
+Ku
+Ku
+iK
+tT
+Rg
+Rg
+Rg
+zE
+"}
+(4,1,1) = {"
+zE
+Rg
+Rg
+rq
+bS
+DX
+Ku
+xD
+iK
+ue
+bS
+Ku
+Rg
+Rg
+zE
+"}
+(5,1,1) = {"
+zE
+Rg
+jY
+rq
+rq
+ue
+iK
+Ku
+Ku
+jY
+rq
+rq
+Ra
+Rg
+zE
+"}
+(6,1,1) = {"
+Ku
+Rg
+UX
+GC
+Ku
+Ku
+Ku
+Ku
+Ku
+rq
+rq
+bF
+lr
+Rg
+Ku
+"}
+(7,1,1) = {"
+Ku
+qk
+Ku
+iK
+Ce
+rX
+rX
+rX
+nR
+nR
+Ku
+Ku
+Ku
+qk
+Ku
+"}
+(8,1,1) = {"
+ym
+Rg
+Ku
+Ku
+Ce
+iH
+iH
+Rg
+Ht
+Ht
+hl
+iK
+Ku
+Rg
+Xx
+"}
+(9,1,1) = {"
+Ku
+qk
+Ku
+bS
+dD
+rX
+rX
+ur
+rX
+rX
+gV
+Ku
+Ku
+qk
+Ku
+"}
+(10,1,1) = {"
+Ku
+Rg
+jY
+rq
+BB
+rX
+rX
+ur
+rX
+rX
+hl
+Ku
+ue
+Rg
+Ku
+"}
+(11,1,1) = {"
+zE
+Rg
+Hs
+fO
+rq
+IT
+It
+It
+It
+It
+rq
+Ku
+hm
+Rg
+zE
+"}
+(12,1,1) = {"
+zE
+Rg
+Rg
+sQ
+iK
+jY
+iK
+Ku
+Ku
+tT
+rq
+Tw
+Rg
+Rg
+zE
+"}
+(13,1,1) = {"
+zE
+Rg
+Rg
+Rg
+cR
+hm
+Ku
+fH
+Ku
+UX
+Tw
+Rg
+Rg
+Rg
+zE
+"}
+(14,1,1) = {"
+zE
+Rg
+Rg
+Rg
+Rg
+Rg
+qk
+Rg
+qk
+Rg
+Rg
+Rg
+Rg
+Rg
+zE
+"}
+(15,1,1) = {"
+zE
+zE
+zE
+zE
+zE
+Ku
+Ku
+jr
+Ku
+Ku
+zE
+zE
+zE
+zE
+zE
+"}
+
+(1,1,2) = {"
+zE
+zE
+zE
+zE
+zE
+hp
+hp
+hp
+hp
+hp
+zE
+zE
+zE
+zE
+zE
+"}
+(2,1,2) = {"
+zE
+Rg
+Rg
+Rg
+Rg
+Rg
+Ha
+Rg
+oO
+Rg
+Rg
+Rg
+Rg
+Rg
+zE
+"}
+(3,1,2) = {"
+zE
+Rg
+Rg
+Rg
+Hj
+xm
+Ha
+eH
+hp
+hp
+In
+Rg
+Rg
+Rg
+zE
+"}
+(4,1,2) = {"
+zE
+Rg
+Rg
+UC
+Ha
+bR
+hp
+Ha
+Ha
+Hx
+hp
+Ha
+Rg
+Rg
+zE
+"}
+(5,1,2) = {"
+zE
+Rg
+wU
+Si
+hp
+cG
+NW
+Ha
+NW
+xE
+yw
+hp
+hp
+Rg
+zE
+"}
+(6,1,2) = {"
+hp
+Rg
+bR
+Ha
+mK
+rX
+rX
+LE
+rX
+rX
+VP
+Ha
+Ha
+Rg
+hp
+"}
+(7,1,2) = {"
+hp
+oO
+yw
+hp
+rO
+rX
+rX
+LE
+Ht
+Ht
+VP
+Ha
+hp
+oO
+hp
+"}
+(8,1,2) = {"
+hp
+Rg
+hp
+hp
+mK
+iH
+iH
+Rg
+tz
+tz
+VP
+Ha
+Ha
+Rg
+hp
+"}
+(9,1,2) = {"
+hp
+oO
+yw
+hp
+hp
+rX
+rX
+tz
+tz
+tz
+lG
+hp
+hp
+oO
+hp
+"}
+(10,1,2) = {"
+hp
+Rg
+hp
+yw
+mK
+tz
+tz
+tz
+tz
+tz
+VP
+hp
+Hx
+Rg
+hp
+"}
+(11,1,2) = {"
+zE
+Rg
+Ha
+Ha
+Ha
+Ha
+Ha
+nW
+nW
+nW
+mC
+hp
+Ax
+Rg
+zE
+"}
+(12,1,2) = {"
+zE
+Rg
+Rg
+Ha
+Ha
+Ha
+Ha
+Ha
+hp
+Ha
+Ha
+Ha
+Rg
+Rg
+zE
+"}
+(13,1,2) = {"
+zE
+Rg
+Rg
+is
+XA
+hp
+Ha
+hp
+yw
+hp
+hp
+Rg
+Rg
+Rg
+zE
+"}
+(14,1,2) = {"
+zE
+Rg
+Rg
+Rg
+Rg
+Rg
+Ha
+Rg
+oO
+Rg
+Rg
+Rg
+Rg
+Rg
+zE
+"}
+(15,1,2) = {"
+zE
+zE
+zE
+zE
+zE
+hp
+hp
+hp
+hp
+hp
+zE
+zE
+zE
+zE
+zE
+"}

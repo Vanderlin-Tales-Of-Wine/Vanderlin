@@ -1,12 +1,13 @@
 /datum/anvil_recipe
+	abstract_type = /datum/anvil_recipe
 	var/name
 	var/list/additional_items = list() // List of the object(s) we need to complete this recipe.
 	var/material_quality = 0 // Quality of the bar(s) used. Accumulated per added ingot.
 	var/num_of_materials = 1 // Total number of materials used. Quality divided among them.
 	var/skill_quality = 0 // Accumulated per hit based on calculations, will decide final result.
 	var/appro_skill = /datum/skill/craft/blacksmithing // The skill that will be taken into account when crafting.
-	var/req_bar // The material of the ingot we need to craft.
-	var/created_item // The item created when the recipe is fulfilled. Takes an object path as argument, NEVER USE A LIST.
+	var/atom/req_bar // The material of the ingot we need to craft.
+	var/atom/created_item // The item created when the recipe is fulfilled. Takes an object path as argument, NEVER USE A LIST.
 	var/createmultiple = FALSE // Boolean. Do we create more than one result when crafted?
 	var/createditem_num = 0 // How many EXTRA units this recipe will create. At 1, this creates 2 copies.
 	var/craftdiff = 0 // Difficulty of craft. Affects final item quality and chance to advance steps.
@@ -196,3 +197,80 @@
 	if(istype(I, /obj/item/restraints/legcuffs/beartrap))
 		var/obj/item/restraints/legcuffs/beartrap/B
 		B.trap_damage *= modifier
+
+/datum/anvil_recipe/proc/show_menu(mob/user)
+	user << browse(generate_html(user),"window=recipe;size=500x810")
+
+/datum/anvil_recipe/proc/generate_html(mob/user)
+	var/client/client = user
+	if(!istype(client))
+		client = user.client
+	SSassets.transport.send_assets(client, list("try4_border.png", "try4.png", "slop_menustyle2.css"))
+	user << browse_rsc('html/book.png')
+	var/html = {"
+		<!DOCTYPE html>
+		<html lang="en">
+		<meta charset='UTF-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+			body {
+				font-family: "Charm", cursive;
+				font-size: 1.2em;
+				text-align: center;
+				margin: 20px;
+				background-color: #f4efe6;
+				color: #3e2723;
+				background-color: rgb(31, 20, 24);
+				background:
+					url('[SSassets.transport.get_asset_url("try4_border.png")]'),
+					url('book.png');
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: 100% 100%;
+
+			}
+			h1 {
+				text-align: center;
+				font-size: 2.5em;
+				border-bottom: 2px solid #3e2723;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+			}
+			.icon {
+				width: 96px;
+				height: 96px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+		</style>
+		<body>
+		  <div>
+		    <h1>[name]</h1>
+		    <div>
+		      <strong>Requirements</strong>
+			  <br>
+		"}
+	html += "[icon2html(new req_bar, user)] Start with [initial(req_bar.name)] on an anvil.<br>"
+	html += "Hammer the material.<br>"
+	for(var/atom/path as anything in additional_items)
+		html += "[icon2html(new path, user)] then add [initial(path.name)]<br>"
+		html += "Hammer the material.<br>"
+	html += "<br>"
+
+	html += {"
+		</div>
+		<div>
+		"}
+
+	html += "<strong class=class='scroll'>and then you get</strong> <br> [icon2html(new created_item, user)] <br> [initial(created_item.name)]<br>"
+
+	html += {"
+		</div>
+		</div>
+	</body>
+	</html>
+	"}
+	return html

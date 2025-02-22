@@ -48,6 +48,7 @@ require only minor tweaks.
 // numeric offsets - e.g. {"Down": true} means that chasms will fall to z - 1 rather than oblivion
 #define ZTRAIT_UP "Up"
 #define ZTRAIT_DOWN "Down"
+#define ZTRAIT_IGNORE_WEATHER_TRAIT "NoDayorWeather"
 
 // enum - how space transitions should affect this level
 #define ZTRAIT_LINKAGE "Linkage"

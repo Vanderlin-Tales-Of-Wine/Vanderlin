@@ -215,9 +215,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 
-#ifdef TESTING
 	to_chat(world, "<span class='boldannounce'>[msg]</span>")
-#endif
 	log_world(msg)
 
 	SSplexora.serverinitdone(time)

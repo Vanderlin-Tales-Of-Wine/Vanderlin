@@ -56,6 +56,7 @@
 	// Keybindings
 	init_keybindings()
 
+	init_molten_recipes()
 	init_slapcraft_steps()
 	init_slapcraft_recipes()
 	init_curse_names()

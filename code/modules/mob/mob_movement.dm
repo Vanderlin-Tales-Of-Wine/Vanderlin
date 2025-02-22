@@ -688,10 +688,11 @@
 	if(fixedeye)
 		fixedeye = 0
 		if(!tempfixeye)
-			nodirchange = FALSE
+			atom_flags &= ~NO_DIR_CHANGE
 	else
 		fixedeye = 1
-		nodirchange = TRUE
+		atom_flags |= NO_DIR_CHANGE
+
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
 		eyet.update_icon(src)
 	playsound_local(src, 'sound/misc/click.ogg', 100)

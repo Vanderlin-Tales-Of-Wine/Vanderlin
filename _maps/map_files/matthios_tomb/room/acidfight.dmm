@@ -1,0 +1,1100 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"b" = (
+/obj/structure/ladder,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"c" = (
+/turf/open/floor/rogue/metal{
+	dir = 8
+	},
+/area/rogue)
+"d" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"e" = (
+/obj/structure/bars/pipe,
+/turf/open/transparent/openspace,
+/area/rogue)
+"i" = (
+/turf/closed/wall/mineral/rogue/pipe{
+	icon_state = "iron_line";
+	dir = 4
+	},
+/area/rogue)
+"k" = (
+/obj/item/natural/poo/cow,
+/turf/open/floor/rogue/metal,
+/area/rogue)
+"l" = (
+/obj/structure/fluff/walldeco/chains,
+/obj/item/rogueweapon/shield/tower/metal,
+/turf/open/floor/rogue/volcanic,
+/area/rogue)
+"m" = (
+/turf/open/floor/rogue/metal,
+/area/rogue)
+"n" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"o" = (
+/obj/structure/bars/pipe/left,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"p" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"q" = (
+/obj/item/rogueweapon/mace/steel,
+/turf/open/floor/rogue/volcanic,
+/area/rogue)
+"r" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"s" = (
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"t" = (
+/obj/item/natural/poo,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"u" = (
+/obj/structure/bed/rogue/shit,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"v" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/open/floor/rogue/metal,
+/area/rogue)
+"w" = (
+/turf/closed,
+/area/rogue)
+"x" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"y" = (
+/turf/open/floor/rogue/metal{
+	dir = 4
+	},
+/area/rogue)
+"z" = (
+/turf/open/lava/acid,
+/area/rogue)
+"A" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"B" = (
+/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
+/obj/effect/landmark/chest_or_mimic,
+/obj/item/dmusicbox,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"C" = (
+/obj/item/fishingrod,
+/turf/open/floor/rogue/volcanic,
+/area/rogue)
+"D" = (
+/obj/item/natural/poo,
+/turf/open/floor/rogue/metal,
+/area/rogue)
+"E" = (
+/turf/closed/wall/mineral/rogue/pipe{
+	icon_state = "iron_line"
+	},
+/area/rogue)
+"F" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"G" = (
+/turf/closed/wall/mineral/rogue/pipe{
+	dir = 1;
+	icon_state = "iron_corner"
+	},
+/area/rogue)
+"H" = (
+/obj/structure/fluff/wallclock,
+/obj/item/flashlight/flare/torch/lantern/copper,
+/obj/structure/closet/crate/chest{
+	locked = 1
+	},
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"J" = (
+/obj/structure/ladder,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"K" = (
+/obj/structure/fluff/walldeco/chains,
+/turf/open/transparent/openspace,
+/area/rogue)
+"L" = (
+/turf/open/floor/rogue/volcanic,
+/area/rogue)
+"M" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"N" = (
+/obj/structure/fluff/big_chain,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"O" = (
+/obj/item/ammo_holder/quiver/bolts,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"P" = (
+/obj/item/natural/worms{
+	pixel_y = 12
+	},
+/obj/item/natural/worms{
+	pixel_y = -2;
+	pixel_x = -6
+	},
+/obj/item/natural/worms{
+	pixel_y = -2;
+	pixel_x = 9
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"Q" = (
+/obj/structure/fluff/walldeco/chains,
+/obj/item/natural/poo,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"R" = (
+/obj/item/roguegear{
+	pixel_x = -6
+	},
+/obj/item/roguegear{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/obj/item/roguegear{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"V" = (
+/obj/item/rogueweapon/flail,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"W" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"X" = (
+/obj/structure/fluff/walldeco/chains,
+/obj/structure/bars/pipe,
+/turf/open/transparent/openspace,
+/area/rogue)
+"Y" = (
+/obj/item/ammo_casing/caseless/rogue/bolt{
+	pixel_x = -9
+	},
+/obj/item/ammo_casing/caseless/rogue/bolt{
+	pixel_y = 11
+	},
+/obj/item/ammo_casing/caseless/rogue/bolt{
+	pixel_y = 10;
+	pixel_x = -25
+	},
+/obj/item/ammo_casing/caseless/rogue/bolt{
+	pixel_y = -16
+	},
+/obj/item/ammo_casing/caseless/rogue/bolt{
+	pixel_x = 11
+	},
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue)
+"Z" = (
+/obj/structure/floordoor,
+/turf/open/floor/rogue/metal,
+/area/rogue)
+
+(1,1,1) = {"
+W
+W
+W
+W
+W
+W
+W
+W
+a
+n
+a
+W
+W
+W
+W
+W
+W
+W
+W
+W
+"}
+(2,1,1) = {"
+W
+a
+a
+a
+a
+z
+a
+a
+d
+a
+a
+a
+a
+a
+a
+p
+a
+a
+a
+W
+"}
+(3,1,1) = {"
+W
+a
+a
+p
+a
+z
+z
+a
+a
+a
+d
+a
+a
+a
+a
+a
+a
+a
+a
+W
+"}
+(4,1,1) = {"
+W
+a
+a
+a
+a
+a
+z
+a
+a
+a
+Q
+a
+z
+z
+z
+z
+z
+z
+z
+W
+"}
+(5,1,1) = {"
+W
+a
+a
+a
+a
+a
+z
+z
+z
+a
+z
+z
+z
+L
+L
+z
+z
+a
+a
+W
+"}
+(6,1,1) = {"
+W
+z
+z
+z
+z
+z
+z
+L
+z
+z
+z
+L
+L
+L
+L
+L
+z
+z
+a
+W
+"}
+(7,1,1) = {"
+W
+a
+L
+L
+z
+a
+a
+a
+P
+C
+z
+z
+q
+L
+l
+L
+z
+z
+a
+W
+"}
+(8,1,1) = {"
+W
+a
+p
+a
+z
+L
+a
+V
+d
+a
+a
+z
+z
+L
+L
+L
+z
+L
+a
+W
+"}
+(9,1,1) = {"
+F
+F
+L
+a
+z
+z
+a
+a
+a
+p
+a
+a
+z
+L
+L
+L
+z
+a
+a
+a
+"}
+(10,1,1) = {"
+M
+F
+d
+a
+z
+z
+L
+a
+d
+b
+d
+L
+z
+z
+z
+z
+z
+L
+a
+A
+"}
+(11,1,1) = {"
+F
+F
+a
+a
+L
+z
+a
+a
+a
+p
+a
+a
+z
+z
+a
+z
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+W
+a
+a
+z
+z
+z
+z
+a
+a
+V
+a
+L
+z
+a
+a
+a
+a
+a
+d
+W
+"}
+(13,1,1) = {"
+W
+z
+z
+z
+a
+a
+z
+L
+L
+a
+a
+a
+z
+z
+z
+z
+z
+a
+a
+W
+"}
+(14,1,1) = {"
+W
+z
+z
+L
+a
+a
+z
+z
+a
+L
+a
+z
+z
+a
+a
+a
+z
+a
+a
+W
+"}
+(15,1,1) = {"
+W
+a
+a
+z
+a
+a
+z
+z
+z
+z
+z
+z
+a
+a
+d
+a
+z
+z
+z
+W
+"}
+(16,1,1) = {"
+W
+a
+a
+a
+Q
+a
+z
+a
+z
+a
+a
+z
+a
+a
+p
+a
+a
+a
+a
+W
+"}
+(17,1,1) = {"
+W
+a
+a
+a
+a
+a
+z
+a
+a
+a
+a
+z
+z
+z
+a
+a
+a
+a
+a
+W
+"}
+(18,1,1) = {"
+W
+a
+a
+a
+a
+a
+z
+a
+a
+a
+a
+a
+a
+z
+a
+a
+a
+t
+a
+W
+"}
+(19,1,1) = {"
+W
+a
+a
+a
+a
+a
+z
+a
+a
+a
+a
+a
+a
+z
+a
+a
+a
+a
+a
+W
+"}
+(20,1,1) = {"
+W
+W
+W
+W
+W
+W
+W
+W
+a
+r
+a
+W
+W
+W
+W
+W
+W
+W
+W
+W
+"}
+
+(1,1,2) = {"
+W
+W
+W
+W
+W
+W
+W
+s
+s
+s
+s
+s
+W
+W
+W
+W
+W
+W
+W
+W
+"}
+(2,1,2) = {"
+W
+x
+x
+x
+x
+x
+x
+m
+s
+s
+s
+m
+x
+x
+x
+x
+x
+e
+x
+W
+"}
+(3,1,2) = {"
+W
+x
+x
+m
+m
+x
+x
+m
+s
+N
+s
+m
+m
+m
+v
+x
+x
+e
+x
+W
+"}
+(4,1,2) = {"
+W
+x
+m
+s
+N
+m
+x
+e
+m
+m
+m
+x
+x
+x
+m
+x
+x
+e
+x
+W
+"}
+(5,1,2) = {"
+W
+x
+x
+m
+m
+x
+x
+e
+x
+m
+x
+x
+x
+x
+m
+x
+x
+e
+x
+W
+"}
+(6,1,2) = {"
+W
+x
+x
+x
+e
+x
+x
+X
+x
+x
+x
+x
+x
+m
+N
+m
+x
+e
+x
+W
+"}
+(7,1,2) = {"
+W
+y
+y
+x
+e
+x
+x
+e
+x
+m
+x
+x
+x
+m
+s
+m
+x
+e
+x
+W
+"}
+(8,1,2) = {"
+s
+s
+N
+y
+x
+x
+x
+m
+c
+m
+m
+x
+x
+m
+N
+m
+x
+e
+x
+W
+"}
+(9,1,2) = {"
+s
+s
+s
+y
+x
+x
+m
+N
+Y
+s
+N
+m
+x
+x
+m
+x
+x
+m
+m
+m
+"}
+(10,1,2) = {"
+s
+s
+s
+y
+x
+m
+y
+B
+s
+J
+s
+m
+k
+x
+m
+m
+m
+N
+s
+s
+"}
+(11,1,2) = {"
+s
+s
+s
+y
+x
+x
+m
+N
+O
+s
+N
+m
+x
+x
+x
+x
+m
+N
+s
+s
+"}
+(12,1,2) = {"
+s
+s
+N
+y
+x
+x
+x
+m
+m
+m
+m
+x
+x
+x
+x
+x
+e
+m
+m
+m
+"}
+(13,1,2) = {"
+W
+y
+y
+x
+x
+x
+x
+m
+x
+x
+x
+x
+m
+m
+x
+x
+e
+x
+x
+W
+"}
+(14,1,2) = {"
+W
+x
+m
+x
+x
+x
+x
+K
+x
+x
+m
+m
+s
+s
+m
+x
+e
+x
+x
+W
+"}
+(15,1,2) = {"
+W
+x
+m
+m
+m
+x
+x
+D
+x
+x
+x
+m
+N
+s
+m
+x
+e
+x
+x
+W
+"}
+(16,1,2) = {"
+W
+m
+s
+s
+s
+m
+m
+m
+m
+x
+x
+x
+m
+m
+G
+E
+E
+E
+E
+W
+"}
+(17,1,2) = {"
+W
+m
+s
+N
+s
+m
+x
+x
+m
+m
+m
+x
+x
+m
+Z
+s
+s
+s
+s
+W
+"}
+(18,1,2) = {"
+W
+m
+s
+s
+s
+m
+x
+m
+s
+N
+s
+m
+x
+m
+i
+H
+s
+s
+s
+W
+"}
+(19,1,2) = {"
+W
+x
+m
+m
+m
+x
+w
+m
+s
+s
+s
+m
+x
+x
+i
+o
+s
+R
+u
+W
+"}
+(20,1,2) = {"
+W
+W
+W
+W
+W
+W
+W
+s
+s
+s
+s
+s
+W
+W
+W
+W
+W
+W
+W
+W
+"}

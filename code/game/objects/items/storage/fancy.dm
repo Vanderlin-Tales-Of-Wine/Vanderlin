@@ -25,6 +25,8 @@
 	var/fancy_open = FALSE
 
 /obj/item/storage/fancy/PopulateContents()
+	if(!spawn_type)
+		return
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, spawn_type)
 
 /obj/item/storage/fancy/update_icon()

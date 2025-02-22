@@ -19,6 +19,16 @@ GLOBAL_LIST_EMPTY(slapcraft_recipes)
 			GLOB.slapcraft_categorized_recipes[recipe.category][recipe.subcategory] = list()
 		GLOB.slapcraft_categorized_recipes[recipe.category][recipe.subcategory] += recipe
 
+
+/proc/init_molten_recipes()
+	var/list/recipe_list = GLOB.molten_recipes
+	for(var/datum/type as anything in typesof(/datum/molten_recipe))
+		if(is_abstract(type))
+			continue
+		var/datum/molten_recipe/recipe = new type()
+		recipe_list |= recipe
+
+
 /proc/init_slapcraft_steps()
 	var/list/step_list = GLOB.slapcraft_steps
 	for(var/datum/type as anything in typesof(/datum/slapcraft_step))

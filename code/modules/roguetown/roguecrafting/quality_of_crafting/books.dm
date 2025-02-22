@@ -105,6 +105,15 @@
 		else if(ispath(path, /datum/pot_recipe))
 			var/datum/pot_recipe/real_path = new path
 			real_path.show_menu(current_reader)
+		else if(ispath(path, /datum/molten_recipe))
+			var/datum/molten_recipe/real_path = new path
+			real_path.show_menu(current_reader)
+		else if(ispath(path, /datum/anvil_recipe))
+			var/datum/anvil_recipe/real_path = new path
+			real_path.show_menu(current_reader)
+		else if(ispath(path, /datum/pottery_recipe))
+			var/datum/pottery_recipe/real_path = new path
+			real_path.show_menu(current_reader)
 
 /obj/item/recipe_book/getonmobprop(tag)
 	. = ..()
@@ -258,6 +267,7 @@
 	base_icon_state = "book"
 
 	types = list(
+		/datum/pottery_recipe,
 		/datum/slapcraft_recipe/masonry,
 	)
 
@@ -272,4 +282,15 @@
 		/datum/repeatable_crafting_recipe/paint_palette,
 		/datum/repeatable_crafting_recipe/paintbrush,
 		/datum/slapcraft_recipe/carpentry/structure/easel,
+	)
+
+/obj/item/recipe_book/blacksmithing
+	name = "The Smith’s Legacy"
+	desc = "Penned by Aldric Forgeheart, Master Blacksmith and Keeper of the Ancestral Flame"
+	icon_state ="book3_0"
+	base_icon_state = "book3"
+
+	types = list(
+		/datum/molten_recipe,
+		/datum/anvil_recipe,
 	)

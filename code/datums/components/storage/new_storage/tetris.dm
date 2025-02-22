@@ -16,13 +16,6 @@
 			item_in_source.moveToNullspace()
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
 
-/obj/item
-	// ~Grid INVENTORY VARIABLES
-	/// Width we occupy on the hud - Keep null to generate based on w_class
-	var/grid_width
-	/// Height we occupy on the hud - Keep null to generate based on w_class
-	var/grid_height
-
 /obj/item/proc/inventory_flip(mob/user, force = FALSE)
 	if(!force && (user && ((!user.Adjacent(src) && !user.DirectAccess(src)) || !isliving(user))))
 		return

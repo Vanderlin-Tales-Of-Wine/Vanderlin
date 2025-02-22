@@ -65,13 +65,16 @@ SUBSYSTEM_DEF(outdoor_effects)
 	var/next_day = FALSE // Resets when station_time is less than the next start time.
 
 /datum/controller/subsystem/outdoor_effects/proc/fullPlonk()
-	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+	var/list/z_list = SSmapping.levels_by_trait(ZTRAIT_STATION)
+	z_list -= SSmapping.levels_by_trait(ZTRAIT_IGNORE_WEATHER_TRAIT)
+	for (var/z in z_list)
 		for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
 			GLOB.SUNLIGHT_QUEUE_WORK += T
 
 /datum/controller/subsystem/outdoor_effects/Initialize(timeofday)
 	if(!initialized)
 		turf_weather_affectable_z_levels = SSmapping.levels_by_trait(ZTRAIT_WEATHER_STUFF)
+		turf_weather_affectable_z_levels -= SSmapping.levels_by_trait(ZTRAIT_IGNORE_WEATHER_TRAIT)
 		get_time_of_day()
 		InitializeTurfs()
 		initialized = TRUE
@@ -83,7 +86,9 @@ SUBSYSTEM_DEF(outdoor_effects)
 	return ..()
 
 /datum/controller/subsystem/outdoor_effects/proc/InitializeTurfs(list/targets)
-	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
+	var/list/z_list = SSmapping.levels_by_trait(ZTRAIT_STATION)
+	z_list -= SSmapping.levels_by_trait(ZTRAIT_IGNORE_WEATHER_TRAIT)
+	for (var/z in z_list)
 		init_z_turfs(z)
 
 /datum/controller/subsystem/outdoor_effects/proc/init_z_turfs(z)

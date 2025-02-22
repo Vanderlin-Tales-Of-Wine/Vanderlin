@@ -1,0 +1,849 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aL" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/food/snacks/rotten/breadslice{
+	pixel_y = -2;
+	pixel_x = -13
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"bN" = (
+/obj/structure/chair/bench/church/mid,
+/turf/open/floor/rogue/carpet/lord/center,
+/area/rogue)
+"eB" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"hk" = (
+/obj/structure/fluff/walldeco/bigpainting,
+/turf/open/transparent/openspace,
+/area/rogue)
+"hn" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"hC" = (
+/obj/machinery/light/rogue/chand,
+/turf/open/transparent/openspace,
+/area/rogue)
+"hZ" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 8;
+	locked = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"iw" = (
+/obj/structure/chair/bench/church/mid,
+/obj/structure/chair/bench/church/mid,
+/turf/open/floor/rogue/carpet/lord/center,
+/area/rogue)
+"kB" = (
+/obj/structure/chair/wood/rogue/chair_noble/red{
+	dir = 8
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"lg" = (
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"ms" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	locked = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"oQ" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"qt" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
+	},
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"rp" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4;
+	locked = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"sE" = (
+/obj/structure/fluff/walldeco/painting/castle,
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue)
+"tj" = (
+/obj/structure/table/church,
+/obj/item/reagent_containers/glass/cup/golden{
+	pixel_x = -6;
+	pixel_y = 14
+	},
+/obj/item/roguegem/blue{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"vb" = (
+/obj/structure/table/vtable/v2,
+/obj/item/roguestatue/gold{
+	pixel_y = 14
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"vj" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1;
+	locked = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"vv" = (
+/obj/structure/table/church,
+/obj/structure/table/church/m,
+/obj/item/clothing/ring/active/nomag{
+	pixel_x = 23;
+	pixel_y = 6
+	},
+/obj/item/rogueweapon/sword/decorated{
+	name = "A Lords Blade";
+	desc = "A long dead kings Blade, Forgotten to time yet master in work."
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"wo" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"yY" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"zk" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/food/snacks/rotten/breadslice{
+	pixel_x = 19
+	},
+/obj/item/rogueweapon/knife/cleaver{
+	pixel_x = -2;
+	pixel_y = -8
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"zw" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"Ab" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"BU" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"Cf" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"CC" = (
+/obj/structure/chair/bench/church/r,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue)
+"CT" = (
+/obj/structure/closet/crate/roguecloset/inn/chest,
+/obj/item/clothing/suit/roguetown/shirt/robe/black,
+/obj/item/clothing/suit/roguetown/shirt/robe/mage,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"DK" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"EZ" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"FB" = (
+/obj/structure/fluff/walldeco/painting/skull,
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue)
+"GG" = (
+/obj/structure/fluff/walldeco/bigpainting,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"Hm" = (
+/obj/structure/fluff/walldeco/bigpainting/lake,
+/turf/open/transparent/openspace,
+/area/rogue)
+"HK" = (
+/obj/structure/fluff/walldeco/painting/skull,
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue)
+"Ip" = (
+/obj/machinery/light/rogue/chand,
+/obj/item/roguecoin/copper,
+/turf/open/transparent/openspace,
+/area/rogue)
+"JM" = (
+/obj/structure/chair/wood/rogue/chair_noble/red,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"KU" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"Ll" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"Ls" = (
+/obj/structure/chair/bench/church,
+/turf/open/floor/rogue/carpet/lord/left,
+/area/rogue)
+"LH" = (
+/obj/structure/fluff/walldeco/painting/crown,
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue)
+"Ob" = (
+/obj/structure/chair/bench/church/mid,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/rogue/carpet/lord/center,
+/area/rogue)
+"Oc" = (
+/obj/item/ingot/gold,
+/obj/item/ingot/gold{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/ingot/gold{
+	pixel_y = 4;
+	pixel_x = 5
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"Ox" = (
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"OA" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"QC" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"Rn" = (
+/obj/structure/chair/bench/church/r,
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue)
+"RJ" = (
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue)
+"RZ" = (
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"Tf" = (
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue)
+"TG" = (
+/obj/structure/table/wood/plain_alt,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"UK" = (
+/obj/structure/chair/bench/throne,
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_x = -19
+	},
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_x = 16;
+	pixel_y = -11
+	},
+/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+	pixel_y = -13;
+	pixel_x = -9
+	},
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
+	name = "Wine Drenched Skeleton"
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"VG" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"Wp" = (
+/obj/structure/table/vtable,
+/obj/item/roguestatue/gold/loot{
+	pixel_y = 11
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"WG" = (
+/obj/structure/fluff/walldeco/painting,
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue)
+"Xm" = (
+/obj/structure/table/church{
+	dir = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"Yw" = (
+/obj/structure/chair/bench/church,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/rogue/carpet/lord/left,
+/area/rogue)
+"YM" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"ZE" = (
+/obj/structure/mirror/fancy,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+
+(1,1,1) = {"
+DK
+DK
+DK
+DK
+DK
+RZ
+OA
+RZ
+RZ
+DK
+DK
+DK
+DK
+DK
+DK
+"}
+(2,1,1) = {"
+DK
+Tf
+Tf
+RJ
+RJ
+RJ
+rp
+rp
+Tf
+RJ
+Tf
+Tf
+Tf
+Tf
+DK
+"}
+(3,1,1) = {"
+DK
+Tf
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+Tf
+DK
+"}
+(4,1,1) = {"
+DK
+RJ
+GG
+lg
+lg
+Ls
+Ls
+Ls
+Ls
+Yw
+Ls
+lg
+lg
+Tf
+DK
+"}
+(5,1,1) = {"
+DK
+RJ
+Wp
+lg
+lg
+Ob
+iw
+bN
+bN
+bN
+bN
+lg
+lg
+Tf
+DK
+"}
+(6,1,1) = {"
+DK
+RJ
+vb
+lg
+lg
+Rn
+Rn
+CC
+Rn
+Rn
+Rn
+lg
+lg
+RJ
+RZ
+"}
+(7,1,1) = {"
+RZ
+ms
+lg
+lg
+tj
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+Tf
+RZ
+"}
+(8,1,1) = {"
+oQ
+FB
+UK
+lg
+vv
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+vj
+VG
+"}
+(9,1,1) = {"
+RZ
+ms
+lg
+lg
+Xm
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+Tf
+RZ
+"}
+(10,1,1) = {"
+DK
+Tf
+Oc
+lg
+lg
+Ls
+Ls
+Ls
+Yw
+Ls
+Ls
+lg
+lg
+Tf
+RZ
+"}
+(11,1,1) = {"
+DK
+Tf
+lg
+lg
+lg
+Ob
+bN
+bN
+bN
+bN
+bN
+lg
+lg
+RJ
+DK
+"}
+(12,1,1) = {"
+DK
+sE
+lg
+lg
+lg
+Rn
+Rn
+CC
+Rn
+Rn
+CC
+lg
+lg
+Tf
+DK
+"}
+(13,1,1) = {"
+DK
+Tf
+ZE
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+lg
+Tf
+DK
+"}
+(14,1,1) = {"
+DK
+Tf
+Tf
+RJ
+RJ
+Tf
+hZ
+hZ
+Tf
+Tf
+WG
+RJ
+Tf
+Tf
+DK
+"}
+(15,1,1) = {"
+DK
+DK
+DK
+DK
+DK
+RZ
+Ll
+RZ
+RZ
+DK
+DK
+DK
+DK
+DK
+DK
+"}
+
+(1,1,2) = {"
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+"}
+(2,1,2) = {"
+BU
+Tf
+Tf
+Tf
+Tf
+Tf
+KU
+KU
+Tf
+Tf
+Tf
+LH
+Tf
+Tf
+BU
+"}
+(3,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+Ox
+Ox
+Ox
+Ox
+Ox
+Ox
+JM
+TG
+Tf
+BU
+"}
+(4,1,2) = {"
+BU
+Tf
+Hm
+BU
+BU
+Ox
+Ox
+Ox
+Ox
+Ox
+Ox
+Ox
+kB
+Tf
+BU
+"}
+(5,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+yY
+yY
+hn
+EZ
+yY
+yY
+hn
+Ox
+Tf
+BU
+"}
+(6,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+BU
+BU
+eB
+Cf
+BU
+BU
+eB
+Ox
+KU
+BU
+"}
+(7,1,2) = {"
+BU
+KU
+zw
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+zk
+Ox
+Tf
+BU
+"}
+(8,1,2) = {"
+BU
+Tf
+Ox
+BU
+hC
+BU
+Ip
+BU
+hC
+BU
+BU
+YM
+Ox
+Tf
+BU
+"}
+(9,1,2) = {"
+BU
+KU
+yY
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+aL
+Ox
+Tf
+BU
+"}
+(10,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+BU
+BU
+eB
+Cf
+BU
+BU
+eB
+Ox
+KU
+BU
+"}
+(11,1,2) = {"
+BU
+Tf
+hk
+BU
+BU
+zw
+zw
+QC
+wo
+zw
+zw
+QC
+Ox
+Tf
+BU
+"}
+(12,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+Ox
+Ox
+Ox
+Ab
+Ox
+Ox
+Ox
+Ox
+Tf
+BU
+"}
+(13,1,2) = {"
+BU
+Tf
+BU
+BU
+BU
+Ox
+Ox
+Ox
+Ox
+Ox
+CT
+CT
+CT
+Tf
+BU
+"}
+(14,1,2) = {"
+BU
+Tf
+Tf
+Tf
+Tf
+Tf
+qt
+KU
+Tf
+Tf
+HK
+Tf
+Tf
+Tf
+BU
+"}
+(15,1,2) = {"
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+"}

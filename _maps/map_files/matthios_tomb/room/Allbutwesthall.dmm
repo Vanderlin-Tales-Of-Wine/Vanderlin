@@ -1,0 +1,738 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"c" = (
+/obj/structure/fluff/railing/fence,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"d" = (
+/obj/structure/closet/crate/chest/crafted,
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"e" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"f" = (
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"g" = (
+/obj/structure/ladder,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"h" = (
+/obj/structure/table/wood/counter,
+/obj/item/roguecoin/copper,
+/obj/item/roguecoin/copper,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"j" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"k" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/shield/wood{
+	pixel_x = -5
+	},
+/obj/item/rogueweapon/shield/wood{
+	pixel_x = 8
+	},
+/obj/item/rogueweapon/shield/tower,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"l" = (
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"n" = (
+/obj/structure/table/wood/counter/end{
+	dir = 4
+	},
+/obj/item/roguecoin/copper,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"p" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"q" = (
+/obj/structure/closet/crate/roguecloset/inn/south,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"r" = (
+/obj/structure/closet/crate/drawer/inn,
+/obj/item/roguecoin/copper/pile,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"s" = (
+/obj/structure/table/wood/counter,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"t" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"u" = (
+/obj/structure/mineral_door/wood/green,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"x" = (
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"y" = (
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"z" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"C" = (
+/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"D" = (
+/obj/structure/fluff/railing/fence,
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"E" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"F" = (
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"G" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+"I" = (
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue)
+"J" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"K" = (
+/turf/closed/wall/mineral/rogue/wooddark/window,
+/area/rogue)
+"L" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"M" = (
+/obj/structure/bed/rogue/wool,
+/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"N" = (
+/obj/structure/mineral_door/wood/green,
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue)
+"O" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+"P" = (
+/obj/item/bomb{
+	pixel_x = 9;
+	pixel_y = 17
+	},
+/obj/item/bomb{
+	pixel_x = -1;
+	pixel_y = 17
+	},
+/obj/structure/rack/rogue/shelf/big,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"Q" = (
+/obj/structure/fluff/railing/border,
+/turf/open/transparent/openspace,
+/area/rogue)
+"S" = (
+/obj/structure/rack/rogue,
+/obj/item/clothing/suit/roguetown/armor/leather,
+/obj/item/clothing/under/roguetown/trou/leather{
+	pixel_x = 14;
+	pixel_y = -4
+	},
+/obj/item/clothing/wrists/roguetown/bracers/leather{
+	pixel_y = -9;
+	pixel_x = -6
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"T" = (
+/obj/structure/fluff/buysign,
+/obj/structure/fluff/buysign{
+	desc = " Store Closed"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"U" = (
+/obj/structure/fluff/railing/fence,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"W" = (
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/sword/iron{
+	pixel_x = 10
+	},
+/obj/item/rogueweapon/sword/iron{
+	pixel_x = 3
+	},
+/obj/item/rogueweapon/sword/arming{
+	pixel_y = 3;
+	pixel_x = -1
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+"X" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+"Y" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+"Z" = (
+/obj/structure/table/wood/counter/end{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+p
+p
+p
+I
+P
+W
+k
+S
+g
+I
+p
+p
+p
+a
+"}
+(3,1,1) = {"
+a
+p
+p
+a
+I
+l
+l
+l
+C
+l
+I
+a
+p
+p
+a
+"}
+(4,1,1) = {"
+a
+p
+p
+a
+I
+l
+n
+s
+h
+Z
+I
+a
+a
+p
+a
+"}
+(5,1,1) = {"
+a
+a
+p
+p
+I
+l
+l
+l
+l
+L
+I
+a
+a
+p
+a
+"}
+(6,1,1) = {"
+p
+p
+p
+p
+I
+z
+K
+u
+K
+I
+I
+p
+p
+p
+p
+"}
+(7,1,1) = {"
+p
+p
+p
+z
+c
+z
+z
+j
+z
+z
+c
+z
+z
+z
+p
+"}
+(8,1,1) = {"
+t
+p
+p
+z
+j
+j
+j
+j
+j
+j
+j
+j
+j
+z
+E
+"}
+(9,1,1) = {"
+p
+p
+p
+z
+c
+z
+z
+j
+z
+z
+c
+z
+z
+z
+p
+"}
+(10,1,1) = {"
+p
+p
+T
+p
+U
+y
+z
+j
+z
+z
+D
+p
+p
+p
+p
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+x
+f
+j
+f
+x
+a
+a
+p
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+p
+p
+z
+j
+z
+p
+p
+a
+p
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+p
+p
+p
+p
+z
+z
+z
+p
+p
+a
+p
+p
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+p
+p
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+p
+p
+J
+p
+p
+a
+a
+a
+a
+a
+"}
+
+(1,1,2) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,2) = {"
+a
+p
+p
+p
+I
+q
+l
+l
+l
+g
+I
+a
+p
+p
+a
+"}
+(3,1,2) = {"
+a
+p
+p
+p
+I
+r
+l
+l
+l
+l
+I
+p
+p
+p
+a
+"}
+(4,1,2) = {"
+a
+p
+p
+a
+I
+M
+l
+l
+l
+d
+I
+a
+a
+p
+a
+"}
+(5,1,2) = {"
+a
+p
+a
+a
+I
+I
+K
+N
+K
+I
+I
+a
+a
+p
+a
+"}
+(6,1,2) = {"
+p
+p
+e
+e
+Q
+l
+F
+l
+F
+l
+G
+e
+e
+p
+p
+"}
+(7,1,2) = {"
+p
+e
+e
+e
+Y
+O
+O
+e
+O
+O
+X
+e
+e
+e
+p
+"}
+(8,1,2) = {"
+p
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+p
+"}
+(9,1,2) = {"
+p
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+p
+"}
+(10,1,2) = {"
+p
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+p
+"}
+(11,1,2) = {"
+a
+a
+a
+a
+a
+e
+e
+e
+e
+e
+a
+a
+e
+a
+a
+"}
+(12,1,2) = {"
+a
+a
+a
+a
+e
+e
+e
+e
+e
+e
+e
+e
+e
+a
+a
+"}
+(13,1,2) = {"
+a
+a
+e
+e
+e
+e
+e
+e
+e
+e
+e
+a
+e
+e
+a
+"}
+(14,1,2) = {"
+a
+a
+a
+e
+e
+e
+e
+e
+e
+e
+e
+a
+a
+a
+a
+"}
+(15,1,2) = {"
+a
+a
+a
+a
+a
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+"}

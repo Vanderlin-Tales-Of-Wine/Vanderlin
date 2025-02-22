@@ -589,7 +589,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 
 /mob/living/proc/set_heartattack(status)
 	return
-	
+
 /mob/living/carbon/set_heartattack(status)
 	if(!can_heartattack())
 		return FALSE

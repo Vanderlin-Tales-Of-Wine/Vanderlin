@@ -71,6 +71,7 @@
 	for(var/obj/structure/water_pipe/pipe in orphaned_pipes)
 		pipe.propagate_change(check_id, null, 0, null, null)
 		pipe.providers = list()
+
 /obj/structure/water_pipe/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 96
 	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
