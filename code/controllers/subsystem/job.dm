@@ -15,7 +15,6 @@ SUBSYSTEM_DEF(job)
 	var/list/prioritized_jobs = list()
 	var/list/latejoin_trackers = list()
 
-	var/overflow_role = /datum/job/assistant //overflow is disabled, but we need SOMETHING
 	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
 
 /datum/controller/subsystem/job/Initialize(timeofday)
@@ -25,27 +24,7 @@ SUBSYSTEM_DEF(job)
 	if(CONFIG_GET(flag/load_jobs_from_txt))
 		LoadJobs()
 	generate_selectable_species()
-	//set_overflow_role(CONFIG_GET(string/overflow_job))
 	return ..()
-
-/datum/controller/subsystem/job/proc/set_overflow_role(new_overflow_role)
-	var/datum/job/new_overflow = ispath(new_overflow_role) ? GetJobType(new_overflow_role) : GetJob(new_overflow_role)
-	if(!new_overflow)
-		JobDebug("Failed to set new overflow role: [new_overflow_role]")
-		CRASH("set_overflow_role failed | new_overflow_role: [isnull(new_overflow_role) ? "null" : new_overflow_role]")
-	var/cap = CONFIG_GET(number/overflow_cap)
-
-	new_overflow.spawn_positions = cap
-	new_overflow.total_positions = cap
-
-	if(new_overflow_role == overflow_role)
-		return
-
-	var/datum/job/old_overflow = GetJobType(overflow_role)
-	old_overflow.spawn_positions = initial(old_overflow.spawn_positions)
-	old_overflow.total_positions = initial(old_overflow.total_positions)
-	overflow_role = new_overflow.type
-	JobDebug("Overflow role set to : [overflow_role]")
 
 /datum/controller/subsystem/job/proc/SetupOccupations()
 	all_occupations = list()
@@ -178,9 +157,6 @@ SUBSYSTEM_DEF(job)
 	JobDebug("GRJ Giving random job, Player: [player]")
 	. = FALSE
 	for(var/datum/job/job as anything in shuffle(joinable_occupations))
-		if(istype(job, GetJobType(overflow_role))) // We don't want to give him assistant, that's boring!
-			continue
-
 		if(job.title in GLOB.noble_positions) //If you want a command position, select it!
 			continue
 
@@ -555,18 +531,16 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/HandleUnassigned(mob/dead/new_player/player)
 	if(PopcapReached())
 		RejectPlayer(player)
-	else
-		if(player.client.prefs.joblessrole == BEOVERFLOW)
-			if(QDELETED(player))
-				RejectPlayer(player)
-			else
-				if(!AssignRole(player, SSjob.overflow_role))
-					RejectPlayer(player)
-		else if(player.client.prefs.joblessrole == BERANDOMJOB)
+		return
+
+	switch(player.client.prefs.joblessrole)
+		if(BERANDOMJOB)
 			if(!GiveRandomJob(player))
 				RejectPlayer(player)
-		else if(player.client.prefs.joblessrole == RETURNTOLOBBY)
+
+		if(RETURNTOLOBBY)
 			RejectPlayer(player)
+			
 		else //Something gone wrong if we got here.
 			var/message = "DO: [player] fell through handling unassigned"
 			JobDebug(message)
@@ -589,12 +563,7 @@ SUBSYSTEM_DEF(job)
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
 	equipping.mind?.set_assigned_role(job)
-
-	// if(player_client)
-	// 	to_chat(player_client, "<span class='infoplain'><b>You are the [job.get_informed_title(equipping)].</b></span>")
-
 	equipping.on_job_equipping(job)
-
 	job.announce_job(equipping)
 
 	if(player_client.holder)
@@ -603,24 +572,13 @@ SUBSYSTEM_DEF(job)
 		else
 			handle_auto_deadmin_roles(player_client, job.title)
 
-	// if(player_client)
-	// 	to_chat(player_client, "<span class='infoplain'><b>As the [job.get_informed_title(equipping)] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
-
-	//job.radio_help_message(equipping)
-
 	if(player_client)
 		if(job.req_admin_notify)
 			to_chat(player_client, "<span class='infoplain'><b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b></span>")
-		// if(CONFIG_GET(number/minimal_access_threshold))
-		// 	to_chat(player_client, span_notice("<B>As this station was initially staffed with a [CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] have been added to your ID card.</B>"))
 		SSpersistence.antag_rep_change[player_client.ckey] += job.GetAntagRep()
 		var/related_policy = get_policy(job.title)
 		if(related_policy)
 			to_chat(player_client, related_policy)
-
-	// if(ishuman(equipping))
-	// 	var/mob/living/carbon/human/wageslave = equipping
-	// 	wageslave.add_memory("Your account ID is [wageslave.account_id].")
 
 	job.after_spawn(equipping, player_client)
 

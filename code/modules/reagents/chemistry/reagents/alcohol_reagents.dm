@@ -371,7 +371,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_desc = ""
 
 /datum/reagent/consumable/ethanol/hooch/on_mob_life(mob/living/carbon/M)
-	if(is_assistant_job(M.mind?.assigned_role))
+	if(M.mind && M.mind.assigned_role == "Assistant")
 		M.heal_bodypart_damage(1,1)
 		. = 1
 	return ..() || .

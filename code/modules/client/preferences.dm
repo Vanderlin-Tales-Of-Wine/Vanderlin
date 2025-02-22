@@ -1008,9 +1008,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
 			/*
-			if((job_preferences[SSjob.overflow_role] == JP_LOW) && (rank != SSjob.overflow_role) && !is_banned_from(user.ckey, SSjob.overflow_role))
-				HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
-				continue
 			if((rank in GLOB.command_positions) || (rank == "AI"))//Bold head jobs
 				HTML += "<b><span class='dark'><a href='?_src_=prefs;preference=job;task=tutorial;tut='[job.tutorial]''>[used_name]</a></span></b>"
 			else
@@ -1086,16 +1083,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					prefLowerLevel = 1
 
 			HTML += "<a class='white' href='?_src_=prefs;preference=job;task=setJobLevel;level=[prefUpperLevel];text=[rank]' oncontextmenu='javascript:return setJobPrefRedirect([prefLowerLevel], \"[rank]\");'>"
-			/*
-			if(rank == SSjob.overflow_role)//Overflow is special
-				if(job_preferences[SSjob.overflow_role] == JP_LOW)
-					HTML += "<font color=green>Yes</font>"
-				else
-					HTML += "<font color=red>No</font>"
-				HTML += "</a></td></tr>"
-				continue
-			*/
-
 			HTML += "<font color=[prefLevelColor]>[prefLevelLabel]</font>"
 			HTML += "</a></td></tr>"
 
@@ -1105,10 +1092,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		HTML += "</td'></tr></table>"
 		HTML += "</center></table><br>"
 
-		//var/message = "Be an [SSjob.overflow_role] if preferences unavailable"
-		//if(joblessrole == BERANDOMJOB)
-		//	message = "Get random job if preferences unavailable"
-		//else if(joblessrole == RETURNTOLOBBY)
+		//var/message = "Get random job if preferences unavailable"
+		//if(joblessrole == RETURNTOLOBBY)
 		//	message = "Return to lobby if preferences unavailable"
 		//HTML += "<center><br><a href='?_src_=prefs;preference=job;task=random'>[message]</a></center>"
 		if(user.client.prefs.lastclass)
@@ -1159,12 +1144,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			jpval = JP_MEDIUM
 		if(1)
 			jpval = JP_HIGH
-
-	//if(role == SSjob.overflow_role)
-	//	if(job_preferences[job.title] == JP_LOW)
-	//		jpval = null
-	//	else
-	//		jpval = JP_LOW
 
 	SetJobPreferenceLevel(job, jpval)
 	SetChoices(user)
@@ -1321,13 +1300,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					to_chat(user, href_list["tut"])
 					to_chat(user, "<span class='info'>* ----------------------- *</span>")
 			if("random")
-				switch(joblessrole)
-					if(RETURNTOLOBBY)
-						joblessrole = BERANDOMJOB
-					if(BEOVERFLOW)
-						joblessrole = BERANDOMJOB
-					if(BERANDOMJOB)
-						joblessrole = BERANDOMJOB
+				joblessrole = BERANDOMJOB
 				SetChoices(user)
 			if("setJobLevel")
 				if(SSticker.job_change_locked)
