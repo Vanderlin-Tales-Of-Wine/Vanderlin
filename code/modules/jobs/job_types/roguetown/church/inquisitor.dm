@@ -1,11 +1,20 @@
 /datum/job/roguetown/inquisitor
 	title = "Inquisitor"
+	tutorial = "A recent arrival from Grenzelhoft, \
+	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
+	You have been sent by your leader, the Holy Bishop, \
+	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	flag = PURITAN
 	department_flag = CHURCHMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PURITAN
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 8
+	bypass_lastclass = TRUE
 
+	allowed_races = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -13,25 +22,18 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_sexes = list(MALE, FEMALE)
-
-	tutorial = "A recent arrival from Grenzelhoft, you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. You have been sent by your leader, the Holy Bishop, to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
-	whitelist_req = FALSE
 
 	outfit = /datum/outfit/job/roguetown/inquisitor
-	display_order = JDO_PURITAN
-	min_pq = 8
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/job/roguetown/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/inquisitor/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(!L.mind)
+	if(!spawned.mind)
 		return
-	if(L.mind.has_antag_datum(/datum/antagonist))
+	if(spawned.mind.has_antag_datum(/datum/antagonist))
 		return
 	var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
-	L.mind.add_antag_datum(new_antag)
+	spawned.mind.add_antag_datum(new_antag)
 
 /datum/outfit/job/roguetown/inquisitor
 	name = "Inquisitor"

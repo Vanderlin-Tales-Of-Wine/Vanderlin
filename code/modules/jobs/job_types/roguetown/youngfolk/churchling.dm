@@ -1,23 +1,27 @@
 /datum/job/roguetown/churchling
 	title = "Churchling"
+	tutorial = "Your family were zealots. \
+	They scolded you with a studded belt and prayed like sinners \
+	every waking hour of the day they weren’t toiling in the fields. \
+	You escaped them by becoming a churchling-- and a guaranteed education isn't so bad."
 	flag = CHURCHLING
 	department_flag = YOUNGFOLK
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CHURCHLING
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+	min_pq = -10
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_patrons = ALL_TEMPLE_PATRONS
 
-	tutorial = "Your family were zealots. They scolded you with a studded belt and prayed like sinners every waking hour of the day they weren’t toiling in the fields. You escaped them by becoming a churchling--and a guaranteed education isn't so bad."
 
 	outfit = /datum/outfit/job/roguetown/churchling
-	display_order = JDO_CHURCHLING
 	give_bank_account = TRUE
-	min_pq = -10
 	can_have_apprentices = FALSE
-	allowed_patrons = ALL_TEMPLE_PATRONS
 
 /datum/outfit/job/roguetown/churchling
 	name = "Churchling"

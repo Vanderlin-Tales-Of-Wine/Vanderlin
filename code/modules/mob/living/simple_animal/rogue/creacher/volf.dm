@@ -6,7 +6,7 @@
 	icon_living = "vv"
 	icon_dead = "vvd"
 
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
 	turns_per_move = 5

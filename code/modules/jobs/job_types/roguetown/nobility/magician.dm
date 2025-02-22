@@ -1,8 +1,12 @@
 /datum/job/roguetown/magician
 	title = "Court Magician"
+	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
+	Indebted to the ruler for funding yils of mystical studies in these dark times, \
+	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	flag = WIZARD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 
@@ -16,9 +20,6 @@
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_MAGICIAN
-	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
-	Indebted to the ruler for funding yils of mystical studies in these dark times, \
-	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	outfit = /datum/outfit/job/roguetown/magician
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE

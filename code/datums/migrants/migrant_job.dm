@@ -2,7 +2,7 @@
 	title = "Migrant"
 	flag = MIGRANT
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = null
 	outfit_female = null

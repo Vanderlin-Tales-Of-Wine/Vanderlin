@@ -7,7 +7,7 @@
 	icon_dead = "Trolld"
 	pixel_x = -16
 
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	emote_hear = null
 	emote_see = null

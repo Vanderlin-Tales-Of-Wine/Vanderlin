@@ -1,12 +1,20 @@
 /datum/job/roguetown/guardsman
 	title = "City Watchmen"
+	tutorial = "You are a member of the City Watch. \
+	You've proven yourself worthy to the Captain and now you've got yourself a salary.. \
+	as long as you keep the peace that is."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CITYWATCHMEN
+	faction = FACTION_STATION
 	total_positions = 8
 	spawn_positions = 8
+	min_pq = 4
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -14,35 +22,26 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_races = list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You are a member of the City Watch. You've proven yourself worthy to the Captain and now you've got yourself a salary.. as long as you keep the peace that is."
-	display_order = JDO_CITYWATCHMEN
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/roguetown/guardsman	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
-	min_pq = 4
 
 	cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
-/datum/job/roguetown/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/guardsman/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-		if(istype(H.cloak, /obj/item/clothing/cloak/half/guard))
-			var/obj/item/clothing/S = H.cloak
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = "guard's half cloak ([index])"
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
+	if(istype(spawned.cloak, /obj/item/clothing/cloak/half/guard))
+		var/obj/item/clothing/S = spawned.cloak
+		var/index = findtext(spawned.real_name, " ")
+		if(index)
+			index = copytext(spawned.real_name, 1,index)
+		if(!index)
+			index = spawned.real_name
+		S.name = "guard's half cloak ([index])"
 
 //................. City Watchmen Base .............. //
 /datum/outfit/job/roguetown/guardsman/pre_equip(mob/living/carbon/human/H)

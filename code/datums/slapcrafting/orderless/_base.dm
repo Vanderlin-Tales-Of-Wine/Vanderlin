@@ -99,8 +99,7 @@
 		new output_item(source_turf)
 	qdel(hosted_source)
 
-/obj/item
-	var/datum/orderless_slapcraft/in_progress_slapcraft
+/obj/item/var/datum/orderless_slapcraft/in_progress_slapcraft
 
 /mob/living/proc/try_orderless_slapcraft(obj/item/attacking_item, obj/item/attacked_object)
 	if(!isitem(attacked_object))

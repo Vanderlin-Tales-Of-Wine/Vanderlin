@@ -1,9 +1,9 @@
 /datum/job/roguetown/bogwarden
 	title = "Warden of the Terrorbog"
-	tutorial = ""
+	tutorial = null
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -24,10 +24,10 @@
 /datum/job/roguetown/huntmaster
 	title = "Huntmaster of the Murderwoods"
 	f_title = "Huntmistress of the Murderwoods"
-	tutorial = ""
+	tutorial = null
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -47,10 +47,11 @@
 
 /datum/job/roguetown/hetman
 	title = "Hetman of Mount Decapitation"
-	tutorial = ""
+	tutorial = null
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 

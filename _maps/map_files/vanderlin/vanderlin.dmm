@@ -14838,7 +14838,7 @@
 /area/rogue/outdoors/rtfield)
 "kpk" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/structure/roguemachine/mail,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
