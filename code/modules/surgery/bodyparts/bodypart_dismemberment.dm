@@ -52,11 +52,14 @@
 	src.add_mob_blood(C)
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 	C.add_stress(/datum/stressevent/dismembered)
-	var/stress2give = /datum/stressevent/viewdismember
+	var/stress2give
+	if(!skeletonized && C.dna?.species) //we need a skeleton species for skeleton npcs
+		if(C.dna.species.id != "goblin" && C.dna.species.id != "rousman") //convert this into a define list later
+			stress2give = /datum/stressevent/viewdismember
 	if(C)
 		if(C.buckled)
-			if(istype(C.buckled, /obj/structure/fluff/psycross))
-				if(C.real_name in GLOB.excommunicated_players)
+			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/rogue/campfire/pyre))
+				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
 	if(stress2give)
 		for(var/mob/living/carbon/CA in hearers(world.view, C))
