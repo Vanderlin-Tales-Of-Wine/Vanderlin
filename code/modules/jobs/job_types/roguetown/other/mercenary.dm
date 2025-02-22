@@ -25,7 +25,7 @@
 	display_order = JDO_MERCENARY
 	bypass_lastclass = TRUE
 	give_bank_account = 3
-	min_pq = 2
+	min_pq = 5
 	outfit = null
 	outfit_female = null
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
