@@ -124,7 +124,7 @@
 	color = CLOTHING_PEAR_YELLOW
 
 /obj/item/clothing/neck/roguetown/keffiyeh/orange
-	color = CLOTHING_FYRITIUS_DYE
+	color = CLOTHING_FYRITIUS_ORANGE
 
 /obj/item/clothing/neck/roguetown/keffiyeh/green
 	color = CLOTHING_BOG_GREEN
@@ -279,7 +279,7 @@
 	name = "bronze gorget"
 	desc = "A heavy collar of great age, meant to protect the neck."
 	icon_state = "aasimarneck"
-	smeltresult = null // No bronze ingots yet
+	smeltresult = /obj/item/ingot/bronze
 	armor = ARMOR_MAILLE_GOOD
 
 

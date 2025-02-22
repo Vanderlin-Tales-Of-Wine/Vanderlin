@@ -147,6 +147,7 @@
 
 	grid_width = 32
 	grid_height = 32
+	var/extinguish_prob = 100
 
 /obj/item/flashlight/flare/torch/getonmobprop(tag)
 	. = ..()
@@ -194,7 +195,7 @@
 		turn_off()
 
 /obj/item/flashlight/flare/torch/extinguish()
-	if(on)
+	if(on && prob(extinguish_prob))
 		turn_off()
 
 /obj/item/flashlight/flare/torch/turn_off()
@@ -291,6 +292,7 @@
 	should_self_destruct = FALSE
 	metalizer_result = null
 	smeltresult = /obj/item/ingot/iron
+	extinguish_prob = 10
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
@@ -309,9 +311,6 @@
 		turn_off()
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/flashlight/flare/torch/lantern/extinguish()
-	return
-
 /obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -326,10 +325,12 @@
 	icon_state = "bronzelamp"
 	item_state = "bronzelamp"
 	desc = "A marvel of engineering that emits a strange green glow."
-	light_outer_range = 8
-	light_color ="#4ac77e"
+	light_outer_range = 9
+	light_power = 2
+	light_color ="#00ff6a"
 	on = FALSE
 	smeltresult = /obj/item/ingot/bronze
+	extinguish_prob = 0
 
 /obj/item/flashlight/flare/torch/lantern/copper
 	name = "copper lamptern"
@@ -344,6 +345,7 @@
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
 	smeltresult = /obj/item/ingot/copper
+	extinguish_prob = 15
 
 /obj/item/flashlight/flare/torch/lantern/copper/getonmobprop(tag)
 	. = ..()

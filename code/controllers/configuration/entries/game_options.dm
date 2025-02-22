@@ -39,6 +39,14 @@
 	config_entry_value = 1
 	integer = FALSE
 
+/datum/config_entry/number/damage_multiplier/fire // Damage multiplier to base tick damage of fire
+	config_entry_value = 1.5
+	integer = FALSE
+
+/datum/config_entry/number/per_tick/max_fire_damage // Max amount of tick damage for being on fire (Doesn't account for the base line) -- Found in fire_burning.dm, line 39. MAX is calculated as such: (2 * damage_multiplier/fire) + CLAMP(fire timer, 0, per_tick/max_fire_damage) -> Currently 28 damage.
+	config_entry_value = 25
+	integer = TRUE
+
 /datum/config_entry/number/minimal_access_threshold	//If the number of players is larger than this threshold, minimal access will be turned on.
 	min_val = 0
 

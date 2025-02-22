@@ -22,7 +22,7 @@
 	handle_roguebreath()
 	update_stress()
 	handle_nausea()
-	if(blood_volume > BLOOD_VOLUME_SURVIVE)
+	if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		if(!heart_attacking)
 			if(oxyloss)
 				adjustOxyLoss(-1.6)
@@ -515,7 +515,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			head.cremation_progress += rand(1,4)
 			if(head.cremation_progress >= 50)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
-					limb.skeletonize()
+					head.skeletonize()
 					should_update_body = TRUE
 					head.drop_limb()
 					head.visible_message("<span class='warning'>[src]'s head crumbles into ash!</span>")
@@ -587,7 +587,10 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/proc/set_heartattack(status)
+/mob/living/proc/set_heartattack(status)
+	return
+	
+/mob/living/carbon/set_heartattack(status)
 	if(!can_heartattack())
 		return FALSE
 
@@ -626,6 +629,8 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		if(nutrition > 0 || yess)
 			adjust_energy(sleepy_mod * (max_energy * 0.02))
 		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
+			adjust_energy(sleepy_mod * (max_energy * 0.004))
+		if(locate(/obj/item/bedsheet/rogue) in get_turf(src))
 			adjust_energy(sleepy_mod * (max_energy * 0.004))
 		if(hydration > 0 || yess)
 			if(!bleed_rate)

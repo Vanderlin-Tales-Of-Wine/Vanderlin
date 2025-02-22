@@ -73,7 +73,7 @@
 	dir = pick(GLOB.cardinals)
 	. = ..()
 
-/turf/open/floor/rogue/twig/OnCrafted(dirin)
+/turf/open/floor/rogue/twig/OnCrafted(dirin, mob/user)
 	. = ..()
 	dir = dirin
 

@@ -356,6 +356,7 @@
 								qdel(item)
 							to_chat(user, "You start grabbing [item] from your bag.")
 							if(do_after(user, storage_use_time, item))
+								SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
 								if(put_items_in_hand)
 									user.put_in_active_hand(sub_item)
 								for(var/requirement in copied_requirements)
@@ -374,6 +375,7 @@
 
 					to_chat(user, "You start grabbing [item] from your bag.")
 					if(do_after(user, storage_use_time, item))
+						SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
 						user.put_in_active_hand(item)
 						active_item = item
 					break
@@ -452,6 +454,7 @@
 				continue
 			to_chat(user, "You start grabbing [item] from your bag.")
 			if(do_after(user, storage_use_time, item))
+				SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
 				for(var/requirement in copied_requirements)
@@ -631,7 +634,7 @@
 								continue
 							parts += listed
 						new_item.CheckParts(parts)
-						new_item.OnCrafted(user.dir)
+						new_item.OnCrafted(user.dir, user)
 						parts = null
 
 					outputs += new_item

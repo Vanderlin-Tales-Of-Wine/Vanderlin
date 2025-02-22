@@ -86,6 +86,8 @@
 		compost_value = 150
 	if(istype(attacking_item, /obj/item/natural/chaff))
 		compost_value = 150
+	if(istype(attacking_item, /obj/item/alch/bone))
+		compost_value = 100
 	if(istype(attacking_item, /obj/item/trash))
 		compost_value = 50
 	if(compost_value > 0)
@@ -189,3 +191,5 @@
 	icon = 'icons/roguetown/misc/composter.dmi'
 	icon_state = "compost"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32

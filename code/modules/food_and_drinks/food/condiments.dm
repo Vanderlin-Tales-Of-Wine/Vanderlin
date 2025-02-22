@@ -113,19 +113,6 @@
 /obj/item/reagent_containers/food/condiment/on_reagent_change(changetype)
 	update_icon()
 
-/obj/item/reagent_containers/food/condiment/enzyme
-	name = "universal enzyme"
-	desc = ""
-	icon_state = "enzyme"
-	list_reagents = list(/datum/reagent/consumable/enzyme = 50)
-
-/obj/item/reagent_containers/food/condiment/sugar
-	name = "sugar sack"
-	desc = ""
-	icon_state = "rice"
-	item_state = "flour"
-	list_reagents = list(/datum/reagent/consumable/sugar = 50)
-
 /obj/item/reagent_containers/food/condiment/saltshaker		//Separate from above since it's a small shaker rather then
 	name = "salt shaker"											//	a large one.
 	desc = ""
@@ -149,43 +136,6 @@
 		reagents.remove_reagent(/datum/reagent/consumable/sodiumchloride, 2)
 		new/obj/effect/decal/cleanable/food/salt(target)
 		return*/
-
-/obj/item/reagent_containers/food/condiment/peppermill
-	name = "pepper mill"
-	desc = ""
-	icon_state = "peppermillsmall"
-	icon_empty = "emptyshaker"
-	possible_transfer_amounts = list(1,20) //for clown turning the lid off
-	amount_per_transfer_from_this = 1
-	volume = 20
-	list_reagents = list(/datum/reagent/consumable/blackpepper = 20)
-
-/obj/item/reagent_containers/food/condiment/flour
-	name = "flour sack"
-	desc = ""
-	icon_state = "flour"
-	item_state = "flour"
-	list_reagents = list(/datum/reagent/consumable/flour = 30)
-
-/obj/item/reagent_containers/food/condiment/rice
-	name = "rice sack"
-	desc = ""
-	icon_state = "rice"
-	item_state = "flour"
-	list_reagents = list(/datum/reagent/consumable/rice = 30)
-
-/obj/item/reagent_containers/food/condiment/soysauce
-	name = "soy sauce"
-	desc = ""
-	icon_state = "soysauce"
-	list_reagents = list(/datum/reagent/consumable/soysauce = 50)
-
-/obj/item/reagent_containers/food/condiment/mayonnaise
-	name = "mayonnaise"
-	desc = ""
-	icon_state = "mayonnaise"
-	list_reagents = list(/datum/reagent/consumable/mayonnaise = 50)
-
 
 
 //Food packs. To easily apply deadly toxi... delicious sauces to your food!
@@ -249,24 +199,3 @@
 		icon_state = "condi_empty"
 		desc = ""
 
-//Ketchup
-/obj/item/reagent_containers/food/condiment/pack/ketchup
-	name = "ketchup pack"
-	originalname = "ketchup"
-	list_reagents = list(/datum/reagent/consumable/ketchup = 10)
-
-//Hot sauce
-/obj/item/reagent_containers/food/condiment/pack/hotsauce
-	name = "hotsauce pack"
-	originalname = "hotsauce"
-	list_reagents = list(/datum/reagent/consumable/capsaicin = 10)
-
-/obj/item/reagent_containers/food/condiment/pack/astrotame
-	name = "astrotame pack"
-	originalname = "astrotame"
-	list_reagents = list(/datum/reagent/consumable/astrotame = 5)
-
-/obj/item/reagent_containers/food/condiment/pack/bbqsauce
-	name = "bbq sauce pack"
-	originalname = "bbq sauce"
-	list_reagents = list(/datum/reagent/consumable/bbqsauce = 10)

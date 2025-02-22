@@ -629,7 +629,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE)
+/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE, additional = FALSE)
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/m1
 	var/deep_examination = advanced
@@ -645,7 +645,7 @@
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
 		examination += "<span class='notice'>Let's see how [src] is doing.</span>"
 		if(!user.stat && !silent)
-			visible_message("<span class='notice'>[user] examines [src].</span>", \
+			user.visible_message("<span class='notice'>[user] examines [src].</span>", \
 				"<span class='notice'>I check [src] for injuries.</span>")
 
 	if(stat < DEAD)
@@ -687,7 +687,9 @@
 			examination += "<span class='info'>☼ [capitalize(parse_zone(body_zone))]: <span class='deadsay'><b>MISSING</b></span></span>"
 			continue
 		examination += bodypart.check_for_injuries(user, deep_examination)
-
+	if(additional)
+		examination += span_info(span_green("[getToxLoss()] TOXIN"))
+		examination += span_info(span_blue("[getOxyLoss()] OXYGEN"))
 	examination += "ø ------------ ø</span>"
 	if(!silent)
 		to_chat(user, examination.Join("\n"))

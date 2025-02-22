@@ -27,7 +27,7 @@
 /obj/effect/proc_holder/spell/invoked/diagnose/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/human_target = targets[1]
-		human_target.check_for_injuries(user)
+		human_target.check_for_injuries(user, additional = TRUE)
 		return ..()
 	return FALSE
 

@@ -391,7 +391,7 @@
 /obj/structure/bed/rogue/sleepingbag/MiddleClick(mob/user, params)
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
-	if(do_after(user, 2 SECONDS, src))
+	if(do_after(user, 2 SECONDS, target = src))
 		user.put_in_hands(new /obj/item/sleepingbag(get_turf(src)))
 		qdel(src)
 

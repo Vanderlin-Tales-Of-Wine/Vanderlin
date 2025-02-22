@@ -23,11 +23,11 @@
 	pixel_y = -1;
 	pixel_x = -5
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 7;
 	pixel_x = 9
 	},
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked{
+/obj/item/reagent_containers/food/snacks/hardtack{
 	pixel_y = 7;
 	pixel_x = 9
 	},
@@ -52,7 +52,7 @@
 /obj/item/clothing/mask/rogue/facemask,
 /obj/item/organ/heart,
 /obj/effect/decal/cleanable/blood,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/herringbone,
 /area/rogue)
 "g" = (
@@ -103,7 +103,7 @@
 /area/rogue)
 "s" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple,
+/obj/item/reagent_containers/food/snacks/pie/cooked/apple,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue)
 "t" = (
@@ -264,7 +264,7 @@
 "Y" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /obj/structure/bed/rogue/mediocre,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/rogue/cobble,
 /area/rogue)

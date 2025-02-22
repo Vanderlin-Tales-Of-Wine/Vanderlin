@@ -331,16 +331,18 @@
 		buckled.user_unbuckle_mob(src,src)
 
 /mob/living/carbon/resist_fire()
-	fire_stacks -= 5
-	if(fire_stacks > 10)
-		Paralyze(60, TRUE, TRUE)
+	fire_stacks = max(0, fire_stacks - 2.5)
+	divine_fire_stacks = max(0, divine_fire_stacks - 2.5)
+	if(fire_stacks + divine_fire_stacks > 10 || !(mobility_flags & MOBILITY_STAND))
+		Paralyze(50, TRUE, TRUE)
 		spin(32,2)
-		fire_stacks -= 5
+		fire_stacks = max(0, fire_stacks - 5)
+		divine_fire_stacks = max(0, divine_fire_stacks - 5)
 		visible_message("<span class='warning'>[src] rolls on the ground, trying to put [p_them()]self out!</span>")
 	else
 		visible_message("<span class='notice'>[src] pats the flames to extinguish them.</span>")
 	sleep(30)
-	if(fire_stacks <= 0)
+	if(fire_stacks + divine_fire_stacks <= 0)
 		ExtinguishMob(TRUE)
 	return
 
@@ -411,6 +413,7 @@
 	if (legcuffed)
 		var/obj/item/W = legcuffed
 		legcuffed = null
+		remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 		update_inv_legcuffed()
 		if (client)
 			client.screen -= W
@@ -452,6 +455,7 @@
 			legcuffed.forceMove(drop_location())
 			legcuffed.dropped()
 			legcuffed = null
+			remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			update_inv_legcuffed()
 			return TRUE
 

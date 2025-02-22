@@ -188,8 +188,8 @@
 /obj/item/rogueweapon/knife/cleaver
 	name = "cleaver"
 	desc = "A chef's tool turned armament, cleave off cumbersome flesh with rudimentary ease."
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "cleav"
 	item_state = "cleav"
 	experimental_inhand = FALSE
@@ -274,12 +274,17 @@
 
 //................ Profane Dagger ............... //
 /obj/item/rogueweapon/knife/dagger/steel/profane
-//	name = "profane dagger"
+	// name = "profane dagger"
 	// desc = "A profane dagger made of cursed black steel. Whispers emanate from the gem on its hilt."
 	sellprice = 250
 	icon_state = "pdagger"
 	smeltresult = null
 	embedding = list("embed_chance" = 0) // Embedding the cursed dagger has the potential to cause duping issues. Keep it like this unless you want to do a lot of bug hunting.
+
+/obj/item/rogueweapon/knife/dagger/steel/profane/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_ASSASSIN))
+		. += "profane dagger whispers, \"[span_danger("Here we are!")]\""
 
 /obj/item/rogueweapon/knife/dagger/steel/profane/pickup(mob/living/M)
 	. = ..()

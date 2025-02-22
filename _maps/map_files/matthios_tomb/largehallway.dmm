@@ -15,7 +15,7 @@
 /area/rogue)
 "n" = (
 /obj/structure/table/wood/plain,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue)
 "q" = (

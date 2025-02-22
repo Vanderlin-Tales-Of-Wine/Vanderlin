@@ -163,6 +163,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/gripsprite = FALSE //use alternate grip sprite for inhand
 	var/gripspriteonmob = FALSE //use alternate sprite for onmob
 
+	/// Item will be scaled by this factor when on the ground.
 	var/dropshrink = 0
 
 	var/wlength = WLENGTH_NORMAL		//each weapon length class has its own inherent dodge properties
@@ -374,6 +375,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(sharpness) //give sharp objects butchering functionality, for consistency
 		AddComponent(/datum/component/butchering, 80 * toolspeed)
+	else
+		max_blade_int = 0
+		blade_int = 0
 
 	if(max_blade_int && !blade_int) //set blade integrity to randomized 60% to 100% if not already set
 		blade_int = max_blade_int + rand(-(max_blade_int * 0.4), 0)
@@ -967,6 +971,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 ///Returns the sharpness of src. If you want to get the sharpness of an item use this.
 /obj/item/proc/get_sharpness()
 	//Oh no, we are dulled out!
+	if(!max_blade_int) //not even sharp
+		return FALSE
 	if(max_blade_int && (blade_int <= 0))
 		return FALSE
 	var/max_sharp = sharpness

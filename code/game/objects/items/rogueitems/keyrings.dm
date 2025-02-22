@@ -5,8 +5,8 @@
 	desc = "A circular ring of metal for hooking additional rings."
 	icon_state = "keyring0"
 	icon = 'icons/roguetown/items/keys.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0
 	throwforce = 0
@@ -99,8 +99,8 @@
 	desc = "A piece of bent wire to store lockpicking tools. Too bulky for fine work."
 	icon_state = "pickring0"
 	icon = 'icons/roguetown/items/keys.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0
 	throwforce = 0
@@ -281,7 +281,7 @@
 	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
 
 /obj/item/storage/keyring/tailor
-	keys = list(/obj/item/key/shops/shop1, /obj/item/key/shops/shopwarehouse1)
+	keys = list(/obj/item/key/tailor)
 
 /obj/item/storage/keyring/stevedore
 	keys = list(/obj/item/key/warehouse, /obj/item/key/shop)

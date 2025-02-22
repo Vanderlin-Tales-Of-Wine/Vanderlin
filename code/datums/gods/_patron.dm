@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 
 /// The follower has somehow offended the patron and is now being punished.
 /datum/patron/proc/punish_prayer(mob/living/follower)
-	follower.adjust_fire_stacks(100)
+	follower.adjust_divine_fire_stacks(100)
 	follower.IgniteMob()
 	SSticker.pplsmited++
 	follower.add_stress(/datum/stressevent/psycurse)

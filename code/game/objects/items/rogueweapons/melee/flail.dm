@@ -23,6 +23,8 @@
 	throwforce = 5
 	minstr = 6
 	sellprice = 20
+	grid_width = 32
+	grid_height = 96
 
 /obj/item/rogueweapon/flail/getonmobprop(tag)
 	. = ..()
@@ -86,6 +88,7 @@
 /obj/item/rogueweapon/flail/towner
 	force = DAMAGE_WEAK_FLAIL
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
+	gripped_intents = list(/datum/intent/flailthresh, /datum/intent/mace/strike/wood)
 	name = "wooden flail"
 	desc = "During peacetime these flails are used to thresh wheat. During wartime - to chase off marauders."
 	icon_state = "peasantflail"

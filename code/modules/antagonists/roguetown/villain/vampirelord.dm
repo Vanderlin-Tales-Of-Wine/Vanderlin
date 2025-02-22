@@ -436,15 +436,17 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set category = "VAMPIRE"
 
 	var/datum/game_mode/chaosmode/C = SSticker.mode
+	var/mob/living/carbon/human/H = src
 	var/msg = input("Send a message.", "Command") as text|null
+	var/message = "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#960000'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span><span class = 'hellspeak'>: [msg]</span></span>"
 	if(!msg)
 		return
 	for(var/datum/mind/V in C.vampires)
-		to_chat(V, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(V, message)
 	for(var/datum/mind/D in C.deathknights)
-		to_chat(D, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(D, message)
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
-		to_chat(A, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(A, message)
 
 /mob/living/carbon/human/proc/punish_spawn()
 	set name = "Punish Minion"
