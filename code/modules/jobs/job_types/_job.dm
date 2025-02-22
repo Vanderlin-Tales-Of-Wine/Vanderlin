@@ -210,8 +210,8 @@
 		else
 			SStreasury.create_bank_account(spawned)
 
-	// if(show_in_credits)
-	// 	SScrediticons.processing += H
+	if(show_in_credits)
+		SScrediticons.processing += spawned
 
 	if(cmode_music)
 		spawned.cmode_music = cmode_music

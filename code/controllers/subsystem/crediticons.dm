@@ -1,3 +1,4 @@
+GLOBAL_LIST_EMPTY(credits_icons)
 
 SUBSYSTEM_DEF(crediticons)
 	name = "crediticons"
@@ -8,7 +9,7 @@ SUBSYSTEM_DEF(crediticons)
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/crediticons/fire(resumed = 0)
-	if (!resumed)
+	if(!resumed)
 		src.currentrun = processing.Copy()
 
 	//cache for sanic speed (lists are references anyways)
@@ -22,35 +23,31 @@ SUBSYSTEM_DEF(crediticons)
 			if (MC_TICK_CHECK)
 				return
 			continue
-		thing.add_credit()
+		add_credit(thing)
 		STOP_PROCESSING(SScrediticons, thing)
-		if (MC_TICK_CHECK)
+		if(MC_TICK_CHECK)
 			return
 
-// if(show_in_credits)
-	// 	SScrediticons.processing += H
+/datum/controller/subsystem/crediticons/proc/add_credit(mob/living/carbon/human/actor)
+	if(!actor.mind || !actor.client)
+		return
+	var/datum/mind/actor_mind = actor.mind
+	var/client/actor_client = actor.client
+	var/datum/job/job = actor_mind.assigned_role
+	var/datum/preferences/preferences = actor_client.prefs
+	if(!preferences)
+		return
 
-/mob/living/carbon/human/proc/add_credit()
-	if(!mind || !client)
-		return
-	var/thename = "[real_name]"
-	var/datum/job/J = SSjob.GetJob(mind.assigned_role)
-	var/used_title
-	if(J)
-		used_title = J.title
-		if(gender == FEMALE && J.f_title)
-			used_title = J.f_title
+	var/thename = "[actor.real_name]"
+	var/used_title = job.get_informed_title(actor)
 	if(used_title)
-		thename = "[real_name] the [used_title]"
+		thename = "[thename]\nthe [used_title]"
+
 	GLOB.credits_icons[thename] = list()
-	var/client/C = client
-	var/datum/preferences/P = C.prefs
-	if(!P)
-		return
-	var/icon/I = get_flat_human_icon(null, J, P, DUMMY_HUMAN_SLOT_MANIFEST, list(SOUTH))
-	if(I)
+	var/icon/rendered_icon = get_flat_human_icon(null, job, preferences, DUMMY_HUMAN_SLOT_MANIFEST, list(SOUTH))
+	if(rendered_icon)
 		var/icon/female_s = icon("icon"='icons/mob/clothing/under/masking_helpers.dmi', "icon_state"="credits")
-		I.Blend(female_s, ICON_MULTIPLY)
-		I.Scale(96,96)
-		GLOB.credits_icons[thename]["icon"] = I
-		GLOB.credits_icons[thename]["vc"] = voice_color
+		rendered_icon.Blend(female_s, ICON_MULTIPLY)
+		rendered_icon.Scale(96,96)
+		GLOB.credits_icons[thename]["icon"] = rendered_icon
+		GLOB.credits_icons[thename]["vc"] = actor.voice_color
