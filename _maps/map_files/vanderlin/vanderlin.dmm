@@ -14214,7 +14214,7 @@
 /obj/structure/roguemachine/vendor{
 	keycontrol = "blacksmith"
 	},
-/turf/closed,
+/turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/smithy)
 "jWf" = (
 /obj/structure/fluff/railing/border{
@@ -18710,10 +18710,6 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/orphanage)
-"nta" = (
-/obj/structure/bars,
-/turf/closed,
-/area/rogue/under/town/sewer)
 "ntb" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -21341,14 +21337,6 @@
 	dir = 4
 	},
 /area/rogue/indoors/soilsons)
-"prs" = (
-/obj/structure/table/wood/reinforced_alter,
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81
-	},
-/turf/closed,
-/area/rogue/indoors/town/smithy)
 "prv" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -49016,8 +49004,8 @@ oGi
 lfU
 lfU
 kMM
-nta
-nta
+wrW
+wrW
 hzf
 lfU
 vgJ
@@ -89998,7 +89986,7 @@ xYa
 xYa
 xYa
 xYa
-iDg
+xYa
 xYa
 xYa
 xYa
@@ -90200,7 +90188,7 @@ xYa
 xYa
 xYa
 xYa
-iDg
+xYa
 xYa
 xYa
 xYa
@@ -90402,7 +90390,7 @@ xYa
 xYa
 xYa
 xYa
-iDg
+xYa
 xYa
 xYa
 xYa
@@ -94474,9 +94462,9 @@ vee
 ite
 xBk
 qBL
-prs
 fTF
-prs
+fTF
+fTF
 qBL
 hsv
 oXQ
@@ -95901,7 +95889,7 @@ sSS
 dFv
 hUw
 uOB
-prs
+fTF
 weA
 weA
 rkS
