@@ -1085,7 +1085,7 @@
 	},
 /area/rogue/outdoors/mountains)
 "eb" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "ec" = (
@@ -1103,7 +1103,7 @@
 	},
 /area/rogue/indoors/town/magician)
 "ee" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "eg" = (
@@ -1221,7 +1221,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/church/chapel)
 "ey" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -1498,7 +1498,7 @@
 /area/rogue/indoors/town/tavern)
 "fw" = (
 /obj/structure/fluff/wallclock,
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "fx" = (
@@ -1721,11 +1721,11 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "go" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
 "gp" = (
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
 "gq" = (
@@ -1759,7 +1759,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
 "gw" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
 "gx" = (
@@ -1776,9 +1776,7 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/manor)
 "gB" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/effect/landmark/start/nightmaiden,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
@@ -1844,11 +1842,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
 "gO" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
 "gP" = (
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /obj/structure/fluff/walldeco/maidendrape,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
@@ -2170,11 +2168,11 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
 "hX" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/bath)
 "hY" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/bath)
 "hZ" = (
@@ -3169,9 +3167,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/shop)
 "lL" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /obj/structure/roguemachine/mail,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
@@ -4002,11 +3998,11 @@
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "oU" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "oV" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "oW" = (
@@ -4073,9 +4069,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/indoors/town/manor)
 "pi" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "pj" = (
@@ -4765,14 +4759,12 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/exposed/dwarf)
 "rE" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "rF" = (
-/obj/structure/chair/bench/ultimacouch/r,
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "rG" = (
@@ -6177,13 +6169,11 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town)
 "wZ" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "xa" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern)
 "xb" = (
@@ -6911,14 +6901,6 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
-"zE" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/indoors/town/manor)
 "zF" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/concrete,
@@ -7013,13 +6995,11 @@
 /area/rogue/under/town/basement)
 "zX" = (
 /obj/structure/rogue/trophy/deer,
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "zY" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "zZ" = (
@@ -7597,11 +7577,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/outdoors/town)
-"Ci" = (
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "Cj" = (
 /obj/structure/roguemachine/money/r,
 /turf/open/floor/rogue/tile{
@@ -7668,9 +7643,6 @@
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/open/transparent/openspace,
-/area/rogue)
-"Cv" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "Cx" = (
@@ -10469,10 +10441,6 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
-"Qe" = (
-/obj/structure/chair/bench/couch,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/manor)
 "Qf" = (
 /obj/structure/bed/rogue/wool,
 /obj/item/bedsheet/rogue/cloth,
@@ -48047,7 +48015,7 @@ qH
 wE
 Vk
 mR
-zE
+ey
 ZP
 Vk
 aw
@@ -70964,7 +70932,7 @@ Hi
 at
 qI
 HR
-Qe
+eb
 kY
 IP
 mR
@@ -85549,7 +85517,7 @@ Ey
 Ey
 Ey
 Ey
-Cv
+rw
 "}
 (3,1,4) = {"
 Ey
@@ -97876,7 +97844,7 @@ zv
 vW
 xX
 nP
-Ci
+nP
 nP
 Cb
 vW

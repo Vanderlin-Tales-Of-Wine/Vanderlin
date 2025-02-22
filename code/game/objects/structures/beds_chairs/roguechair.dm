@@ -58,61 +58,12 @@
 		return FALSE
 	return !density
 
-/obj/structure/chair/bench/couch
-	icon_state = "redcouch"
-
 /obj/structure/chair/bench/church/smallbench
 	icon_state = "benchsmall"
-
-/obj/structure/chair/bench/couch/r
-	icon_state = "redcouch2"
-
-/obj/structure/chair/bench/ultimacouch
-	icon_state = "ultimacouchleft"
-
-/obj/structure/chair/bench/ultimacouch/r
-	icon_state = "ultimacouchright"
-
-/obj/structure/chair/bench/coucha
-	icon_state = "couchaleft"
-
-/obj/structure/chair/bench/coucha/r
-	icon_state = "coucharight"
-
-/obj/structure/chair/bench/couchablack
-	icon_state = "couchablackaleft"
-
-/obj/structure/chair/bench/couchablack/r
-	icon_state = "couchablackaright"
 
 /obj/structure/chair/bench/throne
 	name = "small throne"
 	icon_state = "thronechair"
-
-/obj/structure/chair/bench/couch/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/structure/chair/bench/couch/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/obj/structure/chair/bench/couch/lordcolor(primary,secondary)
-	if(!primary || !secondary)
-		return
-	var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_primary", -(layer+0.1))
-	M.color = secondary //looks better
-	add_overlay(M)
-	GLOB.lordcolor -= src
-
-// dirtier sofa
-/obj/structure/chair/bench/couch/redleft
-	icon_state = "redcouch_alt"
-/obj/structure/chair/bench/couch/redright
-	icon_state = "redcouch2_alt"
 
 /obj/structure/chair/wood/rogue
 	icon_state = "chair2"

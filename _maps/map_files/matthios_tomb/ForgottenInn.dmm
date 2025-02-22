@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bi" = (
-/obj/structure/chair/bench/couch/redright,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "bm" = (
@@ -236,7 +236,7 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "GW" = (
-/obj/structure/chair/bench/couch/redleft,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue)
 "He" = (
