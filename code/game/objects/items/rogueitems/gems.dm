@@ -96,8 +96,9 @@
 /obj/item/roguegem/black
 	name = "onyxa"
 	desc = "Dark as nite."
-	color = "#2000138c"
+	color = "#200013dd"
 	sellprice = 76
+	dropshrink = 0.7
 
 /// riddle
 

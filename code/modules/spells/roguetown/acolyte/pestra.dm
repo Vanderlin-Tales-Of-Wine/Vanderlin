@@ -169,8 +169,6 @@
 		if(!has_rot)
 			to_chat(user, "<span class='warning'>Nothing happens.</span>")
 			return FALSE
-		for(var/obj/structure/fluff/psycross/S in oview(5, user))
-			S.AOE_flash(user, range = 8)
 		testing("curerot2")
 		if(was_zombie)
 			if(was_zombie.become_rotman && prob(5)) //5% chance to NOT become a rotman

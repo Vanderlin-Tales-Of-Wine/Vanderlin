@@ -187,7 +187,9 @@
 /datum/anvil_recipe/tools/fishinghooks
 	name = "3x Fishing hooks"
 	req_bar = /obj/item/ingot/iron
-	created_item = list(/obj/item/fishing/hook/iron, /obj/item/fishing/hook/iron, /obj/item/fishing/hook/iron)
+	created_item = /obj/item/fishing/hook/iron
+	createmultiple = TRUE
+	createditem_num = 2
 	i_type = "Tools"
 
 /datum/anvil_recipe/tools/pick
