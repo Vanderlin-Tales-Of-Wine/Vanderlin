@@ -12,13 +12,16 @@
 /datum/species/dwarf/mountain
 	name = "Dwarf"
 	id = "dwarf"
-	desc = "<b>Dwarf</b><br>\
+	desc = "Malum's chosen.\
+	\n\n\
 	A proud and robust species of stunted folk, \
 	the dwarves are known for their pride in martial strength \
 	and their tenacity towards their ancient customs. \
-	A Dwarf, much like the rock that they carve their fortress out of \
-	is stubborn and ancient. They are revered craftsmen, sculptors, smiths, \
-	and miners. As an old saying goes, 'If you want it done right, lose 2 feet and grow a beard.' \
+	A Dwarf, much like the rock that they carve their fortress out of, is stubborn and ancient. \
+	\n\n\
+	They are revered craftsmen, sculptors, smiths, and miners. \
+	As an old and mostly out-of-date saying goes, \"If you want it done right, lose 2 feet and grow a beard.\" \
+	\n\n\
 	Despite their cultural praise, a long-standing fued remains between dwarves and elves \
 	stemming from old industrial practices. Dwarves hold a strong alliance with humenkind."
 
@@ -28,7 +31,7 @@
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,YOUNGBEARD,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	default_features = list("mcolor" = "FFF", "wings" = "None")
+	default_features = list("mcolor" = "#FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
@@ -74,8 +77,6 @@
 		return
 	if(message_language.type == /datum/language/dwarvish)
 		return list(SPAN_DWARF)
-//	if(message_language.type == /datum/language/common)
-//		return list(SPAN_DWARF)
 	return message_language.spans
 
 /datum/species/dwarf/mountain/get_skin_list()
@@ -119,31 +120,14 @@
 
 	))
 
-/datum/species/dwarf/mountain/random_name(gender,unique,lastname)
+/datum/species/dwarf/mountain/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/dwarf/dwarmm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/dwarf/dwarmf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/dwarf/dwarmm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/dwarf/dwarmf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/dwarf/dwarmm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/dwarf/dwarmf.txt") )
-	return randname
-
-/datum/species/dwarf/mountain/random_surname()
-	return " [pick(world.file2list("strings/rt/names/dwarf/dwarmlast.txt"))]"
-
-
+/datum/species/dwarf/mountain/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/dwarf/dwarmlast.txt')
+	return last_names
 
 /*------------------\
 | Poison Resistance |

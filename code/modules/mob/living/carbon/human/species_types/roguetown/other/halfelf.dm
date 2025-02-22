@@ -10,16 +10,20 @@
 /datum/species/human/halfelf
 	name = "Half-Elf"
 	id = "human"
-	desc = "<b>Half Elf</b><br>\
-	The child of an Elf and Humen, Half-Elves are generally frowned \
-	upon by more conservative peoples, although as species tensions lower, \
-	more and more half-elves are being born. To the point that some scholars \
-	worry that someday, it may be impossible to distinguish the two species. \
-	Half-Elves are extremely diverse, as they bring in humen and elvish culture\
-	and it is widely considered that Half-Elf culture is simply a melting pot of \
+	desc = "The child of Elf and Humen. \
+	\n\n\
+	Half-Elves are generally frowned upon by more conservative peoples, \
+	although as species tensions lower, more and more half-elves are being born. \
+	To the point that some scholars worry that someday, \
+	it may be impossible to distinguish the two species. \
+	\n\n\
+	Half-Elves are extraordinarily diverse, as they combine both Humen and Elvish culture. \
+	It is widely considered that Half-Elf culture is simply a melting pot of \
 	various others condensing into one vibrant entity. \
+	\n\n\
 	Their longevity spanning too long for a human and short for an elf lead them to congregate together. \
-	Due to their heritage, Half-Elves tend to gain species traits depending on how strong their fathers, or mothers, genes were. \
+	Due to their heritage, Half-Elves tend to gain species traits \
+	depending on how strong their fathers, or mothers, genes were. \
 	Half-Elves also typically try to find identity."
 
 	skin_tone_wording = "Half-Elven Identity"
@@ -116,31 +120,15 @@
 
 	))
 
-/datum/species/human/halfelf/random_name(gender,unique,lastname)
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/elf/elfwm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/elf/elfwf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/elf/elfwm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/elf/elfwf.txt") )
-	return randname
+/datum/species/human/halfelf/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/elf/elfwm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/elf/elfwf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-/datum/species/human/halfelf/random_surname()
-	return ""
+/datum/species/human/halfelf/get_possible_surnames(gender = MALE)
+	return null
 
 /datum/species/human/halfelf/after_creation(mob/living/carbon/C)
 	..()
-//	if(!C.has_language(/datum/language/elvish))
 	C.grant_language(/datum/language/elvish)
 	to_chat(C, "<span class='info'>I can speak Elfish with ,e before my speech.</span>")

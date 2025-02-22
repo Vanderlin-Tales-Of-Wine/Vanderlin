@@ -14,15 +14,17 @@
 /datum/species/aasimar
 	name = "Aasimar"
 	id = "aasimar"
-	desc = "<b>Aasimar</b><br> \
-	Immortal offspring sculpted by one of the gods for use in servitude. \
+	desc = "Immortal offspring sculpted by the gods for use in servitude. \
+	\n\n\
 	Aasimar roaming alone on Psydonia often are those abandoned after serving their purpose. \
-	This species is often revered due to their celestial origin, but face great solitude \
-	as not many of their kind exist. Many an aasimar will detest the reverance in which they are greeted with,\
+	This species is often revered due to their celestial origin, \
+	but face great solitude as not many of their kind exist. \
+	Many an aasimar will detest the reverance in which they are greeted with, \
 	for their greatest failure or unuse that lead to their discarding is not subject for celebration. \
+	\n\n\
 	An aasimar may be crafted with any number of materials. \
-	Many resemble sculptures of stones or ceramic in skin, but their insides are just as mortal as \
-	any other. "
+	Many resemble sculptures of stones or ceramic in skin, \
+	but their insides are just as mortal as any other."
 
 	skin_tone_wording = "Crafted With"
 	nutrition_mod = 2 // 200% higher hunger rate. Hungry, hungry aasimar
@@ -145,29 +147,13 @@
 	"red - maroon" = "612929"
 	))
 
-/datum/species/aasimar/random_name(gender,unique,lastname)
+/datum/species/aasimar/get_possible_names(gender = FALSE)
+	var/static/list/male_names = world.file2list('strings/rt/names/other/aasm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/other/aasf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/other/aasm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/other/aasf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/other/aasm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/other/aasf.txt") )
-	return randname
-
-/datum/species/aasimar/random_surname()
-	return
+/datum/species/aasimar/get_possible_surnames(gender)
+	return null
 
 /datum/species/aasimar/get_accent_list()
 	return strings("proper_replacement.json", "proper")

@@ -5,17 +5,17 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
 	throw_range = 3
 	breakouttime = 5 SECONDS
 	slipouttime = 1 MINUTES
-	var/cuffsound = 'sound/blank.ogg'
 	possible_item_intents = list(/datum/intent/tie)
 	firefuel = 5 MINUTES
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	var/legcuff_multiplicative_slowdown = 3
 
 /datum/intent/tie
 	name = "tie"
@@ -37,6 +37,7 @@
 		if(M.legcuffed == src)
 			M.legcuffed = null
 			M.update_inv_legcuffed()
+			M.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 	return ..()
 
 /obj/item/rope/attack(mob/living/carbon/C, mob/living/user)
@@ -47,43 +48,38 @@
 	if(!istype(C))
 		return
 
-	if(user.aimheight > 4)
+	if(user.aimheight >= 5)
 		if(!C.handcuffed)
 			if(C.get_num_arms(FALSE))
-				C.visible_message("<span class='warning'>[user] is trying to tie [C]'s arms with [src.name]!</span>", \
-									"<span class='userdanger'>[user] is trying to tie my arms with [src.name]!</span>")
-
-				playsound(loc, cuffsound, 100, TRUE, -2)
+				C.visible_message(span_warning("[user] is trying to tie [C]'s arms with [src.name]!"), \
+									span_danger("[user] is trying to tie my arms with [src.name]!"))
 				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.get_num_arms(FALSE))
-					apply_cuffs(C, user)
-					C.visible_message("<span class='warning'>[user] ties [C] with [src.name].</span>", \
-										"<span class='danger'>[user] ties me up with [src.name].</span>")
+					apply_cuffs(C, user, leg = FALSE)
+					C.visible_message(span_warning("[user] ties [C]' arms with [src.name]."), \
+										span_danger("[user] ties my arms up with [src.name]."))
 					SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 					user.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
 					log_combat(user, C, "handcuffed")
 				else
-					to_chat(user, "<span class='warning'>I fail to tie up [C]!</span>")
+					to_chat(user, span_warning("I fail to tie up [C]'s arms!</span>"))
 			else
-				to_chat(user, "<span class='warning'>[C] has no arms to tie up.</span>")
-
-	if(user.aimheight <= 4)
+				to_chat(user, span_warning("[C] is missing two or one arms."))
+	else
 		if(!C.legcuffed)
-			if(C.get_num_legs(TRUE) == 2)
-				C.visible_message("<span class='warning'>[user] is trying to tie [C]'s legs with [src.name]!</span>", \
-									"<span class='userdanger'>[user] is trying to tie my legs with [src.name]!</span>")
-
-				playsound(loc, cuffsound, 30, TRUE, -2)
-				if(do_after(user, 6 SECONDS, C) && (C.get_num_legs(FALSE) < 2))
-					apply_cuffs(C, user)
-					C.visible_message("<span class='warning'>[user] ties [C]'s legs with [src.name].</span>", \
-										"<span class='danger'>[user] ties my legs with [src.name].</span>")
+			if(C.get_num_legs(FALSE))
+				C.visible_message(span_warning("[user] is trying to tie [C]'s legs with [src.name]!"), \
+									span_danger("[user] is trying to tie my legs with [src.name]!"))
+				if(do_after(user, 6 SECONDS * (C.surrendering ? 0.5 : 1), C) && C.get_num_legs(FALSE))
+					apply_cuffs(C, user, leg = TRUE)
+					C.visible_message(span_warning("[user] ties [C]' legs with [src.name]."), \
+										span_danger("[user] ties my legs up with [src.name]."))
 					SSblackbox.record_feedback("tally", "legcuffs", 1, type)
 					user.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT, FALSE)
-					log_combat(user, C, "legcuffed", TRUE)
+					log_combat(user, C, "legcuffed")
 				else
-					to_chat(user, "<span class='warning'>I fail to tie up [C]!</span>")
+					to_chat(user, span_warning("I fail to tie up [C]'s legs!</span>"))
 			else
-				to_chat(user, "<span class='warning'>[C] is missing two or one legs.</span>")
+				to_chat(user, span_warning("[C] is missing two or one legs."))
 
 /obj/item/rope/proc/apply_cuffs(mob/living/carbon/target, mob/user, leg = FALSE)
 	if(!leg)
@@ -112,16 +108,10 @@
 		cuffs.forceMove(target)
 		target.legcuffed = cuffs
 
+		target.add_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, multiplicative_slowdown = legcuff_multiplicative_slowdown)
+
 		target.update_inv_legcuffed()
 		return
-
-
-/datum/intent/whip
-	name = "strike"
-	blade_class = BCLASS_BLUNT
-	attack_verb = list("whips", "strikes", "smacks")
-	penfactor = 40
-	chargetime = 5
 
 /obj/item/rope/chain
 	name = "chain"
@@ -136,14 +126,20 @@
 	throw_range = 3
 	breakouttime = 1 MINUTES
 	slipouttime = 5 MINUTES
-	cuffsound = 'sound/blank.ogg'
 	possible_item_intents = list(/datum/intent/tie, /datum/intent/whip)
 	firefuel = null
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 
-/obj/item/net
-	name = "net"
-	desc = ""
+/datum/intent/whip
+	name = "strike"
+	blade_class = BCLASS_BLUNT
+	attack_verb = list("whips", "strikes", "smacks")
+	penfactor = 40
+	chargetime = 5
+
+/obj/item/rope/net
+	name = "rope net"
+	desc = "A rope mesh of designed to slow a person down."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "net"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
@@ -173,7 +169,7 @@
 		C.update_inv_legcuffed()
 		SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 		to_chat(C, "<span class='danger'>\The [src] entraps you!</span>")
-		C.Knockdown(knockdown)
+		//C.Knockdown(knockdown)
 		C.apply_status_effect(/datum/status_effect/debuff/netted)
 		playsound(src, 'sound/blank.ogg', 50, TRUE)
 
@@ -183,6 +179,7 @@
 		var/mob/living/carbon/M = loc
 		if(M.legcuffed == src)
 			M.legcuffed = null
+			M.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			M.update_inv_legcuffed()
 			if(M.has_status_effect(/datum/status_effect/debuff/netted))
 				M.remove_status_effect(/datum/status_effect/debuff/netted)

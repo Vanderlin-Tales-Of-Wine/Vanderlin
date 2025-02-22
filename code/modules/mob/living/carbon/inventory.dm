@@ -126,6 +126,7 @@
 			update_handcuffed()
 	else if(I == legcuffed)
 		legcuffed = null
+		remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 		if(!QDELETED(src))
 			update_inv_legcuffed()
 
