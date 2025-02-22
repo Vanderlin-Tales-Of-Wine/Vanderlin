@@ -1307,7 +1307,7 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement)
 "bxN" = (
-/obj/machinery/dye_bin,
+/obj/structure/dye_bin/luxury,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop)
 "bxZ" = (
@@ -11034,7 +11034,7 @@
 /turf/open/water/bath,
 /area/rogue/under/town/basement)
 "mjs" = (
-/obj/machinery/simple_dye_bin,
+/obj/structure/dye_bin,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/dwarf)
 "mkh" = (

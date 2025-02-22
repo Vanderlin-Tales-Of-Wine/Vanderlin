@@ -20,6 +20,10 @@
 	)
 
 //Dismember a limb
+/obj/item/bodypart/head/dismember(dam_type, bclass, mob/living/user, zone_precise)
+	. = ..()
+	add_abstract_elastic_data("combat", "decapitations", 1)
+
 /obj/item/bodypart/proc/dismember(dam_type = BRUTE, bclass = BCLASS_CUT, mob/living/user, zone_precise = src.body_zone)
 	if(!owner)
 		return FALSE
@@ -271,6 +275,7 @@
 			C.legcuffed.forceMove(C.drop_location()) //At this point bodypart is still in nullspace
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
@@ -285,6 +290,7 @@
 			C.legcuffed.forceMove(C.drop_location())
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
