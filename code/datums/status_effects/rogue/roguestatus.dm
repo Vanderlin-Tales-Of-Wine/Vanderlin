@@ -3,7 +3,7 @@
 
 /datum/status_effect/stress/stressinsane
 	id = "insane"
-	effectedstats = list("constitution" = -2, "endurance" = -2, "speed" = -2, "fortune" = -2)
+	effectedstats = list(STATKEY_CON = -2, STATKEY_END = -2, STATKEY_SPD = -2, STATKEY_LCK = -2)
 	alert_type = /atom/movable/screen/alert/status_effect/stress/stressinsane
 
 /atom/movable/screen/alert/status_effect/stress/stressinsane
@@ -13,7 +13,7 @@
 
 /datum/status_effect/stress/stressvbad
 	id = "stressvbad"
-	effectedstats = list("constitution" = -1,"endurance" = -2, "speed" = -2, "fortune" = -1)
+	effectedstats = list(STATKEY_CON = -1, STATKEY_END = -2, STATKEY_SPD = -2, STATKEY_LCK = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/stress/stressvbad
 
 /atom/movable/screen/alert/status_effect/stress/stressvbad
@@ -23,7 +23,7 @@
 
 /datum/status_effect/stress/stressbad
 	id = "stressbad"
-	effectedstats = list("speed" = -1)
+	effectedstats = list(STATKEY_SPD = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/stress/stressbad
 
 /atom/movable/screen/alert/status_effect/stress/stressbad
@@ -33,7 +33,7 @@
 
 /datum/status_effect/stress/stressvgood
 	id = "stressvgood"
-	effectedstats = list("fortune" = 1)
+	effectedstats = list(STATKEY_LCK = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/stress/good/stressvgood
 
 /atom/movable/screen/alert/status_effect/stress/good/stressvgood

@@ -47,8 +47,8 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	beltr = /obj/item/cooking/pan
 	beltl = /obj/item/rogueweapon/knife/cleaver
-	H.change_stat("intelligence", 3)
-	H.change_stat("constitution", 2)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_CON, 2)
 	if(H.age == AGE_OLD)
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
 	var/packcontents = pickweight(list("Honey" = 1, "Truffles" = 1, "Bacon" = 1)) // What is our special ingredient? Honey, truffles, or BACON?

@@ -47,7 +47,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/purple
 		pants = /obj/item/clothing/under/roguetown/tights/purple
-	H.change_stat("intelligence", 2)
-	H.change_stat("speed", 2)
-	H.change_stat("perception", 1)
-	H.change_stat("strength", -1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_STR, -1)

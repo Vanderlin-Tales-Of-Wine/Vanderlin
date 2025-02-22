@@ -51,9 +51,9 @@
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 
-	H.change_stat("intelligence", 2)
-	H.change_stat("perception", 1)
-	H.change_stat("strength", -1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_STR, -1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)

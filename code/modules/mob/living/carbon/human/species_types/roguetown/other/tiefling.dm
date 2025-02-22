@@ -58,8 +58,8 @@
 	OFFSET_FACE_F = list(0,-1), OFFSET_BELT_F = list(0,-1), OFFSET_BACK_F = list(0,-1), \
 	OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0))
-	specstats = list("strength" = 0, "perception" = 2, "intelligence" = 1, "constitution" = -1, "endurance" = 0, "speed" = 1, "fortune" = -1)
-	specstats_f = list("strength" = 0, "perception" = 2, "intelligence" = 1, "constitution" = -1, "endurance" = 0, "speed" = 1, "fortune" = -1)
+	specstats = list(STATKEY_STR = 0, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -1, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = -1)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = -1, STATKEY_END = 0, STATKEY_SPD = 1, STATKEY_LCK = -1)
 	enflamed_icon = "widefire"
 	patreon_req = 0
 

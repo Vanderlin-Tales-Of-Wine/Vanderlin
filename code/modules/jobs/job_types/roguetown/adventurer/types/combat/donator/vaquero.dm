@@ -45,6 +45,6 @@
 	beltl = /obj/item/rogueweapon/sword/rapier
 	beltr = /obj/item/rogueweapon/whip
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	H.change_stat("strength", 1)
-	H.change_stat("speed", 2)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_SPD, 2)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

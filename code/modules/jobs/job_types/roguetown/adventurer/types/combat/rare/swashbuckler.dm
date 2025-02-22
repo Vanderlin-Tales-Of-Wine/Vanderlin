@@ -53,8 +53,8 @@
 
 	shirt = pick(/obj/item/clothing/suit/roguetown/shirt/undershirt/sailor, /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	H.change_stat("strength", 1)
-	H.change_stat("perception", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("endurance", 3)
-	H.change_stat("speed", 2)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_SPD, 2)

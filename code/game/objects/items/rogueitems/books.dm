@@ -227,7 +227,7 @@
 /datum/status_effect/buff/blessed
 	id = "blessed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/blessed
-	effectedstats = list("fortune" = 1)
+	effectedstats = list(STATKEY_LCK = 1)
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/blessed
@@ -783,7 +783,7 @@ ____________End of Example*/
 /datum/status_effect/buff/blessed
 	id = "blessed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/blessed
-	effectedstats = list("fortune" = 1)
+	effectedstats = list(STATKEY_LCK = 1)
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/blessed

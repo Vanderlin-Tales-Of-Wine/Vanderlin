@@ -202,7 +202,7 @@
 	id = "frostbite"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/frostbite5e
 	duration = 20 SECONDS
-	effectedstats = list("speed" = -2)
+	effectedstats = list(STATKEY_SPD = -2)
 
 /atom/movable/screen/alert/status_effect/buff/frostbite5e
 	name = "Frostbite"

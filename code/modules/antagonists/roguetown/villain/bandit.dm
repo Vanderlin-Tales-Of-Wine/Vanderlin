@@ -76,9 +76,9 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-			H.change_stat("strength", 2)
-			H.change_stat("endurance", 1)
-			H.change_stat("constitution", 1)
+			H.change_stat(STATKEY_STR, 2)
+			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_CON, 1)
 
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			beltr = /obj/item/clothing/mask/rogue/shepherd/rag
@@ -132,10 +132,10 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-			H.change_stat("strength", 1)
-			H.change_stat("endurance", 1)
-			H.change_stat("perception", 2)
-			H.change_stat("speed", 2)
+			H.change_stat(STATKEY_STR, 1)
+			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_PER, 2)
+			H.change_stat(STATKEY_SPD, 2)
 
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson
 			pants = /obj/item/clothing/under/roguetown/trou/leather
@@ -178,10 +178,10 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-			H.change_stat("strength", 2)
-			H.change_stat("endurance", 2)
-			H.change_stat("constitution", 1)
-			H.change_stat("speed", 1)
+			H.change_stat(STATKEY_STR, 2)
+			H.change_stat(STATKEY_END, 2)
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_SPD, 1)
 
 			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
@@ -249,7 +249,7 @@
 			gloves = /obj/item/clothing/gloves/roguetown/angle
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 
-	H.change_stat("intelligence", -1)
+	H.change_stat(STATKEY_INT, -1)
 	var/obj/item/bodypart/B = H.get_bodypart("head")
 	if(B)
 		B.sellprice = rand(44, 88)

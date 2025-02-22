@@ -187,7 +187,7 @@
 /datum/status_effect/debuff/cursed
 	id = "cursed"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/cursed
-	effectedstats = list("fortune" = -5) // More severe so that the permanent debuff from having the perk makes it actually worth it.
+	effectedstats = list(STATKEY_LCK = -5) // More severe so that the permanent debuff from having the perk makes it actually worth it.
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/cursed

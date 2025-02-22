@@ -51,11 +51,11 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("intelligence", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("perception", -1) // similar to acolyte's stats
-		H.change_stat("fortune", -1) // Tradeoff for never being cursed when unearthing graves.
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_INT, 2)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_PER, -1) // similar to acolyte's stats
+		H.change_stat(STATKEY_LCK, -1) // Tradeoff for never being cursed when unearthing graves.
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Operating with corpses every day.
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC) // In case they need to move tombs or anything.
