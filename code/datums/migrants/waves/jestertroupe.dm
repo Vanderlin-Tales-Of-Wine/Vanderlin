@@ -41,9 +41,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
-		H.change_stat("strength", -1)
-		H.change_stat("constitution", -1)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_SPD, 1)
 	H.verbs |= /mob/living/carbon/human/proc/ventriloquate
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)

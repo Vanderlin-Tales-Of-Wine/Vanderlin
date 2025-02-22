@@ -37,10 +37,10 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	if(prob(50))
 		backr = /obj/item/storage/backpack/rogue/satchel
-	H.change_stat("strength", 3)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("intelligence", -2)
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_INT, -2)
 	var/armortype = pickweight(list("Cloak" = 5, "Hide" = 3, "Helmet" = 2))
 	var/weapontype = pickweight(list("Sword" = 4, "Club" = 3, "Axe" = 2)) //clubs and axes share a weapon type
 	switch(armortype)

@@ -73,6 +73,6 @@
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
-	H.change_stat("perception", 1)
-	H.change_stat("speed", 2)
-	H.change_stat("strength", -1)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_STR, -1)

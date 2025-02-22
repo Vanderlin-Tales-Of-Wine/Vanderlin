@@ -6,7 +6,7 @@
 /datum/status_effect/debuff/hungryt1
 	id = "hungryt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt1
-	effectedstats = list("speed" = -1,"strength" = -1, "constitution" = -1, "endurance" = -1)
+	effectedstats = list(STATKEY_SPD = -1, STATKEY_STR = -1, STATKEY_CON = -1, STATKEY_END = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt1
@@ -35,7 +35,7 @@
 /datum/status_effect/debuff/hungryt2
 	id = "hungryt2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt2
-	effectedstats = list("speed" = -4,"strength" = -2, "constitution" = -2, "endurance" = -1)
+	effectedstats = list(STATKEY_SPD = -4, STATKEY_STR = -2, STATKEY_CON = -2, STATKEY_END = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt2
@@ -64,7 +64,7 @@
 /datum/status_effect/debuff/hungryt3
 	id = "hungryt3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt3
-	effectedstats = list("speed" = -6,"strength" = -6, "constitution" = -6, "endurance" = -6)
+	effectedstats = list(STATKEY_SPD = -6, STATKEY_STR = -6, STATKEY_CON = -6, STATKEY_END = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt3
@@ -95,7 +95,7 @@
 /datum/status_effect/debuff/silver_curse
 	id = "silver_curse"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/silver_curse
-	effectedstats = list(STATKEY_STR = -2,STATKEY_PER = -2,STATKEY_INT = -2, STATKEY_CON = -2, STATKEY_END = -2, STATKEY_SPD = -2, STATKEY_LCK = -2)
+	effectedstats = list(STATKEY_STR = -2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -2, STATKEY_END = -2, STATKEY_SPD = -2, STATKEY_LCK = -2)
 	duration = 1 MINUTES
 
 /*	Pointless subtype, code doesnt handle it well, dont use
@@ -110,7 +110,7 @@
 /datum/status_effect/debuff/wiz
 	id = "wiz"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/wiz
-	effectedstats = list("intelligence" = -5)
+	effectedstats = list(STATKEY_INT = -5)
 	duration = -1
 
 /atom/movable/screen/alert/status_effect/debuff/wiz
@@ -123,7 +123,7 @@
 /datum/status_effect/debuff/thirstyt1
 	id = "thirsty1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt1
-	effectedstats = list("endurance" = -1, "speed" = -1)
+	effectedstats = list(STATKEY_END = -1, STATKEY_SPD = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt1
@@ -147,7 +147,7 @@
 /datum/status_effect/debuff/thirstyt2
 	id = "thirsty2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt2
-	effectedstats = list("speed" = -4, "endurance" = -4)
+	effectedstats = list(STATKEY_SPD = -4, STATKEY_END = -4)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt2
@@ -176,7 +176,7 @@
 /datum/status_effect/debuff/thirstyt3
 	id = "thirsty3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt3
-	effectedstats = list("strength" = -6, "speed" = -6, "endurance" = -6)
+	effectedstats = list(STATKEY_STR = -6, STATKEY_SPD = -6, STATKEY_END = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt3
@@ -282,7 +282,7 @@
 /datum/status_effect/debuff/bleeding
 	id = "bleedingt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt1
-	effectedstats = list("speed" = -2)
+	effectedstats = list(STATKEY_SPD = -2)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt1
@@ -293,7 +293,7 @@
 /datum/status_effect/debuff/bleedingworse
 	id = "bleedingt2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt2
-	effectedstats = list("strength" = -1, "speed" = -4)
+	effectedstats = list(STATKEY_STR = -1, STATKEY_SPD = -4)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt2
@@ -304,7 +304,7 @@
 /datum/status_effect/debuff/bleedingworst
 	id = "bleedingt3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt3
-	effectedstats = list("strength" = -3, "speed" = -6)
+	effectedstats = list(STATKEY_STR = -3, STATKEY_SPD = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt3
@@ -315,7 +315,7 @@
 /datum/status_effect/debuff/sleepytime
 	id = "sleepytime"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/sleepytime
-	effectedstats = list("speed" = -2, "endurance" = -2)
+	effectedstats = list(STATKEY_SPD = -2, STATKEY_END = -2)
 
 /datum/status_effect/debuff/sleepytime/on_apply()
 	. = ..()
@@ -338,7 +338,7 @@
 	id = "net"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/netted
 	duration = 2 MINUTES
-	effectedstats = list("speed" = -5, "endurance" = -2)
+	effectedstats = list(STATKEY_SPD = -5, STATKEY_END = -2)
 
 /datum/status_effect/debuff/netted/on_apply()
 		. = ..()
@@ -365,7 +365,7 @@
 /datum/status_effect/debuff/trainsleep
 	id = "trainsleep"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/trainsleep
-	effectedstats = list("strength" = -1, "speed" = -1,"endurance" = -1)
+	effectedstats = list(STATKEY_STR = -1, STATKEY_SPD = -1, STATKEY_END = -1)
 
 /atom/movable/screen/alert/status_effect/debuff/trainsleep
 	name = "Muscle Soreness"
@@ -376,7 +376,7 @@
 	id = "barbfalter"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/barbfalter
 	duration = 30 SECONDS
-	effectedstats = list("strength" = -2, "speed" = -2)
+	effectedstats = list(STATKEY_STR = -2, STATKEY_SPD = -2)
 
 /atom/movable/screen/alert/status_effect/debuff/barbfalter
 	name = "Faltering"
@@ -387,7 +387,7 @@
 	id = "revive"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/revive
 	duration = 15 MINUTES
-	effectedstats = list("strength" = -4, "speed" = -3, "endurance" = -3, "constitution" = -4)
+	effectedstats = list(STATKEY_STR = -4, STATKEY_SPD = -3, STATKEY_END = -3, STATKEY_CON = -4)
 
 /atom/movable/screen/alert/status_effect/debuff/revive
 	name = "Revival Sickness"
@@ -398,7 +398,7 @@
 	id = "viciousmockery"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/viciousmockery
 	duration = 1 MINUTES
-	effectedstats = list("strength" = -2, "speed" = -2,"endurance" = -2)
+	effectedstats = list(STATKEY_STR = -2, STATKEY_SPD = -2,STATKEY_END = -2)
 
 /atom/movable/screen/alert/status_effect/debuff/viciousmockery
 	name = "Vicious Mockery"
@@ -408,7 +408,7 @@
 /datum/status_effect/debuff/chilled
 	id = "chilled"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/chilled
-	effectedstats = list("speed" = -5, "strength" = -2, "endurance" = -2)
+	effectedstats = list(STATKEY_SPD = -5, STATKEY_STR = -2, STATKEY_END = -2)
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/chilled
