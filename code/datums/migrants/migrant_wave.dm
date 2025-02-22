@@ -111,6 +111,7 @@
 	roles = list(
 		/datum/migrant_role/bandit = 4,
 	)
+	can_roll = FALSE
 
 /datum/migrant_wave/bandit_down_one
 	name = "Bandit Raid"

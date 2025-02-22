@@ -98,7 +98,7 @@
 
 /obj/structure/flora/roguetree/evil
 	var/datum/looping_sound/boneloop/soundloop
-	var/datum/spacevine_controller/controller
+	var/datum/vine_controller/controller
 
 /obj/structure/flora/roguetree/wise
 	name = "wise tree"

@@ -50,6 +50,9 @@
 
 // Normal veteran start, from the olden days.
 
+/datum/outfit/job/roguetown/vet
+	job_bitflag = BITFLAG_GARRISON
+
 /datum/outfit/job/roguetown/vet/battlemaster/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/bevor
 	armor = /obj/item/clothing/suit/roguetown/armor/plate

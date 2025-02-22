@@ -37,6 +37,9 @@
 		H.real_name = "[honorary] [prev_real_name]"
 		H.name = "[honorary] [prev_name]"
 
+/datum/outfit/job/roguetown/captain
+	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON
+
 /datum/outfit/job/roguetown/captain/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet/visored/captain

@@ -28,6 +28,9 @@
 
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
+/datum/outfit/job/roguetown/feldsher
+	job_bitflag = BITFLAG_ROYALTY
+
 /datum/outfit/job/roguetown/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE

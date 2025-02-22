@@ -30,6 +30,7 @@
 	name = "Adept"
 	jobtype = /datum/job/roguetown/adept
 	allowed_patrons = list(/datum/patron/psydon)
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/roguetown/adept // Base outfit for Adepts, before loadouts
 	belt = /obj/item/storage/belt/rogue/leather

@@ -298,17 +298,15 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return
 	var/datum/antagonist/prebel/P = user.mind?.has_antag_datum(/datum/antagonist/prebel)
 	if(P)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(istype(C))
-			if(P.rev_team)
-				if(P.rev_team.members.len < 3)
-					to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
-				else
-					for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
-						obj.completed = TRUE
-					if(!C.headrebdecree)
-						user.mind.adjust_triumphs(1)
-					C.headrebdecree = TRUE
+		if(P.rev_team)
+			if(P.rev_team.members.len < 3)
+				to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
+			else
+				for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
+					obj.completed = TRUE
+				if(!SSmapping.retainer.head_rebel_decree)
+					user.mind.adjust_triumphs(1)
+				SSmapping.retainer.head_rebel_decree = TRUE
 
 	SScommunications.make_announcement(user, FALSE, raw_message)
 
@@ -316,18 +314,15 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!SScommunications.can_announce(user))
 		return
 	var/datum/antagonist/prebel/P = user.mind?.has_antag_datum(/datum/antagonist/prebel)
-	if(P)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(istype(C))
-			if(P.rev_team)
-				if(P.rev_team.members.len < 3)
-					to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
-				else
-					for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
-						obj.completed = TRUE
-					if(!C.headrebdecree)
-						user.mind.adjust_triumphs(1)
-					C.headrebdecree = TRUE
+	if(P?.rev_team)
+		if(P.rev_team.members.len < 3)
+			to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
+		else
+			for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
+				obj.completed = TRUE
+			if(!SSmapping.retainer.head_rebel_decree)
+				user.mind.adjust_triumphs(1)
+			SSmapping.retainer.head_rebel_decree = TRUE
 	GLOB.lord_decrees += raw_message
 	SScommunications.make_announcement(user, TRUE, raw_message)
 

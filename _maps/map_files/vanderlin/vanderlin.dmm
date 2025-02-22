@@ -586,6 +586,10 @@
 	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/manor)
+"avv" = (
+/obj/effect/landmark/events/animal_migration_point,
+/turf/open/floor/rogue/metal/barograte,
+/area/rogue/outdoors/town)
 "avx" = (
 /turf/open/floor/rogue/carpet/lord/left,
 /area/rogue/indoors/town/manor)
@@ -9901,6 +9905,10 @@
 "gUL" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/town/roofs)
+"gUQ" = (
+/obj/effect/landmark/events/animal_migration_point,
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/town)
 "gVa" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/tile{
@@ -19404,6 +19412,10 @@
 	},
 /turf/open/floor/rogue/tile/kitchen,
 /area/rogue/outdoors/mountains)
+"nOJ" = (
+/obj/effect/landmark/events/animal_migration_point,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "nOW" = (
 /obj/structure/table/wood/large/corner_alt,
 /obj/item/dice,
@@ -29022,6 +29034,10 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
+"uKt" = (
+/obj/effect/landmark/events/animal_migration_point,
+/turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "uKw" = (
 /obj/structure/fluff/railing/wood{
@@ -91401,7 +91417,7 @@ xyY
 xyY
 ehF
 lsl
-lsl
+gUQ
 lsl
 hFl
 whf
@@ -93068,7 +93084,7 @@ elp
 elp
 ohB
 elp
-uSV
+avv
 elp
 elp
 uSV
@@ -93087,7 +93103,7 @@ elp
 lsl
 lsl
 lsl
-elp
+nOJ
 elp
 lsl
 eoB
@@ -93863,7 +93879,7 @@ uSV
 elp
 elp
 elp
-elp
+nOJ
 elp
 elp
 ehF
@@ -94033,7 +94049,7 @@ lsl
 elp
 lsl
 elp
-elp
+nOJ
 elp
 elp
 elp
@@ -95054,7 +95070,7 @@ iSk
 iSk
 bDU
 lsl
-elp
+nOJ
 ehF
 lsl
 elp
@@ -96660,7 +96676,7 @@ elp
 elp
 uSV
 elp
-elp
+nOJ
 mOp
 elp
 uSV
@@ -96850,7 +96866,7 @@ elp
 elp
 elp
 lsl
-elp
+nOJ
 elp
 lsl
 elp
@@ -97501,7 +97517,7 @@ jPk
 jPk
 elp
 lsl
-ehF
+uKt
 ehF
 uSV
 lsl
@@ -97919,7 +97935,7 @@ elp
 elp
 lsl
 elp
-elp
+nOJ
 uSV
 elp
 elp
@@ -99684,7 +99700,7 @@ aPS
 aPS
 ybp
 elp
-elp
+nOJ
 ehF
 wGd
 fGK
@@ -103758,7 +103774,7 @@ ehF
 ehF
 ehF
 ehF
-ehF
+uKt
 vnF
 ehF
 ehF
@@ -104951,7 +104967,7 @@ adz
 mUs
 elp
 vnF
-elp
+nOJ
 ehF
 elp
 vnF
@@ -105340,7 +105356,7 @@ vgJ
 aAT
 ehF
 elp
-elp
+nOJ
 elp
 elp
 elp

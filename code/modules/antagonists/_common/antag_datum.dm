@@ -25,6 +25,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/increase_votepwr = TRUE
 	var/isgoodguy = FALSE // Some "antagonist" datums are granted to not inherently bad guys, this is to differentiate for the sake of bardic buffs.
 
+	///flags used by storytellers
+	var/antag_flags = NONE
+
 /datum/antagonist/New()
 	GLOB.antagonists += src
 	typecache_datum_blacklist = typecacheof(typecache_datum_blacklist)

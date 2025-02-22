@@ -95,13 +95,16 @@ SUBSYSTEM_DEF(elastic)
 	return TRUE
 
 ///this is best for numerical data think x event ran 12 times since you're updating the number with the total run anyway.
-/proc/add_abstract_elastic_data(main_cat, abstract_name, abstract_value)
+/proc/add_abstract_elastic_data(main_cat, abstract_name, abstract_value, maximum)
 	if(!isnum(abstract_value))
 		return
 	if(!main_cat)
 		return
 	SSelastic.abstract_information |= abstract_name
 	SSelastic.abstract_information[abstract_name] += abstract_value
+	if(maximum)
+		SSelastic.abstract_information[abstract_name] = min(maximum, SSelastic.abstract_information[abstract_name])
+
 	var/list/data = list("[abstract_name]" = SSelastic.abstract_information[abstract_name])
 	SSelastic.add_list_data(main_cat, data)
 	return TRUE

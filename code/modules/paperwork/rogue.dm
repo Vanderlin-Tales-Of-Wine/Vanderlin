@@ -431,3 +431,68 @@
 
 	info += "</div>"
 
+
+/obj/item/paper/scroll/sell_price_changes
+	name = "updated purchasing prices"
+	icon_state = "contractsigned"
+	old_render = FALSE
+
+	var/list/sell_prices
+	var/writers_name
+	var/faction
+
+/obj/item/paper/scroll/sell_price_changes/New(loc, list/prices, faction_name)
+	. = ..()
+
+	faction = faction_name
+	if(!faction)
+		faction = pick("Heartfelt", "Zybantine", "Grenzelhoft", "Kingsfield")
+
+	sell_prices = prices
+	if(!length(sell_prices))
+		sell_prices = generated_test_data()
+	writers_name = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
+	rebuild_info()
+
+/obj/item/paper/scroll/sell_price_changes/update_icon_state()
+	if(open)
+		icon_state = "contractsigned"
+		name = initial(name)
+	else
+		icon_state = "scroll_closed"
+		name = "scroll"
+
+
+/obj/item/paper/scroll/sell_price_changes/proc/rebuild_info()
+	info = null
+	info += "<div style='vertical-align:top'>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Purchasing Prices</h2>"
+	info += "<hr/>"
+
+	if(sell_prices.len)
+		info += "<ul>"
+		for(var/atom/type_path as anything in sell_prices)
+			var/list/prices = sell_prices[type_path]
+			info += "<li style='color:#06080F;font-size:9px;font-family:\"Segoe Script\"'>[initial(type_path.name)] [prices[1]] > [prices[2]] mammons</li><br/>"
+		info += "</ul>"
+
+	info += "<br/></font>"
+
+	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[writers_name] Shipwright of [faction]</font>"
+
+	info += "</div>"
+
+/obj/item/paper/scroll/sell_price_changes/proc/generated_test_data()
+
+	var/list/prices = list()
+	for(var/i = 1 to rand(2, 4))
+		var/datum/supply_pack/pack = pick(SSmerchant.supply_packs)
+		if(islist(pack.contains))
+			continue
+		var/path = pack.contains
+		if(!path)
+			continue
+		prices |= path
+		var/starting_rand  = rand(100, 50)
+		prices[path] = list("[starting_rand]", "[round(starting_rand * 0.5, 1)]")
+	sell_prices = prices

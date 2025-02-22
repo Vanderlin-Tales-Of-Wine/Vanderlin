@@ -9,6 +9,7 @@
 		"THE CHOSEN MUST TAKE THE THRONE!",
 	)
 	increase_votepwr = FALSE
+	antag_flags = FLAG_FAKE_ANTAG
 
 /datum/antagonist/aspirant/supporter
 	name = "Supporter"
@@ -28,6 +29,7 @@
 /datum/antagonist/aspirant/on_gain()
 	. = ..()
 	owner.special_role = ROLE_ASPIRANT
+	SSmapping.retainer.aspirants |= owner
 
 /datum/antagonist/aspirant/greet()
 	to_chat(owner, span_danger("I have grown weary of being near the throne, but never on it. I have decided that it is time I ruled Vanderlin."))
@@ -63,10 +65,9 @@
 		G.initialruler = SSticker.rulermob
 		return
 	if(istype(src, /datum/antagonist/aspirant/supporter))
-		var/datum/game_mode/chaosmode/C = SSticker.mode
 		var/datum/objective/aspirant/coup/three/G = new
 		objectives += G
-		for(var/datum/mind/aspirant in C.aspirants)
+		for(var/datum/mind/aspirant in SSmapping.retainer.aspirants)
 			if(aspirant.special_role == "Aspirant")
 				G.aspirant = aspirant.current
 		return
