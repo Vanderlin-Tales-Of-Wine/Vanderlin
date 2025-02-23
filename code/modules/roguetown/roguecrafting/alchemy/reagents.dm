@@ -8,6 +8,7 @@
 	name = "Health Potion"
 	description = "Gradually regenerates all types of damage."
 	reagent_state = LIQUID
+	random_reagent_color = TRUE
 	color = "#ff0000"
 	taste_description = "lifeblood"
 	overdose_threshold = 0
@@ -33,6 +34,7 @@
 /datum/reagent/medicine/stronghealth
 	name = "Strong Health Potion"
 	description = "Quickly regenerates all types of damage."
+	random_reagent_color = TRUE
 	color = "#820000be"
 	taste_description = "rich lifeblood"
 	metabolization_rate = REAGENTS_METABOLISM * 3
@@ -62,6 +64,7 @@
 	description = "Change the user's gender."
 	reagent_state = LIQUID
 	color = "#FF33FF"
+	random_reagent_color = TRUE
 	taste_description = "organic scent"
 	overdose_threshold = 0
 	metabolization_rate = REAGENTS_METABOLISM * 5
@@ -89,6 +92,7 @@
 	description = "Gradually regenerates energy."
 	reagent_state = LIQUID
 	color = "#000042"
+	random_reagent_color = TRUE
 	taste_description = "sweet mana"
 	overdose_threshold = 0
 	metabolization_rate = REAGENTS_METABOLISM
@@ -103,6 +107,7 @@
 	name = "Strong Mana Potion"
 	description = "Rapidly regenerates energy."
 	color = "#0000ff"
+	random_reagent_color = TRUE
 	taste_description = "raw power"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
@@ -116,6 +121,7 @@
 	description = "Gradually regenerates stamina."
 	reagent_state = LIQUID
 	color = "#129c00"
+	random_reagent_color = TRUE
 	taste_description = "sweet tea"
 	overdose_threshold = 0
 	metabolization_rate = REAGENTS_METABOLISM
@@ -130,6 +136,7 @@
 	name = "Strong Stamina Potion"
 	description = "Rapidly regenerates stamina."
 	color = "#13df00"
+	random_reagent_color = TRUE
 	taste_description = "sparkly static"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
@@ -143,6 +150,7 @@
 	description = ""
 	reagent_state = LIQUID
 	color = "#00ff00"
+	random_reagent_color = TRUE
 	taste_description = "sickly sweet"
 	metabolization_rate = REAGENTS_METABOLISM
 
@@ -157,6 +165,7 @@
 	description = ""
 	reagent_state = LIQUID
 	color = "#004200"
+	random_reagent_color = TRUE
 	taste_description = "dirt"
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
@@ -175,6 +184,7 @@
 /datum/reagent/buff/strength
 	name = "Strength"
 	color = "#ff9000"
+	random_reagent_color = TRUE
 	taste_description = "old meat"
 
 /datum/reagent/buff/strength/on_mob_add(mob/living/carbon/M)
@@ -189,6 +199,7 @@
 /datum/reagent/buff/perception
 	name = "Perception"
 	color = "#ffff00"
+	random_reagent_color = TRUE
 	taste_description = "cat piss"
 
 /datum/reagent/buff/perception/on_mob_life(mob/living/carbon/M)
@@ -203,6 +214,7 @@
 /datum/reagent/buff/intelligence
 	name = "Intelligence"
 	color = "#438127"
+	random_reagent_color = TRUE
 	taste_description = "bog water"
 
 /datum/reagent/buff/intelligence/on_mob_life(mob/living/carbon/M)
@@ -217,6 +229,7 @@
 /datum/reagent/buff/constitution
 	name = "Constitution"
 	color = "#130604"
+	random_reagent_color = TRUE
 	taste_description = "bile"
 
 /datum/reagent/buff/constitution/on_mob_life(mob/living/carbon/M)
@@ -231,6 +244,7 @@
 /datum/reagent/buff/endurance
 	name = "Endurance"
 	color = "#ffff00"
+	random_reagent_color = TRUE
 	taste_description = "gote urine"
 
 /datum/reagent/buff/endurance/on_mob_life(mob/living/carbon/M)
@@ -245,6 +259,7 @@
 /datum/reagent/buff/speed
 	name = "Speed"
 	color = "#ffff00"
+	random_reagent_color = TRUE
 	taste_description = "raw egg yolk"
 
 /datum/reagent/buff/speed/on_mob_life(mob/living/carbon/M)
@@ -259,6 +274,7 @@
 /datum/reagent/buff/fortune
 	name = "Fortune"
 	color = "#ffff00"
+	random_reagent_color = TRUE
 	taste_description = "pig urine"
 
 /datum/reagent/buff/fortune/on_mob_life(mob/living/carbon/M)
@@ -282,6 +298,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	description = ""
 	reagent_state = LIQUID
 	color = "#47b2e0"
+	random_reagent_color = TRUE
 	taste_description = "bitterness"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
@@ -301,6 +318,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	description = ""
 	reagent_state = LIQUID
 	color = "#1a1616"
+	random_reagent_color = TRUE
 	taste_description = "burning"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
@@ -320,6 +338,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	description = ""
 	reagent_state = LIQUID
 	color = "#2c1818"
+	random_reagent_color = TRUE
 	taste_description = "sour meat"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
@@ -334,6 +353,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	description = ""
 	reagent_state = LIQUID
 	color = "#083b1c"
+	random_reagent_color = TRUE
 	taste_description = "breathlessness"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM * 3
 
@@ -347,6 +367,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	description = ""
 	reagent_state = LIQUID
 	color = "#041d0e"
+	random_reagent_color = TRUE
 	taste_description = "frozen air"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM * 9
 
