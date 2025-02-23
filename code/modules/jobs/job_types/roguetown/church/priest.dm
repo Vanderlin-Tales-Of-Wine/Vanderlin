@@ -31,6 +31,9 @@
 		/obj/effect/proc_holder/spell/self/convertrole/churchling,
 	)
 
+/datum/outfit/job/roguetown/priest
+	job_bitflag = BITFLAG_CHURCH
+
 /datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE

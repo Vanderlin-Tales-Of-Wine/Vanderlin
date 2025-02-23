@@ -23,9 +23,8 @@
 	give_bank_account = FALSE
 
 /datum/job/roguetown/deathknight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	C.deathknightspawn = FALSE
-	C.deathknights |= L.mind
+	SSmapping.find_and_remove_world_trait(/datum/world_trait/death_knight)
+	SSmapping.retainer.death_knights |= L.mind
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L

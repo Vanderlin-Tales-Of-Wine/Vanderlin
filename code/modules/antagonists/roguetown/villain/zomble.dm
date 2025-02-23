@@ -5,6 +5,7 @@
 	antag_hud_name = "zombie"
 	show_name_in_check_antagonists = TRUE
 	show_in_roundend = FALSE
+	antag_flags = FLAG_FAKE_ANTAG
 	/// SET TO FALSE IF WE DON'T TURN INTO ROTMEN WHEN REMOVED
 	var/become_rotman = FALSE
 	var/zombie_start

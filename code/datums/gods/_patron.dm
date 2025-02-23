@@ -42,6 +42,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/list/added_traits
 	var/non_faith = FALSE
 
+	var/datum/storyteller/storyteller
+
 /datum/patron/proc/on_gain(mob/living/pious)
 	for(var/trait in added_traits)
 		ADD_TRAIT(pious, trait, "[type]")

@@ -6,6 +6,7 @@
 	show_name_in_check_antagonists = TRUE
 	increase_votepwr = FALSE
 	isgoodguy = TRUE
+	antag_flags = FLAG_FAKE_ANTAG
 
 /datum/antagonist/purishep/on_gain()
 	if(!(locate(/datum/objective/purishep) in objectives))

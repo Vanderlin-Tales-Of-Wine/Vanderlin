@@ -3,6 +3,7 @@
 	icon = 'icons/roguetown/items/ore.dmi'
 	icon_state = "ore"
 	w_class = WEIGHT_CLASS_NORMAL
+	resistance_flags = FIRE_PROOF
 	grid_width = 32
 	grid_height = 32
 	melt_amount = 120
@@ -84,6 +85,7 @@
 	icon_state = "ingot"
 	w_class = WEIGHT_CLASS_NORMAL
 	smeltresult = null
+	resistance_flags = FIRE_PROOF
 
 	grid_width = 64
 	grid_height = 32

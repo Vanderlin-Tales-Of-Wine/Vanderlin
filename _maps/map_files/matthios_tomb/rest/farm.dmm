@@ -87,21 +87,6 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue)
-"ld" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/wheat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/obj/item/neuFarm/seed/oat,
-/turf/open/floor/rogue/wood,
-/area/rogue)
 "lq" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/soil,
@@ -118,11 +103,32 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "nI" = (
-/obj/structure/fluff/railing/wood{
-	dir = 1
-	},
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/onion,
+/obj/item/neuFarm/seed/potato,
+/obj/item/neuFarm/seed/cabbage,
+/obj/item/neuFarm/seed/westleach,
+/obj/item/neuFarm/seed/westleach,
+/obj/item/neuFarm/seed/westleach,
 /obj/structure/fluff/railing/wood{
 	dir = 8;
+	pixel_y = -1
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 1;
 	pixel_y = -1
 	},
 /turf/open/floor/rogue/grass,
@@ -132,6 +138,19 @@
 /obj/item/candle/yellow/lit/infinite{
 	pixel_y = 9;
 	pixel_x = -8
+	},
+/obj/item/natural/clay,
+/obj/item/natural/clay{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/natural/clay{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/obj/item/natural/clay{
+	pixel_y = 4;
+	pixel_x = 2
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue)
@@ -155,11 +174,8 @@
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue)
 "qt" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/neuFarm/seed/westleach,
-/obj/item/neuFarm/seed/westleach,
-/obj/item/neuFarm/seed/westleach,
-/turf/open/floor/carpet/inn,
+/obj/structure/rotation_piece,
+/turf/open/floor/rogue/wood,
 /area/rogue)
 "rr" = (
 /obj/structure/roguewindow/openclose{
@@ -257,12 +273,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "GX" = (
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/neuFarm/seed/cabbage,
-/obj/item/neuFarm/seed/potato,
-/obj/item/neuFarm/seed/onion,
-/obj/item/neuFarm/seed/apple,
-/obj/item/neuFarm/seed/apple,
+/obj/structure/pottery_lathe,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "Ht" = (
@@ -679,7 +690,7 @@ io
 gg
 dc
 cW
-ld
+cW
 oa
 gg
 io
@@ -695,8 +706,8 @@ io
 io
 gg
 XH
-cW
-cW
+qt
+qt
 GX
 rr
 io
@@ -730,7 +741,7 @@ io
 gg
 bf
 cW
-qt
+SO
 oi
 gg
 io

@@ -37,6 +37,7 @@
 	name = "Inquisitor"
 	jobtype = /datum/job/roguetown/inquisitor
 	allowed_patrons = list(/datum/patron/psydon)
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/roguetown/inquisitor/pre_equip(mob/living/carbon/human/H)
 	..()

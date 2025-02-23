@@ -260,3 +260,9 @@
 
 #define JDO_VAGRANT 36
 #define JDO_ORPHAN 37
+
+
+#define BITFLAG_CHURCH (1<<0)
+#define BITFLAG_ROYALTY (1<<1)
+#define BITFLAG_CONSTRUCTOR (1<<2)
+#define BITFLAG_GARRISON (1<<3)

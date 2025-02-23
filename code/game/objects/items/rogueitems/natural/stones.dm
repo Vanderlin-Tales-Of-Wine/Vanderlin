@@ -11,6 +11,7 @@
 	throwforce = 15
 	slot_flags = ITEM_SLOT_MOUTH
 	w_class = WEIGHT_CLASS_TINY
+	resistance_flags = FIRE_PROOF
 
 /obj/item/natural/stone/Initialize()
 	icon_state = "stone[rand(1,4)]"
@@ -52,6 +53,7 @@
 	throwforce = 25
 	throw_range = 2
 	force = 15
+	resistance_flags = FIRE_PROOF
 	obj_flags = CAN_BE_HIT
 	force_wielded = 15
 	gripped_intents = list(INTENT_GENERIC)

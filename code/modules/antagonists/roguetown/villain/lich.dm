@@ -16,8 +16,7 @@
 	var/list/mob/minions = list()
 
 /datum/antagonist/lich/on_gain()
-	var/datum/game_mode/C = SSticker.mode
-	C.liches |= owner
+	SSmapping.retainer.liches |= owner
 	. = ..()
 	owner.special_role = name
 	skele_look()

@@ -11,38 +11,55 @@
 	var/herbtype
 	var/obj/effect/skill_tracker/alchemy_plants/alchemy_effect
 
+	var/timerid
+	var/harvested = FALSE
+
 /obj/structure/flora/roguegrass/herb/Initialize()
 	. = ..()
 	desc = "An herb. This one looks like [name]."
 	alchemy_effect = new(get_turf(src), src)
+	GLOB.herb_locations |= src
+	loot_replenish()
+
+/obj/structure/flora/roguegrass/herb/Destroy()
+	. = ..()
+	GLOB.harvested_herbs -= src
+	GLOB.herb_locations -= src
 
 /obj/structure/flora/roguegrass/herb/update_icon()
 	return
 
 /obj/structure/flora/roguegrass/herb/attack_hand(mob/user)
+	if(harvested)
+		to_chat(user, span_warning("Picked clean; but looks healthy. I should try again later."))
 	if(isliving(user))
 		var/mob/living/L = user
 		user.changeNext_move(CLICK_CD_MELEE)
 		playsound(src.loc, "plantcross", 80, FALSE, -1)
-		if(do_after(L, rand(3,5) DECISECONDS, src))
-			if(!looty.len && (world.time > res_replenish))
-				loot_replenish()
-			if(prob(50) && looty.len)
-				if(looty.len == 1)
-					res_replenish = world.time + 5 MINUTES
+		if(do_after(L, rand(3,5) DECISECONDS ,src))
+			if(!looty.len)
+				return
+			if(prob(50))
 				var/obj/item/B = pick_n_take(looty)
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
 					user.visible_message(span_notice("[user] finds [B] in [src]."))
+					harvested = TRUE
+					timerid = addtimer(CALLBACK(src, PROC_REF(loot_replenish)), 5 MINUTES, flags = TIMER_STOPPABLE)
+					add_filter("picked", 1, alpha_mask_filter(icon = icon('icons/effects/picked_overlay.dmi', "picked_overlay_[rand(1,3)]"), flags = MASK_INVERSE))
+					GLOB.harvested_herbs |= src
 					return
 			user.visible_message(span_notice("[user] searches through [src]."))
-			if(!looty.len)
-				to_chat(user, span_warning("Picked clean; but looks healthy. I should try again later."))
 
 /obj/structure/flora/roguegrass/herb/proc/loot_replenish()
 	if(herbtype)
 		looty += herbtype
+	harvested = FALSE
+	remove_filter("picked")
+	GLOB.harvested_herbs -= src
+	if(timerid)
+		deltimer(timerid)
 
 /obj/structure/flora/roguegrass/herb/random
 	name = "random herb"

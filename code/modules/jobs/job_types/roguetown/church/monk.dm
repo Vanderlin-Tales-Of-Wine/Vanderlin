@@ -27,6 +27,7 @@
 	name = "Acolyte"
 	jobtype = /datum/job/roguetown/monk
 	allowed_patrons = ALL_TEMPLE_PATRONS
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/roguetown/monk/pre_equip(mob/living/carbon/human/H)
 	..()

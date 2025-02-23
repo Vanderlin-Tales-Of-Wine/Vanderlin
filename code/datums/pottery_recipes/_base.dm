@@ -49,7 +49,7 @@
 
 	recipe_steps.Cut(1,2)
 	step_to_time.Cut(1,2)
-	var/amt2raise = (user.STAINT * 2) + (difficulty * 2)
+	var/amt2raise = (user.STAINT * 0.5) + (difficulty * 2)
 
 	user?.mind?.add_sleep_experience(/datum/skill/craft/masonry, amt2raise, FALSE)
 

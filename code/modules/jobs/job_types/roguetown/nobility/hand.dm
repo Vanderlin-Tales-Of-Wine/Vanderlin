@@ -34,6 +34,7 @@
 */
 
 /datum/outfit/job/roguetown/hand
+	job_bitflag = BITFLAG_ROYALTY
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 	belt = /obj/item/storage/belt/rogue/leather/steel
 

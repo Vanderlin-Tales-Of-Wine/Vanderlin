@@ -13,6 +13,7 @@
 	nutriment_factor = 0
 	taste_description = "alcohol"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	liquid_fire_power = 10
 	var/boozepwr = 65 //Higher numbers equal higher hardness, higher hardness equals more intense alcohol poisoning
 
 /*
@@ -1991,6 +1992,17 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	taste_description = "sickly sweet young wine"
 	color = "#3b2342"
 
+/datum/reagent/consumable/ethanol/beer/jackberrywine/aged
+	name = "Aged Jackberry Wine"
+	boozepwr = 30
+	taste_description = "sickly sweet aged wine"
+	color = "#402249"
+
+/datum/reagent/consumable/ethanol/beer/jackberrywine/delectable
+	name = "Delectable Jackberry Wine"
+	boozepwr = 30
+	taste_description = "sickly sweet delectably aged wine"
+	color = "#652679"
 
 // Elf Production - Berries & Herbal
 

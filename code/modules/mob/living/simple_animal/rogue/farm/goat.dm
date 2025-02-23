@@ -10,7 +10,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/goat/find_food()
 	..()
-	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
+	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
 	if(SV)
 		SV.eat(src)
 		food = max(food + 30, 100)
@@ -49,12 +49,12 @@
 			for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
 				var/step = get_step(src, direction)
 				if(step)
-					if(locate(/obj/structure/spacevine) in step || locate(/obj/structure/kneestingers) in step)
+					if(locate(/obj/structure/vine) in step || locate(/obj/structure/kneestingers) in step)
 						Move(step, get_dir(src, step))
 
 /mob/living/simple_animal/hostile/retaliate/rogue/goat/UniqueAttack()
-	if(istype(target, /obj/structure/spacevine))
-		var/obj/structure/spacevine/SV = target
+	if(istype(target, /obj/structure/vine))
+		var/obj/structure/vine/SV = target
 		SV.eat(src)
 		food = max(food + 30, food_max + 50)
 		return
@@ -302,7 +302,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/goatmale/eat_plants()
 	..()
-	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
+	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
 	if(SV)
 		SV.eat(src)
 		food = max(food + 30, 100)
@@ -314,7 +314,7 @@
 			for(var/direction in shuffle(list(1,2,4,8,5,6,9,10)))
 				var/step = get_step(src, direction)
 				if(step)
-					if(locate(/obj/structure/spacevine) in step || locate(/obj/structure/kneestingers) in step)
+					if(locate(/obj/structure/vine) in step || locate(/obj/structure/kneestingers) in step)
 						Move(step, get_dir(src, step))
 
 /mob/living/simple_animal/hostile/retaliate/rogue/goatmale/simple_limb_hit(zone)

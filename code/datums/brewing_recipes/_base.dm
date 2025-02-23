@@ -24,11 +24,16 @@
 	///if we have a secondary name some do if you want to hide the ugly info
 	var/secondary_name
 	///typepath of our output if set we also make this item
-	var/brewed_item
+	var/atom/brewed_item
 	///amount of brewed items
 	var/brewed_item_count = 1
 	///do we age afterwards?
 	var/ages = FALSE
+	///the reagent we get at different age times
+	var/list/age_times = list()
+
+/datum/brewing_recipe/proc/after_finish_attackby(mob/user, obj/item/attacked_item, atom/source)
+	return FALSE
 
 /datum/brewing_recipe/proc/generate_html(mob/user)
 	var/client/client = user
@@ -86,6 +91,8 @@
 		"}
 	if(ages)
 		html += "<strong>Will Continue to age after brewing.</strong><br>"
+	if(helpful_hints)
+		html += "<strong>[helpful_hints]</stong><br>"
 
 	html += "<strong>Items Required</strong><br>"
 	for(var/atom/path as anything in needed_crops)
@@ -101,12 +108,18 @@
 		html += "[FLOOR(count / 3, 1)] oz of [initial(path.name)]<br>"
 	html += "<br>"
 
-	html += "Produces: [FLOOR((per_brew_amount * brewed_amount) / 3, 1)] oz of [name]"
+	if(brewed_amount)
+		html += "Produces: [FLOOR((per_brew_amount * brewed_amount) / 3, 1)] oz of [name]"
+	if(brewed_item)
+		html += "Produces:[icon2html(new brewed_item, user)] [(brewed_item_count)] [initial(brewed_item.name)]"
 	html += {"
 		</div>
 		<div>
 		"}
 
+	if(ages)
+		for(var/datum/reagent/path as anything in age_times)
+			html += "After aging for [age_times[path] * 0.1] Seconds, becomes [initial(path.name)].<br>"
 
 	html += {"
 		</div>

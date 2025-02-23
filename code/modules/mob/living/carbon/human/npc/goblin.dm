@@ -174,7 +174,7 @@
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/species/goblin/proc/update_wearable()
+/mob/living/carbon/human/proc/update_wearable()
 	remove_overlay(ARMOR_LAYER)
 
 	var/list/standing = list()
@@ -191,6 +191,7 @@
 		overlays_standing[ARMOR_LAYER] = standing
 
 	apply_overlay(ARMOR_LAYER)
+
 
 /mob/living/carbon/human/species/goblin/update_inv_head()
 	update_wearable()

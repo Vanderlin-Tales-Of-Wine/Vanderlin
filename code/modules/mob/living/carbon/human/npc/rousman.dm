@@ -188,24 +188,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	apply_overlay(BODY_LAYER)
 	dna.species.update_damage_overlays()
 
-/mob/living/carbon/human/species/rousman/proc/update_wearable()
-	remove_overlay(ARMOR_LAYER)
-
-	var/list/standing = list()
-	var/mutable_appearance/body_overlay
-	if(wear_armor)
-		body_overlay = mutable_appearance(icon, "[wear_armor.item_state]", -ARMOR_LAYER)
-		if(body_overlay)
-			standing += body_overlay
-	if(head)
-		body_overlay = mutable_appearance(icon, "[head.item_state]", -ARMOR_LAYER)
-		if(body_overlay)
-			standing += body_overlay
-	if(standing.len)
-		overlays_standing[ARMOR_LAYER] = standing
-
-	apply_overlay(ARMOR_LAYER)
-
 /mob/living/carbon/human/species/rousman/update_inv_head()
 	update_wearable()
 /mob/living/carbon/human/species/rousman/update_inv_armor()

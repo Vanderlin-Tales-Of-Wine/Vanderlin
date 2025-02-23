@@ -53,8 +53,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampirelord/on_gain()
-	var/datum/game_mode/C = SSticker.mode
-	C.vampires |= owner
+	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
 	move_to_spawnpoint()
@@ -338,7 +337,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 
 /datum/antagonist/vampirelord/proc/grow_in_power()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	switch(vamplevel)
 		if(0)
 			vamplevel = 1
@@ -381,8 +379,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			vamplevel = 4
 			owner.current.visible_message("<font color='red'>[owner.current] is enveloped in dark crimson, a horrific sound echoing in the area. They are evolved.</font>","<font color='red'>I AM ANCIENT, I AM THE LAND. EVEN THE SUN BOWS TO ME.</font>")
 			ascended = TRUE
-			C.ascended = TRUE
-			for(var/datum/mind/thrall in C.vampires)
+			SSmapping.retainer.ascended = TRUE
+			for(var/datum/mind/thrall in SSmapping.retainer.vampires)
 				if(thrall.special_role == "Vampire Spawn")
 					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_strength
 					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
@@ -409,11 +407,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /mob/living/carbon/human/proc/demand_submission()
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.kingsubmit)
-			to_chat(src, "I am already the Master of Enigma.")
-			return
+	if(SSmapping.retainer.king_submitted)
+		to_chat(src, "I am already the Master of Enigma.")
+		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
 			H.receive_submission(src)
@@ -423,10 +419,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return
 	switch(alert("Submit and Pledge Allegiance to Lord [lord.name]?",,"Yes","No"))
 		if("Yes")
-			var/datum/game_mode/chaosmode/C = SSticker.mode
-			if(istype(C))
-				if(!C.kingsubmit)
-					C.kingsubmit = TRUE
+			if(!SSmapping.retainer.king_submitted)
+				SSmapping.retainer.king_submitted = TRUE
 		if("No")
 			lord << span_boldnotice("They refuse!")
 			src << span_boldnotice("I refuse!")
@@ -435,15 +429,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Telepathy"
 	set category = "VAMPIRE"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/mob/living/carbon/human/H = src
 	var/msg = input("Send a message.", "Command") as text|null
 	var/message = "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#960000'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span><span class = 'hellspeak'>: [msg]</span></span>"
 	if(!msg)
 		return
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		to_chat(V, message)
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		to_chat(D, message)
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
 		to_chat(A, message)
@@ -452,12 +445,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Punish Minion"
 	set category = "VAMPIRE"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/possible = list()
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.special_role == "Vampire Spawn")
 			possible[V.current.real_name] = V.current
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		possible[D.current.real_name] = D.current
 	var/name_choice = input(src, "Who to punish?", "PUNISHMENT") as null|anything in possible
 	if(!name_choice)
@@ -592,16 +584,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /obj/structure/vampire/bloodpool/proc/update_pool(change)
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/tempmax = 8000
-	if(istype(C))
-		for(var/datum/mind/V in C.vampires)
-			if(V.special_role == "vampirespawn")
-				tempmax += 4000
-		if(maximum != tempmax)
-			maximum = tempmax
-			if(current > maximum)
-				current = maximum
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
+		if(V.special_role == "vampirespawn")
+			tempmax += 4000
+	if(maximum != tempmax)
+		maximum = tempmax
+		if(current > maximum)
+			current = maximum
 	if(debug)
 		maximum = 999999
 		current = 999999
@@ -696,7 +686,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/human/user)
 	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	if(user.mind.special_role == "Vampire Lord")
 		if(!unlocked)
 			to_chat(user, "I have yet to regain this aspect of my power!")
@@ -705,7 +694,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		switch(choice)
 			if("Create Death Knight")
 				if(alert(user, "Create a Death Knight? Cost:5000","","Yes","No") == "Yes")
-					if(C.deathknights.len >= 3)
+					if(length(SSmapping.retainer.death_knights) >= 3)
 						to_chat(user, "You cannot summon any more death knights.")
 						return
 					if(!lord.mypool.check_withdraw(-5000))
@@ -713,7 +702,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 						return
 					if(do_after(user, 10 SECONDS))
 						to_chat(user, "I have summoned a knight from the underworld. I need only wait for them to materialize.")
-						C.deathknightspawn = TRUE
+						SSmapping.add_world_trait(/datum/world_trait/death_knight, -1)
 						for(var/mob/dead/observer/D in GLOB.player_list)
 							D.death_knight_spawn()
 						for(var/mob/living/carbon/spirit/D in GLOB.player_list)
@@ -749,10 +738,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		to_chat(user, "I don't have the power to use this!")
 
 /mob/proc/death_knight_spawn()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
 	if(alert(src, "A Vampire Lord is summoning you from the Underworld.", "Be Risen?", "Yes", "No") == "Yes")
-		if(!C.deathknightspawn)
+		if(!has_world_trait(/datum/world_trait/death_knight))
 			to_chat(src, span_warning("Another soul was chosen."))
 		returntolobby()
 
@@ -1060,13 +1048,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Telepathy"
 	set category = "Arcane Eye"
 
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/msg = input("Send a message.", "Command") as text|null
 	if(!msg)
 		return
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		to_chat(V, span_boldnotice("A message from [src.real_name]:[msg]"))
-	for(var/datum/mind/D in C.deathknights)
+	for(var/datum/mind/D in SSmapping.retainer.death_knights)
 		to_chat(D, span_boldnotice("A message from [src.real_name]:[msg]"))
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
 		to_chat(A, span_boldnotice("A message from [src.real_name]:[msg]"))

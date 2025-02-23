@@ -6,3 +6,9 @@
 	brewed_amount = 4
 	brew_time = 5 MINUTES
 	sell_value = 50
+
+	ages = TRUE
+	age_times = list(
+		/datum/reagent/consumable/ethanol/beer/jackberrywine/aged = 10 MINUTES,
+		/datum/reagent/consumable/ethanol/beer/jackberrywine/delectable = 20 MINUTES
+	)

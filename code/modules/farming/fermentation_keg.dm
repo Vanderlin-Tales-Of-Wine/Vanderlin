@@ -69,6 +69,10 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 /obj/structure/fermentation_keg/attack_hand(mob/user)
 	if((user.used_intent == /datum/intent/grab) || user.cmode)
 		return ..()
+	if(ready_to_bottle)
+		if(try_tapping(user))
+			return
+
 	if(!brewing && (!selected_recipe || ready_to_bottle))
 		shopping_run(user)
 		return
@@ -78,6 +82,15 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	..()
 
 /obj/structure/fermentation_keg/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/reagent_containers) && tapped && (user.used_intent == /datum/intent/fill))
+		if(try_filling(user, I))
+			return
+
+	if(ready_to_bottle)
+		if(selected_recipe.after_finish_attackby(user, I, src))
+			create_items()
+			return
+
 	var/list/produce_list = list()
 
 	if(istype(I, /obj/item/bottle_kit))
@@ -109,6 +122,8 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	. =..()
 	if(ready_to_bottle)
 		. += span_boldnotice("[made_item]")
+		if(age_start_time)
+			. += "Aged for [(world.time - age_start_time) * 0.1] Seconds.\n"
 
 	else if(selected_recipe)
 		var/message = "Currently making: [selected_recipe.name].\n"
@@ -310,12 +325,35 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer,900)
 
+/obj/structure/fermentation_keg/proc/create_items()
+	if(!ready_to_bottle)
+		return
+
+	ready_to_bottle = FALSE
+	made_item = null
+	tapped = FALSE
+	age_start_time = 0
+	beer_left = 0
+	brewing = FALSE
+	sellprice = 25
+	icon_state = open_icon_state
+	update_overlays()
+
+	if(selected_recipe.brewed_item)
+		var/items_given
+		for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
+			new selected_recipe.brewed_item(get_turf(src))
+	selected_recipe = null
+
 
 /obj/structure/fermentation_keg/proc/bottle(glass_colour)
 	if(ready_to_bottle)
 
 		ready_to_bottle = FALSE
 		made_item = null
+		tapped = FALSE
+		age_start_time = 0
+		beer_left = 0
 		brewing = FALSE
 		sellprice = 25
 		icon_state = open_icon_state
@@ -340,13 +378,50 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 				else
 					bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount)
 				*/
-				bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount)
+				var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
+				if(selected_recipe.ages)
+					var/time = world.time - age_start_time
+					for(var/path in selected_recipe.age_times)
+						if(time > selected_recipe.age_times[path])
+							brewed_reagent = path
+				bottle_made.reagents.add_reagent(brewed_reagent, selected_recipe.per_brew_amount)
 		if(selected_recipe.brewed_item)
 			var/items_given
 			for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
 				new selected_recipe.brewed_item(get_turf(src))
 		selected_recipe = null
 
+/obj/structure/fermentation_keg/proc/try_tapping(mob/user)
+	if(tapped)
+		return
+	visible_message("[user] starts tapping [src].", "You start tapping [src].")
+	if(!do_after(user, 4 SECONDS, src))
+		return
+	tapped = TRUE
+	icon_state = "barrel_tapped_ready"
+	sellprice = 0
+	beer_left = selected_recipe.brewed_amount * selected_recipe.per_brew_amount
+
+/obj/structure/fermentation_keg/proc/try_filling(mob/user, obj/item/reagent_containers/container)
+	if(!tapped)
+		return
+	visible_message("[user] starts pouring from [src].", "You start pouring from [src].")
+	if(!do_after(user, 1 SECONDS, src))
+		return
+	var/beer_taken = min((container.reagents.maximum_volume - container.reagents.total_volume), beer_left)
+
+	beer_left -= beer_taken
+
+	var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
+	if(selected_recipe.ages)
+		var/time = world.time - age_start_time
+		for(var/path in selected_recipe.age_times)
+			if(time > selected_recipe.age_times[path])
+				brewed_reagent = path
+	container.reagents.add_reagent(brewed_reagent, beer_taken)
+
+	if(beer_left <= 0)
+		clear_keg()
 
 /obj/structure/fermentation_keg/verb/reset_keg()
 	set name = "Clear Keg (Completely Resets)"

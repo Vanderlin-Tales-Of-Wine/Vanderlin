@@ -72,7 +72,7 @@
 	icon_state = "world"
 	dropshrink = 1
 
-/obj/item/reagent_containers/glass/cup/fancy_clay/set_material_information()
+/obj/item/reagent_containers/glass/cup/clay_mug/set_material_information()
 	. = ..()
 	name = "[lowertext(initial(main_material.name))] clay mug"
 
