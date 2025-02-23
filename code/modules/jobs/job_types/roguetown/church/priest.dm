@@ -23,7 +23,7 @@
 	display_order = JDO_PRIEST
 	give_bank_account = 115
 	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
-	min_pq = 10
+	min_pq = 20
 	selection_color = "#c2a45d"
 	spells = list(
 		/obj/effect/proc_holder/spell/self/convertrole/templar,

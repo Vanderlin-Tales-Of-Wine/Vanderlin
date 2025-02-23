@@ -26,7 +26,7 @@
 	outfit = /datum/outfit/job/roguetown/jester
 	display_order = JDO_JESTER
 	bypass_lastclass = TRUE
-	min_pq = -20
+	min_pq = 5
 	give_bank_account = TRUE
 
 /datum/outfit/job/roguetown/jester/pre_equip(mob/living/carbon/human/H)

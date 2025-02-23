@@ -4,8 +4,8 @@
 	department_flag = GARRISON
 	display_order = JDO_JAILOR
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum - men, ripping apart one another for \
 	their own entertainment - not for sport, not for sadism, for blood. You now live in this kingdom - a quiet peaceful place \
 	compared to the Asylum you once warded, having once kept bloodthirsty churls locked in the dark."
