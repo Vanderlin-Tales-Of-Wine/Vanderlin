@@ -252,6 +252,7 @@
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
 	force = 5
 	icon_state = "lute"
+	item_state = "lute"
 	song_list = list(
 	"A Knight's Return" = 'sound/instruments/lute (1).ogg',
 	"Amongst Fare Friends" = 'sound/instruments/lute (2).ogg',
@@ -312,6 +313,7 @@
 	name = "lyre"
 	desc = "An elven instrument of a great and proud heritage."
 	icon_state = "harp"
+	item_state = "harp"
 	song_list = list(
 	"Through Thine Window, He Glanced" = 'sound/instruments/harp (1).ogg',
 	"The Lady of Red Silks" = 'sound/instruments/harp (2).ogg',
@@ -349,6 +351,7 @@
 	name = "drum"
 	desc = "The adopted instrument of Aasimar, used for signaling and rhythmic marches alike."
 	icon_state = "drum"
+	item_state = "drum"
 	song_list = list(
 	"Barbarian's Moot" = 'sound/instruments/drum (1).ogg',
 	"Muster the Wardens" = 'sound/instruments/drum (2).ogg',

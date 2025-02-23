@@ -50,7 +50,8 @@
 		var/turf/T = L
 		T.air_update_turf(TRUE) //calculate adjacent turfs along the border to prevent runtimes
 
-	SSmapping.reg_in_areas_in_z(areas)
+	if(SSatoms.initialized)
+		SSmapping.reg_in_areas_in_z(areas)
 	SSatoms.InitializeAtoms(atoms)
 
 /datum/map_template/proc/load_new_z()

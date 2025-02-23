@@ -589,7 +589,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 
 /mob/living/proc/set_heartattack(status)
 	return
-	
+
 /mob/living/carbon/set_heartattack(status)
 	if(!can_heartattack())
 		return FALSE
@@ -629,6 +629,8 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		if(nutrition > 0 || yess)
 			adjust_energy(sleepy_mod * (max_energy * 0.02))
 		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
+			adjust_energy(sleepy_mod * (max_energy * 0.004))
+		if(locate(/obj/item/bedsheet/rogue) in get_turf(src))
 			adjust_energy(sleepy_mod * (max_energy * 0.004))
 		if(hydration > 0 || yess)
 			if(!bleed_rate)

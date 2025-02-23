@@ -131,7 +131,7 @@
 	sharpness = IS_BLUNT
 	max_integrity = 200
 	wdefense = ULTMATE_PARRY
-	minstr = 6
+	minstr = 5
 	sellprice = 5
 
 /obj/item/rogueweapon/polearm/woodstaff/getonmobprop(tag)

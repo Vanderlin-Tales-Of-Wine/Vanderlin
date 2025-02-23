@@ -1448,7 +1448,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/lower/building)
 "mI" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -2445,7 +2445,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "wA" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "wE" = (
@@ -2616,7 +2616,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "yh" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "yk" = (
@@ -2645,7 +2645,7 @@
 /turf/open/floor/rogue/tile/kitchen,
 /area/rogue/under/mountains/anvil/lower/building)
 "yv" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "yy" = (
@@ -3108,7 +3108,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
 "CA" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -3459,7 +3459,7 @@
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Ga" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
 "Gd" = (
@@ -3766,7 +3766,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/mountains/anvil/lower)
 "Iw" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Ix" = (
@@ -4431,7 +4431,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/mountains/anvil/lower)
 "Ot" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Ow" = (
@@ -4790,7 +4790,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/anvil/castle)
 "Rq" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
 "Rw" = (
@@ -5282,8 +5282,8 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "Wi" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/cart_upgrade/level_1,
-/obj/item/cart_upgrade/level_1,
+/obj/item/roguegear/wood/basic,
+/obj/item/roguegear/wood/basic,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/mountains/anvil/lower/building)
 "Wj" = (

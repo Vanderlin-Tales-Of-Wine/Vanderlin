@@ -985,7 +985,7 @@
 ///////////////////////////
 
 /datum/sprite_accessory/underwear
-	icon = 'icons/mob/clothing/underwear.dmi'
+	icon = 'icons/roguetown/mob/underwear.dmi'
 	use_static = FALSE
 /*#ifdef MATURESERVER
 /datum/sprite_accessory/underwear/nude
@@ -1026,13 +1026,28 @@
 	specuse = ALL_RACES_LIST
 	roundstart = FALSE
 
+//For use on Younglings
+/datum/sprite_accessory/underwear/child
+	name = "Youngling"
+	icon_state = "child"
+	gender = MALE
+	specuse = ALL_RACES_LIST
+	roundstart = FALSE
+
+/datum/sprite_accessory/underwear/child_f
+	name = "FemYoungling"
+	icon_state = "child_f"
+	gender = FEMALE
+	specuse = ALL_RACES_LIST
+	roundstart = FALSE
+
 //#endif
 ////////////////////////////
 // Undershirt Definitions //
 ////////////////////////////
 
 /datum/sprite_accessory/undershirt
-	icon = 'icons/mob/clothing/underwear.dmi'
+	icon = 'icons/roguetown/mob/underwear.dmi'
 
 /datum/sprite_accessory/undershirt/nude
 	name = "Nude"
@@ -1045,7 +1060,7 @@
 ///////////////////////
 
 /datum/sprite_accessory/socks
-	icon = 'icons/mob/clothing/underwear.dmi'
+	icon = 'icons/roguetown/mob/underwear.dmi'
 
 /datum/sprite_accessory/socks/nude
 	name = "Nude"
