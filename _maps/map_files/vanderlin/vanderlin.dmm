@@ -7228,14 +7228,6 @@
 "fcr" = (
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/indoors/town/garrison)
-"fcu" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1;
-	lockid = "gaffer";
-	name = "bedroom"
-	},
-/turf/open/floor/rogue/woodturned/nosmooth,
-/area/rogue/indoors/town/merc_guild)
 "fcw" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/rogue/wallfire/candle{
@@ -7415,7 +7407,7 @@
 "fjH" = (
 /obj/structure/mineral_door/wood/green{
 	locked = 1;
-	lockid = "gaffer"
+	lockid = "mercenary"
 	},
 /turf/open/floor/rogue/carpet/green,
 /area/rogue/indoors/town/merc_guild)
@@ -9428,12 +9420,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"gIs" = (
-/obj/effect/landmark/start/gaffer{
-	dir = 4
-	},
-/turf/open/floor/rogue/carpet/green,
-/area/rogue/indoors/town/merc_guild)
 "gIt" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	lockid = "priest";
@@ -11369,12 +11355,6 @@
 /obj/item/natural/rock/iron,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/town)
-"ifv" = (
-/obj/structure/bed/rogue/wool,
-/obj/item/bedsheet/rogue/fabric,
-/obj/effect/landmark/start/gaffer,
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/town/merc_guild)
 "ifA" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
@@ -11491,10 +11471,6 @@
 "ikG" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/villagegarrison)
-"ikO" = (
-/obj/structure/bearpelt,
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/town/merc_guild)
 "ikW" = (
 /obj/structure/roguewindow/openclose,
 /turf/open/floor/rogue/wood,
@@ -11560,7 +11536,6 @@
 	icon_state = "longtable";
 	dir = 4
 	},
-/obj/structure/bars/bent,
 /turf/open/floor/rogue/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "ipm" = (
@@ -15754,7 +15729,6 @@
 	dir = 8;
 	icon_state = "longtable"
 	},
-/obj/structure/bars/bent,
 /turf/open/floor/rogue/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "lml" = (
@@ -23527,7 +23501,6 @@
 /obj/structure/table/wood{
 	icon_state = "longtable_mid"
 	},
-/obj/structure/bars/bent,
 /turf/open/floor/rogue/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "roZ" = (
@@ -26229,10 +26202,6 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/smithy)
-"tjG" = (
-/obj/structure/roguemachine/scomm/l,
-/turf/open/floor/rogue/carpet/green,
-/area/rogue/indoors/town/merc_guild)
 "tjV" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -26532,7 +26501,7 @@
 "trv" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
-	lockid = "gaffer";
+	lockid = "mercenary";
 	locked = 1
 	},
 /turf/open/floor/rogue/wood/nosmooth,
@@ -30076,14 +30045,6 @@
 /obj/item/book/rogue/law,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/town/manor)
-"vUG" = (
-/obj/structure/closet/crate/roguecloset/inn,
-/obj/item/clothing/neck/roguetown/mercmedal,
-/obj/item/clothing/neck/roguetown/mercmedal,
-/obj/item/clothing/neck/roguetown/mercmedal,
-/obj/item/clothing/neck/roguetown/mercmedal,
-/turf/open/floor/rogue/carpet,
-/area/rogue/indoors/town/merc_guild)
 "vVf" = (
 /obj/structure/bed/rogue/inn/double,
 /obj/item/bedsheet/rogue/double_pelt,
@@ -90667,7 +90628,7 @@ jMD
 poi
 mAn
 tWU
-tjG
+mAn
 mAn
 fjH
 pGO
@@ -90868,7 +90829,7 @@ ehF
 jMD
 xkb
 mAn
-gIs
+mAn
 mAn
 mAn
 nEc
@@ -90876,7 +90837,7 @@ pGO
 pGO
 rPu
 nEc
-fcu
+iMV
 nEc
 jMD
 jMD
@@ -91281,8 +91242,8 @@ pGO
 fZk
 jMD
 sFA
-ikO
-ifv
+dlq
+nxE
 jMD
 elp
 elp
@@ -91484,7 +91445,7 @@ hvs
 jMD
 aCk
 dlq
-vUG
+dxb
 jMD
 lsl
 qrT
