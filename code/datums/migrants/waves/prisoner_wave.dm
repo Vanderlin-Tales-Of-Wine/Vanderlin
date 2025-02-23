@@ -147,10 +147,9 @@
 
 /datum/migrant_wave/prisoner_convoy_down
 	name = "The prisoners convoy"
-	max_spawns = 3
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
 	downgrade_wave = /datum/migrant_wave/prisoner_convoy_down_two
-	weight = 45
+	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/gaoler = 1,
 		/datum/migrant_role/prisoner_guard = 1,
@@ -160,9 +159,8 @@
 
 /datum/migrant_wave/prisoner_convoy_down_two
 	name = "The prisoners convoy"
-	max_spawns = 3
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
-	weight = 45
+	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/gaoler = 1,
 		/datum/migrant_role/mig_prisoner = 1,
