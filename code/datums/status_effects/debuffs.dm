@@ -114,26 +114,10 @@
 	var/mob/living/carbon/carbon_owner = iscarbon(owner) ? owner : null
 	var/mob/living/carbon/human/human_owner = ishuman(owner) ? owner : null
 
-	if(owner.maxHealth)
-		var/health_ratio = owner.health / owner.maxHealth
-		var/healing = -0.2
-		if((locate(/obj/structure/bed) in owner.loc))
-			healing -= 0.3
-		else if((locate(/obj/structure/table) in owner.loc))
-			healing -= 0.1
-		else //we're sleeping on the damn floor!!
-			sleptonground = TRUE
-		if(locate(/obj/structure/bed/rogue/sleepingbag) in owner.loc)
-			sleptonground = TRUE
-		for(var/obj/item/bedsheet/bedsheet in range(owner.loc,0))
-			if(bedsheet.loc != owner.loc) //bedsheets in my backpack/neck don't give you comfort
-				continue
-			healing -= 0.1
-			break //Only count the first bedsheet
-		if(health_ratio > 0.8)
-			owner.adjustBruteLoss(healing)
-			owner.adjustFireLoss(healing)
-			owner.adjustToxLoss(healing * 0.5, FALSE, TRUE)
+	if(!(locate(/obj/structure/bed) in owner.loc) && !(locate(/obj/structure/table) in owner.loc))
+		sleptonground = TRUE
+	else if(locate(/obj/structure/bed/rogue/sleepingbag) in owner.loc)
+		sleptonground = TRUE
 
 	human_owner?.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
 	if(prob(20))

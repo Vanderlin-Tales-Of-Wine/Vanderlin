@@ -779,7 +779,7 @@
 	var/mob/dead/observer/G = get_ghost(even_if_they_cant_reenter = force)
 	. = G
 	if(G)
-		G.reenter_corpse()
+		G.reenter_corpse(force)
 
 
 /datum/mind/proc/has_objective(objective_type)

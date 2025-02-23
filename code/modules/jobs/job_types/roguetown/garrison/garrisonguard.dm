@@ -46,11 +46,14 @@
 
 //................. City Watchmen Base .............. //
 /datum/outfit/job/roguetown/guardsman/pre_equip(mob/living/carbon/human/H)
+	. = ..()
 	cloak = pick(/obj/item/clothing/cloak/half/guard, /obj/item/clothing/cloak/half/guardsecond)
-	pants = pick(/obj/item/clothing/under/roguetown/tights/guard, /obj/item/clothing/under/roguetown/tights/guardsecond)
+	head = pick(/obj/item/clothing/head/roguetown/helmet/townwatch, /obj/item/clothing/head/roguetown/helmet/townwatch/alt)
+	pants = /obj/item/clothing/under/roguetown/trou/leather/guard
 	wrists = /obj/item/rope/chain
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 
 // EVERY TOWN GUARD SHOULD HAVE AT LEAST THREE CLUB SKILL
 
@@ -63,28 +66,26 @@
 
 /datum/outfit/job/roguetown/guardsman/footman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/townwatch
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	gloves = /obj/item/clothing/gloves/roguetown/chain
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	backr = /obj/item/rogueweapon/shield/heater
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/sword/short
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE) // Main weapon
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE) // Main off-hand weapon
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) // Backup
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Backup
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_CON, 1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -96,25 +97,23 @@
 //................. Archer .............. //
 /datum/advclass/garrison/archer
 	name = "City Watch Archer"
-	tutorial = "You are a member of the City Watch. Your training with bows and crossbows makes you a formidable threat when perched atop the walls or rooftops, raining arrows or bolts down upon foes with impunity."
+	tutorial = "You are a member of the City Watch. Your training with bows makes you a formidable threat when perched atop the walls or rooftops, raining arrows down upon foes with impunity."
 	outfit = /datum/outfit/job/roguetown/guardsman/archer
 	category_tags = list(CTAG_GARRISON)
 
 /datum/outfit/job/roguetown/guardsman/archer/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/townwatch/alt
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	shirt = pick(/obj/item/clothing/suit/roguetown/shirt/undershirt/guard, /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond)
-	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE) // Main Weapon
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE) // Main Weapon
+		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE) // You don't even have access to crossbows
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Backup
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
@@ -124,7 +123,7 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_SPD, 2)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -137,3 +136,41 @@
 	set name = "HALT!"
 	set category = "Noises"
 	emote("haltyell")
+
+/datum/advclass/garrison/pikeman
+	name = "City Watch Pikeman"
+	tutorial = "You are a pikeman in the City Watch. You are less fleet of foot compared to the rest, but you are burly and well practiced with spears, pikes, billhooks - all the various polearms for striking enemies from a distance."
+	outfit = /datum/outfit/job/roguetown/guardsman/pikeman
+
+	category_tags = list(CTAG_GARRISON)
+
+/datum/outfit/job/roguetown/guardsman/pikeman/pre_equip(mob/living/carbon/human/H)
+	..()
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	backl = /obj/item/storage/backpack/rogue/satchel
+	backr = /obj/item/rogueweapon/polearm/spear
+	beltl = /obj/item/rogueweapon/sword/short
+	beltr = /obj/item/rogueweapon/mace/cudgel
+	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rogueweapon/knife/dagger/steel/special)
+
+	//Stats for class
+	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -1) // Stronk and gets training in hard hitting polearms, but slower
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+	H.verbs |= /mob/proc/haltyell

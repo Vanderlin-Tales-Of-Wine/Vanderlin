@@ -347,7 +347,7 @@
 	var/skill_modifier = 1.5 - (user.mind?.get_skill_level(/datum/skill/craft/engineering) / 6)
 	if(do_after(user, 15 SECONDS * amputation_speed_mod * skill_modifier, target = patient))
 		playsound(get_turf(patient), 'sound/misc/guillotine.ogg', 20, TRUE)
-		limb_snip_candidate.drop_limb(TRUE)
+		limb_snip_candidate.drop_limb()
 		user.visible_message(span_danger("[src] violently slams shut, amputating [patient]'s [limb_snip_candidate.name]."), span_notice("You amputate [patient]'s [limb_snip_candidate.name] with [src]."))
 		charge_deduction(amputee, user, 1)
 
@@ -361,7 +361,7 @@
 	tool_behaviour = TOOL_MULTITOOL
 	var/datum/buffer // simple machine buffer for device linkage
 	smeltresult = /obj/item/ingot/bronze
-	charge_per_source = 8
+	charge_per_source = 10
 	grid_height = 96
 	grid_width = 96
 
@@ -375,7 +375,7 @@
 
 /obj/item/contraption/linker/examine(mob/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 0)
+	if(HAS_TRAIT(user, TRAIT_ENGINEERING_GOGGLES) || user.mind?.get_skill_level(/datum/skill/craft/engineering) >= 1)
 		. += span_notice("Its buffer [buffer ? "contains [buffer]." : "is empty."]")
 	else
 		. += span_notice("All you can make out is a bunch of gibberish.")
@@ -386,11 +386,10 @@
 		to_chat(user, "You wipe [src] of its stored buffer.")
 		remove_buffer(src)
 	else
-		to_chat(user, span_warning("You have no idea how to use [src]!"))
+		to_chat(user, span_warning("I have no idea how to use [src]!"))
 
 /obj/item/contraption/linker/proc/set_buffer(datum/buffer)
 	if(src.buffer)
-		UnregisterSignal(src.buffer, COMSIG_PARENT_QDELETING)
 		remove_buffer(src.buffer)
 	src.buffer = buffer
 	if(!QDELETED(buffer))
@@ -405,4 +404,5 @@
 /obj/item/contraption/linker/proc/remove_buffer(datum/source)
 	SIGNAL_HANDLER
 	SEND_SIGNAL(src, COMSIG_MULTITOOL_REMOVE_BUFFER, source)
+	UnregisterSignal(buffer, COMSIG_PARENT_QDELETING)
 	buffer = null

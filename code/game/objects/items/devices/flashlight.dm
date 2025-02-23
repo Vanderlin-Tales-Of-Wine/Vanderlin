@@ -327,7 +327,7 @@
 	desc = "A marvel of engineering that emits a strange green glow."
 	light_outer_range = 9
 	light_power = 2
-	light_color ="#00ff6a"
+	light_color ="#3fff8f"
 	on = FALSE
 	smeltresult = /obj/item/ingot/bronze
 	extinguish_prob = 0

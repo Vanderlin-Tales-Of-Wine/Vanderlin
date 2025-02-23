@@ -136,6 +136,14 @@
 	)
 	output = /obj/item/ammo_holder/quiver
 
+/datum/repeatable_crafting_recipe/leather/dartpouch
+	name = "dart pouch"
+	requirements = list(
+		/obj/item/natural/hide/cured = 1,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/ammo_holder/dartpouch
+
 /datum/repeatable_crafting_recipe/leather/tribal_cloak
 	name = "tribal pelt"
 	attacking_atom = /obj/item/natural/hide
@@ -385,7 +393,7 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 4
 
-/datum/repeatable_crafting_recipe/leather/standalone/hood
+/datum/repeatable_crafting_recipe/leather/standalone/helmet
 	name = "hardened leather helmet"
 	output = /obj/item/clothing/head/roguetown/helmet/leather/advanced
 	requirements = list(/obj/item/natural/hide/cured = 1,
@@ -420,7 +428,7 @@
 	craftdiff = 5
 
 /datum/repeatable_crafting_recipe/leather/standalone/bracers
-	abstract_type = TRUE
+	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone/bracers
 
 /datum/repeatable_crafting_recipe/leather/standalone/bracers/masterwork
 	name = "masterwork leather bracers"
