@@ -1397,7 +1397,7 @@
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "aSQ" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor)
 "aST" = (
@@ -2732,10 +2732,12 @@
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/clinic_large)
 "bOn" = (
-/obj/structure/chair/sofa{
-	name = "enchanted sofa"
-	},
 /obj/machinery/light/rogue/wallfire/candle/blue,
+/obj/structure/chair/bench/couch/normal{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "bOJ" = (
@@ -3935,8 +3937,10 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "cFY" = (
-/obj/structure/chair/sofa/left{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
@@ -4054,8 +4058,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "cMo" = (
-/obj/structure/chair/sofa/right{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal{
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/magician)
@@ -5301,7 +5306,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "dLL" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town)
 "dLT" = (
@@ -7668,7 +7673,7 @@
 	},
 /area/rogue/indoors/town/magician)
 "foJ" = (
-/obj/structure/chair/bench/couch/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/smithy)
 "foK" = (
@@ -9599,7 +9604,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/garrison)
 "gIO" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "gJg" = (
@@ -12366,7 +12371,7 @@
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/under/town/basement)
 "iHP" = (
-/obj/structure/chair/bench/couch/redleft,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "iIk" = (
@@ -12986,9 +12991,10 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor)
 "jcG" = (
-/obj/structure/chair/sofa/right{
-	dir = 4;
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal{
+	dir = 5;
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
@@ -13502,8 +13508,8 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
 "jzc" = (
-/obj/structure/chair/bench/couch/r,
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/smithy)
 "jze" = (
@@ -14304,11 +14310,11 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor)
 "jZK" = (
-/obj/structure/chair/bench/couchablack/r,
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = -32;
 	pixel_y = 32
 	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "jZU" = (
@@ -14381,7 +14387,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "kbP" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/manor)
@@ -14528,7 +14534,7 @@
 /area/rogue/indoors/town/orphanage)
 "kgk" = (
 /obj/structure/roguemachine/mail,
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "kgt" = (
@@ -14729,7 +14735,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "kmz" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -14827,10 +14833,6 @@
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/town)
-"koP" = (
-/obj/structure/chair/bench/couch,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/smithy)
 "kpf" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/roguegrass/bush_meagre,
@@ -15609,9 +15611,7 @@
 	},
 /area/rogue/indoors/town/tavern)
 "kWj" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal,
 /obj/structure/roguemachine/camera,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/orphanage)
@@ -17518,8 +17518,8 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "mBt" = (
-/obj/structure/chair/bench/ultimacouch/r,
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "mBw" = (
@@ -18049,7 +18049,7 @@
 	},
 /area/rogue/indoors/town/vault)
 "mRi" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor)
 "mSa" = (
@@ -19279,7 +19279,7 @@
 /area/rogue/indoors/town)
 "nLo" = (
 /obj/machinery/light/rogue/wallfire/candle,
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "nLp" = (
@@ -19645,7 +19645,7 @@
 /area/rogue/indoors/town/smithy)
 "oam" = (
 /obj/effect/landmark/start/squire,
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor)
 "oaC" = (
@@ -20607,8 +20607,10 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "oMT" = (
-/obj/structure/chair/sofa{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal/long_or_corner{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/magician)
@@ -20981,7 +20983,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/town/sewer)
 "pbn" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/manor)
 "pbp" = (
@@ -22400,9 +22402,7 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town)
 "qiB" = (
-/obj/structure/chair/bench/ultimacouch/r{
-	icon_state = "ultimacochright"
-	},
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town)
 "qjc" = (
@@ -22593,8 +22593,9 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "qpv" = (
-/obj/structure/chair/sofa/right{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal{
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
@@ -23393,7 +23394,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/river)
 "qTs" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qTI" = (
@@ -23723,6 +23724,12 @@
 /obj/machinery/light/rogue/hearth,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
+"rhr" = (
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this{
+	color = "#ad8d6d"
+	},
+/turf/open/floor/rogue/carpet,
+/area/rogue/indoors/town)
 "rhv" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/rack/rogue/shelf/biggest,
@@ -24295,8 +24302,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
 "rFj" = (
-/obj/structure/chair/sofa/left{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/magician)
@@ -25993,8 +26002,10 @@
 /turf/open/floor/rogue/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "sMY" = (
-/obj/structure/chair/sofa{
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal/long_or_corner{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
@@ -26326,7 +26337,7 @@
 /turf/open/floor/rogue/blocks/newstone,
 /area/rogue/indoors/town/manor)
 "sZz" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "sZF" = (
@@ -26643,7 +26654,7 @@
 /area/rogue/under/cave)
 "tkg" = (
 /obj/effect/landmark/start/squire,
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/manor)
 "tkJ" = (
@@ -28216,6 +28227,12 @@
 /obj/structure/kneestingers,
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/under/town/sewer)
+"ukv" = (
+/obj/structure/chair/bench/couch/normal{
+	color = "#ad8d6d"
+	},
+/turf/open/floor/rogue/carpet,
+/area/rogue/indoors/town)
 "ukE" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/town/caverogue)
@@ -28247,10 +28264,6 @@
 "ulp" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/town/roofs)
-"ulv" = (
-/obj/structure/chair/bench/couch/redright,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/town/basement)
 "ulA" = (
 /obj/machinery/light/rogue/smelter,
 /turf/open/floor/rogue/ruinedwood,
@@ -28872,7 +28885,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/rtfield/safe)
 "uEx" = (
-/obj/structure/chair/bench/ultimacouch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/orphanage)
 "uET" = (
@@ -28958,7 +28971,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/rtfield/safe)
 "uHq" = (
-/obj/structure/chair/bench/ultimacouch/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town/orphanage)
 "uHE" = (
@@ -31856,10 +31869,12 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/church)
 "wNy" = (
-/obj/structure/chair/sofa{
-	name = "enchanted sofa"
-	},
 /obj/effect/landmark/start/magician,
+/obj/structure/chair/bench/couch/normal/long_or_corner{
+	dir = 2;
+	color = "#b86830";
+	name = "enchanted couch"
+	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
 "wNA" = (
@@ -32005,9 +32020,9 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/town)
 "wTz" = (
-/obj/structure/chair/sofa/corner{
-	dir = 1;
-	name = "enchanted sofa"
+/obj/structure/chair/bench/couch/normal/long_or_corner{
+	color = "#b86830";
+	name = "enchanted couch"
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/magician)
@@ -53838,7 +53853,7 @@ vgJ
 rsP
 bUM
 rsP
-ulv
+iHP
 eOr
 gnn
 pDp
@@ -92434,7 +92449,7 @@ gTW
 nlk
 ehF
 lnG
-cFY
+lUN
 lUN
 pLB
 cBw
@@ -96488,7 +96503,7 @@ tTU
 tTU
 tTU
 qBL
-koP
+foJ
 agj
 jzc
 agj
@@ -131200,7 +131215,7 @@ acx
 acx
 fdp
 pQS
-dLL
+ukv
 feg
 feg
 oiZ
@@ -131402,7 +131417,7 @@ acx
 acx
 fdp
 god
-qiB
+rhr
 feg
 dRI
 oiZ

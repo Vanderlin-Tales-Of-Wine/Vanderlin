@@ -17,7 +17,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue)
 "ce" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue)
@@ -350,7 +350,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue)
 "EG" = (
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
 	name = "Lord of the Pit"
 	},

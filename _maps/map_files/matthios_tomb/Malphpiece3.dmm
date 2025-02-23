@@ -7,7 +7,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick/reddish,
 /area/rogue/outdoors/caves)
 "d" = (
-/obj/structure/chair/bench/couchablack/r,
+/obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/outdoors/caves)
 "f" = (
@@ -47,7 +47,7 @@
 /turf/open/floor/rogue/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "p" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/outdoors/caves)
 "q" = (
