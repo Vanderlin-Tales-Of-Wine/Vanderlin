@@ -22,12 +22,12 @@
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
-	H.change_stat("strength", 3)
-	H.change_stat("perception", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", 1)
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_SPD, 1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
@@ -94,9 +94,9 @@
 		cloak = /obj/item/clothing/cloak/apron/brown
 		backl =	/obj/item/rogueweapon/hammer/sledgehammer
 		backr = /obj/item/rogueweapon/axe/steel
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 	else
 		pants = /obj/item/clothing/under/roguetown/trou
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
@@ -107,9 +107,9 @@
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 		backr = /obj/item/rogueweapon/axe/steel
 		backl = /obj/item/rogueweapon/pick/paxe
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 
 /datum/migrant_role/dwarven_company/armorsmith
 	name = "Armor Smith"
@@ -154,9 +154,9 @@
 		cloak = /obj/item/clothing/cloak/apron/brown
 		backr = /obj/item/rogueweapon/axe/steel
 		backl = /obj/item/rogueweapon/pick/paxe
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 	else
 		pants = /obj/item/clothing/under/roguetown/trou
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
@@ -167,9 +167,9 @@
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 		backl =	/obj/item/rogueweapon/hammer/sledgehammer
 		backr = /obj/item/rogueweapon/axe/steel
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 
 /datum/migrant_wave/dwarven_company
 	name = "Dwarven Expedition"

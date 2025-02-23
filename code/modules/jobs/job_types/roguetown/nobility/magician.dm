@@ -51,8 +51,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 		if(H.age == AGE_OLD)
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/courtmage
-			H.change_stat("speed", -1)
-			H.change_stat("intelligence", 1)
+			H.change_stat(STATKEY_SPD, -1)
+			H.change_stat(STATKEY_INT, 1)
 			if(H.dna.species.id == "human")
 				belt = /obj/item/storage/belt/rogue/leather/plaquegold
 				cloak = null
@@ -66,10 +66,10 @@
 		ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.virginity = TRUE
-		H.change_stat("strength", -2)
-		H.change_stat("intelligence", 5)
-		H.change_stat("constitution", -2)
-		H.change_stat("speed", -2)
+		H.change_stat(STATKEY_STR, -2)
+		H.change_stat(STATKEY_INT, 5)
+		H.change_stat(STATKEY_CON, -2)
+		H.change_stat(STATKEY_SPD, -2)
 		H.mind.adjust_spellpoints(8)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
@@ -95,7 +95,7 @@
 /datum/status_effect/buff/thinking_cap
 	id = "thinkingcap"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/thinking_cap
-	effectedstats = list("intelligence" = 2)
+	effectedstats = list(STATKEY_INT = 2)
 	duration = 240 MINUTES
 
 /datum/status_effect/buff/thinking_cap/on_apply()

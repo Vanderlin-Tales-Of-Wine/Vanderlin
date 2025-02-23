@@ -33,10 +33,10 @@
 	mask = /obj/item/clothing/mask/rogue/facemask/steel
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-	H.change_stat("strength", 2) //less buffs than brigand but no int debuff
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 1)
-	H.change_stat("speed", 1)
+	H.change_stat(STATKEY_STR, 2) //less buffs than brigand but no int debuff
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.adjust_blindness(-3)
 	var/weapons = list("Spear & Crossbow","Sword & Buckler")

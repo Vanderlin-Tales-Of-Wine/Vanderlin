@@ -268,7 +268,7 @@
 /datum/status_effect/buff/bloodstrength
 	id = "bloodstrength"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/bloodstrength
-	effectedstats = list("strength" = 6)
+	effectedstats = list(STATKEY_STR = 6)
 	duration = 1 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/bloodstrength
@@ -316,7 +316,7 @@
 /datum/status_effect/buff/celerity
 	id = "celerity"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/celerity
-	effectedstats = list("speed" = 15,"perception" = 10)
+	effectedstats = list(STATKEY_SPD = 15, STATKEY_PER = 10)
 	duration = 30 SECONDS
 
 /datum/status_effect/buff/celerity/nextmove_modifier()
@@ -366,7 +366,7 @@
 /datum/status_effect/buff/fortitude
 	id = "fortitude"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortitude
-	effectedstats = list("endurance" = 20,"constitution" = 20)
+	effectedstats = list(STATKEY_END = 20, STATKEY_CON = 20)
 	duration = 30 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/fortitude

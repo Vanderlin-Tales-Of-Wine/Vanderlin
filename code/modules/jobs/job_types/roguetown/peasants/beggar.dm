@@ -66,9 +66,9 @@
 		H.TOTALLUC = rand(1, 20)
 	if(prob(5))
 		r_hand = /obj/item/rogueweapon/mace/woodclub
-	H.change_stat("intelligence", -3)
-	H.change_stat("constitution", -2)
-	H.change_stat("endurance", -2)
+	H.change_stat(STATKEY_INT, -3)
+	H.change_stat(STATKEY_CON, -2)
+	H.change_stat(STATKEY_END, -2)
 
 /datum/outfit/job/roguetown/vagrant
 	name = "Beggar"

@@ -27,7 +27,7 @@
 /datum/status_effect/buff/foodbuff
 	id = "foodbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/foodbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1)
+	effectedstats = list(STATKEY_CON = 1, STATKEY_END = 1)
 	duration = 15 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/foodbuff
@@ -45,7 +45,7 @@
 /datum/status_effect/buff/clean_plus
 	id = "cleanplus"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/clean_plus
-	effectedstats = list("fortune" = 1)
+	effectedstats = list(STATKEY_LCK = 1)
 	duration = 20 MINUTES
 
 /datum/status_effect/buff/clean_plus/on_apply()
@@ -63,7 +63,7 @@
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("intelligence" = 4,"speed" = 2,"fortune" = -5)
+	effectedstats = list(STATKEY_INT = 4, STATKEY_SPD = 2, STATKEY_LCK = -5)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/druqks/on_apply()
@@ -101,7 +101,7 @@
 /datum/status_effect/buff/ozium
 	id = "ozium"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = -4, "perception" = 2)
+	effectedstats = list(STATKEY_SPD = -4, STATKEY_PER = 2)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/ozium/on_apply()
@@ -121,7 +121,7 @@
 /datum/status_effect/buff/moondust
 	id = "moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 2, "endurance" = 2, "intelligence" = -4)
+	effectedstats = list(STATKEY_SPD = 2, STATKEY_END = 2, STATKEY_INT = -4)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/moondust/nextmove_modifier()
@@ -142,7 +142,7 @@
 /datum/status_effect/buff/moondust_purest
 	id = "purest moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 4, "endurance" = 4, "intelligence" = -2)
+	effectedstats = list(STATKEY_SPD = 4, STATKEY_END = 4, STATKEY_INT = -2)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/moondust_purest/nextmove_modifier()
@@ -164,7 +164,7 @@
 /datum/status_effect/buff/weed
 	id = "weed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/weed
-	effectedstats = list("intelligence" = 2,"speed" = -2,"fortune" = 2)
+	effectedstats = list(STATKEY_INT = 2, STATKEY_SPD = -2,STATKEY_LCK = 2)
 	duration = 5 MINUTES
 
 /datum/status_effect/buff/weed/on_apply()
@@ -251,13 +251,13 @@
 /datum/status_effect/buff/haste
 	id = "haste"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/haste
-	effectedstats = list("speed" = 3)
+	effectedstats = list(STATKEY_SPD = 3)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/calm
 	id = "calm"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/calm
-	effectedstats = list("fortune" = 1)
+	effectedstats = list(STATKEY_LCK = 1)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/calm
@@ -282,7 +282,7 @@
 /datum/status_effect/buff/barbrage
 	id = "barbrage"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/barbrage
-	effectedstats = list("strength" = 1, "endurance" = 2, "perception" = -2, "intelligence" = -2) //endurance to boost pain treshold, not powerful enough to warrant total painkilling
+	effectedstats = list(STATKEY_STR = 1, STATKEY_END = 2, STATKEY_PER = -2, STATKEY_INT = -2) //endurance to boost pain treshold, not powerful enough to warrant total painkilling
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/barbrage
@@ -309,7 +309,7 @@
 /datum/status_effect/buff/noc
 	id = "nocbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/nocbuff
-	effectedstats = list("intelligence" = 3)
+	effectedstats = list(STATKEY_INT = 3)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/nocbuff
@@ -323,7 +323,7 @@
 /datum/status_effect/buff/ravox
 	id = "ravoxbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/ravoxbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1,"strength" = 1)
+	effectedstats = list(STATKEY_CON = 1, STATKEY_END = 1, STATKEY_STR = 1)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/ravoxbuff
@@ -365,7 +365,7 @@
 /datum/status_effect/buff/beastsense_elf
 	id = "beastsenself"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/beastsenself
-	effectedstats = list("perception" = 2)
+	effectedstats = list(STATKEY_PER = 2)
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/beastsenself
@@ -379,7 +379,7 @@
 /datum/status_effect/buff/trollshape
 	id = "trollshape"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/trollshape
-	effectedstats = list("strength" = 5, "endurance" = 2, "speed" = -3, "intelligence" = -5)
+	effectedstats = list(STATKEY_STR = 5, STATKEY_END = 2, STATKEY_SPD = -3, STATKEY_INT = -5)
 	duration = 3 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/trollshape
@@ -497,7 +497,7 @@
 /datum/status_effect/bardicbuff/intelligence
 	name = "Enlightening (+1 INT)"
 	id = "bardbuff_int"
-	effectedstats = list("intelligence" = 1)
+	effectedstats = list(STATKEY_INT = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/intelligence
 
 /atom/movable/screen/alert/status_effect/bardbuff/intelligence
@@ -507,7 +507,7 @@
 /datum/status_effect/bardicbuff/endurance
 	name = "Invigorating (+1 END)"
 	id = "bardbuff_end"
-	effectedstats = list("endurance" = 1)
+	effectedstats = list(STATKEY_END = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/endurance
 
 /atom/movable/screen/alert/status_effect/bardbuff/endurance
@@ -517,7 +517,7 @@
 /datum/status_effect/bardicbuff/constitution
 	name = "Fortitude (+1 CON)"
 	id = "bardbuff_con"
-	effectedstats = list("constitution" = 1)
+	effectedstats = list(STATKEY_CON = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/constitution
 
 /atom/movable/screen/alert/status_effect/bardbuff/constitution
@@ -527,7 +527,7 @@
 /datum/status_effect/bardicbuff/speed
 	name = "Inspiring (+1 SPD)"
 	id = "bardbuff_spd"
-	effectedstats = list("speed" = 1)
+	effectedstats = list(STATKEY_SPD = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/speed
 
 /atom/movable/screen/alert/status_effect/bardbuff/speed
@@ -537,7 +537,7 @@
 /datum/status_effect/bardicbuff/ravox
 	name = "Empowering (+1 STR, +1 PER)"
 	id = "bardbuff_str"
-	effectedstats = list("strength" = 1, "perception" = 1)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_PER = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/ravox
 
 /atom/movable/screen/alert/status_effect/bardbuff/ravox

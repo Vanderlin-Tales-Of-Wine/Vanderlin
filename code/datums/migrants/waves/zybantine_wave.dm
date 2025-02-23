@@ -59,8 +59,8 @@
 		if(!H.has_language(/datum/language/zybantine))
 			H.grant_language(/datum/language/zybantine)
 			to_chat(H, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
@@ -123,8 +123,8 @@
 		if(!H.has_language(/datum/language/zybantine))
 			H.grant_language(/datum/language/zybantine)
 			to_chat(H, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
@@ -240,8 +240,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,1,1), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
@@ -278,9 +278,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("speed", 2)
-		H.change_stat("endurance", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_SPD, 2)
+		H.change_stat(STATKEY_END, 1)
 
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	beltr = /obj/item/rogueweapon/knife/dagger/steel/special

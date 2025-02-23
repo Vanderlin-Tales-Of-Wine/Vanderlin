@@ -51,7 +51,7 @@
 
 	H.merctype = 2
 
-	H.change_stat("strength", 2) // They need this to roll at least min STR for the Zwei.
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 2)
+	H.change_stat(STATKEY_STR, 2) // They need this to roll at least min STR for the Zwei.
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

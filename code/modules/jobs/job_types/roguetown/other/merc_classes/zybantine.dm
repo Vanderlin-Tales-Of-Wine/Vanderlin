@@ -54,7 +54,7 @@
 
 		H.merctype = 1
 
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
