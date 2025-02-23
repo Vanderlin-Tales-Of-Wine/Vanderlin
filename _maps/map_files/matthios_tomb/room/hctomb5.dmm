@@ -1,0 +1,1246 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aw" = (
+/obj/structure/closet/crate/chest/neu,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"aW" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"bk" = (
+/obj/structure/table/wood/nice/decorated,
+/obj/item/reagent_containers/glass/carafe/silver/redwine{
+	pixel_y = 11;
+	pixel_x = -2
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"bn" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/bed/rogue/inn,
+/obj/item/bedsheet/rogue/wool,
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"bo" = (
+/obj/effect/decal/cobbleedge{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"bW" = (
+/obj/machinery/light/rogue/cauldron,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue)
+"eg" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"ei" = (
+/turf/open/floor/carpet/red,
+/area/rogue)
+"er" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"fh" = (
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"fC" = (
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"iW" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"jf" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"jq" = (
+/obj/structure/fermentation_keg/random/water,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"mA" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"mM" = (
+/obj/structure/mineral_door/wood/donjon/stone,
+/turf/open/floor/rogue/herringbone,
+/area/rogue)
+"nh" = (
+/obj/structure/roguerock,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"ni" = (
+/obj/item/clothing/neck/roguetown/psycross/g,
+/obj/structure/table/stone_small,
+/turf/open/floor/carpet/red,
+/area/rogue)
+"nV" = (
+/turf/open/floor/rogue/blocks/green,
+/area/rogue)
+"oa" = (
+/obj/structure/closet/crate/roguecloset/dark,
+/obj/item/clothing/suit/roguetown/shirt/dress/silkdress/random,
+/obj/item/clothing/suit/roguetown/shirt/undershirt/fancy,
+/obj/item/clothing/under/roguetown/skirt/random,
+/obj/item/clothing/ring/silver,
+/obj/item/clothing/gloves/roguetown/leather,
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"or" = (
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"oF" = (
+/obj/structure/mannequin/male,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/suit/roguetown/shirt/robe/white,
+/obj/item/clothing/neck/roguetown/psycross/silver,
+/turf/open/water/bath,
+/area/rogue)
+"pF" = (
+/obj/structure/mannequin/male,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/clothing/suit/roguetown/shirt/robe/white,
+/obj/item/clothing/neck/roguetown/psycross/silver,
+/obj/machinery/light/rogue/wallfire/candle/weak/l,
+/turf/open/water/bath,
+/area/rogue)
+"pR" = (
+/obj/structure/mineral_door/wood/red,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"rx" = (
+/obj/structure/stairs/stone{
+	dir = 1;
+	icon_state = "stonestairs"
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"tc" = (
+/turf/open/floor/carpet/purple,
+/area/rogue)
+"uS" = (
+/obj/effect/decal/shadow_floor{
+	dir = 4
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"vw" = (
+/obj/effect/decal/shadow_floor{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"vK" = (
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue)
+"yq" = (
+/obj/effect/decal/cobbleedge{
+	dir = 6
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"yJ" = (
+/obj/structure/table/stone_small,
+/obj/item/pestle,
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"yW" = (
+/obj/structure/table/wood/treestump/shroomstump,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"zb" = (
+/obj/structure/rack/rogue/shelf/big{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_x = 5
+	},
+/obj/item/natural/cloth{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"zc" = (
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"zG" = (
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"AC" = (
+/obj/structure/trap/wall_projectile,
+/obj/structure/trap/wall_projectile{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"BU" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1
+	},
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"CH" = (
+/obj/structure/table/stone_small,
+/obj/item/mortar{
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"CJ" = (
+/obj/machinery/light/rogue/lanternpost{
+	dir = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"CP" = (
+/obj/structure/fluff/walldeco/painting/skull{
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"CT" = (
+/obj/effect/decal/cobbleedge{
+	dir = 9
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"DK" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/shade,
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"Fc" = (
+/obj/effect/decal/cobbleedge,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"Gf" = (
+/obj/structure/table/wood/reinforced_alter,
+/obj/structure/bars/bent,
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"GK" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1;
+	locked = 1
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"Ha" = (
+/obj/structure/roguerock,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue)
+"HT" = (
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue)
+"In" = (
+/obj/structure/closet/crate/chest/neu,
+/obj/item/alch/firedust,
+/obj/item/alch/magicdust,
+/obj/item/alch/earthdust,
+/obj/item/alch/coaldust,
+/obj/item/alch/coaldust,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"JG" = (
+/obj/structure/flora/roguegrass/herb/random,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"Kw" = (
+/obj/structure/mineral_door/wood/red,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"KE" = (
+/obj/effect/decal/remains/human,
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"KR" = (
+/obj/structure/trap/bomb,
+/turf/open/floor/carpet/red,
+/area/rogue)
+"Lb" = (
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+"MX" = (
+/obj/effect/decal/shadow_floor{
+	dir = 5
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"NO" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"Pt" = (
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"Qz" = (
+/turf/closed/wall/mineral/rogue/decostone/center,
+/area/rogue)
+"Re" = (
+/obj/structure/rack/rogue,
+/obj/item/cooking/pan,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"Sa" = (
+/turf/open/water/swamp,
+/area/rogue)
+"Se" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue)
+"Sf" = (
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"Sk" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"SS" = (
+/obj/structure/table/wood/treestump/shroomstump,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"TU" = (
+/obj/item/candle/yellow,
+/obj/structure/table/wood/plain/alt,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"Vo" = (
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue)
+"VF" = (
+/obj/machinery/light/rogue/hearth/big_fireplace{
+	pixel_x = -32
+	},
+/turf/closed/wall/mineral/rogue/stone,
+/area/rogue)
+"VH" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"WQ" = (
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue)
+"Xe" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"XM" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"Yq" = (
+/obj/effect/decal/cobbleedge{
+	dir = 8
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"ZP" = (
+/obj/machinery/light/rogue/wallfire/candle/l,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"ZV" = (
+/turf/open/floor/rogue/blocks,
+/area/rogue)
+
+(1,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+mA
+Se
+Se
+Se
+Sk
+iW
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+"}
+(2,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+JG
+mA
+Se
+Se
+Sk
+Sk
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+"}
+(3,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+mA
+Se
+Sk
+nh
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+"}
+(4,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+mA
+Sk
+Sk
+Sk
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+"}
+(5,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Sk
+Sk
+Sk
+Sk
+Xe
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(6,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Se
+Sk
+Sk
+nh
+Sk
+Xe
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(7,1,1) = {"
+Xe
+Xe
+JG
+Xe
+Xe
+Xe
+mA
+Se
+Se
+Sk
+Sk
+Sk
+Sk
+Sk
+mA
+Xe
+zG
+zG
+Ha
+Xe
+"}
+(8,1,1) = {"
+Xe
+Xe
+mA
+Xe
+Se
+Se
+Se
+Se
+Xe
+Sk
+Sk
+Sk
+Sk
+Sk
+mA
+Xe
+Xe
+zG
+zG
+Xe
+"}
+(9,1,1) = {"
+Se
+Se
+Se
+Se
+Se
+Se
+Sk
+Se
+Sk
+Sk
+Sk
+Sk
+Sk
+mA
+Se
+Xe
+Xe
+zG
+Xe
+Xe
+"}
+(10,1,1) = {"
+er
+Se
+Se
+Se
+Se
+Se
+Sk
+Sk
+Sk
+Sk
+Sk
+Sk
+Sk
+Se
+Se
+Xe
+zG
+zG
+Xe
+Xe
+"}
+(11,1,1) = {"
+Se
+Sk
+Sk
+Sk
+Sk
+Sk
+Sk
+CT
+Yq
+VH
+Sk
+Sk
+Sk
+Se
+Se
+mA
+Se
+Xe
+Xe
+Xe
+"}
+(12,1,1) = {"
+HT
+HT
+HT
+HT
+HT
+Sk
+Sk
+bo
+CJ
+Fc
+Sk
+Sk
+Se
+Se
+Xe
+mA
+Xe
+Xe
+Xe
+Xe
+"}
+(13,1,1) = {"
+HT
+CH
+yJ
+Sf
+HT
+HT
+HT
+HT
+HT
+yq
+Sk
+Sk
+Se
+Xe
+Xe
+mA
+mA
+Xe
+Xe
+Xe
+"}
+(14,1,1) = {"
+HT
+nV
+nV
+fC
+Gf
+ZV
+Lb
+ZV
+HT
+Sk
+Sk
+Sk
+Se
+Xe
+Sa
+mA
+JG
+Xe
+Xe
+Xe
+"}
+(15,1,1) = {"
+HT
+bW
+nV
+fC
+BU
+ZV
+ZV
+ZV
+GK
+Sk
+Sk
+Sk
+Se
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(16,1,1) = {"
+HT
+nV
+nV
+fC
+HT
+HT
+HT
+HT
+HT
+Sk
+Sk
+Sk
+Sk
+Se
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(17,1,1) = {"
+HT
+fC
+fC
+fC
+zc
+HT
+Lb
+In
+HT
+Sk
+Sk
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(18,1,1) = {"
+HT
+fC
+fC
+Pt
+zc
+Kw
+ZV
+aw
+HT
+Sk
+Sk
+Sk
+Sk
+Sk
+mA
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(19,1,1) = {"
+HT
+fC
+NO
+HT
+jq
+HT
+ZV
+zb
+HT
+Sk
+Sk
+Sk
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(20,1,1) = {"
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+Sk
+Sk
+XM
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+
+(1,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+zG
+zG
+Sk
+Sk
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+"}
+(2,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+mA
+Xe
+Xe
+Xe
+Xe
+Xe
+zG
+Sk
+Sk
+eg
+eg
+eg
+Xe
+Xe
+Xe
+Xe
+"}
+(3,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+SS
+mA
+Ha
+Xe
+Xe
+Xe
+Ha
+Sk
+Sk
+Sk
+eg
+eg
+Xe
+Xe
+Xe
+Xe
+"}
+(4,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+mA
+yW
+zG
+Xe
+Xe
+Xe
+Xe
+Sk
+zG
+Sk
+nh
+eg
+Xe
+Xe
+Xe
+Xe
+"}
+(5,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+Se
+Se
+Se
+Xe
+Xe
+Xe
+Xe
+zG
+Ha
+zG
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(6,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+Se
+Sk
+Se
+Se
+Xe
+Xe
+Xe
+zG
+zG
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(7,1,2) = {"
+Xe
+Xe
+Xe
+Xe
+Sk
+Xe
+Xe
+Se
+Sk
+eg
+Xe
+Sk
+Ha
+Sk
+Sk
+Sk
+eg
+eg
+eg
+Xe
+"}
+(8,1,2) = {"
+Xe
+Sk
+Sk
+Xe
+eg
+Xe
+Xe
+Sk
+Sk
+eg
+eg
+Sk
+Sk
+Xe
+Xe
+Xe
+Xe
+eg
+eg
+Xe
+"}
+(9,1,2) = {"
+Sk
+Sk
+Sk
+eg
+eg
+eg
+Xe
+Sk
+eg
+eg
+eg
+eg
+Sk
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(10,1,2) = {"
+Sk
+Sk
+Sk
+Sk
+eg
+eg
+Sk
+Sk
+eg
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+WQ
+Qz
+WQ
+Xe
+"}
+(11,1,2) = {"
+Sk
+Sk
+Sk
+eg
+eg
+eg
+eg
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+WQ
+vK
+ni
+vK
+WQ
+"}
+(12,1,2) = {"
+HT
+HT
+HT
+HT
+HT
+eg
+eg
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+WQ
+pF
+ei
+pF
+WQ
+"}
+(13,1,2) = {"
+HT
+HT
+ZP
+TU
+HT
+HT
+HT
+HT
+HT
+eg
+eg
+eg
+Xe
+Xe
+Xe
+WQ
+oF
+KR
+oF
+WQ
+"}
+(14,1,2) = {"
+HT
+VF
+fh
+fh
+fh
+fh
+CP
+bk
+HT
+eg
+eg
+eg
+eg
+Xe
+Xe
+WQ
+oF
+ei
+oF
+WQ
+"}
+(15,1,2) = {"
+HT
+Re
+fh
+tc
+fh
+fh
+fh
+fh
+HT
+eg
+eg
+eg
+eg
+Xe
+Xe
+WQ
+WQ
+mM
+WQ
+WQ
+"}
+(16,1,2) = {"
+HT
+fh
+fh
+tc
+fh
+Vo
+Vo
+pR
+HT
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Sk
+AC
+Sk
+Xe
+"}
+(17,1,2) = {"
+HT
+fh
+jf
+jf
+jf
+Vo
+oa
+or
+HT
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+Sk
+Xe
+Xe
+"}
+(18,1,2) = {"
+HT
+fh
+rx
+uS
+MX
+Vo
+DK
+KE
+HT
+eg
+eg
+eg
+eg
+eg
+eg
+Sk
+Sk
+Sk
+Xe
+Xe
+"}
+(19,1,2) = {"
+HT
+aW
+eg
+NO
+vw
+Vo
+or
+bn
+HT
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(20,1,2) = {"
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+HT
+eg
+eg
+eg
+eg
+eg
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
