@@ -301,6 +301,18 @@
 	max_integrity = INTEGRITY_STRONG
 
 
+//................ Inquisitorial Duster ............... //
+/obj/item/clothing/suit/roguetown/armor/leather/splint/inqcoat
+	name = "inquisitorial duster"
+	icon = 'icons/roguetown/clothing/inquisition.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+	desc = "Metal plates reinforce this heavy coat. Its striking silhouette is of ill omen to any mainland community - whether pious, or profane."
+	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
+	icon_state = "inqcoat"
+	item_state = "inqcoat"
+	sleeved = 'icons/roguetown/clothing/onmob/inquisition.dmi'
+
+
 //................ Leather Vest ............... //	- has no sleeves.  - can be worn in armor OR shirt slot
 /obj/item/clothing/suit/roguetown/armor/leather/vest
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
