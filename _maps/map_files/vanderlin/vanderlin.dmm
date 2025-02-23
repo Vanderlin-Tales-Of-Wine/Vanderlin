@@ -31842,7 +31842,7 @@
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "wNj" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermenting_barrel/water,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "wNn" = (
