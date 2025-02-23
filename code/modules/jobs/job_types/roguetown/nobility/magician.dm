@@ -28,9 +28,9 @@
 
 /datum/outfit/job/roguetown/magician/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/wizhat/gen
+	head = /obj/item/clothing/head/roguetown/wizhat
 	backr = /obj/item/storage/backpack/rogue/satchel
-	armor = /obj/item/clothing/suit/roguetown/shirt/robe/black
+	armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 	cloak = /obj/item/clothing/cloak/black_cloak
 	id = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
@@ -50,7 +50,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 		if(H.age == AGE_OLD)
-			armor = /obj/item/clothing/suit/roguetown/shirt/robe/courtmage
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 			H.change_stat("speed", -1)
 			H.change_stat("intelligence", 1)
 			if(H.dna.species.id == "human")
@@ -58,7 +58,7 @@
 				cloak = null
 				head = /obj/item/clothing/head/roguetown/wizhat
 				if(H.gender == FEMALE)
-					armor = /obj/item/clothing/suit/roguetown/shirt/robe/courtmage
+					armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 				if(H.gender == MALE)
 					armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
