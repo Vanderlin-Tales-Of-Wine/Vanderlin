@@ -21,9 +21,17 @@
 	canSmoothWith = list(/turf/closed, /turf/open/floor/rogue/volcanic, /turf/open/floor/rogue/dirt, /turf/open/floor/rogue/dirt/road,/turf/open/floor/rogue/naturalstone)
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
+	var/flow = FALSE
+
+/turf/open/lava/flow
+	icon_state = "flowing-lava"
+
+	flow = TRUE
 
 /turf/open/lava/Initialize()
 	. = ..()
+	if(flow)
+		return
 	dir = pick(GLOB.cardinals)
 
 /turf/open/lava/cardinal_smooth(adjacencies)

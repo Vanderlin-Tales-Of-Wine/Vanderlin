@@ -189,7 +189,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/after_creation(mob/living/carbon/human/H)
 	return TRUE
 
-
 /proc/generate_selectable_species()
 	for(var/I in subtypesof(/datum/species))
 		var/datum/species/S = new I
@@ -206,29 +205,31 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //		return TRUE
 //	return FALSE
 
-/datum/species/proc/random_name(gender,unique,lastname)
-	for(var/i in 1 to 5)
-		if(unique)
-			return random_unique_name(gender)
+/datum/species/proc/get_possible_names(gender = MALE) as /list
+	SHOULD_CALL_PARENT(FALSE)
+	var/static/list/male_names = world.file2list('strings/names/first_male.txt')
+	var/static/list/female_names = world.file2list('strings/names/first_female.txt')
 
-		var/randname
-		if(gender == MALE)
-			randname = pick(GLOB.first_names_male)
-		else
-			randname = pick(GLOB.first_names_female)
+	return (gender == FEMALE) ? female_names : male_names
 
-		if(lastname)
-			randname += " [lastname]"
-		else
-			randname += " [pick(GLOB.last_names)]"
+/datum/species/proc/random_name(gender = MALE, unique = FALSE)
+	var/list/possible_names = get_possible_names(gender)
+	if(!unique)
+		return pick(possible_names)
 
-		if(randname in GLOB.chosen_names)
-			continue
-		else
-			return randname
+	for(var/i in 1 to 10)
+		. = pick(possible_names)
+		if(!findname(.))
+			break
 
-/datum/species/proc/random_surname()
-	return " [pick(GLOB.last_names)]"
+/datum/species/proc/get_possible_surnames(gender = MALE) as /list
+	var/static/list/last_names = world.file2list('strings/names/last.txt')
+
+	return last_names
+
+/datum/species/proc/random_surname(gender = MALE)
+	var/list/possible_surnames = get_possible_surnames(gender)
+	return " [pick(possible_surnames)]"
 
 /datum/species/proc/get_spec_undies_list(gender)
 	if(!GLOB.underwear_list.len)

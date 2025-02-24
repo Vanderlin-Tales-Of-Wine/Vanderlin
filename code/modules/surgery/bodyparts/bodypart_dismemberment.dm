@@ -275,6 +275,7 @@
 			C.legcuffed.forceMove(C.drop_location()) //At this point bodypart is still in nullspace
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
@@ -289,6 +290,7 @@
 			C.legcuffed.forceMove(C.drop_location())
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)

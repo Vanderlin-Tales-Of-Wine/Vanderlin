@@ -41,12 +41,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("intelligence", -2)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 1)
-		H.change_stat("speed", -1)
-		H.change_stat("perception", -1)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_INT, -2)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_PER, -1)
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
@@ -83,12 +83,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-		H.change_stat("strength", -1)
-		H.change_stat("perception", 2)
-		H.change_stat("intelligence", 2)
-		H.change_stat("speed", -1)
-		H.change_stat("constitution", -1)
-		H.change_stat("endurance", -1)
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_PER, 2)
+		H.change_stat(STATKEY_INT, 2)
+		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_END, -1)
 	H.cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/migrant_role/prisoner_guard
@@ -124,9 +124,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_CON, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
@@ -147,10 +147,9 @@
 
 /datum/migrant_wave/prisoner_convoy_down
 	name = "The prisoners convoy"
-	max_spawns = 3
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
 	downgrade_wave = /datum/migrant_wave/prisoner_convoy_down_two
-	weight = 45
+	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/gaoler = 1,
 		/datum/migrant_role/prisoner_guard = 1,
@@ -160,9 +159,8 @@
 
 /datum/migrant_wave/prisoner_convoy_down_two
 	name = "The prisoners convoy"
-	max_spawns = 3
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
-	weight = 45
+	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/gaoler = 1,
 		/datum/migrant_role/mig_prisoner = 1,

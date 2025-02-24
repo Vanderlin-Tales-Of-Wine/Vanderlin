@@ -521,7 +521,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue)
 "qm" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "qs" = (
@@ -927,7 +927,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue)
 "ER" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
 "Fg" = (
@@ -989,7 +989,7 @@
 /obj/item/roguebin/water/gross,
 /area/rogue)
 "Hp" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/twig,
 /area/rogue)
 "Hq" = (
@@ -1225,7 +1225,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
 "OV" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "Pe" = (
@@ -1284,7 +1284,7 @@
 /turf,
 /area/rogue)
 "Rc" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/woodturned,
 /area/rogue)
 "Rh" = (
@@ -1300,7 +1300,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
 "Rq" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue)
 "RJ" = (

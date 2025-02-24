@@ -149,7 +149,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/bog)
 "pf" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/bog)
 "pk" = (

@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(throwing)
 	if(extra)
 		thrownthing.throw_at(get_step(thrownthing, thrownthing.dir), 1, 1, thrownthing, spin = FALSE)
 
-	if(!thrownthing.zfalling) // I don't think you can zfall while thrown but hey, just in case.
+	if(!(thrownthing.atom_flags & Z_FALLING)) // I don't think you can zfall while thrown but hey, just in case.
 		var/turf/T = get_turf(thrownthing)
 		if(T && thrownthing.has_gravity(T))
 			T.zFall(thrownthing)

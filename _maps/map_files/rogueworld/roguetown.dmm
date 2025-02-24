@@ -173,7 +173,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "aL" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /obj/item/storage/box/matches,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
@@ -239,7 +239,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "aX" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "aY" = (
@@ -258,7 +258,7 @@
 	},
 /area/rogue/under/town/basement)
 "ba" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "bb" = (
@@ -266,7 +266,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "bc" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
 	},
@@ -975,7 +975,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement)
 "dv" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "dw" = (
@@ -2126,7 +2126,7 @@
 /turf/open/floor/rogue/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "hB" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/bath)
@@ -2142,7 +2142,7 @@
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors/town/bath)
 "hF" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "hG" = (
@@ -2463,7 +2463,7 @@
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/manor)
 "iJ" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "iK" = (
@@ -3236,7 +3236,7 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "kU" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "kV" = (
@@ -3374,7 +3374,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "lu" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/basement)
 "lv" = (
@@ -3915,7 +3915,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "nt" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/tavern)
 "nu" = (
@@ -5075,7 +5075,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "rn" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/tile{
 	icon_state = "tile"
 	},
@@ -5145,7 +5145,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "ry" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -5166,7 +5166,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "rC" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -5295,7 +5295,7 @@
 	},
 /area/rogue/indoors/town/tavern)
 "rV" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -5827,7 +5827,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
 "tN" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /obj/item/reagent_containers/glass/cup/steel,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church)
@@ -6170,7 +6170,7 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/town)
 "vb" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "vc" = (
@@ -6537,7 +6537,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town)
 "wo" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -6724,7 +6724,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "xc" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "xd" = (
@@ -7066,7 +7066,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/dwarfin)
 "yl" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop)
 "ym" = (
@@ -7338,7 +7338,7 @@
 	},
 /area/rogue/indoors/town/dwarfin)
 "zh" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/dwarf)
 "zi" = (
@@ -7416,7 +7416,7 @@
 	},
 /area/rogue/indoors/town)
 "zt" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "zu" = (
@@ -9963,7 +9963,7 @@
 /turf/open/floor/rogue/tile/tilerg,
 /area/rogue/indoors/town)
 "Id" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/garrison)
 "Ie" = (
@@ -10018,7 +10018,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "In" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "Io" = (
@@ -10727,7 +10727,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/dwarfin)
 "KF" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/dwarfin)
 "KG" = (
@@ -11261,7 +11261,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "MH" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
 "MI" = (

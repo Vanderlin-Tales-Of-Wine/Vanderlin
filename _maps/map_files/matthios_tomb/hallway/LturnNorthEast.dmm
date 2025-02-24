@@ -1,0 +1,87 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"l" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"n" = (
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue)
+"U" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+
+(1,1,1) = {"
+n
+n
+n
+n
+n
+"}
+(2,1,1) = {"
+U
+a
+a
+a
+n
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+n
+"}
+(4,1,1) = {"
+n
+n
+a
+a
+n
+"}
+(5,1,1) = {"
+n
+n
+l
+a
+n
+"}
+
+(1,1,2) = {"
+n
+n
+n
+n
+n
+"}
+(2,1,2) = {"
+a
+a
+a
+a
+n
+"}
+(3,1,2) = {"
+a
+a
+a
+a
+n
+"}
+(4,1,2) = {"
+n
+n
+a
+a
+n
+"}
+(5,1,2) = {"
+n
+n
+a
+a
+n
+"}

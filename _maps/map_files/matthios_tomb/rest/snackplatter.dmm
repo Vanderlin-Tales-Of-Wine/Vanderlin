@@ -1,0 +1,268 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"b" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"c" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"d" = (
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"g" = (
+/obj/structure/table/church/m,
+/obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine{
+	pixel_y = 14
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"i" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"q" = (
+/obj/structure/table/wood/treestump/burnt,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"z" = (
+/obj/structure/table/church,
+/obj/item/reagent_containers/glass/cup/silver{
+	pixel_y = 14
+	},
+/obj/item/clothing/neck/roguetown/psycross{
+	pixel_x = 15;
+	pixel_y = 13
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"A" = (
+/obj/structure/fluff/psycross,
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"B" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"E" = (
+/obj/structure/table/church{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/snacks/hardtack{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue)
+"K" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"Q" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+"X" = (
+/turf/open/floor/rogue/dirt,
+/area/rogue)
+
+(1,1,1) = {"
+a
+a
+a
+X
+c
+X
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+X
+X
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+d
+d
+d
+X
+a
+a
+a
+"}
+(4,1,1) = {"
+X
+X
+d
+z
+d
+X
+a
+X
+X
+"}
+(5,1,1) = {"
+i
+X
+A
+g
+d
+X
+X
+X
+b
+"}
+(6,1,1) = {"
+X
+X
+d
+E
+d
+q
+X
+X
+X
+"}
+(7,1,1) = {"
+a
+X
+d
+d
+d
+X
+X
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+X
+X
+X
+X
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+X
+Q
+X
+a
+a
+a
+"}
+
+(1,1,2) = {"
+a
+a
+a
+B
+B
+B
+a
+a
+a
+"}
+(2,1,2) = {"
+a
+a
+a
+B
+B
+a
+a
+a
+a
+"}
+(3,1,2) = {"
+a
+a
+B
+B
+K
+B
+a
+a
+a
+"}
+(4,1,2) = {"
+B
+B
+B
+K
+K
+B
+a
+B
+B
+"}
+(5,1,2) = {"
+B
+K
+K
+K
+K
+B
+B
+B
+B
+"}
+(6,1,2) = {"
+B
+B
+K
+K
+K
+K
+B
+K
+B
+"}
+(7,1,2) = {"
+a
+B
+B
+K
+K
+B
+B
+a
+a
+"}
+(8,1,2) = {"
+a
+a
+B
+B
+B
+B
+a
+a
+a
+"}
+(9,1,2) = {"
+a
+a
+a
+B
+B
+B
+a
+K
+a
+"}

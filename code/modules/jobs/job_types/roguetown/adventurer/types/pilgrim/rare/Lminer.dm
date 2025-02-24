@@ -24,7 +24,7 @@
 	beltl = /obj/item/rogueweapon/pick
 	backl = /obj/item/storage/backpack/rogue/backpack
 	if(H.age == AGE_OLD)
-		H.change_stat("endurance", -1)
+		H.change_stat(STATKEY_END, -1)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
 	if(H.mind)
@@ -41,8 +41,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("perception", 1)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_PER, 1)
