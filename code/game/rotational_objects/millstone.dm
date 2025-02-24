@@ -91,11 +91,11 @@
 		return
 	if(!length(millable_contents))
 		return
-	playsound(src, 'modular/Neu_Food/sound/milling.ogg', 100, TRUE, -1)
+	playsound(src, 'sound/foley/milling.ogg', 100, TRUE, -1)
 	if(powered)
 		mill_progress += rotations_per_minute * 2
 	else
-		if(do_after(user, 2 SECONDS, target = src))
+		if(do_after(user, 2 SECONDS, src))
 			mill_progress += 50
 		else
 			return FALSE

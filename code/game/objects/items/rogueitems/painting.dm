@@ -40,7 +40,7 @@
 	var/stolen_painting = /obj/item/rogue/painting
 
 /obj/structure/fluff/walldeco/painting/attack_hand(mob/user)
-	if(do_after(user, 30, target = user))
+	if(do_after(user, 3 SECONDS, user))
 		var/obj/item/I = new stolen_painting(user.loc)
 		user.put_in_hands(I)
 		qdel(src)

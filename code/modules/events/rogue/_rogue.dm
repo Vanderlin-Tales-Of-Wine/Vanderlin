@@ -33,17 +33,17 @@ GLOBAL_LIST_INIT(badomens, list())
 	var/used
 	switch(eventreason)
 		if(OMEN_ROUNDSTART)
-			used = "Zizo."
+			used = "Zizo's apocalypse brings death to the land once more."
 		if(OMEN_NOPRIEST)
 			used = "The Priest has perished! The Ten are weakened..."
 		if(OMEN_SKELETONSIEGE)
-			used = "Unwelcome visitors!"
+			used = "Unwelcome visitors invade our lands!"
 		if(OMEN_NOLORD)
-			used = "The Monarch is dead! We need a new ruler."
+			used = "The Monarch has been slain! Our town is at the mercy of invaders."
 		if(OMEN_SUNSTEAL)
-			used = "The Sun, she is wounded!"
+			used = "The Sun is wounded! Astrata falls silent across the land!"
 		if(OMEN_ASCEND)
-			used = "Zizo will rise once again!"
+			used = "Zizo has risen again! Make peace with your god for not even they can save you!"
 	if(eventreason && used)
 		priority_announce(used, "Bad Omen", 'sound/misc/evilevent.ogg')
 

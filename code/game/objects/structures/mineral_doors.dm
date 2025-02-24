@@ -437,7 +437,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						repair_state = 1
@@ -448,7 +448,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						icon_state = "[base_state]"
@@ -466,7 +466,7 @@
 			user.visible_message(span_notice("[user] starts repairing [src]."), \
 			span_notice("I start repairing [src]."))
 			playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-			if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+			if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 				qdel(I)
 				playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 				obj_integrity = obj_integrity + (max_integrity/2)
@@ -490,7 +490,7 @@
 		var/list/keysy = shuffle(R.contents.Copy())
 		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
-				if(!do_after(user, 10, TRUE, src))
+				if(!do_after(user, 1 SECONDS, src))
 					break
 			if(K.lockhash == lockhash)
 				lock_toggle(user)
@@ -526,7 +526,7 @@
 
 		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
 		var/perbonus = L.STAPER/5
-		var/picktime = 70
+		var/picktime = 7 SECONDS
 		var/pickchance = 35
 		var/moveup = 10
 
@@ -544,7 +544,7 @@
 
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, target = src))
+			if(!do_after(user, picktime, src))
 				break
 			if(prob(pickchance))
 				lockprogress += moveup
@@ -764,7 +764,7 @@
 	openSound = 'sound/foley/doors/shittyopen.ogg'
 	closeSound = 'sound/foley/doors/shittyclose.ogg'
 
-/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	lockdir = dir
 	. = ..()
@@ -846,7 +846,7 @@
 /obj/structure/mineral_door/wood/donjon/stone/view_toggle(mob/user)
 	return
 
-/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin, mob/user)
 	return ..()
 
 /obj/structure/mineral_door/wood/donjon/Initialize()
@@ -854,7 +854,7 @@
 	icon_state = base_state
 	..()
 
-/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	viewportdir = dir
 	. = ..()
@@ -937,8 +937,8 @@
 	base_state = "serving"
 	max_integrity = 250
 	over_state = "servingopen"
-	openSound = 'modular/Neu_Food/sound/blindsopen.ogg'
-	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
+	openSound = 'sound/foley/blindsopen.ogg'
+	closeSound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
 	animate_time = 21

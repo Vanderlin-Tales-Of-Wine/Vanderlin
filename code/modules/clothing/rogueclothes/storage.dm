@@ -140,8 +140,6 @@
 	bloody_icon_state = "bodyblood"
 	fiber_salvage = FALSE
 	component_type = /datum/component/storage/concrete/roguetown/coin_pouch
-
-/obj/item/storage/belt/rogue/pouch/coins
 	grid_height = 64
 	grid_width = 32
 
@@ -307,7 +305,7 @@
 		return
 	to_chat(user, span_notice("You begin to gather the ammunition..."))
 	for(var/obj/item/rogueweapon/knife/throwingknife/arrow in T.contents)
-		if(do_after(user, 5))
+		if(do_after(user, 5 DECISECONDS))
 			if(!eatarrow(arrow))
 				break
 

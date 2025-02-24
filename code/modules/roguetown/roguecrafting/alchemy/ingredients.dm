@@ -191,6 +191,8 @@
 	major_pot = /datum/alch_cauldron_recipe/str_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
 	minor_pot = /datum/alch_cauldron_recipe/end_potion
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/alch/golddust
 	name = "gold dust"

@@ -54,11 +54,11 @@
 /mob/proc/adjust_stamina(added as num)
 	return TRUE
 
-/mob/living/adjust_stamina(added as num, emote_override, force_emote = TRUE) //call update_stamina here and set last_fatigued, return false when not enough fatigue left
+/mob/living/adjust_stamina(added as num, emote_override, force_emote = TRUE, internal_regen = TRUE) //call update_stamina here and set last_fatigued, return false when not enough fatigue left
 	if(HAS_TRAIT(src, TRAIT_NOSTAMINA))
 		return TRUE
 	stamina = CLAMP(stamina+added, 0, maximum_stamina)
-	if(added > 0)
+	if(internal_regen && added > 0)
 		adjust_energy(added * -1)
 	if(added >= 5)
 		if(energy <= 0)
@@ -96,7 +96,8 @@
 						C.heart_attack()
 		return FALSE
 	else
-		last_fatigued = world.time
+		if(internal_regen)
+			last_fatigued = world.time
 		update_health_hud(TRUE)
 		return TRUE
 

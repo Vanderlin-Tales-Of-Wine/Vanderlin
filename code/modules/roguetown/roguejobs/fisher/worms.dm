@@ -7,7 +7,7 @@
 	name = "worm"
 	desc = ""
 	icon_state = "worm"
-	throwforce = 10
+	throwforce = 0
 	baitpenalty = 10
 	isbait = TRUE
 	color = "#985544"
@@ -18,18 +18,29 @@
 	drop_sound = 'sound/foley/dropsound/food_drop.ogg'
 	bundletype = /obj/item/natural/bundle/worms
 
-/obj/item/natural/worms/grubs
-	name = "grub"
+/obj/item/natural/worms/Initialize()
+	. = ..()
+	dir = rand(0,8)
+
+
+/obj/item/natural/worms/grub_silk
+	name = "silk grub"
+	desc = "Squeeze hard to force out the silk string."
+	icon_state = "grub"
+	color = "#fff7bb"
 	baitpenalty = 5
 	isbait = TRUE
-	color = null
+	bundletype = null
 	fishloot = list(
 		/obj/item/reagent_containers/food/snacks/fish/carp = 5,
 		/obj/item/reagent_containers/food/snacks/fish/angler = 1,
 		/obj/item/reagent_containers/food/snacks/fish/clownfish = 1,
 	)
-	bundletype = null
 
-/obj/item/natural/worms/Initialize()
-	. = ..()
-	dir = rand(0,8)
+/obj/item/natural/worms/grub_silk/attack_self(mob/living/user)
+	user.visible_message(span_notice("[user] crushes [src], forcing the silk out."), span_notice("I crush [src], forcing the silk out."))
+	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
+	var/obj/item/natural/silk/M = new
+	qdel(src)
+	user.put_in_hands(M)
+

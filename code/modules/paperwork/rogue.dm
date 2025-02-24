@@ -168,7 +168,7 @@
 			switch(alert("Sign your name?",,"Yes","No"))
 				if("Yes")
 					if(user.mind && user.mind.assigned_role)
-						if(do_after(user, 20, target = src))
+						if(do_after(user, 2 SECONDS, src))
 							signedname = user.real_name
 							signedjob = user.mind.assigned_role
 							icon_state = "contractsigned"
@@ -302,8 +302,6 @@
 	desc = "A small, palm-fitting bound scroll - a minuature writ of commendation for a mercenary under MGE. Present to a Guild representative for signing."
 	icon_state = "merctoken"
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0.5
 	firefuel = 30 SECONDS

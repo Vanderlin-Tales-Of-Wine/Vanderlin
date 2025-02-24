@@ -39,7 +39,8 @@
 #define CANKNOCKDOWN	(1<<1)
 #define CANUNCONSCIOUS	(1<<2)
 #define CANPUSH			(1<<3)
-#define GODMODE			(1<<4)
+#define CANSLOWDOWN		(1<<4)
+#define GODMODE			(1<<5)
 
 //Health Defines
 #define HEALTH_THRESHOLD_CRIT 0

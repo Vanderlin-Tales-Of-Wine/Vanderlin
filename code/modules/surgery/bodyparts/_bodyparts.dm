@@ -95,6 +95,8 @@
 
 	var/wound_icon_state
 
+	var/punch_modifier = 1 // for modifying arm punching damage
+
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 
@@ -118,7 +120,7 @@
 		if(user.has_status_effect(/datum/status_effect/debuff/silver_curse))
 			to_chat(user, span_notice("My power is weakened, I cannot heal!"))
 			return
-		if(do_after(user, 50, target = src))
+		if(do_after(user, 5 SECONDS, src))
 			user.visible_message("<span class='warning'>[user] consumes [src]!</span>",\
 							"<span class='notice'>I consume [src]!</span>")
 			playsound(get_turf(user), pick(dismemsound), 100, FALSE, -1)
@@ -133,9 +135,9 @@
 	if(held_item)
 		if(held_item.get_sharpness() && held_item.wlength == WLENGTH_SHORT)
 			if(!skeletonized)
-				var/used_time = 210
+				var/used_time = 21 SECONDS
 				if(user.mind)
-					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 30)
+					used_time -= (user.mind.get_skill_level(/datum/skill/labor/butchering) * 3 SECONDS)
 				visible_message("[user] begins to butcher \the [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				var/steaks = 0
@@ -147,7 +149,7 @@
 					if(6)
 						steaks = 3 // the steaks have never been higher
 				var/amt2raise = user.STAINT/3
-				if(do_after(user, used_time, target = src))
+				if(do_after(user, used_time, src))
 					var/obj/item/reagent_containers/food/snacks/rogue/meat/steak/steak
 					for(steaks, steaks>0, steaks--)
 						steak = new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
@@ -185,7 +187,7 @@
 		playsound(loc, 'sound/combat/hits/bladed/genstab (1).ogg', 60, vary = FALSE)
 		user.visible_message("<span class='warning'>[user] begins to cut open [src].</span>",\
 			"<span class='notice'>You begin to cut open [src]...</span>")
-		if(do_after(user, 5 SECONDS, target = src))
+		if(do_after(user, 5 SECONDS, src))
 			drop_organs(user)
 			user.visible_message("<span class='danger'>[user] cuts [src] open!</span>",\
 				"<span class='notice'>You finish cutting [src] open.</span>")
@@ -635,8 +637,7 @@
 /obj/item/bodypart/l_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_arm/set_disabled(new_disabled)
 	. = ..()
@@ -693,8 +694,7 @@
 /obj/item/bodypart/r_arm/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_arm/set_disabled(new_disabled)
 	. = ..()
@@ -747,8 +747,7 @@
 /obj/item/bodypart/l_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_L_LEG))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/l_leg/set_disabled(new_disabled)
 	. = ..()
@@ -797,8 +796,7 @@
 /obj/item/bodypart/r_leg/is_disabled()
 	. = ..()
 	if(!. && owner && HAS_TRAIT(owner, TRAIT_PARALYSIS_R_LEG))
-		if(!istype(owner, /mob/living/carbon/human/species/skeleton/death_arena))
-			return BODYPART_DISABLED_PARALYSIS
+		return BODYPART_DISABLED_PARALYSIS
 
 /obj/item/bodypart/r_leg/set_disabled(new_disabled)
 	. = ..()

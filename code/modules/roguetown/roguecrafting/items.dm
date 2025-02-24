@@ -97,8 +97,8 @@
 
 /datum/crafting_recipe/roguetown/woodtray
 	name = "wooden trays (x2)"
-	result = list(/obj/item/storage/bag/tray,
-				/obj/item/storage/bag/tray)
+	result = list(/obj/item/plate/tray,
+				/obj/item/plate/tray)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /obj/item/reagent_containers/glass/cup/wooden/crafted
@@ -141,14 +141,16 @@
 
 /datum/crafting_recipe/roguetown/woodplatter
 	name = "wood platters (x2)"
-	result = list(/obj/item/cooking/platter,
-				/obj/item/cooking/platter)
+	result = list(/obj/item/kitchen/platter,
+				/obj/item/kitchen/platter)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/pipe
 	name = "wood pipe"
 	result = /obj/item/clothing/mask/cigarette/pipe/crafted
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
+	craftdiff = 1
+	tools = list(/obj/item/rogueweapon/knife)
 
 /obj/item/clothing/mask/cigarette/pipe/crafted
 	sellprice = 6
@@ -218,6 +220,13 @@
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone)
 	reqs = list(/obj/item/grown/log/tree/stick = 5,
 				/obj/item/natural/stone = 5)
+
+/datum/crafting_recipe/roguetown/poisondart
+	name = "poison dart"
+	result = /obj/item/ammo_casing/caseless/rogue/dart/poison
+	reqs = list(/obj/item/ammo_casing/caseless/rogue/dart = 1,
+				/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1)
+	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/poisonarrow
 	name = "poison arrow"
@@ -347,17 +356,16 @@
 
 /datum/crafting_recipe/roguetown/quarterstaff
 	name = "wooden quarterstaff"
-	result = list(/obj/item/rogueweapon/polearm/woodstaff/quarterstaff,
-	/obj/item/rogueweapon/polearm/woodstaff/quarterstaff)
+	result = list(/obj/item/rogueweapon/polearm/woodstaff/quarterstaff)
 	reqs = list(/obj/item/grown/log/tree = 1)
 	req_table = TRUE
-	tools = list(/obj/item/rogueweapon/knife/hunting)
+	tools = list(/obj/item/rogueweapon/knife)
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/steelstaff
 	name = "steel quarterstaff"
 	skillcraft = /datum/skill/craft/carpentry
-	reqs = list(/obj/item/rogueweapon/polearm/woodstaff/quarterstaff = 1, /obj/item/ingot/steel = 2)
+	reqs = list(/obj/item/rogueweapon/polearm/woodstaff/quarterstaff = 1, /obj/item/ingot/steel = 1)
 	result = list(/obj/item/rogueweapon/polearm/woodstaff/quarterstaff/steel)
 	craftdiff = 3
 
@@ -490,22 +498,13 @@
 // Woodcutting recipe
 /datum/crafting_recipe/roguetown/lumberjacking
 	skillcraft = /datum/skill/labor/lumberjacking
-	tools = list(/obj/item/rogueweapon/knife/hunting = 1)
+	tools = list(/obj/item/rogueweapon/knife = 1)
 
 /datum/crafting_recipe/roguetown/lumberjacking/cart_upgrade
-	name = "upgrade cog"
-	result = /obj/item/cart_upgrade/level_1
-	reqs = list(/obj/item/grown/log/tree/small = 2,
-				/obj/item/natural/stone = 1)
-	craftdiff = 2
-
-/datum/crafting_recipe/roguetown/lumberjacking/cart_upgrade2
-	name = "advanced upgrade cog"
-	result = /obj/item/cart_upgrade/level_2
-	reqs = list(/obj/item/grown/log/tree/small = 4,
-				/obj/item/cart_upgrade/level_1 = 1,
-				/obj/item/ingot/iron = 1)
-	craftdiff = 4
+	name = "wooden cog"
+	result = /obj/item/roguegear/wood/basic
+	reqs = list(/obj/item/natural/wood/plank = 2)
+	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/wood_hammer
 	name = "wooden mallet"

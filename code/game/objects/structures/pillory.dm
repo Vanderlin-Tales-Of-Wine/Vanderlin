@@ -30,7 +30,7 @@
 	LAZYINITLIST(buckled_mobs)
 	. = ..()
 
-/obj/structure/pillory/OnCrafted(dirin)
+/obj/structure/pillory/OnCrafted(dirin, mob/user)
 	. = ..()
 	for(var/obj/item/customlock/finished/lock in contents)
 		lockcheck = list(lock.lockhash)
