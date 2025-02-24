@@ -54,9 +54,9 @@
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-	H.change_stat("strength", -1)
-	H.change_stat("intelligence", 4)
-	H.change_stat("constitution", -1)
+	H.change_stat(STATKEY_STR, -1)
+	H.change_stat(STATKEY_INT, 4)
+	H.change_stat(STATKEY_CON, -1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

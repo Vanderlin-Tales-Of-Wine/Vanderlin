@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/status_effect/debuff/badvision
 	id = "badvision"
 	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5,"fortune" = -20)
+	effectedstats = list(STATKEY_PER = -20, STATKEY_SPD = -5, STATKEY_LCK = -20)
 	duration = 100
 
 /datum/charflaw/badsight/on_mob_creation(mob/user)

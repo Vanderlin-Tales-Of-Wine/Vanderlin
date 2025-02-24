@@ -55,7 +55,7 @@
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backr = /obj/item/rogueweapon/polearm/halberd/bardiche/woodcutter // A specialist in cutting trees would carry an impressive axe
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/hunting = 1, /obj/item/key/artificer = 1)
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 1)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_CON, 1)

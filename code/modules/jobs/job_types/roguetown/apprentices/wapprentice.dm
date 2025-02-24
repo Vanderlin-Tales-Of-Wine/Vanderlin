@@ -48,6 +48,6 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light/striped
 		backr = /obj/item/storage/backpack/rogue/satchel
 
-	H.change_stat("intelligence", 1)
-	H.change_stat("speed", -1)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_SPD, -1)
 	ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)

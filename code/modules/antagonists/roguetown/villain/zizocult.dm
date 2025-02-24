@@ -49,21 +49,21 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 
-	H.change_stat("strength", 2)
+	H.change_stat(STATKEY_STR, 2)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.change_stat("intelligence", -2)
+		H.change_stat(STATKEY_INT, -2)
 		greet()
 	else
 		add_objective(/datum/objective/zizo)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 2)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_SPD, 1)
 		greet()
 		owner.special_role = ROLE_ZIZOIDCULTIST
 		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
@@ -907,8 +907,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 		to_chat(H.mind, "<span class='notice'>I no longer feel pain, but it has come at a terrible cost.</span>")
-		H.change_stat("strength", -2)
-		H.change_stat("constitution", -3)
+		H.change_stat(STATKEY_STR, -2)
+		H.change_stat(STATKEY_CON, -3)
 		break
 
 /datum/ritual/fleshform
