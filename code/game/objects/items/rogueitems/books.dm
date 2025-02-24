@@ -447,16 +447,15 @@
 		update_book_data()
 
 /obj/item/manuscript
-	name = "2 page manuscript"
-	desc = "A 2 page written piece, with aspirations of becoming a book."
+	name = "manuscript"
+	desc = "A written piece with aspirations of becoming a book."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "manuscript"
-	dir = 2
+	dir = 2 //! dir is used to decide how many pages are displayed in the icon
 	resistance_flags = FLAMMABLE
 	var/number_of_pages = 2
 	var/compiled_pages = null
-	var/list/page_texts = list()
-	var/qdel_source = FALSE
+	var/list/obj/item/paper/pages = new/list(2) //very intentional constructor
 
 	var/author = "anonymous"
 	var/content = ""
@@ -477,8 +476,34 @@
 		"Light blue with gold leaf" = "book8",
 		"Grey with gold leaf" = "knowledge")
 
+/obj/item/manuscript/Initialize(mapload, list/obj/item/paper/preset_pages)
+	. = ..()
+
+	if(mapload || !preset_pages)
+		for(var/i in 1 to length(pages))
+			pages[i] = new /obj/item/paper(src)
+	else
+		for(var/i in 1 to length(preset_pages))
+			pages[i] = preset_pages[i]
+			preset_pages[i].forceMove(src) //lol
+
+	update_pages()
+
+/// Called when our pages have been updated.
+/obj/item/manuscript/proc/update_pages()
+	number_of_pages = length(pages)
+	//name = "[number_of_pages] page manuscript"
+	desc = "A [number_of_pages]-page written piece, with aspirations of becoming a book."
+	update_icon()
+
+	compiled_pages = null
+	for(var/obj/item/paper/page as anything in pages)
+		compiled_pages += "<p>[page.info]</p>\n"
+
 /obj/item/manuscript/attackby(obj/item/I, mob/living/user)
-	// why is a book crafting kit using the craft system, but crafting a book isn't? Well the crafting system for *some reason* is made in such a way as to make reworking it to allow you to put reqs vars in the crafted item near *impossible.*
+	// why is a book crafting kit using the craft system, but crafting a book isn't?
+	// Well, *for some reason*, the crafting system is made in such a way
+	// as to make reworking it to allow you to put reqs vars in the crafted item near *impossible.*
 	if(istype(I, /obj/item/book_crafting_kit))
 		var/obj/item/book/rogue/playerbook/PB = new /obj/item/book/rogue/playerbook(get_turf(I.loc), TRUE, user, compiled_pages)
 		qdel(I)
@@ -487,33 +512,23 @@
 			user.put_in_hands(PB)
 		return qdel(src)
 
-	if(!istype(I, /obj/item/paper))
-		return
-	var/obj/item/paper/P = I
-	if(!(P.info))
-		to_chat(user, "the paper needs to contain text to be added to a manuscript!")
-		return
-	if(number_of_pages == 8)
-		to_chat(user, "The manuscript pile cannot surpass 8 pages!")
-		return
+	if(istype(I, /obj/item/paper))
+		var/obj/item/paper/inserted_paper = I
+		if(length(pages) == 8)
+			to_chat(user, span_warning("I can not find a place to put [inserted_paper] into [src]..."))
+			return
 
-	++number_of_pages
-	name = "[number_of_pages] page manuscript"
-	desc = "A [number_of_pages] page written piece, with aspirations of becoming a book."
-	page_texts += P.info
-	compiled_pages += "<p>[P.info]</p>"
-	if(user?.client && user.hud_used)
-		if(user.hud_used.reads)
-			user.hud_used.reads.destroy_read()
-		user << browse(null, "window=reading")
-	qdel(P)
+		inserted_paper.forceMove(src)
+		pages += inserted_paper
+		to_chat(user, span_notice("I put [inserted_paper] into [src]."))
+		update_pages()
+		updateUsrDialog()
 
-	update_icon()
 	return ..()
 
 /obj/item/manuscript/examine(mob/user)
 	. = ..()
-	. += "<a href='byond://?src=[REF(src)];read=1'>Read</a>"
+	. += span_info("<a href='byond://?src=[REF(src)];read=1'>Read</a>")
 
 /obj/item/manuscript/Topic(href, href_list)
 	..()
@@ -545,21 +560,31 @@
 	if(!user.hud_used.reads)
 		return
 	if(!user.can_read(src))
-		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE)
+		to_chat(span_warning("I study [src], but this verba still eludes me..."))
+		user.mind.adjust_experience(/datum/skill/misc/reading, 4, FALSE) //?
 		return
-	if(in_range(user, src) || isobserver(user))
-		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-					<html><head><style type=\"text/css\">
-					body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
-		for(var/I in page_texts)
-			dat += "<p>[I]</p>"
-		dat += "<br>"
-		dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
-		dat += "</body></html>"
-		user << browse(dat, "window=reading;size=1000x700;can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=0")
-		onclose(user, "reading", src)
-	else
-		return "<span class='warning'>I'm too far away to read it.</span>"
+	if(!in_range(user, src) && !isobserver(user))
+		to_chat(user, span_warning("I am too far away to read [src]."))
+		return
+
+	var/dat = {"
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<html>
+		<head>
+			<style type="text/css">
+				body {
+					background-image:url('book.png');
+					background-repeat: repeat;
+				}
+			</style>
+		</head>
+		<body scroll=yes>
+			[compiled_pages]
+		</body>
+	</html>
+	"}
+	user << browse(dat, "window=reading;size=1000x700;can_close=1;can_minimize=0;can_maximize=0;can_resize=0;")
+	onclose(user, "reading", src)
 
 
 /obj/item/manuscript/attack_right(mob/user)
@@ -593,7 +618,7 @@
 
 /obj/item/manuscript/update_icon()
 	. = ..()
-	switch(number_of_pages)
+	switch(length(pages))
 		if(2)
 			dir = SOUTH
 		if(3)
@@ -606,7 +631,7 @@
 			dir = SOUTHEAST
 		if(7)
 			dir = SOUTHWEST
-		if(8)
+		else //8
 			dir = NORTHWEST
 
 /obj/item/manuscript/fire_act(added, maxstacks)
@@ -614,31 +639,24 @@
 	if(!(resistance_flags & FIRE_PROOF))
 		add_overlay("paper_onfire_overlay")
 
-/obj/item/manuscript/attack_hand(mob/user)
-	if(istype(user, /mob/living) && src.loc == user)
-		var/mob/living/L = user
-		var/obj/item/paper/P = new /obj/item/paper(get_turf(src.loc))
-		L.put_in_active_hand(P)
-		L.put_in_inactive_hand(src)
-		P.icon_state = "paperwrite"
-		P.info = page_texts[length(page_texts)]
-		page_texts -= page_texts[length(page_texts)]
-		--number_of_pages
-		if(number_of_pages == 1)
-			var/obj/item/paper/P_two = new /obj/item/paper(get_turf(src.loc))
-			P_two.icon_state = "paperwrite"
-			P_two.info = page_texts[length(page_texts)]
-			qdel_source = TRUE
-			. = ..()
-			src.loc = get_turf(src.loc)
-			L.put_in_hands(P_two)
+/obj/item/manuscript/attack_hand(mob/living/user)
+	if(isliving(user) && user.is_holding(src))
+		var/obj/item/paper/pulled_page = pop(pages)
+		user.put_in_inactive_hand(src) //move this to the side
+		user.put_in_active_hand(pulled_page)
+
+		if(number_of_pages > 2)
+			to_chat(user, span_notice("I pull out \a [pulled_page] from [src]."))
+			update_pages()
+		else
+			to_chat(user, span_notice("I pull apart the final entries of [src]."))
+			var/obj/item/paper/last_page = pop(pages)
+			user.temporarilyRemoveItemFromInventory(src, TRUE)
+			user.put_in_hands(last_page)
 			qdel(src)
 			return
-		else
-			update_icon()
-			name = "[number_of_pages] page manuscript"
-			desc = "A [number_of_pages] page written piece, with aspirations of becoming a book."
-			return
+
+		return
 
 	. = ..()
 
