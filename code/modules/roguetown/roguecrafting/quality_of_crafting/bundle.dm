@@ -182,7 +182,7 @@
 		icon_state =  "[iconstatename][icon_num]"
 	else
 		icon_state = iconstatename
-	var/increases = FLOOR(amount / items_per_increase, 1)
+	var/increases = floor(amount / items_per_increase)
 
 	var/height = FALSE
 	grid_height = base_height
