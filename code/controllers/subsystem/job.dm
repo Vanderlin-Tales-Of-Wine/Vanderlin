@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/AssignRole(mob/dead/new_player/player, datum/job/job, latejoin = FALSE)
 	JobDebug("Running AR, Player: [player], Rank: [job?.type || "null"], LJ: [latejoin]")
-	if(!player?.mind || !job)
+	if(!player || !player.mind || !job)
 		JobDebug("AR has failed, Player: [player], Rank: [job.get_informed_title(player)]")
 		return FALSE
 	if(is_banned_from(player.ckey, job.title) || QDELETED(player))
@@ -94,7 +94,6 @@ SUBSYSTEM_DEF(job)
 			player.client.prefs.save_preferences()
 	if(player.client && player.client.prefs)
 		player.client.prefs.has_spawned = TRUE
-
 
 /datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	JobDebug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
@@ -548,14 +547,6 @@ SUBSYSTEM_DEF(job)
 			message_admins(message)
 			RejectPlayer(player)
 
-/datum/job/proc/greet(mob/player)
-	if(player?.mind?.assigned_role != title)
-		return
-	to_chat(player, span_notice("You are the <b>[get_informed_title(player)].</b>"))
-	if(tutorial)
-		to_chat(player, span_notice("*-----------------*"))
-		to_chat(player, span_notice(tutorial))
-
 /// Gives the player the stuff they should have with their rank
 /datum/controller/subsystem/job/proc/EquipRank(mob/living/equipping, datum/job/job, client/player_client)
 	equipping.job = job.title
@@ -564,6 +555,7 @@ SUBSYSTEM_DEF(job)
 
 	equipping.mind?.set_assigned_role(job)
 	equipping.on_job_equipping(job)
+	addtimer(CALLBACK(job, TYPE_PROC_REF(/datum/job, greet), equipping), 5 SECONDS) //TODO: REFACTOR OUT
 	job.announce_job(equipping)
 
 	if(player_client.holder)
@@ -581,6 +573,15 @@ SUBSYSTEM_DEF(job)
 			to_chat(player_client, related_policy)
 
 	job.after_spawn(equipping, player_client)
+
+/datum/job/proc/greet(mob/player)
+	//! TODO: Refactor this out... Look at how TG handles job greetings or implement our own method
+	if(player.mind?.assigned_role.title != title)
+		return
+	to_chat(player, span_notice("You are the <b>[get_informed_title(player)].</b>"))
+	if(tutorial)
+		to_chat(player, span_notice("*-----------------*"))
+		to_chat(player, span_notice(tutorial))
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
 	if(!C?.holder)
