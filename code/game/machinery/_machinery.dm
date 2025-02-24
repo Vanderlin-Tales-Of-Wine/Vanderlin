@@ -30,7 +30,7 @@
 	var/climb_offset = 0 //offset up when climbed
 	var/mob/living/structureclimber
 
-/obj/machinery/Initialize()
+/obj/machinery/Initialize(mapload, ...)
 	if(!armor)
 		armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 10, "fire" = 50, "acid" = 70)
 	. = ..()
@@ -41,7 +41,7 @@
 	else
 		START_PROCESSING(SSfastprocess, src)
 
-	if (occupant_typecache)
+	if(occupant_typecache)
 		occupant_typecache = typecacheof(occupant_typecache)
 
 	return INITIALIZE_HINT_LATELOAD
@@ -296,7 +296,7 @@
 	adjusted_climb_time = max(adjusted_climb_time, 0)
 
 	structureclimber = user
-	if(do_mob(user, user, adjusted_climb_time))
+	if(do_after(user, adjusted_climb_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
 				user.visible_message("<span class='warning'>[user] climbs onto [src].</span>", \

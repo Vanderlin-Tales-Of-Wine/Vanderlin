@@ -117,7 +117,7 @@
 			if(D.planted_crop)
 				return
 			user.visible_message("[user] starts digging an irrigation channel.", "You start digging an irrigation channel.")
-			if(!do_after(user, 5 SECONDS * time_multiplier, target = D))
+			if(!do_after(user, 5 SECONDS * time_multiplier, D))
 				return
 			new /obj/structure/irrigation_channel(D)
 			return TRUE

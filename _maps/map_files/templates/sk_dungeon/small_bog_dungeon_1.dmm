@@ -73,7 +73,7 @@
 	},
 /area/rogue/outdoors/bog)
 "nA" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/outdoors/bog)
 "nW" = (

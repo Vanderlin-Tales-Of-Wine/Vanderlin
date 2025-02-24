@@ -228,7 +228,7 @@
 //			if (TICK_CHECK)
 //				progress.update(progress.goal - things.len)
 //				return TRUE
-//	qdel(progress)
+//	progress.end_progress()
 //	to_chat(M, "<span class='notice'>I put everything I could [insert_preposition] [parent].</span>")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
@@ -291,17 +291,17 @@
 //	var/datum/progressbar/progress = new(M, length(things), T)
 //	while (do_after(M, dump_time, TRUE, T, FALSE, CALLBACK(src, PROC_REF(mass_remove_from_storage), T, things, progress)))
 //		stoplag(1)
-//	qdel(progress)
+//	progress.end_progress()
 	var/turf/T = get_step(user, user.dir)
+	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Try to drop on user turf instead
+		T = get_turf(user)
+		if(istype(T, /turf/closed))
+			to_chat(user, span_warning("Something in the way."))
+			return
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))
 			to_chat(user, "<span class='warning'>Something in the way.</span>")
 			return
-
-	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Don't dump the sack out on that
-		to_chat(user, "<span class='warning'>Something in the way.</span>")
-		return
-
 	for(var/obj/item/I in things) // If the above aren't true, dump the sack onto the tile in front of us
 		things -= I
 //		if(I.loc != real_location)

@@ -10,7 +10,6 @@
 	..()
 	head = /obj/item/clothing/head/roguetown/rare/elfplate
 	cloak = /obj/item/clothing/cloak/half/shadowcloak
-	wrists = /obj/item/clothing/wrists/roguetown/nocwrappings
 	gloves = /obj/item/clothing/gloves/roguetown/chain/iron/shadowgauntlets
 	pants = /obj/item/clothing/under/roguetown/trou/shadowpants
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shadowshirt
@@ -22,12 +21,12 @@
 	backl = /obj/item/rogueweapon/sword/long/greatsword/elfgsword
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -35,14 +34,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 		H.change_stat("strength", 3)
-		H.change_stat("perception", 2)
+		H.change_stat("perception", 1)
 		H.change_stat("intelligence", 3)
-		H.change_stat("constitution", 4)
-		H.change_stat("endurance", 3)
+		H.change_stat("constitution", 2)
+		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -86,7 +84,7 @@
 		H.change_stat("perception", 2)
 		H.change_stat("constitution", 2)
 		H.change_stat("intelligence", -1)
-		H.change_stat("speed", 3)
+		H.change_stat("speed", 2)
 	if(H.gender == MALE && H.dna?.species)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/squire()
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

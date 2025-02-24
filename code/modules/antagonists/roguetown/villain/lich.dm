@@ -66,6 +66,7 @@
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
+	L.dna.species.species_traits |= NOBLOOD
 	var/obj/item/organ/eyes/eyes = L.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(L,1)

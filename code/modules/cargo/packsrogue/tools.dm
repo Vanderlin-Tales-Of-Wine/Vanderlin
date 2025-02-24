@@ -51,7 +51,7 @@
 /datum/supply_pack/rogue/tools/dyebin
 	name = "Fine dyes"
 	cost = 200
-	contains = /obj/machinery/dye_bin
+	contains = /obj/structure/dye_bin
 
 
 /datum/supply_pack/rogue/tools/candles
@@ -136,8 +136,8 @@
 /datum/supply_pack/rogue/food/cutlery
 	name = "Set of Cutlery"
 	cost = 10
-	contains = list(/obj/item/cooking/platter,
-	/obj/item/reagent_containers/glass/bowl,
+	contains = list(/obj/item/kitchen/platter/clay,
+	/obj/item/reagent_containers/glass/bowl/clay,
 	/obj/item/reagent_containers/glass/cup,
 	/obj/item/kitchen/fork,
 	/obj/item/kitchen/spoon)

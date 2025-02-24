@@ -132,7 +132,7 @@
 				to_chat(user, span_warning("I sense something off at the end of the trail."))
 				time2go = 7 SECONDS
 				break
-	if(!do_after(user, time2go, FALSE, target = src))
+	if(!do_after(user, time2go, src, (IGNORE_HELD_ITEM)))
 		return
 	if(!can_go(user))
 		return

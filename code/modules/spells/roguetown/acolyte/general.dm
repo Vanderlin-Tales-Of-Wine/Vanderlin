@@ -30,7 +30,8 @@
 		if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
 			target.adjustFireLoss(30)
-			target.fire_act(1,5)
+			target.adjust_divine_fire_stacks(1)
+			target.IgniteMob()
 			return TRUE
 		if(target.real_name in GLOB.excommunicated_players)
 			target.visible_message(span_warning("The angry Ten sear [user]s flesh, a foolish blasphemer and heretic!"), span_notice("I am despised by the Ten, rejected, and they remind me just how unlovable I am with a wave of pain!"))
@@ -200,7 +201,8 @@
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
 			target.adjustFireLoss(100)
 			target.Paralyze(50)
-			target.fire_act(1,5)
+			target.adjust_divine_fire_stacks(1)
+			target.IgniteMob()
 			return ..()
 		target.visible_message(span_info("A wreath of gentle light passes over [target]!"), span_notice("I'm bathed in holy light!"))
 		if(iscarbon(target))

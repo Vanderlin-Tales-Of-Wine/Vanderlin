@@ -235,7 +235,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return
 
 ///Is the mob incapacitated
-/mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE, check_immobilized = FALSE)
+/mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE)
 	return
 
 /**

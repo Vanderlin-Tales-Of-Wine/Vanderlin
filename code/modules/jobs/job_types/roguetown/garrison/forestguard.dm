@@ -81,11 +81,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("endurance", 1)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_SPD, 1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_LEECHIMMUNE, TRAIT_GENERIC) // Women fear me. Leeches fear me. Men turn their eyes away from me as I walk. No creechers dare make a sound in my presence. I am alone in these barren woods.
 
 // Bows and Knives
 /datum/advclass/forestguard/ranger
@@ -120,11 +119,11 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-		H.change_stat("strength", -2)
-		H.change_stat("endurance", 1)
-		H.change_stat("speed", 3)
+		H.change_stat(STATKEY_STR, -2)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_PER, 2)
+		H.change_stat(STATKEY_SPD, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_LEECHIMMUNE, TRAIT_GENERIC) // Women fear me. Leeches fear me. Men turn their eyes away from me as I walk. No creechers dare make a sound in my presence. I am alone in these barren woods.
 
 // Hand to Hand
 /datum/advclass/forestguard/brawler
@@ -157,10 +156,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-		H.change_stat("strength", 4)
-		H.change_stat("constitution", 3)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 3)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_LEECHIMMUNE, TRAIT_GENERIC) // Women fear me. Leeches fear me. Men turn their eyes away from me as I walk. No creechers dare make a sound in my presence. I am alone in these barren woods.
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

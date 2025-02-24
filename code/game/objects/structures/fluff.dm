@@ -24,7 +24,7 @@
 /obj/structure/fluff/railing
 	name = "railing"
 	desc = ""
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/roguetown/misc/railing.dmi'
 	icon_state = "railing"
 	density = FALSE
 	anchored = TRUE
@@ -119,7 +119,7 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/OnCrafted(dirin)
+/obj/structure/fluff/railing/OnCrafted(dirin, mob/user)
 	dir = dirin
 	var/lay = getwlayer(dir)
 	if(lay)
@@ -139,7 +139,6 @@
 	name = "stone railing"
 	icon_state = "stonehedge"
 	blade_dulling = DULLING_BASHCHOP
-	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/railing/border
 	name = "border"
@@ -150,7 +149,6 @@
 /obj/structure/fluff/railing/fence
 	name = "palisade"
 	desc = "A sturdy fence of wooden stakes."
-	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "fence"
 	density = TRUE
 	opacity = TRUE
@@ -169,7 +167,7 @@
 	..()
 	smooth_fences()
 
-/obj/structure/fluff/railing/fence/OnCrafted(dirin)
+/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
 	smooth_fences()
 
@@ -376,7 +374,7 @@
 	var/broke = FALSE
 	var/datum/looping_sound/clockloop/soundloop
 	drag_slowdown = 3
-	metalizer_result = /obj/item/roguegear
+	metalizer_result = /obj/item/roguegear/metal/bronze
 
 /obj/structure/fluff/clock/Initialize()
 	soundloop = new(src, FALSE)
@@ -463,7 +461,7 @@
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
 	var/broke = FALSE
 	pixel_y = 32
-	metalizer_result = /obj/item/roguegear
+	metalizer_result = /obj/item/roguegear/metal/bronze
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
@@ -746,7 +744,7 @@
 	to_chat(H, "<span class='notice'>[message2send]</span>")
 
 	if(random_message == 2)
-		if(do_after(H, 25, target = src))
+		if(do_after(H, 2.5 SECONDS, src))
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
@@ -852,7 +850,7 @@
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/honey))
+	if(istype(W, /obj/item/reagent_containers/food/snacks/spiderhoney))
 		if(user.mind)
 			if(user.mind.special_role == "Dark Elf")
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)

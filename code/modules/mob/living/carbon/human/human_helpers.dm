@@ -121,6 +121,10 @@
 	if(used_str <= 9)
 		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
 
+	var/obj/item/bodypart/BP = has_hand_for_held_index(used_hand)
+	if(istype(BP))
+		damage *= BP.punch_modifier
+
 	if(mind)
 		if(mind.has_antag_datum(/datum/antagonist/werewolf))
 			return 30

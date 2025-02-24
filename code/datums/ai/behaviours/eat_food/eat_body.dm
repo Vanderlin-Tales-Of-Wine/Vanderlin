@@ -25,9 +25,10 @@
 	if(!is_dead(target))
 		finish_action(controller, FALSE)
 	basic_mob.visible_message(span_danger("[basic_mob] starts to rip apart [target]!"))
-	if(do_after(basic_mob, 10 SECONDS, target = target, extra_checks = CALLBACK(src, PROC_REF(is_dead), target)))
+	if(do_after(basic_mob, 10 SECONDS, target, extra_checks = CALLBACK(src, PROC_REF(is_dead), target)))
 		if(!is_dead(target))
 			finish_action(controller, FALSE)
+		add_abstract_elastic_data("combat", "eaten_bodies", 1)
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/limb

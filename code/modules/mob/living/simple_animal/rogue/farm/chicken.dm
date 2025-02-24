@@ -200,4 +200,5 @@
 	can_buckle = 1
 	layer = 2.8
 	max_integrity = 40
-	static_debris = list(/obj/item/natural/fibers = 1)
+//  removed to prevent infinite fiber farming
+//	static_debris = list(/obj/item/natural/fibers = 1)

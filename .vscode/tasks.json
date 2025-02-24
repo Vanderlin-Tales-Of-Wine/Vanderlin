@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+    {
+    "type": "dreammaker",
+    "dme": "stonekeep.dme",
+    "problemMatcher": [
+    "$dreammaker"
+    ],
+    "group": "build",
+    "label": "dm: build - stonekeep.dme"
+    },
+
+    {
+    "type": "process",
+    "command": "tools/build/build",
+    "args": ["-DLOWMEMORYMODE"],
+    "windows": {
+    "command": ".\\tools\\build\\build.bat",
+    "args": ["-DLOWMEMORYMODE"]
+    },
+    "options": {
+    "env": {
+    "DM_EXE": "${config:dreammaker.byondPath}"
+    }
+    },
+    "problemMatcher": [
+    "$dreammaker",
+    "$tsc",
+    "$eslint-stylish"
+    ],
+    "group": {
+    "kind": "build"
+    },
+    "dependsOn": "dm: reparse",
+    "label": "Build All (low memory mode)"
+    },
+
+    {
+        "type": "process",
+        "command": "tools/build/build",
+        "args": ["-DLOWMEMORYMODE", "-DNO_DUNGEON"],
+        "windows": {
+        "command": ".\\tools\\build\\build.bat",
+        "args": ["-DLOWMEMORYMODE", "-DNO_DUNGEON"]
+        },
+        "options": {
+        "env": {
+        "DM_EXE": "${config:dreammaker.byondPath}"
+        }
+        },
+        "problemMatcher": [
+        "$dreammaker",
+        "$tsc",
+        "$eslint-stylish"
+        ],
+        "group": {
+        "kind": "build"
+        },
+        "dependsOn": "dm: reparse",
+        "label": "Build All (low memory mode) no dungeons"
+        },
+    ]
+    }

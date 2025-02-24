@@ -23,6 +23,8 @@
 	wdefense = 0
 	minstr = 4
 	sellprice = 30
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/whip/getonmobprop(tag)
 	. = ..()

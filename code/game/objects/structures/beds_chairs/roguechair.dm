@@ -391,7 +391,7 @@
 /obj/structure/bed/rogue/sleepingbag/MiddleClick(mob/user, params)
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
-	if(do_after(user, 2 SECONDS, TRUE, src))
+	if(do_after(user, 2 SECONDS, target = src))
 		user.put_in_hands(new /obj/item/sleepingbag(get_turf(src)))
 		qdel(src)
 
@@ -413,7 +413,7 @@
 			to_chat(user, "<span class='warning'>There is already something here!</span>")
 			return
 	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
-	if(do_after(user, 2 SECONDS, TRUE, src))
+	if(do_after(user, 2 SECONDS, src, (IGNORE_HELD_ITEM)))
 		new /obj/structure/bed/rogue/sleepingbag(get_turf(src))
 		qdel(src)
 

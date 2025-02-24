@@ -58,9 +58,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
@@ -81,9 +78,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/ale
-	distill_amt = 12
 	grind_results = list(/datum/reagent/floure = 10)
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
@@ -107,8 +101,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	worn_y_dimension = 64
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 	sellprice = 0 // spoil too quickly to export
 	var/equippedloc = null
 	var/list/bitten_names = list()
@@ -157,8 +149,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
 	dropshrink = 0.75
 	var/color_index = "good"
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/jackberrywine
 	rotprocess = SHELFLIFE_SHORT
 	sellprice = 0 // spoil too quickly to export
 	var/poisonous = FALSE
@@ -188,15 +178,15 @@
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/update_icon()
 	cut_overlays()
-	var/used_state = "berriesc5"
+	var/used_state = "berriesc0"
 	if(bitecount == 1)
-		used_state = "berriesc4"
-	if(bitecount == 2)
-		used_state = "berriesc3"
-	if(bitecount == 3)
-		used_state = "berriesc2"
-	if(bitecount == 4)
 		used_state = "berriesc1"
+	if(bitecount == 2)
+		used_state = "berriesc2"
+	if(bitecount == 3)
+		used_state = "berriesc3"
+	if(bitecount == 4)
+		used_state = "berriesc4"
 	var/image/item_overlay = image(used_state)
 	item_overlay.color = filling_color
 	add_overlay(item_overlay)
@@ -281,7 +271,7 @@
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = SHELFLIFE_LONG
-	slices_num = 3
+	slices_num = 2
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
 	chopping_sound = TRUE
 
@@ -291,6 +281,7 @@
 	desc = "A wonderful vegetable with many layers and a broad flavor profile."
 	seed = /obj/item/neuFarm/seed/onion
 	icon_state = "onion"
+	dropshrink = 0.9
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
 	tastes = list("onion" = 1)
@@ -298,17 +289,11 @@
 	bitesize = 1
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/onion
-	distill_amt = 6
 	chopping_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 
-/*/obj/item/reagent_containers/food/snacks/produce/onion/slice(obj/item/W, mob/user) I cant do it. Below causes a runtime its true but its so tiny! And this new one is so damn boring.
-	. = ..()
-	to_chat(user, "<span class='notice'>My eyes sting a little...</span>") */
-/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/user)
-	var/datum/effect_system/smoke_spread/transparent/S = new	//Since the onion is destroyed when it's sliced,
+/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/living/user) // ROGTODO watering eyes
+	var/datum/effect_system/smoke_spread/chem/transparent/S = new	//Since the onion is destroyed when it's sliced,
 	var/splat_location = get_turf(src)	//we need to set up the smoke beforehand
 	S.attach(splat_location)
 	S.set_up(reagents, 0, splat_location, 0)
@@ -328,16 +313,13 @@
 	filling_color = "#d8d8b6"
 	slices_num = 1
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
+	cooked_type = /obj/item/reagent_containers/food/snacks/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES
 	chopping_sound = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	bitesize = 1
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
-	distill_amt = 8
 	rotprocess = null
 
 /*	..................  Pear   ................... */ // for cider or eating raw
@@ -350,8 +332,6 @@
 	foodtype = FRUIT
 	tastes = list("pear" = 1)
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 
 /*	..................   Turnip   ................... */ // only for veggie soup
 /obj/item/reagent_containers/food/snacks/produce/turnip

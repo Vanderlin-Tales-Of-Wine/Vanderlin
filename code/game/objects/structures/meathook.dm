@@ -45,7 +45,7 @@
 	if(VIABLE_MOB_CHECK(user.pulling) && !has_buckled_mobs())
 		var/mob/living/L = user.pulling
 		L.visible_message(span_danger("[user] starts hanging [L] on [src]!"), span_danger("[user] starts hanging you on [src]]!"), span_hear("I hear the sound of clanging chains..."))
-		if(do_mob(user, src, 120))
+		if(do_after(user, 12 SECONDS, src))
 			if(has_buckled_mobs())
 				return
 			if(L.buckled)
@@ -65,6 +65,7 @@
 			m90.Translate(12,12)
 			animate(L, transform = m90, time = 3)
 			L.pixel_y = L.get_standard_pixel_x_offset(180)
+			draining_blood = FALSE
 	else if (has_buckled_mobs())
 		for(var/mob/living/L in buckled_mobs)
 			user_unbuckle_mob(L, user)
@@ -79,19 +80,19 @@
 		var/mob/living/M = buckled_mob
 		if (M != user)
 			M.visible_message(span_notice("[user] is trying to pull [M] free of [src]!"),\
-				span_notice("[user] is trying to pull you off [src]! It hurts!"),\
+				span_notice("[user] is trying to pull me off [src]! It hurts!"),\
 				span_hear("I hear the sound of torn flesh and whimpering..."))
-			if(!do_after(user, 300, target = src))
+			if(!do_after(user, 30 SECONDS, src))
 				if(M && M.buckled)
 					M.visible_message(span_notice("[user] fails to free [M]!"),\
-					span_notice("[user] fails to pull you off of [src]!"))
+					span_notice("[user] fails to pull me off of [src]!"))
 				return
 		else
 			M.visible_message(span_warning("[M] struggles to break free from [src]!"),\
 				span_notice("I struggle to break free from [src], tearing my legs! (Stay still for two minutes.)"),\
 				span_hear("I hear the sound of torn flesh and whimpering..."))
 			M.adjustBruteLoss(30)
-			if(!do_after(M, 1200, target = src))
+			if(!do_after(M, 2 MINUTES, src))
 				if(M && M.buckled)
 					to_chat(M, span_warning("I fail to free myself!"))
 				return
@@ -101,10 +102,11 @@
 
 /obj/structure/meathook/process()
 	if(!length(buckled_mobs) || !draining_blood)
+		draining_blood = FALSE
 		STOP_PROCESSING(SSmachines, src)
 		return
 	var/mob/living/L = buckled_mobs[1]
-	if(L.blood_drained > 60)
+	if(L.blood_drained >= 60)
 		L.blood_drained = 60
 		draining_blood = FALSE
 		STOP_PROCESSING(SSmachines, src)
@@ -180,18 +182,18 @@
 	if(!draining_blood && butchery_target.blood_drained < 60)
 		if(!(user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
 			return
-		to_chat(user, span_notice("You start to cut [butchery_target] to start draining their blood."))
 		var/cut_time = 4 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
-		if(do_after(user, cut_time, FALSE, src))
+		to_chat(user, span_notice("I prepare to drain [butchery_target]'s blood by cutting the skin..."))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			butchery_target.blood_drained++
-			START_PROCESSING(SSmachines, src)
 			draining_blood = TRUE
+			START_PROCESSING(SSmachines, src)
 		return
 
 	if(!butchery_target.skinned && (user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
-		to_chat(user, span_notice("You start to skin [butchery_target]."))
-		if(do_after(user, cut_time, FALSE, src))
+		to_chat(user, span_notice("I start to skin [butchery_target]."))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
 				if(ispath(listed_item, /obj/item/natural/hide) || ispath(listed_item, /obj/item/natural/fur))
@@ -219,8 +221,8 @@
 
 	if(user.used_intent.type == /datum/intent/dagger/chop/cleaver)
 		var/cut_time = 6 SECONDS - (0.5 SECONDS * user.mind?.get_skill_level(/datum/skill/labor/butchering))
-		to_chat(user, span_notice("You start to butcher [butchery_target]."))
-		if(do_after(user, cut_time, FALSE, src))
+		to_chat(user, span_notice("I start to butcher [butchery_target]."))
+		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
 				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/rogue/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))
@@ -250,7 +252,6 @@
 					var/obj/item/I = new listed_item(get_turf(user))
 					I.add_mob_blood(butchery_target)
 			butchery_target.gib()
-			draining_blood = FALSE
 			var/boon = user.mind.get_learning_boon(/datum/skill/labor/butchering)
 			var/amt2raise = user.STAINT
 			user.mind.add_sleep_experience(/datum/skill/labor/butchering, amt2raise * boon, FALSE)

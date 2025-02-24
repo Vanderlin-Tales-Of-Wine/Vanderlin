@@ -23,15 +23,3 @@
 	result = list(/obj/item/rogueweapon/thresher/military)
 	reqs = list(/obj/item/rogueweapon/thresher = 1,
 				/obj/item/ingot/iron = 1)
-
-//crafting recipes
-
-/datum/crafting_recipe/roguetown/sigsweet
-	name = "swampweed zig"
-	result = /obj/item/clothing/mask/cigarette/rollie/cannabis
-	reqs = list(/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
-				/obj/item/paper = 1)
-	time = 10 SECONDS
-	verbage = "roll"
-	verbage_tp = "rolls"
-	craftdiff = 0
