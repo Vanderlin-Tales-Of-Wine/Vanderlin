@@ -527,7 +527,7 @@
 
 	// The Assassin's profane dagger can sniff out their targets, even masked.
 	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
-		if (src == user)
+		if(src == user)
 			return
 		for(var/obj/item/I in user.get_all_gear())
 			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
