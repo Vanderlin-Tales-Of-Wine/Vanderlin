@@ -205,6 +205,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			continue
 		if(L.stat)
 			continue
+		if(L.mode != AI_OFF)
+			continue
 		if(L.dna.species)
 			cnt++
 		if(cnt > 2)
@@ -230,6 +232,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		if(L == src)
 			continue
 		if(L.stat)
+			continue
+		if(L.mode != AI_OFF)
 			continue
 		if(L.dna.species)
 			cnt++
