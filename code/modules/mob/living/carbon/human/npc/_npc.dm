@@ -20,6 +20,7 @@
 	var/ai_when_client = FALSE
 	var/next_idle = 0
 	var/next_seek = 0
+	var/next_stand = 0
 	var/next_passive_detect = 0
 	var/flee_in_pain = FALSE
 	var/stand_attempts = 0
@@ -50,7 +51,7 @@
 //	next_ai_tick = world.time + rand(10,20)
 	cmode = 1
 	if(stat == CONSCIOUS)
-		if(on_fire || buckled || restrained() || pulledby)
+		if(on_fire || buckled || restrained(FALSE) || pulledby)
 			if(resist_attempts < 1)
 				resisting = TRUE
 				walk_to(src,0)
@@ -58,9 +59,7 @@
 				resist_attempts += 1
 				resisting = FALSE
 		if((mobility_flags & MOBILITY_CANSTAND) && (stand_attempts < 3))
-			resisting = TRUE
 			npc_stand()
-			resisting = FALSE
 		else
 			stand_attempts = 0
 			resist_attempts = 0
@@ -75,10 +74,16 @@
 		return TRUE
 
 /mob/living/carbon/human/proc/npc_stand()
+	// the sane way to do this would be to try and check if we can even realistically stand
+	resisting = TRUE
 	if(stand_up())
 		stand_attempts = 0
+		resisting = FALSE
+		return TRUE
 	else
 		stand_attempts += rand(1,3)
+		resisting = FALSE
+		return FALSE
 
 /mob/living/carbon/human/proc/npc_idle()
 	if(m_intent == MOVE_INTENT_SNEAK)
@@ -86,6 +91,8 @@
 	if(world.time < next_idle + rand(30,50))
 		return
 	next_idle = world.time + rand(30,50)
+	if ((world.time < next_stand + rand(50, 100)) && !npc_stand()) // attempt to stand up when idle, but only once every so often
+		next_stand = world.time + rand(50, 100)
 	if((mobility_flags & MOBILITY_MOVE) && isturf(loc))
 		if(wander)
 			if(prob(50))
@@ -298,7 +305,9 @@
 					var/paine = get_complex_pain()
 					if(paine >= ((STAEND * 10)*0.9))
 //						mode = AI_FLEE
-						walk_away(src, target, 5, update_movespeed())
+						update_mobility() // This is necessary for some reason. Man do I hate mob AI.
+						if((mobility_flags & MOBILITY_MOVE) && !buckled && !restrained(FALSE))
+							walk_away(src, target, 5, update_movespeed())
 				return TRUE
 			else								// not next to perp
 				frustration++
@@ -337,7 +346,7 @@
 		Weapon = get_active_held_item()
 		OffWeapon = get_inactive_held_item()
 	if(!(mobility_flags & MOBILITY_STAND))
-		aimheight_change(rand(10,19))
+		aimheight_change(rand(1,10))
 	else
 		aimheight_change(rand(10,19))
 
