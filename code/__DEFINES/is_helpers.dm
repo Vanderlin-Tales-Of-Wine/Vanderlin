@@ -170,5 +170,3 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 
 // seemingly deprecated:
 //"Preacher" //as a job, there is an equivalent class
-//"Witch Hunter"
-//"Shepherd"

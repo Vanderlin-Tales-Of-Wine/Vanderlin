@@ -540,7 +540,7 @@ SUBSYSTEM_DEF(job)
 
 		if(RETURNTOLOBBY)
 			RejectPlayer(player)
-			
+
 		else //Something gone wrong if we got here.
 			var/message = "DO: [player] fell through handling unassigned"
 			JobDebug(message)

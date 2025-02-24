@@ -97,7 +97,7 @@
 /// Whether the mob is announced on arrival.
 #define JOB_ANNOUNCE_ARRIVAL (1<<0)
 /// Whether the mob is added to the crew manifest.
-#define JOB_CREW_MANIFEST (1<<1)
+#define JOB_SHOW_IN_CREDITS (1<<1)
 /// Whether the mob is equipped through SSjob.EquipRank() on spawn.
 #define JOB_EQUIP_RANK (1<<2)
 /// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
@@ -111,7 +111,7 @@
 #define FACTION_UNDEAD "Undead"
 #define FACTION_PLANTS "Plants"
 #define FACTION_VINES "Vines" //Seemingly unused
-#define FACTION_CABAL "Cabal" //Seemingly unused
+#define FACTION_CABAL "Cabal"
 #define FACTION_RATS "Rats"
 #define FACTION_ORCS "Orcs"
 #define FACTION_BUMS "Bums"

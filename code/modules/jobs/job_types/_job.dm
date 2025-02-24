@@ -63,7 +63,7 @@
 
 	var/display_order = JOB_DISPLAY_ORDER_CAPTAIN
 
-	/// All values = (JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK)
+	/// All values = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	var/job_flags = NONE
 
 	///Levels unlocked at roundstart in physiology
@@ -134,7 +134,7 @@
 	///the maximum amount of apprentices that the owner can have
 	var/max_apprentices = 1
 	///if this is set its the name bestowed to the new apprentice otherwise its just name the [job_name] apprentice.
-	var/apprentice_name
+	var/apprentice_name //this is unused?
 
 
 /datum/job/New()
@@ -200,9 +200,9 @@
 		for(var/datum/mind/MF in get_minds(X))
 			spawned.mind.i_know_person(MF)
 
-	// if(H.islatejoin && show_in_credits)
-	// 	var/used_title = get_informed_title(spawned)
-	// 	scom_announce("[spawned.real_name] the [used_title] arrives from Kingsfield.")
+	if(spawned.islatejoin && (job_flags & JOB_ANNOUNCE_ARRIVAL)) //to be moved somewhere more appropriate
+		var/used_title = get_informed_title(spawned)
+		scom_announce("[spawned.real_name] the [used_title] arrives from Kingsfield.")
 
 	if(give_bank_account)
 		if(give_bank_account > 1)
@@ -210,7 +210,7 @@
 		else
 			SStreasury.create_bank_account(spawned)
 
-	if(show_in_credits)
+	if(job_flags & JOB_SHOW_IN_CREDITS)
 		SScrediticons.processing += spawned
 
 	if(cmode_music)
