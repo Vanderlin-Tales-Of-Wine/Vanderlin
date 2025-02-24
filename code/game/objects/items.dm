@@ -244,8 +244,19 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
 
+	// ~Grid INVENTORY VARIABLES
+	/// Width we occupy on the hud - Keep null to generate based on w_class
+	var/grid_width
+	/// Height we occupy on the hud - Keep null to generate based on w_class
+	var/grid_height
+	///our melting material, basically if exists this is what we melt into in a crucible
+	var/datum/material/melting_material
+	///our metling amount
+	var/melt_amount = 0
+
 /obj/item/Initialize()
 	. = ..()
+
 	if(!pixel_x && !pixel_y && !bigboy)
 		pixel_x = rand(-5,5)
 		pixel_y = rand(-5,5)
@@ -265,7 +276,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(is_silver)
 		enchant(/datum/enchantment/silver)
 	update_transform()
-
 
 /obj/item/proc/update_transform()
 	transform = null

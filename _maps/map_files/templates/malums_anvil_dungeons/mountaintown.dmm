@@ -685,7 +685,7 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "hI" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/blocks{
 	icon_state = "bluestone"
 	},
@@ -827,7 +827,7 @@
 /turf/open/water/river,
 /area/rogue/under/mountains/anvil/dungeon)
 "kw" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ky" = (
@@ -1702,7 +1702,7 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "xT" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/blocks{
 	icon_state = "bluestone"
 	},
@@ -2221,7 +2221,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fg" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Fn" = (
@@ -3254,7 +3254,7 @@
 /turf/open/floor/rogue/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Us" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/rogue/blocks{
 	icon_state = "bluestone"
 	},
@@ -3519,7 +3519,7 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "XM" = (
-/obj/structure/fermenting_barrel/random,
+/obj/structure/fermentation_keg/random,
 /turf/open/floor/rogue/blocks{
 	icon_state = "bluestone"
 	},

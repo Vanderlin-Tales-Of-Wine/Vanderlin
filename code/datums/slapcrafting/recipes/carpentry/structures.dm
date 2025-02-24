@@ -4,10 +4,7 @@
 		/datum/slapcraft_step/item/small_log,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/fermenting_barrel/crafted
-
-/obj/structure/fermenting_barrel/crafted
-	sellprice = 6
+	result_type = /obj/structure/fermentation_keg
 
 /datum/slapcraft_recipe/carpentry/structure/door
 	name = "wooden door"

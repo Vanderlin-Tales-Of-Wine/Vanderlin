@@ -343,13 +343,13 @@
 /datum/status_effect/debuff/netted/on_apply()
 		. = ..()
 		var/mob/living/carbon/C = owner
-		C.add_movespeed_modifier(MOVESPEED_ID_NET_SLOWDOWN, multiplicative_slowdown = 3)
+		C.add_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, multiplicative_slowdown = 3)
 
 /datum/status_effect/debuff/netted/on_remove()
 	. = ..()
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
-		C.remove_movespeed_modifier(MOVESPEED_ID_NET_SLOWDOWN)
+		C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN)
 		// Already handled in uncuff()
 		/*
 		C.legcuffed = null
