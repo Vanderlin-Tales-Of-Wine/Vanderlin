@@ -141,7 +141,7 @@
 // Bard buffs below
 
 /datum/stressevent/bardicbuff
-	timer = 1 MINUTES
+	timer = 30 SECONDS
 	desc = span_nicegreen("Bardic inspiration moves mine soul even more!\n")
 	stressadd = -1
 
