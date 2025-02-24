@@ -58,9 +58,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
@@ -81,9 +78,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/ale
-	distill_amt = 12
 	grind_results = list(/datum/reagent/floure = 10)
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
@@ -107,8 +101,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	worn_y_dimension = 64
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 	sellprice = 0 // spoil too quickly to export
 	var/equippedloc = null
 	var/list/bitten_names = list()
@@ -157,8 +149,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
 	dropshrink = 0.75
 	var/color_index = "good"
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/jackberrywine
 	rotprocess = SHELFLIFE_SHORT
 	sellprice = 0 // spoil too quickly to export
 	var/poisonous = FALSE
@@ -299,9 +289,6 @@
 	bitesize = 1
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/onion
-	distill_amt = 6
 	chopping_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 
@@ -333,9 +320,6 @@
 	chopping_sound = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	bitesize = 1
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
-	distill_amt = 8
 	rotprocess = null
 
 /*	..................  Pear   ................... */ // for cider or eating raw
@@ -348,8 +332,6 @@
 	foodtype = FRUIT
 	tastes = list("pear" = 1)
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 
 /*	..................   Turnip   ................... */ // only for veggie soup
 /obj/item/reagent_containers/food/snacks/produce/turnip

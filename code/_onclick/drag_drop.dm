@@ -97,7 +97,7 @@
 
 	if(!mob.fixedeye) //If fixedeye isn't already enabled, we need to set this var
 		mob.tempfixeye = TRUE //Change icon to 'target' red eye
-		mob.nodirchange = TRUE
+		mob.atom_flags |= NO_DIR_CHANGE
 
 	for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
 		eyet.update_icon(mob) //Update eye icon
@@ -188,7 +188,7 @@
 
 	if(!mob.fixedeye)
 		mob.tempfixeye = FALSE
-		mob.nodirchange = FALSE
+		mob.atom_flags &= ~NO_DIR_CHANGE
 
 	if(mob.hud_used)
 		for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
