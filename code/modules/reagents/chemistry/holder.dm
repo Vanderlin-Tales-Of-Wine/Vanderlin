@@ -52,10 +52,10 @@
 	var/paths = subtypesof(/datum/reagent)
 	GLOB.chemical_reagents_color_list = list()
 
-	for(var/path in paths)
-		var/datum/reagent/D = new path()
-		if (D.random_reagent_color == TRUE)
-			GLOB.chemical_reagents_color_list[D.name] = "#" + uppertext(random_color())
+	for(var/datum/reagent/path as anything in paths)
+		// These are not usable objects, only paths.
+		if(path::random_reagent_color)
+			GLOB.chemical_reagents_color_list[path::name] = "#[random_color()]"
 
 ///////////////////////////////////////////////////////////////////////////////////
 
