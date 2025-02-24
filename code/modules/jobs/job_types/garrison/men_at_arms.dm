@@ -8,7 +8,7 @@
 	The nobility needs good men, and they only come in a pair of pairs."
 	flag = WATCHMAN
 	department_flag = GARRISON
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MENATARMS
 	faction = FACTION_STATION
 	total_positions = 4

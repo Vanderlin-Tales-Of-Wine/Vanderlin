@@ -6,7 +6,7 @@
 	And yet you seek beasts small enough to skin, scalp, and sell. Take heed, lest you become a beast yourself."
 	flag = HUNTER
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_HUNTER
 	faction = FACTION_STATION
 	total_positions = 4

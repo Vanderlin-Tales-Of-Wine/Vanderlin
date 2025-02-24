@@ -5,10 +5,12 @@
 	This is your duty, this is your call."
 	flag = CHEESEMAKER
 	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CHEESEMAKER
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -21,8 +23,8 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	outfit = /datum/outfit/job/cheesemaker
 
+	outfit = /datum/outfit/job/cheesemaker
 
 /datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()

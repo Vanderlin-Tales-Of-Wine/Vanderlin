@@ -7,7 +7,7 @@
 	Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
 	flag = SQUIRE
 	department_flag = APPRENTICES
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2

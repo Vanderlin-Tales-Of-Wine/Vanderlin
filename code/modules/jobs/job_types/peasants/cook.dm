@@ -5,7 +5,7 @@
 	You've spent more nites than you can count cutting meat and vegetables until your fingers are bloody and raw, but it's honest work."
 	flag = COOK
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3

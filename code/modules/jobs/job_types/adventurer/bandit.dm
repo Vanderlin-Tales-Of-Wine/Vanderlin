@@ -18,8 +18,6 @@
 	outfit = null
 	outfit_female = null
 
-	show_in_credits = FALSE
-
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)
 
 	wanderer_examine = TRUE

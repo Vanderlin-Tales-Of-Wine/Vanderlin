@@ -11,7 +11,7 @@
 	department_flag = UNDEAD
 	job_flags = (JOB_EQUIP_RANK)
 	faction = FACTION_STATION //this seems wrong?
-	total_positions = -1
+	total_positions = -1 //this also seems wrong?
 	spawn_positions = 0
 	antag_job = TRUE
 
@@ -31,7 +31,6 @@
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
 	outfit = /datum/outfit/job/roguetown/skeleton
-	show_in_credits = FALSE
 	give_bank_account = FALSE
 
 /datum/job/roguetown/skeleton/after_spawn(mob/living/spawned, client/player_client)

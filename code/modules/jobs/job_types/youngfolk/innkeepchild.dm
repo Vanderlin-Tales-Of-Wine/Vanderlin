@@ -5,7 +5,7 @@
 	you've been thankful ever since." //rewrite probably?
 	flag = INNKEEPCHILD
 	department_flag = YOUNGFOLK
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_INNKEEP_CHILD
 	faction = FACTION_STATION
 	total_positions = 1

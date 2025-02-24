@@ -5,11 +5,15 @@
 	You know your machines' inner workings as well as you do stone, down to the last cog."
 	flag = ARTIFICER
 	department_flag = SERFS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_ARTIFICER
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+	min_pq = -50
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Rakshari",
@@ -21,14 +25,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	allowed_sexes = list(MALE, FEMALE)
 
-
-	outfit = /datum/outfit/job/mason
-	display_order = JDO_ARTIFICER
-	bypass_lastclass = TRUE
+	outfit = /datum/outfit/job/maso
 	give_bank_account = 8
-	min_pq = -50
 
 /datum/outfit/job/mason/pre_equip(mob/living/carbon/human/H)
 	..()

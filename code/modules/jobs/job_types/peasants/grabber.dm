@@ -7,7 +7,7 @@
 	flag = GRABBER
 	department_flag = PEASANTS
 	display_order = JDO_GRABBER
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 6
 	spawn_positions = 6

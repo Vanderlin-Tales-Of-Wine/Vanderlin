@@ -5,7 +5,7 @@
 	Perhaps this week you will finally be recognized, or allowed some respite?"
 	flag = SERVANT
 	department_flag = APPRENTICES
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_SERVANT
 	faction = FACTION_STATION
 	total_positions = 9

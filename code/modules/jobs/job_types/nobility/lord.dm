@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	and would replace you in less than a heartbeat: Show them the error in their ways."
 	flag = LORD
 	department_flag = NOBLEMEN
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_LORD
 	faction = FACTION_STATION
 	total_positions = 0

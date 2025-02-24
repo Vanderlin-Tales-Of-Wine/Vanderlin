@@ -83,7 +83,7 @@
 	var/list/jobstats
 	var/list/jobstats_f
 
-	var/whitelist_req = FALSE
+	var/whitelist_req = FALSE //!
 
 	var/banned_leprosy = TRUE
 	var/banned_lunatic = TRUE
@@ -95,8 +95,6 @@
 
 	var/plevel_req = 0
 	var/min_pq = -999
-
-	var/show_in_credits = TRUE
 
 	var/give_bank_account = FALSE
 

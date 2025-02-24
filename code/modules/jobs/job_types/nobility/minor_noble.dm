@@ -6,6 +6,7 @@
 	display_order = JDO_MINOR_NOBLE
 	flag = MINOR_NOBLE
 	department_flag = NOBLEMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2

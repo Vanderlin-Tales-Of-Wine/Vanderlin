@@ -20,7 +20,6 @@
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = /datum/outfit/job/vagrant
-	show_in_credits = FALSE //why not?
 	can_random = FALSE
 
 	can_have_apprentices = FALSE

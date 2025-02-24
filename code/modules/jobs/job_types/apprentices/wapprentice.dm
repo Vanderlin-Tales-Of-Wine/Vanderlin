@@ -7,7 +7,7 @@
 	Listen and serve, and someday you will earn your hat."
 	flag = APPRENTICE
 	department_flag = APPRENTICES
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0

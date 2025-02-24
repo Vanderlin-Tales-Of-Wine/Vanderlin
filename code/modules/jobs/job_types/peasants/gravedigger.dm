@@ -8,7 +8,7 @@
 	flag = GRAVETENDER
 	department_flag = CHURCHMEN
 	display_order = JDO_GRAVETENDER
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3

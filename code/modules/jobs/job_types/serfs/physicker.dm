@@ -6,8 +6,12 @@
 				their services."
 	flag = PHYSICKER
 	department_flag = SERFS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PHYSICKER
 	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -19,9 +23,7 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	display_order = JDO_PHYSICKER
-	total_positions = 2
-	spawn_positions = 2
+
 	outfit = /datum/outfit/job/physicker
 
 /datum/outfit/job/physicker/pre_equip(mob/living/carbon/human/H)

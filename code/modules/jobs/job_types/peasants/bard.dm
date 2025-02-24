@@ -7,7 +7,7 @@
 	flag = BARD
 	department_flag = PEASANTS
 	display_order = JDO_BARD
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
@@ -24,7 +24,7 @@
 		"Half-Orc",
 		"Rakshari"
 	)
-
+	
 	outfit = /datum/outfit/job/bard
 
 /datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)

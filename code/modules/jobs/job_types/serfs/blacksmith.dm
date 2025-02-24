@@ -5,18 +5,18 @@
 	seeing the importance in maintaining a well-equipped army."
 	flag = BLACKSMITH
 	department_flag = SERFS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 0
+	bypass_lastclass = TRUE
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = /datum/outfit/job/armorsmith
 	display_order = JDO_ARMORER
-	bypass_lastclass = TRUE
 	give_bank_account = 30
-	min_pq = 0
 
 /datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()

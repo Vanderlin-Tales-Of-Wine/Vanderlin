@@ -5,7 +5,7 @@
 	and stare into the water to see the reflection of a drowned body in the making."
 	flag = FISHER
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_FISHER
 	faction = FACTION_STATION
 	total_positions = 5

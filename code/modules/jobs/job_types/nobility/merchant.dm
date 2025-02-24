@@ -7,10 +7,14 @@
 	Dont let these filthy-covered troglodytes ever forget that."
 	flag = MERCHANT
 	department_flag = NOBLEMEN
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	display_order = JDO_MERCHANT
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
+	bypass_lastclass = TRUE
+	selection_color = "#192bc2"
 
 	allowed_races = list(
 		"Humen",
@@ -23,14 +27,8 @@
 		"Rakshari",
 	)
 
-	display_order = JDO_MERCHANT
-	bypass_lastclass = TRUE
-
 	outfit = /datum/outfit/job/merchant
-	bypass_lastclass = TRUE
 	give_bank_account = 100
-	min_pq = 1
-	selection_color = "#192bc2"
 
 /datum/outfit/job/merchant/pre_equip(mob/living/carbon/human/H)
 	..()

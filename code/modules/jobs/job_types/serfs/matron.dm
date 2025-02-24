@@ -5,12 +5,15 @@
 	you show them your tricks and you'll make them just as good as you one day."
 	flag = JESTER
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MATRON
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 10
 
 	allowed_sexes = list(FEMALE)
+	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -21,11 +24,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL)
-	display_order = JDO_MATRON
+	
 	outfit = /datum/outfit/job/matron
 	give_bank_account = 35
-	min_pq = 10
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 

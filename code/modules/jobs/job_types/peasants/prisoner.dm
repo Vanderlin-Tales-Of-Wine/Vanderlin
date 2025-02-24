@@ -10,7 +10,7 @@
 	flag = GRAVETENDER
 	department_flag = PEASANTS
 	display_order = JDO_PRISONER
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK)
 	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 2

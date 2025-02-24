@@ -6,11 +6,15 @@
 	You have been known to kill men who cross you or your work-partner."
 	flag = NIGHTMAN
 	department_flag = NOBLEMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_APOTHECARY
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Dwarf",
@@ -22,12 +26,8 @@
 		"Half-Orc"
 	)
 
-
-	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/apothecary
 	give_bank_account = 100
-	min_pq = 1
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/outfit/job/apothecary/pre_equip(mob/living/carbon/human/H)

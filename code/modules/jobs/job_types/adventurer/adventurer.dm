@@ -17,18 +17,16 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 14
+	min_pq = 2
+	bypass_lastclass = TRUE
+
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = null
 	outfit_female = null
-
-	show_in_credits = FALSE
-	min_pq = 2
 	job_reopens_slots_on_death = TRUE
 	same_job_respawn_delay = 15 MINUTES
-	bypass_lastclass = TRUE
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 15)
-
 	wanderer_examine = TRUE
 	can_have_apprentices = FALSE
 

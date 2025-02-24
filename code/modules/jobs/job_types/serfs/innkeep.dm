@@ -5,10 +5,13 @@
 	and accommodations for weary travelers passing through."
 	flag = INNKEEP
 	department_flag = SERFS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_INNKEEP
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = -10
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -21,10 +24,7 @@
 	)
 
 	outfit = /datum/outfit/job/innkeep
-	display_order = JDO_INNKEEP
-	bypass_lastclass = TRUE
 	give_bank_account = 60
-	min_pq = -10
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/innkeep/pre_equip(mob/living/carbon/human/H)

@@ -4,8 +4,12 @@
 	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
 	flag = LUMBERJACK
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CARPENTER
 	faction = FACTION_STATION
+	total_positions = 6
+	spawn_positions = 4
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -17,9 +21,7 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	total_positions = 6
-	spawn_positions = 4
-	display_order = JDO_CARPENTER
+
 	outfit = /datum/outfit/job/carpenter
 
 /datum/outfit/job/carpenter/pre_equip(mob/living/carbon/human/H)

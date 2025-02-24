@@ -6,7 +6,7 @@
 	You escaped them by becoming a churchling-- and a guaranteed education isn't so bad."
 	flag = CHURCHLING
 	department_flag = YOUNGFOLK
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CHURCHLING
 	faction = FACTION_STATION
 	total_positions = 2

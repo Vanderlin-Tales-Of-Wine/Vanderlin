@@ -4,7 +4,7 @@
 	Sometimes, they build their own settlements and enjoy the terrible nature."
 	flag = ADVENTURER
 	department_flag = PEASANTS
-	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_NEW_PLAYER_JOINABLE)
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_PILGRIM
 	faction = FACTION_STATION
 	total_positions = 0
