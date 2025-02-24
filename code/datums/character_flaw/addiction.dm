@@ -1,5 +1,6 @@
 
 /mob/living/carbon/human
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 	var/datum/charflaw/charflaw
 
 /mob/proc/sate_addiction()
@@ -69,7 +70,7 @@
 /datum/status_effect/debuff/addiction
 	id = "addiction"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/addiction
-	effectedstats = list("endurance" = -1,"fortune" = -1)
+	effectedstats = list(STATKEY_END = -1, STATKEY_LCK = -1)
 	duration = 100
 
 

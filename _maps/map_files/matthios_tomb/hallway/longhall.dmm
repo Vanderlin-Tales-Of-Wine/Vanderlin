@@ -1,0 +1,379 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue)
+"b" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"e" = (
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"f" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"k" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip{
+	dir = 4;
+	pixel_y = -3
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"m" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"n" = (
+/obj/item/roguecoin/silver/pile,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"o" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"p" = (
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak{
+	pixel_x = 8;
+	pixel_y = 14
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"r" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 8
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"s" = (
+/obj/structure/handcart,
+/obj/item/rogueweapon/knife/cleaver,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"x" = (
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"z" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"A" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"C" = (
+/obj/item/rogueweapon/knife/cleaver,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"D" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"F" = (
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak{
+	pixel_x = -12;
+	pixel_y = -7
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"I" = (
+/obj/effect/decal/cleanable/blood{
+	pixel_x = -9
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"J" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 8
+	},
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"K" = (
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"L" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"M" = (
+/obj/effect/decal/cleanable/blood/gibs/body,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"U" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 1
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"V" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"W" = (
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"X" = (
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak{
+	pixel_x = 8;
+	pixel_y = 14
+	},
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+"Z" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue)
+
+(1,1,1) = {"
+a
+W
+W
+J
+W
+a
+"}
+(2,1,1) = {"
+a
+W
+D
+r
+W
+a
+"}
+(3,1,1) = {"
+a
+K
+W
+A
+U
+a
+"}
+(4,1,1) = {"
+a
+W
+W
+D
+W
+a
+"}
+(5,1,1) = {"
+a
+e
+m
+M
+W
+a
+"}
+(6,1,1) = {"
+a
+s
+L
+b
+W
+a
+"}
+(7,1,1) = {"
+a
+V
+Z
+p
+m
+a
+"}
+(8,1,1) = {"
+a
+M
+F
+m
+W
+a
+"}
+(9,1,1) = {"
+a
+n
+W
+L
+W
+a
+"}
+(10,1,1) = {"
+a
+m
+L
+M
+C
+a
+"}
+(11,1,1) = {"
+a
+W
+W
+W
+m
+a
+"}
+(12,1,1) = {"
+a
+K
+m
+W
+U
+a
+"}
+(13,1,1) = {"
+a
+W
+W
+o
+W
+a
+"}
+(14,1,1) = {"
+a
+W
+k
+f
+I
+a
+"}
+(15,1,1) = {"
+a
+W
+W
+X
+W
+a
+"}
+
+(1,1,2) = {"
+a
+W
+W
+W
+W
+a
+"}
+(2,1,2) = {"
+a
+W
+z
+W
+W
+a
+"}
+(3,1,2) = {"
+a
+z
+z
+z
+W
+a
+"}
+(4,1,2) = {"
+a
+W
+z
+z
+z
+a
+"}
+(5,1,2) = {"
+a
+x
+z
+z
+W
+a
+"}
+(6,1,2) = {"
+a
+z
+z
+z
+W
+a
+"}
+(7,1,2) = {"
+a
+z
+z
+z
+z
+a
+"}
+(8,1,2) = {"
+a
+W
+z
+z
+z
+a
+"}
+(9,1,2) = {"
+a
+W
+z
+z
+W
+a
+"}
+(10,1,2) = {"
+a
+z
+z
+z
+W
+a
+"}
+(11,1,2) = {"
+a
+W
+z
+z
+z
+a
+"}
+(12,1,2) = {"
+a
+z
+z
+z
+z
+a
+"}
+(13,1,2) = {"
+a
+W
+z
+z
+W
+a
+"}
+(14,1,2) = {"
+a
+z
+z
+z
+x
+a
+"}
+(15,1,2) = {"
+a
+W
+W
+W
+W
+a
+"}

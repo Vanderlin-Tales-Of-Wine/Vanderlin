@@ -48,10 +48,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) // He needs to SUTURE his prisoners up too
 		//H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	// He's really strong- but anyone is faster than him, the question is can they run for long enough? (Also remember they are an elderly man)
-	H.change_stat("strength", 5)
-	H.change_stat("endurance", pick(4,5,6))
-	H.change_stat("constitution", -2)
-	H.change_stat("speed", -4) // To balance out how strong he is
-	H.change_stat("intelligence", pick(-4,-5,-6)) // He's stupid
-	H.change_stat("perception", pick(-3,-3,-4)) // Yeah he's stupid- he's not going to notice small things
+	H.change_stat(STATKEY_STR, 5)
+	H.change_stat(STATKEY_END, pick(4,5,6))
+	H.change_stat(STATKEY_CON, -2)
+	H.change_stat(STATKEY_SPD, -4) // To balance out how strong he is
+	H.change_stat(STATKEY_INT, pick(-4,-5,-6)) // He's stupid
+	H.change_stat(STATKEY_PER, pick(-3,-3,-4)) // Yeah he's stupid- he's not going to notice small things
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim // I don't think they need it, but here we go anyways.

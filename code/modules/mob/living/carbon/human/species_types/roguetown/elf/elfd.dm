@@ -12,16 +12,18 @@
 /datum/species/elf/dark
 	name = "Dark Elf"
 	id = "elf"
-	desc = "<b>Dark Elf</b><br>\
-	Conquered by Zizo, these elves hail from an underground expanse of \
-	newly-reborn empires. They lead harsh, matriarchal lives under the watchful guide of Zizo, \
+	desc = "Zizo's conquered. \
+	\n\n\
+	These elves hail from an underground expanse of newly-reborn empires. \
+	They lead harsh, matriarchal lives under the watchful gaze of Zizo, \
 	the vast majority hoping to one day achieve such power and domination for themselves. \
 	Zizo's spawn, the last snow elves, integrated themselves- whether gleefully or resentfully- within the dark elf culture \
 	their grandmother had carved through conquest. \
+	\n\n\
 	To most in Psydonia, a dark elf is nothing more than a servant of Zizo waiting to betray for power, \
 	leading most dark elves to remain within their safe underground strongholds. Those who breach the surface \
 	rarely receive fair treatment. \
-	\
+	\n\n\
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Parent House"
@@ -54,8 +56,8 @@
 	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
 	OFFSET_NECK_F = list(0,0), OFFSET_MOUTH_F = list(0,0), OFFSET_PANTS_F = list(0,1), \
 	OFFSET_SHIRT_F = list(0,1), OFFSET_ARMOR_F = list(0,1), OFFSET_UNDIES_F = list(0,1))
-	specstats = list("strength" = -1, "perception" = -1, "intelligence" = 1, "constitution" = 0, "endurance" = 2, "speed" = 2, "fortune" = 0)
-	specstats_f = list("strength" = 1, "perception" = -1, "intelligence" = 1, "constitution" = 1, "endurance" = 1, "speed" = 1, "fortune" = 0)
+	specstats = list(STATKEY_STR = -1, STATKEY_PER = -1, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = 1, STATKEY_PER = -1, STATKEY_INT = 1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 1, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	patreon_req = 0
 
@@ -112,28 +114,14 @@
 
 	))
 
-/datum/species/elf/dark/random_name(gender,unique,lastname)
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/elf/elfdm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/elf/elfdf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/elf/elfdm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/elf/elfdf.txt") )
-	return randname
+/datum/species/elf/dark/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/elf/elfdm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/elf/elfdf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-/datum/species/elf/dark/random_surname()
-	return " [pick(world.file2list("strings/rt/names/elf/elfsnf.txt"))]"
+/datum/species/elf/dark/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/elf/elfsnf.txt')
+	return last_names
 
 /datum/species/elf/dark/get_accent_list()
 	return strings("french_replacement.json", "french")
