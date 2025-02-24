@@ -46,16 +46,13 @@
 			break // Don't bother adding ourselves to other reagent ids, it is redundant
 
 /proc/build_chemical_reagent_color_list()
-	if(GLOB.chemical_reagents_color_list)
-		return
+	var/list/chemical_colors = list()
 
 	var/paths = subtypesof(/datum/reagent)
-	GLOB.chemical_reagents_color_list = list()
-
 	for(var/datum/reagent/path as anything in paths)
-		// These are not usable objects, only paths.
 		if(path::random_reagent_color)
-			GLOB.chemical_reagents_color_list[path::name] = "#[random_color()]"
+			chemical_colors[path::name] = "#[random_color()]"
+	return chemical_colors
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -705,8 +702,6 @@
 
 	// New reagent color check
 	if (R.random_reagent_color == TRUE)
-		if(!GLOB.chemical_reagents_color_list)
-			build_chemical_reagent_color_list()
 		R.color = GLOB.chemical_reagents_color_list[R.name]
 
 	if(data)
