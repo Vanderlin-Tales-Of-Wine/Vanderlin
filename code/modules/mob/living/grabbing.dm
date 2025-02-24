@@ -303,7 +303,7 @@
 					user.changeNext_move(CLICK_CD_MELEE)//avoids instantly attacking with the new weapon
 					playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
 				else
-					probby += 20
+					probby += 5
 					if(prob(probby))
 						M.dropItemToGround(I, force = FALSE, silent = FALSE)
 						M.visible_message(span_danger("[user] disarms [M] of [I]!"), \
