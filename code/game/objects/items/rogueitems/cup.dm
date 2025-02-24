@@ -26,7 +26,7 @@
 	cut_overlays()
 
 	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "[icon_state]filling")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]filling")
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
@@ -39,6 +39,43 @@
 	icon_state = "wooden"
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	metalizer_result = /obj/item/reagent_containers/glass/cup
+
+/obj/item/reagent_containers/glass/cup/clay
+	name = "clay cup"
+	desc = "A cup made from fired clay."
+
+	icon = 'icons/obj/handmade/cup.dmi'
+	icon_state = "world"
+	dropshrink = 1
+
+/obj/item/reagent_containers/glass/cup/clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay cup"
+
+/obj/item/reagent_containers/glass/cup/fancy_clay
+	name = "fancy clay cup"
+	desc = "A cup made from fired clay."
+
+	icon = 'icons/obj/handmade/cup_fancy.dmi'
+	icon_state = "world"
+	dropshrink = 1
+
+/obj/item/reagent_containers/glass/cup/fancy_clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] fancy clay cup"
+
+/obj/item/reagent_containers/glass/cup/clay_mug
+	name = "clay mug"
+	desc = "A mug made from fired clay."
+
+	icon = 'icons/obj/handmade/mug.dmi'
+	icon_state = "world"
+	dropshrink = 1
+
+/obj/item/reagent_containers/glass/cup/fancy_clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay mug"
+
 
 /obj/item/reagent_containers/glass/cup/steel
 	name = "goblet"

@@ -132,6 +132,12 @@
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
 	resistance_flags = FIRE_PROOF
 	base_item = /obj/item/kitchen/platter/clay
+
+/obj/item/kitchen/platter/clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay platter"
+
+
 /obj/item/kitchen/platter/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
@@ -170,10 +176,16 @@
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
 /obj/item/reagent_containers/glass/bowl/clay
 	desc = "Made from fired clay."
 	icon_state = "bowl_clay"
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+
+/obj/item/reagent_containers/glass/bowl/clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay bowl"
+
 /obj/item/reagent_containers/glass/bowl/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
