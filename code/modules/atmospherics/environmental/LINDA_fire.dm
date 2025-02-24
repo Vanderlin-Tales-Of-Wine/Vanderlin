@@ -58,7 +58,7 @@
 	for(var/A in location)
 		var/atom/AT = A
 		if(!QDELETED(AT) && AT != src) // It's possible that the item is deleted in temperature_expose
-			AT.fire_act(3, 20)
+			AT.fire_act(1, 20)
 	return
 
 /obj/effect/hotspot/proc/gauss_lerp(x, x1, x2)
@@ -157,7 +157,7 @@
 	..()
 	if(isliving(AM))
 		var/mob/living/L = AM
-		L.fire_act(3, 20)
+		L.fire_act(1, 20)
 
 /obj/effect/dummy/lighting_obj/moblight/fire
 	name = "fire"

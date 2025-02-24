@@ -1,1 +1,19 @@
 /obj/item/rogueweapon/hammer/steel : /obj/item/rogueweapon/hammer/claw{@OLD}
+/obj/item/reagent_containers/peppermill : /obj/item/reagent_containers/food/condiment/peppermill{@OLD}
+
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/bun_grenz/plated{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/bun_grenz{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/sausage : /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated{@OLD}
+
+/obj/item/reagent_containers/food/snacks/cooked/egg : /obj/item/reagent_containers/food/snacks/rogue/friedegg{@OLD}
+
+/obj/item/reagent_containers/food/snacks/potato/baked : /obj/item/reagent_containers/food/snacks/potato_baked{@OLD}
+/obj/item/reagent_containers/food/snacks/spiderhoney : /obj/item/reagent_containers/food/snacks/rogue/honey{@OLD}
+/obj/item/reagent_containers/food/snacks/raisins : /obj/item/reagent_containers/food/snacks/rogue/raisins{@OLD}
+
+/obj/item/reagent_containers/food/snacks/cooked/ham : /obj/item/reagent_containers/food/snacks/rogue/meat/bacon{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/frysteak : /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried{@OLD}
+/obj/item/reagent_containers/food/snacks/breadslice/raisin : /obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice{@OLD}
+/obj/item/reagent_containers/food/snacks/cheese_wedge : /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge{@OLD}
+/obj/item/reagent_containers/food/snacks/cooked/coppiette : /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette{@OLD}

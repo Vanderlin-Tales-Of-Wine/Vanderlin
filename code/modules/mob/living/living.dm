@@ -1,3 +1,11 @@
+/mob/living/New(loc, ...)
+	. = ..()
+	var/turf/turf = get_turf(loc)
+	if(turf)
+		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+			faction |= "matthios"
+			SSmobs.matthios_mobs |= src
+
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -10,6 +18,8 @@
 	init_faith()
 
 /mob/living/Destroy()
+	if("matthios" in faction)
+		SSmobs.matthios_mobs -= src
 	surgeries = null
 	if(LAZYLEN(status_effects))
 		for(var/s in status_effects)
@@ -182,7 +192,7 @@
 			var/mob/living/L = M
 
 			var/self_points = FLOOR((STACON + STASTR + mind.get_skill_level(/datum/skill/misc/athletics))/2, 1)
-			var/target_points = FLOOR((L.STAEND + L.STASTR + L.mind.get_skill_level(/datum/skill/misc/athletics))/2, 1)
+			var/target_points = FLOOR((L.STAEND + L.STASTR + L.mind?.get_skill_level(/datum/skill/misc/athletics))/2, 1)
 
 			switch(sprint_distance)
 				// Point blank
@@ -762,6 +772,7 @@
 			wound.heal_wound(wound.whp)
 	ExtinguishMob()
 	fire_stacks = 0
+	divine_fire_stacks = 0
 	confused = 0
 	dizziness = 0
 	drowsyness = 0
@@ -873,8 +884,6 @@
 	..()
 	if(olddir != dir)
 		stop_looking()
-		if(doing)
-			doing = 0
 		if(client)
 			update_vision_cone()
 
@@ -1324,9 +1333,9 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
-	if(fire_stacks > 0 && !on_fire)
+	if((fire_stacks > 0 || divine_fire_stacks > 0) && !on_fire)
 		testing("ignis")
-		on_fire = 1
+		on_fire = TRUE
 		src.visible_message("<span class='warning'>[src] catches fire!</span>", \
 						"<span class='danger'>I'm set on fire!</span>")
 		new/obj/effect/dummy/lighting_obj/moblight/fire(src)
@@ -1342,8 +1351,9 @@
 
 /mob/living/proc/ExtinguishMob()
 	if(on_fire)
-		on_fire = 0
+		on_fire = FALSE
 		fire_stacks = 0
+		divine_fire_stacks = 0
 		for(var/obj/effect/dummy/lighting_obj/moblight/fire/F in src)
 			qdel(F)
 		clear_alert("fire")
@@ -1352,9 +1362,14 @@
 		update_fire()
 
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
-	fire_stacks = CLAMP(fire_stacks + add_fire_stacks, -20, 20)
-	if(on_fire && fire_stacks <= 0)
+	if(HAS_TRAIT(src, TRAIT_NOFIRE) && add_fire_stacks > 0)
+		add_fire_stacks = 0
+	fire_stacks = CLAMP(fire_stacks + add_fire_stacks, -20, 100)
+	if(on_fire && (fire_stacks <= 0) && (divine_fire_stacks <= 0))
 		ExtinguishMob()
+
+/mob/living/proc/adjust_divine_fire_stacks(add_fire_stacks) //Adjusting the amount of divine_fire_stacks we have on person. Always call before adjust_fire_stacks for proper extinguish behavior
+	divine_fire_stacks = CLAMP(divine_fire_stacks + add_fire_stacks, 0, 100)
 
 //Share fire evenly between the two mobs
 //Called in MobBump() and Crossed()
@@ -1362,7 +1377,7 @@
 	if(!istype(L))
 		return
 
-	if(on_fire)
+	if(on_fire && fire_stacks > 0)
 		if(L.on_fire) // If they were also on fire
 			var/firesplit = (fire_stacks + L.fire_stacks)/2
 			fire_stacks = firesplit

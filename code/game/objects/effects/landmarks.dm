@@ -131,7 +131,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/guardsman
-	name = "Garrison Guard"
+	name = "City Watchmen"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/manorguardsman
@@ -376,7 +376,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 //Antagonist spawns
 
 /obj/effect/landmark/start/bandit
-	name = "bandit"
+	name = "Bandit"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
 	delete_after_roundstart = FALSE

@@ -22,4 +22,7 @@
 			if(istype(W, /obj/item/rogueweapon/tongs/stone))
 				W.take_damage(1, BRUTE, "blunt")
 			return TRUE
+	if(istype(W, /obj/item/storage/crucible) && on)
+		user.visible_message("<span class='info'>[user] places the [W] onto [src].</span>")
+		W.forceMove(get_turf(src))
 	return ..()

@@ -1,9 +1,8 @@
 /datum/job/roguetown/bard
 	title = "Bard"
-	tutorial = "Bards make up one of the largest populations of \
-	registered adventurers in Enigma, mostly because they are \
-	the last ones in a party to die. Their wish is to experience \
-	the greatest adventures of the age and write amazing songs about them."
+	tutorial = "Bards make up one of the largest populations of registered adventurers in Enigma, mostly because they are \
+	the last ones in a party to die. Their wish is to experience the greatest adventures of the age and write amazing songs \
+	about them. This is not your story, for you are the storyteller."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -88,5 +87,5 @@
 		H.advsetup = 0
 		H.invisibility = initial(H.invisibility)
 		H.cure_blind("bard_select")
-		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory // dis line sux its basically a loop anyways if i remember
+		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory // dis line sux its basically a loop anyways if i remember
 		qdel(GET_IT_OUT)

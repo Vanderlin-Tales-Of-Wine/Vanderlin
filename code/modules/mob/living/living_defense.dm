@@ -296,7 +296,7 @@
 
 	var/cached_intent = M.used_intent
 
-	sleep(M.used_intent.swingdelay)
+	sleep(M.used_intent?.swingdelay)
 	M.swinging = FALSE
 	if(M.a_intent != cached_intent)
 		return FALSE

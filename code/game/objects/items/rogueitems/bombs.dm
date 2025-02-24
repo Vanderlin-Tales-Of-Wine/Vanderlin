@@ -12,6 +12,8 @@
 	var/lit = FALSE
 	var/prob2fail = 10
 	var/lit_state = "clear_bomb_lit"
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/bomb/homemade
 	prob2fail = 20

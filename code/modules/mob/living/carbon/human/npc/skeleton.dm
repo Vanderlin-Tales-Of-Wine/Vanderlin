@@ -16,6 +16,10 @@
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
+/mob/living/carbon/species/skeleton/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
+
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
 	skel_outfit = null
 

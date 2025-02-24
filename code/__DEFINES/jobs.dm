@@ -195,15 +195,15 @@
 #define JDO_PHYSICKER 6.1
 
 #define JDO_CAPTAIN 7
-#define JDO_ROYALGUARD 7.1
-#define JDO_GARRISONGUARD 7.5
-#define JDO_WATCHMAN 8
-#define JDO_JAILOR 8.5
+#define JDO_VET 7.1
+#define JDO_ROYALGUARD 7.2
+#define JDO_MENATARMS 8
+#define JDO_CITYWATCHMEN 8.1
 #define JDO_DUNGEONEER 9
-#define JDO_SQUIRE 9.5
-#define JDO_VET 10
+#define JDO_JAILOR 9.1
+#define JDO_SQUIRE 10
 #define JDO_FORWARDEN 11
-#define JDO_FORGUARD 11.5
+#define JDO_FORGUARD 11.1
 
 #define JDO_PRIEST 12
 #define JDO_CLERIC 13

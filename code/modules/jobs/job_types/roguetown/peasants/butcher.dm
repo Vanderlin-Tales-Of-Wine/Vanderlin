@@ -36,7 +36,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/butcher
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
-	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/rogue/truffles, /obj/item/rogueweapon/knife/hunting)
+	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/truffles, /obj/item/rogueweapon/knife/hunting)
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/trou

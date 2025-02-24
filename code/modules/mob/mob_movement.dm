@@ -590,7 +590,7 @@
 		rogue_sneaking = TRUE
 		return
 	var/turf/T = get_turf(src)
-	var/light_amount = T.get_lumcount()
+	var/light_amount = T?.get_lumcount()
 	var/used_time = 50
 
 	if(rogue_sneaking) //If sneaking, check if they should be revealed
@@ -684,10 +684,11 @@
 	if(fixedeye)
 		fixedeye = 0
 		if(!tempfixeye)
-			nodirchange = FALSE
+			atom_flags &= ~NO_DIR_CHANGE
 	else
 		fixedeye = 1
-		nodirchange = TRUE
+		atom_flags |= NO_DIR_CHANGE
+
 	for(var/atom/movable/screen/eye_intent/eyet in hud_used.static_inventory)
 		eyet.update_icon(src)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
