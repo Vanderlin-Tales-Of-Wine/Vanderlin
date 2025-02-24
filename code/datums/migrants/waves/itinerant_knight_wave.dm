@@ -22,12 +22,12 @@
 	backpack_contents = list(/obj/item/clothing/neck/roguetown/psycross/silver = 1, /obj/item/rogueweapon/knife/dagger/steel = 1, /obj/item/storage/belt/rogue/pouch/coins/mid = 1)
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -35,14 +35,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 		H.change_stat("strength", 3)
-		H.change_stat("perception", 2)
+		H.change_stat("perception", 1)
 		H.change_stat("intelligence", 3)
-		H.change_stat("constitution", 4)
-		H.change_stat("endurance", 3)
+		H.change_stat("constitution", 2)
+		H.change_stat("endurance", 2)
 		H.change_stat("speed", -2)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -108,6 +107,7 @@
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/knight
 	can_roll = FALSE
+	weight = 10
 	roles = list(
 		/datum/migrant_role/itinerant_knight = 1,
 	)
