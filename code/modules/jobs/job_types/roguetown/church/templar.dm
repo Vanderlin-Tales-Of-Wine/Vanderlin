@@ -104,6 +104,10 @@
 		H.change_stat(STATKEY_SPD, -1)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	switch(H.patron?.type)
+		if(/datum/patron/divine/abyssor)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			backl = /obj/item/rogueweapon/polearm/spear/billhook
+			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 			beltr = /obj/item/rogueweapon/mace/warhammer/steel
