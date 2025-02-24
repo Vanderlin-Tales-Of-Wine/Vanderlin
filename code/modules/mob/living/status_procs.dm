@@ -7,7 +7,7 @@
 /mob/living/Slowdown(amount)
 	var/oldslow = slowdown
 	if(amount > 0)
-		if(!(status_flags & CANSTUN) || HAS_TRAIT(src, TRAIT_STUNIMMUNE))
+		if(!(status_flags & CANSLOWDOWN) || HAS_TRAIT(src, TRAIT_IGNORESLOWDOWN))
 			amount = 0
 	slowdown = max(slowdown,amount,0)
 	if(oldslow <= 0 && slowdown > 0)

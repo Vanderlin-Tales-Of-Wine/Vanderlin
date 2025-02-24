@@ -70,10 +70,10 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-		H.change_stat("strength", 1) // One slot and a VERY important role, it deserves a half-decent statline
-		H.change_stat("intelligence", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, 1) // One slot and a VERY important role, it deserves a half-decent statline
+		H.change_stat(STATKEY_INT, 2)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, 1)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron) // This creates the cleric holder used for devotion spells
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	C.grant_spells_priest(H)

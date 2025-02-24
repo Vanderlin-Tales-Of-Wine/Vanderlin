@@ -46,9 +46,9 @@
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Used to dismembering live stock, desensitized to it.
 
-	H.change_stat("strength", 1)
-	H.change_stat("constitution", 2) // Built sturdy due to HIGH PROTEIN DIET
-	H.change_stat("intelligence", -1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_CON, 2) // Built sturdy due to HIGH PROTEIN DIET
+	H.change_stat(STATKEY_INT, -1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

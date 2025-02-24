@@ -26,8 +26,8 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tailor, 1, TRUE)
-	H.change_stat("intelligence", 2)
-	H.change_stat("speed", 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_SPD, 1)
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltr = /obj/item/flashlight/flare/torch/lantern

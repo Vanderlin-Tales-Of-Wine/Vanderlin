@@ -187,7 +187,7 @@
 /datum/status_effect/debuff/cursed
 	id = "cursed"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/cursed
-	effectedstats = list("fortune" = -5) // More severe so that the permanent debuff from having the perk makes it actually worth it.
+	effectedstats = list(STATKEY_LCK = -5) // More severe so that the permanent debuff from having the perk makes it actually worth it.
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/cursed
@@ -265,6 +265,8 @@
 /obj/structure/closet/dirthole/open(mob/living/user)
 	if(opened)
 		return
+	stage = 3
+	climb_offset = 0
 	opened = TRUE
 	dump_contents()
 	update_icon()
@@ -335,3 +337,13 @@
 	. = ..()
 	update_abovemob()
 
+/obj/structure/closet/dirthole/relaymove(mob/user)
+	if(user.stat || !isturf(loc) || !isliving(user))
+		return
+	if(locked && !user.mind?.has_antag_datum(/datum/antagonist/zombie))
+		if(message_cooldown <= world.time)
+			message_cooldown = world.time + 50
+			to_chat(user, "<span class='warning'>I'm trapped!</span>")
+		return
+	locked = FALSE
+	container_resist(user)

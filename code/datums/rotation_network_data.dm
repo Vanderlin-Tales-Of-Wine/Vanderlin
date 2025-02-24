@@ -9,6 +9,7 @@
 /datum/rotation_network/proc/add_connection(obj/structure/incoming)
 	connected |= incoming
 	incoming.rotation_network = src
+	incoming.update_animation_effect()
 
 /datum/rotation_network/proc/remove_connection(obj/structure/incoming)
 	if(incoming.stress_generation)
@@ -17,6 +18,7 @@
 		used_stress -= incoming.last_stress_added
 	incoming.rotation_network = null
 	connected -= incoming
+	incoming.update_animation_effect()
 
 /datum/rotation_network/proc/check_stress()
 	if(rebuilding)

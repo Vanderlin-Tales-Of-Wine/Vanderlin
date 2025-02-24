@@ -49,21 +49,21 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 
-	H.change_stat("strength", 2)
+	H.change_stat(STATKEY_STR, 2)
 
 	if(islesser)
 		add_objective(/datum/objective/zizoserve)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.change_stat("intelligence", -2)
+		H.change_stat(STATKEY_INT, -2)
 		greet()
 	else
 		add_objective(/datum/objective/zizo)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		owner.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 2)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_SPD, 1)
 		greet()
 		owner.special_role = ROLE_ZIZOIDCULTIST
 		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
@@ -183,6 +183,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
+	var/mob/living/carbon/human/H = src
 	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/speak = input("What do you speak of?", "VANDERLIN") as text|null
 	if(!speak)
@@ -194,7 +195,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	whisper("[speak]")
 
 	for(var/datum/mind/V in C.cultists)
-		to_chat(V, "<span class='boldnotice'>A message from [src.real_name]: \"[speak]\"</span>")
+		to_chat(V, "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#8a13bd'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span>: [speak]</span>")
 		playsound_local(V.current, 'sound/vo/cult/skvor.ogg', 100)
 
 	testing("[key_name(src)] used cultist telepathy to say: [speak]")
@@ -906,8 +907,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 		to_chat(H.mind, "<span class='notice'>I no longer feel pain, but it has come at a terrible cost.</span>")
-		H.change_stat("strength", -2)
-		H.change_stat("constitution", -3)
+		H.change_stat(STATKEY_STR, -2)
+		H.change_stat(STATKEY_CON, -3)
 		break
 
 /datum/ritual/fleshform

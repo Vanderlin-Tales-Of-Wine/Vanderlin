@@ -1,7 +1,7 @@
 /datum/job/roguetown/miner
 	title = "Miner"
-	tutorial = "Hardy people who ceaselessly toil at the mines for ores and salt, \
-				who will ever know what they'll find beneath?"
+	tutorial = "The depths of the hills, the ends of the lands - deeper and deeper below, you seek salt, ores, rocks - \
+	the heat and encroaching darkness shepherds you, giving forth your living... Soon enough, the earth will swallow you whole."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -49,10 +49,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("intelligence", -2)
-		H.change_stat("endurance", 1)
-		H.change_stat("constitution", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_INT, -2)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_CON, 1)
 
 	if(H.dna.species.id == "dwarf")
 		head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm

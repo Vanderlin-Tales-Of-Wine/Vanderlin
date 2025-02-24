@@ -31,7 +31,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	beltr = /obj/item/rogueweapon/knife/scissors
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/natural/cloth = 1, /obj/item/bundle/fibers = 1, /obj/item/needle = 1)
-	H.change_stat("intelligence", 2)
-	H.change_stat("speed", 2)
-	H.change_stat("perception", 1)
+	backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/natural/cloth = 1, /obj/item/natural/bundle/fibers = 1, /obj/item/needle = 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_PER, 1)

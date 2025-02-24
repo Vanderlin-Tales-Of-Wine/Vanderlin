@@ -136,6 +136,8 @@
 	return TRUE
 
 /atom/proc/OnCrafted(dirin, mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	add_abstract_elastic_data("crafting", "[name]", 1)
 	return
 
 /obj/structure/OnCrafted(dirin, mob/user)

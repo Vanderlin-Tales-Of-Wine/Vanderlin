@@ -84,8 +84,8 @@
 		neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 		head = /obj/item/clothing/head/roguetown/helmet/nasal
 
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("intelligence", -1) // Muscle brains
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_INT, -1) // Muscle brains
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // MEDIUM armor training only, this is not a rare drifter, they shouldn't have more armor training than a garrison guard

@@ -25,7 +25,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "ag" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "ah" = (
@@ -940,7 +940,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors)
 "cu" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cv" = (
@@ -1000,7 +1000,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cB" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "cC" = (
