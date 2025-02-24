@@ -18,7 +18,7 @@
 	var/base_width = 32
 	var/base_height = 32
 
-obj/item/bundle/proc/get_max_icon_state()
+/obj/item/bundle/proc/get_max_icon_state()
 	for (var/i = amount, i > 1, i--)
 		if (icon_exists(icon, "[iconstatename][i]"))
 			return i
