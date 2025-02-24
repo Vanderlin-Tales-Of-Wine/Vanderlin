@@ -584,7 +584,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue)
 "yi" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue)
 "yv" = (
@@ -832,7 +832,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue)
 "Kc" = (
-/obj/structure/chair/bench/couch/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue)
 "KB" = (

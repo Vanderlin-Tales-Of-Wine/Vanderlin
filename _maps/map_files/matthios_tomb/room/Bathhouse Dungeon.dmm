@@ -147,7 +147,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)
 "cS" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)
@@ -1898,7 +1898,7 @@
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors)
 "Tw" = (
-/obj/structure/chair/bench/coucha,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)
 "Tx" = (
