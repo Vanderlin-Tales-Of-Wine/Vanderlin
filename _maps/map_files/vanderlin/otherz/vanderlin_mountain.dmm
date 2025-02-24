@@ -1100,6 +1100,9 @@
 /obj/structure/flora/newtree/snow,
 /turf/open/floor/rogue/snow,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
+"rk" = (
+/turf/closed,
+/area/rogue/under/mountains/anvil/lower/building)
 "rl" = (
 /obj/structure/stairs/stone{
 	dir = 4
@@ -2486,9 +2489,6 @@
 "NQ" = (
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/under/mountains/anvil/lower)
-"NV" = (
-/turf/closed,
-/area/rogue/under/mountains/anvil/lower/building)
 "NZ" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle{
 	dir = 1
@@ -3378,9 +3378,9 @@ VB
 VB
 VB
 VB
-NV
-NV
-NV
+rk
+rk
+rk
 VB
 VB
 VB

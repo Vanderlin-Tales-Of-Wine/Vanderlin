@@ -267,6 +267,15 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church)
+"ajK" = (
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/structure/closet/crate/chest,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/church)
 "ajM" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -1046,16 +1055,11 @@
 	},
 /area/rogue/under/cavewet)
 "aJp" = (
-/obj/structure/rack/rogue/shelf/biggest,
-/obj/item/cooking/pan{
-	pixel_x = 3;
-	pixel_y = -3
+/obj/machinery/light/rogue/oven/east,
+/obj/machinery/light/rogue/hearth,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
 	},
-/obj/item/reagent_containers/glass/bucket/pot{
-	pixel_x = -4;
-	pixel_y = 12
-	},
-/turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/church)
 "aJr" = (
 /turf/closed/wall/mineral/rogue/pipe{
@@ -5111,13 +5115,7 @@
 /turf/open/floor/rogue/ruinedwood/darker,
 /area/rogue/outdoors/town/roofs)
 "dHB" = (
-/obj/structure/table/wood{
-	icon_state = "longtable";
-	dir = 1
-	},
-/obj/machinery/light/rogue/oven/south{
-	pixel_y = -32
-	},
+/obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "dIc" = (
@@ -6415,10 +6413,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "ezb" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/flora/roguegrass/bush_meagre,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/rtfield/safe)
+/turf/closed/wall/mineral/rogue/decostone/long{
+	dir = 1;
+	icon_state = "decostone-l"
+	},
+/area/rogue/indoors/town/church)
 "ezn" = (
 /obj/structure/bed/rogue/wool,
 /obj/item/bedsheet/rogue/cloth,
@@ -9215,14 +9214,17 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "gDf" = (
-/obj/machinery/light/rogue/oven/south{
-	pixel_y = -32
-	},
 /obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable_mid"
+	icon_state = "longtable";
+	dir = 1
 	},
-/turf/open/floor/rogue/tile,
+/obj/item/reagent_containers/peppermill{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "gDV" = (
 /obj/structure/mineral_door/wood/green{
@@ -13571,15 +13573,18 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/merc_guild)
 "jMJ" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable_mid"
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/cooking/pan{
+	pixel_x = 3;
+	pixel_y = -3
 	},
-/obj/item/reagent_containers/peppermill{
-	pixel_x = -6;
-	pixel_y = 8
+/obj/item/reagent_containers/glass/bucket/pot{
+	pixel_x = -4;
+	pixel_y = 12
 	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "jMO" = (
 /obj/structure/closet/crate/chest,
@@ -14893,7 +14898,9 @@
 	lockid = "priest";
 	locked = 1
 	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "kGO" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
@@ -17760,7 +17767,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "mVj" = (
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "mVv" = (
 /obj/structure/bed/rogue/inn,
@@ -23183,7 +23192,13 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "rhl" = (
-/obj/machinery/light/rogue/hearth,
+/obj/structure/closet/crate/chest,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/butter,
+/obj/item/reagent_containers/food/snacks/rogue/meat/sausage,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/church)
 "rhv" = (
@@ -26452,7 +26467,9 @@
 /obj/structure/fluff/millstone{
 	pixel_y = 10
 	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "txw" = (
 /obj/structure/fluff/railing/border{
@@ -27965,14 +27982,11 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern)
 "uxx" = (
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/item/reagent_containers/food/snacks/produce/wheat,
-/obj/structure/closet/crate/chest,
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/tile,
+/obj/machinery/light/rogue/hearth,
+/obj/machinery/light/rogue/oven/east,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "uxJ" = (
 /turf/open/floor/rogue/metal{
@@ -30838,14 +30852,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
 "wCQ" = (
-/obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/butter,
-/obj/item/reagent_containers/food/snacks/rogue/meat/sausage,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
-/turf/open/floor/rogue/tile,
+/obj/structure/table/wood/plain_alt,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors/town/church)
 "wDw" = (
 /obj/structure/roguewindow/openclose{
@@ -146416,8 +146426,8 @@ iWd
 iWd
 eTF
 nZK
-ezb
-nEW
+bmw
+aUi
 ocn
 pVJ
 nlp
@@ -146615,10 +146625,10 @@ hMp
 nLC
 vlf
 kGw
-swo
 nLu
 swo
-nLu
+swo
+swo
 nLu
 mJO
 fYR
@@ -146816,8 +146826,8 @@ hFN
 kze
 mJO
 mJO
-aDq
-bjw
+dHB
+wCQ
 uxx
 aJp
 wCQ
@@ -147024,7 +147034,7 @@ mVj
 mVj
 mVj
 gDf
-vlf
+nLu
 erI
 ucW
 nlp
@@ -147422,13 +147432,13 @@ equ
 equ
 nmq
 mJO
-rhl
+ajK
 aDq
 aDq
 aDq
 aDq
-dHB
-vlf
+bjw
+nLu
 pSu
 ucW
 aWD
@@ -147630,7 +147640,7 @@ aDq
 aDq
 aDq
 rHf
-vlf
+ezb
 bgn
 ucW
 eTF

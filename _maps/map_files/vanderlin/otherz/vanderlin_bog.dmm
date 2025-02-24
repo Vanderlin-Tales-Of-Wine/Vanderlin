@@ -2878,7 +2878,7 @@
 	aportalgoesto = "vanderlin-bog_town-town";
 	aportalid = "vanderlin-bog_town-bog"
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog)
 "NL" = (
 /turf/open/floor/rogue/woodturned/nosmooth,
@@ -28454,12 +28454,12 @@ MQ
 RK
 NA
 oG
-Xx
+sA
 oG
 oG
 oG
 oG
-Xx
+sA
 oG
 Nc
 Xx
@@ -28658,7 +28658,7 @@ NA
 oG
 oG
 oG
-Xx
+sA
 oG
 oG
 oG
@@ -28861,7 +28861,7 @@ oG
 oG
 oG
 oG
-Xx
+sA
 oG
 Xx
 oG

@@ -64,7 +64,7 @@
 	if(user_client)
 		clean_user_client()
 
-	bar_loc = null
+dssss	bar_loc = null
 
 	if(bar)
 		QDEL_NULL(bar)
