@@ -1446,7 +1446,7 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/indoors)
 "IM" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)
 "IW" = (
@@ -1560,7 +1560,7 @@
 /turf/open/floor/carpet/inn,
 /area/rogue/indoors)
 "Lx" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/item/reagent_containers/glass/cup/silver,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors)

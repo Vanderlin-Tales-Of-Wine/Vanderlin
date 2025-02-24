@@ -48,5 +48,4 @@
 	dir = 2
 
 /obj/structure/chair/bench/couch/normal/alt/mapper_dont_use_this
-	color = CLOTHING_ROYAL_BLACK
 	dir = 2

@@ -300,7 +300,7 @@
 /area/rogue)
 "hk" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/item/clothing/mask/cigarette/pipe,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/rogue/wood/nosmooth/saiga,
