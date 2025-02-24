@@ -6,6 +6,7 @@
 /datum/status_effect/incapacitating/off_balanced
 	id = "off_balanced"
 	alert_type = /atom/movable/screen/alert/status_effect/off_balanced
+	should_incapacitate = FALSE
 
 /atom/movable/screen/alert/status_effect/off_balanced
 	name = "Off Balanced"

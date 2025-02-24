@@ -418,7 +418,7 @@
 			O.icon_state = zone_selected
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				C.grippedby(src)
 			if(!supress_message)
@@ -434,7 +434,7 @@
 				O.sublimb_grabbed = M.simple_limb_hit(zone_selected)
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				M.grippedby(src)
 			if(!supress_message)
@@ -622,6 +622,7 @@
 				return TRUE
 		else
 			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+			return FALSE
 
 /mob/living/proc/toggle_rest()
 	set name = "Rest/Stand"
@@ -1026,23 +1027,36 @@
 	. = TRUE
 
 	var/wrestling_diff = 0
-	var/resist_chance = 50
+	var/resist_chance = 40
 	var/mob/living/L = pulledby
+	var/combat_modifier = 1
 
 	if(mind)
 		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
 		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
 
-	resist_chance += ((STACON - L.STACON) * 10)
+	if(restrained())
+		combat_modifier -= 0.25
 
+	if(!(L.mobility_flags & MOBILITY_STAND) && mobility_flags & MOBILITY_STAND)
+		combat_modifier += 0.2
 	if(!(mobility_flags & MOBILITY_STAND))
-		resist_chance += -20 + min((wrestling_diff * 5), -20) //Can improve resist chance at high skill difference
+		combat_modifier -= 0.2
+
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		resist_chance += -20 + max((wrestling_diff * 10), 0)
-		resist_chance = max(resist_chance, 50 + min((wrestling_diff * 5), 0))
-	else
-		resist_chance = max(resist_chance, 70 + min((wrestling_diff * 5), 0))
+		combat_modifier -= 0.1
+
+	if(cmode && !L.cmode)
+		combat_modifier += 0.3
+	else if(!cmode && L.cmode)
+		combat_modifier -= 0.3
+
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold)
+			combat_modifier -= 0.15
+
+	resist_chance = clamp((((4 + (((STASTR - L.STASTR)/2) + wrestling_diff)) * 10 + rand(-5, 10)) * combat_modifier), 5, 95)
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
