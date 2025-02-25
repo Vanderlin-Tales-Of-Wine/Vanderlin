@@ -50,7 +50,7 @@
 /area/rogue/indoors)
 "bD" = (
 /obj/structure/mineral_door/secret/wizard{
-	lockid = Acid2
+	lockid = "Acid2"
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors)
@@ -613,12 +613,6 @@
 /obj/item/reagent_containers/food/snacks/rotten/bacon,
 /turf/open/floor/rogue/tile/kitchen,
 /area/rogue/indoors)
-"vU" = (
-/obj/structure/mineral_door/secret/wizard{
-	lockid = Acid1
-	},
-/turf/open/floor/rogue/churchrough,
-/area/rogue/indoors)
 "vW" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/structure/mineral_door/secret/rogue{
@@ -700,7 +694,7 @@
 /area/rogue/indoors)
 "zh" = (
 /obj/structure/mineral_door/secret/wizard{
-	lockid = Acid
+	lockid = "Acid1"
 	},
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors)
@@ -1175,7 +1169,7 @@
 /area/rogue/indoors)
 "Qs" = (
 /obj/structure/mineral_door/secret/wizard{
-	lockid = Acid1
+	lockid = "Acid1"
 	},
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -2961,7 +2955,7 @@ eQ
 sp
 ai
 sp
-vU
+zh
 sp
 sp
 Nd
