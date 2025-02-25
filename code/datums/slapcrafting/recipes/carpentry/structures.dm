@@ -160,10 +160,26 @@
 		return FALSE
 	if(istype(checking,/turf/open/transparent/openspace))
 		return FALSE
-	for(var/obj/structure/noose/N in T)
+	if(locate(/obj/structure/noose) in T)
 		return FALSE
 	return TRUE
 
+/datum/slapcraft_recipe/carpentry/structure/lanternpost
+	name = "lantern post"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/item/small_log/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/stick,
+		/datum/slapcraft_step/item/stick/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/machinery/light/rogue/lanternpost/unfixed
+
+/datum/slapcraft_recipe/carpentry/structure/lanternpost/check_craft_requirements(mob/user, turf/T)
+	if((locate(/obj/machinery/light/rogue/lanternpost) in T)||(locate(/obj/machinery/light/roguestreet) in T)||(locate(/obj/structure/noose) in T))
+		return FALSE
+	return ..()
 
 /datum/slapcraft_recipe/carpentry/structure/psycrss
 	name = "wooden cross"
