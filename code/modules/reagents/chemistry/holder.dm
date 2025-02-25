@@ -48,8 +48,7 @@
 /proc/build_chemical_reagent_color_list()
 	var/list/chemical_colors = list()
 
-	var/paths = subtypesof(/datum/reagent)
-	for(var/datum/reagent/path as anything in paths)
+	for(var/datum/reagent/path as anything in subtypesof(/datum/reagent))
 		if(path::random_reagent_color)
 			chemical_colors[path::name] = "#[random_color()]"
 	return chemical_colors
