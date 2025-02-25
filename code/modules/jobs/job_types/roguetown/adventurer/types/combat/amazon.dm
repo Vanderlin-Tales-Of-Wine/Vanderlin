@@ -23,7 +23,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-	neck = /obj/item/ammo_holder/dartpouch/darts/poison
+	neck = /obj/item/ammo_holder/dartpouch/poisondarts
 	backl = /obj/item/rogueweapon/polearm/spear
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	belt = /obj/item/storage/belt/rogue/leather/rope

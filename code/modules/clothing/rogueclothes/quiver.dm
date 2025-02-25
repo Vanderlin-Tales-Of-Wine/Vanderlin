@@ -112,7 +112,7 @@
 		ammo_list += A
 	update_icon()
 
-/obj/item/ammo_holder/dartpouch/darts/poison/Initialize()
+/obj/item/ammo_holder/dartpouch/poisondarts/Initialize()
 	. = ..()
 	for(var/i in 1 to 4)
 		var/obj/item/ammo_casing/caseless/rogue/dart/poison/A = new(src)
