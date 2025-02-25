@@ -18,9 +18,9 @@
 	return TRUE
 
 /mob/living/carbon
-	var/stress = 0
+	var/stress = 1
 	var/list/stress_timers = list()
-	var/oldstress = 0
+	var/oldstress = 1
 	var/stressbuffer = -1
 	var/list/negative_stressors = list()
 	var/list/positive_stressors = list()
@@ -63,7 +63,7 @@
 				remove_status_effect(/datum/status_effect/stress/stressbad)
 				remove_status_effect(/datum/status_effect/stress/stressvbad)
 				remove_status_effect(/datum/status_effect/stress/stressinsane)
-			if(STRESS_VGOOD to STRESS_BAD-1)
+			if(STRESS_VGOOD+1 to STRESS_BAD-1)
 				remove_status_effect(/datum/status_effect/stress/stressvgood)
 				remove_status_effect(/datum/status_effect/stress/stressbad)
 				remove_status_effect(/datum/status_effect/stress/stressvbad)
