@@ -407,3 +407,39 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		desc = "An open vial, easy to drink quickly."
 		spillable = TRUE
 	update_icon()
+
+/obj/item/reagent_containers/glass/bottle/decanter
+	name = "clay decanter"
+	desc = "A decanter fired from clay."
+
+	icon = 'icons/obj/handmade/decanter.dmi'
+	icon_state = "world"
+	volume = 50
+	amount_per_transfer_from_this = 8
+	possible_transfer_amounts = list(8)
+	dropshrink = 1
+
+	fill_icon_thresholds = list()
+
+
+/obj/item/reagent_containers/glass/bottle/decanter/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay decanter"
+
+/obj/item/reagent_containers/glass/bottle/teapot
+	name = "clay teapot"
+	desc = "A teapot fired from clay."
+
+	icon = 'icons/obj/handmade/teapot.dmi'
+	icon_state = "world"
+	volume = 50
+	amount_per_transfer_from_this = 6
+	possible_transfer_amounts = list(6)
+	dropshrink = 1
+
+	fill_icon_thresholds = list()
+
+/obj/item/reagent_containers/glass/bottle/teapot/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay teapot"
+

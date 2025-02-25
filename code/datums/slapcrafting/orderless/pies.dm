@@ -163,4 +163,4 @@
 			/obj/item/reagent_containers/food/snacks/produce/jacksberry,
 			/obj/item/reagent_containers/food/snacks/produce/swampweed) = 2
 	)
-	output_item = /obj/item/cheap_dyes
+	output_item = /obj/item/dye_pack/cheap

@@ -102,11 +102,11 @@
 	backl = /obj/item/rogueweapon/sword/long/death
 	head = /obj/item/clothing/head/roguetown/helmet/visored/knight/black
 
-	H.change_stat("intelligence", 3)
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("speed", -3)
+	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -3)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
 

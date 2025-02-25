@@ -527,10 +527,15 @@
 
 	// The Assassin's profane dagger can sniff out their targets, even masked.
 	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
-		for(var/obj/item/I in get_all_gear())
-			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
-				. += "profane dagger whispers, <span class='danger'>\"That's [real_name]! Strike their heart!\"</span>"
-				break
+		//TODO: move this to an examinate signal call
+		if(src == user)
+			return
+		if (iscarbon(user))
+			var/mob/living/carbon/assassin = user
+			for(var/obj/item/I in assassin.get_all_gear())
+				if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
+					. += "profane dagger whispers, [span_danger("\"That's [real_name]! Strike their heart!\"")]"
+					break
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()

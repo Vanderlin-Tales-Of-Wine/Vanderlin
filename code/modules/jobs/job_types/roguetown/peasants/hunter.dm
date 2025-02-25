@@ -61,8 +61,8 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
-			H.change_stat("perception", 1)
-			H.change_stat("endurance", -1)
+			H.change_stat(STATKEY_PER, 1)
+			H.change_stat(STATKEY_END, -1)
 		else
-			H.change_stat("intelligence", 1)
-			H.change_stat("perception", 3)
+			H.change_stat(STATKEY_INT, 1)
+			H.change_stat(STATKEY_PER, 3)

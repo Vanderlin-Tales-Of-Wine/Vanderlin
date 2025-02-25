@@ -321,7 +321,7 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/under/mountains/anvil/dungeon)
 "fr" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "ft" = (
@@ -907,7 +907,7 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/mountains/anvil/dungeon)
 "mJ" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1463,7 +1463,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "tj" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -1513,7 +1513,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "ug" = (
-/obj/structure/fermenting_barrel/water,
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "uk" = (
@@ -1643,7 +1643,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "vB" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/cobble,
@@ -1826,7 +1826,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "yv" = (
 /obj/machinery/light/rogue/torchholder/l,
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -1909,7 +1909,7 @@
 /turf/closed/mineral/random/rogue,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ab" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 1
 	},
@@ -2407,7 +2407,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "GH" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/random/water,
 /obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
@@ -3111,7 +3111,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Pp" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/cobble,
@@ -3429,7 +3429,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
 "TS" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "TW" = (
@@ -3586,7 +3586,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Vp" = (
-/obj/structure/fermenting_barrel/beer,
+/obj/structure/fermentation_keg/beer,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Vz" = (

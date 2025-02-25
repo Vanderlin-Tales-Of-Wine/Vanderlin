@@ -47,8 +47,8 @@
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
@@ -102,8 +102,8 @@
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
@@ -125,10 +125,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_SPD, -1)
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/honorary = "Ritter"
@@ -203,9 +203,9 @@
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 2)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 

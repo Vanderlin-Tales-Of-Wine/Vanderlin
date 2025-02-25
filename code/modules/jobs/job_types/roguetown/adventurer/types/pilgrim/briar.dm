@@ -23,9 +23,9 @@
 	beltl = /obj/item/rogueweapon/knife/stone
 	backl = /obj/item/rogueweapon/mace/goden/shillelagh
 
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("intelligence", -1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_INT, -1)
 
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/dendor)

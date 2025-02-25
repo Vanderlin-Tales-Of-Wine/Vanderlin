@@ -60,13 +60,13 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-			H.change_stat("strength", 1)
-			H.change_stat("perception", 1)
-			H.change_stat("intelligence", 2)
+			H.change_stat(STATKEY_STR, 1)
+			H.change_stat(STATKEY_PER, 1)
+			H.change_stat(STATKEY_INT, 2)
 		else
-			H.change_stat("strength", 2)
-			H.change_stat("endurance", 1)
-			H.change_stat("intelligence", 2)
+			H.change_stat(STATKEY_STR, 2)
+			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_INT, 2)
 	H.verbs |= /mob/proc/haltyell
 
 /obj/effect/proc_holder/spell/self/convertrole/town_militia
