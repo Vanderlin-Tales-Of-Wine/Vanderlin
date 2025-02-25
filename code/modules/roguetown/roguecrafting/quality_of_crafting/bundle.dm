@@ -145,18 +145,18 @@
 	user.visible_message("[user] begins to gather all the [stackname] in front of them.", "I begin gathering all the [stackname] in front of me...")
 	var/turf/turflocation = get_turf(A)
 	for(var/obj/item/item in turflocation)
-		if(!istype(item, stacktype) && !istype(item, /obj/item/bundle))
+		if(amount >= maxamount)
+			break
+		if(!istype(item, stacktype) && !isbundle(item))
 			continue
-		if(!do_after(user, 5, TRUE, src))
+		if(!do_after(user, 5 DECISECONDS, src))
 			break
 		if(item.loc != turflocation)
 			continue
 		if(istype(item, stacktype))
 			amount++
 			qdel(item)
-			if(amount >= maxamount)
-				break
-		else if(istype(item, /obj/item/bundle))
+		else if(isbundle(item))
 			var/obj/item/bundle/B = item
 			if(B.stacktype == stacktype)
 				if(amount + B.amount > maxamount)
