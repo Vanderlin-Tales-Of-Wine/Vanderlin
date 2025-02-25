@@ -173,15 +173,17 @@
 			S.AOE_flash(user, range = 8)
 		testing("curerot2")
 		if(was_zombie)
-			if(was_zombie.become_rotman && prob(5)) //5% chance to NOT become a rotman
-				was_zombie.become_rotman = FALSE
+			to_chat(target, span_danger("No... I return... to soil..."))
+			target.death()
 			target.mind.remove_antag_datum(/datum/antagonist/zombie)
-			target.Unconscious(20 SECONDS)
-			target.emote("breathgasp")
-			target.Jitter(100)
-			if(unzombification_pq && !HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED) && user?.ckey)
-				adjust_playerquality(unzombification_pq, user.ckey)
-				ADD_TRAIT(target, TRAIT_IWASUNZOMBIFIED, "[type]")
+		// 	if(was_zombie.become_rotman && prob(5)) //5% chance to NOT become a rotman
+		// 		was_zombie.become_rotman = FALSE
+		// 	target.Unconscious(20 SECONDS)
+		// 	target.emote("breathgasp")
+		// 	target.Jitter(100)
+		// 	if(unzombification_pq && !HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED) && user?.ckey)
+		// 		adjust_playerquality(unzombification_pq, user.ckey)
+		// 		ADD_TRAIT(target, TRAIT_IWASUNZOMBIFIED, "[type]")
 		var/datum/component/rot/rot = target.GetComponent(/datum/component/rot)
 		if(rot)
 			rot.amount = 0
@@ -194,7 +196,7 @@
 				rotty.update_disabled()
 		target.update_body()
 		if(!HAS_TRAIT(target, TRAIT_ROTMAN))
-			target.visible_message("<span class='notice'>The rot leaves [target]'s body!</span>", "<span class='green'>I feel the rot leave my body!</span>")
+			target.visible_message("<span class='notice'>The rot leaves [target]'s body!</span>")//, "<span class='green'>I feel the rot leave my body!</span>")
 		else
 			target.visible_message("<span class='warning'>The rot fails to leave [target]'s body!</span>", "<span class='warning'>I feel no different...</span>")
 		if(ishuman(target))
