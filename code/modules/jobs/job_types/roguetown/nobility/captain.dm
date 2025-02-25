@@ -11,6 +11,7 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
+		"Aasimar",
 		"Dwarf"
 	)
 	allowed_sexes = list(MALE, FEMALE)
@@ -68,12 +69,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-		H.change_stat("strength", 3)
-		H.change_stat("perception", 2)
-		H.change_stat("intelligence", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_STR, 3)
+		H.change_stat(STATKEY_PER, 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)

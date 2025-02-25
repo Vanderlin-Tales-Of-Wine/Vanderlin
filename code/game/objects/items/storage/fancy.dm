@@ -25,6 +25,8 @@
 	var/fancy_open = FALSE
 
 /obj/item/storage/fancy/PopulateContents()
+	if(!spawn_type)
+		return
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, spawn_type)
 
 /obj/item/storage/fancy/update_icon()
@@ -66,8 +68,6 @@
 	item_state = "eggbox"
 	icon_state = "eggbox"
 	icon_type = "egg"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	name = "egg box"
 	desc = ""
 	spawn_type = /obj/item/reagent_containers/food/snacks/egg

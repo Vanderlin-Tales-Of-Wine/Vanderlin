@@ -38,7 +38,7 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
 			neck = /obj/item/clothing/neck/roguetown/chaincoif
 		if(/datum/patron/divine/dendor)	// good helmet but no money
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/necked/dendorhelm
 			neck = /obj/item/clothing/neck/roguetown/coif
 			wrists = /obj/item/clothing/neck/roguetown/psycross/silver/dendor
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak
@@ -95,11 +95,11 @@
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-		H.change_stat("strength", 1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 2)
-		H.change_stat("speed", -1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // Even if it has limited slots, it is a common drifter role available to anyone. Their armor also is not heavy, so medium armor training is enough
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	C.grant_spells_cleric(H)

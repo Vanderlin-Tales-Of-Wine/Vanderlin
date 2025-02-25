@@ -201,8 +201,8 @@
 	name = "bugged bucket please report to mappers"
 	desc = ""
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
-	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	max_integrity = 300
@@ -213,6 +213,7 @@
 	flags_inv = HIDEHAIR
 	reagent_flags = OPENCONTAINER
 	obj_flags = CAN_BE_HIT
+	possible_item_intents = list( /datum/intent/fill, INTENT_POUR, INTENT_SPLASH, INTENT_GENERIC )
 	gripped_intents = list(INTENT_POUR)
 	resistance_flags = NONE
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 75, "acid" = 50) //Weak melee protection, because you can wear it on your head
@@ -249,6 +250,23 @@
 		return
 	return ..()
 
+/obj/item/reagent_containers/glass/bucket/attackby(obj/item/I, mob/user, params)
+	..()
+	if(istype(I, /obj/item/reagent_containers/powder/salt))
+		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 15) && !reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+			to_chat(user, "<span class='warning'>Not enough milk.</span>")
+			return
+		to_chat(user, "<span class='warning'>Adding salt to the milk.</span>")
+		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+		if(do_after(user,2 SECONDS, src))
+			if(reagents.has_reagent(/datum/reagent/consumable/milk, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted, 15)
+			if(reagents.has_reagent(/datum/reagent/consumable/milk/gote, 15))
+				reagents.remove_reagent(/datum/reagent/consumable/milk/gote, 15)
+				reagents.add_reagent(/datum/reagent/consumable/milk/salted_gote, 15)
+			qdel(I)
+
 /obj/item/reagent_containers/glass/bucket/wooden
 	name = "bucket"
 	icon_state = "woodbucket"
@@ -265,7 +283,7 @@
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 
 /obj/item/reagent_containers/glass/bucket/wooden/alter // just new look, trying it on for size
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 
 /obj/item/reagent_containers/glass/bucket/wooden/getonmobprop(tag)
 	. = ..()
@@ -283,13 +301,13 @@
 
 	if(reagents.total_volume > 0)
 		if(reagents.total_volume <= 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_half")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_full")
+			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)

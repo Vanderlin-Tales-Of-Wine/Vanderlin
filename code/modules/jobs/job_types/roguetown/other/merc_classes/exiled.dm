@@ -43,11 +43,11 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor)
 
-	H.change_stat("strength", 1)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("speed", -1) // fat fuck
-	H.change_stat("intelligence", 1) // Conan! What is best in life?
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_SPD, -1) // fat fuck
+	H.change_stat(STATKEY_INT, 1) // Conan! What is best in life?
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	if(H.dna?.species)

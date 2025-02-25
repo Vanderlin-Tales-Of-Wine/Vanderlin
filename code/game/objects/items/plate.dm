@@ -1,7 +1,7 @@
 /obj/item/plate
 	name = "plate"
 	desc = "Holds food, powerful. Good for morale when you're not eating your meal off a table."
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
+	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "platter"
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	w_class = WEIGHT_CLASS_BULKY //No backpack.

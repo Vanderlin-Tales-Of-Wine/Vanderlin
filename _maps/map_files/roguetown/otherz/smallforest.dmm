@@ -624,7 +624,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods_safe)
 "VY" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
 "Wr" = (

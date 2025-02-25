@@ -36,14 +36,14 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
-	H.change_stat("intelligence", 1)
+	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	backl = /obj/item/storage/backpack/rogue/satchel
 	neck = /obj/item/storage/belt/rogue/pouch/coins/veryrich
 	belt = /obj/item/storage/belt/rogue/leather
 	id = /obj/item/clothing/ring/silver
 	if(H.gender == FEMALE)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_SPD, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/random
@@ -54,7 +54,7 @@
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	if(H.gender == MALE)
-		H.change_stat("constitution", 1)
+		H.change_stat(STATKEY_CON, 1)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		pants = /obj/item/clothing/under/roguetown/tights/black

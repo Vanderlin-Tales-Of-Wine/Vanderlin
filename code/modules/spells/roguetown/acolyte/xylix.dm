@@ -26,13 +26,13 @@
 			if(isliving(user))
 				var/mob/living/L = user
 				L.add_stress(/datum/stressevent/psycurse)
-				L.adjust_fire_stacks(6)
+				L.adjust_divine_fire_stacks(6)
 				L.IgniteMob()
 			return ..()
 	to_chat(victim, span_userdanger("Your mouth starts to move on its own!"))
 	victim.say(forced_speak, forced = "spell")
-	victim.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
-	user.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
+	victim.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!", LOG_GAME)
+	user.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!", LOG_GAME)
 	return ..()
 
 /obj/effect/proc_holder/spell/invoked/wheel

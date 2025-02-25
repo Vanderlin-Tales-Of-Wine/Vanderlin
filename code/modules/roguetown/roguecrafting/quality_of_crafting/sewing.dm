@@ -733,7 +733,7 @@
 	name = "gown (summer)"
 	output = /obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
 	requirements = list(/obj/item/natural/fibers = 2,
-				/obj/item/natural/cloth = 1, 
+				/obj/item/natural/cloth = 1,
 				/obj/item/natural/silk = 3)
 	craftdiff = 6
 	sellprice = 70

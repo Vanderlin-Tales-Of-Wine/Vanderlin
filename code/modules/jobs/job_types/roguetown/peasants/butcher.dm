@@ -36,7 +36,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/butcher
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
-	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/rogue/truffles, /obj/item/rogueweapon/knife/hunting)
+	backpack_contents = list(/obj/item/kitchen/spoon, /obj/item/reagent_containers/food/snacks/truffles, /obj/item/rogueweapon/knife/hunting)
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/trou
@@ -46,9 +46,9 @@
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Used to dismembering live stock, desensitized to it.
 
-	H.change_stat("strength", 1)
-	H.change_stat("constitution", 2) // Built sturdy due to HIGH PROTEIN DIET
-	H.change_stat("intelligence", -1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_CON, 2) // Built sturdy due to HIGH PROTEIN DIET
+	H.change_stat(STATKEY_INT, -1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

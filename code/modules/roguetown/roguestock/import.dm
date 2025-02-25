@@ -11,16 +11,16 @@
 
 /obj/item/roguebin/crackers/Initialize()
 	. = ..()
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
-	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
+	new /obj/item/reagent_containers/food/snacks/hardtack(src)
 
 /obj/structure/closet/crate/chest/steward
 	lockid = "steward"

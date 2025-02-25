@@ -764,7 +764,7 @@
 	openSound = 'sound/foley/doors/shittyopen.ogg'
 	closeSound = 'sound/foley/doors/shittyclose.ogg'
 
-/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	lockdir = dir
 	. = ..()
@@ -846,7 +846,7 @@
 /obj/structure/mineral_door/wood/donjon/stone/view_toggle(mob/user)
 	return
 
-/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin, mob/user)
 	return ..()
 
 /obj/structure/mineral_door/wood/donjon/Initialize()
@@ -854,7 +854,7 @@
 	icon_state = base_state
 	..()
 
-/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	viewportdir = dir
 	. = ..()
@@ -937,8 +937,8 @@
 	base_state = "serving"
 	max_integrity = 250
 	over_state = "servingopen"
-	openSound = 'modular/Neu_Food/sound/blindsopen.ogg'
-	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
+	openSound = 'sound/foley/blindsopen.ogg'
+	closeSound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
 	animate_time = 21

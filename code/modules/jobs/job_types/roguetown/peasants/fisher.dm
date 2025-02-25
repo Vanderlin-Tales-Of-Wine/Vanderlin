@@ -1,7 +1,8 @@
 /datum/job/roguetown/fisher
 	title = "Fisher"
-	tutorial = "Simple folk with an affinity for catching fish out of any body of water, \
-				they are decent cooks and swimmers, living off the gifts of Abyssor."
+	tutorial = "Abyssor is angry. Neglected and shunned, his boons yet shy from your hook. \
+	Alone, in the stillness of nature, your bag is empty, and yet you fish. Pluck the children of god from their trance, \
+	and stare into the water to see the reflection of a drowned body in the making."
 	faction = "Station"
 	flag = FISHER
 	department_flag = PEASANTS
@@ -36,10 +37,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
-			H.change_stat("constitution", 1)
-			H.change_stat("perception", 1)
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_PER, 1)
 		else
-			H.change_stat("constitution", 2)
+			H.change_stat(STATKEY_CON, 2)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random

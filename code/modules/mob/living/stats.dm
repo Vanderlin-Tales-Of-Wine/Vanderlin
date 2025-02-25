@@ -257,3 +257,11 @@
 		if(STATKEY_LCK)
 			tocheck = STALUC
 	return tocheck
+
+/mob/living/proc/badluck(multi = 3)
+	if(STALUC < 10)
+		return prob((10 - STALUC) * multi)
+
+/mob/living/proc/goodluck(multi = 3)
+	if(STALUC > 10)
+		return prob((STALUC - 10) * multi)

@@ -645,7 +645,7 @@
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
 		examination += "<span class='notice'>Let's see how [src] is doing.</span>"
 		if(!user.stat && !silent)
-			visible_message("<span class='notice'>[user] examines [src].</span>", \
+			user.visible_message("<span class='notice'>[user] examines [src].</span>", \
 				"<span class='notice'>I check [src] for injuries.</span>")
 
 	if(stat < DEAD)

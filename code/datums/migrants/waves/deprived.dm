@@ -35,7 +35,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
-		H.change_stat("speed", -2)
+		H.change_stat(STATKEY_SPD, -2)
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC) // wouldn't include this normally, but due to heart-bleeding, it's required :/
 	H.cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 

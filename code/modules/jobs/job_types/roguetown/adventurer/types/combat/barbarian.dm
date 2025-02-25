@@ -31,16 +31,16 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/barbrage)
+	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/self/barbrage)
 	belt = /obj/item/storage/belt/rogue/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	if(prob(50))
 		backr = /obj/item/storage/backpack/rogue/satchel
-	H.change_stat("strength", 3)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("intelligence", -2)
+	H.change_stat(STATKEY_STR, 3)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_INT, -2)
 	var/armortype = pickweight(list("Cloak" = 5, "Hide" = 3, "Helmet" = 2))
 	var/weapontype = pickweight(list("Sword" = 4, "Club" = 3, "Axe" = 2)) //clubs and axes share a weapon type
 	switch(armortype)

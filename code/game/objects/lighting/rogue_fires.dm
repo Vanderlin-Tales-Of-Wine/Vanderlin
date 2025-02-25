@@ -123,7 +123,7 @@
 	pixel_y = 32
 	soundloop = null
 
-/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
+/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
 	pixel_y = 0
 	switch(dirin)
@@ -372,8 +372,8 @@
 				var/obj/item/reagent_containers/food/snacks/S = W
 				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
 					if(W.icon_state != "rawegg")
-						playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
-						if(!do_after(user, 2.5 SECONDS))
+						playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
+						if(!do_after(user, 25))
 							return
 						W.icon_state = "rawegg" // added
 					rawegg = TRUE

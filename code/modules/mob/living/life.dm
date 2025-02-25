@@ -120,7 +120,7 @@
 		return TRUE //mob was put out, on_fire = FALSE via ExtinguishMob(), no need to update everything down the chain.
 	update_fire()
 	var/turf/location = get_turf(src)
-	location.hotspot_expose(700, 50, 1)
+	location?.hotspot_expose(700, 50, 1)
 
 /mob/living/proc/handle_wounds()
 	if(stat >= DEAD)

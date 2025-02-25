@@ -22,7 +22,7 @@
 	tutorial = "You are one of the greatest minds of Heartfelt- an artificer, an engineer. You will build the future, regardless of what superstition the more mystical minded may spout. You know your machines' inner workings as well as you do stone, down to the last cog."
 
 	outfit = /datum/outfit/job/roguetown/mason
-	display_order = JDO_MASON
+	display_order = JDO_ARTIFICER
 	bypass_lastclass = TRUE
 	give_bank_account = 8
 	min_pq = -50
@@ -58,11 +58,11 @@
 	id = /obj/item/clothing/ring/silver/makers_guild
 	backpack_contents = list(/obj/item/rogueweapon/hammer/steel = 1, /obj/item/key/artificer = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/rogueweapon/knife/villager)
 
-	H.change_stat("strength", 1)
-	H.change_stat("intelligence", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("speed", -1)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 1)
+	H.change_stat(STATKEY_SPD, -1)
 
 	if(H.dna.species.id == "dwarf")
 		head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm

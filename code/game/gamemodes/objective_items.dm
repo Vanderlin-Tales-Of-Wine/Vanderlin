@@ -39,7 +39,7 @@
 
 /datum/objective_item/steal/rogue/spices
 	name = "a pepper mill."
-	targetitem = /obj/item/reagent_containers/food/condiment/peppermill
+	targetitem = /obj/item/reagent_containers/peppermill
 	difficulty = 1
 	excludefromjob = list("Cook")
 

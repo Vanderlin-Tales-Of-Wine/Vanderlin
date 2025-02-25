@@ -123,7 +123,7 @@
 
 /datum/reagent/medicine/stampot/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_stamina(-1.5)
+		M.adjust_stamina(-1.5, internal_regen = FALSE)
 	..()
 
 /datum/reagent/medicine/strongstam
@@ -135,7 +135,7 @@
 
 /datum/reagent/medicine/strongstam/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_stamina(-6)
+		M.adjust_stamina(-6, internal_regen = FALSE)
 	..()
 
 /datum/reagent/medicine/antidote

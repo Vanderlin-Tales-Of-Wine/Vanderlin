@@ -8,7 +8,7 @@
 	var/lootdoubles = TRUE	//if the same item can be spawned twice
 	var/fan_out_items = FALSE //Whether the items should be distributed to offsets 0,1,-1,2,-2,3,-3.. This overrides pixel_x/y on the spawner itself
 /obj/effect/spawner/roguemap/proc/do_spawn()
-	if(prob(probby))
+	if(prob(probby) && length(spawned))
 		var/obj/new_type = pickweight(spawned)
 		new new_type(get_turf(src))
 
@@ -285,22 +285,21 @@
 /obj/effect/spawner/roguemap/loot/food
 	icon_state = "lootfood"
 	spawned = list(
-		/obj/item/reagent_containers/food/snacks/rogue/bread = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/raisinbread = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/bun = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/cheesebun = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/frybread = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/peppersteak = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/friedegg = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/raisins = 10,
+		/obj/item/reagent_containers/food/snacks/bread = 10,
+		/obj/item/reagent_containers/food/snacks/bread/raisin = 10,
+		/obj/item/reagent_containers/food/snacks/bun = 10,
+		/obj/item/reagent_containers/food/snacks/cheesebun = 10,
+		/obj/item/reagent_containers/food/snacks/frybread = 10,
+		/obj/item/reagent_containers/food/snacks/cooked/frysteak = 10,
+		/obj/item/reagent_containers/food/snacks/cooked/egg = 10,
+		/obj/item/reagent_containers/food/snacks/cooked/frybird = 10,
+		/obj/item/reagent_containers/food/snacks/cooked/ham = 10,
+		/obj/item/reagent_containers/food/snacks/cooked/sausage = 10,
+		/obj/item/reagent_containers/food/snacks/potato/baked = 10,
+		/obj/item/reagent_containers/food/snacks/onion_fried = 10,
+		/obj/item/reagent_containers/food/snacks/raisins = 10,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 10,
-		/obj/item/reagent_containers/food/snacks/rogue/crackerscooked = 10
+		/obj/item/reagent_containers/food/snacks/hardtack = 10
 		)
 
 /obj/effect/spawner/roguemap/loot/potion_vitals
