@@ -191,16 +191,6 @@
 		return
 	return ..()
 
-// /obj/item/grown/log/tree/stick/attack_right(mob/living/user)
-// 	. = ..()
-// 	var/obj/item/I = user.get_active_held_item()
-// 	if(istype(I, /obj/item/grown/log/tree/stick))
-// 		var/obj/item/bundle/stick/F = new(src.loc)
-// 		qdel(I)
-// 		qdel(src)
-// 		user.put_in_hands(F)
-// 		to_chat(user, "You collect the [F.stackname] into a bundle.")
-
 /obj/item/grown/log/tree/stake
 	name = "stake"
 	desc = "A sharpened piece of wood, fantastic for piercing"

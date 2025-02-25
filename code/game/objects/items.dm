@@ -246,7 +246,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	// Bundle item type, not set to anything unless bundleable
 	var/bundletype
 
-
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
 	var/grid_width

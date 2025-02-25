@@ -155,7 +155,7 @@
 		usable_contents[attacked_item.type]++
 
 	for(var/obj/item/I in user.held_items)
-		if(istype(I, /obj/item/bundle))
+		if(isbundle(I))
 			var/bundle_path = I:stacktype
 			usable_contents |= bundle_path
 			usable_contents[bundle_path] += I:amount

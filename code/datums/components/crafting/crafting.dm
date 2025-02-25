@@ -90,7 +90,7 @@
 			continue
 		if(I.flags_1 & HOLOGRAM_1)
 			continue
-		if(istype(I, /obj/item/bundle))
+		if(isbundle(I))
 			var/obj/item/bundle/B = I
 			.["other"][B.stacktype] += B.amount
 		else if(I.tool_behaviour)
