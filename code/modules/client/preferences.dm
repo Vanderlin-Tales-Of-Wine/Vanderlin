@@ -1745,8 +1745,12 @@ Slots: [job.spawn_positions]</span>
 					var/result = input(user, "Select a species", "Vanderlin") as null|anything in crap
 
 					if(result)
-						//var/newtype = GLOB.species_list[result]
 						pref_species = result
+
+						to_chat(user, "<em>[pref_species.name]</em>")
+						if(pref_species.desc)
+							to_chat(user, "[pref_species.desc]")
+
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						var/temp_hsv = RGBtoHSV(features["mcolor"])
 						if(features["mcolor"] == "#000" || (!(MUTCOLORS_PARTSONLY in pref_species.species_traits) && ReadHSV(temp_hsv)[3] < ReadHSV("#7F7F7F")[3]))

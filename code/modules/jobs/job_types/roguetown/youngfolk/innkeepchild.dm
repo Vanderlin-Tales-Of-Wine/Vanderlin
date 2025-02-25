@@ -32,9 +32,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.change_stat("endurance", 1)
-		H.change_stat("strength", -1)
-		H.change_stat("constitution", -1)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_CON, -1)
 	pants = /obj/item/clothing/under/roguetown/tights/random
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots

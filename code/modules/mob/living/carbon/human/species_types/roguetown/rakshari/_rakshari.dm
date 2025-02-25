@@ -6,23 +6,28 @@
 	id = "rakshari"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 
-	desc = "<b>Rakshari</b><br>\
-	Their origins trace back to nomadic desert tribes, whose survival in the harsh sands cultivated a culture steeped in resilience, cunning, and adaptability. \
-	Over centuries, the Rakshari united under the banners of powerful Zybantine  merchant-kings and warlords, transforming their scattered clans into a dominant slaver force across the region., \
-	For centuries, they raided weaker settlements and rival caravans, \
-	capturing slaves to fuel their expanding cities and economies, \
-	practice of this was justified through religious doctrines venerating strength and dominance as divine virtues \
-	As they attached themselves to Zybantine Rakshari integrated more sophisticated forms of servitude, including indentured contracts and debt bondage. \
-	\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK.\
-	"
+	desc = "Their origins trace back to nomadic desert tribes, \
+	whose survival in the harsh sands cultivated a culture steeped in resilience, cunning, and adaptability. \
+	\n\n\
+	Over centuries, the Rakshari united under the banners of powerful Zybantine merchant-kings and warlords,\
+	transforming their scattered clans into a dominant slaver force across the region. \
+	They would often raid weaker settlements and rival caravans, \
+	capturing slaves to fuel their expanding cities and economies. \
+	Practice of this was justified through religious doctrines, \
+	venerating strength and dominance as divine virtues. \
+	\n\n\
+	As they further attached themselves to Zybantine, however, \
+	their people would integrate more sophisticated forms of servitude, \
+	such as indentured contracts and debt bondage. \
+	\n\n\
+	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Tribal Identity"
 	use_skintones = 1
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF",, "wings" = "None")
-	specstats = list("strength" = -2, "perception" = 2, "intelligence" = 0, "constitution" = -2, "endurance" = 0, "speed" = 2, "fortune" = 0)
-	specstats_f = list("strength" = -2, "perception" = 2, "intelligence" = 0, "constitution" = -2, "endurance" = 0, "speed" = 2, "fortune" = 0)
+	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/rakshari.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/rakshari.dmi'

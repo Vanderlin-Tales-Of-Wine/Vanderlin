@@ -12,11 +12,12 @@
 /datum/species/human/northern
 	name = "Humen"
 	id = "human"
-	desc = "<b>Humen</b><br>\
-	Humenity, creation in Psydon's image. \
-	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
+	desc = "Humenity, creation in Psydon's image. \
+	\n\n\
 	Humens come from a vast swathe of cultures and ethnicities all around Psydonia, most of which \
 	have historically been at odds with one another and other species. \
+	With their tenacity and overwhelming population, humens tend to outnumber the other species drastically. \
+	\n\n\
 	Humens tend to find fortune easier than the other species, and are so diverse that no other trait \
 	are dominant in their species..."
 
@@ -48,8 +49,8 @@
 	OFFSET_FACE_F = list(0,-1), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,-1), \
 	OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0))
-	specstats = list("strength" = 0, "perception" = 0, "intelligence" = 0, "constitution" = 1, "endurance" = 2, "speed" = 0, "fortune" = 1)
-	specstats_f = list("strength" = 0, "perception" = 0, "intelligence" = 0, "constitution" = 1, "endurance" = 2, "speed" = 0, "fortune" = 1)
+	specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 1, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 1)
+	specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_INT = 0, STATKEY_CON = 1, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 1)
 	enflamed_icon = "widefire"
 
 	customizers = list(
@@ -106,26 +107,11 @@
 
 	))
 
-/datum/species/human/northern/random_name(gender,unique,lastname)
+/datum/species/human/northern/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/rt/names/human/humnorm.txt')
+	var/static/list/female_names = world.file2list('strings/rt/names/human/humnorf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/humnorf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/human/humnorf.txt") )
-	return randname
-
-/datum/species/human/northern/random_surname()
-	return " [pick(world.file2list("strings/rt/names/human/humnorlast.txt"))]"
+/datum/species/human/northern/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/human/humnorlast.txt')
+	return last_names

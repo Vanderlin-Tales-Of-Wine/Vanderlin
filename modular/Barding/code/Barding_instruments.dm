@@ -254,6 +254,7 @@
 	icon_state = "lute"
 	item_state = "lute"
 	song_list = list(
+	"Abyssor's Second Shanty" = 'sound/instruments/band/lute (b1).ogg',
 	"A Knight's Return" = 'sound/instruments/lute (1).ogg',
 	"Amongst Fare Friends" = 'sound/instruments/lute (2).ogg',
 	"The Road Traveled by Few" = 'sound/instruments/lute (3).ogg',
@@ -315,6 +316,7 @@
 	icon_state = "harp"
 	item_state = "harp"
 	song_list = list(
+	"Abyssor's Second Shanty" = 'sound/instruments/band/harp (b1).ogg',
 	"Through Thine Window, He Glanced" = 'sound/instruments/harp (1).ogg',
 	"The Lady of Red Silks" = 'sound/instruments/harp (2).ogg',
 	"Eora Doth Watches" = 'sound/instruments/harp (3).ogg',
@@ -336,6 +338,7 @@
 	dropshrink = 0.6
 	w_class = WEIGHT_CLASS_SMALL
 	song_list = list(
+	"Abyssor's Second Shanty" = 'sound/instruments/band/flute (b1).ogg',
 	"Half-Dragon's Ten Mammon" = 'sound/instruments/flute (1).ogg',
 	"The Local Favorite" = 'sound/instruments/flute (2).ogg',
 	"Rous in the Cellar" = 'sound/instruments/flute (3).ogg',
@@ -376,7 +379,9 @@
 	name = "viola"
 	desc = "The prim and proper Viola, often the first instrument nobles are taught."
 	icon_state = "viola"
-	song_list = list("Far Flung Tale" = 'sound/instruments/viola (1).ogg',
+	song_list = list(
+	"Abyssor's Second Shanty" = 'sound/instruments/band/viola (b1).ogg',
+	"Far Flung Tale" = 'sound/instruments/viola (1).ogg',
 	"G Major Cello Suite No. 1" = 'sound/instruments/viola (2).ogg',
 	"Ursine's Home" = 'sound/instruments/viola (3).ogg',
 	"Mead, Gold and Blood" = 'sound/instruments/viola (4).ogg',
