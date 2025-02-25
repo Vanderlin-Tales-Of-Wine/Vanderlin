@@ -351,7 +351,7 @@
 
 //................ Dwarf Warhammer ............... // - Unique Langobardo weapon
 /obj/item/rogueweapon/mace/goden/steel/warhammer
-	name = "warhammer"
+	name = "dwarven warhammer"
 	desc = "A great dwarven warhammer made of stern steel, enscratched with oaths of battle and time."
 	icon_state = "warhammer"
 	wlength = WLENGTH_GREAT
@@ -390,7 +390,7 @@
 	force = 20
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/warhammer/impale)
 	gripped_intents = null
-	name = "warhammer"
+	name = "iron warhammer"
 	desc = "Made to punch through armor and skull alike."
 	icon_state = "iwarhammer"
 	wbalance = -1

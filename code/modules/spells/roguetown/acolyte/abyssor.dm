@@ -132,6 +132,10 @@
 	line = new /obj/item/fishing/line/no_line(src)
 	baited = new /obj/item/fishing/bait/no_bait(src)
 
+/obj/item/fishingrod/abyssor_trident/examine(mob/user)
+	. = ..()
+	. = list("[get_examine_string(user, TRUE)].[get_inspect_button()]", span_info("[desc]")) // to hide fishing rod examine text
+
 /obj/item/fishingrod/abyssor_trident/getonmobprop(tag)
 	. = ..()
 	if(tag)

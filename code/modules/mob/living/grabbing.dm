@@ -519,12 +519,15 @@
 		limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
 		var/datum/wound/caused_wound = limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
 		if(user.mind)
+			//TODO: Werewolf Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/werewolf))
 				var/mob/living/carbon/human/human = user
 				if(istype(caused_wound))
 					caused_wound?.werewolf_infect_attempt()
 				if(prob(30))
 					human.werewolf_feed(C)
+
+			// TODO: Zombie Signal 
 			if(user.mind.has_antag_datum(/datum/antagonist/zombie))
 				var/mob/living/carbon/human/H = C
 				if(istype(H))
@@ -537,9 +540,9 @@
 							C.visible_message("<span class='danger'>[user] consumes [C]'s brain!</span>", \
 								"<span class='userdanger'>[user] consumes my brain!</span>", "<span class='hear'>I hear a sickening sound of chewing!</span>", COMBAT_MESSAGE_RANGE, user)
 							to_chat(user, "<span class='boldnotice'>Braaaaaains!</span>")
-							if(!user.mob_timers["zombie_tri"])
+							if(!MOBTIMER_EXISTS(user, MT_ZOMBIETRIUMPH))
 								user.adjust_triumphs(1)
-								user.mob_timers["zombie_tri"] = world.time
+								MOBTIMER_SET(user, MT_ZOMBIETRIUMPH)
 							playsound(C.loc, 'sound/combat/fracture/headcrush (2).ogg', 100, FALSE, -1)
 							return
 	else
