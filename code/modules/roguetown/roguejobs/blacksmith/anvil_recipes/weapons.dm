@@ -2,6 +2,7 @@
 	appro_skill = /datum/skill/craft/weaponsmithing
 	craftdiff = 1
 	i_type = "Weapons"
+	abstract_type = /datum/anvil_recipe/weapons
 
 // SILVER - Harder to craft, does less damage and has less durability than steel, but banes undead.
 
@@ -109,11 +110,11 @@
 // IRON GEAR - Middle Tier, what most disgusting Men at Arms have
 
 /datum/anvil_recipe/weapons/iron/arrows
-	name = "5x Arrows (+Stick)"
+	name = "5x Arrows (+Plank)"
 	recipe_name = "five Arrows"
 	appro_skill = /datum/skill/craft/engineering
 	req_bar = /obj/item/ingot/iron
-	additional_items = list(/obj/item/grown/log/tree/stick)
+	additional_items = list(/obj/item/natural/wood/plank)
 	created_item = /obj/item/ammo_casing/caseless/rogue/arrow
 	createmultiple = TRUE
 	createditem_num = 4
@@ -156,11 +157,11 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/iron/bolts
-	name = "5x Crossbow Bolts (+Stick)"
+	name = "5x Crossbow Bolts (+Plank)"
 	recipe_name = "five Crossbow Bolts"
 	appro_skill = /datum/skill/craft/engineering
 	req_bar = /obj/item/ingot/iron
-	additional_items = list(/obj/item/grown/log/tree/stick)
+	additional_items = list(/obj/item/natural/wood/plank)
 	created_item = /obj/item/ammo_casing/caseless/rogue/bolt
 	createmultiple = TRUE
 	createditem_num = 4
@@ -221,7 +222,7 @@
 	created_item = /obj/item/rogueweapon/mace
 
 /datum/anvil_recipe/weapons/iron/warhammer
-	name = "Warhammer (+1 Stick)"
+	name = "Iron Warhammer (+1 Stick)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/iron
@@ -311,9 +312,9 @@
 	created_item = /obj/item/rogueweapon/axe/steel
 	craftdiff = 2
 
-/datum/anvil_recipe/weapons/steel/warhammer
-	name = "Steel Warhammer (+Small Log)"
-	recipe_name = "a big warhammer"
+/datum/anvil_recipe/weapons/steel/sledgehammer
+	name = "Steel Sledgehammer (+Small Log)"
+	recipe_name = "a big Sledgehammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/grown/log/tree/small)
@@ -346,15 +347,6 @@
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/rogueweapon/knife/cleaver
 	craftdiff = 1
-
-/datum/anvil_recipe/weapons/steel/crossbow_eng
-	name = "Crossbow (+Small Log, +Fibers)"
-	recipe_name = "a Crossbow"
-	appro_skill = /datum/skill/craft/engineering
-	req_bar = /obj/item/ingot/steel
-	additional_items = list(/obj/item/grown/log/tree/small, /obj/item/natural/fibers)
-	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	craftdiff = 1 // Minimal engineering needed
 
 /datum/anvil_recipe/weapons/steel/cutlass_steel
 	name = "Cutlass"
@@ -481,7 +473,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/steel/swarhammer
-	name = "Warhammer (+Bar)"
+	name = "Steel Warhammer (+Bar)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel

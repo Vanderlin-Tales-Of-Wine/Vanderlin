@@ -112,7 +112,7 @@
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
 //		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
 		add_client_colour(/datum/client_colour/monochrome/death)
-		client?.verbs += /client/proc/descend
+		client?.verbs |= /client/proc/descend
 
 	for(var/s in ownedSoullinks)
 		var/datum/soullink/S = s
@@ -147,16 +147,18 @@
 	var/area_of_death = lowertext(get_area_name(src))
 	var/locale = "a locale wreathed in enigmatic fog"
 	switch (area_of_death) // we're deliberately obtuse with this.
-		if ("mountains", "mt decapitation")
-			locale = "a twisted tangle of soaring peaks"
+		if ("mountains", "mt decapitation", "malum's anvil forest", "malum's anvil under lower caves", "malum's anvil cave building", "malum's anvil lower dungeon", "malum's anvil surface building", "malum's anvil hidden grove", "malum's anvil peak")
+			locale = "a twisted tangle of dense rocks and rivers of lava"
 		if ("wilderness", "azure basin")
 			locale = "somewhere in the wilds"
-		if ("bog", "dense bog")
+		if ("the bog", "bog", "dense bog", "latejoin cave")
 			locale = "a wretched, fetid bog"
-		if ("coast", "coastforest")
+		if ("coast", "coastforest", "river")
 			locale = "somewhere betwixt Abyssor's realm and Dendor's bounty"
-		if ("indoors", "shop", "physician", "outdoors", "roofs", "manor", "wizard's tower", "garrison", "dungeon cell", "baths", "tavern")
+		if ("indoors", "shop", "physician", "outdoors", "roofs", "manor", "wizard's tower", "garrison","village garrison", "dungeon cell", "baths", "tavern", "basement")
 			locale = "the city of Vanderlin and all its bustling souls"
+		if ("sewers")
+			locale = "somwhere under the city of vanderlin and all its bustling souls"
 		if ("church")
 			locale = "a hallowed place, sworn to the Ten" // special bit for the church since it's sacred ground
 

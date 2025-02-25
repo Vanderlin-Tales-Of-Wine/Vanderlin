@@ -40,7 +40,7 @@
 	holder_mob?.cleric = null
 	holder_mob = null
 	patron = null
-	STOP_PROCESSING(SSpersecond, src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /datum/devotion/cleric_holder/process()
 	if(!passive_devotion_gain && !passive_progression_gain)
@@ -70,17 +70,20 @@
 		if(CLERIC_T0)
 			if(progression >= CLERIC_REQ_1)
 				level = CLERIC_T1
-				usr.mind.AddSpell(new P.t1, silent = FALSE)
+				if(P.t1)
+					usr.mind.AddSpell(new P.t1, silent = FALSE)
 				return
 		if(CLERIC_T1)
 			if(progression >= CLERIC_REQ_2)
 				level = CLERIC_T2
-				usr.mind.AddSpell(new P.t2, silent = FALSE)
+				if(P.t2)
+					usr.mind.AddSpell(new P.t2, silent = FALSE)
 				return
 		if(CLERIC_T2)
 			if(progression >= CLERIC_REQ_3)
 				level = CLERIC_T3
-				usr.mind.AddSpell(new P.t3, silent = FALSE)
+				if(P.t3)
+					usr.mind.AddSpell(new P.t3, silent = FALSE)
 				to_chat(usr, span_notice("All my Gods miracles are now open to me..."))
 				return
 		if(CLERIC_T3) // already maxed out
@@ -91,7 +94,7 @@
 	if(!H || !H.mind || !patron)
 		return
 
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, /obj/effect/proc_holder/spell/invoked/lesser_heal, /obj/effect/proc_holder/spell/invoked/diagnose) //This would have caused jank.
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison/lesser, /obj/effect/proc_holder/spell/invoked/lesser_heal, /obj/effect/proc_holder/spell/invoked/diagnose) //This would have caused jank.
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -115,7 +118,7 @@
 	level = CLERIC_T3
 	passive_devotion_gain = 1 //1 devotion per second
 	update_devotion(300, 900)
-	START_PROCESSING(SSpersecond, src)
+	START_PROCESSING(SSprocessing, src)
 
 //Acolyte Spell Spawner
 /datum/devotion/cleric_holder/proc/grant_spells(mob/living/carbon/human/H)
@@ -136,7 +139,7 @@
 		return
 
 	var/datum/patron/A = H.patron
-	var/list/spelllist = list(A.t0, A.t1)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/abrogation, A.t0, A.t1)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -199,7 +202,7 @@
 	var/prayersesh = 0
 	visible_message("[src] kneels their head in prayer.", "I kneel my head in prayer to [patron.name].")
 	for(var/i in 1 to 50)
-		if(do_after(src, 30))
+		if(do_after(src, 3 SECONDS, timed_action_flags = (IGNORE_USER_DIR_CHANGE)))
 			if(C.devotion >= C.max_devotion)
 				to_chat(src, "<font color='red'>I have reached the limit of my devotion...</font>")
 				break
@@ -217,11 +220,11 @@
 	prayer_effectiveness = 0
 	devotion = -1
 	to_chat(holder_mob, span_userdanger("I have been excommunicated! The Ten no longer listen to my prayers nor my requests."))
-	STOP_PROCESSING(SSpersecond, src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /datum/devotion/cleric_holder/proc/recommunicate()
 	prayer_effectiveness = initial(prayer_effectiveness)
 	devotion = 0
 	to_chat(holder_mob, span_boldnotice("I have been welcomed back into the folds of the Ten."))
 	if(passive_devotion_gain || passive_progression_gain)
-		START_PROCESSING(SSpersecond, src)
+		START_PROCESSING(SSprocessing, src)

@@ -73,12 +73,14 @@
 		if(!affecting)
 			return
 		if(!get_location_accessible(H, check_zone(user.zone_selected)))
-			to_chat(user, "<span class='warning'>Something in the way.</span>")
+			to_chat(user, "<span class='warning'>Something in the way.</span>") //ooooooooooooooo
 			return
-		var/used_time = (70 - (H.mind.get_skill_level(/datum/skill/misc/medicine) * 10))/2
+		var/used_time
 		if(completely_silent)
 			used_time = 0
-		if(!do_mob(user, H, used_time))
+		else
+			used_time = (7 SECONDS - (H.mind.get_skill_level(/datum/skill/misc/medicine) * 1 SECONDS))/2
+		if(!do_after(user, used_time, H))
 			return
 		if(!H)
 			return
@@ -110,6 +112,8 @@
 			return TRUE
 	else
 		var/blood_extracted = min(blood_maximum - blood_storage, user.blood_volume, blood_sucking)
+		if(HAS_TRAIT(user, TRAIT_LEECHIMMUNE))
+			blood_extracted *= 0.05 // 95% drain reduction
 		user.blood_volume = max(user.blood_volume - blood_extracted, 0)
 		blood_storage += blood_extracted
 		if((blood_storage >= blood_maximum) || (user.blood_volume <= 0))
@@ -125,12 +129,12 @@
 	if(consistent)
 		return FALSE
 	var/static/list/all_colors = list(
-		"#9860ff" = 8,
-		"#bcff49" = 4,
-		"#ffce49" = 2,
-		"#79ddff" = 2,
-		"#ff7878" = 1,
-		"#ff31e4" = 1,
+		"#8471a7" = 8,
+		"#94ad6a" = 4,
+		"#af995e" = 2,
+		"#83a7b3" = 2,
+		"#b88383" = 1,
+		"#bc69b1" = 1,
 	)
 	var/static/list/all_adjectives = list(
 		"blood-sucking" = 20,
@@ -162,7 +166,7 @@
 	var/evilness_rating = rand(0, MAX_LEECH_EVILNESS)
 	switch(evilness_rating)
 		if(MAX_LEECH_EVILNESS to INFINITY) //maximized evilness holy shit
-			color = "#ff0000"
+			color = "#dc4b4b"
 			adjectives += pick("evil", "malevolent", "misanthropic")
 			descs += "<span class='danger'>This one is bursting with hatred!</span>"
 		if(5) //this leech is painfully average, it gets no adjectives
@@ -199,6 +203,7 @@
 	name = "the parasite"
 	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes."
 	icon_state = "parasite"
+	dropshrink = 0.9
 	baitpenalty = 0
 	isbait = TRUE
 	color = null
@@ -225,6 +230,7 @@
 /obj/item/natural/worms/leech/propaganda
 	name = "accursed leech"
 	desc = "A leech like none other."
+	icon_state = "leech"
 	drainage = 0
 	blood_sucking = 0
 	completely_silent = TRUE

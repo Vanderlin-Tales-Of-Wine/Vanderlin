@@ -26,8 +26,8 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tailor, 1, TRUE)
-	H.change_stat("intelligence", 2)
-	H.change_stat("speed", 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_SPD, 1)
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltr = /obj/item/flashlight/flare/torch/lantern
@@ -49,7 +49,7 @@
 	var/merchtype = pickweight(list("FOOD" = 4, "HEAL" = 2, "SILK" = 1, "GEMS" = 1))
 	switch(merchtype)
 		if("FOOD")		// Travelling food peddler
-			backpack_contents = list(/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 1, /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette = 1, /obj/item/reagent_containers/food/snacks/rogue/cheddar = 1, /obj/item/reagent_containers/food/snacks/rogue/saltfish = 1, /obj/item/reagent_containers/food/snacks/rogue/crackerscooked = 1)
+			backpack_contents = list(/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 1, /obj/item/reagent_containers/food/snacks/cooked/coppiette = 1, /obj/item/reagent_containers/food/snacks/rogue/cheddar = 1, /obj/item/reagent_containers/food/snacks/saltfish = 1, /obj/item/reagent_containers/food/snacks/hardtack = 1)
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 		if("HEAL")		// Travelling potion seller (If only we had snake oil..)
 			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot, /obj/item/reagent_containers/glass/bottle/rogue/healthpot, /obj/item/reagent_containers/glass/bottle/rogue/healthpot, /obj/item/reagent_containers/glass/bottle/rogue/manapot)

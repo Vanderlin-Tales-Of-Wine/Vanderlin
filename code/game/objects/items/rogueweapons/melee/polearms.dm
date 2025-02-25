@@ -131,7 +131,7 @@
 	sharpness = IS_BLUNT
 	max_integrity = 200
 	wdefense = ULTMATE_PARRY
-	minstr = 6
+	minstr = 5
 	sellprice = 5
 
 /obj/item/rogueweapon/polearm/woodstaff/getonmobprop(tag)
@@ -199,7 +199,7 @@
 	smeltresult = /obj/item/ingot/iron
 	dropshrink = 0.8
 	thrown_bclass = BCLASS_STAB
-	sellprice = 20
+	sellprice = 22
 
 /obj/item/rogueweapon/polearm/spear/getonmobprop(tag)
 	. = ..()

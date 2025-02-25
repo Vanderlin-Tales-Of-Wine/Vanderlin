@@ -25,9 +25,9 @@
 		if(L.anti_magic_check(TRUE, TRUE))
 			return FALSE
 		playsound(user, 'sound/items/flint.ogg', 150, FALSE)
-		L.adjust_fire_stacks(5)
+		L.adjust_divine_fire_stacks(5)
 		L.IgniteMob()
-		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, ExtinguishMob)), 7 SECONDS)
+		// addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, ExtinguishMob)), 7 SECONDS)
 		return ..()
 
 	// Spell interaction with ignitable objects (burn wooden things, light torches up)
@@ -35,6 +35,9 @@
 		var/obj/O = targets[1]
 		if(O.fire_act())
 			user.visible_message("<font color='yellow'>[user] points at [O], igniting it with sacred flames!</font>")
+			var/mob/living/carbon/human/C = user
+			var/datum/devotion/cleric_holder/D = C.cleric
+			D.update_devotion(25)
 			return ..()
 		else
 			to_chat(user, "<span class='warning'>You point at [O], but it fails to catch fire.</span>")

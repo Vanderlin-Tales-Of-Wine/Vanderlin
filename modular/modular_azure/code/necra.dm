@@ -39,9 +39,9 @@
 	ADD_TRAIT(living_target, TRAIT_NODEATH, "avert_spell")
 
 	var/our_holy_skill = user.mind?.get_skill_level(associated_skill)
-	var/tickspeed = 30 + (5 * our_holy_skill)
+	var/tickspeed = 3 SECONDS + (5 * our_holy_skill)
 
-	while (do_after(user, tickspeed, target = living_target))
+	while(do_after(user, tickspeed, living_target))
 		user.adjust_energy(-2.5)
 
 		living_target.adjustOxyLoss(-10)
@@ -129,7 +129,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/churned
 	duration = 30 SECONDS
 	examine_text = "<b>SUBJECTPRONOUN is wreathed in a wild frenzy of ghostly motes!</b>"
-	effectedstats = list("strength" = -2, "constitution" = -2, "endurance" = -2, "speed" = -2)
+	effectedstats = list(STATKEY_STR = -2, STATKEY_CON = -2, STATKEY_END = -2, STATKEY_SPD = -2)
 	status_type = STATUS_EFFECT_REFRESH
 	var/datum/weakref/debuffer
 	var/outline_colour = "#33cabc"

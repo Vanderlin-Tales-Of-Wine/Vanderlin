@@ -38,7 +38,8 @@
 /obj/item/reagent_containers/weather_act_on(weather_trait, severity)
 	if(weather_trait != PARTICLEWEATHER_RAIN || !COOLDOWN_FINISHED(src, fill_cooldown))
 		return
-
+	if(!isturf(loc))
+		return
 	reagents.add_reagent(/datum/reagent/water, clamp(severity * 0.5, 1, 5))
 	COOLDOWN_START(src, fill_cooldown, 10 SECONDS)
 
@@ -160,3 +161,4 @@
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
 		add_overlay(filling)
 	. = ..()
+

@@ -22,7 +22,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 	if(href_list["check_hb"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
 		if(!isobserver(usr))
 			usr.visible_message(span_info("[usr] tries to hear [src]'s heartbeat."))
-			if(!do_after(usr, 30, needhand = TRUE, target = src))
+			if(!do_after(usr, 3 SECONDS, src))
 				return
 		var/list/following_my_heart = check_heartbeat(usr)
 		to_chat(usr, span_info("[following_my_heart.Join("\n")]"))
@@ -39,7 +39,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			usr.visible_message(span_warning("[usr] attempts to remove [I] from [usr.p_their()] [L.name]."),span_warning("I attempt to remove [I] from my [L.name]..."))
 		else
 			usr.visible_message(span_warning("[usr] attempts to remove [I] from [src]'s [L.name]."),span_warning("I attempt to remove [I] from [src]'s [L.name]..."))
-		if(do_after(usr, time_taken, needhand = TRUE, target = src))
+		if(do_after(usr, time_taken, src))
 			if(QDELETED(I) || QDELETED(L) || !L.remove_embedded_object(I))
 				return
 			L.receive_damage(I.embedding.embedded_unsafe_removal_pain_multiplier*I.w_class)//It hurts to rip it out, get surgery you dingus.
@@ -62,7 +62,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			usr.visible_message(span_warning("[usr] starts unbandaging [usr.p_their()] [L.name]."),span_warning("I start unbandaging [L.name]..."))
 		else
 			usr.visible_message(span_warning("[usr] starts unbandaging [src]'s [L.name]."),span_warning("I start unbandaging [src]'s [L.name]..."))
-		if(do_after(usr, 50, needhand = TRUE, target = src))
+		if(do_after(usr, 5 SECONDS, src))
 			if(QDELETED(I) || QDELETED(L) || (L.bandage != I))
 				return
 			L.remove_bandage()
@@ -80,7 +80,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 			return
 		if(underwear == "Nude")
 			return
-		if(do_after(usr, 50, needhand = 1, target = src))
+		if(do_after(usr, 5 SECONDS, src))
 			cached_underwear = underwear
 			underwear = "Nude"
 			update_body()
@@ -111,7 +111,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		else
 			return
 
-		if(do_mob(usr, src, POCKET_STRIP_DELAY/delay_denominator)) //placing an item into the pocket is 4 times faster
+		if(do_after(usr, POCKET_STRIP_DELAY/delay_denominator, src)) //placing an item into the pocket is 4 times faster
 			if(pocket_item)
 				if(pocket_item == (pocket_id == SLOT_R_STORE ? r_store : l_store)) //item still in the pocket we search
 					dropItemToGround(pocket_item)

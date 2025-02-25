@@ -1,6 +1,6 @@
-# OpenKeep
+# VANDERLIN
 
-[![BYOND Build](https://github.com/Darkrp-community/OpenKeep/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/Darkrp-community/OpenKeep/actions/workflows/ci_suite.yml)
+[![BYOND Build](https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin/actions/workflows/ci_suite.yml/badge.svg)](https://github.com/Vanderlin-Tales-Of-Wine/Vanderlin/actions/workflows/ci_suite.yml)
 
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|

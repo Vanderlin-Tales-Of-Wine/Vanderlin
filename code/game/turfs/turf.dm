@@ -257,9 +257,9 @@
 		return FALSE
 	if(!force && (!can_zFall(A, levels, target) || !A.can_zFall(src, levels, target, DOWN)))
 		return FALSE
-	A.zfalling = TRUE
+	A.atom_flags |= Z_FALLING
 	A.forceMove(target)
-	A.zfalling = FALSE
+	A.atom_flags &= ~Z_FALLING
 	target.zImpact(A, levels, src)
 	return TRUE
 
@@ -347,7 +347,7 @@
 		var/obj/O = AM
 		if(O.obj_flags & FROZEN)
 			O.make_unfrozen()
-	if(!AM.zfalling)
+	if(!(AM.atom_flags & Z_FALLING))
 		zFall(AM)
 
 /turf/proc/is_plasteel_floor()
@@ -423,14 +423,14 @@
 		return
 	if(length(src_object.contents()))
 		to_chat(usr, "<span class='notice'>I start dumping out the contents...</span>")
-		if(!do_after(usr,20,target=src_object.parent))
+		if(!do_after(usr, 2 SECONDS, src_object.parent))
 			return FALSE
 
 	var/list/things = src_object.contents()
 	var/datum/progressbar/progress = new(user, things.len, src)
-	while (do_after(usr, 10, TRUE, src, FALSE, CALLBACK(src_object, TYPE_PROC_REF(/datum/component/storage, mass_remove_from_storage), src, things, progress)))
+	while (do_after(usr, 1 SECONDS, src, NONE, FALSE, CALLBACK(src_object, TYPE_PROC_REF(/datum/component/storage, mass_remove_from_storage), src, things, progress)))
 		stoplag(1)
-	qdel(progress)
+	progress.end_progress()
 
 	return TRUE
 

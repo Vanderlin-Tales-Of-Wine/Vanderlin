@@ -5,6 +5,8 @@
 	icon_state = ""
 	w_class = WEIGHT_CLASS_NORMAL
 	smeltresult = null
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/roguestatue/gold
 	name = "gold statue"

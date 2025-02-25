@@ -1,9 +1,8 @@
 /datum/job/roguetown/bard
 	title = "Bard"
-	tutorial = "Bards make up one of the largest populations of \
-	registered adventurers in Enigma, mostly because they are \
-	the last ones in a party to die. Their wish is to experience \
-	the greatest adventures of the age and write amazing songs about them."
+	tutorial = "Bards make up one of the largest populations of registered adventurers in Enigma, mostly because they are \
+	the last ones in a party to die. Their wish is to experience the greatest adventures of the age and write amazing songs \
+	about them. This is not your story, for you are the storyteller."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -60,9 +59,9 @@
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BARDIC_TRAINING, TRAIT_GENERIC)
-	H.change_stat("perception", 1)
-	H.change_stat("speed", 2)
-	H.change_stat("strength", -1)
+	H.change_stat(STATKEY_PER, 1)
+	H.change_stat(STATKEY_SPD, 2)
+	H.change_stat(STATKEY_STR, -1)
 
 /datum/job/roguetown/bard/after_spawn(mob/living/L, mob/M, latejoin)
 	. = ..()
@@ -88,5 +87,5 @@
 		H.advsetup = 0
 		H.invisibility = initial(H.invisibility)
 		H.cure_blind("bard_select")
-		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory // dis line sux its basically a loop anyways if i remember
+		var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used?.static_inventory // dis line sux its basically a loop anyways if i remember
 		qdel(GET_IT_OUT)

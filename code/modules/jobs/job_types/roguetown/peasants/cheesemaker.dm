@@ -1,7 +1,8 @@
 /datum/job/roguetown/cheesemaker
 	title =  "Cheesemaker"
-	tutorial = "Craftsmen who have mastered the art of curdling milks \
-				into delicious and long lasting wheels of cheese."
+	tutorial = "Some say Dendor brings bountiful harvests - this much is true, but rot brings forth life. \
+	From life brings decay, and from decay brings life. Like your father before you, you let milk rot into cheese. \
+	This is your duty, this is your call."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -44,5 +45,5 @@
 	beltr = /obj/item/reagent_containers/glass/bottle/waterskin/milk
 	beltl = /obj/item/rogueweapon/knife/villager
 	backpack_contents = list(/obj/item/reagent_containers/powder/salt = 3, /obj/item/reagent_containers/food/snacks/rogue/cheddar = 1, /obj/item/natural/cloth = 2, /obj/item/book/rogue/yeoldecookingmanual = 1)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_CON, 2)

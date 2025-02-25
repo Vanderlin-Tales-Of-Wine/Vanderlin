@@ -6,7 +6,9 @@
 		player.ready = PLAYER_READY_TO_PLAY
 
 	SSticker.start_immediately = TRUE
+	sleep(1 SECONDS)
 	SSticker.fire()
+
 GLOBAL_VAR_INIT(round_timer, INITIAL_ROUND_TIMER)
 
 SUBSYSTEM_DEF(ticker)
@@ -158,7 +160,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
+	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg','sound/music/title3.ogg')
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 	if(CONFIG_GET(flag/randomize_shift_time))
@@ -272,7 +274,7 @@ SUBSYSTEM_DEF(ticker)
 							continue
 					readied_jobs.Add(V)
 
-	if(("Monarch" in readied_jobs))
+	if(("Monarch" in readied_jobs) || start_immediately == TRUE) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 		rulertype = "Monarch"
 	else
 		var/list/stuffy = list("Set a Ruler to 'high' in your class preferences to start the game!", "PLAY Ruler NOW!", "A Ruler is required to start.", "Pray for a Ruler.", "One day, there will be a Ruler.", "Just try playing Ruler.", "If you don't play Ruler, the game will never start.", "We need at least one Ruler to start the game.", "We're waiting for you to pick Ruler to start.", "Still no Ruler is readied..", "I'm going to lose my mind if we don't get a Ruler readied up.","No. The game will not start because there is no Ruler.","What's the point of Vanderlin without a Ruler?")

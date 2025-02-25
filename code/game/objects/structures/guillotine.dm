@@ -94,7 +94,7 @@
 									"<span class='warning'>I begin to pull the lever!</span>")
 				current_action = GUILLOTINE_ACTION_INUSE
 
-				if (do_after(user, GUILLOTINE_ACTIVATE_DELAY, target = src) && blade_status == GUILLOTINE_BLADE_RAISED)
+				if (do_after(user, GUILLOTINE_ACTIVATE_DELAY, src) && blade_status == GUILLOTINE_BLADE_RAISED)
 					current_action = 0
 					blade_status = GUILLOTINE_BLADE_MOVING
 					playsound(src, 'sound/misc/wood_saw.ogg', 100, TRUE)
@@ -184,7 +184,7 @@
 		if (blade_status == GUILLOTINE_BLADE_RAISED)
 			if (blade_sharpness < GUILLOTINE_BLADE_MAX_SHARP)
 				blade_status = GUILLOTINE_BLADE_SHARPENING
-				if(do_after(user, 7, target = src))
+				if(do_after(user, 7 DECISECONDS, src))
 					blade_status = GUILLOTINE_BLADE_RAISED
 					user.visible_message("<span class='notice'>[user] sharpens the large blade of the guillotine.</span>",
 						              "<span class='notice'>I sharpen the large blade of the guillotine.</span>")
@@ -275,7 +275,7 @@
 
 	current_action = GUILLOTINE_ACTION_WRENCH
 
-	if (do_after(user, GUILLOTINE_WRENCH_DELAY, target = src))
+	if (do_after(user, GUILLOTINE_WRENCH_DELAY, src))
 		current_action = 0
 		default_unfasten_wrench(user, I, 0)
 		setDir(SOUTH)

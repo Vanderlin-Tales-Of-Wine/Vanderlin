@@ -87,8 +87,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/equip_delay_self = 1
 	// In deciseconds, how long does it take for us to take off a piece of clothing or equipment. Normally will have same value as equip_delay_self
 	var/unequip_delay_self = 1
-	// Boolean. If true, can be moving while equipping (for helmets etc)
-	var/edelay_type = 1
+	/// Boolean. If true, can be moving while equipping (for helmets etc)
+	var/edelay_type = TRUE
 	// In deciseconds, how long an item takes to be put on another person via the undressing menu.
 	var/equip_delay_other = 20
 	//In deciseconds, how long an item takes to remove from another person via the undressing menu.
@@ -163,6 +163,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/gripsprite = FALSE //use alternate grip sprite for inhand
 	var/gripspriteonmob = FALSE //use alternate sprite for onmob
 
+	/// Item will be scaled by this factor when on the ground.
 	var/dropshrink = 0
 
 	var/wlength = WLENGTH_NORMAL		//each weapon length class has its own inherent dodge properties
@@ -243,8 +244,19 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
 
+	// ~Grid INVENTORY VARIABLES
+	/// Width we occupy on the hud - Keep null to generate based on w_class
+	var/grid_width
+	/// Height we occupy on the hud - Keep null to generate based on w_class
+	var/grid_height
+	///our melting material, basically if exists this is what we melt into in a crucible
+	var/datum/material/melting_material
+	///our metling amount
+	var/melt_amount = 0
+
 /obj/item/Initialize()
 	. = ..()
+
 	if(!pixel_x && !pixel_y && !bigboy)
 		pixel_x = rand(-5,5)
 		pixel_y = rand(-5,5)
@@ -264,7 +276,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(is_silver)
 		enchant(/datum/enchantment/silver)
 	update_transform()
-
 
 /obj/item/proc/update_transform()
 	transform = null
@@ -374,6 +385,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 	if(sharpness) //give sharp objects butchering functionality, for consistency
 		AddComponent(/datum/component/butchering, 80 * toolspeed)
+	else
+		max_blade_int = 0
+		blade_int = 0
 
 	if(max_blade_int && !blade_int) //set blade integrity to randomized 60% to 100% if not already set
 		blade_int = max_blade_int + rand(-(max_blade_int * 0.4), 0)
@@ -577,14 +591,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
 		to_chat(user,"<span class='notice'>I start picking up [src]...</span>")
-		if(!do_mob(user,src,30*grav_power))
+		if(!do_after(user, (3 SECONDS * grav_power), src))
 			return
 
 	if(SEND_SIGNAL(loc, COMSIG_STORAGE_BLOCK_USER_TAKE, src, user, TRUE))
 		return
 
 	if(!ontable() && isturf(loc))
-		if(!move_after(user,3,target = src))
+		if(!do_after(user, 3 DECISECONDS, src))
 			return
 
 	//If the item is in a storage item, take it out
@@ -620,16 +634,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(!(src in C.held_items) && unequip_delay_self)
 			if(unequip_delay_self >= 10)
 				C.visible_message(span_smallnotice("[C] starts taking off [src]..."), span_smallnotice("I start taking off [src]..."))
-			if(edelay_type)
-				if(move_after(C, minone(unequip_delay_self-C.STASPD), target = C))
-					return TRUE
-				else
-					return FALSE
-			else
-				if(do_after(C, minone(unequip_delay_self-C.STASPD), target = C))
-					return TRUE
-				else
-					return FALSE
+
+			var/doafter_flags = edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
+			return do_after(C, minone(unequip_delay_self-C.STASPD), timed_action_flags = doafter_flags)
 
 	return TRUE
 
@@ -715,6 +722,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/equipped(mob/user, slot, initial = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
 	for(var/X in actions)
 		var/datum/action/A = X
 		if(item_action_slot_check(slot, user)) //some items only give their actions buttons when in a specific slot.
@@ -973,6 +981,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 ///Returns the sharpness of src. If you want to get the sharpness of an item use this.
 /obj/item/proc/get_sharpness()
 	//Oh no, we are dulled out!
+	if(!max_blade_int) //not even sharp
+		return FALSE
 	if(max_blade_int && (blade_int <= 0))
 		return FALSE
 	var/max_sharp = sharpness
@@ -1119,11 +1129,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
 		if(ismob(target))
-			if(!do_mob(user, target, delay, extra_checks=tool_check))
+			if(!do_after(user, delay, target, extra_checks=tool_check))
 				return
 
 		else
-			if(!do_after(user, delay, target=target, extra_checks=tool_check))
+			if(!do_after(user, delay, target, extra_checks=tool_check))
 				return
 	else
 		// Invoke the extra checks once, just in case.

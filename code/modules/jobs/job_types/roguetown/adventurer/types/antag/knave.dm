@@ -21,7 +21,7 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
@@ -36,9 +36,9 @@
 	mask = /obj/item/clothing/mask/rogue/facemask/steel
 	neck = /obj/item/clothing/neck/roguetown/coif
 	armor = /obj/item/clothing/suit/roguetown/armor/leather
-	H.change_stat("endurance", 1)
-	H.change_stat("perception", 2)
-	H.change_stat("speed", 3) //It's all about speed and perception
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_PER, 2)
+	H.change_stat(STATKEY_SPD, 3) //It's all about speed and perception
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) //gets dodge expert but no medium armor training - gotta stay light
 	H.adjust_blindness(-3)
 	var/weapons = list("Crossbow & Dagger", "Bow & Sword")
@@ -49,7 +49,7 @@
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
 			beltr = /obj/item/ammo_holder/quiver/bolts
 			cloak = /obj/item/clothing/cloak/raincloak/mortus //cool cloak
-			beltl = /obj/item/rogueweapon/knife/hunting
+			beltl = /obj/item/rogueweapon/knife/dagger/steel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1) //rogue gets lockpicks
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)

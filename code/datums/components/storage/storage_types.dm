@@ -76,6 +76,10 @@
 	screen_max_rows = 8
 	screen_max_columns = 4
 
+/datum/component/storage/concrete/roguetown/bin/New(datum/P, ...)
+	. = ..()
+	cant_hold = typecacheof(list(/obj/item/rogueweapon))
+
 /datum/component/storage/concrete/roguetown/sack
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 5
@@ -96,7 +100,8 @@
 		/obj/item/natural/fur,
 		/obj/item/natural/hide,
 		/obj/item/alch/sinew,
-		/obj/item/alch/viscera
+		/obj/item/alch/viscera,
+		/obj/item/alch/bone
 		))
 
 /datum/component/storage/concrete/roguetown/egg_basket
@@ -115,3 +120,14 @@
 	set_holdable(
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
+
+/datum/component/storage/concrete/roguetown/crucible
+	screen_max_rows = 5
+	screen_max_columns = 3
+	max_w_class = WEIGHT_CLASS_HUGE
+	not_while_equipped = TRUE
+
+/datum/component/storage/concrete/roguetown/crucible/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check, params, storage_click)
+	if(!storing.melting_material)
+		return FALSE
+	. = ..()

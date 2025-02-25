@@ -155,7 +155,7 @@
 					txt += "It's my niece."
 	if(txt == "")
 		return
-	return span_nicegreen("<B>[txt]</B>")
+	return span_love("<B>[txt]</B>")
 
 /*
 * Transfers someone from another family to

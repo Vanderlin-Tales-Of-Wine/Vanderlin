@@ -16,6 +16,10 @@
 	stand_attempts = 4
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
+/mob/living/carbon/species/skeleton/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
+
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
 	skel_outfit = null
 
@@ -347,6 +351,7 @@
 	..()
 	equipOutfit(new /datum/outfit/job/roguetown/arena_skeleton)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
 
 	TOTALSTR = 20
 	TOTALSPD = 10

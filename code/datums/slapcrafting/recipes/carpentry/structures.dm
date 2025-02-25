@@ -4,10 +4,7 @@
 		/datum/slapcraft_step/item/small_log,
 		/datum/slapcraft_step/use_item/carpentry/hammer
 		)
-	result_type = /obj/structure/fermenting_barrel/crafted
-
-/obj/structure/fermenting_barrel/crafted
-	sellprice = 6
+	result_type = /obj/structure/fermentation_keg
 
 /datum/slapcraft_recipe/carpentry/structure/door
 	name = "wooden door"
@@ -69,17 +66,6 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer/second
 		)
 	result_type = /obj/item/roguebin
-	craftdiff = 0
-
-/datum/slapcraft_recipe/carpentry/structure/simple_dye_bin
-	name = "simple dye bin"
-	steps = list(
-		/datum/slapcraft_step/item/small_log,
-		/datum/slapcraft_step/use_item/carpentry/hammer,
-		/datum/slapcraft_step/item/jacksberry,
-		/datum/slapcraft_step/item/dirtclod
-		)
-	result_type = /obj/machinery/simple_dye_bin
 	craftdiff = 0
 
 /datum/slapcraft_recipe/carpentry/structure/chair
@@ -171,8 +157,6 @@
 /datum/slapcraft_recipe/carpentry/structure/noose/check_craft_requirements(mob/user, turf/T)
 	var/turf/checking = get_step_multiz(T, UP)
 	if(!checking)
-		return FALSE
-	if(!isopenturf(checking))
 		return FALSE
 	if(istype(checking,/turf/open/transparent/openspace))
 		return FALSE

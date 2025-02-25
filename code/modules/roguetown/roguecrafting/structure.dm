@@ -7,20 +7,6 @@
 		return FALSE
 	return ..()
 
-/datum/crafting_recipe/roguetown/structure/dye_bin_luxury
-	name = "luxury dye bin"
-	result = /obj/machinery/dye_bin
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-	/obj/item/reagent_containers/food/snacks/produce/fyritius = 3,
-	/obj/item/reagent_containers/food/snacks/produce/pear = 3,
-	/obj/item/reagent_containers/food/snacks/produce/sunflower = 3,)
-	verbage = "construct"
-	verbage_tp = "carpents"
-	craftsound = 'sound/foley/Building-01.ogg'
-	skillcraft = /datum/skill/craft/carpentry
-	craftdiff = 0
-	subtype_reqs = TRUE // so you can use any subtype of the berries and swampweed
-
 /datum/crafting_recipe/roguetown/structure/anvil
 	name = "anvil"
 	result = /obj/machinery/anvil
@@ -68,6 +54,15 @@
 	result = /obj/machinery/light/rogue/firebowl/standing
 	reqs = list(/obj/item/natural/stone = 1,
 				/obj/item/rogueore/coal = 1)
+	verbage = "build"
+	verbage_tp = "builds"
+
+/datum/crafting_recipe/roguetown/structure/standingblue
+	name = "standing fire (blue)"
+	result = /obj/machinery/light/rogue/firebowl/standing/blue
+	reqs = list(/obj/item/natural/stone = 1,
+				/obj/item/rogueore/coal = 1,
+				/obj/item/ash = 1)
 	verbage = "build"
 	verbage_tp = "builds"
 
@@ -120,6 +115,16 @@
 	name = "wall candles"
 	result = /obj/machinery/light/rogue/wallfire/candle
 	reqs = list(/obj/item/natural/stone = 1, /obj/item/candle/yellow = 1)
+	verbage = "build"
+	verbage_tp = "builds"
+	skillcraft = /datum/skill/craft/masonry
+	wallcraft = TRUE
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/structure/wallcandleblue
+	name = "wall candles (blue)"
+	result = /obj/machinery/light/rogue/wallfire/candle/blue
+	reqs = list(/obj/item/natural/stone = 1, /obj/item/candle/yellow = 1, /obj/item/ash = 1)
 	verbage = "build"
 	verbage_tp = "builds"
 	skillcraft = /datum/skill/craft/masonry

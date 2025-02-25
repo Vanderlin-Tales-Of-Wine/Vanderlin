@@ -9,17 +9,16 @@
 
 /datum/outfit/job/roguetown/bandit/hedgeknight/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet
-	gloves = /obj/item/clothing/gloves/roguetown/chain
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-	cloak = /obj/item/clothing/cloak/tabard/blkknight
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/rust
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/rust
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/dark
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
+	gloves = /obj/item/clothing/gloves/roguetown/plate/rust
+	pants = /obj/item/clothing/under/roguetown/platelegs/rust
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light/rust
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/sword/long/death // ow the edge. it's just spraypainted. no weapon choice you MUST use a sword
+	beltr = /obj/item/rogueweapon/sword/long
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger = 1)
@@ -36,11 +35,11 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-	H.change_stat("strength", 2)
-	H.change_stat("endurance", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("speed", 1)
+	H.change_stat(STATKEY_STR, 2)
+	H.change_stat(STATKEY_END, 1)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC) //hey buddy you hear about roleplaying

@@ -142,7 +142,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.current.ambushable = FALSE
 
 /mob/living/carbon/human/proc/spawn_pick_class()
-	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Rogue", "Treasure Hunter", "Mage")
+	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Thief", "Treasure Hunter", "Mage")
 	var/list/visoptions = list()
 
 	for(var/T in 1 to 5)
@@ -436,15 +436,17 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set category = "VAMPIRE"
 
 	var/datum/game_mode/chaosmode/C = SSticker.mode
+	var/mob/living/carbon/human/H = src
 	var/msg = input("Send a message.", "Command") as text|null
+	var/message = "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#960000'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span><span class = 'hellspeak'>: [msg]</span></span>"
 	if(!msg)
 		return
 	for(var/datum/mind/V in C.vampires)
-		to_chat(V, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(V, message)
 	for(var/datum/mind/D in C.deathknights)
-		to_chat(D, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(D, message)
 	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
-		to_chat(A, span_boldnotice("A message from [src.real_name]:[msg]"))
+		to_chat(A, message)
 
 /mob/living/carbon/human/proc/punish_spawn()
 	set name = "Punish Minion"
@@ -558,7 +560,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(!check_withdraw(-nextlevel))
 					to_chat(user, "I don't have enough vitae!")
 					return
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS))
 					lord.handle_vitae(-nextlevel)
 					lord.grow_in_power()
 					user.playsound_local(get_turf(src), 'sound/misc/batsound.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -567,7 +569,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(!check_withdraw(-500))
 					to_chat(user, "I don't have enough vitae!")
 					return
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS))
 					lord.handle_vitae(-500)
 					var/naming = input(user, "Select a name for the amulet.", "VANDERLIN") as text|null
 					var/obj/item/clothing/neck/roguetown/portalamulet/P = new(src.loc)
@@ -579,7 +581,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(!check_withdraw(-5000))
 					to_chat(user, "I don't have enough vitae!")
 					return
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS))
 					lord.handle_vitae(-5000)
 					new /obj/item/clothing/under/roguetown/platelegs/vampire (src.loc)
 					new /obj/item/clothing/under/roguetown/platelegs/vampire (src.loc)
@@ -634,7 +636,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			if(!choice)
 				return
 			user.visible_message("[user] begins to summon a portal.", "I begin to summon a portal.")
-			if(do_after(user, 30))
+			if(do_after(user, 3 SECONDS))
 				lord.handle_vitae(-1000)
 				if(istype(choice, /obj/item/clothing/neck/roguetown/portalamulet))
 					var/obj/item/clothing/neck/roguetown/portalamulet/A = choice
@@ -656,7 +658,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			if(!choice)
 				return
 			user.visible_message("[user] begins to summon a portal.", "I begin to summon a portal.")
-			if(do_after(user, 30))
+			if(do_after(user, 3 SECONDS))
 				lord.handle_vitae(-1000)
 				if(istype(choice, /obj/item/clothing/neck/roguetown/portalamulet))
 					var/obj/item/clothing/neck/roguetown/portalamulet/A = choice
@@ -687,7 +689,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /obj/structure/vampire/scryingorb/attack_hand(mob/living/carbon/human/user)
 	if(user.mind.special_role == "Vampire Lord")
 		user.visible_message("<font color='red'>[user]'s eyes turn dark red, as they channel the [src]</font>", "<font color='red'>I begin to channel my consciousness into a Predator's Eye.</font>")
-		if(do_after(user, 60))
+		if(do_after(user, 6 SECONDS))
 			user.scry(can_reenter_corpse = 1, force_respawn = FALSE)
 	if(user.mind.special_role == "Vampire Spawn")
 		to_chat(user, "I don't have the power to use this!")
@@ -709,7 +711,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					if(!lord.mypool.check_withdraw(-5000))
 						to_chat(user, "I don't have enough vitae!")
 						return
-					if(do_after(user, 100))
+					if(do_after(user, 10 SECONDS))
 						to_chat(user, "I have summoned a knight from the underworld. I need only wait for them to materialize.")
 						C.deathknightspawn = TRUE
 						for(var/mob/dead/observer/D in GLOB.player_list)
@@ -728,7 +730,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					if(!lord.mypool.check_withdraw(-2500))
 						to_chat(user, "I don't have enough vitae!")
 						return
-					if(do_after(user, 100))
+					if(do_after(user, 10 SECONDS))
 						GLOB.todoverride = "night"
 						sunstolen = TRUE
 						settod()

@@ -25,10 +25,10 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	cloak = /obj/item/clothing/cloak/cape/puritan
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	head = /obj/item/clothing/head/roguetown/helmet/leather/inquisitor
-	gloves = /obj/item/clothing/gloves/roguetown/leather
+	gloves = /obj/item/clothing/gloves/roguetown/angle
 	beltl = /obj/item/rogueweapon/sword/rapier/silver
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 
@@ -46,10 +46,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.change_stat("intelligence", 1)
-		H.change_stat("strength", 1)
-		H.change_stat("perception", 2)
-		H.change_stat("constitution", 2)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_PER, 2)
+		H.change_stat(STATKEY_CON, 2)
 		switch(H.patron?.name)
 			if("Astrata")
 				wrists = /obj/item/clothing/neck/roguetown/psycross/silver/astrata

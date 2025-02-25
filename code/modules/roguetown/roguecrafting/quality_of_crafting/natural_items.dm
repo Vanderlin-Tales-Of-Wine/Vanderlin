@@ -94,6 +94,46 @@
 	craftdiff = 0
 	uses_attacking_atom = TRUE
 
+/datum/repeatable_crafting_recipe/survival/stone_hoe
+	name = "stone hoe"
+	requirements = list(
+		/obj/item/natural/stone = 2,
+		/obj/item/natural/fibers = 1,
+		/obj/item/grown/log/tree/stick = 1,
+	)
+
+	attacking_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/grown/log/tree/stick
+	output = /obj/item/rogueweapon/hoe/stone
+	craftdiff = 0
+	uses_attacking_atom = TRUE
+
+/datum/repeatable_crafting_recipe/survival/stone_tongs
+	name = "stone tongs"
+	requirements = list(
+		/obj/item/natural/stone = 1,
+		/obj/item/grown/log/tree/stick = 2,
+	)
+
+	attacking_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/grown/log/tree/stick
+	output = /obj/item/rogueweapon/tongs/stone
+	craftdiff = 0
+	uses_attacking_atom = TRUE
+
+/datum/repeatable_crafting_recipe/survival/stone_pick
+	name = "stone pick"
+	requirements = list(
+		/obj/item/natural/stone = 2,
+		/obj/item/grown/log/tree/stick = 1,
+	)
+
+	attacking_atom = /obj/item/natural/stone
+	starting_atom = /obj/item/grown/log/tree/stick
+	output = /obj/item/rogueweapon/pick/stone
+	craftdiff = 0
+	uses_attacking_atom = TRUE
+
 /datum/repeatable_crafting_recipe/survival/stone_spear
 	name = "stone spear"
 	requirements = list(

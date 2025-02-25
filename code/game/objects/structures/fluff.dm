@@ -24,7 +24,7 @@
 /obj/structure/fluff/railing
 	name = "railing"
 	desc = ""
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/roguetown/misc/railing.dmi'
 	icon_state = "railing"
 	density = FALSE
 	anchored = TRUE
@@ -62,6 +62,8 @@
 		return 1
 	if(isobserver(mover))
 		return 1
+	if(mover.movement_type & FLYING)
+		return 1
 	if(isliving(mover))
 		var/mob/living/M = mover
 		if(!(M.mobility_flags & MOBILITY_STAND))
@@ -93,6 +95,8 @@
 		return 1
 	if(isobserver(O))
 		return 1
+	if(O.movement_type & FLYING)
+		return 1
 	if(isliving(O))
 		var/mob/living/M = O
 		if(!(M.mobility_flags & MOBILITY_STAND))
@@ -115,7 +119,7 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/OnCrafted(dirin)
+/obj/structure/fluff/railing/OnCrafted(dirin, mob/user)
 	dir = dirin
 	var/lay = getwlayer(dir)
 	if(lay)
@@ -135,7 +139,6 @@
 	name = "stone railing"
 	icon_state = "stonehedge"
 	blade_dulling = DULLING_BASHCHOP
-	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/railing/border
 	name = "border"
@@ -146,7 +149,6 @@
 /obj/structure/fluff/railing/fence
 	name = "palisade"
 	desc = "A sturdy fence of wooden stakes."
-	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "fence"
 	density = TRUE
 	opacity = TRUE
@@ -165,7 +167,7 @@
 	..()
 	smooth_fences()
 
-/obj/structure/fluff/railing/fence/OnCrafted(dirin)
+/obj/structure/fluff/railing/fence/OnCrafted(dirin, mob/user)
 	. = ..()
 	smooth_fences()
 
@@ -372,7 +374,7 @@
 	var/broke = FALSE
 	var/datum/looping_sound/clockloop/soundloop
 	drag_slowdown = 3
-	metalizer_result = /obj/item/roguegear
+	metalizer_result = /obj/item/roguegear/metal/bronze
 
 /obj/structure/fluff/clock/Initialize()
 	soundloop = new(src, FALSE)
@@ -459,7 +461,7 @@
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
 	var/broke = FALSE
 	pixel_y = 32
-	metalizer_result = /obj/item/roguegear
+	metalizer_result = /obj/item/roguegear/metal/bronze
 
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
@@ -742,7 +744,7 @@
 	to_chat(H, "<span class='notice'>[message2send]</span>")
 
 	if(random_message == 2)
-		if(do_after(H, 25, target = src))
+		if(do_after(H, 2.5 SECONDS, src))
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
@@ -848,7 +850,7 @@
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/honey))
+	if(istype(W, /obj/item/reagent_containers/food/snacks/spiderhoney))
 		if(user.mind)
 			if(user.mind.special_role == "Dark Elf")
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
@@ -873,7 +875,7 @@
 	if(user.mind)
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
 		if(B)
-			if(istype(W, /obj/item/roguecoin) || istype(W, /obj/item/roguegem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/roguetown/crown/circlet) || istype(W, /obj/item/roguestatue))
+			if(istype(W, /obj/item/roguecoin) || istype(W, /obj/item/roguegem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/reagent_containers/glass/carafe) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/roguetown/crown/circlet) || istype(W, /obj/item/roguestatue))
 				if(B.tri_amt >= 10)
 					to_chat(user, "<span class='warning'>The mouth doesn't open.</span>")
 					return
@@ -993,8 +995,13 @@
 
 /obj/structure/fluff/psycross/crafted/shrine/dendor_saiga
 	name = "shrine to Dendor"
-	desc = "The life force of a Saiga has consecrated this holy place.<br/> Present jacksberries, westleach leaves, and silk grubs for crafting a worthy sacrifice."
+	desc = "The life force of a Saiga has consecrated this holy place.<br/> Present jacksberries, westleach leaves, and eels for crafting a worthy sacrifice."
 	icon_state = "shrine_dendor_saiga"
+
+/obj/structure/fluff/psycross/crafted/shrine/dendor_gote
+	name = "shrine to Dendor"
+	desc = "The life force of a Gote has consecrated this holy place.<br/> Present poppies, swampweed leaves, and silk grubs for crafting a worthy sacrifice."
+	icon_state = "shrine_dendor_gote"
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
 	if(user.mind)
@@ -1014,7 +1021,7 @@
 						var/mob/living/carbon/human/thegroom
 						var/mob/living/carbon/human/thebride
 						//Did anyone get cold feet on the wedding?
-						for(var/mob/M in viewers(src, 7))
+						for(var/mob/M in viewers(src, 2))
 							testing("check [M]")
 							if(thegroom && thebride)
 								break

@@ -54,7 +54,7 @@
 //	adjustable = CAN_CADJUST
 
 /obj/item/clothing/under/roguetown/tights/random/Initialize()
-	color = RANDOM_PEASANT_DYES
+	color = pick(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/under/roguetown/tights/uncolored
@@ -90,8 +90,40 @@
 	body_parts_covered = GROIN|LEG_RIGHT
 
 /obj/item/clothing/under/roguetown/tights/vagrant/Initialize()
-	color = pick("#6b5445", "#435436", "#704542", "#79763f")
+	color = pick(CLOTHING_MUD_BROWN, CLOTHING_OLD_LEATHER, CLOTHING_SPRING_GREEN, CLOTHING_BARK_BROWN, CLOTHING_CANVAS	)
 	..()
+
+/obj/item/clothing/under/roguetown/tights/guard
+	color = CLOTHING_PLUM_PURPLE
+
+/obj/item/clothing/under/roguetown/tights/guard/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/under/roguetown/tights/guard/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+/obj/item/clothing/under/roguetown/tights/guardsecond
+	color = CLOTHING_BLOOD_RED
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/lordcolor(primary,secondary)
+	if(secondary)
+		color = secondary
+
+/obj/item/clothing/under/roguetown/tights/guardsecond/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
 
 /obj/item/clothing/under/roguetown/tights/sailor
 	name = "pants"
@@ -350,3 +382,16 @@
 	item_state = "capplateleg"
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+
+/obj/item/clothing/under/roguetown/platelegs/rust
+	name = "rusted chausses"
+	desc = "Old rusted chausses made of plated iron. They'll still protect your legs quite well."
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rustpants"
+	item_state = "rustpants"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR/2
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD

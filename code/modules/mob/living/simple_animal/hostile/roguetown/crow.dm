@@ -22,7 +22,6 @@
 /obj/item/reagent_containers/food/snacks/rogue/friedcrow
 	name = "fried zad"
 	desc = "A pesky, fried bird. The Grenzelhoftians say one 'eats zad' if they are mistaken or outdone."
-	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "fcrow"
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)

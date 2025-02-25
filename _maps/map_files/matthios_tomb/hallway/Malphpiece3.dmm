@@ -1,0 +1,266 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"c" = (
+/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/area/rogue/outdoors/caves)
+"d" = (
+/obj/structure/chair/bench/couchablack/r,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"f" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/area/rogue/outdoors/caves)
+"g" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/obj/item/rogue/instrument/flute,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"i" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/structure/mineral_door/wood/violet,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"l" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"m" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/structure/mineral_door/wood/violet,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"n" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"o" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"p" = (
+/obj/structure/chair/bench/couchablack,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"q" = (
+/obj/structure/mineral_door/wood/violet,
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"s" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/area/rogue/outdoors/caves)
+"t" = (
+/turf/closed/wall/mineral/rogue/stone/moss,
+/area/rogue/outdoors/caves)
+"v" = (
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"w" = (
+/mob/living/simple_animal/hostile/rogue/skeleton,
+/obj/item/clothing/suit/roguetown/shirt/tunic/blue,
+/obj/item/roguegem/blue,
+/obj/item/clothing/shoes/roguetown/boots,
+/obj/item/clothing/neck/roguetown/psycross/silver/malum_steel,
+/obj/item/clothing/ring/silver/saffira,
+/obj/item/storage/belt/rogue/leather/plaquesilver,
+/obj/item/rogueweapon/sword/rapier/silver,
+/obj/item/clothing/head/roguetown/hatblu,
+/obj/item/clothing/cloak/raincloak/blue,
+/obj/item/clothing/gloves/roguetown/leather/black,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"x" = (
+/obj/structure/table/vtable,
+/obj/item/clothing/gloves/roguetown/rare/elfplate,
+/obj/item/clothing/head/roguetown/rare/elfplate,
+/obj/item/rogueweapon/knife/dagger/steel/dirk,
+/obj/item/clothing/suit/roguetown/shirt/undershirt/webs,
+/obj/item/clothing/under/roguetown/webs,
+/obj/item/clothing/cloak/raincloak/purple,
+/obj/item/clothing/neck/roguetown/menears,
+/obj/item/clothing/neck/roguetown/mercmedal/anthrax,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"y" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"z" = (
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"B" = (
+/obj/structure/mineral_door/wood/violet,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"C" = (
+/obj/structure/mineral_door/wood/violet,
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"D" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"E" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"F" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"I" = (
+/obj/structure/chair/wood/rogue/chair_noble,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"K" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/obj/item/reagent_containers/glass/bottle/rogue/whitewine,
+/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"O" = (
+/obj/structure/fluff/statue/spider,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"R" = (
+/obj/structure/well,
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue/outdoors/caves)
+"S" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+"W" = (
+/obj/structure/table/vtable/v2,
+/obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine,
+/obj/item/candle/yellow/lit/infinite/strong/skull,
+/obj/item/reagent_containers/glass/bottle/rogue/stronghealthpot,
+/obj/item/roguecoin/silver/pile/xylix,
+/obj/item/needle,
+/obj/item/natural/bundle/silk,
+/obj/item/natural/cloth,
+/obj/item/natural/cloth,
+/obj/item/natural/cloth,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/outdoors/caves)
+
+(1,1,1) = {"
+c
+c
+c
+q
+c
+c
+c
+c
+"}
+(2,1,1) = {"
+v
+f
+n
+v
+K
+f
+o
+E
+"}
+(3,1,1) = {"
+D
+i
+w
+R
+v
+m
+v
+c
+"}
+(4,1,1) = {"
+c
+s
+F
+v
+g
+s
+c
+c
+"}
+(5,1,1) = {"
+c
+c
+c
+C
+c
+c
+c
+c
+"}
+
+(1,1,2) = {"
+t
+t
+t
+B
+t
+t
+t
+t
+"}
+(2,1,2) = {"
+t
+p
+z
+a
+y
+z
+a
+B
+"}
+(3,1,2) = {"
+t
+d
+a
+O
+l
+a
+x
+t
+"}
+(4,1,2) = {"
+B
+a
+z
+S
+a
+I
+W
+t
+"}
+(5,1,2) = {"
+t
+t
+t
+t
+B
+t
+t
+t
+"}

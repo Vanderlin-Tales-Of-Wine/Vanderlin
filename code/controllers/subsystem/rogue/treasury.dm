@@ -88,7 +88,7 @@ SUBSYSTEM_DEF(treasury)
 		amt_to_generate = round(amt_to_generate)
 		give_money_treasury(amt_to_generate, "wealth horde")
 		for(var/mob/living/carbon/human/X in GLOB.human_list)
-			if(X.job == "Monarch" || X.job == "Consort")
+			if(X.job == "Monarch" || X.job == "Consort" || X.job == "Steward")
 				send_ooc_note("Income from wealth horde: +[amt_to_generate]", name = X.real_name)
 				return
 

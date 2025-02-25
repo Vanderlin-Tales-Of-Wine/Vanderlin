@@ -90,12 +90,14 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/xylix
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 		if(/datum/patron/divine/malum)
 			head = /obj/item/clothing/head/roguetown/roguehood/random
 			neck = /obj/item/clothing/neck/roguetown/psycross/silver/malum
@@ -123,9 +125,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-		H.change_stat("intelligence", 1)
-		H.change_stat("endurance", 2) // For casting lots of spells, and working long hours without sleep at the church
-		H.change_stat("perception", -1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_END, 2) // For casting lots of spells, and working long hours without sleep at the church
+		H.change_stat(STATKEY_PER, -1)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

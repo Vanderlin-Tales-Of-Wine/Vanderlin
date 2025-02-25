@@ -4,8 +4,6 @@
 	desc = "Horrid smell to me, wonderful smell to big game."
 	icon_state = "bait"
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	var/check_counter = 0
@@ -29,7 +27,7 @@
 	. = ..()
 	user.visible_message("<span class='notice'>[user] begins deploying the bait...</span>", \
 						"<span class='notice'>I begin deploying the bait...</span>")
-	if(do_after(user, deploy_speed * (1/(user.mind?.get_skill_level(/datum/skill/craft/traps) + 1)), target = src)) //rogtodo hunting skill
+	if(do_after(user, deploy_speed * (1/(user.mind?.get_skill_level(/datum/skill/craft/traps) + 1)), src)) //rogtodo hunting skill
 		user.dropItemToGround(src, TRUE)
 		START_PROCESSING(SSobj, src)
 		name = "bait"
@@ -40,7 +38,7 @@
 	if(deployed)
 		user.visible_message("<span class='notice'>[user] begins gathering up the bait...</span>", \
 							"<span class='notice'>I begin gathering up the bait...</span>")
-		if(do_after(user, deploy_speed * (1/(user.mind?.get_skill_level(/datum/skill/craft/traps) + 1)), target = src)) //rogtodo hunting skill
+		if(do_after(user, deploy_speed * (1/(user.mind?.get_skill_level(/datum/skill/craft/traps) + 1)), src)) //rogtodo hunting skill
 			STOP_PROCESSING(SSobj, src)
 			name = initial(name)
 			deployed = 0

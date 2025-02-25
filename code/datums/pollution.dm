@@ -48,8 +48,9 @@
 	REMOVE_POLLUTION_CURRENTRUN(src)
 	SET_UNACTIVE_POLLUTION(src)
 	UNREGISTER_POLLUTION(src)
-	if(my_turf?.pollution == src)
-		my_turf.pollution = null
+	if(isopenturf(my_turf))
+		if(my_turf?.pollution == src)
+			my_turf.pollution = null
 	return ..()
 
 /datum/pollution/proc/touch_act(mob/living/carbon/victim)
@@ -111,7 +112,7 @@
 	if(dominant_pollutant.descriptor == SCENT_DESC_ODOR)
 		to_chat(sniffer, span_warning(smell_string))
 	else
-		to_chat(sniffer, span_notice(smell_string))
+		to_chat(sniffer, span_info(smell_string))
 
 /datum/pollution/proc/scrub_amount(amount_to_scrub, update_active = TRUE)
 	if(amount_to_scrub >= total_amount || !isopenturf(my_turf) || QDELING(my_turf))

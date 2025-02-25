@@ -32,9 +32,9 @@
 	icon2step = 10
 
 /obj/item/natural/cured/essence
-	name = "essense of wilderness"
+	name = "essence of wilderness"
 	icon_state = "wessence"
-	desc = "A mystical essense embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
+	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
@@ -83,6 +83,12 @@
 	icon_state = "saigahead"
 	layer = 3.1
 
+/obj/item/natural/head/gote
+	name = "gote head"
+	desc = "the head of a fiery gote."
+	icon_state = "gotehead"
+	layer = 3.1
+
 //RTD make this a storage item and make clickign on animals with things put it in storage
 /obj/item/natural/saddle
 	name = "saddle"
@@ -105,7 +111,7 @@
 			testing("yea2")
 			if(!target.has_buckled_mobs())
 				user.visible_message("<span class='warning'>[user] tries to saddle [target]...</span>")
-				if(do_after(user, 40, target = target))
+				if(do_after(user, 4 SECONDS, target))
 					playsound(loc, 'sound/foley/saddledismount.ogg', 100, FALSE)
 					user.dropItemToGround(src)
 					S.ssaddle = src

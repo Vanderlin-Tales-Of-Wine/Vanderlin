@@ -54,7 +54,7 @@
 		else
 			to_chat(user, "You start weaving some cloth...")
 			while(src.storedfiber > 1)
-				if(!do_after(weaver, (weavetime - (skilltimemod*skill)),target = src) || src.storedfiber < 2)
+				if(!do_after(weaver, (weavetime - (skilltimemod*skill)), src) || src.storedfiber < 2)
 					break
 				src.storedfiber -= 2
 				new /obj/item/natural/cloth(get_turf(src))

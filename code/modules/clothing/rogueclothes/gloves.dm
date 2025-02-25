@@ -195,6 +195,19 @@
 	grid_width = 64
 	grid_height = 32
 
+/obj/item/clothing/gloves/roguetown/plate/rust
+	name = "rusted riveted gauntlets"
+	desc = "Riveted gauntlets made out of iron. They're covered in rust.. at least the glove liner is good still."
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rustgloves"
+	item_state = "rustgloves"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR/2
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD
+
 /obj/item/clothing/gloves/roguetown/rare
 	icon = 'icons/roguetown/clothing/Racial_Armour.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/onmob_racial.dmi'

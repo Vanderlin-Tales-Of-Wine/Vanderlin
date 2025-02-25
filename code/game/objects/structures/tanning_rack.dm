@@ -40,11 +40,11 @@
 	if((user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut) && hide)
 		if(anchored)
 			var/skill_level = user.mind.get_skill_level(/datum/skill/craft/tanning)
-			var/work_time = (120 - (skill_level * 15))
+			var/work_time = (12 SECONDS - (skill_level * 15))
 			var/pieces_to_spawn = rand(1, min(skill_level + 1, 6)) //Random number from 1 to skill level
 			var/sound_played = FALSE
 			to_chat(user, span_warning("I begin scraping the hide's skin..."))
-			if(!do_after(user, work_time, target = user))
+			if(!do_after(user, work_time))
 				return
 			playsound(src,pick('sound/items/book_open.ogg','sound/items/book_page.ogg'), 100, FALSE)
 			hide = null
@@ -72,7 +72,7 @@
 			to_chat(user, span_warning("You anchor [src]."))
 		playsound(src,pick('sound/foley/woodclimb.ogg'), 100, TRUE)
 		return
-	..()
+	. = ..()
 
 /obj/machinery/tanningrack/update_icon()
 	cut_overlays()

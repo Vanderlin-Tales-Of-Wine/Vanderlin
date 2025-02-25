@@ -67,9 +67,9 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("strength", 1)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_STR, 1)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
@@ -135,6 +135,10 @@
 	icon_state = "crusader_helmt2"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
+	bloody_icon = 'icons/effects/blood.dmi'
+	bloody_icon_state = "itemblood"
+	worn_x_dimension = 32
+	worn_y_dimension = 32
 
 /obj/item/clothing/cloak/cape/crusader/ComponentInitialize()
 	. = ..()
@@ -149,6 +153,8 @@
 
 /obj/item/clothing/cloak/cape/crusader/dropped(mob/living/carbon/human/user)
 	..()
+	if(QDELETED(src))
+		return
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()
