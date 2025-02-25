@@ -501,9 +501,12 @@
 						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='boldannounce'>Ghosted</span>)\n"
 						continue //Ghosted while alive
 
-	log_admin(msg.Join()) //vanderlin edit: adds roundstart logouts to the admin log in game.log (currently)
-	for (var/C in GLOB.admins)
-		to_chat(C, msg.Join())
+	/* V: */
+	var/final_report = msg.Join()
+	log_admin(final_report)
+	for(var/C in GLOB.admins)
+		to_chat(C, final_report)
+	/* V */
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/game_mode/proc/age_check(client/C)
