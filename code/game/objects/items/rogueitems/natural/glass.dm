@@ -8,12 +8,12 @@
 	throw_range = 5
 	max_integrity = 20
 	w_class = WEIGHT_CLASS_BULKY
-	bundletype = /obj/item/natural/bundle/glass
+	bundletype = /obj/item/bundle/glass
 
-/obj/item/natural/bundle/glass
+/obj/item/bundle/glass
 	name = "stack of glass"
 	desc = "A stack of fragile glass panes."
-	icon_state = "glasspane1"
+	icon_state = "glasspane2"
 	possible_item_intents = list(/datum/intent/use)
 	force = 15
 	throwforce = 18
@@ -25,10 +25,7 @@
 	stackname = "glass"
 	stacktype = /obj/item/natural/glass
 	maxamount = 3
-	icon1 = "glasspane1"
-	icon1step = 2
-	icon2 = "glasspane2"
-	icon2step = 3
+	iconstatename = "glasspane"
 
 /obj/item/natural/glass/shard
 	name = "shard"
