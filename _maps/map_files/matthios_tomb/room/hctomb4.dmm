@@ -434,7 +434,10 @@
 /turf/open/floor/rogue/tile/checker,
 /area/rogue)
 "sm" = (
-/obj/structure/chair/bench/coucha,
+/obj/effect/spawner/roguemap/loot/common,
+/obj/effect/spawner/roguemap/loot/common,
+/obj/effect/spawner/roguemap/loot/common,
+/obj/structure/closet/crate/roguecloset/inn,
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "sK" = (
@@ -470,10 +473,11 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue)
+"uC" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
+/turf/open/floor/rogue/cobblerock/alt,
+/area/rogue)
 "uQ" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
@@ -538,7 +542,6 @@
 /turf/open/floor/rogue/rooftop,
 /area/rogue)
 "xZ" = (
-/obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
@@ -681,13 +684,6 @@
 "Fy" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue)
-"FR" = (
-/obj/structure/closet/crate/roguecloset/inn/south,
-/obj/effect/spawner/roguemap/loot/common,
-/obj/effect/spawner/roguemap/loot/common,
-/obj/effect/spawner/roguemap/loot/common,
-/turf/open/floor/carpet/inn,
-/area/rogue)
 "Gw" = (
 /obj/structure/chair/wood/rogue/chair_noble/red{
 	dir = 1
@@ -698,8 +694,15 @@
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue)
+"Gx" = (
+/obj/structure/chair/wood/rogue/chair_noble/red,
+/turf/open/floor/rogue/carpet,
+/area/rogue)
 "GU" = (
 /obj/structure/giantfur/small,
+/obj/structure/chair/wood/rogue/chair_noble/red{
+	dir = 8
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "GX" = (
@@ -785,10 +788,6 @@
 /obj/structure/bed/rogue/mediocre,
 /obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/rogue/ruinedwood/chevron,
-/area/rogue)
-"KS" = (
-/obj/structure/chair/bench/coucha/r,
-/turf/open/floor/rogue/carpet,
 /area/rogue)
 "KU" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -1163,9 +1162,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue)
 "Xu" = (
-/obj/structure/chair/wood/rogue/fancy{
-	dir = 1
-	},
+/obj/structure/table/wood/reinforced_alt,
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "XZ" = (
@@ -2006,7 +2003,7 @@ MS
 ab
 aD
 aD
-aD
+uC
 Yg
 Yg
 Yg
@@ -2077,7 +2074,7 @@ Yg
 "}
 (27,1,1) = {"
 Yg
-aD
+uC
 Yg
 Yg
 Yg
@@ -2824,7 +2821,7 @@ sm
 UT
 PI
 UT
-UT
+Gx
 Xu
 TS
 db
@@ -2852,7 +2849,7 @@ Yg
 Yg
 AS
 Ti
-KS
+UT
 ya
 UT
 UT
@@ -2916,7 +2913,7 @@ Yg
 db
 AS
 ab
-Il
+ti
 cu
 xl
 lE
@@ -2948,7 +2945,7 @@ db
 db
 AS
 ab
-FR
+Il
 xl
 xl
 iT

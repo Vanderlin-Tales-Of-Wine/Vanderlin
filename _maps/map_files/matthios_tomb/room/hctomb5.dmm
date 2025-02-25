@@ -6,6 +6,7 @@
 /obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
 /obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
 /obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "aW" = (
@@ -34,7 +35,13 @@
 /area/rogue)
 "bW" = (
 /obj/machinery/light/rogue/cauldron,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks/green,
+/area/rogue)
+"ca" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/rogue/wood,
 /area/rogue)
 "eg" = (
 /turf/open/transparent/openspace,
@@ -52,6 +59,17 @@
 "fC" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue)
+"hR" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/wood,
+/area/rogue)
+"iP" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/carpet/purple,
+/area/rogue)
 "iW" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/rogue/naturalstone,
@@ -66,6 +84,21 @@
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
+"kZ" = (
+/obj/structure/table/stone_small,
+/obj/item/reagent_containers/food/snacks/rogue/meat/fatty{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/food/snacks/fat{
+	pixel_y = 13
+	},
+/obj/item/reagent_containers/food/snacks/truffles{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue)
 "mA" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue)
@@ -78,8 +111,15 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue)
 "ni" = (
-/obj/item/clothing/neck/roguetown/psycross/g,
+/obj/item/clothing/neck/roguetown/psycross/g{
+	pixel_x = -6;
+	pixel_y = 0
+	},
 /obj/structure/table/stone_small,
+/obj/item/rogueweapon/knife/dagger/silver{
+	pixel_x = 6;
+	pixel_y = 5
+	},
 /turf/open/floor/carpet/red,
 /area/rogue)
 "nV" = (
@@ -87,34 +127,36 @@
 /area/rogue)
 "oa" = (
 /obj/structure/closet/crate/roguecloset/dark,
-/obj/item/clothing/suit/roguetown/shirt/dress/silkdress/random,
-/obj/item/clothing/suit/roguetown/shirt/undershirt/fancy,
-/obj/item/clothing/under/roguetown/skirt/random,
 /obj/item/clothing/ring/silver,
-/obj/item/clothing/gloves/roguetown/leather,
 /turf/open/floor/carpet/royalblack,
 /area/rogue)
 "or" = (
+/obj/item/clothing/under/roguetown/skirt/random{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/carpet/royalblack,
 /area/rogue)
 "oF" = (
-/obj/structure/mannequin/male,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/suit/roguetown/shirt/robe/white,
-/obj/item/clothing/neck/roguetown/psycross/silver,
-/turf/open/water/bath,
+/obj/structure/mannequin,
+/turf/open/floor/rogue/herringbone,
 /area/rogue)
 "pF" = (
-/obj/structure/mannequin/male,
-/obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/suit/roguetown/shirt/robe/white,
-/obj/item/clothing/neck/roguetown/psycross/silver,
 /obj/machinery/light/rogue/wallfire/candle/weak/l,
-/turf/open/water/bath,
+/turf/open/floor/rogue/herringbone,
 /area/rogue)
 "pR" = (
 /obj/structure/mineral_door/wood/red,
 /turf/open/floor/rogue/wood,
+/area/rogue)
+"qh" = (
+/turf/open/floor/rogue/herringbone,
+/area/rogue)
+"qk" = (
+/obj/machinery/light/rogue/wallfire/candle/weak/l,
+/obj/structure/mannequin/male/female,
+/turf/open/floor/rogue/herringbone,
 /area/rogue)
 "rx" = (
 /obj/structure/stairs/stone{
@@ -130,6 +172,12 @@
 "tc" = (
 /turf/open/floor/carpet/purple,
 /area/rogue)
+"ti" = (
+/obj/machinery/light/rogue/torchholder/l,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/blocks,
+/area/rogue)
 "uS" = (
 /obj/effect/decal/shadow_floor{
 	dir = 4
@@ -144,10 +192,27 @@
 /obj/effect/decal/shadow_floor{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "vK" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue)
+"vM" = (
+/obj/structure/mannequin/male,
+/turf/open/floor/rogue/herringbone,
+/area/rogue)
+"vR" = (
+/obj/item/clothing/gloves/roguetown/leather{
+	pixel_x = -7;
+	pixel_y = -9
+	},
+/obj/effect/decal/cleanable/vomit/old,
+/turf/open/floor/carpet/royalblack,
+/area/rogue)
+"xz" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/blocks/green,
 /area/rogue)
 "yq" = (
 /obj/effect/decal/cobbleedge{
@@ -158,6 +223,7 @@
 "yJ" = (
 /obj/structure/table/stone_small,
 /obj/item/pestle,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "yW" = (
@@ -175,25 +241,27 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "zc" = (
 /obj/effect/decal/shadow_floor,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "zG" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue)
 "AC" = (
-/obj/structure/trap/wall_projectile,
 /obj/structure/trap/wall_projectile{
-	dir = 1
+	dir = 4
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue)
 "BU" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 1
+	dir = 1;
+	locked = 1
 	},
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/rogue/blocks,
@@ -215,6 +283,7 @@
 /obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "CT" = (
@@ -224,7 +293,11 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue)
 "DK" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/shade,
+/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig,
+/obj/item/clothing/suit/roguetown/shirt/undershirt/fancy{
+	pixel_x = 10;
+	pixel_y = 6
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue)
 "Fc" = (
@@ -239,8 +312,7 @@
 /area/rogue)
 "GK" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+	dir = 1
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue)
@@ -258,6 +330,7 @@
 /obj/item/alch/earthdust,
 /obj/item/alch/coaldust,
 /obj/item/alch/coaldust,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "JG" = (
@@ -270,6 +343,11 @@
 /area/rogue)
 "KE" = (
 /obj/effect/decal/remains/human,
+/obj/item/reagent_containers/glass/bottle/rogue{
+	pixel_x = -6;
+	pixel_y = -6;
+	closed = 0
+	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue)
 "KR" = (
@@ -278,12 +356,18 @@
 /area/rogue)
 "Lb" = (
 /obj/machinery/light/rogue/torchholder/l,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue)
 "MX" = (
 /obj/effect/decal/shadow_floor{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/cobble,
+/area/rogue)
+"NE" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "NO" = (
@@ -310,6 +394,7 @@
 /area/rogue)
 "Sf" = (
 /obj/machinery/light/rogue/torchholder/l,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "Sk" = (
@@ -323,6 +408,10 @@
 /obj/item/candle/yellow,
 /obj/structure/table/wood/plain/alt,
 /turf/open/floor/rogue/wood,
+/area/rogue)
+"Vk" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/blocks,
 /area/rogue)
 "Vo" = (
 /turf/closed/wall/mineral/rogue/craftstone,
@@ -345,6 +434,10 @@
 "Xe" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue)
+"XH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/rogue/wood,
+/area/rogue)
 "XM" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/rogue/naturalstone,
@@ -355,9 +448,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue)
-"ZP" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/turf/open/floor/rogue/wood,
+"Za" = (
+/obj/structure/stairs/stone,
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/rogue/cobble,
 /area/rogue)
 "ZV" = (
 /turf/open/floor/rogue/blocks,
@@ -651,8 +745,8 @@ Xe
 "}
 (14,1,1) = {"
 HT
-nV
-nV
+xz
+xz
 fC
 Gf
 ZV
@@ -677,7 +771,7 @@ bW
 nV
 fC
 BU
-ZV
+Vk
 ZV
 ZV
 GK
@@ -697,7 +791,7 @@ Xe
 HT
 nV
 nV
-fC
+NE
 HT
 HT
 HT
@@ -717,12 +811,12 @@ Xe
 "}
 (17,1,1) = {"
 HT
-fC
-fC
-fC
+kZ
+NE
+NE
 zc
 HT
-Lb
+ti
 In
 HT
 Sk
@@ -740,11 +834,11 @@ Xe
 (18,1,1) = {"
 HT
 fC
-fC
+NE
 Pt
 zc
 Kw
-ZV
+Vk
 aw
 HT
 Sk
@@ -766,7 +860,7 @@ NO
 HT
 jq
 HT
-ZV
+Vk
 zb
 HT
 Sk
@@ -1063,7 +1157,7 @@ Xe
 Xe
 Xe
 WQ
-pF
+qk
 ei
 pF
 WQ
@@ -1071,7 +1165,7 @@ WQ
 (13,1,2) = {"
 HT
 HT
-ZP
+XH
 TU
 HT
 HT
@@ -1085,7 +1179,7 @@ Xe
 Xe
 Xe
 WQ
-oF
+qh
 KR
 oF
 WQ
@@ -1093,10 +1187,10 @@ WQ
 (14,1,2) = {"
 HT
 VF
-fh
-fh
-fh
-fh
+XH
+XH
+XH
+XH
 CP
 bk
 HT
@@ -1107,20 +1201,20 @@ eg
 Xe
 Xe
 WQ
-oF
+vM
 ei
-oF
+qh
 WQ
 "}
 (15,1,2) = {"
 HT
 Re
-fh
+XH
 tc
+XH
+ca
 fh
-fh
-fh
-fh
+XH
 HT
 eg
 eg
@@ -1136,10 +1230,10 @@ WQ
 "}
 (16,1,2) = {"
 HT
+XH
 fh
-fh
-tc
-fh
+iP
+XH
 Vo
 Vo
 pR
@@ -1159,7 +1253,7 @@ Xe
 (17,1,2) = {"
 HT
 fh
-jf
+hR
 jf
 jf
 Vo
@@ -1204,10 +1298,10 @@ Xe
 HT
 aW
 eg
-NO
+Za
 vw
 Vo
-or
+vR
 bn
 HT
 eg
@@ -1218,7 +1312,7 @@ eg
 Xe
 Xe
 Xe
-Xe
+Sk
 Xe
 Xe
 "}
@@ -1240,7 +1334,7 @@ eg
 Xe
 Xe
 Xe
-Xe
+HT
 Xe
 Xe
 "}
