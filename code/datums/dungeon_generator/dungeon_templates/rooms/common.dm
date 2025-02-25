@@ -376,3 +376,25 @@
 	east_offset = 12
 	north_offset = 14
 	south_offset = 15
+
+/datum/map_template/dungeon/room/Thelastbreath
+	mappath = "_maps/map_files/matthios_tomb/room/Thelastbreath.dmm"
+	id = "Thelastbreath"
+	width = 45
+	height = 45
+
+	west_offset = 22
+	east_offset = 22
+	north_offset = 22
+	south_offset = 22
+
+/datum/map_template/dungeon/room/AcidMageTower
+	mappath = "_maps/map_files/matthios_tomb/room/AcidMageTower.dmm"
+	id = "AcidMageTower"
+	width = 30
+	height = 30
+
+	west_offset = 15
+	east_offset = 15
+	north_offset = 15
+	south_offset = 15
