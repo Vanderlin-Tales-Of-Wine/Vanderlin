@@ -606,18 +606,12 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "ack" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor)
 "acl" = (
 /turf/open/floor/rogue/carpet/lord,
 /area/rogue)
-"acm" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/manor)
 "acn" = (
 /obj/structure/lever{
 	redstone_id = "thronegrille"
@@ -1258,9 +1252,7 @@
 /turf/open/floor/rogue/tile/masonic,
 /area/rogue/indoors/town/manor)
 "aer" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue)
 "aes" = (
@@ -1994,7 +1986,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
 "agC" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
@@ -2006,9 +1998,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "agE" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
 "agF" = (
@@ -3821,7 +3811,7 @@
 /area/rogue)
 "amn" = (
 /obj/structure/fluff/wallclock,
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/woodturned,
 /area/rogue)
 "amo" = (
@@ -3927,13 +3917,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "amC" = (
-/obj/structure/chair/bench/couch,
-/turf/open/floor/rogue/wood,
-/area/rogue)
-"amD" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "amE" = (
@@ -5989,9 +5973,7 @@
 /area/rogue)
 "asH" = (
 /obj/machinery/light/rogue/wallfire/candle,
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "asI" = (
@@ -5999,11 +5981,6 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/open/floor/rogue/wood,
-/area/rogue)
-"asJ" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/obj/structure/chair/bench/couch,
 /turf/open/floor/rogue/wood,
 /area/rogue)
 "asK" = (
@@ -6399,18 +6376,12 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "atU" = (
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/carpet,
 /area/rogue)
 "atV" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town)
-"atW" = (
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
-/turf/open/floor/rogue/carpet,
-/area/rogue)
 "atX" = (
 /obj/structure/chair/wood/rogue/fancy{
 	icon_state = "chair1";
@@ -11057,14 +11028,12 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/structure/chair/bench/couch,
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
 "aJb" = (
 /obj/machinery/light/rogue/wallfire/candle,
-/obj/structure/chair/bench/couch{
-	icon_state = "redcouch2"
-	},
+/obj/structure/chair/bench/couch/normal,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
 "aJc" = (
@@ -117586,7 +117555,7 @@ abV
 azi
 azi
 acc
-acm
+ack
 acI
 ada
 adq
@@ -187506,7 +187475,7 @@ ams
 aag
 amy
 dos
-amD
+amC
 aHG
 aHG
 tuz
@@ -250976,7 +250945,7 @@ spz
 asx
 asB
 tuz
-asJ
+asH
 aHG
 dos
 bst
@@ -251233,7 +251202,7 @@ spz
 asx
 asE
 tuz
-amD
+amC
 aHG
 dos
 asW
@@ -251755,7 +251724,7 @@ aag
 aag
 afN
 dos
-amD
+amC
 aag
 amp
 dos
@@ -254076,7 +254045,7 @@ aHG
 asz
 aag
 aag
-atW
+atU
 aag
 atZ
 aag

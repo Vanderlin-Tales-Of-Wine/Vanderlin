@@ -317,7 +317,7 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue)
 "qm" = (
-/obj/structure/chair/bench/couchablack,
+/obj/structure/chair/bench/couch/normal/alt,
 /turf/open/floor/carpet/red,
 /area/rogue)
 "qu" = (
@@ -896,7 +896,7 @@
 /turf/open/floor/rogue/tile/checker,
 /area/rogue)
 "MG" = (
-/obj/structure/chair/bench/coucha/r,
+/obj/structure/chair/bench/couch/normal/mapper_dont_use_this,
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/carpet/red,
 /area/rogue)
