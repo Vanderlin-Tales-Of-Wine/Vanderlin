@@ -43,8 +43,8 @@
 		beltr = /obj/item/reagent_containers/glass/bottle/rogue/beer/blackgoat
 		neck = /obj/item/storage/keyring/innkeep
 		cloak = /obj/item/clothing/cloak/apron/waist
-		H.change_stat("strength", 1)
-		H.change_stat("endurance", 1)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_END, 1)
 	else
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
@@ -52,5 +52,5 @@
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/keyring/innkeep
 		beltr = /obj/item/reagent_containers/glass/bottle/rogue/beer/blackgoat
-		H.change_stat("endurance", 1)
-		H.change_stat("constitution", 1)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_CON, 1)

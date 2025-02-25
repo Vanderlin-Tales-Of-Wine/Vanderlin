@@ -40,10 +40,10 @@
 	beltl = /obj/item/rogueweapon/pick
 	backr = /obj/item/rogueweapon/axe/steel
 	backl = /obj/item/storage/backpack/rogue/backpack
-	H.change_stat("strength", 1)
-	H.change_stat("intelligence", 2)
-	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 2)
+	H.change_stat(STATKEY_STR, 1)
+	H.change_stat(STATKEY_INT, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 2)
 
 	if(H.dna.species.name == "Dwarf")
 		head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm

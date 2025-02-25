@@ -54,7 +54,7 @@
 
 		H.merctype = 6
 
-		H.change_stat("perception", 3)
-		H.change_stat("endurance", 1)
-		H.change_stat("strength", 1)
+		H.change_stat(STATKEY_PER, 3)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_STR, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

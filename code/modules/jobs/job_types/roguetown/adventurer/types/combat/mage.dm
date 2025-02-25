@@ -43,12 +43,12 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/plain
 			backl = /obj/item/storage/backpack/rogue/backpack
 			H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-			H.change_stat("intelligence", 1)
-		H.change_stat("strength", -2)
-		H.change_stat("intelligence", 3)
-		H.change_stat("constitution", -2)
-		H.change_stat("endurance", -1)
-		H.change_stat("speed", -2)
+			H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_STR, -2)
+		H.change_stat(STATKEY_INT, 3)
+		H.change_stat(STATKEY_CON, -2)
+		H.change_stat(STATKEY_END, -1)
+		H.change_stat(STATKEY_SPD, -2)
 		H.mind.adjust_spellpoints(7)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)

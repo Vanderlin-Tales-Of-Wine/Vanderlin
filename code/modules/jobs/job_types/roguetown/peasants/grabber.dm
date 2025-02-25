@@ -41,7 +41,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-		H.change_stat("strength", 1)
+		H.change_stat(STATKEY_STR, 1)
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		pants = /obj/item/clothing/under/roguetown/tights/sailor
@@ -51,9 +51,9 @@
 		belt = /obj/item/storage/belt/rogue/leather/rope
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red
-		H.change_stat("endurance", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("strength", 1)//thug bodytype
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_STR, 1)//thug bodytype
 	else
 		shoes = /obj/item/clothing/shoes/roguetown/gladiator
 		pants = /obj/item/clothing/under/roguetown/tights/sailor
@@ -63,7 +63,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/sea
 		head = /obj/item/clothing/head/roguetown/headband
-		H.change_stat("endurance", 1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("speed", 1)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_INT, 1)
+		H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_CRATEMOVER, type)

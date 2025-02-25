@@ -43,11 +43,11 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 
-			H.change_stat("strength", 2) //Grenz merc statline but with maluses.
-			H.change_stat("constitution", 1)
-			H.change_stat("endurance", 1)
-			H.change_stat("intelligence", -1) //Brutebrain, relies on archer for healing, lockpicking and crafting.
-			H.change_stat("speed", -1)
+			H.change_stat(STATKEY_STR, 2) //Grenz merc statline but with maluses.
+			H.change_stat(STATKEY_CON, 1)
+			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_INT, -1) //Brutebrain, relies on archer for healing, lockpicking and crafting.
+			H.change_stat(STATKEY_SPD, -1)
 
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
@@ -74,8 +74,8 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) //Spread-out support skills, but inferior to Steppesman/Boltslinger.
 			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 
-			H.change_stat("speed", 2) //Speedier than a Steppesman, but not as tough or damaging.
-			H.change_stat("endurance", 1)
+			H.change_stat(STATKEY_SPD, 2) //Speedier than a Steppesman, but not as tough or damaging.
+			H.change_stat(STATKEY_END, 1)
 
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 

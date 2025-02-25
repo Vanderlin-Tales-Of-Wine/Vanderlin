@@ -647,6 +647,15 @@
 /obj/structure/fluff/nest,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter/bog)
+"hU" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8;
+	pixel_y = -1
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/outdoors/bog)
 "ib" = (
 /obj/structure/stairs/stone/church,
 /turf/open/floor/rogue/churchmarble,
@@ -1329,6 +1338,11 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"rO" = (
+/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bog)
 "rP" = (
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/shelter/bog)
@@ -1442,6 +1456,10 @@
 /turf/open/water/river{
 	dir = 8
 	},
+/area/rogue/outdoors/bog)
+"tF" = (
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "tG" = (
 /turf/closed/mineral/rogue/gemeralds,
@@ -1974,6 +1992,10 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"AF" = (
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/cave)
 "AH" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
@@ -2304,6 +2326,13 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
+"Fx" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "vanderlin-bog_mountain-mountain";
+	aportalid = "vanderlin-bog_mountain-bog"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/cave)
 "FA" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 4
@@ -2722,6 +2751,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
+"LH" = (
+/obj/structure/flora/roguegrass/water/reeds,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bog)
 "LN" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 8
@@ -2785,6 +2818,13 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/shelter/bog)
+"Nb" = (
+/obj/structure/fluff/traveltile{
+	aportalgoesto = "vanderlin-forest_bog-forest";
+	aportalid = "vanderlin-forest_bog-bog"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "Nc" = (
 /obj/structure/gate/bars{
 	redstone_id = "bognorth";
@@ -2838,7 +2878,7 @@
 	aportalgoesto = "vanderlin-bog_town-town";
 	aportalid = "vanderlin-bog_town-bog"
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog)
 "NL" = (
 /turf/open/floor/rogue/woodturned/nosmooth,
@@ -3068,6 +3108,10 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/bog)
+"QN" = (
+/obj/structure/kneestingers,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bog)
 "QO" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -3197,6 +3241,10 @@
 /obj/item/bedsheet/rogue/fabric_double,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"SF" = (
+/obj/structure/flora/roguegrass/water/reeds,
+/turf/open/water/swamp,
+/area/rogue/outdoors/bog)
 "SG" = (
 /obj/structure/table/wood/plain,
 /obj/item/rogueweapon/knife/cleaver,
@@ -3289,6 +3337,14 @@
 /area/rogue/indoors/shelter/bog)
 "TJ" = (
 /turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/bog)
+"TL" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "horzw"
+	},
 /area/rogue/outdoors/bog)
 "TM" = (
 /obj/structure/flora/roguegrass,
@@ -3627,6 +3683,10 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog)
+"XS" = (
+/obj/structure/flora/roguegrass/water,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/bog)
 "XT" = (
 /obj/machinery/light/rogue/campfire/longlived,
 /turf/open/floor/rogue/naturalstone,
@@ -3949,7 +4009,7 @@ MQ
 aw
 "}
 (2,1,1) = {"
-MQ
+RK
 tg
 tg
 tg
@@ -4151,15 +4211,15 @@ tg
 MQ
 "}
 (3,1,1) = {"
-MQ
+RK
+XS
 tg
 tg
-La
-kZ
+tg
 Gh
 Gh
-Gh
-Gh
+tF
+tF
 Gh
 tg
 tg
@@ -4353,15 +4413,15 @@ tg
 MQ
 "}
 (4,1,1) = {"
-MQ
-tg
-tg
-kZ
-kZ
+RK
 gS
 gS
 gS
 gS
+gS
+LH
+XS
+XS
 Gh
 tg
 tg
@@ -4555,14 +4615,14 @@ tg
 MQ
 "}
 (5,1,1) = {"
-MQ
-tg
-La
-kZ
-Gh
+RK
 gS
 gS
-gS
+XS
+XS
+XS
+LH
+LH
 gS
 Gh
 tg
@@ -4757,14 +4817,14 @@ tg
 MQ
 "}
 (6,1,1) = {"
-MQ
-tg
-La
-La
-Gh
+RK
 gS
+XS
+LH
+LH
+XS
 gS
-gS
+XS
 Gh
 Gh
 tg
@@ -4959,15 +5019,15 @@ tg
 MQ
 "}
 (7,1,1) = {"
-MQ
-La
-La
-La
-Gh
+RK
+XS
+LH
+XS
+LH
+XS
 gS
 gS
-gS
-Gh
+tF
 tg
 tg
 tg
@@ -5161,15 +5221,15 @@ tg
 MQ
 "}
 (8,1,1) = {"
-MQ
-La
-La
-La
-Gh
+RK
+XS
+XS
+gS
+XS
 gS
 gS
-gS
-Gh
+XS
+tF
 La
 La
 tg
@@ -5363,15 +5423,15 @@ tg
 MQ
 "}
 (9,1,1) = {"
-MQ
-La
-La
-Gh
-Gh
-gS
-gS
+RK
+XS
 gS
 Gh
+Gh
+Gh
+XS
+LH
+tF
 kZ
 La
 La
@@ -5565,16 +5625,16 @@ tg
 MQ
 "}
 (10,1,1) = {"
-MQ
-kZ
-La
-Gh
-Gh
-gS
+RK
 gS
 gS
 Gh
 La
+La
+tF
+LH
+gS
+Gh
 kZ
 kZ
 La
@@ -5767,16 +5827,16 @@ Gh
 MQ
 "}
 (11,1,1) = {"
-MQ
-kZ
-kZ
-Gh
-Gh
-gS
+RK
 gS
 gS
 Gh
+Oa
 La
+Gh
+XS
+gS
+Gh
 kZ
 kZ
 Oa
@@ -5969,16 +6029,16 @@ Gh
 MQ
 "}
 (12,1,1) = {"
-MQ
-La
-kZ
-Gh
-Gh
+RK
 gS
 gS
 gS
 Gh
-La
+Gh
+Gh
+XS
+XS
+Gh
 La
 kZ
 La
@@ -6171,17 +6231,17 @@ Gh
 MQ
 "}
 (13,1,1) = {"
-MQ
+RK
+gS
+XS
+XS
+gS
+gS
+XS
+LH
+XS
+Gh
 kZ
-kZ
-Gh
-Gh
-gS
-gS
-gS
-Gh
-La
-du
 kZ
 La
 La
@@ -6373,18 +6433,18 @@ gS
 MQ
 "}
 (14,1,1) = {"
-MQ
+RK
+gS
+gS
+rO
+gS
+XS
+LH
+LH
+XS
+Gh
 kZ
 La
-Gh
-Gh
-gS
-gS
-gS
-Gh
-La
-du
-Oz
 La
 La
 kZ
@@ -6575,19 +6635,19 @@ gS
 MQ
 "}
 (15,1,1) = {"
-MQ
-La
-La
+RK
 Gh
-Ft
-gS
-gS
-gS
+QN
+Gh
+XS
+LH
+LH
+XS
 Gh
 kZ
 La
 La
-La
+Gh
 La
 La
 kZ
@@ -6777,22 +6837,22 @@ gS
 MQ
 "}
 (16,1,1) = {"
-MQ
-La
+RK
+Nb
+gJ
+Gh
+tF
+XS
+XS
+gS
+Gh
 La
 Gh
 Gh
-gS
-gS
-gS
-Gh
-La
-La
-La
 La
 kZ
 La
-La
+Oa
 kZ
 kZ
 La
@@ -6979,17 +7039,17 @@ gS
 MQ
 "}
 (17,1,1) = {"
-MQ
-La
-La
+RK
+Nb
+gJ
+gJ
 Gh
 Gh
-gS
-gS
-gS
+XS
+XS
 Gh
 La
-La
+Gh
 kZ
 nF
 kZ
@@ -7181,14 +7241,14 @@ gS
 MQ
 "}
 (18,1,1) = {"
-MQ
-La
-kZ
-Gh
+RK
+Nb
+gJ
+gJ
+gJ
+gJ
 Gh
 gS
-gS
-gS
 Gh
 La
 La
@@ -7201,7 +7261,7 @@ La
 La
 Gh
 Gh
-kZ
+gJ
 kZ
 kZ
 Gh
@@ -7383,14 +7443,14 @@ gS
 MQ
 "}
 (19,1,1) = {"
-MQ
-La
-kZ
-kZ
+RK
 Gh
-gS
-gS
-gS
+gJ
+gJ
+jS
+gJ
+gJ
+XS
 gS
 Gh
 La
@@ -7399,12 +7459,12 @@ kZ
 kZ
 La
 kZ
-La
-La
-La
-La
-kZ
-kZ
+gJ
+gJ
+gJ
+gJ
+gJ
+gJ
 kZ
 La
 La
@@ -7585,28 +7645,28 @@ gS
 MQ
 "}
 (20,1,1) = {"
-MQ
-La
-La
-kZ
-Gh
-gS
-gS
-gS
-gS
+RK
 Gh
 Gh
+Gh
+gJ
+jS
+gJ
+tF
+QN
+Gh
+Gh
+La
 La
 kZ
-kZ
-kZ
-kZ
-kZ
 La
-La
+gJ
+gJ
+gJ
+gJ
 kZ
-La
-kZ
+gJ
+gJ
 kZ
 La
 kZ
@@ -7787,25 +7847,25 @@ gS
 MQ
 "}
 (21,1,1) = {"
-MQ
-La
-La
-kZ
+RK
+gS
+QN
 Gh
+Gh
+gJ
+gJ
+gJ
+tF
+Gh
+tF
 La
-gS
-gS
-gS
+La
+La
+gJ
+La
 La
 Gh
-La
-La
-kZ
-La
-Oa
-La
-kZ
-kZ
+Gh
 kZ
 kZ
 La
@@ -7989,24 +8049,24 @@ gS
 MQ
 "}
 (22,1,1) = {"
-MQ
-kZ
-La
-kZ
+RK
+XS
+XS
+tF
 Gh
 Gh
-gS
-gS
-gS
-La
+gJ
+gJ
+gJ
+hU
+hU
+hU
+gJ
+gJ
+gJ
+gJ
 Gh
-La
-La
-kZ
-La
-La
-La
-La
+Gh
 kZ
 kZ
 kZ
@@ -8191,24 +8251,24 @@ gS
 MQ
 "}
 (23,1,1) = {"
-MQ
-kZ
-La
-La
-La
+RK
+XS
+LH
+LH
+XS
 Gh
-gS
-gS
-gS
-La
 Gh
+gJ
+gJ
+TL
+TL
+TL
+gJ
 La
-La
-La
-kZ
-La
-La
-kZ
+gJ
+Gh
+QN
+Gh
 kZ
 kZ
 kZ
@@ -8393,24 +8453,24 @@ gS
 MQ
 "}
 (24,1,1) = {"
-MQ
-kZ
-kZ
+RK
+gS
+XS
+LH
+XS
+Gh
+QN
+gJ
+jS
+gJ
+Gh
+Gh
 La
-La
-Gh
-Gh
-gS
-gS
-gS
-gS
 Gh
 Gh
 Gh
 Gh
 Gh
-Gh
-kZ
 kZ
 kZ
 kZ
@@ -8595,23 +8655,23 @@ gS
 MQ
 "}
 (25,1,1) = {"
-MQ
-La
-La
-La
-La
-kZ
-qc
-Gh
+RK
 gS
 gS
-La
+XS
+gS
+XS
 Gh
-La
+Gh
+gJ
+gJ
+Gh
+QN
+QN
 La
 kZ
 La
-La
+Gh
 La
 La
 kZ
@@ -8797,19 +8857,19 @@ gS
 MQ
 "}
 (26,1,1) = {"
-MQ
-La
-La
-La
-La
-kZ
-kZ
+RK
+XS
+gS
+XS
+LH
+LH
+XS
 Gh
-gS
-gS
-gS
 Gh
-La
+gJ
+gJ
+tF
+Gh
 kZ
 La
 kZ
@@ -9000,17 +9060,17 @@ MQ
 "}
 (27,1,1) = {"
 MQ
-La
-kZ
-kZ
-La
-La
-kZ
+MQ
+gS
+Gh
+tF
+gS
+XS
 Gh
 Gh
-gS
-gS
-gS
+gJ
+gJ
+Gh
 Gh
 kZ
 kZ
@@ -9202,17 +9262,17 @@ MQ
 "}
 (28,1,1) = {"
 MQ
+MQ
+tF
 La
-kZ
-kZ
-kZ
 La
-kZ
-kZ
-Gh
-gS
-gS
-gS
+tF
+LH
+XS
+QN
+gJ
+gJ
+tF
 Gh
 Gh
 kZ
@@ -9404,18 +9464,18 @@ MQ
 "}
 (29,1,1) = {"
 MQ
+MQ
+MQ
 La
-kZ
-La
-kZ
-La
-La
-La
+Oa
 Gh
+XS
+XS
 Gh
-La
-gS
-gS
+gJ
+gJ
+Gh
+XS
 Gh
 La
 kZ
@@ -9606,17 +9666,17 @@ MQ
 "}
 (30,1,1) = {"
 MQ
-kZ
-kZ
-La
-kZ
-La
-La
-La
-La
+MQ
+MQ
+Gh
+Gh
 Gh
 gS
-gS
+XS
+Gh
+gJ
+gJ
+tF
 gS
 Gh
 La
@@ -9808,19 +9868,19 @@ MQ
 "}
 (31,1,1) = {"
 MQ
-La
-kZ
-kZ
-La
-La
-La
-La
-kZ
+MQ
+MQ
+tF
 Gh
 gS
 gS
-gS
-Gh
+XS
+tF
+gJ
+gJ
+tF
+LH
+tF
 Gh
 La
 La
@@ -10010,18 +10070,18 @@ MQ
 "}
 (32,1,1) = {"
 MQ
-La
-La
-La
-La
-La
-La
-La
-kZ
-kZ
-Gh
+MQ
+MQ
+MQ
+XS
 gS
-gS
+XS
+LH
+tF
+gJ
+gJ
+tF
+XS
 gS
 Gh
 Gh
@@ -10212,18 +10272,18 @@ MQ
 "}
 (33,1,1) = {"
 MQ
-La
-La
-La
-La
-Oz
-Oz
-La
-La
-kZ
-Gh
+MQ
+MQ
+MQ
+MQ
 gS
+gS
+tF
+tF
+gJ
 La
+QN
+gS
 gS
 gS
 Gh
@@ -10414,21 +10474,21 @@ MQ
 "}
 (34,1,1) = {"
 MQ
+MQ
+MQ
+MQ
+MQ
+Gh
+Gh
+Gh
 La
-La
-kZ
-kZ
-du
-kZ
-La
-La
-kZ
-La
+gJ
+gJ
 Gh
 gS
 gS
 gS
-La
+gS
 Gh
 kZ
 kZ
@@ -10616,15 +10676,15 @@ MQ
 "}
 (35,1,1) = {"
 MQ
-La
-La
-La
-Oz
-Oz
+MQ
+MQ
+MQ
+Gh
+Gh
 kZ
+Gh
 La
-La
-La
+gJ
 La
 Gh
 gS
@@ -10818,20 +10878,20 @@ MQ
 "}
 (36,1,1) = {"
 MQ
+MQ
+MQ
+Gh
 La
-La
-La
-Oz
 kZ
 kZ
 La
 La
-La
-La
+gJ
+gJ
 Gh
-Gh
-gS
-gS
+XS
+XS
+XS
 gS
 Gh
 Gh
@@ -11020,22 +11080,22 @@ MQ
 "}
 (37,1,1) = {"
 MQ
-La
+MQ
 La
 La
 La
 kZ
 La
+Oa
 La
-La
-La
-La
+gJ
+gJ
 La
 Gh
+LH
 gS
 gS
-gS
-Gh
+SF
 gS
 Gh
 La
@@ -11234,11 +11294,11 @@ kZ
 kZ
 kZ
 Gh
-Gh
+SF
 gS
 gS
-Gh
-Gh
+tF
+tF
 Gh
 Gh
 kZ
@@ -11432,15 +11492,15 @@ La
 La
 La
 kZ
-La
-Oa
+gJ
+gJ
 kZ
 La
 Gh
+XS
 gS
 gS
-gS
-gS
+XS
 gS
 Gh
 La
@@ -11634,15 +11694,15 @@ La
 La
 kZ
 kZ
-Oa
-kZ
+gJ
+gJ
 kZ
 La
 Gh
+XS
 gS
 gS
-gS
-gS
+XS
 gS
 Gh
 Gh
@@ -11836,10 +11896,10 @@ La
 La
 kZ
 kZ
+jS
+jS
 kZ
-kZ
-kZ
-La
+Oa
 Gh
 Gh
 gS
@@ -12038,8 +12098,8 @@ La
 La
 La
 kZ
-kZ
-La
+jS
+jS
 La
 La
 La
@@ -12049,7 +12109,7 @@ gS
 gS
 gS
 gS
-Gh
+tF
 Gh
 La
 Gh
@@ -12238,9 +12298,9 @@ Gh
 Gh
 La
 La
+Oa
 La
-La
-La
+jS
 La
 La
 La
@@ -12248,10 +12308,10 @@ La
 Gh
 Gh
 gS
+XS
 gS
 gS
-gS
-gS
+XS
 Gh
 Gh
 La
@@ -12645,7 +12705,7 @@ La
 La
 kZ
 La
-kZ
+jS
 La
 La
 kZ
@@ -28394,12 +28454,12 @@ MQ
 RK
 NA
 oG
-Xx
+sA
 oG
 oG
 oG
 oG
-Xx
+sA
 oG
 Nc
 Xx
@@ -28598,7 +28658,7 @@ NA
 oG
 oG
 oG
-Xx
+sA
 oG
 oG
 oG
@@ -28801,7 +28861,7 @@ oG
 oG
 oG
 oG
-Xx
+sA
 oG
 Xx
 oG
@@ -42738,7 +42798,7 @@ Dm
 Dm
 Dd
 Dd
-Dm
+Dd
 Dm
 Dm
 Dm
@@ -42937,9 +42997,9 @@ MQ
 (195,1,1) = {"
 MQ
 Dd
-Dm
-Dm
-Dm
+Dd
+Dd
+Dd
 Dd
 Dm
 Dm
@@ -43339,10 +43399,10 @@ sS
 MQ
 "}
 (197,1,1) = {"
-MQ
+RK
+Fx
 Dm
 Dm
-Dd
 Dm
 Dd
 bk
@@ -43541,10 +43601,10 @@ sS
 MQ
 "}
 (198,1,1) = {"
-MQ
+RK
+Fx
 Dm
 Dm
-Dd
 Dm
 Dd
 Dd
@@ -43743,10 +43803,10 @@ sS
 MQ
 "}
 (199,1,1) = {"
-MQ
-Dd
-Dd
-Dd
+RK
+Fx
+AF
+Dm
 Dm
 Dm
 Dd
@@ -81721,9 +81781,9 @@ yK
 "}
 (187,1,2) = {"
 yK
-Dm
-Dm
-Dm
+Dd
+Dd
+Dd
 Dm
 Dd
 Dd
@@ -81923,8 +81983,8 @@ yK
 "}
 (188,1,2) = {"
 yK
-Dm
-Dm
+Dd
+Dd
 Dm
 Dm
 Dm
@@ -82127,8 +82187,8 @@ yK
 yK
 Dm
 Dm
-Dd
-Dd
+Dm
+Dm
 Dm
 Dm
 Dm
@@ -82328,8 +82388,8 @@ yK
 (190,1,2) = {"
 yK
 Dm
-Dd
-Dd
+Dm
+Dm
 Dm
 Dm
 Dm
@@ -82530,7 +82590,7 @@ yK
 (191,1,2) = {"
 yK
 Dm
-Dd
+Dm
 Dm
 Dm
 Dm
@@ -82735,8 +82795,8 @@ Dm
 Dm
 Dm
 Dd
-Dm
-Dm
+Dd
+Dd
 Dm
 Dm
 Dm
@@ -82936,7 +82996,7 @@ yK
 Dm
 Dm
 Dm
-Dm
+Dd
 Dd
 Dd
 Dd
@@ -83138,8 +83198,8 @@ yK
 Dm
 Dm
 Dm
-Dm
-Dm
+Dd
+Dd
 Dm
 Dm
 Dm
@@ -83340,7 +83400,7 @@ yK
 Dm
 Dm
 Dm
-Dm
+Dd
 wQ
 Dm
 Dm
@@ -84147,7 +84207,7 @@ yK
 yK
 Dm
 Dm
-Dm
+Dd
 Dm
 Dd
 Dm
