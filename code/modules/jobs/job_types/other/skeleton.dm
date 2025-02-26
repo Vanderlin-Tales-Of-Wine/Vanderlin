@@ -6,7 +6,7 @@
 
 /datum/job/skeleton
 	title = "Skeleton"
-	tutorial = "Rattle rattle, click clack."
+	tutorial = null
 	flag = SKELETON
 	department_flag = UNDEAD
 	job_flags = (JOB_EQUIP_RANK)

@@ -1,8 +1,9 @@
 /datum/job/rousman
 	title = "Rousman"
+	tutorial = ""
 	flag = GRAVETENDER
 //	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -18,7 +19,6 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = ""
 
 	outfit = /datum/outfit/job/rousman
 	give_bank_account = FALSE
@@ -65,3 +65,5 @@
 			r_hand = /obj/item/weapon/flail
 		if(5) //Mace
 			r_hand = /obj/item/weapon/mace/spiked
+
+	weapons = 4

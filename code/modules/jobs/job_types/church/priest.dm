@@ -104,7 +104,7 @@
 	for(var/mob/living/carbon/HU in get_step(src, src.dir))
 		if(!HU.mind)
 			continue
-		if(HU.mind.assigned_role == "Monarch")
+		if(is_lord_job(HU.mind.assigned_role))
 			continue
 		if(!HU.head)
 			continue

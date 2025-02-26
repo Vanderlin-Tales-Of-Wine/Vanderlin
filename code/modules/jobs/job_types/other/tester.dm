@@ -3,17 +3,18 @@
 	tutorial = "Try not to get obliterated by the Gods while they toy with you."
 	flag = GRAVETENDER
 	department_flag = PEASANTS
-	faction = FACTION_STATION
 	job_flags = (JOB_EQUIP_RANK)
-#ifdef TESTSERVER
+	faction = FACTION_STATION
+	display_order = JDO_MERCENARY
+	#ifdef TESTSERVER
 	total_positions = 99
 	spawn_positions = 99
-#endif
+	#endif
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	outfit = /datum/outfit/job/tester
-	display_order = JDO_MERCENARY
 
 /datum/outfit/job/tester/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -1,8 +1,10 @@
 /datum/job/goblin
 	title = "Goblin"
+	tutorial = ""
 	flag = GRAVETENDER
-//	department_flag = PEASANTS
-	faction = "Station"
+	//department_flag = PEASANTS
+	job_flags = (JOB_EQUIP_RANK)
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -18,7 +20,6 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = ""
 
 	outfit = /datum/outfit/job/npc/goblin
 	give_bank_account = FALSE
@@ -34,7 +35,6 @@
 		H.set_species(/datum/species/goblin/cave)
 		if(M.mind)
 			M.mind.special_role = "goblin"
-			M.mind.assigned_role = "goblin"
 			M.mind.current.job = null
 		if(H.dna && H.dna.species)
 			H.dna.species.species_traits |= NOBLOOD
