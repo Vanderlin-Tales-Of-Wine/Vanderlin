@@ -67,6 +67,7 @@
 /client/verb/reportissue()
 	set name = "report-issue"
 	set desc = ""
+	set hidden = 1
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(githuburl)
 		var/message = "This will open the Github issue reporter in your browser. Are you sure?"
