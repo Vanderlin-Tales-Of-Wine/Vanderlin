@@ -970,10 +970,10 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
 "aGM" = (
+/obj/structure/bookcase/random/legends,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/structure/bookcase/random/legends,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
 "aGT" = (
@@ -1984,11 +1984,9 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
 "brU" = (
-/obj/structure/bars,
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
-/turf/open/floor/herringbone,
+/obj/structure/closet/crate/crafted_closet,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
 "bsh" = (
 /obj/structure/fluff/railing/border{
@@ -4523,9 +4521,7 @@
 /turf/open/floor/carpet,
 /area/rogue/under/town/basement)
 "djm" = (
-/obj/structure/chair/wood/alt{
-	dir = 4
-	},
+/obj/structure/chair/stool,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "djr" = (
@@ -8246,9 +8242,10 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "fLY" = (
-/obj/structure/bars,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/herringbone,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "fME" = (
 /obj/structure/closet/crate/chest/neu_iron,
@@ -13813,9 +13810,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/soilsons)
-"jMo" = (
-/turf/closed/wall/mineral/decostone/cand,
-/area/rogue/indoors/town/church/chapel)
 "jMs" = (
 /obj/structure/chair/bench/church/mid{
 	dir = 1
@@ -15430,7 +15424,7 @@
 /area/rogue/indoors/town/garrison)
 "kQA" = (
 /obj/structure/window/stained,
-/turf/open/floor/herringbone,
+/turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
 "kQB" = (
 /obj/structure/bars/pipe,
@@ -146589,7 +146583,7 @@ aEv
 sWL
 mJO
 mJO
-seq
+nLu
 mJO
 mJO
 hMp
@@ -147002,7 +146996,7 @@ hMp
 bHB
 vlf
 mXL
-seq
+nLu
 mJO
 nZK
 bmw
@@ -148828,7 +148822,7 @@ wTB
 jOI
 hMp
 hMp
-seq
+nLu
 ukJ
 nlp
 fYR
@@ -149634,7 +149628,7 @@ jUC
 jUC
 cnT
 vic
-seq
+nLu
 nlp
 nZK
 bmw
@@ -149836,7 +149830,7 @@ jUC
 jUC
 dnf
 uqq
-seq
+nLu
 aWD
 aWD
 dnU
@@ -150038,7 +150032,7 @@ jUC
 jUC
 gkO
 tXh
-seq
+nLu
 aWD
 nZK
 aWD
@@ -150234,7 +150228,7 @@ eEt
 ojs
 hBm
 ruY
-seq
+nLu
 mJO
 dHk
 jUC
@@ -150831,9 +150825,9 @@ vgJ
 vgJ
 vgJ
 dHg
-jMo
+fgm
 oAZ
-jMo
+fgm
 dHg
 rUe
 dHg
@@ -150844,7 +150838,7 @@ pHr
 pHr
 pHr
 mGc
-seq
+nLu
 nlp
 nlp
 nlp
@@ -151046,7 +151040,7 @@ pHr
 gGy
 pHr
 mGc
-seq
+nLu
 nlp
 nlp
 nlp
@@ -151248,7 +151242,7 @@ pHr
 pHr
 pHr
 mGc
-seq
+nLu
 nlp
 nlp
 nlp
@@ -186992,9 +186986,9 @@ vgJ
 vgJ
 mJO
 swo
-seq
-seq
-seq
+nLu
+nLu
+nLu
 swo
 mJO
 mJO
@@ -187402,7 +187396,7 @@ vUd
 oyI
 vlf
 swo
-seq
+nLu
 swo
 mJO
 uVx
@@ -187608,7 +187602,7 @@ knk
 mxI
 vlf
 swo
-seq
+nLu
 swo
 mJO
 uVx
@@ -188608,7 +188602,7 @@ vgJ
 mJO
 swo
 swo
-seq
+nLu
 swo
 tfY
 swo
@@ -188617,7 +188611,7 @@ mJO
 erO
 sGB
 vlf
-tPS
+kHv
 qDT
 xAu
 mkz
@@ -189027,7 +189021,7 @@ jUC
 jUC
 buh
 uAx
-seq
+nLu
 uVx
 uVx
 uVx
@@ -189229,7 +189223,7 @@ vHz
 jUC
 buh
 fNy
-seq
+nLu
 uVx
 uVx
 uVx
@@ -189425,13 +189419,13 @@ vlf
 erO
 sGB
 vlf
-nqV
+brU
 xJb
 wjO
 qDT
 buh
 gxk
-seq
+nLu
 uVx
 uVx
 uVx
@@ -189825,7 +189819,7 @@ rtV
 rtV
 fUa
 qOm
-seq
+nLu
 iTz
 vUd
 vlf
@@ -190439,7 +190433,7 @@ mrF
 sSs
 vUd
 aIL
-seq
+nLu
 uVx
 uVx
 uVx
@@ -190641,7 +190635,7 @@ fXr
 iTz
 vUd
 cbM
-seq
+nLu
 uVx
 uVx
 uVx
@@ -190835,7 +190829,7 @@ rtV
 rtV
 fUa
 qOm
-seq
+nLu
 iTz
 vUd
 vlf
@@ -191236,7 +191230,7 @@ fgm
 fgm
 fgm
 mJO
-seq
+nLu
 swo
 swo
 mJO
@@ -191448,7 +191442,7 @@ vlf
 fmv
 sSs
 kGw
-seq
+nLu
 uVx
 uVx
 uVx
@@ -191650,7 +191644,7 @@ vlf
 rJS
 pKE
 kGw
-seq
+nLu
 uVx
 uVx
 uVx
@@ -191852,7 +191846,7 @@ vlf
 iMa
 qpL
 iMa
-seq
+nLu
 uVx
 uVx
 uVx
@@ -227390,9 +227384,9 @@ mTl
 bWs
 uVx
 mJO
-fLY
 yeI
-brU
+yeI
+yeI
 mJO
 vgJ
 vgJ
@@ -227592,9 +227586,9 @@ cVZ
 cVZ
 uVx
 vlf
+nrK
 sSs
-sSs
-sSs
+fLY
 vlf
 vgJ
 vgJ
