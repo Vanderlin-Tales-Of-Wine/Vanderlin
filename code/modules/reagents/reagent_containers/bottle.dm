@@ -34,6 +34,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 			return
 		if (istype(src, /obj/item/reagent_containers/glass/bottle/waterskin))
 			return
+		if (istype(src, /obj/item/reagent_containers/glass/bottle/decanter))
+			return
+		if (istype(src, /obj/item/reagent_containers/glass/bottle/teapot))
+			return
 		var/input = input(user, "What would you like to label this bottle as?", "", "") as text
 		if(!input)
 			if (original_name)
@@ -404,6 +408,8 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 	if(reagents.total_volume)
 		var/fill_name = fill_icon_state? fill_icon_state : icon_state
+		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
+			fill_name = fill_icon_state? fill_icon_state : original_icon_state
 		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
 		var/percent = round((reagents.total_volume / volume) * 100)
@@ -417,7 +423,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 		underlays += filling
 
 	if(closed)
-		add_overlay("[icon_state]cork")
+		if (original_icon_state != null)
+			add_overlay("[original_icon_state]cork")
+		else
+			add_overlay("[icon_state]cork")
 
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed
