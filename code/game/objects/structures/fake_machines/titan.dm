@@ -329,15 +329,13 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/make_outlaw(mob/living/carbon/human/user, raw_message)
 	if(!SScommunications.can_announce(user))
 		return
-	if(user.job)
-		var/datum/job/J = SSjob.GetJob(user.job)
-		var/used_title = J.title
-		if(user.gender == FEMALE && J.f_title)
-			used_title = J.f_title
-		if(used_title != "Monarch")
-			return
-	else
+	if(!user.job)
 		return
+	else
+		var/datum/job/job = SSjob.GetJob(user.job)
+		if(!is_lord_job(job))
+			return
+
 	if(raw_message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= raw_message
 		priority_announce("[raw_message] is no longer an outlaw in Vanderlin lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")

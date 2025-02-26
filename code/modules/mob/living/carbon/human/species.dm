@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon_override_m
 	var/icon_override_f
 	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
-	var/sexes = 1		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
+	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
 	var/patreon_req
 	var/max_age = 75
 	var/list/offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
@@ -251,6 +251,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/after_creation(mob/living/carbon/human/H)
 	return TRUE
 
+
 /proc/generate_selectable_species()
 	for(var/I in subtypesof(/datum/species))
 		var/datum/species/S = new I
@@ -267,31 +268,29 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //		return TRUE
 //	return FALSE
 
-/datum/species/proc/get_possible_names(gender = MALE) as /list
-	SHOULD_CALL_PARENT(FALSE)
-	var/static/list/male_names = world.file2list('strings/names/first_male.txt')
-	var/static/list/female_names = world.file2list('strings/names/first_female.txt')
+/datum/species/proc/random_name(gender,unique,lastname)
+	for(var/i in 1 to 5)
+		if(unique)
+			return random_unique_name(gender)
 
-	return (gender == FEMALE) ? female_names : male_names
+		var/randname
+		if(gender == MALE)
+			randname = pick(GLOB.first_names_male)
+		else
+			randname = pick(GLOB.first_names_female)
 
-/datum/species/proc/random_name(gender = MALE, unique = FALSE)
-	var/list/possible_names = get_possible_names(gender)
-	if(!unique)
-		return pick(possible_names)
+		if(lastname)
+			randname += " [lastname]"
+		else
+			randname += " [pick(GLOB.last_names)]"
 
-	for(var/i in 1 to 10)
-		. = pick(possible_names)
-		if(!findname(.))
-			break
+		if(randname in GLOB.chosen_names)
+			continue
+		else
+			return randname
 
-/datum/species/proc/get_possible_surnames(gender = MALE) as /list
-	var/static/list/last_names = world.file2list('strings/names/last.txt')
-
-	return last_names
-
-/datum/species/proc/random_surname(gender = MALE)
-	var/list/possible_surnames = get_possible_surnames(gender)
-	return " [pick(possible_surnames)]"
+/datum/species/proc/random_surname()
+	return " [pick(GLOB.last_names)]"
 
 /datum/species/proc/get_spec_undies_list(gender)
 	if(!GLOB.underwear_list.len)
@@ -432,7 +431,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_hexcolor(list/L)
 	return L
 
-/datum/species/proc/get_skin_list()
+/datum/species/proc/get_skin_list() as /list
+	RETURN_TYPE(/list)
 	return GLOB.skin_tones
 
 /datum/species/proc/get_hairc_list()
@@ -1632,11 +1632,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/doafter_flags = I.edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
 	return do_after(H, min((I.equip_delay_self - H.STASPD), 1), timed_action_flags = doafter_flags)
 
-/datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/// Equips the necessary species-relevant gear before putting on the rest of the uniform.
+/datum/species/proc/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	return
 
-/datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.update_mutant_bodyparts()
+/datum/species/proc/post_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	return
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.type == exotic_blood)

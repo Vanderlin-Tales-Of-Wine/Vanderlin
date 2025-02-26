@@ -568,7 +568,7 @@
 
 		//Job + antagonist
 		if(M.mind)
-			special_role_description = "Role: <b>[M.mind.assigned_role]</b>; Antagonist: <font color='red'><b>[M.mind.special_role]</b></font>"
+			special_role_description = "Role: <b>[M.mind.assigned_role.title]</b>; Antagonist: <font color='red'><b>[M.mind.special_role]</b></font>"
 		else
 			special_role_description = "Role: <i>Mind datum missing</i> Antagonist: <i>Mind datum missing</i>"
 
@@ -610,7 +610,7 @@
 
 		var/Add = href_list["addjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Add)
 				job.total_positions += 1
 				break
@@ -624,7 +624,7 @@
 
 		var/Add = href_list["customjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Add)
 				var/newtime = null
 				newtime = input(usr, "How many jebs do you want?", "Add wanted posters", "[newtime]") as num|null
@@ -642,7 +642,7 @@
 
 		var/Remove = href_list["removejobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Remove && job.total_positions - job.current_positions > 0)
 				job.total_positions -= 1
 				break
@@ -655,7 +655,7 @@
 
 		var/Unlimit = href_list["unlimitjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Unlimit)
 				job.total_positions = -1
 				break
@@ -668,7 +668,7 @@
 
 		var/Limit = href_list["limitjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Limit)
 				job.total_positions = job.current_positions
 				break

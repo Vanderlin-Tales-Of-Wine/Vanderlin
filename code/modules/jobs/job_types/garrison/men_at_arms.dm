@@ -1,18 +1,22 @@
 /datum/job/men_at_arms
 	title = "Men-at-arms"
-	flag = WATCHMAN
-	department_flag = GARRISON
-	display_order = JDO_MENATARMS
-	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
 	tutorial = "Like a hound on a leash, you stand vigilant for your masters. \
 	You live better than the rest of the taffers in this kingdom-- \
 	infact, you take shifts manning the gate with your brethren, \
 	keeping the savages out, keeping the shit-covered knaves away from your foppish superiors. \
 	It will be a cold day in hell when you and your compatriots are slain, and nobody in this town will care. \
 	The nobility needs good men, and they only come in a pair of pairs."
+	flag = WATCHMAN
+	department_flag = GARRISON
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MENATARMS
+	faction = FACTION_STATION
+	total_positions = 4
+	spawn_positions = 4
+	min_pq = 6
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -20,11 +24,9 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_sexes = list(MALE, FEMALE)
 
 	outfit = /datum/outfit/job/watchman
 	advclass_cat_rolls = list(CTAG_MENATARMS = 20)
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
 	give_bank_account = 15
 	min_pq = 6
@@ -40,13 +42,11 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
 
-/datum/job/men_at_arms/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 
 /datum/advclass/menatarms/watchman_pikeman
