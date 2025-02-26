@@ -212,6 +212,7 @@
 		SScrediticons.processing += spawned
 
 	if(cmode_music)
+		spawned << load_resource(cmode_music, -1)
 		spawned.cmode_music = cmode_music
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
@@ -389,7 +390,6 @@
 
 /// Applies the preference options to the spawning mob, taking the job into account. Assumes the client has the proper mind.
 /mob/living/proc/apply_prefs_job(client/player_client, datum/job/job)
-
 
 /mob/living/carbon/human/apply_prefs_job(client/player_client, datum/job/job)
 	var/fully_randomize = is_banned_from(player_client.ckey, "Appearance")
