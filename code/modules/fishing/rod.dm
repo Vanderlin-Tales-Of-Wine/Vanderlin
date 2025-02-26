@@ -678,7 +678,7 @@
 			caughtthing.forceMove(targeted)
 		else
 			fisher.put_in_hands(caughtthing) //should drop it onto our turf if we can’t
-		if(istype(caughtthing, /obj/item/reagent_containers/food/snacks/fish)
+		if(istype(caughtthing, /obj/item/reagent_containers/food/snacks/fish))
 
 			var/obj/item/reagent_containers/food/snacks/fish/caughtfish = caughtthing
 			var/raritydesc
