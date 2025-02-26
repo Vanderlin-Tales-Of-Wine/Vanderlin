@@ -39,3 +39,4 @@
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_PER, 1)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
