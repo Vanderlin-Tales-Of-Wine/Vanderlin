@@ -290,9 +290,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(message_mode != MODE_WHISPER)
 		Zs_too = TRUE
 		if(say_test(message) == "2")	//CIT CHANGE - ditto
-			message_range += 10
+			message_range += 5
 			Zs_yell = TRUE
 		if(say_test(message) == "3")	//Big "!!" shout
+			message_range += 10
 			Zs_all = TRUE
 	var/list/listening = get_hearers_in_view(message_range+eavesdrop_range, source)
 	var/list/the_dead = list()
