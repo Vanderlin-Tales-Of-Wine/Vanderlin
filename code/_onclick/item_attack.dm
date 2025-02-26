@@ -251,7 +251,7 @@
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 		used_str++
 	if(istype(user.rmb_intent, /datum/rmb_intent/weak))
-		used_str--
+		used_str /= 2
 	//Your max STR is 20.
 	used_str = CLAMP(used_str, 1, 20)
 	if(used_str >= 11)
