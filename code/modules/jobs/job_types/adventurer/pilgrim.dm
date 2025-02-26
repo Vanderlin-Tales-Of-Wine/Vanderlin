@@ -22,7 +22,6 @@
 	same_job_respawn_delay = 0
 	can_have_apprentices = FALSE
 
-
 /datum/job/pilgrim/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	if(advclass_cat_rolls)

@@ -29,15 +29,6 @@
 	spawned.invisibility = INVISIBILITY_MAXIMUM
 	spawned.become_blind("advsetup")
 
-	outfit = /datum/outfit/job/servant
-	display_order = JDO_SERVANT
-	give_bank_account = TRUE
-	min_pq = -20
-	bypass_lastclass = TRUE
-
-	can_have_apprentices = FALSE
-
-
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

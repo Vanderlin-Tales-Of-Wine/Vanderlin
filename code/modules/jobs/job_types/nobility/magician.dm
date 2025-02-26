@@ -6,6 +6,7 @@
 	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	flag = WIZARD
 	department_flag = NOBLEMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MAGICIAN
 	faction = FACTION_STATION
 	total_positions = 1

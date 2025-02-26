@@ -115,6 +115,7 @@
 #define FACTION_RATS "Rats"
 #define FACTION_ORCS "Orcs"
 #define FACTION_BUMS "Bums"
+#define FACTION_MATTHIOS "Matthios"
 
 #define NOBLEMEN		(1<<0)
 

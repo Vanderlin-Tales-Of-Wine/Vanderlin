@@ -1,4 +1,4 @@
-/datum/job/court_hand
+/datum/job/adventurer/courtagent
 	title = "Court Agent"
 	tutorial = "Whether acquired by merit, shrewd negotiation or fulfilled bounties, \
 	you have found yourself under the underhanded employ of the Hand. \
@@ -18,9 +18,10 @@
 	shows_in_list = FALSE
 	can_have_apprentices = FALSE
 
+/datum/job/adventurer/courtagent
 
 //Hooking in here does not mess with their equipment procs
-/datum/job/court_hand/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/adventurer/courtagent/after_spawn(mob/living/spawned, client/player_client)
 	if(ishuman(spawned))
 		GLOB.roundstart_court_agents += spawned.real_name
 	..()
