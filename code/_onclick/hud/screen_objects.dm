@@ -248,6 +248,7 @@
 	nomouseover =  TRUE
 	var/mutable_appearance/handcuff_overlay
 	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "blocked")
+	var/static/mutable_appearance/fingerless_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "fingerless")
 	var/held_index = 0
 
 /atom/movable/screen/inventory/hand/update_overlays()
@@ -268,6 +269,8 @@
 		if(held_index)
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
+			else if(!C.has_hand_for_held_index(held_index, TRUE))
+				. += fingerless_overlay
 
 	if(held_index == hud.mymob.active_hand_index)
 		. += "hand_active"

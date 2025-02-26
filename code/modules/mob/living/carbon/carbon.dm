@@ -538,28 +538,22 @@
 	if(stat == DEAD)
 		return TRUE
 	if(nausea >= 100)
-		if(mob_timers["puke"])
-			if(world.time > mob_timers["puke"] + 16 SECONDS)
-				mob_timers["puke"] = world.time
-				if(getorgan(/obj/item/organ/stomach))
-					to_chat(src, "<span class='warning'>I'm going to puke...</span>")
-					addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
-			else
-				if(prob(3))
-					to_chat(src, "<span class='warning'>I feel sick...</span>")
-		else
+		if(MOBTIMER_FINISHED(src, MT_PUKE, 16 SECONDS))
 			if(getorgan(/obj/item/organ/stomach))
-				mob_timers["puke"] = world.time
+				MOBTIMER_SET(src, MT_PUKE)
 				to_chat(src, "<span class='warning'>I'm going to puke...</span>")
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
+		else
+			if(prob(3))
+				to_chat(src, "<span class='warning'>I feel sick...</span>")
+				
 	add_nausea(-1)
-
 
 /mob/living/carbon/proc/vomit(lost_nutrition = 50, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, toxic = FALSE, harm = FALSE, force = FALSE)
 	if(HAS_TRAIT(src, TRAIT_TOXINLOVER) && !force)
 		return TRUE
 
-	mob_timers["puke"] = world.time
+	MOBTIMER_SET(src, MT_PUKE)
 
 	if(nutrition <= 50 && !blood)
 		if(message)

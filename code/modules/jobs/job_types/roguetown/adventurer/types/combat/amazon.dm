@@ -1,6 +1,6 @@
 /datum/advclass/combat/amazon
 	name = "Amazon"
-	tutorial = "Amazons are savage and deft warrior-women from the mysterious isle of Issa. They hunt for prey amid the treetops and pick fights for sport, just to prove their worth."
+	tutorial = "A savage and deft warrior-women, you hail from the mysterious isle of Issa. In your youth you learned to partake in the hunts amid the treetops and proved your worth through countless bouts."
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/roguetown/adventurer/amazon
@@ -23,9 +23,9 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-	neck = /obj/item/storage/belt/rogue/pouch/pdarts
+	neck = /obj/item/ammo_holder/dartpouch/poisondarts
 	backl = /obj/item/rogueweapon/polearm/spear
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun
 	beltr = /obj/item/ammo_holder/quiver/arrows

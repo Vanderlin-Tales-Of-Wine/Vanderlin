@@ -20,13 +20,13 @@
 			if(ammo_list.len < max_storage)
 				if(ismob(loc))
 					var/mob/mob = loc
-					mob.transferItemToLoc(A, src)
+					mob.transferItemToLoc(A, src, force)
 				else
 					A.forceMove(src)
 				ammo_list += A
 				update_icon()
 			else
-				to_chat(loc, span_warning("Full!"))
+				to_chat(loc, span_warning("[src] is full!"))
 			return
 	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher))
 		var/obj/item/gun/ballistic/revolver/grenadelauncher/B = A
@@ -36,6 +36,7 @@
 			for(var/AR in reverseList(ammo_list))
 				if(istype(AR, gun_ammo))
 					ammo_list -= AR
+					contents -= AR
 					B.attackby(AR, loc, params)
 					break
 		update_icon()
@@ -77,14 +78,14 @@
 /obj/item/ammo_holder/quiver/arrows/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/ammo_casing/caseless/rogue/arrow/A = new()
+		var/obj/item/ammo_casing/caseless/rogue/arrow/A = new(src)
 		ammo_list += A
 	update_icon()
 
 /obj/item/ammo_holder/quiver/bolts/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
-		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new()
+		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new(src)
 		ammo_list += A
 	update_icon()
 
@@ -95,3 +96,25 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	max_storage = 10
 	ammo_type = list(/obj/item/ammo_casing/caseless/rogue/bullet)
+
+/obj/item/ammo_holder/dartpouch
+	name = "dart pouch"
+	icon_state = "dartpouch0"
+	item_state = "dartpouch"
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
+	max_storage = 10
+	ammo_type = list(/obj/item/ammo_casing/caseless/rogue/dart)
+
+/obj/item/ammo_holder/dartpouch/darts/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/dart/A = new(src)
+		ammo_list += A
+	update_icon()
+
+/obj/item/ammo_holder/dartpouch/poisondarts/Initialize()
+	. = ..()
+	for(var/i in 1 to 4)
+		var/obj/item/ammo_casing/caseless/rogue/dart/poison/A = new(src)
+		ammo_list += A
+	update_icon()

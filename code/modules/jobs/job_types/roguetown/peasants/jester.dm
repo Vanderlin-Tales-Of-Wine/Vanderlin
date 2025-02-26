@@ -56,12 +56,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, pick(1,2,3,4,5,6), TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery) // Mock people to your heart's content!
-		H.TOTALINT = rand(1, 20)
-		H.TOTALLUC = rand(1, 20)
-		H.TOTALSTR = rand(1, 20)
-		H.TOTALCON = rand(1, 20)
-		H.TOTALPER = rand(1, 20)
-		H.TOTALSPD = rand(1, 20)
+		H.change_stat(STATKEY_INT, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_LCK, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_STR, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_CON, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_PER, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_SPD, rand(1, 20), TRUE)
+		H.change_stat(STATKEY_END, rand(1, 20), TRUE)
 
 		if(H.STASTR > 16)
 			H.cmode_music = 'sound/music/cmode/nobility/CombatJesterSTR.ogg'
@@ -120,14 +121,13 @@
 	if(H == src)
 		to_chat(src, "<span class='warning'>I know what's behind my own ears!</span>")
 		return
-	if(mob_timers["lasttrick"])
-		if(world.time < mob_timers["lasttrick"] + 20 SECONDS)
-			to_chat(src, "<span class='warning'>I need a moment before I can do another trick!</span>")
-			return
+	if(!MOBTIMER_FINISHED(src, MT_LASTTRICK, 20 SECONDS))
+		to_chat(src, "<span class='warning'>I need a moment before I can do another trick!</span>")
+		return
 	qdel(I)
 	src.put_in_hands(J)
 	src.visible_message("<span class='notice'>[src] reaches behind [H]'s ear with a grin, shaking their closed hand for a moment before revealing [J] held in it!</span>")
-	mob_timers["lasttrick"] = world.time
+	MOBTIMER_SET(src, MT_LASTTRICK)
 
 /mob/living/carbon/human/proc/get_japery()
 	var/japery_list = list(

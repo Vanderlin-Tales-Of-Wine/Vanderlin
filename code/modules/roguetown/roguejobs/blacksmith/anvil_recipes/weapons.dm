@@ -222,7 +222,7 @@
 	created_item = /obj/item/rogueweapon/mace
 
 /datum/anvil_recipe/weapons/iron/warhammer
-	name = "Warhammer (+1 Stick)"
+	name = "Iron Warhammer (+1 Stick)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/iron
@@ -312,9 +312,9 @@
 	created_item = /obj/item/rogueweapon/axe/steel
 	craftdiff = 2
 
-/datum/anvil_recipe/weapons/steel/warhammer
-	name = "Steel Warhammer (+Small Log)"
-	recipe_name = "a big warhammer"
+/datum/anvil_recipe/weapons/steel/sledgehammer
+	name = "Steel Sledgehammer (+Small Log)"
+	recipe_name = "a big Sledgehammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/grown/log/tree/small)
@@ -473,7 +473,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/steel/swarhammer
-	name = "Warhammer (+Bar)"
+	name = "Steel Warhammer (+Bar)"
 	recipe_name = "a Warhammer"
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel

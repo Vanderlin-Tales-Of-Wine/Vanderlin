@@ -451,6 +451,16 @@
 	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_SKY_BLUE, CLOTHING_SALMON	, CLOTHING_SOOT_BLACK)
 	..()
 
+/obj/item/clothing/suit/roguetown/shirt/dress/silkydress
+	name = "silky dress"
+	desc = "Despite not actually being made of silk, the legendary expertise needed to sew this puts the quality on par."
+	body_parts_covered = null
+	slot_flags = ITEM_SLOT_ARMOR
+	icon_state = "silkydress"
+	item_state = "silkydress"
+	sleevetype = null
+	sleeved = null
+
 /obj/item/clothing/suit/roguetown/shirt/undershirt/webs
 	name = "webbed shirt"
 	desc = "Exotic silk finely woven into.. this? Might as well be wearing a spiderweb."

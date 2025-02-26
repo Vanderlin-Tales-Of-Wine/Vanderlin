@@ -308,6 +308,10 @@
 		if(!stop_messages)
 			to_chat(user, span_warning("\The [storing] is stuck to your hand, you can't put it in \the [host]!"))
 		return FALSE
+	if(storing.anchored)
+		if(!stop_messages)
+			to_chat(user, span_warning("\The [storing] can't be moved!"))
+		return FALSE
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
 		return FALSE

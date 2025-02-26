@@ -1,7 +1,7 @@
 /datum/job/roguetown/carpenter
 	title = "Carpenter"
-	tutorial = "Woodsmen and women that dedicate their lives to chopping wood \
-	for profit, and expertly building things out of it."
+	tutorial = "Others may regard your work as crude and demeaning, but you understand deep in your soul the beauty of woodchopping. \
+	For it is by your axe that the great trees of forests are felled, and it is by your hands from which the shining beacon of civilization is built."
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -55,7 +55,7 @@
 	beltl = /obj/item/rogueweapon/hammer/steel
 	backr = /obj/item/rogueweapon/axe/iron
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1, /obj/item/key/artificer = 1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/rogueweapon/knife/villager = 1)
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_END, 1) // Tree chopping builds endurance
 	H.change_stat(STATKEY_INT, 1)

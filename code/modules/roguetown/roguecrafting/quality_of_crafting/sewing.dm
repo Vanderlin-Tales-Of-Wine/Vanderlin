@@ -491,9 +491,9 @@
 
 /*.............. recipes requiring skill 6 ..............*/
 
-/datum/repeatable_crafting_recipe/sewing/sexydress
-	name = "sexy dress of legendary sewists"
-	output = /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy
+/datum/repeatable_crafting_recipe/sewing/silkydress
+	name = "silky dress of legendary sewists"
+	output = /obj/item/clothing/suit/roguetown/shirt/dress/silkydress
 	requirements = list(/obj/item/natural/cloth = 6,
 				/obj/item/natural/fibers = 3)
 	craftdiff = 6

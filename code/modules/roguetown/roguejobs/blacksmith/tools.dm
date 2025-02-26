@@ -77,6 +77,7 @@
 		else
 			user.visible_message(span_warning("[user] fumbles trying to repair [attacked_prosthetic]!"))
 			attacked_prosthetic.take_damage(attacked_prosthetic.max_integrity * 0.1, BRUTE, "blunt")
+		attacked_prosthetic.update_icon()
 		return
 
 	if(isitem(O) && !user.cmode)
@@ -106,6 +107,7 @@
 		else
 			user.visible_message("<span class='warning'>[user] damages [attacked_item]!</span>")
 			attacked_item.take_damage(attacked_item.max_integrity * 0.1, BRUTE, "blunt")
+		attacked_item.update_icon()
 		return
 
 	if(isstructure(O) && !user.cmode)
@@ -122,6 +124,7 @@
 		blacksmith_mind.add_sleep_experience(attacked_structure.hammer_repair, amt2raise)
 		playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)
 		user.visible_message(span_info("[user] repairs [attacked_structure]!"))
+		attacked_structure.update_icon()
 		return
 
 	. = ..()
@@ -222,8 +225,8 @@
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/mace/strike)
 	gripped_intents = list(/datum/intent/mace/strike/heavy, /datum/intent/mace/smash/heavy)
-	name = "steel warhammer"
-	desc = "A heavy steel warhammer, a weapon designed to make knights run in fear, the best option for a common soldier against a knight."
+	name = "steel sledgehammer"
+	desc = "A heavy steel sledgehammer, a weapon designed to make knights run in fear, the best option for a common soldier against a knight."
 	icon_state = "warbonker"
 	icon = 'icons/roguetown/weapons/32.dmi'
 	max_integrity = 500

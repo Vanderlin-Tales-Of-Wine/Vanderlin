@@ -60,10 +60,10 @@
 								if(allmig_reward > 3)
 									adjust_triumphs(1)
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
-		if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
+		if(MOBTIMER_FINISHED(src, MT_LEPERBLEED, 6 MINUTES))
 			if(prob(10))
 				to_chat(src, span_warning("My skin opens up and bleeds..."))
-				mob_timers["leper_bleed"] = world.time
+				MOBTIMER_SET(src, MT_LEPERBLEED)
 				var/obj/item/bodypart/part = pick(bodyparts)
 				if(part)
 					part.add_wound(/datum/wound/slash)
@@ -80,14 +80,13 @@
 	if(health <= 0)
 		apply_damage(1, OXY)
 	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-		if(mob_timers["slo"])
-			if(world.time > mob_timers["slo"] + 90 SECONDS)
+		if(MOBTIMER_EXISTS(src, MT_SLO))
+			if(MOBTIMER_FINISHED(src, MT_SLO, 90 SECONDS)) //?????
 				Sleeping(100)
 		else
-			mob_timers["slo"] = world.time
+			MOBTIMER_SET(src, MT_SLO)
 	else
-		if(mob_timers["slo"])
-			mob_timers["slo"] = null
+		MOBTIMER_UNSET(src, MT_SLO)
 
 	if(dna?.species)
 		dna.species.spec_life(src) // for mutantraces
@@ -325,7 +324,7 @@
 	//Puke if toxloss is too high
 	if(!stat)
 		if(prob(33) && getToxLoss() >= 75)
-			mob_timers["puke"] = world.time
+			MOBTIMER_SET(src, MT_PUKE)
 			vomit(1, blood = TRUE)
 
 /mob/living/carbon/human/has_smoke_protection()

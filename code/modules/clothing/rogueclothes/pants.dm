@@ -254,6 +254,14 @@
 	armor = ARMOR_LEATHER
 	max_integrity = INTEGRITY_POOR
 
+/obj/item/clothing/under/roguetown/trou/leather/guard/Initialize()
+	. = ..()
+	color = pick(CLOTHING_PLUM_PURPLE, CLOTHING_BLOOD_RED)
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
 /obj/item/clothing/under/roguetown/trou/leather/advanced
 	name = "hardened leather chausses"
 	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."
