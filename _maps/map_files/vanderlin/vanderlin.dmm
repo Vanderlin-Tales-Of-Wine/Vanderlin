@@ -2310,6 +2310,10 @@
 	dir = 9
 	},
 /obj/item/reagent_containers/glass/bottle/vial/intpot,
+/obj/item/reagent_containers/glass/bottle/vial{
+	pixel_x = 11;
+	pixel_y = 5
+	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "bAV" = (
@@ -6643,6 +6647,14 @@
 	pixel_x = -1;
 	pixel_y = -6
 	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = -9;
+	pixel_y = 2
+	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "eJE" = (
@@ -8760,7 +8772,6 @@
 /area/rogue/indoors/town)
 "gmH" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/machinery/light/rogue/wallfire/candle/blue,
 /obj/item/storage/backpack/rogue/backpack,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
@@ -12546,6 +12557,8 @@
 /obj/item/reagent_containers/powder/spice,
 /obj/item/reagent_containers/food/snacks/produce/westleach,
 /obj/item/reagent_containers/food/snacks/produce/swampweed,
+/obj/item/reagent_containers/powder/spice,
+/obj/item/reagent_containers/powder/spice,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "iVJ" = (
@@ -17938,10 +17951,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/tavern)
-"mYP" = (
-/obj/structure/ladder,
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/town)
 "mZd" = (
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/rogue/ruinedwood/darker,
@@ -22818,9 +22827,8 @@
 /obj/item/reagent_containers/glass/bottle/vial/spdpot,
 /obj/item/reagent_containers/glass/bottle/vial/strpot,
 /obj/item/reagent_containers/glass/bottle/vial/lucpot,
-/obj/machinery/light/rogue/wallfire/candle/blue,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/shop)
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "qQd" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/closet/crate/chest,
@@ -23274,6 +23282,14 @@
 /obj/item/reagent_containers/glass/alchemical{
 	pixel_x = 2;
 	pixel_y = -3
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = -6;
+	pixel_y = 0
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
@@ -27998,6 +28014,14 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/glass/alchemical{
+	pixel_x = -11;
+	pixel_y = -2
+	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
 "urK" = (
@@ -28342,6 +28366,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
+"uCU" = (
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/closed/wall/mineral/rogue/stonebrick,
+/area/rogue/indoors/town/shop)
 "uDl" = (
 /obj/structure/stairs{
 	dir = 1
@@ -28416,6 +28446,10 @@
 "uFq" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/butchershop)
+"uFs" = (
+/obj/structure/roguemachine/scomm/l,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "uFx" = (
 /obj/structure/roguewindow/openclose,
 /turf/open/floor/rogue/woodturned/nosmooth,
@@ -29957,7 +29991,7 @@
 /turf/closed/wall/mineral/rogue/wood/window,
 /area/rogue/indoors/town/tavern)
 "vNG" = (
-/obj/structure/roguemachine/scomm/r,
+/obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "vOg" = (
@@ -30793,6 +30827,15 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/butchershop)
+"wvL" = (
+/obj/structure/rack/rogue/shelf/biggest,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/natural/feather,
+/turf/open/floor/rogue/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "wvQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/rogue/oven/east,
@@ -31390,24 +31433,20 @@
 /obj/item/reagent_containers/food/snacks/produce/dry_westleach,
 /obj/item/reagent_containers/food/snacks/produce/swampweed,
 /obj/item/reagent_containers/food/snacks/produce/swampweed,
-/obj/item/clothing/mask/cigarette/pipe/crafted,
-/obj/item/reagent_containers/powder/spice,
-/obj/item/reagent_containers/powder/spice,
 /obj/item/neuFarm/seed/poppy,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
+/obj/effect/spawner/roguemap/loot/potion_ingredient,
+/obj/effect/spawner/roguemap/loot/potion_ingredient,
+/obj/effect/spawner/roguemap/loot/potion_ingredient,
+/obj/item/reagent_containers/food/snacks/produce/poppy,
+/obj/item/reagent_containers/food/snacks/produce/poppy,
+/obj/item/reagent_containers/food/snacks/produce/poppy,
+/obj/item/reagent_containers/food/snacks/produce/poppy,
+/obj/item/reagent_containers/food/snacks/produce/poppy,
 /obj/item/natural/chaff/wheat,
 /obj/item/natural/chaff/wheat,
-/obj/item/clothing/mask/cigarette/pipe/crafted,
-/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
-/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
-/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
-/obj/effect/spawner/roguemap/loot/potion_ingredient,
-/obj/effect/spawner/roguemap/loot/potion_ingredient,
-/obj/effect/spawner/roguemap/loot/potion_ingredient,
-/obj/item/reagent_containers/food/snacks/produce/poppy,
-/obj/item/reagent_containers/food/snacks/produce/poppy,
-/obj/item/reagent_containers/food/snacks/produce/poppy,
-/obj/item/reagent_containers/food/snacks/produce/poppy,
-/obj/item/reagent_containers/food/snacks/produce/poppy,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "wPJ" = (
@@ -88836,7 +88875,7 @@ iSk
 rnJ
 wPH
 dkK
-mYP
+dkK
 rnJ
 nlk
 pOK
@@ -90447,9 +90486,9 @@ kbf
 nEk
 nrq
 kwV
-xuD
+kwV
 whf
-meN
+qPJ
 meN
 meN
 meN
@@ -91057,7 +91096,7 @@ xXb
 whf
 rzM
 meN
-owo
+wvL
 meN
 owo
 cmr
@@ -91860,7 +91899,7 @@ kxx
 meN
 uAS
 meN
-meN
+vNG
 qox
 psf
 meN
@@ -92668,7 +92707,7 @@ tJI
 elp
 cmr
 qox
-vNG
+meN
 meN
 meN
 aIp
@@ -93071,7 +93110,7 @@ pbu
 elp
 elp
 gpj
-elp
+uFs
 jPc
 lsl
 lsl
@@ -100371,9 +100410,9 @@ vgJ
 vgJ
 vgJ
 vgJ
+uCU
 nWe
-nWe
-qPJ
+hsJ
 nnM
 jUW
 nWe
