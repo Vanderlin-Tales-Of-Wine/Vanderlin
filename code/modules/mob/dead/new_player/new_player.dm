@@ -421,13 +421,13 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	var/column_counter = 0
 
 	var/static/list/omegalist = list(
-		list(GLOB.noble_positions),
-		list(GLOB.garrison_positions),
-		list(GLOB.church_positions),
-		list(GLOB.peasant_positions),
-		list(GLOB.apprentices_positions),
-		list(GLOB.serf_positions),
-		list(GLOB.youngfolk_positions),
+		GLOB.noble_positions,
+		GLOB.garrison_positions,
+		GLOB.church_positions,
+		GLOB.peasant_positions,
+		GLOB.apprentices_positions,
+		GLOB.serf_positions,
+		GLOB.youngfolk_positions,
 	)
 
 	for(var/list/category in omegalist)
