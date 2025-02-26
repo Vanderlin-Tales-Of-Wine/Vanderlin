@@ -167,10 +167,8 @@
 			M.known_people[H.real_name]["VCOLOR"] = H.voice_color
 			var/used_title
 			if(H.job)
-				var/datum/job/J = SSjob.GetJob(H.job)
-				used_title = J.title
-				if(H.gender == FEMALE && J.f_title)
-					used_title = J.f_title
+				var/datum/job/job = SSjob.GetJob(H.job)
+				used_title = job.get_informed_title(H)
 			if(!used_title)
 				used_title = "Unknown"
 			M.known_people[H.real_name]["FJOB"] = used_title
@@ -892,11 +890,8 @@
 	apprentices |= WEAKREF(youngling)
 	youngling.mind.apprentice = TRUE
 
-	var/datum/job/J = SSjob.GetJob(current:job)
-	var/title = "[J.title]"
-	if(youngling.gender == FEMALE && J.f_title)
-		title = "[J.f_title]"
-	title += " Apprentice"
+	var/datum/job/job = SSjob.GetJob(current:job)
+	var/title = "[job.get_informed_title(youngling)] Apprentice"
 	if(apprentice_name) //Needed for advclassses
 		title = apprentice_name
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"

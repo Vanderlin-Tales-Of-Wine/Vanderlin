@@ -34,6 +34,12 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	can_have_apprentices = FALSE
 
+/datum/job/lord/get_informed_title(mob/mob)
+	if(mob.gender == FEMALE)
+		return "Queen"
+
+	return "King"
+
 //TODO: MOVE THIS INTO TICKER INIT
 /datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
 	..()
