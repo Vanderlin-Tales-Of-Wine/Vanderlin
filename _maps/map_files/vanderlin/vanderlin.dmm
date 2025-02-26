@@ -473,7 +473,7 @@
 /area/rogue/outdoors/river)
 "arF" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_x = -8;
 	pixel_y = 7
 	},
@@ -5737,7 +5737,7 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_x = -9;
 	pixel_y = 8
 	},
@@ -10825,7 +10825,7 @@
 	pixel_y = 1
 	},
 /obj/structure/table/wood/plain_alt,
-/obj/item/bath/soap{
+/obj/item/soap/bath{
 	pixel_x = -8;
 	pixel_y = 7
 	},
@@ -16209,7 +16209,7 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/blocks{
 	icon_state = "paving"
 	},
