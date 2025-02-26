@@ -1,4 +1,4 @@
-/datum/job/roguetown/rogue
+/datum/job/rogue
 	title = "Thief"
 	flag = ADVENTURER
 	department_flag = PEASANTS
@@ -10,7 +10,7 @@
 	display_order = JDO_ROGUE
 	bypass_lastclass = TRUE
 	min_pq = 8
-	shows_in_list = FALSE
+	shows_in_list = TRUE
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	advclass_cat_rolls = list(CTAG_THIEF = 20)
 	job_reopens_slots_on_death = FALSE
@@ -18,18 +18,18 @@
 	wanderer_examine = TRUE
 
 
-	outfit = /datum/outfit/job/roguetown/rogue
+	outfit = /datum/outfit/job/rogue
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/datum/outfit/job/roguetown/rogue
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-	pants = /obj/item/clothing/under/roguetown/trou/leather
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+/datum/outfit/job/rogue
+	shirt = /obj/item/clothing/suit/shirt/undershirt/black
+	pants = /obj/item/clothing/under/trou/leather
+	shoes = /obj/item/clothing/shoes/boots
 	backr = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 
-/datum/job/roguetown/rogue/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/rogue/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -37,17 +37,19 @@
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
 
-		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+		if(GLOB.thieves_guild_doors.len > 0)
+			var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+			to_chat(H, span_notice("The Thieves Guild Door Password is:\n'"+D.get_open_phrase()+"'"))
 
 
 /datum/advclass/rogue/rogue
 	name = "Rogue"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/roguetown/rogue/rogueclassic
+	outfit = /datum/outfit/job/rogue/rogueclassic
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
 
-/datum/outfit/job/roguetown/rogue/rogueclassic/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rogue/rogueclassic/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(0,0,1), TRUE)
@@ -65,7 +67,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	gloves = /obj/item/clothing/gloves/roguetown/fingerless
+	gloves = /obj/item/clothing/gloves/fingerless
 	beltr = /obj/item/rogueweapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
 	backpack_contents = list(/obj/item/lockpick, /obj/item/rogueweapon/knife/dagger/steel, /obj/item/clothing/mask/rogue/shepherd/rag)
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
@@ -78,7 +80,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/roguetown/rogue/rogueclassic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/rogue/rogueclassic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 		// Give them their cloak- as well as the ability to choose what color they want.
@@ -90,11 +92,11 @@
 /datum/advclass/rogue/ruffian
 	name = "Ruffian"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/roguetown/rogue/ruffian
+	outfit = /datum/outfit/job/rogue/ruffian
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
 
-/datum/outfit/job/roguetown/rogue/ruffian/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rogue/ruffian/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
@@ -112,9 +114,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	neck = /obj/item/clothing/neck/roguetown/coif/cloth
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
-	gloves = /obj/item/clothing/gloves/roguetown/angle
+	neck = /obj/item/clothing/neck/coif/cloth
+	armor = /obj/item/clothing/suit/armor/chainmail/iron
+	gloves = /obj/item/clothing/gloves/angle
 	beltr = /obj/item/rogueweapon/mace/steel/morningstar
 	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel, /obj/item/clothing/mask/rogue/shepherd/rag)
 
@@ -129,7 +131,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/roguetown/rogue/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/rogue/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 
@@ -137,21 +139,19 @@
 		thiefcloak.color = get_thief_color(H)
 		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
 
-		var/obj/item/clothing/head/roguetown/helmet/leather/headscarf/thiefscarf = new()
+		var/obj/item/clothing/head/helmet/leather/headscarf/thiefscarf = new()
 		thiefscarf.color = thiefcloak.color
 		H.equip_to_slot(thiefscarf, SLOT_HEAD, TRUE)
-
-
 
 
 /datum/advclass/rogue/cutthroat
 	name = "Cutthroat"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/roguetown/rogue/cutthroat
+	outfit = /datum/outfit/job/rogue/cutthroat
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 1
 
-/datum/outfit/job/roguetown/rogue/cutthroat/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/rogue/cutthroat/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -171,7 +171,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
-	gloves = /obj/item/clothing/gloves/roguetown/leather/black
+	gloves = /obj/item/clothing/gloves/leather/black
 	beltr = /obj/item/rogueweapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
 	backl = /obj/item/storage/backpack/rogue/satchel/surgbag
 	backpack_contents = list(/obj/item/natural/cloth = 2, /obj/item/rogueweapon/knife/dagger/steel, /obj/item/clothing/mask/rogue/shepherd/rag)
@@ -191,14 +191,14 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/roguetown/rogue/cutthroat/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/rogue/cutthroat/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 		thiefcloak.color = get_thief_color(H)
 		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
 
-		var/obj/item/clothing/suit/roguetown/armor/leather/vest/thiefvest = new()
+		var/obj/item/clothing/suit/armor/leather/vest/thiefvest = new()
 		thiefvest.color = thiefcloak.color
 		H.equip_to_slot(thiefvest, SLOT_ARMOR, TRUE)
 
