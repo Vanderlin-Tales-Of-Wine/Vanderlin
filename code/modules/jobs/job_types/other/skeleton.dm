@@ -4,7 +4,7 @@
  * This will need refactoring for sure.
  */
 
-/datum/job/roguetown/skeleton
+/datum/job/skeleton
 	title = "Skeleton"
 	tutorial = "Rattle rattle, click clack."
 	flag = SKELETON
@@ -33,7 +33,7 @@
 	outfit = /datum/outfit/job/roguetown/skeleton
 	give_bank_account = FALSE
 
-/datum/job/roguetown/skeleton/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/skeleton/after_spawn(mob/living/spawned, client/player_client)
 	..()
 
 	var/mob/living/carbon/human/H = spawned
@@ -91,11 +91,11 @@
 	H.TOTALCON = 3
 
 /* RAIDER SKELETONS */
-/datum/job/roguetown/skeleton/raider
+/datum/job/skeleton/raider
 	title = "Skeleton Raider"
 	outfit = /datum/outfit/job/roguetown/skeleton/raider
 
-/datum/job/roguetown/skeleton/raider/after_spawn(mob/living/carbon/spawned, client/player_client)
+/datum/job/skeleton/raider/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
 	spawned.name = "skeleton"
 	spawned.real_name = "skeleton"
@@ -175,12 +175,12 @@
 
 
 /* CULT SUMMONS */
-/datum/job/roguetown/skeleton/zizoid
+/datum/job/skeleton/zizoid
 	title = "Cult Summon"
 	outfit = /datum/outfit/job/roguetown/skeleton/zizoid
 	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
-/datum/job/roguetown/skeleton/zizoid/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/skeleton/zizoid/after_spawn(mob/living/spawned, client/player_client)
 	..()
 
 	var/mob/living/carbon/human/H = spawned
