@@ -85,8 +85,7 @@
 	// then the report issue button being tgui-based would be problematic.
 	if(tgalert(src, message, "Report Issue","Yes","No") != "Yes")
 		return
-
-	var/base_link = githuburl + "/issues/new?template=bug_report_form.yml"
+	var/base_link = githuburl + "/issues/new?template=bug_report.yml"
 	var/list/concatable = list(base_link)
 
 	var/client_version = "[byond_version].[byond_build]"
