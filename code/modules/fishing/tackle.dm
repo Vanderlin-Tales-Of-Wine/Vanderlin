@@ -173,7 +173,7 @@
 		"diffmod" = 2,
 		"accmod" = 3,
 		"health" = 5,
-		"costmod" = 4, \\ 1 more than prize
+		"costmod" = 4, // 1 more than prize
 		"hookmod" = 2,
 		"type" = "titanic",
 	)
@@ -181,7 +181,7 @@
 		"diffmod" = 1,
 		"accmod" = 2,
 		"health" = 3,
-		"costmod" = 3, \\ between rare and ultra-rare
+		"costmod" = 3, // between rare and ultra-rare
 		"hookmod" = 2,
 		"type" = "zizoid",
 	)
