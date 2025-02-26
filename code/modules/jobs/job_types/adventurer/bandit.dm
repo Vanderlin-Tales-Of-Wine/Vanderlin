@@ -5,7 +5,7 @@
 	You now live with your fellow free men in the bog, and generally get up to no good."
 	flag = BANDIT
 	department_flag = PEASANTS
-	job_flags = (NONE)
+	job_flags = (JOB_EQUIP_RANK)
 	display_order = JDO_BANDIT
 	faction = FACTION_STATION
 	total_positions = 0
