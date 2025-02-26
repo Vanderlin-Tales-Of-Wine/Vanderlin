@@ -49,7 +49,7 @@
 	else
 		next_emote = world.time + mute_time
 
-/atom/movable/proc/send_speech_emote(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode)
+/atom/movable/proc/send_speech_emote(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language = null, message_mode, original_message)
 	var/rendered = compose_message(src, message_language, message, , spans, message_mode)
 	for(var/_AM in get_hearers_in_view(range, source))
 		var/atom/movable/AM = _AM
