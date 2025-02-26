@@ -167,29 +167,29 @@
 					/obj/item/reagent_containers/food/snacks/fish/clownfish = 1)
 
 	specialcatch = TRUE
-	specialchance = 20
+	specialchance = 5
 
 	specialsize = list(
 		"diffmod" = 2,
 		"accmod" = 3,
 		"health" = 5,
-		"costmod" = 4,
+		"costmod" = 4, // 1 more than prize
 		"hookmod" = 2,
-		"type" = "Titanic",
+		"type" = "titanic",
 	)
 	specialrarity = list(
 		"diffmod" = 1,
 		"accmod" = 2,
 		"health" = 3,
-		"costmod" = 10,
+		"costmod" = 3, // between rare and ultra-rare
 		"hookmod" = 2,
-		"type" = "Zizoid",
+		"type" = "zizoid",
 	)
 	specialfishtype = list(
 		"diffmod" = 2,
 		"accmod" = 3,
 		"health" = 5,
-		"costmod" = 4,
+		"costmod" = 1,
 		"hookmod" = 2,
 		"type" = /obj/item/reagent_containers/food/snacks/fish/clownfish,
 	)
