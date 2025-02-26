@@ -77,41 +77,41 @@ LINEN BINS
 	UnregisterSignal(sleeper, COMSIG_PARENT_QDELETING)
 	signal_sleeper = null
 
-/obj/item/bedsheet/rogue/cloth
+/obj/item/bedsheet/cloth
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "cloth_bedsheet"
 	item_state = "cloth_bedsheet"
 	pixel_y = 5
 
-/obj/item/bedsheet/rogue/pelt
+/obj/item/bedsheet/pelt
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pelt_bedsheet"
 	item_state = "pelt_bedsheet"
 	pixel_y = 5
 
-/obj/item/bedsheet/rogue/wool
+/obj/item/bedsheet/wool
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wool_bedsheet"
 	item_state = "wool_bedsheet"
 	pixel_y = 5
 
-/obj/item/bedsheet/rogue/double_pelt
+/obj/item/bedsheet/double_pelt
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "double_pelt_bedsheet"
 	item_state = "double_pelt_bedsheet"
 
-/obj/item/bedsheet/rogue/fabric
+/obj/item/bedsheet/fabric
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "fabric_bedsheet"
 	item_state = "fabric_bedsheet"
 	pixel_y = 5
 
-/obj/item/bedsheet/rogue/fabric_double
+/obj/item/bedsheet/fabric_double
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "double_fabric_bedsheet"

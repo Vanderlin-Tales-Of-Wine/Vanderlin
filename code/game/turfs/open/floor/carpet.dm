@@ -1,11 +1,11 @@
 /turf/open/floor/carpet
 	name = "carpet"
 	desc = ""
-	icon = 'icons/turf/floors/carpet.dmi'
+	icon = 'icons/turf/floors/inn.dmi'
 	icon_state = "carpet"
 	broken_states = list("damaged")
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/carpet)
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
 	flags_1 = NONE
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_CARPET
@@ -13,6 +13,8 @@
 	clawfootstep = FOOTSTEP_SOFT_BAREFOOT
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
+
+	spread_chance = 15
 
 /turf/open/floor/carpet/examine(mob/user)
 	. = ..()
@@ -36,21 +38,22 @@
 /turf/open/floor/carpet/purple
 	icon = 'icons/turf/floors/carpet_purple.dmi'
 	canSmoothWith = list(/turf/open/floor/carpet/purple)
-
-/turf/open/floor/carpet/inn
-	icon = 'icons/turf/floors/inn.dmi'
+	smooth = SMOOTH_TRUE
 
 /turf/open/floor/carpet/stellar
 	icon = 'icons/turf/floors/carpet_stellar.dmi'
 	canSmoothWith = list(/turf/open/floor/carpet/stellar)
+	smooth = SMOOTH_TRUE
 
 /turf/open/floor/carpet/red
 	icon = 'icons/turf/floors/carpet_red.dmi'
 	canSmoothWith = list(/turf/open/floor/carpet/red)
+	smooth = SMOOTH_TRUE
 
 /turf/open/floor/carpet/royalblack
 	icon = 'icons/turf/floors/carpet_royalblack.dmi'
 	canSmoothWith = list(/turf/open/floor/carpet/royalblack)
+	smooth = SMOOTH_TRUE
 
 
 /turf/open/floor/carpet/break_tile()

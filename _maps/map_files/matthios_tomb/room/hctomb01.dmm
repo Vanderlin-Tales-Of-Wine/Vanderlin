@@ -1,103 +1,103 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ae" = (
-/turf/open/floor/rogue/rooftop/green{
+/turf/open/floor/rooftop/green{
 	dir = 1
 	},
 /area/rogue)
 "ai" = (
 /obj/structure/giantfur/small,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "aU" = (
-/obj/structure/bed/rogue/hay,
+/obj/structure/bed/hay,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/bedsheet/rogue/pelt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/bedsheet/pelt,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "bi" = (
 /obj/structure/winch{
 	gid = "hctomb01";
 	redstone_id = "hctomb01"
 	},
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "bR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "bZ" = (
 /mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "cQ" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "df" = (
 /obj/structure/mineral_door/bars,
-/turf/open/floor/rogue/metal{
+/turf/open/floor/metal{
 	icon_state = "plating2"
 	},
 /area/rogue)
 "dz" = (
-/obj/item/rogueweapon/pick/stone{
+/obj/item/weapon/pick/stone{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "dI" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/roguecoin/copper,
-/obj/item/roguecoin/copper{
+/obj/item/coin/copper,
+/obj/item/coin/copper{
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "ev" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/cobblerock/alt,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "fo" = (
 /obj/structure/table/wood/reinforced_alt{
 	dir = 4
 	},
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "fH" = (
 /obj/structure/fluff/statue/tdummy,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "fJ" = (
-/obj/effect/spawner/roguemap/beartrap,
-/turf/open/floor/rogue/naturalstone,
+/obj/effect/spawner/map_spawner/beartrap,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "fS" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 9
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "gj" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "go" = (
 /obj/structure/table/wood/reinforced_alt,
 /obj/structure/bars/bent,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "gI" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "gR" = (
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "gY" = (
 /obj/effect/decal/cleanable/blood/gibs/limb{
@@ -108,19 +108,19 @@
 	pixel_x = 6;
 	pixel_y = -7
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "hG" = (
 /obj/structure/table/wood/reinforced_alt{
 	dir = 1
 	},
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "hO" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 1
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "ic" = (
 /obj/structure/stairs/stone{
@@ -129,16 +129,16 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "ij" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "iG" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "iH" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/rack/rogue/shelf/big{
+/obj/structure/rack/shelf/big{
 	pixel_y = 0
 	},
 /obj/item/organ/guts{
@@ -149,55 +149,55 @@
 	pixel_x = -8;
 	pixel_y = -11
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "iM" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "iO" = (
 /obj/structure/stairs/stone/reddish,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "iU" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "jb" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "jt" = (
 /obj/structure/barricade/rogue,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "jT" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "kn" = (
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "lX" = (
-/turf/closed/wall/mineral/rogue/decostone/cand/reddish,
+/turf/closed/wall/mineral/decostone/cand/reddish,
 /area/rogue)
 "mt" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "mu" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor2-old"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "mO" = (
 /obj/structure/roguerock,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "mU" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "nm" = (
 /obj/structure/ladder,
@@ -206,76 +206,76 @@
 "nx" = (
 /obj/structure/mineral_door/wood/green,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "nJ" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "nP" = (
-/obj/structure/rack/rogue,
-/obj/effect/spawner/roguemap/loot/weapon,
-/turf/open/floor/rogue/cobble/alt,
+/obj/structure/rack,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "nS" = (
 /obj/structure/table/wood/plain_alt,
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/cobble/alt,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "nV" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "nY" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/rogue/metal{
+/turf/open/floor/metal{
 	icon_state = "plating2"
 	},
 /area/rogue)
 "oN" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "pc" = (
-/obj/machinery/light/rogue/torchholder/c,
-/obj/item/rogueore/iron{
+/obj/machinery/light/fueled/torchholder/c,
+/obj/item/ore/iron{
 	pixel_x = 9;
 	pixel_y = 6
 	},
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "pi" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "pq" = (
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "pr" = (
-/obj/structure/flora/rogueshroom,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/shroom_tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "pL" = (
-/obj/machinery/light/rogue/oven{
+/obj/machinery/light/fueled/oven{
 	pixel_y = 31
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "qi" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "qq" = (
-/obj/machinery/light/rogue/smelter,
-/turf/open/floor/rogue/blocks/paving,
+/obj/machinery/light/fueled/smelter,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "qw" = (
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "qI" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "qK" = (
 /obj/item/natural/stone{
@@ -293,122 +293,122 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "rq" = (
 /obj/structure/table/wood/nice/decorated_alt,
 /obj/item/organ/eyes,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "rX" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "sx" = (
-/obj/structure/fluff/grindwheel,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/grindwheel,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "sA" = (
 /turf/open/water/swamp,
 /area/rogue)
 "sZ" = (
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "te" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "tu" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "tD" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "tJ" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "tO" = (
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "uU" = (
 /obj/structure/table/wood/plain_alt,
 /obj/structure/fluff/millstone,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "vd" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "vk" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/concrete,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/concrete,
 /area/rogue)
 "vw" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "vz" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "vD" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "wv" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "wz" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 8
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "wX" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/transparent/openspace,
 /area/rogue)
 "wY" = (
 /obj/structure/mineral_door/wood/donjon,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "xm" = (
-/obj/item/rogueweapon/hammer/iron,
-/turf/open/floor/rogue/cobble/alt,
+/obj/item/weapon/hammer/iron,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "yd" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "yi" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "yF" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/cleanshallow,
 /area/rogue)
 "yS" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
-/turf/open/floor/rogue/concrete,
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/concrete,
 /area/rogue)
 "ze" = (
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "zh" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -416,141 +416,141 @@
 	pixel_x = 5;
 	pixel_y = -7
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "zr" = (
 /obj/structure/table/wood/treestump/shroomstump,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "zz" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/effect/decal/cleanable/vomit/old{
 	icon_state = "vomit_4-old"
 	},
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "AF" = (
-/obj/machinery/light/rogue/campfire,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/campfire,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "AM" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/cleanshallow,
 /area/rogue)
 "AS" = (
 /obj/item/natural/rock/random,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Bx" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "BM" = (
 /obj/effect/decal/remains/bigrat,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "CC" = (
 /obj/item/grown/log/tree/stick,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Dc" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Dd" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "Ef" = (
 /obj/structure/mineral_door/wood/donjon{
 	door_opened = 1
 	},
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Ei" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/effect/spawner/roguemap/loot/armor,
-/obj/effect/spawner/roguemap/loot/common,
-/turf/open/floor/rogue/naturalstone,
+/obj/effect/spawner/map_spawner/loot/armor,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "En" = (
-/obj/machinery/light/rogue/lanternpost{
+/obj/machinery/light/fueled/lanternpost{
 	pixel_x = 8;
 	pixel_y = 9
 	},
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "Ex" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "EN" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Fg" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Fm" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/blocks/paving,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "Fn" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ft" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /obj/item/ammo_holder/quiver/arrows,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "FV" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "Gj" = (
-/turf/open/floor/rogue/rooftop/green{
+/turf/open/floor/rooftop/green{
 	dir = 4
 	},
 /area/rogue)
 "GN" = (
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "GO" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/food/snacks/rotten/mince,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Hh" = (
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor2-old"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "HA" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "HQ" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "HX" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/metal{
+/turf/open/floor/metal{
 	icon_state = "plating2"
 	},
 /area/rogue)
@@ -558,124 +558,124 @@
 /obj/effect/decal/cobbleedge/alt{
 	dir = 10
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "IG" = (
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "IP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "IQ" = (
 /turf/open/water/cleanshallow,
 /area/rogue)
 "Ja" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/metal/barograte,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "Jg" = (
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue)
 "JT" = (
-/obj/structure/chair/wood/rogue/chair3{
+/obj/structure/chair/wood/alt/chair3{
 	dir = 8
 	},
 /mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Kj" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stonebrick,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "KB" = (
-/obj/effect/spawner/roguemap/beartrap,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/beartrap,
+/turf/open/floor/dirt,
 /area/rogue)
 "KM" = (
-/obj/structure/rack/rogue,
-/obj/item/clothing/neck/roguetown/chaincoif/iron,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/obj/structure/rack,
+/obj/item/clothing/neck/chaincoif/iron,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "KO" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/effect/spawner/roguemap/loot/common,
-/turf/open/floor/rogue/naturalstone,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "KQ" = (
 /obj/structure/fluff/railing/wood,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "LA" = (
-/obj/item/rogueweapon/knife/copper,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/weapon/knife/copper,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "LG" = (
 /obj/structure/bookcase/random_recipes,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Mi" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "MM" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/moon,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "MP" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue)
 "MY" = (
 /obj/structure/gate/bars{
 	gid = "hctomb01";
 	redstone_id = "hctomb01"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Nk" = (
 /obj/structure/table/wood/plain_alt,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Ns" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue)
 "NO" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Oe" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 5
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Oj" = (
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Ou" = (
 /obj/structure/closet/dirthole/closed,
 /obj/structure/gravemarker,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Ox" = (
-/obj/machinery/light/rogue/wallfire/candle,
+/obj/machinery/light/fueled/wallfire/candle,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
 	},
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "OJ" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "Pn" = (
 /turf/open/transparent/openspace,
@@ -685,63 +685,63 @@
 	pixel_x = 5;
 	pixel_y = -4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "PN" = (
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "PO" = (
 /obj/structure/table/wood/reinforced_alt{
 	dir = 8
 	},
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/metal/barograte,
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/metal/barograte,
 /area/rogue)
 "PR" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "PT" = (
-/obj/structure/rack/rogue,
-/obj/effect/spawner/roguemap/loot/weapon,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/obj/structure/rack,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Qb" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/cobble/alt,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/rack,
+/turf/open/floor/cobble/alt,
 /area/rogue)
 "Qd" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 4
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Qf" = (
-/obj/structure/chair/wood/rogue/chair3,
+/obj/structure/chair/wood/alt/chair3,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Qy" = (
 /obj/effect/decal/cobbleedge/alt,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "QF" = (
 /obj/effect/decal/cobbleedge/alt{
 	dir = 6
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "QH" = (
-/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue)
 "QT" = (
 /obj/machinery/anvil,
-/obj/item/rogueweapon/tongs,
-/turf/open/floor/rogue/blocks/paving,
+/obj/item/weapon/tongs,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "Rb" = (
 /obj/structure/table/wood/plain_alt,
@@ -756,71 +756,71 @@
 	pixel_x = -4;
 	pixel_y = -4
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "RC" = (
-/obj/structure/bed/rogue/wooldouble,
-/obj/item/bedsheet/rogue/double_pelt,
-/turf/open/floor/rogue/ruinedwood/darker,
+/obj/structure/bed/wooldouble,
+/obj/item/bedsheet/double_pelt,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "RL" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "RM" = (
-/turf/closed/wall/mineral/rogue/stonebrick,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "RR" = (
 /obj/structure/fluff/statue/tdummy,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Se" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "SG" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "SV" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "SW" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "Tg" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Tu" = (
-/obj/item/roguebin/water/gross,
-/turf/open/floor/rogue/blocks/paving,
+/obj/item/bin/water/gross,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "Ur" = (
-/obj/machinery/light/rogue/forge,
-/turf/open/floor/rogue/blocks/paving,
+/obj/machinery/light/fueled/forge,
+/turf/open/floor/blocks/paving,
 /area/rogue)
 "Uv" = (
 /mob/living/carbon/human/species/orc/ambush,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "UZ" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/table/wood,
-/obj/item/clothing/mask/rogue/skullmask,
-/turf/open/floor/rogue/ruinedwood/darker,
+/obj/item/clothing/face/skullmask,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Vj" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Vp" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/ruinedwood/spiralfade,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Vr" = (
 /obj/structure/fluff/railing/wood,
@@ -831,74 +831,74 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
-/obj/effect/spawner/roguemap/loot/food,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "VD" = (
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
 /obj/effect/decal/cleanable/vomit/old,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "Wa" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Wg" = (
 /obj/structure/barricade/rogue,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Wr" = (
-/obj/structure/rack/rogue,
-/obj/effect/spawner/roguemap/loot/armor,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/rack,
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "WC" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "WV" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "Xl" = (
 /obj/structure/table/wood/treestump/shroomstump,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Yh" = (
 /obj/structure/mineral_door/wood/green{
 	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ys" = (
-/obj/effect/spawner/roguemap/loot/potion_ingredient/herb,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
+/turf/open/floor/dirt,
 /area/rogue)
 "Yt" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/obj/structure/chair/wood/rogue/chair3,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/wood/alt/chair3,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "YU" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Zb" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue)
 "Zg" = (
 /obj/structure/table/wood,
@@ -909,32 +909,32 @@
 /obj/item/candle/yellow{
 	pixel_x = 5
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "Zn" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/item/rogueore/coal{
+/obj/item/ore/coal{
 	pixel_x = 7;
 	pixel_y = -6
 	},
-/turf/open/floor/rogue/ruinedwood/darker,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "ZC" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "ZW" = (
-/obj/item/rogueweapon/pick/stone,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/weapon/pick/stone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "ZY" = (
 /obj/structure/fluff/railing/wood,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "ZZ" = (
-/obj/item/rogueore/gold,
+/obj/item/ore/gold,
 /turf/open/water/cleanshallow,
 /area/rogue)
 

@@ -162,7 +162,7 @@
 	if(key_valid)
 		.["active_players"] = get_active_player_count()
 		if(SSticker.HasRoundStarted())
-			.["real_mode"] = SSticker.mode.name
+			.["real_mode"] = "Storytellers"
 			// Key-authed callers may know the truth behind the "secret"
 
 	.["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0

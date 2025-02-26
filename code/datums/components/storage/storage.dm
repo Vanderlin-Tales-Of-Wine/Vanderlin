@@ -101,7 +101,6 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_PAW, PROC_REF(on_attack_hand))
-	RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(emp_act))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_GHOST, PROC_REF(show_to_ghost))
 	RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(refresh_mob_views))
 	RegisterSignal(parent, COMSIG_ATOM_EXITED, PROC_REF(_remove_and_refresh))
@@ -452,12 +451,6 @@
 		close(M)
 		. = TRUE //returns TRUE if any mobs actually got a close(M) call
 
-/datum/component/storage/proc/emp_act(datum/source, severity)
-	if(emp_shielded)
-		return
-	var/datum/component/storage/concrete/master = master()
-	master.emp_act(source, severity)
-
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
 /datum/component/storage/proc/orient_objs(tx, ty, mx, my)
@@ -534,7 +527,7 @@
 //This proc is called when you want to place an item into the storage item.
 /datum/component/storage/proc/attackby(datum/source, obj/item/I, mob/M, params)
 	if(isitem(parent))
-		if(istype(I, /obj/item/rogueweapon/hammer))
+		if(istype(I, /obj/item/weapon/hammer))
 			var/obj/item/storage/this_item = parent
 			//Vrell - since hammering is instant, i gotta find another option than the double click thing that needle has for a bypass.
 			//Thankfully, IIRC, no hammerable containers can hold a hammer, so not an issue ATM. For that same reason, this here is largely semi future-proofing.

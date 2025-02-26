@@ -170,7 +170,7 @@
 		if(!fuel)
 			icon_state = "torch-empty"
 		return
-	if(!istype(loc,/obj/machinery/light/rogue/torchholder))
+	if(!istype(loc,/obj/machinery/light/fueled/torchholder))
 		if(!ismob(loc))
 			if(prob(23))
 				turn_off()
@@ -291,8 +291,9 @@
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
 	metalizer_result = null
-	smeltresult = /obj/item/ingot/iron
 	extinguish_prob = 10
+	melting_material = /datum/material/iron
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
@@ -327,10 +328,11 @@
 	desc = "A marvel of engineering that emits a strange green glow."
 	light_outer_range = 9
 	light_power = 2
-	light_color ="#00ff6a"
+	light_color ="#3fff8f"
 	on = FALSE
-	smeltresult = /obj/item/ingot/bronze
 	extinguish_prob = 0
+	melting_material = /datum/material/bronze
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/copper
 	name = "copper lamptern"
@@ -344,8 +346,9 @@
 	on_damage = 5
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
-	smeltresult = /obj/item/ingot/copper
 	extinguish_prob = 15
+	melting_material = /datum/material/copper
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/copper/getonmobprop(tag)
 	. = ..()

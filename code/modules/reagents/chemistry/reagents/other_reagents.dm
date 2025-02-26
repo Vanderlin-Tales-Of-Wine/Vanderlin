@@ -139,8 +139,7 @@
 
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in T)
 	if(hotspot)
-		new /obj/effect/temp_visual/small_smoke(T)
-		qdel(hotspot)
+		hotspot.extinguish()
 
 /*
  *	Water reaction to an object
@@ -151,8 +150,8 @@
 	O.acid_level = 0
 
 
-	if(istype(O, /obj/item/roguebin))
-		var/obj/item/roguebin/RB = O
+	if(istype(O, /obj/item/bin))
+		var/obj/item/bin/RB = O
 		if(!RB.kover)
 			if(RB.reagents)
 				RB.reagents.add_reagent(src.type, reac_volume)

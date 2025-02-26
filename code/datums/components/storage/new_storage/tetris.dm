@@ -308,6 +308,10 @@
 		if(!stop_messages)
 			to_chat(user, span_warning("\The [storing] is stuck to your hand, you can't put it in \the [host]!"))
 		return FALSE
+	if(storing.anchored)
+		if(!stop_messages)
+			to_chat(user, span_warning("\The [storing] can't be moved!"))
+		return FALSE
 	var/datum/component/storage/concrete/master = master()
 	if(!istype(master))
 		return FALSE
@@ -359,7 +363,7 @@
 //This proc is called when you want to place an item into the storage item
 /datum/component/storage/attackby(datum/source, obj/item/attacking_item, mob/user, params, storage_click = FALSE)
 	if(isitem(parent))
-		if(istype(attacking_item, /obj/item/rogueweapon/hammer))
+		if(istype(attacking_item, /obj/item/weapon/hammer))
 			var/obj/item/storage/this_item = parent
 			//Vrell - since hammering is instant, i gotta find another option than the double click thing that needle has for a bypass.
 			//Thankfully, IIRC, no hammerable containers can hold a hammer, so not an issue ATM. For that same reason, this here is largely semi future-proofing.

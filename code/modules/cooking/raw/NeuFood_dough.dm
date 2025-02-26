@@ -11,13 +11,13 @@
 \------*/
 
 /*	.................   Dough   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/dough_base
+/obj/item/reagent_containers/food/snacks/dough_base
 	name = "unfinished dough"
 	desc = "With a little more ambition, you will conquer."
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/dough_base/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -58,7 +58,7 @@
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Kneading butter into the dough..."))
 			if(do_after(user,long_cooktime, src))
-				new /obj/item/reagent_containers/food/snacks/rogue/butterdough(loc)
+				new /obj/item/reagent_containers/food/snacks/butterdough(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
 				qdel(src)
@@ -112,7 +112,7 @@
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(isturf(loc)&& (found_table))
-		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese/gote))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/cheese/gote))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Adding fresh gote cheese..."))
 			if(do_after(user, short_cooktime, src))
@@ -135,7 +135,7 @@
 				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
 				qdel(src)
-		else if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+		else if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
 			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Adding fresh cheese..."))
 			if(do_after(user, short_cooktime, src))
@@ -152,7 +152,7 @@
 \------------*/
 
 /*	.................   Butterdough   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/butterdough
+/obj/item/reagent_containers/food/snacks/butterdough
 	name = "butterdough"
 	desc = "What is a triumph, to a legacy?"
 	icon_state = "butterdough"
@@ -163,7 +163,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
-/obj/item/reagent_containers/food/snacks/rogue/butterdough/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/butterdough/attackby(obj/item/I, mob/living/user, params)
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
@@ -267,7 +267,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
 	tastes = list("spelt" = 1)
 	rotprocess = null
-
+	faretype = FARE_POOR
 
 /*	.................   Piedough   ................... */
 /obj/item/reagent_containers/food/snacks/piedough
@@ -294,7 +294,7 @@
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
 			qdel(src)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, "<span class='notice'>Making a handpie...</span>")
 		if(do_after(user, short_cooktime, src))
@@ -330,7 +330,7 @@
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
 			qdel(src)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese/gote))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese/gote))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, "<span class='notice'>Making a handpie...</span>")
 		if(do_after(user, short_cooktime, src))
@@ -342,7 +342,7 @@
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
 			qdel(src)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, "<span class='notice'>Making a handpie...</span>")
 		if(do_after(user, short_cooktime, src))
@@ -436,12 +436,14 @@
 	rotprocess = SHELFLIFE_LONG
 	dropshrink = 0.8
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/breadslice
+	faretype = FARE_POOR
+
 /obj/item/reagent_containers/food/snacks/breadslice/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 	if(modified)
 		return TRUE
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/salami/slice))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
 			name = "[name] & salumoi"
@@ -453,7 +455,7 @@
 			modified = TRUE
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheddarslice))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheddarslice))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
 			name = "[name] & cheese"
@@ -517,6 +519,7 @@
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("stale bread" = 1)
+	faretype = FARE_NEUTRAL
 
 /obj/item/reagent_containers/food/snacks/stale_bread/raisin
 	icon_state = "raisinbread6"
@@ -543,6 +546,7 @@
 	tastes = list("bread" = 1,"dried fruit" = 1)
 	rotprocess = SHELFLIFE_EXTREME
 	become_rot_type = /obj/item/reagent_containers/food/snacks/stale_bread/raisin
+	faretype = FARE_NEUTRAL
 
 /obj/item/reagent_containers/food/snacks/raisindough_poison
 	name = "loaf of raisins"
@@ -565,6 +569,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = BREADSLICE_NUTRITION+2)
 	tastes = list("bread" = 1,"dried fruit" = 1)
 	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_NEUTRAL
 
 /obj/item/reagent_containers/food/snacks/breadslice/raisin_poison
 	name = "raisin loaf slice"
@@ -590,6 +595,8 @@
 	biting = TRUE
 	tastes = list("bread" = 1)
 	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_POOR
+
 /obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -637,7 +644,7 @@
 	foodtype = GRAIN | DAIRY
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_DECENT
-
+	faretype = FARE_FINE
 
 /*---------\
 | Pastries |
@@ -652,6 +659,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy bread with a soft inside" = 1)
 	rotprocess = null
+	faretype = FARE_FINE
 
 
 /*	.................   Pastry   ................... */
@@ -685,6 +693,8 @@
 	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+SNACK_POOR)
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
+	faretype = FARE_POOR
+
 /obj/item/reagent_containers/food/snacks/biscuit/good
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/biscuit/good/New()
@@ -730,6 +740,8 @@
 	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("crispy butterdough" = 1)
+	faretype = FARE_FINE
+
 /obj/item/reagent_containers/food/snacks/prezzel/good
 	name = "prezzel"
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -803,7 +815,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
@@ -829,7 +841,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
@@ -896,7 +908,7 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-
+	faretype = FARE_LAVISH
 
 /obj/item/reagent_containers/food/snacks/zybcake_slice
 	name = "zybantine cake slice"
@@ -913,6 +925,7 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
 	plateable = TRUE
+	faretype = FARE_FINE
 
 // -------------- CHEESECAKE -----------------
 /obj/item/reagent_containers/food/snacks/chescake_ready
@@ -950,6 +963,7 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	faretype = FARE_FINE
 
 /obj/item/reagent_containers/food/snacks/cheesecake_slice
 	name = "cheesecake slice"
@@ -966,6 +980,7 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
 	plateable = TRUE
+	faretype = FARE_FINE
 
 /obj/item/reagent_containers/food/snacks/cheesecake_poison_cooked
 	name = "cheesecake"

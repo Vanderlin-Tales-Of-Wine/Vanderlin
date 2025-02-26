@@ -1,0 +1,76 @@
+/obj/item/clothing/armor/rare
+	name = "rare armor template"
+	icon = 'icons/roguetown/clothing/Racial_Armour.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/onmob_racial.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/onmob_racial.dmi'
+	sleevetype = null
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/steel
+	equip_delay_self = 4 SECONDS
+	unequip_delay_self = 4 SECONDS
+	sellprice = VALUE_SNOWFLAKE_STEEL
+	clothing_flags = CANT_SLEEP_IN
+
+	armor_class = AC_HEAVY
+	armor = ARMOR_PLATE_GOOD
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	prevent_crits = ALL_EXCEPT_STAB
+	max_integrity = INTEGRITY_STRONGEST
+
+/obj/item/clothing/armor/rare/Initialize()
+	. = ..()
+	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/fullplate (1).ogg',\
+												'sound/foley/footsteps/armor/fullplate (2).ogg',\
+												'sound/foley/footsteps/armor/fullplate (3).ogg'), 80)
+
+/obj/item/clothing/armor/rare/elfplate
+	name = "dark elf plate"
+	desc = "A fine suit of sleek, moulded dark elf metal. Its interlocking nature and light weight allow for increased maneuverability."
+	icon_state = "elfchest"
+	allowed_race = list("elf", "half-elf", "dark elf")
+	equip_delay_self = 2 SECONDS
+	unequip_delay_self = 2 SECONDS
+
+	armor_class = AC_MEDIUM // Elven craft, also a cuirass
+	body_parts_covered = COVERAGE_VEST
+
+/obj/item/clothing/armor/rare/elfplate/welfplate
+	name = "elvish plate"
+	desc = "A suit of steel interwoven, through honed elven technique, with hardened bark plates."
+	icon_state = "welfchest"
+
+/obj/item/clothing/armor/rare/dwarfplate
+	name = "dwarvish plate"
+	desc = "Plate armor made out of the sturdiest, finest dwarvish metal armor. It's as heavy and durable as it gets."
+	icon_state = "dwarfchest"
+	allowed_race = list("dwarf")
+
+/obj/item/clothing/armor/rare/grenzelplate
+	name = "grenzelhoftian plate regalia"
+	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
+	icon_state = "human_swordchest"
+	allowed_race = list("human")
+	allowed_sex = list(MALE)
+
+/obj/item/clothing/armor/rare/zybanplate
+	name = "kataphractoe scaleskin"
+	desc = "Steel scales woven into armor with miniscule threads of adamantine, \
+			ensuring the wearer optimal defence with forgiving breathability. \
+			The sigil of the Zybantu Kataphractoe is embezzeled at the throat guard."
+	icon_state = "human_spearchest"
+	allowed_race = list("human")
+	allowed_sex = list(MALE)
+
+// Aasimar hoplite armor, a very rare armor indeed
+/obj/item/clothing/armor/rare/hoplite
+	name = "ancient plate armor"
+	desc = "A battered set of bronze plate armor. Intricate runes and carvings once adorned the pieces, but most have faded with age."
+	icon = 'icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
+	icon_state = "aasimarplate"
+	allowed_race = list("aasimar")
+	smeltresult = /obj/item/ingot/bronze
+	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
+
+	body_parts_covered = COVERAGE_ALL_BUT_ARMS

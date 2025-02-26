@@ -1,22 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line";
 	dir = 4
 	},
 /area/rogue)
 "c" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 8
 	},
 /area/rogue)
 "d" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "e" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line"
 	},
 /area/rogue)
@@ -25,7 +25,7 @@
 /turf/open/water/sewer,
 /area/rogue)
 "j" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
+/mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/water/sewer,
 /area/rogue)
 "k" = (
@@ -34,85 +34,85 @@
 /area/rogue)
 "n" = (
 /obj/structure/toilet,
-/turf/open/floor/rogue/metal/barograte/open,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "o" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner"
 	},
 /area/rogue)
 "r" = (
-/turf/closed/wall/mineral/rogue/pipe,
+/turf/closed/wall/mineral/pipe,
 /area/rogue)
 "t" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	dir = 4;
 	icon_state = "iron_corner"
 	},
 /area/rogue)
 "u" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "w" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "x" = (
 /obj/item/natural/worms/leech,
 /turf/open/water/sewer,
 /area/rogue)
 "y" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	dir = 8;
 	icon_state = "iron_corner"
 	},
 /area/rogue)
 "z" = (
-/turf/open/floor/rogue/metal/barograte/open,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "B" = (
-/obj/item/roguegear,
-/turf/open/floor/rogue/metal/barograte/open,
+/obj/item/gear,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "C" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
+/mob/living/simple_animal/hostile/retaliate/bigrat,
 /obj/item/natural/poo,
 /turf/open/water/sewer,
 /area/rogue)
 "D" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	dir = 1;
 	icon_state = "iron_corner"
 	},
 /area/rogue)
 "E" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/metal/barograte/open,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "H" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 4
 	},
 /area/rogue)
 "I" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "J" = (
 /turf/open/water/sewer,
 /area/rogue)
 "K" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "M" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "N" = (
-/obj/item/rogueweapon/sword/long/greatsword/zwei,
-/turf/open/floor/rogue/metal/barograte/open,
+/obj/item/weapon/sword/long/greatsword/zwei,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "Q" = (
 /obj/item/natural/poo,
@@ -137,14 +137,14 @@
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/food/snacks/smallrat,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "S" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "T" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/sea,
-/turf/open/floor/rogue/metal/barograte/open,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 "V" = (
 /turf/open/transparent/openspace,
@@ -174,7 +174,7 @@
 	name = "shit stained cloak";
 	desc = "You are the lord of this shithouse."
 	},
-/turf/open/floor/rogue/metal/barograte/open,
+/turf/open/floor/metal/barograte/open,
 /area/rogue)
 
 (1,1,1) = {"

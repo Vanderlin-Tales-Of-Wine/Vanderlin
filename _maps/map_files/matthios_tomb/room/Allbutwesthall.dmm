@@ -1,10 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "c" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "d" = (
 /obj/structure/closet/crate/chest/crafted,
@@ -14,7 +14,7 @@
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "e" = (
 /turf/open/transparent/openspace,
@@ -23,96 +23,96 @@
 /obj/structure/fluff/railing/fence{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "g" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "h" = (
 /obj/structure/table/wood/counter,
-/obj/item/roguecoin/copper,
-/obj/item/roguecoin/copper,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/coin/copper,
+/obj/item/coin/copper,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "j" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "k" = (
-/obj/structure/rack/rogue,
-/obj/item/rogueweapon/shield/wood{
+/obj/structure/rack,
+/obj/item/weapon/shield/wood{
 	pixel_x = -5
 	},
-/obj/item/rogueweapon/shield/wood{
+/obj/item/weapon/shield/wood{
 	pixel_x = 8
 	},
-/obj/item/rogueweapon/shield/tower,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/weapon/shield/tower,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "l" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "n" = (
 /obj/structure/table/wood/counter/end{
 	dir = 4
 	},
-/obj/item/roguecoin/copper,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/coin/copper,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "p" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "q" = (
-/obj/structure/closet/crate/roguecloset/inn/south,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "r" = (
 /obj/structure/closet/crate/drawer/inn,
-/obj/item/roguecoin/copper/pile,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/coin/copper/pile,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "s" = (
 /obj/structure/table/wood/counter,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "t" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "u" = (
 /obj/structure/mineral_door/wood/green,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "x" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/dirt,
 /area/rogue)
 "y" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/dirt,
 /area/rogue)
 "z" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "C" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/mob/living/simple_animal/hostile/skeleton/guard,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "D" = (
 /obj/structure/fluff/railing/fence,
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/dirt,
 /area/rogue)
 "E" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "F" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "G" = (
 /obj/structure/fluff/railing/border{
@@ -121,30 +121,30 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "I" = (
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue)
 "J" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "K" = (
-/turf/closed/wall/mineral/rogue/wooddark/window,
+/turf/closed/wall/mineral/wooddark/window,
 /area/rogue)
 "L" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "M" = (
-/obj/structure/bed/rogue/wool,
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/obj/structure/bed/wool,
+/mob/living/simple_animal/hostile/skeleton/guard,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "N" = (
 /obj/structure/mineral_door/wood/green,
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue)
 "O" = (
 /obj/structure/fluff/railing/border{
@@ -161,50 +161,50 @@
 	pixel_x = -1;
 	pixel_y = 17
 	},
-/obj/structure/rack/rogue/shelf/big,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/rack/shelf/big,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Q" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue)
 "S" = (
-/obj/structure/rack/rogue,
-/obj/item/clothing/suit/roguetown/armor/leather,
-/obj/item/clothing/under/roguetown/trou/leather{
+/obj/structure/rack,
+/obj/item/clothing/armor/leather,
+/obj/item/clothing/pants/trou/leather{
 	pixel_x = 14;
 	pixel_y = -4
 	},
-/obj/item/clothing/wrists/roguetown/bracers/leather{
+/obj/item/clothing/wrists/bracers/leather{
 	pixel_y = -9;
 	pixel_x = -6
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "T" = (
 /obj/structure/fluff/buysign,
 /obj/structure/fluff/buysign{
 	desc = " Store Closed"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "U" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "W" = (
-/obj/structure/rack/rogue,
-/obj/item/rogueweapon/sword/iron{
+/obj/structure/rack,
+/obj/item/weapon/sword/iron{
 	pixel_x = 10
 	},
-/obj/item/rogueweapon/sword/iron{
+/obj/item/weapon/sword/iron{
 	pixel_x = 3
 	},
-/obj/item/rogueweapon/sword/arming{
+/obj/item/weapon/sword/arming{
 	pixel_y = 3;
 	pixel_x = -1
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "X" = (
 /obj/structure/fluff/railing/border{
@@ -222,7 +222,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 
 (1,1,1) = {"

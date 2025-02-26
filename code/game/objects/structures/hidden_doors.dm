@@ -350,7 +350,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/effect/mapping_helpers/secret_door_creator
 	name = "Secret door creator: Turns the given wall into a hidden door with a random password. THE VIPS LIST IS THE NAME OF THE JOB OR TITLE!"
 
-	var/turf/open/floor_turf = /turf/open/floor/rogue/wood
+	var/turf/open/floor_turf = /turf/open/floor/wood
 
 	var/redstone_id
 
