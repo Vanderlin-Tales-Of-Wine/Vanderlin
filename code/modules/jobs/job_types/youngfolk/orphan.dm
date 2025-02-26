@@ -16,7 +16,7 @@
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_ages = list(AGE_CHILD)
 
-	outfit = /datum/outfit/job/roguetown/orphan
+	outfit = /datum/outfit/job/orphan
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 

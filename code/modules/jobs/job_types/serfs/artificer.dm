@@ -26,7 +26,7 @@
 		"Half-Orc"
 	)
 
-	outfit = /datum/outfit/job/maso
+	outfit = /datum/outfit/job/mason
 	give_bank_account = 8
 
 /datum/outfit/job/mason/pre_equip(mob/living/carbon/human/H)

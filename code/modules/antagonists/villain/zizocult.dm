@@ -517,7 +517,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			to_chat(target.mind, span_danger("\"I will not let my strongest follower become a mindless brute.\""))
 			return
 
-		var/static/datum/job/summon_job = SSjob.GetJobType(/datum/job/roguetown/skeleton/zizoid)
+		var/static/datum/job/summon_job = SSjob.GetJobType(/datum/job/skeleton/zizoid)
 		target.mind?.set_assigned_role(summon_job)
 		target.dress_up_as_job(summon_job)
 		summon_job.after_spawn(target, target.client)

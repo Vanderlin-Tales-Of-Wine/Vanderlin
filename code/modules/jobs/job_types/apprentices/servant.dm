@@ -29,7 +29,7 @@
 	spawned.invisibility = INVISIBILITY_MAXIMUM
 	spawned.become_blind("advsetup")
 
-	outfit = /datum/outfit/job/roguetown/servant
+	outfit = /datum/outfit/job/servant
 	display_order = JDO_SERVANT
 	give_bank_account = TRUE
 	min_pq = -20

@@ -1462,7 +1462,6 @@
 #include "code\modules\jobs\jobs.dm"
 #include "code\modules\jobs\job_types\_job.dm"
 #include "code\modules\jobs\job_types\_unassigned.dm"
-#include "code\modules\jobs\job_types\assistant.dm"
 #include "code\modules\jobs\job_types\statueitems.dm"
 #include "code\modules\jobs\job_types\adventurer\adventurer.dm"
 #include "code\modules\jobs\job_types\adventurer\bandit.dm"

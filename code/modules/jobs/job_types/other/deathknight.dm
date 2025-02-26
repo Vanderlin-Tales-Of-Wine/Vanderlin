@@ -24,7 +24,7 @@
 
 /datum/job/deathknight/after_spawn(mob/living/spawned, client/player_client)
 	SSmapping.find_and_remove_world_trait(/datum/world_trait/death_knight)
-	SSmapping.retainer.death_knights |= L.mind
+	SSmapping.retainer.death_knights |= spawned.mind
 	..()
 	// copy-paste of skeleton job, to be refactored
 	var/mob/living/carbon/human/H = spawned

@@ -30,7 +30,7 @@
 
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
-	outfit = /datum/outfit/job/roguetown/skeleton
+	outfit = /datum/outfit/job/skeleton
 	give_bank_account = FALSE
 
 /datum/job/skeleton/after_spawn(mob/living/spawned, client/player_client)
@@ -82,7 +82,7 @@
 	ADD_TRAIT(H, TRAIT_NOSLEEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
 
-/datum/outfit/job/roguetown/skeleton/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.TOTALSTR = rand(8,10)
@@ -93,7 +93,7 @@
 /* RAIDER SKELETONS */
 /datum/job/skeleton/raider
 	title = "Skeleton Raider"
-	outfit = /datum/outfit/job/roguetown/skeleton/raider
+	outfit = /datum/outfit/job/skeleton/raider
 
 /datum/job/skeleton/raider/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
@@ -111,73 +111,73 @@
 	spawned.mind.add_antag_datum(new_antag)
 
 
-/datum/outfit/job/roguetown/skeleton/raider/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/raider/pre_equip(mob/living/carbon/human/H)
 	..()
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(50))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers
-	belt = /obj/item/storage/belt/rogue/leather
+		wrists = /obj/item/clothing/wrists/bracers
+	belt = /obj/item/storage/belt/leather
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/light
+		armor = /obj/item/clothing/armor/gambeson/light
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
+		armor = /obj/item/clothing/armor/leather/vest
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
+		armor = /obj/item/clothing/armor/chainmail/iron
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/cuirass/copperchest
+		armor = /obj/item/clothing/armor/cuirass/copperchest
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
+		armor = /obj/item/clothing/armor/leather/hide
 	if(prob(10))
-		armor = /obj/item/clothing/suit/roguetown/armor/cuirass/iron/rust
+		armor = /obj/item/clothing/armor/cuirass/iron/rust
 
 	switch(pick(1,9))
-		if(1)
-			head = /obj/item/clothing/head/roguetown/helmet/kettle
-		if(2)
-			head = /obj/item/clothing/head/roguetown/helmet/winged
-		if(3)
-			head = /obj/item/clothing/head/roguetown/helmet/leather/conical
-		if(4)
-			head = /obj/item/clothing/head/roguetown/helmet/coppercap
-		if(5)
-			neck = /obj/item/clothing/neck/roguetown/coif/cloth
-		if(6)
-			neck = /obj/item/clothing/neck/roguetown/coif
-		if(7)
-			head = /obj/item/clothing/head/roguetown/helmet/horned
-		if(8)
-			head = /obj/item/clothing/head/roguetown/helmet/skullcap
-		if(9)
-			head = /obj/item/clothing/head/roguetown/helmet
+		if (1)
+			head = /obj/item/clothing/head/helmet/kettle
+		if (2)
+			head = /obj/item/clothing/head/helmet/winged
+		if (3)
+			head = /obj/item/clothing/head/helmet/leather/conical
+		if (4)
+			head = /obj/item/clothing/head/helmet/coppercap
+		if (5)
+			neck = /obj/item/clothing/neck/coif/cloth
+		if (6)
+			neck = /obj/item/clothing/neck/coif
+		if (7)
+			head = /obj/item/clothing/head/helmet/horned
+		if (8)
+			head = /obj/item/clothing/head/helmet/skullcap
+		if (9)
+			head = /obj/item/clothing/head/helmet
 
 	if(prob(20))
-		backr = /obj/item/rogueweapon/shield/wood
+		backr = /obj/item/weapon/shield/wood
 
 	switch(pick(1,6))
-		if(1)
-			var/obj/item/rogueweapon/sword/short/P = new()
+		if (1)
+			var/obj/item/weapon/sword/short/P = new()
 			H.put_in_hands(P, forced = TRUE)
-		if(2)
-			var/obj/item/rogueweapon/axe/copper/P = new()
+		if (2)
+			var/obj/item/weapon/axe/copper/P = new()
 			H.put_in_hands(P, forced = TRUE)
-		if(3)
-			var/obj/item/rogueweapon/mace/P = new()
+		if (3)
+			var/obj/item/weapon/mace/P = new()
 			H.put_in_hands(P, forced = TRUE)
-		if(4)
-			var/obj/item/rogueweapon/polearm/spear/P = new()
+		if (4)
+			var/obj/item/weapon/polearm/spear/P = new()
 			H.put_in_hands(P, forced = TRUE)
-		if(5)
-			var/obj/item/rogueweapon/sword/long/rider/copper/P = new()
+		if (5)
+			var/obj/item/weapon/sword/long/rider/copper/P = new()
 			H.put_in_hands(P, forced = TRUE)
-		if(6)
-			var/obj/item/rogueweapon/flail/militia/P = new()
+		if (6)
+			var/obj/item/weapon/flail/militia/P = new()
 			H.put_in_hands(P, forced = TRUE)
 
 
 /* CULT SUMMONS */
 /datum/job/skeleton/zizoid
 	title = "Cult Summon"
-	outfit = /datum/outfit/job/roguetown/skeleton/zizoid
+	outfit = /datum/outfit/job/skeleton/zizoid
 	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
 /datum/job/skeleton/zizoid/after_spawn(mob/living/spawned, client/player_client)
@@ -188,7 +188,7 @@
 	H.mind?.current.job = null
 	H.set_patron(/datum/patron/inhumen/zizo)
 
-/datum/outfit/job/roguetown/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.TOTALSTR = rand(8,17)
 	H.TOTALSPD = rand(7,10)

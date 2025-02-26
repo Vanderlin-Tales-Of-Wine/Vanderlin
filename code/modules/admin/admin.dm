@@ -795,7 +795,7 @@
 			continue
 
 		if(is_priest_job(HL.mind.assigned_role))
-			HL.mind.set_assigned_role(/datum/job/roguetown/villager)
+			HL.mind.set_assigned_role(/datum/job/villager)
 			HL.job = "Ex-Priest"
 
 
@@ -808,7 +808,7 @@
 			priest_job?.remove_spells(HL)
 
 	priest_job?.add_spells(M)
-	M.mind.set_assigned_role(/datum/job/roguetown/priest)
+	M.mind.set_assigned_role(/datum/job/priest)
 	M.job = "Priest"
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)

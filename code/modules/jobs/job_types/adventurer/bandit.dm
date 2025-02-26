@@ -27,12 +27,7 @@
 	can_have_apprentices = FALSE
 	cmode_music = 'sound/music/cmode/antag/combat_bandit2.ogg'
 
-
-<<<<<<<< HEAD:code/modules/jobs/job_types/adventurer/bandit.dm
-/datum/job/bandit/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-========
-/datum/job/roguetown/bandit/after_spawn(mob/living/spawned, client/player_client)
->>>>>>>> b1eb9db47 (oh my god):code/modules/jobs/job_types/roguetown/villains/bandit.dm
+/datum/job/bandit/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
 	if(!H.mind)

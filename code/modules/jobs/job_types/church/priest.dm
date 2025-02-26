@@ -32,7 +32,7 @@
 		/obj/effect/proc_holder/spell/self/convertrole/churchling,
 	)
 
-/datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
@@ -118,13 +118,13 @@
 		to_chat(src, span_warning("There are none capable of coronation in front of me."))
 		return
 
-	var/datum/job/lord_job = SSjob.GetJobType(/datum/job/roguetown/lord)
-	var/datum/job/consort_job = SSjob.GetJobType(/datum/job/roguetown/consort)
+	var/datum/job/lord_job = SSjob.GetJobType(/datum/job/lord)
+	var/datum/job/consort_job = SSjob.GetJobType(/datum/job/consort)
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		//this sucks ass. refactor to locate the current ruler/consort
 		if(HL.mind)
 			if(is_lord_job(HL.mind.assigned_role) || is_consort_job(HL.mind.assigned_role))
-				HL.mind.set_assigned_role(SSjob.GetJobType(/datum/job/roguetown/villager))
+				HL.mind.set_assigned_role(SSjob.GetJobType(/datum/job/villager))
 		//would be better to change their title directly, but that's not possible since the title comes from the job datum
 		if(HL.job == "Monarch")
 			HL.job = "Ex-Monarch"
