@@ -16,9 +16,6 @@
 		var/datum/brain_trauma/BT = T
 		BT.on_death()
 
-	if(SSticker.mode)
-		SSticker.mode.check_win() //Calls the rounds wincheck, mainly for wizard, malf, and changeling now
-
 /mob/living/carbon/dust(just_ash, drop_items, force)
 	if(drop_items)
 		var/turf/T = get_turf(src)

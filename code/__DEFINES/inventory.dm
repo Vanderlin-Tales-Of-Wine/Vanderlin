@@ -92,10 +92,9 @@
 //old slots
 #define SLOT_BACK			21
 #define SLOT_BELT			22
-#define SLOT_GLASSES		23
-#define SLOT_L_STORE		24
-#define SLOT_R_STORE		25
-#define SLOT_S_STORE		26
+#define SLOT_L_STORE		23
+#define SLOT_R_STORE		24
+#define SLOT_S_STORE		25
 #define SLOT_GENERC_DEXTROUS_STORAGE	26
 
 #define SLOTS_AMT			28 // Keep this up to date!

@@ -329,7 +329,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 			SLOT_PANTS, SLOT_ARMOR,\
 			SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
 			SLOT_SHOES, SLOT_GLOVES,\
-			SLOT_HEAD, SLOT_GLASSES,\
+			SLOT_HEAD,\
 			SLOT_BELT, SLOT_S_STORE,\
 			SLOT_MOUTH,SLOT_BACK_R,SLOT_BACK_L,SLOT_BELT_L,SLOT_BELT_R,SLOT_CLOAK,SLOT_SHIRT,\
 			SLOT_L_STORE, SLOT_R_STORE,\
@@ -713,7 +713,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	..()
 	// && check_rights(R_ADMIN,0)
 	var/ticker_time = world.time - SSticker.round_start_time
-	var/time_left = SSticker.mode?.round_ends_at - ticker_time
+	var/time_left = SSgamemode.round_ends_at - ticker_time
 	if(client && client.holder)
 		if(statpanel("Status"))
 			if (client)
@@ -724,7 +724,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 				stat(null, "Next Map: [cached.map_name]")
 			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
 			stat(null, "Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
 			stat(null, "TimeOfDay: [GLOB.tod]")
@@ -736,7 +736,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
 			stat("TimeOfDay: [GLOB.tod]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 
 	if(client && client.holder && check_rights(R_ADMIN,0))

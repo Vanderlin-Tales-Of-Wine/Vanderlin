@@ -2,18 +2,43 @@
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/clothing/gloves.dmi'
+
+	sleeved = 'icons/roguetown/clothing/onmob/gloves.dmi'
+	icon = 'icons/roguetown/clothing/gloves.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/gloves.dmi'
+	bloody_icon_state = "bloodyhands"
+	sleevetype = "shirt"
+
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+
 	siemens_coefficient = 1
+	max_heat_protection_temperature = 361
+
 	body_parts_covered = HANDS
 	slot_flags = ITEM_SLOT_GLOVES
+	body_parts_covered = HANDS
+	resistance_flags = FIRE_PROOF
+
 	attack_verb = list("challenged")
-	var/transfer_prints = FALSE
-	strip_delay = 20
-	equip_delay_other = 40
-	bloody_icon_state = "bloodyhands"
+	max_integrity = INTEGRITY_WORST
+
+	strip_delay = 2 SECONDS
+	equip_delay_other = 4 SECONDS
+
+	sewrepair = TRUE
+	anvilrepair = null
+	smeltresult = /obj/item/ash
+	sewrepair = TRUE
+	fiber_salvage = FALSE
+	salvage_amount = 1
 
 	grid_width = 64
 	grid_height = 32
+
+	var/transfer_prints = FALSE
 
 /obj/item/clothing/gloves/ComponentInitialize()
 	. = ..()
@@ -30,11 +55,6 @@
 
 /obj/item/clothing/gloves/worn_overlays(isinhands = FALSE)
 	. = list()
-//	if(!isinhands)
-//		if(damaged_clothes)
-//			. += mutable_appearance('icons/effects/item_damage.dmi', "damagedgloves")
-//		if(HAS_BLOOD_DNA(src))
-//			. += mutable_appearance('icons/effects/blood.dmi', "bloodyhands")
 
 /obj/item/clothing/gloves/update_clothes_damaged_state(damaging = TRUE)
 	..()

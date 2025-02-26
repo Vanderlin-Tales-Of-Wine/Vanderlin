@@ -131,9 +131,9 @@
 	var/mob/living/carbon/human/hostage //What hostage we have
 
 /mob/living/carbon/human/proc/attackhostage()
-	if(!istype(hostagetaker.get_active_held_item(), /obj/item/rogueweapon))
+	if(!istype(hostagetaker.get_active_held_item(), /obj/item/weapon))
 		return
-	var/obj/item/rogueweapon/WP = hostagetaker.get_active_held_item()
+	var/obj/item/weapon/WP = hostagetaker.get_active_held_item()
 	WP.attack(src, hostagetaker)
 	hostagetaker.visible_message("<span class='danger'>\The [hostagetaker] attacks \the [src] reflexively!</span>")
 	hostagetaker.hostage = null
@@ -527,7 +527,7 @@
 				if(prob(30))
 					human.werewolf_feed(C)
 
-			// TODO: Zombie Signal 
+			// TODO: Zombie Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/zombie))
 				var/mob/living/carbon/human/H = C
 				if(istype(H))
@@ -574,7 +574,7 @@
 		return
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		if(istype(H.wear_neck, /obj/item/clothing/neck/roguetown/psycross/silver))
+		if(istype(H.wear_neck, /obj/item/clothing/neck/psycross/silver))
 			to_chat(user, "<span class='userdanger'>SILVER! HISSS!!!</span>")
 			return
 	last_drink = world.time

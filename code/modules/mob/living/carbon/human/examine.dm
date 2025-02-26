@@ -157,8 +157,8 @@
 	if(wear_pants && !(SLOT_PANTS in obscured))
 		//accessory
 		var/accessory_msg
-		if(istype(wear_pants, /obj/item/clothing/under))
-			var/obj/item/clothing/under/U = wear_pants
+		if(istype(wear_pants, /obj/item/clothing/pants))
+			var/obj/item/clothing/pants/U = wear_pants
 			if(U.attached_accessory)
 				accessory_msg += " with [icon2html(U.attached_accessory, user)] \a [U.attached_accessory]"
 
@@ -224,12 +224,8 @@
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
-	//eyes
-	if(!(SLOT_GLASSES in obscured))
-		if(glasses)
-			. += "[m3] [glasses.get_examine_string(user)] covering [m2] eyes."
-		else if(eye_color == BLOODCULT_EYE)
-			. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
+	if(eye_color == BLOODCULT_EYE)
+		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
 	if(ears && !(SLOT_HEAD in obscured))
@@ -533,7 +529,7 @@
 		if ((src != user) && iscarbon(user))
 			var/mob/living/carbon/assassin = user
 			for(var/obj/item/I in assassin.get_all_gear())
-				if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
+				if(istype(I, /obj/item/weapon/knife/dagger/steel/profane))
 					. += "profane dagger whispers, [span_danger("\"That's [real_name]! Strike their heart!\"")]"
 					break
 

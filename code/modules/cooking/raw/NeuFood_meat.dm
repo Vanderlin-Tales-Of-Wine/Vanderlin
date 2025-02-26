@@ -11,7 +11,7 @@
 \-------------------*/
 
 // Template
-/obj/item/reagent_containers/food/snacks/rogue/meat
+/obj/item/reagent_containers/food/snacks/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION)
 	icon_state = "meat"
@@ -25,32 +25,32 @@
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/meat
 
 /*	.............   Raw meat   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak
+/obj/item/reagent_containers/food/snacks/meat/steak
 	ingredient_size = 2
 	name = "raw meat"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frysteak
 	cooked_smell = /datum/pollutant/food/fried_meat
 	slices_num = 2
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
+	slice_path = /obj/item/reagent_containers/food/snacks/meat/mince/beef
 	slice_bclass = BCLASS_CHOP
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/human
+/obj/item/reagent_containers/food/snacks/meat/human
 	name = "manflesh"
 	foodtype = RAW | MEAT | GROSS
 
 /*	.............   Pigflesh, strange meat, birdmeat   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/fatty
+/obj/item/reagent_containers/food/snacks/meat/fatty
 	name = "raw pigflesh"
 	icon_state = "pigflesh"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/ham
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/ham
 	cooked_smell = /datum/pollutant/food/bacon
 	slices_num = 2
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
+	slice_path = /obj/item/reagent_containers/food/snacks/meat/mince/beef
 	chopping_sound = TRUE
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/strange // Low-nutrient, kind of gross. Survival food.
+/obj/item/reagent_containers/food/snacks/meat/strange // Low-nutrient, kind of gross. Survival food.
 	name = "strange meat"
 	icon_state = "strange_meat"
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/strange
@@ -59,10 +59,10 @@
 	slice_path = null
 	slices_num = 0
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/poultry
+/obj/item/reagent_containers/food/snacks/meat/poultry
 	name = "plucked bird"
 	icon_state = "poultry"
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
+	slice_path = /obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/roastchicken
 	cooked_smell = /datum/pollutant/food/fried_chicken
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/roastchicken
@@ -71,14 +71,14 @@
 	ingredient_size = 4
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/poultry
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
+/obj/item/reagent_containers/food/snacks/meat/poultry/cutlet
 	name = "bird meat"
 	icon_state = "chickencutlet"
 	ingredient_size = 2
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
 	slices_num = 2
 	slice_bclass = BCLASS_CHOP
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
+	slice_path = /obj/item/reagent_containers/food/snacks/meat/mince/poultry
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/frybird
 	cooked_smell = /datum/pollutant/food/fried_chicken
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/chickenleg
@@ -104,7 +104,7 @@
 \-----------------------*/
 
 /*	.............   Minced meat & stuffing sausages   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince
+/obj/item/reagent_containers/food/snacks/meat/mince
 	name = "mince template. BUGREPORT"
 	icon_state = "meatmince"
 	ingredient_size = 2
@@ -114,22 +114,22 @@
 	rotprocess = SHELFLIFE_TINY
 	cooked_type = null
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/mince
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+/obj/item/reagent_containers/food/snacks/meat/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
 	..()
 	qdel(src)
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/attackby(obj/item/I, mob/living/user, params)
+/obj/item/reagent_containers/food/snacks/meat/mince/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
 		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*15))
 	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince) && (!modified))
+	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince) && (!modified))
 		if(isturf(loc)&& (found_table))
 			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user, long_cooktime, src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/sausage(loc)
+				new /obj/item/reagent_containers/food/snacks/meat/sausage(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
 				qdel(src)
@@ -140,7 +140,7 @@
 			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user, long_cooktime, src))
-				new /obj/item/reagent_containers/food/snacks/rogue/meat/sausage(loc)
+				new /obj/item/reagent_containers/food/snacks/meat/sausage(loc)
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
 				qdel(src)
@@ -150,33 +150,33 @@
 		return ..()
 
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
+/obj/item/reagent_containers/food/snacks/meat/mince/beef
 	name = "minced meat"
 	icon_state = "meatmince"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef/cooked
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef/cooked
+	fried_type = /obj/item/reagent_containers/food/snacks/meat/mince/beef/cooked
+/obj/item/reagent_containers/food/snacks/meat/mince/beef/cooked
 	eat_effect = null
 	foodtype = MEAT
 	rotprocess = SHELFLIFE_DECENT
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	color = "#a0655f"
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish
+/obj/item/reagent_containers/food/snacks/meat/mince/fish
 	name = "minced fish"
 	icon_state = "fishmince"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish/cooked
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish/cooked
+	fried_type = /obj/item/reagent_containers/food/snacks/meat/mince/fish/cooked
+/obj/item/reagent_containers/food/snacks/meat/mince/fish/cooked
 	eat_effect = null
 	foodtype = MEAT
 	rotprocess = SHELFLIFE_DECENT
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	color = "#a0655f"
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
+/obj/item/reagent_containers/food/snacks/meat/mince/poultry
 	name = "mince poultry"
 	icon_state = "birdmince"
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked
-/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry/cooked
+	fried_type = /obj/item/reagent_containers/food/snacks/meat/mince/poultry/cooked
+/obj/item/reagent_containers/food/snacks/meat/mince/poultry/cooked
 	eat_effect = null
 	foodtype = MEAT
 	rotprocess = SHELFLIFE_DECENT
@@ -184,7 +184,7 @@
 	color = "#a0655f"
 
 /*	..................   Sausage & Wiener   ................... */
-/obj/item/reagent_containers/food/snacks/rogue/meat/sausage
+/obj/item/reagent_containers/food/snacks/meat/sausage
 	name = "raw sausage"
 	icon_state = "raw_wiener"
 	ingredient_size = 1
@@ -193,7 +193,7 @@
 	cooked_smell = /datum/pollutant/food/sausage
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/sausage
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/wiener
+/obj/item/reagent_containers/food/snacks/meat/wiener
 	name = "raw wiener"
 	icon_state = "raw_wiener"
 	ingredient_size = 1

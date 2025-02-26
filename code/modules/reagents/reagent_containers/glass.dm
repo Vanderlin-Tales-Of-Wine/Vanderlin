@@ -9,6 +9,42 @@
 	possible_item_intents = list(INTENT_POUR, /datum/intent/fill, INTENT_SPLASH, INTENT_GENERIC)
 	resistance_flags = ACID_PROOF
 
+/obj/item/reagent_containers/glass/Initialize(mapload, vol)
+	. = ..()
+	AddComponent(/datum/component/liquids_interaction, TYPE_PROC_REF(/obj/item/reagent_containers/glass, attack_on_liquids_turf))
+
+
+/obj/item/reagent_containers/glass/proc/attack_on_liquids_turf(obj/item/reagent_containers/my_beaker, turf/T, mob/living/user, obj/effect/abstract/liquid_turf/liquids)
+	if(user.used_intent != /datum/intent/fill)
+		return
+	if(!user.Adjacent(T))
+		return FALSE
+	if(!my_beaker.spillable)
+		return FALSE
+	if(!user.Adjacent(T))
+		return FALSE
+	if((user.cmode))
+		return FALSE
+	if(liquids.fire_state) //Use an extinguisher first
+		to_chat(user, "<span class='warning'>You can't scoop up anything while it's on fire!</span>")
+		return TRUE
+	if(liquids.liquid_group.expected_turf_height == 1)
+		to_chat(user, "<span class='warning'>The puddle is too shallow to scoop anything up!</span>")
+		return TRUE
+	var/free_space = my_beaker.reagents.maximum_volume - my_beaker.reagents.total_volume
+	if(free_space <= 0)
+		to_chat(user, "<span class='warning'>You can't fit any more liquids inside [my_beaker]!</span>")
+		return TRUE
+	var/desired_transfer = my_beaker.amount_per_transfer_from_this
+	if(desired_transfer > free_space)
+		desired_transfer = free_space
+	if(desired_transfer > liquids.liquid_group.reagents_per_turf)
+		desired_transfer = liquids.liquid_group.reagents_per_turf
+	liquids.liquid_group.trans_to_seperate_group(my_beaker.reagents, desired_transfer, liquids)
+	to_chat(user, "<span class='notice'>You scoop up around [round(desired_transfer) / 3] oz of liquids with [my_beaker].</span>")
+	user.changeNext_move(CLICK_CD_MELEE)
+	return TRUE
+
 /datum/intent/fill
 	name = "fill"
 	icon_state = "infill"
@@ -70,13 +106,20 @@
 								"<span class='danger'>[user] attempts to feed you something.</span>")
 					if(!do_after(user, 3 SECONDS, M))
 						return
-					if(!reagents || !reagents.total_volume)
+					if(!reagents?.total_volume)
 						return // The drink might be empty after the delay, such as by spam-feeding
-					M.visible_message("<span class='danger'>[user] feeds [M] something.</span>", \
-								"<span class='danger'>[user] feeds you something.</span>")
+					M.visible_message(span_danger("[user] feeds [M] something."), \
+								span_danger("[user] feeds you something."))
 					log_combat(user, M, "fed", reagents.log_list())
 				else
-					to_chat(user, "<span class='notice'>I swallow a gulp of [src].</span>")
+					// check to see if we're a noble drinking soup
+					if (ishuman(user) && istype(src, /obj/item/reagent_containers/glass/bowl))
+						var/mob/living/carbon/human/human_user = user
+						if (human_user.is_noble()) // egads we're an unmannered SLOB
+							human_user.add_stress(/datum/stressevent/noble_bad_manners)
+							if (prob(25))
+								to_chat(human_user, span_red("I've got better manners than this..."))
+					to_chat(user, span_notice("I swallow a gulp of [src]."))
 				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 				playsound(M.loc,pick(drinksounds), 100, TRUE)
 				return
@@ -162,6 +205,7 @@
 		return
 
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
+	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user)
 	if(user.used_intent.type == INTENT_GENERIC)
 		return ..()
 
@@ -222,7 +266,7 @@
 		SLOT_PANTS, SLOT_ARMOR,\
 		SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
 		SLOT_SHOES, SLOT_GLOVES,\
-		SLOT_HEAD, SLOT_GLASSES,\
+		SLOT_HEAD,\
 		SLOT_BELT, SLOT_S_STORE,\
 		SLOT_L_STORE, SLOT_R_STORE,\
 		SLOT_GENERC_DEXTROUS_STORAGE

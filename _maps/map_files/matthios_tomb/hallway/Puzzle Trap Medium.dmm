@@ -1,22 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ag" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors)
 "an" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "aC" = (
-/turf/closed/wall/mineral/rogue/stone/window/moss,
+/turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/indoors)
 "bp" = (
 /obj/structure/spider/cocoon,
 /obj/structure/spider/stickyweb{
 	dir = 1
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "dq" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -24,30 +24,30 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "dT" = (
 /obj/structure/trap/spike,
 /obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "eE" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "eS" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "fk" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "fW" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "gp" = (
 /turf/open/transparent/openspace,
@@ -58,16 +58,16 @@
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "hG" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "iD" = (
-/obj/effect/spawner/roguemap/loot,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "iK" = (
 /obj/structure/spider/stickyweb,
@@ -76,149 +76,149 @@
 	},
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "jC" = (
 /obj/structure/table/stone_small,
-/obj/effect/spawner/roguemap/loot/potion_stats,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/potion_stats,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "kN" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "kW" = (
 /obj/structure/table/stone_small,
-/obj/effect/spawner/roguemap/loot/potion_poisons,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/potion_poisons,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "lH" = (
 /obj/structure/table/stone_small,
-/obj/effect/spawner/roguemap/loot/rare,
+/obj/effect/spawner/map_spawner/loot/rare,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "mm" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "no" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "nW" = (
 /obj/structure/trap/spike,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "oF" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "oO" = (
-/obj/machinery/light/rogue/campfire/longlived,
-/turf/open/floor/rogue/cobble,
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "pd" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "pp" = (
-/obj/structure/bed/rogue/sleepingbag,
-/turf/open/floor/rogue/cobble,
+/obj/structure/bed/sleepingbag,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "rQ" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/trap/saw_blades,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "sa" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
 "sd" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "ss" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "tP" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "vi" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "vA" = (
 /obj/structure/trap/poison,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "vG" = (
 /obj/structure/trap/saw_blades,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb/solo,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "vU" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "vY" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "wY" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue/indoors)
 "xn" = (
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "xQ" = (
 /obj/structure/trap/poison,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "yB" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "yT" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors)
 "zb" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "zw" = (
 /obj/structure/table/stone_small,
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Bc" = (
 /obj/structure/trap/spike,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Bq" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors)
 "BW" = (
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "CF" = (
 /obj/structure/stairs/stone/d,
@@ -229,122 +229,122 @@
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/spider,
-/turf/open/floor/rogue/cobblerock,
+/mob/living/simple_animal/hostile/retaliate/spider,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "EO" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Fp" = (
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Fs" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "FT" = (
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Gh" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Gl" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "GE" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
 "GK" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors)
 "Hh" = (
 /obj/structure/trap/saw_blades,
 /obj/structure/spider/stickyweb/solo,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "HJ" = (
-/obj/effect/spawner/roguemap/loot/weapon,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/weapon,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "HN" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Ib" = (
-/obj/structure/bed/rogue/sleepingbag,
-/turf/open/floor/rogue/cobblerock,
+/obj/structure/bed/sleepingbag,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "IB" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb/solo,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Ks" = (
 /obj/structure/trap/spike,
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Ky" = (
 /obj/structure/table/stone_small,
-/obj/effect/spawner/roguemap/loot/medium,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Lt" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 1
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "LB" = (
 /obj/structure/trap/poison,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Np" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
 "OP" = (
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
 /obj/structure/spider/stickyweb/solo,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Qr" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Sw" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "SF" = (
 /obj/structure/trap/saw_blades,
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "TM" = (
 /obj/structure/table/stone_small,
@@ -352,59 +352,59 @@
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
-/obj/effect/spawner/roguemap/loot,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "TP" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Va" = (
 /obj/structure/closet/crate/chest,
-/obj/effect/spawner/roguemap/loot/food,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/food,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Vs" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Vz" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "VH" = (
 /obj/structure/trap/saw_blades,
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Wc" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Wm" = (
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "WX" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Xd" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "Xo" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Ym" = (
 /obj/structure/stairs/stone/d,
@@ -416,24 +416,24 @@
 /obj/structure/spider/stickyweb{
 	dir = 8
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "YP" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Za" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/footprints,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "ZS" = (
 /obj/structure/table/stone_small,
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb/solo,
-/obj/effect/spawner/roguemap/loot/common,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 
 (1,1,1) = {"

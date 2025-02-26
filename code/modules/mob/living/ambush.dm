@@ -19,7 +19,7 @@
 	if(!MOBTIMER_FINISHED(src, MT_AMBUSHCHECK, 15 SECONDS))
 		return
 	MOBTIMER_SET(src, MT_AMBUSHCHECK)
-	
+
 	if(!ambushable())
 		return
 	var/area/AR = get_area(src)
@@ -31,7 +31,7 @@
 	if(!(T.type in AR.ambush_types))
 		return
 	var/campfires = 0
-	for(var/obj/machinery/light/rogue/RF in view(5, src))
+	for(var/obj/machinery/light/fueled/RF in view(5, src))
 		if(RF.on)
 			campfires++
 	if(campfires > 0)
@@ -46,16 +46,16 @@
 			if(victims > 3)
 				return
 	var/list/possible_targets = list()
-	for(var/obj/structure/flora/roguetree/RT in view(5, src))
+	for(var/obj/structure/flora/tree/RT in view(5, src))
 		if(istype(RT,/obj/structure/table/wood/treestump))
 			continue
 		if(isturf(RT.loc))
 			testing("foundtree")
 			possible_targets += RT.loc
-//	for(var/obj/structure/flora/roguegrass/bush/RB in range(7, src))
+//	for(var/obj/structure/flora/grass/bush/RB in range(7, src))
 //		if(can_see(src, RB))
 //			possible_targets += RB
-	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
+	for(var/obj/structure/flora/shroom_tree/RX in view(5, src))
 		if(isturf(RX.loc))
 			testing("foundshroom")
 			possible_targets += RX.loc

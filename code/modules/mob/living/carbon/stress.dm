@@ -7,6 +7,12 @@
 /mob/proc/update_stress()
 	return TRUE
 
+/mob/proc/add_stress_list(list/event_list)
+	return
+
+/mob/proc/remove_stress_list(list/event_list)
+	return
+
 
 /mob/proc/get_stress_amount()
 	return 0
@@ -179,6 +185,14 @@
 				positive_stressors -= D
 				qdel(D)
 	return TRUE
+
+/mob/living/carbon/add_stress_list(list/event_list)
+	for(var/event_type in event_list)
+		add_stress(event_type)
+
+/mob/living/carbon/remove_stress_list(list/event_list)
+	for(var/event_type in event_list)
+		remove_stress(event_type)
 
 #ifdef TESTSERVER
 /client/verb/add_stress()

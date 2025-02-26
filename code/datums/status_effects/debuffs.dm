@@ -116,7 +116,7 @@
 
 	if(!(locate(/obj/structure/bed) in owner.loc) && !(locate(/obj/structure/table) in owner.loc))
 		sleptonground = TRUE
-	else if(locate(/obj/structure/bed/rogue/sleepingbag) in owner.loc)
+	else if(locate(/obj/structure/bed/sleepingbag) in owner.loc)
 		sleptonground = TRUE
 
 	human_owner?.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds

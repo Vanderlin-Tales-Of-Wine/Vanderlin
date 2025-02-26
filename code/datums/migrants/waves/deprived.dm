@@ -1,7 +1,7 @@
 /datum/migrant_role/deprived
 	name = "Deprived" // challenge run
 	greet_text = "You were once a highwayman, a monster of the road - but you have since ditched your sinful ways, leaving society behind in wake of your regrets. Nothing erases the past, and you can find absolution only in the catharsis of death. Let the wildlife shepherd your soul to Necra."
-	outfit = /datum/outfit/job/roguetown/deprived
+	outfit = /datum/outfit/job/deprived
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -12,13 +12,13 @@
 		"Aasimar")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/roguetown/deprived/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/deprived/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/menacing
-	pants = /obj/item/clothing/under/roguetown/trou
-	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
-	belt = /obj/item/storage/belt/rogue/leather/rope
-	beltl = /obj/item/rogueweapon/knife/villager // won't be able to light a torch without this, bare minimum
+	head = /obj/item/clothing/head/menacing
+	pants = /obj/item/clothing/pants/trou
+	shoes = /obj/item/clothing/shoes/simpleshoes
+	belt = /obj/item/storage/belt/leather/rope
+	beltl = /obj/item/weapon/knife/villager // won't be able to light a torch without this, bare minimum
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)

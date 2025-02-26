@@ -58,7 +58,7 @@
 /obj/structure/composter/proc/try_handle_flipping_compost(obj/item/attacking_item, mob/user, params)
 	var/using_tool = FALSE
 	if(attacking_item)
-		if(istype(attacking_item, /obj/item/rogueweapon/pitchfork) || istype(attacking_item, /obj/item/rogueweapon/shovel))
+		if(istype(attacking_item, /obj/item/weapon/pitchfork) || istype(attacking_item, /obj/item/weapon/shovel))
 			using_tool = TRUE
 			to_chat(user, span_notice("I start flipping the compost..."))
 	else
@@ -123,7 +123,7 @@
 
 /obj/structure/composter/attackby(obj/item/attacking_item, mob/user, params)
 	user.changeNext_move(CLICK_CD_FAST)
-	if(istype(attacking_item,/obj/item/storage/roguebag) && attacking_item.contents.len)
+	if(istype(attacking_item,/obj/item/storage/sack) && attacking_item.contents.len)
 		if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
 			to_chat(user, span_warning("There's too much compost!"))
 			return

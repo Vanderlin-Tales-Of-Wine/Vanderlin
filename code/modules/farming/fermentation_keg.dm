@@ -20,6 +20,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	/// The volume of the barrel sounds
 	var/sound_volume = 25
 	var/open_icon_state = "barrel_tapless_open"
+	var/tapped_icon_state = "barrel_tapped_ready"
 
 	//After brewing we can sell or bottle, this is for the latter
 	var/ready_to_bottle = FALSE
@@ -32,9 +33,6 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	///our made item which we clear once its no longer ready to bottle
 	var/made_item
 
-	///icon used for wrapping the keg. set to NULL for any intentionally unwrappable subtypes.
-	var/delivery_icon = "deliverykeg"
-
 	var/age_start_time = 0
 
 	var/tapped = FALSE
@@ -42,8 +40,15 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	var/selecting_recipe = FALSE
 
-
-
+	var/heated = FALSE
+	///machines heat in kelvin
+	var/heat = 300
+	///our start_time
+	var/start_time
+	///our brew progress time
+	var/heated_progress_time
+	///when our heat can decay
+	var/heat_decay = 0
 
 /obj/structure/fermentation_keg/Initialize()
 	. = ..()
@@ -52,6 +57,9 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	soundloop = new(src, brewing)
 	soundloop.volume = sound_volume
+
+	if(heated)
+		START_PROCESSING(SSobj, src)
 
 /obj/structure/fermentation_keg/update_overlays()
 	. = ..()
@@ -66,9 +74,16 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	MA.color = mix_color_from_reagents(reagents)
 	overlays += MA
 
+/obj/structure/fermentation_keg/attack_right(mob/user)
+	. = ..()
+	if(!brewing && ready_to_bottle)
+		if(try_tapping(user))
+			return
+
 /obj/structure/fermentation_keg/attack_hand(mob/user)
 	if((user.used_intent == /datum/intent/grab) || user.cmode)
 		return ..()
+
 	if(!brewing && (!selected_recipe || ready_to_bottle))
 		shopping_run(user)
 		return
@@ -78,47 +93,91 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	..()
 
 /obj/structure/fermentation_keg/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/reagent_containers) && tapped && (user.used_intent.type == /datum/intent/fill))
+		if(try_filling(user, I))
+			return
+
+	if(heated)
+		if(istype(I, /obj/item/ore/coal) || istype(I, /obj/item/grown/log/tree))
+			refuel(I, user)
+			return
+
+	if(ready_to_bottle)
+		if(selected_recipe.after_finish_attackby(user, I, src))
+			create_items()
+			return
+
 	var/list/produce_list = list()
+	var/list/storage_list = list()
 
 	if(istype(I, /obj/item/bottle_kit))
 		var/obj/item/bottle_kit/kit = I
 		bottle(kit.glass_colour)
 
 	if(I.type in selected_recipe?.needed_items)
-		produce_list += I
+		produce_list |= I
 
-	if(istype(I, /obj/item/reagent_containers/food))
-		produce_list += I
+	if(I.type in selected_recipe?.needed_crops)
+		produce_list |= I
 
+	if(istype(I, /obj/item/storage))
+		produce_list |= I.contents
+		storage_list |= I.contents
+
+	var/dumps = FALSE
 	for(var/obj/item/reagent_containers/food/G in produce_list)
 		if(G.type in selected_recipe?.needed_crops)
+			if(recipe_crop_stocks[G.type] >= selected_recipe?.needed_crops[G.type])
+				continue
 			recipe_crop_stocks[G.type]++
+			if(G in storage_list)
+				dumps = TRUE
+				SEND_SIGNAL(G.loc, COMSIG_TRY_STORAGE_TAKE, G, get_turf(src), TRUE)
 			qdel(G)
 
 	for(var/obj/item/item in produce_list)
 		if(item.type in selected_recipe?.needed_items)
+			if(recipe_crop_stocks[item.type] >= selected_recipe?.needed_items[item.type])
+				continue
 			var/amount = recipe_crop_stocks[item.type] || 0
 			var/added_item = 1
 			recipe_crop_stocks[item.type] = amount + added_item
+			if(item in storage_list)
+				dumps = TRUE
+				SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, get_turf(src), TRUE)
 			qdel(item)
+
+	if(dumps)
+		user.visible_message("[user] dumps some things into [src].", "You dump some things into [src].")
 
 	. = ..()
 	update_overlays()
 
 /obj/structure/fermentation_keg/examine(mob/user)
 	. =..()
+	if(heated)
+		. += "Internal Temperature of around [heat - 271.3]C."
 	if(ready_to_bottle)
 		. += span_boldnotice("[made_item]")
+		if(age_start_time)
+			. += "Aged for [(world.time - age_start_time) * 0.1] Seconds.\n"
+		if(beer_left)
+			. += "[((beer_left / FLOOR((selected_recipe.brewed_amount * selected_recipe.per_brew_amount) , 1))) * 100]% Full"
+		if(!tapped)
+			. += span_blue("Right-Click on the Barrel to Tap it.")
 
 	else if(selected_recipe)
 		var/message = "Currently making: [selected_recipe.name].\n"
 
 		//time
 		if(selected_recipe.brew_time)
-			if(selected_recipe.brew_time >= 1 MINUTES)
-				message += "Once set, will take [selected_recipe.brew_time / 600] Minutes.\n"
+			var/multiplier = 1
+			if(heated && !selected_recipe.heat_required)
+				multiplier = 0.5
+			if((selected_recipe.brew_time * multiplier) >= 1 MINUTES)
+				message += "Once set, will take [(selected_recipe.brew_time / 600) * multiplier] Minutes.\n"
 			else
-				message += "Once set, will take [selected_recipe.brew_time / 10] Seconds.\n"
+				message += "Once set, will take [(selected_recipe.brew_time / 10) & multiplier] Seconds.\n"
 
 		//How many are brewed
 		if(selected_recipe.brewed_amount)
@@ -132,6 +191,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 		if(selected_recipe.helpful_hints)
 			message += "[selected_recipe.helpful_hints].\n"
+
 
 		/*
 		if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
@@ -147,10 +207,14 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if(selecting_recipe)
 		return
 	selecting_recipe = TRUE
+	addtimer(VARSET_CALLBACK(src, selecting_recipe, FALSE), 5 SECONDS)
+
 	var/list/options = list()
 	for(var/path in subtypesof(/datum/brewing_recipe))
 		var/datum/brewing_recipe/recipe = path
 		var/prereq = initial(recipe.pre_reqs)
+		if(!heated && initial(recipe.heat_required))
+			continue
 		if((!ready_to_bottle && prereq == null) || (selected_recipe?.reagent_to_brew == prereq && ready_to_bottle))
 			options[initial(recipe.name)] = recipe
 
@@ -178,13 +242,14 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		selected_recipe = new choice_to_spawn
 	*/
 	selected_recipe = new choice_to_spawn
+	selecting_recipe = FALSE
 
 	//Second stage brewing gives no refunds! - This is intented design to help make it so folks dont quit halfway through and still get a rebate
 	ready_to_bottle = FALSE
 	sellprice = 25
-	icon_state = open_icon_state
+	if(open_icon_state)
+		icon_state = open_icon_state
 	update_overlays()
-	selecting_recipe = FALSE
 
 //Remove only chemicals
 /obj/structure/fermentation_keg/proc/clear_keg_reagents()
@@ -205,11 +270,13 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	ready_to_bottle = FALSE
 	made_item = null
-	icon_state = open_icon_state
+	if(open_icon_state)
+		icon_state = open_icon_state
 	update_overlays()
 
 	recipe_crop_stocks.Cut()
 	age_start_time = 0
+	start_time = 0
 
 	sellprice = 25
 	tapped = FALSE
@@ -238,18 +305,25 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	clear_keg_reagents()
 
 	soundloop.start()
-	addtimer(CALLBACK(src, PROC_REF(end_brew)), selected_recipe.brew_time)
+	if(!heated)
+		addtimer(CALLBACK(src, PROC_REF(end_brew)), selected_recipe.brew_time)
+	if(heated && !selected_recipe.heat_required)
+		addtimer(CALLBACK(src, PROC_REF(end_brew)), selected_recipe.brew_time * 0.5)
 	icon_state = initial(icon_state)
+	start_time = world.time
 	update_overlays()
 
 /obj/structure/fermentation_keg/proc/end_brew()
-	icon_state = "barrel_tapless_ready"
+	if(!heated)
+		icon_state = "barrel_tapless_ready"
 	update_overlays()
 	soundloop.stop()
 	ready_to_bottle = TRUE
 	brewing = FALSE
 	sellprice = selected_recipe.sell_value
 	made_item = selected_recipe.name
+	start_time = 0
+	heated_progress_time = 0
 	if(selected_recipe.ages)
 		age_start_time = world.time
 
@@ -264,6 +338,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(user)
 			to_chat(user, span_notice("This keg is already brewing a mix!"))
 		ready = FALSE
+		return ready
 
 	//Crops
 	for(var/obj/item/reagent_containers/food/needed_crop as anything in selected_recipe.needed_crops)
@@ -286,6 +361,19 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	return ready
 
+/obj/structure/fermentation_keg/proc/refuel(obj/item/item, mob/user)
+	user.visible_message("[user] starts refueling [src].", "You start refueling [src].")
+	if(!do_after(user, 1.5 SECONDS, src))
+		return
+	var/burn_time = 4 MINUTES
+	var/burn_temp = 300
+	if(istype(item, /obj/item/ore/coal))
+		burn_time *= 1.5
+		burn_temp *= 1.5
+
+	heat_decay = world.time + burn_time
+	heat = min(1000, burn_temp + heat)
+	qdel(item)
 
 /obj/structure/fermentation_keg/random/water
 	name = "water barrel"
@@ -310,15 +398,44 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer,900)
 
+/obj/structure/fermentation_keg/proc/create_items()
+	if(!ready_to_bottle)
+		return
+
+	ready_to_bottle = FALSE
+	made_item = null
+	tapped = FALSE
+	age_start_time = 0
+	beer_left = 0
+	brewing = FALSE
+	sellprice = 25
+	heated_progress_time = 0
+	start_time = 0
+	if(open_icon_state)
+		icon_state = open_icon_state
+	update_overlays()
+
+	if(selected_recipe.brewed_item)
+		var/items_given
+		for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
+			new selected_recipe.brewed_item(get_turf(src))
+	selected_recipe = null
+
 
 /obj/structure/fermentation_keg/proc/bottle(glass_colour)
 	if(ready_to_bottle)
 
 		ready_to_bottle = FALSE
 		made_item = null
+		tapped = FALSE
+		age_start_time = 0
+		beer_left = 0
 		brewing = FALSE
 		sellprice = 25
-		icon_state = open_icon_state
+		heated_progress_time = 0
+		start_time = 0
+		if(open_icon_state)
+			icon_state = open_icon_state
 		update_overlays()
 
 		if(selected_recipe.reagent_to_brew)
@@ -340,23 +457,65 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 				else
 					bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount)
 				*/
-				bottle_made.reagents.add_reagent(selected_recipe.reagent_to_brew, selected_recipe.per_brew_amount)
+				var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
+				if(selected_recipe.ages)
+					var/time = world.time - age_start_time
+					for(var/path in selected_recipe.age_times)
+						if(time > selected_recipe.age_times[path])
+							brewed_reagent = path
+				bottle_made.reagents.add_reagent(brewed_reagent, selected_recipe.per_brew_amount)
 		if(selected_recipe.brewed_item)
 			var/items_given
 			for(items_given= 0, items_given < selected_recipe.brewed_item_count, items_given++)
 				new selected_recipe.brewed_item(get_turf(src))
 		selected_recipe = null
 
+/obj/structure/fermentation_keg/proc/try_tapping(mob/user)
+	if(tapped)
+		return
+	visible_message("[user] starts tapping [src].", "You start tapping [src].")
+	if(!do_after(user, 4 SECONDS, src))
+		return
+	tapped = TRUE
+	if(tapped_icon_state)
+		icon_state = tapped_icon_state
+	sellprice = 0
+	beer_left = selected_recipe.brewed_amount * selected_recipe.per_brew_amount
 
-/obj/structure/fermentation_keg/verb/reset_keg()
-	set name = "Clear Keg (Completely Resets)"
-	set category = "Object"
-	set src in range(1)
+/obj/structure/fermentation_keg/proc/try_filling(mob/user, obj/item/reagent_containers/container)
+	if(!tapped)
+		return
+	visible_message("[user] starts pouring from [src].", "You start pouring from [src].")
+	if(!do_after(user, 1 SECONDS, src))
+		return
+	var/beer_taken = min((container.reagents.maximum_volume - container.reagents.total_volume), beer_left)
 
-	if(!isdead(usr))
+	beer_left -= beer_taken
+
+	var/datum/reagent/brewed_reagent = selected_recipe.reagent_to_brew
+	if(selected_recipe.ages)
+		var/time = world.time - age_start_time
+		for(var/path in selected_recipe.age_times)
+			if(time > selected_recipe.age_times[path])
+				brewed_reagent = path
+	container.reagents.add_reagent(brewed_reagent, beer_taken)
+
+	if(beer_left <= 0)
 		clear_keg(TRUE)
-	else
-		to_chat(usr, span_notice("Sadly this keg isnt brewing spirits!"))
+
+/obj/structure/fermentation_keg/process()
+
+	if(brewing && selected_recipe.heat_required)
+		var/end_time = world.time + (selected_recipe.brew_time - heated_progress_time)
+		if(world.time > end_time)
+			end_brew()
+		if((heat > selected_recipe.heat_required))
+			heated_progress_time += world.time - start_time
+		start_time = world.time
+
+	if(heat_decay < world.time)
+		heat = max(300, heat-5)
+
 
 /obj/item/reagent_containers/glass/bottle/brewing_bottle
 	name = "bottle"
@@ -378,3 +537,72 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if(reagents.total_volume <= 0)
 		glass_desc = null
 		glass_name = null
+
+
+/obj/structure/fermentation_keg/distiller
+	name = "copper distiller"
+
+	icon = 'icons/obj/distillery.dmi'
+	icon_state = "distillery"
+	tapped_icon_state = null
+	open_icon_state = null
+
+	anchored = TRUE
+	heated = TRUE
+
+/obj/structure/fermentation_keg/MouseDrop_T(atom/over, mob/living/user)
+	if(!istype(over, /obj/structure/fermentation_keg))
+		return
+	if(!Adjacent(over))
+		return
+	if(!Adjacent(user))
+		return
+	var/obj/structure/fermentation_keg/keg = over
+	if(selected_recipe)
+		if(keg.tapped)
+			if(!(keg.selected_recipe.reagent_to_brew in selected_recipe.needed_reagents))
+				return
+
+			var/datum/reagent/reagent = reagents.get_reagent(keg.selected_recipe.reagent_to_brew)
+			var/reagents_needed = selected_recipe.needed_reagents[keg.selected_recipe.reagent_to_brew]
+			reagents_needed -= reagent?.volume
+
+			if(!reagents_needed)
+				return
+
+			var/transfer_amount = min(reagents_needed, keg.beer_left)
+
+			user.visible_message("[user] starts to pour [keg] into [src]." , "You start to pour [keg] in [src].")
+			if(!do_after(user, 5 SECONDS, keg))
+				return
+			reagents.add_reagent(selected_recipe.reagent_to_brew, transfer_amount)
+			keg.beer_left -= transfer_amount
+			if(keg.beer_left <= 0)
+				keg.clear_keg(TRUE)
+
+		else
+			for(var/datum/reagent/reagent in keg.reagents.reagent_list)
+				if(!(reagent.type in selected_recipe.needed_reagents))
+					continue
+				var/datum/reagent/keg_reagent = reagents.get_reagent(reagent.type)
+				var/reagents_needed = selected_recipe.needed_reagents[reagent.type]
+				reagents_needed -= keg_reagent?.volume
+				if(!reagents_needed)
+					return
+
+				var/transfer_amount = min(reagents_needed, reagent.volume)
+				user.visible_message("[user] starts to pour [keg] into [src]." , "You start to pour [keg] in [src].")
+				if(!do_after(user, 5 SECONDS, keg))
+					return
+				reagents.add_reagent(reagent.type, transfer_amount)
+				keg.reagents.remove_reagent(reagent.type, transfer_amount)
+	else
+		if(!keg.tapped)
+			return
+		user.visible_message("[user] starts to pour [keg] into [src]." , "You start to pour [keg] in [src].")
+		if(!do_after(user, 5 SECONDS, keg))
+			return
+		reagents.add_reagent(keg.selected_recipe?.reagent_to_brew, keg.beer_left)
+		keg.beer_left = 0
+		keg.clear_keg(TRUE)
+

@@ -33,11 +33,8 @@
 				G.client.descend()
 				return
 
-//		var/take_triumph = FALSE
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(istype(C))
-			if(C.skeletons)
-				G.returntolobby()
+		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
+			G.returntolobby()
 		G.client.descend()
 /*		if(world.time < G.ghostize_time + RESPAWNTIME)
 			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)

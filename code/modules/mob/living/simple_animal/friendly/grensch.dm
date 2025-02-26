@@ -28,7 +28,7 @@
 	maxHealth = 100
 	gold_core_spawnable = FRIENDLY_SPAWN
 	blood_volume = BLOOD_VOLUME_NORMAL
-	food_type = list(/obj/item/rogueore/gold, /obj/item/rogueore/silver)
+	food_type = list(/obj/item/ore/gold, /obj/item/ore/silver)
 	tame_chance = 25
 	bonus_tame_chance = 15
 	footstep_type = FOOTSTEP_MOB_SHOE

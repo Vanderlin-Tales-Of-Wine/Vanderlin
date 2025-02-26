@@ -7,6 +7,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	return list(
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
+	/client/proc/spawn_liquid,
+	/client/proc/remove_liquid,
 	/client/proc/adjust_pq,
 	/client/proc/stop_restart,
 	/client/proc/hearallasghost,
@@ -125,6 +127,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
 	/client/proc/forceEvent,
+	/client/proc/forceGamemode,
 	/client/proc/admin_change_sec_level,
 	/client/proc/run_particle_weather,
 	/client/proc/show_tip,
@@ -138,7 +141,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 /world/proc/AVerbsServer()
 	return list(
 	/datum/admins/proc/startnow,
-	/datum/admins/proc/forcemode,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/end_round,
 	/datum/admins/proc/delay,

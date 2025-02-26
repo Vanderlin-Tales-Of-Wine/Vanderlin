@@ -1,82 +1,82 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aS" = (
-/obj/structure/chair/stool/rogue,
-/mob/living/simple_animal/hostile/rogue/orc/orc2,
-/turf/open/floor/rogue/dirt,
+/obj/structure/chair/stool,
+/mob/living/simple_animal/hostile/orc/orc2,
+/turf/open/floor/dirt,
 /area/rogue)
 "bp" = (
-/turf/closed/wall/mineral/rogue/stonebrick,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "bI" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "da" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "di" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "em" = (
-/obj/item/chair/stool/bar/rogue,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/chair/stool/bar,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "eK" = (
-/obj/machinery/light/rogue/campfire/longlived,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/dirt,
 /area/rogue)
 "gd" = (
 /obj/structure/fluff/railing/border,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "gz" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "jT" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "ln" = (
-/obj/structure/chair/stool/rogue,
-/mob/living/simple_animal/hostile/rogue/orc/spear,
-/turf/open/floor/rogue/dirt,
+/obj/structure/chair/stool,
+/mob/living/simple_animal/hostile/orc/spear,
+/turf/open/floor/dirt,
 /area/rogue)
 "ly" = (
-/obj/item/clothing/shoes/roguetown/nobleboot{
+/obj/item/clothing/shoes/nobleboot{
 	pixel_x = 1;
 	pixel_y = 15
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "lI" = (
-/obj/machinery/light/rogue/wallfire,
-/turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/obj/machinery/light/fueled/wallfire,
+/turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue)
 "mb" = (
-/obj/structure/chair/stool/rogue,
-/mob/living/simple_animal/hostile/rogue/orc/ranged,
-/turf/open/floor/rogue/dirt,
+/obj/structure/chair/stool,
+/mob/living/simple_animal/hostile/orc/ranged,
+/turf/open/floor/dirt,
 /area/rogue)
 "pH" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "pQ" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
-/obj/item/clothing/neck/roguetown/menears,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/clothing/neck/menears,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "pT" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "qE" = (
 /obj/structure/toilet,
-/obj/item/clothing/neck/roguetown/psycross/g,
+/obj/item/clothing/neck/psycross/g,
 /obj/item/natural/poo{
 	pixel_y = 9
 	},
@@ -87,183 +87,183 @@
 /obj/item/natural/poo{
 	pixel_x = -4
 	},
-/mob/living/simple_animal/hostile/rogue/orc/orc2,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/orc/orc2,
+/turf/open/floor/dirt,
 /area/rogue)
 "rP" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/dirt,
 /area/rogue)
 "rQ" = (
-/turf/closed/wall/mineral/rogue/tent,
+/turf/closed/wall/mineral/tent,
 /area/rogue)
 "rV" = (
-/turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue)
 "so" = (
-/obj/structure/chair/stool/rogue,
-/mob/living/simple_animal/hostile/rogue/orc/orc_marauder/spear,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/stool,
+/mob/living/simple_animal/hostile/orc/orc_marauder/spear,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "sw" = (
 /obj/structure/chair/bench/throne,
-/mob/living/simple_animal/hostile/rogue/orc/orc_marauder/ravager,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/mob/living/simple_animal/hostile/orc/orc_marauder/ravager,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "tn" = (
-/mob/living/simple_animal/hostile/rogue/orc/orc_marauder,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/mob/living/simple_animal/hostile/orc/orc_marauder,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "uj" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "vg" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "vm" = (
-/obj/structure/chair/stool/rogue,
-/mob/living/simple_animal/hostile/rogue/orc/spear2,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/stool,
+/mob/living/simple_animal/hostile/orc/spear2,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "yp" = (
-/mob/living/simple_animal/hostile/rogue/orc/orc_marauder/ravager,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/mob/living/simple_animal/hostile/orc/orc_marauder/ravager,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "yJ" = (
-/obj/structure/roguewindow/openclose,
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/obj/structure/window/openclose,
+/turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue)
 "zV" = (
 /obj/structure/closet/dirthole/grave,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "CT" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Dh" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "FM" = (
-/obj/item/rogueweapon/shovel,
-/turf/open/floor/rogue/dirt,
+/obj/item/weapon/shovel,
+/turf/open/floor/dirt,
 /area/rogue)
 "GK" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "HF" = (
 /obj/structure/closet/dirthole/closed/loot,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Jl" = (
 /obj/item/clothing/ring/active/nomag,
 /obj/structure/table/wood/counter/end,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Jt" = (
-/obj/structure/bed/rogue/shit,
-/mob/living/simple_animal/hostile/rogue/orc,
-/turf/open/floor/rogue/dirt,
+/obj/structure/bed/shit,
+/mob/living/simple_animal/hostile/orc,
+/turf/open/floor/dirt,
 /area/rogue)
 "JC" = (
 /obj/structure/table/vtable/v2,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "JV" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
-/obj/item/clothing/mask/cigarette/rollie{
+/obj/item/clothing/face/cigarette/rollie{
 	pixel_y = -15
 	},
-/obj/item/clothing/mask/rogue/skullmask{
+/obj/item/clothing/face/skullmask{
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "KK" = (
 /obj/structure/table/vtable,
-/obj/item/roguegem/diamond,
-/obj/item/roguegem/blue{
+/obj/item/gem/diamond,
+/obj/item/gem/blue{
 	pixel_y = 13
 	},
-/obj/item/roguegem{
+/obj/item/gem{
 	pixel_x = -9;
 	pixel_y = 9
 	},
-/obj/item/roguegem/green{
+/obj/item/gem/green{
 	pixel_y = 12;
 	pixel_x = 11
 	},
-/obj/item/roguegem/yellow{
+/obj/item/gem/yellow{
 	pixel_x = -9
 	},
-/obj/item/roguegem/violet{
+/obj/item/gem/violet{
 	pixel_x = 6
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Lh" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Lw" = (
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue)
 "Na" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Nk" = (
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/clothing/head/roguetown/fancyhat,
-/obj/item/clothing/shoes/roguetown/nobleboot{
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/shoes/nobleboot{
 	pixel_x = -3;
 	pixel_y = 8
 	},
 /obj/item/clothing/cloak/half/random,
-/obj/item/clothing/suit/roguetown/armor/leather/vest/black,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/clothing/armor/leather/vest/black,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Ns" = (
-/obj/item/clothing/neck/roguetown/elfears,
+/obj/item/clothing/neck/elfears,
 /obj/structure/table/wood/large/corner,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Qq" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "Sx" = (
 /obj/structure/stairs,
 /obj/structure/stairs,
 /obj/structure/stairs,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "SG" = (
 /obj/structure/table/wood/reinf_long,
-/obj/item/clothing/mask/rogue/shepherd/clothmask{
+/obj/item/clothing/face/shepherd/clothmask{
 	pixel_x = 10
 	},
 /obj/item/flint{
 	pixel_y = 4;
 	pixel_x = -6
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "TJ" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "UA" = (
 /obj/structure/table/wood/large/corner,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "UN" = (
 /obj/item/reagent_containers/glass/cup/skull{
@@ -277,11 +277,11 @@
 	pixel_y = 13;
 	pixel_x = 12
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Vq" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "VC" = (
 /obj/structure/stairs,
@@ -289,7 +289,7 @@
 /area/rogue)
 "YU" = (
 /obj/structure/gate/bars/preopen,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 
 (1,1,1) = {"

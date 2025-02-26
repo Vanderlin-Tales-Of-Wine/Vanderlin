@@ -315,3 +315,29 @@
 	timer = 15 MINUTES
 	stressadd = 5
 	desc = span_boldred("I have failed the guillotine drop! What a shame!")
+
+
+/datum/stressevent/noble_impoverished_food
+	stressadd = 3
+	desc = span_boldred("This is disgusting. How can anyone eat this?")
+	timer = 10 MINUTES
+
+/datum/stressevent/noble_desperate
+	stressadd = 6
+	desc = span_boldred("What level of desperation have I fallen to?")
+	timer = 60 MINUTES
+
+/datum/stressevent/noble_bland_food
+	stressadd = 2
+	desc = span_red("This fare is really beneath me. I deserve better than this...")
+	timer = 5 MINUTES
+
+/datum/stressevent/noble_bad_manners
+	stressadd = 1
+	desc = span_red("I should've used a spoon...")
+	timer = 5 MINUTES
+
+/datum/stressevent/noble_ate_without_table
+	stressadd = 1
+	desc = span_red("Eating such a meal without a table? Churlish.")
+	timer = 2 MINUTES
