@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/fish
 	name = "fish"
 	desc = ""
-	icon_state = "carpcom"
+	icon_state = "carp"
 	icon = 'icons/roguetown/misc/fish.dmi'
 	verb_say = "glubs"
 	verb_yell = "glubs"
@@ -146,6 +146,7 @@
 
 /obj/item/reagent_containers/food/snacks/fryfish/swordfish
 	name = "cooked swordfish"
+	icon_state = "swordfishcooked"
 
 /obj/item/reagent_containers/food/snacks/fryfish/shrimp
 	icon_state = "shrimpcooked"
