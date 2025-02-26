@@ -6,8 +6,9 @@
 
 /obj/effect/proc_holder/spell/invoked/avert
 	name = "Borrowed Time"
-	desc = "Shield someone from the Undermaiden's gaze, preventing them from slipping into death for as long as your faith and fatigue may muster."
-	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/necra)
+	desc = "Shield someone from the Undermaiden's gaze, \
+	preventing them from slipping into death for as long as your faith and fatigue may muster."
+	req_items = list(/obj/item/clothing/neck/roguetown/psycross/silver/astrata)
 	associated_skill = /datum/skill/magic/holy
 	miracle = TRUE
 	devotion_cost = 10

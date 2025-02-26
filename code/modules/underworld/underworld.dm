@@ -174,7 +174,7 @@
 	has_coin = FALSE
 	icon_state = "the_hand"
 	desc = "A hand?"
-	//addtimer(CALLBACK(src,TYPE_PROC_REF(/obj/structure/underworld/coinspawner,regenerate_coin)),20 MINUTES)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/underworld/coinspawner, regenerate_coin)), 40 MINUTES)
 
 /obj/structure/underworld/coinspawner/proc/regenerate_coin()
 	has_coin = TRUE
