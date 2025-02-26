@@ -65,8 +65,9 @@
 		to_chat(src, span_danger("You can't currently use Mentorhelp in the main menu."))
 
 /client/verb/reportissue()
-	set name = "report-issue"
-	set desc = "Report an issue"
+	set name = "Report a bug"
+	set desc = "Report a bug"
+	set category = "Admin"
 
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)
