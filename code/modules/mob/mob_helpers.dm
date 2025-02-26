@@ -1039,10 +1039,10 @@
 	else if(advjob)
 		used_title = advjob
 	else if(job)
-		var/datum/job/job = SSjob.GetJob(job)
-		if(!job)
+		var/datum/job/J = SSjob.GetJob(job)
+		if(!J)
 			return "Unknown"
-		used_title = job.get_informed_title(src)
+		used_title = J.get_informed_title(src)
 	if(mind?.apprentice)
 		used_title = mind.our_apprentice_name
 	return used_title
