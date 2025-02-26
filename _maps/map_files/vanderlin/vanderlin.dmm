@@ -970,11 +970,13 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church/inquisition)
 "aGM" = (
-/obj/structure/bookcase/random/legends,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/churchbrick,
+/obj/structure/chair/wood/alt/chair_noble/red{
+	dir = 8
+	},
+/turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
 "aGT" = (
 /obj/structure/flora/newtree,
@@ -4875,6 +4877,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
+/obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "dxb" = (
@@ -9177,10 +9180,6 @@
 	},
 /area/rogue/under/town/basement)
 "gxk" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /obj/structure/table/wood/reinforced_alter,
 /obj/item/natural/feather,
 /turf/open/floor/carpet/purple,
@@ -12213,8 +12212,12 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "iDF" = (
-/obj/machinery/light/fueled/firebowl/standing/blue,
-/turf/open/floor/cobble,
+/obj/structure/chair/wood/alt/chair_noble/red,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/church)
 "iDI" = (
 /obj/machinery/light/fueled/torchholder{
@@ -17017,13 +17020,6 @@
 /obj/structure/feedinghole,
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
-"mku" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/obj/structure/fluff/walldeco/church/line,
-/turf/open/floor/churchrough,
-/area/rogue/indoors/town/church)
 "mkz" = (
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
@@ -20109,10 +20105,8 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "ozI" = (
-/obj/structure/fluff/walldeco/church/line,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
+/obj/structure/table/wood/plain,
+/obj/item/recipe_book/art,
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
 "ozO" = (
@@ -20128,7 +20122,7 @@
 /obj/structure/mineral_door/wood/donjon/stone{
 	name = "Confessional"
 	},
-/turf/open/floor/herringbone,
+/turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
 "oBk" = (
 /obj/machinery/light/fueled/firebowl,
@@ -21484,6 +21478,9 @@
 /area/rogue/under/town/basement)
 "pDn" = (
 /obj/structure/chair/stool,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
 "pDp" = (
@@ -26270,6 +26267,9 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "taD" = (
@@ -28567,10 +28567,6 @@
 "uAx" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
-	},
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_x = -32;
-	pixel_y = 0
 	},
 /obj/structure/table/wood/reinforced_alter,
 /obj/item/paper,
@@ -108422,7 +108418,7 @@ eJc
 sjV
 dtJ
 dtJ
-oaS
+dtJ
 dtJ
 dtJ
 dtJ
@@ -109231,7 +109227,7 @@ vgJ
 eJc
 ceH
 dtJ
-iDF
+dtJ
 dtJ
 tLS
 eJc
@@ -181524,7 +181520,7 @@ acx
 acx
 acx
 fdp
-hVd
+fdp
 dtq
 jkg
 jTy
@@ -181725,7 +181721,7 @@ acx
 acx
 acx
 acx
-acx
+fdp
 fdp
 dtq
 jkg
@@ -181927,7 +181923,7 @@ acx
 acx
 acx
 acx
-acx
+fdp
 fdp
 dtq
 kAM
@@ -182129,7 +182125,7 @@ acx
 acx
 acx
 acx
-acx
+fdp
 fdp
 dtq
 eng
@@ -182331,7 +182327,7 @@ acx
 acx
 acx
 acx
-acx
+fdp
 fdp
 dtq
 jkg
@@ -182533,7 +182529,7 @@ acx
 acx
 acx
 acx
-acx
+hVd
 hVd
 hVd
 yeg
@@ -187804,8 +187800,8 @@ knk
 qom
 vlf
 eaQ
-mku
-tPS
+qDT
+ozI
 vlf
 uVx
 uVx
@@ -188005,8 +188001,8 @@ swo
 een
 swo
 mJO
-kHv
-mku
+tPS
+qDT
 aGM
 vlf
 uVx
@@ -188208,8 +188204,8 @@ sSs
 tMa
 mJO
 mgR
-mku
-tPS
+qDT
+jUC
 mJO
 swo
 mJO
@@ -188411,7 +188407,7 @@ vUd
 vlf
 wyl
 qDT
-ozI
+xAu
 jSd
 tAV
 vlf
@@ -189423,7 +189419,7 @@ brU
 xJb
 wjO
 qDT
-buh
+iDF
 gxk
 nLu
 uVx
