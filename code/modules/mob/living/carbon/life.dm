@@ -111,7 +111,11 @@
 				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater(turf/open/water/W)
-	ExtinguishMob()
+	if(lying || W.water_level == 3)
+		SoakMob(FULL_BODY)
+	else
+		if(W.water_level == 2)
+			SoakMob(BELOW_CHEST)
 
 /mob/living/carbon/handle_inwater(turf/open/water/W)
 	..()
