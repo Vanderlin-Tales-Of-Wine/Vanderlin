@@ -1481,7 +1481,7 @@
 #include "code\modules\jobs\job_types\adventurer\types\combat\mage.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\monk.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\ranger.dm"
-#include "code\modules\jobs\job_types\adventurer\types\combat\rogue.dm"
+#include "code\modules\jobs\job_types\adventurer\thief.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\sorceress.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\warrior.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\donator\bladesinger.dm"

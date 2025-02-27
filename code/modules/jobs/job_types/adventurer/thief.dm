@@ -1,4 +1,4 @@
-/datum/job/rogue
+/datum/job/thief
 	title = "Thief"
 	flag = ADVENTURER
 	department_flag = PEASANTS
@@ -7,7 +7,7 @@
 	spawn_positions = 5
 
 	tutorial = "A wandering thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
-	display_order = JDO_ROGUE
+	display_order = JDO_THIEF
 	bypass_lastclass = TRUE
 	min_pq = 8
 	shows_in_list = FALSE
@@ -18,10 +18,10 @@
 	wanderer_examine = TRUE
 
 
-	outfit = /datum/outfit/job/rogue
+	outfit = /datum/outfit/job/thief
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/datum/outfit/job/rogue
+/datum/outfit/job/thief
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots
@@ -29,7 +29,7 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 
-/datum/job/rogue/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/thief/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -42,14 +42,14 @@
 			to_chat(H, span_notice("The Thieves Guild Door Password is:\n'"+D.get_open_phrase()+"'"))
 
 
-/datum/advclass/rogue/rogue
+/datum/advclass/thief/rogue
 	name = "Rogue"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/rogue/rogueclassic
+	outfit = /datum/outfit/job/thief/rogue
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
 
-/datum/outfit/job/rogue/rogueclassic/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/thief/rogue/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(0,0,1), TRUE)
@@ -80,7 +80,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/rogue/rogueclassic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/thief/rogue/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 		// Give them their cloak- as well as the ability to choose what color they want.
@@ -93,14 +93,14 @@
 		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
 
-/datum/advclass/rogue/ruffian
+/datum/advclass/thief/ruffian
 	name = "Ruffian"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/rogue/ruffian
+	outfit = /datum/outfit/job/thief/ruffian
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
 
-/datum/outfit/job/rogue/ruffian/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/thief/ruffian/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
@@ -135,7 +135,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/rogue/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/thief/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
@@ -147,14 +147,14 @@
 		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
 
-/datum/advclass/rogue/cutthroat
+/datum/advclass/thief/cutthroat
 	name = "Cutthroat"
 	tutorial = "Lorem Ipsum"
-	outfit = /datum/outfit/job/rogue/cutthroat
+	outfit = /datum/outfit/job/thief/cutthroat
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 1
 
-/datum/outfit/job/rogue/cutthroat/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/thief/cutthroat/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -194,7 +194,7 @@
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 
-/datum/outfit/job/rogue/cutthroat/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/thief/cutthroat/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
