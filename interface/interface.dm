@@ -67,7 +67,7 @@
 /client/verb/reportissue()
 	set name = "Report a bug"
 	set desc = "Report a bug"
-	set category = "Admin"
+	set category = "OOC"
 
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(!githuburl)
