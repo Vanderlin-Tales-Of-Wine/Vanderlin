@@ -300,7 +300,7 @@
 	loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
-	return(istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
+	return FALSE
 
 /obj/structure
 	var/breakoutextra = 30 SECONDS
@@ -538,28 +538,22 @@
 	if(stat == DEAD)
 		return TRUE
 	if(nausea >= 100)
-		if(mob_timers["puke"])
-			if(world.time > mob_timers["puke"] + 16 SECONDS)
-				mob_timers["puke"] = world.time
-				if(getorgan(/obj/item/organ/stomach))
-					to_chat(src, "<span class='warning'>I'm going to puke...</span>")
-					addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
-			else
-				if(prob(3))
-					to_chat(src, "<span class='warning'>I feel sick...</span>")
-		else
+		if(MOBTIMER_FINISHED(src, MT_PUKE, 16 SECONDS))
 			if(getorgan(/obj/item/organ/stomach))
-				mob_timers["puke"] = world.time
+				MOBTIMER_SET(src, MT_PUKE)
 				to_chat(src, "<span class='warning'>I'm going to puke...</span>")
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
-	add_nausea(-1)
+		else
+			if(prob(3))
+				to_chat(src, "<span class='warning'>I feel sick...</span>")
 
+	add_nausea(-1)
 
 /mob/living/carbon/proc/vomit(lost_nutrition = 50, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, toxic = FALSE, harm = FALSE, force = FALSE)
 	if(HAS_TRAIT(src, TRAIT_TOXINLOVER) && !force)
 		return TRUE
 
-	mob_timers["puke"] = world.time
+	MOBTIMER_SET(src, MT_PUKE)
 
 	if(nutrition <= 50 && !blood)
 		if(message)
@@ -610,16 +604,12 @@
 		if(nutrition > 50)
 			adjust_nutrition(-lost_nutrition)
 			adjust_hydration(-lost_nutrition)
-//adjustToxLoss(-3)
 	if(harm)
 		adjustBruteLoss(3)
 	for(var/i=0 to distance)
 		if(blood)
 			if(T)
 				bleed(5)
-		else if(src.reagents.has_reagent(/datum/reagent/consumable/ethanol/blazaam, needs_metabolizing = TRUE))
-			if(T)
-				T.add_vomit_floor(src, VOMIT_PURPLE)
 		else
 			if(T)
 				T.add_vomit_floor(src, VOMIT_TOXIC)//toxic barf looks different
@@ -713,17 +703,6 @@
 			if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
 				return
 
-	if(glasses)
-		var/obj/item/clothing/glasses/G = glasses
-		sight |= G.vision_flags
-		see_in_dark = max(G.darkness_view, see_in_dark)
-		if(G.invis_override)
-			see_invisible = G.invis_override
-		else
-			see_invisible = min(G.invis_view, see_invisible)
-		if(!isnull(G.lighting_alpha))
-			lighting_alpha = min(lighting_alpha, G.lighting_alpha)
-
 	if(HAS_TRAIT(src, TRAIT_BESTIALSENSE))
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_DARKVISION)
 		see_in_dark = 4
@@ -749,7 +728,7 @@
 /mob/living/carbon/proc/update_tint()
 	if(!GLOB.tinted_weldhelh)
 		return
-	tinttotal = get_total_tint()
+	tinttotal = 0
 	if(tinttotal >= TINT_BLIND)
 		become_blind(EYES_COVERED)
 	else if(tinttotal >= TINT_DARKENED)

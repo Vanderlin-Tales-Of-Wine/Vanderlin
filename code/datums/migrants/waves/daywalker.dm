@@ -1,24 +1,24 @@
 /datum/migrant_role/daywalker
 	name = "Daywalker"
 	greet_text = "Some knaves are always trying to wade upstream. You witnessed your entire village be consumed by a subservient vampiric horde - the local Priest grabbed you, and brought you to a remote Monastery; ever since then you've sworn revenge against the restless dead. The Templars showed you everything you needed to know. You walk in the day, so that the undead may only walk in the night."
-	outfit = /datum/outfit/job/roguetown/daywalker
+	outfit = /datum/outfit/job/daywalker
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/roguetown/daywalker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/daywalker/pre_equip(mob/living/carbon/human/H)
 	..()
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	neck = /obj/item/clothing/neck/roguetown/psycross/silver/astrata
-	gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves // Would give em Fingerless, but parrying with fists sounds funny as fuck
-	pants = /obj/item/clothing/under/roguetown/trou/shadowpants
-	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket
-	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	neck = /obj/item/clothing/neck/psycross/silver/astrata
+	gloves = /obj/item/clothing/gloves/fingerless/shadowgloves // Would give em Fingerless, but parrying with fists sounds funny as fuck
+	pants = /obj/item/clothing/pants/trou/shadowpants
+	shirt = /obj/item/clothing/shirt/tunic/black
+	armor = /obj/item/clothing/armor/leather/vest/winterjacket
+	shoes = /obj/item/clothing/shoes/nobleboot
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	mask = /obj/item/clothing/mask/rogue/goggles
-	beltr = /obj/item/rogueweapon/sword/rapier
-	belt = /obj/item/storage/belt/rogue/leather/steel
-	backr = /obj/item/storage/backpack/rogue/satchel
+	mask = /obj/item/clothing/face/goggles
+	beltr = /obj/item/weapon/sword/rapier
+	belt = /obj/item/storage/belt/leather/steel
+	backr = /obj/item/storage/backpack/satchel
 	id = /obj/item/clothing/ring/silver
 	H.virginity = TRUE
 

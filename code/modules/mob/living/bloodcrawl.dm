@@ -71,8 +71,6 @@
 
 	if(victim.stat == CONSCIOUS)
 		visible_message("<span class='warning'>[victim] kicks free of the blood pool just before entering it!</span>", null, "<span class='notice'>I hear splashing and struggling.</span>")
-	else if(victim.reagents && victim.reagents.has_reagent(/datum/reagent/consumable/ethanol/demonsblood, needs_metabolizing = TRUE))
-		visible_message("<span class='warning'>Something prevents [victim] from entering the pool!</span>", "<span class='warning'>A strange force is blocking [victim] from entering!</span>", "<span class='notice'>I hear a splash and a thud.</span>")
 	else
 		victim.forceMove(src)
 		victim.emote("scream")
@@ -98,24 +96,6 @@
 
 	if(!victim)
 		return FALSE
-
-	if(victim.reagents && victim.reagents.has_reagent(/datum/reagent/consumable/ethanol/devilskiss, needs_metabolizing = TRUE))
-		to_chat(src, "<span class='warning'><b>AAH! THEIR FLESH! IT BURNS!</b></span>")
-		adjustBruteLoss(25) //I can't use adjustHealth() here because bloodcrawl affects /mob/living and adjustHealth() only affects simple mobs
-		var/found_bloodpool = FALSE
-		for(var/obj/effect/decal/cleanable/target in range(1,get_turf(victim)))
-			if(target.can_bloodcrawl_in())
-				victim.forceMove(get_turf(target))
-				victim.visible_message("<span class='warning'>[target] violently expels [victim]!</span>")
-				victim.exit_blood_effect(target)
-				found_bloodpool = TRUE
-
-		if(!found_bloodpool)
-			// Fuck it, just eject them, thanks to some split second cleaning
-			victim.forceMove(get_turf(victim))
-			victim.visible_message("<span class='warning'>[victim] appears from nowhere, covered in blood!</span>")
-			victim.exit_blood_effect()
-		return TRUE
 
 	to_chat(src, "<span class='danger'>I devour [victim]. Your health is fully restored.</span>")
 	revive(full_heal = TRUE, admin_revive = FALSE)

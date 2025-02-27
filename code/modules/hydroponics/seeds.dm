@@ -55,8 +55,8 @@
 
 
 /obj/item/seeds/attack_turf(turf/T, mob/living/user)
-	if(istype(T, /turf/open/floor/rogue/dirt))
-		var/turf/open/floor/rogue/dirt/D = T
+	if(istype(T, /turf/open/floor/dirt))
+		var/turf/open/floor/dirt/D = T
 		if(D.planted_crop)
 			to_chat(user, "<span class='warning'>Someone is already living here.</span>")
 			return

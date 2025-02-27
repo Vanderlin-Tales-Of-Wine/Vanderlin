@@ -4,42 +4,42 @@
 /area/rogue)
 "c" = (
 /obj/structure/fluff/statue/tdummy,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "d" = (
 /obj/structure/roguetent/preopen,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "e" = (
 /obj/structure/stairs,
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "f" = (
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "g" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "i" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "o" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "p" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/hexstone,
 /area/rogue)
 "q" = (
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "s" = (
 /turf/closed/dungeon_void,
@@ -48,42 +48,42 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "v" = (
 /mob/living/carbon/human/species/skeleton/npc,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "w" = (
 /obj/structure/dungeon_exit{
 	dungeon_id = "center"
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "B" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "C" = (
 /obj/structure/stairs,
 /turf/open/transparent/openspace,
 /area/rogue)
 "D" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "E" = (
 /obj/structure/stairs,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "K" = (
 /obj/structure/fluff/statue/evil,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "N" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "O" = (
 /obj/structure/table/wood/counter{
@@ -98,23 +98,23 @@
 	pixel_x = 10;
 	pixel_y = 8
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Q" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/glass/bottle/waterskin,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "S" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/hexstone,
 /area/rogue)
 "V" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "W" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "X" = (
 /obj/structure/stairs{
@@ -124,7 +124,7 @@
 /area/rogue)
 "Y" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 
 (1,1,1) = {"

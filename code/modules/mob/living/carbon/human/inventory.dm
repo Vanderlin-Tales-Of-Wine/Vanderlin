@@ -34,8 +34,6 @@
 			return beltl
 		if(SLOT_BELT_R)
 			return beltr
-		if(SLOT_GLASSES)
-			return glasses
 		if(SLOT_GLOVES)
 			return gloves
 		if(SLOT_HEAD)
@@ -86,7 +84,6 @@
 		head,
 		wear_mask,
 		wear_neck,
-		glasses,
 		ears,
 		mouth,
 		)
@@ -128,19 +125,6 @@
 
 			ears = I
 			update_inv_ears()
-		if(SLOT_GLASSES)
-			glasses = I
-			var/obj/item/clothing/glasses/G = I
-			if(G.glass_colour_type)
-				update_glasses_color(G, 1)
-			if(G.tint)
-				update_tint()
-			if(G.vision_correction)
-				clear_fullscreen("nearsighted")
-				clear_fullscreen("eye_damage")
-			if(G.vision_flags || G.darkness_view || G.invis_override || G.invis_view || !isnull(G.lighting_alpha))
-				update_sight()
-			update_inv_glasses()
 		if(SLOT_GLOVES)
 
 			gloves = I
@@ -265,20 +249,6 @@
 		gloves = null
 		if(!QDELETED(src))
 			update_inv_gloves()
-	else if(I == glasses)
-		glasses = null
-		var/obj/item/clothing/glasses/G = I
-		if(G.glass_colour_type)
-			update_glasses_color(G, 0)
-		if(G.tint)
-			update_tint()
-		if(G.vision_correction)
-			if(HAS_TRAIT(src, TRAIT_NEARSIGHT))
-				overlay_fullscreen("nearsighted", /atom/movable/screen/fullscreen/impaired, 1)
-		if(G.vision_flags || G.darkness_view || G.invis_override || G.invis_view || !isnull(G.lighting_alpha))
-			update_sight()
-		if(!QDELETED(src))
-			update_inv_glasses()
 	else if(I == ears)
 		ears = null
 		if(!QDELETED(src))

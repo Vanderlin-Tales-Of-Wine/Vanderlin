@@ -1,0 +1,129 @@
+/obj/item/clothing/shoes/boots
+	name = "dark boots"
+	//dropshrink = 0.75
+	color = "#d5c2aa"
+	desc = "Boots made out of darker materials. Offers light protection against melee attacks."
+	gender = PLURAL
+	icon_state = "blackboots"
+	item_state = "blackboots"
+	armor = list("blunt" = 15, "slash" = 15, "stab" = 15,  "piercing" = 5, "fire" = 0, "acid" = 0)
+	sellprice = 10
+
+/obj/item/clothing/shoes/boots/armor
+	name = "plated boots"
+	desc = "Armored boots made from steel offering heavy protection against both melee and ranged attacks."
+	body_parts_covered = FEET
+	icon_state = "armorboots"
+	item_state = "armorboots"
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	color = null
+	blocksound = PLATEHIT
+	armor = list("blunt" = 100, "slash" = 100, "stab" = 100,  "piercing" = 80, "fire" = 0, "acid" = 0)
+	max_integrity = 500
+	armor_class = AC_HEAVY
+	clothing_flags = CANT_SLEEP_IN
+	anvilrepair = /datum/skill/craft/armorsmithing
+	resistance_flags = FIRE_PROOF
+	pickup_sound = "rustle"
+	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	break_sound = 'sound/foley/breaksound.ogg'
+	sellprice = 25
+
+/obj/item/clothing/shoes/boots/armor/light
+	name = "light plate boots"
+	icon_state = "soldierboots"
+	item_state = "soldierboots"
+	desc = "Lightly armored boots made from iron offering protection against both melee and ranged attacks."
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 80,  "piercing" = 60, "fire" = 0, "acid" = 0)
+	max_integrity = 250
+	armor_class = AC_MEDIUM
+	sellprice = 20
+
+/obj/item/clothing/shoes/boots/armor/light/rust
+	name = "rusted light plate boots"
+	desc = "Rusted armored boots made from iron offering protection against both melee and ranged attacks. They smell stained of blood and urine."
+	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
+	icon_state = "rustboots"
+	item_state = "rustboots"
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_ARMOR/2
+	armor = ARMOR_PLATE_BAD
+	max_integrity = INTEGRITY_STANDARD
+
+/obj/item/clothing/shoes/boots/leather
+	name = "leather boots"
+	//dropshrink = 0.75
+	desc = "Boots made out of sturdy leather. Providing light protection against melee attacks."
+	prevent_crits = list(BCLASS_LASHING, BCLASS_BITE, BCLASS_TWIST)
+	gender = PLURAL
+	icon_state = "leatherboots"
+	item_state = "leatherboots"
+	armor = list("blunt" = 20, "slash" = 20, "stab" = 20,  "piercing" = 10, "fire" = 0, "acid" = 0)
+	resistance_flags = FLAMMABLE
+	sellprice = 10
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/hide/cured
+
+
+/obj/item/clothing/shoes/boots/leather/advanced
+	name = "hardened leather boots"
+	desc = "Sturdy, durable, flexible. A marvel of the dark ages that exists solely to protect your toes."
+	max_integrity = 200
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 50, "slash" = 40, "stab" = 20, "piercing" = 0, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/shoes/boots/leather/masterwork
+	name = "masterwork leather boots"
+	desc = "These boots are a craftsmanship marvel. Made with the finest leather. Strong, nimible, reliable."
+	max_integrity = 300
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!
+	armor = list("blunt" = 80, "slash" = 60, "stab" = 40, "piercing" = 0,"fire" = 0, "acid" = 0)
+
+/obj/item/clothing/shoes/boots/leather/masterwork/Initialize()
+	. = ..()
+	filters += filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
+
+/obj/item/clothing/shoes/boots/furlinedboots
+	name = "fur lined boots"
+	desc = "Leather boots lined with fur."
+	gender = PLURAL
+	icon_state = "furlinedboots"
+	item_state = "furlinedboots"
+	sewrepair = TRUE
+	armor = list("blunt" = 30, "slash" = 10, "stab" = 20,  "piercing" = 0, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/shoes/boots/furlinedanklets
+	name = "fur lined anklets"
+	desc = "Leather anklets lined with fur, foot remains bare."
+	gender = PLURAL
+	icon_state = "furlinedanklets"
+	item_state = "furlinedanklets"
+	sewrepair = TRUE
+	armor = list("blunt" = 30, "slash" = 10, "stab" = 20,  "piercing" = 0, "fire" = 0, "acid" = 0)
+	is_barefoot = TRUE
+
+/obj/item/clothing/shoes/boots/clothlinedanklets
+	name = "cloth lined anklets"
+	desc = "Cloth anklets lined with with fibers, foot remains bare."
+	gender = PLURAL
+	icon_state = "clothlinedanklets"
+	item_state = "furlinedanklets"
+	is_barefoot = TRUE
+	sewrepair = TRUE
+	armor = list("blunt" = 5, "slash" = 5, "stab" = 5,  "piercing" = 0, "fire" = 0, "acid" = 0) //Thinks its fair for a piece of cloth and fiber.
+
+
+/obj/item/clothing/shoes/boots/armor/vampire
+	name = "ancient ceremonial boots"
+	desc = "Antediluvian boots with ceremonial ornamets from ages past."
+	body_parts_covered = FEET
+	icon_state = "vboots"
+	item_state = "vboots"
+	prevent_crits = ALL_CRITICAL_HITS_VAMP
+	color = null
+	blocksound = PLATEHIT
+	smeltresult = /obj/item/ingot/steel
+	armor = ARMOR_PLATE_GOOD

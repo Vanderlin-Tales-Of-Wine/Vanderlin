@@ -32,6 +32,8 @@
 	icon_state = "pie"
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_FILLING)
 	slice_path = /obj/item/reagent_containers/food/snacks/pieslice
+	faretype = FARE_LAVISH //an entire pie! all to yourself!
+	portable = FALSE
 	slices_num = 5
 	slice_batch = TRUE
 	eat_effect = null
@@ -81,6 +83,8 @@
 	foodtype = GRAIN | DAIRY
 	color = "#e7e2df"
 	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_FINE
+	portable = FALSE
 
 /obj/item/reagent_containers/food/snacks/pieslice/good
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -243,6 +247,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
 	tastes = list("dry dough" = 1)
 	dropshrink = 0.8
+	faretype = FARE_FINE
 
 /obj/item/reagent_containers/food/snacks/handpie/good
 	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."

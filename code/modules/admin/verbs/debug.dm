@@ -249,7 +249,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 
 	var/list/baseoutfits = list("Naked","Custom", "As Roguetown Job...")
 	var/list/outfits = list()
-	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job)  - typesof(/datum/outfit/job/roguetown)
+	var/list/paths = subtypesof(/datum/outfit) - typesof(/datum/outfit/job)  - typesof(/datum/outfit/job)
 
 	for(var/path in paths)
 		var/datum/outfit/O = path //not much to initalize here but whatever
@@ -273,7 +273,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 			return
 
 	if (dresscode == "As Roguetown Job...")
-		var/list/roguejob_paths = subtypesof(/datum/outfit/job/roguetown)
+		var/list/roguejob_paths = subtypesof(/datum/outfit/job)
 		var/list/roguejob_outfits = list()
 		for(var/path in roguejob_paths)
 			var/datum/outfit/O = path

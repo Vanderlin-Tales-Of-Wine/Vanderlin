@@ -16,7 +16,7 @@
 	///picks able to be used
 	var/list/lockpicks = list(/obj/item/lockpick)
 	///wedges able to be used
-	var/list/wedges = list(/obj/item/rogueweapon/knife/dagger, /obj/item/lockpick) //whem we add more thieves tools check this
+	var/list/wedges = list(/obj/item/weapon/knife/dagger, /obj/item/lockpick) //whem we add more thieves tools check this
 	///shows the lock difficulty level on examine, like fallout
 	var/shown_difficulty
 

@@ -150,12 +150,12 @@
 						steaks = 3 // the steaks have never been higher
 				var/amt2raise = user.STAINT/3
 				if(do_after(user, used_time, src))
-					var/obj/item/reagent_containers/food/snacks/rogue/meat/steak/steak
+					var/obj/item/reagent_containers/food/snacks/meat/steak/steak
 					for(steaks, steaks>0, steaks--)
-						steak = new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
+						steak = new /obj/item/reagent_containers/food/snacks/meat/steak(get_turf(src))
 						if(rotted)
 							steak.become_rotten()
-					steak = new /obj/item/reagent_containers/food/snacks/rogue/meat/steak(get_turf(src))
+					steak = new /obj/item/reagent_containers/food/snacks/meat/steak(get_turf(src))
 					if(rotted)
 						steak.become_rotten()
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))

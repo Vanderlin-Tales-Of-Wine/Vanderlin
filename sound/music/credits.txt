@@ -2,7 +2,6 @@ combat_maniac.ogg: Thomas Bangalter - Stress
 combat_vamp1.ogg: Vampire The Masquerade: Bloodlines - Dangerous Places Combat
 combat_vamp2.ogg: Filmmaker - Mystic Circles
 combat_desertrider.ogg: Two Fingers- You Ain't Down
-combat_grenzelhoft.ogg: Helbrede - Sons of Tyr
 combat_jester.ogg: OFF - Pepper Steak
 combat_bandit.ogg: Deus Ex - Battery Park Combat
 combat_bandit2.ogg: Cruelty Squad  - Rent Due
@@ -59,9 +58,13 @@ Archetype of the Dark Star - Werewolf
 heliotrix - Priest / Astratan Theme
 DEMESNE - Lich
 Ready or Not - Man-at-Arms
+OZYMANDIAS - Dungeon Track 3
+Black Powder - Grenzelhoft
 
 
     SeanPhillips (https://youtube.com/@seanphillipsmusic / www.seanphillipsmusic.co.uk)
+    Dungeon Track 1 - Unnamed(?)
+    Dungeon Track 2 - Unnamed (?)
 
     YourLocalShadow (https://www.youtube.com/@YourLocalShadow)
 Bewildered Magic - Wizard Tower
@@ -70,3 +73,11 @@ Bewildered Magic - Wizard Tower
 Neglection - Title1
 Veil of Heresy - Cultist Theme
 Retina - Title3
+
+INSTRUMENTS
+
+Sea Shanty 2 Runescape Arrangements:
+lute (b1).ogg: https://www.youtube.com/watch?v=n-wlB48Sq94
+harp (b1).ogg: https://www.youtube.com/watch?v=DaGdjI4HGTg
+flute (b1).ogg: https://www.youtube.com/watch?v=_bhiGbnfMT4
+viola (b1): https://www.youtube.com/watch?v=qmS-rX0_qRQ

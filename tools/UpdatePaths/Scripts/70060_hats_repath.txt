@@ -1,6 +1,6 @@
 #comment This replaces all hat paths https://github.com/tgstation/tgstation/pull/70060
 
-/obj/item/clothing/suit/bronze : /obj/item/clothing/suit/costume/bronze {@OLD}
+/obj/item/clothing/shirt/bronze : /obj/item/clothing/shirt/costume/bronze {@OLD}
 /obj/item/clothing/head/magus : /obj/item/clothing/head/wizard/magus {@OLD}
 /obj/item/clothing/head/kitty : /obj/item/clothing/head/costume/kitty {@OLD}
 /obj/item/clothing/head/hardhat/cakehat : /obj/item/clothing/head/utility/hardhat/cakehat {@OLD}

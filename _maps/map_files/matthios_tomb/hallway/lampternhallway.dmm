@@ -4,22 +4,22 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "b" = (
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "c" = (
 /obj/structure/fluff/statue/knight/interior,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "l" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "n" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "s" = (
-/turf/closed/wall/mineral/rogue/decostone/end{
+/turf/closed/wall/mineral/decostone/end{
 	dir = 4
 	},
 /area/rogue)
@@ -45,13 +45,13 @@
 /area/rogue)
 "A" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "C" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "G" = (
-/turf/closed/wall/mineral/rogue/decostone/long,
+/turf/closed/wall/mineral/decostone/long,
 /area/rogue)
 "H" = (
 /obj/structure/bars/grille,
@@ -62,37 +62,37 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "J" = (
-/obj/machinery/light/rogue/lanternpost/fixed,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/lanternpost/fixed,
+/turf/open/floor/hexstone,
 /area/rogue)
 "L" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "M" = (
 /obj/structure/fluff/statue/knight/interior/r,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "P" = (
-/turf/closed/wall/mineral/rogue/decostone/end{
+/turf/closed/wall/mineral/decostone/end{
 	dir = 8
 	},
 /area/rogue)
 "S" = (
-/obj/machinery/light/rogue/lanternpost/fixed{
+/obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "V" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "X" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Y" = (
-/turf/closed/wall/mineral/rogue/decostone,
+/turf/closed/wall/mineral/decostone,
 /area/rogue)
 "Z" = (
 /obj/structure/bars/grille,

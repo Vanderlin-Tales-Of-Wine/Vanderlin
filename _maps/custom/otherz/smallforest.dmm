@@ -1,28 +1,28 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/open/floor/rogue/dirt/ambush,
+/turf/open/floor/dirt/ambush,
 /area/rogue/outdoors/woods)
 "ab" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "ac" = (
 /obj/effect/landmark/start/mercenarylate,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
 "ad" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "ae" = (
-/obj/effect/spawner/roguemap/stump,
-/turf/open/floor/rogue/cobblerock,
+/obj/effect/spawner/map_spawner/stump,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "af" = (
 /obj/structure/flora/newtree,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/woods)
 "ag" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods)
 "ah" = (
 /turf/open/water/river{
@@ -31,41 +31,41 @@
 /area/rogue/outdoors/woods)
 "ai" = (
 /obj/structure/flora/newtree,
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue/outdoors/rtfield)
 "aj" = (
 /obj/structure/flora/newtree,
-/turf/closed/wall/mineral/rogue/wooddark/end{
+/turf/closed/wall/mineral/wooddark/end{
 	dir = 4
 	},
 /area/rogue/outdoors/rtfield)
 "ak" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "al" = (
 /obj/structure/flora/newtree,
-/turf/closed/wall/mineral/rogue/wooddark/end{
+/turf/closed/wall/mineral/wooddark/end{
 	dir = 8
 	},
 /area/rogue/outdoors/rtfield)
 "am" = (
 /obj/structure/flora/newtree,
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/outdoors/rtfield)
 "an" = (
 /obj/structure/flora/newtree,
-/mob/living/simple_animal/hostile/retaliate/rogue/saigabuck{
+/mob/living/simple_animal/hostile/retaliate/saigabuck{
 	tame = 1
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "ao" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "ap" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/river{
 	dir = 4
 	},
@@ -77,23 +77,23 @@
 	},
 /area/rogue/outdoors/woods)
 "at" = (
-/obj/structure/flora/roguegrass/maneater/real,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/maneater/real,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "au" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aA" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aC" = (
 /obj/structure/chair/bench/ancientlog,
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aD" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aE" = (
@@ -101,16 +101,16 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aF" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aG" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aH" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "aI" = (
 /obj/structure/flora/newtree,
@@ -118,89 +118,89 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aM" = (
-/obj/effect/spawner/roguemap/stump,
-/turf/open/floor/rogue/grass,
+/obj/effect/spawner/map_spawner/stump,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "aO" = (
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "aQ" = (
-/turf/closed/wall/mineral/rogue/wood/boss,
+/turf/closed/wall/mineral/wood/boss,
 /area/rogue/outdoors/woods)
 "aR" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/mole,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/retaliate/mole,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aU" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "bp" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/outdoors/woods)
 "cL" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "cM" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/woods)
 "cS" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/goatmale,
-/turf/open/floor/rogue/grass,
+/mob/living/simple_animal/hostile/retaliate/goatmale,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "di" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/chair/stool,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "dI" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "dZ" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/goat,
-/turf/open/floor/rogue/dirt/road,
+/mob/living/simple_animal/hostile/retaliate/goat,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "es" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saigabuck,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/retaliate/saigabuck,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "fZ" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "hb" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "hD" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/woods)
 "jC" = (
 /obj/structure/fluff/signage,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "kn" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "lj" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "mJ" = (
-/turf/closed/mineral/rogue/coal,
+/turf/closed/mineral/coal,
 /area/rogue/outdoors/woods)
 "om" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/woods)
 "pt" = (
-/obj/effect/spawner/roguemap/stump,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/stump,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "pu" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "qa" = (
@@ -208,80 +208,80 @@
 	aportalgoesto = "vampin";
 	aportalid = "vampexit"
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "ru" = (
 /obj/effect/landmark/start/adventurerlate,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "sk" = (
 /obj/structure/flora/newtree,
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "sN" = (
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "tM" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "ub" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "vV" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/river,
 /area/rogue/outdoors/woods)
 "vW" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "zN" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "Bm" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "CD" = (
-/obj/effect/landmark/mapGenerator/rogue/forest{
+/obj/effect/landmark/mapGenerator/forest{
 	endTurfY = 128;
 	endTurfX = 128
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "CG" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "CN" = (
 /obj/structure/fluff/traveltile/bandit{
 	aportalid = "banditexit";
 	aportalgoesto = "banditin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "Ep" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "GK" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "forest"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "GV" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "Hc" = (
 /obj/structure/roguerock,
@@ -291,40 +291,40 @@
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "HH" = (
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
 "Jc" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "KL" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "Lg" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "Lu" = (
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "My" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/woods)
 "Nk" = (
 /obj/structure/roguerock,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "Ou" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "PA" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "PG" = (
@@ -333,24 +333,24 @@
 	aportalgoesto = "forestout";
 	aportalid = "forestin"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
 "Ul" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "UJ" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/woods)
 "Vh" = (
 /turf/open/water/river,
 /area/rogue/outdoors/woods)
 "Zm" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/grass,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 
 (1,1,1) = {"

@@ -102,7 +102,7 @@
 			. = M.current
 
 /datum/language_holder/monkey
-	languages = list(/datum/language/monkey)
+	languages = list(/datum/language/common)
 
 
 /datum/language_holder/empty

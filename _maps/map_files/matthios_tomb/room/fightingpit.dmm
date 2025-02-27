@@ -1,67 +1,67 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "cw" = (
 /obj/structure/closet/crate/chest/gold,
-/obj/item/roguegem/green,
-/obj/item/roguegem/red,
-/obj/item/roguegem/yellow,
-/turf/open/floor/rogue/metal,
+/obj/item/gem/green,
+/obj/item/gem/red,
+/obj/item/gem/yellow,
+/turf/open/floor/metal,
 /area/rogue)
 "ei" = (
-/obj/item/reagent_containers/glass/bottle/rogue/whitewine,
-/turf/closed/mineral/rogue/bedrock,
+/obj/item/reagent_containers/glass/bottle/whitewine,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "es" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "hz" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "iA" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/dirt,
 /area/rogue)
 "jx" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "kl" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "kH" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
+/mob/living/simple_animal/hostile/retaliate/wolf,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "lA" = (
-/obj/structure/rack/rogue/shelf,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/structure/rack/shelf,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "me" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "nc" = (
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue)
 "ni" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "ox" = (
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/dirt,
 /area/rogue)
 "qp" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "sr" = (
 /obj/structure/stairs{
@@ -70,225 +70,225 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "tE" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/dirt,
 /area/rogue)
 "tY" = (
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "uc" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "vr" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/ruinedwood,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "wX" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "yg" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "yA" = (
-/obj/structure/rack/rogue/shelf{
+/obj/structure/rack/shelf{
 	pixel_y = -32
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "zo" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "zD" = (
 /obj/effect/decal/cleanable/vomit/old,
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "zM" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "AJ" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "AL" = (
-/obj/item/chair/rogue/fancy,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/item/chair/fancy,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "BP" = (
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue)
 "Cf" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "Cs" = (
 /obj/structure/closet/crate/chest/gold,
-/obj/item/rogueweapon/sword/sabre/cutlass,
-/obj/item/rogueweapon/knife/dagger/silver,
-/obj/item/rogueweapon/shield/tower/metal,
-/turf/open/floor/rogue/metal,
+/obj/item/weapon/sword/sabre/cutlass,
+/obj/item/weapon/knife/dagger/silver,
+/obj/item/weapon/shield/tower/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "CT" = (
-/obj/item/reagent_containers/glass/bottle/rogue/redwine,
-/turf/closed/mineral/rogue/bedrock,
+/obj/item/reagent_containers/glass/bottle/redwine,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "DM" = (
-/obj/structure/chair/wood/rogue/fancy,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/structure/chair/wood/alt/fancy,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "DP" = (
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Em" = (
-/obj/machinery/light/rogue/firebowl/standing,
+/obj/machinery/light/fueled/firebowl/standing,
 /turf/open/transparent/openspace,
 /area/rogue)
 "Fh" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "Fo" = (
 /obj/effect/decal/cleanable/glass,
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
+/turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue)
 "Ga" = (
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "Ge" = (
-/obj/structure/chair/wood/rogue/fancy,
+/obj/structure/chair/wood/alt/fancy,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Ha" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "Hh" = (
 /obj/structure/fluff/railing/wood,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Hr" = (
 /turf/open/water/acid/mapped,
 /area/rogue)
 "Im" = (
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "IP" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Je" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/chair/rogue/fancy{
+/obj/item/chair/fancy{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "JC" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "Ka" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "MC" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Nb" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
+/mob/living/simple_animal/hostile/retaliate/wolf,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "Nv" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "OI" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "OY" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Pn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/rack/rogue/shelf{
+/obj/structure/rack/shelf{
 	pixel_y = -32
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "RS" = (
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "SA" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
-/turf/open/floor/rogue/metal,
+/mob/living/simple_animal/hostile/retaliate/wolf,
+/turf/open/floor/metal,
 /area/rogue)
 "Tq" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Ur" = (
 /obj/structure/closet/crate/chest/gold,
-/obj/item/clothing/head/roguetown/helmet/visored/knight,
-/obj/item/clothing/gloves/roguetown/plate,
-/turf/open/floor/rogue/metal,
+/obj/item/clothing/head/helmet/visored/knight,
+/obj/item/clothing/gloves/plate,
+/turf/open/floor/metal,
 /area/rogue)
 "Vk" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "Vy" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "VZ" = (
 /turf/open/water,
 /area/rogue)
 "Yt" = (
-/obj/item/chair/rogue/fancy{
+/obj/item/chair/fancy{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "YC" = (
-/obj/structure/chair/wood/rogue/fancy,
+/obj/structure/chair/wood/alt/fancy,
 /obj/effect/decal/cleanable/vomit/old,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "YL" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/chevron,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 
 (1,1,1) = {"

@@ -3,7 +3,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	/turf/baseturf_bottom,
 	)))
 
-/turf/proc/empty(turf_type=/turf/open/floor/rogue/naturalstone, baseturf_type, list/ignore_typecache, flags)
+/turf/proc/empty(turf_type=/turf/open/floor/naturalstone, baseturf_type, list/ignore_typecache, flags)
 	// Remove all atoms except observers, landmarks, docking ports
 	var/static/list/ignored_atoms = typecacheof(list(/mob/dead, /obj/effect/landmark, /atom/movable/lighting_object))
 	var/list/allowed_contents = typecache_filter_list_reverse(GetAllContentsIgnoring(ignore_typecache), ignored_atoms)
@@ -55,12 +55,12 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		if(null)
 			return
 		if(/turf/baseturf_bottom)
-			path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/floor/rogue/naturalstone
+			path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/floor/naturalstone
 			if (!ispath(path))
 				path = text2path(path)
 				if (!ispath(path))
 					warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
-					path = /turf/open/floor/rogue/naturalstone
+					path = /turf/open/floor/naturalstone
 
 	if(!GLOB.use_preloader && path == type && !(flags & CHANGETURF_FORCEOP)) // Don't no-op if the map loader requires it to be reconstructed
 		return src
@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		if(turf_type == /turf/open/transparent/openspace)
 			var/turf/below = get_step_multiz(src, DOWN)
 			if(!below) //We are at the LOWEST z-level.
-				turf_type = /turf/open/floor/rogue/naturalstone
+				turf_type = /turf/open/floor/naturalstone
 			else
 				if(isclosedturf(below)) //must destroy bottom closed turfs to create a hole
 					var/turf/closed/C = below
@@ -189,7 +189,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(baseturfs == /turf/open/transparent/openspace)
 		var/turf/below = get_step_multiz(src, DOWN)
 		if(!below) //We are at the LOWEST z-level.
-			used_type = /turf/open/floor/rogue/naturalstone
+			used_type = /turf/open/floor/naturalstone
 		else
 			if(isclosedturf(below)) //must destroy bottom closed turfs to create a hole
 				var/turf/closed/C = below
@@ -332,3 +332,23 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 /turf/proc/ReplaceWithLattice()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 //	new /obj/structure/lattice(locate(x, y, z))
+
+
+/turf/open/proc/try_respawn_mined_chunks(chance = 150, list/weighted_rocks)
+	if(!prob(chance))
+		return
+
+	var/turf/closed/mineral/random/picked = pickweight(weighted_rocks)
+	GLOB.mined_resource_loc -= src
+
+	ChangeTurf(picked)
+
+	for(var/direction in GLOB.cardinals)
+		var/turf/open/turf = get_step(src, direction)
+		if(!istype(turf))
+			continue
+		if(!(turf in GLOB.mined_resource_loc))
+			continue
+		try_respawn_mined_chunks(chance-25, list(picked = 10))
+		if(!prob(chance))
+			return

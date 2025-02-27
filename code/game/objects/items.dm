@@ -189,7 +189,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/bloody_icon_state = "itemblood"
 	var/boobed = FALSE
 
-	// Time in deciseconds this item adds to var/fueluse for a /obj/machinery/light/rogue type when fed to it.
+	// Time in deciseconds this item adds to var/fueluse for a /obj/machinery/light/fueled type when fed to it.
 	var/firefuel = 0 //add this idiot
 
 	var/thrown_bclass = BCLASS_BLUNT
@@ -246,6 +246,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	// Bundle item type, not set to anything unless bundleable
 	var/bundletype
 
+	var/blocking_behavior
+	var/wetness = 0
+	var/block2add
+	var/detail_tag
+	var/detail_color
+
+
 	// ~Grid INVENTORY VARIABLES
 	/// Width we occupy on the hud - Keep null to generate based on w_class
 	var/grid_width
@@ -255,6 +262,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/datum/material/melting_material
 	///our metling amount
 	var/melt_amount = 0
+	///our current in progress slapcraft
+	var/datum/orderless_slapcraft/in_progress_slapcraft
+	///these are flags of what tools can interact with this atom useful to stop hard coding interactions
+	var/tool_flags = NONE
 
 /obj/item/Initialize()
 	. = ..()
@@ -278,6 +289,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(is_silver)
 		enchant(/datum/enchantment/silver)
 	update_transform()
+
+/obj/item/proc/get_detail_tag() //this is for extra layers on clothes
+	return detail_tag
+
+/obj/item/proc/get_detail_color() //this is for extra layers on clothes
+	return detail_color
 
 /obj/item/proc/update_transform()
 	transform = null
