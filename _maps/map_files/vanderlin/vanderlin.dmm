@@ -4259,6 +4259,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
+/obj/structure/fake_machine/scomm,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
 "cUs" = (
@@ -15028,7 +15029,9 @@
 /turf/open/floor/twig,
 /area/rogue/under/town/basement)
 "kvt" = (
-/obj/structure/fake_machine/scomm,
+/obj/structure/fluff/walldeco/serpflag{
+	pixel_y = 32
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "kvv" = (
@@ -28290,6 +28293,16 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
+"ufs" = (
+/obj/structure/table/wood/counter{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/sign/trophy{
+	icon_state = "shopesign_inn";
+	name = "sign"
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/under/town/basement)
 "ufv" = (
 /obj/effect/landmark/tram/queued_path/cargo_pre_enter{
 	next_path_id = "cargo_stop"
@@ -60303,7 +60316,7 @@ azQ
 iRT
 joU
 bUM
-mhv
+ufs
 mhv
 mhv
 puV
@@ -62129,7 +62142,7 @@ cpK
 vhi
 dzf
 dMU
-kWg
+kvt
 lBX
 mcN
 kWg
