@@ -10,7 +10,7 @@
 	display_order = JDO_ROGUE
 	bypass_lastclass = TRUE
 	min_pq = 8
-	shows_in_list = TRUE
+	shows_in_list = FALSE
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	advclass_cat_rolls = list(CTAG_THIEF = 20)
 	job_reopens_slots_on_death = FALSE
@@ -69,7 +69,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 	gloves = /obj/item/clothing/gloves/fingerless
 	beltr = /obj/item/weapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
-	backpack_contents = list(/obj/item/lockpick, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask)
+	backpack_contents = list(/obj/item/lockpick, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
@@ -87,6 +87,10 @@
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 		thiefcloak.color = get_thief_color(H)
 		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+
+		var/obj/item/clothing/head/roguehood/thiefhood = new()
+		thiefhood.color = thiefcloak.color
+		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
 
 /datum/advclass/rogue/ruffian
@@ -114,11 +118,11 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	neck = /obj/item/clothing/neck/coif/cloth
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	armor = /obj/item/clothing/armor/chainmail/iron
 	gloves = /obj/item/clothing/gloves/angle
 	beltr = /obj/item/weapon/mace/steel/morningstar
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask)
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
 
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
@@ -134,14 +138,13 @@
 /datum/outfit/job/rogue/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
-
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 		thiefcloak.color = get_thief_color(H)
 		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
 
-		var/obj/item/clothing/head/helmet/leather/headscarf/thiefscarf = new()
-		thiefscarf.color = thiefcloak.color
-		H.equip_to_slot(thiefscarf, SLOT_HEAD, TRUE)
+		var/obj/item/clothing/head/roguehood/thiefhood = new()
+		thiefhood.color = thiefcloak.color
+		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
 
 /datum/advclass/rogue/cutthroat
@@ -174,7 +177,7 @@
 	gloves = /obj/item/clothing/gloves/leather/black
 	beltr = /obj/item/weapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	backpack_contents = list(/obj/item/natural/cloth = 2, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask)
+	backpack_contents = list(/obj/item/natural/cloth = 2, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
 
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
@@ -197,6 +200,10 @@
 		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 		thiefcloak.color = get_thief_color(H)
 		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+
+		var/obj/item/clothing/head/roguehood/thiefhood = new()
+		thiefhood.color = thiefcloak.color
+		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
 		var/obj/item/clothing/armor/leather/vest/thiefvest = new()
 		thiefvest.color = thiefcloak.color

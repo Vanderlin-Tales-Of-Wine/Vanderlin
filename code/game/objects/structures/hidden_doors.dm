@@ -107,15 +107,12 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 				open_phrase = new_pass
 				say("Open phrase has been set, "+flavor_name()+".", language = lang)
 
-	if(findtext(message2recognize, open_phrase))
-		if(locked)
-			locked = FALSE
-			force_open()
-
-	if(findtext(message2recognize, close_phrase))
-		if(!locked)
-			force_closed()
-			locked = TRUE
+	if(findtext(message2recognize, open_phrase) && locked)
+		locked = FALSE
+		force_open()
+	else if(findtext(message2recognize, close_phrase) && !locked)
+		force_closed()
+		locked = TRUE
 
 
 /obj/structure/mineral_door/secret/Open(silent = FALSE)

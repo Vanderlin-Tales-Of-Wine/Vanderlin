@@ -855,3 +855,7 @@
 	icon_state = "mazekey"
 	lockid = "clinic"
 
+/obj/item/key/thieves_guild
+	name = "sewer key"
+	icon_state = "mazekey"
+	lockid = "thievesguild"
