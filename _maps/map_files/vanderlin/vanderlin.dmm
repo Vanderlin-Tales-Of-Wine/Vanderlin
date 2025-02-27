@@ -8091,6 +8091,10 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"fCi" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/sewer)
 "fCm" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -8662,6 +8666,10 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
+"fWT" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "fXr" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -8933,6 +8941,10 @@
 /obj/effect/landmark/mapGenerator/roguetownfield,
 /turf/closed,
 /area/rogue)
+"ggV" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/basement)
 "ghr" = (
 /obj/structure/table/wood{
 	icon_state = "longtable";
@@ -9200,7 +9212,7 @@
 /area/rogue/indoors/town/church)
 "gtj" = (
 /obj/structure/mineral_door/secret/thieves_guild{
-	icon = 'icons/turf/walls/stone_wall.dmi';
+	icon = 'icons/turf/walls/mossy_stone.dmi';
 	icon_state = "stone";
 	name = "stone wall"
 	},
@@ -12705,6 +12717,10 @@
 	dir = 1
 	},
 /area/rogue/under/town/basement)
+"iQd" = (
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/cobble,
+/area/rogue/under/town/sewer)
 "iQo" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
@@ -15035,6 +15051,7 @@
 	dir = 1;
 	icon_state = "largetable"
 	},
+/obj/item/trash/candle,
 /turf/open/floor/blocks,
 /area/rogue/under/town/sewer)
 "kwV" = (
@@ -15220,6 +15237,10 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
+"kDm" = (
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/cobble,
+/area/rogue/under/town/sewer)
 "kDp" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
@@ -16781,6 +16802,10 @@
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
+"lRh" = (
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/sewer)
 "lRv" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/noose,
@@ -17345,6 +17370,8 @@
 /area/rogue/outdoors/river)
 "mpW" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/glass,
+/obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/twig,
 /area/rogue/under/town/sewer)
 "mqW" = (
@@ -56472,7 +56499,7 @@ wMD
 aTX
 pkl
 fyC
-ivs
+aTX
 avA
 ivs
 rsU
@@ -56672,9 +56699,9 @@ wGS
 lfU
 avA
 lRv
-fyC
+lRh
 neF
-fyC
+fCi
 aQo
 ivs
 kDp
@@ -56879,9 +56906,9 @@ cqO
 rsU
 kDp
 ivs
+fCi
 fyC
-fyC
-ivs
+iQd
 qwb
 lfU
 oGi
@@ -57277,10 +57304,10 @@ cDP
 dSp
 cDP
 oGi
-ivs
+kDm
 ivs
 rsU
-kDp
+fWT
 ivs
 kDp
 bUM
@@ -57486,7 +57513,7 @@ bUM
 eub
 bUM
 bUM
-dRD
+ggV
 iRT
 uGC
 bUM
@@ -57688,7 +57715,7 @@ nFM
 gBh
 guv
 bUM
-lhg
+esR
 bET
 iRT
 bUM
