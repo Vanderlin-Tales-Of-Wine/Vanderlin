@@ -50,20 +50,11 @@
 				remove_status_effect(/datum/status_effect/debuff/sleepytime)
 				if(mind)
 					mind.sleep_adv.advance_cycle()
-				var/datum/game_mode/chaosmode/C = SSticker.mode
-				if(istype(C))
-					if(mind)
-						if(!mind.antag_datums || !mind.antag_datums.len)
-							allmig_reward++
-							to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-							if(C.allmig)
-								if(allmig_reward > 3)
-									adjust_triumphs(1)
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
-		if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
+		if(MOBTIMER_FINISHED(src, MT_LEPERBLEED, 6 MINUTES))
 			if(prob(10))
 				to_chat(src, span_warning("My skin opens up and bleeds..."))
-				mob_timers["leper_bleed"] = world.time
+				MOBTIMER_SET(src, MT_LEPERBLEED)
 				var/obj/item/bodypart/part = pick(bodyparts)
 				if(part)
 					part.add_wound(/datum/wound/slash)
@@ -80,14 +71,13 @@
 	if(health <= 0)
 		apply_damage(1, OXY)
 	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-		if(mob_timers["slo"])
-			if(world.time > mob_timers["slo"] + 90 SECONDS)
+		if(MOBTIMER_EXISTS(src, MT_SLO))
+			if(MOBTIMER_FINISHED(src, MT_SLO, 90 SECONDS)) //?????
 				Sleeping(100)
 		else
-			mob_timers["slo"] = world.time
+			MOBTIMER_SET(src, MT_SLO)
 	else
-		if(mob_timers["slo"])
-			mob_timers["slo"] = null
+		MOBTIMER_UNSET(src, MT_SLO)
 
 	if(dna?.species)
 		dna.species.spec_life(src) // for mutantraces
@@ -184,9 +174,8 @@
 /mob/living/carbon/human/SoakMob(locations)
 	. = ..()
 	var/coverhead
-//	var/coverfeet
 	//add belt slots to this for rusting
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -194,16 +183,10 @@
 			var/obj/item/clothing/C = bp
 			if(zone2covered(BODY_ZONE_HEAD, C.body_parts_covered))
 				coverhead = TRUE
-//			if(zone2covered(BODY_ZONE_PRECISE_L_FOOT, C.body_parts_covered))
-//				coverfeet = TRUE
 	if(locations & HEAD)
 		if(!coverhead)
 			var/mob/living/carbon/V = src
 			V.add_stress(/datum/stressevent/coldhead)
-//	if(locations & FEET)
-//		if(!coverfeet)
-//			add_stress(/datum/stressevent/coldfeet)
-
 //END FIRE CODE
 
 
@@ -325,15 +308,12 @@
 	//Puke if toxloss is too high
 	if(!stat)
 		if(prob(33) && getToxLoss() >= 75)
-			mob_timers["puke"] = world.time
+			MOBTIMER_SET(src, MT_PUKE)
 			vomit(1, blood = TRUE)
 
 /mob/living/carbon/human/has_smoke_protection()
 	if(wear_mask)
 		if(wear_mask.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
-			return TRUE
-	if(glasses)
-		if(glasses.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
 			return TRUE
 	if(head && istype(head, /obj/item/clothing))
 		var/obj/item/clothing/CH = head

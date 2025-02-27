@@ -1305,12 +1305,12 @@
 2022-11-01T15:28:35.3749912Z ##[group]/datum/unit_test/defined_inhand_icon_states
 2022-11-01T15:28:36.6110328Z 	Notice - Possible inhand icon matches found. It is best to be explicit with inhand sprite values.
 2022-11-01T15:28:36.6111369Z 	/obj/item/clothing/accessory/pride does not have an inhand_icon_state value - Possible matching sprites for "pride" found in: 'icons/mob/inhands/weapons/hammers_lefthand.dmi' & 'icons/mob/inhands/weapons/hammers_righthand.dmi'
-2022-11-01T15:28:36.6112643Z 	/obj/item/clothing/suit/caution does not have an inhand_icon_state value - Possible matching sprites for "caution" found in: 'icons/mob/inhands/equipment/custodial_lefthand.dmi' & 'icons/mob/inhands/equipment/custodial_righthand.dmi'
-2022-11-01T15:28:36.6113827Z 	/obj/item/clothing/under/suit/sl does not have an inhand_icon_state value - Possible matching sprites for "sl_suit" found in: 'icons/mob/inhands/clothing/suits_righthand.dmi' & 'icons/mob/inhands/clothing/suits_lefthand.dmi'
+2022-11-01T15:28:36.6112643Z 	/obj/item/clothing/shirt/caution does not have an inhand_icon_state value - Possible matching sprites for "caution" found in: 'icons/mob/inhands/equipment/custodial_lefthand.dmi' & 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+2022-11-01T15:28:36.6113827Z 	/obj/item/clothing/pants/suit/sl does not have an inhand_icon_state value - Possible matching sprites for "sl_suit" found in: 'icons/mob/inhands/clothing/suits_righthand.dmi' & 'icons/mob/inhands/clothing/suits_lefthand.dmi'
 2022-11-01T15:28:36.6114809Z 	/obj/item/clothing/head/collectable/paper does not have an inhand_icon_state value - Possible matching sprites for "paper" found in: 'icons/mob/inhands/items_lefthand.dmi' & 'icons/mob/inhands/items_righthand.dmi'
 2022-11-01T15:28:36.6115778Z 	/obj/item/clothing/head/mod does not have an inhand_icon_state value - Possible matching sprites for "helmet" found in: 'icons/mob/inhands/clothing/hats_lefthand.dmi' & 'icons/mob/inhands/clothing/hats_righthand.dmi'
-2022-11-01T15:28:36.6117382Z 	/obj/item/clothing/mask/animal/small/fox does not have an inhand_icon_state value - Possible matching sprites for "fox" found in: 'icons/mob/inhands/pets_held_rh.dmi' & 'icons/mob/inhands/pets_held_lh.dmi'
-2022-11-01T15:28:36.6118311Z 	/obj/item/clothing/mask/animal/small/fox/cursed does not have an inhand_icon_state value - Possible matching sprites for "fox" found in: 'icons/mob/inhands/pets_held_rh.dmi' & 'icons/mob/inhands/pets_held_lh.dmi'
+2022-11-01T15:28:36.6117382Z 	/obj/item/clothing/face/animal/small/fox does not have an inhand_icon_state value - Possible matching sprites for "fox" found in: 'icons/mob/inhands/pets_held_rh.dmi' & 'icons/mob/inhands/pets_held_lh.dmi'
+2022-11-01T15:28:36.6118311Z 	/obj/item/clothing/face/animal/small/fox/cursed does not have an inhand_icon_state value - Possible matching sprites for "fox" found in: 'icons/mob/inhands/pets_held_rh.dmi' & 'icons/mob/inhands/pets_held_lh.dmi'
 2022-11-01T15:28:36.6119323Z 	/obj/item/clothing/glasses/hud/health/sunglasses does not have an inhand_icon_state value - Possible matching sprites for "sunhudmed" found in: 'icons/mob/inhands/clothing/glasses_righthand.dmi' & 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 2022-11-01T15:28:36.6120787Z 	/obj/item/clothing/glasses/hud/security/sunglasses does not have an inhand_icon_state value - Possible matching sprites for "sunhudsec" found in: 'icons/mob/inhands/clothing/glasses_righthand.dmi' & 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 2022-11-01T15:28:36.6121863Z 	/obj/item/mecha_parts/mecha_equipment/medical/syringe_gun does not have an inhand_icon_state value - Possible matching sprites for "syringegun" found in: 'icons/mob/inhands/weapons/guns_righthand.dmi' & 'icons/mob/inhands/weapons/guns_lefthand.dmi'
@@ -1997,7 +1997,7 @@
 2022-11-01T15:30:55.7389337Z 	177 - /obj/item/stack/spacecash/c500 using invalid icon_state, "spacecash500"
 2022-11-01T15:30:55.7394435Z 	178 - /obj/item/stack/spacecash/c1000 using invalid icon_state, "spacecash1000"
 2022-11-01T15:30:55.7397872Z 	179 - /obj/item/stack/spacecash/c10000 using invalid icon_state, "spacecash10000"
-2022-11-01T15:30:55.7401273Z 	180 - /obj/item/clothing/mask/facehugger/toy using invalid worn_icon_state, "facehugger"
+2022-11-01T15:30:55.7401273Z 	180 - /obj/item/clothing/face/facehugger/toy using invalid worn_icon_state, "facehugger"
 2022-11-01T15:30:55.7415134Z 	181 - /obj/item/kitchen/fork using invalid icon_state, "fork"
 2022-11-01T15:30:55.7417371Z 	182 - /obj/item/kitchen/fork/plastic using invalid icon_state, "plastic_fork"
 2022-11-01T15:30:55.7428215Z 	183 - /obj/item/kitchen/spoon using invalid icon_state, "spoon"
@@ -2024,13 +2024,13 @@
 2022-11-01T15:30:55.7508511Z 	204 - /obj/item/stack/medical/bone_gel using invalid icon_state, "bone-gel"
 2022-11-01T15:30:55.7511537Z 	205 - /obj/item/stack/medical/poultice using invalid icon_state, "poultice"
 2022-11-01T15:30:55.7514762Z 	206 - /obj/item/assembly/flash/handheld using invalid icon_state, "flash"
-2022-11-01T15:30:55.7518179Z 	207 - /obj/item/clothing/mask/cigarette using invalid icon_state, "cigoff"
-2022-11-01T15:30:55.7521263Z 	208 - /obj/item/clothing/mask/cigarette/rollie using invalid icon_state, "spliffoff"
-2022-11-01T15:30:55.7525138Z 	209 - /obj/item/clothing/mask/cigarette/candy using invalid icon_state, "candyoff"
-2022-11-01T15:30:55.7529005Z 	210 - /obj/item/clothing/mask/cigarette/cigar using invalid icon_state, "cigaroff"
-2022-11-01T15:30:55.7532227Z 	211 - /obj/item/clothing/mask/cigarette/cigar/cohiba using invalid icon_state, "cigar2off"
-2022-11-01T15:30:55.7535378Z 	212 - /obj/item/clothing/mask/cigarette/pipe using invalid icon_state, "pipeoff"
-2022-11-01T15:30:55.7538704Z 	213 - /obj/item/clothing/mask/cigarette/pipe/cobpipe using invalid icon_state, "cobpipeoff"
+2022-11-01T15:30:55.7518179Z 	207 - /obj/item/clothing/face/cigarette using invalid icon_state, "cigoff"
+2022-11-01T15:30:55.7521263Z 	208 - /obj/item/clothing/face/cigarette/rollie using invalid icon_state, "spliffoff"
+2022-11-01T15:30:55.7525138Z 	209 - /obj/item/clothing/face/cigarette/candy using invalid icon_state, "candyoff"
+2022-11-01T15:30:55.7529005Z 	210 - /obj/item/clothing/face/cigarette/cigar using invalid icon_state, "cigaroff"
+2022-11-01T15:30:55.7532227Z 	211 - /obj/item/clothing/face/cigarette/cigar/cohiba using invalid icon_state, "cigar2off"
+2022-11-01T15:30:55.7535378Z 	212 - /obj/item/clothing/face/cigarette/pipe using invalid icon_state, "pipeoff"
+2022-11-01T15:30:55.7538704Z 	213 - /obj/item/clothing/face/cigarette/pipe/cobpipe using invalid icon_state, "cobpipeoff"
 2022-11-01T15:30:55.7541822Z 	214 - /obj/item/disk using invalid icon_state, "datadisk0"
 2022-11-01T15:30:55.7547750Z 	215 - /obj/item/disk/holodisk using invalid icon_state, "holodisk"
 2022-11-01T15:30:55.7551232Z 	216 - /obj/item/disk/nuclear using invalid icon_state, "nucleardisk"

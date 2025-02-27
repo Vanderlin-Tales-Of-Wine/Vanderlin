@@ -97,7 +97,7 @@
 		mob.ghostize()
 		return FALSE
 #endif
-		if(world.time > mob.mob_timers["lastdied"] + 60 SECONDS)
+		if(MOBTIMER_FINISHED(mob, MT_LASTDIED, 60 SECONDS))
 			mob.ghostize()
 		else
 			if(!world.time%5)
@@ -594,7 +594,7 @@
 	var/used_time = 50
 
 	if(rogue_sneaking) //If sneaking, check if they should be revealed
-		if((stat > SOFT_CRIT) || IsSleeping() || (world.time < mob_timers[MT_FOUNDSNEAK] + 30 SECONDS) || !T || reset || (m_intent != MOVE_INTENT_SNEAK) || light_amount >= rogue_sneaking_light_threshhold)
+		if((stat > SOFT_CRIT) || IsSleeping() || !MOBTIMER_FINISHED(src, MT_FOUNDSNEAK, 30 SECONDS) || !T || reset || (m_intent != MOVE_INTENT_SNEAK) || light_amount >= rogue_sneaking_light_threshhold)
 			used_time = round(clamp((50 - (used_time*1.75)), 5, 50),1)
 			animate(src, alpha = initial(alpha), time =	used_time) //sneak skill makes you reveal slower but not as drastic as disappearing speed
 			spawn(used_time) regenerate_icons()
@@ -607,10 +607,6 @@
 			spawn(used_time + 5) regenerate_icons()
 			rogue_sneaking = TRUE
 	return
-/*
-	if(world.time < mob_timers[MT_INVISIBILITY]) // Check if the mob is affected by the invisibility spell
-		alpha = 0
-		return */
 
 /mob/proc/toggle_rogmove_intent(intent, silent = FALSE)
 	// If we're becoming sprinting from non-sprinting, reset the counter

@@ -16,8 +16,13 @@
 
 /obj/item/mould/Initialize()
 	. = ..()
-	color = pick("#766f8c", "#565c5c", "#8d3a2d", "#4f3524")
+	main_material = pick(typesof(/datum/material/clay))
+	set_material_information()
 	update_overlays()
+
+/obj/item/mould/set_material_information()
+	. = ..()
+	name = "[initial(main_material.name)] [initial(name)]"
 
 /obj/item/mould/examine(mob/user)
 	. = ..()
@@ -125,6 +130,9 @@
 	filling_icon_state = "ingot-mold-color"
 
 	required_metal = 100
+
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/mould/ingot/create_item()
 	var/atom/to_create

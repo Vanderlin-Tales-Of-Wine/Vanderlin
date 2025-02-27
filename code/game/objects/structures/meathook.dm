@@ -212,7 +212,7 @@
 		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
-				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/rogue/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))
+				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))
 					if(prob(40 + (user.mind?.get_skill_level(/datum/skill/labor/butchering) * 10) - (60 - butchery_target.blood_drained)))
 						butcher[listed_item] += round(butcher[listed_item] * 0.5)
 					if(prob(10 + (user.mind?.get_skill_level(/datum/skill/labor/butchering) * 5)) - (60 - butchery_target.blood_drained))

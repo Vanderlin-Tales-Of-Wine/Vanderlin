@@ -1,29 +1,29 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aF" = (
 /obj/structure/fluff/statue/evil,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "aV" = (
 /obj/structure/lever/wall{
 	dir = 8;
 	redstone_id = northgatematt
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "aW" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue)
 "cT" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "cX" = (
 /obj/structure/fluff/railing/border,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "du" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "dY" = (
 /obj/structure/table/church,
@@ -42,14 +42,14 @@
 /area/rogue)
 "el" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "er" = (
 /obj/structure/fermentation_keg,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "eJ" = (
-/obj/structure/rack/rogue/shelf/biggest,
+/obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_y = -7
 	},
@@ -61,158 +61,158 @@
 	pixel_x = 8;
 	pixel_y = 10
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "fr" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "fL" = (
-/turf/closed/wall/mineral/rogue/stone/window/moss,
+/turf/closed/wall/mineral/stone/window/moss,
 /area/rogue)
 "fM" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "gi" = (
 /obj/structure/fluff/statue/knightalt/r,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "gz" = (
 /obj/structure/closet/crate/drawer/inn,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "iu" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "iH" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "jN" = (
 /obj/structure/wallladder{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "jS" = (
 /obj/structure/stairs/stone/church{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "jX" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/hexstone,
 /area/rogue)
 "kn" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "kN" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "kT" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "lW" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "mA" = (
 /obj/structure/wallladder{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "mV" = (
 /obj/structure/table/wood/reinf_long,
 /obj/structure/bars/alt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "nA" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "oj" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "oB" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/structure/bars/alt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "pm" = (
-/obj/structure/bed/rogue/hay,
-/turf/open/floor/rogue/hexstone,
+/obj/structure/bed/hay,
+/turf/open/floor/hexstone,
 /area/rogue)
 "qn" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "qo" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/naturalstone,
+/obj/structure/chair/stool,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "qX" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "sQ" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/hexstone,
 /area/rogue)
 "sX" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "uj" = (
 /obj/structure/dungeon_exit,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "uO" = (
-/obj/structure/closet/crate/roguecloset/inn/south,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "wx" = (
-/obj/machinery/light/rogue/campfire/longlived,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "xm" = (
 /obj/structure/table/wood/plain/alt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "yg" = (
-/turf/closed/wall/mineral/rogue/tent,
+/turf/closed/wall/mineral/tent,
 /area/rogue)
 "yr" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "AR" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "Bz" = (
 /turf/open/floor/carpet/red,
 /area/rogue)
 "CE" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "Di" = (
 /obj/structure/fluff/statue/knight/interior,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "DK" = (
 /obj/structure/fluff/railing/border{
@@ -221,80 +221,80 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "DY" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Fo" = (
-/obj/structure/rack/rogue/shelf/biggest,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Gx" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "GF" = (
 /obj/structure/table/wood/plain/alt,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Hc" = (
 /obj/structure/wallladder{
 	dir = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Hq" = (
-/obj/item/chair/stool/bar/rogue/crafted,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/chair/stool/bar/crafted,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Io" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/skull,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Iv" = (
 /obj/structure/fluff/railing/border,
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Jv" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt,
+/obj/structure/chair/stool,
+/turf/open/floor/dirt,
 /area/rogue)
 "Kk" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Lj" = (
 /obj/structure/fluff/statue/knight/interior/r,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Lo" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/naturalstone,
+/obj/structure/bed/shit,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "LJ" = (
-/turf/closed/wall/mineral/rogue/wooddark,
+/turf/closed/wall/mineral/wooddark,
 /area/rogue)
 "LT" = (
 /obj/structure/gate{
 	redstone_id = northgatematt
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ob" = (
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "OM" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "OS" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "PL" = (
 /obj/structure/table/church/m,
@@ -313,56 +313,56 @@
 /area/rogue)
 "Qn" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "RE" = (
 /obj/structure/stairs/stone/church{
 	dir = 4
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "RI" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "RR" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "SG" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Ti" = (
 /obj/structure/fluff/statue/knightalt,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Tq" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/chair/stool,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "TK" = (
-/obj/structure/bed/rogue/inn,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/structure/bed/inn,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Vm" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Wd" = (
 /obj/structure/table/wood/plain/alt,
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Wl" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
 /obj/structure/bars/alt,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Yp" = (
-/obj/item/chair/stool/bar/rogue/crafted,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/item/chair/stool/bar/crafted,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "Yx" = (
 /obj/structure/table/church{

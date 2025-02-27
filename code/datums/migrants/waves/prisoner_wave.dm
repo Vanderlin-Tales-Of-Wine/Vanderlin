@@ -3,7 +3,7 @@
 	greet_text = "The lords of Vanderlins sent you to Heartfelt to rappatriate some prisoners that were in their prison, you are now on your way back."
 	allowed_sexes = list(MALE, FEMALE)
 	grant_lit_torch = TRUE
-	outfit = /datum/outfit/job/roguetown/gaoler
+	outfit = /datum/outfit/job/gaoler
 	show_wanderer_examine = FALSE
 	allowed_races = list(
 		"Humen",
@@ -16,18 +16,18 @@
 		"Half-Orc")
 
 
-/datum/outfit/job/roguetown/gaoler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/gaoler/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/menacing
-	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-	pants = /obj/item/clothing/under/roguetown/trou
-	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	head = /obj/item/clothing/head/menacing
+	neck = /obj/item/storage/belt/pouch/coins/poor
+	pants = /obj/item/clothing/pants/trou
+	shoes = /obj/item/clothing/shoes/simpleshoes
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	cloak = /obj/item/clothing/cloak/stabard/dungeon
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/whip/antique
+	belt = /obj/item/storage/belt/leather
+	beltr = /obj/item/weapon/whip/antique
 	beltl = /obj/item/flashlight/flare/torch/lantern
-	backr = /obj/item/storage/backpack/rogue/satchel
+	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/dungeoneer = 1, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
@@ -56,7 +56,7 @@
 /datum/migrant_role/mig_prisoner
 	name = "Prisoner"
 	greet_text = "You had fled Vanderlin, took refuge in Heartfelt yet the lords over there caught you and thus handed you over to those who seeked you before."
-	outfit = /datum/outfit/job/roguetown/mig_prisoner
+	outfit = /datum/outfit/job/mig_prisoner
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -67,10 +67,10 @@
 		"Aasimar",
 		"Half-Orc")
 
-/datum/outfit/job/roguetown/mig_prisoner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/loincloth/brown
-	mask = /obj/item/clothing/mask/rogue/facemask/prisoner
+	pants = /obj/item/clothing/pants/loincloth/brown
+	mask = /obj/item/clothing/face/facemask/prisoner
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
@@ -94,24 +94,24 @@
 /datum/migrant_role/prisoner_guard
 	name = "Guard"
 	greet_text = "You are apart of a convoy returning prisoners to Vanderlin. Obey the gaoler and ensure the prisoners get back to the dungeons."
-	outfit = /datum/outfit/job/roguetown/mig_guard
+	outfit = /datum/outfit/job/mig_guard
 	allowed_races = list("Humen","Dwarf","Aasimar")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
 
-/datum/outfit/job/roguetown/mig_guard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/mig_guard/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	head = /obj/item/clothing/head/roguetown/helmet/nasal
-	backr = /obj/item/rogueweapon/shield/wood
-	beltr = /obj/item/rogueweapon/sword/scimitar/messer
-	beltl = /obj/item/rogueweapon/mace
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	armor = /obj/item/clothing/armor/cuirass
+	shirt = /obj/item/clothing/armor/chainmail
+	neck = /obj/item/clothing/neck/gorget
+	head = /obj/item/clothing/head/helmet/nasal
+	backr = /obj/item/weapon/shield/wood
+	beltr = /obj/item/weapon/sword/scimitar/messer
+	beltl = /obj/item/weapon/mace
+	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
 	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/rope/chain = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)

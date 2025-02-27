@@ -1,17 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/wall/mineral/rogue/craftstone,
+/turf/closed/wall/mineral/craftstone,
 /area/rogue)
 "e" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "o" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "P" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 
 (1,1,1) = {"

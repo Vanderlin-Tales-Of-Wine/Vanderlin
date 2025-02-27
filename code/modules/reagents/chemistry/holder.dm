@@ -543,6 +543,7 @@
 			update_total()
 			if(my_atom)
 				my_atom.on_reagent_change(DEL_REAGENT)
+			SEND_SIGNAL(src, COMSIG_REAGENTS_DEL_REAGENT, reagent)
 	return 1
 
 /datum/reagents/proc/update_total()
@@ -877,14 +878,19 @@
 		if(RCs.reagent_flags & NO_REACT) //stasis holders IE cryobeaker
 			return
 	var/temp_delta = (temperature - chem_temp) * coeff
+	var/old_temp = chem_temp
 	if(temp_delta > 0)
 		chem_temp = min(chem_temp + max(temp_delta, 1), temperature)
 	else
 		chem_temp = max(chem_temp + min(temp_delta, -1), temperature)
 	chem_temp = round(chem_temp)
+
+	var/increased = FALSE
+	if(old_temp < chem_temp)
+		increased = TRUE
 	for(var/i in reagent_list)
 		var/datum/reagent/R = i
-		R.on_temp_change()
+		R.on_temp_change(increased)
 	handle_reactions()
 
 ///////////////////////////////////////////////////////////////////////////////////

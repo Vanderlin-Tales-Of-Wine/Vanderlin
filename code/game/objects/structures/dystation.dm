@@ -36,7 +36,7 @@
 		span_warning("Something was knocked over!")
 	)
 	new /obj/effect/decal/cleanable/dyes(get_turf(src))
-	var/obj/item/roguebin/I = new(loc)
+	var/obj/item/bin/I = new(loc)
 	I.kover = TRUE
 	I.update_icon()
 	return ..()

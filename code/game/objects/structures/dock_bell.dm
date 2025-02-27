@@ -9,7 +9,7 @@
 
 	COOLDOWN_DECLARE(ring_bell)
 	COOLDOWN_DECLARE(outsider_ring_bell)
-	var/static/approved_jobs = list(/datum/job/roguetown/merchant, /datum/job/roguetown/grabber, /datum/job/roguetown/steward)
+	var/static/approved_jobs = list(/datum/job/merchant, /datum/job/grabber, /datum/job/steward)
 	max_integrity = 999999
 
 /obj/structure/dock_bell/examine(mob/user)
