@@ -47,7 +47,7 @@
 			Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
-			var/usedkey = get_display_ckey(key)
+			var/usedkey = get_display_ckey(C.key)
 			Lines += "<span class='info'>[usedkey]</span>"
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
