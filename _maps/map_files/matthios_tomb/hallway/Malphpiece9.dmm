@@ -1,0 +1,348 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/center,
+/area/rogue/outdoors/caves)
+"b" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"c" = (
+/mob/living/simple_animal/hostile/retaliate/bat,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"d" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"f" = (
+/obj/structure/fluff/walldeco/bath,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"g" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/puddle,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"h" = (
+/obj/effect/decal/cleanable/blood/puddle,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"i" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"j" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"k" = (
+/turf/closed/wall/mineral/decostone/long,
+/area/rogue/outdoors/caves)
+"l" = (
+/obj/structure/fluff/walldeco/bath/six,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"m" = (
+/obj/structure/fluff/walldeco/bath/four,
+/turf/closed/wall/mineral/decostone/long,
+/area/rogue/outdoors/caves)
+"n" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"o" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"p" = (
+/obj/structure/fluff/walldeco/bath/seven,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"q" = (
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"s" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"t" = (
+/mob/living/simple_animal/hostile/retaliate/bogbug{
+	dir = 4
+	},
+/obj/item/gem/green,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"v" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"w" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"y" = (
+/obj/structure/fluff/walldeco/bath/wallrope{
+	dir = 6
+	},
+/obj/structure/fluff/walldeco/stone,
+/turf/closed/wall/mineral/decostone/long,
+/area/rogue/outdoors/caves)
+"z" = (
+/mob/living/simple_animal/hostile/retaliate/bat,
+/obj/effect/decal/cleanable/blood/gibs/torso,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"A" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"B" = (
+/obj/structure/fluff/walldeco/vinez/l,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"C" = (
+/obj/structure/healingfountain,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"E" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"F" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"G" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"H" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood/puddle,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"J" = (
+/mob/living/simple_animal/hostile/retaliate/bat,
+/obj/effect/decal/cleanable/blood/gibs/up,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/item/weapon/sword/long/forgotten,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"K" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/center,
+/area/rogue/outdoors/caves)
+"L" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"M" = (
+/obj/structure/fluff/walldeco/bath/ladies,
+/obj/structure/fluff/walldeco/bath/wallrope{
+	dir = 6
+	},
+/obj/structure/fluff/walldeco/stone,
+/turf/closed/wall/mineral/decostone/long,
+/area/rogue/outdoors/caves)
+"N" = (
+/obj/structure/fluff/statue/gargoyle/moss/candles,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"O" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"P" = (
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"R" = (
+/obj/effect/decal/cleanable/vomit/old,
+/obj/effect/decal/remains/bigrat,
+/obj/item/natural/fur/rous,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"S" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/carpet/lord/right,
+/area/rogue/outdoors/caves)
+"T" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/outdoors/caves)
+"V" = (
+/obj/structure/fluff/walldeco/bath/five,
+/mob/living/simple_animal/hostile/retaliate/bat,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/carpet/lord/left,
+/area/rogue/outdoors/caves)
+"W" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/effect/decal/cleanable/vomit/old,
+/obj/effect/decal/remains/bigrat,
+/obj/item/natural/fur/rous,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+"X" = (
+/turf/closed/wall/mineral/decostone/end,
+/area/rogue/outdoors/caves)
+"Z" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/caves)
+
+(1,1,1) = {"
+T
+T
+T
+T
+T
+T
+T
+T
+T
+"}
+(2,1,1) = {"
+R
+q
+d
+j
+j
+j
+d
+q
+q
+"}
+(3,1,1) = {"
+n
+q
+q
+q
+N
+t
+q
+R
+E
+"}
+(4,1,1) = {"
+q
+q
+O
+W
+Z
+Z
+O
+q
+q
+"}
+(5,1,1) = {"
+T
+T
+T
+T
+T
+T
+T
+T
+T
+"}
+
+(1,1,2) = {"
+X
+k
+a
+y
+a
+y
+a
+k
+X
+"}
+(2,1,2) = {"
+B
+b
+f
+F
+V
+h
+l
+A
+B
+"}
+(3,1,2) = {"
+i
+K
+o
+c
+C
+J
+w
+G
+K
+"}
+(4,1,2) = {"
+v
+g
+p
+s
+z
+P
+S
+H
+L
+"}
+(5,1,2) = {"
+X
+k
+a
+y
+a
+M
+a
+m
+X
+"}

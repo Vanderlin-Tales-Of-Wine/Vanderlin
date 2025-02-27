@@ -1,95 +1,95 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue)
 "b" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/underworld)
 "c" = (
 /obj/effect/landmark/underworldsafe,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue)
 "d" = (
 /obj/structure/underworld/barrier,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/underworld)
 "e" = (
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "f" = (
 /obj/structure/underworld/barrier,
-/turf/open/floor/rogue/churchrough,
+/turf/open/floor/churchrough,
 /area/rogue/underworld)
 "g" = (
 /obj/structure/underworld/barrier,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "h" = (
-/obj/machinery/light/rogue/campfire/densefire{
+/obj/machinery/light/fueled/campfire/densefire{
 	fueluse = 1.8e+006
 	},
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "i" = (
-/obj/structure/flora/roguetree/underworld,
-/turf/open/floor/rogue/underworld/road,
+/obj/structure/flora/tree/underworld,
+/turf/open/floor/underworld/road,
 /area/rogue)
 "j" = (
 /obj/structure/underworld/carriage{
 	pixel_x = -100
 	},
-/turf/open/floor/rogue/churchrough,
+/turf/open/floor/churchrough,
 /area/rogue/underworld)
 "k" = (
-/turf/open/floor/rogue/churchrough,
+/turf/open/floor/churchrough,
 /area/rogue/underworld)
 "l" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "m" = (
 /obj/effect/landmark/underworldsafe,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "n" = (
-/obj/structure/flora/roguetree/underworld,
-/turf/open/floor/rogue/underworld/road,
+/obj/structure/flora/tree/underworld,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "o" = (
 /obj/effect/landmark/underworld_spawnpoint,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "p" = (
 /obj/structure/underworld/carriageman{
 	pixel_x = -15;
 	pixel_y = -20
 	},
-/turf/open/floor/rogue/churchrough,
+/turf/open/floor/churchrough,
 /area/rogue/underworld)
 "q" = (
-/obj/structure/flora/roguetree/underworld,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree/underworld,
+/turf/open/floor/dirt,
 /area/rogue/underworld)
 "r" = (
 /obj/effect/landmark/underworld_spawnpoint,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/underworld)
 "s" = (
 /obj/effect/landmark/underworldsafe,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "t" = (
 /obj/effect/landmark/underworld,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 "u" = (
-/obj/structure/flora/roguetree/underworld,
+/obj/structure/flora/tree/underworld,
 /obj/effect/landmark/underworldsafe,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue)
 "v" = (
-/obj/structure/flora/roguetree/underworld,
+/obj/structure/flora/tree/underworld,
 /obj/effect/landmark/underworldsafe,
-/turf/open/floor/rogue/underworld/road,
+/turf/open/floor/underworld/road,
 /area/rogue/underworld)
 
 (1,1,1) = {"

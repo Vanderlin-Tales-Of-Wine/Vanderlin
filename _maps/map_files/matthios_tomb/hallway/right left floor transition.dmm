@@ -1,0 +1,161 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"i" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/dirt,
+/area/rogue)
+"n" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt,
+/area/rogue)
+"s" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"t" = (
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/turf/open/floor/dirt,
+/area/rogue)
+"D" = (
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/turf/open/floor/dirt,
+/area/rogue)
+"H" = (
+/turf/open/floor/naturalstone,
+/area/rogue)
+"S" = (
+/obj/structure/kneestingers,
+/turf/open/floor/dirt,
+/area/rogue)
+"T" = (
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/dirt,
+/area/rogue)
+"U" = (
+/turf/open/floor/dirt,
+/area/rogue)
+"Z" = (
+/obj/structure/stairs/stone{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+
+(1,1,1) = {"
+a
+U
+i
+U
+a
+"}
+(2,1,1) = {"
+a
+S
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+U
+U
+D
+a
+"}
+(4,1,1) = {"
+a
+S
+U
+T
+a
+"}
+(5,1,1) = {"
+a
+U
+U
+U
+a
+"}
+(6,1,1) = {"
+a
+t
+U
+U
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+U
+a
+"}
+(8,1,1) = {"
+a
+U
+n
+U
+a
+"}
+
+(1,1,2) = {"
+a
+H
+H
+H
+a
+"}
+(2,1,2) = {"
+a
+s
+H
+Z
+a
+"}
+(3,1,2) = {"
+a
+s
+H
+s
+a
+"}
+(4,1,2) = {"
+a
+s
+H
+H
+a
+"}
+(5,1,2) = {"
+a
+s
+s
+s
+a
+"}
+(6,1,2) = {"
+a
+s
+s
+s
+a
+"}
+(7,1,2) = {"
+a
+Z
+H
+H
+a
+"}
+(8,1,2) = {"
+a
+H
+H
+H
+a
+"}

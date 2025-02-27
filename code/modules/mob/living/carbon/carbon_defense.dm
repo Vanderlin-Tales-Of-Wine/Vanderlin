@@ -7,8 +7,6 @@
 		. += E.flash_protect
 	if(isclothing(head)) //Adds head protection
 		. += head.flash_protect
-	if(isclothing(glasses)) //Glasses
-		. += glasses.flash_protect
 	if(isclothing(wear_mask)) //Mask
 		. += wear_mask.flash_protect
 
@@ -29,8 +27,6 @@
 		return head
 	if(check_mask && wear_mask && (wear_mask.flags_cover & MASKCOVERSEYES))
 		return wear_mask
-	if(check_glasses && glasses && (glasses.flags_cover & GLASSESCOVERSEYES))
-		return glasses
 /mob/living/carbon/is_pepper_proof(check_head = TRUE, check_mask = TRUE)
 	if(check_head &&(head?.flags_cover & PEPPERPROOF))
 		return head
@@ -306,14 +302,6 @@
 			return null
 		return affecting.body_zone
 	return dam_zone
-
-/mob/living/carbon/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_CONTENTS)
-		return
-	for(var/X in internal_organs)
-		var/obj/item/organ/O = X
-		O.emp_act(severity)
 
 ///Adds to the parent by also adding functionality to propagate shocks through pulling and doing some fluff effects.
 /mob/living/carbon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)

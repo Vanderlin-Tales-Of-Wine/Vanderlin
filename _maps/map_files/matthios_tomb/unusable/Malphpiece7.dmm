@@ -1,0 +1,390 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"b" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/outdoors/caves)
+"d" = (
+/mob/living/simple_animal/hostile/retaliate/troll,
+/obj/structure/fluff/nest,
+/obj/item/alch/bone,
+/obj/item/clothing/head/hatfur,
+/obj/item/clothing/shoes/boots/furlinedboots,
+/obj/item/clothing/armor/plate,
+/obj/item/clothing/head/rare/dwarfplate,
+/obj/item/weapon/polearm/spear/billhook,
+/obj/item/clothing/ring/gold/ravox,
+/obj/item/coin/gold/pile,
+/obj/item/coin/silver/pile,
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/remains/human,
+/turf/open/floor/blocks/paving,
+/area/rogue/outdoors/caves)
+"g" = (
+/turf/closed/wall/mineral/decostone/fluffstone/reddish,
+/area/rogue/outdoors/caves)
+"m" = (
+/obj/item/weapon/knife/copper,
+/obj/item/clothing/armor/leather/splint,
+/obj/item/weapon/shield/tower/buckleriron,
+/obj/effect/decal/remains/human,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/outdoors/caves)
+"o" = (
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"r" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/outdoors/caves)
+"x" = (
+/obj/item/weapon/shield/tower,
+/obj/item/clothing/cloak/stabard/templar/dendor,
+/obj/item/weapon/mace/goden/shillelagh,
+/obj/effect/decal/remains/human,
+/turf/open/floor/blocks/paving,
+/area/rogue/outdoors/caves)
+"B" = (
+/obj/structure/pillory,
+/obj/effect/spawner/map_spawner/hauntpile,
+/obj/item/natural/stone,
+/obj/item/natural/stone,
+/obj/item/natural/stone,
+/obj/item/rope/chain,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"C" = (
+/obj/item/natural/stone,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"D" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/item/natural/stone,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"F" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/outdoors/caves)
+"G" = (
+/obj/item/weapon/whip/antique,
+/obj/structure/fluff/wallclock/vampire,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"I" = (
+/obj/item/alch/bone,
+/obj/item/natural/fur/rous,
+/obj/effect/decal/remains/bigrat,
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/outdoors/caves)
+"O" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/hexstone,
+/area/rogue/outdoors/caves)
+"Q" = (
+/turf/open/floor/blocks/paving,
+/area/rogue/outdoors/caves)
+"V" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/outdoors/caves)
+"W" = (
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/outdoors/caves)
+"X" = (
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/clothing/head/rare/elfplate/welfplate,
+/obj/item/clothing/cloak/raincloak/green,
+/obj/effect/decal/remains/human,
+/turf/open/floor/blocks/paving,
+/area/rogue/outdoors/caves)
+
+(1,1,1) = {"
+o
+o
+g
+g
+V
+V
+V
+g
+g
+o
+o
+"}
+(2,1,1) = {"
+a
+o
+O
+g
+g
+V
+g
+g
+O
+o
+a
+"}
+(3,1,1) = {"
+g
+a
+o
+O
+g
+g
+g
+O
+o
+a
+g
+"}
+(4,1,1) = {"
+g
+g
+a
+o
+O
+g
+O
+o
+a
+g
+g
+"}
+(5,1,1) = {"
+V
+g
+g
+g
+o
+D
+o
+g
+g
+g
+V
+"}
+(6,1,1) = {"
+V
+V
+V
+g
+G
+B
+C
+g
+V
+V
+V
+"}
+(7,1,1) = {"
+V
+g
+g
+g
+C
+a
+o
+g
+g
+g
+V
+"}
+(8,1,1) = {"
+g
+g
+O
+o
+a
+g
+a
+o
+O
+g
+g
+"}
+(9,1,1) = {"
+g
+O
+o
+a
+g
+g
+g
+a
+o
+O
+g
+"}
+(10,1,1) = {"
+O
+o
+a
+g
+g
+V
+g
+g
+a
+o
+O
+"}
+(11,1,1) = {"
+o
+o
+g
+g
+V
+V
+V
+g
+g
+o
+o
+"}
+
+(1,1,2) = {"
+r
+r
+r
+r
+r
+Q
+r
+r
+r
+r
+r
+"}
+(2,1,2) = {"
+W
+F
+W
+W
+W
+Q
+W
+W
+W
+F
+W
+"}
+(3,1,2) = {"
+r
+Q
+r
+x
+r
+Q
+r
+Q
+r
+Q
+r
+"}
+(4,1,2) = {"
+r
+W
+W
+W
+I
+Q
+W
+W
+W
+W
+r
+"}
+(5,1,2) = {"
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+"}
+(6,1,2) = {"
+r
+Q
+W
+Q
+W
+d
+W
+Q
+W
+X
+r
+"}
+(7,1,2) = {"
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+"}
+(8,1,2) = {"
+r
+W
+m
+W
+W
+Q
+W
+W
+I
+W
+r
+"}
+(9,1,2) = {"
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+Q
+r
+"}
+(10,1,2) = {"
+W
+b
+W
+W
+W
+Q
+W
+W
+W
+b
+W
+"}
+(11,1,2) = {"
+r
+r
+r
+r
+r
+Q
+r
+r
+r
+r
+r
+"}

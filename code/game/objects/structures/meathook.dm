@@ -158,26 +158,13 @@
 /obj/structure/meathook/proc/butchery(mob/living/user, mob/living/simple_animal/butchery_target)
 	var/list/butcher = list()
 	if(butchery_target.butcher_results)
-		if(user.mind.get_skill_level(/datum/skill/labor/butchering) <= 1)
-			if(prob(50))
-				butcher = butchery_target.botched_butcher_results // chance to get shit result
-			else
-				butcher =butchery_target.butcher_results
-		if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 3)
-			if(prob(10))
-				butcher = butchery_target.perfect_butcher_results // small chance to get great result
-			else
-				butcher = butchery_target.butcher_results
-		if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 4)
-			if(prob(50))
-				butcher = butchery_target.perfect_butcher_results // decent chance to get great result
-			else
-				butcher = butchery_target.butcher_results
-		else
-			if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 5)
+		if(prob(50 + (user.mind.get_skill_level(/datum/skill/labor/butchering) * 25))) // need level 2 to get consistent result
+			if(prob((user.mind.get_skill_level(/datum/skill/labor/butchering) * 25) - 50)) // level 3 to 6 get better result
 				butcher = butchery_target.perfect_butcher_results
 			else
 				butcher = butchery_target.butcher_results
+		else
+			butcher = butchery_target.botched_butcher_results
 
 	if(!draining_blood && butchery_target.blood_drained < 60)
 		if(!(user.used_intent.type == /datum/intent/dagger/cut || user.used_intent.type == /datum/intent/sword/cut || user.used_intent.type == /datum/intent/axe/cut))
@@ -225,7 +212,7 @@
 		if(do_after(user, cut_time, src, (IGNORE_HELD_ITEM)))
 			var/first_fail = TRUE
 			for(var/listed_item in butcher)
-				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/rogue/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))
+				if(ispath(listed_item, /obj/item/reagent_containers/food/snacks/meat) || ispath(listed_item, /obj/item/reagent_containers/food/snacks/fat))
 					if(prob(40 + (user.mind?.get_skill_level(/datum/skill/labor/butchering) * 10) - (60 - butchery_target.blood_drained)))
 						butcher[listed_item] += round(butcher[listed_item] * 0.5)
 					if(prob(10 + (user.mind?.get_skill_level(/datum/skill/labor/butchering) * 5)) - (60 - butchery_target.blood_drained))

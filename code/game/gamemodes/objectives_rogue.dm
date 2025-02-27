@@ -3,19 +3,12 @@
 	explanation_text = "Feed valuables to the idol."
 
 /datum/objective/bandit/check_completion()
-	if(SSticker.mode)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C.banditcontrib >= C.banditgoal)
-			return TRUE
+	if(SSmapping.retainer.bandit_contribute >= SSmapping.retainer.bandit_goal)
+		return TRUE
 
 /datum/objective/bandit/update_explanation_text()
 	..()
-	if(SSticker.mode)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C)
-			explanation_text = "Feed [C.banditgoal] mammon to an idol of greed."
-		else
-			explanation_text = "Pray to ZIZO."
+	explanation_text = "Feed [SSmapping.retainer.bandit_goal] mammon to an idol of greed."
 
 
 /datum/objective/delf
@@ -23,19 +16,13 @@
 	explanation_text = "Feed honeys to the mother."
 
 /datum/objective/delf/check_completion()
-	if(SSticker.mode)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C.delfcontrib >= C.delfgoal)
-			return TRUE
+	if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)
+		return TRUE
 
 /datum/objective/delf/update_explanation_text()
 	..()
-	if(SSticker.mode)
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C)
-			explanation_text = "Feed [C.delfgoal] honeys to the mother."
-		else
-			explanation_text = "Pray to ZIZO."
+	explanation_text = "Feed [SSmapping.retainer.delf_goal] honeys to the mother."
+
 
 /datum/objective/rt_maniac
 	name = "slaying"
@@ -57,10 +44,8 @@
 	triumph_count = 5
 
 /datum/objective/werewolf/conquer/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.vampire_werewolf() == "werewolf")
-			return TRUE
+	if(vampire_werewolf() == "werewolf")
+		return TRUE
 
 /datum/objective/werewolf/spread
 	name = "spread"
@@ -68,8 +53,7 @@
 	triumph_count = 5
 
 /datum/objective/werewolf/spread/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.werewolves.len >= 6)
+	if(length(SSmapping.retainer.werewolves) >= 6)
 		return TRUE
 
 /datum/objective/werewolf/infiltrate/one
@@ -78,9 +62,8 @@
 	triumph_count = 5
 
 /datum/objective/werewolf/infiltrate/one/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/churchjobs = list("Priest", "Priestess", "Cleric", "Acolyte", "Templar", "Churchling", "Crusader", "Inquisitor")
-	for(var/datum/mind/V in C.werewolves)
+	for(var/datum/mind/V in SSmapping.retainer.werewolves)
 		if(V.current.job in churchjobs)
 			return TRUE
 
@@ -90,9 +73,8 @@
 	triumph_count = 5
 
 /datum/objective/werewolf/infiltrate/two/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/noblejobs = list("Monarch", "Consort", "Prince", "Captain", "Hand", "Steward")
-	for(var/datum/mind/V in C.werewolves)
+	for(var/datum/mind/V in SSmapping.retainer.werewolves)
 		if(V.current.job in noblejobs)
 			return TRUE
 
@@ -102,8 +84,7 @@
 	triumph_count = 3
 
 /datum/objective/werewolf/survive/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(!C.werewolf.stat)
+	if(considered_alive(owner))
 		return TRUE
 
 /// Vampire related (OLD)
@@ -115,10 +96,8 @@
 	triumph_count = 5
 
 /datum/objective/vampire/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.vampire_werewolf() == "vampire")
-			return TRUE
+	if(vampire_werewolf() == "vampire")
+		return TRUE
 
 /// Vampire related (NEW)
 
@@ -129,10 +108,8 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/conquer/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.kingsubmit)
-			return TRUE
+	if(SSmapping.retainer.king_submitted)
+		return TRUE
 
 /datum/objective/vampirelord/ascend
 	name = "sun"
@@ -141,8 +118,7 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/ascend/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.ascended)
+	if(SSmapping.retainer.ascended)
 		return TRUE
 
 /datum/objective/vampirelord/destroy
@@ -152,10 +128,8 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/destroy/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(istype(C))
-		if(C.vampire_werewolf() == "vampire")
-			return TRUE
+	if(vampire_werewolf() == "vampire")
+		return TRUE
 
 
 /datum/objective/vampirelord/infiltrate/one
@@ -164,9 +138,8 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/infiltrate/one/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/churchjobs = list("Priest", "Priestess", "Cleric", "Acolyte", "Templar", "Churchling", "Crusader", "Inquisitor")
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.current.job in churchjobs)
 			return TRUE
 
@@ -176,9 +149,8 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/infiltrate/two/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	var/list/noblejobs = list("Monarch", "Consort", "Prince", "Captain", "Hand", "Steward")
-	for(var/datum/mind/V in C.vampires)
+	for(var/datum/mind/V in SSmapping.retainer.vampires)
 		if(V.current.job in noblejobs)
 			return TRUE
 
@@ -188,8 +160,7 @@
 	triumph_count = 5
 
 /datum/objective/vampirelord/spread/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(C.vampires.len >= 10)
+	if(length(SSmapping.retainer.vampires) >= 10)
 		return TRUE
 
 /datum/objective/vampirelord/stock
@@ -203,8 +174,7 @@
 	triumph_count = 3
 
 /datum/objective/vlordsurvive/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(!C.vlord.stat)
+	if(considered_alive(SSmapping.retainer.vampire_lord?.mind))
 		return TRUE
 
 /datum/objective/vlordserve
@@ -213,6 +183,5 @@
 	triumph_count = 3
 
 /datum/objective/vlordserve/check_completion()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
-	if(!C.vlord.stat)
+	if(considered_alive(SSmapping.retainer.vampire_lord?.mind))
 		return TRUE

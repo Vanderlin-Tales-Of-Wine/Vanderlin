@@ -221,7 +221,7 @@
 			if(ghost && ishuman(corpse))
 				var/mob/living/carbon/spirit/spirit = ghost
 				var/mob/living/carbon/human/human_corpse = corpse
-				if(istype(human_corpse.mouth, /obj/item/roguecoin) && !HAS_TRAIT(corpse, TRAIT_BURIED_COIN_GIVEN))
+				if(istype(human_corpse.mouth, /obj/item/coin) && !HAS_TRAIT(corpse, TRAIT_BURIED_COIN_GIVEN))
 					ADD_TRAIT(human_corpse, TRAIT_BURIED_COIN_GIVEN, TRAIT_GENERIC)
 					if(spirit.beingmoved)
 						to_chat(ghost, span_rose("Your toll to the Carriageman has been paid!"))

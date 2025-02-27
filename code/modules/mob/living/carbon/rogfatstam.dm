@@ -125,11 +125,11 @@
 	emote("scream", forced=TRUE)
 
 /mob/living/carbon/freak_out()
-	if(mob_timers["freakout"])
-		if(world.time < mob_timers["freakout"] + 10 SECONDS)
-			flash_fullscreen("stressflash")
-			return
-	mob_timers["freakout"] = world.time
+	if(!MOBTIMER_FINISHED(src, MT_FREAKOUT, 10 SECONDS))
+		flash_fullscreen("stressflash")
+		return
+	MOBTIMER_SET(src, MT_FREAKOUT)
+
 	shake_camera(src, 1, 3)
 	flash_fullscreen("stressflash")
 	changeNext_move(CLICK_CD_EXHAUSTED)

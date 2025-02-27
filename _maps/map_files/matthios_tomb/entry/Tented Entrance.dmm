@@ -1,0 +1,642 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/hexstone,
+/area/rogue)
+"e" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/snacks/hardtack{
+	pixel_y = 7
+	},
+/turf/open/floor/hexstone,
+/area/rogue)
+"f" = (
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue)
+"i" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/hexstone,
+/area/rogue)
+"j" = (
+/mob/living/carbon/human/species/skeleton/npc,
+/turf/open/floor/hexstone,
+/area/rogue)
+"m" = (
+/obj/structure/table/wood/counter{
+	dir = 1
+	},
+/obj/item/flashlight/flare/torch,
+/obj/item/flashlight/flare/torch{
+	pixel_y = 11;
+	pixel_x = -6
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_x = 10;
+	pixel_y = 8
+	},
+/turf/open/floor/hexstone,
+/area/rogue)
+"r" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/transparent/openspace,
+/area/rogue)
+"s" = (
+/obj/structure/stairs,
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/hexstone,
+/area/rogue)
+"v" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"w" = (
+/obj/structure/stairs,
+/turf/open/floor/hexstone,
+/area/rogue)
+"x" = (
+/obj/structure/table/wood/counter/end,
+/obj/item/reagent_containers/glass/bottle/waterskin,
+/turf/open/floor/hexstone,
+/area/rogue)
+"z" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/hexstone,
+/area/rogue)
+"C" = (
+/obj/structure/fluff/statue/tdummy,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue)
+"D" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"F" = (
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue)
+"G" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/hexstone,
+/area/rogue)
+"H" = (
+/obj/structure/table/wood/counter/end{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/snacks/hardtack{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/turf/open/floor/hexstone,
+/area/rogue)
+"I" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/hexstone,
+/area/rogue)
+"N" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/hexstone,
+/area/rogue)
+"P" = (
+/obj/structure/stairs,
+/turf/open/transparent/openspace,
+/area/rogue)
+"T" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/hexstone,
+/area/rogue)
+"U" = (
+/obj/structure/fluff/statue/evil,
+/turf/open/floor/hexstone,
+/area/rogue)
+"V" = (
+/obj/structure/roguetent/preopen,
+/turf/open/floor/hexstone,
+/area/rogue)
+"W" = (
+/obj/structure/dungeon_exit,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue)
+"X" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/hexstone,
+/area/rogue)
+"Y" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue)
+
+(1,1,1) = {"
+v
+v
+v
+v
+a
+a
+z
+a
+a
+a
+v
+v
+v
+v
+v
+"}
+(2,1,1) = {"
+v
+v
+v
+v
+a
+a
+a
+a
+a
+a
+a
+v
+v
+v
+v
+"}
+(3,1,1) = {"
+v
+v
+j
+v
+a
+a
+a
+a
+a
+a
+v
+v
+j
+v
+v
+"}
+(4,1,1) = {"
+v
+v
+v
+a
+T
+a
+a
+a
+a
+a
+a
+v
+v
+v
+v
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+Y
+V
+V
+V
+Y
+a
+a
+a
+v
+v
+v
+"}
+(6,1,1) = {"
+a
+a
+w
+Y
+a
+a
+x
+a
+i
+Y
+X
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+w
+Y
+U
+a
+m
+a
+a
+Y
+s
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+N
+a
+w
+Y
+a
+a
+e
+a
+a
+Y
+X
+a
+a
+a
+G
+"}
+(9,1,1) = {"
+a
+a
+w
+Y
+T
+a
+H
+a
+a
+Y
+X
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+Y
+V
+V
+V
+Y
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+v
+v
+v
+a
+a
+a
+a
+a
+i
+a
+a
+a
+v
+v
+v
+"}
+(12,1,1) = {"
+v
+v
+v
+v
+v
+a
+a
+a
+a
+a
+a
+v
+v
+v
+v
+"}
+(13,1,1) = {"
+v
+v
+j
+v
+v
+a
+a
+a
+a
+a
+v
+v
+j
+v
+v
+"}
+(14,1,1) = {"
+v
+v
+v
+v
+v
+a
+a
+a
+a
+a
+v
+v
+v
+v
+v
+"}
+(15,1,1) = {"
+v
+v
+v
+v
+v
+a
+a
+I
+a
+a
+v
+v
+v
+v
+v
+"}
+
+(1,1,2) = {"
+v
+v
+v
+v
+D
+D
+D
+D
+D
+D
+D
+v
+v
+v
+v
+"}
+(2,1,2) = {"
+v
+v
+v
+v
+D
+D
+D
+D
+D
+D
+D
+v
+v
+v
+v
+"}
+(3,1,2) = {"
+v
+v
+v
+v
+D
+D
+D
+D
+D
+D
+D
+v
+v
+v
+v
+"}
+(4,1,2) = {"
+v
+v
+v
+D
+D
+D
+D
+D
+D
+D
+D
+v
+v
+v
+v
+"}
+(5,1,2) = {"
+D
+D
+D
+D
+F
+f
+f
+f
+F
+D
+D
+D
+v
+v
+v
+"}
+(6,1,2) = {"
+D
+D
+D
+P
+f
+f
+f
+f
+f
+r
+D
+D
+D
+D
+D
+"}
+(7,1,2) = {"
+D
+D
+D
+P
+f
+f
+f
+f
+f
+r
+D
+D
+D
+D
+D
+"}
+(8,1,2) = {"
+D
+D
+D
+P
+f
+f
+W
+f
+f
+r
+D
+D
+D
+D
+D
+"}
+(9,1,2) = {"
+D
+D
+D
+P
+f
+f
+f
+f
+f
+r
+D
+D
+D
+D
+D
+"}
+(10,1,2) = {"
+D
+D
+D
+D
+F
+f
+C
+f
+F
+D
+D
+D
+D
+D
+D
+"}
+(11,1,2) = {"
+v
+v
+v
+D
+D
+D
+D
+D
+D
+D
+D
+D
+v
+v
+v
+"}
+(12,1,2) = {"
+v
+v
+v
+v
+v
+D
+D
+D
+D
+D
+D
+v
+v
+v
+v
+"}
+(13,1,2) = {"
+v
+v
+v
+v
+v
+D
+D
+D
+D
+D
+v
+v
+v
+v
+v
+"}
+(14,1,2) = {"
+v
+v
+v
+v
+v
+D
+D
+D
+D
+D
+v
+v
+v
+v
+v
+"}
+(15,1,2) = {"
+v
+v
+v
+v
+v
+D
+D
+D
+D
+D
+v
+v
+v
+v
+v
+"}

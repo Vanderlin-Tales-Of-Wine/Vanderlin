@@ -41,7 +41,7 @@
 /datum/element/mob_overlay_effect/proc/on_add(datum/source, datum/target)
 	SIGNAL_HANDLER
 	var/offset = 0
-	if(istype(target, /obj/structure/flora/roguetree))
+	if(istype(target, /obj/structure/flora/tree))
 		offset = -24
 	if(isitem(target))
 		offset += 7
