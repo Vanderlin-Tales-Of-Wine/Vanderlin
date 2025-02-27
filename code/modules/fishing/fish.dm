@@ -15,6 +15,8 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	slice_path = /obj/item/reagent_containers/food/snacks/meat/mince/fish
 	eat_effect = /datum/status_effect/debuff/uncookedfood
+	isbait = TRUE
+	baitpenalty = 5
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/carp = 2)
 
 /obj/item/reagent_containers/food/snacks/fish/dead
