@@ -6,6 +6,6 @@
 /obj/item/clothing/neck/stripedgreenscarf : /obj/item/clothing/neck/large_scarf/green{@OLD}
 /obj/item/clothing/neck/stripedredscarf : /obj/item/clothing/neck/large_scarf/red{@OLD}
 /obj/item/clothing/head/beanie/stripedred : /obj/item/clothing/head/beanie/red{@OLD}
-/obj/item/clothing/under/pants/youngfolksjeans : /obj/item/clothing/under/pants/jeans{@OLD}
-/obj/item/clothing/under/pants/classicjeans : /obj/item/clothing/under/pants/jeans{@OLD}
-/obj/item/clothing/under/dress/blacktango : /obj/item/clothing/under/dress/tango{@OLD}
+/obj/item/clothing/pants/pants/youngfolksjeans : /obj/item/clothing/pants/pants/jeans{@OLD}
+/obj/item/clothing/pants/pants/classicjeans : /obj/item/clothing/pants/pants/jeans{@OLD}
+/obj/item/clothing/pants/dress/blacktango : /obj/item/clothing/pants/dress/tango{@OLD}

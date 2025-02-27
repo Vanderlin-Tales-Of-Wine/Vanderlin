@@ -18,15 +18,15 @@
 			user_tries_tilling(pulledby, get_turf(src))
 
 /obj/structure/plough/proc/user_tries_tilling(mob/living/user, turf/location)
-	if(istype(location, /turf/open/floor/rogue/grass))
+	if(istype(location, /turf/open/floor/grass))
 		playsound(location,'sound/items/dig_shovel.ogg', 100, TRUE)
-		location.ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
+		location.ChangeTurf(/turf/open/floor/dirt, flags = CHANGETURF_INHERIT_AIR)
 		if(user.buckled)
 			apply_farming_fatigue(user, 5)
 		else
 			apply_farming_fatigue(user, 10)
 		return
-	if(istype(location, /turf/open/floor/rogue/dirt))
+	if(istype(location, /turf/open/floor/dirt))
 		playsound(location,'sound/items/dig_shovel.ogg', 100, TRUE)
 		var/obj/structure/soil/soil = get_soil_on_turf(location)
 		if(soil)

@@ -22,7 +22,7 @@
 	if(istype(object,/turf) && left_click && !alt_click && !ctrl_click)
 		var/turf/T = object
 		if(isfloorturf(object))
-			T.PlaceOnTop(/turf/closed/wall/mineral/rogue/decowood)
+			T.PlaceOnTop(/turf/closed/wall/mineral/decowood)
 		log_admin("Build Mode: [key_name(c)] built [T] at [AREACOORD(T)]")
 		return
 	else if(right_click)

@@ -191,4 +191,5 @@
 /obj/item/restraints/legcuffs/beartrap/crafted
 	old = FALSE
 	desc = "Curious is the trapmaker's art. Their efficacy unwitnessed by their own eyes."
-	smeltresult = /obj/item/ingot/iron
+	melting_material = /datum/material/iron
+	melt_amount = 75

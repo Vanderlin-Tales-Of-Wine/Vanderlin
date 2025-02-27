@@ -73,14 +73,6 @@
 		var/datum/component/storage/slave = i
 		slave.refresh_mob_views()
 
-/datum/component/storage/concrete/emp_act(datum/source, severity)
-	if(emp_shielded)
-		return
-	var/atom/real_location = real_location()
-	for(var/i in real_location)
-		var/atom/A = i
-		A.emp_act(severity)
-
 /datum/component/storage/concrete/proc/on_slave_link(datum/component/storage/S)
 	if(S == src)
 		return FALSE

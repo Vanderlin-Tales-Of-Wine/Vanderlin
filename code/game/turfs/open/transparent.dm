@@ -23,7 +23,7 @@
 	if(!T)
 		vis_contents.len = 0
 		if(!show_bottom_level() && prune_on_fail) //If we cant show whats below, and we prune on fail, change the turf to plating as a fallback
-			ChangeTurf(/turf/open/floor/rogue/naturalstone, flags = CHANGETURF_INHERIT_AIR)
+			ChangeTurf(/turf/open/floor/naturalstone, flags = CHANGETURF_INHERIT_AIR)
 		return FALSE
 	if(init)
 		vis_contents += T
@@ -41,12 +41,12 @@
 
 ///Called when there is no real turf below this turf
 /turf/open/transparent/proc/show_bottom_level()
-	var/turf/path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/floor/rogue/naturalstone
+	var/turf/path = SSmapping.level_trait(z, ZTRAIT_BASETURF) || /turf/open/floor/naturalstone
 	if(!ispath(path))
 		path = text2path(path)
 		if(!ispath(path))
 			warning("Z-level [z] has invalid baseturf '[SSmapping.level_trait(z, ZTRAIT_BASETURF)]'")
-			path = /turf/open/floor/rogue/naturalstone
+			path = /turf/open/floor/naturalstone
 	var/mutable_appearance/underlay_appearance = mutable_appearance(initial(path.icon), initial(path.icon_state), layer = TURF_LAYER, plane = PLANE_SPACE)
 	underlays += underlay_appearance
 	return TRUE
