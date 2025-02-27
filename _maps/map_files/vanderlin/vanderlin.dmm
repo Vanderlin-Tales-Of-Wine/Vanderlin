@@ -1290,6 +1290,10 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
+"aPv" = (
+/obj/structure/fake_machine/atm,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town/steward)
 "aPx" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
@@ -11798,9 +11802,13 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "iwp" = (
-/obj/structure/fake_machine/atm,
-/turf/open/floor/carpet/green,
-/area/rogue/indoors/town)
+/obj/machinery/light/fueledstreet,
+/obj/structure/fake_machine/atm{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "iwx" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
@@ -92337,7 +92345,7 @@ lsl
 elp
 elp
 elp
-gpj
+iwp
 lsl
 elp
 elp
@@ -95503,7 +95511,7 @@ vnF
 jdk
 jdk
 xaa
-pYz
+aPv
 ijE
 pYz
 bvm
@@ -96780,7 +96788,7 @@ elp
 elp
 gpj
 rnJ
-iwp
+feg
 pBa
 pBa
 pBa
