@@ -60,7 +60,6 @@
 	actions_types = list()
 	heat = 1000
 	light_color = LIGHT_COLOR_FLARE
-	grind_results = list(/datum/reagent/sulfur = 15)
 
 	var/fuel = 12000
 	var/on_damage = 7
@@ -147,6 +146,7 @@
 
 	grid_width = 32
 	grid_height = 32
+	var/extinguish_prob = 100
 
 /obj/item/flashlight/flare/torch/getonmobprop(tag)
 	. = ..()
@@ -169,7 +169,7 @@
 		if(!fuel)
 			icon_state = "torch-empty"
 		return
-	if(!istype(loc,/obj/machinery/light/rogue/torchholder))
+	if(!istype(loc,/obj/machinery/light/fueled/torchholder))
 		if(!ismob(loc))
 			if(prob(23))
 				turn_off()
@@ -194,7 +194,7 @@
 		turn_off()
 
 /obj/item/flashlight/flare/torch/extinguish()
-	if(on)
+	if(on && prob(extinguish_prob))
 		turn_off()
 
 /obj/item/flashlight/flare/torch/turn_off()
@@ -290,7 +290,9 @@
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
 	metalizer_result = null
-	smeltresult = /obj/item/ingot/iron
+	extinguish_prob = 10
+	melting_material = /datum/material/iron
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
@@ -309,9 +311,6 @@
 		turn_off()
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/flashlight/flare/torch/lantern/extinguish()
-	return
-
 /obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -326,10 +325,13 @@
 	icon_state = "bronzelamp"
 	item_state = "bronzelamp"
 	desc = "A marvel of engineering that emits a strange green glow."
-	light_outer_range = 8
-	light_color ="#4ac77e"
+	light_outer_range = 9
+	light_power = 2
+	light_color ="#3fff8f"
 	on = FALSE
-	smeltresult = /obj/item/ingot/bronze
+	extinguish_prob = 0
+	melting_material = /datum/material/bronze
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/copper
 	name = "copper lamptern"
@@ -343,7 +345,9 @@
 	on_damage = 5
 	fuel = 120 MINUTES
 	should_self_destruct = FALSE
-	smeltresult = /obj/item/ingot/copper
+	extinguish_prob = 15
+	melting_material = /datum/material/copper
+	melt_amount = 75
 
 /obj/item/flashlight/flare/torch/lantern/copper/getonmobprop(tag)
 	. = ..()

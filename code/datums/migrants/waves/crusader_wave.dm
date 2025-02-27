@@ -2,14 +2,14 @@
 	name = "Episcopal Inquisitor"
 	greet_text = "These lands have forfeited Psydon and the Tens, you came with a troop of devouts from Grenzelhoft to restore the True faith to them."
 	antag_datum = /datum/antagonist/purishep
-	outfit = /datum/outfit/job/roguetown/inquisitor
+	outfit = /datum/outfit/job/inquisitor
 	show_wanderer_examine = FALSE
 	allowed_races = list("Humen","Dwarf")
 
 /datum/migrant_role/crusader
 	name = "Crusaders"
 	greet_text = "Crusader of the True faith, you came from Grenzelhoft under the command of the Inquisitor, obey them as he lead you to smite the heatens."
-	outfit = /datum/outfit/job/roguetown/adventurer/crusader
+	outfit = /datum/outfit/job/adventurer/crusader
 	allowed_races = list("Humen","Dwarf")
 
 /datum/migrant_wave/crusade

@@ -215,9 +215,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
 
-#ifdef TESTING
 	to_chat(world, "<span class='boldannounce'>[msg]</span>")
-#endif
 	log_world(msg)
 
 	SSplexora.serverinitdone(time)
@@ -243,6 +241,7 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	initializations_finished_with_no_players_logged_in = initialized_tod < REALTIMEOFDAY - 10
 	// Loop.
 	Master.StartProcessing(0)
+	SSgamemode.handle_picking_storyteller()
 	#ifdef LOWMEMORYMODE
 	low_memory_force_start()
 	#endif

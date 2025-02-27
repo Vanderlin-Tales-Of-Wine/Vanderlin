@@ -112,10 +112,10 @@
 		for(var/obj/structure/flora/RT in view(6, src))
 			if(istype(RT,/obj/structure/table/wood/treestump))
 				continue
-			if(istype(RT,/obj/structure/flora/roguetree))
+			if(istype(RT,/obj/structure/flora/tree))
 				escape_path = RT
 				break
-			if(istype(RT,/obj/structure/flora/rogueshroom))
+			if(istype(RT,/obj/structure/flora/shroom_tree))
 				escape_path = RT
 				break
 		if(escape_path)
@@ -345,7 +345,7 @@
 			FindTarget()
 
 
-/mob/living/simple_animal/hostile/proc/AttackingTarget(mob/living/target)
+/mob/living/simple_animal/hostile/proc/AttackingTarget()
 	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_PREATTACK)
 		return FALSE //but more importantly return before attack_animal called
 	SEND_SIGNAL(src, COMSIG_HOSTILE_ATTACKINGTARGET, target)

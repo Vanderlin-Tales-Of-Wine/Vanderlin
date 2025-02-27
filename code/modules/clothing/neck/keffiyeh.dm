@@ -1,0 +1,71 @@
+/obj/item/clothing/neck/keffiyeh
+	name = "keffiyeh"
+	desc = "An eastern scarf usually worn around the head and neck over a padded coif."
+	icon = 'icons/roguetown/clothing/head.dmi'
+	icon_state = "shalal"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+	dynamic_hair_suffix = ""
+	dropshrink = 0.8
+	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HEAD
+	blocksound = SOFTHIT
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	flags_inv = HIDEEARS|HIDEHAIR
+	body_parts_covered = NECK|HAIR|EARS|HEAD
+	adjustable = CAN_CADJUST
+	toggle_icon_state = TRUE
+	sewrepair = TRUE
+	anvilrepair = null
+	resistance_flags = FLAMMABLE // Made of leather
+	smeltresult = /obj/item/ash
+
+	armor = ARMOR_PADDED
+	prevent_crits = MINOR_CRITICALS
+	armor = ARMOR_LEATHER_GOOD
+	max_integrity = INTEGRITY_WORST
+
+/obj/item/clothing/neck/keffiyeh/AdjustClothes(mob/user)
+	if(loc == user)
+		if(adjustable == CAN_CADJUST)
+			adjustable = CADJUSTED
+			if(toggle_icon_state)
+				icon_state = "[initial(icon_state)]_t"
+			flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+			body_parts_covered = NECK | HEAD | MOUTH | NOSE | EARS | HAIR
+			if(ishuman(user))
+				var/mob/living/carbon/H = user
+				H.update_inv_neck()
+				H.update_inv_head()
+		else if(adjustable == CADJUSTED)
+			ResetAdjust(user)
+			if(user)
+				if(ishuman(user))
+					var/mob/living/carbon/H = user
+					H.update_inv_neck()
+					H.update_inv_head()
+
+/obj/item/clothing/neck/keffiyeh/red
+	color = CLOTHING_BLOOD_RED
+
+/obj/item/clothing/neck/keffiyeh/yellow
+	color = CLOTHING_PEAR_YELLOW
+
+/obj/item/clothing/neck/keffiyeh/orange
+	color = CLOTHING_FYRITIUS_ORANGE
+
+/obj/item/clothing/neck/keffiyeh/green
+	color = CLOTHING_BOG_GREEN
+
+/obj/item/clothing/neck/keffiyeh/blue
+	color = CLOTHING_MAGE_BLUE
+
+/obj/item/clothing/neck/keffiyeh/purple
+	color = CLOTHING_ROYAL_PURPLE
+
+/obj/item/clothing/neck/keffiyeh/black
+	color = CLOTHING_ROYAL_BLACK
+
+/obj/item/clothing/neck/keffiyeh/white
+	color = CLOTHING_ASH_GREY

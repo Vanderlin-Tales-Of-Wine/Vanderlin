@@ -111,10 +111,10 @@
 //		for(var/obj/structure/flora/RT in view(6, src))
 //			if(istype(RT,/obj/structure/table/wood/treestump))
 //				continue
-//			if(istype(RT,/obj/structure/flora/roguetree))
+//			if(istype(RT,/obj/structure/flora/tree))
 //				escape_path = RT
 //				break
-//			if(istype(RT,/obj/structure/flora/rogueshroom))
+//			if(istype(RT,/obj/structure/flora/shroom_tree))
 //				escape_path = RT
 //				break
 	//	if(escape_path)
@@ -420,7 +420,7 @@
 
 	if (prob(probby))
 		// whoops it saw us
-		target.mob_timers[MT_FOUNDSNEAK] = world.time
+		MOBTIMER_SET(target, MT_FOUNDSNEAK)
 		to_chat(target, span_danger("[src] sees me! I'm found!"))
 		target.update_sneak_invis(TRUE)
 		return TRUE

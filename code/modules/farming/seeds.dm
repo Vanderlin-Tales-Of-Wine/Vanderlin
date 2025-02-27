@@ -14,7 +14,7 @@
 		var/datum/plant_def/def = GLOB.plant_defs[plant_def_type]
 		color = def.seed_color
 	if(icon_state == "seeds")
-		icon_state = pick("seeds","seedsB","seedsC","seedsD")
+		icon_state = "seeds[rand(1,3)]"
 
 /obj/item/neuFarm/seed/Crossed(mob/living/L)
 	. = ..()
@@ -44,12 +44,12 @@
 	if(soil)
 		try_plant_seed(user, soil)
 		return
-	else if(istype(T, /turf/open/floor/rogue/dirt))
+	else if(istype(T, /turf/open/floor/dirt))
 		if(!(user.mind.get_skill_level(/datum/skill/labor/farming) >= SKILL_LEVEL_JOURNEYMAN))
 			to_chat(user, span_notice("I don't know enough to make a mound without tools."))
 			return
 		to_chat(user, span_notice("I begin making a mound for the seeds..."))
-		if(do_after(user, get_farming_do_time(user, 10 SECONDS), src))
+		if(do_after(user, get_farming_do_time(user, 10 SECONDS), target = src))
 			apply_farming_fatigue(user, 30)
 			soil = get_soil_on_turf(T)
 			if(!soil)

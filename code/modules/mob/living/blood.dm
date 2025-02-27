@@ -152,6 +152,8 @@
 	return bleed_rate
 
 /mob/living/carbon/get_bleed_rate()
+	if(NOBLOOD in dna?.species?.species_traits)
+		return 0
 	var/bleed_rate = 0
 	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
 		bleed_rate += bodypart.get_bleed_rate()

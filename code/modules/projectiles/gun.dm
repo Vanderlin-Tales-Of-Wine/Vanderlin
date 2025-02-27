@@ -73,12 +73,6 @@
 						"<span class='danger'>I shoot [src]!</span>", \
 						COMBAT_MESSAGE_RANGE)
 
-/obj/item/gun/emp_act(severity)
-	. = ..()
-	if(!(. & EMP_PROTECT_CONTENTS))
-		for(var/obj/O in contents)
-			O.emp_act(severity)
-
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()
 	testing("gun afterattack")

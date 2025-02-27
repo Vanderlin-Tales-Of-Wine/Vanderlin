@@ -19,7 +19,7 @@
 			continue
 		if(is_type_in_list(nest, ignore_types)) //so the not permanent baby and the permanent baby subtype dont followed each other
 			continue
-		if(locate(/mob/living/simple_animal/hostile/retaliate/rogue/chicken) in nest.loc) //this means we need to have the chicken vacate the area to prevent chickens never moving
+		if(locate(/mob/living/simple_animal/hostile/retaliate/chicken) in nest.loc) //this means we need to have the chicken vacate the area to prevent chickens never moving
 			continue
 		all_nests += nest
 

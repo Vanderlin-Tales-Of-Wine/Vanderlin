@@ -170,7 +170,7 @@
 
 	var/mob/living/carbon/human/new_human = new (warp_place)
 
-	var/datum/outfit/outfit = new /datum/outfit/job/roguetown/tailor
+	var/datum/outfit/outfit = new /datum/outfit/job/tailor
 	outfit.equip(new_human)
 
 	prefs.copy_to(new_human, TRUE, FALSE)

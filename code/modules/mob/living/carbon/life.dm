@@ -62,8 +62,8 @@
 		var/painpercent = get_complex_pain() / (STAEND * 10)
 		painpercent = painpercent * 100
 
-		if(world.time > mob_timers["painstun"])
-			mob_timers["painstun"] = world.time + 100
+		if(world.time > mob_timers[MT_PAINSTUN])
+			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
 			if(lying || IsKnockdown())
@@ -77,7 +77,7 @@
 						stuttering += 5
 						addtimer(CALLBACK(src, PROC_REF(Stun), 110), 10)
 						addtimer(CALLBACK(src, PROC_REF(Knockdown), 110), 10)
-						mob_timers["painstun"] = world.time + 160
+						mob_timers[MT_PAINSTUN] = world.time + 16 SECONDS
 					else
 						emote("painmoan")
 						stuttering += 5
@@ -593,7 +593,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 
 /mob/living/proc/set_heartattack(status)
 	return
-	
+
 /mob/living/carbon/set_heartattack(status)
 	if(!can_heartattack())
 		return FALSE
@@ -634,6 +634,8 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			adjust_energy(sleepy_mod * (max_energy * 0.02))
 		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
 			adjust_energy(sleepy_mod * (max_energy * 0.004))
+		if(locate(/obj/item/bedsheet) in get_turf(src))
+			adjust_energy(sleepy_mod * (max_energy * 0.004))
 		if(hydration > 0 || yess)
 			if(!bleed_rate)
 				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
@@ -641,7 +643,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 				//for context, it takes 5 small cuts (0.4 x 5) or 3 normal cuts (0.8 x 3) for a bodypart to not be able to heal itself
 				if(affecting.get_bleed_rate() >= 2)
 					continue
-				if(affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
+				if(affecting.heal_damage(sleepy_mod * 1.5, sleepy_mod * 1.5, required_status = BODYPART_ORGANIC)) // multiplier due to removing healing from sleep effect
 					src.update_damage_overlays()
 				for(var/datum/wound/wound as anything in affecting.wounds)
 					if(!wound.sleep_healing)

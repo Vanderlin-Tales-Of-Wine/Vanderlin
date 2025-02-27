@@ -99,6 +99,12 @@
 
 	var/list/apprentices = list()
 
+	/// Variable that lets the event picker see if someones getting chosen or not
+	var/picking = FALSE
+	///the bitflag our job applied
+	var/job_bitflag = NONE
+
+
 /datum/mind/New(key)
 	src.key = key
 	soulOwner = src
@@ -383,6 +389,8 @@
 
 /datum/mind/proc/get_skill_level(skill)
 	var/datum/skill/S = GetSkillRef(skill)
+	if(!(S in known_skills))
+		return SKILL_LEVEL_NONE
 	return known_skills[S] || SKILL_LEVEL_NONE
 
 /datum/mind/proc/get_skill_parry_modifier(skill)
@@ -448,6 +456,8 @@
 		antag_team.add_member(src)
 	A.on_gain()
 	log_game("[key_name(src)] has gained antag datum [A.name]([A.type])")
+	var/client/picked_client = src.current?.client
+	picked_client?.mob?.mind.picking = FALSE
 	return A
 
 /datum/mind/proc/remove_antag_datum(datum_type)
@@ -779,7 +789,7 @@
 	var/mob/dead/observer/G = get_ghost(even_if_they_cant_reenter = force)
 	. = G
 	if(G)
-		G.reenter_corpse()
+		G.reenter_corpse(force)
 
 
 /datum/mind/proc/has_objective(objective_type)
@@ -830,7 +840,11 @@
 	var/mob/living/carbon/human/H = current
 	if(!istype(H))
 		return 1
-	var/boon = H.age == AGE_OLD ? 0.8 : 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
+	var/boon = 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
+	if(H.age == AGE_OLD)
+		boon = 0.8
+	else if(H.age == AGE_CHILD)
+		boon = 1.1
 	boon += get_skill_level(skill) / 10
 	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
 		boon += 0.05

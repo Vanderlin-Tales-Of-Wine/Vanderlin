@@ -8,105 +8,105 @@
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "aA" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "aJ" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "bd" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/grass,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/grass,
 /area/rogue)
 "bg" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "bi" = (
 /obj/structure/fluff/walldeco/serpflag,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "bl" = (
 /obj/structure/fluff/statue/myth,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "br" = (
-/obj/item/roguebin,
-/turf/open/floor/rogue/cobblerock,
+/obj/item/bin,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "bs" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 1
 	},
-/turf/open/floor/rogue/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue)
 "bx" = (
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "bE" = (
-/obj/structure/closet/crate/roguecloset,
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/closet/crate/crafted_closet,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "bR" = (
 /obj/structure/fluff/walldeco/wallshield,
 /obj/structure/table/wood,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "cf" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/woodturned,
+/obj/structure/chair/stool,
+/turf/open/floor/woodturned,
 /area/rogue)
 "cA" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/item/roguebin/water/gross,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/obj/item/bin/water/gross,
 /area/rogue)
 "cQ" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue)
 "dn" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/woodturned,
+/obj/structure/bed,
+/turf/open/floor/woodturned,
 /area/rogue)
 "dq" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "dz" = (
 /obj/structure/bars/grille,
 /turf/open/transparent/openspace,
 /area/rogue)
 "dF" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "dH" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "eg" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "eh" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "ej" = (
 /turf/open/transparent/openspace,
@@ -114,162 +114,162 @@
 "ep" = (
 /obj/structure/bars,
 /obj/structure/bars/cemetery,
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "eY" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/closed/wall/mineral/rogue/decostone,
+/obj/structure/flora/grass/water/reeds,
+/turf/closed/wall/mineral/decostone,
 /area/rogue)
 "fg" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/carpet,
+/obj/structure/bed,
+/turf/open/floor/carpet,
 /area/rogue)
 "fk" = (
 /area/rogue)
 "fq" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/cobble,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/cobble,
 /area/rogue)
 "fx" = (
-/obj/machinery/light/rogue/wallfire,
-/turf/closed/wall/mineral/rogue/stonebrick,
+/obj/machinery/light/fueled/wallfire,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "fF" = (
 /obj/structure/fluff/statue/gargoyle,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "fG" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/grass,
 /area/rogue)
 "fL" = (
-/obj/machinery/light/rogue/firebowl/church,
-/turf/open/floor/rogue/cobble,
+/obj/machinery/light/fueled/firebowl/church,
+/turf/open/floor/cobble,
 /area/rogue)
 "fN" = (
 /obj/structure/rack,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue)
 "fR" = (
 /obj/structure/fluff/clock,
-/turf/open/floor/rogue/blocks/newstone,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "gc" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/wood,
+/obj/structure/bed,
+/turf/open/floor/wood,
 /area/rogue)
 "gk" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "gv" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
 /area/rogue)
 "gx" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "gK" = (
 /obj/structure/fluff/walldeco/wallshield,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "gO" = (
-/obj/machinery/light/rogue/wallfire,
-/turf/closed/wall/mineral/rogue/wood,
+/obj/machinery/light/fueled/wallfire,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "gQ" = (
-/obj/structure/fluff/grindwheel,
-/turf/open/floor/rogue/cobble,
+/obj/structure/grindwheel,
+/turf/open/floor/cobble,
 /area/rogue)
 "gU" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "hb" = (
 /obj/structure/chair/bench/ultimacouch/r,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "hm" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "ht" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/blocks/newstone/alt,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue)
 "hD" = (
 /obj/structure/fluff/walldeco/painting,
-/turf/closed/wall/mineral/rogue/decowood,
+/turf/closed/wall/mineral/decowood,
 /area/rogue)
 "hG" = (
 /obj/structure/fluff/walldeco/bsmith,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "hN" = (
 /obj/structure/lever/wall,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "hQ" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguetree,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/tree,
 /turf/open/water,
 /area/rogue)
 "hY" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/ruinedwood,
+/obj/structure/rack,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "in" = (
-/turf/open/floor/rogue/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue)
 "iq" = (
-/obj/structure/flora/roguetree,
-/turf/closed/wall/mineral/rogue/decostone,
+/obj/structure/flora/tree,
+/turf/closed/wall/mineral/decostone,
 /area/rogue)
 "ix" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/tile,
 /area/rogue)
 "iC" = (
 /obj/structure/fluff/psycross,
-/turf/open/floor/rogue/tile,
+/turf/open/floor/tile,
 /area/rogue)
 "iY" = (
 /obj/structure/winch,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "jd" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "je" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/twig,
+/obj/structure/bed,
+/turf/open/floor/twig,
 /area/rogue)
 "jr" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "jA" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "jF" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "jI" = (
 /obj/structure/fluff/railing/fence{
@@ -279,11 +279,11 @@
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "jN" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "kg" = (
 /obj/structure/fluff/railing/fence{
@@ -293,68 +293,68 @@
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "kh" = (
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "ko" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/cobble,
+/obj/structure/rack,
+/turf/open/floor/cobble,
 /area/rogue)
 "kp" = (
-/turf/closed/wall/mineral/rogue/wood/window,
+/turf/closed/wall/mineral/wood/window,
 /area/rogue)
 "ky" = (
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "kz" = (
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "kR" = (
 /obj/structure/bookcase,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "le" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/twig,
+/obj/structure/chair/stool,
+/turf/open/floor/twig,
 /area/rogue)
 "lq" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "lu" = (
 /obj/structure/fluff/clock,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "lw" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "lS" = (
 /obj/structure/fluff/statue/knight/r,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "lZ" = (
 /obj/structure/fluff/walldeco/serpflag,
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "ml" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 1
 	},
-/turf/open/floor/rogue/blocks/stonered,
+/turf/open/floor/blocks/stonered,
 /area/rogue)
 "mr" = (
 /obj/structure/chair/bench{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "my" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water,
 /area/rogue)
 "mz" = (
@@ -363,11 +363,11 @@
 	dir = 4
 	},
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "mF" = (
 /obj/structure/fluff/statue/gargoyle,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "mJ" = (
 /obj/structure/fluff/railing/fence{
@@ -375,121 +375,121 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "mM" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/rogue/blocks/stonered,
+/turf/open/floor/blocks/stonered,
 /area/rogue)
 "mY" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "no" = (
 /obj/structure/fluff/walldeco/psybanner,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "nr" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "ns" = (
 /obj/structure/fluff/walldeco/stone,
-/turf/closed/wall/mineral/rogue/stonebrick,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "nw" = (
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/ruinedwood,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "nG" = (
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "oa" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/ruinedwood,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "od" = (
-/obj/structure/roguewindow/openclose,
+/obj/structure/window/openclose,
 /turf,
 /area/rogue)
 "og" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "on" = (
 /obj/structure/fluff/walldeco/mona,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "op" = (
-/turf/open/floor/rogue/blocks/stonered,
+/turf/open/floor/blocks/stonered,
 /area/rogue)
 "ot" = (
 /obj/structure/bookcase,
 /obj/structure/bookcase,
 /area/rogue)
 "oE" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/blocks/newstone,
+/obj/structure/chair/stool,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "oH" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "oK" = (
 /obj/structure/bookcase,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "oO" = (
 /obj/structure/fluff/walldeco/moon,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "oS" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/blocks/stonered,
+/turf/open/floor/blocks/stonered,
 /area/rogue)
 "oU" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 8
 	},
-/turf/open/floor/rogue/blocks/newstone,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "oW" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /obj/structure/chair/bench/ancientlog,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "pg" = (
-/obj/structure/flora/roguegrass/bush/wall,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/bush/wall,
+/turf/open/floor/grass,
 /area/rogue)
 "pj" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "pm" = (
 /turf/closed,
 /area/rogue)
 "px" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/cobblerock,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "py" = (
-/turf/open/floor/rogue/blocks/bluestone,
+/turf/open/floor/blocks/bluestone,
 /area/rogue)
 "pH" = (
 /obj/structure/bookcase,
 /area/rogue)
 "pX" = (
 /obj/structure/bookcase,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "qb" = (
 /obj/structure/fluff/railing/fence{
@@ -500,7 +500,7 @@
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "qi" = (
 /obj/structure/fluff/railing/fence{
@@ -509,168 +509,168 @@
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "qk" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "qm" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/wood,
+/obj/structure/fermentation_keg,
+/turf/open/floor/wood,
 /area/rogue)
 "qs" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "qC" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/ruinedwood/turned,
+/obj/structure/bed,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "qG" = (
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "qH" = (
-/turf/open/floor/rogue/rooftop{
+/turf/open/floor/rooftop{
 	dir = 8
 	},
 /area/rogue)
 "qI" = (
 /obj/structure/mineral_door/wood,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "qN" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "rK" = (
 /obj/structure/fluff/walldeco/wantedposter/r,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "rL" = (
-/turf/open/floor/rogue/blocks/newstone/alt,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue)
 "rN" = (
 /obj/structure/fluff/walldeco/psybanner,
-/turf/closed/wall/mineral/rogue/decostone,
+/turf/closed/wall/mineral/decostone,
 /area/rogue)
 "rS" = (
 /obj/structure/mineral_door/wood/donjon,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "rY" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "sc" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/wood,
+/obj/structure/chair/stool,
+/turf/open/floor/wood,
 /area/rogue)
 "sg" = (
 /obj/structure/fluff/walldeco/psybanner/red,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "sv" = (
 /obj/structure/fluff/millstone,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "sz" = (
 /obj/structure/ladder,
 /obj/structure/ladder,
 /obj/structure/ladder,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "sJ" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "sO" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "sP" = (
-/obj/structure/bed/rogue/shit,
-/turf/closed/wall/mineral/rogue/tent,
+/obj/structure/bed/shit,
+/turf/closed/wall/mineral/tent,
 /area/rogue)
 "sR" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "sW" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/grass,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/grass,
 /area/rogue)
 "tf" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "tk" = (
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "tQ" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "tV" = (
 /obj/structure/fluff/statue/knight,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "tX" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/water,
 /area/rogue)
 "tY" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue)
 "up" = (
-/turf/open/floor/rogue/rooftop,
+/turf/open/floor/rooftop,
 /area/rogue)
 "uD" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "vD" = (
 /obj/structure/fluff/walldeco/stone,
-/turf/open/floor/rogue/blocks/newstone/alt,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue)
 "vK" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "vL" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "vS" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
 /area/rogue)
 "vV" = (
 /obj/structure/bars,
 /turf/open/water,
 /area/rogue)
 "wr" = (
-/obj/structure/flora/roguetree,
-/obj/item/roguebin/water/gross,
+/obj/structure/flora/tree,
+/obj/item/bin/water/gross,
 /area/rogue)
 "wK" = (
 /obj/structure/fluff/railing/fence{
@@ -681,99 +681,99 @@
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "wP" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "xl" = (
-/turf/open/floor/rogue/rooftop{
+/turf/open/floor/rooftop{
 	dir = 1
 	},
 /area/rogue)
 "xp" = (
-/obj/structure/chair/wood/rogue/fancy,
-/turf/open/floor/rogue/wood,
+/obj/structure/chair/wood/alt/fancy,
+/turf/open/floor/wood,
 /area/rogue)
 "xA" = (
 /obj/structure/chair/bench{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "xK" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "xU" = (
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/ruinedwood/turned,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "yn" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/closed/wall/mineral/rogue/decowood,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/closed/wall/mineral/decowood,
 /area/rogue)
 "yx" = (
 /obj/structure/ladder,
 /obj/structure/ladder,
 /obj/structure/ladder,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue)
 "yC" = (
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/woodturned,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/woodturned,
 /area/rogue)
 "yQ" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "yT" = (
 /obj/structure/fluff/railing/fence,
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "yU" = (
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "yV" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "za" = (
 /obj/structure/chair/bench/ancientlog,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "zk" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/chair/stool,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "zn" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 8
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "zC" = (
-/turf/open/floor/rogue/blocks/newstone,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "zE" = (
-/obj/structure/bed/rogue,
-/turf/open/floor/rogue/ruinedwood,
+/obj/structure/bed,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "zQ" = (
-/obj/machinery/light/rogue/hearth,
-/turf/open/floor/rogue/concrete,
+/obj/machinery/light/fueled/hearth,
+/turf/open/floor/concrete,
 /area/rogue)
 "zS" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
 /obj/structure/chair/bench/ancientlog,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "zT" = (
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "zV" = (
 /obj/structure/chair/bench{
@@ -781,25 +781,25 @@
 	},
 /area/rogue)
 "Aa" = (
-/obj/item/roguebin/water/gross,
+/obj/item/bin/water/gross,
 /area/rogue)
 "Bk" = (
 /obj/structure/stairs,
-/turf/open/floor/rogue/rooftop{
+/turf/open/floor/rooftop{
 	dir = 1
 	},
 /area/rogue)
 "Bo" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/rack,
+/turf/open/floor/herringbone,
 /area/rogue)
 "Br" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "BE" = (
 /obj/structure/bars/cemetery,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "BG" = (
 /obj/structure/fluff/railing/fence{
@@ -809,20 +809,20 @@
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "BJ" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/cobblerock,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "BR" = (
 /obj/structure/mineral_door/bars,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "BW" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "BZ" = (
 /obj/structure/fluff/railing/fence{
@@ -832,165 +832,165 @@
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Ca" = (
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/blocks/newstone,
+/obj/structure/closet/crate/crafted_closet,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "Cj" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/tile,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/tile,
 /area/rogue)
 "Cl" = (
-/obj/structure/fluff/grindwheel,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/grindwheel,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Cp" = (
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "CN" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/grass,
 /area/rogue)
 "Dk" = (
 /obj/structure/toilet,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Do" = (
-/obj/structure/chair/wood/rogue{
+/obj/structure/chair/wood/alt{
 	icon_state = "chair2";
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Dp" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 8
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Dr" = (
 /obj/structure/chair/bench/couch/r,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "Dw" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue)
 "Dx" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "DB" = (
 /obj/structure/fluff/walldeco/stone,
-/turf/open/floor/rogue/blocks/newstone,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "DV" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue)
 "Ed" = (
 /obj/structure/bars/passage{
 	redstone_id = "saigabars"
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Ef" = (
 /obj/structure/mineral_door/wood,
 /turf,
 /area/rogue)
 "Eh" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "EC" = (
 /obj/structure/roguetent,
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "EF" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue)
 "EK" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/hexstone,
+/obj/structure/flora/tree,
+/turf/open/floor/hexstone,
 /area/rogue)
 "EO" = (
-/turf/closed/wall/mineral/rogue/stonebrick,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "ER" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/fermentation_keg,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Fg" = (
 /obj/structure/fluff/walldeco/sparrowflag,
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "Fj" = (
-/turf/open/floor/rogue/tile,
+/turf/open/floor/tile,
 /area/rogue)
 "Fm" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "Ft" = (
-/obj/machinery/light/rogue/torchholder{
+/obj/machinery/light/fueled/torchholder{
 	dir = 8
 	},
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "Fu" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/blocks/bluestone,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/blocks/bluestone,
 /area/rogue)
 "Fy" = (
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "FQ" = (
-/obj/structure/chair/stool/rogue,
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/chair/stool,
+/obj/structure/chair/stool,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "FT" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/item/roguebin/water/gross,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/obj/item/bin/water/gross,
 /area/rogue)
 "Go" = (
-/obj/machinery/light/rogue/oven,
-/turf/open/floor/rogue/blocks/newstone/alt,
+/obj/machinery/light/fueled/oven,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue)
 "GQ" = (
 /obj/structure/lever{
 	redstone_id = "saigabars"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "GV" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue)
 "GY" = (
-/obj/structure/flora/roguegrass/bush/wall/tall,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/bush/wall/tall,
+/turf/open/floor/grass,
 /area/rogue)
 "Hf" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/item/roguebin/water/gross,
+/obj/structure/flora/grass/water/reeds,
+/obj/item/bin/water/gross,
 /area/rogue)
 "Hp" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/twig,
+/obj/structure/fermentation_keg,
+/turf/open/floor/twig,
 /area/rogue)
 "Hq" = (
 /obj/structure/fluff/railing/fence{
@@ -1000,68 +1000,68 @@
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Hv" = (
-/obj/machinery/light/rogue/oven,
-/turf/closed/wall/mineral/rogue/wood,
+/obj/machinery/light/fueled/oven,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "Hx" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
 /area/rogue)
 "HR" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "HS" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/metal,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/metal,
 /area/rogue)
 "Ia" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "Ig" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Ih" = (
 /obj/structure/chair/bench{
 	dir = 1
 	},
-/turf/open/floor/rogue/tile,
+/turf/open/floor/tile,
 /area/rogue)
 "IA" = (
-/turf/open/floor/rogue/rooftop{
+/turf/open/floor/rooftop{
 	dir = 4
 	},
 /area/rogue)
 "IB" = (
 /obj/structure/mineral_door/wood/fancywood,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "IM" = (
 /obj/structure/chair/bench/ultimacouch,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "IQ" = (
-/turf/closed/wall/mineral/rogue/tent,
+/turf/closed/wall/mineral/tent,
 /area/rogue)
 "IU" = (
 /obj/structure/mineral_door/wood/window,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "IY" = (
-/obj/structure/chair/wood/rogue{
+/obj/structure/chair/wood/alt{
 	icon_state = "chair2";
 	dir = 8
 	},
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "Jl" = (
-/obj/structure/roguewindow/openclose,
-/turf/open/floor/rogue/woodturned,
+/obj/structure/window/openclose,
+/turf/open/floor/woodturned,
 /area/rogue)
 "Jn" = (
 /turf/open/water,
@@ -1071,38 +1071,38 @@
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Jt" = (
-/obj/structure/roguewindow/solid,
-/turf/closed/wall/mineral/rogue/wood/window,
+/obj/structure/window/solid,
+/turf/closed/wall/mineral/wood/window,
 /area/rogue)
 "JH" = (
-/obj/structure/chair/wood/rogue/fancy{
+/obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/rogue/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue)
 "JM" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "JQ" = (
-/obj/structure/closet/crate/roguecloset,
+/obj/structure/closet/crate/crafted_closet,
 /obj/structure/fluff/walldeco/wantedposter/r,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "JY" = (
 /obj/structure/fluff/statue/knightalt,
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "JZ" = (
 /obj/structure/chair/bench/ancientlog,
-/obj/item/roguebin/water/gross,
+/obj/item/bin/water/gross,
 /area/rogue)
 "Kf" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/blocks,
+/obj/structure/rack,
+/turf/open/floor/blocks,
 /area/rogue)
 "Kh" = (
 /obj/structure/table/wood/treestump,
@@ -1110,110 +1110,110 @@
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Km" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "KD" = (
 /obj/structure/well,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "KF" = (
 /obj/structure/table/wood,
 /obj/structure/fluff/walldeco/wallshield,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "KH" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "KL" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "KW" = (
-/obj/structure/bed/rogue,
+/obj/structure/bed,
 /obj/structure/fluff/wallclock/l,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "KX" = (
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue)
 "Ld" = (
 /obj/structure/fluff/walldeco/sparrowflag,
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Lp" = (
-/obj/item/roguebin,
-/turf/open/floor/rogue/grass,
+/obj/item/bin,
+/turf/open/floor/grass,
 /area/rogue)
 "Lu" = (
-/obj/structure/roguewindow/stained,
-/turf/open/floor/rogue/grass,
+/obj/structure/window/stained,
+/turf/open/floor/grass,
 /area/rogue)
 "Mg" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/carpet,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/carpet,
 /area/rogue)
 "Mp" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Mv" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "Mx" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue)
 "Mz" = (
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "MF" = (
 /obj/structure/table/wood/treestump,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "MI" = (
 /obj/structure/stairs,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "MJ" = (
-/obj/structure/chair/wood/rogue,
-/turf/open/floor/rogue/twig,
+/obj/structure/chair/wood/alt,
+/turf/open/floor/twig,
 /area/rogue)
 "ML" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/tame/saddled,
-/turf/open/floor/rogue/grass,
+/mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled,
+/turf/open/floor/grass,
 /area/rogue)
 "MQ" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "Nv" = (
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "NA" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/hexstone,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/hexstone,
 /area/rogue)
 "NC" = (
 /obj/structure/ladder,
 /obj/structure/ladder,
 /obj/structure/ladder,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "NT" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/twig,
+/obj/structure/bed/shit,
+/turf/open/floor/twig,
 /area/rogue)
 "OD" = (
 /obj/structure/fluff/railing/fence{
@@ -1222,90 +1222,90 @@
 /obj/structure/fluff/railing/fence{
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "OV" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/cobble,
+/obj/structure/fermentation_keg,
+/turf/open/floor/cobble,
 /area/rogue)
 "Pe" = (
-/obj/structure/chair/wood/rogue{
+/obj/structure/chair/wood/alt{
 	icon_state = "chair2";
 	dir = 1
 	},
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "Pm" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "Pq" = (
 /obj/structure/fluff/walldeco/chains,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "PK" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "PO" = (
-/obj/structure/flora/roguegrass/bush_meagre,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "PV" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "Qg" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saigabuck/tame/saddled,
-/turf/open/floor/rogue/grass,
+/mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled,
+/turf/open/floor/grass,
 /area/rogue)
 "QB" = (
-/turf/closed/wall/mineral/rogue/decostone,
+/turf/closed/wall/mineral/decostone,
 /area/rogue)
 "QF" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "QJ" = (
 /turf/open/water/bath,
 /area/rogue)
 "QM" = (
 /obj/structure/roguetent,
-/turf/closed/wall/mineral/rogue/tent,
+/turf/closed/wall/mineral/tent,
 /area/rogue)
 "QU" = (
-/obj/structure/roguewindow/solid,
+/obj/structure/window/solid,
 /turf,
 /area/rogue)
 "Rc" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/woodturned,
+/obj/structure/fermentation_keg,
+/turf/open/floor/woodturned,
 /area/rogue)
 "Rh" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Rl" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /turf/open/water,
 /area/rogue)
 "Rp" = (
-/obj/structure/roguewindow/stained,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/window/stained,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Rq" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/ruinedwood,
+/obj/structure/fermentation_keg,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "RJ" = (
 /obj/structure/chair/bench/couch,
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "RP" = (
 /obj/structure/fluff/railing/fence{
@@ -1314,12 +1314,12 @@
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Sc" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/bush/wall,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/bush/wall,
+/turf/open/floor/grass,
 /area/rogue)
 "Sw" = (
 /obj/structure/fluff/railing/fence{
@@ -1328,19 +1328,19 @@
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "SA" = (
-/obj/machinery/light/rogue/hearth,
-/turf/open/floor/rogue/ruinedwood/turned,
+/obj/machinery/light/fueled/hearth,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "SN" = (
-/obj/machinery/light/rogue/oven,
-/turf/open/floor/rogue/ruinedwood,
+/obj/machinery/light/fueled/oven,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "SU" = (
 /obj/structure/mineral_door/wood/fancywood,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "Ta" = (
 /obj/structure/fluff/walldeco/stone,
@@ -1356,115 +1356,115 @@
 /area/rogue)
 "Tu" = (
 /obj/structure/mineral_door/wood/fancywood,
-/turf/open/floor/rogue/blocks/bluestone,
+/turf/open/floor/blocks/bluestone,
 /area/rogue)
 "Tv" = (
 /obj/structure/fluff/walldeco/chains,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "Tw" = (
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "TF" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "TO" = (
-/obj/structure/rack/rogue,
-/turf/open/floor/rogue/twig,
+/obj/structure/rack,
+/turf/open/floor/twig,
 /area/rogue)
 "TQ" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/grass,
 /area/rogue)
 "TW" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf,
 /area/rogue)
 "TZ" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/dirt,
 /area/rogue)
 "Uv" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/grass,
 /area/rogue)
 "Uw" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /obj/structure/chair/bench/ancientlog,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Uz" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/ruinedwood,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "UC" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguegrass/water/reeds,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue)
 "UD" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "UI" = (
-/obj/structure/closet/crate/roguecloset,
-/obj/machinery/light/rogue/torchholder{
+/obj/structure/closet/crate/crafted_closet,
+/obj/machinery/light/fueled/torchholder{
 	dir = 4
 	},
-/turf/open/floor/rogue/blocks/newstone,
+/turf/open/floor/blocks/newstone,
 /area/rogue)
 "Vc" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "Vq" = (
 /obj/structure/fluff/walldeco/customflag,
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "Vs" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/ruinedwood/turned,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "Vy" = (
-/obj/structure/flora/roguegrass/water/reeds,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/flora/grass/water/reeds,
+/turf/open/floor/herringbone,
 /area/rogue)
 "VA" = (
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue)
 "VC" = (
-/obj/item/roguebin,
-/turf/open/floor/rogue/dirt/road,
+/obj/item/bin,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "VZ" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 4
 	},
-/turf/open/floor/rogue/woodturned,
+/turf/open/floor/woodturned,
 /area/rogue)
 "Wg" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/ruinedwood/turned,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/ruinedwood/turned,
 /area/rogue)
 "Wn" = (
 /obj/structure/mineral_door/bars,
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "WI" = (
 /obj/structure/bars/passage,
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "Xb" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/cobblerock,
+/obj/structure/flora/tree,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Xc" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water,
 /area/rogue)
 "Xi" = (
@@ -1472,96 +1472,96 @@
 	dir = 8
 	},
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Xr" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "Xw" = (
 /obj/structure/fluff/walldeco/serpflag,
-/obj/structure/chair/wood/rogue,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/chair/wood/alt,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "XC" = (
 /obj/structure/closet/crate/chest,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue)
 "XK" = (
-/obj/structure/fluff/grindwheel,
-/turf/open/floor/rogue/wood,
+/obj/structure/grindwheel,
+/turf/open/floor/wood,
 /area/rogue)
 "XP" = (
 /obj/structure/fluff/wallclock/r,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "Yd" = (
-/obj/structure/flora/roguegrass/bush_meagre,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/grass,
 /area/rogue)
 "Yf" = (
 /obj/structure/mineral_door/wood/deadbolt,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue)
 "Ym" = (
 /obj/structure/table/wood,
-/turf/open/floor/rogue/carpet,
+/turf/open/floor/carpet,
 /area/rogue)
 "Yo" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Yr" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/grass,
+/obj/structure/chair/stool,
+/turf/open/floor/grass,
 /area/rogue)
 "Yy" = (
-/obj/structure/chair/wood/rogue{
+/obj/structure/chair/wood/alt{
 	icon_state = "chair2";
 	dir = 4
 	},
-/turf/open/floor/rogue/twig,
+/turf/open/floor/twig,
 /area/rogue)
 "YP" = (
-/obj/machinery/light/rogue/wallfire,
-/turf/closed/wall/mineral/rogue/decowood,
+/obj/machinery/light/fueled/wallfire,
+/turf/closed/wall/mineral/decowood,
 /area/rogue)
 "Zb" = (
-/obj/structure/flora/roguegrass/bush_meagre,
+/obj/structure/flora/grass/bush_meagre,
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence";
 	dir = 1
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue)
 "Zj" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/closed/wall/mineral/rogue/wood,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/closed/wall/mineral/wood,
 /area/rogue)
 "Zs" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
 /area/rogue)
 "ZB" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/closed/wall/mineral/rogue/stonebrick,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "ZC" = (
 /obj/structure/table/wood/treestump,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "ZG" = (
-/turf/closed/wall/mineral/rogue/decowood,
+/turf/closed/wall/mineral/decowood,
 /area/rogue)
 "ZH" = (
-/turf/closed/wall/mineral/rogue/roofwall/center,
+/turf/closed/wall/mineral/roofwall/center,
 /area/rogue)
 "ZI" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/wood,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/wood,
 /area/rogue)
 
 (1,1,1) = {"

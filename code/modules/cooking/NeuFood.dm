@@ -132,6 +132,12 @@
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
 	resistance_flags = FIRE_PROOF
 	base_item = /obj/item/kitchen/platter/clay
+
+/obj/item/kitchen/platter/clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay platter"
+
+
 /obj/item/kitchen/platter/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
@@ -164,16 +170,22 @@
 	sellprice = 1
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
-	metalizer_result = /obj/item/roguecoin/copper
+	metalizer_result = /obj/item/coin/copper
 	var/in_use // so you can't spam eating with spoon
 
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+
 /obj/item/reagent_containers/glass/bowl/clay
 	desc = "Made from fired clay."
 	icon_state = "bowl_clay"
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+
+/obj/item/reagent_containers/glass/bowl/clay/set_material_information()
+	. = ..()
+	name = "[lowertext(initial(main_material.name))] clay bowl"
+
 /obj/item/reagent_containers/glass/bowl/clay/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
 	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
@@ -487,7 +499,7 @@
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
 	if(isturf(loc)&& (found_table))
-		if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/dough_base))
+		if(istype(I, /obj/item/reagent_containers/food/snacks/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading in more powder..."))
 			if(do_after(user, short_cooktime, src))
@@ -516,7 +528,7 @@
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
-			var/obj/item/reagent_containers/food/snacks/rogue/dough_base/newdough= new(get_turf(user))
+			var/obj/item/reagent_containers/food/snacks/dough_base/newdough= new(get_turf(user))
 			user.put_in_hands(newdough)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(src)

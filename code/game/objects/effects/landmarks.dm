@@ -131,7 +131,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/guardsman
-	name = "Garrison Guard"
+	name = "City Watchmen"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/manorguardsman
@@ -379,6 +379,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Bandit"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
+	jobspawn_override = list("Bandit")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bandit/Initialize()
