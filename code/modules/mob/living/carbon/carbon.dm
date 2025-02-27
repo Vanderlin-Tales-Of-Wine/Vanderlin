@@ -604,16 +604,12 @@
 		if(nutrition > 50)
 			adjust_nutrition(-lost_nutrition)
 			adjust_hydration(-lost_nutrition)
-//adjustToxLoss(-3)
 	if(harm)
 		adjustBruteLoss(3)
 	for(var/i=0 to distance)
 		if(blood)
 			if(T)
 				bleed(5)
-		else if(src.reagents.has_reagent(/datum/reagent/consumable/ethanol/blazaam, needs_metabolizing = TRUE))
-			if(T)
-				T.add_vomit_floor(src, VOMIT_PURPLE)
 		else
 			if(T)
 				T.add_vomit_floor(src, VOMIT_TOXIC)//toxic barf looks different

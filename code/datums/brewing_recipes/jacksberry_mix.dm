@@ -1,6 +1,6 @@
 /datum/brewing_recipe/jack_wine
 	name = "Jacksberry Wine"
-	reagent_to_brew = /datum/reagent/consumable/ethanol/beer/jackberrywine
+	reagent_to_brew = /datum/reagent/consumable/ethanol/jackberrywine
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_crops = list(/obj/item/reagent_containers/food/snacks/produce/jacksberry = 5)
 	brewed_amount = 4
@@ -9,6 +9,6 @@
 
 	ages = TRUE
 	age_times = list(
-		/datum/reagent/consumable/ethanol/beer/jackberrywine/aged = 10 MINUTES,
-		/datum/reagent/consumable/ethanol/beer/jackberrywine/delectable = 20 MINUTES
+		/datum/reagent/consumable/ethanol/jackberrywine/aged = 10 MINUTES,
+		/datum/reagent/consumable/ethanol/jackberrywine/delectable = 20 MINUTES
 	)

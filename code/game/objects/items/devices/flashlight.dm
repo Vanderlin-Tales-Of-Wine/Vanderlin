@@ -60,7 +60,6 @@
 	actions_types = list()
 	heat = 1000
 	light_color = LIGHT_COLOR_FLARE
-	grind_results = list(/datum/reagent/sulfur = 15)
 
 	var/fuel = 12000
 	var/on_damage = 7

@@ -61,8 +61,6 @@
 	. = ..()
 	remove_movespeed_modifier(MOVESPEED_ID_MONKEY_REAGENT_SPEEDMOD, TRUE)
 	var/amount
-	if(reagents.has_reagent(/datum/reagent/consumable/nuka_cola))
-		amount = -1
 	if(amount)
 		add_movespeed_modifier(MOVESPEED_ID_MONKEY_REAGENT_SPEEDMOD, TRUE, 100, override = TRUE, multiplicative_slowdown = amount)
 

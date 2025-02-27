@@ -104,58 +104,10 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	desc = ""
 	list_reagents = list(/datum/reagent/toxin = 30)
 
-/obj/item/reagent_containers/glass/bottle/spewium
-	name = "spewium bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/spewium = 30)
-
-
-/obj/item/reagent_containers/glass/bottle/mutagen
-	name = "unstable mutagen bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/mutagen = 30)
-
 /obj/item/reagent_containers/glass/bottle/plasma
 	name = "purple aetherium bottle"
 	desc = ""
 	list_reagents = list(/datum/reagent/toxin/plasma = 30)
-
-/obj/item/reagent_containers/glass/bottle/ammonia
-	name = "ammonia bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/ammonia = 30)
-
-/obj/item/reagent_containers/glass/bottle/diethylamine
-	name = "diethylamine bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/diethylamine = 30)
-
-/obj/item/reagent_containers/glass/bottle/facid
-	name = "Fluorosulfuric Acid Bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/acid/fluacid = 30)
-
-
-/obj/item/reagent_containers/glass/bottle/capsaicin
-	name = "Capsaicin Bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/consumable/capsaicin = 30)
-
-/obj/item/reagent_containers/glass/bottle/frostoil
-	name = "Frost Oil Bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/consumable/frostoil = 30)
-
-/obj/item/reagent_containers/glass/bottle/traitor
-	name = "syndicate bottle"
-	desc = ""
-	icon = 'icons/obj/chemical.dmi'
-	var/extra_reagent = null
-
-/obj/item/reagent_containers/glass/bottle/traitor/Initialize()
-	. = ..()
-	extra_reagent = pick(/datum/reagent/toxin/histamine, /datum/reagent/toxin/formaldehyde, /datum/reagent/toxin/venom, /datum/reagent/toxin/fentanyl, /datum/reagent/toxin/cyanide)
-	reagents.add_reagent(extra_reagent, 3)
 
 /obj/item/reagent_containers/glass/bottle/venom
 	name = "venom bottle"
@@ -167,116 +119,14 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	desc = ""
 	list_reagents = list(/datum/reagent/toxin/fentanyl = 30)
 
-/obj/item/reagent_containers/glass/bottle/formaldehyde
-	name = "formaldehyde bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/formaldehyde = 30)
-
-/obj/item/reagent_containers/glass/bottle/initropidril
-	name = "initropidril bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/initropidril = 30)
-
-/obj/item/reagent_containers/glass/bottle/pancuronium
-	name = "pancuronium bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/pancuronium = 30)
-
-/obj/item/reagent_containers/glass/bottle/coniine
-	name = "coniine bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/coniine = 30)
-
-/obj/item/reagent_containers/glass/bottle/curare
-	name = "curare bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/curare = 30)
-
 /obj/item/reagent_containers/glass/bottle/amanitin
 	name = "amanitin bottle"
 	desc = ""
 	list_reagents = list(/datum/reagent/toxin/amanitin = 30)
 
-/obj/item/reagent_containers/glass/bottle/histamine
-	name = "histamine bottle"
-	desc = ""
-	list_reagents = list(/datum/reagent/toxin/histamine = 30)
-
-/obj/item/reagent_containers/glass/bottle/salglu_solution
-	name = "saline-glucose solution bottle"
-	desc = ""
-	icon_state = "bottle1"
-	list_reagents = list(/datum/reagent/medicine/salglu_solution = 30)
-
-//Oldstation.dmm chemical storage bottles
-
-/obj/item/reagent_containers/glass/bottle/hydrogen
-	name = "hydrogen bottle"
-	list_reagents = list(/datum/reagent/hydrogen = 30)
-
-/obj/item/reagent_containers/glass/bottle/lithium
-	name = "lithium bottle"
-	list_reagents = list(/datum/reagent/lithium = 30)
-
-/obj/item/reagent_containers/glass/bottle/carbon
-	name = "carbon bottle"
-	list_reagents = list(/datum/reagent/carbon = 30)
-
-/obj/item/reagent_containers/glass/bottle/nitrogen
-	name = "nitrogen bottle"
-	list_reagents = list(/datum/reagent/nitrogen = 30)
-
-/obj/item/reagent_containers/glass/bottle/oxygen
-	name = "oxygen bottle"
-	list_reagents = list(/datum/reagent/oxygen = 30)
-
-/obj/item/reagent_containers/glass/bottle/fluorine
-	name = "fluorine bottle"
-	list_reagents = list(/datum/reagent/fluorine = 30)
-
-/obj/item/reagent_containers/glass/bottle/sodium
-	name = "sodium bottle"
-	list_reagents = list(/datum/reagent/sodium = 30)
-
-/obj/item/reagent_containers/glass/bottle/aluminium
-	name = "aluminium bottle"
-	list_reagents = list(/datum/reagent/aluminium = 30)
-
-/obj/item/reagent_containers/glass/bottle/silicon
-	name = "silicon bottle"
-	list_reagents = list(/datum/reagent/silicon = 30)
-
-/obj/item/reagent_containers/glass/bottle/phosphorus
-	name = "phosphorus bottle"
-	list_reagents = list(/datum/reagent/phosphorus = 30)
-
-/obj/item/reagent_containers/glass/bottle/sulfur
-	name = "sulfur bottle"
-	list_reagents = list(/datum/reagent/sulfur = 30)
-
-/obj/item/reagent_containers/glass/bottle/chlorine
-	name = "chlorine bottle"
-	list_reagents = list(/datum/reagent/chlorine = 30)
-
-/obj/item/reagent_containers/glass/bottle/potassium
-	name = "potassium bottle"
-	list_reagents = list(/datum/reagent/potassium = 30)
-
-/obj/item/reagent_containers/glass/bottle/iron
-	name = "iron bottle"
-	list_reagents = list(/datum/reagent/iron = 30)
-
-/obj/item/reagent_containers/glass/bottle/copper
-	name = "copper bottle"
-	list_reagents = list(/datum/reagent/copper = 30)
-
 /obj/item/reagent_containers/glass/bottle/mercury
 	name = "mercury bottle"
 	list_reagents = list(/datum/reagent/mercury = 30)
-
-/obj/item/reagent_containers/glass/bottle/radium
-	name = "radium bottle"
-	list_reagents = list(/datum/reagent/uranium/radium = 30)
 
 /obj/item/reagent_containers/glass/bottle/water
 	name = "water bottle"
@@ -297,18 +147,6 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 /obj/item/reagent_containers/glass/bottle/welding_fuel
 	name = "naphta bottle"
 	list_reagents = list(/datum/reagent/fuel = 30)
-
-/obj/item/reagent_containers/glass/bottle/silver
-	name = "silver bottle"
-	list_reagents = list(/datum/reagent/silver = 30)
-
-/obj/item/reagent_containers/glass/bottle/iodine
-	name = "iodine bottle"
-	list_reagents = list(/datum/reagent/iodine = 30)
-
-/obj/item/reagent_containers/glass/bottle/bromine
-	name = "bromine bottle"
-	list_reagents = list(/datum/reagent/bromine = 30)
 
 // message in a bootl
 

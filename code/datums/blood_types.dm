@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 	/// What reagent is represented by this blood type?
 	var/datum/reagent/reagent_type = /datum/reagent/blood
 	/// What chem is used to restore this blood type (outside of itself, of course)?
-	var/datum/reagent/restoration_chem = /datum/reagent/iron
+	var/datum/reagent/restoration_chem
 
 /datum/blood_type/New()
 	. = ..()

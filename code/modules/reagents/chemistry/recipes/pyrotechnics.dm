@@ -16,19 +16,3 @@
 /datum/chemical_reaction/reagent_explosion/on_reaction(datum/reagents/holder, created_volume)
 	do_explosion()
 
-/datum/chemical_reaction/reagent_explosion/potassium_explosion
-	name = "Explosion"
-	id = "potassium_explosion"
-	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/potassium = 1)
-	strengthdiv = 20
-
-/datum/chemical_reaction/reagent_explosion/potassium_explosion/holyboom
-	name = "Holy Explosion"
-	id = "holyboom"
-	required_reagents = list(/datum/reagent/water/holywater = 1, /datum/reagent/potassium = 1)
-
-/datum/chemical_reaction/reagent_explosion/potassium_explosion/holyboom/on_reaction(datum/reagents/holder, created_volume)
-	if(created_volume >= 150)
-		playsound(get_turf(holder.my_atom), 'sound/blank.ogg', 80, FALSE, round(created_volume/48))
-		strengthdiv = 8
-	..()

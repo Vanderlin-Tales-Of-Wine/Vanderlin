@@ -10,11 +10,14 @@
 	var/accepts_water_input = FALSE
 	var/giving_stress = TRUE
 
+	var/obj/structure/water_pipe/input
+	var/obj/structure/water_pipe/output
+
 	var/datum/rotation_network/rotation_network
 
 /obj/structure/Initialize()
 	. = ..()
-	if(rotation_structure)
+	if(rotation_structure || accepts_water_input)
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/Destroy()
@@ -33,11 +36,16 @@
 	. = ..()
 	if(rotation_structure && !QDELETED(src))
 		find_rotation_network()
+	if(accepts_water_input)
+		setup_water()
+
+/obj/structure/proc/setup_water()
 
 /obj/structure/proc/update_animation_effect()
 	return
 
-/obj/structure/proc/valid_water_connection(direction)
+///reminder these are the direction coming from the pipe
+/obj/structure/proc/valid_water_connection(direction, obj/structure/water_pipe/pipe)
 	return TRUE
 
 /obj/structure/proc/use_water_pressure(pressure)
