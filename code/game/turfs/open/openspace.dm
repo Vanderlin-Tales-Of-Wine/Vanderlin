@@ -33,6 +33,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	neighborlay_override = "staticedge"
 	turf_flags = NONE
 
+/turf/open/transparent/openspace/Initialize()
+	. = ..()
+	icon_state = "transparent"
+
 /turf/open/transparent/openspace/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
