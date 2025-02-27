@@ -771,7 +771,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 
-/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list, excommunicate = FALSE as num|null)
+/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list, excommunicate = FALSE as num|null in list(TRUE,FALSE))
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
