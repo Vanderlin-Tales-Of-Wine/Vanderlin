@@ -164,9 +164,6 @@
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
 /area/rogue)
-"V" = (
-/turf/open/transparent/openspace,
-/area/rogue)
 "W" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/golden,
@@ -395,13 +392,13 @@ x
 "}
 
 (1,1,2) = {"
-V
-V
-V
+a
+a
+a
 J
-V
-V
-V
+a
+a
+a
 "}
 (2,1,2) = {"
 x

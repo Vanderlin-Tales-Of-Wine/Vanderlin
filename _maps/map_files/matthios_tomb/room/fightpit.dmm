@@ -12,9 +12,11 @@
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "be" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
 /obj/structure/stairs/stone,
-/obj/structure/stairs/stone,
-/turf/open/floor/hexstone,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "ce" = (
 /obj/structure/chair/bench/couchablack,
@@ -295,7 +297,7 @@
 /area/rogue)
 "xO" = (
 /obj/structure/mineral_door/wood/donjon{
-	dir = 8;
+	dir = 4;
 	locked = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
@@ -537,6 +539,12 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue)
+"Vo" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue)
 "Vr" = (
 /obj/structure/table/wood/counter{
 	dir = 8
@@ -577,7 +585,9 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "XA" = (
-/turf/closed,
+/turf/open/floor/rooftop{
+	dir = 1
+	},
 /area/rogue)
 "Za" = (
 /mob/living/carbon/human/species/zizombie/npc/ambush,
@@ -705,7 +715,7 @@ SV
 pT
 pT
 pT
-be
+ss
 mX
 mX
 pT
@@ -1074,7 +1084,7 @@ xX
 xX
 xX
 xX
-XA
+xX
 hX
 UI
 UI
@@ -1125,7 +1135,7 @@ vT
 vT
 tz
 xX
-UI
+be
 hX
 xX
 xX
@@ -1147,7 +1157,7 @@ vT
 Ot
 tz
 xX
-UI
+be
 hX
 xX
 xX
@@ -1356,8 +1366,8 @@ DJ
 (15,1,2) = {"
 DJ
 xX
-xX
-xX
+XA
+XA
 hX
 hX
 UI
@@ -1378,11 +1388,11 @@ DJ
 (16,1,2) = {"
 DJ
 xX
-xX
-xX
-xX
+XA
+XA
+XA
 hX
-UI
+Vo
 xX
 gI
 UI
@@ -1400,11 +1410,11 @@ DJ
 (17,1,2) = {"
 DJ
 xX
-xX
-xX
-xX
+XA
+XA
+XA
 hX
-UI
+Vo
 xX
 gI
 Vr
@@ -1422,9 +1432,9 @@ DJ
 (18,1,2) = {"
 DJ
 xX
-xX
-xX
-xX
+XA
+XA
+XA
 hX
 hX
 hX

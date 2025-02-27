@@ -96,6 +96,12 @@
 	},
 /turf/open/water,
 /area/rogue/under/cavewet)
+"cq" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/closed/indestructible/wooddark/hull,
+/area/rogue/under/cavewet)
 "cx" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/ruinedwood/chevron,
@@ -124,6 +130,12 @@
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/pelt,
 /turf/open/floor/ruinedwood,
+/area/rogue/under/cavewet)
+"dc" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/closed/indestructible/wooddark/hull,
 /area/rogue/under/cavewet)
 "dg" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -1152,7 +1164,9 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "Do" = (
-/obj/structure/window/openclose,
+/obj/structure/window/openclose{
+	dir = 8
+	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/closed/indestructible/wooddark/hull,
 /area/rogue/under/cavewet)
@@ -6411,7 +6425,7 @@ Nt
 dH
 cd
 fl
-Tj
+dc
 Ox
 Ox
 Ox
@@ -6453,7 +6467,7 @@ zm
 cd
 cd
 bD
-Tj
+dc
 Ox
 Ox
 Ox
@@ -6495,7 +6509,7 @@ Uy
 Gv
 ef
 YT
-Tj
+dc
 Ox
 Ox
 Ox
@@ -6530,7 +6544,7 @@ Ox
 Ox
 Ox
 cF
-Tj
+cq
 cF
 kH
 hk
@@ -6574,9 +6588,9 @@ Ox
 Ox
 Ox
 cF
-Tj
-Tj
-Tj
+cq
+cq
+cq
 cF
 Ox
 Ox
