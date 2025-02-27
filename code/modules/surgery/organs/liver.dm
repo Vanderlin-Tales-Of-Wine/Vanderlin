@@ -55,8 +55,3 @@
 #undef HAS_SILENT_TOXIN
 #undef HAS_NO_TOXIN
 #undef HAS_PAINFUL_TOXIN
-
-/obj/item/organ/liver/prepare_eat()
-	var/obj/S = ..()
-	S.reagents.add_reagent(/datum/reagent/iron, 5)
-	return S
