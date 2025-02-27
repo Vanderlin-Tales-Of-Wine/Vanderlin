@@ -383,7 +383,7 @@
 /**
  * increases the skill level up to a certain maximum
  * Vars:
- ** Skill - associated skill
+ ** skill - associated skill
  ** amt - how much to change the skill
  ** max - maximum amount up to which the skill will be changed
 */
