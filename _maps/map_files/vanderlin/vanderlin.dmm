@@ -4946,16 +4946,6 @@
 	},
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/sewer)
-"dwQ" = (
-/obj/structure/winch{
-	gid = "keepgatenorth";
-	redstone_id = "keepgatenorth";
-	name = "winch (north)"
-	},
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors/river)
 "dxb" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/carpet,
@@ -33939,17 +33929,6 @@
 	},
 /turf/open/floor/twig,
 /area/rogue/indoors/butchershop)
-"ymj" = (
-/obj/structure/flora/grass/water/reeds,
-/obj/structure/winch{
-	gid = "keepgatenorth";
-	redstone_id = "keepgatenorth";
-	name = "winch (north)"
-	},
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors/river)
 
 (1,1,1) = {"
 iDg
@@ -58249,7 +58228,7 @@ bUM
 bUM
 bUM
 nYn
-ymj
+vMb
 xfD
 mgj
 xfD
@@ -59057,7 +59036,7 @@ bUM
 bUM
 rsP
 nYn
-dwQ
+nYn
 vMb
 nYn
 nYn
