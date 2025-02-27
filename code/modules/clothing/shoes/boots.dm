@@ -43,11 +43,10 @@
 /obj/item/clothing/shoes/boots/armor/light/rust
 	name = "rusted light plate boots"
 	desc = "Rusted armored boots made from iron offering protection against both melee and ranged attacks. They smell stained of blood and urine."
+	icon_state = "rustboots"
 	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
-	icon_state = "rustboots"
-	item_state = "rustboots"
 	smeltresult = /obj/item/ingot/iron
 	sellprice = VALUE_IRON_ARMOR/2
 	armor = ARMOR_PLATE_BAD
