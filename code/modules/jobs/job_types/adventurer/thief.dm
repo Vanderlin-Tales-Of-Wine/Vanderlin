@@ -6,7 +6,8 @@
 	total_positions = 5
 	spawn_positions = 5
 
-	tutorial = "A wandering thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
+	tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Or just maybe, you've recognized how broken this world is, and the tyranny of nobility. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
+	You and your syndicate are responsible for the underworld activities of Vanderlin. Stealing, fencing, intimidation, drug dealing, kidnapping - the possibilities for profit are nearly endless... so long as you're not caught.<br>"
 	display_order = JDO_THIEF
 	bypass_lastclass = TRUE
 	min_pq = 8
@@ -38,13 +39,16 @@
 		H.become_blind("advsetup")
 
 		if(GLOB.thieves_guild_doors.len > 0)
-			var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
-			to_chat(H, span_notice("The Thieves Guild Door Password is:\n'"+D.get_open_phrase()+"'"))
+			addtimer(CALLBACK(src, PROC_REF(know_password), H), 50)
+
+/datum/job/thief/proc/know_password(mob/living/carbon/human/H)
+	var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+	to_chat(H, span_notice("The Thieves Guild Door Password is: '[D.get_open_phrase()]'"))
 
 
 /datum/advclass/thief/rogue
 	name = "Rogue"
-	tutorial = "Lorem Ipsum"
+	tutorial = "You're a standard thief. Light on your feet, and trained with a lockpick and your dagger. You handle most of the inconspicuous operations outside the guild. Just see to it you're not caught doing so, and, of course, you don't lure trouble back to the guild."
 	outfit = /datum/outfit/job/thief/rogue
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
@@ -56,7 +60,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -73,6 +77,7 @@
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	H.change_stat(STATKEY_STR, -2)
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_END, 1)
@@ -95,7 +100,7 @@
 
 /datum/advclass/thief/ruffian
 	name = "Ruffian"
-	tutorial = "Lorem Ipsum"
+	tutorial = "Subtle was never your approach. That's why you're down in the sewers instead of the rooftops. You're in charge of the underworld operations. From serving drinks, to fencing, to taking job offers... to keeping undesirables the fuck out of your bar. You're the only line of defense. Try to make sure things stay clandestine, aye?"
 	outfit = /datum/outfit/job/thief/ruffian
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
@@ -128,6 +133,7 @@
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_CON, 1)
@@ -149,7 +155,7 @@
 
 /datum/advclass/thief/cutthroat
 	name = "Cutthroat"
-	tutorial = "Lorem Ipsum"
+	tutorial = "Not everyone has the luxury of the clergy or the clinic. This is where you come in. You never went to school to become a doctor, but that didn't stop you from trying anyway. You serve as the guild's physicker, as well as their cook. You've also learned the ways of drug production and are capable of doing so for your clientelle."
 	outfit = /datum/outfit/job/thief/cutthroat
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 1
@@ -183,6 +189,7 @@
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 	H.change_stat(STATKEY_INT, 3)
 	H.change_stat(STATKEY_STR, -1)

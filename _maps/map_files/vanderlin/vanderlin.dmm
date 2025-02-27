@@ -1110,27 +1110,6 @@
 	icon_state = "iron_line"
 	},
 /area/rogue/under/town/basement)
-"aJt" = (
-/obj/structure/rack,
-/obj/item/weapon/knife/dagger/steel,
-/obj/item/weapon/knife/dagger/steel,
-/obj/item/lockpick{
-	pixel_x = -8
-	},
-/obj/item/lockpick,
-/obj/item/lockpick{
-	pixel_x = 4
-	},
-/obj/item/weapon/mace/cudgel{
-	pixel_x = 4;
-	pixel_y = -6
-	},
-/obj/item/weapon/mace/cudgel{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/turf/open/floor/cobble,
-/area/rogue/under/town/basement/thieves_guild)
 "aJu" = (
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 8
@@ -4361,6 +4340,22 @@
 /obj/item/ammo_holder/quiver/arrows,
 /obj/item/ammo_holder/quiver/arrows,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
+/obj/item/weapon/knife/dagger/steel{
+	pixel_y = -3;
+	pixel_x = -2
+	},
+/obj/item/weapon/knife/dagger/steel{
+	pixel_y = -3;
+	pixel_x = -2
+	},
+/obj/item/weapon/mace/cudgel{
+	pixel_x = 8;
+	pixel_y = -4
+	},
+/obj/item/weapon/mace/cudgel{
+	pixel_x = 8;
+	pixel_y = -4
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "cYP" = (
@@ -7932,11 +7927,21 @@
 /area/rogue/under/town/sewer)
 "fvf" = (
 /obj/structure/rack,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
-/obj/item/flashlight/flare/torch,
+/obj/item/lockpick{
+	pixel_x = -8
+	},
+/obj/item/lockpick{
+	pixel_x = -8
+	},
+/obj/item/lockpick{
+	pixel_x = -8
+	},
+/obj/item/lockpick{
+	pixel_x = -8
+	},
+/obj/item/clothing/face/shepherd/clothmask,
+/obj/item/clothing/face/shepherd/clothmask,
+/obj/item/clothing/face/shepherd/clothmask,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
 "fvl" = (
@@ -11494,11 +11499,13 @@
 	pixel_x = 6
 	},
 /obj/item/rope,
-/obj/item/clothing/head/sack{
-	pixel_x = -8
+/obj/item/storage/sack{
+	pixel_x = -4;
+	pixel_y = -1
 	},
-/obj/item/clothing/head/sack{
-	pixel_x = -3
+/obj/item/storage/sack{
+	pixel_x = -4;
+	pixel_y = -1
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
@@ -19030,6 +19037,10 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
+"nAg" = (
+/obj/item/roguemachine/fence,
+/turf/open/floor/tile,
+/area/rogue/under/town/basement/thieves_guild)
 "nAm" = (
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/rtfield/safe)
@@ -19811,6 +19822,21 @@
 /obj/structure/table/wood/reinf_long,
 /obj/machinery/light/fueled/torchholder{
 	dir = 4
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 8
+	},
+/obj/item/flashlight/flare/torch{
+	pixel_y = 8
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
@@ -22808,9 +22834,6 @@
 	},
 /obj/item/clothing/cloak/raincloak/red,
 /obj/item/clothing/cloak/half,
-/obj/item/clothing/face/shepherd/clothmask,
-/obj/item/clothing/face/shepherd/clothmask,
-/obj/item/clothing/face/shepherd/clothmask,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "qua" = (
@@ -28610,10 +28633,10 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/town/warehouse)
 "urg" = (
-/obj/structure/mineral_door/secret/thieves_guild{
-	icon = 'icons/turf/walls/mossy_stone.dmi';
-	icon_state = "stone";
-	name = "stone wall"
+/obj/structure/mineral_door/wood/donjon{
+	dir = 8;
+	locked = 1;
+	lockid = "thievesguild"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement/thieves_guild)
@@ -60893,10 +60916,10 @@ qWT
 dMU
 dGr
 ocd
-kWg
-aJt
 vhi
 kWg
+kWg
+vhi
 qVw
 dMU
 oGi
@@ -61096,8 +61119,8 @@ dMU
 vhi
 vhi
 kWg
-kWg
 vhi
+kWg
 kWg
 dnQ
 wVd
@@ -61300,7 +61323,7 @@ kWg
 vhi
 kWg
 vhi
-kWg
+vhi
 dYc
 dMU
 oGi
@@ -62105,7 +62128,7 @@ vhi
 rVX
 lXd
 myT
-lXd
+nAg
 lXd
 dMU
 gBh

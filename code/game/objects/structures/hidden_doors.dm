@@ -336,11 +336,11 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(isvip)
 		if(findtext(message2recognize, "set close"))
 			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors) // I can't see this being a problem at all! :)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
 					D.set_close_phrase(close_phrase)
 		if(findtext(message2recognize, "set open"))
 			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors) // I can't see this being a problem at all! :)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
 					D.set_open_phrase(open_phrase)
 
 ///// MAPPERS /////

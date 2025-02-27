@@ -27,6 +27,18 @@
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
+/datum/job/matron/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+	. = ..()
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		if(GLOB.thieves_guild_doors.len > 0)
+			addtimer(CALLBACK(src, PROC_REF(know_password), H), 50)
+
+/datum/job/matron/proc/know_password(mob/living/carbon/human/H)
+	var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+	to_chat(H, span_notice("The Thieves Guild Door Password is: '[D.get_open_phrase()]'"))
+
+
 /datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
