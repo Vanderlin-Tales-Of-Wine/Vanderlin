@@ -82,6 +82,7 @@
 /obj/structure/table/wood{
 	icon_state = "map5"
 	},
+/obj/item/paper/thieves,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "acs" = (
