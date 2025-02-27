@@ -564,7 +564,14 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set desc = ""
 
 	if(view == CONFIG_GET(string/default_view))
-		change_view(input("Select view range:", "FUCK YE", 7) in list(1,2,3,4,5,6,7,8,9,10,11,12,13,14,128))
+		var/max_view = GHOST_MAX_VIEW_RANGE
+		var/list/views = list()
+		for(var/i in 7 to max_view)
+			views |= i
+		views |= 32
+		views |= 64
+		views |= 128
+		change_view(input("Select view range:", "FUCK YE", 7) in views)
 	else
 		change_view(CONFIG_GET(string/default_view))
 
