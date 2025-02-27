@@ -4358,10 +4358,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
-"cYP" = (
-/obj/item/natural/worms/leech,
-/turf/open/water/sewer,
-/area/rogue/under/town/sewer)
 "cYY" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manorgate)
@@ -9203,10 +9199,12 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "gtj" = (
-/obj/structure/lever/hidden{
-	redstone_id = "doorroom"
+/obj/structure/mineral_door/secret/thieves_guild{
+	icon = 'icons/turf/walls/stone_wall.dmi';
+	icon_state = "stone";
+	name = "stone wall"
 	},
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "gtr" = (
 /turf/closed/wall/mineral/pipe{
@@ -10818,6 +10816,10 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/church/chapel)
+"hBE" = (
+/obj/item/coin/silver/pile,
+/turf/open/floor/tile,
+/area/rogue/under/town/basement/thieves_guild)
 "hBL" = (
 /obj/structure/chair/bench,
 /turf/open/floor/ruinedwood/darker,
@@ -59884,7 +59886,7 @@ lfU
 nZs
 nZs
 lfU
-cYP
+cDP
 iXN
 nBk
 xcB
@@ -62129,7 +62131,7 @@ rVX
 lXd
 myT
 nAg
-lXd
+hBE
 dMU
 gBh
 upU
