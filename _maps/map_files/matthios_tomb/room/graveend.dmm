@@ -34,7 +34,7 @@
 	dir = 4;
 	locked = 1
 	},
-/turf/closed/wall/mineral/stone/moss,
+/turf/open/floor/hexstone,
 /area/rogue)
 "j" = (
 /mob/living/simple_animal/hostile/demon{
