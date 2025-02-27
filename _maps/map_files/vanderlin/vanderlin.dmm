@@ -5726,10 +5726,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/sewer)
 "eaQ" = (
-/obj/structure/bookcase/random/eoratica{
-	name = "bookcase (Torture Manuscripts)"
-	},
-/turf/open/floor/churchbrick,
+/obj/structure/table/wood/plain,
+/obj/item/paper,
+/obj/item/natural/feather,
+/turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
 "eaS" = (
 /obj/machinery/light/fueled/wallfire/candle{
@@ -9181,7 +9181,7 @@
 /area/rogue/under/town/basement)
 "gxk" = (
 /obj/structure/table/wood/reinforced_alter,
-/obj/item/natural/feather,
+/obj/item/recipe_book/sewing,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/church)
 "gxy" = (
@@ -16880,9 +16880,6 @@
 /area/rogue/under/town/sewer)
 "meF" = (
 /obj/structure/bars,
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "meN" = (
@@ -23844,10 +23841,10 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
 	},
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest";
-	locked = 1
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
 	},
+/obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "rvv" = (
@@ -27520,8 +27517,14 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town)
 "tPS" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/churchbrick,
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/chair/wood/alt/chair_noble/red{
+	dir = 8
+	},
+/turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
 "tPZ" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -28570,6 +28573,7 @@
 	},
 /obj/structure/table/wood/reinforced_alter,
 /obj/item/paper,
+/obj/item/natural/feather,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/church)
 "uAK" = (
@@ -28958,12 +28962,9 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "uMb" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/obj/structure/bars,
-/turf/open/floor/blocks,
-/area/rogue/indoors/town/church)
+/mob/living/simple_animal/hostile/retaliate/frog,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "uMe" = (
 /obj/machinery/light/fueled/torchholder{
 	dir = 4
@@ -31235,9 +31236,7 @@
 /area/rogue/indoors/town/magician)
 "wyl" = (
 /obj/structure/bookcase,
-/obj/item/recipe_book/art,
 /obj/item/recipe_book/cooking,
-/obj/item/recipe_book/sewing,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church)
 "wyo" = (
@@ -148247,7 +148246,7 @@ nlp
 fYR
 nlp
 tmw
-fYR
+uMb
 nEW
 vgJ
 vgJ
@@ -149415,7 +149414,7 @@ riD
 jMs
 ojs
 dHg
-uMb
+meF
 meF
 mJO
 sWJ
@@ -149617,7 +149616,7 @@ riD
 uiw
 geZ
 dHg
-rww
+ruY
 rtH
 rtH
 jUC
@@ -150021,7 +150020,7 @@ riD
 xjy
 aOt
 dHg
-iTz
+erO
 sSs
 sSs
 jUC
@@ -150223,7 +150222,7 @@ riD
 eEt
 ojs
 hBm
-ruY
+een
 nLu
 mJO
 dHk
@@ -187800,7 +187799,7 @@ knk
 qom
 vlf
 eaQ
-qDT
+jUC
 ozI
 vlf
 uVx
@@ -188002,7 +188001,7 @@ een
 swo
 mJO
 tPS
-qDT
+jUC
 aGM
 vlf
 uVx
