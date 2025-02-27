@@ -19,7 +19,7 @@
 		var/failing = TRUE
 		while(failing)
 			var/turf/turf = pick(turfs) ///sometimes the dumber ways are the more efficent
-			if(!istype(turf, /turf/open/floor/rogue/dirt) && !istype(turf, /turf/open/floor/rogue/grass) && !istype(turf, /turf/open/floor/rogue/snow))
+			if(!istype(turf, /turf/open/floor/dirt) && !istype(turf, /turf/open/floor/grass) && !istype(turf, /turf/open/floor/snow))
 				continue
 			new /obj/structure/wild_plant(turf)
 			failing = FALSE

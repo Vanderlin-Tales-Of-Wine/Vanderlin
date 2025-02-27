@@ -26,7 +26,7 @@
 
 	for(var/direction in dirs)
 		var/turf/open/turf = get_step(src, direction)
-		if(!istype(turf, /turf/open/floor/rogue/dirt) && !istype(turf, /turf/open/floor/rogue/grass) && !istype(turf, /turf/open/floor/rogue/snow))
+		if(!istype(turf, /turf/open/floor/dirt) && !istype(turf, /turf/open/floor/grass) && !istype(turf, /turf/open/floor/snow))
 			continue
 		var/obj/structure/wild_plant/plant = locate(/obj/structure/wild_plant) in turf
 		if(plant)

@@ -77,7 +77,7 @@
 		if(istype(A, /area/rogue/indoors/town/cell))
 			tris2take += -2
 		if(H in SStreasury.bank_accounts)
-			for(var/obj/structure/roguemachine/camera/C in view(7, src))
+			for(var/obj/structure/fake_machine/camera/C in view(7, src))
 				var/area_name = A.name
 				var/texty = "<CENTER><B>Death of a Living Being</B><br>---<br></CENTER>"
 				texty += "[real_name] perished in front of face #[C.number] ([area_name]) at [station_time_timestamp("hh:mm")]."
@@ -86,7 +86,7 @@
 
 		var/yeae = TRUE
 		if(buckled)
-			if(istype(buckled, /obj/structure/fluff/psycross) || istype(buckled, /obj/machinery/light/rogue/campfire/pyre))
+			if(istype(buckled, /obj/structure/fluff/psycross) || istype(buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((real_name in GLOB.excommunicated_players) || (real_name in GLOB.heretical_players))
 					yeae = FALSE
 					tris2take += -2
@@ -175,7 +175,7 @@
 		return
 	var/datum/job/human_job = SSjob.GetJob(job)
 	switch(human_job.type)
-		if(/datum/job/roguetown/lord)
+		if(/datum/job/lord)
 			removeomen(OMEN_NOLORD)
-		if(/datum/job/roguetown/priest)
+		if(/datum/job/priest)
 			removeomen(OMEN_NOPRIEST)

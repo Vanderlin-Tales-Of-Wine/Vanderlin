@@ -18,7 +18,7 @@
 	clawfootstep = FOOTSTEP_LAVA
 	heavyfootstep = FOOTSTEP_LAVA
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/closed, /turf/open/floor/rogue/volcanic, /turf/open/floor/rogue/dirt, /turf/open/floor/rogue/dirt/road,/turf/open/floor/rogue/naturalstone)
+	canSmoothWith = list(/turf/closed, /turf/open/floor/volcanic, /turf/open/floor/dirt, /turf/open/floor/dirt/road,/turf/open/floor/naturalstone)
 	neighborlay_override = "lavedge"
 	turf_flags = NONE
 	var/flow = FALSE
@@ -35,7 +35,7 @@
 	dir = pick(GLOB.cardinals)
 
 /turf/open/lava/cardinal_smooth(adjacencies)
-	roguesmooth(adjacencies)
+	smooth(adjacencies)
 
 
 /turf/open/lava/ex_act(severity, target)

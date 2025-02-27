@@ -2,7 +2,7 @@
 	name = "Cheese"
 	needed_reagents = list(/datum/reagent/consumable/milk/salted = 5)
 	reagent_to_brew = null
-	brewed_item = /obj/item/reagent_containers/food/snacks/rogue/cheese
+	brewed_item = /obj/item/reagent_containers/food/snacks/cheese
 	brew_time = 4 MINUTES
 	sell_value = 0
 	brewed_amount = 0
@@ -23,4 +23,4 @@
 /datum/brewing_recipe/cheese/gote
 	name = "Gote Cheese"
 	needed_reagents = list(/datum/reagent/consumable/milk/salted_gote = 5)
-	brewed_item = /obj/item/reagent_containers/food/snacks/rogue/cheese/gote
+	brewed_item = /obj/item/reagent_containers/food/snacks/cheese/gote

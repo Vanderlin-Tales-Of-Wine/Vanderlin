@@ -4,7 +4,7 @@
 
 /datum/ai_planning_subtree/lay_egg/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/obj/structure/fluff/nest/target = controller.blackboard[BB_NESTBOX]
-	var/mob/living/simple_animal/hostile/retaliate/rogue/chicken/baby = controller.pawn
+	var/mob/living/simple_animal/hostile/retaliate/chicken/baby = controller.pawn
 	if(baby.production < 29)
 		return
 

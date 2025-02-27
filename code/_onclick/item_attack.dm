@@ -282,8 +282,8 @@
 					cont = TRUE
 				if(BCLASS_CHOP)
 					//Additional damage for axes against trees.
-					if(istype(I, /obj/item/rogueweapon))
-						var/obj/item/rogueweapon/R = I
+					if(istype(I, /obj/item/weapon))
+						var/obj/item/weapon/R = I
 						if(R.axe_cut)
 							//Yes i know its cheap to just make it a flat plus.
 							newforce = newforce + R.axe_cut
@@ -342,8 +342,8 @@
 			var/mineskill = miner.mind.get_skill_level(/datum/skill/labor/mining)
 			newforce = newforce * (8+(mineskill*1.5))
 			// Pick quality multiplier. Affected by smithing, or material of the pick.
-			if(istype(I, /obj/item/rogueweapon/pick))
-				var/obj/item/rogueweapon/pick/P = I
+			if(istype(I, /obj/item/weapon/pick))
+				var/obj/item/weapon/pick/P = I
 				newforce *= P.pickmult
 			shake_camera(user, 1, 0.1)
 			miner.mind.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))

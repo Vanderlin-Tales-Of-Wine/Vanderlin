@@ -7,83 +7,83 @@
 	pixel_x = 1;
 	pixel_y = 14
 	},
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "c" = (
-/turf/closed/wall/mineral/rogue/stonebrick/reddish,
+/turf/closed/wall/mineral/stonebrick/reddish,
 /area/rogue)
 "e" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "f" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line"
 	},
 /area/rogue)
 "g" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_joint";
 	dir = 1
 	},
 /area/rogue)
 "h" = (
 /obj/item/flashlight/flare/torch/lantern,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "j" = (
 /obj/item/natural/worms/leech/propaganda,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "k" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "l" = (
-/turf/open/floor/rogue/plank,
+/turf/open/floor/plank,
 /area/rogue)
 "n" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "o" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "p" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line";
 	dir = 4
 	},
 /area/rogue)
 "q" = (
-/turf/open/floor/rogue/tile,
+/turf/open/floor/tile,
 /area/rogue)
 "s" = (
 /obj/structure/guillotine,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "t" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "w" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_joint";
 	dir = 4
 	},
 /area/rogue)
 "x" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
+/mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/water/swamp,
 /area/rogue)
 "y" = (
 /obj/item/natural/worms/leech/propaganda,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "A" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 4
 	},
@@ -94,31 +94,31 @@
 /area/rogue)
 "E" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "F" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_joint";
 	dir = 8
 	},
 /area/rogue)
 "H" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner"
 	},
 /area/rogue)
 "I" = (
-/turf/open/floor/rogue/concrete,
+/turf/open/floor/concrete,
 /area/rogue)
 "K" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 1
 	},
 /area/rogue)
 "L" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "O" = (
 /obj/structure/fluff/walldeco/chains,
@@ -131,22 +131,22 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "Q" = (
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "S" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_joint"
 	},
 /area/rogue)
 "T" = (
-/turf/closed/wall/mineral/rogue/pipe{
+/turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 8
 	},
 /area/rogue)
 "U" = (
 /obj/structure/bars/pipe,
-/turf/open/floor/rogue/metal,
+/turf/open/floor/metal,
 /area/rogue)
 "X" = (
 /obj/structure/fluff/walldeco/bath/wallpipes{

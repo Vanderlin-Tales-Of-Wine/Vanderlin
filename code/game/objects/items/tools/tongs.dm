@@ -1,4 +1,4 @@
-/obj/item/rogueweapon/tongs
+/obj/item/weapon/tongs
 	force = 5
 	possible_item_intents = list(/datum/intent/mace/strike)
 	name = "tongs"
@@ -16,23 +16,23 @@
 	grid_width = 32
 	grid_height = 96
 
-/obj/item/rogueweapon/tongs/examine(mob/user)
+/obj/item/weapon/tongs/examine(mob/user)
 	. = ..()
 	if(hott)
 		. += "<span class='warning'>The tip is hot to the touch.</span>"
 
-/obj/item/rogueweapon/tongs/get_temperature()
+/obj/item/weapon/tongs/get_temperature()
 	if(hott)
 		return 150+T0C
 	return ..()
 
-/obj/item/rogueweapon/tongs/fire_act(added, maxstacks)
+/obj/item/weapon/tongs/fire_act(added, maxstacks)
 	. = ..()
 	hott = world.time
 	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(make_unhot), world.time), 10 SECONDS)
 
-/obj/item/rogueweapon/tongs/update_icon()
+/obj/item/weapon/tongs/update_icon()
 	. = ..()
 	if(!held_item)
 		icon_state = "tongs"
@@ -42,18 +42,18 @@
 		else
 			icon_state = "tongsi0"
 
-/obj/item/rogueweapon/tongs/proc/proxy_heat(incoming, max_heat)
+/obj/item/weapon/tongs/proc/proxy_heat(incoming, max_heat)
 	if(istype(held_item, /obj/item/storage/crucible))
 		var/obj/item/storage/crucible/crucible = held_item
 		crucible.crucible_temperature = min(crucible.crucible_temperature + incoming, max_heat)
 
-/obj/item/rogueweapon/tongs/proc/make_unhot(input)
+/obj/item/weapon/tongs/proc/make_unhot(input)
 	if(hott == input)
 		hott = 0
 	update_icon()
 
 ///Places the ingot on the atom, this can be either a turf or a table
-/obj/item/rogueweapon/tongs/proc/place_item_to_atom(atom/A, mob/user)
+/obj/item/weapon/tongs/proc/place_item_to_atom(atom/A, mob/user)
 	if(held_item?.tong_interaction(A, user))
 		return
 	if(held_item && (isturf(A) || istype(A, /obj/structure/table)))
@@ -64,18 +64,18 @@
 	else if(held_item)
 		to_chat(user, "<span class='warning'>Cannot place [held_item] here!</span>")
 
-/obj/item/rogueweapon/tongs/attack_self(mob/user)
+/obj/item/weapon/tongs/attack_self(mob/user)
 	place_item_to_atom(get_turf(user), user)
 
-/obj/item/rogueweapon/tongs/dropped(mob/user)
+/obj/item/weapon/tongs/dropped(mob/user)
 	. = ..()
 	place_item_to_atom(get_turf(src), user)
 
-/obj/item/rogueweapon/tongs/pre_attack_right(atom/A, mob/living/user, params)
+/obj/item/weapon/tongs/pre_attack_right(atom/A, mob/living/user, params)
 	. = ..()
 	place_item_to_atom(get_turf(A), user)
 
-/obj/item/rogueweapon/tongs/pre_attack(obj/item/A, mob/living/user, params)
+/obj/item/weapon/tongs/pre_attack(obj/item/A, mob/living/user, params)
 	if(held_item?.tong_interaction(A, user))
 		return
 
@@ -90,7 +90,7 @@
 			return
 	return ..()
 
-/obj/item/rogueweapon/tongs/getonmobprop(tag)
+/obj/item/weapon/tongs/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -99,7 +99,7 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/rogueweapon/tongs/stone
+/obj/item/weapon/tongs/stone
 	name = "stone tongs"
 	icon_state = "stonetongs"
 	force = 3
@@ -107,7 +107,7 @@
 	anvilrepair = null
 	max_integrity = 20
 
-/obj/item/rogueweapon/tongs/stone/update_icon()
+/obj/item/weapon/tongs/stone/update_icon()
 	. = ..()
 	if(!held_item)
 		icon_state = "stonetongs"

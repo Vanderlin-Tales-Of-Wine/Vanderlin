@@ -88,7 +88,7 @@ require only minor tweaks.
 #define CAMERA_LOCK_CENTCOM 4
 
 //Reserved/Transit turf type
-#define RESERVED_TURF_TYPE /turf/open/floor/rogue/blocks			//What the turf is when not being used
+#define RESERVED_TURF_TYPE /turf/open/floor/blocks			//What the turf is when not being used
 
 //Ruin Generation
 

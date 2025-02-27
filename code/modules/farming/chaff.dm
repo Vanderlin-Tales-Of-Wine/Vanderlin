@@ -28,9 +28,9 @@
 
 /obj/item/natural/chaff/attackby(obj/item/I, mob/living/user, params)
 	testing("attackb")
-	if(istype(I, /obj/item/rogueweapon/pitchfork))
+	if(istype(I, /obj/item/weapon/pitchfork))
 		if(user.used_intent.type == DUMP_INTENT)
-			var/obj/item/rogueweapon/pitchfork/W = I
+			var/obj/item/weapon/pitchfork/W = I
 			if(I.wielded)
 				if(isturf(loc))
 					var/stuff = 0
@@ -46,7 +46,7 @@
 						to_chat(user, span_warning("I'm carrying enough with the pitchfork."))
 					return
 
-	if(istype(I, /obj/item/rogueweapon/mace/woodclub))//reused some commented out code
+	if(istype(I, /obj/item/weapon/mace/woodclub))//reused some commented out code
 		var/statboost = user.STASTR*3 + (user?.mind?.get_skill_level(/datum/skill/labor/farming)*5) //a person with no skill and 10 strength will thresh about a third of the stalks on average
 		var/threshchance = clamp(statboost, 20, 100)
 		for(var/obj/item/natural/chaff/C in get_turf(src))

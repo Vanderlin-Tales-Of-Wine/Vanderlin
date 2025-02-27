@@ -1,5 +1,5 @@
 
-/obj/item/rogue/instrument
+/obj/item/instrument
 	name = ""
 	desc = ""
 	icon = 'icons/roguetown/items/music.dmi'
@@ -49,11 +49,11 @@
 
 /datum/looping_sound/instrument/on_stop(mob/M)
 	. = ..()
-	if(istype(parent, /obj/item/rogue/instrument))
-		var/obj/item/rogue/instrument/instrument = parent
+	if(istype(parent, /obj/item/instrument))
+		var/obj/item/instrument/instrument = parent
 		instrument.terminate_playing(M)
 
-/obj/item/rogue/instrument/getonmobprop(tag)
+/obj/item/instrument/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -62,15 +62,15 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/rogue/instrument/Initialize()
+/obj/item/instrument/Initialize()
 	soundloop = new(src, FALSE)
 	. = ..()
 
-/obj/item/rogue/instrument/Destroy()
+/obj/item/instrument/Destroy()
 	terminate_playing(loc)
 	. = ..()
 
-/obj/item/rogue/instrument/process()
+/obj/item/instrument/process()
 	..()
 	if(!playing || !ishuman(loc))
 		terminate_playing(loc)
@@ -111,7 +111,7 @@
 		if(I.loc != user)
 			step_towards(I, user)
 
-/obj/item/rogue/instrument/proc/terminate_playing(mob/living/user)
+/obj/item/instrument/proc/terminate_playing(mob/living/user)
 	playing = FALSE
 	STOP_PROCESSING(SSprocessing, src)
 	if(istype(user))
@@ -129,7 +129,7 @@
 		for(var/datum/status_effect/bardicbuff/b in L.status_effects)
 			buffed.remove_status_effect(b) // All applicable bard buffs stopped
 
-/obj/item/rogue/instrument/equipped(mob/living/user, slot)
+/obj/item/instrument/equipped(mob/living/user, slot)
 	. = ..()
 	if(!playing)
 		return
@@ -137,12 +137,12 @@
 		terminate_playing(user)
 		return
 
-/obj/item/rogue/instrument/dropped(mob/user, silent)
+/obj/item/instrument/dropped(mob/user, silent)
 	if(playing)
 		terminate_playing(user)
 	. = ..()
 
-/obj/item/rogue/instrument/attack_self(mob/living/user)
+/obj/item/instrument/attack_self(mob/living/user)
 	. = ..()
 	if(.)
 		return
@@ -153,7 +153,7 @@
 	var/music_level = user.mind?.get_skill_level(/datum/skill/misc/music)
 	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
-	for(var/obj/item/rogue/instrument/I in user.held_items) //sorry it's too annoying
+	for(var/obj/item/instrument/I in user.held_items) //sorry it's too annoying
 		if(I.playing)
 			return
 
@@ -167,7 +167,7 @@
 		return
 	if(user.get_inactive_held_item() && music_level < 4) //DUAL WIELDING BARDS
 		return
-	for(var/obj/item/rogue/instrument/I in user.held_items) //sorry it's too annoying
+	for(var/obj/item/instrument/I in user.held_items) //sorry it's too annoying
 		if(I.playing)
 			return
 
@@ -243,15 +243,15 @@
 		else
 			to_chat(user, "I decided not to bestow any boons to my music.")
 
-/obj/item/rogue/instrument/proc/lift_to_mouth()
+/obj/item/instrument/proc/lift_to_mouth()
 	icon_state = "[icon_prefix]_play"
 
-/obj/item/rogue/instrument/proc/lower_from_mouth()
+/obj/item/instrument/proc/lower_from_mouth()
 	icon_state = "[icon_prefix]"
 
 
 
-/obj/item/rogue/instrument/lute
+/obj/item/instrument/lute
 	name = "lute"
 	desc = "The favored instrument of Eora, made of wood and simple string."
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
@@ -269,7 +269,7 @@
 	"Merchant in the Mire" = 'sound/instruments/lute (7).ogg',
 	"Soilson's Song" = 'sound/instruments/lute (8).ogg')
 
-/obj/item/rogue/instrument/accord
+/obj/item/instrument/accord
 	name = "accordion"
 	desc = "A complex piece of dwarven intuition, composed of metal, wood, hide and ivory. Favored by Abyssorian bards."
 	icon_state = "accordion"
@@ -286,7 +286,7 @@
 	"Beloved Blue" = 'sound/instruments/accord (9).ogg',
 	)
 
-/obj/item/rogue/instrument/guitar
+/obj/item/instrument/guitar
 	name = "guitar"
 	desc = "A corrupted lute, a heritage instrument of Tiefling pedigree."
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
@@ -315,7 +315,7 @@
 	"El Beso Carmesí" = 'sound/instruments/guitar (20).ogg',
 	)
 
-/obj/item/rogue/instrument/harp
+/obj/item/instrument/harp
 	name = "lyre"
 	desc = "An elven instrument of a great and proud heritage."
 	icon_state = "harp"
@@ -334,7 +334,7 @@
 	"Determination" = 'sound/instruments/harp (10).ogg',
 	)
 
-/obj/item/rogue/instrument/flute // small rats approach a little when begin playing
+/obj/item/instrument/flute // small rats approach a little when begin playing
 	name = "flute"
 	desc = "A cacophonous wind-instrument, played primarily by humens all around Psydonia."
 	icon_state = "flute"
@@ -355,7 +355,7 @@
 	"Spit Shine" = 'sound/instruments/flute (9).ogg',
 	)
 
-/obj/item/rogue/instrument/drum
+/obj/item/instrument/drum
 	name = "drum"
 	desc = "The adopted instrument of Aasimar, used for signaling and rhythmic marches alike."
 	icon_state = "drum"
@@ -367,7 +367,7 @@
 	"Marching Beat" = 'sound/instruments/drum (4).ogg',
 	"Desert Heat" = 'sound/instruments/drum (5).ogg')
 
-/obj/item/rogue/instrument/hurdygurdy
+/obj/item/instrument/hurdygurdy
 	name = "hurdy-gurdy"
 	desc = "A knob-driven, wooden string instrument that reminds you of the oceans far."
 	icon_state = "hurdygurdy"
@@ -380,7 +380,7 @@
 	)
 	experimental_inhand = TRUE //temporary inhand sprite
 
-/obj/item/rogue/instrument/viola
+/obj/item/instrument/viola
 	name = "viola"
 	desc = "The prim and proper Viola, often the first instrument nobles are taught."
 	icon_state = "viola"
@@ -394,7 +394,7 @@
 	)
 	experimental_inhand = TRUE
 
-/obj/item/rogue/instrument/vocals
+/obj/item/instrument/vocals
 	name = "vocalist's talisman"
 	desc = "This talisman emanates a small shimmer of light. When held, it can amplify and even change one's voice."
 	icon_state = "vtalisman"

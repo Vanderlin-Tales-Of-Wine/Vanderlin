@@ -1,14 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "av" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "aF" = (
 /obj/structure/table/wood/plain,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "bP" = (
 /obj/structure/mineral_door/wood,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "cG" = (
 /turf/open/floor/carpet/red,
@@ -17,13 +17,13 @@
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "et" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "gw" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "hV" = (
 /obj/structure/table/church{
@@ -41,7 +41,7 @@
 	pixel_x = -7;
 	pixel_y = 11
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "kf" = (
 /obj/structure/closet/crate/chest,
@@ -52,9 +52,9 @@
 /obj/item/neuFarm/seed/wheat,
 /obj/item/neuFarm/seed/wheat,
 /obj/item/neuFarm/seed/wheat,
-/obj/item/rogueweapon/hoe,
-/obj/item/rogueweapon/sickle,
-/obj/item/rogueweapon/thresher,
+/obj/item/weapon/hoe,
+/obj/item/weapon/sickle,
+/obj/item/weapon/thresher,
 /obj/item/neuFarm/seed/onion,
 /obj/item/neuFarm/seed/onion,
 /obj/item/neuFarm/seed/onion,
@@ -68,26 +68,26 @@
 /obj/item/neuFarm/seed/apple,
 /obj/item/neuFarm/seed/apple,
 /obj/item/neuFarm/seed/apple,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "kW" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "ma" = (
 /obj/effect/decal/cleanable/sigil/S,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "md" = (
 /obj/structure/dungeon_exit,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "ny" = (
 /obj/structure/fermentation_keg/random/water,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "nK" = (
-/obj/machinery/light/rogue/oven/east,
-/turf/open/floor/rogue/herringbone,
+/obj/machinery/light/fueled/oven/east,
+/turf/open/floor/herringbone,
 /area/rogue)
 "os" = (
 /obj/structure/stairs/stone/church{
@@ -96,16 +96,16 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "pd" = (
-/turf/closed/wall/mineral/rogue/stone/window,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue)
 "pI" = (
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/herringbone,
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/herringbone,
 /area/rogue)
 "qs" = (
 /obj/structure/table/wood/plain,
-/obj/item/rogueweapon/knife/cleaver,
-/turf/open/floor/rogue/herringbone,
+/obj/item/weapon/knife/cleaver,
+/turf/open/floor/herringbone,
 /area/rogue)
 "ry" = (
 /obj/structure/closet/crate/chest,
@@ -118,15 +118,15 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "sj" = (
 /obj/item/reagent_containers/glass/bucket/wooden/alter,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "tz" = (
 /obj/structure/fluff/statue/knightalt,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "uG" = (
 /obj/structure/table/church/m,
@@ -141,110 +141,110 @@
 	pixel_x = 8;
 	pixel_y = 7
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "uW" = (
 /obj/structure/well,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "wx" = (
 /obj/structure/fermentation_keg/random/beer,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "xk" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "xl" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "yl" = (
 /obj/effect/decal/cleanable/sigil,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ac" = (
 /obj/structure/fluff/statue/knight/interior,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "AB" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "AC" = (
-/obj/structure/bed/rogue/inn,
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/bed/inn,
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/herringbone,
 /area/rogue)
 "Bm" = (
 /obj/structure/table/wood/plain,
 /obj/structure/fluff/millstone,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "Bz" = (
-/obj/structure/roguewindow/openclose,
-/turf/closed/wall/mineral/rogue/stone/window,
+/obj/structure/window/openclose,
+/turf/closed/wall/mineral/stone/window,
 /area/rogue)
 "CX" = (
-/obj/machinery/light/rogue/hearth,
+/obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "EJ" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "FA" = (
-/obj/structure/closet/crate/roguecloset/inn,
-/obj/item/clothing/suit/roguetown/shirt/robe/plain,
-/turf/open/floor/rogue/herringbone,
+/obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/clothing/shirt/robe/plain,
+/turf/open/floor/herringbone,
 /area/rogue)
 "GE" = (
 /obj/structure/gate/preopen,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "IE" = (
 /obj/effect/decal/cleanable/sigil/SW,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Jb" = (
 /obj/structure/fluff/statue/evil,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "JJ" = (
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "Kf" = (
 /obj/structure/fluff/statue/knight/interior/r,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Mi" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/hexstone,
 /area/rogue)
 "MC" = (
 /obj/structure/fluff/statue/knightalt/r,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "OV" = (
 /obj/effect/decal/cleanable/sigil/W,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "OX" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/dirt,
 /area/rogue)
 "Rt" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Ry" = (
-/obj/machinery/light/rogue/hearth,
+/obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 "Ub" = (
 /obj/structure/closet/crate/chest/crafted,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Uz" = (
 /obj/structure/table/church,
@@ -259,27 +259,27 @@
 	pixel_x = 7;
 	pixel_y = 6
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Vt" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Vx" = (
 /obj/effect/decal/cleanable/sigil/E,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Wo" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "Xm" = (
 /obj/effect/decal/cleanable/sigil/SE,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Yw" = (
 /obj/structure/closet/crate/drawer/inn,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue)
 
 (1,1,1) = {"

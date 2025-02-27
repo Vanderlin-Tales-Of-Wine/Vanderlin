@@ -98,7 +98,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 			return
 
 	if(heated)
-		if(istype(I, /obj/item/rogueore/coal) || istype(I, /obj/item/grown/log/tree))
+		if(istype(I, /obj/item/ore/coal) || istype(I, /obj/item/grown/log/tree))
 			refuel(I, user)
 			return
 
@@ -367,7 +367,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		return
 	var/burn_time = 4 MINUTES
 	var/burn_temp = 300
-	if(istype(item, /obj/item/rogueore/coal))
+	if(istype(item, /obj/item/ore/coal))
 		burn_time *= 1.5
 		burn_temp *= 1.5
 
@@ -504,6 +504,16 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		clear_keg(TRUE)
 
 /obj/structure/fermentation_keg/process()
+	if(accepts_water_input && input && selected_recipe && !brewing && !ready_to_bottle)
+		var/datum/reagent/incoming_reagent = input.carrying_reagent
+		if((incoming_reagent in selected_recipe.needed_reagents))
+			var/datum/reagent/reagent = reagents.get_reagent(incoming_reagent)
+			var/reagents_needed = selected_recipe.needed_reagents[incoming_reagent]
+			reagents_needed -= reagent?.volume
+
+			var/transfer_amount = min(input.water_pressure, reagents_needed)
+			reagents.add_reagent(incoming_reagent, transfer_amount)
+
 
 	if(brewing && selected_recipe.heat_required)
 		var/end_time = world.time + (selected_recipe.brew_time - heated_progress_time)
@@ -549,6 +559,18 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	anchored = TRUE
 	heated = TRUE
+
+	accepts_water_input = TRUE
+
+/obj/structure/fermentation_keg/distiller/valid_water_connection(direction, obj/structure/water_pipe/pipe)
+	if(direction == SOUTH)
+		input = pipe
+		return TRUE
+	return FALSE
+
+/obj/structure/fermentation_keg/distiller/setup_water()
+	var/turf/north_turf = get_step(src, NORTH)
+	input = locate(/obj/structure/water_pipe) in north_turf
 
 /obj/structure/fermentation_keg/MouseDrop_T(atom/over, mob/living/user)
 	if(!istype(over, /obj/structure/fermentation_keg))

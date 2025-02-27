@@ -60,7 +60,6 @@
 	actions_types = list()
 	heat = 1000
 	light_color = LIGHT_COLOR_FLARE
-	grind_results = list(/datum/reagent/sulfur = 15)
 
 	var/fuel = 12000
 	var/on_damage = 7
@@ -170,7 +169,7 @@
 		if(!fuel)
 			icon_state = "torch-empty"
 		return
-	if(!istype(loc,/obj/machinery/light/rogue/torchholder))
+	if(!istype(loc,/obj/machinery/light/fueled/torchholder))
 		if(!ismob(loc))
 			if(prob(23))
 				turn_off()

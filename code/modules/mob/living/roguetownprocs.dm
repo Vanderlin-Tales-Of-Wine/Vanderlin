@@ -150,7 +150,7 @@
 				if(offhand.can_parry)
 					offhand_defense += (H.mind ? (H.mind.get_skill_level(offhand.associated_skill) * 20) : 20)
 					offhand_defense += (offhand.wdefense * 10)
-					if(istype(offhand, /obj/item/rogueweapon/shield))
+					if(istype(offhand, /obj/item/weapon/shield))
 						force_shield = TRUE
 			if(!force_shield)
 				if(mainhand_defense >= offhand_defense)
@@ -210,9 +210,9 @@
 					// defender skill gain
 					if((mobility_flags & MOBILITY_STAND) && attacker_skill && (defender_skill < attacker_skill - SKILL_LEVEL_NOVICE))
 						// No duping exp gains by attacking with a shield on active hand
-						if(used_weapon == offhand && istype(used_weapon, /obj/item/rogueweapon/shield))
+						if(used_weapon == offhand && istype(used_weapon, /obj/item/weapon/shield))
 							// Most shield users aren't bright, let's not make it near impossible to learn
-							var/boon = H.mind?.get_learning_boon(/obj/item/rogueweapon/shield)
+							var/boon = H.mind?.get_learning_boon(/obj/item/weapon/shield)
 							H.mind?.adjust_experience(/datum/skill/combat/shields, max(round(H.STAINT * boon), 0), FALSE)
 						else
 							H.mind?.adjust_experience(used_weapon.associated_skill, max(round(H.STAINT/2), 0), FALSE)
@@ -328,7 +328,7 @@
 				playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
 			if(istype(rmb_intent, /datum/rmb_intent/riposte))
 				src.visible_message("<span class='boldwarning'><b>[src]</b> ripostes [user] with [W]!</span>")
-			else if(istype(W, /obj/item/rogueweapon/shield))
+			else if(istype(W, /obj/item/weapon/shield))
 				src.visible_message("<span class='boldwarning'><b>[src]</b> blocks [user] with [W]!</span>")
 				var/shieldur
 				shieldur = round(((W.obj_integrity / W.max_integrity) * 100), 1)
@@ -406,7 +406,7 @@
 		dodge_score -= 10
 
 				//// ADD WEAPON INTENT MODIFIERS HERE ////
-	if(istype(DI, /obj/item/rogueweapon))
+	if(istype(DI, /obj/item/weapon))
 		switch(DI.wlength)
 			if(WLENGTH_NORMAL)
 				dodge_score -= 5

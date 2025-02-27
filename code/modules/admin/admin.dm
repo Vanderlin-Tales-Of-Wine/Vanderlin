@@ -785,7 +785,7 @@
 		return
 	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
 		return
-	var/datum/job/J = SSjob.GetJobType(/datum/job/roguetown/priest)
+	var/datum/job/J = SSjob.GetJobType(/datum/job/priest)
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.mind)
 			var/found = FALSE

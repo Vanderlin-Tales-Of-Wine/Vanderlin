@@ -47,6 +47,16 @@ body:
   validations:
     required: false
 
+- type: textarea
+  id: testmerges
+  attributes:
+    label: Test Merges
+    description: List the testmerges active when you were reporting the bug.
+    placeholder: |
+      List the testmerges here.
+  validations:
+    required: false
+
 - type: input
   id: rounddetails
   attributes:

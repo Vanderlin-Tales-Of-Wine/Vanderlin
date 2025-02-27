@@ -19,6 +19,6 @@
 		for(var/obj/i in GLOB.fires_list)
 			i.extinguish()
 	if(LAZYLEN(GLOB.streetlamp_list))
-		for(var/obj/machinery/light/roguestreet/i in GLOB.streetlamp_list)
+		for(var/obj/machinery/light/fueledstreet/i in GLOB.streetlamp_list)
 			i.lights_out()
 	return

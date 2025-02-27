@@ -35,9 +35,9 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 
 	var/turf/start_turf = get_turf(pick(tiles))
 	var/turf/end_turf = get_turf(pick(GLOB.animal_migration_points))
-	var/mob/living/simple_animal/hostile/retaliate/rogue/animal = pick(animals)
+	var/mob/living/simple_animal/hostile/retaliate/animal = pick(animals)
 	for(var/i = 1 to rand(3, 5))
-		var/mob/living/simple_animal/hostile/retaliate/rogue/created = new animal(start_turf)
+		var/mob/living/simple_animal/hostile/retaliate/created = new animal(start_turf)
 		if(created.ai_controller)
 			created.ai_controller.set_blackboard_key(BB_WANDER_POINT, end_turf)
 			var/list/ai_controller_paths = list()
@@ -50,10 +50,10 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 
 /datum/round_event/animal_migration/passive
 	animals = list(
-		/mob/living/simple_animal/hostile/retaliate/rogue/cow,
-		/mob/living/simple_animal/hostile/retaliate/rogue/bull,
-		/mob/living/simple_animal/hostile/retaliate/rogue/chicken,
-		/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig,
-		/mob/living/simple_animal/hostile/retaliate/rogue/goat,
-		/mob/living/simple_animal/hostile/retaliate/rogue/saiga,
+		/mob/living/simple_animal/hostile/retaliate/cow,
+		/mob/living/simple_animal/hostile/retaliate/bull,
+		/mob/living/simple_animal/hostile/retaliate/chicken,
+		/mob/living/simple_animal/hostile/retaliate/trufflepig,
+		/mob/living/simple_animal/hostile/retaliate/goat,
+		/mob/living/simple_animal/hostile/retaliate/saiga,
 	)

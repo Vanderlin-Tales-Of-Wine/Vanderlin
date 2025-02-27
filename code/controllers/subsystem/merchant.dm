@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(merchant)
 	var/fence_docked = TRUE
 
 /datum/controller/subsystem/merchant/Initialize(timeofday)
-	for(var/pack in subtypesof(/datum/supply_pack/rogue))
+	for(var/pack in subtypesof(/datum/supply_pack))
 		var/datum/supply_pack/P = new pack()
 		if(!P.contains)
 			continue

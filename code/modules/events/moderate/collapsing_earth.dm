@@ -18,12 +18,12 @@ GLOBAL_LIST_INIT(mined_resource_loc, list())
 
 /datum/round_event/collapsing_earth
 	var/static/list/weighted_rocks = list(
-		/turf/closed/mineral/random/rogue/high_nonval = 5,
-		/turf/closed/mineral/random/rogue/med_nonval = 10,
-		/turf/closed/mineral/random/rogue/low_nonval = 15,
+		/turf/closed/mineral/random/high_nonval = 5,
+		/turf/closed/mineral/random/med_nonval = 10,
+		/turf/closed/mineral/random/low_nonval = 15,
 
-		/turf/closed/mineral/random/rogue/low_valuable = 7,
-		/turf/closed/mineral/random/rogue/med_valuable = 4,
+		/turf/closed/mineral/random/low_valuable = 7,
+		/turf/closed/mineral/random/med_valuable = 4,
 	)
 
 /datum/round_event/collapsing_earth/start()

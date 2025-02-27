@@ -58,7 +58,7 @@
 			stress2give = /datum/stressevent/viewdismember
 	if(C)
 		if(C.buckled)
-			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/rogue/campfire/pyre))
+			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
 	if(stress2give)
@@ -305,7 +305,6 @@
 		//Drop all worn head items
 		var/list/worn_items = list(
 			owner.get_item_by_slot(SLOT_HEAD),
-			owner.get_item_by_slot(SLOT_GLASSES),
 			owner.get_item_by_slot(SLOT_NECK),
 			owner.get_item_by_slot(SLOT_WEAR_MASK),
 			owner.get_item_by_slot(SLOT_MOUTH),

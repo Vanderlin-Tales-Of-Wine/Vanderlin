@@ -138,7 +138,7 @@ All foods are distributed among various categories. Use common sense.
 	..()
 	if(rotprocess)
 		var/obj/structure/closet/crate/chest/chest = locate(/obj/structure/closet/crate/chest) in get_turf(src)
-		var/obj/structure/roguemachine/vendor = locate(/obj/structure/roguemachine/vendor) in get_turf(src)
+		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
 		if(!chest && !vendor)
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located)
@@ -196,7 +196,7 @@ All foods are distributed among various categories. Use common sense.
 	burning(input)
 
 /obj/item/reagent_containers/food/snacks/heating_act(atom/A)
-	if(istype(A,/obj/machinery/light/rogue/oven))
+	if(istype(A,/obj/machinery/light/fueled/oven))
 		var/obj/item/result
 		if(cooked_type)
 			result = new cooked_type(A)
@@ -206,7 +206,7 @@ All foods are distributed among various categories. Use common sense.
 			result = new /obj/item/reagent_containers/food/snacks/badrecipe(A)
 		initialize_cooked_food(result, 1)
 		return result
-	if(istype(A,/obj/machinery/light/rogue/hearth) || istype(A,/obj/machinery/light/rogue/firebowl) || istype(A,/obj/machinery/light/rogue/campfire))
+	if(istype(A,/obj/machinery/light/fueled/hearth) || istype(A,/obj/machinery/light/fueled/firebowl) || istype(A,/obj/machinery/light/fueled/campfire))
 		var/obj/item/result
 		if(fried_type)
 			result = new fried_type(A)
@@ -517,29 +517,6 @@ All foods are distributed among various categories. Use common sense.
 					if(5)
 						name = "delicious [name]"
 						desc = "[desc] It is a masterwork."
-
-//Called when you finish tablecrafting a snack.
-/obj/item/reagent_containers/food/snacks/CheckParts(list/parts_list, datum/crafting_recipe/food/R)
-	..()
-//	reagents.clear_reagents()
-	for(var/obj/item/reagent_containers/RC in contents)
-		RC.reagents.trans_to(reagents, RC.reagents.maximum_volume)
-	if(istype(R))
-		contents_loop:
-			for(var/A in contents)
-				for(var/B in R.real_parts)
-					if(istype(A, B))
-						continue contents_loop
-				qdel(A)
-	SSblackbox.record_feedback("tally", "food_made", 1, type)
-
-	if(bonus_reagents && bonus_reagents.len)
-		for(var/r_id in bonus_reagents)
-			var/amount = bonus_reagents[r_id]
-			if(r_id == /datum/reagent/consumable/nutriment || r_id == /datum/reagent/consumable/nutriment/vitamin)
-				reagents.add_reagent(r_id, amount, tastes)
-			else
-				reagents.add_reagent(r_id, amount)
 
 /obj/item/reagent_containers/food/snacks/proc/slice(obj/item/W, mob/user)
 	if((slices_num <= 0 || !slices_num) || !slice_path) //is the food sliceable?

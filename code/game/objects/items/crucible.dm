@@ -4,7 +4,7 @@
 
 	icon = 'icons/roguetown/weapons/crucible.dmi'
 	icon_state = "crucible"
-	component_type = /datum/component/storage/concrete/roguetown/crucible
+	component_type = /datum/component/storage/concrete/grid/crucible
 	grid_width = 32
 	grid_height = 64
 
@@ -49,8 +49,8 @@
 				. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]> [tag] [initial(material.name)].</font>"
 
 /obj/item/storage/crucible/process()
-	var/obj/machinery/light/rogue/smelter/smelter = loc
-	var/obj/machinery/light/rogue/light = locate(/obj/machinery/light/rogue) in get_turf(src)
+	var/obj/machinery/light/fueled/smelter/smelter = loc
+	var/obj/machinery/light/fueled/light = locate(/obj/machinery/light/fueled) in get_turf(src)
 	if(istype(smelter) && smelter?.on)
 		crucible_temperature = max(300, min(smelter.max_crucible_temperature, crucible_temperature + 100))
 	else if(light?.on)

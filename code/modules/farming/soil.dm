@@ -75,7 +75,7 @@
 	yield_produce(modifier)
 
 /obj/structure/soil/proc/try_handle_harvest(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/sickle))
+	if(istype(attacking_item, /obj/item/weapon/sickle))
 		if(!plant || !produce_ready)
 			to_chat(user, span_warning("There is nothing to harvest!"))
 			return TRUE
@@ -94,8 +94,8 @@
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_uprooting(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
-		var/obj/item/rogueweapon/shovel/shovel = attacking_item
+	if(istype(attacking_item, /obj/item/weapon/shovel))
+		var/obj/item/weapon/shovel/shovel = attacking_item
 		to_chat(user, span_notice("I begin to uproot the crop..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 4 SECONDS * shovel.time_multiplier), src))
@@ -106,8 +106,8 @@
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_tilling(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
-		var/obj/item/rogueweapon/hoe/hoe = attacking_item
+	if(istype(attacking_item, /obj/item/weapon/hoe))
+		var/obj/item/weapon/hoe/hoe = attacking_item
 		to_chat(user, span_notice("I begin to till the soil..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 3 SECONDS * hoe.time_multiplier), src))
@@ -170,7 +170,7 @@
 			deweed()
 			add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 0.2)
 		return TRUE
-	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
+	if(istype(attacking_item, /obj/item/weapon/hoe))
 		apply_farming_fatigue(user, 10)
 		to_chat(user, span_notice("I rip out the weeds with the [attacking_item]"))
 		deweed()
@@ -181,9 +181,9 @@
 /obj/structure/soil/proc/try_handle_flatten(obj/item/attacking_item, mob/user, params)
 	if(plant)
 		return FALSE
-	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
+	if(istype(attacking_item, /obj/item/weapon/shovel))
 		to_chat(user, span_notice("I begin flattening the soil with \the [attacking_item]..."))
-		var/obj/item/rogueweapon/shovel/shovel = attacking_item
+		var/obj/item/weapon/shovel/shovel = attacking_item
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 3 SECONDS * shovel.time_multiplier), src))
 			if(plant)

@@ -274,7 +274,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = SHELFLIFE_LONG
 	slices_num = 2
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/cabbage_sliced
 	chopping_sound = TRUE
 
 /*	..................   Onions   ................... */
@@ -285,7 +285,7 @@
 	icon_state = "onion"
 	dropshrink = 0.9
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/onion_sliced
 	tastes = list("onion" = 1)
 	filling_color = "#fdfaca"
 	bitesize = 1
@@ -314,7 +314,7 @@
 	tastes = list("potato" = 1)
 	filling_color = "#d8d8b6"
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/potato_sliced
 	cooked_type = /obj/item/reagent_containers/food/snacks/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
@@ -344,7 +344,7 @@
 	tastes = list("dirt" = 1)
 	bitesize = 1
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/turnip_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/turnip_sliced
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	chopping_sound = TRUE
@@ -367,7 +367,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.8
 	rotprocess = null
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/roastseeds
+	fried_type = /obj/item/reagent_containers/food/snacks/roastseeds
 	cooked_smell = /datum/pollutant/food/roasted_seeds
 
 

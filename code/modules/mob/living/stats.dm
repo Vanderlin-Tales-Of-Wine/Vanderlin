@@ -37,12 +37,6 @@
 	patron.on_gain(src)
 	return TRUE
 
-/datum/species
-	///Statkey = bonus stat, - for malice.
-	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-	///Statkey = bonus stat, - for malice.
-	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-
 ///Rolls random stats base 10, +-1, for SPECIAL, and applies species stats and age stats.
 /mob/living/proc/roll_mob_stats()
 	if(has_rolled_for_stats)

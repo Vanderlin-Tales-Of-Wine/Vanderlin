@@ -619,14 +619,14 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 		for(var/atom/movable/listed_atom in platform.lift_load)
 			if(!fence)
 				for(var/datum/trade_request/request in SSmerchant.trade_requests)
-					if(listed_atom.type == request.input_atom || (ispath(request.input_atom, /obj/item/reagent_containers/glass/bottle/rogue) && istype(listed_atom, /obj/item/reagent_containers/glass/bottle/rogue)))
-						if(istype(listed_atom, /obj/item/reagent_containers/glass/bottle/rogue))
-							var/obj/item/reagent_containers/glass/bottle/rogue/input_bottle = request.input_atom
+					if(listed_atom.type == request.input_atom || (ispath(request.input_atom, /obj/item/reagent_containers/glass/bottle) && istype(listed_atom, /obj/item/reagent_containers/glass/bottle)))
+						if(istype(listed_atom, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/input_bottle = request.input_atom
 							if(initial(input_bottle.list_reagents))
 								var/passed = FALSE
 								var/list/input_reagents = initial(input_bottle.list_reagents)
 								for(var/datum/reagent/reagent as anything in initial(input_bottle.list_reagents))
-									var/obj/item/reagent_containers/glass/bottle/rogue/bottle = listed_atom
+									var/obj/item/reagent_containers/glass/bottle/bottle = listed_atom
 									if(bottle.reagents.has_reagent(reagent, input_reagents[reagent] * 0.5))
 										passed = TRUE
 								if(!passed)
@@ -653,7 +653,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				requested_supplies += cargo_manifest.orders.Copy()
 				qdel(listed_atom)
 
-			if(istype(listed_atom, /obj/item/roguecoin))
+			if(istype(listed_atom, /obj/item/coin))
 				total_coin_value += listed_atom.get_real_price()
 				qdel(listed_atom)
 
@@ -665,7 +665,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					requested_supplies += cargo_manifest.orders.Copy()
 					qdel(inside)
 
-				if(istype(inside, /obj/item/roguecoin))
+				if(istype(inside, /obj/item/coin))
 					total_coin_value += inside.get_real_price()
 					qdel(inside)
 
@@ -694,19 +694,19 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 	var/turf/location = get_turf(picked)
 
 	var/gold = floor(total_coin_value/10)
-	new /obj/item/roguecoin/gold(location, gold)
+	new /obj/item/coin/gold(location, gold)
 	total_coin_value -= gold*10
 	if(!total_coin_value)
 		return
 
 	var/silver = floor(total_coin_value/5)
-	new /obj/item/roguecoin/silver(location, silver)
+	new /obj/item/coin/silver(location, silver)
 	total_coin_value -= silver*5
 	if(!total_coin_value)
 		return
 
 	var/copper = floor(total_coin_value)
-	new /obj/item/roguecoin/copper(location, copper)
+	new /obj/item/coin/copper(location, copper)
 	total_coin_value -= copper
 
 	var/obj/structure/closet/crate/chest/chest = new /obj/structure/closet/crate/chest(location)
@@ -754,7 +754,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				continue
 			if(istype(listed_atom, /obj/structure/closet/crate/chest))
 				continue
-			if(istype(listed_atom, /obj/item/roguecoin))
+			if(istype(listed_atom, /obj/item/coin))
 				continue
 
 			total_coin_value += FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
@@ -787,7 +787,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					continue
 				if(istype(inside, /obj/structure/closet/crate/chest))
 					continue
-				if(istype(inside, /obj/item/roguecoin))
+				if(istype(inside, /obj/item/coin))
 					continue
 
 				total_coin_value += FLOOR(inside.sellprice * sell_modifer, 1)

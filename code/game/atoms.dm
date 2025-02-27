@@ -331,20 +331,6 @@
 	return
 
 /**
- * React to an EMP of the given severity
- *
- * Default behaviour is to send the COMSIG_ATOM_EMP_ACT signal
- *
- * If the signal does not return protection, and there are attached wires then we call
- * emp_pulse() on the wires
- *
- * We then return the protection value
- */
-/atom/proc/emp_act(severity)
-	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity)
-	return protection // Pass the protection value collected here upwards
-
-/**
  * React to a hit by a projectile object
  *
  * Default behaviour is to send the COMSIG_ATOM_BULLET_ACT and then call on_hit() on the projectile

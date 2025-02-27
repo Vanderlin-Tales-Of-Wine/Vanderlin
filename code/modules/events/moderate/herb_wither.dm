@@ -16,5 +16,5 @@
 /datum/round_event/herb_wither/start()
 	. = ..()
 	for(var/i = 1 to rand(1, 5))
-		var/obj/structure/flora/roguegrass/herb/herb = pick(GLOB.herb_locations)
+		var/obj/structure/flora/grass/herb/herb = pick(GLOB.herb_locations)
 		qdel(herb)

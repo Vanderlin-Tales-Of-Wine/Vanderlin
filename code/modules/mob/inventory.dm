@@ -355,8 +355,6 @@
 		items += backl
 	if(ears)
 		items += ears
-	if(glasses)
-		items += glasses
 	if(gloves)
 		items += gloves
 	if(shoes)
@@ -405,8 +403,6 @@
 		obscured |= SLOT_NECK
 	if(hidden_slots & HIDEMASK)
 		obscured |= SLOT_WEAR_MASK
-	if(hidden_slots & HIDEEYES)
-		obscured |= SLOT_GLASSES
 	if(hidden_slots & HIDEGLOVES)
 		obscured |= SLOT_GLOVES
 	if(hidden_slots & HIDEJUMPSUIT)

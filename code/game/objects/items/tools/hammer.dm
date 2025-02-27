@@ -1,4 +1,4 @@
-/obj/item/rogueweapon/hammer
+/obj/item/weapon/hammer
 	force = 10
 	possible_item_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
 	name = "hammer"
@@ -31,7 +31,7 @@
 /obj/structure
 	var/hammer_repair
 
-/obj/item/rogueweapon/hammer/attack_obj(obj/O, mob/living/user)
+/obj/item/weapon/hammer/attack_obj(obj/O, mob/living/user)
 	if(!isliving(user) || !user.mind)
 		return
 	var/datum/mind/blacksmith_mind = user.mind
@@ -125,7 +125,7 @@
 
 	. = ..()
 
-/obj/item/rogueweapon/hammer/getonmobprop(tag)
+/obj/item/weapon/hammer/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -135,13 +135,13 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 // --------- IRON HAMMER -----------
-/obj/item/rogueweapon/hammer/iron
+/obj/item/weapon/hammer/iron
 	icon_state = "hammer"
 	experimental_onhip = FALSE
 	experimental_onback = FALSE
 
 // --------- STEEL HAMMER -----------
-/obj/item/rogueweapon/hammer/steel
+/obj/item/weapon/hammer/steel
 	name = "claw hammer"
 	icon_state = "hammer_s"
 	experimental_onhip = FALSE
@@ -149,7 +149,7 @@
 	time_multiplier = 0.8
 
 // --------- MALLET -----------
-/obj/item/rogueweapon/hammer/wood
+/obj/item/weapon/hammer/wood
 	name = "wooden mallet"
 	desc = "A wooden mallet is an artificers second best friend! But it may also come in handy to a smith..."
 	icon_state = "hammer_w"
@@ -161,7 +161,7 @@
 	can_smith = FALSE
 	time_multiplier = 1.5
 
-/obj/item/rogueweapon/hammer/wood/getonmobprop(tag)
+/obj/item/weapon/hammer/wood/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -170,7 +170,7 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/rogueweapon/hammer/copper
+/obj/item/weapon/hammer/copper
 	force = 8
 	possible_item_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
 	name = "copper hammer"
@@ -186,7 +186,7 @@
 	smeltresult = /obj/item/ingot/copper
 	time_multiplier = 1.1
 
-/obj/item/rogueweapon/hammer/sledgehammer
+/obj/item/weapon/hammer/sledgehammer
 	force = 15
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/mace/strike)
@@ -205,7 +205,7 @@
 	associated_skill = /datum/skill/combat/axesmaces
 	smeltresult = /obj/item/ingot/iron
 
-/obj/item/rogueweapon/hammer/sledgehammer/getonmobprop(tag)
+/obj/item/weapon/hammer/sledgehammer/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -216,7 +216,7 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/rogueweapon/hammer/sledgehammer/war
+/obj/item/weapon/hammer/sledgehammer/war
 	force = 15
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/mace/strike)

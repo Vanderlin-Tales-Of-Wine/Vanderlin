@@ -21,5 +21,5 @@ GLOBAL_LIST_INIT(harvested_herbs, list())
 		for(var/i = 1 to rand(1, 25))
 			if(!length(GLOB.harvested_herbs))
 				return
-			var/obj/structure/flora/roguegrass/herb/herb = pick(GLOB.harvested_herbs)
+			var/obj/structure/flora/grass/herb/herb = pick(GLOB.harvested_herbs)
 			herb.loot_replenish()
