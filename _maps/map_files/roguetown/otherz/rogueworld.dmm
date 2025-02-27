@@ -5,33 +5,33 @@
 	aportalgoesto = "roguetown";
 	aportalid = "rogueworld"
 	},
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
 "bj" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/town/sargoth)
 "cw" = (
-/obj/effect/spawner/roguemap/hauntpile,
-/turf/open/floor/rogue/dirt/road,
+/obj/effect/spawner/map_spawner/hauntpile,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/town/sargoth)
 "dD" = (
 /obj/structure/closet/dirthole/closed,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "dF" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/rtfield)
 "eT" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town/sargoth)
 "fQ" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "gd" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/river{
 	dir = 8
 	},
@@ -42,26 +42,26 @@
 	},
 /area/rogue/outdoors/town/sargoth)
 "hf" = (
-/obj/structure/flora/roguetree/burnt,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree/burnt,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "hM" = (
 /turf/open/water/swamp,
 /area/rogue/under/cave)
 "iB" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "kg" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/town/sargoth)
 "kn" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "kF" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/rtfield)
 "kN" = (
 /turf/open/water/river{
@@ -71,90 +71,90 @@
 "kW" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "mD" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/under/cave)
 "mH" = (
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/rtfield)
 "ny" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
 "oy" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/under/cave)
 "oH" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "oN" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/under/cave)
 "oO" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "pL" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue/outdoors/town/sargoth)
 "rb" = (
-/obj/item/clothing/head/roguetown/crown/serpcrown/surplus,
+/obj/item/clothing/head/crown/serpcrown/surplus,
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "rg" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "rN" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/outdoors/rtfield)
 "rU" = (
 /mob/living/carbon/human/species/skeleton/npc,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "rW" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "rY" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/rtfield)
 "sk" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/item/rogueweapon/sword/sabre/dec,
-/turf/open/floor/rogue/dirt/road,
+/obj/item/weapon/sword/sabre/dec,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "st" = (
 /obj/structure/closet/dirthole/closed/loot,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "sJ" = (
 /mob/living/carbon/human/species/skeleton/npc,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/under/cave)
 "tR" = (
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/town/sargoth)
 "ue" = (
-/turf/closed/mineral/random/rogue/med,
+/turf/closed/mineral/random/med,
 /area/rogue/under/cave)
 "ui" = (
 /obj/item/clothing/cloak/raincloak/furcloak/black,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "wn" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "xb" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/spider,
-/turf/open/floor/rogue/dirt/road,
+/mob/living/simple_animal/hostile/retaliate/spider,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "xw" = (
-/obj/structure/flora/roguetree/burnt,
+/obj/structure/flora/tree/burnt,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/rtfield)
 "yg" = (
@@ -163,11 +163,11 @@
 	},
 /area/rogue/outdoors/rtfield)
 "zv" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "AB" = (
 /obj/item/riddleofsteel,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "AM" = (
 /turf/open/water/river{
@@ -175,26 +175,26 @@
 	},
 /area/rogue/outdoors/town/sargoth)
 "El" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/town/sargoth)
 "Fc" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/river{
 	dir = 4
 	},
 /area/rogue/outdoors/rtfield)
 "Ff" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/town/sargoth)
 "FC" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "FN" = (
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "GU" = (
 /turf/open/water/river{
@@ -202,7 +202,7 @@
 	},
 /area/rogue/outdoors/rtfield)
 "Ha" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/rtfield)
 "Hp" = (
 /obj/structure/fluff/traveltile{
@@ -210,7 +210,7 @@
 	aallmig = "decapin";
 	aportalgoesto = "decapin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "HM" = (
 /turf/open/transparent/openspace,
@@ -222,37 +222,37 @@
 /area/rogue/outdoors/rtfield)
 "JZ" = (
 /obj/structure/kneestingers,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "Ld" = (
 /obj/structure/roguerock,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "LG" = (
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "MW" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/rtfield)
 "OU" = (
-/obj/effect/landmark/mapGenerator/rogue/roguetownfield{
+/obj/effect/landmark/mapGenerator/roguetownfield{
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/rtfield)
 "Pl" = (
-/obj/effect/landmark/mapGenerator/rogue/cave{
+/obj/effect/landmark/mapGenerator/cave{
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "Qy" = (
-/turf/closed/mineral/random/rogue,
+/turf/closed/mineral/random,
 /area/rogue/under/cave)
 "QN" = (
 /turf/open/water/river,
@@ -261,29 +261,29 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/ruinedwood,
 /area/rogue/outdoors/town/sargoth)
 "RW" = (
-/obj/item/rogueweapon/shovel,
-/turf/open/floor/rogue/dirt/road,
+/obj/item/weapon/shovel,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)
 "Sc" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "TB" = (
 /obj/structure/closet/crate/chest/gold,
-/obj/item/rogueweapon/hoe,
-/obj/item/rogueweapon/pick,
-/obj/item/rogueweapon/hammer,
-/turf/open/floor/rogue/dirt/road,
+/obj/item/weapon/hoe,
+/obj/item/weapon/pick,
+/obj/item/weapon/hammer,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "TS" = (
-/obj/structure/flora/roguegrass/water,
+/obj/structure/flora/grass/water,
 /turf/open/water/river,
 /area/rogue/outdoors/rtfield)
 "UD" = (
-/obj/structure/flora/roguetree/burnt,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree/burnt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "Vv" = (
 /turf/open/water/river,
@@ -297,7 +297,7 @@
 /area/rogue/outdoors/town/sargoth)
 "Zc" = (
 /obj/item/clothing/cloak/stabard/surcoat,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 
 (1,1,1) = {"

@@ -1,3 +1,11 @@
+/mob/living/New(loc, ...)
+	. = ..()
+	var/turf/turf = get_turf(loc)
+	if(turf)
+		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+			faction |= "matthios"
+			SSmobs.matthios_mobs |= src
+
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -10,6 +18,8 @@
 	init_faith()
 
 /mob/living/Destroy()
+	if("matthios" in faction)
+		SSmobs.matthios_mobs -= src
 	surgeries = null
 	if(LAZYLEN(status_effects))
 		for(var/s in status_effects)
@@ -1710,7 +1720,7 @@
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					emote("huh")
 					to_chat(M, "<span class='danger'>[src] sees me! I'm found!</span>")
-					M.mob_timers[MT_FOUNDSNEAK] = world.time
+					MOBTIMER_SET(M, MT_FOUNDSNEAK)
 			else
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					if(M.client?.prefs.showrolls)
@@ -1725,7 +1735,7 @@
 				var/obj/item/restraints/legcuffs/beartrap/M = O
 				if(isturf(M.loc) && M.armed)
 					found_ping(get_turf(M), client, "trap")
-			if(istype(O, /obj/structure/flora/roguegrass/maneater/real))
+			if(istype(O, /obj/structure/flora/grass/maneater/real))
 				found_ping(get_turf(O), client, "trap")
 
 		for(var/obj/effect/skill_tracker/potential_track in orange(7, src)) //Can't use view because they're invisible by default.

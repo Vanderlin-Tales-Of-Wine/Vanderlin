@@ -708,9 +708,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				else
 					var/days_remaining = null
 					if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-						var/mode_path = GLOB.special_roles_rogue[i]
-						var/datum/game_mode/temp_mode = new mode_path
-						days_remaining = temp_mode.get_remaining_days(user.client)
+						days_remaining = get_remaining_days(user.client)
 
 					if(days_remaining)
 						dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -1251,9 +1249,7 @@ Slots: [job.spawn_positions]</span>
 		else
 			var/days_remaining = null
 			if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-				var/mode_path = GLOB.special_roles_rogue[i]
-				var/datum/game_mode/temp_mode = new mode_path
-				days_remaining = temp_mode.get_remaining_days(user.client)
+				days_remaining = get_remaining_days(user.client)
 
 			if(days_remaining)
 				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -1745,8 +1741,12 @@ Slots: [job.spawn_positions]</span>
 					var/result = input(user, "Select a species", "Vanderlin") as null|anything in crap
 
 					if(result)
-						//var/newtype = GLOB.species_list[result]
 						pref_species = result
+
+						to_chat(user, "<em>[pref_species.name]</em>")
+						if(pref_species.desc)
+							to_chat(user, "[pref_species.desc]")
+
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						var/temp_hsv = RGBtoHSV(features["mcolor"])
 						if(features["mcolor"] == "#000" || (!(MUTCOLORS_PARTSONLY in pref_species.species_traits) && ReadHSV(temp_hsv)[3] < ReadHSV("#7F7F7F")[3]))

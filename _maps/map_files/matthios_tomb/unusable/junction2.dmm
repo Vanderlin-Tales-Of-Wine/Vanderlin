@@ -1,0 +1,252 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/naturalstone,
+/area/rogue)
+"j" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"s" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+
+(1,1,1) = {"
+s
+s
+s
+a
+a
+a
+a
+s
+s
+s
+"}
+(2,1,1) = {"
+s
+a
+a
+a
+a
+a
+a
+s
+s
+s
+"}
+(3,1,1) = {"
+s
+a
+s
+s
+s
+a
+a
+a
+s
+s
+"}
+(4,1,1) = {"
+a
+a
+s
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+s
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+s
+a
+s
+a
+s
+s
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+s
+s
+s
+a
+a
+s
+s
+a
+"}
+(8,1,1) = {"
+s
+a
+a
+a
+a
+a
+a
+s
+s
+s
+"}
+(9,1,1) = {"
+s
+s
+s
+s
+s
+a
+s
+s
+s
+s
+"}
+(10,1,1) = {"
+s
+s
+s
+s
+a
+a
+s
+s
+s
+s
+"}
+
+(1,1,2) = {"
+s
+s
+s
+a
+a
+a
+a
+s
+s
+s
+"}
+(2,1,2) = {"
+s
+a
+a
+a
+a
+a
+a
+s
+s
+s
+"}
+(3,1,2) = {"
+s
+a
+s
+s
+s
+a
+a
+j
+s
+s
+"}
+(4,1,2) = {"
+a
+a
+s
+a
+j
+a
+a
+j
+a
+a
+"}
+(5,1,2) = {"
+a
+a
+j
+a
+s
+a
+a
+a
+a
+a
+"}
+(6,1,2) = {"
+a
+a
+s
+a
+s
+j
+s
+s
+a
+a
+"}
+(7,1,2) = {"
+a
+a
+s
+s
+s
+a
+a
+s
+s
+a
+"}
+(8,1,2) = {"
+s
+a
+a
+a
+a
+a
+a
+s
+s
+s
+"}
+(9,1,2) = {"
+s
+s
+s
+s
+s
+a
+s
+s
+s
+s
+"}
+(10,1,2) = {"
+s
+s
+s
+a
+a
+a
+s
+s
+s
+s
+"}

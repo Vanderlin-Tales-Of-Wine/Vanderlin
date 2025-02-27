@@ -7,7 +7,7 @@
 	icon_state = "wall"
 	explosion_block = 1
 
-	baseturfs = list(/turf/open/floor/rogue/dirt/road)
+	baseturfs = list(/turf/open/floor/dirt/road)
 
 	var/hardness = 40 //lower numbers are harder. Used to determine the probability of a hulk smashing through.
 	var/slicing_duration = 100  //default time taken to slice the wall
@@ -114,7 +114,7 @@
 		return
 
 	// Are you trying to break your instrument? Go ahead!
-	if(istype(W, /obj/item/rogue/instrument))
+	if(istype(W, /obj/item/instrument))
 		user.do_attack_animation(src)
 		visible_message("<span class='warning'>[user] slams \the [W] against \the [src]!</span>",
 						"<span class='warning'>I slam \the [W] against \the [src]!</span>",null ,COMBAT_MESSAGE_RANGE)
@@ -199,6 +199,7 @@
 	icon_state = ""
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
+	canSmoo
 
 /turf/closed/splashscreen/New()
 	SStitle.splash_turf = src

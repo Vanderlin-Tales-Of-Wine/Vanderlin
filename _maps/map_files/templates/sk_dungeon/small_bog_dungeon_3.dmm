@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "d" = (
@@ -8,177 +8,177 @@
 /area/rogue/outdoors/bog)
 "f" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/blackmountain,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/blackmountain,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "g" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/blocks,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "h" = (
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/bog)
 "i" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "j" = (
-/turf/closed/wall/mineral/rogue/craftstone,
+/turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/bog)
 "l" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/rogue/blocks{
+/turf/open/floor/blocks{
 	icon_state = "paving"
 	},
 /area/rogue/outdoors/bog)
 "n" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/tales1,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/tales1,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "p" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "q" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "r" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/godofdreamsandnightmares,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/godofdreamsandnightmares,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "s" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/abyssor,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/abyssor,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "t" = (
 /obj/structure/mineral_door/wood/violet,
-/turf/open/floor/rogue/blocks{
+/turf/open/floor/blocks{
 	icon_state = "paving-t"
 	},
 /area/rogue/outdoors/bog)
 "u" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "v" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/law,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/law,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "w" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "x" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/tales3,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/tales3,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "y" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
+/obj/machinery/light/fueled/firebowl/standing/blue,
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "z" = (
-/turf/open/floor/rogue/blocks{
+/turf/open/floor/blocks{
 	icon_state = "paving"
 	},
 /area/rogue/outdoors/bog)
 "A" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "B" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "C" = (
 /obj/structure/bars/cemetery,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "D" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/xylix,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/xylix,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "F" = (
-/turf/open/floor/rogue/blocks{
+/turf/open/floor/blocks{
 	icon_state = "paving-t"
 	},
 /area/rogue/outdoors/bog)
 "H" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/arcyne,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/arcyne,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "I" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/nitebeast,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/nitebeast,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "L" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "M" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 1
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "N" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
 "O" = (
 /obj/structure/closet/crate/coffin,
-/obj/item/clothing/head/roguetown/helmet/heavy/necked/noc,
+/obj/item/clothing/head/helmet/heavy/necked/noc,
 /obj/item/clothing/ring/silver/noc,
-/obj/item/clothing/neck/roguetown/psycross/noc,
-/turf/open/floor/rogue/herringbone,
+/obj/item/clothing/neck/psycross/noc,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/bog)
 "Q" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/spider,
+/mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "R" = (
 /obj/structure/bookcase,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "S" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/beardling,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/beardling,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "U" = (
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "V" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "W" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/knowledge1,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/knowledge1,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "X" = (
 /obj/structure/mineral_door/bars,
-/turf/open/floor/rogue/blocks{
+/turf/open/floor/blocks{
 	icon_state = "paving-t"
 	},
 /area/rogue/outdoors/bog)
 "Y" = (
 /obj/structure/bookcase,
-/obj/item/book/rogue/robber,
-/turf/open/floor/rogue/blocks,
+/obj/item/book/robber,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/bog)
 "Z" = (
-/obj/structure/flora/roguegrass/water/reeds,
+/obj/structure/flora/grass/water/reeds,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
 

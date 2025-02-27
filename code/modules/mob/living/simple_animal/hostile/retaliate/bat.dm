@@ -21,7 +21,7 @@
 	melee_damage_upper = 5
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef= 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince/beef= 1)
 	pass_flags = PASSTABLE
 	faction = list("hostile")
 	attack_sound = 'sound/blank.ogg'

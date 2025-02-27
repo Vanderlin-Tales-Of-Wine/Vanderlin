@@ -1,26 +1,42 @@
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
-	desc = ""
+	desc = "Typical shoes worn by almost anyone."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
-	var/chained = 0
+
+	icon = 'icons/roguetown/clothing/feet.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/feet.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/feet.dmi'
+	sleevetype = "leg"
+	bloody_icon_state = "shoeblood"
+
+	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
+	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
 	body_parts_covered = FEET
 	slot_flags = ITEM_SLOT_SHOES
+	prevent_crits = list(BCLASS_LASHING, BCLASS_TWIST)
+	resistance_flags = FLAMMABLE
 
 	permeability_coefficient = 0.5
 	slowdown = SHOES_SLOWDOWN
 	strip_delay = 1 SECONDS
+	equip_delay_self = 3 SECONDS
+
+	grid_width = 64
+	grid_height = 32
+
+	smeltresult = /obj/item/ash
+	sellprice = 5
+
 	var/blood_state = BLOOD_STATE_NOT_BLOODY
 	var/list/bloody_shoes = list(BLOOD_STATE_MUD = 0, BLOOD_STATE_HUMAN = 0,BLOOD_STATE_XENO = 0, BLOOD_STATE_OIL = 0, BLOOD_STATE_NOT_BLOODY = 0)
 	var/offset = 0
 	var/equipped_before_drop = FALSE
 	var/can_be_bloody = TRUE
 	var/is_barefoot = FALSE
-	bloody_icon_state = "shoeblood"
-
-	grid_width = 64
-	grid_height = 32
+	var/chained = 0
 
 /obj/item/clothing/shoes/ComponentInitialize()
 	. = ..()

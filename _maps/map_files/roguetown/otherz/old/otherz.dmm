@@ -1,196 +1,196 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/effect/landmark/mapGenerator/rogue/cave/lava{
+/obj/effect/landmark/mapGenerator/cave/lava{
 	startTurfX = 129;
 	startTurfY = 130
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "ab" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/woods)
 "ac" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "ad" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "decap"
 	},
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/under/cavelava)
 "ae" = (
 /turf/open/water,
 /area/rogue/outdoors/woods)
 "af" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "ag" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/outdoors/woods)
 "ah" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bog)
 "ai" = (
-/turf/closed/mineral/random/rogue/med,
+/turf/closed/mineral/random/med,
 /area/rogue/under/cavewet)
 "aj" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/woods)
 "ak" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "al" = (
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
 "am" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/dirt,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "an" = (
-/turf/closed/mineral/rogue/coal,
+/turf/closed/mineral/coal,
 /area/rogue/outdoors/woods)
 "ao" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = null;
 	aportalid = "banditexit"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "ap" = (
 /turf/closed,
 /area/rogue/under/cavelava)
 "aq" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "ar" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "as" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains/decap)
 "at" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/outdoors/mountains/decap)
 "au" = (
 /turf/closed,
 /area/rogue/outdoors/woods)
 "av" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/under/cavelava)
 "aw" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/mountains/decap)
 "ax" = (
 /turf/closed,
 /area/rogue/under/cavewet)
 "ay" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cavelava)
 "az" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/indoors/cave)
 "aA" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/indoors/cave)
 "aB" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 8
 	},
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/under/cavelava)
 "aC" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "aD" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog)
 "aE" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
 "aF" = (
 /turf/closed,
 /area/rogue/outdoors/bog)
 "aG" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors/cave)
 "aH" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "aI" = (
 /turf/closed,
 /area/rogue/indoors/cave)
 "aJ" = (
 /obj/effect/landmark/start/adventurerlate,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aK" = (
-/turf/closed/mineral/random/rogue/med,
+/turf/closed/mineral/random/med,
 /area/rogue/outdoors/bog)
 "aL" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aM" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "forest"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aN" = (
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/outdoors/mountains/decap)
 "aO" = (
-/obj/effect/spawner/roguemap/pit,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/pit,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aP" = (
-/obj/effect/spawner/roguemap/pit,
-/turf/open/floor/rogue/dirt/road,
+/obj/effect/spawner/map_spawner/pit,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aQ" = (
-/obj/effect/spawner/roguemap/stump,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/stump,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aR" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saigabuck,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/retaliate/saigabuck,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
 "aS" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "aT" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains/decap)
 "aU" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "aV" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/outdoors/bog)
 "aW" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors/cave)
 "aX" = (
 /obj/structure/fluff/traveltile/bandit{
 	aportalgoesto = "banditin";
 	aportalid = "beandit"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "aY" = (
 /turf/open/water,
 /area/rogue/indoors/cave)
 "aZ" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/outdoors/bog)
 "ba" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/indoors/cave)
 "bb" = (
 /obj/structure/fluff/traveltile{
@@ -198,21 +198,21 @@
 	aportalgoesto = "volcanoout2";
 	aportalid = "volcanoin2"
 	},
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/under/cavelava)
 "bc" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "bogin2";
 	aportalid = "bogout2"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bd" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "bogout2";
 	aportalid = "bogin2"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "be" = (
 /obj/structure/fluff/traveltile{
@@ -220,7 +220,7 @@
 	aportalgoesto = "bogrtout";
 	aportalid = "bogrtin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "bf" = (
 /obj/structure/fluff/traveltile{
@@ -228,7 +228,7 @@
 	aportalgoesto = "volcanoout1";
 	aportalid = "volcanoin1"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/mountains/decap)
 "bg" = (
 /obj/structure/fluff/traveltile{
@@ -236,30 +236,30 @@
 	aportalgoesto = "rtforestout";
 	aportalid = "rtforestin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bh" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bi" = (
-/obj/effect/landmark/mapGenerator/rogue/cave{
+/obj/effect/landmark/mapGenerator/cave{
 	endTurfX = 126;
 	endTurfY = 254;
 	startTurfX = 2;
 	startTurfY = 130
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "bj" = (
-/obj/effect/landmark/mapGenerator/rogue/decap,
-/turf/closed/mineral/random/rogue/high,
+/obj/effect/landmark/mapGenerator/decap,
+/turf/closed/mineral/random/high,
 /area/rogue/outdoors/mountains/decap)
 "bk" = (
-/obj/effect/landmark/mapGenerator/rogue/decap,
-/turf/closed/mineral/rogue/bedrock,
+/obj/effect/landmark/mapGenerator/decap,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains/decap)
 "bl" = (
 /turf/open/transparent/openspace,
@@ -268,41 +268,41 @@
 /obj/effect/landmark/events/testportal{
 	aportalloc = "bog"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "bn" = (
-/obj/effect/landmark/mapGenerator/rogue/cave{
+/obj/effect/landmark/mapGenerator/cave{
 	endTurfX = 254;
 	endTurfY = 128;
 	startTurfX = 129
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "bo" = (
-/obj/effect/landmark/mapGenerator/rogue/bog{
+/obj/effect/landmark/mapGenerator/bog{
 	endTurfX = 127;
 	startTurfY = 130
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "bp" = (
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/chair/stool,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bq" = (
 /obj/effect/landmark/start/adventurerlate,
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/under/cavelava)
 "bs" = (
 /turf/open/water,
 /area/rogue/under/cavelava)
 "bt" = (
-/obj/machinery/light/rogue/campfire/densefire,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bu" = (
 /obj/structure/fluff/signage,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bv" = (
 /turf/open/lava,
@@ -314,10 +314,10 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/mountains/decap)
 "bz" = (
-/turf/closed/mineral/random/rogue/med,
+/turf/closed/mineral/random/med,
 /area/rogue/indoors/cave)
 "bA" = (
 /obj/structure/fluff/traveltile{
@@ -325,34 +325,34 @@
 	aportalgoesto = "rtforestout";
 	aportalid = "rtforestin"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
 "bB" = (
-/obj/effect/landmark/mapGenerator/rogue/forest{
+/obj/effect/landmark/mapGenerator/forest{
 	endTurfY = 128;
 	startTurfX = 128
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "bD" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/under/cavelava)
 "bE" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "bG" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "decapforin";
 	aportalid = "decapforout"
 	},
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/under/cavelava)
 "bH" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/under/cavewet)
 "bI" = (
 /obj/item/gun/ballistic/revolver,
-/turf/closed/mineral/random/rogue/med,
+/turf/closed/mineral/random/med,
 /area/rogue/under/cavewet)
 "bJ" = (
 /turf/open/transparent/openspace,
@@ -362,11 +362,11 @@
 	aportalgoesto = "decapforout";
 	aportalid = "decapforin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "bP" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods)
 "cp" = (
 /turf/closed/wall/shroud,
@@ -375,10 +375,10 @@
 /turf/open/lava,
 /area/rogue/under/cavelava)
 "cQ" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/under/cavelava)
 "cR" = (
-/turf/open/floor/rogue/volcanic,
+/turf/open/floor/volcanic,
 /area/rogue/under/cavelava)
 "cU" = (
 /turf/closed,
@@ -387,13 +387,13 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "gr" = (
 /obj/effect/landmark/start/adventurerlate{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Dk" = (
 /turf/closed/wall/shroud,

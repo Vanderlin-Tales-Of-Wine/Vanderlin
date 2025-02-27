@@ -1,0 +1,364 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/dirt,
+/area/rogue)
+"c" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/structure/flora/tree/wise{
+	desc = "You must be exactlyh 25 years old to play this game.";
+	name = "Woody"
+	},
+/turf/open/floor/dirt,
+/area/rogue)
+"m" = (
+/obj/effect/landmark/ambush,
+/turf/open/floor/dirt/road,
+/area/rogue)
+"q" = (
+/obj/structure/flora/newtree,
+/turf/open/floor/dirt/ambush,
+/area/rogue)
+"w" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/structure/flora/tree/evil,
+/turf/open/floor/dirt,
+/area/rogue)
+"y" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt,
+/area/rogue)
+"C" = (
+/turf/open/floor/dirt/road,
+/area/rogue)
+"E" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"F" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt,
+/area/rogue)
+"I" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"K" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt/ambush,
+/area/rogue)
+"L" = (
+/turf/open/floor/naturalstone,
+/area/rogue)
+"M" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/dirt/road,
+/area/rogue)
+"V" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt/road,
+/area/rogue)
+"Y" = (
+/turf/open/floor/dirt/ambush,
+/area/rogue)
+
+(1,1,1) = {"
+E
+C
+C
+M
+C
+C
+C
+E
+"}
+(2,1,1) = {"
+E
+F
+F
+a
+F
+a
+C
+E
+"}
+(3,1,1) = {"
+E
+F
+F
+F
+F
+K
+C
+E
+"}
+(4,1,1) = {"
+E
+F
+C
+C
+Y
+C
+C
+E
+"}
+(5,1,1) = {"
+E
+F
+m
+a
+F
+a
+F
+E
+"}
+(6,1,1) = {"
+E
+c
+C
+Y
+F
+F
+F
+E
+"}
+(7,1,1) = {"
+E
+a
+C
+C
+C
+C
+F
+E
+"}
+(8,1,1) = {"
+E
+F
+F
+F
+a
+m
+F
+E
+"}
+(9,1,1) = {"
+E
+C
+C
+C
+C
+C
+F
+E
+"}
+(10,1,1) = {"
+E
+C
+y
+y
+F
+q
+F
+E
+"}
+(11,1,1) = {"
+E
+m
+a
+F
+C
+C
+C
+E
+"}
+(12,1,1) = {"
+E
+C
+C
+C
+C
+a
+C
+E
+"}
+(13,1,1) = {"
+E
+F
+F
+F
+F
+w
+C
+E
+"}
+(14,1,1) = {"
+E
+F
+a
+F
+F
+F
+C
+E
+"}
+(15,1,1) = {"
+E
+C
+C
+V
+C
+C
+C
+E
+"}
+
+(1,1,2) = {"
+E
+L
+L
+L
+L
+L
+L
+E
+"}
+(2,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(3,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(4,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(5,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(6,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(7,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(8,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(9,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(10,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(11,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(12,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(13,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(14,1,2) = {"
+E
+I
+I
+I
+I
+I
+I
+E
+"}
+(15,1,2) = {"
+E
+L
+L
+L
+L
+L
+L
+E
+"}

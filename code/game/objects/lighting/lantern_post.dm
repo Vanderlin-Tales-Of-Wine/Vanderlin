@@ -1,4 +1,4 @@
-/obj/machinery/light/rogue/lanternpost
+/obj/machinery/light/fueled/lanternpost
 	name = "lantern post"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "streetlantern1"
@@ -13,11 +13,11 @@
 	cookonme = FALSE
 	var/permanent
 
-/obj/machinery/light/rogue/lanternpost/fixed
+/obj/machinery/light/fueled/lanternpost/fixed
 	desc = "The lamptern is permanently built into the structure of this one."
 	permanent = TRUE
 
-/obj/machinery/light/rogue/lanternpost/fire_act(added, maxstacks)
+/obj/machinery/light/fueled/lanternpost/fire_act(added, maxstacks)
 	if(torchy)
 		if(!on)
 			if(torchy.fuel > 0)
@@ -30,12 +30,12 @@
 					soundloop.start()
 				return TRUE
 
-/obj/machinery/light/rogue/lanternpost/Initialize()
+/obj/machinery/light/fueled/lanternpost/Initialize()
 	torchy = new /obj/item/flashlight/flare/torch/lantern(src)
 	torchy.spark_act()
 	. = ..()
 
-/obj/machinery/light/rogue/lanternpost/process()
+/obj/machinery/light/fueled/lanternpost/process()
 	if(on)
 		if(torchy)
 			if(torchy.fuel <= 0)
@@ -45,7 +45,7 @@
 		else
 			return PROCESS_KILL
 
-/obj/machinery/light/rogue/lanternpost/attack_hand(mob/user)
+/obj/machinery/light/fueled/lanternpost/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -58,7 +58,7 @@
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 100)
 
-/obj/machinery/light/rogue/lanternpost/update_icon()
+/obj/machinery/light/fueled/lanternpost/update_icon()
 	if(torchy)
 		if(on)
 			icon_state = "[base_state]1"
@@ -67,12 +67,12 @@
 	else
 		icon_state = "streetlantern"
 
-/obj/machinery/light/rogue/lanternpost/burn_out()
+/obj/machinery/light/fueled/lanternpost/burn_out()
 	if(torchy.on)
 		torchy.turn_off()
 	..()
 
-/obj/machinery/light/rogue/lanternpost/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/light/fueled/lanternpost/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/flashlight/flare/torch))
 		var/obj/item/flashlight/flare/torch/LR = W
 		if(torchy)
