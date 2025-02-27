@@ -7274,8 +7274,11 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "feg" = (
-/turf/open/floor/carpet,
-/area/rogue/indoors/town)
+/obj/structure/fluff/sellsign{
+	name = "TRAIN SERVICE TEMPORARILY RESTORED"
+	},
+/turf/open/floor/herringbone,
+/area/rogue/under/town/sewer)
 "feA" = (
 /obj/structure/bars/pipe{
 	dir = 6
@@ -26696,10 +26699,8 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
 "tAe" = (
-/obj/structure/fluff/sellsign{
-	name = "TRAIN SERVICE UNAVAILABLE"
-	},
-/turf/open/floor/herringbone,
+/obj/structure/far_travel,
+/turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "tAg" = (
 /obj/structure/fermentation_keg/random/water,
@@ -59006,7 +59007,7 @@ lfU
 ttL
 kDp
 hbV
-kDp
+tAe
 qXV
 qXV
 qXV
@@ -59208,8 +59209,8 @@ hHH
 qXV
 kDp
 hbV
-kDp
 tAe
+qXV
 qXV
 qXV
 vgJ
@@ -59410,7 +59411,7 @@ hHH
 qXV
 kDp
 hbV
-kDp
+tAe
 qXV
 qXV
 qXV
@@ -59613,7 +59614,7 @@ qXV
 kDp
 hbV
 kDp
-qXV
+feg
 qXV
 qXV
 qMe
@@ -96141,9 +96142,9 @@ ehF
 ehF
 fvJ
 ipI
-feg
-feg
-feg
+irl
+irl
+irl
 ipI
 fvJ
 pKx
@@ -96343,10 +96344,10 @@ lsl
 ehF
 fvJ
 dLL
-feg
-feg
-feg
-feg
+irl
+irl
+irl
+irl
 fvJ
 kmq
 coU
@@ -96545,10 +96546,10 @@ ehF
 ehF
 fvJ
 qiB
-feg
-feg
-feg
-feg
+irl
+irl
+irl
+irl
 fvJ
 pKx
 coU
@@ -130642,8 +130643,8 @@ acx
 fdp
 pQS
 dLL
-feg
-feg
+irl
+irl
 oiZ
 lGr
 gwF
@@ -130844,7 +130845,7 @@ acx
 fdp
 god
 qiB
-feg
+irl
 dRI
 oiZ
 doX
