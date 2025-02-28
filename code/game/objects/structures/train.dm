@@ -21,19 +21,19 @@
 	var/mob/living/carbon/human/departing_mob = dropping
 	var/datum/job/mob_job
 	if(departing_mob != user && departing_mob.client)
-		to_chat(user, span_warning("This one retains their free will. It's their choice if they want to leave the round or not."))
+		to_chat(user, span_warning("This one retains their free will. It's their choice if they want to leave for Kingsfield or not."))
 		return //prevents people from forceghosting others
 	if(departing_mob.stat == DEAD)
-		say("The dead cannot leave for Enigma, ensure they get a proper burial")
+		say("The dead cannot leave for Kingsfield, ensure they get a proper burial in Vanderlin.")
 		return
 	if(departing_mob.mind?.assigned_role in GLOB.noble_positions)
-		say("The Nobility cannot leave for Enigma, they must stay in Vanderlin.")
+		say("The Nobility cannot leave for Kingsfield, they must stay in Vanderlin.")
 		return //prevents noble roles from cryoing as per request of Aberra
-	if(alert("Are you sure you want to [departing_mob == user ? "leave for Enigma (you" : "send this person to Enigma (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
+	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
 		return //doublechecks that people actually want to leave the round
 	if(user.incapacitated() || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
 		return //Things have changed since the alert happened.
-	say("[user] [departing_mob == user ? "is trying to venture to Enigma!" : "is trying to send [departing_mob] to Enigma!"]")
+	say("[user] [departing_mob == user ? "is trying to leave for Kingsfield!" : "is trying to send [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
 	if(!do_after(user, 50, target = src))
 		in_use = FALSE
