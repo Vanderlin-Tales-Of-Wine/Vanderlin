@@ -50,12 +50,12 @@
 /* Paintings */
 /obj/item/painting/queen
 	icon_state = "queenpainting"
-	desc = "A portrait of Queen Samantha I of Psydonia. Her late husband would be so proud of what she has accomplished in his realm. These mass-reproduced paintings are unfortunately devalued."
+	desc = "A portrait of Queen Samantha I of Psydonia. Her sudden disappearance marked a day of tragedy and mourning still practiced to this year."
 	sellprice = 40
 	deployed_structure = /obj/structure/fluff/walldeco/painting/queen
 
 /obj/structure/fluff/walldeco/painting/queen
-	desc = "A portrait of Queen Samantha I of Enigma. Her late husband would be so proud of what she has accomplished in his realm."
+	desc = "A portrait of Queen Samantha I of Psydonia. Her sudden disappearance marked a day of tragedy and mourning still practiced to this year."
 	icon_state = "queenpainting_deployed"
 	stolen_painting = /obj/item/painting/queen
 

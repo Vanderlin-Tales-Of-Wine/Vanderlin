@@ -25,7 +25,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/smoketime = 15 // 10 seconds
 	w_class = WEIGHT_CLASS_TINY
 	heat = 1000
-	grind_results = list(/datum/reagent/phosphorus = 2)
 
 /obj/item/match/process()
 	smoketime--
@@ -113,7 +112,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "firebrand"
 	desc = ""
 	smoketime = 20 //40 seconds
-	grind_results = list(/datum/reagent/carbon = 2)
 
 /obj/item/match/firebrand/Initialize()
 	. = ..()
@@ -392,7 +390,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigbutt"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
-	grind_results = list(/datum/reagent/carbon = 2)
 	slot_flags = ITEM_SLOT_MOUTH
 	spitoutmouth = TRUE
 
@@ -548,7 +545,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	heat = 1500
 	resistance_flags = FIRE_PROOF
 	light_color = LIGHT_COLOR_FIRE
-	grind_results = list(/datum/reagent/iron = 1, /datum/reagent/fuel = 5, /datum/reagent/fuel/oil = 5)
 
 /obj/item/lighter/Initialize()
 	. = ..()

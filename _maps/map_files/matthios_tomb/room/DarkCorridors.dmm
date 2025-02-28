@@ -144,7 +144,7 @@
 /area/rogue)
 "lz" = (
 /obj/structure/stairs/stone{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/cobble,
 /area/rogue)
@@ -320,7 +320,7 @@
 /area/rogue)
 "CA" = (
 /obj/structure/stairs/stone{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/blocks,
 /area/rogue)

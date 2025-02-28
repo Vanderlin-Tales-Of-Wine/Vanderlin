@@ -103,7 +103,7 @@
 
 /datum/objective/vampirelord/conquer
 	name = "conquer"
-	explanation_text = "Make the Ruler of Enigma bow to my will."
+	explanation_text = "Make the Ruler of Vanderlin bow to my will."
 	team_explanation_text = ""
 	triumph_count = 5
 

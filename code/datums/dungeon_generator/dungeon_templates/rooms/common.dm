@@ -320,6 +320,27 @@
 	north_offset = 15
 	south_offset = 15
 
+/datum/map_template/dungeon/room/hctomb4
+	mappath = "_maps/map_files/matthios_tomb/room/hctomb4.dmm"
+	id = "hctomb4"
+	width = 30
+	height = 30
+
+	west_offset = 12
+	east_offset = 14
+	north_offset = 15
+	south_offset = 15
+
+/datum/map_template/dungeon/room/hctomb5
+	mappath = "_maps/map_files/matthios_tomb/room/hctomb5.dmm"
+	id = "hctomb5"
+	width = 20
+	height = 20
+
+	west_offset = 6
+	east_offset = 8
+	north_offset = 9
+
 /datum/map_template/dungeon/room/goblincamp
 	mappath = "_maps/map_files/matthios_tomb/room/goblincamp.dmm"
 	id = "goblincamp"
@@ -398,3 +419,25 @@
 	east_offset = 15
 	north_offset = 15
 	south_offset = 15
+
+/datum/map_template/dungeon/room/Goonies
+	mappath = "_maps/map_files/matthios_tomb/room/Goonies.dmm"
+	id = "Goonies"
+	width = 60
+	height = 40
+
+	west_offset = 21
+	east_offset = 20
+	north_offset = 30
+	south_offset = 30
+
+/datum/map_template/dungeon/room/SmithRest
+	mappath = "_maps/map_files/matthios_tomb/room/SmithRest.dmm"
+	id = "SmithRest"
+	width = 30
+	height = 30
+
+	west_offset = 14
+	east_offset = 14
+	north_offset = 14
+	south_offset = 14
