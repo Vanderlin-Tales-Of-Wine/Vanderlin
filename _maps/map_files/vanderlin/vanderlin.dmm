@@ -1098,10 +1098,6 @@
 	dir = 8
 	},
 /area/rogue/indoors/town)
-"aJz" = (
-/obj/structure/flora/grass,
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods_safe)
 "aJF" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
 /area/rogue/indoors/soilsons)
@@ -5161,10 +5157,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/town/roofs)
-"dHB" = (
-/obj/structure/flora/grass/bush,
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods_safe)
 "dIc" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -6779,11 +6771,14 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "eLl" = (
-/obj/structure/bed/hay,
-/obj/structure/fluff/walldeco/church/line,
-/obj/item/bedsheet/wool,
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/churchmarble,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "eLq" = (
 /obj/structure/chair/bench/church{
@@ -8093,10 +8088,6 @@
 "fGl" = (
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/shop)
-"fGp" = (
-/obj/structure/flora/grass/bush_meagre,
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods_safe)
 "fGr" = (
 /obj/structure/closet/crate/chest,
 /obj/item/grown/log/tree/stick,
@@ -9072,7 +9063,7 @@
 /area/rogue/indoors/town/tavern)
 "gte" = (
 /obj/machinery/light/fueled/wallfire/candle,
-/obj/structure/bed/shit,
+/obj/item/bin/water,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "gtj" = (
@@ -9493,10 +9484,6 @@
 	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
-"gGy" = (
-/obj/item/bin/water,
-/turf/open/floor/herringbone,
-/area/rogue/indoors/town/church)
 "gGF" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/item/storage/crucible/random{
@@ -11412,11 +11399,6 @@
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
-"ibm" = (
-/obj/structure/flora/newtree,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/dirt,
-/area/rogue/outdoors/woods_safe)
 "ibn" = (
 /turf/closed/mineral,
 /area/rogue/indoors/town/manor)
@@ -12773,7 +12755,6 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "iXp" = (
-/obj/structure/bed/shit,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = 32;
 	pixel_y = 0
@@ -16118,9 +16099,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/river)
-"lwZ" = (
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/woods_safe)
 "lxg" = (
 /obj/structure/mineral_door/wood/violet{
 	locked = 1;
@@ -18822,17 +18800,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/magician)
-"nAJ" = (
-/obj/structure/bed/hay,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1
-	},
-/obj/effect/landmark/start/monk{
-	dir = 1
-	},
-/obj/item/bedsheet/wool,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors/town/church)
 "nAS" = (
 /obj/structure/mineral_door/wood/window{
 	lockid = "tailor";
@@ -20397,13 +20364,6 @@
 	icon_state = "tile"
 	},
 /area/rogue/indoors/town/tavern)
-"oLk" = (
-/obj/structure/flora/newtree,
-/obj/structure/fluff/walldeco/vinez{
-	dir = 6
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/woods_safe)
 "oLs" = (
 /turf/open/floor/churchrough,
 /area/rogue/under/town/sewer)
@@ -22110,10 +22070,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
-"qcM" = (
-/obj/structure/flora/grass,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors/woods_safe)
 "qcR" = (
 /obj/structure/table/wood{
 	icon_state = "longtable_mid";
@@ -22574,10 +22530,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
-"qun" = (
-/obj/structure/flora/grass/bush,
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors/woods_safe)
 "quu" = (
 /obj/item/bin/water,
 /turf/open/floor/tile/bfloorz,
@@ -31894,9 +31846,6 @@
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
-"wUa" = (
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors/woods_safe)
 "wUo" = (
 /obj/structure/table/wood/large/corner{
 	dir = 5
@@ -142001,7 +141950,7 @@ sXF
 hGo
 aqC
 eyC
-kIV
+eyC
 vgJ
 vgJ
 vgJ
@@ -142193,7 +142142,7 @@ vgJ
 vgJ
 vgJ
 eyC
-wUa
+kMP
 eyC
 oXG
 kMP
@@ -142394,19 +142343,19 @@ vgJ
 vgJ
 eyC
 eyC
-iSK
-qcM
+eyC
+aqC
 aqC
 kMP
 xoL
 hGo
 sXF
 cFN
-wUa
+kMP
 ujr
 lKN
-wUa
-iSK
+kMP
+eyC
 eyC
 vgJ
 vgJ
@@ -142604,11 +142553,11 @@ ujr
 hGo
 cFN
 cFN
-wUa
+kMP
 aqC
 eWr
 epy
-iSK
+eyC
 eyC
 vgJ
 vgJ
@@ -142796,21 +142745,21 @@ vgJ
 vgJ
 eyC
 eyC
-wUa
+kMP
 eyC
-lwZ
+kMP
 ujr
 uip
 hGo
-lwZ
+kMP
 hGo
 cFN
 cFN
 epy
 hGo
 ujr
-aJz
-lwZ
+aqC
+kMP
 eyC
 eyC
 vgJ
@@ -143001,21 +142950,21 @@ kMP
 hGo
 kMP
 eyC
-lwZ
-wUa
+kMP
+kMP
 epy
-lwZ
+kMP
 hGo
 sXF
 cFN
-lwZ
+kMP
 hGo
 kMP
 eyC
 gCU
 oXG
-kIV
-kIV
+eyC
+eyC
 vgJ
 vgJ
 vgJ
@@ -143198,13 +143147,13 @@ qMe
 vgJ
 eyC
 eyC
-lwZ
+kMP
 jgQ
 aqC
 epy
 kMP
 uip
-wUa
+kMP
 kMP
 aqC
 hGo
@@ -143397,10 +143346,10 @@ iSk
 iSk
 qMe
 vgJ
-kIV
+eyC
 eyC
 aqC
-lwZ
+kMP
 eyC
 ujr
 kMP
@@ -143408,11 +143357,11 @@ uip
 lGR
 kMP
 eyC
-wUa
-wUa
+kMP
+kMP
 cFN
 sXF
-wUa
+kMP
 spz
 uip
 ptq
@@ -143602,7 +143551,7 @@ vgJ
 eyC
 kMP
 ujr
-wUa
+kMP
 kMP
 oXG
 jgQ
@@ -143614,13 +143563,13 @@ msC
 oXG
 sXF
 cFN
-wUa
+kMP
 jgQ
 kMP
 uip
 lGR
-lwZ
-lwZ
+kMP
+kMP
 eyC
 eyC
 vgJ
@@ -143799,10 +143748,10 @@ iSk
 iSk
 kMP
 epy
-wUa
-wUa
+kMP
+kMP
 lKN
-lwZ
+kMP
 sWl
 kMP
 eyC
@@ -143818,7 +143767,7 @@ cFN
 cFN
 kMP
 kMP
-lwZ
+kMP
 eyC
 lKN
 xoL
@@ -144003,13 +143952,13 @@ hGo
 ujr
 epy
 aqC
-lwZ
+kMP
 ujr
 hGo
 aqC
 kMP
-wUa
-wUa
+kMP
+kMP
 ujr
 hGo
 sXF
@@ -144206,8 +144155,8 @@ hGo
 hGo
 kMP
 hGo
-wUa
-wUa
+kMP
+kMP
 kMP
 hGo
 sXF
@@ -144230,7 +144179,7 @@ hGo
 eyC
 jgQ
 sDY
-iSK
+eyC
 jgQ
 kMP
 eyC
@@ -144434,15 +144383,15 @@ sXF
 eTC
 kMP
 aqC
-dHB
+ujr
 hGo
-wUa
-hZH
-gSl
-oLk
 kMP
-wUa
-mPB
+hZH
+eyC
+doR
+pmH
+pmH
+ujr
 hGo
 hGo
 hGo
@@ -144639,9 +144588,9 @@ sXF
 sXF
 sXF
 hGo
-pmH
 kMP
-fQt
+kMP
+lKN
 hGo
 sXF
 sXF
@@ -144806,7 +144755,7 @@ loN
 loN
 loN
 hGo
-lwZ
+kMP
 ujr
 hGo
 sXF
@@ -144823,13 +144772,13 @@ sXF
 sXF
 sXF
 sXF
-wUa
+kMP
 hGo
 kMP
 sXF
 sXF
 sXF
-wUa
+kMP
 sXF
 sXF
 sXF
@@ -145008,7 +144957,7 @@ loN
 loN
 hGo
 hGo
-lwZ
+kMP
 aqC
 xoL
 hGo
@@ -145018,28 +144967,28 @@ hGo
 sXF
 lKN
 hGo
-aJz
 aqC
-ibm
-wUa
+aqC
+xoL
+kMP
 euv
 sXF
 hGo
-lwZ
+kMP
 eWr
 ujr
 kMP
 eyC
-lwZ
-wUa
+kMP
+kMP
 uTe
 hGo
 jgQ
 kMP
 hGo
 jgQ
-lwZ
-xtt
+kMP
+aqC
 iVE
 sXF
 sXF
@@ -145208,10 +145157,10 @@ wMs
 msC
 loN
 hGo
-iSK
+eyC
 kMP
 hGo
-wUa
+kMP
 hGo
 hGo
 kMP
@@ -145222,17 +145171,17 @@ kZl
 kZl
 lQB
 lQB
-wUa
-wUa
+kMP
+kMP
 hGo
 sXF
 sXF
 hGo
-lwZ
+kMP
 ujr
-wUa
+kMP
 hGo
-lwZ
+kMP
 eyC
 kMP
 kMP
@@ -145242,16 +145191,16 @@ eyC
 jgQ
 eyC
 eyC
-iSK
-qun
+eyC
+ujr
 hGo
 iVE
 gSl
 eyC
-aJz
+aqC
 msC
 egH
-eva
+epy
 kMP
 gSl
 wPa
@@ -145414,8 +145363,8 @@ epy
 aqC
 kMP
 oXG
-lwZ
-qcM
+kMP
+aqC
 hGo
 sXF
 kMP
@@ -145432,7 +145381,7 @@ vHh
 aqC
 epy
 lKN
-wUa
+kMP
 kMP
 aeT
 aeT
@@ -145452,8 +145401,8 @@ eyC
 jgQ
 eyC
 eyC
-gSl
-gSl
+eyC
+eyC
 jgQ
 jgQ
 eyC
@@ -145617,7 +145566,7 @@ hGo
 lKN
 eyC
 epy
-wUa
+kMP
 hGo
 sXF
 sWl
@@ -145640,7 +145589,7 @@ aeT
 aeT
 aeT
 eyC
-lwZ
+kMP
 eyC
 eyC
 vgJ
@@ -145841,7 +145790,7 @@ aeT
 aeT
 aeT
 aeT
-lwZ
+kMP
 eWr
 jgQ
 vgJ
@@ -146043,7 +145992,7 @@ aeT
 aeT
 aeT
 hGo
-qcM
+aqC
 hZH
 jgQ
 vgJ
@@ -146236,9 +146185,9 @@ lQB
 kMP
 aqC
 hGo
-wUa
-wUa
-wUa
+kMP
+kMP
+kMP
 kMP
 aeT
 aeT
@@ -146438,7 +146387,7 @@ kMP
 hGo
 kMP
 eyC
-lwZ
+kMP
 eyC
 kMP
 jgQ
@@ -146446,7 +146395,7 @@ aeT
 aeT
 kMP
 xOn
-lwZ
+kMP
 eyC
 eyC
 vgJ
@@ -146634,20 +146583,20 @@ kMP
 aqC
 kMP
 kMP
-wUa
-wUa
+kMP
+kMP
 hGo
-wUa
+kMP
 kMP
 aqC
-lwZ
+kMP
 msC
 hGo
 kMP
 kMP
 eyC
-lwZ
-lwZ
+kMP
+kMP
 eyC
 eyC
 vgJ
@@ -146835,8 +146784,8 @@ fYR
 sXF
 sXF
 kMP
-fGp
-aJz
+epy
+aqC
 kMP
 hGo
 epy
@@ -146846,8 +146795,8 @@ oXG
 hGo
 kMP
 epy
-aJz
-wUa
+aqC
+kMP
 lKN
 eyC
 eyC
@@ -147038,17 +146987,17 @@ fYR
 kMP
 eyC
 eyC
-iSK
+eyC
 lKN
 hGo
 hGo
 hGo
 hGo
 doR
-lwZ
+kMP
 eyC
 kMP
-lwZ
+kMP
 jgQ
 jgQ
 eyC
@@ -147240,7 +147189,7 @@ fYR
 nEW
 eyC
 eyC
-iSK
+eyC
 eyC
 eyC
 eyC
@@ -147444,8 +147393,8 @@ vgJ
 vgJ
 eyC
 eyC
-iSK
-iSK
+eyC
+eyC
 eyC
 eyC
 aqC
@@ -151030,9 +150979,9 @@ iTz
 mKJ
 vMn
 vlf
-mGc
 pHr
-gGy
+pHr
+pHr
 pHr
 mGc
 nLu
@@ -151435,7 +151384,7 @@ bwk
 vMn
 vlf
 mJO
-mGc
+pHr
 iXp
 mGc
 mJO
@@ -191030,9 +190979,9 @@ vlf
 iTz
 sSs
 een
-uXF
+rtH
 sSs
-ope
+vUd
 woh
 vlf
 uVx
@@ -191234,7 +191183,7 @@ sGB
 vlf
 eLl
 sSs
-nAJ
+wgE
 mJO
 mJO
 uVx
