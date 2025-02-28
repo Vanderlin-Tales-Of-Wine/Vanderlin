@@ -45,6 +45,13 @@
 	try_metal_merge()
 	find_largest_metal()
 
+/datum/reagent/molten_metal/on_temp_change(chem_temp)
+	. = ..()
+	if(!chem_temp)
+		return
+	try_metal_merge()
+	find_largest_metal()
+
 
 /datum/reagent/molten_metal/proc/try_metal_merge()
 	for(var/datum/molten_recipe/recipe as anything in GLOB.molten_recipes)

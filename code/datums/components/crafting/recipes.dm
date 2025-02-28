@@ -10,7 +10,7 @@
 	var/chem_catalysts[] = list() //like tools but for reagents
 	var/category = CAT_NONE //where it shows up in the crafting UI
 	var/subcategory = CAT_NONE
-	var/always_availible = FALSE //Set to FALSE if it needs to be learned first.
+	var/always_availible = TRUE //Set to FALSE if it needs to be learned first.
 	var/ontile = FALSE		//crafted on our tile instead of in front of us
 	var/req_table = FALSE
 	var/skillcraft = /datum/skill/craft/crafting
@@ -24,14 +24,3 @@
 	var/craftdiff = 1
 	var/sellprice = 0
 	//crafting diff, every diff removes 25% chance to craft
-/*
-/datum/crafting_recipe/example
-	name = ""
-	result = /obj/item/stuff
-	reqs = list(/obj/item/gun = 1)
-	parts = list(/obj/item/gun = 1)
-	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	time = 5 SECONDS
-	category = CAT_NONE
-	subcategory = CAT_NONE
-*/

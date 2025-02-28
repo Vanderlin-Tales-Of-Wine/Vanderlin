@@ -10,22 +10,22 @@
 		"Elf")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
-	outfit = /datum/outfit/job/roguetown/serjeant_at_arms
+	outfit = /datum/outfit/job/serjeant_at_arms
 
-/datum/outfit/job/roguetown/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	head = /obj/item/clothing/head/helmet/leather
+	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/half/vet
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guardsecond
-	armor = /obj/item/clothing/suit/roguetown/armor/medium/scale
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/sword/arming
+	shirt = /obj/item/clothing/shirt/undershirt/guardsecond
+	armor = /obj/item/clothing/armor/medium/scale
+	neck = /obj/item/clothing/neck/gorget
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
+	beltr = /obj/item/weapon/sword/arming
 	beltl = /obj/item/storage/keyring/guard
-	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1, /obj/item/signal_horn = 1)
+	backl = /obj/item/storage/backpack/satchel
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -61,7 +61,7 @@
 /datum/migrant_role/archer_bannerman
 	name = "Bannermen Archer"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
-	outfit = /datum/outfit/job/roguetown/archer_bannerman
+	outfit = /datum/outfit/job/archer_bannerman
 	allowed_races = list("Humen",
 		"Dwarf",
 		"Aasimar",
@@ -69,23 +69,23 @@
 		"Elf")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
-/datum/outfit/job/roguetown/archer_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/trou/leather
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
+	pants = /obj/item/clothing/pants/trou/leather
+	armor = /obj/item/clothing/armor/leather/hide
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	shirt = /obj/item/clothing/shirt/shortshirt/merc
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/guard
 	beltr = /obj/item/ammo_holder/quiver/arrows
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
 	if(prob(30))
-		head = /obj/item/clothing/head/roguetown/helmet/kettle
+		head = /obj/item/clothing/head/helmet/kettle
 	else
-		head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
+		head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -112,29 +112,29 @@
 /datum/migrant_role/crossbow_bannerman
 	name = "Bannermen Crossbowman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
-	outfit = /datum/outfit/job/roguetown/crossbow_bannerman
+	outfit = /datum/outfit/job/crossbow_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
 
-/datum/outfit/job/roguetown/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/trou/leather
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
+	pants = /obj/item/clothing/pants/trou/leather
+	armor = /obj/item/clothing/armor/leather/hide
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
+	shirt = /obj/item/clothing/shirt/shortshirt/merc
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
+	pants = /obj/item/clothing/pants/trou/leather
 	beltl = /obj/item/storage/keyring/guard
 	beltr = /obj/item/ammo_holder/quiver/bolts
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	backpack_contents = list(/obj/item/rogueweapon/knife/dagger/steel/special = 1)
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
 	if(prob(30))
-		head = /obj/item/clothing/head/roguetown/helmet/kettle
+		head = /obj/item/clothing/head/helmet/kettle
 	else
-		head = pick(/obj/item/clothing/head/roguetown/roguehood/guard, /obj/item/clothing/head/roguetown/roguehood/guardsecond)
+		head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -161,24 +161,24 @@
 /datum/migrant_role/footman_bannerman
 	name = "Bannermen Footman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
-	outfit = /datum/outfit/job/roguetown/footman_bannerman
+	outfit = /datum/outfit/job/footman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
 
-/datum/outfit/job/roguetown/footman_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/footman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/cuirass
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	head = /obj/item/clothing/head/roguetown/helmet/nasal
-	backr = /obj/item/rogueweapon/shield/wood
-	beltr = /obj/item/rogueweapon/sword/scimitar/messer
-	beltl = /obj/item/rogueweapon/mace
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	armor = /obj/item/clothing/armor/cuirass
+	shirt = /obj/item/clothing/armor/chainmail
+	neck = /obj/item/clothing/neck/gorget
+	head = /obj/item/clothing/head/helmet/nasal
+	backr = /obj/item/weapon/shield/wood
+	beltr = /obj/item/weapon/sword/scimitar/messer
+	beltl = /obj/item/weapon/mace
+	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
@@ -201,22 +201,22 @@
 /datum/migrant_role/pikeman_bannerman
 	name = "Bannermen Pikeman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
-	outfit = /datum/outfit/job/roguetown/pikeman_bannerman
+	outfit = /datum/outfit/job/pikeman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
 	show_wanderer_examine = FALSE
 
-/datum/outfit/job/roguetown/pikeman_bannerman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/pikeman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	head = /obj/item/clothing/head/roguetown/helmet/kettle
-	beltr = /obj/item/rogueweapon/sword/scimitar/messer
-	pants = /obj/item/clothing/under/roguetown/trou/leather
+	armor = /obj/item/clothing/armor/chainmail
+	shirt = /obj/item/clothing/armor/gambeson
+	neck = /obj/item/clothing/neck/gorget
+	head = /obj/item/clothing/head/helmet/kettle
+	beltr = /obj/item/weapon/sword/scimitar/messer
+	pants = /obj/item/clothing/pants/trou/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
@@ -239,9 +239,9 @@
 	var/weapontype = pickweight(list("Spear" = 6, "Bardiche" = 4))
 	switch(weapontype)
 		if("Spear")
-			backr = /obj/item/rogueweapon/polearm/spear
+			backr = /obj/item/weapon/polearm/spear
 		if("Bardiche")
-			backr = /obj/item/rogueweapon/polearm/halberd/bardiche
+			backr = /obj/item/weapon/polearm/halberd/bardiche
 
 /datum/migrant_wave/returning_bannermen
 	name = "The Bannermen's return"

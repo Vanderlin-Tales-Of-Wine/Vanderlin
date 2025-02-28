@@ -36,7 +36,7 @@
 		span_warning("Something was knocked over!")
 	)
 	new /obj/effect/decal/cleanable/dyes(get_turf(src))
-	var/obj/item/roguebin/I = new(loc)
+	var/obj/item/bin/I = new(loc)
 	I.kover = TRUE
 	I.update_icon()
 	return ..()
@@ -262,7 +262,7 @@
 
 /obj/item/dye_pack/luxury
 	name = "luxury dyes"
-	desc = "An assortment of rich, colorful dyes, hailing from all across Enigma. This would certainly cost a pretty zenny."
+	desc = "An assortment of rich, colorful dyes, hailing from all across Psydonia. This would certainly cost a pretty zenny."
 	icon_state = "luxury_dyes"
 	sellprice = 30
 

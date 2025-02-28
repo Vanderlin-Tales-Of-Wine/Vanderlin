@@ -34,6 +34,15 @@
 		action = new base_action(src)
 	update_icon()
 
+/obj/effect/proc_holder/spell/update_icon()
+	if(!action)
+		return
+	action.button_icon_state = "[base_icon_state][active]"
+	if(overlay_state)
+		action.overlay_state = overlay_state
+	action.name = name
+	action.UpdateButtonIcon()
+
 /obj/effect/proc_holder/proc/deactivate(mob/living/user)
 	if(active)
 		active = FALSE

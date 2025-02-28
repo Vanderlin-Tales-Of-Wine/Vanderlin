@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(molten_recipes, list())
 	if(!length(cared_values) == length(materials_required))
 		return
 
-	var/smallest_multiplier = 1
+	var/smallest_multiplier = 0
 	for(var/datum/material/material as anything in materials_copy)
 		if(cared_values[material] < materials_copy[material])
 			return

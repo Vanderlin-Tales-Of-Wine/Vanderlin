@@ -45,7 +45,7 @@
 
 	if(NewLoc)
 		var/NewLocTurf = get_turf(NewLoc)
-		if(istype(NewLocTurf, /turf/closed/mineral/rogue/bedrock)) // prevent going out of bounds.
+		if(istype(NewLocTurf, /turf/closed/mineral/bedrock)) // prevent going out of bounds.
 			return
 		if(istype(NewLocTurf, /turf/closed/wall)) // gas can go through doors/windows but not walls
 			return
@@ -68,7 +68,7 @@
 
 
 
-/obj/item/roguecoin/silver/pile/xylix/Initialize()
+/obj/item/coin/silver/pile/xylix/Initialize()
 	. = ..()
 	set_quantity(rand(6,9))
 
@@ -177,12 +177,12 @@
 
 
 /*	..................   Various mapping aides   ................... */
-/obj/machinery/light/rogue/wallfire/big_fireplace
+/obj/machinery/light/fueled/wallfire/big_fireplace
 	icon_state = "fireplace1"
 	base_state = "fireplace"
 	icon = 'icons/roguetown/misc/fireplace64.dmi'
 
-/obj/machinery/light/rogue/hearth/big_fireplace
+/obj/machinery/light/fueled/hearth/big_fireplace
 	name = "fireplace"
 	icon_state = "fireplace1"
 	base_state = "fireplace"
@@ -325,33 +325,33 @@
 //	user.visible_message(span_noticesmall("[user] searches through [src]."))
 //	shake_camera(user, 2, 2)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/attackby(obj/item, /mob/living/user, params)
 //	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
 //	shake_camera(user, 2, 2)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/Bumped(atom/movable/AM)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	sleep(4)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
 	qdel(src)
 
 
 
 /*	..................   Misc   ................... */
-/obj/item/roguestatue/silver/gnome
+/obj/item/statue/silver/gnome
 	name = "petrified gnome"
 	desc = "A literal gnome, turned to stone mid-step and put on a matching stone platform. Rather unsettling."
 	smeltresult = null

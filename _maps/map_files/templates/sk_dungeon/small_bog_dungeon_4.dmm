@@ -4,131 +4,131 @@
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
-/obj/item/roguecoin/gold,
-/turf/open/floor/rogue/herringbone,
+/obj/item/coin/gold,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "b" = (
-/obj/structure/flora/roguetree/evil,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree/evil,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "d" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/flare/torch/metal,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "e" = (
 /obj/structure/spider/cocoon,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "f" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "g" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
+/obj/machinery/light/fueled/firebowl/standing/blue,
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 1
 	},
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "h" = (
-/obj/item/rogueweapon/pick,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/weapon/pick,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "i" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "j" = (
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "k" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "l" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/bog)
 "m" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "n" = (
 /obj/structure/closet/crate/coffin,
-/obj/item/clothing/head/roguetown/crown/circlet/sleepless,
-/turf/open/floor/rogue/herringbone,
+/obj/item/clothing/head/crown/circlet/sleepless,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "o" = (
-/obj/item/clothing/head/roguetown/helmet/skullcap,
-/turf/open/floor/rogue/blocks,
+/obj/item/clothing/head/helmet/skullcap,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "p" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "q" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/caves)
 "r" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "s" = (
 /obj/structure/table/wood,
 /obj/item/clothing/ring/silver,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "t" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "u" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
+/obj/machinery/light/fueled/firebowl/standing/blue,
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = 32
 	},
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "v" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "w" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	icon_state = "cobweb2"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "x" = (
 /obj/structure/mineral_door/bars{
 	locked = 1
 	},
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "y" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "A" = (
 /obj/structure/spider/stickyweb,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "B" = (
 /obj/structure/bars/cemetery,
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "C" = (
 /obj/structure/spider/cocoon,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "D" = (
 /turf/open/water/swamp,
@@ -139,89 +139,89 @@
 "G" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "H" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/blocks,
+/obj/structure/bed/shit,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "I" = (
-/turf/open/floor/rogue/herringbone,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "J" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "K" = (
 /obj/item/natural/rock,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "L" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "M" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
-/turf/open/floor/rogue/naturalstone,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "N" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "O" = (
-/turf/closed/wall/mineral/rogue/craftstone,
+/turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/caves)
 "P" = (
 /obj/structure/mineral_door/wood/violet{
 	locked = 1
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "Q" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "R" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
-/turf/open/floor/rogue/blocks,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "S" = (
 /obj/structure/fluff/railing/fence,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "T" = (
 /obj/item/flashlight/flare/torch/lantern,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "U" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "V" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/outdoors/caves)
 "W" = (
 /obj/structure/spider/stickyweb/solo,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "X" = (
 /obj/structure/table/wood,
-/obj/item/clothing/neck/roguetown/psycross/silver,
-/turf/open/floor/rogue/herringbone,
+/obj/item/clothing/neck/psycross/silver,
+/turf/open/floor/herringbone,
 /area/rogue/outdoors/caves)
 "Y" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
 /obj/item/flint,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/blocks,
 /area/rogue/outdoors/caves)
 "Z" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 
 (1,1,1) = {"

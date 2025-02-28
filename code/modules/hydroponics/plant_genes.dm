@@ -153,11 +153,6 @@
 			return FALSE
 	return TRUE
 
-/datum/plant_gene/reagent/liquidelectricity
-	name = "Liquid Electricity"
-	reagent_id = /datum/reagent/consumable/liquidelectricity
-	rate = 0.1
-
 // Various traits affecting the product.
 /datum/plant_gene/trait
 	var/rate = 0.05

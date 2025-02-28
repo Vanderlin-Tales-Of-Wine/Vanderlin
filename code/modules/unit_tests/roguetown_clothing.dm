@@ -50,7 +50,7 @@
 
 			var/female = FALSE
 
-			if(istype(obj_path, /obj/item/clothing/cloak) || istype(obj_path, /obj/item/clothing/shoes) || istype(obj_path, /obj/item/clothing/gloves) || istype(obj_path, /obj/item/clothing/under) ||istype(obj_path, /obj/item/clothing/suit))
+			if(istype(obj_path, /obj/item/clothing/cloak) || istype(obj_path, /obj/item/clothing/shoes) || istype(obj_path, /obj/item/clothing/gloves) || istype(obj_path, /obj/item/clothing/pants) ||istype(obj_path, /obj/item/clothing/shirt))
 				female = TRUE
 
 			var/match_message
@@ -92,7 +92,7 @@
 				if(!initial(species.custom_clothes))
 					continue
 
-				if(istype(obj_path, /obj/item/clothing/cloak) || istype(obj_path, /obj/item/clothing/shoes) || istype(obj_path, /obj/item/clothing/gloves) || istype(obj_path, /obj/item/clothing/under) ||istype(obj_path, /obj/item/clothing/suit))
+				if(istype(obj_path, /obj/item/clothing/cloak) || istype(obj_path, /obj/item/clothing/shoes) || istype(obj_path, /obj/item/clothing/gloves) || istype(obj_path, /obj/item/clothing/pants) ||istype(obj_path, /obj/item/clothing/shirt))
 					var/species_icon_state = "[icon_state]_[initial(species.id)]"
 
 					if(species_icon_state in possible_icon_states)

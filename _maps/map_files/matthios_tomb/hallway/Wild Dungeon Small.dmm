@@ -1,243 +1,243 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bG" = (
-/obj/structure/flora/roguegrass/bush,
+/obj/structure/flora/grass/bush,
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "dC" = (
-/obj/structure/flora/roguegrass/herb/artemisia,
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/herb/artemisia,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "eg" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "eE" = (
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "hr" = (
-/obj/structure/flora/roguegrass/herb/matricaria,
+/obj/structure/flora/grass/herb/matricaria,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "hz" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grass/mixyel,
+/obj/structure/flora/grass,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "ie" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "jd" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/flora/roguegrass/herb/salvia,
-/turf/open/floor/rogue/cobble/mossy,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/salvia,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "jp" = (
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "kw" = (
 /obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "lw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/obj/structure/flora/roguegrass/herb/calendula,
-/turf/open/floor/rogue/grass/mixyel,
+/obj/structure/flora/grass/herb/calendula,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "mL" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "nF" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "nN" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/flora/roguegrass/herb/mentha,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/mentha,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "oI" = (
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "pl" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "qd" = (
-/obj/structure/flora/roguegrass/pyroclasticflowers,
-/turf/open/floor/rogue/grass/mixyel,
+/obj/structure/flora/grass/pyroclasticflowers,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "tp" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "tB" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "wJ" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 4
 	},
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "wO" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "wS" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "yz" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "Aj" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/grass/mixyel,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "CV" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass/herb/hypericum,
-/turf/open/floor/rogue/cobble/mossy,
+/obj/structure/flora/grass/herb/hypericum,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "DJ" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "DR" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "EI" = (
-/obj/structure/flora/roguegrass,
+/obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "Fo" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "Fy" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass,
+/obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "Gg" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grass/mixyel,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "HI" = (
-/obj/structure/flora/roguegrass/herb/valeriana,
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/herb/valeriana,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Ig" = (
 /obj/structure/fluff/statue/gargoyle/moss/candles,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "IZ" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "Kl" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Ld" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Lf" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/cobble/mossy,
+/obj/structure/flora/grass,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "Lg" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "MG" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass/bush,
+/obj/structure/flora/grass/bush,
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "Oc" = (
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "OM" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/flora/roguegrass/bush,
+/obj/structure/flora/grass/bush,
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "PL" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "QL" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "RY" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "TD" = (
 /obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Up" = (
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Vz" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
-/turf/open/floor/rogue/grass/mixyel,
+/mob/living/simple_animal/hostile/retaliate/wolf,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "VW" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
 "Xz" = (
-/obj/structure/flora/roguegrass,
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "XI" = (
-/obj/structure/flora/roguegrass/pyroclasticflowers,
+/obj/structure/flora/grass/pyroclasticflowers,
 /obj/structure/flora/ausbushes/grassybush,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "YD" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/lavendergrass,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Ze" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
 /area/rogue/under/cave)
 "Zv" = (
-/obj/structure/flora/roguegrass,
+/obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/rogue/grass/mixyel,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 
 (1,1,1) = {"
