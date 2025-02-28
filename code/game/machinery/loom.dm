@@ -9,8 +9,8 @@
 	density = TRUE
 
 /obj/machinery/loom/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/natural/bundle/fibers))
-		var/obj/item/natural/bundle/fibers/W = I
+	if(istype(I, /obj/item/bundle/fibers))
+		var/obj/item/bundle/fibers/W = I
 		if(src.storedfiber + W.amount > src.maxfiber)
 			W.amount = (W.amount - (src.maxfiber - src.storedfiber))
 			to_chat(user, "You string some fiber onto [src].")
