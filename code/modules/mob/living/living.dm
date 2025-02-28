@@ -397,6 +397,7 @@
 			M.visible_message(span_warning("[M] slips from [src]'s grip."), \
 					span_warning("I slip from [src]'s grab."))
 			log_combat(src, M, "tried grabbing", addition="passive grab")
+			stop_pulling()
 			return
 
 		log_combat(src, M, "grabbed", addition="passive grab")
