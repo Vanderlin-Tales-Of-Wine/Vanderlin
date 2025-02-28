@@ -2,10 +2,9 @@
 	title = "Scribe"
 	flag = SCRIBE
 	department_flag = SERFS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
-
 
 	outfit = /datum/outfit/job/scribe
 	outfit_female = /datum/outfit/job/scribe/female

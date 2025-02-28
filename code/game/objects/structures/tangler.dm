@@ -4,7 +4,7 @@
 	icon = 'icons/roguetown/mob/monster/tangler.dmi'
 	icon_state = "tangler_hidden"
 	max_integrity = 5
-	var/faction = list("plants")
+	var/faction = list(FACTION_PLANTS)
 
 /obj/structure/flora/grass/tangler/update_icon()
 	return
@@ -102,7 +102,7 @@
 			return
 		if(istype(AM, /mob/living))
 			var/mob/living/L = AM
-			if("plants" in L.faction)
+			if(FACTION_PLANTS in L.faction)
 				return
 			if(!aggroed)
 				if(L.m_intent != MOVE_INTENT_RUN)

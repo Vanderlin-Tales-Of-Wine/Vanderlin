@@ -20521,8 +20521,8 @@
 	})
 "vfj" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/bath/soap,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/bath/redhouse)
 "vfu" = (

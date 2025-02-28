@@ -1,8 +1,14 @@
 /datum/job/squire
 	title = "Squire"
+	tutorial = "You've always had greater aspirations than the simple life of a peasant. \n\
+	You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. \n\
+	The Captain took notice of your potential, and recruited you as a personal ward. \
+	\n\n\
+	Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
 	flag = SQUIRE
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 
@@ -14,8 +20,6 @@
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)
-
-	tutorial = "You've always had greater aspirations than the simple life of a peasant. You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. The Captain took notice of your potential, and recruited you as a personal ward. Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
 
 	outfit = /datum/outfit/job/squire
 	display_order = JDO_SQUIRE
@@ -34,13 +38,11 @@
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/mguard
 
-/datum/job/squire/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/squire/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 /datum/advclass/squire/lancer
 	name = "Pikeman Squire"

@@ -526,8 +526,7 @@
 		return 0
 	return ..()
 
-/mob/living/carbon
-	var/nausea = 0
+/mob/living/carbon/var/nausea = 0
 
 /mob/living/carbon/proc/add_nausea(amt)
 	nausea = clamp(nausea + amt, 0, 300)
@@ -675,8 +674,7 @@
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
-/mob/living/carbon
-	var/lightning_flashing = FALSE
+/mob/living/carbon/var/lightning_flashing = FALSE
 
 /mob/living/carbon/update_sight()
 	if(!client)
