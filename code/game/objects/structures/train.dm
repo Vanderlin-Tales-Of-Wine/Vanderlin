@@ -1,17 +1,17 @@
 //AKA cryosleep.
 
-/obj/structure/far_travel //Shamelessly jury-rigged from the way Fallout13 handles this and shamelessly borrowed from AzurePeak's further iteraiton of this system
-	name = "far travel"
+/obj/structure/train //Shamelessly jury-rigged from the way Fallout13 handles this and shamelessly borrowed from AzurePeak's further iteraiton of this system
+	name = "train"
 	desc = "Your heart yearns to wander.\n(Drag your sprite onto this to exit the round!)"
-	icon = 'icons/turf/roguefloor.dmi'
-	icon_state = "travel"
-	layer = BELOW_OBJ_LAYER
+	icon = 'icons/rougetown/items/train.dmi'
+	icon_state = "train"
+	layer = TABLE_LAYER
 	density = FALSE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/in_use = FALSE
 
-/obj/structure/far_travel/MouseDrop_T(atom/dropping, mob/user)
+/obj/structure/train/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || user.incapacitated())
 		return //No ghosts or incapacitated folk allowed to do this.
 	if(!ishuman(dropping))

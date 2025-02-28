@@ -26698,10 +26698,6 @@
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
-"tAe" = (
-/obj/structure/far_travel,
-/turf/open/floor/naturalstone,
-/area/rogue/under/town/sewer)
 "tAg" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/chevron,
@@ -59007,7 +59003,7 @@ lfU
 ttL
 kDp
 hbV
-tAe
+kDp
 qXV
 qXV
 qXV
@@ -59209,7 +59205,7 @@ hHH
 qXV
 kDp
 hbV
-tAe
+kDp
 qXV
 qXV
 qXV
@@ -59411,7 +59407,7 @@ hHH
 qXV
 kDp
 hbV
-tAe
+kDp
 qXV
 qXV
 qXV

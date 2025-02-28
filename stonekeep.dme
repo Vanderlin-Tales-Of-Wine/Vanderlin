@@ -398,7 +398,6 @@
 #include "code\datums\browser.dm"
 #include "code\datums\callback.dm"
 #include "code\datums\chatmessage.dm"
-#include "code\datums\cryo.dm"
 #include "code\datums\datacore.dm"
 #include "code\datums\datum.dm"
 #include "code\datums\datumvars.dm"
