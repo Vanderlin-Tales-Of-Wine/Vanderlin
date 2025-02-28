@@ -6,7 +6,7 @@
 	icon = 'icons/roguetown/items/train.dmi'
 	icon_state = "train"
 	layer = TABLE_LAYER
-	density = FALSE
+	density = TRUE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/in_use = FALSE
