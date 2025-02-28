@@ -19294,10 +19294,6 @@
 "nZs" = (
 /turf/closed/mineral,
 /area/rogue/under/town/sewer)
-"nZx" = (
-/obj/structure/train,
-/turf/open/floor/metal,
-/area/rogue/under/town/sewer)
 "nZK" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
@@ -26741,6 +26737,12 @@
 	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
+"tAe" = (
+/obj/structure/fluff/sellsign{
+	name = "TRAIN SERVICE UNAVAILABLE"
+	},
+/turf/open/floor/herringbone,
+/area/rogue/under/town/sewer)
 "tAg" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/chevron,
@@ -59045,7 +59047,7 @@ oGi
 lfU
 ttL
 kDp
-nZx
+hbV
 kDp
 qXV
 qXV
@@ -59249,7 +59251,7 @@ qXV
 kDp
 hbV
 kDp
-qXV
+tAe
 qXV
 qXV
 vgJ
@@ -59653,7 +59655,7 @@ qXV
 kDp
 hbV
 kDp
-feg
+qXV
 qXV
 qXV
 qMe
