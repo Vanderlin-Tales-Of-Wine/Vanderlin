@@ -396,6 +396,7 @@ BCLASS_TWIST)
 // Plates cover only a few organs and bones
 #define ONLY_VITAL_ORGANS list(\
 BCLASS_CHOP, \
+BCLASS_STAB, \
 BCLASS_BLUNT)
 
 #define ALL_EXCEPT_CHOP_AND_STAB list(\
