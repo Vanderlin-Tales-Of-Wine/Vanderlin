@@ -1,3 +1,4 @@
+//THIS FILE SHOULD NOT EXIST WHEN RAKSHARI GET NEW ADVENTURER ROLES, DELETE IT WHEN THEY DO
 /datum/advclass/combat/rogue
 	name = "Thief"
 	tutorial = "A guildless thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
