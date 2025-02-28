@@ -31,7 +31,7 @@
 	/// Mood message for being here, only shows up if mood_bonus != 0
 	var/mood_message = "<span class='nicegreen'>This area is pretty nice!\n</span>"
 
-	var/has_gravity = 0
+	var/has_gravity = STANDARD_GRAVITY
 	///Are you forbidden from teleporting to the area? (centcom, mobs, wizard, hand teleporter)
 	var/noteleport = FALSE
 	///Hides area from player Teleport function.
@@ -45,7 +45,7 @@
 
 	var/parallax_movedir = 0
 
-	var/list/ambientsounds = GENERIC
+	var/list/ambientsounds = null
 	var/list/ambientrain = null
 	var/list/ambientnight = null
 

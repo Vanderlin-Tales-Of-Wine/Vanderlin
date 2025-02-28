@@ -160,18 +160,18 @@
 
 /obj/machinery/printingpress/proc/print_bibble(mob/user)
 	// Creates a static book (Bibble)
-	var/obj/item/book/rogue/bibble/B = new()
+	var/obj/item/book/bibble/B = new()
 	output_item = B
 	visible_message("<span class='notice'>The printing press hums as it produces [B.name].</span>")
 
 /obj/machinery/printingpress/proc/print_justice(mob/user)
 	// Creates a static book (Tome of Justice)
-	var/obj/item/book/rogue/law/B = new()
+	var/obj/item/book/law/B = new()
 	output_item = B
 	visible_message("<span class='notice'>[src] hums as it produces [B.name].</span>")
 
 /obj/machinery/printingpress/proc/print_manuscript(mob/user, id)
-	output_item = new /obj/item/book/rogue/playerbook(src, null, null, null, id)
+	output_item = new /obj/item/book/playerbook(src, null, null, null, id)
 
 /obj/machinery/printingpress/proc/choose_search_parameters(mob/user)
 	var/search_title = input(user, "Enter the title (optional):") as text|null

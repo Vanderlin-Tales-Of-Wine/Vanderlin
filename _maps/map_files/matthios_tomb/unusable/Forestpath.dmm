@@ -1,64 +1,64 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "c" = (
-/obj/effect/spawner/roguemap/treeorbush,
-/obj/structure/flora/roguetree/wise{
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/structure/flora/tree/wise{
 	desc = "You must be exactlyh 25 years old to play this game.";
 	name = "Woody"
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue)
 "m" = (
 /obj/effect/landmark/ambush,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "q" = (
 /obj/structure/flora/newtree,
-/turf/open/floor/rogue/dirt/ambush,
+/turf/open/floor/dirt/ambush,
 /area/rogue)
 "w" = (
-/obj/effect/spawner/roguemap/treeorbush,
-/obj/structure/flora/roguetree/evil,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/structure/flora/tree/evil,
+/turf/open/floor/dirt,
 /area/rogue)
 "y" = (
-/obj/effect/spawner/roguemap/treeorbush,
-/obj/effect/spawner/roguemap/treeorbush,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/treeorbush,
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt,
 /area/rogue)
 "C" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "E" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "F" = (
-/obj/effect/spawner/roguemap/treeorbush,
-/turf/open/floor/rogue/dirt,
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt,
 /area/rogue)
 "I" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "K" = (
-/obj/effect/spawner/roguemap/treeorbush,
-/turf/open/floor/rogue/dirt/ambush,
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/dirt/ambush,
 /area/rogue)
 "L" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue)
 "M" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "V" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue)
 "Y" = (
-/turf/open/floor/rogue/dirt/ambush,
+/turf/open/floor/dirt/ambush,
 /area/rogue)
 
 (1,1,1) = {"

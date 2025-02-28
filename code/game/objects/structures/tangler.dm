@@ -1,4 +1,4 @@
-/obj/structure/flora/roguegrass/tangler
+/obj/structure/flora/grass/tangler
 	name = "twisting shrub"
 	desc = "Green, spiky and....I think I saw it move!"
 	icon = 'icons/roguetown/mob/monster/tangler.dmi'
@@ -6,38 +6,38 @@
 	max_integrity = 5
 	var/faction = list("plants")
 
-/obj/structure/flora/roguegrass/tangler/update_icon()
+/obj/structure/flora/grass/tangler/update_icon()
 	return
 
-/obj/structure/flora/roguegrass/tangler/real
+/obj/structure/flora/grass/tangler/real
 	var/aggroed = 1
 	max_integrity = 40
 	integrity_failure = 0.15
 	attacked_sound = 'sound/misc/woodhit.ogg'
-	var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/rogue/meat,/obj/item/compost,
+	var/list/eatablez = list(/obj/item/organ, /obj/item/reagent_containers/food/snacks/meat,/obj/item/compost,
 /obj/item/natural/poo)
 	var/last_eat
 	buckle_lying = 0
 	buckle_prevents_pull = 1
 
-/obj/structure/flora/roguegrass/tangler/real/Initialize()
+/obj/structure/flora/grass/tangler/real/Initialize()
 	. = ..()
 	proximity_monitor = new(src, 1)
 
-/obj/structure/flora/roguegrass/tangler/real/Destroy()
+/obj/structure/flora/grass/tangler/real/Destroy()
 	QDEL_NULL(proximity_monitor)
 	unbuckle_all_mobs()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/structure/flora/roguegrass/tangler/real/obj_break(damage_flag)
+/obj/structure/flora/grass/tangler/real/obj_break(damage_flag)
 	..()
 	QDEL_NULL(proximity_monitor)
 	unbuckle_all_mobs()
 	STOP_PROCESSING(SSobj, src)
 	update_icon()
 
-/obj/structure/flora/roguegrass/tangler/real/process()
+/obj/structure/flora/grass/tangler/real/process()
 	if(!has_buckled_mobs())
 		if(world.time > last_eat + 5)
 			var/list/around = view(1, src)
@@ -57,7 +57,7 @@
 			STOP_PROCESSING(SSobj, src)
 			return TRUE
 
-/obj/structure/flora/roguegrass/tangler/real/update_icon()
+/obj/structure/flora/grass/tangler/real/update_icon()
 	if(obj_broken)
 		name = "dry vine"
 		desc = ""
@@ -71,7 +71,7 @@
 		name = "twisting shrub"
 		icon_state = "tangler-hidden"
 
-/obj/structure/flora/roguegrass/tangler/real/user_unbuckle_mob(mob/living/M, mob/user)
+/obj/structure/flora/grass/tangler/real/user_unbuckle_mob(mob/living/M, mob/user)
 	if(obj_broken)
 		..()
 		return
@@ -90,10 +90,10 @@
 		else
 			user.visible_message("<span class='warning'>[user] tries to break free of [src]!</span>")
 
-/obj/structure/flora/roguegrass/tangler/real/user_buckle_mob(mob/living/M, mob/living/user)
+/obj/structure/flora/grass/tangler/real/user_buckle_mob(mob/living/M, mob/living/user)
 	return
 
-/obj/structure/flora/roguegrass/tangler/real/HasProximity(atom/movable/AM)
+/obj/structure/flora/grass/tangler/real/HasProximity(atom/movable/AM)
 	if(has_buckled_mobs())
 		return
 	if(world.time > last_eat + 5)

@@ -1,104 +1,104 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "b" = (
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/blocks/paving/vert,
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "d" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/troll,
+/mob/living/simple_animal/hostile/retaliate/troll,
 /obj/structure/fluff/nest,
 /obj/item/alch/bone,
-/obj/item/clothing/head/roguetown/hatfur,
-/obj/item/clothing/shoes/roguetown/boots/furlinedboots,
-/obj/item/clothing/suit/roguetown/armor/plate,
-/obj/item/clothing/head/roguetown/rare/dwarfplate,
-/obj/item/rogueweapon/polearm/spear/billhook,
+/obj/item/clothing/head/hatfur,
+/obj/item/clothing/shoes/boots/furlinedboots,
+/obj/item/clothing/armor/plate,
+/obj/item/clothing/head/rare/dwarfplate,
+/obj/item/weapon/polearm/spear/billhook,
 /obj/item/clothing/ring/gold/ravox,
-/obj/item/roguecoin/gold/pile,
-/obj/item/roguecoin/silver/pile,
+/obj/item/coin/gold/pile,
+/obj/item/coin/silver/pile,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/caves)
 "g" = (
-/turf/closed/wall/mineral/rogue/decostone/fluffstone/reddish,
+/turf/closed/wall/mineral/decostone/fluffstone/reddish,
 /area/rogue/outdoors/caves)
 "m" = (
-/obj/item/rogueweapon/knife/copper,
-/obj/item/clothing/suit/roguetown/armor/leather/splint,
-/obj/item/rogueweapon/shield/tower/buckleriron,
+/obj/item/weapon/knife/copper,
+/obj/item/clothing/armor/leather/splint,
+/obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks/paving/vert,
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "o" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "r" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/caves)
 "x" = (
-/obj/item/rogueweapon/shield/tower,
+/obj/item/weapon/shield/tower,
 /obj/item/clothing/cloak/stabard/templar/dendor,
-/obj/item/rogueweapon/mace/goden/shillelagh,
+/obj/item/weapon/mace/goden/shillelagh,
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/caves)
 "B" = (
 /obj/structure/pillory,
-/obj/effect/spawner/roguemap/hauntpile,
+/obj/effect/spawner/map_spawner/hauntpile,
 /obj/item/natural/stone,
 /obj/item/natural/stone,
 /obj/item/natural/stone,
 /obj/item/rope/chain,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "C" = (
 /obj/item/natural/stone,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "D" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
+/obj/machinery/light/fueled/wallfire/candle/l,
 /obj/item/natural/stone,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "F" = (
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/blocks/paving/vert,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "G" = (
-/obj/item/rogueweapon/whip/antique,
+/obj/item/weapon/whip/antique,
 /obj/structure/fluff/wallclock/vampire,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "I" = (
 /obj/item/alch/bone,
 /obj/item/natural/fur/rous,
 /obj/effect/decal/remains/bigrat,
-/turf/open/floor/rogue/blocks/paving/vert,
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "O" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/caves)
 "Q" = (
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/caves)
 "V" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/caves)
 "W" = (
-/turf/open/floor/rogue/blocks/paving/vert,
+/turf/open/floor/blocks/paving/vert,
 /area/rogue/outdoors/caves)
 "X" = (
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
 /obj/item/ammo_holder/quiver/arrows,
-/obj/item/clothing/head/roguetown/rare/elfplate/welfplate,
+/obj/item/clothing/head/rare/elfplate/welfplate,
 /obj/item/clothing/cloak/raincloak/green,
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks/paving,
+/turf/open/floor/blocks/paving,
 /area/rogue/outdoors/caves)
 
 (1,1,1) = {"

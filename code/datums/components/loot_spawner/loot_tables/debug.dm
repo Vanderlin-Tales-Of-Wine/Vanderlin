@@ -8,14 +8,14 @@
 /datum/loot_table/debug
 	loot_table = list(
 		STATKEY_LCK = list(
-			/obj/item/roguecoin/gold = 5,
-			/obj/item/roguecoin/silver = 10,
+			/obj/item/coin/gold = 5,
+			/obj/item/coin/silver = 10,
 			200,
-			/obj/item/roguecoin/copper = 25,
+			/obj/item/coin/copper = 25,
 		),
 		/datum/skill/misc/stealing = list(
-			/obj/item/roguegem/green = 5,
-			/obj/item/roguegem/blue = 10,
+			/obj/item/gem/green = 5,
+			/obj/item/gem/blue = 10,
 			/obj/item/lockpick = 25,
 		),
 		list(

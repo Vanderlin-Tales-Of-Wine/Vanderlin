@@ -1,7 +1,7 @@
 /datum/ai_behavior/lay_egg
 
 /datum/ai_behavior/lay_egg/perform(delta_time, datum/ai_controller/controller, emote)
-	var/mob/living/simple_animal/hostile/retaliate/rogue/chicken/living_pawn = controller.pawn
+	var/mob/living/simple_animal/hostile/retaliate/chicken/living_pawn = controller.pawn
 	if(!istype(living_pawn))
 		return
 	if(living_pawn.production < 29)

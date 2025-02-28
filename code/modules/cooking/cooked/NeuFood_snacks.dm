@@ -19,6 +19,8 @@
 	slices_num = 0
 	rotprocess = SHELFLIFE_DECENT
 	plateable = TRUE
+	faretype = FARE_NEUTRAL
+
 /obj/item/reagent_containers/food/snacks/cooked/frysteak/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -42,6 +44,8 @@
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			name = "peppersteak"
 			desc = "Roasted flesh flanked with a generous coating of ground pepper for intense flavor."
+			faretype = FARE_FINE
+			portable = FALSE
 			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "frysteak_spice")
 			overlays += spice
 			tastes = list("spicy red meat" = 2)
@@ -57,6 +61,8 @@
 			desc = "[desc] Garnished with tender fried onion, juices made into a simple sauce."
 			icon_state = "onionsteak"
 			base_icon_state = "onionsteak"
+			faretype = FARE_NEUTRAL
+			portable = FALSE
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+1)
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -71,6 +77,8 @@
 			desc = "[desc] Served with potatos, this will nourish even a starving volf."
 			icon_state = "potatosteak"
 			base_icon_state = "potatosteak"
+			faretype = FARE_NEUTRAL
+			portable = FALSE
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+3)
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -117,6 +125,8 @@
 				tastes = list("fried cackleberries" = 1, "cheese" = 1)
 				icon_state = "omelette"
 				base_icon_state = "omelette"
+				faretype = FARE_FINE
+				portable = FALSE
 				meal_properties()
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 				qdel(I)
@@ -159,6 +169,8 @@
 	filling_color = "#8a0000"
 	become_rot_type = /obj/item/reagent_containers/food/snacks/rotten/bacon
 	list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+1)
+	faretype = FARE_FINE
+
 /obj/item/reagent_containers/food/snacks/cooked/ham/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -203,6 +215,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = RAWMEAT_NUTRITION) // raw meat nutrition but without getting sick
 	plateable = TRUE
 	biting = TRUE
+	faretype = FARE_POOR
 
 /*---------------\
 | Sausage snacks |
@@ -218,6 +231,8 @@
 	tastes = list("savory sausage" = 2)
 	rotprocess = SHELFLIFE_EXTREME
 	biting = TRUE
+	faretype = FARE_NEUTRAL
+
 /obj/item/reagent_containers/food/snacks/cooked/sausage/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -235,6 +250,8 @@
 			tastes = list("cabbage" = 1)
 			icon_state = "wienercabbage"
 			base_icon_state = "wienercabbage"
+			faretype = FARE_NEUTRAL
+			portable = FALSE
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -248,6 +265,8 @@
 			tastes = list("fried potato" = 1)
 			icon_state = "wienerpotato"
 			base_icon_state = "wienerpotato"
+			faretype = FARE_NEUTRAL
+			portable = FALSE
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -259,6 +278,8 @@
 			desc = "Stout and flavourful."
 			icon_state = "wieneronion"
 			base_icon_state = "wieneronion"
+			faretype = FARE_NEUTRAL
+			portable = FALSE
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
 			tastes = list("fried onions" = 1)
 			foodtype = VEGETABLES | MEAT
@@ -274,6 +295,8 @@
 			tastes = list("bread" = 1)
 			icon_state = "grenzbun"
 			base_icon_state = "grenzbun"
+			faretype = FARE_NEUTRAL
+			portable = TRUE
 			foodtype = GRAIN | MEAT
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -300,6 +323,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_POOR
+	portable = FALSE
+
 /obj/item/reagent_containers/food/snacks/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -333,6 +359,8 @@
 	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_POOR
+
 /obj/item/reagent_containers/food/snacks/potato/baked/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -361,6 +389,8 @@
 			desc = "[desc] Some warm tatos accompany it."
 			icon_state = "frybirdtato"
 			base_icon_state = "frybirdtato"
+			faretype = FARE_FINE
+			portable = FALSE
 			tastes = list("frybird" = 1, "warm tato" = 1)
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+2)
 			meal_properties()
@@ -379,6 +409,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("savoury morsel" = 1)
 	rotprocess = SHELFLIFE_LONG
+	faretype = FARE_POOR
+	portable = FALSE
+
 /obj/item/reagent_containers/food/snacks/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*8))
@@ -396,6 +429,7 @@
 			list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+FRYVEGGIE_NUTRITION+1)
 			tastes = list("savory sausage" = 1, "fried onions" = 1)
 			foodtype = VEGETABLES | MEAT
+			faretype = FARE_NEUTRAL
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(I)
@@ -412,6 +446,8 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRYVEGGIE_NUTRITION)
 	tastes = list("warm potato" = 1)
 	rotprocess = SHELFLIFE_EXTREME
+	faretype = FARE_NEUTRAL
+	portable = FALSE
 
 /obj/item/reagent_containers/food/snacks/potato/fried/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
@@ -430,6 +466,7 @@
 			tastes = list("savory sausage" = 1)
 			icon_state = "wienerpotato"
 			base_icon_state = "wienerpotato"
+			faretype = FARE_FINE
 			foodtype = VEGETABLES | MEAT
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -442,6 +479,8 @@
 			icon_state = "frybirdtato"
 			base_icon_state = "frybirdtato"
 			tastes = list("frybird" = 1)
+			faretype = FARE_FINE
+			portable = FALSE
 			list_reagents = list(/datum/reagent/consumable/nutriment = COOKED_MEAT_NUTRITION+FRYVEGGIE_NUTRITION+2)
 			meal_properties()
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
@@ -466,6 +505,9 @@
 	rotprocess = SHELFLIFE_LONG
 	plateable = TRUE
 	foodbuff_skillcheck = TRUE
+	faretype = FARE_FINE
+	portable = FALSE
+
 /obj/item/reagent_containers/food/snacks/cooked/roastchicken/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
 	if(user.mind)
@@ -489,6 +531,8 @@
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			name = "spiced [name]"
 			desc = "A plump bird, roasted to perfection, spiced to taste divine."
+			faretype = FARE_LAVISH
+			portable = FALSE
 			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "roast_spice")
 			overlays += spice
 			tastes = list("spicy birdmeat" = 2)

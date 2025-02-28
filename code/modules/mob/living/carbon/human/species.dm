@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
 	var/exotic_blood = ""	// If my race wants to bleed something other than bog standard blood, change this to reagent id.
 	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
-	var/meat = /obj/item/reagent_containers/food/snacks/rogue/meat/human //What the species drops on gibbing
+	var/meat = /obj/item/reagent_containers/food/snacks/meat/human //What the species drops on gibbing
 	var/liked_food = NONE
 	var/disliked_food = GROSS
 	var/toxic_food = TOXIC
@@ -159,9 +159,71 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	OFFSET_NECK_F = list(0,-4), OFFSET_MOUTH_F = list(0,-4), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
 
+	///Statkey = bonus stat, - for malice.
+	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
+	///Statkey = bonus stat, - for malice.
+	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
+	var/amtfail = 0
+
 ///////////
 // PROCS //
 ///////////
+
+
+/datum/species/proc/get_accent_list()
+	return
+
+/datum/species/proc/handle_speech(datum/source, list/speech_args)
+	var/message = speech_args[SPEECH_MESSAGE]
+	if(message)
+		var/list/accent_words = strings("spellcheck.json", "spellcheck")
+
+		//var/failed = FALSE
+		var/mob/living/carbon/human/H
+		if(ismob(source))
+			H = source
+		for(var/key in accent_words)
+			var/value = accent_words[key]
+			if(islist(value))
+				value = pick(value)
+
+			if(findtextEx(message,key))
+				if(H)
+					to_chat(H, "<span class='warning'>[key] -> [value]</span>")
+				amtfail++
+				//failed = TRUE
+
+			message = replacetextEx(message, "[key]", "[value]")
+
+	if(message)
+		if(message[1])
+			if(message[1] != "*")
+				message = " [message]"
+				var/list/accent_words = strings("accent_universal.json", "universal")
+
+				for(var/key in accent_words)
+					var/value = accent_words[key]
+					if(islist(value))
+						value = pick(value)
+
+					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+					message = replacetextEx(message, " [key]", " [value]")
+
+		var/list/species_accent = get_accent_list()
+		if(species_accent)
+			if(message[1] != "*")
+				message = " [message]"
+				for(var/key in species_accent)
+					var/value = species_accent[key]
+					if(islist(value))
+						value = pick(value)
+
+					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+					message = replacetextEx(message, " [key]", " [value]")
+
+	speech_args[SPEECH_MESSAGE] = trim(message)
 
 /datum/species/proc/is_bodypart_feature_slot_allowed(mob/living/carbon/human/human, feature_slot)
 	switch(feature_slot)
@@ -2338,18 +2400,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		switch(hit_area)
 			if(BODY_ZONE_HEAD)
-//				if(!I.get_sharpness() && armor_block < 50)
-//					if(prob(I.force))
-//						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 20)
-//						if(H.stat == CONSCIOUS)
-//							H.visible_message(span_danger("[H] is knocked senseless!"), span_danger("You're knocked senseless!"))
-//							H.confused = max(H.confused, 20)
-//							H.adjust_blurriness(10)
-//						if(prob(10))
-//							H.gain_trauma(/datum/brain_trauma/mild/concussion)
-//					else
-//						H.adjustOrganLoss(ORGAN_SLOT_BRAIN, I.force * 0.2)
-
 				if(bloody)	//Apply blood
 					if(H.wear_mask)
 						H.wear_mask.add_mob_blood(H)
@@ -2357,16 +2407,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					if(H.head)
 						H.head.add_mob_blood(H)
 						H.update_inv_head()
-					if(H.glasses && prob(33))
-						H.glasses.add_mob_blood(H)
-						H.update_inv_glasses()
 
 			if(BODY_ZONE_CHEST)
-//				if(H.stat == CONSCIOUS && !I.get_sharpness() && armor_block < 50)
-//					if(prob(I.force))
-//						H.visible_message(span_danger("[H] is knocked down!"), span_danger("You're knocked down!"))
-//						H.apply_effect(60, EFFECT_KNOCKDOWN, armor_block)
-
 				if(bloody)
 					if(H.wear_armor)
 						H.wear_armor.add_mob_blood(H)
@@ -2386,7 +2428,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	SEND_SIGNAL(H, COMSIG_MOB_APPLY_DAMGE, damage, damagetype, def_zone)
 	var/hit_percent = 1
 	damage = max(damage - (blocked),0)
-//	var/hit_percent =  (100-(blocked+armor))/100
 	hit_percent = (hit_percent * (100-H.physiology.damage_resistance))/100
 	if(!damage || (!forced && hit_percent <= 0))
 		return 0
@@ -2572,8 +2613,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/list/obscured = H.check_obscured_slots(TRUE)
 		//HEAD//
 
-		if(H.glasses && !(SLOT_GLASSES in obscured))
-			burning_items += H.glasses
 		if(H.wear_mask && !(SLOT_WEAR_MASK in obscured))
 			burning_items += H.wear_mask
 		if(H.wear_neck && !(SLOT_NECK in obscured))

@@ -24,7 +24,7 @@
 		return
 
 	for(var/i = 1 to amount)
-		new /obj/item/book/rogue/playerbook(src)
+		new /obj/item/book/playerbook(src)
 
 /obj/structure/bookcase/random/update_icon()
 	if((length(contents) >= 1) && (length(contents) <= 15))
@@ -57,20 +57,20 @@
 	category = "Eoratica"
 	desc = "This is an improper bookcase. Please exit the game and inform your local mapper where this is and to replace it."
 
-/obj/item/book/rogue/random_book
+/obj/item/book/random_book
 	var/book_category = null
 	random_cover = TRUE
 
-/obj/item/book/rogue/random_book/Initialize()
+/obj/item/book/random_book/Initialize()
 	if(!..())
 		return FALSE
 	return INITIALIZE_HINT_LATELOAD // Indicate that LateInitialize() should be called
 
-/obj/item/book/rogue/random_book/LateInitialize()
+/obj/item/book/random_book/LateInitialize()
 	src.get_random_book_from_database(book_category)
 	return ..()
 
-/obj/item/book/rogue/random_book/proc/get_random_book_from_database(book_category)
+/obj/item/book/random_book/proc/get_random_book_from_database(book_category)
 	var/datum/DBQuery/query_get_random_book = SSdbcore.NewQuery({"
 		SELECT author, title, content, category, select_icon
 		FROM library
@@ -103,23 +103,23 @@
 	if(query_get_random_book)
 		qdel(query_get_random_book)
 
-/obj/item/book/rogue/random_book/apocrypha
+/obj/item/book/random_book/apocrypha
 	book_category = "Apocrypha & Grimoires"
 	name = "Book (Apocrypha & Grimoires)"
 
-/obj/item/book/rogue/random_book/myths
+/obj/item/book/random_book/myths
 	book_category = "Myths & Tales"
 	name = "Book (Myths & Tales)"
 
-/obj/item/book/rogue/random_book/legends
+/obj/item/book/random_book/legends
 	book_category = "Legends & Accounts"
 	name = "Book (Legends & Accounts)"
 
-/obj/item/book/rogue/random_book/thesis
+/obj/item/book/random_book/thesis
 	book_category = "Thesis"
 	name = "Book (Thesis)"
 
-/obj/item/book/rogue/random_book/eoratica
+/obj/item/book/random_book/eoratica
 	book_category = "Eoratica"
 	name = "Book (Eoratica)"
 

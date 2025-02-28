@@ -189,11 +189,6 @@
 			if(!isnum(T))
 				outfit.vars[slot] = T
 		H.equipOutfit(outfit)
-		if(disable_sensors)
-			// Using crew monitors to find corpses while creative makes finding certain ruins too easy.
-			var/obj/item/clothing/under/C = H.wear_pants
-			if(istype(C))
-				C.sensor_mode = NO_SENSORS
 
 //Instant version - use when spawning corpses during runtime
 /obj/effect/mob_spawn/human/corpse

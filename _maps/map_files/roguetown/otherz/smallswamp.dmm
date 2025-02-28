@@ -1,30 +1,30 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "b" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "bogrtout2";
 	aportalid = "bogrtin2"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "c" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "d" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/indoors/cave)
 "e" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
 "f" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/dirt/road,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors/cave)
 "g" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/outdoors/bog)
 "h" = (
 /turf/open/water/cleanshallow,
@@ -33,94 +33,94 @@
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/cave)
 "j" = (
-/turf/closed/wall/mineral/rogue/craftstone,
+/turf/closed/wall/mineral/craftstone,
 /area/rogue/outdoors/bog)
 "k" = (
-/obj/effect/landmark/mapGenerator/rogue/bog{
+/obj/effect/landmark/mapGenerator/bog{
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog)
 "l" = (
-/turf/closed/mineral/random/rogue/high,
+/turf/closed/mineral/random/high,
 /area/rogue/indoors/cave)
 "o" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog)
 "p" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "q" = (
 /obj/effect/landmark/map_load_mark/stonekeep_dungeon/roguetown_bog,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "r" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/indoors/cave)
 "v" = (
 /obj/structure/portal,
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog)
 "w" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors/cave)
 "y" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/bog)
 "B" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "bog"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "C" = (
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "D" = (
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "G" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog)
 "H" = (
-/obj/structure/flora/roguetree,
+/obj/structure/flora/tree,
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog)
 "L" = (
-/turf/open/floor/rogue/dirt/road{
+/turf/open/floor/dirt/road{
 	dir = 8
 	},
 /area/rogue/outdoors/bog)
 "Q" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "U" = (
-/obj/machinery/light/rogue/firebowl/standing,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/hexstone,
 /area/rogue/outdoors/bog)
 "V" = (
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/obj/structure/flora/roguetree,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/obj/structure/flora/tree,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "X" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog)
 "Y" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "bogrtout";
 	aportalid = "bogrtin"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "Z" = (
-/turf/closed/mineral/rogue/salt,
+/turf/closed/mineral/salt,
 /area/rogue/outdoors/bog)
 
 (1,1,1) = {"

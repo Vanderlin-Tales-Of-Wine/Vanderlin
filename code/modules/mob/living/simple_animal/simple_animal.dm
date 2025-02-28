@@ -871,7 +871,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //	if(food >= 10 MINUTES)
 //		return
 
-//	var/obj/structure/spacevine/SV = locate(/obj/structure/spacevine) in loc
+//	var/obj/structure/vine/SV = locate(/obj/structure/vine) in loc
 //	if(SV)
 //		SV.eat(src)
 //		eaten = TRUE

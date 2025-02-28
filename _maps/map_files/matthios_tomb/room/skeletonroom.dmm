@@ -8,17 +8,17 @@
 	pixel_y = -2;
 	pixel_x = -13
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "bN" = (
 /obj/structure/chair/bench/church/mid,
-/turf/open/floor/rogue/carpet/lord/center,
+/turf/open/floor/carpet/lord/center,
 /area/rogue)
 "eB" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "hk" = (
 /obj/structure/fluff/walldeco/bigpainting,
@@ -28,10 +28,10 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "hC" = (
-/obj/machinery/light/rogue/chand,
+/obj/machinery/light/fueled/chand,
 /turf/open/transparent/openspace,
 /area/rogue)
 "hZ" = (
@@ -39,51 +39,47 @@
 	dir = 8;
 	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "iw" = (
 /obj/structure/chair/bench/church/mid,
 /obj/structure/chair/bench/church/mid,
-/turf/open/floor/rogue/carpet/lord/center,
+/turf/open/floor/carpet/lord/center,
 /area/rogue)
 "kB" = (
-/obj/structure/chair/wood/rogue/chair_noble/red{
+/obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "lg" = (
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "ms" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "oQ" = (
 /obj/effect/dungeon_directional_helper/north,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "qt" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4
+/turf/open/floor/hexstone{
+	dir = 1
 	},
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4
-	},
-/turf/open/floor/rogue/hexstone,
 /area/rogue)
 "rp" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4;
 	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "sE" = (
 /obj/structure/fluff/walldeco/painting/castle,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "tj" = (
 /obj/structure/table/church,
@@ -91,25 +87,25 @@
 	pixel_x = -6;
 	pixel_y = 14
 	},
-/obj/item/roguegem/blue{
+/obj/item/gem/blue{
 	pixel_y = 7;
 	pixel_x = 5
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "vb" = (
 /obj/structure/table/vtable/v2,
-/obj/item/roguestatue/gold{
+/obj/item/statue/gold{
 	pixel_y = 14
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "vj" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1;
 	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "vv" = (
 /obj/structure/table/church,
@@ -118,23 +114,23 @@
 	pixel_x = 23;
 	pixel_y = 6
 	},
-/obj/item/rogueweapon/sword/decorated{
+/obj/item/weapon/sword/decorated{
 	name = "A Lords Blade";
 	desc = "A long dead kings Blade, Forgotten to time yet master in work."
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "wo" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "yY" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "zk" = (
 /obj/structure/fluff/railing/border{
@@ -144,57 +140,57 @@
 /obj/item/reagent_containers/food/snacks/rotten/breadslice{
 	pixel_x = 19
 	},
-/obj/item/rogueweapon/knife/cleaver{
+/obj/item/weapon/knife/cleaver{
 	pixel_x = -2;
 	pixel_y = -8
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "zw" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "Ab" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "BU" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "Cf" = (
 /obj/structure/fluff/railing/border,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "CC" = (
 /obj/structure/chair/bench/church/r,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/rogue/carpet/lord/right,
+/turf/open/floor/carpet/lord/right,
 /area/rogue)
 "CT" = (
-/obj/structure/closet/crate/roguecloset/inn/chest,
-/obj/item/clothing/suit/roguetown/shirt/robe/black,
-/obj/item/clothing/suit/roguetown/shirt/robe/mage,
-/turf/open/floor/rogue/wood,
+/obj/structure/closet/crate/crafted_closet/inn/chest,
+/obj/item/clothing/shirt/robe/black,
+/obj/item/clothing/shirt/robe/mage,
+/turf/open/floor/wood,
 /area/rogue)
 "DK" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue)
 "EZ" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /obj/item/reagent_containers/food/snacks/smallrat,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "FB" = (
 /obj/structure/fluff/walldeco/painting/skull,
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "GG" = (
 /obj/structure/fluff/walldeco/bigpainting,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Hm" = (
 /obj/structure/fluff/walldeco/bigpainting/lake,
@@ -202,39 +198,42 @@
 /area/rogue)
 "HK" = (
 /obj/structure/fluff/walldeco/painting/skull,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "Ip" = (
-/obj/machinery/light/rogue/chand,
-/obj/item/roguecoin/copper,
+/obj/machinery/light/fueled/chand,
+/obj/item/coin/copper,
 /turf/open/transparent/openspace,
 /area/rogue)
 "JM" = (
-/obj/structure/chair/wood/rogue/chair_noble/red,
-/turf/open/floor/rogue/wood,
+/obj/structure/chair/wood/alt/chair_noble/red,
+/turf/open/floor/wood,
 /area/rogue)
 "KU" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 4
+	dir = 1;
+	locked = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone{
+	dir = 1
+	},
 /area/rogue)
 "Ll" = (
 /obj/effect/dungeon_directional_helper/east,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Ls" = (
 /obj/structure/chair/bench/church,
-/turf/open/floor/rogue/carpet/lord/left,
+/turf/open/floor/carpet/lord/left,
 /area/rogue)
 "LH" = (
 /obj/structure/fluff/walldeco/painting/crown,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "Ob" = (
 /obj/structure/chair/bench/church/mid,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/rogue/carpet/lord/center,
+/turf/open/floor/carpet/lord/center,
 /area/rogue)
 "Oc" = (
 /obj/item/ingot/gold,
@@ -246,81 +245,81 @@
 	pixel_y = 4;
 	pixel_x = 5
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ox" = (
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "OA" = (
 /obj/effect/dungeon_directional_helper/west,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "QC" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "Rn" = (
 /obj/structure/chair/bench/church/r,
-/turf/open/floor/rogue/carpet/lord/right,
+/turf/open/floor/carpet/lord/right,
 /area/rogue)
 "RJ" = (
-/turf/closed/wall/mineral/rogue/stone,
+/turf/closed/wall/mineral/stone,
 /area/rogue)
 "RZ" = (
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Tf" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "TG" = (
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/wood,
 /area/rogue)
 "UK" = (
 /obj/structure/chair/bench/throne,
-/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+/obj/item/reagent_containers/glass/bottle/redwine{
 	pixel_x = -19
 	},
-/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+/obj/item/reagent_containers/glass/bottle/redwine{
 	pixel_x = 16;
 	pixel_y = -11
 	},
-/obj/item/reagent_containers/glass/bottle/rogue/redwine{
+/obj/item/reagent_containers/glass/bottle/redwine{
 	pixel_y = -13;
 	pixel_x = -9
 	},
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
 	name = "Wine Drenched Skeleton"
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "VG" = (
 /obj/effect/dungeon_directional_helper/south,
-/turf/open/floor/rogue/cobblerock,
+/turf/open/floor/cobblerock,
 /area/rogue)
 "Wp" = (
 /obj/structure/table/vtable,
-/obj/item/roguestatue/gold/loot{
+/obj/item/statue/gold/loot{
 	pixel_y = 11
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "WG" = (
 /obj/structure/fluff/walldeco/painting,
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "Xm" = (
 /obj/structure/table/church{
 	dir = 1
 	},
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 "Yw" = (
 /obj/structure/chair/bench/church,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
-/turf/open/floor/rogue/carpet/lord/left,
+/turf/open/floor/carpet/lord/left,
 /area/rogue)
 "YM" = (
 /obj/structure/fluff/railing/border{
@@ -328,12 +327,12 @@
 	},
 /obj/structure/table/wood/plain_alt,
 /obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine,
-/turf/open/floor/rogue/wood,
+/obj/item/reagent_containers/glass/bottle/wine/sourwine,
+/turf/open/floor/wood,
 /area/rogue)
 "ZE" = (
 /obj/structure/mirror/fancy,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/hexstone,
 /area/rogue)
 
 (1,1,1) = {"
@@ -343,8 +342,8 @@ DK
 DK
 DK
 RZ
-OA
 RZ
+OA
 RZ
 DK
 DK
@@ -436,7 +435,7 @@ Rn
 lg
 lg
 RJ
-RZ
+DK
 "}
 (7,1,1) = {"
 RZ
@@ -465,7 +464,7 @@ lg
 lg
 lg
 lg
-lg
+qt
 lg
 lg
 lg
@@ -504,7 +503,7 @@ Ls
 lg
 lg
 Tf
-RZ
+DK
 "}
 (11,1,1) = {"
 DK
@@ -581,8 +580,8 @@ DK
 DK
 DK
 RZ
-Ll
 RZ
+Ll
 RZ
 DK
 DK
@@ -593,41 +592,41 @@ DK
 "}
 
 (1,1,2) = {"
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
+DK
+DK
+DK
+DK
+DK
+qt
+qt
+qt
+qt
+DK
+DK
+DK
+DK
+DK
+DK
 "}
 (2,1,2) = {"
-BU
+DK
 Tf
 Tf
 Tf
 Tf
 Tf
-KU
-KU
+rp
+rp
 Tf
 Tf
 Tf
 LH
 Tf
 Tf
-BU
+DK
 "}
 (3,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -641,10 +640,10 @@ Ox
 JM
 TG
 Tf
-BU
+DK
 "}
 (4,1,2) = {"
-BU
+DK
 Tf
 Hm
 BU
@@ -658,10 +657,10 @@ Ox
 Ox
 kB
 Tf
-BU
+DK
 "}
 (5,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -675,10 +674,10 @@ yY
 hn
 Ox
 Tf
-BU
+DK
 "}
 (6,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -691,12 +690,12 @@ BU
 BU
 eB
 Ox
-KU
-BU
+Tf
+DK
 "}
 (7,1,2) = {"
-BU
-KU
+qt
+ms
 zw
 BU
 BU
@@ -708,11 +707,11 @@ BU
 BU
 zk
 Ox
-Tf
-BU
+KU
+qt
 "}
 (8,1,2) = {"
-BU
+qt
 Tf
 Ox
 BU
@@ -726,11 +725,11 @@ BU
 YM
 Ox
 Tf
-BU
+qt
 "}
 (9,1,2) = {"
-BU
-KU
+qt
+ms
 yY
 BU
 BU
@@ -742,11 +741,11 @@ BU
 BU
 aL
 Ox
-Tf
-BU
+KU
+qt
 "}
 (10,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -759,11 +758,11 @@ BU
 BU
 eB
 Ox
-KU
-BU
+Tf
+DK
 "}
 (11,1,2) = {"
-BU
+DK
 Tf
 hk
 BU
@@ -777,10 +776,10 @@ zw
 QC
 Ox
 Tf
-BU
+DK
 "}
 (12,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -794,10 +793,10 @@ Ox
 Ox
 Ox
 Tf
-BU
+DK
 "}
 (13,1,2) = {"
-BU
+DK
 Tf
 BU
 BU
@@ -811,39 +810,39 @@ CT
 CT
 CT
 Tf
-BU
+DK
 "}
 (14,1,2) = {"
-BU
+DK
 Tf
 Tf
 Tf
 Tf
 Tf
-qt
-KU
+hZ
+hZ
 Tf
 Tf
 HK
 Tf
 Tf
 Tf
-BU
+DK
 "}
 (15,1,2) = {"
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
-BU
+DK
+DK
+DK
+DK
+DK
+qt
+qt
+qt
+qt
+DK
+DK
+DK
+DK
+DK
+DK
 "}

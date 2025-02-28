@@ -1,32 +1,32 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "d" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/turf/open/floor/rogue/cobblerock/alt,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "m" = (
-/obj/machinery/light/rogue/wallfire/candle/blue/l,
-/turf/open/floor/rogue/cobblerock/alt,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "n" = (
-/turf/closed/wall/mineral/rogue/stone/moss,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/caves)
 "v" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/cobblerock/alt,
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "w" = (
-/obj/machinery/light/rogue/wallfire/candle/blue/r,
-/turf/open/floor/rogue/cobblerock/alt,
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "M" = (
 /obj/structure/ladder,
-/turf/open/floor/rogue/cobblerock/alt,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "S" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/caves)
 
 (1,1,1) = {"

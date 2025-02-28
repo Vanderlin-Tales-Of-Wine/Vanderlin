@@ -35,5 +35,5 @@
 		visible_message("<span class='warning'>[H] crushes [src] underfoot.</span>")
 		qdel(src)
 
-/obj/item/reagent_containers/food/snacks/egg/proc/hatch(mob/living/simple_animal/hostile/retaliate/rogue/chicken/parent)
-	new /mob/living/simple_animal/hostile/retaliate/rogue/chicken/chick(get_turf(parent))
+/obj/item/reagent_containers/food/snacks/egg/proc/hatch(mob/living/simple_animal/hostile/retaliate/chicken/parent)
+	new /mob/living/simple_animal/hostile/retaliate/chicken/chick(get_turf(parent))
