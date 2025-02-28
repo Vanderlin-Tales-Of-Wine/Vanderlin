@@ -45,6 +45,11 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/closed/mineral/random/med,
 /area/rogue/under/mountains/anvil/lower)
+"aN" = (
+/turf/closed/wall/mineral/decostone/end{
+	dir = 1
+	},
+/area/rogue/under/mountains/anvil/lower/building)
 "aO" = (
 /obj/structure/gate/bars{
 	gid = "dwarfkeepgate"
@@ -96,8 +101,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "cp" = (
 /obj/structure/stairs{
-	dir = 1;
-	icon_state = "stairs"
+	dir = 1
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
@@ -150,6 +154,11 @@
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"dx" = (
+/turf/closed/wall/mineral/decostone/end{
+	dir = 4
+	},
+/area/rogue/under/mountains/anvil/lower/building)
 "dy" = (
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
@@ -307,6 +316,9 @@
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/mountains/anvil/surface/building)
+"fo" = (
+/turf/open/floor/churchmarble,
+/area/rogue/under/mountains/anvil/lower/building)
 "fq" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
@@ -323,6 +335,14 @@
 /obj/structure/roguetent,
 /turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
+"fH" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/cooking/pan{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/open/floor/dirt,
+/area/rogue/under/mountains/anvil/lower/building)
 "fR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobblerock,
@@ -373,8 +393,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "gy" = (
 /obj/structure/stairs/stone{
-	dir = 4;
-	icon_state = "stonestairs"
+	dir = 4
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -450,6 +469,10 @@
 "hr" = (
 /obj/item/toy/cards/deck,
 /turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/under/mountains/anvil/lower/building)
+"hz" = (
+/obj/machinery/light/fueled/campfire,
+/turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower/building)
 "hF" = (
 /obj/structure/chair/wood/alt/chair3/crafted,
@@ -652,14 +675,17 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "kA" = (
 /obj/structure/stairs{
-	dir = 4;
-	icon_state = "stairs"
+	dir = 4
 	},
 /turf/open/floor/snow/patchy,
 /area/rogue/indoors/mountains/anvil/surface/building)
 "kK" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
+/area/rogue/under/mountains/anvil/lower/building)
+"kN" = (
+/obj/structure/roguetent/preopen,
+/turf/open/floor/twig,
 /area/rogue/under/mountains/anvil/lower/building)
 "kP" = (
 /obj/structure/stairs/stone,
@@ -738,8 +764,7 @@
 "mj" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/machinery/light/fueled/torchholder{
-	dir = 4;
-	icon_state = "torchwall1"
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -749,15 +774,13 @@
 /area/rogue/under/mountains/anvil/lower)
 "mr" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 8;
-	icon_state = "torchwall1"
+	dir = 8
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "mu" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 8;
-	icon_state = "torchwall1"
+	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks,
@@ -789,14 +812,17 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower/building)
+"mK" = (
+/obj/structure/bed/shit,
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "mL" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
 "mM" = (
 /obj/structure/stairs{
-	dir = 4;
-	icon_state = "stairs"
+	dir = 4
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
@@ -819,6 +845,10 @@
 /obj/effect/spawner/map_spawner/loot/common,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower/building)
+"mW" = (
+/obj/structure/chair/stool,
+/turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/lower/building)
 "nh" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
@@ -970,6 +1000,9 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"ps" = (
+/turf/closed/wall/mineral/decostone/center,
+/area/rogue/under/mountains/anvil/lower/building)
 "pu" = (
 /obj/structure/bed/hay,
 /turf/open/floor/twig,
@@ -996,6 +1029,10 @@
 /obj/item/natural/glass/shard,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/indoors/mountains/anvil/surface/building)
+"pQ" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/lower/building)
 "pZ" = (
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/cobblerock,
@@ -1072,8 +1109,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "qQ" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+	dir = 1
 	},
 /obj/structure/fluff/railing/stonehedge{
 	dir = 4
@@ -1140,8 +1176,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "rX" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 8;
-	icon_state = "torchwall1"
+	dir = 8
 	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1348,8 +1383,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "vc" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+	dir = 1
 	},
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8
@@ -1362,6 +1396,11 @@
 "vf" = (
 /turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/lower)
+"vi" = (
+/turf/closed/wall/mineral/decostone/end{
+	dir = 8
+	},
+/area/rogue/under/mountains/anvil/lower/building)
 "vo" = (
 /obj/item/ash,
 /turf/open/floor/naturalstone,
@@ -1489,6 +1528,19 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower)
+"xN" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/reagent_containers/food/snacks/hardtack{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/snacks/hardtack{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/snacks/rotten/breadslice,
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "xR" = (
 /turf/open/floor/twig,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
@@ -1498,8 +1550,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "xT" = (
 /obj/structure/stairs{
-	dir = 4;
-	icon_state = "stairs"
+	dir = 4
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1536,8 +1587,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "yy" = (
 /obj/structure/stairs/stone{
-	dir = 4;
-	icon_state = "stonestairs"
+	dir = 4
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1617,8 +1667,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Ab" = (
 /obj/structure/chair/wood/alt{
-	dir = 8;
-	icon_state = "chair2"
+	dir = 8
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -1713,8 +1762,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "BY" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+	dir = 1
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -1819,6 +1867,10 @@
 /obj/effect/spawner/map_spawner/loot/coin/med,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"DH" = (
+/mob/living/simple_animal/hostile/retaliate/bigrat,
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "DI" = (
 /mob/living/carbon/human/species/orc/marauder,
 /turf/open/floor/naturalstone,
@@ -1936,6 +1988,10 @@
 /obj/structure/bed/inn,
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
+"Gc" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/dirt/road,
+/area/rogue/under/mountains/anvil/lower/building)
 "Gf" = (
 /obj/item/natural/rock,
 /turf/open/floor/cobblerock,
@@ -1970,8 +2026,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "Gt" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 4;
-	icon_state = "torchwall1"
+	dir = 4
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2032,8 +2087,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "Ho" = (
 /obj/structure/fluff/railing/wood{
-	dir = 4;
-	icon_state = "woodrailing"
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
@@ -2079,8 +2133,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "Ia" = (
 /obj/structure/chair/wood/alt{
-	dir = 8;
-	icon_state = "chair2"
+	dir = 8
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2145,6 +2198,10 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
+"IK" = (
+/obj/machinery/light/fueled/hearth,
+/turf/open/floor/dirt/road,
+/area/rogue/under/mountains/anvil/lower/building)
 "IN" = (
 /turf/closed/mineral/random/high_nonval,
 /area/rogue/under/mountains/anvil/lower)
@@ -2269,8 +2326,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "KW" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 8;
-	icon_state = "torchwall1"
+	dir = 8
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2335,6 +2391,10 @@
 "LJ" = (
 /turf/closed/indestructible/wooddark,
 /area/rogue/indoors/mountains/anvil/surface/building)
+"LN" = (
+/obj/item/reagent_containers/food/snacks/smallrat,
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "LT" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/tile/masonic/spiral,
@@ -2472,8 +2532,7 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/effect/spawner/map_spawner/loot/armor,
 /obj/machinery/light/fueled/torchholder{
-	dir = 8;
-	icon_state = "torchwall1"
+	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2499,8 +2558,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "Om" = (
 /obj/machinery/light/fueled/torchholder{
-	dir = 4;
-	icon_state = "torchwall1"
+	dir = 4
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
@@ -2567,8 +2625,7 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /obj/machinery/light/fueled/torchholder{
-	dir = 4;
-	icon_state = "torchwall1"
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2617,6 +2674,10 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower/building)
+"PS" = (
+/obj/structure/dungeon_entry/center,
+/turf/open/floor/churchmarble,
+/area/rogue/under/mountains/anvil/lower/building)
 "PT" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -2639,6 +2700,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
+"Qc" = (
+/obj/structure/chair/stool,
+/obj/item/reagent_containers/glass/bottle/beer,
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "Qi" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2660,8 +2726,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "Qs" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+	dir = 1
 	},
 /turf/closed/mineral/random/med,
 /area/rogue/under/mountains/anvil/lower)
@@ -2672,6 +2737,10 @@
 	},
 /turf/open/floor/wood/nosmooth/saiga,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
+"Qy" = (
+/obj/structure/roguetent/preopen,
+/turf/closed/wall/mineral/tent,
+/area/rogue/under/mountains/anvil/lower/building)
 "QG" = (
 /obj/structure/table/wood/plain,
 /obj/item/weapon/knife/copper,
@@ -2728,8 +2797,7 @@
 "Re" = (
 /obj/item/grown/log/tree/small,
 /obj/machinery/light/fueled/torchholder{
-	dir = 4;
-	icon_state = "torchwall1"
+	dir = 4
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2782,6 +2850,10 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
 /area/rogue/under/mountains/anvil/lower/building)
+"Sq" = (
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/lower/building)
 "Ss" = (
 /obj/structure/chair/wood/alt/chair_noble{
 	dir = 4
@@ -2812,6 +2884,9 @@
 /obj/item/chair,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
+"ST" = (
+/turf/closed/wall/mineral/decostone/end,
+/area/rogue/under/mountains/anvil/lower/building)
 "SY" = (
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -2831,8 +2906,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "Tm" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+	dir = 1
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
@@ -2856,8 +2930,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "TJ" = (
 /obj/structure/stairs{
-	dir = 1;
-	icon_state = "stairs"
+	dir = 1
 	},
 /turf/open/floor/snow/patchy,
 /area/rogue/indoors/mountains/anvil/surface/building)
@@ -2870,6 +2943,10 @@
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/lower/building)
+"TT" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt/road,
 /area/rogue/under/mountains/anvil/lower/building)
 "Uc" = (
 /obj/structure/stairs/stone,
@@ -2962,8 +3039,7 @@
 /area/rogue/under/mountains/anvil/lower/building)
 "VM" = (
 /obj/structure/stairs{
-	dir = 4;
-	icon_state = "stairs"
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/mountains/anvil/surface/building)
@@ -3225,6 +3301,9 @@
 "Ze" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
+"Zm" = (
+/turf/open/floor/twig,
+/area/rogue/under/mountains/anvil/lower/building)
 "Zn" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
@@ -3256,8 +3335,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "ZU" = (
 /obj/structure/fluff/railing/border{
-	dir = 1;
-	icon_state = "border"
+	dir = 1
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower/building)
@@ -49422,7 +49500,7 @@ Xi
 Xi
 ko
 YJ
-ko
+np
 ko
 wQ
 ko
@@ -50028,7 +50106,7 @@ ko
 ko
 ko
 ko
-ko
+np
 YJ
 ko
 ko
@@ -50231,7 +50309,7 @@ ko
 ko
 ko
 ko
-ko
+np
 ko
 ko
 ko
@@ -50433,7 +50511,7 @@ ko
 ko
 ko
 ko
-ko
+np
 ko
 ko
 ko
@@ -50635,8 +50713,8 @@ ko
 ko
 ko
 ko
-ko
-YJ
+np
+np
 ko
 ko
 ko
@@ -50837,7 +50915,7 @@ ko
 ko
 ko
 ko
-ko
+np
 YJ
 ko
 ko
@@ -51039,7 +51117,7 @@ ko
 ko
 ko
 ko
-ko
+np
 ko
 ko
 ko
@@ -51241,7 +51319,7 @@ ko
 ko
 ko
 ko
-ko
+np
 ko
 ko
 ko
@@ -51440,10 +51518,10 @@ DW
 DR
 ko
 ko
+np
 ko
 ko
-ko
-ko
+np
 ko
 wQ
 ko
@@ -51642,7 +51720,7 @@ DW
 ko
 Xi
 ko
-ko
+np
 ko
 ko
 ko
@@ -51843,7 +51921,7 @@ DR
 DR
 ko
 ko
-Xi
+ko
 ko
 ko
 ko
@@ -52044,8 +52122,8 @@ DR
 DR
 ko
 ko
-ko
-ko
+np
+np
 ko
 ko
 ko
@@ -52244,11 +52322,11 @@ DR
 DR
 DR
 ko
+np
 ko
-ko
-ko
-ko
-ko
+np
+np
+np
 ko
 ko
 ko
@@ -52445,12 +52523,12 @@ DR
 DR
 ko
 ko
+np
 ko
 ko
 ko
 ko
-ko
-ko
+Er
 ko
 ko
 DR
@@ -52647,10 +52725,10 @@ ko
 ko
 ko
 ko
+np
 ko
-DR
 ko
-ko
+np
 ko
 ko
 ko
@@ -52849,9 +52927,9 @@ ko
 ko
 ko
 ko
-DR
-DR
-DR
+np
+ko
+ko
 ko
 ko
 ko
@@ -53037,23 +53115,23 @@ ko
 ko
 ko
 ko
-wQ
-ko
-ko
-ko
-DR
-DR
-DR
-ko
-ko
 ko
 ko
 ko
 ko
 DR
-DW
-DW
 DR
+DR
+ko
+ko
+ko
+ko
+ko
+ko
+np
+np
+np
+ko
 Xi
 ko
 ko
@@ -53247,15 +53325,15 @@ ko
 ko
 ko
 ko
+Er
+ko
+np
 ko
 ko
 ko
+np
 ko
-DR
-DW
-DR
-DW
-DR
+ko
 DR
 ko
 ko
@@ -53444,21 +53522,21 @@ ko
 ko
 ko
 ko
-wQ
 ko
 ko
 ko
+ko
+ko
+np
+ko
+np
+np
+np
+np
 ko
 ko
 DR
 DR
-ko
-Xi
-DR
-DR
-DW
-DR
-Xi
 Xi
 ko
 ko
@@ -53640,27 +53718,27 @@ ko
 ko
 ko
 ko
+ko
+ko
+ko
+ko
+ko
 wQ
 ko
 ko
 ko
 ko
+np
+np
+ko
+np
+np
 ko
 ko
-ko
-ko
-ko
-DR
-DR
-DR
-DR
-DR
-DR
 DR
 Xi
-Xi
-Xi
-Xi
+DR
+DR
 Xi
 ko
 ko
@@ -53835,6 +53913,20 @@ ko
 ko
 ko
 ko
+wQ
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+wQ
+ko
+ko
+ko
+ko
+ko
 ko
 ko
 ko
@@ -53847,22 +53939,8 @@ ko
 DR
 DR
 DR
-ko
-ko
-ko
-ko
 DR
-DW
-DW
-DW
-DW
-DW
-DW
-Xi
-Xi
-Xi
-Xi
-Xi
+DR
 ko
 ko
 ko
@@ -54045,24 +54123,24 @@ ko
 ko
 ko
 ko
-DW
-DW
-DW
 ko
 ko
 ko
 ko
 ko
 ko
-DW
+ko
+np
+np
+ko
+np
+ko
+ko
 DR
 DR
 DR
 DR
 DR
-Xi
-Xi
-Xi
 Xi
 Xi
 ko
@@ -54246,24 +54324,24 @@ ko
 ko
 ko
 ko
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+np
+ko
+DR
 DR
 DW
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-DR
+DW
+DW
 DW
 DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
 DR
 DR
 Xi
@@ -54436,7 +54514,7 @@ ko
 ko
 ko
 ko
-ko
+wQ
 Xi
 Xi
 Xi
@@ -54447,25 +54525,25 @@ ko
 ko
 ko
 ko
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+np
+np
+ko
+ko
+ko
 DR
-DR
-DR
-DR
-ko
-ko
-ko
-ko
-ko
-ko
 DR
 DW
 DW
 DR
-DR
-Xi
-Xi
-Xi
-DR
+DW
+DW
 DR
 DR
 DR
@@ -54650,30 +54728,30 @@ ko
 ko
 ko
 ko
-DW
-DR
-ko
-ko
-wQ
 ko
 ko
 ko
 ko
+ko
+np
+np
+np
+np
+ko
 DR
-DR
-DW
-DR
-DR
-DR
-Xi
-DR
-DR
-DW
 DW
 DR
 DR
-Xi
+DW
 DR
+DR
+DR
+DW
+DW
+DR
+Gv
+oR
+Gv
 DW
 DR
 ko
@@ -54845,47 +54923,47 @@ Xi
 Xi
 Xi
 ko
+wQ
 ko
 ko
 ko
 ko
 ko
-ko
-DW
-DW
-ko
-ko
+ST
+OK
+aN
 ko
 ko
 ko
 ko
+np
+np
 ko
 ko
-ko
-DR
-DW
-DW
-DR
-DW
-DW
-DW
-DR
-DW
-DW
-DR
-Xi
-Xi
 Xi
 DW
-DW
+DR
+DR
+Gv
+Gv
+OA
+OA
+OA
+OA
+Gv
+oR
+Pw
+oR
+OA
+OA
 DR
 ko
 ko
 ko
-DR
-DR
-DW
-DR
+ko
+ko
+ko
+ko
 ko
 ko
 ko
@@ -55052,43 +55130,43 @@ ko
 ko
 ko
 ko
-DR
-DW
-DR
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-Xi
-DR
-DR
-DW
-DW
-DR
-DR
-DR
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-DW
-DW
-ko
-ko
+Jm
+ps
+ps
+ps
+dx
+pQ
+SY
+SY
+SY
+vV
 ko
 ko
 DR
 DW
-DR
-DR
+DW
+DW
+OA
+mK
+Zm
+mK
+Gv
+Gv
+oR
+oR
+oR
+oR
+oR
+OA
+OA
+vV
+ko
+ko
+ko
+ko
+ko
+ko
+ko
 ko
 ko
 ko
@@ -55242,7 +55320,7 @@ ko
 ko
 ko
 Xi
-Xi
+ov
 Xi
 Xi
 Xi
@@ -55253,45 +55331,45 @@ Xi
 Xi
 ko
 ko
-DR
+dx
+ps
+ps
+ps
+ps
+Ew
+SY
+SY
+SY
+vV
+vV
+vV
+oR
+OA
+Gv
+Gv
+Gv
+OA
+Zm
+hz
+Zm
+VX
+oR
+oR
+oR
+Pw
+Pw
+oR
+Gv
+Gv
+oR
+ko
+ko
+ko
+ko
 DR
 DW
-DR
-DR
 ko
 ko
-ko
-ko
-ko
-ko
-ko
-ko
-Xi
-DR
-DW
-DW
-DW
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-DR
-Xi
-ko
-ko
-DR
-DR
-DR
-DW
-DW
-DR
 ko
 ko
 ko
@@ -55455,45 +55533,45 @@ Xi
 Xi
 Xi
 Xi
+Ew
+ps
+ps
+ps
+Jm
+Ew
+Sq
+SY
+SY
+SY
+vV
+vV
+oR
+oR
+OA
+OA
+OA
+OA
+Zm
+Zm
+Qc
+VX
+fH
+oR
+Pw
+mW
+TT
+oR
+oR
+Gv
+oR
+ko
+ko
 DR
 DR
-DW
 DR
 DR
 ko
 ko
-ko
-ko
-ko
-ko
-ko
-DR
-DR
-DW
-DW
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-Xi
-ko
-ko
-ko
-DR
-DR
-DR
-DR
-DW
 DW
 DW
 DR
@@ -55656,46 +55734,46 @@ ov
 Xi
 Xi
 Xi
-Xi
+dx
+ps
+ps
+ps
+ps
+Ew
+fo
+fo
+SY
+SY
+vV
+vV
+oR
+oR
+oR
+oR
+oR
+oR
+th
+VX
+kN
+VX
+th
+oR
+oR
+oR
+Pw
+Pw
+mW
+oR
+Pw
+Pw
 ko
+ko
+DR
 DR
 DW
 DR
-DR
 ko
 ko
-ko
-ko
-ko
-ko
-DR
-DR
-DW
-DW
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-ko
-ko
-ko
-ko
-DR
-DR
-ko
-DR
 DR
 DR
 DR
@@ -55858,47 +55936,47 @@ Xi
 Xi
 Xi
 Xi
-Xi
-ko
-ko
-DW
-DW
+Ew
+ps
+ps
+ps
+ps
+Ew
+PS
+fo
+SY
+SY
+vV
+Pw
+Pw
+oR
+Gv
+oR
+oR
+oR
+oR
+Zm
+Zm
+oR
+oR
+vV
+oR
+Pw
+Pw
+Pw
+oR
+Pw
+Pw
+th
+VX
+VX
+Gv
+DR
+DR
+DR
 DR
 ko
-ko
-ko
-ko
-ko
-ko
 DR
-DW
-DW
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-ko
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
 ko
 DR
 DR
@@ -56060,45 +56138,45 @@ Xi
 Xi
 Xi
 Xi
-Xi
-ko
-ko
-ko
-DW
+vi
+ps
+ps
+ps
+ps
+Ew
+fo
+fo
+SY
+vV
+vV
+Pw
+Pw
+Pw
+oR
+Pw
+Pw
+oR
+Pw
+Pw
+Pw
+Pw
+Pw
+vV
+Pw
+oR
+oR
+Pw
+oR
+oR
+oR
+VX
+Zm
+DH
+mK
 DR
 DR
-ko
-ko
-ko
-ko
 DR
 DR
-DR
-DR
-DR
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-ko
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-DR
-DR
-ko
-ko
-ko
-ko
-ko
 ko
 ko
 ko
@@ -56259,48 +56337,48 @@ DR
 DR
 DR
 DR
-DR
-Xi
-Xi
-ko
-ko
-ko
-ko
-DR
-DW
-DR
-DR
-ko
-ko
-ko
-ko
-DR
-DR
-DR
-Xi
-Xi
-Xi
-Xi
 Xi
 Xi
 Xi
 ko
-ko
+Ew
+ps
+ps
+ps
+Jm
+Ew
+Sq
+SY
+vV
+vV
+vV
+oR
+Pw
+Pw
+mW
+Pw
+Pw
+Pw
+oR
+oR
+oR
+vV
+vV
+oR
+oR
+Pw
+Pw
+Pw
+oR
+oR
+Qy
+Zm
+hz
+Zm
 DR
 DR
-Xi
 DR
 DR
-Xi
-DR
-DR
-DR
-DR
-DR
-ko
-ko
-ko
-ko
 ko
 ko
 ko
@@ -56461,48 +56539,48 @@ DW
 DW
 DR
 DR
-DR
-DR
 ko
 ko
+Xi
 ko
-ko
-ko
-ko
-DR
+vi
+ps
+ps
+ps
+ps
+Ew
+SY
+vV
+vV
+vV
+vV
+oR
+oR
+Pw
+TT
+mW
+Pw
+oR
+oR
+oR
+vV
+oR
+vV
+Gv
+Gv
+Pw
+IK
+Gv
+Gv
+OA
+VX
+mK
+Zm
+mK
 DW
 DR
 DR
-ko
-ko
-ko
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-ko
 DR
-DR
-DR
-DR
-DR
-DR
-DR
-DR
-DW
-DR
-DR
-DR
-DR
-DR
-DR
-DR
-ko
 ko
 ko
 ko
@@ -56663,33 +56741,33 @@ DR
 DR
 DW
 DR
-DR
-DR
 ko
 ko
 ko
 ko
 ko
-ko
-ko
-DR
-DR
-ko
-ko
-ko
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-DR
-DR
+Ew
+ps
+ps
+ps
+Ew
+pQ
+vV
+vV
+vV
+oR
+oR
+Pw
+Gc
+Pw
+Pw
+Pw
+oR
+th
+VX
+VX
+VX
+th
 DW
 DW
 DW
@@ -56699,9 +56777,9 @@ DW
 DW
 DW
 DW
-DR
 DW
-DR
+DW
+DW
 DR
 DR
 DR
@@ -56863,39 +56941,39 @@ nP
 nP
 DR
 DR
-DR
+ko
+ko
+ko
+ko
+ko
+ko
+ko
+Jm
+OK
+OK
+ps
+vi
+ko
+ko
+vV
+vV
+Pw
+Pw
+Pw
+oR
+Pw
+oR
+Pw
+Zm
+VX
+xN
+LN
+mK
+VX
 DW
 DR
 DR
-ko
-ko
-ko
-ko
-ko
-ko
-ko
 DR
-DR
-ko
-ko
-ko
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-Xi
-DR
-DW
-DW
-DW
-DW
-DR
-DR
-ko
 DR
 DR
 DW
@@ -57065,40 +57143,40 @@ DR
 nP
 DR
 DR
-DR
-DR
-DR
+ko
+ko
+ko
+ko
+wQ
 ko
 ko
 ko
 ko
 ko
+Jm
 ko
 ko
 ko
 ko
-ko
-ko
-ko
-ko
-ko
-Xi
-DR
-DR
-DR
-Xi
-Xi
-Xi
+vV
+vV
+oR
+oR
+Gv
+oR
+oR
+oR
+Zm
+kN
+Zm
+hz
+Zm
+Gv
 DR
 DW
-DW
 DR
 DR
-ko
-ko
-ko
-ko
-ko
+DR
 DR
 DR
 DR
@@ -57268,7 +57346,6 @@ DR
 DW
 DR
 DR
-DR
 ko
 ko
 ko
@@ -57284,24 +57361,25 @@ ko
 ko
 ko
 ko
-DR
-DR
-DR
-DR
-DR
-DR
-Xi
-DR
+vV
+Gv
+oR
+oR
+oR
+oR
+Gv
+oR
+VX
+mK
+LN
+mK
+Gv
 DW
+DW
+ko
+ko
 DR
 DR
-ko
-ko
-ko
-ko
-ko
-ko
-ko
 DR
 DR
 DW
@@ -57485,20 +57563,20 @@ ko
 ko
 ko
 DR
+Gv
+Gv
+Gv
+oR
+oR
+oR
+vV
+vV
+th
+VX
+Gv
+Gv
+Gv
 DR
-DR
-DR
-DW
-DR
-DR
-ko
-ko
-DW
-DW
-DR
-ko
-ko
-ko
 ko
 ko
 ko
@@ -57697,8 +57775,8 @@ ko
 DR
 DR
 DR
-ko
-ko
+DR
+DW
 ko
 ko
 ko
@@ -57898,7 +57976,7 @@ DR
 ko
 ko
 DR
-ko
+DR
 ko
 ko
 ko
