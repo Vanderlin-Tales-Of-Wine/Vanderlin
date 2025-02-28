@@ -23,18 +23,13 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
 	experimental_onhip = TRUE
+	var/can_label_bottle = TRUE	// Determines if the bottle can be labeled with paper
 	var/fancy		// for bottles with custom descriptors that you don't want to change when bottle manipulated
 
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/paper) && !istype(I, /obj/item/paper/scroll))
-		if (istype(src, /obj/item/reagent_containers/glass/cup))
-			return
-		if (istype(src, /obj/item/reagent_containers/glass/bottle/waterskin))
-			return
-		if (istype(src, /obj/item/reagent_containers/glass/bottle/decanter))
-			return
-		if (istype(src, /obj/item/reagent_containers/glass/bottle/teapot))
+		if (!can_label_bottle)
 			return
 		var/input = input(user, "What would you like to label this bottle as?", "", "") as text
 		if(!input)
@@ -292,6 +287,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	amount_per_transfer_from_this = 8
 	possible_transfer_amounts = list(8)
 	dropshrink = 1
+	can_label_bottle = FALSE
 
 	fill_icon_thresholds = list()
 
@@ -310,6 +306,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 1
+	can_label_bottle = FALSE
 
 	fill_icon_thresholds = list()
 
