@@ -650,7 +650,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/railing/border,
-/turf/open/transparent/openspace,
+/turf/open/floor/carpet/lord/center,
 /area/rogue)
 "Dt" = (
 /obj/structure/closet/crate/chest/crate,
@@ -809,7 +809,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/closed,
+/turf/open/floor/carpet/lord/center,
 /area/rogue)
 "IS" = (
 /obj/structure/fermentation_keg/random/water,

@@ -568,9 +568,9 @@
 /turf/open/floor/grass,
 /area/rogue)
 "nO" = (
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/decal/cleanable/dyes,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile,
 /area/rogue)
 "oc" = (
@@ -805,8 +805,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue)
 "tQ" = (
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/decal/cleanable/generic,
+/obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/tile,
 /area/rogue)
 "tR" = (

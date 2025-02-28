@@ -46,7 +46,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 //	add_overlay(eye_lights)
 	set_light(5)
 
-/obj/structure/fake_machine/titan/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/fake_machine/titan/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 //	. = ..()
 	if(speaker == src)
 		return
@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	var/notlord
 	if(SSticker.rulermob != H)
 		notlord = TRUE
-	var/message2recognize = sanitize_hear_message(raw_message)
+	var/message2recognize = sanitize_hear_message(original_message)
 
 	if(mode)
 		if(findtext(message2recognize, "nevermind") || findtext(message2recognize, "cancel"))
@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			make_decree(H, raw_message)
 			mode = 0
 		if(3)
-			make_outlaw(H, raw_message)
+			make_outlaw(H, original_message)
 			mode = 0
 		if(4)
 			make_law(H, raw_message)
@@ -314,8 +314,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!SScommunications.can_announce(user))
 		return
 	var/datum/antagonist/prebel/P = user.mind?.has_antag_datum(/datum/antagonist/prebel)
-	if(P?.rev_team)
-		if(P.rev_team.members.len < 3)
+	if(P)
+		if(P.rev_team?.members.len < 3)
 			to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
 		else
 			for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
