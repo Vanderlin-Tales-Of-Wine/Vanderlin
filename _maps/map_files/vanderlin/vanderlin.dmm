@@ -19266,6 +19266,10 @@
 "nZs" = (
 /turf/closed/mineral,
 /area/rogue/under/town/sewer)
+"nZx" = (
+/obj/structure/train,
+/turf/open/floor/metal,
+/area/rogue/under/town/sewer)
 "nZK" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
@@ -59002,7 +59006,7 @@ oGi
 lfU
 ttL
 kDp
-hbV
+nZx
 kDp
 qXV
 qXV

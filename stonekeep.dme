@@ -1005,6 +1005,7 @@
 #include "code\game\objects\structures\target_stake.dm"
 #include "code\game\objects\structures\throne.dm"
 #include "code\game\objects\structures\toilet.dm"
+#include "code\game\objects\structures\train.dm"
 #include "code\game\objects\structures\traps.dm"
 #include "code\game\objects\structures\traveltile.dm"
 #include "code\game\objects\structures\trench.dm"
