@@ -1028,7 +1028,7 @@
 	. = TRUE
 
 	var/wrestling_diff = 0
-	var/resist_chance = 40
+	var/resist_chance = BASE_GRAB_RESIST_CHANCE
 	var/mob/living/L = pulledby
 	var/combat_modifier = 1
 
