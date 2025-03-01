@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/job/orphan
 	display_order = JDO_ORPHAN
 	show_in_credits = FALSE
-	min_pq = -30
+	min_pq = 2
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 	can_have_apprentices = FALSE
 	bypass_lastclass = TRUE

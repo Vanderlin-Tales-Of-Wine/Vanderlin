@@ -47,9 +47,6 @@
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
 /area/rogue)
-"C" = (
-/turf/open/transparent/openspace,
-/area/rogue)
 "G" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue)
@@ -345,13 +342,13 @@ s
 "}
 (6,1,2) = {"
 Y
-C
-C
-C
-C
-C
-C
-C
+G
+G
+G
+G
+G
+G
+G
 Y
 w
 w

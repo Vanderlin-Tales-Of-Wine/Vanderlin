@@ -2,10 +2,10 @@
 	info = "It's easy to smith. Put ores in the smelter. Put ingots on the anvil. Use your tongs to handle ingots. Hit them with the hammer. Quench hot ingots in the barrel (there must be water in it). Steel is an alloy from iron and coal, find the golden ratio"
 
 /obj/item/paper/heartfelt/goal3
-	info = "Establish a diplomatic alliance with the King of Vanderlin to strengthen the relationship between Heartfelt and Vanderlin."
+	info = "Establish a diplomatic alliance with the Monarch of Vanderlin to strengthen the relationship between Heartfelt and Vanderlin."
 
 /obj/item/paper/heartfelt/goal2
-	info = "Explore the mysteries of isle of Enigma, uncovering its secrets and hidden treasures."
+	info = "Explore the mysteries of peninsula of Vanderlin, uncovering its secrets and hidden treasures."
 
 /obj/item/paper/heartfelt/goal1
 	info = "Negotiate trade agreements with merchants in Vanderlin to facilitate the exchange of goods and resources between the two realms."

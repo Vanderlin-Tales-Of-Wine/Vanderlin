@@ -19,7 +19,7 @@
 	bypass_lastclass = TRUE
 	whitelist_req = FALSE
 	give_bank_account = 120
-	min_pq = 8
+	min_pq = 10
 
 /*
 /datum/job/hand/special_job_check(mob/dead/new_player/player)
