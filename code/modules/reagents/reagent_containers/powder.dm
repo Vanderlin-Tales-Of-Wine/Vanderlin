@@ -1,12 +1,12 @@
-/obj/item/reagent_containers/powder // TO DO Remember this is now obsolete by /obj/item/reagent_containers/powder/spice
+/obj/item/reagent_containers/powder
 	name = "powder parent item. You should not be seeing this."
 	desc = ""
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "spice"
 	item_state = "spice"
-	possible_transfer_amounts = list()
+	possible_transfer_amounts = null
 	volume = 15
-	list_reagents = list(/datum/reagent/druqks = 15)
+	list_reagents = null
 	sellprice = 10
 
 /obj/item/reagent_containers/powder/spice
@@ -15,7 +15,6 @@
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "spice"
 	item_state = "spice"
-	possible_transfer_amounts = list()
 	volume = 15
 	list_reagents = list(/datum/reagent/druqks = 15)
 	sellprice = 16
@@ -54,7 +53,6 @@
 	show_when_dead = FALSE
 
 /datum/reagent/druqks/overdose_start(mob/living/M)
-	//M.flash_fullscreen("hey") NO. NONE OF THAT.
 	M.visible_message("<span class='warning'>Blood runs from [M]'s nose.</span>")
 
 /datum/reagent/druqks/overdose_process(mob/living/M)
@@ -67,9 +65,6 @@
 		ADD_TRAIT(M, TRAIT_DRUQK, "based")
 		SSdroning.area_entered(get_area(M), M.client)
 	M.update_body_parts_head_only()
-//			if(M.client.screen && M.client.screen.len)
-//				var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in M.client.screen
-//				PM.backdrop(M.client.mob)
 
 /datum/reagent/druqks/on_mob_end_metabolize(mob/living/M)
 	M.clear_fullscreen("druqk")
@@ -79,13 +74,9 @@
 		REMOVE_TRAIT(M, TRAIT_DRUQK, "based")
 		SSdroning.play_area_sound(get_area(M), M.client)
 	M.update_body_parts_head_only()
-//		if(M.client.screen && M.client.screen.len)
-///			var/atom/movable/screen/plane_master/game_world/PM = locate(/atom/movable/screen/plane_master/game_world) in M.client.screen
-//			PM.backdrop(M.client.mob)
 
 /obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	. = ..()
-	///if the thrown object's target zone isn't the head
 	if(thrownthing.target_zone != BODY_ZONE_PRECISE_NOSE)
 		return
 	if(iscarbon(hit_atom))
@@ -94,7 +85,7 @@
 			if(reagents.total_volume)
 				playsound(C, 'sound/items/sniff.ogg', 100, FALSE)
 				reagents.trans_to(C, 1, transfered_by = thrownthing.thrower, method = "swallow")
-	qdel(src)
+				qdel(src)
 
 /obj/item/reagent_containers/powder/attack(mob/M, mob/user, def_zone)
 	if(!canconsume(M, user))
@@ -128,64 +119,11 @@
 	qdel(src)
 	return TRUE
 
-/*
-/obj/item/reagent_containers/pill/afterattack(obj/target, mob/user , proximity)
-	. = ..()
-	if(!proximity)
-		return
-	if(!dissolvable || !target.is_refillable())
-		return
-	if(target.is_drainable() && !target.reagents.total_volume)
-		to_chat(user, "<span class='warning'>[target] is empty! There's nothing to dissolve [src] in.</span>")
-		return
-
-	if(target.reagents.holder_full())
-		to_chat(user, "<span class='warning'>[target] is full.</span>")
-		return
-
-	user.visible_message("<span class='warning'>[user] slips something into [target]!</span>", "<span class='notice'>I dissolve [src] in [target].</span>", null, 2)
-	reagents.trans_to(target, reagents.total_volume, transfered_by = user)
-	qdel(src)
-*/
-/obj/item/reagent_containers/powder/flour
-	name = "powder"
-	desc = ""
-	gender = PLURAL
-	icon_state = "flour"
-	list_reagents = list(/datum/reagent/floure = 1)
-	volume = 1
-	sellprice = 0
-
-/datum/reagent/floure
-	name = "flower"
-	description = ""
-	color = "#FFFFFF" // rgb: 96, 165, 132
-
-/datum/reagent/floure/on_mob_life(mob/living/carbon/M)
-	if(prob(30))
-		M.confused = max(M.confused+3,0)
-	M.emote(pick("cough"))
-	..()
-
-/obj/item/reagent_containers/powder/flour/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
-	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
-	..()
-	qdel(src)
-
-/obj/item/reagent_containers/powder/salt
-	name = "salt"
-	desc = ""
-	gender = PLURAL
-	icon_state = "salt"
-	list_reagents = list(/datum/reagent/floure = 0)
-	volume = 1
-
 /obj/item/reagent_containers/powder/ozium
 	name = "ozium"
 	desc = "A potent drug that causes a state of euphoria, but can also arrest breathing."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "ozium"
-	possible_transfer_amounts = list()
 	volume = 15
 	list_reagents = list(/datum/reagent/ozium = 15)
 	sellprice = 8
@@ -210,9 +148,6 @@
 /datum/reagent/ozium/on_mob_life(mob/living/carbon/M)
 	if(M.has_flaw(/datum/charflaw/addiction/junkie))
 		M.sate_addiction()
-	//if(prob(10))
-	//	M.playsound_local(get_turf(M), 'sound/misc/jumpscare (2).ogg', 25)
-	//	M.flash_fullscreen("hey")														WHAT THE HELL? WHY?
 	if(prob(5))
 		M.flash_fullscreen("whiteflash")
 	M.apply_status_effect(/datum/status_effect/buff/ozium)
@@ -230,7 +165,6 @@
 	desc = "Derived from the skins of certain pallid goblins. Makes folk quick to act and anger."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "moondust"
-	possible_transfer_amounts = list()
 	volume = 15
 	list_reagents = list(/datum/reagent/moondust = 15)
 	sellprice = 16
@@ -278,7 +212,6 @@
 	desc = "This moondust glitters even in the dark. It seems to have certain pure properties."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "moondust_purest"
-	possible_transfer_amounts = list()
 	volume = 18
 	list_reagents = list(/datum/reagent/moondust_purest = 18)
 	sellprice = 20
@@ -329,7 +262,6 @@
 	desc = "explosive powder known to be produced by the dwarves. It's used in many explosives."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "blastpowder"
-	possible_transfer_amounts = list()
 	volume = 15
 	list_reagents = list(/datum/reagent/blastpowder = 15)
 	sellprice = 15

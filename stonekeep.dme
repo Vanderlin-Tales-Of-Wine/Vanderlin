@@ -1899,7 +1899,7 @@
 #include "code\modules\reagents\chemistry\recipes\toxins.dm"
 #include "code\modules\reagents\reagent_containers\carafe.dm"
 #include "code\modules\reagents\reagent_containers\glass.dm"
-#include "code\modules\reagents\reagent_containers\powderspice.dm"
+#include "code\modules\reagents\reagent_containers\powder.dm"
 #include "code\modules\reagents\reagent_containers\bottles\_bottle.dm"
 #include "code\modules\reagents\reagent_containers\bottles\alchemy.dm"
 #include "code\modules\reagents\reagent_containers\bucket\pot.dm"
