@@ -174,34 +174,52 @@
 //proc to upgrade a simple pull into a more aggressive grab.
 /mob/living/proc/grippedby(mob/living/carbon/user, instant = FALSE)
 	user.changeNext_move(CLICK_CD_GRABBING)
+	var/skill_diff = 0
+	var/combat_modifier = 1
+	if(user.mind)
+		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
+	if(mind)
+		skill_diff -= (mind.get_skill_level(/datum/skill/combat/wrestling))
 
 	if(user == src)
 		instant = TRUE
 
-//	if(user.pulling != src)
-//		return
+	if(surrendering)
+		combat_modifier = 2
 
-	var/probby =  20 - ((user.STACON - STACON) * 10)
-	if(src.pulling == user && !instant)
-		probby += 30
+	if(restrained())
+		combat_modifier += 0.25
+
+	if(!(mobility_flags & MOBILITY_STAND) && user.mobility_flags & MOBILITY_STAND)
+		combat_modifier += 0.05
+	if(user.cmode && !cmode)
+		combat_modifier += 0.3
+	else if(!user.cmode && cmode)
+		combat_modifier -= 0.3
 
 	if(src.dir == turn(get_dir(src,user), 180))
-		probby = (probby - 30)
-	probby = clamp(probby, 5, 95)
+		combat_modifier += 0.1
 
-	if(prob(probby) && !instant && !stat && cmode)
-		visible_message("<span class='warning'>[user] struggles with [src]!</span>",
-						"<span class='warning'>[user] struggles to restrain me!</span>", "<span class='hear'>I hear aggressive shuffling!</span>", null, user)
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold)
+			combat_modifier += 0.15
+
+	var/probby = clamp((((4 + (((user.STASTR - STASTR)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)
+
+	if(!prob(probby) && !instant && !stat && cmode)
+		var/self_message
 		if(src.client?.prefs.showrolls)
-			to_chat(user, "<span class='warning'>I struggle with [src]! ([probby]%)</span>")
+			self_message = span_warning("I struggle with [user]! ([probby]%)")
 		else
-			to_chat(user, "<span class='warning'>I struggle with [src]!</span>")
+			self_message = span_warning("I struggle with [user]!")
+		visible_message(span_warning("[user] struggles with [src]!"), self_message, span_hear("I hear aggressive shuffling!"))
 		playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
 		user.Immobilize(2 SECONDS)
 		user.changeNext_move(2 SECONDS)
-		user.adjust_stamina(5)
+		user.adjust_stamina(rand(7,15))
 		src.Immobilize(1 SECONDS)
 		src.changeNext_move(1 SECONDS)
+		src.adjust_stamina(rand(7,15))
 		return
 
 	if(!instant)
