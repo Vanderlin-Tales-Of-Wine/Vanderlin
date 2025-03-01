@@ -28,12 +28,6 @@
 "eq" = (
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cave)
-"et" = (
-/obj/structure/stairs/stone/reddish{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
 "fc" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -807,7 +801,7 @@ pD
 FJ
 wg
 eq
-et
+RR
 GQ
 eq
 FJ
@@ -824,7 +818,7 @@ ay
 FJ
 sB
 AB
-et
+RR
 GQ
 fc
 mU

@@ -23,7 +23,7 @@
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
 	display_order = JDO_SHEPHERD
 	bypass_lastclass = TRUE
-	min_pq = 0
+	min_pq = 5
 	can_have_apprentices = FALSE
 
 /datum/outfit/job/adept

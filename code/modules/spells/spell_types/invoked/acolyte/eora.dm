@@ -203,7 +203,7 @@
 		C.blur_eyes(20)
 		return BULLET_ACT_HIT
 //		C.reagents.add_reagent(/datum/reagent/moondust, 3)
-//		C.reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/wine, 3)
+//		C.reagents.add_reagent(/datum/reagent/consumable/ethanol/wine, 3)
 		// return
 //	if(isanimal(target))
 //		var/mob/living/simple_animal/L = target

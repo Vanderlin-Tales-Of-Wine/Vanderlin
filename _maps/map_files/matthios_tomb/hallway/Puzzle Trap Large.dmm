@@ -267,7 +267,7 @@
 /obj/structure/stairs/stone{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "AV" = (
 /obj/structure/mineral_door/wood/donjon/stone,
@@ -429,7 +429,7 @@
 /area/rogue/indoors)
 "Rh" = (
 /obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
+/turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Ri" = (
 /obj/structure/spider/stickyweb,

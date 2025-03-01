@@ -85,9 +85,28 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	log_admin("[key_name(usr)] assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
-	if( isobserver(adminmob) )
+	if(isobserver(adminmob))
 		qdel(adminmob)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Assume Direct Control") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_give_control_to_player(mob/M in GLOB.mob_list, client/player in GLOB.clients)
+	set category = "Admin"
+	set name = "Give Control To Player"
+	set desc = ""
+
+	if(M.ckey)
+		if(alert("This mob is being controlled by [key_name(M)]. Are you sure you wish to give [key_name(player)] control of it? [key_name(M)] will be made a ghost.",,"Yes","No") != "Yes")
+			return
+		else
+			var/mob/dead/observer/ghost = new/mob/dead/observer(M,1)
+			ghost.ckey = M.ckey
+	message_admins(span_adminnotice("[key_name_admin(usr)] gave control of [M] to [key_name(player)]."))
+	log_admin("[key_name(usr)] gave control of [M] to [key_name(player)].")
+	var/mob/playermob = player.mob
+	M.ckey = player.ckey
+	if(isobserver(playermob))
+		qdel(playermob)
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Control To Player") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_areatest(on_station)
 	set category = "Mapping"

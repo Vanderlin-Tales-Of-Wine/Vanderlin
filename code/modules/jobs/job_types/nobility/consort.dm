@@ -59,7 +59,7 @@
 
 /datum/advclass/consort/highborn
 	name = "Highborn Consort"
-	tutorial = "Of a minor noble house, yours is a rather typical tale; you were trained in manners, literature, and intrigue, all to be married off to the next ruler of this backwater island."
+	tutorial = "Of a minor noble house, yours is a rather typical tale; you were trained in manners, literature, and intrigue, all to be married off to the next ruler of this damned peninsula."
 	outfit = /datum/outfit/job/consort/highborn
 
 	category_tags = list(CTAG_CONSORT)

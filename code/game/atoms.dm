@@ -411,7 +411,30 @@
 				. += "<span class='notice'>It has [round(reagents.total_volume / 3)] oz left.</span>"
 			else
 				. += "<span class='danger'>It's empty.</span>"
-
+		//SNIFFING
+		if (user.zone_selected == BODY_ZONE_PRECISE_NOSE && get_dist(src, user) <= 1)
+			// if atom's path is item/reagent_containers/glass/carafe
+			var/is_closed = FALSE
+			if (istype(src, /obj/item/reagent_containers/glass/carafe))
+				var/obj/item/reagent_containers/glass/carafe/A = src
+				is_closed = A.closed
+			else if (istype(src, /obj/item/reagent_containers/glass/bottle))
+				var/obj/item/reagent_containers/glass/bottle/A = src
+				is_closed = A.closed
+			else if (istype(src, /obj/item/reagent_containers/glass/alchemical))
+				var/obj/item/reagent_containers/glass/alchemical/A = src
+				is_closed = A.closed
+			if (is_closed == FALSE && reagents.total_volume) // if the container is open, and there's liquids in there
+				user.visible_message("<span class='info'>[user] takes a whiff of the [src]</span>")
+				. += "<span class='notice'>I smell [src.reagents.generate_scent_message()].</span>"
+				if (HAS_TRAIT(user, TRAIT_LEGENDARY_ALCHEMIST))
+					var/full_reagents = ""
+					for (var/datum/reagent/R in reagents.reagent_list)
+						if (R.volume > 0)
+							if (full_reagents)
+								full_reagents += ", "
+							full_reagents += "[lowertext(R.name)]"
+					. += "<span class='notice'>My expert nose lets me distinguish this liquid as [full_reagents].</span>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /// Updates the icon of the atom

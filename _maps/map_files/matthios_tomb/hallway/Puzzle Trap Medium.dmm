@@ -222,7 +222,7 @@
 /area/rogue/indoors)
 "CF" = (
 /obj/structure/stairs/stone/d,
-/turf/closed,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "DN" = (
 /obj/structure/spider/stickyweb,
@@ -407,8 +407,10 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors)
 "Ym" = (
-/obj/structure/stairs/stone/d,
-/turf/open/transparent/openspace,
+/obj/structure/stairs/stone/d{
+	dir = 1
+	},
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "YM" = (
 /obj/structure/table/stone_small,
@@ -510,7 +512,7 @@ vY
 vY
 Bq
 GE
-CF
+Ym
 xn
 vY
 pd
@@ -527,7 +529,7 @@ xn
 vY
 yT
 yT
-CF
+Ym
 xn
 vY
 xn
@@ -856,7 +858,7 @@ DN
 TP
 GE
 gp
-Ym
+CF
 xn
 tP
 vY
@@ -873,7 +875,7 @@ bp
 Sw
 yT
 gp
-Ym
+CF
 xn
 vY
 vY
