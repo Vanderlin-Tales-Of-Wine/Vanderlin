@@ -38,7 +38,7 @@
 					if(D && D.increase_votepwr)
 						wwoelf++
 						continue
-					D = player.mind.has_antag_datum(/datum/antagonist/vampire)
+					D = player.mind.has_antag_datum(/datum/antagonist/vampirelord)
 					if(D && D.increase_votepwr)
 						vampyr++
 						continue

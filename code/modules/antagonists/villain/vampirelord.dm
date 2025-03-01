@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/vitae = 1000
 	var/vmax = 2000
 	var/obj/structure/vampire/bloodpool/mypool
-	var/last_transform
+	COOLDOWN_DECLARE(last_transform)
 	var/cache_skin
 	var/cache_eyes
 	var/cache_hair
@@ -1242,3 +1242,269 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					L.Slowdown(50)
 					sleep(50)
 					L.Sleeping(300)
+
+/mob/living/carbon/human/proc/disguise_button()
+	set name = "Disguise"
+	set category = "VAMPIRE"
+
+	var/datum/antagonist/vampirelord/VD = mind?.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD)
+		return
+	if(world.time < VD.last_transform + 30 SECONDS)
+		var/timet2 = (VD.last_transform + 30 SECONDS) - world.time
+		to_chat(src, "<span class='warning'>No.. not yet. [round(timet2/10)]s</span>")
+		return
+	if(VD.disguised)
+		VD.last_transform = world.time
+		vampire_undisguise(VD)
+	else
+		if(VD.vitae < 100)
+			to_chat(src, "<span class='warning'>I don't have enough Vitae!</span>")
+			return
+		VD.last_transform = world.time
+		vampire_disguise(VD)
+
+/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/vampirelord/VD)
+	if(!VD)
+		return
+	VD.disguised = TRUE
+	skin_tone = VD.cache_skin
+	hair_color = VD.cache_hair
+	eye_color = VD.cache_eyes
+	facial_hair_color = VD.cache_hair
+	mob_biotypes = MOB_ORGANIC
+	update_body()
+	update_hair()
+	update_body_parts(redraw = TRUE)
+	to_chat(src, span_notice("My true form is hidden."))
+
+/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/vampirelord/VD)
+	if(!VD)
+		return
+	VD.disguised = FALSE
+//	VD.cache_skin = skin_tone
+//	VD.cache_eyes = eye_color
+//	VD.cache_hair = hair_color
+	mob_biotypes = MOB_UNDEAD
+	skin_tone = "c9d3de"
+	hair_color = "181a1d"
+	facial_hair_color = "181a1d"
+	eye_color = "ff0000"
+	update_body()
+	update_hair()
+	update_body_parts(redraw = TRUE)
+	to_chat(src, span_notice("My true form is revealed."))
+
+
+/mob/living/carbon/human/proc/blood_strength()
+	set name = "Night Muscles"
+	set category = "VAMPIRE"
+
+	var/cooldown = FALSE
+	var/cooldown_time = 3000 // Five minutes cooldown
+
+	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD)
+		return
+	if(VD.disguised)
+		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		return
+	if(VD.vitae < 500)
+		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		return
+	if(has_status_effect(/datum/status_effect/buff/bloodstrength))
+		to_chat(src, "<span class='warning'>Already active.</span>")
+		return
+	if(cooldown)
+		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
+
+	// Gain experience towards blood magic
+	var/mob/living/carbon/human/licker = usr
+	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/amt2raise = licker.STAINT*2
+	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	VD.handle_vitae(-500)
+	apply_status_effect(/datum/status_effect/buff/bloodstrength)
+	to_chat(src, "<span class='greentext'>! NIGHT MUSCLES !</span>")
+	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
+	cooldown = TRUE
+	sleep(cooldown_time)
+	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")
+	cooldown = FALSE
+
+/datum/status_effect/buff/bloodstrength
+	id = "bloodstrength"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/bloodstrength
+	effectedstats = list(STATKEY_STR = 6)
+	duration = 1 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/bloodstrength
+	name = "Night Muscles"
+	desc = ""
+	icon_state = "bleed1"
+
+/mob/living/carbon/human/proc/blood_celerity()
+	set name = "Quickening"
+	set category = "VAMPIRE"
+
+	var/cooldown = FALSE
+	var/cooldown_time = 3000 // Five minutes cooldown
+
+	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD)
+		return
+	if(VD.disguised)
+		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		return
+	if(VD.vitae < 500)
+		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		return
+	if(has_status_effect(/datum/status_effect/buff/celerity))
+		to_chat(src, "<span class='warning'>Already active.</span>")
+		return
+	if(cooldown)
+		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
+	// Gain experience towards blood magic
+	var/mob/living/carbon/human/licker = usr
+	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/amt2raise = licker.STAINT*2
+	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	VD.handle_vitae(-500)
+	apply_status_effect(/datum/status_effect/buff/celerity)
+	to_chat(src, "<span class='greentext'>! QUICKENING !</span>")
+	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
+	cooldown = TRUE
+	sleep(cooldown_time)
+	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")
+	cooldown = FALSE
+
+/datum/status_effect/buff/celerity
+	id = "celerity"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/celerity
+	effectedstats = list(STATKEY_SPD = 15, STATKEY_PER = 10)
+	duration = 30 SECONDS
+
+/datum/status_effect/buff/celerity/nextmove_modifier()
+	return 0.60
+
+/atom/movable/screen/alert/status_effect/buff/celerity
+	name = "Quickening"
+	desc = ""
+	icon_state = "bleed1"
+
+/mob/living/carbon/human/proc/blood_fortitude()
+	set name = "Armor of Darkness"
+	set category = "VAMPIRE"
+	var/cooldown = FALSE
+	var/cooldown_time = 6000 // Ten minutes cooldown, you get an anticrit 100 melee armor for free with the stats.
+
+	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD)
+		return
+	if(VD.disguised)
+		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		return
+	if(VD.vitae < 500)
+		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		return
+	if(has_status_effect(/datum/status_effect/buff/fortitude))
+		to_chat(src, "<span class='warning'>Already active.</span>")
+		return
+	if(cooldown)
+		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
+	// Gain experience towards blood magic
+	var/mob/living/carbon/human/licker = usr
+	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/amt2raise = licker.STAINT*2
+	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	VD.handle_vitae(-500)
+	apply_status_effect(/datum/status_effect/buff/fortitude)
+	to_chat(src, "<span class='greentext'>! ARMOR OF DARKNESS !</span>")
+	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
+	cooldown = TRUE
+	sleep(cooldown_time)
+	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")
+	cooldown = FALSE
+
+/datum/status_effect/buff/fortitude
+	id = "fortitude"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/fortitude
+	effectedstats = list(STATKEY_END = 20, STATKEY_CON = 20)
+	duration = 30 SECONDS
+
+/atom/movable/screen/alert/status_effect/buff/fortitude
+	name = "Armor of Darkness"
+	desc = ""
+	icon_state = "bleed1"
+
+/datum/status_effect/buff/fortitude/on_apply()
+	. = ..()
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		QDEL_NULL(H.skin_armor)
+		H.skin_armor = new /obj/item/clothing/armor/skin_armor/vampire_fortitude(H)
+	owner.add_stress(/datum/stressevent/weed)
+
+/datum/status_effect/buff/fortitude/on_remove()
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		if(istype(H.skin_armor, /obj/item/clothing/armor/skin_armor/vampire_fortitude))
+			QDEL_NULL(H.skin_armor)
+	. = ..()
+
+/obj/item/clothing/armor/skin_armor/vampire_fortitude
+	slot_flags = null
+	name = "vampire's skin"
+	desc = ""
+	icon_state = null
+	body_parts_covered = FULL_BODY
+	armor = list("blunt" = 100, "slash" = 100, "stab" = 100,  "piercing" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_TWIST)
+	blocksound = SOFTHIT
+	blade_dulling = DULLING_BASHCHOP
+	sewrepair = TRUE
+	max_integrity = 0
+
+/mob/living/carbon/human/proc/vamp_regenerate()
+	set name = "Regenerate"
+	set category = "VAMPIRE"
+	var/cooldown = FALSE
+	var/cooldown_time = 6000 // Ten minutes cooldown, it's a goddamn AHEAL
+
+	var/silver_curse_status = FALSE
+	for(var/datum/status_effect/debuff/silver_curse/SC in status_effects)
+		silver_curse_status = TRUE
+		break
+	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD)
+		return
+	if(VD.disguised)
+		to_chat(src, "<span class='warning'>My curse is hidden.</span>")
+		return
+	if(silver_curse_status)
+		to_chat(src, "<span class='warning'>My BANE is not letting me REGENERATE!.</span>")
+		return
+	if(VD.vitae < 500)
+		to_chat(src, "<span class='warning'>Not enough vitae.</span>")
+		return
+	if(cooldown)
+		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
+	to_chat(src, "<span class='greentext'>! REGENERATE !</span>")
+	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
+	VD.handle_vitae(-500)
+	// Gain experience towards blood magic
+	var/mob/living/carbon/human/licker = usr
+	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
+	var/amt2raise = licker.STAINT*2
+	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
+	fully_heal(admin_revive = TRUE)
+	var/obj/item/organ/eyes/eyes = licker.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(licker, TRUE)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(licker)
+	cooldown = TRUE
+	sleep(cooldown_time)
+	to_chat(src, "<span class='info'>My [name] ability is ready to be casted again.</span>")
+	cooldown = FALSE
