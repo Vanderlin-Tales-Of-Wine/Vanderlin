@@ -1272,6 +1272,10 @@
 /obj/structure/gearbox,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Fc" = (
+/obj/structure/water_vent,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "Fo" = (
 /obj/effect/landmark/start/consort,
 /turf/open/floor/carpet/lord/left,
@@ -4883,7 +4887,7 @@ cN
 cN
 su
 Ua
-al
+Fc
 aj
 aj
 aj

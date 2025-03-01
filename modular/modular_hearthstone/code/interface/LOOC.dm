@@ -23,6 +23,10 @@
 
 /client/proc/do_looc(msg as text)
 
+	if(!GLOB.looc_allowed)
+		to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+		return
+
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='danger'> Speech is currently admin-disabled.</span>")
 		return

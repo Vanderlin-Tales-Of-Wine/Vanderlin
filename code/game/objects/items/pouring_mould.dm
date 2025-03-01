@@ -120,6 +120,7 @@
 	fufilled_metal = 0
 	filling_metal = null
 	cooling = FALSE
+	cooling_progress = 0
 	update_overlays()
 
 

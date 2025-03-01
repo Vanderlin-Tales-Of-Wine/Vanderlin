@@ -80,8 +80,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/old_bp = blueprint_data
 	blueprint_data = null
 
-	var/oldPA = primary_area
-
 	var/list/old_baseturfs = baseturfs
 
 	var/list/transferring_comps = list()
@@ -110,8 +108,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		W.AfterChange(flags)
 
 	W.blueprint_data = old_bp
-
-	W.primary_area = oldPA
 
 	if(SSlighting.initialized)
 		if(SSoutdoor_effects.initialized)

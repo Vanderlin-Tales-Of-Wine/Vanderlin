@@ -133,37 +133,10 @@
 	flags_1 &= ~INITIALIZED_1
 	..()
 
-#define SEE_SKY_YES 1
-#define SEE_SKY_NO 2
-
-/turf
-	var/can_see_sky //1, 2
-	var/primary_area
-
 /turf/proc/can_see_sky()
-	if(can_see_sky)
-		if(can_see_sky == SEE_SKY_YES)
-			return TRUE
-		else
-			return FALSE
-	if(isclosedturf(src))
-		can_see_sky = SEE_SKY_NO
-		return can_see_sky()
-	var/turf/CT = src
-	var/area/A = get_area(src)
-	for(var/i in 1 to 6)
-		CT = get_step_multiz(CT, UP)
-		if(!CT)
-			if(!A.outdoors)
-				can_see_sky = SEE_SKY_NO
-			else
-				can_see_sky = SEE_SKY_YES
-			return can_see_sky()
-		A = get_area(CT)
-		if(!istype(CT, /turf/open/transparent/openspace))
-			can_see_sky = SEE_SKY_NO
-			return can_see_sky()
-
+	if(outdoor_effect?.state == SKY_VISIBLE)
+		return TRUE
+	return FALSE
 
 /turf/attack_hand(mob/user)
 	. = ..()

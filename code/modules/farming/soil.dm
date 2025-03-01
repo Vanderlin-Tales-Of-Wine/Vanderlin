@@ -495,7 +495,7 @@
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	var/turf/location = loc
-	if(!plant.can_grow_underground && location.can_see_sky == SEE_SKY_NO)
+	if(!plant.can_grow_underground && !location.can_see_sky())
 		return
 	// If matured and produce is ready, don't process plant nutrition
 	if(matured && produce_ready)

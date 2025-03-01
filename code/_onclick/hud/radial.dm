@@ -25,7 +25,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	. = ..()
 	icon_state = "radial_slice"
 	if(tooltips)
-		closeToolTip(usr)
+		close_tooltip(usr)
 
 /atom/movable/screen/radial/slice/Click(location, control, params)
 	if(usr.client == parent.current_user)
