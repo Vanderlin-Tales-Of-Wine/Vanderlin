@@ -29,6 +29,7 @@
 /obj/effect/decal/cleanable/food/mess/rotting
 	color = "#708364"
 	alpha = 220
+
 /obj/effect/decal/cleanable/food/mess/rotting/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -51,21 +52,31 @@
 /obj/item/reagent_containers/food/snacks/rotten/meat
 	name = "rotten meat"
 	icon_state = "meat"
+
 /obj/item/reagent_containers/food/snacks/rotten/bacon
-	name = "rotten meat"
+	name = "rotten pigflesh"
 	icon_state = "pigflesh"
+
 /obj/item/reagent_containers/food/snacks/rotten/sausage
+	name = "rotten sausage"
 	icon_state = "raw_wiener"
+
 /obj/item/reagent_containers/food/snacks/rotten/poultry
+	name = "rotten plucked bird"
 	icon_state = "poultry"
+
 /obj/item/reagent_containers/food/snacks/rotten/chickenleg
+	name = "rotten bird meat"
 	icon_state = "chickencutlet"
+
 /obj/item/reagent_containers/food/snacks/rotten/breadslice
 	name = "moldy bread"
 	icon_state = "loaf_slice"
+
 /obj/item/reagent_containers/food/snacks/rotten/egg
-	name = "rotted egg"
+	name = "rotten egg"
 	icon_state = "egg2"
+
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
@@ -74,9 +85,11 @@
 		O.pixel_y = rand(-8,8)
 		O.color = "#9794be"
 		qdel(src)
+
 /obj/item/reagent_containers/food/snacks/rotten/mince
-	name = "rotten meat"
+	name = "rotten mince"
 	icon_state = "meatmince"
+
 /obj/item/reagent_containers/food/snacks/rotten/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess/rotting/get_turf(src)
 	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
@@ -327,6 +340,7 @@
 
 /datum/reagent/consumable/soup // so you get hydrated without the flavor system messing it up. Works like water with less hydration
 	var/hydration = 5
+
 /datum/reagent/consumable/soup/on_mob_life(mob/living/carbon/M)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -423,6 +437,7 @@
 	nutriment_factor = 8
 	taste_description = "something gross"
 	metabolization_rate = 0.3
+
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
 	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1)
@@ -431,20 +446,16 @@
 		return
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		return
-	else
-		if(prob(8))
-			switch(pick(1,4))
-				if (1)
-					to_chat(M, "<span class='danger'>I feel bile rising...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>I feel nauseous...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My breath smells terrible...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My stomach churns...</span>")
-		if(prob(8))
-			M.emote("gag")
-			M.add_nausea(9)
+	if(prob(8))
+		to_chat(M, pick(
+			span_danger("I feel bile rising..."),
+			span_danger("I feel nauseous..."),
+			span_danger("My breath smells terrible..."),
+			span_danger("My stomach churns...")
+		))
+	if(prob(8))
+		M.emote("gag")
+		M.add_nausea(9)
 	..()
 	. = TRUE
 
@@ -454,6 +465,7 @@
 	color = "#5b2b44"
 	taste_description = "something truly vile"
 	metabolization_rate = 0.2
+
 /datum/reagent/yuck/cursed_soup/on_mob_life(mob/living/carbon/M)
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		if(M.blood_volume < BLOOD_VOLUME_NORMAL)
@@ -476,22 +488,36 @@
 
 
 /*--------------\
-| Powder & Salt |
+| Flour & Salt |
 \--------------*/
 
-// -------------- POWDER (flour) -----------------
+// -------------- Flour -----------------
 /obj/item/reagent_containers/powder/flour
-	name = "powder"
-	desc = "With this ambition, we build an empire."
+	name = "flour"
+	desc = "A cook's best friend, vital for making any kind of dough with water."
+	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
 	volume = 1
 	sellprice = 0
 	var/water_added
+
+/datum/reagent/floure
+	name = "flour"
+	description = ""
+	color = "#FFFFFF" // rgb: 96, 165, 132
+
+/datum/reagent/floure/on_mob_life(mob/living/carbon/M)
+	if(prob(30))
+		M.confused = max(M.confused + 3, 0)
+	M.emote(pick("cough"))
+	..()
+
 /obj/item/reagent_containers/powder/flour/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
 	..()
 	qdel(src)
+
 /obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -515,7 +541,7 @@
 		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
 		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
 		if(do_after(user,15, src))
-			name = "wet powder"
+			name = "wet flour"
 			desc = "Destined for greatness, at your hands."
 			R.reagents.remove_reagent(/datum/reagent/water, 10)
 			water_added = TRUE
@@ -540,7 +566,7 @@
 // -------------- SALT -----------------
 /obj/item/reagent_containers/powder/salt
 	name = "salt"
-	desc = ""
+	desc = "A survialist's best friend, great for preserving meat."
 	gender = PLURAL
 	icon_state = "salt"
 	list_reagents = list(/datum/reagent/floure = 1)
