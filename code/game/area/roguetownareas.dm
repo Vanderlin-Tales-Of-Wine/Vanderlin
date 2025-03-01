@@ -559,10 +559,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	first_time_text = "Physickers Clinic"
 	icon_state = "clinic_large"
 
-/area/rogue/indoors/town/thieves_guild
-	first_time_text = "Thieves Guild"
-	icon_state = "thieves_guild"
-
 /area/rogue/indoors/town/merc_guild
 	first_time_text = "Mercenary Guild"
 	icon_state = "merc_guild"
@@ -749,6 +745,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	soundenv = 5
 	converted_type = /area/rogue/outdoors/exposed/under/basement
+
+/area/rogue/under/town/basement/thieves_guild
+	first_time_text = "Thieves Guild"
+	icon_state = "thieves_guild"
 
 /area/rogue/outdoors/exposed/under/basement
 	icon_state = "basement"

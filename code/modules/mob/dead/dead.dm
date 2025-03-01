@@ -88,7 +88,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 			if(!player)
 				continue
 			if(job.title == "Adventurer")
-				if(player.client.prefs.job_preferences["Court Agent"] == JP_HIGH)
+				if(player.client.prefs.job_preferences["Court Agent"] == JP_HIGH || player.client.prefs.job_preferences["Thief"] == JP_HIGH)
 					if(player.ready == PLAYER_READY_TO_PLAY)
 						readiedas++
 						if(!(player.client.ckey in GLOB.hiderole))
