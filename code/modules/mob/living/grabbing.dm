@@ -581,8 +581,8 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(user.mind && C.mind)
-		var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
-		var/datum/antagonist/vampirelord/VVictim = C.mind.has_antag_datum(/datum/antagonist/vampirelord)
+		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
+		var/datum/antagonist/vampire/VVictim = C.mind.has_antag_datum(/datum/antagonist/vampire)
 		var/zomwerewolf = C.mind.has_antag_datum(/datum/antagonist/werewolf)
 		if(!zomwerewolf)
 			if(C.stat != DEAD)
@@ -633,8 +633,8 @@
 			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, vomit), 0, TRUE), rand(8 SECONDS, 15 SECONDS))
 	else
 		if(user.mind) // We're drinking from a mob or a person who disconnected from the game
-			if(user.mind.has_antag_datum(/datum/antagonist/vampirelord))
-				var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
+			if(user.mind.has_antag_datum(/datum/antagonist/vampire))
+				var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
 				C.blood_volume = max(C.blood_volume-45, 0)
 				if(C.vitae_pool >= 250)
 					if(VDrinker.isspawn)
@@ -655,7 +655,7 @@
 	log_combat(user, C, "drank blood from ")
 
 	if(ishuman(C) && C.mind)
-		var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
+		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
 		if(C.blood_volume <= BLOOD_VOLUME_SURVIVE)
 			if(!VDrinker.isspawn)
 				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
@@ -663,8 +663,8 @@
 						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
 						if(do_after(user, 3 SECONDS))
 							C.visible_message(span_red("[C] rises as a new spawn!"))
-							if(istype(VDrinker, /datum/antagonist/vampirelord))
-								var/datum/antagonist/vampirelord/lesser/new_antag = new /datum/antagonist/vampirelord/lesser()
+							if(istype(VDrinker, /datum/antagonist/vampire))
+								var/datum/antagonist/vampire/lesser/new_antag = new /datum/antagonist/vampire/lesser()
 								new_antag.sired = TRUE
 								C.mind.add_antag_datum(new_antag)
 							sleep(20)

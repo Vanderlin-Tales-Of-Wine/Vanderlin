@@ -99,8 +99,8 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
 		var/datum/antagonist/werewolf/W = H.mind?.has_antag_datum(/datum/antagonist/werewolf/)
-		var/datum/antagonist/vampirelord/lesser/V = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser)
-		var/datum/antagonist/vampirelord/V_lord = H.mind?.has_antag_datum(/datum/antagonist/vampirelord/)
+		var/datum/antagonist/vampire/lesser/V = H.mind?.has_antag_datum(/datum/antagonist/vampire/lesser)
+		var/datum/antagonist/vampire/V_lord = H.mind?.has_antag_datum(/datum/antagonist/vampire/)
 		if(V)
 			if(V.disguised)
 				H.visible_message("<font color='white'>\The [src] weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))

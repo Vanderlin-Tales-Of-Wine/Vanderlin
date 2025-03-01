@@ -6,7 +6,7 @@
 
 GLOBAL_LIST_EMPTY(vampire_objects)
 
-/datum/antagonist/vampirelord
+/datum/antagonist/vampire
 	name = "Vampire Lord"
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
@@ -34,25 +34,25 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
 
-/datum/antagonist/vampirelord/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
-	if(istype(examined_datum, /datum/antagonist/vampirelord/lesser))
+/datum/antagonist/vampire/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
+	if(istype(examined_datum, /datum/antagonist/vampire/lesser))
 		return span_boldnotice("A vampire spawn.")
-	if(istype(examined_datum, /datum/antagonist/vampirelord))
+	if(istype(examined_datum, /datum/antagonist/vampire))
 		return span_boldnotice("A Vampire Lord!.")
 	if(istype(examined_datum, /datum/antagonist/zombie))
 		return span_boldnotice("Another deadite.")
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return span_boldnotice("Another deadite.")
 
-/datum/antagonist/vampirelord/apply_innate_effects(mob/living/mob_override)
+/datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	add_antag_hud(antag_hud_type, antag_hud_name, M)
 
-/datum/antagonist/vampirelord/remove_innate_effects(mob/living/mob_override)
+/datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	remove_antag_hud(antag_hud_type, M)
 
-/datum/antagonist/vampirelord/on_gain()
+/datum/antagonist/vampire/on_gain()
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
@@ -103,7 +103,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	return ..()
 
 // OLD AND EDITED
-/datum/antagonist/vampirelord/proc/equip_lord()
+/datum/antagonist/vampire/proc/equip_lord()
 	owner.unknow_all_people()
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 	return TRUE
 
-/datum/antagonist/vampirelord/proc/equip_spawn()
+/datum/antagonist/vampire/proc/equip_spawn()
 	owner.unknow_all_people()
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
@@ -179,7 +179,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 ////////Outfits////////
 
 
-/datum/antagonist/vampirelord/on_removal()
+/datum/antagonist/vampire/on_removal()
 	if(!silent && owner.current)
 		to_chat(owner.current,span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null
@@ -188,14 +188,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		QDEL_NULL(batform)
 	return ..()
 
-/datum/antagonist/vampirelord/proc/add_objective(datum/objective/O)
+/datum/antagonist/vampire/proc/add_objective(datum/objective/O)
 	var/datum/objective/V = new O
 	objectives += V
 
-/datum/antagonist/vampirelord/proc/remove_objective(datum/objective/O)
+/datum/antagonist/vampire/proc/remove_objective(datum/objective/O)
 	objectives -= O
 
-/datum/antagonist/vampirelord/proc/forge_vampirelord_objectives()
+/datum/antagonist/vampire/proc/forge_vampirelord_objectives()
 	var/list/primary = pick(list("1", "2","3"))
 	var/list/secondary = pick(list("1", "2", "3"))
 	switch(primary)
@@ -221,27 +221,27 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/datum/objective/vlordsurvive/survive = new
 	objectives += survive
 
-/datum/antagonist/vampirelord/greet()
+/datum/antagonist/vampire/greet()
 	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to these trespassers upon my domain."))
 	owner.announce_objectives()
 	..()
 
-/datum/antagonist/vampirelord/lesser/greet()
+/datum/antagonist/vampire/lesser/greet()
 	to_chat(owner.current, span_userdanger("We are awakened from our slumber, Spawn of the feared Vampire Lord."))
 	owner.announce_objectives()
 
-/datum/antagonist/vampirelord/proc/finalize_vampire()
+/datum/antagonist/vampire/proc/finalize_vampire()
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/vampintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
 
-/datum/antagonist/vampirelord/proc/finalize_vampire_lesser()
+/datum/antagonist/vampire/proc/finalize_vampire_lesser()
 	if(!sired)
 		owner.current.forceMove(pick(GLOB.vspawn_starts))
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/vampintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
 
-/datum/antagonist/vampirelord/proc/vamp_look()
+/datum/antagonist/vampire/proc/vamp_look()
 	var/mob/living/carbon/human/V = owner.current
 	cache_skin = V.skin_tone
 	cache_eyes = V.eye_color
@@ -257,7 +257,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(isspawn)
 		V.vampire_disguise()
 
-/datum/antagonist/vampirelord/on_life(mob/user)
+/datum/antagonist/vampire/on_life(mob/user)
 	if(!user)
 		return
 	var/mob/living/carbon/human/H = user
@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				H.vampire_undisguise(src)
 	handle_vitae(-1)
 
-/datum/antagonist/vampirelord/proc/handle_vitae(change, tribute)
+/datum/antagonist/vampire/proc/handle_vitae(change, tribute)
 	var/tempcurrent = vitae
 	if(!isspawn)
 		mypool.update_pool(change)
@@ -333,10 +333,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			for(var/S in MOBSTATS)
 				owner.current.change_stat(S, 5)
 
-/datum/antagonist/vampirelord/proc/move_to_spawnpoint()
+/datum/antagonist/vampire/proc/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 
-/datum/antagonist/vampirelord/proc/grow_in_power()
+/datum/antagonist/vampire/proc/grow_in_power()
 	switch(vamplevel)
 		if(0)
 			vamplevel = 1
@@ -390,7 +390,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	return
 
 // SPAWN
-/datum/antagonist/vampirelord/lesser
+/datum/antagonist/vampire/lesser
 	name = "Vampire Spawn"
 	antag_hud_name = "Vspawn"
 	confess_lines = list(
@@ -400,7 +400,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	)
 	isspawn = TRUE
 
-/datum/antagonist/vampirelord/lesser/move_to_spawnpoint()
+/datum/antagonist/vampire/lesser/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlordspawn_starts))
 
 // NEW VERBS
@@ -539,7 +539,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	to_chat(user, span_boldnotice("Blood level: [current]"))
 
 /obj/structure/vampire/bloodpool/attack_hand(mob/living/user)
-	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
 	if(user.mind.special_role != "Vampire Lord")
 		return
 	var/choice = input(user,"What to do?", "VANDERLIN") as anything in useoptions|null
@@ -607,7 +607,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /obj/structure/vampire/portalmaker/attack_hand(mob/living/user)
 	var/list/possibleportals = list()
 	var/list/sendpossibleportals = list()
-	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
 	if(user.mind.special_role != "Vampire Lord")
 		return
 	if(!lord.mypool.check_withdraw(-1000))
@@ -662,6 +662,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					user.playsound_local(get_turf(src), 'sound/misc/portalactivate.ogg', 100, FALSE, pressure_affected = FALSE)
 		if("CANCEL")
 			return
+
 /* DISABLED FOR NOW
 /obj/item/clothing/neck/portalamulet/attack_self(mob/user)
 	. = ..()
@@ -685,7 +686,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		to_chat(user, "I don't have the power to use this!")
 
 /obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/human/user)
-	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
 	if(user.mind.special_role == "Vampire Lord")
 		if(!unlocked)
 			to_chat(user, "I have yet to regain this aspect of my power!")
@@ -803,7 +804,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		if(owner?.current)
 			owner.current.playsound_local(get_turf(owner.current), 'sound/misc/fail.ogg', 100, FALSE, pressure_affected = FALSE)
 
-/datum/antagonist/vampirelord/roundend_report()
+/datum/antagonist/vampire/roundend_report()
 	var/traitorwin = TRUE
 
 	printplayer(owner)
@@ -1127,7 +1128,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/bloodroll = roll("[bloodskill]d8")
 	user.say(msg)
 	for(var/mob/living/carbon/human/L in targets)
-		var/datum/antagonist/vampirelord/VD = L.mind.has_antag_datum(/datum/antagonist/vampirelord)
+		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
 		var/willpower = round(L.STAINT / 4)
 		var/willroll = roll("[willpower]d6")
 		if(VD)
@@ -1213,7 +1214,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	user.say(msg)
 	user.visible_message("<font color='red'>[user]'s eyes glow a ghastly red as they project their will outwards!</font>")
 	for(var/mob/living/carbon/human/L in targets)
-		var/datum/antagonist/vampirelord/VD = L.mind.has_antag_datum(/datum/antagonist/vampirelord)
+		var/datum/antagonist/vampire/VD = L.mind.has_antag_datum(/datum/antagonist/vampire)
 		var/willpower = round(L.STAINT / 4)
 		var/willroll = roll("[willpower]d6")
 		if(VD)
@@ -1247,7 +1248,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Disguise"
 	set category = "VAMPIRE"
 
-	var/datum/antagonist/vampirelord/VD = mind?.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/VD = mind?.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(world.time < VD.last_transform + 30 SECONDS)
@@ -1264,7 +1265,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		VD.last_transform = world.time
 		vampire_disguise(VD)
 
-/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/vampirelord/VD)
+/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/vampire/VD)
 	if(!VD)
 		return
 	VD.disguised = TRUE
@@ -1278,7 +1279,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	update_body_parts(redraw = TRUE)
 	to_chat(src, span_notice("My true form is hidden."))
 
-/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/vampirelord/VD)
+/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/vampire/VD)
 	if(!VD)
 		return
 	VD.disguised = FALSE
@@ -1303,7 +1304,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/cooldown = FALSE
 	var/cooldown_time = 3000 // Five minutes cooldown
 
-	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -1350,7 +1351,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/cooldown = FALSE
 	var/cooldown_time = 3000 // Five minutes cooldown
 
-	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -1398,7 +1399,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/cooldown = FALSE
 	var/cooldown_time = 6000 // Ten minutes cooldown, you get an anticrit 100 melee armor for free with the stats.
 
-	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)
@@ -1475,7 +1476,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	for(var/datum/status_effect/debuff/silver_curse/SC in status_effects)
 		silver_curse_status = TRUE
 		break
-	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 	if(!VD)
 		return
 	if(VD.disguised)

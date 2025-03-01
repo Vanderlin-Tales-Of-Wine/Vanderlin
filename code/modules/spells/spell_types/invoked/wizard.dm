@@ -157,7 +157,7 @@
 			return BULLET_ACT_BLOCK
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			var/datum/antagonist/vampirelord/VDrinker = sender.mind.has_antag_datum(/datum/antagonist/vampirelord)
+			var/datum/antagonist/vampire/VDrinker = sender.mind.has_antag_datum(/datum/antagonist/vampire)
 			H.blood_volume = max(H.blood_volume-45, 0)
 			if(H.vitae_pool >= 500) // You'll only get vitae IF they have vitae.
 				H.vitae_pool -= 500

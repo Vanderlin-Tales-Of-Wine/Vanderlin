@@ -191,17 +191,17 @@
 /obj/item/weapon/sword/silver/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
 	. = ..()
 	if(ishuman(M))
-		var/datum/antagonist/vampirelord/V_lord = FALSE
+		var/datum/antagonist/vampire/V_lord = FALSE
 		var/mob/living/carbon/human/H = M
-		if(H.mind?.has_antag_datum(/datum/antagonist/vampirelord))
-			V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
-		if(H.mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser))
+		if(H.mind?.has_antag_datum(/datum/antagonist/vampire))
+			V_lord = H.mind.has_antag_datum(/datum/antagonist/vampire/)
+		if(H.mind?.has_antag_datum(/datum/antagonist/vampire/lesser))
 			H.Knockdown(20)
 			H.adjustFireLoss(60)
 			H.Paralyze(20)
 			H.fire_act(1,5)
 		if(V_lord)
-			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
+			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampire/lesser))
 				H.Knockdown(10)
 				H.Paralyze(10)
 
