@@ -33,15 +33,16 @@
 				if(sound)
 					M.playsound_local(M, s, 100)
 
-/proc/minor_announce(message, title = "", alert)
+/proc/minor_announce(message, title = "", alert, html_encode = TRUE)
 	if(!message)
 		return
 
+	if(html_encode)
+		title = html_encode(title)
+		message = html_encode(message)
+
 	for(var/mob/M in GLOB.player_list)
 		if(M.can_hear())
-			to_chat(M, "<span class='big bold'><font color = purple>[html_encode(title)]</font color><BR>[html_encode(message)]</span><BR>")
+			to_chat(M, "<span class='big bold'><font color = purple>[title]</font color><BR>[message]</span><BR>")
 			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				if(alert)
-					M.playsound_local(M, 'sound/misc/alert.ogg', 100)
-				else
-					M.playsound_local(M, 'sound/misc/alert.ogg', 100)
+				M.playsound_local(M, 'sound/misc/alert.ogg', 100)
