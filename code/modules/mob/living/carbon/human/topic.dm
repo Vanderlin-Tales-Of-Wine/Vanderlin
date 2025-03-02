@@ -2,6 +2,19 @@ GLOBAL_VAR_INIT(year, time2text(world.realtime,"YYYY"))
 GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 /mob/living/carbon/human/Topic(href, href_list)
+	if(href_list["commend_target"])
+		var/mob/living/carbon/human/target = locate(href_list["commend_target"])
+		var/client/C = usr.client
+		if(!C || C.commendedsomeone)
+			to_chat(usr, "You have already commended someone today.")
+			return
+		var/confirm = alert(usr, "Do you want to commend this character?", "Commendation", "Yes", "No")
+		if(confirm == "Yes")
+			C.commendedsomeone = TRUE
+			add_commend(target.ckey, usr.ckey)
+			to_chat(usr, "You have commended [target.real_name].")
+			log_game("COMMEND: [usr.ckey] commends [target.ckey].")
+			log_admin("COMMEND: [usr.ckey] commends [target.ckey].")
 	if(href_list["inspect_limb"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
 		var/list/msg = list()
 		var/mob/user = usr

@@ -469,7 +469,7 @@
 
 	if(length(msg))
 		. += "<span class='warning'>[msg.Join("\n")]</span>"
-
+	. += "<a href='byond://?src=[REF(src)];commend_target=[REF(src)]'>Commend</a>"
 	if(isliving(user) && user != src)
 		var/mob/living/L = user
 		var/final_str = STASTR

@@ -1185,10 +1185,3 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set desc = "Make that one person you had Quality RolePlay with happy."
 
 	commendation_popup(forced)
-
-/client/verb/commend()
-	set category = "OOC"
-	set name = "Commend"
-	set desc = "Commend someone for good RP."
-
-	commendation_popup()
