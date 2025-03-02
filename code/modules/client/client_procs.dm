@@ -150,8 +150,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	..()	//redirect to hsrc.Topic()
 
 /client/proc/commendation_popup()
-	if(SSticker.current_state != GAME_STATE_FINISHED)
-		return
 	if(commendedsomeone)
 		return
 	var/list/selections = GLOB.character_ckey_list.Copy()
