@@ -469,12 +469,12 @@
 
 	if(length(msg))
 		. += "<span class='warning'>[msg.Join("\n")]</span>"
-	. += "<a href='byond://?src=[REF(src)];commend_target=[REF(src)]'>Commend</a>"
 	if(isliving(user) && user != src)
 		var/mob/living/L = user
 		var/final_str = STASTR
 		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
 			final_str = 10
+		. += "<a href='byond://?src=[REF(src)];commend_target=[REF(src)]'>Commend</a>"
 		var/strength_diff = final_str - L.STASTR
 		switch(strength_diff)
 			if(5 to INFINITY)
