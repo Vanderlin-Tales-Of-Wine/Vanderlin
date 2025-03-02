@@ -198,7 +198,7 @@
 	faretype = FARE_POOR
 
 /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett/slice
-	name = "thüringer Mett"
+	name = "thüringer mett"
 	icon_state = "mettslice"
 	bitesize = 1
 	slices_num = FALSE
