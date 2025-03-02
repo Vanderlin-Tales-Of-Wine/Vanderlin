@@ -1,12 +1,40 @@
-/proc/priority_announce(text, title = "", sound, type , sender_override, list/mob/players)
+/**
+ * Make a big red text announcement to
+ *
+ * Formatted like:
+ *
+ * " Message from sender "
+ *
+ * " Title "
+ *
+ * " Text "
+ *
+ * Arguments
+ * * text - required, the text to announce
+ * * title - optional, the title of the announcement.
+ * * sound - optional, the sound played accompanying the announcement
+ * * type - optional, the type of the announcement, for some "preset" announcement templates. "Priority", "Captain", "Syndicate Captain"
+ * * sender_override - optional, modifies the sender of the announcement
+ * * players - a list of all players to send the message to. defaults to all players (not including new players)
+ * * encode_title - if TRUE, the title will be HTML encoded
+ * * encode_text - if TRUE, the text will be HTML encoded
+ */
+/proc/priority_announce(text, title = "", sound, type , sender_override, list/mob/players, encode_title = TRUE, encode_text = TRUE)
 	if(!text)
 		return
+
+	if(encode_title && title && length(title) > 0)
+		title = html_encode(title)
+	if(encode_text)
+		text = html_encode(text)
+		if(!length(text))
+			return
 
 	var/announcement
 
 	if(title && length(title) > 0)
 		announcement += "<h1 class='alert'>[title]</h1>"
-	announcement += "<br><span class='alert'>[strip_html_simple(text)]</span>"
+	announcement += "<br>[span_alert(text)]"
 
 	if(!players)
 		players = GLOB.player_list
