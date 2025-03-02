@@ -150,8 +150,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	..()	//redirect to hsrc.Topic()
 
 /client/proc/commendation_popup()
-	if(SSticker.current_state != GAME_STATE_FINISHED)
-		return
 	if(commendedsomeone)
 		return
 	var/list/selections = GLOB.character_ckey_list.Copy()
@@ -1187,3 +1185,10 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	set desc = "Make that one person you had Quality RolePlay with happy."
 
 	commendation_popup(forced)
+
+/client/verb/commend()
+	set category = "OOC"
+	set name = "Commend"
+	set desc = "Commend someone for good RP."
+
+	commendation_popup()
