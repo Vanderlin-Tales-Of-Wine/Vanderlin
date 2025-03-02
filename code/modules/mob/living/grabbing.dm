@@ -265,8 +265,8 @@
 				user.adjust_stamina(rand(1,3))
 				M.visible_message(span_danger("[user] pins [M] to the ground!"), \
 								span_userdanger("[user] pins me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
-				M.Stun(20 + (skill_diff * 10) + (user.STASTR * 5) - (M.STACON * 5) * combat_modifier)
-				user.Immobilize(20 - skill_diff)
+				M.Stun(max(20 + (skill_diff * 10) + (user.STASTR * 5) - (M.STACON * 5) * combat_modifier, 1))
+				user.Immobilize(max(20 - skill_diff, 1))
 			else
 				user.adjust_stamina(rand(5,15))
 				if(prob(clamp((((4 + (((user.STASTR - M.STACON)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))

@@ -1041,9 +1041,9 @@
 		combat_modifier -= 0.25
 
 	if(!(L.mobility_flags & MOBILITY_STAND) && mobility_flags & MOBILITY_STAND)
-		combat_modifier += 0.2
+		combat_modifier += 0.1
 	if(!(mobility_flags & MOBILITY_STAND))
-		combat_modifier -= 0.2
+		combat_modifier -= 0.1
 
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
 		combat_modifier -= 0.1
