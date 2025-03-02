@@ -47,33 +47,44 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 /datum/team/proc/roundend_report()
 	var/list/report = list()
 
-	report += span_header("\The [name]:")
-	report += "\The [member_name]s were:"
+	report += span_header(" * [name] * ")
+	//report += "\The [member_name]s were:"
 	report += printplayerlist(members)
 
-	if(objectives.len)
+	if(length(objectives))
 		report += span_header("Team had following objectives:")
 		var/win = TRUE
 		var/objective_count = 1
 		for(var/datum/objective/objective as anything in objectives)
 			if(objective.check_completion())
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
+				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
 			else
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
+				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
 				win = FALSE
 			objective_count++
+
+		var/result_sound
 		if(win)
 			report += span_greentext("\The [name] was TRIUMPHED!")
+			result_sound = 'sound/misc/triumph.ogg'
+			roundend_success()
 		else
 			report += span_redtext("\The [name] has FAILED!")
+			result_sound = 'sound/misc/fail.ogg'
+			roundend_failure()
 
-	return "<div class='panel redborder'>[report.Join("<br>")]</div>"
+		for(var/datum/mind/member as anything in members)
+			if(!member.current)
+				continue
+			member.current.playsound_local(get_turf(member.current), result_sound, 100, FALSE, pressure_affected = FALSE)
+
+	return report.Join("<br>")
 
 /datum/team/proc/get_team_antags(antag_type,specific = FALSE)
 	. = list()
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(A.get_team() == src && (!antag_type || !specific && istype(A,antag_type) || specific && A.type == antag_type))
-			. += A
+	for(var/datum/antagonist/antagonist as anything in GLOB.antagonists)
+		if(antagonist.get_team() == src && (!antag_type || !specific && istype(antagonist, antag_type) || specific && antagonist.type == antag_type))
+			. += antagonist
 
 //Builds section for the team
 /datum/team/proc/antag_listing_entry()
@@ -92,3 +103,11 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 
 /datum/team/proc/antag_listing_name()
 	return name
+
+/* ROGUETOWN */
+
+/datum/team/proc/roundend_success()
+
+
+/datum/team/proc/roundend_failure()
+

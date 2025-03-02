@@ -164,8 +164,6 @@
 
 	to_chat(world, "Round ID: [GLOB.rogue_round_id]")
 
-	SSvote.initiate_vote("map", "Psydon")
-
 	sleep(5 SECONDS)
 
 	gamemode_report()
@@ -175,6 +173,8 @@
 	players_report()
 
 	stats_report()
+
+	SSvote.initiate_vote("map", "Psydon")
 
 	CHECK_TICK
 
@@ -257,7 +257,7 @@
 		all_antagonists |= A
 
 	for(var/datum/team/T in all_teams)
-		T.roundend_report()
+		to_chat(world, T.roundend_report())
 		for(var/datum/antagonist/X in all_antagonists)
 			if(X.get_team() == T)
 				all_antagonists -= X
@@ -533,21 +533,15 @@
 				text += " <span class='redtext'>died</span>"
 			else
 				text += " <span class='greentext'>survived</span>"
-//		if(fleecheck)
-//			var/turf/T = get_turf(ply.current)
-//			if(!T || !is_station_level(T.z))
-//				text += " while <span class='redtext'>fleeing the station</span>"
-//		if(ply.current.real_name != ply.name)
-//			text += " as <b>[ply.current.real_name]</b>"
-	to_chat(world, "[text]")
+	return text
 
-/proc/printplayerlist(list/players,fleecheck)
+/proc/printplayerlist(list/datum/mind/players,fleecheck)
 	var/list/parts = list()
 
-	parts += "<ul class='playerlist'>"
+	//parts += "<ul class='playerlist'>"
 	for(var/datum/mind/M in players)
-		parts += "<li>[printplayer(M,fleecheck)]</li>"
-	parts += "</ul>"
+		parts += printplayer(M,fleecheck)//"<li>[printplayer(M,fleecheck)]</li>"
+	//parts += "</ul>"
 	return parts.Join()
 
 
