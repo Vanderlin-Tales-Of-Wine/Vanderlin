@@ -185,8 +185,8 @@
 
 /*	..................   METT   ................... */
 /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett
-	name = "thüringer mett"
-	desc = "test test test."
+	name = "grenzel mett"
+	desc = "A popular toping for bread in Grenzelhoft, while simply bizarr to people from vanderlin"
 	icon_state = "mett_minced"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	bitesize = 3
@@ -198,7 +198,7 @@
 	faretype = FARE_POOR
 
 /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett/slice
-	name = "thüringer mett"
+	name = "grenzel mett"
 	icon_state = "mettslice"
 	bitesize = 1
 	slices_num = FALSE
