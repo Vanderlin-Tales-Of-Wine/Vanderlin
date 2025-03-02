@@ -166,6 +166,8 @@
 
 	sleep(5 SECONDS)
 
+	//TODO: use build_roundend_report()
+
 	gamemode_report()
 
 	sleep(10 SECONDS)
@@ -243,6 +245,7 @@
 		to_chat(world, "<span class='big bold'>The town has managed to survive another week.</span>")
 
 /datum/controller/subsystem/ticker/proc/gamemode_report()
+	//TODO: This is a copypaste of antag_report(), use build_roundend_report()
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
