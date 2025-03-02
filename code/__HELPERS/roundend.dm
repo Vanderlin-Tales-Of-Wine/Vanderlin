@@ -259,7 +259,7 @@
 
 	for(var/datum/team/T in all_teams)
 		//check if we should show the team
-		if(!active_team.show_roundend_report)
+		if(!T.show_roundend_report)
 			continue
 
 		for(var/datum/mind/member_mind as anything in T.members)
