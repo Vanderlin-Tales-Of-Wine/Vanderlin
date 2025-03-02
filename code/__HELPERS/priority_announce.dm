@@ -19,7 +19,7 @@
  * * encode_title - if TRUE, the title will be HTML encoded
  * * encode_text - if TRUE, the text will be HTML encoded
  */
-/proc/priority_announce(text, title = "", sound, type , sender_override, list/mob/players, encode_title = TRUE, encode_text = TRUE)
+/proc/priority_announce(text, title = "", sound, type, sender_override, list/mob/players, encode_title = TRUE, encode_text = TRUE)
 	if(!text)
 		return
 
