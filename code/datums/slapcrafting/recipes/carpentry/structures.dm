@@ -156,6 +156,7 @@
 		)
 	result_type = /obj/structure/noose
 	craftsound = 'sound/foley/noose_idle.ogg'
+	craftdiff = 0
 
 /datum/slapcraft_recipe/carpentry/structure/noose/check_craft_requirements(mob/user, turf/T)
 	var/turf/checking = get_step_multiz(T, UP)
