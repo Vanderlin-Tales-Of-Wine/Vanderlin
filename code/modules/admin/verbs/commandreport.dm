@@ -45,7 +45,7 @@
 
 /datum/command_report_menu/New(mob/user)
 	ui_user = user
-	ui = new(ui_user, "command_report", "<center>SPEAK FROM THE HEAVENS</center>", nref = src)
+	ui = new(ui_user, "command_report", "<center>SPEAK FROM THE HEAVENS</center>", 400, 450, src)
 	ui.head_content = \
 	{"
 		<style>
@@ -60,7 +60,7 @@
 			}
 
 			textarea {
-				width: 100%;
+				width: 80%;
 				resize: none;
 			}
 
@@ -101,6 +101,8 @@
 				<option value="['sound/misc/evilevent.ogg']">Bad Omen</option>
 			</select>
 		</div>
+
+		<br>
 
 		<div>
 			<input type="checkbox" name="encode" value=[TRUE] [NULLABLE(encode_report) && "checked"]/>
