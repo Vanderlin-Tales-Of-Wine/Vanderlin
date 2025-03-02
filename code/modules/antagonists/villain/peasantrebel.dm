@@ -197,3 +197,8 @@
 		R.objectives |= objectives
 
 	addtimer(CALLBACK(src,PROC_REF(update_objectives)),INGAME_ROLE_HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
+
+/datum/team/prebels/roundend_success()
+	for(var/datum/mind/M in members)
+		if(considered_alive(M))
+			M.adjust_triumphs(5)
