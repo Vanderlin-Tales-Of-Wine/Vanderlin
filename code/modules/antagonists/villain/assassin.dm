@@ -23,6 +23,7 @@
 		ADD_TRAIT(owner.current, TRAIT_VILLAIN, TRAIT_GENERIC)
 		ADD_TRAIT(owner.current, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(owner.current, TRAIT_STRONG_GRABBER, TRAIT_GENERIC)
 		var/old_knife_skill = owner.current.mind.get_skill_level(/datum/skill/combat/knives)
 		var/old_sneak_skill = owner.current.mind.get_skill_level(/datum/skill/misc/sneaking)
 		if(old_knife_skill < 4) // If the assassined player has less than 4 knife skill, get them to 4.
