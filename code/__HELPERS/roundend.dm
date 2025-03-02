@@ -245,13 +245,11 @@
 		to_chat(world, "<span class='big bold'>The town has managed to survive another week.</span>")
 
 /datum/controller/subsystem/ticker/proc/gamemode_report()
-	//TODO: This is a copypaste of antag_report(), use build_roundend_report()
+	//TODO: This is a copypaste of antag_report(), this should be deleted
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
 	for(var/datum/team/A in GLOB.antagonist_teams)
-		if(!A.members)
-			continue
 		all_teams |= A
 
 	for(var/datum/antagonist/A in GLOB.antagonists)
@@ -260,10 +258,15 @@
 		all_antagonists |= A
 
 	for(var/datum/team/T in all_teams)
+		//check if we should show the team
+		if(!active_team.show_roundend_report)
+			continue
+
+		for(var/datum/mind/member_mind as anything in T.members)
+			if(!isnull(member_mind.antag_datums))
+				all_antagonists -= member_mind.antag_datums
+
 		to_chat(world, T.roundend_report())
-		for(var/datum/antagonist/X in all_antagonists)
-			if(X.get_team() == T)
-				all_antagonists -= X
 		CHECK_TICK
 
 	var/currrent_category
