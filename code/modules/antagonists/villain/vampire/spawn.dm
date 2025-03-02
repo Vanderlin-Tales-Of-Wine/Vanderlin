@@ -14,11 +14,22 @@
 	add_objective(/datum/objective/vlordserve)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
-	for(var/obj/structure/vampire/bloodpool/mansion in GLOB.vampire_objects)
-		mypool = mansion
 	equip()
 	if(!sired)
 		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
+
+/datum/antagonist/vampire/lesser/handle_vitae(change, tribute)
+	var/tempcurrent
+	if(change > 0)
+		tempcurrent += change
+		if(tempcurrent > vmax)
+			tempcurrent = vmax // to prevent overflow
+	if(change < 0)
+		tempcurrent += change
+		if(tempcurrent < 0)
+			tempcurrent = 0 // to prevent excessive negative.
+	vitae = tempcurrent
+	. = ..()
 
 /mob/living/carbon/human/proc/spawn_pick_class()
 	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Thief", "Treasure Hunter", "Mage")
@@ -43,7 +54,7 @@
 
 /datum/antagonist/vampire/lesser/greet()
 	to_chat(owner.current, span_userdanger("We are awakened from our slumber, Spawn of the feared Vampire Lord."))
-	owner.announce_objectives()
+	. = ..()
 
 /datum/antagonist/vampire/lesser/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlordspawn_starts))

@@ -20,7 +20,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/vamplevel = 0
 	var/vitae = 1000
 	var/vmax = 2000
-	var/obj/structure/vampire/bloodpool/mypool
 	COOLDOWN_DECLARE(last_transform)
 	var/cache_skin
 	var/cache_eyes
@@ -102,13 +101,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/datum/objective/V = new O
 	objectives += V
 
-/datum/antagonist/vampire/proc/remove_objective(datum/objective/O)
-	objectives -= O
-
 /datum/antagonist/vampire/greet()
 	SHOULD_CALL_PARENT(TRUE)
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/vampintro.ogg', 80, FALSE, pressure_affected = FALSE)
-	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to these trespassers upon my domain."))
 	owner.announce_objectives()
 	. = ..()
 
@@ -136,8 +131,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return
 	if(H.advsetup)
 		return
-	if(!isspawn)
-		vitae = mypool.current
 	if(ascended)
 		return
 	if(world.time % 5)
@@ -146,17 +139,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				var/turf/T = H.loc
 				if(T.can_see_sky())
 					if(T.get_lumcount() > 0.15)
-						if(!isspawn)
-							to_chat(H, span_warning("Astrata spurns me! I must get out of her rays!")) // VLord is more punished for daylight excursions.
-							var/turf/N = H.loc
-							if(N.can_see_sky())
-								if(N.get_lumcount() > 0.15)
-									H.fire_act(3)
-									handle_vitae(-500)
-							to_chat(H, span_warning("That was too close. I must avoid the sun."))
-						else if (isspawn && !disguised)
-							H.fire_act(1,5)
-							handle_vitae(-10)
+						exposed_to_sunlight()
 
 	if(H.on_fire)
 		if(disguised)
@@ -176,22 +159,13 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				H.vampire_undisguise(src)
 	handle_vitae(-1)
 
+/datum/antagonist/vampire/proc/exposed_to_sunlight()
+	var/mob/living/H = owner
+	if(!disguised)
+		H.fire_act(1, 5)
+		handle_vitae(-10)
+
 /datum/antagonist/vampire/proc/handle_vitae(change, tribute)
-	var/tempcurrent = vitae
-	if(!isspawn)
-		mypool.update_pool(change)
-	if(isspawn)
-		if(change > 0)
-			tempcurrent += change
-			if(tempcurrent > vmax)
-				tempcurrent = vmax // to prevent overflow
-		if(change < 0)
-			tempcurrent += change
-			if(tempcurrent < 0)
-				tempcurrent = 0 // to prevent excessive negative.
-		vitae = tempcurrent
-	if(tribute)
-		mypool.update_pool(tribute)
 	if(vitae <= 20)
 		if(!starved)
 			to_chat(owner, span_userdanger("I starve, my power dwindles! I am so weak!"))

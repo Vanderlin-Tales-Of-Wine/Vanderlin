@@ -603,28 +603,21 @@
 							to_chat(user, "<span class='love'>Virgin blood, delicious!</span>")
 							var/mob/living/carbon/V = user
 							V.add_stress(/datum/stressevent/vblood)
+							var/used_vitae = 750
+
 							if(C.vitae_pool >= 750)
-								if(VDrinker.isspawn)
-									VDrinker.handle_vitae(750, 750)
-								else
-									VDrinker.handle_vitae(750)
+								VDrinker.handle_vitae(750, 750)
 								C.vitae_pool -= 760
 								to_chat(user, "<span class='love'>...And empowering!</span>")
 							else if(C.vitae_pool < 750) // In case someone already drank from their vitae.
 								var/vitaeleft = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
-								if(VDrinker.isspawn)
-									VDrinker.handle_vitae(vitaeleft, vitaeleft)
-								else
-									VDrinker.handle_vitae(vitaeleft)
+								VDrinker.handle_vitae(vitaeleft, vitaeleft)
 								C.vitae_pool -= vitaeleft
 								to_chat(user, "<span class='notice'>...But alas, only leftovers...</span>")
 							else
 								to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
 						else
-							if(VDrinker.isspawn)
-								VDrinker.handle_vitae(500, 500)
-							else
-								VDrinker.handle_vitae(500)
+							VDrinker.handle_vitae(500, 500)
 							C.vitae_pool -= 500
 				else
 					to_chat(user, span_warning("No more vitae from this blood..."))
@@ -637,10 +630,7 @@
 				var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
 				C.blood_volume = max(C.blood_volume-45, 0)
 				if(C.vitae_pool >= 250)
-					if(VDrinker.isspawn)
-						VDrinker.handle_vitae(250, 250)
-					else
-						VDrinker.handle_vitae(250)
+					VDrinker.handle_vitae(250, 250)
 				else
 					to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
 
@@ -655,19 +645,18 @@
 	log_combat(user, C, "drank blood from ")
 
 	if(ishuman(C) && C.mind)
-		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
+		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
 		if(C.blood_volume <= BLOOD_VOLUME_SURVIVE)
-			if(!VDrinker.isspawn)
-				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
-					if("Yes")
-						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
-						if(do_after(user, 3 SECONDS))
-							C.visible_message(span_red("[C] rises as a new spawn!"))
-							if(istype(VDrinker, /datum/antagonist/vampire))
-								var/datum/antagonist/vampire/lesser/new_antag = new /datum/antagonist/vampire/lesser()
-								new_antag.sired = TRUE
-								C.mind.add_antag_datum(new_antag)
-							sleep(20)
-							C.fully_heal()
-					if("No")
-						to_chat(user, "<span class='warning'>I decide [C] is unworthy.</span>")
+			switch(alert(user, "Would you like to sire a new spawn?","THE CURSE OF KAIN","Yes","No"))
+				if("Yes")
+					user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
+					if(do_after(user, 3 SECONDS))
+						C.visible_message(span_red("[C] rises as a new spawn!"))
+						if(istype(VDrinker, /datum/antagonist/vampire))
+							var/datum/antagonist/vampire/lesser/new_antag = new /datum/antagonist/vampire/lesser()
+							new_antag.sired = TRUE
+							C.mind.add_antag_datum(new_antag)
+						sleep(20)
+						C.fully_heal()
+				if("No")
+					to_chat(user, "<span class='warning'>I decide [C] is unworthy.</span>")

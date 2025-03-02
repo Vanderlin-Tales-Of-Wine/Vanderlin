@@ -6,18 +6,23 @@
 		"I AM THE LAND!",
 		"FIRSTBORNE CHILD OF KAIN!",
 	)
+	var/obj/structure/vampire/bloodpool/mypool
 	var/list/datum/antagonist/vampire/lesser/thralls = list()
 
 /datum/antagonist/vampire/lord/on_gain()
 	. = ..()
 
-	forge_vampirelord_objectives()
+	forge_objectives()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
 	for(var/obj/structure/vampire/bloodpool/mansion in GLOB.vampire_objects)
 		mypool = mansion
 	equip()
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[type]"), 5 SECONDS)
+
+/datum/antagonist/vampire/lord/greet()
+	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to these trespassers upon my domain."))
+	. = ..()
 
 /datum/antagonist/vampire/lord/equip()
 	. = ..()
@@ -34,7 +39,27 @@
 
 	return TRUE
 
-/datum/antagonist/vampire/proc/forge_vampirelord_objectives()
+/datum/antagonist/vampire/lord/on_life(mob/user)
+	vitae = mypool.current
+	. = ..()
+
+/datum/antagonist/vampire/lord/exposed_to_sunlight()
+	var/mob/living/carbon/human/H = owner
+	to_chat(H, span_warning("Astrata spurns me! I must get out of her rays!")) // VLord is more punished for daylight excursions.
+	var/turf/N = H.loc
+	if(N.can_see_sky())
+		if(N.get_lumcount() > 0.15)
+			H.fire_act(3)
+			handle_vitae(-500)
+	to_chat(H, span_warning("That was too close. I must avoid the sun."))
+
+/datum/antagonist/vampire/lord/handle_vitae(change, tribute)
+	mypool.update_pool(change)
+	if(tribute)
+		mypool.update_pool(tribute)
+	. = ..()
+
+/datum/antagonist/vampire/lord/proc/forge_objectives()
 	var/list/primary = pick(list("1", "2","3"))
 	var/list/secondary = pick(list("1", "2", "3"))
 	switch(primary)

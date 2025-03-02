@@ -6,8 +6,8 @@
 /obj/structure/vampire/portalmaker/attack_hand(mob/living/user)
 	var/list/possibleportals = list()
 	var/list/sendpossibleportals = list()
-	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
-	if(user.mind.special_role != "Vampire Lord")
+	var/datum/antagonist/vampire/lord/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
+	if(!lord)
 		return
 	if(!lord.mypool.check_withdraw(-1000))
 		to_chat(user, "This costs 1000 vitae, I lack that.")

@@ -5,7 +5,7 @@
 	var/sunstolen = FALSE
 
 /obj/structure/vampire/necromanticbook/attack_hand(mob/living/carbon/human/user)
-	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
+	var/datum/antagonist/vampire/lord/lord = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
 	if(user.mind.special_role == "Vampire Lord")
 		if(!unlocked)
 			to_chat(user, "I have yet to regain this aspect of my power!")

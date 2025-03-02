@@ -1160,6 +1160,7 @@
 #include "code\modules\antagonists\villain\maniac\wonders.dm"
 #include "code\modules\antagonists\villain\vampire\_vampire.dm"
 #include "code\modules\antagonists\villain\vampire\actions.dm"
+#include "code\modules\antagonists\villain\vampire\spawn.dm"
 #include "code\modules\antagonists\villain\vampire\teams.dm"
 #include "code\modules\antagonists\villain\vampire\death_knight.dm"
 #include "code\modules\antagonists\villain\vampire\lord.dm"
