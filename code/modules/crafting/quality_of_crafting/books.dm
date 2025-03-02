@@ -71,8 +71,12 @@
 		<body>
 		"}
 
+	var/first = TRUE
 	for(var/atom/path as anything in types)
 		if(is_abstract(path))
+			if(!first)
+				html += "<br>"
+			first = FALSE
 			for(var/atom/sub_path as anything in subtypesof(path))
 				if(is_abstract(sub_path))
 					continue

@@ -43,7 +43,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hair_alpha = 255	// the alpha used by the hair. 255 is completely solid, 0 is transparent.
 
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
-	var/exotic_blood = ""	// If my race wants to bleed something other than bog standard blood, change this to reagent id.
 	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
 	var/meat = /obj/item/reagent_containers/food/snacks/meat/human //What the species drops on gibbing
 	var/liked_food = NONE
@@ -1639,7 +1638,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.update_mutant_bodyparts()
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
-	if(chem.type == exotic_blood)
+	if(chem.type == exotic_bloodtype)
 		H.blood_volume = min(H.blood_volume + round(chem.volume, 0.1), BLOOD_VOLUME_MAXIMUM)
 		H.reagents.del_reagent(chem.type)
 		return TRUE

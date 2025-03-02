@@ -57,6 +57,8 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/turf_exposure = FALSE
 	/// are we slippery?
 	var/slippery = TRUE
+	///do we glow?
+	var/glows = FALSE
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	. = ..()

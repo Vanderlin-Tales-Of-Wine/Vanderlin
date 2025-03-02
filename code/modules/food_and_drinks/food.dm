@@ -21,7 +21,7 @@
 	var/in_container = FALSE //currently just stops "was bitten X times!" messages on canned food
 
 	/// How palatable is this food for a given social class?
-	var/faretype = FARE_IMPOVERISHED
+	var/faretype = FARE_NEUTRAL
 	/// If false, this will inflict mood debuffs on nobles who eat it without being near a table.
 	var/portable = TRUE
 

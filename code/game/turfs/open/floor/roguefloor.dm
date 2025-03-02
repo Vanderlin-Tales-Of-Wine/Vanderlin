@@ -333,19 +333,7 @@
 	var/muddy = FALSE
 	var/bloodiness = 20
 	var/obj/structure/closet/dirthole/holie
-	var/obj/machinery/crop/planted_crop
 	var/dirt_amt = 3
-/*
-/turf/open/floor/dirt/get_slowdown(mob/user)
-	var/returned = slowdown
-	for(var/obj/item/I in user.held_items)
-		if(I.walking_stick)
-			if(!I.wielded)
-				var/mob/living/L = user
-				if(!L.cmode)
-					returned = max(returned-2, 0)
-	return returned
-*/
 
 /turf/open/floor/dirt/attack_right(mob/user)
 	if(isliving(user))
@@ -365,8 +353,6 @@
 /turf/open/floor/dirt/Destroy()
 	if(holie)
 		QDEL_NULL(holie)
-	if(planted_crop)
-		QDEL_NULL(planted_crop)
 	return ..()
 
 
@@ -387,8 +373,6 @@
 			S.blood_state = BLOOD_STATE_MUD
 			update_icon()
 			H.update_inv_shoes()
-			if(planted_crop)
-				planted_crop.crossed_turf()
 		if(water_level)
 			START_PROCESSING(SSwaterlevel, src)
 
@@ -404,8 +388,6 @@
 	water_level = max(water_level-10,0)
 	if(water_level > 10) //this would be a switch on normal tiles
 		color = "#95776a"
-		if(planted_crop)
-			planted_crop.rainedon()
 	else
 		color = null
 	return TRUE
@@ -419,8 +401,6 @@
 				become_muddy()
 			return TRUE //stop processing
 	if(water_level > 10) //this would be a switch on normal tiles
-		if(planted_crop)
-			planted_crop.rainedon()
 		if(!muddy)
 			become_muddy()
 //flood process goes here to spread to other turfs etc
