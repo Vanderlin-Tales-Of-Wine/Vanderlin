@@ -419,7 +419,7 @@
 				dodge_speed = floor(dodge_speed * 0.8)
 				drained += 8
 		dodge_score += (DI.wdodgebonus)
-	dodge_score += (D.used_intent.idodgebonus)							//Some weapon intents help with dodging
+	dodge_score += (D.used_intent?.idodgebonus)							//Some weapon intents help with dodging
 	if(istype(DH))
 		if(!DH?.check_armor_skill() || DH?.legcuffed)
 			DH.Knockdown(1)
