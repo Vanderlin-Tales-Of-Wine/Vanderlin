@@ -7,6 +7,7 @@
 	status_type = STATUS_EFFECT_REPLACE
 	alert_type = null
 	var/needs_update_stat = FALSE
+	var/should_incapacitate = TRUE
 
 /datum/status_effect/incapacitating/on_creation(mob/living/new_owner, set_duration, updating_canmove)
 	if(isnum(set_duration))
@@ -22,10 +23,12 @@
 	. = ..()
 	if(!.)
 		return
-	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+	if(should_incapacitate)
+		ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 
 /datum/status_effect/incapacitating/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+	if(should_incapacitate)
+		REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	if(owner)
 		owner.update_mobility()
 		if(needs_update_stat) //silicons need stat updates in addition to normal canmove updates
@@ -56,6 +59,7 @@
 /datum/status_effect/incapacitating/immobilized
 	id = "immobilized"
 	alert_type = /atom/movable/screen/alert/status_effect/immobilized
+	should_incapacitate = FALSE
 
 /atom/movable/screen/alert/status_effect/immobilized
 	name = "Immobilized"
