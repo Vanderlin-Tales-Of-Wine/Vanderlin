@@ -20,7 +20,6 @@
 		/obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red = 1))//sailor shirt
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/cuirass/iron
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor/red
 	shirt = shirt_type
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light
 	belt = /obj/item/storage/belt/leather/mercenary
