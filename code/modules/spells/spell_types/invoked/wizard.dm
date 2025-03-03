@@ -719,8 +719,8 @@
 	playsound(T,'sound/magic/webspin.ogg', 50, TRUE)
 	return TRUE
 /obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe/proc/apply_slowdown(turf/T, area_of_effect, duration)
-	for(var/mob/living/simple_animal/hostile/retaliate/rogue in range(area_of_effect, T))
-		rogue.Paralyze(duration, updating = TRUE, ignore_canstun = TRUE)	//i think animal movement is coded weird, i cant seem to stun them
+	for(var/mob/living/simple_animal/hostile/retaliate in range(area_of_effect, T))
+		retaliate.Paralyze(duration, updating = TRUE, ignore_canstun = TRUE)	//i think animal movement is coded weird, i cant seem to stun them
 	for(var/mob/living/L in range(area_of_effect, T))
 		if(L.anti_magic_check())
 			visible_message(span_warning("The tendrils of force can't seem to latch onto [L] "))  //antimagic needs some testing

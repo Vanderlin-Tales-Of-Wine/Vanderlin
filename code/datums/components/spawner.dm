@@ -6,10 +6,10 @@
 	var/max_mobs = 5
 	var/spawn_text = "emerges from"
 	var/list/faction = list("mining")
+	/// The minimum distance to a client before we can start spawning mobs.
+	var/range = 10
 
-
-
-/datum/component/spawner/Initialize(_mob_types, _spawn_time, _faction, _spawn_text, _max_mobs)
+/datum/component/spawner/Initialize(_mob_types, _spawn_time, _faction, _spawn_text, _range, _max_mobs)
 	if(_spawn_time)
 		spawn_time=_spawn_time
 	if(_mob_types)
@@ -20,6 +20,8 @@
 		spawn_text=_spawn_text
 	if(_max_mobs)
 		max_mobs=_max_mobs
+	if(_range)
+		range = _range
 
 	RegisterSignal(parent, list(COMSIG_PARENT_QDELETING), PROC_REF(stop_spawning))
 	START_PROCESSING(SSprocessing, src)

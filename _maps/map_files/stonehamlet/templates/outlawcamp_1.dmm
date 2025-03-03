@@ -1,0 +1,698 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aV" = (
+/obj/structure/table/wood/large/corner_alt{
+	dir = 6
+	},
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"cm" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"cr" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"dc" = (
+/obj/effect/spawner/map_spawner/tree,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"fB" = (
+/obj/effect/spawner/map_spawner/outlaw_maybe,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"gE" = (
+/obj/structure/bed/shit,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"gP" = (
+/obj/item/bin/water/gross,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"hw" = (
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"hP" = (
+/obj/structure/roguetent/preopen,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"il" = (
+/obj/item/storage/belt/leather/rope,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"iD" = (
+/obj/structure/bed/shit,
+/obj/item/instrument/drum,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"jq" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"kb" = (
+/obj/structure/toilet,
+/obj/item/natural/poo,
+/obj/effect/spawner/map_spawner/outlaw_maybe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"kz" = (
+/obj/item/reagent_containers/glass/bucket/wooden,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"kQ" = (
+/obj/item/clothing/shoes/shortboots,
+/obj/effect/spawner/map_spawner/outlaw_maybe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"lZ" = (
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"mK" = (
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"or" = (
+/obj/structure/closet/dirthole/closed,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"pU" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"qa" = (
+/obj/structure/closet/dirthole/closed,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"rp" = (
+/obj/structure/well/climb_down,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"sM" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"ta" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 10
+	},
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"tV" = (
+/obj/structure/bed/shit,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"ue" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"uz" = (
+/obj/structure/bed/shit,
+/obj/item/clothing/head/helmet/leather/inquisitor,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"wv" = (
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"wK" = (
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"wW" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"xd" = (
+/obj/effect/spawner/map_spawner/tree,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"ya" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8
+	},
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"yv" = (
+/obj/structure/table/wood/large/corner_alt{
+	dir = 5
+	},
+/obj/item/reagent_containers/food/snacks/meat/mince/beef,
+/obj/item/weapon/knife/cleaver/combat,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"yW" = (
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"zg" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors/shelter/rtfield)
+"zr" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue/outdoors/rtfield/outlaw)
+"Am" = (
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"Ch" = (
+/obj/structure/bed/shit,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Cx" = (
+/obj/item/grown/log/tree/stake,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"CS" = (
+/obj/structure/flora/tree/burnt,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"DF" = (
+/obj/structure/closet/dirthole/closed,
+/obj/effect/decal/remains/xeno/larva{
+	desc = "Truely, nothing is sacred.";
+	name = "child's remains"
+	},
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"EX" = (
+/obj/structure/closet/crate/closet/inn/chest,
+/obj/item/clothing/neck/coif,
+/obj/item/storage/belt/pouch/coins/poor,
+/obj/item/clothing/shirt/undershirt/priest,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Ft" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/storage/belt/pouch/coins/poor,
+/obj/item/reagent_containers/powder/salt,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Hf" = (
+/obj/item/rope,
+/obj/item/rope,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"HJ" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"Mh" = (
+/obj/item/storage/backpack/satchel/heartfelt,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"NB" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"NK" = (
+/obj/effect/spawner/map_spawner/outlaw_maybe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"NN" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"Op" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/item/clothing/head/cookhat,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"ON" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/clothing/armor/gambeson,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/spice,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Ry" = (
+/obj/structure/roguetent/preopen,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"RK" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Ta" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"Um" = (
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/spawner/map_spawner/outlaw_maybe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"VP" = (
+/turf/closed/wall/mineral/tent,
+/area/rogue/indoors/shelter/rtfield)
+"We" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/clothing/shoes/boots/leather,
+/obj/item/clothing/shoes/shortboots,
+/obj/item/clothing/shoes/ridingboots,
+/obj/item/clothing/shoes/boots,
+/obj/effect/spawner/map_spawner/loot/random_gem,
+/obj/item/storage/backpack/backpack,
+/obj/item/storage/belt/pouch/coins/mid,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Wj" = (
+/turf/closed/wall/mineral/decowood,
+/area/rogue/outdoors/rtfield/outlaw)
+"WU" = (
+/obj/structure/roguetent,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"XA" = (
+/obj/item/reagent_containers/glass/bottle,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"XE" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"Zd" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+
+(1,1,1) = {"
+xd
+xd
+xd
+xd
+xd
+wv
+xd
+xd
+zg
+VP
+VP
+zg
+wv
+zg
+VP
+VP
+zg
+xd
+xd
+"}
+(2,1,1) = {"
+xd
+xd
+xd
+wv
+xd
+xd
+xd
+or
+VP
+yv
+aV
+VP
+wv
+VP
+gE
+tV
+VP
+wv
+xd
+"}
+(3,1,1) = {"
+xd
+wv
+xd
+xd
+qa
+or
+xd
+or
+VP
+Op
+hw
+VP
+wv
+VP
+mK
+mK
+VP
+wv
+xd
+"}
+(4,1,1) = {"
+xd
+xd
+xd
+xd
+wW
+wv
+xd
+or
+VP
+Um
+wK
+Ry
+ta
+VP
+Ft
+mK
+VP
+wv
+xd
+"}
+(5,1,1) = {"
+zg
+VP
+zg
+dc
+or
+qa
+DF
+or
+VP
+ue
+RK
+VP
+ya
+zg
+VP
+WU
+zg
+wv
+xd
+"}
+(6,1,1) = {"
+VP
+kb
+WU
+yW
+yW
+Am
+sM
+or
+zg
+VP
+VP
+zg
+cm
+jq
+gP
+Am
+yW
+wv
+wv
+"}
+(7,1,1) = {"
+zg
+VP
+zg
+qa
+or
+qa
+wv
+Am
+Am
+yW
+wv
+yW
+Am
+fB
+yW
+yW
+yW
+Am
+wv
+"}
+(8,1,1) = {"
+xd
+xd
+xd
+dc
+xd
+zg
+VP
+VP
+zr
+wv
+wv
+CS
+Ta
+yW
+Zd
+Am
+Cx
+yW
+yW
+"}
+(9,1,1) = {"
+xd
+wv
+xd
+xd
+zg
+VP
+uz
+We
+VP
+zg
+wv
+il
+HJ
+NN
+Am
+yW
+pU
+Am
+Am
+"}
+(10,1,1) = {"
+xd
+wv
+xd
+xd
+VP
+tV
+kQ
+mK
+mK
+hP
+yW
+wv
+wv
+Am
+Am
+XE
+Am
+wv
+Am
+"}
+(11,1,1) = {"
+xd
+wv
+wv
+xd
+VP
+iD
+mK
+mK
+Mh
+VP
+NB
+Am
+kz
+wv
+Am
+Am
+Am
+yW
+Am
+"}
+(12,1,1) = {"
+xd
+wv
+xd
+xd
+zg
+VP
+lZ
+NK
+VP
+zg
+wv
+wv
+rp
+wv
+Zd
+yW
+wv
+yW
+wv
+"}
+(13,1,1) = {"
+xd
+xd
+wv
+xd
+xd
+zg
+VP
+VP
+zg
+or
+wv
+wv
+Am
+yW
+yW
+yW
+yW
+yW
+wv
+"}
+(14,1,1) = {"
+wv
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+or
+or
+wv
+yW
+wv
+wv
+yW
+Am
+wv
+wv
+wv
+"}
+(15,1,1) = {"
+xd
+wv
+xd
+xd
+xd
+xd
+xd
+zg
+VP
+VP
+WU
+zg
+wv
+zg
+VP
+VP
+hP
+zg
+wv
+"}
+(16,1,1) = {"
+xd
+xd
+wv
+xd
+wv
+xd
+xd
+VP
+Hf
+mK
+mK
+VP
+wv
+VP
+NK
+EX
+mK
+VP
+wv
+"}
+(17,1,1) = {"
+xd
+xd
+xd
+wv
+xd
+wv
+xd
+VP
+Ch
+ON
+tV
+VP
+or
+VP
+cr
+mK
+XA
+VP
+wv
+"}
+(18,1,1) = {"
+wv
+xd
+xd
+wv
+xd
+xd
+xd
+zg
+VP
+VP
+VP
+zg
+xd
+VP
+tV
+tV
+tV
+VP
+Wj
+"}
+(19,1,1) = {"
+xd
+xd
+xd
+wv
+wv
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+zg
+VP
+VP
+VP
+zg
+xd
+"}

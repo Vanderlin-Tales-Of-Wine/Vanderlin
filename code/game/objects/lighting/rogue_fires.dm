@@ -223,10 +223,10 @@
 					soundloop.start()
 				return TRUE
 
-/obj/machinery/light/fueled/torchholder/Initialize()
+/*/obj/machinery/light/fueled/torchholder/Initialize()
 	torchy = new /obj/item/flashlight/flare/torch(src)
 	torchy.spark_act()
-	. = ..()
+	. = ..()*/
 
 /obj/machinery/light/fueled/torchholder/OnCrafted(dirin, user)
 	dir = turn(dirin, 180)

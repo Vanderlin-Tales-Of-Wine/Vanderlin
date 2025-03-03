@@ -1,0 +1,590 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aV" = (
+/obj/structure/table/wood/large/corner_alt{
+	dir = 6
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"cm" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"cr" = (
+/obj/item/chair/stool/bar,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"dc" = (
+/obj/effect/spawner/map_spawner/tree,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"fB" = (
+/obj/item/natural/fur/gote,
+/obj/item/natural/fur/cabbit,
+/obj/item/natural/fur/cabbit,
+/obj/item/natural/fur/volf,
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/natural/bundle/fibers/full,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"gP" = (
+/obj/item/bin/water/gross,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"hP" = (
+/obj/structure/roguetent/preopen,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"kb" = (
+/obj/structure/toilet,
+/obj/item/natural/poo,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"kz" = (
+/obj/item/reagent_containers/glass/bucket/wooden/alter,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"lZ" = (
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"mK" = (
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"or" = (
+/obj/structure/closet/dirthole/closed,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"rp" = (
+/obj/structure/well/climb_down,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"sM" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"ta" = (
+/obj/effect/spawner/map_spawner/hostile_beggar_danger,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"tV" = (
+/obj/structure/bed/sleepingbag,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"ue" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/powder/salt,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"uz" = (
+/obj/item/storage/meatbag,
+/obj/structure/rack/rogue,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"wv" = (
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"wW" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"xd" = (
+/obj/effect/spawner/map_spawner/tree,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"yv" = (
+/obj/structure/table/wood/large/corner_alt{
+	dir = 5
+	},
+/obj/item/weapon/knife/cleaver/combat,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"yW" = (
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+"zg" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors/shelter/rtfield)
+"Am" = (
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"Ch" = (
+/obj/structure/bed/sleepingbag,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 1
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"CS" = (
+/obj/structure/flora/tree/burnt,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"Ft" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/natural/hide,
+/obj/item/natural/hide,
+/obj/item/natural/hide,
+/obj/item/natural/hide,
+/obj/item/natural/hide,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"NB" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"NK" = (
+/obj/item/storage/backpack/satchel/heartfelt,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"ON" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/reagent_containers/food/snacks/meat/salami,
+/obj/item/reagent_containers/food/snacks/meat/salami,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Ry" = (
+/obj/structure/roguetent/preopen,
+/obj/effect/decal/cleanable/blood/old,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"Ta" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/machinery/tanningrack,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/outlaw)
+"VF" = (
+/obj/effect/spawner/map_spawner/volf_maybe,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"VP" = (
+/turf/closed/wall/mineral/tent,
+/area/rogue/indoors/shelter/rtfield)
+"We" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/storage/backpack/backpack,
+/obj/item/ammo_holder/quiver/arrows,
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Wj" = (
+/turf/closed/wall/mineral/decowood,
+/area/rogue/outdoors/rtfield/outlaw)
+"WU" = (
+/obj/structure/roguetent,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/rtfield)
+"XA" = (
+/obj/item/reagent_containers/glass/bottle,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/shelter/rtfield)
+"Zd" = (
+/obj/machinery/light/fueled/campfire/densefire,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/outlaw)
+
+(1,1,1) = {"
+xd
+xd
+xd
+xd
+xd
+wv
+xd
+xd
+zg
+VP
+VP
+zg
+wv
+zg
+VP
+VP
+zg
+xd
+xd
+"}
+(2,1,1) = {"
+xd
+xd
+xd
+wv
+xd
+xd
+xd
+wv
+VP
+yv
+aV
+VP
+wv
+VP
+tV
+mK
+VP
+wv
+xd
+"}
+(3,1,1) = {"
+xd
+wv
+xd
+xd
+wv
+wv
+xd
+wv
+VP
+mK
+mK
+VP
+wv
+VP
+mK
+mK
+VP
+wv
+xd
+"}
+(4,1,1) = {"
+xd
+xd
+xd
+xd
+wW
+wv
+xd
+wv
+VP
+mK
+mK
+Ry
+wv
+VP
+Ft
+mK
+VP
+wv
+xd
+"}
+(5,1,1) = {"
+zg
+VP
+zg
+dc
+wv
+wv
+wv
+wv
+VP
+ue
+mK
+VP
+Am
+zg
+VP
+WU
+zg
+wv
+xd
+"}
+(6,1,1) = {"
+VP
+kb
+WU
+yW
+yW
+Am
+sM
+wv
+zg
+VP
+VP
+zg
+cm
+wv
+gP
+Am
+yW
+wv
+wv
+"}
+(7,1,1) = {"
+zg
+VP
+zg
+wv
+wv
+wv
+wv
+Am
+Am
+yW
+wv
+yW
+Am
+Am
+yW
+yW
+yW
+Am
+wv
+"}
+(8,1,1) = {"
+xd
+xd
+xd
+dc
+xd
+zg
+VP
+VP
+zg
+wv
+wv
+CS
+Ta
+yW
+Zd
+Am
+Am
+yW
+yW
+"}
+(9,1,1) = {"
+xd
+wv
+xd
+xd
+zg
+VP
+uz
+We
+VP
+zg
+wv
+Am
+yW
+Am
+Am
+yW
+Am
+Am
+Am
+"}
+(10,1,1) = {"
+xd
+wv
+xd
+xd
+VP
+tV
+mK
+mK
+mK
+hP
+yW
+wv
+wv
+Am
+Am
+Am
+Am
+wv
+Am
+"}
+(11,1,1) = {"
+xd
+wv
+wv
+xd
+VP
+ta
+mK
+mK
+mK
+VP
+NB
+Am
+kz
+wv
+Am
+Am
+Am
+yW
+Am
+"}
+(12,1,1) = {"
+xd
+wv
+xd
+xd
+zg
+VP
+lZ
+NK
+VP
+zg
+wv
+wv
+rp
+wv
+Zd
+yW
+wv
+yW
+wv
+"}
+(13,1,1) = {"
+xd
+xd
+wv
+xd
+xd
+zg
+VP
+VP
+zg
+wv
+wv
+wv
+Am
+yW
+yW
+yW
+yW
+yW
+wv
+"}
+(14,1,1) = {"
+wv
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+wv
+wv
+wv
+yW
+wv
+wv
+yW
+Am
+wv
+wv
+wv
+"}
+(15,1,1) = {"
+xd
+wv
+xd
+xd
+xd
+xd
+xd
+zg
+VP
+VP
+WU
+zg
+wv
+zg
+VP
+VP
+hP
+zg
+wv
+"}
+(16,1,1) = {"
+xd
+xd
+wv
+xd
+wv
+xd
+xd
+VP
+mK
+mK
+mK
+VP
+wv
+VP
+fB
+mK
+mK
+VP
+wv
+"}
+(17,1,1) = {"
+xd
+xd
+xd
+wv
+xd
+wv
+xd
+VP
+Ch
+ON
+mK
+VP
+or
+VP
+cr
+mK
+XA
+VP
+VF
+"}
+(18,1,1) = {"
+wv
+xd
+xd
+wv
+xd
+xd
+xd
+zg
+VP
+VP
+VP
+zg
+xd
+VP
+tV
+mK
+tV
+VP
+Wj
+"}
+(19,1,1) = {"
+xd
+xd
+xd
+wv
+wv
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+xd
+zg
+VP
+VP
+VP
+zg
+xd
+"}

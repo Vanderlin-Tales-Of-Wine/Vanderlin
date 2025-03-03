@@ -1,0 +1,48 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/decal/remains/human/old,
+/obj/effect/decal/cleanable/blood_neu/random,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"l" = (
+/turf/closed/mineral/salt,
+/area/rogue/under/town/caverogue/saltmine)
+"v" = (
+/obj/item/flashlight/flare/torch/lantern/bronzelamptern,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"C" = (
+/obj/structure/idle_enemy/bigrat,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"K" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"X" = (
+/turf/closed/mineral,
+/area/rogue/under/town/caverogue/saltmine)
+
+(1,1,1) = {"
+K
+K
+C
+a
+"}
+(2,1,1) = {"
+K
+X
+X
+v
+"}
+(3,1,1) = {"
+K
+X
+l
+K
+"}
+(4,1,1) = {"
+K
+K
+K
+K
+"}

@@ -1,0 +1,74 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"i" = (
+/obj/effect/decal/cleanable/sigil/SE,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"o" = (
+/obj/item/alch/silverdust,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"p" = (
+/obj/effect/decal/cleanable/sigil,
+/obj/item/candle/skull/lit,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"u" = (
+/obj/effect/decal/cleanable/sigil/N,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"E" = (
+/obj/effect/decal/cleanable/sigil/SW,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"F" = (
+/obj/effect/decal/cleanable/sigil/NE,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"G" = (
+/obj/effect/decal/cleanable/sigil/NW,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"I" = (
+/obj/effect/decal/cleanable/sigil/E,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"L" = (
+/obj/effect/decal/cleanable/sigil/W,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"N" = (
+/obj/item/alch/transisdust,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+"R" = (
+/obj/effect/decal/cleanable/sigil/S,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/caverogue/saltmine)
+
+(1,1,1) = {"
+o
+G
+L
+E
+"}
+(2,1,1) = {"
+a
+u
+p
+R
+"}
+(3,1,1) = {"
+a
+F
+I
+i
+"}
+(4,1,1) = {"
+a
+a
+a
+N
+"}

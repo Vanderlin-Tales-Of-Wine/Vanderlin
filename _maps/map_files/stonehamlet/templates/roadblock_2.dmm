@@ -1,0 +1,129 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/hamlet)
+"b" = (
+/obj/structure/flora/grass,
+/obj/structure/roguerock,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"e" = (
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/hamlet)
+"h" = (
+/obj/structure/flora/grass/thorn_bush,
+/obj/item/restraints/legcuffs/beartrap/armed,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"l" = (
+/obj/structure/table/wood/treestump{
+	pixel_x = -7
+	},
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"r" = (
+/obj/structure/flora/tree,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"w" = (
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"x" = (
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"z" = (
+/obj/effect/spawner/map_spawner/tree,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/hamlet)
+"A" = (
+/obj/structure/chair/bench/ancientlog,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"B" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"H" = (
+/obj/structure/table/wood/treestump,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"O" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"V" = (
+/obj/effect/spawner/map_spawner/tree,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+"W" = (
+/obj/effect/spawner/map_spawner/treeorbush,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/hamlet)
+
+(1,1,1) = {"
+V
+W
+x
+H
+w
+e
+a
+"}
+(2,1,1) = {"
+V
+W
+w
+B
+b
+e
+e
+"}
+(3,1,1) = {"
+V
+z
+a
+e
+e
+e
+e
+"}
+(4,1,1) = {"
+z
+e
+e
+e
+e
+e
+e
+"}
+(5,1,1) = {"
+e
+e
+a
+w
+w
+B
+w
+"}
+(6,1,1) = {"
+e
+h
+A
+w
+B
+r
+w
+"}
+(7,1,1) = {"
+w
+r
+l
+O
+w
+w
+r
+"}
