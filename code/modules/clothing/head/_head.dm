@@ -1,17 +1,35 @@
 /obj/item/clothing/head
-	name = BODY_ZONE_HEAD
+	name = "hat"
+	desc = ""
+
 	icon = 'icons/roguetown/clothing/head.dmi'
 	icon_state = "surghood"
-	item_state = "that"
-	body_parts_covered = HEAD
-	slot_flags = ITEM_SLOT_HEAD
-	var/blockTracking = 0 //For AI tracking
-	var/can_toggle = null
 	dynamic_hair_suffix = "+generic"
 	bloody_icon_state = "helmetblood"
+	item_state = "that"
+
+	body_parts_covered = COVERAGE_SKULL
+	slot_flags = ITEM_SLOT_HEAD
+	max_integrity = INTEGRITY_WORST
+
+	equip_sound = "rustle"
+	pickup_sound = "rustle"
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
 	grid_height = 32
 	grid_width = 64
+
+	resistance_flags = FLAMMABLE
+
+	sewrepair = TRUE
+	anvilrepair = null
+	smeltresult = /obj/item/ash // Helmets have pre-defined smeltresults, this is for hats
+	sellprice = VALUE_CHEAP_CLOTHING
+	edelay_type = 1
+
+	var/blockTracking = 0 //For AI tracking
+	var/can_toggle = null
 
 /obj/item/clothing/head/Initialize()
 	. = ..()
@@ -24,6 +42,13 @@
 	. = ..()
 
 
+/obj/item/clothing/head/equipped(mob/user, slot)
+	. = ..()
+	user.update_fov_angles()
+
+/obj/item/clothing/head/dropped(mob/user)
+	. = ..()
+	user.update_fov_angles()
 
 /obj/item/clothing/head/worn_overlays(isinhands = FALSE)
 	. = list()

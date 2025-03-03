@@ -129,7 +129,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/mob/living/carbon/human/H = user
 	if(H.wear_mask)
 		if(isclothing(H.wear_mask))
-			if(istype(H.wear_mask, /obj/item/clothing/mask/rogue/spectacles))
+			if(istype(H.wear_mask, /obj/item/clothing/face/spectacles))
 				var/obj/item/I = H.wear_mask
 				if(!I.obj_broken)
 					return
@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/status_effect/debuff/badvision
 	id = "badvision"
 	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5,"fortune" = -20)
+	effectedstats = list(STATKEY_PER = -20, STATKEY_SPD = -5, STATKEY_LCK = -20)
 	duration = 100
 
 /datum/charflaw/badsight/on_mob_creation(mob/user)
@@ -148,9 +148,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	var/mob/living/carbon/human/H = user
 	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/spectacles(H), SLOT_WEAR_MASK)
+		H.equip_to_slot_or_del(new /obj/item/clothing/face/spectacles(H), SLOT_WEAR_MASK)
 	else
-		new /obj/item/clothing/mask/rogue/spectacles(get_turf(H))
+		new /obj/item/clothing/face/spectacles(get_turf(H))
 
 /datum/charflaw/paranoid
 	name = "Paranoid"
@@ -205,6 +205,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			continue
 		if(L.stat)
 			continue
+		if(L.mode != AI_OFF)
+			continue
 		if(L.dna.species)
 			cnt++
 		if(cnt > 2)
@@ -231,6 +233,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			continue
 		if(L.stat)
 			continue
+		if(L.mode != AI_OFF)
+			continue
 		if(L.dna.species)
 			cnt++
 		if(cnt > 2)
@@ -249,7 +253,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	var/mob/living/carbon/human/H = user
 	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch(H), SLOT_WEAR_MASK)
+		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/right/permanent)
 	H.update_fov_angles()
@@ -264,7 +268,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		return
 	var/mob/living/carbon/human/H = user
 	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch/left(H), SLOT_WEAR_MASK)
+		H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
 	var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 	head?.add_wound(/datum/wound/facial/eyes/left/permanent)
 	H.update_fov_angles()
@@ -283,7 +287,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 				return
 			var/mob/living/carbon/human/H = user
 			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch/left(H), SLOT_WEAR_MASK)
+				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch/left(H), SLOT_WEAR_MASK)
 			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 			head?.add_wound(/datum/wound/facial/eyes/left/permanent)
 			H.update_fov_angles()
@@ -294,7 +298,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 				return
 			var/mob/living/carbon/human/H = user
 			if(!H.wear_mask)
-				H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/eyepatch(H), SLOT_WEAR_MASK)
+				H.equip_to_slot_or_del(new /obj/item/clothing/face/eyepatch(H), SLOT_WEAR_MASK)
 			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
 			H.update_fov_angles()
@@ -507,10 +511,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 			return MASO_THRESHOLD_FOUR
 
 /proc/get_mammons_in_atom(atom/movable/movable)
-	var/static/list/coins_types = typecacheof(/obj/item/roguecoin)
+	var/static/list/coins_types = typecacheof(/obj/item/coin)
 	var/mammons = 0
 	if(coins_types[movable.type])
-		var/obj/item/roguecoin/coin = movable
+		var/obj/item/coin/coin = movable
 		mammons += coin.quantity * coin.sellprice
 	for(var/atom/movable/content in movable.contents)
 		mammons += get_mammons_in_atom(content)

@@ -671,9 +671,6 @@ will handle it, but:
 		if(M.head && wash_obj(M.head,clean))
 			M.update_inv_head()
 
-		if(M.glasses && !(SLOT_GLASSES in obscured) && wash_obj(M.glasses,clean))
-			M.update_inv_glasses()
-
 		if(M.wear_mask && !(SLOT_WEAR_MASK in obscured) && wash_obj(M.wear_mask,clean))
 			M.update_inv_wear_mask()
 
@@ -1517,7 +1514,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 // -------- ECONOMY RELATED GLOBAL LISTS
 GLOBAL_LIST_INIT(ITEM_DOES_NOT_GENERATE_VAULT_RENT, typecacheof(list(
-	/obj/item/roguecoin
+	/obj/item/coin
 	)))
 
 //Vars that will not be copied when using /DuplicateObject

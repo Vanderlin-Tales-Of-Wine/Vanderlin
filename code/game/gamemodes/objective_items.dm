@@ -27,7 +27,7 @@
 
 /datum/objective_item/steal/rogue/ledger
 	name = "the merchant's catatoma."
-	targetitem = /obj/item/book/rogue/secret/ledger
+	targetitem = /obj/item/book/secret/ledger
 	difficulty = 2
 	excludefromjob = list("Merchant")
 
@@ -45,6 +45,6 @@
 
 /datum/objective_item/steal/rogue/crown
 	name = "the Lord's crown."
-	targetitem = /obj/item/clothing/head/roguetown/crown/serpcrown
+	targetitem = /obj/item/clothing/head/crown/serpcrown
 	difficulty = 3
 	excludefromjob = list("Monarch", "Knight")

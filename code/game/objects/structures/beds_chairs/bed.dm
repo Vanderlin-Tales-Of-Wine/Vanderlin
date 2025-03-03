@@ -11,17 +11,22 @@
 	name = "bed"
 	desc = ""
 	icon_state = "bed"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/roguetown/misc/structure.dmi'
 	anchored = TRUE
 	can_buckle = TRUE
 	buckle_lying = 90
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	integrity_failure = 0.35
+	buckleverb = "lay"
+	pixel_y = 5
+	sleepy = 2
+	debris = list(/obj/item/natural/wood/plank = 1)
+	metalizer_result = /obj/machinery/anvil/crafted
+
 	var/buildstacktype
 	var/buildstackamount = 2
 	var/bolts = TRUE
-	buckleverb = "lay"
 
 /obj/structure/bed/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))

@@ -1,0 +1,390 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"b" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"c" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"d" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"f" = (
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"g" = (
+/obj/structure/trap/saw_blades,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"h" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+"i" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"j" = (
+/obj/structure/fluff/walldeco/stone,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+"k" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"l" = (
+/obj/structure/trap/saw_blades,
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"m" = (
+/obj/structure/fluff/walldeco/stone,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"n" = (
+/obj/structure/stairs/stone/d,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"r" = (
+/obj/structure/trap/saw_blades,
+/obj/structure/spider/stickyweb{
+	dir = 8
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"s" = (
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"w" = (
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"y" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/machinery/light/fueled/wallfire/candle/weak,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+"B" = (
+/obj/structure/trap/wall_projectile,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"D" = (
+/turf/open/transparent/openspace,
+/area/rogue/indoors)
+"E" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/stickyweb{
+	dir = 4
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"H" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"I" = (
+/obj/structure/fluff/walldeco/stone,
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+"J" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"L" = (
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"M" = (
+/obj/structure/trap/wall_projectile{
+	dir = 1
+	},
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"O" = (
+/obj/structure/fluff/walldeco/stone,
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"P" = (
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"R" = (
+/obj/structure/trap/wall_projectile,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
+"S" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"T" = (
+/obj/structure/trap/saw_blades,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"U" = (
+/obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors)
+"V" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/indoors)
+"X" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+
+(1,1,1) = {"
+V
+h
+h
+L
+k
+P
+X
+h
+a
+a
+"}
+(2,1,1) = {"
+m
+c
+P
+P
+P
+L
+R
+P
+P
+a
+"}
+(3,1,1) = {"
+I
+P
+P
+P
+L
+L
+B
+P
+P
+X
+"}
+(4,1,1) = {"
+h
+P
+L
+X
+s
+a
+b
+w
+P
+X
+"}
+(5,1,1) = {"
+L
+L
+L
+n
+X
+V
+a
+L
+P
+P
+"}
+(6,1,1) = {"
+S
+P
+L
+n
+h
+V
+a
+P
+L
+d
+"}
+(7,1,1) = {"
+P
+P
+P
+h
+i
+V
+h
+f
+P
+P
+"}
+(8,1,1) = {"
+a
+P
+P
+M
+L
+P
+P
+P
+P
+O
+"}
+(9,1,1) = {"
+h
+U
+P
+M
+P
+P
+L
+P
+P
+j
+"}
+(10,1,1) = {"
+V
+h
+h
+V
+P
+H
+L
+V
+X
+h
+"}
+
+(1,1,2) = {"
+V
+a
+h
+w
+L
+P
+a
+y
+X
+V
+"}
+(2,1,2) = {"
+h
+L
+L
+L
+L
+P
+P
+L
+L
+V
+"}
+(3,1,2) = {"
+h
+P
+L
+L
+P
+P
+L
+L
+L
+h
+"}
+(4,1,2) = {"
+X
+P
+L
+O
+l
+r
+I
+P
+L
+h
+"}
+(5,1,2) = {"
+L
+P
+P
+D
+n
+P
+P
+L
+L
+L
+"}
+(6,1,2) = {"
+L
+L
+P
+D
+n
+J
+E
+L
+P
+L
+"}
+(7,1,2) = {"
+P
+L
+L
+j
+T
+g
+m
+P
+P
+P
+"}
+(8,1,2) = {"
+V
+L
+L
+L
+P
+L
+L
+L
+P
+h
+"}
+(9,1,2) = {"
+h
+L
+L
+P
+L
+L
+P
+L
+L
+h
+"}
+(10,1,2) = {"
+V
+X
+h
+a
+w
+P
+P
+h
+s
+V
+"}

@@ -1488,7 +1488,7 @@ generate/load female uniform sprites matching all previously decided variables
 			sleevejazz += "_[customi]"
 	var/t_icon = mob_overlay_icon
 	if(age == AGE_CHILD)
-		if(!istype(src, /obj/item/clothing/head) && !istype(src, /obj/item/clothing/mask) && !istype(src, /obj/item/clothing/cloak) && !istype(src, /obj/item/clothing/gloves) && !istype(src, /obj/item/clothing/neck))
+		if(!istype(src, /obj/item/clothing/head) && !istype(src, /obj/item/clothing/face) && !istype(src, /obj/item/clothing/cloak) && !istype(src, /obj/item/clothing/gloves) && !istype(src, /obj/item/clothing/neck))
 			t_state += "_child"
 	if(!t_icon)
 		t_icon = default_icon_file

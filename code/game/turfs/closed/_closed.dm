@@ -4,7 +4,7 @@
 	opacity = 1
 	density = TRUE
 	blocks_air = TRUE
-	baseturfs = list(/turf/open/floor/rogue/naturalstone, /turf/open/transparent/openspace)
+	baseturfs = list(/turf/open/floor/naturalstone, /turf/open/transparent/openspace)
 	var/above_floor
 	var/wallpress = TRUE
 	var/wallclimb = FALSE

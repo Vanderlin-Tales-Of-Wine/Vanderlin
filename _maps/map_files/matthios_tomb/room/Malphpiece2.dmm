@@ -1,0 +1,136 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/churchbrick,
+/area/rogue/outdoors/caves)
+"b" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"g" = (
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"k" = (
+/turf/closed/wall/mineral/decostone/fluffstone/reddish,
+/area/rogue/outdoors/caves)
+"o" = (
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"p" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"s" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"t" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"v" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/caves)
+"y" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/churchbrick,
+/area/rogue/outdoors/caves)
+"O" = (
+/obj/machinery/light/fueled/torchholder/l,
+/obj/effect/spawner/map_spawner/hauntpile,
+/turf/open/floor/churchbrick,
+/area/rogue/outdoors/caves)
+"S" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/floor/churchbrick,
+/area/rogue/outdoors/caves)
+"U" = (
+/turf/closed/mineral,
+/area/rogue/outdoors/caves)
+
+(1,1,1) = {"
+U
+U
+b
+U
+U
+"}
+(2,1,1) = {"
+U
+U
+g
+g
+U
+"}
+(3,1,1) = {"
+U
+o
+v
+g
+p
+"}
+(4,1,1) = {"
+t
+g
+g
+U
+g
+"}
+(5,1,1) = {"
+U
+g
+g
+U
+U
+"}
+(6,1,1) = {"
+U
+U
+s
+U
+U
+"}
+
+(1,1,2) = {"
+k
+S
+a
+S
+k
+"}
+(2,1,2) = {"
+k
+k
+a
+k
+k
+"}
+(3,1,2) = {"
+a
+O
+a
+y
+a
+"}
+(4,1,2) = {"
+a
+S
+a
+S
+a
+"}
+(5,1,2) = {"
+k
+k
+a
+k
+k
+"}
+(6,1,2) = {"
+k
+y
+a
+y
+k
+"}

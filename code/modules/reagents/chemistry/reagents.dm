@@ -1,5 +1,3 @@
-#define REM REAGENTS_EFFECT_MULTIPLIER
-
 GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 
 /proc/build_name2reagent()
@@ -19,6 +17,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/description = ""
 	var/specific_heat = SPECIFIC_HEAT_DEFAULT		//J/(K*mol)
 	var/taste_description = ""
+	var/scent_description = ""
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/glass_name = "glass of ...what?" // use for specialty drinks.
 	var/glass_desc = ""
@@ -30,6 +29,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/current_cycle = 0
 	var/volume = 0									//pretend this is moles
 	var/color = "#000000" // rgb: 0, 0, 0
+	var/random_reagent_color = FALSE
 	var/alpha = 255
 	var/can_synth = TRUE // can this reagent be synthesized? (for example: odysseus syringe gun)
 	var/metabolization_rate = REAGENTS_METABOLISM //how fast the reagent is metabolized by the mob
@@ -42,6 +42,21 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/reagent_weight = 1 //affects how far it travels when sprayed
 	var/metabolizing = FALSE
 	var/harmful = FALSE //is it bad for you? Currently only used for borghypo. C2s and Toxins have it TRUE by default.
+	var/evaporates = TRUE
+	///How much fire power does the liquid have, for burning on simulated liquids. Not enough fire power/unit of entire mixture may result in no fire
+	var/liquid_fire_power = 0
+	///How fast does the liquid burn on simulated turfs, if it does
+	var/liquid_fire_burnrate = 0
+	///Whether a fire from this requires oxygen in the atmosphere
+	var/fire_needs_oxygen = TRUE
+	///The opacity of the chems used to determine the alpha of liquid turfs
+	var/opacity = 175
+	///The rate of evaporation in units per call
+	var/evaporation_rate = 2
+	/// do we have a turf exposure (used to prevent liquids doing un-needed processes)
+	var/turf_exposure = FALSE
+	/// are we slippery?
+	var/slippery = TRUE
 
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	. = ..()
@@ -59,6 +74,9 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	return 1
 
 /datum/reagent/proc/reaction_obj(obj/O, volume)
+	return
+
+/datum/reagent/proc/evaporate(turf/exposed_turf, reac_volume)
 	return
 
 /datum/reagent/proc/reaction_turf(turf/T, volume)
@@ -105,7 +123,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	return
 
 //called on expose_temperature
-/datum/reagent/proc/on_temp_change()
+/datum/reagent/proc/on_temp_change(chem_temp)
 	return
 // Called when the reagent container is hit by an explosion
 /datum/reagent/proc/on_ex_act(severity)
@@ -142,6 +160,12 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[type]_overdose", /datum/mood_event/withdrawal_critical, name)
 	if(prob(30))
 		to_chat(M, "<span class='boldannounce'>You're not feeling good at all! You really need some [name].</span>")
+	return
+
+/datum/reagent/proc/add_to_member(obj/effect/abstract/liquid_turf/adder)
+	return
+
+/datum/reagent/proc/remove_from_member(obj/effect/abstract/liquid_turf/remover)
 	return
 
 /proc/pretty_string_from_reagent_list(list/reagent_list)

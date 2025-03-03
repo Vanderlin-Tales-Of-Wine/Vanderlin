@@ -77,6 +77,8 @@
 ///maximum kids we can have
 #define BB_MAX_CHILDREN "BB_max_children"
 
+#define BB_WANDER_POINT "BB_wander_point"
+
 #define BB_NEST_LIST "BB_nestlist"
 #define BB_NEST_IGNORE_LIST "BB_nest_ignore"
 /// Converts a probability/second chance to probability/seconds_per_tick chance

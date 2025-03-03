@@ -71,8 +71,6 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 	see_in_dark = 2
 	var/next_gmove
 	var/misting = 0
-
-/mob/dead/observer/rogue
 	draw_icon = TRUE
 
 /mob/dead/observer/rogue/nodraw
@@ -189,8 +187,7 @@ GLOBAL_LIST_INIT(ghost_verbs, list(
 //					var/icon/partial = getFlatIcon(body, no_anim = TRUE, base_size = TRUE)
 //					out_icon.Insert(partial,dir=D)
 //				body_human.dir = od
-				var/mutable_appearance/MA = new()
-				MA.appearance = body
+				var/image/MA = new(body)
 				MA.transform = null //so we are standing
 				appearance = MA
 				layer = GHOST_LAYER
@@ -493,7 +490,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	Moved(oldloc, direct)
 
-/mob/dead/observer/proc/reenter_corpse()
+/mob/dead/observer/proc/reenter_corpse(forced = FALSE)
 	set category = "Spirit"
 	set name = "Re-enter Corpse"
 	if(!client)
@@ -501,7 +498,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!mind || QDELETED(mind.current))
 		to_chat(src, "<span class='warning'>I have no body.</span>")
 		return
-	if(!can_reenter_corpse)
+	if(!forced && !can_reenter_corpse)
 		to_chat(src, "<span class='warning'>I cannot re-enter my body.</span>")
 		return
 	if(istype(src, /mob/dead/observer/profane))
@@ -774,7 +771,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set hidden = 1
 	if(!check_rights(0))
 		return
-	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
+	var/max_view = GHOST_MAX_VIEW_RANGE
 	if(client.view == CONFIG_GET(string/default_view))
 		var/list/views = list()
 		for(var/i in 7 to max_view)
@@ -788,7 +785,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/verb/add_view_range(input as num)
 	set name = "Add View Range"
 	set hidden = TRUE
-	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
+	var/max_view = GHOST_MAX_VIEW_RANGE
 	if(input)
 		client.rescale_view(input, 15, (max_view*2)+1)
 
@@ -870,7 +867,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/bt = world.time
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A lich has summoned you to destroy Vanderlin!", "Join the Horde", "Yes", "No") == "Yes")
+	if(alert(src, "You have been summoned to destroy Vanderlin!", "Join the Horde", "Yes", "No") == "Yes")
 		if(world.time > bt + 5 MINUTES)
 			to_chat(src, "<span class='warning'>Too late.</span>")
 			return FALSE

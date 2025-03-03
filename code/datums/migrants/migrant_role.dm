@@ -46,3 +46,7 @@
 	name = "Mercenary"
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
 	grant_lit_torch = TRUE
+
+/datum/migrant_role/lich
+	name = "Lich"
+	antag_datum = /datum/antagonist/lich

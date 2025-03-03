@@ -98,6 +98,7 @@
 #define VV_HK_REGEN_ICONS "regen_icons"
 #define VV_HK_PLAYER_PANEL "player_panel"
 #define VV_HK_DIRECT_CONTROL "direct_control"
+#define VV_HK_GIVE_CONTROL_TO_PLAYER "Give Control To Player"
 #define VV_HK_OFFER_GHOSTS "offer_ghosts"
 
 // /mob/living/carbon

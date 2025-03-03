@@ -262,26 +262,9 @@
 	var/dat = "<html><meta charset='UTF-8'><head><title>Game Panel</title></head><body>"
 	dat += {"
 		<center><B>Game Panel</B></center><hr>\n
-		<A href='byond://?src=[REF(src)];[HrefToken()];c_mode=1'>Change Game Mode</A><br>
 		"}
 	if(GLOB.master_mode == "secret")
 		dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_secret=1'>(Force Secret Mode)</A><br>"
-	if(GLOB.master_mode == "dynamic")
-		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart=1'>(Force Roundstart Rulesets)</A><br>"
-			if (GLOB.dynamic_forced_roundstart_ruleset.len > 0)
-				for(var/datum/dynamic_ruleset/roundstart/rule in GLOB.dynamic_forced_roundstart_ruleset)
-					dat += {"<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_remove=\ref[rule]'>-> [rule.name] <-</A><br>"}
-				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_clear=1'>(Clear Rulesets)</A><br>"
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_options=1'>(Dynamic mode options)</A><br>"
-		else if (SSticker.IsRoundInProgress())
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin=1'>(Force Next Latejoin Ruleset)</A><br>"
-			if (SSticker && SSticker.mode && istype(SSticker.mode,/datum/game_mode/dynamic))
-				var/datum/game_mode/dynamic/mode = SSticker.mode
-				if (mode.forced_latejoin_rule)
-					dat += {"<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin_clear=1'>-> [mode.forced_latejoin_rule.name] <-</A><br>"}
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_midround=1'>(Execute Midround Ruleset!)</A><br>"
-		dat += "<hr/>"
 	if(SSticker.IsRoundInProgress())
 		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];gamemode_panel=1'>(Game Mode Panel)</a><BR>"
 	dat += {"
@@ -430,24 +413,6 @@
 
 	return 0
 
-/datum/admins/proc/forcemode()
-	set category = "Server"
-	set name = "Force Gamemode"
-
-	if(SSticker.current_state == GAME_STATE_PREGAME || SSticker.current_state == GAME_STATE_STARTUP)
-		if(alert("Enter Manual Gamemode Selection? Will disable random generation",,"Yes","No") == "Yes")
-			for(var/I in 1 to 10)
-				var/choice = input(usr, "Select Gamemodes", "Select Gamemodes") as anything in GLOB.roguegamemodes|null
-				if(!choice || choice == "CANCEL")
-					message_admins("<font color='blue'>\
-						[usr.key] has forced the gamemode.</font>")
-					return
-				SSticker.manualmodes |= choice
-				GLOB.roguegamemodes -= choice
-	else
-		to_chat(usr, "<font color='red'>Error: Force Modes: Game has already started.</font>")
-
-	return 0
 /datum/admins/proc/toggleenter()
 	set category = "Server"
 	set desc="People can't enter"
@@ -658,44 +623,6 @@
 	browser.set_content(dat.Join())
 	browser.open()
 
-/datum/admins/proc/dynamic_mode_options(mob/user)
-	var/dat = {"
-		<center><B><h2>Dynamic Mode Options</h2></B></center><hr>
-		<br/>
-		<h3>Common options</h3>
-		<i>All these options can be changed midround.</i> <br/>
-		<br/>
-		<b>Force extended:</b> - Option is <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_force_extended=1'> <b>[GLOB.dynamic_forced_extended ? "ON" : "OFF"]</a></b>.
-		<br/>This will force the round to be extended. No rulesets will be drafted. <br/>
-		<br/>
-		<b>No stacking:</b> - Option is <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_no_stacking=1'> <b>[GLOB.dynamic_no_stacking ? "ON" : "OFF"]</b></a>.
-		<br/>Unless the threat goes above [GLOB.dynamic_stacking_limit], only one "round-ender" ruleset will be drafted. <br/>
-		<br/>
-		<b>Classic secret mode:</b> - Option is <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_classic_secret=1'> <b>[GLOB.dynamic_classic_secret ? "ON" : "OFF"]</b></a>.
-		<br/>Only one roundstart ruleset will be drafted. Only traitors and minor roles will latespawn. <br/>
-		<br/>
-		<br/>
-		<b>Forced threat level:</b> Current value : <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_forced_threat=1'><b>[GLOB.dynamic_forced_threat_level]</b></a>.
-		<br/>The value threat is set to if it is higher than -1.<br/>
-		<br/>
-		<b>High population limit:</b> Current value : <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_high_pop_limit=1'><b>[GLOB.dynamic_high_pop_limit]</b></a>.
-		<br/>The threshold at which "high population override" will be in effect. <br/>
-		<br/>
-		<b>Stacking threeshold:</b> Current value : <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_stacking_limit=1'><b>[GLOB.dynamic_stacking_limit]</b></a>.
-		<br/>The threshold at which "round-ender" rulesets will stack. A value higher than 100 ensure this never happens. <br/>
-		<h3>Advanced parameters</h3>
-		Curve centre: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_centre=1'>-> [GLOB.dynamic_curve_centre] <-</A><br>
-		Curve width: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_width=1'>-> [GLOB.dynamic_curve_width] <-</A><br>
-		Latejoin injection delay:<br>
-		Minimum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_min=1'>-> [GLOB.dynamic_latejoin_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_max=1'>-> [GLOB.dynamic_latejoin_delay_max / 60 / 10] <-</A> Minutes<br>
-		Midround injection delay:<br>
-		Minimum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_min=1'>-> [GLOB.dynamic_midround_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_max=1'>-> [GLOB.dynamic_midround_delay_max / 60 / 10] <-</A> Minutes<br>
-		"}
-
-	user << browse(dat, "window=dyn_mode_options;size=900x650")
-
 /datum/admins/proc/create_or_modify_area()
 	set category = "Debug"
 	set name = "Create or modify area"
@@ -780,6 +707,53 @@
 	var/mob/living/carbon/human/H = mob
 	H.returntolobby()
 
+/client/proc/spawn_liquid()
+	set category = "GameMaster"
+	set name = "Spawn Liquid"
+	set desc = "Spawns an amount of chosen liquid at your current location."
+
+	var/choice
+	var/valid_id
+	while(!valid_id)
+		choice = stripped_input(usr, "Enter the ID of the reagent you want to add.", "Search reagents")
+		if(isnull(choice)) //Get me out of here!
+			break
+		if (!ispath(text2path(choice)))
+			choice = pick_closest_path(choice, make_types_fancy(subtypesof(/datum/reagent)))
+			if (ispath(choice))
+				valid_id = TRUE
+		else
+			valid_id = TRUE
+		if(!valid_id)
+			to_chat(usr, span_warning("A reagent with that ID doesn't exist!"))
+	if(!choice)
+		return
+	var/volume = input(usr, "Volume:", "Choose volume") as num
+	if(!volume)
+		return
+	if(volume >= 100000)
+		to_chat(usr, span_warning("Please limit the volume to below 100000 units!"))
+		return
+	var/turf/epicenter = get_turf(mob)
+	epicenter.add_liquid(choice, volume, FALSE, 300)
+	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned liquid at [epicenter.loc] ([choice] - [volume]).")
+	log_admin("[key_name(usr)] spawned liquid at [epicenter.loc] ([choice] - [volume]).")
+
+/client/proc/remove_liquid()
+	set name = "Remove Liquids"
+	set category = "GameMaster"
+	set desc = "Fixes air in specified radius."
+	var/turf/epicenter = get_turf(mob)
+
+	var/range = input(usr, "Enter range:", "Range selection", 2) as num
+
+	for(var/obj/effect/abstract/liquid_turf/liquid in range(range, epicenter))
+		liquid.liquid_group.remove_any(liquid, liquid.liquid_group.reagents_per_turf)
+		qdel(liquid)
+
+	message_admins("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
+	log_game("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
+
 /client/proc/spawn_pollution()
 	set category = "GameMaster"
 	set name = "Spawn Pollution"
@@ -811,7 +785,7 @@
 		return
 	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
 		return
-	var/datum/job/J = SSjob.GetJobType(/datum/job/roguetown/priest)
+	var/datum/job/J = SSjob.GetJobType(/datum/job/priest)
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
 		if(HL.mind)
 			var/found = FALSE

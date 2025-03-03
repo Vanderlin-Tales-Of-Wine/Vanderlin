@@ -389,8 +389,8 @@
 	if(worn_thing.alternate_worn_layer)
 		clothing_layer = worn_thing.alternate_worn_layer
 
-	if(istype(worn_thing, /obj/item/clothing/under))
-		var/obj/item/clothing/under/C = worn_thing
+	if(istype(worn_thing, /obj/item/clothing/pants))
+		var/obj/item/clothing/pants/C = worn_thing
 		fitting = C.fitted
 
 	var/added_overlays = worn_thing.build_worn_icon(default_layer = clothing_layer, default_icon_file = overlay_icon, isinhands = FALSE, femaleuniform = fitting, coom = is_female)

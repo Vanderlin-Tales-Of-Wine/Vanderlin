@@ -188,31 +188,31 @@
 		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
 	if(bclass in GLOB.dislocation_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
-			used += 10
+			dam += 10
+		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(prob(used))
 			if(HAS_TRAIT(src, TRAIT_BRITTLE))
 				attempted_wounds += /datum/wound/fracture
 			else
 				attempted_wounds += /datum/wound/dislocation
 	if(bclass in GLOB.fracture_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(user)
 			if(istype(user.rmb_intent, /datum/rmb_intent/strong))
-				used += 10
+				dam += 10
 		if(HAS_TRAIT(src, TRAIT_BRITTLE))
-			used += 10
+			dam += 10
+		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(prob(used))
 			attempted_wounds += /datum/wound/dislocation
 			attempted_wounds += /datum/wound/fracture
 	if(bclass in GLOB.artery_bclasses)
-		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(user)
 			if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
-				used += 10
+				dam += 10
 			else if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
-				used += 10
+				dam += 10
+		used = round(damage_dividend * 20 + (dam / 6), 1)
 		if(prob(used))
 			attempted_wounds += /datum/wound/artery
 

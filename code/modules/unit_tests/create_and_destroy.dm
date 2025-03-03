@@ -30,7 +30,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/effect/DPfall,
 		/obj/effect/DPtarget,
 		// prompts loc for input
-		/obj/item/clothing/suit/roguetown/shirt/grenzelhoft,
+		/obj/item/clothing/shirt/grenzelhoft,
 	)
 	//these are VERY situational and need info passed
 	ignore += typesof(/obj/effect/abstract)
@@ -67,7 +67,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		if(ispath(type_path, /turf))
 			spawn_at.ChangeTurf(type_path, /turf/baseturf_skipover)
 			//We change it back to prevent pain, please don't ask
-			spawn_at.ChangeTurf(/turf/open/floor/rogue/wood, /turf/baseturf_skipover)
+			spawn_at.ChangeTurf(/turf/open/floor/wood, /turf/baseturf_skipover)
 			if(baseturf_count != length(spawn_at.baseturfs))
 				Fail("[type_path] changed the amount of baseturfs we have [baseturf_count] -> [length(spawn_at.baseturfs)]")
 				baseturf_count = length(spawn_at.baseturfs)

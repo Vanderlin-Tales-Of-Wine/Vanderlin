@@ -110,8 +110,8 @@
 		var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in src
 		if(door.density)
 			return
-	if(locate(/obj/structure/roguewindow) in src)
-		var/obj/structure/roguewindow/door = locate(/obj/structure/roguewindow) in src
+	if(locate(/obj/structure/window) in src)
+		var/obj/structure/window/door = locate(/obj/structure/window) in src
 		if(!door.climbable)
 			return
 
@@ -199,7 +199,7 @@
 		SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_mob)
 
 	for(var/obj/structure/contained_structure in contents)
-		if(istype(contained_structure, /obj/structure/snow) || istype(contained_structure, /obj/structure/flora/roguegrass/bush/wall))
+		if(istype(contained_structure, /obj/structure/snow) || istype(contained_structure, /obj/structure/flora/grass/bush/wall))
 			continue
 		contained_mobs += contained_structure
 		SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_structure)
@@ -219,7 +219,7 @@
 			SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_mob)
 
 		for(var/obj/structure/contained_structure in turf.contents)
-			if(istype(contained_structure, /obj/structure/snow) || istype(contained_structure, /obj/structure/flora/roguegrass/bush/wall))
+			if(istype(contained_structure, /obj/structure/snow) || istype(contained_structure, /obj/structure/flora/grass/bush/wall))
 				continue
 			contained_mobs += contained_structure
 			SEND_SIGNAL(src, COMSIG_MOB_OVERLAY_FORCE_REMOVE, contained_structure)
