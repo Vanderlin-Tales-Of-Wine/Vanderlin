@@ -20,7 +20,7 @@
 
 	outfit = /datum/outfit/job/inquisitor
 	display_order = JDO_PURITAN
-	min_pq = 15
+	min_pq = 8
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 

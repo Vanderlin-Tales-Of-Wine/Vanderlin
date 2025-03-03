@@ -224,7 +224,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(radio_return & NOPASS)
 		return 1
 
-	send_speech(message, message_range, src, bubble_type, spans, language, message_mode, original_message)
+	send_speech(message, message_range, src, bubble_type, spans, language, message_mode)
 
 	if(succumbed)
 		succumb(1)
@@ -271,12 +271,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
 
-/mob/living/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, original_message)
+/mob/living/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode)
 	var/static/list/eavesdropping_modes = list(MODE_WHISPER = TRUE, MODE_WHISPER_CRIT = TRUE)
 	var/eavesdrop_range = 0
 	var/Zs_too = FALSE
-	var/Zs_all = FALSE
-	var/Zs_yell = FALSE
 	var/listener_has_ceiling	= TRUE
 	var/speaker_has_ceiling		= TRUE
 
@@ -290,11 +288,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(message_mode != MODE_WHISPER)
 		Zs_too = TRUE
 		if(say_test(message) == "2")	//CIT CHANGE - ditto
-			message_range += 5
-			Zs_yell = TRUE
-		if(say_test(message) == "3")	//Big "!!" shout
 			message_range += 10
-			Zs_all = TRUE
 	var/list/listening = get_hearers_in_view(message_range+eavesdrop_range, source)
 	var/list/the_dead = list()
 //	var/list/yellareas	//CIT CHANGE - adds the ability for yelling to penetrate walls and echo throughout areas
@@ -337,10 +331,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		if(listener_ceiling)
 			if(istransparentturf(listener_ceiling))
 				listener_has_ceiling = FALSE
-		if((!Zs_too && !isobserver(AM)) || message_mode == MODE_WHISPER)
+		if(!Zs_too && !isobserver(AM))
 			if(AM.z != src.z)
 				continue
-		if(Zs_too && AM.z != src.z && !Zs_all)
+		if(Zs_too && AM.z != AM.z)
 			if(AM.z < src.z && listener_has_ceiling)	//Listener is below the speaker and has a ceiling above them
 				continue
 			if(AM.z > src.z && speaker_has_ceiling)		//Listener is above the speaker and the speaker has a ceiling above
@@ -349,23 +343,23 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 				continue
 			var/listener_obstructed = TRUE
 			var/speaker_obstructed = TRUE
-			if(src != AM && !Zs_yell)	//We always hear ourselves. Zs_yell will allow a "!" shout to bypass walls one z level up or below.
+			if(src != AM)	//We always hear ourselves.
 				if(!speaker_has_ceiling && isliving(AM))
 					var/mob/living/M = AM
 					for(var/mob/living/MH in viewers(world.view, speaker_ceiling))
-						if(M == MH && MH.z == speaker_ceiling?.z)
+						if(M == MH)
 							speaker_obstructed = FALSE
 
 				if(!listener_has_ceiling)
 					for(var/mob/living/ML in viewers(world.view, listener_ceiling))
-						if(ML == src && ML.z == listener_ceiling?.z)
+						if(ML == src)
 							listener_obstructed = FALSE
 				if(listener_obstructed && speaker_obstructed)
 					continue
 		if(eavesdrop_range && get_dist(source, AM) > message_range && !(the_dead[AM]))
-			AM.Hear(eavesrendered, src, message_language, eavesdropping, , spans, message_mode, original_message)
+			AM.Hear(eavesrendered, src, message_language, eavesdropping, , spans, message_mode)
 		else
-			AM.Hear(rendered, src, message_language, message, , spans, message_mode, original_message)
+			AM.Hear(rendered, src, message_language, message, , spans, message_mode)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LIVING_SAY_SPECIAL, src, message)
 
 	//speech bubble

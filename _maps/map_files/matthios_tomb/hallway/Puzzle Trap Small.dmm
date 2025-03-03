@@ -58,7 +58,7 @@
 /area/rogue/indoors)
 "n" = (
 /obj/structure/stairs/stone/d,
-/turf/open/floor/cobble,
+/turf/closed/wall/mineral/stone,
 /area/rogue/indoors)
 "r" = (
 /obj/structure/trap/saw_blades,
@@ -145,6 +145,10 @@
 /area/rogue/indoors)
 "X" = (
 /turf/closed/wall/mineral/stone/moss,
+/area/rogue/indoors)
+"Y" = (
+/obj/structure/stairs/stone/d,
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 
 (1,1,1) = {"
@@ -321,7 +325,7 @@ L
 P
 P
 D
-n
+Y
 P
 P
 L
@@ -333,7 +337,7 @@ L
 L
 P
 D
-n
+Y
 J
 E
 L

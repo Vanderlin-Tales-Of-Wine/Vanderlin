@@ -672,75 +672,76 @@
 		to_chat(user, "<span class = 'notice'>I pull something out of the water!</span>")
 		playsound(loc, 'sound/items/Fish_out.ogg', 100, TRUE)
 		fisher.mind.adjust_experience(/datum/skill/labor/fishing, clamp(difficulty, 1, 3) * fisher.STAINT)
-		if(ispath(fishtype, /obj/item/reagent_containers/food/snacks/fish))
-			var/obj/item/reagent_containers/food/snacks/caughtfish = new fishtype(get_turf(fisher))
+
+		var/atom/movable/caughtthing = new fishtype()
+		if(turfcatch)
+			caughtthing.forceMove(targeted)
+		else
+			fisher.put_in_hands(caughtthing) //should drop it onto our turf if we can’t
+		if(istype(caughtthing, /obj/item/reagent_containers/food/snacks/fish))
+
+			var/obj/item/reagent_containers/food/snacks/fish/caughtfish = caughtthing
 			var/raritydesc
 			var/sizedesc
 
-			if(!specialfish)
-				if(!specialrarity)
-					switch(fishrarity)
-						if("rare")
-							raritydesc = "rare"
-							caughtfish.raritymod = list("com"= -30)//some incentive to use rarer tiny fish as bait
-						if("ultra")
-							raritydesc = "ultra-rare"
-							caughtfish.raritymod = list("com"= -50)
-						if("gold")
-							raritydesc = "legendary"
-							caughtfish.raritymod = list("com"= -70, "rare" = -20)
-						else
-							raritydesc = "common"
+			if(!specialrarity)
+				switch(fishrarity)
+					if("rare")
+						raritydesc = "rare"
+						caughtfish.raritymod = list("com"= -30)//some incentive to use rarer tiny fish as bait
+					if("ultra")
+						raritydesc = "ultra-rare"
+						caughtfish.raritymod = list("com"= -50)
+					if("gold")
+						raritydesc = "legendary"
+						caughtfish.raritymod = list("com"= -70, "rare" = -20)
+					else
+						raritydesc = "common"
+				if(fishrarity != "com")
 					caughtfish.icon_state = "[caughtfish.icon_state][fishrarity]"
-					if(fishrarity != "com")
-						switch(fishtype)
-							if(/obj/item/reagent_containers/food/snacks/fish/carp)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/eel)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/angler)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
-							if(/obj/item/reagent_containers/food/snacks/fish/clownfish)
-								caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
-								caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
-				else
-					raritydesc = fishrarity
-
-				if(!specialsize)
-					switch(fishsize)
-						if("tiny")
-							caughtfish.sizemod = list("tiny" = -999)//fish can't swallow a fish of the same size
-						if("small")
-							caughtfish.sizemod = list("tiny" = -999, "small" = -999)
-						if("large")
-							caughtfish.slices_num = 2
-							caughtfish.fishloot = null//can't use fish larger than normal size as bait
-						if("prize")
-							caughtfish.slices_num = 3
-							caughtfish.fishloot = null
-						else
-							caughtfish.fishloot = null
-				sizedesc = fishsize
-				if(specialcatching)
-					var/obj/item/fishing/bait/specialmaker = baited
-					specialmaker.makespecial(caughtfish)
-				else
-					caughtfish.name = "[sizedesc] [raritydesc] [caughtfish.name]"
-					caughtfish.sellprice *= costmod
-		else//only occurs on special catch that most likely won't have special modifiers
-			if(turfcatch)
-				var/atom/caughtthing = new fishtype(targeted)
-				if(specialcatching)
-					var/obj/item/fishing/bait/specialmaker = baited
-					specialmaker.makespecial(caughtthing)
+					switch(fishtype)
+						if(/obj/item/reagent_containers/food/snacks/fish/carp)
+							caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
+							caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/carp/rare
+						if(/obj/item/reagent_containers/food/snacks/fish/eel)
+							caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
+							caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/eel/rare
+						if(/obj/item/reagent_containers/food/snacks/fish/angler)
+							caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
+							caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/angler/rare
+						if(/obj/item/reagent_containers/food/snacks/fish/clownfish)
+							caughtfish.fried_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
+							caughtfish.cooked_type = /obj/item/reagent_containers/food/snacks/fryfish/clownfish/rare
 			else
-				var/atom/caughtthing2 = new fishtype(fisher.loc)
-				if(specialcatching)
-					var/obj/item/fishing/bait/specialmaker = baited
-					specialmaker.makespecial(caughtthing2)
+				raritydesc = fishrarity
+				if(icon_exists(caughtfish.icon,"[caughtfish.icon_state][fishrarity]"))
+					caughtfish.icon_state = "[caughtfish.icon_state][fishrarity]"
+			if(!specialsize)
+				switch(fishsize)
+					if("tiny")
+						caughtfish.sizemod = list("tiny" = -999)//fish can't swallow a fish of the same size
+					if("small")
+						caughtfish.sizemod = list("tiny" = -999, "small" = -999)
+					if("large")
+						caughtfish.slices_num = 2
+						caughtfish.fishloot = null//can't use fish larger than normal size as bait
+					if("prize")
+						caughtfish.slices_num = 3
+						caughtfish.fishloot = null
+					else
+						caughtfish.fishloot = null
+			sizedesc = fishsize
+			if(specialcatching)
+				var/obj/item/fishing/bait/specialmaker = baited
+				specialmaker.makespecial(caughtfish)
+			caughtfish.name = "[sizedesc] [raritydesc] [caughtfish.name]"
+			caughtfish.sellprice *= costmod
+		else
+			if(specialfish)
+				caughtthing.sellprice *= costmod
+			if(specialcatching)
+				var/obj/item/fishing/bait/specialmaker = baited
+				specialmaker.makespecial(caughtthing)
 
 	fisher.doing = FALSE
 	stopgame(fisher)

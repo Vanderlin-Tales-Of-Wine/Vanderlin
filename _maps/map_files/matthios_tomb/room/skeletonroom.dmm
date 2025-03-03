@@ -66,9 +66,13 @@
 /turf/open/floor/cobblerock,
 /area/rogue)
 "qt" = (
-/turf/open/floor/hexstone{
-	dir = 1
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
 	},
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue)
 "rp" = (
 /obj/structure/mineral_door/wood/deadbolt{
@@ -211,12 +215,9 @@
 /area/rogue)
 "KU" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+	dir = 4
 	},
-/turf/open/floor/hexstone{
-	dir = 1
-	},
+/turf/open/floor/hexstone,
 /area/rogue)
 "Ll" = (
 /obj/effect/dungeon_directional_helper/east,
@@ -342,8 +343,8 @@ DK
 DK
 DK
 RZ
-RZ
 OA
+RZ
 RZ
 DK
 DK
@@ -435,7 +436,7 @@ Rn
 lg
 lg
 RJ
-DK
+RZ
 "}
 (7,1,1) = {"
 RZ
@@ -464,7 +465,7 @@ lg
 lg
 lg
 lg
-qt
+lg
 lg
 lg
 lg
@@ -503,7 +504,7 @@ Ls
 lg
 lg
 Tf
-DK
+RZ
 "}
 (11,1,1) = {"
 DK
@@ -580,8 +581,8 @@ DK
 DK
 DK
 RZ
-RZ
 Ll
+RZ
 RZ
 DK
 DK
@@ -592,41 +593,41 @@ DK
 "}
 
 (1,1,2) = {"
-DK
-DK
-DK
-DK
-DK
-qt
-qt
-qt
-qt
-DK
-DK
-DK
-DK
-DK
-DK
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
 "}
 (2,1,2) = {"
-DK
+BU
 Tf
 Tf
 Tf
 Tf
 Tf
-rp
-rp
+KU
+KU
 Tf
 Tf
 Tf
 LH
 Tf
 Tf
-DK
+BU
 "}
 (3,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -640,10 +641,10 @@ Ox
 JM
 TG
 Tf
-DK
+BU
 "}
 (4,1,2) = {"
-DK
+BU
 Tf
 Hm
 BU
@@ -657,10 +658,10 @@ Ox
 Ox
 kB
 Tf
-DK
+BU
 "}
 (5,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -674,10 +675,10 @@ yY
 hn
 Ox
 Tf
-DK
+BU
 "}
 (6,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -690,12 +691,12 @@ BU
 BU
 eB
 Ox
-Tf
-DK
+KU
+BU
 "}
 (7,1,2) = {"
-qt
-ms
+BU
+KU
 zw
 BU
 BU
@@ -707,11 +708,11 @@ BU
 BU
 zk
 Ox
-KU
-qt
+Tf
+BU
 "}
 (8,1,2) = {"
-qt
+BU
 Tf
 Ox
 BU
@@ -725,11 +726,11 @@ BU
 YM
 Ox
 Tf
-qt
+BU
 "}
 (9,1,2) = {"
-qt
-ms
+BU
+KU
 yY
 BU
 BU
@@ -741,11 +742,11 @@ BU
 BU
 aL
 Ox
-KU
-qt
+Tf
+BU
 "}
 (10,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -758,11 +759,11 @@ BU
 BU
 eB
 Ox
-Tf
-DK
+KU
+BU
 "}
 (11,1,2) = {"
-DK
+BU
 Tf
 hk
 BU
@@ -776,10 +777,10 @@ zw
 QC
 Ox
 Tf
-DK
+BU
 "}
 (12,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -793,10 +794,10 @@ Ox
 Ox
 Ox
 Tf
-DK
+BU
 "}
 (13,1,2) = {"
-DK
+BU
 Tf
 BU
 BU
@@ -810,39 +811,39 @@ CT
 CT
 CT
 Tf
-DK
+BU
 "}
 (14,1,2) = {"
-DK
+BU
 Tf
 Tf
 Tf
 Tf
 Tf
-hZ
-hZ
+qt
+KU
 Tf
 Tf
 HK
 Tf
 Tf
 Tf
-DK
+BU
 "}
 (15,1,2) = {"
-DK
-DK
-DK
-DK
-DK
-qt
-qt
-qt
-qt
-DK
-DK
-DK
-DK
-DK
-DK
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
+BU
 "}

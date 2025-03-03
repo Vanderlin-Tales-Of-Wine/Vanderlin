@@ -22,7 +22,7 @@
 	selection_color = "#0d6929"
 	outfit = /datum/outfit/job/forestwarden
 	give_bank_account = 45
-	min_pq = 8
+	min_pq = 5
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/outfit/job/forestwarden

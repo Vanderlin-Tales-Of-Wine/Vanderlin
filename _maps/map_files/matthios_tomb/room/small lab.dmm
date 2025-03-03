@@ -160,10 +160,10 @@
 /turf/open/floor/cobblerock,
 /area/rogue)
 "rT" = (
-/obj/structure/stairs{
-	dir = 1
+/obj/structure/wallladder{
+	dir = 4
 	},
-/turf/open/floor/ruinedwood/turned/darker,
+/turf/open/floor/dirt,
 /area/rogue)
 "rY" = (
 /obj/item/candle/yellow/lit{
@@ -240,8 +240,8 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue)
 "yt" = (
-/obj/structure/stairs/d{
-	dir = 1
+/obj/structure/wallladder{
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue)
@@ -289,6 +289,10 @@
 	pixel_y = 21;
 	pixel_x = 9
 	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue)
+"Dj" = (
+/mob/living/carbon/human/species/zizombie/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue)
 "EJ" = (
@@ -426,7 +430,6 @@
 /area/rogue)
 "ZL" = (
 /obj/item/clothing/head/hatblu,
-/mob/living/carbon/human/species/zizombie/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue)
 "ZT" = (
@@ -507,7 +510,7 @@ mH
 mH
 Tj
 Tj
-Ty
+rT
 Ty
 Tj
 Tj
@@ -528,7 +531,7 @@ iX
 mH
 mH
 Tj
-gY
+nw
 nw
 nw
 nw
@@ -550,7 +553,7 @@ iX
 mH
 mH
 QB
-Zr
+gY
 Ty
 Ty
 nw
@@ -572,7 +575,7 @@ iX
 mH
 mH
 QB
-nw
+Zr
 ZL
 nw
 nw
@@ -594,9 +597,9 @@ iX
 mH
 mH
 Tj
-QB
-Tj
-rT
+nw
+Dj
+nw
 nw
 Tj
 oP
@@ -802,7 +805,7 @@ mH
 mH
 Tj
 Ty
-jS
+yt
 tj
 QB
 mH
@@ -969,9 +972,9 @@ iX
 oo
 oo
 Tj
-uC
 nw
-uC
+nw
+nw
 nw
 Tj
 oo
@@ -992,7 +995,7 @@ oo
 oo
 Tj
 nw
-nw
+mG
 nw
 nw
 oo
@@ -1014,7 +1017,7 @@ oo
 oo
 Tj
 nw
-mG
+nw
 nw
 nw
 Tj
@@ -1035,9 +1038,9 @@ iX
 oo
 oo
 Tj
+uC
 nw
-yt
-oo
+uC
 nw
 Tj
 oo
@@ -1220,7 +1223,7 @@ oo
 oo
 oo
 oo
-oo
+nw
 nw
 Bv
 QB
@@ -1243,7 +1246,7 @@ oo
 oo
 QB
 nw
-jS
+oo
 nw
 QB
 oo

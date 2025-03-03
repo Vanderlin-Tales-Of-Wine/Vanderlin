@@ -36,7 +36,7 @@
 		for(var/obj/structure/structure in cardinal_turf)
 			if(!structure.accepts_water_input)
 				continue
-			if(!structure.valid_water_connection(direction, src))
+			if(!structure.valid_water_connection(direction))
 				continue
 			set_connection(get_dir(src, structure))
 

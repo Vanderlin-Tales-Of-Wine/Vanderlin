@@ -28,6 +28,12 @@
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/volcanic,
 /area/rogue/under/cave)
+"D" = (
+/obj/structure/stairs/stone/reddish{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/under/cave)
 "I" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /obj/item/natural/rock/random_ore,
@@ -412,8 +418,8 @@ d
 o
 o
 n
-M
-M
+D
+D
 o
 d
 a

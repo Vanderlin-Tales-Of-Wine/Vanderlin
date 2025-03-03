@@ -23,7 +23,7 @@
 	name = "swordfish"
 	desc = "But one enactor of Abyssor's rage."
 	icon = 'icons/roguetown/misc/fish.dmi'
-	icon_state = "swordfishcom"
+	icon_state = "swordfish"
 	force = DAMAGE_DAGGER
 	dropshrink = 0.8
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/food)

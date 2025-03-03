@@ -17,7 +17,7 @@
 	spawn_positions = 2
 	display_order = JDO_TEMPLAR
 	give_bank_account = 0
-	min_pq = 8
+	min_pq = 4
 
 /datum/outfit/job/templar
 	name = "Templar"
