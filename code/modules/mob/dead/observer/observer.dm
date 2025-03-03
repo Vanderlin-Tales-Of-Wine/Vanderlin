@@ -771,7 +771,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set hidden = 1
 	if(!check_rights(0))
 		return
-	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
+	var/max_view = GHOST_MAX_VIEW_RANGE
 	if(client.view == CONFIG_GET(string/default_view))
 		var/list/views = list()
 		for(var/i in 7 to max_view)
@@ -785,7 +785,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/verb/add_view_range(input as num)
 	set name = "Add View Range"
 	set hidden = TRUE
-	var/max_view = client.prefs.unlock_content ? GHOST_MAX_VIEW_RANGE_MEMBER : GHOST_MAX_VIEW_RANGE_DEFAULT
+	var/max_view = GHOST_MAX_VIEW_RANGE
 	if(input)
 		client.rescale_view(input, 15, (max_view*2)+1)
 

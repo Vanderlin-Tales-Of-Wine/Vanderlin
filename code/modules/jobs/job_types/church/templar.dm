@@ -11,7 +11,7 @@
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
-	min_pq = 4
+	min_pq = 8
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(

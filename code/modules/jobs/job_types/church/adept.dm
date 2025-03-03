@@ -11,7 +11,7 @@
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
-	min_pq = 0
+	min_pq = 5
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)

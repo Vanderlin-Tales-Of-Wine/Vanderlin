@@ -17,6 +17,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/description = ""
 	var/specific_heat = SPECIFIC_HEAT_DEFAULT		//J/(K*mol)
 	var/taste_description = ""
+	var/scent_description = ""
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/glass_name = "glass of ...what?" // use for specialty drinks.
 	var/glass_desc = ""
@@ -28,6 +29,7 @@ GLOBAL_LIST_INIT(name2reagent, build_name2reagent())
 	var/current_cycle = 0
 	var/volume = 0									//pretend this is moles
 	var/color = "#000000" // rgb: 0, 0, 0
+	var/random_reagent_color = FALSE
 	var/alpha = 255
 	var/can_synth = TRUE // can this reagent be synthesized? (for example: odysseus syringe gun)
 	var/metabolization_rate = REAGENTS_METABOLISM //how fast the reagent is metabolized by the mob

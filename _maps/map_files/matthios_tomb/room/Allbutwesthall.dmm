@@ -144,7 +144,7 @@
 /area/rogue)
 "N" = (
 /obj/structure/mineral_door/wood/green,
-/turf/closed/wall/mineral/wooddark,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue)
 "O" = (
 /obj/structure/fluff/railing/border{
@@ -570,15 +570,15 @@ a
 p
 p
 e
-e
 Q
 l
+l
 F
 l
 F
+l
 l
 G
-e
 e
 p
 p
@@ -587,15 +587,15 @@ p
 p
 e
 e
-e
 Y
 O
 O
+O
 e
+O
 O
 O
 X
-e
 e
 e
 p

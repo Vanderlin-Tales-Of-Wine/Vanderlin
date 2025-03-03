@@ -12,7 +12,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	min_pq = 8
+	min_pq = 10
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -22,6 +22,7 @@
 		"Half-Elf",
 		"Dwarf"
 	)
+	
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	give_bank_account = 120

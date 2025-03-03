@@ -105,7 +105,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors)
 "cd" = (
 /obj/machinery/light/fueled/wallfire/candle/weak,
@@ -1112,7 +1112,7 @@
 "Ae" = (
 /obj/structure/stairs/stone/church,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/transparent/openspace,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "Ai" = (
 /obj/structure/table/vtable/v2,
@@ -1254,7 +1254,7 @@
 /area/rogue/indoors)
 "Ej" = (
 /obj/structure/stairs/stone/church,
-/turf/open/transparent/openspace,
+/turf/open/floor/blocks,
 /area/rogue/indoors)
 "Er" = (
 /obj/effect/spawner/map_spawner/loot,
@@ -1368,7 +1368,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 8
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "GF" = (
 /obj/structure/fluff/walldeco/vinez,
@@ -1501,7 +1501,8 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "JW" = (
-/turf/open/floor/carpet,
+/obj/structure/stairs/stone/church,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "Kb" = (
 /obj/structure/fluff/walldeco/vinez,
@@ -2112,10 +2113,6 @@
 "Yu" = (
 /turf/open/floor/metal,
 /area/rogue/indoors)
-"YG" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/carpet,
-/area/rogue/indoors)
 "YK" = (
 /obj/structure/flora/ausbushes/grassybush,
 /obj/structure/flora/grass,
@@ -2354,7 +2351,7 @@ pa
 eY
 Tw
 ZQ
-JW
+gw
 RK
 Xj
 Ap
@@ -2387,7 +2384,7 @@ yR
 Lx
 Xn
 cQ
-JW
+gw
 ZL
 Ap
 Ap
@@ -2416,10 +2413,10 @@ pa
 (9,1,1) = {"
 pa
 kM
-JW
+gw
 cQ
 fj
-JW
+gw
 ZL
 ni
 wJ
@@ -2449,9 +2446,9 @@ pa
 pa
 yR
 cS
-JW
-JW
-JW
+gw
+gw
+gw
 ZL
 ni
 wJ
@@ -2481,9 +2478,9 @@ pa
 pa
 cX
 IM
-JW
+gw
 RK
-JW
+gw
 MC
 Ap
 wJ
@@ -3587,8 +3584,8 @@ FF
 wy
 wy
 PH
-JW
-YG
+gw
+XY
 XN
 HF
 yR
@@ -3619,8 +3616,8 @@ yq
 mE
 mE
 PH
-JW
-YG
+gw
+XY
 xr
 HF
 xM
@@ -3653,7 +3650,7 @@ wy
 PH
 jK
 vy
-JW
+gw
 iU
 yR
 Jg
@@ -3970,7 +3967,7 @@ ke
 ke
 xM
 wy
-Ej
+JW
 ke
 ke
 ke
@@ -4002,7 +3999,7 @@ ke
 ke
 yR
 wy
-Ej
+JW
 ke
 ke
 ke

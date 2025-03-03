@@ -12,7 +12,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	display_order = JDO_FORWARDEN
-	min_pq = 5
+	min_pq = 8
 	bypass_lastclass = TRUE
 	selection_color = "#0d6929"
 

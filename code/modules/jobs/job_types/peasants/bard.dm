@@ -1,6 +1,6 @@
 /datum/job/bard
 	title = "Bard"
-	tutorial = "Bards make up one of the largest populations of registered adventurers in Enigma, \
+	tutorial = "Bards make up one of the largest populations of registered adventurers in Vanderlin, \
 	mostly because they are the last ones in a party to die. \
 	Their wish is to experience the greatest adventures of the age and write amazing songs \
 	about them. This is not your story, for you are the storyteller."
@@ -24,7 +24,7 @@
 		"Half-Orc",
 		"Rakshari"
 	)
-	
+
 	outfit = /datum/outfit/job/bard
 
 /datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)

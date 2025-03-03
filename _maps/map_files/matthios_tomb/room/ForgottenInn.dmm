@@ -180,6 +180,12 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
+"wR" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue)
 "wU" = (
 /obj/machinery/light/fueled/oven/west,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -309,6 +315,12 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
+"Kc" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue)
 "Km" = (
 /obj/structure/table/wood/large/corner_alt,
 /obj/item/reagent_containers/food/snacks/rotten/sausage{
@@ -364,7 +376,7 @@
 /area/rogue)
 "Ok" = (
 /obj/structure/window/openclose,
-/turf/closed/wall/mineral/stone/moss,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Pa" = (
 /obj/structure/table/wood/plain,
@@ -440,7 +452,7 @@
 /area/rogue)
 "WZ" = (
 /obj/structure/mineral_door/wood/window,
-/turf/closed/wall/mineral/stone/moss,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue)
 "Xw" = (
 /obj/structure/fluff/railing/border{
@@ -541,14 +553,14 @@ KZ
 vs
 vs
 vs
-Ok
+qI
 vs
 vs
 WZ
 WZ
 vs
 vs
-Ok
+qI
 vs
 vs
 vs
@@ -617,7 +629,7 @@ Mk
 He
 wL
 Mk
-Ok
+Kc
 Hp
 KZ
 bm
@@ -639,7 +651,7 @@ Mk
 Mk
 LZ
 Mk
-Ok
+Kc
 Hp
 Hp
 bm
@@ -759,8 +771,8 @@ bm
 KZ
 Hp
 vs
-Mk
-Mk
+vp
+vp
 Mk
 vs
 ch
@@ -771,7 +783,7 @@ Mk
 Mk
 Mk
 of
-Ok
+Kc
 Hp
 Hp
 bm
@@ -781,8 +793,8 @@ bm
 Hp
 Hp
 vs
-vp
-vp
+vs
+vs
 Mk
 vs
 JS
@@ -793,7 +805,7 @@ Mk
 Mk
 Mk
 Mk
-Ok
+Kc
 Hp
 KZ
 bm
@@ -836,7 +848,7 @@ vs
 vs
 vs
 vs
-qI
+wR
 vs
 Hp
 Hp
@@ -1200,8 +1212,8 @@ bm
 IM
 px
 EL
-Mk
-Mk
+IM
+IM
 Mk
 EL
 hf
@@ -1222,8 +1234,8 @@ bm
 IM
 px
 EL
-IM
-IM
+vp
+vp
 Mk
 EL
 Mk
