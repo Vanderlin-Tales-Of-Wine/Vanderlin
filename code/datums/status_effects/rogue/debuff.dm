@@ -329,6 +329,11 @@
 		var/mob/living/carbon/C = owner
 		C.remove_stress(/datum/stressevent/sleepytime)
 
+// We use this to not have triumph gain and dreaming tied to tiredness
+/datum/status_effect/debuff/dreamytime
+	id = "dreamytime"
+	alert_type = null
+
 /atom/movable/screen/alert/status_effect/debuff/netted
 	name = "Net"
 	desc = "<span class='boldwarning'>A net was thrown on me.. how can I move?</span>\n"

@@ -237,6 +237,7 @@
 	max_blade_int = 0
 	grid_height = 64
 	time_multiplier = 2
+	smeltresult = null
 
 /obj/item/weapon/shovel/small/getonmobprop(tag)
 	. = ..()
