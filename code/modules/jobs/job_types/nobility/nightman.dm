@@ -39,6 +39,7 @@
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
