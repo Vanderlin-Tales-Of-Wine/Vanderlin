@@ -43,10 +43,8 @@
 			postfix = "soon"
 		to_chat(src, "The game will start [postfix].")
 		if(client)
-			var/usedkey = ckey(key)
-			if(usedkey in GLOB.anonymize)
-				usedkey = get_fake_key(usedkey)
-			var/list/thinz = list("takes a seat.", "settles in.", "joins the session", "joins the table.", "becomes a player.")
+			var/usedkey = get_display_ckey(ckey)
+			var/list/thinz = list("takes [client.p_their()] seat.", "settles in.", "joins the session", "joins the table.", "becomes a player.")
 			SEND_TEXT(world, "<span class='notice'>[usedkey] [pick(thinz)]</span>")
 
 	client.change_view(8)

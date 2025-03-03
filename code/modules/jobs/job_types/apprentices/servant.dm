@@ -1,43 +1,33 @@
 /datum/job/servant
 	title = "Servant"
+	tutorial = "You work your fingers to the bone nearly every dae, \
+	and have naught to show for it but boney fingers. \
+	Perhaps this week you will finally be recognized, or allowed some respite?"
 	flag = SERVANT
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_SERVANT
+	faction = FACTION_STATION
 	total_positions = 9
 	spawn_positions = 9
-
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
-	advclass_cat_rolls = list(CTAG_SERVANT = 20)
-
-/datum/job/servant/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-
-	tutorial = "You work your fingers to the bone nearly every dae, and have naught to show for it but boney fingers. Perhaps this week you will finally be recognized, or allowed some respite?"
-
-	outfit = /datum/outfit/job/servant
-	display_order = JDO_SERVANT
-	give_bank_account = TRUE
 	min_pq = -20
 	bypass_lastclass = TRUE
 
+	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	outfit = /datum/outfit/job/servant
+	give_bank_account = TRUE
+
 	can_have_apprentices = FALSE
 
+	advclass_cat_rolls = list(CTAG_SERVANT = 20)
+
+/datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
+	..()
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -93,7 +83,8 @@
 
 /datum/advclass/servant/matron_assistant
 	name = "Matron's Servant"
-	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
+	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
+	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
 

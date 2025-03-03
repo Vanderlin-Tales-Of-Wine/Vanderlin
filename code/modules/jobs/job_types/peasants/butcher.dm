@@ -1,10 +1,17 @@
 /datum/job/butcher
 	title = "Butcher"
+	tutorial = "Some say youre a strange individual, \
+	some say youre a cheat while some claim you are a savant in the art of sausage making. \
+	Without your skilled hands and knifework most of the livestock around the town would be wasted. "
+	display_order = JDO_BUTCHER
 	flag = BEASTMASTER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = -20
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -17,14 +24,10 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = "Some say youre a strange individual, some say youre a cheat while some claim you are a savant in the art of sausage making. Without your skilled hands and knifework most of the livestock around the town would be wasted. "
 
 
 	outfit = /datum/outfit/job/beastmaster
-	display_order = JDO_BUTCHER
 	give_bank_account = TRUE
-	min_pq = -20
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/beastmaster/pre_equip(mob/living/carbon/human/H)

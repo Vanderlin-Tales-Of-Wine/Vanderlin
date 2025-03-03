@@ -3,7 +3,7 @@
 	var/turf/turf = get_turf(loc)
 	if(turf)
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
-			faction |= "matthios"
+			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src
 
 /mob/living/Initialize()
@@ -18,7 +18,7 @@
 	init_faith()
 
 /mob/living/Destroy()
-	if("matthios" in faction)
+	if(FACTION_MATTHIOS in faction)
 		SSmobs.matthios_mobs -= src
 	surgeries = null
 	if(LAZYLEN(status_effects))

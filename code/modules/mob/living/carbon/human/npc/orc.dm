@@ -144,7 +144,7 @@
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	name = "orc"
 	real_name = "orc"
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

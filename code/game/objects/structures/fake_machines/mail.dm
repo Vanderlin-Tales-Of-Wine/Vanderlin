@@ -27,7 +27,7 @@
 				else
 					say("You have additional mail available.")
 					break
-		if(!addl_mail && user.mind.assigned_role == "Inquisitor") // If the user did not get any mail and is an Inquisitor, open the shop.
+		if(!addl_mail && is_inquisitor_job(user.mind.assigned_role)) // If the user did not get any mail and is an Inquisitor, open the shop.
 			show_inquisitor_shop(user)
 			return
 
@@ -106,52 +106,56 @@
 
 /obj/structure/fake_machine/mail/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/merctoken))
-		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			if(H.mind.assigned_role == "Merchant")
-				to_chat(H, "<span class='warning'>This is of no use to me - I may give this to a mercenary so they may send it themselves.</span>")
-				return
-			if(H.mind.assigned_role == "Mercenary")
-				if(H.tokenclaimed == TRUE)
-					to_chat(H, "<span class='warning'>I have already received my commendation. There's always next month to look forward to.</span>")
-					return
-				var/obj/item/merctoken/C = P
-				if(C.signed == 1)
-					qdel(C)
-					visible_message("<span class='warning'>[H] sends something.</span>")
-					playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-					sleep(20)
-					playsound(loc, 'sound/misc/mercsuccess.ogg', 100, FALSE, -1)
-					playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
-					H.visible_message("<span class='warning'>A trinket comes tumbling down from the machine. Proof of your distinction.</span>")
-					H.adjust_triumphs(3)
-					H.tokenclaimed = TRUE
-					switch(H.merctype)
-						if(0)
-							new /obj/item/clothing/neck/shalal(src.loc)
-						if(1)
-							new /obj/item/clothing/neck/mercmedal/zybatine(src.loc)
-						if(2)
-							new /obj/item/clothing/neck/mercmedal/grenzelhoft(src.loc)
-						if(3)
-							new /obj/item/clothing/neck/mercmedal/underdweller(src.loc)
-						if(4)
-							new /obj/item/clothing/neck/mercmedal/blackoak(src.loc)
-						if(5)
-							new /obj/item/clothing/neck/mercmedal/steppesman(src.loc)
-						if(6)
-							new /obj/item/clothing/neck/mercmedal/boltslinger(src.loc)
-						if(7)
-							new /obj/item/clothing/neck/mercmedal/anthrax(src.loc)
-				if(C.signed == 0)
-					to_chat(H, "<span class='warning'>I cannot send an unsigned token.</span>")
-					return
-			else
-				to_chat(H, "<span class='warning'>I can't make use of this - I do not belong to the Guild.</span>")
-				return
+		if(!ishuman(user))
+			to_chat(user, span_warning("I do not know what this is, and I do not particularly care."))
+
+		var/mob/living/carbon/human/H = user
+		if(is_merchant_job(H.mind.assigned_role))
+			to_chat(H, span_warning("This is of no use to me - I may give this to a mercenary so they may send it themselves."))
+			return
+		if(!is_mercenary_job(H.mind.assigned_role))
+			to_chat(H, span_warning("I can't make use of this - I do not belong to the Guild."))
+			return
+		if(H.tokenclaimed)
+			to_chat(H, span_warning("I have already received my commendation. There's always next month to look forward to."))
+			return
+		var/obj/item/merctoken/C = P
+		if(!C.signee)
+			to_chat(H, span_warning("I cannot send an unsigned token."))
+			return
+		qdel(C)
+		visible_message(span_warning("[H] sends something."))
+		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
+
+		sleep(2 SECONDS) //should be a callback...
+
+		say("THANK YOU FOR YOUR SERVITUDE.")
+		playsound(loc, 'sound/misc/mercsuccess.ogg', 100, FALSE, -1)
+		playsound(src.loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+		to_chat(H, span_warning("A trinket comes tumbling down from the machine. Proof of your distinction."))
+		H.adjust_triumphs(3)
+		H.tokenclaimed = TRUE
+		var/turf/drop_location = drop_location()
+		switch(H.merctype)
+			if(0)
+				new /obj/item/clothing/neck/shalal(drop_location)
+			if(1)
+				new /obj/item/clothing/neck/mercmedal/zybatine(drop_location)
+			if(2)
+				new /obj/item/clothing/neck/mercmedal/grenzelhoft(drop_location)
+			if(3)
+				new /obj/item/clothing/neck/mercmedal/underdweller(drop_location)
+			if(4)
+				new /obj/item/clothing/neck/mercmedal/blackoak(drop_location)
+			if(5)
+				new /obj/item/clothing/neck/mercmedal/steppesman(drop_location)
+			if(6)
+				new /obj/item/clothing/neck/mercmedal/boltslinger(drop_location)
+			if(7)
+				new /obj/item/clothing/neck/mercmedal/anthrax(drop_location)
 
 	if(istype(P, /obj/item/paper/confession))
-		if(user.mind.assigned_role == "Inquisitor" || user.mind.assigned_role == "Adept") // Only Inquisitors and Adepts can sumbit confessions.
+		if(is_inquisitor_job(user.mind.assigned_role) || is_adept_job(user.mind.assigned_role)) // Only Inquisitors and Adepts can sumbit confessions.
 			process_confession(user, P)
 			return
 	if(istype(P, /obj/item/paper))
@@ -359,24 +363,20 @@
 		playsound(loc, 'sound/magic/forgotten_bell.ogg', 80, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
 		for(var/mob/living/carbon/human/I in world) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
-			if(I.mind && (I.mind.assigned_role == "Inquisitor" || I.mind.assigned_role == "Adept") && !(I.stat == DEAD))
-				if(I.mind.assigned_role == "Inquisitor")
+			if(I.mind && (is_inquisitor_job(I.mind.assigned_role) || is_adept_job(I.mind.assigned_role)) && !(I.stat == DEAD))
+				if(is_inquisitor_job(I.mind.assigned_role))
 					I.confession_points += 5 // Increase the Inquisitor's confession count.
 					to_chat(I, "<span class='warning'>-I have gained more favors.</span>")
 				to_chat(I, "<span class='warning'>A sense of grim satisfaction fills your heart. One confession down, a million remain.</span>")
 				I.adjust_triumphs(1)
 
 /obj/structure/fake_machine/mail/proc/show_inquisitor_shop(mob/living/carbon/human/user)
-	testing("Src is [src]")
-	testing("User is [user]")
 	var/list/options = list()
 
 	// Ensure the user is an Inquisitor
-	if(!user.mind || user.mind.assigned_role != "Inquisitor")
-		testing("User is not an Inquisitor: [user.mind.assigned_role]")
+	if(!user.mind || !is_inquisitor_job(user.mind.assigned_role))
 		to_chat(user, "<span class='warning'>You do not have access to the confession system.</span>")
 		return
-	testing("User is an Inquisitor")
 
 	// Ensure purchase_history is initialized
 	if(!user.purchase_history)

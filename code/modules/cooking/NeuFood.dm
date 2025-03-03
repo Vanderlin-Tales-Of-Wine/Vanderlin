@@ -424,25 +424,22 @@
 	taste_description = "something gross"
 	metabolization_rate = 0.3
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
-	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
+	if(is_vagrant_job(M.mind.assigned_role)) // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1)
 		M.adjustFireLoss(-0.1)
 		M.adjust_energy(2)
 		return
-	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
+	if(HAS_TRAIT(M, TRAIT_NASTY_EATER))
 		return
-	else
-		if(prob(8))
-			switch(pick(1,4))
-				if (1)
-					to_chat(M, "<span class='danger'>I feel bile rising...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>I feel nauseous...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My breath smells terrible...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My stomach churns...</span>")
-		if(prob(8))
+	if(prob(8))
+		var/static/list/disgust_lines = list(
+			"I feel bile rising...",
+			"I feel nauseous...",
+			"My breath smells terrible...",
+			"My stomach churns...",
+		)
+		to_chat(M, span_warning(pick(disgust_lines)))
+		if(prob(25))
 			M.emote("gag")
 			M.add_nausea(9)
 	..()
