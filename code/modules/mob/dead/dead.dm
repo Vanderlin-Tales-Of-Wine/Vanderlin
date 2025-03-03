@@ -124,7 +124,7 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	if(!client)
 		return
 	if(winexists(src, "lobby_window"))
-		src << browse(popup.get_content(), "window=lobby_window") //dont update the size or annoyingly refresh
+		src << browse(popup.build_page(), "window=lobby_window") //dont update the size or annoyingly refresh
 		qdel(popup)
 		return
 	else

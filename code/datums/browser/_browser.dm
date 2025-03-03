@@ -1,61 +1,69 @@
 /datum/browser
-	var/mob/user
-	var/title
-	var/window_id // window_id is used as the window name for browse and onclose
-	var/width = 0
-	var/height = 0
-	var/atom/ref = null
-	var/window_options = "can_close=1;can_minimize=1;can_maximize=0;can_resize=1;titlebar=1;" // window option is set using window_id
-	var/stylesheets[0]
-	var/scripts[0]
-	var/head_elements
-	var/body_elements
-	var/head_content = ""
-	var/content = ""
-	var/no_close_movement = FALSE
+	/// The mob that is using this browser.
+	var/tmp/mob/user
+	/// The object that owns this browser.
+	var/tmp/datum/owner = null
+	/// The window's title.
+	var/final/title
+	/// The ID used for browse and onclose.
+	var/final/window_id
+	/// The window's width in pixels.
+	var/final/width
+	/// The window's height in pixels.
+	var/final/height
+	/// Params for the window on creation.
+	var/final/window_options = "can_close=1;can_minimize=1;can_maximize=0;can_resize=1;titlebar=1;"
+	/// A list of paths to CSS files.
+	VAR_PRIVATE/final/list/stylesheets = list()
+	/// A list of paths to JavaScript files.
+	VAR_PRIVATE/final/list/scripts = list()
+	/// Text containing the contents of the \<head\> element.
+	VAR_PRIVATE/final/head = ""
+	/// Text containing the contents of the \<body\> element.
+	VAR_PRIVATE/final/body = ""
 
+/datum/browser/New(mob/user, window_id, title = "", width, height, atom/owner = null)
+	if(!user)
+		CRASH("created a browser for no user")
+	if(!window_id)
+		CRASH("created a browser with no window id")
+	src.user = user
+	RegisterSignal(src, COMSIG_MOB_CLIENT_MOVED, )
+	src.window_id = window_id
+	RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(user_deleted))
+	src.title = format_text(title)
+	src.width = width
+	src.height = height
+	if(owner)
+		src.owner = owner
+		RegisterSignal(owner, COMSIG_PARENT_QDELETING, PROC_REF(owner_deleted))
 
 /datum/browser/Destroy(force, ...)
 	. = ..()
-	ref = null
+	var/client/user_client = isclient(user) ? user : user.client
+	UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
 	user = null
+	owner = null
 
 /datum/browser/noclose
-	no_close_movement = TRUE
-
-/datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null)
-	if(!nuser)
-		return
-	user = nuser
-	RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(user_deleted))
-	window_id = nwindow_id
-	if(!no_close_movement)
-		if(ismob(nuser))
-			if(user.client)
-				user.client.open_popups |= src
-		else
-			var/client/C = user
-			C.open_popups |= src
-	if (ntitle)
-		title = format_text(ntitle)
-	if (nwidth)
-		width = nwidth
-	if (nheight)
-		height = nheight
-	if (nref)
-		ref = nref
-		RegisterSignal(ref, COMSIG_PARENT_QDELETING, PROC_REF(ref_deleted))
+/datum/browser/noclose/New(mob/user, window_id, title = "", width, height, atom/owner)
+	. = ..()
+	var/client/user_client = isclient(user) ? user : user.client
+	UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
 
 /datum/browser/proc/user_deleted(datum/source)
 	SIGNAL_HANDLER
 	user = null
 
-/datum/browser/proc/ref_deleted(datum/source)
+/datum/browser/proc/owner_deleted(datum/source)
 	SIGNAL_HANDLER
-	ref = null
+	owner = null
 
-/datum/browser/proc/add_head_content(nhead_content)
-	head_content = nhead_content
+/datum/browser/proc/user_moved(direction, old_direction)
+	qdel(src)
+
+/datum/browser/proc/set_head_content(head_content)
+	head = head_content
 
 /datum/browser/proc/set_window_options(nwindow_options)
 	window_options = nwindow_options
@@ -76,52 +84,45 @@
 	scripts["[ckey(name)].js"] = file
 	SSassets.transport.register_asset("[ckey(name)].js", file)
 
-/datum/browser/proc/set_content(ncontent)
-	content = ncontent
+/datum/browser/proc/set_content(content)
+	body = content
 
-/datum/browser/proc/add_content(ncontent)
-	content += ncontent
+/datum/browser/proc/add_content(content)
+	body += content
 
 /datum/browser/proc/get_header()
+
+/datum/browser/proc/build_page()
+	var/head_content = head
 	var/datum/asset/simple/namespaced/common/common_asset = get_asset_datum(/datum/asset/simple/namespaced/common)
-	var/file
 	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
-	for (file in stylesheets)
+	for(var/file in stylesheets)
 		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
-	for (file in scripts)
+	for(var/file in scripts)
 		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
-	return {"<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<head>
-		[head_content]
-	</head>
-	<body scroll=auto>
-		<div class='uiWrapper'>
-			[title ? "<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>" : ""]
-			<div class='uiContent'>
-	"}
-//" This is here because else the rest of the file looks like a string in notepad++.
-/datum/browser/proc/get_footer()
 	return {"
-			</div>
-		</div>
-	</body>
-</html>"}
-
-/datum/browser/proc/get_content()
-	return {"
-	[get_header()]
-	[content]
-	[get_footer()]
-	"}
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		<html>
+			<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<head>
+				[head_content]
+			</head>
+			<body scroll=auto>
+				<div class='uiWrapper'>
+					<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>
+					<div class='uiContent'>
+						[body]
+					</div>
+				</div>
+			</body>
+		</html>"}
 
 /datum/browser/proc/open(use_onclose = TRUE)
 	if(isnull(window_id))	//null check because this can potentially nuke goonchat
-		WARNING("Browser [title] tried to open with a null ID")
+		stack_trace("Browser [title] tried to open with a null ID")
 		to_chat(user, "<span class='danger'>The [title] browser you tried to open failed a sanity check! Please report this on github!</span>")
 		return
 	var/window_size = ""
@@ -133,7 +134,7 @@
 		SSassets.transport.send_assets(user, stylesheets)
 	if (scripts.len)
 		SSassets.transport.send_assets(user, scripts)
-	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
+	user << browse(build_page(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
 		setup_onclose()
 
@@ -141,7 +142,7 @@
 	set waitfor = 0 //winexists sleeps, so we don't need to.
 	for (var/i in 1 to 10)
 		if (user && winexists(user, window_id))
-			onclose(user, window_id, ref)
+			onclose(user, window_id, owner)
 			break
 
 /datum/browser/proc/close()
@@ -149,106 +150,6 @@
 		user << browse(null, "window=[window_id]")
 	else
 		WARNING("Browser [title] tried to close with a null ID")
-
-/datum/browser/modal/alert/New(User,Message,Title,Button1="Ok",Button2,Button3,StealFocus = 1,Timeout=6000)
-	if (!User)
-		return
-
-	var/output =  {"<center><b>[Message]</b></center><br />
-		<div style="text-align:center">
-		<a style="font-size:large;float:[( Button2 ? "left" : "right" )]" href="?src=[REF(src)];button=1">[Button1]</a>"}
-
-	if (Button2)
-		output += {"<a style="font-size:large;[( Button3 ? "" : "float:right" )]" href="?src=[REF(src)];button=2">[Button2]</a>"}
-
-	if (Button3)
-		output += {"<a style="font-size:large;float:right" href="?src=[REF(src)];button=3">[Button3]</a>"}
-
-	output += {"</div>"}
-
-	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, 350, 150, src, StealFocus, Timeout)
-	set_content(output)
-
-/datum/browser/modal/alert/Topic(href,href_list)
-	if (href_list["close"] || !user || !user.client)
-		opentime = 0
-		return
-	if (href_list["button"])
-		var/button = text2num(href_list["button"])
-		if (button <= 3 && button >= 1)
-			selectedbutton = button
-	opentime = 0
-	close()
-
-//designed as a drop in replacement for alert(); functions the same. (outside of needing User specified)
-/proc/tgalert(mob/User, Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1, Timeout = 6000)
-	if (!User)
-		User = usr
-	switch(askuser(User, Message, Title, Button1, Button2, Button3, StealFocus, Timeout))
-		if (1)
-			return Button1
-		if (2)
-			return Button2
-		if (3)
-			return Button3
-
-//Same shit, but it returns the button number, could at some point support unlimited button amounts.
-/proc/askuser(mob/User,Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1, Timeout = 6000)
-	if (!istype(User))
-		if (istype(User, /client/))
-			var/client/C = User
-			User = C.mob
-		else
-			return
-	var/datum/browser/modal/alert/A = new(User, Message, Title, Button1, Button2, Button3, StealFocus, Timeout)
-	A.open()
-	A.wait()
-	if (A.selectedbutton)
-		return A.selectedbutton
-
-/datum/browser/modal
-	var/opentime = 0
-	var/timeout
-	var/selectedbutton = 0
-	var/stealfocus
-
-/datum/browser/modal/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null, StealFocus = 1, Timeout = 6000)
-	..()
-	stealfocus = StealFocus
-	if (!StealFocus)
-		window_options += "focus=false;"
-	timeout = Timeout
-
-
-/datum/browser/modal/close()
-	.=..()
-	opentime = 0
-
-/datum/browser/modal/open(use_onclose)
-	set waitfor = 0
-	opentime = world.time
-
-	if (stealfocus)
-		. = ..(use_onclose = 1)
-	else
-		var/focusedwindow = winget(user, null, "focus")
-		. = ..(use_onclose = 1)
-
-		//waits for the window to show up client side before attempting to un-focus it
-		//winexists sleeps until it gets a reply from the client, so we don't need to bother sleeping
-		for (var/i in 1 to 10)
-			if (user && winexists(user, window_id))
-				if (focusedwindow)
-					winset(user, focusedwindow, "focus=true")
-				else
-					winset(user, "mapwindow", "focus=true")
-				break
-	if (timeout)
-		addtimer(CALLBACK(src, PROC_REF(close)), timeout)
-
-/datum/browser/modal/proc/wait()
-	while (opentime && selectedbutton <= 0 && (!timeout || opentime+timeout > world.time))
-		stoplag(1)
 
 /datum/browser/modal/listpicker
 	var/valueslist = list()
