@@ -652,6 +652,11 @@
 
 				for(var/obj/item/deleted in to_delete)
 					to_delete -= deleted
+					var/datum/component/storage/STR = deleted.GetComponent(/datum/component/storage)
+					if(STR)
+						var/list/things = STR.contents()
+						for(var/obj/item/I in things)
+							STR.remove_from_storage(I, get_turf(src))
 					qdel(deleted)
 				if(user.mind && skillcraft)
 					if(isliving(user))

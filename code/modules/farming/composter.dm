@@ -90,6 +90,8 @@
 		compost_value = 100
 	if(istype(attacking_item, /obj/item/trash))
 		compost_value = 50
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/rotten))
+		compost_value = 50
 	if(compost_value > 0)
 		if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
 			if(!batch_process)

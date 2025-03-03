@@ -192,7 +192,7 @@
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 /datum/migrant_role/zybantine_guard
-	name = "Zybantine soldier"
+	name = "Zybantine Soldier"
 	greet_text = "You are a slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
 	allowed_sexes = list(MALE,FEMALE)
 	allowed_races = list("Humen",
@@ -301,7 +301,7 @@
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
 /datum/migrant_wave/zybantine_wave
-	name = "The Ziggurat expedition"
+	name = "The Ziggurat Expedition"
 	max_spawns = 1
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	weight = 25
@@ -316,7 +316,7 @@
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposal within the Kingdom of Vanderlin."
 
 /datum/migrant_wave/zybantine_wave_down
-	name = "The Ziggurat expedition"
+	name = "The Ziggurat Expedition"
 	max_spawns = 1
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
