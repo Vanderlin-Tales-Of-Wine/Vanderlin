@@ -1,6 +1,6 @@
 
 /obj/item/clothing/cloak/raincloak
-	name = "cloak"
+	name = "raincloak"
 	desc = "A typical raincloak used to protect the wearer against various elements."
 	color = null
 	icon_state = "rain_cloak"
