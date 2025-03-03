@@ -365,7 +365,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
 	var/error = IsJobUnavailable(rank)
 	if(error != JOB_AVAILABLE)
-		alert(src, span_boldwarning(get_job_unavailable_error_message(error, rank)))
+		alert(src, get_job_unavailable_error_message(error, rank))
 		return FALSE
 
 	if(SSticker.late_join_disabled)
