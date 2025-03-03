@@ -186,17 +186,6 @@
 
 		return
 
-	if(istype(target, /obj/machinery/crop))
-		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
-			return
-		var/obj/machinery/crop/C = target
-		C.water = 100
-		reagents.clear_reagents()
-		user.visible_message("<span class='notice'>[user] waters [target].</span>", \
-							"<span class='notice'>I water [target].</span>")
-		return
-
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
 							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
@@ -348,12 +337,25 @@
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+				if(reagent.glows)
+					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_half")
+					emissive.plane = EMISSIVE_PLANE
+					overlays += emissive
+					break
+
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+				if(reagent.glows)
+					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "bucket_full")
+					emissive.plane = EMISSIVE_PLANE
+					overlays += emissive
+					break
 			add_overlay(filling)
 
 /obj/item/pestle

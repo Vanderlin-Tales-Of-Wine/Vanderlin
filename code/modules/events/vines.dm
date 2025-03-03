@@ -380,10 +380,6 @@
 	vines -= S
 	growth_queue -= S
 	if(!vines.len)
-//		var/obj/item/seeds/kudzu/KZ = new(S.loc)
-//		KZ.mutations |= S.mutations
-//		KZ.set_potency(mutativeness * 10)
-//		KZ.set_production((spread_cap / initial(spread_cap)) * 5)
 		qdel(src)
 
 /datum/vine_controller/process()

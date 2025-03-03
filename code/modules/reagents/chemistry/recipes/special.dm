@@ -9,14 +9,6 @@ GLOBAL_LIST_INIT(food_reagents, build_reagents_to_food()) //reagentid = related 
 				.[r] = list()
 			.[r] += type
 		qdel(item)
-	//dang plant snowflake
-	for (var/type in subtypesof(/obj/item/seeds))
-		var/obj/item/seeds/item = new type()
-		for(var/r in item.reagents_add)
-			if (!.[r])
-				.[r] = list()
-			.[r] += type
-		qdel(item)
 
 
 #define RNGCHEM_INPUT "input"

@@ -7,10 +7,7 @@
 	var/datum/species/species = new /datum/species/human //The type of mutant race the player is if applicable (i.e. potato-man)
 	var/list/features = MANDATORY_FEATURE_LIST
 	var/real_name //Stores the real name of the person who originally got this dna datum. Used primarely for changelings,
-	var/list/temporary_mutations = list() //Temporary changes to the UE
-	var/list/previous = list() //For temporary name/ui/ue/blood_type modifications
 	var/mob/living/holder
-	var/delete_species = TRUE //Set to FALSE when a body is scanned by a cloner to fix #38875
 	var/list/organ_dna = list()
 	///Body markings of the DNA's owner. This is for storing their original state for re-creating the character. They'll get changed on species mutation
 	var/list/list/body_markings = list()
@@ -28,11 +25,7 @@
 			cholder.dna = null
 	holder = null
 
-	if(delete_species)
-		QDEL_NULL(species)
-
-	temporary_mutations.Cut()		//^
-	previous.Cut()					//^
+	QDEL_NULL(species)
 
 	return ..()
 
@@ -46,7 +39,6 @@
 	destination.dna.body_markings = deepCopyList(body_markings)
 	destination.dna.features = features.Copy()
 	destination.dna.real_name = real_name
-	destination.dna.temporary_mutations = temporary_mutations.Copy()
 
 /datum/dna/proc/copy_dna(datum/dna/new_dna)
 	new_dna.unique_enzymes = unique_enzymes
@@ -87,13 +79,6 @@
 		else
 			. += random_string(DNA_BLOCK_SIZE,GLOB.hex_characters)
 	return .
-
-/datum/dna/proc/generate_dna_blocks()
-	var/bonus
-	var/list/mutations_temp = GLOB.good_mutations + GLOB.bad_mutations + GLOB.not_good_mutations + bonus
-	if(!LAZYLEN(mutations_temp))
-		return
-	shuffle_inplace(mutations_temp)
 
 /datum/dna/proc/generate_unique_enzymes()
 	. = ""
@@ -147,8 +132,6 @@
 		human_blood_type = newblood_type
 	unique_enzymes = generate_unique_enzymes()
 	uni_identity = generate_uni_identity()
-	if(!skip_index) //I hate this
-		generate_dna_blocks()
 	features = random_features()
 
 
@@ -249,13 +232,6 @@
 
 /mob/living/carbon/human/updateappearance(icon_update=1, mutcolor_update=0, mutations_overlay_update=0)
 	..()
-//	var/structure = dna.uni_identity
-//	hair_color = getblock(structure, DNA_HAIR_COLOR_BLOCK)
-//	facial_hair_color = getblock(structure, DNA_FACIAL_HAIR_COLOR_BLOCK)
-//	skin_tone = getblock(structure, DNA_SKIN_TONE_BLOCK)
-//	eye_color = getblock(structure, DNA_EYE_COLOR_BLOCK)
-//	facial_hairstyle = GLOB.facial_hairstyles_list[deconstruct_block(getblock(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), GLOB.facial_hairstyles_list.len)]
-//	hairstyle = GLOB.hairstyles_list[deconstruct_block(getblock(structure, DNA_HAIRSTYLE_BLOCK), GLOB.hairstyles_list.len)]
 	if(icon_update)
 		update_body()
 		update_hair()

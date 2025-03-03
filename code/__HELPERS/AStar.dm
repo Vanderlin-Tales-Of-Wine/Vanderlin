@@ -125,6 +125,8 @@ Actual Adjacent procs :
 		var/closeenough
 		if(mintargetdist)
 			closeenough = call(cur.source,dist)(end) <= mintargetdist
+		else
+			closeenough = call(cur.source,dist)(end) < 1
 
 
 		//found the target turf (or close enough), let's create the path to it

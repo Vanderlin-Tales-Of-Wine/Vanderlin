@@ -62,6 +62,13 @@
 	spawning = 2
 	velocity = list(0, 0.25, 0)
 
+/particles/smoke/steam/water_pipe
+	name = "water_pipe"
+	icon_state = list("steam_1" = 1, "smoke_1" = 1, "smoke_2" = 1, "smoke_3" = 1)
+	spawning = 2
+	velocity = list(0, 0.25, 0)
+	position = generator(GEN_VECTOR, list(-3, -5, 0), list(3, -6.5, 0), NORMAL_RAND)
+
 /particles/smoke/cig
 	name = "cig"
 	icon_state = list("steam_1" = 2, "steam_2" = 1, "steam_3" = 1)

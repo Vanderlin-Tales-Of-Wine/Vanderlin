@@ -73,6 +73,13 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 		/datum/blood_type/human/o_minus,
 	)
 
+/datum/blood_type/human/tiefling
+	name = "Tiefling"
+	compatible_types = list(
+		/datum/blood_type/human/o_minus,
+	)
+	reagent_type = /datum/reagent/blood/tiefling
+
 /datum/blood_type/human/a_plus
 	name = "A+"
 	compatible_types = list(

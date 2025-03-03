@@ -72,6 +72,9 @@
 	if(mob.incapacitated())
 		return
 	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
+		var/obj/abstract/visual_ui_element/hoverable/movable/ui_object = object
+		ui_object.MouseDown(location, control, params)
 
 	tcompare = object
 
@@ -181,6 +184,10 @@
 //	mob.update_warning()
 	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params)
 
+	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
+		var/obj/abstract/visual_ui_element/hoverable/movable/ui_object = object
+		ui_object.MouseUp(location, control, params)
+
 	mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 
 	if(mob.curplaying)
@@ -223,7 +230,7 @@
 
 	if(tcompare)
 		if(object)
-			if(isatom(object) && object != tcompare && mob.atkswinging && tcompare != mob && mob.cmode)
+			if(isatom(object) && object != tcompare && mob.atkswinging && tcompare != mob && (mob.cmode || chargedprog))
 				var/atom/N = object
 				N.Click(location, control, params)
 		tcompare = null

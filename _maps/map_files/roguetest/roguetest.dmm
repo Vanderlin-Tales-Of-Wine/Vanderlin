@@ -100,7 +100,7 @@
 "as" = (
 /obj/structure/waterwheel,
 /turf/open/water/river{
-	dir = 8
+	dir = 4
 	},
 /area/rogue/indoors)
 "at" = (
@@ -1141,6 +1141,12 @@
 /obj/structure/waterwheel,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"kH" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/indoors)
 "lY" = (
 /obj/structure/minecart_rail{
 	dir = 9
@@ -1153,14 +1159,20 @@
 /area/rogue/outdoors)
 "mx" = (
 /obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/dirt/road,
+/turf/open/water/river{
+	dir = 4
+	},
 /area/rogue/indoors)
 "mY" = (
-/obj/structure/rotation_piece,
+/obj/structure/soil/debug_soil/random,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "ne" = (
-/obj/structure/rotation_piece/cog/large,
+/obj/structure/irrigation_channel,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
+"nr" = (
+/obj/structure/water_pump,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "oH" = (
@@ -1215,6 +1227,10 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"tA" = (
+/obj/structure/water_pipe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "tH" = (
 /obj/structure/water_dam{
 	dir = 1;
@@ -1224,6 +1240,11 @@
 	water_volume = 500
 	},
 /area/rogue/outdoors)
+"uz" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/indoors)
 "uL" = (
 /obj/structure/minecart_rail{
 	dir = 6
@@ -1268,8 +1289,17 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Ch" = (
+/obj/machinery/light/fueled/torchholder/l,
+/obj/structure/soil/debug_soil/random,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "CO" = (
 /obj/structure/gearbox,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"Fc" = (
+/obj/structure/water_vent,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "Fo" = (
@@ -1299,6 +1329,10 @@
 /area/rogue/outdoors)
 "Nb" = (
 /obj/structure/rotation_piece/cog,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
+"PT" = (
+/obj/structure/fermentation_keg/distiller,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "QR" = (
@@ -1811,13 +1845,13 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -2062,19 +2096,19 @@ aa
 aa
 ab
 mx
-aj
-aj
-aj
-aj
-mx
+mY
+mY
+mY
+mY
+Ch
+mY
+mY
+mY
+mY
+Ch
+mY
+mY
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2318,20 +2352,20 @@ at
 at
 at
 ab
-aj
-as
+uz
 ne
-aj
-mY
-Nb
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2575,20 +2609,20 @@ Ua
 Ua
 Ua
 ab
-Nb
+uz
 mY
-Nb
-aj
-aj
-aj
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2832,20 +2866,20 @@ al
 al
 Ua
 ab
-aj
-aj
-aj
-aj
-aj
-aj
+uz
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -3089,6 +3123,13 @@ Ua
 Ua
 Ua
 ab
+as
+Nb
+aj
+aj
+aj
+aj
+aj
 aj
 aj
 aj
@@ -3096,13 +3137,6 @@ aj
 aj
 aj
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -3346,20 +3380,20 @@ al
 al
 al
 ab
+kH
+nr
+tA
+PT
+aj
 zc
 aj
 aj
 aj
 aj
 zc
+aj
+aj
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -4883,7 +4917,7 @@ cN
 cN
 su
 Ua
-al
+Fc
 aj
 aj
 aj
