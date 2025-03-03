@@ -56,6 +56,7 @@
 			}
 
 			input\[type="text"\]{
+				width: 60%;
 				text-align: center;
 			}
 
@@ -84,7 +85,7 @@
 
 		<div>
 			<h2>Announcement Name</h2>
-			<input type="text" name="title" style="width:60%;" value="[command_name || "The Gods Decree"]" required/>
+			<input type="text" name="title" value="[command_name || "The Gods Decree"]" required/>
 		</div>
 
 		<div>
