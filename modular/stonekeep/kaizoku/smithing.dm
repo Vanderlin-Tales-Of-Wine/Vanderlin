@@ -334,7 +334,7 @@
 	name = "Foldable Thighguards x2"
 	recipe_name = "a pair of Haidate Tatami"
 	req_bar = /obj/item/ingot/iron
-	created_item = /obj/item/clothing/under/chainlegs/iron/haidate_tatami
+	created_item = /obj/item/clothing/pants/chainlegs/iron/haidate_tatami
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 0
@@ -343,7 +343,7 @@
 	name = "Plate Thighguards x2"
 	recipe_name = "a pair of Chain Chausses"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/under/chainlegs/sendan
+	created_item = /obj/item/clothing/pants/chainlegs/sendan
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 2
@@ -352,7 +352,7 @@
 	name = "Plated Trousers x2"
 	recipe_name = "a couple of Yoroi-Hakama"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/under/platelegs/yoroihakama
+	created_item = /obj/item/clothing/pants/platelegs/yoroihakama
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 3

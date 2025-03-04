@@ -47,7 +47,7 @@
 	backl = /obj/item/storage/backpack/satchel/ninja
 	neck = /obj/item/clothing/neck/gorget
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
-	pants = /obj/item/clothing/under/trou/leather/shinobizubon
+	pants = /obj/item/clothing/pants/trou/leather/shinobizubon
 	shoes = /obj/item/clothing/shoes/boots/jikatabi/shinobi
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/hankyu
 	belt = /obj/item/storage/belt/kaizoku/leather/daisho/ninja
@@ -60,7 +60,7 @@
 		to_chat(H, "<span class='warning'>Living in the Fog island's waterways, I've been trained and fed by the many Abyssariad monks. From their will, I am a branch of their skills.")
 		var/TMNT = pickweight(list("Donatello" = 1, "Leonardo" = 1, "Michelangelo" = 1, "Raphael" = 1)) // is this a reference...?
 		H.become_blind("TRAIT_GENERIC")
-		pants = /obj/item/clothing/under/kaizoku/tribal
+		pants = /obj/item/clothing/pants/kaizoku/tribal
 		armor = /obj/item/clothing/armor/leather/splint/ninjakappa
 		switch(TMNT) //I'm fucking autistic
 			if("Donatello")
@@ -82,7 +82,7 @@
 				beltl = /obj/item/weapon/sword/short/wakizashi
 	else
 		head = /obj/item/clothing/head/shinobi_zukin
-		pants = /obj/item/clothing/under/trou/leather/shinobizubon
+		pants = /obj/item/clothing/pants/trou/leather/shinobizubon
 		shirt = /obj/item/clothing/shirt/looseshirt/shinobi
 		belt = /obj/item/storage/belt/kaizoku/leather/daisho/ninja
 		armor = /obj/item/clothing/armor/leather/hide/shozoku

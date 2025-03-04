@@ -37,7 +37,7 @@
 			H.change_stat(STATKEY_INT, 1)
 
 		r_hand = /obj/item/weapon/polearm/halberd/bisento //Bisento cannot be stored in the back. Sometimes not even spawning. So I gave them an Wakizashi too in case the worst happens.
-		pants = /obj/item/clothing/under/trou/leather/fur
+		pants = /obj/item/clothing/pants/trou/leather/fur
 		beltl = /obj/item/storage/belt/pouch/coins/mid
 		shoes = /obj/item/clothing/shoes/ridingboots/gutal
 		gloves = /obj/item/clothing/gloves/angle/falcon
@@ -75,7 +75,7 @@
 
 		backr = /obj/item/storage/backpack/satchel
 		backl = /obj/item/weapon/sword/dragonslayer
-		pants = /obj/item/clothing/under/trou/leather/fur/dragonslayer
+		pants = /obj/item/clothing/pants/trou/leather/fur/dragonslayer
 		beltl = /obj/item/storage/belt/pouch/coins/mid
 		shoes = /obj/item/clothing/shoes/boots/jikatabi/dragontabi
 		gloves = /obj/item/clothing/gloves/chain/kikko

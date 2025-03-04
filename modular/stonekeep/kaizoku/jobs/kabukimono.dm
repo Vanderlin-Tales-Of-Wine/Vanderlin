@@ -36,7 +36,7 @@
 
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	neck = /obj/item/clothing/neck/chaincoif/karuta_zukin/kabukimono
-	pants = /obj/item/clothing/under/trou/tobi/kabukimono
+	pants = /obj/item/clothing/pants/trou/tobi/kabukimono
 	shoes = /obj/item/clothing/shoes/shortboots/cloudhead/kabukimono
 	gloves = /obj/item/clothing/gloves/leather/abyssal/kabukimono
 	belt = /obj/item/storage/belt/leather

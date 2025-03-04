@@ -35,7 +35,7 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 
 	shoes = /obj/item/clothing/shoes/ridingboots/gutal
-	pants = /obj/item/clothing/under/trou/leather/fur/random
+	pants = /obj/item/clothing/pants/trou/leather/fur/random
 	shirt = /obj/item/clothing/armor/gambeson/light/hitatare/random //For the drip's sake that portrays their military side.
 	if(prob(23))
 		gloves = /obj/item/clothing/gloves/leather/abyssal

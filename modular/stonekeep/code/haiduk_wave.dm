@@ -24,7 +24,7 @@
 	belt = /obj/item/storage/belt/leather/rope/haiduk
 	beltl = /obj/item/flashlight/flare/torch/lantern/bronzelamptern
 	backr = /obj/item/storage/backpack/satchel
-	pants = /obj/item/clothing/under/leather/heavy
+	pants = /obj/item/clothing/pants/leather/heavy
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/reagent_containers/food/snacks/fat/salo = 1, /obj/item/sleepingbag = 1)
 
 
@@ -78,7 +78,7 @@
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-	pants = /obj/item/clothing/under/trou/leather
+	pants = /obj/item/clothing/pants/trou/leather
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)

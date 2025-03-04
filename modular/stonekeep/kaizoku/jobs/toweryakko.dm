@@ -29,7 +29,7 @@
 	beltr = /obj/item/weapon/sword/scimitar/falchion/yuntoudao
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	shirt = /obj/item/clothing/armor/chainmail/tatami
-	pants = /obj/item/clothing/under/chainlegs/iron/haidate_tatami
+	pants = /obj/item/clothing/pants/chainlegs/iron/haidate_tatami
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
 	if(!H.has_language(/datum/language/abyssal))

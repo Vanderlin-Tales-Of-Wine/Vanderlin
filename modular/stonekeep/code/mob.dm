@@ -141,7 +141,7 @@
 /*
 /datum/outfit/orcmarauder
 	armor = /obj/item/clothing/armor/chainmail
-	pants =	/obj/item/clothing/under/chainlegs
+	pants =	/obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
 	head = /obj/item/clothing/head/helmet/leather
 */
@@ -155,7 +155,7 @@
 
 /datum/outfit/orcravager
 	armor = /obj/item/clothing/armor/chainmail
-	pants =	/obj/item/clothing/under/chainlegs
+	pants =	/obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/armor
 	head = /obj/item/clothing/head/helmet/skullcap
 	gloves = /obj/item/clothing/gloves/chain
@@ -203,7 +203,7 @@
 /datum/outfit/deadunderdweller
 	armor = /obj/item/clothing/armor/cuirass/iron
 	shirt = /obj/item/clothing/shirt/undershirt/sailor/red
-	pants = /obj/item/clothing/under/trou/leather
+	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/backpack
 	head = /obj/item/clothing/head/helmet/leather/minershelm
@@ -378,7 +378,7 @@
 	color = "#ffce0b"
 	spawned = list(
 		/obj/item/coin/silver = 5,
-		/obj/item/clothing/under/trou = 2,
+		/obj/item/clothing/pants/trou = 2,
 		/obj/item/flashlight/flare/torch/lantern = 1,
 		/obj/item/natural/worms = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat = 5,

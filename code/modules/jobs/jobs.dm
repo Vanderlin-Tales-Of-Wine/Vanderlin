@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(noble_positions, list(
+/*GLOBAL_LIST_INIT(noble_positions, list(
 	"Monarch",
 	"Consort",
 	"Hand",
@@ -101,7 +101,7 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 	"Green Ranger",
 	"Green Fighter"
 	))
-
+*/
 GLOBAL_LIST_INIT(test_positions, list(
 	"Tester"
 	))

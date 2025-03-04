@@ -123,7 +123,7 @@
 	recipe_name = "a pair of Splint Chausses"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron, /obj/item/natural/hide, /obj/item/natural/hide)
-	created_item = /obj/item/clothing/under/splintlegs
+	created_item = /obj/item/clothing/pants/splintlegs
 	craftdiff = 2
 
 
@@ -141,6 +141,6 @@
 	recipe_name = "a pair of Platemail Chausses"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel)
-	created_item = /obj/item/clothing/under/chainlegs/reinforced
+	created_item = /obj/item/clothing/pants/chainlegs/reinforced
 	craftdiff = 3
 

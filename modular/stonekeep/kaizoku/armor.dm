@@ -1743,7 +1743,7 @@
 // =================================================================
 // ========================		PANTS	============================
 
-/obj/item/clothing/under/chainlegs/iron/haidate_tatami
+/obj/item/clothing/pants/chainlegs/iron/haidate_tatami
 	name = "haidate tatami"
 	desc = "Flexible thigh guard with interlocking scales sewn into the fabric. Ideal for agility during battle."
 	gender = PLURAL
@@ -1754,7 +1754,7 @@
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_pants.dmi'
 	alternate_worn_layer = SHOESLEEVE_LAYER
 
-/obj/item/clothing/under/chainlegs/sendan
+/obj/item/clothing/pants/chainlegs/sendan
 	name = "haidate sendan"
 	desc = "Segmented thigh armor with overlapping plates that allows engagement in prolonged combat, without causing mobility issues."
 	icon_state = "haidate_sendan"
@@ -1763,12 +1763,12 @@
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_pants.dmi'
 	alternate_worn_layer = SHOESLEEVE_LAYER
 
-/obj/item/clothing/under/chainlegs/sendan/cursed/Initialize()
+/obj/item/clothing/pants/chainlegs/sendan/cursed/Initialize()
 	. = ..()
 	name = "soulbinded kote"
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/clothing/under/platelegs/yoroihakama
+/obj/item/clothing/pants/platelegs/yoroihakama
 	name = "yoroihakama"
 	desc = "Hakama with extreme plate reinforcement, with protuding plates protecting the hips, and many interlocking steel plates under the cloth."
 	gender = PLURAL
@@ -1779,7 +1779,7 @@
 	item_state = "yoroihakama"
 	alternate_worn_layer = SHOESLEEVE_LAYER
 
-/obj/item/clothing/under/kaizoku/yoroihakama/update_icon()
+/obj/item/clothing/pants/kaizoku/yoroihakama/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -1788,7 +1788,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/under/trou/tobi
+/obj/item/clothing/pants/trou/tobi
 	name = "tobi pants"
 	desc = "Baggy pants of abyssariad design. Suitable for those who works the field and avoid horseback."
 	icon_state = "tobi"
@@ -1797,38 +1797,38 @@
 	mob_overlay_icon = 'modular/stonekeep/kaizoku/icons/clothing/pants.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_pants.dmi'
 
-/obj/item/clothing/under/trou/tobi/random/Initialize()
+/obj/item/clothing/pants/trou/tobi/random/Initialize()
 	color = pick(GLOB.peasant_dyes)
 	..()
 
-/obj/item/clothing/under/trou/tobi/thunder
+/obj/item/clothing/pants/trou/tobi/thunder
 	name = "thunder tobi pants"
 	color = CLOTHING_THUNDER
 
-/obj/item/clothing/under/trou/tobi/storm
+/obj/item/clothing/pants/trou/tobi/storm
 	name = "storm tobi pants"
 	color = CLOTHING_STORM
 
-/obj/item/clothing/under/trou/tobi/ocean
+/obj/item/clothing/pants/trou/tobi/ocean
 	name = "sea tobi pants"
 	color = CLOTHING_SEA
 
-/obj/item/clothing/under/trou/tobi/island
+/obj/item/clothing/pants/trou/tobi/island
 	name = "island tobi pants"
 	color = CLOTHING_ISLAND
 
-/obj/item/clothing/under/trou/tobi/dark
+/obj/item/clothing/pants/trou/tobi/dark
 	color = CLOTHING_SOOT_BLACK
 
-/obj/item/clothing/under/trou/tobi/kabukimono
+/obj/item/clothing/pants/trou/tobi/kabukimono
 	color = CLOTHING_KABUKIMONO
 
-/obj/item/clothing/under/trou/tobi/dragonslayer
+/obj/item/clothing/pants/trou/tobi/dragonslayer
 	desc = "Baggy pants of abyssariad design. This one is coated in asbestos, and may be just as dangerous."
 	color = "#3d4681"
 	armor = list("melee" = 20, "bullet" = 0, "laser" = 75,"energy" = 75, "bomb" = 75, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
-/obj/item/clothing/under/trou/leather/fur
+/obj/item/clothing/pants/trou/leather/fur
 	name = "thick tobi"
 	icon_state = "furpants"
 	desc = "A tobi made out of Dendor's beloved guardians - so Abyssor's beloved guardians can use it."
@@ -1836,11 +1836,11 @@
 	mob_overlay_icon = 'modular/stonekeep/kaizoku/icons/clothing/pants.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_pants.dmi'
 
-/obj/item/clothing/under/trou/leather/fur/random/Initialize()
+/obj/item/clothing/pants/trou/leather/fur/random/Initialize()
 	color = pick(GLOB.peasant_dyes)
 	..()
 
-/obj/item/clothing/under/trou/leather/fur/dragonslayer
+/obj/item/clothing/pants/trou/leather/fur/dragonslayer
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	color = CLOTHING_RED_OCHRE
 
@@ -1860,7 +1860,7 @@
 /obj/item/clothing/pants/tights/hakama/eidolon
 	color = CLOTHING_EIDOLON
 
-/obj/item/clothing/under/trou/leather/shinobizubon
+/obj/item/clothing/pants/trou/leather/shinobizubon
 	name = "shinobi zubon"
 	desc = "Traditional flexible pants with loose fit around the legs with hardened leather tied under the cloth and ankles to prevent snagging and noise."
 	gender = PLURAL
@@ -1874,7 +1874,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 
-/obj/item/clothing/under/kaizoku/ceramic
+/obj/item/clothing/pants/kaizoku/ceramic
 	name = "marauder chausses"
 	desc = "Bone chausses chiseled into a mimicry of shells, equal to a lamellar of mollusk shells, so it better absorb and disperse impact."
 	gender = PLURAL
@@ -1895,7 +1895,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	alternate_worn_layer = SHOESLEEVE_LAYER
 
-/obj/item/clothing/under/platelegs/weepershanwenkai
+/obj/item/clothing/pants/platelegs/weepershanwenkai
 	name = "weeper-patterned championage lowerhalf"
 	desc = "Lower part of a godwenkai armor, relics of abyssariad championage for those of high-ranking deeply bound to Abyssanctum. Usually made of bronze, the grasp of the current era brought high-quality steel to the table."
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/pants.dmi'
@@ -1906,7 +1906,7 @@
 	gender = PLURAL
 	alternate_worn_layer = SHOESLEEVE_LAYER
 
-/obj/item/clothing/under/kaizoku/ceramic/light
+/obj/item/clothing/pants/kaizoku/ceramic/light
 	name = "ivory leg plates"
 	desc = "The leg protection proper for Undine warriors."
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/pants.dmi'
@@ -1920,7 +1920,7 @@
 	icon_state = "ivory_legs"
 	item_state = "ivory_legs"
 
-/obj/item/clothing/under/kaizoku/tribal
+/obj/item/clothing/pants/kaizoku/tribal
 	name = "tribal lowerhalf"
 	desc = "piece of clothings usually used by Undine tribesmen of all genders."
 	icon_state = "tribalcloth"

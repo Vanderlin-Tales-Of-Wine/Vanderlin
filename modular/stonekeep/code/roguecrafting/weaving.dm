@@ -158,7 +158,7 @@
 
 /datum/crafting_recipe/roguetown/weaving/silkpantaloons
 	name = "trousers (silk pantaloons)"
-	result = list (/obj/item/clothing/under/pantaloons/random)
+	result = list (/obj/item/clothing/pants/pantaloons/random)
 	craftdiff = 3
 	sellprice = 20
 

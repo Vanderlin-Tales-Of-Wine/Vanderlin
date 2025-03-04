@@ -324,24 +324,24 @@
 /*=========		PANTS	==========*/
 /datum/crafting_recipe/roguetown/leather/pants
 	name = "pants (leather)"
-	result = list(/obj/item/clothing/under/trou/leather)
+	result = list(/obj/item/clothing/pants/trou/leather)
 	reqs = list(/obj/item/natural/hide/cured = 2)
 	req_imperial = TRUE
 
 /datum/crafting_recipe/roguetown/leather/furtobi
 	name = "pants (fur)"
-	result = list(/obj/item/clothing/under/trou/leather/fur)
+	result = list(/obj/item/clothing/pants/trou/leather/fur)
 	req_islander = TRUE
 
 /datum/crafting_recipe/roguetown/leather/pants_heavy
 	name = "pants (heavy leather)"
-	result = /obj/item/clothing/under/leather/heavy
+	result = /obj/item/clothing/pants/leather/heavy
 	reqs = 	list(/obj/item/natural/hide/cured = 2, /obj/item/reagent_containers/food/snacks/tallow = 1)
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/leather/pants_padded
 	name = "pants (padded leather)"
-	result = /obj/item/clothing/under/leather/padded
+	result = /obj/item/clothing/pants/leather/padded
 	reqs = 	list(/obj/item/natural/hide/cured = 2, /obj/item/natural/cloth = 2)
 	craftdiff = 5
 

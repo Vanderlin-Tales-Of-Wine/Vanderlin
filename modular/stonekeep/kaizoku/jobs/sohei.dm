@@ -44,22 +44,22 @@
 	switch(background)
 		if("thunder")
 			neck = /obj/item/clothing/head/soheicloth/thunder
-			pants = /obj/item/clothing/under/trou/tobi/thunder
+			pants = /obj/item/clothing/pants/trou/tobi/thunder
 			belt = /obj/item/storage/belt/kaizoku/leather/daisho/thunder
 			head = /obj/item/clothing/head/helmet/kaizoku/hachigane/thunder
 		if("storm")
 			neck = /obj/item/clothing/head/soheicloth/storm
-			pants = /obj/item/clothing/under/trou/tobi/storm
+			pants = /obj/item/clothing/pants/trou/tobi/storm
 			belt = /obj/item/storage/belt/kaizoku/leather/daisho/storm
 			head = /obj/item/clothing/head/helmet/kaizoku/hachigane/storm
 		if("ocean")
 			neck = /obj/item/clothing/head/soheicloth/ocean
-			pants = /obj/item/clothing/under/trou/tobi/ocean
+			pants = /obj/item/clothing/pants/trou/tobi/ocean
 			belt = /obj/item/storage/belt/kaizoku/leather/daisho/ocean
 			head = /obj/item/clothing/head/helmet/kaizoku/hachigane/ocean
 		if("island")
 			neck = /obj/item/clothing/head/soheicloth/island
-			pants = /obj/item/clothing/under/trou/tobi/island
+			pants = /obj/item/clothing/pants/trou/tobi/island
 			belt = /obj/item/storage/belt/kaizoku/leather/daisho/island
 			head = /obj/item/clothing/head/helmet/kaizoku/hachigane/island
 	switch(weapontype)

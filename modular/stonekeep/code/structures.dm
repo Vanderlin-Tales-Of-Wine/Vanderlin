@@ -329,19 +329,18 @@
 	layer = BELOW_OPEN_DOOR_LAYER
 
 
-/obj/effect/decal/stonehedge_corner
-	name = "stone hedge"
-	desc = ""
-	icon = 'icons/roguetown/misc/railing.dmi'
-	icon_state = "stone_decorn"
-	mouse_opacity = 0
-
 /obj/structure/mineral_door/swing_door/horizontal
 	icon = 'modular/stonekeep/icons/structure.dmi'
+
 
 /obj/structure/fluff/railing/stonehedge
 	icon = 'modular/stonekeep/icons/railing.dmi'
 	passcrawl = FALSE
 	pass_flags = LETPASSTHROW
 
-
+/obj/effect/decal/stonehedge_corner
+	name = "stone hedge"
+	desc = ""
+	icon = 'modular/stonekeep/icons/railing.dmi'
+	icon_state = "stone_decorn"
+	mouse_opacity = 0

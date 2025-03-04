@@ -38,7 +38,7 @@
 	gloves = /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/kaizoku/leather/daisho
 	shirt = /obj/item/clothing/shirt/looseshirt
-	pants = /obj/item/clothing/under/trou/tobi/random
+	pants = /obj/item/clothing/pants/trou/tobi/random
 
 	H.become_blind("TRAIT_GENERIC")
 	var/wokoutype = list("LinYou (Ambusher)","Dustrider (Scout)","Muqian (Towerdweller)","Shuhen (Militia)","Kaizoku (Navy)", "Jizamurai (Enforcer)")
@@ -159,7 +159,7 @@
 			mouth = /obj/item/clothing/face/cigarette/pipe/westman
 			neck = /obj/item/clothing/neck/chaincoif/karuta_zukin
 			shirt = /obj/item/clothing/armor/gambeson/light/hitatare/rich
-			pants = /obj/item/clothing/under/trou/tobi/random
+			pants = /obj/item/clothing/pants/trou/tobi/random
 			beltr = /obj/item/weapon/sword/short/wakizashi
 			beltl = /obj/item/weapon/sword/uchigatana
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)

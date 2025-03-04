@@ -1,0 +1,9 @@
+{
+    "map_name": "Stone Hamlet",
+    "map_path": "map_files/stonehamlet",
+    "map_file": "stonehamlet.dmm",
+	"traits": [{"Up": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Down": true, "Turf Weather Effects": true}],
+	"minetype": null,
+	"space_empty_levels": 0,
+	"space_ruin_levels": 0
+}

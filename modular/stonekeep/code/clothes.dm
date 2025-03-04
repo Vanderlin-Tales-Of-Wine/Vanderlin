@@ -658,9 +658,9 @@
 // ==============================	LEGS	====================================
 // =============================================================================
 
-/obj/item/clothing/under/trou
+/obj/item/clothing/pants/trou
 	salvage_result = /obj/item/natural/cloth
-/obj/item/clothing/under/trou/baggy
+/obj/item/clothing/pants/trou/baggy
 	name = "baggy pants"
 	desc = "A pair of baggy, comfortable pants. They end in a tight stocking around the calf, ballooning out around the thigh."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -669,15 +669,15 @@
 	icon_state = "monkpants"
 	item_state = "monkpants"
 	armor = ARMOR_WEAK
-/obj/item/clothing/under/trou/baggy/Initialize()
+/obj/item/clothing/pants/trou/baggy/Initialize()
 	. = ..()
 	color = pick_assoc(GLOB.noble_dyes)
-/obj/item/clothing/under/trou/leather
+/obj/item/clothing/pants/trou/leather
 	salvage_result = /obj/item/natural/hide/cured
 	armor =  ARMOR_LEATHER_BAD
 
 
-/obj/item/clothing/under/leather/heavy
+/obj/item/clothing/pants/leather/heavy
 	name = "heavy leather trousers"
 	desc = "Thick hide cut and sewn into a pair of very protective trousers. The dense leather can \
 	turn away errant chops."
@@ -695,7 +695,7 @@
 	resistance_flags = FIRE_PROOF
 	armor_class = AC_LIGHT
 
-/obj/item/clothing/under/leather/padded
+/obj/item/clothing/pants/leather/padded
 	name = "fine leather trousers"
 	desc = "Protects your legs from minor cuts and slashes well enough."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -707,7 +707,7 @@
 	max_integrity = INTEGRITY_STRONG
 	armor = 	ARMOR_LEATHER
 
-/obj/item/clothing/under/splintlegs
+/obj/item/clothing/pants/splintlegs
 	name = "splint chausses"
 	desc = "Worn by many a wandering warrior."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -730,30 +730,30 @@
 	prevent_crits = ALL_EXCEPT_STAB
 	max_integrity = INTEGRITY_STRONG
 
-/obj/item/clothing/under/chainlegs/reinforced
+/obj/item/clothing/pants/chainlegs/reinforced
 	name = "platemail chausses"
 	desc = "Chain and plate for the best leg protection possible without going plate."
 	icon_state = "heavyleggies"
 	item_state = "heavyleggies"
 
-/obj/item/clothing/under/platelegs
+/obj/item/clothing/pants/platelegs
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
 	icon_state = "plate_legs"
 	item_state = "plate_legs"
 
-/obj/item/clothing/under/platelegs/captain
+/obj/item/clothing/pants/platelegs/captain
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_pants.dmi'
 
-/obj/item/clothing/under/platelegs/rust
+/obj/item/clothing/pants/platelegs/rust
 	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/rust_armor.dmi'
 
-/obj/item/clothing/under/platelegs/vampire
+/obj/item/clothing/pants/platelegs/vampire
 	icon = 'icons/roguetown/clothing/pants.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/pants.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_pants.dmi'
@@ -806,7 +806,7 @@
 	color = CLOTHING_PLUM_PURPLE
 
 //................ Silk Pantaloons ............... //
-/obj/item/clothing/under/pantaloons
+/obj/item/clothing/pants/pantaloons
 	name = "silk pantaloons"
 	icon_state = "pantaloons"
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -817,11 +817,11 @@
 	l_sleeve_status = SLEEVE_NOMOD
 	adjustable = FALSE
 
-/obj/item/clothing/under/pantaloons/random/Initialize()
+/obj/item/clothing/pants/pantaloons/random/Initialize()
 	color = pick_assoc(GLOB.noble_dyes)
 	..()
 
-/obj/item/clothing/under/pantaloons/dark
+/obj/item/clothing/pants/pantaloons/dark
 	color = CLOTHING_DARK_INK
 
 // ==============================	FEET	====================================

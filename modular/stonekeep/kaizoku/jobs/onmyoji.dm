@@ -32,7 +32,7 @@
 	backl = /obj/item/weapon/polearm/woodstaff/quarterstaff/bostaff
 	armor = /obj/item/clothing/shirt/kaizoku/robe
 	head = /obj/item/clothing/head/wizhat/onmyoji/eboshi
-	pants = /obj/item/clothing/under/trou/tobi/dark
+	pants = /obj/item/clothing/pants/trou/tobi/dark
 
 	var/yesno = list("Yes. I am Iron-hearted.","No. I am Civilian.")
 	var/military = input("Sworn to the Fog Island ranks?", "Emperor's regiment?") as anything in yesno
@@ -43,19 +43,19 @@
 				if("thunder")
 					armor = /obj/item/clothing/shirt/robe/wizard/guardian/thunder
 					head = /obj/item/clothing/head/wizhat/onmyoji/thunder
-					pants = /obj/item/clothing/under/trou/tobi/thunder
+					pants = /obj/item/clothing/pants/trou/tobi/thunder
 				if("storm")
 					armor = /obj/item/clothing/shirt/robe/wizard/guardian/storm
 					head = /obj/item/clothing/head/wizhat/onmyoji/storm
-					pants = /obj/item/clothing/under/trou/tobi/storm
+					pants = /obj/item/clothing/pants/trou/tobi/storm
 				if("ocean")
 					armor = /obj/item/clothing/shirt/robe/wizard/guardian/ocean
 					head = /obj/item/clothing/head/wizhat/onmyoji/ocean
-					pants = /obj/item/clothing/under/trou/tobi/ocean
+					pants = /obj/item/clothing/pants/trou/tobi/ocean
 				if("island")
 					armor = /obj/item/clothing/shirt/robe/wizard/guardian/island
 					head = /obj/item/clothing/head/wizhat/onmyoji/island
-					pants = /obj/item/clothing/under/trou/tobi/island
+					pants = /obj/item/clothing/pants/trou/tobi/island
 			H.set_blindness(0)
 		if("No. I am a Civilian.)") //Just continue and replace.
 			H.set_blindness(0)

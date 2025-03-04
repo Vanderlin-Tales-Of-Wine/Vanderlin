@@ -30,7 +30,7 @@
 	head = /obj/item/clothing/head/helmet/heavy/bucket/soheidemon
 	wrists = /obj/item/clothing/neck/psycross/silver/abyssanctum
 	shirt = /obj/item/clothing/armor/chainmail/hauberk/kusari
-	pants = /obj/item/clothing/under/chainlegs/sendan
+	pants = /obj/item/clothing/pants/chainlegs/sendan
 	shoes = /obj/item/clothing/shoes/sandals/geta
 	belt = /obj/item/storage/belt/kaizoku/leather/daisho/random
 	beltl = /obj/item/storage/belt/pouch/coins/mid

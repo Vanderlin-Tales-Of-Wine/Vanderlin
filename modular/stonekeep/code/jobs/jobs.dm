@@ -1,16 +1,14 @@
+#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun","Undine")
 
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Monarch",
-	"Consort",
 	"Hand",
-	"Prince",
 	"Captain",
 	"Steward",
 	"Court Magician",
 	"Archivist",
 	"Merchant",
 	"Feldsher",
-	"Apothecary",
 	"Noble"
 	))
 
@@ -19,11 +17,7 @@ GLOBAL_LIST_INIT(garrison_positions, list(
 	"Veteran",
 	"Garrison Guard",
 	"Men-at-arms",
-	"Jailor",
-	"Dungeoneer",
 	"Town Elder",
-	"Forest Warden",
-	"Forest Guard"
 	))
 
 GLOBAL_LIST_INIT(church_positions, list(
@@ -38,15 +32,8 @@ GLOBAL_LIST_INIT(church_positions, list(
 
 GLOBAL_LIST_INIT(serf_positions, list(
 	"Innkeep",
-	"Armorer",
-	"Weaponsmith",
 	"Blacksmith",
 	"Tailor",
-	"Alchemist",
-	"Artificier",
-	"Matron",
-	"Physicker",
-	"Scribe",
 	))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
@@ -74,14 +61,9 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	"Squire",
 	"Smithy Apprentice",
 	"Magician's Apprentice",
-	"Servant",
-	"Orphan"
 	))
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(
-	"Innkeepers Son",
-	"Orphan",
-	"Churchling",
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
@@ -104,52 +86,6 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 	"Green Fighter"
 	))
 
-GLOBAL_LIST_INIT(test_positions, list(
-	"Tester"
-	))
-
-GLOBAL_LIST_EMPTY(job_assignment_order)
-
-/proc/get_job_assignment_order()
-	var/list/sorting_order = list()
-	sorting_order += GLOB.noble_positions
-	sorting_order += GLOB.garrison_positions
-	sorting_order += GLOB.church_positions
-	sorting_order += GLOB.serf_positions
-	sorting_order += GLOB.peasant_positions
-	sorting_order += GLOB.apprentices_positions
-	sorting_order += GLOB.allmig_positions
-	sorting_order += GLOB.youngfolk_positions
-	return sorting_order
-
-GLOBAL_LIST_INIT(exp_jobsmap, list(
-	EXP_TYPE_TOWNER = list("titles" = peasant_positions | apprentices_positions | youngfolk_positions | serf_positions),
-	EXP_TYPE_NOBLE = list("titles" = noble_positions),
-	EXP_TYPE_CHURCH = list("titles" = church_positions),
-	EXP_TYPE_GUARDS = list("titles" = garrison_positions),
-	EXP_TYPE_ADVENTURER = list("titles" = allmig_positions),
-))
-
-GLOBAL_LIST_INIT(exp_specialmap, list(
-	EXP_TYPE_LIVING = list(), // all living mobs
-	EXP_TYPE_ANTAG = list(),
-	EXP_TYPE_GHOST = list() // dead people, observers
-))
-GLOBAL_PROTECT(exp_jobsmap)
-GLOBAL_PROTECT(exp_specialmap)
-
-
-//this is necessary because antags happen before job datums are handed out, but NOT before they come into existence
-//so I can't simply use job datum.department_head straight from the mind datum, laaaaame.
-/proc/get_department_heads(job_title)
-	if(!job_title)
-		return list()
-
-	for(var/datum/job/J in SSjob.occupations)
-		if(J.title == job_title)
-			return J.department_head //this is a list
-
-
 
 // ===========		DISABLES VANDERLIN JOBS		=====
 
@@ -171,8 +107,6 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/innkeep/config_check()
 	return FALSE
 /datum/job/tailor/config_check()
-	return FALSE
-/datum/advclass/pilgrim/blacksmith/config_check()
 	return FALSE
 
 // TEMPLE
@@ -249,7 +183,16 @@ GLOBAL_PROTECT(exp_specialmap)
 	return FALSE
 /datum/job/bandit/config_check()
 	return FALSE
-
+/datum/job/hunter/config_check()
+	return FALSE
+/datum/job/miner/config_check()
+	return FALSE
+/datum/job/bapprentice/config_check()
+	return FALSE
+/datum/job/squire/config_check()
+	return FALSE
+/datum/job/servant/config_check()
+	return FALSE
 // NOBLE
 /datum/job/lord/config_check()
 	return FALSE
@@ -275,3 +218,55 @@ GLOBAL_PROTECT(exp_specialmap)
 	return FALSE
 /datum/job/minor_noble/config_check()
 	return FALSE
+/datum/advclass/pilgrim/bard
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/blacksmith
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/briar
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/cheesemaker
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/fisher
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/hunter
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/huntress
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/noble
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/peasant
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/physicker
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/weaver
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/woodcutter
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/grenzelhoft
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/mastercarpenter
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/masterchef
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/fishermaster
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/grandmastermason
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/minermaster
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/farmermaster
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/masterblacksmith
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/zybantine
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/preacher
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/merchant
+	maximum_possible_slots = 0
+/datum/advclass/pilgrim/rare/crusader
+	maximum_possible_slots = 0
+/datum/advclass/combat/heartfelthand
+	maximum_possible_slots = 0
+/datum/advclass/combat/heartfeltlord
+	maximum_possible_slots = 0

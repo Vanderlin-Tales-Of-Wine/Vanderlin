@@ -36,7 +36,7 @@
 			H.set_blindness(0)
 			armor = /obj/item/clothing/armor/ceramic/reinforced
 			head = /obj/item/clothing/head/helmet/ceramic/reinforced
-			pants = /obj/item/clothing/under/kaizoku/ceramic
+			pants = /obj/item/clothing/pants/kaizoku/ceramic
 			beltl = /obj/item/weapon/mace/cudgel/rungu
 			backl = /obj/item/weapon/mace/ararebo/obsidian
 			shoes = /obj/item/clothing/shoes/sandals/geta
@@ -60,7 +60,7 @@
 			H.set_blindness(0)
 			armor = /obj/item/clothing/armor/ceramic
 			head = /obj/item/clothing/head/helmet/ceramic/medium
-			pants = /obj/item/clothing/under/kaizoku/ceramic/light
+			pants = /obj/item/clothing/pants/kaizoku/ceramic/light
 			backr = /obj/item/weapon/polearm/spear/stone/obsidian
 			backl = /obj/item/weapon/shield/wood/rattan
 			beltr = /obj/item/weapon/mace/cudgel/rungu
@@ -88,7 +88,7 @@
 			armor = /obj/item/clothing/armor/leather/vest/muneate/kappa
 			shirt = /obj/item/clothing/armor/ceramic/light
 			head = /obj/item/clothing/head/helmet/ceramic
-			pants = /obj/item/clothing/under/kaizoku/tribal
+			pants = /obj/item/clothing/pants/kaizoku/tribal
 			shoes = /obj/item/clothing/shoes/sandals/geta
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/bonebracer
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow

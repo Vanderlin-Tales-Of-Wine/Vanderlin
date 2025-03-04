@@ -227,7 +227,7 @@
 /datum/outfit/deadunderdweller
 	armor = /obj/item/clothing/armor/cuirass/iron
 	shirt = /obj/item/clothing/shirt/undershirt/sailor/red
-	pants = /obj/item/clothing/under/trou/leather
+	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/backpack
 	head = /obj/item/clothing/head/helmet/leather/minershelm

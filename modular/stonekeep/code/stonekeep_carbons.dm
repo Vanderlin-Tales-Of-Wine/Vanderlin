@@ -231,7 +231,7 @@
 	if(prob(20))
 		pants =	/obj/item/clothing/pants/loincloth/brown
 	if(prob(20))
-		pants = /obj/item/clothing/under/trou/leather
+		pants = /obj/item/clothing/pants/trou/leather
 
 	if(prob(20))
 		shoes = /obj/item/clothing/shoes/boots/furlinedanklets
@@ -285,7 +285,7 @@
 	if(prob(20))
 		pants =	/obj/item/clothing/pants/loincloth/brown
 	if(prob(20))
-		pants = /obj/item/clothing/under/trou/leather
+		pants = /obj/item/clothing/pants/trou/leather
 
 	if(prob(20))
 		shoes = /obj/item/clothing/shoes/boots/furlinedanklets
@@ -456,10 +456,10 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	switch(armor)
 		if(1)
 			armor = /obj/item/clothing/armor/gambeson/light
-			pants = /obj/item/clothing/under/trou/leather
+			pants = /obj/item/clothing/pants/trou/leather
 		if(2)
 			armor = /obj/item/clothing/shirt/rags
-			pants = /obj/item/clothing/under/trou/leather
+			pants = /obj/item/clothing/pants/trou/leather
 		if(3)
 			armor = /obj/item/clothing/armor/gambeson
 		if(4)

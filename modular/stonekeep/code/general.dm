@@ -853,9 +853,38 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	create_travel_tiles(location, travel_id, travel_goes_to_id, required_trait, path)
 */
 
-
+// =============================================================
+// ================		LANDMARKSF		========================
 /obj/effect/landmark/start/gravekeeper
 	name = "Gravekeeper"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/mason
+	name = "Mason"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/woodsmann
+	name = "Woodsman"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/villageelder
+	name = "Village Elder"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/blacksmith
+	name = "Blacksmith"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/royalguard
+	name = "Royal Guard"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/garrisonguard
+	name = "Garrison Guard"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/stevedore
+	name = "Stevedore"
 	icon_state = "arrow"
 
 /obj/structure/handcart/corpse

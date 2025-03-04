@@ -229,7 +229,7 @@
 /*========= CLOTHING ==========*/
 /datum/crafting_recipe/roguetown/sewing/clothtrou
 	name = "cloth trousers {ip}"
-	result = list(/obj/item/clothing/under/trou)
+	result = list(/obj/item/clothing/pants/trou)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
@@ -322,7 +322,7 @@
 
 /datum/crafting_recipe/roguetown/sewing/tribal
 	name = "clothes (tribal garb)"
-	result = list(/obj/item/clothing/under/kaizoku/tribal)
+	result = list(/obj/item/clothing/pants/kaizoku/tribal)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	req_islander = TRUE
@@ -533,7 +533,7 @@
 
 /datum/crafting_recipe/roguetown/sewing/tobi
 	name = "tobi trousers {fl}"
-	result = list(/obj/item/clothing/under/trou/tobi)
+	result = list(/obj/item/clothing/pants/trou/tobi)
 	reqs = list(/obj/item/natural/cloth = 4,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 1
@@ -570,7 +570,7 @@
 
 /datum/crafting_recipe/roguetown/sewing/zubon
 	name = "stealthy trousers {fl}"
-	result = list(/obj/item/clothing/under/trou/leather/shinobizubon)
+	result = list(/obj/item/clothing/pants/trou/leather/shinobizubon)
 	reqs = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/fibers = 2)
 	craftdiff = 2

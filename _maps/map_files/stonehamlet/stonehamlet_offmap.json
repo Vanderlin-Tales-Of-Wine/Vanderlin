@@ -1,6 +1,6 @@
 {
-    "map_name": "smalldecap",
-    "map_path": "map_files/roguetown/otherz",
-    "map_file": "smalldecap.dmm",
-    "traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
+    "map_name": "Stone Hamlet Offmap",
+    "map_path": "map_files/stonehamlet",
+    "map_file": "stonehamlet_offmap.dmm",
+    "traits": [{"Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true}]
 }
