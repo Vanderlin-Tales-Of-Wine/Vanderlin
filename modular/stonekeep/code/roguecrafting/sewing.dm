@@ -15,11 +15,11 @@
 
 /datum/crafting_recipe/roguetown/sewing/bag
 	name = "bag"
-	result = /obj/item/storage/roguebag
+	result = /obj/item/storage/bag
 	reqs = list(/obj/item/natural/fibers = 1,
 				/obj/item/natural/cloth = 1)
 
-/obj/item/storage/roguebag/crafted
+/obj/item/storage/bag/crafted
 	sellprice = 4
 /datum/crafting_recipe/roguetown/sewing/burial_shroud
 	name = "winding sheet"
@@ -347,7 +347,7 @@
 /datum/crafting_recipe/roguetown/sewing/sack
 	name = "hat (sack hood)"
 	result = list(/obj/item/clothing/head/menacing)
-	reqs = list(/obj/item/storage/roguebag)
+	reqs = list(/obj/item/storage/bag)
 
 /datum/crafting_recipe/roguetown/sewing/armingcap
 	name = "hat (arming cap)"

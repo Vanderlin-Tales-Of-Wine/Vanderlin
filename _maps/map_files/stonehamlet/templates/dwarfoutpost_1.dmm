@@ -696,7 +696,7 @@
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "RA" = (
 /obj/structure/table/wood/reinforced_alter,
-/obj/item/storage/roguebag{
+/obj/item/storage/bag{
 	pixel_y = 10
 	},
 /turf/open/floor/concrete,

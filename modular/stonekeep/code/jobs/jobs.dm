@@ -37,6 +37,7 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
+	"Village Elder",
 	"Soilson",
 	"Hammerite",
 	"Stevedore",

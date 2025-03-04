@@ -1234,8 +1234,8 @@
 /area/rogue/indoors/bandit_lair)
 "qp" = (
 /obj/structure/rack,
-/obj/item/storage/roguebag,
-/obj/item/storage/roguebag,
+/obj/item/storage/bag,
+/obj/item/storage/bag,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/bandit_lair)
 "qq" = (
@@ -1792,7 +1792,7 @@
 	dir = 6;
 	icon_state = "largetable"
 	},
-/obj/item/storage/roguebag,
+/obj/item/storage/bag,
 /turf/open/floor/tile,
 /area/rogue/indoors/vampire_manor)
 "yp" = (
