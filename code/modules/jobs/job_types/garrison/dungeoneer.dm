@@ -24,7 +24,7 @@
 
 	outfit = /datum/outfit/job/dungeoneer
 	give_bank_account = 50
-	min_pq = 6
+	min_pq = 10
 
 	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 

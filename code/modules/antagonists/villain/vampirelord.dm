@@ -408,7 +408,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, "I am already the Master of Enigma.")
+		to_chat(src, "I am already the Master of Vanderlin.")
 		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
@@ -715,7 +715,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(GLOB.tod == "night")
 					to_chat(user, "It's already night!")
 					return
-				if(alert(user, "Force Enigma into Night? Cost:5000","","Yes","No") == "Yes")
+				if(alert(user, "Force Vanderlin into Night? Cost:5000","","Yes","No") == "Yes")
 					if(!lord.mypool.check_withdraw(-2500))
 						to_chat(user, "I don't have enough vitae!")
 						return
