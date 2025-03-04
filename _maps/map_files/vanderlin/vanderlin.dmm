@@ -5391,14 +5391,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "dNR" = (
-/obj/structure/fluff/railing/wood{
-	dir = 1;
-	layer = 2.7;
-	pixel_x = 1;
-	pixel_y = 7
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/town)
+)
 "dOg" = (
 /obj/structure/mineral_door/wood{
 	lockid = "apartment19";
@@ -131430,8 +131423,8 @@ acx
 fdp
 pQS
 dLL
-irl
-irl
+dNR
+dNR
 oiZ
 lGr
 gwF
@@ -131632,7 +131625,7 @@ acx
 fdp
 god
 qiB
-irl
+dNR
 dRI
 oiZ
 doX
