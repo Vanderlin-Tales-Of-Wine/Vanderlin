@@ -36,7 +36,7 @@
 		default = items[1]
 
 	//TODO
-	set_head_content(@{"
+	set_head_content({"
 	<style>
 		form {
 			display: flex;
@@ -48,16 +48,25 @@
 			width: 100%;
 		}
 
-		label:has(input[type='radio']:checked) {
+		label:has(input\[type='radio']:checked) {
 			background-color: ["#2b2121"];
 		}
 
 		.input_list_options {
 			flex-grow: 1;
 			padding: 4px;
-
+			margin: 0.5em 0;
 			border: 1px solid #7b5353;
+
+			[/* I shamelessly stole this from a stack overflow answer */]
 			overflow-y: auto;
+			scrollbar-face-color: #000;
+			scrollbar-shadow-color: #7b5353;
+			scrollbar-highlight-color: #7b5353;
+			scrollbar-3dlight-color: #000;
+			scrollbar-darkshadow-color: #000;
+			scrollbar-track-color: #000;
+			scrollbar-arrow-color: #7b5353;
 		}
 	</style>
 	"})
@@ -71,7 +80,8 @@
 				[item]
 			</label>"}
 
-	var/output = {"
+	..(user, ckey("[user]-[message]-[title]-[world.time]-[rand(1,10000)]"), title, 350, 300, src, TRUE, timeout)
+	set_content({"
 	<form style="width: 100%; height: 100%;" action="byond://">
 		<input type="hidden" name="src" value="[REF(src)]">
 
@@ -79,18 +89,15 @@
 		<div id="options" class="input_list_options">
 			[choices.Join("<br/>\n")]
 		</div>
-		<br/>
 
-		[NULLABLE(length(choices) > 9) && {"
-		<input type="text" placeholder="Search..."/>
-		"}]
+		[/*NULLABLE(length(choices) > 9) && {"
+		<input type="text" placeholder="CULL..."/>
+		"}*/]
 		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
-			<button type="submit" name="submit" value="[TRUE]">Make It So</button>
-			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>Rescind</button>
+			<button type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
+			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
 		</div>
-	</form>"}
-	..(user, ckey("[user]-[message]-[title]-[world.time]-[rand(1,10000)]"), title, 350, 300, src, TRUE, timeout)
-	set_content(output)
+	</form>"})
 
 /datum/browser/modal/input_list/Topic(href, href_list)
 	. = ..()
@@ -101,7 +108,7 @@
 	close()
 
 /datum/browser/modal/input_list/set_choice(choice)
-	
+
 	src.choice = results[choice]
 
 /*-----------------------*/
