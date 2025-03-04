@@ -44,7 +44,7 @@
 		}
 
 		label {
-			display: inline-block;
+			display: block;
 			width: 100%;
 		}
 
@@ -60,6 +60,39 @@
 			overflow-y: auto;
 		}
 	</style>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(){
+			const searchBar = document.querySelector("input\[type='text']");
+			if(searchBar === null){
+				return;
+			}
+
+			const optionsList = document.querySelector("#options");
+			searchBar.addEventListener("input", function(event){
+				const term = event.target.value.toLowerCase();
+
+				const options = optionsList.getElementsByTagName("label");
+				let tabI = 0;
+				for(let i = 0; i < options.length; i++){
+					const label = options\[i];
+					console.log(label);
+					const child = label.querySelector("input");
+					const found = (!term || (child.value.toLowerCase().indexOf(term) !== -1));
+					if(found){
+						console.log("has");
+						label.style.display = "";
+						child.disabled = false;
+					}
+					else {
+						console.log("does not have");
+						label.style.display = "none";
+						child.disabled = true;
+					}
+				}
+			})
+		})
+	</script>
 	"})
 
 	var/list/choices = list()
@@ -78,12 +111,11 @@
 
 		<center><b>[message]</b></center>
 		<div id="options" class="input_list_options">
-			[choices.Join("<br/>\n")]
+			[choices.Join("\n")]
 		</div>
 
-		[/*NULLABLE(length(choices) > 9) && {"
-		<input type="text" placeholder="CULL..."/>
-		"}*/]
+		[NULLABLE(length(choices) > 9) && \
+		"<input id='searchbar' type='text' placeholder='CULL...'/>"]
 		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
 			<button type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
 			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
