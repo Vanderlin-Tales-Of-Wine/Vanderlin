@@ -5,10 +5,10 @@
 	info = "You'll know it's a secret door when you walk into a dead-end, lad. Just say the password next to it, or 'help'. Oh, and try to do it in thieves cant, aye? Eavesdroppers are always about."
 
 /obj/item/paper/heartfelt/goal3
-	info = "Establish a diplomatic alliance with the King of Vanderlin to strengthen the relationship between Heartfelt and Vanderlin."
+	info = "Establish a diplomatic alliance with the Monarch of Vanderlin to strengthen the relationship between Heartfelt and Vanderlin."
 
 /obj/item/paper/heartfelt/goal2
-	info = "Explore the mysteries of isle of Enigma, uncovering its secrets and hidden treasures."
+	info = "Explore the mysteries of peninsula of Vanderlin, uncovering its secrets and hidden treasures."
 
 /obj/item/paper/heartfelt/goal1
 	info = "Negotiate trade agreements with merchants in Vanderlin to facilitate the exchange of goods and resources between the two realms."

@@ -70,7 +70,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/mineral_door/secret/door_rattle()
 	return
 
-/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
 		return
@@ -82,7 +82,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(!ishuman(speaker))
 		return
 
-	var/message2recognize = sanitize_hear_message(raw_message)
+	var/message2recognize = sanitize_hear_message(original_message)
 	var/isvip = FALSE
 	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
 		isvip = TRUE

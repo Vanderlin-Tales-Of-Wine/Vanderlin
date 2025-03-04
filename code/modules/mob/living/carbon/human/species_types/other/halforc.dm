@@ -109,4 +109,4 @@
 	return null
 
 /datum/species/halforc/get_accent_list()
-	return strings("middlespeak.json", "full")
+	return strings("halforc_replacement.json", "halforc")
