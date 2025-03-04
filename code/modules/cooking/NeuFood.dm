@@ -552,7 +552,53 @@
 	..()
 	qdel(src)
 
+/obj/item/reagent_containers/food/snacks/egg
 
+/obj/item/reagent_containers/powder/bread
+	name = "bread crumbs"
+	desc = "Dry, rough, and pure rosted taste. What could be better."
+	icon_state = "bread_crumbs"
+	list_reagents = list(/datum/reagent/floure = 1)
+	volume = 1
+	sellprice = 0
+	var/egg_added
+/obj/item/reagent_containers/powder/bread/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+	new /obj/effect/decal/cleanable/food/bread_crumbs(get_turf(src))
+	..()
+	qdel(src)
+/obj/item/reagent_containers/powder/bread/attackby(obj/item/I, mob/living/user, params)
+	..()
+	var/found_table = locate(/obj/structure/table) in (loc)
+	var/obj/item/reagent_containers/food/snacks/egg/R = I
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
+	if(isturf(loc)&& (found_table))
+		if(!istype(R) || (egg_added))
+			return ..()
+		if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
+			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+			return TRUE
+		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+		if(do_after(user,15, src))
+			name = "sticky batter"
+			desc = "Destined for greatness, hidden under it."
+			egg_added = TRUE
+			color = "#face66"
+	else
+		to_chat(user, span_warning("Put [src] on a table before working it!"))
+
+/obj/item/reagent_containers/powder/bread/attack_hand(mob/living/user)
+	if(egg_added)
+		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
+		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			var/obj/item/reagent_containers/food/snacks/dough_base/newdough= new(get_turf(user))
+			user.put_in_hands(newdough)
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+			qdel(src)
+	else
+		..()
 
 /*------------------\
 | Meals on platters |

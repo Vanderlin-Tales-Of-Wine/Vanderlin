@@ -37,3 +37,9 @@
 	desc = ""
 	icon_state = "flour"
 	mouse_opacity = 0
+
+/obj/effect/decal/cleanable/food/bread_crumbs
+	name = "bread crumbs"
+	desc = ""
+	icon_state = "bread_crumbs"
+	mouse_opacity = 0
