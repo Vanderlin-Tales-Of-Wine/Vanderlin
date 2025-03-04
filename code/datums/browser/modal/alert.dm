@@ -19,14 +19,14 @@
 	if(Button3)
 		buttons += Button3
 
-	var/datum/browser/modal/alert/alert = new(user, Message, Title, buttons, StealFocus, Timeout)
+	var/datum/browser/modal/alert/alert = new(user, Message, Title, buttons, Timeout, StealFocus)
 	alert.open()
 	alert.wait()
 	if(alert)
-		. = alert.selectedbutton
+		. = alert.choice
 		qdel(alert)
 
-/proc/browser_alert(mob/user, message = "", title, list/buttons = list("So be it"), timeout = 6000, autofocus = TRUE)
+/proc/browser_alert(mob/user, message = "", title = "VANDERLIN", list/buttons = list("So Be It"), timeout = 0, autofocus = TRUE)
 	if(!user)
 		user = usr
 
@@ -44,34 +44,40 @@
 	alert.open()
 	alert.wait()
 	if(alert)
-		. = alert.selectedbutton
+		. = alert.choice
 		qdel(alert)
+
+/datum/browser/modal/alert
+	var/final/list/buttons
 
 /datum/browser/modal/alert/New(mob/user, message, title, list/buttons, timeout, autofocus)
 	if(!user)
+		closed = TRUE
 		return
+
+	src.buttons = buttons.Copy()
 
 	var/list/options = list()
 	for(var/button in buttons)
-		options += "<a href='byond://?src=[REF(src)];action=choose;choice=[button]'>[button]</a>"
+		options += "<a href='byond://?src=[REF(src)];choice=[button]'>[button]</a>"
 
-	var/output =  {"
+	var/output = \
+	{"
 	<center><b>[message]</b></center>
 	<br/>
-	<div style="display: flex; justify-content: space-between;">
+	<div style="display: flex; justify-content: space-between; text-align: center;">
 		[options.Join("\n")]
-	</div>"}
+	</div>
+	"}
 
 	..(user, ckey("[user]-[message]-[title]-[world.time]-[rand(1,10000)]"), title, 350, 150, src, autofocus, timeout)
 	set_content(output)
 
-/datum/browser/modal/alert/Topic(href,href_list)
-	if (href_list["close"] || !user || !user.client)
-		opentime = 0
-		return
-	if (href_list["button"])
-		var/button = text2num(href_list["button"])
-		if (button <= 3 && button >= 1)
-			selectedbutton = button
-	opentime = 0
+/datum/browser/modal/alert/Topic(href, href_list)
+	if(href_list["choice"])
+		if(!(href_list["choice"] in buttons))
+			CRASH("[user] selected non-existant button choice: [href_list["choice"]]")
+		set_choice(href_list["choice"])
+
+	closed = TRUE
 	close()

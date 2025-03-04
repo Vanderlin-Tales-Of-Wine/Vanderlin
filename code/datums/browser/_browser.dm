@@ -12,7 +12,7 @@
 	/// The window's height in pixels.
 	var/final/height
 	/// Params for the window on creation.
-	var/final/window_options = "can_close=1;can_minimize=1;can_maximize=0;can_resize=1;titlebar=1;"
+	VAR_PROTECTED/window_options = "can_close=1;can_minimize=1;can_maximize=0;can_resize=1;titlebar=1;"
 	/// A list of paths to CSS files.
 	VAR_PRIVATE/final/list/stylesheets = list()
 	/// A list of paths to JavaScript files.
@@ -22,13 +22,13 @@
 	/// Text containing the contents of the \<body\> element.
 	VAR_PRIVATE/final/body = ""
 
-/datum/browser/New(mob/user, window_id, title = "", width, height, atom/owner = null)
+/datum/browser/New(mob/user, window_id, title = "", width = 0, height = 0, atom/owner = null)
 	if(!user)
 		CRASH("created a browser for no user")
 	if(!window_id)
 		CRASH("created a browser with no window id")
 	src.user = user
-	RegisterSignal(src, COMSIG_MOB_CLIENT_MOVED, )
+	RegisterSignal(src, COMSIG_MOB_CLIENT_MOVED, PROC_REF(user_moved))
 	src.window_id = window_id
 	RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(user_deleted))
 	src.title = format_text(title)
@@ -40,8 +40,9 @@
 
 /datum/browser/Destroy(force, ...)
 	. = ..()
-	var/client/user_client = isclient(user) ? user : user.client
-	UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
+	if(!isnull(user))
+		var/client/user_client = isclient(user) ? user : user.client
+		UnregisterSignal(user_client, COMSIG_MOB_CLIENT_MOVED)
 	user = null
 	owner = null
 
@@ -62,9 +63,6 @@
 /datum/browser/proc/user_moved(direction, old_direction)
 	qdel(src)
 
-/datum/browser/proc/set_head_content(head_content)
-	head = head_content
-
 /datum/browser/proc/set_window_options(nwindow_options)
 	window_options = nwindow_options
 
@@ -84,13 +82,14 @@
 	scripts["[ckey(name)].js"] = file
 	SSassets.transport.register_asset("[ckey(name)].js", file)
 
+/datum/browser/proc/set_head_content(head_content)
+	head = head_content
+
 /datum/browser/proc/set_content(content)
 	body = content
 
 /datum/browser/proc/add_content(content)
 	body += content
-
-/datum/browser/proc/get_header()
 
 /datum/browser/proc/build_page()
 	var/head_content = head
@@ -112,7 +111,7 @@
 			</head>
 			<body scroll=auto>
 				<div class='uiWrapper'>
-					<div class='uiTitleWrapper'><div class='uiTitle'><tt>[title]</tt></div></div>
+					<div class='uiTitle'><tt>[title]</tt></div>
 					<div class='uiContent'>
 						[body]
 					</div>
@@ -150,95 +149,6 @@
 		user << browse(null, "window=[window_id]")
 	else
 		WARNING("Browser [title] tried to close with a null ID")
-
-/datum/browser/modal/listpicker
-	var/valueslist = list()
-
-/datum/browser/modal/listpicker/New(User,Message,Title,Button1="Ok",Button2,Button3,StealFocus = 1, Timeout = FALSE,list/values,inputtype="checkbox", width, height, slidecolor)
-	if (!User)
-		return
-
-	var/output =  {"<form><input type="hidden" name="src" value="[REF(src)]"><ul class="sparse">"}
-	if (inputtype == "checkbox" || inputtype == "radio")
-		for (var/i in values)
-			var/div_slider = slidecolor
-			if(!i["allowed_edit"])
-				div_slider = "locked"
-			output += {"<li>
-						<label class="switch">
-							<input type="[inputtype]" value="1" name="[i["name"]]"[i["checked"] ? " checked" : ""][i["allowed_edit"] ? "" : " onclick='return false' onkeydown='return false'"]>
-								<div class="slider [div_slider ? "[div_slider]" : ""]"></div>
-									<span>[i["name"]]</span>
-						</label>
-						</li>"}
-	else
-		for (var/i in values)
-			output += {"<li><input id="name="[i["name"]]"" style="width: 50px" type="[type]" name="[i["name"]]" value="[i["value"]]">
-			<label for="[i["name"]]">[i["name"]]</label></li>"}
-	output += {"</ul><div style="text-align:center">
-		<button type="submit" name="button" value="1" style="font-size:large;float:[( Button2 ? "left" : "right" )]">[Button1]</button>"}
-
-	if (Button2)
-		output += {"<button type="submit" name="button" value="2" style="font-size:large;[( Button3 ? "" : "float:right" )]">[Button2]</button>"}
-
-	if (Button3)
-		output += {"<button type="submit" name="button" value="3" style="font-size:large;float:right">[Button3]</button>"}
-
-	output += {"</form></div>"}
-	..(User, ckey("[User]-[Message]-[Title]-[world.time]-[rand(1,10000)]"), Title, width, height, src, StealFocus, Timeout)
-	set_content(output)
-
-/datum/browser/modal/listpicker/Topic(href,href_list)
-	if (href_list["close"] || !user || !user.client)
-		opentime = 0
-		return
-	if (href_list["button"])
-		var/button = text2num(href_list["button"])
-		if (button <= 3 && button >= 1)
-			selectedbutton = button
-	for (var/item in href_list)
-		switch(item)
-			if ("close", "button", "src")
-				continue
-			else
-				valueslist[item] = href_list[item]
-	opentime = 0
-	close()
-
-/proc/presentpicker(mob/User,Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1,Timeout = 6000,list/values, inputtype = "checkbox", width, height, slidecolor)
-	if (!istype(User))
-		if (istype(User, /client/))
-			var/client/C = User
-			User = C.mob
-		else
-			return
-	var/datum/browser/modal/listpicker/A = new(User, Message, Title, Button1, Button2, Button3, StealFocus,Timeout, values, inputtype, width, height, slidecolor)
-	A.open()
-	A.wait()
-	if (A.selectedbutton)
-		return list("button" = A.selectedbutton, "values" = A.valueslist)
-
-/proc/input_bitfield(mob/User, title, bitfield, current_value, nwidth = 350, nheight = 350, nslidecolor, allowed_edit_list = null)
-	if (!User || !(bitfield in GLOB.bitfields))
-		return
-	var/list/pickerlist = list()
-	for (var/i in GLOB.bitfields[bitfield])
-		var/can_edit = 1
-		if(!isnull(allowed_edit_list) && !(allowed_edit_list & GLOB.bitfields[bitfield][i]))
-			can_edit = 0
-		if (current_value & GLOB.bitfields[bitfield][i])
-			pickerlist += list(list("checked" = 1, "value" = GLOB.bitfields[bitfield][i], "name" = i, "allowed_edit" = can_edit))
-		else
-			pickerlist += list(list("checked" = 0, "value" = GLOB.bitfields[bitfield][i], "name" = i, "allowed_edit" = can_edit))
-	var/list/result = presentpicker(User, "", title, Button1="Save", Button2 = "Cancel", Timeout=FALSE, values = pickerlist, width = nwidth, height = nheight, slidecolor = nslidecolor)
-	if (islist(result))
-		if (result["button"] == 2) // If the user pressed the cancel button
-			return
-		. = 0
-		for (var/flag in result["values"])
-			. |= GLOB.bitfields[bitfield][flag]
-	else
-		return
 
 /datum/browser/modal/preflikepicker
 	var/settings = list()
@@ -288,7 +198,7 @@
 
 /datum/browser/modal/preflikepicker/Topic(href,href_list)
 	if (href_list["close"] || !user || !user.client)
-		opentime = 0
+		closed = TRUE
 		return
 	if (href_list["task"] == "input")
 		var/setting = href_list["setting"]
@@ -317,8 +227,8 @@
 	if (href_list["button"])
 		var/button = text2num(href_list["button"])
 		if (button <= 3 && button >= 1)
-			selectedbutton = button
-	if (selectedbutton != 1)
+			choice = button
+	if (choice != 1)
 		set_content(ShowChoices(user))
 		open()
 		return
@@ -326,7 +236,7 @@
 		switch(item)
 			if ("close", "button", "src")
 				continue
-	opentime = 0
+	closed = TRUE
 	close()
 
 /proc/presentpreflikepicker(mob/User,Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1,Timeout = 6000,list/settings, width, height, slidecolor)
@@ -339,8 +249,8 @@
 	var/datum/browser/modal/preflikepicker/A = new(User, Message, Title, Button1, Button2, Button3, StealFocus,Timeout, settings, width, height, slidecolor)
 	A.open()
 	A.wait()
-	if (A.selectedbutton)
-		return list("button" = A.selectedbutton, "settings" = A.settings)
+	if (A.choice)
+		return list("button" = A.choice, "settings" = A.settings)
 
 // Registers the on-close verb for a browse window (client/verb/.windowclose)
 // this will be called when the close-button of a window is pressed.

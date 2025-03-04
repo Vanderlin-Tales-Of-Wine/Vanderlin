@@ -7,6 +7,8 @@ body
 	font-size: 14px;
 	color: #897472;
 	line-height: 170%;
+	width: 100vw;
+	height: 100vh;
 }
 
 hr
@@ -129,20 +131,23 @@ h4
 
 .uiWrapper
 {
-
 	width: 100%;
 	height: 100%;
 }
 
 .uiTitle
 {
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	top: 0;
+	left: 0;
 	font-family: Nosfer, TrueType;
-	clear: both;
-	padding: 6px 8px 6px 8px;
+	padding: 6px 8px;
 	border-bottom: 2px solid #161616;
 	background: #000000;
 	color: #ae3636;
-	font-size: 18px;
+	font-size: 1.25em;
 }
 
 .uiTitle.icon
@@ -154,8 +159,12 @@ h4
 
 .uiContent
 {
+	box-sizing: border-box;
 	clear: both;
 	padding: 8px;
+	padding-top: calc(8px + 2px + 16px + 1.25em);
+	height: 100%;
+	width: 100%;
 	font-family: Pterra, TrueType;
 }
 

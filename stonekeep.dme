@@ -528,6 +528,7 @@
 #include "code\datums\browser\_browser.dm"
 #include "code\datums\browser\modal\_modal.dm"
 #include "code\datums\browser\modal\alert.dm"
+#include "code\datums\browser\modal\input\input_list.dm"
 #include "code\datums\character_flaw\_character_flaw.dm"
 #include "code\datums\character_flaw\addiction.dm"
 #include "code\datums\character_flaw\limbloss.dm"

@@ -1,30 +1,39 @@
 /datum/browser/modal
-	var/opentime = 0
-	var/timeout
-	var/selectedbutton = 0
-	var/stealfocus
+	window_options = "can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=1;"
+	/// If this modal has been closed.
+	var/final/closed = FALSE
+	/// This modal's selected choice.
+	var/final/choice = null
+	/// The time in deciseconds before this modal is cancelled.
+	var/timeout = 0
+	/// If the modal will continuously regrab focus.
+	var/final/autofocus = FALSE
 
-/datum/browser/modal/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, atom/nref = null, StealFocus = 1, Timeout = 6000)
+/datum/browser/modal/New(user, window_id, title = "", width = 0, nheight = 0, atom/owner = null, autofocus = TRUE, timeout = 0)
 	. = ..()
-	stealfocus = StealFocus
-	if (!StealFocus)
-		window_options += "focus=false;"
-	timeout = Timeout
+	src.autofocus = autofocus
+	if(!autofocus)
+		window_options += "focus=[FALSE];"
+	src.timeout = timeout
 
+/datum/browser/modal/open()
+	. = ..()
+	if(isnull(window_id))
+		closed = TRUE
+		return
 
 /datum/browser/modal/close()
-	.=..()
-	opentime = 0
+	. = ..()
+	closed = TRUE
 
 /datum/browser/modal/open(use_onclose)
 	set waitfor = 0
-	opentime = world.time
 
-	if (stealfocus)
-		. = ..(use_onclose = 1)
+	if(autofocus)
+		. = ..()
 	else
 		var/focusedwindow = winget(user, null, "focus")
-		. = ..(use_onclose = 1)
+		. = ..()
 
 		//waits for the window to show up client side before attempting to un-focus it
 		//winexists sleeps until it gets a reply from the client, so we don't need to bother sleeping
@@ -35,9 +44,12 @@
 				else
 					winset(user, "mapwindow", "focus=true")
 				break
-	if (timeout)
+	if(timeout)
 		addtimer(CALLBACK(src, PROC_REF(close)), timeout)
 
 /datum/browser/modal/proc/wait()
-	while (opentime && selectedbutton <= 0 && (!timeout || opentime+timeout > world.time))
+	while (!choice && !closed && !QDELETED(src)) //(opentime && selectedbutton <= 0 && (!timeout || opentime+timeout > world.time))
 		stoplag(1)
+
+/datum/browser/modal/proc/set_choice(choice)
+	src.choice = choice
