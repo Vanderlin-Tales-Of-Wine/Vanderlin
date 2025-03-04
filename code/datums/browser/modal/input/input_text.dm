@@ -33,10 +33,25 @@
 	set_head_content({"
 	<script type="text/javascript">
 		addEventListener("DOMContentLoaded", function(){
-			document.getElementById("entry").addEventListener('keydown', function(event){
-				if(event.which === 13 && !event.shiftKey){
-					const submitButton = document.querySelector("#submitButton");
-					submitButton.click();
+			const textEntry = document.querySelector("#entry");
+			const submitButton = document.querySelector("#submitButton");
+			const cancelButton = document.querySelector("#cancelButton");
+
+			textEntry.addEventListener('keydown', function(event){
+				switch(event.which){
+					case 13: [/* ENTER */]
+						if(!event.shiftKey){
+							event.preventDefault();
+							submitButton.click();
+						}
+						else if([multiline ? "false" : "true"]){
+							event.preventDefault();
+						}
+						break;
+
+					case 27: [/* ESCAPE */]
+						cancelButton.click();
+						break;
 				}
 			})
 		});
@@ -62,12 +77,13 @@
 			name="choice"
 			maxlength="[max_length]"
 			placeholder="WE AWAIT YOUR COMMAND..."
-			autofocus></textarea>
+			required
+			autofocus>[default]</textarea>
 
 		<br/>
 		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
 			<button id="submitButton" type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
-			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
+			<button id="cancelButton" type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
 		</div>
 	</form>
 	"})
