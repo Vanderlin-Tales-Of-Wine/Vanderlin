@@ -177,7 +177,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		ASYNC {
 			browser_alert(src, "this dude really playing VANDERLIN all by himself lmfaoooo")
 		}
-	var/selection = browser_input_list(src, "WHO RECIEVES YOUR COMMENDATION?", null, shuffle_inplace(selection_w_title), pick(selection_w_title))
+	var/selection = browser_input_list(src, "WHO RECIEVES YOUR COMMENDATION?", null, shuffle(selection_w_title), pick(selection_w_title))
 	if(!selection)
 		return
 	if(commendedsomeone)
