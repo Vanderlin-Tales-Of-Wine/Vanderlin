@@ -57,16 +57,7 @@
 			padding: 4px;
 			margin: 0.5em 0;
 			border: 1px solid #7b5353;
-
-			[/* I shamelessly stole this from a stack overflow answer */]
 			overflow-y: auto;
-			scrollbar-face-color: #000;
-			scrollbar-shadow-color: #7b5353;
-			scrollbar-highlight-color: #7b5353;
-			scrollbar-3dlight-color: #000;
-			scrollbar-darkshadow-color: #000;
-			scrollbar-track-color: #000;
-			scrollbar-arrow-color: #7b5353;
 		}
 	</style>
 	"})

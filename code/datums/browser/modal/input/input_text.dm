@@ -20,7 +20,9 @@
 
 /datum/browser/modal/input_text
 	/// If TRUE, this input will encode its choice upon being set.
-	var/encode
+	var/encode = TRUE
+	/// If set, the output cannot be longer than this.
+	var/max_length = INFINITY
 
 /datum/browser/modal/input_text/New(mob/user, message, title, default, max_length, multiline, encode, timeout)
 	if(!user)
@@ -37,23 +39,22 @@
 			const submitButton = document.querySelector("#submitButton");
 			const cancelButton = document.querySelector("#cancelButton");
 
-			textEntry.addEventListener('keydown', function(event){
-				switch(event.which){
-					case 13: [/* ENTER */]
-						if(!event.shiftKey){
+			if([multiline ? "false" : "true"]){
+				textEntry.addEventListener('keydown', function(event){
+					switch(event.which){
+						case 13: [/* ENTER */]
 							event.preventDefault();
-							submitButton.click();
-						}
-						else if([multiline ? "false" : "true"]){
-							event.preventDefault();
-						}
-						break;
+							if(!event.shiftKey){
+								submitButton.click();
+							}
+							break;
 
-					case 27: [/* ESCAPE */]
-						cancelButton.click();
-						break;
-				}
-			})
+						case 27: [/* ESCAPE */]
+							cancelButton.click();
+							break;
+					}
+				})
+			}
 		});
 	</script>
 	"})
@@ -67,7 +68,6 @@
 		<input type="hidden" name="src" value="[REF(src)]">
 
 		<center><b>[message]</b></center>
-		<br/>
 
 		<textarea
 			id="entry"
@@ -98,4 +98,4 @@
 
 /datum/browser/modal/input_text/set_choice(choice)
 	var/processed_choice = encode ? html_encode(choice) : choice
-	src.choice = trim(processed_choice)
+	src.choice = trim(processed_choice, PREVENT_CHARACTER_TRIM_LOSS(max_length))

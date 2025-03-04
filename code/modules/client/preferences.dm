@@ -1543,7 +1543,7 @@ Slots: [job.spawn_positions]</span>
 							ghost_others = GHOST_OTHERS_SIMPLE
 			*/
 				if("name")
-					var/new_name = browser_input_text(user, "DECIDE YOUR HERO'S IDENTITY", "THE SELF", null, max_length = MAX_NAME_LEN)
+					var/new_name = browser_input_text(user, "DECIDE YOUR HERO'S IDENTITY", "THE SELF", real_name, max_length = MAX_NAME_LEN)
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)
