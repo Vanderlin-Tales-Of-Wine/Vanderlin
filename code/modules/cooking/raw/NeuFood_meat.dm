@@ -195,11 +195,12 @@
 	slice_batch = TRUE
 	slice_sound = TRUE
 	eat_effect = null
+	rotprocess = SHELFLIFE_TINY
 	faretype = FARE_POOR
 
 /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett/slice
 	name = "grenzel mett"
-	icon_state = "mettslice"
+	icon_state = "mett_slice"
 	bitesize = 1
 	slices_num = FALSE
 	slice_path = FALSE
