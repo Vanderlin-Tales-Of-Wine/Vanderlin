@@ -450,6 +450,7 @@
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 1
 	},
+/obj/effect/landmark/start/courtagent,
 /turf/open/floor/church,
 /area/rogue/indoors/town/manor)
 "ark" = (
