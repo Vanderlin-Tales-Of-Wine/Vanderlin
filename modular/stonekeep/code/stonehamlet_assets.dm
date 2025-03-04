@@ -96,6 +96,16 @@
 	id = "bandit_d"
 	mappath = "_maps/map_files/candlelight/templates/bspawn_d.dmm"
 
+/*	..................   Hollow Mountain Landmark   ................... */
+/obj/effect/landmark/map_load_mark/hollowmountain_minidungeon
+	name = "Hollow Mountains"
+	templates = list( "hollow_goblin" )
+
+/datum/map_template/hollowmountain_i
+	name = "Hollow Mountain Goblins"
+	id = "hollow_goblin"
+	mappath = "_maps/map_files/stonehamlet/templates/hollowmountain_1.dmm"
+
 
 
 // ===================================================================================
@@ -221,6 +231,17 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/backpack
 	head = /obj/item/clothing/head/helmet/leather/minershelm
+
+
+/*	..................   Cave Goblin Maybe   ................... */
+/obj/effect/spawner/map_spawner/goblincave_threat
+	icon = 'icons/roguetown/mob/monster/goblins.dmi'
+	icon_state = "goblin"
+	color = "#ff3318"
+	probby = 50
+	spawned = list(
+		/obj/structure/idle_enemy/cavegoblin = 100,
+		)
 
 
 // ==============================================================

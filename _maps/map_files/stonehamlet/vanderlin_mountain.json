@@ -1,0 +1,6 @@
+{
+    "map_name": "Malum's Anvil",
+    "map_path": "map_files/vanderlin/otherz",
+    "map_file": "vanderlin_mountain.dmm",
+	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
+}

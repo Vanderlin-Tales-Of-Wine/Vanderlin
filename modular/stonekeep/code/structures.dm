@@ -13,7 +13,7 @@
 /obj/structure/closet/crate/closet
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
-/obj/structure/rack/rogue/shelf
+/obj/structure/rack/shelf
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 

@@ -25,7 +25,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
 "dA" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermenting_keg/random/beer,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "dB" = (
@@ -232,7 +232,7 @@
 "tI" = (
 /obj/item/reagent_containers/glass/bottle/beer/voddena,
 /obj/item/clothing/cloak/cape/silk/random,
-/obj/structure/closet/crate/closet/lord,
+/obj/structure/closet/crate/crafted_closet/lord,
 /obj/item/clothing/armor/chainmail/hauberk,
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
@@ -557,7 +557,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "Uj" = (
-/obj/structure/chair/stool/rogue,
+/obj/structure/chair/stool,
 /obj/effect/spawner/map_spawner/maneater_danger,
 /obj/effect/decal/remains/human/old{
 	name = "dwarf remains";

@@ -190,7 +190,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "EX" = (
-/obj/structure/closet/crate/closet/inn/chest,
+/obj/structure/closet/crate/crafted_closet/inn/chest,
 /obj/item/clothing/neck/coif,
 /obj/item/storage/belt/pouch/coins/poor,
 /obj/item/clothing/shirt/undershirt/priest,

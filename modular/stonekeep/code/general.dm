@@ -395,7 +395,7 @@
 	color = "#cdcbba"
 
 // makes barrels climbable, its really weird they arent.
-/obj/structure/fermenting_barrel
+/obj/structure/fermenting_keg
 	climbable = TRUE
 	climb_offset = 16
 
@@ -662,7 +662,7 @@
 		torchy.spark_act()
 	. = ..()
 
-/obj/structure/fermenting_barrel/distillery	// ROGTODO obsolete
+/obj/structure/fermenting_keg/distillery	// ROGTODO obsolete
 	name = "distillery"
 	desc = "Copper vat that turns certain produce into hard liquor."
 	icon = 'modular/stonekeep/icons/distillery.dmi'
@@ -677,15 +677,15 @@
 	mid_length = 7 SECONDS
 	volume = 70
 
-/obj/structure/fermenting_barrel/distillery/Initialize()
+/obj/structure/fermenting_keg/distillery/Initialize()
 	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
 
-/obj/structure/fermenting_barrel/distillery/Destroy()
+/obj/structure/fermenting_keg/distillery/Destroy()
 	explosion(src.loc,-1,-1,2, flame_range = 4)	// small explosion, plus a very large fireball.
 	return ..()
-/obj/structure/fermenting_barrel/distillery/try_ferment(obj/item/reagent_containers/food/snacks/fruit, mob/user, batch_process)
+/obj/structure/fermenting_keg/distillery/try_ferment(obj/item/reagent_containers/food/snacks/fruit, mob/user, batch_process)
 	if(!fruit.hard_distill)
 		if(!batch_process)
 			to_chat(user, span_warning("Not suitable for distillation."))

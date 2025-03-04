@@ -23,7 +23,7 @@
 	pants = /obj/item/clothing/pants/tights/black
 	neck = /obj/item/clothing/neck/psycross
 	head = /obj/item/clothing/head/brimmed
-	r_hand = /obj/item/book/rogue/psybibble
+	r_hand = /obj/item/book/psybibble
 	beltl = /obj/item/handheld_bell
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)

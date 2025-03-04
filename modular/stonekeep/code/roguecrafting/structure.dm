@@ -172,13 +172,13 @@
 
 /datum/crafting_recipe/roguetown/structure/carpentry/barrel
 	name = "barrel"
-	result = /obj/structure/fermenting_barrel/crafted
+	result = /obj/structure/fermenting_keg/crafted
 	reqs = list(/obj/item/grown/log/tree/small=2)
 	verbage = "construct"
 	verbage_tp = "makes"
 	craftdiff = 2
 
-/obj/structure/fermenting_barrel/crafted
+/obj/structure/fermenting_keg/crafted
 	sellprice = 6
 
 /datum/crafting_recipe/roguetown/structure/carpentry/stairsd

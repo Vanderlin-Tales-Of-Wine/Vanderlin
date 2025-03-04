@@ -303,7 +303,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "sz" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermenting_keg/random/beer,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "sR" = (
@@ -316,7 +316,7 @@
 "tI" = (
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /obj/item/clothing/cloak/cape/silk/random,
-/obj/structure/closet/crate/closet/lord,
+/obj/structure/closet/crate/crafted_closet/lord,
 /obj/effect/spawner/map_spawner/loot/jewelry,
 /obj/item/ammo_casing/caseless/bolt/pyro,
 /obj/item/ammo_casing/caseless/bolt/pyro,
@@ -489,7 +489,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Gl" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermenting_keg,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "GC" = (
@@ -741,7 +741,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Uj" = (
-/obj/structure/chair/stool/rogue,
+/obj/structure/chair/stool,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "UK" = (
@@ -785,7 +785,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "WK" = (
-/obj/structure/fermenting_barrel/random/beer,
+/obj/structure/fermenting_keg/random/beer,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "WT" = (

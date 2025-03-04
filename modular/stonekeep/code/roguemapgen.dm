@@ -570,6 +570,21 @@
 	range = 11
 	spawn_text = ""
 
+/*	..................   Cave Goblin Spawner   ................... */
+/obj/structure/idle_enemy/cavegoblin
+/obj/structure/idle_enemy/cavegoblin/Initialize()
+	. = ..()
+	AddComponent(/datum/component/spawner/cavegoblin)
+	icon_state = ""
+/datum/component/spawner/cavegoblin
+	mob_types = list(/mob/living/carbon/human/species/goblin/skilled/ambush/cave )
+	spawn_time = 0
+	spawn_delay = 0
+	max_mobs = 1
+	range = 11
+	spawn_text = ""
+
+
 /*	..................   Cabbit Boss Spawner   ................... */
 /obj/structure/idle_enemy/cabbit_boss
 /obj/structure/idle_enemy/cabbit_boss/Initialize()
