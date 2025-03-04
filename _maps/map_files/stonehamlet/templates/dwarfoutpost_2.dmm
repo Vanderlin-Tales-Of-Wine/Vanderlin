@@ -25,7 +25,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
 "dA" = (
-/obj/structure/fermenting_keg/random/beer,
+/obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "dB" = (

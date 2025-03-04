@@ -60,7 +60,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "fX" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "gf" = (
@@ -113,7 +113,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "hz" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
@@ -303,11 +303,11 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "sz" = (
-/obj/structure/fermenting_keg/random/beer,
-/turf/open/floor/blocks,
+/obj/structure/fermentation_keg/random/beer,
+/turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "sR" = (
-/obj/structure/rack/rogue/shelf/notdense,
+/obj/structure/rack/shelf/notdense,
 /obj/item/reagent_containers/peppermill{
 	pixel_y = 31
 	},
@@ -324,7 +324,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "tW" = (
-/obj/structure/rack/rogue/shelf/notdense,
+/obj/structure/rack/shelf/notdense,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "tX" = (
@@ -336,7 +336,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "ul" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "uH" = (
@@ -414,7 +414,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Af" = (
-/obj/structure/rack/rogue/shelf/notdense,
+/obj/structure/rack/shelf/notdense,
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
@@ -432,7 +432,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "BR" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /obj/item/weapon/tongs,
 /turf/open/floor/metal{
 	icon_state = "plating2"
@@ -489,7 +489,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Gl" = (
-/obj/structure/fermenting_keg,
+/obj/structure/fermentation_keg,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "GC" = (
@@ -702,7 +702,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "SI" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /obj/item/flint,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
@@ -751,7 +751,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "UY" = (
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /obj/item/flashlight/flare/torch/lantern/copper,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
@@ -783,10 +783,6 @@
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
-/area/rogue/under/catacombs/dwarfoutpost/orcy)
-"WK" = (
-/obj/structure/fermenting_keg/random/beer,
-/turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "WT" = (
 /obj/machinery/light/fueled/torchholder/c,
@@ -1090,12 +1086,12 @@ vf
 Os
 vf
 Ap
-WK
+eB
 eB
 vf
 Af
 Os
-sz
+Os
 vf
 gl
 gl
@@ -1165,7 +1161,7 @@ Ap
 DR
 Os
 Os
-sz
+Os
 vf
 gl
 gl
@@ -1334,7 +1330,7 @@ vf
 bS
 MK
 vf
-eB
+sz
 lr
 uH
 vf

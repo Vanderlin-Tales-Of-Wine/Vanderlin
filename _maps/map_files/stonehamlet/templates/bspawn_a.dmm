@@ -13,7 +13,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "T" = (
-/obj/structure/fluff/traveltile/bandit,
+/obj/structure/fluff/traveltile/bandit{
+	aportalgoesto = "bandit_sk_home";
+	aportalid = "bandit_sk"
+	},
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 

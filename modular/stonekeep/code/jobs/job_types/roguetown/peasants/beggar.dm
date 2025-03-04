@@ -1,5 +1,5 @@
 
-/datum/job/roguetown/vagrant
+/datum/job/roguetown/beggar
 	title = "Beggar"
 	flag = APPRENTICE
 	department_flag = PEASANTS
@@ -16,7 +16,7 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/vagrant
+	outfit = /datum/outfit/job/roguetown/beggar
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
@@ -28,11 +28,11 @@
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 	can_have_apprentices = FALSE
 
-/datum/job/roguetown/vagrant/New()
+/datum/job/roguetown/beggar/New()
 	. = ..()
 	peopleknowme = list()
 
-/datum/outfit/job/roguetown/vagrant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/beggar/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(20))
 		head = /obj/item/clothing/head/knitcap

@@ -10,7 +10,7 @@
 | Closets |
 \--------*/
 
-/obj/structure/closet/crate/closet
+/obj/structure/closet/crate/crafted_closet
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 /obj/structure/rack/shelf
@@ -110,7 +110,13 @@
 	icon_state = "largetable_alt"
 
 
-/obj/structure/table/church // modify with varedit for church_end
+/obj/structure/table/wood/crafted
+	icon = 'modular/stonekeep/icons/tables.dmi'
+	icon_state = "wsmall_poor"
+/obj/structure/table/wood/crafted/better
+	icon_state = "wsmall_average"
+/obj/structure/table/wood/crafted/good
+	icon_state = "wsmall_good"
 
 
 
@@ -334,5 +340,8 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 /obj/structure/fluff/railing/stonehedge
+	icon = 'modular/stonekeep/icons/railing.dmi'
 	passcrawl = FALSE
 	pass_flags = LETPASSTHROW
+
+

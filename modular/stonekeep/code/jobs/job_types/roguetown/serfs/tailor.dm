@@ -1,4 +1,4 @@
-/datum/job/roguetown/tailor
+/datum/job/roguetown/sk_tailor
 	title = "Tailor"
 	f_title = "Seamstress"
 	flag = TAILOR
@@ -8,15 +8,15 @@
 				sewing articles of protection, padding, and fashion for serf and noble alike."
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = list("Humen","Elf","Aasimar","Half-Elf","Dwarf")
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
 	display_order = JDO_TAILOR
 	min_pq = -50
 
-	outfit = /datum/outfit/job/roguetown/tailor
+	outfit = /datum/outfit/job/roguetown/sk_tailor
 
-/datum/outfit/job/roguetown/tailor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/sk_tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	shoes = /obj/item/clothing/shoes/nobleboot

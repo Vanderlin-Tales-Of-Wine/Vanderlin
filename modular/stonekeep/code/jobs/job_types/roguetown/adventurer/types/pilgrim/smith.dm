@@ -1,5 +1,5 @@
-/datum/advclass/pilgrim/blacksmith
-	name = "Blacksmith"
+/datum/advclass/pilgrim/smith
+	name = "Wandering Smith"
 	tutorial = "Hardy worksmen that are at home in the forge, dedicating their lives \
 	to ceaselessly toil in dedication to Malum."
 	allowed_sexes = list(MALE, FEMALE)
@@ -13,11 +13,11 @@
 		"Aasimar",
 		"Ogrun"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/blacksmith
+	outfit = /datum/outfit/job/roguetown/adventurer/smith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/adventurer/smith/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/leather
 

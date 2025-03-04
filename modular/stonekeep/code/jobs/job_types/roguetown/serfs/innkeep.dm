@@ -1,4 +1,4 @@
-/datum/job/roguetown/innkeep
+/datum/job/roguetown/sk_innkeep
 	title = "Innkeep"
 	flag = INNKEEP
 	department_flag = SERFS
@@ -16,14 +16,14 @@
 
 	tutorial = "Liquor, lodging, and lavish meals... your business is the beating heart of Rockhill. You're the one who provides the the hardworking townsfolk with a place to eat and drink their sorrows away, and accommodations for weary travelers passing through."
 
-	outfit = /datum/outfit/job/roguetown/innkeep
+	outfit = /datum/outfit/job/roguetown/sk_innkeep
 	display_order = JDO_INNKEEP
 	bypass_lastclass = TRUE
 	give_bank_account = 60
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/roguetown/innkeep/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/sk_innkeep/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

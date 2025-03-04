@@ -395,7 +395,7 @@
 	color = "#cdcbba"
 
 // makes barrels climbable, its really weird they arent.
-/obj/structure/fermenting_keg
+/obj/structure/fermentation_keg
 	climbable = TRUE
 	climb_offset = 16
 
@@ -661,8 +661,8 @@
 		torchy = new /obj/item/flashlight/flare/torch(src)
 		torchy.spark_act()
 	. = ..()
-
-/obj/structure/fermenting_keg/distillery	// ROGTODO obsolete
+/*
+/obj/structure/fermentation_keg/distillery	// ROGTODO obsolete
 	name = "distillery"
 	desc = "Copper vat that turns certain produce into hard liquor."
 	icon = 'modular/stonekeep/icons/distillery.dmi'
@@ -671,21 +671,21 @@
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 	var/datum/looping_sound/distillery/soundloop
-/*
+
 /datum/looping_sound/distillery
 	mid_sounds = list('modular/stonekeep/sound/distillery.ogg'=1)
 	mid_length = 7 SECONDS
 	volume = 70
 
-/obj/structure/fermenting_keg/distillery/Initialize()
+/obj/structure/fermentation_keg/distillery/Initialize()
 	. = ..()
 	soundloop = new(src, FALSE)
 	soundloop.start()
 
-/obj/structure/fermenting_keg/distillery/Destroy()
+/obj/structure/fermentation_keg/distillery/Destroy()
 	explosion(src.loc,-1,-1,2, flame_range = 4)	// small explosion, plus a very large fireball.
 	return ..()
-/obj/structure/fermenting_keg/distillery/try_ferment(obj/item/reagent_containers/food/snacks/fruit, mob/user, batch_process)
+/obj/structure/fermentation_keg/distillery/try_ferment(obj/item/reagent_containers/food/snacks/fruit, mob/user, batch_process)
 	if(!fruit.hard_distill)
 		if(!batch_process)
 			to_chat(user, span_warning("Not suitable for distillation."))
@@ -872,3 +872,5 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/reagent_containers/food/snacks/egg
+	name = "cackleberry"
