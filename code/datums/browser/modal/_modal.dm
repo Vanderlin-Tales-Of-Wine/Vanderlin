@@ -9,12 +9,18 @@
 	/// If the modal will continuously regrab focus.
 	var/final/autofocus = FALSE
 
-/datum/browser/modal/New(user, window_id, title = "", width = 0, nheight = 0, atom/owner = null, autofocus = TRUE, timeout = 0)
+/datum/browser/modal/New(mob/user, window_id, title = "", width = 0, nheight = 0, atom/owner = null, autofocus = TRUE, timeout = 0)
 	. = ..()
+	src.timeout = timeout
 	src.autofocus = autofocus
 	if(!autofocus)
 		window_options += "focus=[FALSE];"
-	src.timeout = timeout
+
+	RegisterSignal(user, COMSIG_MOB_LOGOUT, PROC_REF(close))
+
+/datum/browser/modal/Destroy(force, ...)
+	UnregisterSignal(user, COMSIG_MOB_LOGOUT)
+	. = ..()
 
 /datum/browser/modal/open()
 	. = ..()
@@ -51,5 +57,7 @@
 	while (!choice && !closed && !QDELETED(src)) //(opentime && selectedbutton <= 0 && (!timeout || opentime+timeout > world.time))
 		stoplag(1)
 
+/// Sets [var/choice] to the passed choice argument.
+/// Exists to be overridden by subtypes for more handling.
 /datum/browser/modal/proc/set_choice(choice)
 	src.choice = choice

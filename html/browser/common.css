@@ -321,7 +321,6 @@ div.notice
 	clear: both;
 }
 
-
 .switch {
   position: relative;
   display: inline-block;
@@ -354,47 +353,47 @@ div.notice
 }
 
 .slider.red:before {
-  background-color: #d6858b;
+  	background-color: #d6858b;
 }
 
 .slider.locked:before {
-  content: url("padlock.png");
-  background-color: #b4b4b4;
+  	content: url("padlock.png");
+  	background-color: #b4b4b4;
 }
 
 input:checked + .slider {
-  background-color: #2f1c37;
+  	background-color: #2f1c37;
 }
 
 input:checked + .slider.red {
-  background-color: #a92621;
+  	background-color: #a92621;
 }
 
 input:checked + .slider.locked {
-  background-color: #707070;
+  	background-color: #707070;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  	box-shadow: 0 0 1px #2196F3;
 }
 
 input:focus + .slider.red {
-  box-shadow: 0 0 1px #f3212d;
+  	box-shadow: 0 0 1px #f3212d;
 }
 
 input:focus + .slider.locked {
-  box-shadow: 0 0 1px #979797;
+  	box-shadow: 0 0 1px #979797;
 }
 
 input:checked + .slider:before {
-  transform: translateX(24px);
+  	transform: translateX(24px);
 }
 
 .switch span {
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  margin-left: 60px;
+  	display: inline-block;
+  	position: relative;
+  	width: 60px;
+  	margin-left: 60px;
 }
 
 ul.sparse {
@@ -402,15 +401,15 @@ ul.sparse {
 }
 
 .sparse li {
-  margin-top: 2px;
+	margin-top: 2px;
 }
 
 .slider.round {
-  border-radius: 34px;
+	border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
 .severity {
@@ -425,4 +424,12 @@ ul.sparse {
 .severity img {
     display: inline-block;
     vertical-align: middle;
+}
+
+/* INPUTS */
+
+input[type="text"], textarea {
+	color: #897472;
+	background-color: transparent;
+	border: 1px solid #7b5353
 }

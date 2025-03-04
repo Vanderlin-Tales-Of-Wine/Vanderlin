@@ -1,5 +1,5 @@
 /// designed as a drop in replacement for alert(); functions the same. (outside of needing User specified)
-/proc/tgalert(mob/user, Message, Title, Button1="So be it", Button2, Button3, StealFocus = 1, Timeout = 6000)
+/proc/tgalert(mob/user, Message, Title, Button1=CHOICE_OK, Button2, Button3, StealFocus = 1, Timeout = 6000)
 	if(!user)
 		user = usr
 
@@ -26,7 +26,7 @@
 		. = alert.choice
 		qdel(alert)
 
-/proc/browser_alert(mob/user, message = "", title = "VANDERLIN", list/buttons = list("So Be It"), timeout = 0, autofocus = TRUE)
+/proc/browser_alert(mob/user, message = "", title = "VANDERLIN", list/buttons = list(CHOICE_OK), timeout = 0, autofocus = TRUE)
 	if(!user)
 		user = usr
 
@@ -59,7 +59,7 @@
 
 	var/list/options = list()
 	for(var/button in buttons)
-		options += "<a href='byond://?src=[REF(src)];choice=[button]'>[button]</a>"
+		options += "<a href='byond://?src=[REF(src)];choice=[button] [NULLABLE(buttons[1] == button) && "autofocus"]'>[button]</a>"
 
 	var/output = \
 	{"
@@ -75,9 +75,13 @@
 
 /datum/browser/modal/alert/Topic(href, href_list)
 	if(href_list["choice"])
-		if(!(href_list["choice"] in buttons))
-			CRASH("[user] selected non-existant button choice: [href_list["choice"]]")
 		set_choice(href_list["choice"])
 
 	closed = TRUE
 	close()
+
+/datum/browser/modal/alert/set_choice(choice)
+	if(!(choice in buttons))
+		CRASH("[user] selected non-existant button choice: [choice]")
+
+	..()

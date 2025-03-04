@@ -43,6 +43,11 @@
 			flex-direction: column;
 		}
 
+		label {
+			display: inline-block;
+			width: 100%;
+		}
+
 		label:has(input[type='radio']:checked) {
 			background-color: ["#2b2121"];
 		}
@@ -62,7 +67,7 @@
 		results["[item]"] = item
 		choices += {"\
 			<label>
-				<input type='radio' name='choice' value='[item]' required [(("[default]" == "[item]") || null) && "checked"] />
+				<input type='radio' name='choice' value='[item]' required [NULLABLE("[default]" == "[item]") && "autofocus checked"] />
 				[item]
 			</label>"}
 
@@ -71,19 +76,16 @@
 		<input type="hidden" name="src" value="[REF(src)]">
 
 		<center><b>[message]</b></center>
-		<br/>
-
 		<div id="options" class="input_list_options">
-			[choices.Join("<br/>")]
+			[choices.Join("<br/>\n")]
 		</div>
-
 		<br/>
 
-		[/*((length(choices) > 9) || null) && {"
-		<input oninput="onSearchBarChange(this.value);" type="text" placeholder="Search..."/>
-		"}*/]
+		[NULLABLE(length(choices) > 9) && {"
+		<input type="text" placeholder="Search..."/>
+		"}]
 		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
-			<button type="submit" name="submit" value="[TRUE]" autofocus>Make It So</button>
+			<button type="submit" name="submit" value="[TRUE]">Make It So</button>
 			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>Rescind</button>
 		</div>
 	</form>"}
@@ -91,12 +93,15 @@
 	set_content(output)
 
 /datum/browser/modal/input_list/Topic(href, href_list)
+	. = ..()
 	if(href_list["submit"])
 		set_choice(href_list["choice"])
 
 	closed = TRUE
 	close()
+
 /datum/browser/modal/input_list/set_choice(choice)
+	
 	src.choice = results[choice]
 
 /*-----------------------*/

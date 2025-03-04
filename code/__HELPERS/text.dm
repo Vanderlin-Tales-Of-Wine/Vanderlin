@@ -299,7 +299,7 @@
 /proc/trim(text, max_length)
 	if(max_length)
 		text = copytext(text, 1, max_length)
-	return trim_left(trim_right(text))
+	return trimtext(text) || ""
 
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(t as text)

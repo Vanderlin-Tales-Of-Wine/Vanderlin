@@ -1430,8 +1430,8 @@ Slots: [job.spawn_positions]</span>
 				SetKeybinds(user)
 
 			if("keybindings_reset")
-				var/choice = browser_alert(user, "Do you really want to reset your keybindings?", "Setup keybindings", list("Make It So", "Rescind"))
-				if(choice == "Rescind")
+				var/choice = browser_alert(user, "Do you really want to reset your keybindings?", "Setup keybindings", DEFAULT_INPUT_CONFIRMATIONS)
+				if(choice != CHOICE_CONFIRM)
 					return
 				hotkeys = TRUE
 				key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
@@ -1546,7 +1546,7 @@ Slots: [job.spawn_positions]</span>
 							ghost_others = GHOST_OTHERS_SIMPLE
 			*/
 				if("name")
-					var/new_name = input(user, "DECIDE YOUR HERO'S IDENTITY", "THE SELF")  as text|null
+					var/new_name = browser_input_text(user, "DECIDE YOUR HERO'S IDENTITY", "THE SELF", null, max_length = MAX_NAME_LEN)
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)
@@ -1577,7 +1577,7 @@ Slots: [job.spawn_positions]</span>
 						if(!faith.name)
 							continue
 						faiths_named[faith.name] = faith
-					var/faith_input = browser_input_list(user, "SELECT YOUR HERO'S BELIEF", "PUPPETEERS", faiths_named, selected_patron.associated_faith)
+					var/faith_input = browser_input_list(user, "SELECT YOUR HERO'S BELIEF", "PUPPETS ON STRINGS", faiths_named, selected_patron.associated_faith)
 					if(faith_input)
 						var/datum/faith/faith = faiths_named[faith_input]
 						to_chat(user, "<font color='purple'>Faith: [faith.name]</font>")
@@ -1611,7 +1611,7 @@ Slots: [job.spawn_positions]</span>
 						hairs = pref_species.get_oldhc_list()
 					else
 						hairs = pref_species.get_hairc_list()
-					new_hair = input(user, "SELECT YOUR HERO'S HAIR COLOR", "BARBER") as null|anything in hairs
+					new_hair = browser_input_list(user, "SELECT YOUR HERO'S HAIR COLOR", "BARBER", hairs)
 					if(new_hair)
 						hair_color = hairs[new_hair]
 						facial_hair_color = hair_color
@@ -1835,7 +1835,7 @@ Slots: [job.spawn_positions]</span>
 
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
-					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]:", "THE SUN", listy, FALSE)
+					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]:", "THE SUN", listy)
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 
