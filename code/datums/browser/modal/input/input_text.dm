@@ -59,7 +59,7 @@
 	</script>
 	"})
 
-	var/window_height = multiline ? 300 : 175
+	var/window_height = multiline ? 300 : 150
 
 	..(user, ckey("[user]-[message]-[title]-[world.time]-[rand(1,10000)]"), title, 350, window_height, src, TRUE, timeout)
 
@@ -73,6 +73,7 @@
 			id="entry"
 			style="
 				overflow-y: auto;
+				margin: auto 0;
 				[multiline ? "flex-grow: [TRUE]" : "height: 1rem"];"
 			name="choice"
 			maxlength="[max_length]"
@@ -80,8 +81,7 @@
 			required
 			autofocus>[default]</textarea>
 
-		<br/>
-		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
+		<div style="display: flex; justify-content: space-between; text-align: center;">
 			<button id="submitButton" type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
 			<button id="cancelButton" type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
 		</div>

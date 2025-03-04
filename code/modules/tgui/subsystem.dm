@@ -253,7 +253,7 @@
 		modal.RegisterSignal(target, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/browser, user_deleted))
 		target.browser_modals.Add(modal)
 
-	 // Clear the old list.
+	// Clear the old list.
 	source.open_uis.Cut()
 	source.browser_modals.Cut()
 	return TRUE
