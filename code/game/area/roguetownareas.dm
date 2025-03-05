@@ -2,12 +2,6 @@ GLOBAL_LIST_EMPTY(chosen_music)
 
 GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town,/area/rogue/outdoors/town,/area/rogue/under/town)) //hey
 
-/area/start
-	name = "start area"
-	icon_state = "start"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	has_gravity = STANDARD_GRAVITY
-
 /area/rogue
 	name = "roguetown"
 	icon_state = "rogue"
