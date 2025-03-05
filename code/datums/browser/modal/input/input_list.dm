@@ -95,12 +95,17 @@
 	</script>
 	"})
 
+	// Gets rid of illegal characters (thank you Lemon)
+	var/static/regex/whitelistedWords = regex(@{"([^\u0020-\u8000]+)"})
 	var/list/choices = list()
 	for(var/item in items)
-		results["[item]"] = item
+		if(!item)
+			continue
+		var/form_key = whitelistedWords.Replace("[item]", "")
+		results[form_key] = item
 		choices += {"\
 			<label>
-				<input type='radio' name='choice' value='[item]' required [NULLABLE("[default]" == "[item]") && "autofocus checked"] />
+				<input type='radio' name='choice' value='[form_key]' required [NULLABLE("[default]" == "[item]") && "autofocus checked"] />
 				[item]
 			</label>"}
 
@@ -131,7 +136,8 @@
 	close()
 
 /datum/browser/modal/input_list/set_choice(choice)
-
+	if(!(choice in results))
+		stack_trace("[choice] not found in list input")
 	src.choice = results[choice]
 
 /*-----------------------*/
