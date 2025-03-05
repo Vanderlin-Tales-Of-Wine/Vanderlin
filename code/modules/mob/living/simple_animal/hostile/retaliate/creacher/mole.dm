@@ -6,7 +6,7 @@
 	icon_living = "mole"
 	icon_dead = "mole_dead"
 
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
 	turns_per_move = 2

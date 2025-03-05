@@ -91,7 +91,7 @@ GLOBAL_PROTECT(exp_to_update)
 	return_text += "</UL>"
 	var/list/jobs_locked = list()
 	var/list/jobs_unlocked = list()
-	for(var/datum/job/job in SSjob.occupations)
+	for(var/datum/job/job in SSjob.joinable_occupations)
 		if(job.exp_requirements && job.exp_type)
 			if(!job_is_xp_locked(job.title))
 				continue
@@ -206,9 +206,9 @@ GLOBAL_PROTECT(exp_to_update)
 			play_records[EXP_TYPE_LIVING] += minutes
 			if(announce_changes)
 				to_chat(src,"<span class='notice'>I got: [minutes] Living EXP!</span>")
-			if(mob.mind.assigned_role)
+			if(!is_unassigned_job(mob.mind.assigned_role))
 				for(var/job in SSjob.name_occupations)
-					if(mob.mind.assigned_role == job)
+					if(mob.mind.assigned_role.title == job)
 						rolefound = TRUE
 						play_records[job] += minutes
 						if(announce_changes)

@@ -380,8 +380,8 @@
 /area/rogue/indoors)
 "iC" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
@@ -1515,8 +1515,8 @@
 /area/rogue/indoors)
 "Ku" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "KA" = (
@@ -1673,9 +1673,9 @@
 /area/rogue/indoors)
 "Od" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
-/obj/item/bath/soap,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "Of" = (

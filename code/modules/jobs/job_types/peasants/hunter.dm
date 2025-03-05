@@ -4,10 +4,16 @@
 	tutorial = "Silent and yet full of life, the forests of Dendor grant you both happiness and misery. \
 	In tales you've heard of small woodland creechers frolicking, now there is only the beastspawn of Graggar and Dendor... \
 	And yet you seek beasts small enough to skin, scalp, and sell. Take heed, lest you become a beast yourself."
-	faction = "Station"
-	allowed_sexes = list(MALE,FEMALE)
 	flag = HUNTER
 	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_HUNTER
+	faction = FACTION_STATION
+	total_positions = 4
+	spawn_positions = 4
+	min_pq = 0
+
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -18,12 +24,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
+
 	outfit = /datum/outfit/job/hunter
-	min_pq = 0
 	give_bank_account = 15
-	display_order = JDO_HUNTER
-	total_positions = 4
-	spawn_positions = 4
 	apprentice_name = "Hunter"
 
 /datum/outfit/job/hunter/pre_equip(mob/living/carbon/human/H)

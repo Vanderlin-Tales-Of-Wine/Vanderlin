@@ -33,7 +33,7 @@
 	defdrain = 20
 	speak_emote = list("grunts")
 	loot = list(/obj/item/alch/bone,	/obj/item/alch/bone, /obj/item/alch/bone,	/obj/item/skull)
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	del_on_death = TRUE
 
@@ -114,7 +114,7 @@
 	if(user)
 		friends += user.name
 		if (cabal_affine)
-			faction |= "cabal"
+			faction |= FACTION_CABAL
 
 /mob/living/simple_animal/hostile/skeleton/Life()
 	. = ..()

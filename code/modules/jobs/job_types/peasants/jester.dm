@@ -1,10 +1,18 @@
 /datum/job/jester
 	title = "Jester"
+	tutorial = "The Grenzelhofts were known for their Jesters, wisemen with a tongue just as sharp as their wit. \
+		You command a position of a fool, envious of the position your superiors have upon you. \
+		Your cheap tricks and illusions of intelligence will only work for so long, \
+		and someday you'll find yourself at the end of something sharper than you."
 	flag = JESTER
 	department_flag = PEASANTS
-	faction = "Station"
+	display_order = JDO_JESTER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 5
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -17,16 +25,9 @@
 		"Half-Orc"
 	)
 
-	tutorial = "The Grenzelhofts were known for their Jesters, wisemen with a tongue just as sharp as their wit. \
-		You command a position of a fool, envious of the position your superiors have upon you. \
-		Your cheap tricks and illusions of intelligence will only work for so long, \
-		and someday you'll find yourself at the end of something sharper than you."
 
-	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
 	outfit = /datum/outfit/job/jester
-	display_order = JDO_JESTER
-	bypass_lastclass = TRUE
-	min_pq = 5
+	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
 	give_bank_account = TRUE
 
 /datum/outfit/job/jester/pre_equip(mob/living/carbon/human/H)
@@ -69,17 +70,6 @@
 		else
 			H.cmode_music = pick("sound/music/cmode/nobility/CombatJester1.ogg","sound/music/cmode/nobility/CombatJester2.ogg")
 
-/*		if(H.gender == MALE)
-			if(H.dna?.species)
-				if(H.dna.species.id == "human")
-					H.dna.species.soundpack_m = new /datum/voicepack/male/jester()
-				if(H.dna.species.id == "dwarf")
-					H.dna.species.soundpack_m = new /datum/voicepack/male/dwarf/jester()
-				if(H.dna.species.id == "elf")
-					H.dna.species.soundpack_m = new /datum/voicepack/male/elf/jester()*/
-//		H.hair_color = "cd65cb"
-//		H.facial_hair_color = "cd65cb"
-//		H.update_body_parts_head_only()
 	H.verbs |= /mob/living/carbon/human/proc/ventriloquate
 	H.verbs |= /mob/living/carbon/human/proc/ear_trick
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)

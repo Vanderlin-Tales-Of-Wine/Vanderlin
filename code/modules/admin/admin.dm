@@ -598,7 +598,7 @@
 
 	dat += "<table>"
 
-	for(var/j in SSjob.occupations)
+	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
 		count++
 		var/J_title = html_encode(job.title)
@@ -771,41 +771,45 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 
-/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list)
+/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list, excommunicate = FALSE as num|null in list(TRUE,FALSE))
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
+
 	if(!check_rights())
 		return
 	if(!istype(M))
 		return
 	if(!M.mind)
 		return
-	if(M.mind.assigned_role == "Priest")
+	if(is_priest_job(M.mind.assigned_role))
 		return
 	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
 		return
-	var/datum/job/J = SSjob.GetJobType(/datum/job/priest)
+
+	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
+	//demote the old priest
 	for(var/mob/living/carbon/human/HL in GLOB.human_list)
-		if(HL.mind)
-			var/found = FALSE
-			if(HL.mind.assigned_role == "Priest") //this really needs to use job datums in the future
-				HL.mind.assigned_role = "Towner"
-				found = TRUE
-			if(HL.job == "Priest")
-				HL.job = "Ex-Priest"
-				found = TRUE
-			if(found)
+		//TODO: this fucking sucks, just locate the priest
+		if(!HL.mind)
+			continue
+
+		if(is_priest_job(HL.mind.assigned_role))
+			HL.mind.set_assigned_role(/datum/job/villager)
+			HL.job = "Ex-Priest"
+
+
+			if(excommunicate)
 				GLOB.excommunicated_players |= HL.real_name
 				HL.cleric?.excommunicate()
-				HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
-				HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
-				HL.verbs -= /mob/living/carbon/human/proc/churchcurse
-				HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
-				J?.remove_spells(HL)
+			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, coronate_lord)
+			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchexcommunicate)
+			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchcurse)
+			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchannouncement)
+			priest_job?.remove_spells(HL)
 
-	J?.add_spells(M)
-	M.mind.assigned_role = "Priest"
+	priest_job?.add_spells(M)
+	M.mind.set_assigned_role(/datum/job/priest)
 	M.job = "Priest"
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)

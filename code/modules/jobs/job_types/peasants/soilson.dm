@@ -1,34 +1,28 @@
 /datum/job/farmer
 	title = "Soilson"
+	f_title = "Soilbride"
+	tutorial = "It is a simple life you live. \
+	Your basic understanding of life is something many would be envious of if they knew how perfect it was. \
+	You know a good day's work, the sweat on your brow is yours: \
+	Famines and plague may take its toll, but you know how to celebrate life well. \
+	Till the soil and produce fresh food for those around you, and maybe you'll be more than an unsung hero someday."
 	flag = FARMER
 	department_flag = PEASANTS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_SOILSON
+	faction = FACTION_STATION
 	total_positions = 11
 	spawn_positions = 11
-	display_order = JDO_SOILSON
-	bypass_lastclass = TRUE
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-	tutorial = "It is a simple life you live, your basic understanding of life is something many would be envious of if they knew how perfect it was. You know a good day's work, the sweat on your brow is yours: Famines and plague may take its toll, but you know how to celebrate life well. Till the soil and produce fresh food for those around you, and maybe youll be more than an unsung hero someday."
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
-
-
-	f_title = "Soilbride"
-	outfit = /datum/outfit/job/farmer
-	display_order = 24
-	give_bank_account = 20
 	min_pq = -100
+	bypass_lastclass = TRUE
 	selection_color = "#553e01"
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	outfit = /datum/outfit/job/farmer
+	give_bank_account = 20
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/outfit/job/farmer/pre_equip(mob/living/carbon/human/H)
 	..()

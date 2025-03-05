@@ -1731,10 +1731,10 @@
 /turf/open/transparent/openspace,
 /area/rogue)
 "Oj" = (
-/obj/item/bath/soap,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
 /obj/structure/closet/crate/chest,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/item/soap,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/tile,
