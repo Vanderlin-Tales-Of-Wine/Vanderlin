@@ -177,7 +177,8 @@
 
 /datum/browser/modal/input_list/set_choice(choice)
 	if(!(choice in results))
-		stack_trace("[choice] not found in list input")
+		CRASH("user gave impossible response [choice]")
+
 	src.choice = results[choice]
 
 /*-----------------------*/

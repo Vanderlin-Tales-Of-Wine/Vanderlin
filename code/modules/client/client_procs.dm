@@ -43,6 +43,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if(href_list["schizohelp"])
+		answer_schizohelp(locate(href_list["schizohelp"]))
+		return
+
+	if(href_list["delete_painting"])
+		if(!holder)
+			return
+		SSpaintings.del_player_painting(href_list["id"])
+		SSpaintings.update_paintings()
+
 	// asset_cache
 	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
@@ -142,10 +152,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	switch(href_list["action"])
 		if("openLink")
 			src << link(href_list["link"])
-	if (hsrc)
+
+	if(hsrc)
 		var/datum/real_src = hsrc
 		if(QDELETED(real_src))
 			return
+
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
 
 	..()	//redirect to hsrc.Topic()
 
@@ -195,48 +211,6 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		log_game("COMMEND: [ckey] commends [theykey].")
 		log_admin("COMMEND: [ckey] commends [theykey].")
 	return
-
-/client/Topic(href, href_list, hsrc)
-	if(href_list["schizohelp"])
-		answer_schizohelp(locate(href_list["schizohelp"]))
-		return
-
-	if(href_list["delete_painting"])
-		if(!holder)
-			return
-		SSpaintings.del_player_painting(href_list["id"])
-		SSpaintings.update_paintings()
-	switch(href_list["_src_"])
-		if("holder")
-			hsrc = holder
-		if("usr")
-			hsrc = mob
-		if("prefs")
-			if (inprefs)
-				return
-			inprefs = TRUE
-			. = prefs.process_link(usr,href_list)
-			inprefs = FALSE
-			return
-		if("vars")
-			return view_var_Topic(href,href_list,hsrc)
-		if("chat")
-			return chatOutput.Topic(href, href_list)
-
-	switch(href_list["action"])
-		if("openLink")
-			src << link(href_list["link"])
-	if (hsrc)
-		var/datum/real_src = hsrc
-		if(QDELETED(real_src))
-			return
-
-	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
-	//overloaded
-	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
-		return
-
-	..()	//redirect to hsrc.Topic()
 
 ///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
 ///so we cant queue it without this

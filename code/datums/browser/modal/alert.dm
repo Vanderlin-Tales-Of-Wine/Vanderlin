@@ -55,7 +55,6 @@
 
 /datum/browser/modal/alert/set_choice(choice)
 	if(!(choice in buttons))
-		stack_trace("[user] selected non-existant button choice: [choice]")
-		choice = null
+		CRASH("[user] selected non-existent button choice: [choice]")
 
 	..()

@@ -46,7 +46,7 @@
 	set category = "Memory"
 	var/githuburl = CONFIG_GET(string/githuburl)
 	if(githuburl)
-		if(alert("This will open the Github repository in your browser. Are you sure?",,"Yes","No")!="Yes")
+		if(browser_alert(src, "This will open the Github repository in your browser. Are you sure?", null, DEFAULT_INPUT_CHOICES) != CHOICE_YES)
 			return
 		src << link(githuburl)
 	else
