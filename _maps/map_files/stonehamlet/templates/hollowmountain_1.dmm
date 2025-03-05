@@ -43,6 +43,11 @@
 /obj/item/bin/water/gross,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
+"es" = (
+/obj/structure/rack,
+/obj/item/clothing/armor/cuirass/iron/goblin,
+/turf/open/floor/twig,
+/area/rogue/under/cave/hollow)
 "eN" = (
 /obj/structure/table/wood/crafted,
 /obj/item/alch/sinew,
@@ -85,6 +90,10 @@
 "kq" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
+"kE" = (
+/obj/structure/fluff/walldeco/rags/skull,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/hollow)
 "kO" = (
 /turf/open/water/swamp,
 /area/rogue/under/cave/hollow)
@@ -95,6 +104,10 @@
 "lD" = (
 /obj/effect/spawner/map_spawner/goblincave_threat,
 /turf/open/floor/twig,
+/area/rogue/under/cave/hollow)
+"mA" = (
+/obj/structure/fluff/walldeco/rags/alt,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave/hollow)
 "mE" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -182,6 +195,10 @@
 /obj/effect/spawner/map_spawner/rat_danger,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
+"vF" = (
+/obj/structure/gob_portal,
+/turf/open/floor/dirt/muddie,
+/area/rogue/under/cave/hollow)
 "vM" = (
 /obj/effect/decal/remains/mole,
 /obj/effect/decal/cleanable/blood_neu/random,
@@ -233,6 +250,10 @@
 "BI" = (
 /turf/closed/mineral/random,
 /area/rogue/under/cave)
+"FJ" = (
+/obj/structure/fluff/walldeco/rags,
+/turf/closed/wall/mineral/tent,
+/area/rogue/under/cave/hollow)
 "GR" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone,
@@ -251,6 +272,9 @@
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cave/hollow)
+"Jm" = (
+/turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/hollow)
 "JK" = (
 /obj/item/natural/stone,
@@ -335,6 +359,10 @@
 /obj/item/weapon/pick,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
+"RD" = (
+/obj/structure/fluff/walldeco/rags,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/hollow)
 "RJ" = (
 /obj/effect/decal/remains/mole,
 /turf/open/water/cleanshallow,
@@ -751,7 +779,7 @@ ab
 ab
 ab
 ab
-ef
+mA
 HZ
 Ay
 rY
@@ -1019,7 +1047,7 @@ ef
 ef
 ef
 ef
-ef
+mA
 ab
 ab
 ab
@@ -1086,7 +1114,7 @@ ef
 ef
 ef
 ef
-ef
+mA
 ab
 ab
 ab
@@ -1153,7 +1181,7 @@ ef
 ef
 ef
 ef
-ef
+mA
 ab
 ab
 ab
@@ -1412,7 +1440,7 @@ ef
 ef
 ab
 ab
-uZ
+ab
 ef
 ef
 ef
@@ -1442,7 +1470,7 @@ ef
 ef
 ef
 ef
-ef
+kE
 ab
 ab
 ab
@@ -1680,8 +1708,8 @@ ef
 ef
 ef
 ef
-ab
-ab
+Jm
+Jm
 ab
 ab
 ab
@@ -1747,8 +1775,8 @@ ef
 ef
 ef
 ef
-ab
-ab
+vF
+Jm
 ab
 ab
 ab
@@ -1814,8 +1842,8 @@ ef
 ef
 ef
 ef
-ab
-ab
+Jm
+Jm
 ab
 ab
 ab
@@ -1907,7 +1935,7 @@ ab
 ab
 ef
 ef
-ef
+kE
 ab
 ab
 ab
@@ -2044,7 +2072,7 @@ ef
 ef
 ri
 ab
-ab
+uZ
 ef
 ef
 ef
@@ -2082,7 +2110,7 @@ ef
 ef
 ef
 ef
-ab
+ri
 ab
 ab
 ef
@@ -2264,7 +2292,7 @@ ef
 ef
 ef
 ef
-ab
+ri
 ab
 ab
 ab
@@ -2456,7 +2484,7 @@ ef
 ef
 ab
 ab
-ab
+ri
 ab
 ef
 ef
@@ -2515,7 +2543,7 @@ ef
 ef
 ab
 ab
-ab
+ri
 ef
 ef
 ef
@@ -2626,7 +2654,7 @@ ab
 ab
 ab
 ab
-ab
+ri
 ef
 ef
 ef
@@ -2768,7 +2796,7 @@ ef
 ef
 ef
 ef
-ef
+RD
 YB
 ab
 oP
@@ -2834,11 +2862,11 @@ ef
 ef
 ef
 ef
-ef
+mA
 Qs
 Ay
 Ay
-oP
+FJ
 ab
 ab
 YU
@@ -2848,7 +2876,7 @@ Tf
 ab
 Ay
 YB
-ef
+mA
 ef
 ef
 ef
@@ -2901,7 +2929,7 @@ ab
 ef
 ef
 ef
-ef
+mA
 YB
 Ay
 ab
@@ -2915,7 +2943,7 @@ oP
 Ay
 Ay
 io
-ef
+mA
 ef
 ef
 ef
@@ -2972,7 +3000,7 @@ oP
 oP
 oP
 oP
-oP
+FJ
 ab
 ab
 bH
@@ -2981,7 +3009,7 @@ Ay
 oP
 Ay
 Ay
-ef
+mA
 ef
 ef
 ef
@@ -3048,7 +3076,7 @@ ii
 oP
 ng
 ZJ
-ef
+mA
 ef
 ef
 ef
@@ -3165,7 +3193,7 @@ ef
 ef
 ef
 ef
-ef
+kE
 ab
 ab
 ab
@@ -3179,7 +3207,7 @@ ab
 ab
 ab
 ab
-Ay
+es
 Ay
 xd
 ef
@@ -3317,7 +3345,7 @@ ab
 ab
 ab
 ab
-ab
+ri
 ef
 ef
 ef
@@ -3374,7 +3402,7 @@ HZ
 ef
 ef
 ef
-ef
+RD
 ab
 ab
 ab
@@ -3674,7 +3702,7 @@ BI
 BI
 ef
 ef
-ef
+RD
 Qy
 lD
 Ay
@@ -3741,7 +3769,7 @@ NA
 BI
 ef
 ef
-ef
+mA
 LR
 Ay
 Ay
@@ -3808,7 +3836,7 @@ BI
 BI
 BI
 ef
-ef
+mA
 Ay
 Ay
 Ay
@@ -3875,7 +3903,7 @@ BI
 BI
 BI
 ef
-ef
+mA
 YB
 pF
 ef

@@ -161,7 +161,7 @@ Design philosphy:
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/hankyu
 	head = /obj/item/clothing/head/tengai/gasa
 	neck = /obj/item/clothing/neck/chaincoif/karuta_zukin/military
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/weapon/knife/steel/tanto
 	backpack_contents = list(/obj/item/storage/keyring/manorguard)

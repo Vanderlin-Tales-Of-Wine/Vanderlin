@@ -27,7 +27,7 @@
 	pants = /obj/item/clothing/pants/chainlegs/iron/haidate_tatami
 	shirt = /obj/item/clothing/armor/gambeson/light/hitatare/ronin
 	cloak = /obj/item/clothing/shirt/tunic/kimono/ronin
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	armor = /obj/item/clothing/armor/chainmail/iron/tatami
 	mask = /obj/item/clothing/face/kaizoku/menpo/half
 	head = /obj/item/clothing/head/tengai/roningasa //Not protective

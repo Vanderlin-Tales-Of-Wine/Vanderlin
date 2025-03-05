@@ -1,7 +1,7 @@
 /datum/job/roguetown/veteran
 	title = "Veteran"
 	flag = GUARDSMAN
-	department_flag = GARRISON
+	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -111,7 +111,7 @@
 	head = /obj/item/clothing/head/helmet/sallet
 	pants = /obj/item/clothing/pants/chainlegs
 	gloves = /obj/item/clothing/gloves/plate
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	shoes = /obj/item/clothing/shoes/boots/armor
 	beltl = /obj/item/weapon/sword
 	beltr = /obj/item/storage/keyring/veteran
@@ -169,7 +169,7 @@
 	head = /obj/item/clothing/head/helmet/heavy/decorated/knight
 	pants = /obj/item/clothing/pants/chainlegs
 	gloves = /obj/item/clothing/gloves/plate
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	shoes = /obj/item/clothing/shoes/boots/armor
 	beltr = /obj/item/storage/keyring/veteran
 	backr = /obj/item/storage/backpack/satchel/black
@@ -243,7 +243,7 @@
 
 /datum/outfit/job/roguetown/vet/merc/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/gorget
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	shirt = /obj/item/clothing/shirt/grenzelhoft // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.
 	head = /obj/item/clothing/head/helmet/skullcap/grenzelhoft
 	armor = /obj/item/clothing/armor/cuirass/iron
@@ -319,7 +319,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/heavy
 	pants = /obj/item/clothing/pants/trou/leather
 	gloves = /obj/item/clothing/gloves/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	shoes = /obj/item/clothing/shoes/boots/leather
 	beltl = /obj/item/ammo_holder/quiver/arrows
 	beltr = /obj/item/flashlight/flare/torch/lantern
@@ -378,7 +378,7 @@
 	shirt = /obj/item/clothing/shirt/undershirt/puritan
 	pants = /obj/item/clothing/pants/tights/black
 	gloves = /obj/item/clothing/gloves/fingerless
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	shoes = /obj/item/clothing/shoes/boots
 	beltl = /obj/item/weapon/whip
 	beltr = /obj/item/flashlight/flare/torch/lantern

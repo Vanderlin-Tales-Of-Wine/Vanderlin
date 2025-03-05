@@ -46,7 +46,7 @@
 		gloves = /obj/item/clothing/gloves/leather
 	else
 		gloves = /obj/item/clothing/gloves/fingerless
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/leather/hide
 	cloak = /obj/item/clothing/cloak/raincloak/brown

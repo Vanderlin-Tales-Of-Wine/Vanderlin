@@ -362,14 +362,14 @@
 	name = "Armored Sleeve"
 	recipe_name = "a couple of Kote"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/wrists/roguetown/bracers/kote
+	created_item = /obj/item/clothing/wrists/bracers/kote
 	craftdiff = 4
 
 /datum/anvil_recipe/armor/weeper
 	name = "Weeper Bracers x2"
 	recipe_name = "a couple of Weeping Bracers"
 	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/wrists/roguetown/bracers/mountainstar
+	created_item = /obj/item/clothing/wrists/bracers/mountainstar
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 3

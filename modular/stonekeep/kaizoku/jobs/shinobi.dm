@@ -46,7 +46,7 @@
 		beltl = /obj/item/clothing/gloves/fingerless
 	backl = /obj/item/storage/backpack/satchel/ninja
 	neck = /obj/item/clothing/neck/gorget
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	pants = /obj/item/clothing/pants/trou/leather/shinobizubon
 	shoes = /obj/item/clothing/shoes/boots/jikatabi/shinobi
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/hankyu

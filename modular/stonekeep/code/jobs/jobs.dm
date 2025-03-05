@@ -271,3 +271,7 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 	maximum_possible_slots = 0
 /datum/advclass/combat/heartfeltlord
 	maximum_possible_slots = 0
+
+/datum/job/roguetown/servant
+	total_positions = 0
+	spawn_positions = 0

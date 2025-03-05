@@ -58,7 +58,7 @@
 			if("Pestra")
 				wrists = /obj/item/clothing/neck/psycross/silver/pestra
 			else
-				wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+				wrists = /obj/item/clothing/wrists/bracers/leather
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)		//If they have torture variables, they shouldn't be effected by stuff.

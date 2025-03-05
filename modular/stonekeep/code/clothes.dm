@@ -385,6 +385,10 @@
 	add_overlay(mutable_appearance('modular/stonekeep/icons/clothing.dmi', "clasp"))
 	..()
 
+/obj/item/clothing/cloak/raincloak/woodsman/Initialize()
+	color = pick_assoc(GLOB.peasant_dyes)
+	..()
+
 
 // ==============================	ARMOR	====================================
 // =============================================================================
@@ -628,16 +632,16 @@
 // ==============================	ARMS	====================================
 // =============================================================================
 
-/obj/item/clothing/wrists/roguetown/bracers/leather
+/obj/item/clothing/wrists/bracers/leather
 	armor = ARMOR_LEATHER_BAD
-/obj/item/clothing/wrists/roguetown/bracers/leather/hardened
+/obj/item/clothing/wrists/bracers/leather/hardened
 	name = "heavy leather bracers"
 	desc = ""
 	color = "#d5c2aa"
 	armor = ARMOR_LEATHER
 	prevent_crits = ALL_EXCEPT_BLUNT_AND_STAB
 
-/obj/item/clothing/wrists/roguetown/bracers/splint
+/obj/item/clothing/wrists/bracers/splint
 	name = "splint vambraces"
 	desc = ""
 	icon = 'modular/stonekeep/icons/clothing.dmi'

@@ -132,7 +132,7 @@
 	recipe_name = "a pair of Splint Vambraces"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron, /obj/item/natural/hide, /obj/item/natural/hide)
-	created_item = /obj/item/clothing/wrists/roguetown/bracers/splint
+	created_item = /obj/item/clothing/wrists/bracers/splint
 	craftdiff = 2
 
 

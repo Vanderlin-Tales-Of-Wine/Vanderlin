@@ -40,7 +40,7 @@
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou
-		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+		wrists = /obj/item/clothing/wrists/bracers/leather
 	else
 		shirt = /obj/item/clothing/shirt/dress/gen/random
 

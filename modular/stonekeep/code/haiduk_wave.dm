@@ -14,7 +14,7 @@
 /datum/outfit/job/roguetown/haiduk_migration/khan/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	head = /obj/item/clothing/head/helmet/horned
 	r_hand = /obj/item/weapon/mace/goden
 	neck = /obj/item/clothing/neck/coif
@@ -69,7 +69,7 @@
 /datum/outfit/job/roguetown/haiduk_migration/raider/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	head = /obj/item/clothing/head/helmet/leather/malgai
 	r_hand = /obj/item/weapon/sword/scimitar/haiduk
 	armor = /obj/item/clothing/armor/leather/hide

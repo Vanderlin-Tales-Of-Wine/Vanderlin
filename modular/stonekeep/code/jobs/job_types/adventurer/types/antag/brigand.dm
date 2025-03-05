@@ -47,7 +47,7 @@
 		if("Breastplate")
 			armor = /obj/item/clothing/armor/cuirass/iron/rust
 			pants = /obj/item/clothing/pants/trou/leather
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/hardened
+			wrists = /obj/item/clothing/wrists/bracers/leather/hardened
 		if("Hide")
 			armor = /obj/item/clothing/armor/leather/hide
 			pants = /obj/item/clothing/pants/leather/heavy

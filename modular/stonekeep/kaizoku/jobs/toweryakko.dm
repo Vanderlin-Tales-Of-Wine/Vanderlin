@@ -22,7 +22,7 @@
 	gloves = /obj/item/clothing/gloves/leather/abyssal/toweryakko
 	mask = /obj/item/clothing/face/kaizoku/menpo
 	belt = /obj/item/storage/belt/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	cloak = /obj/item/clothing/cloak/stabard/haramaki/odoshi/toweryakko
 	armor = /obj/item/clothing/armor/cuirass/sanmaido
 	backr = /obj/item/weapon/shield/abyssaltower

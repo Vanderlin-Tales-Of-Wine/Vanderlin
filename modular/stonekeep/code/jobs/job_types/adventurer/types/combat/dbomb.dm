@@ -13,7 +13,7 @@
 	pants = /obj/item/clothing/pants/trou
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/chainmail/iron
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	backl = /obj/item/storage/backpack/backpack
 	beltl = /obj/item/weapon/pick
 	beltr = /obj/item/weapon/hammer/iron

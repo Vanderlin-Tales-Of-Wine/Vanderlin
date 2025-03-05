@@ -330,30 +330,21 @@
 // ======================================================================
 /*	..................   Maybe Mob Spawners   ................... */
 /obj/effect/spawner/map_spawner/maybe_saiga
-	icon = 'icons/roguetown/mob/monster/saiga.dmi'
-	icon_state = "saiga"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
 	probby = 50
-	color = "#ff00d9"
 	spawned = list(
 		/mob/living/simple_animal/hostile/retaliate/saiga = 40,
 		/mob/living/simple_animal/hostile/retaliate/saigabuck = 50,
 		/mob/living/simple_animal/hostile/retaliate/saiga/saigakid = 10)
 
 /obj/effect/spawner/map_spawner/maybe_cabbit
-	icon = 'icons/roguetown/mob/cabbit.dmi'
-	icon_state = "cabbit"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
 	probby = 50
-	color = "#ff00d9"
 	spawned = list(
 		/mob/living/simple_animal/pet/cat/cabbit = 100)
 
-/obj/effect/spawner/map_spawner/maybe_volf
-	icon = 'icons/roguetown/mob/monster/vol.dmi'
-	icon_state = "vv"
-	probby = 50
-	color = "#ff00d9"
-	spawned = list(
-		/mob/living/simple_animal/hostile/retaliate/wolf = 100)
 
 
 // ======================================================================

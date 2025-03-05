@@ -180,7 +180,7 @@
 			pants = /obj/item/clothing/pants/trou
 			head = /obj/item/clothing/head/strawhat
 			shoes = /obj/item/clothing/shoes/simpleshoes
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			wrists = /obj/item/clothing/wrists/bracers/leather
 			backr = /obj/item/weapon/hoe
 			backl = /obj/item/storage/backpack/satchel
 			neck = /obj/item/storage/belt/pouch/coins/poor
@@ -205,7 +205,7 @@
 			shoes = /obj/item/clothing/shoes/boots/leather
 			backr = /obj/item/storage/backpack/satchel
 			neck = /obj/item/clothing/neck/coif
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			wrists = /obj/item/clothing/wrists/bracers/leather
 			armor = /obj/item/clothing/armor/gambeson/light/striped
 			beltr = /obj/item/storage/belt/pouch/coins/poor
 			beltl = /obj/item/weapon/hammer/steel

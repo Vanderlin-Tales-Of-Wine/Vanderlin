@@ -1,5 +1,5 @@
 /datum/job/roguetown/magician
-	title = "Master Magos"
+	title = "Court Wizard"
 	flag = WIZARD
 	department_flag = NOBLEMEN
 	faction = "Station"

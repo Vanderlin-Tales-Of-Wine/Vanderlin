@@ -21,7 +21,7 @@
 	beltl = /obj/item/ammo_holder/quiver/bolts
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	armor = /obj/item/clothing/armor/chainmail/iron // Starts with better armor than a typical ranger (iron chainmail) but has no dodge expert or sneaking skill
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	r_hand = /obj/item/weapon/sword/scimitar/falchion
 	backpack_contents = list(/obj/item/bait = 1)
 	if(prob(23))

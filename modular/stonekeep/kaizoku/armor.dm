@@ -2157,7 +2157,7 @@
 // =================================================================
 // ========================	BRACERS	================================
 
-/obj/item/clothing/wrists/roguetown/bracers/kote
+/obj/item/clothing/wrists/bracers/kote
 	name = "kote"
 	desc = "A sashinuki kote, the armored sleeves and gloves knitted into a jacketed layer. It belongs as one of the armor component of sangu, together with suneate and haidate."
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/wrists.dmi'
@@ -2167,12 +2167,12 @@
 	icon_state = "kote"
 	item_state = "kote"
 
-/obj/item/clothing/wrists/roguetown/bracers/kote/cursed/Initialize()
+/obj/item/clothing/wrists/bracers/kote/cursed/Initialize()
 	. = ..()
 	name = "soulbinded kote"
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/clothing/wrists/roguetown/bracers/mountainstar
+/obj/item/clothing/wrists/bracers/mountainstar
 	name = "weeping god-patterned bracers"
 	desc = "Y-shaped steel plates marks this bracer everywhere it is looked upon, most proper for the Weeping God."
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/wrists.dmi'
@@ -2181,7 +2181,7 @@
 	icon_state = "mountainstar"
 	item_state = "mountainstar"
 
-/obj/item/clothing/wrists/roguetown/kaizoku/dragonwrap
+/obj/item/clothing/wrists/kaizoku/dragonwrap
 	name = "dragon wrappings"
 	desc = "fireproof cloth wrappings to cover the arms and hands. It is completely made of asbestos and resin keeping its toxicity in place. For now."
 	slot_flags = ITEM_SLOT_WRISTS
@@ -2194,7 +2194,7 @@
 	heat_protection = ARMS|HANDS
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
-/obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+/obj/item/clothing/wrists/bracers/leather/khudagach
 	name = "khudagach bracers"
 	desc = "Oil-boiled leather bracers made to protect the forearms and wrists of abyssariad archers, light cavalry and farming folk."
 	icon_state = "khudagach"
@@ -2203,7 +2203,7 @@
 	mob_overlay_icon ='modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'
 
-/obj/item/clothing/wrists/roguetown/bracers/bonebracer
+/obj/item/clothing/wrists/bracers/bonebracer
 	name = "bone bracers"
 	desc = "the bracers made of bone, usually created and used by tribalistic Undines."
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -2222,7 +2222,7 @@
 	anvilrepair = null
 	sewrepair = FALSE
 
-/obj/item/clothing/wrists/roguetown/shrinekeeper
+/obj/item/clothing/wrists/shrinekeeper
 	slot_flags = ITEM_SLOT_WRISTS
 	name = "purificators"
 	desc = "Blessed gauntlets for those who believes they can punch spirits."

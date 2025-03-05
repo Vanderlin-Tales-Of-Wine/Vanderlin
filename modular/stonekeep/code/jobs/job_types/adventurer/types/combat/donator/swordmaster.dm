@@ -42,7 +42,7 @@
 	armor = /obj/item/clothing/armor/rare/grenzelplate
 	backl = /obj/item/storage/backpack/satchel
 	head = /obj/item/clothing/head/rare/grenzelplate
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	neck = /obj/item/clothing/neck/chaincoif
 	if(!H.has_language(/datum/language/oldpsydonic))
 		H.grant_language(/datum/language/oldpsydonic)

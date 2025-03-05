@@ -235,9 +235,8 @@
 
 /*	..................   Cave Goblin Maybe   ................... */
 /obj/effect/spawner/map_spawner/goblincave_threat
-	icon = 'icons/roguetown/mob/monster/goblins.dmi'
-	icon_state = "goblin"
-	color = "#ff3318"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
 	spawned = list(
 		/obj/structure/idle_enemy/cavegoblin = 100,

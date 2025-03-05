@@ -34,7 +34,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/light/hitatare/zamurai //weaker gambeson. Has way more DRIP. (Doesn't matter for balance, shutup)
 	armor = /obj/item/clothing/armor/medium/surcoat/heartfelt/abyssariad //Paying off for 4 swordskill instead of 5.
 	head = /obj/item/clothing/head/helmet/visored/zunari //fucking-shit-up knight helmet tier. Sacrificed some to keep that one.
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/kote //Cooler Bracer that protects the hands.
+	wrists = /obj/item/clothing/wrists/bracers/kote //Cooler Bracer that protects the hands.
 	neck = /obj/item/clothing/neck/chaincoif/karuta_zukin/military
 
 	to_chat(H, span_warning( "<span class='userdanger'>I am a noble storm-hardened warrior in lacquered armor whom lands I own and control. Yet, here I stand in unfamiliar lands no different of my own.</span>"))

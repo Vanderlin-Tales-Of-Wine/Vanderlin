@@ -29,7 +29,7 @@
 /datum/outfit/job/roguetown/tester/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/bracers
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/gambeson/arming
 	if(prob(50))

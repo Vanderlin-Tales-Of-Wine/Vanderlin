@@ -104,19 +104,106 @@
 	color = "#ffffff"
 	. = ..()
 
-
 /turf/open/floor/grass/mixyel
 	canSmoothWith = list(/turf/open/floor/grass,
 	/turf/open/floor/snow,
 	/turf/open/floor/dirt,)
-
-
 
 /turf/open/floor/grass/yel
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	canSmoothWith = list(/turf/open/floor/grass,
 	/turf/open/floor/snow,
 	/turf/open/floor/grass/mixyel)
+
+
+/turf/open/floor/snow/patchy
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+
+/turf/open/floor/snow
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+
+/turf/open/floor/snow/rough
+	icon = 'icons/turf/roguefloor.dmi'
+
+/turf/open/floor/cobblerock
+	smooth = SMOOTH_MORE
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+
+/turf/open/floor/cobblemoss
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "cobstonemoss"
+	footstep = FOOTSTEP_STONE
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	landsound = 'sound/foley/jumpland/stoneland.wav'
+	neighborlay = "cobstonemoss"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass)
+	max_integrity = 1200
+
+/turf/open/floor/cobblemoss/turf_destruction(damage_flag)
+	. = ..()
+	ChangeTurf(/turf/open/floor/dirt, flags = CHANGETURF_INHERIT_AIR)
+	new /obj/item/natural/stone(src)
+
+/turf/open/floor/cobblemoss/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
+
+/turf/open/floor/cobblemoss/Initialize()
+	. = ..()
+	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/blocks/moss
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "blockmoss"
+
+/turf/open/floor/dirt/road/old
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "oldroad"
+	neighborlay = "oldroad"
+
+
+/turf/open/floor/dirt/old
+	desc = "The dirt is dark and smell ancient."
+	icon_state = "olddirt"
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	neighborlay = "olddirt"
+
+/turf/open/floor/dirt/old/become_muddy()
+	if(!muddy)
+		water_level = max(water_level-100,0)
+		muddy = TRUE
+		icon_state = "oldmud[rand (1,3)]"
+		name = "oldmud"
+		slowdown = 2
+		footstep = FOOTSTEP_MUD
+		barefootstep = FOOTSTEP_MUD
+		heavyfootstep = FOOTSTEP_MUD
+		bloodiness = 20
+
+
+/turf/open/floor/dirt/muddie
+	desc = "Your feet sink into this soft ground easily."
+	icon_state = "mud1"
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	neighborlay = "mud1"
+	muddy = TRUE
+/turf/open/floor/dirt/muddie/Initialize()
+	. = ..()
+	icon_state = "mud[rand (1,3)]"
+	dir = pick(GLOB.cardinals)
+
+
+/turf/open/floor/grass/old
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "oldgrass"
+	neighborlay = "oldgrass"
+/turf/open/floor/grass/old/Initialize()
+	. = ..()
+	dir = pick(GLOB.alldirs)
+
 
 // =================================================================================
 /*--------\

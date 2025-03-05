@@ -27,7 +27,7 @@
 	..()
 	neck = /obj/item/clothing/neck/psycross/silver/abyssanctum
 	shoes = /obj/item/clothing/shoes/sandals/geta
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 	backl = /obj/item/storage/backpack/backpack
@@ -45,7 +45,7 @@
 		if("I build shrines for Abyssor.")
 			armor = /obj/item/clothing/shirt/robe/shrinekeeper
 			shirt = /obj/item/clothing/shirt/tunic/kimono/random
-			wrists = /obj/item/clothing/wrists/roguetown/shrinekeeper
+			wrists = /obj/item/clothing/wrists/shrinekeeper
 			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE) //They lose 'Medicine' to have 'Carpetry', because Shrinekeepers... repair shrines.
 			H.set_blindness(0)
 	if(H.mind)

@@ -83,9 +83,9 @@
 
 /datum/outfit/job/roguetown/skeleton/pre_equip(mob/living/carbon/human/H)
 	..()
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(50))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers
+		wrists = /obj/item/clothing/wrists/bracers
 	belt = /obj/item/storage/belt/leather
 	if(prob(10))
 		armor = /obj/item/clothing/armor/gambeson/light

@@ -33,7 +33,7 @@
 
 	head = /obj/item/clothing/head/helmet/leather/hood_ominous
 	armor = /obj/item/clothing/armor/cuirass/copperchest
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather/rope
 	beltl = /obj/item/weapon/knife/hunting
 	pants = /obj/item/clothing/pants/trou/beltpants

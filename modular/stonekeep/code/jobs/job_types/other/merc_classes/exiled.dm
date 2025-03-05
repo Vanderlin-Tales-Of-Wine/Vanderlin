@@ -45,7 +45,7 @@
 	head = /obj/item/clothing/head/helmet/leather
 	armor = /obj/item/clothing/armor/leather/hide
 	shoes = /obj/item/clothing/shoes/boots/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)

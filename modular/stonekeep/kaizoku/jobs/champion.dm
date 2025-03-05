@@ -83,7 +83,7 @@
 		shirt = /obj/item/clothing/shirt/looseshirt/dragonslayer
 		armor = /obj/item/clothing/armor/cuirass/nanbando
 		head = /obj/item/clothing/head/rare/dragonslayer
-		wrists = /obj/item/clothing/wrists/roguetown/kaizoku/dragonwrap
+		wrists = /obj/item/clothing/wrists/kaizoku/dragonwrap
 		neck = /obj/item/clothing/neck/gorget
 		mask = /obj/item/clothing/face/kaizoku/menpo/facemask/colourable/oni
 		cloak = /obj/item/clothing/cloak/raincloak/guardiancloak/dragonslayer

@@ -21,7 +21,7 @@
 	belt = /obj/item/storage/belt/leather/mercenary/black
 	armor = /obj/item/clothing/armor/leather/splint
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	beltr = /obj/item/weapon/sword/sabre
 	beltl= /obj/item/ammo_holder/quiver/arrows
 	shirt = /obj/item/clothing/shirt/undershirt
@@ -33,7 +33,7 @@
 	if(HAS_TRAIT(H, TRAIT_KAIZOKU))
 		backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/hankyu
 		beltr = /obj/item/weapon/sword/sabre/piandao
-		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+		wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

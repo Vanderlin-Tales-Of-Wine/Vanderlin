@@ -297,8 +297,8 @@
 
 /*	..................   Hairy Spider Danger   ................... */
 /obj/effect/spawner/map_spawner/hairy_spider_maybe
-	icon = 'icons/roguetown/mob/monster/spider.dmi'
-	icon_state = "spider"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
 	color = "#ff0000"
 	spawned = list(
@@ -327,37 +327,33 @@
 
 /*	..................   Haunts Danger   ................... */
 /obj/effect/spawner/map_spawner/haunts_maybe
-	icon = 'icons/roguetown/mob/monster/wraith.dmi'
-	icon_state = "hauntpile"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/structure/bonepile = 100	)
 
 /*	..................   Outlaw Danger (starving desperate peasants)  ................... */
 /obj/effect/spawner/map_spawner/outlaw_maybe
-	icon_state = "faceless"
-	icon = 'icons/mob/simple_human.dmi'
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/structure/idle_enemy/outlaw = 100	)
 
 /*	..................   Volf Danger  ................... */
 /obj/effect/spawner/map_spawner/volf_maybe
-	icon = 'icons/roguetown/mob/monster/vol.dmi'
-	icon_state = "vv"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/structure/idle_enemy/volf= 100	)
 
 /*	..................   Cabbit Cottage Danger  ................... */
 /obj/effect/spawner/map_spawner/cabbit_maybe
-	icon = 'icons/roguetown/mob/cabbit.dmi'
-	icon_state = "cabbit"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 100
-	color = "#ff0000"
 	spawned = list(
 		/obj/structure/idle_enemy/cabbit_boss= 50,
 		/mob/living/simple_animal/pet/cat/cabbit = 50	)
@@ -365,10 +361,9 @@
 
 /*	..................   Honeyspider Danger  ................... */
 /obj/effect/spawner/map_spawner/honeyspider_maybe
-	icon = 'icons/roguetown/mob/monster/spider.dmi'
-	icon_state = "honeys"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/structure/idle_enemy/honeyspider = 100	)
 

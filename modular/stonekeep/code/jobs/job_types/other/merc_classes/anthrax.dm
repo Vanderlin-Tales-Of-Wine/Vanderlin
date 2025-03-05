@@ -33,7 +33,7 @@
 		if(H.gender == FEMALE) //Melee defense-oriented brute, heavy lean towards non-lethal takedowns and capture.
 			armor = /obj/item/clothing/armor/cuirass/iron/shadowplate
 			gloves = /obj/item/clothing/gloves/chain/iron/shadowgauntlets
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			wrists = /obj/item/clothing/wrists/bracers/leather
 			mask = /obj/item/clothing/face/facemask/shadowfacemask
 			neck = /obj/item/clothing/neck/gorget
 			backr = /obj/item/weapon/shield/tower/spidershield

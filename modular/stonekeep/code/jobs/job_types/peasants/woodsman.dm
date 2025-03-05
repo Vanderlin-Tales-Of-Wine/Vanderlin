@@ -1,6 +1,6 @@
 /datum/job/roguetown/woodsman
 	title = "Woodsman"
-	tutorial = "Cutting meat or logs, it matters not. The forest is your livelihood, and you are well suited for its dangers."
+	tutorial = "Living on the outskirts of civliziation, you got roots in the local community, but spend most of your time alone in the forest."
 	faction = "Station"
 	allowed_sexes = list(MALE,FEMALE)
 	flag = HUNTER
@@ -11,7 +11,6 @@
 		"Half-Elf",
 		"Dwarf",
 		"Tiefling",
-		"Dark Elf",
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/roguetown/woodsman
@@ -26,37 +25,58 @@
 	..()
 	pants = /obj/item/clothing/pants/tights/provisoner
 	shirt = /obj/item/clothing/shirt/shortshirt/provisoner
-	shoes = /obj/item/clothing/shoes/boots/leather
 	neck = /obj/item/storage/belt/pouch/coins/poor
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-	armor = /obj/item/clothing/armor/leather/hide
-	backr = /obj/item/ammo_holder/quiver/arrows
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather
-	beltr = /obj/item/weapon/axe/iron
-	beltl = /obj/item/storage/meatbag
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/bait = 1, /obj/item/weapon/knife/hunting = 1)
-	gloves = /obj/item/clothing/gloves/leather
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
 		H.change_stat("endurance", 1)
 		H.change_stat("perception", 3)
 		if(H.age == AGE_OLD)
-			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+
+	H.adjust_blindness(-3)
+	var/weapons = list("Hunter", "Lumberjack")
+	var/weapon_choice = input("Choose your trade.", "My trade is chosen") as anything in weapons
+	H.set_blindness(0)
+	switch(weapon_choice)
+		if("Hunter")
+			cloak = /obj/item/clothing/cloak/raincloak/woodsman
+			armor = /obj/item/clothing/armor/leather/hide
+			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+			beltr = /obj/item/ammo_holder/quiver/arrows
+			shoes = /obj/item/clothing/shoes/boots/leather
+			beltl = /obj/item/storage/meatbag
+			backpack_contents = list(/obj/item/restraints/legcuffs/beartrap = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/flint = 1, /obj/item/bait = 2)
+			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
+		if("Lumberjack")
+			head = /obj/item/clothing/head/roguehood/random/heavy
+			wrists = /obj/item/clothing/wrists/bracers/leather
+			armor = /obj/item/clothing/armor/gambeson/light/striped
+			beltl = /obj/item/weapon/knife/villager
+			r_hand = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+			shoes = /obj/item/clothing/shoes/shortboots
+			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/flint = 1)
+			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)
 

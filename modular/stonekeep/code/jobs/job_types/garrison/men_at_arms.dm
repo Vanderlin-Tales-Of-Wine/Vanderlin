@@ -26,7 +26,7 @@
 
 /datum/outfit/job/roguetown/watchman/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/armor/gambeson/light
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather

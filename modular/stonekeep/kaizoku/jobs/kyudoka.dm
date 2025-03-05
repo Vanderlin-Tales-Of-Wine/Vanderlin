@@ -41,7 +41,7 @@
 		gloves = /obj/item/clothing/gloves/leather/abyssal
 	else
 		gloves = /obj/item/clothing/gloves/fingerless/yugake
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 	belt = /obj/item/storage/belt/leather
 	armor = /obj/item/clothing/armor/leather/hide/dustwalker
 	cloak = /obj/item/clothing/cloak/raincloak/mino

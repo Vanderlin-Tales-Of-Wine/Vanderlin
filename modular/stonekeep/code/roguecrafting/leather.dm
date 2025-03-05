@@ -349,17 +349,17 @@
 /*=========		BRACERS	==========*/
 /datum/crafting_recipe/roguetown/leather/bracers
 	name = "bracers (leather)"
-	result = /obj/item/clothing/wrists/roguetown/bracers/leather
+	result = /obj/item/clothing/wrists/bracers/leather
 	req_imperial = TRUE
 
 /datum/crafting_recipe/roguetown/leather/khudagach
 	name = "bracers (archery)"
-	result = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+	result = /obj/item/clothing/wrists/bracers/leather/khudagach
 	req_islander = TRUE
 
 /datum/crafting_recipe/roguetown/leather/bracers_hardened
 	name = "bracers (heavy leather)"
-	result = /obj/item/clothing/wrists/roguetown/bracers/leather/hardened
+	result = /obj/item/clothing/wrists/bracers/leather/hardened
 	reqs = 	list(/obj/item/natural/hide/cured = 2, /obj/item/reagent_containers/food/snacks/tallow = 1)
 	craftdiff = 4
 

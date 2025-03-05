@@ -85,26 +85,16 @@
 /datum/species/dwarf/mountain/get_accent_list()
 	return strings("SKdwarf_replacement.json", "dwarf")
 
-/datum/species/dwarf/mountain/random_name(gender,unique,lastname)
+/datum/species/dwarf/mountain/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/names/roguetown/SKdwarmm.txt')
+	var/static/list/female_names = world.file2list('strings/names/roguetown/SKdwarmf.txt')
+	return (gender == FEMALE) ? female_names : male_names
 
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/dwarf/SKdwarmm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/dwarf/SKdwarmf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/dwarf/SKdwarmm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/dwarf/SKdwarmf.txt") )
-	return randname
+/datum/species/dwarf/mountain/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/human/humnorlast.txt')
+	return last_names
+
+
 
 
 // =================================================================================
@@ -167,25 +157,15 @@
 	OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0))
 
-/datum/species/human/northern/random_name(gender,unique,lastname)
-	var/randname
-	if(unique)
-		if(gender == MALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/SKhumnorm.txt") )
-				if(!findname(randname))
-					break
-		if(gender == FEMALE)
-			for(var/i in 1 to 10)
-				randname = pick( world.file2list("strings/rt/names/human/SKhumnorf.txt") )
-				if(!findname(randname))
-					break
-	else
-		if(gender == MALE)
-			randname = pick( world.file2list("strings/rt/names/human/SKhumnorm.txt") )
-		if(gender == FEMALE)
-			randname = pick( world.file2list("strings/rt/names/human/SKhumnorf.txt") )
-	return randname
+
+/datum/species/human/northern/get_possible_names(gender = MALE)
+	var/static/list/male_names = world.file2list('strings/names/roguetown/SKhumnorm.txt')
+	var/static/list/female_names = world.file2list('strings/names/roguetown/SKhumnorf.txt')
+	return (gender == FEMALE) ? female_names : male_names
+
+/datum/species/human/northern/get_possible_surnames(gender = MALE)
+	var/static/list/last_names = world.file2list('strings/rt/names/human/humnorlast.txt')
+	return last_names
 
 
 // =================================================================================

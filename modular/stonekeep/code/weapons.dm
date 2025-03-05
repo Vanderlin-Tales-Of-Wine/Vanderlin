@@ -89,6 +89,7 @@
 	icon_state = "sflail"
 
 /obj/item/weapon/knife/cleaver/combat
+	icon = 'icons/roguetown/weapons/32.dmi'
 	force = DAMAGE_DAGGER+2
 
 /obj/item/weapon/mace/copperbludgeon

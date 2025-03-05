@@ -37,7 +37,7 @@
 	pants = /obj/item/clothing/pants/trou
 	head = /obj/item/clothing/head/strawhat
 	shoes = /obj/item/clothing/shoes/simpleshoes
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	backr = /obj/item/weapon/hoe
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/poor
@@ -45,7 +45,7 @@
 	beltl = /obj/item/weapon/sickle
 	beltr = /obj/item/flint
 	if(HAS_TRAIT(H, TRAIT_KAIZOKU)) //Heartfelt humens.
-		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
+		wrists = /obj/item/clothing/wrists/bracers/leather/khudagach
 		gloves = /obj/item/clothing/gloves/fingerless/yugake
 		if(H.gender == FEMALE)
 			shirt = /obj/item/clothing/shirt/tunic/kimono

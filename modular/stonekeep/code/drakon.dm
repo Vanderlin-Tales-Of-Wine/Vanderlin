@@ -28,7 +28,7 @@
 	max_integrity = INTEGRITY_STRONGEST
 	smeltresult = /obj/item/ingot/blacksteel
 
-/obj/item/clothing/wrists/roguetown/bracers/drakon
+/obj/item/clothing/wrists/bracers/drakon
 	name = "drakon order bracers"
 	desc = "Marked by scratches and scrapes, telling of forgotten battles in ancient times."
 	icon = 'modular/stonekeep/icons/drakon.dmi'

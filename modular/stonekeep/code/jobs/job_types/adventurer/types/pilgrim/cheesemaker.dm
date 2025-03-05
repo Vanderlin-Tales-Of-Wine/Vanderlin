@@ -36,7 +36,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	backl = /obj/item/storage/backpack/backpack
 	neck = /obj/item/storage/belt/pouch/coins/poor
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	beltr = /obj/item/reagent_containers/glass/bottle/waterskin/milk
 	beltl = /obj/item/weapon/knife/villager
 	backpack_contents = list(/obj/item/reagent_containers/powder/salt = 3, /obj/item/reagent_containers/food/snacks/cheddar = 1, /obj/item/natural/cloth = 2, /obj/item/book/yeoldecookingmanual = 1)

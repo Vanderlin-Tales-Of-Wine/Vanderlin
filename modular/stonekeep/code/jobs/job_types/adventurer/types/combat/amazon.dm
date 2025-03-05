@@ -29,7 +29,7 @@
 	beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	shoes = /obj/item/clothing/shoes/gladiator
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	armor = /obj/item/clothing/armor/amazon_chainkini
 	shoes = /obj/item/clothing/shoes/boots
 	r_hand = /obj/item/weapon/polearm/spear

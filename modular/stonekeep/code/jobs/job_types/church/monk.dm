@@ -70,7 +70,7 @@
 			armor = /obj/item/clothing/shirt/robe/shrinekeeper
 			shirt = /obj/item/clothing/shirt/rags/monkgarb/random
 			shoes = /obj/item/clothing/shoes/sandals/geta
-			wrists = /obj/item/clothing/wrists/roguetown/shrinekeeper
+			wrists = /obj/item/clothing/wrists/shrinekeeper
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 		if(/datum/patron/divine/xylix)

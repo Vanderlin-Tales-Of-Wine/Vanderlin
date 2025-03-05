@@ -887,6 +887,10 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	name = "Stevedore"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/courtwizard
+	name = "Court Wizard"
+	icon_state = "arrow"
+
 /obj/structure/handcart/corpse
 	name = "corpse cart"
 	color = "#b4b4b6"

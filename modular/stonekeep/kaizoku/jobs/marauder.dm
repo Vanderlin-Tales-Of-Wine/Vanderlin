@@ -40,7 +40,7 @@
 			beltl = /obj/item/weapon/mace/cudgel/rungu
 			backl = /obj/item/weapon/mace/ararebo/obsidian
 			shoes = /obj/item/clothing/shoes/sandals/geta
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/bonebracer
+			wrists = /obj/item/clothing/wrists/bracers/bonebracer
 			shirt = /obj/item/clothing/shirt/rags/tribal
 			belt = /obj/item/storage/belt/leather/rope
 
@@ -66,7 +66,7 @@
 			beltr = /obj/item/weapon/mace/cudgel/rungu
 			beltl = /obj/item/weapon/huntingknife/kunai
 			shoes = /obj/item/clothing/shoes/sandals/geta
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/bonebracer
+			wrists = /obj/item/clothing/wrists/bracers/bonebracer
 			shirt = /obj/item/clothing/shirt/rags/tribal
 			belt = /obj/item/storage/belt/leather/rope
 
@@ -90,7 +90,7 @@
 			head = /obj/item/clothing/head/helmet/ceramic
 			pants = /obj/item/clothing/pants/kaizoku/tribal
 			shoes = /obj/item/clothing/shoes/sandals/geta
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/bonebracer
+			wrists = /obj/item/clothing/wrists/bracers/bonebracer
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			beltl = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/ammo_holder/quiver/arrows

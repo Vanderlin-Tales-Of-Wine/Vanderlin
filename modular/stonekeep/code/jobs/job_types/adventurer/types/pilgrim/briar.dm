@@ -24,7 +24,7 @@
 	neck = /obj/item/clothing/neck/psycross/silver/dendor
 	shirt = /obj/item/clothing/armor/leather/vest
 	armor = /obj/item/clothing/shirt/robe/dendor
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers/leather
 	beltl = /obj/item/weapon/knife/stone
 	backl = /obj/item/weapon/mace/goden/shillelagh
 

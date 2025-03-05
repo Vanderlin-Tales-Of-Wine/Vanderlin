@@ -107,7 +107,7 @@
 		pants = /obj/item/clothing/pants/tights/vagrant/l
 
 	if(prob(50))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+		wrists = /obj/item/clothing/wrists/bracers/leather
 
 	if(prob(30))
 		armor = /obj/item/clothing/armor/chainmail/iron
@@ -431,7 +431,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	if(prob(10))
 		gloves = /obj/item/clothing/gloves/fingerless
 	if(prob(10))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+		wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(10))
 		neck = /obj/item/storage/belt/pouch/coins/poor
 
