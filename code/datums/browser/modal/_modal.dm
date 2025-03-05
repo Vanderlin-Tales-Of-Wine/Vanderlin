@@ -26,7 +26,10 @@
 	user.browser_modals.Add(src)
 
 /datum/browser/modal/Destroy(force, ...)
-	user.browser_modals.Remove(src)
+	if(!user)
+		stack_trace("modal had no user when it was deleted, which isn't weird necessarily but is a sign for something going bad")
+	else
+		user.browser_modals.Remove(src)
 	return ..()
 
 /datum/browser/modal/close()
@@ -57,10 +60,6 @@
 /datum/browser/modal/proc/wait()
 	while(!choice && !closed && !QDELETED(src))
 		stoplag(1)
-
-/datum/browser/modal/process()
-	. = ..()
-	
 
 /// Sets [var/choice] to the passed choice argument.
 /// Exists to be overridden by subtypes for more handling.

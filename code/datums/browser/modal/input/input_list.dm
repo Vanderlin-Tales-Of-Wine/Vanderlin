@@ -51,6 +51,10 @@
 				display: block;
 				width: 100%;
 			}
+
+			label:hover {
+				background-color: ["#131212"];
+			}
 			[NULLABLE(text2num(user.client.player_details.byond_version) >= 516) && @{"
 				input[type='radio']{
 					display: none;
@@ -61,9 +65,6 @@
 				}
 
 			"}]
-				label:hover {
-					background-color: #131212;
-				}
 
 			.input_list_options {
 				flex-grow: 1;
