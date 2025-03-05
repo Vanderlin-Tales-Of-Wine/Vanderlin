@@ -82,7 +82,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
+
 
 // Reformed Thief, a class balanced to rogue. Axe and crossbow focus.
 /datum/advclass/adept/rthief
@@ -143,6 +143,8 @@
 		if(!H.has_language(/datum/language/oldpsydonic))
 			H.grant_language(/datum/language/oldpsydonic)
 			to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
+		H.mind?.teach_crafting_recipe(/datum/crafting_recipe/confessional)
+		GLOB.outlawed_players += H.real_name // Lore
 
 /datum/job/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
 	..()
