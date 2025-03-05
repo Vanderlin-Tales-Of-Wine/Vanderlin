@@ -1573,8 +1573,8 @@ Slots: [job.spawn_positions]</span>
 						var/datum/faith/faith = GLOB.faithlist[path]
 						if(!faith.name)
 							continue
-						faiths_named[faith.name] = faith
-					var/faith_input = browser_input_list(user, "SELECT YOUR HERO'S BELIEF", "PUPPETS ON STRINGS", faiths_named, selected_patron.associated_faith)
+						faiths_named["\The [faith.name]"] = faith
+					var/faith_input = browser_input_list(user, "SELECT YOUR HERO'S BELIEF", "PUPPETS ON STRINGS", faiths_named, "\The [selected_patron.associated_faith::name]")
 					if(faith_input)
 						var/datum/faith/faith = faiths_named[faith_input]
 						to_chat(user, "<font color='purple'>Faith: [faith.name]</font>")
@@ -1832,7 +1832,7 @@ Slots: [job.spawn_positions]</span>
 
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
-					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]:", "THE SUN", listy)
+					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]", "THE SUN", listy)
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 
@@ -1920,7 +1920,7 @@ Slots: [job.spawn_positions]</span>
 						domhand = 1
 				if("family")
 					var/list/famtree_options_list = list(FAMILY_NONE, FAMILY_PARTIAL, FAMILY_NEWLYWED, FAMILY_FULL, "EXPLAIN THIS TO ME")
-					var/new_family = browser_input_list(user, "SELECT YOUR HERO'S BLOOD BOND", "TIL DEATH DO US PART", famtree_options_list, family)
+					var/new_family = browser_input_list(user, "SELECT YOUR HERO'S BOND", "BLOOD IS THICKER THAN WATER", famtree_options_list, family)
 					if(new_family == "EXPLAIN THIS TO ME")
 						to_chat(user, span_purple("\
 						--[FAMILY_NONE] will disable this feature.<br>\
@@ -1933,7 +1933,7 @@ Slots: [job.spawn_positions]</span>
 						family = new_family
 				//Setspouse is part of the family subsystem. It will check existing families for this character and attempt to place you in this family.
 				if("setspouse")
-					var/newspouse = input(user, "Input the name of another player:","Rememberin your spouse") as text|null
+					var/newspouse = browser_input_text(user, "INPUT THE IDENTITY OF ANOTHER HERO", "TIL DEATH DO US PART")
 					if(newspouse)
 						setspouse = newspouse
 					else
