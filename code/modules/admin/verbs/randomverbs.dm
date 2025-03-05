@@ -839,7 +839,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if(!ishuman(target))
 				to_chat(usr, span_warning("Target must be human!"))
 				return
-			var/mutable_appearance/meatpie_appearance = mutable_appearance('modular/Neu_Food/icons/food.dmi', "meatpie")
+			var/mutable_appearance/meatpie_appearance = mutable_appearance('icons/roguetown/items/food.dmi', "meatpie")
 			var/mutable_appearance/transform_scanline = mutable_appearance('icons/effects/effects.dmi', "smoke")
 			target.notransform = TRUE
 			target.transformation_animation(meatpie_appearance, 5 SECONDS, transform_scanline.appearance)
