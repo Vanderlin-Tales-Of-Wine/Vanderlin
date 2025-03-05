@@ -267,6 +267,7 @@
 								span_userdanger("[user] pins me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
 				M.Stun(max(20 + (skill_diff * 10) + (user.STASTR * 5) - (M.STACON * 5) * combat_modifier, 1))
 				user.Immobilize(max(20 - skill_diff, 1))
+				user.changeNext_move(max(20 - skill_diff, CLICK_CD_GRABBING))
 			else
 				user.adjust_stamina(rand(5,15))
 				if(prob(clamp((((4 + (((user.STASTR - M.STACON)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
@@ -276,7 +277,7 @@
 				else
 					M.visible_message(span_warning("[user] tries to shove [M]!"), \
 									span_danger("[user] tries to shove me!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
-			user.changeNext_move(CLICK_CD_GRABBING)
+				user.changeNext_move(CLICK_CD_GRABBING)
 		if(/datum/intent/grab/disarm)
 			var/obj/item/I
 			if(sublimb_grabbed == BODY_ZONE_PRECISE_L_HAND && M.active_hand_index == 1)
