@@ -2,10 +2,6 @@
 	desc = "Add some cloth."
 	item_types = list(/obj/item/natural/cloth)
 
-/datum/slapcraft_step/item/cloth/second
-/datum/slapcraft_step/item/cloth/third
-/datum/slapcraft_step/item/cloth/fourth
-
 /datum/slapcraft_step/item/fiber
 	desc = "Add some fiber."
 	item_types = list(/obj/item/natural/fibers)

@@ -89,6 +89,7 @@ LINEN BINS
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pelt_bedsheet"
 	item_state = "pelt_bedsheet"
+	pixel_y = 5
 
 /obj/item/bedsheet/wool
 	desc = ""

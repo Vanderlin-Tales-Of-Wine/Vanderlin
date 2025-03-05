@@ -20,7 +20,7 @@
 	integrity_failure = 0.35
 	buckleverb = "lay"
 	pixel_y = 5
-	sleepy = 3
+	sleepy = 2
 	debris = list(/obj/item/natural/wood/plank = 1)
 	metalizer_result = /obj/machinery/anvil/crafted
 

@@ -250,14 +250,6 @@
 				/obj/item/natural/fibers = 1)
 	craftdiff = 2
 
-/datum/repeatable_crafting_recipe/sewing/bedsheetpelt/double
-	name = "leather double bedsheet"
-	output = /obj/item/bedsheet/double_pelt
-	attacking_atom = /obj/item/natural/hide/cured
-	requirements = list(/obj/item/natural/hide/cured = 4,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 2
-
 /datum/repeatable_crafting_recipe/sewing/undervestments
 	name = "undervestments"
 	requirements = list(
