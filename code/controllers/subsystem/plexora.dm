@@ -3,7 +3,7 @@
  *
  * This subsystem is for the Plexora Discord bot bridge.
  *
- * The repo for this can be found at https://github.com/monkestation/plexora
+ * The repo for this can be found at https://github.com/monkestation/plexora (private, you are not getting the code TEEHEE)
  *
  * The distinction between Plexora (the bot) and Plexora (the subsystem)
  * will be plexora (the bot) and SSplexora (the subsystem)
@@ -33,19 +33,15 @@ SUBSYSTEM_DEF(plexora)
 	flags = SS_NO_INIT | SS_NO_FIRE
 #endif
 
-	// MUST INCREMENT BY ONE FOR EVERY CHANGE MADE TO PLEXORA
+	// ~~MUST INCREMENT BY ONE FOR EVERY CHANGE MADE TO PLEXORA~~ yeah so, you dont have to worry about this much xd
 	var/version_increment_counter = 2
 	var/configuration_path = "config/plexora.json"
 	var/plexora_is_alive = FALSE
-	var/vanderlin_available = FALSE
 	var/http_root = ""
 	var/http_port = 0
 	var/enabled = TRUE
 	var/tripped_bad_version = FALSE
 	var/list/default_headers
-
-	//other thingys!
-	var/hrp_available = FALSE
 
 /datum/controller/subsystem/plexora/Initialize()
 	if (!rustg_file_exists(configuration_path))
@@ -323,14 +319,6 @@ SUBSYSTEM_DEF(plexora)
 	)
 	request.begin_async()
 	return request
-
-// // not ready yet
-// /datum/world_topic/plx_commandreport
-// 	keyword = "PLX_commandreport"
-// 	require_comms_key = TRUE
-
-// /datum/world_topic/plx_commandreport/Run(list/input)
-// 	priority_announce(text = input["text"], title = input["title"], encode_title = FALSE, encode_text = FALSE, color_override)
 
 /datum/world_topic/plx_globalnarrate
 	keyword = "PLX_globalnarrate"
@@ -700,82 +688,6 @@ SUBSYSTEM_DEF(plexora)
 		message = "<span class='[span_class]'>Admin PM from-<b>[reply_to]</b>: [message]</span>",
 	)
 
-/// This should match the interface of /client wherever necessary.
-/datum/client_interface
-	/// Player preferences datum for the client
-	var/datum/preferences/prefs
-
-	/// The view of the client, similar to /client/var/view.
-	var/view = "15x15"
-
-	/// View data of the client, similar to /client/var/view_size.
-	var/datum/view_data/view_size
-
-	/// Objects on the screen of the client
-	var/list/screen = list()
-
-	/// The mob the client controls
-	var/mob/mob
-
-	/// The ckey for this mock interface
-	var/ckey = "mockclient"
-
-	/// The key for this mock interface
-	var/key = "mockclient"
-
-	/// client prefs
-	var/fps
-	var/hotkeys
-	var/tgui_say
-	var/typing_indicators
-	var/datum/interaction_mode/imode
-	var/context_menu_requires_shift = FALSE
-
-	///these persist between logins/logouts during the same round.
-	var/datum/player_details/player_details
-	var/reconnecting = FALSE
-
-/datum/client_interface/proc/IsByondMember()
-	return FALSE
-
-/datum/client_interface/New(key)
-	..()
-	if(key)
-		src.key = key
-		ckey = ckey(key)
-		if(GLOB.player_details[ckey])
-			reconnecting = TRUE
-			player_details = GLOB.player_details[ckey]
-		else
-			player_details = new(ckey)
-			player_details.byond_version = world.byond_version
-			player_details.byond_build = world.byond_build
-			GLOB.player_details[ckey] = player_details
-
-/datum/client_interface/proc/set_macros()
-	return
-
-/datum/client_interface/proc/set_right_click_menu_mode()
-	return
-
-/datum/client_interface/proc/is_afk(duration)
-	return FALSE
-
-/datum/client_interface/proc/punish_log(whom, punishment)
-	var/msg = "[key_name_admin(src)] punished [key_name_admin(whom)] with [punishment]."
-	message_admins(msg)
-	admin_ticket_log(whom, msg)
-	log_admin("[key_name(src)] punished [key_name(whom)] with [punishment].")
-
-/datum/client_interface/proc/get_exp_living(pure_numeric = FALSE)
-	if(!prefs?.exp?[EXP_TYPE_LIVING])
-		return pure_numeric ? 0 : "No data"
-	var/exp_living = text2num(prefs.exp[EXP_TYPE_LIVING])
-	return pure_numeric ? exp_living : get_exp_format(exp_living)
-
-/datum/client_interface/proc/operator""()
-	return "[key]"
-
 /// Gets TGS's stealth key, generates one if none is found
 /proc/GetTgsStealthKey()
 	var/static/tgsStealthKey
@@ -785,6 +697,7 @@ SUBSYSTEM_DEF(plexora)
 	tgsStealthKey = generateStealthCkey()
 	GLOB.stealthminID[EXTERNAL_PM_USER] = tgsStealthKey
 	return tgsStealthKey
+
 
 /// Hands back a stealth ckey to use, guarenteed to be unique
 /proc/generateStealthCkey()

@@ -689,6 +689,7 @@
 #include "code\datums\mob_descriptors\descriptors\skin.dm"
 #include "code\datums\mob_descriptors\descriptors\stature.dm"
 #include "code\datums\mob_descriptors\descriptors\voice.dm"
+#include "code\datums\mocking\client.dm"
 #include "code\datums\molten_materials\_base.dm"
 #include "code\datums\molten_materials\metal_combine_recipes.dm"
 #include "code\datums\mood_events\_mood_event.dm"
