@@ -42,8 +42,10 @@
 
 /obj/item/reagent_containers/food/snacks/rotten
 	name = "rotten food"
+	desc = "A vile decaying morsel, its last hope is to become food for the soil."
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
+
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -184,7 +186,6 @@
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
 	metalizer_result = /obj/item/coin/copper
-	var/in_use // so you can't spam eating with spoon
 
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
@@ -254,72 +255,60 @@
 /obj/item/reagent_containers/glass/bowl/attackby(obj/item/I, mob/user, params) // lets you eat with a spoon from a bowl
 	if(istype(I, /obj/item/kitchen/spoon))
 		if(reagents.total_volume > 0)
-			beingeaten()
-			playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-			visible_message("<span class='info'>[user] eats from [src].</span>")
-			if(do_after(user,1 SECONDS, src))
+			playsound(get_turf(src), 'sound/misc/eat.ogg', rand(30, 60), TRUE)
+			user.visible_message(span_info("[user] eats from [src]."), \
+							span_notice("I swallow a gulp of [src]."))
+			if(do_after(user, 1 SECONDS, src))
 				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		return TRUE
 
 /obj/item/reagent_containers/glass/bowl/attack(mob/M, mob/user, obj/target)
-	testing("a1")
-	if(istype(M))
-		if(user.used_intent.type == INTENT_GENERIC)
-			return ..()
-
-		else
-
-			if(!spillable)
-				return
-
+	if(!istype(M))
+		return
+	if(user.used_intent.type == INTENT_GENERIC)
+		return ..()
+	if(!spillable)
+		return
+	if(!reagents || !reagents.total_volume)
+		to_chat(user, span_warning("[src] is empty!"))
+		return
+	if(user.used_intent.type == INTENT_SPLASH)
+		var/R
+		M.visible_message(span_danger("[user] splashes the contents of [src] onto [M]!"), \
+						span_danger("[user] splashes the contents of [src] onto you!"))
+		if(reagents)
+			for(var/datum/reagent/A in reagents.reagent_list)
+				R += "[A] ([num2text(A.volume)]),"
+		if(isturf(target) && reagents.reagent_list.len && thrownby)
+			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
+			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
+		reagents.reaction(M, TOUCH)
+		log_combat(user, M, "splashed", R)
+		reagents.clear_reagents()
+		return
+	if(user.used_intent.type == INTENT_POUR)
+		if(!canconsume(M, user))
+			return
+		if(M != user)
+			M.visible_message(span_danger("[user] attempts to feed [M] something."), \
+							span_danger("[user] attempts to feed you something."))
 			if(!reagents || !reagents.total_volume)
-				to_chat(user, "<span class='warning'>[src] is empty!</span>")
-				return
-			if(user.used_intent.type == INTENT_SPLASH)
-				var/R
-				M.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [M]!</span>", \
-								"<span class='danger'>[user] splashes the contents of [src] onto you!</span>")
-				if(reagents)
-					for(var/datum/reagent/A in reagents.reagent_list)
-						R += "[A] ([num2text(A.volume)]),"
-
-				if(isturf(target) && reagents.reagent_list.len && thrownby)
-					log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
-					message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
-				reagents.reaction(M, TOUCH)
-				log_combat(user, M, "splashed", R)
-				reagents.clear_reagents()
-				return
-			else if(user.used_intent.type == INTENT_POUR)
-				if(!canconsume(M, user))
-					return
-				if(M != user)
-					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
-								"<span class='danger'>[user] attempts to feed you something.</span>")
-					if(!reagents || !reagents.total_volume)
-						return // The drink might be empty after the delay, such as by spam-feeding
-					M.visible_message("<span class='danger'>[user] feeds [M] something.</span>", \
-								"<span class='danger'>[user] feeds you something.</span>")
-					log_combat(user, M, "fed", reagents.log_list())
-				else
-					to_chat(user, "<span class='notice'>I swallow a gulp of [src].</span>")
-				if(reagents.total_volume > 0)
-					beingeaten()
-					playsound(M.loc,pick(drinksounds), 100, TRUE)
-					visible_message("<span class='info'>[user] eats from [src].</span>")
-					if(do_after(user,1 SECONDS, src))
-						addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
-				return
+				return // The drink might be empty after the delay, such as by spam-feeding
+			M.visible_message(span_danger("[user] feeds [M] something."), \
+							span_danger("[user] feeds you something."))
+			log_combat(user, M, "fed", reagents.log_list())
+		else
+			to_chat(user, span_notice("I swallow a gulp of [src]."))
+		if(reagents.total_volume > 0)
+			playsound(get_turf(M), pick(drinksounds), 100, TRUE)
+			visible_message(span_info("[user] eats from [src]."))
+			if(do_after(user, 1 SECONDS, src))
+				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this, 5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 
 /obj/item/reagent_containers/glass/bowl/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(reagents.total_volume > 5)
 		new /obj/effect/decal/cleanable/food/mess/soup(get_turf(src))
 	..()
-
-/obj/item/reagent_containers/glass/bowl/proc/beingeaten()
-	in_use = TRUE
-	sleep(10)
-	in_use = FALSE
 
 /obj/item/reagent_containers/peppermill // new with some animated art
 	name = "pepper mill"
@@ -447,12 +436,11 @@
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		return
 	if(prob(8))
-		to_chat(M, pick(
-			span_danger("I feel bile rising..."),
-			span_danger("I feel nauseous..."),
-			span_danger("My breath smells terrible..."),
-			span_danger("My stomach churns...")
-		))
+		to_chat(M, span_danger(pick(
+			"I feel bile rising...", \
+			"I feel nauseous...", \
+			"My breath smells terrible...", \
+			"My stomach churns...")))
 	if(prob(8))
 		M.emote("gag")
 		M.add_nausea(9)
@@ -527,7 +515,7 @@
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, span_notice("Kneading in more powder..."))
+			to_chat(user, span_notice("Kneading in more flour..."))
 			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
@@ -536,9 +524,9 @@
 		if(!istype(R) || (water_added))
 			return ..()
 		if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+			to_chat(user, span_notice("Needs more water to work it."))
 			return TRUE
-		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+		to_chat(user, span_notice("Adding water, now its time to knead it..."))
 		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
 		if(do_after(user,15, src))
 			name = "wet flour"
