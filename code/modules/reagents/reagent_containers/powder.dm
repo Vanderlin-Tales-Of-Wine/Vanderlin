@@ -9,6 +9,51 @@
 	list_reagents = null
 	sellprice = 10
 
+/obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+	. = ..()
+	if(thrownthing.target_zone != BODY_ZONE_PRECISE_NOSE)
+		return
+	if(iscarbon(hit_atom))
+		var/mob/living/carbon/C = hit_atom
+		if(canconsume(C, silent = TRUE))
+			if(reagents.total_volume)
+				playsound(get_turf(C), 'sound/items/sniff.ogg', 100, FALSE)
+				reagents.trans_to(C, 1, transfered_by = thrownthing.thrower, method = "swallow")
+				qdel(src)
+
+/obj/item/reagent_containers/powder/attack(mob/M, mob/user, def_zone)
+	if(!canconsume(M, user))
+		return FALSE
+
+	if(user.zone_selected != BODY_ZONE_PRECISE_NOSE)
+		return FALSE
+
+	if(M == user)
+		M.visible_message(span_notice("[user] sniffs [src]."))
+	else
+		if(iscarbon(M))
+			var/mob/living/carbon/C = M
+			var/obj/item/bodypart/CH = C.get_bodypart(BODY_ZONE_HEAD)
+			if(!CH)
+				to_chat(user, span_warning("[C.p_theyre(TRUE)] missing their head."))
+				return FALSE
+			user.visible_message(span_danger("[user] attempts to force [C] to inhale [src]."), \
+								span_danger("[user] attempts to force me to inhale [src]!"))
+			if(C.cmode)
+				if(!CH.grabbedby)
+					to_chat(user, span_info("[C.p_they(TRUE)] steals [C.p_their()] face from it."))
+					return FALSE
+			if(!do_after(user, 1 SECONDS, M))
+				return FALSE
+
+	playsound(get_turf(M), 'sound/items/sniff.ogg', 100, FALSE)
+
+	if(reagents.total_volume)
+		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
+		SSticker.snort++
+	qdel(src)
+	return TRUE
+
 /obj/item/reagent_containers/powder/spice
 	name = "spice"
 	desc = "A potent powder that opens the mind to previously unseen possibilities..."
@@ -27,11 +72,12 @@
 	overdose_threshold = 16
 	metabolization_rate = 0.2
 
-/datum/reagent/druqks/overdose_process(mob/living/M)
-	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25*REM)
-	M.adjustToxLoss(0.25*REM, 0)
-	..()
-	. = 1
+/atom/movable/screen/fullscreen/druqks
+	icon_state = "spa"
+	plane = FLOOR_PLANE
+	layer = ABOVE_OPEN_TURF_LAYER
+	blend_mode = 0
+	show_when_dead = FALSE
 
 /datum/reagent/druqks/on_mob_life(mob/living/carbon/M)
 	M.set_drugginess(30)
@@ -44,19 +90,6 @@
 	if(M.has_flaw(/datum/charflaw/addiction/junkie))
 		M.sate_addiction()
 	..()
-
-/atom/movable/screen/fullscreen/druqks
-	icon_state = "spa"
-	plane = FLOOR_PLANE
-	layer = ABOVE_OPEN_TURF_LAYER
-	blend_mode = 0
-	show_when_dead = FALSE
-
-/datum/reagent/druqks/overdose_start(mob/living/M)
-	M.visible_message("<span class='warning'>Blood runs from [M]'s nose.</span>")
-
-/datum/reagent/druqks/overdose_process(mob/living/M)
-	M.adjustToxLoss(10, 0)
 
 /datum/reagent/druqks/on_mob_metabolize(mob/living/M)
 	M.overlay_fullscreen("druqk", /atom/movable/screen/fullscreen/druqks)
@@ -75,49 +108,13 @@
 		SSdroning.play_area_sound(get_area(M), M.client)
 	M.update_body_parts_head_only()
 
-/obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+/datum/reagent/druqks/overdose_process(mob/living/M)
+	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.25*REM)
+	M.adjustToxLoss(0.25*REM, 0)
 	. = ..()
-	if(thrownthing.target_zone != BODY_ZONE_PRECISE_NOSE)
-		return
-	if(iscarbon(hit_atom))
-		var/mob/living/carbon/C = hit_atom
-		if(canconsume(C, silent = TRUE))
-			if(reagents.total_volume)
-				playsound(C, 'sound/items/sniff.ogg', 100, FALSE)
-				reagents.trans_to(C, 1, transfered_by = thrownthing.thrower, method = "swallow")
-				qdel(src)
 
-/obj/item/reagent_containers/powder/attack(mob/M, mob/user, def_zone)
-	if(!canconsume(M, user))
-		return FALSE
-
-	if(user.zone_selected != BODY_ZONE_PRECISE_NOSE)
-		return FALSE
-
-	if(M == user)
-		M.visible_message("<span class='notice'>[user] sniffs [src].</span>")
-	else
-		if(iscarbon(M))
-			var/mob/living/carbon/C = M
-			var/obj/item/bodypart/CH = C.get_bodypart(BODY_ZONE_HEAD)
-			if(!CH)
-				to_chat(user, "<span class='warning'>[C.p_theyre(TRUE)] missing their head.</span>")
-			user.visible_message("<span class='danger'>[user] attempts to force [C] to inhale [src].</span>", \
-								"<span class='danger'>[user] attempts to force me to inhale [src]!</span>")
-			if(C.cmode)
-				if(!CH.grabbedby)
-					to_chat(user, "<span class='info'>[C.p_they(TRUE)] steals [C.p_their()] face from it.</span>")
-					return FALSE
-			if(!do_after(user, 1 SECONDS, M))
-				return FALSE
-
-	playsound(M, 'sound/items/sniff.ogg', 100, FALSE)
-
-	if(reagents.total_volume)
-		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
-		SSticker.snort++
-	qdel(src)
-	return TRUE
+/datum/reagent/druqks/overdose_start(mob/living/M)
+	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
 /obj/item/reagent_containers/powder/ozium
 	name = "ozium"
@@ -140,11 +137,6 @@
 	. = ..()
 	L.flash_fullscreen("can_you_see")
 
-/datum/reagent/ozium/overdose_process(mob/living/M)
-	M.adjustToxLoss(0.25*REM, 0)
-	..()
-	. = 1
-
 /datum/reagent/ozium/on_mob_life(mob/living/carbon/M)
 	if(M.has_flaw(/datum/charflaw/addiction/junkie))
 		M.sate_addiction()
@@ -153,12 +145,13 @@
 	M.apply_status_effect(/datum/status_effect/buff/ozium)
 	..()
 
-/datum/reagent/ozium/overdose_start(mob/living/M)
-	M.playsound_local(M, 'sound/misc/heroin_rush.ogg', 100, FALSE)
-	M.visible_message("<span class='warning'>Blood runs from [M]'s nose.</span>")
-
 /datum/reagent/ozium/overdose_process(mob/living/M)
-	M.adjustToxLoss(10, 0)
+	M.adjustToxLoss(0.25*REM, 0)
+	. = ..()
+
+/datum/reagent/ozium/overdose_start(mob/living/M)
+	M.playsound_local(get_turf(M), 'sound/misc/heroin_rush.ogg', 100, FALSE)
+	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
 /obj/item/reagent_containers/powder/moondust
 	name = "moondust"
@@ -176,11 +169,6 @@
 	color = "#bfc3b5"
 	overdose_threshold = 50
 	metabolization_rate = 0.2
-
-/datum/reagent/moondust/overdose_process(mob/living/M)
-	M.adjustToxLoss(0.25*REM, 0)
-	..()
-	. = 1
 
 /datum/reagent/moondust/on_mob_metabolize(mob/living/M)
 	M.flash_fullscreen("can_you_see")
@@ -200,12 +188,13 @@
 		M.flash_fullscreen("whiteflash")
 	..()
 
-/datum/reagent/moondust/overdose_start(mob/living/M)
-	M.playsound_local(M, 'sound/misc/heroin_rush.ogg', 100, FALSE)
-	M.visible_message("<span class='warning'>Blood runs from [M]'s nose.</span>")
-
 /datum/reagent/moondust/overdose_process(mob/living/M)
-	M.adjustToxLoss(10, 0)
+	M.adjustToxLoss(0.25*REM, 0)
+	. = ..()
+
+/datum/reagent/moondust/overdose_start(mob/living/M)
+	M.playsound_local(get_turf(M), 'sound/misc/heroin_rush.ogg', 100, FALSE)
+	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
 /obj/item/reagent_containers/powder/moondust_purest
 	name = "pure moondust"
@@ -223,11 +212,6 @@
 	color = "#bfc3b5"
 	overdose_threshold = 50
 	metabolization_rate = 0.2
-
-/datum/reagent/moondust_purest/overdose_process(mob/living/M)
-	M.adjustToxLoss(0.25*REM, 0)
-	..()
-	. = 1
 
 /datum/reagent/moondust_purest/on_mob_metabolize(mob/living/M)
 	M.playsound_local(M, 'sound/ravein/small/hello_my_friend.ogg', 100, FALSE)
@@ -250,12 +234,13 @@
 		M.flash_fullscreen("whiteflash")
 	..()
 
-/datum/reagent/moondust_purest/overdose_start(mob/living/M)
-	M.playsound_local(M, 'sound/misc/heroin_rush.ogg', 100, FALSE)
-	M.visible_message("<span class='warning'>Blood runs from [M]'s nose.</span>")
-
 /datum/reagent/moondust_purest/overdose_process(mob/living/M)
-	M.adjustToxLoss(10, 0)
+	M.adjustToxLoss(0.25*REM, 0)
+	. = ..()
+
+/datum/reagent/moondust_purest/overdose_start(mob/living/M)
+	M.playsound_local(get_turf(M), 'sound/misc/heroin_rush.ogg', 100, FALSE)
+	M.visible_message(span_warning("Blood runs from [M]'s nose."))
 
 /obj/item/reagent_containers/powder/blastpowder
 	name = "blastpowder"
