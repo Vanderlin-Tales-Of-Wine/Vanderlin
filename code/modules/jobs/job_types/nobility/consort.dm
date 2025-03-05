@@ -178,7 +178,7 @@
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 
 /datum/advclass/consort/courtesan/night_spy
-	name = "Night-Mother's Spy Consort"
+	name = "Thieves Guild Spy Consort"
 	tutorial = "Raised by the guild to report on all the Monarch's action. Using your honeyed words and charm have brought you right to being a ruler's beloved consort."
 	outfit = /datum/outfit/job/consort/courtesan/spy
 
