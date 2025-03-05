@@ -1589,7 +1589,7 @@ Slots: [job.spawn_positions]</span>
 							continue
 						patrons_named[patron.name] = patron
 					var/datum/faith/current_faith = GLOB.faithlist[selected_patron?.associated_faith] || GLOB.faithlist[initial(default_patron.associated_faith)]
-					var/god_input = browser_input_list(user, "SELECT YOUR HERO'S PATRON GOD", uppertext("\The [current_faith.name]"), patrons_named, current_faith.name)
+					var/god_input = browser_input_list(user, "SELECT YOUR HERO'S PATRON GOD", uppertext("\The [current_faith.name]"), patrons_named, selected_patron)
 					if(god_input)
 						selected_patron = patrons_named[god_input]
 						to_chat(user, "<font color='purple'>Patron: [selected_patron]</font>")

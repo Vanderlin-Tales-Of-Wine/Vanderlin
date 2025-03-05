@@ -59,7 +59,7 @@
 	</script>
 	"})
 
-	var/window_height = multiline ? 300 : 150
+	var/window_height = multiline ? 300 : 125
 
 	..(user, ckey("[user]-[message]-[title]-[world.time]-[rand(1,10000)]"), title, 350, window_height, src, TRUE, timeout)
 
@@ -78,7 +78,6 @@
 			name="choice"
 			maxlength="[max_length]"
 			placeholder="WE AWAIT YOUR COMMAND..."
-			required
 			autofocus>[default]</textarea>
 
 		<div style="display: flex; justify-content: space-between; text-align: center;">

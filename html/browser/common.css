@@ -18,7 +18,7 @@ hr
 	border: 0;
 }
 
-a, button, a:link, a:visited, a:active, .linkOn, .linkOff
+a, button, input[type="button"], input[type="submit"] a:link, a:visited, a:active, .linkOn, .linkOff
 {
 	font-family: Pterra, TrueType;
 	color: #7b5353;
@@ -30,7 +30,7 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 	cursor:pointer;
 }
 
-a:hover
+a:hover, input[type="button"], input[type="submit"]
 {
 	color: #eac0b9;
 	background: #000000;
@@ -137,7 +137,7 @@ h4
 
 .uiTitle
 {
-	position: absolute;
+	position: fixed;
 	box-sizing: border-box;
 	width: 100%;
 	top: 0;
@@ -431,10 +431,21 @@ ul.sparse {
 input[type="text"], textarea {
 	color: #897472;
 	background-color: transparent;
-	border: 1px solid #7b5353
+	border: 1px solid #7b5353;
+	resize: none;
+}
+
+input[type="text"]:focus, textarea:focus {
+	outline: none;
 }
 
 .uiContent * {
+	/* MODERN */
+	scrollbar-color: #7b5353 black;
+	scrollbar-width: thin;
+	caret-shape: block;
+
+	/* IE11 */
 	scrollbar-face-color: #000;
 	scrollbar-shadow-color: #7b5353;
 	scrollbar-highlight-color: #7b5353;

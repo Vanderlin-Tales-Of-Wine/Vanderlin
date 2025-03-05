@@ -23,7 +23,7 @@
 /datum/browser/modal/input_list
 	var/list/results = list()
 
-/datum/browser/modal/input_list/New(user, message, title, list/items, default, timeout = 0)
+/datum/browser/modal/input_list/New(mob/user, message, title, list/items, default, timeout = 0)
 	if(!user)
 		closed = TRUE
 		return
@@ -42,54 +42,66 @@
 				flex-direction: column;
 			}
 
+			form * {
+				user-select: none;
+			}
+
 			label {
 				display: block;
 				width: 100%;
 			}
+			[NULLABLE(text2num(user.client.player_details.byond_version) >= 516) && @{"
+				input[type='radio']{
+					display: none;
+				}
 
-			label:has(input\[type='radio']:checked) {
-				background-color: ["#2b2121"];
-			}
+				label:has(input[type='radio']:checked) {
+					background-color: #251919;
+				}
+
+			"}]
+				label:hover {
+					background-color: #131212;
+				}
 
 			.input_list_options {
 				flex-grow: 1;
 				padding: 4px;
-				margin: 0.5em 0;
-				border: 1px solid #7b5353;
+				margin: 0.25em 0;
+				border: 1px solid ["#7b5353"];
 				overflow-y: auto;
 			}
 		</style>
 
 		<script type="text/javascript">
 			document.addEventListener("DOMContentLoaded", function(){
-				const searchBar = document.querySelector("input\[type='text']");
-				if(searchBar === null){
-					return;
-				}
-
 				const optionsList = document.querySelector("#options");
-				searchBar.addEventListener("input", function(event){
-					const term = event.target.value.toLowerCase();
 
-					const options = optionsList.getElementsByTagName("label");
-					let tabI = 0;
-					for(let i = 0; i < options.length; i++){
-						const label = options\[i];
-						console.log(label);
-						const child = label.querySelector("input");
-						const found = (!term || (child.value.toLowerCase().indexOf(term) !== -1));
-						if(found){
-							console.log("has");
-							label.style.display = "";
-							child.disabled = false;
+				const searchBar = document.querySelector("input\[type='text']");
+				if(searchBar !== null){
+					searchBar.addEventListener("input", function(event){
+						const term = event.target.value.toLowerCase();
+
+						const options = optionsList.getElementsByTagName("label");
+						let tabI = 0;
+						for(let i = 0; i < options.length; i++){
+							const label = options\[i];
+							console.log(label);
+							const child = label.querySelector("input");
+							const found = (!term || (child.value.toLowerCase().indexOf(term) !== -1));
+							if(found){
+								console.log("has");
+								label.style.display = "";
+								child.disabled = false;
+							}
+							else {
+								console.log("does not have");
+								label.style.display = "none";
+								child.disabled = true;
+							}
 						}
-						else {
-							console.log("does not have");
-							label.style.display = "none";
-							child.disabled = true;
-						}
-					}
-				})
+					})
+				}
 
 				addEventListener("keydown", function(event){
 					switch(event.which){
@@ -147,7 +159,7 @@
 		</div>
 
 		[NULLABLE(length(choices) > 9) && \
-		"<input id='searchbar' type='text' placeholder='CULL...' autofocus/>"]
+		"<input style='margin: 0.25em 0; z-index: 5' id='searchbar' type='text' placeholder='CULL...' autofocus/>"]
 		<div style="display: flex; margin-top: auto; justify-content: space-between; text-align: center;">
 			<button type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
 			<button type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
