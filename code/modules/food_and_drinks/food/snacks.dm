@@ -315,7 +315,7 @@ All foods are distributed among various categories. Use common sense.
 		qdel(src)
 		if(isliving(current_loc))
 			var/mob/living/mob_location = current_loc
-			mob_location.put_in_hands(generate_trash(mob_location), ignore_anim = TRUE)
+			mob_location.put_in_hands(generate_trash(mob_location))
 		else
 			generate_trash(current_loc.drop_location())
 
