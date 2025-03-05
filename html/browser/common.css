@@ -433,6 +433,9 @@ input[type="text"], textarea {
 	background-color: transparent;
 	border: 1px solid #7b5353;
 	resize: none;
+
+	user-select: contain;
+	-ms-user-select: element;
 }
 
 input[type="text"]:focus, textarea:focus {

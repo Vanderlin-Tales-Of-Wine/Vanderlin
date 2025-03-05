@@ -44,6 +44,7 @@
 
 			form * {
 				user-select: none;
+				-ms-user-select: none;
 			}
 
 			label {
