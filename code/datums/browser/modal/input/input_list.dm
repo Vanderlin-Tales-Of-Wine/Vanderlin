@@ -146,7 +146,7 @@
 		results[form_key] = item
 		choices += {"
 			<label>
-				<input type='radio' name='choice' value='[form_key]' required [NULLABLE("[default]" == "[item]") && "checked"] />
+				<input type='radio' name='choice' value='[html_encode(form_key)]' required [NULLABLE("[default]" == "[item]") && "checked"] />
 				[item]
 			</label>"}
 
