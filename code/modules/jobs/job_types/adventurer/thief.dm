@@ -24,7 +24,6 @@
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
 /datum/outfit/job/thief
-	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots
 	backr = /obj/item/storage/backpack/satchel
@@ -72,9 +71,10 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+	shirt = /obj/item/clothing/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/fingerless
 	beltr = /obj/item/weapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
-	backpack_contents = list(/obj/item/lockpick, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
+	backpack_contents = list(/obj/item/lockpick, /obj/item/weapon/knife/dagger/steel, /obj/item/key/thieves_guild)
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
@@ -98,9 +98,14 @@
 		thiefhood.color = thiefcloak.color
 		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
+		var/obj/item/clothing/face/shepherd/clothmask/thiefmask = new()
+		thiefmask.color = thiefcloak.color
+		H.equip_to_slot(thiefmask, SLOT_WEAR_MASK, TRUE)
+		thiefmask.ToggleHood()
+
 
 /datum/advclass/thief/ruffian
-	name = "Ruffian"
+	name = "Blackguard"
 	tutorial = "Subtle was never your approach. That's why you're down in the sewers instead of the rooftops. You're in charge of the underworld operations. From serving drinks, to fencing, to taking job offers... to keeping undesirables the fuck out of your bar. You're the only line of defense. Try to make sure things stay clandestine, aye?"
 	outfit = /datum/outfit/job/thief/ruffian
 	category_tags = list(CTAG_THIEF)
@@ -111,10 +116,10 @@
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -124,11 +129,13 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	neck = /obj/item/clothing/neck/chaincoif/iron
-	armor = /obj/item/clothing/armor/chainmail/iron
+	neck = /obj/item/clothing/neck/gorget
+	armor = /obj/item/clothing/armor/cuirass/iron
+	shirt = /obj/item/clothing/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/angle
 	beltr = /obj/item/weapon/mace/steel/morningstar
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
+	backl = /obj/item/weapon/shield/tower/buckleriron
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel, /obj/item/key/thieves_guild)
 
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
@@ -145,14 +152,18 @@
 /datum/outfit/job/thief/ruffian/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
-		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
-		thiefcloak.color = get_thief_color(H)
-		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+		var/obj/item/clothing/cloak/cape/thief/thiefcape = new()
+		thiefcape.color = get_thief_color(H)
+		H.equip_to_slot(thiefcape, SLOT_CLOAK, TRUE)
 
-		var/obj/item/clothing/head/roguehood/thiefhood = new()
-		thiefhood.color = thiefcloak.color
+		var/obj/item/clothing/head/headband/thiefhood = new()
+		thiefhood.color = thiefcape.color
 		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 
+		var/obj/item/clothing/face/shepherd/clothmask/thiefmask = new()
+		thiefmask.color = thiefcape.color
+		H.equip_to_slot(thiefmask, SLOT_WEAR_MASK, TRUE)
+		thiefmask.ToggleHood()
 
 /datum/advclass/thief/cutthroat
 	name = "Cutthroat"
@@ -181,11 +192,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
-	gloves = /obj/item/clothing/gloves/leather/black
+	neck = /obj/item/clothing/neck/phys
+	armor = /obj/item/clothing/armor/leather/jacket/apothecary
+	gloves = /obj/item/clothing/gloves/leather/phys
 	beltr = /obj/item/weapon/mace/cudgel // TEMP until I make a blackjack- for now though this will do.
 	backl = /obj/item/storage/backpack/satchel/surgbag
-	backpack_contents = list(/obj/item/natural/cloth = 2, /obj/item/weapon/knife/dagger/steel, /obj/item/clothing/face/shepherd/clothmask, /obj/item/key/thieves_guild)
-
+	backpack_contents = list(/obj/item/natural/cloth = 2, /obj/item/key/thieves_guild, /obj/item/weapon/knife/dagger/steel)
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
@@ -205,43 +217,20 @@
 /datum/outfit/job/thief/cutthroat/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H)
-		var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
+		var/obj/item/clothing/shirt/tunic/thiefcloak = new()
 		thiefcloak.color = get_thief_color(H)
-		H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+		H.equip_to_slot(thiefcloak, SLOT_SHIRT, TRUE)
 
-		var/obj/item/clothing/head/roguehood/thiefhood = new()
-		thiefhood.color = thiefcloak.color
-		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
-
-		var/obj/item/clothing/armor/leather/vest/thiefvest = new()
-		thiefvest.color = thiefcloak.color
-		H.equip_to_slot(thiefvest, SLOT_ARMOR, TRUE)
+		var/obj/item/clothing/face/shepherd/clothmask/thiefmask = new()
+		thiefmask.color = thiefcloak.color
+		H.equip_to_slot(thiefmask, SLOT_WEAR_MASK, TRUE)
+		thiefmask.ToggleHood()
 
 
-/proc/get_thief_color(mob/living/carbon/human/H)
-	var/list/thief_colors = list(\
-	// Red Colors
-	"Fyritius Dye"	="#b47011",\
-	"Winestain Red"	="#6b3737",\
-	"Maroon"		="#672c0d",\
-	"Blood Red"		="#770d0d",\
-	// Green Colors
-	"Forest Green"	="#3f8b24",\
-	"Bog Green"		="#58793f",\
-	"Spring Green"	="#435436",\
-	// Blue Colors
-	"Royal Teal"	="#249589",\
-	"Mana Blue"		="#1b3c7a",\
-	"Berry"			="#38455b",\
-	"Lavender"		="#865c9c",\
-	"Majenta"		="#822b52",\
-	// Brown Colors
-	"Bark Brown"	="#685542",\
-	"Russet"		="#685542",\
-	"Chestnut"		="#5f3d21",\
-	"Old Leather"	="#473a30",\
-	"Ashen Black"	="#2f352f",\
-	)
-	var/color_selection = input(H,"What color was I again?","Thief Color","Ashen Black") in thief_colors
+/datum/outfit/job/thief/proc/get_thief_color(mob/living/carbon/human/H)
+	var/list/thief_colors = list("Bleached White"	="#FFFFFF")
+	thief_colors |= GLOB.peasant_dyes
+	thief_colors |= GLOB.noble_dyes
+	var/color_selection = input(H,"What color was I again?","Thief Color","Ash Grey") in thief_colors
 	return thief_colors[color_selection]
 

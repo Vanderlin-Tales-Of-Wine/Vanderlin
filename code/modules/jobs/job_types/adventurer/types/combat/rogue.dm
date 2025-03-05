@@ -46,31 +46,10 @@
 
 /datum/outfit/job/adventurer/rogue/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
-	// Give them their cloak- as well as the ability to choose what color they want.
-	var/list/thiefcloak_colors = list(\
-		// Red Colors
-		"Fyritius Dye"	="#b47011",\
-		"Winestain Red"	="#6b3737",\
-		"Maroon"		="#672c0d",\
-		"Blood Red"		="#770d0d",\
-		// Green Colors
-		"Forest Green"	="#3f8b24",\
-		"Bog Green"		="#58793f",\
-		"Spring Green"	="#435436",\
-		// Blue Colors
-		"Royal Teal"	="#249589",\
-		"Mana Blue"		="#1b3c7a",\
-		"Berry"			="#38455b",\
-		"Lavender"		="#865c9c",\
-		"Majenta"		="#822b52",\
-		// Brown Colors
-		"Bark Brown"	="#685542",\
-		"Russet"		="#685542",\
-		"Chestnut"		="#5f3d21",\
-		"Old Leather"	="#473a30",\
-		"Ashen Black"	="#2f352f",\
-		)
-	var/thiefcloak_color_selection = input(usr,"What color was I again?","The Cloak","Ashen Black") in thiefcloak_colors
+	var/list/thief_colors = list("Bleached White"	="#FFFFFF")
+	thief_colors |= GLOB.peasant_dyes
+	thief_colors |= GLOB.noble_dyes
+	var/color_selection = input(H,"What color was I again?","Thief Color","Ash Grey") in thief_colors
 	var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
-	thiefcloak.color = thiefcloak_colors[thiefcloak_color_selection]
+	thiefcloak.color = thief_colors[color_selection]
 	H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
