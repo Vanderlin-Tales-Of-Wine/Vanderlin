@@ -272,7 +272,6 @@
 /obj/structure/bed/inn/double
 	icon_state = "double"
 	max_buckled_mobs = 2
-	pixel_y = 0
 	sleepy = 3
 	debris = list(/obj/item/grown/log/tree/small = 2)
 	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before they unbuckle.
@@ -300,7 +299,6 @@
 	name = "big wool bed"
 	desc = "A large soft bed, could fit two people."
 	icon_state = "double_wool"
-	pixel_y = 0
 	debris = list(/obj/item/grown/log/tree/small = 2)
 	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before they unbuckle.
 	var/mob/living/goldilocks
@@ -334,8 +332,6 @@
 	desc = "A hide of a slain bear. It looks like someone sleeps on it often."
 	icon = 'icons/turf/floors/bear.dmi'
 	icon_state = "bear"
-	pixel_x = -16
-	pixel_y = -27
 	sleepy = 1
 
 
