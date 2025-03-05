@@ -297,11 +297,12 @@
 				if(prob(probby))
 					M.dropItemToGround(I, force = FALSE, silent = FALSE)
 					user.dropItemToGround(src, force = TRUE, silent = TRUE)
-					user.put_in_active_hand(I)
-					M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
-								span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+					if(!QDELETED(I))
+						user.put_in_active_hand(I)
+						M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
+									span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+						playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
 					user.changeNext_move(CLICK_CD_MELEE)//avoids instantly attacking with the new weapon
-					playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
 				else
 					probby += 5
 					if(prob(probby))
