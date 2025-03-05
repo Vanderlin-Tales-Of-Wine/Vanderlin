@@ -9,7 +9,7 @@
  */
 /obj/structure/bed
 	name = "bed"
-	desc = ""
+	desc = "A very nice bed. Perfect for sleeping, or lazying around."
 	icon_state = "bed"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	anchored = TRUE
@@ -20,7 +20,7 @@
 	integrity_failure = 0.35
 	buckleverb = "lay"
 	pixel_y = 5
-	sleepy = 2
+	sleepy = 3
 	debris = list(/obj/item/natural/wood/plank = 1)
 	metalizer_result = /obj/machinery/anvil/crafted
 

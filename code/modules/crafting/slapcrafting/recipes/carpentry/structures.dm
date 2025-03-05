@@ -293,8 +293,8 @@
 		)
 	result_type = /obj/structure/closet/crate/coffin
 
-/datum/slapcraft_recipe/carpentry/structure/nicebed
-	name = "nice bed"
+/datum/slapcraft_recipe/carpentry/structure/haybed
+	name = "hay bed"
 	steps = list(
 		/datum/slapcraft_step/item/plank,
 		/datum/slapcraft_step/item/plank/second,
@@ -304,6 +304,47 @@
 		)
 	result_type = /obj/structure/bed
 	craftdiff = 2
+
+/datum/slapcraft_recipe/carpentry/structure/woolbed
+	name = "wool bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/wool
+	craftdiff = 4
+
+/datum/slapcraft_recipe/carpentry/structure/woolbed/double
+	name = "double wool bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/item/plank/third,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/cloth/third,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/wool/double
+	craftdiff = 4
+
+/datum/slapcraft_recipe/carpentry/structure/nicebed
+	name = "nice bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/fur,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed
+	craftdiff = 5
 
 /datum/slapcraft_recipe/carpentry/structure/sign
 	name = "custom sign"

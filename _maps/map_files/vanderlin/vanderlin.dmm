@@ -1223,7 +1223,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "aOs" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
@@ -23861,7 +23861,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "rEq" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)

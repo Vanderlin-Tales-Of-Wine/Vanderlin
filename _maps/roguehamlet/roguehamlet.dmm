@@ -771,7 +771,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town)
 "aUj" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor{
@@ -3123,7 +3123,7 @@
 /turf/open/floor/metal,
 /area/rogue/under/town/sewer)
 "dAr" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = 32
 	},
@@ -3914,7 +3914,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town)
 "elO" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/effect/decal/cobbleedge{
 	dir = 10
 	},
@@ -4577,7 +4577,7 @@
 /area/rogue/indoors/town)
 "ePF" = (
 /obj/item/bedsheet/double_pelt,
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern/saiga)
 "ePO" = (
@@ -5126,7 +5126,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "fqM" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/royalblack,
@@ -6049,7 +6049,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/vault)
 "goV" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /obj/structure/fluff/walldeco/painting/seraphina{
 	pixel_x = 32
@@ -8350,7 +8350,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/exposed/under/basement)
 "iKe" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/tavern/saiga)
@@ -10468,7 +10468,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/exposed/under/basement)
 "kWv" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/bath/redhouse)
@@ -12608,7 +12608,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/exposed/church)
 "njt" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern/saiga)
@@ -21004,7 +21004,7 @@
 	first_time_text = "Blackwine Manor"
 	})
 "vuN" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/rtfield)
 "vuZ" = (
