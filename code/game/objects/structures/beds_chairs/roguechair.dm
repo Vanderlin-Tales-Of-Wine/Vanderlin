@@ -299,7 +299,19 @@
 	pixel_y = 0
 	sleepy = 2
 	debris = list(/obj/item/grown/log/tree/small = 2)
+	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before they unbuckle.
+	var/mob/living/goldilocks
 
+/obj/structure/bed/wooldouble/post_buckle_mob(mob/living/target)
+	. = ..()
+	if(length(buckled_mobs) > 1 && !goldilocks) //  Push the second buckled mob a bit higher from the normal lying position
+		target.set_mob_offsets("bed_buckle", _x = 0, _y = 12)
+		goldilocks = target
+
+/obj/structure/bed/wooldouble/post_unbuckle_mob(mob/living/target)
+	. = ..()
+	if(target == goldilocks)
+		goldilocks = null
 
 // ------------ ACCEPTABLE BEDS ----------------------
 /obj/structure/bed/hay

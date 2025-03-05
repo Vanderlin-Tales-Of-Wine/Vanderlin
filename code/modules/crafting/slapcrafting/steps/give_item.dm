@@ -2,6 +2,10 @@
 	desc = "Add some cloth."
 	item_types = list(/obj/item/natural/cloth)
 
+/datum/slapcraft_step/item/cloth/second
+/datum/slapcraft_step/item/cloth/third
+/datum/slapcraft_step/item/cloth/fourth
+
 /datum/slapcraft_step/item/fiber
 	desc = "Add some fiber."
 	item_types = list(/obj/item/natural/fibers)
@@ -89,6 +93,10 @@
 /datum/slapcraft_step/item/silver
 	desc = "Add a silver ingot."
 	item_types = list(/obj/item/ingot/silver)
+
+/datum/slapcraft_step/item/gold
+	desc = "Add a gold ingot."
+	item_types = list(/obj/item/ingot/gold)
 
 /datum/slapcraft_step/item/glass
 	desc = "Add a pane of glass."

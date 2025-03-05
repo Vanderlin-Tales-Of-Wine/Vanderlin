@@ -9108,7 +9108,7 @@
 	},
 /area/rogue/indoors/town/church)
 "EX" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "EY" = (
@@ -9757,7 +9757,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "Ht" = (
-/obj/structure/window/stained{
+/obj/structure/window/stained/silver{
 	opacity = 0
 	},
 /turf/open/floor/blocks,
@@ -11288,7 +11288,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church)
 "MI" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/church)
 "MJ" = (

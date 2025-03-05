@@ -955,7 +955,7 @@
 /area/rogue/indoors/town/smithy)
 "aFX" = (
 /obj/structure/fake_machine/mail,
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "aGa" = (
@@ -11533,7 +11533,7 @@
 /area/rogue/indoors/butchershop)
 "inB" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "inE" = (
@@ -15264,7 +15264,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "kQA" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
 "kQB" = (
@@ -15302,7 +15302,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
 "kTP" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/church)
 "kTV" = (
@@ -18963,7 +18963,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/rtfield)
 "nLu" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "nLA" = (
@@ -21168,7 +21168,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "pyS" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "pzf" = (
@@ -24635,7 +24635,7 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "seq" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
 "seP" = (
@@ -32881,7 +32881,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
 "xVZ" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "xWa" = (
