@@ -45,7 +45,7 @@
 #include "subsystem_init.dm"
 #include "surgeries.dm"
 #include "timer_sanity.dm"
-//#include "create_and_destroy.dm" // this goes last just in case. however it's mega-broken right now
+#include "create_and_destroy.dm" // this goes last just in case. however it's mega-broken right now
 #include "unit_test.dm"
 
 #undef TEST_ASSERT
