@@ -43,12 +43,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	//This turf existing is an error in and of itself
 	ignore += typesof(/turf/baseturf_skipover)
 	ignore += typesof(/turf/baseturf_bottom)
-	//Can't pass in a thing to glow
-	ignore += typesof(/obj/effect/abstract/eye_lighting)
 	//We have a baseturf limit of 10, adding more than 10 baseturf helpers will kill CI, so here's a future edge case to fix.
 	ignore += typesof(/obj/effect/baseturf_helper)
-	//Our system doesn't support it without warning spam from unregister calls on things that never registered
-	ignore += typesof(/obj/docking_port)
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
 	//Needs cards passed into the initilazation args
