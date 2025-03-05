@@ -192,6 +192,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/bombs, 2 TRUE)
 	neck = /obj/item/clothing/neck/phys
 	armor = /obj/item/clothing/armor/leather/jacket/apothecary
 	gloves = /obj/item/clothing/gloves/leather/phys
