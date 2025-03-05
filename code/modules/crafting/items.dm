@@ -141,8 +141,8 @@
 
 /datum/crafting_recipe/woodplatter
 	name = "wood platters (x2)"
-	result = list(/obj/item/kitchen/platter,
-				/obj/item/kitchen/platter)
+	result = list(/obj/item/plate,
+				/obj/item/plate)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/pipe
