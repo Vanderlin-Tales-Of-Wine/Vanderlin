@@ -65,6 +65,10 @@
 				snuff()
 			else
 				explosion(T, light_impact_range = 1, hotspot_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
+				if(thrownby.client) // If the thrower has a client- log it and message the admins.
+					message_admins("[ADMIN_LOOKUPFLW(thrownby)] threw a lit bottle bomb at [hit_atom] [ADMIN_VERBOSEJMP(hit_atom)].")
+				else
+					message_admins("A lit bottle bomb blew up at [hit_atom] [ADMIN_VERBOSEJMP(hit_atom)].")
 		else
 			if(prob(prob2fail))
 				snuff()
@@ -76,6 +80,8 @@
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 	explode()
+	if(thrownby.client) // If the thrower has a client- log it and message the admins.
+		log_combat(thrownby, hit_atom, "threw a lit bottle bomb")
 
 /obj/item/bomb/process()
 	fuze--
