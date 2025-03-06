@@ -784,28 +784,29 @@ RG
 "}
 
 (1,1,2) = {"
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
+RG
+RG
+RG
+RG
+RG
+RG
+RG
+RG
 Qw
 Qw
 Qw
 Qw
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
+RG
+RG
+RG
+RG
+RG
+RG
+RG
+RG
 "}
 (2,1,2) = {"
+RG
 TQ
 TQ
 TQ
@@ -824,13 +825,12 @@ TQ
 TQ
 TQ
 TQ
-TQ
-TQ
+RG
 "}
 (3,1,2) = {"
+RG
 TQ
 TQ
-TQ
 nu
 nu
 nu
@@ -847,10 +847,10 @@ nu
 nu
 TQ
 TQ
-TQ
+RG
 "}
 (4,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -869,10 +869,10 @@ Ey
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (5,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -891,10 +891,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (6,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -913,10 +913,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (7,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -935,10 +935,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (8,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -957,7 +957,7 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (9,1,2) = {"
 Qw
@@ -1048,7 +1048,7 @@ TQ
 Qw
 "}
 (13,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -1067,10 +1067,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (14,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -1089,10 +1089,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (15,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -1111,10 +1111,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (16,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -1133,10 +1133,10 @@ pR
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (17,1,2) = {"
-TQ
+RG
 TQ
 uR
 Ey
@@ -1155,12 +1155,12 @@ Ey
 Ey
 Yr
 TQ
-TQ
+RG
 "}
 (18,1,2) = {"
+RG
 TQ
 TQ
-TQ
 bv
 bv
 bv
@@ -1177,9 +1177,10 @@ bv
 bv
 TQ
 TQ
-TQ
+RG
 "}
 (19,1,2) = {"
+RG
 TQ
 TQ
 TQ
@@ -1198,28 +1199,27 @@ TQ
 TQ
 TQ
 TQ
-TQ
-TQ
+RG
 "}
 (20,1,2) = {"
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
+RG
+RG
+RG
+RG
+RG
+RG
+RG
+RG
 Qw
 Qw
 Qw
 Qw
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
-TQ
+RG
+RG
+RG
+RG
+RG
+RG
+RG
+RG
 "}

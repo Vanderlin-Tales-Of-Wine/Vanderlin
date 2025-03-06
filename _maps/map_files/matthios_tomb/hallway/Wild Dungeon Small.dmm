@@ -198,7 +198,7 @@
 /obj/structure/stairs/stone/reddish{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/grass/mixyel,
 /area/rogue/under/cave)
 "TD" = (
 /obj/structure/flora/ausbushes/grassybush,

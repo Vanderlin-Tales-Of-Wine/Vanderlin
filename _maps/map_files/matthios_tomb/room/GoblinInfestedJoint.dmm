@@ -88,7 +88,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/item/natural/stone{
 	pixel_x = 5;
-	pixel_y = 0;
+	pixel_y = 0
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue)
@@ -3199,7 +3199,7 @@ Sf
 Sf
 Sf
 Sf
-LF
+Sf
 Sf
 Sf
 "}
@@ -3231,7 +3231,7 @@ Sf
 Sf
 Sf
 Sf
-LF
-LF
-LF
+Sf
+Sf
+Sf
 "}

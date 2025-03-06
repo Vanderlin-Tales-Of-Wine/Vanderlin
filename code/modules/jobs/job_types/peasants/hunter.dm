@@ -19,7 +19,7 @@
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/hunter
-	min_pq = -100
+	min_pq = 0
 	give_bank_account = 15
 	display_order = JDO_HUNTER
 	total_positions = 4
@@ -66,3 +66,4 @@
 		else
 			H.change_stat(STATKEY_INT, 1)
 			H.change_stat(STATKEY_PER, 3)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
