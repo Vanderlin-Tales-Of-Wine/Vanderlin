@@ -1,7 +1,7 @@
 /datum/job/roguetown/jester
 	title = "Jester"
-	flag = JESTER
-	department_flag = PEASANTS
+	flag = SK_JESTER
+	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -13,7 +13,7 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Aasimar"
+		"Undine"
 	)
 
 	tutorial = "The Grenzelhofts were known for their Jesters, wisemen with a tongue just as sharp as their wit. \
@@ -23,7 +23,7 @@
 
 	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
 	outfit = /datum/outfit/job/roguetown/jester
-	display_order = JDO_JESTER
+	display_order = 10
 	bypass_lastclass = TRUE
 	min_pq = -20
 	give_bank_account = TRUE

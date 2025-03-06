@@ -359,7 +359,7 @@
 
 /datum/crafting_recipe/roguetown/leather/bracers_hardened
 	name = "bracers (heavy leather)"
-	result = /obj/item/clothing/wrists/bracers/leather/hardened
+	result = /obj/item/clothing/wrists/bracers/leather/heavy
 	reqs = 	list(/obj/item/natural/hide/cured = 2, /obj/item/reagent_containers/food/snacks/tallow = 1)
 	craftdiff = 4
 

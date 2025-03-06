@@ -1,6 +1,6 @@
 /datum/job/roguetown/acolyte
 	title = "Acolyte"
-	flag = MONK
+	flag = SK_ACOLYTE
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 4
@@ -17,7 +17,7 @@
 	allowed_patrons = 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/abyssor, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 	outfit = /datum/outfit/job/roguetown/acolyte
 
-	display_order = JDO_MONK
+	display_order =  ACOLYTE_ORDER
 	give_bank_account = TRUE
 	min_pq = -10
 	bypass_lastclass = TRUE

@@ -192,7 +192,7 @@
 
 /datum/species/aasimar/get_skin_list()
 	return sortList(list(
-		"Planetar" = "976b20" ,
+		"Planetar" = "b27c1f" ,
 		"Solar" = "ded4a6",
 		"Empyrea" = "b7ad72",
 		"Gaeia" = "db904f",

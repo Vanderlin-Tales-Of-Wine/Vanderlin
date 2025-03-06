@@ -2,7 +2,7 @@
 It´s pretty good. Also extra good mood boost for sex, but still a bit barebones. Expand a little cooking/serving? */
 /datum/job/roguetown/nitemaiden
 	title = "Nitemaiden"
-	flag = JESTER
+	flag = SK_BATHMAID
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 3
@@ -21,7 +21,7 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	allowed_sexes = list(FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	outfit = /datum/outfit/job/roguetown/nitemaiden
-	display_order = JDO_APOTHECARY // ROGTODO
+	display_order = BATHMAID_ORDER
 	give_bank_account = TRUE
 	min_pq = -25
 	can_random = FALSE

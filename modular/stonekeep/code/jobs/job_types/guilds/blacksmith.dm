@@ -1,6 +1,6 @@
 /datum/job/roguetown/blacksmith
 	title = "Blacksmith"
-	flag = BLACKSMITH
+	flag = SK_BLACKSMITH
 	department_flag = SERFS
 	faction = "Station"
 	total_positions = 2
@@ -12,7 +12,7 @@
 				these are the sounds you live by. You will never starve as the armies of the world tear themselves apart."
 
 	outfit = /datum/outfit/job/roguetown/blacksmith
-	display_order = JDO_ARMORER
+	display_order = BLACKSMITH_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 30
 	min_pq = -25

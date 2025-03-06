@@ -4,8 +4,8 @@
 	flag = ARCHIVIST
 	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -19,7 +19,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
 	outfit = /datum/outfit/job/roguetown/archivist
-	display_order = 19
+	display_order = 9
 	give_bank_account = 100
 	min_pq = 0
 	allowed_patrons = list(/datum/patron/divine/noc)

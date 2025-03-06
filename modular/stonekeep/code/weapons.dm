@@ -13,11 +13,11 @@
 /obj/item/weapon/polearm/eaglebeak
 	slot_flags = null
 
-/obj/item/weapon/polearm/eaglebeak/lucerne
+/obj/item/weapon/polearm/eaglebeak/lucerne/poleaxe
 	name = "poleaxe"
 	desc = "A poleaxe of simple iron, fracture bone and dissent with simple brute force."
 	icon_state = "poleaxe"
-/obj/item/weapon/polearm/eaglebeak/lucerne/getonmobprop(tag)
+/obj/item/weapon/polearm/eaglebeak/lucerne/poleaxe/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)

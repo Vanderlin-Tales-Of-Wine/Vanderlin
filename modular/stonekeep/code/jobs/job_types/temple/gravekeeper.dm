@@ -1,6 +1,6 @@
 /datum/job/roguetown/gravekeeper
 	title = "Gravekeeper"
-	flag = GRAVETENDER
+	flag = SK_GRAVETENDER
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 2
@@ -18,7 +18,7 @@
 	allowed_patrons = list(/datum/patron/divine/necra)
 
 	outfit = /datum/outfit/job/roguetown/undertaker
-	display_order = JDO_GRAVETENDER
+	display_order = GRAVEKEEPER_ORDER
 	give_bank_account = TRUE
 	min_pq = -25
 	bypass_lastclass = TRUE

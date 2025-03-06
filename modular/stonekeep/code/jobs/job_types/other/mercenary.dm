@@ -1,6 +1,6 @@
 /datum/job/roguetown/mercenary
 	title = "Mercenary"
-	flag = GRAVETENDER
+	flag = SK_MERCENARY
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 6
@@ -21,7 +21,7 @@
 	You are a paid killer, redeemable only by fact that your loyalty can be bought,  \
 	gold is the great hypocritical lubricant in life, founding empires, driving brothers to kill one another.  <br><br>\
 	You care not. Another day, another mammon.<br>"
-	display_order = JDO_MERCENARY
+	display_order = MERCENARY_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 3
 	min_pq = -10

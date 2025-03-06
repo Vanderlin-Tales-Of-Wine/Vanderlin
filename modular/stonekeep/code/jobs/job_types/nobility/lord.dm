@@ -1,6 +1,6 @@
 /datum/job/roguetown/lord
 	title = "Monarch"
-	flag = LORD
+	flag = SK_LORD
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 0
@@ -15,7 +15,7 @@
 		"Humen"
 	)
 	outfit = /datum/outfit/job/roguetown/lord
-	display_order = JDO_LORD
+	display_order = 1
 	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error in their ways."
 	bypass_lastclass = TRUE
 	whitelist_req = FALSE

@@ -1,7 +1,7 @@
 // ==========	Updated to new Kaizoku garrison	====================
 /datum/job/roguetown/guardsman
 	title = "Garrison Guard"
-	flag = GUARDSMAN
+	flag = SK_GUARD
 	department_flag = GARRISON
 	faction = "Station"
 	total_positions = 5
@@ -17,7 +17,7 @@
 	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	tutorial = "You are a soldier in the towns garrison, an Ashigaru from the Fog Islands, commanded by your Lord to maintain order and support the local rulers."
-	display_order = JDO_CITYWATCHMEN
+	display_order = GARRISON_ORDER
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
 

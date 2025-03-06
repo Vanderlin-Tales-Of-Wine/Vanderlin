@@ -1,6 +1,6 @@
 /datum/job/roguetown/hand
 	title = "Hand"
-	flag = HAND
+	flag = SK_HAND
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 1
@@ -14,7 +14,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
-	display_order = JDO_HAND
+	display_order = 3
 	tutorial = "You owe everything to your liege. You are the most trusted of the ruler- their sibling, in fact. You have played spymaster and confidant to the Noble-Family for so long that you are a vault of intrigue, something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. Youve killed more men with those lips than any blademaster could ever claim to."
 	bypass_lastclass = TRUE
 	whitelist_req = FALSE

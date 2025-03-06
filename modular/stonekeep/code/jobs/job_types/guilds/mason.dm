@@ -1,6 +1,6 @@
 /datum/job/mason
 	title = "Mason"
-	flag = ARTIFICER
+	flag = SK_MASON
 	department_flag = SERFS
 	faction = "Station"
 	total_positions = 2
@@ -18,7 +18,7 @@
 	tutorial = "There are ancient secrets within stone, something your creed has known since man built upon dirt. Youve pride in your work, youre the only reason this place doesnt fall apart. The King could replace you in a heartbeat, prove to them why youre the Master Mason."
 
 	outfit = /datum/outfit/job/sk_mason
-	display_order = JDO_ARTIFICER
+	display_order = MASON_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 8
 	min_pq = -50

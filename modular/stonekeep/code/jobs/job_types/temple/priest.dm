@@ -1,7 +1,7 @@
 
 /datum/job/roguetown/priest
 	title = "Priest"
-	flag = PRIEST
+	flag = SK_PRIEST
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 1
@@ -20,8 +20,8 @@
 	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/roguetown/priest
 
-	display_order = JDO_PRIEST
-	give_bank_account = 115
+	display_order = PRIEST_ORDER
+	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 	min_pq = 0
 	selection_color = "#c2a45d"

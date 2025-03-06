@@ -172,6 +172,10 @@
 /obj/effect/decal/remains/bigrat,
 /turf/open/water/cleanshallow,
 /area/rogue/under/cave/hollow)
+"te" = (
+/obj/structure/barricade/rogue,
+/turf/open/floor/naturalstone,
+/area/rogue/under/cave/hollow)
 "tG" = (
 /obj/structure/table/wood/crafted,
 /turf/open/floor/naturalstone,
@@ -2061,7 +2065,7 @@ ef
 ef
 ef
 ef
-ab
+te
 ab
 ab
 ri
@@ -2129,8 +2133,8 @@ jS
 ef
 ef
 ab
-ab
-ab
+te
+te
 ef
 ef
 ef
@@ -2925,7 +2929,7 @@ ab
 ab
 ab
 ab
-ab
+te
 ef
 ef
 ef
@@ -3125,7 +3129,7 @@ ef
 ef
 ef
 ef
-ab
+te
 ab
 ab
 ab
@@ -3375,7 +3379,7 @@ ef
 ef
 ab
 ab
-ab
+te
 ef
 "}
 (45,1,1) = {"
@@ -3433,7 +3437,7 @@ ef
 ef
 ef
 ef
-ab
+te
 ab
 rY
 ab
@@ -3736,7 +3740,7 @@ ef
 ef
 ef
 ef
-ab
+te
 ab
 ab
 ab
@@ -3807,7 +3811,7 @@ ab
 ab
 ab
 ab
-ab
+te
 ef
 ef
 ef

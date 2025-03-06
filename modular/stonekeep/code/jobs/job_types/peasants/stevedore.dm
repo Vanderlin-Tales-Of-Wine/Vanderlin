@@ -1,6 +1,6 @@
-/datum/job/roguetown/sk_grabber
+/datum/job/stonekeep/stevedore
 	title = "Stevedore"
-	flag = GRABBER
+	flag = SK_STEVEDORE
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 3
@@ -18,16 +18,16 @@
 
 	tutorial = "Being a stevedore is one of the lowest yet most needed positions in town, as they are expected to aid the Merchant, Steward, Masons, and Blacksmiths in hauling materials and goods while keeping a guarding eye on the town's warehouses for the safety of the items stashed within."
 
-	outfit = /datum/outfit/job/roguetown/sk_grabber
+	outfit = /datum/outfit/job/stonekeep/stevedore
 	give_bank_account = TRUE
 	min_pq = -50
-	display_order = JDO_GRABBER
+	display_order = STEVEDORE_ORDER
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/job/roguetown/sk_grabber/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/stevedore/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
-/datum/outfit/job/roguetown/sk_grabber/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/stevedore/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	wrists = /obj/item/storage/keyring/stevedore

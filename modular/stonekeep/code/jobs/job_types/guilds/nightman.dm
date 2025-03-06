@@ -1,6 +1,6 @@
 /datum/job/roguetown/niteman
 	title = "Niteman"
-	flag = NIGHTMAN
+	flag = SK_NITEMAN
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 1
@@ -19,7 +19,7 @@
 
 	allowed_sexes = list(MALE)
 	outfit = /datum/outfit/job/roguetown/niteman
-	display_order = JDO_APOTHECARY // ROGTODO this whole file I guess
+	display_order = NITEMAN_ORDER
 	give_bank_account = 120
 	min_pq = 0
 	bypass_lastclass = TRUE

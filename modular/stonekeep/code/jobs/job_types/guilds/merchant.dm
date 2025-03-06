@@ -1,7 +1,7 @@
 /datum/job/roguetown/merchant
 	title = "Merchant"
 	flag = MERCHANT
-	department_flag = NOBLEMEN
+	department_flag = SERFS
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -21,7 +21,7 @@
 
 	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. Counting coins is a simple pleasure for any person, but youve made it an artform. These people are addicted to your wares and you are the literal beating heart of this economy: Dont let these filthy-covered troglodytes ever forget that."
 
-	display_order = JDO_MERCHANT
+	display_order = MERCHANT_ORDER
 	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/roguetown/merchant

@@ -1,6 +1,6 @@
 /datum/job/roguetown/cook
 	title = "Cook"
-	flag = COOK
+	flag = SK_COOK
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 2
@@ -18,7 +18,7 @@
 	tutorial = "Slice, chop, and into the pot... you work closely with the innkeep to prepare meals for all the hungry mouths of Vanderlin. You've spent more nites than you can count cutting meat and vegetables until your fingers are bloody and raw, but it's honest work."
 
 	outfit = /datum/outfit/job/roguetown/cook
-	display_order = JDO_COOK
+	display_order = COOK_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -50
 	give_bank_account = 8

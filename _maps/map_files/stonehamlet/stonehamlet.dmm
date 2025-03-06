@@ -969,6 +969,9 @@
 	icon_state = "wooddir";
 	locked = 1
 	},
+/obj/structure/barricade/rogue/crude{
+	layer = 4.2
+	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "bnn" = (
@@ -1307,6 +1310,13 @@
 "bGN" = (
 /turf/open/floor/carpet/green,
 /area/rogue/under/town/basement)
+"bGO" = (
+/obj/structure/fluff/customsign{
+	desc = "Path temporarily blocked by rockfall.";
+	name = "Mountain closed!"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/outdoors/mountains)
 "bHk" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/cobble,
@@ -1448,7 +1458,7 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "bQl" = (
-/obj/effect/landmark/start/steward,
+/obj/effect/landmark/start/consort,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -1638,7 +1648,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
 "cdc" = (
-/obj/effect/landmark/start/archivist{
+/obj/effect/landmark/start/courtwizard{
 	dir = 8
 	},
 /turf/open/floor/hexstone,
@@ -3401,6 +3411,10 @@
 	icon_state = "vertw"
 	},
 /area/rogue/indoors/town/church)
+"evB" = (
+/obj/structure/roguerock,
+/turf/open/floor/naturalstone,
+/area/rogue/outdoors/mountains)
 "ews" = (
 /obj/structure/fluff/walldeco/bath{
 	pixel_x = 0;
@@ -4554,8 +4568,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/catacombs)
 "gcz" = (
-/obj/effect/landmark/start/royalguard,
-/turf/open/floor/carpet/lord/left,
+/obj/effect/landmark/start/hand{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -5538,8 +5554,8 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/soilsons)
 "hve" = (
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 8
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 4
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -6535,9 +6551,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "iGU" = (
-/obj/effect/landmark/start/butler{
-	dir = 4;
-	icon_state = "arrow"
+/obj/effect/landmark/start/servant{
+	dir = 4
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor{
@@ -7036,6 +7051,13 @@
 /obj/effect/decal/remains/cabbit,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield)
+"jtH" = (
+/obj/structure/bed/shit,
+/obj/effect/decal/remains/human/old{
+	pixel_y = 16
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "jtP" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -7127,9 +7149,14 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church/chapel)
 "jAZ" = (
-/obj/structure/flora/tree/neu/pine,
+/obj/structure/mineral_door/wood/deadbolt{
+	locked = 1
+	},
+/obj/structure/barricade/rogue/crude{
+	layer = 4.2
+	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/mountains)
+/area/rogue/indoors)
 "jBb" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/peppermill,
@@ -7761,7 +7788,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/mountains)
 "ksk" = (
-/obj/effect/landmark/start/hand,
+/obj/effect/landmark/start/sheriff,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -8667,6 +8694,18 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs)
+"lDR" = (
+/obj/effect/landmark/start/butler{
+	dir = 4;
+	icon_state = "arrow"
+	},
+/obj/effect/landmark/start/servant{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town/manor{
+	first_time_text = "STONEHILL CASTLE"
+	})
 "lDT" = (
 /turf/open/water/bath/pool{
 	dir = 6
@@ -9377,8 +9416,10 @@
 	},
 /area/rogue/outdoors/river)
 "mCL" = (
-/obj/effect/landmark/start/royalguard,
-/turf/open/floor/carpet/lord/right,
+/obj/effect/landmark/start/steward{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -11793,7 +11834,9 @@
 /turf/open/floor/grass/yel,
 /area/rogue/outdoors/woods/stone)
 "qbp" = (
-/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 10
+	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "qbS" = (
@@ -13906,10 +13949,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/exposed/town)
 "tmX" = (
-/obj/effect/landmark/start/courtwizard{
+/obj/effect/landmark/start/hand{
 	dir = 8
 	},
-/turf/open/floor/hexstone,
+/turf/open/floor/herringbone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -15324,9 +15367,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town/roofs)
 "vrs" = (
-/obj/effect/landmark/latejoin{
-	dir = 1
-	},
+/obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/adventurer{
 	dir = 1
 	},
@@ -15953,9 +15994,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "wov" = (
-/obj/effect/landmark/latejoin{
-	dir = 1
-	},
+/obj/effect/landmark/latejoin,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "wqQ" = (
@@ -16176,7 +16215,7 @@
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/exposed/church)
 "wJB" = (
-/obj/effect/decal/cleanable/blood/footprints{
+/obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/old,
@@ -16552,8 +16591,8 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town)
 "xjI" = (
-/obj/effect/decal/cleanable/blood/footprints{
-	dir = 4
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 5
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -16623,6 +16662,10 @@
 "xnW" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/exposed/church)
+"xnZ" = (
+/obj/structure/barricade/rogue,
+/turf/open/floor/naturalstone,
+/area/rogue/outdoors/mountains)
 "xoM" = (
 /obj/structure/rack,
 /obj/item/clothing/head/sack{
@@ -131575,11 +131618,11 @@ dAJ
 bfN
 aJa
 rPv
-rPv
-rPv
+gcz
+mCL
 rPv
 iGU
-iGU
+lDR
 rPv
 rPv
 rPv
@@ -132089,13 +132132,13 @@ dAJ
 qbS
 eci
 aYk
-gcz
-eci
 eci
 eci
 eci
 oLL
 oLL
+eci
+eci
 eci
 eci
 oZs
@@ -132349,10 +132392,10 @@ nFU
 dwM
 dfJ
 dwM
-dwM
-dwM
 pUq
 pUq
+dwM
+dwM
 dwM
 dwM
 nbc
@@ -132603,13 +132646,13 @@ dAJ
 eDq
 gTi
 hUZ
-mCL
-gTi
 gTi
 gTi
 gTi
 urY
 urY
+gTi
+gTi
 gTi
 gTi
 oZs
@@ -142668,7 +142711,7 @@ fKr
 sYb
 iiE
 eSP
-vmW
+jAZ
 bPu
 bPu
 cfk
@@ -143943,7 +143986,7 @@ eSP
 xao
 iiE
 iiE
-xjI
+hve
 xCi
 tCy
 iiE
@@ -144200,7 +144243,7 @@ cfk
 uPL
 uPL
 cfk
-xjI
+hve
 upk
 vnO
 vnO
@@ -145733,7 +145776,7 @@ iiE
 iiE
 iiE
 iiE
-vmW
+jAZ
 use
 cTw
 uPL
@@ -145992,7 +146035,7 @@ iiE
 dEU
 uPL
 use
-iDl
+jtH
 xgA
 sYb
 uPL
@@ -334052,8 +334095,8 @@ tut
 (213,1,5) = {"
 wzX
 wzX
-uaq
-jAZ
+evB
+qDz
 wzX
 wzX
 wzX
@@ -334308,10 +334351,10 @@ tut
 "}
 (214,1,5) = {"
 xSj
+xnZ
 qDz
 qDz
-uaq
-uaq
+qDz
 wzX
 wzX
 wzX
@@ -334565,8 +334608,8 @@ tut
 "}
 (215,1,5) = {"
 xSj
-qDz
-qDz
+xnZ
+bGO
 qDz
 qDz
 qDz
@@ -334822,7 +334865,7 @@ tut
 "}
 (216,1,5) = {"
 xSj
-qDz
+xnZ
 qDz
 mIz
 wzX
@@ -335079,8 +335122,8 @@ tut
 "}
 (217,1,5) = {"
 wzX
-wzX
-wzX
+evB
+qDz
 wzX
 wzX
 wzX

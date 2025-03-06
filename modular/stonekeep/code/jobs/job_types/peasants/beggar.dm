@@ -1,7 +1,7 @@
 
 /datum/job/roguetown/beggar
 	title = "Beggar"
-	flag = APPRENTICE
+	flag = SK_BEGGAR
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 15
@@ -21,7 +21,7 @@
 	banned_leprosy = FALSE
 
 	tutorial = "The smell of filth and sweat no longer bother you, the glances of disgust or pity others give you familiar  ; the only reason you've not dead in a mud pit already is because you are tough as a old leather sole, hardned by ratbites, sticks and stones."
-	display_order = JDO_VAGRANT
+	display_order = BEGGAR_ORDER
 	show_in_credits = FALSE
 	can_random = FALSE
 

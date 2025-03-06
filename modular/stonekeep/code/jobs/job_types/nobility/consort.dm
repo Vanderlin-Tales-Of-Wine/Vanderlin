@@ -1,6 +1,6 @@
 /datum/job/roguetown/consort
 	title = "Consort"
-	flag = CONSORT
+	flag = SK_CONSORT
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 0
@@ -18,7 +18,7 @@
 	outfit = /datum/outfit/job/roguetown/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
 
-	display_order = JDO_CONSORT
+	display_order = 2
 	bypass_lastclass = TRUE
 	min_pq = 0
 	give_bank_account = 500

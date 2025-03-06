@@ -1,6 +1,6 @@
 /datum/job/roguetown/inquisitor
 	title = "Inquisitor"
-	flag = PURITAN
+	flag = SK_INQUISITOR
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 1
@@ -15,7 +15,7 @@
 	whitelist_req = FALSE
 
 	outfit = /datum/outfit/job/roguetown/inquisitor
-	display_order = JDO_PURITAN
+	display_order = INQUISITOR_ORDER
 	min_pq = 0
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'

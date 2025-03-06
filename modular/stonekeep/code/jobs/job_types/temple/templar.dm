@@ -1,5 +1,6 @@
 /datum/job/roguetown/templar
 	title = "Templar"
+	flag = 	SK_TEMPLAR
 	department_flag = CHURCHMEN
 	faction = "Station"
 	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
@@ -15,9 +16,9 @@
 	outfit = /datum/outfit/job/roguetown/templar
 	total_positions = 2
 	spawn_positions = 2
-	display_order = JDO_TEMPLAR
-	give_bank_account = 0
-	min_pq = 4
+	display_order = TEMPLAR_ORDER
+	give_bank_account = 10
+	min_pq = 0
 
 /datum/outfit/job/roguetown/templar
 	name = "Templar"

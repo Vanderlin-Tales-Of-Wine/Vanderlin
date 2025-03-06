@@ -32,6 +32,13 @@
 
 /obj/machinery/light/fueled/wallfire
 	brightness = 9
+/obj/machinery/light/fueled/wallfire/Initialize()
+	. = ..()
+	light_outer_range =  8
+
+/obj/machinery/light/fueled/wallfire/candle/Initialize()
+	. = ..()
+	light_outer_range =  7
 
 /obj/machinery/light/fueled/torchholder
 	brightness = 7

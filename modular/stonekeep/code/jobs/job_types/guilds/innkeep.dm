@@ -1,6 +1,6 @@
 /datum/job/roguetown/sk_innkeep
 	title = "Innkeep"
-	flag = INNKEEP
+	flag = SK_INNKEEP
 	department_flag = SERFS
 	faction = "Station"
 	total_positions = 1
@@ -17,7 +17,7 @@
 	tutorial = "Liquor, lodging, and lavish meals... your business is the beating heart of Rockhill. You're the one who provides the the hardworking townsfolk with a place to eat and drink their sorrows away, and accommodations for weary travelers passing through."
 
 	outfit = /datum/outfit/job/roguetown/sk_innkeep
-	display_order = JDO_INNKEEP
+	display_order = INNKEEP_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 60
 	min_pq = 0

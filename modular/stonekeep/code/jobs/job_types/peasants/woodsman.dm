@@ -3,7 +3,7 @@
 	tutorial = "Living on the outskirts of civliziation, you got roots in the local community, but spend most of your time alone in the forest."
 	faction = "Station"
 	allowed_sexes = list(MALE,FEMALE)
-	flag = HUNTER
+	flag = SK_WOODSMAN
 	department_flag = PEASANTS
 	allowed_races = list(
 		"Humen",
@@ -16,7 +16,7 @@
 	outfit = /datum/outfit/job/roguetown/woodsman
 	min_pq = -25
 	give_bank_account = 15
-	display_order = JDO_HUNTER
+	display_order = WOODSMAN_ORDER
 	total_positions = 3
 	spawn_positions = 3
 	apprentice_name = "Hunter"
@@ -55,6 +55,8 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Hunter")
+			if(prob(50))
+				head = /obj/item/clothing/head/archercap
 			cloak = /obj/item/clothing/cloak/raincloak/woodsman
 			armor = /obj/item/clothing/armor/leather/hide
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow

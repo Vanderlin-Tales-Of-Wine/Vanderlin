@@ -1,6 +1,6 @@
 /datum/job/roguetown/adept
 	title = "Adept"
-	flag = MONK
+	flag = SK_ADEPT
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 0
@@ -18,7 +18,7 @@
 
 	outfit = /datum/outfit/job/roguetown/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
-	display_order = JDO_SHEPHERD
+	display_order = ADEPT_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -10
 	can_have_apprentices = FALSE

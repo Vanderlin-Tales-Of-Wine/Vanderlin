@@ -1,6 +1,6 @@
 /datum/job/roguetown/elder
 	title = "Village Elder"
-	flag = MAYOR
+	flag = SK_ELDER
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 1
@@ -19,7 +19,7 @@
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/roguetown/elder
-	display_order = JDO_CHIEF
+	display_order = ELDER_ORDER
 	give_bank_account = 80
 	min_pq = 0
 

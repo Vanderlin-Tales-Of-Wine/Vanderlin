@@ -1,11 +1,11 @@
-/datum/job/roguetown/farmer
+/datum/job/stonekeep/soilson
 	title = "Soilson"
-	flag = FARMER
+	flag = SK_SOILSON
 	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	display_order = JDO_SOILSON
+	display_order = SOILSON_ORDER
 	bypass_lastclass = TRUE
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -21,15 +21,14 @@
 	tutorial = "It is a simple life you live, your basic understanding of life is something many would be envious of if they knew how perfect it was. You know a good day's work, the sweat on your brow is yours: Famines and plague may take its toll, but you know how to celebrate life well. Till the soil and produce fresh food for those around you, and maybe youll be more than an unsung hero someday."
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-
 	f_title = "Soilbride"
-	outfit = /datum/outfit/job/roguetown/farmer
+	outfit = /datum/outfit/job/stonekeep/soilson
 	display_order = 24
 	give_bank_account = 20
 	min_pq = -50
 	selection_color = "#553e01"
 
-/datum/outfit/job/roguetown/farmer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/soilson/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

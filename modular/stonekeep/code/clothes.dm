@@ -32,7 +32,7 @@
 
 //................ Crimson Marauder ............... //
 /obj/item/clothing/head/helmet/ironpot/marauder
-	name = "Jinete's Caspon"
+	name = "jinete helmet"
 	desc = "A solid bronze helmet from the age of the Apotheosis war. It has been reinforced and decorated for hundreds of yils, the symbol of pride for any Jinete, if not entirely outdated and ceremonial"
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/64x64.dmi'
@@ -354,6 +354,49 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
+//................ Plumed Bascinet ............... //
+/obj/item/clothing/head/helmet/bascinet
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+/obj/item/clothing/head/helmet/bascinet/attackby(obj/item/W, mob/living/user, params)
+	..()
+	if(istype(W, /obj/item/natural/feather) && !detail_tag)
+		var/list/colors = list(
+		"Swan White"="#ffffff",
+		"Lavender"="#865c9c",
+		"Royal Purple"="#5E4687",
+		"Wine Rouge"="#752B55",
+		"Sow's skin"="#CE929F",
+		"Knight's Red"="#933030",
+		"Madroot Red"="#AD4545",
+		"Marigold Orange"="#E2A844",
+		"Politely, Yuck"="#685542",
+		"Astrata's Yellow"="#FFFD8D",
+		"Bog Green"="#375B48",
+		"Seafoam Green"="#49938B",
+		"Woad Blue"="#395480",
+		"Cornflower Blue"="#749EE8",
+		"Blacksteel Grey"="#404040",)
+
+		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
+		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		qdel(W)
+		detail_color = colors[choice]
+		detail_tag = "_detail"
+		update_icon()
+		if(loc == user && ishuman(user))
+			var/mob/living/carbon/H = user
+			H.update_inv_head()
+
+/obj/item/clothing/head/helmet/bascinett/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
 
 //................ Kettle Helmet (Slitted)............... //
 /obj/item/clothing/head/helmet/kettle/slit
@@ -555,45 +598,41 @@
 	allowed_race = list("human", "tiefling", "aasimar", "elf")
 	sellprice = 13
 
-/* needs some edits in update icon for sleeved detail, ROGTODO
-/obj/item/clothing/armor/brigandine/coat
-	name = "coat of the commander"
-	desc = "A thick boiled leather surcoat with plates concealed in it's many great folds. It weighs a ton and takes a great man to wear."
-	icon = 'modular/stonekeep/icons/clothing.dmi'
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
-	icon_state = "leathercoat"
-	item_state = "leathercoat"
-	var/picked = FALSE
-	sleeved_detail = TRUE
-	boobed_detail = TRUE
-	armor = ARMOR_MAILLE_GOOD
 
-/obj/item/clothing/armor/brigandine/sheriff/coat/attack_right(mob/user)
-	if(picked)
-		return
-	var/the_time = world.time
-	var/pickedvalue = input(user, "Select a color", "KINGSLAYER'S GARB") as null|anything in list("Khaki", "Black")
-	if(!pickedvalue)
-		return
-	if(world.time > (the_time + 30 SECONDS))
-		return
-	if(pickedvalue == "Khaki")
-		picked = TRUE
-	else if(pickedvalue == "Black")
-		picked = TRUE
-		icon_state = "bleathercoat"
-		item_state = "bleathercoat"
-		update_icon()
-		if(ismob(loc))
-			var/mob/L = loc
-			L.update_inv_armor()
-*/
+/obj/item/clothing/armor/brigandine/sheriff
+
+/obj/item/clothing/armor/brigandine/sheriff/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/armor/brigandine/sheriff/lordcolor(primary,secondary)
+	detail_color = primary
+	update_icon()
+
+/obj/item/clothing/armor/brigandine/sheriff/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/armor/brigandine/sheriff/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
 
 /obj/item/clothing/shirt/dress/gen/sexy/Initialize()
 	color = pick( CLOTHING_ROYAL_MAJENTA, CLOTHING_MAGE_BLUE, CLOTHING_ROYAL_PURPLE	, CLOTHING_SALMON)
 	..()
 
+/obj/item/clothing/shirt/dress/gen/random/Initialize()
+	color = pick_assoc(GLOB.noble_dyes)
+	..()
 
 // ==============================	GLOVES	====================================
 // =============================================================================
@@ -634,7 +673,7 @@
 
 /obj/item/clothing/wrists/bracers/leather
 	armor = ARMOR_LEATHER_BAD
-/obj/item/clothing/wrists/bracers/leather/hardened
+/obj/item/clothing/wrists/bracers/leather/heavy
 	name = "heavy leather bracers"
 	desc = ""
 	color = "#d5c2aa"
@@ -750,7 +789,7 @@
 /obj/item/clothing/pants/platelegs/captain
 	icon = 'icons/roguetown/clothing/special/captain.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
-	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_pants.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/captain.dmi'
 
 /obj/item/clothing/pants/platelegs/rust
 	icon = 'icons/roguetown/clothing/special/rust_armor.dmi'
@@ -827,6 +866,9 @@
 
 /obj/item/clothing/pants/pantaloons/dark
 	color = CLOTHING_DARK_INK
+
+/obj/item/clothing/pants/platelegs/captain
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
 
 // ==============================	FEET	====================================
 // =============================================================================
