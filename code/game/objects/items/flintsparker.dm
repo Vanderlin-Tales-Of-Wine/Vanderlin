@@ -7,6 +7,7 @@
 	force = 0
 	throwforce = 0
 	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/roguetown/items/lighting.dmi'
 
 	grid_height = 32
