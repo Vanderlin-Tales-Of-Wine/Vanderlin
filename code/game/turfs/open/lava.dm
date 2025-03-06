@@ -154,7 +154,7 @@
 				continue
 
 			if(L) //mobs turning into object corpses could get deleted here.
-				L.adjustFireLoss(10)
+				L.adjustFireLoss(50)
 				L.adjust_fire_stacks(10)
 				L.IgniteMob()
 				if(L.health <= 0)
