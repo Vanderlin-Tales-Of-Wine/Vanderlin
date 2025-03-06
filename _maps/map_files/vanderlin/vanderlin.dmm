@@ -16730,6 +16730,10 @@
 /obj/effect/landmark/start/vagrant,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
+"lNX" = (
+/obj/structure/bars/cemetery,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/town)
 "lOb" = (
 /obj/structure/closet/crate/coffin,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -25140,6 +25144,12 @@
 /obj/item/bin/water,
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town)
+"saD" = (
+/obj/structure/mineral_door/bars{
+	lockid = "manor"
+	},
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/town)
 "saK" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -90375,7 +90385,7 @@ jdk
 vgJ
 vXR
 dlM
-cKJ
+saD
 cKJ
 cKJ
 amM
@@ -90577,7 +90587,7 @@ vgJ
 vgJ
 pwl
 vgJ
-cKJ
+lNX
 cKJ
 xIN
 cKJ

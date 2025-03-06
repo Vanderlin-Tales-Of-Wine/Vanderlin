@@ -1,0 +1,79 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/indestructible/wooddark,
+/area/misc/testroom)
+"b" = (
+/obj/effect/landmark/unit_test_top_right,
+/turf/open/floor/blocks,
+/area/misc/testroom)
+"y" = (
+/obj/effect/landmark/unit_test_bottom_left,
+/turf/open/floor/blocks,
+/area/misc/testroom)
+"I" = (
+/turf/open/floor/blocks,
+/area/misc/testroom)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+I
+I
+I
+I
+y
+a
+"}
+(3,1,1) = {"
+a
+I
+I
+I
+I
+I
+a
+"}
+(4,1,1) = {"
+a
+I
+I
+I
+I
+I
+a
+"}
+(5,1,1) = {"
+a
+I
+I
+I
+I
+I
+a
+"}
+(6,1,1) = {"
+a
+b
+I
+I
+I
+I
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+"}
