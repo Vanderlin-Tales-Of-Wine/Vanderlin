@@ -48,8 +48,8 @@
 	s.set_up(n, c, src)
 	s.start()
 	new ash_type(loc)
-	visible_message("<span class='warning'>[src] explodes!</span>",
-		"<span class='hear'>I hear a explosion!</span>")
+	visible_message(span_warning("[src] explodes!"),
+		span_hear("I hear a explosion!"))
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
 	qdel(src)
 
@@ -64,7 +64,7 @@
 	if(ishuman(H)) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
 		if(M.m_intent == MOVE_INTENT_RUN)
-			to_chat(M, "<span class='danger'>I step on the snap pop!</span>")
+			to_chat(M, span_danger("I step on the snap pop!"))
 			pop_burst(2, 0)
 
 /obj/item/toy/snappop/phoenix
@@ -96,7 +96,7 @@
 	var/list/card_attack_verb = list("attacked")
 
 /obj/item/toy/cards/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!</span>")
+	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!"))
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -128,6 +128,12 @@
 		for(var/person in list("Jack", "Queen", "King"))
 			cards += "[person] of [suit]"
 
+/obj/item/toy/cards/deck/examine(mob/user)
+	. = ..()
+	if(ishuman(user))
+		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
+			. += span_notice("Peeking under the top card, you see it reads: [cards[1]].")
+
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 //ATTACK HAND NOT CALLING PARENT
 /obj/item/toy/cards/deck/attack_hand(mob/user)
@@ -140,7 +146,7 @@
 			return
 	var/choice = null
 	if(cards.len == 0)
-		to_chat(user, "<span class='warning'>There are no more cards to draw!</span>")
+		to_chat(user, span_warning("There are no more cards to draw!"))
 		return
 	var/obj/item/toy/cards/singlecard/H = new/obj/item/toy/cards/singlecard(user.loc)
 	choice = cards[1]
@@ -151,7 +157,7 @@
 	src.cards -= choice
 	H.pickup(user)
 	user.put_in_hands(H)
-	user.visible_message("<span class='notice'>[user] draws a card from the deck.</span>", "<span class='notice'>I draw a card from the deck.</span>")
+	user.visible_message(span_notice("[user] draws a card from the deck."), span_notice("I draw a card from the deck."))
 	update_icon()
 
 /obj/item/toy/cards/deck/update_icon()
@@ -166,35 +172,75 @@
 
 /obj/item/toy/cards/deck/attack_self(mob/user)
 	if(cooldown < world.time - 50)
-		cards = shuffle(cards)
+		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
+			var/outcome = alert(user, "How do you want to shuffle the deck?","XYLIX","False Shuffle","Force Top Card","Play fair")
+			switch(outcome)
+				if("False Shuffle")
+					to_chat(user, span_notice("I shuffle the cards, then reverse the shuffle. Sneaky."))
+				if("Force Top Card")
+					user.set_machine(src)
+					interact(user)
+				if("Play fair")
+					to_chat(user, span_notice("I, in a surprising show of good faith, shuffle the deck fairly."))
+					cards = shuffle(cards)
+		else
+			to_chat(user, span_notice("I shuffle the deck."))
+			cards = shuffle(cards)
+		user.visible_message(span_notice("[user] shuffles the deck."))
 		playsound(src, 'sound/blank.ogg', 50, TRUE)
-		user.visible_message("<span class='notice'>[user] shuffles the deck.</span>", "<span class='notice'>I shuffle the deck.</span>")
 		cooldown = world.time
+
+/obj/item/toy/cards/deck/ui_interact(mob/user)
+	. = ..()
+	var/dat = "The deck has<BR>"
+	for(var/t in cards)
+		dat += "<A href='byond://?src=[REF(src)];pick=[t]'>A [t].</A><BR>"
+	dat += "Which card would you like to force?"
+	var/datum/browser/popup = new(user, "deck", "Which card to force?", 400, 240)
+	popup.set_content(dat)
+	popup.open()
+
+/obj/item/toy/cards/deck/Topic(href, href_list)
+	if(..())
+		return
+	if(usr.stat || !ishuman(usr))
+		return
+	var/mob/living/carbon/human/cardUser = usr
+	if(!(cardUser.mobility_flags & MOBILITY_USE))
+		return
+	if(href_list["pick"] && HAS_TRAIT(cardUser, TRAIT_BLACKLEG))
+		var/choice = href_list["pick"]
+		src.cards -= choice
+		cards = shuffle(cards)
+		cards.Insert(1,choice)
+		to_chat(cardUser, span_notice("I shuffle the deck, sneakily putting the [choice] on top."))
+		cardUser << browse(null, "window=deck")
+		return
 
 /obj/item/toy/cards/deck/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/toy/cards/singlecard))
 		var/obj/item/toy/cards/singlecard/SC = I
 		if(SC.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(SC))
-				to_chat(user, "<span class='warning'>The card is stuck to your hand, you can't add it to the deck!</span>")
+				to_chat(user, span_warning("The card is stuck to your hand, you can't add it to the deck!"))
 				return
 			cards += SC.cardname
-			user.visible_message("<span class='notice'>[user] adds a card to the bottom of the deck.</span>","<span class='notice'>I add the card to the bottom of the deck.</span>")
+			user.visible_message(span_notice("[user] adds a card to the bottom of the deck."), span_notice("I add the card to the bottom of the deck."))
 			qdel(SC)
 		else
-			to_chat(user, "<span class='warning'>I can't mix cards from other decks!</span>")
+			to_chat(user, span_warning("I can't mix cards from other decks!"))
 		update_icon()
 	else if(istype(I, /obj/item/toy/cards/cardhand))
 		var/obj/item/toy/cards/cardhand/CH = I
 		if(CH.parentdeck == src)
 			if(!user.temporarilyRemoveItemFromInventory(CH))
-				to_chat(user, "<span class='warning'>The hand of cards is stuck to your hand, you can't add it to the deck!</span>")
+				to_chat(user, span_warning("The hand of cards is stuck to your hand, you can't add it to the deck!"))
 				return
 			cards += CH.currenthand
-			user.visible_message("<span class='notice'>[user] puts [user.p_their()] hand of cards in the deck.</span>", "<span class='notice'>I put the hand of cards in the deck.</span>")
+			user.visible_message(span_notice("[user] puts [user.p_their()] hand of cards in the deck."), span_notice("I put the hand of cards in the deck."))
 			qdel(CH)
 		else
-			to_chat(user, "<span class='warning'>I can't mix cards from other decks!</span>")
+			to_chat(user, span_warning("I can't mix cards from other decks!"))
 		update_icon()
 	else
 		return ..()
@@ -207,15 +253,15 @@
 	if(Adjacent(usr))
 		if(over_object == M && loc != M)
 			M.put_in_hands(src)
-			to_chat(usr, "<span class='notice'>I pick up the deck.</span>")
+			to_chat(usr, span_notice("I pick up the deck."))
 
 		else if(istype(over_object, /atom/movable/screen/inventory/hand))
 			var/atom/movable/screen/inventory/hand/H = over_object
 			if(M.putItemFromInventoryInHandIfPossible(src, H.held_index))
-				to_chat(usr, "<span class='notice'>I pick up the deck.</span>")
+				to_chat(usr, span_notice("I pick up the deck."))
 
 	else
-		to_chat(usr, "<span class='warning'>I can't reach it from here!</span>")
+		to_chat(usr, span_warning("I can't reach it from here!"))
 
 
 
@@ -263,7 +309,7 @@
 			C.apply_card_vars(C,O)
 			C.pickup(cardUser)
 			cardUser.put_in_hands(C)
-			cardUser.visible_message("<span class='notice'>[cardUser] draws a card from [cardUser.p_their()] hand.</span>", "<span class='notice'>I take the [C.cardname] from your hand.</span>")
+			cardUser.visible_message(span_notice("[cardUser] draws a card from [cardUser.p_their()] hand."), span_notice("I take the [C.cardname] from your hand."))
 
 			interact(cardUser)
 			if(src.currenthand.len < 3)
@@ -280,7 +326,7 @@
 				qdel(src)
 				N.pickup(cardUser)
 				cardUser.put_in_hands(N)
-				to_chat(cardUser, "<span class='notice'>I also take [currenthand[1]] and hold it.</span>")
+				to_chat(cardUser, span_notice("I also take [currenthand[1]] and hold it."))
 				cardUser << browse(null, "window=cardhand")
 		return
 
@@ -288,7 +334,7 @@
 	if(istype(C))
 		if(C.parentdeck == src.parentdeck)
 			src.currenthand += C.cardname
-			user.visible_message("<span class='notice'>[user] adds a card to [user.p_their()] hand.</span>", "<span class='notice'>I add the [C.cardname] to your hand.</span>")
+			user.visible_message(span_notice("[user] adds a card to [user.p_their()] hand."), span_notice("I add the [C.cardname] to your hand."))
 			qdel(C)
 			interact(user)
 			if(currenthand.len > 4)
@@ -298,7 +344,7 @@
 			else if(currenthand.len > 2)
 				src.icon_state = "[deckstyle]_hand3"
 		else
-			to_chat(user, "<span class='warning'>I can't mix cards from other decks!</span>")
+			to_chat(user, span_warning("I can't mix cards from other decks!"))
 	else
 		return ..()
 
@@ -330,11 +376,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/cardUser = user
 		if(cardUser.is_holding(src))
-			cardUser.visible_message("<span class='notice'>[cardUser] checks [cardUser.p_their()] card.</span>", "<span class='notice'>The card reads: [cardname].</span>")
+			cardUser.visible_message(span_notice("[cardUser] checks [cardUser.p_their()] card."), span_notice("The card reads: [cardname]."))
 		else if(HAS_TRAIT(user, TRAIT_BLACKLEG))
 			. += span_notice("Peeking under the card, you see the card reads: [cardname].")
 		else
-			. += "<span class='warning'>I need to have the card in your hand to check it!</span>"
+			. += span_warning("You need to have the card in your hand to check it!")
 
 
 /obj/item/toy/cards/singlecard/verb/Flip()
@@ -367,19 +413,19 @@
 			H.currenthand += src.cardname
 			H.parentdeck = C.parentdeck
 			H.apply_card_vars(H,C)
-			to_chat(user, "<span class='notice'>I combine the [C.cardname] and the [src.cardname] into a hand.</span>")
+			to_chat(user, span_notice("I combine the [C.cardname] and the [src.cardname] into a hand."))
 			qdel(C)
 			qdel(src)
 			H.pickup(user)
 			user.put_in_active_hand(H)
 		else
-			to_chat(user, "<span class='warning'>I can't mix cards from other decks!</span>")
+			to_chat(user, span_warning("I can't mix cards from other decks!"))
 
 	if(istype(I, /obj/item/toy/cards/cardhand/))
 		var/obj/item/toy/cards/cardhand/H = I
 		if(H.parentdeck == parentdeck)
 			H.currenthand += cardname
-			user.visible_message("<span class='notice'>[user] adds a card to [user.p_their()] hand.</span>", "<span class='notice'>I add the [cardname] to your hand.</span>")
+			user.visible_message(span_notice("[user] adds a card to [user.p_their()] hand."), span_notice("I add the [cardname] to your hand."))
 			qdel(src)
 			H.interact(user)
 			if(H.currenthand.len > 4)
@@ -389,7 +435,7 @@
 			else if(H.currenthand.len > 2)
 				H.icon_state = "[deckstyle]_hand3"
 		else
-			to_chat(user, "<span class='warning'>I can't mix cards from other decks!</span>")
+			to_chat(user, span_warning("I can't mix cards from other decks!"))
 	else
 		return ..()
 
