@@ -6,7 +6,7 @@
 	total_positions = 5
 	spawn_positions = 5
 
-	tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Or just maybe, you've recognized how broken this world is, and the tyranny of nobility. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
+	tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Maybe you're a freedom-fighter trying to undermine noble oppression. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
 	You and your syndicate are responsible for the underworld activities of Vanderlin. Stealing, fencing, intimidation, drug dealing, kidnapping - the possibilities for profit are nearly endless... so long as you're not caught.<br>"
 	display_order = JDO_THIEF
 	bypass_lastclass = TRUE
@@ -106,7 +106,7 @@
 
 /datum/advclass/thief/ruffian
 	name = "Blackguard"
-	tutorial = "Subtle was never your approach. That's why you're down in the sewers instead of the rooftops. You're in charge of the underworld operations. From serving drinks, to fencing, to taking job offers... to keeping undesirables the fuck out of your bar. You're the only line of defense. Try to make sure things stay clandestine, aye?"
+	tutorial = "Subtle was never your approach. That's why you're down in the sewers instead of the rooftops. You're in charge of the underworld operations. From serving drinks, to fencing, to taking job offers, to keeping undesirables out of your bar. You're the only line of defense. Try to make sure things stay clandestine, aye?"
 	outfit = /datum/outfit/job/thief/ruffian
 	category_tags = list(CTAG_THIEF)
 	maximum_possible_slots = 3
@@ -156,7 +156,7 @@
 		thiefcape.color = get_thief_color(H)
 		H.equip_to_slot(thiefcape, SLOT_CLOAK, TRUE)
 
-		var/obj/item/clothing/head/headband/thiefhood = new()
+		var/obj/item/clothing/head/helmet/leather/headscarf/thiefhood = new()
 		thiefhood.color = thiefcape.color
 		H.equip_to_slot(thiefhood, SLOT_HEAD, TRUE)
 

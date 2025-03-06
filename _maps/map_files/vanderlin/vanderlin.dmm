@@ -24467,6 +24467,10 @@
 "rDr" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/under/town/basement)
+"rDs" = (
+/obj/structure/mirror,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement/thieves_guild)
 "rDX" = (
 /obj/structure/lever{
 	redstone_id = "smelter"
@@ -61173,7 +61177,7 @@ vhi
 vhi
 kWg
 dMU
-vhi
+rDs
 vhi
 kWg
 vhi
