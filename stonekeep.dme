@@ -1352,6 +1352,7 @@
 #include "code\modules\crafting\quality_of_crafting\narcotics.dm"
 #include "code\modules\crafting\quality_of_crafting\natural_items.dm"
 #include "code\modules\crafting\quality_of_crafting\sewing.dm"
+#include "code\modules\crafting\quality_of_crafting\stack.dm"
 #include "code\modules\crafting\slapcrafting\_slapcraft_assembly.dm"
 #include "code\modules\crafting\slapcrafting\_slapcraft_living.dm"
 #include "code\modules\crafting\slapcrafting\_slapcrafting_recipe.dm"
