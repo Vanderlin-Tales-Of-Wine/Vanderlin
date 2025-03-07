@@ -9,7 +9,7 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 0.5 SECONDS // clean time in exchange for a lot more use
+	var/cleanspeed = 0.75 SECONDS // clean time in exchange for a lot more use
 	force_string = "robust... against filth"
 	var/uses = 100
 	var/slip_chance = 10
