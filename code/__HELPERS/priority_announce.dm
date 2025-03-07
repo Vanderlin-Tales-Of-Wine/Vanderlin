@@ -1,47 +1,64 @@
-/proc/priority_announce(text, title = "", sound, type , sender_override)
+/**
+ * Make a big red text announcement to
+ *
+ * Formatted like:
+ *
+ * " Message from sender "
+ *
+ * " Title "
+ *
+ * " Text "
+ *
+ * Arguments
+ * * text - required, the text to announce
+ * * title - optional, the title of the announcement.
+ * * sound - optional, the sound played accompanying the announcement
+ * * type - optional, the type of the announcement, for some "preset" announcement templates. "Priority", "Captain", "Syndicate Captain"
+ * * sender_override - optional, modifies the sender of the announcement
+ * * players - a list of all players to send the message to. defaults to all players (not including new players)
+ * * encode_title - if TRUE, the title will be HTML encoded
+ * * encode_text - if TRUE, the text will be HTML encoded
+ */
+/proc/priority_announce(text, title = "", sound, type, sender_override, list/mob/players, encode_title = TRUE, encode_text = TRUE)
 	if(!text)
 		return
 
+	if(encode_title && title && length(title) > 0)
+		title = html_encode(title)
+	if(encode_text)
+		text = html_encode(text)
+		if(!length(text))
+			return
+
 	var/announcement
 
-	if (title && length(title) > 0)
+	if(title && length(title) > 0)
 		announcement += "<h1 class='alert'>[title]</h1>"
-//		GLOB.news_network.SubmitArticle(text, "Captain's Announcement", "Station Announcements", null)
-/*
-	else
-		if(!sender_override)
-			announcement += "<h1 class='alert'>[command_name()] Update</h1>"
-		else
-			announcement += "<h1 class='alert'>[sender_override]</h1>"
-		if (title && length(title) > 0)
-			announcement += "<br><h2 class='alert'>[html_encode(title)]</h2>"
+	announcement += "<br>[span_alert(text)]"
 
-		if(!sender_override)
-			if(title == "")
-				GLOB.news_network.SubmitArticle(text, "", "Station Announcements", null)
-			else
-				GLOB.news_network.SubmitArticle(title + "<br><br>" + text, "", "Station Announcements", null)
-*/
-	announcement += "<br><span class='alert'>[strip_html_simple(text)]</span>"
-//	announcement += "<br>"
+	if(!players)
+		players = GLOB.player_list
 
-	var/s = sound(sound)
-	for(var/mob/M in GLOB.player_list)
-		if(M.can_hear())
-			to_chat(M, announcement)
-			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				if(sound)
-					M.playsound_local(M, s, 100)
+	var/sound_to_play = sound(sound)
+	for(var/mob/target in players)
+		if(!isnewplayer(target) && target.can_hear())
+			to_chat(target, announcement)
+			if((target.client.prefs.toggles & SOUND_ANNOUNCEMENTS) && sound_to_play)
+				target.playsound_local(target, sound_to_play, 100)
 
-/proc/minor_announce(message, title = "", alert)
+/proc/minor_announce(message, title = "", alert, html_encode = TRUE, list/mob/players)
 	if(!message)
 		return
 
-	for(var/mob/M in GLOB.player_list)
-		if(M.can_hear())
-			to_chat(M, "<span class='big bold'><font color = purple>[html_encode(title)]</font color><BR>[html_encode(message)]</span><BR>")
-			if(M.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				if(alert)
-					M.playsound_local(M, 'sound/misc/alert.ogg', 100)
-				else
-					M.playsound_local(M, 'sound/misc/alert.ogg', 100)
+	if(html_encode)
+		title = html_encode(title)
+		message = html_encode(message)
+
+	if(!players)
+		players = GLOB.player_list
+
+	for(var/mob/target in players)
+		if(!isnewplayer(target) && target.can_hear())
+			to_chat(target, "[span_minorannounce("<font color = purple>[title]</font color><BR>[message]")]<BR>")
+			if(target.client.prefs.toggles & SOUND_ANNOUNCEMENTS)
+				target.playsound_local(target, 'sound/misc/alert.ogg', 100)
