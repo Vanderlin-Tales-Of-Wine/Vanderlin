@@ -71,6 +71,9 @@
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/metal,
 /area/rogue)
+"w" = (
+/turf/closed,
+/area/rogue)
 "x" = (
 /turf/open/transparent/openspace,
 /area/rogue)
@@ -1058,7 +1061,7 @@ m
 m
 m
 x
-x
+w
 m
 s
 s

@@ -1165,7 +1165,7 @@
 /obj/structure/stairs/fancy{
 	dir = 8
 	},
-/turf/open/floor/ruinedwood/spiral,
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "Qs" = (
 /obj/structure/mineral_door/secret/wizard{
@@ -2077,7 +2077,7 @@ xY
 GZ
 uk
 oy
-cn
+mL
 nw
 JP
 lz

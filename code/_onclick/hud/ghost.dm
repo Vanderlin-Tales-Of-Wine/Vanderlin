@@ -49,10 +49,9 @@
 	..()
 	var/atom/movable/screen/using
 
-	if(!GLOB.admin_datums[owner.ckey]) // If you are adminned, you will not get the dead hud obstruction.
-		using =  new /atom/movable/screen/backhudl/ghost()
-		using.hud = src
-		static_inventory += using
+	using =  new /atom/movable/screen/backhudl/ghost()
+	using.hud = src
+	static_inventory += using
 
 	scannies = new /atom/movable/screen/scannies
 	scannies.hud = src

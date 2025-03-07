@@ -6,8 +6,8 @@
 	faction = "Station"
 	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
 				sewing articles of protection, padding, and fashion for serf and noble alike."
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 1
+	spawn_positions = 1
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE

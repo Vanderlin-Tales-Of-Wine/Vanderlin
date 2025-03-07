@@ -34,7 +34,7 @@
 	dir = 4;
 	locked = 1
 	},
-/turf/open/floor/hexstone,
+/turf/closed/wall/mineral/stone/moss,
 /area/rogue)
 "j" = (
 /mob/living/simple_animal/hostile/demon{
@@ -163,6 +163,9 @@
 "U" = (
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
+/area/rogue)
+"V" = (
+/turf/open/transparent/openspace,
 /area/rogue)
 "W" = (
 /obj/structure/table/wood/plain/alt,
@@ -392,13 +395,13 @@ x
 "}
 
 (1,1,2) = {"
-a
-a
-a
+V
+V
+V
 J
-a
-a
-a
+V
+V
+V
 "}
 (2,1,2) = {"
 x
