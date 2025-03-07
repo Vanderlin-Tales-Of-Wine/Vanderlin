@@ -165,19 +165,19 @@
 			var/removereg = /datum/reagent/water
 
 			switch(ingot.currecipe.quench_type)//this changes the reagent needed depending on what quench type the recipe calls for
-				if(HOLY_QUENCH)
+				if(QUENCH_HOLY)
 					removereg = /datum/reagent/water/blessed
 					if (!reagents.has_reagent(removereg, 5))
 						to_chat(user, "<span class='warning'>Need more blessed waters to quench in.</span>")
 						return
 
-				if(DAEMON_QUENCH)
+				if(QUENCH_DAEMON)
 					removereg = /datum/reagent/blood
 					if (!reagents.has_reagent(removereg, 5))
 						to_chat(user, "<span class='warning'>Need more blood to quench in.</span>")
 						return
 
-				if(NORMAL_QUENCH)
+				if(QUENCH_NORMAL)
 					if(!reagents.has_reagent(/datum/reagent/water, 5))
 						removereg = /datum/reagent/water/gross
 						if (!reagents.has_reagent(removereg, 5))

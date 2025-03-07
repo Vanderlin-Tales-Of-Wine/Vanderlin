@@ -37,7 +37,7 @@
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/weapon/sword/long/forgotten
-	quench_type = "holy"
+	quench_type = QUENCH_HOLY
 	craftdiff = 4
 
 // COPPER TIER - TODO: Move these to redsmithing in future
