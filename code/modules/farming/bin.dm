@@ -160,26 +160,30 @@
 
 	if(istype(I, /obj/item/weapon/tongs))
 		var/obj/item/weapon/tongs/T = I
-		var/holy_quench
-		var/daemon_quench = T.held_item:currecipe:daemon
 		if(T.held_item && istype(T.held_item, /obj/item/ingot))
 			var/obj/item/ingot/ingot = T.held_item
 			var/removereg = /datum/reagent/water
-			if(T.held_item:currecipe:holy == TRUE)
-				if(!reagents.has_reagent(/datum/reagent/water/blessed, 5))
-					to_chat(user, "<span class='warning'>Need more blessed waters to quench in.</span>")
-					return
-			if(T.held_item:currecipe:daemon == TRUE)
-				if(!reagents.has_reagent(/datum/reagent/blood, 5))
-					to_chat(user, "<span class='warning'>Need more blood to quench in.</span>")
-					return
-			if(T.held_item:currecipe:daemon == TRUE)
-			else
-				if(!reagents.has_reagent(/datum/reagent/water, 5))
-					removereg = /datum/reagent/water/gross
-					if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-						to_chat(user, "<span class='warning'>Need more water to quench in.</span>")
+
+			switch(ingot.currecipe.quench_type)//this changes the reagent needed depending on what quench type the recipe calls for
+				if(HOLY_QUENCH)
+					removereg = /datum/reagent/water/blessed
+					if (!reagents.has_reagent(removereg, 5))
+						to_chat(user, "<span class='warning'>Need more blessed waters to quench in.</span>")
 						return
+
+				if(DAEMON_QUENCH)
+					removereg = /datum/reagent/blood
+					if (!reagents.has_reagent(removereg, 5))
+						to_chat(user, "<span class='warning'>Need more blood to quench in.</span>")
+						return
+
+				if(NORMAL_QUENCH)
+					if(!reagents.has_reagent(/datum/reagent/water, 5))
+						removereg = /datum/reagent/water/gross
+						if (!reagents.has_reagent(removereg, 5))
+							to_chat(user, "<span class='warning'>Need more water to quench in.</span>")
+							return
+
 			if(!T.held_item:currecipe)
 				to_chat(user, "<span class='warning'>Huh?</span>")
 				return

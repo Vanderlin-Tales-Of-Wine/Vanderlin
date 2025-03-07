@@ -20,7 +20,6 @@
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/silver
 	created_item = /obj/item/weapon/sword/silver
-	holy = TRUE
 	craftdiff = 3
 
 /datum/anvil_recipe/weapons/silver/rapier_silver
@@ -38,6 +37,7 @@
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/weapon/sword/long/forgotten
+	quench_type = "holy"
 	craftdiff = 4
 
 // COPPER TIER - TODO: Move these to redsmithing in future
