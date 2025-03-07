@@ -18,7 +18,7 @@ hr
 	border: 0;
 }
 
-a, button, input[type="button"], input[type="submit"] a:link, a:visited, a:active, .linkOn, .linkOff
+a, button, input[type="button"], input[type="submit"], a:link, a:visited, a:active, .linkOn, .linkOff
 {
 	font-family: Pterra, TrueType;
 	color: #7b5353;
@@ -30,7 +30,7 @@ a, button, input[type="button"], input[type="submit"] a:link, a:visited, a:activ
 	cursor:pointer;
 }
 
-a:hover, input[type="button"], input[type="submit"]
+a:hover, input[type="button"]:hover, input[type="submit"]:hover
 {
 	color: #eac0b9;
 	background: #000000;
