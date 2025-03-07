@@ -12,6 +12,8 @@
 /datum/antagonist/vampire/lord/on_gain()
 	. = ..()
 
+	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
+
 	forge_objectives()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
