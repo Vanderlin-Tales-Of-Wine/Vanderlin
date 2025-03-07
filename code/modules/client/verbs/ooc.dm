@@ -421,7 +421,6 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	set name = "View Admin Remarks"
 	set category = "OOC"
 	set desc = ""
-	set hidden = 1
 	if(!holder)
 		return
 	if(!check_rights(0))
