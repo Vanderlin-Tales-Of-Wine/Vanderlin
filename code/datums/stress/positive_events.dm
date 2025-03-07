@@ -153,7 +153,7 @@
 /datum/stressevent/bathwater
 	stressadd = -1
 	desc = span_blue("Relaxing.")
-	timer = 1 MINUTES
+	timer = 15 SECONDS
 
 /datum/stressevent/ozium
 	stressadd = -99
