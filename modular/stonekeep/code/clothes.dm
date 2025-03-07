@@ -46,16 +46,14 @@
 	armor =  ARMOR_PLATE
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 
-/obj/item/clothing/head/roguehood/hierophant
-	name = "hierophant's pashmina"
+/obj/item/clothing/head/roguehood/pashmina
+	name = "pashmina"
 	desc = "A thick hood that covers one's entire head, should they desire, or merely acts as a scarf otherwise."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon_state = "deserthood"
 	item_state = "deserthood"
-/obj/item/clothing/head/roguehood/hierophant/Initialize()
-	. = ..()
-	color = pick_assoc(GLOB.noble_dyes)
+	color = "#4065bb"
 
 
 //................ Malum Acolyte Helmet ............... //
@@ -388,10 +386,10 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
 
-/obj/item/clothing/head/helmet/bascinett/update_icon()
+/obj/item/clothing/head/helmet/bascinet/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state]_detail"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
@@ -595,7 +593,6 @@
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
 	icon_state = "valorian"
-	allowed_race = list("human", "tiefling", "aasimar", "elf")
 	sellprice = 13
 
 
@@ -604,7 +601,7 @@
 /obj/item/clothing/armor/brigandine/sheriff/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state]_det"))
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()

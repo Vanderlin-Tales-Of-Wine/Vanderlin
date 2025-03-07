@@ -190,6 +190,10 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "mud1"
 	muddy = TRUE
+	footstep = FOOTSTEP_MUD
+	barefootstep = FOOTSTEP_MUD
+	heavyfootstep = FOOTSTEP_MUD
+
 /turf/open/floor/dirt/muddie/Initialize()
 	. = ..()
 	icon_state = "mud[rand (1,3)]"

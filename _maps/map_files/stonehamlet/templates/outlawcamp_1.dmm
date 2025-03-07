@@ -275,7 +275,7 @@
 /obj/effect/spawner/map_spawner/loot/random_gem,
 /obj/item/storage/backpack/backpack,
 /obj/item/storage/belt/pouch/coins/mid,
-/obj/item/clothing/wrists/roguetown/bracers/leather/hardened,
+/obj/item/clothing/wrists/bracers/leather/heavy,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "Wj" = (
@@ -406,7 +406,7 @@ xd
 (6,1,1) = {"
 VP
 kb
-WU
+hP
 yW
 yW
 Am

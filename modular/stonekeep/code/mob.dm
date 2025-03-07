@@ -21,9 +21,8 @@
 	var/lucky_escape
 
 /obj/structure/innocent_web/Initialize()
-	. = ..()
 	icon_state = "innocentweb[rand(1,2)]"
-	return ..()
+	. = ..()
 
 /obj/structure/innocent_web/attack_hand()
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
@@ -374,7 +373,7 @@
 		/obj/item/natural/worms = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat = 5,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 5,
-		/obj/structure/idle_enemy/bigrat = 1,
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 1,
 		)
 
 /* Ide enemy structures use the new range var in the spawner to only try spawning if a mob containing a mind is inside the
@@ -405,3 +404,13 @@ range. How much processing this saves is unclear */
 	max_mobs = 1
 	range = 11
 	spawn_text = ""
+
+
+
+/*	..................	Zizombie Modifications   ................... */
+/mob/living/carbon/human/species/zizombie
+	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
+	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
+	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/weak)
+	a_intent = INTENT_HELP
+	attack_speed = 2

@@ -189,15 +189,26 @@
 // =============================================================================
 // ========================		WEATHER EDITS		============================
 
-// braziers, magic fire, lamps etc are rain resistant, standing fires and torch holders are not
-/obj/machinery/light/fueled/torchholder/Initialize()
+/obj/item/flashlight/flare/torch/lantern
+	dropshrink = 0.6
+/obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -4,"nx" = 9,"ny" = -4,"wx" = -3,"wy" = -4,"ex" = 2,"ey" = -4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
+// braziers, torches, magic fire, lamps etc are rain resistant, standing fires and candles are not
+/obj/machinery/light/fueled/wallfire/candle/Initialize()
 	. = ..()
 	GLOB.weather_act_upon_list += src
 
-/obj/machinery/light/fueled/torchholder/Destroy()
+/obj/machinery/light/fueled/wallfire/candle/Destroy()
 	GLOB.weather_act_upon_list -= src
 	. = ..()
-
 
 /obj/machinery/light/fueled/firebowl/standing/Initialize()
 	. = ..()
@@ -213,11 +224,10 @@
 	. = ..()
 	GLOB.weather_act_upon_list -= src
 
-/obj/item/flashlight/flare/torch/Initialize()
+/obj/item/candle/Initialize()
 	. = ..()
 	GLOB.weather_act_upon_list += src
-
-/obj/item/flashlight/flare/torch/Destroy()
+/obj/item/candle/Destroy()
 	GLOB.weather_act_upon_list -= src
 	. = ..()
 
@@ -347,7 +357,7 @@
 /obj/structure/flora/rogueflower/random
 	icon_state = "ppflowers"
 /obj/structure/flora/rogueflower/random/Initialize()
-	icon_state = pick("reedbush", "lavendergrass", "ywflowers", "brflower", "ppflowers")
+	icon_state = pick("lavendergrass", "ywflowers", "brflower", "ppflowers")
 	. = ..()
 
 /obj/structure/flora/rogueflower/fallenleaves
@@ -891,6 +901,14 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	name = "Court Wizard"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/sk_sheriff
+	name = "Sheriff"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_weaver
+	name = "Weaver"
+	icon_state = "arrow"
+
 /obj/structure/handcart/corpse
 	name = "corpse cart"
 	color = "#b4b4b6"
@@ -907,3 +925,6 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 
 /obj/item/reagent_containers/food/snacks/egg
 	name = "cackleberry"
+
+/obj/item/key/captain
+	name = "sheriffs key"

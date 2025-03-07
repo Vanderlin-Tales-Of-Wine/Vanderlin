@@ -123,7 +123,7 @@
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 2,
 		/obj/item/natural/worms/leech = 2,
 		/obj/item/reagent_containers/food/snacks/rotten/meat = 1,
-		/obj/structure/idle_enemy/bigrat = 1,
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 1,
 		/obj/structure/kneestingers = 1)
 
 /*	..................   Metal bars (weakened or normal?)  ................... */
@@ -150,13 +150,13 @@
 	probby = 50
 	color = "#ff0d00"
 	spawned = list(
-		/datum/component/spawner/zizombie_farmer = 30,
+		/mob/living/carbon/human/species/zizombie/npc/peasant = 30,
 		/obj/item/natural/worms = 10,
 		/obj/item/reagent_containers/food/snacks/rotten/mince = 5,
 		/obj/effect/decal/remains/bigrat = 5,
 		/obj/item/reagent_containers/food/snacks/smallrat = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
-		/obj/structure/idle_enemy/bigrat = 5)
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 5)
 
 // ===================================================================================
 /*	..................   Dwarf Outpost Spawner  ................... */
@@ -232,15 +232,6 @@
 	backl = /obj/item/storage/backpack/backpack
 	head = /obj/item/clothing/head/helmet/leather/minershelm
 
-
-/*	..................   Cave Goblin Maybe   ................... */
-/obj/effect/spawner/map_spawner/goblincave_threat
-	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
-	probby = 50
-	spawned = list(
-		/obj/structure/idle_enemy/cavegoblin = 100,
-		)
 
 
 // ==============================================================
@@ -496,7 +487,7 @@
 /*	..................  StoneHamlet Bog Mapgen  ................... */
 /obj/effect/landmark/mapGenerator/stonebog
 	mapGeneratorType = /datum/mapGenerator/stonebog
-	endTurfX = 255
+	endTurfX = 253
 	endTurfY = 120
 	startTurfX = 1
 	startTurfY = 1
@@ -553,12 +544,12 @@
 /obj/effect/landmark/mapGenerator/stoneforest
 	mapGeneratorType = /datum/mapGenerator/stoneforest
 	endTurfX = 150
-	endTurfY = 255
+	endTurfY = 253
 	startTurfX = 1
 	startTurfY = 60
 
 /datum/mapGenerator/stoneforest
-	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/stoneforest_undertree,/datum/mapGeneratorModule/stoneforestgrassturf,/datum/mapGeneratorModule/stoneforest,/datum/mapGeneratorModule/stoneforestroad,/datum/mapGeneratorModule/stoneforestgrass,/datum/mapGeneratorModule/stoneforestwaterturf)
+	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/stoneforest_undertree,/datum/mapGeneratorModule/stoneforestgrassturf,/datum/mapGeneratorModule/stoneforest,/datum/mapGeneratorModule/stoneforestgrassyel ,/datum/mapGeneratorModule/stoneforestroad,/datum/mapGeneratorModule/stoneforestgrass,/datum/mapGeneratorModule/stoneforestwaterturf)
 
 /datum/mapGeneratorModule/stoneforest
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -596,24 +587,38 @@
 	excluded_turfs = list()
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	spawnableAtoms = list(/obj/structure/innocent_web = 10,
-							/obj/structure/flora/rogueflower/random = 6,
+							/obj/structure/flora/rogueflower/random = 2,
 							/obj/item/grown/log/tree/stick = 3,
-							/obj/structure/flora/rogueflower/fallenleaves = 30)
+							/obj/structure/flora/rogueflower/fallenleaves = 20)
 
 /datum/mapGeneratorModule/stoneforestgrass
 	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS
 	allowed_turfs = list(/turf/open/floor/grass)
-	excluded_turfs = list()
+	excluded_turfs = list(/turf/open/floor/grass/mixyel)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
-							/obj/structure/flora/grass/bush_meagre = 6,
-							/obj/structure/flora/grass = 80,
-							/obj/structure/flora/grass/herb/random = 7,
-							/obj/structure/flora/rogueflower/random = 6,
-							/obj/item/natural/stone = 6,
-							/obj/item/natural/rock = 3,
+							/obj/structure/flora/grass/bush_meagre = 4,
+							/obj/structure/flora/grass = 65,
+							/obj/structure/flora/grass/herb/random = 2,
+							/obj/structure/flora/rogueflower/random = 2,
+							/obj/item/natural/stone = 3,
+							/obj/item/natural/rock = 1,
 							/obj/item/grown/log/tree/stick = 3,
-							/obj/structure/chair/bench/ancientlog = 5)
+							/obj/structure/chair/bench/ancientlog = 3)
+
+/datum/mapGeneratorModule/stoneforestgrassyel
+	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS
+	allowed_turfs = list(/turf/open/floor/grass/mixyel)
+	excluded_turfs = list(/turf/open/floor/grass/mixyel/under_tree)
+	allowed_areas = list(/area/rogue/outdoors/woods)
+	spawnableAtoms = list(/obj/structure/flora/tree = 1,
+							/obj/structure/flora/grass/bush_meagre = 3,
+							/obj/structure/flora/grass = 60,
+							/obj/structure/flora/rogueflower/random = 1,
+							/obj/item/natural/stone = 4,
+							/obj/item/natural/rock = 2,
+							/obj/item/grown/log/tree/stick = 3,
+							/obj/structure/chair/bench/ancientlog = 3)
 
 /datum/mapGeneratorModule/stoneforestwaterturf
 	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS

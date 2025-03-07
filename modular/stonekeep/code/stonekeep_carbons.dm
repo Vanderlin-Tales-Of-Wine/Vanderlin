@@ -321,8 +321,6 @@
 /mob/living/carbon/human/species/human/northern/bum/skilled
 	race = /datum/species/human/northern/npc
 
-/datum/species/human/northern/npc
-	armor = list("melee" = 3, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 0)
 */
 
 GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
@@ -367,7 +365,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	wander = FALSE
 	ambushable = FALSE
 	faction = list("bums", "station")
-	C.grant_language(/datum/language/common)
+//	C.grant_language(/datum/language/common)
 
 /mob/living/carbon/human/species/human/northern/bum/skilled/proc/configure_mind()
 	if(!mind)
@@ -527,11 +525,11 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 /mob/living/carbon/human/species/goblin/skilled/ambush/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
-
+/*
 /mob/living/carbon/human/species/goblin/skilled/hell/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/hellspeak)
-
+*/
 /mob/living/carbon/human/species/goblin/skilled/ambush/cave
 	name = "cave goblin"
 	race = /datum/species/goblin/cave
@@ -569,7 +567,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	candodge = TRUE
 	canparry = FALSE
 
-/*
+
 /mob/living/simple_animal/hostile/retaliate/troll
 	base_intents = list(/datum/intent/simple/trollrip, /datum/intent/simple/trollsmash)
 
@@ -581,7 +579,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 
 /mob/living/simple_animal/hostile/retaliate/bigrat
 	base_intents = list(/datum/intent/simple/critterbite)
-*/
+
 /datum/intent/simple/trollrip
 	name = "trollrip"
 	icon_state = "instrike"

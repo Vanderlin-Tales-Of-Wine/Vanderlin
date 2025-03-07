@@ -42,14 +42,19 @@
 	armor = /obj/item/clothing/shirt/robe/merchant
 	head = /obj/item/clothing/head/chaperon
 	id = /obj/item/clothing/ring/gold/guild_mercator
+	shoes = /obj/item/clothing/shoes/boots/leather
 
 	if(H.gender == MALE)
 		shirt = /obj/item/clothing/shirt/undershirt/sailor
 		pants = /obj/item/clothing/pants/tights/sailor
-		shoes = /obj/item/clothing/shoes/boots/leather
+
 	else
 		shirt = /obj/item/clothing/shirt/tunic/blue
+
+	if(H.dna.species.id == "Rakshari")
+		head = /obj/item/clothing/head/roguehood/pashmina
 		shoes = /obj/item/clothing/shoes/gladiator
+
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -67,3 +72,4 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE) // Literally unused skill
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+

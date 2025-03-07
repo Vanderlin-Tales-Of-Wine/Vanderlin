@@ -1,7 +1,7 @@
 /datum/job/roguetown/archivist
 	title = "Archivist"
 	tutorial = "A well-traveled and well-learned seeker of knowledge, the Archivist's mind has been touched by Noc himself. They settled in Vanderlin some time ago, coming to the Isle of Enigma with the hope of unraveling its mysteries. If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
-	flag = ARCHIVIST
+	flag = SK_ARCHIVIST
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 0

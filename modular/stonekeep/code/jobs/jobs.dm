@@ -1,13 +1,11 @@
-#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun","Undine")
-
-
 #define SK_LORD			(1<<0)
 #define SK_CONSORT		(1<<1)
 #define SK_HAND			(1<<2)
 #define SK_STEWARD		(1<<3)
 #define SK_WIZARD		(1<<4)
-#define SK_SERVANT		(1<<5)
-#define SK_JESTER		(1<<6)
+#define SK_ARCHIVIST	(1<<5)
+#define SK_SERVANT		(1<<6)
+#define SK_JESTER		(1<<7)
 
 #define SK_SHERIFF		(1<<0)
 #define SK_VETERAN		(1<<1)
@@ -38,7 +36,7 @@
 #define SK_BEGGAR		(1<<7)
 
 #define SK_MERCENARY	(1<<0)
-//#define SK_ADVENTURER	(1<<1)
+#define SK_ADVENTURER	(1<<1)
 #define SK_PILGRIM		(1<<2)
 #define SK_BANDIT		(1<<3)
 
@@ -68,12 +66,12 @@
 #define FELDSHER_ORDER		34
 #define BLACKSMITH_ORDER	35
 #define MASON_ORDER			36
-#define WEAVER_ORDER		37
 #define NITEMAN_ORDER		38
 
 #define ELDER_ORDER			41
 #define SOILSON_ORDER		43
 #define COOK_ORDER			44
+#define WEAVER_ORDER		45
 #define WOODSMAN_ORDER		46
 #define STEVEDORE_ORDER		47
 #define BATHMAID_ORDER		48

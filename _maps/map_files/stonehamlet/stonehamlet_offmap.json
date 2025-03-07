@@ -2,5 +2,5 @@
     "map_name": "Stone Hamlet Offmap",
     "map_path": "map_files/stonehamlet",
     "map_file": "stonehamlet_offmap.dmm",
-    "traits": [{"Up": true, "Turf Weather Effects": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true, "Turf Weather Effects": true}]
+    "traits": [{"Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true}]
 }

@@ -186,10 +186,9 @@
 // ===================================================================================
 /*	..................   Sewer Danger   ................... */
 /obj/effect/spawner/map_spawner/sewerencounter
-	icon_state = "srat"
-	icon = 'icons/roguetown/mob/monster/rat.dmi'
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/item/reagent_containers/food/snacks/smallrat = 30,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
@@ -197,39 +196,29 @@
 		/obj/item/coin/copper = 5,
 		/obj/effect/gibspawner/generic = 5,
 		/obj/effect/decal/remains/bigrat = 5,
-		/obj/structure/idle_enemy/bigrat = 2,
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 2,
 		)
 
 /*	..................   Cheap Room Danger   ................... */
 /obj/effect/spawner/map_spawner/cheapinnroomencounter
-	icon_state = "paperwizard"
-	icon = 'icons/mob/simple_human.dmi'
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/item/reagent_containers/food/snacks/smallrat = 15,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
 		/obj/item/coin/copper = 50,
 		/mob/living/carbon/human/species/human/northern/bum/skilled/madman  = 10,
-		/obj/structure/idle_enemy/bigrat = 10
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 10
 		)
 
-/*	..................   Skeleton Fighter Danger   ................... */
-/obj/effect/spawner/map_spawner/ancientskellyguardmaybe
-	icon = 'icons/roguetown/mob/skeleton_male.dmi'
-	icon_state = "z"
-	probby = 50
-	color = "#ff0000"
-	spawned = list(
-		/obj/structure/idle_enemy/skeleton_fighter = 100
-		)
+
 
 /*	..................   Beggar Danger   ................... */
 /obj/effect/spawner/map_spawner/hostile_beggar_danger
-	icon_state = "faceless"
-	icon = 'icons/mob/simple_human.dmi'
-	probby = 50 // temp to find out if decal vomit spawns
-	color = "#ff0000"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
+	probby = 50
 	spawned = list(
 		/obj/effect/decal/cleanable/vomit = 10,
 		/obj/item/clothing/face/cigarette/rollie = 10,
@@ -238,10 +227,9 @@
 
 /*	..................   Mines Danger   ................... */
 /obj/effect/spawner/map_spawner/mine_mole_maybe
-	icon = 'icons/roguetown/mob/monster/mole.dmi'
-	icon_state = "mole"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/effect/decal/remains/mole = 20,
 		/obj/item/natural/rock = 10,
@@ -251,121 +239,140 @@
 
 /*	..................   Crypt Danger   ................... */
 /obj/effect/spawner/map_spawner/crypt_randomdanger
-	icon = 'icons/roguetown/mob/skeleton_male.dmi'
-	icon_state = "z"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/item/coin/silver = 5,
 		/obj/item/natural/worms/grub_silk = 5,
 		/obj/item/natural/worms = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
-		/obj/structure/idle_enemy/bigrat = 10,
-		/obj/structure/idle_enemy/weak_skelly = 50	)
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 5,
+		/mob/living/simple_animal/hostile/skeleton = 50	)
 
 /*	..................   Rat Danger   ................... */
 /obj/effect/spawner/map_spawner/rat_danger
-	icon = 'icons/roguetown/mob/monster/bigrat.dmi'
-	icon_state = "rat"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
 		/obj/effect/decal/remains/bigrat = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat = 20,
 		/obj/item/natural/worms = 10,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
-		/obj/structure/idle_enemy/bigrat = 40)
+		/mob/living/simple_animal/hostile/retaliate/bigrat = 40)
 
-/*	..................   Maneater Danger   ................... */
+/*	..................   Skeleton Fighter Enemy   ................... */
+/obj/effect/spawner/map_spawner/ancientskellyguardmaybe
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
+	probby = 50
+	spawned = list(
+//		/obj/structure/idle_enemy/skeleton_fighter = 100
+		/mob/living/carbon/human/species/skeleton/skilled/fighter = 100
+		)
+
+/*	..................   Maneater Enemy    ................... */
 /obj/effect/spawner/map_spawner/maneater_danger
-	icon = 'icons/roguetown/mob/monster/lamia.dmi'
-	icon_state = "headless"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
-		/obj/structure/idle_enemy/lamia = 50,
-		/obj/structure/idle_enemy/headless = 50)
+//		/obj/structure/idle_enemy/lamia = 50,
+//		/obj/structure/idle_enemy/headless = 50
+		/mob/living/simple_animal/hostile/retaliate/lamia = 50,
+		/mob/living/simple_animal/hostile/retaliate/headless = 50
+		)
 
-/*	..................   Zizombie Farmer Danger   ................... */
+/*	..................   Zizombie Farmer Enemy    ................... */
 /obj/effect/spawner/map_spawner/zizombie_farmer_maybe
-	icon = 'icons/roguetown/mob/monster/zizombie.dmi'
-	icon_state = "zizombie_decap"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
-		/obj/structure/idle_enemy/zizombie_farmer = 100	)
+//		/obj/structure/idle_enemy/zizombie_farmer = 100
+		/mob/living/carbon/human/species/zizombie/npc/peasant = 100
+		)
 
-/*	..................   Hairy Spider Danger   ................... */
+/*	..................   Hairy Spider Enemy   ................... */
 /obj/effect/spawner/map_spawner/hairy_spider_maybe
 	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
+	icon_state = "enemy"
 	probby = 50
-	color = "#ff0000"
 	spawned = list(
-		/obj/structure/idle_enemy/hairy_spider = 100	)
+//		/obj/structure/idle_enemy/hairy_spider = 100
+		/mob/living/simple_animal/hostile/retaliate/spider/hairy = 100
+		)
 
-
-
-/*	..................   Savage Orc Danger Carbon   ................... */
+/*	..................   Savage Orc Enemy    ................... */
 /obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe
-	icon = 'icons/roguetown/mob/monster/simple_orcs.dmi'
-	icon_state = "orcmarauder_spear"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
 	probby = 50
-	color = "#ff5858"
 	spawned = list(
-		/obj/structure/idle_enemy/savage_orc = 65,
-		/obj/structure/idle_enemy/savage_orc_looter = 35	)
+//		/obj/structure/idle_enemy/savage_orc = 65,
+//		/obj/structure/idle_enemy/savage_orc_looter = 35
+		/mob/living/carbon/human/species/orc/skilled/savage = 65,
+		/mob/living/carbon/human/species/orc/skilled/looter = 35
+		)
 
 /obj/effect/spawner/map_spawner/orc_warlord_carbon
-	icon = 'icons/roguetown/mob/monster/simple_orcs.dmi'
-	icon_state = "orcmarauder_spear"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
 	probby = 100
-	color = "#ff0000"
+	color = "#caa3a3"
 	spawned = list(
-		/obj/structure/idle_enemy/savage_orc_chieftain = 100 )
+//		/obj/structure/idle_enemy/savage_orc_chieftain = 100
+		/mob/living/carbon/human/species/orc/skilled/savage_chieftain = 100
+		)
 
-
-/*	..................   Haunts Danger   ................... */
+/*	..................   Haunts Enemy    ................... */
 /obj/effect/spawner/map_spawner/haunts_maybe
 	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
+	icon_state = "enemy"
 	probby = 50
 	spawned = list(
 		/obj/structure/bonepile = 100	)
 
-/*	..................   Outlaw Danger (starving desperate peasants)  ................... */
+/*	..................   Outlaw Enemy  (starving desperate peasants)  ................... */
 /obj/effect/spawner/map_spawner/outlaw_maybe
 	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
+	icon_state = "enemy"
 	probby = 50
 	spawned = list(
-		/obj/structure/idle_enemy/outlaw = 100	)
+//		/obj/structure/idle_enemy/outlaw = 100
+		/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw = 100
+		)
 
-/*	..................   Volf Danger  ................... */
+/*	..................   Volf Enemy   ................... */
 /obj/effect/spawner/map_spawner/volf_maybe
 	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
+	icon_state = "enemy"
 	probby = 50
 	spawned = list(
-		/obj/structure/idle_enemy/volf= 100	)
+		/mob/living/simple_animal/hostile/retaliate/wolf = 100
+//		/obj/structure/idle_enemy/volf= 100
+		)
 
-/*	..................   Cabbit Cottage Danger  ................... */
-/obj/effect/spawner/map_spawner/cabbit_maybe
-	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
-	probby = 100
-	spawned = list(
-		/obj/structure/idle_enemy/cabbit_boss= 50,
-		/mob/living/simple_animal/pet/cat/cabbit = 50	)
-
-
-/*	..................   Honeyspider Danger  ................... */
+/*	..................   Honeyspider Enemy   ................... */
 /obj/effect/spawner/map_spawner/honeyspider_maybe
 	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "danger"
+	icon_state = "enemy"
 	probby = 50
 	spawned = list(
-		/obj/structure/idle_enemy/honeyspider = 100	)
+//		/obj/structure/idle_enemy/honeyspider = 100
+		/mob/living/simple_animal/hostile/retaliate/spider = 100
+	)
+
+/*	..................   Cave Goblin Enemy    ................... */
+/obj/effect/spawner/map_spawner/goblincave_threat
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "enemy"
+	probby = 50
+	spawned = list(
+//		/obj/structure/idle_enemy/cavegoblin = 100,
+		/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 100
+		)
 
 
 // ===================================================================================
@@ -379,27 +386,29 @@
 	layer = BELOW_OBJ_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/datum/component/spawner/npc
+	spawn_time = 0
+	spawn_delay = 0
+	max_mobs = 1
+	spawn_text = ""
+	no_nest = TRUE
 
 // *** CARBONS ***
 /*	..................   Skeleton Fighter Spawner   ................... */
 /obj/structure/idle_enemy/skeleton_fighter
 /obj/structure/idle_enemy/skeleton_fighter/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/skeleton_fighter)
-/datum/component/spawner/skeleton_fighter
+	AddComponent(/datum/component/spawner/npc/skeleton_fighter)
+/datum/component/spawner/npc/skeleton_fighter
 	mob_types = list(/mob/living/carbon/human/species/skeleton/skilled/fighter)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
 	range = 11
-	spawn_text = ""
 
 /*	..................   Orc Carbons Spawner   ................... */
 /obj/structure/idle_enemy/savage_orc
 /obj/structure/idle_enemy/savage_orc/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/savage_orc)
-/datum/component/spawner/savage_orc
+	AddComponent(/datum/component/spawner/npc/savage_orc)
+/datum/component/spawner/npc/savage_orc
 	mob_types = list(/mob/living/carbon/human/species/orc/skilled/savage)
 	spawn_time = 0
 	spawn_delay = 0
@@ -410,33 +419,26 @@
 /obj/structure/idle_enemy/savage_orc_looter
 /obj/structure/idle_enemy/savage_orc_looter/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/savage_orc_looter)
-/datum/component/spawner/savage_orc_looter
+	AddComponent(/datum/component/spawner/npc/savage_orc_looter)
+/datum/component/spawner/npc/savage_orc_looter
 	mob_types = list(/mob/living/carbon/human/species/orc/skilled/looter)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
 	range = 11
-	spawn_text = ""
 
 /obj/structure/idle_enemy/savage_orc_chieftain
 /obj/structure/idle_enemy/savage_orc_chieftain/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/savage_orc_chieftain)
-/datum/component/spawner/savage_orc_chieftain
+	AddComponent(/datum/component/spawner/npc/savage_orc_chieftain)
+/datum/component/spawner/npc/savage_orc_chieftain
 	mob_types = list(/mob/living/carbon/human/species/orc/skilled/savage_chieftain)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
 	range = 11
-	spawn_text = ""
+
 
 /*	..................   Hostile Bum Spawner   ................... */
 /obj/structure/idle_enemy/hostile_bum
 /obj/structure/idle_enemy/hostile_bum/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/hostile_bum)
-/datum/component/spawner/hostile_bum
+	AddComponent(/datum/component/spawner/npc/hostile_bum)
+/datum/component/spawner/npc/hostile_bum
 	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman)
 	spawn_time = 0
 	spawn_delay = 0
@@ -448,12 +450,9 @@
 /obj/structure/idle_enemy/weak_skelly
 /obj/structure/idle_enemy/weak_skelly/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/weak_skelly)
-/datum/component/spawner/weak_skelly
+	AddComponent(/datum/component/spawner/npc/weak_skelly)
+/datum/component/spawner/npc/weak_skelly
 	mob_types = list(/mob/living/carbon/human/species/skeleton/skilled/unarmed)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
 	range = 11
 	spawn_text = ""
 
@@ -461,8 +460,8 @@
 /obj/structure/idle_enemy/zizombie_farmer
 /obj/structure/idle_enemy/zizombie_farmer/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/zizombie_farmer)
-/datum/component/spawner/zizombie_farmer
+	AddComponent(/datum/component/spawner/npc/zizombie_farmer)
+/datum/component/spawner/npc/zizombie_farmer
 	mob_types = list(/mob/living/carbon/human/species/zizombie/npc/peasant)
 	spawn_time = 0
 	spawn_delay = 0
@@ -475,8 +474,8 @@
 /obj/structure/idle_enemy/outlaw
 /obj/structure/idle_enemy/outlaw/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/outlaw)
-/datum/component/spawner/outlaw
+	AddComponent(/datum/component/spawner/npc/outlaw)
+/datum/component/spawner/npc/outlaw
 	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw )
 	spawn_time = 0
 	spawn_delay = 0
@@ -569,9 +568,9 @@
 /obj/structure/idle_enemy/cavegoblin
 /obj/structure/idle_enemy/cavegoblin/Initialize()
 	. = ..()
-	AddComponent(/datum/component/spawner/cavegoblin)
+	AddComponent(/datum/component/spawner/npc/cavegoblin)
 	icon_state = ""
-/datum/component/spawner/cavegoblin
+/datum/component/spawner/npc/cavegoblin
 	mob_types = list(/mob/living/carbon/human/species/goblin/skilled/ambush/cave )
 	spawn_time = 0
 	spawn_delay = 0
@@ -592,22 +591,6 @@
 	max_mobs = 1
 	range = 11
 	spawn_text = ""
-
-/*	..................   Honeyspider Spawner   ................... */
-/obj/structure/idle_enemy/honeyspider
-/obj/structure/idle_enemy/honeyspider/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spawner/honeyspider)
-/datum/component/spawner/honeyspider
-	mob_types = list(/mob/living/simple_animal/hostile/retaliate/spider)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
-	range = 11
-	spawn_text = ""
-
-/obj/effect/spawner/map_spawner/tallgrass
-	color = "#ec98df"
 
 /*	..................   Honeyspider Spawner   ................... */
 /obj/structure/idle_enemy/honeyspider

@@ -25,30 +25,37 @@
 // base was 8, 5 for torches
 
 /obj/machinery/light/fueled/firebowl
-	brightness = 10
+	brightness = 9
 /obj/machinery/light/fueled/firebowl/Initialize()
 	. = ..()
+	brightness = 9
 	light_outer_range =  9
 
 /obj/machinery/light/fueled/wallfire
-	brightness = 9
+	brightness = 7
 /obj/machinery/light/fueled/wallfire/Initialize()
-	. = ..()
 	light_outer_range =  8
+	brightness = 7
+	. = ..()
 
 /obj/machinery/light/fueled/wallfire/candle/Initialize()
+	light_outer_range =  6
+	brightness = 7
 	. = ..()
-	light_outer_range =  7
 
 /obj/machinery/light/fueled/torchholder
 	brightness = 7
+/obj/machinery/light/fueled/torchholder/Initialize()
+	. = ..()
+	light_outer_range =  6
+	brightness = 6
 
 /obj/machinery/light/fueled/campfire
-	brightness = 8
+	brightness = 7
 /obj/machinery/light/fueled/campfire/Initialize()
 	. = ..()
 	light_outer_range =  6
-
+	brightness = 7
 
 /obj/machinery/light/fueled/torchholder/empty
 	lacks_torch = TRUE
@@ -116,6 +123,11 @@
 /obj/structure/table/wood/large/corner_new/yellow
 	icon_state = "largetable_alt"
 
+
+/obj/structure/table/vtable
+	icon = 'modular/stonekeep/icons/tables.dmi'
+/obj/structure/table/vtable/v2
+	icon = 'modular/stonekeep/icons/tables.dmi'
 
 /obj/structure/table/wood/crafted
 	icon = 'modular/stonekeep/icons/tables.dmi'
