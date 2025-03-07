@@ -164,9 +164,9 @@
 
 	to_chat(world, "Round ID: [GLOB.rogue_round_id]")
 
-	SSvote.initiate_vote("map", "Psydon")
-
 	sleep(5 SECONDS)
+
+	//TODO: use build_roundend_report()
 
 	gamemode_report()
 
@@ -175,6 +175,8 @@
 	players_report()
 
 	stats_report()
+
+	SSvote.initiate_vote("map", "Psydon")
 
 	CHECK_TICK
 
@@ -243,12 +245,11 @@
 		to_chat(world, "<span class='big bold'>The town has managed to survive another week.</span>")
 
 /datum/controller/subsystem/ticker/proc/gamemode_report()
+	//TODO: This is a copypaste of antag_report(), this should be deleted
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
 	for(var/datum/team/A in GLOB.antagonist_teams)
-		if(!A.members)
-			continue
 		all_teams |= A
 
 	for(var/datum/antagonist/A in GLOB.antagonists)
@@ -257,10 +258,15 @@
 		all_antagonists |= A
 
 	for(var/datum/team/T in all_teams)
-		T.roundend_report()
-		for(var/datum/antagonist/X in all_antagonists)
-			if(X.get_team() == T)
-				all_antagonists -= X
+		//check if we should show the team
+		if(!T.show_roundend_report)
+			continue
+
+		for(var/datum/mind/member_mind as anything in T.members)
+			if(!isnull(member_mind.antag_datums))
+				all_antagonists -= member_mind.antag_datums
+
+		to_chat(world, T.roundend_report())
 		CHECK_TICK
 
 	var/currrent_category
@@ -433,21 +439,24 @@
 	var/list/all_teams = list()
 	var/list/all_antagonists = list()
 
-	for(var/datum/team/A in GLOB.antagonist_teams)
-		if(!A.members)
-			continue
-		all_teams |= A
+	for(var/datum/team/team as anything in GLOB.antagonist_teams)
+		all_teams |= team
 
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(!A.owner)
+	for(var/datum/antagonist/antagonist as anything in GLOB.antagonists)
+		if(!antagonist.owner)
 			continue
-		all_antagonists |= A
+		all_antagonists |= antagonist
 
-	for(var/datum/team/T in all_teams)
-		result += T.roundend_report()
-		for(var/datum/antagonist/X in all_antagonists)
-			if(X.get_team() == T)
-				all_antagonists -= X
+	for(var/datum/team/active_team as anything in all_teams)
+		//check if we should show the team
+		if(!active_team.show_roundend_report)
+			continue
+
+		for(var/datum/mind/member_mind as anything in active_team.members)
+			if(!isnull(member_mind.antag_datums))
+				all_antagonists -= member_mind.antag_datums
+
+		result += active_team.roundend_report()
 		result += " "//newline between teams
 		CHECK_TICK
 
@@ -456,18 +465,18 @@
 
 	sortTim(all_antagonists, GLOBAL_PROC_REF(cmp_antag_category))
 
-	for(var/datum/antagonist/A in all_antagonists)
-		if(!A.show_in_roundend)
+	for(var/datum/antagonist/antagonist as anything in all_antagonists)
+		if(antagonist.show_in_roundend)
 			continue
-		if(A.roundend_category != currrent_category)
+		if(antagonist.roundend_category != currrent_category)
 			if(previous_category)
 				result += previous_category.roundend_report_footer()
 				result += "</div>"
 			result += "<div class='panel redborder'>"
-			result += A.roundend_report_header()
-			currrent_category = A.roundend_category
-			previous_category = A
-		result += A.roundend_report()
+			result += antagonist.roundend_report_header()
+			currrent_category = antagonist.roundend_category
+			previous_category = antagonist
+		result += antagonist.roundend_report()
 		result += "<br><br>"
 		CHECK_TICK
 
@@ -530,21 +539,15 @@
 				text += " <span class='redtext'>died</span>"
 			else
 				text += " <span class='greentext'>survived</span>"
-//		if(fleecheck)
-//			var/turf/T = get_turf(ply.current)
-//			if(!T || !is_station_level(T.z))
-//				text += " while <span class='redtext'>fleeing the station</span>"
-//		if(ply.current.real_name != ply.name)
-//			text += " as <b>[ply.current.real_name]</b>"
-	to_chat(world, "[text]")
+	return text
 
-/proc/printplayerlist(list/players,fleecheck)
+/proc/printplayerlist(list/datum/mind/players,fleecheck)
 	var/list/parts = list()
 
-	parts += "<ul class='playerlist'>"
+	//parts += "<ul class='playerlist'>"
 	for(var/datum/mind/M in players)
-		parts += "<li>[printplayer(M,fleecheck)]</li>"
-	parts += "</ul>"
+		parts += printplayer(M,fleecheck)//"<li>[printplayer(M,fleecheck)]</li>"
+	//parts += "</ul>"
 	return parts.Join()
 
 

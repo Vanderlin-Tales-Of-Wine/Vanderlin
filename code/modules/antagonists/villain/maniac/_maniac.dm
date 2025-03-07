@@ -319,7 +319,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 /datum/antagonist/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(objectives.len)//If the traitor had no objectives, don't need to process this.
