@@ -409,8 +409,12 @@ range. How much processing this saves is unclear */
 
 /*	..................	Zizombie Modifications   ................... */
 /mob/living/carbon/human/species/zizombie
+	icon = 'modular/stonekeep/icons/mobs/zizombie.dmi'
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
 	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/weak)
 	a_intent = INTENT_HELP
 	attack_speed = 2
+
+/mob/living/simple_animal/hostile/retaliate/headless
+	icon = 'modular/stonekeep/icons/mobs/headless.dmi'

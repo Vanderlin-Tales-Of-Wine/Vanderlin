@@ -251,31 +251,20 @@
 */
 
 /area/rogue/outdoors/rtfield/plague_district
-	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 20, /mob/living/carbon/human/species/zizombie/npc/peasant = 30)
+	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 40, /mob/living/carbon/human/species/zizombie/npc/peasant = 40)
 	first_time_text = "PLAGUE DISTRICT"
 	color = "#d4da75"
 	name = "plague district"
-	ambush_types = list(
-				/turf/open/floor/cobblerock)
-	droning_sound = 'sound/ambience/creepywind.ogg'
-
+	ambientsounds = AMB_GENCAVE
+	ambientnight = AMB_GENCAVE
+	spookysounds = SPOOKY_CAVE
+	spookynight = SPOOKY_CAVE
+	droning_sound = 'sound/music/area/underworlddrone.ogg'
 
 /area/rogue/outdoors/rtfield/outlaw
 	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw = 50)
 	name = "outlaw hideout"
 	color = "#e9baa3"
-	first_time_text = null
-
-/area/rogue/outdoors/rtfield/boggish	// obsolete
-	ambush_mobs = list(/mob/living/carbon/human/species/goblin/skilled/ambush/sea = 50)
-	name = "bog approaches"
-	color = "#7db36e"
-	first_time_text = null
-
-/area/rogue/outdoors/rtfield/woodish
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50)
-	name = "woods approaches"
-	color = "#7db36e"
 	first_time_text = null
 
 /area/rogue/outdoors/rtfield/spooky		// haunts ambush and dug down hidden treasure
@@ -287,8 +276,6 @@
 /area/rogue/outdoors/rtfield/hamlet
 	name = "hamlet surroundings"
 	ambush_times = list("night","dusk")
-	ambush_types = list(
-				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
 				/mob/living/carbon/human/species/goblin/skilled/ambush = 5,

@@ -53,6 +53,8 @@
 /turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
+/turf/open/floor/cobble/mossy
+	smooth = SMOOTH_FALSE	// does this prevent n side dark stripe?
 /turf/open/floor/cobble/mossy/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)

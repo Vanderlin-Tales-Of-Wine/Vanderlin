@@ -395,7 +395,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	aggressive= TRUE
 	wander = TRUE
 	equipOutfit(new /datum/outfit/job/roguetown/human_npc/skilled/outlaw)
-	outlaw = TRUE	// just for the right say strings
+	outlaw = FALSE	// ROGTODO FALSE because runtimes with language holder, dunno wtf just for the right say strings
 
 /datum/outfit/job/roguetown/human_npc/skilled/outlaw
 	name = "Outlaw"
