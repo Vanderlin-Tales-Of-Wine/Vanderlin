@@ -1,4 +1,4 @@
-/proc/browser_input_text(mob/user, message = "", title = "VANDERLIN", default, max_length = INFINITY, multiline = FALSE, encode = TRUE, timeout = 0)
+/proc/browser_input_text(mob/user, message = "", title = "VANDERLIN", default, max_length = MAX_MESSAGE_LEN, multiline = FALSE, encode = TRUE, timeout = 0)
 	if(!user)
 		user = usr
 	if(!istype(user))
