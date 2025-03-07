@@ -39,7 +39,7 @@
 			const submitButton = document.querySelector("#submitButton");
 			const cancelButton = document.querySelector("#cancelButton");
 
-			if([multiline ? "false" : "true"]){
+			[NULLABLE(!multiline) && {"
 				textEntry.addEventListener('keydown', function(event){
 					switch(event.which){
 						case 13: [/* ENTER */]
@@ -54,7 +54,17 @@
 							break;
 					}
 				})
-			}
+			"}]
+
+			[NULLABLE(isnum(max_length)) && {"
+				const charCount = document.querySelector("#charCount");
+				const maxChars = document.querySelector("#maxChars");
+				maxChars.innerHTML = [max_length]
+
+				textEntry.addEventListener('input', function(event){
+					charCount.innerHTML = event.target.value.length;
+				})
+			"}]
 		});
 	</script>
 	"})
@@ -76,12 +86,19 @@
 				margin: auto 0;
 				[multiline ? "flex-grow: [TRUE]" : "height: 1rem"];"
 			name="choice"
-			maxlength="[max_length]"
+			[NULLABLE(isnum(max_length)) && "maxlength=[max_length]"]
 			placeholder="WE AWAIT YOUR COMMAND..."
-			autofocus>[default]</textarea>
+			autofocus>[html_encode(default)]</textarea>
 
-		<div style="display: flex; justify-content: space-between; text-align: center;">
+		<div style="display: flex; justify-content: space-between; align-items: center; text-align: center;">
 			<button id="submitButton" type="submit" name="submit" value="[TRUE]">[CHOICE_CONFIRM]</button>
+			[NULLABLE(isnum(max_length)) && {"
+			<div>
+				<span id="charCount">[length(default)]</span>
+				/
+				<span id="maxChars">[max_length]</span>
+			</div>
+			"}]
 			<button id="cancelButton" type="submit" name="cancel" value="[TRUE]" formnovalidate>[CHOICE_CANCEL]</button>
 		</div>
 	</form>
