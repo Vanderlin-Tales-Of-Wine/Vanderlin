@@ -367,6 +367,79 @@
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
 
+// --------- SILVER -----------
+/datum/anvil_recipe/armor/silver/helmet/astrata
+	name = "Astrata Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/astrata
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/noc
+	name = "Noc Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/noc
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/dendor
+	name = "Dendor Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/dendor
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/necra
+	name = "Necra Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/necra
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/pestra
+	name = "Pestra Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/pestra
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/eora
+	name = "Eora Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/sallet/eora
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/ravox
+	name = "Ravox Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/ravox
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/silver/helmet/malum
+	name = "Malum Helmet (+Steel)"
+	recipe_name = "a decorated silver alloy helmet"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/malum
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
 // --------- GOLD -----------
 /datum/anvil_recipe/armor/gold/mask
 	name = "Gold Mask"

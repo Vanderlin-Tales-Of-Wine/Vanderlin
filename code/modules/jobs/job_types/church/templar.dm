@@ -42,7 +42,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
-			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/dendor
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 		if(/datum/patron/divine/necra)
@@ -52,11 +52,11 @@
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
-			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/pestra
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/eora)
-			head = /obj/item/clothing/head/helmet/sallet/eoran
+			head = /obj/item/clothing/head/helmet/sallet/eora
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
 			neck = /obj/item/clothing/neck/chaincoif
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
@@ -69,7 +69,7 @@
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
-			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/malum
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/abyssor)

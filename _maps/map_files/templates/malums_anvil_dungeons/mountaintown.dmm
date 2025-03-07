@@ -1848,7 +1848,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Ag" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/item/clothing/head/helmet/heavy/necked/malumhelm,
+/obj/item/clothing/head/helmet/heavy/necked/malum,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Aq" = (
