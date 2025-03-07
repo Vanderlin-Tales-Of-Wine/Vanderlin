@@ -1048,6 +1048,10 @@
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
 		combat_modifier -= 0.1
 
+	var/atom/puller_hand = pulledby.get_active_held_item()
+	if(puller_hand && !istype(puller_hand, /obj/item/grabbing)) // so you can't pummel them with a weapon
+		combat_modifier += 0.2
+
 	if(cmode && !L.cmode)
 		combat_modifier += 0.3
 	else if(!cmode && L.cmode)
@@ -1072,7 +1076,7 @@
 		var/wrestling_cooldown_reduction = 0
 		if(pulledby?.mind?.get_skill_level(/datum/skill/combat/wrestling))
 			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level(/datum/skill/combat/wrestling)
-		TIMER_COOLDOWN_START(src, "broke_free", max(0, 1.5 SECONDS - wrestling_cooldown_reduction))
+		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.2 SECONDS - wrestling_cooldown_reduction))
 
 		return FALSE
 	else

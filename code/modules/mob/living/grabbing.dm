@@ -268,12 +268,19 @@
 				M.Stun(max(20 + (skill_diff * 10) + (user.STASTR * 5) - (M.STACON * 5) * combat_modifier, 1))
 				user.Immobilize(max(20 - skill_diff, 1))
 				user.changeNext_move(max(20 - skill_diff, CLICK_CD_GRABBING))
+				user.adjust_stamina(rand(3,8))
 			else
 				user.adjust_stamina(rand(5,15))
-				if(prob(clamp((((4 + (((user.STASTR - M.STACON)/2) + skill_diff)) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
-					M.visible_message(span_danger("[user] shoves [M] to the ground!"), \
-									span_userdanger("[user] shoves me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
 					M.Knockdown(max(10 + (skill_diff * 2), 1))
+					playsound(src,"genblunt",100,TRUE)
+					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M)
+						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
+						span_userdanger("[user] throws me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+					else
+						M.visible_message(span_danger("[user] tackles [M] to the ground!"), \
+						span_userdanger("[user] tackles me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+						user.set_resting(TRUE, TRUE)
 				else
 					M.visible_message(span_warning("[user] tries to shove [M]!"), \
 									span_danger("[user] tries to shove me!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
