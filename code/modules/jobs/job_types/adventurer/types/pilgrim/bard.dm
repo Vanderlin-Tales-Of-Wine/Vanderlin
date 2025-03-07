@@ -2,7 +2,7 @@
 /datum/advclass/pilgrim/bard
 	name = "Bard"
 	tutorial = "Bards make up one of the largest populations of \
-	registered adventurers in Enigma, mostly because they are \
+	registered adventurers in Vanderlin, mostly because they are \
 	the last ones in a party to die. Their wish is to experience \
 	the greatest adventures of the age and write amazing songs about them."
 	allowed_sexes = list(MALE, FEMALE)

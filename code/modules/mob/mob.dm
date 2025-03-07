@@ -1153,6 +1153,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	VV_DROPDOWN_OPTION(VV_HK_REGEN_ICONS, "Regenerate Icons")
 	VV_DROPDOWN_OPTION(VV_HK_PLAYER_PANEL, "Show player panel")
 	VV_DROPDOWN_OPTION(VV_HK_DIRECT_CONTROL, "Assume Direct Control")
+	VV_DROPDOWN_OPTION(VV_HK_GIVE_CONTROL_TO_PLAYER, "Give Control To Player")
 	VV_DROPDOWN_OPTION(VV_HK_OFFER_GHOSTS, "Offer Control to Ghosts")
 
 /mob/vv_do_topic(list/href_list)
@@ -1189,6 +1190,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(!check_rights(NONE))
 			return
 		usr.client.cmd_assume_direct_control(src)
+	if(href_list[VV_HK_GIVE_CONTROL_TO_PLAYER])
+		if(!check_rights(NONE))
+			return
+		usr.client.cmd_give_control_to_player(src, input(usr, "Choose player.", "Player:") as anything in GLOB.clients)
 	if(href_list[VV_HK_OFFER_GHOSTS])
 		if(!check_rights(NONE))
 			return

@@ -28,12 +28,6 @@
 "x" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"y" = (
-/obj/structure/stairs/stone/reddish{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/cave)
 "z" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone,
@@ -261,7 +255,7 @@ x
 x
 x
 O
-y
+W
 H
 a
 x
@@ -273,7 +267,7 @@ a
 x
 x
 x
-y
+W
 H
 a
 a

@@ -878,7 +878,7 @@
 /area/rogue/indoors)
 "nx" = (
 /obj/structure/stairs/stone/d,
-/turf/open/transparent/openspace,
+/turf/open/floor/tile,
 /area/rogue/indoors)
 "nB" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -1145,7 +1145,7 @@
 /obj/structure/stairs/stone/d{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "rX" = (
 /obj/structure/fluff/walldeco/med3,

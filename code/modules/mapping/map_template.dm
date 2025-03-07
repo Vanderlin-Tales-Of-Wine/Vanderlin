@@ -59,13 +59,19 @@
 	var/y = round((world.maxy - height)/2)
 
 	var/datum/space_level/level = SSmapping.add_new_zlevel(name, list(ZTRAIT_AWAY = TRUE))
-	var/datum/parsed_map/parsed = load_map(file(mappath), x, y, level.z_value, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=TRUE)
+	var/datum/parsed_map/parsed = load_map(
+		file(mappath),
+		x,
+		y,
+		level.z_value,
+		no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
+		placeOnTop = TRUE,
+	)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return FALSE
 
 	repopulate_sorted_areas()
-
 	//initialize things that are normally initialized after map load
 	parsed.initTemplateBounds()
 	smooth_zlevel(world.maxz)

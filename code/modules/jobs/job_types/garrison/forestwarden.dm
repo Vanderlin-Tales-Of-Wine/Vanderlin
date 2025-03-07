@@ -22,7 +22,7 @@
 	selection_color = "#0d6929"
 	outfit = /datum/outfit/job/forestwarden
 	give_bank_account = 45
-	min_pq = 5
+	min_pq = 8
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/outfit/job/forestwarden
@@ -71,3 +71,4 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
