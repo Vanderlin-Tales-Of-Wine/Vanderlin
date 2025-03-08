@@ -61,13 +61,13 @@
 		var/mob/living/L = user
 		if(kover)
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 			return
 		if(prob(L.STASTR * 8))
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks over [src]!</span>", \
-				"<span class='warning'>I kick over [src]!</span>")
+			user.visible_message(span_warning("[user] kicks over [src]!"), \
+				span_warning("I kick over [src]!"))
 			kover = TRUE
 			chem_splash(loc, 2, list(reagents))
 			var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -78,8 +78,8 @@
 			update_icon()
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
-				"<span class='warning'>I kick [src]!</span>")
+			user.visible_message(span_warning("[user] kicks [src]!"), \
+				span_warning("I kick [src]!"))
 
 /obj/item/bin/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -93,8 +93,8 @@
 		return
 	if(kover)
 		if(kover)
-			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
-				"<span class='notice'>I start to pick up [src]...</span>")
+			user.visible_message(span_notice("[user] starts to pick up [src]..."), \
+				span_notice("I start to pick up [src]..."))
 			if(do_after(user, 3 SECONDS, src))
 				kover = FALSE
 				update_icon()
@@ -110,19 +110,19 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>No water to wash these stains.</span>")
+					to_chat(user, span_warning("No water to wash these stains."))
 					return
 			reagents.remove_reagent(removereg, 5)
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 			playsound(user, pick_n_take(wash), 100, FALSE)
 			var/item2wash = user.get_active_held_item()
 			if(!item2wash)
-				user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
+				user.visible_message(span_info("[user] starts to wash in [src]."))
 				if(do_after(L, 3 SECONDS, src))
 					wash_atom(user, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			else
-				user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
+				user.visible_message(span_info("[user] starts to wash [item2wash] in [src]."))
 				if(do_after(L, 3 SECONDS, src))
 					wash_atom(item2wash, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
@@ -168,30 +168,30 @@
 				if(QUENCH_HOLY)
 					removereg = /datum/reagent/water/blessed
 					if (!reagents.has_reagent(removereg, 5))
-						to_chat(user, "<span class='warning'>Need more blessed waters to quench in.</span>")
+						to_chat(user, span_warning("Need more blessed waters to quench in."))
 						return
 
 				if(QUENCH_DAEMON)
 					removereg = /datum/reagent/blood
 					if (!reagents.has_reagent(removereg, 5))
-						to_chat(user, "<span class='warning'>Need more blood to quench in.</span>")
+						to_chat(user, span_warning("Need more blood to quench in."))
 						return
 
 				if(QUENCH_NORMAL)
 					if(!reagents.has_reagent(/datum/reagent/water, 5))
 						removereg = /datum/reagent/water/gross
 						if (!reagents.has_reagent(removereg, 5))
-							to_chat(user, "<span class='warning'>Need more water to quench in.</span>")
+							to_chat(user, span_warning("Need more water to quench in."))
 							return
 
 			if(!T.held_item:currecipe)
-				to_chat(user, "<span class='warning'>Huh?</span>")
+				to_chat(user, span_warning("Huh?"))
 				return
 			if(ingot.currecipe.progress != 100)
-				to_chat(user, "<span class='warning'>It's not finished yet.</span>")
+				to_chat(user, span_warning("It's not finished yet."))
 				return
 			if(!T.hott)
-				to_chat(user, "<span class='warning'>I need to heat it to temper the metal.</span>")
+				to_chat(user, span_warning("I need to heat it to temper the metal."))
 				return
 			var/used_turf = user.loc
 			if(!isturf(used_turf))
@@ -248,7 +248,7 @@
 				var/obj/item/IT = new crafteditem(used_turf)
 				R.handle_creation(IT)
 			playsound(src,pick('sound/items/quench_barrel1.ogg','sound/items/quench_barrel2.ogg'), 100, FALSE)
-			user.visible_message("<span class='info'>[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling.</span>")
+			user.visible_message(span_info("[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling."))
 			T.held_item = null
 			T.update_icon()
 			reagents.remove_reagent(removereg, 5)
