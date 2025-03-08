@@ -18,7 +18,7 @@
 
 /obj/item/clothing/cloak/forrestercloak
 	name = "forrester cloak"
-	desc = "A makeshift cloak constructed with mud, sticks and fibers."
+	desc = "A cloak worn by the Forest Guards of Vanderlin."
 	icon_state = "forestcloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
@@ -30,7 +30,7 @@
 
 /obj/item/clothing/cloak/wardencloak
 	name = "warden cloak"
-	desc = "A makeshift cloak constructed with mud, sticks and fibers."
+	desc = "A cloak worn by the Veteran Warden of Vanderlin's Forest Guard"
 	icon_state = "wardencloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
@@ -41,7 +41,7 @@
 
 /obj/item/clothing/head/helmet/visored/warden
 	name = "wardens's helmet"
-	desc = "An elegant barbute, fitted with the gold trim and polished metal of nobility."
+	desc = "A strange helmet adorned with antlers worn by the Warden of the Forest"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	worn_x_dimension = 64
 	worn_y_dimension = 64
@@ -69,7 +69,7 @@
 
 /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	name = "skullmet"
-	desc = "A lavish knights helmet which allows a crest to be mounted on top."
+	desc = "A crude helmet constructed with the skull of various beasts of Dendor"
 	icon_state = "skullmet_volf"
 
 /obj/item/clothing/head/helmet/medium/decorated/skullmet/attack_right(mob/user)
