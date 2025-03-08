@@ -115,6 +115,7 @@
 	name = "iron fork"
 	icon_state = "fork_iron"
 
+/// DEPRECIATED. USE /obj/item/plate instead.
 /obj/item/kitchen/platter
 	name = "platter"
 	desc = "Made from wood."
@@ -126,6 +127,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	base_item = /obj/item/kitchen/platter
 
+/// DEPRECIATED. USE /obj/item/plate/clay instead.
 /obj/item/kitchen/platter/clay
 	desc = "Made from fired clay."
 	icon_state = "platter_clay"
@@ -144,6 +146,7 @@
 	..()
 	qdel(src)
 
+/// DEPRECIATED. USE /obj/item/plate/copper instead.
 /obj/item/kitchen/platter/copper
 	desc = "Made from thin metal."
 	icon_state = "platter_copper"
@@ -240,12 +243,13 @@
 
 /obj/item/reagent_containers/glass/bowl/attackby(obj/item/I, mob/user, params) // lets you eat with a spoon from a bowl
 	if(istype(I, /obj/item/kitchen/spoon))
-		if(reagents.total_volume > 0)
-			beingeaten()
+		if(reagents.total_volume > 0 && !in_use)
+			in_use = TRUE
 			playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 			visible_message("<span class='info'>[user] eats from [src].</span>")
 			if(do_after(user,1 SECONDS, src))
 				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
+			in_use = FALSE
 		return TRUE
 
 /obj/item/reagent_containers/glass/bowl/attack(mob/M, mob/user, obj/target)
@@ -290,23 +294,19 @@
 					log_combat(user, M, "fed", reagents.log_list())
 				else
 					to_chat(user, "<span class='notice'>I swallow a gulp of [src].</span>")
-				if(reagents.total_volume > 0)
-					beingeaten()
+				if(reagents.total_volume > 0 && !in_use)
+					in_use = TRUE
 					playsound(M.loc,pick(drinksounds), 100, TRUE)
 					visible_message("<span class='info'>[user] eats from [src].</span>")
 					if(do_after(user,1 SECONDS, src))
 						addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
+					in_use = FALSE
 				return
 
 /obj/item/reagent_containers/glass/bowl/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(reagents.total_volume > 5)
 		new /obj/effect/decal/cleanable/food/mess/soup(get_turf(src))
 	..()
-
-/obj/item/reagent_containers/glass/bowl/proc/beingeaten()
-	in_use = TRUE
-	sleep(10)
-	in_use = FALSE
 
 /obj/item/reagent_containers/peppermill // new with some animated art
 	name = "pepper mill"
