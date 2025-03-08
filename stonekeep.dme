@@ -157,6 +157,7 @@
 #include "code\__DEFINES\dcs\signals_atoms\movable_lighting.dm"
 #include "code\__DEFINES\dcs\signals_atoms\signals_atom.dm"
 #include "code\__DEFINES\stonekeep\sexcon_defines.dm"
+#include "code\__DEFINES\stonekeep\sk_defines.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_logging.dm"
 #include "code\__HELPERS\_string_lists.dm"

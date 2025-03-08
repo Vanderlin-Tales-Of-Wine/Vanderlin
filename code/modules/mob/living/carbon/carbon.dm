@@ -703,7 +703,7 @@
 			if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
 				return
 
-	if(HAS_TRAIT(src, TRAIT_BESTIALSENSE))
+	if(HAS_TRAIT(src, TRAIT_BESTIALSENSE)|| HAS_TRAIT(src, TRAIT_DARKLING))
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_DARKVISION)
 		see_in_dark = 4
 

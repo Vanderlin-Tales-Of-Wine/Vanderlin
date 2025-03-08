@@ -609,6 +609,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	. = new_character
 	if(.)
 		new_character.key = key		//Manually transfer the key to log them in
+		new_character.can_do_sex()	//STONEKEEP EDIT
 		new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 		var/area/joined_area = get_area(new_character.loc)
 		if(joined_area)

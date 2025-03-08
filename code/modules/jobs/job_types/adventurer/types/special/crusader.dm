@@ -46,6 +46,7 @@
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if("Psydon")
 			wrists = /obj/item/clothing/neck/psycross/silver
+			head = /obj/item/clothing/head/helmet/heavy/psydonbarbute
 			if(H.gender == FEMALE) // Silver for female, gold for male
 				cloak = /obj/item/clothing/cloak/stabard/crusader/t
 			else

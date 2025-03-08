@@ -362,7 +362,7 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 /datum/job/roguetown/servant
 	total_positions = 0
 	spawn_positions = 0
-
+/*
 /datum/job/adventurer
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	display_order = ADVENTURER_ORDER
@@ -377,3 +377,4 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 	department_flag = PEASANTS
 	total_positions = 10
 	spawn_positions = 10
+*/

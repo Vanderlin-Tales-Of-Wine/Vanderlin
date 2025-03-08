@@ -49,30 +49,6 @@ GLOBAL_LIST_INIT(sex_actions, build_sex_actions())
 	var/datum/sex_controller/sexcon
 
 
-// borrow some space here ROGTODO
-#define RACES_WITH_BEARD_GROWTH list(\
-	/datum/species/human/northern,\
-	/datum/species/human/halfelf,\
-	/datum/species/dwarf/mountain,\
-	/datum/species/tieberian,\
-)
-
-#define TRAIT_KAIZOKU					"Foglander Cultured"
-//STONEKEEP TRAITS
-#define TRAIT_GOODLOVER	"Fabled Lover"
-#define TRAIT_LIMPDICK "limp_dick"
-#define TRAIT_MINCED "minced"
-#define TRAIT_SEXPASS "sexpass"
-#define TRAIT_DARKLING "Darkling"
-
-/mob/living/carbon/human
-	// Another Boolean. But this time entirely for Kaizoku content to define those whom Abyssariads considers 'impure', and for champions.
-	var/burakumin = FALSE
-	var/champion = FALSE
-
-	//a var used for a rather niched power.
-	var/purification = FALSE
-
 
 /datum/looping_sound/femhornylite
 	mid_sounds = list('modular/stonekeep/sound/sexcon/vo/female/horny1loop (1).ogg')

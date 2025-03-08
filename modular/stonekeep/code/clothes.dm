@@ -5,9 +5,8 @@
  *						*
  * * * * * * * * * * * **/
 
-
-// ==============================	HEAD	====================================
 // =============================================================================
+// ==============================	HEAD	====================================
 
 //................ Rabbet Visage ............... //
 /obj/item/clothing/head/padded/rabbetvisage
@@ -406,8 +405,16 @@
 	bloody_icon_state = "helmetblood"
 	bloody_icon = 'icons/effects/blood.dmi'
 
-// ==============================	CLOAKS	====================================
+//................ Crown edit............... //
+/obj/item/clothing/head/crown/serpcrown
+	name = "royal crown"
+	desc = "The royal circlet of bright gold rests lightly on my brow, I once thought only of the rights this circlet would endow. But once I took the crown to which I had been schooled and bred, I found it heavy on the heart, though light upon the head."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+
 // =============================================================================
+// ==============================	CLOAKS	====================================
 
 //................ Silk Cape ............... //
 /obj/item/clothing/cloak/cape/silk
@@ -431,8 +438,8 @@
 	..()
 
 
-// ==============================	ARMOR	====================================
 // =============================================================================
+// ==============================	ARMOR	====================================
 
 //................ Silk Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/niteman
@@ -665,8 +672,16 @@
 	max_integrity = INTEGRITY_STRONG
 	salvage_result = /obj/item/natural/hide/cured
 
-// ==============================	ARMS	====================================
+
 // =============================================================================
+// ==============================	BELT	====================================
+
+/obj/item/storage/belt/leather/plaquegold
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+
+// =============================================================================
+// ==============================	ARMS	====================================
 
 /obj/item/clothing/wrists/bracers/leather
 	armor = ARMOR_LEATHER_BAD

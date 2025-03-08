@@ -706,7 +706,7 @@ All foods are distributed among various categories. Use common sense.
 
 // Proc to handle visuals from plating
 /obj/item/reagent_containers/food/snacks/proc/plated()
-	icon = 'icons/roguetown/items/food.dmi'
+	icon = 'modular/stonekeep/icons/food.dmi'	// STONEKEEP EDIT
 	item_state = "plate_food"
 	experimental_inhand = FALSE
 	inhand_x_dimension = 32

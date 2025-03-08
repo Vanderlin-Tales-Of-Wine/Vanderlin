@@ -101,6 +101,14 @@
 /datum/plant_def
 	icon = 'modular/stonekeep/icons/crops.dmi'
 
+
+// =============================================================================
+// ==============================	FOOD	====================================
+
+/obj/item/reagent_containers/food/snacks
+	icon = 'modular/stonekeep/icons/food.dmi'
+
+
 // =================================================================================
 /*-------\
 | Papers |
@@ -186,7 +194,7 @@
 	name = ""
 	desc = ""
 	icon_state = ""
-
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 
 // =============================================================================
@@ -202,6 +210,17 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -4,"nx" = 9,"ny" = -4,"wx" = -3,"wy" = -4,"ex" = 2,"ey" = -4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/machinery/light/fueled/torchholder
+	var/lacks_torch
+	var/unlit_torch
+/obj/machinery/light/fueled/torchholder/Initialize()
+	if(unlit_torch)
+		torchy = new /obj/item/flashlight/flare/torch(src)
+	else if(!lacks_torch)
+		torchy = new /obj/item/flashlight/flare/torch(src)
+		torchy.spark_act()
+	. = ..()
 
 
 // braziers, torches, magic fire, lamps etc are rain resistant, standing fires and candles are not
@@ -664,16 +683,7 @@
 	can_distill = FALSE
 	hard_distill = TRUE
 */
-/obj/machinery/light/fueled/torchholder
-	var/lacks_torch
-	var/unlit_torch
-/obj/machinery/light/fueled/torchholder/Initialize()
-	if(unlit_torch)
-		torchy = new /obj/item/flashlight/flare/torch(src)
-	else if(!lacks_torch)
-		torchy = new /obj/item/flashlight/flare/torch(src)
-		torchy.spark_act()
-	. = ..()
+
 /*
 /obj/structure/fermentation_keg/distillery	// ROGTODO obsolete
 	name = "distillery"
@@ -927,6 +937,12 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 
 /obj/item/key/captain
 	name = "sheriffs key"
+
+/obj/item/key/woodsman
+	name = "woodsman key"
+	icon_state = "rustkey"
+	lockid = "woodsman"
+
 
 /obj/item/reagent_containers/glass/bottle
 	dropshrink = 0.7

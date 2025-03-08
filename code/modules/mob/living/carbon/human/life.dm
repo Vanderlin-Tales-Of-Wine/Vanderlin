@@ -87,6 +87,9 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
+	if(sexcon)	//STONEKEEP EDIT START
+		sexcon.process_sexcon(1 SECONDS)	//STONEKEP EDIT END
+
 	if(stat != DEAD)
 		return 1
 

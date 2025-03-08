@@ -137,7 +137,8 @@
 /obj/structure/table/wood/crafted/good
 	icon_state = "wsmall_good"
 
-
+/obj/structure/table/wood/reinf_long
+	icon = 'modular/stonekeep/icons/tables.dmi'
 
 /obj/structure/table/church
 	name = "altar"
@@ -329,9 +330,27 @@
 	density = FALSE
 
 /obj/structure/chimney
+	desc = "Too narrow for a normal sized person to squeeze through. Covered in soot."
 	density = TRUE
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "chimney"
+/obj/structure/chimney/MouseDrop_T(obj/O, mob/user)
+	. = ..()
+	if(!in_range(src, user))
+		return
+	if((!isgoblin(user)))	// so far only goblins fit into it to climb down
+		return
+	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
+	if(!do_after(user, 3 SECONDS, src))
+		return
+	user.visible_message("<span class='notice'>[user] climbs down [src].</span>", "<span class='notice'>I climb down [src].</span>")
+	src.add_fingerprint(user)
+	var/turf/chimney = get_turf(src)
+	var/turf/destination = locate(chimney.x, chimney.y, chimney.z)
+	destination = locate(chimney.x, chimney.y, chimney.z - 1)
+	if(isliving(user))
+		mob_move_travel_z_level(user, destination)
+
 
 
 /obj/structure/bars/cemetery/vines
@@ -363,3 +382,34 @@
 	icon = 'modular/stonekeep/icons/railing.dmi'
 	icon_state = "stone_decorn"
 	mouse_opacity = 0
+
+
+/obj/structure/window/openclose/Initialize()	// 1 in 100 windows start open
+	. = ..()
+	if(prob(1))
+		open_up()
+
+
+// =============================================================================
+// =========================	WALL DECORATIONS	============================
+
+/obj/structure/fluff/walldeco/fakeshelf
+	name = "shelf"
+	desc = ""
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "shelf"
+	pixel_y = 28
+	layer = ABOVE_NORMAL_TURF_LAYER
+
+/obj/structure/fluff/walldeco/wallchains
+	name = "chains"
+	desc = ""
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "wallchain"
+	pixel_y = 32
+	layer = ABOVE_NORMAL_TURF_LAYER
+
+/obj/structure/fluff/walldeco/weaversign
+	name = "weaver sign"
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "weaver"

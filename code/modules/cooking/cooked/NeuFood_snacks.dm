@@ -46,7 +46,7 @@
 			desc = "Roasted flesh flanked with a generous coating of ground pepper for intense flavor."
 			faretype = FARE_FINE
 			portable = FALSE
-			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "frysteak_spice")
+			var/mutable_appearance/spice = mutable_appearance('modular/stonekeep/icons/food.dmi', "frysteak_spice")	// STONEKEEP EDIT
 			overlays += spice
 			tastes = list("spicy red meat" = 2)
 			meal_properties()
@@ -533,7 +533,7 @@
 			desc = "A plump bird, roasted to perfection, spiced to taste divine."
 			faretype = FARE_LAVISH
 			portable = FALSE
-			var/mutable_appearance/spice = mutable_appearance('icons/roguetown/items/food.dmi', "roast_spice")
+			var/mutable_appearance/spice = mutable_appearance('modular/stonekeep/icons/food.dmi', "roast_spice")	// STONEKEEP EDIT
 			overlays += spice
 			tastes = list("spicy birdmeat" = 2)
 			modified = TRUE

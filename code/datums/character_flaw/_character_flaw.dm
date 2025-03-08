@@ -20,7 +20,9 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Pain Freek"=/datum/charflaw/addiction/masochist,
 	"Hunted"=/datum/charflaw/hunted,
 	"Random Flaw or No Flaw"=/datum/charflaw/randflaw,
-	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,))
+	"Guaranteed No Flaw (3 TRI)"=/datum/charflaw/noflaw,
+	"Love-Fiend"=/datum/charflaw/addiction/lovefiend,	//STONEKEEP EDIT
+	))
 
 /datum/charflaw
 	var/name

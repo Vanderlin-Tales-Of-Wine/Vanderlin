@@ -70,7 +70,7 @@
 		H.change_stat("perception", 2)
 		H.change_stat("fortune", 5)
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/pants/tights/black
+		pants = /obj/item/clothing/pants/pantaloons/dark
 		shirt = /obj/item/clothing/shirt/undershirt/black
 		armor = /obj/item/clothing/armor/gambeson/arming
 		shoes = /obj/item/clothing/shoes/boots

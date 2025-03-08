@@ -42,7 +42,15 @@
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
-	smooth = SMOOTH_TRUE	// needed ?
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/dirt/road,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough)
 
 /turf/open/floor/cobblerock/alt/Initialize()
 	. = ..()
