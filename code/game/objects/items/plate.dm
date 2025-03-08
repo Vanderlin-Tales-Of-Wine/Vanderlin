@@ -18,7 +18,7 @@
 
 /obj/item/plate/attackby(obj/item/I, mob/user, params)
 	if(item_flags & IN_STORAGE)
-		to_chat(user, span_warning("You can't reach [src] from inside the bag!"))
+		to_chat(user, span_warning("I cannot reach [src]."))
 		return
 	if(!istype(I, /obj/item/reagent_containers/food) && !istype(I, /obj/item/reagent_containers/glass/cup) && !istype(I, /obj/item/reagent_containers/glass/bowl))
 		to_chat(user, span_notice("[src] isn't made to carry that!"))
