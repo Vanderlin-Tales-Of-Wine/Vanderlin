@@ -317,6 +317,7 @@
 
 
 /turf/closed/dungeon_void
+	name = "thick dungeon shroud"
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "shroud1"
 

@@ -31,7 +31,7 @@
 		return FALSE
 	var/datum/recipe  = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
 	if(!recipe)
-		return
+		return TRUE // to prevent canceling from hitting the object
 	return execute_recipe(recipe, attacked_object, attacked_item)
 
 /mob/living/proc/execute_recipe(datum/slapcraft_recipe/target_recipe, obj/item/first_item, obj/item/second_item)

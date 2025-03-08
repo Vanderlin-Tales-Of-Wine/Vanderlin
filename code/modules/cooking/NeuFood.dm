@@ -43,9 +43,11 @@
 	name = "rotten food"
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
+
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
+	rot_away_timer = QDEL_IN(src, 10 MINUTES)
 	. = ..()
 
 /obj/item/reagent_containers/food/snacks/rotten/meat
@@ -65,7 +67,7 @@
 	icon_state = "loaf_slice"
 /obj/item/reagent_containers/food/snacks/rotten/egg
 	name = "rotted egg"
-	icon_state = "egg2"
+	icon_state = "egg"
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
@@ -528,8 +530,7 @@
 		short_cooktime = (40 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user, short_cooktime, src))
-			var/obj/item/reagent_containers/food/snacks/dough_base/newdough= new(get_turf(user))
-			user.put_in_hands(newdough)
+			new /obj/item/reagent_containers/food/snacks/dough_base(get_turf(src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
 			qdel(src)
 	else

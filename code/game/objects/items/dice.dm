@@ -198,8 +198,6 @@
 		if(rigged == DICE_BASICALLY_RIGGED)
 			if(prob(80))
 				result = rigged_value
-			else
-				to_chat(user,span_big("Xylix laughs at your pitiable attempt at sleight of hand."))
 		else if(rigged == DICE_TOTALLY_RIGGED)
 			result = rigged_value
 	if(!permanently_rigged)

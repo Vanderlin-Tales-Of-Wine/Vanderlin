@@ -87,6 +87,7 @@
 			user.visible_message("<span class='info'>[user] picks up [A] with [src].</span>")
 			held_item = A
 			A.forceMove(src)
+			update_icon()
 			return
 	return ..()
 
