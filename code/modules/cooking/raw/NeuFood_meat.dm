@@ -183,6 +183,45 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	color = "#a0655f"
 
+/*	..................   METT   ................... */
+/obj/item/reagent_containers/food/snacks/meat/mince/beef/mett
+	name = "grenzel mett"
+	desc = "A popular toping for bread in Grenzelhoft, while simply bizarr to people from vanderlin"
+	icon_state = "mett_minced"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	bitesize = 3
+	slice_path = /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett/slice
+	slices_num = 3
+	slice_batch = TRUE
+	slice_sound = TRUE
+	eat_effect = null
+	rotprocess = SHELFLIFE_TINY
+	faretype = FARE_POOR
+
+/obj/item/reagent_containers/food/snacks/meat/mince/beef/mett/slice
+	name = "grenzel mett"
+	icon_state = "mett_slice"
+	bitesize = 1
+	slices_num = FALSE
+	slice_path = FALSE
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
+
+/obj/item/reagent_containers/food/snacks/meat/mince/beef/attackby(obj/item/I, mob/living/user, params)
+	..()
+	if(user.mind)
+		short_cooktime = (50 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*7))
+		long_cooktime = (90 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*14))
+	var/found_table = locate(/obj/structure/table) in (loc)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/veg/onion_sliced))
+		if(isturf(loc)&& (found_table))
+			playsound(get_turf(user), 'sound/foley/kneading_alt.ogg', 90, TRUE, -1)
+			to_chat(user, span_notice("Kneading onions into the mince..."))
+			if(do_after(user,long_cooktime, src))
+				new /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett(loc)
+				user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.5))
+				qdel(I)
+				qdel(src)
+
 /*	..................   Sausage & Wiener   ................... */
 /obj/item/reagent_containers/food/snacks/meat/sausage
 	name = "raw sausage"
