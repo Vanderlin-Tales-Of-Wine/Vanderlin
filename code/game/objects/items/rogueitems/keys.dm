@@ -855,7 +855,7 @@
 
 /obj/item/key/gaffer
 	name = "Mercenary guild master's key"
-	desc = " 'Humble' would be a kinder word to use for its current state..."
+	desc = "\"Humble\" would be a kinder word to use for its current state..."
 	icon_state = "rustkey"
 	lockid = "gaffer"
 
