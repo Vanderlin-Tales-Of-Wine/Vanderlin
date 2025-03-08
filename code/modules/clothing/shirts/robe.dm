@@ -66,6 +66,11 @@
 	desc = "Black robes which cover the body not unlike those in depictions of the Carriageman himself."
 	icon_state = "necrarobe"
 
+/obj/item/clothing/shirt/robe/pestra
+	name = "naga robe"
+	desc = "Green robes which cover the body in many layers, resembling the ill form of the rotten naga."
+	icon_state = "pestrarobe"
+
 /obj/item/clothing/shirt/robe/priest
 	name = "solar vestments"
 	desc = "Holy vestments sanctified by divine hands. Caution is advised if not a faithful."

@@ -24,6 +24,12 @@
 	icon_state = "necrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
+/obj/item/clothing/head/padded/pestra
+	name = "naga hood"
+	desc = "Worn by the faithful of Pestra. Resembling the face of the Naga clothed in rot."
+	icon_state = "pestrahood"
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+
 /obj/item/clothing/head/padded/operavisage
 	name = "opera visage"
 	desc = "A painted wooden opera mask worn by the faithful of Eora, usually during their rituals."

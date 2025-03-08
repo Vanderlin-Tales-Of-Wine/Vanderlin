@@ -66,11 +66,10 @@
 			armor = /obj/item/clothing/shirt/robe/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/pestra)
-			head = /obj/item/clothing/head/roguehood/brown
+			head = /obj/item/clothing/head/padded/pestra
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
-			shirt = /obj/item/clothing/shirt/undershirt/green
 			shoes = /obj/item/clothing/shoes/sandals
-			armor = /obj/item/clothing/shirt/robe/phys
+			armor = /obj/item/clothing/shirt/robe/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/padded/briarthorns
