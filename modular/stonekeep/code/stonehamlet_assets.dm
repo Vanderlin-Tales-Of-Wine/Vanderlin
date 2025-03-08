@@ -233,6 +233,18 @@
 	head = /obj/item/clothing/head/helmet/leather/minershelm
 
 
+/*	..................  Kitchen Mess Spawner  ................... */
+/obj/effect/spawner/map_spawner/kitchenmess
+	icon = 'icons/effects/tomatodecal.dmi'
+	icon_state = "smashed_egg1"
+	probby = 50
+	color = "#3aff47"
+	spawned = list(
+		/obj/effect/decal/cleanable/food/egg_smudge = 30,
+		/obj/effect/decal/cleanable/food/flour = 30,
+		/obj/effect/decal/cleanable/food/mess/soup = 30
+		)
+
 
 // ==============================================================
 /*	..................   Various mapping aides   ................... */

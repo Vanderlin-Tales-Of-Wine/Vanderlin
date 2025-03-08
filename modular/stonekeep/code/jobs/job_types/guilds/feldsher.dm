@@ -1,11 +1,11 @@
-/datum/job/roguetown/feldsher
+/datum/job/stonekeep/feldsher
 	title = "Feldsher"
 	flag = SK_FELDSHER
 	department_flag = SERFS
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	outfit = /datum/outfit/job/roguetown/feldsher
+	outfit = /datum/outfit/job/stonekeep/feldsher
 	display_order = FELDSHER_ORDER
 	tutorial = "You have seen countless wounds over your time. Stitched the sores of blades, sealed honey over the bubous of plague. \
 	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. At least the Apothecary understands you."
@@ -27,7 +27,7 @@
 
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
-/datum/outfit/job/roguetown/feldsher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/feldsher/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	shoes = /obj/item/clothing/shoes/shortboots

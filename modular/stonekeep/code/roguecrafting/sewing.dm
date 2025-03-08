@@ -13,13 +13,13 @@
 
 /*========= NO SKILL LEVEL REQUIRED ==========*/
 
-/datum/crafting_recipe/roguetown/sewing/bag
-	name = "bag"
-	result = /obj/item/storage/bag
+/datum/crafting_recipe/roguetown/sewing/sack
+	name = "sack"
+	result = /obj/item/storage/sack
 	reqs = list(/obj/item/natural/fibers = 1,
 				/obj/item/natural/cloth = 1)
 
-/obj/item/storage/bag/crafted
+/obj/item/storage/sack/crafted
 	sellprice = 4
 /datum/crafting_recipe/roguetown/sewing/burial_shroud
 	name = "winding sheet"
@@ -347,7 +347,7 @@
 /datum/crafting_recipe/roguetown/sewing/sack
 	name = "hat (sack hood)"
 	result = list(/obj/item/clothing/head/menacing)
-	reqs = list(/obj/item/storage/bag)
+	reqs = list(/obj/item/storage/sack)
 
 /datum/crafting_recipe/roguetown/sewing/armingcap
 	name = "hat (arming cap)"

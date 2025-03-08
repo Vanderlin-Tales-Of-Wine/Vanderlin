@@ -1,4 +1,4 @@
-/datum/job/roguetown/cook
+/datum/job/stonekeep/cook
 	title = "Cook"
 	flag = SK_COOK
 	department_flag = PEASANTS
@@ -17,14 +17,14 @@
 	)
 	tutorial = "Slice, chop, and into the pot... you work closely with the innkeep to prepare meals for all the hungry mouths of Vanderlin. You've spent more nites than you can count cutting meat and vegetables until your fingers are bloody and raw, but it's honest work."
 
-	outfit = /datum/outfit/job/roguetown/cook
+	outfit = /datum/outfit/job/stonekeep/cook
 	display_order = COOK_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -50
 	give_bank_account = 8
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/roguetown/cook/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/cook/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

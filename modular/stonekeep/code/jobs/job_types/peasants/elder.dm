@@ -1,4 +1,4 @@
-/datum/job/roguetown/elder
+/datum/job/stonekeep/elder
 	title = "Village Elder"
 	flag = SK_ELDER
 	department_flag = PEASANTS
@@ -18,7 +18,7 @@
 	tutorial = "The common folk look to you for leadership and guidance when the nobles fail. No spring chicken, the young ones should listen to your sage advice, according to you."
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/roguetown/elder
+	outfit = /datum/outfit/job/stonekeep/elder
 	display_order = ELDER_ORDER
 	give_bank_account = 80
 	min_pq = 0
@@ -26,7 +26,7 @@
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/roguetown/elder/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/elder/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	head = /obj/item/clothing/head/brimmed

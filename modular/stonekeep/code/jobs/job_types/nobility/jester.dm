@@ -1,4 +1,4 @@
-/datum/job/roguetown/jester
+/datum/job/stonekeep/jester
 	title = "Jester"
 	flag = SK_JESTER
 	department_flag = NOBLEMEN
@@ -22,13 +22,13 @@
 		and someday you'll find yourself at the end of something sharper than you."
 
 	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
-	outfit = /datum/outfit/job/roguetown/jester
+	outfit = /datum/outfit/job/stonekeep/jester
 	display_order = 10
 	bypass_lastclass = TRUE
 	min_pq = -20
 	give_bank_account = TRUE
 
-/datum/outfit/job/roguetown/jester/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/jester/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/jester
 	pants = /obj/item/clothing/pants/tights

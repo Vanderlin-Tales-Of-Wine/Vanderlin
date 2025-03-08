@@ -17,7 +17,10 @@
 		"Steward",
 		"Court Magician",
 		"Archivist",
-		"Town Elder"
+		"Town Elder",
+		"Sheriff",	// STONEKEEP EDIT
+		"Court Wizard",	// STONEKEEP EDIT
+		"Village Elder" // STONEKEEP EDIT
 	)
 
 	base_antags = 1
@@ -36,7 +39,7 @@
 	for(var/datum/mind/antag_mind as anything in setup_minds)
 		add_datum_to_mind(antag_mind, antag_mind.current)
 
-	var/list/helping = list("Consort" ,"Hand" ,"Prince" ,"Captain" ,"Steward" ,"Court Magician ","Archivist", "Royal Knight", "Town Elder","Veteran")
+	var/list/helping = list("Consort" ,"Hand" ,"Prince" ,"Captain" ,"Steward" ,"Court Magician ","Archivist", "Royal Knight", "Town Elder","Veteran", "Sheriff", "Court Wizard", "Village Elder" ) // STONEKEEP EDIT
 	var/list/possible_helpers = list()
 	for(var/mob/living/living in GLOB.mob_living_list)
 		if(!living.client)

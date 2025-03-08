@@ -1,5 +1,5 @@
 
-/datum/job/roguetown/beggar
+/datum/job/stonekeep/beggar
 	title = "Beggar"
 	flag = SK_BEGGAR
 	department_flag = PEASANTS
@@ -16,7 +16,7 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/beggar
+	outfit = /datum/outfit/job/stonekeep/beggar
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
@@ -28,18 +28,20 @@
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 	can_have_apprentices = FALSE
 
-/datum/job/roguetown/beggar/New()
+/datum/job/stonekeep/beggar/New()
 	. = ..()
 	peopleknowme = list()
 
-/datum/outfit/job/roguetown/beggar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/beggar/pre_equip(mob/living/carbon/human/H)
 	..()
+	if(prob(5))
+		r_hand = /obj/item/natural/worms
 	if(prob(20))
 		head = /obj/item/clothing/head/knitcap
 	if(prob(5))
-		beltr = /obj/item/reagent_containers/powder/moondust
+		r_hand = /obj/item/reagent_containers/powder/moondust
 	if(prob(10))
-		beltl = /obj/item/clothing/face/cigarette/rollie/cannabis
+		mouth = /obj/item/clothing/face/cigarette/rollie/cannabis
 	if(prob(10))
 		cloak = /obj/item/clothing/cloak/raincloak/brown
 	if(prob(10))
@@ -66,14 +68,25 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(1,2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick (1,2,3,4,5), TRUE) // thug lyfe
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(2,3,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE) // Street-fu
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3,4), TRUE) // Street-fu
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,3), TRUE)
 		H.TOTALLUC = rand(1, 20)
 	if(prob(5))
 		r_hand = /obj/item/weapon/mace/woodclub
-	H.change_stat("intelligence", -3)
+	if(prob(20))
+		H.change_stat("constitution", 2)
+		H.change_stat("intelligence", -1)
+	if(prob(20))
+		H.change_stat("endurance", 3)
+		H.change_stat("constitution", -1)
+	if(prob(20))
+		H.change_stat("strength", 2)
+		H.change_stat("constitution", -1)
+		H.change_stat("endurance", -1)
+		H.change_stat("intelligence", -1)
+	H.change_stat("intelligence", -2)
 	H.change_stat("constitution", -2)
-	H.change_stat("endurance", -2)
+	H.change_stat("endurance", -1)
 
 /datum/outfit/job/roguetown/vagrant
 	name = "Beggar"

@@ -52,7 +52,10 @@
 		"Forest Guard",
 		"Squire",
 		"Veteran",
-		"Apothecary"
+		"Apothecary",
+		"Sheriff",	// STONEKEEP EDIT
+		"Court Wizard",	// STONEKEEP EDIT
+		"Village Elder" // STONEKEEP EDIT
 	)
 
 /datum/round_event/antagonist/solo/werewolf

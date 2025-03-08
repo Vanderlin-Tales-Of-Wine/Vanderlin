@@ -1,4 +1,4 @@
-/datum/job/roguetown/woodsman
+/datum/job/stonekeep/woodsman
 	title = "Woodsman"
 	tutorial = "Living on the outskirts of civliziation, you got roots in the local community, but spend most of your time alone in the forest."
 	faction = "Station"
@@ -13,7 +13,7 @@
 		"Tiefling",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/woodsman
+	outfit = /datum/outfit/job/stonekeep/woodsman
 	min_pq = -25
 	give_bank_account = 15
 	display_order = WOODSMAN_ORDER
@@ -21,7 +21,7 @@
 	spawn_positions = 3
 	apprentice_name = "Hunter"
 
-/datum/outfit/job/roguetown/woodsman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/woodsman/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/provisoner
 	shirt = /obj/item/clothing/shirt/shortshirt/provisoner

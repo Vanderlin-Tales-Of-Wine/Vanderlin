@@ -42,6 +42,7 @@
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
+	smooth = SMOOTH_MORE	// testing does it smooth with gras now?
 	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/dirt/road,
 						/turf/open/floor/grass,

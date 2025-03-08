@@ -73,7 +73,7 @@
 	triumph_count = 5
 
 /datum/objective/werewolf/infiltrate/two/check_completion()
-	var/list/noblejobs = list("Monarch", "Consort", "Prince", "Captain", "Hand", "Steward")
+	var/list/noblejobs = list("Monarch", "Consort", "Prince", "Captain", "Hand", "Steward", "Sheriff")	// STONEKEEP EDIT
 	for(var/datum/mind/V in SSmapping.retainer.werewolves)
 		if(V.current.job in noblejobs)
 			return TRUE

@@ -36,15 +36,17 @@ GLOBAL_LIST_INIT(rod_jobs, list(
 	"Court Magician",
 	"Butler",
 	"Archivist",
-	"Stevedore",
+//	"Stevedore",
 	"Jester",
 	"Prisoner",
-	"Feldsher",
+//	"Feldsher",
 	"Apothecary",
 	"Champion of Rockhill",
 	"Warden of the Terrorbog",
 	"Huntmaster of the Murderwoods",
 	"Hetman of Mount Decapitation",
+	"Sheriff",	// STONEKEEP EDIT
+	"Man-at-arms"	// STONEKEEP EDIT
 ))
 
 /* COLORS */

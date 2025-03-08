@@ -1,4 +1,4 @@
-/datum/job/roguetown/steward
+/datum/job/stonekeep/steward
 	title = "Steward"
 	flag = STEWARD
 	department_flag = NOBLEMEN
@@ -16,12 +16,12 @@
 	display_order = 4
 	bypass_lastclass = TRUE
 	tutorial = "Coin, Coin, Coin! Oh beautiful coin: Youre addicted to it, and you hold the position as the King's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths theyll go to in order to get even more. Keep your festering economy and your rats alive, theyre the only two things you can weigh any trust into anymore."
-	outfit = /datum/outfit/job/roguetown/steward
+	outfit = /datum/outfit/job/stonekeep/steward
 	give_bank_account = 100
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
-/datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/steward/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	if(H.gender == FEMALE)

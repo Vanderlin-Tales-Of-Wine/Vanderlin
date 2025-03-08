@@ -224,7 +224,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "xN" = (
-/obj/item/storage/bag,
+/obj/item/storage/sack,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
 "xT" = (

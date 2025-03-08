@@ -1,5 +1,5 @@
 // ==========	Updated to new Kaizoku garrison	====================
-/datum/job/stonekeep/guardsman
+/datum/job/stonekeep/garrison
 	title = "Man-at-arms"
 	flag = SK_GUARD
 	department_flag = GARRISON
@@ -28,7 +28,7 @@
 
 	cmode_music = 'modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg'
 
-/datum/job/stonekeep/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/garrison/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L

@@ -1,4 +1,4 @@
-/datum/job/roguetown/servant
+/datum/job/stonekeep/servant
 	title = "Servant"
 	flag = SERVANT
 	department_flag = APPRENTICES
@@ -18,7 +18,7 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
 
-/datum/job/roguetown/servant/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/servant/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
@@ -28,7 +28,7 @@
 
 	tutorial = "You work your fingers to the bone nearly every dae, and have naught to show for it but boney fingers. Perhaps this week you will finally be recognized, or allowed some respite?"
 
-	outfit = /datum/outfit/job/roguetown/servant
+	outfit = /datum/outfit/job/stonekeep/servant
 	display_order = JDO_SERVANT
 	give_bank_account = TRUE
 	min_pq = -25
@@ -37,7 +37,7 @@
 	can_have_apprentices = FALSE
 
 
-/datum/outfit/job/roguetown/servant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

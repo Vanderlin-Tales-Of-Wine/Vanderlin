@@ -18,7 +18,7 @@
 
 /datum/outfit/job/roguetown/hammerite/pre_equip(mob/living/carbon/human/H)
 	..()
-	id = /obj/item/clothing/ring/silver/makers_guild
+	id = /obj/item/key/guildring
 	pants = /obj/item/clothing/pants/tights/makers
 	armor = /obj/item/clothing/armor/leather/vest/black
 	shirt = /obj/item/clothing/shirt/undershirt/red

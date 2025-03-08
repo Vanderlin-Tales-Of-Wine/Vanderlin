@@ -23,7 +23,6 @@
 
 	f_title = "Soilbride"
 	outfit = /datum/outfit/job/stonekeep/soilson
-	display_order = 24
 	give_bank_account = 20
 	min_pq = -50
 	selection_color = "#553e01"

@@ -1,4 +1,4 @@
-/datum/job/mason
+/datum/job/stonekeep/mason
 	title = "Mason"
 	flag = SK_MASON
 	department_flag = SERFS
@@ -17,13 +17,13 @@
 
 	tutorial = "There are ancient secrets within stone, something your creed has known since man built upon dirt. Youve pride in your work, youre the only reason this place doesnt fall apart. The King could replace you in a heartbeat, prove to them why youre the Master Mason."
 
-	outfit = /datum/outfit/job/sk_mason
+	outfit = /datum/outfit/job/stonekeep/mason
 	display_order = MASON_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 8
 	min_pq = -50
 
-/datum/outfit/job/sk_mason/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/mason/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -48,9 +48,9 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/storage/belt/pouch/coins/poor
-	beltl = /obj/item/key/artificer
+	beltl = /obj/item/key/mason
 	backl = /obj/item/storage/backpack/backpack
-	id = /obj/item/clothing/ring/silver/makers_guild
+	id = /obj/item/key/guildring
 	backpack_contents = list(/obj/item/weapon/hammer/steel = 1, /obj/item/weapon/chisel = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/weapon/knife/villager)
 
 	H.change_stat(STATKEY_STR, 1)

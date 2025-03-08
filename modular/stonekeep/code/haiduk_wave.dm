@@ -115,7 +115,7 @@
 	backr = /obj/item/weapon/axe/stone
 	belt = /obj/item/storage/belt/leather/rope/haiduk
 	shirt = /obj/item/clothing/shirt/rags
-	r_hand = /obj/item/storage/bag
+	r_hand = /obj/item/storage/sack
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)

@@ -62,7 +62,7 @@
 	to_chat(user, span_notice("A raven passes overhead....your prayer was heard"))
 	playsound(get_turf(user), 'sound/vo/mobs/bird/CROW_01.ogg', 60, TRUE, -1)
 	sleep(20)
-	if((iself(user)))	// already got night vision so lets not fuck it up, instead get +1 PER
+	if((isdarkelf(user)))	// already got night vision so lets not fuck it up, instead get +1 PER // STONEKEEP EDIT
 		user.apply_status_effect(/datum/status_effect/buff/beastsense_elf)
 	else
 		user.apply_status_effect(/datum/status_effect/buff/beastsense)

@@ -1,4 +1,4 @@
-/datum/job/roguetown/merchant
+/datum/job/stonekeep/merchant
 	title = "Merchant"
 	flag = MERCHANT
 	department_flag = SERFS
@@ -24,13 +24,13 @@
 	display_order = MERCHANT_ORDER
 	bypass_lastclass = TRUE
 
-	outfit = /datum/outfit/job/roguetown/merchant
+	outfit = /datum/outfit/job/stonekeep/merchant
 	bypass_lastclass = TRUE
 	give_bank_account = 100
 	min_pq = 0
 	selection_color = "#192bc2"
 
-/datum/outfit/job/roguetown/merchant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	neck = /obj/item/clothing/neck/horus

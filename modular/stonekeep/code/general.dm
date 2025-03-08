@@ -152,6 +152,17 @@
 	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signed by the town feldsher, the date is half a year ago)"
 
 
+/obj/item/paper/townhouse_deed
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "certificate"
+	name = "townhouse deed"
+	info = "The personage named in this deede hath purchased the right to the propertie marked herein."
+/obj/item/paper/townhouse_deed/Initialize()
+	..()
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "certificate"
+
+
 // =================================================================================
 /*------\
 | Items |
@@ -938,10 +949,40 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 /obj/item/key/captain
 	name = "sheriffs key"
 
+
+/obj/item/key/mason
+	name = "mason key"
+	desc = "This bronze key is stamped with the Makers Guild symbol."
+	icon_state = "brownkey"
+	lockid = "mason"
+
+/obj/item/key/guildring
+	name = "guild ring"
+	desc = "The wearer is a proud member of the Makers' guild. It looks like its made to fit into some kind of lock."
+	icon_state = "guild_mason"
+	lockid = "guild"
+	w_class = WEIGHT_CLASS_TINY
+	icon = 'icons/roguetown/clothing/rings.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/rings.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/rings.dmi'
+	sleevetype = "shirt"
+	slot_flags = ITEM_SLOT_RING
+	resistance_flags = FIRE_PROOF | ACID_PROOF
+	dropshrink = 0.8
+
 /obj/item/key/woodsman
 	name = "woodsman key"
 	icon_state = "rustkey"
 	lockid = "woodsman"
+
+/obj/item/key/garrison
+	name = "garrison key"
+
+/obj/item/key/graveyard
+	name = "graveyard key"
+	desc = "This rusty key belongs to the Gravekeepers."
+	icon_state = "rustkey"
+	lockid = "graveyard"
 
 
 /obj/item/reagent_containers/glass/bottle

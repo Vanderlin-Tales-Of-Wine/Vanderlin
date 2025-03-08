@@ -34,7 +34,10 @@
 		"Adepts",
 		"Forest Guard",
 		"Squire",
-		"Veteran"
+		"Veteran",
+		"Sheriff",	// STONEKEEP EDIT
+		"Court Wizard",	// STONEKEEP EDIT
+		"Village Elder" // STONEKEEP EDIT
 	)
 
 	base_antags = 4

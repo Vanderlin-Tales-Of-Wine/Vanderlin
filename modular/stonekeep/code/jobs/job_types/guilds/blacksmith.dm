@@ -1,4 +1,4 @@
-/datum/job/roguetown/blacksmith
+/datum/job/stonekeep/blacksmith
 	title = "Blacksmith"
 	flag = SK_BLACKSMITH
 	department_flag = SERFS
@@ -11,13 +11,13 @@
 	tutorial = "Yours is a busy life, a churning forge, the ring of hammer on anvil, the hiss of quenched steel, \
 				these are the sounds you live by. You will never starve as the armies of the world tear themselves apart."
 
-	outfit = /datum/outfit/job/roguetown/blacksmith
+	outfit = /datum/outfit/job/stonekeep/blacksmith
 	display_order = BLACKSMITH_ORDER
 	bypass_lastclass = TRUE
 	give_bank_account = 30
 	min_pq = -25
 
-/datum/outfit/job/roguetown/blacksmith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/blacksmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -39,14 +39,14 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(0,1), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, pick(0,1), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, pick(0,1), TRUE)
-	id = /obj/item/clothing/ring/silver/makers_guild
+	id = /obj/item/key/guildring
 	head = /obj/item/clothing/head/headband/makers
 	pants = /obj/item/clothing/pants/tights/makers
 	shoes = /obj/item/clothing/shoes/shortboots
 	belt = /obj/item/storage/belt/leather
 	cloak = /obj/item/clothing/cloak/apron/makers
 	backl =	/obj/item/weapon/hammer/sledgehammer
-	beltr = /obj/item/storage/keyring/armorsmith
+	beltr = /obj/item/key/blacksmith
 	shirt = /obj/item/clothing/shirt/shortshirt/makers
 	switch(H.patron?.type)
 		if(/datum/patron/divine/malum)

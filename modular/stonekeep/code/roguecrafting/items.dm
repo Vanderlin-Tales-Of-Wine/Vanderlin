@@ -29,6 +29,16 @@
 	verbage = "sew"
 	verbage_tp = "sews"
 
+/datum/crafting_recipe/roguetown/cloththree
+	name = "cloth (x3"
+	result = /obj/item/natural/cloth
+	reqs = list(/obj/item/natural/fibers = 6)
+	tools = list(/obj/item/needle)
+	skillcraft = /datum/skill/misc/sewing
+	time = 3 SECONDS
+	verbage = "sew"
+	verbage_tp = "sews"
+
 /datum/crafting_recipe/roguetown/pipe
 	name = "wood pipe"
 	result = /obj/item/clothing/face/cigarette/pipe
@@ -81,28 +91,28 @@
 /datum/crafting_recipe/roguetown/bait
 	name = "bait"
 	result = /obj/item/bait
-	reqs = list(/obj/item/storage/bag = 1,
+	reqs = list(/obj/item/storage/sack = 1,
 				/obj/item/reagent_containers/food/snacks/produce/wheat = 2)
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbaita
 	name = "bait (sweetbait apple)"
 	result = /obj/item/bait/sweet
-	reqs = list(/obj/item/storage/bag = 1,
+	reqs = list(/obj/item/storage/sack = 1,
 				/obj/item/reagent_containers/food/snacks/produce/apple = 2)
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbait
 	name = "bait (sweetbait berry)"
 	result = /obj/item/bait/sweet
-	reqs = list(/obj/item/storage/bag = 1,
+	reqs = list(/obj/item/storage/sack = 1,
 				/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2)
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/bloodbait
 	name = "bait (bloodbait)"
 	result = /obj/item/bait/bloody
-	reqs = list(/obj/item/storage/bag = 1,
+	reqs = list(/obj/item/storage/sack = 1,
 				/obj/item/reagent_containers/food/snacks/meat = 1)
 	subtype_reqs = TRUE
 

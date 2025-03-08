@@ -1931,8 +1931,8 @@
 /area/rogue)
 "pu" = (
 /obj/structure/rack,
-/obj/item/storage/bag,
-/obj/item/storage/bag,
+/obj/item/storage/sack,
+/obj/item/storage/sack,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/bandit_lair)
 "pA" = (

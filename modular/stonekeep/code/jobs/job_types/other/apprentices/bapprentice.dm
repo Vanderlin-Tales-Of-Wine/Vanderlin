@@ -40,7 +40,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/labor/mining, pick(1,2,3), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
 
-		id = /obj/item/clothing/ring/silver/makers_guild
+		id = /obj/item/key/guildring
 		shirt = /obj/item/clothing/shirt/shortshirt/makers
 		pants = /obj/item/clothing/pants/tights/makers
 		shoes = /obj/item/clothing/shoes/shortboots
