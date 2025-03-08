@@ -282,16 +282,3 @@
 
 	body_parts_covered = HEAD|HAIR|EARS
 
-/obj/item/clothing/head/helmet/heavy/decorated/bascinet/attack_right(mob/user)
-	..()
-	if(!picked)
-		var/list/icons = BASCINET_DECORATIONS
-		var/choice = input(user, "Choose a crest.", "Knightly crests") as anything in icons
-		var/playerchoice = icons[choice]
-		picked = TRUE
-		icon_state = playerchoice
-		item_state = playerchoice
-		update_icon()
-		if(loc == user && ishuman(user))
-			var/mob/living/carbon/H = user
-			H.update_inv_head()
