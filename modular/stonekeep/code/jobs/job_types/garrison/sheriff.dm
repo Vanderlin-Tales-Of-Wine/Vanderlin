@@ -14,7 +14,7 @@
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = SHERIFF_ORDER
-	tutorial = "Law and Order, your divine reason for existence. You have been given command over the garrison to help keep order and peace within the Lords demesne and defend it against the many dangers of the land."
+	tutorial = "Appointed by your liege Lord to uphold their Law and be their champion in times of strife. You command the garrison, to help keep order and peace within the Lords demesne and defend it against the many dangers of the land."
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/stonekeep/sheriff
@@ -50,7 +50,7 @@
 	beltr = /obj/item/weapon/mace/steel
 	r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne/poleaxe
 
-	backpack_contents = list(/obj/item/storage/keyring/captain = 1, /obj/item/signal_horn = 1, /obj/item/weapon/knife/dagger/steel = 1, /obj/item/natural/feather = 1)
+	backpack_contents = list(/obj/item/storage/keyring/captain = 1, /obj/item/signal_horn = 1, /obj/item/weapon/knife/dagger/steel = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

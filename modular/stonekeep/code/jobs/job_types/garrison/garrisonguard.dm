@@ -1,6 +1,6 @@
 // ==========	Updated to new Kaizoku garrison	====================
-/datum/job/roguetown/guardsman
-	title = "Garrison Guard"
+/datum/job/stonekeep/guardsman
+	title = "Man-at-arms"
 	flag = SK_GUARD
 	department_flag = GARRISON
 	faction = "Station"
@@ -16,19 +16,19 @@
 		"Undine"
 	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You are a soldier in the towns garrison, an Ashigaru from the Fog Islands, commanded by your Lord to maintain order and support the local rulers."
+	tutorial = "You are a soldier in the town garrison, an Ashigaru from the Fog Islands. Treaties and alliances matter little to you, your Lord has ordered you to obey the local ruler and their Sheriff, maintaining order."
 	display_order = GARRISON_ORDER
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
 
-	outfit = /datum/outfit/job/roguetown/garrison	//Default outfit.
+	outfit = /datum/outfit/job/stonekeep/garrison	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
 	give_bank_account = 30
 	min_pq = -10
 
 	cmode_music = 'modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg'
 
-/datum/job/roguetown/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
@@ -45,13 +45,13 @@
 			S.name = "ashigaru's jinbaori ([index])"
 
 //Universal stuff for all guards, regardless of their class selection.
-/datum/outfit/job/roguetown/garrison
+/datum/outfit/job/stonekeep/garrison
 	pants = /obj/item/clothing/pants/trou/tobi/random
 	cloak = /obj/item/clothing/cloak/stabard/haramaki/jinbaori/guard //I can't put these somewhere else.
 	shoes = /obj/item/clothing/shoes/boots/jikatabi/shinobi
 	belt = /obj/item/storage/belt/kaizoku/leather/daisho/random
 
-/datum/outfit/job/roguetown/garrison/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.dna.species.id == "human")
 		H.skin_tone = SKIN_COLOR_TROPICALDRY

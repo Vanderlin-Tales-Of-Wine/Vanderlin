@@ -160,6 +160,9 @@
 	icon_state = "pote_stone"
 	drop_sound = 'modular/stonekeep/sound/stone_scrape.ogg'
 
+/obj/item/kitchen/spoon
+	icon = 'modular/stonekeep/icons/cooking.dmi'
+
 
 /obj/item/grown/log/tree
 	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'
@@ -885,12 +888,8 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	name = "Blacksmith"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/royalguard
-	name = "Royal Guard"
-	icon_state = "arrow"
-
 /obj/effect/landmark/start/garrisonguard
-	name = "Garrison Guard"
+	name = "Man-at-arms"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/stevedore
@@ -928,3 +927,8 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 
 /obj/item/key/captain
 	name = "sheriffs key"
+
+/obj/item/reagent_containers/glass/bottle
+	dropshrink = 0.7
+
+

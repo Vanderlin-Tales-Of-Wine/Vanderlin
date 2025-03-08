@@ -25,6 +25,12 @@
 
 /turf/open/floor/cobble
 	icon = 'modular/stonekeep/icons/turfs.dmi'
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass,
+						/turf/open/floor/ruinedwood,
+						/turf/open/floor/wood,
+						/turf/open/floor/blocks
+						)
 
 /turf/open/floor/herringbone
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -108,21 +114,45 @@
 
 /turf/open/floor/grass/mixyel
 	canSmoothWith = list(/turf/open/floor/grass,
+	/turf/open/floor/grass/yel,
 	/turf/open/floor/snow,
 	/turf/open/floor/dirt,)
 
 /turf/open/floor/grass/yel
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	canSmoothWith = list(/turf/open/floor/grass,
-	/turf/open/floor/snow,
-	/turf/open/floor/grass/mixyel)
+	/turf/open/floor/snow)
 
+/turf/open/floor/grass/red
+	name = "red grass"
+	desc = "Grass, ripe with Dendor's blood."
+	icon_state = "grass_red"
+	neighborlay = "grass_rededge"
+	canSmoothWith = list(/turf/open/floor/grass,
+	/turf/open/floor/grass/yel,
+	/turf/open/floor/snow,
+	/turf/open/floor/dirt
+	)
 
 /turf/open/floor/snow/patchy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
+	canSmoothWith = list(/turf/open/floor/naturalstone,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold
+						)
 
 /turf/open/floor/snow
 	icon = 'modular/stonekeep/icons/turfs.dmi'
+	canSmoothWith = list(/turf/open/floor/naturalstone,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough)
 
 /turf/open/floor/snow/rough
 	icon = 'icons/turf/roguefloor.dmi'
@@ -225,9 +255,9 @@
 						/turf/open/floor/grass/red,
 						/turf/open/floor/grass/yel,
 						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
-						/turf/open/floor/snow/rough,
+	//					/turf/open/floor/snow,
+	//					/turf/open/floor/snow/patchy,
+	//					/turf/open/floor/snow/rough,
 						/turf/open/floor/hay)
 
 /turf/open/floor/hay
@@ -240,6 +270,11 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	neighborlay = "hayedge"
+	canSmoothWith = list(/turf/open/floor/dirt/road,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold)
 
 /turf/open/floor/hay/cardinal_smooth(adjacencies)
 	smooth(adjacencies)

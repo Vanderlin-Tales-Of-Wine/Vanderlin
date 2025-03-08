@@ -391,7 +391,7 @@
 	spawn_delay = 0
 	max_mobs = 1
 	spawn_text = ""
-	no_nest = TRUE
+//	no_nest = TRUE
 
 // *** CARBONS ***
 /*	..................   Skeleton Fighter Spawner   ................... */

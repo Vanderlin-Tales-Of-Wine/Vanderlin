@@ -52,7 +52,7 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
 				qdel(src)
 		if(L.m_intent == MOVE_INTENT_RUN)
 			to_chat(L, "<span class='warning'>I'm stuck in the web!</span>")
@@ -62,7 +62,7 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
 				qdel(src)
 		else
 			to_chat(L, "<span class='warning'>I'm stuck in the web!</span>")
@@ -72,7 +72,7 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
 				qdel(src)
 
 
@@ -418,3 +418,17 @@ range. How much processing this saves is unclear */
 
 /mob/living/simple_animal/hostile/retaliate/headless
 	icon = 'modular/stonekeep/icons/mobs/headless.dmi'
+
+
+/mob/living/simple_animal/hostile/retaliate/gator/throne
+
+/mob/living/simple_animal/hostile/retaliate/gator/throne/get_sound(input)
+	switch(input)
+		if("aggro")
+			return pick('modular/stonekeep/sound/vo/mobs/gator/gatoraggro1.ogg','modular/stonekeep/sound/vo/mobs/gator/gatoraggro2.ogg','modular/stonekeep/sound/vo/mobs/gator/gatoraggro3.ogg','modular/stonekeep/sound/vo/mobs/gator/gatoraggro4.ogg')
+		if("pain")
+			return pick('modular/stonekeep/sound/vo/mobs/gator/gatorpain.ogg')
+		if("death")
+			return pick('modular/stonekeep/sound/vo/mobs/gator/gatordeath.ogg')
+		if("idle")
+			return pick('sound/blank.ogg')

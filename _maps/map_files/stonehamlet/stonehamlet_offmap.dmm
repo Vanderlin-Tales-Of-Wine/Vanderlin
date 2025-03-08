@@ -257,6 +257,10 @@
 /obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"sT" = (
+/obj/structure/flora/tree/neu/pine,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/mountains/decap)
 "tC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -700,6 +704,9 @@
 "Xq" = (
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/deception)
+"XB" = (
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/mountains/decap)
 "XR" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
@@ -52033,8 +52040,8 @@ XX
 ZF
 RN
 XX
-XX
-XX
+XB
+XB
 ZF
 XX
 XX
@@ -52162,10 +52169,10 @@ XX
 XX
 ZF
 ZF
-ZF
-XX
-RN
-ZF
+XB
+XB
+sT
+XB
 XX
 RN
 XX
@@ -52293,10 +52300,10 @@ ZF
 ZF
 XX
 XX
-XX
-XX
-ZF
-ZF
+XB
+XB
+XB
+XB
 XX
 XX
 XX
@@ -56095,7 +56102,7 @@ XX
 XX
 ZF
 ZF
-Bi
+sT
 ZF
 ZF
 XX
@@ -56224,9 +56231,9 @@ XX
 XX
 ZF
 ZF
-ZF
-ZF
-ZF
+XB
+XB
+XB
 ZF
 XX
 XX
@@ -56352,12 +56359,12 @@ XX
 XX
 XX
 XX
-XX
-ZF
-Bi
-ZF
-ZF
-Bi
+XB
+XB
+sT
+XB
+XB
+sT
 XX
 XX
 XX
@@ -56482,10 +56489,10 @@ ZF
 XX
 XX
 XX
-ZF
-ZF
-ZF
-ZF
+XB
+XB
+XB
+XB
 XX
 ZF
 ZF
@@ -56612,9 +56619,9 @@ ZZ
 XX
 XX
 XX
-ZF
-ZF
-ZF
+XB
+XB
+XB
 XX
 ZF
 ZF
@@ -56743,7 +56750,7 @@ XX
 XX
 ZF
 ZF
-ZF
+XB
 ZF
 ZF
 ZF
@@ -57400,7 +57407,7 @@ XX
 ZF
 ZF
 XX
-XX
+XB
 XX
 XX
 ZF
@@ -57530,8 +57537,8 @@ XX
 XX
 XX
 XX
-XX
-XX
+XB
+XB
 XX
 ZF
 ZF
@@ -57660,8 +57667,8 @@ XX
 XX
 XX
 XX
-RN
-XX
+sT
+XB
 ZF
 ZF
 ZF
@@ -57790,8 +57797,8 @@ XX
 XX
 XX
 XX
-ZF
-ZF
+XB
+XB
 ZF
 ZF
 XX
@@ -57919,8 +57926,8 @@ XX
 XX
 XX
 XX
-XX
-XX
+XB
+XB
 ZF
 ZF
 ZF
@@ -58048,10 +58055,10 @@ ZF
 XX
 XX
 RN
-XX
-XX
-XX
-Bi
+XB
+XB
+XB
+sT
 ZF
 XX
 XX
@@ -58178,10 +58185,10 @@ ZF
 ZF
 ZF
 ZF
-ZF
+XB
+XB
 XX
-XX
-ZF
+XB
 ZF
 ZF
 ZZ
@@ -58308,7 +58315,7 @@ XX
 ZF
 ZF
 ZF
-ZF
+XB
 XX
 XX
 ZF
@@ -58948,7 +58955,7 @@ ZY
 ZF
 Bi
 ZF
-ZF
+XB
 ZF
 XX
 XX
@@ -59078,8 +59085,8 @@ ZY
 ZF
 ZF
 ZF
-Bi
-ZF
+sT
+XB
 XX
 XX
 XX
@@ -59207,10 +59214,10 @@ ZY
 ZY
 ZF
 ZF
-ZF
-ZF
-ZF
-ZF
+XB
+XB
+XB
+XB
 XX
 ZF
 ZF
@@ -59337,10 +59344,10 @@ ZF
 ZF
 ZF
 Bi
-ZF
-ZF
-ZF
-Bi
+XB
+XB
+XB
+sT
 ZF
 ZF
 ZF
@@ -59468,7 +59475,7 @@ XX
 XX
 ZF
 ZF
-Bi
+sT
 XX
 XX
 ZF
@@ -60211,7 +60218,7 @@ XX
 XX
 XX
 XX
-Bi
+sT
 ZF
 ZY
 ZY
@@ -60341,8 +60348,8 @@ ZF
 ZF
 XX
 RN
-ZF
-ZF
+XB
+XB
 ZF
 ZF
 ZY
@@ -60472,7 +60479,7 @@ ZF
 XX
 XX
 XX
-Bi
+sT
 Bi
 ZF
 ZY
@@ -60602,7 +60609,7 @@ ZF
 XX
 XX
 XX
-ZF
+XB
 ZF
 ZF
 ZF

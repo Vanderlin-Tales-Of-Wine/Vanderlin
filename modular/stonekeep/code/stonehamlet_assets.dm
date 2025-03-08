@@ -551,7 +551,7 @@
 							/obj/item/grown/log/tree/stick = 5,
 							/obj/structure/chair/bench/ancientlog = 2,
 							/obj/structure/table/wood/treestump = 2,
-							/obj/structure/closet/dirthole/closed/loot=6,
+							/obj/structure/closet/dirthole/closed/loot=3,
 							/obj/item/restraints/legcuffs/beartrap/armed/camouflage=0.1)
 	spawnableTurfs = list(/turf/open/floor/dirt/road=10)
 	allowed_areas = list(/area/rogue/outdoors/woods)
@@ -586,7 +586,7 @@
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
 							/obj/structure/flora/grass/bush_meagre = 4,
 							/obj/structure/flora/grass = 65,
-							/obj/structure/flora/grass/herb/random = 2,
+							/obj/structure/flora/grass/herb/random = 1,
 							/obj/structure/flora/rogueflower/random = 2,
 							/obj/item/natural/stone = 3,
 							/obj/item/natural/rock = 1,

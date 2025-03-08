@@ -304,7 +304,9 @@
 "tI" = (
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /obj/item/clothing/cloak/cape/silk/random,
-/obj/structure/closet/crate/crafted_closet/lord,
+/obj/structure/closet/crate/crafted_closet/lord{
+	locked = 0
+	},
 /obj/effect/spawner/map_spawner/loot/jewelry,
 /obj/item/ammo_casing/caseless/bolt/pyro,
 /obj/item/ammo_casing/caseless/bolt/pyro,

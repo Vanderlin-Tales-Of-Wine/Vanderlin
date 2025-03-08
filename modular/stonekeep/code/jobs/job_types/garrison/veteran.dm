@@ -1,4 +1,4 @@
-/datum/job/roguetown/veteran
+/datum/job/stonekeep/veteran
 	title = "Veteran"
 	flag = SK_VETERAN
 	department_flag = GARRISON
@@ -23,7 +23,7 @@
 	can_have_apprentices = FALSE
 	outfit = /datum/outfit/job/sk_veteran
 
-/datum/job/roguetown/veteran/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/veteran/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L

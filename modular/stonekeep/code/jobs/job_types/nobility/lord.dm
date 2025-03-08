@@ -1,4 +1,4 @@
-/datum/job/roguetown/lord
+/datum/job/stonekeep/lord
 	title = "Monarch"
 	flag = SK_LORD
 	department_flag = NOBLEMEN
@@ -14,7 +14,7 @@
 	allowed_races = list(
 		"Humen"
 	)
-	outfit = /datum/outfit/job/roguetown/lord
+	outfit = /datum/outfit/job/stonekeep/lord
 	display_order = 1
 	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error in their ways."
 	bypass_lastclass = TRUE
@@ -26,7 +26,7 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	can_have_apprentices = FALSE
 
-/datum/job/roguetown/lord/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/lord/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		SSticker.select_ruler()
@@ -40,7 +40,7 @@
 		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
 		to_chat(world, "<br>")
 
-/datum/outfit/job/roguetown/lord/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/lord/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/crown/serpcrown
 	backr = /obj/item/storage/backpack/satchel
@@ -80,7 +80,7 @@
 				H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
 	else
 		pants = /obj/item/clothing/pants/tights/random
-		armor = /obj/item/clothing/shirt/dress/royal
+		armor = /obj/item/clothing/armor/gambeson/heavy/winterdress
 		shoes = /obj/item/clothing/shoes/shortboots
 		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
 		wrists = /obj/item/clothing/wrists/royalsleeves

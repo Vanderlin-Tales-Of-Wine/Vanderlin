@@ -136,7 +136,10 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Butler",
 	"Bard",
 	"Prisoner",
-	"Beggar"
+	"Beggar",
+	"Mercenary",
+	"Adventurer",
+	"Pilgrim",
 	))
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
@@ -365,8 +368,12 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 	display_order = ADVENTURER_ORDER
 	flag = SK_ADVENTURER
 	department_flag = PEASANTS
+	total_positions = 8
+	spawn_positions = 8
 /datum/job/pilgrim
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	display_order = PILGRIM_ORDER
 	flag = SK_PILGRIM
 	department_flag = PEASANTS
+	total_positions = 10
+	spawn_positions = 10

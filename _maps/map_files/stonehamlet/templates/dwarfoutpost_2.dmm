@@ -125,6 +125,11 @@
 /obj/structure/fluff/walldeco/stone,
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/under/catacombs/dwarfoutpost)
+"ky" = (
+/obj/item/chair/stool/bar,
+/obj/structure/flora/rock/pile,
+/turf/open/floor/hexstone,
+/area/rogue/under/catacombs/dwarfoutpost)
 "lb" = (
 /obj/effect/decal/shadow_floor{
 	dir = 4
@@ -232,8 +237,11 @@
 "tI" = (
 /obj/item/reagent_containers/glass/bottle/beer/voddena,
 /obj/item/clothing/cloak/cape/silk/random,
-/obj/structure/closet/crate/crafted_closet/lord,
+/obj/structure/closet/crate/crafted_closet/lord{
+	locked = 0
+	},
 /obj/item/clothing/armor/chainmail/hauberk,
+/obj/item/clothing/pants/pantaloons/random,
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "tX" = (
@@ -361,6 +369,10 @@
 "BW" = (
 /turf/open/water/swamp,
 /area/rogue/under/catacombs/dwarfoutpost)
+"Cu" = (
+/obj/structure/flora/rock/pile,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/catacombs/dwarfoutpost)
 "CC" = (
 /obj/item/weapon/tongs,
 /turf/open/floor/metal{
@@ -375,6 +387,10 @@
 /area/rogue/under/catacombs/dwarfoutpost)
 "Dt" = (
 /turf/open/floor/metal,
+/area/rogue/under/catacombs/dwarfoutpost)
+"Er" = (
+/obj/structure/flora/rock/pile,
+/turf/open/water/swamp,
 /area/rogue/under/catacombs/dwarfoutpost)
 "Ey" = (
 /obj/effect/spawner/map_spawner/loot/random_gem,
@@ -454,6 +470,13 @@
 "KB" = (
 /obj/effect/spawner/map_spawner/maneater_danger,
 /turf/open/floor/blocks,
+/area/rogue/under/catacombs/dwarfoutpost)
+"KE" = (
+/obj/effect/decal/shadow_floor{
+	dir = 4
+	},
+/obj/structure/flora/rock/pile,
+/turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
 "KV" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -1048,7 +1071,7 @@ Zv
 eB
 eB
 UA
-UA
+yo
 BW
 vf
 gl
@@ -1114,8 +1137,8 @@ vf
 iS
 Tm
 dA
-Ap
-eB
+ky
+GS
 Tm
 UA
 UA
@@ -1294,7 +1317,7 @@ IM
 vl
 dY
 IM
-UA
+yo
 UA
 UA
 UA
@@ -1370,7 +1393,7 @@ Tm
 Tm
 Tm
 sZ
-iB
+Um
 BW
 Op
 iB
@@ -1439,7 +1462,7 @@ sZ
 sZ
 sZ
 sZ
-sZ
+Cu
 iB
 iB
 iB
@@ -1463,7 +1486,7 @@ NM
 oX
 Dt
 Ya
-NM
+KE
 iB
 IM
 vl
@@ -1476,7 +1499,7 @@ Tm
 Tm
 IM
 lL
-iB
+Um
 Tm
 iB
 Tm
@@ -1530,7 +1553,7 @@ tq
 fV
 BW
 rb
-BW
+Er
 BW
 uu
 IM

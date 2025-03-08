@@ -175,13 +175,13 @@
 	mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 
-
+/*
 /mob/living/carbon/human/species/orc/skilled/after_creation(mob/living/carbon/C)
 	..()
 	C.remove_all_languages()
 	C.grant_language(/datum/language/orcish)
 	to_chat(C, "<span class='info'>I can speak Orcish with ,g before my speech.</span>")
-
+*/
 
 // -------------------		SAVAGE ORC		--------------------------
 /mob/living/carbon/human/species/orc/skilled/savage
