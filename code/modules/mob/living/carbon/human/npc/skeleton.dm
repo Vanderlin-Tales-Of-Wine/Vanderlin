@@ -45,6 +45,12 @@
 		src.dna.species.species_traits |= NOBLOOD
 		src.dna.species.soundpack_m = new /datum/voicepack/skeleton()
 		src.dna.species.soundpack_f = new /datum/voicepack/skeleton()
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
+		if(headdy)
+			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+			headdy.icon_state = "skull"
+			headdy.headpricemi = 3 //N/A THIS SHIT DOESNT WORK, WHY, HAS I EVER?
+			headdy.headpricemax = 10
 	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
 	if(O)
 		O.drop_limb()

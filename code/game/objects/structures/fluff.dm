@@ -1341,3 +1341,44 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+//..................................................................................................................................
+/*------------------------------------------------------------------------------------------------------------------------------------\
+|  Gaffer shit, yes I'm making my own place here just for that and maaan its cozy, in this gated community for my self and no one else |
+\------------------------------------------------------------------------------------------------------------------------------------*/
+
+/obj/structure/fluff/statue/gaffer //N/A change this
+	name = "Subdued Statue"
+	icon_state = "knightstatue_l"
+	anchored = TRUE
+	density = FALSE
+	opacity = 0
+	blade_dulling = DULLING_BASHCHOP
+	max_integrity = 999999
+	var/obj/item/clothing/ring/gold/burden/statue_ring_stuff //"stuff" is required.
+
+/obj/structure/fluff/statue/gaffer/Initialize()
+	. = ..()
+	GLOB.ringstatue = src
+
+/obj/structure/fluff/statue/gaffer/proc/on_ring_death_it_dies_because_its_head_eater_cause_hes_magic() //N/A change this awful ass name -clown
+	if(statue_ring_stuff)
+		return
+
+	statue_ring_stuff = new(contents)
+
+/obj/structure/fluff/statue/gaffer/examine(mob/user)
+	. = ..()
+	//if(HAS_TRAIT(user, TRAIT_BURDEN))
+		//. += "the [4] body, the [MOB_DESCRIPTOR_SLOT_STATURE] stature, the [MOB_DESCRIPTOR_SLOT_SKIN] skin, there isnt a doubt about it. this is a statue of you..." //N/A this shit probably doesn't work
+		//return
+	if(statue_ring_stuff)
+		. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading, in its palms is a glowing ring..."
+		return
+	. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading" //N/A change this
+
+/obj/structure/fluff/statue/gaffer/attack_hand(mob/living/user)
+	. = ..()
+	if(statue_ring_stuff && user.put_in_hands(statue_ring_stuff, FALSE))
+		if(statue_ring_stuff.pick_up_maybe_this_fixes_it(user))
+			statue_ring_stuff = null

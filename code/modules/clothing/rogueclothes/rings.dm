@@ -241,3 +241,82 @@
 			user.apply_status_effect(/datum/status_effect/buff/noc)
 		else
 			user.remove_status_effect(/datum/status_effect/buff/noc)
+
+// ................... Ring of Burden ....................... (Gaffer's ring, there should only be one of these at one time)
+
+/obj/item/clothing/ring/gold/burden
+	name = "ring of burden"
+	icon_state = "ring_protection" //N/A change this
+	sellprice = 0
+
+/obj/item/clothing/ring/gold/burden/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		. += "An ancient ring made of pyrite amalgam, an engraved quote is hidden in the inner bridge; \"Heavy is the head that bows\"" //N/A change the quote its too fucking cheese
+	else
+		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
+
+
+/obj/item/clothing/ring/gold/burden/attack_hand(mob/user) //N/A this is going to cause issues with offering the ring to people, lol, lmao
+	. = ..()
+	pick_up_maybe_this_fixes_it(user)
+
+/obj/item/clothing/ring/gold/burden/proc/pick_up_maybe_this_fixes_it(mob/user) //this prevents a runtime
+	if(!user.mind)
+		return
+
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		return TRUE
+
+	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "PICKED UP THE RING", "Yes", "No")
+	var/gaffed_time = world.time
+
+	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //N/A this is a cheap and bad fix that probably doesnt work
+		to_chat(user, span_danger("The ring slips from your trembling hands..."))
+		user.dropItemToGround(src, force = TRUE)
+		return
+
+	if((gaffed == "Yes") && user.is_holding(src))
+		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
+		//user.dropItemToGround(SLOT_RING) //N/A this is just a stand in for "remove the shit you have", doesnt actually work.
+		user.equip_to_slot_if_possible(src, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		return TRUE
+
+	else
+		return
+
+
+
+/obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+
+/obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user)
+	if(user.ckey)
+		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+		return
+	REMOVE_TRAIT (src, TRAIT_NODROP, type)
+	user.dropItemToGround(src, force = TRUE)
+
+/obj/item/clothing/ring/gold/burden/dropped(mob/user, slot)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 SECONDS)
+	REMOVE_TRAIT (user, TRAIT_BURDEN, "burdened")
+
+/obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
+	if(ismob(loc))
+		return
+	visible_message(span_warning("[src] begins to twitch and shake violently, before crumbling into ash"))
+	new /obj/item/ash(loc)
+	qdel(src)
+
+/obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_RING && istype(user))
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
+		ADD_TRAIT(src, TRAIT_NODROP, type)
+
+/obj/item/clothing/ring/gold/burden/Destroy()
+	var/obj/structure/fluff/statue/gaffer/ringstuff = GLOB.ringstatue
+	ringstuff.on_ring_death_it_dies_because_its_head_eater_cause_hes_magic()
+	. = ..()

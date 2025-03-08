@@ -105,6 +105,16 @@
 	block2add = FOV_LEFT
 	body_parts_covered = LEFT_EYE
 
+/obj/item/clothing/mask/rogue/eyepatch/fake
+	name = "eyepatch"
+	desc = "A see through eyepatch, fitted for the right eye."
+	icon_state = "eyepatch"
+	max_integrity = 20
+	integrity_failure = 0.5
+	body_parts_covered = RIGHT_EYE
+	resistance_flags = FLAMMABLE
+	salvage_amount = 1
+
 /obj/item/clothing/mask/rogue/lordmask
 	name = "golden halfmask"
 	desc = "Half of your face turned gold."

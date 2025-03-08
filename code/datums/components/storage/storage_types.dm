@@ -115,3 +115,57 @@
 	set_holdable(
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
+
+/datum/component/storage/concrete/roguetown/headhook
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 4
+	screen_max_columns = 6 //N/A fix later
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	allow_dump_out = TRUE
+	insert_preposition = "in"
+
+/datum/component/storage/concrete/roguetown/headhook/New(datum/P, ...)
+	. = ..()
+	set_holdable(
+		typecacheof(list(/obj/item/natural/head/volf,
+		/obj/item/natural/head/saiga,
+		/obj/item/natural/head/rous,
+		/obj/item/natural/head/spider,
+		/obj/item/natural/head/bug,
+		/obj/item/natural/head/mole,
+		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head,
+		/obj/item/bodypart/head/orc,
+		/obj/item/bodypart/head/zizombie)
+	))
+
+/datum/component/storage/concrete/roguetown/headhook/bronze
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 6
+	screen_max_columns = 8
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	allow_dump_out = TRUE
+	insert_preposition = "in"
+
+/datum/component/storage/concrete/roguetown/headhook/bronze/New(datum/P, ...) //N/A set the rows right
+	. = ..()
+	set_holdable(
+		typecacheof(list(/obj/item/natural/head/volf,
+		/obj/item/natural/head/saiga,
+		/obj/item/natural/head/rous,
+		/obj/item/natural/head/spider,
+		/obj/item/natural/head/bug,
+		/obj/item/natural/head/mole,
+		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head,
+		/obj/item/bodypart/head/orc,
+		/obj/item/bodypart/head/zizombie)
+	))

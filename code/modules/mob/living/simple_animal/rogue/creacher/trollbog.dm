@@ -28,7 +28,8 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 1,
 						/obj/item/natural/hide = 3)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 2,
-						/obj/item/natural/hide = 4)
+						/obj/item/natural/hide = 4,
+						/obj/item/natural/head/troll = 1)
 
 	health = BOGTROLL_HEALTH
 	maxHealth = BOGTROLL_HEALTH

@@ -19,7 +19,8 @@
 							/obj/item/natural/silk = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider = 2,
 							/obj/item/reagent_containers/food/snacks/rogue/honey = 2,
-							/obj/item/natural/silk = 3)
+							/obj/item/natural/silk = 3,
+							/obj/item/natural/head/spider = 1)
 
 	health = SPIDER_HEALTH
 	maxHealth = SPIDER_HEALTH

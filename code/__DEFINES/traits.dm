@@ -88,6 +88,7 @@
 
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
+#define TRAIT_BURDEN "Burdened" //Gaffer stuff
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -167,7 +168,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_APRICITY = "The warmth of the sun rejuvenates me, allowing me to regain my stamina quicker.",
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
-	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty."
+	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..." //N/A change this
 	))
 
 // trait accessor defines

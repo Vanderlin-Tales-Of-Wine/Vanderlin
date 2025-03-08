@@ -326,10 +326,10 @@
 			if(user.mind.assigned_role == "Mercenary")
 				to_chat(user, "<span class='warning'>Signing my own commendation would only befool me.</span>")
 				return
-			if(user.mind.assigned_role != "Merchant")
+			if(user.mind.assigned_role != "Gaffer")
 				to_chat(user, "<span class='warning'>This is incomprehensible.</span>")
 				return
-			if(user.mind.assigned_role == "Merchant")
+			if(user.mind.assigned_role == "Gaffer")
 				signee = user.real_name
 				signeejob = user.mind.assigned_role
 				visible_message("<span class='warning'>[user] writes their name down on the token.</span>")

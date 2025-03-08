@@ -3,21 +3,25 @@
 	flag = GAFFER
 	department_flag = SERFS
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes, it makes it feel more like "it could've been anyone, but you got me"
-	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen as the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two things: administrative work, and feeding the monstrous Head Eater (doesn't exist yet :O) ). Act as the Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters or bandits. For the Head Eater hungers..."
+	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen\
+	 as the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two \
+	 things: administrative work, and feeding the monstrous Head Eater. Act as the \
+	 Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters \
+	 or bandits. For the Head Eater hungers..."
 
 	display_order = JDO_GAFFER
-	bypass_lastclass = TRUE
-
+	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg' //N/A don't forget to credit @mechadh for this in the PR
 	outfit = /datum/outfit/job/roguetown/gaffer
-	bypass_lastclass = TRUE
-	give_bank_account = 100
-	min_pq = 5
+	give_bank_account = 105
+	min_pq = 0 //N/A fix be ship
 	selection_color = "#3b150e"
+
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
 
 /datum/outfit/job/roguetown/gaffer/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -25,20 +29,22 @@
 
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1, /obj/item/merctoken = 2, /obj/item/natural/feather, /obj/item/paper = 3, /obj/item/rogueweapon/knife/dagger/steel, /obj/item/paper)
-	backl = /obj/item/rogueweapon/sword/long
+	backl = /obj/item/rogueweapon/sword/long/replica
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	beltl = /obj/item/storage/keyring/gaffer
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/advanced
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
-	id = /obj/item/clothing/ring/gold
+	id = /obj/item/clothing/ring/gold/burden
 	pants = /obj/item/clothing/under/roguetown/trou/leather/advanced
 	shoes = /obj/item/clothing/shoes/roguetown/nobleboot
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
-	mask = /obj/item/clothing/mask/rogue/eyepatch
+	mask = /obj/item/clothing/mask/rogue/eyepatch/fake
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
+	ADD_TRAIT(H, TRAIT_BURDEN, type)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, type)
 
 
 	H.change_stat("intelligence", 2)
@@ -46,7 +52,7 @@
 	H.change_stat("strength", 1)
 
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(1,2), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, pick(1,2), TRUE) //they are practicing with their fake ass shit sword but its clearly not paying off yet
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -65,3 +71,12 @@
 		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
 
 
+/obj/effect/proc_holder/spell/self/convertrole/mercenary
+	name = "Recruit Mercenary"
+	new_role = "Mercenary"
+	overlay_state = "recruit_servant" //N/A change this, maybe add multible recruitment messages later
+	recruitment_faction = "Mercenaries"
+	recruitment_message = "Hey, %RECRUIT, you ever considered going full time?"
+	accept_message = "For coin and glory!"
+	refuse_message = "Please fuck off." //N/A change this
+	charge_max = 100

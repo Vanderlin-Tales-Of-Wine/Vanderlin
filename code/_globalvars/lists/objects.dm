@@ -45,3 +45,5 @@ GLOBAL_LIST_INIT(rod_jobs, list(
 	"Huntmaster of the Murderwoods",
 	"Hetman of Mount Decapitation",
 ))
+
+GLOBAL_VAR(ringstatue)
