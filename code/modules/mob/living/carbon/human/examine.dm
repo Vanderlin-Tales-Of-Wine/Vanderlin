@@ -9,6 +9,10 @@
 		user.add_stress(/datum/stressevent/horc)
 	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
 		user.add_stress(/datum/stressevent/parastr)
+	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+		user.add_stress(/datum/stressevent/beautiful)
+	if(HAS_TRAIT(src, TRAIT_UGLY))
+		user.add_stress(/datum/stressevent/ugly)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -95,6 +99,13 @@
 				var/family_text = ReturnRelation(user)
 				if(family_text)
 					. += family_text
+			if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+				var/is_male = user.gender
+					if(user.gender == MALE)
+				//Handsome only if male, beautiful in all other pronouns.
+				. += span_love("<B>[t_He] is [is_male ? "handsome" : "beautiful"]!</B>")
+			if(HAS_TRAIT(src, TRAIT_UGLY))
+				. += span_necrosis("<B>[t_He] is hideous.</B>")
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")
