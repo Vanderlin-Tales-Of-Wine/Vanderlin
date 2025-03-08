@@ -52,10 +52,6 @@
 	vis_contents += item_to_plate
 	item_to_plate.flags_1 |= IS_ONTOP_1
 	item_to_plate.vis_flags |= (VIS_INHERIT_PLANE | VIS_INHERIT_LAYER)
-	item_to_plate.transform = null
-	var/matrix/M = matrix()
-	M.Scale(0.9, 0.9)
-	item_to_plate.transform = M
 	RegisterSignal(item_to_plate, COMSIG_MOVABLE_MOVED, PROC_REF(ItemMoved))
 	RegisterSignal(item_to_plate, COMSIG_PARENT_QDELETING, PROC_REF(ItemMoved))
 	// We gotta offset ourselves via pixel_w/z, so we don't end up z fighting with the plane
