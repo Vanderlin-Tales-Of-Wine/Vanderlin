@@ -656,6 +656,7 @@
 #include "code\datums\materials\metals\blacksteel.dm"
 #include "code\datums\materials\metals\bronze.dm"
 #include "code\datums\materials\metals\copper.dm"
+#include "code\datums\materials\metals\electrum.dm"
 #include "code\datums\materials\metals\gold.dm"
 #include "code\datums\materials\metals\iron.dm"
 #include "code\datums\materials\metals\silver.dm"
