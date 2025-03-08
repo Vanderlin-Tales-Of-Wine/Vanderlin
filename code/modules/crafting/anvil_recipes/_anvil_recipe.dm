@@ -24,7 +24,7 @@
 	var/numberofhits = 0 // Increased every time you hit the bar, the more you have to hit the bar the less quality of the product.
 	var/numberofbreakthroughs = 0 // How many good hits we got on the metal, advances recipes 50% faster, reduces number of hits total, and restores bar_health
 	var/datum/parent // The ingot we're currently working on.
-	var/quench_type = "normal" //Changes what type of reagent is needed to quench
+	var/quench_type = QUENCH_NORMAL // Changes what type of reagent is needed to quench
 
 /datum/anvil_recipe/New(datum/P, ...)
 	parent = P
