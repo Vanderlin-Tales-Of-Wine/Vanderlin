@@ -6,70 +6,18 @@
 GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
 	//We'll spawn everything here
-	var/turf/spawn_at = run_loc_bottom_left
-	var/list/ignore = list(
-		//Never meant to be created, errors out the ass for mobcode reasons
-		/mob/living/carbon,
-		//Needs a seed passed, but subtypes set one by default
-		/obj/item/grown,
-		/obj/item/reagent_containers/food/snacks/grown,
-		//Template type
-		/obj/effect/mob_spawn,
-		//Singleton
-		/mob/dview,
-		//Template type
-		/obj/item/bodypart,
-		//template types
-		//template type again
-		/obj/item/storage/fancy,
-		//needs a mob passed to view it
-		/atom/movable/screen/credit,
-		//invalid without mob/living passed
-		/obj/shapeshift_holder,
-		// requires a pod passed
-		/obj/effect/DPfall,
-		/obj/effect/DPtarget,
-		// prompts loc for input
-		/obj/item/clothing/shirt/grenzelhoft,
-	)
-	//these are VERY situational and need info passed
-	ignore += typesof(/obj/effect/abstract)
-	//needs a lich passed
-	ignore += typesof(/obj/item/phylactery)
-	//cba to fix hitscans erroring in Destroy, so just ignore all projectiles
-	ignore += typesof(/obj/projectile)
-	//Say it with me now, type template
-	ignore += typesof(/obj/effect/mapping_helpers)
-	//This turf existing is an error in and of itself
-	ignore += typesof(/turf/baseturf_skipover)
-	ignore += typesof(/turf/baseturf_bottom)
-	//Can't pass in a thing to glow
-	ignore += typesof(/obj/effect/abstract/eye_lighting)
-	//We have a baseturf limit of 10, adding more than 10 baseturf helpers will kill CI, so here's a future edge case to fix.
-	ignore += typesof(/obj/effect/baseturf_helper)
-	//Our system doesn't support it without warning spam from unregister calls on things that never registered
-	ignore += typesof(/obj/docking_port)
-	//Expects a mob to holderize, we have nothing to give
-	ignore += typesof(/obj/item/clothing/head/mob_holder)
-	//Needs cards passed into the initilazation args
-	ignore += typesof(/obj/item/toy/cards/cardhand)
-	//needs multiple atoms passed
-	ignore += typesof(/obj/effect/buildmode_line)
-
-	ignore += typesof(/obj/effect/spawner)
-	ignore += typesof(/atom/movable/screen)
-
+	var/turf/spawn_at = run_loc_floor_bottom_left
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/baseturf_count = length(spawn_at.baseturfs)
 
 	GLOB.running_create_and_destroy = TRUE
-	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
+	for(var/type_path in typesof(/atom/movable, /turf) - uncreatables) //No areas please
 		if(ispath(type_path, /turf))
 			spawn_at.ChangeTurf(type_path, /turf/baseturf_skipover)
 			//We change it back to prevent pain, please don't ask
 			spawn_at.ChangeTurf(/turf/open/floor/wood, /turf/baseturf_skipover)
 			if(baseturf_count != length(spawn_at.baseturfs))
-				Fail("[type_path] changed the amount of baseturfs we have [baseturf_count] -> [length(spawn_at.baseturfs)]")
+				TEST_FAIL("[type_path] changed the amount of baseturfs we have [baseturf_count] -> [length(spawn_at.baseturfs)]")
 				baseturf_count = length(spawn_at.baseturfs)
 		else
 			var/atom/creation = new type_path(spawn_at)

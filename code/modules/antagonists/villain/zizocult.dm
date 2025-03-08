@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /datum/antagonist/zizocultist/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(islesser) // don't need to spam up the chat with all spawn
