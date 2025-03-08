@@ -1,4 +1,4 @@
-/datum/job/roguetown/inquisitor
+/datum/job/stonekeep/inquisitor
 	title = "Inquisitor"
 	flag = SK_INQUISITOR
 	department_flag = CHURCHMEN
@@ -14,13 +14,13 @@
 	tutorial = "A recent arrival from Grenzelhoft, you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. You have been sent by your leader, the Holy Bishop, to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	whitelist_req = FALSE
 
-	outfit = /datum/outfit/job/roguetown/inquisitor
+	outfit = /datum/outfit/job/stonekeep/inquisitor
 	display_order = INQUISITOR_ORDER
 	min_pq = 0
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/job/roguetown/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(!L.mind)
 		return
@@ -29,12 +29,12 @@
 	var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
 	L.mind.add_antag_datum(new_antag)
 
-/datum/outfit/job/roguetown/inquisitor
+/datum/outfit/job/stonekeep/inquisitor
 	name = "Inquisitor"
-	jobtype = /datum/job/roguetown/inquisitor
+	jobtype = /datum/job/stonekeep/inquisitor
 	allowed_patrons = list(/datum/patron/psydon)
 
-/datum/outfit/job/roguetown/inquisitor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/inquisitor/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/armor/gambeson/heavy/dark
 	belt = /obj/item/storage/belt/leather/black

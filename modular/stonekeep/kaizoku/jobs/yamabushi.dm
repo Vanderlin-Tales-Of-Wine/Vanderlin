@@ -18,16 +18,16 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/yamabushi
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi
 	maximum_possible_slots = 2 //Less slots. It is split with Sohei.
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 	vampcompat = FALSE
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/yamabushi
+/datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi
 	allowed_patrons = ALL_CLERIC_PATRONS
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/yamabushi/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi/pre_equip(mob/living/carbon/human/H)
 	..()
 	switch(H.patron?.name)
 		if("Astrata")

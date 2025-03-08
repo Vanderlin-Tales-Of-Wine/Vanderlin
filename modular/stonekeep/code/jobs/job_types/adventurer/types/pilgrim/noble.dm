@@ -12,13 +12,13 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_noble
+	outfit = /datum/outfit/job/stonekeep/adventurer/noble
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	apprentice_name = "Servant"
 
 
-/datum/outfit/job/roguetown/adventurer/sk_noble/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/noble/pre_equip(mob/living/carbon/human/H)
 	..()
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name

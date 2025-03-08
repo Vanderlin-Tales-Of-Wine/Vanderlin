@@ -6,11 +6,11 @@
 		"Half-Elf",
 		"Elf",
 	)
-	outfit = /datum/outfit/job/roguetown/mercenary/blackoak
+	outfit = /datum/outfit/job/stonekeep/merc/blackoak
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-/datum/outfit/job/roguetown/mercenary/blackoak/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/blackoak/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	cloak = /obj/item/clothing/cloak/half/red

@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/sk_preacher
+/datum/advclass/pilgrim/rare/stonekeep/preacher
 	name = "Preacher"
 	tutorial = "A devout follower of Psydon, you came to this land with nothing more than the clothes on your back and the faith in your heart. Sway these nonbelievers to the right path!"
 	allowed_sexes = list(MALE, FEMALE)
@@ -6,7 +6,7 @@
 		"Humen",
 		"Dwarf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/preacher
+	outfit = /datum/outfit/job/stonekeep/adventurer/preacher
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
 	pickprob = 30
@@ -14,7 +14,7 @@
 
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/outfit/job/roguetown/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/preacher/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	belt = /obj/item/storage/belt/leather/rope

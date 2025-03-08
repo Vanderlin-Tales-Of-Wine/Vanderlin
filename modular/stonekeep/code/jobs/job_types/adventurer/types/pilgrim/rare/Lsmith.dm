@@ -1,6 +1,6 @@
 //master smith
 
-/datum/advclass/pilgrim/rare/sk_masterblacksmith
+/datum/advclass/pilgrim/rare/stonekeep/masterblacksmith
 	name = "Master Blacksmith"
 	tutorial = "Dwarves, and humen who trained extensively under them in the art of smithing, \
 	become the most legendary smiths at their craft, gaining reputation beyond compare."

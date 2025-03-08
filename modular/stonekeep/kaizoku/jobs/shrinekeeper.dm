@@ -15,15 +15,15 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/shrinekeepers
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 	pickprob = 100
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/shrinekeepers
+/datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/shrinekeepers/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/psycross/silver/abyssanctum
 	shoes = /obj/item/clothing/shoes/sandals/geta

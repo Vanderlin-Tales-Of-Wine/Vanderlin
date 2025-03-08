@@ -1,19 +1,19 @@
 //human, master fisher
 
-/datum/advclass/pilgrim/rare/sk_fishermaster
+/datum/advclass/pilgrim/rare/stonekeep/fishermaster
 	name = "Master Fisher"
 	tutorial = "Seafarers who have mastered the tides, and are able to catch any fish with ease \
 	no matter the body of water. They have learned to thrive off the gifts of Abyssor, not simply survive."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_fishermaster
+	outfit = /datum/outfit/job/stonekeep/adventurer/fishermaster
 
 	maximum_possible_slots = 1
 	pickprob = 15
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Fisher Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_fishermaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/fishermaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/trou

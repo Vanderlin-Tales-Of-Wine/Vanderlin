@@ -1,4 +1,4 @@
-/datum/advclass/sk_knave //sneaky bastards - ranged classes of two flavors archers and rogues
+/datum/advclass/stonekeep/bandit/knave //sneaky bastards - ranged classes of two flavors archers and rogues
 	name = "Knave"
 	tutorial = "Not all followers of Matthios take by force. Thieves, poachers, and ne'er-do-wells of all forms steal from others from the shadows, long gone before their marks realize their misfortune."
 	allowed_sexes = list(MALE, FEMALE)
@@ -10,11 +10,11 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/bandit/sk_knave
+	outfit = /datum/outfit/job/stonekeep/bandit/knave
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
-/datum/outfit/job/roguetown/bandit/sk_knave/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

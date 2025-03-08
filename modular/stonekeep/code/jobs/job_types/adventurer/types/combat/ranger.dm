@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_ranger
+/datum/advclass/combat/stonekeep/ranger
 	name = "Ranger"
 	tutorial = "Humen and elf rangers often live among each other, as these bow-wielding \
 	adventurers are often scouting the lands for the same purpose."
@@ -11,12 +11,12 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_ranger
+	outfit = /datum/outfit/job/stonekeep/adventurer/ranger
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)

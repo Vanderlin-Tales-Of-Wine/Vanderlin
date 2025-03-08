@@ -19,13 +19,13 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/mastersohei
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/mastersohei
 	maximum_possible_slots = 1
 	pickprob = 100
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/mastersohei/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/mastersohei/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/bucket/soheidemon
 	wrists = /obj/item/clothing/neck/psycross/silver/abyssanctum

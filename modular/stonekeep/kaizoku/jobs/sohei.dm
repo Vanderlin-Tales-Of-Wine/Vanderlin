@@ -20,16 +20,16 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/sohei
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/sohei
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 	maximum_possible_slots = 2 //Only two, united with Yamabushi.
 	pickprob = 100
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/sohei
+/datum/outfit/job/stonekeep/adventurer/abyssariad/sohei
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/sohei/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/sohei/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/head/soheicloth
 	armor = /obj/item/clothing/armor/cuirass/sanmaido

@@ -1,4 +1,4 @@
-/datum/advclass/sk_sawbones // doctor class. like the pilgrim, but more evil
+/datum/advclass/stonekeep/bandit/sawbones // doctor class. like the pilgrim, but more evil
 	name = "Sawbones"
 	tutorial = "It was an accident! Your patient wasn't using his second kidney, anyway. After an unfortunate 'misunderstanding' with the town and your medical practice, you know practice medicine on the run with your new associates. Business has never been better!"
 	allowed_sexes = list(MALE, FEMALE)
@@ -10,11 +10,11 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/bandit/sk_sawbones
+	outfit = /datum/outfit/job/stonekeep/bandit/sawbones
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
-/datum/outfit/job/roguetown/bandit/sk_sawbones/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/sawbones/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/facemask/steel
 	head = /obj/item/clothing/head/tophat

@@ -57,7 +57,7 @@
 		if("Hunter")
 			if(prob(50))
 				head = /obj/item/clothing/head/archercap
-			cloak = /obj/item/clothing/cloak/raincloak/woodsman
+			cloak = /obj/item/clothing/cloak/wickercloak
 			armor = /obj/item/clothing/armor/leather/hide
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			beltr = /obj/item/ammo_holder/quiver/arrows
@@ -65,7 +65,7 @@
 			beltl = /obj/item/storage/meatbag
 			backpack_contents = list(/obj/item/restraints/legcuffs/beartrap = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/key/woodsman = 1, /obj/item/bait = 2)
 			H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)

@@ -7,14 +7,14 @@
 		"Half-Elf",
 		"Dwarf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_briar
+	outfit = /datum/outfit/job/stonekeep/adventurer/briar
 	category_tags = list(CTAG_PILGRIM)
 	tutorial = "Stoic gardeners or flesh-eating predators, all can follow Dendors path. <br>His Briars scorn civilized living, many embracing their animal nature, being fickle and temperamental."
 //	allowed_patrons = list(/datum/patron/divine/dendor)		this doesn't work so long its a subclass type. Besides its preferable to forceswitch as it does to make selection less clunky.
 	cmode_music = 'sound/music/cmode/combat_dendor.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/roguetown/adventurer/sk_briar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/briar/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
@@ -71,10 +71,10 @@
 	if((H.facial_hairstyle == "Wise Hermit") || (H.facial_hairstyle == "Knightly") || (H.facial_hairstyle == "Raider") || (H.facial_hairstyle == "Rumata") || (H.facial_hairstyle == "Choppe") || (H.facial_hairstyle == "Full Beard") || (H.facial_hairstyle == "Fullest Beard") || (H.facial_hairstyle == "Drinker") || (H.facial_hairstyle == "Knowledge") || (H.facial_hairstyle == "Brew") || (H.facial_hairstyle == "Ranger"))
 		C.devotion += 40
 
-/datum/outfit/job/roguetown/adventurer/sk_briar
+/datum/outfit/job/stonekeep/adventurer/briar
 	var/tutorial = "<br><br><font color='#44720e'><span class='bold'>You know well how to make a shrine to Dendor, wood, thorns, and the head of a favored animal.<br><br>Choose a path stinging, devouring or growing, and make your sacrifices...<br><br>Remember - Dendor will only grant special powers from Blessing the first time you do recieve it, and only those mastering all his Miracles can unlock their full potential.  </span></font><br><br>"
 
-/datum/outfit/job/roguetown/adventurer/sk_briar/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/briar/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)
 

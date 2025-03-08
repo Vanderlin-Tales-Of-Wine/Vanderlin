@@ -1,20 +1,20 @@
 //dwarf tank with 2h axe or 2h hammer
 //old only
 
-/datum/advclass/combat/sk_longbeard
+/datum/advclass/combat/stonekeep/longbeard
 	name = "Longbeard"
 	tutorial = "You've earned your place as one of the old grumblers, a pinnacle of tradition, justice, and willpower. You've come to establish order in these lands, and with your hammer of grudges you'll see it through."
 	allowed_ages = list( AGE_MIDDLEAGED, AGE_OLD)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_longbeard
+	outfit = /datum/outfit/job/stonekeep/adventurer/longbeard
 	maximum_possible_slots = 1
 	pickprob = 15
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_longbeard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/longbeard/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)

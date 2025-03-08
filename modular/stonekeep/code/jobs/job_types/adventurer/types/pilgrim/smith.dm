@@ -13,11 +13,11 @@
 		"Aasimar",
 		"Ogrun"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_smith
+	outfit = /datum/outfit/job/stonekeep/adventurer/smith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_smith/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/smith/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/leather
 

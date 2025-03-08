@@ -42,7 +42,7 @@
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
-	smooth = SMOOTH_MORE	// testing does it smooth with gras now?
+	smooth = SMOOTH_TRUE	// testing does it smooth with gras now?
 	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/dirt/road,
 						/turf/open/floor/grass,
@@ -68,8 +68,6 @@
 /turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
-/turf/open/floor/cobble/mossy
-	smooth = SMOOTH_FALSE	// does this prevent n side dark stripe?
 /turf/open/floor/cobble/mossy/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
@@ -514,3 +512,9 @@
 /area/rogue/under/town/caverogue/saltmine
 	name = "salt mine"
 	first_time_text = "Salt Mine"
+
+
+/turf/open/floor/carpet/hamlet
+	icon = 'modular/stonekeep/icons/carpet_hamlet.dmi'
+	canSmoothWith = list(/turf/open/floor/carpet/hamlet)
+	smooth = SMOOTH_TRUE

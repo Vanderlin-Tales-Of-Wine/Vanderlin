@@ -1,18 +1,18 @@
 //dwarf, master mason
 
-/datum/advclass/pilgrim/rare/sk_grandmastermason
+/datum/advclass/pilgrim/rare/stonekeep/grandmastermason
 	name = "Grandmaster Mason"
 	tutorial = "A Grandmaster mason, you built castles and entire cities with your own hands. \
 	There is nothing in this world that you can't build, your creed and hardwork has revealed all the secrets of the stone."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Humen", "Dwarf")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_grandmastermason
+	outfit = /datum/outfit/job/stonekeep/adventurer/grandmastermason
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
 	pickprob = 15
 	apprentice_name = "Mason Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_grandmastermason/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/grandmastermason/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

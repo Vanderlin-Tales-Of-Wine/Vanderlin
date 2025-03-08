@@ -18,11 +18,11 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/shinobi
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/shinobi
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/shinobi/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/shinobi/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

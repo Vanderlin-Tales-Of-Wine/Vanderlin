@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_bladesinger
+/datum/advclass/combat/stonekeep/bladesinger
 	name = "Bladesinger"
 	tutorial = "Your vigil over the elven cities has long since ended. Though dutiful, the inevitable happened and now you hope these lands have use for your talents."
 	allowed_sexes = list(MALE, FEMALE)
@@ -7,14 +7,14 @@
 		"Dark Elf"
 	)
 	maximum_possible_slots = 1
-	pickprob = 15
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_bladesinger
+	pickprob = 10
+	outfit = /datum/outfit/job/stonekeep/adventurer/bladesinger
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 
 
-/datum/outfit/job/roguetown/adventurer/sk_bladesinger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/bladesinger/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

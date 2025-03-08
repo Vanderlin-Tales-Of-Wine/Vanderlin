@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/merchant
+/datum/advclass/pilgrim/rare/stonekeep/merchant
 	name = "Travelling Merchant"
 	tutorial = "You are a travelling merchant, possibly either of local origin or from far away lands. \
 	You've picked up many wears on your various adventures, now it's time to peddle them back to these locals."
@@ -6,14 +6,14 @@
 	allowed_races =list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer")
 
 
-	outfit = /datum/outfit/job/roguetown/adventurer/merchant
+	outfit = /datum/outfit/job/stonekeep/adventurer/merchant
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	pickprob = 30
 	min_pq = 0
 
 
-/datum/outfit/job/roguetown/adventurer/merchant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

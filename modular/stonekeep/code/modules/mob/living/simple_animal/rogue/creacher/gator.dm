@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/retaliate/gator
-	icon = 'modular/stonekeep/icons/roguetown/mob/monster/gator.dmi'
+	icon = 'modular/stonekeep/icons/mobs/gator.dmi'
 	name = "gator"
 	desc = "Vicious and patient creachers; tales have been told of passersby being grabbed and dragged underwater, never to be seen again."
 	icon_state = "gator"

@@ -12,13 +12,13 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/mercenary/exiled
+	outfit = /datum/outfit/job/stonekeep/merc/exiled
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 0
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/roguetown/mercenary/exiled/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/exiled/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)

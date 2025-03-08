@@ -1,4 +1,4 @@
-/datum/job/roguetown/acolyte
+/datum/job/stonekeep/acolyte
 	title = "Acolyte"
 	flag = SK_ACOLYTE
 	department_flag = CHURCHMEN
@@ -15,19 +15,19 @@
 	)
 	tutorial = "Chores, exercise, prayer... and more chores. You are a humble acolyte at the Temple of the Ten not yet a trained guardian or an ordained priest. But who else would keep the fires lit and the floors clean?"
 	allowed_patrons = 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/abyssor, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
-	outfit = /datum/outfit/job/roguetown/acolyte
+	outfit = /datum/outfit/job/stonekeep/acolyte
 
 	display_order =  ACOLYTE_ORDER
 	give_bank_account = TRUE
 	min_pq = -10
 	bypass_lastclass = TRUE
 
-/datum/outfit/job/roguetown/acolyte
+/datum/outfit/job/stonekeep/acolyte
 	name = "Acolyte"
-	jobtype = /datum/job/roguetown/acolyte
+	jobtype = /datum/job/stonekeep/acolyte
 	allowed_patrons = 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/abyssor, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 
-/datum/outfit/job/roguetown/acolyte/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/acolyte/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	belt = /obj/item/storage/belt/leather/rope

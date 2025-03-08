@@ -15,11 +15,11 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/kyudoka
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/kyudoka
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/kyudoka/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/kyudoka/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, pick(0,1,1), TRUE)

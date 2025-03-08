@@ -1,15 +1,15 @@
-/datum/advclass/combat/sk_amazon
+/datum/advclass/combat/stonekeep/amazon
 	name = "Amazon"
 	tutorial = "Amazons are savage and deft warrior-women from the mysterious isle of Issa. They hunt for prey amid the treetops and pick fights for sport, just to prove their worth."
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Humen")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_amazon
+	outfit = /datum/outfit/job/stonekeep/adventurer/amazon
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_amazon/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/amazon/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

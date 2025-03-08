@@ -1,18 +1,18 @@
 //swordmaster with spear
 
-/datum/advclass/combat/sk_lancer
+/datum/advclass/combat/stonekeep/lancer
 	name = "Lancer"
 	tutorial = "Working for many years as a famous mercenary in the southern Humen kingdoms, you've started heading north to avoid the skeletons of your past. With your polearm by your side, you can face down any foe."
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_lancer
+	outfit = /datum/outfit/job/stonekeep/adventurer/lancer
 	maximum_possible_slots = 1
 	pickprob = 15
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_lancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/lancer/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

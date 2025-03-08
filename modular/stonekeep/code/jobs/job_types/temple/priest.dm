@@ -1,5 +1,5 @@
 
-/datum/job/roguetown/priest
+/datum/job/stonekeep/priest
 	title = "Priest"
 	flag = SK_PRIEST
 	department_flag = CHURCHMEN
@@ -18,7 +18,7 @@
 	tutorial = "You are a devoted follower of Astrata. The divine is all that matters in an immoral world. The Sun Queen and her pantheon rule over all, and you will preach their wisdom to Vanderlin. It is up to you to shephard the flock into a Ten-fearing future."
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/roguetown/priest
+	outfit = /datum/outfit/job/stonekeep/priest
 
 	display_order = PRIEST_ORDER
 	give_bank_account = 100
@@ -30,7 +30,7 @@
 		/obj/effect/proc_holder/spell/self/convertrole/monk
 	)
 
-/datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.virginity = TRUE
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord

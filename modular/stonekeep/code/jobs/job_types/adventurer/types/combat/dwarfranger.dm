@@ -1,15 +1,15 @@
-/datum/advclass/combat/sk_dranger
+/datum/advclass/combat/stonekeep/dwarfranger
 	name = "Ranger"
 	tutorial = "Dwarfish rangers, much like their humen counterparts, \
 	live outside of society and explore the far corners of the creation. They \
 	protect dwarfish settlements from wild beasts and sell their notes to the cartographers."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_dranger
+	outfit = /datum/outfit/job/stonekeep/adventurer/dwarf_ranger
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/roguetown/adventurer/sk_dranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/dwarf_ranger/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/uncolored
 	pants = /obj/item/clothing/pants/trou/leather

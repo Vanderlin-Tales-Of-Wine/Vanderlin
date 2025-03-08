@@ -16,12 +16,12 @@
 	"Skylancer", // Eidolon
 	"Ogrun",
 	"Undine") // Dragonslayer
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/champion
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/champion
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 1
 	pickprob = 100
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/champion/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/champion/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.dna.species.name == "Changeling")
 		if(H.mind)

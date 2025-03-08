@@ -412,6 +412,9 @@
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 
+//................ Padded Coif edit............... //
+/obj/item/clothing/neck/coif/cloth
+	dropshrink = 0.6
 
 // =============================================================================
 // ==============================	CLOAKS	====================================
@@ -997,3 +1000,33 @@
 
 /obj/item/clothing/pants/tights/provisoner
 	color = CLOTHING_SPRING_GREEN
+
+
+/obj/item/clothing/shirt/undershirt/artificer
+	name = "craftsmans shirt"
+	desc = "Favored by those of the Makers guild who got the money for it."
+
+/obj/item/clothing/pants/trou/artipants
+	name = "masonry trousers"
+
+/obj/item/clothing/cloak/captain
+	name = "sheriffs cape"
+	desc = "A cape with fine embroidery and heraldry."
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+
+
+/obj/item/clothing/armor/medium/surcoat
+	color = CLOTHING_WINESTAIN_RED
+
+
+
+/obj/item/clothing/cloak/volfmantle
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	alternate_worn_layer = BACK_LAYER
+
+/obj/item/clothing/cloak/wickercloak
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'

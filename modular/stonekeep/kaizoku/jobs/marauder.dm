@@ -9,11 +9,11 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 	"Undine")
-	outfit = /datum/outfit/job/roguetown/adventurer/marauder
+	outfit = /datum/outfit/job/stonekeep/adventurer/marauder
 	category_tags = list(CTAG_ADVENTURER)
 	tutorial = "Ever since Grenzelhoft invasions on Fog Islands, the Undine Tribes became allies of many Abyssariad clans and guardians. Even if untrue for the entire government itself, Undine Marauders take part of Abyssariad expeditions as ''allies'' and formidable annihilators of Humens and Goblins alike."
 
-/datum/outfit/job/roguetown/adventurer/marauder/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/marauder/pre_equip(mob/living/carbon/human/H)
 	..()
 	//average normal skill for all. They are not civilized Undine, so they have skills for survival.
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

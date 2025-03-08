@@ -1,9 +1,9 @@
-/datum/advclass/combat/sk_bulwark
+/datum/advclass/combat/stonekeep/bulwark
 	name = "Immortal Bulwark"
 	tutorial = "You have marched and fought in formations since the ancient war that nearly destroyed Psydonia. There are few in the world who can match your expertise in a shield wall, but all you have ever known is battle and obedience..."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Aasimar")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_bulwark
+	outfit = /datum/outfit/job/stonekeep/adventurer/bulwark
 	maximum_possible_slots = 1
 	pickprob = 15 // Same as the other very rare classes
 	category_tags = list(CTAG_ADVENTURER)
@@ -11,7 +11,7 @@
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 
 
-/datum/outfit/job/roguetown/adventurer/sk_bulwark/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/bulwark/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)

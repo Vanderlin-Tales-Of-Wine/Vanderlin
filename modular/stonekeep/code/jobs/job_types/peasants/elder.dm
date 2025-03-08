@@ -28,9 +28,9 @@
 
 /datum/outfit/job/stonekeep/elder/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/pants/trou/leather
-	head = /obj/item/clothing/head/brimmed
-	armor = /obj/item/clothing/armor/leather/jacket
+	pants = /obj/item/clothing/pants/leather
+	head = /obj/item/clothing/head/knitcap
+	armor = /obj/item/clothing/armor/leather/heavy/coat
 	shirt = /obj/item/clothing/shirt/tunic
 	shoes = /obj/item/clothing/shoes/boots
 	cloak = /obj/item/clothing/cloak/half

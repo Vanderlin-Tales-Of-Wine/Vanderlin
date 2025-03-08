@@ -14,11 +14,11 @@
 		"Undine"
 
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_woodcutter
+	outfit = /datum/outfit/job/stonekeep/adventurer/woodcutter
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Woodcutter"
 
-/datum/outfit/job/roguetown/adventurer/sk_woodcutter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/woodcutter/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

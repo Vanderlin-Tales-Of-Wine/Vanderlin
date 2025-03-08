@@ -1,4 +1,4 @@
-/datum/job/roguetown/templar
+/datum/job/stonekeep/templar
 	title = "Templar"
 	flag = 	SK_TEMPLAR
 	department_flag = CHURCHMEN
@@ -13,19 +13,19 @@
 		"Half-Elf",
 	)
 	allowed_patrons = ALL_TEMPLAR_PATRONS
-	outfit = /datum/outfit/job/roguetown/templar
+	outfit = /datum/outfit/job/stonekeep/templar
 	total_positions = 2
 	spawn_positions = 2
 	display_order = TEMPLAR_ORDER
 	give_bank_account = 10
 	min_pq = 0
 
-/datum/outfit/job/roguetown/templar
+/datum/outfit/job/stonekeep/templar
 	name = "Templar"
-	jobtype = /datum/job/roguetown/templar
+	jobtype = /datum/job/stonekeep/templar
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 
-/datum/outfit/job/roguetown/templar/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/templar/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/bucket
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
@@ -80,7 +80,7 @@
 
 	armor = /obj/item/clothing/armor/chainmail/hauberk
 	shirt = /obj/item/clothing/armor/gambeson
-	pants = /obj/item/clothing/pants/chainlegs
+	pants = /obj/item/clothing/pants/tights/random
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
@@ -112,7 +112,6 @@
 			beltr = /obj/item/weapon/sword/long
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	//Max devotion limit - Templars are stronger but cannot pray to gain more abilities beyond t1

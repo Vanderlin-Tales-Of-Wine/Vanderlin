@@ -6,11 +6,11 @@
 		"Dwarf",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/mercenary/underdweller
+	outfit = /datum/outfit/job/stonekeep/merc/underdweller
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
-/datum/outfit/job/roguetown/mercenary/underdweller/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/underdweller/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/cuirass/iron

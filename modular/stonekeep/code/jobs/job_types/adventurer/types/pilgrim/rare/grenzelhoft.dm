@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/sk_grenzelhoft
+/datum/advclass/pilgrim/rare/stonekeep/grenzelhoft
 	name = "Grenzelhoft Count"
 	tutorial = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Isle of the Enigma."
 	allowed_sexes = list(MALE, FEMALE)
@@ -6,7 +6,7 @@
 		"Humen",
 		"Dwarf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_grenzelhoft
+	outfit = /datum/outfit/job/stonekeep/adventurer/grenzelhoft
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
 	pickprob = 30
@@ -14,7 +14,7 @@
 
 	cmode_music = 'sound/music/cmode/combat_grenzelhoft.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_grenzelhoft/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/grenzelhoft/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/grenzelhoft
 	gloves = /obj/item/clothing/gloves/angle/grenzel
@@ -28,7 +28,6 @@
 	id = /obj/item/clothing/ring/gold
 	shirt = /obj/item/clothing/shirt/grenzelhoft
 	pants = /obj/item/clothing/pants/grenzelpants
-	neck = /obj/item/clothing/neck/gorget
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich)
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/armor/gambeson/heavy/dress/alt

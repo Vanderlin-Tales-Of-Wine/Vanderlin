@@ -1,6 +1,6 @@
 /* Comments: Has the soap that gives unique mood boost & removes tired when used by Nitemaiden on person in a bath tile
 It´s pretty good. Also extra good mood boost for sex, but still a bit barebones. Expand a little cooking/serving? */
-/datum/job/roguetown/nitemaiden
+/datum/job/stonekeep/nitemaiden
 	title = "Nitemaiden"
 	flag = SK_BATHMAID
 	department_flag = PEASANTS
@@ -20,14 +20,14 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	tutorial = "You should not see this.."
 	allowed_sexes = list(FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	outfit = /datum/outfit/job/roguetown/nitemaiden
+	outfit = /datum/outfit/job/stonekeep/nitemaiden
 	display_order = BATHMAID_ORDER
 	give_bank_account = TRUE
 	min_pq = -25
 	can_random = FALSE
 	bypass_lastclass = TRUE
 
-/datum/outfit/job/roguetown/nitemaiden/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/nitemaiden/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt

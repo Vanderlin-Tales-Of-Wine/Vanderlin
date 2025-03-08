@@ -12,7 +12,7 @@
 	"Changeling",
 	"Skylancer",
 	"Ogrun")
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/zamurai
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/zamurai
 	maximum_possible_slots = 0
 	pickprob = 0
 	tutorial = "A lower-ranking zamurai serving the warrior caste that became adrift during a expedition, \
@@ -26,7 +26,7 @@
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/horse/tame/saddled
 	return ..()
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/zamurai/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/zamurai/pre_equip(mob/living/carbon/human/H)
 	pants = /obj/item/clothing/pants/trou/tobi/random //Fully intended to give them Haidate Tatami, but the armor is strong enough already.
 	shoes = /obj/item/clothing/shoes/boots/armor/suneate
 	gloves = /obj/item/clothing/gloves/leather/abyssal //kote already protects the hands.

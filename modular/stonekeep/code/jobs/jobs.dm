@@ -127,54 +127,19 @@ GLOBAL_LIST_INIT(serf_positions, list(
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Village Elder",
 	"Soilson",
-	"Hammerite",
 	"Stevedore",
-	"Butcher",
 	"Cook",
 	"Woodsman",
-	"Carpenter",
-	"Jaegward",
-	"Fisher",
-	"Cheesemaker",
-	"Butler",
-	"Bard",
 	"Prisoner",
-	"Beggar",
+	"Beggar"
+	))
+
+GLOBAL_LIST_INIT(apprentices_positions, list(
 	"Mercenary",
 	"Adventurer",
 	"Pilgrim",
 	))
 
-GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Squire",
-	"Smithy Apprentice",
-	"Magician's Apprentice",
-	))
-
-GLOBAL_LIST_INIT(youngfolk_positions, list(
-))
-
-GLOBAL_LIST_INIT(allmig_positions, list(
-	"Bandit",
-	"Adventurer",
-	"Mercenary",
-	"Pilgrim"
-	))
-
-GLOBAL_LIST_INIT(roguewar_positions, list(
-	"Adventurer"
-	))
-
-GLOBAL_LIST_INIT(roguefight_positions, list(
-	"Red Captain",
-	"Red Caster",
-	"Red Ranger",
-	"Red Fighter",
-	"Green Captain",
-	"Green Caster",
-	"Green Ranger",
-	"Green Fighter"
-	))
 
 
 // ===========		DISABLES VANDERLIN JOBS		=====
@@ -365,19 +330,18 @@ GLOBAL_LIST_INIT(roguefight_positions, list(
 /datum/job/roguetown/servant
 	total_positions = 0
 	spawn_positions = 0
-/*
+
 /datum/job/adventurer
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	display_order = ADVENTURER_ORDER
 	flag = SK_ADVENTURER
-	department_flag = PEASANTS
+	department_flag = APPRENTICES
 	total_positions = 8
 	spawn_positions = 8
 /datum/job/pilgrim
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	display_order = PILGRIM_ORDER
 	flag = SK_PILGRIM
-	department_flag = PEASANTS
+	department_flag = APPRENTICES
 	total_positions = 10
 	spawn_positions = 10
-*/

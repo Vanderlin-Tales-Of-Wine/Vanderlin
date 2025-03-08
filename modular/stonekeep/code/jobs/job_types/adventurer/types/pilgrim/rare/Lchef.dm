@@ -1,6 +1,6 @@
 //master chef
 
-/datum/advclass/pilgrim/rare/sk_masterchef
+/datum/advclass/pilgrim/rare/stonekeep/masterchef
 	name = "Master Chef"
 	tutorial = "A master chef is one of the best cooks to ever live. \
 	You received an early education from the guild of culinary arts and have traveled across Psydonia, cooking exotic masterpieces for wealthy merchants and nobility alike."
@@ -14,14 +14,14 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/adventurer/sk_masterchef
+	outfit = /datum/outfit/job/stonekeep/adventurer/masterchef
 
 	maximum_possible_slots = 1
 	pickprob = 15
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Chef Apprentice"
 
-/datum/outfit/job/adventurer/sk_masterchef/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)

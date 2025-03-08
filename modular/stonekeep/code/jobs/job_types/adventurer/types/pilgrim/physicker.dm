@@ -15,12 +15,12 @@
 		"Aasimar",
 		"Changeling"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_physicker
+	outfit = /datum/outfit/job/stonekeep/adventurer/physicker
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	apprentice_name = "Physicker Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_physicker/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/physicker/pre_equip(mob/living/carbon/human/H)
 	..()
 	mask = /obj/item/clothing/face/phys
 	head = /obj/item/clothing/head/roguehood/phys

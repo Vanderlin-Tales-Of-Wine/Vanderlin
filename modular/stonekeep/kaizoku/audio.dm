@@ -85,12 +85,12 @@
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Town_in_Rogue.ogg'
 	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Defenestration.ogg'
 
-
+/* ROGTODO kinda loud
 /area/rogue/outdoors/exposed
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Oceansanct.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Town_in_Rogue.ogg'
 	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Defenestration.ogg'
-
+*/
 /area/rogue/under/cave
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Torment.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'

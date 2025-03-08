@@ -1,4 +1,4 @@
-/datum/advclass/sk_brigand //Strength class, starts with axe or flails and medium armor training
+/datum/advclass/stonekeep/bandit/brigand //Strength class, starts with axe or flails and medium armor training
 	name = "Brigand"
 	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
 	allowed_sexes = list(MALE, FEMALE)
@@ -10,11 +10,11 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/bandit/sk_brigand
+	outfit = /datum/outfit/job/stonekeep/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit_brigand.ogg'
 
-/datum/outfit/job/roguetown/bandit/sk_brigand/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/brigand/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)

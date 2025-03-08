@@ -17,12 +17,12 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_hunter
+	outfit = /datum/outfit/job/stonekeep/adventurer/hunter
 
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Hunter Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_hunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/hunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/random
 	shirt = /obj/item/clothing/shirt/shortshirt/random

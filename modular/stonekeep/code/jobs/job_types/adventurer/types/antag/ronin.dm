@@ -1,4 +1,4 @@
-/datum/advclass/sk_ronin
+/datum/advclass/stonekeep/bandit/ronin
 	name = "Ronin"
 	tutorial = "You are a person of the waves, the one who drifters as the ocean. Now with your link to Abyssor broken, you've bonded to Matthios to avoid the dai-corruption."
 	allowed_sexes = list(MALE, FEMALE)
@@ -8,12 +8,12 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/roguetown/bandit/ronin
+	outfit = /datum/outfit/job/stonekeep/bandit/ronin
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = list('modular/stonekeep/kaizoku/sound/combat/combat_changeling.ogg','modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg','modular/stonekeep/kaizoku/sound/combat/combat_searaider.ogg','modular/stonekeep/kaizoku/sound/combat/combat_oldtides.ogg','modular/stonekeep/kaizoku/sound/combat/combat_decapitator.ogg','modular/stonekeep/kaizoku/sound/combat/combat_emperor.ogg','modular/stonekeep/kaizoku/sound/combat/combat_traditional.ogg','modular/stonekeep/kaizoku/sound/combat/combat_navalretainers.ogg','modular/stonekeep/kaizoku/sound/combat/combat_kyudo.ogg')
 
 
-/datum/outfit/job/roguetown/bandit/ronin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/ronin/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) //for the sake of duelism trope, there is a chance to get 4xp sword.
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)

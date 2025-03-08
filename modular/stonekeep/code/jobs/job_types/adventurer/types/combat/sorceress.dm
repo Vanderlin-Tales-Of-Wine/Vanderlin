@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_sorceress
+/datum/advclass/combat/stonekeep/sorceress
 	name = "Sorceress"
 	tutorial = "In some places in Psydonia, women are banned from the study of magic. Those that do even then are afforded the title Sorceress in honor of their resolve."
 	allowed_sexes = list(FEMALE)
@@ -11,13 +11,13 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_sorceress
+	outfit = /datum/outfit/job/stonekeep/adventurer/sorceress
 	maximum_possible_slots = 2
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_sorceress/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/sorceress/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage

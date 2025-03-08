@@ -5,12 +5,12 @@
 	allowed_races = list(
 		"Tiefling"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/corsair
+	outfit = /datum/outfit/job/stonekeep/merc/corsair
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 	maximum_possible_slots = 5
 
-/datum/outfit/job/roguetown/adventurer/corsair
+/datum/outfit/job/stonekeep/merc/corsair
 	head = /obj/item/clothing/head/helmet/leather/headscarf
 	pants = /obj/item/clothing/pants/tights/sailor
 	belt = /obj/item/storage/belt/leather/mercenary
@@ -22,7 +22,7 @@
 	beltr = /obj/item/weapon/knife/dagger
 	shoes = /obj/item/clothing/shoes/boots
 
-/datum/outfit/job/roguetown/adventurer/corsair/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/corsair/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 
@@ -40,6 +40,5 @@
 
 	shirt = pick(/obj/item/clothing/shirt/undershirt/sailor, /obj/item/clothing/shirt/undershirt/sailor/red)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	H.change_stat("endurance", 3)
-	H.change_stat("perception", -2) // We don't want them using ranged weapons, period.
-	H.change_stat("speed", 2) // Hit-And-Run.
+	H.change_stat("endurance", 2)
+	H.change_stat("speed", 2)

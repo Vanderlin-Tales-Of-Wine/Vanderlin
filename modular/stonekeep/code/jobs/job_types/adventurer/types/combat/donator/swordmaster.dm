@@ -1,9 +1,9 @@
-/datum/advclass/combat/sk_swordmaster
-	name = "Hedge Knight"
-	tutorial = "You spent years serving the eastern Grenzelhoftian lords, and now you spend your days as a travelling hedge knight. Upon this island, you like to increase the fame of your sword skills, as well as your honor."
+/datum/advclass/combat/stonekeep/swordmaster
+	name = "Swordmaster"
+	tutorial = "You spent years serving the eastern Grenzelhoftian lords, and now you spend your days as a travelling swordsman. Upon this island, you like to increase the fame of your sword skills, as well as your honor."
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_swordmaster
+	outfit = /datum/outfit/job/stonekeep/adventurer/swordmaster
 	maximum_possible_slots = 1
 	min_pq = 0
 	pickprob = 15
@@ -11,12 +11,12 @@
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
 
-/datum/outfit/job/roguetown/adventurer/sk_swordmaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/swordmaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)

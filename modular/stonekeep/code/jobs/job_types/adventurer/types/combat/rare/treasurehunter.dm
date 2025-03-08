@@ -1,5 +1,5 @@
 //dagger and huntknife
-/datum/advclass/combat/sk_treasurehunter
+/datum/advclass/combat/stonekeep/treasurehunter
 	name = "Treasure Hunter"
 	tutorial = "Grave robbers sell themselves as treasure hunters, but be sure to wipe that \
 	necrotic flesh off of that trinket you found."
@@ -13,12 +13,12 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_treasurehunter
+	outfit = /datum/outfit/job/stonekeep/adventurer/treasurehunter
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_treasurehunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/treasurehunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/black
 	armor = /obj/item/clothing/armor/leather/vest/black

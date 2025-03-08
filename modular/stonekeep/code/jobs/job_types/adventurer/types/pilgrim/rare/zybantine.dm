@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/sk_zybantine
+/datum/advclass/pilgrim/rare/stonekeep/zybantine
 	name = "Zybantine Emir"
 	tutorial = "An Emir hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to the Isle of the Enigma."
 	allowed_sexes = list(MALE, FEMALE)
@@ -12,7 +12,7 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/zybantine
+	outfit = /datum/outfit/job/stonekeep/adventurer/zybantine
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
 	pickprob = 30
@@ -20,7 +20,7 @@
 
 	cmode_music = 'sound/music/cmode/towner/combat_desertrider.ogg'
 
-/datum/outfit/job/roguetown/adventurer/zybantine/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/zybantine/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/leather

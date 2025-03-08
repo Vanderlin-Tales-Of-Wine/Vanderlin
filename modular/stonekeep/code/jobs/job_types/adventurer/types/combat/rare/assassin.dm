@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_assassin
+/datum/advclass/combat/stonekeep/assassin
 	name = "Assassin"
 	tutorial = "From a young age you have been drawn to blood, to hurting others. Eventually you found others like you, and a god who would bless your actions. Your cursed dagger has never led you astray, and with every stab you feel a little less empty."
 	allowed_sexes = list(MALE, FEMALE)
@@ -10,14 +10,14 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_assassin
+	outfit = /datum/outfit/job/stonekeep/adventurer/assassin
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	min_pq = -10
 	pickprob = 100
 	displays_adv_job = FALSE //this prevents advjob from being set back to "Assassin" in equipme
 
-/datum/outfit/job/roguetown/adventurer/sk_assassin/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)

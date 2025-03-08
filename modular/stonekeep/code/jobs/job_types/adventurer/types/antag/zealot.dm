@@ -1,4 +1,4 @@
-/datum/advclass/sk_zealot  // matthios cleric
+/datum/advclass/stonekeep/bandit/zealot  // matthios cleric
 	name = "Zealot"
 	tutorial = "A true believer."
 	allowed_sexes = list(MALE, FEMALE)
@@ -10,11 +10,11 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/bandit/sk_zealot
+	outfit = /datum/outfit/job/stonekeep/bandit/zealot
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
 
-/datum/outfit/job/roguetown/bandit/sk_zealot/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/zealot/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

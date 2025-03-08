@@ -3,13 +3,13 @@
 	tutorial = "With the brutal dismantlement of drow society, the talents of the redeemed Anthraxi were no longer needed. Yet where one door closes, another opens - the decadent mortals of the overworld clamber over each other to bid for your blade. Show them your craft."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dark Elf")
-	outfit = /datum/outfit/job/roguetown/mercenary/anthrax
+	outfit = /datum/outfit/job/stonekeep/merc/anthrax
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/roguetown/mercenary/anthrax/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/anthrax/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather/black

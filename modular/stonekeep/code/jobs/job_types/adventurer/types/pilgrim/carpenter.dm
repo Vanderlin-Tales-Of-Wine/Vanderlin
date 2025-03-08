@@ -14,12 +14,12 @@
 		"Ogrun"
 
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_carpenter
+	outfit = /datum/outfit/job/stonekeep/adventurer/carpenter
 
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Carpenter Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_carpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/carpenter/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

@@ -1,6 +1,6 @@
 //elf spear mounted
 
-/datum/advclass/combat/rare/sk_sentinel
+/datum/advclass/combat/rare/stonekeep/sentinel
 	name = "Sentinel"
 	tutorial = "Your overseers have sent you to this distant land as a scout. Your trusted steed, longbow, and spear will allow you to overcome any challenges on the road ahead."
 	allowed_sexes = list(MALE, FEMALE)
@@ -9,22 +9,21 @@
 		"Half-Elf",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_sentinel
+	outfit = /datum/outfit/job/stonekeep/adventurer/sentinel
 	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_sentinel
 	maximum_possible_slots = 1
 	min_pq = 0
 	pickprob = 30
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/advclass/combat/sk_sentinel/equipme(mob/living/carbon/human/H)
+/datum/advclass/combat/rare/stonekeep/sentinel/equipme(mob/living/carbon/human/H)
 	if(H.gender == FEMALE)
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
 	return ..()
 
 
-/datum/outfit/job/roguetown/adventurer/sk_sentinel/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

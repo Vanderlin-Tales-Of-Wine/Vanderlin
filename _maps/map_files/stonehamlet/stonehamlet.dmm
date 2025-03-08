@@ -859,6 +859,10 @@
 /area/rogue/outdoors/rtfield{
 	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
 	})
+"bej" = (
+/obj/machinery/light/fueled/firebowl/standing/lamp,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town)
 "beL" = (
 /obj/structure/closet/crate/drawer/inn{
 	lockid = "tavern";
@@ -2053,9 +2057,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs)
 "cxu" = (
-/obj/structure/closet/crate/chest/neu,
-/obj/item/instrument/flute,
-/obj/item/weapon/mace/woodclub/train_sword,
+/obj/structure/ladder,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -3440,7 +3442,7 @@
 /obj/effect/landmark/start/sk_sheriff{
 	dir = 8
 	},
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -4366,11 +4368,6 @@
 /obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/exposed/town)
-"fNJ" = (
-/turf/open/floor/blocks,
-/area/rogue/indoors/town/manor{
-	first_time_text = "STONEHILL CASTLE"
-	})
 "fPS" = (
 /obj/structure/table/vtable,
 /obj/item/toy/cards/deck,
@@ -4498,7 +4495,7 @@
 	})
 "fXN" = (
 /obj/structure/ladder,
-/turf/open/floor/blocks,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -4527,7 +4524,7 @@
 	lockid = "manor";
 	name = "upper levels"
 	},
-/turf/open/floor/ruinedwood/spiral,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -4541,7 +4538,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains)
 "gau" = (
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor)
 "gaB" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -4834,7 +4831,7 @@
 	pixel_x = -14;
 	pixel_y = 4
 	},
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -5224,12 +5221,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
-"gYU" = (
-/obj/effect/decal/cleanable/food/egg_smudge,
-/turf/open/floor/tile/checker,
-/area/rogue/indoors/town/manor{
-	first_time_text = "STONEHILL CASTLE"
-	})
 "gZP" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt/road,
@@ -8339,7 +8330,7 @@
 /area/rogue/indoors/town/dwarfin)
 "laT" = (
 /obj/structure/chair/bench/coucha/r,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -8657,7 +8648,7 @@
 /area/rogue/indoors/town/dwarfin)
 "lvz" = (
 /obj/structure/table/wood/plain_alt,
-/turf/open/floor/blocks,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -8959,7 +8950,7 @@
 /turf/open/floor/hay,
 /area/rogue/indoors)
 "lNN" = (
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/shop)
 "lOe" = (
 /obj/structure/flora/rock/pile,
@@ -9827,7 +9818,7 @@
 	pixel_y = 32
 	},
 /obj/structure/chair/stool,
-/turf/open/floor/blocks,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -11097,7 +11088,7 @@
 	lockid = null
 	},
 /obj/item/reagent_containers/powder/spice,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/shop)
 "oIR" = (
 /obj/effect/decal/cleanable/blood/old,
@@ -11206,7 +11197,7 @@
 /area/rogue/outdoors/exposed/town)
 "oNM" = (
 /obj/machinery/light/fueled/firebowl/standing,
-/turf/open/floor/blocks,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -12138,7 +12129,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/exposed/town)
 "qkm" = (
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -12664,6 +12655,7 @@
 /area/rogue/indoors/shelter/rtfield)
 "qZF" = (
 /obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/weapon/knife/dagger/steel,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -12845,6 +12837,10 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
+"rml" = (
+/obj/effect/spawner/map_spawner/kitchenmess,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern/saiga)
 "rmI" = (
 /obj/structure/fluff/psycross/crafted,
 /turf/open/floor/grass,
@@ -12856,7 +12852,6 @@
 	},
 /obj/item/clothing/shirt/robe/feld,
 /obj/item/clothing/neck/feld,
-/obj/item/clothing/face/feld,
 /obj/item/clothing/head/roguehood/feld,
 /obj/item/clothing/gloves/leather/feld,
 /obj/item/needle,
@@ -13022,7 +13017,7 @@
 /area/rogue/indoors/town/magician)
 "ruR" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/obj/item/clothing/armor/leather/jacket/hand,
+/obj/item/clothing/armor/leather/jacket/handjacket,
 /obj/item/clothing/head/fancyhat,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor{
@@ -13367,7 +13362,7 @@
 "rTV" = (
 /obj/structure/closet/crate/drawer/random,
 /obj/item/key/lord,
-/turf/open/floor/carpet,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -13776,6 +13771,9 @@
 	})
 "stD" = (
 /obj/structure/closet/crate/chest/neu_iron,
+/obj/item/flint,
+/obj/item/candle/yellow,
+/obj/item/candle/yellow,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -14122,7 +14120,9 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/outdoors/bog)
 "sKp" = (
-/obj/structure/ladder,
+/obj/item/instrument/flute,
+/obj/item/weapon/mace/woodclub/train_sword,
+/obj/structure/closet/crate/chest/neu,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -14648,11 +14648,11 @@
 /area/rogue/under/town/basement)
 "ttl" = (
 /obj/structure/fluff/walldeco/bigpainting/lake,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/shop)
 "ttA" = (
 /obj/structure/closet/crate/drawer/random,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/shop)
 "ttS" = (
 /obj/item/candle/yellow/lit/infinite{
@@ -14666,7 +14666,7 @@
 "ttV" = (
 /obj/structure/bed/inn,
 /obj/item/bedsheet/fabric,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/shop)
 "tus" = (
 /obj/structure/mineral_door/wood{
@@ -15003,6 +15003,13 @@
 /obj/structure/bed/shit,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors)
+"tSx" = (
+/obj/structure/fluff/railing/wood,
+/obj/structure/ladder,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors/town/manor{
+	first_time_text = "STONEHILL CASTLE"
+	})
 "tTy" = (
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -15200,7 +15207,7 @@
 "uih" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/chair/stool,
-/turf/open/floor/blocks,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -15319,7 +15326,7 @@
 /obj/effect/landmark/start/lord{
 	dir = 8
 	},
-/turf/open/floor/carpet/royalblack,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -15668,7 +15675,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -16297,7 +16304,7 @@
 "vMo" = (
 /obj/structure/chair/bench/coucha,
 /obj/effect/landmark/start/consort,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -16348,7 +16355,7 @@
 	pixel_y = 7
 	},
 /obj/structure/table/vtable,
-/turf/open/floor/carpet,
+/turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -16446,7 +16453,7 @@
 "vTs" = (
 /obj/structure/table/wood/reinforced_alt,
 /obj/structure/bars/alt,
-/turf/closed,
+/turf/open/floor/wood,
 /area/rogue/indoors)
 "vTM" = (
 /obj/item/bin/water/gross,
@@ -16953,7 +16960,7 @@
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/outdoors/exposed/town)
 "wHd" = (
-/obj/effect/decal/cleanable/food/flour,
+/obj/effect/spawner/map_spawner/kitchenmess,
 /turf/open/floor/tile/checker,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
@@ -17157,6 +17164,12 @@
 "wTy" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
+"wTJ" = (
+/obj/structure/closet/crate/chest/neu,
+/obj/item/clothing/head/helmet/feld,
+/obj/item/clothing/face/feld,
+/turf/open/floor/woodturned,
+/area/rogue/indoors)
 "wUg" = (
 /obj/item/reagent_containers/food/snacks/crow{
 	dir = 1;
@@ -17769,7 +17782,7 @@
 /obj/item/weapon/knife/dagger/steel/special,
 /obj/item/storage/fancy/cigarettes/zig,
 /obj/item/clothing/gloves/angle/falcon,
-/turf/open/floor/carpet,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor{
 	first_time_text = "STONEHILL CASTLE"
 	})
@@ -127042,7 +127055,7 @@ atL
 lat
 lat
 atL
-atL
+dCk
 atL
 hfx
 cfk
@@ -128267,7 +128280,7 @@ hfx
 tsx
 ekL
 fXN
-fNJ
+gNI
 oNM
 rRk
 tsx
@@ -128521,9 +128534,9 @@ tut
 hfx
 hfx
 rRk
-fNJ
-fNJ
-fNJ
+gNI
+gNI
+gNI
 ekL
 ekL
 ekL
@@ -128777,8 +128790,8 @@ hfx
 tsx
 ekL
 uih
-fNJ
-fNJ
+gNI
+gNI
 ghk
 pMI
 pMI
@@ -129032,8 +129045,8 @@ hfx
 pMI
 pMI
 lvz
-fNJ
-fNJ
+gNI
+gNI
 ghk
 pMI
 pMI
@@ -129287,8 +129300,8 @@ hfx
 pMI
 pMI
 ndp
-fNJ
-fNJ
+gNI
+gNI
 pMI
 pMI
 dCn
@@ -129298,7 +129311,7 @@ dkW
 hNA
 iGU
 dkW
-gYU
+wHd
 qnX
 qnX
 hrv
@@ -129306,7 +129319,7 @@ dzn
 pgi
 kVz
 aZu
-aZu
+bej
 aZu
 iCA
 dzn
@@ -129541,9 +129554,9 @@ tut
 hfx
 pMI
 pMI
-fNJ
-fNJ
-fNJ
+gNI
+gNI
+gNI
 pMI
 pMI
 pMI
@@ -129796,8 +129809,8 @@ tut
 hfx
 pMI
 pMI
-fNJ
-fNJ
+gNI
+gNI
 oNM
 pMI
 pMI
@@ -131068,7 +131081,7 @@ tut
 hfx
 hfx
 pMI
-dAJ
+pMI
 tmX
 tmX
 rPv
@@ -131135,7 +131148,7 @@ hfx
 hfx
 hfx
 hfx
-hfx
+awB
 hfx
 hfx
 hfx
@@ -131323,7 +131336,7 @@ tut
 hfx
 tsx
 pMI
-dAJ
+pMI
 fCE
 tmX
 aNU
@@ -132343,7 +132356,7 @@ tut
 hfx
 hfx
 pMI
-dAJ
+pMI
 fCS
 tmX
 aNU
@@ -132598,7 +132611,7 @@ tut
 tsx
 tsx
 pMI
-dAJ
+pMI
 tmX
 tmX
 rPv
@@ -134907,7 +134920,7 @@ igU
 xgp
 stg
 wem
-xSv
+tSx
 hhZ
 hiy
 kzv
@@ -135194,7 +135207,7 @@ vwe
 mmZ
 mmZ
 kiW
-vwe
+rml
 vwe
 kMT
 tVo
@@ -190027,7 +190040,7 @@ xPM
 xPM
 xPM
 xPM
-xPM
+wTJ
 xVs
 tut
 tut
@@ -193292,9 +193305,9 @@ tut
 tut
 tut
 pMI
-xLf
 oWr
-pMI
+oWr
+xgp
 ooM
 yas
 jRf
@@ -193549,7 +193562,7 @@ pMI
 pMI
 pMI
 pMI
-pMI
+xgp
 ooM
 yas
 jRf
@@ -193804,8 +193817,8 @@ ezo
 jRf
 rTC
 soO
-dAJ
-dAJ
+xgp
+xgp
 xgp
 gLn
 jRf
@@ -196358,7 +196371,7 @@ ooM
 syU
 ooM
 jIl
-xgp
+jRf
 jRf
 sFy
 ooM

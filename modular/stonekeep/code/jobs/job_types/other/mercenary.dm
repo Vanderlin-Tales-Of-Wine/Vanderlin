@@ -1,7 +1,7 @@
-/datum/job/roguetown/mercenary
+/datum/job/stonekeep/mercenary
 	title = "Mercenary"
 	flag = SK_MERCENARY
-	department_flag = PEASANTS
+	department_flag = APPRENTICES
 	faction = "Station"
 	total_positions = 6
 	spawn_positions = 6
@@ -29,7 +29,7 @@
 	outfit_female = null
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
 
-/datum/job/roguetown/mercenary/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/mercenary/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
@@ -37,9 +37,9 @@
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
 
-/datum/outfit/job/roguetown/mercenary // Reminder message
+/datum/outfit/job/stonekeep/merc // Reminder message
 	var/tutorial = "<br><br><font color='#855b14'><span class='bold'>Your sponsor, the Merchant, representing the MGE guild, might have work for you todae, go find out.</span></font><br><br>"
 
-/datum/outfit/job/roguetown/mercenary/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)

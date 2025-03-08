@@ -14,11 +14,11 @@
 		"Aasimar",
 		"Ogrun"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_miner
+	outfit = /datum/outfit/job/stonekeep/adventurer/miner
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Miner Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_miner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/miner/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/armingcap
 	pants = /obj/item/clothing/pants/trou

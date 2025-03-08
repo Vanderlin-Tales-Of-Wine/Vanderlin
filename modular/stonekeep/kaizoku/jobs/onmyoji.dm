@@ -16,14 +16,14 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/abyssariad/onmyoji
+	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 2
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/onmyoji
+/datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/roguetown/adventurer/abyssariad/onmyoji/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots/cloudhead
 	belt = /obj/item/storage/belt/leather/rope

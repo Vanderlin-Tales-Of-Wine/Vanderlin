@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_mage
+/datum/advclass/combat/stonekeep/mage
 	name = "Mage"
 	tutorial = "Mages are usually grown-up apprentices of wizards. They are seeking adventure, using their arcyne knowledge to aid other adventurers."
 	allowed_sexes = list(MALE)
@@ -11,15 +11,15 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_mage
+	outfit = /datum/outfit/job/stonekeep/adventurer/mage
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = -10
 	maximum_possible_slots = 2
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_mage
+/datum/outfit/job/stonekeep/adventurer/mage
 
-/datum/outfit/job/roguetown/adventurer/sk_mage/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/mage
 	shoes = /obj/item/clothing/shoes/simpleshoes

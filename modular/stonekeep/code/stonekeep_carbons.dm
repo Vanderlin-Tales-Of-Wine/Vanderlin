@@ -380,6 +380,8 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 
+
+
 // -------------------		BUM		--------------------------
 /mob/living/carbon/human/species/human/northern/bum/skilled/madman/after_creation()
 	..()
@@ -395,7 +397,7 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	aggressive= TRUE
 	wander = TRUE
 	equipOutfit(new /datum/outfit/job/roguetown/human_npc/skilled/outlaw)
-	outlaw = FALSE	// ROGTODO FALSE because runtimes with language holder, dunno wtf just for the right say strings
+	outlaw = TRUE
 
 /datum/outfit/job/roguetown/human_npc/skilled/outlaw
 	name = "Outlaw"

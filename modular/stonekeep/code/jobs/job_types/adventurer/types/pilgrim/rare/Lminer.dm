@@ -1,18 +1,18 @@
 //dwarf, master miner
 
-/datum/advclass/pilgrim/rare/sk_minermaster
+/datum/advclass/pilgrim/rare/stonekeep/minermaster
 	name = "Master Miner"
 	tutorial = "Hardy dwarves who dedicated their entire life to a singular purpose: \
 	the acquisition of ore, precious stones, and anything deep below the mines."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_minermaster
+	outfit = /datum/outfit/job/stonekeep/adventurer/minermaster
 	maximum_possible_slots = 1
 	pickprob = 15
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Miner Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_minermaster/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/minermaster/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/leather/minershelm
 	pants = /obj/item/clothing/pants/trou

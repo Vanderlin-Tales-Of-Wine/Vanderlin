@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_monk
+/datum/advclass/combat/stonekeep/monk
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "A traveling monk of the God Ravox, unmatched in unarmed combat and with an unwavering devotion to Justice."
@@ -9,15 +9,15 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_monk
+	outfit = /datum/outfit/job/stonekeep/adventurer/monk
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 	vampcompat = FALSE
 
-/datum/outfit/job/roguetown/adventurer/sk_monk
+/datum/outfit/job/stonekeep/adventurer/monk
 
-/datum/outfit/job/roguetown/adventurer/sk_monk/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/monk/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/brown
 	neck = /obj/item/clothing/neck/psycross/silver/ravox

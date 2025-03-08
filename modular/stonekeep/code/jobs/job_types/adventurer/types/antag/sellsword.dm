@@ -1,4 +1,4 @@
-/datum/advclass/sk_sellsword	// flexible melee, polearm or shield, got heavy training. More armor but more weakspots.
+/datum/advclass/stonekeep/bandit/sellsword	// flexible melee, polearm or shield, got heavy training. More armor but more weakspots.
 	name = "Sellsword"
 	tutorial = "Perhaps a mercenary, perhaps a deserter - at one time, you killed for a master in return for gold. Now you live with no such master over your head - and take what you please."
 	allowed_sexes = list(MALE, FEMALE)
@@ -11,11 +11,11 @@
 		"Aasimar",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/roguetown/bandit/sk_sellsword
+	outfit = /datum/outfit/job/stonekeep/bandit/sellsword
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit2.ogg'
 
-/datum/outfit/job/roguetown/bandit/sk_sellsword/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/bandit/sellsword/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)

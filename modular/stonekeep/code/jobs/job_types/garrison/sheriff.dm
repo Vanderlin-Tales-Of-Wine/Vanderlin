@@ -41,9 +41,10 @@
 	gloves = /obj/item/clothing/gloves/plate
 	pants = /obj/item/clothing/pants/platelegs
 	armor = /obj/item/clothing/armor/brigandine/sheriff
+	cloak = /obj/item/clothing/cloak/captain
 	neck = /obj/item/clothing/neck/bevor
 	shirt = /obj/item/clothing/shirt/undershirt/guard
-	shoes = /obj/item/clothing/shoes/boots/armor/light
+	shoes = /obj/item/clothing/shoes/boots/armor
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/flashlight/flare/torch/lantern

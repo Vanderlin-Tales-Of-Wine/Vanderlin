@@ -1,4 +1,4 @@
-/datum/advclass/combat/sk_barbarian
+/datum/advclass/combat/stonekeep/barbarian
 	name = "Barbarian"
 	tutorial = "Wildmen and warriors all, Barbarians forego the intricacies of modern warfare in favour of raw strength and brutal cunning. Few of them can truly adjust to the civilized, docile lands of lords and ladies."
 	allowed_sexes = list(MALE, FEMALE)
@@ -7,15 +7,15 @@
 		"Half-Elf",
 		"Tiefling"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_barbarian
+	outfit = /datum/outfit/job/stonekeep/adventurer/barbarian
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_barbarian
+/datum/outfit/job/stonekeep/adventurer/barbarian
 	allowed_patrons = list(/datum/patron/divine/ravox, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/dendor, /datum/patron/godless, /datum/patron/inhumen/graggar)
 
-/datum/outfit/job/roguetown/adventurer/sk_barbarian/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/barbarian/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

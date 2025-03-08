@@ -12,11 +12,11 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_tailor
+	outfit = /datum/outfit/job/stonekeep/adventurer/tailor
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Tailor Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_tailor/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/nobleboot
 	head = /obj/item/clothing/head/courtierhat
@@ -61,11 +61,11 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_seamstress
+	outfit = /datum/outfit/job/stonekeep/adventurer/seamstress
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Tailor Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_seamstress/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/nobleboot
 	head = /obj/item/clothing/head/courtierhat

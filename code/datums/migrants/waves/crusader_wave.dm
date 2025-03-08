@@ -9,7 +9,7 @@
 /datum/migrant_role/crusader
 	name = "Crusaders"
 	greet_text = "Crusader of the True faith, you came from Grenzelhoft under the command of the Inquisitor, obey them as he lead you to smite the heatens."
-	outfit = /datum/outfit/job/adventurer/crusader
+	outfit = /datum/outfit/job/stonekeep/adventurer/crusader	// STONEKEEP EDIT
 	allowed_races = list("Humen","Dwarf")
 
 /datum/migrant_wave/crusade

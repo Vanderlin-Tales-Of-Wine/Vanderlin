@@ -1,10 +1,10 @@
 
-/datum/advclass/combat/sk_vaquero
+/datum/advclass/combat/stonekeep/vaquero
 	name = "Vaquero"
 	tutorial = "You have been taming beasts of burden all your life, and riding since you were old enough to walk. Perhaps these lands will have use for your skills?"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Tiefling")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_vaquero
+	outfit = /datum/outfit/job/stonekeep/adventurer/vaquero
 	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
 	cmode_music = 'sound/music/cmode/adventurer/combat_vaquero.ogg'
 	category_tags = list(CTAG_ADVENTURER)
@@ -12,12 +12,12 @@
 	pickprob = 30
 	maximum_possible_slots = 1
 
-/datum/advclass/combat/sk_vaquero/equipme(mob/living/carbon/human/H)
+/datum/advclass/combat/stonekeep/vaquero/equipme(mob/living/carbon/human/H)
 	if(H.gender == FEMALE)
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/tame/saddled
 	return ..()
 
-/datum/outfit/job/roguetown/adventurer/sk_vaquero/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/vaquero/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

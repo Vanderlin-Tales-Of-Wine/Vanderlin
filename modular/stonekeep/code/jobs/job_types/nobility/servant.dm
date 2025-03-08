@@ -15,14 +15,14 @@
 	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	tutorial = "Your blade is a charcuterie of artisanal cheeses and meat, your armor wit and classical training. You are part of the royal family now, and hold a distinguished position as the head of the royal household staff. You wear their colors and have a semblance of dignity, for without you and the servants under your command the court would have all starved to death."
-	outfit = /datum/outfit/job/sk_servant
+	outfit = /datum/outfit/job/stonekeep/servant
 	display_order = SERVANT_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -10
 	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/sk_servant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
 	mask = /obj/item/clothing/face/spectacles

@@ -1,13 +1,13 @@
-/datum/advclass/combat/sk_dbomb
+/datum/advclass/combat/stonekeep/dbomb
 	name = "Dwarven Bombardier"
 	tutorial = "Tinkering Dwarves that like to blow things up."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf")
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_dbomb
+	outfit = /datum/outfit/job/stonekeep/adventurerdwarfbomb
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/roguetown/adventurer/sk_dbomb/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurerdwarfbomb/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/horned
 	pants = /obj/item/clothing/pants/trou

@@ -1,4 +1,4 @@
-/datum/job/roguetown/adept
+/datum/job/stonekeep/adept
 	title = "Adept"
 	flag = SK_ADEPT
 	department_flag = CHURCHMEN
@@ -16,19 +16,19 @@
 	allowed_sexes = list(MALE)
 	tutorial = "You were a convicted criminal, the lowest scum of Vanderlin. Your master, the Inquisitor, saved you from the gallows and has given you true purpose in service to the Forgotten. You will not let him down."
 
-	outfit = /datum/outfit/job/roguetown/adept
+	outfit = /datum/outfit/job/stonekeep/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
 	display_order = ADEPT_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -10
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/roguetown/adept
+/datum/outfit/job/stonekeep/adept
 	name = "Adept"
-	jobtype = /datum/job/roguetown/adept
+	jobtype = /datum/job/stonekeep/adept
 	allowed_patrons = list(/datum/patron/psydon)
 
-/datum/outfit/job/roguetown/adept // Base outfit for Adepts, before loadouts
+/datum/outfit/job/stonekeep/adept // Base outfit for Adepts, before loadouts
 	belt = /obj/item/storage/belt/leather
 	shoes = /obj/item/clothing/shoes/boots
 	beltr = /obj/item/storage/belt/pouch/coins/poor
@@ -41,13 +41,13 @@
 /datum/advclass/adept/bzealot
 	name = "Brutal Zealot"
 	tutorial = "You are a former thug who has been given a chance to redeem yourself by the Inquisitor. You serve him and the Forgotten with your physical strength and zeal."
-	outfit = /datum/outfit/job/roguetown/adept/bzealot
+	outfit = /datum/outfit/job/stonekeep/adept/bzealot
 
 	category_tags = list(CTAG_ADEPT)
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/roguetown/adept/bzealot/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adept/bzealot/pre_equip(mob/living/carbon/human/H)
 	..()
 	//Armor for class
 	armor = /obj/item/clothing/armor/chainmail
@@ -82,13 +82,13 @@
 /datum/advclass/adept/rthief
 	name = "Reformed Thief"
 	tutorial = "You are a former thief who has been given a chance to redeem yourself by the Inquisitor. You serve him and the Forgotten with your stealth and cunning."
-	outfit = /datum/outfit/job/roguetown/adept/rthief
+	outfit = /datum/outfit/job/stonekeep/adept/rthief
 
 	category_tags = list(CTAG_ADEPT)
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 	maximum_possible_slots = 2
 
-/datum/outfit/job/roguetown/adept/rthief/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adept/rthief/pre_equip(mob/living/carbon/human/H)
 	..()
 	//Armor for class
 	armor = /obj/item/clothing/armor/leather/splint
@@ -123,7 +123,7 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 
 
-/datum/outfit/job/roguetown/adept/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adept/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		if(H.mind.has_antag_datum(/datum/antagonist))
@@ -134,7 +134,7 @@
 		H.verbs |= /mob/living/carbon/human/proc/torture_victim
 		H.verbs |= /mob/living/carbon/human/proc/faith_test
 
-/datum/job/roguetown/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
 	..()
 	if(H)
 		H.advsetup = 1

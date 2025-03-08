@@ -1,4 +1,4 @@
-/datum/job/roguetown/archivist
+/datum/job/stonekeep/archivist
 	title = "Archivist"
 	tutorial = "A well-traveled and well-learned seeker of knowledge, the Archivist's mind has been touched by Noc himself. They settled in Vanderlin some time ago, coming to the Isle of Enigma with the hope of unraveling its mysteries. If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
 	flag = SK_ARCHIVIST
@@ -18,13 +18,13 @@
 	)
 	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
-	outfit = /datum/outfit/job/roguetown/archivist
+	outfit = /datum/outfit/job/stonekeep/archivist
 	display_order = 9
 	give_bank_account = 100
 	min_pq = 0
 	allowed_patrons = list(/datum/patron/divine/noc)
 
-/datum/outfit/job/roguetown/archivist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.dna.species.id == "Dwarf")
 		shirt = /obj/item/clothing/shirt/undershirt/puritan

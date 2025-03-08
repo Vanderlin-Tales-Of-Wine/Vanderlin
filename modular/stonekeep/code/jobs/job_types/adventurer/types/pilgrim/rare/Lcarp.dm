@@ -1,6 +1,6 @@
 //master carpenter
 
-/datum/advclass/pilgrim/rare/sk_mastercarpenter
+/datum/advclass/pilgrim/rare/stonekeep/mastercarpenter
 	name = "Master Carpenter"
 	tutorial = "A true artisan in the field of woodcrafting, your skills honed by years in a formal guild. \
 	As a master carpenter, you transform trees into anything from furniture to entire fortifications."
@@ -12,13 +12,13 @@
 		"Half-Elf",
 		"Dwarf",
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_mastercarpenter
+	outfit = /datum/outfit/job/stonekeep/adventurer/mastercarpenter
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1
 	pickprob = 15
 	apprentice_name = "Carpenter Apprentice"
 
-/datum/outfit/job/roguetown/adventurer/sk_mastercarpenter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/mastercarpenter/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

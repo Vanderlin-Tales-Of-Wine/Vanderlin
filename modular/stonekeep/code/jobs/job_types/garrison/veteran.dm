@@ -21,7 +21,7 @@
 	give_bank_account = 35
 	min_pq = 0
 	can_have_apprentices = FALSE
-	outfit = /datum/outfit/job/sk_veteran
+	outfit = /datum/outfit/job/stonekeep/veteran
 
 /datum/job/stonekeep/veteran/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
@@ -37,13 +37,13 @@
 			S.name = "veteran cloak ([index])"
 
 
-/datum/outfit/job/sk_veteran/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/veteran/pre_equip(mob/living/carbon/human/H)
 	head = /obj/item/clothing/head/helmet/nasal
-	neck = /obj/item/clothing/neck/chaincoif
+	neck = /obj/item/clothing/neck/coif/cloth
 	armor = /obj/item/clothing/armor/chainmail
 	shirt = /obj/item/clothing/armor/gambeson/heavy
 	pants = /obj/item/clothing/pants/trou/leather
-	shoes = /obj/item/clothing/shoes/boots/armor
+	shoes = /obj/item/clothing/shoes/boots/armor/light
 	beltl = /obj/item/flashlight/flare/torch/metal
 	beltr = /obj/item/key/veteran
 	cloak = /obj/item/clothing/cloak/half/vet

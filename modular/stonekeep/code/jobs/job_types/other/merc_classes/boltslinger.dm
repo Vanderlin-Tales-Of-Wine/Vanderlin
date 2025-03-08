@@ -11,12 +11,12 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/mercenary/boltslinger_neu
+	outfit = /datum/outfit/job/stonekeep/merc/boltslinger
 	category_tags = list(CTAG_MERCENARY)
 	maximum_possible_slots = 5
 
 
-/datum/outfit/job/roguetown/mercenary/boltslinger_neu/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/merc/boltslinger/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/leather
 	head = /obj/item/clothing/head/helmet/kettle/slit

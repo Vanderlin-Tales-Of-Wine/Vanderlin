@@ -1,4 +1,4 @@
-/datum/advclass/adventurer/sk_qatil
+/datum/advclass/adventurer/stonekeep/qatil
 	name = "Qatil"
 	tutorial = "Hailing from Zybantine lands, you are a killer for hire that is trained both in murdering unseen and seen with your trusty knife."
 	allowed_sexes = list(MALE, FEMALE)
@@ -9,7 +9,7 @@
 		"Tiefling",
 		"Dark Elf",
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_qqatil
+	outfit = /datum/outfit/job/stonekeep/adventurer/qatil
 	maximum_possible_slots = 1
 	min_pq = 0
 	pickprob = 25
@@ -17,7 +17,7 @@
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
-/datum/outfit/job/roguetown/adventurer/sk_qqatil/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/qatil/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)

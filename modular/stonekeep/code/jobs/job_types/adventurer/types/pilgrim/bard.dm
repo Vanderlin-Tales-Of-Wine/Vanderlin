@@ -20,11 +20,11 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_bard
+	outfit = /datum/outfit/job/stonekeep/adventurer/bard
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"
 
-/datum/outfit/job/roguetown/adventurer/sk_bard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/bard/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)

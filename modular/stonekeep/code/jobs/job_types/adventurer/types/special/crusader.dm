@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/sk_crusader
+/datum/advclass/pilgrim/rare/stonekeep/crusader
 	name = "Totod Order Emissary"
 	tutorial = "The Crusaders are knights who have pledged \
 	their wealth and lands to the Church, taking up the banner \
@@ -11,16 +11,16 @@
 		"Dwarf"
 	)
 	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/psydon)
-	outfit = /datum/outfit/job/roguetown/adventurer/crusader
+	outfit = /datum/outfit/job/stonekeep/adventurer/crusader
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 1
 	pickprob = 30
 	min_pq = 0
 
-/datum/outfit/job/roguetown/adventurer/crusader
+/datum/outfit/job/stonekeep/adventurer/crusader
 	allowed_patrons = list(/datum/patron/divine/astrata, /datum/patron/divine/necra, /datum/patron/psydon)
 
-/datum/outfit/job/roguetown/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/crusader/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	head = /obj/item/clothing/head/helmet/heavy/crusader
@@ -91,10 +91,10 @@
 		H.grant_language(/datum/language/oldpsydonic)
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
-/datum/outfit/job/roguetown/adventurer/crusader // Reminder message
+/datum/outfit/job/stonekeep/adventurer/crusader // Reminder message
 	var/tutorial = "<br><br><font color='#bdc34a'><span class='bold'>You have been sent from the Totod Order on a mission to aid your struggle against the Blood Barons somehow. The details of your mission may vary, perhaps to find allies, funding, or a agent of the enemy...</span></font><br><br>"
 
-/datum/outfit/job/roguetown/adventurer/crusader/post_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/crusader/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)
 

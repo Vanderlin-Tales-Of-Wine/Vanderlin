@@ -13,11 +13,11 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/adventurer/sk_peasant
+	outfit = /datum/outfit/job/stonekeep/adventurer/peasant
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Handyman"
 
-/datum/outfit/job/roguetown/adventurer/sk_peasant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/adventurer/peasant/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
