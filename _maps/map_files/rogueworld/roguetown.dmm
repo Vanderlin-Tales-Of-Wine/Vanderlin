@@ -8248,7 +8248,7 @@
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/exposed/dwarf)
 "Cf" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town)
