@@ -836,12 +836,6 @@
 /turf/open/lava/acid,
 /area/rogue/indoors/cave)
 "EY" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALSPD = 15;
-	TOTALSTR = 14
-	},
 /obj/item/clothing/pants/platelegs/rust,
 /obj/item/clothing/armor/plate/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
@@ -849,6 +843,13 @@
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/weapon/sword/scimitar/falchion,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALCON = 15;
+	TOTALEND = 15;
+	TOTALSPD = 15;
+	TOTALSTR = 14;
+	candodge = 0
+	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "Ff" = (
@@ -1090,7 +1091,8 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	TOTALCON = 15;
 	TOTALEND = 15;
-	TOTALSTR = 15
+	TOTALSTR = 15;
+	candodge = 0
 	},
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
@@ -1323,9 +1325,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15
-	},
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
@@ -1334,6 +1333,10 @@
 /obj/item/weapon/sword/arming,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALCON = 15;
+	candodge = 0
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "Wy" = (

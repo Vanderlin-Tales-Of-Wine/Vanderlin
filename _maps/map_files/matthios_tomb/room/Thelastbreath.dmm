@@ -146,7 +146,8 @@
 	TOTALSPD = 15;
 	TOTALSTR = 15;
 	TOTALCON = 12;
-	TOTALEND = 12
+	TOTALEND = 12;
+	candodge = 0
 	},
 /obj/item/weapon/sword/rapier,
 /obj/item/clothing/neck/psycross/silver,
@@ -687,7 +688,8 @@
 	TOTALPER = 15;
 	TOTALSTR = 15;
 	TOTALCON = 12;
-	TOTALEND = 14
+	TOTALEND = 14;
+	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
@@ -1116,7 +1118,8 @@
 	TOTALSTR = 18;
 	TOTALSPD = 12;
 	TOTALCON = 14;
-	TOTALEND = 14
+	TOTALEND = 14;
+	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
@@ -1289,7 +1292,8 @@
 	TOTALSPD = 11;
 	TOTALSTR = 18;
 	TOTALCON = 15;
-	TOTALEND = 15
+	TOTALEND = 15;
+	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
@@ -1617,19 +1621,20 @@
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/armor/plate/rust,
 /obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/chainmail,
 /obj/item/weapon/polearm/spear/billhook,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/armor/chainmail,
 /obj/item/clothing/ring/gold/rontz,
+/obj/item/clothing/neck/psycross/g,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	TOTALSPD = 12;
 	TOTALSTR = 15;
 	TOTALCON = 14;
-	TOTALEND = 14
+	TOTALEND = 14;
+	candodge = 0
 	},
-/obj/item/clothing/neck/psycross/g,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "yF" = (
@@ -1649,12 +1654,13 @@
 	TOTALSPD = 15;
 	TOTALSTR = 15;
 	TOTALCON = 12;
-	TOTALEND = 12
+	TOTALEND = 12;
+	candodge = 0
 	},
 /obj/item/weapon/sword/decorated,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/clothing/neck/psycross/silver,
-/turf/open/floor/cobblerock,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "yU" = (
 /obj/effect/decal/cleanable/blood,
@@ -1677,7 +1683,8 @@
 	TOTALSTR = 15;
 	TOTALSPD = 15;
 	TOTALCON = 12;
-	TOTALEND = 12
+	TOTALEND = 12;
+	candodge = 0
 	},
 /obj/item/weapon/sword/rapier,
 /obj/item/weapon/shield/tower/buckleriron,
@@ -2434,7 +2441,8 @@
 	TOTALSPD = 15;
 	TOTALCON = 18;
 	TOTALEND = 15;
-	TOTALSTR = 14
+	TOTALSTR = 14;
+	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
