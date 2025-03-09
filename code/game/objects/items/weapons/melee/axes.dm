@@ -81,8 +81,6 @@
 	icon_state = "stoneaxe"
 	max_blade_int = 50
 	max_integrity = 50
-	wdefense = BAD_PARRY
-
 	wbalance = EASY_TO_DODGE
 	wlength = WLENGTH_SHORT
 	smeltresult = /obj/item/ash //is a wooden log and a stone hammered in the top
@@ -307,7 +305,7 @@
 	associated_skill = /datum/skill/combat/axesmaces
 	dropshrink = 0.95
 	minstr = 10
-	wdefense = 3
+	wdefense = GOOD_PARRY
 	axe_cut = 15
 	sellprice = 20
 
@@ -328,8 +326,8 @@
 
 /obj/item/weapon/axe/boneaxe
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
-	force = 18
-	force_wielded = 22
+	force = DAMAGE_AXE-2 //18 total
+	force_wielded = DAMAGE_AXE_WIELD-3 //22 total
 	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	name = "bone axe"
 	desc = "A rough axe made of bones"
@@ -342,7 +340,7 @@
 	associated_skill = /datum/skill/combat/axesmaces
 	max_blade_int = 100
 	minstr = 8
-	wdefense = 1
+	wdefense = MEDIOCHRE_PARRY
 	w_class = WEIGHT_CLASS_BULKY
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'

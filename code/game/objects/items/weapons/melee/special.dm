@@ -1,6 +1,6 @@
 /obj/item/weapon/lordscepter
-	force = 20
-	force_wielded = 20
+	force = DAMAGE_MACE
+	force_wielded = DAMAGE_MACE
 	possible_item_intents = list(/datum/intent/lordbash, /datum/intent/lord_electrocute, /datum/intent/lord_silence)
 	gripped_intents = list(/datum/intent/lordbash)
 	name = "master's rod"
@@ -28,7 +28,7 @@
 	blade_class = BCLASS_BLUNT
 	icon_state = "inbash"
 	attack_verb = list("bashes", "strikes")
-	penfactor = 10
+	penfactor = AP_CLUB_STRIKE-10 //10 total, bad AP
 	item_damage_type = "blunt"
 
 /datum/intent/lord_electrocute
@@ -95,15 +95,15 @@
 				return
 
 /obj/item/weapon/mace/stunmace
-	force = 15
-	force_wielded = 15
+	force = DAMAGE_CLUB
+	force_wielded = DAMAGE_CLUB
 	name = "stunmace"
 	icon_state = "stunmace0"
 	desc = "A dwarven invention, a mace that bears tiny soul-gems that imbue the crown of the mace with lightning mana."
 	gripped_intents = null
 	w_class = WEIGHT_CLASS_NORMAL
 	possible_item_intents = list(/datum/intent/mace/strike/stunner, /datum/intent/mace/smash/stunner)
-	wbalance = 0
+	wbalance = DODGE_CHANCE_NORMAL
 	minstr = 5
 	wdefense = 0
 	var/charge = 100

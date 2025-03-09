@@ -20,6 +20,7 @@
 	swingsound = BLUNTWOOSH_MED
 	can_parry = FALSE // You can't parry with this, it'd be awkward to tangle chains, use a shield
 	wdefense = TERRIBLE_PARRY
+	wbalance = DODGE_CHANCE_NORMAL
 	max_integrity = 300
 	throwforce = 5
 	minstr = 6
@@ -125,7 +126,6 @@
 	bigboy = TRUE
 	gripsprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
-	wbalance = 0
 	wlength = WLENGTH_LONG
 	slot_flags = ITEM_SLOT_BACK
 	max_integrity = 500
