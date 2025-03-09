@@ -401,28 +401,20 @@
 /area/rogue/under/mountains)
 "Yp" = (
 /obj/effect/decal/cleanable/blood/drip,
-/mob/living/carbon/human/species/goblin{
-	STACON = 20;
-	STAEND = 20;
-	STAINT = 20;
-	STALUC = 20;
-	STAPER = 20;
-	STASPD = 20;
-	STASTR = 20;
-	TOTALSTR = 20;
-	TOTALSPD = 20;
-	TOTALPER = 20;
-	TOTALLUC = 20;
-	TOTALINT = 20;
-	TOTALEND = 20;
-	TOTALCON = 20;
-	name = "level 1 goblin"
-	},
 /obj/item/weapon/polearm/spear/billhook,
 /obj/item/clothing/head/crown/circlet/sleepless,
 /obj/effect/spawner/map_spawner/loot/coin/absurd,
 /obj/effect/spawner/map_spawner/loot/potion_vitals,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/goblin/npc{
+	TOTALCON = 20;
+	TOTALEND = 20;
+	TOTALINT = 20;
+	TOTALLUC = 20;
+	TOTALPER = 20;
+	TOTALSPD = 20;
+	name = "Level 1 Goblin"
+	},
 /turf/open/floor/dirt,
 /area/rogue/under/cavewet)
 "YL" = (
