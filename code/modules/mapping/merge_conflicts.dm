@@ -1,6 +1,6 @@
-// Used by mapmerge2 to denote the existence of a merge conflict (or when it has to complete a "best intent" merge where it dumps the movable contents of an old key and a new key on the same tile).
-// We define it explicitly here to ensure that it shows up on the highest possible plane (while giving off a verbose icon) to aide mappers in resolving these conflicts.
-// DO NOT USE THIS IN NORMAL MAPPING!!! Linters WILL fail.
+/// Used by mapmerge2 to denote the existence of a merge conflict (or when it has to complete a "best intent" merge where it dumps the movable contents of an old key and a new key on the same tile).
+/// We define it explicitly here to ensure that it shows up on the highest possible plane (while giving off a verbose icon) to aide mappers in resolving these conflicts.
+/// DO NOT USE THIS IN NORMAL MAPPING!!! Linters WILL fail.
 
 /obj/merge_conflict_marker
 	name = "Merge Conflict Marker - DO NOT USE"
