@@ -4,121 +4,121 @@
 	icon_state = "iron_line";
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "c" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "d" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "e" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_line"
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "h" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "j" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "k" = (
 /obj/item/natural/poo/cow,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "n" = (
 /obj/structure/toilet,
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "o" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner"
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "r" = (
 /turf/closed/wall/mineral/pipe,
-/area/rogue)
+/area/rogue/under/cavewet)
 "t" = (
 /turf/closed/wall/mineral/pipe{
 	dir = 4;
 	icon_state = "iron_corner"
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "u" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "w" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "x" = (
 /obj/item/natural/worms/leech,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "y" = (
 /turf/closed/wall/mineral/pipe{
 	dir = 8;
 	icon_state = "iron_corner"
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "z" = (
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "B" = (
 /obj/item/gear,
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "C" = (
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /obj/item/natural/poo,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "D" = (
 /turf/closed/wall/mineral/pipe{
 	dir = 1;
 	icon_state = "iron_corner"
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "E" = (
 /obj/structure/ladder,
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "H" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cavewet)
 "I" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "J" = (
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "K" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "M" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cavewet)
 "N" = (
 /obj/item/weapon/sword/long/greatsword/zwei,
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Q" = (
 /obj/item/natural/poo,
 /obj/item/natural/poo,
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "R" = (
 /obj/item/natural/poo,
 /obj/item/natural/poo{
@@ -138,17 +138,17 @@
 	},
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "S" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "T" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/sea,
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 "V" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavewet)
 "X" = (
 /obj/item/reagent_containers/food/snacks/cheesebun,
 /obj/structure/ladder,
@@ -168,14 +168,14 @@
 	pixel_y = 11
 	},
 /turf/open/water/sewer,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Z" = (
 /obj/item/clothing/cloak/heartfelt{
 	name = "shit stained cloak";
 	desc = "You are the lord of this shithouse."
 	},
 /turf/open/floor/metal/barograte/open,
-/area/rogue)
+/area/rogue/under/cavewet)
 
 (1,1,1) = {"
 M

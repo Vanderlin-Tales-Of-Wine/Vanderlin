@@ -1,38 +1,38 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cavewet)
 "q" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "y" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "z" = (
 /obj/structure/kneestingers,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "D" = (
 /obj/structure/roguetent,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "H" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "I" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "L" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Q" = (
 /turf/closed/wall/mineral/tent,
-/area/rogue)
+/area/rogue/under/cavewet)
 
 (1,1,1) = {"
 a

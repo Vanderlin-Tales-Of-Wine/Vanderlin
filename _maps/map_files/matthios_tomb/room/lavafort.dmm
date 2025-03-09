@@ -6,14 +6,14 @@
 /obj/structure/flora/grass,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "ad" = (
 /obj/structure/flora/grass/bush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "aj" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "bz" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/glass/bottle/vial,
@@ -23,19 +23,19 @@
 /obj/item/reagent_containers/glass/bottle,
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "cq" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "cr" = (
 /turf/closed/wall/mineral/stone/window,
-/area/rogue)
+/area/rogue/under/cavelava)
 "cV" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "cX" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -44,52 +44,52 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "cZ" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "dd" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /obj/item/bath/soap,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "dx" = (
 /obj/structure/flora/grass,
 /obj/item/alch/waterdust,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "eE" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "eN" = (
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "eT" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fe" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fi" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fx" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fz" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bucket,
@@ -98,139 +98,154 @@
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fL" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "fU" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "gD" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/metal,
-/area/rogue)
+/area/rogue/under/cavelava)
 "hi" = (
-/mob/living/simple_animal/hostile/skeleton/axe,
-/turf/open/floor/hexstone,
-/area/rogue)
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "hS" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "ig" = (
 /obj/machinery/light/fueled/cauldron,
 /obj/effect/decal/cleanable/sigil/N,
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
+"ii" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "iK" = (
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "jj" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "jk" = (
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "jK" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "kU" = (
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "lq" = (
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "lF" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "lS" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "lW" = (
-/mob/living/simple_animal/hostile/skeleton/guard,
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "mo" = (
 /obj/structure/composter/halffull,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "mF" = (
 /obj/structure/chair/wood/alt/chair_noble,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "mY" = (
 /obj/item/bin/water,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "mZ" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/clothing/face/spectacles/golden,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "nc" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "nm" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "nu" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "om" = (
 /obj/structure/fermentation_keg/water,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "oG" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "pY" = (
 /obj/effect/decal/cleanable/sigil,
 /obj/item/weapon/knife/dagger/silver,
 /obj/item/reagent_containers/powder/moondust_purest,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "qh" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
+"qp" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cavelava)
 "qG" = (
 /obj/machinery/tanningrack,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "rz" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/alch/swampdust,
 /obj/item/alch/runedust,
 /obj/item/alch/tobaccodust,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "sc" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "sv" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -240,27 +255,27 @@
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/fluff/telescope,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "sG" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "tF" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/book/magicaltheory,
 /obj/item/book/granter/spell/magick/fireball,
 /obj/item/scomstone/bad,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "ut" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "uy" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/alch/swampdust,
@@ -270,14 +285,17 @@
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
+"uX" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "vB" = (
 /obj/structure/circle_protection,
 /obj/item/alch/firedust,
 /obj/item/weapon/sword/silver,
-/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "wm" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -285,44 +303,44 @@
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
-/area/rogue)
+/area/rogue/under/cavelava)
 "xt" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /obj/item/soap,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "xG" = (
 /obj/effect/decal/cleanable/sigil/W,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "xI" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "xO" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "xR" = (
 /obj/structure/fluff/buysign{
 	name = "If you are reading this, the Ten says you are a nerd."
 	},
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yc" = (
 /obj/effect/decal/cleanable/sigil/NE,
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yp" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yG" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/weapon/sickle,
@@ -332,52 +350,57 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /obj/item/weapon/shovel,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yI" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
 	},
+/mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yN" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "yW" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "AD" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/sigil/S,
-/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Bk" = (
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
+"CP" = (
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "CQ" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "CW" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Dc" = (
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "DM" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "DO" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/brflowers,
@@ -385,10 +408,10 @@
 /obj/structure/flora/grass,
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Es" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "EQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -396,7 +419,7 @@
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
-/area/rogue)
+/area/rogue/under/cavelava)
 "Fa" = (
 /obj/machinery/light/fueled/oven/west,
 /obj/structure/closet/crate/chest,
@@ -408,118 +431,117 @@
 /obj/item/reagent_containers/food/snacks/meat/poultry,
 /obj/item/reagent_containers/food/snacks/meat/poultry,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Ga" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_x = -32;
 	pixel_y = 0
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Gc" = (
 /obj/structure/table/wood/treestump/burnt,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Ha" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Hh" = (
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "HP" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "HT" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "HY" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Ik" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "IC" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "IH" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/mortar,
 /obj/item/pestle,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Jf" = (
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Jl" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "JG" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Kt" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "KP" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "KW" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "LG" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "LP" = (
 /obj/structure/circle_protection,
 /obj/item/alch/firedust,
 /obj/item/weapon/sword/rapier/silver,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "MG" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "MH" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "NO" = (
 /turf/open/lava,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Om" = (
 /obj/structure/well,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "OF" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
 	},
-/mob/living/simple_animal/hostile/skeleton/axe,
-/turf/open/floor/carpet/royalblack,
-/area/rogue)
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
 "OR" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -531,141 +553,152 @@
 	dir = 6
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "OY" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cavelava)
 "PJ" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Qf" = (
 /obj/structure/chair/wood/alt/chair_noble{
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
+"Qk" = (
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/hexstone,
+/area/rogue/under/cavelava)
+"QB" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "QC" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "RH" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "SI" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Ta" = (
 /turf/open/floor/metal,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Tc" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /obj/item/broom,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Tk" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "TN" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "TQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/metal,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Uo" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Ut" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Uz" = (
 /obj/structure/bookcase/random/thesis,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 "UG" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Vh" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Vm" = (
 /obj/structure/flora/grass/bush/wall/tall,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "VJ" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "VM" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Wp" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "WF" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
-/mob/living/simple_animal/hostile/skeleton/guard,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "WV" = (
 /obj/structure/flora/grass/bush,
 /turf/open/floor/grass/red,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Xh" = (
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
-/area/rogue)
+/area/rogue/under/cavelava)
 "Xm" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Yo" = (
 /obj/structure/fluff/railing/border,
 /obj/effect/decal/cleanable/sigil/SW,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Yw" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/neuFarm/seed/poison_berries,
@@ -673,28 +706,29 @@
 /obj/item/neuFarm/seed/westleach,
 /obj/item/neuFarm/seed/wheat,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Za" = (
 /obj/item/alch/magicdust,
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Zr" = (
 /obj/effect/decal/cleanable/sigil/NW,
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
 /obj/structure/fluff/walldeco/church/line,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "ZO" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cavelava)
 
 (1,1,1) = {"
 Es
@@ -1095,10 +1129,10 @@ lS
 MG
 Tk
 fe
-OF
+fe
 fe
 Uo
-nm
+OF
 lS
 lS
 NO
@@ -1253,7 +1287,7 @@ NO
 lS
 HT
 qh
-hi
+qh
 jk
 KP
 jk
@@ -1833,7 +1867,7 @@ aj
 nc
 qh
 qh
-qh
+Qk
 QC
 aj
 aj
@@ -1863,7 +1897,7 @@ aj
 aj
 aj
 lS
-qh
+Kt
 vB
 qh
 lS
@@ -2027,7 +2061,7 @@ jk
 jk
 jk
 Ga
-lW
+jk
 mZ
 lS
 mo
@@ -2056,7 +2090,7 @@ lS
 cq
 OR
 fe
-fe
+QB
 fe
 Uo
 nu
@@ -2094,7 +2128,7 @@ jk
 jk
 cr
 qh
-jk
+ii
 jk
 fL
 aj
@@ -2123,7 +2157,7 @@ Hh
 OY
 aj
 jk
-jk
+hi
 yN
 qh
 jk
@@ -2159,7 +2193,7 @@ jk
 cr
 qh
 jk
-jk
+CP
 fL
 aj
 aj
@@ -2182,7 +2216,7 @@ aj
 lS
 lS
 cq
-DM
+lW
 LG
 Za
 LG
@@ -2191,7 +2225,7 @@ nu
 lS
 lS
 Yw
-jk
+uX
 fL
 aj
 aj
@@ -2218,7 +2252,7 @@ ZO
 jk
 Qf
 jk
-ZO
+qp
 jk
 jk
 lS
@@ -2377,7 +2411,7 @@ aj
 aj
 qh
 qh
-Kt
+qh
 aj
 aj
 aj
@@ -2409,7 +2443,7 @@ aj
 lS
 qh
 LP
-qh
+Kt
 lS
 aj
 aj
@@ -2439,8 +2473,8 @@ aj
 aj
 aj
 nc
-Kt
 qh
+Qk
 qh
 QC
 aj

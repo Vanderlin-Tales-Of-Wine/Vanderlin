@@ -17,23 +17,23 @@
 	pixel_x = -1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "bf" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "ch" = (
 /obj/structure/stairs/d{
 	dir = 4
 	},
 /turf/closed,
-/area/rogue)
+/area/rogue/under/cave)
 "ck" = (
 /obj/structure/table/wood/counter,
 /obj/structure/bars/alt,
 /obj/item/candle/yellow/lit,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "cn" = (
 /obj/item/alch/golddust,
 /obj/structure/closet/crate/chest/neu_fancy{
@@ -43,28 +43,28 @@
 /obj/item/reagent_containers/powder/blastpowder,
 /obj/item/reagent_containers/powder/blastpowder,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "cz" = (
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "cD" = (
 /obj/structure/kneestingers{
 	pixel_y = 12
 	},
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "dt" = (
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "gY" = (
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ix" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -78,34 +78,34 @@
 /obj/item/reagent_containers/food/snacks/raisins,
 /obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "iX" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "jS" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "kz" = (
 /obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "kH" = (
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "mG" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "mH" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "np" = (
 /obj/structure/table/wood/plain_alt,
 /obj/structure/fluff/millstone,
@@ -114,32 +114,32 @@
 	pixel_x = -2
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "nw" = (
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "nZ" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "oo" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "oP" = (
 /obj/structure/fluff/walldeco/vinez/offset,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "pQ" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "qO" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/alch/bonemeal,
 /obj/item/alch/bonemeal,
 /obj/item/alch/bonemeal,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ri" = (
 /obj/structure/closet/crate/drawer/inn,
 /obj/item/clothing/face/cigarette/pipe/westman,
@@ -154,17 +154,17 @@
 	},
 /obj/item/clothing/face/spectacles/golden,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "rH" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "rT" = (
 /obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "rY" = (
 /obj/item/candle/yellow/lit{
 	pixel_y = 10;
@@ -180,7 +180,7 @@
 	pixel_x = 7
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "tj" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -188,20 +188,20 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "tm" = (
 /obj/structure/kneestingers{
 	pixel_y = 12
 	},
 /turf/open/floor/plank/h,
-/area/rogue)
+/area/rogue/under/cave)
 "to" = (
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
 /obj/structure/bars/alt,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "un" = (
 /obj/structure/closet/crate/chest{
 	locked = 1
@@ -212,25 +212,25 @@
 	pixel_x = -8
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "uC" = (
 /obj/structure/bed/shit,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "uK" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "wk" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "wp" = (
 /obj/structure/kneestingers{
 	pixel_y = 12
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "xq" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /obj/item/clothing/cloak/wickercloak,
@@ -238,51 +238,51 @@
 /obj/item/clothing/head/antlerhood,
 /obj/item/clothing/face/skullmask,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "yt" = (
 /obj/structure/stairs/d{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "yv" = (
 /obj/structure/bars,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "yE" = (
 /obj/structure/table/wood/counter,
 /obj/structure/bars/alt,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "zG" = (
 /obj/effect/landmark/chest_or_mimic,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Am" = (
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Bv" = (
 /obj/structure/kneestingers{
 	pixel_y = 12
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "BM" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/alch/golddust,
 /obj/item/alch/silverdust,
 /obj/item/alch/irondust,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "BP" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "CD" = (
 /obj/structure/kneestingers,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "CE" = (
 /obj/structure/table/optable,
 /obj/structure/fluff/walldeco/chains{
@@ -290,12 +290,12 @@
 	pixel_x = 9
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "EJ" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "EK" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -310,13 +310,13 @@
 /obj/item/reagent_containers/food/snacks/raisins,
 /obj/item/reagent_containers/food/snacks/raisins,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "EU" = (
 /obj/structure/kneestingers{
 	pixel_y = 11
 	},
 /turf/open/floor/plank/h,
-/area/rogue)
+/area/rogue/under/cave)
 "FJ" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/food/snacks/rotten/breadslice,
@@ -329,15 +329,15 @@
 	pixel_x = 3
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Ga" = (
 /obj/structure/closet/crate/chest,
 /obj/item/reagent_containers/food/snacks/cooked/coppiette,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Hv" = (
 /turf/open/floor/plank/h,
-/area/rogue)
+/area/rogue/under/cave)
 "Jl" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -347,17 +347,17 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Ld" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "MK" = (
 /obj/structure/mineral_door/bars{
 	locked = 1
 	},
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Qb" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -368,72 +368,72 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Qu" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "QB" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cave)
 "SO" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/alch/horn,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Tj" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "Ty" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Ub" = (
 /obj/structure/well,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "UC" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Vl" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Wj" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Wq" = (
 /obj/effect/decal/remains/human,
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Xu" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/alch/magicdust,
 /obj/item/alch/magicdust,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Zr" = (
 /obj/structure/bed/hay,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ZJ" = (
 /obj/structure/mineral_door/wood/violet{
 	locked = 1
 	},
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "ZL" = (
 /obj/item/clothing/head/hatblu,
 /mob/living/carbon/human/species/zizombie/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ZT" = (
 /obj/machinery/light/fueled/oven/west,
 /obj/machinery/light/fueled/oven/south,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 iX

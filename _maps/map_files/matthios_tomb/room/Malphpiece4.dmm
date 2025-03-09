@@ -49,7 +49,6 @@
 /area/rogue/outdoors/caves)
 "gI" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/ore/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
@@ -57,10 +56,6 @@
 "jB" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/caves)
-"jN" = (
-/mob/living/simple_animal/hostile/retaliate/minotaur/axe/female,
-/turf/open/floor/carpet,
 /area/rogue/outdoors/caves)
 "kv" = (
 /obj/structure/fluff/statue/evil,
@@ -111,7 +106,6 @@
 /area/rogue/outdoors/caves)
 "sK" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/statue/gold/loot,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
@@ -126,14 +120,12 @@
 /area/rogue/outdoors/caves)
 "tx" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/statue/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
 /area/rogue/outdoors/caves)
 "uc" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/clothing/ring/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
@@ -191,7 +183,6 @@
 "Gb" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/coin/copper/pile,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/food/snacks/cheddar/aged,
 /turf/open/floor/blocks/paving/vert,
@@ -239,7 +230,6 @@
 /area/rogue/outdoors/caves)
 "UY" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/reagent_containers/glass/cup/golden,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
@@ -250,7 +240,6 @@
 /area/rogue/outdoors/caves)
 "WO" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/ingot/gold,
 /obj/structure/closet/crate/chest/gold,
 /turf/open/floor/carpet,
@@ -572,7 +561,7 @@ kv
 vp
 vp
 Yi
-jN
+vp
 vp
 kv
 xS
@@ -587,7 +576,7 @@ Yf
 vp
 Yf
 vp
-Yf
+Ac
 vp
 Yf
 vp

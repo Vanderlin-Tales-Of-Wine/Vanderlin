@@ -2,46 +2,46 @@
 "aq" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "cm" = (
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "cA" = (
 /turf/closed/wall/mineral/tent,
-/area/rogue)
+/area/rogue/under/cave)
 "do" = (
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/under/cave)
 "dJ" = (
 /obj/item/reagent_containers/glass/bucket/pot,
 /obj/structure/table/wood/plain,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "ex" = (
 /obj/item/organ/brain,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "eF" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "fL" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/item/reagent_containers/glass/bowl,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "hT" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "iu" = (
 /obj/item/organ/heart,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "iB" = (
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "iH" = (
 /obj/structure/table/wood/plain,
 /obj/item/weapon/knife/hunting{
@@ -65,53 +65,53 @@
 	pixel_x = 9
 	},
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "iR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "jl" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat,
 /obj/item/organ/heart,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "jK" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "kI" = (
 /obj/item/organ/brain,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "kW" = (
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "lL" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /obj/item/reagent_containers/food/snacks/pie/cooked/apple,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "mK" = (
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "nE" = (
 /obj/item/clothing/face/facemask/goldmask,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "oE" = (
 /obj/item/paper/scroll,
 /obj/structure/table/wood/plain,
 /obj/item/natural/feather,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "ro" = (
 /obj/item/organ/tongue,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/under/cave)
 "sF" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue)
+/area/rogue/under/cave)
 "ta" = (
 /obj/structure/table/wood/plain,
 /obj/item/natural/cloth,
@@ -120,29 +120,29 @@
 	pixel_x = -7
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "tA" = (
 /obj/structure/table/wood/plain,
 /obj/item/needle,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "tB" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "tS" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "uy" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "vj" = (
 /obj/item/reagent_containers/glass/bottle/beer,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "xI" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/weapon/sword/rapier/silver,
@@ -152,39 +152,39 @@
 /obj/effect/decal/cleanable/blood,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/under/cave)
 "yd" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "yu" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 4
 	},
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "zE" = (
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Bz" = (
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "Cf" = (
 /obj/item/ingot/gold,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "CL" = (
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "Du" = (
 /obj/item/organ/eyes,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "DW" = (
 /obj/structure/bed/shit,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -192,7 +192,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "EB" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/structure/bed/mediocre,
@@ -200,31 +200,31 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/under/cave)
 "EE" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /obj/item/ingot/gold,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Gq" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "HA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "KM" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "KV" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /obj/structure/bed/mediocre,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "Mt" = (
 /obj/item/weapon/knife/dagger/silver,
 /obj/item/natural/stone,
@@ -246,53 +246,53 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Mw" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "Ng" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "Oj" = (
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "OG" = (
 /obj/item/organ/lungs,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "Pa" = (
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "PO" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "QY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/bed/mediocre,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "Rl" = (
 /obj/item/organ/lungs,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/under/cave)
 "SU" = (
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Wk" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/under/cave)
 "Wv" = (
 /obj/structure/bed/shit,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 jK

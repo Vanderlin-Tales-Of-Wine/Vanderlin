@@ -37,8 +37,8 @@
 /turf/open/floor/churchbrick,
 /area/rogue/outdoors/caves)
 "O" = (
-/obj/machinery/light/fueled/torchholder/l,
-/obj/effect/spawner/map_spawner/hauntpile,
+/obj/machinery/light/fueled/torchholder/r,
+/obj/structure/bonepile,
 /turf/open/floor/churchbrick,
 /area/rogue/outdoors/caves)
 "S" = (
@@ -108,7 +108,7 @@ k
 "}
 (3,1,2) = {"
 a
-O
+y
 a
 y
 a
@@ -117,7 +117,7 @@ a
 a
 S
 a
-S
+O
 a
 "}
 (5,1,2) = {"
