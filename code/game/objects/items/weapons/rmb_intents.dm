@@ -12,7 +12,7 @@
 	if(user.incapacitated())
 		return
 	var/mob/living/L = target
-	user.changeNext_move(CLICK_CD_RAPID)
+	user.changeNext_move(CLICK_CD_FAST)
 	playsound(user, 'sound/combat/feint.ogg', 100, TRUE)
 	user.visible_message("<span class='danger'>[user] feints an attack at [target]!</span>")
 	var/perc = 50
@@ -118,5 +118,5 @@
 
 /datum/rmb_intent/weak
 	name = "weak"
-	desc = "Your attacks have -1 strength and will never critically-hit. Surgery steps can only be done with this intent. Useful for longer punishments, play-fighting, and bloodletting."
+	desc = "Your attacks have halved strength and will never critically-hit. Surgery steps can only be done with this intent. Useful for longer punishments, play-fighting, and bloodletting."
 	icon_state = "rmbweak"
