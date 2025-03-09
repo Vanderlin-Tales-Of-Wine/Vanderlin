@@ -77,7 +77,7 @@
 
 /obj/item/reagent_containers/food/snacks/rotten/egg
 	name = "rotten egg"
-	icon_state = "egg2"
+	icon_state = "eggB"
 
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
