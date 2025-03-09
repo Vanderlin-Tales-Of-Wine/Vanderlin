@@ -443,7 +443,7 @@
 // -------------- Flour -----------------
 /obj/item/reagent_containers/powder/flour
 	name = "flour"
-	desc = "A cook's best friend, vital for making any kind of dough with water."
+	desc = "With this ambition, we build an empire."
 	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
