@@ -11198,6 +11198,10 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
+"hTa" = (
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/rtfield/safe)
 "hTk" = (
 /turf/open/floor/twig,
 /area/rogue/outdoors/rtfield/safe)
@@ -15761,6 +15765,11 @@
 "lfU" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/under/town/sewer)
+"lgF" = (
+/obj/structure/flora/grass,
+/obj/machinery/light/fueled/firebowl/stump,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/rtfield/safe)
 "lgG" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
@@ -27597,6 +27606,11 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
+"tSD" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/safe)
 "tSK" = (
 /obj/structure/stairs,
 /turf/open/floor/metal/barograte,
@@ -149212,7 +149226,7 @@ mJO
 nlp
 fYR
 fYR
-fYR
+nlp
 nEW
 nZK
 aWD
@@ -149412,15 +149426,15 @@ vlf
 dxA
 dMG
 nlp
-fYR
+nlp
 aWD
-fYR
+aWD
 aUi
 aWD
 nlp
 aWD
-nEW
-aWD
+nZK
+fYR
 nlp
 pVJ
 ucW
@@ -149614,17 +149628,17 @@ nLu
 nlp
 nZK
 bmw
+nlp
+tSD
+ukJ
+nlp
+nlp
+hTa
 aWD
-nlp
+fYR
 fYR
 nlp
 nlp
-fYR
-aWD
-nZK
-tWR
-nlp
-fYR
 aWD
 ucW
 ucW
@@ -149817,13 +149831,13 @@ aWD
 aWD
 dnU
 aWD
-pVJ
-fYR
-nlp
-nlp
-pVJ
-nEW
 aWD
+aWD
+nlp
+nlp
+nlp
+nlp
+ucW
 nlp
 cCa
 nlp
@@ -150020,15 +150034,15 @@ nZK
 aWD
 ukJ
 aWD
-fYR
 nlp
+mAU
 nlp
 ukJ
 nlp
-dnU
-fYR
-jpK
-nlp
+xFd
+ucW
+aWD
+mAU
 aWD
 nlp
 aWD
@@ -150222,13 +150236,13 @@ aWD
 nlp
 nlp
 aUi
-fYR
+nlp
+nlp
+aWD
+aWD
+nlp
 ucW
 ucW
-aWD
-aWD
-aWD
-aWD
 aWD
 nlp
 eTF
@@ -150422,15 +150436,15 @@ mJO
 nlp
 nlp
 nlp
-nlp
+mAU
 oTX
 nlp
-xFd
-ucW
-ukJ
+nZK
+aWD
+lgF
 nlp
 tWR
-mAU
+nlp
 nlp
 nZK
 aWD
@@ -150626,13 +150640,13 @@ mAU
 nlp
 ukJ
 ukJ
-fYR
-ucW
-fYR
+nlp
+ukJ
+nlp
 nlp
 aWD
 nlp
-nlp
+mAU
 nlp
 aWD
 fYR
@@ -150827,8 +150841,8 @@ nlp
 nlp
 tWR
 nlp
-pVJ
-fYR
+nlp
+nlp
 nlp
 mAU
 nlp
@@ -151235,7 +151249,7 @@ fYR
 nlp
 mAU
 nlp
-nlp
+ukJ
 nlp
 nZK
 nEW
@@ -151437,7 +151451,7 @@ fYR
 aWD
 nlp
 tWR
-aWD
+nZK
 aWD
 nZK
 nZK
@@ -151644,8 +151658,8 @@ fYR
 jpK
 nlp
 tWR
-vgJ
-vgJ
+aWD
+ukJ
 dQM
 gZZ
 wqG
@@ -151846,7 +151860,7 @@ aWD
 aWD
 aWD
 nlp
-vgJ
+nlp
 vgJ
 vgJ
 vgJ
@@ -192045,8 +192059,8 @@ uVx
 uVx
 uVx
 uVx
-iWm
-iWm
+uVx
+uVx
 uVx
 uVx
 uVx
@@ -192247,7 +192261,7 @@ uVx
 uVx
 uVx
 uVx
-iWm
+uVx
 aOl
 iWm
 iWm
