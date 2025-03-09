@@ -34,14 +34,15 @@
 	for(var/obj/machinery/light/fueled/RF in view(5, src))
 		if(RF.on)
 			return
-	var/victims = 0
+	var/victims = 1
 	var/list/victims_list = list()
 	for(var/mob/living/V in view(5, src))
-		if(V.ambushable())
-			victims++
-			LAZYADD(victims_list, V)
-		if(victims > 3)
-			return
+		if(V != src)
+			if(V.ambushable())
+				victims++
+				LAZYADD(victims_list, V)
+			if(victims > 3)
+				return
 	var/list/possible_targets = list()
 	for(var/obj/structure/table/wood/treestump in view(5, src))
 		LAZYADD(possible_targets, get_turf(treestump))
@@ -75,9 +76,9 @@
 			H.retaliate(src)
 			mustype = 2
 	if(mustype == 1)
-		playsound_local(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
+		playsound(get_turf(src), pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
 	else
-		playsound_local(src, pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg'), 100)
+		playsound(get_turf(src), pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg'), 100)
 	shake_camera(src, 2, 2)
 
 	if(iscarbon(src))
