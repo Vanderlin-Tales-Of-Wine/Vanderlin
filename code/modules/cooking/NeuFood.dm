@@ -446,17 +446,17 @@
 	desc = "With this ambition, we build an empire."
 	gender = PLURAL
 	icon_state = "flour"
-	list_reagents = list(/datum/reagent/floure = 1)
+	list_reagents = list(/datum/reagent/flour = 1)
 	volume = 1
 	sellprice = 0
 	var/water_added
 
-/datum/reagent/floure
+/datum/reagent/flour
 	name = "flour"
 	description = ""
 	color = "#FFFFFF" // rgb: 96, 165, 132
 
-/datum/reagent/floure/on_mob_life(mob/living/carbon/M)
+/datum/reagent/flour/on_mob_life(mob/living/carbon/M)
 	if(prob(30))
 		M.confused = max(M.confused + 3, 0)
 	M.emote(pick("cough"))
@@ -518,7 +518,7 @@
 	desc = "A survialist's best friend, great for preserving meat."
 	gender = PLURAL
 	icon_state = "salt"
-	list_reagents = list(/datum/reagent/floure = 1)
+	list_reagents = list(/datum/reagent/flour = 1)
 	volume = 1
 	sellprice = 0
 
