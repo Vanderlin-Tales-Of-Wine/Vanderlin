@@ -35,7 +35,7 @@
 		if(RF.on)
 			return
 	var/victims = 1
-	var/list/victims_list = list()
+	var/list/victims_list
 	for(var/mob/living/V in view(5, src))
 		if(V != src)
 			if(V.ambushable())
@@ -43,23 +43,23 @@
 				LAZYADD(victims_list, V)
 			if(victims > 3)
 				return
-	var/list/possible_targets = list()
-	for(var/obj/structure/table/wood/treestump in view(5, src))
-		LAZYADD(possible_targets, get_turf(treestump))
-	for(var/obj/structure/flora/tree/tree in view(5, src))
-		LAZYADD(possible_targets, get_turf(tree))
-	for(var/obj/structure/flora/shroom_tree/shroom in view(5, src))
-		LAZYADD(possible_targets, get_turf(shroom))
-	for(var/obj/structure/flora/newtree/ntree in view(5, src))
-		LAZYADD(possible_targets, get_turf(ntree))
+	var/static/list/valid_targets = list(
+		/obj/structure/flora/tree, \
+		/obj/structure/flora/shroom_tree, \
+		/obj/structure/flora/newtree
+	)
+	var/list/possible_targets
+	for(var/obj/structure/object in oview(5, src)) //do not count the player
+		if(is_type_in_list(object, valid_targets))
+			LAZYADD(possible_targets, get_turf(object))
 	if(!LAZYLEN(possible_targets))
 		return
-	//MOBTIMER_SET(src, MT_AMBUSHLAST)
+	MOBTIMER_SET(src, MT_AMBUSHLAST)
 	for(var/mob/living/V as anything in victims_list)
 		MOBTIMER_SET(V, MT_AMBUSHLAST)
 	var/spawnedtype = pickweight(AR.ambush_mobs)
 	var/mustype = 1
-	for(var/i in 1 to CLAMP(victims, 2, 3))
+	for(var/i in 1 to clamp(victims, 2, 3))
 		var/spawnloc = safepick(possible_targets)
 		if(!spawnloc)
 			return
