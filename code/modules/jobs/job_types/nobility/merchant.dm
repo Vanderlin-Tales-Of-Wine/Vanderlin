@@ -62,5 +62,4 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE) // Literally unused skill
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
