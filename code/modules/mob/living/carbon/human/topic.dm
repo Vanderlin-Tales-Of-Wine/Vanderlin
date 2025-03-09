@@ -3,6 +3,8 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 /mob/living/carbon/human/Topic(href, href_list)
 	if(href_list["commend_target"])
+		if(user == src)
+			return
 		var/mob/living/carbon/human/target = locate(href_list["commend_target"])
 		var/client/C = usr.client
 		if(!C || C.commendedsomeone)
