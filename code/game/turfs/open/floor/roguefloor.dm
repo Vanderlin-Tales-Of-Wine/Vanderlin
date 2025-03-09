@@ -223,7 +223,7 @@
 	spread_chance = 0
 
 /turf/open/floor/snow/Initialize()
-	dir = pick(GLOB.cardinals)
+	dir = pick(GLOB.alldirs)	// STONEKEEP EDIT
 	. = ..()
 
 /turf/open/floor/snow/cardinal_smooth(adjacencies)

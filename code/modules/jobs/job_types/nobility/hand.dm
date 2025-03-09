@@ -72,7 +72,7 @@
 /datum/outfit/job/hand/handclassic/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/satchel/black
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	armor = /obj/item/clothing/armor/leather/jacket/handjacket
 	pants = /obj/item/clothing/pants/tights/black
 	beltr = /obj/item/weapon/sword/rapier/dec

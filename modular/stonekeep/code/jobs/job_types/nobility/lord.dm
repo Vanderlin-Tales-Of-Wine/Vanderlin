@@ -72,7 +72,7 @@
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/pantaloons/dark
 		shirt = /obj/item/clothing/shirt/undershirt/black
-		armor = /obj/item/clothing/armor/gambeson/arming
+		armor = /obj/item/clothing/armor/medium/surcoat
 		shoes = /obj/item/clothing/shoes/boots
 		cloak = /obj/item/clothing/cloak/lordcloak
 		if(H.dna?.species)

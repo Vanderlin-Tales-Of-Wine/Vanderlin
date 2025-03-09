@@ -26,17 +26,17 @@
 
 /obj/structure/innocent_web/attack_hand()
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+	createspooder()
 	qdel(src)
 
 /obj/structure/innocent_web/attackby(obj/item, /mob/user, params)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+	createspooder()
 	qdel(src)
 
 /obj/structure/innocent_web/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/spider/hairy (get_turf(src))
+	createspooder()
 	qdel(src)
 
 /obj/structure/innocent_web/Crossed(atom/movable/AM)
@@ -52,7 +52,7 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
+				createspooder()
 				qdel(src)
 		if(L.m_intent == MOVE_INTENT_RUN)
 			to_chat(L, "<span class='warning'>I'm stuck in the web!</span>")
@@ -62,7 +62,7 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
+				createspooder()
 				qdel(src)
 		else
 			to_chat(L, "<span class='warning'>I'm stuck in the web!</span>")
@@ -72,8 +72,13 @@
 				qdel(src)
 			else
 				playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 120)
-				new /mob/living/simple_animal/hostile/retaliate/spider/hairy(loc)
+				createspooder()
 				qdel(src)
+
+/obj/structure/innocent_web/proc/createspooder()
+	if(QDELETED(src))
+		return
+	new /mob/living/simple_animal/hostile/retaliate/spider/hairy(get_turf(src))
 
 
 /mob/living/simple_animal/hostile/retaliate/spider/hairy
@@ -415,6 +420,22 @@ range. How much processing this saves is unclear */
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/weak)
 	a_intent = INTENT_HELP
 	attack_speed = 2
+
+/mob/living/carbon/human/species/zizombie/npc_idle()
+	if(world.time < next_idle)
+		return
+	next_idle = world.time + rand(30, 70)
+	if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && wander)
+		if(prob(20))
+			var/turf/T = get_step(loc,pick(GLOB.cardinals))
+			if(!istype(T, /turf/open/transparent/openspace))
+				Move(T)
+		else
+			face_atom(get_step(src,pick(GLOB.cardinals)))
+	if(!wander && prob(10))
+		face_atom(get_step(src,pick(GLOB.cardinals)))
+	if(prob(3))
+		playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/headless
 	icon = 'modular/stonekeep/icons/mobs/headless.dmi'

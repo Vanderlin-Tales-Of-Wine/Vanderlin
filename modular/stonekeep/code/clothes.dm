@@ -1026,7 +1026,13 @@
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	alternate_worn_layer = BACK_LAYER
+	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 
 /obj/item/clothing/cloak/wickercloak
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+
+/obj/item/clothing/armor/brigandine/coatplates
+	desc = "A heavy armor made of smaller overlapping plates. \
+			It is said to have been invented by the most famous Haiduk khan Möngke, but as with most tales, no one knows for sure."

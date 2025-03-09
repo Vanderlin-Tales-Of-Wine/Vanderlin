@@ -390,6 +390,28 @@
 		open_up()
 
 
+/obj/structure/chair/pew/left
+	name = "pew"
+
+/obj/structure/chair/pew/right
+	name = "pew"
+
+/obj/structure/chair/pew/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /obj/projectile))
+		return TRUE
+	if(get_dir(mover,loc) == dir)
+		return FALSE
+	return !density
+
+/obj/structure/chair/pew/CheckExit(atom/movable/mover, turf/target)
+	if(istype(mover, /obj/projectile))
+		return TRUE
+	if(get_dir(target, mover.loc) == dir)
+		return FALSE
+	return !density
+
+
+
 // =============================================================================
 // =========================	WALL DECORATIONS	============================
 

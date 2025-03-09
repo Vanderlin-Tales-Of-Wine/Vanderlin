@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	faction = "Station"
 	total_positions = 14
 	spawn_positions = 14
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = ALL_STONEKEEP_PLAYER_RACES	// STONEKEEP EDIT
 	tutorial = "Hero of nothing, adventurer by trade. Whatever led you to this fate is up to the wind to decide, and you've never fancied yourself for much other than the thrill. Someday your pride is going to catch up to you, and you're going to find out why most men don't end up in the annals of history."
 
 
@@ -19,7 +19,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 
 	var/isvillager = FALSE
 	var/ispilgrim = FALSE
-	display_order = JDO_ADVENTURER
+	display_order = ADVENTURER_ORDER	// STONEKEEP EDIT
 	show_in_credits = FALSE
 	min_pq = 2
 	always_show_on_latechoices = TRUE

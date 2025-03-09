@@ -68,6 +68,10 @@
 /turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
+/turf/open/floor/cobble/mossy
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "mossystone1"
+	neighborlay = "mossyedge"
 /turf/open/floor/cobble/mossy/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)

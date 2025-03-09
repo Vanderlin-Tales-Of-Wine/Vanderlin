@@ -22,14 +22,14 @@
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/angle
 	belt = /obj/item/storage/belt/leather/mercenary/shalal
-	armor = /obj/item/clothing/armor/brigandine/coatplates
+	armor = /obj/item/clothing/armor/medium/surcoat
 	beltr = /obj/item/weapon/sword/long/rider
 	beltl= /obj/item/flashlight/flare/torch/lantern
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/tights/red
 	neck = /obj/item/clothing/neck/keffiyeh/red
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor)
+	backpack_contents = list(/obj/item/storage/belt/pouch/coins/poor = 1, /obj/item/weapon/knife/throwingknife = 1)
 	if(!H.has_language(/datum/language/zybantine))
 		H.grant_language(/datum/language/zybantine)
 		to_chat(H, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")

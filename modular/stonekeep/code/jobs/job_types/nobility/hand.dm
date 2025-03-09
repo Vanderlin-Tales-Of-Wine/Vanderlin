@@ -42,13 +42,13 @@
 	backr = /obj/item/storage/backpack/satchel/black
 	armor = /obj/item/clothing/armor/leather/jacket/handjacket
 	belt = /obj/item/storage/belt/leather/steel
-	beltr = /obj/item/weapon/sword/rapier/dec
+	beltr = /obj/item/weapon/knife/dagger/steel
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/satchel/black
 	armor = /obj/item/clothing/armor/leather/jacket/hand
 	pants = /obj/item/clothing/pants/tights/black
 	shoes = /obj/item/clothing/shoes/nobleboot/thighboots
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
+	backpack_contents = list(/obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
