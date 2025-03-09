@@ -69,6 +69,7 @@
 /datum/skill/craft/medicine
 	name = "Medicinecraft"
 	desc = "Medicinecraft is a skill that represents your character's ability to perform medicine on others. The higher your skill in Medicinecraft, the better you can treat your patients and the faster you can perform surgery on them."
+	randomable_dream_xp = FALSE
 	dreams = list(
 		"...you exhume the last meal he ate... keeling over and examining the empty void, you see the inklings of a garden sprouting inside the cadaver..."
 	)
