@@ -3341,9 +3341,6 @@
 /obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/manor)
-"cnl" = (
-/turf/closed/wall/mineral/stone,
-/area/rogue/outdoors/rtfield/safe)
 "cnq" = (
 /obj/structure/closet/crate/drawer{
 	pixel_y = 3
@@ -11541,13 +11538,6 @@
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
-"igW" = (
-/obj/structure/feedinghole{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/grass,
-/area/rogue/outdoors/rtfield/safe)
 "ihg" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/paper/bsmith,
@@ -145989,7 +145979,7 @@ cxv
 nZK
 eTF
 uzX
-cnl
+nlp
 iSk
 iSk
 iSk
@@ -146191,7 +146181,7 @@ nlp
 nlp
 ukJ
 nlp
-igW
+aWD
 nZK
 wMs
 wMs
