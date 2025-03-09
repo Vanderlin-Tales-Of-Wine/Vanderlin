@@ -332,6 +332,13 @@
 				/obj/item/natural/fibers = 2)
 	craftdiff = 3
 
+/datum/repeatable_crafting_recipe/sewing/thiefcape
+	name = "rogue shawl"
+	output = /obj/item/clothing/cloak/cape/thief
+	requirements = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 2)
+	craftdiff = 3
+
 /datum/repeatable_crafting_recipe/sewing/halfcloak
 	name = "half cloak"
 	requirements = list(
