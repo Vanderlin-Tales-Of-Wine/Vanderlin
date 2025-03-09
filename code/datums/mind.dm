@@ -331,6 +331,8 @@
 		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
 
 /datum/mind/proc/adjust_skillrank(skill, amt, silent = FALSE)
+	if(!amt)
+		return
 	var/datum/skill/S = GetSkillRef(skill)
 	var/amt2gain = 0
 	if(skill == /datum/skill/magic/arcane)
@@ -399,6 +401,17 @@
 		to_chat(current, span_nicegreen("I feel like I've become more proficient at [S.name]!"))
 	else
 		to_chat(current, span_warning("I feel like I've become worse at [S.name]!"))
+
+
+/**
+ * increases the skill level up to a certain maximum
+ * Vars:
+ ** skill - associated skill
+ ** amt - how much to change the skill
+ ** max - maximum amount up to which the skill will be changed
+*/
+/datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
+	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
 
 // adjusts the amount of available spellpoints
 /datum/mind/proc/adjust_spellpoints(points)
