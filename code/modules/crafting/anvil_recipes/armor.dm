@@ -214,7 +214,7 @@
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/haubergeon
-	name = "Maille"
+	name = "Haubergeon"
 	recipe_name = "a Haubergeon"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/armor/chainmail
