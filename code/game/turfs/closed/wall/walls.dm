@@ -43,6 +43,18 @@
 	icon = 'icons/turf/walls/mossy_stone.dmi'
 	climbdiff = 4
 
+/turf/closed/wall/mineral/stone/moss/blue
+	icon = 'icons/turf/walls/mossy_stone_blue.dmi'
+
+/turf/closed/wall/mineral/stone/window/moss/blue
+	icon = 'icons/turf/walls/mossy_stone_blue.dmi'
+
+/turf/closed/wall/mineral/stone/moss/red
+	icon = 'icons/turf/walls/mossy_stone_red.dmi'
+
+/turf/closed/wall/mineral/stone/window/moss/red
+	icon = 'icons/turf/walls/mossy_stone_red.dmi'
+
 /turf/closed/wall/mineral/craftstone
 	name = "craftstone wall"
 	desc = "A durable wall made from specially crafted stone."
@@ -315,6 +327,44 @@
 /turf/closed/wall/mineral/decostone/fluffstone
 	icon_state = "fluffstone"
 
+//green moss
+/turf/closed/wall/mineral/decostone/moss
+	icon_state = "decostone-b-green"
+
+/turf/closed/wall/mineral/decostone/moss/long
+	icon_state = "decostone-l-green"
+
+/turf/closed/wall/mineral/decostone/moss/end
+	icon_state = "decostone-e-green"
+
+/turf/closed/wall/mineral/decostone/moss/cand
+	icon_state = "decostone-cand-green"
+
+//blue moss
+/turf/closed/wall/mineral/decostone/moss/blue
+	icon_state = "decostone-b-blue"
+
+/turf/closed/wall/mineral/decostone/moss/blue/long
+	icon_state = "decostone-l-blue"
+
+/turf/closed/wall/mineral/decostone/moss/blue/end
+	icon_state = "decostone-e-blue"
+
+/turf/closed/wall/mineral/decostone/moss/blue/cand
+	icon_state = "decostone-cand-blue"
+
+//red moss
+/turf/closed/wall/mineral/decostone/moss/red
+	icon_state = "decostone-b-red"
+
+/turf/closed/wall/mineral/decostone/moss/red/long
+	icon_state = "decostone-l-red"
+
+/turf/closed/wall/mineral/decostone/moss/red/end
+	icon_state = "decostone-e-red"
+
+/turf/closed/wall/mineral/decostone/moss/red/cand
+	icon_state = "decostone-cand-red"
 
 /turf/closed/dungeon_void
 	icon = 'icons/turf/roguewall.dmi'

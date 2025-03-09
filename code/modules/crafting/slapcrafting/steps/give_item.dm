@@ -96,6 +96,10 @@
 	desc = "Add a silver ingot."
 	item_types = list(/obj/item/ingot/silver)
 
+/datum/slapcraft_step/item/gold
+	desc = "Add a gold ingot."
+	item_types = list(/obj/item/ingot/gold)
+
 /datum/slapcraft_step/item/glass
 	desc = "Add a pane of glass."
 	item_types = list(/obj/item/natural/glass)

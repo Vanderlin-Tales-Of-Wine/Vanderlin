@@ -451,7 +451,7 @@
 	},
 /area/rogue/indoors/town)
 "aAZ" = (
-/obj/structure/window/stained{
+/obj/structure/window/stained/silver{
 	opacity = 0
 	},
 /turf/open/floor/blocks,
@@ -5364,7 +5364,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "fRa" = (
-/obj/structure/window/stained{
+/obj/structure/window/stained/silver{
 	opacity = 0
 	},
 /turf/open/floor/blocks,
@@ -7945,7 +7945,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "iMg" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "iMI" = (
@@ -15552,7 +15552,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "rcR" = (
-/obj/structure/window/stained{
+/obj/structure/window/stained/silver{
 	opacity = 0
 	},
 /turf/open/floor/hexstone,
@@ -18269,7 +18269,7 @@
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
 "uiG" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/curtain/bounty{
 	color = "grey"
 	},

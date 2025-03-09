@@ -300,7 +300,6 @@
 	sleepy = 2
 	debris = list(/obj/item/grown/log/tree/small = 2)
 
-
 // ------------ ACCEPTABLE BEDS ----------------------
 /obj/structure/bed/hay
 	icon_state = "haybed"

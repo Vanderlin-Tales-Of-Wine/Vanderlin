@@ -197,6 +197,13 @@
 	canSmoothWith = list(/turf/open/floor/grass,
 	/turf/open/floor/snow)
 
+/turf/open/floor/grass/hell
+	name = "hell grass"
+	desc = "Grass, ominous and instilling uncomfort."
+	icon_state = "hellgrass"
+	neighborlay = "hellgrassedge"
+	canSmoothWith = list(/turf/open/floor/grass,
+	/turf/open/floor/snow)
 
 /*	..................   Snow   ................... */
 
