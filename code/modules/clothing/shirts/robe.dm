@@ -28,6 +28,15 @@
 
 
 //................ Temple Robes ............... //
+
+/obj/item/clothing/shirt/robe/pestra
+	name = "naga robe"
+	desc = "Green robes which cover the body in many layers, resembling the ill form of the rotten naga."
+	icon_state = "pestrarobe"
+	icon = 'icons/roguetown/clothing/patron_robes.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/patron_robes.dmi'
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_patron_robes.dmi'
+
 /obj/item/clothing/shirt/robe/astrata
 	name = "sun robe"
 	desc = "The cloth of a follower of Astrata."
