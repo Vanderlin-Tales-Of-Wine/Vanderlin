@@ -320,6 +320,14 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/cave)
+"hO" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	pixel_x = 1
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/under/cave)
 "hY" = (
 /mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/carpet/red,
@@ -678,8 +686,8 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "qN" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/under/cave)
 "qU" = (
@@ -1648,6 +1656,13 @@
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
+"LT" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/under/cave)
 "LU" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/carbon/human/species/skeleton/npc/peasant,
@@ -1765,7 +1780,7 @@
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "OR" = (
@@ -3585,7 +3600,7 @@ zz
 vo
 vZ
 gJ
-Ax
+cC
 wP
 wP
 Uq
@@ -3619,7 +3634,7 @@ vZ
 sB
 dU
 RI
-wc
+hO
 wc
 Uv
 iU
@@ -4250,7 +4265,7 @@ Ac
 Ac
 Ac
 Ac
-OT
+LT
 XR
 lJ
 ns

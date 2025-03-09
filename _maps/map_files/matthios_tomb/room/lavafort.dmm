@@ -376,6 +376,10 @@
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cavelava)
+"CP" = (
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
 "CQ" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/royalblack,
@@ -568,6 +572,10 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/royalblack,
+/area/rogue/under/cavelava)
+"Qk" = (
+/mob/living/simple_animal/hostile/skeleton/bow,
+/turf/open/floor/hexstone,
 /area/rogue/under/cavelava)
 "QB" = (
 /obj/structure/fluff/railing/border{
@@ -1859,7 +1867,7 @@ aj
 nc
 qh
 qh
-qh
+Qk
 QC
 aj
 aj
@@ -2185,7 +2193,7 @@ jk
 cr
 qh
 jk
-jk
+CP
 fL
 aj
 aj
@@ -2465,8 +2473,8 @@ aj
 aj
 aj
 nc
-Kt
 qh
+Qk
 qh
 QC
 aj

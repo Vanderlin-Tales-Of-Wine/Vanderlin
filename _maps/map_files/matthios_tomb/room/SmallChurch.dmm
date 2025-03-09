@@ -61,6 +61,7 @@
 	dir = 4;
 	pixel_x = 1
 	},
+/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cavewet)
 "cF" = (
