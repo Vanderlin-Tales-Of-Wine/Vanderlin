@@ -181,6 +181,11 @@
 	stressadd = 1
 	desc = span_red("How can one possibly be so ugly?")
 
+/datum/stressevent/ugly_self
+	timer = 30 SECONDS
+	stressadd = 1
+	desc = span_red("Same old ugly mug...")
+
 /datum/stressevent/delf
 	timer = 30 SECONDS
 	stressadd = 1

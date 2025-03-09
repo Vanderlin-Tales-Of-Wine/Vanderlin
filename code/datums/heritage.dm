@@ -108,54 +108,53 @@
 	* H is who examines us so the
 	* perspective is looker looking at lookee.
 	*/
+	var/p_He = p_they(TRUE)
+	var/is_male = FALSE
+	///Son or daughter?
+	var/progeny_title = "daughter"
 	var/txt = ""
 	//With the addition of uncle/aunt this does look a bit like spagetti code.
 	//Perspective Mother/Father
+	if(lookee.gender == MALE)
+		is_male = TRUE
+		progeny_title = "son"
 	if(familialrole_a in list(FAMILY_FATHER, FAMILY_MOTHER))
 		if(familialrole_b in FAMILY_PROGENY)
-			txt += "It's my progeny."
+			txt += "[p_He] is my [progeny_title]!"
 		if(familialrole_b == FAMILY_OMMER)
-			txt += "It's my sibling."
+			txt += "[p_He] is my [progeny_title]!"
 		if(familialrole_b == FAMILY_INLAW)
-			switch(lookee.gender)
-				if(MALE)
-					txt += "It's my son in law."
-				if(FEMALE)
-					txt += "It's my daughter in law."
+			txt += "[p_He] is my [progeny_title] in law!"
 		if(familialrole_b == FAMILY_ADOPTED)
 			if(looker.dna.species.type == lookee.dna.species.type)
-				txt += "It's my bastard."
+				txt +="[p_He] is my bastard [progeny_title]."
 			else
-				txt += "It's the adopted one."
+				txt += "[p_He] is my adopted [progeny_title]."
 
 	//Perspective Offspring
 	if(familialrole_a in list(FAMILY_PROGENY, FAMILY_ADOPTED))
 		if(familialrole_b in list(FAMILY_PROGENY, FAMILY_ADOPTED))
-			txt += "It's my sibling."
+			txt += "[p_He] is my [is_male ? "brother" : "sister"]."
 		if(familialrole_b == FAMILY_FATHER)
-			txt += "It's my father."
+			txt += "[p_He] my father."
 		if(familialrole_b == FAMILY_MOTHER)
-			txt += "It's my mother."
+			txt += "[p_He] my mother."
 		if(familialrole_b == FAMILY_OMMER)
 			switch(lookee.gender)
 				if(MALE)
-					txt += "It's my uncle."
+					txt += "[p_He] my uncle."
 				if(FEMALE)
-					txt += "It's my aunt."
+					txt += "[p_He] my aunt."
 
 	//Perspective Uncle/Aunt
 	if(familialrole_a == FAMILY_OMMER)
 		if(familialrole_b in list(FAMILY_FATHER, FAMILY_MOTHER, FAMILY_OMMER))
-			txt += "It's my sibling."
+			txt += "[p_He] is my [is_male ? "brother" : "sister"]."
 		if(familialrole_b in list(FAMILY_PROGENY, FAMILY_ADOPTED))
-			switch(lookee.gender)
-				if(MALE)
-					txt += "It's my nephew."
-				if(FEMALE)
-					txt += "It's my niece."
+			txt += "[p_He] is my [is_male ? "nephew" : "niece"]"
 	if(txt == "")
 		return
-	return span_love("<B>[txt]</B>")
+	return span_love(span_bold("[txt]"))
 
 /*
 * Transfers someone from another family to
@@ -175,7 +174,7 @@
 */
 /datum/heritage/proc/ExpelFromHouse(mob/living/carbon/human/shunned)
 	family.Remove(shunned)
-	to_chat(src, "Your no longer part of the [housename] household.")
+	to_chat(src, "You're no longer part of the [housename] household.")
 
 /*
 * Mechanical proc for listing families.

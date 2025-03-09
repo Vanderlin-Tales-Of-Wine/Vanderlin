@@ -114,9 +114,9 @@
 	desc = span_green("This music is pleasant.")
 
 /datum/stressevent/beautiful
-	timer = 30 SECONDS
-	stressadd = -1
-	desc = span_green("Their face is so beautiful!")
+	timer = 2 MINUTES
+	stressadd = -2
+	desc = span_green("Their face is a work of art!")
 
 /datum/stressevent/music/two
 	stressadd = -1
