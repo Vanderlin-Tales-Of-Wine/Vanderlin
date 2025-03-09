@@ -20,7 +20,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "fB" = (
-/obj/effect/spawner/map_spawner/outlaw_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/outlaw)
 "gE" = (
@@ -64,7 +64,7 @@
 "kb" = (
 /obj/structure/toilet,
 /obj/item/natural/poo,
-/obj/effect/spawner/map_spawner/outlaw_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "kz" = (
@@ -73,7 +73,7 @@
 /area/rogue/outdoors/rtfield/outlaw)
 "kQ" = (
 /obj/item/clothing/shoes/shortboots,
-/obj/effect/spawner/map_spawner/outlaw_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "lZ" = (
@@ -220,7 +220,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "NK" = (
-/obj/effect/spawner/map_spawner/outlaw_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "NN" = (
@@ -260,7 +260,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/spawner/map_spawner/outlaw_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "VP" = (

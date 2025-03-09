@@ -25,6 +25,11 @@
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
+"ch" = (
+/obj/structure/barricade/rogue,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/hollow)
 "cV" = (
 /turf/closed/mineral,
 /area/rogue/under/cave/abandoned_mine)
@@ -64,6 +69,12 @@
 /obj/structure/barricade/rogue,
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave/hollow)
+"gM" = (
+/obj/structure/fluff/railing/fence{
+	dir = 1
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/cave/hollow)
 "ii" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/natural/hide,
@@ -98,11 +109,11 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/hollow)
 "lc" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
 "lD" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "mA" = (
@@ -157,6 +168,7 @@
 "qv" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/clothing/neck/bogcowl,
+/obj/item/storage/backpack/satchel,
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "ri" = (
@@ -191,7 +203,7 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/hollow)
 "ua" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /obj/item/reagent_containers/glass/bottle/beer/voddena,
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
@@ -250,6 +262,11 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
+"Au" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/hollow)
 "Ay" = (
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
@@ -269,8 +286,12 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/hollow)
 "Dv" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /turf/open/floor/dirt/muddie,
+/area/rogue/under/cave/hollow)
+"DL" = (
+/obj/effect/spawner/map_spawner/maybe_trap,
+/turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
 "FJ" = (
 /obj/structure/fluff/walldeco/rags,
@@ -294,6 +315,10 @@
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/naturalstone,
+/area/rogue/under/cave/hollow)
+"Is" = (
+/obj/item/rope,
+/turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "Jm" = (
 /turf/open/floor/dirt/muddie,
@@ -336,6 +361,12 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
+"LD" = (
+/obj/structure/fluff/walldeco/rags/alt,
+/obj/structure/barricade/rogue,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/hollow)
 "LR" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/twig,
@@ -347,6 +378,12 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
+"Ng" = (
+/obj/structure/fluff/railing/fence{
+	dir = 4
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/cave/hollow)
 "Nv" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave/abandoned_mine)
@@ -359,7 +396,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
 "PO" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /obj/effect/decal/cleanable/blood_neu/tracks,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
@@ -370,7 +407,8 @@
 "Qs" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/structure/closet/crate/chest/wicker,
-/obj/item/clothing/neck/elfears,
+/obj/item/clothing/neck/menears,
+/obj/item/reagent_containers/glass/bottle/healthpot,
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "Qy" = (
@@ -404,7 +442,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/hollow)
 "RN" = (
-/obj/structure/flora/shroom_tree,
+/obj/structure/fluff/walldeco/vinez,
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cave/hollow)
 "SY" = (
@@ -415,6 +453,10 @@
 "Tf" = (
 /obj/structure/roguetent/preopen,
 /turf/open/floor/twig,
+/area/rogue/under/cave/hollow)
+"Th" = (
+/obj/effect/landmark/mapGenerator/hollow_mountain,
+/turf/closed/mineral/bedrock,
 /area/rogue/under/cave/hollow)
 "Ub" = (
 /turf/closed/mineral/random/high,
@@ -440,7 +482,7 @@
 /turf/closed/mineral/random/high,
 /area/rogue/under/cave)
 "Yk" = (
-/obj/effect/spawner/map_spawner/goblincave_threat,
+/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
 	},
@@ -531,7 +573,7 @@ ef
 ef
 ef
 ef
-ef
+Th
 "}
 (2,1,1) = {"
 ef
@@ -552,10 +594,10 @@ ef
 ef
 ef
 ef
+RN
 ef
-ef
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -617,8 +659,8 @@ ef
 ef
 ef
 ef
-gp
-gp
+ch
+ch
 kO
 Jm
 ab
@@ -626,8 +668,8 @@ ab
 ab
 HZ
 ef
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -675,6 +717,7 @@ ef
 ef
 ef
 ef
+RN
 ef
 ef
 ef
@@ -682,8 +725,7 @@ ef
 ef
 ef
 ef
-ef
-gp
+ch
 QK
 eN
 Jm
@@ -739,7 +781,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ri
@@ -749,7 +791,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ua
 Ay
 Ay
@@ -805,7 +847,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ri
 Jm
 ab
@@ -832,7 +874,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -872,7 +914,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 kO
 Jm
@@ -893,14 +935,14 @@ YB
 oP
 gp
 gp
-ef
+RN
 Jm
 ab
 ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -938,7 +980,7 @@ ef
 (8,1,1) = {"
 ef
 ef
-ef
+RN
 Jm
 Jm
 Jm
@@ -1011,8 +1053,8 @@ ab
 ab
 ab
 ef
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -1029,7 +1071,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ef
 ri
 ab
@@ -1143,7 +1185,7 @@ qt
 ab
 ab
 HZ
-ef
+RN
 ef
 ef
 ef
@@ -1173,7 +1215,7 @@ ab
 ri
 ab
 ef
-ef
+RN
 ef
 ef
 ef
@@ -1217,15 +1259,15 @@ ef
 ef
 ef
 ef
-mA
+LD
 Jm
 ab
 ab
 ab
 ab
 ef
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -1241,7 +1283,7 @@ ab
 ab
 ab
 HZ
-ef
+RN
 ef
 ef
 ef
@@ -1272,7 +1314,7 @@ ef
 "}
 (13,1,1) = {"
 ef
-ef
+RN
 ab
 ab
 ab
@@ -1283,7 +1325,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 Jm
 ab
@@ -1293,6 +1335,7 @@ ab
 ab
 ri
 Jm
+RN
 ef
 ef
 ef
@@ -1300,16 +1343,15 @@ ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
 ab
 ab
 ab
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -1339,18 +1381,18 @@ ef
 "}
 (14,1,1) = {"
 ef
-ef
+RN
 ab
 ab
 ab
+RN
 ef
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 Jm
 ab
 ab
@@ -1360,6 +1402,8 @@ ab
 ab
 ab
 ab
+RN
+RN
 ef
 ef
 ef
@@ -1367,10 +1411,8 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
+RN
+RN
 ab
 ab
 ab
@@ -1410,13 +1452,13 @@ ef
 ab
 ab
 ab
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
@@ -1429,7 +1471,7 @@ ab
 ab
 Jm
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -1491,12 +1533,12 @@ ab
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -1540,7 +1582,7 @@ ef
 "}
 (17,1,1) = {"
 ef
-ef
+RN
 ab
 ab
 ab
@@ -1621,7 +1663,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -1648,7 +1690,7 @@ ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -1675,7 +1717,7 @@ ef
 (19,1,1) = {"
 ef
 ef
-ef
+RN
 Jm
 Jm
 ab
@@ -1688,22 +1730,22 @@ ab
 ab
 ab
 ab
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
 ef
 ef
+RN
 ef
-ef
-ef
-ef
+RN
+RN
 HZ
 ab
 ab
@@ -1715,7 +1757,7 @@ ab
 Jm
 Jm
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -1755,18 +1797,18 @@ ab
 ab
 ab
 Jm
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
 ef
-ef
+RN
 Ro
 Jm
 ab
@@ -1779,9 +1821,9 @@ ab
 ab
 ri
 Jm
-ef
-ef
-ef
+RN
+RN
+RN
 ef
 ef
 ef
@@ -1810,7 +1852,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 vF
 Jm
 ab
@@ -1818,7 +1860,7 @@ ab
 ab
 ef
 ef
-ef
+RN
 ab
 ab
 Jm
@@ -1844,8 +1886,8 @@ ab
 ab
 ef
 ef
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -1877,7 +1919,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 Jm
 ab
@@ -1885,13 +1927,13 @@ ab
 ab
 ef
 ef
-ef
+RN
 ab
 Jm
 Jm
 Jm
 kO
-ef
+RN
 ef
 ef
 ef
@@ -1928,7 +1970,7 @@ ab
 ab
 ab
 ri
-ef
+RN
 ef
 ef
 ef
@@ -1944,7 +1986,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 ri
 ab
@@ -1969,7 +2011,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 kE
 ab
@@ -1985,9 +2027,9 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
+RN
+RN
+RN
 Jm
 ab
 ab
@@ -1996,7 +2038,7 @@ ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2011,7 +2053,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -2021,12 +2063,12 @@ ef
 ef
 ef
 ef
-ef
+RN
 kO
 Jm
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2035,13 +2077,14 @@ ab
 ab
 ab
 ef
+RN
 ef
 ef
-ef
-ef
+RN
 Jm
 ab
 ab
+RN
 ef
 ef
 ef
@@ -2050,20 +2093,19 @@ ef
 ef
 ef
 ef
-ef
-ef
+RN
 kO
 Jm
 Jm
 ab
 ef
 ef
-ef
-ef
+RN
+RN
 Jm
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2088,12 +2130,12 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 qt
 lc
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2105,12 +2147,12 @@ ef
 ef
 ef
 ef
-ef
+RN
 ri
 ab
 uZ
-ef
-ef
+RN
+RN
 ef
 ef
 ef
@@ -2127,10 +2169,10 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2162,8 +2204,8 @@ Jm
 Jm
 kO
 jS
-ef
-ef
+RN
+RN
 ab
 te
 te
@@ -2178,12 +2220,12 @@ ab
 ab
 Jm
 Jm
+RN
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 Jm
@@ -2216,7 +2258,7 @@ ef
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2245,7 +2287,7 @@ HZ
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2283,10 +2325,10 @@ ef
 ab
 ab
 ab
+RN
 ef
 ef
-ef
-ef
+RN
 kO
 Jm
 Jm
@@ -2312,7 +2354,7 @@ ef
 ef
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2333,9 +2375,9 @@ ab
 ab
 ab
 ef
-ef
-ef
-ef
+RN
+RN
+RN
 ef
 ef
 ef
@@ -2346,20 +2388,20 @@ ef
 ef
 ef
 ef
-ef
-ab
-ab
-ab
-ef
-ef
-ef
-kO
-Jm
-Jm
-Jm
-kO
 RN
+ab
+ab
+ab
 ef
+ef
+RN
+kO
+tW
+Jm
+Jm
+kO
+qt
+RN
 ef
 ef
 ab
@@ -2403,7 +2445,7 @@ ab
 ab
 Jm
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2413,18 +2455,18 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 ab
 ab
 ab
 ef
-ef
+RN
 Jm
 Jm
 Jm
 kO
-ef
+RN
 ef
 ef
 ef
@@ -2461,7 +2503,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -2471,7 +2513,7 @@ ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -2513,7 +2555,7 @@ ef
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2522,7 +2564,7 @@ ab
 ab
 ri
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2548,7 +2590,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -2580,9 +2622,9 @@ ef
 ab
 ab
 ri
+RN
 ef
-ef
-ef
+RN
 ef
 ab
 ab
@@ -2592,8 +2634,8 @@ ab
 ab
 ab
 ef
-ef
-ef
+RN
+RN
 ab
 ab
 ab
@@ -2615,7 +2657,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 HZ
 ab
 ab
@@ -2624,7 +2666,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2683,7 +2725,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ef
 ab
 ab
@@ -2691,7 +2733,7 @@ ab
 ab
 ab
 ri
-ef
+RN
 ef
 ef
 ef
@@ -2706,8 +2748,8 @@ rs
 ab
 ab
 ab
-ef
-ef
+RN
+RN
 ef
 ef
 rs
@@ -2721,8 +2763,8 @@ ab
 ab
 ef
 ef
-ef
-ef
+RN
+RN
 ab
 ab
 ab
@@ -2730,7 +2772,7 @@ Jm
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2759,7 +2801,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2781,7 +2823,7 @@ rs
 rs
 ef
 ef
-ef
+RN
 ab
 ri
 ab
@@ -2791,12 +2833,12 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2819,7 +2861,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -2849,7 +2891,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ef
@@ -2859,11 +2901,11 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 Jm
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2875,7 +2917,7 @@ ef
 ef
 ab
 ab
-ef
+RN
 ef
 "}
 (37,1,1) = {"
@@ -2885,7 +2927,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -2927,11 +2969,11 @@ ef
 ef
 ef
 ef
-ef
+RN
 kO
 Jm
 ab
-ef
+RN
 ef
 ef
 ef
@@ -2942,7 +2984,7 @@ ef
 ab
 ab
 ab
-ef
+RN
 ef
 "}
 (38,1,1) = {"
@@ -2983,29 +3025,29 @@ mA
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 HZ
+RN
 ef
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 jS
 Jm
 ab
 HZ
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 HZ
@@ -3030,7 +3072,7 @@ ab
 ab
 ab
 ab
-ab
+gM
 ab
 oP
 oP
@@ -3043,7 +3085,7 @@ bH
 lc
 Ay
 oP
-Ay
+Is
 Ay
 mA
 ef
@@ -3054,6 +3096,7 @@ ef
 Jm
 ab
 ab
+RN
 ef
 ef
 ef
@@ -3061,12 +3104,11 @@ ef
 ef
 ef
 ef
-ef
-ef
+RN
 Jm
 Jm
 ab
-ef
+RN
 ef
 ef
 ef
@@ -3091,13 +3133,13 @@ ab
 ab
 ab
 ef
-ef
-ef
+RN
+RN
 ab
 ab
 ab
 ab
-ab
+gM
 ab
 ab
 ab
@@ -3117,23 +3159,23 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 Dv
 Jm
 ab
+RN
 ef
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -3164,7 +3206,7 @@ ef
 te
 ab
 ab
-ab
+gM
 ab
 ab
 ab
@@ -3184,7 +3226,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 jS
 Jm
@@ -3195,7 +3237,7 @@ ab
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -3209,7 +3251,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 "}
@@ -3230,7 +3272,7 @@ ef
 ef
 ef
 JC
-ab
+DL
 ab
 ab
 Qr
@@ -3251,7 +3293,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 kO
 Dv
@@ -3314,7 +3356,7 @@ ab
 BG
 ab
 ef
-ef
+RN
 ef
 ef
 ef
@@ -3356,7 +3398,7 @@ HZ
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -3368,7 +3410,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ab
@@ -3382,7 +3424,7 @@ ab
 ab
 ab
 ri
-ef
+RN
 ef
 ef
 rs
@@ -3397,8 +3439,8 @@ ab
 ab
 ef
 ef
-ef
-ef
+RN
+RN
 ef
 ab
 ab
@@ -3423,19 +3465,19 @@ ab
 ab
 ab
 ab
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
 ab
 HZ
-ef
+RN
 ef
 ef
 RD
@@ -3512,7 +3554,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ab
 ab
@@ -3558,7 +3600,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -3572,13 +3614,13 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -3628,18 +3670,18 @@ uZ
 ab
 ab
 ef
-ef
-ef
+RN
+RN
 ef
 ab
 ab
 Jm
+RN
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
@@ -3653,7 +3695,7 @@ ab
 ab
 ab
 Qr
-ef
+RN
 ef
 ef
 ef
@@ -3701,7 +3743,7 @@ ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -3711,15 +3753,15 @@ ab
 ab
 ab
 Jm
+RN
 ef
 ef
 ef
 ef
 ef
-ef
+Ng
 ab
-ab
-ab
+Ng
 ef
 ef
 ef
@@ -3768,7 +3810,7 @@ ab
 ab
 ab
 ab
-ef
+RN
 ef
 ef
 ef
@@ -3778,12 +3820,12 @@ ab
 ab
 ab
 HZ
+RN
 ef
 ef
 ef
 ef
-ef
-ef
+RN
 ab
 ab
 ab
@@ -3839,7 +3881,7 @@ ab
 ef
 ef
 ab
-ab
+DL
 ab
 ab
 ab
@@ -3850,12 +3892,12 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 Qr
 ab
-ef
+RN
 ef
 ef
 BI
@@ -3893,8 +3935,8 @@ ef
 ef
 ef
 ef
-ef
-ef
+RN
+RN
 kO
 qt
 kO
@@ -3922,7 +3964,7 @@ HZ
 Qr
 Qr
 Jm
-ef
+RN
 ef
 BI
 BI
@@ -3945,8 +3987,8 @@ pF
 gp
 gp
 ef
-cV
-cV
+Ub
+Ub
 ef
 ef
 "}
@@ -3964,8 +4006,8 @@ ef
 ef
 ef
 ef
-ef
-ef
+RN
+RN
 ab
 ab
 ab
@@ -3975,7 +4017,7 @@ ab
 ab
 ab
 Jm
-ef
+RN
 ef
 ef
 ef
@@ -3989,7 +4031,7 @@ ef
 ab
 jg
 Jm
-ef
+RN
 ef
 BI
 BI
@@ -4012,8 +4054,8 @@ gp
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 ef
 ef
 "}
@@ -4042,6 +4084,7 @@ ab
 ab
 Jm
 Jm
+RN
 ef
 ef
 ef
@@ -4049,15 +4092,14 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
+RN
+RN
 ef
 Jm
 Jm
 ab
 ab
-ef
+RN
 BI
 BI
 NA
@@ -4079,8 +4121,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 ef
 ef
 "}
@@ -4101,21 +4143,21 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
 ab
 ab
+RN
+RN
 ef
 ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
+RN
+RN
 BD
 ab
 ab
@@ -4146,8 +4188,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 ef
 ef
 "}
@@ -4169,7 +4211,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -4180,7 +4222,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 HZ
 ab
 ab
@@ -4213,8 +4255,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 ef
 ef
 "}
@@ -4236,7 +4278,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -4247,7 +4289,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 Jm
 Ro
@@ -4258,8 +4300,8 @@ Jm
 Jm
 Jm
 Qr
-ef
-ef
+RN
+RN
 BI
 BI
 BI
@@ -4280,8 +4322,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 Nv
 ef
 "}
@@ -4303,7 +4345,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 ab
 ab
@@ -4313,7 +4355,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 Jm
@@ -4326,7 +4368,7 @@ Jm
 Jm
 ab
 ri
-ef
+RN
 ef
 BI
 BI
@@ -4347,8 +4389,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 Nv
 ef
 "}
@@ -4371,15 +4413,15 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
 ef
 ef
-ef
-ef
-ef
+RN
+RN
+Au
 ab
 Jm
 Jm
@@ -4394,7 +4436,7 @@ Jm
 Jm
 bO
 BD
-ef
+RN
 ef
 ef
 BI
@@ -4414,8 +4456,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 Nv
 ef
 "}
@@ -4481,8 +4523,8 @@ ef
 ef
 ef
 ef
-cV
-cV
+Ub
+Ub
 Nv
 ef
 "}
@@ -4548,8 +4590,8 @@ od
 od
 od
 od
-cV
-cV
+Ub
+Ub
 od
 od
 "}
@@ -4573,7 +4615,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ab
 ab
@@ -4596,7 +4638,7 @@ Jm
 Jm
 ab
 ab
-ef
+RN
 od
 Nv
 Nv
@@ -4615,8 +4657,8 @@ Nv
 Nv
 Nv
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4648,8 +4690,8 @@ ab
 ab
 ef
 ef
-ef
-ef
+RN
+RN
 Jm
 Jm
 Jm
@@ -4663,7 +4705,7 @@ tW
 Jm
 Jm
 ri
-ef
+RN
 od
 Nv
 pm
@@ -4682,8 +4724,8 @@ Ub
 Ub
 Ub
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4708,15 +4750,15 @@ ef
 ef
 ef
 ef
+RN
+RN
+RN
+RN
 ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
-ef
+RN
 CH
 tW
 pu
@@ -4749,8 +4791,8 @@ Ub
 Ub
 Ub
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4783,7 +4825,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ri
 Jm
 tW
@@ -4816,8 +4858,8 @@ cV
 cV
 cV
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4864,7 +4906,7 @@ Jm
 Jm
 Jm
 ab
-ef
+RN
 od
 cV
 NK
@@ -4883,8 +4925,8 @@ iR
 iR
 Nv
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4931,7 +4973,7 @@ Jm
 Jm
 Jm
 ab
-ef
+RN
 od
 cV
 bp
@@ -4950,8 +4992,8 @@ iR
 iR
 Nv
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -4998,7 +5040,7 @@ Jm
 ab
 Jm
 ab
-ef
+RN
 od
 cV
 iR
@@ -5017,8 +5059,8 @@ iR
 iR
 pm
 Nv
-cV
-cV
+Ub
+Ub
 Nv
 Nv
 "}
@@ -5052,7 +5094,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 Jm
 Jm
 Jm
@@ -5187,7 +5229,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 ri
 Jm
@@ -5255,7 +5297,7 @@ ef
 ef
 ef
 ef
-ef
+RN
 ab
 bO
 ab
@@ -5264,7 +5306,7 @@ ab
 ab
 ab
 BD
-ef
+RN
 ef
 ef
 od
@@ -5325,10 +5367,10 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
+RN
+RN
+RN
+RN
 ef
 ef
 ef

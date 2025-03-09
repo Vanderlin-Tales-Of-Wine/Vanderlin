@@ -8,13 +8,11 @@
 
 	allowed_races = list(
 		"Humen",
-		"Elf",
 		"Half-Elf",
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
 	)
 
 	tutorial = "The Grenzelhofts were known for their Jesters, wisemen with a tongue just as sharp as their wit. \

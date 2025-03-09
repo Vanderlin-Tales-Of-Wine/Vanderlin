@@ -1,3 +1,4 @@
+/*
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Monarch",
 	"Hand",
@@ -53,7 +54,7 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
 	))
-
+*/
 
 
 // ===========		DISABLES VANDERLIN JOBS		=====
@@ -64,8 +65,6 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 /datum/job/scribe/config_check()
 	return FALSE
 /datum/job/artificer/config_check()
-	return FALSE
-/datum/job/roguetown/alchemist/config_check()
 	return FALSE
 /datum/job/physicker/config_check()
 	return FALSE
@@ -146,12 +145,6 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	return FALSE
 /datum/job/vagrant/config_check()
 	return FALSE
-/datum/job/adventurer/config_check()
-	return FALSE
-/datum/job/pilgrim/config_check()
-	return FALSE
-/datum/job/bandit/config_check()
-	return FALSE
 /datum/job/hunter/config_check()
 	return FALSE
 /datum/job/miner/config_check()
@@ -187,6 +180,7 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	return FALSE
 /datum/job/minor_noble/config_check()
 	return FALSE
+	/*
 /datum/advclass/pilgrim/bard
 	maximum_possible_slots = 0
 /datum/advclass/pilgrim/blacksmith
@@ -241,6 +235,7 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	maximum_possible_slots = 0
 /datum/advclass/sk_carpenter
 	maximum_possible_slots = 0
+*/
 /datum/job/roguetown/servant
 	total_positions = 0
 	spawn_positions = 0

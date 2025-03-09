@@ -142,6 +142,10 @@
 /obj/item/coin/silver/pile,
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavelava)
+"jy" = (
+/obj/effect/spawner/map_spawner/mountain_tree,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/mountains/decap)
 "jQ" = (
 /obj/item/ammo_casing/caseless/arrow/stone,
 /turf/open/floor/cobblerock,
@@ -258,7 +262,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "sT" = (
-/obj/structure/flora/tree/neu/pine,
+/obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/mountains/decap)
 "tC" = (
@@ -286,6 +290,10 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/greenstone,
 /area/rogue/under/cavelava)
+"uk" = (
+/obj/effect/spawner/map_spawner/mountain_tree,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/mountains/decap)
 "uC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
@@ -423,7 +431,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "Bi" = (
-/obj/structure/flora/tree/neu/pine,
+/obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
 "Cl" = (
@@ -594,6 +602,10 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/caves)
+"NM" = (
+/obj/effect/spawner/map_spawner/mountain_tree,
+/turf/open/floor/snow,
+/area/rogue/outdoors/mountains/decap)
 "NP" = (
 /obj/structure/fluff/walldeco/customflag,
 /turf/closed/wall/mineral/stonebrick,
@@ -639,7 +651,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
 "RN" = (
-/obj/structure/flora/tree/neu/pine,
+/obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/decap)
 "RP" = (
@@ -51536,7 +51548,7 @@ XX
 XX
 ZF
 ZF
-RN
+NM
 XX
 ZF
 XX
@@ -52327,7 +52339,7 @@ ZF
 ZF
 ZF
 XX
-RN
+NM
 XX
 ZF
 ZF
@@ -53767,7 +53779,7 @@ ZF
 XX
 XX
 XX
-RN
+NM
 XX
 ZF
 Bi
@@ -55709,7 +55721,7 @@ ZF
 ZF
 ZF
 XX
-RN
+NM
 ZF
 ZF
 ZF
@@ -56880,7 +56892,7 @@ XX
 XX
 ZF
 ZF
-Bi
+jy
 ZF
 ZF
 XX
@@ -57667,7 +57679,7 @@ XX
 XX
 XX
 XX
-sT
+uk
 XB
 ZF
 ZF
@@ -58054,7 +58066,7 @@ XX
 ZF
 XX
 XX
-RN
+NM
 XB
 XB
 XB
@@ -58174,7 +58186,7 @@ ZY
 ZF
 ZF
 XX
-RN
+NM
 XX
 ZF
 ZF
@@ -58575,7 +58587,7 @@ XX
 ZF
 ZF
 ZF
-RN
+NM
 XX
 XX
 ZF
@@ -59485,7 +59497,7 @@ ZF
 XX
 XX
 XX
-RN
+NM
 XX
 ZF
 ZF

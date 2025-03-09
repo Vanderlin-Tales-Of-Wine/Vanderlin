@@ -1,4 +1,4 @@
-/*GLOBAL_LIST_INIT(noble_positions, list(
+GLOBAL_LIST_INIT(noble_positions, list(
 	"Monarch",
 	"Hand",
 	"Captain",
@@ -43,36 +43,22 @@ GLOBAL_LIST_INIT(serf_positions, list(
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Village Elder",
 	"Soilson",
-	"Hammerite",
 	"Stevedore",
-	"Butcher",
 	"Cook",
 	"Woodsman",
-	"Carpenter",
-	"Jaegward",
-	"Fisher",
-	"Cheesemaker",
-	"Butler",
-	"Bard",
 	"Prisoner",
-	"Beggar",
-	"Mercenary",
-	"Adventurer",
-	"Pilgrim",
+	"Beggar"
+
 	))
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Squire",
-	"Smithy Apprentice",
-	"Magician's Apprentice",
-	"Servant",
-	"Orphan"
+	"Mercenary",
+	"Adventurer",
+	"Pilgrim"
 	))
-*/
+
 GLOBAL_LIST_INIT(youngfolk_positions, list(
-	"Innkeepers Son",
-	"Orphan",
-	"Churchling",
+	"Prisoner",
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(

@@ -32,16 +32,24 @@
 	light_outer_range =  9
 
 /obj/machinery/light/fueled/wallfire
-	brightness = 7
+	brightness = 9
 /obj/machinery/light/fueled/wallfire/Initialize()
 	light_outer_range =  8
-	brightness = 7
+	brightness = 9
 	. = ..()
 
 /obj/machinery/light/fueled/wallfire/candle/Initialize()
 	light_outer_range =  6
 	brightness = 7
 	. = ..()
+
+/obj/machinery/light/fueled/hearth/big_fireplace
+	brightness = 10
+/obj/machinery/light/fueled/hearth/big_fireplace/Initialize()
+	. = ..()
+	light_outer_range =  8
+	brightness = 10
+
 
 /obj/machinery/light/fueled/torchholder
 	brightness = 7
@@ -51,11 +59,11 @@
 	brightness = 6
 
 /obj/machinery/light/fueled/campfire
-	brightness = 7
+	brightness = 8
 /obj/machinery/light/fueled/campfire/Initialize()
 	. = ..()
 	light_outer_range =  6
-	brightness = 7
+	brightness = 8
 
 /obj/machinery/light/fueled/torchholder/empty
 	lacks_torch = TRUE
@@ -248,11 +256,6 @@
 	icon_state = "ravox1"
 	base_state = "ravox"
 
-// Sandstone brick wall
-/turf/closed/wall/mineral/stonebrick/sandstone
-	name = "sandstone wall"
-	icon = 'modular/stonekeep/icons/sandstonebrick.dmi'
-
 
 //AKA cryosleep.
 
@@ -435,3 +438,102 @@
 	name = "weaver sign"
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "weaver"
+
+
+
+/obj/structure/fluff/railing/fence/palisade_alt
+	icon_state = "fence_alt"
+
+
+
+/obj/structure/bars/weakened
+	desc = "Iron bars made to keep things in or out. These one looks pretty rusty."
+	max_integrity = INTEGRITY_POOR
+	color = "#edc9c9"
+
+
+/obj/structure/flora/tree/neu
+	name = "BUGREPORT MORONGOLOID HAS USED TEMPLATE TREE"
+	desc = "Once leafed, growing, now just a home for termites."
+	icon = 'modular/stonekeep/icons/pigflora64.dmi'
+	icon_state = "acacia_dead"
+	stump_type = /obj/structure/table/wood/treestump/burnt
+	pixel_x = -16
+	max_integrity = 180
+
+/obj/structure/flora/tree/neu/acacia
+	name = "dead tree"
+	icon_state = "acacia_dead"
+/obj/structure/flora/tree/neu/acacia/Initialize()
+	. = ..()
+	icon_state = "acacia_dead"
+	dir = pick(GLOB.cardinals)
+
+/obj/structure/flora/tree/neu/pine
+	name = "pine tree"
+	desc = "A smell of amber and pine needles linger."
+	icon_state = "pine"
+/obj/structure/flora/tree/neu/pine/Initialize()
+	. = ..()
+	icon_state = "pine"
+
+/obj/structure/flora/tree/neu/pine_dead
+	name = "dead tree"
+	desc = "A faint smell of amber and pine needles linger."
+	icon_state = "pine_dead"
+/obj/structure/flora/tree/neu/pine_dead/Initialize()
+	. = ..()
+	icon_state = "pine_dead"
+
+/obj/structure/flora/tree/neu/bush
+	name = "bush"
+	desc = ""
+	icon_state = "deadbush_1"
+	stump_type = /obj/item/grown/log/tree/stick
+	max_integrity = 80
+	destroy_sound = 'sound/misc/woodhit.ogg'
+	static_debris = list(/obj/item/grown/log/tree/stick = 1)
+	pixel_x = -16
+	alpha = 255
+/obj/structure/flora/tree/neu/bush/Initialize()
+	. = ..()
+	icon_state = "deadbush_[rand(1,3)]"
+
+
+/obj/structure/punji_sticks
+	icon = 'modular/stonekeep/icons/pigflora.dmi'
+
+// pebbles can trigger ambush
+/obj/structure/flora/rock/pebbles
+	name = ""
+	desc = ""
+	icon_state = "dark"
+	icon = 'modular/stonekeep/icons/pigflora.dmi'
+	density = FALSE
+	mouse_opacity = 0
+/obj/structure/flora/rock/pebbles/Initialize()
+	. = ..()
+	dir = pick(GLOB.cardinals)
+/obj/structure/flora/rock/pebbles/Crossed(AM as mob)
+	if(isliving(AM))
+		var/mob/living/L = AM
+		if(L.z == z)
+			L.consider_ambush()
+			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 100, TRUE)
+	. = ..()
+
+/obj/structure/flora/rock/pebbles/gray
+	icon_state = "gray"
+/obj/structure/flora/rock/pebbles/Initialize()
+	. = ..()
+	dir = pick(GLOB.alldirs)
+
+/obj/structure/flora/rock/pebbles/brown
+	icon_state = "brown"
+
+/obj/structure/flora/rock/pebbles/bogmix
+	icon_state = "bogmix1"
+/obj/structure/flora/rock/pebbles/bogmix/Initialize()
+	. = ..()
+	icon_state = "bogmix_[rand(1,2)]"
+	dir = pick(GLOB.alldirs)

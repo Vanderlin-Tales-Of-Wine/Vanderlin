@@ -359,7 +359,7 @@
 	probby = 50
 	color = "#ffce0b"
 	spawned = list(
-		/obj/structure/idle_enemy/weak_skelly = 4,
+		/mob/living/simple_animal/hostile/skeleton = 4,
 		/obj/effect/decal/remains/human/old = 50,
 		/obj/effect/decal/remains/human/old/small = 45,
 		/obj/item/clothing/ring/silver = 1

@@ -1,0 +1,194 @@
+
+// ============================		LANDMARKS	================================
+
+/*	..................   Dwarf Outpost   ................... */
+/obj/effect/landmark/map_load_mark/dwarf_outpost
+	name = "Dwarf Outpost"
+	templates = list( "dwarfoutpost_1","dwarfoutpost_2" )
+
+/datum/map_template/dwarf_outpost_i
+	name = "Dwarf Outpost Orc"
+	id = "dwarfoutpost_1"
+	mappath = "_maps/map_files/stonehamlet/templates/dwarfoutpost_1.dmm"
+
+/datum/map_template/dwarf_outpost_ii
+	name = "Dwarf Outpost Beastmen"
+	id = "dwarfoutpost_2"
+	mappath = "_maps/map_files/stonehamlet/templates/dwarfoutpost_2.dmm"
+
+
+/*	..................   Roadblock   ................... */
+/obj/effect/landmark/map_load_mark/hamlet_roadblock
+	name = "Roadblock"
+	templates = list( "roadblock_1","roadblock_2" )
+
+/datum/map_template/roadblock_i
+	name = "Roadblock"
+	id = "roadblock_1"
+	mappath = "_maps/map_files/stonehamlet/templates/roadblock_1.dmm"
+/datum/map_template/roadblock_ii
+	name = "No roadblock"
+	id = "roadblock_2"
+	mappath = "_maps/map_files/stonehamlet/templates/roadblock_2.dmm"
+
+/*	..................   Outlaw camp   ................... */
+/obj/effect/landmark/map_load_mark/hamlet_outlaws
+	name = "Outlaw camp"
+	templates = list( "outlawcamp_1","outlawcamp_2" )
+
+/datum/map_template/outlawcamp_i
+	name = "Outlaw camp"
+	id = "outlawcamp_1"
+	mappath = "_maps/map_files/stonehamlet/templates/outlawcamp_1.dmm"
+
+/datum/map_template/outlawcamp_ii
+	name = "Empty outlaw camp"
+	id = "outlawcamp_2"
+	mappath = "_maps/map_files/stonehamlet/templates/outlawcamp_2.dmm"
+
+
+/*	..................   Salt Mine   ................... */
+/obj/effect/landmark/map_load_mark/salt_mine
+	name = "Salt Mine Special"
+	templates = list( "saltmine_1","saltmine_2","saltmine_3"  )
+
+/datum/map_template/salt_mine_i
+	name = "Salt Mine Corpse"
+	id = "saltmine_1"
+	mappath = "_maps/map_files/stonehamlet/templates/saltmine_1.dmm"
+/datum/map_template/salt_mine_ii
+	name = "Salt Mine Gem"
+	id = "saltmine_2"
+	mappath = "_maps/map_files/stonehamlet/templates/saltmine_2.dmm"
+/datum/map_template/salt_mine_iii
+	name = "Salt Mine Cult"
+	id = "saltmine_2"
+	mappath = "_maps/map_files/stonehamlet/templates/saltmine_3.dmm"
+
+/*	..................   Bandit Traveltile Landmark   ................... */
+/obj/effect/landmark/map_load_mark/bandit_travel
+	name = "Bandit_travel"
+	templates = list( "bandit_a","bandit_b","bandit_c","bandit_d"  )
+
+/datum/map_template/banditspawna
+	name = "Bandit Travel A"
+	id = "bandit_a"
+	mappath = "_maps/map_files/stonehamlet/templates/bspawn_a.dmm"
+
+/datum/map_template/bandittravelb
+	name = "Bandit Travel B"
+	id = "bandit_b"
+	mappath = "_maps/map_files/candlelight/templates/bspawn_b.dmm"
+
+/datum/map_template/bandittravelc
+	name = "Bandit Travel C"
+	id = "bandit_c"
+	mappath = "_maps/map_files/candlelight/templates/bspawn_c.dmm"
+
+/datum/map_template/bandittraveld
+	name = "Bandit Travel D"
+	id = "bandit_d"
+	mappath = "_maps/map_files/candlelight/templates/bspawn_d.dmm"
+
+
+/*	..................   Hollow Mountain Landmark   ................... */
+/obj/effect/landmark/map_load_mark/hollowmountain_minidungeon
+	name = "Hollow Mountains"
+	templates = list( "hollow_goblin" )
+
+/datum/map_template/hollowmountain_i
+	name = "Hollow Mountain Goblins"
+	id = "hollow_goblin"
+	mappath = "_maps/map_files/stonehamlet/templates/hollowmountain_1.dmm"
+
+
+
+
+// ===================================================================================
+/*	..................   Dwarf Outpost Landmark sub-spawners  ................... */
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon
+	icon = 'icons/roguetown/weapons/32.dmi'
+	icon_state = "paxe"
+	probby = 50
+	color = "#fee046"
+	spawned = list(
+		/obj/item/weapon/pick/paxe = 30,
+		/obj/item/weapon/axe/steel = 60,
+		/obj/item/weapon/pick/steel = 10
+		)
+
+/obj/effect/spawner/map_spawner/outpost/dwarf_armor
+	icon = 'icons/roguetown/clothing/head.dmi'
+	icon_state = "ironpot"
+	probby = 50
+	color = "#ffde3a"
+	spawned = list(
+		/obj/item/clothing/head/helmet/ironpot = 25,
+		/obj/item/clothing/head/helmet/leather/minershelm = 40,
+		/obj/item/clothing/neck/chaincoif = 10,
+		/obj/item/clothing/armor/chainmail = 10,
+		/obj/item/clothing/armor/gambeson = 5,
+		/obj/item/clothing/armor/leather/vest/butler = 10
+		)
+
+/obj/effect/spawner/map_spawner/outpost/personal_item
+	icon = 'icons/roguetown/weapons/tools.dmi'
+	icon_state = "hammer_s"
+	probby = 50
+	color = "#ffde3a"
+	spawned = list(
+		/obj/item/weapon/hammer/steel = 30,
+		/obj/item/reagent_containers/glass/bottle/beer/voddena = 60,
+		/obj/item/clothing/head/hatfur = 10,
+		/obj/item/storage/belt/leather = 10,
+		)
+
+/obj/effect/spawner/map_spawner/outpost/dwarf_key
+//	icon_state = "brown"
+	icon = 'icons/roguetown/items/keys.dmi'
+	probby = 50
+	color = "#3aff4e"
+	spawned = list(
+		/obj/item/key/dwarf_outpost = 100
+		)
+
+/obj/item/key/dwarf_outpost
+	name = "steel key"
+	desc = "Dwarven craftsmanship."
+	lockid = "outpost"
+
+
+/*	..................   Dwarf Underdweller Corpse   ................... */
+/obj/effect/mob_spawn/human/corpse/damaged/underdweller
+	icon = 'icons/effects/blood.dmi'
+	icon_state = "remains"
+	color = "#aa9b00"
+	mob_type = /mob/living/carbon/human/species/dwarf/mountain
+	mob_name = "Dwarf Underdweller"
+	name = "Dwarf Underdweller"
+	hairstyle = "Miner"
+	facial_hairstyle = "Pick"
+	outfit = /datum/outfit/deadunderdweller
+
+/datum/outfit/deadunderdweller
+	armor = /obj/item/clothing/armor/cuirass/iron
+	shirt = /obj/item/clothing/shirt/undershirt/sailor/red
+	pants = /obj/item/clothing/pants/trou/leather
+	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
+	backl = /obj/item/storage/backpack/backpack
+	head = /obj/item/clothing/head/helmet/leather/minershelm
+
+
+/obj/item/clothing/armor/chainmail/hauberk/broken
+	desc = "A long shirt of maille, this one is made for a short man it seems."
+/obj/item/clothing/armor/chainmail/hauberk/broken/Initialize()
+	. = ..()
+	obj_break()
+
+/obj/item/clothing/armor/chainmail/battered
+	desc = "A good quality haubergon, but weakened by many blows."
+	max_integrity = INTEGRITY_STANDARD
+
+
+
+

@@ -929,6 +929,10 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	name = "Weaver"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/sk_pilgrim
+	name = "Pilgrim"
+	icon_state = "arrow"
+
 /obj/structure/handcart/corpse
 	name = "corpse cart"
 	color = "#b4b4b6"

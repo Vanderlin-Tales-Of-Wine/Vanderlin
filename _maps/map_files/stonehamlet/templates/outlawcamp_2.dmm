@@ -160,7 +160,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/outlaw)
 "VF" = (
-/obj/effect/spawner/map_spawner/volf_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/volf,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "VP" = (

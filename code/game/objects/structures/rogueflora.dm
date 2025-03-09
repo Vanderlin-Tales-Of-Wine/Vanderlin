@@ -695,7 +695,6 @@
 	dir = SOUTH
 	debris = list(/obj/item/natural/thorn = 3, /obj/item/grown/log/tree/stick = 1)
 	prob2findstuff = 15
-
 /obj/structure/flora/grass/thorn_bush/Initialize()
 	. = ..()
 	icon_state = "thornbush[rand(1,2)]"

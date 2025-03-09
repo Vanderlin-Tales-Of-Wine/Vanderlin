@@ -95,7 +95,7 @@
 /area/rogue/under/catacombs/dwarfoutpost)
 "hz" = (
 /obj/structure/rack,
-/obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost)
 "hY" = (
@@ -275,7 +275,7 @@
 	dir = 8
 	},
 /obj/item/natural/stone,
-/obj/effect/spawner/map_spawner/outpost_personal_item,
+/obj/effect/spawner/map_spawner/outpost/personal_item,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "uU" = (
@@ -363,7 +363,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "BR" = (
-/obj/effect/spawner/map_spawner/maneater_danger,
+/obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "BW" = (
@@ -468,7 +468,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "KB" = (
-/obj/effect/spawner/map_spawner/maneater_danger,
+/obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost)
 "KE" = (
@@ -502,7 +502,7 @@
 /turf/closed/mineral,
 /area/rogue/under/catacombs/dwarfoutpost)
 "MK" = (
-/obj/effect/spawner/map_spawner/maneater_danger,
+/obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
 "NM" = (
@@ -516,7 +516,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/catacombs/dwarfoutpost)
 "Pj" = (
-/obj/effect/spawner/map_spawner/outpost_personal_item,
+/obj/effect/spawner/map_spawner/outpost/personal_item,
 /obj/structure/flora/grass/water,
 /obj/effect/decal/remains/human/old{
 	name = "dwarf remains";
@@ -600,7 +600,7 @@
 /area/rogue/under/catacombs/dwarfoutpost)
 "Uj" = (
 /obj/structure/chair/stool,
-/obj/effect/spawner/map_spawner/maneater_danger,
+/obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
 /obj/effect/decal/remains/human/old{
 	name = "dwarf remains";
 	plane = -3
@@ -631,7 +631,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "VZ" = (
-/obj/effect/spawner/map_spawner/maneater_danger,
+/obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "Wa" = (
@@ -653,14 +653,14 @@
 "Xz" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/closet/crate/chest/old_crate,
-/obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
-/obj/effect/spawner/map_spawner/outpost_dwarf_armor,
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon,
+/obj/effect/spawner/map_spawner/outpost/dwarf_armor,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "XO" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/flint,
-/obj/effect/spawner/map_spawner/outpost_dwarf_armor,
+/obj/effect/spawner/map_spawner/outpost/dwarf_armor,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "XT" = (

@@ -36,7 +36,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "et" = (
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "eB" = (
@@ -108,7 +108,7 @@
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "hz" = (
 /obj/structure/rack,
-/obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "hJ" = (
@@ -120,7 +120,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "hR" = (
-/obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "ik" = (
@@ -204,7 +204,7 @@
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "nQ" = (
 /obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /turf/open/floor/metal,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "oj" = (
@@ -335,7 +335,7 @@
 	plane = -3
 	},
 /obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/spawner/map_spawner/outpost_personal_item,
+/obj/effect/spawner/map_spawner/outpost/personal_item,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "uH" = (
@@ -385,7 +385,7 @@
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "wG" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/effect/spawner/map_spawner/outpost_personal_item,
+/obj/effect/spawner/map_spawner/outpost/personal_item,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "xo" = (
@@ -411,7 +411,7 @@
 	plane = -3
 	},
 /obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/spawner/map_spawner/outpost_dwarf_key,
+/obj/effect/spawner/map_spawner/outpost/dwarf_key,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "zt" = (
@@ -436,12 +436,12 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "BC" = (
-/obj/effect/spawner/map_spawner/outpost_dwarf_weapon,
+/obj/effect/spawner/map_spawner/outpost/dwarf_weapon,
 /turf/open/floor/metal,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "BI" = (
 /obj/structure/closet/crate/chest/neu_iron,
-/obj/effect/spawner/map_spawner/outpost_personal_item,
+/obj/effect/spawner/map_spawner/outpost/personal_item,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "BR" = (
@@ -486,7 +486,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "DR" = (
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Fw" = (
@@ -496,7 +496,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "FK" = (
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Gl" = (
@@ -576,7 +576,7 @@
 "Ly" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/flint,
-/obj/effect/spawner/map_spawner/outpost_dwarf_armor,
+/obj/effect/spawner/map_spawner/outpost/dwarf_armor,
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "MK" = (
@@ -607,7 +607,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Pk" = (
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
@@ -648,7 +648,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Qe" = (
-/obj/effect/spawner/map_spawner/outpost_dwarf_armor,
+/obj/effect/spawner/map_spawner/outpost/dwarf_armor,
 /turf/open/floor/metal,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Qg" = (
@@ -793,7 +793,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Wz" = (
-/obj/effect/spawner/map_spawner/orc_warrior_carbon_maybe,
+/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 9
 	},

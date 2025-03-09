@@ -1,9 +1,9 @@
 /datum/job/pilgrim
 	title = "Pilgrim"
-	flag = ADVENTURER
-	department_flag = PEASANTS
+	flag = SK_PILGRIM	// STONEKEEP EDIT
+	department_flag = APPRENTICES	// STONEKEEP EDIT
 	faction = "Station"
-//	total_positions = -1
+//	total_positions = -1	// STONEKEEP EDIT
 	total_positions = 20
 	spawn_positions = 20
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES	// STONEKEEP EDIT

@@ -5,8 +5,8 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 
 /datum/job/adventurer
 	title = "Adventurer"
-	flag = ADVENTURER
-	department_flag = PEASANTS
+	flag = SK_ADVENTURER	// STONEKEEP EDIT
+	department_flag = APPRENTICES	// STONEKEEP EDIT
 	faction = "Station"
 	total_positions = 14
 	spawn_positions = 14
@@ -21,7 +21,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	var/ispilgrim = FALSE
 	display_order = ADVENTURER_ORDER	// STONEKEEP EDIT
 	show_in_credits = FALSE
-	min_pq = 2
+	min_pq = 0	// STONEKEEP EDIT
 	always_show_on_latechoices = TRUE
 	job_reopens_slots_on_death = TRUE
 	same_job_respawn_delay = 15 MINUTES
