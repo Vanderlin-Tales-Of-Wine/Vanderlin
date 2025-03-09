@@ -695,6 +695,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		ADMIN_PUNISHMENT_CBT,
 		ADMIN_PUNISHMENT_NECKSNAP,
 		ADMIN_PUNISHMENT_HUNTED,
+		ADMIN_PUNISHMENT_MEATPIE,
 	)
 
 	var/punishment = input("Choose a punishment", "DIVINE SMITING") as null|anything in sortList(punishment_list)
@@ -780,6 +781,15 @@ Traitors and the like can also be revived with the previous role mostly intact.
 					// 	if(istype(I, /obj/item/weapon/knife/dagger/steel/profane)) // Checks to see if the assassin has their dagger on them.
 					to_chat(carbon, "<span class='danger'>\"The Dark Sun Graggar himself has ordered us to punish [target.real_name] for their transgressions!\"</span>")
 			to_chat(target.mind, "<span class='danger'>My hair stands on end. Has someone just said my name? I should watch my back.</span>")
+		if(ADMIN_PUNISHMENT_MEATPIE)
+			if(!ishuman(target))
+				to_chat(usr, span_warning("Target must be human!"))
+				return
+			var/mutable_appearance/meatpie_appearance = mutable_appearance('icons/roguetown/items/food.dmi', "meatpie")
+			var/mutable_appearance/transform_scanline = mutable_appearance('icons/effects/effects.dmi', "smoke")
+			target.notransform = TRUE
+			target.transformation_animation(meatpie_appearance, 5 SECONDS, transform_scanline.appearance)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(pieify), target), 5 SECONDS)
 	punish_log(target, punishment)
 
 /client/proc/punish_log(whom, punishment)
