@@ -39,3 +39,8 @@
 	else
 		honey_color = ""
 	update_icon()
+
+/obj/item/reagent_containers/food/snacks/spiderhoney/honey
+	name = "honey"
+	icon_state = "honeycomb"
+	tastes = list("sweetness" = 1)
