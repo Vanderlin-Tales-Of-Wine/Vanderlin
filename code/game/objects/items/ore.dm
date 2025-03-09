@@ -92,6 +92,7 @@
 	melt_amount = 100
 	var/datum/anvil_recipe/currecipe
 	var/quality = SMELTERY_LEVEL_NORMAL
+	var/stacktype
 
 /obj/item/ingot/examine()
 	. += ..()
@@ -143,6 +144,7 @@
 	icon_state = "ingotgold"
 	smeltresult = /obj/item/ingot/gold
 	sellprice = 100
+	stacktype = /obj/item/stack/gold
 	melting_material = /datum/material/gold
 
 /obj/item/ingot/iron
@@ -151,6 +153,7 @@
 	icon_state = "ingotiron"
 	smeltresult = /obj/item/ingot/iron
 	sellprice = 25
+	stacktype = /obj/item/stack/iron
 	melting_material = /datum/material/iron
 
 /obj/item/ingot/copper
@@ -159,6 +162,7 @@
 	icon_state = "ingotcop"
 	smeltresult = /obj/item/ingot/copper
 	sellprice = 10
+	stacktype = /obj/item/stack/copper
 	melting_material = /datum/material/copper
 
 /obj/item/ingot/tin
@@ -167,6 +171,7 @@
 	icon_state = "ingottin"
 	smeltresult = /obj/item/ingot/tin
 	sellprice = 15
+	stacktype = /obj/item/stack/tin
 	melting_material = /datum/material/tin
 
 /obj/item/ingot/bronze
@@ -175,6 +180,7 @@
 	icon_state = "ingotbronze"
 	smeltresult = /obj/item/ingot/bronze
 	sellprice = 30
+	stacktype = /obj/item/stack/bronze
 	melting_material = /datum/material/bronze
 
 /obj/item/ingot/silver
@@ -183,6 +189,7 @@
 	icon_state = "ingotsilv"
 	smeltresult = /obj/item/ingot/silver
 	sellprice = 60
+	stacktype = /obj/item/stack/silver
 	melting_material = /datum/material/silver
 
 /obj/item/ingot/steel
@@ -191,6 +198,7 @@
 	icon_state = "ingotsteel"
 	smeltresult = /obj/item/ingot/steel
 	sellprice = 40
+	stacktype = /obj/item/stack/steel
 	melting_material = /datum/material/steel
 
 /obj/item/ingot/blacksteel
@@ -199,4 +207,5 @@
 	icon_state = "ingotblacksteel"
 	smeltresult = /obj/item/ingot/blacksteel
 	sellprice = 90
+	stacktype = /obj/item/stack/blacksteel
 	melting_material = /datum/material/blacksteel
