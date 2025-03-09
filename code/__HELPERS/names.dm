@@ -21,7 +21,6 @@ GLOBAL_VAR(command_name)
 	return name
 
 /proc/change_command_name(name)
-
 	GLOB.command_name = name
 
 	return name

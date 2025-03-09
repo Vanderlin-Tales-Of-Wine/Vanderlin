@@ -1,0 +1,11 @@
+#define VISUAL_UI_BACK 				10
+#define VISUAL_UI_BUTTON 				11
+#define VISUAL_UI_FRONT 				12
+
+#define VISUAL_UI_GROUP_A 			0
+#define VISUAL_UI_GROUP_B 			3
+#define VISUAL_UI_GROUP_C 			6
+#define VISUAL_UI_GROUP_D 			9
+
+#define MINDUI_FLAG_PROCESSING	1
+#define MINDUI_FLAG_TOOLTIP		2

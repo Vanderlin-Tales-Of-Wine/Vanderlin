@@ -2,6 +2,9 @@
 
 #if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 
+/// For advanced cases, fail unconditionally but don't return (so a test can return multiple results)
+#define TEST_FAIL(reason) (Fail(reason || "No reason", __FILE__, __LINE__))
+
 /// Asserts that a condition is true
 /// If the condition is not true, fails the test
 #define TEST_ASSERT(assertion, reason) if (!(assertion)) { return Fail("Assertion failed: [reason || "No reason"]") }
@@ -34,7 +37,9 @@
 //Keep this sorted alphabetically
 #include "anchored_mobs.dm"
 #include "component_tests.dm"
+// #include "create_and_destroy.dm"
 #include "reagent_id_typos.dm"
+//#include "reagent_names.dm"
 #include "reagent_recipe_collisions.dm"
 #include "resist.dm"
 #include "rogue_inhands.dm"
@@ -45,7 +50,6 @@
 #include "subsystem_init.dm"
 #include "surgeries.dm"
 #include "timer_sanity.dm"
-//#include "create_and_destroy.dm" // this goes last just in case. however it's mega-broken right now
 #include "unit_test.dm"
 
 #undef TEST_ASSERT

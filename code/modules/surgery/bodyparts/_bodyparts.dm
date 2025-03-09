@@ -96,6 +96,7 @@
 	var/wound_icon_state
 
 	var/punch_modifier = 1 // for modifying arm punching damage
+	var/acid_damage_intensity = 0
 
 /obj/item/bodypart/grabbedintents(mob/living/user, precise)
 	return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
@@ -483,6 +484,8 @@
 	var/mutable_appearance/limb = mutable_appearance(layer = -BODYPARTS_LAYER)
 	if(wound_icon_state)
 		limb.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[wound_icon_state]_flesh"), flags = MASK_INVERSE)
+	if(acid_damage_intensity)
+		limb.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[body_zone]_acid[acid_damage_intensity]_flesh"), flags = MASK_INVERSE)
 	limb.dir = image_dir
 	var/image/aux
 
@@ -508,22 +511,28 @@
 			limb.icon = species_icon
 			if(should_draw_gender)
 				limb.icon_state = "[body_zone][skel]"
-				if(wound_icon_state)
+				if(wound_icon_state || acid_damage_intensity)
 					var/mutable_appearance/skeleton = mutable_appearance(layer = -(BODY_LAYER))
 					skeleton.icon = species_icon
 					skeleton.icon_state = "[body_zone]_s"
-					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(wound_icon_state)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(acid_damage_intensity)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[body_zone]_acid[acid_damage_intensity]"))
 					skeleton.dir = image_dir
 					. += skeleton
 			else if(use_digitigrade)
 				limb.icon_state = "digitigrade_[use_digitigrade]_[body_zone]"
 			else
 				limb.icon_state = "[body_zone][skel]"
-				if(wound_icon_state)
+				if(wound_icon_state || acid_damage_intensity)
 					var/mutable_appearance/skeleton = mutable_appearance(layer = -(BODY_LAYER))
 					skeleton.icon = species_icon
 					skeleton.icon_state = "[body_zone]_s"
-					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(wound_icon_state)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(acid_damage_intensity)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[body_zone]_acid[acid_damage_intensity]"))
 					skeleton.dir = image_dir
 					. += skeleton
 		else
@@ -536,11 +545,14 @@
 			if(!hideaux)
 				aux = image(limb.icon, "[aux_zone][skel]", -(aux_layer), image_dir)
 				. += aux
-				if(wound_icon_state)
+				if(wound_icon_state || acid_damage_intensity)
 					var/mutable_appearance/skeleton = mutable_appearance(layer = -(aux_layer))
 					skeleton.icon = species_icon
 					skeleton.icon_state = "[aux_zone]_s"
-					skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(wound_icon_state)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', wound_icon_state))
+					if(acid_damage_intensity)
+						skeleton.filters += alpha_mask_filter(icon=icon('icons/effects/wounds.dmi', "[aux_zone]_acid[acid_damage_intensity]"))
 					skeleton.dir = image_dir
 					. += skeleton
 
