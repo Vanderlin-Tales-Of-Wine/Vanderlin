@@ -70,7 +70,7 @@ GLOBAL_LIST_EMPTY_TYPED(schizohelps, /datum/schizohelp)
 	if(schizo.answers[src.key])
 		to_chat(src, span_warning("I have already answered this meditation!"))
 		return
-	var/answer = input("Answer their meditations...", "VOICE")
+	var/answer = browser_input_text(src, "Answer their meditations...", "THE VOICE", multiline = TRUE)
 	if(!answer || QDELETED(schizo))
 		return
 	schizo.answer_schizo(answer, src.mob)

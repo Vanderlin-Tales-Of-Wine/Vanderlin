@@ -195,7 +195,6 @@
 	//		H.put_in_hands(new l_hand(get_turf(H)),TRUE)
 			H.equip_to_slot_or_del(new l_hand(H),SLOT_HANDS, TRUE)
 		if(r_hand)
-			testing("PIH")
 		//	H.put_in_hands(new r_hand(get_turf(H)),TRUE)
 			H.equip_to_slot_or_del(new r_hand(H),SLOT_HANDS, TRUE)
 
