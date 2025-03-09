@@ -94,6 +94,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
+"dZ" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/ruinedwood/chevron,
+/area/rogue/indoors)
 "ec" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -368,7 +372,6 @@
 /area/rogue/indoors)
 "nr" = (
 /obj/item/book/yeoldecookingmanual,
-/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "nt" = (
@@ -715,7 +718,7 @@
 "BU" = (
 /obj/item/natural/wood/plank,
 /obj/item/grown/log/tree/stick,
-/mob/living/simple_animal/hostile/skeleton/bow,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "Ce" = (
@@ -2970,7 +2973,7 @@ Zi
 FV
 sp
 Ng
-KF
+dZ
 nr
 KF
 Qs

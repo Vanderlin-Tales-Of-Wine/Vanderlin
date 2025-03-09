@@ -1,93 +1,95 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
+"b" = (
+/turf/closed/wall/mineral/wooddark/slitted,
+/area/rogue/under/cave)
 "d" = (
 /turf/open/floor/twig,
-/area/rogue)
+/area/rogue/under/cave)
 "i" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "l" = (
 /turf/open/floor/rooftop/green{
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/indoors/shelter)
 "n" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "q" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "r" = (
-/obj/machinery/light/fueled/firebowl,
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "A" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "E" = (
 /obj/structure/wallladder{
 	dir = 8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "F" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "H" = (
 /obj/structure/fluff/walldeco/vinez/offset,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "J" = (
 /obj/effect/decal/remains/human{
 	pixel_y = 12
 	},
 /obj/structure/bed/shit,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "K" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "L" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "M" = (
 /obj/structure/table/wood/plain,
 /obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "N" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "O" = (
 /turf/closed/wall/mineral/wooddark/slitted,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "P" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Q" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/wooddark/window,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "U" = (
 /turf/open/floor/rooftop/green,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "V" = (
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Y" = (
 /obj/structure/ladder/unbreakable,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 i
@@ -167,7 +169,7 @@ a
 a
 a
 a
-O
+b
 a
 a
 a
@@ -196,7 +198,7 @@ i
 i
 i
 i
-O
+b
 a
 a
 a
@@ -217,7 +219,7 @@ a
 a
 a
 a
-O
+b
 a
 a
 a
@@ -260,7 +262,7 @@ a
 i
 "}
 (11,1,1) = {"
-i
+r
 O
 O
 Q
@@ -277,7 +279,7 @@ i
 i
 "}
 (12,1,1) = {"
-i
+r
 V
 V
 V
@@ -294,7 +296,7 @@ i
 i
 "}
 (13,1,1) = {"
-i
+r
 Y
 V
 V
@@ -311,7 +313,7 @@ i
 i
 "}
 (14,1,1) = {"
-i
+r
 V
 n
 M
@@ -328,13 +330,13 @@ i
 i
 "}
 (15,1,1) = {"
-i
-i
-i
-i
-i
-i
-i
+r
+r
+r
+r
+r
+r
+r
 i
 i
 i
@@ -516,7 +518,7 @@ F
 i
 "}
 (11,1,2) = {"
-i
+r
 l
 l
 l
@@ -533,7 +535,7 @@ i
 i
 "}
 (12,1,2) = {"
-i
+r
 V
 V
 V
@@ -550,7 +552,7 @@ i
 i
 "}
 (13,1,2) = {"
-i
+r
 Y
 V
 V
@@ -567,7 +569,7 @@ i
 i
 "}
 (14,1,2) = {"
-i
+r
 A
 V
 V
@@ -581,16 +583,16 @@ i
 i
 i
 i
-r
+i
 "}
 (15,1,2) = {"
-i
-i
-i
-i
-i
-i
-i
+r
+r
+r
+r
+r
+r
+r
 i
 i
 i
