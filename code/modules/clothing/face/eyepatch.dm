@@ -15,7 +15,7 @@
 	block2add = FOV_LEFT
 	body_parts_covered = LEFT_EYE
 
-/obj/item/clothing/mask/eyepatch/fake
+/obj/item/clothing/face/eyepatch/fake
 	name = "eyepatch"
 	desc = "A see through eyepatch, fitted for the right eye."
 	icon_state = "eyepatch"
