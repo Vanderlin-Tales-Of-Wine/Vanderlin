@@ -6,7 +6,7 @@
 	if(!ismovableatom(target))
 		return ELEMENT_INCOMPATIBLE
 	if(!target.reagents)
-		target.create_reagents(10
+		target.create_reagents(10)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(target, COMSIG_ITEM_ATTACK_OBJ, PROC_REF(check_dip))
 	RegisterSignal(target, COMSIG_ITEM_PRE_ATTACK, PROC_REF(check_dip))
