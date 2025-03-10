@@ -1,3 +1,10 @@
+/*
+ * Do not touch the values of these definitions
+ * unless you are able to change them on the Elasticsearch engine as well.
+ *
+ * Hopefully, you know what you're doing.
+ */
+
 /* Categories */
 	#define ELASCAT_GENERIC "generic"
 
