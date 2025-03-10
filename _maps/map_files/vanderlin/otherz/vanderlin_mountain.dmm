@@ -1451,7 +1451,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/lower/building)
 "wb" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/church,
 /area/rogue/under/mountains/anvil/lower)
