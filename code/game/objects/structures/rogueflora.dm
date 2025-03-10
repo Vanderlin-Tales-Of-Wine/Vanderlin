@@ -399,6 +399,7 @@
 			if(!HAS_TRAIT(H, TRAIT_NOPAIN))
 				H.emote("painscream")
 				L.Stun(3 SECONDS) //that fucking hurt
+				H.consider_ambush()
 		else if(prob(70))
 			to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
 
