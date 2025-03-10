@@ -11,3 +11,9 @@
 //from base of client/MouseUp(): (/client, object, location, control, params)
 #define COMSIG_CLIENT_MOUSEUP "client_mouseup"
 	#define COMPONENT_CLIENT_MOUSEUP_INTERCEPT (1<<0)
+
+#define COMSIG_ATOM_PROXY_STEAM_USE "proxy_steam_usage"
+
+#define COMSIG_ATOM_STEAM_USE "steam_usage"
+
+#define COMSIG_ATOM_STEAM_INCREASE "steam_increase"

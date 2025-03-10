@@ -193,6 +193,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
+	S["selected_accent"]	>> selected_accent
+	if (!selected_accent)
+		selected_accent = ACCENT_DEFAULT
+
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -292,6 +296,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
+	WRITE_FILE(S["selected_accent"] , selected_accent)
 	return TRUE
 
 /datum/preferences/proc/_load_species(S)

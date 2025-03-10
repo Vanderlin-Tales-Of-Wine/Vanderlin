@@ -147,6 +147,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	/// Tracker to whether the person has ever spawned into the round, for purposes of applying the respawn ban
 	var/has_spawned = FALSE
+	///our selected accent
+	var/selected_accent = ACCENT_DEFAULT
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -373,6 +375,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 //				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Lock" : "Unlock"]</A>"
 				dat += "<br>"
 				dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
+				dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
 				dat += "<br>"
 //				dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
 //				dat += "<br>"
@@ -1854,6 +1857,14 @@ Slots: [job.spawn_positions]</span>
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 
+				if("selected_accent")
+					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+						to_chat(user, "Sorry this is a patreon exclusive feature.")
+					else
+						var/accent = input(user, "Choose your character's accent:", "Character Preference") as null|anything in GLOB.accent_list
+						if(accent)
+							selected_accent = accent
+
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null
 					if(new_ooccolor)
@@ -2325,6 +2336,9 @@ Slots: [job.spawn_positions]</span>
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
+
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
 
 	character.familytree_pref = family
 	character.setspouse = setspouse
