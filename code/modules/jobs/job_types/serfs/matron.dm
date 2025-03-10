@@ -23,8 +23,16 @@
 	outfit = /datum/outfit/job/matron
 	give_bank_account = 35
 	min_pq = 10
+	bypass_lastclass = TRUE
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
+
+/datum/job/matron/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+	. = ..()
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		if(GLOB.thieves_guild_doors.len > 0)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_thief_password), H), 50)
 
 /datum/outfit/job/matron/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -56,6 +64,7 @@
 		H.grant_language(/datum/language/thievescant)
 		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 		shirt = /obj/item/clothing/shirt/dress/gen/black
 		armor = /obj/item/clothing/armor/leather/vest/black
 		pants = /obj/item/clothing/pants/trou/beltpants
@@ -64,4 +73,4 @@
 		beltl = /obj/item/storage/belt/pouch/coins/mid
 		backr = /obj/item/storage/backpack/satchel
 		cloak = /obj/item/clothing/cloak/matron
-		backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/key/matron = 1)
+		backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/matron = 1)
