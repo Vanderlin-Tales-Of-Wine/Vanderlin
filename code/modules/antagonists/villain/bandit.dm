@@ -16,6 +16,7 @@
 
 /datum/antagonist/bandit/on_gain()
 	owner.special_role = "Bandit"
+	purge_combat_knowledge()
 	move_to_spawnpoint()
 	forge_objectives()
 	. = ..()
