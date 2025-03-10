@@ -4976,13 +4976,6 @@
 /obj/item/natural/cloth,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"dDd" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "dDB" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
@@ -22859,9 +22852,8 @@
 /obj/item/reagent_containers/glass/bottle/vial/spdpot,
 /obj/item/reagent_containers/glass/bottle/vial/strpot,
 /obj/item/reagent_containers/glass/bottle/vial/lucpot,
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/concrete,
-/area/rogue/indoors/town/shop)
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "qQd" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/closet/crate/chest,
@@ -24568,12 +24560,9 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/magician)
 "sbH" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/manapot,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/bath)
 "scf" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2{
 	pixel_x = -5;
@@ -90499,9 +90488,9 @@ kbf
 nEk
 nrq
 kwV
-xuD
+kwV
 whf
-meN
+qPJ
 meN
 meN
 meN
@@ -90702,7 +90691,7 @@ eXo
 did
 kwV
 fPM
-whf
+sbH
 vUa
 meN
 wXX
@@ -100425,7 +100414,7 @@ vgJ
 vgJ
 nWe
 nWe
-qPJ
+hsJ
 nnM
 jUW
 nWe
@@ -139818,7 +139807,7 @@ cKz
 kfl
 khV
 vRg
-dDd
+khV
 kfl
 oZg
 nQk
@@ -140020,7 +140009,7 @@ sxi
 kfl
 khV
 vRg
-sbH
+khV
 kfl
 dDL
 ktw
