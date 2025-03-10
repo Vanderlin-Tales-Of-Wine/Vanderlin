@@ -1860,7 +1860,6 @@
 #include "code\modules\mob\living\simple_animal\hostile\retaliate\game\saiga.dm"
 #include "code\modules\mob\living\simple_animal\hostile\werewolf\update_icons.dm"
 #include "code\modules\mob\living\simple_animal\hostile\werewolf\werewolf.dm"
-#include "code\modules\paperwork\contract.dm"
 #include "code\modules\paperwork\paper.dm"
 #include "code\modules\paperwork\rogue.dm"
 #include "code\modules\paperwork\papers\scrap.dm"
