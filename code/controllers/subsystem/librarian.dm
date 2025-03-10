@@ -90,18 +90,14 @@ SUBSYSTEM_DEF(librarian)
 	if(!filename)
 		return list()
 	var/json_file = file("data/player_generated_books/[filename].json")
-	testing("playerfilebegin")
 	if(fexists(json_file))
-		testing("playerfile1")
 		var/list/contents = json_decode(file2text(json_file))
 		if(isnull(contents))
-			testing("playerfile2")
 			return list()
 		if(!("category" in contents))
 			contents |= "category"
 			contents["category"] = "Thesis"
 		return contents
-	testing("playerfile4")
 	return list()
 
 /datum/controller/subsystem/librarian/proc/del_player_book(book_title)
@@ -124,7 +120,6 @@ SUBSYSTEM_DEF(librarian)
 
 
 /datum/controller/subsystem/librarian/proc/pull_player_book_titles()
-	testing("pullplayerbook")
 	if(fexists(file("data/player_generated_books/_book_titles.json")))
 		var/json_file = file("data/player_generated_books/_book_titles.json")
 		var/json_list = json_decode(file2text(json_file))

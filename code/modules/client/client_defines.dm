@@ -141,8 +141,6 @@
 	var/list/current_weathers = list()
 	var/last_lighting_update = 0
 
-	var/list/open_popups = list()
-
 	var/loop_sound = FALSE
 	var/rain_sound = FALSE
 	var/last_droning_sound

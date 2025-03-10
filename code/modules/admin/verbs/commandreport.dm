@@ -1,7 +1,6 @@
 /// The default command report announcement sound.
 #define DEFAULT_ANNOUNCEMENT_SOUND "default_announcement"
 
-#define NULLABLE(condition) (condition || null)
 /// Verb to change the global command name.
 /client/proc/cmd_change_command_name()
 	set category = "Special Verbs"
@@ -46,8 +45,7 @@
 /datum/command_report_menu/New(mob/user)
 	ui_user = user
 	ui = new(ui_user, "command_report", "<center>SPEAK FROM THE HEAVENS</center>", 400, 450, src)
-	ui.head_content = \
-	{"
+	ui.set_head_content({"
 		<style>
 			body {
 				text-align: center;
@@ -69,7 +67,7 @@
 				display: box;
 			}
 		</style>
-	"}
+	"})
 
 	build_ui(user)
 

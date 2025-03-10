@@ -1,5 +1,5 @@
 /datum/faith/inhumen_pantheon
-	name = "Inhumen Pantheon"
+	name = "\improper Inhumen Pantheon"
 	desc = "The Ten are FALSE GODS.\n\
 		They keep us trapped in Tartarus and choke out our divine light, \
 		but only though FULL BELIEF in the divinity of men and women can we escape and reach the TRUE spiritual realm.\n\

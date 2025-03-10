@@ -150,14 +150,18 @@
  * return int The number of UIs closed.
  **/
 /datum/controller/subsystem/tgui/proc/close_user_uis(mob/user, datum/src_object = null, ui_key = null)
-	if(isnull(user.open_uis) || !istype(user.open_uis, /list) || open_uis.len == 0)
-		return 0 // Couldn't find any UIs for this user.
+	if(!length(user.open_uis) && !length(user.browser_modals))
+		return FALSE // Couldn't find any UIs for this user.
 
 	var/close_count = 0
 	for(var/datum/tgui/ui in user.open_uis)
 		if((isnull(src_object) || !isnull(src_object) && ui.src_object == src_object) && (isnull(ui_key) || !isnull(ui_key) && ui.ui_key == ui_key))
 			ui.close() // Close the UI.
 			close_count++ // Count each UI we close.
+
+	for(var/datum/browser/modal/modal in user.browser_modals)
+		modal.close()
+		close_count++
 	return close_count
 
 /**
@@ -233,15 +237,23 @@
  * return bool If the UIs were transferred.
  **/
 /datum/controller/subsystem/tgui/proc/on_transfer(mob/source, mob/target)
-	if(!source || isnull(source.open_uis) || !istype(source.open_uis, /list) || open_uis.len == 0)
-		return 0 // The old mob had no open UIs.
+	if(!length(source?.open_uis) && !length(source?.browser_modals))
+		return FALSE
 
-	if(isnull(target.open_uis) || !istype(target.open_uis, /list))
+	if(isnull(target.open_uis) || !islist(target.open_uis))
 		target.open_uis = list() // Create a list for the new mob if needed.
 
 	for(var/datum/tgui/ui in source.open_uis)
 		ui.user = target // Inform the UIs of their new owner.
 		target.open_uis.Add(ui) // Transfer all the UIs.
 
-	source.open_uis.Cut() // Clear the old list.
-	return 1 // Let the caller know we did it.
+	for(var/datum/browser/modal/modal in source.browser_modals)
+		modal.user = target
+		modal.UnregisterSignal(source, COMSIG_PARENT_QDELETING)
+		modal.RegisterSignal(target, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/browser, user_deleted))
+		target.browser_modals.Add(modal)
+
+	// Clear the old list.
+	source.open_uis.Cut()
+	source.browser_modals.Cut()
+	return TRUE

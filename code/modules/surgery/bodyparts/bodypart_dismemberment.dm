@@ -140,7 +140,6 @@
 /obj/item/bodypart/proc/drop_limb(special)
 	if(!owner)
 		return FALSE
-	testing("begin drop limb")
 	var/atom/drop_location = owner.drop_location()
 	var/mob/living/carbon/was_owner = owner
 	update_limb(dropping_limb = TRUE)
