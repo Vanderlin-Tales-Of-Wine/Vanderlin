@@ -48,6 +48,7 @@
 #define AP_POLEARM_CHOP 20
 #define AP_SWORD_THRUST 20
 #define AP_SWORD_CHOP 5
+#define AP_WHIP_LASH 5
 
 //wdefense defines
 #define TERRIBLE_PARRY -1
