@@ -40,7 +40,7 @@
 	pants = /obj/item/clothing/pants/trou/leather/advanced
 	shoes = /obj/item/clothing/shoes/nobleboot
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
-	mask = /obj/item/clothing/mask/eyepatch/fake
+	mask = /obj/item/clothing/face/eyepatch/fake
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_BURDEN, type)
