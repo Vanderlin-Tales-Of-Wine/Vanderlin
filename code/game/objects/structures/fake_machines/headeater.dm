@@ -9,8 +9,8 @@
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
 
-/obj/structure/fake_machine/headeater/attackby(obj/item/H, mob/user, params)
-	. = ..()
+///obj/structure/fake_machine/headeater/attackby(obj/item/H, mob/user, params)
+	//. = ..()
 	//if(!istype(H, /obj/item/natural/head) || !istype(H, /obj/item/bodypart/head) || H.headprice <= 0)
 		//to_chat(user, span_danger("It seems uninterested by the [H]"))
 		//return
