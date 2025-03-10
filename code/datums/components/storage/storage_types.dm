@@ -121,7 +121,7 @@
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
 
-/datum/component/storage/concrete/roguetown/headhook
+/datum/component/storage/concrete/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 4
 	screen_max_columns = 6 //N/A fix later
@@ -133,7 +133,7 @@
 	allow_dump_out = TRUE
 	insert_preposition = "in"
 
-/datum/component/storage/concrete/roguetown/headhook/New(datum/P, ...)
+/datum/component/storage/concrete/headhook/New(datum/P, ...)
 	. = ..()
 	set_holdable(
 		typecacheof(list(/obj/item/natural/head/volf,
@@ -148,7 +148,7 @@
 		/obj/item/bodypart/head/zizombie)
 	))
 
-/datum/component/storage/concrete/roguetown/headhook/bronze
+/datum/component/storage/concrete/headhook/bronze
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 6
 	screen_max_columns = 8
@@ -160,7 +160,7 @@
 	allow_dump_out = TRUE
 	insert_preposition = "in"
 
-/datum/component/storage/concrete/roguetown/headhook/bronze/New(datum/P, ...) //N/A set the rows right
+/datum/component/storage/concrete/headhook/bronze/New(datum/P, ...) //N/A set the rows right
 	. = ..()
 	set_holdable(
 		typecacheof(list(/obj/item/natural/head/volf,
