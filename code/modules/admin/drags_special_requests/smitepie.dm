@@ -1,11 +1,11 @@
-/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/smite
+/obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/smite
 	desc = "If you put this close to your ear, you can hear the screams of the damned."
 
 
 GLOBAL_LIST_EMPTY(transformation_animation_objects)
 
 /proc/pieify(atom/movable/target)
-	var/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/smite/tomb = new /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/smite(get_turf(target))
+	var/obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/smite/tomb = new /obj/item/reagent_containers/food/snacks/pie/cooked/meat/meat/smite(get_turf(target))
 	target.forceMove(tomb)
 	target.AddComponent(/datum/component/itembound, tomb)
 	var/mob/living/carbon/target_mob = target
