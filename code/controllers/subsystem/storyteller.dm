@@ -509,7 +509,7 @@ SUBSYSTEM_DEF(gamemode)
 		event.max_occurrences = 0
 	else if(. == EVENT_READY)
 		event.runEvent(random = TRUE, admin_forced = forced) // fallback to dynamic
-		add_abstract_elastic_data("storyteller", event.name, 1, 1)
+		add_abstract_elastic_data(ELASCAT_STORYTELLER, event.name, 1, 1)
 
 ///Resets frequency multiplier.
 /datum/controller/subsystem/gamemode/proc/resetFrequency()

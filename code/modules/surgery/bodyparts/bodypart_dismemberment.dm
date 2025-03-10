@@ -22,7 +22,7 @@
 //Dismember a limb
 /obj/item/bodypart/head/dismember(dam_type, bclass, mob/living/user, zone_precise)
 	. = ..()
-	add_abstract_elastic_data("combat", "decapitations", 1)
+	add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_DECAPITATIONS, 1)
 
 /obj/item/bodypart/proc/dismember(dam_type = BRUTE, bclass = BCLASS_CUT, mob/living/user, zone_precise = src.body_zone)
 	if(!owner)
