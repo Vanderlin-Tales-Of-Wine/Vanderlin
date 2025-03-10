@@ -27,7 +27,7 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/noc
 			wrists = /obj/item/clothing/neck/psycross/noc
 		if(/datum/patron/divine/dendor)
-			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/dendor
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
@@ -42,13 +42,13 @@
 			head = /obj/item/clothing/head/helmet/heavy/bucket // Placeholder
 			wrists = /obj/item/clothing/neck/psycross/silver/xylix
 		if(/datum/patron/divine/pestra)
-			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/pestra
 			wrists = /obj/item/clothing/neck/psycross/silver/pestra
 		if(/datum/patron/divine/malum)
-			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
+			head = /obj/item/clothing/head/helmet/heavy/necked/malum
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
 		if(/datum/patron/divine/eora)
-			head = /obj/item/clothing/head/helmet/sallet/eoran
+			head = /obj/item/clothing/head/helmet/sallet/eora
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
 			H.virginity = FALSE
 		if(/datum/patron/inhumen/baotha, /datum/patron/inhumen/graggar, /datum/patron/inhumen/zizo, /datum/patron/inhumen/matthios, /datum/patron/inhumen/graggar_zizo, /datum/patron/godless)

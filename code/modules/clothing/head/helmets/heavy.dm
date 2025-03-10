@@ -109,7 +109,7 @@
 	icon_state = "necrahelm"
 
 //............... Dendor Helmet ............... //	This one seems a bit out of place
-/obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+/obj/item/clothing/head/helmet/heavy/necked/dendor
 	name = "dendor helmet"
 	desc = "A great helmet with twisted metalwork that imitates the twisting of bark, or the horns of a beast."
 	icon_state = "dendorhelm"
@@ -117,15 +117,14 @@
 	prevent_crits = ALL_EXCEPT_BLUNT
 
 //............... Eora Helmet ............... //
-/obj/item/clothing/head/helmet/sallet/eoran
+/obj/item/clothing/head/helmet/sallet/eora
 	name = "eora helmet"
 	desc = "A standard helmet forged in the style typical of Eoran worshippers, a simple yet practical protective piece of equipment. Upon it lays several laurels of flowers and other colorful ornaments, followed by several symbols and standards of the user's chapter, accomplishments or even punishment"
 	icon_state = "eorahelm"
 	item_state = "eorahelm"
 
-
 //............... Pestra Helmet ............... //
-/obj/item/clothing/head/helmet/heavy/necked/pestrahelm
+/obj/item/clothing/head/helmet/heavy/necked/pestra
 	name = "pestran helmet"
 	desc = "A great helmet made of coarse, tainted steel. It is modeled after a plagued carrion, a blessed abomination of Pestra."
 	icon_state = "pestrahelm"
@@ -133,7 +132,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 
 //................ Malum Helmet ............. //
-/obj/item/clothing/head/helmet/heavy/necked/malumhelm
+/obj/item/clothing/head/helmet/heavy/necked/malum
 	name = "malumite helmet"
 	desc = "A great helmet of sturdy dark steel. Its chiseled countenance reminds the viewer of Malum's stern gaze."
 	icon_state = "malumhelm"
