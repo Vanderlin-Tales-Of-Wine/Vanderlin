@@ -97,7 +97,6 @@
 /obj/structure/window/stained
 	icon_state = "stained-silver"
 	base_state = "stained-silver"
-	opacity = TRUE
 	max_integrity = 100
 	integrity_failure = 0.75
 	repair_cost_first = /obj/item/natural/glass
