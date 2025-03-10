@@ -10335,6 +10335,10 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
+"htx" = (
+/obj/structure/train,
+/turf/open/floor/metal,
+/area/rogue/under/town/sewer)
 "htM" = (
 /obj/structure/chair/stool{
 	pixel_y = 5
@@ -19114,7 +19118,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
 "nRb" = (
-/obj/structure/fluff/buysign,
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
 	},
@@ -26737,8 +26743,8 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
 "tAe" = (
-/obj/structure/fluff/sellsign{
-	name = "TRAIN SERVICE UNAVAILABLE"
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
@@ -31410,6 +31416,12 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town)
+"wOQ" = (
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
+/turf/open/floor/blocks,
+/area/rogue/outdoors/town)
 "wOR" = (
 /obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/powder/flour,
@@ -32701,7 +32713,9 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "xOF" = (
-/obj/structure/fluff/buysign,
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -58844,7 +58858,7 @@ oGi
 lfU
 lfU
 kDp
-hbV
+htx
 kDp
 qXV
 qXV
@@ -98025,7 +98039,7 @@ lsl
 lsl
 lsl
 lsl
-lsl
+wOQ
 eCc
 iSk
 iSk
