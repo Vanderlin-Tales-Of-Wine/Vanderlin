@@ -1,66 +1,66 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "d" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "k" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "n" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "o" = (
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "t" = (
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "A" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "B" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "I" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "M" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "Q" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "S" = (
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "U" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "W" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "X" = (
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "Y" = (
 /turf/open/lava,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 
 (1,1,1) = {"
 a

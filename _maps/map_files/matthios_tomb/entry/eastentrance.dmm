@@ -1,30 +1,30 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "av" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "aF" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bP" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cG" = (
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ed" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "et" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gw" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hV" = (
 /obj/structure/table/church{
 	dir = 1
@@ -42,7 +42,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kf" = (
 /obj/structure/closet/crate/chest,
 /obj/item/neuFarm/seed/wheat,
@@ -69,44 +69,44 @@
 /obj/item/neuFarm/seed/apple,
 /obj/item/neuFarm/seed/apple,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "kW" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "ma" = (
 /obj/effect/decal/cleanable/sigil/S,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "md" = (
 /obj/structure/dungeon_exit,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ny" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nK" = (
 /obj/machinery/light/fueled/oven/east,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "os" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pd" = (
 /turf/closed/wall/mineral/stone/window,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pI" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "qs" = (
 /obj/structure/table/wood/plain,
 /obj/item/weapon/knife/cleaver,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ry" = (
 /obj/structure/closet/crate/chest,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
@@ -119,15 +119,15 @@
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sj" = (
 /obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "tz" = (
 /obj/structure/fluff/statue/knightalt,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uG" = (
 /obj/structure/table/church/m,
 /obj/item/reagent_containers/glass/bottle/waterskin{
@@ -142,110 +142,116 @@
 	pixel_y = 7
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uW" = (
 /obj/structure/well,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "wx" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xk" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "xl" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
+"xP" = (
+/turf/open/floor/hexstone,
+/area/rogue/under/cave)
 "yl" = (
 /obj/effect/decal/cleanable/sigil,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ac" = (
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "AB" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "AC" = (
 /obj/structure/bed/inn,
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Bm" = (
 /obj/structure/table/wood/plain,
 /obj/structure/fluff/millstone,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Bz" = (
 /obj/structure/window/openclose,
 /turf/closed/wall/mineral/stone/window,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CX" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "EJ" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "FA" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/clothing/shirt/robe/plain,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "GE" = (
 /obj/structure/gate/preopen,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"Iu" = (
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
 "IE" = (
 /obj/effect/decal/cleanable/sigil/SW,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Jb" = (
 /obj/structure/fluff/statue/evil,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "JJ" = (
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Kf" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Mi" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "MC" = (
 /obj/structure/fluff/statue/knightalt/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "OV" = (
 /obj/effect/decal/cleanable/sigil/W,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "OX" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Rt" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ry" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ub" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Uz" = (
 /obj/structure/table/church,
 /obj/item/flashlight/flare/torch/metal{
@@ -260,27 +266,27 @@
 	pixel_y = 6
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vt" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vx" = (
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wo" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Xm" = (
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Yw" = (
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 av
@@ -677,10 +683,10 @@ cG
 cG
 cG
 GE
-gw
-gw
-gw
-gw
+xP
+xP
+xP
+xP
 kW
 xl
 xl
@@ -714,10 +720,10 @@ cG
 cG
 cG
 gw
-gw
-gw
+xP
+xP
 uW
-gw
+xP
 kW
 xl
 xl
@@ -751,10 +757,10 @@ cG
 cG
 cG
 gw
-gw
-gw
-gw
-gw
+xP
+xP
+xP
+xP
 kW
 xl
 xl
@@ -1451,7 +1457,7 @@ pd
 pI
 JJ
 os
-AB
+Iu
 wx
 ny
 pd
@@ -1488,7 +1494,7 @@ pd
 JJ
 JJ
 os
-AB
+Iu
 JJ
 JJ
 pd

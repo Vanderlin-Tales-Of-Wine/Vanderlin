@@ -2,38 +2,38 @@
 "ae" = (
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ai" = (
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aj" = (
 /obj/item/storage/sack,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aB" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "bc" = (
 /obj/structure/chair/stool,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "bg" = (
 /turf/closed/mineral/gemeralds,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "bw" = (
 /obj/item/clothing/head/helmet/kettle/slit,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bB" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "bP" = (
 /obj/structure/chair/stool,
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "bS" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/produce/oat,
@@ -52,37 +52,40 @@
 /obj/item/reagent_containers/food/snacks/produce/oat,
 /obj/item/reagent_containers/food/snacks/produce/oat,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bT" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "cp" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "ct" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"cv" = (
+/turf/open/floor/grass,
+/area/rogue/indoors/shelter)
 "cx" = (
 /turf/closed/wall/mineral/decostone,
-/area/rogue)
+/area/rogue/under/cave)
 "cB" = (
 /turf/open/floor/metal,
-/area/rogue)
+/area/rogue/under/cave)
 "cN" = (
 /obj/item/reagent_containers/food/snacks/friedrat{
 	pixel_y = 20
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "cT" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "db" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood,
@@ -91,80 +94,80 @@
 	pixel_y = 0
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "em" = (
 /turf/closed/wall/mineral/wooddark/end,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eq" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/effect/decal/remains/human,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eu" = (
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue)
+/area/rogue/under/cave)
 "ex" = (
 /obj/item/natural/stone{
 	pixel_x = 5;
 	pixel_y = 11
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eX" = (
 /obj/structure/bars/grille,
 /obj/item/statue/gold/loot,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "fj" = (
 /obj/structure/noose,
 /obj/item/chair/chair3,
 /obj/effect/decal/remains/human,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fp" = (
 /obj/structure/rack,
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fs" = (
 /obj/item/bodypart/head,
 /obj/item/clothing/head/helmet/nasal,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fw" = (
 /obj/item/chair/chair3,
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fA" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/bait/sweet,
 /obj/item/bait/sweet,
 /obj/item/bait,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fM" = (
 /obj/item/reagent_containers/food/snacks/rotten/meat{
 	bitecount = 2
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gb" = (
 /obj/item/natural/stone{
 	pixel_x = 10;
 	pixel_y = 2
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gc" = (
 /obj/item/natural/stone{
 	pixel_x = 10;
 	pixel_y = -10
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gj" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/table/wood/large/corner{
@@ -179,7 +182,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "gm" = (
 /obj/structure/bars/grille,
 /obj/structure/fluff/railing/border{
@@ -187,28 +190,31 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "gx" = (
 /obj/item/ore/tin{
 	pixel_x = 12;
 	pixel_y = 14
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "hd" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"hh" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/cave)
 "hy" = (
 /obj/effect/decal/cleanable/food/flour,
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hF" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -216,55 +222,58 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ia" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "in" = (
 /obj/structure/bars/grille,
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "io" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
+"it" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave)
 "iQ" = (
 /obj/structure/bars/grille,
 /obj/item/statue/gold,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "iS" = (
 /obj/machinery/light/fueled/wallfire,
 /turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jl" = (
 /obj/item/natural/rock,
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/under/cave)
 "jn" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "jO" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kj" = (
 /obj/structure/flora/rock,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "kB" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "kT" = (
 /turf/open/water/swamp,
-/area/rogue)
+/area/rogue/under/cave)
 "ld" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/closet/crate/crafted_closet,
@@ -272,61 +281,61 @@
 /obj/item/clothing/head/cookhat,
 /obj/item/clothing/shoes/sandals,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "lh" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "lp" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "lx" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "lJ" = (
 /obj/item/ore/iron{
 	pixel_y = 5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "lU" = (
 /obj/item/grown/log/tree/stake,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "lX" = (
 /obj/structure/fluff/railing/border,
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "me" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "mu" = (
 /turf/closed/wall/mineral/wooddark/vertical,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mw" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mB" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mG" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "np" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "ol" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -334,73 +343,73 @@
 	},
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oB" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/item/ore/coal,
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oD" = (
 /obj/structure/bars/grille,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "oQ" = (
 /obj/effect/decal/remains/saiga,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "oS" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "oV" = (
 /obj/item/reagent_containers/food/snacks/friedrat{
 	pixel_y = -6;
 	pixel_x = 8
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "pm" = (
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "pn" = (
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "ps" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pt" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "pQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "pT" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pU" = (
 /obj/item/rope/chain,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pX" = (
 /obj/structure/spider/cocoon,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "qz" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
@@ -408,7 +417,10 @@
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"rm" = (
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter)
 "rn" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -418,17 +430,17 @@
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ru" = (
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rP" = (
 /obj/structure/closet/crate/chest/lootbox,
 /obj/effect/spawner/map_spawner/loot/armor,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sg" = (
 /obj/item/storage/sack{
 	pixel_y = -6;
@@ -436,7 +448,7 @@
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sp" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -446,39 +458,39 @@
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "st" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "sG" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/under/cave/spider)
 "sK" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "sR" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "sV" = (
 /obj/effect/decal/remains/human{
 	pixel_x = 12
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "sX" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "tx" = (
 /obj/structure/bars/grille,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "tC" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood,
@@ -487,15 +499,15 @@
 	pixel_x = -8
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "tK" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "tL" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "tM" = (
 /obj/item/storage/sack{
 	pixel_x = 2;
@@ -504,115 +516,122 @@
 /obj/structure/rack/shelf,
 /obj/effect/decal/remains/human,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "tX" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uh" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
+"uu" = (
+/turf/open/floor/rooftop,
+/area/rogue/under/cave/spider)
 "uy" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "uB" = (
 /obj/item/ore/coal,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uC" = (
 /obj/structure/fluff/railing/border{
 	layer = 2
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "uL" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uS" = (
 /obj/machinery/light/fueled/hearth{
 	brightness = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uT" = (
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "vk" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "vK" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
 /obj/item/ammo_holder/quiver/arrows,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"vL" = (
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
 "wa" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wq" = (
 /obj/structure/bars/grille,
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "wF" = (
 /obj/machinery/light/fueled/torchholder/c,
 /obj/structure/chair/stool,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "xp" = (
 /turf/closed/mineral/gold,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "xr" = (
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/under/cave)
 "xG" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave/spider)
 "xV" = (
 /obj/item/grown/log/tree/stake,
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "yL" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
 	pixel_x = 1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yO" = (
 /obj/structure/fluff/statue/knightalt,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "yR" = (
 /obj/machinery/light/fueled/campfire,
 /obj/item/reagent_containers/food/snacks/friedrat{
 	pixel_x = 3
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "zm" = (
 /obj/structure/flora/grass,
 /obj/effect/spawner/map_spawner/loot/medium,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "zp" = (
 /obj/structure/table/wood,
 /obj/item/cooking/pan,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "zw" = (
 /obj/structure/table/wood,
 /obj/item/rope,
@@ -625,16 +644,16 @@
 	pixel_y = 5
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Al" = (
 /obj/structure/table/wood/plain_alt,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "AE" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Bd" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/powder/flour{
@@ -647,31 +666,31 @@
 	},
 /obj/item/reagent_containers/food/snacks/veg/onion_sliced,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Bi" = (
 /obj/structure/bars/grille,
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "Bj" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Bz" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "BR" = (
 /obj/structure/rack,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "BW" = (
 /obj/structure/bars,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Cd" = (
 /obj/item/ingot/gold{
 	pixel_y = 11;
@@ -682,44 +701,44 @@
 	pixel_x = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Cg" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "CD" = (
 /obj/structure/spider/stickyweb/solo,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "CE" = (
 /obj/structure/chair/stool,
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "CW" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Df" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Dw" = (
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
-/area/rogue)
+/area/rogue/under/cave)
 "DE" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Eo" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "EA" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/table/wood/plain_alt,
@@ -729,11 +748,11 @@
 	},
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ED" = (
 /obj/machinery/light/fueled/torchholder,
 /turf/closed/wall/mineral/decostone,
-/area/rogue)
+/area/rogue/under/cave)
 "EU" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -743,73 +762,80 @@
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Fw" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "FB" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "FF" = (
 /obj/structure/flora/grass,
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"FG" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/shelter)
 "FJ" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Gg" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Gk" = (
 /obj/structure/bars/grille,
 /turf/closed,
-/area/rogue)
+/area/rogue/under/cave)
 "Gp" = (
 /obj/structure/flora/grass/bush_meagre,
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Gz" = (
 /obj/effect/decal/remains/human{
 	pixel_x = 12
 	},
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "GZ" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"Hb" = (
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/shelter)
 "Hd" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hz" = (
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "HD" = (
 /obj/structure/flora/grass/bush_meagre,
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "HJ" = (
 /mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "HO" = (
 /obj/structure/closet/dirthole{
 	name = "Rat Tunnel";
 	desc = "You can hear snickering from below..."
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "HT" = (
 /obj/structure/rack/shelf,
 /obj/structure/closet/crate/crafted_closet,
@@ -839,19 +865,23 @@
 	},
 /obj/item/reagent_containers/food/snacks/stale_bread,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Iz" = (
 /obj/structure/bed/hay,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "IA" = (
 /obj/structure/bars,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "ID" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
+"IH" = (
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter)
 "II" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -860,19 +890,23 @@
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
+"IP" = (
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/grass,
+/area/rogue/indoors/shelter)
 "IS" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/rack,
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Jb" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Jo" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border,
@@ -880,32 +914,35 @@
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
+"Jq" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/cave/spider)
 "Jr" = (
 /obj/effect/decal/cleanable/food/flour,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "JB" = (
 /obj/effect/decal/remains/human{
 	pixel_y = 5
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "JL" = (
 /turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Kd" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/chair/wood/alt/chair3,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Kg" = (
 /obj/structure/fluff/railing/border,
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ki" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -915,34 +952,37 @@
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Kn" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KO" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KR" = (
 /obj/item/ore/iron{
 	pixel_x = 10;
 	pixel_y = -2
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"Lp" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave/spider)
 "LF" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "LL" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LS" = (
 /obj/effect/decal/remains/human{
 	pixel_y = 5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LY" = (
 /obj/item/reagent_containers/food/snacks/meat/salami/slice,
 /obj/item/reagent_containers/food/snacks/meat/salami/slice{
@@ -950,55 +990,55 @@
 	pixel_y = 5
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Mb" = (
 /obj/structure/mineral_door/bars,
 /obj/structure/mineral_door/bars,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "Mo" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "MG" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "MZ" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /obj/structure/spider/stickyweb,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "Nf" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Nr" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Nt" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Nv" = (
 /obj/structure/bars/grille,
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "Nw" = (
 /turf/closed/wall/mineral/decostone/end,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "Nx" = (
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "NL" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -1012,57 +1052,64 @@
 	pixel_y = -23
 	},
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "NR" = (
 /obj/item/ore/copper{
 	pixel_y = -9
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "NW" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cave/spider)
 "Of" = (
 /obj/structure/bars/grille,
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
+"Oo" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/cave)
 "Ot" = (
 /obj/structure/spider/cocoon,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
+"Ox" = (
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter)
 "Oz" = (
 /obj/structure/roguerock,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "OM" = (
 /obj/item/chair/chair3,
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "OY" = (
 /obj/effect/decal/remains/human{
 	pixel_y = 5
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "PE" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "PJ" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qf" = (
 /obj/structure/noose,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qn" = (
 /obj/structure/mineral_door/wood/violet,
 /obj/effect/decal/cleanable/food/flour,
@@ -1071,7 +1118,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qq" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /obj/structure/fluff/railing/border{
@@ -1079,33 +1126,33 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "QL" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "QP" = (
 /obj/item/chair/chair3,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "QR" = (
 /turf/closed/wall/mineral/decostone/long{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave/spider)
 "QY" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "Rf" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "Ri" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Rt" = (
 /obj/effect/decal/cleanable/food/flour,
 /obj/structure/fluff/railing/wood{
@@ -1113,108 +1160,115 @@
 	pixel_x = 1
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Rz" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "RC" = (
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "RD" = (
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "RI" = (
 /turf/closed/wall/mineral/decostone/long,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "RN" = (
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sf" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sp" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/effect/decal/remains/human{
 	pixel_x = 12
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sw" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "SB" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
+"SL" = (
+/turf/open/floor/cobblerock/alt,
+/area/rogue/indoors/shelter)
 "SQ" = (
 /obj/item/natural/stone{
 	pixel_x = 10
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "SU" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ta" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Td" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Tf" = (
 /obj/item/reagent_containers/food/snacks/rotten/mince,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Tr" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/spider/stickyweb/solo,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "TU" = (
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
+"TV" = (
+/mob/living/carbon/human/species/goblin/npc/ambush,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter)
 "Uo" = (
 /obj/effect/decal/cleanable/blood,
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Us" = (
 /obj/item/storage/sack{
 	pixel_x = -10;
 	pixel_y = 10
 	},
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Uy" = (
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "UP" = (
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/under/cave)
 "UT" = (
 /turf/closed/mineral/silver,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "UW" = (
 /obj/item/natural/rock,
 /obj/item/natural/rock,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Vi" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Vz" = (
 /obj/item/ore/iron{
 	pixel_y = 12;
@@ -1225,58 +1279,67 @@
 	desc = "You can hear snickering from below..."
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VF" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VN" = (
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock/alt,
-/area/rogue)
+/area/rogue/under/cave)
 "VW" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave/spider)
 "VX" = (
 /obj/structure/barricade/rogue,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wo" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wp" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "WC" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/flora/grass/bush_meagre,
 /obj/structure/flora/grass/bush_meagre,
 /turf/open/floor/grass,
-/area/rogue)
+/area/rogue/under/cave)
 "WE" = (
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "WJ" = (
 /mob/living/carbon/human/species/goblin/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
+"Xh" = (
+/turf/closed/wall/mineral/stonebrick,
+/area/rogue/under/cave)
+"Xl" = (
+/turf/closed/wall/mineral/decostone,
+/area/rogue/under/cave/spider)
+"Xn" = (
+/turf/closed/wall/mineral/decostone/cand,
+/area/rogue/indoors/shelter)
 "Yj" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/under/cave)
 "Yq" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Yy" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "YF" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/powder/flour,
@@ -1296,23 +1359,23 @@
 	},
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/cobble/alt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "YW" = (
 /obj/structure/wallladder,
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "YY" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "ZT" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "ZX" = (
 /obj/structure/bed/bear,
 /turf/open/floor/ruinedwood/turned/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 Sf
@@ -1332,19 +1395,19 @@ tX
 Bj
 AE
 TU
-tX
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+Oo
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (2,1,1) = {"
 Sf
@@ -1353,10 +1416,10 @@ Sf
 Sf
 Sf
 Sp
-Rf
+Hb
 RN
 RN
-Rf
+Hb
 HO
 Sf
 Sf
@@ -1364,26 +1427,26 @@ Kn
 TU
 TU
 TU
-Kn
-Sf
-Sf
-Sf
-mw
-mw
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+Xh
+it
+it
+it
+hh
+hh
+it
+it
+it
+it
+it
+it
+it
 "}
 (3,1,1) = {"
 Sf
 Sf
 Sf
 Sf
-Cg
+FG
 NR
 LS
 Sf
@@ -1397,18 +1460,18 @@ TU
 TU
 TU
 io
-Sf
-Sf
-Sf
+it
+it
+it
 zm
 io
 kT
 Dw
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 "}
 (4,1,1) = {"
 Sf
@@ -1429,18 +1492,18 @@ TU
 TU
 TU
 io
-Sf
-Sf
-Sf
+it
+it
+it
 OY
 Dw
 kT
 kT
 io
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
 "}
 (5,1,1) = {"
 Sf
@@ -1460,19 +1523,19 @@ Kn
 Bj
 sX
 TU
-Kn
-mw
-mw
-Sf
+Xh
+hh
+hh
+it
 bB
 bB
 kT
 kT
 bB
 Ri
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (6,1,1) = {"
 Sf
@@ -1492,19 +1555,19 @@ Kn
 TU
 TU
 TU
-Kn
+Xh
 jl
-mw
-Sf
-mw
-mw
+hh
+it
+hh
+hh
 kT
 Mo
 io
 bB
 Ri
-Sf
-Sf
+it
+it
 "}
 (7,1,1) = {"
 Sf
@@ -1524,19 +1587,19 @@ Kn
 TU
 TU
 TU
-Kn
+Xh
 xr
 xr
 io
-mw
+hh
 Eo
 bB
 bB
 io
 bB
 xr
-Sf
-Sf
+it
+it
 "}
 (8,1,1) = {"
 Sf
@@ -1567,8 +1630,8 @@ jn
 xr
 xr
 xr
-Sf
-Sf
+it
+it
 "}
 (9,1,1) = {"
 Sf
@@ -1583,7 +1646,7 @@ tX
 Sf
 Sf
 Sf
-xr
+SL
 Kn
 tL
 TU
@@ -1599,8 +1662,8 @@ xr
 UP
 xr
 xr
-Sf
-Sf
+it
+it
 "}
 (10,1,1) = {"
 Sf
@@ -1614,8 +1677,8 @@ zw
 tX
 Sf
 wa
-xr
-xr
+SL
+SL
 Kn
 TU
 TU
@@ -1631,8 +1694,8 @@ xr
 xr
 RD
 WJ
-Sf
-Sf
+it
+it
 "}
 (11,1,1) = {"
 Sf
@@ -1644,10 +1707,10 @@ DE
 Nx
 Hz
 RN
-xr
+SL
 wa
-xr
-xr
+SL
+SL
 Gg
 sX
 TU
@@ -1664,7 +1727,7 @@ RC
 io
 io
 bB
-Sf
+it
 "}
 (12,1,1) = {"
 Sf
@@ -1677,14 +1740,14 @@ Nx
 Nx
 tX
 Sf
-xr
+SL
 Gg
-Ri
+Ox
 Kn
 sX
 sX
 io
-Kn
+Xh
 io
 UW
 sV
@@ -1694,9 +1757,9 @@ io
 Oz
 io
 io
-ae
+vL
 io
-Sf
+it
 "}
 (13,1,1) = {"
 tX
@@ -1712,23 +1775,23 @@ Kn
 Yy
 Kn
 Kn
-eu
+Xn
 SB
 BW
 lx
 eu
-Kn
+Xh
 io
 io
 Ri
-mw
-mw
-mw
+hh
+hh
+hh
 io
-mw
-mw
-Kn
-tX
+hh
+hh
+Xh
+Oo
 "}
 (14,1,1) = {"
 sR
@@ -1840,11 +1903,11 @@ Kn
 Yy
 Kn
 Kn
-eu
+Xn
 Mb
 IA
 Yj
-eu
+Xn
 mw
 tX
 tX
@@ -1854,9 +1917,9 @@ tX
 tX
 tX
 io
-Sf
-Kn
-tX
+it
+Xh
+Oo
 "}
 (18,1,1) = {"
 Sf
@@ -1869,10 +1932,10 @@ Nx
 Nx
 tX
 Rz
-io
-io
+rm
+rm
 ae
-io
+rm
 io
 TU
 TU
@@ -1886,9 +1949,9 @@ em
 em
 tX
 io
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (19,1,1) = {"
 Sf
@@ -1901,13 +1964,13 @@ fj
 Nx
 tX
 Sf
-bB
-io
-RD
+IH
+rm
+cv
 Kn
 io
 TU
-ae
+vL
 mw
 iS
 KO
@@ -1919,8 +1982,8 @@ mu
 tX
 Ri
 io
-Sf
-Sf
+it
+it
 "}
 (20,1,1) = {"
 Sf
@@ -1934,8 +1997,8 @@ Nx
 tX
 Sf
 mw
-bB
-RC
+IH
+IP
 Kn
 io
 TU
@@ -1948,11 +2011,11 @@ ai
 ai
 QP
 uL
-Ri
+Ox
 Ri
 io
-Sf
-Sf
+it
+it
 "}
 (21,1,1) = {"
 Sf
@@ -1967,7 +2030,7 @@ tX
 Sf
 mw
 mw
-RD
+cv
 Kn
 cp
 TU
@@ -1983,8 +2046,8 @@ uL
 Ta
 io
 io
-Sf
-Sf
+it
+it
 "}
 (22,1,1) = {"
 Sf
@@ -1999,8 +2062,8 @@ tX
 Sf
 Sf
 Sf
-WJ
-io
+TV
+rm
 io
 TU
 sX
@@ -2013,10 +2076,10 @@ hd
 ai
 mu
 tX
-ae
+vL
 io
-Sf
-Sf
+it
+it
 "}
 (23,1,1) = {"
 Sf
@@ -2031,8 +2094,8 @@ tX
 Jb
 wa
 ru
-io
-RD
+rm
+cv
 io
 TU
 sX
@@ -2048,7 +2111,7 @@ tX
 io
 io
 HD
-Sf
+it
 "}
 (24,1,1) = {"
 Sf
@@ -2060,11 +2123,11 @@ gc
 DE
 Nx
 ru
-xr
+SL
 Sf
 mw
-io
-RC
+rm
+IP
 io
 sX
 TU
@@ -2079,8 +2142,8 @@ em
 tX
 bB
 io
-Sf
-Sf
+it
+it
 "}
 (25,1,1) = {"
 Sf
@@ -2092,11 +2155,11 @@ DE
 cT
 DE
 ru
-xr
+SL
 Sf
 mw
-RD
-Ri
+cv
+Ox
 TU
 sX
 TU
@@ -2111,8 +2174,8 @@ tX
 tX
 io
 Ri
-Sf
-Sf
+it
+it
 "}
 (26,1,1) = {"
 Sf
@@ -2127,15 +2190,15 @@ tX
 Sf
 Sf
 Sf
-RC
-Ri
+IP
+Ox
 TU
 TU
-ae
+vL
 io
 io
 Ri
-ae
+vL
 bB
 bB
 io
@@ -2143,8 +2206,8 @@ io
 io
 Ri
 Ri
-Sf
-Sf
+it
+it
 "}
 (27,1,1) = {"
 Sf
@@ -2159,24 +2222,24 @@ tX
 Sf
 Sf
 Sf
-Ri
-Ri
+Ox
+Ox
 mG
 TU
 io
 io
-mw
+hh
 Ri
 Ri
 io
 io
 io
-Sf
+it
 io
 Ri
 io
-Sf
-Sf
+it
+it
 "}
 (28,1,1) = {"
 Sf
@@ -2200,15 +2263,15 @@ io
 io
 io
 io
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 bB
 Gp
-Sf
-Sf
+it
+it
 "}
 (29,1,1) = {"
 Sf
@@ -2228,19 +2291,19 @@ Kn
 sX
 TU
 io
-Kn
+Xh
 ia
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (30,1,1) = {"
 Sf
@@ -2260,34 +2323,34 @@ tX
 tL
 FJ
 TU
-tX
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+Oo
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 
 (1,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+it
 cx
 cx
 Nt
@@ -2295,30 +2358,30 @@ Nt
 Nt
 cx
 cx
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (2,1,2) = {"
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+Lp
+Lp
 VW
 pm
 kB
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+Lp
+Lp
 lp
 Wp
 Nt
@@ -2328,29 +2391,29 @@ Nt
 Nt
 Wp
 uC
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (3,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 pX
 uh
 VW
 UT
 VW
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+Lp
+Lp
 lp
 Nt
 Nf
@@ -2360,20 +2423,20 @@ SU
 FB
 Nt
 uC
-Sf
+it
 LF
 LF
 LF
 LF
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 "}
 (4,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 VW
 xp
 bg
@@ -2381,8 +2444,8 @@ UT
 pm
 Rf
 Rf
-uT
-uT
+uu
+uu
 lp
 cx
 cx
@@ -2392,29 +2455,29 @@ LF
 cx
 cx
 uC
-Sf
+it
 LF
 LF
 LF
 LF
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 "}
 (5,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 VW
 Ot
 xp
 VW
 pX
-Sf
-Sf
+Lp
+Lp
 CD
-uT
+uu
 lp
 cx
 cx
@@ -2424,29 +2487,29 @@ LF
 cx
 cx
 uC
-Sf
+it
 LF
 LF
 LF
 LF
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 "}
 (6,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 Cg
 VW
 VW
 Rf
 VW
-Sf
-Sf
-Sf
-uT
+Lp
+Lp
+Lp
+uu
 lp
 Nt
 Kg
@@ -2456,29 +2519,29 @@ LF
 lp
 Nt
 uC
-Sf
-Sf
-Sf
+it
+it
+it
 LF
 LF
 LF
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
 "}
 (7,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 Rf
 Rf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-uT
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+uu
 lp
 Nt
 MG
@@ -2488,29 +2551,29 @@ LF
 lp
 Nt
 uC
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
 LF
 LF
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (8,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 VW
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
+Lp
 lp
 cx
 cx
@@ -2520,29 +2583,29 @@ LF
 cx
 cx
 uC
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
 LF
 LF
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (9,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 Cg
-Sf
-Sf
-uT
-Sf
-Sf
-Sf
-Sf
-Sf
+Lp
+Lp
+uu
+Lp
+Lp
+Lp
+Lp
+Lp
 lp
 cx
 cx
@@ -2552,29 +2615,29 @@ sp
 cx
 cx
 uC
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
 LF
 LF
 LF
 LF
-Sf
-Sf
+it
+it
 "}
 (10,1,2) = {"
-Sf
-Sf
+Lp
+Lp
 Rf
 Rf
 aB
-uT
-uT
-uT
-Sf
-Sf
-Sf
+uu
+uu
+uu
+Lp
+Lp
+Lp
 Nv
 Nt
 Nt
@@ -2584,19 +2647,19 @@ lp
 Nt
 Nt
 gm
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 LF
 LF
 LF
-Sf
-Sf
+it
+it
 "}
 (11,1,2) = {"
-Sf
+it
 gQ
 gQ
 gQ
@@ -2625,7 +2688,7 @@ gQ
 gQ
 gQ
 gQ
-Sf
+it
 "}
 (12,1,2) = {"
 cx
@@ -2852,7 +2915,7 @@ Nt
 ED
 "}
 (19,1,2) = {"
-Sf
+it
 SU
 SU
 Nt
@@ -2881,19 +2944,19 @@ Nf
 SU
 SU
 SU
-Sf
+it
 "}
 (20,1,2) = {"
-Sf
-Sf
-Sf
-cx
+it
+it
+it
+Xl
 Nw
 lh
 Nw
 xG
-cx
-Sf
+Xl
+it
 uT
 in
 Nt
@@ -2911,21 +2974,21 @@ bc
 uT
 YY
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (21,1,2) = {"
-Sf
-Sf
-Sf
+it
+it
+it
 NW
 pn
 QY
 st
 MZ
 NW
-Sf
+it
 uT
 lp
 cx
@@ -2943,22 +3006,22 @@ uT
 uT
 bP
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (22,1,2) = {"
-Sf
-Sf
-Sf
+it
+it
+it
 QR
 wF
 lX
-LF
-LF
+Jq
+Jq
 QR
-Sf
-Sf
+it
+it
 lp
 cx
 cx
@@ -2975,22 +3038,22 @@ LF
 uT
 YY
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (23,1,2) = {"
-Sf
-Sf
-Sf
+it
+it
+it
 sG
 gj
 Tr
-LF
-LF
+Jq
+Jq
 sG
-Sf
-Sf
+it
+it
 lp
 Nt
 MG
@@ -3007,22 +3070,22 @@ cN
 lU
 YY
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (24,1,2) = {"
-Sf
-Sf
-Sf
-cx
+it
+it
+it
+Xl
 Nw
 RI
 RI
 xG
-cx
-Sf
-Sf
+Xl
+it
+it
 lp
 Nt
 MG
@@ -3039,22 +3102,22 @@ oV
 np
 YY
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (25,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 lp
 cx
 cx
@@ -3071,22 +3134,22 @@ CE
 bT
 NL
 LF
-Sf
-Sf
-Sf
+it
+it
+it
 "}
 (26,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 lp
 cx
 cx
@@ -3101,24 +3164,24 @@ LF
 LF
 LF
 LF
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
 "}
 (27,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 lp
 Nt
 oS
@@ -3128,29 +3191,29 @@ gQ
 Nr
 Nt
 MG
-Sf
-Sf
+it
+it
 LF
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
 "}
 (28,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 lp
 Yq
 Nt
@@ -3160,29 +3223,29 @@ Nt
 Nt
 Yq
 MG
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (29,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 lp
 cx
 cx
@@ -3192,30 +3255,30 @@ Nt
 cx
 cx
 MG
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}
 (30,1,2) = {"
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 cx
 cx
 Nt
@@ -3223,15 +3286,15 @@ Nt
 Nt
 cx
 cx
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
-Sf
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
+it
 "}

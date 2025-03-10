@@ -2,157 +2,158 @@
 "bF" = (
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bR" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bS" = (
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cG" = (
 /obj/effect/decal/cleanable/shreds,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cR" = (
 /obj/structure/rack/shelf,
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "dD" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fH" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fO" = (
 /obj/effect/decal/remains/bigrat,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gp" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gV" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hl" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hm" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hp" = (
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "is" = (
 /obj/item/gem/green,
 /turf/closed/wall/mineral/underbrick,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iH" = (
 /obj/structure/stairs{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iK" = (
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jr" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jY" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "lr" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "lG" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mC" = (
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mK" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nR" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oO" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ps" = (
 /obj/item/natural/rock,
 /turf/closed/wall/mineral/underbrick,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "qk" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rO" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rX" = (
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sQ" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "tz" = (
-/area/rogue)
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
 "tT" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -167,7 +168,7 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ue" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -176,17 +177,17 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ur" = (
 /obj/structure/stairs,
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wU" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xm" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -195,30 +196,30 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xD" = (
 /obj/effect/decal/cleanable/shreds,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ym" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yw" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "zE" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ax" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -226,16 +227,16 @@
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "BB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ce" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "DX" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -248,20 +249,17 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "GC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/churchrough,
-/area/rogue)
-"Ha" = (
-/turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hj" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/rack/shelf,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hs" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/bookcase,
@@ -272,84 +270,84 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ht" = (
 /obj/structure/stairs{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hx" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "In" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "It" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "IT" = (
 /obj/effect/decal/cleanable/generic,
 /obj/structure/fluff/railing/wood{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ku" = (
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LE" = (
 /obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "NW" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ra" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
 /obj/structure/bookcase,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Rg" = (
 /turf/closed/wall/mineral/underbrick,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Si" = (
 /obj/effect/decal/remains/bigrat,
 /obj/item/book/random_book,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sr" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/rack/shelf,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Tw" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "UC" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "UX" = (
 /obj/structure/bookcase,
 /obj/item/book/random_book,
@@ -359,22 +357,22 @@
 /obj/item/book/random_book,
 /obj/item/book/random_book,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VP" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Xx" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/churchrough,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "XA" = (
 /obj/structure/rack/shelf,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 zE
@@ -656,7 +654,7 @@ Rg
 Rg
 Rg
 Rg
-Ha
+tz
 Rg
 oO
 Rg
@@ -673,7 +671,7 @@ Rg
 Rg
 Hj
 xm
-Ha
+tz
 eH
 hp
 hp
@@ -688,14 +686,14 @@ zE
 Rg
 Rg
 UC
-Ha
+tz
 bR
 hp
-Ha
-Ha
+tz
+tz
 Hx
 hp
-Ha
+tz
 Rg
 Rg
 zE
@@ -708,7 +706,7 @@ Si
 hp
 cG
 NW
-Ha
+tz
 NW
 xE
 yw
@@ -721,7 +719,7 @@ zE
 hp
 Rg
 bR
-Ha
+tz
 mK
 rX
 rX
@@ -729,8 +727,8 @@ LE
 rX
 rX
 VP
-Ha
-Ha
+tz
+tz
 Rg
 hp
 "}
@@ -746,7 +744,7 @@ LE
 Ht
 Ht
 VP
-Ha
+tz
 hp
 oO
 hp
@@ -763,8 +761,8 @@ Rg
 tz
 tz
 VP
-Ha
-Ha
+tz
+tz
 Rg
 hp
 "}
@@ -791,8 +789,8 @@ Rg
 hp
 yw
 mK
-tz
-tz
+rX
+rX
 tz
 tz
 tz
@@ -805,11 +803,11 @@ hp
 (11,1,2) = {"
 zE
 Rg
-Ha
-Ha
-Ha
-Ha
-Ha
+tz
+tz
+tz
+tz
+tz
 nW
 nW
 nW
@@ -823,15 +821,15 @@ zE
 zE
 Rg
 Rg
-Ha
-Ha
-Ha
-Ha
-Ha
+tz
+tz
+tz
+tz
+tz
 hp
-Ha
-Ha
-Ha
+tz
+tz
+tz
 Rg
 Rg
 zE
@@ -843,7 +841,7 @@ Rg
 is
 XA
 hp
-Ha
+tz
 hp
 yw
 hp
@@ -860,7 +858,7 @@ Rg
 Rg
 Rg
 Rg
-Ha
+tz
 Rg
 oO
 Rg

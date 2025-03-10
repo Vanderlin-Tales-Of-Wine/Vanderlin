@@ -2,39 +2,39 @@
 "a" = (
 /obj/structure/bars/grille,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "b" = (
 /turf/open/floor/concrete,
-/area/rogue)
+/area/rogue/under/cave)
 "c" = (
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "l" = (
 /obj/structure/bars,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "n" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "s" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "v" = (
 /obj/structure/floordoor{
 	redstone_id = bladedancer
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "w" = (
 /obj/structure/floordoor{
 	redstone_id = blades
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "x" = (
 /obj/structure/bars/grille,
 /obj/structure/lever/wall{
@@ -42,14 +42,14 @@
 	redstone_id = blades
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "A" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "G" = (
 /turf/closed/wall/mineral/decostone/long,
-/area/rogue)
+/area/rogue/under/cave)
 "H" = (
 /obj/structure/bars/grille,
 /obj/structure/lever/wall{
@@ -57,45 +57,45 @@
 	redstone_id = bladedancer
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "J" = (
 /obj/machinery/light/fueled/lanternpost/fixed,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "L" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "M" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "P" = (
 /turf/closed/wall/mineral/decostone/end{
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "S" = (
 /obj/machinery/light/fueled/lanternpost/fixed{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "V" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "X" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Y" = (
 /turf/closed/wall/mineral/decostone,
-/area/rogue)
+/area/rogue/under/cave)
 "Z" = (
 /obj/structure/bars/grille,
 /obj/structure/bars/grille,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 Y

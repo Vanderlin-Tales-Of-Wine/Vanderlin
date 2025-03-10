@@ -2,62 +2,62 @@
 "bi" = (
 /obj/structure/chair/bench/couch/redright,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bm" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "ch" = (
 /obj/structure/closet/crate/crafted_closet/inn/chest,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cT" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "dB" = (
 /obj/structure/well,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "dL" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ex" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hf" = (
 /obj/structure/bed/inn/double,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hl" = (
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hq" = (
 /obj/structure/floordoor/gatehatch/inner,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "hr" = (
 /obj/structure/chair/stool{
 	pixel_x = 3;
 	pixel_y = -1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hy" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hM" = (
 /obj/structure/fluff/walldeco/vinez/offset,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iY" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -66,16 +66,19 @@
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jn" = (
 /obj/structure/chair/wood,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"jJ" = (
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/shelter)
 "jV" = (
 /obj/structure/mineral_door/wood,
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kC" = (
 /obj/structure/toilet,
 /mob/living/carbon/human/species/orc/npc,
@@ -83,57 +86,60 @@
 	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "la" = (
 /turf/closed/wall/mineral/decowood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mp" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "mD" = (
 /obj/structure/fluff/walldeco/sign/saiga,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "of" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oF" = (
 /obj/structure/bars/pipe/left,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ph" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pm" = (
 /obj/structure/fluff/walldeco/sign/trophy,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "px" = (
 /turf/open/floor/rooftop/green{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave)
+"pU" = (
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
 "qq" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qI" = (
 /obj/structure/window/openclose{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rv" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ug" = (
 /obj/structure/table/wood/large_alt,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
@@ -141,37 +147,37 @@
 	pixel_x = 13
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ui" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uo" = (
 /turf/open/floor/rooftop/green{
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "uD" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vn" = (
 /obj/item/bath/soap,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vp" = (
 /obj/structure/stairs/d{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vs" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vI" = (
 /obj/structure/window,
 /turf/closed/wall/mineral/decowood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wL" = (
 /obj/structure/table/wood/large/corner_alt,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
@@ -179,130 +185,133 @@
 	pixel_y = 16
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wR" = (
 /obj/structure/window/openclose{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wU" = (
 /obj/machinery/light/fueled/oven/west,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xG" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yI" = (
 /obj/machinery/light/fueled/chand,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yW" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ae" = (
 /obj/item/bath/soap,
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ao" = (
 /obj/structure/table/wood/large/corner_alt,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Bl" = (
 /obj/structure/chair/stool,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "BL" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/cooking/pan,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "BT" = (
 /obj/structure/bed/bear{
 	pixel_x = 0;
 	pixel_y = -6
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CL" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"Dl" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/cave)
 "EL" = (
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Fo" = (
 /obj/structure/rack/shelf/big,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "FI" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "GK" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "GW" = (
 /obj/structure/chair/bench/couch/redleft,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "He" = (
 /obj/structure/table/wood/large_alt,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_x = 9
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hm" = (
 /obj/machinery/light/fueled/chand,
-/obj/item/coin/copper/pile,
+/obj/item/clothing/ring/silver,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hp" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "HO" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "HR" = (
 /turf/open/floor/rooftop/green,
-/area/rogue)
+/area/rogue/under/cave)
 "Ij" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Iy" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = 16
 	},
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "IM" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "IQ" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Jg" = (
 /obj/structure/chair/stool{
 	pixel_x = -5
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Jk" = (
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "JS" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/food/snacks/meat/salami{
@@ -314,47 +323,47 @@
 	pixel_y = 10
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Kc" = (
 /obj/structure/window/openclose{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Km" = (
 /obj/structure/table/wood/large/corner_alt,
 /obj/item/reagent_containers/food/snacks/rotten/sausage{
 	pixel_y = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KZ" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Lu" = (
 /turf/open/floor/rooftop/green{
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "LB" = (
 /obj/structure/window,
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LU" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/window,
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LZ" = (
 /obj/structure/chair/wood{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Mk" = (
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "My" = (
 /obj/structure/table/wood/plain,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine{
@@ -369,53 +378,53 @@
 	pixel_x = 8
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "MF" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ok" = (
 /obj/structure/window/openclose,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Pa" = (
 /obj/structure/table/wood/plain,
 /obj/item/weapon/knife/cleaver,
 /obj/structure/fluff/walldeco/bigpainting/lake,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Pc" = (
 /obj/structure/table/wood/counter{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Pn" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sn" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "TY" = (
 /obj/structure/bed/inn,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ur" = (
 /obj/structure/fluff/walldeco/painting/queen,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "UV" = (
 /obj/structure/fluff/walldeco/bath/wallpipes,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vv" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vx" = (
 /obj/structure/table/wood/counter{
 	dir = 4
@@ -432,34 +441,34 @@
 	pixel_y = 14
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VY" = (
 /obj/structure/fluff/walldeco/vinez/r,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wy" = (
 /obj/effect/mapping_helpers/outfit_handler{
 	outfit_to_equip = /datum/outfit/job/adventurer/barbarian
 	},
 /mob/living/carbon/human/species/orc/npc,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "WA" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "WZ" = (
 /obj/structure/mineral_door/wood/window,
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Xw" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Yx" = (
 /obj/item/reagent_containers/powder/moondust{
 	pixel_x = 5
@@ -478,7 +487,10 @@
 	pixel_x = -14
 	},
 /turf/open/floor/ruinedwood/spiralfade,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"Zo" = (
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 bm
@@ -506,43 +518,43 @@ bm
 bm
 KZ
 KZ
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
+pU
+pU
+pU
+pU
+pU
+pU
 KZ
 KZ
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
+pU
+pU
+pU
+pU
+pU
+pU
+pU
+pU
 bm
 "}
 (3,1,1) = {"
 bm
 KZ
 KZ
-Hp
-Hp
-Hp
-Hp
-Hp
+pU
+pU
+pU
+pU
+pU
 mD
 KZ
 KZ
-Hp
+pU
 mD
-Hp
-Hp
-Hp
+pU
+pU
+pU
 hq
-Hp
+pU
 KZ
 bm
 "}
@@ -564,14 +576,14 @@ qI
 vs
 vs
 vs
-Hp
+pU
 KZ
 bm
 "}
 (5,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 vs
 GW
 Ao
@@ -586,14 +598,14 @@ Mk
 Mk
 Mk
 vs
-Hp
-Hp
+pU
+pU
 bm
 "}
 (6,1,1) = {"
 bm
 KZ
-Hp
+pU
 vs
 bi
 Ao
@@ -608,18 +620,18 @@ ug
 Km
 Mk
 vs
-Hp
-Hp
+pU
+pU
 bm
 "}
 (7,1,1) = {"
 bm
 KZ
-Hp
+pU
 Ok
 Mk
 Mk
-KZ
+jJ
 Mk
 EL
 hr
@@ -630,14 +642,14 @@ He
 wL
 Mk
 Kc
-Hp
+pU
 KZ
 bm
 "}
 (8,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 vs
 la
 la
@@ -652,14 +664,14 @@ Mk
 LZ
 Mk
 Kc
-Hp
-Hp
+pU
+pU
 bm
 "}
 (9,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 Ur
 Mk
 Mk
@@ -674,7 +686,7 @@ Mk
 Mk
 Mk
 vs
-Hp
+pU
 KZ
 bm
 "}
@@ -724,7 +736,7 @@ mp
 "}
 (12,1,1) = {"
 bm
-Hp
+pU
 KZ
 vs
 Mk
@@ -740,14 +752,14 @@ Pc
 Pc
 Pc
 vs
-Hp
-Hp
+pU
+pU
 bm
 "}
 (13,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 Ok
 Mk
 Hp
@@ -762,14 +774,14 @@ Mk
 Mk
 of
 vs
-Hp
+pU
 dB
 bm
 "}
 (14,1,1) = {"
 bm
 KZ
-Hp
+pU
 vs
 vp
 vp
@@ -784,14 +796,14 @@ Mk
 Mk
 of
 Kc
-Hp
-Hp
+pU
+pU
 bm
 "}
 (15,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 vs
 vs
 vs
@@ -806,14 +818,14 @@ Mk
 Mk
 Mk
 Kc
-Hp
+pU
 KZ
 bm
 "}
 (16,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 vs
 vs
 vs
@@ -828,14 +840,14 @@ wU
 BL
 xG
 vs
-Hp
-Hp
+pU
+pU
 bm
 "}
 (17,1,1) = {"
 bm
-Hp
-Hp
+pU
+pU
 vs
 vs
 kC
@@ -850,52 +862,52 @@ vs
 vs
 wR
 vs
-Hp
-Hp
+pU
+pU
 bm
 "}
 (18,1,1) = {"
 bm
-Hp
-Hp
-Hp
-vs
-vs
-vs
-vs
-Hp
-Hp
-Hp
+pU
+pU
+pU
+Dl
+Dl
+Dl
+Dl
+pU
+pU
+pU
 KZ
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
+pU
+pU
+pU
+pU
+pU
+pU
+pU
 bm
 "}
 (19,1,1) = {"
 bm
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
-Hp
+pU
+pU
+pU
+pU
+pU
+pU
+pU
 KZ
 KZ
-Hp
-Hp
-Hp
+pU
+pU
+pU
 KZ
-Hp
-Hp
+pU
+pU
 KZ
-Hp
-Hp
+pU
+pU
 bm
 "}
 (20,1,1) = {"
@@ -1044,7 +1056,7 @@ TY
 Mk
 EL
 TY
-IM
+Zo
 EL
 TY
 Mk
@@ -1103,16 +1115,16 @@ IM
 px
 EL
 Mk
-IM
+Zo
 Vv
-IM
-IM
-IM
-IM
-IM
-IM
+Zo
+Zo
+Zo
+Zo
+Zo
+Zo
 ph
-IM
+Zo
 Mk
 ui
 HR
@@ -1127,15 +1139,15 @@ ui
 Mk
 Mk
 hy
-IM
+Zo
 Hm
-IM
-IM
+Zo
+Zo
 yI
-IM
+Zo
 ph
 Mk
-IM
+Zo
 LU
 HR
 IM
@@ -1148,13 +1160,13 @@ px
 EL
 hM
 Mk
-IM
-IM
-IM
-IM
-IM
-IM
-IM
+Zo
+Zo
+Zo
+Zo
+Zo
+Zo
+Zo
 ph
 Mk
 Mk
@@ -1168,7 +1180,7 @@ bm
 IM
 px
 ui
-IM
+Zo
 Mk
 Xw
 dL
@@ -1212,8 +1224,8 @@ bm
 IM
 px
 EL
-IM
-IM
+Zo
+Zo
 Mk
 EL
 hf
