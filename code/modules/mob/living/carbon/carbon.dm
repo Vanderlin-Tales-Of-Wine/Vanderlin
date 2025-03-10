@@ -1031,7 +1031,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>I retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>I retrieve some of [src]'s internal organs!</span>")
 
 /mob/living/carbon/ExtinguishMob(itemz = TRUE)
 	if(itemz)

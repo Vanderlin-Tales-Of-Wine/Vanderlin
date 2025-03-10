@@ -1,3 +1,5 @@
+// Sorry for what you're about to see. //
+
 ///////////OFFHAND///////////////
 /obj/item/grabbing
 	name = "pulling"
@@ -11,10 +13,12 @@
 	no_effect = TRUE
 	force = 0
 	experimental_inhand = FALSE
-	var/grabbed				//ref to what atom we are grabbing
+	/// The atom that is currently being grabbed by [var/grabbee].
+	var/atom/grabbed
+	/// The carbon that is grabbing [var/grabbed]
+	var/mob/living/carbon/grabbee
 	var/obj/item/bodypart/limb_grabbed		//ref to actual bodypart being grabbed if we're grabbing a carbo
 	var/sublimb_grabbed		//ref to what precise (sublimb) we are grabbing (if any) (text)
-	var/mob/living/carbon/grabbee
 	var/list/dependents = list()
 	var/handaction
 	var/bleed_suppressing = 0.5 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
@@ -33,17 +37,21 @@
 	valid_check()
 
 /obj/item/grabbing/proc/valid_check()
-	// Mouth grab while we're adjacent is good
-	if(grabbee.mouth == src && grabbee.Adjacent(grabbed))
-		return TRUE
-	// Other grab requires adjacency and pull status, unless we're grabbing ourselves
-	if(grabbee.Adjacent(grabbed) && (grabbee.pulling == grabbed || grabbee == grabbed))
-		return TRUE
+	// We should be conscious to do this, first of all...
+	if(grabbee.stat < UNCONSCIOUS)
+		// Mouth grab while we're adjacent is good
+		if(grabbee.mouth == src && grabbee.Adjacent(grabbed))
+			return TRUE
+		// Other grab requires adjacency and pull status, unless we're grabbing ourselves
+		if(grabbee.Adjacent(grabbed) && (grabbee.pulling == grabbed || grabbee == grabbed))
+			return TRUE
 	grabbee.stop_pulling(FALSE)
 	qdel(src)
 	return FALSE
 
 /obj/item/grabbing/Click(location, control, params)
+	if(!valid_check())
+		return
 	var/list/modifiers = params2list(params)
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
