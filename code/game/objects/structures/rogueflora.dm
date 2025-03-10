@@ -398,7 +398,7 @@
 			to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
 			if(!HAS_TRAIT(H, TRAIT_NOPAIN))
 				H.emote("painscream")
-				L.Immobilize(5 SECONDS) //that fucking hurt
+				L.Stun(3 SECONDS) //that fucking hurt
 		else if(prob(70))
 			to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
 
