@@ -38,3 +38,5 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 		var/mob/living/carbon/human/H = L
 		if(advclass_cat_rolls)
 			hugboxify_for_class_selection(H)
+		if(!isvillager)
+			ADD_TRAIT(H, TRAIT_OUTSIDER, TRAIT_GENERIC)

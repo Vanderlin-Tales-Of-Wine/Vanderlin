@@ -42,20 +42,15 @@
 		if(isobserver(user))
 			used_name = real_name
 		var/used_title = get_role_title()
-		var/display_as_wanderer = FALSE
+		var/display_as_outsider = FALSE
 		var/is_returning = FALSE
-		if(migrant_type)
-			var/datum/migrant_role/migrant = MIGRANT_ROLE(migrant_type)
-			if(migrant.show_wanderer_examine)
-				display_as_wanderer = TRUE
-		else if(job)
+		if(job)
 			var/datum/job/J = SSjob.GetJob(job)
 			if(J?.wanderer_examine)
-				display_as_wanderer = TRUE
+				display_as_outsider = TRUE
 			if(islatejoin)
 				is_returning = TRUE
-		if(display_as_wanderer)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name].")
+
 		else if(mind?.apprentice)
 			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, [used_title].")
 		else if(used_title)
@@ -95,6 +90,9 @@
 				var/family_text = ReturnRelation(user)
 				if(family_text)
 					. += family_text
+
+		if(HAS_TRAIT(src, TRAIT_OUTSIDER) && !HAS_TRAIT(user, TRAIT_OUTSIDER))
+			. += span_phobia("An outsider...")
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")

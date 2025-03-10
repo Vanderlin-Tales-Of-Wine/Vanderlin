@@ -8,7 +8,7 @@
 	)
 	outfit = /datum/outfit/job/grenzelhoft_migration/count
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_outsider = FALSE
 
 /datum/outfit/job/grenzelhoft_migration/count/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -63,7 +63,7 @@
 	)
 	outfit = /datum/outfit/job/grenzelhoft_migration/countess
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_outsider = FALSE
 
 /datum/outfit/job/grenzelhoft_migration/countess/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -114,7 +114,7 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight
-	show_wanderer_examine = FALSE
+	is_outsider = FALSE
 
 /datum/outfit/job/grenzelhoft_migration/grenzelhoft_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -165,7 +165,7 @@
 		"Dwarf"
 	)
 	outfit = /datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms
-	show_wanderer_examine = FALSE
+	is_outsider = FALSE
 
 /datum/outfit/job/grenzelhoft_migration/grenzelhoft_men_at_arms/pre_equip(mob/living/carbon/human/H)
 	..()
