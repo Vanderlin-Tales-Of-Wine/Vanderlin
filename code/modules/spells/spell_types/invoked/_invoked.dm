@@ -82,7 +82,7 @@
 	start_recharge()
 	return ..()
 
-/obj/effect/proc_holder/spell/invoked/projectile/proc/fire_projectile(mob/living/user, atom/target)
+/obj/effect/proc_holder/spell/invoked/projectile/fire_projectile(mob/living/user, atom/target)
 	current_amount--
 	for(var/i in 1 to projectiles_per_fire)
 		var/obj/projectile/P = new projectile_type(user.loc)

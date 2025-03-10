@@ -426,8 +426,8 @@
 
 /obj/item/weapon/knife/copper
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
-	name = "copper dagger"
-	desc = "A dagger of an older design, the copper serves decent enough."
+	name = "copper knife"
+	desc = "A knife of an older design, the copper serves decent enough."
 	icon_state = "cdagger"
 	max_blade_int = 75
 	max_integrity = 75

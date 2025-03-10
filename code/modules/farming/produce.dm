@@ -140,10 +140,51 @@
 			if(equippedloc != H.loc)
 				H.dropItemToGround(H.head)
 
+/obj/item/reagent_containers/food/snacks/produce/strawberry
+	seed = /obj/item/neuFarm/seed/strawberry
+	name = "strawberry"
+	desc = "A delectable strawberry."
+	icon_state = "strawberry"
+	tastes = list("strawberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
+
+/obj/item/reagent_containers/food/snacks/produce/raspberry
+	seed = /obj/item/neuFarm/seed/raspberry
+	name = "raspberry"
+	desc = "A delectable raspberry."
+	icon_state = "raspberry"
+	tastes = list("raspberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
+
+/obj/item/reagent_containers/food/snacks/produce/blackberry
+	seed = /obj/item/neuFarm/seed/blackberry
+	name = "blackberry"
+	desc = "A delectable blackberry."
+	icon_state = "blackberry"
+	tastes = list("blackberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
 /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	seed = /obj/item/neuFarm/seed/berryrogue
 	name = "jacksberries"
-	desc = "Common berries found throughout Enigma. A traveler's repast, or Dendor's wrath."
+	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
 	icon_state = "berries"
 	tastes = list("berry" = 1)
 	faretype = FARE_NEUTRAL
@@ -167,12 +208,6 @@
 		filling_color = GLOB.berrycolors[color_index]
 	update_icon()
 	..()
-
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
-	. += ..()
-	if(farminglvl >= 3 && poisonous == TRUE)
-		. += "These berries appear to be poisonous."
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
 	..()
@@ -201,6 +236,22 @@
 	grind_results = list(/datum/reagent/berrypoison = 5)
 	color_index = "bad"
 	poisonous = TRUE
+
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
+	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
+	. = ..()
+	// Foragers can always detect if a berry is safe or poisoned
+	if(HAS_TRAIT(user, TRAIT_FORAGER))
+		if(poisonous)
+			. += span_warning("This berry looks suspicious. I sense it might be poisoned.")
+		else
+			. += span_notice("This berry looks safe to eat.")
+	// Non-Foragers with high farming skill can detect poisoned berries
+	else if(farminglvl >= 3)
+		if(poisonous)
+			. += span_warning("These berries appear to be poisonous.</span>")
+		else
+			. += span_notice("This berry looks safe to eat.")
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
@@ -335,6 +386,46 @@
 	tastes = list("pear" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
+/obj/item/reagent_containers/food/snacks/produce/lemon
+	name = "lemon"
+	seed = /obj/item/neuFarm/seed/lemon
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lemon"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("lemon" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/lime
+	name = "lime"
+	seed = /obj/item/neuFarm/seed/lime
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lime"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("lime" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/tangerine
+	name = "tangerine"
+	seed = /obj/item/neuFarm/seed/tangerine
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "tangerine"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("tangerine" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/plum
+	name = "plum"
+	seed = /obj/item/neuFarm/seed/plum
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "plum"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("plum" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
 /*	..................   Turnip   ................... */ // only for veggie soup
 /obj/item/reagent_containers/food/snacks/produce/turnip
 	name = "turnip"
@@ -370,6 +461,29 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/roastseeds
 	cooked_smell = /datum/pollutant/food/roasted_seeds
 
+
+/obj/item/reagent_containers/food/snacks/produce/sugarcane
+	seed = /obj/item/neuFarm/seed/sugarcane
+	name = "sugarcane"
+	desc = ""
+	icon_state = "sugarcane"
+	seed = /obj/item/neuFarm/seed/sugarcane
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
+	throw_speed = 1
+	throw_range = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 5)
+	dropshrink = 0.8
+	rotprocess = null
+	mill_result = /obj/item/reagent_containers/food/snacks/sugar
+
+/obj/item/reagent_containers/food/snacks/sugar
+	name = "sugar"
+	desc ="<illed sugarcane, sweet as can be."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "salt"
+	tastes = list("sweet" = 1)
+	list_reagents = list(/datum/reagent/consumable/sugar = 15)
 
 /*	..................   Fyritius Flower   ................... */ // some sort of funni fire flowers. Dunno just moving them here for consistency.
 /obj/item/reagent_containers/food/snacks/produce/fyritius

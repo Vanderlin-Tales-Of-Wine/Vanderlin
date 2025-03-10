@@ -39,6 +39,12 @@
 				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+			if(reagent.glows)
+				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
+				emissive.plane = EMISSIVE_PLANE
+				overlays += emissive
+				break
 		underlays += filling
 
 	if(closed)
@@ -76,10 +82,10 @@
 	list_reagents = list(/datum/reagent/water = 96)
 
 /obj/item/reagent_containers/glass/carafe/redwine
-	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
+	list_reagents = list(/datum/reagent/consumable/ethanol/redwine = 96)
 
 /obj/item/reagent_containers/glass/carafe/silver/redwine
-	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
+	list_reagents = list(/datum/reagent/consumable/ethanol/redwine = 96)
 
 /obj/item/reagent_containers/glass/carafe/gold/redwine
-	list_reagents = list(/datum/reagent/consumable/ethanol/beer/redwine = 96)
+	list_reagents = list(/datum/reagent/consumable/ethanol/redwine = 96)

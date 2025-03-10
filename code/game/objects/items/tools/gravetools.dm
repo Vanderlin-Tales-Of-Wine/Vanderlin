@@ -114,8 +114,6 @@
 	if(user.used_intent.type == /datum/intent/irrigate)
 		if(istype(T, /turf/open/floor/dirt))
 			var/turf/open/floor/dirt/D = T
-			if(D.planted_crop)
-				return
 			user.visible_message("[user] starts digging an irrigation channel.", "You start digging an irrigation channel.")
 			if(!do_after(user, 5 SECONDS * time_multiplier, D))
 				return
@@ -142,19 +140,17 @@
 				if(D.holie)
 					D.holie.attackby(src, user)
 				else
-					if(!D.planted_crop)
-						if(istype(T, /turf/open/floor/dirt/road))
-							new /obj/structure/closet/dirthole(T)
-						else
-							T.ChangeTurf(/turf/open/floor/dirt/road, flags = CHANGETURF_INHERIT_AIR)
-						heldclod = new(src)
-						playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
-						update_icon()
+					if(istype(T, /turf/open/floor/dirt/road))
+						new /obj/structure/closet/dirthole(T)
+					else
+						T.ChangeTurf(/turf/open/floor/dirt/road, flags = CHANGETURF_INHERIT_AIR)
+					heldclod = new(src)
+					playsound(T,'sound/items/dig_shovel.ogg', 100, TRUE)
+					update_icon()
 			return
 		if(heldclod)
 			if(istype(T, /turf/open/water))
 				qdel(heldclod)
-//				T.ChangeTurf(/turf/open/floor/dirt/road, flags = CHANGETURF_INHERIT_AIR)
 			else
 				heldclod.forceMove(T)
 			heldclod = null

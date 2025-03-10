@@ -2,7 +2,7 @@
 	name = "Wanderling Lich"
 	wave_type = /datum/migrant_wave/lich
 
-	weight = 6
+	weight = 0 //temp disabled 6
 	max_occurrences = 2
 
 	earliest_start = 15 MINUTES

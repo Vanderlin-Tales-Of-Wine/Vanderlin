@@ -254,9 +254,6 @@
 	var/override = 0
 	for(var/datum/vine_mutation/SM in mutations)
 		override += SM.on_chem(src, R)
-	if(!override && istype(R, /datum/reagent/toxin/plantbgone))
-		if(prob(50))
-			qdel(src)
 
 /obj/structure/vine/proc/eat(mob/eater)
 	var/override = 0
@@ -383,10 +380,6 @@
 	vines -= S
 	growth_queue -= S
 	if(!vines.len)
-//		var/obj/item/seeds/kudzu/KZ = new(S.loc)
-//		KZ.mutations |= S.mutations
-//		KZ.set_potency(mutativeness * 10)
-//		KZ.set_production((spread_cap / initial(spread_cap)) * 5)
 		qdel(src)
 
 /datum/vine_controller/process()

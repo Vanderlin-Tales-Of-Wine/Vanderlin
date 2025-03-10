@@ -604,16 +604,12 @@
 		if(nutrition > 50)
 			adjust_nutrition(-lost_nutrition)
 			adjust_hydration(-lost_nutrition)
-//adjustToxLoss(-3)
 	if(harm)
 		adjustBruteLoss(3)
 	for(var/i=0 to distance)
 		if(blood)
 			if(T)
 				bleed(5)
-		else if(src.reagents.has_reagent(/datum/reagent/consumable/ethanol/blazaam, needs_metabolizing = TRUE))
-			if(T)
-				T.add_vomit_floor(src, VOMIT_PURPLE)
 		else
 			if(T)
 				T.add_vomit_floor(src, VOMIT_TOXIC)//toxic barf looks different
@@ -1221,3 +1217,32 @@
 			return FALSE
 	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
 		return FALSE
+
+///Returns a list of all body_zones covered by clothing
+/mob/living/carbon/proc/get_covered_body_zones()
+	RETURN_TYPE(/list)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/covered_flags = NONE
+	var/list/all_worn_items = get_all_worn_items(src)
+	for(var/obj/item/worn_item in all_worn_items)
+		covered_flags |= worn_item.body_parts_covered
+
+	return body_parts_covered2organ_names(covered_flags)
+
+/mob/living/carbon/proc/try_skin_burn(reaction_volume)
+	var/list/covered_zones = get_covered_body_zones()
+
+	var/successful_burns = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.body_zone in covered_zones)
+			continue
+		if(bodypart.acid_damage_intensity >= 1)
+			continue
+		if(!prob(100 - (successful_burns * 35)))
+			continue
+
+		if(prob(reaction_volume * 10))
+			bodypart.acid_damage_intensity++
+
+	update_body_parts(TRUE)
