@@ -50,6 +50,8 @@
 	return FALSE
 
 /obj/item/grabbing/Click(location, control, params)
+	if(!valid_check())
+		return
 	var/list/modifiers = params2list(params)
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
