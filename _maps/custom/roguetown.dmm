@@ -5114,7 +5114,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/under/town/sewer)
 "sl" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /obj/effect/landmark/start/villager,
 /turf/open/floor/woodturned,
