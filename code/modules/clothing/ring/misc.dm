@@ -236,8 +236,6 @@
 		if (slot == SLOT_RING && istype(user))
 			RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(item_removed))
 			user.apply_status_effect(/datum/status_effect/buff/noc)
-		else
-			user.remove_status_effect(/datum/status_effect/buff/noc)
 
 /obj/item/clothing/ring/silver/noc/proc/item_removed(mob/living/carbon/wearer, obj/item/dropped_item)
 	SIGNAL_HANDLER
