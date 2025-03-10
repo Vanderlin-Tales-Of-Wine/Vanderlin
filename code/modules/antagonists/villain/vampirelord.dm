@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
-	purge_combat_knowledge()
+	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
