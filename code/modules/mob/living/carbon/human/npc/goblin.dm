@@ -108,13 +108,8 @@
 /obj/item/bodypart/head/goblin/skeletonize()
 	. = ..()
 	icon_state = "goblin_skel_head"
-<<<<<<< HEAD
-	headprice = 2
-
-=======
-	if(sellprice)
-		sellprice = 2
->>>>>>> 148334c2d285e281ad3a16170721cbd357d1c5c3
+	if(headprice)
+		headprice = 2
 
 /obj/item/bodypart/head/goblin/drop_organs(mob/user, violent_removal)
 	. = ..()

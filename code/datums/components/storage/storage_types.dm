@@ -121,7 +121,6 @@
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
 
-<<<<<<< HEAD
 /datum/component/storage/concrete/roguetown/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 4
@@ -175,7 +174,7 @@
 		/obj/item/bodypart/head/orc,
 		/obj/item/bodypart/head/zizombie)
 	))
-=======
+
 /datum/component/storage/concrete/grid/crucible
 	screen_max_rows = 5
 	screen_max_columns = 3
@@ -186,4 +185,3 @@
 	if(!storing.melting_material)
 		return FALSE
 	. = ..()
->>>>>>> 148334c2d285e281ad3a16170721cbd357d1c5c3

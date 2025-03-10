@@ -60,6 +60,14 @@
 	created_amount = 2
 	craftdiff = 0
 
+/datum/artificer_recipe/bronze/headhook //N/A hard to say where this belongs to so going to keep it here
+	name = "Bronze Headhook"
+	required_item = /obj/item/ingot/bronze
+	created_item = /obj/item/storage/hip/headhook/bronze
+	additional_items = list(/obj/item/natural/fibers = 2)
+	hammers_per_item = 6
+	craftdiff = 3
+
 // --------- TOOLS -----------
 
 /datum/artificer_recipe/tools

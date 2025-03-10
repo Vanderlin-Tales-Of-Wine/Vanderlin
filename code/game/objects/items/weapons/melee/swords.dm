@@ -926,7 +926,7 @@
 
 //................ Gaffer's vanity sword ............... //
 
-/obj/item/rogueweapon/sword/long/replica
+/obj/item/weapon/sword/long/replica
 	force_wielded = 5
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
@@ -951,10 +951,10 @@
 	dropshrink = 0.75
 	sellprice = 1
 
-/obj/item/rogueweapon/sword/long/replica/death
+/obj/item/weapon/sword/long/replica/death
 	color = CLOTHING_SOOT_BLACK
 
-/obj/item/rogueweapon/sword/long/replica/getonmobprop(tag)
+/obj/item/weapon/sword/long/replica/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)

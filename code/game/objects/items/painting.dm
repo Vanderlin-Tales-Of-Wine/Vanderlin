@@ -102,3 +102,5 @@
 	desc = "A painting of a kingly crown resting on a book."
 	icon_state = "crownpainting_deployed"
 	stolen_painting = /obj/item/painting/crown
+
+/obj/structure/fluff/walldeco/painting/lorehead1 //N/A actually make these
