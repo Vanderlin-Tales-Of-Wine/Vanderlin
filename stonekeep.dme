@@ -550,6 +550,7 @@
 #include "code\datums\components\breed.dm"
 #include "code\datums\components\butchering.dm"
 #include "code\datums\components\caltrop.dm"
+#include "code\datums\components\cleaning.dm"
 #include "code\datums\components\connect_containers.dm"
 #include "code\datums\components\construction.dm"
 #include "code\datums\components\deadchat_control.dm"
