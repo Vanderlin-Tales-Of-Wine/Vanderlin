@@ -165,6 +165,11 @@
 		/datum/material/blacksteel = 100,
 	)
 
+/obj/item/storage/crucible/test_crucible/electrum
+	material_data_to_add = list(
+		/datum/material/electrum = 100,
+	)
+
 /obj/item/storage/crucible/test_crucible/everything
 	material_data_to_add = list(
 		/datum/material/blacksteel = 1,
@@ -174,4 +179,5 @@
 		/datum/material/gold = 2,
 		/datum/material/bronze = 1,
 		/datum/material/silver = 1,
+		/datum/material/electrum = 1,
 	)
