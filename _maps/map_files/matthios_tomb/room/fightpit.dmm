@@ -8,7 +8,7 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue)
 "aT" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue)
 "be" = (

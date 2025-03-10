@@ -13275,7 +13275,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/outdoors/exposed/under/basement)
 "nWE" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -14718,7 +14718,7 @@
 	first_time_text = "Blackwine Manor"
 	})
 "plV" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/town/manor{
 	first_time_text = "Blackwine Manor"
@@ -22703,7 +22703,7 @@
 	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
 	})
 "xpd" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/church/chapel)
 "xpF" = (

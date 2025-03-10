@@ -1512,7 +1512,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "uj" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)
@@ -1694,7 +1694,7 @@
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/shelter/bog)
 "wm" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/closed,
 /area/rogue/indoors/shelter/bog)
 "wo" = (
@@ -2090,7 +2090,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains)
 "BX" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "Cd" = (
@@ -2692,7 +2692,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "KI" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "KK" = (
@@ -3644,7 +3644,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "Xm" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)

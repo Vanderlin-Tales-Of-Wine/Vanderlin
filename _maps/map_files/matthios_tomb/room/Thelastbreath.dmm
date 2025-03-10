@@ -704,7 +704,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "lk" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/churchmarble,
@@ -960,7 +960,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "oW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -1152,7 +1152,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "sd" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
@@ -1487,7 +1487,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "wW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -1726,7 +1726,7 @@
 /turf/open/floor/grass,
 /area/rogue/indoors)
 "zW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/churchmarble,
@@ -1746,7 +1746,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors)
 "An" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "At" = (
@@ -2434,13 +2434,13 @@
 /turf/open/water/swamp/deep,
 /area/rogue/indoors)
 "Lz" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "LG" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "LI" = (
@@ -2526,7 +2526,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "Nc" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
@@ -2872,7 +2872,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "RW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
@@ -3096,7 +3096,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "UZ" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,

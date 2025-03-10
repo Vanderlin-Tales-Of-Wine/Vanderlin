@@ -95,13 +95,33 @@
 	integrity_failure = 0.5
 
 /obj/structure/window/stained
-	desc = "A stained-glass window filigreed in silver."
 	icon_state = "stained-silver"
 	base_state = "stained-silver"
 	max_integrity = 100
 	integrity_failure = 0.75
 	repair_cost_first = /obj/item/natural/glass
 	repair_cost_second = /obj/item/natural/stone
+
+/obj/structure/window/stained/silver
+	desc = "A stained-glass window filigreed in silver."
+	icon_state = "stained-silver"
+	base_state = "stained-silver"
+	max_integrity = 100
+	integrity_failure = 0.75
+
+/obj/structure/window/stained/silver/alt
+	icon_state = "stained-silver1"
+	base_state = "stained-silver1"
+
+/obj/structure/window/stained/zizo
+	desc = "A stained-glass window filigreed in deep crimson."
+	icon_state = "stained-zizo"
+	base_state = "stained-zizo"
+
+/obj/structure/window/stained/yellow
+	desc = "A stained-glass window filigreed in gold."
+	icon_state = "stained-yellow"
+	base_state = "stained-yellow"
 
 /obj/structure/window/openclose
 	desc = "It opens and closes."
