@@ -250,7 +250,7 @@
 /turf/open/floor/woodturned/nosmooth/saiga,
 /area/rogue/under/cavewet)
 "kO" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)
 "lr" = (
@@ -274,8 +274,6 @@
 /turf/open/floor/concrete,
 /area/rogue/under/cavewet)
 "mW" = (
-/obj/structure/window/stained,
-/obj/structure/fluff/statue/femalestatue,
 /turf/closed,
 /area/rogue/under/cavewet)
 "nb" = (
