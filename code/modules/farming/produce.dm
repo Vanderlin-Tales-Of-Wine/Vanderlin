@@ -58,7 +58,7 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	grind_results = list(/datum/reagent/floure = 10)
+	grind_results = list(/datum/reagent/flour = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
 
@@ -78,7 +78,7 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	grind_results = list(/datum/reagent/floure = 10)
+	grind_results = list(/datum/reagent/flour = 10)
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
 	. += ..()
