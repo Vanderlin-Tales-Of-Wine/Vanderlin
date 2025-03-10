@@ -647,9 +647,9 @@
 	if(rest == resting)
 		return
 
+	. = rest
 	resting = rest
 	update_resting()
-	. = rest
 	if(rest == resting)
 		if(resting)
 			if(m_intent == MOVE_INTENT_RUN)
@@ -662,7 +662,7 @@
 			else
 				playsound(src, 'sound/foley/toggleup.ogg', 100, FALSE)
 		else
-			to_chat(src, "<span class='warning'>I fail to get up!</span>")
+			to_chat(src, "<span class='warning'>I fail to get up.</span>")
 	update_cone_show()
 	SEND_SIGNAL(src, COMSIG_LIVING_SET_RESTING, rest)
 
