@@ -441,3 +441,13 @@
 	east_offset = 14
 	north_offset = 14
 	south_offset = 14
+
+/datum/map_template/dungeon/room/SteamCastle
+	mappath = "_maps/map_files/matthios_tomb/room/SteamCastle.dmm"
+	id = "SteamCastle"
+	width = 50
+	height = 70
+
+	west_offset = 18
+	east_offset = 18
+	south_offset = 26
