@@ -58,10 +58,11 @@
 	throw_speed = 1
 	throw_range = 7
 	var/uses = 10
+	var/slip_chance = 10
 
 /obj/item/bath/soap/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/slippery, 8)
+	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
 
 /obj/item/bath/soap/examine(mob/user)
 	. = ..()
