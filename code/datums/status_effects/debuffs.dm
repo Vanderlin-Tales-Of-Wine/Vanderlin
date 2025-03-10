@@ -18,14 +18,7 @@
 			if(needs_update_stat)
 				owner.update_stat()
 
-/datum/status_effect/incapacitating/on_apply()
-	. = ..()
-	if(!.)
-		return
-	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
-
 /datum/status_effect/incapacitating/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	if(owner)
 		owner.update_mobility()
 		if(needs_update_stat) //silicons need stat updates in addition to normal canmove updates
@@ -36,6 +29,16 @@
 /datum/status_effect/incapacitating/stun
 	id = "stun"
 	alert_type = /atom/movable/screen/alert/status_effect/stun
+
+/datum/status_effect/incapacitating/stun/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/stun/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+	return ..()
 
 /atom/movable/screen/alert/status_effect/stun
 	name = "Stunned"
@@ -66,6 +69,16 @@
 	id = "paralyzed"
 	alert_type = /atom/movable/screen/alert/status_effect/paralyzed
 
+/datum/status_effect/incapacitating/paralyzed/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/paralyzed/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+	return ..()
+
 /atom/movable/screen/alert/status_effect/paralyzed
 	name = "Paralyzed"
 	desc = ""
@@ -75,6 +88,16 @@
 /datum/status_effect/incapacitating/unconscious
 	id = "unconscious"
 	needs_update_stat = TRUE
+
+/datum/status_effect/incapacitating/unconscious/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/unconscious/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+	return ..()
 
 //SLEEPING
 /datum/status_effect/incapacitating/sleeping
