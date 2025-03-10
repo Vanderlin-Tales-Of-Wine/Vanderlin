@@ -19,7 +19,7 @@
 	var/obj/item/back = null
 	var/obj/item/backr = null
 	var/obj/item/backl = null
-	var/obj/item/clothing/mask/wear_mask = null
+	var/obj/item/clothing/face/wear_mask = null
 	var/obj/item/mouth = null
 	var/obj/item/clothing/neck/wear_neck = null
 	var/obj/item/tank/internal = null
@@ -28,7 +28,6 @@
 
 	var/obj/item/clothing/gloves = null //only used by humans
 	var/obj/item/clothing/shoes = null //only used by humans.
-	var/obj/item/clothing/glasses/glasses = null //only used by humans.
 	var/obj/item/clothing/ears = null //only used by humans.
 
 
@@ -39,7 +38,7 @@
 
 	var/co2overloadtime = null
 	var/temperature_resistance = T0C+75
-	var/obj/item/reagent_containers/food/snacks/meat/slab/type_of_meat = /obj/item/reagent_containers/food/snacks/meat/slab
+	var/obj/item/reagent_containers/food/snacks/meat/steak/type_of_meat = /obj/item/reagent_containers/food/snacks/meat/steak
 
 	var/gib_type = /obj/effect/decal/cleanable/blood/gibs
 

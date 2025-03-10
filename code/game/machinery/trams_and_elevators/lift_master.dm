@@ -614,6 +614,38 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 /datum/lift_master/tram/proc/try_process_order(fence = FALSE)
 	var/total_coin_value = 0
 	var/list/requested_supplies = list()
+	var/list/request_fufillment = list()
+	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
+		for(var/atom/movable/listed_atom in platform.lift_load)
+			if(!fence)
+				for(var/datum/trade_request/request in SSmerchant.trade_requests)
+					if(listed_atom.type == request.input_atom || (ispath(request.input_atom, /obj/item/reagent_containers/glass/bottle) && istype(listed_atom, /obj/item/reagent_containers/glass/bottle)))
+						if(istype(listed_atom, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/input_bottle = request.input_atom
+							if(initial(input_bottle.list_reagents))
+								var/passed = FALSE
+								var/list/input_reagents = initial(input_bottle.list_reagents)
+								for(var/datum/reagent/reagent as anything in initial(input_bottle.list_reagents))
+									var/obj/item/reagent_containers/glass/bottle/bottle = listed_atom
+									if(bottle.reagents.has_reagent(reagent, input_reagents[reagent] * 0.5))
+										passed = TRUE
+								if(!passed)
+									continue
+						if(!(request in request_fufillment))
+							request_fufillment |= request
+							request_fufillment[request] = list()
+						request_fufillment[request] |= listed_atom
+						if(length(request_fufillment[request]) >= request.input_amount)
+							for(var/atom/atom in request_fufillment[request])
+								request_fufillment[request] -= atom
+								qdel(atom)
+							for(var/i = 1 to request.output_amount)
+								SSmerchant.sending_stuff += request.output_atom
+							request.total_trade--
+							if(request.total_trade <= 0)
+								SSmerchant.trade_requests -= request
+								qdel(request)
+
 	for(var/obj/structure/industrial_lift/tram/platform in lift_platforms)
 		for(var/atom/movable/listed_atom in platform.lift_load)
 			if(istype(listed_atom, /obj/item/paper/scroll/cargo))
@@ -621,7 +653,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				requested_supplies += cargo_manifest.orders.Copy()
 				qdel(listed_atom)
 
-			if(istype(listed_atom, /obj/item/roguecoin))
+			if(istype(listed_atom, /obj/item/coin))
 				total_coin_value += listed_atom.get_real_price()
 				qdel(listed_atom)
 
@@ -633,12 +665,13 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					requested_supplies += cargo_manifest.orders.Copy()
 					qdel(inside)
 
-				if(istype(inside, /obj/item/roguecoin))
+				if(istype(inside, /obj/item/coin))
 					total_coin_value += inside.get_real_price()
 					qdel(inside)
 
 		if(!length(requested_supplies))
 			spawn_coins(total_coin_value, platform)
+			add_abstract_elastic_data("economy", "mammons_gained", total_coin_value)
 			continue
 
 		for(var/datum/supply_pack/requested as anything in requested_supplies)
@@ -649,8 +682,10 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			if(total_coin_value >= FLOOR(requested.cost * modifier, 1))
 				total_coin_value -= FLOOR(requested.cost * modifier, 1)
 				SSmerchant.requestlist |= requested.contains
+				add_abstract_elastic_data("economy", "mammons_spent", FLOOR(requested.cost * modifier, 1))
 
 		spawn_coins(total_coin_value, platform)
+		add_abstract_elastic_data("economy", "mammons_gained", total_coin_value)
 
 
 /datum/lift_master/tram/proc/spawn_coins(total_coin_value, obj/structure/industrial_lift/tram/platform)
@@ -659,19 +694,19 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 	var/turf/location = get_turf(picked)
 
 	var/gold = floor(total_coin_value/10)
-	new /obj/item/roguecoin/gold(location, gold)
+	new /obj/item/coin/gold(location, gold)
 	total_coin_value -= gold*10
 	if(!total_coin_value)
 		return
 
 	var/silver = floor(total_coin_value/5)
-	new /obj/item/roguecoin/silver(location, silver)
+	new /obj/item/coin/silver(location, silver)
 	total_coin_value -= silver*5
 	if(!total_coin_value)
 		return
 
 	var/copper = floor(total_coin_value)
-	new /obj/item/roguecoin/copper(location, copper)
+	new /obj/item/coin/copper(location, copper)
 	total_coin_value -= copper
 
 	var/obj/structure/closet/crate/chest/chest = new /obj/structure/closet/crate/chest(location)
@@ -719,20 +754,27 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				continue
 			if(istype(listed_atom, /obj/structure/closet/crate/chest))
 				continue
-			if(istype(listed_atom, /obj/item/roguecoin))
+			if(istype(listed_atom, /obj/item/coin))
 				continue
 
-			total_coin_value += FLOOR(listed_atom.sellprice * sell_modifer, 1)
+			total_coin_value += FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
+			var/old_price = FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
 			if(!(initial(listed_atom.name) in sold_items))
 				sold_items |= initial(listed_atom.name)
 				sold_count |= initial(listed_atom.name)
 
 				sold_count[initial(listed_atom.name)] = 1
-				sold_items[initial(listed_atom.name)] = FLOOR(listed_atom.sellprice * sell_modifer, 1)
+				sold_items[initial(listed_atom.name)] = FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
 
 			else
 				sold_count[initial(listed_atom.name)]++
-				sold_items[initial(listed_atom.name)] += FLOOR(listed_atom.sellprice * sell_modifer, 1)
+				sold_items[initial(listed_atom.name)] += FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
+			SSmerchant.handle_selling(listed_atom.type)
+			var/new_price = FLOOR(listed_atom.sellprice * sell_modifer * SSmerchant.return_sell_modifier(listed_atom.type), 1)
+
+			if(old_price != new_price)
+				SSmerchant.changed_sell_prices(listed_atom.type, old_price, new_price)
+
 
 			for(var/atom/movable/inside in listed_atom.get_all_contents())
 				if(inside == listed_atom)
@@ -745,7 +787,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					continue
 				if(istype(inside, /obj/structure/closet/crate/chest))
 					continue
-				if(istype(inside, /obj/item/roguecoin))
+				if(istype(inside, /obj/item/coin))
 					continue
 
 				total_coin_value += FLOOR(inside.sellprice * sell_modifer, 1)

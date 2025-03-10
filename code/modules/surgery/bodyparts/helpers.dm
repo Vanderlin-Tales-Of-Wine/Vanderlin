@@ -213,7 +213,7 @@
 	if(body_plan_changed && ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if(H.wear_pants)
-			var/obj/item/clothing/under/U = H.wear_pants
+			var/obj/item/clothing/pants/U = H.wear_pants
 			if(U.mutantrace_variation)
 				if(swap_back)
 					U.adjusted = NORMAL_STYLE

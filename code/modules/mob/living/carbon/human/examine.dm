@@ -5,6 +5,8 @@
 		user.add_stress(/datum/stressevent/delf)
 	if(!istiefling(user) && istiefling(src))
 		user.add_stress(/datum/stressevent/tieb)
+	if(!ishalforc(user) && ishalforc(src))
+		user.add_stress(/datum/stressevent/horc)
 	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
 		user.add_stress(/datum/stressevent/parastr)
 
@@ -88,7 +90,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
 			if(RomanticPartner(stranger))
-				. += "<span class='love'>It's my spouse.</span>"
+				. += span_love("<B>It's my spouse.</B>")
 			if(family_datum == stranger.family_datum && family_datum)
 				var/family_text = ReturnRelation(user)
 				if(family_text)
@@ -124,11 +126,6 @@
 			if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL))
 				. += span_purple("A fellow seeker of Her ascension.")
 
-			if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
-				var/atom/item = get_most_expensive()
-				if(item)
-					. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
-
 	if(HAS_TRAIT(src, TRAIT_MANIAC_AWOKEN))
 		. += span_userdanger("MANIAC!")
 
@@ -145,6 +142,10 @@
 						. += shit
 		if(user.mind?.has_antag_datum(/datum/antagonist/vampirelord) || user.mind?.has_antag_datum(/datum/antagonist/vampire))
 			. += "<span class='userdanger'>Blood Volume: [blood_volume]</span>"
+		if(HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
+			var/atom/item = get_most_expensive()
+			if(item)
+				. += span_notice("You get the feeling [m2] most valuable possession is \a [item.name].")
 
 	var/list/obscured = check_obscured_slots()
 	var/skipface = (wear_mask && (wear_mask.flags_inv & HIDEFACE)) || (head && (head.flags_inv & HIDEFACE))
@@ -156,8 +157,8 @@
 	if(wear_pants && !(SLOT_PANTS in obscured))
 		//accessory
 		var/accessory_msg
-		if(istype(wear_pants, /obj/item/clothing/under))
-			var/obj/item/clothing/under/U = wear_pants
+		if(istype(wear_pants, /obj/item/clothing/pants))
+			var/obj/item/clothing/pants/U = wear_pants
 			if(U.attached_accessory)
 				accessory_msg += " with [icon2html(U.attached_accessory, user)] \a [U.attached_accessory]"
 
@@ -223,12 +224,8 @@
 	if(wear_neck && !(SLOT_NECK in obscured))
 		. += "[m3] [wear_neck.get_examine_string(user)] around [m2] neck."
 
-	//eyes
-	if(!(SLOT_GLASSES in obscured))
-		if(glasses)
-			. += "[m3] [glasses.get_examine_string(user)] covering [m2] eyes."
-		else if(eye_color == BLOODCULT_EYE)
-			. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
+	if(eye_color == BLOODCULT_EYE)
+		. += "<span class='warning'><B>[capitalize(m2)] eyes are glowing an unnatural red!</B></span>"
 
 	//ears
 	if(ears && !(SLOT_HEAD in obscured))
@@ -267,14 +264,17 @@
 
 	if(!(user == src && src.hal_screwyhud == SCREWYHUD_HEALTHY)) //fake healthy
 		// Damage
-		switch(temp)
-			if(5 to 25)
+		var/max_health = 1 //let's not divide by 0
+		for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+			max_health += bodypart.max_damage
+		switch(temp/max_health)
+			if(0.0625 to 0.125)
 				msg += "[m1] a little wounded."
-			if(25 to 50)
+			if(0.125 to 0.25)
 				msg += "[m1] wounded."
-			if(50 to 100)
+			if(0.25 to 0.5)
 				msg += "<B>[m1] severely wounded.</B>"
-			if(100 to INFINITY)
+			if(0.5 to INFINITY)
 				msg += "<span class='danger'>[m1] gravely wounded.</span>"
 
 	// Blood volume
@@ -374,9 +374,9 @@
 		msg += msg_list.Join(" ")
 
 	//Fire/water stacks
-	if(fire_stacks > 0)
+	if(fire_stacks + divine_fire_stacks > 0)
 		msg += "[m1] covered in something flammable."
-	else if(fire_stacks < 0)
+	else if(fire_stacks < 0 && !on_fire)
 		msg += "[m1] soaked."
 
 	//Status effects
@@ -515,12 +515,6 @@
 		if(skipface && user.has_flaw(/datum/charflaw/hunted))
 			user.add_stress(/datum/stressevent/hunted)
 
-	// The Assassin's profane dagger can sniff out their targets, even masked.
-	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
-		for(var/obj/item/I in get_all_gear())
-			if(istype(I, /obj/item/rogueweapon/knife/dagger/steel/profane))
-				user.visible_message("profane dagger whispers, <span class='danger'>\"That's [real_name]! Strike their heart!\"</span>")
-
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	for(var/line in lines)
 		. += span_info(line)
@@ -528,6 +522,16 @@
 	var/trait_exam = common_trait_examine()
 	if(!isnull(trait_exam))
 		. += trait_exam
+
+	// The Assassin's profane dagger can sniff out their targets, even masked.
+	if(HAS_TRAIT(user, TRAIT_ASSASSIN) && ((has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(src, TRAIT_ZIZOID_HUNTED))))
+		//TODO: move this to an examinate signal call
+		if ((src != user) && iscarbon(user))
+			var/mob/living/carbon/assassin = user
+			for(var/obj/item/I in assassin.get_all_gear())
+				if(istype(I, /obj/item/weapon/knife/dagger/steel/profane))
+					. += "profane dagger whispers, [span_danger("\"That's [real_name]! Strike their heart!\"")]"
+					break
 
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()

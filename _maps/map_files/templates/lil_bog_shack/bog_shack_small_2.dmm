@@ -1,56 +1,56 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "b" = (
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "c" = (
 /obj/item/natural/stone,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "d" = (
 /obj/effect/decal/remains/saiga,
-/turf/open/floor/rogue/grass,
+/turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "e" = (
-/obj/structure/flora/roguegrass/bush_meagre,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass/bush_meagre,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "f" = (
-/turf/closed/wall/mineral/rogue/wood,
+/turf/closed/wall/mineral/wood,
 /area/rogue/indoors/shelter/bog)
 "g" = (
-/obj/machinery/light/rogue/campfire,
-/turf/open/floor/rogue/grass,
+/obj/machinery/light/fueled/campfire,
+/turf/open/floor/grass,
 /area/rogue/outdoors/bog)
 "h" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /obj/effect/decal/cleanable/dirt/cobweb,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "i" = (
-/obj/structure/chair/wood/rogue/chair3{
+/obj/structure/chair/wood/alt/chair3{
 	dir = 8
 	},
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "j" = (
-/obj/structure/chair/wood/rogue/chair3{
+/obj/structure/chair/wood/alt/chair3{
 	dir = 1
 	},
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "k" = (
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
@@ -59,53 +59,53 @@
 	locked = 1;
 	lockid = "artificer"
 	},
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "m" = (
-/obj/structure/flora/roguegrass,
-/turf/open/floor/rogue/dirt,
+/obj/structure/flora/grass,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "n" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "o" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "p" = (
-/obj/machinery/light/rogue/hearth,
+/obj/machinery/light/fueled/hearth,
 /obj/effect/decal/cleanable/dirt/cobweb{
 	icon_state = "cobweb2"
 	},
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "q" = (
-/obj/structure/closet/crate/roguecloset,
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/natural/bundle/fibers,
 /obj/item/natural/hide,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "r" = (
 /obj/structure/closet/crate/chest,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/turf/open/floor/rogue/ruinedwood{
+/obj/item/reagent_containers/food/snacks/hardtack,
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
 "s" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/ruinedwood{
+/obj/structure/bed/shit,
+/turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/bog)
@@ -117,24 +117,24 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bog)
 "v" = (
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
 /area/rogue/outdoors/bog)
 "w" = (
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
 /area/rogue/outdoors/bog)
 "x" = (
 /obj/effect/decal/cleanable/vomit/old,
-/turf/open/floor/rogue/ruinedwood{
+/turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
 /area/rogue/outdoors/bog)
 "y" = (
-/turf/open/floor/rogue/metal{
+/turf/open/floor/metal{
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/bog)

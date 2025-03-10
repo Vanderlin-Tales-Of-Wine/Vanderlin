@@ -1,29 +1,37 @@
+// Mobs shouldn't consider their own ambush.
+// This should be it's own system. Please.
+
+#define AMBUSH_CHANCE 5
 
 /mob/living/proc/ambushable()
-	if(mob_timers["ambushlast"])
-		if(world.time < mob_timers["ambushlast"] + 300 SECONDS)
-			return FALSE
-	if(stat)
+	if(MOBTIMER_FINISHED(src, MT_AMBUSHLAST, 5 MINUTES))
+		return FALSE
+	if(stat) //what?
+		return FALSE
+	if(status_flags & GODMODE)
 		return FALSE
 	return ambushable
 
 /mob/living/proc/consider_ambush()
-	if(prob(95))
+	if(!prob(AMBUSH_CHANCE))
 		return
-	if(mob_timers["ambush_check"])
-		if(world.time < mob_timers["ambush_check"] + 15 SECONDS)
-			return
-	mob_timers["ambush_check"] = world.time
+
+	if(!MOBTIMER_FINISHED(src, MT_AMBUSHCHECK, 15 SECONDS))
+		return
+	MOBTIMER_SET(src, MT_AMBUSHCHECK)
+
 	if(!ambushable())
 		return
 	var/area/AR = get_area(src)
+	if(!length(AR.ambush_mobs))
+		return
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
 	if(!(T.type in AR.ambush_types))
 		return
 	var/campfires = 0
-	for(var/obj/machinery/light/rogue/RF in view(5, src))
+	for(var/obj/machinery/light/fueled/RF in view(5, src))
 		if(RF.on)
 			campfires++
 	if(campfires > 0)
@@ -38,16 +46,16 @@
 			if(victims > 3)
 				return
 	var/list/possible_targets = list()
-	for(var/obj/structure/flora/roguetree/RT in view(5, src))
+	for(var/obj/structure/flora/tree/RT in view(5, src))
 		if(istype(RT,/obj/structure/table/wood/treestump))
 			continue
 		if(isturf(RT.loc))
 			testing("foundtree")
 			possible_targets += RT.loc
-//	for(var/obj/structure/flora/roguegrass/bush/RB in range(7, src))
+//	for(var/obj/structure/flora/grass/bush/RB in range(7, src))
 //		if(can_see(src, RB))
 //			possible_targets += RB
-	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
+	for(var/obj/structure/flora/shroom_tree/RX in view(5, src))
 		if(isturf(RX.loc))
 			testing("foundshroom")
 			possible_targets += RX.loc
@@ -57,10 +65,10 @@
 		if(isturf(RS.loc))
 			testing("foundshroom")
 			possible_targets += RS.loc
-	if(possible_targets.len)
-		mob_timers["ambushlast"] = world.time
+	if(length(possible_targets))
+		MOBTIMER_SET(src, MT_AMBUSHLAST)
 		for(var/mob/living/V in victimsa)
-			V.mob_timers["ambushlast"] = world.time
+			MOBTIMER_SET(V, MT_AMBUSHLAST)
 		var/spawnedtype = pickweight(AR.ambush_mobs)
 		var/mustype = 1
 		for(var/i in 1 to CLAMP(victims*1,2,3))

@@ -10,7 +10,7 @@
 	if(!language)
 		return
 	if(wear_neck)
-		if(istype(wear_neck, /obj/item/clothing/neck/roguetown/talkstone))
+		if(istype(wear_neck, /obj/item/clothing/neck/talkstone))
 			return TRUE
 	if(!has_language(language))
 		if(has_flaw(/datum/charflaw/paranoid))
@@ -100,8 +100,6 @@
 	. = ..()
 	if(.) //No need to run through all of this if it's already true.
 		return
-	if(isclothing(glasses) && (glasses.clothing_flags & SCAN_REAGENTS))
-		return TRUE
 	if(isclothing(head) && (head.clothing_flags & SCAN_REAGENTS))
 		return TRUE
 	if(isclothing(wear_mask) && (wear_mask.clothing_flags & SCAN_REAGENTS))
@@ -120,6 +118,10 @@
 
 	if(used_str <= 9)
 		damage = max(damage - (damage * ((10 - used_str) * 0.1)), 1)
+
+	var/obj/item/bodypart/BP = has_hand_for_held_index(used_hand)
+	if(istype(BP))
+		damage *= BP.punch_modifier
 
 	if(mind)
 		if(mind.has_antag_datum(/datum/antagonist/werewolf))

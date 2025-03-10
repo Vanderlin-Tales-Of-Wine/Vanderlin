@@ -235,7 +235,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	return
 
 ///Is the mob incapacitated
-/mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE, check_immobilized = FALSE)
+/mob/proc/incapacitated(ignore_restraints = FALSE, ignore_grab = TRUE)
 	return
 
 /**
@@ -329,7 +329,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 			SLOT_PANTS, SLOT_ARMOR,\
 			SLOT_WEAR_MASK, SLOT_HEAD, SLOT_NECK,\
 			SLOT_SHOES, SLOT_GLOVES,\
-			SLOT_HEAD, SLOT_GLASSES,\
+			SLOT_HEAD,\
 			SLOT_BELT, SLOT_S_STORE,\
 			SLOT_MOUTH,SLOT_BACK_R,SLOT_BACK_L,SLOT_BELT_L,SLOT_BELT_R,SLOT_CLOAK,SLOT_SHIRT,\
 			SLOT_L_STORE, SLOT_R_STORE,\
@@ -713,7 +713,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	..()
 	// && check_rights(R_ADMIN,0)
 	var/ticker_time = world.time - SSticker.round_start_time
-	var/time_left = SSticker.mode?.round_ends_at - ticker_time
+	var/time_left = SSgamemode.round_ends_at - ticker_time
 	if(client && client.holder)
 		if(statpanel("Status"))
 			if (client)
@@ -724,7 +724,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 				stat(null, "Next Map: [cached.map_name]")
 			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
 			stat(null, "Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
 			stat(null, "TimeOfDay: [GLOB.tod]")
@@ -736,7 +736,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
 			stat("TimeOfDay: [GLOB.tod]")
-			if(SSticker.mode?.roundvoteend)
+			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
 
 	if(client && client.holder && check_rights(R_ADMIN,0))
@@ -1153,6 +1153,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	VV_DROPDOWN_OPTION(VV_HK_REGEN_ICONS, "Regenerate Icons")
 	VV_DROPDOWN_OPTION(VV_HK_PLAYER_PANEL, "Show player panel")
 	VV_DROPDOWN_OPTION(VV_HK_DIRECT_CONTROL, "Assume Direct Control")
+	VV_DROPDOWN_OPTION(VV_HK_GIVE_CONTROL_TO_PLAYER, "Give Control To Player")
 	VV_DROPDOWN_OPTION(VV_HK_OFFER_GHOSTS, "Offer Control to Ghosts")
 
 /mob/vv_do_topic(list/href_list)
@@ -1189,6 +1190,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(!check_rights(NONE))
 			return
 		usr.client.cmd_assume_direct_control(src)
+	if(href_list[VV_HK_GIVE_CONTROL_TO_PLAYER])
+		if(!check_rights(NONE))
+			return
+		usr.client.cmd_give_control_to_player(src, input(usr, "Choose player.", "Player:") as anything in GLOB.clients)
 	if(href_list[VV_HK_OFFER_GHOSTS])
 		if(!check_rights(NONE))
 			return

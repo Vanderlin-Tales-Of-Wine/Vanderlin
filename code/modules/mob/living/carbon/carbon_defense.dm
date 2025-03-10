@@ -7,8 +7,6 @@
 		. += E.flash_protect
 	if(isclothing(head)) //Adds head protection
 		. += head.flash_protect
-	if(isclothing(glasses)) //Glasses
-		. += glasses.flash_protect
 	if(isclothing(wear_mask)) //Mask
 		. += wear_mask.flash_protect
 
@@ -29,8 +27,6 @@
 		return head
 	if(check_mask && wear_mask && (wear_mask.flags_cover & MASKCOVERSEYES))
 		return wear_mask
-	if(check_glasses && glasses && (glasses.flags_cover & GLASSESCOVERSEYES))
-		return glasses
 /mob/living/carbon/is_pepper_proof(check_head = TRUE, check_mask = TRUE)
 	if(check_head &&(head?.flags_cover & PEPPERPROOF))
 		return head
@@ -307,14 +303,6 @@
 		return affecting.body_zone
 	return dam_zone
 
-/mob/living/carbon/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_CONTENTS)
-		return
-	for(var/X in internal_organs)
-		var/obj/item/organ/O = X
-		O.emp_act(severity)
-
 ///Adds to the parent by also adding functionality to propagate shocks through pulling and doing some fluff effects.
 /mob/living/carbon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	. = ..()
@@ -357,7 +345,15 @@
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if(on_fire)
-		to_chat(M, "<span class='warning'>I can't put [p_them()] out with just my bare hands!</span>")
+		if(M.gloves)
+			M.changeNext_move(CLICK_CD_MELEE)
+			M.visible_message(span_warning("[M] pats out the flames on [src]!"))
+			adjust_divine_fire_stacks(-2)
+			if(fire_stacks > 0)
+				adjust_fire_stacks(-2)
+			M.gloves.take_damage(10, BURN, "fire")
+		else
+			to_chat(M, span_warning("I can't put [p_them()] out with just my bare hands!"))
 		return
 
 //	if(!(mobility_flags & MOBILITY_STAND))

@@ -2,19 +2,12 @@ GLOBAL_LIST_EMPTY(chosen_music)
 
 GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town,/area/rogue/outdoors/town,/area/rogue/under/town)) //hey
 
-/area/start
-	name = "start area"
-	icon_state = "start"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	has_gravity = STANDARD_GRAVITY
-
 /area/rogue
 	name = "roguetown"
 	icon_state = "rogue"
 	has_gravity = STANDARD_GRAVITY
 	ambientsounds = null
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
-//	var/previous_ambient = ""
 
 /area/rogue/indoors
 	name = "indoors rt"
@@ -88,9 +81,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "deception"
 	first_time_text = "THE CANYON OF DECEPTION"
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
+				/turf/open/floor/dirt)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 30,
+				/mob/living/simple_animal/hostile/retaliate/troll = 30,
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 30,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 60)
 
@@ -98,15 +91,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "mt decapitation"
 	icon_state = "decap"
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
+				/turf/open/floor/dirt)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 30,
+				/mob/living/simple_animal/hostile/retaliate/troll = 30,
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 90,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20)
 	droning_sound = 'sound/music/area/decap.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	first_time_text = "MALUMS ANVIL"
+	custom_area_sound = "sound/misc/stings/MalumSting.ogg"
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 /area/rogue/indoors/shelter/mountains/decap
@@ -121,9 +115,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	soundenv = 19
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/grass)
+				/turf/open/floor/grass)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 60,
+				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
 				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 50,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 50)
@@ -155,13 +149,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	soundenv = 15
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/grass)
+				/turf/open/floor/grass)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 60,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 10,
+				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
+				/mob/living/simple_animal/hostile/retaliate/troll = 10,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 45,
-				/mob/living/simple_animal/hostile/retaliate/rogue/mole = 25)
+				/mob/living/simple_animal/hostile/retaliate/mole = 25)
 	first_time_text = "THE MURDERWOOD"
+	custom_area_sound = "sound/misc/stings/ForestSting.ogg"
 	converted_type = /area/rogue/indoors/shelter/woods
 
 /area/rogue/indoors/shelter/woods
@@ -209,15 +204,16 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
+				/turf/open/floor/dirt,
 				/turf/open/water)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 80,
+				/mob/living/simple_animal/hostile/retaliate/bigrat = 20,
+				/mob/living/simple_animal/hostile/retaliate/spider = 80,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 50,
-				/mob/living/simple_animal/hostile/retaliate/rogue/trollbog = 35)	//Bogbugs bugged bigtime, so removed for now.
+				/mob/living/simple_animal/hostile/retaliate/trollbog = 35)	//Bogbugs bugged bigtime, so removed for now.
 
 	first_time_text = "THE TERRORBOG"
+	custom_area_sound = "sound/misc/stings/BogSting.ogg"
 	converted_type = /area/rogue/indoors/shelter/bog
 /area/rogue/indoors/shelter/bog
 	icon_state = "bog"
@@ -266,9 +262,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
+				/turf/open/floor/dirt)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
+				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20,
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 10)
 	converted_type = /area/rogue/outdoors/caves
@@ -292,10 +288,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
+				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
+				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
 				/mob/living/carbon/human/species/goblin/npc/sea = 20)
 	converted_type = /area/rogue/outdoors/caves
 
@@ -303,7 +299,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "spider"
 	first_time_text = "ARAIGNÉE"
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 100)
+				/mob/living/simple_animal/hostile/retaliate/spider = 100)
 	droning_sound = 'sound/music/area/spidercave.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -341,9 +337,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	spookynight = SPOOKY_CAVE
 	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
+				/turf/open/floor/dirt)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
+				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
 				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
 				/mob/living/carbon/human/species/goblin/npc/hell = 20)
 	droning_sound = 'sound/music/area/decap.ogg'
@@ -445,6 +441,23 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/outdoors/exposed/bath
 	icon_state = "bath"
 	droning_sound = 'sound/music/area/bath.ogg'
+
+/*	..................   Areas to play with the music a bit   ................... */
+/area/rogue/indoors/town/bath/redhouse // lets try something different
+	droning_sound = 'sound/music/area/Fulminate.ogg'
+	converted_type = /area/rogue/outdoors/exposed/bath/redhouse
+
+/area/rogue/outdoors/exposed/bath/redhouse
+	droning_sound = 'sound/music/area/Fulminate.ogg'
+
+/area/rogue/indoors/town/tavern/saiga
+	droning_sound = 'sound/music/area/Folia1490.ogg'
+	droning_sound_night = 'sound/music/area/LeTourdion.ogg'
+	converted_type = /area/rogue/outdoors/exposed/tavern/saiga
+
+/area/rogue/outdoors/exposed/tavern/saiga
+	droning_sound = 'sound/music/area/Folia1490.ogg'
+	droning_sound_night = 'sound/music/area/LeTourdion.ogg'
 
 /area/rogue/indoors/town/garrison
 	name = "Garrison"
@@ -689,6 +702,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/sewers.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	first_time_text = "VANDERLIN'S SEWERS"
+	custom_area_sound = "sound/misc/stings/SewerSting.ogg"
 	ambientrain = RAIN_SEWER
 	converted_type = /area/rogue/outdoors/exposed/under/sewer
 
@@ -746,6 +761,60 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	first_time_text = "The Forest of Repentence"
 
+/area/rogue/underworld/Entered(atom/movable/movable, oldloc)
+	. = ..()
+	if(!iscarbon(movable))
+		return
+	RegisterSignal(movable, COMSIG_CARBON_PRAY, PROC_REF(on_underworld_prayer))
+
+/area/rogue/underworld/Exited(atom/movable/movable)
+	. = ..()
+	if(!iscarbon(movable))
+		return
+	UnregisterSignal(movable, COMSIG_CARBON_PRAY)
+
+/area/rogue/underworld/proc/on_underworld_prayer(mob/living/carbon/damned, message)
+	// Who do the underworld spirits pray to? Good question
+	. |= CARBON_PRAY_CANCEL
+
+	if(!damned || !message)
+		return
+
+	var/static/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","cuck","cunt","asshole")
+	var/prayer = sanitize_hear_message(message)
+
+	for(var/profanity in profane_words)
+		if(findtext(prayer, profanity))
+			//put this idiot SOMEWHERE
+			var/static/list/unsafe_turfs = list(
+				/turf/open/floor/underworld/space,
+				/turf/open/transparent/openspace,
+			)
+
+			var/static/list/turfs = list()
+			if(!length(turfs)) //there are a lot of turfs, let's only do this once
+				for(var/turf/turf in src)
+					if(turf.density)
+						continue
+					if(is_type_in_list(turf, unsafe_turfs))
+						continue
+					turfs.Add(turf)
+
+			var/turf/safe_turf = safepick(turfs)
+			if(!safe_turf) //fuck
+				return
+
+			damned.forceMove(safe_turf)
+			to_chat(damned, "<font color='yellow'>INSOLENT WRETCH, YOUR STRUGGLE CONTINUES</font>")
+			return
+
+	if(length(prayer) <= 15)
+		to_chat(damned, span_danger("My prayer was kinda short..."))
+		return
+
+	if(findtext(prayer, damned.patron.name))
+		damned.playsound_local(damned, 'sound/misc/notice (2).ogg', 100, FALSE)
+		to_chat(damned, "<font color='yellow'>I, [damned.patron], have heard your prayer and yet cannot aid you.</font>")
 
 ///// DAKKATOWN AREAS //////
 

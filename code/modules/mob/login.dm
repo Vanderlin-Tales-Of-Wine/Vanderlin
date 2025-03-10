@@ -41,6 +41,8 @@
 	next_move = 1
 
 	..()
+	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
+
 	if (client && key != client.key)
 		key = client.key
 	reset_perspective(loc)
@@ -86,12 +88,14 @@
 	if(SSticker.current_state == GAME_STATE_FINISHED)
 		do_game_over()
 
-	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 	log_message("Client [key_name(src)] has taken ownership of mob [src]([src.type])", LOG_OWNERSHIP)
 	SEND_SIGNAL(src, COMSIG_MOB_CLIENT_LOGIN, client)
 	addtimer(CALLBACK(src, PROC_REF(send_pref_messages)), 2 SECONDS)
 	if(client.holder)
 		client.hearallasghost()
+
+	if(QDELETED(client?.patreon))
+		client?.patreon = new(client)
 
 /mob/proc/send_pref_messages()
 	if(client?.prefs)

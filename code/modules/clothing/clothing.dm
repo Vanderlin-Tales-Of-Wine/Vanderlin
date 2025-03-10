@@ -12,6 +12,16 @@
 	max_integrity = 200
 	integrity_failure = 0.1
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+
+	//Here we have salvage vars!
+	salvage_result = /obj/item/natural/cloth
+	salvage_amount = 2
+	fiber_salvage = TRUE
+
+	edelay_type = 0
+
+	sellprice = 1
+
 	var/colorgrenz = FALSE
 	var/damaged_clothes = 0 //similar to machine's BROKEN stat and structure's broken var
 	///What level of bright light protection item has.
@@ -35,11 +45,6 @@
 
 	var/clothing_flags = NONE
 
-	//Here we have salvage vars!
-	salvage_result = /obj/item/natural/cloth
-	salvage_amount = 2
-	fiber_salvage = TRUE
-
 	var/toggle_icon_state = TRUE //appends _t to our icon state when toggled
 
 	//Var modification - PLEASE be careful with this I know who you are and where you live
@@ -54,24 +59,41 @@
 	// THESE OVERRIDE THE HIDEHAIR FLAGS
 	var/dynamic_hair_suffix = ""//head > mask for head hair
 	var/dynamic_fhair_suffix = ""//mask > head for facial hair
-	edelay_type = 0
 	var/list/allowed_sex = list(MALE,FEMALE)
 	var/list/allowed_race = ALL_RACES_LIST
 	var/armor_class = ARMOR_CLASS_NONE
 
-	sellprice = 1
+	var/do_sound_chain = FALSE
+	var/do_sound_plate = FALSE
 
-/obj/item
-	var/blocking_behavior
-	var/wetness = 0
-	var/block2add
-	var/detail_tag
-	var/detail_color
+	var/obj/item/clothing/head/hooded/hood
+	var/hoodtype
+	var/hoodtoggled = FALSE
+	var/adjustable = CANT_CADJUST
 
-/obj/item/clothing/Initialize(mapload)
+/obj/item/clothing/Initialize()
+	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))
+		actions_types += /datum/action/item_action/toggle_voice_box
 	. = ..()
+	if(ispath(pocket_storage_component_path))
+		LoadComponent(pocket_storage_component_path)
+	if(prevent_crits)
+		if(prevent_crits.len)
+			has_inspect_verb = TRUE
 	if(armor_class)
 		has_inspect_verb = TRUE
+
+	if(do_sound_chain)
+		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/chain (1).ogg',\
+													'sound/foley/footsteps/armor/chain (2).ogg',\
+													'sound/foley/footsteps/armor/chain (3).ogg'), 100)
+	else if(do_sound_plate)
+		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/plate (1).ogg',\
+													'sound/foley/footsteps/armor/plate (2).ogg',\
+													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
+
+	if(hoodtype)
+		MakeHood()
 
 /obj/item/clothing/Topic(href, href_list)
 	. = ..()
@@ -92,12 +114,6 @@
 			. += span_notice("It has one torn sleeve.")
 		else
 			. += span_notice("Both its sleeves have been torn!")
-
-/obj/item/proc/get_detail_tag() //this is for extra layers on clothes
-	return detail_tag
-
-/obj/item/proc/get_detail_color() //this is for extra layers on clothes
-	return detail_color
 
 /obj/item/clothing/MiddleClick(mob/user, params)
 	..()
@@ -146,7 +162,7 @@
 			if(r_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
@@ -173,7 +189,7 @@
 			if(l_sleeve_status == SLEEVE_TORN)
 				to_chat(user, span_info("It's torn away."))
 				return
-			if(!do_after(user, 20, target = user))
+			if(!do_after(user, 2 SECONDS, user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
@@ -214,17 +230,15 @@
 		else
 			return FALSE
 
+/obj/item/clothing/proc/step_action() //this was made to rewrite clown shoes squeaking
+	SEND_SIGNAL(src, COMSIG_CLOTHING_STEP_ACTION)
 
-
-/obj/item/clothing/Initialize()
-	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))
-		actions_types += /datum/action/item_action/toggle_voice_box
-	. = ..()
-	if(ispath(pocket_storage_component_path))
-		LoadComponent(pocket_storage_component_path)
-	if(prevent_crits)
-		if(prevent_crits.len)
-			has_inspect_verb = TRUE
+/obj/item/clothing/dropped()
+	..()
+	if(hoodtype)
+		RemoveHood()
+	if(adjustable > 0)
+		ResetAdjust()
 
 /obj/item/clothing/MouseDrop(atom/over_object)
 	. = ..()
@@ -239,7 +253,29 @@
 
 /obj/item/clothing/Destroy()
 	user_vars_remembered = null //Oh god somebody put REFERENCES in here? not to worry, we'll clean it up
+	if(hoodtype)
+		qdel(hood)
+		hood = null
 	return ..()
+
+/obj/item/clothing/proc/can_use(mob/user)
+	if(user && ismob(user))
+		if(!user.incapacitated())
+			return TRUE
+	return FALSE
+
+/obj/item/clothing/attack(mob/living/M, mob/living/user, def_zone)
+	if(M.on_fire)
+		if(user == M)
+			return
+		user.changeNext_move(CLICK_CD_MELEE)
+		M.visible_message(span_warning("[user] pats out the flames on [M] with [src]!"))
+		M.adjust_divine_fire_stacks(-2)
+		if(M.fire_stacks > 0)
+			M.adjust_fire_stacks(-2)
+		take_damage(10, BURN, "fire")
+	else
+		return ..()
 
 /obj/item/clothing/dropped(mob/user)
 	..()
@@ -263,35 +299,14 @@
 					LAZYSET(user_vars_remembered, variable, user.vars[variable])
 					user.vv_edit_var(variable, user_vars_to_edit[variable])
 
-/obj/item/clothing/examine(mob/user)
-	. = ..()
-//	switch (max_heat_protection_temperature)
-//		if (400 to 1000)
-/*			. += "[src] offers the wearer limited protection from fire."
-		if (1001 to 1600)
-			. += "[src] offers the wearer some protection from fire."
-		if (1601 to 35000)
-			. += "[src] offers the wearer robust protection from fire."
-	if(damaged_clothes)
-		. += "<span class='warning'>It looks damaged!</span>"
-	var/datum/component/storage/pockets = GetComponent(/datum/component/storage)
-	if(pockets)
-		var/list/how_cool_are_your_threads = list("<span class='notice'>")
-		if(pockets.attack_hand_interact)
-			how_cool_are_your_threads += "[src]'s storage opens when clicked.\n"
-		else
-			how_cool_are_your_threads += "[src]'s storage opens when dragged to myself.\n"
-		if (pockets.can_hold?.len) // If pocket type can hold anything, vs only specific items
-			how_cool_are_your_threads += "[src] can store [pockets.max_items] <a href='byond://?src=[REF(src)];show_valid_pocket_items=1'>item\s</a>.\n"
-		else
-			how_cool_are_your_threads += "[src] can store [pockets.max_items] item\s that are [weightclass2text(pockets.max_w_class)] or smaller.\n"
-		if(pockets.quickdraw)
-			how_cool_are_your_threads += "You can quickly remove an item from [src] using Alt-Click.\n"
-		if(pockets.silent)
-			how_cool_are_your_threads += "Adding or removing items from [src] makes no noise.\n"
-		how_cool_are_your_threads += "</span>"
-		. += how_cool_are_your_threads.Join()
-*/
+/obj/item/clothing/update_icon()
+	cut_overlays()
+	if (get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if (get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/clothing/obj_break(damage_flag)
 	if(!damaged_clothes)
@@ -360,46 +375,7 @@ BLIND     // can't see anything
 		testing("GDC added [index]")
 		GLOB.dismembered_clothing_icons[index] = dismembered
 
-/obj/item/clothing/under/verb/toggle()
-	set name = "Adjust Suit Sensors"
-	set hidden = 1
-	set src in usr
-	if(!usr.client.holder)
-		return
-	var/mob/M = usr
-	if (istype(M, /mob/dead/))
-		return
-	if (!can_use(M))
-		return
-	if(src.has_sensor == LOCKED_SENSORS)
-		to_chat(usr, "The controls are locked.")
-		return 0
-	if(src.has_sensor == BROKEN_SENSORS)
-		to_chat(usr, "The sensors have shorted out!")
-		return 0
-	if(src.has_sensor <= NO_SENSORS)
-		to_chat(usr, "This suit does not have any sensors.")
-		return 0
-
-	var/list/modes = list("Off", "Binary vitals", "Exact vitals", "Tracking beacon")
-	var/switchMode = input("Select a sensor mode:", "Suit Sensor Mode", modes[sensor_mode + 1]) in modes
-	if(get_dist(usr, src) > 1)
-		to_chat(usr, "<span class='warning'>I have moved too far away!</span>")
-		return
-	sensor_mode = modes.Find(switchMode) - 1
-
-	if (src.loc == usr)
-		switch(sensor_mode)
-			if(0)
-				to_chat(usr, "<span class='notice'>I disable my suit's remote sensing equipment.</span>")
-			if(1)
-				to_chat(usr, "<span class='notice'>My suit will now only report whether you are alive or dead.</span>")
-			if(2)
-				to_chat(usr, "<span class='notice'>My suit will now only report my exact vital lifesigns.</span>")
-			if(3)
-				to_chat(usr, "<span class='notice'>My suit will now report my exact vital lifesigns as well as my coordinate position.</span>")
-
-/obj/item/clothing/under/AltClick(mob/user)
+/obj/item/clothing/pants/AltClick(mob/user)
 	if(..())
 		return 1
 
@@ -410,77 +386,6 @@ BLIND     // can't see anything
 			remove_accessory(user)
 		else
 			rolldown()
-
-/obj/item/clothing/under/verb/jumpsuit_adjust()
-	set name = "Adjust Jumpsuit Style"
-	set category = null
-	set src in usr
-	rolldown()
-
-/obj/item/clothing/under/proc/rolldown()
-	if(!can_use(usr))
-		return
-	if(!can_adjust)
-		to_chat(usr, "<span class='warning'>I cannot wear this suit any differently!</span>")
-		return
-	if(toggle_jumpsuit_adjust())
-		to_chat(usr, "<span class='notice'>I adjust the suit to wear it more casually.</span>")
-	else
-		to_chat(usr, "<span class='notice'>I adjust the suit back to normal.</span>")
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
-		H.update_inv_w_uniform()
-		H.update_body()
-
-/obj/item/clothing/under/proc/toggle_jumpsuit_adjust()
-	if(adjusted == DIGITIGRADE_STYLE)
-		return
-	adjusted = !adjusted
-	if(adjusted)
-		if(fitted != FEMALE_UNIFORM_TOP)
-			fitted = NO_FEMALE_UNIFORM
-		if(!alt_covers_chest) // for the special snowflake suits that expose the chest when adjusted
-			body_parts_covered &= ~CHEST
-	else
-		fitted = initial(fitted)
-		if(!alt_covers_chest)
-			body_parts_covered |= CHEST
-	return adjusted
-
-/obj/item/clothing/proc/weldingvisortoggle(mob/user) //proc to toggle welding visors on helmets, masks, goggles, etc.
-	if(!can_use(user))
-		return FALSE
-
-	visor_toggling()
-
-	to_chat(user, "<span class='notice'>I adjust \the [src] [up ? "up" : "down"].</span>")
-
-	if(iscarbon(user))
-		var/mob/living/carbon/C = user
-		C.head_update(src, forced = 1)
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtonIcon()
-	return TRUE
-
-/obj/item/clothing/proc/visor_toggling() //handles all the actual toggling of flags
-	up = !up
-	clothing_flags ^= visor_flags
-	flags_inv ^= visor_flags_inv
-	flags_cover ^= initial(flags_cover)
-	icon_state = "[initial(icon_state)][up ? "up" : ""]"
-	if(visor_vars_to_toggle & VISOR_FLASHPROTECT)
-		flash_protect ^= initial(flash_protect)
-	if(visor_vars_to_toggle & VISOR_TINT)
-		tint ^= initial(tint)
-
-/obj/item/clothing/proc/can_use(mob/user)
-	if(user && ismob(user))
-		if(!user.incapacitated())
-			return 1
-	return 0
-
-
 
 /obj/item/clothing/obj_destruction(damage_flag)
 	if(damage_flag == "acid")
@@ -500,3 +405,93 @@ BLIND     // can't see anything
 		else
 			return FALSE
 	return TRUE
+
+
+/obj/item/clothing/proc/MakeHood()
+	if(!hood)
+		var/obj/item/clothing/head/hooded/W = new hoodtype(src)
+		W.moveToNullspace()
+		W.color = color
+		W.connectedc = src
+		hood = W
+
+/obj/item/clothing/attack_right(mob/user)
+	if(hoodtype)
+		ToggleHood()
+	if(adjustable > 0)
+		if(loc == user)
+			AdjustClothes(user)
+
+/obj/item/clothing/proc/AdjustClothes(mob/user)
+	return //override this in the clothing item itself so we can update the right inv
+
+/obj/item/clothing/proc/ResetAdjust(mob/user)
+	adjustable = initial(adjustable)
+	icon_state = "[initial(icon_state)]"
+	slowdown = initial(slowdown)
+	flags_inv = initial(flags_inv)
+	flags_cover = initial(flags_cover)
+	block2add = initial(block2add)
+	body_parts_covered = initial(body_parts_covered)
+	prevent_crits = initial(prevent_crits)
+
+/obj/item/clothing/equipped(mob/user, slot)
+	if(hoodtype && slot != SLOT_ARMOR|SLOT_CLOAK)
+		RemoveHood()
+	if(adjustable > 0)
+		ResetAdjust(user)
+	..()
+
+/obj/item/clothing/proc/RemoveHood()
+	if(!hood)
+		return
+	src.icon_state = "[initial(icon_state)]"
+	hoodtoggled = FALSE
+	if(ishuman(hood.loc))
+		var/mob/living/carbon/H = hood.loc
+		H.transferItemToLoc(hood, src, TRUE)
+		hood.moveToNullspace()
+		H.update_inv_wear_suit()
+		H.update_inv_cloak()
+		H.update_inv_neck()
+		H.update_inv_pants()
+		H.update_fov_angles()
+	else
+//		hood.forceMove(src)
+		hood.moveToNullspace()
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.UpdateButtonIcon()
+
+
+/obj/item/clothing/proc/ToggleHood()
+	if(!hoodtoggled)
+		if(ishuman(src.loc))
+			var/mob/living/carbon/human/H = src.loc
+			if(hood.color != color)
+				hood.color = color
+			if(slot_flags == ITEM_SLOT_ARMOR)
+				if(H.wear_armor != src)
+					to_chat(H, "<span class='warning'>I should put that on first.</span>")
+					return
+			if(slot_flags == ITEM_SLOT_CLOAK)
+				if(H.cloak != src)
+					to_chat(H, "<span class='warning'>I should put that on first.</span>")
+					return
+			if(H.head)
+				to_chat(H, "<span class='warning'>I'm already wearing something on my head.</span>")
+				return
+			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
+				testing("begintog")
+				hoodtoggled = TRUE
+				if(toggle_icon_state)
+					src.icon_state = "[initial(icon_state)]_t"
+				H.update_inv_wear_suit()
+				H.update_inv_cloak()
+				H.update_inv_neck()
+				H.update_inv_pants()
+				H.update_fov_angles()
+
+	else
+		RemoveHood()
+	testing("endtoggle")

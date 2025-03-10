@@ -1,4 +1,4 @@
-/obj/item/rogueweapon/surgery
+/obj/item/weapon/surgery
 	name = "surgical tool"
 	desc = "Something that will tear your guts apart."
 	icon = 'icons/roguetown/items/surgery.dmi'
@@ -27,11 +27,11 @@
 	grid_width = 32
 	grid_height = 64
 
-/obj/item/rogueweapon/surgery/Initialize()
+/obj/item/weapon/surgery/Initialize()
 	. = ..()
 	item_flags |= SURGICAL_TOOL //let's not stab patients for fun
 
-/obj/item/rogueweapon/surgery/scalpel
+/obj/item/weapon/surgery/scalpel
 	name = "scalpel"
 	desc = "A tool used to carve precisely into the flesh of the sickly."
 	icon_state = "scalpel"
@@ -42,7 +42,7 @@
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	tool_behaviour = TOOL_SCALPEL
 
-/obj/item/rogueweapon/surgery/saw
+/obj/item/weapon/surgery/saw
 	name = "saw"
 	desc = "A tool used to carve through bone."
 	icon_state = "bonesaw"
@@ -59,7 +59,7 @@
 	thrown_bclass = BCLASS_CHOP
 	tool_behaviour = TOOL_SAW
 
-/obj/item/rogueweapon/surgery/hemostat
+/obj/item/weapon/surgery/hemostat
 	name = "forceps"
 	desc = "A tool used to clamp down on soft tissue."
 	icon_state = "forceps"
@@ -71,7 +71,7 @@
 	tool_behaviour = TOOL_HEMOSTAT
 	sharpness = IS_BLUNT
 
-/obj/item/rogueweapon/surgery/retractor
+/obj/item/weapon/surgery/retractor
 	name = "speculum"
 	desc = "A tool used to spread tissue open for surgical access."
 	icon_state = "speculum"
@@ -87,7 +87,7 @@
 	tool_behaviour = TOOL_RETRACTOR
 	sharpness = IS_BLUNT
 
-/obj/item/rogueweapon/surgery/bonesetter
+/obj/item/weapon/surgery/bonesetter
 	name = "bone-setter"
 	desc = "A tool used to manipulate joints and bones."
 	icon_state = "bonesetter"
@@ -99,7 +99,7 @@
 	tool_behaviour = TOOL_BONESETTER
 	sharpness = IS_BLUNT
 
-/obj/item/rogueweapon/surgery/cautery
+/obj/item/weapon/surgery/cautery
 	name = "cautery iron"
 	desc = "A tool used to cauterize wounds. Heat it up before use."
 	icon_state = "cauteryiron"
@@ -120,23 +120,23 @@
 	/// Whether or not we are heated up
 	var/heated = FALSE
 
-/obj/item/rogueweapon/surgery/cautery/examine(mob/user)
+/obj/item/weapon/surgery/cautery/examine(mob/user)
 	. = ..()
 	if(heated)
 		. += "<span class='warning'>The tip is hot to the touch.</span>"
 
-/obj/item/rogueweapon/surgery/cautery/update_icon_state()
+/obj/item/weapon/surgery/cautery/update_icon_state()
 	. = ..()
 	icon_state = initial(icon_state)
 	if(heated)
 		icon_state = "[initial(icon_state)]_hot"
 
-/obj/item/rogueweapon/surgery/cautery/pre_attack(atom/A, mob/living/user, params)
+/obj/item/weapon/surgery/cautery/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.a_intent, /datum/intent/use))
 		return ..()
 	var/heating = 0
-	if(istype(A, /obj/machinery/light/rogue))
-		var/obj/machinery/light/rogue/forge = A
+	if(istype(A, /obj/machinery/light/fueled))
+		var/obj/machinery/light/fueled/forge = A
 		if(forge.on)
 			heating = 20
 	if(heating)
@@ -145,7 +145,7 @@
 		return TRUE
 	return ..()
 
-/obj/item/rogueweapon/surgery/cautery/fire_act(added, maxstacks)
+/obj/item/weapon/surgery/cautery/fire_act(added, maxstacks)
 	. = ..()
 	if(!heated)
 		playsound(src, 'sound/items/firelight.ogg', 100, vary = TRUE)
@@ -154,12 +154,12 @@
 		deltimer(cool_timer)
 	cool_timer = addtimer(CALLBACK(src, PROC_REF(update_heated), FALSE), added SECONDS, TIMER_STOPPABLE)
 
-/obj/item/rogueweapon/surgery/cautery/get_temperature()
+/obj/item/weapon/surgery/cautery/get_temperature()
 	if(heated)
 		return 150+T0C
 	return ..()
 
-/obj/item/rogueweapon/surgery/cautery/proc/update_heated(new_heated)
+/obj/item/weapon/surgery/cautery/proc/update_heated(new_heated)
 	heated = new_heated
 	if(heated)
 		damtype = BURN
@@ -167,7 +167,7 @@
 		damtype = BRUTE
 	update_icon()
 
-/obj/item/rogueweapon/surgery/hammer
+/obj/item/weapon/surgery/hammer
 	name = "examination hammer"
 	desc = "A small hammer used to check a patient's reactions and diagnose their condition."
 	icon_state = "kneehammer"
@@ -185,7 +185,7 @@
 	thrown_bclass = BCLASS_BLUNT
 
 
-/obj/item/rogueweapon/surgery/hammer/pre_attack(atom/A, mob/living/user, params)
+/obj/item/weapon/surgery/hammer/pre_attack(atom/A, mob/living/user, params)
 	if(!istype(user.a_intent, /datum/intent/use))
 		return ..()
 	if(user.mind.get_skill_level(/datum/skill/misc/medicine) < 1)
@@ -195,10 +195,10 @@
 			user.visible_message("<span class='info'>[user] begins smacking themself with a small hammer.</span>")
 		else
 			user.visible_message("<span class='info'>[user] begins to smack [A] with a small hammer.</span>")
-		if(do_after(user, 2.5 SECONDS, target = A))
+		if(do_after(user, 2.5 SECONDS, A))
 			A.visible_message("<span class='info'>[A] jerks their knee after the hammer strikes!</span>")
 			if(prob(1))
 				playsound(user, 'sound/misc/bonk.ogg', 100, FALSE, -1)
 			var/mob/living/carbon/human/human_target = A
-			human_target.check_for_injuries(user)
+			human_target.check_for_injuries(user, additional = TRUE)
 	return ..()

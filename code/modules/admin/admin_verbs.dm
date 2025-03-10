@@ -7,6 +7,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	return list(
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
+	/client/proc/spawn_liquid,
+	/client/proc/remove_liquid,
 	/client/proc/adjust_pq,
 	/client/proc/stop_restart,
 	/client/proc/hearallasghost,
@@ -64,6 +66,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/game_panel,			/*game panel, allows to change game-mode etc*/
 	/datum/admins/proc/toggleooc,		/*toggles ooc on/off for everyone*/
 	/datum/admins/proc/toggleoocdead,	/*toggles ooc on/off for everyone who is dead*/
+	/datum/admins/proc/togglelooc,
+	/datum/admins/proc/fix_death_area,
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
@@ -125,6 +129,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
 	/client/proc/forceEvent,
+	/client/proc/forceGamemode,
 	/client/proc/admin_change_sec_level,
 	/client/proc/run_particle_weather,
 	/client/proc/show_tip,
@@ -138,7 +143,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 /world/proc/AVerbsServer()
 	return list(
 	/datum/admins/proc/startnow,
-	/datum/admins/proc/forcemode,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/end_round,
 	/datum/admins/proc/delay,

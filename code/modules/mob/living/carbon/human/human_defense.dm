@@ -23,7 +23,7 @@
 	var/protection = 0
 	var/obj/item/clothing/used
 	//Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, s_store, glasses, ears, wear_ring)
+	var/list/body_parts = list(skin_armor, head, wear_mask, wear_wrists, gloves, wear_neck, cloak, wear_armor, wear_shirt, shoes, wear_pants, backr, backl, belt, s_store, ears, wear_ring)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -73,7 +73,7 @@
 	if(isbodypart(def_zone))
 		var/obj/item/bodypart/CBP = def_zone
 		def_zone = CBP.body_zone
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -440,32 +440,7 @@
 	//Don't go further if the shock was blocked/too weak.
 	if(!.)
 		return
-	//Note we both check that the user is in cardiac arrest and can actually heartattack
-	//If they can't, they're missing their heart and this would runtime
-///	if(undergoing_cardiac_arrest() && can_heartattack() && !(flags & SHOCK_ILLUSION))
-//		if(shock_damage * siemens_coeff >= 1 && prob(25))
-//			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
-//			if(heart.Restart() && stat == CONSCIOUS)
-//				to_chat(src, "<span class='notice'>I feel my heart beating again!</span>")
 	electrocution_animation(40)
-
-/mob/living/carbon/human/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_CONTENTS)
-		return
-	var/informed = FALSE
-	for(var/obj/item/bodypart/L in src.bodyparts)
-		if(L.status == BODYPART_ROBOTIC)
-			if(!informed)
-				to_chat(src, "<span class='danger'>I feel a sharp pain as my robotic limbs overload.</span>")
-				informed = TRUE
-			switch(severity)
-				if(1)
-					L.receive_damage(0,10)
-					Paralyze(200)
-				if(2)
-					L.receive_damage(0,5)
-					Paralyze(100)
 
 /mob/living/carbon/human/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
 	var/list/damaged = list()
@@ -474,8 +449,6 @@
 	//HEAD//
 	if(!bodyzone_hit || bodyzone_hit == BODY_ZONE_HEAD) //only if we didn't specify a zone or if that zone is the head.
 		var/obj/item/clothing/head_clothes = null
-		if(glasses)
-			head_clothes = glasses
 		if(wear_mask)
 			head_clothes = wear_mask
 		if(wear_neck)
@@ -615,7 +588,7 @@
 	if(src == M)
 		if(has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
 			to_chat(src, "<span class='notice'>I attempt to remove the durathread strand from around my neck.</span>")
-			if(do_after(src, 35, null, src))
+			if(do_after(src, 3.5 SECONDS, src))
 				to_chat(src, "<span class='notice'>I succesfuly remove the durathread strand.</span>")
 				remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 			return
@@ -629,7 +602,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE)
+/mob/living/carbon/human/proc/check_for_injuries(mob/user = src, advanced = FALSE, silent = FALSE, additional = FALSE)
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/m1
 	var/deep_examination = advanced
@@ -645,7 +618,7 @@
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
 		examination += "<span class='notice'>Let's see how [src] is doing.</span>"
 		if(!user.stat && !silent)
-			visible_message("<span class='notice'>[user] examines [src].</span>", \
+			user.visible_message("<span class='notice'>[user] examines [src].</span>", \
 				"<span class='notice'>I check [src] for injuries.</span>")
 
 	if(stat < DEAD)
@@ -687,7 +660,9 @@
 			examination += "<span class='info'>☼ [capitalize(parse_zone(body_zone))]: <span class='deadsay'><b>MISSING</b></span></span>"
 			continue
 		examination += bodypart.check_for_injuries(user, deep_examination)
-
+	if(additional)
+		examination += span_info(span_green("[getToxLoss()] TOXIN"))
+		examination += span_info(span_blue("[getOxyLoss()] OXYGEN"))
 	examination += "ø ------------ ø</span>"
 	if(!silent)
 		to_chat(user, examination.Join("\n"))
@@ -727,8 +702,6 @@
 	//HEAD//
 	if(!def_zone || def_zone == BODY_ZONE_HEAD)
 		var/obj/item/clothing/head_clothes = null
-		if(glasses)
-			head_clothes = glasses
 		if(wear_mask)
 			head_clothes = wear_mask
 		if(wear_neck)

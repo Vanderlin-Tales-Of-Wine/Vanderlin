@@ -2,83 +2,83 @@
 "aN" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ba" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/item/reagent_containers/food/snacks/smallrat/dead,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "bs" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ca" = (
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ce" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "eU" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "fQ" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "fW" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
-/turf/open/floor/rogue/naturalstone,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ga" = (
 /obj/item/reagent_containers/food/snacks/smallrat/dead,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "hb" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "jz" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "lf" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "mm" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "mN" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/clothing/cloak/raincloak/blue,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "mT" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
-/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
-/turf/open/floor/rogue/naturalstone,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ns" = (
 /obj/structure/table/wood/fancy,
-/obj/item/roguestatue/gold,
-/turf/open/floor/rogue/cobble/alt,
+/obj/item/statue/gold,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "oJ" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "pa" = (
 /obj/machinery/artificer_table,
@@ -87,14 +87,14 @@
 	pixel_y = 0;
 	info = Hereliesthelegendaryknight,SerEdrictheProtector.Heprotectedtherealmfromgoblininvasions,skeletonhordes,andorcishraids.Hegoesdown,asperhapsthegreatestknightofalltime.
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "pn" = (
 /obj/structure/fluff/statue/knight/interior,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "qs" = (
-/turf/closed/wall/mineral/rogue/decostone/long{
+/turf/closed/wall/mineral/decostone/long{
 	dir = 1;
 	icon_state = "decostone-l"
 	},
@@ -104,23 +104,23 @@
 	gid = "keepgate";
 	redstone_id = "cavegate1"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "sE" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/storage/belt/rogue/pouch/coins/poor,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/storage/belt/pouch/coins/poor,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "tN" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
 /obj/item/natural/rock,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "uq" = (
-/obj/structure/fluff/walldeco/rpainting/crown,
-/turf/closed/wall/mineral/rogue/decostone/long{
+/obj/structure/fluff/walldeco/painting/crown,
+/turf/closed/wall/mineral/decostone/long{
 	dir = 1;
 	icon_state = "decostone-l"
 	},
@@ -129,197 +129,197 @@
 /obj/effect/decal/cleanable/dirt/cobweb{
 	icon_state = "cobweb2"
 	},
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "vp" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/bodypart/head,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "vq" = (
 /obj/structure/mineral_door/bars{
 	locked = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "vZ" = (
 /obj/effect/decal/cleanable/blood/gibs,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "wp" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "wZ" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "xM" = (
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/naturalstone,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "yc" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "yP" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 4
 	},
-/obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/cobble/alt,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Ab" = (
 /obj/structure/table/wood/fancy,
 /obj/item/clothing/ring/gold/saffira,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Aj" = (
 /obj/structure/table/wood/fancy,
-/obj/item/clothing/neck/roguetown/psycross/g,
-/turf/open/floor/rogue/cobble/alt,
+/obj/item/clothing/neck/psycross/g,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Br" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "DO" = (
 /obj/structure/lever{
 	redstone_id = "cavegate1"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "DY" = (
 /obj/structure/spider/stickyweb,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Fa" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "FX" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
-/obj/item/clothing/head/roguetown/helmet/heavy/crusader,
-/obj/item/clothing/gloves/roguetown/plate,
-/obj/item/clothing/neck/roguetown/bevor,
-/obj/item/clothing/under/roguetown/platelegs,
-/obj/item/clothing/shoes/roguetown/boots/armor,
-/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,
-/obj/item/rogueweapon/sword,
-/obj/item/rogueweapon/shield/tower/metal,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/clothing/head/helmet/heavy/crusader,
+/obj/item/clothing/gloves/plate,
+/obj/item/clothing/neck/bevor,
+/obj/item/clothing/pants/platelegs,
+/obj/item/clothing/shoes/boots/armor,
+/obj/item/clothing/armor/chainmail/hauberk,
+/obj/item/weapon/sword,
+/obj/item/weapon/shield/tower/metal,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Go" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Jf" = (
 /obj/structure/fluff/walldeco/psybanner/red,
-/turf/closed/wall/mineral/rogue/decostone,
+/turf/closed/wall/mineral/decostone,
 /area/rogue/outdoors/caves)
 "Ke" = (
 /obj/item/natural/rock,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Lj" = (
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Lv" = (
 /obj/structure/bars,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Lx" = (
 /obj/structure/table/wood/fancy,
-/obj/item/rogueweapon/sword/long/forgotten,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/weapon/sword/long/forgotten,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Mr" = (
-/turf/closed/mineral/rogue/bedrock,
+/turf/closed/mineral/bedrock,
 /area/rogue/outdoors/caves)
 "MP" = (
 /obj/structure/fluff/statue/knight/interior/r,
-/turf/open/floor/rogue/cobble/alt,
+/turf/open/floor/cobble/alt,
 /area/rogue/outdoors/caves)
 "Nb" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "NR" = (
-/turf/closed/wall/mineral/rogue/decostone/long,
+/turf/closed/wall/mineral/decostone/long,
 /area/rogue/outdoors/caves)
 "Op" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "RN" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
-/obj/item/clothing/head/roguetown/bardhat,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/clothing/head/bardhat,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "SB" = (
 /obj/item/bodypart/head,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Tj" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Tn" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Tr" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Vl" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated,
-/turf/open/floor/rogue/naturalstone,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Vm" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "VA" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Xe" = (
 /obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "YV" = (
 /obj/structure/gate{
 	redstone_id = "cavegate1"
 	},
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "Zi" = (
-/obj/item/rogue/instrument/lute,
-/turf/open/floor/rogue/naturalstone,
+/obj/item/instrument/lute,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 "ZY" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/naturalstone,
+/turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)
 
 (1,1,1) = {"

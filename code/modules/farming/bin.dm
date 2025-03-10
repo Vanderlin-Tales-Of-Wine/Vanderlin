@@ -1,15 +1,16 @@
 //Not adding this yet
 
-/obj/item/roguebin
+/obj/item/bin
 	name = "wood bin"
 	desc = "A washbin, a trashbin, a bloodbin... Your choices are limitless."
 	icon = 'icons/roguetown/misc/structure.dmi'
-	icon_state = "washbin1"
+	icon_state = "washbin"
 	var/base_state
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	density = TRUE
 	opacity = FALSE
 	anchored = FALSE
-	max_integrity = 300
+	max_integrity = 80
 	w_class = WEIGHT_CLASS_GIGANTIC
 	var/kover = FALSE
 	drag_slowdown = 2
@@ -18,19 +19,22 @@
 	blade_dulling = DULLING_BASHCHOP
 	obj_flags = CAN_BE_HIT
 
+/obj/item/bin/alt	// probably unnecessary
+	icon_state = "washbin2"
 
-/obj/item/roguebin/Initialize()
+/obj/item/bin/Initialize()
 	if(!base_state)
 		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
-		icon_state = "washbin[rand(1,2)]"
 		base_state = icon_state
-	AddComponent(/datum/component/storage/concrete/roguetown/bin)
+	AddComponent(/datum/component/storage/concrete/grid/bin)
 	. = ..()
 	pixel_x = 0
 	pixel_y = 0
 	update_icon()
 
-/obj/item/roguebin/Destroy()
+/obj/item/bin/Destroy()
+	layer = 2.8
+	icon_state = "washbin_destroy"
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		var/list/things = STR.contents()
@@ -39,7 +43,7 @@
 	return ..()
 
 
-/obj/item/roguebin/update_icon()
+/obj/item/bin/update_icon()
 	if(kover)
 		icon_state = "[base_state]over"
 	else
@@ -52,7 +56,7 @@
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
-/obj/item/roguebin/onkick(mob/user)
+/obj/item/bin/onkick(mob/user)
 	if(isliving(user))
 		var/mob/living/L = user
 		if(kover)
@@ -77,13 +81,13 @@
 			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
 				"<span class='warning'>I kick [src]!</span>")
 
-/obj/item/roguebin/attack_hand(mob/user)
+/obj/item/bin/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
 	if(CP)
 		CP.rmb_show(user)
 		return TRUE
 
-/obj/item/roguebin/attack_right(mob/user)
+/obj/item/bin/attack_right(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -91,7 +95,7 @@
 		if(kover)
 			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
 				"<span class='notice'>I start to pick up [src]...</span>")
-			if(do_after(user, 30, target = src))
+			if(do_after(user, 3 SECONDS, src))
 				kover = FALSE
 				update_icon()
 			return
@@ -114,12 +118,12 @@
 			var/item2wash = user.get_active_held_item()
 			if(!item2wash)
 				user.visible_message("<span class='info'>[user] starts to wash in [src].</span>")
-				if(do_after(L, 30, target = src))
+				if(do_after(L, 3 SECONDS, src))
 					wash_atom(user, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			else
 				user.visible_message("<span class='info'>[user] starts to wash [item2wash] in [src].</span>")
-				if(do_after(L, 30, target = src))
+				if(do_after(L, 3 SECONDS, src))
 					wash_atom(item2wash, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
@@ -131,40 +135,43 @@
 			return
 
 //We need to use this or the object will be put in storage instead of attacking it
-/obj/item/roguebin/StorageBlock(obj/item/I, mob/user)
+/obj/item/bin/StorageBlock(obj/item/I, mob/user)
 	if(user.used_intent)
 		if(user.used_intent.type in list(/datum/intent/fill,/datum/intent/pour,/datum/intent/splash))
 			return TRUE
-	if(istype(I, /obj/item/rogueweapon/tongs))
-		var/obj/item/rogueweapon/tongs/T = I
-		if(T.hingot && istype(T.hingot))
+	if(istype(I, /obj/item/weapon/tongs))
+		var/obj/item/weapon/tongs/T = I
+		if(T.held_item && istype(T.held_item, /obj/item/ingot))
 			return TRUE
 	return FALSE
 
-/obj/item/roguebin/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/cheap_dyes))
-		playsound(src, "bubbles", 50, 1)
-		if(do_after(user,3 SECONDS, target = src))
-			qdel(I)
-			user.visible_message("<span class='info'>[user] adds dye to [src].</span>")
-			new /obj/machinery/simple_dye_bin(src.loc)
+/obj/item/bin/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/dye_pack))
+		var/obj/item/dye_pack/pack = I
+		user.visible_message(span_info("[user] begins to add [pack] to [src]..."))
+		if(do_after(user, 3 SECONDS, src))
+			playsound(src, "bubbles", 50, 1)
+			new /obj/structure/dye_bin(get_turf(src), pack)
 			qdel(src)
-			return
+		return
+
 	if(!reagents || !reagents.maximum_volume) //trash
 		return ..()
-	if(istype(I, /obj/item/rogueweapon/tongs))
-		var/obj/item/rogueweapon/tongs/T = I
-		if(T.hingot && istype(T.hingot))
+
+	if(istype(I, /obj/item/weapon/tongs))
+		var/obj/item/weapon/tongs/T = I
+		if(T.held_item && istype(T.held_item, /obj/item/ingot))
+			var/obj/item/ingot/ingot = T.held_item
 			var/removereg = /datum/reagent/water
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
 					to_chat(user, "<span class='warning'>Need more water to quench in.</span>")
 					return
-			if(!T.hingot.currecipe)
+			if(!T.held_item:currecipe)
 				to_chat(user, "<span class='warning'>Huh?</span>")
 				return
-			if(T.hingot.currecipe.progress != 100)
+			if(ingot.currecipe.progress != 100)
 				to_chat(user, "<span class='warning'>It's not finished yet.</span>")
 				return
 			if(!T.hott)
@@ -177,7 +184,7 @@
 			// Because engine is dumb and doesn't have a copy object proc
 			// We take all values of a recipe, apply them to floating vars, then assign them to every extra copy
 			// (substracting one every time it runs) until we run out of that number
-			var/datum/anvil_recipe/R = T.hingot.currecipe
+			var/datum/anvil_recipe/R = T.held_item:currecipe
 			var/obj/item/crafteditem = R.created_item
 			if(R.createmultiple)
 				var/obj/item/IT = new crafteditem(used_turf)
@@ -188,7 +195,7 @@
 				var/newprice = IT.sellprice
 				var/obj/item/lockpick/L = IT
 				var/newpicklvl = L.picklvl
-				var/obj/item/rogueweapon/W = IT
+				var/obj/item/weapon/W = IT
 				var/newforce = W.force
 				var/newthrow = W.throwforce
 				var/newblade = W.blade_int
@@ -209,7 +216,7 @@
 					editme.sellprice = newprice
 					if(istype(editme, /obj/item/lockpick))
 						editme.picklvl = newpicklvl
-					if(istype(editme, /obj/item/rogueweapon))
+					if(istype(editme, /obj/item/weapon))
 						editme.force = newforce
 						editme.throwforce = newthrow
 						editme.blade_int = newblade
@@ -225,8 +232,8 @@
 				var/obj/item/IT = new crafteditem(used_turf)
 				R.handle_creation(IT)
 			playsound(src,pick('sound/items/quench_barrel1.ogg','sound/items/quench_barrel2.ogg'), 100, FALSE)
-			user.visible_message("<span class='info'>[user] tempers \the [T.hingot.name] in \the [src], hot metal sizzling.</span>")
-			T.hingot = null
+			user.visible_message("<span class='info'>[user] tempers \the [T.held_item.name] in \the [src], hot metal sizzling.</span>")
+			T.held_item = null
 			T.update_icon()
 			reagents.remove_reagent(removereg, 5)
 			var/datum/reagent/water_to_dirty = reagents.has_reagent(/datum/reagent/water, 5)
@@ -239,11 +246,16 @@
 			return
 	. = ..()
 
-/obj/item/roguebin/trash
+/obj/item/bin/trash
 	name = "trash bin"
 	desc = "An eyesore that is meant to make things look cleaner."
 	icon_state = "trashbin"
 	base_state = "trashbin"
 
-/obj/item/roguebin/trash/StorageBlock(obj/item/I, mob/user)
+/obj/item/bin/trash/StorageBlock(obj/item/I, mob/user)
 	return FALSE
+
+/obj/item/bin/trash/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/dye_pack)) //it works... but we can do better, surely?
+		return
+	. = ..()

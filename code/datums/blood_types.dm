@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 	/// What reagent is represented by this blood type?
 	var/datum/reagent/reagent_type = /datum/reagent/blood
 	/// What chem is used to restore this blood type (outside of itself, of course)?
-	var/datum/reagent/restoration_chem = /datum/reagent/iron
+	var/datum/reagent/restoration_chem
 
 /datum/blood_type/New()
 	. = ..()
@@ -72,6 +72,13 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
 	compatible_types = list(
 		/datum/blood_type/human/o_minus,
 	)
+
+/datum/blood_type/human/tiefling
+	name = "Tiefling"
+	compatible_types = list(
+		/datum/blood_type/human/o_minus,
+	)
+	reagent_type = /datum/reagent/blood/tiefling
 
 /datum/blood_type/human/a_plus
 	name = "A+"

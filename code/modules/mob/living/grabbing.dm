@@ -131,19 +131,27 @@
 	var/mob/living/carbon/human/hostage //What hostage we have
 
 /mob/living/carbon/human/proc/attackhostage()
-	if(!istype(hostagetaker.get_active_held_item(), /obj/item/rogueweapon))
+	if(!istype(hostagetaker.get_active_held_item(), /obj/item/weapon))
 		return
-	var/obj/item/rogueweapon/WP = hostagetaker.get_active_held_item()
+	var/obj/item/weapon/WP = hostagetaker.get_active_held_item()
 	WP.attack(src, hostagetaker)
 	hostagetaker.visible_message("<span class='danger'>\The [hostagetaker] attacks \the [src] reflexively!</span>")
 	hostagetaker.hostage = null
 	hostagetaker = null
 
 /obj/item/grabbing/attack(mob/living/M, mob/living/user)
-	if(M != grabbed)
-		return FALSE
 	if(!valid_check())
 		return FALSE
+	if(M != grabbed)
+		if(!istype(limb_grabbed, /obj/item/bodypart/head))
+			return FALSE
+		if(M != user)
+			return FALSE
+		if(!user.cmode)
+			return FALSE
+		user.changeNext_move(CLICK_CD_RESIST)
+		headbutt(user)
+		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/skill_diff = 0
 	var/combat_modifier = 1
@@ -511,12 +519,15 @@
 		limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
 		var/datum/wound/caused_wound = limb_grabbed.bodypart_attacked_by(BCLASS_BITE, damage, user, sublimb_grabbed, crit_message = TRUE)
 		if(user.mind)
+			//TODO: Werewolf Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/werewolf))
 				var/mob/living/carbon/human/human = user
 				if(istype(caused_wound))
 					caused_wound?.werewolf_infect_attempt()
 				if(prob(30))
 					human.werewolf_feed(C)
+
+			// TODO: Zombie Signal
 			if(user.mind.has_antag_datum(/datum/antagonist/zombie))
 				var/mob/living/carbon/human/H = C
 				if(istype(H))
@@ -529,9 +540,9 @@
 							C.visible_message("<span class='danger'>[user] consumes [C]'s brain!</span>", \
 								"<span class='userdanger'>[user] consumes my brain!</span>", "<span class='hear'>I hear a sickening sound of chewing!</span>", COMBAT_MESSAGE_RANGE, user)
 							to_chat(user, "<span class='boldnotice'>Braaaaaains!</span>")
-							if(!user.mob_timers["zombie_tri"])
+							if(!MOBTIMER_EXISTS(user, MT_ZOMBIETRIUMPH))
 								user.adjust_triumphs(1)
-								user.mob_timers["zombie_tri"] = world.time
+								MOBTIMER_SET(user, MT_ZOMBIETRIUMPH)
 							playsound(C.loc, 'sound/combat/fracture/headcrush (2).ogg', 100, FALSE, -1)
 							return
 	else
@@ -563,7 +574,7 @@
 		return
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		if(istype(H.wear_neck, /obj/item/clothing/neck/roguetown/psycross/silver))
+		if(istype(H.wear_neck, /obj/item/clothing/neck/psycross/silver))
 			to_chat(user, "<span class='userdanger'>SILVER! HISSS!!!</span>")
 			return
 	last_drink = world.time
@@ -664,7 +675,7 @@
 				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
 					if("Yes")
 						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
-						if(do_after(user, 30))
+						if(do_after(user, 3 SECONDS))
 							C.visible_message(span_red("[C] rises as a new spawn!"))
 							if(istype(VDrinker, /datum/antagonist/vampirelord))
 								var/datum/antagonist/vampirelord/lesser/new_antag = new /datum/antagonist/vampirelord/lesser()

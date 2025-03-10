@@ -12,7 +12,7 @@
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] stubble with [held_item].</span>")
 				else
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s stubble with [held_item].</span>")
-				if(do_after(user, 50, needhand = 1, target = src))
+				if(do_after(user, 5 SECONDS, src))
 					has_stubble = FALSE
 					update_hair()
 				else
@@ -23,7 +23,7 @@
 					user.visible_message("<span class='danger'>[user] starts to shave [user.p_their()] facehairs with [held_item].</span>")
 				else
 					user.visible_message("<span class='danger'>[user] starts to shave [src]'s facehairs with [held_item].</span>")
-				if(do_after(user, 50, needhand = 1, target = src))
+				if(do_after(user, 5 SECONDS, src))
 					facial_hairstyle = "None"
 					update_hair()
 					SSticker.beardshavers++
@@ -347,7 +347,7 @@
 	if(C.cpr_time < world.time + 30)
 		visible_message("<span class='notice'>[src] is trying to perform CPR on [C.name]!</span>", \
 						"<span class='notice'>I try to perform CPR on [C.name]... Hold still!</span>")
-		if(!do_mob(src, C))
+		if(!do_after(src, 3 SECONDS, C))
 			to_chat(src, "<span class='warning'>I fail to perform CPR on [C]!</span>")
 			return 0
 
@@ -426,11 +426,6 @@
 		var/datum/data/record/R = find_record("name", oldname, L)
 		if(R)
 			R.fields["name"] = newname
-
-/mob/living/carbon/human/get_total_tint()
-	. = ..()
-	if(glasses)
-		. += glasses.tint
 
 /mob/living/carbon/human/update_tod_hud()
 	if(!client || !hud_used)
@@ -614,6 +609,13 @@
 					return TRUE
 	. = ..()
 
+/mob/proc/return_accent_list()
+	if(!accent)
+		return
+	if(accent == ACCENT_NONE)
+		return
+	return GLOB.accent_list[accent]
+
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
 	return (istype(target) && target.stat == CONSCIOUS)
@@ -622,7 +624,7 @@
 	return (ishuman(target) && !(target.mobility_flags & MOBILITY_STAND))
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
-	var/carrydelay = 50 //if you have latex you are faster at grabbing
+	var/carrydelay = 5 SECONDS //if you have latex you are faster at grabbing
 
 	var/backnotshoulder = FALSE
 	if(r_grab && l_grab)
@@ -635,7 +637,7 @@
 			visible_message("<span class='notice'>[src] starts lifting [target] onto their back..</span>")
 		else
 			visible_message("<span class='notice'>[src] starts lifting [target] onto their shoulder..</span>")
-		if(do_after(src, carrydelay, TRUE, target))
+		if(do_after(src, carrydelay, target))
 			//Second check to make sure they're still valid to be carried
 			if(can_be_firemanned(target) && !incapacitated(FALSE, TRUE))
 				buckle_mob(target, TRUE, TRUE, 90, 0, 0)
@@ -645,7 +647,7 @@
 /mob/living/carbon/human/proc/piggyback(mob/living/carbon/target)
 	if(can_piggyback(target))
 		visible_message("<span class='notice'>[target] starts to climb onto [src]...</span>")
-		if(do_after(target, 15, target = src))
+		if(do_after(target, 1.5 SECONDS, src))
 			if(can_piggyback(target))
 				if(target.incapacitated(FALSE, TRUE) || incapacitated(FALSE, TRUE))
 					to_chat(target, "<span class='warning'>I can't piggyback ride [src].</span>")
@@ -688,7 +690,7 @@
 	. = ..(target, force, check_loc)
 
 /mob/living/carbon/human/proc/is_shove_knockdown_blocked() //If you want to add more things that block shove knockdown, extend this
-	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/body_parts = list(head, wear_mask, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/bp in body_parts)
 		if(istype(bp, /obj/item/clothing))
 			var/obj/item/clothing/C = bp
@@ -748,3 +750,12 @@
 	. = ..()
 	if(race)
 		set_species(race)
+	return INITIALIZE_HINT_LATELOAD
+
+/mob/living/carbon/human/species/LateInitialize()
+	. = ..()
+	var/turf/turf = get_turf(loc)
+	if(turf)
+		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+			faction |= "matthios"
+			SSmobs.matthios_mobs |= src

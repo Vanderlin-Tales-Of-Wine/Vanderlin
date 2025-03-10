@@ -67,11 +67,15 @@
 		feedback = "I harvest the produce well."
 		modifier += 1
 
+	if(has_world_trait(/datum/world_trait/dendor_fertility))
+		feedback = "Praise Dendor for our harvest is bountiful."
+		modifier += 3
+
 	to_chat(user, span_notice(feedback))
 	yield_produce(modifier)
 
 /obj/structure/soil/proc/try_handle_harvest(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/sickle))
+	if(istype(attacking_item, /obj/item/weapon/sickle))
 		if(!plant || !produce_ready)
 			to_chat(user, span_warning("There is nothing to harvest!"))
 			return TRUE
@@ -81,19 +85,20 @@
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_seed_planting(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/neuFarm/seed))
+	if(istype(attacking_item, /obj/item/neuFarm/seed) || istype(attacking_item, /obj/item/herbseed)) //SLOP OBJECT PROC SHARING
 		playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 170, TRUE)
-		if(do_after(user, get_farming_do_time(user, 15), target = src))
+		if(do_after(user, get_farming_do_time(user, 15), src))
 			var/obj/item/neuFarm/seed/seeds = attacking_item
 			seeds.try_plant_seed(user, src)
 		return TRUE
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_uprooting(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
+	if(istype(attacking_item, /obj/item/weapon/shovel))
+		var/obj/item/weapon/shovel/shovel = attacking_item
 		to_chat(user, span_notice("I begin to uproot the crop..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 4 SECONDS * shovel.time_multiplier), src))
 			to_chat(user, span_notice("I uproot the crop."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			uproot()
@@ -101,10 +106,11 @@
 	return FALSE
 
 /obj/structure/soil/proc/try_handle_tilling(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
+	if(istype(attacking_item, /obj/item/weapon/hoe))
+		var/obj/item/weapon/hoe/hoe = attacking_item
 		to_chat(user, span_notice("I begin to till the soil..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * hoe.time_multiplier), src))
 			to_chat(user, span_notice("I till the soil."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			user_till_soil(user)
@@ -158,13 +164,13 @@
 		return FALSE
 	if(attacking_item == null)
 		to_chat(user, span_notice("I begin ripping out the weeds with my hands..."))
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS), src))
 			apply_farming_fatigue(user, 20)
 			to_chat(user, span_notice("I rip out the weeds."))
 			deweed()
 			add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 0.2)
 		return TRUE
-	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
+	if(istype(attacking_item, /obj/item/weapon/hoe))
 		apply_farming_fatigue(user, 10)
 		to_chat(user, span_notice("I rip out the weeds with the [attacking_item]"))
 		deweed()
@@ -175,10 +181,11 @@
 /obj/structure/soil/proc/try_handle_flatten(obj/item/attacking_item, mob/user, params)
 	if(plant)
 		return FALSE
-	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
+	if(istype(attacking_item, /obj/item/weapon/shovel))
 		to_chat(user, span_notice("I begin flattening the soil with \the [attacking_item]..."))
+		var/obj/item/weapon/shovel/shovel = attacking_item
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 3 SECONDS * shovel.time_multiplier), src))
 			if(plant)
 				return FALSE
 			apply_farming_fatigue(user, 10)
@@ -191,13 +198,13 @@
 /obj/structure/soil/attack_hand(mob/living/user)
 	if(plant && produce_ready)
 		to_chat(user, span_notice("I begin collecting the produce..."))
-		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 4 SECONDS), src))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			user_harvests(user)
 		return
 	if(plant && plant_dead)
 		to_chat(user, span_notice("I begin to remove the dead crop..."))
-		if(do_after(user, get_farming_do_time(user, 6 SECONDS), target = src))
+		if(do_after(user, get_farming_do_time(user, 6 SECONDS), src))
 			if(!plant || !plant_dead)
 				return
 			apply_farming_fatigue(user, 10)
@@ -488,7 +495,7 @@
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	var/turf/location = loc
-	if(!plant.can_grow_underground && location.can_see_sky == SEE_SKY_NO)
+	if(!plant.can_grow_underground && !location.can_see_sky())
 		return
 	// If matured and produce is ready, don't process plant nutrition
 	if(matured && produce_ready)
@@ -506,6 +513,18 @@
 	if(blessed_time > 0)
 		growth_multiplier *= 2.0
 		nutriment_eat_mutliplier *= 0.4
+
+	if(has_world_trait(/datum/world_trait/dendor_fertility))
+		growth_multiplier *= 2.0
+		nutriment_eat_mutliplier *= 0.4
+
+	if(has_world_trait(/datum/world_trait/fertility))
+		growth_multiplier *= 1.5
+
+	if(has_world_trait(/datum/world_trait/dendor_drought))
+		growth_multiplier *= 0.4
+		nutriment_eat_mutliplier *= 2
+
 	// If there's too many weeds, they hamper the growth of the plant
 	if(weeds >= MAX_PLANT_WEEDS * 0.3)
 		growth_multiplier *= 0.75
@@ -549,7 +568,7 @@
 
 /obj/structure/soil/proc/process_soil(dt)
 	var/found_irrigation = FALSE
-	for(var/obj/structure/irrigation_channel/channel in range(2, src))
+	for(var/obj/structure/irrigation_channel/channel in range(1, src))
 		if(!istype(channel))
 			continue
 		if(!channel.water_logged)
@@ -578,11 +597,12 @@
 	uproot()
 	qdel(src)
 
-/obj/structure/soil/proc/uproot()
+/obj/structure/soil/proc/uproot(loot = TRUE)
 	if(!plant)
 		return
 	adjust_weeds(-100)
-	yield_uproot_loot()
+	if(loot)
+		yield_uproot_loot()
 	ruin_produce()
 	plant = null
 	update_icon()
@@ -609,7 +629,7 @@
 		new plant.produce_type(loc)
 	produce_ready = FALSE
 	if(!plant.perennial)
-		uproot()
+		uproot(loot = FALSE)
 	update_icon()
 
 /obj/structure/soil/proc/insert_plant(datum/plant_def/new_plant)
@@ -623,3 +643,18 @@
 	produce_ready = FALSE
 	plant_dead = FALSE
 	update_icon()
+
+/obj/structure/soil/debug_soil
+	var/obj/item/neuFarm/seed/seed_to_grow
+
+/obj/structure/soil/debug_soil/random/Initialize()
+	seed_to_grow = pick(subtypesof(/obj/item/neuFarm/seed))
+	. = ..()
+
+/obj/structure/soil/debug_soil/Initialize()
+	. = ..()
+	if(!seed_to_grow)
+		return
+	insert_plant(GLOB.plant_defs[initial(seed_to_grow.plant_def_type)])
+	add_growth(plant.maturation_time)
+	add_growth(plant.produce_time)

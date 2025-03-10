@@ -188,14 +188,14 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/obj/item/bodypart/was_bodypart = bodypart_owner
 	var/mob/living/was_owner = owner
 	LAZYREMOVE(bodypart_owner.wounds, src)
-	bodypart_owner = null
+	bodypart_owner = null //honestly shouldn't be nulling the owner before calling on loss procs
 	owner = null
-	on_bodypart_loss(was_bodypart)
+	on_bodypart_loss(was_bodypart, was_owner)
 	on_mob_loss(was_owner)
 	return TRUE
 
 /// Effects when a wound is lost on a bodypart
-/datum/wound/proc/on_bodypart_loss(obj/item/bodypart/affected)
+/datum/wound/proc/on_bodypart_loss(obj/item/bodypart/affected, mob/living/affected_mob)
 	if(disabling)
 		affected.update_disabled()
 
@@ -340,7 +340,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	if(human_owner.stat >= DEAD) //forget it
 		return
 	to_chat(human_owner, span_danger("I feel horrible... REALLY horrible..."))
-	human_owner.mob_timers["puke"] = world.time
+	MOBTIMER_SET(human_owner, MT_PUKE)
 	human_owner.vomit(1, blood = TRUE, stun = FALSE)
 	werewolf_infection_timer = addtimer(CALLBACK(src, PROC_REF(wake_werewolf)), werewolf_infection_time, TIMER_STOPPABLE)
 	severity = WOUND_SEVERITY_BIOHAZARD

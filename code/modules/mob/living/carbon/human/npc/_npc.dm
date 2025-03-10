@@ -111,10 +111,10 @@
 //		for(var/obj/structure/flora/RT in view(6, src))
 //			if(istype(RT,/obj/structure/table/wood/treestump))
 //				continue
-//			if(istype(RT,/obj/structure/flora/roguetree))
+//			if(istype(RT,/obj/structure/flora/tree))
 //				escape_path = RT
 //				break
-//			if(istype(RT,/obj/structure/flora/rogueshroom))
+//			if(istype(RT,/obj/structure/flora/shroom_tree))
 //				escape_path = RT
 //				break
 	//	if(escape_path)
@@ -132,6 +132,8 @@
 	var/turf/turf_of_target = get_turf(target)
 	if(!turf_of_target)
 		back_to_idle()
+		return 0
+	if(!(mobility_flags & MOBILITY_MOVE))
 		return 0
 	var/target_z = turf_of_target.z
 	if(turf_of_target?.z == z)
@@ -278,6 +280,8 @@
 						continue
 					if(blacklistItems[I])
 						continue
+					if(HAS_TRAIT(I, TRAIT_NODROP))
+						continue
 					if(I.force > 7)
 						equip_item(I)
 
@@ -286,7 +290,7 @@
 				back_to_idle()
 				return TRUE
 
-			if(Adjacent(target) && isturf(target.loc))	// if right next to perp
+			if(Adjacent(target) && isturf(target.loc) && !IsDeadOrIncap())	// if right next to perp
 				frustration = 0
 				face_atom(target)
 				monkey_attack(target)
@@ -398,7 +402,7 @@
 	probby += extra_prob
 	var/sneak_bonus = 0
 	if(target.mind)
-		if (world.time < target.mob_timers[MT_INVISIBILITY])
+		if(target.has_status_effect(/datum/status_effect/invisibility))
 			// we're invisible as per the spell effect, so use the highest of our arcane magic (or holy) skill instead of our sneaking
 			sneak_bonus = (max(target.mind?.get_skill_level(/datum/skill/magic/arcane), target.mind?.get_skill_level(/datum/skill/magic/holy)) * 10)
 			probby -= 20 // also just a fat lump of extra difficulty for the npc since spells are hard, you know?
@@ -416,7 +420,7 @@
 
 	if (prob(probby))
 		// whoops it saw us
-		target.mob_timers[MT_FOUNDSNEAK] = world.time
+		MOBTIMER_SET(target, MT_FOUNDSNEAK)
 		to_chat(target, span_danger("[src] sees me! I'm found!"))
 		target.update_sneak_invis(TRUE)
 		return TRUE

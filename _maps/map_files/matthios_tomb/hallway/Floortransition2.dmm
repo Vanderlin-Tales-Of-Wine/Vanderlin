@@ -1,0 +1,148 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/dirt,
+/area/rogue)
+"h" = (
+/obj/structure/kneestingers,
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/dirt,
+/area/rogue)
+"j" = (
+/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/turf/open/floor/dirt,
+/area/rogue)
+"k" = (
+/obj/structure/kneestingers,
+/turf/open/floor/dirt,
+/area/rogue)
+"l" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/dirt,
+/area/rogue)
+"n" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"p" = (
+/obj/item/ammo_casing/caseless/arrow,
+/turf/open/floor/naturalstone,
+/area/rogue)
+"v" = (
+/turf/open/floor/naturalstone,
+/area/rogue)
+"B" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/naturalstone,
+/area/rogue)
+"F" = (
+/obj/structure/ladder/earth,
+/turf/open/floor/naturalstone,
+/area/rogue)
+"Q" = (
+/obj/structure/ladder/earth,
+/turf/open/floor/dirt,
+/area/rogue)
+"R" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+
+(1,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(2,1,1) = {"
+a
+k
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+l
+k
+a
+j
+Q
+j
+k
+h
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+
+(1,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+"}
+(2,1,2) = {"
+v
+v
+B
+p
+v
+v
+v
+v
+"}
+(3,1,2) = {"
+R
+R
+R
+R
+F
+R
+R
+R
+"}
+(4,1,2) = {"
+v
+v
+v
+v
+v
+v
+p
+v
+"}
+(5,1,2) = {"
+n
+n
+n
+n
+n
+n
+n
+n
+"}

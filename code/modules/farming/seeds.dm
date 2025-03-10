@@ -44,7 +44,10 @@
 	if(soil)
 		try_plant_seed(user, soil)
 		return
-	else if(istype(T, /turf/open/floor/rogue/dirt))
+	else if(istype(T, /turf/open/floor/dirt))
+		if(!(user.mind.get_skill_level(/datum/skill/labor/farming) >= SKILL_LEVEL_JOURNEYMAN))
+			to_chat(user, span_notice("I don't know enough to make a mound without tools."))
+			return
 		to_chat(user, span_notice("I begin making a mound for the seeds..."))
 		if(do_after(user, get_farming_do_time(user, 10 SECONDS), target = src))
 			apply_farming_fatigue(user, 30)
@@ -123,6 +126,38 @@
 /obj/item/neuFarm/seed/poppy
 	seed_identity = "poppy seeds"
 	plant_def_type = /datum/plant_def/poppy
+
+/obj/item/neuFarm/seed/plum
+	seed_identity = "plum seeds"
+	plant_def_type = /datum/plant_def/plum
+
+/obj/item/neuFarm/seed/lemon
+	seed_identity = "lemon seeds"
+	plant_def_type = /datum/plant_def/lemon
+
+/obj/item/neuFarm/seed/lime
+	seed_identity = "lime seeds"
+	plant_def_type = /datum/plant_def/lime
+
+/obj/item/neuFarm/seed/tangerine
+	seed_identity = "tangerine seeds"
+	plant_def_type = /datum/plant_def/tangerine
+
+/obj/item/neuFarm/seed/sugarcane
+	seed_identity = "sugarcane seeds"
+	plant_def_type = /datum/plant_def/sugarcane
+
+/obj/item/neuFarm/seed/strawberry
+	seed_identity = "strawberry seeds"
+	plant_def_type = /datum/plant_def/strawberry
+
+/obj/item/neuFarm/seed/blackberry
+	seed_identity = "blackberry seeds"
+	plant_def_type = /datum/plant_def/blackberry
+
+/obj/item/neuFarm/seed/raspberry
+	seed_identity = "raspberry seeds"
+	plant_def_type = /datum/plant_def/raspberry
 
 /*
 /obj/item/neuFarm/seed/nut

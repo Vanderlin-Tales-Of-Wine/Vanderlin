@@ -65,26 +65,49 @@
 		to_chat(src, span_danger("You can't currently use Mentorhelp in the main menu."))
 
 /client/verb/reportissue()
-	set name = "report-issue"
-	set desc = ""
-	set hidden = 1
+	set name = "Report a bug"
+	set desc = "Report a bug"
+	set category = "OOC"
+
 	var/githuburl = CONFIG_GET(string/githuburl)
-	if(githuburl)
-		var/message = "This will open the Github issue reporter in your browser. Are you sure?"
-		if(GLOB.revdata.testmerge.len)
-			message += "<br>The following experimental changes are active and are probably the cause of any new or sudden issues you may experience. If possible, please try to find a specific thread for your issue instead of posting to the general issue tracker:<br>"
-			message += GLOB.revdata.GetTestMergeInfo(FALSE)
-		if(tgalert(src, message, "Report Issue","Yes","No")!="Yes")
-			return
-		var/static/issue_template = file2text(".github/ISSUE_TEMPLATE.md")
-		var/servername = CONFIG_GET(string/servername)
-		var/url_params = "Reporting client version: [byond_version].[byond_build]\n\n[issue_template]"
-		if(GLOB.round_id || servername)
-			url_params = "Issue reported from [GLOB.round_id ? " Round ID: [GLOB.round_id][servername ? " ([servername])" : ""]" : servername]\n\n[url_params]"
-		DIRECT_OUTPUT(src, link("[githuburl]/issues/new?body=[url_encode(url_params)]"))
-	else
-		to_chat(src, "<span class='danger'>The Github URL is not set in the server configuration.</span>")
-	return
+	if(!githuburl)
+		to_chat(src, span_danger("The Github URL is not set in the server configuration."))
+		return
+
+	var/testmerge_data = GLOB.revdata.testmerge
+	var/has_testmerge_data = (length(testmerge_data) != 0)
+
+	var/message = "This will open the Github issue reporter in your browser. Are you sure?"
+	if(has_testmerge_data)
+		message += "<br>The following experimental changes are active and are probably the cause of any new or sudden issues you may experience. If possible, please try to find a specific thread for your issue instead of posting to the general issue tracker:<br>"
+		message += GLOB.revdata.GetTestMergeInfo(FALSE)
+
+	// We still use tgalert here because some people were concerned that if someone wanted to report that tgui wasn't working
+	// then the report issue button being tgui-based would be problematic.
+	if(tgalert(src, message, "Report Issue","Yes","No") != "Yes")
+		return
+	var/base_link = githuburl + "/issues/new?template=bug_report.yml"
+	var/list/concatable = list(base_link)
+
+	var/client_version = "[byond_version].[byond_build]"
+	concatable += ("&reporting-version=" + client_version)
+
+	// the way it works is that we use the ID's that are baked into the template YML and replace them with values that we can collect in game.
+	if(GLOB.round_id)
+		concatable += ("&round-id=" + GLOB.round_id)
+
+	// Insert testmerges
+	if(has_testmerge_data)
+		var/list/all_tms = list()
+		for(var/entry in testmerge_data)
+			var/datum/tgs_revision_information/test_merge/tm = entry
+			all_tms += "- \[[tm.title]\]([githuburl]/pull/[tm.number])"
+		var/all_tms_joined = jointext(all_tms, "%0A") // %0A is a newline for URL encoding because i don't trust \n to not break
+
+		concatable += ("&test-merges=" + all_tms_joined)
+
+	DIRECT_OUTPUT(src, link(jointext(concatable, "")))
+
 
 /client/verb/check_role_bans()
 	set name = "Check Role Bans"

@@ -25,6 +25,8 @@
 	var/fancy_open = FALSE
 
 /obj/item/storage/fancy/PopulateContents()
+	if(!spawn_type)
+		return
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, spawn_type)
 
 /obj/item/storage/fancy/update_icon()
@@ -66,8 +68,6 @@
 	item_state = "eggbox"
 	icon_state = "eggbox"
 	icon_type = "egg"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	name = "egg box"
 	desc = ""
 	spawn_type = /obj/item/reagent_containers/food/snacks/egg
@@ -115,14 +115,14 @@
 	throwforce = 0
 	slot_flags = ITEM_SLOT_BELT
 	icon_type = "cigarette"
-	spawn_type = /obj/item/clothing/mask/cigarette/rollie/nicotine
+	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
 	var/candy = FALSE //for cigarette overlay
 
 /obj/item/storage/fancy/cigarettes/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 6
-	STR.set_holdable(list(/obj/item/clothing/mask/cigarette, /obj/item/lighter))
+	STR.set_holdable(list(/obj/item/clothing/face/cigarette, /obj/item/lighter))
 
 /obj/item/storage/fancy/cigarettes/examine(mob/user)
 	. = ..()
@@ -131,7 +131,7 @@
 /obj/item/storage/fancy/cigarettes/AltClick(mob/living/carbon/user)
 	if(!istype(user) || !user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		return
-	var/obj/item/clothing/mask/cigarette/W = locate(/obj/item/clothing/mask/cigarette) in contents
+	var/obj/item/clothing/face/cigarette/W = locate(/obj/item/clothing/face/cigarette) in contents
 	if(W && contents.len > 0)
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, user)
 		user.put_in_hands(W)
@@ -170,10 +170,10 @@
 /obj/item/storage/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!ismob(M))
 		return
-	var/obj/item/clothing/mask/cigarette/cig = locate(/obj/item/clothing/mask/cigarette) in contents
+	var/obj/item/clothing/face/cigarette/cig = locate(/obj/item/clothing/face/cigarette) in contents
 	if(cig)
 		if(M == user && contents.len > 0 && !user.wear_mask)
-			var/obj/item/clothing/mask/cigarette/W = cig
+			var/obj/item/clothing/face/cigarette/W = cig
 			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, W, M)
 			M.equip_to_slot_if_possible(W, SLOT_WEAR_MASK)
 			contents -= W
@@ -188,7 +188,7 @@
 	name = "zigbox"
 	desc = ""
 	icon_state = "zig"
-	spawn_type = /obj/item/clothing/mask/cigarette/rollie/nicotine
+	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
 
 /obj/item/storage/fancy/cigarettes/zig/empty
 	spawn_type = null

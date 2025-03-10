@@ -9,11 +9,13 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	grind_results = list(/datum/reagent/lye = 10)
 	var/cleanspeed = 35 //slower than mop
 	force_string = "robust... against germs"
 	var/uses = 100
 
+/obj/item/soap/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/slippery, 80)
 
 /obj/item/soap/examine(mob/user)
 	. = ..()

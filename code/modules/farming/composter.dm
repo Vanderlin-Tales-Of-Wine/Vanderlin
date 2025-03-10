@@ -58,7 +58,7 @@
 /obj/structure/composter/proc/try_handle_flipping_compost(obj/item/attacking_item, mob/user, params)
 	var/using_tool = FALSE
 	if(attacking_item)
-		if(istype(attacking_item, /obj/item/rogueweapon/pitchfork) || istype(attacking_item, /obj/item/rogueweapon/shovel))
+		if(istype(attacking_item, /obj/item/weapon/pitchfork) || istype(attacking_item, /obj/item/weapon/shovel))
 			using_tool = TRUE
 			to_chat(user, span_notice("I start flipping the compost..."))
 	else
@@ -66,7 +66,7 @@
 		playsound(user, "rustle", 50, TRUE)
 	var/do_time = using_tool ? 2 SECONDS : 9 SECONDS
 	var/fatigue = using_tool ? 10 : 30
-	if(do_after(user, get_farming_do_time(user, do_time), target = src))
+	if(do_after(user, get_farming_do_time(user, do_time), src))
 		apply_farming_fatigue(user, fatigue)
 		if(using_tool)
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
@@ -86,6 +86,8 @@
 		compost_value = 150
 	if(istype(attacking_item, /obj/item/natural/chaff))
 		compost_value = 150
+	if(istype(attacking_item, /obj/item/alch/bone))
+		compost_value = 100
 	if(istype(attacking_item, /obj/item/trash))
 		compost_value = 50
 	if(compost_value > 0)
@@ -121,7 +123,7 @@
 
 /obj/structure/composter/attackby(obj/item/attacking_item, mob/user, params)
 	user.changeNext_move(CLICK_CD_FAST)
-	if(istype(attacking_item,/obj/item/storage/roguebag) && attacking_item.contents.len)
+	if(istype(attacking_item,/obj/item/storage/sack) && attacking_item.contents.len)
 		if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
 			to_chat(user, span_warning("There's too much compost!"))
 			return
@@ -189,3 +191,5 @@
 	icon = 'icons/roguetown/misc/composter.dmi'
 	icon_state = "compost"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32

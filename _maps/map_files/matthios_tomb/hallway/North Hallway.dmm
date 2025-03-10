@@ -1,0 +1,103 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/naturalstone,
+/area/rogue)
+"g" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/naturalstone,
+/area/rogue)
+"l" = (
+/obj/item/natural/stone{
+	pixel_y = -8;
+	pixel_x = 9
+	},
+/turf/open/floor/dirt,
+/area/rogue)
+"s" = (
+/obj/item/natural/stone,
+/obj/item/natural/stone,
+/turf/open/floor/dirt,
+/area/rogue)
+"x" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"B" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/transparent/openspace,
+/area/rogue)
+"O" = (
+/obj/machinery/light/fueled/torchholder/r,
+/obj/item/natural/stone{
+	pixel_y = -9;
+	pixel_x = -5
+	},
+/obj/item/natural/stone{
+	pixel_y = -10;
+	pixel_x = 12
+	},
+/obj/item/natural/stone{
+	pixel_x = -12
+	},
+/obj/item/natural/stone{
+	pixel_x = -11;
+	pixel_y = 12
+	},
+/obj/item/natural/stone{
+	pixel_y = 4
+	},
+/obj/item/natural/stone{
+	pixel_x = -12
+	},
+/turf/open/floor/naturalstone,
+/area/rogue)
+"Q" = (
+/obj/item/natural/stone{
+	pixel_x = -10
+	},
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/naturalstone,
+/area/rogue)
+
+(1,1,1) = {"
+x
+x
+x
+x
+x
+"}
+(2,1,1) = {"
+Q
+s
+O
+l
+g
+"}
+(3,1,1) = {"
+x
+x
+x
+x
+x
+"}
+
+(1,1,2) = {"
+x
+x
+x
+x
+x
+"}
+(2,1,2) = {"
+a
+a
+B
+a
+a
+"}
+(3,1,2) = {"
+x
+x
+x
+x
+x
+"}

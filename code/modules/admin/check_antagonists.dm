@@ -48,35 +48,6 @@
 	parts += antag_listing_commands()
 	return "<tr><td>[parts.Join("</td><td>")]</td></tr>"
 
-
-/datum/team/proc/get_team_antags(antag_type,specific = FALSE)
-	. = list()
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(A.get_team() == src && (!antag_type || !specific && istype(A,antag_type) || specific && A.type == antag_type))
-			. += A
-
-//Builds section for the team
-/datum/team/proc/antag_listing_entry()
-	//NukeOps:
-	// Jim (Status) FLW PM TP
-	// Joe (Status) FLW PM TP
-	//Disk:
-	// Deep Space FLW
-	var/list/parts = list()
-	parts += "<b>[antag_listing_name()]</b><br>"
-	parts += "<table cellspacing=5>"
-	for(var/datum/antagonist/A in get_team_antags())
-		parts += A.antag_listing_entry()
-	parts += "</table>"
-	parts += antag_listing_footer()
-	return parts.Join()
-
-/datum/team/proc/antag_listing_name()
-	return name
-
-/datum/team/proc/antag_listing_footer()
-	return
-
 //Moves them to the top of the list if TRUE
 /datum/antagonist/proc/is_gamemode_hero()
 	return FALSE
@@ -137,24 +108,9 @@
 		alert("The game hasn't started yet!")
 		return
 	var/list/dat = list("<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>")
-	if(SSticker.mode.replacementmode)
-		dat += "Former Game Mode: <B>[SSticker.mode.name]</B><BR>"
-		dat += "Replacement Game Mode: <B>[SSticker.mode.replacementmode.name]</B><BR>"
-	else
-		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
-	if(istype(SSticker.mode, /datum/game_mode/dynamic))	// Currently only used by dynamic. If more start using this, find a better way.
-		dat += "<a href='?_src_=holder;[HrefToken()];gamemode_panel=1'>Gamemode Panel</a><br>"
+	dat += "<a href='?_src_=holder;[HrefToken()];gamemode_panel=1'>Gamemode Panel</a><br>"
 	dat += "Round Duration: <B>[DisplayTimeText(world.time - SSticker.round_start_time)]</B><BR>"
-	dat += "<B>Continuous Round Status</B><BR>"
-	dat += "<a href='?_src_=holder;[HrefToken()];toggle_continuous=1'>[CONFIG_GET(keyed_list/continuous)[SSticker.mode.config_tag] ? "Continue if antagonists die" : "End on antagonist death"]</a>"
-	if(CONFIG_GET(keyed_list/continuous)[SSticker.mode.config_tag])
-		dat += ", <a href='?_src_=holder;[HrefToken()];toggle_midround_antag=1'>[CONFIG_GET(keyed_list/midround_antag)[SSticker.mode.config_tag] ? "creating replacement antagonists" : "not creating new antagonists"]</a><BR>"
-	else
-		dat += "<BR>"
-	if(CONFIG_GET(keyed_list/midround_antag)[SSticker.mode.config_tag])
-		dat += "Time limit: <a href='?_src_=holder;[HrefToken()];alter_midround_time_limit=1'>[CONFIG_GET(number/midround_antag_time_check)] minutes into round</a><BR>"
-		dat += "Living crew limit: <a href='?_src_=holder;[HrefToken()];alter_midround_life_limit=1'>[CONFIG_GET(number/midround_antag_life_check) * 100]% of crew alive</a><BR>"
-		dat += "If limits past: <a href='?_src_=holder;[HrefToken()];toggle_noncontinuous_behavior=1'>[SSticker.mode.round_ends_with_antag_death ? "End The Round" : "Continue As Extended"]</a><BR>"
+	dat += "<BR>"
 	dat += "<a href='?_src_=holder;[HrefToken()];end_round=[REF(usr)]'>End Round Now</a><br>"
 	dat += "<a href='?_src_=holder;[HrefToken()];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
 	dat += "<a href='?_src_=holder;[HrefToken()];ctf_toggle=1'>Enable/Disable CTF</a><br>"

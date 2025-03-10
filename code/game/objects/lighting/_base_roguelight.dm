@@ -1,4 +1,4 @@
-/obj/machinery/light/rogue
+/obj/machinery/light/fueled
 	icon = 'icons/roguetown/misc/lighting.dmi'
 	brightness = 8
 	nightshift_allowed = FALSE
@@ -12,7 +12,7 @@
 	var/crossfire = TRUE
 	var/can_damage = FALSE
 
-/obj/machinery/light/rogue/Initialize()
+/obj/machinery/light/fueled/Initialize()
 	if(soundloop)
 		soundloop = new soundloop(src, FALSE)
 		soundloop.start()
@@ -23,12 +23,12 @@
 	seton(TRUE)
 	. = ..()
 
-/obj/machinery/light/rogue/OnCrafted(dirin)
+/obj/machinery/light/fueled/OnCrafted(dirin, mob/user)
 	. = ..()
 	can_damage = TRUE
 	burn_out()
 
-/obj/machinery/light/rogue/examine(mob/user)
+/obj/machinery/light/fueled/examine(mob/user)
 	. = ..()
 	if(Adjacent(user))
 		if(fueluse > 0)
@@ -44,7 +44,7 @@
 				. += "<span class='warning'>The fire is burned out and hungry...</span>"
 
 
-/obj/machinery/light/rogue/extinguish()
+/obj/machinery/light/fueled/extinguish()
 	if(on)
 		burn_out()
 		new /obj/effect/temp_visual/small_smoke(src.loc)
@@ -52,7 +52,7 @@
 
 
 
-/obj/machinery/light/rogue/burn_out()
+/obj/machinery/light/fueled/burn_out()
 	if(soundloop)
 		soundloop.stop()
 	if(on)
@@ -60,25 +60,25 @@
 	..()
 	update_icon()
 
-/obj/machinery/light/rogue/update_icon()
+/obj/machinery/light/fueled/update_icon()
 	if(on)
 		icon_state = "[base_state]1"
 	else
 		icon_state = "[base_state]0"
 
-/obj/machinery/light/rogue/update()
+/obj/machinery/light/fueled/update()
 	. = ..()
 	if(on)
 		GLOB.fires_list |= src
 	else
 		GLOB.fires_list -= src
 
-/obj/machinery/light/rogue/Destroy()
+/obj/machinery/light/fueled/Destroy()
 	QDEL_NULL(soundloop)
 	GLOB.fires_list -= src
 	. = ..()
 
-/obj/machinery/light/rogue/fire_act(added, maxstacks)
+/obj/machinery/light/fueled/fire_act(added, maxstacks)
 	if(!on && ((fueluse > 0) || (initial(fueluse) == 0)))
 		playsound(src.loc, 'sound/items/firelight.ogg', 100)
 		on = TRUE
@@ -88,16 +88,16 @@
 			soundloop.start()
 		return TRUE
 
-/obj/machinery/light/rogue/Crossed(atom/movable/AM, oldLoc)
+/obj/machinery/light/fueled/Crossed(atom/movable/AM, oldLoc)
 	..()
 	if(crossfire)
 		if(on)
 			AM.fire_act(1,5)
 
-/obj/machinery/light/rogue/spark_act()
+/obj/machinery/light/fueled/spark_act()
 	fire_act()
 
-/obj/machinery/light/rogue/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/light/fueled/attackby(obj/item/W, mob/living/user, params)
 	if(cookonme)
 		if(istype(W, /obj/item/reagent_containers/food/snacks))
 			if(istype(W, /obj/item/reagent_containers/food/snacks/egg))
@@ -117,7 +117,7 @@
 						prob2spoil = 1
 					user.visible_message("<span class='notice'>[user] starts to cook [W] over [src].</span>")
 					for(var/i in 1 to 6)
-						if(do_after(user, 30, target = src))
+						if(do_after(user, 30, src))
 							var/obj/item/reagent_containers/food/snacks/S = W
 							var/obj/item/C
 							if(prob(prob2spoil))
@@ -170,7 +170,7 @@
 				W.spark_act()
 	. = ..()
 
-/obj/machinery/light/rogue/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
+/obj/machinery/light/fueled/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = 1)
 	if(!can_damage)
 		return
 	. = ..()

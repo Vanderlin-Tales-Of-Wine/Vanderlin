@@ -153,10 +153,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 #ifdef TESTSERVER
 		timetojoin = 0
 #endif
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(istype(C))
-			if(C.allmig || C.roguefight)
-				timetojoin = 0
 		if(SSticker.round_start_time)
 			if(world.time < SSticker.round_start_time + timetojoin)
 				var/ttime = round((SSticker.round_start_time + timetojoin - world.time) / 10)
@@ -302,24 +298,41 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 //used for latejoining
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
-	if(istype(SSticker.mode, /datum/game_mode/chaosmode))
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C.skeletons)
-			if(rank != "Skeleton")
-				return JOB_UNAVAILABLE_GENERIC
-			else
-				return JOB_AVAILABLE
+	if(has_world_trait(/datum/world_trait/skeleton_siege))
+		if(rank != "Skeleton")
+			return JOB_UNAVAILABLE_GENERIC
 		else
-			if(rank == "Skeleton")
-				return JOB_UNAVAILABLE_GENERIC
-		if(C.deathknightspawn)
-			if(rank != "Death Knight")
-				return JOB_UNAVAILABLE_GENERIC
-			else
-				return JOB_AVAILABLE
+			return JOB_AVAILABLE
+	else
+		if(rank == "Skeleton")
+			return JOB_UNAVAILABLE_GENERIC
+
+	if(has_world_trait(/datum/world_trait/goblin_siege))
+		if(rank != "Goblin")
+			return JOB_UNAVAILABLE_GENERIC
 		else
-			if(rank == "Death Knight")
-				return JOB_UNAVAILABLE_GENERIC
+			return JOB_AVAILABLE
+	else
+		if(rank == "Goblin")
+			return JOB_UNAVAILABLE_GENERIC
+
+	if(has_world_trait(/datum/world_trait/rousman_siege))
+		if(rank != "Rousman")
+			return JOB_UNAVAILABLE_GENERIC
+		else
+			return JOB_AVAILABLE
+	else
+		if(rank == "Rousman")
+			return JOB_UNAVAILABLE_GENERIC
+
+	if(has_world_trait(/datum/world_trait/death_knight))
+		if(rank != "Death Knight")
+			return JOB_UNAVAILABLE_GENERIC
+		else
+			return JOB_AVAILABLE
+	else
+		if(rank == "Death Knight")
+			return JOB_UNAVAILABLE_GENERIC
 
 	var/datum/job/job = SSjob.GetJob(rank)
 	if(!job)
@@ -364,7 +377,8 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	if(latejoin && !job.special_check_latejoin(client))
 		return JOB_UNAVAILABLE_GENERIC
 	if(length(job.allowed_races) && !(client.prefs.pref_species.name in job.allowed_races))
-		return JOB_UNAVAILABLE_RACE
+		if(!client.triumph_ids.Find("race_all"))
+			return JOB_UNAVAILABLE_RACE
 /*	if(length(job.allowed_patrons) && !(client.prefs.selected_patron.type in job.allowed_patrons))
 		return JOB_UNAVAILABLE_PATRON */
 	if(job.plevel_req > client.patreonlevel())
@@ -378,11 +392,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		return JOB_UNAVAILABLE_RACE
 	if((client.prefs.lastclass == job.title) && !job.bypass_lastclass)
 		return JOB_UNAVAILABLE_GENERIC
-	if(istype(SSticker.mode, /datum/game_mode/roguewar))
-		var/datum/game_mode/roguewar/W = SSticker.mode
-		if(W.get_team(ckey))
-			if(W.get_team(ckey) != job.faction)
-				return JOB_UNAVAILABLE_GENERIC
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)
@@ -468,13 +477,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	omegalist += list(GLOB.serf_positions)
 	omegalist += list(GLOB.youngfolk_positions)
 
-	if(istype(SSticker.mode, /datum/game_mode/chaosmode))
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(C.allmig)
-			omegalist = list(GLOB.allmig_positions)
-	if(istype(SSticker.mode, /datum/game_mode/roguewar))
-		omegalist = list(GLOB.roguewar_positions)
-
 	for(var/list/category in omegalist)
 		if(!SSjob.name_occupations[category[1]])
 			testing("HELP NO THING FOUND FOR [category[1]]")
@@ -508,26 +510,38 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 					cat_name = "Peasantry"
 				if (APPRENTICES)
 					cat_name = "Apprentices"
+				if (YOUNGFOLK)
+					cat_name = "Young Folk"
 
 			dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
 			dat += "<legend align='center' style='font-weight: bold; color: [cat_color]'>[cat_name]</legend>"
-			var/datum/game_mode/chaosmode/C = SSticker.mode
-			if(istype(C))
-				if(C.skeletons)
-					dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=skeleton'>BECOME AN EVIL SKELETON</a>"
-					dat += "</fieldset><br>"
-					column_counter++
-					if(column_counter > 0 && (column_counter % 3 == 0))
-						dat += "</td><td valign='top'>"
-					break
-				if(C.deathknightspawn)
-					dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=Death Knight'>JOIN THE VAMPIRE LORD AS A DEATH KNIGHT</a>"
-					dat += "</fieldset><br>"
-					column_counter++
-					if(column_counter > 0 && (column_counter % 3 == 0))
-						dat += "</td><td valign='top'>"
-					break
+			if(has_world_trait(/datum/world_trait/skeleton_siege))
+				dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=Skeleton'>BECOME AN EVIL SKELETON</a>"
+				dat += "</fieldset><br>"
+				column_counter++
+				if(column_counter > 0 && (column_counter % 3 == 0))
+					dat += "</td><td valign='top'>"
+			if(has_world_trait(/datum/world_trait/goblin_siege))
+				dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=Goblin'>BECOME A GOBLIN</a>"
+				dat += "</fieldset><br>"
+				column_counter++
+				if(column_counter > 0 && (column_counter % 3 == 0))
+					dat += "</td><td valign='top'>"
+			if(has_world_trait(/datum/world_trait/rousman_siege))
+				dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=Rousman'>BECOME A ROUSMAN</a>"
+				dat += "</fieldset><br>"
+				column_counter++
+				if(column_counter > 0 && (column_counter % 3 == 0))
+					dat += "</td><td valign='top'>"
+			if(has_world_trait(/datum/world_trait/death_knight))
+				dat += "<a class='job command' href='byond://?src=[REF(src)];SelectedJob=Death Knight'>JOIN THE VAMPIRE LORD AS A DEATH KNIGHT</a>"
+				dat += "</fieldset><br>"
+				column_counter++
+				if(column_counter > 0 && (column_counter % 3 == 0))
+					dat += "</td><td valign='top'>"
 
+			if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/death_knight) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
+				break
 			for(var/job in available_jobs)
 				var/datum/job/job_datum = SSjob.name_occupations[job]
 				if(job_datum)

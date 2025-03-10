@@ -58,9 +58,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
@@ -81,9 +78,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/ale
-	distill_amt = 12
 	grind_results = list(/datum/reagent/floure = 10)
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
@@ -101,14 +95,13 @@
 	foodtype = FRUIT
 	tastes = list("apple" = 1)
 	trash = /obj/item/trash/applecore
+	faretype = FARE_POOR
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	slot_flags = ITEM_SLOT_HEAD
 	worn_x_dimension = 64
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	worn_y_dimension = 64
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 	sellprice = 0 // spoil too quickly to export
 	var/equippedloc = null
 	var/list/bitten_names = list()
@@ -147,18 +140,58 @@
 			if(equippedloc != H.loc)
 				H.dropItemToGround(H.head)
 
+/obj/item/reagent_containers/food/snacks/produce/strawberry
+	seed = /obj/item/neuFarm/seed/strawberry
+	name = "strawberry"
+	desc = "A delectable strawberry."
+	icon_state = "strawberry"
+	tastes = list("strawberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
+
+/obj/item/reagent_containers/food/snacks/produce/raspberry
+	seed = /obj/item/neuFarm/seed/raspberry
+	name = "raspberry"
+	desc = "A delectable raspberry."
+	icon_state = "raspberry"
+	tastes = list("raspberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
+
+/obj/item/reagent_containers/food/snacks/produce/blackberry
+	seed = /obj/item/neuFarm/seed/blackberry
+	name = "blackberry"
+	desc = "A delectable blackberry."
+	icon_state = "blackberry"
+	tastes = list("blackberry" = 1)
+	faretype = FARE_NEUTRAL
+	bitesize = 5
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
+	dropshrink = 0.75
+	rotprocess = SHELFLIFE_SHORT
+	sellprice = 0 // spoil too quickly to export
+
 /obj/item/reagent_containers/food/snacks/produce/jacksberry
 	seed = /obj/item/neuFarm/seed/berryrogue
 	name = "jacksberries"
-	desc = "Common berries found throughout Enigma. A traveler's repast, or Dendor's wrath."
+	desc = "Common berries found throughout Enigma and surrounding lands. A traveler's repast, or Dendor's wrath."
 	icon_state = "berries"
 	tastes = list("berry" = 1)
+	faretype = FARE_NEUTRAL
 	bitesize = 5
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0.5)
 	dropshrink = 0.75
 	var/color_index = "good"
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/jackberrywine
 	rotprocess = SHELFLIFE_SHORT
 	sellprice = 0 // spoil too quickly to export
 	var/poisonous = FALSE
@@ -176,27 +209,21 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
-	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
-	. += ..()
-	if(farminglvl >= 3 && poisonous == TRUE)
-		. += "These berries appear to be poisonous."
-
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
 	..()
 	update_icon()
 
 /obj/item/reagent_containers/food/snacks/produce/jacksberry/update_icon()
 	cut_overlays()
-	var/used_state = "berriesc5"
+	var/used_state = "berriesc0"
 	if(bitecount == 1)
-		used_state = "berriesc4"
-	if(bitecount == 2)
-		used_state = "berriesc3"
-	if(bitecount == 3)
-		used_state = "berriesc2"
-	if(bitecount == 4)
 		used_state = "berriesc1"
+	if(bitecount == 2)
+		used_state = "berriesc2"
+	if(bitecount == 3)
+		used_state = "berriesc3"
+	if(bitecount == 4)
+		used_state = "berriesc4"
 	var/image/item_overlay = image(used_state)
 	item_overlay.color = filling_color
 	add_overlay(item_overlay)
@@ -209,6 +236,22 @@
 	grind_results = list(/datum/reagent/berrypoison = 5)
 	color_index = "bad"
 	poisonous = TRUE
+
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/examine(mob/user)
+	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
+	. = ..()
+	// Foragers can always detect if a berry is safe or poisoned
+	if(HAS_TRAIT(user, TRAIT_FORAGER))
+		if(poisonous)
+			. += span_warning("This berry looks suspicious. I sense it might be poisoned.")
+		else
+			. += span_notice("This berry looks safe to eat.")
+	// Non-Foragers with high farming skill can detect poisoned berries
+	else if(farminglvl >= 3)
+		if(poisonous)
+			. += span_warning("These berries appear to be poisonous.</span>")
+		else
+			. += span_notice("This berry looks safe to eat.")
 
 /*	..................   Swamp weed   ................... */
 /obj/item/reagent_containers/food/snacks/produce/swampweed
@@ -281,8 +324,8 @@
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = SHELFLIFE_LONG
-	slices_num = 3
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
+	slices_num = 2
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/cabbage_sliced
 	chopping_sound = TRUE
 
 /*	..................   Onions   ................... */
@@ -291,24 +334,19 @@
 	desc = "A wonderful vegetable with many layers and a broad flavor profile."
 	seed = /obj/item/neuFarm/seed/onion
 	icon_state = "onion"
+	dropshrink = 0.9
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/onion_sliced
 	tastes = list("onion" = 1)
 	filling_color = "#fdfaca"
 	bitesize = 1
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/onion
-	distill_amt = 6
 	chopping_sound = TRUE
 	rotprocess = SHELFLIFE_LONG
 
-/*/obj/item/reagent_containers/food/snacks/produce/onion/slice(obj/item/W, mob/user) I cant do it. Below causes a runtime its true but its so tiny! And this new one is so damn boring.
-	. = ..()
-	to_chat(user, "<span class='notice'>My eyes sting a little...</span>") */
-/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/user)
-	var/datum/effect_system/smoke_spread/transparent/S = new	//Since the onion is destroyed when it's sliced,
+/obj/item/reagent_containers/food/snacks/produce/onion/slice(accuracy, obj/item/W, mob/living/user) // ROGTODO watering eyes
+	var/datum/effect_system/smoke_spread/chem/transparent/S = new	//Since the onion is destroyed when it's sliced,
 	var/splat_location = get_turf(src)	//we need to set up the smoke beforehand
 	S.attach(splat_location)
 	S.set_up(reagents, 0, splat_location, 0)
@@ -327,17 +365,14 @@
 	tastes = list("potato" = 1)
 	filling_color = "#d8d8b6"
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/potato_sliced
+	cooked_type = /obj/item/reagent_containers/food/snacks/potato/baked
 	cooked_smell = /datum/pollutant/food/baked_potato
 	eat_effect = null
 	foodtype = VEGETABLES
 	chopping_sound = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	bitesize = 1
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
-	distill_amt = 8
 	rotprocess = null
 
 /*	..................  Pear   ................... */ // for cider or eating raw
@@ -350,8 +385,46 @@
 	foodtype = FRUIT
 	tastes = list("pear" = 1)
 	rotprocess = SHELFLIFE_DECENT
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
+
+/obj/item/reagent_containers/food/snacks/produce/lemon
+	name = "lemon"
+	seed = /obj/item/neuFarm/seed/lemon
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lemon"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("lemon" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/lime
+	name = "lime"
+	seed = /obj/item/neuFarm/seed/lime
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lime"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("lime" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/tangerine
+	name = "tangerine"
+	seed = /obj/item/neuFarm/seed/tangerine
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "tangerine"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("tangerine" = 1)
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/produce/plum
+	name = "plum"
+	seed = /obj/item/neuFarm/seed/plum
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "plum"
+	bitesize = 2
+	foodtype = FRUIT
+	tastes = list("plum" = 1)
+	rotprocess = SHELFLIFE_DECENT
 
 /*	..................   Turnip   ................... */ // only for veggie soup
 /obj/item/reagent_containers/food/snacks/produce/turnip
@@ -362,7 +435,7 @@
 	tastes = list("dirt" = 1)
 	bitesize = 1
 	slices_num = 1
-	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/turnip_sliced
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/turnip_sliced
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	chopping_sound = TRUE
@@ -385,9 +458,32 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
 	dropshrink = 0.8
 	rotprocess = null
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/roastseeds
+	fried_type = /obj/item/reagent_containers/food/snacks/roastseeds
 	cooked_smell = /datum/pollutant/food/roasted_seeds
 
+
+/obj/item/reagent_containers/food/snacks/produce/sugarcane
+	seed = /obj/item/neuFarm/seed/sugarcane
+	name = "sugarcane"
+	desc = ""
+	icon_state = "sugarcane"
+	seed = /obj/item/neuFarm/seed/sugarcane
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
+	throw_speed = 1
+	throw_range = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 5)
+	dropshrink = 0.8
+	rotprocess = null
+	mill_result = /obj/item/reagent_containers/food/snacks/sugar
+
+/obj/item/reagent_containers/food/snacks/sugar
+	name = "sugar"
+	desc ="<illed sugarcane, sweet as can be."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "salt"
+	tastes = list("sweet" = 1)
+	list_reagents = list(/datum/reagent/consumable/sugar = 15)
 
 /*	..................   Fyritius Flower   ................... */ // some sort of funni fire flowers. Dunno just moving them here for consistency.
 /obj/item/reagent_containers/food/snacks/produce/fyritius

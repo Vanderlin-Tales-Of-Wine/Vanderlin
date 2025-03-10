@@ -38,7 +38,8 @@
 /obj/item/reagent_containers/weather_act_on(weather_trait, severity)
 	if(weather_trait != PARTICLEWEATHER_RAIN || !COOLDOWN_FINISHED(src, fill_cooldown))
 		return
-
+	if(!isturf(loc))
+		return
 	reagents.add_reagent(/datum/reagent/water, clamp(severity * 0.5, 1, 5))
 	COOLDOWN_START(src, fill_cooldown, 10 SECONDS)
 
@@ -119,10 +120,14 @@
 		return
 
 	else
-		if(isturf(target) && reagents.reagent_list.len && thrownby)
-			log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
-			log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
-			message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
+		if(isturf(target))
+			var/turf/target_turf = target
+			if(istype(target_turf, /turf/open))
+				target_turf.add_liquid_from_reagents(reagents, FALSE, reagents.chem_temp)
+			if(reagents.reagent_list.len && thrownby)
+				log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]", "in [AREACOORD(target)]")
+				log_game("[key_name(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [AREACOORD(target)].")
+				message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] in [ADMIN_VERBOSEJMP(target)].")
 		visible_message("<span class='notice'>[src] spills its contents all over [target].</span>")
 		reagents.reaction(target, TOUCH)
 		if(QDELETED(src))
@@ -158,5 +163,12 @@
 				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+			if(reagent.glows)
+				var/mutable_appearance/emissive = mutable_appearance('icons/obj/reagentfillings.dmi', filling.icon_state)
+				emissive.plane = EMISSIVE_PLANE
+				overlays += emissive
+				break
 		add_overlay(filling)
 	. = ..()
+

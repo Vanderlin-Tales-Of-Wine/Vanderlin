@@ -73,12 +73,6 @@
 						"<span class='danger'>I shoot [src]!</span>", \
 						COMBAT_MESSAGE_RANGE)
 
-/obj/item/gun/emp_act(severity)
-	. = ..()
-	if(!(. & EMP_PROTECT_CONTENTS))
-		for(var/obj/O in contents)
-			O.emp_act(severity)
-
 /obj/item/gun/afterattack(atom/target, mob/living/user, flag, params)
 	. = ..()
 	testing("gun afterattack")
@@ -170,7 +164,7 @@
 		target.visible_message("<span class='warning'>[user] points [src] at [target]'s head, ready to pull the trigger...</span>", \
 			"<span class='danger'>[user] points [src] at your head, ready to pull the trigger...</span>")
 
-	if(!bypass_timer && (!do_mob(user, target, 120) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
+	if(!bypass_timer && (!do_after(user, 12 SECONDS, target) || user.zone_selected != BODY_ZONE_PRECISE_MOUTH))
 		if(user)
 			if(user == target)
 				user.visible_message("<span class='notice'>[user] decided not to shoot.</span>")
@@ -188,3 +182,6 @@
 //Happens before the actual projectile creation
 /obj/item/gun/proc/before_firing(atom/target,mob/user)
 	return
+
+/obj/item/gun/get_examine_string(mob/user, thats = FALSE)
+	return "[thats? "That's ":""]<b>[get_examine_name(user)]</b>"

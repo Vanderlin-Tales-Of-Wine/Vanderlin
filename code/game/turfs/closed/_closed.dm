@@ -4,13 +4,18 @@
 	opacity = 1
 	density = TRUE
 	blocks_air = TRUE
-	baseturfs = list(/turf/open/floor/rogue/naturalstone, /turf/open/transparent/openspace)
+	baseturfs = list(/turf/open/floor/naturalstone, /turf/open/transparent/openspace)
 	var/above_floor
 	var/wallpress = TRUE
 	var/wallclimb = FALSE
 	var/climbdiff = 0
 
 	var/obj/effect/skill_tracker/thieves_cant/thieves_marking
+
+/turf/closed/basic/New()//Do not convert to Initialize
+	SHOULD_CALL_PARENT(FALSE)
+	//This is used to optimize the map loader
+	return
 
 /turf/closed/examine(mob/user)
 	. = ..()
@@ -34,7 +39,7 @@
 
 /turf/closed/proc/feel_turf(mob/living/user)
 	to_chat(user, span_notice("I start feeling around the [src]"))
-	if(!do_after(user, 1.5 SECONDS, target = src))
+	if(!do_after(user, 1.5 SECONDS, src))
 		return
 
 	for(var/obj/structure/lever/hidden/lever in contents)
@@ -187,7 +192,7 @@
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, climbsound, 100, TRUE)
 			user.visible_message("<span class='warning'>[user] starts to climb [src].</span>", "<span class='warning'>I start to climb [src]...</span>")
-			if(do_after(L, used_time, target = src))
+			if(do_after(L, used_time, src))
 				var/pulling = user.pulling
 				if(ismob(pulling))
 					user.pulling.forceMove(target)

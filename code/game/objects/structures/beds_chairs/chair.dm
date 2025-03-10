@@ -36,7 +36,7 @@
 	var/mob/living/L = user
 
 	if(istype(L))
-		if(!user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
+		if(!user.canUseTopic(src, BE_CLOSE))
 			return FALSE
 		else
 			return TRUE
@@ -98,15 +98,6 @@
 	..()
 	handle_rotation(newdir)
 
-// Chair types
-
-///Material chair
-/obj/structure/chair/greyscale
-	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	item_chair = /obj/item/chair/greyscale
-	buildstacktype = null //Custom mats handle this
-
-
 /obj/structure/chair/wood
 	icon_state = "chair1"
 	name = "chair"
@@ -121,91 +112,19 @@
 
 /obj/structure/chair/wood/narsie_act()
 	return
-
-/obj/structure/chair/wood/wings
-	icon_state = "wooden_chair_wings"
-	item_chair = /obj/item/chair/wood/wings
-
-/obj/structure/chair/comfy
-	name = "comfy chair"
-	desc = ""
-	icon_state = "comfychair"
-	color = rgb(255,255,255)
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
-	buildstackamount = 2
-	item_chair = null
-	var/mutable_appearance/armrest
-
-/obj/structure/chair/comfy/Initialize()
-	armrest = GetArmrest()
-	armrest.layer = ABOVE_MOB_LAYER
-	armrest.plane = GAME_PLANE_UPPER
-	return ..()
-
-/obj/structure/chair/comfy/proc/GetArmrest()
-	return mutable_appearance('icons/obj/chairs.dmi', "comfychair_armrest")
-
-/obj/structure/chair/comfy/Destroy()
-	QDEL_NULL(armrest)
-	return ..()
-
-/obj/structure/chair/comfy/post_buckle_mob(mob/living/M)
-	. = ..()
-	update_armrest()
-
-/obj/structure/chair/comfy/proc/update_armrest()
-	if(has_buckled_mobs())
-		add_overlay(armrest)
-	else
-		cut_overlay(armrest)
-
-/obj/structure/chair/comfy/post_unbuckle_mob()
-	. = ..()
-	update_armrest()
-
-/obj/structure/chair/comfy/brown
-	color = rgb(255,113,0)
-
-/obj/structure/chair/comfy/beige
-	color = rgb(255,253,195)
-
-/obj/structure/chair/comfy/teal
-	color = rgb(0,255,255)
-
-/obj/structure/chair/comfy/black
-	color = rgb(167,164,153)
-
-/obj/structure/chair/comfy/lime
-	color = rgb(255,251,0)
-
-/obj/structure/chair/office
-	anchored = FALSE
-	buildstackamount = 5
-	item_chair = null
-	icon_state = "officechair_dark"
-
-
-/obj/structure/chair/office/Moved()
-	. = ..()
-	if(has_gravity())
-		playsound(src, 'sound/blank.ogg', 100, TRUE)
-
-/obj/structure/chair/office/light
-	icon_state = "officechair_white"
-
 //Stool
 
 /obj/structure/chair/stool
 	name = "stool"
 	desc = ""
-	icon_state = "stool"
-	can_buckle = 0
-	buildstackamount = 1
+	icon_state = "barstool"
+	icon = 'icons/roguetown/misc/structure.dmi'
 	item_chair = /obj/item/chair/stool
-
-/obj/structure/chair/stool/narsie_act()
-	return
+	max_integrity = 100
+	blade_dulling = DULLING_BASHCHOP
+	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
+	attacked_sound = "woodimpact"
+	metalizer_result = /obj/item/cooking/pan
 
 /obj/structure/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -230,11 +149,15 @@
 /obj/item/chair
 	name = "chair"
 	desc = ""
-	icon = 'icons/obj/chairs.dmi'
-	icon_state = "chair_toppled"
+	icon = 'icons/roguetown/items/chairs.dmi'
+	icon_state = "chair2"
 	item_state = "chair"
 	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
+	blade_dulling = DULLING_BASHCHOP
+	can_parry = TRUE
+	gripped_intents = list(/datum/intent/hit)
+
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 	throwforce = 10
@@ -243,8 +166,23 @@
 	hit_reaction_chance = 50
 	twohands_required = TRUE
 	obj_flags = CAN_BE_HIT
+	max_integrity = 100
+	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
+	attacked_sound = "woodimpact"
+	sleepy = 0.1
 	var/break_chance = 23 //Likely hood of smashing the chair.
-	var/obj/structure/chair/origin_type = /obj/structure/chair
+	var/obj/structure/chair/origin_type = /obj/structure/chair/wood/alt
+
+/obj/item/chair/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("wieldedl")
+				return list("shrink" = 0.7,"sx" = 2,"sy" = 1,"nx" = -17,"ny" = 0,"wx" = -11,"wy" = 0,"ex" = 2,"ey" = 0,"westabove" = 1,"eastbehind" = 0,"nturn" = 9,"sturn" = -42,"wturn" = 21,"eturn" = -27,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+			if("wielded")
+				return list("shrink" = 0.7,"sx" = 2,"sy" = 1,"nx" = -17,"ny" = 0,"wx" = -11,"wy" = 0,"ex" = 2,"ey" = 0,"westabove" = 1,"eastbehind" = 0,"nturn" = 9,"sturn" = -42,"wturn" = 21,"eturn" = -27,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,)
+	..()
+
 
 /obj/item/chair/suicide_act(mob/living/carbon/user)
 	user.visible_message("<span class='suicide'>[user] begins hitting [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
@@ -293,16 +231,11 @@
 				C.Paralyze(20)
 		smash(user)
 
-/obj/item/chair/greyscale
-	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR
-	origin_type = /obj/structure/chair/greyscale
-
 /obj/item/chair/stool
-	name = "stool"
-	icon_state = "stool_toppled"
-	item_state = "stool"
+	name = "bar stool"
+	icon_state = "bar_toppled"
+	item_state = "stool_bar"
 	origin_type = /obj/structure/chair/stool
-	break_chance = 0 //It's too sturdy.
 
 /obj/item/chair/stool/bar
 	name = "bar stool"
@@ -315,20 +248,12 @@
 
 /obj/item/chair/wood
 	name = "wooden chair"
-	icon_state = "wooden_chair_toppled"
-	item_state = "woodenchair"
-	resistance_flags = FLAMMABLE
-	max_integrity = 70
-	hitsound = 'sound/blank.ogg'
 	origin_type = /obj/structure/chair/wood
 	break_chance = 50
 
 /obj/item/chair/wood/narsie_act()
 	return
 
-/obj/item/chair/wood/wings
-	icon_state = "wooden_chair_wings_toppled"
-	origin_type = /obj/structure/chair/wood/wings
 /obj/structure/chair/mime
 	name = "invisible chair"
 	desc = ""

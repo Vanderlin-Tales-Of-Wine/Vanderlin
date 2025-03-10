@@ -192,6 +192,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	var/data = json_encode(deets)
 	ehjax_send(data = data)
 
+
 //Called by client, sent data to investigate (cookie history so far)
 /datum/chatOutput/proc/analyzeClientData(cookie = "")
 	if(!cookie)

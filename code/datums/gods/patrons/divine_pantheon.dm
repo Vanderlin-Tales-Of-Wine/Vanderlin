@@ -3,6 +3,20 @@
 	associated_faith = /datum/faith/divine_pantheon
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 
+/datum/patron/divine/can_pray(mob/living/follower)
+	//you can pray anywhere inside a church
+	if(istype(get_area(follower), /area/rogue/indoors/town/church))
+		return TRUE
+
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(!cross.obj_broken)
+			return TRUE
+
+	to_chat(follower, span_danger("I need a nearby Pantheon Cross for my prayers to be heard..."))
+	return FALSE
+
+/* ----------------- */
+
 /datum/patron/divine/astrata
 	name = "Astrata"
 	domain = "Goddess of Order, the Sun Queen"
@@ -21,14 +35,15 @@
 		"ASTRATA BRINGS LAW!",
 		"I SERVE THE GLORY OF THE SUN!",
 	)
+	storyteller = /datum/storyteller/astrata
 
 /datum/patron/divine/noc
 	name = "Noc"
 	domain = "God of Knowledge, the Moon Prince"
 	desc = "Crafted from the helmet of Psydon, twin of Astrata. He gifted mankind divine wisdom."
-	flaws = "Close-minded, Vindictive, Haughty"
+	flaws = "Cynical, Isolationist, Unfiltered Honesty"
 	worshippers = "Magic Practitioners, Scholars, Scribes"
-	sins = "Ignorance, Burning Books, Rashness"
+	sins = "Suppressing Truth, Burning Books, Censorship"
 	boons = "You learn and teach apprentices slightly better."
 	added_traits = list(TRAIT_TUTELAGE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
@@ -37,9 +52,10 @@
 	t3 = /obj/effect/proc_holder/spell/invoked/projectile/moondagger
 	confess_lines = list(
 		"NOC IS NIGHT!",
-		"NOC SEES ALL!",
+		"NOC SEES THE TRUTH!",
 		"I SEEK THE MYSTERIES OF THE MOON!",
 	)
+	storyteller = /datum/storyteller/noc
 
 /datum/patron/divine/dendor
 	name = "Dendor"
@@ -59,6 +75,7 @@
 		"THE TREEFATHER BRINGS BOUNTY!",
 		"I ANSWER THE CALL OF THE WILD!",
 	)
+	storyteller = /datum/storyteller/dendor
 
 /datum/patron/divine/abyssor
 	name = "Abyssor"
@@ -67,7 +84,7 @@
 	flaws= "Reckless, Stubborn, Destructive"
 	worshippers = "Sailors of the Sea and Sky, Horrid Sea-Creachers, Fog Islanders"
 	sins = "Fear, Hubris, Forgetfulness"
-	boons = "Leeches will not latch onto you in dirty water."
+	boons = "Leeches will drain very little of your blood."
 	added_traits = list(TRAIT_LEECHIMMUNE)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/projectile/swordfish
@@ -78,6 +95,7 @@
 		"THE OCEAN'S FURY IS ABYSSOR'S WILL!",
 		"I AM DRAWN BY THE PULL OF THE TIDE!",
 	)
+	storyteller = /datum/storyteller/abyssor
 
 /datum/patron/divine/necra
 	name = "Necra"
@@ -97,6 +115,7 @@
 		"THE UNDERMAIDEN IS OUR FINAL REPOSE!",
 		"I FEAR NOT DEATH, MY LADY AWAITS ME!",
 	)
+	storyteller = /datum/storyteller/necra
 
 /datum/patron/divine/ravox
 	name = "Ravox"
@@ -109,11 +128,14 @@
 	added_traits = list(TRAIT_SHARPER_BLADES)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/self/call_to_arms
+	t2 = /obj/effect/proc_holder/spell/self/divine_strike
+	t3 = /obj/effect/proc_holder/spell/invoked/persistence
 	confess_lines = list(
 		"RAVOX IS JUSTICE!",
 		"THROUGH STRIFE, GRACE!",
 		"THE DRUMS OF WAR BEAT IN MY CHEST!",
 	)
+	storyteller = /datum/storyteller/ravox
 
 /datum/patron/divine/xylix
 	name = "Xylix"
@@ -126,6 +148,7 @@
 	added_traits = list(TRAIT_BLACKLEG)
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	t1 = /obj/effect/proc_holder/spell/invoked/vicious_mimicry
+	t2 = /obj/effect/proc_holder/spell/invoked/wheel
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
 		"NOC IS NIGHT!",
@@ -138,6 +161,7 @@
 		"MALUM IS MY FORGE!",
 		"EORA BRINGS US TOGETHER!",
 	)
+	storyteller = /datum/storyteller/xylix
 
 /datum/patron/divine/pestra
 	name = "Pestra"
@@ -157,6 +181,7 @@
 		"DECAY IS A CONTINUATION OF LIFE!",
 		"MY AFFLICTION IS MY TESTAMENT!",
 	)
+	storyteller = /datum/storyteller/pestra
 
 /datum/patron/divine/malum
 	name = "Malum"
@@ -176,6 +201,7 @@
 		"TRUE VALUE IS IN THE TOIL!",
 		"I AM AN INSTRUMENT OF CREATION!",
 	)
+	storyteller = /datum/storyteller/malum
 
 /datum/patron/divine/eora
 	name = "Eora"
@@ -195,3 +221,4 @@
 		"HER BEAUTY IS EVEN IN THIS TORMENT!",
 		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
 	)
+	storyteller = /datum/storyteller/eora

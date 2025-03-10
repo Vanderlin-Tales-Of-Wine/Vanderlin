@@ -101,7 +101,6 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND, PROC_REF(on_attack_hand))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_PAW, PROC_REF(on_attack_hand))
-	RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(emp_act))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_GHOST, PROC_REF(show_to_ghost))
 	RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(refresh_mob_views))
 	RegisterSignal(parent, COMSIG_ATOM_EXITED, PROC_REF(_remove_and_refresh))
@@ -228,7 +227,7 @@
 //			if (TICK_CHECK)
 //				progress.update(progress.goal - things.len)
 //				return TRUE
-//	qdel(progress)
+//	progress.end_progress()
 //	to_chat(M, "<span class='notice'>I put everything I could [insert_preposition] [parent].</span>")
 
 /datum/component/storage/proc/handle_mass_item_insertion(list/things, datum/component/storage/src_object, mob/user, datum/progressbar/progress)
@@ -291,17 +290,17 @@
 //	var/datum/progressbar/progress = new(M, length(things), T)
 //	while (do_after(M, dump_time, TRUE, T, FALSE, CALLBACK(src, PROC_REF(mass_remove_from_storage), T, things, progress)))
 //		stoplag(1)
-//	qdel(progress)
+//	progress.end_progress()
 	var/turf/T = get_step(user, user.dir)
+	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Try to drop on user turf instead
+		T = get_turf(user)
+		if(istype(T, /turf/closed))
+			to_chat(user, span_warning("Something in the way."))
+			return
 	for(var/obj/structure/S in T) // Is there a structure in the way that isn't a chest, table, rack, or handcart? Can't dump the sack out on that
 		if(S.density && !istype(S, /obj/structure/table) && !istype(S, /obj/structure/closet/crate) && !istype(S, /obj/structure/rack) && !istype(S, /obj/structure/bars) && !istype(S, /obj/structure/handcart))
 			to_chat(user, "<span class='warning'>Something in the way.</span>")
 			return
-
-	if(istype(T, /turf/closed)) // Is there an impassible turf in the way? Don't dump the sack out on that
-		to_chat(user, "<span class='warning'>Something in the way.</span>")
-		return
-
 	for(var/obj/item/I in things) // If the above aren't true, dump the sack onto the tile in front of us
 		things -= I
 //		if(I.loc != real_location)
@@ -452,12 +451,6 @@
 		close(M)
 		. = TRUE //returns TRUE if any mobs actually got a close(M) call
 
-/datum/component/storage/proc/emp_act(datum/source, severity)
-	if(emp_shielded)
-		return
-	var/datum/component/storage/concrete/master = master()
-	master.emp_act(source, severity)
-
 //This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
 //The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
 /datum/component/storage/proc/orient_objs(tx, ty, mx, my)
@@ -534,7 +527,7 @@
 //This proc is called when you want to place an item into the storage item.
 /datum/component/storage/proc/attackby(datum/source, obj/item/I, mob/M, params)
 	if(isitem(parent))
-		if(istype(I, /obj/item/rogueweapon/hammer))
+		if(istype(I, /obj/item/weapon/hammer))
 			var/obj/item/storage/this_item = parent
 			//Vrell - since hammering is instant, i gotta find another option than the double click thing that needle has for a bypass.
 			//Thankfully, IIRC, no hammerable containers can hold a hammer, so not an issue ATM. For that same reason, this here is largely semi future-proofing.

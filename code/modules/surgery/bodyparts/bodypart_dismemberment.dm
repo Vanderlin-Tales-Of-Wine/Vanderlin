@@ -20,6 +20,10 @@
 	)
 
 //Dismember a limb
+/obj/item/bodypart/head/dismember(dam_type, bclass, mob/living/user, zone_precise)
+	. = ..()
+	add_abstract_elastic_data("combat", "decapitations", 1)
+
 /obj/item/bodypart/proc/dismember(dam_type = BRUTE, bclass = BCLASS_CUT, mob/living/user, zone_precise = src.body_zone)
 	if(!owner)
 		return FALSE
@@ -48,11 +52,14 @@
 	src.add_mob_blood(C)
 	SEND_SIGNAL(C, COMSIG_ADD_MOOD_EVENT, "dismembered", /datum/mood_event/dismembered)
 	C.add_stress(/datum/stressevent/dismembered)
-	var/stress2give = /datum/stressevent/viewdismember
+	var/stress2give
+	if(!skeletonized && C.dna?.species) //we need a skeleton species for skeleton npcs
+		if(C.dna.species.id != "goblin" && C.dna.species.id != "rousman") //convert this into a define list later
+			stress2give = /datum/stressevent/viewdismember
 	if(C)
 		if(C.buckled)
-			if(istype(C.buckled, /obj/structure/fluff/psycross))
-				if(C.real_name in GLOB.excommunicated_players)
+			if(istype(C.buckled, /obj/structure/fluff/psycross) || istype(C.buckled, /obj/machinery/light/fueled/campfire/pyre))
+				if((C.real_name in GLOB.excommunicated_players) || (C.real_name in GLOB.heretical_players))
 					stress2give = /datum/stressevent/viewsinpunish
 	if(stress2give)
 		for(var/mob/living/carbon/CA in hearers(world.view, C))
@@ -271,6 +278,7 @@
 			C.legcuffed.forceMove(C.drop_location()) //At this point bodypart is still in nullspace
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
@@ -285,6 +293,7 @@
 			C.legcuffed.forceMove(C.drop_location())
 			C.legcuffed.dropped(C)
 			C.legcuffed = null
+			C.remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			C.update_inv_legcuffed()
 		if(C.shoes && (C.get_num_legs(FALSE) < 1))
 			C.dropItemToGround(C.shoes, force = TRUE)
@@ -296,7 +305,6 @@
 		//Drop all worn head items
 		var/list/worn_items = list(
 			owner.get_item_by_slot(SLOT_HEAD),
-			owner.get_item_by_slot(SLOT_GLASSES),
 			owner.get_item_by_slot(SLOT_NECK),
 			owner.get_item_by_slot(SLOT_WEAR_MASK),
 			owner.get_item_by_slot(SLOT_MOUTH),

@@ -1,0 +1,855 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aY" = (
+/mob/living/simple_animal/hostile/retaliate/chicken,
+/turf/open/floor/grass,
+/area/rogue)
+"bf" = (
+/obj/structure/rack/shelf,
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup{
+	pixel_y = 14;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/cup{
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/cup{
+	pixel_x = 7;
+	pixel_y = 13
+	},
+/obj/item/weapon/hoe/copper{
+	pixel_y = -1
+	},
+/obj/item/weapon/shovel{
+	pixel_y = -5
+	},
+/turf/open/floor/wood,
+/area/rogue)
+"ct" = (
+/obj/structure/vertical_gearbox{
+	dir = 4
+	},
+/turf/open/floor/blocks,
+/area/rogue)
+"cI" = (
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue)
+"cW" = (
+/turf/open/floor/wood,
+/area/rogue)
+"dc" = (
+/obj/structure/ladder,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/wood,
+/area/rogue)
+"gg" = (
+/turf/closed/wall/mineral/wood,
+/area/rogue)
+"gK" = (
+/obj/structure/rotation_piece,
+/obj/structure/window/openclose,
+/turf/open/floor/blocks,
+/area/rogue)
+"hf" = (
+/obj/structure/mineral_door,
+/turf/open/floor/blocks,
+/area/rogue)
+"hG" = (
+/obj/structure/fluff/millstone,
+/obj/structure/table/wood/plain,
+/obj/item/storage/sack{
+	pixel_x = -10;
+	pixel_y = 19
+	},
+/turf/open/floor/blocks,
+/area/rogue)
+"io" = (
+/turf/open/transparent/openspace,
+/area/rogue)
+"jn" = (
+/obj/machinery/light/fueled/hearth,
+/obj/item/reagent_containers/glass/bucket/pot/copper,
+/turf/open/floor/blocks,
+/area/rogue)
+"jo" = (
+/obj/structure/soil,
+/turf/open/floor/dirt,
+/area/rogue)
+"jU" = (
+/obj/effect/waterfall,
+/turf/open/water/river,
+/area/rogue)
+"kh" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/dirt,
+/area/rogue)
+"lq" = (
+/obj/structure/fluff/railing/wood,
+/obj/structure/soil,
+/turf/open/floor/dirt,
+/area/rogue)
+"mB" = (
+/obj/structure/window/openclose{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/rogue)
+"nu" = (
+/obj/structure/ladder,
+/turf/open/floor/blocks,
+/area/rogue)
+"nI" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/wheat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/oat,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/apple,
+/obj/item/neuFarm/seed/onion,
+/obj/item/neuFarm/seed/potato,
+/obj/item/neuFarm/seed/cabbage,
+/obj/item/neuFarm/seed/westleach,
+/obj/item/neuFarm/seed/westleach,
+/obj/item/neuFarm/seed/westleach,
+/obj/structure/fluff/railing/wood{
+	dir = 8;
+	pixel_y = -1
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 1;
+	pixel_y = -1
+	},
+/turf/open/floor/grass,
+/area/rogue)
+"oa" = (
+/obj/structure/table/wood/nice,
+/obj/item/candle/yellow/lit/infinite{
+	pixel_y = 9;
+	pixel_x = -8
+	},
+/obj/item/natural/clay,
+/obj/item/natural/clay{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/natural/clay{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/obj/item/natural/clay{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/turf/open/floor/wood,
+/area/rogue)
+"oi" = (
+/obj/structure/bed/mediocre,
+/obj/item/bedsheet/pelt,
+/turf/open/floor/carpet,
+/area/rogue)
+"oS" = (
+/turf/open/floor/cobble/mossy,
+/area/rogue)
+"qk" = (
+/obj/item/reagent_containers/glass/bucket/wooden{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/glass/carafe{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/turf/closed/wall/mineral/wood,
+/area/rogue)
+"qt" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/wood,
+/area/rogue)
+"rr" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/rogue)
+"ru" = (
+/turf/open/floor/blocks,
+/area/rogue)
+"rP" = (
+/turf/open/floor/grass,
+/area/rogue)
+"tk" = (
+/obj/structure/window/openclose{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/rogue)
+"tH" = (
+/obj/structure/rotation_piece,
+/turf/open/floor/grass,
+/area/rogue)
+"tQ" = (
+/obj/machinery/light/fueled/torchholder/r,
+/obj/structure/closet/crate/chest/wicker,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/wheat,
+/obj/item/natural/chaff/oat,
+/obj/item/natural/chaff/oat,
+/turf/open/floor/blocks,
+/area/rogue)
+"uV" = (
+/obj/structure/rack/shelf,
+/obj/structure/bookcase/random_recipes,
+/turf/open/floor/wood,
+/area/rogue)
+"wM" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble,
+/area/rogue)
+"xr" = (
+/obj/structure/table/wood/plain,
+/obj/item/cooking/skewer{
+	pixel_y = -7
+	},
+/obj/item/cooking/skewer{
+	pixel_y = -3
+	},
+/obj/item/reagent_containers/glass/bowl/iron{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bowl/iron{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 11;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/kitchen/spoon/iron{
+	pixel_x = 4
+	},
+/obj/item/kitchen/spoon/iron{
+	pixel_x = 13;
+	pixel_y = -4
+	},
+/turf/open/floor/blocks,
+/area/rogue)
+"zH" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue)
+"AV" = (
+/turf/open/floor/cobble,
+/area/rogue)
+"BR" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
+"Ct" = (
+/obj/structure/fluff/railing/wood{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/rogue)
+"Dv" = (
+/obj/structure/table/wood/plain,
+/obj/item/cooking/pan,
+/turf/open/floor/blocks,
+/area/rogue)
+"GX" = (
+/obj/structure/pottery_lathe,
+/turf/open/floor/wood,
+/area/rogue)
+"Ht" = (
+/obj/machinery/light/fueled/torchholder/c,
+/obj/item/bin/water,
+/turf/open/floor/grass,
+/area/rogue)
+"Io" = (
+/obj/structure/irrigation_channel,
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/dirt,
+/area/rogue)
+"Jq" = (
+/obj/structure/fluff/railing/wood,
+/turf/open/floor/dirt,
+/area/rogue)
+"Kd" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8;
+	pixel_y = -1
+	},
+/turf/open/floor/grass,
+/area/rogue)
+"Ml" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/blocks,
+/area/rogue)
+"NP" = (
+/turf/open/water/river,
+/area/rogue)
+"Qj" = (
+/turf/open/floor/dirt,
+/area/rogue)
+"Sx" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue)
+"SO" = (
+/turf/open/floor/carpet,
+/area/rogue)
+"TP" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/dirt,
+/area/rogue)
+"TX" = (
+/obj/structure/gearbox,
+/turf/open/floor/blocks,
+/area/rogue)
+"Vw" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobble/mossy,
+/area/rogue)
+"XH" = (
+/obj/structure/vertical_gearbox,
+/turf/open/floor/wood,
+/area/rogue)
+"Yn" = (
+/obj/structure/irrigation_channel,
+/turf/open/floor/dirt,
+/area/rogue)
+"Zo" = (
+/obj/structure/waterwheel,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue)
+
+(1,1,1) = {"
+BR
+BR
+BR
+BR
+Qj
+Vw
+AV
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+"}
+(2,1,1) = {"
+BR
+jU
+Sx
+rP
+Qj
+oS
+oS
+AV
+Qj
+rP
+Ct
+aY
+rP
+Qj
+BR
+"}
+(3,1,1) = {"
+BR
+Qj
+Sx
+Sx
+rP
+AV
+Qj
+oS
+Qj
+rP
+kh
+rP
+Qj
+aY
+BR
+"}
+(4,1,1) = {"
+BR
+rP
+Sx
+Sx
+rP
+rP
+rP
+oS
+AV
+Qj
+kh
+aY
+rP
+Qj
+BR
+"}
+(5,1,1) = {"
+BR
+Qj
+Sx
+Sx
+zH
+zH
+zH
+zH
+oS
+Qj
+Kd
+Kd
+Kd
+Kd
+BR
+"}
+(6,1,1) = {"
+BR
+Sx
+cI
+zH
+nu
+Ml
+xr
+Dv
+zH
+oS
+AV
+Qj
+Qj
+AV
+BR
+"}
+(7,1,1) = {"
+BR
+Sx
+rP
+zH
+ct
+ru
+ru
+ru
+hf
+oS
+oS
+AV
+AV
+oS
+Qj
+"}
+(8,1,1) = {"
+BR
+Zo
+tH
+gK
+TX
+ru
+ru
+ru
+zH
+Ht
+rP
+AV
+oS
+Qj
+wM
+"}
+(9,1,1) = {"
+BR
+NP
+Sx
+zH
+TX
+hG
+tQ
+jn
+zH
+rP
+rP
+AV
+oS
+oS
+Qj
+"}
+(10,1,1) = {"
+BR
+Qj
+Sx
+Sx
+zH
+zH
+zH
+zH
+Jq
+oS
+rP
+oS
+oS
+Qj
+BR
+"}
+(11,1,1) = {"
+BR
+Qj
+Sx
+Sx
+jo
+jo
+jo
+jo
+jo
+rP
+rP
+rP
+AV
+oS
+BR
+"}
+(12,1,1) = {"
+BR
+rP
+Sx
+Sx
+Yn
+Yn
+Yn
+Yn
+Io
+rP
+Qj
+Qj
+rP
+Qj
+BR
+"}
+(13,1,1) = {"
+BR
+Qj
+NP
+Sx
+Sx
+jo
+jo
+jo
+lq
+rP
+AV
+oS
+oS
+oS
+BR
+"}
+(14,1,1) = {"
+BR
+rP
+Qj
+Sx
+Sx
+jo
+jo
+jo
+nI
+oS
+AV
+Qj
+AV
+rP
+BR
+"}
+(15,1,1) = {"
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+oS
+TP
+Qj
+BR
+BR
+BR
+"}
+
+(1,1,2) = {"
+BR
+BR
+BR
+BR
+io
+io
+io
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+"}
+(2,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(3,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(4,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(5,1,2) = {"
+BR
+io
+io
+io
+gg
+mB
+mB
+gg
+io
+io
+io
+io
+io
+io
+BR
+"}
+(6,1,2) = {"
+BR
+io
+io
+gg
+dc
+cW
+cW
+oa
+gg
+io
+io
+io
+io
+io
+BR
+"}
+(7,1,2) = {"
+BR
+io
+io
+gg
+XH
+qt
+qt
+GX
+rr
+io
+io
+io
+io
+io
+io
+"}
+(8,1,2) = {"
+BR
+io
+io
+qk
+uV
+cW
+SO
+SO
+rr
+io
+io
+io
+io
+io
+io
+"}
+(9,1,2) = {"
+BR
+io
+io
+gg
+bf
+cW
+SO
+oi
+gg
+io
+io
+io
+io
+io
+io
+"}
+(10,1,2) = {"
+BR
+io
+io
+io
+gg
+tk
+tk
+gg
+io
+io
+io
+io
+io
+io
+BR
+"}
+(11,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(12,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(13,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(14,1,2) = {"
+BR
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+BR
+"}
+(15,1,2) = {"
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+BR
+io
+io
+io
+BR
+BR
+BR
+"}

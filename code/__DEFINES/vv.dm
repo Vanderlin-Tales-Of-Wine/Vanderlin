@@ -1,6 +1,7 @@
 #define VV_NUM "Number"
 #define VV_TEXT "Text"
 #define VV_MESSAGE "Mutiline Text"
+#define VV_COLOR "Color"
 #define VV_ICON "Icon"
 #define VV_ATOM_REFERENCE "Atom Reference"
 #define VV_DATUM_REFERENCE "Datum Reference"
@@ -97,6 +98,7 @@
 #define VV_HK_REGEN_ICONS "regen_icons"
 #define VV_HK_PLAYER_PANEL "player_panel"
 #define VV_HK_DIRECT_CONTROL "direct_control"
+#define VV_HK_GIVE_CONTROL_TO_PLAYER "Give Control To Player"
 #define VV_HK_OFFER_GHOSTS "offer_ghosts"
 
 // /mob/living/carbon

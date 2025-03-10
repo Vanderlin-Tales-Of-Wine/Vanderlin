@@ -34,6 +34,15 @@
 		action = new base_action(src)
 	update_icon()
 
+/obj/effect/proc_holder/spell/update_icon()
+	if(!action)
+		return
+	action.button_icon_state = "[base_icon_state][active]"
+	if(overlay_state)
+		action.overlay_state = overlay_state
+	action.name = name
+	action.UpdateButtonIcon()
+
 /obj/effect/proc_holder/proc/deactivate(mob/living/user)
 	if(active)
 		active = FALSE
@@ -274,7 +283,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 		if(miracle)
 			var/datum/devotion/cleric_holder/D = H.cleric
-			if(!D.check_devotion(devotion_cost))
+			if(!D?.check_devotion(devotion_cost))
 				to_chat(H, "<span class='warning'>I don't have enough devotion!</span>")
 				return FALSE
 	else
@@ -600,8 +609,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/proc/los_check(mob/A,mob/B)
 	//Checks for obstacles from A to B
-	var/obj/dummy = new(A.loc)
+	var/obj/effect/dummy = new(A.loc)
 	dummy.pass_flags |= PASSTABLE
+	dummy.movement_type = FLYING
+	dummy.invisibility = INVISIBILITY_ABSTRACT
 	for(var/turf/turf in getline(A,B))
 		for(var/atom/movable/AM in turf)
 			if(!AM.CanPass(dummy,turf,1))

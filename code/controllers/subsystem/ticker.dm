@@ -6,7 +6,9 @@
 		player.ready = PLAYER_READY_TO_PLAY
 
 	SSticker.start_immediately = TRUE
+	sleep(1 SECONDS)
 	SSticker.fire()
+
 GLOBAL_VAR_INIT(round_timer, INITIAL_ROUND_TIMER)
 
 SUBSYSTEM_DEF(ticker)
@@ -23,9 +25,6 @@ SUBSYSTEM_DEF(ticker)
 	// If true, there is no lobby phase, the game starts immediately.
 	var/start_immediately = FALSE
 	var/setup_done = FALSE //All game setup done including mode post setup and
-
-	var/hide_mode = 0
-	var/datum/game_mode/mode = null
 
 	var/login_music							//music played in pregame lobby
 	var/round_end_sound						//music/jingle played when the world reboots
@@ -100,6 +99,9 @@ SUBSYSTEM_DEF(ticker)
 	var/reboot_anyway
 	var/round_end = FALSE
 
+	var/next_lord_check = 0
+	var/missing_lord_time = 0
+
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	load_mode()
 
@@ -158,7 +160,7 @@ SUBSYSTEM_DEF(ticker)
 	else
 		login_music = "[global.config.directory]/title_music/sounds/[pick(music)]"
 
-	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg')
+	login_music = pick('sound/music/title.ogg','sound/music/title2.ogg','sound/music/title3.ogg')
 
 	start_at = world.time + (CONFIG_GET(number/lobby_countdown) * 10)
 	if(CONFIG_GET(flag/randomize_shift_time))
@@ -227,11 +229,11 @@ SUBSYSTEM_DEF(ticker)
 				Master.SetRunLevel(RUNLEVEL_LOBBY)
 
 		if(GAME_STATE_PLAYING)
-			mode.process(wait * 0.1)
 			check_queue()
 			check_maprotate()
 
-			if(!roundend_check_paused && mode.check_finished(force_ending) || force_ending)
+			check_for_lord()
+			if(!roundend_check_paused && SSgamemode.check_finished(force_ending) || force_ending)
 				current_state = GAME_STATE_FINISHED
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
@@ -272,7 +274,7 @@ SUBSYSTEM_DEF(ticker)
 							continue
 					readied_jobs.Add(V)
 
-	if(("Monarch" in readied_jobs))
+	if(("Monarch" in readied_jobs) || start_immediately == TRUE) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 		rulertype = "Monarch"
 	else
 		var/list/stuffy = list("Set a Ruler to 'high' in your class preferences to start the game!", "PLAY Ruler NOW!", "A Ruler is required to start.", "Pray for a Ruler.", "One day, there will be a Ruler.", "Just try playing Ruler.", "If you don't play Ruler, the game will never start.", "We need at least one Ruler to start the game.", "We're waiting for you to pick Ruler to start.", "Still no Ruler is readied..", "I'm going to lose my mind if we don't get a Ruler readied up.","No. The game will not start because there is no Ruler.","What's the point of Vanderlin without a Ruler?")
@@ -298,94 +300,26 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/setup()
 	message_admins("<span class='boldannounce'>Starting game...</span>")
 	var/init_start = world.timeofday
-		//Create and announce mode
-	var/list/datum/game_mode/runnable_modes
-	if(GLOB.master_mode == "random" || GLOB.master_mode == "secret")
-		runnable_modes = config.get_runnable_modes()
-
-		if(GLOB.master_mode == "secret")
-			hide_mode = 1
-			if(GLOB.secret_force_mode != "secret")
-				var/datum/game_mode/smode = config.pick_mode(GLOB.secret_force_mode)
-				if(!smode.can_start())
-					message_admins("<span class='notice'>Unable to force secret [GLOB.secret_force_mode]. [smode.required_players] players and [smode.required_enemies] eligible antagonists needed.</span>")
-				else
-					mode = smode
-
-		if(!mode)
-			if(!runnable_modes.len)
-				message_admins("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
-				return 0
-			mode = pickweight(runnable_modes)
-			if(!mode)	//too few roundtypes all run too recently
-				mode = pick(runnable_modes)
-
-	else
-		mode = config.pick_mode(GLOB.master_mode)
-		if(!mode.can_start())
-			message_admins("<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players and [mode.required_enemies] eligible antagonists needed. Reverting to pre-game lobby.")
-			qdel(mode)
-			mode = null
-			SSjob.ResetOccupations()
-			return 0
-
-//	if(failedstarts >= 13)
-//		qdel(mode)
-//		mode = new /datum/game_mode/roguewar
-//		if(istype(C, /datum/game_mode/chaosmode))
-//			if(isrogueworld)
-//				C.allmig = TRUE
-//		else
-//
-//			else
-//				C.roguefight = TRUE
-//				isroguefight = TRUE
-
-#ifdef ROGUEWORLD
-	if(mode)
-		if(istype(mode, /datum/game_mode/chaosmode))
-			var/datum/game_mode/chaosmode/C = mode
-			isrogueworld = TRUE
-			C.allmig = TRUE
-#endif
 
 	CHECK_TICK
 	//Configure mode and assign player to special mode stuff
 	var/can_continue = 0
-	can_continue = src.mode.pre_setup()		//Choose antagonists
-	CHECK_TICK
-
-//	if(istype(mode, /datum/game_mode/roguewar))
-//		unready_all()
 
 	CHECK_TICK
 
-	can_continue = can_continue && SSjob.DivideOccupations(mode.required_jobs) 				//Distribute jobs
+	can_continue =	SSgamemode.pre_setup()
+
 	CHECK_TICK
 
-	src.mode.after_DO()
+	can_continue = can_continue && SSjob.DivideOccupations(list()) 				//Distribute jobs
+	CHECK_TICK
 
-	if(!GLOB.Debug2)
-		if(!can_continue)
-			log_game("[mode.name] failed pre_setup, cause: [mode.setup_error]")
-			QDEL_NULL(mode)
-			message_admins("<B>Error setting up [GLOB.master_mode].</B> Reverting to pre-game lobby.")
-			SSjob.ResetOccupations()
-			return 0
-	else
-		message_admins("<span class='notice'>DEBUG: Bypassing prestart checks...</span>")
+
 
 	log_game("GAME SETUP: Divide Occupations success")
 
 	CHECK_TICK
-//	if(hide_mode)
-//		var/list/modes = new
-//		for (var/datum/game_mode/M in runnable_modes)
-//			modes += M.name
-//		modes = sortList(modes)
-//		message_admins("<b>The gamemode is: secret!\nPossibilities:</B> [english_list(modes)]")
-//	else
-//		mode.announce()
+
 
 	if(!CONFIG_GET(flag/ooc_during_round))
 		toggle_ooc(FALSE) // Turn it off
@@ -463,11 +397,10 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
-	mode.post_setup()
 
-	var/list/adm = get_admin_counts()
-	var/list/allmins = adm["present"]
-	send2irc("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] [hide_mode ? "secret":"[mode.name]"] has started[allmins.len ? ".":" with no active admins online!"]")
+	SSgamemode.current_storyteller?.process(STORYTELLER_WAIT_TIME * 0.1) // we want this asap
+	SSgamemode.current_storyteller?.round_started = TRUE
+
 	setup_done = TRUE
 
 	job_change_locked = FALSE
@@ -641,8 +574,6 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
 	force_ending = SSticker.force_ending
-	hide_mode = SSticker.hide_mode
-	mode = SSticker.mode
 
 	login_music = SSticker.login_music
 	round_end_sound = SSticker.round_end_sound
