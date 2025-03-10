@@ -4,7 +4,7 @@
 
 /datum/pottery_recipe/platter
 	name = "Clay Platter"
-	created_item = /obj/item/kitchen/platter/clay
+	created_item = /obj/item/plate/clay
 
 /datum/pottery_recipe/cup
 	name = "Clay Cup"

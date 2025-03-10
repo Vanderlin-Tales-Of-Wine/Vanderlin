@@ -103,37 +103,37 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "fg" = (
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -10
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -9
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -8
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -7
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -6
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -5
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -4
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -3
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -2
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = -1
 	},
-/obj/item/kitchen/platter,
+/obj/item/plate,
 /turf/open/floor/tile/checker,
 /area/rogue/under/cave)
 "fl" = (
