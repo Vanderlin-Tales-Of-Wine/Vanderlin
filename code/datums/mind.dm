@@ -93,6 +93,8 @@
 	var/damnation_type = 0
 	/// who owns the soul.  Under normal circumstances, this will point to src
 	var/datum/mind/soulOwner
+	/// If false, renders the character unable to sell their soul.
+	var/hasSoul = TRUE
 	/// is this person a chaplain or admin role allowed to use bibles
 	var/isholy = FALSE
 	/// If this mind's master is another mob (i.e. adamantine golems)
