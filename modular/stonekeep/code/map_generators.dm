@@ -267,3 +267,49 @@
 	spawnableAtoms = list(/obj/effect/landmark/ambush=100)
 	allowed_areas = list(/area/rogue/outdoors/rtfield/outlaw)
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
+
+
+/*	..................  Mount Decapitation Mapgen  ................... */
+/obj/effect/landmark/mapGenerator/stonemountain
+	mapGeneratorType = /datum/mapGenerator/stonemountain
+	endTurfX = 250
+	endTurfY = 250
+	startTurfX = 1
+	startTurfY = 1
+
+/datum/mapGenerator/stonemountain
+	modules = list(/datum/mapGeneratorModule/ambushing/stonemountain,/datum/mapGeneratorModule/snowpatchy,/datum/mapGeneratorModule/snowfull)
+
+/datum/mapGeneratorModule/snowpatchy
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
+	allowed_turfs = list(/turf/open/floor/snow/patchy)
+	spawnableAtoms = list(
+							/obj/structure/flora/grass/bush_meagre = 6,
+							/obj/structure/flora/grass/thorn_bush = 2,
+							/obj/structure/flora/grass/herb/salvia = 10,
+							/obj/item/natural/stone = 4,
+							/obj/item/natural/rock = 3,
+							/obj/structure/flora/grass/pyroclasticflowers = 10,
+							)
+	spawnableTurfs = list(/turf/open/floor/snow = 2)
+	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
+
+/datum/mapGeneratorModule/snowfull
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
+	allowed_turfs = list(/turf/open/floor/snow)
+	spawnableAtoms = list(
+							/obj/structure/flora/grass/bush_meagre = 6,
+							/obj/structure/flora/grass/thorn_bush = 2,
+							/obj/structure/flora/grass/herb/salvia = 10,
+							/obj/item/natural/rock = 3,
+							/obj/structure/flora/grass/pyroclasticflowers = 10,
+							)
+	spawnableTurfs = list(/turf/open/floor/snow = 2)
+	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
+	excluded_turfs = list(/turf/open/floor/snow/patchy)
+
+
+/datum/mapGeneratorModule/ambushing/stonemountain
+	spawnableAtoms = list(/obj/effect/landmark/ambush=100)
+	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
+	allowed_turfs = list(/turf/open/floor/snow)

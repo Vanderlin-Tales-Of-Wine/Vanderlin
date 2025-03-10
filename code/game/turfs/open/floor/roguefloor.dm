@@ -983,8 +983,8 @@
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough)
 
-/turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
+//turf/open/floor/cobblerock/cardinal_smooth(adjacencies)	// STONEKEEP EDIT
+//	smooth(adjacencies)
 
 /obj/effect/decal/cobbleedge
 	name = ""

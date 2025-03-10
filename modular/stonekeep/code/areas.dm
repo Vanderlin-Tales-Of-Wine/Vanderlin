@@ -61,7 +61,7 @@
 	name = "mt decapitation"
 	icon_state = "decap"
 	ambush_types = list(
-				/turf/open/floor/dirt)
+				/turf/open/floor/snow)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/troll = 15,
 				/mob/living/carbon/human/species/skeleton/skilled/unarmed = 25,

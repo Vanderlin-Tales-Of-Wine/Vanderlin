@@ -419,12 +419,13 @@
 // =========================	WALL DECORATIONS	============================
 
 /obj/structure/fluff/walldeco/fakeshelf
-	name = "shelf"
+	name = ""
 	desc = ""
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "shelf"
 	pixel_y = 28
 	layer = ABOVE_NORMAL_TURF_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/fluff/walldeco/wallchains
 	name = "chains"

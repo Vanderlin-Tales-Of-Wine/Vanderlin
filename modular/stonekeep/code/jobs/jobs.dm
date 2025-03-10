@@ -180,6 +180,9 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	return FALSE
 /datum/job/minor_noble/config_check()
 	return FALSE
+
+/datum/job/roguetown/servant/config_check()
+	return FALSE
 	/*
 /datum/advclass/pilgrim/bard
 	maximum_possible_slots = 0
@@ -236,7 +239,5 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 /datum/advclass/sk_carpenter
 	maximum_possible_slots = 0
 */
-/datum/job/roguetown/servant
-	total_positions = 0
-	spawn_positions = 0
+
 
