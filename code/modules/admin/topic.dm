@@ -1089,6 +1089,12 @@
 		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
 		var/client/mob_client = M.client
 		check_pq_menu(mob_client.key)
+	else if(href_list["showtriumphs"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
+		var/client/mob_client = M.client
+		check_triumphs_menu(mob_client.ckey)
 
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))
