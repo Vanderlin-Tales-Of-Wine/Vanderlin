@@ -194,7 +194,7 @@
 /datum/stressevent/foreigner
 	timer = 30 SECONDS
 	stressadd = 1
-	desc = "span class='red>A foreigner... what do they want?</span>"
+	desc ="<span class='red'>A foreigner... what do they want?</span>"
 
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS
