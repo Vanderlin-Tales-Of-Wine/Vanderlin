@@ -260,7 +260,7 @@
 	belt = /obj/item/storage/belt/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
-	is_foreigner = TRUE // you will never be one of us
+	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC) // you will never be one of us
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

@@ -48,13 +48,11 @@
 			used_name = real_name
 		var/used_title = get_role_title()
 		var/is_returning = FALSE
-		if(job)
-			var/datum/job/J = SSjob.GetJob(job)
-			if(islatejoin)
-				is_returning = TRUE
+		if(islatejoin)
+			is_returning = TRUE
 		if(mind?.apprentice)
 			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, [used_title].")
-		else if(used_title)
+		else if(used_title && !HAS_TRAIT(src, TRAIT_FOREIGNER))
 			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
 		else
 			. = list("<span class='info'>ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name].")
