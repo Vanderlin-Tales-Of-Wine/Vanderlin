@@ -46,6 +46,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel

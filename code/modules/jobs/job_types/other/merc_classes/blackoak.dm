@@ -36,6 +36,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 		H.merctype = 4
 

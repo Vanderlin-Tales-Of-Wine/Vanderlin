@@ -24,6 +24,7 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/trou/leather
 	shirt = /obj/item/clothing/armor/gambeson

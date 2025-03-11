@@ -92,6 +92,8 @@
 	var/intelligence = user.mind?.current.STAINT
 	if(intelligence < 9)
 		mathematics_skill = max(mathematics_skill - 1, 0)
+	if(intelligence > 12)
+		mathematics_skill = mathematics_skill + 1
 	if(quantity > 1)
 		if(is_skilled)
 			. += span_info("Exactly [quantity] [denomination] ([exact_value] mammon)")

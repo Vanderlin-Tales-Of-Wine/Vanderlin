@@ -29,6 +29,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	head = /obj/item/clothing/head/hatblu
 	armor = /obj/item/clothing/armor/leather/vest
 	cloak = /obj/item/clothing/cloak/apron/waist/bar

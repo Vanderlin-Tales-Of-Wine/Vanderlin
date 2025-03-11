@@ -51,6 +51,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,1,1), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 		H.merctype = 1
 

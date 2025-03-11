@@ -29,6 +29,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_STR, 2) // Same stat spread as lancer/swordmaster, but no -1 speed at the cost of 1 point of endurance. A very powerful dwarf indeed
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_END, 1)

@@ -82,6 +82,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_END, 1)
@@ -142,6 +143,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE) // two handed weapons require a LOT of stamina.
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_END, 1)
@@ -198,6 +200,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE) // noble education
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -277,6 +280,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 3) // two handed weapons require a LOT of stamina.
 		H.change_stat(STATKEY_CON, 1)
@@ -351,6 +355,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_PER, 3) // you are OLD you have OLD EYES. this is to counter that debuff so you can be OBSERVANT. You sacrifice your strength and armor, so.
 		H.change_stat(STATKEY_INT, 2)
@@ -410,6 +415,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE) // very smart loadout
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 3) // you are int-maxxing, especially if you go old.

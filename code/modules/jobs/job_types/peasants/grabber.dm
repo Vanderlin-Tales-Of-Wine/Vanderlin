@@ -41,6 +41,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/boots/leather

@@ -41,6 +41,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 4, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 
 	head = pick(/obj/item/clothing/head/hatfur, /obj/item/clothing/head/hatblu, /obj/item/clothing/head/brimmed)
 	neck = /obj/item/clothing/neck/coif

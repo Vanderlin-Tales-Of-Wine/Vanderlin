@@ -26,6 +26,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_STR, 2) // Same stat spread as lancer/swordmaster, but gets a small bonus to speed instead of a malus, at the cost of getting no constitution bonus
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, 1)

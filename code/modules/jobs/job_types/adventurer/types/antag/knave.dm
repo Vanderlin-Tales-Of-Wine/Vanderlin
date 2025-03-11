@@ -28,6 +28,7 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 	//H.mind.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/trou/leather

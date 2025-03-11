@@ -55,6 +55,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, pick(1,2,3,4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, pick(1,2,3,4,5,6), TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery) // Mock people to your heart's content!
 		H.change_stat(STATKEY_INT, rand(1, 20), TRUE)
 		H.change_stat(STATKEY_LCK, rand(1, 20), TRUE)

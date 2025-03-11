@@ -57,6 +57,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)

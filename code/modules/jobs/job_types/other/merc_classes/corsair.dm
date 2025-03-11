@@ -37,6 +37,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 	shirt = pick(/obj/item/clothing/shirt/undershirt/sailor, /obj/item/clothing/shirt/undershirt/sailor/red)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

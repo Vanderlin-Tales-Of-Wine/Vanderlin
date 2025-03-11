@@ -36,6 +36,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 6, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/random
 	shirt = /obj/item/clothing/shirt/shortshirt/random

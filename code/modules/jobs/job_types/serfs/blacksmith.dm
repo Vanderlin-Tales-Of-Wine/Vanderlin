@@ -35,6 +35,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)
@@ -99,6 +100,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 2, TRUE) // For craftable beartraps
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, pick(1,2), TRUE)

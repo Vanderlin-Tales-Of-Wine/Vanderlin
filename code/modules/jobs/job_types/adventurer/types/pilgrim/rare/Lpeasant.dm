@@ -40,6 +40,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/undershirt/random

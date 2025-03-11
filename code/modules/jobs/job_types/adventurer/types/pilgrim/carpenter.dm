@@ -33,6 +33,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(3,3,4), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 	head = pick(/obj/item/clothing/head/hatfur, /obj/item/clothing/head/hatblu, /obj/item/clothing/head/brimmed)
 	neck = /obj/item/clothing/neck/coif

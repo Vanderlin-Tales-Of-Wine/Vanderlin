@@ -42,6 +42,7 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		if(H.age == AGE_OLD) // So that the role isn't roadkill
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)

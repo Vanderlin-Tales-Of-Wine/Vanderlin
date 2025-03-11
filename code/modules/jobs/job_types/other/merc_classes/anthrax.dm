@@ -26,6 +26,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		H.verbs |= /mob/living/carbon/human/proc/torture_victim //Secret police training owing to their origins.

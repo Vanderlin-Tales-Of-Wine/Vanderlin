@@ -46,6 +46,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 2)

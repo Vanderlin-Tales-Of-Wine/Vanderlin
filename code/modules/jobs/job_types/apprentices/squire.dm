@@ -71,6 +71,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)  // For repairing your good Royal Guards equipment
 		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) // Still learning
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_CON, 1)
@@ -108,6 +109,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)  // For repairing your good Royal Guards equipment
 		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_CON, 1)
@@ -147,6 +149,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)  // For repairing your good Royal Guards equipment
 		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_INT, 1)

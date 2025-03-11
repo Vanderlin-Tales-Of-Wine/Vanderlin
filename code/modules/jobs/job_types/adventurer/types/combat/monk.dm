@@ -42,6 +42,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(2,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 		H.change_stat(STATKEY_STR, 3)
 		H.change_stat(STATKEY_CON, 2)

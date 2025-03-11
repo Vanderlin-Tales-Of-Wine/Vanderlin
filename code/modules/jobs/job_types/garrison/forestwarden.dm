@@ -62,6 +62,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) // peasant born noble
 		H.change_stat(STATKEY_STR, 3)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_INT, 3)
