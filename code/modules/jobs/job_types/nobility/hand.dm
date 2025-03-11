@@ -5,6 +5,9 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	spells = list(
+		/obj/effect/proc_holder/spell/self/grant_title,
+	)
 	allowed_races = list(
 		"Humen",
 		"Elf",
