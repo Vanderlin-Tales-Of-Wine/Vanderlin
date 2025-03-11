@@ -38,9 +38,9 @@
 	if(stress > STRESS_MAX)
 		stressbuffer = STRESS_MAX - stress
 		stress = STRESS_MAX
-	if(stress < 0)
+	if(stress < STRESS_MIN) // Minimum is -30
 		stressbuffer = stress
-		stress = 0
+		stress = STRESS_MIN
 
 /mob/living/carbon/update_stress()
 	if(HAS_TRAIT(src, TRAIT_NOMOOD))
@@ -64,7 +64,7 @@
 		else
 			to_chat(src, "<span class='green'>I gain peace.</span>")
 		switch(stress)
-			if(STRESS_VGOOD)
+			if(stress < STRESS_VGOOD+1) // if below 1 be happy
 				apply_status_effect(/datum/status_effect/stress/stressvgood)
 				remove_status_effect(/datum/status_effect/stress/stressbad)
 				remove_status_effect(/datum/status_effect/stress/stressvbad)

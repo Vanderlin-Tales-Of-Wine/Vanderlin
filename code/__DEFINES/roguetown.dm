@@ -87,6 +87,7 @@ GLOBAL_LIST_INIT(wolf_suffixes, list("Fang", "Claw", "Stalker", "Prowler", "Roar
 GLOBAL_LIST_EMPTY(job_respawn_delays)
 
 //stress levels
+#define STRESS_MIN -30
 #define STRESS_MAX 30
 #define STRESS_INSANE 7
 #define STRESS_VBAD 5
