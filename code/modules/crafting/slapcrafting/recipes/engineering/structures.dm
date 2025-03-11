@@ -88,3 +88,16 @@
 		)
 	result_type = /obj/structure/bars/passage
 	craftsound = 'sound/foley/Building-01.ogg'
+
+
+/datum/slapcraft_recipe/engineering/structure/distiller
+	name = "copper distiller"
+	steps = list(
+		/datum/slapcraft_step/item/copper,
+		/datum/slapcraft_step/item/copper/second,
+		/datum/slapcraft_step/use_item/engineering/hammer,
+		/datum/slapcraft_step/item/cog,
+		/datum/slapcraft_step/use_item/engineering/hammer/second,
+		)
+	result_type = /obj/structure/fermentation_keg/distiller
+	craftsound = 'sound/foley/Building-01.ogg'

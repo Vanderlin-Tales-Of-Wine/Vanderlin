@@ -1217,3 +1217,32 @@
 			return FALSE
 	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
 		return FALSE
+
+///Returns a list of all body_zones covered by clothing
+/mob/living/carbon/proc/get_covered_body_zones()
+	RETURN_TYPE(/list)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/covered_flags = NONE
+	var/list/all_worn_items = get_all_worn_items(src)
+	for(var/obj/item/worn_item in all_worn_items)
+		covered_flags |= worn_item.body_parts_covered
+
+	return body_parts_covered2organ_names(covered_flags)
+
+/mob/living/carbon/proc/try_skin_burn(reaction_volume)
+	var/list/covered_zones = get_covered_body_zones()
+
+	var/successful_burns = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.body_zone in covered_zones)
+			continue
+		if(bodypart.acid_damage_intensity >= 1)
+			continue
+		if(!prob(100 - (successful_burns * 35)))
+			continue
+
+		if(prob(reaction_volume * 10))
+			bodypart.acid_damage_intensity++
+
+	update_body_parts(TRUE)
