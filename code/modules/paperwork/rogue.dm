@@ -346,7 +346,7 @@
 
 /obj/item/paper/scroll/frumentarii
 	name = "Frumentarii scroll"
-	desc = "A list of the hand's fingers. Strike a candidate with this to allow them servitude."
+	desc = "A list of the hand's fingers. Strike a candidate with this to allow them servitude. Use a writing utensil to cross out a finger."
 	old_render = FALSE
 
 	var/list/real_names = list()
