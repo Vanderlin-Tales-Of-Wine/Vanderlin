@@ -118,7 +118,7 @@
 					user.visible_message(span_notice("You see [user] count the coins"), span_notice("You start counting the coins..."))
 					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 2 SECONDS))
 				else
-					user.visible_message(span_notice("You see [user] expertly guess the amount of coins!"), span_notice("You instantly count the coins"))
+					user.visible_message(span_notice("You see [user] swiftly tally the coins with practiced ease."), span_notice("You quickly count the coins with precision."))
 			// Calculate approximate value with compounding error
 			var/estimated_value = round((exact_value * (100 + value_error)) / 100)
 			estimated_value = CLAMP(estimated_value, 1, 200) // Keep within max stack size possible (20*10)
@@ -185,7 +185,7 @@
 
 /obj/item/coin/attack_hand(mob/user)
 	if(user.get_inactive_held_item() == src && quantity > 1)
-		var/intended = input(user, "How many [plural_name] to split?", null, round(quantity/2, 1)) as null|num
+		var/intended = input(user, "How many [plural_name] to split?", null, 1) as null|num
 		if(QDELETED(src) || !user.is_holding(src))
 			return
 		// Initial processing
