@@ -16,7 +16,9 @@
 	mind = null
 	. = ..()
 
-/datum/sleep_adv/proc/add_stress_cycle(add_amount)
+/datum/sleep_adv/proc/add_stress_cycle(add_amount, stressbuffer)
+	if (add_amount == 0)
+		add_amount = stressbuffer
 	add_amount = clamp(add_amount, -15, 15) // Only -15 to 15, clamping things like Ozmium
 	stress_amount += add_amount
 	stress_cycles++
