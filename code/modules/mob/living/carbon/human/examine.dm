@@ -28,6 +28,7 @@
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
 	var/m3 = "[t_He] [t_has]"
+	. = list()
 	if(user == src)
 		m1 = "I am"
 		m2 = "my"
@@ -39,8 +40,13 @@
 	if(isobserver(user))
 		obscure_name = FALSE
 
+	/// header
+	. += span_info("ø ------------ ø")
+	/// name, title, etc. of the person
+	var/statement_of_identity = "This is "
 	if(obscure_name)
-		. = list("<span class='info'>ø ------------ ø\nThis is <EM>Unknown</EM>.")
+		statement_of_identity += ("<EM>Unknown</EM>.")
+		. += statement_of_identity
 	else
 		on_examine_face(user)
 		var/used_name = name
@@ -48,16 +54,17 @@
 			used_name = real_name
 		var/used_title = get_role_title()
 		var/is_returning = FALSE
+		var/is_apprentice = mind?.apprentice
 		if(islatejoin)
 			is_returning = TRUE
-		if(mind?.apprentice)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, [used_title].")
-		else if(used_title && !HAS_TRAIT(src, TRAIT_FOREIGNER))
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
+		if(user.mind.do_i_know(src?.mind) || user == src || isobserver(user))
+			statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
 		else
-			. = list("<span class='info'>ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name].")
+			// the name should be unknown too but can't do that until there is a neat way to recognize a new person.
+			statement_of_identity += ("<EM>[used_name]</EM>, the [race_name]")
+		. += statement_of_identity
 
-		if(GLOB.lord_titles[real_name])
+		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
 		if(dna.species.use_skintones)
