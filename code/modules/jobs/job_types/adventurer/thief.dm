@@ -205,7 +205,7 @@
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	//H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular) //He's a discount physicker, he's gotta use the hammer
 	H.change_stat(STATKEY_INT, 3)
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_PER, 1)
