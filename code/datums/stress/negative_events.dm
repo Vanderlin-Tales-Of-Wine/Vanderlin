@@ -191,6 +191,11 @@
 	stressadd = 1
 	desc = "<span class='red'>A beast in human skin.</span>"
 
+/datum/stressevent/foreigner
+	tiemr = 30 SECONDS
+	stressadd = 1
+	desc = "span class='red>A foreigner... what do they want?</span>"
+
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS
 	stressadd = 2
@@ -210,6 +215,11 @@
 	timer = 2 MINUTES
 	stressadd = 2
 	desc = "<span class='red'>They are plotting against me in evil tongues..</span>"
+
+/datum/stressevent/paraforeigner
+	timer = 2 MINUTES
+	stressadd = 2
+	desc = "<span class='red'>A foreigner... they must be invading us!</span>"
 
 /datum/stressevent/crowd
 	timer = 2 MINUTES

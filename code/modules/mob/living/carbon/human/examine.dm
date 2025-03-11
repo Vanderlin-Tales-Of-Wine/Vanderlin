@@ -9,6 +9,11 @@
 		user.add_stress(/datum/stressevent/horc)
 	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
 		user.add_stress(/datum/stressevent/parastr)
+	if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
+		if(user.has_flaw(/datum/charflaw/paranoid))
+			user.add_stress(/datum/stressevent/paraforeigner)
+		else
+			user.add_stress(/datum/stressevent/foreigner)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -42,12 +47,9 @@
 		if(isobserver(user))
 			used_name = real_name
 		var/used_title = get_role_title()
-		var/display_as_outsider = FALSE
 		var/is_returning = FALSE
 		if(job)
 			var/datum/job/J = SSjob.GetJob(job)
-			if(J?.wanderer_examine)
-				display_as_outsider = TRUE
 			if(islatejoin)
 				is_returning = TRUE
 

@@ -28,7 +28,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	bypass_lastclass = TRUE
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 15)
 
-	wanderer_examine = TRUE
+	display_as_foreigner = TRUE
 	can_have_apprentices = FALSE
 
 
