@@ -1,4 +1,4 @@
-/datum/advclass/combat/rogue
+/*datum/advclass/combat/rogue
 	name = "Thief"
 	tutorial = "A wandering thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
 	allowed_sexes = list(MALE, FEMALE)
@@ -75,3 +75,4 @@
 	var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 	thiefcloak.color = thiefcloak_colors[thiefcloak_color_selection]
 	H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+STONEKEEP EDIT*/

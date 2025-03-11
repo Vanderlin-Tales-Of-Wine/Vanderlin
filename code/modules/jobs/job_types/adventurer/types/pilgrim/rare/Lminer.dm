@@ -1,4 +1,4 @@
-//dwarf, master miner
+/*/dwarf, master miner
 
 /datum/advclass/pilgrim/rare/minermaster
 	name = "Master Miner"
@@ -46,3 +46,4 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_PER, 1)
+*/

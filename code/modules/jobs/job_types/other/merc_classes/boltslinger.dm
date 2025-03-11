@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/boltslinger
+/*datum/advclass/mercenary/boltslinger
 	name = "Boltslinger"
 	tutorial = "A cutthroat and a soldier of fortune, your mastery of the crossbow has brought you to many battlefields, all in pursuit of mammon."
 	allowed_sexes = list(MALE, FEMALE)
@@ -58,3 +58,4 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_STR, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+STONEKEEP EDIT*/

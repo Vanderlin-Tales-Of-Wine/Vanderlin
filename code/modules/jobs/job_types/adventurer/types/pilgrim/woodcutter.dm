@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/woodcutter
+/*datum/advclass/pilgrim/woodcutter
 	name = "Woodcutter"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Humen",
@@ -44,3 +44,4 @@
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/key/artificer = 1)
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_END, 1) // Tree chopping builds endurance
+*/

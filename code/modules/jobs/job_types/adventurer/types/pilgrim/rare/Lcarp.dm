@@ -1,4 +1,4 @@
-//master carpenter
+/*/master carpenter
 
 /datum/advclass/pilgrim/rare/mastercarpenter
 	name = "Master Carpenter"
@@ -59,3 +59,4 @@
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_INT, 1)
 	H.change_stat(STATKEY_CON, 1)
+*/

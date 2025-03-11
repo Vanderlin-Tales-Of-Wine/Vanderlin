@@ -1,4 +1,4 @@
-
+/*
 /datum/advclass/combat/vaquero
 	name = "Vaquero"
 	tutorial = "You have been taming beasts of burden all your life, and riding since you were old enough to walk. Perhaps these lands will have use for your skills?"
@@ -48,3 +48,4 @@
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+*/

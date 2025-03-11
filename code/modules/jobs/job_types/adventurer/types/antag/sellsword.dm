@@ -1,4 +1,4 @@
-/datum/advclass/sellsword //Strength class, starts with axe or flails and medium armor training
+/*datum/advclass/sellsword //Strength class, starts with axe or flails and medium armor training
 	name = "Sellsword"
 	tutorial = "Perhaps a mercenary, perhaps a deserter - at one time, you killed for a master in return for gold. Now you live with no such master over your head - and take what you please."
 	allowed_sexes = list(MALE, FEMALE)
@@ -52,3 +52,4 @@
 			backl= /obj/item/weapon/shield/tower/buckleriron
 			beltr = /obj/item/weapon/sword //steel sword like literally every adventurer gets
 			head = /obj/item/clothing/head/helmet/sallet
+*/

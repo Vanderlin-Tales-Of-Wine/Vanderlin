@@ -48,7 +48,6 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Woodsman",
 	"Prisoner",
 	"Beggar"
-
 	))
 
 GLOBAL_LIST_INIT(apprentices_positions, list(

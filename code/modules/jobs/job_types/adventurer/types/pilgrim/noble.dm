@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/noble
+/*datum/advclass/pilgrim/noble
 	name = "Noble"
 	tutorial = "The blood of a noble family runs through your veins. Perhaps you are visiting from some place far away, \
 	looking to enjoy the hospitality of the ruler of Vanderlin. You have many mammons to your name, but with wealth comes \
@@ -66,3 +66,4 @@
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+*/

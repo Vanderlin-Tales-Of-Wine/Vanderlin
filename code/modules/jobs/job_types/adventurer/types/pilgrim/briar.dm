@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/briar
+/*datum/advclass/pilgrim/briar
 	name = "Briar"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
@@ -260,3 +260,4 @@
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
 	qdel(src)
+*/

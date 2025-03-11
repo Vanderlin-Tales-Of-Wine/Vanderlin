@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/fisher
+/*datum/advclass/pilgrim/fisher
 	name = "Fisher"
 	tutorial = "Simple folk with an affinity for catching fish out of any body of water, \
 				they are decent cooks and swimmers, living off the gifts of Abyssor."
@@ -61,3 +61,4 @@
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
 		backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
+*/

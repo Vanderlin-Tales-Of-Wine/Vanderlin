@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/weaver
+/*datum/advclass/pilgrim/weaver
 	name = "Weaver"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Humen",
@@ -35,3 +35,4 @@
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_PER, 1)
+*/

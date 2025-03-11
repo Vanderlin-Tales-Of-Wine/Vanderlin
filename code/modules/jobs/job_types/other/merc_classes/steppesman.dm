@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/steppesman
+/*datum/advclass/mercenary/steppesman
 	name = "Steppesman"
 	tutorial = "A mercenary from hailing from the wild frontier steppes. There are three things you value most; saigas, freedom, and coin."
 	allowed_sexes = list(MALE, FEMALE)
@@ -51,3 +51,4 @@
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+STONEKEEP EDIT*/

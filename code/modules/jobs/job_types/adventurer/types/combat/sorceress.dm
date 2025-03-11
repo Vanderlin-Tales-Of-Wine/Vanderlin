@@ -1,4 +1,4 @@
-/datum/advclass/combat/sorceress
+/*datum/advclass/combat/sorceress
 	name = "Sorceress"
 	tutorial = "In some places in Psydonia, women are banned from the study of magic. Those that do even then are afforded the title Sorceress in honor of their resolve."
 	allowed_sexes = list(FEMALE)
@@ -42,3 +42,4 @@
 		H.mind.adjust_spellpoints(7)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+STONEKEEP EDIT*/

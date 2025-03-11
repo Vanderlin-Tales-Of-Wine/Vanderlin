@@ -58,7 +58,7 @@
 	neck = /obj/item/storage/belt/pouch/coins/poor
 	if(H.gender == MALE)
 		head = /obj/item/clothing/head/roguehood/random
-		if(prob(50))
+		if(prob(70))
 			head = /obj/item/clothing/head/strawhat
 		pants = /obj/item/clothing/pants/tights/random
 		armor = /obj/item/clothing/armor/gambeson/light/striped

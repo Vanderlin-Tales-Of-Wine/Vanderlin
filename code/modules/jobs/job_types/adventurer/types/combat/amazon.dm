@@ -1,4 +1,4 @@
-/datum/advclass/combat/amazon
+/*datum/advclass/combat/amazon
 	name = "Amazon"
 	tutorial = "A savage and deft warrior-women, you hail from the mysterious isle of Issa. In your youth you learned to partake in the hunts amid the treetops and proved your worth through countless bouts."
 	allowed_sexes = list(FEMALE)
@@ -42,3 +42,4 @@
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+*/

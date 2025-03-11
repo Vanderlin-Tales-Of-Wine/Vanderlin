@@ -1,4 +1,4 @@
-/datum/advclass/combat/dbomb
+/*datum/advclass/combat/dbomb
 	name = "Dwarven Bombardier"
 	tutorial = "Tinkering Dwarves that like to blow things up."
 	allowed_sexes = list(MALE, FEMALE)
@@ -38,3 +38,4 @@
 			shoes = /obj/item/clothing/shoes/boots/leather
 		if (2)
 			shoes = /obj/item/clothing/shoes/simpleshoes
+*/

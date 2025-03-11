@@ -1,3 +1,7 @@
+/* Notes: the global lists copied to the main files, seems to work better when loaded there.
+Adventurer and pilgrim jobs - its either untick in config or comment out. I commented out, to maintain most compatibility with Vanderlin.
+The regular jobs disabled via the config lines in this document. That method doesnt work with advclass */
+
 /*
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Monarch",
@@ -183,61 +187,5 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 
 /datum/job/roguetown/servant/config_check()
 	return FALSE
-	/*
-/datum/advclass/pilgrim/bard
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/blacksmith
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/briar
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/cheesemaker
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/fisher
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/hunter
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/huntress
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/noble
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/peasant
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/physicker
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/weaver
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/woodcutter
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/grenzelhoft
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/mastercarpenter
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/masterchef
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/fishermaster
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/grandmastermason
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/minermaster
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/farmermaster
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/masterblacksmith
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/zybantine
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/preacher
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/merchant
-	maximum_possible_slots = 0
-/datum/advclass/pilgrim/rare/crusader
-	maximum_possible_slots = 0
-/datum/advclass/combat/heartfelthand
-	maximum_possible_slots = 0
-/datum/advclass/combat/heartfeltlord
-	maximum_possible_slots = 0
-/datum/advclass/sk_carpenter
-	maximum_possible_slots = 0
-*/
 
 

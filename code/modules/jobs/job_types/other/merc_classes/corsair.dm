@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/corsair
+/*datum/advclass/mercenary/corsair
 	name = "Corsair"
 	tutorial = "Banished from polite society, you once found kin with privateers, working adjacent to a royal navy. After the Red Flag battered itself in the wind one last time, your purse was still not satisfied... And yet he complained that his belly was not full."
 	allowed_sexes = list(MALE, FEMALE)
@@ -43,3 +43,4 @@
 	H.change_stat(STATKEY_END, 3)
 	H.change_stat(STATKEY_PER, -2) // We don't want them using ranged weapons, period.
 	H.change_stat(STATKEY_SPD, 2) // Hit-And-Run.
+STONEKEEP EDIT*/

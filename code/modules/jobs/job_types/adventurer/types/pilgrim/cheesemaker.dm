@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/cheesemaker
+/*datum/advclass/pilgrim/cheesemaker
 	name = "Cheesemaker"
 	tutorial = "Craftsmen who have mastered the art of curdling milks \
 				into delicious and long lasting wheels of cheese."
@@ -43,3 +43,4 @@
 	backpack_contents = list(/obj/item/reagent_containers/powder/salt = 3, /obj/item/reagent_containers/food/snacks/cheddar = 1, /obj/item/natural/cloth = 2, /obj/item/book/yeoldecookingmanual = 1)
 	H.change_stat(STATKEY_INT, 1)
 	H.change_stat(STATKEY_CON, 2) // Cheese diet.
+*/

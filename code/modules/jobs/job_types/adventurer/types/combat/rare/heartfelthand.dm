@@ -1,4 +1,4 @@
-/datum/advclass/combat/heartfelthand
+/*datum/advclass/combat/heartfelthand
 	name = "Hand of Heartfelt"
 	tutorial = "You serve your lord as hand, taking care of diplomatic actions within your realm, \
 	but why have you come to Vanderlin?"
@@ -41,3 +41,4 @@
 		H.change_stat(STATKEY_INT, 3)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+STONEKEEP EDIT*/

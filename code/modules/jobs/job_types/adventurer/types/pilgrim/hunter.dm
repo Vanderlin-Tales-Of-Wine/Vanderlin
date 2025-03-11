@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/hunter
+/*datum/advclass/pilgrim/hunter
 	name = "Hunter"
 	tutorial = "Peasants that thrive on the woods, hunting creechers for pelt and hide, \
 				or the boons of Dendor for their meat to sell, or consume."
@@ -80,3 +80,4 @@
 	outfit = /datum/outfit/job/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Hunteress Apprentice"
+*/

@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/blacksmith
+/*datum/advclass/pilgrim/blacksmith
 	name = "Blacksmith"
 	tutorial = "Hardy worksmen that are at home in the forge, dedicating their lives \
 	to ceaselessly toil in dedication to Malum."
@@ -74,3 +74,4 @@
 	if(H.dna.species.id == "dwarf")
 		head = /obj/item/clothing/head/helmet/leather/minershelm
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
+*/

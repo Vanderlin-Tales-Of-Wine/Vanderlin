@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/grenzelhoft
+/*datum/advclass/pilgrim/rare/grenzelhoft
 	name = "Grenzelhoft Count"
 	tutorial = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
@@ -60,3 +60,4 @@
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+*/

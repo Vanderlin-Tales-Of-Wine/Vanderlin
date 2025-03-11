@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/crusader
+/*datum/advclass/pilgrim/rare/crusader
 	name = "Totod Order Emissary"
 	tutorial = "The Crusaders are knights who have pledged \
 	their wealth and lands to the Church, taking up the banner \
@@ -161,3 +161,4 @@
 		var/list/things = STR.contents()
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
+*/

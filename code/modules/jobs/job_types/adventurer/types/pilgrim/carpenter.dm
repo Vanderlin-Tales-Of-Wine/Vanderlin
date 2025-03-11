@@ -1,4 +1,4 @@
-/datum/advclass/carpenter
+/*datum/advclass/carpenter
 	name = "Carpenter"
 	tutorial = "As a woodsmen or women, you have dedicated your life to both felling \
 	trees and bending wood to your will. With enough practice, your only limit is your imagination."
@@ -52,3 +52,4 @@
 	H.change_stat(STATKEY_INT, 1)
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_SPD, -1)
+*/

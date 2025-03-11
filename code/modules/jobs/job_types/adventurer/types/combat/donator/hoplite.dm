@@ -1,4 +1,4 @@
-/datum/advclass/combat/hoplite
+/*datum/advclass/combat/hoplite
 	name = "Immortal Bulwark"
 	tutorial = "You have marched and fought in formations since the ancient war that nearly destroyed Psydonia. There are few in the world who can match your expertise in a shield wall, but all you have ever known is battle and obedience..."
 	allowed_sexes = list(MALE, FEMALE)
@@ -51,3 +51,4 @@
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+*/

@@ -1,4 +1,4 @@
-/datum/job/mercenary
+/*datum/job/mercenary
 	title = "Mercenary"
 	flag = GRAVETENDER
 	department_flag = PEASANTS
@@ -44,3 +44,4 @@
 /datum/outfit/job/mercenary/post_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, tutorial)
+STONEKEEP EDIT*/

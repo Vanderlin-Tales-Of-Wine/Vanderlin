@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/peasant
+/*datum/advclass/pilgrim/peasant
 	name = "Peasant"
 	tutorial = "A serf with no particular proficiency of their own, born poor \
 				and more likely to die poor. Farm workers, carriers, handymen."
@@ -59,3 +59,4 @@
 	H.change_stat(STATKEY_INT, -1)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)	//Peasants probably smell terrible. (:
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
+*/

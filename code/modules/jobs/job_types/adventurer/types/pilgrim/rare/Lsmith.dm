@@ -1,4 +1,4 @@
-//master smith
+/*/master smith
 
 /datum/advclass/pilgrim/rare/masterblacksmith
 	name = "Master Blacksmith"
@@ -71,3 +71,4 @@
 		shoes = /obj/item/clothing/shoes/shortboots
 		armor = /obj/item/clothing/shirt/dress/gen/random
 		shirt = /obj/item/clothing/shirt/undershirt
+*/

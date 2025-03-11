@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/grenzelhoft
+/*datum/advclass/mercenary/grenzelhoft
 	name = "Grenzelhoft"
 	tutorial = "A mercenary from the Grenzelhoft Empire's Mercenary Guild. Their only care is coin, and the procurement of coin."
 	allowed_sexes = list(MALE, FEMALE)
@@ -55,3 +55,4 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+STONEKEEP EDIT*/

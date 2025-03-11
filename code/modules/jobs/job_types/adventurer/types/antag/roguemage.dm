@@ -1,4 +1,4 @@
-/datum/advclass/roguemage //mage class - like the adventurer mage, but more evil.
+/*datum/advclass/roguemage //mage class - like the adventurer mage, but more evil.
 	name = "Rogue Mage"
 	tutorial = "Those fools at the academy laughed at you and cast you from the ivory tower of higher learning and magickal practice. No matter - you will ascend to great power one day, but first you need wealth - vast amounts of it. Show those fools in the town what REAL magic looks like."
 	allowed_sexes = list(MALE, FEMALE)
@@ -52,3 +52,4 @@
 		H.change_stat(STATKEY_END, -1)
 		H.mind.adjust_spellpoints(1)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+*/

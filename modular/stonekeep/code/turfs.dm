@@ -20,6 +20,8 @@
 /turf/open/floor/woodturned/nosmooth/saiga
 	smooth_icon = 'modular/stonekeep/icons/wood_turned.dmi'
 
+
+/*	..................   Stone floors   ................... */
 /turf/open/floor/hexstone
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 
@@ -74,7 +76,6 @@
 	smooth = SMOOTH_MORE
 
 
-
 /turf/open/floor/cobble/mossy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "mossystone1"
@@ -126,6 +127,50 @@
 
 /turf/open/floor/sandstone/old
 	icon_state = "sandstone_old"
+
+/turf/open/floor/cobblemoss
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "cobstonemoss"
+	footstep = FOOTSTEP_STONE
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	landsound = 'sound/foley/jumpland/stoneland.wav'
+	neighborlay = "cobstonemoss"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass)
+	max_integrity = 1200
+
+/turf/open/floor/cobblemoss/turf_destruction(damage_flag)
+	. = ..()
+	ChangeTurf(/turf/open/floor/dirt, flags = CHANGETURF_INHERIT_AIR)
+	new /obj/item/natural/stone(src)
+
+/turf/open/floor/cobblemoss/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
+
+/turf/open/floor/cobblemoss/Initialize()
+	. = ..()
+	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/blocks/moss
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "blockmoss"
+
+/turf/open/floor/herringbone
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/open/floor/herringbone,
+						/turf/open/floor/blocks,
+						/turf/open/floor/dirt,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough,
+						/turf/open/floor/tile/masonic)
 
 
 /*	..................   Grasses   ................... */
@@ -188,8 +233,7 @@
 	dir = pick(GLOB.alldirs)
 
 
-
-
+/*	..................   Snow   ................... */
 /turf/open/floor/snow/patchy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	canSmoothWith = list(/turf/open/floor/naturalstone,
@@ -215,35 +259,17 @@
 
 
 
-/turf/open/floor/cobblemoss
-	icon = 'modular/stonekeep/icons/turfs.dmi'
-	icon_state = "cobstonemoss"
-	footstep = FOOTSTEP_STONE
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	landsound = 'sound/foley/jumpland/stoneland.wav'
-	neighborlay = "cobstonemoss"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass)
-	max_integrity = 1200
+/*	..................   Dirt   ................... */
 
-/turf/open/floor/cobblemoss/turf_destruction(damage_flag)
-	. = ..()
-	ChangeTurf(/turf/open/floor/dirt, flags = CHANGETURF_INHERIT_AIR)
-	new /obj/item/natural/stone(src)
-
-/turf/open/floor/cobblemoss/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
-
-/turf/open/floor/cobblemoss/Initialize()
-	. = ..()
-	dir = pick(GLOB.cardinals)
-
-/turf/open/floor/blocks/moss
-	icon = 'modular/stonekeep/icons/turfs.dmi'
-	icon_state = "blockmoss"
+/turf/open/floor/dirt
+	canSmoothWith = list(/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+	//					/turf/open/floor/snow,
+	//					/turf/open/floor/snow/patchy,
+	//					/turf/open/floor/snow/rough,
+						/turf/open/floor/hay)
 
 /turf/open/floor/dirt/road/old
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -269,7 +295,6 @@
 		heavyfootstep = FOOTSTEP_MUD
 		bloodiness = 20
 
-
 /turf/open/floor/dirt/muddie
 	desc = "Your feet sink into this soft ground easily."
 	icon_state = "mud1"
@@ -287,6 +312,12 @@
 
 
 
+// =================================================================
+// ====================		Misc floors		========================
+
+/turf/open/water/bath
+	wash_in = FALSE
+
 
 /turf/open/floor/naturalstone/rough
 	icon_state = "digstone_rough"
@@ -296,39 +327,6 @@
 	. = ..()
 	dir = pick(GLOB.cardinals)
 
-
-/turf/open/floor/herringbone
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/herringbone,
-						/turf/open/floor/blocks,
-						/turf/open/floor/dirt,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
-						/turf/open/floor/snow/rough,
-						/turf/open/floor/tile/masonic)
-
-// =================================================================================
-/*--------\
-| Washing |
-\--------*/
-
-/turf/open/water/bath
-	wash_in = FALSE
-
-
-/turf/open/floor/dirt
-	canSmoothWith = list(/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-	//					/turf/open/floor/snow,
-	//					/turf/open/floor/snow/patchy,
-	//					/turf/open/floor/snow/rough,
-						/turf/open/floor/hay)
 
 /turf/open/floor/hay
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -340,11 +338,14 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	neighborlay = "hayedge"
-	canSmoothWith = list(/turf/open/floor/dirt/road,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold)
+	canSmoothWith = list(
+//						/turf/open/floor/dirt,
+//						/turf/open/floor/grass,
+						/turf/open/floor/,
+//						/turf/open/floor/grass/red,
+//						/turf/open/floor/grass/yel,
+//						/turf/open/floor/grass/cold
+						)
 
 /turf/open/floor/hay/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -387,8 +388,6 @@
 	. = ..()
 
 
-
-
 /turf/open/floor/carpet/hamlet
 	icon = 'modular/stonekeep/icons/carpet_hamlet.dmi'
 	canSmoothWith = list(/turf/open/floor/carpet/hamlet)
@@ -409,8 +408,8 @@
 	. = ..()
 	icon_state = "roofdc"
 
-// ======================================================================
-
+// =================================================================
+// =========================	WALLS	============================
 // Sandstone brick wall
 /turf/closed/wall/mineral/stonebrick/sandstone
 	name = "sandstone wall"

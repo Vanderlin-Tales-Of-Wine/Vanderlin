@@ -1,4 +1,4 @@
-
+/*
 /datum/advclass/pilgrim/bard
 	name = "Bard"
 	tutorial = "Bards make up one of the largest populations of \
@@ -76,3 +76,4 @@
 	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, -1)
+*/

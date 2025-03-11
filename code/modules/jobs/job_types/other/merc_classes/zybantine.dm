@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/zybantine
+/*datum/advclass/mercenary/zybantine
 	name = "Zybantine"
 	tutorial = "A cutthroat from the western countries, you've headed into foreign lands to make even greater coin than you had prior."
 	allowed_sexes = list(MALE, FEMALE)
@@ -58,3 +58,4 @@
 		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+STONEKEEP EDIT*/

@@ -1,4 +1,4 @@
-/datum/job/roguetown/jaegward
+/datum/job/stonekeep/jaegward
 	title = "Jaegward"
 	f_title = "Jaegwardess"
 	tutorial = "In the olden daes your profession guarded pilgrims and slew great beasts in the Murderwoods, \
@@ -17,7 +17,7 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/roguetown/jaegward
+	outfit = /datum/outfit/job/stonekeep/jaegward
 	min_pq = -25
 	give_bank_account = 15
 	display_order = JDO_HUNTER
@@ -25,7 +25,7 @@
 	spawn_positions = 0
 	apprentice_name = "Hunter"
 
-/datum/outfit/job/roguetown/jaegward/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/jaegward/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/provisoner
 	shirt = /obj/item/clothing/shirt/shortshirt/provisoner

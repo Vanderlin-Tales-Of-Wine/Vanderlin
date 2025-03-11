@@ -1,4 +1,4 @@
-/datum/advclass/combat/heartfeltlord
+/*datum/advclass/combat/heartfeltlord
 	name = "Lord of Heartfelt"
 	tutorial = "You are the proud lord of Heartfelt, \
 	but why have you come to Vanderlin?"
@@ -47,3 +47,4 @@
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+STONEKEEP EDIT*/

@@ -1,4 +1,4 @@
-/datum/job/roguetown/hammerite
+/datum/job/stonekeep/hammerite
 	title = "Hammerite"
 	tutorial = "As a long-standing and dedicated member of the Maker's Guild, you have risen to the illustrious rank of Master Builder. \
 				Your work is praise to Malum, either through excavation or construction, \
@@ -6,7 +6,7 @@
 	faction = "Station"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	outfit = /datum/outfit/job/roguetown/hammerite
+	outfit = /datum/outfit/job/stonekeep/hammerite
 	flag = MINER
 	department_flag = PEASANTS
 	display_order = JDO_MINER
@@ -16,7 +16,7 @@
 	min_pq = -50
 	allowed_patrons = list(/datum/patron/divine/malum)
 
-/datum/outfit/job/roguetown/hammerite/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/hammerite/pre_equip(mob/living/carbon/human/H)
 	..()
 	id = /obj/item/key/guildring
 	pants = /obj/item/clothing/pants/tights/makers

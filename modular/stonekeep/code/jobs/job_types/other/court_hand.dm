@@ -1,4 +1,4 @@
-/datum/job/roguetown/adventurer/courtagent
+/datum/job/stonekeep/adventurer/courtagent
 	title = "Court Agent"
 	total_positions = 0
 	spawn_positions = 0
@@ -11,7 +11,7 @@
 
 
 //Hooking in here does not mess with their equipment procs
-/datum/job/roguetown/adventurer/courtagent/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/stonekeep/adventurer/courtagent/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	if(L)
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L

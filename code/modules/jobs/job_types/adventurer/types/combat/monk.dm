@@ -1,4 +1,4 @@
-/datum/advclass/combat/monk
+/*datum/advclass/combat/monk
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "A traveling monk of the God Ravox, unmatched in unarmed combat and with an unwavering devotion to Justice."
@@ -52,3 +52,4 @@
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
 
+STONEKEEP EDIT*/
