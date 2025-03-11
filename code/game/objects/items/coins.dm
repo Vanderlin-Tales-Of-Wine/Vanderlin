@@ -27,6 +27,10 @@
 	. = ..()
 	if(coin_amount >= 1)
 		set_quantity(floor(coin_amount))
+		setup_denomination()
+
+/obj/item/coin/proc/setup_denomination()
+	return
 
 /obj/item/coin/getonmobprop(tag)
 	. = ..()
@@ -81,8 +85,60 @@
 
 /obj/item/coin/examine(mob/user)
 	. = ..()
+	var/denomination = quantity == 1 ? name : plural_name
+	var/exact_value = get_real_price()
+	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
+	var/is_skilled = mathematics_skill >= 3
+	var/intelligence = user.mind?.current.STAINT
+	if(intelligence < 9)
+		mathematics_skill = max(mathematics_skill - 1, 0)
 	if(quantity > 1)
-		. += "<span class='info'>\Roman [quantity] coins.</span>"
+		if(is_skilled)
+			. += span_info("Exactly [quantity] [denomination] ([exact_value] mammon)")
+		else
+			// Create estimation with skill-based inaccuracy
+			var/fuzzy_quantity = quantity
+			var/value_error = 0
+			var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
+			// Apply counting inaccuracy
+			switch(mathematics_skill)
+				if(0) // WHAT IS MATH!?
+					user.visible_message(span_notice("You see [user] clumsily start counting the coins"), span_notice("You clumsily start counting the coins..."))
+					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 8 SECONDS))
+					fuzzy_quantity = CLAMP(quantity + rand(-3,3), 1, 20)
+					value_error = rand(-25,25) //Upper and lower % error
+				if(1) // Weak skill
+					user.visible_message(span_notice("You see [user] start counting the coins"), span_notice("You start counting the coins..."))
+					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 4 SECONDS))
+					fuzzy_quantity = CLAMP(quantity + rand(-1,1), 1, 20)
+					value_error = rand(-10,10) //Upper and lower % error
+				if(2) // Average skill
+					user.visible_message(span_notice("You see [user] count the coins"), span_notice("You start counting the coins..."))
+					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 2 SECONDS))
+				else
+					user.visible_message(span_notice("You see [user] expertly guess the amount of coins!"), span_notice("You instantly count the coins"))
+			// Calculate approximate value with compounding error
+			var/estimated_value = round((exact_value * (100 + value_error)) / 100)
+			estimated_value = CLAMP(estimated_value, 1, 200) // Keep within max stack size possible (20*10)
+			var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
+			var/value_text = "~[estimated_value] mammon"
+			//Add the flavor phrases for oblivious people
+			if(mathematics_skill == 0)
+				value_text = "[pick(uncertainty_phrases)] [value_text]"
+				if(prob(30))
+					value_text += "?"
+			. += span_info("[description] ([value_text])")
+	else
+		. += span_info("One [name] ([sellprice] mammon)")
+
+/obj/item/coin/proc/quantity_to_words(amount)
+	switch(amount)
+		if(1 to 4) return "A few"
+		if(5 to 9) return "Several"
+		if(10 to 14) return "A dozen or so"
+		if(15 to 19) return "A large number of"
+		if(20) return "A full stack of"
+		else return "Some"
 
 /obj/item/coin/proc/merge(obj/item/coin/G, mob/user)
 	if(!G)
@@ -127,23 +183,37 @@
 
 /obj/item/coin/attack_hand(mob/user)
 	if(user.get_inactive_held_item() == src && quantity > 1)
-		var/amt_text = " (1 to [quantity])"
-		if(quantity == 1)
-			amt_text = ""
-		var/amount = input(user, "How many [plural_name] to split?[amt_text]", null, round(quantity/2, 1)) as null|num
+		var/intended = input(user, "How many [plural_name] to split?", null, round(quantity/2, 1)) as null|num
 		if(QDELETED(src) || !user.is_holding(src))
 			return
-		amount = clamp(amount, 0, quantity)
-		amount = round(amount, 1) // no taking non-integer coins
-		if(!amount)
+		// Initial processing
+		intended = clamp(intended, 0, quantity)
+		intended = round(intended, 1)
+		if(!intended)
 			return
-		if(amount >= quantity)
+		if(intended >= quantity)
 			return ..()
-		var/obj/item/coin/new_coins = new type()
-		new_coins.set_quantity(amount)
-		new_coins.heads_tails = last_merged_heads_tails
-		set_quantity(quantity - amount)
 
+		// Apply counting errors
+		var/actual = intended
+		var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
+		var/intelligence = user.mind?.current.STAINT
+		if(intelligence < 9)
+			mathematics_skill = max(mathematics_skill - 1, 0)
+
+		// Calculate error based on skill
+		switch(mathematics_skill)
+			if(0) // Unskilled: Large error
+				actual += rand(-3,3)
+			if(1) // Weak: Small error
+				actual += rand(-1,1)
+		actual = clamp(actual, 1, quantity - 1)
+		if(actual >= quantity)
+			return
+		var/obj/item/coin/new_coins = new type()
+		new_coins.set_quantity(actual)
+		new_coins.heads_tails = last_merged_heads_tails
+		set_quantity(quantity - actual)
 		user.put_in_hands(new_coins)
 		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
 		return
