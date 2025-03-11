@@ -4194,7 +4194,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/dwarfin)
 "pC" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/church)
 "pD" = (
@@ -10383,7 +10383,7 @@
 /turf/open/floor/blocks/paving/vert,
 /area/rogue/under/town/basement)
 "PD" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "PE" = (

@@ -14,7 +14,7 @@
 	base_antags = 1
 	maximum_antags = 2
 
-	weight = 12
+	weight = 0 //temp disabled 12
 
 	earliest_start = 0 SECONDS
 
@@ -24,6 +24,7 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
+		"Jester",
 		"Dungeoneer",
 		"Inquisitor",
 		"Men-at-arms",

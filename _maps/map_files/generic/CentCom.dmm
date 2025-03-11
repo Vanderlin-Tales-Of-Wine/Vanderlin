@@ -1501,7 +1501,7 @@
 /area/rogue/indoors/vampire_manor)
 "fy" = (
 /obj/structure/chair/bench/couchablack/r,
-/obj/effect/landmark/start/admin,
+/obj/effect/landmark/admin,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue)
 "fC" = (
@@ -2517,7 +2517,7 @@
 /area/rogue)
 "rS" = (
 /obj/structure/chair/stool,
-/obj/effect/landmark/start/admin,
+/obj/effect/landmark/admin,
 /turf/open/floor/hexstone,
 /area/rogue)
 "rY" = (
@@ -3159,7 +3159,7 @@
 /area/rogue)
 "AD" = (
 /obj/structure/chair/stool,
-/obj/effect/landmark/start/admin,
+/obj/effect/landmark/admin,
 /turf/open/floor/wood,
 /area/rogue)
 "AH" = (
@@ -4414,7 +4414,7 @@
 /obj/structure/chair/wood/alt{
 	dir = 8
 	},
-/obj/effect/landmark/start/admin,
+/obj/effect/landmark/admin,
 /turf/open/floor/woodturned,
 /area/rogue)
 "Rb" = (

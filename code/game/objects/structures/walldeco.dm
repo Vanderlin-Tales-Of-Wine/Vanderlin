@@ -376,3 +376,9 @@
 /obj/structure/fluff/walldeco/vinez/offset
 	icon_state = "vinez"
 	pixel_y = 32
+
+/obj/structure/fluff/walldeco/vinez/blue
+	icon_state = "vinez_blue"
+
+/obj/structure/fluff/walldeco/vinez/red
+	icon_state = "vinez_red"

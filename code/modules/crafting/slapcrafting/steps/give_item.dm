@@ -70,6 +70,12 @@
 
 /datum/slapcraft_step/item/iron/second
 
+/datum/slapcraft_step/item/copper
+	desc = "Add a copper ingot."
+	item_types = list(/obj/item/ingot/copper)
+
+/datum/slapcraft_step/item/copper/second
+
 /datum/slapcraft_step/item/riddleofsteel
 	desc = "Add a riddle of steel."
 	item_types = list(/obj/item/riddleofsteel)
@@ -89,6 +95,10 @@
 /datum/slapcraft_step/item/silver
 	desc = "Add a silver ingot."
 	item_types = list(/obj/item/ingot/silver)
+
+/datum/slapcraft_step/item/gold
+	desc = "Add a gold ingot."
+	item_types = list(/obj/item/ingot/gold)
 
 /datum/slapcraft_step/item/glass
 	desc = "Add a pane of glass."

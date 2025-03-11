@@ -154,3 +154,6 @@
 /obj/item/reagent_containers/glass/bottle/elfblue
 	list_reagents = list(/datum/reagent/consumable/ethanol/elfblue = 70)
 	desc = "A bottle gilded with a golden cork-seal. This is the legendary Valmora Blue from the Vineyard of Valmora, headed by a sainted Dark-Elf swordsmaster. This bottle would swoon Gods over!"
+
+/obj/item/reagent_containers/glass/bottle/tiefling_wine
+	list_reagents = list(/datum/reagent/consumable/ethanol/tiefling/aged = 45)
