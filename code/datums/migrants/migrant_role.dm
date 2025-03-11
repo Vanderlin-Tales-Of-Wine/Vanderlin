@@ -19,14 +19,14 @@
 	/// Whether to grant a lit torch upon spawn
 	var/grant_lit_torch = FALSE
 	/// Whether to show them as outsiders
-	var/is_outsider = TRUE
+	var/is_foreigner = TRUE
 	var/advjob_examine = TRUE
 	var/banned_leprosy = TRUE
 	var/banned_lunatic = TRUE
 
 /datum/migrant_role/proc/after_spawn(mob/living/carbon/human/character)
-	if(is_outsider)
-		ADD_TRAIT(character, TRAIT_OUTSIDER, TRAIT_GENERIC)
+	if(is_foreigner)
+		ADD_TRAIT(character, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	return
 
 /datum/migrant_role/pilgrim

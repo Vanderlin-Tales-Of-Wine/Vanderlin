@@ -25,5 +25,6 @@
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
+		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 		if(advclass_cat_rolls)
 			hugboxify_for_class_selection(H)

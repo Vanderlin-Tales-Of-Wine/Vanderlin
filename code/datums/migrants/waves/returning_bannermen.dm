@@ -9,7 +9,7 @@
 		"Half-Elf",
 		"Elf")
 	grant_lit_torch = TRUE
-	is_outsider = FALSE
+	is_foreigner = FALSE
 	outfit = /datum/outfit/job/serjeant_at_arms
 
 /datum/outfit/job/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
@@ -68,7 +68,7 @@
 		"Half-Elf",
 		"Elf")
 	grant_lit_torch = TRUE
-	is_outsider = FALSE
+	is_foreigner = FALSE
 /datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
@@ -115,7 +115,7 @@
 	outfit = /datum/outfit/job/crossbow_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
 	grant_lit_torch = TRUE
-	is_outsider = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -164,7 +164,7 @@
 	outfit = /datum/outfit/job/footman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
-	is_outsider = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/footman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -204,7 +204,7 @@
 	outfit = /datum/outfit/job/pikeman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
-	is_outsider = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/pikeman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()

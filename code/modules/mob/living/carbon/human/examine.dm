@@ -91,8 +91,8 @@
 				if(family_text)
 					. += family_text
 
-		if(HAS_TRAIT(src, TRAIT_OUTSIDER) && !HAS_TRAIT(user, TRAIT_OUTSIDER))
-			. += span_phobia("An outsider...")
+		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
+			. += span_phobia("A foreigner...")
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")

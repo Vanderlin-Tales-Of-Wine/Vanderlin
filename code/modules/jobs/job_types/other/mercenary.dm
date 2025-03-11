@@ -37,7 +37,7 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-		ADD_TRAIT(H, TRAIT_OUTSIDER, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 /datum/outfit/job/mercenary // Reminder message
 	var/tutorial = "<br><br><font color='#855b14'><span class='bold'>Your sponsor, the Merchant, representing the MGE guild, might have work for you todae, go find out.</span></font><br><br>"
