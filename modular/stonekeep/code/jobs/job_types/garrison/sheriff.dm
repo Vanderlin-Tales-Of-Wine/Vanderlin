@@ -12,7 +12,7 @@
 		"Elf",
 		"Dwarf"
 	)
-	allowed_sexes = list(MALE, FEMALE)
+	allowed_sexes = list(MALE)
 	display_order = SHERIFF_ORDER
 	tutorial = "Appointed by your liege Lord to uphold their Law and be their champion in times of strife. You command the garrison, to help keep order and peace within the Lords demesne and defend it against the many dangers of the land."
 	whitelist_req = FALSE

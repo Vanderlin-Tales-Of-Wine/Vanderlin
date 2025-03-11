@@ -5,7 +5,7 @@
 	of the Totod Order dedicated to retaking Valoria. \
 	Three cults provide knights for the Order: Astrata, Necra and Psydon. \
 	You were sent to Enigma by the Order to get any and all assistance from the faithful for the Crusade."
-	allowed_sexes = list(MALE, FEMALE)
+	allowed_sexes = list(MALE)
 	allowed_races = list(
 		"Humen",
 		"Dwarf"
@@ -39,27 +39,25 @@
 
 	switch(H.patron?.name)
 		if("Astrata")
-			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold for Astrata regardless of gender
+			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold for Astrata
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
 		if("Necra")
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			wrists = /obj/item/clothing/neck/psycross/silver/necra
 		if("Psydon")
+			head = /obj/item/clothing/head/helmet/heavy/psydonbarbute
 			wrists = /obj/item/clothing/neck/psycross/silver
-			if(H.gender == FEMALE) // Silver for female, gold for male
-				cloak = /obj/item/clothing/cloak/stabard/crusader/t
-			else
-				cloak = /obj/item/clothing/cloak/stabard/crusader
+			cloak = /obj/item/clothing/cloak/stabard/crusader
 		else // Failsafe
-			cloak = /obj/item/clothing/cloak/stabard/crusader // Gold version regardless of gender or patron
+			cloak = /obj/item/clothing/cloak/stabard/crusader
 			wrists = /obj/item/clothing/neck/psycross/silver
 
 	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
@@ -73,18 +71,6 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
-	// Females are crossbow and dagger based
-	if(H.gender == FEMALE)
-		head = /obj/item/clothing/head/helmet/heavy/crusader/t
-		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-		beltl = /obj/item/weapon/knife/dagger/silver
-		beltr = /obj/item/ammo_holder/quiver/bolts
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	// Males are sword and shield based
-	else
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 	// Finally, grant us the language
 
 	if(!H.has_language(/datum/language/oldpsydonic))
@@ -120,25 +106,6 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
 
-/obj/item/clothing/head/helmet/heavy/crusader
-	name = "bucket helm"
-	desc = "Proud knights of the Totod order displays their faith and their allegiance openly."
-	icon_state = "totodhelm"
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
-	bloody_icon = 'icons/effects/blood64x64.dmi'
-	bloody_icon_state = "helmetblood_big"
-	worn_x_dimension = 64
-	worn_y_dimension = 64
-
-/obj/item/clothing/head/helmet/heavy/crusader/t
-	desc = "A silver gilded bucket helm, inscriptions in old Psydonic are found embezzeled on every inch of silver. Grenzelhoft specializes in these helmets, the Totod order has been purchasing them en-masse."
-	icon_state = "crusader_helmt2"
-	icon = 'icons/roguetown/clothing/special/crusader.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
-	bloody_icon = 'icons/effects/blood.dmi'
-	bloody_icon_state = "itemblood"
-	worn_x_dimension = 32
-	worn_y_dimension = 32
 
 /obj/item/clothing/cloak/cape/crusader/ComponentInitialize()
 	. = ..()

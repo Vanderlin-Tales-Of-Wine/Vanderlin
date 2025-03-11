@@ -84,7 +84,7 @@
 /mob/living/simple_animal/hostile/retaliate/spider/hairy
 	name = "hairy spider"
 	desc = "The forest canopies hides more than leaves...These creachers make honey from flowers and spin silk from their abdomen, when not consuming prey."
-	icon = 'modular/stonekeep/icons/spider.dmi'
+	icon = 'modular/stonekeep/icons/mobs/spider.dmi'
 	icon_state = "spider"
 	icon_living = "spider"
 	icon_dead = "spider-dead"

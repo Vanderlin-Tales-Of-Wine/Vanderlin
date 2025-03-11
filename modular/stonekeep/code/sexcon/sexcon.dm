@@ -548,7 +548,7 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 
 /obj/effect/decal/cleanable/coom
 	name = "mess"
-	icon = 'modular/stonekeep/icons/sexcon.dmi'
+	icon = 'modular/stonekeep/icons/dirt.dmi'
 	icon_state = "mess1"
 	random_icon_states = list("mess1", "mess2", "mess3")
 	beauty = -100

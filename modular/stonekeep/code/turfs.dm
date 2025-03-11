@@ -52,8 +52,7 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
 	smooth = SMOOTH_BORDER
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/dirt/road,
+	canSmoothWith = list(
 						/turf/open/floor/grass,
 						/turf/open/floor/grass/red,
 						/turf/open/floor/grass/yel,
@@ -80,6 +79,15 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "mossystone1"
 	neighborlay = "mossyedge"
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/dirt/road,
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough)
 /turf/open/floor/cobble/mossy/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
@@ -157,11 +165,7 @@
 /turf/open/floor/blocks/moss
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "blockmoss"
-
-/turf/open/floor/herringbone
-	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/herringbone,
-						/turf/open/floor/blocks,
 						/turf/open/floor/dirt,
 						/turf/open/floor/grass,
 						/turf/open/floor/grass/red,
@@ -170,8 +174,20 @@
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
-						/turf/open/floor/tile/masonic)
+						)
 
+
+
+/turf/open/floor/herringbone
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	neighborlay = "herringedge"
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/open/floor/dirt)
+
+/turf/open/floor/tile/masonic
+	icon_state = "masonic"
+	canSmoothWith = list(/turf/open/floor/herringbone,
+						)
 
 /*	..................   Grasses   ................... */
 /turf/open/floor/grass
@@ -180,7 +196,9 @@
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
-						/turf/open/floor/cobblerock)
+						/turf/open/floor/cobblerock,
+						/turf/open/floor/cobble/mossy
+						)
 
 /turf/open/floor/grass/mixyel/under_tree
 	color = "#ff3535"
@@ -213,10 +231,7 @@
 	icon_state = "grass_red"
 	neighborlay = "grass_rededge"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/grass,
-	/turf/open/floor/grass/mixyel,
-	/turf/open/floor/grass/yel,
-	/turf/open/floor/grass/old,
+	canSmoothWith = list(
 	/turf/open/floor/snow,
 	/turf/open/floor/dirt,
 	/turf/open/floor/dirt/old,
@@ -228,6 +243,16 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "oldgrass"
 	neighborlay = "oldgrass"
+	smooth = SMOOTH_FALSE
+	canSmoothWith = list(
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/mixyel,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough)
 /turf/open/floor/grass/old/Initialize()
 	. = ..()
 	dir = pick(GLOB.alldirs)
@@ -262,20 +287,27 @@
 /*	..................   Dirt   ................... */
 
 /turf/open/floor/dirt
-	canSmoothWith = list(/turf/open/floor/grass,
+	canSmoothWith = list(
+						/turf/open/floor/cobblerock/alt,
+						/turf/open/floor/grass,
 						/turf/open/floor/grass/red,
 						/turf/open/floor/grass/yel,
 						/turf/open/floor/grass/cold,
-	//					/turf/open/floor/snow,
-	//					/turf/open/floor/snow/patchy,
-	//					/turf/open/floor/snow/rough,
+						/turf/open/floor/grass/old,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough,
 						/turf/open/floor/hay)
 
 /turf/open/floor/dirt/road/old
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "oldroad"
 	neighborlay = "oldroad"
-
+	canSmoothWith = list(/turf/open/floor,
+						/turf/closed/mineral,
+						/turf/closed/wall/mineral,
+						/turf/open/floor/dirt,
+						/turf/open/floor/hay)
 
 /turf/open/floor/dirt/old
 	desc = "The dirt is dark and smell ancient."
@@ -338,14 +370,7 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	neighborlay = "hayedge"
-	canSmoothWith = list(
-//						/turf/open/floor/dirt,
-//						/turf/open/floor/grass,
-						/turf/open/floor/,
-//						/turf/open/floor/grass/red,
-//						/turf/open/floor/grass/yel,
-//						/turf/open/floor/grass/cold
-						)
+	canSmoothWith = list(	)
 
 /turf/open/floor/hay/cardinal_smooth(adjacencies)
 	smooth(adjacencies)

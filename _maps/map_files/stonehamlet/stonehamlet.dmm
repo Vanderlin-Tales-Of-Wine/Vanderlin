@@ -5374,7 +5374,7 @@
 /area/rogue/indoors/town/church/chapel)
 "gPR" = (
 /obj/structure/bars/passage{
-	redstone_id = "donjon"
+	redstone_id = "keep_dungeon"
 	},
 /turf/open/floor/concrete,
 /area/rogue/indoors/town)
@@ -9644,9 +9644,7 @@
 /turf/closed/wall/mineral/wooddark/window,
 /area/rogue/indoors)
 "mvO" = (
-/obj/structure/window/stained{
-	opacity = 0
-	},
+/obj/structure/window/stained/silver/alt,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church/chapel)
 "mvS" = (
@@ -12581,6 +12579,14 @@
 /obj/structure/chair/stool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
+"qAF" = (
+/obj/structure/lever/wall{
+	pixel_x = 29;
+	pixel_y = 29;
+	redstone_id = "keep_dungeon"
+	},
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/exposed/manorgarri)
 "qBt" = (
 /turf/open/floor/grass/mixyel,
 /area/rogue/outdoors/woods/stone)
@@ -15509,7 +15515,6 @@
 /turf/open/floor/sandstone,
 /area/rogue/indoors/town/church/chapel)
 "uih" = (
-/obj/machinery/light/fueled/wallfire/candle,
 /obj/structure/chair/stool,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor{
@@ -17499,15 +17504,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors)
-"wLV" = (
-/obj/structure/fluff/railing/border,
-/obj/machinery/light/fueled/firebowl/standing/lamp{
-	pixel_y = 7
-	},
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/town/manor{
-	first_time_text = "STONEHILL CASTLE"
-	})
 "wME" = (
 /obj/structure/table/wood/treestump{
 	pixel_x = -7
@@ -130844,7 +130840,7 @@ pMI
 wTy
 gLU
 gPR
-esS
+qAF
 esS
 esS
 sWN
@@ -137016,8 +137012,8 @@ kcg
 vvF
 abW
 cyZ
-nCc
 mIv
+nCc
 mvO
 nCc
 nCc
@@ -137271,8 +137267,8 @@ wHZ
 vvF
 abW
 vvF
-vvF
 abW
+vvF
 vvF
 vvF
 cyZ
@@ -196366,7 +196362,7 @@ tut
 tut
 tut
 pMI
-gLn
+jRf
 sbL
 sLd
 sLd
@@ -258341,7 +258337,7 @@ pMI
 pMI
 xgp
 dzn
-wLV
+xCK
 ooM
 yas
 jRf
