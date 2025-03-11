@@ -52,4 +52,9 @@
 		H.change_stat(STATKEY_END, -1)
 		H.mind.adjust_spellpoints(1)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

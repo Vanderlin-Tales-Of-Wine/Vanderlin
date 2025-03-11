@@ -75,4 +75,8 @@
 	var/obj/item/clothing/cloak/raincloak/thiefcloak = new()
 	thiefcloak.color = thiefcloak_colors[thiefcloak_color_selection]
 	H.equip_to_slot(thiefcloak, SLOT_CLOAK, TRUE)
+
+
+
+
 STONEKEEP EDIT*/

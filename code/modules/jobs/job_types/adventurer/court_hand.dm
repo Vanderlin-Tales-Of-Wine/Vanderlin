@@ -1,4 +1,4 @@
-/datum/job/adventurer/courtagent
+/*datum/job/adventurer/courtagent
 	title = "Court Agent"
 	total_positions = 2
 	spawn_positions = 2
@@ -17,3 +17,4 @@
 			var/mob/living/carbon/human/H = L
 			GLOB.roundstart_court_agents += H.real_name
 			..()
+*/

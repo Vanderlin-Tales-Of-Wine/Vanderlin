@@ -4,13 +4,11 @@
 	name = "Master Carpenter"
 	tutorial = "A true artisan in the field of woodcrafting, your skills honed by years in a formal guild. \
 	As a master carpenter, you transform trees into anything from furniture to entire fortifications."
-
+	allowed_ages = list(AGE_OLD)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
-		"Humen",
 		"Elf",
-		"Half-Elf",
-		"Dwarf",
+		"Half-Elf"
 	)
 	outfit = /datum/outfit/job/stonekeep/adventurer/mastercarpenter
 	category_tags = list(CTAG_PILGRIM)

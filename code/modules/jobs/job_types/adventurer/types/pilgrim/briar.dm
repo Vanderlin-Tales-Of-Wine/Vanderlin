@@ -260,4 +260,9 @@
 	else
 		to_chat(user, span_warning("Dendor finds me unworthy..."))
 	qdel(src)
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

@@ -80,4 +80,9 @@
 	outfit = /datum/outfit/job/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	apprentice_name = "Hunteress Apprentice"
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

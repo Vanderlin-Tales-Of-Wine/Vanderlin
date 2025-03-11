@@ -4,6 +4,7 @@
 	name = "Master Miner"
 	tutorial = "Hardy dwarves who dedicated their entire life to a singular purpose: \
 	the acquisition of ore, precious stones, and anything deep below the mines."
+	allowed_ages = list(AGE_OLD)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf")
 	outfit = /datum/outfit/job/stonekeep/adventurer/minermaster

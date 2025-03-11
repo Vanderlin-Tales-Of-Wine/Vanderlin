@@ -50,4 +50,8 @@
 		if("Flail & Shield") //plate users beware, you're in for a scare!
 			backl= /obj/item/weapon/shield/wood
 			beltr = /obj/item/weapon/flail
-*/
+
+
+
+
+STONEKEEP EDIT*/

@@ -52,4 +52,9 @@
 			backl= /obj/item/weapon/shield/tower/buckleriron
 			beltr = /obj/item/weapon/sword //steel sword like literally every adventurer gets
 			head = /obj/item/clothing/head/helmet/sallet
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

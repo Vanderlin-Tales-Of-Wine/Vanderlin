@@ -228,4 +228,10 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/assassin()
 		else
 			H.dna.species.soundpack_f = new /datum/voicepack/female/assassin()
+
+
+
+
+
+
 STONEKEEP EDIT*/

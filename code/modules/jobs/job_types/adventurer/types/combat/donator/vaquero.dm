@@ -48,4 +48,11 @@
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-*/
+
+
+
+
+
+
+
+STONEKEEP EDIT*/

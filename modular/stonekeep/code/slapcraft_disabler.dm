@@ -164,15 +164,14 @@
 	output = /obj/item/clothing/face/cigarette/rollie/nicotine
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 1,
-		/obj/item/paper = 1
+		/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 2
 	)
-	attacking_atom = /obj/item/paper
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a westleach zig"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/sigsweet
@@ -180,15 +179,14 @@
 	output = /obj/item/clothing/face/cigarette/rollie/cannabis
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 	requirements = list(
-		/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 1,
-		/obj/item/paper = 1
+		/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2
 	)
-	attacking_atom = /obj/item/paper
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a swampweed zig"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 

@@ -49,4 +49,12 @@
 		to_chat(H, "<span class='info'>I can speak Old Psydonic with ,m before my speech.</span>")
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-*/
+
+
+
+
+
+
+
+
+STONEKEEP EDIT*/

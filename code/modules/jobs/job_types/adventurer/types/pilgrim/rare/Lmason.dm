@@ -47,4 +47,8 @@
 
 	if(H.dna.species.name == "Dwarf")
 		head = /obj/item/clothing/head/helmet/leather/minershelm
-*/
+
+
+
+
+STONEKEEP EDIT*/

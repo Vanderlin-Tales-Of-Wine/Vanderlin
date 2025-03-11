@@ -46,4 +46,8 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_PER, 1)
-*/
+
+
+
+
+STONEKEEP EDIT*/

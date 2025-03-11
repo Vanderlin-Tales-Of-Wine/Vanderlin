@@ -4,6 +4,7 @@
 	name = "Master Chef"
 	tutorial = "A master chef is one of the best cooks to ever live. \
 	You received an early education from the guild of culinary arts and have traveled across Psydonia, cooking exotic masterpieces for wealthy merchants and nobility alike."
+	allowed_ages = list(AGE_OLD)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

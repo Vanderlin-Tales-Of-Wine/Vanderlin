@@ -41,4 +41,10 @@
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
-*/
+
+
+
+
+
+
+STONEKEEP EDIT*/

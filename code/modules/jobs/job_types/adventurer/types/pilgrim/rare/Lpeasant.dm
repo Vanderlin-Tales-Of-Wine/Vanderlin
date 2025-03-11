@@ -62,4 +62,8 @@
 	H.change_stat(STATKEY_INT, -1)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)	//Peasants probably smell terrible. (:
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
-*/
+
+
+
+
+STONEKEEP EDIT*/

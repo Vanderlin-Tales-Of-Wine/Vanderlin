@@ -55,4 +55,9 @@
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'
 	else
 		beltr = /obj/item/flashlight/flare/torch/lantern
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

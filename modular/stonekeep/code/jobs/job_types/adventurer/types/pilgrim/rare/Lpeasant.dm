@@ -8,7 +8,6 @@
 	allowed_races = list(
 		"Humen",
 		"Half-Elf",
-		"Dwarf",
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/adventurer/farmermaster

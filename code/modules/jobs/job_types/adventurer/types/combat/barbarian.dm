@@ -67,4 +67,8 @@
 	if(H.dna?.species)
 		H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 
-*/
+
+
+
+
+STONEKEEP EDIT*/

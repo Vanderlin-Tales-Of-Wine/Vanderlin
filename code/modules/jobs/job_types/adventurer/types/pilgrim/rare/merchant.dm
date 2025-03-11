@@ -62,4 +62,8 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
-*/
+
+
+
+
+STONEKEEP EDIT*/

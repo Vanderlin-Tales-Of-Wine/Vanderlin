@@ -38,4 +38,8 @@
 			shoes = /obj/item/clothing/shoes/boots/leather
 		if (2)
 			shoes = /obj/item/clothing/shoes/simpleshoes
-*/
+
+
+
+
+STONEKEEP EDIT*/

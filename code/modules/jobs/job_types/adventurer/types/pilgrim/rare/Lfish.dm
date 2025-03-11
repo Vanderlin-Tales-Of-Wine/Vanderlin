@@ -81,4 +81,8 @@
 				H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.change_stat(STATKEY_CON, 2)
 			H.change_stat(STATKEY_PER, 2)
-*/
+
+
+
+
+STONEKEEP EDIT*/

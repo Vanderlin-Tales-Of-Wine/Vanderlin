@@ -161,4 +161,8 @@
 		var/list/things = STR.contents()
 		for(var/obj/item/I in things)
 			STR.remove_from_storage(I, get_turf(src))
-*/
+
+
+
+
+STONEKEEP EDIT*/

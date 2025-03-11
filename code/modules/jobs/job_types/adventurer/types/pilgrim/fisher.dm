@@ -61,4 +61,9 @@
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
 		backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

@@ -76,4 +76,9 @@
 	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_SPD, 2)
 	H.change_stat(STATKEY_STR, -1)
-*/
+
+
+
+
+
+STONEKEEP EDIT*/

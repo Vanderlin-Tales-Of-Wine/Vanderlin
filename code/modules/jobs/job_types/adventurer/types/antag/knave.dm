@@ -64,4 +64,8 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 
 			ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
-*/
+
+
+
+
+STONEKEEP EDIT*/

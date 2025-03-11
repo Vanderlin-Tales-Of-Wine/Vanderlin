@@ -4,6 +4,7 @@
 	name = "Grandmaster Mason"
 	tutorial = "A Grandmaster mason, you built castles and entire cities with your own hands. \
 	There is nothing in this world that you can't build, your creed and hardwork has revealed all the secrets of the stone."
+	allowed_ages = list(AGE_OLD)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Humen", "Dwarf")
 	outfit = /datum/outfit/job/stonekeep/adventurer/grandmastermason
@@ -45,5 +46,3 @@
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 2)
 
-	if(H.dna.species.name == "Dwarf")
-		head = /obj/item/clothing/head/helmet/leather/minershelm
