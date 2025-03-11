@@ -174,7 +174,7 @@
 	recruit.verbs |= /mob/proc/haltyell
 
 /obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard
-	name = "Recruit Forest Garrison"
+	name = "Recruit Forest Guard"
 	new_role = "Forest Garrison Recruit"
 	overlay_state = "recruit_guard"
 	recruitment_faction = "Forest Garrison"
