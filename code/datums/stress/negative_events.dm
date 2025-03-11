@@ -192,7 +192,7 @@
 	desc = "<span class='red'>A beast in human skin.</span>"
 
 /datum/stressevent/foreigner
-	tiemr = 30 SECONDS
+	timer = 30 SECONDS
 	stressadd = 1
 	desc = "span class='red>A foreigner... what do they want?</span>"
 

@@ -127,7 +127,7 @@
 */
 	var/list/advclass_cat_rolls
 
-	var/display_as_foreigner = FALSE
+	var/is_foreigner = FALSE
 
 	var/datum/charflaw/forced_flaw
 

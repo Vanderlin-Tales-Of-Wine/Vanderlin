@@ -19,12 +19,12 @@
 	same_job_respawn_delay = 0
 	bypass_lastclass = TRUE
 	can_have_apprentices = FALSE
+	is_foreigner = TRUE
 
 
 /datum/job/pilgrim/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
-		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 		if(advclass_cat_rolls)
 			hugboxify_for_class_selection(H)

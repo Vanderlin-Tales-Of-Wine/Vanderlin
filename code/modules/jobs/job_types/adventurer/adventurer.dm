@@ -28,7 +28,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	bypass_lastclass = TRUE
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 15)
 
-	display_as_foreigner = TRUE
+	is_foreigner = TRUE
 	can_have_apprentices = FALSE
 
 
@@ -38,5 +38,3 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 		var/mob/living/carbon/human/H = L
 		if(advclass_cat_rolls)
 			hugboxify_for_class_selection(H)
-		if(!isvillager)
-			ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
