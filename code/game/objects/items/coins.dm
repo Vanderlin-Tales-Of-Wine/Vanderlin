@@ -288,7 +288,7 @@
 //GOLD
 /obj/item/coin/gold
 	name = "zenar"
-	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down."
+	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down. It's valued at 10 mammon per coin."
 	icon_state = "g1"
 	sellprice = 10
 	base_type = CTYPE_GOLD
@@ -298,7 +298,7 @@
 // SILVER
 /obj/item/coin/silver
 	name = "ziliqua"
-	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages."
+	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages. It's valued at 5 mammon per coin."
 	icon_state = "s1"
 	sellprice = 5
 	base_type = CTYPE_SILV
@@ -307,7 +307,7 @@
 // COPPER
 /obj/item/coin/copper
 	name = "zenny"
-	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver."
+	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver. It's valued at 1 mammon per coin."
 	icon_state = "c1"
 	sellprice = 1
 	base_type = CTYPE_COPP
