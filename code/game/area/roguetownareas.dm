@@ -743,7 +743,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/town/basement/thieves_guild
 	first_time_text = "Thieves Guild"
 	icon_state = "thieves_guild"
-	droning_sound = "sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg" //Yes this is scuffed but it works down there
+	droning_sound = 'sound/music/area/towngen.ogg'
 
 /area/rogue/outdoors/exposed/under/basement
 	icon_state = "basement"
