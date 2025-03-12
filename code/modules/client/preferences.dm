@@ -1743,10 +1743,10 @@ Slots: [job.spawn_positions]</span>
 						voice_color = sanitize_hexcolor(new_voice)
 
 				if("headshot")
-					to_chat(user, "<span class='notice'>Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
+					to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
 					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
-					to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 250x250 pixels, so the more square the photo, the better it will look.</span>")
-					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
+					to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 325x325 pixels, so the more square the photo, the better it will look.</span>")
+					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
 					if(!new_headshot_link)
 						return
 					var/is_valid_link = is_valid_headshot_link(user, new_headshot_link, FALSE)
@@ -2431,34 +2431,43 @@ Slots: [job.spawn_positions]</span>
 	return TRUE
 
 /proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
-	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe|i.imgur.com") //gyazo, discord, lensdump, imgbox, catbox
-	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
+    var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
+    var/static/list/valid_extensions = list("jpg", "png", "jpeg")
 
-	if(!length(value))
-		return FALSE
+    if (!length(value))
+        return FALSE
 
- 	var/find_index = findtext(value, "https://")
- 	if(find_index != 1)
- 		if(!silent)
- 			to_chat(user, "<span class='warning'>Your link must be https!</span>")
- 		return FALSE
+    // Ensure link starts with "https://"
+    if (findtext(value, "https://") != 1)
+        if (!silent)
+            to_chat(user, "<span class='warning'>Your link must be https!</span>")
+        return FALSE
 
- 	if(!findtext(value, "."))
- 		if(!silent)
- 			to_chat(user, "<span class='warning'>Invalid link!</span>")
- 		return FALSE
- 	var/list/value_split = splittext(value, ".")
+    // Extract domain from the URL
+    var/start_index = length("https://") + 1
+    var/end_index = findtext(value, "/", start_index)
+    var/domain = (end_index ? copytext(value, start_index, end_index) : copytext(value, start_index))
 
- 	// extension will always be the last entry
- 	var/extension = value_split[length(value_split)]
- 	if(!(extension in valid_extensions))
- 		if(!silent)
- 			to_chat(usr, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
- 		return FALSE
+    // Check if domain is in the allowed list
+    if (!(domain in allowed_hosts))
+        if (!silent)
+            to_chat(user, "<span class='warning'>The image must be hosted on an approved site.</span>")
+        return FALSE
 
- 	find_index = findtext(value, link_regex)
- 	if(find_index != 9)
- 		if(!silent)
- 			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
- 		return FALSE
- 	return TRUE
+    // Extract the filename and extension
+    var/list/path_split = splittext(value, "/")
+    var/filename = path_split[length(path_split)]
+    var/list/file_parts = splittext(filename, ".")
+
+    if (length(file_parts) < 2)
+        return FALSE
+
+    var/extension = file_parts[length(file_parts)]
+
+    // Validate extension
+    if (!(extension in valid_extensions))
+        if (!silent)
+            to_chat(user, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
+        return FALSE
+
+    return TRUE
