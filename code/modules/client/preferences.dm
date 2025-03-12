@@ -81,6 +81,10 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/eye_color = "000"				//Eye color
 	var/voice_color = "a0a0a0"
 	var/detail_color = "000"
+	/// link to a page containing your headshot image
+	var/headshot_link
+	/// text of your flavor
+	var/flavortext
 	var/datum/species/pref_species = new /datum/species/human/northern()	//Mutant race
 	var/datum/patron/selected_patron
 	var/static/datum/patron/default_patron = /datum/patron/divine/astrata
@@ -154,6 +158,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	parent = C
 
 	migrant  = new /datum/migrant_pref(src)
+
+	flavortext = null
+	headshot_link = null
 
 	for(var/custom_name_id in GLOB.preferences_custom_names)
 		custom_names[custom_name_id] = get_default_name(custom_name_id)
@@ -396,9 +403,16 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 //				dat += "<b>Body Detail:</b> <a href='?_src_=prefs;preference=bdetail;task=input'>None</a>"
 //				if(gender == FEMALE)
 //					dat += "<br>"
+
+				dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
+				if(headshot_link != null)
+					dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+				dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
 				dat += "<br></td>"
 //				dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
 			else if(use_skintones || mutant_colors)
+
+
 				dat += "</td>"
 
 //			if(HAIR in pref_species.species_traits)
@@ -1728,6 +1742,19 @@ Slots: [job.spawn_positions]</span>
 							return
 						voice_color = sanitize_hexcolor(new_voice)
 
+				if("headshot")
+					to_chat(user, "<span class='notice'>Please use a relatively SFW image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
+					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
+					to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 250x250 pixels, so the more square the photo, the better it will look.</span>")
+					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
+					if(!new_headshot_link)
+						return
+					if(!valid_headshot_link(user, new_headshot_link))
+						return
+					headshot_link = new_headshot_link
+					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
+					log_game("[user] has set their Headshot image to '[headshot_link]'.")
+
 				if("species")
 
 					var/list/crap = list()
@@ -1773,6 +1800,18 @@ Slots: [job.spawn_positions]</span>
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
 
+				if("flavortext")
+					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts. NSFW descriptions are prohibited.</span>"]</span>")
+					var/new_flavortext = input(user, "Input your character description:", "Flavortext", flavortext) as message|null
+					if(new_flavortext == null)
+						return
+					if(new_flavortext == "")
+						flavortext = null
+						ShowChoices(user)
+						return
+					flavortext = new_flavortext
+					to_chat(user, "<span class='notice'>Successfully updated flavortext</span>")
+					log_game("[user] has set their flavortext'.")
 
 				if("mutant_color")
 					var/new_mutantcolor = input(user, "Choose your character's alien/mutant color:", "Character Preference","#"+features["mcolor"]) as color|null
@@ -2313,6 +2352,9 @@ Slots: [job.spawn_positions]</span>
 
 	character.dna.real_name = character.real_name
 
+	character.headshot_link = headshot_link
+	character.flavortext = flavortext
+
 	if(parent)
 		var/datum/role_bans/bans = get_role_bans_for_ckey(parent.ckey)
 		for(var/datum/role_ban_instance/ban as anything in bans.bans)
@@ -2371,6 +2413,40 @@ Slots: [job.spawn_positions]</span>
 			return
 		else
 			custom_names[name_id] = sanitized_name
+
+
+/proc/valid_headshot_link(mob/user, value, silent = FALSE)
+	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, discord, lensdump, imgbox, catbox
+	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
+
+	if(!length(value))
+		return FALSE
+
+ 	var/find_index = findtext(value, "https://")
+ 	if(find_index != 1)
+ 		if(!silent)
+ 			to_chat(user, "<span class='warning'>Your link must be https!</span>")
+ 		return FALSE
+
+ 	if(!findtext(value, "."))
+ 		if(!silent)
+ 			to_chat(user, "<span class='warning'>Invalid link!</span>")
+ 		return FALSE
+ 	var/list/value_split = splittext(value, ".")
+
+ 	// extension will always be the last entry
+ 	var/extension = value_split[length(value_split)]
+ 	if(!(extension in valid_extensions))
+ 		if(!silent)
+ 			to_chat(usr, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
+ 		return FALSE
+
+ 	find_index = findtext(value, link_regex)
+ 	if(find_index != 9)
+ 		if(!silent)
+ 			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
+ 		return FALSE
+ 	return TRUE
 
 /datum/preferences/proc/is_active_migrant()
 	if(!migrant)

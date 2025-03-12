@@ -2,6 +2,26 @@ GLOBAL_VAR_INIT(year, time2text(world.realtime,"YYYY"))
 GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 /mob/living/carbon/human/Topic(href, href_list)
+
+	if(href_list["task"] == "view_headshot" && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+		if(!ismob(usr))
+			return
+		if(!valid_headshot_link(null, headshot_link, TRUE))
+			return
+		var/mob/user = usr
+		var/list/dat = list()
+		if(headshot_link)
+			dat += "<br>"
+			dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
+		if(flavortext)
+			dat += "<br>"
+			dat += "<div align='center'><b>[src]</b>"
+			dat += "<div align='left'>[flavortext]</div>"
+		var/datum/browser/popup = new(user, "[src]", 400, 600)
+		popup.set_content(dat.Join())
+		popup.open(FALSE)
+		return
+
 	if(href_list["inspect_limb"] && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
 		var/list/msg = list()
 		var/mob/user = usr

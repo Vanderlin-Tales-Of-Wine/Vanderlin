@@ -515,6 +515,9 @@
 		if(skipface && user.has_flaw(/datum/charflaw/hunted))
 			user.add_stress(/datum/stressevent/hunted)
 
+	if(!obscure_name && (flavortext || headshot_link))
+		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine closer</a>"
+
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	for(var/line in lines)
 		. += span_info(line)
