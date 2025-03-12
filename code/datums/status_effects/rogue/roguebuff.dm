@@ -46,7 +46,7 @@
 	id = "cleanplus"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/clean_plus
 	effectedstats = list(STATKEY_LCK = 1)
-	duration = 20 MINUTES
+	duration = 15 MINUTES
 
 /datum/status_effect/buff/clean_plus/on_apply()
 	. = ..()
