@@ -2434,43 +2434,43 @@ Slots: [job.spawn_positions]</span>
 	return TRUE
 
 /proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
-    var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
-    var/static/list/valid_extensions = list("jpg", "png", "jpeg", "gif")
+var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
+	var/static/list/valid_extensions = list("jpg", "png", "jpeg", "gif")
 
-    if (!length(value))
-        return FALSE
+	if(!length(value))
+		return FALSE
 
-    // Ensure link starts with "https://"
-    if (findtext(value, "https://") != 1)
-        if (!silent)
-            to_chat(user, "<span class='warning'>Your link must be https!</span>")
-        return FALSE
+	 // Ensure link starts with "https://"
+	if(findtext(value, "https://") != 1)
+		if (!silent)
+			to_chat(user, "<span class='warning'>Your link must be https!</span>")
+		return FALSE
 
-    // Extract domain from the URL
-    var/start_index = length("https://") + 1
-    var/end_index = findtext(value, "/", start_index)
-    var/domain = (end_index ? copytext(value, start_index, end_index) : copytext(value, start_index))
+	// Extract domain from the URL
+	var/start_index = length("https://") + 1
+	var/end_index = findtext(value, "/", start_index)
+	var/domain = (end_index ? copytext(value, start_index, end_index) : copytext(value, start_index))
 
-    // Check if domain is in the allowed list
-    if (!(domain in allowed_hosts))
-        if (!silent)
-            to_chat(user, "<span class='warning'>The image must be hosted on an approved site.</span>")
-        return FALSE
+	// Check if domain is in the allowed list
+	if(!(domain in allowed_hosts))
+		if (!silent)
+			to_chat(user, "<span class='warning'>The image must be hosted on an approved site.</span>")
+		return FALSE
 
-    // Extract the filename and extension
-    var/list/path_split = splittext(value, "/")
-    var/filename = path_split[length(path_split)]
-    var/list/file_parts = splittext(filename, ".")
+	// Extract the filename and extension
+	var/list/path_split = splittext(value, "/")
+	var/filename = path_split[length(path_split)]
+	var/list/file_parts = splittext(filename, ".")
 
-    if (length(file_parts) < 2)
-        return FALSE
+	if(length(file_parts) < 2)
+		return FALSE
 
-    var/extension = file_parts[length(file_parts)]
+	var/extension = file_parts[length(file_parts)]
 
-    // Validate extension
-    if (!(extension in valid_extensions))
-        if (!silent)
-            to_chat(user, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
-        return FALSE
+	// Validate extension
+	if(!(extension in valid_extensions))
+		if (!silent)
+			to_chat(user, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
+		return FALSE
 
-    return TRUE
+	return TRUE
