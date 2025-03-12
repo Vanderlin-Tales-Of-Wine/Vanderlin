@@ -1666,7 +1666,7 @@
 /area/rogue/outdoors/town/roofs)
 "bRz" = (
 /obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/item/natural/cloth,
 /turf/open/floor/herringbone,
 /area/rogue/under/town/basement)
@@ -8457,7 +8457,7 @@
 /area/rogue/indoors/town/manor)
 "jsE" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "jtd" = (
@@ -14155,9 +14155,6 @@
 "ptC" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/river)
-"ptP" = (
-/turf/open/floor/carpet,
-/area/rogue/indoors/town)
 "puo" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -15115,7 +15112,7 @@
 /area/rogue/indoors/town/church)
 "qBm" = (
 /obj/structure/closet/crate/chest,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /turf/open/floor/tile{
@@ -106019,8 +106016,8 @@ oiP
 sjf
 jWo
 eww
-ptP
-ptP
+hYG
+hYG
 xHv
 tgV
 tgV
@@ -106177,7 +106174,7 @@ sjf
 vTw
 fqb
 bwO
-ptP
+hYG
 fMz
 qFq
 qlQ

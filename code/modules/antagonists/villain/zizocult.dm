@@ -730,7 +730,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /obj/item/soap/cult
 	name = "accursed soap"
 	desc = "It is pulsating."
-	uses = 9
+	uses = 40
 	cleanspeed = 1
 
 /proc/criminalstool(mob/user, turf/C)

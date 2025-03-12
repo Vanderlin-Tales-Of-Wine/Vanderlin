@@ -53,7 +53,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/hexstone,
 /area/rogue)
 "dx" = (
