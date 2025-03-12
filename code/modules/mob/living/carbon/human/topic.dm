@@ -14,7 +14,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(flavortext)
 			dat += "<br>"
 			dat += "<div align='center'>[flavortext]</div>"
-		var/datum/browser/popup = new(user, "[src]", "<center>[src]</center>", 600, 800)
+		var/datum/browser/popup = new(user, "[src]", "<center>[src]</center>", 480, 700)
 
 		popup.set_content(dat.Join())
 		popup.open(FALSE)
