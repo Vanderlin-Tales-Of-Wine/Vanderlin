@@ -2440,7 +2440,7 @@ var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l
 	if(!length(value))
 		return FALSE
 
-	 // Ensure link starts with "https://"
+	// Ensure link starts with "https://"
 	if(findtext(value, "https://") != 1)
 		if (!silent)
 			to_chat(user, "<span class='warning'>Your link must be https!</span>")
