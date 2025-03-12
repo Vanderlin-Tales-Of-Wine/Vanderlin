@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/steppesman
+/datum/advclass/mercenary/sk/steppesman
 	name = "Steppesman"
 	tutorial = "A mercenary from hailing from the wild frontier steppes. There are three things you value most; saigas, freedom, and coin."
 	allowed_sexes = list(MALE, FEMALE)

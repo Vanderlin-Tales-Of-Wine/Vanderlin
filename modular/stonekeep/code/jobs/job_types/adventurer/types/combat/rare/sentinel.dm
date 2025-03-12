@@ -9,7 +9,7 @@
 		"Half-Elf",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/sentinel
+	outfit = /datum/outfit/job/sk/adventurer/sentinel
 	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
 	maximum_possible_slots = 1
 	min_pq = 0
@@ -23,7 +23,7 @@
 	return ..()
 
 
-/datum/outfit/job/stonekeep/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/sentinel/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)

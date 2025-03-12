@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/onmyoji //Considered 'high-abyssanctum', as Onmyojis actually makes part of their religion. (Also, their mana are sourced from Abyssor due to soul exchanging.)
+/datum/advclass/combat/sk/abyss/onmyoji //Considered 'high-abyssanctum', as Onmyojis actually makes part of their religion. (Also, their mana are sourced from Abyssor due to soul exchanging.)
 	name = "Onmyoji"
 	tutorial = "The Chosen of the Pressuring Depth, spiritcallers of Abyssor, sage of the oceans. The Onmyojis are celestial magicians skilled in divination \
 	and manifesting the powers of the sea as intermediaries between the Abyssariads and the Abyssal realm. The Onmyojis are empowered in the same way Abyssor \
@@ -16,14 +16,14 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji
+	outfit = /datum/outfit/job/sk/adventurer/abyss/onmyoji
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 2
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji
+/datum/outfit/job/sk/adventurer/abyss/onmyoji
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/onmyoji/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/onmyoji/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots/cloudhead
 	belt = /obj/item/storage/belt/leather/rope

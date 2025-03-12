@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/corsair
+/datum/advclass/mercenary/sk/corsair
 	name = "Corsair"
 	tutorial = "Banished from polite society, you once found kin with privateers, working adjacent to a royal navy. After the Red Flag battered itself in the wind one last time, your purse was still not satisfied... And yet he complained that his belly was not full."
 	allowed_sexes = list(MALE, FEMALE)
@@ -16,10 +16,10 @@
 	belt = /obj/item/storage/belt/leather/mercenary
 	armor = /obj/item/clothing/armor/leather/jacket/sea
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/natural/worms/leech = 2, /obj/item/storage/belt/pouch/coins/mid)
+	backpack_contents = list(/obj/item/natural/worms/leech = 2,/obj/item/storage/belt/pouch/coins/mid)
 	backr = /obj/item/fishingrod/fisher
 	beltl = /obj/item/weapon/sword/sabre/cutlass
-	beltr = /obj/item/weapon/knife/dagger
+	beltr = /obj/item/weapon/knife/throwingknife
 	shoes = /obj/item/clothing/shoes/boots
 
 /datum/outfit/job/stonekeep/merc/corsair/pre_equip(mob/living/carbon/human/H)
@@ -28,6 +28,7 @@
 
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Swords / Nonlethal.
 		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)

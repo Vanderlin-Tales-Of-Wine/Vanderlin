@@ -7,7 +7,7 @@
 //THIS ROLE IS FAR FROM FINISHED! The coder that voluntered in helping me on the Abyssanctum spells quitted. So someone willing and able is VERY necessary.
 //Contact Monochrome9090 for further information.
 
-/datum/advclass/combat/abyssariad/yamabushi //Low-ranking Abyssanctum.
+/datum/advclass/combat/sk/abyss/yamabushi //Low-ranking Abyssanctum.
 	name = "Yamabushi"
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "The Yamabushi stands as the battle-hardened stewards and hermits of knowledge dedicated to society's \
@@ -18,16 +18,16 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi
+	outfit = /datum/outfit/job/sk/adventurer/abyss/yamabushi
 	maximum_possible_slots = 2 //Less slots. It is split with Sohei.
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 	vampcompat = FALSE
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi
+/datum/outfit/job/sk/adventurer/abyss/yamabushi
 	allowed_patrons = ALL_CLERIC_PATRONS
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/yamabushi/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/yamabushi/pre_equip(mob/living/carbon/human/H)
 	..()
 	switch(H.patron?.name)
 		if("Astrata")

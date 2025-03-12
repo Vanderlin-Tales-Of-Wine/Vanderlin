@@ -1,4 +1,8 @@
 // ===================================================================================
+/mob/living/carbon/human/species/skeleton/after_creation()
+	..()
+	QDEL_NULL(sexcon)
+
 // -------------------		SKELLY SKILLED CORE		--------------------------
 /datum/outfit/job/roguetown/species/skeleton/skilled/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -136,6 +140,9 @@
 
 // ===================================================================================
 // -------------------		ORC SKILLED CORE		--------------------------
+/mob/living/carbon/human/species/orc/skilled
+	initial_language_holder = /datum/language_holder/orc
+
 /datum/outfit/job/roguetown/species/orc/skilled/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.STASTR = 13
@@ -143,6 +150,7 @@
 	H.STACON = 13
 	H.STAEND = 13
 	H.STAINT = 6
+
 
 /mob/living/carbon/human/species/orc/skilled/after_creation()
 	..()
@@ -175,13 +183,11 @@
 	mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 
-/*
-/mob/living/carbon/human/species/orc/skilled/after_creation(mob/living/carbon/C)
+/datum/outfit/job/roguetown/npc/orc/pre_equip(mob/living/carbon/human/H)
 	..()
-	C.remove_all_languages()
-	C.grant_language(/datum/language/orcish)
-	to_chat(C, "<span class='info'>I can speak Orcish with ,g before my speech.</span>")
-*/
+	shirt = /obj/item/clothing/shirt/tribalrag
+	pants =	/obj/item/clothing/pants/loincloth/brown
+
 
 // -------------------		SAVAGE ORC		--------------------------
 /mob/living/carbon/human/species/orc/skilled/savage
@@ -193,13 +199,13 @@
 
 /datum/outfit/job/roguetown/npc/orc/savage/pre_equip(mob/living/carbon/human/H)
 	..()
+	shirt = /obj/item/clothing/shirt/tribalrag
+	pants =	/obj/item/clothing/pants/loincloth/brown
 	if(prob(20))
 		armor = /obj/item/clothing/armor/leather/hide/orc
 	if(prob(20))
-		pants =	/obj/item/clothing/pants/loincloth/brown
-	if(prob(20))
 		cloak = /obj/item/clothing/cloak/raincloak/brown
-	if(prob(20))
+	if(prob(50))
 		shoes = /obj/item/clothing/shoes/boots/furlinedanklets
 	if(prob(20))
 		head = /obj/item/clothing/head/helmet/leather
@@ -228,15 +234,15 @@
 
 /datum/outfit/job/roguetown/npc/orc/looter/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(20))
-		pants =	/obj/item/clothing/pants/loincloth/brown
-	if(prob(20))
+	shirt = /obj/item/clothing/shirt/tribalrag
+	pants =	/obj/item/clothing/pants/loincloth/brown
+	if(prob(30))
 		pants = /obj/item/clothing/pants/trou/leather
-
-	if(prob(20))
-		shoes = /obj/item/clothing/shoes/boots/furlinedanklets
+	if(prob(50))
+		shoes = /obj/item/clothing/shoes/boots/furlinedboots
 	if(prob(20))
 		head = /obj/item/clothing/head/helmet/leather
+
 
 	var/loadout = rand(1,4)
 	switch(loadout)
@@ -282,15 +288,13 @@
 
 /datum/outfit/job/roguetown/npc/orc/savage_chieftain/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(prob(20))
-		pants =	/obj/item/clothing/pants/loincloth/brown
-	if(prob(20))
+	pants =	/obj/item/clothing/pants/chainlegs
+	if(prob(50))
 		pants = /obj/item/clothing/pants/trou/leather
-
-	if(prob(20))
-		shoes = /obj/item/clothing/shoes/boots/furlinedanklets
-	if(prob(20))
-		head = /obj/item/clothing/head/helmet/leather
+	shoes = /obj/item/clothing/shoes/boots/armor
+	gloves = /obj/item/clothing/gloves/chain
+	neck = /obj/item/clothing/neck/chaincoif
+	mask = /obj/item/clothing/face/skullmask
 
 	var/loadout = rand(1,5)
 	switch(loadout)
@@ -317,31 +321,31 @@
 
 
 // ===================================================================================
-/*
-/mob/living/carbon/human/species/human/northern/bum/skilled
-	race = /datum/species/human/northern/npc
 
-*/
-
-GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
-GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"))
+/datum/job/stonekeep/madman
+	title = "Madman"
 
 /mob/living/carbon/human/species/human/northern/bum
-	aggressive=0
-	mode = AI_IDLE
-	faction = list("bums", "station")
-	ambushable = FALSE
 	dodgetime = 3 SECONDS
-	flee_in_pain = TRUE
-	possible_rmb_intents = list()
-
-	wander = FALSE
 	var/outlaw
+	var/minded
 
 /mob/living/carbon/human/species/human/northern/bum/ambush
-	aggressive=1
-	wander = TRUE
 	dodgetime = 5 SECONDS
+
+/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw
+	outlaw = TRUE
+/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw/after_creation()
+	..()
+	gender = MALE
+	job = "Madman"
+	aggressive= TRUE
+	wander = TRUE
+	aggressive= TRUE
+	wander = TRUE
+	equipOutfit(new /datum/outfit/job/roguetown/human_npc/outlaw)
+
+
 
 /datum/outfit/job/roguetown/human_npc/skilled/pre_equip(mob/living/carbon/human/H)
 	H.STASTR = rand(8,10)
@@ -350,22 +354,17 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	H.STAEND = rand(8,10)
 	H.STAINT = 7
 
+/mob/living/carbon/human/species/human/northern/bum/skilled
+	minded = TRUE
 /mob/living/carbon/human/species/human/northern/bum/skilled/after_creation(mob/living/carbon/C)
 	..()
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_ZOMBIE_IMMUNE, TRAIT_GENERIC)
 	configure_mind()
 	d_intent = INTENT_PARRY //these ones will parry instead of dodge, the higher the skill the more powerful this is of course
-	aggressive = FALSE
-	mode = AI_IDLE
+
 	dodgetime = 4 SECONDS
 	canparry = TRUE
-
-	flee_in_pain = TRUE
-	wander = FALSE
-	ambushable = FALSE
-	faction = list("bums", "station")
-//	C.grant_language(/datum/language/common)
 
 /mob/living/carbon/human/species/human/northern/bum/skilled/proc/configure_mind()
 	if(!mind)
@@ -381,7 +380,6 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 
 
-
 // -------------------		BUM		--------------------------
 /mob/living/carbon/human/species/human/northern/bum/skilled/madman/after_creation()
 	..()
@@ -391,18 +389,24 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 
 
 // -------------------		OUTLAW		--------------------------
+/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw
+//	initial_language_holder = /datum/language_holder/monkey
 /mob/living/carbon/human/species/human/northern/bum/skilled/outlaw/after_creation()
 	..()
-	job = "Beggar"
+	gender = MALE
+	job = "Madman"
 	aggressive= TRUE
 	wander = TRUE
-	equipOutfit(new /datum/outfit/job/roguetown/human_npc/skilled/outlaw)
-	outlaw = TRUE
+	equipOutfit(new /datum/outfit/job/roguetown/human_npc/outlaw)
 
-/datum/outfit/job/roguetown/human_npc/skilled/outlaw
-	name = "Outlaw"
 
-/datum/outfit/job/roguetown/human_npc/skilled/outlaw/pre_equip(mob/living/carbon/human/H)
+
+/datum/outfit/job/roguetown/human_npc/outlaw/post_equip(mob/living/carbon/human/H)
+	..()
+	H.real_name = "Outlaw"
+	H.name = "Outlaw"
+
+/datum/outfit/job/roguetown/human_npc/outlaw/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.STASTR = 10
 	H.STAEND = 10
@@ -429,14 +433,20 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 	if(prob(10))
 		cloak = /obj/item/clothing/cloak/raincloak/brown
 	if(prob(10))
+		cloak = /obj/item/clothing/cloak/wickercloak
+	if(prob(10))
 		gloves = /obj/item/clothing/gloves/fingerless
 	if(prob(10))
 		wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(10))
 		neck = /obj/item/storage/belt/pouch/coins/poor
+	if(prob(10))
+		neck = /obj/item/clothing/neck/bogcowl
+	if(prob(10))
+		head = /obj/item/clothing/face/facemask/prisoner
 
-	var/head = rand(1,6)
-	switch(head)
+	var/headgear = rand(1,6)
+	switch(headgear)
 		if(1)
 			head = /obj/item/clothing/head/knitcap
 			mask = /obj/item/clothing/face/shepherd
@@ -452,11 +462,11 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 		if(6)
 			head = /obj/item/clothing/head/roguehood/uncolored
 
-	var/armor = rand(1,5)
-	switch(armor)
+	var/wornarmor = rand(1,5)
+	switch(wornarmor)
 		if(1)
 			armor = /obj/item/clothing/armor/gambeson/light
-			pants = /obj/item/clothing/pants/trou/leather
+			pants = /obj/item/clothing/pants/trou
 		if(2)
 			armor = /obj/item/clothing/shirt/rags
 			pants = /obj/item/clothing/pants/trou/leather
@@ -468,8 +478,8 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 		if(5)
 			armor = /obj/item/clothing/armor/leather/jacket
 
-	var/weapon = rand(1,6)
-	switch(weapon)
+	var/wieldweapon = rand(1,6)
+	switch(wieldweapon)
 		if(1)
 			r_hand = /obj/item/weapon/axe/iron
 		if(2)
@@ -477,11 +487,12 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 		if(3)
 			r_hand = /obj/item/weapon/mace/copperbludgeon
 		if(4)
-			r_hand =/obj/item/weapon/pitchfork
+			r_hand =/obj/item/weapon/polearm/woodstaff/quarterstaff/iron
 		if(5)
 			r_hand = /obj/item/weapon/thresher/military
 		if(6)
 			r_hand = /obj/item/weapon/sword/short
+			l_hand = /obj/item/weapon/shield/wood
 
 
 // ===================================================================================
@@ -556,82 +567,34 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 
 
 // ===================================================================================
-/datum/intent/simple/trollsmash
-	name = "trollsmash"
-	icon_state = "instrike"
-	attack_verb = list("hammer-punches", "smashes", "headbutts", "rams")
-	animname = "blank22"
-	blade_class = BCLASS_BLUNT
-	hitsound = "punch_hard"
-	chargetime = 0
-	penfactor = 13
-	swingdelay = 4 SECONDS
-	candodge = TRUE
-	canparry = FALSE
+/*	..................	Zizombie Modifications   ................... */
+/mob/living/carbon/human/species/zizombie
+	icon = 'modular/stonekeep/icons/mobs/zizombie.dmi'
+	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
+	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
+	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/weak)
+	a_intent = INTENT_HELP
+	attack_speed = 2
+
+/mob/living/carbon/human/species/zizombie/after_creation()
+	..()
+	QDEL_NULL(sexcon)
 
 
-/mob/living/simple_animal/hostile/retaliate/troll
-	base_intents = list(/datum/intent/simple/trollrip, /datum/intent/simple/trollsmash)
+/mob/living/carbon/human/species/zizombie/npc_idle()
+	if(world.time < next_idle)
+		return
+	next_idle = world.time + rand(30, 70)
+	if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && wander)
+		if(prob(20))
+			var/turf/T = get_step(loc,pick(GLOB.cardinals))
+			if(!istype(T, /turf/open/transparent/openspace))
+				Move(T)
+		else
+			face_atom(get_step(src,pick(GLOB.cardinals)))
+	if(!wander && prob(10))
+		face_atom(get_step(src,pick(GLOB.cardinals)))
+	if(prob(3))
+		playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
 
-/mob/living/simple_animal/hostile/retaliate/trollbog
-	base_intents = list(/datum/intent/simple/trollsmash, /datum/intent/simple/trollrip)
 
-/mob/living/simple_animal/hostile/retaliate/wolf
-	base_intents = list(/datum/intent/simple/critterbite)
-
-/mob/living/simple_animal/hostile/retaliate/bigrat
-	base_intents = list(/datum/intent/simple/critterbite)
-
-/datum/intent/simple/trollrip
-	name = "trollrip"
-	icon_state = "instrike"
-	attack_verb = list("claws", "gnashes", "viciously bites")
-	animname = "blank22"
-	blade_class = BCLASS_CHOP
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 20
-	swingdelay = 2 SECONDS
-	candodge = TRUE
-	canparry = TRUE
-
-/datum/intent/simple/critterbite
-	name = "bite"
-	icon_state = "instrike"
-	attack_verb = list("bites")
-	animname = "blank22"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 5
-	swingdelay = 1.5 SECONDS
-	candodge = TRUE
-	canparry = TRUE
-
-/datum/intent/simple/claw_strong
-	name = "claw"
-	icon_state = "inclaw"
-	attack_verb = list("slashes", "claws")
-	animname = "blank22"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 5
-	swingdelay = 2 SECONDS
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "slashes the air!"
-
-/datum/intent/simple/claw_quick
-	name = "claw"
-	icon_state = "inclaw"
-	attack_verb = list("slashes", "claws")
-	animname = "blank22"
-	blade_class = BCLASS_CUT
-	hitsound = "smallslash"
-	chargetime = 0
-	penfactor = 3
-	swingdelay = 1 SECONDS
-	candodge = TRUE
-	canparry = TRUE
-	miss_text = "slashes the air!"

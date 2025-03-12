@@ -868,7 +868,7 @@
 	desc = "A statue built to the robber-god, Matthios, who stole the gift of fire from the underworld. It is said that he grants the wishes of those pagan bandits (free folk) who feed him money."
 	icon_state = "evilidol"
 	icon = 'icons/roguetown/misc/structure.dmi'
-
+/* STONEKEEP EDIT
 /obj/structure/fluff/statue/evil/attackby(obj/item/W, mob/user, params)
 	if(user.mind)
 		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
@@ -915,7 +915,7 @@
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				qdel(W)
 				return
-	..()
+	..()*/
 
 /obj/structure/fluff/psycross
 	name = "pantheon cross"

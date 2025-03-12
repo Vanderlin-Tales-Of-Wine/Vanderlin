@@ -16,7 +16,8 @@
 /obj/structure/rack/shelf
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
-
+/obj/structure/flora/grass/thorn_bush
+	alpha = 220
 
 // =================================================================================
 /*----------------\
@@ -445,12 +446,19 @@
 /obj/structure/fluff/railing/fence/palisade_alt
 	icon_state = "fence_alt"
 
+/obj/structure/fluff/railing/border
+	icon = 'modular/stonekeep/icons/railing.dmi'
+
 
 
 /obj/structure/bars/weakened
 	desc = "Iron bars made to keep things in or out. These one looks pretty rusty."
 	max_integrity = INTEGRITY_POOR
 	color = "#edc9c9"
+
+
+/obj/structure/fermentation_keg
+	icon = 'modular/stonekeep/icons/brewing.dmi'
 
 
 /obj/structure/flora/tree/neu
@@ -538,3 +546,94 @@
 	. = ..()
 	icon_state = "bogmix_[rand(1,2)]"
 	dir = pick(GLOB.alldirs)
+
+
+
+
+
+/obj/structure/fluff/statue/evil/attackby(obj/item/W, mob/user, params)
+	if(user.mind)
+		var/datum/antagonist/bandit/B = user.mind.has_antag_datum(/datum/antagonist/bandit)
+		if(B)
+			if(istype(W, /obj/item/coin) || istype(W, /obj/item/gem) || istype(W, /obj/item/reagent_containers/glass/cup/silver) || istype(W, /obj/item/reagent_containers/glass/cup/golden) || istype(W, /obj/item/reagent_containers/glass/carafe) || istype(W, /obj/item/clothing/ring) || istype(W, /obj/item/clothing/head/crown/circlet) || istype(W, /obj/item/statue))
+				if(B.tri_amt >= 10)
+					to_chat(user, "<span class='warning'>The mouth doesn't open.</span>")
+					return
+				if(!istype(W, /obj/item/coin))
+					B.contrib += (W.get_real_price() / 2) //sell jewerly and other fineries, though at a lesser price compared to fencing them first
+				else
+					B.contrib += W.get_real_price()
+				if(B.contrib >= 100)
+					B.tri_amt++
+					user.mind.adjust_triumphs(1)
+					B.contrib -= 100
+					var/obj/item/I
+					switch(B.tri_amt)
+						if(1)
+							I = new /obj/item/reagent_containers/glass/bottle/healthpot(user.loc)
+						if(2)
+							if(HAS_TRAIT(user, TRAIT_DODGEEXPERT))
+								I = new /obj/item/clothing/wrists/bracers/leather/heavy(user.loc)
+							if(HAS_TRAIT(user, TRAIT_MEDIUMARMOR))
+								I = new /obj/item/clothing/neck/chaincoif/iron(user.loc)
+							if(HAS_TRAIT(user, TRAIT_HEAVYARMOR))
+								I = new /obj/item/clothing/head/helmet/heavy/ironplate(user.loc)
+						if(3)
+							if(user.mind.get_skill_level(/datum/skill/magic/arcane) > 2)
+								I = new /datum/reagent/medicine/strongmana(user.loc)
+							else
+								I = new /obj/item/reagent_containers/powder/moondust(user.loc)
+						if(4)
+							if(user.mind.get_skill_level(/datum/skill/combat/bows) > 3)
+								I = new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/crossbows) > 3)
+								I = new /obj/item/weapon/knife/dagger/steel(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/axesmaces) > 3)
+								I = new /obj/item/weapon/axe/battle(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/polearms) > 3)
+								I = new /obj/item/weapon/polearm/eaglebeak/lucerne(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/shields) > 3)
+								I = new /obj/item/weapon/sword/sabre(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/whipsflails) > 3)
+								I = new /obj/item/weapon/flail/sflail(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/misc/medicine) > 4)
+								I = new /obj/item/weapon/knife/cleaver/combat(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/magic/arcane) > 2)
+								I = new /obj/item/weapon/polearm/woodstaff/quarterstaff/steel(user.loc)
+						if(5)
+							if(HAS_TRAIT(user, TRAIT_DODGEEXPERT))
+								I = new /obj/item/clothing/pants/leather/heavy(user.loc)
+							if(HAS_TRAIT(user, TRAIT_MEDIUMARMOR))
+								I = new /obj/item/clothing/wrists/bracers(user.loc)
+							if(HAS_TRAIT(user, TRAIT_HEAVYARMOR))
+								I = new /obj/item/clothing/wrists/bracers/leather/heavy(user.loc)
+						if(6)
+							if(HAS_TRAIT(user, TRAIT_DODGEEXPERT))
+								I = new /obj/item/clothing/armor/leather/splint(user.loc)
+							if(HAS_TRAIT(user, TRAIT_MEDIUMARMOR))
+								I = new /obj/item/clothing/armor/medium/scale(user.loc)
+							if(HAS_TRAIT(user, TRAIT_HEAVYARMOR))
+								I = new /obj/item/clothing/armor/brigandine/coatplates(user.loc)
+						if(7)
+							if(user.mind.get_skill_level(/datum/skill/combat/bows) > 3)
+								I = new /obj/item/ammo_casing/caseless/arrow/poison/potent(user.loc)
+							else if(user.mind.get_skill_level(/datum/skill/combat/crossbows) > 3)
+								I = new /obj/item/ammo_casing/caseless/bolt/poison/potent(user.loc)
+							else if(HAS_TRAIT(user, TRAIT_HEAVYARMOR))
+								I = new /obj/item/clothing/head/helmet/visored/klappvisier(user.loc)
+							else
+								I = new /obj/item/reagent_containers/glass/bottle/healthpot(user.loc)
+
+						if(8)
+							I = new /obj/item/clothing/ring/gold/protection(user.loc)
+					if(I)
+						I.sellprice = 0
+					playsound(loc,'sound/items/carvgood.ogg', 50, TRUE)
+				else
+					playsound(loc,'sound/items/carvty.ogg', 50, TRUE)
+				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
+				qdel(W)
+				return
+	..()
+
+

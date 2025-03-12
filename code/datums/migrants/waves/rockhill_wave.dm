@@ -1,4 +1,4 @@
-/datum/migrant_role/rockhill/mayor
+/*datum/migrant_role/rockhill/mayor
 	name = "Mayor of Rockhill"
 	greet_text = "You are the mayor of Rockhill, you've come to Vanderlin to discuss important matters with their Monarch."
 	outfit = /datum/outfit/job/rockhill/mayor
@@ -227,3 +227,14 @@
 		/datum/migrant_role/footman_guard = 2
 	)
 	greet_text = "The Mayor has it, something must be discussed with the rulers of Vanderlin which is why we're on our way over there."
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

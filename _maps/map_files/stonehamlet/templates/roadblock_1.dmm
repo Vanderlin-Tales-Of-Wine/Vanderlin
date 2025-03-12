@@ -11,6 +11,9 @@
 /obj/structure/chair/bench/ancientlog,
 /obj/structure/flora/grass/thorn_bush,
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
+/obj/structure/flora/newleaf/corner{
+	dir = 5
+	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
 "e" = (
@@ -18,6 +21,7 @@
 /area/rogue/outdoors/rtfield/hamlet)
 "g" = (
 /obj/structure/chair/bench/ancientlog,
+/obj/structure/flora/rogueflower/fallenleaves,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
 "h" = (
@@ -32,10 +36,8 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 "o" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 6
-	},
-/turf/open/floor/dirt/road,
+/obj/structure/flora/rogueflower/fallenleaves,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/hamlet)
 "r" = (
 /obj/structure/flora/tree,
@@ -47,17 +49,8 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
-"u" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 5
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/rtfield/hamlet)
 "v" = (
 /obj/structure/chair/bench/ancientlog,
-/obj/structure/flora/newleaf/corner{
-	dir = 9
-	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
 "w" = (
@@ -66,13 +59,6 @@
 "x" = (
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield/hamlet)
-"y" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 9
-	},
-/obj/structure/flora/grass,
-/turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
 "z" = (
 /obj/effect/spawner/map_spawner/tree,
@@ -87,21 +73,12 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
-"D" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 5
-	},
-/turf/open/floor/grass,
-/area/rogue/outdoors/rtfield/hamlet)
 "H" = (
 /obj/structure/table/wood/treestump,
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 "M" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 5
-	},
 /obj/structure/flora/grass,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
@@ -110,16 +87,8 @@
 /obj/structure/flora/grass/thorn_bush,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
-"P" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 9
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield/hamlet)
 "T" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 10
-	},
+/obj/structure/flora/rogueflower/fallenleaves,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
 "U" = (
@@ -135,9 +104,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 "Z" = (
-/obj/structure/flora/newleaf/corner{
-	dir = 9
-	},
+/obj/structure/flora/rogueflower/fallenleaves,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 
@@ -170,19 +137,19 @@ e
 "}
 (4,1,1) = {"
 z
-P
+a
 g
-u
-o
+T
+e
 e
 e
 "}
 (5,1,1) = {"
 a
-u
+T
 d
-y
-a
+M
+o
 B
 w
 "}
@@ -190,7 +157,7 @@ w
 a
 h
 A
-D
+Z
 B
 r
 w

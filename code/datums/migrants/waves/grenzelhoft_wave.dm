@@ -1,4 +1,4 @@
-/datum/migrant_role/grenzelhoft/count
+/*datum/migrant_role/grenzelhoft/count
 	name = "Grenzelhoft Count"
 	greet_text = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Peninsula of Vanderlin alongside his beloved convoy and spouse."
 	allowed_sexes = list(MALE)
@@ -232,3 +232,16 @@
 		/datum/migrant_role/grenzelhoft/countess = 1,
 		/datum/migrant_role/grenzelhoft/grenzelhoft_knight = 1)
 	greet_text = "The Kaiser of the Grenzelhoft Imperiate has sent a diplomatic envoy to engage into diplomacy within the Kingdom of Vanderlin."
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

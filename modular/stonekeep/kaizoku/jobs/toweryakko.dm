@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/toweryakko
+/datum/advclass/mercenary/sk/toweryakko
 	name = "Tower-Yakko"
 	tutorial = "You've been the operator of a network of smuggling and racketeering from the Towers on Fog Islands after your faction shifted from vigilantism to organized crime,  but you have been exiled ever since and now search for richness on lands away, but your rivals in yellow kimonos does the same."
 	allowed_sexes = list(MALE, FEMALE)

@@ -54,7 +54,7 @@
 	enflamed_icon = "widefire"
 
 /datum/species/halforc/check_roundstart_eligible()
-	return TRUE
+	return FALSE	// STONEKEEP EDIT
 
 /datum/species/halforc/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()

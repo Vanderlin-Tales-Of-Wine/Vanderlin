@@ -1,5 +1,5 @@
 
-/datum/advclass/combat/stonekeep/witchhunter
+/datum/advclass/combat/sk/witchhunter
 	name = "Witch Hunter"
 	tutorial = "Witch Hunters dedicate their lives to the eradication of the varied evils infesting Psydonia. They know the vile sorcery of the necromancer, the insidious nature of the cultist and monstrousness of vampires and werevolfs. They also know how best to end them."
 	allowed_sexes = list(MALE, FEMALE)
@@ -12,14 +12,14 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/witchhunter
+	outfit = /datum/outfit/job/sk/adventurer/witchhunter
 	maximum_possible_slots = 1
 	pickprob = 15
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/outfit/job/stonekeep/adventurer/witchhunter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/witchhunter/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt/puritan
 	belt = /obj/item/storage/belt/leather

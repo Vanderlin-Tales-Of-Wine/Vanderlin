@@ -17,6 +17,7 @@
 
 /datum/outfit/job/stonekeep/weaver/pre_equip(mob/living/carbon/human/H)
 	..()
+	armor = /obj/item/clothing/shirt/robe/weaver
 	shirt = /obj/item/clothing/shirt/tunic/random
 	shoes = /obj/item/clothing/shoes/shortboots
 	belt = /obj/item/storage/belt/leather
@@ -24,12 +25,10 @@
 	beltl = /obj/item/key/tailor
 	backr = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/mid
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak
+	pants = /obj/item/clothing/pants/tights/random
+	cloak = /obj/item/clothing/cloak/half/random
 	if(H.gender == FEMALE)
 		head = /obj/item/clothing/head/armingcap
-		shirt = /obj/item/clothing/shirt/dress/valorian
-	else
-		pants = /obj/item/clothing/pants/tights/random
 	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/weapon/knife/villager = 1)
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, pick(4,5), TRUE)
@@ -38,7 +37,6 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)

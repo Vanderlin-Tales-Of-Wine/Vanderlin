@@ -335,3 +335,22 @@
 		/obj/item/clothing/head/crown/nyle = 1,
 		/obj/item/statue/gold = 1,
 		)
+
+
+// ======================================================================
+/*	..................   Maybe Mob Spawners   ................... */
+/obj/effect/spawner/map_spawner/maybe_saiga
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
+	probby = 50
+	spawned = list(
+		/mob/living/simple_animal/hostile/retaliate/saiga = 40,
+		/mob/living/simple_animal/hostile/retaliate/saigabuck = 50,
+		/mob/living/simple_animal/hostile/retaliate/saiga/saigakid = 10)
+
+/obj/effect/spawner/map_spawner/maybe_cabbit
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
+	probby = 50
+	spawned = list(
+		/mob/living/simple_animal/pet/cat/cabbit = 100)

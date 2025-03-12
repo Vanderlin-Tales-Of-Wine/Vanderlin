@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/wokou //Civilian role. They are not even Ashigarus, so no retainer/military position whasoever.
+/datum/advclass/combat/sk/abyss/wokou //Civilian role. They are not even Ashigarus, so no retainer/military position whasoever.
 	name = "Wokou Warrior"
 	tutorial = "The Wokou is a general term for abyssariad fighter and/or pirates, those who constantly causes annual invasions on coastline provinces worldwide. They have many specializations and many \
 	receives government subsidy. However, their presence on Enigma has less boundaries to raiding the place, but more about taking the 'lawful' privateer role."
@@ -14,11 +14,11 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/wokou
+	outfit = /datum/outfit/job/sk/adventurer/abyss/wokou
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/wokou/pre_equip(mob/living/carbon/human/H) // Same as Warrior.
+/datum/outfit/job/sk/adventurer/abyss/wokou/pre_equip(mob/living/carbon/human/H) // Same as Warrior.
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, pick(1,2), TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)

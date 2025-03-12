@@ -16,6 +16,13 @@
 /obj/effect/spawner/map_spawner/beartrap_obvious,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"bx" = (
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/storage/belt/pouch/coins/poor,
+/obj/item/storage/belt/leather/rope,
+/obj/item/clothing/shoes/boots/leather,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "bY" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains)
@@ -33,6 +40,14 @@
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
+"cI" = (
+/obj/effect/spawner/map_spawner/sewerencounter,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"cL" = (
+/obj/structure/flora/rock/pile,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "cM" = (
 /obj/structure/flora/tree,
 /turf/open/floor/dirt,
@@ -40,6 +55,18 @@
 "cQ" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavelava)
+"dh" = (
+/obj/structure/fluff/clodpile,
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"dE" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "dF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/barricade/rogue,
@@ -97,6 +124,13 @@
 /obj/structure/table/wood/plain,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/dwarfin)
+"gc" = (
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"gh" = (
+/obj/effect/decal/cleanable/blood_neu/random,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "gw" = (
 /obj/structure/barricade/rogue/crude,
 /obj/item/rope,
@@ -126,6 +160,17 @@
 /obj/item/reagent_containers/glass/bottle/healthpot,
 /turf/open/floor/greenstone,
 /area/rogue/under/cavelava)
+"hH" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/obj/structure/bars/pipe{
+	dir = 6;
+	icon_state = "pipe"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "ip" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/old{
@@ -146,6 +191,20 @@
 /obj/item/ammo_casing/caseless/arrow/stone,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/caves)
+"kV" = (
+/obj/structure/bars/pipe,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"lg" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"lp" = (
+/turf/closed/mineral,
+/area/rogue/under/town/sewer)
 "mb" = (
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobblerock,
@@ -194,6 +253,14 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/dwarfin)
+"og" = (
+/obj/item/natural/dirtclod,
+/obj/structure/bars/pipe{
+	dir = 6;
+	icon_state = "pipe"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "oD" = (
 /obj/effect/decal/cleanable/sigil/S,
 /turf/open/floor/naturalstone,
@@ -215,6 +282,16 @@
 /obj/effect/decal/cleanable/sigil/N,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
+"qI" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"qR" = (
+/obj/structure/fluff/clodpile,
+/obj/item/natural/worms,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "qU" = (
 /obj/structure/bars,
 /turf/open/floor/cobblerock,
@@ -227,12 +304,27 @@
 "rA" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/dwarfin)
+"rD" = (
+/obj/item/grown/log/tree/stake,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "rM" = (
 /obj/structure/bars/pipe{
 	dir = 9
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/caves)
+"rZ" = (
+/obj/effect/spawner/map_spawner/sewerencounter,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
+"sp" = (
+/obj/structure/bars/pipe{
+	dir = 10;
+	icon_state = "pipe"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "sq" = (
 /obj/structure/barricade/rogue/crude,
 /obj/structure/barricade/rogue,
@@ -272,6 +364,13 @@
 /obj/item/weapon/sword/decorated,
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavelava)
+"tS" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "tX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood,
@@ -316,6 +415,17 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/caves)
+"vk" = (
+/obj/structure/fluff/clodpile,
+/obj/item/natural/worms,
+/obj/structure/kneestingers,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"vD" = (
+/obj/structure/closet/crate/chest/wicker,
+/obj/effect/spawner/map_spawner/loot/common,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "vH" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/dwarfin)
@@ -343,6 +453,11 @@
 "wP" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/outdoors/caves)
+"wR" = (
+/obj/effect/decal/cleanable/blood_neu/random,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "wU" = (
 /obj/structure/barricade/rogue/crude,
 /obj/structure/barricade/rogue,
@@ -387,6 +502,10 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
+"zB" = (
+/obj/item/natural/worms,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "zH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/shirt/robe/phys,
@@ -426,6 +545,9 @@
 /obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
+"Bj" = (
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "Cl" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood_neu/random,
@@ -444,10 +566,21 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/greenstone,
 /area/rogue/under/cavelava)
+"CZ" = (
+/obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/spawner/map_spawner/sewerencounter,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "De" = (
 /obj/structure/fake_machine/mail,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/dwarfin)
+"DB" = (
+/obj/structure/bars/passage{
+	redstone_id = "sewer4"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "DV" = (
 /obj/machinery/light/fueled/torchholder,
 /turf/closed/wall/mineral/stonebrick,
@@ -461,6 +594,13 @@
 "ES" = (
 /turf/open/floor/tile,
 /area/rogue/indoors/town/dwarfin)
+"EV" = (
+/obj/structure/bars/pipe{
+	dir = 5;
+	icon_state = "pipe"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "EX" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/coffin,
@@ -473,6 +613,14 @@
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/cobble,
 /area/rogue/under/cavelava)
+"FG" = (
+/obj/item/natural/dirtclod,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"Gq" = (
+/obj/structure/bed/shit,
+/turf/open/floor/naturalstone,
+/area/rogue/under/town/sewer)
 "GM" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -489,6 +637,13 @@
 "Hw" = (
 /turf/open/water/swamp,
 /area/rogue/under/cavelava)
+"Hz" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
+"Iv" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/town/sewer)
 "Ja" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/outdoors/caves)
@@ -522,6 +677,12 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/dwarfin)
+"Kx" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "KB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
@@ -629,6 +790,13 @@
 /obj/item/grown/log/tree/small,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/caves)
+"QN" = (
+/obj/structure/bars/pipe{
+	dir = 5;
+	icon_state = "pipe"
+	},
+/turf/open/water/sewer,
+/area/rogue/under/town/sewer)
 "Rq" = (
 /obj/item/ammo_casing/caseless/dart,
 /turf/open/floor/dirt/road,
@@ -673,6 +841,9 @@
 "TF" = (
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
+"UP" = (
+/turf/closed/mineral/bedrock,
+/area/rogue)
 "Vk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/coffin,
@@ -868,13 +1039,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+Bj
+Iv
+Kx
+gc
+QN
+og
+vk
 "}
 (2,1,1) = {"
 ps
@@ -998,13 +1169,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+UP
+Iv
+Iv
+qI
+vk
+Bj
+gc
 "}
 (3,1,1) = {"
 ps
@@ -1128,13 +1299,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+sp
+rD
+dE
+UP
+UP
+zB
+FG
 "}
 (4,1,1) = {"
 ps
@@ -1258,13 +1429,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+kV
+gc
+gc
+UP
+UP
+Bj
+gc
 "}
 (5,1,1) = {"
 ps
@@ -1388,13 +1559,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+lp
+bx
+Gq
+lp
+lp
+lp
+lp
 "}
 (6,1,1) = {"
 ps
@@ -1518,13 +1689,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+Hz
+cI
+UP
+cL
+gc
+lg
+lg
 "}
 (7,1,1) = {"
 ps
@@ -1648,13 +1819,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+DB
+gc
+gc
+Bj
+Bj
+tS
+tS
 "}
 (8,1,1) = {"
 ps
@@ -1778,13 +1949,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+wR
+CZ
+gh
+rZ
+Bj
+EV
+hH
 "}
 (9,1,1) = {"
 ps
@@ -1908,13 +2079,13 @@ Zy
 Zy
 Zy
 Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
-Zy
+Bj
+vD
+qR
+FG
+dh
+vk
+gc
 "}
 (10,1,1) = {"
 ps

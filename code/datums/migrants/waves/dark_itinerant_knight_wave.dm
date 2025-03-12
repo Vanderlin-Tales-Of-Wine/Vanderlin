@@ -1,4 +1,4 @@
-/datum/migrant_role/dark_itinerant_knight
+/*datum/migrant_role/dark_itinerant_knight
 	name = "Drow Knight"
 	greet_text = "You are an evil itinerant Knight, you have embarked alongside your squire on a voyage to engulf chaos within these lands."
 	outfit = /datum/outfit/job/dark_itinerant_knight
@@ -97,7 +97,7 @@
 	downgrade_wave = /datum/migrant_wave/evil_knight_down
 	weight = 8
 	roles = list(
-		/datum/migrant_role/dark_itinerant_knight = 1,
+		/datum/migrant_role/sk/dark_knight = 1,
 		/datum/migrant_role/dark_itinerant_squire = 1,
 	)
 	greet_text = "These lands have insulted once more Zizo, you are here to remind them of her prowess."
@@ -108,6 +108,24 @@
 	can_roll = FALSE
 	weight = 35
 	roles = list(
-		/datum/migrant_role/dark_itinerant_knight = 1,
+		/datum/migrant_role/sk/dark_knight = 1,
 	)
 	greet_text = "These lands have insulted once more Zizo, you are here to remind them of her prowess."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

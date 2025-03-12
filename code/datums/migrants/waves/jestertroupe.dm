@@ -1,4 +1,4 @@
-/datum/migrant_role/jestertroupe
+/*datum/migrant_role/jestertroupe
 	name = "Buffoon"
 	greet_text = "You were once part of a glorious circus from Heartfelt. Long gone are the days of mirth. The tent having been set ablaze so many years ago, you and your lot have been wandering. Here is the perfect town to start the next act. The circus is in town!"
 	outfit = /datum/outfit/job/jestertroupe
@@ -69,3 +69,15 @@
 		/datum/migrant_role/jestertroupe = 1,
 	)
 	greet_text = "Bread and Circuses. That's how little it takes to entertain the peasantry. You aren't funny for money, you're funny by nature."
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

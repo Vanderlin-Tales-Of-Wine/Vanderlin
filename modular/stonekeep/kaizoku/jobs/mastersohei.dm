@@ -7,7 +7,7 @@
 //THIS ROLE IS FAR FROM FINISHED! The coder that voluntered in helping me on the Abyssanctum spells quitted. So someone willing and able is VERY necessary.
 //Contact Monochrome9090 for further information.
 
-/datum/advclass/combat/abyssariad/mastersohei // High Abyssanctum role. Normally a religious leader for expeditions and whatnot.
+/datum/advclass/combat/sk/abyss/mastersohei // High Abyssanctum role. Normally a religious leader for expeditions and whatnot.
 	name = "Preceptor Sohei"
 	tutorial = "High-ranking Sohei who hold authority within multiple temples and Soheis retainers within their influence. \
 	Often in charge of militant activities, these senior soheis are in search of demonic corruption to dismantle - \
@@ -19,13 +19,13 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/mastersohei
+	outfit = /datum/outfit/job/sk/adventurer/abyss/mastersohei
 	maximum_possible_slots = 1
 	pickprob = 100
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/mastersohei/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/mastersohei/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/bucket/soheidemon
 	wrists = /obj/item/clothing/neck/psycross/silver/abyssanctum

@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/kyudoka //Ashigaru/Civilian role.
+/datum/advclass/combat/sk/abyss/kyudoka //Ashigaru/Civilian role.
 	name = "Kyudoka"
 	tutorial = "The praticioners of Kyujutsu trained in Dustwalker dojos, making use of the large Yumi as a weapon of war, \
 	trying to keep the culture alive even after the creation of handcannons and firelances overly used by the Fog Island's manpower."
@@ -15,11 +15,11 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/kyudoka
+	outfit = /datum/outfit/job/sk/adventurer/abyss/kyudoka
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/kyudoka/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/kyudoka/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, pick(0,1,1), TRUE)

@@ -1,4 +1,4 @@
-/datum/migrant_role/gaoler
+/*datum/migrant_role/gaoler
 	name = "Gaoler"
 	greet_text = "The lords of Vanderlins sent you to Heartfelt to rappatriate some prisoners that were in their prison, you are now on your way back."
 	allowed_sexes = list(MALE, FEMALE)
@@ -166,3 +166,17 @@
 		/datum/migrant_role/mig_prisoner = 1,
 	)
 	greet_text = "Nobody escape the rule of Vanderlin's monarchs. Some have fled to the neighbouring kingdom, Heartfelt and got caught, they are now on their way back."
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

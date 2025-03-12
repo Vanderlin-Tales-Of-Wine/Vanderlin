@@ -311,7 +311,6 @@
 		add_overlay(pic)
 
 
-
 //................ Kettle Helmet ............... //
 /obj/item/clothing/head/helmet/kettle
 	name = "kettle helmet"
@@ -366,6 +365,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
+
 //................ Kettle Helmet (Slitted)............... //
 /obj/item/clothing/head/helmet/kettle/slit
 	icon_state = "kettle_slit"
@@ -376,18 +376,20 @@
 	bloody_icon_state = "helmetblood"
 	bloody_icon = 'icons/effects/blood.dmi'
 
+
 //............... Klappvisier ............... //
 /obj/item/clothing/head/helmet/visored/klappvisier
 	name = "klappvisier"
 	desc = "A steel helmet offering good overall protection. Its visor can be flipped over for higher visibility at the cost of eye protection."
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	icon_state = "kettle_slit"
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/64x64.dmi'
 	icon_state = "klappvisor"
-	dropshrink = 0.7
+	dropshrink = 0.8
 	bloody_icon = 'icons/effects/blood64x64.dmi'
 	bloody_icon_state = "helmetblood_big"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	color = CLOTHING_WET
 
 //................ Crown edit............... //
 /obj/item/clothing/head/crown/serpcrown
@@ -399,6 +401,12 @@
 //................ Padded Coif edit............... //
 /obj/item/clothing/neck/coif/cloth
 	dropshrink = 0.6
+
+
+/obj/item/clothing/head/crown/serpcrown/surplus
+	icon = 'icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+
 
 // =============================================================================
 // ==============================	CLOAKS	====================================
@@ -415,6 +423,9 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 
+/obj/item/clothing/cloak/cape/silk/dark
+	color = CLOTHING_DARK_INK
+
 /obj/item/clothing/cloak/cape/silk/random/Initialize()
 	color = pick_assoc(GLOB.noble_dyes)
 	add_overlay(mutable_appearance('modular/stonekeep/icons/clothing.dmi', "clasp"))
@@ -424,9 +435,28 @@
 	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
+/obj/item/clothing/cloak/half/random/Initialize()
+	color = pick(CLOTHING_WINESTAIN_RED, CLOTHING_PEAR_YELLOW, CLOTHING_SOOT_BLACK, CLOTHING_BARK_BROWN, CLOTHING_BOG_GREEN, CLOTHING_SKY_BLUE)
+	..()
+
+/obj/item/clothing/cloak/apron
+	armor = ARMOR_MINIMAL
+
+/obj/item/clothing/cloak/apron/brown
+	name = "leather apron"
+	armor = ARMOR_WEAK
 
 // =============================================================================
 // ==============================	ARMOR	====================================
+
+/obj/item/clothing/armor/leather/vest/bard
+	name = "leather vest"
+	icon_state = "leathervest"
+	color = "#ffffff"
+
+//................ Iron breastplate ............... //
+/obj/item/clothing/armor/cuirass/iron
+	icon = 'modular/stonekeep/icons/clothing.dmi'
 
 //................ Silk Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/niteman
@@ -487,8 +517,8 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	sellprice = 40
 
-/obj/item/clothing/shirt/robe/desertgown
-	name = "desert gown"
+/obj/item/clothing/shirt/robe/elegantgown
+	name = "elegant gown"
 	desc = "A thin piece of fabric worn under a robe to stop chafing and keep ones dignity if a harsh blow of wind comes through."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
@@ -496,7 +526,7 @@
 	icon_state = "desertgown"
 	item_state = "desertgown"
 
-/obj/item/clothing/shirt/robe/monkcloth
+/obj/item/clothing/shirt/robe/monkcloth	// kinda sus
 	name = "monks robes"
 	desc = ""
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -506,6 +536,16 @@
 	item_state = "monkcloth"
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+
+/obj/item/clothing/armor/leather/vest/monk
+	name = "monks robes"
+	desc = "Comes with a leather vest."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
+	icon_state = "monkleather"
+	item_state = "monkleather"
+	color = "#ffffff"
 
 /obj/item/clothing/shirt/robe/bath
 	name = "bathrobe"
@@ -580,6 +620,9 @@
 	sleeved = null
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 0) // I just wanted to give Malumite robes a tiny bit of fire protection because they're craftspeople.
 
+/obj/item/clothing/shirt/dress
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
+
 /obj/item/clothing/shirt/dress/valorian
 	name = "valorian dress"
 	desc = "A simple deep-blue frock worn in many cities of Valoria."
@@ -589,6 +632,8 @@
 	icon_state = "valorian"
 	sellprice = 13
 
+/obj/item/clothing/shirt/dress/gen/sexy
+	icon = 'modular/stonekeep/icons/clothing.dmi'
 
 /obj/item/clothing/armor/brigandine/sheriff
 
@@ -624,6 +669,61 @@
 /obj/item/clothing/shirt/dress/gen/random/Initialize()
 	color = pick_assoc(GLOB.noble_dyes)
 	..()
+
+/obj/item/clothing/shirt/tunic/noblecoat
+	name = "fancy coat"
+	desc = "A fancy tunic and coat combo. How elegant."
+	detail_tag = "_detail"
+	detail_color = CLOTHING_WHITE
+	var/picked = FALSE
+	colorgrenz = TRUE
+
+/obj/item/clothing/shirt/tunic/noblecoat/proc/get_player_input()
+	if(!ishuman(loc))
+		return
+	var/list/colors = list(
+	"PURPLE"="#865c9c",
+	"RED"="#933030",
+	"BROWN"="#685542",
+	"GREEN"="#79763f",
+	"BLUE"="#395480",
+	"YELLOW"="#b5b004",
+	"TEAL"="#249589",
+	"WHITE"="#ffffff",
+	"ORANGE"="#b86f0c",
+	"Royal Majenta"="#962e5c")
+	var/mob/living/carbon/human/L = loc
+	var/choice = input(L, "Choose a color.", "GRENZELHOFTIAN COLORPLEX") as anything in colors
+	var/playerchoice = colors[choice]
+	picked = TRUE
+	detail_color = playerchoice
+	update_icon()
+	for(var/obj/item/clothing/V in L.get_equipped_items(FALSE))
+		testing("clothes to color are [V]")
+		if(V.colorgrenz)
+			V.detail_color = playerchoice
+			V.update_icon()
+	L.regenerate_icons()
+
+/obj/item/clothing/shirt/tunic/noblecoat/Initialize()
+	. = ..()
+	if(!picked)
+		var/mob/living/carbon/human/L = loc
+		if(!istype(L))
+			return
+		if(!L.client)
+			return
+		INVOKE_ASYNC(src, PROC_REF(get_player_input))
+
+
+/obj/item/clothing/shirt/robe/weaver/Initialize()
+	color = pick_assoc(GLOB.noble_dyes)
+	..()
+
+/obj/item/clothing/shirt/dress/stewarddress
+	name = "demure dress"
+	desc = "Fashionably fitted with shining bronze buttons."
+
 
 // ==============================	GLOVES	====================================
 // =============================================================================

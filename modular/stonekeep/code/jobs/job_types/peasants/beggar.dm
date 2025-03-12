@@ -88,5 +88,3 @@
 	H.change_stat("constitution", -2)
 	H.change_stat("endurance", -1)
 
-/datum/outfit/job/roguetown/vagrant
-	name = "Beggar"

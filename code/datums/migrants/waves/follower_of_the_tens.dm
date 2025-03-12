@@ -1,4 +1,4 @@
-/datum/migrant_role/acolytes
+/*datum/migrant_role/acolytes
 	name = "Acolytes"
 	greet_text = "The words of the Tens are everything to you and this is why, you are on your way to the nearby populated area to help the local church."
 	grant_lit_torch = TRUE
@@ -50,3 +50,15 @@
 		/datum/migrant_role/acolytes = 1,
 	)
 	greet_text = "The Tens have decreed that this land needs additional persons of faith, so here you are."
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

@@ -7,7 +7,7 @@
 //THIS ROLE IS FAR FROM FINISHED! The coder that voluntered in helping me on the Abyssanctum spells quitted. So someone willing and able is VERY necessary.
 //Contact Monochrome9090 for further information.
 
-/datum/advclass/combat/abyssariad/sohei //Low-abyssanctum tier.
+/datum/advclass/combat/sk/abyss/sohei //Low-abyssanctum tier.
 	name = "Underling Sohei"
 	tutorial = "Senso Soheis are the Abyssanctum war disciples from the Tideweaver branch, the direct \
 	continuation of the champions of old age. Their duty is to protect the shrines and spiritual entities \
@@ -20,16 +20,16 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/sohei
+	outfit = /datum/outfit/job/sk/adventurer/abyss/sohei
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 	maximum_possible_slots = 2 //Only two, united with Yamabushi.
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/sohei
+/datum/outfit/job/sk/adventurer/abyss/sohei
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/sohei/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/sohei/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/head/soheicloth
 	armor = /obj/item/clothing/armor/cuirass/sanmaido

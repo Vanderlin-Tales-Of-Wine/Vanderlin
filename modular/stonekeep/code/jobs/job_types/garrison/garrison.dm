@@ -75,11 +75,11 @@ Design philosphy:
 /datum/advclass/garrison/footman
 	name = "Garrison Footman"
 	tutorial = "You are a footman in the garrison levy. You are well versed in holding the line with a shield while wielding a trusty sword, axe, or mace in the other hand."
-	outfit = /datum/outfit/job/roguetown/garrison/footman
+	outfit = /datum/outfit/job/stonekeep/garrison/footman
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/roguetown/garrison/footman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/footman/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/cuirass/nanbando
@@ -108,11 +108,11 @@ Design philosphy:
 /datum/advclass/garrison/pikeman
 	name = "Garrison Spearman"
 	tutorial = "You are a pikeman in the garrison levy. You are less fleet of foot compared to the rest, but you are burly and well practiced with spears, pikes, billhooks - all the various polearms for striking enemies from a distance."
-	outfit = /datum/outfit/job/roguetown/garrison/pikeman
+	outfit = /datum/outfit/job/stonekeep/garrison/pikeman
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/roguetown/garrison/pikeman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/chainmail/tatami
@@ -149,11 +149,11 @@ Design philosphy:
 /datum/advclass/garrison/archer
 	name = "Garrison Archer"
 	tutorial = "You are an archer in the garrison levy. Your training with bows and crossbows makes you a formidable threat when perched atop the walls or rooftops, raining arrows or bolts down upon foes with impunity."
-	outfit = /datum/outfit/job/roguetown/garrison/archer
+	outfit = /datum/outfit/job/stonekeep/garrison/archer
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/roguetown/garrison/archer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/archer/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/gambeson/heavy/deelcoat
@@ -189,11 +189,11 @@ Design philosphy:
 /datum/advclass/garrison/fencer
 	name = "Garrison Scout"
 	tutorial = "You are a fencer in the garrison levy. If nothing else you know a simple truth, there are few problems that cannot be resolved with quick feet and the precise application of a deft blade."
-	outfit = /datum/outfit/job/roguetown/garrison/fencer
+	outfit = /datum/outfit/job/stonekeep/garrison/fencer
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/roguetown/garrison/fencer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/fencer/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/leather/splint/kikko

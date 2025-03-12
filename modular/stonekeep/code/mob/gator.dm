@@ -6,7 +6,7 @@
 	icon_living = "gator"
 	icon_dead = "gator-dead"
 	pixel_x = -32
-	pixel_y = 8
+	pixel_y = 1
 
 	faction = list("gators")
 	turns_per_move = 4

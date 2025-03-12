@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/grenzelhoft
+/datum/advclass/mercenary/sk/grenzelhoft
 	name = "Grenzelhoft"
 	tutorial = "A mercenary from the Grenzelhoft Empire's Mercenary Guild. Their only care is coin, and the procurement of coin."
 	allowed_sexes = list(MALE, FEMALE)

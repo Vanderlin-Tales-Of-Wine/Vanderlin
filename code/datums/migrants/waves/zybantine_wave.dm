@@ -1,4 +1,4 @@
-/datum/migrant_role/zybantine/emir
+/*datum/migrant_role/zybantine/emir
 	name = "Zybantine Emir"
 	greet_text = "An Emir hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to the Isle of the Enigma."
 	allowed_sexes = list(MALE)
@@ -66,7 +66,7 @@
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 
-/datum/migrant_role/zybantine/amirah
+/datum/migrant_role/sk/zybantine/amirah
 	name = "Zybantine Amirah"
 	greet_text = "An Amirah hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to the Isle of the Enigma."
 	allowed_sexes = list(FEMALE)
@@ -129,7 +129,7 @@
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/migrant_role/zybantine/furusiyya
+/datum/migrant_role/sk/zybantine/furusiyya
 	name = "Furusiyya"
 	greet_text = "You are a furusiyya, pledged to the Emir and the Amirah. Make sure they come out alive of that place."
 	allowed_sexes = list(MALE)
@@ -191,7 +191,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/migrant_role/zybantine_guard
+/datum/migrant_role/sk/zybantine_guard
 	name = "Zybantine soldier"
 	greet_text = "You are a slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
 	allowed_sexes = list(MALE,FEMALE)
@@ -307,11 +307,11 @@
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/zybantine_wave_down
 	roles = list(
-		/datum/migrant_role/zybantine/emir = 1,
-		/datum/migrant_role/zybantine/amirah = 1,
-		/datum/migrant_role/zybantine/furusiyya = 1,
+		/datum/migrant_role/sk/zybantine/emir = 1,
+		/datum/migrant_role/sk/zybantine/amirah = 1,
+		/datum/migrant_role/sk/zybantine/furusiyya = 1,
 		/datum/migrant_role/qatil = 1,
-		/datum/migrant_role/zybantine_guard = 2
+		/datum/migrant_role/sk/zybantine_guard = 2
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposal within the Kingdom of Vanderlin."
 
@@ -321,9 +321,19 @@
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/rockhill_wave,/datum/migrant_wave/heartfelt)
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/zybantine/emir = 1,
-		/datum/migrant_role/zybantine/amirah = 1,
-		/datum/migrant_role/zybantine/furusiyya = 1,
+		/datum/migrant_role/sk/zybantine/emir = 1,
+		/datum/migrant_role/sk/zybantine/amirah = 1,
+		/datum/migrant_role/sk/zybantine/furusiyya = 1,
 		/datum/migrant_role/qatil = 1
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposal within the Kingdom of Vanderlin. Unfortunately most of your guards died on the way here."
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

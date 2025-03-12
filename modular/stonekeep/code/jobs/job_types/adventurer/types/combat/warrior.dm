@@ -1,5 +1,5 @@
 //shield sword
-/datum/advclass/combat/stonekeep/warrior
+/datum/advclass/combat/sk/warrior
 	name = "Warrior"
 	tutorial = "Wandering sellswords, foolhardy gloryhounds, deserters... many and varied folk turn to the path of the warrior. Very few meet anything greater than the bottom of a tankard or the wrong end of a noose."
 	allowed_sexes = list(MALE, FEMALE)
@@ -12,13 +12,13 @@
 		"Tiefling",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/warrior
+	outfit = /datum/outfit/job/sk/adventurer/warrior
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = -10
 	cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 
 
-/datum/outfit/job/stonekeep/adventurer/warrior/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, pick(1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)

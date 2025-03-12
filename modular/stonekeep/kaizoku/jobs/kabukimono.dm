@@ -3,7 +3,7 @@
 // ALL of them are Burakumins.
 // Their presence on the alt map will be more of gang warfare instead of a mercenary job.
 
-/datum/advclass/mercenary/kabukimaru
+/datum/advclass/mercenary/sk/kabukimaru
 	name = "Kabuki-maru"
 	tutorial = "You're an exiled brigand driven by coin while robed in yellow. Known for wild antics, loose camaraderie and using large odachis. Your rivals in purple robes are a constant thorn in your search for richness."
 	allowed_sexes = list(MALE, FEMALE)

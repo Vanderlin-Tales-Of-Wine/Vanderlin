@@ -1,6 +1,10 @@
 /* Notes: the global lists copied to the main files, seems to work better when loaded there.
 Adventurer and pilgrim jobs - its either untick in config or comment out. I commented out, to maintain most compatibility with Vanderlin.
-The regular jobs disabled via the config lines in this document. That method doesnt work with advclass */
+The regular jobs disabled via the config lines in this document. That method doesnt work with advclass
+The new jobs use the /datum/outfit/job/sk typepath for outfits so they are easy to find in the select equipment drop down admin menu (rclick mob for it)
+They also use /stonekeep/ in their datum path to be easily sortable.
+Some jobs moved to waves, the more exotic/foreign ones mostly belong there to avoid oversaturation.*/
+
 
 /*
 GLOBAL_LIST_INIT(noble_positions, list(

@@ -1,6 +1,6 @@
 //rapier/sabre
 
-/datum/advclass/combat/stonekeep/swashbuckler
+/datum/advclass/combat/sk/swashbuckler
 	name = "Swashbuckler"
 	tutorial = "Woe the Sea King! You awake, dazed from a true festivity of revelry and feasting. The last thing you remember? Your mateys dumping you over the side of the boat as a joke. Now on some Gods foresaken rock, Abyssor will present you with booty and fun, no doubt."
 	allowed_sexes = list(MALE, FEMALE)
@@ -11,13 +11,13 @@
 		"Tiefling",
 		"Aasimar"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/swashbuckler
+	outfit = /datum/outfit/job/sk/adventurer/swashbuckler
 	maximum_possible_slots = 1
 	min_pq = 0
 	pickprob = 30
 	category_tags = list(CTAG_ADVENTURER)
 
-/datum/outfit/job/stonekeep/adventurer/swashbuckler
+/datum/outfit/job/sk/adventurer/swashbuckler
 	head = /obj/item/clothing/head/helmet/leather/headscarf
 	pants = /obj/item/clothing/pants/tights/sailor
 	belt = /obj/item/storage/belt/leather
@@ -30,7 +30,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	neck = /obj/item/clothing/neck/psycross/silver/abyssor
 
-/datum/outfit/job/stonekeep/adventurer/swashbuckler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/swashbuckler/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		if(H.patron != /datum/patron/divine/abyssor)

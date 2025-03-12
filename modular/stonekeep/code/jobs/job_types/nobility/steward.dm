@@ -32,9 +32,9 @@
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
-	head = /obj/item/clothing/head/stewardtophat
+	head = /obj/item/clothing/head/chaperon/greyscale/chaperonsecondary
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	armor = /obj/item/clothing/armor/gambeson/steward
+	armor = /obj/item/clothing/armor/gambeson/arming
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/steward
 	beltl = /obj/item/weapon/knife/dagger/steel

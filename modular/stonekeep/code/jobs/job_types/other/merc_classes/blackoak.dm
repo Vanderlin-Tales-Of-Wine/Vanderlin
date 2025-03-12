@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/blackoak
+/datum/advclass/mercenary/sk/blackoak
 	name = "Black Oak's Guardian"
 	tutorial = "A shady guardian of the Black Oaks, a mercenary band in all but offical name. Commonly taking caravan contracts through the thickest of forests."
 	allowed_sexes = list(MALE, FEMALE)

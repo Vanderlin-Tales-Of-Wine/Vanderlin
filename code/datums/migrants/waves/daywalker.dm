@@ -1,4 +1,4 @@
-/datum/migrant_role/daywalker
+/*datum/migrant_role/daywalker
 	name = "Daywalker"
 	greet_text = "Some knaves are always trying to wade upstream. You witnessed your entire village be consumed by a subservient vampiric horde - the local Priest grabbed you, and brought you to a remote Monastery; ever since then you've sworn revenge against the restless dead. The Templars showed you everything you needed to know. You walk in the day, so that the undead may only walk in the night."
 	outfit = /datum/outfit/job/daywalker
@@ -57,3 +57,20 @@
 		/datum/migrant_role/daywalker = 1,
 	)
 	greet_text = "You give the Monarch's demense a message. You tell them it's open season on all suckheads."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

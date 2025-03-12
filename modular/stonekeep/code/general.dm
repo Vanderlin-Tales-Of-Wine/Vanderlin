@@ -212,7 +212,7 @@
 // ========================		WEATHER EDITS		============================
 
 /obj/item/flashlight/flare/torch/lantern
-	dropshrink = 0.6
+	dropshrink = 0.7
 /obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -824,6 +824,32 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 
+/obj/structure/handcart/corpse
+	name = "corpse cart"
+	color = "#b4b4b6"
+
+
+/obj/item/flashlight/flare/torch/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.7,"sx" = -6,"sy" = 4,"nx" = 8,"ny" = 4,"wx" = -7,"wy" = 3,"ex" = 2,"ey" = 6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 2,"sturn" = 2,"wturn" = -2,"eturn" = -2,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/obj/item/reagent_containers/food/snacks/egg
+	name = "cackleberry"
+
+
+
+
+
+
+/obj/item/reagent_containers/glass/bottle
+	dropshrink = 0.7
+
+
 /*	could not get this to work. Randomiszes where travel tiles appear, from BS/RW branch, see their map for examples.
 GLOBAL_LIST_EMPTY(travel_tile_locations)
 
@@ -888,36 +914,36 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 */
 
 // =============================================================
-// ================		LANDMARKSF		========================
-/obj/effect/landmark/start/gravekeeper
+// ================		LANDMARKS		========================
+/obj/effect/landmark/start/sk_gravekeeper
 	name = "Gravekeeper"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/mason
+/obj/effect/landmark/start/sk_mason
 	name = "Mason"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/woodsmann
+/obj/effect/landmark/start/sk_woodsman
 	name = "Woodsman"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/villageelder
+/obj/effect/landmark/start/sk_elder
 	name = "Village Elder"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/blacksmith
+/obj/effect/landmark/start/sk_blacksmith
 	name = "Blacksmith"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/garrisonguard
+/obj/effect/landmark/start/sk_manatarms
 	name = "Man-at-arms"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/stevedore
+/obj/effect/landmark/start/sk_stevedore
 	name = "Stevedore"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/courtwizard
+/obj/effect/landmark/start/sk_courtwiz
 	name = "Court Wizard"
 	icon_state = "arrow"
 
@@ -933,26 +959,15 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	name = "Pilgrim"
 	icon_state = "arrow"
 
-/obj/structure/handcart/corpse
-	name = "corpse cart"
-	color = "#b4b4b6"
+/obj/effect/landmark/start/sk_nitemaster
+	name = "Nitemaster"
+	icon_state = "arrow"
 
-
-/obj/item/flashlight/flare/torch/getonmobprop(tag)
-	. = ..()
-	if(tag)
-		switch(tag)
-			if("gen")
-				return list("shrink" = 0.7,"sx" = -6,"sy" = 4,"nx" = 8,"ny" = 4,"wx" = -7,"wy" = 3,"ex" = 2,"ey" = 6,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 2,"sturn" = 2,"wturn" = -2,"eturn" = -2,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
-			if("onbelt")
-				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
-/obj/item/reagent_containers/food/snacks/egg
-	name = "cackleberry"
+// =========================================================
+// ================		KEYS		========================
 
 /obj/item/key/captain
 	name = "sheriffs key"
-
 
 /obj/item/key/mason
 	name = "mason key"
@@ -988,8 +1003,41 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	icon_state = "rustkey"
 	lockid = "graveyard"
 
+/obj/item/key/innkeep
+	name = "innkeepers key"
+	desc = ""
+	icon_state = "birdkey"
+	lockid = "innkeep"
 
-/obj/item/reagent_containers/glass/bottle
-	dropshrink = 0.7
+/obj/item/key/bathhouse
+	name = "bathhouse key"
+	desc = ""
+	icon_state = "brownkey"
+	lockid = "bathhouse"
 
+/obj/item/key/bathguesti
+	name = "bathguest key"
+	desc = ""
+	icon_state = "brownkey"
+	lockid = "bathguesti"
 
+/obj/item/key/bathguestii
+	name = "bathguest key"
+	desc = ""
+	icon_state = "brownkey"
+	lockid = "bathguestii"
+
+/obj/item/key/nitemaster
+	name = "nitemasters key"
+	desc = "The master key of the bath house."
+	icon_state = "greenkey"
+	lockid = "nightmaster"
+
+/obj/item/storage/keyring/nitemaster
+	keys = list(/obj/item/key/nitemaster, /obj/item/key/bathhouse)
+
+/obj/item/storage/keyring/innkeep_hamlet
+	keys = list(/obj/item/key/tavern, /obj/item/key/innkeep, /obj/item/key/roomi, /obj/item/key/roomii, /obj/item/key/roomiii, /obj/item/key/roomiv, /obj/item/key/roomv)
+
+/obj/item/storage/keyring/servinggirl
+	keys = list(/obj/item/key/tavern, /obj/item/key/bathhouse)

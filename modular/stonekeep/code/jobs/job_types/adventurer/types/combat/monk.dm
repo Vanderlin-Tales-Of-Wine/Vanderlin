@@ -1,4 +1,4 @@
-/datum/advclass/combat/stonekeep/monk
+/datum/advclass/combat/sk/monk
 	name = "Monk"
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "A traveling monk of the God Ravox, unmatched in unarmed combat and with an unwavering devotion to Justice."
@@ -6,24 +6,26 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
+		"Dwarf"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/monk
+	outfit = /datum/outfit/job/sk/adventurer/monk
 	min_pq = -10
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 	vampcompat = FALSE
 
-/datum/outfit/job/stonekeep/adventurer/monk
+/datum/outfit/job/sk/adventurer/monk
 
-/datum/outfit/job/stonekeep/adventurer/monk/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/monk/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguehood/brown
+	if(prob(50))
+		head = /obj/item/clothing/head/helmet/leather/headscarf
 	neck = /obj/item/clothing/neck/psycross/silver/ravox
 	shoes = /obj/item/clothing/shoes/shortboots
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-	armor = /obj/item/clothing/shirt/robe/plain
+	armor = /obj/item/clothing/armor/leather/vest/monk
+	if(prob(50))
+		cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
+		armor = /obj/item/clothing/shirt/robe/plain
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/storage/belt/pouch/coins/poor

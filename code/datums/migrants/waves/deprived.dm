@@ -1,4 +1,4 @@
-/datum/migrant_role/deprived
+/*datum/migrant_role/deprived
 	name = "Deprived" // challenge run
 	greet_text = "You were once a highwayman, a monster of the road - but you have since ditched your sinful ways, leaving society behind in wake of your regrets. Nothing erases the past, and you can find absolution only in the catharsis of death. Let the wildlife shepherd your soul to Necra."
 	outfit = /datum/outfit/job/deprived
@@ -48,3 +48,15 @@
 		/datum/migrant_role/deprived = 1,
 	)
 	greet_text = "Absolve yourself of sin, cast yourself away from society, and leave the travelers to their toils. Death and isolation grants you absolution."
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

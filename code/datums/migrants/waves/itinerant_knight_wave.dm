@@ -1,4 +1,4 @@
-/datum/migrant_role/itinerant_knight
+/*datum/migrant_role/itinerant_knight
 	name = "Itinerant Knight"
 	greet_text = "You are an itinerant Knight, you have embarked alongside your squire on a voyage to fullfil your knightly vows."
 	outfit = /datum/outfit/job/itinerant_knight
@@ -112,3 +112,19 @@
 		/datum/migrant_role/itinerant_knight = 1,
 	)
 	greet_text = "The weight of Psydon's cross is heavy, the vows you have undertaken heavier, a Knight has took to the road to fullfill them."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

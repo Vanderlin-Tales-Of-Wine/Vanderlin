@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/zamurai // Zamurai-tier role. Still not leading people since they own no retainer on Rockhill.
+/datum/advclass/combat/sk/abyss/zamurai // Zamurai-tier role. Still not leading people since they own no retainer on Rockhill.
 	name = "Zamurai"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -12,7 +12,7 @@
 	"Changeling",
 	"Skylancer",
 	"Ogrun")
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/zamurai
+	outfit = /datum/outfit/job/sk/adventurer/abyss/zamurai
 	maximum_possible_slots = 0
 	pickprob = 0
 	tutorial = "A lower-ranking zamurai serving the warrior caste that became adrift during a expedition, \
@@ -21,12 +21,12 @@
 	category_tags = list(CTAG_ADVENTURER)
 	horse = /mob/living/simple_animal/hostile/retaliate/saiga/horse/tame/saddled
 
-/datum/advclass/combat/abyssariad/zamurai/equipme(mob/living/carbon/human/H)
+/datum/advclass/combat/sk/abyss/zamurai/equipme(mob/living/carbon/human/H)
 	if(H.gender == FEMALE)
 		horse = /mob/living/simple_animal/hostile/retaliate/saiga/horse/tame/saddled
 	return ..()
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/zamurai/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/zamurai/pre_equip(mob/living/carbon/human/H)
 	pants = /obj/item/clothing/pants/trou/tobi/random //Fully intended to give them Haidate Tatami, but the armor is strong enough already.
 	shoes = /obj/item/clothing/shoes/boots/armor/suneate
 	gloves = /obj/item/clothing/gloves/leather/abyssal //kote already protects the hands.

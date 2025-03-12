@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/exiled
+/datum/advclass/mercenary/sk/exiled
 	name = "Exiled Warrior"
 	tutorial = "A barbarian - you're a brute, and you're a long way from home. You took more of a liking to the blade than your elders wanted - in truth, they did not have to even deliberate to banish you. You will drown in ale, and your enemies in blood."
 	allowed_sexes = list(MALE, FEMALE)

@@ -5,8 +5,11 @@
  *					*
  * * * * * * * * * **/
 
+/datum/language_holder/orc
+	languages = list(/datum/language/orcish)
+
 // ======================================================================
-/*	..................   Colony Spider Web   ................... */
+/*	..................   Hairy Spider Web   ................... */
 /obj/structure/innocent_web
 	name = ""
 	desc = ""
@@ -330,112 +333,6 @@
 	miss_text = "slashes the air!"
 
 
-
-// ======================================================================
-/*	..................   Maybe Mob Spawners   ................... */
-/obj/effect/spawner/map_spawner/maybe_saiga
-	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "animal"
-	probby = 50
-	spawned = list(
-		/mob/living/simple_animal/hostile/retaliate/saiga = 40,
-		/mob/living/simple_animal/hostile/retaliate/saigabuck = 50,
-		/mob/living/simple_animal/hostile/retaliate/saiga/saigakid = 10)
-
-/obj/effect/spawner/map_spawner/maybe_cabbit
-	icon = 'modular/stonekeep/icons/misc.dmi'
-	icon_state = "animal"
-	probby = 50
-	spawned = list(
-		/mob/living/simple_animal/pet/cat/cabbit = 100)
-
-
-
-// ======================================================================
-/*	..................   Either Or Spawners   ................... */
-/obj/effect/spawner/map_spawner/skel_or_remains
-	icon = 'icons/effects/blood.dmi'
-	icon_state = "remains"
-	probby = 50
-	color = "#ffce0b"
-	spawned = list(
-		/mob/living/simple_animal/hostile/skeleton = 4,
-		/obj/effect/decal/remains/human/old = 50,
-		/obj/effect/decal/remains/human/old/small = 45,
-		/obj/item/clothing/ring/silver = 1
-		)
-
-/*	..................   Catacomb Random   ................... */
-/obj/effect/spawner/map_spawner/catacomb_random
-	icon_state = "srat"
-	icon = 'icons/roguetown/mob/monster/rat.dmi'
-	probby = 50
-	color = "#ffce0b"
-	spawned = list(
-		/obj/item/coin/silver = 5,
-		/obj/item/clothing/pants/trou = 2,
-		/obj/item/flashlight/flare/torch/lantern = 1,
-		/obj/item/natural/worms = 20,
-		/obj/item/reagent_containers/food/snacks/smallrat = 5,
-		/obj/item/reagent_containers/food/snacks/smallrat/dead = 5,
-		/mob/living/simple_animal/hostile/retaliate/bigrat = 1,
-		)
-
-/* Ide enemy structures use the new range var in the spawner to only try spawning if a mob containing a mind is inside the
-range. How much processing this saves is unclear */
-/*	..................   Big Rat Spawner   ................... */
-/obj/structure/idle_enemy/bigrat
-/obj/structure/idle_enemy/bigrat/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spawner/bigrat)
-/datum/component/spawner/bigrat
-	mob_types = list(/mob/living/simple_animal/hostile/retaliate/bigrat)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
-	range = 11
-	spawn_text = ""
-
-/*	..................   Weak Skelly Spawner   ................... */
-/obj/structure/idle_enemy/weak_skelly
-/obj/structure/idle_enemy/weak_skelly/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spawner/weak_skelly)
-/datum/component/spawner/weak_skelly
-//	mob_types = list(/mob/living/carbon/human/species/skeleton/skilled/unarmed)
-	mob_types = list(/mob/living/simple_animal/hostile/skeleton)
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
-	range = 11
-	spawn_text = ""
-
-
-
-/*	..................	Zizombie Modifications   ................... */
-/mob/living/carbon/human/species/zizombie
-	icon = 'modular/stonekeep/icons/mobs/zizombie.dmi'
-	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
-	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
-	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/weak)
-	a_intent = INTENT_HELP
-	attack_speed = 2
-
-/mob/living/carbon/human/species/zizombie/npc_idle()
-	if(world.time < next_idle)
-		return
-	next_idle = world.time + rand(30, 70)
-	if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && wander)
-		if(prob(20))
-			var/turf/T = get_step(loc,pick(GLOB.cardinals))
-			if(!istype(T, /turf/open/transparent/openspace))
-				Move(T)
-		else
-			face_atom(get_step(src,pick(GLOB.cardinals)))
-	if(!wander && prob(10))
-		face_atom(get_step(src,pick(GLOB.cardinals)))
-	if(prob(3))
-		playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
 
 /mob/living/simple_animal/hostile/retaliate/headless
 	icon = 'modular/stonekeep/icons/mobs/headless.dmi'

@@ -1,4 +1,4 @@
-/datum/migrant_role/dwarven_company/captain
+/*datum/migrant_role/dwarven_company/captain
 	name = "Captain"
 	greet_text = "You are the captain of a dwarven's expedition, following the tracks of Matthios's influence you shall lead your party in Malum's name."
 	outfit = /datum/outfit/job/dwarven_company/captain
@@ -208,3 +208,13 @@
 	greet_text = "The way to Matthios's tomb is opened. Malum has called for all dwarves bold enough to go in, and we shall answer."
 
 
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

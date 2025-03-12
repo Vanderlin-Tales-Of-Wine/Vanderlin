@@ -1,4 +1,4 @@
-/datum/migrant_role/inquisitor
+/*datum/migrant_role/inquisitor
 	name = "Episcopal Inquisitor"
 	greet_text = "These lands have forfeited Psydon and the Tens, you came with a troop of devouts from Grenzelhoft to restore the True faith to them."
 	antag_datum = /datum/antagonist/purishep
@@ -9,7 +9,7 @@
 /datum/migrant_role/crusader
 	name = "Crusaders"
 	greet_text = "Crusader of the True faith, you came from Grenzelhoft under the command of the Inquisitor, obey them as he lead you to smite the heatens."
-	outfit = /datum/outfit/job/stonekeep/adventurer/crusader	// STONEKEEP EDIT
+	outfit = /datum/outfit/job/sk/adventurer/crusader	// STONEKEEP EDIT
 	allowed_races = list("Humen","Dwarf")
 
 /datum/migrant_wave/crusade
@@ -61,3 +61,23 @@
 		/datum/migrant_role/inquisitor = 1,
 		/datum/migrant_role/crusader = 1)
 	greet_text = "These heatens, they have forsaken the teaching of everything that is good. We shan't let them insults the true Gods no more. The Inquisitor will lead us to make sure of that."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

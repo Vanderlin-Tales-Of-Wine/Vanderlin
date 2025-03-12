@@ -1,4 +1,4 @@
-/datum/migrant_role/heartfelt/lord
+/*datum/migrant_role/heartfelt/lord
 	name = "Lord of Heartfelt"
 	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to Vanderlin, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
 	outfit = /datum/outfit/job/heartfelt/lord
@@ -321,3 +321,17 @@
 		/datum/migrant_role/heartfelt/hand = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Your Knight, Magos and Prior died on the way here..."
+
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

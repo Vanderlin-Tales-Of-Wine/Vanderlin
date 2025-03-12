@@ -190,7 +190,7 @@
 
 /datum/crafting_recipe/roguetown/weaving/eorastraps
 	name = "robe (eora straps)"
-	result = list(/obj/item/clothing/shirt/robe/eora/alt)
+	result = list(/obj/item/clothing/shirt/robe/eora)
 	reqs = list(/obj/item/natural/silk = 3)
 	craftdiff = 4
 	sellprice = 50

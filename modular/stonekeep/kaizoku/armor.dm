@@ -1229,7 +1229,7 @@
 
 /obj/item/clothing/head/helmet/heavy/bronzepot/AdjustClothes(mob/user)
 	if(loc == user)
-		playsound(user, "sound/items/visor.ogg", 100, TRUE, -1)
+		playsound(user, "sound/items/visor.ogg", 50, TRUE, -1)
 		if(adjustable == CAN_CADJUST)
 			adjustable = CADJUSTED
 			icon_state = "[initial(icon_state)]_raised"

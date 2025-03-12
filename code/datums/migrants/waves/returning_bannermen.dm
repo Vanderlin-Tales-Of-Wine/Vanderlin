@@ -1,4 +1,4 @@
-/datum/migrant_role/sergeant_at_arms
+/*datum/migrant_role/sergeant_at_arms
 	name = "Serjeant at arms"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and the mens under your command have returned upon fullfiling your task."
 	allowed_sexes = list(MALE, FEMALE)
@@ -317,3 +317,16 @@
 	)
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
+
+
+
+
+
+
+
+
+
+
+
+
+STONEKEEP EDIT	*/

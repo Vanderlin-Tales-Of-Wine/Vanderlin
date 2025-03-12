@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/shinobi //Civilian role. Ashigarus or former (low-ranking) monks takes this role.
+/datum/advclass/combat/sk/abyss/shinobi //Civilian role. Ashigarus or former (low-ranking) monks takes this role.
 	name = "Shinobi"
 	tutorial = "The military or former monks convert agents of a Daimyo or a clan who operates in secrecy, using stealth, \
 	disguise and deception as tool. Knowledged in poison, Shinobis steals battle plans and assassinates \
@@ -18,11 +18,11 @@
 		"Ogrun",
 		"Undine"
 	)
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/shinobi
+	outfit = /datum/outfit/job/sk/adventurer/abyss/shinobi
 	category_tags = list(CTAG_ADVENTURER)
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/shinobi/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/shinobi/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

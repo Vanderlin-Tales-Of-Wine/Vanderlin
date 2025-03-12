@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-/datum/advclass/combat/abyssariad/champion //Champion role.
+/datum/advclass/combat/sk/abyss/champion //Champion role.
 	name = "Abyssal Champion"
 	tutorial = "The phantoms of the divine winds, the abyssal champions are the Heavenly Emperor's divine enforcers whom still lingers in large numbers. \
 	They are directly funded by the imperial court, surpassing zamurais in power and renown, and even keeping them in check in case of audacious rebellions. \
@@ -16,12 +16,12 @@
 	"Skylancer", // Eidolon
 	"Ogrun",
 	"Undine") // Dragonslayer
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/champion
+	outfit = /datum/outfit/job/sk/adventurer/abyss/champion
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 1
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/champion/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/champion/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.dna.species.name == "Changeling")
 		if(H.mind)

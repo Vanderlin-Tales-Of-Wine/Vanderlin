@@ -4,7 +4,7 @@
 //'Champion' Combat Roles - 5 LEVELS MAX in Combat SKill (Unique) - Little Reason to go to Rockhill besides Royal Expedition/Rockhill's Captain.//
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/datum/advclass/combat/abyssariad/shrinekeepers //Low-abyssanctum role, but its efficiency requires champion-tier levels entirely because of unarmed skills. They are NOT champions.
+/datum/advclass/combat/sk/abyss/shrinekeepers //Low-abyssanctum role, but its efficiency requires champion-tier levels entirely because of unarmed skills. They are NOT champions.
 	name = "Shrinekeeper"
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "The shrines needs to be cared of, and there is no one most suitable for such duty than the purifier branch. \
@@ -15,15 +15,15 @@
 	"Skylancer",
 	"Ogrun",
 	"Undine")
-	outfit = /datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers
+	outfit = /datum/outfit/job/sk/adventurer/abyss/shrinekeepers
 	category_tags = list(CTAG_ADVENTURER)
 	vampcompat = FALSE
 	pickprob = 100
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers
+/datum/outfit/job/sk/adventurer/abyss/shrinekeepers
 	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/stonekeep/adventurer/abyssariad/shrinekeepers/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk/adventurer/abyss/shrinekeepers/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/psycross/silver/abyssanctum
 	shoes = /obj/item/clothing/shoes/sandals/geta

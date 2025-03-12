@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/boltslinger
+/datum/advclass/mercenary/sk/boltslinger
 	name = "Boltslinger"
 	tutorial = "A cutthroat and a soldier of fortune, your mastery of the crossbow has brought you to many battlefields, all in pursuit of mammon."
 	allowed_sexes = list(MALE, FEMALE)

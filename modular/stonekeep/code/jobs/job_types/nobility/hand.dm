@@ -1,4 +1,4 @@
-/datum/job/stonekeep/hand
+/datum/job/stonekeep/hand	// frumentari paper removed since no roundstart agents added
 	title = "Hand"
 	flag = SK_HAND
 	department_flag = NOBLEMEN
@@ -40,15 +40,11 @@
 /datum/outfit/job/stonekeep/hand/pre_equip(mob/living/carbon/human/H)
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
 	backr = /obj/item/storage/backpack/satchel/black
-	armor = /obj/item/clothing/armor/leather/jacket/handjacket
 	belt = /obj/item/storage/belt/leather/steel
-	beltr = /obj/item/weapon/knife/dagger/steel
+	beltl = /obj/item/storage/keyring/hand
 	shirt = /obj/item/clothing/shirt/undershirt/fancy
-	backr = /obj/item/storage/backpack/satchel/black
-	armor = /obj/item/clothing/armor/leather/jacket/hand
 	pants = /obj/item/clothing/pants/tights/black
 	shoes = /obj/item/clothing/shoes/nobleboot/thighboots
-	backpack_contents = list(/obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
@@ -63,7 +59,7 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 		H.change_stat(STATKEY_PER, 3)
 		H.change_stat(STATKEY_INT, 3)
 	if(H.age == AGE_OLD)
@@ -76,3 +72,22 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+
+	H.adjust_blindness(-3)
+	var/background = list("Spymaster", "Consort")
+	var/background_choice = input("Choose your background.", "THE STORY BEGINS") as anything in background
+	H.set_blindness(0)
+	switch(background_choice)
+		if("Spymaster")	// flexible poison/offensive
+			beltr = /obj/item/weapon/sword/rapier/dec
+			armor = /obj/item/clothing/armor/leather/jacket/hand
+			backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/poison = 1)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+		if("Consort")	// medical support focus
+			beltr = /obj/item/weapon/knife/dagger/steel
+			armor = /obj/item/clothing/shirt/robe/elegantgown
+			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/antidote = 1, /obj/item/reagent_containers/glass/bottle/healthpot = 1)
+
+
+
+
