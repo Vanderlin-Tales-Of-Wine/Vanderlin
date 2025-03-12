@@ -55,7 +55,7 @@
 		if(do_after(user, (20 / user.STASPD + 2) SECONDS, target))
 			user.visible_message("<span class='warning'>\the [user] washes \the [target]'s mouth out with [src.name]!</span>", "<span class='notice'>I wash \the [target]'s mouth out with [src.name]!</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 			target.emote("drown")
-			target.adjustOxyLoss(user.STASTR * 2) // double because it takes much longer than a strangle
+			target.adjustOxyLoss(user.STASTR * 1.5) // 1.5 because it takes much longer than a strangle
 			var/datum/reagents/reagents = new()
 			reagents.add_reagent(/datum/reagent/soap, 5)
 			reagents.trans_to(target, reagents.total_volume, transfered_by = user, method = INGEST)
