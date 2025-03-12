@@ -11,7 +11,7 @@
 	throw_range = 7
 	var/cleanspeed = 35 //slower than mop
 	force_string = "robust... against germs"
-	var/uses = 100
+	var/uses = 50
 
 /obj/item/soap/ComponentInitialize()
 	. = ..()
@@ -124,7 +124,7 @@
 /obj/item/soap/bath
 	name = "herbal soap"
 	desc = "A soap made from various herbs."
-	uses = 50
+	uses = 25
 
 //Only get the buff if you use the good stuff
 /obj/item/soap/bath/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
