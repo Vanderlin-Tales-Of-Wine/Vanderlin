@@ -408,7 +408,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["job_preferences"] >> job_preferences
 
 	S["headshot_link"]			>> headshot_link
-	if(!valid_headshot_link(null, headshot_link, TRUE))
+	if(!is_valid_headshot_link(null, headshot_link, TRUE))
 		headshot_link = null
 
 	//try to fix any outdated data if necessary

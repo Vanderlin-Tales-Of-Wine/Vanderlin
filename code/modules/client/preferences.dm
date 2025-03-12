@@ -1749,7 +1749,9 @@ Slots: [job.spawn_positions]</span>
 					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
 					if(!new_headshot_link)
 						return
-					if(!valid_headshot_link(user, new_headshot_link))
+					var/is_valid_link = is_valid_headshot_link(user, new_headshot_link, FALSE)
+					if(!is_valid_link)
+						to_chat(user, span_notice("Failed to update headshot"))
 						return
 					headshot_link = new_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
@@ -2414,9 +2416,22 @@ Slots: [job.spawn_positions]</span>
 		else
 			custom_names[name_id] = sanitized_name
 
+/datum/preferences/proc/is_active_migrant()
+	if(!migrant)
+		return FALSE
+	if(!migrant.active)
+		return FALSE
+	return TRUE
 
-/proc/valid_headshot_link(mob/user, value, silent = FALSE)
-	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, discord, lensdump, imgbox, catbox
+/datum/preferences/proc/allowed_respawn()
+	if(!has_spawned)
+		return TRUE
+	if(is_misc_banned(parent.ckey, BAN_MISC_RESPAWN))
+		return FALSE
+	return TRUE
+
+/proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
+	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe|i.imgur.com") //gyazo, discord, lensdump, imgbox, catbox
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 	if(!length(value))
@@ -2447,17 +2462,3 @@ Slots: [job.spawn_positions]</span>
  			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
  		return FALSE
  	return TRUE
-
-/datum/preferences/proc/is_active_migrant()
-	if(!migrant)
-		return FALSE
-	if(!migrant.active)
-		return FALSE
-	return TRUE
-
-/datum/preferences/proc/allowed_respawn()
-	if(!has_spawned)
-		return TRUE
-	if(is_misc_banned(parent.ckey, BAN_MISC_RESPAWN))
-		return FALSE
-	return TRUE

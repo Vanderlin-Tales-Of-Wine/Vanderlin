@@ -6,8 +6,6 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 	if(href_list["task"] == "view_flavor_text" && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
 		if(!ismob(usr))
 			return
-		if(!valid_headshot_link(null, headshot_link, TRUE))
-			return
 		var/mob/user = usr
 		var/list/dat = list()
 		if(headshot_link)
