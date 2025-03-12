@@ -32,6 +32,8 @@
 	var/list/overlay_to_index = list()
 	var/current_overlays = 0
 
+	var/loads_painting = FALSE
+
 /obj/item/canvas/Initialize()
 	. = ..()
 	used_canvas = new
@@ -55,11 +57,11 @@
 	. = ..()
 	if(user.cmode)
 		if(anchored)
-			to_chat(user, "You start unmounting [src]")
-			if(!do_after(user, 3 SECONDS, target = src))
+			to_chat(user, "I start unmounting [src]...")
+			if(!do_after(user, 3 SECONDS, src))
 				return
 			anchored = FALSE
-			to_chat(user, "You unmount [src]")
+			to_chat(user, "I unmount [src].")
 
 /obj/item/canvas/attack_right(mob/user)
 	. = ..()
@@ -98,14 +100,15 @@
 
 /obj/item/canvas/attack_turf(turf/T, mob/living/user)
 	. = ..()
-	to_chat(user, "You start mounting [src] to [T]")
-	if(!do_after(user, 3 SECONDS, target = T))
+	to_chat(user, "I start mounting [src] to [T]...")
+	if(!do_after(user, 3 SECONDS, T))
 		return
+	user.dropItemToGround(src)
 	forceMove(T)
 	pixel_x = 0
 	pixel_y = 0
 	anchored = TRUE
-	to_chat(user, "You mount [src] to [T]")
+	to_chat(user, "I mount [src] to [T].")
 
 /obj/item/canvas/proc/remove_shower(mob/source)
 	showers -= source
@@ -214,6 +217,13 @@
 
 	host.update_drawing(x, y, current_color)
 
-/obj/item/random_painting/Initialize()
+/obj/item/canvas/random_painting
+	loads_painting = TRUE
+
+/obj/item/canvas/random_painting/Initialize()
 	. = ..()
 	icon = SSpaintings.get_random_painting("32x32")
+	var/icon/new_icon = getFlatIcon(src)
+	new_icon.Scale(160, 160)
+	used_canvas.draw.Blend(new_icon, ICON_OVERLAY)
+	used_canvas.icon = used_canvas.draw

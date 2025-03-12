@@ -20,6 +20,7 @@
 	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
+	redstone_structure = TRUE
 
 	var/over_state = "woodover"
 
@@ -31,7 +32,7 @@
 	var/vipmessage
 	var/defenses = FALSE
 
-/obj/structure/mineral_door/secret/redstone_triggered()
+/obj/structure/mineral_door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
 		force_open()
 	else
@@ -74,7 +75,7 @@
 /obj/structure/mineral_door/secret/door_rattle()
 	return
 
-/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+/obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
 		return
@@ -86,7 +87,7 @@
 	if(!ishuman(speaker))
 		return
 
-	var/message2recognize = sanitize_hear_message(raw_message)
+	var/message2recognize = sanitize_hear_message(original_message)
 	var/isvip = FALSE
 	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
 		isvip = TRUE
@@ -326,7 +327,7 @@
 /obj/effect/mapping_helpers/secret_door_creator
 	name = "Secret door creator: Turns the given wall into a hidden door with a random password. THE VIPS LIST IS THE NAME OF THE JOB OR TITLE!"
 
-	var/turf/open/floor_turf = /turf/open/floor/rogue/wood
+	var/turf/open/floor_turf = /turf/open/floor/wood
 
 	var/redstone_id
 

@@ -294,6 +294,9 @@
 	if(HAS_TRAIT(I, TRAIT_NODROP) && !force)
 		return FALSE
 
+	if((SEND_SIGNAL(I, COMSIG_ITEM_PRE_UNEQUIP, force, newloc, no_move, invdrop, silent) & COMPONENT_ITEM_BLOCK_UNEQUIP) && !force)
+		return FALSE
+
 	var/hand_index = get_held_index_of_item(I)
 	if(hand_index)
 		held_items[hand_index] = null
@@ -317,6 +320,8 @@
 		hud_used.give_intent?.update_icon()
 	givingto = null
 	update_a_intents()
+	SEND_SIGNAL(I, COMSIG_ITEM_POST_UNEQUIP, force, newloc, no_move, invdrop, silent)
+	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, I, force, newloc, no_move, invdrop, silent)
 	return TRUE
 
 //Outdated but still in use apparently. This should at least be a human proc.
@@ -350,8 +355,6 @@
 		items += backl
 	if(ears)
 		items += ears
-	if(glasses)
-		items += glasses
 	if(gloves)
 		items += gloves
 	if(shoes)
@@ -400,8 +403,6 @@
 		obscured |= SLOT_NECK
 	if(hidden_slots & HIDEMASK)
 		obscured |= SLOT_WEAR_MASK
-	if(hidden_slots & HIDEEYES)
-		obscured |= SLOT_GLASSES
 	if(hidden_slots & HIDEGLOVES)
 		obscured |= SLOT_GLOVES
 	if(hidden_slots & HIDEJUMPSUIT)

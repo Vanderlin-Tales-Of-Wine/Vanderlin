@@ -79,9 +79,10 @@
 	var/mob/living/living_user = user
 	if(user.doing)
 		return
+	if(user.used_intent.type != INTENT_DISARM)
+		return
 	if(istype(living_user) && (living_user.cmode))
 		return
-
 	if(is_tipped)
 		INVOKE_ASYNC(src, PROC_REF(try_untip), source, user)
 	else
@@ -111,7 +112,7 @@
 			ignored_mobs = tipper
 		)
 
-		if(!do_after(tipper, tip_time, target = tipped_mob))
+		if(!do_after(tipper, tip_time, tipped_mob))
 			if(!isnull(tipped_mob.client))
 				tipped_mob.log_message("was attempted to tip over by [key_name(tipper)]", LOG_GAME, log_globally = FALSE)
 				tipper.log_message("failed to tip over [key_name(tipped_mob)]", LOG_ATTACK)
@@ -166,7 +167,7 @@
 			ignored_mobs = untipper
 		)
 
-		if(!do_after(untipper, untip_time, target = tipped_mob))
+		if(!do_after(untipper, untip_time, tipped_mob))
 			to_chat(untipper, span_warning("You fail to right [tipped_mob]."))
 			return
 
@@ -202,7 +203,7 @@
  * tipped_mob - the mob who was tipped, and is freeing itself
  */
 /datum/component/tippable/proc/right_self(mob/living/tipped_mob)
-	if(!is_tipped || QDELETED(tipped_mob))
+	if(!is_tipped || QDELETED(tipped_mob) || tipped_mob.stat >= UNCONSCIOUS)
 		return
 
 	set_tipped_status(tipped_mob, FALSE)

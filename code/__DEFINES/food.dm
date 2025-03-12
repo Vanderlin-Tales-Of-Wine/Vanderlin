@@ -19,3 +19,9 @@
 #define DRINK_VERYGOOD	3
 #define DRINK_FANTASTIC	4
 #define FOOD_AMAZING 5
+
+#define FARE_IMPOVERISHED 1
+#define FARE_POOR 2
+#define FARE_NEUTRAL 3
+#define FARE_FINE 4
+#define FARE_LAVISH 5

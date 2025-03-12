@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = subtypesof(/datum/job/roguetown)
+	var/list/all_jobs = subtypesof(/datum/job)
 	if(!all_jobs.len)
 		to_chat(world, "<span class='boldannounce'>Error setting up jobs, no job datums found</span>")
 		return 0
@@ -138,8 +138,9 @@ SUBSYSTEM_DEF(job)
 			JobDebug("FOC incompatible with antagonist role, Player: [player]")
 			continue
 		if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
-			JobDebug("FOC incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-			continue
+			if(!(player.client.triumph_ids.Find("race_all")))
+				JobDebug("FOC incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
+				continue
 		if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
 			JobDebug("FOC incompatible with patron, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
 			continue
@@ -263,6 +264,7 @@ SUBSYSTEM_DEF(job)
 		if((player) && (player.mind))
 			player.mind.assigned_role = null
 			player.mind.special_role = null
+			player.mind.job_bitflag = NONE
 			SSpersistence.antag_rep_change[player.ckey] = 0
 	SetupOccupations()
 	unassigned = list()
@@ -421,8 +423,9 @@ SUBSYSTEM_DEF(job)
 					continue
 
 				if(length(job.allowed_races) && !(player.client.prefs.pref_species.name in job.allowed_races))
-					JobDebug("DO incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
-					continue
+					if(!(player.client.triumph_ids.Find("race_all")))
+						JobDebug("DO incompatible with species, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
+						continue
 
 				if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron.type in job.allowed_patrons))
 					JobDebug("DO incompatible with patron, Player: [player], Job: [job.title], Race: [player.client.prefs.pref_species.name]")
@@ -553,21 +556,19 @@ SUBSYSTEM_DEF(job)
 	return amt_picked
 
 /datum/controller/subsystem/job/proc/validate_required_jobs(list/required_jobs)
-	if(!required_jobs.len)
+	if(!required_jobs.len || SSticker.start_immediately == TRUE) //start_immediately triggers when the world is doing a test run or an admin hits start now, we don't need to check for king
 		return TRUE
 	for(var/required_group in required_jobs)
 		var/group_ok = TRUE
 		for(var/rank in required_group)
 			var/datum/job/J = GetJob(rank)
 			if(!J)
-				SSticker.mode.setup_error = "Invalid job [rank] in gamemode required jobs."
 				return FALSE
 			if(J.current_positions < required_group[rank])
 				group_ok = FALSE
 				break
 		if(group_ok)
 			return TRUE
-	SSticker.mode.setup_error = "Required jobs not present."
 	return FALSE
 
 //We couldn't find a job from prefs for this guy.

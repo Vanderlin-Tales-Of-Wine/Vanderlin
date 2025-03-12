@@ -36,8 +36,6 @@
 
 	var/confused = 0	//Makes the mob move in random directions.
 
-	var/hallucination = 0 //Directly affects how long a mob will hallucinate for
-
 	var/last_special = 0 //Used by the resist verb, likely used to prevent players from bypassing next_move by logging in/out.
 	var/timeofdeath = 0
 
@@ -55,6 +53,7 @@
 
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks = 0 //Tracks how many stacks of fire we have on, max is usually 20
+	var/divine_fire_stacks = 0 //Identical to fire stacks but has less properties like spreading. Should never be negative.
 
 	var/bloodcrawl = 0 //0 No blood crawling, BLOODCRAWL for bloodcrawling, BLOODCRAWL_EAT for crawling+mob devour
 	var/holder = null //The holder for blood crawling

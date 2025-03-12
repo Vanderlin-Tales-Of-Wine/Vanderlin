@@ -1,18 +1,3 @@
-/atom/movable/screen/ghost
-	icon = 'icons/mob/screen_ghost.dmi'
-
-/atom/movable/screen/ghost/MouseEntered()
-//	flick(icon_state + "_anim", src)
-	..()
-
-/atom/movable/screen/ghost/jumptomob
-	name = "Jump to mob"
-	icon_state = "jumptomob"
-
-/atom/movable/screen/ghost/jumptomob/Click()
-	var/mob/dead/observer/G = usr
-	G.jumptomob()
-
 /atom/movable/screen/ghost/orbit
 	name = "Orbit"
 	icon_state = "orbit"
@@ -48,11 +33,8 @@
 				G.client.descend()
 				return
 
-//		var/take_triumph = FALSE
-		var/datum/game_mode/chaosmode/C = SSticker.mode
-		if(istype(C))
-			if(C.skeletons)
-				G.returntolobby()
+		if(has_world_trait(/datum/world_trait/skeleton_siege) || has_world_trait(/datum/world_trait/rousman_siege) || has_world_trait(/datum/world_trait/goblin_siege))
+			G.returntolobby()
 		G.client.descend()
 /*		if(world.time < G.ghostize_time + RESPAWNTIME)
 			var/ttime = round((G.ghostize_time + RESPAWNTIME - world.time) / 10)
@@ -67,9 +49,10 @@
 	..()
 	var/atom/movable/screen/using
 
-	using =  new /atom/movable/screen/backhudl/ghost()
-	using.hud = src
-	static_inventory += using
+	if(!GLOB.admin_datums[owner.ckey]) // If you are adminned, you will not get the dead hud obstruction.
+		using =  new /atom/movable/screen/backhudl/ghost()
+		using.hud = src
+		static_inventory += using
 
 	scannies = new /atom/movable/screen/scannies
 	scannies.hud = src

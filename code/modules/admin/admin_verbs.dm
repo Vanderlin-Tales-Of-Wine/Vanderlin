@@ -7,9 +7,12 @@ GLOBAL_PROTECT(admin_verbs_default)
 	return list(
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
+	/client/proc/spawn_liquid,
+	/client/proc/remove_liquid,
 	/client/proc/adjust_pq,
 	/client/proc/stop_restart,
 	/client/proc/hearallasghost,
+	/client/proc/toggle_aghost_invis,
 	/client/proc/admin_ghost,
 	/client/proc/ghost_up,
 	/datum/admins/proc/start_vote,
@@ -63,10 +66,13 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/game_panel,			/*game panel, allows to change game-mode etc*/
 	/datum/admins/proc/toggleooc,		/*toggles ooc on/off for everyone*/
 	/datum/admins/proc/toggleoocdead,	/*toggles ooc on/off for everyone who is dead*/
+	/datum/admins/proc/togglelooc,
+	/datum/admins/proc/fix_death_area,
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
 	/datum/admins/proc/set_admin_notice, /*announcement all clients see when joining the server.*/
+	/client/proc/toggle_aghost_invis, /* lets us choose whether our in-game mob goes visible when we aghost (off by default) */
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/hearallasghost,
 	/client/proc/ghost_up,
@@ -117,13 +123,13 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/drop_bomb,
 	/client/proc/set_dynex_scale,
 	/client/proc/drop_dynex_bomb,
-	/client/proc/cinematic,
 	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/object_say,
 	/client/proc/toggle_random_events,
 	/client/proc/set_ooc,
 	/client/proc/reset_ooc,
 	/client/proc/forceEvent,
+	/client/proc/forceGamemode,
 	/client/proc/admin_change_sec_level,
 	/client/proc/run_particle_weather,
 	/client/proc/show_tip,
@@ -137,7 +143,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 /world/proc/AVerbsServer()
 	return list(
 	/datum/admins/proc/startnow,
-	/datum/admins/proc/forcemode,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/end_round,
 	/datum/admins/proc/delay,
@@ -209,6 +214,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/toggleguests,
 	/datum/admins/proc/announce,
 	/datum/admins/proc/set_admin_notice,
+	/client/proc/toggle_aghost_invis,
 	/client/proc/admin_ghost,
 	/client/proc/toggle_view_range,
 	/client/proc/cmd_admin_subtle_message,
@@ -227,7 +233,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/get_dynex_range,
 	/client/proc/get_dynex_power,
 	/client/proc/set_dynex_scale,
-	/client/proc/cinematic,
 	/client/proc/cmd_admin_add_freeform_ai_law,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_change_command_name,
@@ -359,6 +364,14 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		show_popup_menus = FALSE
 		log_admin("[key_name(usr)] toggled context menu OFF.")
 
+/client/proc/toggle_aghost_invis()
+	set category = "GameMaster"
+	set name = "Aghost (Toggle Invisibility)"
+	if (!holder)
+		return
+	aghost_toggle = !aghost_toggle
+	to_chat(src, aghost_toggle ? "Aghosting will now turn your mob invisible." : "Aghost will no longer turn your mob invisible.")
+
 /client/proc/admin_ghost()
 	set category = "GameMaster"
 	set name = "Aghost"
@@ -373,6 +386,18 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(!ghost.can_reenter_corpse)
 			log_admin("[key_name(usr)] re-entered corpse")
 			message_admins("[key_name_admin(usr)] re-entered corpse")
+		if(istype(ghost.mind.current, /mob/living))
+			var/mob/living/M = ghost.mind.current
+			var/datum/status_effect/incapacitating/sleeping/S = M.IsSleeping()
+			if(S && !M.IsKnockdown() && !M.IsStun() && !M.IsParalyzed()) // Wake them up unless they're asleep for another reason
+				M.remove_status_effect(S)
+				M.set_resting(FALSE, TRUE)
+			M.density = initial(M.density)
+			M.invisibility = initial(M.invisibility)
+		else
+			var/mob/M = ghost.mind.current
+			M.invisibility = initial(M.invisibility)
+			M.density = initial(M.density)
 		ghost.can_reenter_corpse = 1 //force re-entering even when otherwise not possible
 		ghost.reenter_corpse()
 		show_popup_menus = FALSE
@@ -387,6 +412,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		log_admin("[key_name(usr)] admin ghosted.")
 		message_admins("[key_name_admin(usr)] admin ghosted.")
 		var/mob/body = mob
+		if (aghost_toggle)
+			body.invisibility = INVISIBILITY_MAXIMUM
+			body.density = 0
 		body.ghostize(1)
 		if(body && !body.key)
 			body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus

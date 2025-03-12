@@ -165,9 +165,8 @@
 				return
 			if(!SSticker.HasRoundStarted())
 				alert("The game hasn't started yet!")
-			else if (SSticker.mode)
-				alert("The game mode is [SSticker.mode.name]")
-			else alert("For some reason there's a SSticker, but not a game mode")
+			else
+				alert("The game mode is Storytellers")
 		if("manifest")
 			if(!check_rights(R_ADMIN))
 				return
@@ -185,7 +184,7 @@
 			for(var/i in GLOB.human_list)
 				var/mob/living/carbon/human/H = i
 				if(H.ckey)
-					dat += "<tr><td>[H]</td><td>[H.dna.unique_enzymes]</td><td>[H.dna.blood_type]</td></tr>"
+					dat += "<tr><td>[H]</td><td>[H.dna.unique_enzymes]</td><td>[H.dna.human_blood_type]</td></tr>"
 			dat += "</table>"
 			usr << browse(dat, "window=DNA;size=440x410")
 		if("fingerprints")

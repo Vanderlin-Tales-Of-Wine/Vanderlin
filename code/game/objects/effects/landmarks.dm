@@ -131,7 +131,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/guardsman
-	name = "Garrison Guard"
+	name = "City Watchmen"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/manorguardsman
@@ -164,6 +164,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/villager
 	name = "Towner"
+	icon_state = "arrow"
+	jobspawn_override = list("Fisher","Noble","Hunter","Lumberjack","Miner","Physicker","Bard","Carpenter","Cheesemaker")
+
+/obj/effect/landmark/start/cheesemaker
+	name = "Cheesemaker"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/woodsman
@@ -204,7 +209,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/grabber
-	name = "Grabber"
+	name = "Stevedore"
 	icon_state = "arrow"
 
 
@@ -261,6 +266,26 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/mercenary
 	name = "Mercenary"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/physicker
+	name = "Physicker"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/minor_noble
+	name = "Noble"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/miner
+	name = "Miner"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/carpenter
+	name = "Carpenter"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/bard
+	name = "Bard"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/vagrant
@@ -351,21 +376,22 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 //Antagonist spawns
 
 /obj/effect/landmark/start/bandit
-	name = "bandit"
+	name = "Bandit"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
+	jobspawn_override = list("Bandit")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bandit/Initialize()
 	. = ..()
 	GLOB.bandit_starts += loc
 
-/obj/effect/landmark/start/admin
+/obj/effect/landmark/admin
 	name = "admin"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/admin/Initialize()
+/obj/effect/landmark/admin/Initialize()
 	. = ..()
 	GLOB.admin_warp += loc
 
@@ -456,6 +482,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 	GLOB.ruin_landmarks -= src
 	ruin_template = null
 	. = ..()
+
+/// Marks the bottom left of the testing zone.
+/// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
+/obj/effect/landmark/unit_test_bottom_left
+	name = "unit test zone bottom left"
+
+/// Marks the top right of the testing zone.
+/// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
+/obj/effect/landmark/unit_test_top_right
+	name = "unit test zone top right"
 
 //Underworld landmark
 

@@ -12,6 +12,11 @@
 
 	werewolf_infection_probability = 0
 
+/datum/wound/bruise/can_apply_to_bodypart(obj/item/bodypart/affected)
+	. = ..()
+	if(affected.status == BODYPART_ROBOTIC)
+		return FALSE
+
 /datum/wound/bruise/small
 	name = "bruise"
 	whp = 15
@@ -21,5 +26,8 @@
 /datum/wound/bruise/large
 	name = "massive hematoma"
 	whp = 40
+	bleed_rate = 0.9
+	clotting_rate = 0.02
+	clotting_threshold = 0.3
 	sew_threshold = 75
 	woundpain = 25

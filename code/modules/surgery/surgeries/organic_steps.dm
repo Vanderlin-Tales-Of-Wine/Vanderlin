@@ -13,6 +13,8 @@
 	surgery_flags_blocked = SURGERY_INCISED
 	skill_min = SKILL_LEVEL_NOVICE
 	skill_median = SKILL_LEVEL_APPRENTICE
+	preop_sound = 'sound/surgery/scalpel1.ogg'
+	success_sound = 'sound/surgery/scalpel2.ogg'
 
 /datum/surgery_step/incise/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I begin to make an incision in [target]'s [parse_zone(target_zone)]...</span>",
@@ -34,11 +36,13 @@
 	implements = list(
 		TOOL_HEMOSTAT = 75,
 		TOOL_WIRECUTTER = 60,
+		TOOL_IMPROVISED_HEMOSTAT = 38,
 	)
 	time = 2.4 SECONDS
 	surgery_flags_blocked = SURGERY_CLAMPED
 	skill_min = SKILL_LEVEL_JOURNEYMAN
 	skill_median = SKILL_LEVEL_JOURNEYMAN
+	preop_sound = 'sound/surgery/hemostat1.ogg'
 
 /datum/surgery_step/clamp/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, "<span class='notice'>I begin to clamp bleeders in [target]'s [parse_zone(target_zone)]...</span>",
@@ -60,6 +64,7 @@
 	implements = list(
 		TOOL_RETRACTOR = 75,
 		TOOL_SCREWDRIVER = 50,
+		TOOL_IMPROVISED_RETRACTOR = 38,
 		TOOL_WIRECUTTER = 35,
 	)
 	time = 2.4 SECONDS
@@ -178,7 +183,7 @@
 /datum/surgery_step/drill
 	name = "Drill bone"
 	implements = list(
-		TOOL_DRILL = 80, 
+		TOOL_DRILL = 80,
 		TOOL_SCREWDRIVER = 25,
 	)
 	time = 3 SECONDS

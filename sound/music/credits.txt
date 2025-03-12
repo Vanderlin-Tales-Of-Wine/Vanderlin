@@ -2,11 +2,9 @@ combat_maniac.ogg: Thomas Bangalter - Stress
 combat_vamp1.ogg: Vampire The Masquerade: Bloodlines - Dangerous Places Combat
 combat_vamp2.ogg: Filmmaker - Mystic Circles
 combat_desertrider.ogg: Two Fingers- You Ain't Down
-combat_grenzelhoft.ogg: Helbrede - Sons of Tyr
 combat_jester.ogg: OFF - Pepper Steak
 combat_bandit.ogg: Deus Ex - Battery Park Combat
-combat_bandit2.ogg: Cruelty Squad  - Rent DUe
-combat_werewolf.ogg: Filmmaker - Federal Bestiary
+combat_bandit2.ogg: Cruelty Squad  - Rent Due
 combat_physician.ogg: Pathologic (Classic) - Utroba Aggression
 combat_dwarf.ogg: Filip Lackovic - Drums of the Horde
 combat_assassin2.ogg: Fear & Hunger 2: Termina - Monologue With The Moon
@@ -24,3 +22,62 @@ manor2.ogg: Fear & Hunger 2: Termina - Midnight Hour
 night.ogg: Vampire The Masquerade: Bloodlines - Hollywood
 spice2.ogg: The Appolo Stars - Power Of The Source
 churchnight.ogg: Fear & Hunger 2: Termina - Cathedral Whispers
+
+
+TRACKS MADE FOR VANDERLIN:
+
+    T87-Sulfurhead (https://www.youtube.com/@T87-Sulfurhead)
+Slums202 - Title2
+DURANDAL - Royal Knight
+The Reckoning - Bulwark
+Ninth Circle - Outlander (Zybantu)
+Manasurge - Court Wizard
+Manasurge (Original) - Sorcerer
+How Sausage is Made - Captain
+Burning Hovel - Guard
+Metamorphosis - Forest Warden
+Catharsis - Towner Combat
+Formerly Known as Toulouse Lautrec - Gravetender / Necran Theme
+God is Dead - Inquisition
+Age of Degeneration - Forest (Day)
+Further Below - Sewers
+Murderers Providence - Bog
+abinadab3 - Forest (Night)
+Damocles - Manor Day
+RATEATER - Dungeoneer
+Men at War - Outlander (Barbarian)
+Cutpurse - Bandit
+STOLEN SKY - Vampire
+MORTEM OBIRE - Outlander (Assassin)
+Snicker Snacker - Warrior
+Family Melts Away - Eoran Theme
+Amontillado - Prisoner
+Hellions - Servant (Cook, Innkeeper, etc)
+ABedOfMoss - Matron
+Archetype of the Dark Star - Werewolf
+heliotrix - Priest / Astratan Theme
+DEMESNE - Lich
+Ready or Not - Man-at-Arms
+OZYMANDIAS - Dungeon Track 3
+Black Powder - Grenzelhoft
+
+
+    SeanPhillips (https://youtube.com/@seanphillipsmusic / www.seanphillipsmusic.co.uk)
+    Dungeon Track 1 - Unnamed(?)
+    Dungeon Track 2 - Unnamed (?)
+
+    YourLocalShadow (https://www.youtube.com/@YourLocalShadow)
+Bewildered Magic - Wizard Tower
+
+    flleeppyy / fleepy (https://flleeppyy.bandcamp.com/ / https://fleepy.tv/)
+Neglection - Title1
+Veil of Heresy - Cultist Theme
+Retina - Title3
+
+INSTRUMENTS
+
+Sea Shanty 2 Runescape Arrangements:
+lute (b1).ogg: https://www.youtube.com/watch?v=n-wlB48Sq94
+harp (b1).ogg: https://www.youtube.com/watch?v=DaGdjI4HGTg
+flute (b1).ogg: https://www.youtube.com/watch?v=_bhiGbnfMT4
+viola (b1): https://www.youtube.com/watch?v=qmS-rX0_qRQ

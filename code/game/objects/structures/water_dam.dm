@@ -2,14 +2,15 @@
 	name = "water dam"
 	desc = "Blocks the flow of water"
 
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/roguetown/misc/railing.dmi'
 	icon_state = "border"
 	alpha = 190
+	redstone_structure = TRUE
 
 	var/blocking = FALSE
 
 
-/obj/structure/water_dam/redstone_triggered()
+/obj/structure/water_dam/redstone_triggered(mob/user)
 	. = ..()
 	toggle_blocking()
 

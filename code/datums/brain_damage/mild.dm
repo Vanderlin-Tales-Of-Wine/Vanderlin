@@ -4,21 +4,6 @@
 
 /datum/brain_trauma/mild
 
-/datum/brain_trauma/mild/hallucinations
-	name = "Hallucinations"
-	desc = ""
-	scan_desc = ""
-	gain_text = "<span class='warning'>I feel my grip on reality slipping...</span>"
-	lose_text = "<span class='notice'>I feel more grounded.</span>"
-
-/datum/brain_trauma/mild/hallucinations/on_life()
-	owner.hallucination = min(owner.hallucination + 10, 50)
-	..()
-
-/datum/brain_trauma/mild/hallucinations/on_lose()
-	owner.hallucination = 0
-	..()
-
 /datum/brain_trauma/mild/stuttering
 	name = "Stuttering"
 	desc = ""
@@ -101,25 +86,6 @@
 				to_chat(owner, "<span class='warning'>I faint.</span>")
 				owner.Unconscious(80)
 
-	..()
-
-/datum/brain_trauma/mild/healthy
-	name = "Anosognosia"
-	desc = ""
-	scan_desc = ""
-	gain_text = "<span class='notice'>I feel great!</span>"
-	lose_text = "<span class='warning'>I no longer feel perfectly healthy.</span>"
-
-/datum/brain_trauma/mild/healthy/on_gain()
-	owner.set_screwyhud(SCREWYHUD_HEALTHY)
-	..()
-
-/datum/brain_trauma/mild/healthy/on_life()
-	owner.set_screwyhud(SCREWYHUD_HEALTHY) //just in case of hallucinations
-	..()
-
-/datum/brain_trauma/mild/healthy/on_lose()
-	owner.set_screwyhud(SCREWYHUD_NONE)
 	..()
 
 /datum/brain_trauma/mild/muscle_weakness

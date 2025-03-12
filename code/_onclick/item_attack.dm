@@ -64,9 +64,10 @@
 	return FALSE
 
 /obj/attackby(obj/item/I, mob/living/user, params)
-	if(user.try_recipes(src, I, user))
-		user.changeNext_move(CLICK_CD_FAST)
-		return TRUE
+	if(!user.cmode)
+		if(user.try_recipes(src, I, user))
+			user.changeNext_move(CLICK_CD_FAST)
+			return TRUE
 
 	if(I.obj_flags_ignore)
 		return I.attack_obj(src, user)
@@ -74,6 +75,8 @@
 		return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
 
 /turf/attackby(obj/item/I, mob/living/user, params)
+	if(liquids && I.heat)
+		hotspot_expose(I.heat)
 	return ..() || (max_integrity && I.attack_turf(src, user))
 
 /mob/living/attackby(obj/item/I, mob/living/user, params)
@@ -279,8 +282,8 @@
 					cont = TRUE
 				if(BCLASS_CHOP)
 					//Additional damage for axes against trees.
-					if(istype(I, /obj/item/rogueweapon))
-						var/obj/item/rogueweapon/R = I
+					if(istype(I, /obj/item/weapon))
+						var/obj/item/weapon/R = I
 						if(R.axe_cut)
 							//Yes i know its cheap to just make it a flat plus.
 							newforce = newforce + R.axe_cut
@@ -339,8 +342,8 @@
 			var/mineskill = miner.mind.get_skill_level(/datum/skill/labor/mining)
 			newforce = newforce * (8+(mineskill*1.5))
 			// Pick quality multiplier. Affected by smithing, or material of the pick.
-			if(istype(I, /obj/item/rogueweapon/pick))
-				var/obj/item/rogueweapon/pick/P = I
+			if(istype(I, /obj/item/weapon/pick))
+				var/obj/item/weapon/pick/P = I
 				newforce *= P.pickmult
 			shake_camera(user, 1, 0.1)
 			miner.mind.adjust_experience(/datum/skill/labor/mining, (miner.STAINT*0.2))
@@ -358,9 +361,11 @@
 	newforce = (newforce * user.used_intent.damfactor) * dullfactor
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * round(user.client?.chargedprog / 100, 0.1)
-	newforce = round(newforce, 1)
+	// newforce = round(newforce, 1)
 	if(!(user.mobility_flags & MOBILITY_STAND))
 		newforce *= 0.5
+	if(user.has_status_effect(/datum/status_effect/divine_strike))
+		newforce += 5
 	// newforce is rounded upto the nearest intiger.
 	newforce = round(newforce,1)
 	//This is returning the maximum of the arguments meaning this is to prevent negative values.
@@ -432,36 +437,6 @@
 		return "body"
 
 /obj/item/proc/funny_attack_effects(mob/living/target, mob/living/user, nodmg)
-	if(is_silver)
-		if(world.time < src.last_used + 120)
-			to_chat(user, span_notice("The silver effect is on cooldown."))
-			return
-
-		if(ishuman(target) && target.mind)
-			var/mob/living/carbon/human/H = target
-			var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
-			var/datum/antagonist/vampirelord/lesser/V = H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
-			var/datum/antagonist/vampirelord/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
-			if(V)
-				if(V.disguised)
-					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-					src.last_used = world.time
-				else
-					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-					src.last_used = world.time
-			if(V_lord)
-				if(V_lord.vamplevel < 4 && !V)
-					H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>", span_userdanger("I'm hit by my BANE!"))
-					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-					src.last_used = world.time
-				if(V_lord.vamplevel == 4 && !V)
-					H.visible_message("<font color='red'> The silver weapon fails to affect [H]!</font>", span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
-			if(W && W.transformed == TRUE)
-				H.visible_message("<font color='white'>The silver weapon weakens [H]'s curse temporarily!</font>",  span_userdanger("I'm hit by my BANE!"))
-				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
-				src.last_used = world.time
 	return
 
 /mob/living/attacked_by(obj/item/I, mob/living/user)

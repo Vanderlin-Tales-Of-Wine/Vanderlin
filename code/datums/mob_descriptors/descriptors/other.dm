@@ -10,9 +10,12 @@
 
 /datum/mob_descriptor/age/get_description(mob/living/described)
 	var/mob/living/carbon/human/human = described
-	if(human.age == AGE_OLD)
-		return "old"
-	else if (human.age == AGE_MIDDLEAGED)
-		return "middle-aged"
-	else
-		return "adult"
+	switch(human.age)
+		if(AGE_OLD)
+			return "old"
+		if(AGE_MIDDLEAGED)
+			return "middle-aged"
+		if(AGE_CHILD)
+			return "young"
+	//ADULT and IMMORTAL
+	return "of adult age"

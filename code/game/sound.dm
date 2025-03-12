@@ -73,24 +73,7 @@
 	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	flick_overlay(I, GLOB.clients, 6)
 
-/proc/ping_sound_through_walls(turf/T)
-	new /obj/effect/temp_visual/soundping(T)
 
-/obj/effect/temp_visual/soundping
-	plane = FULLSCREEN_PLANE
-	layer = FLASH_LAYER
-	icon = 'icons/effects/ore_visuals.dmi'
-	icon_state = "zz"
-	appearance_flags = 0 //to avoid having TILE_BOUND in the flags, so that the 480x480 icon states let you see it no matter where you are
-	duration = 6
-	pixel_x = -224
-	pixel_y = -218
-
-/*
-/obj/effect/temp_visual/soundping/Initialize()
-	. = ..()
-	animate(src, alpha = 0, time = duration, easing = EASE_IN)
-*/
 /mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff, channel, pressure_affected = TRUE, sound/S, repeat, muffled)
 	if(!client || !can_hear())
 		return FALSE

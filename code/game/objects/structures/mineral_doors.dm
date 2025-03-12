@@ -1,6 +1,101 @@
 //NOT using the existing /obj/machinery/door type, since that has some complications on its own, mainly based on its
 //machineryness
-
+/proc/lockid_to_lockpick_difficulty(lockid)
+	if(!lockid)
+		return 5
+	switch(lockid)
+		if("vault")
+			return 1
+		if("lord")
+			return 1
+		if("manor")
+			return 2
+		if("guest")
+			return 2
+		if("butler")
+			return 3
+		if("dungeon")
+			return 2
+		if("garrison")
+			return 2
+		if("forrestgarrison")
+			return 2
+		if("soilson")
+			return 4
+		if("warehouse")
+			return 3
+		if("sheriff")
+			return 3
+		if("merchant")
+			return 2
+		if("shop")
+			return 5
+		if("tavern")
+			return 5
+		if("roomi")
+			return 6
+		if("roomii")
+			return 6
+		if("roomiii")
+			return 6
+		if("roomiv")
+			return 6
+		if("roomv")
+			return 6
+		if("roomvi")
+			return 6
+		if("medroomi")
+			return 5
+		if("medroomii")
+			return 5
+		if("medroomiii")
+			return 5
+		if("medroomiv")
+			return 5
+		if("medroomv")
+			return 5
+		if("medroomvi")
+			return 5
+		if("luxroomi")
+			return 3
+		if("luxroomi")
+			return 3
+		if("luxroomii")
+			return 3
+		if("luxroomiii")
+			return 3
+		if("luxroomiv")
+			return 3
+		if("luxroomv")
+			return 3
+		if("luxroomvi")
+			return 3
+		if("blacksmith")
+			return 3
+		if("butcher")
+			return 3
+		if("walls")
+			return 2
+		if("priest")
+			return 3
+		if("hpriest")
+			return 2
+		if("tower")
+			return 3
+		if("mage")
+			return 2
+		if("artificer")
+			return 4
+		if("confession")
+			return 1
+		if("hand")
+			return 1
+		if("steward")
+			return 2
+		if("doctor")
+			return 3
+		else
+			return 5
 /obj/structure/mineral_door
 	name = "metal door"
 	density = TRUE
@@ -8,8 +103,8 @@
 	opacity = TRUE
 	layer = CLOSED_DOOR_LAYER
 
-	icon = 'icons/obj/doors/mineral_doors.dmi'
-	icon_state = "metal"
+	icon = 'icons/roguetown/misc/doors.dmi'
+	icon_state = "wcg"
 	max_integrity = 1000
 	integrity_failure = 0.5
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 50, "acid" = 50)
@@ -120,6 +215,7 @@
 	if(lockhash)
 		GLOB.lockhashes += lockhash
 	else if(keylock)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 		if(lockid)
 			if(GLOB.lockids[lockid])
 				lockhash = GLOB.lockids[lockid]
@@ -315,13 +411,10 @@
 			door_rattle()
 			return
 		trykeylock(I, user)
-	if(istype(I, /obj/item/lockpick))
-		trypicklock(I, user)
+	if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
+		repairdoor(I,user)
 	else
-		if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-			repairdoor(I,user)
-		else
-			return ..()
+		return ..()
 
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
@@ -344,7 +437,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						repair_state = 1
@@ -355,7 +448,7 @@
 					user.visible_message(span_notice("[user] starts repairing [src]."), \
 					span_notice("I start repairing [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						icon_state = "[base_state]"
@@ -373,7 +466,7 @@
 			user.visible_message(span_notice("[user] starts repairing [src]."), \
 			span_notice("I start repairing [src]."))
 			playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-			if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
+			if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 				qdel(I)
 				playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 				obj_integrity = obj_integrity + (max_integrity/2)
@@ -397,7 +490,7 @@
 		var/list/keysy = shuffle(R.contents.Copy())
 		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
-				if(!do_after(user, 10, TRUE, src))
+				if(!do_after(user, 1 SECONDS, src))
 					break
 			if(K.lockhash == lockhash)
 				lock_toggle(user)
@@ -433,7 +526,7 @@
 
 		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
 		var/perbonus = L.STAPER/5
-		var/picktime = 70
+		var/picktime = 7 SECONDS
 		var/pickchance = 35
 		var/moveup = 10
 
@@ -451,7 +544,7 @@
 
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, target = src))
+			if(!do_after(user, picktime, src))
 				break
 			if(prob(pickchance))
 				lockprogress += moveup
@@ -671,7 +764,7 @@
 	openSound = 'sound/foley/doors/shittyopen.ogg'
 	closeSound = 'sound/foley/doors/shittyclose.ogg'
 
-/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/deadbolt/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	lockdir = dir
 	. = ..()
@@ -753,7 +846,7 @@
 /obj/structure/mineral_door/wood/donjon/stone/view_toggle(mob/user)
 	return
 
-/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/stone/OnCrafted(dirin, mob/user)
 	return ..()
 
 /obj/structure/mineral_door/wood/donjon/Initialize()
@@ -761,7 +854,7 @@
 	icon_state = base_state
 	..()
 
-/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin)
+/obj/structure/mineral_door/wood/donjon/OnCrafted(dirin, mob/user)
 	dir = turn(dirin, 180)
 	viewportdir = dir
 	. = ..()
@@ -844,8 +937,8 @@
 	base_state = "serving"
 	max_integrity = 250
 	over_state = "servingopen"
-	openSound = 'modular/Neu_Food/sound/blindsopen.ogg'
-	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
+	openSound = 'sound/foley/blindsopen.ogg'
+	closeSound = 'sound/foley/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
 	animate_time = 21

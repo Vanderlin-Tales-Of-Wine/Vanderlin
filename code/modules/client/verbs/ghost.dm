@@ -25,6 +25,9 @@
 			if(isroguespirit(mob)) //HONEYPOT CODE, REMOVE LATER
 				message_admins("[key] IS TRYING TO CRASH THE SERVER BY SPAWNING SPIRITS AS A SPIRIT!")
 				return
+			if((mob.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(mob, TRAIT_ZIZOID_HUNTED)) && (world.time <= mob.mob_timers["lastdied"] + 60 SECONDS))
+				to_chat(mob, span_warning("Graggar's influence is currently preventing me from fleeing to the Underworld!"))
+				return
 			var/datum/mind/mind = mob.mind
 			// Check if the player's job is hiv+
 			var/datum/job/target_job = SSjob.GetJob(mind?.assigned_role)
@@ -44,12 +47,14 @@
 				return
 			var/turf/spawn_loc = pick(GLOB.underworldspiritspawns)
 			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(spawn_loc)
-			O.livingname = mob.name
+			O.livingname = mob.real_name
 			O.ckey = ckey
 			ADD_TRAIT(O, TRAIT_PACIFISM, TRAIT_GENERIC)
 			O.set_patron(prefs.selected_patron)
 			SSdeath_arena.add_fighter(O, mind?.last_death)
-			SSdroning.area_entered(get_area(O), O.client)
+
+			var/area/rogue/underworld/underworld = get_area(spawn_loc)
+			underworld.Entered(O, null)
 			verbs -= /client/proc/descend
 		if("No")
 			usr << "You have second thoughts."

@@ -189,11 +189,6 @@
 			if(!isnum(T))
 				outfit.vars[slot] = T
 		H.equipOutfit(outfit)
-		if(disable_sensors)
-			// Using crew monitors to find corpses while creative makes finding certain ruins too easy.
-			var/obj/item/clothing/under/C = H.wear_pants
-			if(istype(C))
-				C.sensor_mode = NO_SENSORS
 
 //Instant version - use when spawning corpses during runtime
 /obj/effect/mob_spawn/human/corpse
@@ -202,12 +197,6 @@
 
 /obj/effect/mob_spawn/human/corpse/damaged
 	brute_damage = 1000
-
-/obj/effect/mob_spawn/human/alive
-	icon = 'icons/obj/machines/sleeper.dmi'
-	icon_state = "sleeper"
-	death = FALSE
-	roundstart = FALSE //you could use these for alive fake humans on roundstart but this is more common scenario
 
 /obj/effect/mob_spawn/human/corpse/delayed
 	ghost_usable = FALSE //These are just not-yet-set corpses.

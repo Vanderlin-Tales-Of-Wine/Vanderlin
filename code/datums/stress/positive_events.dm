@@ -109,32 +109,29 @@
 	desc = span_green("That was an amazing bath.")
 
 /datum/stressevent/music
-	timer = 1 MINUTES
+	timer = 30 SECONDS
+	stressadd = 0 // you suck at music
+	desc = span_green("This music is pleasant.")
+
+/datum/stressevent/music/two
 	stressadd = -1
 	desc = span_green("This music is relaxing.")
 
-/datum/stressevent/music/two
-	stressadd = -2
-	desc = span_green("This music is very relaxing.")
-
 /datum/stressevent/music/three
-	stressadd = -3
-	desc = span_green("This music saps my stress.")
-
-/datum/stressevent/music/four
-	stressadd = -4
-	desc = span_green("This music is heavenly.")
-	timer = 10 MINUTES
-
-/datum/stressevent/music/five
-	stressadd = -5
-	timer = 10 MINUTES
+	stressadd = -1
 	desc = span_green("This music is wonderful.")
 
-/datum/stressevent/music/six
-	stressadd = -6
-	timer = 10 MINUTES
+/datum/stressevent/music/four
+	stressadd = -2
 	desc = span_green("This music is exceptional.")
+
+/datum/stressevent/music/five
+	stressadd = -2
+	desc = span_green("This music is enchanting.")
+
+/datum/stressevent/music/six
+	stressadd = -3
+	desc = span_green("This music is divine.")
 
 /datum/stressevent/eora
 	stressadd = -4
@@ -144,10 +141,9 @@
 // Bard buffs below
 
 /datum/stressevent/bardicbuff
-	timer = 1 MINUTES
-	desc = span_nicegreen("Bardic inspiration moves mine soul even more!\n")
-	stressadd = -2
-	timer = 10 MINUTES
+	timer = 30 SECONDS
+	desc = span_nicegreen("Bardic inspiration moves mine soul even more!")
+	stressadd = -1
 
 /datum/stressevent/vblood
 	stressadd = -5

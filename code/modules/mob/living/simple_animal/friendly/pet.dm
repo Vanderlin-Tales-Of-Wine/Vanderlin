@@ -1,5 +1,5 @@
 /mob/living/simple_animal/pet
-	icon = 'icons/mob/pets.dmi'
+	icon = 'icons/roguetown/mob/monster/pets.dmi'
 	mob_size = MOB_SIZE_SMALL
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	blood_volume = BLOOD_VOLUME_NORMAL
@@ -14,7 +14,6 @@
 	response_harm_simple = "kick"
 
 /mob/living/simple_animal/pet/giraffe
-	icon = 'icons/roguetown/mob/monster/pets.dmi'
 	icon_state = "gg"
 	icon_living = "gg"
 	icon_dead = "gg_dead"
@@ -34,6 +33,6 @@
 	emote_hear = list("hums a peculiar tune.", "clinks.")
 	emote_see = list("shakes its head.", "does a little happy dance.")
 	speak_chance = 1
-	botched_butcher_results = list(/obj/item/rogueore/iron = 1)
-	butcher_results = list(/obj/item/rogueore/iron = 1, /obj/item/ingot/tin = 1)
+	botched_butcher_results = list(/obj/item/ore/iron = 1)
+	butcher_results = list(/obj/item/ore/iron = 1, /obj/item/ingot/tin = 1)
 	perfect_butcher_results = list(/obj/item/ingot/tin = 1, /obj/item/ingot/iron = 1)

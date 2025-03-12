@@ -72,7 +72,7 @@ There are several things that need to be remembered:
 	..()
 
 /mob/living/carbon/human/update_fire()
-	if(fire_stacks < 10)
+	if(fire_stacks + divine_fire_stacks < 10)
 		return ..("Generic_mob_burning")
 	else
 		var/burning = dna?.species?.enflamed_icon
@@ -1488,7 +1488,7 @@ generate/load female uniform sprites matching all previously decided variables
 			sleevejazz += "_[customi]"
 	var/t_icon = mob_overlay_icon
 	if(age == AGE_CHILD)
-		if(!istype(src, /obj/item/clothing/head) && !istype(src, /obj/item/clothing/mask) && !istype(src, /obj/item/clothing/cloak) && !istype(src, /obj/item/clothing/gloves) && !istype(src, /obj/item/clothing/neck))
+		if(!istype(src, /obj/item/clothing/head) && !istype(src, /obj/item/clothing/face) && !istype(src, /obj/item/clothing/cloak) && !istype(src, /obj/item/clothing/gloves) && !istype(src, /obj/item/clothing/neck))
 			t_state += "_child"
 	if(!t_icon)
 		t_icon = default_icon_file

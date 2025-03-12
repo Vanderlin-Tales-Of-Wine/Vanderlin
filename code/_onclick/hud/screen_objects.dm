@@ -73,7 +73,6 @@
 
 /atom/movable/screen/skills
 	name = "skills"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "skills"
 	screen_loc = ui_skill_menu
 
@@ -114,7 +113,6 @@
 
 /atom/movable/screen/craft
 	name = "crafting menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "craft"
 	screen_loc = rogueui_craft
 	var/last_craft
@@ -135,7 +133,6 @@
 
 /atom/movable/screen/area_creator
 	name = "create new area"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "area_edit"
 	screen_loc = ui_building
 
@@ -150,7 +147,6 @@
 
 /atom/movable/screen/language_menu
 	name = "language menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "talk_wheel"
 	screen_loc = ui_language_menu
 
@@ -252,6 +248,7 @@
 	nomouseover =  TRUE
 	var/mutable_appearance/handcuff_overlay
 	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "blocked")
+	var/static/mutable_appearance/fingerless_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "fingerless")
 	var/held_index = 0
 
 /atom/movable/screen/inventory/hand/update_overlays()
@@ -272,6 +269,8 @@
 		if(held_index)
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
+			else if(!C.has_hand_for_held_index(held_index, TRUE))
+				. += fingerless_overlay
 
 	if(held_index == hud.mymob.active_hand_index)
 		. += "hand_active"
@@ -313,7 +312,7 @@
 
 /atom/movable/screen/drop
 	name = "drop"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "act_drop"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -620,7 +619,7 @@
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click(location, control, params)
@@ -712,7 +711,7 @@
 	var/mob/living/carbon/human/H = hud.mymob
 	if(H.mind && H.mind.antag_datums)
 		for(var/datum/antagonist/D in H.mind.antag_datums)
-			if(istype(D, /datum/antagonist/vampirelord) || istype(D, /datum/antagonist/vampire) || istype(D, /datum/antagonist/bandit))
+			if(istype(D, /datum/antagonist/vampirelord) || istype(D, /datum/antagonist/vampire))
 				qdel(src)
 				return
 	if(H.advsetup)
@@ -812,7 +811,7 @@
 
 /atom/movable/screen/pull
 	name = "stop pulling"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "pull"
 
 /atom/movable/screen/pull/Click()
@@ -828,7 +827,7 @@
 
 /atom/movable/screen/rest
 	name = "rest"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "act_rest"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -850,7 +849,7 @@
 
 /atom/movable/screen/restup
 	name = "stand up"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "act_rest_up"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -867,7 +866,7 @@
 
 /atom/movable/screen/restdown
 	name = "lay down"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "act_rest_down"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -924,7 +923,7 @@
 
 /atom/movable/screen/throw_catch
 	name = "throw/catch"
-	icon = 'icons/mob/screen_midnight.dmi'
+
 	icon_state = "catch0"
 	var/throwy = 0
 
@@ -1307,10 +1306,6 @@
 			. += limby
 
 	. += mutable_appearance(overlay_icon, "[hud.mymob.gender == "male" ? "m" : "f"]_[hud.mymob.zone_selected]")
-//	. += mutable_appearance(overlay_icon, "height_arrow[hud.mymob.aimheight]")
-
-/atom/movable/screen/zone_sel/robot
-	icon = 'icons/mob/screen_cyborg.dmi'
 
 /atom/movable/screen/flash
 	name = "flash"
@@ -1334,12 +1329,6 @@
 	name = "health"
 	icon_state = "health0"
 	screen_loc = ui_health
-
-/atom/movable/screen/healths/construct
-	icon = 'icons/mob/screen_construct.dmi'
-	icon_state = "artificer_health0"
-	screen_loc = ui_construct_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/healthdoll
 	name = "health doll"

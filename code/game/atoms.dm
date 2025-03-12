@@ -324,25 +324,11 @@
 	return FALSE
 
 /atom/proc/CheckExit()
-	return 1
+	return TRUE
 
 ///Is this atom within 1 tile of another atom
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
-
-/**
- * React to an EMP of the given severity
- *
- * Default behaviour is to send the COMSIG_ATOM_EMP_ACT signal
- *
- * If the signal does not return protection, and there are attached wires then we call
- * emp_pulse() on the wires
- *
- * We then return the protection value
- */
-/atom/proc/emp_act(severity)
-	var/protection = SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity)
-	return protection // Pass the protection value collected here upwards
 
 /**
  * React to a hit by a projectile object
@@ -425,7 +411,30 @@
 				. += "<span class='notice'>It has [round(reagents.total_volume / 3)] oz left.</span>"
 			else
 				. += "<span class='danger'>It's empty.</span>"
-
+		//SNIFFING
+		if (user.zone_selected == BODY_ZONE_PRECISE_NOSE && get_dist(src, user) <= 1)
+			// if atom's path is item/reagent_containers/glass/carafe
+			var/is_closed = FALSE
+			if (istype(src, /obj/item/reagent_containers/glass/carafe))
+				var/obj/item/reagent_containers/glass/carafe/A = src
+				is_closed = A.closed
+			else if (istype(src, /obj/item/reagent_containers/glass/bottle))
+				var/obj/item/reagent_containers/glass/bottle/A = src
+				is_closed = A.closed
+			else if (istype(src, /obj/item/reagent_containers/glass/alchemical))
+				var/obj/item/reagent_containers/glass/alchemical/A = src
+				is_closed = A.closed
+			if (is_closed == FALSE && reagents.total_volume) // if the container is open, and there's liquids in there
+				user.visible_message("<span class='info'>[user] takes a whiff of the [src]</span>")
+				. += "<span class='notice'>I smell [src.reagents.generate_scent_message()].</span>"
+				if (HAS_TRAIT(user, TRAIT_LEGENDARY_ALCHEMIST))
+					var/full_reagents = ""
+					for (var/datum/reagent/R in reagents.reagent_list)
+						if (R.volume > 0)
+							if (full_reagents)
+								full_reagents += ", "
+							full_reagents += "[lowertext(R.name)]"
+					. += "<span class='notice'>My expert nose lets me distinguish this liquid as [full_reagents].</span>"
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /// Updates the icon of the atom
@@ -513,20 +522,19 @@
 
 ///returns the mob's dna info as a list, to be inserted in an object's blood_DNA list
 /mob/living/proc/get_blood_dna_list()
-	if(get_blood_id() != /datum/reagent/blood)
-		return
-	return list("ANIMAL DNA" = "Y-")
+	var/datum/blood_type/blood = get_blood_type()
+	if(!isnull(blood))
+		return list("UNKNOWN DNA" = blood.type)
+	return null
 
 ///Get the mobs dna list
 /mob/living/carbon/get_blood_dna_list()
-	if(get_blood_id() != /datum/reagent/blood)
-		return
-	var/list/blood_dna = list()
-	if(dna)
-		blood_dna[dna.unique_enzymes] = dna.blood_type
-	else
-		blood_dna["UNKNOWN DNA"] = "X*"
-	return blood_dna
+	if(isnull(dna)) // Xenos
+		return ..()
+	var/datum/blood_type/blood = get_blood_type()
+	if(isnull(blood)) // Skeletons?
+		return null
+	return list("[dna.unique_enzymes]" = blood.type)
 
 ///to add a mob's dna info into an object's blood_dna list.
 /atom/proc/transfer_mob_blood_dna(mob/living/L)
@@ -604,9 +612,9 @@
 	var/list/things = src_object.contents()
 	var/datum/progressbar/progress = new(user, things.len, src)
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	while (do_after(user, 10, TRUE, src, FALSE, CALLBACK(STR, TYPE_PROC_REF(/datum/component/storage, handle_mass_item_insertion), things, src_object, user, progress)))
+	while(do_after(user, 1 SECONDS, src, NONE, FALSE, CALLBACK(STR, TYPE_PROC_REF(/datum/component/storage, handle_mass_item_insertion), things, src_object, user, progress)))
 		stoplag(1)
-	qdel(progress)
+	progress.end_progress()
 	to_chat(user, "<span class='notice'>I dump as much of [src_object.parent]'s contents [STR.insert_preposition]to [src] as I can.</span>")
 	STR.orient2hud(user)
 	STR.update_icon()

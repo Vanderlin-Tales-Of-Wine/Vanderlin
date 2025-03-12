@@ -3,7 +3,6 @@
 /obj/structure/closet/supplypod
 	name = "supply pod" //Names and descriptions are normally created with the setStyle() proc during initialization, but we have these default values here as a failsafe
 	desc = ""
-	icon = 'icons/obj/supplypods.dmi'
 	icon_state = "supplypod"
 	pixel_x = -16 //2x2 sprite
 	pixel_y = -5
@@ -253,7 +252,6 @@
 //------------------------------------FALLING SUPPLY POD-------------------------------------//
 /obj/effect/DPfall //Falling pod
 	name = ""
-	icon = 'icons/obj/supplypods.dmi'
 	pixel_x = -16
 	pixel_y = -5
 	pixel_z = 200
@@ -277,8 +275,7 @@
 /obj/effect/DPtarget //This is the object that forceMoves the supplypod to it's location
 	name = "Landing Zone Indicator"
 	desc = ""
-	icon = 'icons/mob/actions/actions_items.dmi'
-	icon_state = "sniper_zoom"
+	icon_state = ""
 	layer = PROJECTILE_HIT_THRESHHOLD_LAYER
 	light_outer_range =  2
 	var/obj/effect/temp_visual/fallingPod //Temporary "falling pod" that we animate

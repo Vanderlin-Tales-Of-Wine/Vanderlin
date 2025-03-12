@@ -146,7 +146,7 @@
 	.["vote"] = CONFIG_GET(flag/allow_vote_mode)
 	.["ai"] = CONFIG_GET(flag/allow_ai)
 	.["host"] = world.host ? world.host : null
-	.["round_id"] = GLOB.round_id
+	.["round_id"] = GLOB.rogue_round_id
 	.["players"] = GLOB.clients.len
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
@@ -162,7 +162,7 @@
 	if(key_valid)
 		.["active_players"] = get_active_player_count()
 		if(SSticker.HasRoundStarted())
-			.["real_mode"] = SSticker.mode.name
+			.["real_mode"] = "Storytellers"
 			// Key-authed callers may know the truth behind the "secret"
 
 	.["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
@@ -180,3 +180,6 @@
 	.["extreme_popcap"] = CONFIG_GET(number/extreme_popcap) || 0
 	.["popcap"] = max(CONFIG_GET(number/soft_popcap), CONFIG_GET(number/hard_popcap), CONFIG_GET(number/extreme_popcap)) //generalized field for this concept for use across ss13 codebases
 
+	//round state
+	.["timeofday"] = GLOB.tod
+	.["dayspassed"] = GLOB.dayspassed

@@ -99,6 +99,12 @@
 
 	var/list/apprentices = list()
 
+	/// Variable that lets the event picker see if someones getting chosen or not
+	var/picking = FALSE
+	///the bitflag our job applied
+	var/job_bitflag = NONE
+
+
 /datum/mind/New(key)
 	src.key = key
 	soulOwner = src
@@ -207,6 +213,9 @@
 		return
 	var/contents = "<center>People that [name] knows:</center><BR>"
 	for(var/P in known_people)
+		if(!length(known_people[P]))
+			known_people -= P
+			continue
 		var/fcolor = known_people[P]["VCOLOR"]
 		if(!fcolor)
 			continue
@@ -322,27 +331,52 @@
 		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
 
 /datum/mind/proc/adjust_skillrank(skill, amt, silent = FALSE)
+	if(!amt)
+		return
 	var/datum/skill/S = GetSkillRef(skill)
 	var/amt2gain = 0
 	if(skill == /datum/skill/magic/arcane)
 		adjust_spellpoints(amt)
-	for(var/i in 1 to amt)
-		switch(skill_experience[S])
-			if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
-				amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
-			if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
-				amt2gain = SKILL_EXP_MASTER-skill_experience[S]
-			if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
-				amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
-			if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
-				amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
-			if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
-				amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
-			if(0 to SKILL_EXP_NOVICE)
-				amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
-		if(!skill_experience[S])
-			amt2gain = SKILL_EXP_NOVICE+1
-		skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt > 0)
+		for(var/i in 1 to amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
+					amt2gain = SKILL_EXP_MASTER-skill_experience[S]
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
+					amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
+					amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
+					amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
+			if(!skill_experience[S])
+				amt2gain = SKILL_EXP_NOVICE+1
+			skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt < 0)
+		var/flipped_amt = -amt
+		for(var/i in 1 to flipped_amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_MASTER
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY-1)
+					amt2gain = SKILL_EXP_EXPERT
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER-1)
+					amt2gain = SKILL_EXP_JOURNEYMAN
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT -1)
+					amt2gain = SKILL_EXP_APPRENTICE
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN-1)
+					amt2gain = SKILL_EXP_NOVICE
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE-1)
+					amt2gain = 1
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = 1
+			if(!skill_experience[S])
+				amt2gain = 1
+			skill_experience[S] = amt2gain //Prevent going below 0
+
 	var/old_level = known_skills[S]
 	switch(skill_experience[S])
 		if(SKILL_EXP_LEGENDARY to INFINITY)
@@ -368,6 +402,17 @@
 	else
 		to_chat(current, span_warning("I feel like I've become worse at [S.name]!"))
 
+
+/**
+ * increases the skill level up to a certain maximum
+ * Vars:
+ ** skill - associated skill
+ ** amt - how much to change the skill
+ ** max - maximum amount up to which the skill will be changed
+*/
+/datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
+	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
+
 // adjusts the amount of available spellpoints
 /datum/mind/proc/adjust_spellpoints(points)
 	spell_points += points
@@ -380,6 +425,8 @@
 
 /datum/mind/proc/get_skill_level(skill)
 	var/datum/skill/S = GetSkillRef(skill)
+	if(!(S in known_skills))
+		return SKILL_LEVEL_NONE
 	return known_skills[S] || SKILL_LEVEL_NONE
 
 /datum/mind/proc/get_skill_parry_modifier(skill)
@@ -400,10 +447,11 @@
 		return
 	var/msg = ""
 	msg += span_info("*---------*\n")
-	for(var/i in shown_skills)
-		msg += "[i] - [SSskills.level_names[known_skills[i]]]\n"
+	for(var/datum/skill/S as anything in shown_skills)
+		var/skill_level = SSskills.level_names[known_skills[S]]
+		var/skill_link = "<a href='byond://?src=[REF(S)];action=examine'>?</a>"
+		msg += "[S] - [skill_level] [skill_link]\n"
 	to_chat(user, msg)
-
 
 /datum/mind/proc/set_death_time()
 	last_death = world.time
@@ -444,6 +492,8 @@
 		antag_team.add_member(src)
 	A.on_gain()
 	log_game("[key_name(src)] has gained antag datum [A.name]([A.type])")
+	var/client/picked_client = src.current?.client
+	picked_client?.mob?.mind.picking = FALSE
 	return A
 
 /datum/mind/proc/remove_antag_datum(datum_type)
@@ -775,7 +825,7 @@
 	var/mob/dead/observer/G = get_ghost(even_if_they_cant_reenter = force)
 	. = G
 	if(G)
-		G.reenter_corpse()
+		G.reenter_corpse(force)
 
 
 /datum/mind/proc/has_objective(objective_type)
@@ -826,7 +876,11 @@
 	var/mob/living/carbon/human/H = current
 	if(!istype(H))
 		return 1
-	var/boon = H.age == AGE_OLD ? 0.8 : 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
+	var/boon = 1 // Can't teach an old dog new tricks. Most old jobs start with higher skill too.
+	if(H.age == AGE_OLD)
+		boon = 0.8
+	else if(H.age == AGE_CHILD)
+		boon = 1.1
 	boon += get_skill_level(skill) / 10
 	if(HAS_TRAIT(H, TRAIT_TUTELAGE)) //5% boost for being a good teacher
 		boon += 0.05
@@ -860,9 +914,16 @@
 		return
 	if(length(apprentices) >= max_apprentices)
 		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
+		return
 
 	var/choice = input(youngling, "Do you wish to become [current.name]'s apprentice?") as anything in list("Yes", "No")
 	if(choice != "Yes")
+		to_chat(current, span_warning("[youngling] has rejected your apprenticeship!"))
+		return
+	if(length(apprentices) >= max_apprentices)
+		return
+	if(current.stat >= UNCONSCIOUS || youngling.stat >= UNCONSCIOUS)
 		return
 	apprentices |= WEAKREF(youngling)
 	youngling.mind.apprentice = TRUE

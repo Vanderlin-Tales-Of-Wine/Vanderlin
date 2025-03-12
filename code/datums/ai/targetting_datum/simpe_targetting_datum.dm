@@ -22,12 +22,12 @@
 		var/mob/M = the_target
 		if(M.status_flags & GODMODE)
 			return FALSE
-		if(M.mob_timers[MT_INVISIBILITY] > world.time) // Check if the mob is affected by the invisibility spell
-			return FALSE
 
 	if(living_mob.see_invisible < the_target.invisibility)//Target's invisible to us, forget it
 		return FALSE
 
+	if(HAS_TRAIT(the_target, TRAIT_IMPERCEPTIBLE))
+		return FALSE
 	if(HAS_TRAIT(the_target, TRAIT_UNTARGETTABLE))
 		return FALSE
 
@@ -36,7 +36,7 @@
 
 	if(isliving(the_target)) //Targetting vs living mobs
 		var/mob/living/L = the_target
-		if(faction_check(living_mob, L) || L.stat)
+		if(faction_check(living_mob, L) || L.stat >= DEAD) //basic targetting doesn't target dead people
 			return FALSE
 		return TRUE
 

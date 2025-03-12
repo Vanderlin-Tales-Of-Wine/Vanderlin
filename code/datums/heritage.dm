@@ -155,7 +155,7 @@
 					txt += "It's my niece."
 	if(txt == "")
 		return
-	return span_nicegreen("<B>[txt]</B>")
+	return span_love("<B>[txt]</B>")
 
 /*
 * Transfers someone from another family to
@@ -384,7 +384,7 @@
 	set name = "List Family"
 	set category = "Memory"
 	if(spouse_mob)
-		to_chat(src, span_info("[spouse_mob.real_name] is the name of your lover."))
+		to_chat(src, span_info("[spouse_mob.real_name] the [spouse_mob.dna.species.name] [spouse_mob.mind.assigned_role] is your lover."))
 	if(family_datum)
 		family_datum.ListFamily(src)
 	else

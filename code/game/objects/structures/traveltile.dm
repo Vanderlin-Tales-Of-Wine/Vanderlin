@@ -132,7 +132,7 @@
 				to_chat(user, span_warning("I sense something off at the end of the trail."))
 				time2go = 7 SECONDS
 				break
-	if(!do_after(user, time2go, FALSE, target = src))
+	if(!do_after(user, time2go, src, (IGNORE_HELD_ITEM)))
 		return
 	if(!can_go(user))
 		return
@@ -198,3 +198,31 @@
 	can_gain_by_walking = FALSE
 	check_other_side = TRUE
 	invis_without_trait = TRUE
+
+
+/*	..................   Traveltiles   ................... */ // these are the ones on centcom, where the actual lair is, to reduce varedits onmap
+/obj/structure/fluff/traveltile/exit_bandit		// mus NOT be a traveltile/bandit child, because that one has a check for banditcamp trait. People should always be able to leave the camp.
+	aportalid = "banditin"
+	aportalgoesto = "banditexit"
+
+/obj/structure/fluff/traveltile/bandit
+	aportalid = "banditexit"
+	aportalgoesto = "banditin"
+
+/obj/structure/fluff/traveltile/exit_vampire	// mus NOT be a traveltile/vampire child, because that one has a check for banditcamp trait. People should always be able to leave the camp.
+	aportalid = "vampin"
+	aportalgoesto = "vampexit"
+
+/obj/structure/fluff/traveltile/vampire
+	aportalid = "vampexit"
+	aportalgoesto = "vampin"
+
+/obj/structure/fluff/traveltile/exit_inhumen
+	aportalid = "inhumenin"
+	aportalgoesto = "inhumenexit"
+
+
+/obj/structure/fluff/traveltile/to_inhumen_tribe
+	name = "to the Deep Bog"
+	aportalid = "inhumenexit"
+	aportalgoesto = "inhumenin"

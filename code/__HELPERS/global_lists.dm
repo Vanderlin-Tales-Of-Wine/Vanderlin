@@ -36,8 +36,6 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/legs, GLOB.legs_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/wings, GLOB.r_wings_list,roundstart = TRUE)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/caps, GLOB.caps_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings, GLOB.moth_wings_list)
-
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))
@@ -58,6 +56,7 @@
 	// Keybindings
 	init_keybindings()
 
+	init_molten_recipes()
 	init_slapcraft_steps()
 	init_slapcraft_recipes()
 	init_curse_names()
@@ -77,9 +76,6 @@
 	init_subtypes(/datum/alch_grind_recipe, GLOB.alch_grind_recipes)
 
 	init_subtypes(/datum/alch_cauldron_recipe,GLOB.alch_cauldron_recipes)
-
-	for(var/i in 0 to 20)
-		GLOB.mouseicons_human += file("icons/effects/mousemice/swang/[i * 5].dmi")
 
 	// Faiths
 	for(var/path in subtypesof(/datum/faith))
@@ -117,6 +113,13 @@
 			L+= path
 		return L
 
+/// Functions like init_subtypes, but uses the subtype's path as a key for easy access
+/proc/init_subtypes_w_path_keys(prototype, list/L)
+	if(!istype(L))
+		L = list()
+	for(var/path as anything in subtypesof(prototype))
+		L[path] = new path()
+	return L
 
 /proc/init_curse_names()
 	GLOB.curse_names = list()

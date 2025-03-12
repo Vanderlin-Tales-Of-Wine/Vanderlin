@@ -99,7 +99,7 @@
 		mode() // Activate held item
 
 /mob/living/carbon/attackby(obj/item/I, mob/user, params)
-	if(!user.cmode)
+	if(!user.cmode && (istype(user.rmb_intent, /datum/rmb_intent/weak) || istype(user.rmb_intent, /datum/rmb_intent/strong)))
 		var/try_to_fail = !istype(user.rmb_intent, /datum/rmb_intent/weak)
 		var/list/possible_steps = list()
 		for(var/datum/surgery_step/surgery_step as anything in GLOB.surgery_steps)
@@ -300,13 +300,7 @@
 	loc.handle_fall(src, forced)//it's loc so it doesn't call the mob's handle_fall which does nothing
 
 /mob/living/carbon/is_muzzled()
-	return(istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
-
-/mob/living/carbon/hallucinating()
-	if(hallucination)
-		return TRUE
-	else
-		return FALSE
+	return FALSE
 
 /obj/structure
 	var/breakoutextra = 30 SECONDS
@@ -315,7 +309,7 @@
 	if(restrained())
 		changeNext_move(CLICK_CD_BREAKOUT)
 		last_special = world.time + CLICK_CD_BREAKOUT
-		var/buckle_cd = 600
+		var/buckle_cd = 1 MINUTES
 		if(handcuffed)
 			var/obj/item/restraints/O = src.get_item_by_slot(SLOT_HANDCUFFED)
 			buckle_cd = O.breakouttime
@@ -326,7 +320,7 @@
 			buckle_cd = 3 SECONDS
 		visible_message("<span class='warning'>[src] attempts to struggle free!</span>", \
 					"<span class='notice'>I attempt to struggle free...</span>")
-		if(do_after(src, buckle_cd, 0, target = src))
+		if(do_after(src, buckle_cd, timed_action_flags = (IGNORE_HELD_ITEM)))
 			if(!buckled)
 				return
 			buckled.user_unbuckle_mob(src,src)
@@ -337,16 +331,18 @@
 		buckled.user_unbuckle_mob(src,src)
 
 /mob/living/carbon/resist_fire()
-	fire_stacks -= 5
-	if(fire_stacks > 10)
-		Paralyze(60, TRUE, TRUE)
+	fire_stacks = max(0, fire_stacks - 2.5)
+	divine_fire_stacks = max(0, divine_fire_stacks - 2.5)
+	if(fire_stacks + divine_fire_stacks > 10 || !(mobility_flags & MOBILITY_STAND))
+		Paralyze(50, TRUE, TRUE)
 		spin(32,2)
-		fire_stacks -= 5
+		fire_stacks = max(0, fire_stacks - 5)
+		divine_fire_stacks = max(0, divine_fire_stacks - 5)
 		visible_message("<span class='warning'>[src] rolls on the ground, trying to put [p_them()]self out!</span>")
 	else
 		visible_message("<span class='notice'>[src] pats the flames to extinguish them.</span>")
 	sleep(30)
-	if(fire_stacks <= 0)
+	if(fire_stacks + divine_fire_stacks <= 0)
 		ExtinguishMob(TRUE)
 	return
 
@@ -369,7 +365,7 @@
 		cuff_resist(I)
 
 
-/mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 600, cuff_break = 0)
+/mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 1 MINUTES, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
 		to_chat(src, "<span class='warning'>You're already attempting to remove [I]!</span>")
 		return
@@ -382,14 +378,14 @@
 		cuff_break = INSTANT_CUFFBREAK
 	if(!cuff_break)
 		to_chat(src, "<span class='notice'>I attempt to remove [I]...</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='danger'>I fail to remove [I]!</span>")
 
 	else if(cuff_break == FAST_CUFFBREAK)
 		to_chat(src, "<span class='notice'>I attempt to break [I]...</span>")
-		if(do_after(src, breakouttime, 0, target = src))
+		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
 			to_chat(src, "<span class='danger'>I fail to break [I]!</span>")
@@ -417,6 +413,7 @@
 	if (legcuffed)
 		var/obj/item/W = legcuffed
 		legcuffed = null
+		remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 		update_inv_legcuffed()
 		if (client)
 			client.screen -= W
@@ -458,6 +455,7 @@
 			legcuffed.forceMove(drop_location())
 			legcuffed.dropped()
 			legcuffed = null
+			remove_movespeed_modifier(MOVESPEED_ID_LEGCUFF_SLOWDOWN, TRUE)
 			update_inv_legcuffed()
 			return TRUE
 
@@ -540,28 +538,22 @@
 	if(stat == DEAD)
 		return TRUE
 	if(nausea >= 100)
-		if(mob_timers["puke"])
-			if(world.time > mob_timers["puke"] + 16 SECONDS)
-				mob_timers["puke"] = world.time
-				if(getorgan(/obj/item/organ/stomach))
-					to_chat(src, "<span class='warning'>I'm going to puke...</span>")
-					addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
-			else
-				if(prob(3))
-					to_chat(src, "<span class='warning'>I feel sick...</span>")
-		else
+		if(MOBTIMER_FINISHED(src, MT_PUKE, 16 SECONDS))
 			if(getorgan(/obj/item/organ/stomach))
-				mob_timers["puke"] = world.time
+				MOBTIMER_SET(src, MT_PUKE)
 				to_chat(src, "<span class='warning'>I'm going to puke...</span>")
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
-	add_nausea(-1)
+		else
+			if(prob(3))
+				to_chat(src, "<span class='warning'>I feel sick...</span>")
 
+	add_nausea(-1)
 
 /mob/living/carbon/proc/vomit(lost_nutrition = 50, blood = FALSE, stun = TRUE, distance = 1, message = TRUE, toxic = FALSE, harm = FALSE, force = FALSE)
 	if(HAS_TRAIT(src, TRAIT_TOXINLOVER) && !force)
 		return TRUE
 
-	mob_timers["puke"] = world.time
+	MOBTIMER_SET(src, MT_PUKE)
 
 	if(nutrition <= 50 && !blood)
 		if(message)
@@ -612,16 +604,12 @@
 		if(nutrition > 50)
 			adjust_nutrition(-lost_nutrition)
 			adjust_hydration(-lost_nutrition)
-//adjustToxLoss(-3)
 	if(harm)
 		adjustBruteLoss(3)
 	for(var/i=0 to distance)
 		if(blood)
 			if(T)
 				bleed(5)
-		else if(src.reagents.has_reagent(/datum/reagent/consumable/ethanol/blazaam, needs_metabolizing = TRUE))
-			if(T)
-				T.add_vomit_floor(src, VOMIT_PURPLE)
 		else
 			if(T)
 				T.add_vomit_floor(src, VOMIT_TOXIC)//toxic barf looks different
@@ -715,17 +703,6 @@
 			if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
 				return
 
-	if(glasses)
-		var/obj/item/clothing/glasses/G = glasses
-		sight |= G.vision_flags
-		see_in_dark = max(G.darkness_view, see_in_dark)
-		if(G.invis_override)
-			see_invisible = G.invis_override
-		else
-			see_invisible = min(G.invis_view, see_invisible)
-		if(!isnull(G.lighting_alpha))
-			lighting_alpha = min(lighting_alpha, G.lighting_alpha)
-
 	if(HAS_TRAIT(src, TRAIT_BESTIALSENSE))
 		lighting_alpha = min(lighting_alpha, LIGHTING_PLANE_ALPHA_DARKVISION)
 		see_in_dark = 4
@@ -751,7 +728,7 @@
 /mob/living/carbon/proc/update_tint()
 	if(!GLOB.tinted_weldhelh)
 		return
-	tinttotal = get_total_tint()
+	tinttotal = 0
 	if(tinttotal >= TINT_BLIND)
 		become_blind(EYES_COVERED)
 	else if(tinttotal >= TINT_DARKENED)
@@ -1054,7 +1031,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>I retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>I retrieve some of [src]'s internal organs!</span>")
 
 /mob/living/carbon/ExtinguishMob(itemz = TRUE)
 	if(itemz)
@@ -1121,7 +1098,6 @@
 	VV_DROPDOWN_OPTION("", "---------")
 	VV_DROPDOWN_OPTION(VV_HK_MODIFY_BODYPART, "Modify bodypart")
 	VV_DROPDOWN_OPTION(VV_HK_MODIFY_ORGANS, "Modify organs")
-	VV_DROPDOWN_OPTION(VV_HK_HALLUCINATION, "Hallucinate")
 	VV_DROPDOWN_OPTION(VV_HK_MARTIAL_ART, "Give Martial Arts")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_TRAUMA, "Give Brain Trauma")
 	VV_DROPDOWN_OPTION(VV_HK_CURE_TRAUMA, "Cure Brain Traumas")
@@ -1214,18 +1190,6 @@
 		cure_all_traumas(TRAUMA_RESILIENCE_ABSOLUTE)
 		log_admin("[key_name(usr)] has cured all traumas from [key_name(src)].")
 		message_admins("<span class='notice'>[key_name_admin(usr)] has cured all traumas from [key_name_admin(src)].</span>")
-	if(href_list[VV_HK_HALLUCINATION])
-		if(!check_rights(NONE))
-			return
-		var/list/hallucinations = subtypesof(/datum/hallucination)
-		var/result = input(usr, "Choose the hallucination to apply","Send Hallucination") as null|anything in sortList(hallucinations, GLOBAL_PROC_REF(cmp_typepaths_asc))
-		if(!usr)
-			return
-		if(QDELETED(src))
-			to_chat(usr, "Mob doesn't exist anymore")
-			return
-		if(result)
-			new result(src, TRUE)
 
 /mob/living/carbon/can_resist()
 	return bodyparts.len > 2 && ..()
@@ -1233,8 +1197,6 @@
 /mob/living/carbon/proc/hypnosis_vulnerable()
 	if(HAS_TRAIT(src, TRAIT_MINDSHIELD))
 		return FALSE
-	if(hallucinating())
-		return TRUE
 	if(IsSleeping())
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_DUMB))
@@ -1255,3 +1217,32 @@
 			return FALSE
 	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
 		return FALSE
+
+///Returns a list of all body_zones covered by clothing
+/mob/living/carbon/proc/get_covered_body_zones()
+	RETURN_TYPE(/list)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/covered_flags = NONE
+	var/list/all_worn_items = get_all_worn_items(src)
+	for(var/obj/item/worn_item in all_worn_items)
+		covered_flags |= worn_item.body_parts_covered
+
+	return body_parts_covered2organ_names(covered_flags)
+
+/mob/living/carbon/proc/try_skin_burn(reaction_volume)
+	var/list/covered_zones = get_covered_body_zones()
+
+	var/successful_burns = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.body_zone in covered_zones)
+			continue
+		if(bodypart.acid_damage_intensity >= 1)
+			continue
+		if(!prob(100 - (successful_burns * 35)))
+			continue
+
+		if(prob(reaction_volume * 10))
+			bodypart.acid_damage_intensity++
+
+	update_body_parts(TRUE)

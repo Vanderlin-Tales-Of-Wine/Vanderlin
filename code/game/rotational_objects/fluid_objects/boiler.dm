@@ -10,19 +10,18 @@
 
 	var/stored_steam = 0
 	var/maximum_steam = 1024
-	var/obj/structure/water_pipe/input
-	var/obj/structure/water_pipe/output
 
 
 /obj/structure/boiler/Initialize()
 	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/structure/boiler/setup_water()
 	var/turf/east_turf = get_step(src, EAST)
 	var/turf/west_turf = get_step(src, WEST)
 
 	input = locate(/obj/structure/water_pipe) in east_turf
 	output = locate(/obj/structure/water_pipe) in west_turf
-
-	START_PROCESSING(SSobj, src)
 
 /obj/structure/boiler/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 128
@@ -33,8 +32,12 @@
 			Steam:[stored_steam ? round((stored_steam / maximum_steam) * 100, 1 ): "0"]%"}
 
 
-/obj/structure/boiler/valid_water_connection(direction)
-	if(direction == EAST || direction == WEST)
+/obj/structure/boiler/valid_water_connection(direction, obj/structure/water_pipe/pipe)
+	if(direction == WEST)
+		input = pipe
+		return TRUE
+	if(direction == EAST)
+		output = pipe
 		return TRUE
 	return FALSE
 

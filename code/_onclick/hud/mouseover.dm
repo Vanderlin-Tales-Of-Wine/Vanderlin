@@ -1,21 +1,3 @@
-/*
-/mob/living
-	var/tmp/image/move_indicator
-
-/turf/MouseEntered(location,control,params)
-	if(istype(usr, /mob/living))
-		var/mob/living/p = usr
-		if(!p.move_indicator)
-			p.move_indicator = image('icons/mouseover.dmi',src,"mouseover",ABOVE_HUD_LAYER,null)
-			p.move_indicator.pixel_x = -1
-			p.move_indicator.pixel_y = -1
-			p <<  p.move_indicator
-		else
-			world << "[src.x] [src.y]" //outputs the turf's x/y
-			p.move_indicator.loc = src //set to turf I entered before this /turf
-			world << "[p.move_indicator.x] [p.move_indicator.y]" //outputs the turf's x/y, they match
-*/
-
 /atom
 	/// This means that the mouse over text will not be displayed when the mouse is over this atom
 	var/nomouseover = FALSE
@@ -72,7 +54,7 @@
 			p.client.mouseovertext.movethis(PM, TRUE)
 		else
 			p.client.mouseovertext.movethis(PM)
-		if(((rotation_structure && rotation_network) || istype(src, /obj/structure/water_pipe)) || accepts_water_input && HAS_TRAIT(p, TRAIT_ENGINEERING_GOGGLES))
+		if((((rotation_structure && rotation_network) || istype(src, /obj/structure/water_pipe)) || accepts_water_input) && HAS_TRAIT(p, TRAIT_ENGINEERING_GOGGLES))
 			var/rotation_chat = return_rotation_chat(p.client.mouseovertext)
 			p.client.mouseovertext.maptext = {"[rotation_chat]
 			<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}

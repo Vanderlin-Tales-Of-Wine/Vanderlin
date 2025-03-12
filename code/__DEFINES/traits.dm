@@ -43,15 +43,15 @@
 #define TRAIT_LEGENDARY_ALCHEMIST		"Expert Herb Finder"
 #define TRAIT_LIGHT_STEP				"Light Step" //Can't trigger /obj/structure/trap/'s
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
-#define TRAIT_MOB_FIRE_IMMUNE			"Fire Immune" //Just says no to fire_act()
 #define TRAIT_ENGINEERING_GOGGLES		"Engineering Goggles"
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
+#define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
 #define TRAIT_ROT_EATER					"Blessing of Pestra" //can eat rotten food
 #define TRAIT_KNEESTINGER_IMMUNITY		"Blessing of Dendor" //Can move through kneestingers.
-#define TRAIT_LEECHIMMUNE				"Unleechable" //leeches wont attach in dirty water turfs
+#define TRAIT_LEECHIMMUNE				"Unleechable" //leeches drain very little blood
 #define TRAIT_SHARPER_BLADES			"Sharper Blades" //Weapons lose less blade integrity
 #define TRAIT_BETTER_SLEEP				"Better Sleep" //Recover more energy (blue bar) when sleeping
 #define TRAIT_EXTEROCEPTION				"Exteroception" //See others' hunger and thirst
@@ -87,6 +87,7 @@
 // JOB RELATED TRAITS
 
 #define TRAIT_MALUMFIRE "Professional Smith"
+#define TRAIT_CRATEMOVER "Crate Mover"
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -138,7 +139,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed after checking their heartbeat."),
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
 	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
-	TRAIT_LEECHIMMUNE = "Leeches are reluctant to bite me.",
+	TRAIT_LEECHIMMUNE = "Leeches are reluctant to drain my blood.",
 	TRAIT_ASSASSIN = "My soul has been tainted by Graggar, god of murder.",
 	TRAIT_BARDIC_TRAINING = "Xylixian inspiration grants my songs boons and ailments.",
 	TRAIT_GRAVEROBBER = "Necra favors my grim deeds, I can unearth graves without being cursed by her.",
@@ -157,7 +158,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_THIEVESGUILD = "I am a member of the thieves guild!",
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
 	TRAIT_LIGHT_STEP = span_info("I will never trip a trap plate."),
-	TRAIT_MOB_FIRE_IMMUNE = span_info("I am immune to most scorching flames."),
+	TRAIT_NOFIRE = span_info("I am immune to most scorching flames."),
 	TRAIT_ENGINEERING_GOGGLES = span_info("I can find out more information from mechanical devices."),
 	TRAIT_SHARPER_BLADES = "My weapons lose their sharpness slower.",
 	TRAIT_BETTER_SLEEP = "I recover more energy when sleeping.",
@@ -166,6 +167,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_APRICITY = "The warmth of the sun rejuvenates me, allowing me to regain my stamina quicker.",
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
+	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty."
 	))
 
 // trait accessor defines
@@ -226,14 +228,18 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				};\
 		}\
 	} while (0)
+
 #define HAS_TRAIT(target, trait) (target.status_traits ? (target.status_traits[trait] ? TRUE : FALSE) : FALSE)
 #define HAS_TRAIT_FROM(target, trait, source) (target.status_traits ? (target.status_traits[trait] ? (source in target.status_traits[trait]) : FALSE) : FALSE)
+#define HAS_TRAIT_NOT_FROM(target, trait, source) (HAS_TRAIT(target, trait) && (length(target.status_traits[trait] - source) > 0))
 
 /*
 Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
 */
 
 //mob traits
+#define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
+#define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
 #define TRAIT_ZOMBIE_SPEECH 	"zombie_speech"
@@ -320,6 +326,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 #define TRAIT_UNTARGETTABLE "untargettable" //can't be targetted by basic mobs
+#define TRAIT_IMPERCEPTIBLE "imperceptible" //! can't be percieved in any way
 
 //bodypart traits
 #define TRAIT_PARALYSIS	"paralysis" //Used for limb-based paralysis and full body paralysis
@@ -357,6 +364,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define GLASSES_TRAIT "glasses"
 #define VEHICLE_TRAIT "vehicle" // inherited from riding vehicles
 #define INNATE_TRAIT "innate"
+#define BUCKLED_TRAIT "buckled" //trait associated to being buckled
+#define CHOKEHOLD_TRAIT "chokehold" //trait associated to being held in a chokehold
+#define RESTING_TRAIT "resting" //trait associated to resting
 
 // unique trait sources, still defines
 #define TRAIT_BESTIALSENSE "bestial-sense"
@@ -397,6 +407,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SLEEPING_CARP_TRAIT "sleeping_carp"
 #define MADE_UNCLONEABLE "made-uncloneable"
 #define TIMESTOP_TRAIT "timestop"
+#define PULLED_WHILE_SOFTCRIT_TRAIT "pulled-while-softcrit"
 #define ADVENTURER_TRAIT "adventurer"
 #define TRAIT_LONGSTRIDER "longstrider"
 #define TRAIT_GUIDANCE "guidance"

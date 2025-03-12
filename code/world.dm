@@ -12,7 +12,7 @@
  */
 /world
 	mob = /mob/dead/new_player
-	turf = /turf/closed
+	turf = /turf/closed/basic
 	area = /area/rogue
 	view = "15x15"
 	hub = "Exadv1.spacestation13"

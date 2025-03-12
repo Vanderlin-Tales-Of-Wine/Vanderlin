@@ -1,4 +1,4 @@
-/obj/machinery/light/rogue/firebowl
+/obj/machinery/light/fueled/firebowl
 	name = "brazier"
 	icon = 'icons/roguetown/misc/lighting.dmi'
 	icon_state = "stonefire1"
@@ -12,7 +12,7 @@
 	crossfire = TRUE
 	fueluse = 0
 
-/obj/machinery/light/rogue/firebowl/CanPass(atom/movable/mover, turf/target)
+/obj/machinery/light/fueled/firebowl/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 		return 1
 	if(mover.throwing)
@@ -21,7 +21,7 @@
 		return 1
 	return !density
 
-/obj/machinery/light/rogue/firebowl/attack_hand(mob/user)
+/obj/machinery/light/fueled/firebowl/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -32,31 +32,32 @@
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand over the fire.</span>")
 
-			if(do_after(H, 15, target = src))
-				var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(H, "<span class='warning'>HOT!</span>")
-				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					H.update_damage_overlays()
+			if(do_after(H, 1.5 SECONDS, src))
+				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+				// 	H.update_damage_overlays()
+				H.adjust_bodytemperature(40)
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
 	else
 		if(icon_state == "[base_state]over")
 			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
 				"<span class='notice'>I start to pick up [src]...</span>")
-			if(do_after(user, 30, target = src))
+			if(do_after(user, 3 SECONDS, src))
 				icon_state = "[base_state]0"
 			return
 
-/obj/machinery/light/rogue/firebowl/stump
+/obj/machinery/light/fueled/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
 
-/obj/machinery/light/rogue/firebowl/church
+/obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
 
 
-/obj/machinery/light/rogue/firebowl/standing
+/obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
 	icon_state = "standing1"
 	base_state = "standing"
@@ -65,26 +66,26 @@
 	crossfire = FALSE
 
 
-/obj/machinery/light/rogue/firebowl/standing/blue
+/obj/machinery/light/fueled/firebowl/standing/blue
 	bulb_colour = "#8468ff"
 	icon_state = "standingb1"
 	base_state = "standingb"
 
-/obj/machinery/light/rogue/firebowl/standing/blue/burn_out()
+/obj/machinery/light/fueled/firebowl/standing/blue/burn_out()
 	return FALSE
 
-/obj/machinery/light/rogue/firebowl/standing/blue/extinguish()
+/obj/machinery/light/fueled/firebowl/standing/blue/extinguish()
 	return FALSE
 
 
-/obj/machinery/light/rogue/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
+/obj/machinery/light/fueled/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
 	icon_state = "[base_state]over"
 
-/obj/machinery/light/rogue/firebowl/standing/fire_act(added, maxstacks)
+/obj/machinery/light/fueled/firebowl/standing/fire_act(added, maxstacks)
 	if(icon_state != "[base_state]over")
 		..()
 
-/obj/machinery/light/rogue/firebowl/standing/onkick(mob/user)
+/obj/machinery/light/fueled/firebowl/standing/onkick(mob/user)
 	if(isliving(user))
 		var/mob/living/L = user
 		if(icon_state == "[base_state]over")
@@ -103,7 +104,7 @@
 			user.visible_message("<span class='warning'>[user] kicks [src]!</span>", \
 				"<span class='warning'>I kick [src]!</span>")
 
-/obj/machinery/light/rogue/wallfire
+/obj/machinery/light/fueled/wallfire
 	name = "fireplace"
 	icon_state = "wallfire1"
 	base_state = "wallfire"
@@ -112,7 +113,7 @@
 	crossfire = FALSE
 	cookonme = TRUE
 
-/obj/machinery/light/rogue/wallfire/candle
+/obj/machinery/light/fueled/wallfire/candle
 	name = "candles"
 	icon_state = "wallcandle1"
 	base_state = "wallcandle"
@@ -122,7 +123,7 @@
 	pixel_y = 32
 	soundloop = null
 
-/obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
+/obj/machinery/light/fueled/wallfire/candle/OnCrafted(dirin, mob/user)
 	pixel_x = 0
 	pixel_y = 0
 	switch(dirin)
@@ -136,49 +137,58 @@
 			pixel_x = -32
 	. = ..()
 
-/obj/machinery/light/rogue/wallfire/candle/attack_hand(mob/user)
+/obj/machinery/light/fueled/wallfire/candle/attack_hand(mob/user)
 	if(isliving(user) && on)
 		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
 		burn_out()
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 	. = ..()
 
-/obj/machinery/light/rogue/wallfire/candle/r
+/obj/machinery/light/fueled/wallfire/candle/r
 	pixel_y = 0
 	pixel_x = 32
-/obj/machinery/light/rogue/wallfire/candle/l
+/obj/machinery/light/fueled/wallfire/candle/l
 	pixel_y = 0
 	pixel_x = -32
 
-/obj/machinery/light/rogue/wallfire/candle/blue
+/obj/machinery/light/fueled/wallfire/candle/blue
 	bulb_colour = "#8d73ff"
 	icon_state = "wallcandleb1"
 	base_state = "wallcandleb"
 
-/obj/machinery/light/rogue/wallfire/candle/blue/extinguish()
+/obj/machinery/light/fueled/wallfire/candle/blue/extinguish()
 	return FALSE
 
-/obj/machinery/light/rogue/wallfire/candle/blue/burn_out()
+/obj/machinery/light/fueled/wallfire/candle/blue/burn_out()
 	return FALSE
 
-/obj/machinery/light/rogue/wallfire/candle/blue/r
+/obj/machinery/light/fueled/wallfire/candle/blue/r
 	pixel_y = 0
 	pixel_x = 32
-/obj/machinery/light/rogue/wallfire/candle/blue/l
+/obj/machinery/light/fueled/wallfire/candle/blue/l
 	pixel_y = 0
 	pixel_x = -32
 
-/obj/machinery/light/rogue/wallfire/candle/weak
+/obj/machinery/light/fueled/wallfire/candle/weak
 	light_power = 0.9
 	light_outer_range =  6
-/obj/machinery/light/rogue/wallfire/candle/weak/l
+/obj/machinery/light/fueled/wallfire/candle/weak/l
 	pixel_x = -32
 	pixel_y = 0
-/obj/machinery/light/rogue/wallfire/candle/weak/r
+/obj/machinery/light/fueled/wallfire/candle/weak/r
 	pixel_x = 32
 	pixel_y = 0
 
-/obj/machinery/light/rogue/torchholder
+/*	.............   Candle lamp   ................ */
+/obj/machinery/light/fueled/wallfire/candle/lamp // cant get them to start unlit but they work as is
+	name = "candle lamp"
+	icon_state = "candle"
+	base_state = "candle"
+	layer = WALL_OBJ_LAYER+0.1
+	light_power = 0.9
+	light_outer_range =  6
+
+/obj/machinery/light/fueled/torchholder
 	name = "sconce"
 	icon_state = "torchwall1"
 	base_state = "torchwall"
@@ -191,16 +201,16 @@
 	plane = GAME_PLANE_UPPER
 	cookonme = FALSE
 
-/obj/machinery/light/rogue/torchholder/c
+/obj/machinery/light/fueled/torchholder/c
 	pixel_y = 32
 
-/obj/machinery/light/rogue/torchholder/r
+/obj/machinery/light/fueled/torchholder/r
 	dir = WEST
 
-/obj/machinery/light/rogue/torchholder/l
+/obj/machinery/light/fueled/torchholder/l
 	dir = EAST
 
-/obj/machinery/light/rogue/torchholder/fire_act(added, maxstacks)
+/obj/machinery/light/fueled/torchholder/fire_act(added, maxstacks)
 	if(torchy)
 		if(!on)
 			if(torchy.fuel > 0)
@@ -213,19 +223,19 @@
 					soundloop.start()
 				return TRUE
 
-/obj/machinery/light/rogue/torchholder/Initialize()
+/obj/machinery/light/fueled/torchholder/Initialize()
 	torchy = new /obj/item/flashlight/flare/torch(src)
 	torchy.spark_act()
 	. = ..()
 
-/obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
+/obj/machinery/light/fueled/torchholder/OnCrafted(dirin, user)
 	dir = turn(dirin, 180)
 	if(dir == SOUTH)
 		pixel_y = 32
 	QDEL_NULL(torchy)
 	. = ..()
 
-/obj/machinery/light/rogue/torchholder/process()
+/obj/machinery/light/fueled/torchholder/process()
 	if(on)
 		if(torchy)
 			if(torchy.fuel <= 0)
@@ -235,7 +245,7 @@
 		else
 			return PROCESS_KILL
 
-/obj/machinery/light/rogue/torchholder/attack_hand(mob/user)
+/obj/machinery/light/fueled/torchholder/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -248,7 +258,7 @@
 		update_icon()
 		playsound(src.loc, 'sound/foley/torchfixturetake.ogg', 70)
 
-/obj/machinery/light/rogue/torchholder/update_icon()
+/obj/machinery/light/fueled/torchholder/update_icon()
 	if(torchy)
 		if(on)
 			icon_state = "[base_state]1"
@@ -257,12 +267,12 @@
 	else
 		icon_state = "torchwall"
 
-/obj/machinery/light/rogue/torchholder/burn_out()
+/obj/machinery/light/fueled/torchholder/burn_out()
 	if(torchy && torchy.on)
 		torchy.turn_off()
 	..()
 
-/obj/machinery/light/rogue/torchholder/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/light/fueled/torchholder/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/flashlight/flare/torch))
 		var/obj/item/flashlight/flare/torch/LR = W
 		if(torchy)
@@ -300,7 +310,7 @@
 		return
 	. = ..()
 
-/obj/machinery/light/rogue/chand
+/obj/machinery/light/fueled/chand
 	name = "chandelier"
 	icon_state = "chand1"
 	base_state = "chand"
@@ -315,7 +325,7 @@
 	crossfire = FALSE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
-/obj/machinery/light/rogue/chand/attack_hand(mob/user)
+/obj/machinery/light/fueled/chand/attack_hand(mob/user)
 	if(isliving(user) && on)
 		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
 		burn_out()
@@ -323,7 +333,7 @@
 	. = ..()
 
 
-/obj/machinery/light/rogue/hearth
+/obj/machinery/light/fueled/hearth
 	name = "hearth"
 	icon_state = "hearth1"
 	base_state = "hearth"
@@ -341,11 +351,11 @@
 	var/datum/looping_sound/boilloop/boilloop
 	var/rawegg = FALSE
 
-/obj/machinery/light/rogue/hearth/Initialize()
+/obj/machinery/light/fueled/hearth/Initialize()
 	boilloop = new(src, FALSE)
 	. = ..()
 
-/obj/machinery/light/rogue/hearth/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/light/fueled/hearth/attackby(obj/item/W, mob/living/user, params)
 	if(!attachment)
 		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot))
 			playsound(get_turf(user), 'sound/foley/dropsound/shovel_drop.ogg', 40, TRUE, -1)
@@ -361,9 +371,11 @@
 			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
 				var/obj/item/reagent_containers/food/snacks/S = W
 				if(istype(W, /obj/item/reagent_containers/food/snacks/egg)) // added
-					playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, 0)
-					sleep(25) // to get egg crack before frying hiss
-					W.icon_state = "rawegg" // added
+					if(W.icon_state != "rawegg")
+						playsound(get_turf(user), 'sound/foley/eggbreak.ogg', 100, TRUE, -1)
+						if(!do_after(user, 25))
+							return
+						W.icon_state = "rawegg" // added
 					rawegg = TRUE
 				if(!food)
 					S.forceMove(src)
@@ -386,12 +398,12 @@
 
 //////////////////////////////////
 
-/obj/machinery/light/rogue/hearth/fire_act(added, maxstacks)
+/obj/machinery/light/fueled/hearth/fire_act(added, maxstacks)
 	. = ..()
 	if(food)
 		playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 2)
 
-/obj/machinery/light/rogue/hearth/update_icon()
+/obj/machinery/light/fueled/hearth/update_icon()
 	cut_overlays()
 	icon_state = "[base_state][on]"
 	if(attachment)
@@ -406,7 +418,7 @@
 				I.pixel_y = 0
 				add_overlay(new /mutable_appearance(I))
 
-/obj/machinery/light/rogue/hearth/attack_hand(mob/user)
+/obj/machinery/light/fueled/hearth/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -415,7 +427,7 @@
 		if(istype(attachment, /obj/item/cooking/pan))
 			if(food)
 				if(rawegg)
-					to_chat(user, "<span class='notice'>Throws away the raw egg.</span>")
+					to_chat(user, "<span class='notice'>You throw away the raw egg.</span>")
 					rawegg = FALSE
 					qdel(food)
 					update_icon()
@@ -439,15 +451,16 @@
 			var/mob/living/carbon/human/H = user
 			if(istype(H))
 				H.visible_message("<span class='info'>[H] warms \his hand over the embers.</span>")
-				if(do_after(H, 50, target = src))
-					var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-					to_chat(H, "<span class='warning'>HOT!</span>")
-					if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-						H.update_damage_overlays()
+				if(do_after(H, 5 SECONDS, src))
+					// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+					// to_chat(H, "<span class='warning'>HOT!</span>")
+					// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+					// 	H.update_damage_overlays()
+					H.adjust_bodytemperature(40)
 			return TRUE
 
 
-/obj/machinery/light/rogue/hearth/process()
+/obj/machinery/light/fueled/hearth/process()
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
@@ -477,16 +490,16 @@
 		update_icon()
 
 
-/obj/machinery/light/rogue/hearth/onkick(mob/user)
+/obj/machinery/light/fueled/hearth/onkick(mob/user)
 	if(isliving(user) && on)
 		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
 		burn_out()
 
-/obj/machinery/light/rogue/hearth/Destroy()
+/obj/machinery/light/fueled/hearth/Destroy()
 	QDEL_NULL(boilloop)
 	. = ..()
 
-/obj/machinery/light/rogue/campfire
+/obj/machinery/light/fueled/campfire
 	name = "campfire"
 	icon_state = "badfire1"
 	base_state = "badfire"
@@ -500,20 +513,20 @@
 	max_integrity = 30
 	soundloop = /datum/looping_sound/fireloop
 
-/obj/machinery/light/rogue/campfire/process()
+/obj/machinery/light/fueled/campfire/process()
 	..()
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
 			extinguish()
 
-/obj/machinery/light/rogue/campfire/onkick(mob/user)
+/obj/machinery/light/fueled/campfire/onkick(mob/user)
 	if(isliving(user) && on)
 		var/mob/living/L = user
 		L.visible_message("<span class='info'>[L] snuffs [src].</span>")
 		burn_out()
 
-/obj/machinery/light/rogue/campfire/attack_hand(mob/user)
+/obj/machinery/light/fueled/campfire/attack_hand(mob/user)
 	. = ..()
 	if(.)
 		return
@@ -524,14 +537,15 @@
 		if(istype(H))
 			H.visible_message("<span class='info'>[H] warms \his hand near the fire.</span>")
 
-			if(do_after(H, 100, target = src))
-				var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(H, "<span class='warning'>HOT!</span>")
-				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					H.update_damage_overlays()
+			if(do_after(H, 10 SECONDS, src))
+				// var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+				// to_chat(H, "<span class='warning'>HOT!</span>")
+				// if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
+				// 	H.update_damage_overlays()
+				H.adjust_bodytemperature(40)
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
-/obj/machinery/light/rogue/campfire/densefire
+/obj/machinery/light/fueled/campfire/densefire
 	icon_state = "densefire1"
 	base_state = "densefire"
 	density = TRUE
@@ -544,19 +558,19 @@
 	bulb_colour = "#eea96a"
 	max_integrity = 60
 
-/obj/machinery/light/rogue/campfire/densefire/CanPass(atom/movable/mover, turf/target)
+/obj/machinery/light/fueled/campfire/densefire/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 		return 1
 	if(mover.throwing)
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
 		return 1
-	if(locate(/obj/machinery/light/rogue/firebowl) in get_turf(mover))
+	if(locate(/obj/machinery/light/fueled/firebowl) in get_turf(mover))
 		return 1
 	return !density
 
 
-/obj/machinery/light/rogue/campfire/pyre
+/obj/machinery/light/fueled/campfire/pyre
 	name = "pyre"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "pyre1"
@@ -572,14 +586,14 @@
 	buckle_prevents_pull = 1
 
 
-/obj/machinery/light/rogue/campfire/pyre/post_buckle_mob(mob/living/M)
+/obj/machinery/light/fueled/campfire/pyre/post_buckle_mob(mob/living/M)
 	..()
 	M.set_mob_offsets("bed_buckle", _x = 0, _y = 10)
 	M.setDir(SOUTH)
 
-/obj/machinery/light/rogue/campfire/pyre/post_unbuckle_mob(mob/living/M)
+/obj/machinery/light/fueled/campfire/pyre/post_unbuckle_mob(mob/living/M)
 	..()
 	M.reset_offsets("bed_buckle")
 
-/obj/machinery/light/rogue/campfire/longlived
+/obj/machinery/light/fueled/campfire/longlived
 	fueluse = 180 MINUTES

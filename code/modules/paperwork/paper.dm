@@ -56,10 +56,8 @@
 	body_parts_covered = HEAD
 	resistance_flags = FLAMMABLE
 	max_integrity = 30
-	dog_fashion = /datum/dog_fashion/head
 	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
 	pickup_sound =  'sound/blank.ogg'
-	grind_results = list(/datum/reagent/cellulose = 3)
 
 
 	var/extra_headers //For additional styling or other js features.
@@ -139,8 +137,6 @@
 		. += "It's from [mailer], addressed to [mailedto].</a>"
 
 /obj/item/paper/proc/read(mob/user)
-//	var/datum/asset/assets = get_asset_datum(/datum/asset/spritesheet/simple/paper)
-//	assets.send(user)
 	if(!user.client || !user.hud_used)
 		return
 	if(!user.hud_used.reads)
@@ -180,7 +176,9 @@
 /obj/item/paper/proc/format_browse(t, mob/user)
 	user << browse_rsc('html/book.png')
 	var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-			<html><head><style type=\"text/css\">
+			<html><head>
+			<meta charset=\"UTF-8\">
+			<style type=\"text/css\">
 			body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
 	dat += "[t]<br>"
 	dat += "<a href='byond://?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
@@ -385,17 +383,40 @@
 			format_browse(info_links, usr)
 			update_icon_state()
 
-/obj/item/paper/attackby(obj/item/P, mob/living/carbon/human/user, params)
+/obj/item/paper/attackby(obj/item/P, mob/living/user, params)
 	if(resistance_flags & ON_FIRE)
 		return ..()
 
 	if(mailer)
 		return ..()
 
-	if(is_blind(user))
-		return ..()
+	if(istype(P, /obj/item/paper)) //Make a manuscript
+		if(user.mind.get_skill_level(/datum/skill/misc/reading) <= 0)
+			to_chat(user, span_warning("I fumble with [src] for a bit."))
+			user.changeNext_move(2 SECONDS, user.active_hand_index) //lmao
+			return
 
-	if(istype(P, /obj/item/natural/thorn)|| istype(P, /obj/item/natural/feather))
+		var/obj/item/paper/combining_page = P
+
+		user.visible_message( \
+			span_notice("[user] begins to make a manuscript..."), \
+			span_notice("I begin to combine [src] and [combining_page] to make a manuscript..."), \
+			span_hear("I hear pages being rattled and shuffled.") \
+		)
+		var/obj/item/manuscript/new_manuscript = new(null, list(src, combining_page))
+		if(QDELETED(new_manuscript)) //make sure it didn't hint_qdel
+			to_chat(user, span_warning("I can not make a manuscript, something is preventing me...!"))
+			stack_trace("tried to make a manuscript but it was qdeleted")
+			return
+
+		user.put_in_hands(new_manuscript)
+		return
+
+	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
+		if(is_blind(user))
+			to_chat(user, span_warning("I want to write on [src], but I cannot."))
+			return
+
 		if(length(info) > maxlen)
 			to_chat(user, "<span class='warning'>[src] is full of verba.</span>")
 			return

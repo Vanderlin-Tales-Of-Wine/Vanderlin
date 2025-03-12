@@ -9,13 +9,14 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Archivist",
 	"Merchant",
 	"Feldsher",
-	"Apothecary"
+	"Apothecary",
+	"Noble"
 	))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
 	"Royal Knight",
 	"Veteran",
-	"Garrison Guard",
+	"City Watchmen",
 	"Men-at-arms",
 	"Jailor",
 	"Dungeoneer",
@@ -40,23 +41,26 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	"Weaponsmith",
 	"Tailor",
 	"Alchemist",
-	"Artificier",
+	"Artificer",
 	"Matron",
+	"Physicker",
 	"Scribe",
 	))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Soilson",
+	"Miner",
 	"Stevedore",
 	"Butcher",
 	"Cook",
+	"Carpenter",
 	"Jester",
-	"Miner",
 	"Hunter",
 	"Fisher",
+	"Cheesemaker",
 	"Butler",
-	"Towner",
 	"Mercenary",
+	"Bard",
 	"Prisoner",
 	"Beggar",
 	"Adventurer",

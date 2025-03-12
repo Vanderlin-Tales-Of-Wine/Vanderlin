@@ -285,7 +285,7 @@
 		var/list/keysy = shuffle(R.contents.Copy())
 		for(var/obj/item/key/K in keysy)
 			if(user.cmode)
-				if(!do_after(user, 10, TRUE, src))
+				if(!do_after(user, 1 SECONDS, src))
 					break
 			if(K.lockhash == lockhash)
 				togglelock(user)
@@ -340,7 +340,7 @@
 
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, target = src))
+			if(!do_after(user, picktime, src))
 				break
 			if(prob(pickchance))
 				lockprogress += moveup
@@ -388,22 +388,21 @@
 	if(!isturf(O.loc))
 		return
 
-	var/actuallyismob = 0
+	var/actuallyismob = FALSE
 	if(isliving(O))
-		actuallyismob = 1
+		actuallyismob = TRUE
 	else if(!isitem(O))
 		return
 	var/turf/T = get_turf(src)
-	var/list/targets = list(O, src)
 	add_fingerprint(user)
 	user.visible_message("<span class='warning'>[user] [actuallyismob ? "tries to ":""]stuff [O] into [src].</span>", \
 						"<span class='warning'>I [actuallyismob ? "try to ":""]stuff [O] into [src].</span>", \
 						"<span class='hear'>I hear clanging.</span>")
 	if(actuallyismob)
-		if(do_after_mob(user, targets, 40))
-			user.visible_message("<span class='notice'>[user] stuffs [O] into [src].</span>", \
-								"<span class='notice'>I stuff [O] into [src].</span>", \
-								"<span class='hear'>I hear a loud bang.</span>")
+		if(do_after(user, 4 SECONDS, O))
+			user.visible_message(span_notice("[user] stuffs [O] into [src]."), \
+								span_notice("I stuff [O] into [src]."), \
+								span_hear("I hear a loud bang."))
 			O.forceMove(T)
 			close()
 	else
@@ -430,10 +429,6 @@
 	toggle(user)
 
 /obj/structure/closet/attack_paw(mob/user)
-	return attack_hand(user)
-
-// tk grab then use on self
-/obj/structure/closet/attack_self_tk(mob/user)
 	return attack_hand(user)
 
 /obj/structure/closet/verb/verb_toggleopen()

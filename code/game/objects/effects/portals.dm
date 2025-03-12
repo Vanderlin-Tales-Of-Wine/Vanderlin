@@ -14,8 +14,8 @@
 /obj/effect/portal
 	name = "portal"
 	desc = ""
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "portal"
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "shitportal"
 	anchored = TRUE
 	var/mech_sized = FALSE
 	var/obj/effect/portal/linked
@@ -58,9 +58,6 @@
 		return ..()
 	if(!teleport(AM))
 		return ..()
-
-/obj/effect/portal/attack_tk(mob/user)
-	return
 
 /obj/effect/portal/attack_hand(mob/user)
 	. = ..()

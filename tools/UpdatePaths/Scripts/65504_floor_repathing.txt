@@ -1,5 +1,5 @@
 /turf/open/floor/plating/dirt : /turf/open/misc/dirt{@OLD}
-/turf/open/floor/rogue/dirt : /turf/open/misc/dirt/dark{@OLD}
+/turf/open/floor/dirt : /turf/open/misc/dirt/dark{@OLD}
 /turf/open/floor/plating/dirt/jungle : /turf/open/misc/dirt/jungle{@OLD}
 /turf/open/floor/plating/dirt/jungle/dark : /turf/open/misc/dirt/jungle/dark{@OLD}
 /turf/open/floor/plating/dirt/jungle/wasteland : /turf/open/misc/dirt/jungle/wasteland{@OLD}

@@ -22,7 +22,7 @@
 	handle_roguebreath()
 	update_stress()
 	handle_nausea()
-	if(blood_volume > BLOOD_VOLUME_SURVIVE)
+	if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		if(!heart_attacking)
 			if(oxyloss)
 				adjustOxyLoss(-1.6)
@@ -30,71 +30,7 @@
 			if(getOxyLoss() < 20)
 				heart_attacking = FALSE
 
-	var/cant_fall_asleep = FALSE
-	var/cause = " I just can't..."
-	for(var/obj/item/clothing/thing in get_equipped_items(FALSE))
-		if(thing.clothing_flags & CANT_SLEEP_IN)
-			cant_fall_asleep = TRUE
-			cause = " \The [thing] bothers me..."
-			break
-
-	//Healing while sleeping in a bed
-	if(stat >= UNCONSCIOUS)
-		var/sleepy_mod = buckled?.sleepy || 0.5
-		var/bleed_rate = get_bleed_rate()
-		var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
-		if(nutrition > 0 || yess)
-			adjust_energy(sleepy_mod * 20)
-		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
-			adjust_energy(sleepy_mod * 4)
-		if(hydration > 0 || yess)
-			if(!bleed_rate)
-				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
-			for(var/obj/item/bodypart/affecting as anything in bodyparts)
-				//for context, it takes 5 small cuts (0.4 x 5) or 3 normal cuts (0.8 x 3) for a bodypart to not be able to heal itself
-				if(affecting.get_bleed_rate() >= 2)
-					continue
-				if(affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
-					src.update_damage_overlays()
-				for(var/datum/wound/wound as anything in affecting.wounds)
-					if(!wound.sleep_healing)
-						continue
-					wound.heal_wound(wound.sleep_healing * sleepy_mod)
-			adjustToxLoss( - ( sleepy_mod * 0.5) )
-			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-				Sleeping(300)
-	else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-		// Resting on a bed or something
-		if(buckled?.sleepy)
-			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
-				if(!fallingas)
-					to_chat(src, span_warning("I'll fall asleep soon..."))
-				fallingas++
-				if(fallingas > 15)
-					Sleeping(300)
-			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
-				if(fallingas != 13)
-					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
-				fallingas = 13
-			else
-				adjust_energy(buckled.sleepy * 10)
-		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
-		else if(!(mobility_flags & MOBILITY_STAND))
-			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
-				if(!fallingas)
-					to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
-				fallingas++
-				if(fallingas > 25)
-					Sleeping(300)
-			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
-				if(fallingas != 13)
-					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
-				fallingas = 13
-			else
-				adjust_energy(10)
-		else if(fallingas)
-			fallingas = 0
-		tiredness = min(tiredness + 1, 100)
+	handle_sleep()
 
 	handle_brain_damage()
 
@@ -126,8 +62,8 @@
 		var/painpercent = get_complex_pain() / (STAEND * 10)
 		painpercent = painpercent * 100
 
-		if(world.time > mob_timers["painstun"])
-			mob_timers["painstun"] = world.time + 100
+		if(world.time > mob_timers[MT_PAINSTUN])
+			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
 			if(lying || IsKnockdown())
@@ -141,7 +77,7 @@
 						stuttering += 5
 						addtimer(CALLBACK(src, PROC_REF(Stun), 110), 10)
 						addtimer(CALLBACK(src, PROC_REF(Knockdown), 110), 10)
-						mob_timers["painstun"] = world.time + 160
+						mob_timers[MT_PAINSTUN] = world.time + 16 SECONDS
 					else
 						emote("painmoan")
 						stuttering += 5
@@ -175,7 +111,11 @@
 				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater(turf/open/water/W)
-	ExtinguishMob()
+	if(lying || W.water_level == 3)
+		SoakMob(FULL_BODY)
+	else
+		if(W.water_level == 2)
+			SoakMob(BELOW_CHEST)
 
 /mob/living/carbon/handle_inwater(turf/open/water/W)
 	..()
@@ -221,7 +161,9 @@
 		amt += ((BPinteg) * dna?.species?.pain_mod)
 	return amt
 
-
+/mob/living/carbon/human/get_complex_pain()
+	. = ..()
+	. *= physiology.pain_mod
 
 ///////////////
 // BREATHING //
@@ -423,9 +365,6 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 	if(druggy)
 		adjust_drugginess(-1)
 
-	if(hallucination)
-		handle_hallucinations()
-
 	if(drunkenness)
 		drunkenness = max(drunkenness - (drunkenness * 0.04) - 0.01, 0)
 		if(drunkenness >= 1)
@@ -580,7 +519,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			head.cremation_progress += rand(1,4)
 			if(head.cremation_progress >= 50)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
-					limb.skeletonize()
+					head.skeletonize()
 					should_update_body = TRUE
 					head.drop_limb()
 					head.visible_message("<span class='warning'>[src]'s head crumbles into ash!</span>")
@@ -652,7 +591,10 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/proc/set_heartattack(status)
+/mob/living/proc/set_heartattack(status)
+	return
+
+/mob/living/carbon/set_heartattack(status)
 	if(!can_heartattack())
 		return FALSE
 
@@ -661,3 +603,85 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		return
 
 	heart.beating = !status
+
+/// Handles sleep. Mobs with no_sleep trait cannot sleep.
+/*
+*	The mob tries to go to sleep or IS sleeping
+*
+*	Accounts for...
+*	TRAIT_NOSLEEP
+*	CANT_SLEEP_IN
+*	Hunger and Hydration.
+*/
+
+/mob/living/carbon/proc/handle_sleep()
+	if(HAS_TRAIT(src, TRAIT_NOSLEEP))
+		return
+	var/cant_fall_asleep = FALSE
+	var/cause = " I just can't..."
+	for(var/obj/item/clothing/thing in get_equipped_items(FALSE))
+		if(thing.clothing_flags & CANT_SLEEP_IN)
+			cant_fall_asleep = TRUE
+			cause = " \The [thing] bothers me..."
+			break
+
+	//Healing while sleeping in a bed
+	if(stat >= UNCONSCIOUS)
+		var/sleepy_mod = buckled?.sleepy || 0.5
+		var/bleed_rate = get_bleed_rate()
+		var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
+		if(nutrition > 0 || yess)
+			adjust_energy(sleepy_mod * (max_energy * 0.02))
+		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
+			adjust_energy(sleepy_mod * (max_energy * 0.004))
+		if(locate(/obj/item/bedsheet) in get_turf(src))
+			adjust_energy(sleepy_mod * (max_energy * 0.004))
+		if(hydration > 0 || yess)
+			if(!bleed_rate)
+				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
+			for(var/obj/item/bodypart/affecting as anything in bodyparts)
+				//for context, it takes 5 small cuts (0.4 x 5) or 3 normal cuts (0.8 x 3) for a bodypart to not be able to heal itself
+				if(affecting.get_bleed_rate() >= 2)
+					continue
+				if(affecting.heal_damage(sleepy_mod * 1.5, sleepy_mod * 1.5, required_status = BODYPART_ORGANIC)) // multiplier due to removing healing from sleep effect
+					src.update_damage_overlays()
+				for(var/datum/wound/wound as anything in affecting.wounds)
+					if(!wound.sleep_healing)
+						continue
+					wound.heal_wound(wound.sleep_healing * sleepy_mod)
+			adjustToxLoss( - ( sleepy_mod * 0.5) )
+			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+				Sleeping(300)
+		tiredness = 0
+	else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+		// Resting on a bed or something
+		if(buckled?.sleepy)
+			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
+				if(!fallingas)
+					to_chat(src, span_warning("I'll fall asleep soon..."))
+				fallingas++
+				if(fallingas > 15)
+					Sleeping(300)
+			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
+				if(fallingas != 13)
+					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
+				fallingas -= 5
+			else
+				adjust_energy(buckled.sleepy * (max_energy * 0.01))
+		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
+		else if(!(mobility_flags & MOBILITY_STAND))
+			if(eyesclosed && !cant_fall_asleep || (eyesclosed && !(fallingas >= 10 && cant_fall_asleep)))
+				if(!fallingas)
+					to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
+				fallingas++
+				if(fallingas > 25)
+					Sleeping(300)
+			else if(eyesclosed && fallingas >= 10 && cant_fall_asleep)
+				if(fallingas != 13)
+					to_chat(src, span_boldwarning("I can't sleep...[cause]"))
+				fallingas -= 5
+			else
+				adjust_energy((max_energy * 0.01))
+		else if(fallingas)
+			fallingas = 0
+		tiredness = min(tiredness + 1, 100)

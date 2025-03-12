@@ -87,7 +87,7 @@
 	//Parrots will generally sit on their perch unless something catches their eye.
 	//These vars store their preffered perch and if they dont have one, what they can use as a perch
 	var/obj/parrot_perch = null
-	var/obj/desired_perches = list(/obj/structure/displaycase)
+	var/obj/desired_perches = list()
 
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
@@ -119,7 +119,7 @@
 
 	if(buckled)
 		buckled.unbuckle_mob(src,force=1)
-	buckled = null
+	set_buckled(null)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
 
@@ -250,7 +250,7 @@
 	if(pulledby && !stat && parrot_state != PARROT_WANDER)
 		if(buckled)
 			buckled.unbuckle_mob(src, TRUE)
-			buckled = null
+			set_buckled(null)
 		icon_state = icon_living
 		parrot_state = PARROT_WANDER
 		pixel_x = initial(pixel_x)
@@ -681,7 +681,7 @@
 		if(buckled)
 			to_chat(src, "<span class='notice'>I are no longer sitting on [buckled]'s shoulder.</span>")
 			buckled.unbuckle_mob(src, TRUE)
-		buckled = null
+		set_buckled(null)
 		pixel_x = initial(pixel_x)
 		pixel_y = initial(pixel_y)
 

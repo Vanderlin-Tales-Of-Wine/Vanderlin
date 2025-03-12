@@ -18,15 +18,29 @@
  */
 
 //Simply removes < and > and limits the length of the message
-/proc/strip_html_simple(t,limit=MAX_MESSAGE_LEN)
+/proc/strip_html_simple(t, limit=MAX_MESSAGE_LEN)
+	if(!t || !istext(t))
+		return ""
+
+	t = copytext_char(t, 1, limit)
 	var/list/strip_chars = list("<",">")
-	t = copytext(t,1,limit)
+	var/list/text_parts = list()
+	var/last_pos = 1
+
 	for(var/char in strip_chars)
-		var/index = findtext(t, char)
+		var/index = findtext(t, char, last_pos)
 		while(index)
-			t = copytext(t, 1, index) + copytext(t, index+1)
-			index = findtext(t, char)
-	return t
+			// Add the text before this character
+			if(index > last_pos)
+				text_parts += copytext_char(t, last_pos, index)
+			last_pos = index + 1
+			index = findtext(t, char, last_pos)
+
+	// Add any remaining text after the last stripped character
+	if(last_pos <= length(t))
+		text_parts += copytext_char(t, last_pos)
+
+	return jointext(text_parts, "")
 
 // Removes punctuation
 /proc/strip_punctuation(t,limit=MAX_MESSAGE_LEN)
@@ -155,8 +169,8 @@
 				number_of_alphanumeric++
 				last_char_group = 3
 
-			// '  -  .
-			if(39,45,46)			//Common name punctuation
+			// '  -  . ,
+			if(39,45,46,44)			//Common name punctuation
 				if(!last_char_group)
 					continue
 				t_out += ascii2text(ascii_char)

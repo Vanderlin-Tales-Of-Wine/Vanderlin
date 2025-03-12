@@ -45,9 +45,9 @@
 		var/choice = input(user, "Do you want to add the manuscript to the archive?") in list("Yes", "No")
 		if(choice == "Yes")
 			upload_manuscript(user, M)
-			// Optionally delete the manuscript after uploading
-			qdel(M)
-			to_chat(user, span_notice("The manuscript has been uploaded and removed from your inventory."))
+			// // Optionally delete the manuscript after uploading
+			// qdel(M)
+			to_chat(user, span_notice("The manuscript has been uploaded."))
 		else
 			to_chat(user, span_notice("You decide not to upload the manuscript."))
 		return
@@ -101,7 +101,7 @@
 	if(!has_paper)
 		to_chat(user, span_warning("[src] requires a blank piece of paper to print."))
 		return
-	var/choice = input(user, "Choose an option for \the [src]") in list("Print The Book", "Print a Tome of Justice", "Print from the Archive", "Profession Manuel")
+	var/choice = input(user, "Choose an option for \the [src]") as null|anything in list("Print The Book", "Print a Tome of Justice", "Print from the Archive", "Profession Manuel")
 	switch(choice)
 		if ("Print The Book")
 			start_printing(user, "bibble")
@@ -160,18 +160,18 @@
 
 /obj/machinery/printingpress/proc/print_bibble(mob/user)
 	// Creates a static book (Bibble)
-	var/obj/item/book/rogue/bibble/B = new()
+	var/obj/item/book/bibble/B = new()
 	output_item = B
 	visible_message("<span class='notice'>The printing press hums as it produces [B.name].</span>")
 
 /obj/machinery/printingpress/proc/print_justice(mob/user)
 	// Creates a static book (Tome of Justice)
-	var/obj/item/book/rogue/law/B = new()
+	var/obj/item/book/law/B = new()
 	output_item = B
 	visible_message("<span class='notice'>[src] hums as it produces [B.name].</span>")
 
 /obj/machinery/printingpress/proc/print_manuscript(mob/user, id)
-	output_item = new /obj/item/book/rogue/playerbook(src, null, null, null, id)
+	output_item = new /obj/item/book/playerbook(src, null, null, null, id)
 
 /obj/machinery/printingpress/proc/choose_search_parameters(mob/user)
 	var/search_title = input(user, "Enter the title (optional):") as text|null
@@ -204,22 +204,3 @@
 	if("print" in href_list)
 		var/id = url_encode(href_list["id"])
 		start_printing(usr, "archive", id)
-
-/obj/item/paper/attack_right(mob/user)
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		if(H.mind.get_skill_level(/datum/skill/misc/reading) <= 0)
-			to_chat(user, "<span class='warning'>I don't know how to do this!</span>")
-			return
-		if(!user.is_holding(src))
-			to_chat(user, "<span class='warning'>I need to hold \the [src] to turn it into a manuscript!</span>")
-			return
-		if(info)
-			to_chat(user, "<span class='warning'>The paper already has content!</span>")
-			return
-		user.temporarilyRemoveItemFromInventory(src) // Remove the paper
-
-		var/obj/item/manuscript/new_manuscript = new /obj/item/manuscript // Create a new manuscript object
-		user.put_in_hands(new_manuscript) // Place the manuscript into the user's hands
-
-		to_chat(user, "<span class='notice'>You have turned the paper into a blank manuscript.</span>")

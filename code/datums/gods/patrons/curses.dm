@@ -1,3 +1,5 @@
+//the way this file is organized is also cursed! Enjoy
+
 /mob/living/carbon/human
 	/// List of curses on this mob
 	var/list/curses = list()
@@ -168,10 +170,11 @@
 //////////////////////
 /datum/curse/pestra/on_life(mob/living/carbon/human/owner)
 	. = ..()
-	if(owner.mob_timers["pestra_curse"])
-		if(world.time < owner.mob_timers["pestra_curse"] + rand(30,60)SECONDS)
-			return
-	owner.mob_timers["pestra_curse"] = world.time
+	if(!MOBTIMER_FINISHED(owner, MT_CURSE_PESTRA, rand(30, 60) SECONDS)) //this isn't how mob timers work
+		return
+
+	MOBTIMER_SET(owner, MT_CURSE_PESTRA)
+
 	var/effect = rand(1, 4)
 	switch(effect)
 		if(1)
@@ -188,20 +191,19 @@
 
 /datum/curse/baotha/on_life(mob/living/carbon/human/owner)
 	. = ..()
-	if(owner.mob_timers["baotha_curse"])
-		if(world.time < owner.mob_timers["baotha_curse"] + rand(15,60)SECONDS)
-			return
-	owner.mob_timers["baotha_curse"] = world.time
+	if(!MOBTIMER_FINISHED(owner, MT_CURSE_BAOTHA, rand(15, 60) SECONDS)) //this isn't how mob timers work
+		return
+
+	MOBTIMER_SET(owner, MT_CURSE_BAOTHA)
 
 	owner.reagents.add_reagent(/datum/reagent/druqks, 3)
 
 /datum/curse/graggar/on_life(mob/living/carbon/human/owner)
 	. = ..()
-	if(owner.mob_timers["graggar_curse"])
-		if(world.time < owner.mob_timers["graggar_curse"] + rand(15,60)SECONDS)
-			return
+	if(!MOBTIMER_FINISHED(owner, MT_CURSE_GRAGGAR, rand(15, 60) SECONDS)) //this isn't how mob timers work
+		return
 
-	owner.mob_timers["graggar_curse"] = world.time
+	MOBTIMER_SET(owner, MT_CURSE_GRAGGAR)
 	for(var/mob/living/carbon/human in view(1, owner))
 		owner.emote("rage")
 		human.attacked_by(owner.get_active_held_item(), owner)
@@ -232,11 +234,11 @@
 	emote("scream", forced=TRUE)
 
 /mob/living/carbon/cursed_freak_out()
-	if(mob_timers["freakout"])
-		if(world.time < mob_timers["freakout"] + 10 SECONDS)
-			flash_fullscreen("stressflash")
-			return
-	mob_timers["freakout"] = world.time
+	if(!MOBTIMER_FINISHED(src, MT_FREAKOUT, 10 SECONDS))
+		flash_fullscreen("stressflash")
+		return
+		
+	MOBTIMER_SET(src, MT_FREAKOUT)
 	shake_camera(src, 1, 3)
 	flash_fullscreen("stressflash")
 	changeNext_move(CLICK_CD_EXHAUSTED)

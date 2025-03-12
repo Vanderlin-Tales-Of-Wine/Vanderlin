@@ -31,7 +31,7 @@
 		else
 			switch(tag)
 				if("gen")
-					return list("shrink" = 0.4,"sx" = 0,"sy" = 0,"nx" = 13,"ny" = 1,"wx" = 0,"wy" = 2,"ex" = 5,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 63,"wturn" = -27,"eturn" = 63,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+					return list("shrink" = 0.4,"sx" = 0,"sy" = 0,"nx" = 8,"ny" = 1,"wx" = 0,"wy" = 2,"ex" = 5,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 63,"wturn" = -27,"eturn" = 63,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 				if("onbelt")
 					return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
@@ -168,7 +168,7 @@
 			switch(alert("Sign your name?",,"Yes","No"))
 				if("Yes")
 					if(user.mind && user.mind.assigned_role)
-						if(do_after(user, 20, target = src))
+						if(do_after(user, 2 SECONDS, src))
 							signedname = user.real_name
 							signedjob = user.mind.assigned_role
 							icon_state = "contractsigned"
@@ -202,7 +202,7 @@
 	info += "</div>"
 
 /obj/item/paper/confession
-	name = "confession"
+	name = "confession of villainy"
 	icon_state = "confession"
 	desc = "A drab piece of parchment stained with the magical ink of the Order lodges. Looking at it fills you with profound guilt."
 	info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS ___. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,"
@@ -213,15 +213,17 @@
 	maxlen = 2000
 	var/confession_type = "antag" //for voluntary confessions
 
-/obj/item/paper/confession/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	if(istype(P, /obj/item/natural/feather))
-		var/response = alert(user, "What voluntary confession do I want?","","Villainy", "Faith")
-		if(!response)
-			return
-		if(response == "Villainy")
-			confession_type = "antag"
-		else
-			confession_type = "patron"
+/obj/item/paper/confession/examine(mob/user)
+	. = ..()
+	. += span_info("Left click with a feather to sign, right click to change confession type.")
+
+/obj/item/paper/confession/attackby(atom/A, mob/living/user, params)
+	if(signed)
+		return ..()
+	if(istype(A, /obj/item/natural/feather))
+		attempt_confession(user)
+		return TRUE
+	return ..()
 
 /obj/item/paper/confession/update_icon_state()
 	if(mailer)
@@ -241,8 +243,16 @@
 	if(signed)
 		return ..()
 	if(M.stat >= UNCONSCIOUS) //unconscious cannot talk to confess, but soft crit can
+		return ..()
+	if(!ishuman(M))
+		return ..()
+	to_chat(user, span_info("I courteously offer the confession to [M]."))
+	attempt_confession(M, user)
+	return
+
+/obj/item/paper/confession/proc/attempt_confession(mob/living/carbon/human/M, mob/user)
+	if(!ishuman(M))
 		return
-	to_chat(user, "<span class='info'>I courteously offer the confession to [M].</span>")
 	var/input = alert(M, "Sign the confession of your true nature?", "CONFESSION OF [confession_type == "antag" ? "VILLAINY" : "FAITH"]", "Yes", "No")
 	if(M.stat >= UNCONSCIOUS)
 		return
@@ -250,10 +260,10 @@
 		return
 	testing("[M] is signing the confession.")
 	if(input == "Yes")
-		to_chat(user, span_info("[M] has agreed to confess their true nature."))
-		M.confess_sins(confession_type, resist=FALSE, user=user, torture=FALSE)
+		M.visible_message(span_info("[M] has agreed to confess their true [confession_type == "antag" ? "villainy" : "faith"]."), span_info("I agree to confess my true nature."))
+		M.confess_sins(confession_type, resist=FALSE, user=user, torture=FALSE, confession_paper = src)
 	else
-		to_chat(user, span_warning("[M] refused to sign the confession!"))
+		M.visible_message(span_boldwarning("[M] refused to sign the confession!"), span_boldwarning("I refused to sign the confession!"))
 	return
 
 /obj/item/paper/confession/read(mob/user)
@@ -281,13 +291,17 @@
 	else
 		return "<span class='warning'>I'm too far away to read it.</span>"
 
+/obj/item/paper/confession/rmb_self(mob/user)
+	return TRUE
+
+/obj/item/paper/confession/attack_right(mob/user)
+	return TRUE
+
 /obj/item/merctoken
 	name = "mercenary token"
 	desc = "A small, palm-fitting bound scroll - a minuature writ of commendation for a mercenary under MGE. Present to a Guild representative for signing."
 	icon_state = "merctoken"
 	icon = 'icons/roguetown/items/misc.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0.5
 	firefuel = 30 SECONDS
@@ -318,7 +332,7 @@
 				signeejob = user.mind.assigned_role
 				visible_message("<span class='warning'>[user] writes their name down on the token.</span>")
 				playsound(src, 'sound/items/write.ogg', 100, FALSE)
-				desc = "A small, palm-fitting bound scroll that can be sent by mail to the Guild. Most of the fine print is unintelligible, save for one bold SIGNEE: [signee], [signeejob] of Enigma."
+				desc = "A small, palm-fitting bound scroll that can be sent by mail to the Guild. Most of the fine print is unintelligible, save for one bold SIGNEE: [signee], [signeejob] of Vanderlin."
 				signed = 1
 				return
 		else
@@ -417,3 +431,68 @@
 
 	info += "</div>"
 
+
+/obj/item/paper/scroll/sell_price_changes
+	name = "updated purchasing prices"
+	icon_state = "contractsigned"
+	old_render = FALSE
+
+	var/list/sell_prices
+	var/writers_name
+	var/faction
+
+/obj/item/paper/scroll/sell_price_changes/New(loc, list/prices, faction_name)
+	. = ..()
+
+	faction = faction_name
+	if(!faction)
+		faction = pick("Heartfelt", "Zybantine", "Grenzelhoft", "Kingsfield")
+
+	sell_prices = prices
+	if(!length(sell_prices))
+		sell_prices = generated_test_data()
+	writers_name = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
+	rebuild_info()
+
+/obj/item/paper/scroll/sell_price_changes/update_icon_state()
+	if(open)
+		icon_state = "contractsigned"
+		name = initial(name)
+	else
+		icon_state = "scroll_closed"
+		name = "scroll"
+
+
+/obj/item/paper/scroll/sell_price_changes/proc/rebuild_info()
+	info = null
+	info += "<div style='vertical-align:top'>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Purchasing Prices</h2>"
+	info += "<hr/>"
+
+	if(sell_prices.len)
+		info += "<ul>"
+		for(var/atom/type_path as anything in sell_prices)
+			var/list/prices = sell_prices[type_path]
+			info += "<li style='color:#06080F;font-size:9px;font-family:\"Segoe Script\"'>[initial(type_path.name)] [prices[1]] > [prices[2]] mammons</li><br/>"
+		info += "</ul>"
+
+	info += "<br/></font>"
+
+	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[writers_name] Shipwright of [faction]</font>"
+
+	info += "</div>"
+
+/obj/item/paper/scroll/sell_price_changes/proc/generated_test_data()
+
+	var/list/prices = list()
+	for(var/i = 1 to rand(2, 4))
+		var/datum/supply_pack/pack = pick(SSmerchant.supply_packs)
+		if(islist(pack.contains))
+			continue
+		var/path = pack.contains
+		if(!path)
+			continue
+		prices |= path
+		var/starting_rand  = rand(100, 50)
+		prices[path] = list("[starting_rand]", "[round(starting_rand * 0.5, 1)]")
+	sell_prices = prices

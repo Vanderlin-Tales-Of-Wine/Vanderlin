@@ -22,12 +22,3 @@
 
 /obj/effect/decal/remains/xeno/larva
 	icon_state = "remainslarva"
-
-/obj/effect/decal/remains/robot
-	desc = ""
-	icon = 'icons/mob/robots.dmi'
-	icon_state = "remainsrobot"
-
-/obj/effect/decal/cleanable/robot_debris/old
-	name = "dusty robot debris"
-	desc = ""

@@ -29,7 +29,7 @@
 		if(I.flags_inv & HIDEHAIR)
 			hair_hidden = 1
 	if(wear_mask)
-		var/obj/item/clothing/mask/M = wear_mask
+		var/obj/item/clothing/face/M = wear_mask
 		if(M.flags_inv & HIDEHAIR)
 			hair_hidden = 1
 	if(!hair_hidden)

@@ -638,8 +638,8 @@
 			mmb_intent.chargedloop = ranged_ability.chargedloop
 			mmb_intent.update_chargeloop()
 
-	hud_used.quad_intents.switch_intent(input)
-	hud_used.give_intent.switch_intent(input)
+	hud_used.quad_intents?.switch_intent(input)
+	hud_used.give_intent?.switch_intent(input)
 	givingto = null
 
 /mob/verb/def_intent_change(input as num)
@@ -800,10 +800,6 @@
 		if(HAS_TRAIT(B, TRAIT_BLIND))
 			return TRUE
 		return B.eye_blind
-	return FALSE
-
-///Is the mob hallucinating?
-/mob/proc/hallucinating()
 	return FALSE
 
 

@@ -40,7 +40,7 @@ var opts = {
 	'selectedSubLoop': null, //Contains the interval loop for closing the selected sub menu
 	'suppressSubClose': false, //Whether or not we should be hiding the selected sub menu
 	'highlightTerms': [],
-	'highlightLimit': 5,
+	'highlightLimit': 10,
 	'highlightColor': '#FFFF00', //The color of the highlighted message
 	'pingDisabled': true, //Has the user disabled the ping counter
 

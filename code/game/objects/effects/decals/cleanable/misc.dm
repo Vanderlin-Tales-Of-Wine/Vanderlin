@@ -100,14 +100,10 @@
 /obj/effect/decal/cleanable/greenglow/ex_act()
 	return
 
-/obj/effect/decal/cleanable/greenglow/filled/Initialize()
-	. = ..()
-	reagents.add_reagent(pick(/datum/reagent/uranium, /datum/reagent/uranium/radium), 5)
-
 /obj/effect/decal/cleanable/dirt/cobweb
 	name = "cobweb"
 	desc = ""
-	icon = 'modular/Mapping/icons/webbing.dmi'
+	icon = 'icons/roguetown/misc/webbing.dmi'
 	icon_state = "cobweb1"
 	gender = NEUTER
 	layer = WALL_OBJ_LAYER
@@ -176,6 +172,9 @@
 		desc = ""
 	. = ..()
 
+/obj/effect/decal/cleanable/shreds/clay
+	color = "#916258"
+
 /obj/effect/decal/cleanable/glitter
 	name = "generic glitter pile"
 	desc = ""
@@ -210,9 +209,13 @@
 	icon_state = "xfloor1"
 	random_icon_states = list("xfloor1", "xfloor2", "xfloor3", "xfloor4", "xfloor5", "xfloor6", "xfloor7")
 
-/obj/effect/decal/cleanable/confetti
-	name = "confetti"
-	desc = ""
-	icon = 'icons/effects/confetti_and_decor.dmi'
-	icon_state = "confetti"
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //the confetti itself might be annoying enough
+/*	.................   Dye spill   ................... */
+/obj/effect/decal/cleanable/dyes
+	name = "spilled dyes"
+	icon = 'icons/effects/tomatodecal.dmi'
+	icon_state = "flour"
+	random_icon_states = list("flour", "smashed_plant")
+	beauty = -100
+/obj/effect/decal/cleanable/dyes/Initialize()
+	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
+	..()

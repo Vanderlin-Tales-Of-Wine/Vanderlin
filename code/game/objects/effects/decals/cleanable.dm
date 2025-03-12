@@ -32,11 +32,15 @@
 		SSblackbox.record_feedback("tally", "station_mess_destroyed", 1, name)
 	return ..()
 
+/obj/effect/decal/cleanable/proc/lazy_init_reagents()
+	return
+
 /obj/effect/decal/cleanable/proc/replace_decal(obj/effect/decal/cleanable/C) // Returns true if we should give up in favor of the pre-existing decal
 	if(mergeable_decal)
 		return TRUE
 
 /obj/effect/decal/cleanable/attackby(obj/item/W, mob/user, params)
+	lazy_init_reagents()
 	if(istype(W, /obj/item/reagent_containers/glass))
 		if(src.reagents && W.reagents)
 			. = 1 //so the containers don't splash their content on the src while scooping.
@@ -52,7 +56,7 @@
 				qdel(src)
 				return
 	if(W.get_temperature()) //todo: make heating a reagent holder proc
-		if(istype(W, /obj/item/clothing/mask/cigarette))
+		if(istype(W, /obj/item/clothing/face/cigarette))
 			return
 		else
 			var/hotness = W.get_temperature()

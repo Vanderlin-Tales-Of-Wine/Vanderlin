@@ -10,11 +10,11 @@
 	integrity_failure = 0.33
 	var/locked = FALSE
 	var/open = TRUE
-	var/obj/item/rogueweapon/sword/long/heirloom
+	var/obj/item/weapon/sword/long/heirloom
 
 /obj/structure/fireaxecabinet/Initialize()
 	. = ..()
-	heirloom = new /obj/item/rogueweapon/sword/long/heirloom
+	heirloom = new /obj/item/weapon/sword/long/heirloom
 	update_icon()
 
 /obj/structure/fireaxecabinet/Destroy()
@@ -31,8 +31,8 @@
 				return
 
 	else if(open || broken)
-		if(istype(I, /obj/item/rogueweapon/sword/long/heirloom) && !heirloom)
-			var/obj/item/rogueweapon/sword/long/heirloom/F = I
+		if(istype(I, /obj/item/weapon/sword/long/heirloom) && !heirloom)
+			var/obj/item/weapon/sword/long/heirloom/F = I
 			if(F.wielded)
 				to_chat(user, "<span class='warning'>Unwield the [F.name] first.</span>")
 				return
@@ -94,15 +94,6 @@
 /obj/structure/fireaxecabinet/attack_paw(mob/living/user)
 	return attack_hand(user)
 
-/obj/structure/fireaxecabinet/attack_tk(mob/user)
-	if(locked)
-		to_chat(user, "<span class='warning'>The [name] won't budge!</span>")
-		return
-	else
-		open = !open
-		update_icon()
-		return
-
 /obj/structure/fireaxecabinet/update_icon()
 	cut_overlays()
 	if(heirloom)
@@ -119,7 +110,7 @@
 /obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
 	to_chat(user, "<span class='notice'>Resetting circuitry...</span>")
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
-	if(do_after(user, 20, target = src))
+	if(do_after(user, 2 SECONDS, src))
 		to_chat(user, "<span class='notice'>I [locked ? "disable" : "re-enable"] the locking modules.</span>")
 		locked = !locked
 		update_icon()
@@ -154,11 +145,11 @@
 	armor = list("blunt" = 50, "slash" = 50, "stab" = 50,  "piercing" = 20, "fire" = 90, "acid" = 50)
 	max_integrity = 150
 	integrity_failure = 0.33
-	var/obj/item/rogueweapon/mace/goden/shillelagh/heirloom
+	var/obj/item/weapon/mace/goden/shillelagh/heirloom
 
 /obj/structure/innkeep_rack/Initialize()
 	. = ..()
-	heirloom = new /obj/item/rogueweapon/mace/goden/shillelagh
+	heirloom = new /obj/item/weapon/mace/goden/shillelagh
 	update_icon()
 
 /obj/structure/innkeep_rack/Destroy()
@@ -167,8 +158,8 @@
 	return ..()
 
 /obj/structure/innkeep_rack/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/rogueweapon/mace/goden/shillelagh) && !heirloom)
-		var/obj/item/rogueweapon/mace/goden/shillelagh/F = I
+	if(istype(I, /obj/item/weapon/mace/goden/shillelagh) && !heirloom)
+		var/obj/item/weapon/mace/goden/shillelagh/F = I
 		if(F.wielded)
 			to_chat(user, "<span class='warning'>Unwield the [F.name] first.</span>")
 			return

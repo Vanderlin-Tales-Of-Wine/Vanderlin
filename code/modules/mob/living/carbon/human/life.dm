@@ -42,55 +42,45 @@
 		for(var/datum/antagonist/A in mind.antag_datums)
 			A.on_life(src)
 
-		handle_vamp_dreams()
-		if(IsSleeping())
-			if(health > 0)
-				remove_status_effect(/datum/status_effect/debuff/trainsleep)
-				if(has_status_effect(/datum/status_effect/debuff/sleepytime))
-					remove_status_effect(/datum/status_effect/debuff/sleepytime)
-					if(mind)
-						mind.sleep_adv.advance_cycle()
-					var/datum/game_mode/chaosmode/C = SSticker.mode
-					if(istype(C))
-						if(mind)
-							if(!mind.antag_datums || !mind.antag_datums.len)
-								allmig_reward++
-								to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-								if(C.allmig)
-									if(allmig_reward > 3)
-										adjust_triumphs(1)
-		if(HAS_TRAIT(src, TRAIT_LEPROSY))
-			if(!mob_timers["leper_bleed"] || mob_timers["leper_bleed"] + 6 MINUTES < world.time)
-				if(prob(10))
-					to_chat(src, span_warning("My skin opens up and bleeds..."))
-					mob_timers["leper_bleed"] = world.time
-					var/obj/item/bodypart/part = pick(bodyparts)
-					if(part)
-						part.add_wound(/datum/wound/slash)
-			adjustToxLoss(0.3)
-		//heart attack stuff
-		handle_curses()
-		handle_heart()
-		handle_liver()
-		update_stamina()
-		update_energy()
-		handle_environment()
-		if(charflaw && !charflaw.ephemeral)
-			charflaw.flaw_on_life(src)
-		if(health <= 0)
-			adjustOxyLoss(0.3)
-		if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-			if(mob_timers["slo"])
-				if(world.time > mob_timers["slo"] + 90 SECONDS)
-					Sleeping(100)
-			else
-				mob_timers["slo"] = world.time
+	handle_vamp_dreams()
+	if(IsSleeping())
+		if(health > 0)
+			remove_status_effect(/datum/status_effect/debuff/trainsleep)
+			if(has_status_effect(/datum/status_effect/debuff/sleepytime))
+				remove_status_effect(/datum/status_effect/debuff/sleepytime)
+				if(mind)
+					mind.sleep_adv.advance_cycle()
+	if(HAS_TRAIT(src, TRAIT_LEPROSY))
+		if(MOBTIMER_FINISHED(src, MT_LEPERBLEED, 6 MINUTES))
+			if(prob(10))
+				to_chat(src, span_warning("My skin opens up and bleeds..."))
+				MOBTIMER_SET(src, MT_LEPERBLEED)
+				var/obj/item/bodypart/part = pick(bodyparts)
+				if(part)
+					part.add_wound(/datum/wound/slash)
+		adjustToxLoss(0.3)
+	//heart attack stuff
+	handle_curses()
+	handle_heart()
+	handle_liver()
+	update_stamina()
+	update_energy()
+	handle_environment()
+	if(charflaw && !charflaw.ephemeral)
+		charflaw.flaw_on_life(src)
+	if(health <= 0)
+		apply_damage(1, OXY)
+	if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+		if(MOBTIMER_EXISTS(src, MT_SLO))
+			if(MOBTIMER_FINISHED(src, MT_SLO, 90 SECONDS)) //?????
+				Sleeping(100)
 		else
-			if(mob_timers["slo"])
-				mob_timers["slo"] = null
+			MOBTIMER_SET(src, MT_SLO)
+	else
+		MOBTIMER_UNSET(src, MT_SLO)
 
-		if(dna?.species)
-			dna.species.spec_life(src) // for mutantraces
+	if(dna?.species)
+		dna.species.spec_life(src) // for mutantraces
 
 	if(!typing)
 		set_typing_indicator(FALSE)
@@ -134,7 +124,7 @@
 	return
 
 /mob/living/carbon/human/handle_environment()
-	dna.species.handle_environment(src)
+	dna?.species.handle_environment(src)
 
 ///FIRE CODE
 /mob/living/carbon/human/handle_fire()
@@ -146,9 +136,9 @@
 		. = dna.species.handle_fire(src) //do special handling based on the mob's species. TRUE = they are immune to the effects of the fire.
 
 	if(!last_fire_update)
-		last_fire_update = fire_stacks
-	if((fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks <= 10 && last_fire_update > 10))
-		last_fire_update = fire_stacks
+		last_fire_update = fire_stacks + divine_fire_stacks
+	if((fire_stacks + divine_fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks + divine_fire_stacks <= 10 && last_fire_update > 10))
+		last_fire_update = fire_stacks + divine_fire_stacks
 		update_fire()
 
 
@@ -168,7 +158,7 @@
 	//If firestacks are high enough
 	if(!dna || dna.species.CanIgniteMob(src))
 		if(!on_fire)
-			if(fire_stacks > 10)
+			if(fire_stacks + divine_fire_stacks > 10)
 				Immobilize(30)
 				emote("firescream", TRUE)
 			else
@@ -184,9 +174,8 @@
 /mob/living/carbon/human/SoakMob(locations)
 	. = ..()
 	var/coverhead
-//	var/coverfeet
 	//add belt slots to this for rusting
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
+	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, cloak, wear_armor, wear_pants, backr, backl, gloves, shoes, belt, s_store, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
 	for(var/bp in body_parts)
 		if(!bp)
 			continue
@@ -194,16 +183,10 @@
 			var/obj/item/clothing/C = bp
 			if(zone2covered(BODY_ZONE_HEAD, C.body_parts_covered))
 				coverhead = TRUE
-//			if(zone2covered(BODY_ZONE_PRECISE_L_FOOT, C.body_parts_covered))
-//				coverfeet = TRUE
 	if(locations & HEAD)
 		if(!coverhead)
 			var/mob/living/carbon/V = src
 			V.add_stress(/datum/stressevent/coldhead)
-//	if(locations & FEET)
-//		if(!coverfeet)
-//			add_stress(/datum/stressevent/coldfeet)
-
 //END FIRE CODE
 
 
@@ -325,15 +308,12 @@
 	//Puke if toxloss is too high
 	if(!stat)
 		if(prob(33) && getToxLoss() >= 75)
-			mob_timers["puke"] = world.time
+			MOBTIMER_SET(src, MT_PUKE)
 			vomit(1, blood = TRUE)
 
 /mob/living/carbon/human/has_smoke_protection()
 	if(wear_mask)
 		if(wear_mask.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
-			return TRUE
-	if(glasses)
-		if(glasses.clothing_flags & BLOCK_GAS_SMOKE_EFFECT)
 			return TRUE
 	if(head && istype(head, /obj/item/clothing))
 		var/obj/item/clothing/CH = head

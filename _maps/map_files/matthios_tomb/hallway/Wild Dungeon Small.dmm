@@ -1,0 +1,483 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bG" = (
+/obj/structure/flora/grass/bush,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"dC" = (
+/obj/structure/flora/grass/herb/artemisia,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"eg" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"eE" = (
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"hr" = (
+/obj/structure/flora/grass/herb/matricaria,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"hz" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"ie" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"jd" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/salvia,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"jp" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"kw" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"lw" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/grass/herb/calendula,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"mL" = (
+/turf/open/transparent/openspace,
+/area/rogue/under/cave)
+"nF" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"nN" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/herb/mentha,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"oI" = (
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"pl" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"qd" = (
+/obj/structure/flora/grass/pyroclasticflowers,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"tp" = (
+/obj/effect/dungeon_directional_helper/east,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"tB" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"wJ" = (
+/obj/structure/stairs/stone/reddish{
+	dir = 4
+	},
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"wO" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave)
+"wS" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"yz" = (
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave)
+"Aj" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"CV" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/herb/hypericum,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"DJ" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"DR" = (
+/obj/effect/dungeon_directional_helper/west,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"EI" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"Fo" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"Fy" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"Gg" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"HI" = (
+/obj/structure/flora/grass/herb/valeriana,
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Ig" = (
+/obj/structure/fluff/statue/gargoyle/moss/candles,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"IZ" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"Kl" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Ld" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Lf" = (
+/obj/structure/flora/grass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"Lg" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"MG" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/bush,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"Oc" = (
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"OM" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/bush,
+/obj/structure/fluff/walldeco/vinez,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"PL" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/structure/fluff/walldeco/vinez,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave)
+"QL" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"RY" = (
+/obj/structure/stairs/stone/reddish{
+	dir = 4
+	},
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"TD" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Up" = (
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Vz" = (
+/mob/living/simple_animal/hostile/retaliate/wolf,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+"VW" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/cobble/mossy,
+/area/rogue/under/cave)
+"Xz" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/grass/bush,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"XI" = (
+/obj/structure/flora/grass/pyroclasticflowers,
+/obj/structure/flora/ausbushes/grassybush,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"YD" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Ze" = (
+/obj/structure/flora/grass,
+/turf/open/floor/grass,
+/area/rogue/under/cave)
+"Zv" = (
+/obj/structure/flora/grass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/floor/grass/mixyel,
+/area/rogue/under/cave)
+
+(1,1,1) = {"
+wO
+wO
+wO
+wO
+Lf
+DR
+Oc
+wO
+wO
+wO
+"}
+(2,1,1) = {"
+wO
+wO
+pl
+yz
+yz
+EI
+Up
+Ld
+yz
+wO
+"}
+(3,1,1) = {"
+yz
+bG
+Lg
+qd
+yz
+yz
+jp
+TD
+yz
+yz
+"}
+(4,1,1) = {"
+yz
+TD
+Ze
+Lg
+Lg
+tB
+Oc
+HI
+kw
+yz
+"}
+(5,1,1) = {"
+eE
+dC
+QL
+Zv
+yz
+wJ
+tB
+hz
+Ze
+eE
+"}
+(6,1,1) = {"
+nF
+tB
+Fy
+Fo
+yz
+yz
+eE
+Lg
+Lf
+ie
+"}
+(7,1,1) = {"
+Oc
+Lf
+Lg
+Fo
+Fo
+Lf
+Lg
+tB
+Lg
+eE
+"}
+(8,1,1) = {"
+yz
+DJ
+Lg
+hr
+YD
+tB
+Lg
+TD
+XI
+wO
+"}
+(9,1,1) = {"
+yz
+yz
+OM
+Lf
+Lf
+Gg
+Aj
+yz
+wO
+wO
+"}
+(10,1,1) = {"
+wO
+yz
+yz
+Up
+tp
+tB
+yz
+yz
+wO
+wO
+"}
+
+(1,1,2) = {"
+wO
+wO
+wO
+wO
+Fo
+VW
+Fo
+wO
+wO
+wO
+"}
+(2,1,2) = {"
+wO
+yz
+Ig
+yz
+wO
+TD
+lw
+tB
+yz
+yz
+"}
+(3,1,2) = {"
+yz
+TD
+Vz
+MG
+yz
+wO
+tB
+tB
+Xz
+PL
+"}
+(4,1,2) = {"
+yz
+wS
+Lg
+wS
+yz
+wO
+yz
+Lg
+nN
+yz
+"}
+(5,1,2) = {"
+hz
+eg
+eE
+VW
+wO
+mL
+yz
+Ze
+VW
+tB
+"}
+(6,1,2) = {"
+Lf
+jd
+tB
+Oc
+Oc
+RY
+eE
+Oc
+Lf
+Fo
+"}
+(7,1,2) = {"
+Lf
+Lg
+Xz
+hz
+Lg
+eE
+Up
+eg
+eg
+TD
+"}
+(8,1,2) = {"
+wO
+Kl
+yz
+yz
+Lf
+Lg
+CV
+oI
+yz
+wO
+"}
+(9,1,2) = {"
+wO
+yz
+PL
+IZ
+Lf
+hz
+VW
+yz
+yz
+wO
+"}
+(10,1,2) = {"
+wO
+wO
+wO
+hz
+Lf
+hz
+yz
+yz
+wO
+wO
+"}

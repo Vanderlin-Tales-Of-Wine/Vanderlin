@@ -147,6 +147,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	/// Tracker to whether the person has ever spawned into the round, for purposes of applying the respawn ban
 	var/has_spawned = FALSE
+	///our selected accent
+	var/selected_accent = ACCENT_DEFAULT
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -178,7 +180,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	if(!selected_patron)
 		selected_patron = GLOB.patronlist[default_patron]
 	key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key) // give them default keybinds and update their movement keys
-	C.update_movement_keys()
+	if(isclient(C))
+		C.update_movement_keys()
 	real_name = pref_species.random_name(gender,1)
 	if(!loaded_preferences_successfully)
 		save_preferences()
@@ -372,6 +375,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 //				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Lock" : "Unlock"]</A>"
 				dat += "<br>"
 				dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
+				dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
 				dat += "<br>"
 //				dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
 //				dat += "<br>"
@@ -707,9 +711,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				else
 					var/days_remaining = null
 					if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-						var/mode_path = GLOB.special_roles_rogue[i]
-						var/datum/game_mode/temp_mode = new mode_path
-						days_remaining = temp_mode.get_remaining_days(user.client)
+						days_remaining = get_remaining_days(user.client)
 
 					if(days_remaining)
 						dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -989,8 +991,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
 			if(length(job.allowed_races) && !(user.client.prefs.pref_species.name in job.allowed_races))
-				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
-				continue
+				if(!(user.client.triumph_ids.Find("race_all")))
+					HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
+					continue
 			if(length(job.allowed_patrons) && !(user.client.prefs.selected_patron.type in job.allowed_patrons))
 				HTML += "<font color=#a36c63>[used_name]</font></td> <td> </td></tr>"
 				continue
@@ -1249,9 +1252,7 @@ Slots: [job.spawn_positions]</span>
 		else
 			var/days_remaining = null
 			if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-				var/mode_path = GLOB.special_roles_rogue[i]
-				var/datum/game_mode/temp_mode = new mode_path
-				days_remaining = temp_mode.get_remaining_days(user.client)
+				days_remaining = get_remaining_days(user.client)
 
 			if(days_remaining)
 				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -1743,8 +1744,12 @@ Slots: [job.spawn_positions]</span>
 					var/result = input(user, "Select a species", "Vanderlin") as null|anything in crap
 
 					if(result)
-						//var/newtype = GLOB.species_list[result]
 						pref_species = result
+
+						to_chat(user, "<em>[pref_species.name]</em>")
+						if(pref_species.desc)
+							to_chat(user, "[pref_species.desc]")
+
 						//Now that we changed our species, we must verify that the mutant colour is still allowed.
 						var/temp_hsv = RGBtoHSV(features["mcolor"])
 						if(features["mcolor"] == "#000" || (!(MUTCOLORS_PARTSONLY in pref_species.species_traits) && ReadHSV(temp_hsv)[3] < ReadHSV("#7F7F7F")[3]))
@@ -1846,33 +1851,29 @@ Slots: [job.spawn_positions]</span>
 					if(new_legs)
 						features["legs"] = new_legs
 
-				if("moth_wings")
-					var/new_moth_wings
-					new_moth_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.moth_wings_list
-					if(new_moth_wings)
-						features["moth_wings"] = new_moth_wings
-
-				if("moth_markings")
-					var/new_moth_markings
-					new_moth_markings = input(user, "Choose your character's markings:", "Character Preference") as null|anything in GLOB.moth_markings_list
-					if(new_moth_markings)
-						features["moth_markings"] = new_moth_markings
-
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
 					var/new_s_tone = input(user, "Choose your character's skin tone:", "Sun")  as null|anything in listy
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 
+				if("selected_accent")
+					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+						to_chat(user, "Sorry this is a patreon exclusive feature.")
+					else
+						var/accent = input(user, "Choose your character's accent:", "Character Preference") as null|anything in GLOB.accent_list
+						if(accent)
+							selected_accent = accent
+
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null
 					if(new_ooccolor)
-						ooccolor = new_ooccolor
+						ooccolor = sanitize_ooccolor(new_ooccolor)
 
 				if("asaycolor")
 					var/new_asaycolor = input(user, "Choose your ASAY color:", "Game Preference",asaycolor) as color|null
 					if(new_asaycolor)
-						asaycolor = new_asaycolor
+						asaycolor = sanitize_ooccolor(new_asaycolor)
 
 				if ("preferred_map")
 					var/maplist = list()
@@ -2335,6 +2336,9 @@ Slots: [job.spawn_positions]</span>
 		character.update_body()
 		character.update_hair()
 		character.update_body_parts(redraw = TRUE)
+
+	if(parent?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		character.accent = selected_accent
 
 	character.familytree_pref = family
 	character.setspouse = setspouse

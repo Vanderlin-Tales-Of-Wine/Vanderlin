@@ -40,8 +40,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define islava(A) (istype(A, /turf/open/lava))
 
-#define ischasm(A) (istype(A, /turf/open/chasm))
-
 #define isplatingturf(A) (istype(A, /turf/open/floor/plating))
 
 #define istransparentturf(A) (istype(A, /turf/open/transparent) || istype(A, /turf/closed/transparent))
@@ -53,7 +51,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 //Carbon mobs
 #define iscarbon(A) (istype(A, /mob/living/carbon))
-
+#define isroguespirit(A) (istype(A, /mob/living/carbon/spirit)) //underworld spirit
 #define ishuman(A) (istype(A, /mob/living/carbon/human))
 
 //Human sub-species
@@ -87,10 +85,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define iscat(A) (istype(A, /mob/living/simple_animal/pet/cat))
 
-#define isdog(A) (istype(A, /mob/living/simple_animal/pet/dog))
-
-#define iscorgi(A) (istype(A, /mob/living/simple_animal/pet/dog/corgi))
-
 #define ishostile(A) (istype(A, /mob/living/simple_animal/hostile))
 
 #define isclown(A) (istype(A, /mob/living/simple_animal/hostile/retaliate/clown))
@@ -100,7 +94,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define isobserver(A) (istype(A, /mob/dead/observer))
 
 #define isrogueobserver(A) (istype(A, /mob/dead/observer/rogue))
-#define isroguespirit(A) (istype(A, /mob/living/carbon/spirit)) //underworld spirit
 
 #define isdead(A) (istype(A, /mob/dead))
 

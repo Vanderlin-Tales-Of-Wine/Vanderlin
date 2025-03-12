@@ -37,12 +37,6 @@
 	patron.on_gain(src)
 	return TRUE
 
-/datum/species
-	///Statkey = bonus stat, - for malice.
-	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-	///Statkey = bonus stat, - for malice.
-	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-
 ///Rolls random stats base 10, +-1, for SPECIAL, and applies species stats and age stats.
 /mob/living/proc/roll_mob_stats()
 	if(has_rolled_for_stats)
@@ -60,6 +54,12 @@
 				for(var/S in H.dna.species.specstats)
 					change_stat(S, H.dna.species.specstats[S])
 		switch(H.age)
+			if(AGE_CHILD)
+				change_stat(STATKEY_STR, -2)
+				change_stat(STATKEY_CON, -2)
+				change_stat(STATKEY_PER, 1)
+				change_stat(STATKEY_END, 1)
+				change_stat(STATKEY_SPD, round(rand(1,2)))
 			if(AGE_MIDDLEAGED)
 				change_stat(STATKEY_END, 1)
 				change_stat(STATKEY_SPD, -1)
@@ -232,3 +232,30 @@
 		return isnull(dee_cee) ? prob(tocheck * chance_per_point) : prob(clamp((dee_cee - tocheck) * chance_per_point,0,100))
 	else
 		return isnull(dee_cee) ? prob(tocheck * chance_per_point) : prob(clamp((tocheck - dee_cee) * chance_per_point,0,100))
+
+/mob/living/proc/return_stat_level(stat_key)
+	var/tocheck
+	switch(stat_key)
+		if(STATKEY_STR)
+			tocheck = STASTR
+		if(STATKEY_PER)
+			tocheck = STAPER
+		if(STATKEY_END)
+			tocheck = STAEND
+		if(STATKEY_CON)
+			tocheck = STACON
+		if(STATKEY_INT)
+			tocheck = STAINT
+		if(STATKEY_SPD)
+			tocheck = STASPD
+		if(STATKEY_LCK)
+			tocheck = STALUC
+	return tocheck
+
+/mob/living/proc/badluck(multi = 3)
+	if(STALUC < 10)
+		return prob((10 - STALUC) * multi)
+
+/mob/living/proc/goodluck(multi = 3)
+	if(STALUC > 10)
+		return prob((STALUC - 10) * multi)

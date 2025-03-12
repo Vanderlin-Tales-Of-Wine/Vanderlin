@@ -12,7 +12,7 @@
 
 /obj/item/book/granter/proc/turn_page(mob/user)
 	playsound(user, pick('sound/blank.ogg'), 30, TRUE)
-	if(do_after(user,50, user))
+	if(do_after(user, 5 SECONDS))
 		if(remarks.len)
 			to_chat(user, "<span class='notice'>[pick(remarks)]</span>")
 		else
@@ -57,7 +57,7 @@
 			on_reading_stopped()
 			reading = FALSE
 			return
-	if(do_after(user,50, user))
+	if(do_after(user, 5 SECONDS))
 		on_reading_finished(user)
 		reading = FALSE
 	return TRUE
@@ -99,21 +99,6 @@
 		var/datum/crafting_recipe/R = crafting_recipe_type
 		user.mind.teach_crafting_recipe(crafting_recipe_type)
 		to_chat(user,"<span class='notice'>I learned how to make [initial(R.name)].</span>")
-
-/obj/item/book/granter/crafting_recipe/cooking_sweets_101
-	name = "Cooking Desserts 101"
-	desc = ""
-/*	crafting_recipe_types = list(
-		/datum/crafting_recipe/food/mimetart,
-		/datum/crafting_recipe/food/berrytart,
-		/datum/crafting_recipe/food/cocolavatart,
-		/datum/crafting_recipe/food/clowncake,
-		/datum/crafting_recipe/food/vanillacake
-	)
-*/
-	icon_state = "cooking_learing_sweets"
-	oneuse = FALSE
-	remarks = list("So that is how icing is made!", "Placing fruit on top? How simple...", "Huh layering cake seems harder then this...", "This book smells like candy", "A clown must have made this page, or they forgot to spell check it before printing...", "Wait, a way to cook slime to be safe?")
 
 //! --MAGICK SCROLLS-- !/
 

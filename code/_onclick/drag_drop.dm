@@ -60,6 +60,8 @@
 	var/goal
 	var/progress
 	var/doneset
+	var/aghost_toggle
+	var/datum/patreon_data/patreon
 
 /atom
 	var/blockscharging = FALSE
@@ -70,6 +72,10 @@
 /client/MouseDown(object, location, control, params)
 	if(mob.incapacitated())
 		return
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
+		var/obj/abstract/visual_ui_element/hoverable/movable/ui_object = object
+		ui_object.MouseDown(location, control, params)
 
 	tcompare = object
 
@@ -95,7 +101,7 @@
 
 	if(!mob.fixedeye) //If fixedeye isn't already enabled, we need to set this var
 		mob.tempfixeye = TRUE //Change icon to 'target' red eye
-		mob.nodirchange = TRUE
+		mob.atom_flags |= NO_DIR_CHANGE
 
 	for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
 		eyet.update_icon(mob) //Update eye icon
@@ -173,10 +179,16 @@
 
 /mob
 	var/datum/intent/curplaying
+	var/accent = ACCENT_DEFAULT
 
 /client/MouseUp(object, location, control, params)
 	charging = 0
 //	mob.update_warning()
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params)
+
+	if(istype(object, /obj/abstract/visual_ui_element/hoverable/movable))
+		var/obj/abstract/visual_ui_element/hoverable/movable/ui_object = object
+		ui_object.MouseUp(location, control, params)
 
 	mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 
@@ -185,7 +197,7 @@
 
 	if(!mob.fixedeye)
 		mob.tempfixeye = FALSE
-		mob.nodirchange = FALSE
+		mob.atom_flags &= ~NO_DIR_CHANGE
 
 	if(mob.hud_used)
 		for(var/atom/movable/screen/eye_intent/eyet in mob.hud_used.static_inventory)
@@ -220,7 +232,7 @@
 
 	if(tcompare)
 		if(object)
-			if(isatom(object) && object != tcompare && mob.atkswinging && tcompare != mob)
+			if(isatom(object) && object != tcompare && mob.atkswinging && tcompare != mob && (mob.cmode || chargedprog))
 				var/atom/N = object
 				N.Click(location, control, params)
 		tcompare = null
@@ -259,7 +271,6 @@
 		lastplayed = 0
 		doneset = 0
 		chargedprog = 0
-		mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
 		START_PROCESSING(SSmousecharge, src)
 
 /client/Destroy()
@@ -281,23 +292,26 @@
 		if(progress < goal)
 			progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
-	//		mouseprog = round(text2num("[((progress / goal) * 20)]"), 1)
-	//		mouse_pointer_icon = GLOB.mouseicons_human[mouseprog]
-	//		testing("mouse[mouseprog]")
-//			if(sections && chargedprog > lastplayed)
-//				L.say(L.used_intent.charge_invocation[part])
-//				part++
-//				lastplayed = sections * part
+// Here we start changing the mouse_pointer_icon
+			if(!(mob.used_intent.charge_pointer & mob.used_intent.charged_pointer))
+				var/mouseprog = clamp(round(((progress / goal)*100),5), 0, 100)
+				mouse_pointer_icon = file("icons/effects/mousemice/charge/default/[mouseprog].dmi")
+			else
+				mouse_pointer_icon = mob.used_intent.charge_pointer
 		else
 			if(!doneset)
 				doneset = 1
+				chargedprog = 100
+				if(!(mob.used_intent.charge_pointer & mob.used_intent.charged_pointer))
+					mouse_pointer_icon = 'icons/effects/mousemice/charge/default/100.dmi'
+				else
+					mouse_pointer_icon = mob.used_intent.charged_pointer
+// Now we are done messing with the mouse_pointer_icon
 //				if(sections)
 //					L.say(L.used_intent.charge_invocation[L.used_intent.charge_invocation.len])
 				if(L.curplaying && !L.used_intent.keep_looping)
 					playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
 					L.curplaying.on_mouse_up()
-				chargedprog = 100
-				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 				if(istype(L.used_intent, /datum/intent/shield/block))
 					L.visible_message("<span class='danger'>[L] prepares to do a shield bash!</span>")
 					playsound(L, 'sound/combat/shieldraise.ogg', 100, TRUE)

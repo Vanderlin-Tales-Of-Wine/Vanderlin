@@ -31,7 +31,7 @@
 	/// Mood message for being here, only shows up if mood_bonus != 0
 	var/mood_message = "<span class='nicegreen'>This area is pretty nice!\n</span>"
 
-	var/has_gravity = 0
+	var/has_gravity = STANDARD_GRAVITY
 	///Are you forbidden from teleporting to the area? (centcom, mobs, wizard, hand teleporter)
 	var/noteleport = FALSE
 	///Hides area from player Teleport function.
@@ -45,7 +45,7 @@
 
 	var/parallax_movedir = 0
 
-	var/list/ambientsounds = GENERIC
+	var/list/ambientsounds = null
 	var/list/ambientrain = null
 	var/list/ambientnight = null
 
@@ -74,6 +74,7 @@
 	var/soundenv = 0
 
 	var/first_time_text = null
+	var/custom_area_sound = null
 
 	/// typecache to limit the areas that atoms in this area can smooth with, used for shuttles IIRC
 	var/list/canSmoothWithAreas
@@ -297,7 +298,11 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	T.maptext_height = 209
 	T.maptext_x = 12
 	T.maptext_y = 64
-	playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
+	if(A.custom_area_sound)
+		playsound_local(src, A.custom_area_sound, 125, FALSE)
+	else
+		playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
+
 	animate(T, alpha = 255, time = 10, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 

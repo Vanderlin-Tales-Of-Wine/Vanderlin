@@ -159,20 +159,6 @@ GLOBAL_LIST_EMPTY(bloody_footprints_cache)
 #define BLOOD_STATE_GREEN			"green"
 #define BLOOD_STATE_NOT_BLOODY		"no blood whatsoever"
 
-//suit sensors: sensor_mode defines
-
-#define SENSOR_OFF 0
-#define SENSOR_LIVING 1
-#define SENSOR_VITALS 2
-#define SENSOR_COORDS 3
-
-//suit sensors: has_sensor defines
-
-#define BROKEN_SENSORS -1
-#define NO_SENSORS 0
-#define HAS_SENSORS 1
-#define LOCKED_SENSORS 2
-
 //Wet floor type flags. Stronger ones should be higher in number.
 #define TURF_DRY			(0)
 #define TURF_WET_WATER		(1<<0)
@@ -234,8 +220,7 @@ GLOBAL_LIST_INIT(ghost_accs_options, list(GHOST_ACCS_NONE, GHOST_ACCS_DIR, GHOST
 
 #define GHOST_OTHERS_DEFAULT_OPTION			GHOST_OTHERS_THEIR_SETTING
 
-#define GHOST_MAX_VIEW_RANGE_DEFAULT 10
-#define GHOST_MAX_VIEW_RANGE_MEMBER 14
+#define GHOST_MAX_VIEW_RANGE 24
 
 
 GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DEFAULT_SPRITE, GHOST_OTHERS_THEIR_SETTING)) //Same as ghost_accs_options.
@@ -503,3 +488,12 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 #define CANTHOLD_STATIC(comp, L) \
 	var/static/list/canthold_typecache = L; \
 	comp.cant_hold = canthold_typecache
+
+// timed_action_flags parameter for `/proc/do_after`
+#define IGNORE_USER_LOC_CHANGE (1<<0)
+#define IGNORE_TARGET_LOC_CHANGE (1<<1)
+#define IGNORE_HELD_ITEM (1<<2)
+#define IGNORE_INCAPACITATED (1<<3)
+/// Used to prevent important slowdowns from being abused by drugs like kronkaine
+#define IGNORE_SLOWDOWNS (1<<4)
+#define IGNORE_USER_DIR_CHANGE (1<<5)

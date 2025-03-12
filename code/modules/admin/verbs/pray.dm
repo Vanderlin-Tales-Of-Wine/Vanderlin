@@ -20,7 +20,7 @@
 //		if(src.client.handle_spam_prevention(msg,MUTE_PRAY))
 //			return
 
-	var/mutable_appearance/cross = mutable_appearance('icons/obj/storage.dmi', "bible")
+	var/mutable_appearance/cross = mutable_appearance('icons/roguetown/clothing/neck.dmi', "psycross_wood")
 	var/font_color = "purple"
 	var/prayer_type = "PRAYER"
 	var/deity
@@ -74,42 +74,3 @@
 	msg = "<span class='adminnotice'><b><font color=orange>NUKE CODE REQUEST:</font>[ADMIN_FULLMONTY(Sender)] [ADMIN_CENTCOM_REPLY(Sender)] [ADMIN_SET_SD_CODE]:</b> [msg]</span>"
 	to_chat(GLOB.admins, msg)
 
-
-/mob/proc/roguepray(msg as text)
-//	set category = "IC"
-//	set name = "Pray"
-//	set hidden = 1
-//	if(!usr.client.holder)
-//		return
-//
-//	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
-	if(!msg)
-		return
-
-	// Make it show only for admins, linked so that it's easier for them to jump to the person praying
-	message_admins("[src.key]/([src.real_name]) [ADMIN_JMP(src)] prays: <span class='info'>[msg]</span>")
-
-	// Log the prayer to file
-	log_prayer("<span class='info'>[src.key]/([src.real_name]) prays: [msg]</span>")
-
-/*	for(var/client/C in GLOB.admins)
-//		if(C.prefs.chat_toggles & CHAT_PRAYER)
-///			to_chat(C, msg)
-
-	for(var/client/J in GLOB.clients)
-		if(!J.mob)
-			continue
-//		var/T = get_turf(src)
-		var/go = FALSE
-		if(isliving(J.mob))
-			var/mob/living/M = J.mob
-			if(M.stat == DEAD)
-				go = TRUE
-		if(isobserver(J.mob))
-			go = TRUE
-		if(istype(J.mob, /mob/dead/new_player))
-			go = TRUE
-		if(!go)
-			continue
-		to_chat(J, msg)
-*/
