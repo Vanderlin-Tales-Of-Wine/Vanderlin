@@ -309,6 +309,7 @@
 					return
 			wash_atom(T)
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+			reagents.remove_reagent(/datum/reagent/soap, 1, TRUE)
 			reagents.remove_reagent(removereg, 5)
 			user.visible_message("<span class='info'>[user] soaks [T] in [src].</span>")
 			return
