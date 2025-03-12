@@ -66,7 +66,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
-	var/wet_max = 12
+	var/static/wet_max = 12
 	var/wet = 0
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
@@ -95,10 +95,6 @@
 	testing("attackobj")
 	if(user.client && ((O in user.client.screen) && !user.is_holding(O)))
 		to_chat(user, span_warning("I need to take that [O.name] off before cleaning it!"))
-		return
-	//soap reagents are dealt with here and in attack_by for buckets because Atom doesn't send wash data
-	if(istype(O, /obj/item/reagent_containers/glass/bucket/wooden) && O.reagents.get_reagent_amount(/datum/reagent/soap, 1))
-		wet = wet_max
 		return
 	if(istype(O, /obj/effect/decal/cleanable))
 		var/cleanme = TRUE

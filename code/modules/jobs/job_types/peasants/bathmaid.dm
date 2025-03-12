@@ -48,8 +48,8 @@
 // Washing Implements
 
 /obj/item/bath/soap
-	name = "herbal soap"
-	desc = "A soap made from various herbs."
+	name = "DO NOT USE"
+	desc = "If you're seeing this, you shouldn't."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "soap"
 	w_class = WEIGHT_CLASS_TINY

@@ -308,8 +308,10 @@
 					to_chat(user, "<span class='warning'>No water to soak in.</span>")
 					return
 			wash_atom(T)
+			if(reagents.has_reagent(/datum/reagent/soap, 1))
+				T.wet = T.wet_max
+				reagents.remove_reagent(/datum/reagent/soap, 1, TRUE)
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-			reagents.remove_reagent(/datum/reagent/soap, 1, TRUE)
 			reagents.remove_reagent(removereg, 5)
 			user.visible_message("<span class='info'>[user] soaks [T] in [src].</span>")
 			return

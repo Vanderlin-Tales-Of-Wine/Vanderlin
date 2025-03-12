@@ -112,7 +112,7 @@
 		var/datum/reagents/reagents = new()
 		reagents.add_reagent(/datum/reagent/soap, amt2Add)
 		reagents.trans_to(O, reagents.total_volume, transfered_by = user, method = TOUCH)
-		to_chat(user, span_notice("I dissolve some of the soap in the water."))
+		to_chat(user, span_info("I dissolve some of the soap in the water."))
 
 /obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
 	wash_atom(target, CLEAN_STRONG)
