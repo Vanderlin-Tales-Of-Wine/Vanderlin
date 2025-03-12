@@ -11,8 +11,6 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(headshot_link)
 			dat += "<br>"
 			dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
-		dat += "<br>"
-		dat += "<div align='center'><b>[src]</b>"
 		if(flavortext)
 			dat += "<br>"
 			dat += "<div align='center'>[flavortext]</div>"
