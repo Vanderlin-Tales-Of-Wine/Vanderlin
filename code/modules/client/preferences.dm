@@ -405,9 +405,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 //					dat += "<br>"
 
 				dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
-				dat += "<br><b>Flavor text:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
-				dat += "<br> <b>  Preview</b> <a href='?_src_=prefs;task=preview_flavor_text'></a>"
-				"<a href='?_src_=prefs;preference=antag;task=menu'>Villain Selection</a>"
+				if(headshot_link != null)
+					dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+				dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
 				dat += "<br></td>"
 //				dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
 			else if(use_skintones || mutant_colors)

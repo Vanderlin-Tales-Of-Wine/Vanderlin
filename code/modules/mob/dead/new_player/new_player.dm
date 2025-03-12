@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/prepare_huds()
 	return
 
-/mob/dead/new_player/proc/view_flavor_text()
+/mob/dead/new_player/proc/new_player_panel()
 	if(!SSassets.initialized)
 		sleep(0.5 SECONDS)
 		new_player_panel()
@@ -71,22 +71,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	if(client)
 		if(client.prefs)
 			client.prefs.ShowChoices(src, 4)
-
-	var/headshot_link = usr.client.prefs.headshot_link
-	var/flavortext = usr.client.prefs.flavortext
-	var/mob/user = usr
-	var/list/dat = list()
-	if(headshot_link)
-		dat += "<br>"
-		dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
-	if(flavortext)
-		dat += "<br>"
-		dat += "<div align='center'>[flavortext]</div>"
-	var/datum/browser/popup = new(usr, "[user]", "<center>[src]</center>", 480, 700)
-
-	popup.set_content(dat.Join())
-	popup.open(FALSE)
-	return
 
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
