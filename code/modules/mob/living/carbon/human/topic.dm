@@ -3,7 +3,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 
 /mob/living/carbon/human/Topic(href, href_list)
 
-	if(href_list["task"] == "view_headshot" && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
+	if(href_list["task"] == "view_flavor_text" && (isobserver(usr) || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))
 		if(!ismob(usr))
 			return
 		if(!valid_headshot_link(null, headshot_link, TRUE))
