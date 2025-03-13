@@ -132,6 +132,39 @@
 	maturation_nutrition = HUNGRINESS_DEMANDING
 	maturation_time = FAST_GROWING
 
+/datum/plant_def/strawberry
+	name = "strawberry bush"
+	icon_state = "strawberry"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/strawberry
+	uproot_loot = list(/obj/item/grown/log/tree/stick)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+	maturation_time = FAST_GROWING
+
+/datum/plant_def/blackberry
+	name = "blackberry bush"
+	icon_state = "blackberry"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/blackberry
+	uproot_loot = list(/obj/item/grown/log/tree/stick)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+	maturation_time = FAST_GROWING
+
+/datum/plant_def/raspberry
+	name = "raspberry bush"
+	icon_state = "raspberry"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/raspberry
+	uproot_loot = list(/obj/item/grown/log/tree/stick)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+	maturation_time = FAST_GROWING
+
 /datum/plant_def/apple
 	name = "apple tree"
 	icon_state = "apple"
@@ -147,6 +180,55 @@
 	icon_state = "pear"
 	produce_type = /obj/item/reagent_containers/food/snacks/produce/pear
 	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+
+/datum/plant_def/plum
+	name = "plum tree"
+	icon_state = "plumtree"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/plum
+	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+
+/datum/plant_def/tangerine
+	name = "tangerine tree"
+	icon_state = "tangerinetree"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/tangerine
+	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+
+/datum/plant_def/lime
+	name = "lime tree"
+	icon_state = "limetree"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/lime
+	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+
+/datum/plant_def/lemon
+	name = "lemon tree"
+	icon_state = "lemontree"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/lemon
+	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_min = 2
+	produce_amount_max = 4
+	maturation_nutrition = HUNGRINESS_DEMANDING
+
+/datum/plant_def/sugarcane
+	name = "sugarcane"
+	icon_state = "sugarcane"
+	produce_type = /obj/item/reagent_containers/food/snacks/produce/sugarcane
 	perennial = TRUE
 	produce_amount_min = 2
 	produce_amount_max = 4

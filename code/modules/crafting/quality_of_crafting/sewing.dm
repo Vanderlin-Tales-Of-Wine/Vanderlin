@@ -8,7 +8,7 @@
 	)
 
 	starting_atom = /obj/item/needle
-	attacking_atom = /obj/item/natural/cloth
+	attacked_atom = /obj/item/natural/cloth
 	skillcraft = /datum/skill/misc/sewing
 	craftdiff = 0
 	subtypes_allowed = TRUE // so you can use any subtype of fur
@@ -24,7 +24,7 @@
 /datum/repeatable_crafting_recipe/sewing/tribalrags
 	name = "tribal rags"
 	output = /obj/item/clothing/shirt/tribalrag
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(/obj/item/natural/hide = 1,
 				/obj/item/natural/fibers = 1)
 	sellprice = 6
@@ -245,7 +245,7 @@
 /datum/repeatable_crafting_recipe/sewing/bedsheetpelt
 	name = "leather bedsheet"
 	output = /obj/item/bedsheet/pelt
-	attacking_atom = /obj/item/natural/hide/cured
+	attacked_atom = /obj/item/natural/hide/cured
 	requirements = list(/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 2
@@ -484,7 +484,7 @@
 /datum/repeatable_crafting_recipe/sewing/lordcloak
 	name = "lordly cloak"
 	output = /obj/item/clothing/cloak/lordcloak
-	attacking_atom = /obj/item/natural/hide/cured
+	attacked_atom = /obj/item/natural/hide/cured
 	requirements = list(/obj/item/natural/fur = 2,
 				/obj/item/natural/hide/cured = 4)
 	craftdiff = 5
@@ -502,7 +502,7 @@
 
 /datum/repeatable_crafting_recipe/sewing/weaving
 	abstract_type = /datum/repeatable_crafting_recipe/sewing/weaving
-	attacking_atom = /obj/machinery/loom
+	attacked_atom = /obj/machinery/loom
 	starting_atom = /obj/item/natural/silk
 	requirements = list(
 		/obj/item/natural/silk = 1

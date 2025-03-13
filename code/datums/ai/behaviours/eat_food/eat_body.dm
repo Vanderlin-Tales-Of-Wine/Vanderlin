@@ -28,7 +28,7 @@
 	if(do_after(basic_mob, 10 SECONDS, target, extra_checks = CALLBACK(src, PROC_REF(is_dead), target)))
 		if(!is_dead(target))
 			finish_action(controller, FALSE)
-		add_abstract_elastic_data("combat", "eaten_bodies", 1)
+		add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_EATEN_BODIES, 1)
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/limb

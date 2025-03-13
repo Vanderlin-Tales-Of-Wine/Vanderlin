@@ -71,8 +71,12 @@
 		<body>
 		"}
 
+	var/first = TRUE
 	for(var/atom/path as anything in types)
 		if(is_abstract(path))
+			if(!first)
+				html += "<br>"
+			first = FALSE
 			for(var/atom/sub_path as anything in subtypesof(path))
 				if(is_abstract(sub_path))
 					continue
@@ -242,6 +246,7 @@
 	types = list(
 		/datum/repeatable_crafting_recipe/narcotics,
 		/datum/pot_recipe/drugs,
+		/datum/repeatable_crafting_recipe/bomb,
 	)
 
 /obj/item/recipe_book/carpentry

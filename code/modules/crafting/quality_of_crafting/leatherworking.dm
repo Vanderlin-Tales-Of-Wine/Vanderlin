@@ -8,7 +8,7 @@
 	)
 
 	starting_atom = /obj/item/needle
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 	skillcraft = /datum/skill/craft/tanning
 	craftdiff = 0
 	subtypes_allowed = TRUE // so you can use any subtype of fur
@@ -20,7 +20,7 @@
 
 /datum/repeatable_crafting_recipe/leather/volfhelm
 	name = "volf helm"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 3,
 		/obj/item/natural/fur = 2,
@@ -121,7 +121,7 @@
 
 /datum/repeatable_crafting_recipe/leather/cloakfur
 	name = "fur cloak"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 2,
 		/obj/item/natural/fur = 1,
@@ -146,7 +146,7 @@
 
 /datum/repeatable_crafting_recipe/leather/tribal_cloak
 	name = "tribal pelt"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
@@ -154,7 +154,7 @@
 
 /datum/repeatable_crafting_recipe/leather/tribal_shoes
 	name = "tribal shoes"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
@@ -187,7 +187,7 @@
 
 /datum/repeatable_crafting_recipe/leather/meatbag
 	name = "game satchel"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 		/obj/item/natural/cloth = 1,
@@ -197,7 +197,7 @@
 
 /datum/repeatable_crafting_recipe/leather/waterskin
 	name = "waterskin"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 		/obj/item/natural/fibers = 2,
@@ -232,7 +232,7 @@
 
 /datum/repeatable_crafting_recipe/leather/papakha
 	name = "papakha hat"
-	attacking_atom = /obj/item/natural/fur
+	attacked_atom = /obj/item/natural/fur
 	requirements = list(
 		/obj/item/natural/fur = 1,
 		/obj/item/natural/fibers = 2,
@@ -242,7 +242,7 @@
 
 /datum/repeatable_crafting_recipe/leather/whip
 	name = "leather whip"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 2,
 	)
@@ -306,7 +306,7 @@
 
 /datum/repeatable_crafting_recipe/leather/hidearmor
 	name = "hide armor"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 2,
 		/obj/item/natural/fur = 1,
@@ -316,7 +316,7 @@
 
 /datum/repeatable_crafting_recipe/leather/coif
 	name = "leather coif"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
@@ -341,7 +341,7 @@
 
 /datum/repeatable_crafting_recipe/leather/volfmantle
 	name = "volf mantle"
-	attacking_atom = /obj/item/natural/fur/volf
+	attacked_atom = /obj/item/natural/fur/volf
 	requirements = list(
 		/obj/item/natural/fur/volf = 2,
 		/obj/item/natural/head/volf = 1,
@@ -351,7 +351,7 @@
 
 /datum/repeatable_crafting_recipe/leather/drum
 	name = "drum"
-	attacking_atom = /obj/item/grown/log/tree/small
+	attacked_atom = /obj/item/grown/log/tree/small
 	requirements = list(
 		/obj/item/natural/hide/cured = 1,
 		/obj/item/grown/log/tree/small = 1,
@@ -360,7 +360,7 @@
 
 /datum/repeatable_crafting_recipe/leather/quiver
 	name = "quiver"
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	requirements = list(
 		/obj/item/natural/hide = 1,
 		/obj/item/natural/fibers = 2,
@@ -370,7 +370,7 @@
 
 /datum/repeatable_crafting_recipe/leather/standalone
 	abstract_type = /datum/repeatable_crafting_recipe/leather/standalone
-	attacking_atom = /obj/item/natural/hide/cured
+	attacked_atom = /obj/item/natural/hide/cured
 
 /datum/repeatable_crafting_recipe/leather/standalone/boots
 	name = "hardened leather boots"
@@ -412,7 +412,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/boots/masterwork
 	name = "masterwork leather boots"
 	output = /obj/item/clothing/shoes/boots/leather/masterwork
-	attacking_atom = /obj/item/clothing/shoes/boots/leather
+	attacked_atom = /obj/item/clothing/shoes/boots/leather
 	requirements = list(/obj/item/clothing/shoes/boots/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -421,7 +421,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/gloves/masterwork
 	name = "masterwork leather gloves"
 	output = /obj/item/clothing/gloves/leather/masterwork
-	attacking_atom = /obj/item/clothing/gloves/leather
+	attacked_atom = /obj/item/clothing/gloves/leather
 	requirements = list(/obj/item/clothing/gloves/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -433,7 +433,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/bracers/masterwork
 	name = "masterwork leather bracers"
 	output = /obj/item/clothing/wrists/bracers/leather/masterwork
-	attacking_atom = /obj/item/clothing/wrists/bracers/leather
+	attacked_atom = /obj/item/clothing/wrists/bracers/leather
 	requirements = list(/obj/item/clothing/wrists/bracers/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -442,7 +442,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/coat/masterwork
 	name = "masterwork leather coat"
 	output = /obj/item/clothing/armor/leather/masterwork
-	attacking_atom = /obj/item/clothing/armor/leather
+	attacked_atom = /obj/item/clothing/armor/leather
 	requirements = list(/obj/item/clothing/armor/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -451,7 +451,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/helmet/masterwork
 	name = "masterwork leather helmet"
 	output = /obj/item/clothing/head/helmet/leather/masterwork
-	attacking_atom = /obj/item/clothing/head/helmet/leather
+	attacked_atom = /obj/item/clothing/head/helmet/leather
 	requirements = list(/obj/item/clothing/head/helmet/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)
@@ -460,7 +460,7 @@
 /datum/repeatable_crafting_recipe/leather/standalone/chausses/masterwork
 	name = "masterwork leather chausses"
 	output = /obj/item/clothing/pants/trou/leather/masterwork
-	attacking_atom = /obj/item/clothing/pants/trou/leather
+	attacked_atom = /obj/item/clothing/pants/trou/leather
 	requirements = list(/obj/item/clothing/pants/trou/leather = 1,
 				/obj/item/natural/cured/essence = 1,
 				/obj/item/natural/fibers = 1)

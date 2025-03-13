@@ -331,27 +331,52 @@
 		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
 
 /datum/mind/proc/adjust_skillrank(skill, amt, silent = FALSE)
+	if(!amt)
+		return
 	var/datum/skill/S = GetSkillRef(skill)
 	var/amt2gain = 0
 	if(skill == /datum/skill/magic/arcane)
 		adjust_spellpoints(amt)
-	for(var/i in 1 to amt)
-		switch(skill_experience[S])
-			if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
-				amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
-			if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
-				amt2gain = SKILL_EXP_MASTER-skill_experience[S]
-			if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
-				amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
-			if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
-				amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
-			if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
-				amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
-			if(0 to SKILL_EXP_NOVICE)
-				amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
-		if(!skill_experience[S])
-			amt2gain = SKILL_EXP_NOVICE+1
-		skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt > 0)
+		for(var/i in 1 to amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
+					amt2gain = SKILL_EXP_MASTER-skill_experience[S]
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
+					amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
+					amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
+					amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
+			if(!skill_experience[S])
+				amt2gain = SKILL_EXP_NOVICE+1
+			skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt < 0)
+		var/flipped_amt = -amt
+		for(var/i in 1 to flipped_amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_MASTER
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY-1)
+					amt2gain = SKILL_EXP_EXPERT
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER-1)
+					amt2gain = SKILL_EXP_JOURNEYMAN
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT -1)
+					amt2gain = SKILL_EXP_APPRENTICE
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN-1)
+					amt2gain = SKILL_EXP_NOVICE
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE-1)
+					amt2gain = 1
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = 1
+			if(!skill_experience[S])
+				amt2gain = 1
+			skill_experience[S] = amt2gain //Prevent going below 0
+
 	var/old_level = known_skills[S]
 	switch(skill_experience[S])
 		if(SKILL_EXP_LEGENDARY to INFINITY)
@@ -376,6 +401,60 @@
 		to_chat(current, span_nicegreen("I feel like I've become more proficient at [S.name]!"))
 	else
 		to_chat(current, span_warning("I feel like I've become worse at [S.name]!"))
+
+
+/**
+ * increases the skill level up to a certain maximum
+ * Vars:
+ ** skill - associated skill
+ ** amt - how much to change the skill
+ ** max - maximum amount up to which the skill will be changed
+*/
+/datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
+	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
+
+/**
+ * sets the skill level to a specific amount
+ * Vars:
+ ** skill - associated skill
+ ** level - which level to set the skill to
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/set_skillrank(skill, level, silent = TRUE)
+	if(!skill)
+		CRASH("set_skillrank was called without a skill argument!")
+
+	var/skill_difference = level - get_skill_level(skill)
+	adjust_skillrank(skill, skill_difference, silent)
+
+/**
+ * purges all skill levels back down to 0
+ * Vars:
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_all_skills(silent = TRUE)
+	for(var/datum/skill/skill_ref as anything in known_skills)
+		set_skillrank(skill_ref, 0)
+	if(!silent)
+		to_chat(current, span_boldwarning("I forget all my skills!"))
+
+/**
+ * purges all spells known by the mind
+ * Vars:
+ ** return_skill_points - do we return the skillpoints for the spells?
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_all_spells(return_skill_points, silent = TRUE)
+	for(var/obj/effect/proc_holder/spell_to_purge in spell_list)
+		RemoveSpell(spell_to_purge, return_skill_points ? TRUE : FALSE)
+	if(!silent)
+		to_chat(current, span_boldwarning("I forget all my spells!"))
+
+/datum/mind/proc/purge_all_spellpoints(silent = TRUE)
+	spell_points = 0
+	used_spell_points = 0
+	if(!silent)
+		to_chat(current, span_boldwarning("I lose all my spellpoints!"))
 
 // adjusts the amount of available spellpoints
 /datum/mind/proc/adjust_spellpoints(points)
@@ -428,6 +507,16 @@
 
 /datum/mind/proc/wipe_memory()
 	memory = null
+
+/**
+ * purges all spells and skills
+ * Vars:
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_combat_knowledge(silent)
+	purge_all_skills(TRUE)
+	purge_all_spells()
+	purge_all_spellpoints(TRUE)
 
 // Datum antag mind procs
 /datum/mind/proc/add_antag_datum(datum_type_or_instance, team)
@@ -735,7 +824,7 @@
 	return soulOwner == src
 
 //To remove a specific spell from a mind
-/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
+/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell, restore_spell_points = FALSE)
 	if(!spell)
 		return
 	for(var/X in spell_list)
@@ -743,10 +832,9 @@
 		if(istype(S, spell))
 			spell_list -= S
 			qdel(S)
-
-/datum/mind/proc/RemoveAllSpells()
-	for(var/obj/effect/proc_holder/S in spell_list)
-		RemoveSpell(S)
+			if(restore_spell_points)
+				spell_points = max(spell_points + S.cost, 0)
+				used_spell_points = max(used_spell_points - S.cost, 0)
 
 /datum/mind/proc/transfer_martial_arts(mob/living/new_character)
 	if(!ishuman(new_character))
