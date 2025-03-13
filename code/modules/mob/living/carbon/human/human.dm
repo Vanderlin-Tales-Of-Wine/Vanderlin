@@ -745,8 +745,9 @@
 
 /mob/living/carbon/human/proc/prepare_blank_canvas(silent)
 	mind.unknow_all_people()
+	mind.become_unknown_to_all()
 	mind.purge_skills_and_spells()
-
+	delete_everything_equipped()
 	roll_mob_stats() // you are re-rolling your stats bitch
 
 /mob/living/carbon/human/species
