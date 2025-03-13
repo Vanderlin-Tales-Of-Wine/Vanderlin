@@ -134,7 +134,7 @@ GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
 
 	// This writes the regular format (unwrapping newlines and inserting timestamps as needed).
 	log_runtime("runtime error: [E.name]\n[E.desc]")
-	add_elastic_data_immediate("runtimes", list(
+	add_elastic_data_immediate(ELASCAT_RUNTIMES, list(
 		"name" = E.name,
 		"desc" = E.desc,
 		"file" = "[E.file || "unknown"]",

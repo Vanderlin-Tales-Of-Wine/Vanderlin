@@ -235,7 +235,7 @@
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
 	retaliate(user)
-	..()
+	. = ..()
 
 
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)

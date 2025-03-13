@@ -1,188 +1,188 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "b" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /obj/structure/fluff/nest,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "c" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "d" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "e" = (
 /turf/open/lava,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "f" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "g" = (
 /obj/structure/roguerock,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "h" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "i" = (
 /obj/item/natural/rock/random_ore,
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "l" = (
 /obj/item/weapon/pick/steel,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "m" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 1
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "n" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plank,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "q" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "r" = (
 /obj/item/natural/rock/random_ore,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "t" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "u" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "x" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "y" = (
 /obj/item/natural/rock/random_ore,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "A" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "B" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "C" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "D" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "F" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/plank,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "G" = (
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "H" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "I" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /obj/effect/decal/cleanable/blood,
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "J" = (
 /turf/open/floor/plank,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "K" = (
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "L" = (
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "M" = (
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "N" = (
 /obj/item/weapon/pick/steel,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "P" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "Q" = (
 /obj/item/natural/rock/random_ore,
 /obj/structure/fluff/nest,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "R" = (
 /turf/open/floor/plank/h,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "S" = (
 /obj/structure/fluff/nest,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "T" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 4
 	},
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "U" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "V" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "W" = (
 /obj/item/natural/rock/random_ore,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "X" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "Y" = (
 /obj/structure/fluff/nest,
 /turf/open/floor/volcanic,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 "Z" = (
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave)
+/area/rogue/under/cavelava)
 
 (1,1,1) = {"
 u

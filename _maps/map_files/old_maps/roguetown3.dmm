@@ -4124,7 +4124,7 @@
 	},
 /area/rogue)
 "ane" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/woodturned,
 /area/rogue)
 "anf" = (
@@ -4497,7 +4497,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue)
 "aoi" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -10740,7 +10740,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
 "aHO" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "aHP" = (
@@ -10790,7 +10790,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/garrison)
 "aHY" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "aHZ" = (
@@ -12075,7 +12075,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
 "fQr" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
