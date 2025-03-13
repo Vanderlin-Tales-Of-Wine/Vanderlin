@@ -195,7 +195,9 @@
 		dat += "<tr><td colspan='4'>No results found.</td></tr>"
 
 	dat += "</table>"
-	user << browse(dat, "window=search_results")
+	var/datum/browser/popup = new(user, "printing press", "Which book to print?", 400, 240)
+	popup.set_content(dat)
+	popup.open()
 
 
 /obj/machinery/printingpress/Topic(href, href_list)
