@@ -314,6 +314,8 @@
 					if(do_dodge(user, turfy))
 						flash_fullscreen("blackflash2")
 						user.aftermiss()
+						var/attacking_item = user.get_active_held_item()
+						log_defense(src, user, "dodged", attacking_atom = attacking_item, addition = "(INTENT:[uppertext(user.used_intent.name)])")
 						return TRUE
 					else
 						return FALSE
@@ -321,6 +323,8 @@
 				return FALSE
 
 /mob/proc/do_parry(obj/item/W, parrydrain as num, mob/living/user)
+	var/defending_item = W
+	var/attacking_item = user.get_active_held_item()
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if(H.adjust_stamina(parrydrain))
@@ -336,6 +340,7 @@
 					src.visible_message("<span class='boldwarning'><b>\The [W] is about to break!</b></span>")
 			else
 				src.visible_message("<span class='boldwarning'><b>[src]</b> parries [user] with [W]!</span>")
+			log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 			return TRUE
 		else
 			to_chat(src, "<span class='warning'>I'm too tired to parry!</span>")
@@ -343,71 +348,79 @@
 	else
 		if(W)
 			playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
+		log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 		return TRUE
 
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
+	var/attacking_item = user.get_active_held_item()
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if(H.adjust_stamina(parrydrain))
 			playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
+			log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 			return TRUE
 		else
 			to_chat(src, "<span class='boldwarning'>I'm too tired to parry!</span>")
 			return FALSE
 	else
 		playsound(get_turf(src), pick(parry_sound), 100, FALSE)
+		log_defense(src, user, "unarmed parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 		return TRUE
 
 
 /mob/proc/do_dodge(mob/user, turf/turfy)
 	if(dodgecd)
 		return FALSE
-
-	var/mob/living/D = src
-	var/mob/living/A = user
-	var/mob/living/carbon/human/DH
-	var/mob/living/carbon/human/AH
-	var/obj/item/I
-	var/obj/item/DI = D.get_active_held_item()
+	/// defending mob
+	var/mob/living/defending_mob = src
+	/// attacking mob
+	var/mob/living/attacking_mob = user
+	/// defending human
+	var/mob/living/carbon/human/defending_human
+	/// attacking human
+	var/mob/living/carbon/human/attacking_human
+	/// the item used to attack
+	var/obj/item/attacking_item
+	var/obj/item/defending_item = defending_mob.get_active_held_item()
 	var/drained = 10
-	var/dodge_speed = floor(D.STASPD / 2)
+	var/dodge_speed = floor(defending_mob.STASPD / 2)
 
 	if(ishuman(src))
-		DH = src
+		defending_human = src
 	if(ishuman(user))
-		AH = user
-		I = AH.used_intent.masteritem
+		attacking_human = user
+		attacking_item = attacking_human.used_intent.masteritem
 
-	var/dodge_score = D.defprob
-	if(D.stamina >= D.maximum_stamina)
+	var/dodge_score = defending_mob.defprob
+	if(defending_mob.stamina >= defending_mob.maximum_stamina)
 		return FALSE
-	if(!(D.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
+	if(!(defending_mob.mobility_flags & MOBILITY_STAND))							//Can't dodge when knocked down
 		return FALSE
-	if(D)
-		if(D?.check_dodge_skill())
-			dodge_score += (D.STASPD * 12)
+	if(defending_mob)
+		if(defending_mob?.check_dodge_skill())
+			dodge_score += (defending_mob.STASPD * 12)
 		else
-			dodge_score += ((D.STASPD * 10))
-	if(A)
-		dodge_score -= A.STASPD * 7
-	if(I)
-		if(AH?.mind)
-			dodge_score -= (AH.mind.get_skill_level(I.associated_skill) * 10) //this means at legendary -60 dodge rating
-	if(I)
-		if(I.wbalance > 0)													//Enemy weapon is quick, so they get a bonus based on spddiff
-			dodge_score -= ((A.STASPD - D.STASPD) * 5)
+			dodge_score += ((defending_mob.STASPD * 10))
+	if(attacking_mob)
+		dodge_score -= attacking_mob.STASPD * 7.5
+	if(attacking_item)
+		if(attacking_human?.mind)
+			dodge_score -= (attacking_human.mind.get_skill_level(attacking_item.associated_skill) * 10) //this means at legendary -60 dodge rating
+	if(attacking_item)
+		if(attacking_item.wbalance > 0)													//Enemy weapon is quick, so they get a bonus based on spddiff
+			dodge_score -= ((attacking_mob.STASPD - defending_mob.STASPD) * 5)
 
-	dodge_score += (D.rmb_intent?.def_bonus)								//Dodge bonus from Poise
+	dodge_score += (defending_mob.rmb_intent?.def_bonus)								//Dodge bonus from Poise
 
-	if(HAS_TRAIT(D, TRAIT_GUIDANCE))
+	if(HAS_TRAIT(defending_mob, TRAIT_GUIDANCE))
 		dodge_score += 10
-	if(HAS_TRAIT(A, TRAIT_GUIDANCE))
+	if(HAS_TRAIT(attacking_mob, TRAIT_GUIDANCE))
 		dodge_score -= 10
 
 				//// ADD WEAPON INTENT MODIFIERS HERE ////
-	if(istype(DI, /obj/item/weapon))
-		switch(DI.wlength)
+	if(istype(defending_item, /obj/item/weapon))
+		switch(defending_item.wlength)
 			if(WLENGTH_NORMAL)
 				dodge_score -= 5
 				drained += 2
@@ -418,28 +431,28 @@
 				dodge_score -= 15
 				dodge_speed = floor(dodge_speed * 0.8)
 				drained += 8
-		dodge_score += (DI.wdodgebonus)
-	dodge_score += (D.used_intent?.idodgebonus)							//Some weapon intents help with dodging
-	if(istype(DH))
-		if(!DH?.check_armor_skill() || DH?.legcuffed)
-			DH.Knockdown(1)
+		dodge_score += (defending_item.wdodgebonus)
+	dodge_score += (defending_mob.used_intent?.idodgebonus)							//Some weapon intents help with dodging
+	if(istype(defending_human))
+		if(!defending_human?.check_armor_skill() || defending_human?.legcuffed)
+			defending_human.Knockdown(1)
 			return FALSE
-		if(I)															//Attacker attacked us with a weapon
-			if(!I.associated_skill)										//Attacker's weapon doesn't have a skill because its improvised, so penalty to attack
+		if(attacking_item)															//Attacker attacked us with a weapon
+			if(!attacking_item.associated_skill)										//Attacker's weapon doesn't have a skill because its improvised, so penalty to attack
 				dodge_score += 10
 			else
-				if(DH.mind)
-					dodge_score += (DH.mind.get_skill_level(I.associated_skill) * 10)
+				if(defending_human.mind)
+					dodge_score += (defending_human.mind.get_skill_level(attacking_item.associated_skill) * 10)
 
 		else //the enemy attacked us unarmed or is nonhuman
-			if(AH)
-				if(AH.used_intent.unarmed)
-					if(AH.mind)
-						dodge_score -= (AH.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
-					if(DH.mind)
-						dodge_score += (DH.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
+			if(attacking_human)
+				if(attacking_human.used_intent.unarmed)
+					if(attacking_human.mind)
+						dodge_score -= (attacking_human.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
+					if(defending_human.mind)
+						dodge_score += (defending_human.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
 
-		switch(DH.worn_armor_class)
+		switch(defending_human.worn_armor_class)
 			if(AC_LIGHT)
 				dodge_speed -= 10
 				drained += 5
@@ -455,18 +468,18 @@
 		dodge_score = clamp(dodge_score, 0, 95)
 		var/dodgeroll = rand(1, 100)
 
-		if(D.client?.prefs.showrolls)
+		if(defending_mob.client?.prefs.showrolls)
 			to_chat(src, span_info("Roll under [dodge_score] to dodge... [dodgeroll]"))
 		if(dodgeroll > dodge_score)
 			return FALSE
-		if(!DH.adjust_stamina(max(drained, 5)))
+		if(!defending_human.adjust_stamina(max(drained, 5)))
 			to_chat(src, span_warning("I'm too tired to dodge!"))
 			return FALSE
 	else																//Defender is non human
 		dodge_score = clamp(dodge_score, 0, 95)
 		var/dodgeroll = rand(1, 100)
 
-		if(D.client?.prefs.showrolls)
+		if(defending_mob.client?.prefs.showrolls)
 			to_chat(src, span_info("Roll under [dodge_score] to dodge... [dodgeroll]"))
 		if(dodgeroll > dodge_score)
 			return FALSE
@@ -488,6 +501,7 @@
 //			var/turf/T = loc
 //			if(T.landsound)
 //				playsound(T, T.landsound, 100, FALSE)
+	log_defense(src, user, "dodged", defending_item, attacking_item, "INTENT:[uppertext(attacking_mob.used_intent.name)]")
 	return TRUE
 //	else
 		//return FALSE
