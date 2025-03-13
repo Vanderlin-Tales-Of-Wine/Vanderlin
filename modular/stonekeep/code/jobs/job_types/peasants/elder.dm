@@ -11,16 +11,15 @@
 	allowed_races = list(
 		"Humen",
 		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
+		"Dwarf"
 	)
-	allowed_ages = list(AGE_OLD, AGE_IMMORTAL)
+	allowed_ages = list(AGE_OLD)
 	tutorial = "The common folk look to you for leadership and guidance when the nobles fail. No spring chicken, the young ones should listen to your sage advice, according to you."
 	whitelist_req = FALSE
 	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/stonekeep/elder
 	display_order = ELDER_ORDER
-	give_bank_account = 80
+	give_bank_account = 60
 	min_pq = 0
 
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'

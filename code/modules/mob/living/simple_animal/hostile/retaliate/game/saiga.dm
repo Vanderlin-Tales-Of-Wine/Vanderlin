@@ -97,7 +97,7 @@
 	buckle_lying = FALSE
 	can_saddle = TRUE
 	aggressive = TRUE
-	remains_type = /obj/effect/decal/remains/saiga
+	remains_type = /obj/effect/decal/remains/neu/generic
 
 /obj/effect/decal/remains/saiga
 	name = "remains"
@@ -215,7 +215,7 @@
 	tame_chance = 25
 	bonus_tame_chance = 15
 	aggressive = TRUE
-	remains_type = /obj/effect/decal/remains/saiga
+	remains_type = /obj/effect/decal/remains/neu/generic
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/update_icon()
 	cut_overlays()

@@ -39,7 +39,7 @@
 		/obj/item/natural/worms = 10,
 		/obj/item/reagent_containers/food/snacks/rotten/mince = 5,
 		/obj/effect/decal/remains/bigrat = 5,
-		/obj/item/reagent_containers/food/snacks/smallrat = 20,
+		/obj/item/reagent_containers/food/snacks/smallrat = 5,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
 		/mob/living/simple_animal/hostile/retaliate/bigrat = 5)
 
@@ -335,6 +335,40 @@
 		/obj/item/clothing/head/crown/nyle = 1,
 		/obj/item/statue/gold = 1,
 		)
+
+
+/obj/effect/spawner/map_spawner/loot/plaguedistrict
+	icon_state = "loot"
+	spawned = list(
+		/obj/item/flashlight/flare/torch = 2,
+		/obj/item/kitchen/spoon = 2,
+		/obj/item/reagent_containers/glass/bowl/clay = 3,
+		/obj/item/natural/bundle/stick = 2,
+		/obj/item/grown/log/tree/small = 2,
+		/obj/item/natural/cloth = 2,
+		/obj/item/storage/belt/pouch = 1,
+		/obj/item/storage/belt/leather/rope = 1,
+		/obj/item/clothing/shoes/simpleshoes = 2,
+		/obj/item/clothing/neck/psycross = 2,
+		/obj/item/natural/hide/cured = 2,
+
+		/obj/item/needle = 1,
+		/obj/item/weapon/pitchfork = 1,
+		/obj/item/flint = 1,
+		/obj/item/weapon/hammer/iron = 1,
+		/obj/item/weapon/knife/scissors = 1,
+		/obj/item/weapon/knife/hunting = 1,
+		/obj/item/weapon/knife/villager = 2,
+		/obj/item/weapon/axe/stone = 1,
+		/obj/item/weapon/sickle = 1,
+
+		/obj/item/coin/copper = 5,
+		/obj/item/coin/copper/pile = 5,
+		/obj/item/storage/belt/pouch/coins/poor = 1,
+		/obj/item/coin/silver = 1,
+		/obj/item/clothing/neck/psycross/silver/pestra = 1,
+		)
+
 
 
 // ======================================================================

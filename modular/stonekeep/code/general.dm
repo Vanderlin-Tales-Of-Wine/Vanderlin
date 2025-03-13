@@ -356,13 +356,22 @@
 	icon_state = "deadite"
 	mouse_opacity = 0
 
-/obj/effect/decal/remains/human/old
-	name = "remains"
+/obj/effect/decal/remains/neu
 	color = "#d6b3a5"
+	plane = -5
+	name = "remains"
+	gender = PLURAL
 
-/obj/effect/decal/remains/human/old/small
+/obj/effect/decal/remains/neu/human
+	name = "humen remains"
+	icon_state = "remains"
+/obj/effect/decal/remains/neu/humanc
+	name = "humen remains"
 	icon_state = "remainslarva"
-
+/obj/effect/decal/remains/neu/generic
+	name = "animal remains"
+	icon_state = "skele"
+	icon = 'icons/roguetown/mob/monster/saiga.dmi'
 
 /obj/structure/fluff/walldeco/rags
 	icon = 'modular/stonekeep/icons/misc.dmi'

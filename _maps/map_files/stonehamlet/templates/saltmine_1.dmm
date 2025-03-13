@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/effect/decal/remains/human/old,
+/obj/effect/decal/remains/neu/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/caverogue/saltmine)

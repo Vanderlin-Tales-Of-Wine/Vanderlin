@@ -1,11 +1,10 @@
 /* SKINCRAFT	-	skincraft skill
 ==========================================================*/
 // The only ingridients these recipes can require is HIDE and FUR
-// They all require a needle and a drying rack
+// They all require a needle
 
 /datum/crafting_recipe/roguetown/leather
 	tools = list(/obj/item/needle)
-	structurecraft = /obj/machinery/tanningrack
 	skillcraft = /datum/skill/craft/tanning
 	craftdiff = 0
 	subtype_reqs = TRUE // so you can use any subtype of fur
@@ -26,7 +25,7 @@
 	craftdiff = 4
 
 /datum/crafting_recipe/roguetown/leather/whip
-	name = "whip (hide)"
+	name = "whip (rawhide)"
 	result = /obj/item/weapon/whip
 	reqs = list(/obj/item/natural/hide = 2)
 	craftdiff = 1

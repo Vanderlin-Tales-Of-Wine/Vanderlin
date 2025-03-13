@@ -68,7 +68,7 @@
 /turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "gf" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -330,7 +330,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "uG" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -406,7 +406,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "zg" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -415,7 +415,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "zt" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -639,7 +639,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "PO" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -741,7 +741,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Tp" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -751,7 +751,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "TE" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -846,7 +846,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "YH" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},

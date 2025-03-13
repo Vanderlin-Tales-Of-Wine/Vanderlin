@@ -169,6 +169,16 @@
 		/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 100
 		)
 
+/*	..................   Cabbit Cabin Enemy    ................... */
+/obj/effect/spawner/map_spawner/enemy_fifty/cabbit_cabin
+	spawned = list(
+		/mob/living/simple_animal/pet/cat/cabbit = 50,
+		/mob/living/simple_animal/hostile/retaliate/troll/caerbannog = 25,
+		/obj/item/reagent_containers/food/snacks/smallrat = 25
+		)
+
+
+
 /obj/effect/spawner/map_spawner/beartrap_obvious
 	icon_state = "beartrap"
 	name = "beartrap"
@@ -185,8 +195,8 @@
 	color = "#ffce0b"
 	spawned = list(
 		/mob/living/simple_animal/hostile/skeleton = 4,
-		/obj/effect/decal/remains/human/old = 50,
-		/obj/effect/decal/remains/human/old/small = 45,
+		/obj/effect/decal/remains/neu/human = 50,
+		/obj/effect/decal/remains/neu/humanc = 45,
 		/obj/item/clothing/ring/silver = 1
 		)
 

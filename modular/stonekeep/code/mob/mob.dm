@@ -350,3 +350,13 @@
 			return pick('modular/stonekeep/sound/vo/mobs/gator/gatordeath.ogg')
 		if("idle")
 			return pick('sound/blank.ogg')
+
+
+/mob/living/simple_animal/hostile/retaliate/saiga
+	remains_type = /obj/effect/decal/remains/neu/generic
+
+/mob/living/simple_animal/hostile/retaliate/saigabuck
+	remains_type = /obj/effect/decal/remains/neu/generic
+
+/mob/living/simple_animal/hostile/retaliate/trufflepig
+	remains_type = /obj/effect/decal/remains/neu/generic

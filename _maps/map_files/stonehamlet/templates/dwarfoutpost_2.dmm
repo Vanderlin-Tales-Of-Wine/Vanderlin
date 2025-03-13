@@ -245,7 +245,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "tX" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -457,7 +457,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "JV" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -489,7 +489,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
 "LK" = (
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -518,7 +518,7 @@
 "Pj" = (
 /obj/effect/spawner/map_spawner/outpost/personal_item,
 /obj/structure/flora/grass/water,
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -601,7 +601,7 @@
 "Uj" = (
 /obj/structure/chair/stool,
 /obj/effect/spawner/map_spawner/enemy_fifty/flesheaters,
-/obj/effect/decal/remains/human/old{
+/obj/effect/decal/remains/neu/human{
 	name = "dwarf remains";
 	plane = -3
 	},

@@ -3,7 +3,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
 "aj" = (
-/obj/effect/decal/remains/human/old,
+/obj/effect/decal/remains/neu/human,
 /obj/effect/spawner/map_spawner/loot/weapon,
 /turf/open/water/swamp,
 /area/rogue/under/cave/hollow)
@@ -258,7 +258,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
 "Ao" = (
-/obj/effect/decal/remains/human/old,
+/obj/effect/decal/remains/neu/human,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
@@ -352,7 +352,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/hollow)
 "Lf" = (
-/obj/effect/decal/remains/human/old,
+/obj/effect/decal/remains/neu/human,
 /obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/water/swamp,
 /area/rogue/under/cave/hollow)
@@ -372,7 +372,7 @@
 /turf/open/floor/twig,
 /area/rogue/under/cave/hollow)
 "Md" = (
-/obj/effect/decal/remains/human/old,
+/obj/effect/decal/remains/neu/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/item/natural/stone,
 /obj/structure/flora/rock/pile,

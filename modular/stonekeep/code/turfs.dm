@@ -30,6 +30,13 @@
 /turf/open/floor/ruinedwood/spiral/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
+/turf/open/floor/ruinedwood/decayed
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "wood_decayed"
+	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss)
+/turf/open/floor/ruinedwood/decayed/Initialize()
+	. = ..()
+	dir = pick(GLOB.alldirs)
 
 /*	..................   Stone floors   ................... */
 /turf/open/floor/hexstone
@@ -42,7 +49,8 @@
 						/turf/open/floor/ruinedwood,
 						/turf/open/floor/wood,
 						/turf/open/floor/blocks,
-						/turf/open/floor/cobblerock
+						/turf/open/floor/cobblerock,
+						/turf/open/floor/ruinedwood/decayed
 						)
 
 /turf/open/floor/herringbone
@@ -177,13 +185,13 @@
 /turf/open/floor/blocks/moss
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "blockmoss"
-	canSmoothWith = list(/turf/open/floor/herringbone,
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass,
+						/turf/open/floor/herringbone,
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
 						)
-
-
 
 /turf/open/floor/herringbone
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -213,6 +221,7 @@
 	/turf/open/floor/grass/red,
 	/turf/open/floor/snow,
 	/turf/open/floor/cobble/mossy,
+	/turf/open/floor/ruinedwood/decayed,
 						)
 /turf/open/floor/grass/Initialize()
 	. = ..()
@@ -304,7 +313,8 @@
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
 						/turf/open/floor/hay,
-						/turf/open/floor/dirt/muddie)
+						/turf/open/floor/dirt/muddie,
+						/turf/open/floor/ruinedwood/decayed)
 
 /turf/open/floor/dirt/road/old
 	icon = 'modular/stonekeep/icons/turfs.dmi'

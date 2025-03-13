@@ -193,3 +193,9 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 	return FALSE
 
 
+
+/datum/job/bandit
+	allowed_races = ALL_STONEKEEP_PLAYER_RACES
+	min_pq = 0
+	cmode_music = 'sound/music/cmode/combat_hellish.ogg'
+
