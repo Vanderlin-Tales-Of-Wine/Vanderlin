@@ -349,7 +349,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors)
 "hH" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/trap/fire,
 /turf/open/floor/tile/masonic/single,
 /area/rogue/indoors)
@@ -703,7 +703,7 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors)
 "qx" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/machinery/light/fueled/wallfire/candle/weak,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -721,7 +721,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "qC" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "qM" = (
@@ -802,8 +802,8 @@
 /turf/open/floor/church,
 /area/rogue/indoors)
 "sE" = (
-/obj/structure/window/stained,
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -990,7 +990,7 @@
 /turf/open/water/sewer,
 /area/rogue/indoors)
 "xG" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -1632,7 +1632,7 @@
 /turf/open/water/bath,
 /area/rogue/indoors)
 "Nh" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/trap/spike,
 /turf/open/floor/hexstone,
@@ -1748,7 +1748,7 @@
 /area/rogue/indoors)
 "PH" = (
 /obj/effect/waterfall,
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/trap/spike,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
