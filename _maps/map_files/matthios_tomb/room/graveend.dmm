@@ -1,178 +1,178 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
-"b" = (
-/obj/item/coin/gold{
-	pixel_y = 2;
-	pixel_x = 22
-	},
-/turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "c" = (
-/mob/living/simple_animal/hostile/skeleton/guard,
-/turf/open/floor/hexstone,
-/area/rogue)
+/obj/structure/closet/dirthole/closed/loot,
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
 "d" = (
-/obj/item/riddleofsteel,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "e" = (
-/obj/item/coin/gold{
-	pixel_x = 21
-	},
-/turf/open/floor/hexstone,
-/area/rogue)
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
 "h" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "i" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "j" = (
 /mob/living/simple_animal/hostile/demon{
-	name = "Bonetaker"
+	name = "Bonetaker";
+	TOTALCON = 15;
+	TOTALEND = 15;
+	TOTALINT = 15;
+	TOTALLUC = 15;
+	TOTALPER = 15;
+	TOTALSPD = 18;
+	TOTALSTR = 20
 	},
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "m" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "n" = (
-/mob/living/simple_animal/hostile/skeleton/spear,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "o" = (
 /obj/item/statue/gold/loot,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "p" = (
-/mob/living/simple_animal/hostile/skeleton/axe,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "q" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "r" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "s" = (
 /obj/structure/chair/bench/throne,
-/mob/living/simple_animal/hostile/skeleton/guard,
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "t" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "u" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "v" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "w" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "x" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "y" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "z" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "A" = (
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "B" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "C" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/storage/belt/leather/plaquegold,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "E" = (
-/mob/living/simple_animal/hostile/skeleton,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "F" = (
 /obj/structure/ladder,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "G" = (
 /obj/effect/decal/cleanable/blood/puddle,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "H" = (
-/obj/structure/bars,
+/obj/structure/plasticflaps,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "I" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "J" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "K" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "M" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Q" = (
-/obj/structure/plasticflaps,
-/turf/open/floor/hexstone,
-/area/rogue)
+/obj/structure/closet/crate/coffin,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
 "S" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "T" = (
 /obj/structure/bars/cemetery,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "U" = (
 /obj/structure/closet/dirthole/closed/loot,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "W" = (
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "X" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
+/obj/structure/bars,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 a
@@ -194,117 +194,117 @@ x
 "}
 (3,1,1) = {"
 x
-J
-J
-J
-J
-J
+p
+p
+p
+p
+p
 x
 "}
 (4,1,1) = {"
 x
-J
+p
 x
 x
 x
-J
+p
 x
 "}
 (5,1,1) = {"
 x
-J
-J
-J
 E
-J
+p
+p
+p
+p
 x
 "}
 (6,1,1) = {"
 x
-E
+p
 x
-H
+X
 x
 x
 x
 "}
 (7,1,1) = {"
 x
-J
-J
-J
-J
-J
+p
+p
+p
+p
+p
 x
 "}
 (8,1,1) = {"
 x
-J
+p
 x
 x
 x
-J
+p
 x
 "}
 (9,1,1) = {"
 x
-J
-J
-J
-E
-J
+p
+p
+p
+p
+p
 x
 "}
 (10,1,1) = {"
 x
 x
 x
-H
+X
 x
 x
 x
 "}
 (11,1,1) = {"
-J
+p
 x
-J
-J
-J
+p
+p
+p
 x
-J
+p
 "}
 (12,1,1) = {"
-J
+p
 H
-J
+p
 x
 E
 H
-J
+p
 "}
 (13,1,1) = {"
-J
+p
 x
-J
+p
 x
-J
+p
 x
-J
+p
 "}
 (14,1,1) = {"
-J
+p
 x
-J
-b
-J
+p
+p
+p
 x
-J
+p
 "}
 (15,1,1) = {"
 x
 x
 x
-J
+p
 x
 x
 x
@@ -313,68 +313,68 @@ x
 x
 n
 x
-J
+p
 x
 n
 x
 "}
 (17,1,1) = {"
 x
-J
-J
-e
-J
-J
+p
+p
+p
+p
+p
 x
 "}
 (18,1,1) = {"
 x
 w
-J
-e
-J
-U
+p
+p
+p
+c
 x
 "}
 (19,1,1) = {"
 x
 K
-J
-J
-J
-w
+p
+p
+p
+e
 x
 "}
 (20,1,1) = {"
 x
 K
-J
-J
-J
-U
+p
+p
+p
+c
 x
 "}
 (21,1,1) = {"
 x
-K
-X
-J
-X
+Q
+p
+p
+p
 U
 x
 "}
 (22,1,1) = {"
 x
-J
-J
-J
-J
-J
+p
+p
+p
+p
+p
 x
 "}
 (23,1,1) = {"
 x
-J
+p
 W
 s
 C
@@ -395,7 +395,7 @@ x
 a
 a
 a
-J
+p
 a
 a
 a
@@ -433,12 +433,12 @@ u
 M
 v
 j
-J
+p
 x
 "}
 (6,1,2) = {"
 x
-J
+p
 x
 S
 x
@@ -447,75 +447,75 @@ x
 "}
 (7,1,2) = {"
 x
-J
-J
+p
+p
 z
-J
+p
 t
 x
 "}
 (8,1,2) = {"
 x
-H
+X
 x
 x
 x
-J
+p
 x
 "}
 (9,1,2) = {"
 x
-J
-J
-J
+p
+p
+p
 q
-J
+p
 x
 "}
 (10,1,2) = {"
 x
 x
-J
-J
-J
-J
+p
+p
+p
+p
 x
 "}
 (11,1,2) = {"
-H
-J
-J
-J
-J
-J
-H
+X
+p
+p
+p
+p
+p
+X
 "}
 (12,1,2) = {"
-Q
-J
+H
+p
 x
 x
 x
-J
-Q
+p
+H
 "}
 (13,1,2) = {"
-Q
-J
-x
-J
-x
-J
 H
+p
+x
+J
+x
+p
+X
 "}
 (14,1,2) = {"
-H
-J
-J
-J
-J
-J
-H
+X
+p
+p
+p
+p
+p
+X
 "}
 (15,1,2) = {"
 x
@@ -528,19 +528,19 @@ x
 "}
 (16,1,2) = {"
 x
-E
-J
+p
+p
 T
-J
-J
+p
+p
 x
 "}
 (17,1,2) = {"
 x
-c
+p
 A
 T
-E
+p
 J
 x
 "}
@@ -549,52 +549,52 @@ x
 d
 p
 T
-J
-E
+p
+p
 x
 "}
 (19,1,2) = {"
 x
 o
-J
+p
 T
-J
-J
+n
+p
 x
 "}
 (20,1,2) = {"
 x
 m
-E
+p
 T
-J
-J
+p
+p
 x
 "}
 (21,1,2) = {"
 x
 A
-c
+p
 T
-J
-J
+p
+d
 x
 "}
 (22,1,2) = {"
 x
-J
-n
+p
+p
 T
-J
-J
+p
+p
 x
 "}
 (23,1,2) = {"
 x
-J
-J
+p
+d
 T
-J
+p
 F
 x
 "}

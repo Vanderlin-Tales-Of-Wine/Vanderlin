@@ -403,7 +403,7 @@
 		else
 			dodge_score += ((defending_mob.STASPD * 10))
 	if(attacking_mob)
-		dodge_score -= attacking_mob.STASPD * 7
+		dodge_score -= attacking_mob.STASPD * 7.5
 	if(attacking_item)
 		if(attacking_human?.mind)
 			dodge_score -= (attacking_human.mind.get_skill_level(attacking_item.associated_skill) * 10) //this means at legendary -60 dodge rating
