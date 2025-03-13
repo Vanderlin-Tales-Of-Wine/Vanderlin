@@ -1,24 +1,27 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
+"g" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cavewet)
 "h" = (
 /obj/structure/kneestingers,
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "j" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "k" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "l" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "n" = (
 /turf/closed/mineral/bedrock,
 /area/rogue)
@@ -40,20 +43,20 @@
 "Q" = (
 /obj/structure/ladder/earth,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "R" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 
 (1,1,1) = {"
-n
-n
-n
-n
-n
-n
-n
-n
+g
+g
+g
+g
+g
+g
+g
+g
 "}
 (2,1,1) = {"
 a
@@ -86,14 +89,14 @@ a
 a
 "}
 (5,1,1) = {"
-n
-n
-n
-n
-n
-n
-n
-n
+g
+g
+g
+g
+g
+g
+g
+g
 "}
 
 (1,1,2) = {"

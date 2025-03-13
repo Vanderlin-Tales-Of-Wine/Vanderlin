@@ -1,18 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "b" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cavelava)
 "c" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "d" = (
 /obj/structure/flora/newtree/scorched,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavelava)
 "f" = (
 /mob/living/carbon/human/species/goblin/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -20,22 +20,30 @@
 /obj/item/clothing/wrists/bracers/leather,
 /obj/item/weapon/pick/paxe,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "g" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "j" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
+"k" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/dirt,
+/area/rogue/under/cavelava)
+"l" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "m" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "n" = (
 /obj/machinery/light/fueled/forge,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "o" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -47,18 +55,26 @@
 	pixel_y = 7
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "p" = (
 /turf/open/lava,
-/area/rogue)
+/area/rogue/under/cavelava)
 "q" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
+"r" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8;
+	pixel_y = -1
+	},
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "u" = (
 /obj/structure/grindwheel,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "v" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -66,7 +82,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "w" = (
 /mob/living/carbon/human/species/goblin/hell,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -74,10 +90,10 @@
 /obj/item/clothing/wrists/bracers/leather,
 /obj/item/weapon/axe/iron,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "x" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "y" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -86,37 +102,51 @@
 	dir = 1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "z" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "A" = (
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
+"C" = (
+/obj/structure/fluff/railing/wood,
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "E" = (
 /mob/living/carbon/human/species/orc/warrior,
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
-/obj/item/clothing/armor/leather/splint,
-/obj/item/clothing/pants/trou/leather/advanced,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
+"F" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cavelava)
 "G" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
 	pixel_y = -1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "H" = (
-/mob/living/simple_animal/hostile/orc/orc_marauder/spear,
+/mob/living/carbon/human/species/orc/marauder,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
+"I" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/mob/living/carbon/human/species/orc/marauder,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "J" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -126,15 +156,15 @@
 	dir = 1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "K" = (
 /obj/item/bin/water,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "L" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "M" = (
 /obj/machinery/anvil,
 /obj/item/riddleofsteel,
@@ -143,10 +173,10 @@
 	pixel_y = 5
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "N" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavelava)
 "P" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -155,17 +185,17 @@
 	pixel_y = 7
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "R" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cavelava)
 "S" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "T" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -178,14 +208,18 @@
 	pixel_y = 7
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
+"U" = (
+/mob/living/carbon/human/species/orc/warlord/skilled,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 "V" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "W" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -197,10 +231,15 @@
 	dir = 4
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cavelava)
 "Y" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cavelava)
+"Z" = (
+/obj/structure/fluff/railing/wood,
+/mob/living/carbon/human/species/orc/marauder,
+/turf/open/floor/cobble,
+/area/rogue/under/cavelava)
 
 (1,1,1) = {"
 Y
@@ -274,6 +313,7 @@ Y
 x
 x
 N
+k
 N
 N
 N
@@ -282,8 +322,7 @@ N
 N
 N
 N
-N
-N
+k
 N
 N
 N
@@ -583,12 +622,12 @@ p
 p
 N
 N
-N
+k
 Y
 "}
 (13,1,1) = {"
 Y
-x
+F
 N
 N
 p
@@ -602,7 +641,7 @@ N
 N
 x
 N
-x
+F
 x
 x
 p
@@ -664,7 +703,7 @@ p
 p
 x
 K
-N
+k
 M
 x
 x
@@ -1115,7 +1154,7 @@ N
 N
 N
 x
-x
+F
 x
 x
 x
@@ -1395,7 +1434,7 @@ a
 a
 a
 T
-g
+l
 g
 z
 z
@@ -1570,7 +1609,7 @@ a
 a
 a
 S
-m
+C
 a
 a
 a
@@ -1615,9 +1654,9 @@ g
 g
 g
 G
+r
 G
-G
-g
+H
 g
 m
 a
@@ -1640,7 +1679,7 @@ G
 G
 G
 g
-g
+l
 g
 "}
 (16,1,2) = {"
@@ -1668,7 +1707,7 @@ a
 S
 w
 g
-z
+I
 z
 z
 g
@@ -1779,7 +1818,7 @@ a
 a
 a
 P
-g
+U
 v
 a
 a
@@ -1852,8 +1891,8 @@ z
 z
 z
 g
+l
 g
-H
 g
 z
 z
@@ -1981,7 +2020,7 @@ a
 a
 a
 S
-m
+Z
 a
 a
 a
@@ -2076,7 +2115,7 @@ a
 a
 a
 g
-g
+l
 g
 g
 a
