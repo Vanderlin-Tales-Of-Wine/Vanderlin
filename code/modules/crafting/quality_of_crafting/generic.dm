@@ -5,12 +5,12 @@
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/dry_westleach = 2
 	)
-	attacking_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a westleach zig"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/sigsweet
@@ -20,12 +20,12 @@
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/swampweed_dried = 2
 	)
-	attacking_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 
 	craft_time = 10 SECONDS
 	crafting_message = "starts rolling a swampweed zig"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 
@@ -36,12 +36,12 @@
 	requirements = list(
 		/obj/item/paper = 2
 	)
-	attacking_atom = /obj/item/paper
+	attacked_atom = /obj/item/paper
 
 	craft_time = 3 SECONDS
 	crafting_message = "starts weaving a canvas"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/paintbrush
@@ -52,12 +52,12 @@
 		/obj/item/grown/log/tree/stick = 1,
 		/obj/item/natural/feather = 1,
 	)
-	attacking_atom = /obj/item/grown/log/tree/stick
+	attacked_atom = /obj/item/grown/log/tree/stick
 
 	craft_time = 3 SECONDS
 	crafting_message = "starts tying a paint brush"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/paint_palette
@@ -68,10 +68,10 @@
 		/obj/item/grown/log/tree/stick = 1,
 		/obj/item/natural/wood/plank = 1,
 	)
-	attacking_atom = /obj/item/natural/wood/plank
+	attacked_atom = /obj/item/natural/wood/plank
 
 	craft_time = 3 SECONDS
 	crafting_message = "starts constructing a paint palette"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE

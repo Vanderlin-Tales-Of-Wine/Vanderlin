@@ -176,10 +176,13 @@
 
 /obj/effect/abstract/liquid_turf/update_overlays()
 	. = ..()
+	cut_overlays()
 	var/number = liquid_state - 1
 	if(number != 0)
 		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_bottom", plane = GAME_PLANE_UPPER, layer = ABOVE_MOB_LAYER)
 		. += mutable_appearance('icons/effects/liquid_overlays.dmi', "stage[number]_top", plane =GAME_PLANE, layer = BELOW_MOB_LAYER)
+	if(liquid_group?.glows)
+		. += mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE)
 
 /obj/effect/abstract/liquid_turf/proc/set_fire_effect()
 	if(displayed_content)

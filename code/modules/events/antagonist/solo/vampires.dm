@@ -24,6 +24,7 @@
 	restricted_roles = list(
 		"Monarch",
 		"Consort",
+		"Jester",
 		"Dungeoneer",
 		"Inquisitor",
 		"Men-at-arms",
