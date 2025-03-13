@@ -3,9 +3,11 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 /obj/item/reagent_containers/glass/bottle
 	name = "bottle"
+	var/original_name
 	desc = "A bottle with a cork."
 	icon = 'icons/roguetown/items/glass_reagent_container.dmi'
 	icon_state = "clear_bottle1"
+	var/original_icon_state = null
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	volume = 70
@@ -21,10 +23,32 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
 	experimental_onhip = TRUE
+	var/can_label_bottle = TRUE	// Determines if the bottle can be labeled with paper
 	var/fancy		// for bottles with custom descriptors that you don't want to change when bottle manipulated
 
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/paper) && !istype(I, /obj/item/paper/scroll))
+		if (!can_label_bottle)
+			return
+		var/input = input(user, "What would you like to label this bottle as?", "", "") as text
+		if(!input)
+			if (original_name)
+				name = original_name
+			if (original_icon_state != null)
+				icon_state = original_icon_state
+				original_icon_state = null
+			return ..()
+		if(length(input) > 20)
+			return ..()
+		if (!original_name)
+			original_name = name
+		to_chat(user, span_notice("You label this as a [input] [original_name]."))
+		name ="[input] [original_name]"
+		if (name != original_name)
+			if (original_icon_state == null)
+				original_icon_state = icon_state
+				icon_state = "[icon_state]_message"
 	if(reagents.total_volume)
 		return
 	if(closed)
@@ -53,6 +77,8 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 	if(reagents.total_volume)
 		var/fill_name = fill_icon_state? fill_icon_state : icon_state
+		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
+			fill_name = fill_icon_state? fill_icon_state : original_icon_state
 		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
 		var/percent = round((reagents.total_volume / volume) * 100)
@@ -63,10 +89,19 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
-		underlays += filling
+		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+			if(reagent.glows)
+				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
+				emissive.plane = EMISSIVE_PLANE
+				overlays += emissive
+				break
 
+		underlays += filling
 	if(closed)
-		add_overlay("[icon_state]cork")
+		if (original_icon_state != null)
+			add_overlay("[original_icon_state]cork")
+		else
+			add_overlay("[icon_state]cork")
 
 /obj/item/reagent_containers/glass/bottle/rmb_self(mob/user)
 	. = ..()
@@ -211,6 +246,8 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 	if(reagents.total_volume)
 		var/fill_name = fill_icon_state? fill_icon_state : icon_state
+		if (original_icon_state != null) // Otherwise bottle looks empty when there's a label on it
+			fill_name = fill_icon_state? fill_icon_state : original_icon_state
 		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', "[fill_name][fill_icon_thresholds[1]]")
 
 		var/percent = round((reagents.total_volume / volume) * 100)
@@ -221,10 +258,20 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 				filling.icon_state = "[fill_name][fill_icon_thresholds[i]]"
 		filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 		filling.color = mix_color_from_reagents(reagents.reagent_list)
+		for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+			if(reagent.glows)
+				var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/glass_reagent_container.dmi', filling.icon_state)
+				emissive.plane = EMISSIVE_PLANE
+				overlays += emissive
+				break
+
 		underlays += filling
 
 	if(closed)
-		add_overlay("[icon_state]cork")
+		if (original_icon_state != null)
+			add_overlay("[original_icon_state]cork")
+		else
+			add_overlay("[icon_state]cork")
 
 /obj/item/reagent_containers/glass/bottle/vial/rmb_self(mob/user)
 	closed = !closed
@@ -254,6 +301,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	amount_per_transfer_from_this = 8
 	possible_transfer_amounts = list(8)
 	dropshrink = 1
+	can_label_bottle = FALSE
 
 	fill_icon_thresholds = list()
 
@@ -272,6 +320,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(6)
 	dropshrink = 1
+	can_label_bottle = FALSE
 
 	fill_icon_thresholds = list()
 

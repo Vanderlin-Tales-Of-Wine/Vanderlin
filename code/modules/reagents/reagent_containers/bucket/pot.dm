@@ -89,12 +89,24 @@
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+				if(reagent.glows)
+					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_half")
+					emissive.plane = EMISSIVE_PLANE
+					overlays += emissive
+					break
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
 			var/mutable_appearance/filling = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
+			for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+				if(reagent.glows)
+					var/mutable_appearance/emissive = mutable_appearance('icons/roguetown/items/cooking.dmi', "pote_full")
+					emissive.plane = EMISSIVE_PLANE
+					overlays += emissive
+					break
 			add_overlay(filling)
 
 

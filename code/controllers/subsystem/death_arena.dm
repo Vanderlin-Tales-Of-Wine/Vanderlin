@@ -125,6 +125,17 @@ SUBSYSTEM_DEF(death_arena)
 	close_death_gate()
 	fight_force_end = null
 
+/datum/controller/subsystem/death_arena/proc/admin_reset()
+	log_admin("[key_name(usr)] cleared death arena.")
+	message_admins("[key_name_admin(usr)] cleared death arena.")
+	if(!force_end_fight())
+		message_admins("ERROR: Clearing Death Arena failed.")
+		fighters = list()
+		fighting = FALSE
+		fight_force_end = null
+
+
+
 /datum/controller/subsystem/death_arena/proc/force_end_fight()
 	fighters_heads = list()
 	for(var/mob/living/carbon/carbon in fighters)
@@ -133,6 +144,7 @@ SUBSYSTEM_DEF(death_arena)
 		qdel(carbon)
 	fight_force_end = null
 	fighting = FALSE
+	return TRUE
 
 /datum/controller/subsystem/death_arena/proc/end_fight_no_client()
 	fighters_heads = list()
@@ -184,7 +196,7 @@ SUBSYSTEM_DEF(death_arena)
 /obj/structure/table/wood/fine/altar/after_added_effects(obj/item/item, mob/user)
 	if(!istype(item, /obj/item/bodypart/head))
 		return
-	add_abstract_elastic_data("combat", "fight_revives", 1)
+	add_abstract_elastic_data(ELASCAT_COMBAT, ELASDATA_FIGHT_REVIVES, 1)
 	SSdeath_arena.process_fight_end(item, user)
 
 /obj/structure/underworld/ravox

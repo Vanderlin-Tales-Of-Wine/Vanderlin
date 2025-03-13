@@ -9,12 +9,12 @@
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/meat/mince/fish = 2,
 	)
-	attacking_atom = /obj/item/reagent_containers/food/snacks/meat/mince/fish
+	attacked_atom = /obj/item/reagent_containers/food/snacks/meat/mince/fish
 
 	craft_time = 2 SECONDS
 	crafting_message = "starts rolling some bait"
 	craftdiff = 0
-	uses_attacking_atom = TRUE
+	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/fishing/bait/dough
 	name = "doughy bait"
@@ -23,7 +23,7 @@
 	requirements = list(
 		/obj/item/reagent_containers/powder/flour = 2,
 	)
-	attacking_atom = /obj/item/reagent_containers/powder/flour
+	attacked_atom = /obj/item/reagent_containers/powder/flour
 
 /datum/repeatable_crafting_recipe/fishing/bait/gray
 	name = "gray bait"
@@ -34,7 +34,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/mince/fish = 1,
 		/obj/item/reagent_containers/powder/flour = 1,
 	)
-	attacking_atom = /obj/item/reagent_containers/powder/flour
+	attacked_atom = /obj/item/reagent_containers/powder/flour
 
 /datum/repeatable_crafting_recipe/fishing/bait/speckled
 	name = "speckled bait"
@@ -46,7 +46,7 @@
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
 		/obj/item/reagent_containers/powder/flour = 1,
 	)
-	attacking_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
 
 /obj/item/grown/log/tree/stick
 
@@ -57,8 +57,8 @@
 	requirements = list(
 		/obj/item/natural/fibers = 2,
 	)
-	attacking_atom = /obj/item/natural/fibers
-	uses_attacking_atom = FALSE
+	attacked_atom = /obj/item/natural/fibers
+	uses_attacked_atom = FALSE
 	crafting_message = "starts weaving a reel"
 
 /datum/repeatable_crafting_recipe/fishing/reel/silk
@@ -66,7 +66,7 @@
 	requirements = list(
 		/obj/item/natural/silk = 1,
 	)
-	attacking_atom = /obj/item/natural/silk
+	attacked_atom = /obj/item/natural/silk
 	output = /obj/item/fishing/reel/silk
 
 /datum/repeatable_crafting_recipe/fishing/reel/leather
@@ -74,7 +74,7 @@
 	requirements = list(
 		/obj/item/natural/hide = 1,
 	)
-	attacking_atom = /obj/item/natural/hide
+	attacked_atom = /obj/item/natural/hide
 	output = /obj/item/fishing/reel/leather
 
 /datum/repeatable_crafting_recipe/fishing/bobber
@@ -85,8 +85,8 @@
 		/obj/item/natural/fibers = 1,
 		/obj/item/grown/log/tree/stick = 1,
 	)
-	attacking_atom = /obj/item/natural/fibers
-	uses_attacking_atom = TRUE
+	attacked_atom = /obj/item/natural/fibers
+	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/fishing/bobber/stone
 	name = "stone sinker"
@@ -96,8 +96,8 @@
 		/obj/item/natural/fibers = 1,
 		/obj/item/natural/stone = 1,
 	)
-	attacking_atom = /obj/item/natural/fibers
-	uses_attacking_atom = TRUE
+	attacked_atom = /obj/item/natural/fibers
+	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/fishing/hook
 	name = "wooden fishing hook"
@@ -106,8 +106,8 @@
 	requirements = list(
 		/obj/item/grown/log/tree/stick = 2,
 	)
-	attacking_atom = /obj/item/grown/log/tree/stick
-	uses_attacking_atom = TRUE
+	attacked_atom = /obj/item/grown/log/tree/stick
+	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/fishing/hook/thorn
 	name = "thorn fishing hook"
@@ -116,4 +116,63 @@
 	requirements = list(
 		/obj/item/natural/thorn = 2,
 	)
-	attacking_atom = /obj/item/natural/thorn
+	attacked_atom = /obj/item/natural/thorn
+
+/datum/repeatable_crafting_recipe/fishing/normalbait
+	name = "bait"
+	output = /obj/item/bait
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/wheat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/wheat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/fishing/sweetbait
+	name = "sweet bait - Apple"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/apple = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/fishing/berrybait
+	name = "sweet bait - Berry"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/fishing/bloodbait
+	name = "Blood Bait"
+	output = /obj/item/bait/bloody
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/meat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/meat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE
+
+/datum/repeatable_crafting_recipe/fishing/fishingrod
+	name = "Fishing Rod"
+	output = /obj/item/fishingrod/crafted
+	requirements = list(
+		/obj/item/grown/log/tree/small = 1,
+		/obj/item/natural/fibers = 2,
+	)
+	starting_atom = /obj/item/grown/log/tree/small
+	attacked_atom = /obj/item/natural/fibers
+	uses_attacked_atom = TRUE
+
+/obj/item/fishingrod/crafted
+	sellprice = 8

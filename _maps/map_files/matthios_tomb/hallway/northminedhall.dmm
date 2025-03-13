@@ -5,27 +5,27 @@
 	pixel_x = -5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "c" = (
 /obj/item/natural/stone{
 	pixel_x = 11
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "d" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "e" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "h" = (
 /obj/item/natural/stone{
 	pixel_y = -9;
 	pixel_x = -5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "i" = (
 /obj/item/natural/stone{
 	pixel_x = 9;
@@ -33,43 +33,43 @@
 	},
 /obj/item/weapon/axe/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "k" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "l" = (
 /obj/item/natural/stone{
 	pixel_x = 7;
 	pixel_y = 9
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "m" = (
 /obj/item/natural/stone{
 	pixel_x = -8;
 	pixel_y = -8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "t" = (
 /obj/item/natural/rock/gemerald,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "v" = (
 /obj/item/weapon/knife/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "w" = (
 /obj/structure/kneestingers,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "x" = (
 /obj/item/natural/stone{
 	pixel_x = -8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "A" = (
 /obj/item/natural/stone{
 	pixel_y = -9;
@@ -83,7 +83,7 @@
 	pixel_y = 7
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "B" = (
 /obj/item/natural/stone{
 	pixel_y = 4;
@@ -91,12 +91,12 @@
 	},
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "C" = (
 /obj/structure/bed/shit,
 /obj/item/clothing/cloak/raincloak,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "G" = (
 /obj/item/flashlight/flare/torch{
 	pixel_x = -10
@@ -105,19 +105,19 @@
 	pixel_x = 11
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "H" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "I" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "M" = (
 /obj/structure/roguetent,
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "P" = (
 /obj/item/natural/stone{
 	pixel_y = 4;
@@ -125,11 +125,11 @@
 	},
 /obj/item/ammo_casing/caseless/arrow/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "R" = (
 /obj/item/weapon/axe/stone,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "V" = (
 /obj/item/natural/stone,
 /obj/item/natural/stone{
@@ -137,11 +137,11 @@
 	pixel_x = -5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Z" = (
 /obj/structure/ladder/earth,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 I

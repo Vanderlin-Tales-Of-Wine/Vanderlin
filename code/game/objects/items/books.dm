@@ -700,7 +700,7 @@
 			ckey = user.ckey
 			select_icon = newicon
 			icon_state = "paperwrite"
-			to_chat(user, "<span class='notice'>You have successfully written the manuscript.</span>")
+			to_chat(user, "<span class='notice'>You have successfully authored and titled the manuscript.</span>")
 			var/complete = input(user, "Is the manuscript finished?") in list("Yes", "No")
 			if(complete == "Yes" && compiled_pages)
 				written = TRUE
@@ -708,7 +708,7 @@
 			to_chat(user, "<span class='notice'>You must fill out all fields to complete the manuscript.</span>")
 		return
 	else if(istype(P, /obj/item/natural/feather) && written)
-		to_chat(user, "<span class='notice'>The manuscript has already been written.</span>")
+		to_chat(user, "<span class='notice'>The manuscript has already been authored and titled.</span>")
 		return
 	return ..()
 

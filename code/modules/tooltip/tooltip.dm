@@ -118,7 +118,7 @@ Notes:
 
 //Arbitrarily close a user's tooltip
 //Includes sanity checks.
-/proc/closeToolTip(mob/user)
+/proc/close_tooltip(mob/user)
 	if(istype(user))
 		if(user.client && user.client.tooltips)
 			user.client.tooltips.hide()
