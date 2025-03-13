@@ -2433,7 +2433,7 @@ Slots: [job.spawn_positions]</span>
 		return FALSE
 	return TRUE
 
-/proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
+/datum/proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
 var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg", "gif")
 
@@ -2442,7 +2442,7 @@ var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l
 
 	// Ensure link starts with "https://"
 	if(findtext(value, "https://") != 1)
-		if (!silent)
+		if(!silent)
 			to_chat(user, "<span class='warning'>Your link must be https!</span>")
 		return FALSE
 
