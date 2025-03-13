@@ -8434,6 +8434,10 @@
 /obj/structure/bed/shit,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/cell)
+"fOE" = (
+/obj/structure/fake_machine/musicbox/tavern,
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/town/basement/thieves_guild)
 "fOL" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/blocks,
@@ -32173,12 +32177,6 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town)
-"wOQ" = (
-/obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
-	},
-/turf/open/floor/blocks,
-/area/rogue/outdoors/town)
 "wOl" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 30;
@@ -32187,6 +32185,12 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/cobblerock,
 /area/rogue/under/town/basement/thieves_guild)
+"wOQ" = (
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
+/turf/open/floor/blocks,
+/area/rogue/outdoors/town)
 "wOR" = (
 /obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/powder/flour,
@@ -60384,7 +60388,7 @@ dMU
 ufs
 mhv
 mhv
-dMU
+fOE
 eRP
 bBA
 bBA
