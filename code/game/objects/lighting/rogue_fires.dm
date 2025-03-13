@@ -71,13 +71,6 @@
 	icon_state = "standingb1"
 	base_state = "standingb"
 
-/obj/machinery/light/fueled/firebowl/standing/blue/burn_out()
-	return FALSE
-
-/obj/machinery/light/fueled/firebowl/standing/blue/extinguish()
-	return FALSE
-
-
 /obj/machinery/light/fueled/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
 	icon_state = "[base_state]over"
 
