@@ -411,6 +411,11 @@
 					var/exp_to_gain = STAINT
 					var/list/stealablezones = list("chest", "neck", "groin", "r_hand", "l_hand")
 					var/list/stealpos = list()
+					var/obj/item/offhand_item = U.get_inactive_held_item()
+
+					if (offhand_item && offhand_item.sharpness == IS_SHARP)
+						return // Sharp = cutpursing
+
 					if(stealroll > targetperception)
 						if(U.get_active_held_item())
 							to_chat(src, span_warning("I can't pickpocket while my hand is full!"))
@@ -438,6 +443,10 @@
 										stealpos.Add(V.get_item_by_slot(SLOT_RING))
 							if (length(stealpos) > 0)
 								var/obj/item/picked = pick(stealpos)
+
+								// Check for cutpursing if the item is a satchel or pouch
+								if ()
+
 								V.dropItemToGround(picked)
 								put_in_active_hand(picked)
 								to_chat(src, span_green("I stole [picked]!"))
