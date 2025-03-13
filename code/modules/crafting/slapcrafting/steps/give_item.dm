@@ -86,8 +86,6 @@
 
 /datum/slapcraft_step/item/plank/second
 
-/datum/slapcraft_step/item/plank/third
-
 /datum/slapcraft_step/item/cog
 	desc = "Add a cog."
 	item_types = list(/obj/item/gear/metal)
