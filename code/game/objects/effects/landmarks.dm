@@ -312,6 +312,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Hand"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/courtagent
+	name = "Court Agent"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/hunter
 	name = "Hunter"
 	icon_state = "arrow"

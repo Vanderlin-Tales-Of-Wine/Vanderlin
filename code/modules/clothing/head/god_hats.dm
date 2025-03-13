@@ -1,3 +1,11 @@
+/obj/item/clothing/head/padded/pestra
+	name = "naga hood"
+	desc = "Worn by the faithful of Pestra. Resembling the face of the Naga clothed in rot."
+	icon_state = "pestrahood"
+	icon = 'icons/roguetown/clothing/patron_hoods.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/patron_hoods.dmi'
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+
 /obj/item/clothing/head/roguehood/nochood
 	name = "moon hood"
 	desc = "The face of the Moon Prince. Worn by the faitful of Noc."
@@ -22,6 +30,12 @@
 	name = "death shroud"
 	desc = "Worn by the faithful of Necra, or less savory individuals."
 	icon_state = "necrahood"
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+
+/obj/item/clothing/head/padded/pestra
+	name = "naga hood"
+	desc = "Worn by the faithful of Pestra. Resembling the face of the Naga clothed in rot."
+	icon_state = "pestrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 /obj/item/clothing/head/padded/operavisage
