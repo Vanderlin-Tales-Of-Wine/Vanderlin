@@ -6,8 +6,8 @@
 /obj/structure/table/wood/nice/decorated,
 /obj/item/candle/yellow/lit/infinite/strong/skull,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
-/obj/item/coin/gold,
 /obj/item/reagent_containers/glass/bottle/redwine,
+/obj/item/statue/gold,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/outdoors/caves)
 "c" = (
@@ -23,7 +23,6 @@
 "e" = (
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/weapon/sword/khopesh,
-/obj/item/coin/copper/pile,
 /obj/item/clothing/face/facemask/copper,
 /obj/item/clothing/neck/gorget/copper,
 /obj/item/clothing/wrists/bracers/copper,

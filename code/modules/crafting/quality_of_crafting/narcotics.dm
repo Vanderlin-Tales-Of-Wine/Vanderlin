@@ -10,7 +10,7 @@
 	)
 
 	starting_atom = /obj/item/pestle
-	attacking_atom = /obj/item/mortar
+	attacked_atom = /obj/item/mortar
 	skillcraft = /datum/skill/craft/alchemy
 	tool_use_time = 4 SECONDS
 	craft_time = 6 SECONDS

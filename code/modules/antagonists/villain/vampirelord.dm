@@ -56,6 +56,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
+	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
@@ -779,7 +780,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/skeleton/knight/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(objectives.len)//If the traitor had no objectives, don't need to process this.
@@ -807,7 +808,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampirelord/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(isspawn) // don't need to spam up the chat with all spawn

@@ -6,20 +6,25 @@
 	var/output_amount = 1
 	var/list/requirements = list()
 	var/list/reagent_requirements = list()
-	///this is a list of tool usage in their order which executes after requirements and reagents are fufilled these are assoc lists going path = list(text, sound)
+	///this is a list of tool usage in their order which executes after requirements and reagents are fufilled these are assoc lists going path = list(text, self_text, sound)
 	var/list/tool_usage = list()
+
+	///do we need to be learned
+	var/requires_learning = FALSE
 
 	///our sellprice
 	var/sellprice = 0
 
 	///this is the things we check for in our offhand ie herb pouch or something to repeat the craft
-	var/list/offhand_repeat_check = list(/obj/item/storage/backpack)
+	var/list/offhand_repeat_check = list(
+		/obj/item/storage/backpack
+	)
 	///if this is set we also check the floor on the ground
 	var/check_around_owner = TRUE
 	///this is the atom we need to start the process
 	var/atom/starting_atom
 	///this is the thing we need to hit to start
-	var/atom/attacking_atom
+	var/atom/attacked_atom
 
 	///our crafting difficulty
 	var/craftdiff = 1
@@ -44,27 +49,27 @@
 	var/required_table = FALSE
 	///intent we require
 	var/datum/intent/required_intent
-	///do we also use the attacking_atom in the recipe?
-	var/uses_attacking_atom = FALSE
+	///do we also use the attacked_atom in the recipe?
+	var/uses_attacked_atom = FALSE
 	///do we also count subtypes?
 	var/subtypes_allowed = FALSE
 	///list of types we pass before deletion to the child
 	var/list/pass_types_in_end = list()
 
 /datum/repeatable_crafting_recipe/proc/check_start(obj/item/attacked_item, obj/item/attacking_item, mob/user)
-	if(!istype(attacked_item, attacking_atom) && !istype(attacked_item, /obj/item/natural/bundle))
+	if(!istype(attacked_item, attacked_atom) && !istype(attacked_item, /obj/item/natural/bundle))
 		return FALSE
 
 	if(istype(attacked_item, /obj/item/natural/bundle))
 		var/bundle_path = attacked_item:stacktype
-		if(!ispath(bundle_path, attacking_atom))
+		if(!ispath(bundle_path, attacked_atom))
 			return FALSE
 
 
 	if(required_intent && user.used_intent != required_intent)
 		return FALSE
 
-	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacking_atom)
+	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)
 	if(required_table && !table)
 		return FALSE
 
@@ -150,7 +155,7 @@
 
 /datum/repeatable_crafting_recipe/proc/check_max_repeats(obj/item/attacked_item, obj/item/attacking_item, mob/user)
 	var/list/usable_contents = list()
-	if(uses_attacking_atom)
+	if(uses_attacked_atom)
 		usable_contents |= attacked_item.type
 		usable_contents[attacked_item.type]++
 
@@ -229,18 +234,18 @@
 		return
 	actual_crafts = CLAMP(actual_crafts, 1, max_crafts)
 
-	if(!istype(attacked_item, attacking_atom) && !istype(attacked_item, /obj/item/natural/bundle))
+	if(!istype(attacked_item, attacked_atom) && !istype(attacked_item, /obj/item/natural/bundle))
 		return FALSE
 
 	if(istype(attacked_item, /obj/item/natural/bundle))
 		var/bundle_path = attacked_item:stacktype
-		if(!ispath(bundle_path, attacking_atom))
+		if(!ispath(bundle_path, attacked_atom))
 			return FALSE
 
 	var/list/usable_contents = list()
 	var/list/storage_contents = list()
 
-	if(uses_attacking_atom && !QDELETED(attacked_item))
+	if(uses_attacked_atom && !QDELETED(attacked_item))
 		usable_contents |= attacked_item
 
 	for(var/obj/item/I in user.held_items)
@@ -786,7 +791,7 @@
 		<div>
 		"}
 
-	html += "<strong class=class='scroll'>start the process with</strong> <br>[icon2html(new attacking_atom, user)] <br> [initial(attacking_atom.name)]<br>"
+	html += "<strong class=class='scroll'>start the process with</strong> <br>[icon2html(new attacked_atom, user)] <br> [initial(attacked_atom.name)]<br>"
 	if(subtypes_allowed)
 		html += "<strong class=class='scroll'>using</strong> <br> [icon2html(new starting_atom, user)] <br> any [initial(starting_atom.name)] on it<br>"
 	else

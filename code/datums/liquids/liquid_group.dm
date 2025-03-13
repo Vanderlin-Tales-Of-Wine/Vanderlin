@@ -70,6 +70,8 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 	var/list/splitting_array = list()
 	///are we slippery
 	var/slippery = TRUE
+	///do we glow?
+	var/glows = FALSE
 
 ///NEW/DESTROY
 /datum/liquid_group/New(height, obj/effect/abstract/liquid_turf/created_liquid)
@@ -484,6 +486,7 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 	var/new_color
 	var/old_color = group_color
 
+
 	if(GLOB.liquid_debug_colors)
 		new_color = color
 	else if(length(cached_reagent_list) != length(reagents.reagent_list))
@@ -494,10 +497,24 @@ GLOBAL_VAR_INIT(liquid_debug_colors, FALSE)
 	var/alpha_setting = 1
 	var/alpha_divisor = 1
 
+	var/glowy = FALSE
 	for(var/r in reagents.reagent_list)
 		var/datum/reagent/R = r
 		alpha_setting += max((R.opacity * R.volume), 1)
 		alpha_divisor += max((1 * R.volume), 1)
+		if(R.glows)
+			glowy = TRUE
+
+	if(glowy)
+		if(!glows)
+			glows = TRUE
+			for(var/turf/member in members)
+				member.liquids?.update_overlays()
+	else
+		if(glows)
+			glows = FALSE
+			for(var/turf/member in members)
+				member.liquids?.update_overlays()
 
 	var/old_alpha = group_alpha
 	if(new_color == old_color && group_alpha == old_alpha || !new_color)

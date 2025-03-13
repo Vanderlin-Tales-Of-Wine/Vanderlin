@@ -2,11 +2,17 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 
 //A barebones antagonist team.
 /datum/team
-	var/list/datum/mind/members = list()
-	var/name = "team"
+	///Name of the entire Team
+	var/name = "\improper Team"
+	///What members are considered in the roundend report (ex: 'cultists')
 	var/member_name = "member"
-	var/list/objectives = list() //common objectives, these won't be added or removed automatically, subtypes handle this, this is here for bookkeeping purposes.
+	///Whether the team shows up in the roundend report.
 	var/show_roundend_report = TRUE
+
+	///List of all members in the team
+	var/list/datum/mind/members = list()
+	///Common objectives, these won't be added or removed automatically, subtypes handle this, this is here for bookkeeping purposes.
+	var/list/datum/objective/objectives = list()
 
 /datum/team/New(starting_members)
 	. = ..()
@@ -20,10 +26,9 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 
 /datum/team/Destroy(force, ...)
 	GLOB.antagonist_teams -= src
+	members = null
+	objectives = null
 	. = ..()
-
-/datum/team/proc/is_solo()
-	return members.len == 1
 
 /datum/team/proc/add_member(datum/mind/new_member)
 	members |= new_member
@@ -31,32 +36,78 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 /datum/team/proc/remove_member(datum/mind/member)
 	members -= member
 
+/datum/team/proc/add_objective(datum/objective/new_objective, needs_target = FALSE)
+	new_objective.team = src
+	if(needs_target)
+		new_objective.find_target(dupe_search_range = list(src))
+	new_objective.update_explanation_text()
+	objectives += new_objective
+
 //Display members/victory/failure/objectives for the team
 /datum/team/proc/roundend_report()
-	if(!show_roundend_report)
-		return
-
 	var/list/report = list()
 
-	report += "<span class='header'>[name]:</span>"
-	report += "The [member_name]s were:"
+	report += span_header(" * [name] * ")
+	//report += "\The [member_name]s were:"
 	report += printplayerlist(members)
 
-	if(objectives.len)
-		report += "<span class='header'>Team had following objectives:</span>"
+	if(length(objectives))
+		report += span_header("Team had following objectives:")
 		var/win = TRUE
 		var/objective_count = 1
-		for(var/datum/objective/objective in objectives)
+		for(var/datum/objective/objective as anything in objectives)
 			if(objective.check_completion())
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] <span class='greentext'>Success!</span>"
+				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
 			else
-				report += "<B>Objective #[objective_count]</B>: [objective.explanation_text] <span class='redtext'>Fail.</span>"
+				report += "<B>Goal #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
 				win = FALSE
 			objective_count++
+
+		var/result_sound
 		if(win)
-			report += "<span class='greentext'>The [name] was successful!</span>"
+			report += span_greentext("\The [name] was TRIUMPHED!")
+			result_sound = 'sound/misc/triumph.ogg'
+			roundend_success()
 		else
-			report += "<span class='redtext'>The [name] have failed!</span>"
+			report += span_redtext("\The [name] has FAILED!")
+			result_sound = 'sound/misc/fail.ogg'
+			roundend_failure()
+
+		for(var/datum/mind/member as anything in members)
+			if(!member.current)
+				continue
+			member.current.playsound_local(get_turf(member.current), result_sound, 100, FALSE, pressure_affected = FALSE)
+
+	return report.Join("<br>")
+
+/datum/team/proc/get_team_antags(antag_type,specific = FALSE)
+	. = list()
+	for(var/datum/antagonist/antagonist as anything in GLOB.antagonists)
+		if(antagonist.get_team() == src && (!antag_type || !specific && istype(antagonist, antag_type) || specific && antagonist.type == antag_type))
+			. += antagonist
+
+//Builds section for the team
+/datum/team/proc/antag_listing_entry()
+	//NukeOps:
+	// Jim (Status) FLW PM TP
+	// Joe (Status) FLW PM TP
+	//Disk:
+	// Deep Space FLW
+	var/list/parts = list()
+	parts += "<b>[antag_listing_name()]</b><br>"
+	parts += "<table cellspacing=5>"
+	for(var/datum/antagonist/antag_entry as anything in get_team_antags())
+		parts += antag_entry.antag_listing_entry()
+	parts += "</table>"
+	return parts.Join()
+
+/datum/team/proc/antag_listing_name()
+	return name
+
+/* ROGUETOWN */
+
+/datum/team/proc/roundend_success()
 
 
-	return "<div class='panel redborder'>[report.Join("<br>")]</div>"
+/datum/team/proc/roundend_failure()
+

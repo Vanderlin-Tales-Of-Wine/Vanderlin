@@ -42,7 +42,7 @@
 
 	..()
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
-	
+
 	if (client && key != client.key)
 		key = client.key
 	reset_perspective(loc)
@@ -93,6 +93,9 @@
 	addtimer(CALLBACK(src, PROC_REF(send_pref_messages)), 2 SECONDS)
 	if(client.holder)
 		client.hearallasghost()
+
+	if(QDELETED(client?.patreon))
+		client?.patreon = new(client)
 
 /mob/proc/send_pref_messages()
 	if(client?.prefs)

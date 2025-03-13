@@ -495,7 +495,7 @@
 
 /obj/structure/soil/proc/process_plant_nutrition(dt)
 	var/turf/location = loc
-	if(!plant.can_grow_underground && location.can_see_sky == SEE_SKY_NO)
+	if(!plant.can_grow_underground && !location.can_see_sky())
 		return
 	// If matured and produce is ready, don't process plant nutrition
 	if(matured && produce_ready)
@@ -643,3 +643,18 @@
 	produce_ready = FALSE
 	plant_dead = FALSE
 	update_icon()
+
+/obj/structure/soil/debug_soil
+	var/obj/item/neuFarm/seed/seed_to_grow
+
+/obj/structure/soil/debug_soil/random/Initialize()
+	seed_to_grow = pick(subtypesof(/obj/item/neuFarm/seed))
+	. = ..()
+
+/obj/structure/soil/debug_soil/Initialize()
+	. = ..()
+	if(!seed_to_grow)
+		return
+	insert_plant(GLOB.plant_defs[initial(seed_to_grow.plant_def_type)])
+	add_growth(plant.maturation_time)
+	add_growth(plant.produce_time)

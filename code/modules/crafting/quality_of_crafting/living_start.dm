@@ -1,14 +1,16 @@
-/mob/living/proc/try_repeatable_craft(obj/item/attacked_item, obj/item/attacked_object)
+/mob/living/proc/try_repeatable_craft(obj/item/attacked_atom, obj/item/starting_atom)
 	var/list/recipes = list()
 	for(var/path in GLOB.repeatable_crafting_recipes)
-		if(!istype(attacked_object, path))
+		if(!istype(starting_atom, path))
 			continue
 		recipes |= GLOB.repeatable_crafting_recipes[path]
 
 	var/list/passed_recipes = list()
 
 	for(var/datum/repeatable_crafting_recipe/recipe in recipes)
-		if(!recipe.check_start(attacked_item, attacked_object, src))
+		if(!recipe.check_start(attacked_atom, starting_atom, src))
+			continue
+		if(recipe.requires_learning && !(recipe.type in mind?.learned_recipes))
 			continue
 		passed_recipes |= recipe
 
@@ -17,22 +19,22 @@
 	return passed_recipes
 
 
-/mob/living/proc/try_recipes(obj/item/attacked_item, obj/item/attacked_object)
-	if(isitem(attacked_item))
-		if(attacked_item.in_progress_slapcraft)
-			return attacked_item.in_progress_slapcraft.try_process_item(attacked_object, src)
+/mob/living/proc/try_recipes(obj/item/attacked_atom, obj/item/starting_atom)
+	if(isitem(attacked_atom))
+		if(attacked_atom.in_progress_slapcraft)
+			return attacked_atom.in_progress_slapcraft.try_process_item(starting_atom, src)
 
 	var/list/recipes = list()
-	recipes |= src.try_orderless_slapcraft(attacked_object, attacked_item)
-	recipes |= src.try_slapcraft(attacked_item, attacked_object)
-	recipes |= src.try_repeatable_craft(attacked_item, attacked_object)
+	recipes |= src.try_orderless_slapcraft(starting_atom, attacked_atom)
+	recipes |= src.try_slapcraft(attacked_atom, starting_atom)
+	recipes |= src.try_repeatable_craft(attacked_atom, starting_atom)
 
 	if(!length(recipes))
 		return FALSE
 	var/datum/recipe  = input(src, "Choose a recipe to craft", "Recipes") as null|anything in recipes
 	if(!recipe)
-		return
-	return execute_recipe(recipe, attacked_object, attacked_item)
+		return TRUE
+	return execute_recipe(recipe, starting_atom, attacked_atom)
 
 /mob/living/proc/execute_recipe(datum/slapcraft_recipe/target_recipe, obj/item/first_item, obj/item/second_item)
 	if(!target_recipe)
