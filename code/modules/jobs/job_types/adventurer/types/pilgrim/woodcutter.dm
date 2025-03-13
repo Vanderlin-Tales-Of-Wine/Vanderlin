@@ -29,7 +29,6 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(3,3,4), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 	belt = /obj/item/storage/belt/leather
 	shirt = /obj/item/clothing/shirt/shortshirt/random
 	pants = /obj/item/clothing/pants/trou

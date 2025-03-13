@@ -73,7 +73,6 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_CON, 1)
@@ -119,7 +118,6 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_INT, 2)
@@ -128,7 +126,7 @@
 
 /datum/advclass/heir/inbred
 	name = "Inbred Wastrel"
-	tutorial = "Your bloodline ensures Psydon smiles upon you by divine right, the blessing of nobility... until you were born, anyway. You are a child forsaken, and even though your body boils as you go about your day, your spine creaks, and your drooling form needs to be waited on tirelessly you are still considered more important than the peasant that keeps the town fed and warm. Remind them of that fact when your lungs are particularly pus free."
+	tutorial = "Your bloodline ensures Psydon smiles upon you by divine right, the blessing of nobility... until you were born, anyway. You are a child forsaken, and even though your body boils as you go about your day, your spine creaks, and your drooling form needs to be waited on tirelessly you are still considered more important then the peasant that keeps the town fed and warm. Remind them of that fact when your lungs are particularly pus free."
 	outfit = /datum/outfit/job/heir/inbred
 	category_tags = list(CTAG_HEIR)
 
@@ -164,7 +162,6 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE) // inbred can't learn so good :(
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_PER, -2)
 		H.change_stat(STATKEY_INT, -2)

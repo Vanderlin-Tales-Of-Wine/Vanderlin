@@ -31,7 +31,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/random

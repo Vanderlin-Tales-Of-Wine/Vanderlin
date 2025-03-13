@@ -49,7 +49,6 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 			if(H.age == AGE_OLD)
 				H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 				H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)

@@ -61,5 +61,4 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 

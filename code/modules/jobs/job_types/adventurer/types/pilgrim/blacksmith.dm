@@ -51,7 +51,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		if(prob(50))
 			H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		if(H.age == AGE_OLD) //Oldness points are a bit different here, you get a pool of 1-3 points that are assigned randomly to the smithing stats since you're not a specialist

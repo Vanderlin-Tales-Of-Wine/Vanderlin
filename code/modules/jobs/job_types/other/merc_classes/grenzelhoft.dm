@@ -27,7 +27,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(0,0,1), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 
 	if(H.gender == FEMALE)
 		H.underwear = "Femleotard"

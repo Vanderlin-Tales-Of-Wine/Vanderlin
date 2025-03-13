@@ -36,7 +36,6 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/red

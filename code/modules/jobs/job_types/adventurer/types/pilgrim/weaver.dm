@@ -23,7 +23,6 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	belt = /obj/item/storage/belt/leather/cloth/lady
 	pants = /obj/item/clothing/pants/tights/random
 	shoes = /obj/item/clothing/shoes/shortboots

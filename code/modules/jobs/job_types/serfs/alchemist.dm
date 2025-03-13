@@ -31,7 +31,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, pick(2,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_INT, 3)
 		H.change_stat(STATKEY_SPD, -1)
 		if(H.age == AGE_OLD)

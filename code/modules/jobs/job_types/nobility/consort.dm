@@ -86,7 +86,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	if(H.age == AGE_OLD)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 	H.change_stat(STATKEY_INT, 3)
@@ -128,7 +127,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE) // oh you know
 	H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) //not as good as the high-born version
 	if(H.age == AGE_OLD)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.change_stat(STATKEY_STR, 1)
@@ -167,7 +165,6 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE) //peasant tier maths
 	if(H.age == AGE_OLD)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.change_stat(STATKEY_STR, 1)

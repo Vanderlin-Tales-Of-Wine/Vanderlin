@@ -26,7 +26,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE) // a thief should know how to count coins
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/fingerless
 	pants = /obj/item/clothing/pants/trou/leather

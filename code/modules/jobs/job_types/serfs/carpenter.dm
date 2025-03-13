@@ -37,7 +37,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(3,3,4), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		if(prob(5))
 			H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)

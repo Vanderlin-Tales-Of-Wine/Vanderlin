@@ -56,7 +56,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_INT, -2)
 		H.change_stat(STATKEY_END, 2)
