@@ -1494,6 +1494,7 @@
 #include "code\modules\jobs\job_types\adventurer\types\combat\barbarian.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\cleric.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\dbomb.dm"
+#include "code\modules\jobs\job_types\adventurer\types\combat\dredge.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\dwarfranger.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\mage.dm"
 #include "code\modules\jobs\job_types\adventurer\types\combat\monk.dm"
