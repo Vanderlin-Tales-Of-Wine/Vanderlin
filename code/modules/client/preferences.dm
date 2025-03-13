@@ -2419,13 +2419,6 @@ Slots: [job.spawn_positions]</span>
 		else
 			custom_names[name_id] = sanitized_name
 
-/datum/preferences/proc/is_active_migrant()
-	if(!migrant)
-		return FALSE
-	if(!migrant.active)
-		return FALSE
-	return TRUE
-
 /datum/preferences/proc/allowed_respawn()
 	if(!has_spawned)
 		return TRUE
@@ -2434,7 +2427,7 @@ Slots: [job.spawn_positions]</span>
 	return TRUE
 
 /datum/proc/is_valid_headshot_link(mob/user, value, silent = FALSE)
-var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
+	var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l3n.co", "images2.imgbox.com", "thumbs2.imgbox.com")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg", "gif")
 
 	if(!length(value))
@@ -2453,7 +2446,7 @@ var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l
 
 	// Check if domain is in the allowed list
 	if(!(domain in allowed_hosts))
-		if (!silent)
+		if(!silent)
 			to_chat(user, "<span class='warning'>The image must be hosted on an approved site.</span>")
 		return FALSE
 
@@ -2469,8 +2462,15 @@ var/static/list/allowed_hosts = list("i.gyazo.com", "a.l3n.co", "b.l3n.co", "c.l
 
 	// Validate extension
 	if(!(extension in valid_extensions))
-		if (!silent)
+		if(!silent)
 			to_chat(user, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
 		return FALSE
 
+	return TRUE
+
+/datum/preferences/proc/is_active_migrant()
+	if(!migrant)
+		return FALSE
+	if(!migrant.active)
+		return FALSE
 	return TRUE
