@@ -36,32 +36,32 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/riding, pick(1,1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(0,1), TRUE)
 
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	belt = /obj/item/storage/belt/rogue/leather
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	backl = /obj/item/storage/backpack/rogue/satchel
+	shoes = /obj/item/clothing/shoes/boots
+	belt = /obj/item/storage/belt/leather
+	pants = /obj/item/clothing/pants/tights/black
+	backl = /obj/item/storage/backpack/satchel
 	var/armortype = pickweight(list("Warrior" = 5, "Splint" = 5, "HeavyG" = 4, "Hide" = 3, "Jacket" = 3, "Ironplate" = 1, "Freak" = 3, "Psy" = 2, "Destitute" = 2, "Copper" = 1, "Noble" = 1)) // At best they can get an iron breastplate over mail and iron chainleggings
 	var/weapontype = pickweight(list("Axe" = 3, "BigAxe" = 2, "Mace" = 3, "Mage" = 1, "Shield" = 1, "BigMace" = 2, "Spear" = 2, "Messer" = 2, "Shovel" = 1, "Falx" = 2, "Rapier" = 1, "Sword" = 3, "Sword2" = 2, "Flail" = 1, "Bow" = 1, "Fist" = 1, "Daggers" = 2, "MFlail" = 2,)) // Rolls for various weapons, all of these are iron tier
 	var/randomjob = pickweight (list("Farmer" = 3, "Sailor" = 2, "Pickpocket" = 2, "Smith" = 2, "Fisher" = 3, "Doctor" = 2, "Steppes" = 2, "Smart" = 1, "Grappler" = 1, "Lumber" = 2, "Guard" = 2, "Bard" = 2, "Paranoiac" = 1,))
 	var/randomperk = pickweight (list("Fat" = 3, "Cyclops" = 2, "Normal" = 3, "Packrat" = 2, "Strong" = 1, "Zizo" = 2, "Atheist" = 1, "Graggar" = 1, "Stupid" = 1, "Lockpicks" = 2, "Traps" = 2, "Ring" = 2, "Knives" = 2, "Heel" = 1, "Heel" = 2, "Invisible" = 2, "Bomb" = 1, "Blind" = 2,))
 	switch(armortype)
 		if("Warrior")
-			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-			gloves = /obj/item/clothing/gloves/roguetown/leather
-			pants = /obj/item/clothing/under/roguetown/tights/random
-			head = /obj/item/clothing/head/roguetown/roguehood/black
+			armor = /obj/item/clothing/armor/chainmail/iron
+			shirt = /obj/item/clothing/armor/gambeson
+			gloves = /obj/item/clothing/gloves/leather
+			pants = /obj/item/clothing/pants/tights/uncolored
+			head = /obj/item/clothing/head/roguehood
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			to_chat(H,span_info("\
 			I am a sellsword. A greenhorn, but a sellsword nonetheless.")
 			)
 		if("Ironplate")
-			armor = /obj/item/clothing/suit/roguetown/armor/cuirass/iron
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-			neck = /obj/item/clothing/neck/roguetown/gorget
-			pants = /obj/item/clothing/under/roguetown/tights/black
-			head = /obj/item/clothing/head/roguetown/roguehood/black
+			armor = /obj/item/clothing/armor/cuirass/iron
+			shirt = /obj/item/clothing/armor/gambeson/heavy
+			neck = /obj/item/clothing/neck/gorget
+			pants = /obj/item/clothing/pants/tights/black
+			head = /obj/item/clothing/head/roguehood
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_END, -1)
@@ -71,10 +71,10 @@
 			I am a sellsword by trade. I've held a weapon in my hand for longer than I can remember.")
 			)
 		if("Splint")
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/splint
-			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			pants = /obj/item/clothing/under/roguetown/tights/random
+			armor = /obj/item/clothing/armor/leather/splint
+			shirt = /obj/item/clothing/shirt/tunic/black
+			wrists = /obj/item/clothing/wrists/bracers/leather
+			pants = /obj/item/clothing/pants/tights/uncolored
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 			H.change_stat(STATKEY_END, 1)
@@ -82,13 +82,13 @@
 			Heavier armors do not suit my brand of mercenarywork.")
 			)
 		if("Jacket")
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket
-			neck = /obj/item/clothing/neck/roguetown/coif
-			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			gloves = /obj/item/clothing/gloves/roguetown/angle
-			head = /obj/item/clothing/head/roguetown/roguehood/black
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			armor = /obj/item/clothing/armor/leather/jacket
+			neck = /obj/item/clothing/neck/coif
+			shirt = /obj/item/clothing/shirt/tunic/red
+			wrists = /obj/item/clothing/wrists/bracers/leather
+			gloves = /obj/item/clothing/gloves/angle
+			head = /obj/item/clothing/head/roguehood
+			pants = /obj/item/clothing/pants/trou/leather
 			H.change_stat(STATKEY_LCK, 1)
 			H.change_stat(STATKEY_SPD, 1)
 			H.change_stat(STATKEY_CON, -1)
@@ -99,25 +99,25 @@
 			I'm a stone-cold motherfucker. Nothing fazes me.")
 			)
 		if("HeavyG")
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-			gloves = /obj/item/clothing/gloves/roguetown/leather
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			pants = /obj/item/clothing/under/roguetown/trou/leather
+			shirt = /obj/item/clothing/armor/gambeson/heavy
+			neck = /obj/item/clothing/neck/chaincoif/iron
+			gloves = /obj/item/clothing/gloves/leather/advanced
+			wrists = /obj/item/clothing/wrists/bracers/leather
+			pants = /obj/item/clothing/pants/trou/leather
 			H.change_stat(STATKEY_STR, -1)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			to_chat(H,span_info("\
 			I'm light on my feet, I dare somebody to try and hit me.")
 			)
 		if("Psy")
-			neck = /obj/item/clothing/neck/roguetown/psycross
-			head = /obj/item/clothing/head/roguetown/brimmed
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
-			gloves = /obj/item/clothing/gloves/roguetown/leather
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			neck = /obj/item/clothing/neck/psycross
+			head = /obj/item/clothing/head/brimmed
+			shirt = /obj/item/clothing/shirt/undershirt/puritan
+			gloves = /obj/item/clothing/gloves/leather/advanced
+			wrists = /obj/item/clothing/wrists/bracers/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
-			pants = /obj/item/clothing/under/roguetown/tights/black
+			pants = /obj/item/clothing/pants/tights/black
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
@@ -129,10 +129,10 @@
 			The Ten are false gods, and I loathe those that worship the corpse god. Psydon lives, my life for Psydon.")
 			)
 		if("Hide")
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			shirt = /obj/item/clothing/shirt/undershirt/uncolored
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
 			cloak = /obj/item/clothing/cloak/raincloak/brown
-			gloves = /obj/item/clothing/gloves/roguetown/leather
+			gloves = /obj/item/clothing/gloves/leather/advanced
 			pants = /obj/item/clothing/under/roguetown/tights/random
 			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
@@ -144,9 +144,9 @@
 			Dendor provides. The only armor I need are hides taken from the backs of beasts.")
 			)
 		if("Freak")
-			head = /obj/item/clothing/head/roguetown/menacing
-			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-			pants = /obj/item/clothing/under/roguetown/tights/black
+			head = /obj/item/clothing/head/menacing
+			neck = /obj/item/clothing/neck/chaincoif/iron
+			pants = /obj/item/clothing/pants/tights/black
 			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 			H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -166,7 +166,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-			neck = /obj/item/clothing/neck/roguetown/gorget
+			neck = /obj/item/clothing/neck/gorget
 			mask = /obj/item/clothing/mask/rogue/facemask
 			pants = /obj/item/clothing/under/roguetown/loincloth/black
 			H.change_stat(STATKEY_CON, -2)
@@ -181,10 +181,10 @@
 			)
 		if("Noble") // Congratulations, you're important! Or were, rather.
 			armor = /obj/item/clothing/suit/roguetown/armor/cuirass/iron
-			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/random
+			shirt = /obj/item/clothing/shirt/tunic/black/random
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak
-			pants = /obj/item/clothing/under/roguetown/tights/black
-			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+			pants = /obj/item/clothing/pants/tights/black
+			neck = /obj/item/clothing/neck/chaincoif/iron
 			head = /obj/item/clothing/head/roguetown/fancyhat
 			id = /obj/item/clothing/ring/silver
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(2,3), TRUE)
@@ -199,11 +199,11 @@
 			)
 		if("Copper") // Heavy Copper Armor. The fattest fuck.
 			head = /obj/item/clothing/head/roguetown/helmet/coppercap
-			neck = /obj/item/clothing/neck/roguetown/gorget/copper
+			neck = /obj/item/clothing/neck/gorget/copper
 			armor = /obj/item/clothing/suit/roguetown/armor/cuirass/copperchest
 			mask = /obj/item/clothing/mask/rogue/facemask/copper
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/copper
-			neck = /obj/item/clothing/neck/roguetown/gorget/copper
+			neck = /obj/item/clothing/neck/gorget/copper
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 			pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -218,24 +218,25 @@
 			)
 	switch(weapontype)
 		if("Axe")
-			beltl = /obj/item/rogueweapon/axe/iron
-			beltr = /obj/item/rogueweapon/knife/dagger
+			beltl = /obj/item/weapon/axe/iron
+			beltr = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 			to_chat(H,span_info("\
 			I prefer a practical instrument.")
 			)
 		if("BigAxe")
-			backr = /obj/item/rogueweapon/polearm/halberd/bardiche/woodcutter
+			backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.change_stat(STATKEY_SPD, -1) // big boy
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 			to_chat(H,span_info("\
 			Only the strong can survive in the wilds, Dendor fears my axe.")
 			)
 		if("Mace")
-			beltl = /obj/item/rogueweapon/mace
-			beltr = /obj/item/rogueweapon/knife/dagger
+			beltl = /obj/item/weapon/mace
+			beltr = /obj/item/weapon/knife/dagger
 			wrists = /obj/item/rope/chain
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
@@ -244,7 +245,7 @@
 			)
 		if("Shovel") // Rare roll, might as well get some stat benefits
 			beltr = /obj/item/flashlight/flare/torch/lantern
-			backr = /obj/item/rogueweapon/shovel
+			backr = /obj/item/weapon/shovel
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
@@ -256,8 +257,8 @@
 			I can clobber, I can cut, and I can bury the evidence. I don't leave home without my shovel.")
 			)
 		if("BigMace")
-			backr =	/obj/item/rogueweapon/hammer/sledgehammer
-			beltl = /obj/item/rogueweapon/knife/dagger
+			backr =	/obj/item/weapon/hammer/sledgehammer
+			beltl = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.change_stat(STATKEY_SPD, -1) // big boy
 			H.cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
@@ -265,10 +266,10 @@
 			I've known nobody who can stop the might of my hammer.")
 			)
 		if("Messer") // Nobody uses these goddamn things.
-			beltl = /obj/item/rogueweapon/sword/scimitar/messer
-			beltr = /obj/item/rogueweapon/sword/scimitar/messer
-			r_hand = /obj/item/rogueweapon/sword/scimitar/messer
-			l_hand = /obj/item/rogueweapon/sword/scimitar/messer
+			beltl = /obj/item/weapon/sword/scimitar/messer
+			beltr = /obj/item/weapon/sword/scimitar/messer
+			r_hand = /obj/item/weapon/sword/scimitar/messer
+			l_hand = /obj/item/weapon/sword/scimitar/messer
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_SPD, -2)
@@ -277,10 +278,10 @@
 			I dare a motherfucker to try and disarm me.")
 			)
 		if("Daggers")
-			beltl = /obj/item/rogueweapon/knife/dagger
-			beltr = /obj/item/rogueweapon/knife/dagger
-			r_hand = /obj/item/rogueweapon/knife/dagger
-			l_hand = /obj/item/rogueweapon/knife/dagger
+			beltl = /obj/item/weapon/knife/dagger
+			beltr = /obj/item/weapon/knife/dagger
+			r_hand = /obj/item/weapon/knife/dagger
+			l_hand = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.change_stat(STATKEY_STR, -1)
 			H.change_stat(STATKEY_SPD, 2)
@@ -337,7 +338,7 @@
 			I prefer the weaponry of a bygone age.")
 			)
 		if("Sword")
-			beltl = /obj/item/rogueweapon/sword/iron
+			beltl = /obj/item/weapon/sword/iron
 			backr = /obj/item/rogueweapon/shield/wood
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
@@ -349,7 +350,7 @@
 			head = /obj/item/clothing/head/roguetown/roguehood/mage
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/mage
 			beltl = /obj/item/reagent_containers/glass/bottle/rogue/manapot
-			beltr = /obj/item/rogueweapon/knife/dagger
+			beltr = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
@@ -364,8 +365,8 @@
 			I've studied the arcane by chance, those who step to me shall perish.")
 			)
 		if("Sword2")
-			beltl = /obj/item/rogueweapon/sword/short
-			beltr = /obj/item/rogueweapon/sword/short
+			beltl = /obj/item/weapon/sword/short
+			beltr = /obj/item/weapon/sword/short
 			H.change_stat(STATKEY_END, 1)
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
@@ -377,8 +378,8 @@
 			beltr = /obj/item/rogueweapon/whip
 			wrists = /obj/item/rope/chain
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-			head = /obj/item/clothing/head/roguetown/menacing
+			shirt = /obj/item/clothing/shirt/undershirt/uncolored/black
+			head = /obj/item/clothing/head/menacing
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_END, 2)
@@ -389,7 +390,7 @@
 			I am an instrument of pain.")
 			)
 		if("Fist")
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			wrists = /obj/item/clothing/wrists/bracers/leather
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
@@ -514,7 +515,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(2,3), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
-			l_hand = /obj/item/clothing/mask/rogue/spectacles
+			l_hand = /obj/item/clothing/mask/spectacles
 			H.change_stat(STATKEY_INT, 3)
 			H.change_stat(STATKEY_CON, -1)
 			H.change_stat(STATKEY_PER, -2)
@@ -543,7 +544,7 @@
 			I packed enough supplies to last the week. I eat well.")
 			)
 		if("Lockpicks")
-			backpack_contents = list(/obj/item/lockpickring = 1, /obj/item/rogueweapon/knife/dagger = 1)
+			backpack_contents = list(/obj/item/lockpickring = 1, /obj/item/weapon/knife/dagger = 1)
 			to_chat(H,span_info("\
 			Who am I, and how did I get here? Well, I'm a locksmith, and I'm a locksmith.")
 			)
@@ -560,7 +561,7 @@
 			I was married once. I don't want to talk about it. There's a hole in my heart even the gods cannot mend.")
 			)
 		if("Knives")
-			backpack_contents = list(/obj/item/rogueweapon/knife/dagger= 6)
+			backpack_contents = list(/obj/item/weapon/knife/dagger= 6)
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
