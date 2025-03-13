@@ -2419,6 +2419,13 @@ Slots: [job.spawn_positions]</span>
 		else
 			custom_names[name_id] = sanitized_name
 
+/datum/preferences/proc/is_active_migrant()
+	if(!migrant)
+		return FALSE
+	if(!migrant.active)
+		return FALSE
+	return TRUE
+
 /datum/preferences/proc/allowed_respawn()
 	if(!has_spawned)
 		return TRUE
@@ -2468,9 +2475,3 @@ Slots: [job.spawn_positions]</span>
 
 	return TRUE
 
-/datum/preferences/proc/is_active_migrant()
-	if(!migrant)
-		return FALSE
-	if(!migrant.active)
-		return FALSE
-	return TRUE
