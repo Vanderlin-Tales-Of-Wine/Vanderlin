@@ -6,10 +6,10 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK
-	throwforce = 5
+	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
-	throw_range = 3
+	throw_range = 5
 	breakouttime = 5 SECONDS
 	slipouttime = 1 MINUTES
 	possible_item_intents = list(/datum/intent/tie)
@@ -120,8 +120,13 @@
 	icon_state = "chain"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	force = 10
+	blade_dulling = DULLING_BASHCHOP
+	parrysound = list('sound/combat/parry/parrygen.ogg')
+	swingsound = WHIPWOOSH
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
+	associated_skill = /datum/skill/combat/whipsflails
+	wdefense = 1
 	throw_speed = 1
 	throw_range = 3
 	breakouttime = 1 MINUTES
