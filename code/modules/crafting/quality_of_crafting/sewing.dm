@@ -253,7 +253,7 @@
 /datum/repeatable_crafting_recipe/sewing/double_bedsheetpelt
 	name = "large leather bedsheet"
 	output = /obj/item/bedsheet/double_pelt
-	attacking_atom = /obj/item/natural/hide/cured
+	attacked_atom = /obj/item/natural/hide/cured
 	requirements = list(/obj/item/natural/hide/cured = 4,
 				/obj/item/natural/fibers = 1)
 	craftdiff = 2
