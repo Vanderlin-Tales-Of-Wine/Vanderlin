@@ -22,7 +22,7 @@
 	var/iparrybonus = 0
 	var/idodgebonus = 0
 	var/chargetime = 0 //if above 0, this attack must be charged to reach full damage
-	var/chargedrain = 0 //how mcuh fatigue is removed every second when at max charge
+	var/chargedrain = 0 //how much fatigue is removed every second when at max charge
 	var/releasedrain = 1 //drain when we go off, regardless
 	var/misscost = 1	//extra drain from missing only, ALSO APPLIED IF ENEMY DODGES
 	var/tranged = 0
@@ -361,7 +361,7 @@
 /datum/intent/unarmed/punch
 	name = "punch"
 	icon_state = "inpunch"
-	attack_verb = list("punches", "jabs", "clocks", "strikes")
+	attack_verb = list("punches", "jabs", "clocks")
 	chargetime = 0
 	animname = "punch"
 	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
@@ -393,7 +393,7 @@
 /datum/intent/unarmed/shove
 	name = "shove"
 	icon_state = "inshove"
-	attack_verb = list("shoves", "pushes")
+	attack_verb = list("shoves")
 	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
@@ -420,10 +420,10 @@
 	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
-	releasedrain = 10
-	misscost = 5
+	releasedrain = 8
+	misscost = 6.5
 	candodge = TRUE
-	canparry = FALSE
+	canparry = TRUE
 	item_damage_type = "blunt"
 
 /datum/intent/unarmed/grab/rmb_ranged(atom/target, mob/user)

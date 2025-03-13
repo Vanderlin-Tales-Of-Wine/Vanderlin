@@ -1153,7 +1153,7 @@
 /turf/open/floor/grass,
 /area/rogue)
 "Lu" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/grass,
 /area/rogue)
 "Mg" = (
@@ -1296,7 +1296,7 @@
 /turf/open/water,
 /area/rogue)
 "Rp" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/dirt/road,
 /area/rogue)
 "Rq" = (

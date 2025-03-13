@@ -60,7 +60,7 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors)
 "cn" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/curtain,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
@@ -70,7 +70,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "cE" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/curtain,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchrough,
@@ -360,8 +360,8 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/cave)
 "mL" = (
-/obj/structure/window/stained,
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
+/obj/structure/window/stained/silver,
 /obj/structure/curtain,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
@@ -1241,7 +1241,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "Tv" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/curtain/bounty,
 /turf/open/floor/churchrough,
 /area/rogue/indoors)
