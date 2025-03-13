@@ -72,21 +72,34 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		return
 	var/mutable_appearance/MA = mutable_appearance(icon, "filling")
 	MA.color = mix_color_from_reagents(reagents)
+	for(var/datum/reagent/reagent as anything in reagents.reagent_list)
+		if(reagent.glows)
+			var/mutable_appearance/emissive = mutable_appearance(icon, "filling")
+			emissive.plane = EMISSIVE_PLANE
+			overlays += emissive
+			break
 	overlays += MA
 
 /obj/structure/fermentation_keg/attack_right(mob/user)
 	. = ..()
-	if(!brewing && ready_to_bottle)
-		if(try_tapping(user))
+	if(!ready_to_bottle && selected_recipe && !brewing)
+		user.visible_message("[user] starts emptying out [src]!", "You start emptying out [src]")
+		if(!do_after(user, 5 SECONDS, src))
 			return
+		clear_keg(TRUE)
+		return
+
+	if(!brewing && (!selected_recipe || ready_to_bottle))
+		if(!shopping_run(user))
+			if(!brewing && ready_to_bottle)
+				if(try_tapping(user))
+					return
 
 /obj/structure/fermentation_keg/attack_hand(mob/user)
 	if((user.used_intent == /datum/intent/grab) || user.cmode)
 		return ..()
-
-	if(!brewing && (!selected_recipe || ready_to_bottle))
-		shopping_run(user)
-		return
+	if(!selected_recipe)
+		return ..()
 
 	if(try_n_brew(user))
 		start_brew()
@@ -192,7 +205,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(selected_recipe.helpful_hints)
 			message += "[selected_recipe.helpful_hints].\n"
 
-
+		. += span_blue("Right-Click on the Barrel to clear it.")
 		/*
 		if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
 			var/datum/brewing_recipe/custom_recipe/recipe = selected_recipe
@@ -200,6 +213,8 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		. += message
 		*/
 		. += message
+	else
+		. += span_blue("Right-Click on the Barrel to select a recipe.")
 
 /obj/structure/fermentation_keg/proc/shopping_run(mob/user)
 	if(brewing)
@@ -225,10 +240,9 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 			options[recipe.name] = recipe
 
 	if(options.len == 0)
-		to_chat(user, "Their is no further brewing to be done, clear this barrel out or sell it.")
 		return
 
-	var/choice = input(user,"What brew do you want to make?", name) as anything in options
+	var/choice = input(user,"What brew do you want to make?", name) as null|anything in options
 
 	if(!choice)
 		return
@@ -250,6 +264,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if(open_icon_state)
 		icon_state = open_icon_state
 	update_overlays()
+	return TRUE
 
 //Remove only chemicals
 /obj/structure/fermentation_keg/proc/clear_keg_reagents()

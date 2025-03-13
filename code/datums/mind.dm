@@ -331,27 +331,52 @@
 		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
 
 /datum/mind/proc/adjust_skillrank(skill, amt, silent = FALSE)
+	if(!amt)
+		return
 	var/datum/skill/S = GetSkillRef(skill)
 	var/amt2gain = 0
 	if(skill == /datum/skill/magic/arcane)
 		adjust_spellpoints(amt)
-	for(var/i in 1 to amt)
-		switch(skill_experience[S])
-			if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
-				amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
-			if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
-				amt2gain = SKILL_EXP_MASTER-skill_experience[S]
-			if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
-				amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
-			if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
-				amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
-			if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
-				amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
-			if(0 to SKILL_EXP_NOVICE)
-				amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
-		if(!skill_experience[S])
-			amt2gain = SKILL_EXP_NOVICE+1
-		skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt > 0)
+		for(var/i in 1 to amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_LEGENDARY-skill_experience[S]
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER)
+					amt2gain = SKILL_EXP_MASTER-skill_experience[S]
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT)
+					amt2gain = SKILL_EXP_EXPERT-skill_experience[S]
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN)
+					amt2gain = SKILL_EXP_JOURNEYMAN-skill_experience[S]
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE)
+					amt2gain = SKILL_EXP_APPRENTICE-skill_experience[S]
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = SKILL_EXP_NOVICE-skill_experience[S] + 1
+			if(!skill_experience[S])
+				amt2gain = SKILL_EXP_NOVICE+1
+			skill_experience[S] = max(0, skill_experience[S] + amt2gain) //Prevent going below 0
+	if(amt < 0)
+		var/flipped_amt = -amt
+		for(var/i in 1 to flipped_amt)
+			switch(skill_experience[S])
+				if(SKILL_EXP_LEGENDARY)
+					amt2gain = SKILL_EXP_MASTER
+				if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY-1)
+					amt2gain = SKILL_EXP_EXPERT
+				if(SKILL_EXP_EXPERT to SKILL_EXP_MASTER-1)
+					amt2gain = SKILL_EXP_JOURNEYMAN
+				if(SKILL_EXP_JOURNEYMAN to SKILL_EXP_EXPERT -1)
+					amt2gain = SKILL_EXP_APPRENTICE
+				if(SKILL_EXP_APPRENTICE to SKILL_EXP_JOURNEYMAN-1)
+					amt2gain = SKILL_EXP_NOVICE
+				if(SKILL_EXP_NOVICE to SKILL_EXP_APPRENTICE-1)
+					amt2gain = 1
+				if(0 to SKILL_EXP_NOVICE)
+					amt2gain = 1
+			if(!skill_experience[S])
+				amt2gain = 1
+			skill_experience[S] = amt2gain //Prevent going below 0
+
 	var/old_level = known_skills[S]
 	switch(skill_experience[S])
 		if(SKILL_EXP_LEGENDARY to INFINITY)
@@ -376,6 +401,17 @@
 		to_chat(current, span_nicegreen("I feel like I've become more proficient at [S.name]!"))
 	else
 		to_chat(current, span_warning("I feel like I've become worse at [S.name]!"))
+
+
+/**
+ * increases the skill level up to a certain maximum
+ * Vars:
+ ** skill - associated skill
+ ** amt - how much to change the skill
+ ** max - maximum amount up to which the skill will be changed
+*/
+/datum/mind/proc/clamped_adjust_skillrank(skill, amt, max, silent)
+	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
 
 // adjusts the amount of available spellpoints
 /datum/mind/proc/adjust_spellpoints(points)

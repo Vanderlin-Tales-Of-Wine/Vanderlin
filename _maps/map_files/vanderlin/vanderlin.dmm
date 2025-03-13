@@ -4974,13 +4974,6 @@
 /obj/item/natural/cloth,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"dDd" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/healthpot,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "dDB" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
@@ -16354,6 +16347,10 @@
 /obj/effect/landmark/start/vagrant,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
+"lNX" = (
+/obj/structure/bars/cemetery,
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/town)
 "lOb" = (
 /obj/structure/closet/crate/coffin,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -22845,9 +22842,8 @@
 /obj/item/reagent_containers/glass/bottle/vial/spdpot,
 /obj/item/reagent_containers/glass/bottle/vial/strpot,
 /obj/item/reagent_containers/glass/bottle/vial/lucpot,
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/concrete,
-/area/rogue/indoors/town/shop)
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath)
 "qQd" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/closet/crate/chest,
@@ -24500,6 +24496,12 @@
 /obj/item/bin/water,
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town)
+"saD" = (
+/obj/structure/mineral_door/bars{
+	lockid = "manor"
+	},
+/turf/open/floor/cobble/mossy,
+/area/rogue/outdoors/town)
 "saK" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -24548,12 +24550,9 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/magician)
 "sbH" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/manapot,
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/bath)
 "scf" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2{
 	pixel_x = -5;
@@ -89622,7 +89621,7 @@ jdk
 vgJ
 vXR
 dlM
-cKJ
+saD
 cKJ
 cKJ
 amM
@@ -89824,7 +89823,7 @@ vgJ
 vgJ
 pwl
 vgJ
-cKJ
+lNX
 cKJ
 xIN
 cKJ
@@ -90479,9 +90478,9 @@ kbf
 nEk
 nrq
 kwV
-xuD
+kwV
 whf
-meN
+qPJ
 meN
 meN
 meN
@@ -90682,7 +90681,7 @@ eXo
 did
 kwV
 fPM
-whf
+sbH
 vUa
 meN
 wXX
@@ -100405,7 +100404,7 @@ vgJ
 vgJ
 nWe
 nWe
-qPJ
+hsJ
 nnM
 jUW
 nWe
@@ -139798,7 +139797,7 @@ cKz
 kfl
 khV
 vRg
-dDd
+khV
 kfl
 oZg
 nQk
@@ -140000,7 +139999,7 @@ sxi
 kfl
 khV
 vRg
-sbH
+khV
 kfl
 dDL
 ktw

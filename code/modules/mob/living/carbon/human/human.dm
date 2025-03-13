@@ -609,6 +609,13 @@
 					return TRUE
 	. = ..()
 
+/mob/proc/return_accent_list()
+	if(!accent)
+		return
+	if(accent == ACCENT_NONE)
+		return
+	return GLOB.accent_list[accent]
+
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
 	return (istype(target) && target.stat == CONSCIOUS)

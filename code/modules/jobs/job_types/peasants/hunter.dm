@@ -66,3 +66,4 @@
 		else
 			H.change_stat(STATKEY_INT, 1)
 			H.change_stat(STATKEY_PER, 3)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

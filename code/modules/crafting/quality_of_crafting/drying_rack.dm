@@ -3,7 +3,7 @@
 	output = /obj/item/reagent_containers/food/snacks/produce/swampweed_dried
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/swampweed
 	requirements = list(/obj/item/reagent_containers/food/snacks/produce/swampweed = 1)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 2 SECONDS
 	crafting_message = "starts drying some swampweed"
@@ -13,7 +13,7 @@
 	output = /obj/item/reagent_containers/food/snacks/produce/dry_westleach
 	starting_atom = /obj/item/reagent_containers/food/snacks/produce/westleach
 	requirements = list(/obj/item/reagent_containers/food/snacks/produce/westleach = 1)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 2 SECONDS
 	crafting_message = "starts drying some westleach leaves"
@@ -26,7 +26,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/sausage = 1,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some sausage"
@@ -40,7 +40,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some meat"
@@ -54,7 +54,7 @@
 		/obj/item/reagent_containers/food/snacks/fat = 2,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some fat"
@@ -68,7 +68,7 @@
 		/obj/item/reagent_containers/food/snacks/fish = 1,
 		/obj/item/reagent_containers/powder/salt = 1
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some fish"
@@ -85,7 +85,7 @@
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 1,
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some jacksberries"
@@ -101,7 +101,7 @@
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison = 1,
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts drying some jacksberries"
@@ -124,7 +124,7 @@
 	reagent_requirements = list(
 		/datum/reagent/water = 33
 	)
-	attacking_atom = /obj/machinery/tanningrack
+	attacked_atom = /obj/machinery/tanningrack
 
 	craft_time = 1.5 SECONDS
 	crafting_message = "starts making some parchment"
