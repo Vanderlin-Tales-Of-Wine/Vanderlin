@@ -643,6 +643,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.update_hair()
 	H.update_body_parts()
 
+/datum/species/proc/add_inherent_traits(mob/living/carbon/C)
+	for(var/X in inherent_traits)
+		ADD_TRAIT(C, X, SPECIES_TRAIT)
 
 /datum/species/proc/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	// Drop the items the new species can't wear
@@ -686,8 +689,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			else	//Entries in the list should only ever be items or null, so if it's not an item, we can assume it's an empty hand
 				C.put_in_hands(new mutanthands())
 
-	for(var/X in inherent_traits)
-		ADD_TRAIT(C, X, SPECIES_TRAIT)
+	add_inherent_traits(C)
 
 	if(TRAIT_TOXIMMUNE in inherent_traits)
 		C.setToxLoss(0, TRUE, TRUE)

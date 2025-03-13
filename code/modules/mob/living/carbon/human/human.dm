@@ -743,12 +743,15 @@
 		return FALSE
 	return ..()
 
-/mob/living/carbon/human/proc/prepare_blank_canvas(silent)
+/mob/living/carbon/human/proc/prepare_blank_canvas(silent = FALSE)
+	name = random_unique_name(gender)
 	mind.unknow_all_people()
 	mind.become_unknown_to_all()
-	mind.purge_skills_and_spells()
+	mind.purge_skills_and_spells(silent)
 	delete_everything_equipped()
 	roll_mob_stats() // you are re-rolling your stats bitch
+	status_traits = null
+	dna.species.add_inherent_traits()
 
 /mob/living/carbon/human/species
 	var/race = null

@@ -39,9 +39,9 @@
 	L.update_body_parts(redraw = TRUE)
 
 /datum/antagonist/lich/proc/equip_lich()
-	owner.unknow_all_people()
-	owner.become_unknown_to_all()
 	var/mob/living/carbon/human/L = owner.current
+	L.prepare_blank_canvas()
+
 	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
 	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")

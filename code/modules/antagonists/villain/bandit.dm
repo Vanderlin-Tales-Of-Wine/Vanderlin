@@ -15,13 +15,17 @@
 		return "<span class='boldnotice'>Another free man. My ally.</span>"
 
 /datum/antagonist/bandit/on_gain()
+	var/mob/living/carbon/human/bandit = owner.current
+	bandit.prepare_blank_canvas()
 	owner.special_role = "Bandit"
-	owner.purge_skills_and_spells(TRUE)
 	move_to_spawnpoint()
 	forge_objectives()
 	. = ..()
 	finalize_bandit()
 	equip_bandit()
+	SSrole_class_handler.setup_class_handler(owner.current, list(CTAG_BANDIT = 20))
+	owner.current:advsetup = TRUE
+	owner.current.hud_used?.set_advclass()
 
 /datum/antagonist/bandit/proc/finalize_bandit()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/traitor.ogg', 80, FALSE, pressure_affected = FALSE)
