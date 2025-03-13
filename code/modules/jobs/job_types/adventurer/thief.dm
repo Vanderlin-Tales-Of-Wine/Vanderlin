@@ -3,6 +3,8 @@
 	flag = ADVENTURER
 	department_flag = PEASANTS
 	faction = "Station"
+	var/max_positions = 5
+
 	total_positions = 5
 	spawn_positions = 5
 
@@ -10,7 +12,7 @@
 	You and your syndicate are responsible for the underworld activities of Vanderlin. Stealing, fencing, intimidation, drug dealing, kidnapping - the possibilities for profit are nearly endless... so long as you're not caught.<br>"
 	display_order = JDO_THIEF
 	bypass_lastclass = TRUE
-	min_pq = 8
+	min_pq = 10
 	shows_in_list = FALSE
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	advclass_cat_rolls = list(CTAG_THIEF = 20)
@@ -22,6 +24,12 @@
 
 	outfit = /datum/outfit/job/thief
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
+
+/datum/job/thief/New()
+	. = ..()
+	var/allowed_slots = min(max_positions, 1 + CEILING(SSgamemode.get_correct_popcount() / 20, 1))
+	src.spawn_positions = allowed_slots
+	src.total_positions = allowed_slots
 
 /datum/outfit/job/thief
 	pants = /obj/item/clothing/pants/trou/leather
