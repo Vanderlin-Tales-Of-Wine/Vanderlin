@@ -201,6 +201,9 @@
 		if(M.known_people[H.real_name])
 			M.known_people[H.real_name] = null
 
+/datum/mind/proc/become_unknown_to_all()
+	for(var/datum/mind/MF in get_minds())
+		src.become_unknown_to(MF)
 
 /datum/mind/proc/unknow_all_people()
 	known_people = list()
@@ -433,8 +436,8 @@
  ** silent - do we notify the player of this change?
 */
 /datum/mind/proc/purge_all_skills(silent = TRUE)
-	for(var/datum/skill/skill_ref as anything in known_skills)
-		set_skillrank(skill_ref, 0)
+	known_skills = list()
+	skill_experience = list()
 	if(!silent)
 		to_chat(current, span_boldwarning("I forget all my skills!"))
 
@@ -513,10 +516,10 @@
  * Vars:
  ** silent - do we notify the player of this change?
 */
-/datum/mind/proc/purge_combat_knowledge(silent)
-	purge_all_skills(TRUE)
-	purge_all_spells()
-	purge_all_spellpoints(TRUE)
+/datum/mind/proc/purge_skills_and_spells(silent)
+	purge_all_skills(silent)
+	purge_all_spells(silent)
+	purge_all_spellpoints(silent)
 
 // Datum antag mind procs
 /datum/mind/proc/add_antag_datum(datum_type_or_instance, team)

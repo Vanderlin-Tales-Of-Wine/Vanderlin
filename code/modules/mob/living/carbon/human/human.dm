@@ -743,6 +743,12 @@
 		return FALSE
 	return ..()
 
+/mob/living/carbon/human/proc/prepare_blank_canvas(silent)
+	mind.unknow_all_people()
+	mind.purge_skills_and_spells()
+
+	roll_mob_stats() // you are re-rolling your stats bitch
+
 /mob/living/carbon/human/species
 	var/race = null
 

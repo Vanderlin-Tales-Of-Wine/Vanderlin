@@ -56,7 +56,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
-	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
@@ -107,8 +106,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 // OLD AND EDITED
 /datum/antagonist/vampirelord/proc/equip_lord()
 	owner.unknow_all_people()
-	for(var/datum/mind/MF in get_minds())
-		owner.become_unknown_to(MF)
+	owner.become_unknown_to_all()
 	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
@@ -123,6 +121,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		QDEL_NULL(eyes)
 	eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(owner.current)
+	H.unequip_everything()
 	H.equipOutfit(/datum/outfit/job/vamplord)
 	H.set_patron(/datum/patron/psydon) //Servant forever of he who is forgotten.
 
@@ -130,8 +129,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampirelord/proc/equip_spawn()
 	owner.unknow_all_people()
-	for(var/datum/mind/MF in get_minds())
-		owner.become_unknown_to(MF)
+	owner.become_unknown_to_all()
 	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
@@ -159,6 +157,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.mind.purge_skills_and_spells(TRUE)
 	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)

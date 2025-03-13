@@ -40,8 +40,7 @@
 
 /datum/antagonist/lich/proc/equip_lich()
 	owner.unknow_all_people()
-	for(var/datum/mind/MF in get_minds())
-		owner.become_unknown_to(MF)
+	owner.become_unknown_to_all()
 	var/mob/living/carbon/human/L = owner.current
 	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
@@ -94,7 +93,7 @@
 	beltl = /obj/item/weapon/knife/dagger/steel
 	r_hand = /obj/item/weapon/polearm/woodstaff
 
-	H.mind.purge_combat_knowledge(TRUE) // purge all their combat skills first
+	H.mind.purge_skills_and_spells(TRUE) // purge all their combat skills first
 	H.mind.set_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.mind.set_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 	H.mind.set_skillrank(/datum/skill/magic/arcane, 5, TRUE)

@@ -16,7 +16,7 @@
 
 /datum/antagonist/bandit/on_gain()
 	owner.special_role = "Bandit"
-	owner.purge_combat_knowledge()
+	owner.purge_skills_and_spells(TRUE)
 	move_to_spawnpoint()
 	forge_objectives()
 	. = ..()
@@ -50,8 +50,7 @@
 /datum/antagonist/bandit/proc/equip_bandit()
 
 	owner.unknow_all_people()
-	for(var/datum/mind/MF in get_minds())
-		owner.become_unknown_to(MF)
+	owner.become_unknown_to_all()
 	for(var/datum/mind/MF in get_minds("Bandit"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
