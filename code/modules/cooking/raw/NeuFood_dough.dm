@@ -519,7 +519,6 @@
 	tastes = list("crispy bread" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/badrecipe
 	rotprocess = SHELFLIFE_EXTREME
-	mill_result = /obj/item/reagent_containers/powder/flour
 
 /obj/item/reagent_containers/food/snacks/stale_bread
 	name = "stale bread"
