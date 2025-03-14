@@ -17,6 +17,7 @@
 	advclass_cat_rolls = list(CTAG_THIEF = 20)
 	job_reopens_slots_on_death = FALSE
 	always_show_on_latechoices = TRUE
+	announce_latejoin = FALSE
 
 	wanderer_examine = TRUE
 
