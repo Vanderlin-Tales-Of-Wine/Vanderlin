@@ -65,6 +65,7 @@
 		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
+		H.verbs |= /mob/living/carbon/human/proc/remember_thief_password
 		shirt = /obj/item/clothing/shirt/dress/gen/black
 		armor = /obj/item/clothing/armor/leather/vest/black
 		pants = /obj/item/clothing/pants/trou/beltpants

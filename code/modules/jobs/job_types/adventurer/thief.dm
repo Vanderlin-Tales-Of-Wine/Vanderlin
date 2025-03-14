@@ -94,6 +94,7 @@
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
+	H.verbs |= /mob/living/carbon/human/proc/remember_thief_password
 	H.change_stat(STATKEY_STR, -2)
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_END, 1)
@@ -157,6 +158,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
+	H.verbs |= /mob/living/carbon/human/proc/remember_thief_password
 	H.change_stat(STATKEY_STR, 2)
 	H.change_stat(STATKEY_PER, 1)
 	H.change_stat(STATKEY_CON, 1)
@@ -219,6 +221,7 @@
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
+	H.verbs |= /mob/living/carbon/human/proc/remember_thief_password
 	//H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular) //He's a discount physicker, he's gotta use the hammer
 	H.change_stat(STATKEY_INT, 3)
 	H.change_stat(STATKEY_STR, -1)
@@ -250,3 +253,9 @@
 	var/color_selection = input(H,"What color was I again?","Thief Color","Ash Grey") in thief_colors
 	return thief_colors[color_selection]
 
+/mob/living/carbon/human/proc/remember_thief_password(mob/living/carbon/human/H)
+	set name = "Remember Password"
+	set category = "Memory"
+	if(GLOB.thieves_guild_doors.len > 0)
+		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+		to_chat(H, span_italics("<font color='purple'>You hear a whisper in your head...\n\t \"[D.get_open_phrase()]...\"</font>"))

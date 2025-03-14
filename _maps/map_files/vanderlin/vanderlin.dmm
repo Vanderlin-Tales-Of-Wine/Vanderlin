@@ -3161,14 +3161,14 @@
 /area/rogue/indoors/town/steward)
 "cfN" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/butter,
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
 	},
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/basement/thieves_guild)
 "cgg" = (
@@ -23700,6 +23700,11 @@
 	},
 /obj/item/clothing/shirt/undershirt/sailor/red,
 /obj/item/clothing/shirt/dress/gen/black,
+/obj/item/clothing/pants/tights/random,
+/obj/item/clothing/pants/trou{
+	pixel_x = -6;
+	pixel_y = -3
+	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
 "qVT" = (
