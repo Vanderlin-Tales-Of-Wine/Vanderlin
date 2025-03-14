@@ -7,8 +7,8 @@
 	blade_dulling = DULLING_BASH
 	var/next_canister
 	var/accepted_items
-	var/min_tax = 10
-	var/max_tax = 30
+	var/min_tax_percent = 10
+	var/max_tax_percent = 30
 	var/tax = 20
 	max_integrity = 0
 	anchored = TRUE
@@ -16,7 +16,7 @@
 
 /obj/item/roguemachine/fence/New()
 	. = ..()
-	tax = rand(min_tax, max_tax)
+	tax = rand(min_tax_percent, max_tax_percent)
 
 /obj/structure/fake_machine/fence_chute
 	name = ""
@@ -36,7 +36,7 @@
 
 	contents += "<center>THE DEN<BR>"
 	contents += "--------------<BR>"
-	contents += "FENCER's Tax: [100 * tax]%<BR>"
+	contents += "FENCER's Tax: [tax]%<BR>"
 	contents += "Next Canister: [time2text((next_canister - world.time), "mm:ss")]</center><BR>"
 
 	if(!user.can_read(src, TRUE))
@@ -91,9 +91,9 @@
 					continue
 				if(!isturf(I.loc))
 					continue
-				if(!(istype(I, /obj/item/statue) || istype(I, /obj/item/painting) || istype(I, /obj/item/gem) || istype(I, /obj/item/reagent_containers/glass/cup/silver) || istype(I, /obj/item/reagent_containers/glass/cup/golden) || istype(I, /obj/item/reagent_containers/glass/carafe) || istype(I, /obj/item/weapon) || istype(I, /obj/item/clothing)))
+				if(!(istype(I, /obj/item/statue) || istype(I, /obj/item/painting) || istype(I, /obj/item/gem) || istype(I, /obj/item/reagent_containers/glass/cup/silver) || istype(I, /obj/item/reagent_containers/glass/cup/golden) || istype(I, /obj/item/reagent_containers/glass/carafe) || istype(I, /obj/item/weapon) || istype(I, /obj/item/clothing) || istype(I, /obj/item/reagent_containers/food/snacks/organ) || istype(I, /obj/item/organ)))
 					continue
-				var/prize = I.get_real_price() * (1 - tax)
+				var/prize = I.get_real_price() * (1 - tax / 100)
 				if(prize >= 1)
 					play_sound=TRUE
 					budgie += prize
