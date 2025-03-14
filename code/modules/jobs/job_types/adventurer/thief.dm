@@ -3,10 +3,10 @@
 	flag = ADVENTURER
 	department_flag = PEASANTS
 	faction = "Station"
-	var/max_positions = 5
+	var/max_positions = 4
 
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 4
+	spawn_positions = 4
 	var/base_tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Maybe you're a freedom-fighter trying to undermine noble oppression. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
 	Plenty of people in this town need something they can't get anywhere else, be it barred by church or state. Someone beat up, something stolen, something bought, something fenced. This need is what you thrive off of. The possibilities for profit are nearly endless... so long as you're not caught.<br>"
 	display_order = JDO_THIEF
