@@ -27,8 +27,7 @@
 //		. += "<span class='notice'><a href='byond://?src=[REF(src)];inspect=1'>Inspect</a></span>"
 
 	if(price_text)
-		. += span_info("[price_text]")
-
+		. += price_text
 
 //	. += "[gender == PLURAL ? "They are" : "It is"] a [weightclass2text(w_class)] item."
 

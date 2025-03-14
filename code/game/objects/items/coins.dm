@@ -84,7 +84,7 @@
 	update_transform()
 
 /obj/item/coin/get_displayed_price(mob/user)
-    return FALSE  // Coins never show generic price text
+	return FALSE  // Coins never show generic price text
 
 /obj/item/coin/examine(mob/user)
 	. = ..()
@@ -98,23 +98,28 @@
 
 		switch(intelligence)						// Intelligence-based messaging
 			if(0 to 6)
-				user.visible_message(span_notice("You see [user] clumsily start counting the coins"),span_notice("You clumsily start counting the coins..."))
+				user.visible_message(span_info("You see [user] clumsily start counting the coins"),span_notice("You clumsily start counting the coins..."))
 			if(7 to 9)
-				user.visible_message(span_notice("You see [user] start counting the coins"),span_notice("You start counting the coins..."))
+				user.visible_message(span_info("You see [user] start counting the coins"),span_notice("You start counting the coins..."))
 			if(10 to 13)
-				user.visible_message(span_notice("You see [user] count the coins"),span_notice("You start counting the coins..."))
+				user.visible_message(span_info("You see [user] count the coins"),span_notice("You start counting the coins..."))
+			if(14 to INFINITY)
+				user.visible_message(span_info("You see [user] effortlessly tally the coins!"),span_notice("You effortlessly tally the stack."))
 
 		do_after(user, skill_data["delay"])			// Use coin_skill calculated delay
 
 		var/estimated_value = fuzzy_quantity * sellprice
 		estimated_value = CLAMP(estimated_value, sellprice, 20*sellprice)
 		var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
-		var/value_text = "~[estimated_value] mammon"
-
-		if(intelligence <= 7)
-			value_text = "[pick(uncertainty_phrases)] [value_text]"
-			if(prob(30))
-				value_text += "?"
+		var/value_text
+		if(intelligence >= 10)
+			value_text = "[estimated_value] mammon"
+		else
+			value_text = "~[estimated_value] mammon"
+			if(intelligence <= 7)
+				value_text = "[pick(uncertainty_phrases)] [value_text]"
+				if(prob(30))
+					value_text += "?"
 		. += span_info("[description] ([value_text])")
 	else
 		. += span_info("One [name] ([sellprice] mammon)")
