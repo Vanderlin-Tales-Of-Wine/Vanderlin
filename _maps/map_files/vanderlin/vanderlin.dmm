@@ -6391,7 +6391,7 @@
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
 	},
-/turf/closed/wall/mineral/stone,
+/turf/closed/basic,
 /area/rogue/under/town/basement)
 "euv" = (
 /obj/structure/rack/shelf/big,
