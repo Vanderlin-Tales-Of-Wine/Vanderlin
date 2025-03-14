@@ -113,6 +113,19 @@
 	finished_filling_color = "#eca48c"
 	superior_cooked_type = /obj/item/reagent_containers/food/snacks/pie/cooked/apple/good
 
+/datum/orderless_slapcraft/pie/pear
+	name = "pear pie"
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/pear = 3
+	)
+	overlay_state = "fill_pear"
+	pie_name = "pearpie"
+
+	finished_cooked_type = /obj/item/reagent_containers/food/snacks/pie/cooked/pear
+	finished_cooked_smell = /datum/pollutant/food/pear_pie
+	finished_filling_color = "#edd28c"
+	superior_cooked_type = /obj/item/reagent_containers/food/snacks/pie/cooked/pear/good
+
 /datum/orderless_slapcraft/pie/berry
 	name = "berry pie"
 	requirements = list(
