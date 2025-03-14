@@ -25,11 +25,12 @@
 	outfit = /datum/outfit/job/thief
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/datum/job/thief/New()
+/*/datum/job/thief/New()
 	. = ..()
 	var/allowed_slots = min(max_positions, 1 + CEILING(SSgamemode.get_correct_popcount() / 20, 1))
 	src.spawn_positions = allowed_slots
 	src.total_positions = allowed_slots
+*/
 
 /datum/outfit/job/thief
 	pants = /obj/item/clothing/pants/trou/leather
