@@ -243,14 +243,12 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "ahM" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "ahZ" = (
@@ -1268,7 +1266,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "aOs" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
@@ -2148,7 +2146,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "bwq" = (
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
 	},
@@ -4182,11 +4180,11 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "cRl" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/weaponsmith{
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/smithy)
 "cRr" = (
@@ -5429,14 +5427,12 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "dPz" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
 /obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "dPH" = (
@@ -11762,10 +11758,10 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town)
 "iix" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/weaponsmith{
 	dir = 8
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -12138,7 +12134,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "iwO" = (
@@ -13082,7 +13078,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town)
 "jbT" = (
-/obj/structure/bed,
+/obj/structure/bed/hay,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/cell)
 "jbY" = (
@@ -15462,12 +15458,8 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "kJK" = (
-/obj/structure/bed/mediocre{
-	pixel_y = 0
-	},
-/obj/item/bedsheet/pelt{
-	pixel_y = 0
-	},
+/obj/structure/bed/mediocre,
+/obj/item/bedsheet/pelt,
 /obj/effect/landmark/start/dungeoneer{
 	dir = 8
 	},
@@ -19537,11 +19529,11 @@
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
 "nMT" = (
-/obj/structure/bed,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "nMZ" = (
@@ -20417,7 +20409,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "ozw" = (
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "ozI" = (
@@ -22002,12 +21994,12 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "pLv" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/armorsmith,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
 "pLB" = (
@@ -23429,13 +23421,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qPE" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "qPG" = (
@@ -24488,7 +24478,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "rEq" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -33225,8 +33215,8 @@
 	},
 /area/rogue/under/town/basement)
 "xEN" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/armorsmith,
+/obj/structure/bed/wool,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
 "xEP" = (

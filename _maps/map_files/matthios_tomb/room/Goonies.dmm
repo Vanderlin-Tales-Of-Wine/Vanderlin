@@ -1941,7 +1941,7 @@
 /turf/open/water,
 /area/rogue/under/cavewet)
 "Wk" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)

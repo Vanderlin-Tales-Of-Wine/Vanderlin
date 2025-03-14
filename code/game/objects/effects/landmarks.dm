@@ -394,6 +394,17 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	. = ..()
 	GLOB.bandit_starts += loc
 
+/obj/effect/landmark/start/lich
+	name = "Lich"
+	icon = 'icons/mob/landmarks.dmi'
+	icon_state = "arrow"
+	jobspawn_override = list("Lich")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/bandit/Initialize()
+	. = ..()
+	GLOB.lich_starts += loc
+
 /obj/effect/landmark/admin
 	name = "admin"
 	icon = 'icons/mob/landmarks.dmi'

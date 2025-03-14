@@ -58,6 +58,7 @@
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
+			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 			H.virginity = FALSE
 		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguehood/nochood
