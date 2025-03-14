@@ -317,7 +317,7 @@
 		contents = stars(contents)
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 220)
 	popup.set_content(contents)
-	popup.set_window_options("can_minimize=0;can_maximize=0")
+	popup.set_window_options(can_minimize = FALSE, can_maximize = FALSE)
 	popup.open()
 
 #undef TAB_MAIN

@@ -49,7 +49,7 @@
 
 /obj/item/bath/soap
 	name = "herbal soap"
-	desc = "A soap made from various herbs."
+	desc = "A body soap infused with various herbs to create a floral smell."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "soap"
 	w_class = WEIGHT_CLASS_TINY
@@ -57,12 +57,12 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 35 //slower than mop
 	var/uses = 10
+	var/slip_chance = 10
 
 /obj/item/bath/soap/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/slippery, 80)
+	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
 
 /obj/item/bath/soap/examine(mob/user)
 	. = ..()
@@ -81,48 +81,48 @@
 				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
 			else
 				msg = "It's seen some light use, but it's still pretty fresh."
-	. += "<span class='notice'>[msg]</span>"
+	. += span_notice("[msg]")
 
 /obj/item/bath/soap/attack(mob/living/carbon/human/target, mob/living/carbon/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
 	if(!istype(bathspot, /turf/open/water/bath))
-		to_chat(user, span_warning("They must be in the bath water!"))
+		to_chat(user, span_warning("[target] must be in bath water to be cleaned."))
 		return
 	if(!ishuman(target))
-		to_chat(user, span_warning("They don't want to be soaped..."))
+		to_chat(user, span_warning("[target] refuses to be soaped!"))
 		return
 
 	if(istype(target.wear_armor, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with armor on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with armor on."))
 		return
 
 	if(istype(target.wear_shirt, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with clothing on."))
 		return
 
 	if(istype(target.cloak, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with clothing on."))
 		return
 
 	if(istype(target.wear_pants, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with pants on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with pants on."))
 		return
 
 	if(istype(target.shoes, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with shoes on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with shoes on."))
 		return
 
-	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")	// Applies the special bonus only if Nitemaiden using the soap
+	user.visible_message(span_info("[user] begins scrubbing [target] with [src]."))
 	playsound(src.loc, pick('sound/items/soaping.ogg'), 100)
 	if(do_after(user, 5 SECONDS, target))
-		if(user.job == "Nitemaiden")
-			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
+		if(user != target)
+			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with [src]."))
 			to_chat(target, span_warning("I feel so relaxed and clean!"))
 			target.apply_status_effect(/datum/status_effect/buff/clean_plus)
 		else
-			user.visible_message(span_info("[user] tries their best to scrub [target] with the [src]."))
-			to_chat(target, span_warning("Ouch! That hurts!"))
+			user.add_stress(/datum/stressevent/clean)
+			user.visible_message(span_info("[user] cleans [user.p_them()]self with [src]."))
 		uses -= 1
 		if(uses == 0)
 			qdel(src)

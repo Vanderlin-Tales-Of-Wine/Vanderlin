@@ -397,6 +397,7 @@
 			M.visible_message(span_warning("[M] slips from [src]'s grip."), \
 					span_warning("I slip from [src]'s grab."))
 			log_combat(src, M, "tried grabbing", addition="passive grab")
+			stop_pulling()
 			return
 
 		log_combat(src, M, "grabbed", addition="passive grab")
@@ -418,7 +419,7 @@
 			O.icon_state = zone_selected
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				C.grippedby(src)
 			if(!supress_message)
@@ -434,7 +435,7 @@
 				O.sublimb_grabbed = M.simple_limb_hit(zone_selected)
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				M.grippedby(src)
 			if(!supress_message)
@@ -622,6 +623,7 @@
 				return TRUE
 		else
 			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+			return FALSE
 
 /mob/living/proc/toggle_rest()
 	set name = "Rest/Stand"
@@ -1026,23 +1028,40 @@
 	. = TRUE
 
 	var/wrestling_diff = 0
-	var/resist_chance = 50
+	var/resist_chance = BASE_GRAB_RESIST_CHANCE
 	var/mob/living/L = pulledby
+	var/combat_modifier = 1
 
 	if(mind)
 		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
 		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
 
-	resist_chance += ((STACON - L.STACON) * 10)
+	if(restrained())
+		combat_modifier -= 0.25
 
+	if(!(L.mobility_flags & MOBILITY_STAND) && mobility_flags & MOBILITY_STAND)
+		combat_modifier += 0.1
 	if(!(mobility_flags & MOBILITY_STAND))
-		resist_chance += -20 + min((wrestling_diff * 5), -20) //Can improve resist chance at high skill difference
+		combat_modifier -= 0.1
+
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		resist_chance += -20 + max((wrestling_diff * 10), 0)
-		resist_chance = max(resist_chance, 50 + min((wrestling_diff * 5), 0))
-	else
-		resist_chance = max(resist_chance, 70 + min((wrestling_diff * 5), 0))
+		combat_modifier -= 0.1
+
+	var/atom/puller_hand = pulledby.get_active_held_item()
+	if(puller_hand && !istype(puller_hand, /obj/item/grabbing)) // so you can't pummel them with a weapon
+		combat_modifier += 0.2
+
+	if(cmode && !L.cmode)
+		combat_modifier += 0.3
+	else if(!cmode && L.cmode)
+		combat_modifier -= 0.3
+
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold)
+			combat_modifier -= 0.15
+
+	resist_chance = clamp((((4 + (((STASTR - L.STASTR)/2) + wrestling_diff)) * 10 + rand(-5, 10)) * combat_modifier), 5, 95)
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
@@ -1055,16 +1074,16 @@
 		pulledby.stop_pulling()
 
 		var/wrestling_cooldown_reduction = 0
-		if(pulledby?.mind?.get_skill_level("wrestling"))
-			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level("wrestling")
-		TIMER_COOLDOWN_START(src, "broke_free", max(0, 1.5 SECONDS - wrestling_cooldown_reduction))
+		if(pulledby?.mind?.get_skill_level(/datum/skill/combat/wrestling))
+			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level(/datum/skill/combat/wrestling)
+		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.2 SECONDS - wrestling_cooldown_reduction))
 
 		return FALSE
 	else
 		adjust_stamina(rand(5,15))
 		var/shitte = ""
-//		if(client?.prefs.showrolls)
-//			shitte = " ([resist_chance]%)"
+		if(client?.prefs.showrolls)
+			shitte = " ([resist_chance]%)"
 		visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 						"<span class='warning'>I struggle against [pulledby]'s grip![shitte]</span>", null, null, pulledby)
 		to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")

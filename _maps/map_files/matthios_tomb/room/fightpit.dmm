@@ -6,64 +6,64 @@
 	dir = 5
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "aT" = (
 /obj/structure/window/stained/silver,
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue)
+/area/rogue/under/cave)
 "be" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /obj/structure/stairs/stone,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ce" = (
 /obj/structure/chair/bench/couchablack,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "cg" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "cp" = (
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "cA" = (
 /obj/item/clothing/gloves/chain/iron,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "cR" = (
 /mob/living/carbon/human/species/goblin/npc/ambush/sea,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "eD" = (
 /obj/item/clothing/shoes/boots/armor,
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "fd" = (
 /obj/structure/fluff/walldeco/bsmith,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "gI" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "gO" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "hj" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -73,50 +73,51 @@
 	pixel_y = 11
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "hQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 9;
 	icon_state = "border"
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "hX" = (
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue)
+/area/rogue/under/cave)
 "if" = (
-/mob/living/simple_animal/hostile/skeleton/guard,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "iE" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "iH" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "jd" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "jw" = (
 /obj/item/weapon/knife/dagger/steel,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "jD" = (
 /obj/machinery/light/fueled/torchholder/l,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ka" = (
 /obj/structure/chair/bench/church/mid,
 /obj/structure/chair/bench/church/mid,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "kU" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4
@@ -126,7 +127,7 @@
 	locked = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue)
+/area/rogue/under/cave)
 "ld" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/weapon/polearm/spear/billhook,
@@ -134,7 +135,7 @@
 	pixel_y = -8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "mo" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -143,28 +144,27 @@
 /obj/structure/chair/bench/church{
 	dir = 1
 	},
-/mob/living/carbon/human/species/skeleton/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "mH" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/food/snacks/cooked/sausage,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "mL" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
 	locked = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "mX" = (
 /turf/closed/wall/mineral/stone/window/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "nm" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "oY" = (
 /obj/item/ingot/iron,
 /obj/item/ingot/iron{
@@ -176,23 +176,23 @@
 	pixel_x = 7
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "pA" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 5
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "pT" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qk" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qD" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -202,13 +202,13 @@
 	pixel_x = -7
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qQ" = (
 /mob/living/carbon/human/species/goblin/npc/hell{
 	name = "Bobby Baker"
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qY" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -216,34 +216,34 @@
 	},
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "rH" = (
 /mob/living/carbon/human/species/goblin/npc/hell{
 	name = "Weinerman"
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "rW" = (
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ss" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "sM" = (
 /obj/item/weapon/sword/arming,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "tz" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "tY" = (
 /obj/item/natural/stone{
 	pixel_y = 5
@@ -252,7 +252,7 @@
 	name = "Slambo"
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "uC" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -262,17 +262,18 @@
 	},
 /obj/item/reagent_containers/food/snacks/cooked/sausage,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "uU" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "vT" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "wq" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/vtable,
@@ -285,56 +286,54 @@
 	pixel_x = 7
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "xB" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 1
 	},
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "xO" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
 	locked = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue)
+/area/rogue/under/cave)
 "xX" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "yW" = (
 /obj/structure/chair/bench/church/mid,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "zL" = (
-/mob/living/carbon/human/species/goblin/npc{
-	name = "The Bartender"
-	},
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "zX" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
 /obj/item/ammo_holder/quiver/arrows,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Bu" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "BS" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ci" = (
 /obj/structure/mineral_door/wood{
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Cr" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -342,55 +341,57 @@
 	},
 /obj/structure/chair/bench/church/mid,
 /obj/item/clothing/head/peaceflower,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "CJ" = (
 /obj/item/clothing/armor/chainmail/iron,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "CK" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "DJ" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "EG" = (
 /obj/structure/chair/bench/couchablack/r,
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled{
 	name = "Lord of the Pit"
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "EH" = (
 /obj/structure/table/wood/bar,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "GL" = (
 /obj/machinery/light/fueled/forge,
 /obj/item/weapon/tongs,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "HQ" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/no_equipment,
 /obj/structure/fluff/railing/border{
 	dir = 10;
 	icon_state = "border"
 	},
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Iz" = (
 /mob/living/carbon/human/species/orc/warrior,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Jk" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Ky" = (
 /obj/item/natural/stone,
 /obj/item/natural/stone,
@@ -402,15 +403,15 @@
 /obj/machinery/anvil,
 /obj/item/weapon/hammer/iron,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ll" = (
 /obj/structure/bars,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "LG" = (
 /obj/structure/grindwheel,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "My" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/vtable/v2,
@@ -428,98 +429,101 @@
 	pixel_y = 11
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "MW" = (
 /obj/item/ore/coal,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Nd" = (
-/obj/structure/chair/bench/church/r,
-/mob/living/carbon/human/species/skeleton/no_equipment,
+/obj/structure/chair/bench/church/smallbench{
+	dir = 4
+	},
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Oo" = (
 /obj/structure/fluff/railing/border{
 	dir = 10;
 	icon_state = "border"
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Ot" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/no_equipment,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Pq" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Pw" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "PG" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "PH" = (
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "PT" = (
 /obj/structure/fluff/walldeco/stone,
 /turf/closed/wall/mineral/stone/window/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "Qa" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 6
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Qp" = (
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Sd" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "SV" = (
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "TM" = (
 /obj/structure/table/wood/bar,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "TT" = (
 /obj/structure/chair/bench/church/mid,
-/mob/living/carbon/human/species/skeleton/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Ub" = (
 /obj/structure/chair/bench/church/smallbench{
 	dir = 4
 	},
 /obj/item/clothing/head/peaceflower,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "UI" = (
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "UM" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "UV" = (
 /obj/structure/rack/shelf/big,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Vl" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -538,13 +542,13 @@
 	pixel_x = 9
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Vo" = (
 /obj/structure/stairs/stone{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Vr" = (
 /obj/structure/table/wood/counter{
 	dir = 8
@@ -559,60 +563,60 @@
 	pixel_x = -6
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "We" = (
 /obj/item/weapon/polearm/spear,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Wr" = (
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
 /obj/item/reagent_containers/food/snacks/cheese_wedge/aged,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Xa" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/strongpoison,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "Xx" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
 	locked = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "XA" = (
 /turf/open/floor/rooftop{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "Za" = (
 /mob/living/carbon/human/species/zizombie/npc/ambush,
 /obj/item/natural/poo,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Zh" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ZD" = (
 /obj/structure/bed/shit,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ZW" = (
 /obj/structure/chair/bench/church{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue)
+/area/rogue/under/cave)
 "ZY" = (
 /obj/structure/table/wood/counter,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 DJ
@@ -1131,8 +1135,8 @@ xX
 hX
 UI
 Ot
-vT
-vT
+Ot
+Ot
 tz
 xX
 be
@@ -1152,7 +1156,7 @@ xX
 hX
 hX
 UI
-vT
+Nd
 vT
 Ot
 tz
@@ -1175,8 +1179,8 @@ hX
 UI
 UI
 Ub
-vT
-vT
+Ot
+Ot
 HQ
 iH
 UI
@@ -1312,7 +1316,7 @@ xX
 xX
 xX
 qY
-Nd
+Qp
 Qp
 UI
 UI
@@ -1347,7 +1351,7 @@ xX
 hX
 hX
 hX
-UI
+if
 UI
 Oo
 iH

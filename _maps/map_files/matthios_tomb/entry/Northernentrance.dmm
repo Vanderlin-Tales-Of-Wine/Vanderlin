@@ -2,29 +2,29 @@
 "aF" = (
 /obj/structure/fluff/statue/evil,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aV" = (
 /obj/structure/lever/wall{
 	dir = 8;
 	redstone_id = northgatematt
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aW" = (
 /turf/closed/wall/mineral/stone/window,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cT" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "cX" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "du" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "dY" = (
 /obj/structure/table/church,
 /obj/item/flashlight/flare/torch/metal{
@@ -39,15 +39,15 @@
 	pixel_y = 6
 	},
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "el" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "er" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eJ" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -62,158 +62,170 @@
 	pixel_y = 10
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fr" = (
 /obj/structure/roguetent,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"fx" = (
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "fL" = (
 /turf/closed/wall/mineral/stone/window/moss,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fM" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gi" = (
 /obj/structure/fluff/statue/knightalt/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gz" = (
 /obj/structure/closet/crate/drawer/inn,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iu" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "iH" = (
 /obj/structure/bars,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"jA" = (
+/turf/open/floor/hexstone,
+/area/rogue/indoors/shelter)
 "jN" = (
 /obj/structure/wallladder{
 	dir = 1
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "jS" = (
 /obj/structure/stairs/stone/church{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jX" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kn" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kN" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kT" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "lW" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "mA" = (
 /obj/structure/wallladder{
 	dir = 4
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "mV" = (
 /obj/structure/table/wood/reinf_long,
 /obj/structure/bars/alt,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nA" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "oj" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oB" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/structure/bars/alt,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pm" = (
 /obj/structure/bed/hay,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "qn" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qo" = (
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "qX" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sQ" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sX" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "uj" = (
 /obj/structure/dungeon_exit,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"uy" = (
+/turf/closed/mineral/bedrock,
+/area/rogue/indoors/shelter)
 "uO" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "wx" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "xm" = (
 /obj/structure/table/wood/plain/alt,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yg" = (
 /turf/closed/wall/mineral/tent,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yr" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
+"zI" = (
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
 "AR" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Bz" = (
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CE" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Di" = (
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "DK" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -222,80 +234,86 @@
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "DY" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"EL" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "Fo" = (
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Gx" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "GF" = (
 /obj/structure/table/wood/plain/alt,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hc" = (
 /obj/structure/wallladder{
 	dir = 1
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Hq" = (
 /obj/item/chair/stool/bar/crafted,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Io" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/wood/plain/alt,
 /obj/item/reagent_containers/glass/cup/skull,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Iv" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/chair/stool,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Jv" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Kk" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Lj" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Lo" = (
 /obj/structure/bed/shit,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "LJ" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue)
+/area/rogue/under/cave)
 "LT" = (
 /obj/structure/gate{
 	redstone_id = northgatematt
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ob" = (
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "OM" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "OS" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "PL" = (
 /obj/structure/table/church/m,
 /obj/item/reagent_containers/glass/bottle/waterskin{
@@ -310,60 +328,60 @@
 	pixel_y = 7
 	},
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qn" = (
 /obj/structure/roguetent,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "RE" = (
 /obj/structure/stairs/stone/church{
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "RI" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "RR" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "SG" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Ti" = (
 /obj/structure/fluff/statue/knightalt,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Tq" = (
 /obj/structure/chair/stool,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "TK" = (
 /obj/structure/bed/inn,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vm" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wd" = (
 /obj/structure/table/wood/plain/alt,
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Wl" = (
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
 /obj/structure/bars/alt,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Yp" = (
 /obj/item/chair/stool/bar/crafted,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Yx" = (
 /obj/structure/table/church{
 	dir = 1
@@ -381,7 +399,7 @@
 	pixel_y = 11
 	},
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 kT
@@ -768,12 +786,12 @@ kT
 kT
 AR
 Vm
-Gx
-Gx
-Gx
+jA
+jA
+jA
 Vm
-Gx
-Gx
+jA
+jA
 AR
 Kk
 SG
@@ -794,13 +812,13 @@ kT
 kT
 kT
 CE
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 CE
 Kk
 SG
@@ -827,7 +845,7 @@ GF
 pm
 Wd
 pm
-Gx
+jA
 CE
 Kk
 SG
@@ -876,15 +894,15 @@ kT
 kT
 CE
 jX
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
 CE
 aV
-Gx
+jA
 AR
 iu
 Gx
@@ -902,16 +920,16 @@ kT
 kT
 kT
 AR
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 qX
-Gx
-Gx
+jA
+jA
 CE
 iu
 Gx
@@ -929,13 +947,13 @@ kT
 kT
 kT
 CE
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 CE
 iH
 iH
@@ -962,10 +980,10 @@ dY
 Bz
 Bz
 Bz
-Gx
+jA
 LT
-Gx
-Gx
+jA
+jA
 Vm
 Gx
 Gx
@@ -989,11 +1007,11 @@ PL
 Bz
 Bz
 Bz
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
 Gx
 Gx
 Gx
@@ -1016,10 +1034,10 @@ Yx
 Bz
 Bz
 Bz
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
 sQ
 Gx
 Gx
@@ -1037,13 +1055,13 @@ kT
 kT
 kT
 AR
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 CE
 iH
 iH
@@ -1064,16 +1082,16 @@ kT
 kT
 kT
 AR
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 qX
-Gx
-Gx
+jA
+jA
 AR
 SG
 Gx
@@ -1092,15 +1110,15 @@ kT
 kT
 CE
 jX
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
 AR
-Gx
-Gx
+jA
+jA
 CE
 SG
 Gx
@@ -1149,9 +1167,9 @@ RR
 RR
 RR
 RR
-Gx
-Gx
-Gx
+jA
+jA
+jA
 CE
 Kk
 Kk
@@ -1172,13 +1190,13 @@ kT
 kT
 kT
 AR
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
-Gx
+jA
+jA
+jA
+jA
+jA
+jA
+jA
 CE
 yg
 yg
@@ -1203,9 +1221,9 @@ fM
 er
 er
 fM
-Gx
-Gx
-Gx
+jA
+jA
+jA
 AR
 yg
 Lo
@@ -1616,10 +1634,10 @@ kT
 yr
 yr
 yr
-Ob
-Ob
-Ob
-Ob
+fx
+fx
+fx
+fx
 yr
 kT
 kT
@@ -1956,7 +1974,7 @@ AR
 AR
 AR
 AR
-kT
+uy
 aW
 AR
 jS
@@ -2164,7 +2182,7 @@ yr
 yr
 yr
 lW
-Ob
+fx
 "}
 (22,1,2) = {"
 AR
@@ -2191,7 +2209,7 @@ yr
 yr
 yr
 lW
-Ob
+fx
 "}
 (23,1,2) = {"
 AR
@@ -2218,7 +2236,7 @@ yr
 yr
 yr
 lW
-Ob
+fx
 "}
 (24,1,2) = {"
 AR
@@ -2245,7 +2263,7 @@ yr
 yr
 yr
 lW
-Ob
+fx
 "}
 (25,1,2) = {"
 AR
@@ -2272,7 +2290,7 @@ yr
 yr
 yr
 lW
-Ob
+fx
 "}
 (26,1,2) = {"
 AR
@@ -2451,7 +2469,7 @@ AR
 AR
 AR
 yg
-yr
+zI
 yg
 yr
 yr
@@ -2501,7 +2519,7 @@ kT
 yr
 yg
 yg
-yr
+zI
 yr
 yr
 yr
@@ -2558,7 +2576,7 @@ yr
 yr
 yr
 yg
-yr
+zI
 yg
 yr
 yr
@@ -2777,10 +2795,10 @@ kT
 yr
 yr
 yr
-OM
-OM
+EL
+EL
 DK
-OM
+EL
 yr
 kT
 kT
@@ -2804,10 +2822,10 @@ kT
 yr
 yr
 yr
-Ob
-Ob
-Ob
-Ob
+fx
+fx
+fx
+fx
 yr
 kT
 kT

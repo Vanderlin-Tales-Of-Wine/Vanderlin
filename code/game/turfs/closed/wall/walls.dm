@@ -220,7 +220,7 @@
 
 /turf/closed/wall/mineral/wooddark/window/OnCrafted(dirin, mob/user)
 	SHOULD_CALL_PARENT(FALSE)
-	add_abstract_elastic_data("crafting", "[name]", 1)
+	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
 /turf/closed/wall/mineral/wooddark/window/CanPass(atom/movable/mover, turf/target)

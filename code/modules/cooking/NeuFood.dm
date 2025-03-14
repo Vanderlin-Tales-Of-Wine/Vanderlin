@@ -29,6 +29,7 @@
 /obj/effect/decal/cleanable/food/mess/rotting
 	color = "#708364"
 	alpha = 220
+
 /obj/effect/decal/cleanable/food/mess/rotting/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -41,8 +42,10 @@
 
 /obj/item/reagent_containers/food/snacks/rotten
 	name = "rotten food"
+	desc = "A vile decaying morsel, its last hope is to become food for the soil."
 	color = "#6c6897"
 	eat_effect = /datum/status_effect/debuff/rotfood
+
 /obj/item/reagent_containers/food/snacks/rotten/Initialize()
 	var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 	add_overlay(rotflies)
@@ -51,21 +54,31 @@
 /obj/item/reagent_containers/food/snacks/rotten/meat
 	name = "rotten meat"
 	icon_state = "meat"
+
 /obj/item/reagent_containers/food/snacks/rotten/bacon
-	name = "rotten meat"
+	name = "rotten pigflesh"
 	icon_state = "pigflesh"
+
 /obj/item/reagent_containers/food/snacks/rotten/sausage
+	name = "rotten sausage"
 	icon_state = "raw_wiener"
+
 /obj/item/reagent_containers/food/snacks/rotten/poultry
+	name = "rotten plucked bird"
 	icon_state = "poultry"
+
 /obj/item/reagent_containers/food/snacks/rotten/chickenleg
+	name = "rotten bird meat"
 	icon_state = "chickencutlet"
+
 /obj/item/reagent_containers/food/snacks/rotten/breadslice
 	name = "moldy bread"
 	icon_state = "loaf_slice"
+
 /obj/item/reagent_containers/food/snacks/rotten/egg
-	name = "rotted egg"
-	icon_state = "egg2"
+	name = "rotten egg"
+	icon_state = "eggB"
+
 /obj/item/reagent_containers/food/snacks/rotten/egg/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(!..()) //was it caught by a mob?
 		var/turf/T = get_turf(hit_atom)
@@ -74,9 +87,11 @@
 		O.pixel_y = rand(-8,8)
 		O.color = "#9794be"
 		qdel(src)
+
 /obj/item/reagent_containers/food/snacks/rotten/mince
-	name = "rotten meat"
+	name = "rotten mince"
 	icon_state = "meatmince"
+
 /obj/item/reagent_containers/food/snacks/rotten/mince/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/mess/rotting/get_turf(src)
 	playsound(get_turf(src), 'sound/foley/meatslap.ogg', 100, TRUE, -1)
@@ -171,7 +186,6 @@
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
 	fillsounds = list('sound/items/fillcup.ogg')
 	metalizer_result = /obj/item/coin/copper
-	var/in_use // so you can't spam eating with spoon
 
 /obj/item/reagent_containers/glass/bowl/iron
 	icon_state = "bowl_iron"
@@ -239,74 +253,23 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bowl/attackby(obj/item/I, mob/user, params) // lets you eat with a spoon from a bowl
-	if(istype(I, /obj/item/kitchen/spoon))
-		if(reagents.total_volume > 0)
-			beingeaten()
-			playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-			visible_message("<span class='info'>[user] eats from [src].</span>")
-			if(do_after(user,1 SECONDS, src))
-				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
-		return TRUE
-
-/obj/item/reagent_containers/glass/bowl/attack(mob/M, mob/user, obj/target)
-	testing("a1")
-	if(istype(M))
-		if(user.used_intent.type == INTENT_GENERIC)
-			return ..()
-
-		else
-
-			if(!spillable)
-				return
-
-			if(!reagents || !reagents.total_volume)
-				to_chat(user, "<span class='warning'>[src] is empty!</span>")
-				return
-			if(user.used_intent.type == INTENT_SPLASH)
-				var/R
-				M.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [M]!</span>", \
-								"<span class='danger'>[user] splashes the contents of [src] onto you!</span>")
-				if(reagents)
-					for(var/datum/reagent/A in reagents.reagent_list)
-						R += "[A] ([num2text(A.volume)]),"
-
-				if(isturf(target) && reagents.reagent_list.len && thrownby)
-					log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
-					message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
-				reagents.reaction(M, TOUCH)
-				log_combat(user, M, "splashed", R)
-				reagents.clear_reagents()
-				return
-			else if(user.used_intent.type == INTENT_POUR)
-				if(!canconsume(M, user))
-					return
-				if(M != user)
-					M.visible_message("<span class='danger'>[user] attempts to feed [M] something.</span>", \
-								"<span class='danger'>[user] attempts to feed you something.</span>")
-					if(!reagents || !reagents.total_volume)
-						return // The drink might be empty after the delay, such as by spam-feeding
-					M.visible_message("<span class='danger'>[user] feeds [M] something.</span>", \
-								"<span class='danger'>[user] feeds you something.</span>")
-					log_combat(user, M, "fed", reagents.log_list())
-				else
-					to_chat(user, "<span class='notice'>I swallow a gulp of [src].</span>")
-				if(reagents.total_volume > 0)
-					beingeaten()
-					playsound(M.loc,pick(drinksounds), 100, TRUE)
-					visible_message("<span class='info'>[user] eats from [src].</span>")
-					if(do_after(user,1 SECONDS, src))
-						addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
-				return
+	if(!istype(I, /obj/item/kitchen/spoon))
+		return ..()
+	if(!reagents || !reagents.total_volume)
+		to_chat(user, span_warning("[src] is empty!"))
+		return FALSE
+	if(!do_after(user, 1 SECONDS, src))
+		return FALSE
+	playsound(get_turf(src), 'sound/misc/eat.ogg', rand(30, 60), TRUE)
+	user.visible_message(span_info("[user] eats from [src]."), \
+			span_notice("I swallow a gulp of [src]."))
+	addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this, 5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5 DECISECONDS)
+	return TRUE
 
 /obj/item/reagent_containers/glass/bowl/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	if(reagents.total_volume > 5)
 		new /obj/effect/decal/cleanable/food/mess/soup(get_turf(src))
 	..()
-
-/obj/item/reagent_containers/glass/bowl/proc/beingeaten()
-	in_use = TRUE
-	sleep(10)
-	in_use = FALSE
 
 /obj/item/reagent_containers/peppermill // new with some animated art
 	name = "pepper mill"
@@ -327,6 +290,7 @@
 
 /datum/reagent/consumable/soup // so you get hydrated without the flavor system messing it up. Works like water with less hydration
 	var/hydration = 5
+
 /datum/reagent/consumable/soup/on_mob_life(mob/living/carbon/M)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -423,6 +387,7 @@
 	nutriment_factor = 8
 	taste_description = "something gross"
 	metabolization_rate = 0.3
+
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
 	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1)
@@ -431,20 +396,15 @@
 		return
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		return
-	else
-		if(prob(8))
-			switch(pick(1,4))
-				if (1)
-					to_chat(M, "<span class='danger'>I feel bile rising...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>I feel nauseous...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My breath smells terrible...</span>")
-				if (2)
-					to_chat(M, "<span class='danger'>My stomach churns...</span>")
-		if(prob(8))
-			M.emote("gag")
-			M.add_nausea(9)
+	if(prob(8))
+		to_chat(M, span_danger(pick(
+			"I feel bile rising...", \
+			"I feel nauseous...", \
+			"My breath smells terrible...", \
+			"My stomach churns...")))
+	if(prob(8))
+		M.emote("gag")
+		M.add_nausea(9)
 	..()
 	. = TRUE
 
@@ -454,6 +414,7 @@
 	color = "#5b2b44"
 	taste_description = "something truly vile"
 	metabolization_rate = 0.2
+
 /datum/reagent/yuck/cursed_soup/on_mob_life(mob/living/carbon/M)
 	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
 		if(M.blood_volume < BLOOD_VOLUME_NORMAL)
@@ -476,22 +437,36 @@
 
 
 /*--------------\
-| Powder & Salt |
+| Flour & Salt |
 \--------------*/
 
-// -------------- POWDER (flour) -----------------
+// -------------- Flour -----------------
 /obj/item/reagent_containers/powder/flour
-	name = "powder"
+	name = "flour"
 	desc = "With this ambition, we build an empire."
+	gender = PLURAL
 	icon_state = "flour"
-	list_reagents = list(/datum/reagent/floure = 1)
+	list_reagents = list(/datum/reagent/flour = 1)
 	volume = 1
 	sellprice = 0
 	var/water_added
+
+/datum/reagent/flour
+	name = "flour"
+	description = ""
+	color = "#FFFFFF" // rgb: 96, 165, 132
+
+/datum/reagent/flour/on_mob_life(mob/living/carbon/M)
+	if(prob(30))
+		M.confused = max(M.confused + 3, 0)
+	M.emote(pick("cough"))
+	..()
+
 /obj/item/reagent_containers/powder/flour/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
 	..()
 	qdel(src)
+
 /obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
 	..()
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -501,7 +476,7 @@
 	if(isturf(loc)&& (found_table))
 		if(istype(I, /obj/item/reagent_containers/food/snacks/dough_base))
 			playsound(get_turf(user), 'sound/foley/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, span_notice("Kneading in more powder..."))
+			to_chat(user, span_notice("Kneading in more flour..."))
 			if(do_after(user, short_cooktime, src))
 				new /obj/item/reagent_containers/food/snacks/dough(loc)
 				qdel(I)
@@ -510,12 +485,12 @@
 		if(!istype(R) || (water_added))
 			return ..()
 		if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-			to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+			to_chat(user, span_notice("Needs more water to work it."))
 			return TRUE
-		to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+		to_chat(user, span_notice("Adding water, now its time to knead it..."))
 		playsound(get_turf(user), 'sound/foley/splishy.ogg', 100, TRUE, -1)
 		if(do_after(user,15, src))
-			name = "wet powder"
+			name = "wet flour"
 			desc = "Destined for greatness, at your hands."
 			R.reagents.remove_reagent(/datum/reagent/water, 10)
 			water_added = TRUE
@@ -540,10 +515,10 @@
 // -------------- SALT -----------------
 /obj/item/reagent_containers/powder/salt
 	name = "salt"
-	desc = ""
+	desc = "A survialist's best friend, great for preserving meat."
 	gender = PLURAL
 	icon_state = "salt"
-	list_reagents = list(/datum/reagent/floure = 1)
+	list_reagents = list(/datum/reagent/flour = 1)
 	volume = 1
 	sellprice = 0
 
@@ -551,8 +526,6 @@
 	new /obj/effect/decal/cleanable/food/flour(get_turf(src))
 	..()
 	qdel(src)
-
-
 
 /*------------------\
 | Meals on platters |

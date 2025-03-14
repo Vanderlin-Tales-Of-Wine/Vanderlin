@@ -27,9 +27,13 @@
 	icon_state = "bolt"
 	dropshrink = 0.8
 	max_integrity = 10
-	force = 10
+	force = DAMAGE_KNIFE-2
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 	firing_effect_type = null
+
+/obj/item/ammo_casing/caseless/bolt/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item, _max_reagents = 2, _dip_amount = 2, _attack_injects = FALSE)
 
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
@@ -47,26 +51,13 @@
 	flag =  "piercing"
 	speed = 0.3
 	accuracy = 85 //Crossbows have higher accuracy
-
-//................ Poison Bolt ............... //
-/obj/item/ammo_casing/caseless/bolt/poison
-	name = "poison bolt"
-	desc = "A bolt dipped with a weak poison."
-	icon_state = "bolt_poison"
-	projectile_type = /obj/projectile/bullet/reusable/bolt/poison/weak
-
-/obj/projectile/bullet/reusable/bolt/poison
-	name = "poison bolt"
-	icon_state = "boltpoison_proj"
-	damage = BOLT_DAMAGE-10
-	range = 15
 	var/piercing = FALSE
 
-/obj/projectile/bullet/reusable/bolt/poison/Initialize()
+/obj/projectile/bullet/reusable/bolt/Initialize()
 	. = ..()
 	create_reagents(50, NO_REACT)
 
-/obj/projectile/bullet/reusable/bolt/poison/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/reusable/bolt/on_hit(atom/target, blocked = FALSE)
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		if(blocked != 100) // not completely blocked
@@ -86,22 +77,20 @@
 	return BULLET_ACT_HIT
 
 //................ Poison Bolt (weak) ............... //
-/obj/projectile/bullet/reusable/bolt/poison/weak
-	desc = "A bolt dipped with a weak poison."
+/obj/item/ammo_casing/caseless/bolt/poison
+	name = "poison bolt"
+	desc = "A bolt coated with a weak poison."
+	icon_state = "bolt_poison"
 
-/obj/projectile/bullet/reusable/bolt/poison/weak/Initialize()
+/obj/item/ammo_casing/caseless/bolt/poison/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/berrypoison, 2)
 
 //................ Poison Bolt (potent) ............... //
 /obj/item/ammo_casing/caseless/bolt/poison/potent
-	desc = "A bolt dipped with a potent poison."
-	projectile_type = /obj/projectile/bullet/reusable/bolt/poison/potent
+	desc = "A bolt coated with a potent poison."
 
-/obj/projectile/bullet/reusable/bolt/poison/potent
-	desc = "A bolt dipped with a potent poison."
-
-/obj/projectile/bullet/reusable/bolt/poison/potent/Initialize()
+/obj/item/ammo_casing/caseless/bolt/poison/potent/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
@@ -112,6 +101,11 @@
 	projectile_type = /obj/projectile/bullet/bolt/pyro
 	possible_item_intents = list(/datum/intent/mace/strike)
 	icon_state = "bolt_pyroclastic"
+
+/obj/item/ammo_casing/caseless/bolt/pyro/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/tipped_item)
+	qdel(reagents)
 
 /obj/projectile/bullet/bolt/pyro
 	name = "pyroclastic bolt"
@@ -135,7 +129,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
-		M.adjust_fire_stacks(6)
+		M.fire_act(6)
 //		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, my at about 65 damage if you stop drop and roll immediately
 	var/turf/T
 	if(isturf(target))
@@ -158,12 +152,16 @@
 	caliber = "arrow"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "arrow"
-	force = 20
+	force = DAMAGE_KNIFE-2
 	dropshrink = 0.8
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
 	embedding = list("embedded_pain_multiplier" = 3, "embedded_fall_chance" = 0)
 	firing_effect_type = null
+
+/obj/item/ammo_casing/caseless/arrow/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item, _max_reagents = 2, _dip_amount = 2, _attack_injects = FALSE)
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -180,6 +178,29 @@
 	woundclass = BCLASS_STAB
 	flag =  "piercing"
 	speed = 0.4
+	var/piercing = FALSE
+
+/obj/projectile/bullet/reusable/arrow/Initialize()
+	. = ..()
+	create_reagents(50, NO_REACT)
+
+/obj/projectile/bullet/reusable/arrow/on_hit(atom/target, blocked = FALSE)
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		if(blocked != 100) // not completely blocked
+			if(M.can_inject(null, FALSE, def_zone, piercing)) // Pass the hit zone to see if it can inject by whether it hit the head or the body.
+				..()
+				reagents.reaction(M, INJECT)
+				reagents.trans_to(M, reagents.total_volume)
+				return BULLET_ACT_HIT
+			else
+				blocked = 100
+				target.visible_message(	span_danger("\The [src] was deflected!"), span_danger("My armor protected me against \the [src]!"))
+
+	..(target, blocked)
+	DISABLE_BITFIELD(reagents.flags, NO_REACT)
+	reagents.handle_reactions()
+	return BULLET_ACT_HIT
 
 //................ Stone Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/stone
@@ -195,78 +216,42 @@
 	armor_penetration = 0
 	damage = ARROW_DAMAGE-2
 
-
 //................ Poison Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/poison
 	name = "poison arrow"
-	desc = "An arrow with its tip drenched in a weak poison."
-	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/weak
+	desc = "An arrow with its tip coated in a weak poison."
 	icon_state = "arrow_poison"
 
-/obj/projectile/bullet/reusable/arrow/poison
-	name = "poison arrow"
-	desc = "An arrow with its tip drenched in a powerful poison."
-	icon_state = "arrowpoison_proj"
-	damage = ARROW_DAMAGE-10
-	range = 15
-	var/piercing = FALSE
-
 /obj/projectile/bullet/reusable/arrow/poison/Initialize()
-	. = ..()
-	create_reagents(50, NO_REACT)
-
-/obj/projectile/bullet/reusable/arrow/poison/on_hit(atom/target, blocked = FALSE)
-	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		if(blocked != 100) // not completely blocked
-			if(M.can_inject(null, FALSE, def_zone, piercing)) // Pass the hit zone to see if it can inject by whether it hit the head or the body.
-				..()
-				reagents.reaction(M, INJECT)
-				reagents.trans_to(M, reagents.total_volume)
-				return BULLET_ACT_HIT
-			else
-				blocked = 100
-				target.visible_message(	span_danger("\The [src] was deflected!"), span_danger("My armor protected me against \the [src]!"))
-
-
-	..(target, blocked)
-	DISABLE_BITFIELD(reagents.flags, NO_REACT)
-	reagents.handle_reactions()
-	return BULLET_ACT_HIT
-
-//................ Poison Arrow (weak) ............... //
-/obj/projectile/bullet/reusable/arrow/poison/weak
-	desc = "An arrow with its tip drenched in a weak poison."
-
-/obj/projectile/bullet/reusable/arrow/poison/weak/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/berrypoison, 2)
 
 //................ Poison Arrow (potent) ............... //
 /obj/item/ammo_casing/caseless/arrow/poison/potent
-	desc = "An arrow with it's tip drenched in a potent poison."
-	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/potent
+	desc = "An arrow with its tip coated in a potent poison."
 
-/obj/item/ammo_casing/caseless/arrow/poison/potent
-	desc = "An arrow with it's tip drenched in a powerful poison."
-
-/obj/projectile/bullet/reusable/arrow/poison/potent/Initialize()
+/obj/item/ammo_casing/caseless/arrow/poison/potent/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/strongpoison, 2)
 
 //................ Pyro Arrow ............... //
 /obj/item/ammo_casing/caseless/arrow/pyro
 	name = "pyroclastic arrow"
-	desc = "An arrow with its tip drenched in a flammable tincture."
+	desc = "An arrow with its tip smeared with a flammable tincture."
 	projectile_type = /obj/projectile/bullet/arrow/pyro
 	possible_item_intents = list(/datum/intent/mace/strike)
 	icon_state = "arrow_pyroclastic"
 	max_integrity = 10
-	force = 10
+	force = DAMAGE_KNIFE-2
+
+/obj/item/ammo_casing/caseless/arrow/pyro/Initialize()
+	. = ..()
+	RemoveElement(/datum/element/tipped_item)
+	qdel(reagents)
 
 /obj/projectile/bullet/arrow/pyro
 	name = "pyroclastic arrow"
-	desc = "An arrow with its tip drenched in a flammable tincture."
+	desc = "An arrow with its tip smeared with a flammable tincture."
 	icon_state = "arrowpyro_proj"
 	damage = ARROW_DAMAGE-15
 	range = 15
@@ -286,8 +271,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
-		M.adjust_fire_stacks(6)
-		M.IgniteMob()
+		M.fire_act(6)
 //		M.take_overall_damage(0,10) //between this 10 burn, the 10 brute, the explosion brute, and the onfire burn, my at about 65 damage if you stop drop and roll immediately
 	var/turf/T
 	if(isturf(target))
@@ -351,7 +335,7 @@
 	dropshrink = 0.5
 	possible_item_intents = list(/datum/intent/use)
 	max_integrity = 0
-	force = 20
+	force = 3
 
 //................ Cannon Ball ............... //
 /obj/projectile/bullet/reusable/cannonball
@@ -397,7 +381,7 @@
 	max_integrity = 1
 	randomspread = 0
 	variance = 0
-	force = 20
+	force = 10
 
 /obj/item/ammo_casing/caseless/cball/grapeshot
 	name = "berryshot"
@@ -405,13 +389,6 @@
 	icon_state = "grapeshot" // NEEDS SPRITE
 	dropshrink = 0.5
 	projectile_type = /obj/projectile/bullet/fragment
-
-
-
-/*------\
-| Darts |
-\------*/
-
 
 /*------\
 | Darts |
@@ -426,8 +403,12 @@
 	icon_state = "dart"
 	dropshrink = 0.9
 	max_integrity = 10
-	force = 10
+	force = DAMAGE_KNIFE/2
 	firing_effect_type = null
+
+/obj/item/ammo_casing/caseless/dart/Initialize()
+	. = ..()
+	AddElement(/datum/element/tipped_item, _max_reagents = 3, _dip_amount = 3, _attack_injects = FALSE)
 
 /obj/projectile/bullet/reusable/dart
 	name = "dart"
@@ -444,25 +425,13 @@
 	flag = "piercing"
 	speed = 0.3
 	accuracy = 50
-
-//................ Poison Dart ............... //
-/obj/item/ammo_casing/caseless/dart/poison
-	name = "poison dart"
-	desc = "A dart with its tip drenched in a weak poison."
-	projectile_type = /obj/projectile/bullet/reusable/dart/poison
-	icon_state = "dart_poison"
-
-/obj/projectile/bullet/reusable/dart/poison
-	name = "poison dart"
-	desc = "A dart with its tip drenched in a weak poison."
 	var/piercing = FALSE
 
-/obj/projectile/bullet/reusable/dart/poison/Initialize()
+/obj/projectile/bullet/reusable/dart/Initialize()
 	. = ..()
 	create_reagents(50, NO_REACT)
-	reagents.add_reagent(/datum/reagent/berrypoison, 3)
 
-/obj/projectile/bullet/reusable/dart/poison/on_hit(atom/target, blocked = FALSE)
+/obj/projectile/bullet/reusable/dart/on_hit(atom/target, blocked = FALSE)
 	if(iscarbon(target))
 		var/mob/living/carbon/M = target
 		if(blocked != 100) // not completely blocked
@@ -479,6 +448,16 @@
 	DISABLE_BITFIELD(reagents.flags, NO_REACT)
 	reagents.handle_reactions()
 	return BULLET_ACT_HIT
+
+//................ Poison Dart (weak) ............... //
+/obj/item/ammo_casing/caseless/dart/poison
+	name = "poison dart"
+	desc = "A dart with its tip coated in a weak poison."
+	icon_state = "dart_poison"
+
+/obj/item/ammo_casing/caseless/dart/poison/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/berrypoison, 3)
 
 #undef BLOWDART_DAMAGE
 #undef ARROW_DAMAGE
