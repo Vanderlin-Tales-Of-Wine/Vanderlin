@@ -341,3 +341,13 @@
 	stressadd = 1
 	desc = span_red("Eating such a meal without a table? Churlish.")
 	timer = 2 MINUTES
+
+/datum/stressevent/pickpocketed
+	timer = 3 MINUTES
+	stressadd = 1
+	desc = "<span class='red'>Someone stole something from me...</span>"
+
+/datum/stressevent/pickpocketed_greedy
+	timer = 5 MINUTES
+	stressadd = 3
+	desc = "<span class='red'>Someone stole something from me... I will gut them!</span>"

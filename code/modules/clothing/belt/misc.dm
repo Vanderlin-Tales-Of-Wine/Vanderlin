@@ -115,6 +115,7 @@
 	component_type = /datum/component/storage/concrete/grid/coin_pouch
 	grid_height = 64
 	grid_width = 32
+	can_be_cutpursed = TRUE
 
 /obj/item/storage/belt/pouch/coins/mid/Initialize()
 	. = ..()
@@ -202,6 +203,7 @@
 	bloody_icon_state = "bodyblood"
 	alternate_worn_layer = UNDER_CLOAK_LAYER
 	component_type = /datum/component/storage/concrete/grid/satchel
+	can_be_cutpursed = TRUE
 
 /obj/item/storage/backpack/satchel/heartfelt
 	populate_contents = list(

@@ -905,6 +905,7 @@
 #include "code\game\objects\items\ore.dm"
 #include "code\game\objects\items\painting.dm"
 #include "code\game\objects\items\perfume.dm"
+#include "code\game\objects\items\pickpocket_shadow.dm"
 #include "code\game\objects\items\plate.dm"
 #include "code\game\objects\items\pouring_mould.dm"
 #include "code\game\objects\items\ropechainbola.dm"

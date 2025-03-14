@@ -410,59 +410,75 @@
 					var/targetperception = (V.STAPER)
 					var/exp_to_gain = STAINT
 					var/list/stealablezones = list("chest", "neck", "groin", "r_hand", "l_hand")
-					var/list/stealpos = list()
+					var/obj/item/to_steal // Used to be a list, changed for getting ghost items slot
+					var/steal_slot
 					var/obj/item/offhand_item = U.get_inactive_held_item()
+					var/cutpursing = FALSE
+
+					if(U.get_active_held_item())
+						to_chat(src, span_warning("I can't pickpocket while my hand is full!"))
+						return
+					if(!(zone_selected in stealablezones))
+						to_chat(src, span_warning("What am I going to steal from there?"))
+						return
+					if(do_after(U, 2 SECONDS, V, progress = FALSE))
+						switch(U.zone_selected)
+							if("chest")
+								if (V.get_item_by_slot(SLOT_BACK_L))
+									to_steal = V.get_item_by_slot(SLOT_BACK_L)
+									steal_slot = SLOT_BACK_L
+								else if (V.get_item_by_slot(SLOT_BACK_R))
+									to_steal = V.get_item_by_slot(SLOT_BACK_R)
+									steal_slot = SLOT_BACK_R
+							if("neck")
+								if (V.get_item_by_slot(SLOT_NECK))
+									to_steal = V.get_item_by_slot(SLOT_NECK)
+									steal_slot = SLOT_NECK
+							if("groin")
+								if (V.get_item_by_slot(SLOT_BELT_R))
+									to_steal = V.get_item_by_slot(SLOT_BELT_R)
+									steal_slot = SLOT_BELT_R
+								else if (V.get_item_by_slot(SLOT_BELT_L))
+									to_steal = V.get_item_by_slot(SLOT_BELT_L)
+									steal_slot = SLOT_BELT_L
+							if("r_hand", "l_hand")
+								if (V.get_item_by_slot(SLOT_RING))
+									to_steal = V.get_item_by_slot(SLOT_RING)
+									steal_slot = SLOT_RING
+
+
+					var/obj/item/picked = to_steal
 
 					if (offhand_item && offhand_item.sharpness == IS_SHARP)
-						return // Sharp = cutpursing
+						if (istype(picked, /obj/item/storage))
+							var/obj/item/storage/S = picked
+							if (S.can_be_cutpursed == TRUE)
+								cutpursing = TRUE
 
-					if(stealroll > targetperception)
-						if(U.get_active_held_item())
-							to_chat(src, span_warning("I can't pickpocket while my hand is full!"))
-							return
-						if(!(zone_selected in stealablezones))
-							to_chat(src, span_warning("What am I going to steal from there?"))
-							return
-						if(do_after(U, 2 SECONDS, V, progress = FALSE))
-							switch(U.zone_selected)
-								if("chest")
-									if (V.get_item_by_slot(SLOT_BACK_L))
-										stealpos.Add(V.get_item_by_slot(SLOT_BACK_L))
-									if (V.get_item_by_slot(SLOT_BACK_R))
-										stealpos.Add(V.get_item_by_slot(SLOT_BACK_R))
-								if("neck")
-									if (V.get_item_by_slot(SLOT_NECK))
-										stealpos.Add(V.get_item_by_slot(SLOT_NECK))
-								if("groin")
-									if (V.get_item_by_slot(SLOT_BELT_R))
-										stealpos.Add(V.get_item_by_slot(SLOT_BELT_R))
-									if (V.get_item_by_slot(SLOT_BELT_L))
-										stealpos.Add(V.get_item_by_slot(SLOT_BELT_L))
-								if("r_hand", "l_hand")
-									if (V.get_item_by_slot(SLOT_RING))
-										stealpos.Add(V.get_item_by_slot(SLOT_RING))
-							if (length(stealpos) > 0)
-								var/obj/item/picked = pick(stealpos)
-
-								// Check for cutpursing if the item is a satchel or pouch
-								if ()
-
-								V.dropItemToGround(picked)
-								put_in_active_hand(picked)
-								to_chat(src, span_green("I stole [picked]!"))
-								exp_to_gain *= src.mind.get_learning_boon(thiefskill)
-								if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
-									sate_addiction()
+					if(stealroll > targetperception || cutpursing == TRUE)
+						if (to_steal) // This check could be higher, but i want the full time to steal to pass before they find it empty
+							V.dropItemToGround(picked)
+							put_in_active_hand(picked)
+							if (cutpursing)
+								playsound(get_turf(src), pick(offhand_item.swingsound), 100, FALSE)
+								to_chat(src, span_green("I cut the string on [picked]!"))
+								visible_message(span_alert("[src] cuts the string on [V]'s [picked.name]!"), span_alert("I feel a tug on my [picked.name]!"))
 							else
-								exp_to_gain /= 2
-								to_chat(src, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))
+								to_chat(src, span_green("I stole [picked]!"))
+								var/obj/item/pickpocket_shadow/PS = new
+								PS.mimic(picked)
+								V.equip_to_slot(PS, steal_slot, FALSE)
+							exp_to_gain *= src.mind.get_learning_boon(thiefskill)
+							if(has_flaw(/datum/charflaw/addiction/kleptomaniac))
+								sate_addiction()
 						else
-							to_chat(src, span_warning("I fumbled it!"))
+							exp_to_gain /= 2
+							to_chat(src, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))
 					if(stealroll <= 4)
 						to_chat(V, span_danger("Someone tried pickpocketing me!"))
 					if(stealroll < targetperception)
 						exp_to_gain /= 5
-						to_chat(src, span_danger("I failed to pick the pocket!"))
+						to_chat(src, span_warning("I fumbled it!"))
 					src.mind.adjust_experience(/datum/skill/misc/stealing, exp_to_gain, FALSE)
 					changeNext_move(mmb_intent.clickcd)
 				return
