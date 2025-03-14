@@ -380,7 +380,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message("<span class='red'>[user] taunts [M]!</span>", "<span class='red'>I taunt [M]!</span>", ignored_mobs = targetl)
+		user.visible_message(span_red("[user] taunts [M]!"), span_red("I taunt [M]!"), ignored_mobs = targetl)
 		user.emote("taunt")
 		if(M.client)
 			M.taunted(user)
