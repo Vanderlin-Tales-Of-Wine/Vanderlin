@@ -6,6 +6,7 @@
 
 /obj/item/examine(mob/user) //This might be spammy. Remove?
 	. = ..()
+	var/price_text = get_displayed_price(user)
 
 	if(max_integrity)
 		if(obj_integrity < max_integrity)
@@ -25,8 +26,9 @@
 //	if(has_inspect_verb || (obj_integrity < max_integrity))
 //		. += "<span class='notice'><a href='byond://?src=[REF(src)];inspect=1'>Inspect</a></span>"
 
-	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price) && !istype(src, /obj/item/coin))
-		. += span_info("Value: [get_real_price()] mammon</span>")
+	if(price_text)
+		. += span_info("[price_text]")
+
 
 //	. += "[gender == PLURAL ? "They are" : "It is"] a [weightclass2text(w_class)] item."
 

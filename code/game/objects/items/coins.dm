@@ -83,6 +83,9 @@
 	update_icon()
 	update_transform()
 
+/obj/item/coin/get_displayed_price(mob/user)
+    return FALSE  // Coins never show generic price text
+
 /obj/item/coin/examine(mob/user)
 	. = ..()
 	var/denomination = quantity == 1 ? name : plural_name
