@@ -44,7 +44,7 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/sea
-*/
+
 // Washing Implements
 
 /obj/item/bath/soap
@@ -132,3 +132,4 @@
 
 
 
+*/

@@ -2,8 +2,6 @@
 It´s pretty good. Also extra good mood boost for sex, but still a bit barebones. Expand a little cooking/serving? */
 
 
-/obj/item/bath/soap // replaced by fixing /obj/item/soap nuke ROGTODO
-
 /datum/job/stonekeep/nitemaiden
 	title = "Nitemaiden"
 	flag = SK_BATHMAID
@@ -50,7 +48,7 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	shoes = /obj/item/clothing/shoes/shortboots
 	r_hand = /obj/item/paper/feldsher_certificate/maybe
-	l_hand = /obj/item/soap
+	l_hand = /obj/item/bath/soap
 
 
 /datum/outfit/job/stonekeep/nitemaiden/pre_equip(mob/living/carbon/human/H)
@@ -119,3 +117,89 @@ Design philosphy:
 	armor = /obj/item/clothing/armor/corset
 	beltr = /obj/item/storage/keyring/servinggirl
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+
+
+// Herbal soap
+/obj/item/bath/soap
+	name = "herbal soap"
+	desc = "A soap made from various herbs."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "soap_herbal"
+	w_class = WEIGHT_CLASS_TINY
+	item_flags = NOBLUDGEON
+	throwforce = 0
+	throw_speed = 1
+	throw_range = 7
+	var/cleanspeed = 35 //slower than mop
+	var/uses = 10
+
+/obj/item/bath/soap/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/slippery, 80)
+
+/obj/item/bath/soap/examine(mob/user)
+	. = ..()
+	var/max_uses = initial(uses)
+	var/msg = "It looks like it was freshly made."
+	if(uses != max_uses)
+		var/percentage_left = uses / max_uses
+		switch(percentage_left)
+			if(0 to 0.2)
+				msg = "There's just a tiny bit left of what it used to be, you're not sure it'll last much longer."
+			if(0.21 to 0.4)
+				msg = "It's dissolved quite a bit, but there's still some life to it."
+			if(0.41 to 0.6)
+				msg = "It's past its prime, but it's definitely still good."
+			if(0.61 to 0.85)
+				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
+			else
+				msg = "It's seen some light use, but it's still pretty fresh."
+	. += "<span class='notice'>[msg]</span>"
+
+/obj/item/bath/soap/attack(mob/living/carbon/human/target, mob/living/carbon/user)
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
+	if(!istype(bathspot, /turf/open/water/bath))
+		if((!locate(/obj/structure/table/wood/bathtub) in target.loc))
+			to_chat(user, span_warning("They must be in the bath water!"))
+			return
+	if(!ishuman(target))
+		to_chat(user, span_warning("They don't want to be soaped..."))
+		return
+
+	if(istype(target.wear_armor, /obj/item/clothing))
+		to_chat(user, span_warning("Can't get a proper bath with armor on."))
+		return
+
+	if(istype(target.wear_shirt, /obj/item/clothing))
+		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		return
+
+	if(istype(target.cloak, /obj/item/clothing))
+		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		return
+
+	if(istype(target.wear_pants, /obj/item/clothing))
+		to_chat(user, span_warning("Can't get a proper bath with pants on."))
+		return
+
+	if(istype(target.shoes, /obj/item/clothing))
+		to_chat(user, span_warning("Can't get a proper bath with shoes on."))
+		return
+
+	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")	// Applies the special bonus only if Nitemaiden using the soap
+	playsound(src.loc, pick('sound/items/soaping.ogg'), 100)
+	if(do_after(user, 5 SECONDS, target = target))
+		if((user.job == "Nitemaiden"))
+			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
+			to_chat(target, span_warning("I feel so relaxed and clean!"))
+			target.apply_status_effect(/datum/status_effect/buff/clean_plus)
+	//		target.tiredness = 0
+			target.remove_status_effect(/datum/status_effect/debuff/sleepytime)
+		else
+			user.visible_message(span_info("[user] tries their best to scrub [target] with the [src]."))
+			to_chat(target, span_warning("Its worth a little soap in my eyes to get clean."))
+		wash_atom(target, CLEAN_STRONG)
+		uses -= 1
+		if(uses == 0)
+			qdel(src)

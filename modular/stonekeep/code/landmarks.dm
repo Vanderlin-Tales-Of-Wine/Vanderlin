@@ -68,38 +68,33 @@
 /*	..................   Bandit Traveltile Landmark   ................... */
 /obj/effect/landmark/map_load_mark/bandit_travel
 	name = "Bandit_travel"
-	templates = list( "bandit_a","bandit_b","bandit_c","bandit_d"  )
+	templates = list( "bandit_i","bandit_ii","bandit_iii"  )
 
 /datum/map_template/banditspawna
 	name = "Bandit Travel A"
-	id = "bandit_a"
-	mappath = "_maps/map_files/stonehamlet/templates/bspawn_a.dmm"
+	id = "bandit_i"
+	mappath = "_maps/map_files/stonehamlet/templates/bandit_spawn_1.dmm"
 
 /datum/map_template/bandittravelb
 	name = "Bandit Travel B"
-	id = "bandit_b"
-	mappath = "_maps/map_files/candlelight/templates/bspawn_b.dmm"
+	id = "bandit_ii"
+	mappath = "_maps/map_files/candlelight/templates/bandit_spawn_2.dmm"
 
 /datum/map_template/bandittravelc
 	name = "Bandit Travel C"
-	id = "bandit_c"
-	mappath = "_maps/map_files/candlelight/templates/bspawn_c.dmm"
-
-/datum/map_template/bandittraveld
-	name = "Bandit Travel D"
-	id = "bandit_d"
-	mappath = "_maps/map_files/candlelight/templates/bspawn_d.dmm"
+	id = "bandit_iii"
+	mappath = "_maps/map_files/candlelight/templates/bandit_spawn_3.dmm"
 
 
-/*	..................   Hollow Mountain Landmark   ................... */
-/obj/effect/landmark/map_load_mark/hollowmountain_minidungeon
-	name = "Hollow Mountains"
-	templates = list( "hollow_goblin" )
+/*	..................   Sump Grotto Landmark   ................... */
+/obj/effect/landmark/map_load_mark/sumpgrotto_minidungeon
+	name = "Sump Grotto"
+	templates = list( "sump_goblins" )
 
-/datum/map_template/hollowmountain_i
-	name = "Hollow Mountain Goblins"
-	id = "hollow_goblin"
-	mappath = "_maps/map_files/stonehamlet/templates/hollowmountain_1.dmm"
+/datum/map_template/sumpgrotto_i
+	name = "Sump Grotto Goblins"
+	id = "sump_goblins"
+	mappath = "_maps/map_files/stonehamlet/templates/sumpgrotto_1.dmm"
 
 
 

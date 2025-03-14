@@ -122,12 +122,19 @@
 	name = "note about steel deliveries"
 	info = "Makers! The northern dwarves delivery of steele is much delayed this yil. Make do or go get it from them, the Guild cannot do more to solve this."
 
+
+/obj/item/paper/note_about_tollhouse
+	name = "report on the olde tollhouse"
+	info = "My liege! Inspection of the olde tollhouse in the marshes revealed it to be in better shape than afeared. Some crenelation hath fallen off, but the lockes are still in good order, and the keyes kept in the Stewards chest still well accounted for. It could be restored to function should you wishe it liege."
+
+
 /obj/item/paper/feldsher_certificate
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "certificate"
 	name = "feldsher health certificate"
 	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
 	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date. (signed by the town feldsher, the date is a few weeks ago)"
+
 
 /obj/item/paper/feldsher_certificate/update_icon_state()
 	icon_state = "certificate"
@@ -173,6 +180,7 @@
 
 /obj/item/reagent_containers/glass/bucket/pot/copper
 	icon = 'modular/stonekeep/icons/cooking.dmi'
+	color = "#d2cdcb"
 
 /obj/item/reagent_containers/glass/bucket/pot/stone
 	icon = 'modular/stonekeep/icons/cooking.dmi'
@@ -589,7 +597,6 @@
 /obj/item/reagent_containers/food/snacks/tallow/piece
 	name = "piece of tallow"
 	desc = "Inedible. Ready for use in crafting."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "tallowslice"
 	bitesize = 1
 	slices_num = FALSE
@@ -1041,6 +1048,13 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	desc = "The master key of the bath house."
 	icon_state = "greenkey"
 	lockid = "nightmaster"
+
+/obj/item/key/tollhouse
+	name = "tollhouse key"
+	desc = ""
+	icon_state = "spikekey"
+	lockid = "tollhouse"
+
 
 /obj/item/storage/keyring/nitemaster
 	keys = list(/obj/item/key/nitemaster, /obj/item/key/bathhouse)

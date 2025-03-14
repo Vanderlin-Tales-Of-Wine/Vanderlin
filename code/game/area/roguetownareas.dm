@@ -451,13 +451,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/Fulminate.ogg'
 
 /area/rogue/indoors/town/tavern/saiga
-	droning_sound = 'sound/music/area/Folia1490.ogg'
-	droning_sound_night = 'sound/music/area/LeTourdion.ogg'
+	droning_sound = list('sound/music/area/Folia1490.ogg', 'sound/music/area/TheBanneredMare.ogg')
+	droning_sound_night = list('sound/music/area/LeTourdion.ogg', 'sound/music/area/JaimSansPenserLaidure.ogg')
 	converted_type = /area/rogue/outdoors/exposed/tavern/saiga
 
 /area/rogue/outdoors/exposed/tavern/saiga
-	droning_sound = 'sound/music/area/Folia1490.ogg'
-	droning_sound_night = 'sound/music/area/LeTourdion.ogg'
+	droning_sound = list('sound/music/area/Folia1490.ogg', 'sound/music/area/TheBanneredMare.ogg')
+	droning_sound_night = list('sound/music/area/LeTourdion.ogg', 'sound/music/area/JaimSansPenserLaidure.ogg')
 
 /area/rogue/indoors/town/garrison
 	name = "Garrison"

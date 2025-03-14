@@ -200,11 +200,13 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/otherZ = list()
 
-	//For Dakka map
+	//For Dakka map		BUNCH OF STONEKEEP EDITS BELOW
 /*	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkacoast.json")
 	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaforest.json")
 	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkamountain.json")*/
-	otherZ += load_map_config("_maps/map_files/stonehamlet/stonehamlet_offmap.json")
+	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/wetlands.json")
+	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/bitterpeaks.json")
+	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/murderwoods.json")
 	#ifndef LOWMEMORYMODE
 //	if(config.map_name == "Vanderlin") // Vanderlin
 //		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_forest.json")

@@ -238,9 +238,8 @@
 /turf/open/floor/grass/mixyel
 	icon = 'icons/turf/roguefloor.dmi'
 	neighborlay = "yelmixedge"
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-	/turf/open/floor/grass,
 	/turf/open/floor/grass/yel,
 	/turf/open/floor/grass/red,
 	/turf/open/floor/snow,
@@ -324,6 +323,7 @@
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral,
 						/turf/open/floor/dirt,
+						/turf/open/floor/dirt/muddie,
 						/turf/open/floor/hay)
 
 /turf/open/floor/dirt/old

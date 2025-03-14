@@ -512,7 +512,7 @@ get_accent_list()
 	offsetti = TRUE
 
 
-/datum/outfit/job/roguetown/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/stonekeep/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H.mind)
 		if(H.dna)

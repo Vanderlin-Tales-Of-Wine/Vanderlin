@@ -2944,10 +2944,6 @@
 /obj/item/clothing/head/hatblu,
 /turf/open/floor/wood,
 /area/rogue)
-"Ch" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/hay,
-/area/rogue/indoors/bandit_lair)
 "Co" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -3868,7 +3864,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/woods_safe)
 "QB" = (
-/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/hay,
 /area/rogue/indoors/bandit_lair)
 "QL" = (
@@ -6832,7 +6828,7 @@ nN
 lV
 xT
 yR
-Ch
+QB
 EC
 GX
 Jb

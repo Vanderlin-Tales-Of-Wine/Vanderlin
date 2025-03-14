@@ -184,13 +184,13 @@
 	lockid = "dungeon"
 
 /obj/item/key/soilson
-	name = "Soilson Key"
+	name = "soilson Key"
 	desc = "This key is used by the soilsons."
 	icon_state = "rustkey"
 	lockid = "soilson"
 
 /obj/item/key/warehouse
-	name = "Warehouse Key"
+	name = "warehouse Key"
 	desc = "This key opens the Steward's warehouse."
 	icon_state = "rustkey"
 	lockid = "warehouse"

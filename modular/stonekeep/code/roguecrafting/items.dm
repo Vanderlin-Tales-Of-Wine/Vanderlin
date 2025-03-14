@@ -189,7 +189,9 @@
 	name = "candle (x2)"
 	result = list(/obj/item/candle/yellow,
 				/obj/item/candle/yellow)
-	reqs = list(/obj/item/reagent_containers/food/snacks/fat = 1)
+	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
+				/obj/item/natural/fibers= 1,
+				)
 	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/basket_wicker

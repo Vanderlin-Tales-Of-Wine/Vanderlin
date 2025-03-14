@@ -1,0 +1,6 @@
+{
+    "map_name": "Treacherous Wetlands",
+    "map_path": "map_files/stonehamlet/otherz",
+    "map_file": "wetlands.dmm",
+    "traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
+}

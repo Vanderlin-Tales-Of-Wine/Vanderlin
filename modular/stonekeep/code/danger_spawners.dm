@@ -40,7 +40,7 @@
 		/obj/effect/decal/cleanable/vomit = 10,
 		/obj/item/clothing/face/cigarette/rollie = 10,
 		/obj/item/weapon/knife/stone = 10,
-		/obj/structure/idle_enemy/hostile_bum = 25	)
+		/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 25	)
 
 /*	..................   Mines Danger   ................... */
 /obj/effect/spawner/map_spawner/mine_mole_maybe

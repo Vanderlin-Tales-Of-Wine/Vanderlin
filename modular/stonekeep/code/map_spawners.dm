@@ -351,6 +351,7 @@
 		/obj/item/clothing/shoes/simpleshoes = 2,
 		/obj/item/clothing/neck/psycross = 2,
 		/obj/item/natural/hide/cured = 2,
+		/obj/item/reagent_containers/glass/bottle/waterskin = 1,
 
 		/obj/item/needle = 1,
 		/obj/item/weapon/pitchfork = 1,
