@@ -395,21 +395,25 @@ GLOBAL_LIST_INIT(badomens, list())
 	testing("Omen removed: [input]")
 	GLOB.badomens -= input
 
+
 /datum/round_event_control/proc/badomen(eventreason)
 	var/used
 	switch(eventreason)
 		if(OMEN_ROUNDSTART)
 			used = "Zizo."
-		if(OMEN_NOPRIEST)
-			used = "The Priest has perished! The Ten are weakened..."
-		if(OMEN_SKELETONSIEGE)
-			used = "Unwelcome visitors!"
 		if(OMEN_NOLORD)
 			used = "The Monarch is dead! We need a new ruler."
+		if(OMEN_NOPRIEST)
+			used = "The High Priest is dead!"
+		if(OMEN_NOBLEDEATH)
+			used = "A Noble has perished."
 		if(OMEN_SUNSTEAL)
 			used = "The Sun, she is wounded!"
-		if(OMEN_ASCEND)
-			used = "Zizo will rise once again!"
+		if(OMEN_SKELETONSIEGE)
+			used = "Unwelcome visitors!"
+		if("ascend")
+			used = "Zizo will rise once again."
+		if("psycross")
+			used = "You have angered the gods!"
 	if(eventreason && used)
 		priority_announce(used, "Bad Omen", 'sound/misc/evilevent.ogg')
-
