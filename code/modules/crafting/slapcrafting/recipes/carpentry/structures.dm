@@ -360,7 +360,7 @@
 	craftdiff = 5
 
 /datum/slapcraft_recipe/carpentry/structure/inn_bed/double
-	name = "nice bed without sheets"
+	name = "double nice bed"
 	steps = list(
 		/datum/slapcraft_step/item/plank,
 		/datum/slapcraft_step/item/plank/second,
