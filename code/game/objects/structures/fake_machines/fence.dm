@@ -7,10 +7,16 @@
 	blade_dulling = DULLING_BASH
 	var/next_canister
 	var/accepted_items
-	var/tax = 0.1
+	var/min_tax = 10
+	var/max_tax = 30
+	var/tax = 20
 	max_integrity = 0
 	anchored = TRUE
 	w_class = WEIGHT_CLASS_GIGANTIC
+
+/obj/item/roguemachine/fence/New()
+	. = ..()
+	tax = rand(min_tax, max_tax)
 
 /obj/structure/fake_machine/fence_chute
 	name = ""

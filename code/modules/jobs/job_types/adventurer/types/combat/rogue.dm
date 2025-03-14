@@ -1,3 +1,4 @@
+//Disabled
 /datum/advclass/combat/rogue
 	name = "Thief"
 	tutorial = "A guildless thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
@@ -7,6 +8,7 @@
 	min_pq = 5
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
+	pickprob = 0 // get fucked
 
 /datum/outfit/job/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
 	..()

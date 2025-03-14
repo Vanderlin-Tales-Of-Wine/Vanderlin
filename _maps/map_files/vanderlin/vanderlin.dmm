@@ -10971,14 +10971,6 @@
 "hGo" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods_safe)
-"hGG" = (
-/obj/structure/mineral_door/secret/thieves_guild{
-	icon = 'icons/turf/walls/mossy_stone.dmi';
-	icon_state = "stone";
-	name = "stone wall"
-	},
-/turf/closed/wall/mineral/stone,
-/area/rogue/under/town/sewer)
 "hHd" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -60600,8 +60592,8 @@ wLM
 laA
 laA
 lfU
-hGG
-hGG
+lfU
+lfU
 lfU
 auN
 lfU

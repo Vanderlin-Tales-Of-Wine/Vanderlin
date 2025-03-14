@@ -6,12 +6,7 @@
 		"Humen",
 		"Rakshari",
 		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
+		"Half-Elf"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/emir
 	grant_lit_torch = TRUE
@@ -74,12 +69,7 @@
 		"Humen",
 		"Rakshari",
 		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
+		"Half-Elf"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/amirah
 	grant_lit_torch = TRUE
@@ -202,7 +192,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari",
 	)
 	outfit = /datum/outfit/job/zybantine_migration/zybantine_guard
 	grant_lit_torch = TRUE
@@ -254,9 +245,7 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc"
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
 	show_wanderer_examine = FALSE
