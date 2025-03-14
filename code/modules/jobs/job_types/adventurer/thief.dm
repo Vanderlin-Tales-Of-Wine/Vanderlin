@@ -7,9 +7,8 @@
 
 	total_positions = 5
 	spawn_positions = 5
-
-	tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Maybe you're a freedom-fighter trying to undermine noble oppression. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
-	You and your syndicate are responsible for the underworld activities of Vanderlin. Stealing, fencing, intimidation, drug dealing, kidnapping - the possibilities for profit are nearly endless... so long as you're not caught.<br>"
+	var/base_tutorial = "<br>Maybe you were an orphan taken in by the matron. Maybe you're an ex-bandit looking to lie low. Maybe you're a freedom-fighter trying to undermine noble oppression. Whatever the reason, it's landed you in the sewers - the Thieves Guild to be precise.<br><br> \
+	Plenty of people in this town need something they can't get anywhere else, be it barred church or state. Someone beat up, something stolen, something bought, something fenced. This need is what you thrive off of. The possibilities for profit are nearly endless... so long as you're not caught.<br>"
 	display_order = JDO_THIEF
 	bypass_lastclass = TRUE
 	min_pq = 10
@@ -25,12 +24,17 @@
 	outfit = /datum/outfit/job/thief
 	cmode_music = 'sound/music/cmode/adventurer/CombatRogue.ogg'
 
-/*/datum/job/thief/New()
+/datum/job/thief/New()
 	. = ..()
+	tutorial = base_tutorial + "<br>(The max number of thieves in a round depends on total players)<br>"
+	var/datum/callback/cb = CALLBACK(src, TYPE_PROC_REF(/datum/job/thief, calculate_slots))
+	SSticker.OnPreRoundSetup(cb)
+
+/datum/job/thief/proc/calculate_slots()
 	var/allowed_slots = min(max_positions, 1 + CEILING(SSgamemode.get_correct_popcount() / 20, 1))
 	src.spawn_positions = allowed_slots
 	src.total_positions = allowed_slots
-*/
+	tutorial = base_tutorial //so the extra info won't show in chat when they join.
 
 /datum/outfit/job/thief
 	pants = /obj/item/clothing/pants/trou/leather
