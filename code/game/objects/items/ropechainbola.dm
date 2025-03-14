@@ -5,7 +5,7 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
-	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS|ITEM_SLOT_NECK|ITEM_SLOT_BELT
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
@@ -16,6 +16,20 @@
 	firefuel = 5 MINUTES
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	var/legcuff_multiplicative_slowdown = 3
+
+/obj/item/rope/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
+	. = ..()
+	if(.)
+		if(slot == SLOT_BELT && !equipper)
+			if(!do_after(M, 1.5 SECONDS, src))
+				return FALSE
+
+/obj/item/rope/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_BELT)
+		user.temporarilyRemoveItemFromInventory(src)
+		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/rope(get_turf(user)), SLOT_BELT)
+		qdel(src)
 
 /datum/intent/tie
 	name = "tie"
