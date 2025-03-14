@@ -6,7 +6,7 @@
 	src.icon = I.icon
 	src.icon_state = I.icon_state
 	src.color = I.color
-	src.copy_overlays(I, 0)
+	src.appearance = I.appearance
 
 /obj/item/pickpocket_shadow/examine(mob/user)
 	to_chat(user, span_danger("Someone took it!"))
