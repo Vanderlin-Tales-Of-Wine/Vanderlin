@@ -181,7 +181,7 @@
 		var/right_hand = FALSE
 		if(hand_index == LEFT_HANDS)
 			right_hand = TRUE
-		log_message("[key_name(src)] has equipped [I] in their [right_hand ? "right hand" : "left hand"], combat mode: [cmode ? "COMBAT" : "PASSIVE"].", LOG_ATTACK, color="#7aa0ff") // into attack logs
+		log_message("[key_name(src)] has equipped [I] in their [right_hand ? "right hand" : "left hand"], combat mode: [cmode ? "COMBAT" : "PASSIVE"].", LOG_ATTACK, color="#3333ff") // into attack logs
 	return hand_index
 
 //Puts the item into the first available left hand if possible and calls all necessary triggers/updates. returns 1 on success.
