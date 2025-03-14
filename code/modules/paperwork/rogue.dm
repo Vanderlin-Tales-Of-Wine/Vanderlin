@@ -345,8 +345,8 @@
 
 
 /obj/item/paper/scroll/frumentarii
-	name = "List of Known Agents"
-	desc = "A list of the hand's fingers."
+	name = "Frumentarii scroll"
+	desc = "A list of the hand's fingers. Strike a candidate with this to allow them servitude. Use a writing utensil to cross out a finger."
 	old_render = FALSE
 
 	var/list/real_names = list()
@@ -369,7 +369,7 @@
 	if(!attacked_target.client)
 		return
 
-	var/choice = input(attacked_target,"Do you list to become one of the Hand's fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
+	var/choice = input(attacked_target,"Do you wish to become one of the Hand's fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
 
 	if(choice != "Yes")
 		return

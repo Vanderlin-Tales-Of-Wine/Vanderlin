@@ -128,6 +128,7 @@
 	name = "Saw bone"
 	implements = list(
 		TOOL_SAW = 80,
+		TOOL_IMPROVISED_SAW = 65,
 		TOOL_SHOVEL = 50,
 		TOOL_SHARP = 25,
 	)

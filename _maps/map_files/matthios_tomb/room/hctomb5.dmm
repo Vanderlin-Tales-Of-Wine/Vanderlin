@@ -8,11 +8,11 @@
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aW" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bk" = (
 /obj/structure/table/wood/nice/decorated,
 /obj/item/reagent_containers/glass/carafe/silver/redwine{
@@ -20,70 +20,70 @@
 	pixel_x = -2
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bn" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/bed/inn,
 /obj/item/bedsheet/wool,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bo" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "bW" = (
 /obj/machinery/light/fueled/cauldron,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/green,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ca" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "eg" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "ei" = (
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "er" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "fh" = (
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "fC" = (
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "hR" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iP" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/purple,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iW" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "jf" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "jq" = (
 /obj/structure/fermentation_keg/random/water,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "kZ" = (
 /obj/structure/table/stone_small,
 /obj/item/reagent_containers/food/snacks/meat/fatty{
@@ -98,18 +98,18 @@
 	pixel_y = 5
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mA" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "mM" = (
 /obj/structure/mineral_door/wood/donjon/stone,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nh" = (
 /obj/structure/roguerock,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ni" = (
 /obj/item/clothing/neck/psycross/g{
 	pixel_x = -6;
@@ -121,15 +121,15 @@
 	pixel_y = 5
 	},
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nV" = (
 /turf/open/floor/blocks/green,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oa" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/clothing/ring/silver,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "or" = (
 /obj/item/clothing/pants/skirt/random{
 	pixel_x = 8;
@@ -137,27 +137,30 @@
 	},
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oF" = (
 /obj/structure/mannequin,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pF" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pR" = (
 /obj/structure/mineral_door/wood/red,
 /turf/open/floor/wood/nosmooth,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "qh" = (
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "qk" = (
 /obj/machinery/light/fueled/wallfire/candle/weak/l,
 /obj/structure/mannequin/male/female,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"qM" = (
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
 "rx" = (
 /obj/structure/stairs/stone{
 	dir = 1;
@@ -168,16 +171,16 @@
 	pixel_y = 8
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "tc" = (
 /turf/open/floor/carpet/purple,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ti" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "uS" = (
 /obj/effect/decal/shadow_floor{
 	dir = 4
@@ -187,21 +190,21 @@
 	pixel_y = 8
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vw" = (
 /obj/effect/decal/shadow_floor{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vK" = (
 /turf/closed/wall/mineral/decostone/cand,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vM" = (
 /obj/structure/mannequin/male,
 /turf/open/floor/herringbone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "vR" = (
 /obj/item/clothing/gloves/leather{
 	pixel_x = -7;
@@ -209,27 +212,27 @@
 	},
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xz" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks/green,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yq" = (
 /obj/effect/decal/cobbleedge{
 	dir = 6
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "yJ" = (
 /obj/structure/table/stone_small,
 /obj/item/pestle,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "yW" = (
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "zb" = (
 /obj/structure/rack/shelf/big{
 	pixel_y = 0
@@ -243,21 +246,21 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "zc" = (
 /obj/effect/decal/shadow_floor,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "zG" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "AC" = (
 /obj/structure/trap/wall_projectile{
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "BU" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1;
@@ -265,33 +268,33 @@
 	},
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CH" = (
 /obj/structure/table/stone_small,
 /obj/item/mortar{
 	pixel_y = 9
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CJ" = (
 /obj/machinery/light/fueled/lanternpost{
 	dir = 1
 	},
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/under/cave)
 "CP" = (
 /obj/structure/fluff/walldeco/painting/skull{
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CT" = (
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "DK" = (
 /mob/living/simple_animal/hostile/retaliate/trufflepig,
 /obj/item/clothing/shirt/undershirt/fancy{
@@ -299,30 +302,33 @@
 	pixel_y = 6
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Fc" = (
 /obj/effect/decal/cobbleedge,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Gf" = (
 /obj/structure/table/wood/reinforced_alter,
 /obj/structure/bars/bent,
 /obj/effect/decal/shadow_floor,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "GK" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
 	},
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ha" = (
 /obj/structure/roguerock,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "HT" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"If" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/cave)
 "In" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/alch/firedust,
@@ -332,15 +338,15 @@
 /obj/item/alch/coaldust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "JG" = (
 /obj/structure/flora/grass/herb/random,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Kw" = (
 /obj/structure/mineral_door/wood/red,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KE" = (
 /obj/effect/decal/remains/human,
 /obj/item/reagent_containers/glass/bottle{
@@ -349,113 +355,113 @@
 	closed = 0
 	},
 /turf/open/floor/carpet/royalblack,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KR" = (
 /obj/structure/trap/bomb,
 /turf/open/floor/carpet/red,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Lb" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "MX" = (
 /obj/effect/decal/shadow_floor{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "NE" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "NO" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Pt" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qz" = (
 /turf/closed/wall/mineral/decostone/center,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Re" = (
 /obj/structure/rack,
 /obj/item/cooking/pan,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sa" = (
 /turf/open/water/swamp,
-/area/rogue)
+/area/rogue/under/cave)
 "Se" = (
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "Sf" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Sk" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "SS" = (
 /obj/structure/table/wood/treestump/shroomstump,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "TU" = (
 /obj/item/candle/yellow,
 /obj/structure/table/wood/plain/alt,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Vo" = (
 /turf/closed/wall/mineral/craftstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VF" = (
 /obj/machinery/light/fueled/hearth/big_fireplace{
 	pixel_x = -32
 	},
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "VH" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "WQ" = (
 /turf/closed/wall/mineral/decostone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Xe" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "XH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "XM" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Yq" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Za" = (
 /obj/structure/stairs/stone,
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "ZV" = (
 /turf/open/floor/blocks,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 Xe
@@ -1297,7 +1303,7 @@ Xe
 (19,1,2) = {"
 HT
 aW
-eg
+qM
 Za
 vw
 Vo
@@ -1334,7 +1340,7 @@ eg
 Xe
 Xe
 Xe
-HT
+If
 Xe
 Xe
 "}

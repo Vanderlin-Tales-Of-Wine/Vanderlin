@@ -39,7 +39,7 @@
 	if(istype(O, /obj/item/manuscript))
 		var/obj/item/manuscript/M = O
 		if(!M.written)
-			to_chat(user, span_notice("This manuscript is blank. You need to write something before uploading it."))
+			to_chat(user, span_notice("This manuscript is has yet to be authored and titled. You'll need to do so before uploading it."))
 			return
 		// Prompt the user to upload the manuscript
 		var/choice = input(user, "Do you want to add the manuscript to the archive?") in list("Yes", "No")
@@ -195,7 +195,9 @@
 		dat += "<tr><td colspan='4'>No results found.</td></tr>"
 
 	dat += "</table>"
-	user << browse(dat, "window=search_results")
+	var/datum/browser/popup = new(user, "printing press", "Which book to print?", 400, 240)
+	popup.set_content(dat)
+	popup.open()
 
 
 /obj/machinery/printingpress/Topic(href, href_list)
