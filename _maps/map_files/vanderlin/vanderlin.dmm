@@ -24713,7 +24713,9 @@
 /area/rogue/indoors/town/church)
 "rKn" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/fluff/millstone,
+/obj/structure/fluff/millstone{
+	pixel_y = 7
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "rKP" = (
