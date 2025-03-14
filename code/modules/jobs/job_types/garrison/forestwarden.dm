@@ -32,13 +32,13 @@
 
 /datum/outfit/job/forestwarden/pre_equip(mob/living/carbon/human/H)
 	..()
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	armor = /obj/item/clothing/armor/leather/splint
-	shirt = /obj/item/clothing/armor/chainmail/iron
-	pants = /obj/item/clothing/pants/trou/leather
-	shoes = /obj/item/clothing/shoes/boots/furlinedboots
+	cloak = /obj/item/clothing/cloak/wardencloak
+	armor = /obj/item/clothing/armor/plate
+	shirt = /obj/item/clothing/armor/chainmail
+	pants = /obj/item/clothing/pants/platelegs
+	shoes = /obj/item/clothing/shoes/boots
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	head = /obj/item/clothing/head/helmet/kettle/slit
+	head = /obj/item/clothing/head/helmet/visored/warden
 	gloves = /obj/item/clothing/gloves/leather
 	neck = /obj/item/clothing/neck/bevor
 	belt = /obj/item/storage/belt/leather
@@ -71,6 +71,7 @@
 		H.change_stat(STATKEY_SPD, 1)
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

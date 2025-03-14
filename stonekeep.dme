@@ -1262,6 +1262,7 @@
 #include "code\modules\clothing\armor\_armor.dm"
 #include "code\modules\clothing\armor\chainmail.dm"
 #include "code\modules\clothing\armor\cuirass.dm"
+#include "code\modules\clothing\armor\forestguardarmor.dm"
 #include "code\modules\clothing\armor\gambesson.dm"
 #include "code\modules\clothing\armor\leather.dm"
 #include "code\modules\clothing\armor\medium.dm"
