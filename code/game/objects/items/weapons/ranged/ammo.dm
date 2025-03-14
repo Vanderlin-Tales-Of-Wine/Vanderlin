@@ -105,6 +105,7 @@
 /obj/item/ammo_casing/caseless/bolt/pyro/Initialize()
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
+	qdel(reagents)
 
 /obj/projectile/bullet/bolt/pyro
 	name = "pyroclastic bolt"
@@ -246,6 +247,7 @@
 /obj/item/ammo_casing/caseless/arrow/pyro/Initialize()
 	. = ..()
 	RemoveElement(/datum/element/tipped_item)
+	qdel(reagents)
 
 /obj/projectile/bullet/arrow/pyro
 	name = "pyroclastic arrow"
