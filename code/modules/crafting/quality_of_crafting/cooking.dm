@@ -17,7 +17,7 @@
 		/obj/item/ash = 1,
 		/obj/item/reagent_containers/food/snacks/fat = 1,
 	)
-
+	output = /obj/item/soap
 	starting_atom = /obj/item/pestle
 	attacked_atom = /obj/item/mortar
 	tool_use_time = 4 SECONDS

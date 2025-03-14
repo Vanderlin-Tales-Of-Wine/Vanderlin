@@ -129,6 +129,8 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"Exteroception" = TRAIT_EXTEROCEPTION,
 		"Blackleg" = TRAIT_BLACKLEG,
 		"Eyes of Matthios" = TRAIT_MATTHIOS_EYES,
+		"Beautiful" = TRAIT_BEAUTIFUL,
+		"Ugly" = TRAIT_UGLY,
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS
