@@ -9,6 +9,16 @@
 		user.add_stress(/datum/stressevent/horc)
 	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
 		user.add_stress(/datum/stressevent/parastr)
+	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+		if(user == src)
+			user.add_stress(/datum/stressevent/beautiful_self)
+		else
+			user.add_stress(/datum/stressevent/beautiful)
+	if(HAS_TRAIT(src, TRAIT_UGLY) && user != src)
+		if(user == src)
+			user.add_stress(/datum/stressevent/ugly_self)
+		else
+			user.add_stress(/datum/stressevent/ugly)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -19,6 +29,7 @@
 	var/t_is = p_are()
 	var/obscure_name
 	var/race_name = dna.species.name
+	var/self_inspect = FALSE
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
@@ -41,6 +52,8 @@
 		var/used_name = name
 		if(isobserver(user))
 			used_name = real_name
+		if(user == src)
+			self_inspect = TRUE
 		var/used_title = get_role_title()
 		var/display_as_wanderer = FALSE
 		var/is_returning = FALSE
@@ -89,12 +102,20 @@
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
+			var/is_male = FALSE
+			if(stranger.gender == MALE)
+				is_male = TRUE
 			if(RomanticPartner(stranger))
-				. += span_love("<B>It's my spouse.</B>")
+				. += span_love(span_bold("[t_He] is my [is_male ? "husband" : "wife"]."))
 			if(family_datum == stranger.family_datum && family_datum)
 				var/family_text = ReturnRelation(user)
 				if(family_text)
 					. += family_text
+			if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+				//Handsome only if male, beautiful in all other pronouns.
+				. += span_love(span_bold("[self_inspect ? "I am" : "[t_He] is"] [is_male ? "handsome" : "beautiful"]!"))
+			if(HAS_TRAIT(src, TRAIT_UGLY))
+				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")

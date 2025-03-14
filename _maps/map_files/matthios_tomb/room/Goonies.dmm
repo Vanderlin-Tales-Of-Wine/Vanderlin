@@ -29,7 +29,8 @@
 "bD" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	TOTALCON = 15;
-	TOTALEND = 15
+	TOTALEND = 15;
+	candodge = 0
 	},
 /obj/item/clothing/head/padded/deathface,
 /obj/item/clothing/gloves/plate/blk/death,
@@ -996,10 +997,6 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "yQ" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15
-	},
 /obj/item/clothing/head/padded/deathface,
 /obj/item/clothing/gloves/plate/blk/death,
 /obj/item/clothing/armor/plate/blkknight/death,
@@ -1007,6 +1004,11 @@
 /obj/item/clothing/shoes/boots/armor/blkknight/death,
 /obj/item/weapon/sword/long/death,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALCON = 15;
+	TOTALEND = 15;
+	candodge = 0
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
 "zl" = (
@@ -1859,7 +1861,9 @@
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/sword/khopesh,
 /obj/item/weapon/sword/sabre/shalal,
-/mob/living/carbon/human/species/zizombie/npc,
+/mob/living/carbon/human/species/zizombie/npc{
+	candodge = 0
+	},
 /turf/open/floor/carpet/lord/center,
 /area/rogue/under/cavewet)
 "UK" = (
@@ -1937,7 +1941,7 @@
 /turf/open/water,
 /area/rogue/under/cavewet)
 "Wk" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cavewet)
