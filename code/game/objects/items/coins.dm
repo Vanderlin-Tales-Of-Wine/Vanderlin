@@ -86,50 +86,101 @@
 /obj/item/coin/examine(mob/user)
 	. = ..()
 	var/denomination = quantity == 1 ? name : plural_name
-	var/exact_value = get_real_price()
-	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
-	var/is_skilled = mathematics_skill >= 3
 	var/intelligence = user.mind?.current.STAINT
-	if(intelligence < 9)
-		mathematics_skill = max(mathematics_skill - 1, 0)
-	if(quantity > 1)
-		if(is_skilled)
-			. += span_info("Exactly [quantity] [denomination] ([exact_value] mammon)")
-		else
-			// Create estimation with skill-based inaccuracy
-			var/fuzzy_quantity = quantity
-			var/value_error = 0
-			var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
-			// Apply counting inaccuracy
-			switch(mathematics_skill)
-				if(0) // WHAT IS MATH!?
-					user.visible_message(span_notice("You see [user] clumsily start counting the coins"), span_notice("You clumsily start counting the coins..."))
-					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 8 SECONDS))
-					fuzzy_quantity = CLAMP(quantity + rand(-3,3), 1, 20)
-					value_error = rand(-25,25) //Upper and lower % error
-				if(1) // Weak skill
-					user.visible_message(span_notice("You see [user] start counting the coins"), span_notice("You start counting the coins..."))
-					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 4 SECONDS))
-					fuzzy_quantity = CLAMP(quantity + rand(-1,1), 1, 20)
-					value_error = rand(-10,10) //Upper and lower % error
-				if(2) // Average skill
-					user.visible_message(span_notice("You see [user] count the coins"), span_notice("You start counting the coins..."))
-					do_after(user, CLAMP((1 SECONDS * quantity), 1 SECONDS, 2 SECONDS))
-				else
-					user.visible_message(span_notice("You see [user] swiftly tally the coins with practiced ease."), span_notice("You quickly count the coins with precision."))
-			// Calculate approximate value with compounding error
-			var/estimated_value = round((exact_value * (100 + value_error)) / 100)
-			estimated_value = CLAMP(estimated_value, 1, 200) // Keep within max stack size possible (20*10)
-			var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
-			var/value_text = "~[estimated_value] mammon"
-			//Add the flavor phrases for oblivious people
-			if(mathematics_skill == 0)
-				value_text = "[pick(uncertainty_phrases)] [value_text]"
-				if(prob(30))
-					value_text += "?"
-			. += span_info("[description] ([value_text])")
+
+	if(quantity > 1)  // Just so you don't count single coins
+		var/list/skill_data = coin_skill(user, quantity)
+		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1, 20)
+		var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
+
+		switch(intelligence)						// Intelligence-based messaging
+			if(0 to 6)
+				user.visible_message(span_notice("You see [user] clumsily start counting the coins"),span_notice("You clumsily start counting the coins..."))
+			if(7 to 9)
+				user.visible_message(span_notice("You see [user] start counting the coins"),span_notice("You start counting the coins..."))
+			if(10 to 13)
+				user.visible_message(span_notice("You see [user] count the coins"),span_notice("You start counting the coins..."))
+
+		do_after(user, skill_data["delay"])			// Use coin_skill calculated delay
+
+		var/estimated_value = fuzzy_quantity * sellprice
+		estimated_value = CLAMP(estimated_value, sellprice, 20*sellprice)
+		var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
+		var/value_text = "~[estimated_value] mammon"
+
+		if(intelligence <= 7)
+			value_text = "[pick(uncertainty_phrases)] [value_text]"
+			if(prob(30))
+				value_text += "?"
+		. += span_info("[description] ([value_text])")
 	else
 		. += span_info("One [name] ([sellprice] mammon)")
+
+
+/obj/item/coin/attack_hand(mob/user)
+	if(user.get_inactive_held_item() == src && quantity > 1)
+		var/intended = input(user, "How many [plural_name] to split?", null, 1) as null|num
+		if(QDELETED(src) || !user.is_holding(src))
+			return
+		intended = clamp(intended, 0, quantity)
+		intended = round(intended, 1)
+		if(!intended || intended >= quantity)
+			return
+
+		var/list/skill_data = coin_skill(user, intended)		// Get skill-based parameters
+		var/delay_time = skill_data["delay"]
+		var/error = skill_data["error"]
+
+		if(delay_time > 5 SECONDS)			// Chat feedback
+			user.visible_message(span_notice("Coins clatter as [user] fumbles."),span_warning("You lose count while separating the coins!"))
+		else if(delay_time >= 1 SECONDS)
+			user.visible_message(span_notice("[user] carefully counts out coins..."),span_notice("You concentrate on separating the stack..."))
+		else if(delay_time == 0)
+			user.visible_message(span_notice("[user] instantly splits the coin stack!"),span_notice("You effortlessly divide the coins."))
+
+		if(delay_time > 0 && !do_after(user, delay_time))	// Make sure people don't move to cancel the delay
+			return
+
+		var/actual = intended + error		// Apply error safely
+		actual = clamp(actual, 1, quantity - 1)
+
+		var/obj/item/coin/new_coins = new type()	// Split coins
+		new_coins.set_quantity(actual)
+		new_coins.heads_tails = last_merged_heads_tails
+		set_quantity(quantity - actual)
+
+		user.put_in_hands(new_coins)
+		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
+		return
+	..()
+
+/obj/item/coin/proc/coin_skill(mob/user, intended)
+	var/intelligence = user.mind?.current.STAINT
+	var/perception = user.mind?.current.STAPER
+	var/speed = user.mind?.current.STASPD
+	var/list/skill_data = list("delay" = 2 SECONDS,"error" = 0)
+
+	switch(intelligence)	// Base intelligence effects
+		if(0 to 5) // Very low intelligence
+			skill_data["error"] = rand(-3,3)
+			skill_data["delay"] = CLAMP(1 SECONDS * intended, 2 SECONDS, 8 SECONDS)
+		if(6 to 8) // Less than average intelligence
+			skill_data["error"] = rand(-1,1)
+			skill_data["delay"] = CLAMP(1 SECONDS * intended, 1 SECONDS, 4 SECONDS)
+		if(9 to 13) // Average to above average intelligence
+			skill_data["delay"] = CLAMP(1 SECONDS * intended, 1 SECONDS, 2 SECONDS)
+		if(14 to INFINITY) // Genius
+			skill_data["delay"] = 0
+
+	if(perception < 9)   // Add perception effects
+		skill_data["error"] += rand(-1,1)
+
+	if(speed < 8) // Add speed effects
+		skill_data["delay"] += 0.5 SECONDS
+
+	skill_data["delay"] = max(skill_data["delay"], 0)
+	return skill_data
+
 
 /obj/item/coin/proc/quantity_to_words(amount)
 	switch(amount)
@@ -181,43 +232,6 @@
 	user.put_in_active_hand(new type(user.loc, 1))
 	set_quantity(quantity - 1)
 
-/obj/item/coin/attack_hand(mob/user)
-	if(user.get_inactive_held_item() == src && quantity > 1)
-		var/intended = input(user, "How many [plural_name] to split?", null, 1) as null|num
-		if(QDELETED(src) || !user.is_holding(src))
-			return
-		// Initial processing
-		intended = clamp(intended, 0, quantity)
-		intended = round(intended, 1)
-		if(!intended)
-			return
-		if(intended >= quantity)
-			return ..()
-
-		// Apply counting errors
-		var/actual = intended
-		var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
-		var/intelligence = user.mind?.current.STAINT
-		if(intelligence < 9)
-			mathematics_skill = max(mathematics_skill - 1, 0)
-
-		// Calculate error based on skill
-		switch(mathematics_skill)
-			if(0) // Unskilled: Large error
-				actual += rand(-3,3)
-			if(1) // Weak: Small error
-				actual += rand(-1,1)
-		actual = clamp(actual, 1, quantity - 1)
-		if(actual >= quantity)
-			return
-		var/obj/item/coin/new_coins = new type()
-		new_coins.set_quantity(actual)
-		new_coins.heads_tails = last_merged_heads_tails
-		set_quantity(quantity - actual)
-		user.put_in_hands(new_coins)
-		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
-		return
-	..()
 
 
 /obj/item/coin/attack_self(mob/living/user)
