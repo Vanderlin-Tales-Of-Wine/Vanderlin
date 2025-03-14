@@ -11030,8 +11030,6 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "hSv" = (
-/obj/structure/table/stone_small,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
@@ -14262,13 +14260,6 @@
 "kfl" = (
 /turf/closed/wall/mineral/decowood,
 /area/rogue/indoors/town/shop)
-"kfv" = (
-/obj/structure/mineral_door/bars{
-	lockid = "blacksmith";
-	name = "Shrine of Malum"
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/smithy)
 "kfx" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -23411,10 +23402,6 @@
 /area/rogue/indoors/town)
 "rkC" = (
 /turf/closed/wall/mineral/wooddark/end,
-/area/rogue/indoors/town/smithy)
-"rkS" = (
-/obj/structure/bars,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/smithy)
 "rkX" = (
 /obj/structure/table/wood{
@@ -95169,7 +95156,7 @@ uOB
 qBL
 wiM
 hSy
-rkS
+weA
 hSv
 tQB
 ehF
@@ -95371,8 +95358,8 @@ uOB
 fTF
 weA
 weA
-rkS
-kfv
+weA
+weA
 tQB
 elp
 elp
