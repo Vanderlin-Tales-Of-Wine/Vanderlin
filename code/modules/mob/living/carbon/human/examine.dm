@@ -103,7 +103,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
 			var/is_male = FALSE
-			if(stranger.gender == MALE)
+			if(gender == MALE)
 				is_male = TRUE
 			if(RomanticPartner(stranger))
 				. += span_love(span_bold("[t_He] is my [is_male ? "husband" : "wife"]."))
