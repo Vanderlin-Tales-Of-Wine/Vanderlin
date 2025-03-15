@@ -4657,11 +4657,26 @@
 /area/rogue/indoors/town)
 "dnQ" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/clothing/head/bardhat,
-/obj/item/clothing/head/brimmed,
-/obj/item/clothing/head/hatfur{
-	pixel_x = 8;
-	pixel_y = 4
+/obj/item/clothing/shoes/boots/leather{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/clothing/shirt/robe/phys,
+/obj/item/clothing/neck/phys{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/obj/item/clothing/head/roguehood/phys{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/clothing/gloves/leather/phys{
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/obj/item/clothing/face/phys{
+	pixel_x = 2;
+	pixel_y = 0
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
@@ -5710,9 +5725,19 @@
 /area/rogue/indoors/town)
 "dYc" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/clothing/shoes/boots/leather,
-/obj/item/clothing/shoes/shortboots,
-/obj/item/clothing/shoes/simpleshoes,
+/obj/item/clothing/pants/tights/uncolored,
+/obj/item/clothing/shirt/undershirt/uncolored{
+	pixel_x = 0;
+	pixel_y = 1
+	},
+/obj/item/storage/belt/leather/rope{
+	pixel_x = -2;
+	pixel_y = -9
+	},
+/obj/item/clothing/shoes/simpleshoes{
+	pixel_x = 2;
+	pixel_y = -4
+	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "dYe" = (
@@ -8836,7 +8861,8 @@
 /obj/structure/mineral_door/secret/thieves_guild{
 	icon = 'icons/turf/walls/mossy_stone.dmi';
 	icon_state = "stone";
-	name = "stone wall"
+	name = "stone wall";
+	desc = "A wall of smooth, yielding stone."
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
@@ -10390,7 +10416,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/soilsons)
 "hlQ" = (
-/obj/structure/dye_bin,
+/obj/structure/dye_bin{
+	pixel_x = 0;
+	pixel_y = 5
+	},
 /obj/machinery/light/fueled/torchholder{
 	dir = 1
 	},
@@ -10829,10 +10858,6 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/church/chapel)
-"hBE" = (
-/obj/item/coin/silver/pile,
-/turf/open/floor/tile,
-/area/rogue/under/town/basement/thieves_guild)
 "hBL" = (
 /obj/structure/chair/bench,
 /turf/open/floor/ruinedwood/darker,
@@ -17818,7 +17843,8 @@
 /obj/structure/mineral_door/secret/thieves_guild{
 	icon = 'icons/turf/walls/mossy_stone.dmi';
 	icon_state = "stone";
-	name = "stone wall"
+	name = "stone wall";
+	desc = "A wall of smooth, yielding stone."
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
@@ -18771,10 +18797,6 @@
 /obj/item/needle/thorn,
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
-"nqN" = (
-/obj/item/roguemachine/drugtrade,
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue/indoors/town)
 "nqS" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -22866,12 +22888,24 @@
 /area/rogue/under/town/basement/thieves_guild)
 "qtO" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/clothing/cloak/raincloak,
-/obj/item/clothing/cloak/raincloak/blue{
-	pixel_x = -6
+/obj/item/clothing/head/roguehood/brown{
+	pixel_x = -3;
+	pixel_y = 6
 	},
-/obj/item/clothing/cloak/raincloak/red,
-/obj/item/clothing/cloak/half,
+/obj/item/clothing/shoes/shortboots{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/obj/item/clothing/cloak/raincloak/furcloak/brown{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/clothing/shirt/robe/plain,
+/obj/item/storage/belt/leather/rope{
+	pixel_x = -2;
+	pixel_y = -8
+	},
+/obj/item/weapon/polearm/woodstaff,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement/thieves_guild)
 "qua" = (
@@ -23676,20 +23710,33 @@
 /area/rogue/outdoors/town/roofs)
 "qVw" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/item/clothing/shirt/tunic/random{
-	pixel_x = -6;
-	pixel_y = 9
+/obj/item/clothing/shoes/shortboots{
+	pixel_x = -5;
+	pixel_y = -4
 	},
-/obj/item/clothing/shirt/robe/plain,
-/obj/item/clothing/shirt/shortshirt/random{
-	pixel_x = 6
+/obj/item/clothing/shirt/shortshirt{
+	pixel_x = -5;
+	pixel_y = -2
 	},
-/obj/item/clothing/shirt/undershirt/sailor/red,
-/obj/item/clothing/shirt/dress/gen/black,
-/obj/item/clothing/pants/tights/random,
+/obj/item/clothing/gloves/leather{
+	pixel_x = 2;
+	pixel_y = -7
+	},
 /obj/item/clothing/pants/trou{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/clothing/cloak/apron/brown{
 	pixel_x = -6;
-	pixel_y = -3
+	pixel_y = 1
+	},
+/obj/item/weapon/tongs{
+	pixel_x = -1;
+	pixel_y = -2
+	},
+/obj/item/weapon/hammer{
+	pixel_x = -3;
+	pixel_y = 6
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement/thieves_guild)
@@ -27452,7 +27499,8 @@
 /obj/structure/mineral_door/secret/thieves_guild{
 	icon = 'icons/turf/walls/roguewood.dmi';
 	icon_state = "wood";
-	name = "wooden wall"
+	name = "wooden wall";
+	desc = "A rough-hewn wall of wood."
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/theatre)
@@ -31448,11 +31496,17 @@
 	},
 /obj/item/reagent_containers/powder/moondust_purest,
 /obj/item/reagent_containers/powder/ozium{
-	pixel_x = -7;
+	pixel_x = -1;
 	pixel_y = 11
 	},
-/obj/item/reagent_containers/powder/moondust,
-/obj/item/reagent_containers/powder/spice,
+/obj/item/reagent_containers/powder/spice{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/powder/moondust{
+	pixel_x = 6;
+	pixel_y = 1
+	},
 /turf/open/floor/twig,
 /area/rogue/under/town/basement/thieves_guild)
 "wrv" = (
@@ -62203,7 +62257,7 @@ rVX
 lXd
 myT
 nAg
-hBE
+lXd
 dMU
 gBh
 upU
@@ -172854,7 +172908,7 @@ qEb
 mjW
 pBa
 lSn
-nqN
+lSn
 lSn
 qEb
 unK
