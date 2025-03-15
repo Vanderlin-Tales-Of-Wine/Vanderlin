@@ -106,7 +106,8 @@
 			if(14 to INFINITY)
 				user.visible_message(span_info("You see [user] effortlessly tally the coins!"),span_notice("You effortlessly tally the stack."))
 
-		do_after(user, skill_data["delay"])			// Use coin_skill calculated delay
+		if(!do_after(user, skill_data["delay"]))
+			return
 
 		var/estimated_value = fuzzy_quantity * sellprice
 		estimated_value = CLAMP(estimated_value, sellprice, INFINITY)
