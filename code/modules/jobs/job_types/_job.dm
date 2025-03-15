@@ -127,7 +127,7 @@
 */
 	var/list/advclass_cat_rolls
 
-	var/wanderer_examine = FALSE
+	var/is_foreigner = FALSE
 
 	var/datum/charflaw/forced_flaw
 
@@ -196,6 +196,9 @@
 
 	if(!ishuman(H))
 		return
+
+	if(is_foreigner)
+		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 	if(can_have_apprentices)
 		H.mind.apprentice_training_skills = trainable_skills.Copy()
