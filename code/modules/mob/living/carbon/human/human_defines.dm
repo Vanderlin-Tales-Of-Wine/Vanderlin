@@ -125,6 +125,9 @@
 
 	var/datum/devotion/cleric_holder/cleric = null // Used for cleric_holder for priests
 
+	var/headshot_link = null
+	var/flavortext = null
+
 	var/confession_points = 0 // Used to track how many confessions the Inquisitor has gotten signed. Used to buy items at mailboxes.
 	var/purchase_history = null // Used to track what the Inquisitor has bought from the mailbox.
 	var/has_confessed = FALSE // Used to track if they have confessed it was written onto a confession paper
