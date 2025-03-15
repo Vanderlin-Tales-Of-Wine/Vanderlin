@@ -6,19 +6,19 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Dark Elf",
 		"Tiefling",
+		"Dark Elf",
 		"Aasimar",
-		"Half-Orc",
+		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/dredge
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 7
 	min_pq = 0
-
 
 /datum/outfit/job/roguetown/adventurer/dredge/pre_equip(mob/living/carbon/human/H)
 	..()
