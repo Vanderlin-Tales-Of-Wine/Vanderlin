@@ -1,21 +1,9 @@
-/obj/item/clothing/armor/forrester
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
+/obj/item/clothing/armor/leather/advanced/forrester
+	slot_flags = ITEM_SLOT_ARMOR
 	name = "forrester armour"
 	desc = "Armour worn by the Veterans of the Goblin War, who presently serve in the Forest Guard of Vanderlin."
-	icon_state = "foresthide"
-	blocksound = CHAINHIT
-	equip_sound = 'sound/foley/equip/cloak_equip.ogg'
-	pickup_sound = 'sound/foley/equip/cloak_take_off.ogg'
-	break_sound = 'sound/foley/cloth_rip.ogg'
-	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	sellprice = VALUE_LEATHER_ARMOR
 
-	anvilrepair = /datum/skill/craft/armorsmithing
-	armor_class = AC_MEDIUM
-	armor = ARMOR_FORESTGUARD
-	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = ALL_EXCEPT_STAB
-	max_integrity = INTEGRITY_STRONG
 
 /obj/item/clothing/cloak/forrestercloak
 	name = "forrester cloak"
@@ -28,6 +16,10 @@
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
 
+/obj/item/clothing/cloak/forrestercloak/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/grid/cloak)
+
 
 /obj/item/clothing/cloak/wardencloak
 	name = "warden cloak"
@@ -39,6 +31,10 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
+
+/obj/item/clothing/cloak/wardencloak/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/grid/cloak)
 
 /obj/item/clothing/head/helmet/visored/warden
 	name = "wardens's helmet"
