@@ -164,6 +164,12 @@
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
+"db" = (
+/obj/structure/fluff/walldeco/stone,
+/obj/structure/fluff/walldeco/vinez,
+/obj/effect/waterfall,
+/turf/closed/wall/mineral/decostone,
+/area/rogue/indoors)
 "de" = (
 /obj/structure/fluff/walldeco/vinez/l,
 /turf/closed/wall/mineral/stone,
@@ -428,6 +434,7 @@
 /area/rogue/indoors)
 "jK" = (
 /obj/structure/fluff/globe,
+/obj/effect/waterfall,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
 "jN" = (
@@ -495,6 +502,12 @@
 /obj/structure/closet/crate/chest/lootbox,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"lj" = (
+/obj/structure/window/stained,
+/obj/structure/trap/fire,
+/obj/effect/waterfall,
+/turf/open/floor/tile/masonic/single,
+/area/rogue/indoors)
 "lu" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/stone/moss,
@@ -524,6 +537,13 @@
 	dir = 1
 	},
 /turf/open/floor/tile/masonic/inverted,
+/area/rogue/indoors)
+"mj" = (
+/obj/structure/flora/grass/water,
+/obj/structure/flora/grass/water/reeds,
+/obj/structure/trap/shock,
+/obj/effect/waterfall,
+/turf/open/water/bath,
 /area/rogue/indoors)
 "mo" = (
 /obj/effect/decal/cleanable/blood/puddle,
@@ -659,8 +679,7 @@
 /area/rogue/indoors)
 "pU" = (
 /obj/effect/waterfall,
-/obj/machinery/light/fueled/wallfire/candle/weak,
-/turf/closed/wall/mineral/decostone,
+/turf/open/floor/carpet,
 /area/rogue/indoors)
 "pY" = (
 /obj/effect/spawner/map_spawner/loot,
@@ -726,6 +745,7 @@
 /area/rogue/indoors)
 "qM" = (
 /obj/structure/trap/shock,
+/obj/effect/waterfall,
 /turf/open/water/river,
 /area/rogue/indoors)
 "qN" = (
@@ -942,6 +962,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors)
+"vO" = (
+/obj/structure/flora/grass/water,
+/obj/effect/waterfall,
+/turf/open/water/bath,
+/area/rogue/indoors)
 "vV" = (
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/carpet/royalblack,
@@ -973,6 +998,13 @@
 "wX" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/blocks,
+/area/rogue/indoors)
+"xf" = (
+/obj/structure/bars/pipe{
+	dir = 4
+	},
+/obj/effect/waterfall,
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "xr" = (
 /obj/structure/bed/inn/double,
@@ -1099,9 +1131,9 @@
 /area/rogue/indoors)
 "zA" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/obj/item/statue,
 /obj/item/clothing/armor/leather/vest/random,
 /obj/item/clothing/pants/trou/leathertights,
+/obj/item/statue/silver,
 /turf/open/floor/church,
 /area/rogue/indoors)
 "zB" = (
@@ -1135,6 +1167,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/map_spawner/loot,
+/obj/effect/waterfall,
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
 "AE" = (
@@ -1173,9 +1206,9 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "BQ" = (
-/obj/effect/waterfall,
 /obj/structure/flora/ausbushes/reedbush,
 /obj/structure/flora/grass/water,
+/obj/effect/waterfall,
 /turf/open/water,
 /area/rogue/indoors)
 "Cj" = (
@@ -1192,6 +1225,7 @@
 "Cv" = (
 /obj/structure/flora/grass/water/reeds,
 /obj/structure/trap/shock,
+/obj/effect/waterfall,
 /turf/open/water/river,
 /area/rogue/indoors)
 "Cw" = (
@@ -1382,6 +1416,7 @@
 "GK" = (
 /obj/structure/flora/ausbushes/reedbush,
 /obj/structure/trap/shock,
+/obj/effect/waterfall,
 /turf/open/water/river,
 /area/rogue/indoors)
 "GL" = (
@@ -1428,6 +1463,11 @@
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
 /area/rogue/indoors)
+"HX" = (
+/obj/structure/fluff/walldeco/vinez,
+/obj/machinery/light/fueled/oven,
+/turf/closed/wall/mineral/decostone,
+/area/rogue/indoors)
 "In" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/closed/wall/mineral/decostone/cand,
@@ -1439,6 +1479,10 @@
 /area/rogue/indoors)
 "Ix" = (
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"Iz" = (
+/obj/effect/waterfall,
+/turf/open/transparent/openspace,
 /area/rogue/indoors)
 "IG" = (
 /obj/item/natural/glass/shard,
@@ -1546,8 +1590,8 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors)
 "Lf" = (
-/obj/effect/waterfall,
 /obj/structure/fluff/walldeco/vinez,
+/obj/effect/waterfall,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "Ll" = (
@@ -1747,8 +1791,6 @@
 /turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/indoors)
 "PH" = (
-/obj/effect/waterfall,
-/obj/structure/window/stained/silver,
 /obj/structure/trap/spike,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
@@ -1771,10 +1813,10 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "Qd" = (
-/obj/item/statue,
 /mob/living/simple_animal/hostile/retaliate/bigrat,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood,
+/obj/item/statue/silver,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "Qn" = (
@@ -1832,6 +1874,11 @@
 "RZ" = (
 /obj/machinery/light/fueled/wallfire/candle/weak,
 /turf/open/floor/hexstone,
+/area/rogue/indoors)
+"Sb" = (
+/obj/structure/flora/grass/water/reeds,
+/obj/effect/waterfall,
+/turf/open/water/bath,
 /area/rogue/indoors)
 "Sd" = (
 /obj/structure/mineral_door/wood/donjon/stone,
@@ -2212,9 +2259,9 @@ yR
 yR
 Hc
 Hc
+yR
 Uv
-Uv
-Hc
+HX
 Hc
 pa
 "}
@@ -2521,10 +2568,10 @@ Ap
 Ap
 yR
 Cy
+yR
 cl
 cl
-cl
-Bz
+db
 yR
 ni
 gX
@@ -2562,8 +2609,8 @@ yR
 ni
 wJ
 wJ
-SS
-Av
+gX
+Sb
 wH
 sd
 SR
@@ -2614,7 +2661,7 @@ Ix
 Ix
 SR
 lu
-cl
+yR
 GK
 Cw
 ig
@@ -2622,12 +2669,12 @@ Hf
 DD
 AJ
 dq
-Lf
-ni
-wJ
-wJ
+Hc
 AE
-sp
+wJ
+wJ
+ni
+mj
 np
 rW
 rW
@@ -2646,7 +2693,7 @@ NL
 Ix
 SR
 ni
-cl
+yR
 Cv
 ZS
 sl
@@ -2654,8 +2701,8 @@ He
 cV
 py
 sm
-Lf
-gX
+Hc
+SS
 EA
 wJ
 Ap
@@ -2678,7 +2725,7 @@ Ix
 Qv
 SR
 de
-pU
+tx
 qM
 sl
 Cw
@@ -2686,12 +2733,12 @@ Cw
 Dl
 tw
 dH
-cl
-gX
-wJ
-wJ
+yR
 SS
-sp
+wJ
+wJ
+gX
+mj
 JH
 rW
 rW
@@ -2754,8 +2801,8 @@ yR
 ni
 wJ
 wJ
-AE
-sd
+ni
+vO
 sd
 up
 Av
@@ -2777,10 +2824,10 @@ Ap
 Ap
 yR
 Cy
-cl
+yR
 BQ
 Lf
-Bz
+db
 yR
 Ap
 Ap
@@ -3482,10 +3529,10 @@ SR
 SR
 iy
 Nz
-Vb
+Ap
 Vb
 AE
-hH
+lj
 hH
 SR
 nr
@@ -3575,7 +3622,7 @@ gw
 yR
 nr
 nr
-AE
+ni
 Az
 bC
 SC
@@ -3584,7 +3631,7 @@ FF
 wy
 wy
 PH
-gw
+pU
 XY
 XN
 HF
@@ -3607,8 +3654,8 @@ XY
 Mx
 nr
 nr
-Vb
-wy
+Ap
+Iz
 wy
 TF
 wy
@@ -3616,7 +3663,7 @@ yq
 mE
 mE
 PH
-gw
+pU
 XY
 xr
 HF
@@ -3639,8 +3686,8 @@ yR
 yR
 XV
 nr
-Vb
-mE
+Ap
+xf
 mE
 Vp
 wy
@@ -3738,10 +3785,10 @@ xM
 nr
 bW
 SZ
+Ap
 Vb
 Vb
-Vb
-hH
+lj
 hH
 SR
 nr

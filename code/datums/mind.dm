@@ -483,6 +483,49 @@
 	adjust_skillrank(skill, clamp(max - get_skill_level(skill), 0, amt), silent)
 
 /**
+ * sets the skill level to a specific amount
+ * Vars:
+ ** skill - associated skill
+ ** level - which level to set the skill to
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/set_skillrank(skill, level, silent = TRUE)
+	if(!skill)
+		CRASH("set_skillrank was called without a skill argument!")
+
+	var/skill_difference = level - get_skill_level(skill)
+	adjust_skillrank(skill, skill_difference, silent)
+
+/**
+ * purges all skill levels back down to 0
+ * Vars:
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_all_skills(silent = TRUE)
+	known_skills = list()
+	skill_experience = list()
+	if(!silent)
+		to_chat(current, span_boldwarning("I forget all my skills!"))
+
+/**
+ * purges all spells known by the mind
+ * Vars:
+ ** return_skill_points - do we return the skillpoints for the spells?
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_all_spells(return_skill_points, silent = TRUE)
+	for(var/obj/effect/proc_holder/spell_to_purge in spell_list)
+		RemoveSpell(spell_to_purge, return_skill_points ? TRUE : FALSE)
+	if(!silent)
+		to_chat(current, span_boldwarning("I forget all my spells!"))
+
+/datum/mind/proc/purge_all_spellpoints(silent = TRUE)
+	spell_points = 0
+	used_spell_points = 0
+	if(!silent)
+		to_chat(current, span_boldwarning("I lose all my spellpoints!"))
+
+/**
  * adjusts the amount of available spellpoints
  * Vars:
  ** points - amount of points to grant or reduce
@@ -564,6 +607,16 @@
 /// wipes the memory of a mind
 /datum/mind/proc/wipe_memory()
 	memory = null
+
+/**
+ * purges all spells and skills
+ * Vars:
+ ** silent - do we notify the player of this change?
+*/
+/datum/mind/proc/purge_combat_knowledge(silent)
+	purge_all_skills(TRUE)
+	purge_all_spells()
+	purge_all_spellpoints(TRUE)
 
 // Datum antag mind procs
 
@@ -911,7 +964,7 @@
  * Vars:
  ** spell_type - spell type to check
 */
-/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell)
+/datum/mind/proc/RemoveSpell(obj/effect/proc_holder/spell/spell, restore_spell_points = FALSE)
 	if(!spell)
 		return
 	for(var/X in spell_list)
@@ -919,11 +972,9 @@
 		if(istype(spell_type, spell))
 			spell_list -= spell_type
 			qdel(spell_type)
-
-/// Removes all spells of a mind
-/datum/mind/proc/RemoveAllSpells()
-	for(var/obj/effect/proc_holder/spell_type in spell_list)
-		RemoveSpell(spell_type)
+			if(restore_spell_points)
+				spell_points = max(spell_points + spell_type.cost, 0)
+				used_spell_points = max(used_spell_points - spell_type.cost, 0)
 
 /datum/mind/proc/transfer_martial_arts(mob/living/new_character)
 	if(!ishuman(new_character))
@@ -951,7 +1002,7 @@
  ** delay - how long is the disrupt duration
  ** exceptions - a list of spells to ignore when disrupting
 */
-/datum/mind/proc/disrupt_spells(delay, list/exceptions = New())
+/datum/mind/proc/disrupt_spells(delay, list/exceptions = list())
 	for(var/X in spell_list)
 		var/obj/effect/proc_holder/spell/spell_type = X
 		for(var/type in exceptions)

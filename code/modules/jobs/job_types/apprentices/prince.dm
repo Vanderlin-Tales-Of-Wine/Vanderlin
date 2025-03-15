@@ -91,6 +91,7 @@
 	..()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/pouch/coins/rich
@@ -135,6 +136,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_UGLY, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/pouch/coins/rich

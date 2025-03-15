@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "e" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -10,18 +10,21 @@
 	pixel_y = 7
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "f" = (
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "i" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "j" = (
-/mob/living/carbon/human/species/skeleton/npc,
+/turf/closed/mineral/bedrock,
+/area/rogue/under/cave)
+"l" = (
+/obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "m" = (
 /obj/structure/table/wood/counter{
 	dir = 1
@@ -36,51 +39,55 @@
 	pixel_y = 8
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "r" = (
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
-/area/rogue)
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "s" = (
 /obj/structure/stairs,
 /obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "v" = (
-/turf/closed/mineral/bedrock,
-/area/rogue)
+/turf/open/floor/hexstone,
+/area/rogue/indoors/shelter)
 "w" = (
 /obj/structure/stairs,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "x" = (
 /obj/structure/table/wood/counter/end,
 /obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"y" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/shelter)
 "z" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "C" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "D" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "F" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "G" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "H" = (
 /obj/structure/table/wood/counter/end{
 	dir = 1
@@ -90,67 +97,67 @@
 	pixel_x = 5
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "I" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "N" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "P" = (
 /obj/structure/stairs,
-/turf/open/transparent/openspace,
-/area/rogue)
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "T" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "U" = (
 /obj/structure/fluff/statue/evil,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "V" = (
 /obj/structure/roguetent/preopen,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "W" = (
 /obj/structure/dungeon_exit,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "X" = (
 /obj/structure/stairs{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Y" = (
 /turf/closed/wall/mineral/wood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
-v
-v
-v
-v
+j
+j
+j
+j
 a
 a
 z
 a
 a
 a
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (2,1,1) = {"
-v
-v
-v
-v
+j
+j
+j
+j
 a
 a
 a
@@ -158,44 +165,44 @@ a
 a
 a
 a
-v
-v
-v
-v
+j
+j
+j
+j
 "}
 (3,1,1) = {"
-v
-v
 j
-v
-a
-a
-a
-a
-a
-a
-v
-v
 j
-v
-v
+j
+j
+a
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
 "}
 (4,1,1) = {"
-v
-v
-v
+j
+j
+j
 a
-T
-a
-a
+l
 a
 a
 a
 a
-v
-v
-v
-v
+a
+a
+j
+j
+j
+j
 "}
 (5,1,1) = {"
 a
@@ -210,20 +217,20 @@ Y
 a
 a
 a
-v
-v
-v
+j
+j
+j
 "}
 (6,1,1) = {"
 a
 a
 w
 Y
-a
-a
+v
+v
 x
-a
-i
+v
+y
 Y
 X
 a
@@ -237,10 +244,10 @@ a
 w
 Y
 U
-a
+v
 m
-a
-a
+v
+v
 Y
 s
 a
@@ -253,11 +260,11 @@ N
 a
 w
 Y
-a
-a
+v
+v
 e
-a
-a
+v
+v
 Y
 X
 a
@@ -271,10 +278,10 @@ a
 w
 Y
 T
-a
+v
 H
-a
-a
+v
+v
 Y
 X
 a
@@ -300,9 +307,9 @@ a
 a
 "}
 (11,1,1) = {"
-v
-v
-v
+j
+j
+j
 a
 a
 a
@@ -312,101 +319,101 @@ i
 a
 a
 a
-v
-v
-v
+j
+j
+j
 "}
 (12,1,1) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 a
 a
 a
 a
 a
 a
-v
-v
-v
-v
+j
+j
+j
+j
 "}
 (13,1,1) = {"
-v
-v
 j
-v
-v
-a
-a
-a
-a
-a
-v
-v
 j
-v
-v
+j
+j
+j
+a
+a
+a
+a
+a
+j
+j
+j
+j
+j
 "}
 (14,1,1) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 a
 a
 a
 a
 a
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (15,1,1) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 a
 a
 I
 a
 a
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 
 (1,1,2) = {"
-v
-v
-v
-v
+j
+j
+j
+j
 D
 D
 D
 D
 D
 D
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (2,1,2) = {"
-v
-v
-v
-v
+j
+j
+j
+j
 D
 D
 D
@@ -414,32 +421,32 @@ D
 D
 D
 D
-v
-v
-v
-v
+j
+j
+j
+j
 "}
 (3,1,2) = {"
-v
-v
-v
-v
+j
+j
+j
+j
 D
 D
 D
 D
 D
 D
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (4,1,2) = {"
-v
-v
-v
+j
+j
+j
 D
 D
 D
@@ -448,10 +455,10 @@ D
 D
 D
 D
-v
-v
-v
-v
+j
+j
+j
+j
 "}
 (5,1,2) = {"
 D
@@ -466,9 +473,9 @@ F
 D
 D
 D
-v
-v
-v
+j
+j
+j
 "}
 (6,1,2) = {"
 D
@@ -556,9 +563,9 @@ D
 D
 "}
 (11,1,2) = {"
-v
-v
-v
+j
+j
+j
 D
 D
 D
@@ -568,75 +575,75 @@ D
 D
 D
 D
-v
-v
-v
+j
+j
+j
 "}
 (12,1,2) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 D
 D
 D
 D
 D
 D
-v
-v
-v
-v
+j
+j
+j
+j
 "}
 (13,1,2) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 D
 D
 D
 D
 D
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (14,1,2) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 D
 D
 D
 D
 D
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}
 (15,1,2) = {"
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 D
 D
 D
 D
 D
-v
-v
-v
-v
-v
+j
+j
+j
+j
+j
 "}

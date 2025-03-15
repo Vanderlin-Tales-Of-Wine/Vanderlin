@@ -85,12 +85,26 @@
 	salvage_result = /obj/item/rope
 	component_type = /datum/component/storage/concrete/grid/belt/cloth
 
+/obj/item/storage/belt/leather/rope/attack_self(mob/user)
+	. = ..()
+	to_chat(user, span_notice("You begin untying [src]."))
+	if(do_after(user, 1.5 SECONDS, src))
+		qdel(src)
+		user.put_in_active_hand(new salvage_result(get_turf(user)))
+
 /obj/item/storage/belt/leather/cloth
 	name = "cloth sash"
 	desc = "A simple cloth sash."
 	icon_state = "cloth"
 	salvage_result = /obj/item/natural/cloth
 	component_type = /datum/component/storage/concrete/grid/belt/cloth
+
+/obj/item/storage/belt/leather/cloth/attack_self(mob/user)
+	. = ..()
+	to_chat(user, span_notice("You begin untying [src]."))
+	if(do_after(user, 1.5 SECONDS, src))
+		qdel(src)
+		user.put_in_active_hand(new salvage_result(get_turf(user)))
 
 /obj/item/storage/belt/leather/cloth/lady
 	color = "#575160"
