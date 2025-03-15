@@ -17,7 +17,7 @@
 		"Dark Elf",
 		"Tiefling",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/dredge
 	category_tags = list(CTAG_ADVENTURER)
