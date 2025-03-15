@@ -27,6 +27,7 @@
 /obj/item/storage
 	var/grid = TRUE
 	var/storage_flags = NONE
+	var/can_be_cutpursed = FALSE
 
 /obj/item/storage/Initialize()
 	. = ..()
