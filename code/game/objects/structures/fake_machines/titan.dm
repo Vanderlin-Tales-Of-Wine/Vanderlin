@@ -61,9 +61,9 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(H.head)
 		if(istype(H.head, /obj/item/clothing/head/crown/serpcrown))
 			nocrown = FALSE
-	var/notlord
-	if(SSticker.rulermob != H)
-		notlord = TRUE
+	var/notworthy
+	if(SSticker.rulermob != H && H?.job != "Hand")
+		notworthy = TRUE
 	var/message2recognize = sanitize_hear_message(original_message)
 
 	if(mode)
@@ -128,8 +128,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 					say("I must gather my strength!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				say("Speak and they will obey.")
@@ -141,8 +141,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 					say("I must gather my strength!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				say("Speak and they will obey.")
@@ -154,8 +154,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 					say("I must gather my strength!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				var/message_clean = replacetext(message2recognize, "remove law", "")
@@ -172,8 +172,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 					say("I must gather my strength!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				say("All laws shall be purged!")
@@ -181,8 +181,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				purge_laws()
 				return
 			if(findtext(message2recognize, "declare outlaw"))
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				say("Who should be outlawed?")
@@ -190,8 +190,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				mode = 3
 				return
 			if(findtext(message2recognize, "set taxes"))
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				say("The new tax percent shall be...")
@@ -199,8 +199,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				give_tax_popup(H)
 				return
 			if(findtext_char(message2recognize, "change position"))
-				if(notlord || nocrown)
-					say("You are not my master!")
+				if(notworthy || nocrown)
+					say("You are not worthy!")
 					playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 					return
 				playsound(src, 'sound/misc/machinequestion.ogg', 100, FALSE, -1)
