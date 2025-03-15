@@ -58,7 +58,7 @@
 		if(place.noteleport || place.hidden)
 			continue // No expanding powerless rooms etc
 		areas[place.name] = place
-	var/area_choice = input(creator, "Choose an area to expand or make a new area.", "Area Expansion") as null|anything in areas
+	var/area_choice = browser_input_list(creator, "Choose an area to expand or make a new area.", "Area Expansion", areas)
 	area_choice = areas[area_choice]
 
 	if(!area_choice)

@@ -29,7 +29,7 @@ SUBSYSTEM_DEF(vote)
 			var/datum/browser/noclose/client_popup
 			for(var/client/C in voting)
 				client_popup = new(C, "vote", "Voting Panel")
-				client_popup.set_window_options("can_close=0")
+				client_popup.set_window_options(can_close = FALSE)
 				client_popup.set_content(interface(C))
 				client_popup.open(FALSE)
 
@@ -384,7 +384,7 @@ SUBSYSTEM_DEF(vote)
 	set name = "Vote"
 	set hidden = 1
 	var/datum/browser/noclose/popup = new(src, "vote", "Voting Panel")
-	popup.set_window_options("can_close=0")
+	popup.set_window_options(can_close = FALSE)
 	popup.set_content(SSvote.interface(client))
 	popup.open(FALSE)
 
