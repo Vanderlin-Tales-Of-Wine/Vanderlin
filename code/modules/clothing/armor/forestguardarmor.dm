@@ -10,6 +10,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sellprice = VALUE_LEATHER_ARMOR
 
+	anvilrepair = /datum/skill/craft/armorsmithing
 	armor_class = AC_MEDIUM
 	armor = ARMOR_FORESTGUARD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
