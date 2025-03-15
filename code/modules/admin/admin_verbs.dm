@@ -710,10 +710,10 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	holder.deactivate()
 
-	prefs.chat_toggles -= CHAT_GHOSTEARS
-	prefs.chat_toggles -= CHAT_GHOSTWHISPER
-	prefs.save_preferences()
-	to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
+	if(prefs.chat_toggles & CHAT_GHOSTEARS)
+		prefs.chat_toggles ^= CHAT_GHOSTEARS
+		to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
+		prefs.save_preferences()
 
 	to_chat(src, "<span class='interface'>I am now a normal player.</span>")
 	log_admin("[src] deadmined themself.")
