@@ -7,7 +7,8 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Aasimar"
+		"Aasimar",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/monk
 	min_pq = 0

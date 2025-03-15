@@ -229,7 +229,7 @@
 		for(var/datum/mind/MF in get_minds(X))
 			H.mind.i_know_person(MF)
 
-	if(H.islatejoin && show_in_credits)
+	if(H.islatejoin && show_in_credits && announce_latejoin)
 		var/used_title = title
 		if((H.gender == FEMALE) && f_title)
 			used_title = f_title

@@ -70,6 +70,7 @@ SUBSYSTEM_DEF(ticker)
 
 	var/round_start_time = 0
 	var/round_start_irl = 0
+	var/list/preround_setup_events
 	var/list/round_start_events
 	var/list/round_end_events
 	var/mode_result = "undefined"
@@ -311,6 +312,13 @@ SUBSYSTEM_DEF(ticker)
 
 	CHECK_TICK
 
+	for(var/I in preround_setup_events)
+		var/datum/callback/cb = I
+		cb.InvokeAsync()
+
+	log_game("GAME SETUP: preround setup events success")
+	LAZYCLEARLIST(preround_setup_events)
+
 	can_continue = can_continue && SSjob.DivideOccupations(list()) 				//Distribute jobs
 	CHECK_TICK
 
@@ -414,6 +422,13 @@ SUBSYSTEM_DEF(ticker)
 		else
 			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
 
+
+//These callbacks will fire after preround setup
+/datum/controller/subsystem/ticker/proc/OnPreRoundSetup(datum/callback/cb)
+	if(!HasRoundStarted())
+		LAZYADD(preround_setup_events, cb)
+	else
+		cb.InvokeAsync()
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)
