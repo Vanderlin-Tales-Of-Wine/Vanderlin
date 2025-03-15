@@ -219,7 +219,7 @@
 	)
 	attacked_atom = /obj/item/grown/log/tree/small
 	starting_atom= /obj/item/weapon/knife
-	output = /obj/item/kitchen/platter
+	output = /obj/item/plate
 	output_amount = 2
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
