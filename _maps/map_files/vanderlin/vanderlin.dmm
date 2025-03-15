@@ -6387,12 +6387,6 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/town/roofs)
-"eub" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4
-	},
-/turf/closed/basic,
-/area/rogue/under/town/basement)
 "euv" = (
 /obj/structure/rack/shelf/big,
 /obj/item/weapon/mace/church{
@@ -57561,7 +57555,7 @@ btf
 aTX
 bUM
 bUM
-eub
+qnY
 bUM
 bUM
 ggV
