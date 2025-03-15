@@ -4,10 +4,6 @@
 	tutorial = "Peasants and nobles. Saints, sinners, madmen and thieves - who you once were is now irrelevant. \
 	Cast from your home for what is undoubtedly a heinous act of violence, your travels have washed you up upon this \
 	shiteheap. All you have are your possessions from your former life. Make some coin for yourself, lest you end up dead and gone."
-	//tutorial = "You were once an average person - and yet, in your restless dreams, the ecstacy of gold has fettered your \
-	mind to a tomb in a faraway land. Long have you traveled, and only now are you on the precipice of your own death. \
-	Unbeknownst to you, a false god wants all of your mortal posessions. Your one life's goal is to die in the depths \
-	of the Tomb of Matthios."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
