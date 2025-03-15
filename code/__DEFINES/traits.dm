@@ -73,6 +73,7 @@
 #define TRAIT_PUNISHMENT_CURSE "PunishmentCurse"
 #define TRAIT_BANDITCAMP "banditcamp"
 #define TRAIT_KNOWBANDITS "knowbandits"
+#define TRAIT_KNOWKEEPPLANS "knowkeepplans"
 #define TRAIT_VAMPMANSION "vampiremansion"
 #define TRAIT_VAMP_DREAMS "vamp_dreams"
 #define TRAIT_INHUMENCAMP "inhumencamp"

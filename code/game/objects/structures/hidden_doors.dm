@@ -1,4 +1,6 @@
-//HIDDENDOOR
+GLOBAL_LIST_EMPTY(keep_doors)
+GLOBAL_LIST_EMPTY(thieves_guild_doors)
+
 /obj/structure/mineral_door/secret
 	hover_color = "#607d65"
 
@@ -20,17 +22,17 @@
 	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
+	can_knock = FALSE
 	redstone_structure = TRUE
 
+	var/open_phrase = "open sesame"
+	var/close_phrase = "close sesame"
 	var/over_state = "woodover"
 
 	var/speaking_distance = 2
-	var/open_phrase = "open sesame"
-	var/close_phrase = "close sesame"
 	var/lang = /datum/language/common
 	var/list/vip
 	var/vipmessage
-	var/defenses = FALSE
 
 /obj/structure/mineral_door/secret/redstone_triggered(mob/user)
 	if(!door_opened)
@@ -40,13 +42,10 @@
 
 /obj/structure/mineral_door/secret/update_icon()
 
+///// DOOR TYPES //////
 /obj/structure/mineral_door/secret/vault
 	vip = list("Monarch", "Consort", "Steward", "Hand")
 	vipmessage = "Monarch, Consort, Steward and Hand"
-
-/obj/structure/mineral_door/secret/keep
-	vip = list("Monarch", "Consort", "Royal Heir", "Hand")
-	vipmessage = "Monarch, Consort, Royal Heir and Hand"
 
 /obj/structure/mineral_door/secret/merchant
 	vip = list("Merchant", "Shop Hand")
@@ -59,18 +58,11 @@
 	//icon = 'icons/turf/walls/stonebrick.dmi'
 	//icon_state = "stonebrick" //change me
 
-/obj/structure/mineral_door/secret/rogue //for seedy sewer bar / black market?
-	vip = list("Vagabond", "Thug", "Rogue", "Nightmaster", "Nightmistress", "Beggar")
-	vipmessage = "Vagabond, Thug, Rogue, Nightmaster, Nightmistress and Beggar"
-	lang = /datum/language/thievescant
-	icon = 'icons/turf/walls/stonebrick.dmi'
-	icon_state = "stonebrick"
 
 /obj/structure/mineral_door/secret/Initialize()
 	open_phrase = open_word() + " " + magic_word()
 	close_phrase = close_word() + " " + magic_word()
 	. = ..()
-
 
 /obj/structure/mineral_door/secret/door_rattle()
 	return
@@ -78,84 +70,46 @@
 /obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
-		return
+		return FALSE
 	var/distance = get_dist(speaker, src)
 	if(distance > speaking_distance)
-		return
+		return FALSE
 	if(obj_broken) //door is broken
-		return
+		return FALSE
 	if(!ishuman(speaker))
-		return
+		return FALSE
 
 	var/message2recognize = sanitize_hear_message(original_message)
 	var/isvip = FALSE
 	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
 		isvip = TRUE
 
-	if(findtext(message2recognize, "help"))
-		say("My commands are: 'help', 'say phrases', 'set open', 'set close', 'set language', 'set defenses'. My masters are: [vipmessage]", )
+	if(isvip)
+		if(findtext(message2recognize, "help"))
+			say("My commands are: 'help', 'say phrases', 'set open', 'set close'.")
 
-	if(findtext(message2recognize, "say phrases"))
-		if(isvip)
-			say("Open: '[open_phrase]', Close: '[close_phrase]'.", language = lang)
-		else
-			say("I don't know you, "+flavor_name()+".", language = lang)
-			triggerdefenses(H, defenses)
+		if(findtext(message2recognize, "say phrases"))
+			if(isvip)
+				say("Open: '[open_phrase]', Close: '[close_phrase]'.", language = lang)
 
-	if(findtext(message2recognize, open_phrase))
-		if(locked)
-			locked = FALSE
-			force_open()
+		if(findtext(message2recognize, "set close"))
+			if(isvip || !locked)
+				var/new_pass = stripped_input(H, "What should the new close phrase be?")
+				close_phrase = new_pass
+				say("Close phrase has been set.", language = lang)
 
+		if(findtext(message2recognize, "set open"))
+			if(isvip || !locked)
+				var/new_pass = stripped_input(H, "What should the new open phrase be?")
+				open_phrase = new_pass
+				say("Open phrase has been set.", language = lang)
 
-	if(findtext(message2recognize, close_phrase))
-		if(!locked)
-			force_closed()
-			locked = TRUE
-			say("The way is now closed, "+flavor_name()+".", language = lang)
-
-	if(findtext(message2recognize, "set open"))
-		if(isvip || !locked)
-			var/new_pass = stripped_input(H, "What should the new open phrase be?")
-			open_phrase = new_pass
-			say("Open phrase has been set, "+flavor_name()+".", language = lang)
-		else
-			say("I don't know you, "+flavor_name()+".", language = lang)
-			triggerdefenses(H, defenses)
-
-
-	if(findtext(message2recognize, "set close"))
-		if(isvip || !locked)
-			var/new_pass = stripped_input(H, "What should the new close phrase be?")
-			close_phrase = new_pass
-			say("Close phrase has been set, "+flavor_name()+".", language = lang)
-		else
-			say("I don't know you, "+flavor_name()+".", language = lang)
-			triggerdefenses(H, defenses)
-
-	if(findtext(message2recognize, "set language"))
-		if(isvip || !locked)
-			var/list/langresult = list()
-			for(var/ld in GLOB.all_languages)
-				if (H.mind.language_holder.has_language(ld))
-					langresult.Add(ld)
-			if(langresult)
-				var/datum/language/language_choice = input("Choose the new language", "Available languages") as anything in langresult
-				lang = language_choice
-		else
-			say("I don't know you, "+flavor_name()+".", language = lang)
-			triggerdefenses(H, defenses)
-
-	if(findtext(message2recognize, "set defenses"))
-		if(isvip || !locked)
-			defenses = !defenses
-			if(defenses)
-				say("Arcyne defenses activated, "+flavor_name()+".", language = lang)
-			else
-				say("Arcyne defenses deactivated, "+flavor_name()+".", language = lang)
-		else
-			say("I don't know you, "+flavor_name()+".", language = lang)
-			triggerdefenses(H, defenses)
+	if(findtext(message2recognize, open_phrase) && locked)
+		locked = FALSE
+		force_open()
+	else if(findtext(message2recognize, close_phrase) && !locked)
+		force_closed()
+		locked = TRUE
 
 
 /obj/structure/mineral_door/secret/Open(silent = FALSE)
@@ -228,12 +182,7 @@
 	locked = TRUE
 
 
-/obj/structure/mineral_door/secret/proc/triggerdefenses(mob/living/carbon/human/H, D)
-	if (!D || !H)
-		return
-	H.electrocute_act(30, src) //just shock
-	playsound(src, 'sound/items/stunmace_toggle (3).ogg', 100)
-
+///// PROCS /////
 /proc/open_word()
 	var/list/open_word = list(
 		"open",
@@ -242,7 +191,7 @@
 		"break",
 		"reveal",
 		"unbar",
-		"gape",
+		//"gape", There's already enough people on this server saying "gape necra"
 		"extend",
 		"widen",
 		"unfold",
@@ -301,29 +250,100 @@
 		"lust",
 		"necra",
 		"noc",
-		"psydon",
-		"zizo"
+		"psydon"
 		)
 	return pick(magic_word)
 
-/proc/flavor_name()
-	var/list/flavor_name = list(
-		"my friend",
-		"love",
-		"my love",
-		"honey",
-		"darling",
-		"stranger",
-		"companion",
-		"mate",
-		"you harlot",
-		"comrade",
-		"fellow",
-		"chum",
-		"bafoon"
-		)
-	return pick(flavor_name)
 
+///// KEEP DOORS /////
+/obj/structure/mineral_door/secret/keep
+	vip = list("Monarch", "Consort", "Prince", "Princess", "Hand", "Butler") // do i even need to add princess?
+	vipmessage = "Monarch, Consort, Royal Heir, Hand and Butler"
+	icon = 'icons/turf/walls/stonebrick.dmi'
+	icon_state = "stonebrick"
+
+/obj/structure/mineral_door/secret/keep/Initialize()
+	. = ..()
+	if(GLOB.keep_doors.len > 0)
+		var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+		open_phrase = D.open_phrase
+		close_phrase = D.close_phrase
+	else
+		close_phrase = open_phrase
+	GLOB.keep_doors += src
+
+/obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+	if(!..())
+		return FALSE
+	var/mob/living/carbon/human/H = speaker
+
+	var/message2recognize = sanitize_hear_message(raw_message)
+	var/isvip = FALSE
+	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
+		isvip = TRUE
+
+	if(isvip)
+		if(findtext(message2recognize, "set close"))
+			if(isvip || !locked)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+					D.close_phrase = close_phrase
+		if(findtext(message2recognize, "set open"))
+			if(isvip || !locked)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+					D.open_phrase = open_phrase
+	return TRUE
+
+/obj/structure/mineral_door/secret/keep/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
+		. += span_purple("There's a hidden wall here...")
+
+/obj/structure/lever/hidden/keep/feel_button(mob/living/user)
+	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
+		..()
+
+
+///// THIEVES GUILD DOORS /////
+/obj/structure/mineral_door/secret/thieves_guild
+	vip = list("Thief", "Matron")
+	vipmessage = "Thief and Matron"
+	lang = /datum/language/thievescant
+	icon = 'icons/turf/walls/stonebrick.dmi'
+	icon_state = "stonebrick"
+
+/obj/structure/mineral_door/secret/thieves_guild/Initialize()
+	. = ..()
+	if(GLOB.thieves_guild_doors.len > 0)
+		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
+		open_phrase = D.open_phrase
+		close_phrase = D.close_phrase
+	else
+		close_phrase = open_phrase
+	GLOB.thieves_guild_doors += src
+
+/obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
+	if(!..())
+		return FALSE
+	var/mob/living/carbon/human/H = speaker
+
+	var/message2recognize = sanitize_hear_message(raw_message)
+	var/isvip = FALSE
+	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
+		isvip = TRUE
+
+	if(isvip)
+		if(findtext(message2recognize, "set close"))
+			if(isvip || !locked)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
+					D.close_phrase = close_phrase
+		if(findtext(message2recognize, "set open"))
+			if(isvip || !locked)
+				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
+					D.open_phrase = open_phrase
+	return TRUE
+
+
+///// MAPPERS /////
 /obj/effect/mapping_helpers/secret_door_creator
 	name = "Secret door creator: Turns the given wall into a hidden door with a random password. THE VIPS LIST IS THE NAME OF THE JOB OR TITLE!"
 
@@ -332,8 +352,8 @@
 	var/redstone_id
 
 	var/datum/language/given_lang = /datum/language/thievescant
-	var/list/vips = list("Vagabond", "Thug", "Rogue", "Nightmaster", "Nightmistress", "Beggar")
-	var/vip_message = "Vagabond, Thug, Rogue, Nightmaster, Nightmistress and Beggar"
+	var/list/vips = list("Thief", "Matron")
+	var/vip_message = "Thief and Matron"
 
 /obj/effect/mapping_helpers/secret_door_creator/Initialize()
 	if(!isclosedturf(get_turf(src)))
