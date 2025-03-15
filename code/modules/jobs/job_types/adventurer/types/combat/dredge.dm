@@ -1,4 +1,3 @@
-//shield sword
 /datum/advclass/combat/dredge
 	name = "Dredge"
 	tutorial = "Peasants and nobles. Saints, sinners, madmen and thieves - who you once were is now irrelevant. \
