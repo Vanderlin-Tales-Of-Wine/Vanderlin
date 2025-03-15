@@ -46,7 +46,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 5
 	recovery = 5
-	penfactor = 5
+	penfactor = AP_WHIP_LASH
 	reach = 2
 	misscost = 7
 	icon_state = "inlash"
@@ -63,7 +63,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 5
-	penfactor = 10
+	penfactor = AP_WHIP_LASH+5 //10 total
 	reach = 1
 	icon_state = "incrack"
 	canparry = TRUE
@@ -71,7 +71,7 @@
 
 //................ Repenta En ............... //
 /obj/item/weapon/whip/antique
-	force = DAMAGE_WHIP+4
+	force = DAMAGE_WHIP+4 //24 total
 	name = "Repenta En"
 	desc = "An extremely well maintained whip, with a polished steel tip and gilded handle"
 	minstr = 7
@@ -82,7 +82,7 @@
 
 //................ Lashkiss Whip ............... //
 /obj/item/weapon/whip/spiderwhip
-	force = DAMAGE_WHIP+3
+	force = DAMAGE_WHIP+3 //23 total
 	name = "lashkiss whip"
 	desc = "A dark whip with segmented, ashen spines for a base. Claimed to be hewn from dendrified prisoners of terror."
 	icon_state = "spiderwhip"

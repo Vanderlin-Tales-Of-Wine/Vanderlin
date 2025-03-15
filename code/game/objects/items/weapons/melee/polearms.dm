@@ -25,6 +25,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	walking_stick = TRUE
 	wdefense = GREAT_PARRY
+	wbalance = DODGE_CHANCE_NORMAL
 	thrown_bclass = BCLASS_STAB
 	sellprice = 20
 
@@ -333,7 +334,7 @@
 	force = DAMAGE_SPEAR
 	force_wielded = DAMAGE_SPEAR_WIELD
 	slowdown = 1
-	possible_item_intents = list(POLEARM_BASH, /datum/intent/polearm/chop) //bash is for nonlethal takedowns, only targets limbs
+	possible_item_intents = list(POLEARM_BASH, POLEARM_THRUST) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(POLEARM_BASH, POLEARM_THRUST, /datum/intent/mace/smash/heavy,/datum/intent/polearm/chop)
 	name = "eagle's beak"
 	desc = "A reinforced pole affixed with an ornate steel eagle's head, of which it's beak is intended to pierce with great harm."
@@ -398,14 +399,14 @@
 	max_blade_int = 200
 	melting_material = /datum/material/bronze
 	melt_amount = 75
-	force = 20
-	force_wielded = 25
+	force = DAMAGE_SPEAR+5 //20 total
+	force_wielded = DAMAGE_SPEAR_WIELD
 
 
 //scythe
 /obj/item/weapon/sickle/scythe
-	force = 10
-	force_wielded = 20
+	force = DAMAGE_SPEAR-5 //10 total
+	force_wielded = DAMAGE_SPEAR_WIELD-5 //20 total
 	possible_item_intents = list(SPEAR_CUT) //truly just a long knife
 	gripped_intents = list(SPEAR_CUT)
 	name = "scythe"
@@ -432,14 +433,14 @@
 	dropshrink = 0.75
 	blade_dulling = DULLING_BASHCHOP
 	walking_stick = TRUE
-	wdefense = 2
+	wdefense = AVERAGE_PARRY
 	thrown_bclass = BCLASS_CUT
 	throwforce = 25
 	sellprice = 10
 
 /obj/item/weapon/polearm/spear/bonespear
-	force = 18
-	force_wielded = 22
+	force = DAMAGE_SPEAR+3 //18 total
+	force_wielded = DAMAGE_SPEAR_WIELD-3 //22 total
 	name = "bone spear"
 	desc = "A spear made of bones."
 	// icon_state = "bonespear"
@@ -458,6 +459,5 @@
 	associated_skill = /datum/skill/combat/polearms
 	blade_dulling = DULLING_BASHCHOP
 	walking_stick = TRUE
-	wdefense = 4
 	max_integrity = 60
 	throwforce = 20

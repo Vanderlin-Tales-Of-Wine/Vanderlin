@@ -57,7 +57,7 @@
 	animname = "cut"
 	blade_class = BCLASS_CUT
 	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
-	penfactor = 10
+	penfactor = AP_SWORD_CHOP+5 //10, bad ap
 	chargetime = 0
 	swingdelay = 1
 	clickcd = 10	// between normal and fast
@@ -73,7 +73,7 @@
 	animname = "stab"
 	blade_class = BCLASS_STAB
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 30
+	penfactor = AP_SWORD_THRUST+10 //30, good AP
 	chargetime = 0
 	clickcd = CLICK_CD_FAST
 	swingdelay = 1
@@ -103,7 +103,7 @@
 	animname = "chop"
 	blade_class = BCLASS_CHOP
 	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
-	penfactor = 10
+	penfactor = AP_SWORD_CHOP
 	damfactor = 1.5
 	swingdelay = 1
 	clickcd = CLICK_CD_MELEE
@@ -183,7 +183,7 @@
 	return ..()
 
 /obj/item/weapon/knife/scissors/steel
-	force = 14
+	force = DAMAGE_DAGGER+2 //14 total
 	max_integrity = 150
 	name = "steel scissors"
 	desc = "Scissors made of solid steel that may be used to salvage usable materials from clothing, more durable and a tad more deadly than their iron conterpart."
@@ -205,30 +205,29 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
 	parrysound = list('sound/combat/parry/bladed/bladedmedium (1).ogg','sound/combat/parry/bladed/bladedmedium (2).ogg','sound/combat/parry/bladed/bladedmedium (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshmed (1).ogg','sound/combat/wooshes/bladed/wooshmed (2).ogg','sound/combat/wooshes/bladed/wooshmed (3).ogg')
-	throwforce = 15
+	throwforce = DAMAGE_DAGGER+3 //15 total
 	max_integrity = 150
 	slot_flags = ITEM_SLOT_HIP
 	thrown_bclass = BCLASS_CHOP
 	w_class = WEIGHT_CLASS_NORMAL
 	melting_material = /datum/material/steel
 	melt_amount = 75
-	wbalance = 0 // Except this one, too huge and used to chop
+	wbalance = EASY_TO_DODGE // Except this one, too huge and used to chop
 	dropshrink = 0.9
 
 //................ Hack-Knife ............... //
 /obj/item/weapon/knife/cleaver/combat
 	name = "hack-knife"
 	desc = "A short blade that even the weakest of hands can aspire to do harm with."
-	force = 10
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop)
 	icon_state = "combatknife"
-	throwforce = 16
+	throwforce = DAMAGE_DAGGER+4 //16 total
 	max_integrity = 180
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	melting_material = /datum/material/iron
 	melt_amount = 75
-	wbalance = 1
+	wbalance = MEDIOCHRE_PARRY
 	sellprice = 15
 
 /obj/item/weapon/knife/cleaver/combat/getonmobprop(tag)
@@ -403,8 +402,6 @@
 
 //................ Stone Knife ............... //
 /obj/item/weapon/knife/stone
-	force = DAMAGE_KNIFE
-	throwforce = DAMAGE_KNIFE
 	possible_item_intents = list(/datum/intent/dagger/cut,/datum/intent/dagger/chop)
 	name = "stone knife"
 	desc = "A tool favored by the wood-elves, easy to make, useful for skinning the flesh of beast and man alike."
@@ -435,10 +432,8 @@
 	max_blade_int = 75
 	max_integrity = 75
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
-	associated_skill = /datum/skill/combat/knives
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	melting_material = /datum/material/copper
-	melt_amount = 50
 	sellprice = 10
 
 
@@ -446,11 +441,10 @@
 	name = "iron tossblade"
 	desc = ""
 	item_state = "bone_dagger"
-	force = 12
-	throwforce = 25
+	force = DAMAGE_DAGGER
+	throwforce = DAMAGE_DAGGER+13
 	throw_speed = 4
 	max_integrity = 50
-	wdefense = 1
 	icon_state = "throw_knifei"
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 25, "embedded_fall_chance" = 20)
 	melting_material = /datum/material/iron
@@ -458,29 +452,17 @@
 
 /obj/item/weapon/knife/throwingknife/steel
 	name = "steel tossblade"
-	desc = ""
-	item_state = "bone_dagger"
-	force = 12
-	throwforce = 25
-	throw_speed = 4
 	max_integrity = 100
-	wdefense = 1
 	icon_state = "throw_knifes"
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 30, "embedded_fall_chance" = 15)
-	melt_amount = 50
 
 /obj/item/weapon/knife/throwingknife/psydon
 	name = "psydonian tossblade"
 	desc = "An unconventional method of delivering silver to a heretic; but one PSYDON smiles at, all the same. Doubles as an 'actual' knife in a pinch."
-	item_state = "bone_dagger"
-	force = 12
-	throwforce = 25
-	throw_speed = 4
 	max_integrity = 150
-	wdefense = 3
+	wdefense = GOOD_PARRY
 	icon_state = "throw_knifes"
 	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 50, "embedded_fall_chance" = 0)
 	is_silver = TRUE
 	sellprice = 65
 	melting_material = /datum/material/silver
-	melt_amount = 50

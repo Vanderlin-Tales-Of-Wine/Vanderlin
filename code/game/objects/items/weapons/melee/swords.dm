@@ -5,7 +5,7 @@
 /obj/item/weapon/sword
 	force = DAMAGE_SWORD
 	force_wielded = DAMAGE_SWORD_WIELD
-	throwforce = 10
+	throwforce = DAMAGE_SWORD-10
 	slot_flags = ITEM_SLOT_HIP
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust)
@@ -177,8 +177,8 @@
 
 //................ Silver Sword ............... //
 /obj/item/weapon/sword/silver
-	force = DAMAGE_SWORD-1
-	force_wielded = DAMAGE_SWORD_WIELD-1
+	force = DAMAGE_SWORD-1 //19 total
+	force_wielded = DAMAGE_SWORD_WIELD-1 //24 total
 	name = "silver sword"
 	desc = "A simple silver sword with an edge that gleams in moonlight."
 	icon_state = "sword_s"
@@ -206,8 +206,8 @@
 				H.Paralyze(10)
 
 /obj/item/weapon/sword/iron
-	force = DAMAGE_SWORD-1
-	force_wielded = DAMAGE_SWORD_WIELD-1
+	force = DAMAGE_SWORD-1 //19 total
+	force_wielded = DAMAGE_SWORD_WIELD-1 //24 total
 	desc = "A simple iron sword with a tested edge, sharp and true."
 	icon_state = "isword"
 	max_blade_int = 200
@@ -300,7 +300,7 @@
 
 
 /obj/item/weapon/sword/sabre/scythe
-	force = DAMAGE_SWORD-2
+	force = DAMAGE_SWORD-2 //18 total
 	name = "scythe sword"
 	desc = "A farming tool blade has been fastened to a shorter wooden handle to create an improvised weapon."
 	icon_state = "scytheblade"
@@ -450,7 +450,7 @@
 	max_blade_int = 400
 
 /obj/item/weapon/sword/rapier/silver
-	force = DAMAGE_SWORD-2
+	force = DAMAGE_SWORD-2 //18 total
 	name = "silver rapier"
 	desc = "An elegant silver rapier. Popular with lords and ladies in Valoria."
 	icon_state = "rapier_s"
@@ -465,7 +465,7 @@
 /obj/item/weapon/sword/khopesh
 	name = "ancient khopesh"
 	desc = "A bronze weapon of war from the era of Apotheosis. This blade is older than a few elven generations, but has been very well-maintained and still keeps a good edge."
-	force = 22 // Unique weapon from rare job, slightly more force than most one-handers
+	force = DAMAGE_SWORD+2 //22 total, Unique weapon from rare job, slightly more force than most one-handers
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/chop, /datum/intent/sword/strike)
 	gripped_intents = null
 	icon = 'icons/roguetown/weapons/64.dmi'
@@ -482,8 +482,8 @@
 	max_blade_int = 300
 	max_integrity = 300
 	minstr = 10 // Even though it's technically one-handed, you gotta have some muscle to wield this thing
-	wdefense = 3 // Lower than average sword defense (meant to pair with a shield)
-	wbalance = -1 // Likely weighted towards the blade, for deep cuts and chops
+	wdefense = GOOD_PARRY // Lower than average sword defense (meant to pair with a shield)
+	wbalance = EASY_TO_DODGE // Likely weighted towards the blade, for deep cuts and chops
 	sellprice = 200 // A noble collector would love to get his/her hands on one of these blades
 
 
@@ -531,8 +531,8 @@
 
 //................ Heirloom Sword ............... //
 /obj/item/weapon/sword/long/heirloom
-	force = DAMAGE_SWORD-2
-	force_wielded = DAMAGE_SWORD_WIELD-2
+	force = DAMAGE_SWORD-2 //18 total
+	force_wielded = DAMAGE_SWORD_WIELD-2 //23 total
 	icon_state = "heirloom"
 	name = "old sword"
 	desc = "An old steel sword with a heraldic green leather grip, mouldered by years of neglect."
@@ -544,8 +544,8 @@
 
 // Repurposing this unused sword for the Paladin job as a heavy counter against vampires.
 /obj/item/weapon/sword/long/judgement// this sprite is a one handed sword, not a longsword.
-	force = 15
-	force_wielded = 30
+	force = DAMAGE_SWORD-5 //15 total
+	force_wielded = DAMAGE_LONGSWORD_WIELD+2 //30 total
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/chop/long)
 	icon_state = "judgement"
@@ -567,8 +567,8 @@
 
 
 /obj/item/weapon/sword/long/vlord // this sprite is a one handed sword, not a longsword.
-	force = 18
-	force_wielded = 30
+	force = DAMAGE_SWORD-2 //18 total
+	force_wielded = DAMAGE_LONGSWORD_WIELD+2 //27 total
 	icon_state = "vlord"
 	name = "Jaded Fang"
 	desc = "An ancestral long blade with an ominous glow, serrated with barbs along it's edges. Stained with a strange green tint."
@@ -607,8 +607,8 @@
 
 
 /obj/item/weapon/sword/long/forgotten
-	force = 16 // Damage is .9 of a steel sword
-	force_wielded = 25
+	force = DAMAGE_SWORD-4 // Damage is .8 of a steel sword, 16 total
+	force_wielded = DAMAGE_SWORD_WIELD
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/long, /datum/intent/sword/strike, /datum/intent/sword/chop/long)
 	icon_state = "forgotten"
@@ -617,8 +617,7 @@
 	max_blade_int = 240 // Integrity and blade retention is .8 of a steel sword
 	max_integrity = 400
 	smeltresult = /obj/item/ingot/silver
-	wbalance = -1
-	wdefense = 4
+	wbalance = EASY_TO_DODGE
 	sellprice = 90
 	last_used = 0
 	is_silver = TRUE
@@ -737,8 +736,8 @@
 // Copper Messer
 
 /obj/item/weapon/sword/coppermesser
-	force = 15 // Messers are heavy weapons, crude and STR based.
-	force_wielded = 20
+	force = DAMAGE_SWORD-5 // Messers are heavy weapons, crude and STR based. 15 total
+	force_wielded = DAMAGE_SWORD_WIELD
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike, /datum/intent/sword/chop)
 	icon_state = "cmesser"
@@ -758,7 +757,7 @@
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
 	dropshrink = 0.90
 	smeltresult = /obj/item/ingot/copper
-	wbalance = -1
+	wbalance = EASY_TO_DODGE
 	sellprice = 10
 
 /obj/item/weapon/sword/coppermesser/getonmobprop(tag)
@@ -775,8 +774,8 @@
 				return list("shrink" = 0.5,"sx" = -4,"sy" = -6,"nx" = 5,"ny" = -6,"wx" = 0,"wy" = -6,"ex" = -1,"ey" = -6,"nturn" = 100,"sturn" = 156,"wturn" = 90,"eturn" = 180,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/weapon/sword/long/rider/copper
-	force = 10
-	force_wielded = 20 // Shitty Design, Shitty materials, SHITTY WEAPON
+	force = DAMAGE_SWORD-6 // 14 total
+	force_wielded = DAMAGE_SWORD_WIELD-5 // Shitty Design, Shitty materials, SHITTY WEAPON, 20 total
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
 	icon_state = "copperfalx"
@@ -812,19 +811,18 @@
 	desc = "A sword possessed of a quite long and tapered blade that is intended to be thrust between the \
 	gaps in an opponent's armor. The hilt is wrapped tight in black leather."
 	icon_state = "estoc"
-	force = 12
-	force_wielded = 25
+	force = DAMAGE_SWORD
+	force_wielded = DAMAGE_SWORD_WIELD
 	icon = 'icons/roguetown/weapons/64.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	possible_item_intents = list(
-		/datum/intent/sword/chop,
+		/datum/intent/sword/thrust,
 		/datum/intent/sword/strike,
 	)
 	gripped_intents = list(
 		/datum/intent/sword/thrust/estoc,
 		/datum/intent/sword/lunge,
-		/datum/intent/sword/chop,
 		/datum/intent/sword/strike,
 	)
 	bigboy = TRUE
@@ -835,7 +833,7 @@
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/swords
 	max_blade_int = 300
-	wdefense = 5
+	wbalance = DODGE_CHANCE_NORMAL //Worse than a rapier
 
 /obj/item/weapon/estoc/getonmobprop(tag)
 	. = ..()
@@ -892,7 +890,7 @@
 
 /datum/intent/sword/thrust/estoc
 	name = "thrust"
-	penfactor = 50
+	penfactor = AP_SWORD_THRUST+30 //50 in total
 	recovery = 20
 	clickcd = 10
 
@@ -905,15 +903,14 @@
 	blade_class = BCLASS_STAB
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	reach = 2
-	penfactor = 30
-	damfactor = 1.2
+	penfactor = AP_SWORD_THRUST+10 //30 in total
 	chargetime = 5
 	recovery = 20
 	clickcd = 10
 
 
 /obj/item/weapon/sword/gladius
-	force = 22
+	force = DAMAGE_SWORD+2 //22 total
 	name = "Gladius"
 	desc = "A bronze short sword with a slightly wider end, and no guard. Compliments a shield."
 	icon_state = "gladius"
@@ -922,4 +919,4 @@
 	max_blade_int = 100
 	max_integrity = 200
 	dropshrink = 0.80
-	wdefense = 2
+	wdefense = AVERAGE_PARRY

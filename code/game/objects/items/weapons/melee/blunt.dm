@@ -118,8 +118,8 @@
 
 //................ Bell ringer ............... //
 /obj/item/weapon/mace/church
-	force = DAMAGE_MACE+3
-	force_wielded = DAMAGE_MACE_WIELD+3
+	force = DAMAGE_MACE+3 //23 total
+	force_wielded = DAMAGE_MACE_WIELD+3 //28 total
 	name = "bell ringer"
 	desc = "Faith is sometimes best administered with steel and blood."
 	icon_state = "churchmace"
@@ -145,8 +145,8 @@
 
 //................ Spiked club ............... //
 /obj/item/weapon/mace/spiked
-	force = DAMAGE_MACE+2
-	force_wielded = DAMAGE_MACE_WIELD+3
+	force = DAMAGE_MACE+2 //22 total
+	force_wielded = DAMAGE_MACE_WIELD+3 //28 total
 	name = "spiked mace"
 	icon_state = "spikedmace"
 	max_integrity = 200
@@ -154,8 +154,8 @@
 
 //................ Morningstar ............... //
 /obj/item/weapon/mace/steel/morningstar
-	force = DAMAGE_MACE+2
-	force_wielded = DAMAGE_MACE_WIELD+3
+	force = DAMAGE_MACE+2 //22 total
+	force_wielded = DAMAGE_MACE_WIELD+3 //28 total
 	name = "morningstar"
 	icon_state = "spiked_club_old"
 	max_integrity = 300
@@ -237,12 +237,12 @@
 
 //................ Wooden sword ............... //
 /obj/item/weapon/mace/woodclub/train_sword
-	force = 5
-	force_wielded = 8
+	force = DAMAGE_SWORD-15 //5 total
+	force_wielded = DAMAGE_SWORD-12 //8 total
 	name = "wooden sword"
 	desc = "Crude wood assembled into the shape of a sword, a terrible weapon to be on the recieving end of during a training spat."
 	icon_state = "wsword"
-	wbalance = 0
+	wbalance = DODGE_CHANCE_NORMAL
 	associated_skill = /datum/skill/combat/swords
 	wdefense = ULTMATE_PARRY
 	metalizer_result = /obj/item/weapon/sword/iron
@@ -379,8 +379,8 @@
 
 //................ Copper goden ............... //
 /obj/item/weapon/mace/goden/copper
-	force = 10
-	force_wielded = 20
+	force = DAMAGE_MACE-10 //10 total
+	force_wielded = DAMAGE_MACE_WIELD-5 //20 total
 	slowdown = 1
 	name = "copper warclub"
 	desc = "A two handed club, decorated with a crown of spikes. A barbaric besign, good enough to be used as a weapon."
@@ -395,17 +395,17 @@
 
 //................ Warhammers ............... //
 /obj/item/weapon/mace/warhammer
-	force = 20
+	force = DAMAGE_MACE
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/warhammer/impale)
 	gripped_intents = null
 	name = "iron warhammer"
 	desc = "Made to punch through armor and skull alike."
 	icon_state = "iwarhammer"
-	wbalance = -1
+	wbalance = EASY_TO_DODGE
 	melting_material = /datum/material/iron
 	melt_amount = 75
 	blade_dulling = DULLING_BASH
-	wdefense = 3
+	wdefense = GOOD_PARRY
 
 /obj/item/weapon/mace/warhammer/getonmobprop(tag)
 	if(tag)
@@ -419,14 +419,13 @@
 	return ..()
 
 /obj/item/weapon/mace/warhammer/steel
-	force = 25
+	force = DAMAGE_MACE+5 //25 total
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/warhammer/impale, /datum/intent/mace/warhammer/stab)
 	name = "steel warhammer"
 	desc = "A fine steel warhammer, makes a satisfying sound when paired with a knight's helm."
 	icon_state = "swarhammer"
 	melting_material = /datum/material/steel
 	melt_amount = 150
-	wdefense = 4
 
 /datum/intent/mace/warhammer/stab
 	name = "thrust"
@@ -435,7 +434,7 @@
 	attack_verb = list("thrusts", "stabs")
 	animname = "stab"
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 20
+	penfactor = AP_CLUB_STRIKE
 	damfactor = 0.8
 	item_damage_type = "stab"
 
@@ -450,6 +449,6 @@
 	chargedrain = 1
 	misscost = 1
 	no_early_release = TRUE
-	penfactor = 80
+	penfactor = AP_CLUB_SMASH+55 //80 in total
 	damfactor = 0.9
 	item_damage_type = "stab"
