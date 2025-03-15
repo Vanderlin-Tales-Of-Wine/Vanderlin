@@ -93,7 +93,7 @@
 
 	if(quantity > 1)  // Just so you don't count single coins
 		var/list/skill_data = coin_skill(user, quantity)
-		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1, 20)
+		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1,  (quantity > 20) ? INFINITY : 20) // Cap at 20 only for small stacks)
 		var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
 
 		switch(intelligence)						// Intelligence-based messaging
@@ -109,7 +109,7 @@
 		do_after(user, skill_data["delay"])			// Use coin_skill calculated delay
 
 		var/estimated_value = fuzzy_quantity * sellprice
-		estimated_value = CLAMP(estimated_value, sellprice, 20*sellprice)
+		estimated_value = CLAMP(estimated_value, sellprice, INFINITY)
 		var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
 		var/value_text
 		if(intelligence >= 10)
@@ -197,6 +197,7 @@
 		if(10 to 14) return "A dozen or so"
 		if(15 to 19) return "A large number of"
 		if(20) return "A full stack of"
+		if(21 to INFINITY) return "An unbelieavably big stack of"
 		else return "Some"
 
 /obj/item/coin/proc/merge(obj/item/coin/G, mob/user)
