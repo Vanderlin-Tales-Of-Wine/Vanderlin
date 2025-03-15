@@ -243,3 +243,7 @@
 	static_debris = null
 	firefuel = 60 MINUTES // Extremely poweful fuel.
 	w_class = WEIGHT_CLASS_SMALL
+	smeltresult = null
+	lumber = null
+	lumber_alt = null
+	lumber_amount = 0

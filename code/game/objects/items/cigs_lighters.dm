@@ -294,7 +294,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(iscarbon(loc))
 			var/mob/living/carbon/M = loc
 			M.dropItemToGround(src, silent = TRUE)
-			M.mouth = new type_butt(M)
+			M.equip_to_slot_if_possible(new type_butt(M))
 		else
 			new type_butt(location)
 		qdel(src)

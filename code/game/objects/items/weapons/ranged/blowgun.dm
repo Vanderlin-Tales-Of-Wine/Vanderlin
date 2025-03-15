@@ -62,7 +62,7 @@
 			var/modifier = 1/(spread+1)
 			var/boon = user.mind.get_learning_boon(/datum/skill/combat/bows)
 			var/amt2raise = user.STAINT/2
-			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier * 0.5, FALSE)
+			user.mind.adjust_experience(/datum/skill/combat/bows, amt2raise * boon * modifier, FALSE)
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/blowgun/update_icon()
 	. = ..()

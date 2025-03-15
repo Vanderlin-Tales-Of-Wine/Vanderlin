@@ -403,8 +403,13 @@
 				Deletion -= AM
 				partlist[A] -= 1
 	while(Deletion.len)
-		var/DL = Deletion[Deletion.len]
+		var/atom/DL = Deletion[Deletion.len]
 		Deletion.Cut(Deletion.len)
+		var/datum/component/storage/STR = DL.GetComponent(/datum/component/storage)
+		if(STR)
+			var/list/things = STR.contents()
+			for(var/obj/item/I in things)
+				STR.remove_from_storage(I, get_turf(src))
 		qdel(DL)
 
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)
