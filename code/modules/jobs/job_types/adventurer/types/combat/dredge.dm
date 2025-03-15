@@ -25,7 +25,7 @@
 	min_pq = 0
 
 
-/datum/outfit/job/roguetown/adventurer/dredge/pre_equip(mob/living/carbon/human/H) // Rolling well isn't guaranteed. When in doubt, add more zeroes.
+/datum/outfit/job/roguetown/adventurer/dredge/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick (1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick (1,2), TRUE)
