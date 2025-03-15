@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hairyness = null
 
 	var/custom_clothes = FALSE //append species id to clothing sprite name
+	var/custom_id
 	var/use_f = FALSE //males use female clothes. for elves
 	var/use_m = FALSE //females use male clothes. for aasimar women
 
@@ -1018,15 +1019,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				hide_boob = TRUE
 
 		if(H.underwear)
+			if(H.age == AGE_CHILD)
+				H.underwear = "Youngling"
+				if(H.gender == FEMALE)
+					H.underwear = "FemYoungling"
+
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
 				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE)
+				if(H.gender == FEMALE && H.age != AGE_CHILD)
 					if(OFFSET_FACE_F in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else
+				else if(H.age != AGE_CHILD)
 					if(OFFSET_FACE in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]

@@ -45,7 +45,10 @@
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
 #define TRAIT_ENGINEERING_GOGGLES		"Engineering Goggles"
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
+#define TRAIT_SEE_LEYLINES				"Magical Visions"
+#define TRAIT_POISONBITE				"Poison Bite"
 #define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
+#define TRAIT_TINY 						"Tiny"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -171,7 +174,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_APRICITY = "The warmth of the sun rejuvenates me, allowing me to regain my stamina quicker.",
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
-	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty."
+	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
+	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
+	TRAIT_TINY = "I am small, its hard to look people in the eyes."
 	))
 
 // trait accessor defines

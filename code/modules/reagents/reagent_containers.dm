@@ -66,10 +66,11 @@
 	else if(C.is_mouth_covered(mask_only = 1))
 		covered = "mask"
 	if(C != user)
-		if(C.mobility_flags & MOBILITY_STAND)
-			if(get_dir(eater, user) != eater.dir)
-				to_chat(user, "<span class='warning'>I must stand in front of [C.p_them()].</span>")
-				return 0
+		if(isturf(eater.loc))
+			if(C.mobility_flags & MOBILITY_STAND)
+				if(get_dir(eater, user) != eater.dir)
+					to_chat(user, "<span class='warning'>I must stand in front of [C.p_them()].</span>")
+					return 0
 	if(covered)
 		if(!silent)
 			var/who = (isnull(user) || eater == user) ? "your" : "[eater.p_their()]"

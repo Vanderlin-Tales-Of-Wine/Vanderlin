@@ -15,7 +15,10 @@
 /datum/targetting_datum/basic
 
 /datum/targetting_datum/basic/can_attack(mob/living/living_mob, atom/the_target)
-	if(isturf(the_target) || !the_target) // bail out on invalids
+	if(isturf(the_target) || !the_target ) // bail out on invalids
+		return FALSE
+	var/mob/living/simple_animal/attacker = living_mob
+	if(attacker.binded == TRUE)
 		return FALSE
 
 	if(ismob(the_target)) //Target is in godmode, ignore it.

@@ -678,6 +678,9 @@
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	icon = 'icons/turf/greenstone.dmi'
 
+/turf/open/floor/greenstone/runed
+	icon_state = "greenstoneruned"
+
 /turf/open/floor/hexstone
 	icon_state = "hexstone"
 	footstep = FOOTSTEP_STONE

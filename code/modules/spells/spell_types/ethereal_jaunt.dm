@@ -16,6 +16,9 @@
 	var/jaunt_in_type = /obj/effect/temp_visual/wizard
 	var/jaunt_out_type = /obj/effect/temp_visual/wizard/out
 	associated_skill = /datum/skill/magic/arcane
+	attunements = list(
+		/datum/attunement/arcyne = 0.4,
+	)
 
 /obj/effect/proc_holder/spell/targeted/ethereal_jaunt/cast(list/targets,mob/user = usr) //magnets, so mostly hardcoded
 	. = ..()

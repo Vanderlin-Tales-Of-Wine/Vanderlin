@@ -113,7 +113,6 @@
 	return checked
 
 /obj/structure/water_pipe/proc/propagate_change(change_id, datum/reagent/id, pressure, obj/structure/water_pipe/added_provider, obj/structure/water_pipe/removed_provider)
-	sleep(0.1 SECONDS)
 	water_pressure = pressure
 	carrying_reagent = id
 	check_id = change_id

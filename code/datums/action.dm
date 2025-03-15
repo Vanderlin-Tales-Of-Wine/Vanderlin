@@ -30,6 +30,9 @@
 	if(desc)
 		button.desc = desc
 
+/datum/action/proc/get_owner()
+	return owner
+
 /datum/action/proc/link_to(Target)
 	target = Target
 

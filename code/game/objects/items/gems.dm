@@ -92,6 +92,7 @@
 	//color = "#ff00008c"
 	icon_state = "ruby_cut"
 	sellprice = 100
+	attuned = /datum/attunement/fire
 
 /obj/item/gem/black
 	name = "onyxa"
@@ -99,6 +100,7 @@
 	color = "#200013dd"
 	sellprice = 76
 	dropshrink = 0.7
+	attuned = /datum/attunement/dark
 
 /// riddle
 

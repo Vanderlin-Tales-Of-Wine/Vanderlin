@@ -56,6 +56,8 @@
 /obj/structure/fluff/railing/CanPass(atom/movable/mover, turf/target)
 //	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 //		return 1
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/projectile))
 		return 1
 	if(mover.throwing)
@@ -194,6 +196,8 @@
 					add_overlay(MA)
 
 /obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, target) == dir)
 		return 0
 	return 1
@@ -223,6 +227,8 @@
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 
 /obj/structure/bars/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(isobserver(mover))
 		return 1
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
@@ -431,6 +437,8 @@
 		// . += span_info("(Round Time: [gameTimestamp("hh:mm:ss", REALTIMEOFDAY - SSticker.round_start_irl)].)")
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return 1
@@ -642,6 +650,8 @@
 
 
 /obj/structure/fluff/statue/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return !density
@@ -749,6 +759,11 @@
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
 				H.update_damage_overlays()
+
+	if(message2send == "You can see noc rotating!")
+		if(do_after(H, 25, target = src))
+			to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
+			H.apply_status_effect(/datum/status_effect/buff/nocblessing)
 
 /obj/structure/fluff/globe
 	name = "globe"
@@ -951,6 +966,8 @@
 	M.reset_offsets("bed_buckle")
 
 /obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(shrine)
 		return
 	else if(get_dir(loc, mover) == dir)

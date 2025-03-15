@@ -121,6 +121,31 @@
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
 
+/datum/component/storage/concrete/grid/magebag
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 5
+
+/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/natural/infernalash,
+		/obj/item/natural/hellhoundfang,
+		/obj/item/natural/moltencore,
+		/obj/item/natural/abyssalflame,
+		/obj/item/natural/fairydust,
+		/obj/item/natural/iridescentscale,
+		/obj/item/natural/heartwoodcore,
+		/obj/item/natural/sylvanessence,
+		/obj/item/natural/elementalmote,
+		/obj/item/natural/elementalshard,
+		/obj/item/natural/elementalfragment,
+		/obj/item/natural/elementalrelic,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/leyline,
+		/obj/item/reagent_containers/food/snacks/grown/manabloom,
+		/obj/item/mana_battery/mana_crystal
+		))
 /datum/component/storage/concrete/grid/crucible
 	screen_max_rows = 5
 	screen_max_columns = 3
@@ -129,5 +154,22 @@
 
 /datum/component/storage/concrete/grid/crucible/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check, params, storage_click)
 	if(!storing.melting_material)
+		return FALSE
+	. = ..()
+
+/datum/component/storage/concrete/grid/anvil_bin
+	max_w_class = WEIGHT_CLASS_HUGE
+	screen_max_rows = 8
+	screen_max_columns = 4
+
+/datum/component/storage/concrete/grid/anvil_bin/show_to(mob/M)
+	var/obj/structure/material_bin/source = src.parent
+	if(!source.opened)
+		return FALSE
+	. = ..()
+
+/datum/component/storage/concrete/grid/anvil_bin/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check, params, storage_click)
+	var/obj/structure/material_bin/source = src.parent
+	if(!source.opened)
 		return FALSE
 	. = ..()

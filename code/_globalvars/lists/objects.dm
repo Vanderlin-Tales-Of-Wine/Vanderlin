@@ -94,3 +94,11 @@ GLOBAL_LIST_INIT(royal_dyes, list(
 	"Chalk White" = CLOTHING_CHALK_WHITE,
 ))
 GLOBAL_PROTECT(royal_dyes)
+
+GLOBAL_LIST_INIT(steam_armor, list(
+	/obj/item/clothing/armor/steam,
+	/obj/item/clothing/gloves/plate/steam,
+	/obj/item/clothing/head/helmet/heavy/steam,
+	/obj/item/clothing/shoes/boots/armor/steam,
+	/obj/item/clothing/cloak/boiler,
+))

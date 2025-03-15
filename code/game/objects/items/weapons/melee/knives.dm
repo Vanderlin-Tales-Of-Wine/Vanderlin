@@ -2,6 +2,7 @@
 ==========================================================*/
 
 /obj/item/weapon/knife
+	name = "any knife"
 	force = DAMAGE_KNIFE
 	throwforce = DAMAGE_KNIFE
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)

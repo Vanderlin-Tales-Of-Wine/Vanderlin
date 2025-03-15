@@ -2,13 +2,10 @@
 	title = "Magician's Apprentice"
 	department_flag = APPRENTICES
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 2
+	spawn_positions = 2
 
-	allowed_races = list(
-		"Humen",
-		"Half-Elf"
-	)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_ages = list(AGE_CHILD, AGE_ADULT)
 
 	tutorial = "Your master once saw potential in you, something you are uncertain if they still do with your recent studies. The path to using magic is something treacherous and untamed, and you are still decades away from calling yourself even a journeyman in the field. Listen and serve, and someday you will earn your hat."
@@ -35,17 +32,17 @@
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/random
 		shoes = /obj/item/clothing/shoes/simpleshoes
-		shirt = /obj/item/clothing/shirt/undershirt
+		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather/rope
-		beltr = /obj/item/key/tower
-		armor = /obj/item/clothing/armor/gambeson/light/striped
+		beltl = /obj/item/storage/keyring/mageapprentice
+		armor = /obj/item/clothing/shirt/robe/newmage/adept
 		backr = /obj/item/storage/backpack/satchel
 	else
 		shoes = /obj/item/clothing/shoes/sandals
 		shirt = /obj/item/clothing/shirt/undershirt
 		belt = /obj/item/storage/belt/leather/rope
-		beltr = /obj/item/key/tower
-		armor = /obj/item/clothing/armor/gambeson/light/striped
+		beltl = /obj/item/storage/keyring/mageapprentice
+		armor = /obj/item/clothing/shirt/robe/newmage/adept
 		backr = /obj/item/storage/backpack/satchel
 
 	H.change_stat(STATKEY_INT, 1)

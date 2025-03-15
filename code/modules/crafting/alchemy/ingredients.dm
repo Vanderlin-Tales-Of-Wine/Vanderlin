@@ -180,6 +180,11 @@
 	med_pot = /datum/alch_cauldron_recipe/health_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
+	attunement_values = list(
+		/datum/attunement/death = 0.1,
+		/datum/attunement/life = -0.1,
+	)
+
 /obj/item/alch/horn
 	name = "troll horn"
 	icon_state = "horn"

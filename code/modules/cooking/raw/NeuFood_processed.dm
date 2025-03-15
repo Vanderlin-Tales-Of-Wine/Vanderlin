@@ -196,9 +196,11 @@
 	taste_description = "gote milk"
 
 /datum/reagent/consumable/milk/salted_gote
+	name = "salted gote milk"
 	taste_description = "salty gote-milk"
 
 /datum/reagent/consumable/milk/salted
+	name = "salted milk"
 	taste_description = "salty milk"
 
 

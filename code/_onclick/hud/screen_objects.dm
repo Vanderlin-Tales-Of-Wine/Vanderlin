@@ -1761,6 +1761,12 @@
 	if(SSParticleWeather.runningWeather.target_trait == PARTICLEWEATHER_RAIN)
 		add_overlay("rainlay")
 
+/atom/movable/screen/mana
+	name = "mana"
+	icon_state = "mana100"
+	icon = 'icons/mob/rogueheat.dmi'
+	screen_loc = mana_loc
+
 /atom/movable/screen/stamina
 	name = "stamina"
 	icon_state = "fat100"
@@ -1779,6 +1785,14 @@
 	icon_state = "heatstamover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = stamina_loc
+	layer = HUD_LAYER+0.1
+
+/atom/movable/screen/mana_over
+	name = ""
+	mouse_opacity = 0
+	icon_state = "manaover"
+	icon = 'icons/mob/rogueheat.dmi'
+	screen_loc = mana_loc
 	layer = HUD_LAYER+0.1
 
 /atom/movable/screen/scannies

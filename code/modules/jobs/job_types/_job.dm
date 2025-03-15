@@ -141,6 +141,8 @@
 	var/max_apprentices = 1
 	///if this is set its the name bestowed to the new apprentice otherwise its just name the [job_name] apprentice.
 	var/apprentice_name
+	///do we magic?
+	var/magic_user = FALSE
 
 
 /datum/job/New()
@@ -189,6 +191,8 @@
 //H is usually a human unless an /equip override transformed it
 /datum/job/proc/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
 	//do actions on H but send messages to M as the key may not have been transferred_yet
+	if(magic_user)
+		H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	if(mind_traits)
 		for(var/t in mind_traits)
 			ADD_TRAIT(H.mind, t, JOB_TRAIT)

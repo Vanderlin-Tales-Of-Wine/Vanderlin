@@ -43,6 +43,7 @@
 				QDEL_IN(summoned_object, summon_lifespan)
 
 			post_summon(summoned_object, user)
+	return TRUE
 
 /obj/effect/proc_holder/spell/aoe_turf/conjure/proc/post_summon(atom/summoned_object, mob/user)
 	return

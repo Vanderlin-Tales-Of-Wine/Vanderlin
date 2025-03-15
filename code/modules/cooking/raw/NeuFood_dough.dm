@@ -625,6 +625,7 @@
 			tastes = list("savory sausage" = 1)
 			icon_state = "grenzbun"
 			base_icon_state = "grenzbun"
+			faretype = FARE_NEUTRAL
 			foodtype = GRAIN | MEAT
 			modified = TRUE
 			meal_properties()

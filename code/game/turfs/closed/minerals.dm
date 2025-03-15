@@ -222,7 +222,7 @@
 /turf/closed/mineral/random/high
 	icon_state = "minrandhigh"
 	mineralChance = 70
-	mineralSpawnChanceList = list(/turf/closed/mineral/gold = 15 , /turf/closed/mineral/iron = 25, /turf/closed/mineral/silver = 15)//, /turf/closed/mineral/gemeralds = 10)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 5, /turf/closed/mineral/cinnabar = 5, /turf/closed/mineral/gold = 15 , /turf/closed/mineral/iron = 25, /turf/closed/mineral/silver = 15)//, /turf/closed/mineral/rogue/gemeralds = 10)
 
 /turf/closed/mineral/random/low_nonval
 	icon_state = "cticbad"
@@ -290,6 +290,26 @@
 	rockType = /obj/item/natural/rock/salt
 	spreadChance = 12
 	spread = 3
+
+/turf/closed/mineral/cinnabar
+	icon_state = "mingold"
+	mineralType = /obj/item/ore/cinnabar
+	rockType = /obj/item/natural/rock/cinnabar
+	spreadChance = 23
+	spread = 5
+
+/turf/closed/mineral/mana_crystal
+	icon_state = "mingold"
+	mineralType = /obj/item/mana_battery/mana_crystal/standard
+	rockType = /obj/item/natural/rock/mana_crystal
+	spreadChance = 23
+	spread = 5
+
+/obj/item/natural/rock/mana_crystal
+	mineralType = /obj/item/mana_battery/mana_crystal/standard
+
+/obj/item/natural/rock/cinnabar
+	mineralType = /obj/item/ore/cinnabar
 
 /turf/closed/mineral/iron
 	icon_state = "ironbad"

@@ -20,6 +20,10 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
 	cost = 1
+	attunements = list(
+		/datum/attunement/blood = 0.3,
+		/datum/attunement/death = 0.4,
+	)
 
 /obj/effect/proc_holder/spell/self/acidsplash5e/cast(mob/user = usr)
 	var/mob/living/target = user
@@ -94,6 +98,10 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+	attunements = list(
+		/datum/attunement/blood = 0.3,
+		/datum/attunement/ice = 0.4,
+	)
 	var/delay = 3
 	var/damage = 50 // less then fireball, more then lighting bolt
 	var/area_of_effect = 2
@@ -167,6 +175,9 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
 	cost = 1
+	attunements = list(
+		/datum/attunement/ice = 0.7,
+	)
 
 /obj/effect/proc_holder/spell/self/frostbolt/cast(mob/user = usr)
 	var/mob/living/target = user
@@ -239,6 +250,9 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+	attunements = list(
+		/datum/attunement/dark = 0.6,
+	)
 	var/delay = 3
 	var/damage = 0 // damage based off your str
 	var/area_of_effect = 0
@@ -299,6 +313,9 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	cost = 2
+	attunements = list(
+		/datum/attunement/aeromancy = 0.6,
+	)
 
 /obj/effect/proc_holder/spell/invoked/projectile/repel/fire_projectile(mob/living/user, atom/target)
 	if(iscarbon(user))
@@ -350,6 +367,9 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+	attunements = list(
+		/datum/attunement/aeromancy = 0.8,
+	)
 
 /obj/effect/proc_holder/spell/invoked/longstrider/cast(list/targets, mob/user = usr)
 	. = ..()
@@ -391,6 +411,9 @@
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+	attunements = list(
+		/datum/attunement/arcyne = 1,
+	)
 
 /obj/effect/proc_holder/spell/invoked/guidance/cast(list/targets, mob/user)
 	var/atom/A = targets[1]

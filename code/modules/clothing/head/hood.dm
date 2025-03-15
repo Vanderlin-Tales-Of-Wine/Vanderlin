@@ -139,3 +139,40 @@
 	color = null
 
 	prevent_crits = MINOR_CRITICALS
+
+
+/obj/item/clothing/head/hooded/magehood
+	name = "hood"
+	desc = ""
+	color = null
+	icon_state = "adept-red"
+	item_state = "adept-red"
+	icon = 'icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi' //Overrides slot icon behavior
+	body_parts_covered = NECK
+	armor = list("blunt" = 15, "slash" = 15, "stab" = 15, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT)
+	max_integrity = 100
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	sleevetype = null
+	sleeved = null
+	dynamic_hair_suffix = ""
+	edelay_type = 1
+	adjustable = CAN_CADJUST
+	toggle_icon_state = TRUE
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/cloth
+	flags_inv = HIDEHAIR|HIDEFACIALHAIR
+	block2add = FOV_BEHIND
+	var/newicon
+	var/robe_count = 0
+
+/obj/item/clothing/head/hooded/magehood/adept
+	name = "hood"
+	icon_state = "adept-red"
+	item_state = "adept-red"
+
+/obj/item/clothing/head/hooded/magehood/sorcerer
+	name = "hood"
+	icon_state = "sorcerer-red"
+	item_state = "sorcerert-red"

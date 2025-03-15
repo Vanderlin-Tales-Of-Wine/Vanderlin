@@ -181,6 +181,7 @@
 #define rogueui_stress "WEST-3,CENTER+3"
 #define rogueui_spells "WEST-4:2,SOUTH+8"
 
+#define mana_loc "WEST-5,CENTER+2"
 #define stamina_loc "WEST-1,CENTER+2"
 #define energy_loc "WEST-1:0,CENTER+4"
 #define rogueui_blood "WEST-1:6,CENTER+4:17"

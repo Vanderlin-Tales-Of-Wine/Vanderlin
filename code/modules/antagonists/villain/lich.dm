@@ -46,6 +46,10 @@
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
 	var/mob/living/carbon/human/L = owner.current
+
+	L.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
+	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
+
 	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
 	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")
