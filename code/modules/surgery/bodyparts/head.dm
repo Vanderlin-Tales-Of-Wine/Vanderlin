@@ -48,6 +48,25 @@
 	/// Brainkill means that this head is considered dead and revival is impossible
 	var/brainkill = FALSE
 
+	/// for headeater stuff
+	var/headprice = 0
+	var/headpricemi
+	var/headpricemax
+	var/statichead_price = FALSE
+
+/obj/item/bodypart/head/Initialize()
+	. = ..()
+	if(!statichead_price)
+		return
+
+	headprice = rand(headpricemi, headpricemax)
+
+/obj/item/bodypart/head/examine(mob/user)
+	. = ..()
+	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN)))
+		. += "<span class='info'>Value: [headprice] would be paid for this head</span>"
+
+
 /obj/item/bodypart/head/grabbedintents(mob/living/user, precise)
 	var/used_limb = precise
 	switch(used_limb)
