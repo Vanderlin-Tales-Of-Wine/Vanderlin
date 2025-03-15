@@ -9840,12 +9840,6 @@
 /obj/item/candle/yellow,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/shop)
-"gMx" = (
-/obj/structure/lever/hidden{
-	redstone_id = "orphanstorage"
-	},
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors/town/orphanage)
 "gMP" = (
 /obj/structure/fluff/telescope,
 /turf/open/floor/ruinedwood/darker,
@@ -16679,10 +16673,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
-"lKC" = (
-/obj/machinery/light/fueled/wallfire/candle/r,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/orphanage)
 "lKN" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass/red,
@@ -17587,7 +17577,7 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/manor)
 "myT" = (
-/obj/structure/trap/saw_blades,
+/obj/structure/trap/shock,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement/thieves_guild)
 "mzf" = (
@@ -127907,7 +127897,7 @@ fKD
 iII
 gBJ
 aEe
-lKC
+bVJ
 gBJ
 fKD
 vgJ
@@ -128109,7 +128099,7 @@ fKD
 fKD
 fKD
 koj
-gMx
+puk
 fKD
 fKD
 fKD
