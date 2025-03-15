@@ -367,6 +367,81 @@
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
 
+
+// ELECTRUM - Hard to craft, incredibly expensive and can only be smelted with a crucibel. In exchange its harder then silver while retaining the silver bonus against undead. Used for holy gear.
+
+/datum/anvil_recipe/armor/electrum/helmet/astrata
+	name = "Astrata Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/astrata
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/noc
+	name = "Noc Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/noc
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/dendor
+	name = "Dendor Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/dendor
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/necra
+	name = "Necra Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/necra
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/pestra
+	name = "Pestra Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/pestra
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/eora
+	name = "Eora Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/sallet/eora
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/ravox
+	name = "Ravox Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/ravox
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/electrum/helmet/malum
+	name = "Malum Helmet (+Steel)"
+	recipe_name = "a decorated electrum alloy helmet"
+	req_bar = /obj/item/ingot/electrum
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/helmet/heavy/necked/malum
+	quench_type = QUENCH_HOLY
+	craftdiff = 4
+
 // --------- GOLD -----------
 /datum/anvil_recipe/armor/gold/mask
 	name = "Gold Mask"
