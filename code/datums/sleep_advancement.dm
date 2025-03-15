@@ -109,7 +109,7 @@
 
 	var/stress_median = stress_amount / stress_cycles
 
-	if(stress_median <= -1)
+	if(stress_median <= 1.0)
 		// Unstressed, happy
 		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
 		dream_dust += 100
