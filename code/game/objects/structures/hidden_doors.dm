@@ -391,7 +391,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 			if(istype(T, smoothType))
 				canDoorSmooth = TRUE
 				break
-		message_admins("[T] canDoorSmooth = [canDoorSmooth]")
 		if(!canDoorSmooth)
 			continue
 		var/smoothCompatible = FALSE
@@ -402,7 +401,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 			if(ispath(smoothType, /obj/structure/mineral_door/secret))
 				alreadyAdded = TRUE
 				break
-		message_admins("[T]\n\tsmoothCompatible = [smoothCompatible]\n\talreadyAdded = [alreadyAdded]")
 		if(smoothCompatible && !alreadyAdded)
 			T.canSmoothWith += /obj/structure/mineral_door/secret
 
