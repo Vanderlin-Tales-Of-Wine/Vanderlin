@@ -262,7 +262,8 @@ SUBSYSTEM_DEF(ticker)
 #endif
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
-			if(!player)
+			if(!player || !player.client)
+				stack_trace("somehow [player] doesn't have a client, wtf?")
 				continue
 			if(player.client.prefs.job_preferences[V] == JP_HIGH)
 				if(player.ready == PLAYER_READY_TO_PLAY)
