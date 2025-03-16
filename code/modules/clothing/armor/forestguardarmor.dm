@@ -2,7 +2,7 @@
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "forrester armour"
 	desc = "Armour worn by the Veterans of the Goblin War, who presently serve in the Forest Guard of Vanderlin."
-
+	icon_state = "foresthide"
 	prevent_crits = ALL_EXCEPT_STAB
 
 /obj/item/clothing/cloak/forrestercloak
