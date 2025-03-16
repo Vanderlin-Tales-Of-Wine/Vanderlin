@@ -1,7 +1,7 @@
 /obj/effect/mapping_helpers/door/access
 	name = "door access helper"
 	icon_state = "access_helper"
-	access_string = null
+	var/access_string = null
 
 /obj/effect/mapping_helpers/door/payload(/obj/structure/mineral_door)
 	if(door.lockid != null)
