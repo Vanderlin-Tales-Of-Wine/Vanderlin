@@ -54,8 +54,9 @@
 	dir = dirin
 
 /turf/open/floor/wood
+	icon = 'icons/turf/floors/wood.dmi'
 	smooth_icon = 'icons/turf/floors/wood.dmi'
-	icon_state = "wooden_floor2"
+	icon_state = "wood"
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -69,7 +70,7 @@
 	max_integrity = 600
 
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
-	icon_state = "wooden_floor"
+	icon_state = "woodsmooth"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/wood/nosmooth,/turf/open/floor/carpet)
 
@@ -79,12 +80,15 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/wood/nosmooth/saiga
+	icon = 'icons/turf/floors/woodalt.dmi'
 	smooth_icon = 'icons/turf/floors/woodalt.dmi'
+	icon_state = "wood"
 	canSmoothWith = list(/turf/open/floor/wood/nosmooth/saiga,/turf/open/floor/carpet)
 
 /turf/open/floor/woodturned
+	icon = 'icons/turf/floors/wood_turned.dmi'
 	smooth_icon = 'icons/turf/floors/wood_turned.dmi'
-	icon_state = "wooden_floor2t"
+	icon_state = "wood"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/woodturned,/turf/open/floor/carpet)
 	footstep = FOOTSTEP_WOOD
@@ -99,12 +103,14 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/woodturned/nosmooth
-	icon_state = "wooden_floort"
+	icon_state = "woodsmooth"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth,/turf/open/floor/carpet)
 
 /turf/open/floor/woodturned/nosmooth/saiga
+	icon = 'icons/turf/floors/woodalt_turned.dmi'
 	smooth_icon = 'icons/turf/floors/woodalt_turned.dmi'
+	icon_state = "wood"
 	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth/saiga,/turf/open/floor/carpet)
 
 /turf/open/floor/rooftop
