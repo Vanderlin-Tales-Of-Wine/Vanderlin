@@ -167,24 +167,25 @@
 	var/intelligence = user.mind?.current.STAINT
 	var/perception = user.mind?.current.STAPER
 	var/speed = user.mind?.current.STASPD
-	var/list/skill_data = list("delay" = 2 SECONDS,"error" = 0)
+	var/list/skill_data = list("delay" = 1 SECONDS,"error" = 0)
 
 	switch(intelligence)	// Base intelligence effects
-		if(0 to 5) // Very low intelligence
+		if(0 to 6) // Very low intelligence
 			skill_data["error"] = rand(-3,3)
-			skill_data["delay"] = CLAMP(1 SECONDS * intended, 2 SECONDS, 8 SECONDS)
-		if(6 to 8) // Less than average intelligence
+			skill_data["delay"] = CLAMP(1 SECONDS * intended, 2 SECONDS, 3 SECONDS)
+		if(7 to 9) // Less than average intelligence
 			skill_data["error"] = rand(-1,1)
-			skill_data["delay"] = CLAMP(1 SECONDS * intended, 1 SECONDS, 4 SECONDS)
-		if(9 to 13) // Average to above average intelligence
 			skill_data["delay"] = CLAMP(1 SECONDS * intended, 1 SECONDS, 2 SECONDS)
+		if(10 to 11) // Average intelligence
+			if(prob(20))
+				skill_data["error"] = rand (-1,1)
 		if(14 to INFINITY) // Genius
 			skill_data["delay"] = 0
 
 	if(perception < 9)   // Add perception effects
 		skill_data["error"] += rand(-1,1)
 
-	if(speed < 8) // Add speed effects
+	if(speed < 5) // Add speed effects
 		skill_data["delay"] += 0.5 SECONDS
 
 	skill_data["delay"] = max(skill_data["delay"], 0)
