@@ -1,0 +1,143 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/stone,
+/area/rogue/under/cave)
+"g" = (
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"k" = (
+/obj/effect/dungeon_directional_helper/south,
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
+"C" = (
+/turf/closed/wall/mineral/stone/moss,
+/area/rogue/under/cave)
+"D" = (
+/turf/open/floor/cobble,
+/area/rogue/under/cave)
+"R" = (
+/obj/effect/dungeon_directional_helper/north,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+
+(1,1,1) = {"
+C
+C
+a
+a
+C
+C
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+g
+D
+g
+g
+g
+D
+D
+g
+g
+D
+"}
+(3,1,1) = {"
+R
+D
+D
+D
+D
+D
+D
+g
+D
+k
+"}
+(4,1,1) = {"
+g
+D
+D
+g
+g
+g
+g
+g
+D
+D
+"}
+(5,1,1) = {"
+C
+a
+a
+a
+a
+a
+a
+C
+C
+C
+"}
+
+(1,1,2) = {"
+C
+a
+a
+a
+a
+C
+C
+a
+a
+a
+"}
+(2,1,2) = {"
+g
+g
+g
+g
+g
+g
+D
+D
+g
+g
+"}
+(3,1,2) = {"
+g
+D
+D
+D
+D
+D
+D
+g
+D
+g
+"}
+(4,1,2) = {"
+g
+D
+g
+D
+D
+g
+g
+g
+g
+D
+"}
+(5,1,2) = {"
+a
+a
+a
+C
+C
+a
+a
+a
+a
+C
+"}

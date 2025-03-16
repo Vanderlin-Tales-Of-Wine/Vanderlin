@@ -9,6 +9,21 @@
 		user.add_stress(/datum/stressevent/horc)
 	if(user.has_flaw(/datum/charflaw/paranoid) && (STASTR - user.STASTR) > 1)
 		user.add_stress(/datum/stressevent/parastr)
+	if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
+		if(user.has_flaw(/datum/charflaw/paranoid))
+			user.add_stress(/datum/stressevent/paraforeigner)
+		else
+			user.add_stress(/datum/stressevent/foreigner)
+	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+		if(user == src)
+			user.add_stress(/datum/stressevent/beautiful_self)
+		else
+			user.add_stress(/datum/stressevent/beautiful)
+	if(HAS_TRAIT(src, TRAIT_UGLY) && user != src)
+		if(user == src)
+			user.add_stress(/datum/stressevent/ugly_self)
+		else
+			user.add_stress(/datum/stressevent/ugly)
 
 /mob/living/carbon/human/examine(mob/user)
 //this is very slightly better than it was because you can use it more places. still can't do \his[src] though.
@@ -19,10 +34,12 @@
 	var/t_is = p_are()
 	var/obscure_name
 	var/race_name = dna.species.name
+	var/self_inspect = FALSE
 
 	var/m1 = "[t_He] [t_is]"
 	var/m2 = "[t_his]"
 	var/m3 = "[t_He] [t_has]"
+	. = list()
 	if(user == src)
 		m1 = "I am"
 		m2 = "my"
@@ -34,36 +51,30 @@
 	if(isobserver(user))
 		obscure_name = FALSE
 
+	/// header
+	. += span_info("ø ------------ ø")
+	/// name, title, etc. of the person
+	var/statement_of_identity = "This is "
 	if(obscure_name)
-		. = list("<span class='info'>ø ------------ ø\nThis is <EM>Unknown</EM>.")
+		statement_of_identity += ("<EM>Unknown</EM>.")
+		. += statement_of_identity
 	else
 		on_examine_face(user)
 		var/used_name = name
 		if(isobserver(user))
 			used_name = real_name
+		if(user == src)
+			self_inspect = TRUE
 		var/used_title = get_role_title()
-		var/display_as_wanderer = FALSE
 		var/is_returning = FALSE
-		if(migrant_type)
-			var/datum/migrant_role/migrant = MIGRANT_ROLE(migrant_type)
-			if(migrant.show_wanderer_examine)
-				display_as_wanderer = TRUE
-		else if(job)
-			var/datum/job/J = SSjob.GetJob(job)
-			if(J?.wanderer_examine)
-				display_as_wanderer = TRUE
-			if(islatejoin)
-				is_returning = TRUE
-		if(display_as_wanderer)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the wandering [race_name].")
-		else if(mind?.apprentice)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, [used_title].")
-		else if(used_title)
-			. = list("<span class='info'>ø ------------ ø\nThis is <EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
-		else
-			. = list("<span class='info'>ø ------------ ø\nThis is the <EM>[used_name]</EM>, the [race_name].")
+		var/is_apprentice = mind?.apprentice
+		if(islatejoin)
+			is_returning = TRUE
 
-		if(GLOB.lord_titles[real_name])
+		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
+		. += statement_of_identity
+
+		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
 		if(dna.species.use_skintones)
@@ -89,12 +100,23 @@
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/stranger = user
+			var/is_male = FALSE
+			if(gender == MALE)
+				is_male = TRUE
 			if(RomanticPartner(stranger))
-				. += span_love("<B>It's my spouse.</B>")
+				. += span_love(span_bold("[t_He] is my [is_male ? "husband" : "wife"]."))
 			if(family_datum == stranger.family_datum && family_datum)
 				var/family_text = ReturnRelation(user)
 				if(family_text)
 					. += family_text
+			if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+				//Handsome only if male, beautiful in all other pronouns.
+				. += span_love(span_bold("[self_inspect ? "I am" : "[t_He] is"] [is_male ? "handsome" : "beautiful"]!"))
+			if(HAS_TRAIT(src, TRAIT_UGLY))
+				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
+
+		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
+			. += span_phobia("A foreigner...")
 
 		if(real_name in GLOB.excommunicated_players)
 			. += span_userdanger("EXCOMMUNICATED!")

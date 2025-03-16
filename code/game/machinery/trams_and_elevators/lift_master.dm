@@ -671,7 +671,7 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 
 		if(!length(requested_supplies))
 			spawn_coins(total_coin_value, platform)
-			add_abstract_elastic_data("economy", "mammons_gained", total_coin_value)
+			add_abstract_elastic_data(ELASCAT_ECONOMY, ELASDATA_MAMMONS_GAINED, total_coin_value)
 			continue
 
 		for(var/datum/supply_pack/requested as anything in requested_supplies)
@@ -682,10 +682,10 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 			if(total_coin_value >= FLOOR(requested.cost * modifier, 1))
 				total_coin_value -= FLOOR(requested.cost * modifier, 1)
 				SSmerchant.requestlist |= requested.contains
-				add_abstract_elastic_data("economy", "mammons_spent", FLOOR(requested.cost * modifier, 1))
+				add_abstract_elastic_data(ELASCAT_ECONOMY, ELASDATA_MAMMONS_SPENT, FLOOR(requested.cost * modifier, 1))
 
 		spawn_coins(total_coin_value, platform)
-		add_abstract_elastic_data("economy", "mammons_gained", total_coin_value)
+		add_abstract_elastic_data(ELASCAT_ECONOMY, ELASDATA_MAMMONS_GAINED, total_coin_value)
 
 
 /datum/lift_master/tram/proc/spawn_coins(total_coin_value, obj/structure/industrial_lift/tram/platform)

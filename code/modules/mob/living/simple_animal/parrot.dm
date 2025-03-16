@@ -119,7 +119,7 @@
 
 	if(buckled)
 		buckled.unbuckle_mob(src,force=1)
-	buckled = null
+	set_buckled(null)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
 
@@ -250,7 +250,7 @@
 	if(pulledby && !stat && parrot_state != PARROT_WANDER)
 		if(buckled)
 			buckled.unbuckle_mob(src, TRUE)
-			buckled = null
+			set_buckled(null)
 		icon_state = icon_living
 		parrot_state = PARROT_WANDER
 		pixel_x = initial(pixel_x)
@@ -681,7 +681,7 @@
 		if(buckled)
 			to_chat(src, "<span class='notice'>I are no longer sitting on [buckled]'s shoulder.</span>")
 			buckled.unbuckle_mob(src, TRUE)
-		buckled = null
+		set_buckled(null)
 		pixel_x = initial(pixel_x)
 		pixel_y = initial(pixel_y)
 

@@ -12,10 +12,16 @@
 
 /datum/outfit/job/mercenary/underdweller/pre_equip(mob/living/carbon/human/H)
 	..()
+
+	var/shirt_type = pickweight(list(
+		/obj/item/clothing/armor/chainmail/iron = 1,//iron maille
+		/obj/item/clothing/armor/gambeson = 4,//gambeson
+		/obj/item/clothing/armor/gambeson/light = 4,//light gambeson
+		/obj/item/clothing/shirt/undershirt/sailor/red= 1))//sailor shirt
 	pants = /obj/item/clothing/pants/trou/leather
 	armor = /obj/item/clothing/armor/cuirass/iron
-	shirt = /obj/item/clothing/shirt/undershirt/sailor/red
-	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
+	shirt = shirt_type
+	shoes = /obj/item/clothing/shoes/boots/armor/light
 	belt = /obj/item/storage/belt/leather/mercenary
 	beltr = /obj/item/weapon/knife/hunting
 	neck = /obj/item/clothing/neck/chaincoif/iron
@@ -50,6 +56,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 
 		beltl = /obj/item/weapon/sword/sabre // Dark elves get a sabre as their primary weapon and swords skill, who woulda thought
+		head = /obj/item/clothing/head/helmet/leather//similar to the miner helm, except not as cool of course
 
 	H.merctype = 3
 

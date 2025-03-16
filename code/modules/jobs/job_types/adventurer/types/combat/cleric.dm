@@ -52,6 +52,7 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
 			neck = /obj/item/clothing/neck/chaincoif/iron
 			H.virginity = FALSE
+			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 			cloak =  /obj/item/clothing/cloak/stabard/templar/ravox

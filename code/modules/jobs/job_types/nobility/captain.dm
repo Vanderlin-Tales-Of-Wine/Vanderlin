@@ -163,7 +163,7 @@
 	new_role = "Garrison Recruit"
 	overlay_state = "recruit_guard"
 	recruitment_faction = "Garrison"
-	recruitment_message = "Join the Guarrison, %RECRUIT!"
+	recruitment_message = "Join the Garrison, %RECRUIT!"
 	accept_message = "I swear fealty to the Crown and its garrison!"
 	refuse_message = "I refuse."
 
@@ -172,3 +172,12 @@
 	if(!.)
 		return
 	recruit.verbs |= /mob/proc/haltyell
+
+/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard
+	name = "Recruit Forest Guard"
+	new_role = "Forest Garrison Recruit"
+	overlay_state = "recruit_guard"
+	recruitment_faction = "Forest Garrison"
+	recruitment_message = "Join the Forest Garrison, %RECRUIT!"
+	accept_message = "I swear to protect the forest!"
+	refuse_message = "I refuse."

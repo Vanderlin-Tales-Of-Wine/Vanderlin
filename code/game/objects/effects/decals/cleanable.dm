@@ -7,6 +7,7 @@
 	var/mergeable_decal = TRUE //when two of these are on a same tile or do we need to merge them into just one?
 	var/beauty = 0
 	obj_flags = CAN_BE_HIT
+	var/minimum_clean_strength = CLEAN_WEAK
 
 /obj/effect/decal/cleanable/Initialize(mapload)
 	. = ..()
@@ -104,3 +105,8 @@
 		return bloodiness
 	else
 		return 0
+
+/obj/effect/decal/cleanable/wash_act(clean)
+	. = ..()
+	if(clean >= minimum_clean_strength)
+		qdel(src)
