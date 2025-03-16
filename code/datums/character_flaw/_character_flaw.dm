@@ -333,7 +333,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/charflaw/greedy/on_mob_creation(mob/user)
 	next_mammon_increase = world.time + rand(15 MINUTES, 25 MINUTES)
 	last_passed_check = world.time
-	ADD_TRAIT(user, TRAIT_SEEPRICES, "[type]")
 
 /datum/charflaw/greedy/flaw_on_life(mob/user)
 	if(!first_tick)
