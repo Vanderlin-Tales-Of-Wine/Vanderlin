@@ -176,6 +176,12 @@
 		hud_used.throw_icon?.update_icon()
 		hud_used.give_intent?.update_icon()
 	givingto = null
+	if((istype(I, /obj/item/weapon) || istype(I, /obj/item/gun) || I.force >= 15) && !forced && client)
+		// is this the right hand?
+		var/right_hand = FALSE
+		if(hand_index == LEFT_HANDS)
+			right_hand = TRUE
+		log_message("[key_name(src)] has equipped [I] in their [right_hand ? "right hand" : "left hand"], combat mode: [cmode ? "COMBAT" : "PASSIVE"].", LOG_ATTACK, color="#3333ff") // into attack logs
 	return hand_index
 
 //Puts the item into the first available left hand if possible and calls all necessary triggers/updates. returns 1 on success.

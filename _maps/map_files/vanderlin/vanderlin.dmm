@@ -8072,6 +8072,14 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
+"fJX" = (
+/obj/machinery/light/fueled/oven{
+	pixel_x = -32
+	},
+/obj/machinery/light/fueled/hearth,
+/obj/item/cooking/pan,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "fKk" = (
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -8159,6 +8167,20 @@
 	lockid = "apartment3";
 	locked = 1;
 	name = "Apartment III"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
+"fNc" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/powder/flour{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/powder/flour{
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
@@ -11030,8 +11052,6 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "hSv" = (
-/obj/structure/table/stone_small,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
@@ -12946,6 +12966,13 @@
 	dir = 8
 	},
 /area/rogue/outdoors/town/roofs)
+"jjY" = (
+/obj/structure/mannequin{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "jkg" = (
 /turf/open/floor/church,
 /area/rogue/indoors/town)
@@ -14262,13 +14289,6 @@
 "kfl" = (
 /turf/closed/wall/mineral/decowood,
 /area/rogue/indoors/town/shop)
-"kfv" = (
-/obj/structure/mineral_door/bars{
-	lockid = "blacksmith";
-	name = "Shrine of Malum"
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/smithy)
 "kfx" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -20964,6 +20984,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
+"pqV" = (
+/obj/structure/rack/shelf/big,
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "pra" = (
 /obj/item/natural/stone,
 /turf/open/floor/dirt,
@@ -23411,10 +23435,6 @@
 /area/rogue/indoors/town)
 "rkC" = (
 /turf/closed/wall/mineral/wooddark/end,
-/area/rogue/indoors/town/smithy)
-"rkS" = (
-/obj/structure/bars,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/smithy)
 "rkX" = (
 /obj/structure/table/wood{
@@ -27776,6 +27796,12 @@
 	},
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/steward)
+"ujH" = (
+/obj/structure/fluff/walldeco/bigpainting/lake{
+	pixel_x = 0
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "ukg" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
@@ -31305,6 +31331,13 @@
 /obj/structure/stairs/fancy/r,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
+"wLs" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors/town)
 "wLx" = (
 /obj/structure/fluff/walldeco/painting/queen{
 	pixel_y = 32
@@ -95169,7 +95202,7 @@ uOB
 qBL
 wiM
 hSy
-rkS
+weA
 hSv
 tQB
 ehF
@@ -95371,8 +95404,8 @@ uOB
 fTF
 weA
 weA
-rkS
-kfv
+weA
+weA
 tQB
 elp
 elp
@@ -173962,13 +173995,13 @@ jjT
 jjT
 iBK
 acx
-acx
-acx
-hhO
-acx
-acx
-acx
-acx
+fdp
+jjT
+jjT
+jjT
+jjT
+jjT
+jjT
 fdp
 dtq
 ahZ
@@ -174165,13 +174198,13 @@ dtq
 iBK
 acx
 fdp
-jjT
-jjT
-jjT
-jjT
-jjT
-jjT
-fdp
+dtq
+dtq
+dtq
+dtq
+dtq
+dtq
+dtq
 dtq
 jNi
 iGx
@@ -174368,13 +174401,13 @@ iBK
 mEy
 fdp
 dtq
+fNc
+vxh
+fJX
+qDs
 dtq
-dtq
-kkI
-dtq
-dtq
-dtq
-dtq
+jjY
+ePm
 iGx
 iGx
 dtq
@@ -174569,16 +174602,16 @@ dtq
 iBK
 acx
 fdp
-dtq
-hJs
-dhG
+wLs
+ocA
+ocA
 ocA
 ocA
 dtq
+pqV
 iGx
-ePm
+iGx
 lCy
-iGx
 dtq
 iBK
 iBK
@@ -174772,9 +174805,9 @@ iBK
 acx
 fdp
 dtq
-qDs
-ocA
+ujH
 lyI
+ocA
 ocA
 iGs
 iGx
@@ -174974,7 +175007,7 @@ iBK
 jjT
 fdp
 dtq
-wnm
+ocA
 ocA
 cBH
 cBH
