@@ -27,7 +27,7 @@
 	if(departing_mob.stat == DEAD)
 		say("The dead cannot leave for Kingsfield, ensure they get a proper burial in Vanderlin.")
 		return
-	if(departing_mob.mind?.assigned_role in uncryoable)
+	if(departing_mob.mind?.assigned_role.title in uncryoable)
 		say("Surely you Jest M'lady/M'lord, you have a kingdom to rule over!")
 		return //prevents noble roles from cryoing as per request of Aberra
 	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
@@ -36,7 +36,7 @@
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
-	if(!do_after(user, 50, target = src))
+	if(!do_after(user, 5 SECONDS, target))
 		in_use = FALSE
 		return
 	in_use = FALSE
