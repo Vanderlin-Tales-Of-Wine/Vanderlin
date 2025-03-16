@@ -47,6 +47,7 @@
 /datum/slapcraft_step/item/rope
 	desc = "Add some rope."
 	item_types = list(/obj/item/rope)
+	blacklist_item_types = list(/obj/item/rope/chain)
 	perform_time = 1 SECONDS
 
 /datum/slapcraft_step/item/stake
