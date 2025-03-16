@@ -355,34 +355,71 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 ///// MAPPERS /////
 /obj/effect/mapping_helpers/secret_door_creator
-	name = "Secret door creator: Turns the given wall into a hidden door with a random password. THE VIPS LIST IS THE NAME OF THE JOB OR TITLE!"
-
-	var/turf/open/floor_turf = /turf/open/floor/wood
+	name = "Secret door creator: Turns the given wall into a hidden door with a random password."
+	icon = 'icons/effects/hidden_door.dmi'
+	icon_state = "hidden_door"
 
 	var/redstone_id
 
-	var/datum/language/given_lang = /datum/language/thievescant
-	var/list/vips = list("Thief", "Matron")
-	var/vip_message = "Thief and Matron"
+	var/obj/structure/mineral_door/secret/door_type = /obj/structure/mineral_door/secret
+	var/datum/language/given_lang = /datum/language/thievescant //DEPRECATED
+	var/list/vips = list("Thief", "Matron") //DEPRECATED
+	var/vip_message = "Thief and Matron" //DEPRECATED
+
+	var/override_floor = TRUE //Will only use the below as the floor tile if true. Source turf have at least 1 baseturf to use false
+	var/turf/open/floor_turf = /turf/open/floor/blocks
 
 /obj/effect/mapping_helpers/secret_door_creator/Initialize()
 	if(!isclosedturf(get_turf(src)))
 		return ..()
 	var/turf/closed/source_turf = get_turf(src)
-
-	var/obj/structure/mineral_door/secret/new_door = new /obj/structure/mineral_door/secret(source_turf)
-	new_door.vip = vips
-	new_door.lang = given_lang
-	new_door.vipmessage = vip_message
+	var/obj/structure/mineral_door/secret/new_door = new door_type(source_turf)
 
 	new_door.icon = source_turf.icon
 	new_door.icon_state = source_turf.icon_state
+	new_door.smooth = source_turf.smooth
+	new_door.canSmoothWith = source_turf.canSmoothWith
 	new_door.name = source_turf.name
 	new_door.desc = source_turf.desc
+
+	//assigns local smoothing to neighboring walls
+	//i can see this causing an issue under very specific door configuration.
+	for(var/dir in GLOB.cardinals)
+		var/turf/T = get_step(src, dir)
+		var/canDoorSmooth = FALSE
+		for(var/smoothType in new_door.canSmoothWith)
+			if(istype(T, smoothType))
+				canDoorSmooth = TRUE
+				break
+		message_admins("[T] canDoorSmooth = [canDoorSmooth]")
+		if(!canDoorSmooth)
+			continue
+		var/smoothCompatible = FALSE
+		var/alreadyAdded = FALSE
+		for(var/smoothType in T.canSmoothWith)
+			if(istype(source_turf, smoothType))
+				smoothCompatible = TRUE
+			if(ispath(smoothType, /obj/structure/mineral_door/secret))
+				alreadyAdded = TRUE
+				break
+		message_admins("[T]\n\tsmoothCompatible = [smoothCompatible]\n\talreadyAdded = [alreadyAdded]")
+		if(smoothCompatible && !alreadyAdded)
+			T.canSmoothWith += /obj/structure/mineral_door/secret
+
 	if(redstone_id)
 		new_door.redstone_id = redstone_id
 		GLOB.redstone_objs += new_door
 		new_door.LateInitialize()
 
-	source_turf.ChangeTurf(floor_turf)
+	if(override_floor || length(source_turf.baseturfs) < 1)
+		source_turf.ChangeTurf(floor_turf)
+	else
+		source_turf.ChangeTurf(source_turf.baseturfs[1])
+
 	. = ..()
+
+
+/obj/effect/mapping_helpers/secret_door_creator/keep
+	name = "Keep Secret Door Creator"
+	door_type = /obj/structure/mineral_door/secret/keep
+	override_floor = FALSE
