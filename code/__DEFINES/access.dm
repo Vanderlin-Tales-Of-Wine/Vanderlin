@@ -6,7 +6,7 @@
 #define ACCESS_MERCHANT "merchant"
 #define ACCESS_FARM "soilson"
 #define ACCESS_BUTCHER "butcher"
-#define ACCESS_APOTHECARY "apothocary"
+#define ACCESS_APOTHECARY "apothecary"
 #define ACCESS_FELDSHER "doctor"
 #define ACCESS_MATRON "orphanage"
 #define ACCESS_MERC "mercenary"
