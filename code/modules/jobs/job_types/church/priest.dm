@@ -134,7 +134,7 @@
 			consort_job?.remove_spells(HL)
 
 	coronated.mind.set_assigned_role(/datum/job/lord)
-
+	coronated.job = lord_job.get_informed_title(coronated)
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
 	GLOB.badomens -= OMEN_NOLORD
