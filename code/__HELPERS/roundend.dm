@@ -95,6 +95,7 @@
 	if(client)
 		client.show_game_over()
 	status_flags |= GODMODE
+	ai_controller?.set_ai_status(AI_STATUS_OFF)
 
 /mob/living/do_game_over()
 	..()
