@@ -130,6 +130,9 @@
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 2) // For casting lots of spells, and working long hours without sleep at the church
 		H.change_stat(STATKEY_PER, -1)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
