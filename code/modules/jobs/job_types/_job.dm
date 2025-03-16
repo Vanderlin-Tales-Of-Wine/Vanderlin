@@ -119,7 +119,7 @@
 */
 	var/list/advclass_cat_rolls
 
-	var/wanderer_examine = FALSE
+	var/is_foreigner = FALSE
 
 	var/datum/charflaw/forced_flaw
 
@@ -184,6 +184,9 @@
 			experiencer.mind.adjust_experience(i, roundstart_experience[i], TRUE)
 
 	/* V: PAST THIS POINT */
+
+	if(is_foreigner)
+		ADD_TRAIT(spawned, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 	add_spells(spawned)
 

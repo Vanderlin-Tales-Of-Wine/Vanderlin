@@ -168,18 +168,6 @@
 
 /obj/item/grown/log/tree/stick/attackby(obj/item/I, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(user.used_intent?.blade_class == BCLASS_CUT)
-		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
-		if(do_after(user, 2 SECONDS))
-			user.visible_message("<span class='notice'>[user] sharpens [src].</span>")
-			var/obj/item/grown/log/tree/stake/S = new /obj/item/grown/log/tree/stake(get_turf(src.loc))
-			if(user.is_holding(src))
-				user.dropItemToGround(src)
-				user.put_in_hands(S)
-			qdel(src)
-		else
-			user.visible_message("<span class='warning'>[user] sharpens [src].</span>")
-		return
 	if(istype(I, /obj/item/natural/bundle/stick))
 		var/obj/item/natural/bundle/stick/B = I
 		if(B.amount < B.maxamount)

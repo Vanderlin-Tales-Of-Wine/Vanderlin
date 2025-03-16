@@ -11,7 +11,7 @@
             "preLaunchTask": "dm: build - ${command:CurrentDME}",
             "dmb": "${workspaceFolder}/${command:CurrentDMB}"
         },
-            {
+        {
             "type": "byond",
             "request": "launch",
             "name": "Launch DreamSeeker (low memory mode)",
@@ -30,6 +30,14 @@
 			"request": "launch",
 			"name": "Launch DreamDaemon",
             "preLaunchTask": "dm: build - ${command:CurrentDME}",
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
+			"dreamDaemon": true
+		},
+        {
+			"type": "byond",
+			"request": "launch",
+			"name": "Launch DreamDaemon (unit tests)",
+            "preLaunchTask": "Build All (unit tests)",
 			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
 			"dreamDaemon": true
 		},

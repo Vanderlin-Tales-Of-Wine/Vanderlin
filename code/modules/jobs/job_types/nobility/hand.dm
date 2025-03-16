@@ -4,7 +4,8 @@
 	You are the most trusted of the ruler- their sibling, in fact. \
 	You have played spymaster and confidant to the Noble-Family for so long that you are a vault of intrigue, \
 	something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. \
-	Youve killed more men with those lips than any blademaster could ever claim to."
+	You have killed more men with those lips than any blademaster could ever claim to.\
+	You can add and remove agents with your Frumentarii scroll"
 	flag = HAND
 	department_flag = NOBLEMEN
 	display_order = JDO_HAND
@@ -22,7 +23,7 @@
 		"Half-Elf",
 		"Dwarf"
 	)
-	
+
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	give_bank_account = 120

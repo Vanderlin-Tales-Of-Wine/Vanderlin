@@ -367,7 +367,7 @@
 			return
 
 		if (SSticker.HasRoundStarted())
-			if (askuser(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", "Yes", "Cancel", Timeout = null) == 1)
+			if(browser_alert(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				SSticker.save_mode(href_list["c_mode2"])
 			HandleCMode()
 			return
@@ -376,7 +376,7 @@
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] set the mode as [GLOB.master_mode].</span>")
 		to_chat(world, "<span class='adminnotice'><b>The mode is now: [GLOB.master_mode]</b></span>")
 		Game() // updates the main game menu
-		if (askuser(usr, "Would you like to save this as the default mode for the server?", "Save mode", "Yes", "No", Timeout = null) == 1)
+		if(browser_alert(usr, "Would you like to save this as the default mode for the server?", "Save mode", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 			SSticker.save_mode(GLOB.master_mode)
 		HandleCMode()
 
@@ -724,6 +724,48 @@
 		var/mob/M = locate(href_list["getmob"])
 		usr.client.Getmob(M)
 
+	else if(href_list["increase_skill"])
+		var/mob/M = locate(href_list["increase_skill"])
+		var/datum/skill/skill = href_list["skill"]
+		M.mind?.adjust_skillrank(text2path(skill), 1)
+		log_admin("[usr] increased [M]'s [initial(skill.name)] skill.")
+		show_player_panel_next(M, "skills")
+
+	else if(href_list["decrease_skill"])
+		var/mob/M = locate(href_list["decrease_skill"])
+		var/datum/skill/skill = href_list["skill"]
+		M.mind?.adjust_skillrank(text2path(skill), -1)
+		log_admin("[usr] decreased [M]'s [initial(skill.name)] skill.")
+		show_player_panel_next(M, "skills")
+
+	else if(href_list["add_language"])
+		var/mob/M = locate(href_list["add_language"])
+		var/datum/language/lang = text2path(href_list["language"])
+		M.grant_language(lang)
+		log_admin("[usr] added [lang] to [M].")
+		show_player_panel_next(M, "languages")
+
+	else if(href_list["remove_language"])
+		var/mob/M = locate(href_list["remove_language"])
+		var/datum/language/lang = text2path(href_list["language"])
+		M.remove_language(lang)
+		log_admin("[usr] removed [lang] to [M].")
+		show_player_panel_next(M, "languages")
+
+	else if(href_list["add_stat"])
+		var/mob/living/M = locate(href_list["add_stat"])
+		var/statkey = href_list["stat"]
+		M.change_stat(statkey, 1)
+		log_admin("[usr] increased [M]'s [statkey].")
+		show_player_panel_next(M, "stats")
+
+	else if(href_list["lower_stat"])
+		var/mob/living/M = locate(href_list["lower_stat"])
+		var/statkey = href_list["stat"]
+		M.change_stat(statkey, -1)
+		log_admin("[usr] decreased [M]'s [statkey].")
+		show_player_panel_next(M, "stats")
+
 	else if(href_list["sendmob"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1047,6 +1089,12 @@
 		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
 		var/client/mob_client = M.client
 		check_pq_menu(mob_client.key)
+	else if(href_list["showtriumphs"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
+		var/client/mob_client = M.client
+		check_triumphs_menu(mob_client.ckey)
 
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))

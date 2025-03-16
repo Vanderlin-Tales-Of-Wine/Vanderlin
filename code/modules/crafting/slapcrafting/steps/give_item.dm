@@ -2,6 +2,10 @@
 	desc = "Add some cloth."
 	item_types = list(/obj/item/natural/cloth)
 
+/datum/slapcraft_step/item/cloth/second
+/datum/slapcraft_step/item/cloth/third
+/datum/slapcraft_step/item/cloth/fourth
+
 /datum/slapcraft_step/item/fiber
 	desc = "Add some fiber."
 	item_types = list(/obj/item/natural/fibers)
@@ -70,6 +74,12 @@
 
 /datum/slapcraft_step/item/iron/second
 
+/datum/slapcraft_step/item/copper
+	desc = "Add a copper ingot."
+	item_types = list(/obj/item/ingot/copper)
+
+/datum/slapcraft_step/item/copper/second
+
 /datum/slapcraft_step/item/riddleofsteel
 	desc = "Add a riddle of steel."
 	item_types = list(/obj/item/riddleofsteel)
@@ -79,6 +89,8 @@
 	item_types = list(/obj/item/natural/wood/plank)
 
 /datum/slapcraft_step/item/plank/second
+/datum/slapcraft_step/item/plank/third
+/datum/slapcraft_step/item/plank/fourth
 
 /datum/slapcraft_step/item/cog
 	desc = "Add a cog."
@@ -89,6 +101,10 @@
 /datum/slapcraft_step/item/silver
 	desc = "Add a silver ingot."
 	item_types = list(/obj/item/ingot/silver)
+
+/datum/slapcraft_step/item/gold
+	desc = "Add a gold ingot."
+	item_types = list(/obj/item/ingot/gold)
 
 /datum/slapcraft_step/item/glass
 	desc = "Add a pane of glass."
@@ -104,3 +120,11 @@
 	desc = "Add a finished lock."
 	item_types = list(/obj/item/customlock/finished)
 	insert_item_into_result = TRUE //check contents of finished item to handle lock behavior
+
+/datum/slapcraft_step/item/fur
+	desc = "Add some fur."
+	item_types = list(/obj/item/natural/fur)
+
+/datum/slapcraft_step/item/fur/second
+/datum/slapcraft_step/item/fur/third
+/datum/slapcraft_step/item/fur/fourth

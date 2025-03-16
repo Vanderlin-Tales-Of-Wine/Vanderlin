@@ -134,8 +134,14 @@
 	var/hurt = TRUE
 	if(hit_atom.density && isturf(hit_atom))
 		if(hurt)
-			Paralyze(20)
+			if(IsOffBalanced())
+				Paralyze(20)
+			else
+				Immobilize(1 SECONDS)
+			if(prob(20))
+				emote("scream") // lifeweb reference ?? xd
 			take_bodypart_damage(10,check_armor = TRUE)
+			playsound(src,"genblunt",100,TRUE)
 	if(iscarbon(hit_atom) && hit_atom != src)
 		var/mob/living/carbon/victim = hit_atom
 		if(victim.movement_type & FLYING)
@@ -203,10 +209,7 @@
 					if(!throwable_mob.buckled)
 						thrown_thing = throwable_mob
 						thrown_speed = 1
-						if(STASTR > throwable_mob.STACON)
-							thrown_range = 4
-						else
-							thrown_range = 1
+						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
@@ -215,6 +218,8 @@
 							return
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
+						if(start_T.z != end_T.z && (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+							return
 						if(start_T && end_T)
 							log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
 				else
@@ -367,7 +372,7 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 1 MINUTES, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, "<span class='warning'>You're already attempting to remove [I]!</span>")
+		to_chat(src, span_warning("I'm already trying to get out of \the [I]\s!"))
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.slipouttime
@@ -377,18 +382,18 @@
 	if(STASTR > 15 || (mind && mind.has_antag_datum(/datum/antagonist/zombie)) )
 		cuff_break = INSTANT_CUFFBREAK
 	if(!cuff_break)
-		to_chat(src, "<span class='notice'>I attempt to remove [I]...</span>")
+		to_chat(src, span_notice("I try to get out of \the [I]\s..."))
 		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='danger'>I fail to remove [I]!</span>")
+			to_chat(src, span_danger("I fail to get out of \the [I]\s!"))
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		to_chat(src, "<span class='notice'>I attempt to break [I]...</span>")
+		to_chat(src, span_notice("I attempt to break \the [I]\s..."))
 		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='danger'>I fail to break [I]!</span>")
+			to_chat(src, span_danger("I fail to break \the [I]\s!"))
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		clear_cuffs(I, cuff_break)
@@ -1029,7 +1034,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>I retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>I retrieve some of [src]'s internal organs!</span>")
 
 /mob/living/carbon/ExtinguishMob(itemz = TRUE)
 	if(itemz)
@@ -1215,3 +1220,32 @@
 			return FALSE
 	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
 		return FALSE
+
+///Returns a list of all body_zones covered by clothing
+/mob/living/carbon/proc/get_covered_body_zones()
+	RETURN_TYPE(/list)
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/covered_flags = NONE
+	var/list/all_worn_items = get_all_worn_items(src)
+	for(var/obj/item/worn_item in all_worn_items)
+		covered_flags |= worn_item.body_parts_covered
+
+	return body_parts_covered2organ_names(covered_flags)
+
+/mob/living/carbon/proc/try_skin_burn(reaction_volume)
+	var/list/covered_zones = get_covered_body_zones()
+
+	var/successful_burns = 0
+	for(var/obj/item/bodypart/bodypart as anything in bodyparts)
+		if(bodypart.body_zone in covered_zones)
+			continue
+		if(bodypart.acid_damage_intensity >= 1)
+			continue
+		if(!prob(100 - (successful_burns * 35)))
+			continue
+
+		if(prob(reaction_volume * 10))
+			bodypart.acid_damage_intensity++
+
+	update_body_parts(TRUE)

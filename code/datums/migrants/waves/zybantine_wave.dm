@@ -15,7 +15,6 @@
 	)
 	outfit = /datum/outfit/job/zybantine_migration/emir
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/zybantine_migration/emir/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -83,7 +82,6 @@
 	)
 	outfit = /datum/outfit/job/zybantine_migration/amirah
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/zybantine_migration/amirah/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -136,7 +134,6 @@
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/zybantine_migration/furusiyya
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/zybantine_migration/furusiyya/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -206,7 +203,6 @@
 	)
 	outfit = /datum/outfit/job/zybantine_migration/zybantine_guard
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/zybantine_migration/zybantine_guard/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -259,7 +255,6 @@
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/zybantine_migration/qatil/pre_equip(mob/living/carbon/human/H)
 	..()

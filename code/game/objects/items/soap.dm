@@ -9,13 +9,15 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 35 //slower than mop
-	force_string = "robust... against germs"
+	var/cleanspeed = 0.75 SECONDS // clean time in exchange for a lot more use
+	force_string = "robust... against filth"
 	var/uses = 100
+	var/slip_chance = 10
 
 /obj/item/soap/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/slippery, 80)
+	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
+	AddComponent(/datum/component/cleaner, cleanspeed, CLEAN_STRONG, CALLBACK(src, PROC_REF(should_clean)), CALLBACK(src, PROC_REF(decreaseUses))) //less scaling for soapies
 
 /obj/item/soap/examine(mob/user)
 	. = ..()
@@ -36,52 +38,24 @@
 				msg = "It's seen some light use, but it's still pretty fresh."
 	. += span_notice("[msg]")
 
-// Washing Implements
+/obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
 
-/obj/item/soap/bath
-	name = "herbal soap"
-	desc = "A soap made from various herbs."
-
-/obj/item/soap/bath/attack(mob/living/carbon/human/target, mob/living/carbon/user)
-	user.changeNext_move(CLICK_CD_MELEE)
-	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
-	if(!istype(bathspot, /turf/open/water/bath))
-		to_chat(user, span_warning("They must be in the bath water!"))
+/**
+ * Decrease the number of uses the bar of soap has.
+ *
+ * Arguments
+ * * source - the source of the cleaning
+ * * target - The atom that is being cleaned
+ * * user - The mob that is using the soap to clean.
+ */
+/obj/item/soap/proc/decreaseUses(datum/source, atom/target, mob/living/user, clean_succeeded)
+	if(!clean_succeeded)
 		return
-	if(!ishuman(target))
-		to_chat(user, span_warning("They don't want to be soaped..."))
-		return
+	uses--
+	if(uses <= 0)
+		noUses(user)
 
-	if(istype(target.wear_armor, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with armor on."))
-		return
-
-	if(istype(target.wear_shirt, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
-		return
-
-	if(istype(target.cloak, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
-		return
-
-	if(istype(target.wear_pants, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with pants on."))
-		return
-
-	if(istype(target.shoes, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with shoes on."))
-		return
-
-	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")	// Applies the special bonus only if Nitemaiden using the soap
-	playsound(src.loc, pick('sound/items/soaping.ogg'), 100)
-	if(do_after(user, 5 SECONDS, target))
-		if(user.mind?.get_skill_level(/datum/skill/misc/medicine) > SKILL_LEVEL_JOURNEYMAN)
-			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
-			to_chat(target, span_warning("I feel so relaxed and clean!"))
-			target.apply_status_effect(/datum/status_effect/buff/clean_plus)
-		else
-			user.visible_message(span_info("[user] tries their best to scrub [target] with the [src]."))
-			to_chat(target, span_warning("Ouch! That hurts!"))
-		uses -= 1
-		if(uses == 0)
-			qdel(src)
+/obj/item/soap/proc/noUses(mob/user)
+	to_chat(user, span_warning("[src] crumbles into tiny bits!"))
+	qdel(src)

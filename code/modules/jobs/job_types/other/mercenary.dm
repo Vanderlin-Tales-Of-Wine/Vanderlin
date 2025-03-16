@@ -33,6 +33,7 @@
 	outfit_female = null
 	give_bank_account = 3
 	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
+	is_foreigner = TRUE
 
 /datum/job/mercenary/after_spawn(mob/living/spawned, client/player_client)
 	..()

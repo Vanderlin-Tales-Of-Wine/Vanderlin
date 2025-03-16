@@ -78,3 +78,35 @@
 /datum/reagent/consumable/ice/on_mob_life(mob/living/carbon/M)
 	M.adjust_bodytemperature(-5 * TEMPERATURE_DAMAGE_COEFFICIENT, BODYTEMP_NORMAL)
 	..()
+
+/datum/reagent/consumable/golden_calendula_tea
+	name = "Golden Calendula Tea"
+	description = "A refreshing tea, great to soothe wounds and relieve fatigue."
+	color = "#b38e17"
+
+/datum/reagent/consumable/golden_calendula_tea/on_mob_life(mob/living/carbon/M)
+	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
+		M.adjust_stamina(-0.5, internal_regen = FALSE)
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
+		M.blood_volume = min(M.blood_volume+5, BLOOD_VOLUME_MAXIMUM)
+	var/list/wCount = M.get_wounds()
+	if(wCount.len > 0)
+		M.heal_wounds(1) //at a motabalism of .5 U a tick this translates to 120WHP healing with 20 U Most wounds are unsewn 15-100. This is powerful on single wounds but rapidly weakens at multi wounds.
+	if(volume > 0.99)
+		M.adjustBruteLoss(-0.75*REM, 0)
+		M.adjustFireLoss(-0.75*REM, 0)
+		M.adjustOxyLoss(-0.25, 0)
+		M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -1*REM)
+		M.adjustCloneLoss(-0.75*REM, 0)
+	..()
+
+/datum/reagent/consumable/soothing_valerian_tea
+	name = "Soothing Valerin Tea"
+	description = "A refreshing tea, great to ease fatigue and relieve stress."
+	color = "#3b9146"
+	quality = DRINK_FANTASTIC
+
+/datum/reagent/consumable/soothing_valerian_tea/on_mob_life(mob/living/carbon/M)
+	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
+		M.adjust_stamina(-0.3, internal_regen = FALSE)
+	..()

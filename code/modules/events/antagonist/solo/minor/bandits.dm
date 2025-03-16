@@ -10,6 +10,7 @@
 
 	restricted_roles = list(
 		"Monarch",
+		"Jester",
 		"Consort",
 		"Prince",
 		"Princess",
@@ -38,7 +39,8 @@
 	)
 
 	base_antags = 4
-	maximum_antags = 8
+	maximum_antags = 12
+	denominator = 10
 
 	earliest_start = 0 SECONDS
 

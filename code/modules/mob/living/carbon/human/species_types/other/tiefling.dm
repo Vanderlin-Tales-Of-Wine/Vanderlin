@@ -10,7 +10,7 @@
 /datum/species/tieberian
 	name = "Tiefling"
 	id = "tiefling"
-	desc = "Also known as Infernal-Spawn, Hell-Bloods, Surface-Devils, and perhaps in a more humourous manner, <i>thief</i>-lings. \
+	desc = "Also known as Infernal-Spawn, Hell-Bloods, Surface-Devils, and perhaps in a more humorous manner, <i>thief</i>-lings. \
 	\n\n\
 	Their treatment ranges from shunning to distrust, depending on the region. \
 	Shopkeeps and merchants always keep a wary eye out when a tiefling passes by. \
@@ -30,6 +30,8 @@
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Progenitor"
+
+	exotic_bloodtype = /datum/blood_type/human/tiefling
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP,TRAIT_NOFIRE)

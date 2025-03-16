@@ -12,6 +12,11 @@
 
 	var/obj/effect/skill_tracker/thieves_cant/thieves_marking
 
+/turf/closed/basic/New()//Do not convert to Initialize
+	SHOULD_CALL_PARENT(FALSE)
+	//This is used to optimize the map loader
+	return
+
 /turf/closed/examine(mob/user)
 	. = ..()
 	if(thieves_marking)

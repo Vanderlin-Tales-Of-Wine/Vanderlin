@@ -19,9 +19,10 @@ GLOBAL_VAR(test_log)
 	//Bit of metadata for the future maybe
 	var/list/procs_tested
 
-	//usable vars
-	var/turf/run_loc_bottom_left
-	var/turf/run_loc_top_right
+	/// The bottom left floor turf of the testing zone
+	var/turf/run_loc_floor_bottom_left
+	/// The top right floor turf of the testing zone
+	var/turf/run_loc_floor_top_right
 
 	///The priority of the test, the larger it is the later it fires
 	var/priority = TEST_DEFAULT
@@ -31,18 +32,37 @@ GLOBAL_VAR(test_log)
 	var/succeeded = TRUE
 	var/list/fail_reasons
 
+	/// List of atoms that we don't want to ever initialize in an agnostic context, like for Create and Destroy. Stored on the base datum for usability in other relevant tests that need this data.
+	var/static/list/uncreatables = null
+
+	var/static/datum/space_level/reservation
+
 /proc/cmp_unit_test_priority(datum/unit_test/a, datum/unit_test/b)
 	return initial(a.priority) - initial(b.priority)
 
 /datum/unit_test/New()
-	run_loc_bottom_left = locate(1, 1, 1)
-	run_loc_top_right = locate(5, 5, 1)
+	if (isnull(reservation))
+		var/datum/map_template/unit_tests/template = new
+		reservation = template.load_new_z()
+
+	if(isnull(uncreatables))
+		uncreatables = build_list_of_uncreatables()
+
+	run_loc_floor_bottom_left = get_turf(locate(/obj/effect/landmark/unit_test_bottom_left) in GLOB.landmarks_list)
+	run_loc_floor_top_right = get_turf(locate(/obj/effect/landmark/unit_test_top_right) in GLOB.landmarks_list)
+
+	TEST_ASSERT(isfloorturf(run_loc_floor_bottom_left), "run_loc_floor_bottom_left was not a floor ([run_loc_floor_bottom_left])")
+	TEST_ASSERT(isfloorturf(run_loc_floor_top_right), "run_loc_floor_top_right was not a floor ([run_loc_floor_top_right])")
 	allocated = list()
 
 /datum/unit_test/Destroy()
 	//clear the test area
-	for(var/atom/movable/AM in block(run_loc_bottom_left, run_loc_top_right))
-		qdel(AM)
+	// clear the test area
+	for(var/turf/turf in block(locate(1, 1, run_loc_floor_bottom_left.z), locate(world.maxx, world.maxy, run_loc_floor_bottom_left.z)))
+		for(var/content in turf.contents)
+			if(iseffect(content))
+				continue
+			qdel(content)
 	QDEL_LIST(allocated)
 	return ..()
 
@@ -56,6 +76,69 @@ GLOBAL_VAR(test_log)
 		reason = "FORMATTED: [reason != null ? reason : "NULL"]"
 
 	LAZYADD(fail_reasons, reason)
+
+/// Allocates an instance of the provided type, and places it somewhere in an available loc
+/// Instances allocated through this proc will be destroyed when the test is over
+/datum/unit_test/proc/allocate(type, ...)
+	var/list/arguments = args.Copy(2)
+	if (!arguments.len)
+		arguments = list(run_loc_floor_bottom_left)
+	else if (arguments[1] == null)
+		arguments[1] = run_loc_floor_bottom_left
+	var/instance = new type(arglist(arguments))
+	allocated += instance
+	return instance
+
+/datum/unit_test/proc/final/build_list_of_uncreatables()
+	var/list/ignore = list(
+		//Never meant to be created, errors out the ass for mobcode reasons
+		/mob/living/carbon,
+		//Needs a seed passed, but subtypes set one by default
+		/obj/item/grown,
+		/obj/item/reagent_containers/food/snacks/grown,
+		//Template type
+		/obj/effect/mob_spawn,
+		//Singleton
+		/mob/dview,
+		//Template type
+		/obj/item/bodypart,
+		//template types
+		//template type again
+		/obj/item/storage/fancy,
+		//needs a mob passed to view it
+		/atom/movable/screen/credit,
+		//invalid without mob/living passed
+		/obj/shapeshift_holder,
+		// requires a pod passed
+		/obj/effect/DPfall,
+		/obj/effect/DPtarget,
+		// prompts loc for input
+		/obj/item/clothing/shirt/grenzelhoft,
+	)
+	//these are VERY situational and need info passed
+	ignore += typesof(/obj/effect/abstract)
+	//needs a lich passed
+	ignore += typesof(/obj/item/phylactery)
+	//cba to fix hitscans erroring in Destroy, so just ignore all projectiles
+	ignore += typesof(/obj/projectile)
+	//Say it with me now, type template
+	ignore += typesof(/obj/effect/mapping_helpers)
+	//This turf existing is an error in and of itself
+	ignore += typesof(/turf/baseturf_skipover)
+	ignore += typesof(/turf/baseturf_bottom)
+	//We have a baseturf limit of 10, adding more than 10 baseturf helpers will kill CI, so here's a future edge case to fix.
+	ignore += typesof(/obj/effect/baseturf_helper)
+	//Expects a mob to holderize, we have nothing to give
+	ignore += typesof(/obj/item/clothing/head/mob_holder)
+	//Needs cards passed into the initilazation args
+	ignore += typesof(/obj/item/toy/cards/cardhand)
+	//needs multiple atoms passed
+	ignore += typesof(/obj/effect/buildmode_line)
+	//runtimes without a landmark to spawn on
+	ignore += typesof(/obj/structure/industrial_lift)
+
+	ignore += typesof(/obj/effect/spawner)
+	ignore += typesof(/atom/movable/screen)
 
 /proc/RunUnitTests()
 	CHECK_TICK
@@ -86,14 +169,6 @@ GLOBAL_VAR(test_log)
 
 	SSticker.force_ending = TRUE
 
-/// Allocates an instance of the provided type, and places it somewhere in an available loc
-/// Instances allocated through this proc will be destroyed when the test is over
-/datum/unit_test/proc/allocate(type, ...)
-	var/list/arguments = args.Copy(2)
-	if (!arguments.len)
-		arguments = list(run_loc_bottom_left)
-	else if (arguments[1] == null)
-		arguments[1] = run_loc_bottom_left
-	var/instance = new type(arglist(arguments))
-	allocated += instance
-	return instance
+/datum/map_template/unit_tests
+	name = "Unit Tests Zone"
+	mappath = "_maps/templates/unit_tests.dmm"

@@ -40,8 +40,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define islava(A) (istype(A, /turf/open/lava))
 
-#define ischasm(A) (istype(A, /turf/open/chasm))
-
 #define isplatingturf(A) (istype(A, /turf/open/floor/plating))
 
 #define istransparentturf(A) (istype(A, /turf/open/transparent) || istype(A, /turf/closed/transparent))

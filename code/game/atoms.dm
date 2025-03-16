@@ -324,7 +324,7 @@
 	return FALSE
 
 /atom/proc/CheckExit()
-	return 1
+	return TRUE
 
 ///Is this atom within 1 tile of another atom
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
@@ -1048,6 +1048,26 @@
 	if(user != target)
 		var/reverse_message = "has been [what_done] by [ssource][postfix]"
 		target.log_message(reverse_message, LOG_ATTACK, color="orange", log_globally=FALSE)
+
+/**
+ * Log a combat defense message in the attack log
+ *
+ * vars:
+ ** defender - the one defending
+ ** attacker - the one attacking
+ ** defending_atom - the thing used to defend
+ ** attacking_atom - the thing used to attack
+ ** addition - something to append at the end
+ */
+/proc/log_defense(atom/defender, atom/attacker, what_done, atom/defending_atom, atom/attacking_atom, addition=null)
+	var/sattacker = key_name(attacker)
+
+	var/saddition = ""
+	if(addition)
+		saddition = " [addition]"
+
+	var/message = "has [what_done] [sattacker]'s attack!; defended with: [defending_atom ? defending_atom : "hands"], attacked with: [attacking_atom ? attacking_atom : "hands"][saddition ? " [saddition]" : ""]."
+	defender.log_message(message, LOG_ATTACK, color="red")
 
 /atom/movable/proc/add_filter(name,priority,list/params)
 	if(!filter_data)

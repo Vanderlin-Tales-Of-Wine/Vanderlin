@@ -29,6 +29,7 @@
 	outfit = /datum/outfit/job/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
 	can_have_apprentices = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/adept
 	name = "Adept"
@@ -86,7 +87,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-	H.mind?.teach_crafting_recipe(/datum/crafting_recipe/confessional)
+	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 
 // Reformed Thief, a class balanced to rogue. Axe and crossbow focus.
 /datum/advclass/adept/rthief
