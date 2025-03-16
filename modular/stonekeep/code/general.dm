@@ -1035,3 +1035,27 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -1,"nx" = 13,"ny" = -1,"wx" = 4,"wy" = 0,"ex" = 2,"ey" = -1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 2,"sflip" = 0,"wflip" = 0,"eflip" = 8)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
+/obj/item/reagent_containers/food/snacks/crow/dead
+	icon = 'icons/roguetown/mob/monster/crow.dmi'
+
+
+/datum/looping_sound/wiseloop
+	mid_sounds = list('sound/music/tree.ogg')
+	mid_length = 1200
+	volume = 80
+	extra_range = -1
+
+
+/obj/structure/flora/tree/wise
+	var/datum/looping_sound/wiseloop/soundloop
+
+/obj/structure/flora/tree/wise/Initialize()
+	. = ..()
+	soundloop = new(src, FALSE)
+	soundloop.start()
+
+/obj/structure/flora/tree/wise/Destroy()
+	soundloop.stop()
+	. = ..()

@@ -34,7 +34,7 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/manorgarri
-	first_time_text = "The Stonehill manor"
+	first_time_text = "Stonehill manor"
 
 /area/rogue/indoors/town/garrison
 	name = "garrison"
@@ -45,6 +45,21 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/manorgarri
+
+
+/area/rogue/indoors/town/church
+	name = "temple"
+	icon_state = "church"
+	droning_sound = list('modular/stonekeep/kaizoku/sound/ambience/Syzygy.ogg', 'sound/music/area/Temple.ogg')
+	droning_sound_dusk = null
+	droning_sound_night = 'sound/music/area/churchnight.ogg'
+	converted_type = /area/rogue/outdoors/exposed/church
+
+/area/rogue/outdoors/exposed/church
+	icon_state = "church"
+	droning_sound = list('modular/stonekeep/kaizoku/sound/ambience/Syzygy.ogg', 'sound/music/area/Temple.ogg')
+	droning_sound_dusk = null
+	droning_sound_night = 'sound/music/area/churchnight.ogg'
 
 
 /area/rogue/outdoors/rtfield/plague_district
@@ -221,3 +236,22 @@
 /area/rogue/under/town/caverogue/saltmine
 	name = "salt mine"
 	first_time_text = "Salt Mine"
+
+/area/rogue/under/necropolis
+	name = "necropolis"
+	icon_state = "cave"
+	first_time_text = "Necropolis"
+	ambientsounds = AMB_CAVEWATER
+	ambientnight = AMB_CAVEWATER
+	spookysounds = SPOOKY_CAVE
+	spookynight = SPOOKY_CAVE
+	droning_sound = 'sound/music/area/caves.ogg'
+	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'
+	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
+	ambush_times = list("night","dawn","dusk","day")
+	ambush_types = list(
+				/turf/open/water/swamp)
+	ambush_mobs = list(
+				/mob/living/carbon/human/species/skeleton/skilled/unarmed = 30,
+				/mob/living/simple_animal/hostile/retaliate/bigrat = 10)
+

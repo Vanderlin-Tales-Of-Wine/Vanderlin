@@ -257,7 +257,7 @@
 	blade_class = BCLASS_BLUNT
 	hitsound = "punch_hard"
 	chargetime = 0
-	penfactor = 13
+	penfactor = 25
 	swingdelay = 4 SECONDS
 	candodge = TRUE
 	canparry = FALSE
@@ -268,6 +268,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/trollbog
 	base_intents = list(/datum/intent/simple/trollsmash, /datum/intent/simple/trollrip)
+	melee_damage_lower = 35
+	melee_damage_upper = 60
 
 /mob/living/simple_animal/hostile/retaliate/wolf
 	base_intents = list(/datum/intent/simple/critterbite)

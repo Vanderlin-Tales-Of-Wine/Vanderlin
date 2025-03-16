@@ -29,45 +29,26 @@
 // base was 8, 5 for torches
 
 /obj/machinery/light/fueled/firebowl
-	brightness = 9
-/obj/machinery/light/fueled/firebowl/Initialize()
-	. = ..()
 	brightness = 10
-	light_outer_range =  9
+	bulb_power = 1.5
+
 
 /obj/machinery/light/fueled/wallfire
 	brightness = 9
-/obj/machinery/light/fueled/wallfire/Initialize()
-	light_outer_range =  8
-	brightness = 9
-	. = ..()
-
-/obj/machinery/light/fueled/wallfire/candle/Initialize()
-	light_outer_range =  6
-	brightness = 7
-	. = ..()
+	bulb_power = 1.1
 
 /obj/machinery/light/fueled/hearth/big_fireplace
-	brightness = 10
-/obj/machinery/light/fueled/hearth/big_fireplace/Initialize()
-	. = ..()
-	light_outer_range =  8
-	brightness = 10
+	brightness = 11
+	bulb_power = 1.3
 
 
 /obj/machinery/light/fueled/torchholder
 	brightness = 7
-/obj/machinery/light/fueled/torchholder/Initialize()
-	. = ..()
-	light_outer_range =  6
-	brightness = 6
+	bulb_power = 1.1
 
 /obj/machinery/light/fueled/campfire
 	brightness = 8
-/obj/machinery/light/fueled/campfire/Initialize()
-	. = ..()
-	light_outer_range =  6
-	brightness = 8
+	bulb_power = 1.1
 
 /obj/machinery/light/fueled/torchholder/empty
 	lacks_torch = TRUE
@@ -305,7 +286,7 @@
 		return
 	if(user.incapacitated() || QDELETED(departing_mob) || (departing_mob != user && departing_mob.client) || get_dist(src, dropping) > 2 || get_dist(src, user) > 2)
 		return //Things have changed since the alert happened.
-	user.visible_message("<span class='warning'>[user] [departing_mob == user ? "is trying to depart from these lands!" : "is trying to send [departing_mob] away!"]</span>", "<span class='notice'>You [departing_mob == user ? "are trying to depart from Azure Peak." : "are trying to send [departing_mob] away."]</span>")
+	user.visible_message("<span class='warning'>[user] [departing_mob == user ? "is trying to depart from these lands!" : "is trying to send [departing_mob] away!"]</span>", "<span class='notice'>You [departing_mob == user ? "are trying to depart from these lands." : "are trying to send [departing_mob] away."]</span>")
 	in_use = TRUE
 	if(!do_after(user, 50, target = src))
 		in_use = FALSE
@@ -355,24 +336,26 @@
 	density = TRUE
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "chimney"
-/obj/structure/chimney/MouseDrop_T(obj/O, mob/user)
+/obj/structure/chimney/MouseDrop_T(obj/O, mob/living/carbon/user)
 	. = ..()
+//	var/mob/living/carbon/H = user
 	if(!in_range(src, user))
 		return
-	if(!isgoblin(user))	// ROGTODO test it works
-		if(!user.job == "Beggar")
-			return
+	if(!user.mind.get_skill_level(/datum/skill/misc/climbing) >= 3)	// Climb 4 and above can chimney climb
+		return
 	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 	if(!do_after(user, 3 SECONDS, src))
 		return
-	user.visible_message("<span class='notice'>[user] climbs down [src].</span>", "<span class='notice'>I climb down [src].</span>")
+	user.visible_message("<span class='notice'>[user] slides down [src].</span>", "<span class='notice'>I slide down [src].</span>")
 	src.add_fingerprint(user)
 	var/turf/chimney = get_turf(src)
 	var/turf/destination = locate(chimney.x, chimney.y, chimney.z)
 	destination = locate(chimney.x, chimney.y, chimney.z - 1)
 	if(isliving(user))
 		mob_move_travel_z_level(user, destination)
-
+	user.adjustBruteLoss(5)		// Climber takes some damage
+	user.AdjustStun(30)
+	user.AdjustKnockdown(20)
 
 
 /obj/structure/bars/cemetery/vines

@@ -83,7 +83,7 @@
 /obj/item/reagent_containers/food/snacks/friedfrog
 	name = "fried frog"
 	desc = "are you sure you are going to eat this?"
-	icon = 'modular/stonekeep/icons/food.dmi'
+	icon = 'modular/stonekeep/kaizoku/icons/mobs/fogfrog.dmi'
 	icon_state = "fogfrog_cooked"
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/fogblight = 10) //heat denaturalized the poison, so it is less harmful. Still bad.
@@ -153,7 +153,7 @@
 		return
 	if(prob(5))
 		playsound(src, pick('modular/stonekeep/kaizoku/sound/vo/general/undinecall3.ogg','modular/stonekeep/kaizoku/sound/vo/general/undinecall4.ogg','modular/stonekeep/kaizoku/sound/vo/general/undinecall5.ogg'), 100, TRUE, -1)
-	if(prob(75) && !dead)
+	if(prob(25) && !dead)
 		dir = pick(GLOB.cardinals)
 		step(src, dir)
 

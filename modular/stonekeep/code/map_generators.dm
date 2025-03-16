@@ -90,48 +90,35 @@
 	startTurfY = 1
 
 /datum/mapGenerator/wetlands
-	modules = list(/datum/mapGeneratorModule/ambushing/wetlands,/datum/mapGeneratorModule/wetlands, /datum/mapGeneratorModule/wetgrassier,/datum/mapGeneratorModule/wetwater, /datum/mapGeneratorModule/wetwaterdeep, /datum/mapGeneratorModule/wetgrass,/datum/mapGeneratorModule/wetdirt,/datum/mapGeneratorModule/wetlandsred)
+	modules = list(/datum/mapGeneratorModule/ambushing/wetlands,/datum/mapGeneratorModule/wetlands, /datum/mapGeneratorModule/wetwater, /datum/mapGeneratorModule/wetwaterdeep, /datum/mapGeneratorModule/wetgrass,/datum/mapGeneratorModule/wetdirt,/datum/mapGeneratorModule/wetlandsred)
 
 /datum/mapGeneratorModule/wetlands
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/bush_meagre = 1,
 							/obj/structure/flora/grass/herb/random = 1,
-							/obj/structure/flora/grass = 1,
-							/obj/item/natural/stone = 2,
+							/obj/item/natural/stone = 1,
 							/obj/structure/flora/grass/swampweed = 1,
-							/obj/item/grown/log/tree/stick = 0.1,
-							/obj/structure/flora/rock/pebbles/bogmix = 1,
+							/obj/structure/flora/rock/pebbles/bogmix = 4,
 							)
 	spawnableTurfs = list(/turf/open/floor/dirt/muddie = 2)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 
-/datum/mapGeneratorModule/wetgrassier
-	clusterCheckFlags = CLUSTER_CHECK_NONE
-	allowed_turfs = list(/turf/open/floor/grass)
-	spawnableAtoms = list(
-							/obj/structure/flora/grass = 9,
-							)
-	spawnableTurfs = list(/turf/open/floor/dirt = 2)
-	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
-
-
 /datum/mapGeneratorModule/wetwater
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/grass/water = 5,
-						/obj/structure/flora/grass/water/reeds = 10,
-						/obj/structure/flora/rogueflower/reedbush = 4,
-						/obj/structure/kneestingers = 20)
+	spawnableAtoms = list(/obj/structure/flora/grass/water = 4,
+						/obj/structure/flora/grass/water/reeds = 2,
+						/obj/structure/flora/rogueflower/reedbush = 2,
+						/obj/structure/kneestingers = 2)
 	allowed_turfs = list(/turf/open/water/swamp)
-	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
+	allowed_areas = list(/area/rogue/outdoors/bog/wetlands, /area/rogue/outdoors/bog/wetlands/gator)
 
 /datum/mapGeneratorModule/wetwaterdeep
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/rogueflower/reedbush = 4)
-	allowed_turfs = list(/turf/open/water/swamp/deep)
-	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
+	spawnableAtoms = list(/obj/structure/flora/grass/water = 8, /obj/structure/flora/rogueflower/reedbush = 3)
+	allowed_turfs = list(/turf/open/floor/dirt/muddie)
+	allowed_areas = list(/area/rogue/outdoors/bog/wetlands, /area/rogue/outdoors/bog/wetlands/gator)
 
 /datum/mapGeneratorModule/wetlandsred
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -146,27 +133,29 @@
 							/obj/structure/flora/grass/bush_meagre = 2,
 							/obj/structure/flora/grass/maneater = 1,
 							/obj/structure/flora/grass/herb/random = 4,
-							/obj/structure/flora/grass = 3,
+							/obj/structure/flora/grass = 2,
 							/obj/structure/flora/grass/swampweed = 1,
 							/obj/item/grown/log/tree/stick = 1,
 							/obj/structure/flora/grass/maneater/real = 1,
 							)
 	allowed_turfs = list(/turf/open/floor/grass)
+	spawnableTurfs = list(/turf/open/floor/dirt = 2)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 
 
 /datum/mapGeneratorModule/wetdirt
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	spawnableAtoms = list(/obj/structure/flora/rock/pebbles/bogmix = 6,
-						/obj/structure/flora/rock/pebbles/brown = 1)
+						/obj/structure/flora/rock/pebbles/brown = 1,
+						/obj/item/reagent_containers/food/snacks/fogdart = 2)
 	allowed_turfs = list(/turf/open/floor/dirt)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 
 /datum/mapGeneratorModule/ambushing/wetlands
-	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=8)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
-	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/water/swamp)
+	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass, /turf/open/water/swamp)
 
 // ===================================================================================
 /*	..................  StoneHamlet Murderwoods Mapgen  ................... */

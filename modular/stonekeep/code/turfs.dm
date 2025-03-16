@@ -77,22 +77,18 @@
 	neighborlay = "cobblerock"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass,)
+						/turf/open/floor/grass,
+						/turf/open/floor/snow,)
 
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
 //	smooth = SMOOTH_BORDER
-	smooth = SMOOTH_TRUE | SMOOTH_DIAGONAL
-	canSmoothWith = list(
+//	smooth = SMOOTH_TRUE | SMOOTH_DIAGONAL
+	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
-						/turf/open/floor/snow/rough)
+						/turf/open/floor/snow,)
 
 /turf/open/floor/cobblerock/alt/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -106,7 +102,9 @@
 	icon_state = "cobblerock_red"
 	neighborlay = "cobblerock_red"
 	smooth = SMOOTH_MORE
-
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass,
+						/turf/open/floor/snow,)
 
 /turf/open/floor/cobble/mossy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -234,6 +232,7 @@
 						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/grass/yel,
 						/turf/open/floor/grass/red,
+						/turf/open/floor/dirt/muddie
 						)
 
 /turf/open/floor/grass/Initialize()
@@ -306,10 +305,11 @@
 //	smooth = SMOOTH_MORE
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
-						/turf/open/floor/cobblerock/alt,
+//						/turf/open/floor/cobblerock/alt,
 						/turf/open/floor/grass,
 						/turf/open/floor/snow,
 						/turf/open/floor/dirt/muddie,
+//						/turf/open/floor/dirt/road,
 						)
 
 /turf/open/floor/dirt/Initialize()
@@ -320,13 +320,15 @@
 	..()
 
 /turf/open/floor/dirt/road
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	neighborlay = "roadedge"
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral,
-						/turf/open/floor/dirt,
-						/turf/open/floor/dirt/muddie,
 						/turf/open/floor/grass,
-						/turf/open/floor/cobblerock/alt,
+						/turf/open/floor/snow,
+						/turf/open/floor/dirt/,
+						/turf/open/floor/dirt/muddie,
 						)
 
 /turf/open/floor/dirt/road/Initialize()
@@ -348,8 +350,8 @@
 	footstep = FOOTSTEP_MUD
 	barefootstep = FOOTSTEP_MUD
 	heavyfootstep = FOOTSTEP_MUD
-//	canSmoothWith = list()	ROGTODO test is this correct settings for the mud smooth?
-	smooth = SMOOTH_FALSE
+	canSmoothWith = list()	//ROGTODO test is this correct settings for the mud smooth?
+//	smooth = SMOOTH_FALSE
 
 
 /turf/open/floor/dirt/muddie/Initialize()

@@ -81,13 +81,13 @@
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
-	return  H.change_mob_type(/mob/living/carbon/human/species/goblin/hell, delete_old_mob = TRUE)
+	return  H.change_mob_type(/mob/living/carbon/human/species/goblin, delete_old_mob = TRUE)
 
 /datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
-		H.set_species(/datum/species/goblin/hell)
+		H.set_species(/datum/species/goblin)
 		if(M.mind)
 			M.mind.special_role = "goblin"
 			M.mind.assigned_role = "goblin"

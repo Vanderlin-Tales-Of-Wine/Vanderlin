@@ -22,7 +22,7 @@
 	dodgetime = 2 SECONDS
 	canparry = TRUE
 	flee_in_pain = FALSE
-	wander = TRUE
+	wander = FALSE
 	ambushable = FALSE
 
 /mob/living/carbon/human/species/skeleton/skilled/proc/configure_mind()
@@ -136,6 +136,34 @@
 			r_hand = /obj/item/weapon/flail
 			l_hand = /obj/item/weapon/shield/wood
 			neck = /obj/item/clothing/neck/chaincoif
+
+
+/mob/living/carbon/human/species/skeleton/skilled/ancient
+	name = "ancient skeleton"
+	skel_outfit = /datum/outfit/job/ancient_skeleton
+
+/mob/living/carbon/human/species/skeleton/skilled/ancient/configure_mind()
+	if(!mind)
+		mind = new /datum/mind(src)
+
+	mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+
+/datum/outfit/job/ancient_skeleton/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.STASTR = 12
+	H.TOTALSTR = rand(13,14)
+	H.TOTALSPD = 8
+	H.TOTALCON = 9
+	H.TOTALEND = 15
+	H.TOTALINT = 1
+
 
 
 // ===================================================================================
@@ -598,3 +626,58 @@
 		playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
 
 
+
+
+
+
+
+
+/datum/outfit/job/cryptkeeper/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
+	..()
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	armor = /obj/item/clothing/armor/chainmail/iron
+	if(prob(50))
+		shirt = /obj/item/clothing/shirt/undershirt/vagrant
+	else
+		shirt = /obj/item/clothing/shirt/undershirt/vagrant/l
+	pants = /obj/item/clothing/pants/chainlegs/iron
+	head = /obj/item/clothing/head/helmet/leather
+	shoes = /obj/item/clothing/shoes/boots
+
+	H.TOTALSTR = rand(14,16)
+	H.TOTALSPD = 8
+	H.TOTALCON = 9
+	H.TOTALEND = 15
+	H.TOTALINT = 1
+
+	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
+	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+
+	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+
+	H.set_patron(/datum/patron/inhumen/zizo)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+
+	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
+	/datum/rmb_intent/aimed,\
+	/datum/rmb_intent/strong,\
+	/datum/rmb_intent/swift,\
+	/datum/rmb_intent/riposte,\
+	/datum/rmb_intent/weak)
+	H.swap_rmb_intent(num=1) //dont want to mess with base NPCs too much out of fear of breaking them so I assigned the intents in the outfit
+
+	if(prob(50))
+		r_hand = /obj/item/weapon/sword
+	else
+		r_hand = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
