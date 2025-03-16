@@ -411,8 +411,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				dat += "<br></td>"
 //				dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
 			else if(use_skintones || mutant_colors)
-
-
 				dat += "</td>"
 
 //			if(HAIR in pref_species.species_traits)
