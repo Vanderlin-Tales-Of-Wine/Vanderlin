@@ -67,6 +67,13 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 /obj/structure/mineral_door/secret/door_rattle()
 	return
 
+//can't kick it open, but you can kick it closed
+/obj/structure/mineral_door/secret/onkick(mob/user)
+	if(locked)
+		return
+	else
+		..()
+
 /obj/structure/mineral_door/secret/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
 	var/mob/living/carbon/human/H = speaker
 	if(speaker == src) //door speaking to itself
