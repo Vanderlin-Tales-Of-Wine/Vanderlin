@@ -43,8 +43,8 @@
 /obj/item/reagent_containers/food/snacks/truffles
 	name = "truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "mushroom_full"
-	base_icon_state = "mushroom_full"
+	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
@@ -58,8 +58,8 @@
 /obj/item/reagent_containers/food/snacks/cooked/truffle
 	name = "cooked truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "mushroom_full"
-	base_icon_state = "mushroom_full"
+	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	color = "#835b4f"
@@ -69,8 +69,8 @@
 /obj/item/reagent_containers/food/snacks/toxicshrooms
 	name = "truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "mushroom_full"
-	base_icon_state = "mushroom_full"
+	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
@@ -82,8 +82,8 @@
 /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
 	name = "cooked truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
-	icon_state = "mushroom_full"
-	base_icon_state = "mushroom_full"
+	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 6)
 	color = "#835b4f"
 	tastes = list("off-putting" = 2)
