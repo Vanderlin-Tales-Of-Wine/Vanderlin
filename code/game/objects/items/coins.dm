@@ -163,32 +163,48 @@
 		return
 	..()
 
-/obj/item/coin/proc/coin_skill(mob/user, intended)
+/obj/item/coin/proc/coin_skill(mob/user, intended)		// Coin counting and splitting
 	var/intelligence = user.mind?.current.STAINT
 	var/perception = user.mind?.current.STAPER
 	var/speed = user.mind?.current.STASPD
+	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
 	var/list/skill_data = list("delay" = 1 SECONDS,"error" = 0)
 
-	switch(intelligence)	// Base intelligence effects
-		if(0 to 6) // Very low intelligence
+	var/base_tier	// Base intelligence tiers
+	switch(intelligence)
+		if(0 to 6)
+			base_tier = 1 			// Low INT
+		if(7 to 9)
+			base_tier = 2			// Below average INT
+		if(10 to 11)
+			base_tier = 3			// Average INT
+		if(14 to INFINITY)
+			base_tier = 4	// Very High INT
+		else base_tier = 3 // Default for 12-13
+
+	// Apply mathematics tier boost
+	var/tier_boost = clamp(mathematics_skill - 1, 0, 4) // +1 tier for level 2, +2 for level 3+, etc.
+	var/effective_tier = clamp(base_tier + tier_boost, 1, 4)
+
+	switch(effective_tier)	// Set values based on effective tier
+		if(1) // Very low INT
 			skill_data["error"] = rand(-3,3)
-			skill_data["delay"] = CLAMP(1 SECONDS * intended, 2 SECONDS, 3 SECONDS)
-		if(7 to 9) // Less than average intelligence
+			skill_data["delay"] = 3 SECONDS
+		if(2) // Below Average INT
 			skill_data["error"] = rand(-1,1)
-			skill_data["delay"] = CLAMP(1 SECONDS * intended, 1 SECONDS, 2 SECONDS)
-		if(10 to 11) // Average intelligence
-			if(prob(20))
-				skill_data["error"] = rand (-1,1)
-		if(14 to INFINITY) // Genius
+			if(prob(10))
+				skill_data["error"] += rand(-2,2)
+		if(3) // Average INT
+			if(prob(5))
+				skill_data["error"] = rand(-1,1)
+		if(4) // Genius
 			skill_data["delay"] = 0
 
-	if(perception < 9)   // Add perception effects
+	if(perception < 7 && mathematics_skill == 0)	// Secondary stat modifiers
 		skill_data["error"] += rand(-1,1)
-
-	if(speed < 5) // Add speed effects
+	if(speed < 5)
 		skill_data["delay"] += 0.5 SECONDS
 
-	skill_data["delay"] = max(skill_data["delay"], 0)
 	return skill_data
 
 
