@@ -133,7 +133,7 @@
 			HL.job = "Ex-Consort"
 			consort_job?.remove_spells(HL)
 
-	coronated.mind.set_assigned_role()
+	coronated.mind.set_assigned_role(/datum/job/lord)
 
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
