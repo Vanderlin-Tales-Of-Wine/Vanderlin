@@ -65,6 +65,7 @@
 	smooth = SMOOTH_MORE
 	landsound = 'sound/foley/jumpland/woodland.wav'
 	canSmoothWith = list(/turf/open/floor/wood,
+						/turf/open/floor/woodturned,
 						/turf/open/floor/carpet)
 	damage_deflection = 8
 	max_integrity = 600
@@ -72,7 +73,9 @@
 /turf/open/floor/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
 	icon_state = "woodsmooth"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/wood/nosmooth,/turf/open/floor/carpet)
+	canSmoothWith = list(/turf/open/floor/wood/nosmooth,
+						/turf/open/floor/woodturned/nosmooth,
+						/turf/open/floor/carpet)
 
 
 /turf/open/floor/wood/turf_destruction(damage_flag)
@@ -83,14 +86,18 @@
 	icon = 'icons/turf/floors/woodalt.dmi'
 	smooth_icon = 'icons/turf/floors/woodalt.dmi'
 	icon_state = "wood"
-	canSmoothWith = list(/turf/open/floor/wood/nosmooth/saiga,/turf/open/floor/carpet)
+	canSmoothWith = list(/turf/open/floor/wood/nosmooth/saiga,
+						/turf/open/floor/woodturned/nosmooth/saiga,
+						/turf/open/floor/carpet)
 
 /turf/open/floor/woodturned
 	icon = 'icons/turf/floors/wood_turned.dmi'
 	smooth_icon = 'icons/turf/floors/wood_turned.dmi'
 	icon_state = "wood"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/woodturned,/turf/open/floor/carpet)
+	canSmoothWith = list(/turf/open/floor/woodturned,
+						/turf/open/floor/wood,
+						/turf/open/floor/carpet)
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -105,13 +112,17 @@
 /turf/open/floor/woodturned/nosmooth
 	icon_state = "woodsmooth"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth,/turf/open/floor/carpet)
+	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth,
+						/turf/open/floor/wood/nosmooth,
+						/turf/open/floor/carpet)
 
 /turf/open/floor/woodturned/nosmooth/saiga
 	icon = 'icons/turf/floors/woodalt_turned.dmi'
 	smooth_icon = 'icons/turf/floors/woodalt_turned.dmi'
 	icon_state = "wood"
-	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth/saiga,/turf/open/floor/carpet)
+	canSmoothWith = list(/turf/open/floor/woodturned/nosmooth/saiga,
+						/turf/open/floor/wood/nosmooth/saiga,
+						/turf/open/floor/carpet)
 
 /turf/open/floor/rooftop
 	name = "roof"
