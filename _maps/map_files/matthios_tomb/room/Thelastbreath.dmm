@@ -142,7 +142,13 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 15;
+	TOTALSTR = 15;
+	TOTALCON = 12;
+	TOTALEND = 12;
+	candodge = 0
+	},
 /obj/item/weapon/sword/rapier,
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/carpet,
@@ -677,7 +683,14 @@
 /obj/item/clothing/ring/gold/saffira,
 /obj/item/weapon/sword/sabre/scythe,
 /obj/item/weapon/shield/tower/buckleriron,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 15;
+	TOTALPER = 15;
+	TOTALSTR = 15;
+	TOTALCON = 12;
+	TOTALEND = 14;
+	candodge = 0
+	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
@@ -704,7 +717,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "lk" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/barricade/rogue,
 /obj/structure/barricade/rogue/crude,
 /turf/open/floor/churchmarble,
@@ -878,7 +891,7 @@
 /area/rogue/indoors)
 "nx" = (
 /obj/structure/stairs/stone/d,
-/turf/open/transparent/openspace,
+/turf/open/floor/tile,
 /area/rogue/indoors)
 "nB" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -960,7 +973,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "oW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -1101,7 +1114,13 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/polearm/halberd,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSTR = 18;
+	TOTALSPD = 12;
+	TOTALCON = 14;
+	TOTALEND = 14;
+	candodge = 0
+	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
@@ -1145,14 +1164,14 @@
 /obj/structure/stairs/stone/d{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "rX" = (
 /obj/structure/fluff/walldeco/med3,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "sd" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
@@ -1269,7 +1288,13 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/sword/long/greatsword/flamberge,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 11;
+	TOTALSTR = 18;
+	TOTALCON = 15;
+	TOTALEND = 15;
+	candodge = 0
+	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
@@ -1487,7 +1512,7 @@
 /turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors)
 "wW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
@@ -1596,14 +1621,20 @@
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
-/obj/item/clothing/armor/plate/rust,
 /obj/item/clothing/pants/platelegs/rust,
-/obj/item/clothing/neck/chaincoif,
-/obj/item/clothing/armor/chainmail,
 /obj/item/weapon/polearm/spear/billhook,
+/obj/item/clothing/neck/chaincoif,
+/obj/item/clothing/armor/plate/rust,
+/obj/item/clothing/armor/chainmail,
 /obj/item/clothing/ring/gold/rontz,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /obj/item/clothing/neck/psycross/g,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 12;
+	TOTALSTR = 15;
+	TOTALCON = 14;
+	TOTALEND = 14;
+	candodge = 0
+	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "yF" = (
@@ -1619,11 +1650,17 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 15;
+	TOTALSTR = 15;
+	TOTALCON = 12;
+	TOTALEND = 12;
+	candodge = 0
+	},
 /obj/item/weapon/sword/decorated,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/clothing/neck/psycross/silver,
-/turf/open/floor/cobblerock,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "yU" = (
 /obj/effect/decal/cleanable/blood,
@@ -1642,7 +1679,13 @@
 /obj/item/clothing/neck/chaincoif,
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSTR = 15;
+	TOTALSPD = 15;
+	TOTALCON = 12;
+	TOTALEND = 12;
+	candodge = 0
+	},
 /obj/item/weapon/sword/rapier,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/item/clothing/neck/psycross/silver,
@@ -1726,7 +1769,7 @@
 /turf/open/floor/grass,
 /area/rogue/indoors)
 "zW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/churchmarble,
@@ -1746,7 +1789,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors)
 "An" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/hexstone,
 /area/rogue/indoors)
 "At" = (
@@ -2394,7 +2437,13 @@
 /obj/item/weapon/shield/tower/metal,
 /obj/item/weapon/mace/steel,
 /obj/item/clothing/ring/silver/toper,
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALSPD = 15;
+	TOTALCON = 18;
+	TOTALEND = 15;
+	TOTALSTR = 14;
+	candodge = 0
+	},
 /obj/item/clothing/neck/psycross/silver,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
@@ -2434,13 +2483,13 @@
 /turf/open/water/swamp/deep,
 /area/rogue/indoors)
 "Lz" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "LG" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "LI" = (
@@ -2526,7 +2575,7 @@
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
 "Nc" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
@@ -2872,7 +2921,7 @@
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors)
 "RW" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
@@ -3096,7 +3145,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "UZ" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /obj/structure/bars,
 /obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/hexstone,
@@ -4114,8 +4163,8 @@ SD
 MS
 uO
 cI
-DP
 fm
+DP
 lA
 pb
 iH
@@ -4161,8 +4210,8 @@ cI
 cI
 UX
 cI
-DP
 fm
+DP
 lA
 fm
 gr

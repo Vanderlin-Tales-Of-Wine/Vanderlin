@@ -17,7 +17,7 @@
 	spawn_positions = 2
 	display_order = JDO_TEMPLAR
 	give_bank_account = 0
-	min_pq = 4
+	min_pq = 8
 
 /datum/outfit/job/templar
 	name = "Templar"
@@ -62,6 +62,7 @@
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
 			H.virginity = FALSE
+			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 			head = /obj/item/clothing/head/helmet/heavy/necked/ravox

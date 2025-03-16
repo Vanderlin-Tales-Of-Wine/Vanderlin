@@ -25,6 +25,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/jumptokey,
 	/datum/admins/proc/checkpq,
 	/datum/admins/proc/adjustpq,
+	/datum/admins/proc/checktriumphs,
+	/datum/admins/proc/adjusttriumphs,
 	/client/proc/jumptomob,
 	/client/proc/returntolobby,
 	/datum/verbs/menu/Admin/verb/playerpanel,
@@ -42,7 +44,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
 /world/proc/AVerbsAdmin()
 	return list(
-	/client/proc/adjusttriumph,
 	/client/proc/end_party,		/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
@@ -66,6 +67,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/game_panel,			/*game panel, allows to change game-mode etc*/
 	/datum/admins/proc/toggleooc,		/*toggles ooc on/off for everyone*/
 	/datum/admins/proc/toggleoocdead,	/*toggles ooc on/off for everyone who is dead*/
+	/datum/admins/proc/togglelooc,
+	/datum/admins/proc/fix_death_area,
 	/datum/admins/proc/toggleenter,		/*toggles whether people can join the current game*/
 	/datum/admins/proc/toggleguests,	/*toggles whether guests can join the current game*/
 	/datum/admins/proc/announce,		/*priority announce something to all clients.*/
@@ -706,6 +709,11 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		toggle_combo_hud()
 
 	holder.deactivate()
+
+	prefs.chat_toggles -= CHAT_GHOSTEARS
+	prefs.chat_toggles -= CHAT_GHOSTWHISPER
+	prefs.save_preferences()
+	to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
 
 	to_chat(src, "<span class='interface'>I am now a normal player.</span>")
 	log_admin("[src] deadmined themself.")

@@ -56,6 +56,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
+	owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
@@ -67,6 +68,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_NOSLEEP, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_VAMPMANSION, "[type]")
+	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
 
 	ADD_TRAIT(owner.current, TRAIT_VAMP_DREAMS, "[type]")
 	owner.current.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
@@ -408,7 +410,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, "I am already the Master of Enigma.")
+		to_chat(src, "I am already the Master of Vanderlin.")
 		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
@@ -715,7 +717,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				if(GLOB.tod == "night")
 					to_chat(user, "It's already night!")
 					return
-				if(alert(user, "Force Enigma into Night? Cost:5000","","Yes","No") == "Yes")
+				if(alert(user, "Force Vanderlin into Night? Cost:5000","","Yes","No") == "Yes")
 					if(!lord.mypool.check_withdraw(-2500))
 						to_chat(user, "I don't have enough vitae!")
 						return
@@ -778,7 +780,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/skeleton/knight/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(objectives.len)//If the traitor had no objectives, don't need to process this.
@@ -806,7 +808,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampirelord/roundend_report()
 	var/traitorwin = TRUE
 
-	printplayer(owner)
+	to_chat(world, printplayer(owner))
 
 	var/count = 0
 	if(isspawn) // don't need to spam up the chat with all spawn

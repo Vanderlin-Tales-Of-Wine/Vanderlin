@@ -1,6 +1,6 @@
 /datum/advclass/pilgrim/rare/grenzelhoft
 	name = "Grenzelhoft Count"
-	tutorial = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Isle of the Enigma."
+	tutorial = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

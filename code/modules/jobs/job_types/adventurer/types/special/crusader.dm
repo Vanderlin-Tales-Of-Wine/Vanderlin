@@ -4,7 +4,7 @@
 	their wealth and lands to the Church, taking up the banner \
 	of the Totod Order dedicated to retaking Valoria. \
 	Three cults provide knights for the Order: Astrata, Necra and Psydon. \
-	You were sent to Enigma by the Order to get any and all assistance from the faithful for the Crusade."
+	You were sent to Vanderlin by the Order to get any and all assistance from the faithful for the Crusade."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

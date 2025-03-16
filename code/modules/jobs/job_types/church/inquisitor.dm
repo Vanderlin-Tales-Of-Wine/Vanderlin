@@ -20,7 +20,7 @@
 
 	outfit = /datum/outfit/job/inquisitor
 	display_order = JDO_PURITAN
-	min_pq = 8
+	min_pq = 15
 	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
@@ -102,7 +102,7 @@
 		-The Holy Bishop of the Inquisition has sent you here on a task to root out evil within this town. Make The Holy Bishop proud!\n\
 		-You've also been gaven 10 favors to use at the mail machines, you can get more favor by sending signed confessions to The Holy Bishop. Spend your favors wisely.")
 		)
-	H.mind?.teach_crafting_recipe(/datum/crafting_recipe/confessional)
+	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 
 /mob/living/carbon/human/proc/torture_victim()
 	set name = "Extract Confession"

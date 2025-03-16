@@ -58,7 +58,7 @@
 	throwforce = 0
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
-	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_MASK
+	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_MASK|ITEM_SLOT_BELT
 	body_parts_covered = null
 	experimental_onhip = TRUE
 	max_integrity = 20
@@ -71,10 +71,21 @@
 	var/bandage_effectiveness = 0.9
 	obj_flags = CAN_BE_HIT //enables splashing on by containers
 
+/obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
+	. = ..()
+	if(.)
+		if(slot == SLOT_BELT && !equipper)
+			if(!do_after(M, 1.5 SECONDS, src))
+				return FALSE
+
 /obj/item/natural/cloth/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
 	if(slot == SLOT_WEAR_MASK)
 		user.become_blind("blindfold_[REF(src)]")
+	else if(slot == SLOT_BELT)
+		user.temporarilyRemoveItemFromInventory(src)
+		user.equip_to_slot_if_possible(new /obj/item/storage/belt/leather/cloth(get_turf(user)), SLOT_BELT)
+		qdel(src)
 
 /obj/item/natural/cloth/dropped(mob/living/carbon/human/user)
 	..()
@@ -86,6 +97,7 @@
 		. += span_notice("It's wet!")
 
 /obj/item/natural/cloth/bandit
+	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_MASK
 	color = "#ff0000"
 
 // CLEANING

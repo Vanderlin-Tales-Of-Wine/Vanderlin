@@ -332,7 +332,7 @@
 				signeejob = user.mind.assigned_role
 				visible_message("<span class='warning'>[user] writes their name down on the token.</span>")
 				playsound(src, 'sound/items/write.ogg', 100, FALSE)
-				desc = "A small, palm-fitting bound scroll that can be sent by mail to the Guild. Most of the fine print is unintelligible, save for one bold SIGNEE: [signee], [signeejob] of Enigma."
+				desc = "A small, palm-fitting bound scroll that can be sent by mail to the Guild. Most of the fine print is unintelligible, save for one bold SIGNEE: [signee], [signeejob] of Vanderlin."
 				signed = 1
 				return
 		else
@@ -345,8 +345,8 @@
 
 
 /obj/item/paper/scroll/frumentarii
-	name = "List of Known Agents"
-	desc = "A list of the hand's fingers."
+	name = "Frumentarii scroll"
+	desc = "A list of the hand's fingers. Strike a candidate with this to allow them servitude. Use a writing utensil to cross out a finger."
 	old_render = FALSE
 
 	var/list/real_names = list()
@@ -369,7 +369,7 @@
 	if(!attacked_target.client)
 		return
 
-	var/choice = input(attacked_target,"Do you list to become one of the Hand's fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
+	var/choice = input(attacked_target,"Do you wish to become one of the Hand's fingers?","Binding Contract",null) as null|anything in list("Yes", "No")
 
 	if(choice != "Yes")
 		return

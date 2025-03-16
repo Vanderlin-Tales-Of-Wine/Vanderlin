@@ -136,6 +136,21 @@
 	return ..()
 
 /datum/slapcraft_recipe/masonry/structure/stained_window
+	name = "stained glass window (psycross silver)"
+	steps = list(
+		/datum/slapcraft_step/item/silver,
+		/datum/slapcraft_step/use_item/masonry/hammer,
+		/datum/slapcraft_step/item/stone,
+		/datum/slapcraft_step/item/stone/second,
+		/datum/slapcraft_step/item/stone/third,
+		/datum/slapcraft_step/use_item/masonry/hammer/second,
+		/datum/slapcraft_step/item/glass,
+		/datum/slapcraft_step/item/glass/second,
+		)
+	result_type = /obj/structure/window/stained/silver
+	craftdiff = 2
+
+/datum/slapcraft_recipe/masonry/structure/stained_window
 	name = "stained glass window (silver)"
 	steps = list(
 		/datum/slapcraft_step/item/silver,
@@ -147,9 +162,23 @@
 		/datum/slapcraft_step/item/glass,
 		/datum/slapcraft_step/item/glass/second,
 		)
-	result_type = /obj/structure/window/stained
+	result_type = /obj/structure/window/stained/silver/alt
 	craftdiff = 2
 
+/datum/slapcraft_recipe/masonry/structure/stained_window
+	name = "stained glass window (psycross gold)"
+	steps = list(
+		/datum/slapcraft_step/item/gold,
+		/datum/slapcraft_step/use_item/masonry/hammer,
+		/datum/slapcraft_step/item/stone,
+		/datum/slapcraft_step/item/stone/second,
+		/datum/slapcraft_step/item/stone/third,
+		/datum/slapcraft_step/use_item/masonry/hammer/second,
+		/datum/slapcraft_step/item/glass,
+		/datum/slapcraft_step/item/glass/second,
+		)
+	result_type = /obj/structure/window/stained/yellow
+	craftdiff = 2
 
 /datum/slapcraft_recipe/masonry/structure/windowopen
 	name = "openable glass window"
