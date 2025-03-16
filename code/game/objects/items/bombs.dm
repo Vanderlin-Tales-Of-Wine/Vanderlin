@@ -10,7 +10,7 @@
 	throw_speed = 0.5
 	var/fuze = 50
 	var/lit = FALSE
-	var/prob2fail = 5 // It should be lower I think
+	var/prob2fail = 5
 	var/lit_state = "clear_bomb_lit"
 	grid_width = 32
 	grid_height = 64
