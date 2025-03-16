@@ -154,6 +154,9 @@
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		. += span_necrosis("A LEPER...")
 
+	if(HAS_TRAIT(src, TRAIT_NOBLE))
+		. += span_notice("A noble!")
+
 	if(user != src)
 		var/datum/mind/Umind = user.mind
 		if(Umind && mind)
