@@ -26,8 +26,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	redstone_structure = TRUE
 
 	var/open_phrase = "open sesame"
-	var/close_phrase = "close sesame"
-	var/over_state = "woodover"
 
 	var/speaking_distance = 2
 	var/lang = /datum/language/common
@@ -61,7 +59,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 /obj/structure/mineral_door/secret/Initialize()
 	open_phrase = open_word() + " " + magic_word()
-	close_phrase = close_word() + " " + magic_word()
 	. = ..()
 
 /obj/structure/mineral_door/secret/door_rattle()
@@ -93,30 +90,25 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	if(isvip)
 		if(findtext(message2recognize, "help"))
-			say("My commands are: 'help', 'say phrases', 'set open', 'set close'.")
-
-		if(findtext(message2recognize, "say phrases"))
-			if(isvip)
-				say("Open: '[open_phrase]', Close: '[close_phrase]'.", language = lang)
-
-		if(findtext(message2recognize, "set close"))
-			if(isvip || !locked)
-				var/new_pass = stripped_input(H, "What should the new close phrase be?")
-				close_phrase = new_pass
-				say("Close phrase has been set.", language = lang)
-
-		if(findtext(message2recognize, "set open"))
-			if(isvip || !locked)
-				var/new_pass = stripped_input(H, "What should the new open phrase be?")
-				open_phrase = new_pass
-				say("Open phrase has been set.", language = lang)
+			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
+			return TRUE
+		if(findtext(message2recognize, "say phrase"))
+			send_speech(span_purple("[open_phrase]..."), 2, src, message_language = lang)
+			return TRUE
+		if(findtext(message2recognize, "set phrase"))
+			var/new_pass = stripped_input(H, "What should the new close phrase be?")
+			open_phrase = new_pass
+			send_speech(span_purple("It is done..."), 2, src, message_language = lang)
+			return TRUE
 
 	if(findtext(message2recognize, open_phrase) && locked)
 		locked = FALSE
 		force_open()
-	else if(findtext(message2recognize, close_phrase) && !locked)
+		return TRUE
+	else if(findtext(message2recognize, open_phrase) && !locked)
 		force_closed()
 		locked = TRUE
+		return TRUE
 
 
 /obj/structure/mineral_door/secret/Open(silent = FALSE)
@@ -188,8 +180,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	isSwitchingStates = FALSE
 	locked = TRUE
 
-
-///// PROCS /////
 /proc/open_word()
 	var/list/open_word = list(
 		"open",
@@ -222,6 +212,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		"end"
 		)
 	return pick(close_word)
+
 
 /proc/magic_word()
 	var/list/magic_word = list(
@@ -261,6 +252,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		)
 	return pick(magic_word)
 
+/obj/structure/mineral_door/secret/proc/set_phrase(new_phrase)
+	open_phrase = new_phrase
 
 ///// KEEP DOORS /////
 /obj/structure/mineral_door/secret/keep
@@ -274,9 +267,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(GLOB.keep_doors.len > 0)
 		var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
 		open_phrase = D.open_phrase
-		close_phrase = D.close_phrase
-	else
-		close_phrase = open_phrase
 	GLOB.keep_doors += src
 
 /obj/structure/mineral_door/secret/keep/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
@@ -285,19 +275,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	var/isvip = FALSE
-	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
-		isvip = TRUE
-
-	if(isvip)
-		if(findtext(message2recognize, "set close"))
-			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
-					D.close_phrase = close_phrase
-		if(findtext(message2recognize, "set open"))
-			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
-					D.open_phrase = open_phrase
+	if((vip.Find(H.job) || vip.Find(H.get_role_title())) && findtext(message2recognize, "set phrase"))
+		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+			D.set_phrase(open_phrase)
 	return TRUE
 
 /obj/structure/mineral_door/secret/keep/examine(mob/user)
@@ -326,9 +306,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(GLOB.thieves_guild_doors.len > 0)
 		var/obj/structure/mineral_door/secret/D = GLOB.thieves_guild_doors[1]
 		open_phrase = D.open_phrase
-		close_phrase = D.close_phrase
-	else
-		close_phrase = open_phrase
 	GLOB.thieves_guild_doors += src
 
 /obj/structure/mineral_door/secret/thieves_guild/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
@@ -337,19 +314,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	var/mob/living/carbon/human/H = speaker
 
 	var/message2recognize = sanitize_hear_message(raw_message)
-	var/isvip = FALSE
-	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
-		isvip = TRUE
-
-	if(isvip)
-		if(findtext(message2recognize, "set close"))
-			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
-					D.close_phrase = close_phrase
-		if(findtext(message2recognize, "set open"))
-			if(isvip || !locked)
-				for(var/obj/structure/mineral_door/secret/D in GLOB.thieves_guild_doors)
-					D.open_phrase = open_phrase
+	if((vip.Find(H.job) || vip.Find(H.get_role_title())) && findtext(message2recognize, "set phrase"))
+		for(var/obj/structure/mineral_door/secret/D in GLOB.keep_doors)
+			D.set_phrase(open_phrase)
 	return TRUE
 
 
