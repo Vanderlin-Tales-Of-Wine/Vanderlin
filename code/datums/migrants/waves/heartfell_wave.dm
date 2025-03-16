@@ -5,7 +5,6 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/heartfelt/lord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -52,7 +51,6 @@
 	allowed_sexes = list(FEMALE)
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/heartfelt/lady/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -94,7 +92,6 @@
 	outfit = /datum/outfit/job/heartfelt/hand
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/heartfelt/hand/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -136,7 +133,6 @@
 	outfit = /datum/outfit/job/heartfelt/knight
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 /datum/outfit/job/heartfelt/knight/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet

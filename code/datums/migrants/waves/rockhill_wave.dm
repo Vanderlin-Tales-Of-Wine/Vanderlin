@@ -5,7 +5,7 @@
 	allowed_sexes = list(MALE,FEMALE)
 	allowed_races = list("Humen","Dwarf","Elf","Half-Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 /datum/outfit/job/rockhill/mayor/pre_equip(mob/living/carbon/human/H)
 	..()
 	shirt = /obj/item/clothing/shirt/undershirt

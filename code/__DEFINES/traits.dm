@@ -180,6 +180,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
+	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
 	TRAIT_GOODLOVER = span_love("It's a lucky thing to share my bed."), //STONEKEEP EDIT
 	TRAIT_DARKLING = span_info("I am a creature of the dark and am sensitive to the light. The hateful sun is especially harsh on my eyes, and I prefer to sleep during the dae."), //STONEKEEP EDIT
 	TRAIT_KAIZOKU = "Whether by birth or by learning, I've inherited the Islander ways instead of Imperial culture.", //STONEKEEP EDIT
@@ -338,6 +339,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_ZOMBIE_IMMUNE "zombie_immune" //immune to zombie infection
 #define TRAIT_NO_BITE "no_bite" //prevents biting
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
+#define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 #define TRAIT_UNTARGETTABLE "untargettable" //can't be targetted by basic mobs

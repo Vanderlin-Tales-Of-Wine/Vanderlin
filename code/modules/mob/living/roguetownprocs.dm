@@ -315,7 +315,8 @@
 						flash_fullscreen("blackflash2")
 						user.aftermiss()
 						var/attacking_item = user.get_active_held_item()
-						log_defense(src, user, "dodged", attacking_atom = attacking_item, addition = "(INTENT:[uppertext(user.used_intent.name)])")
+						if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+							log_defense(src, user, "dodged", attacking_atom = attacking_item, addition = "(INTENT:[uppertext(user.used_intent.name)])")
 						return TRUE
 					else
 						return FALSE
@@ -340,7 +341,8 @@
 					src.visible_message("<span class='boldwarning'><b>\The [W] is about to break!</b></span>")
 			else
 				src.visible_message("<span class='boldwarning'><b>[src]</b> parries [user] with [W]!</span>")
-			log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+				log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 			return TRUE
 		else
 			to_chat(src, "<span class='warning'>I'm too tired to parry!</span>")
@@ -348,7 +350,8 @@
 	else
 		if(W)
 			playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
-		log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+			log_defense(src, user, "parried", defending_item, attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 		return TRUE
 
 /mob/proc/do_unarmed_parry(parrydrain as num, mob/living/user)
@@ -358,14 +361,16 @@
 		if(H.adjust_stamina(parrydrain))
 			playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 			src.visible_message("<span class='warning'><b>[src]</b> parries [user] with their hands!</span>")
-			log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+			if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+				log_defense(src, user, "parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 			return TRUE
 		else
 			to_chat(src, "<span class='boldwarning'>I'm too tired to parry!</span>")
 			return FALSE
 	else
 		playsound(get_turf(src), pick(parry_sound), 100, FALSE)
-		log_defense(src, user, "unarmed parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
+		if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+			log_defense(src, user, "unarmed parried", "hands", attacking_item, "INTENT:[uppertext(user.used_intent.name)]")
 		return TRUE
 
 
@@ -501,7 +506,8 @@
 //			var/turf/T = loc
 //			if(T.landsound)
 //				playsound(T, T.landsound, 100, FALSE)
-	log_defense(src, user, "dodged", defending_item, attacking_item, "INTENT:[uppertext(attacking_mob.used_intent.name)]")
+	if(!(!src.mind || !user.mind)) // don't need to log if at least one of the mobs is without an initialized mind because this is used for escalation
+		log_defense(src, user, "dodged", defending_item, attacking_item, "INTENT:[uppertext(attacking_mob.used_intent.name)]")
 	return TRUE
 //	else
 		//return FALSE

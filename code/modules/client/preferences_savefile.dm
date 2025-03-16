@@ -407,6 +407,18 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Load prefs
 	S["job_preferences"] >> job_preferences
 
+	//Load headshot link
+	S["headshot_link"]			>> headshot_link
+	if(!is_valid_headshot_link(null, headshot_link, TRUE))
+		headshot_link = null
+	//Check if they still have patreon status
+	if(!parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
+		to_chat(parent, span_notice("Your patreon status has expired! Headshot removed."))
+		headshot_link = null
+
+	//Load flavor text
+	S["flavortext"]			>> flavortext
+
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
 		update_character(needs_update, S)		//needs_update == savefile_version if we need an update (positive integer)
@@ -561,6 +573,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["customizer_entries"] , customizer_entries)
 	// Body markings
 	WRITE_FILE(S["body_markings"] , body_markings)
+	// headshot link
+	WRITE_FILE(S["headshot_link"] , headshot_link)
+	// flavor text
+	WRITE_FILE(S["flavortext"] , flavortext)
 	// Descriptor entries
 	WRITE_FILE(S["descriptor_entries"] , descriptor_entries)
 	WRITE_FILE(S["custom_descriptors"] , custom_descriptors)
