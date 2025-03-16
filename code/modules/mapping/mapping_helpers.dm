@@ -175,7 +175,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/door
 	name = "door helper parent"
 	layer = DOOR_HELPER_LAYER
-	late = TRUE
+	late = FALSE
 
 /obj/effect/mapping_helpers/door/Initialize(mapload)
 	. = ..()
@@ -190,14 +190,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 
 	payload(door)
 
-/obj/effect/mapping_helpers/door/payload(/obj/structure/mineral_door/payload)
+/obj/effect/mapping_helpers/door/proc/payload(obj/structure/mineral_door/payload)
 	return
 
 /obj/effect/mapping_helpers/door/locker
 	name = "door locker helper"
 	icon_state = "door_locker"
 
-/obj/effect/mapping_helpers/door/locker/payload(/obj/structure/mineral_door/door)
+/obj/effect/mapping_helpers/door/locker/payload(obj/structure/mineral_door/door)
 	if(door.locked)
 		log_mapping("[src] at [AREACOORD(src)] tried to lock [door] but it's already locked!")
 		return

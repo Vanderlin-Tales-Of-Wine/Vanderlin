@@ -68,7 +68,7 @@
 #define ACCESS_APART_X "apartment10"
 #define ACCESS_APART_XI "apartment11"
 #define ACCESS_APART_XII "apartment12"
-#define ACCESS_APART_XII "apartment13"
+#define ACCESS_APART_XIII "apartment13"
 #define ACCESS_APART_XIV "apartment14"
 #define ACCESS_APART_XV "apartment15"
 #define ACCESS_APART_XVI "apartment16"

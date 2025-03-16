@@ -3,7 +3,7 @@
 	icon_state = "access_helper"
 	var/access_string = null
 
-/obj/effect/mapping_helpers/door/payload(/obj/structure/mineral_door/door)
+/obj/effect/mapping_helpers/door/access/payload(obj/structure/mineral_door/door)
 	if(door.lockid != null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but lockid was already set!")
 		return
@@ -14,7 +14,7 @@
 
 // Town locks
 /obj/effect/mapping_helpers/door/access/town
-	color = "#FFFFFF"
+	color = "#5a5454"
 
 /obj/effect/mapping_helpers/door/access/town/tailor
 	access_string = ACCESS_TAILOR
