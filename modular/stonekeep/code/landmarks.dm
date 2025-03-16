@@ -186,4 +186,54 @@
 
 
 
+// =============================================================
+// ================		SPAWNPOINTS		========================
+/obj/effect/landmark/start/sk_gravekeeper
+	name = "Gravekeeper"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_mason
+	name = "Mason"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_woodsman
+	name = "Woodsman"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_elder
+	name = "Village Elder"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_blacksmith
+	name = "Blacksmith"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_manatarms
+	name = "Man-at-arms"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_stevedore
+	name = "Stevedore"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_courtwiz
+	name = "Court Wizard"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_sheriff
+	name = "Sheriff"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_weaver
+	name = "Weaver"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_pilgrim
+	name = "Pilgrim"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/sk_nitemaster
+	name = "Nitemaster"
+	icon_state = "arrow"
+
 

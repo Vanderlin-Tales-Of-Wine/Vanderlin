@@ -1,7 +1,7 @@
 /datum/job/stonekeep/mercenary
 	title = "Mercenary"
 	flag = SK_MERCENARY
-	department_flag = APPRENTICES
+	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 6
 	spawn_positions = 6
@@ -9,7 +9,6 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",

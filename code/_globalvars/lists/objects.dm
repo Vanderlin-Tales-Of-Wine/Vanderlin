@@ -46,7 +46,8 @@ GLOBAL_LIST_INIT(rod_jobs, list(
 	"Huntmaster of the Murderwoods",
 	"Hetman of Mount Decapitation",
 	"Sheriff",	// STONEKEEP EDIT
-	"Man-at-arms"	// STONEKEEP EDIT
+	"Man-at-arms",	// STONEKEEP EDIT
+	"Court Wizard" // STONEKEEP EDIT
 ))
 
 /* COLORS */

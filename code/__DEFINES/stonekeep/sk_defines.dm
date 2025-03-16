@@ -6,6 +6,8 @@
 GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
 GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"))
 
+#define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
+
 /mob/living/carbon/human
 	// Another Boolean. But this time entirely for Kaizoku content to define those whom Abyssariads considers 'impure', and for champions.
 	var/burakumin = FALSE
@@ -56,6 +58,8 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 #define SK_ADVENTURER	(1<<1)
 #define SK_PILGRIM		(1<<2)
 #define SK_BANDIT		(1<<3)
+
+#define OUTSIDERS           (1<<7)
 
 #define LORD_ORDER			1
 #define CONSORT_ORDER		2

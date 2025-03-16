@@ -620,11 +620,9 @@
 	sleeved = null
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 5, "acid" = 0) // I just wanted to give Malumite robes a tiny bit of fire protection because they're craftspeople.
 
-/obj/item/clothing/shirt/dress
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 /obj/item/clothing/shirt/dress/valorian
-	name = "valorian dress"
+	name = "commoner dress"
 	desc = "A simple deep-blue frock worn in many cities of Valoria."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
@@ -635,7 +633,11 @@
 /obj/item/clothing/shirt/dress/gen/sexy
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 
+
+//................ Sheriff Brigandine ............... //
 /obj/item/clothing/armor/brigandine/sheriff
+	detail_tag = "_det"
+	detail_color = COLOR_WHITE
 
 /obj/item/clothing/armor/brigandine/sheriff/update_icon()
 	cut_overlays()
@@ -656,10 +658,14 @@
 		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	else
 		GLOB.lordcolor += src
+	update_icon()
 
 /obj/item/clothing/armor/brigandine/sheriff/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
+
+
+
 
 
 /obj/item/clothing/shirt/dress/gen/sexy/Initialize()
@@ -802,6 +808,15 @@
 
 /obj/item/clothing/pants/trou
 	salvage_result = /obj/item/natural/cloth
+
+/obj/item/clothing/pants/trou/leather
+	name = "leather trousers"
+	desc = "Standard leather pants for hardy workers."
+	icon_state = "leathertrou"
+	armor = ARMOR_PADDED
+	max_integrity = INTEGRITY_POOR
+	salvage_result = /obj/item/natural/hide/cured
+
 /obj/item/clothing/pants/trou/baggy
 	name = "baggy pants"
 	desc = "A pair of baggy, comfortable pants. They end in a tight stocking around the calf, ballooning out around the thigh."
@@ -819,7 +834,7 @@
 	armor =  ARMOR_LEATHER_BAD
 
 
-/obj/item/clothing/pants/leather/heavy
+/obj/item/clothing/pants/trou/leather/heavy
 	name = "heavy leather trousers"
 	desc = "Thick hide cut and sewn into a pair of very protective trousers. The dense leather can \
 	turn away errant chops."
@@ -837,7 +852,7 @@
 	resistance_flags = FIRE_PROOF
 	armor_class = AC_LIGHT
 
-/obj/item/clothing/pants/leather/padded
+/obj/item/clothing/pants/trou/leather/padded
 	name = "fine leather trousers"
 	desc = "Protects your legs from minor cuts and slashes well enough."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
@@ -917,7 +932,7 @@
 	color = pick(GLOB.peasant_dyes)
 	..()
 /obj/item/clothing/pants/tights/stockings/white
-	color = CLOTHING_WHITE
+	color = CLOTHING_LINEN
 /obj/item/clothing/pants/tights/stockings/black
 	color = CLOTHING_SOOT_BLACK
 /obj/item/clothing/pants/tights/stockings/blue
@@ -1046,6 +1061,9 @@
 	icon_state = "inqboots"
 	item_state = "inqboots"
 	armor = ARMOR_LEATHER_GOOD
+
+/obj/item/clothing/shoes/simpleshoes
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
 
 /* * * * * * * * * * * **
  *						*

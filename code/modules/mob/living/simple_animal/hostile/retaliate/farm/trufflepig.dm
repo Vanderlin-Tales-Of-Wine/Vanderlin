@@ -15,10 +15,10 @@
 	. = ..()
 	if(istype(loc, /area/rogue/outdoors/bog))
 		if(!((locate(/obj/structure) in src) || (locate(/obj/machinery) in src)))
-			if(prob(4))
+			if(prob(3))
 				hidden_truffles = TRUE
 			else if(prob(1))
-				hidden_toxicshrooms = FALSE
+				hidden_toxicshrooms = TRUE
 			return
 
 /turf/open/floor/dirt/attackby(obj/item/W, mob/user, params)
@@ -195,7 +195,7 @@
 /mob/living/simple_animal/hostile/retaliate/trufflepig/attack_hand(mob/living/carbon/human/M)
 	. = ..()
 	hangry_meter += 1
-	if(hangry_meter > 9)
+	if(hangry_meter > 19)
 		to_chat(M, "<span class='notice'>The pig squeals in anger. Its sulking and refusing to work until it gets delicious truffles.</span>")
 		playsound(get_turf(src), 'sound/vo/mobs/pig/hangry.ogg', 120, TRUE, -1)
 		return

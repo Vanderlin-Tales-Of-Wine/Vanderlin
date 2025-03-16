@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 /datum/job/adventurer
 	title = "Adventurer"
 	flag = SK_ADVENTURER	// STONEKEEP EDIT
-	department_flag = APPRENTICES	// STONEKEEP EDIT
+	department_flag = OUTSIDERS	// STONEKEEP EDIT
 	faction = "Station"
 	total_positions = 14
 	spawn_positions = 14
@@ -30,7 +30,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 
 	wanderer_examine = TRUE
 	can_have_apprentices = FALSE
-
+	selection_color = "#d7d8df"		// STONEKEEP EDIT
 
 /datum/job/adventurer/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

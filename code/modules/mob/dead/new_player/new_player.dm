@@ -476,7 +476,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 	omegalist += list(GLOB.apprentices_positions)
 	omegalist += list(GLOB.serf_positions)
 	omegalist += list(GLOB.youngfolk_positions)
-
+	omegalist += list(GLOB.allmig_positions) // STONEKEEP EDIT
 	for(var/list/category in omegalist)
 		if(!SSjob.name_occupations[category[1]])
 			testing("HELP NO THING FOUND FOR [category[1]]")
@@ -499,19 +499,21 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			var/cat_name = ""
 			switch (SSjob.name_occupations[category[1]].department_flag)
 				if (NOBLEMEN)
-					cat_name = "Nobles"
+					cat_name = "Court" // STONEKEEP EDIT
 				if (GARRISON)
 					cat_name = "Garrison"
 				if (SERFS)
-					cat_name = "Tradesmen"
+					cat_name = "Burghers"
 				if (CHURCHMEN)
-					cat_name = "Churchmen"
+					cat_name = "Temple" // STONEKEEP EDIT
 				if (PEASANTS)
 					cat_name = "Peasantry"
 				if (APPRENTICES)
 					cat_name = "Apprentices"
 				if (YOUNGFOLK)
 					cat_name = "Young Folk"
+				if (OUTSIDERS) // STONEKEEP EDIT
+					cat_name = "Outsiders" // STONEKEEP EDIT
 
 			dat += "<fieldset style='width: 185px; border: 2px solid [cat_color]; display: inline'>"
 			dat += "<legend align='center' style='font-weight: bold; color: [cat_color]'>[cat_name]</legend>"

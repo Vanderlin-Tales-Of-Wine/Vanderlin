@@ -61,6 +61,7 @@
 /area/rogue/outdoors/rtfield/outlaw
 	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw = 50)
 	name = "danger (outlaws)"
+	first_time_text = ""
 	color = "#e9baa3"
 	ambush_times = list("day","dawn","night","dusk")
 	droning_sound = 'sound/music/area/forest.ogg'

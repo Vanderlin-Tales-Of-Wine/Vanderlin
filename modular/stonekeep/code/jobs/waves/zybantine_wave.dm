@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich = 1, /obj/item/reagent_containers/glass/bottle/wine = 1)
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/armor/leather/jacket/silk_coat
-		shirt = /obj/item/clothing/shirt/dress/silkdress/black
+		shirt = /obj/item/clothing/shirt/undershirt/lowcut
 		head = /obj/item/clothing/head/crown/nyle
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -117,7 +117,7 @@
 
 /datum/migrant_role/sk/zybantine_qatil
 	name = "Qatil"
-	greet_text = "You are the Amirah's confident and most loyal protector, you shan't let them die in these wretched lands."
+	greet_text = "You are the Emir's confident and most loyal protector, you shan't let them die in these wretched lands."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",

@@ -908,7 +908,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 15, list/splitJobs = list("Captain", "Priest", "Merchant", "Butler", "Village Elder", "Sheriff"), widthPerColumn = 295, height = 620) //295 620	STONEKEEP EDIT
+/datum/preferences/proc/SetChoices(mob/user, limit = 15, list/splitJobs = list("Captain", "Priest", "Merchant", "Village Elder", "Sheriff"), widthPerColumn = 295, height = 620) //295 620	STONEKEEP EDIT
 	if(!SSjob)
 		return
 

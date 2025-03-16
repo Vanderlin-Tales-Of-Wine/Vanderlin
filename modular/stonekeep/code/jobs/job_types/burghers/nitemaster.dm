@@ -37,6 +37,9 @@
 		armor = /obj/item/clothing/shirt/dress/stewarddress
 		cloak = /obj/item/clothing/cloak/cape/silk/dark
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
+	H.grant_language(/datum/language/thievescant)
+	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
+	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
@@ -64,8 +67,9 @@
 /datum/crafting_recipe/forgery_bathmaiden
 	name = "Forge nitemaiden license"
 	time = 4 SECONDS
-	reqs = list(/obj/item/paper = 1,
-		/obj/item/natural/feather = 1)
+	req_table = TRUE
+	tools = /obj/item/natural/feather
+	reqs = list(/obj/item/paper = 1)
 	result = /obj/item/paper/feldsher_certificate/fake
 	category = CAT_NONE
 

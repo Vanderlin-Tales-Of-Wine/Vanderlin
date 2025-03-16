@@ -5,9 +5,10 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Steward",
 	"Court Magician",
 	"Archivist",
-	"Servant",
+	"Butler",
 	"Jester",
-	"Noble"
+	"Noble",
+	"Court Wizard"
 	))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
@@ -36,6 +37,7 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	"Innkeep",
 	"Feldsher",
 	"Blacksmith",
+ 	"Mason",
 	"Weaver",
 	"Nitemaster",
 	))
@@ -48,13 +50,12 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Woodsman",
 	"Nitemaiden",
 	"Prisoner",
+	"Mercenary",
 	"Beggar"
 	))
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Mercenary",
-	"Adventurer",
-	"Pilgrim"
+	"Servant"
 	))
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(

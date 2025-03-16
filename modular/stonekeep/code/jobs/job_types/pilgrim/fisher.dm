@@ -51,8 +51,7 @@
 		backpack_contents = list(/obj/item/weapon/knife/villager = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
 
 	else
-		shirt = /obj/item/clothing/shirt/dress/gen/random
-		armor = /obj/item/clothing/armor/gambeson/light/striped
+		armor = /obj/item/clothing/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/boots/leather
 		neck = /obj/item/storage/belt/pouch/coins/poor
 		head = /obj/item/clothing/head/fisherhat

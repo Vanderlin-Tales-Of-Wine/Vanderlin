@@ -64,7 +64,7 @@
 	probby = 50
 	color = "#3aff47"
 	spawned = list(
-		/obj/effect/decal/cleanable/food/egg_smudge = 30,
+		/obj/effect/decal/cleanable/food/egg_smudge = 35,
 		/obj/effect/decal/cleanable/food/flour = 30,
 		/obj/effect/decal/cleanable/food/mess/soup = 30
 		)
@@ -76,9 +76,9 @@
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "tree2"
 	spawned = list(
-		/obj/structure/flora/tree/burnt = 65,
-		/obj/structure/flora/tree/neu/acacia = 30,
-		/obj/structure/table/wood/treestump/burnt = 5
+		/obj/structure/flora/tree/burnt = 40,
+		/obj/structure/flora/tree/neu/acacia = 25,
+		/obj/structure/table/wood/treestump/burnt = 3
 		)
 
 /*	..................  Normal Tree Spawner (mapping visual)  ................... */

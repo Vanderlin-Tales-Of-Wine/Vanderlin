@@ -50,7 +50,7 @@
 			wrists = /obj/item/clothing/wrists/bracers/leather/heavy
 		if("Hide")
 			armor = /obj/item/clothing/armor/leather/hide
-			pants = /obj/item/clothing/pants/leather/heavy
+			pants = /obj/item/clothing/pants/trou/leather/heavy
 			gloves = /obj/item/clothing/gloves/reinforced
 
 	H.change_stat(STATKEY_STR, 2)

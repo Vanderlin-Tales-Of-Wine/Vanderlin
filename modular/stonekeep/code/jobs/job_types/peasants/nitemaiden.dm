@@ -27,7 +27,7 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/stonekeep/nitemaiden	//Default outfit.
-	advclass_cat_rolls = list(CTAG_CONSORT= 20)	//Handles class selection.
+	advclass_cat_rolls = list(CTAG_NITEMAIDEN= 20)	//Handles class selection.
 	give_bank_account = 25
 	min_pq = -25
 
@@ -48,7 +48,6 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	beltl = /obj/item/storage/belt/pouch/coins/poor
 	shoes = /obj/item/clothing/shoes/shortboots
 	r_hand = /obj/item/paper/feldsher_certificate/maybe
-	l_hand = /obj/item/bath/soap
 
 
 /datum/outfit/job/stonekeep/nitemaiden/pre_equip(mob/living/carbon/human/H)
@@ -94,12 +93,12 @@ Design philosphy:
 	name = "Bathmaid"
 	tutorial = "You work mostly in the Bath-house, cleaning guests, playing music, doing whatever is required to earn your keep."
 	outfit = /datum/outfit/job/stonekeep/nitemaid/bathmaid
-	category_tags = list(CTAG_CONSORT)
+	category_tags = list(CTAG_NITEMAIDEN)
 
 /datum/outfit/job/stonekeep/nitemaid/bathmaid/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>You need to keep your boss, the Nitemaster, happy, or next stop is beggar.")
-	shirt = /obj/item/clothing/shirt/dress/gen/sexy
+	armor = /obj/item/clothing/shirt/dress/gen/sexy
 	cloak = /obj/item/clothing/cloak/raincloak/red
 	H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick(1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
@@ -108,13 +107,12 @@ Design philosphy:
 	name = "Serving girl"
 	tutorial = "You work mostly in the Inn, helping to keep it clean and the guest feel welcome, while earning some coin on the side by plying your less respectable trade. "
 	outfit = /datum/outfit/job/stonekeep/nitemaid/servinggirl
-	category_tags = list(CTAG_CONSORT)
+	category_tags = list(CTAG_NITEMAIDEN)
 
 /datum/outfit/job/stonekeep/nitemaid/servinggirl/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>The Innkeep is your boss, the Cook your superior, and the Nitemaster your side-income.")
-	shirt = /obj/item/clothing/shirt/dress/valorian
-	armor = /obj/item/clothing/armor/corset
+	armor = /obj/item/clothing/shirt/dress/valorian
 	beltr = /obj/item/storage/keyring/servinggirl
 	H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 

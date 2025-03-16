@@ -57,7 +57,7 @@
 		if("Hunter")
 			if(prob(50))
 				head = /obj/item/clothing/head/archercap
-			cloak = /obj/item/clothing/cloak/wickercloak
+			cloak = /obj/item/clothing/cloak/raincloak/woodsman
 			armor = /obj/item/clothing/armor/leather/hide
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			beltr = /obj/item/ammo_holder/quiver/arrows

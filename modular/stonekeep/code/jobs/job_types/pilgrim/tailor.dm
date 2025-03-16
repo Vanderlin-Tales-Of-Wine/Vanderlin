@@ -75,7 +75,7 @@
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	if(H.gender == FEMALE)
 		cloak = /obj/item/clothing/cloak/cape/silk/random
-		shirt = /obj/item/clothing/shirt/dress/gen/random
+		armor = /obj/item/clothing/shirt/dress/gen/random
 		pants = /obj/item/clothing/pants/tights/purple
 	if(H.gender == MALE)
 		head = /obj/item/clothing/head/courtierhat

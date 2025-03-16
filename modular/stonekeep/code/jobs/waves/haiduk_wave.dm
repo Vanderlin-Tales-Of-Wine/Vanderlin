@@ -24,7 +24,7 @@
 	belt = /obj/item/storage/belt/leather/rope/haiduk
 	beltl = /obj/item/flashlight/flare/torch/lantern/bronzelamptern
 	backr = /obj/item/storage/backpack/satchel
-	pants = /obj/item/clothing/pants/leather/heavy
+	pants = /obj/item/clothing/pants/trou/leather/heavy
 	backpack_contents = list(/obj/item/flint = 1, /obj/item/reagent_containers/food/snacks/fat/salo = 1, /obj/item/sleepingbag = 1)
 
 

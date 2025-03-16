@@ -28,7 +28,7 @@
 	bypass_lastclass = TRUE
 	give_bank_account = 100
 	min_pq = 0
-	selection_color = "#192bc2"
+	selection_color = "#2a348b"
 
 /datum/outfit/job/stonekeep/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -36,7 +36,7 @@
 	neck = /obj/item/clothing/neck/horus
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/storage/belt/pouch/coins/veryrich = 1, /obj/item/merctoken = 1)
-	beltr = /obj/item/weapon/sword/rapier
+	beltr = /obj/item/weapon/sword/iron/jian
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/storage/keyring/merchant
 	armor = /obj/item/clothing/shirt/robe/merchant
@@ -70,6 +70,5 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE) // Literally unused skill
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 

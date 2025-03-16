@@ -119,6 +119,14 @@
 /obj/effect/spawner/map_spawner/loot/coin/low,
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
+"pJ" = (
+/obj/structure/fluff/railing/fence,
+/turf/open/floor/naturalstone,
+/area/rogue/under/cave/sumpgrotto)
+"pN" = (
+/obj/effect/decal/remains/neu/human,
+/turf/open/floor/dirt/muddie,
+/area/rogue/under/cave/sumpgrotto)
 "qr" = (
 /obj/effect/spawner/map_spawner/rockies,
 /turf/open/floor/dirt/muddie,
@@ -159,7 +167,7 @@
 /area/rogue/under/cave/sumpgrotto)
 "tG" = (
 /obj/structure/table/wood/crafted,
-/turf/open/floor/naturalstone,
+/turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
 "tW" = (
 /obj/structure/flora/grass/water,
@@ -197,6 +205,10 @@
 /obj/item/candle/skull/lit,
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
+"xp" = (
+/obj/effect/spawner/map_spawner/loot/medium,
+/turf/open/floor/dirt/muddie,
+/area/rogue/under/cave/sumpgrotto)
 "yv" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/reagent_containers/food/snacks/meat/strange,
@@ -205,9 +217,8 @@
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
 "zJ" = (
-/obj/effect/decal/remains/neu/human,
-/obj/effect/spawner/map_spawner/loot/weapon,
-/turf/open/water/swamp,
+/obj/item/storage/sack,
+/turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Ak" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -288,7 +299,6 @@
 /area/rogue/under/cave/sumpgrotto)
 "Lf" = (
 /obj/effect/decal/remains/neu/human,
-/obj/effect/spawner/map_spawner/loot/armor,
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
 "LD" = (
@@ -2767,7 +2777,7 @@ ef
 ef
 RD
 YB
-ab
+zJ
 oP
 ab
 ab
@@ -3104,7 +3114,7 @@ ab
 ab
 ab
 Yk
-ab
+Ay
 tG
 rY
 ab
@@ -3118,8 +3128,8 @@ ef
 ef
 ef
 RN
-Jm
-jS
+qt
+kO
 Jm
 ab
 lc
@@ -3171,8 +3181,8 @@ ab
 ab
 ab
 bH
-ab
-ab
+Ay
+Ay
 ab
 ab
 ab
@@ -3988,7 +3998,7 @@ RN
 ef
 Jm
 Jm
-ab
+Jm
 Jm
 ab
 Jm
@@ -4054,7 +4064,7 @@ ab
 ab
 ab
 Jm
-ef
+Jm
 Jm
 Jm
 Jm
@@ -4183,13 +4193,13 @@ ef
 ef
 ab
 ab
+Jm
 ab
 ab
-ab
-ab
-ab
+Jm
+Jm
 Qr
-ab
+Jm
 Qr
 ab
 ab
@@ -4249,12 +4259,12 @@ ef
 ef
 ab
 ab
+Jm
 ab
 ab
 ab
-ab
-ab
-ab
+Jm
+Jm
 ab
 jg
 Jm
@@ -4311,6 +4321,7 @@ ab
 ab
 ab
 ab
+pJ
 ab
 ab
 ab
@@ -4318,9 +4329,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+Jm
+Jm
 ab
 ri
 ab
@@ -4386,7 +4396,7 @@ ab
 ab
 ab
 ab
-ab
+Jm
 ab
 Jm
 ab
@@ -4400,7 +4410,7 @@ tW
 kO
 Lf
 kO
-zJ
+kO
 kO
 kO
 tW
@@ -4530,7 +4540,7 @@ ef
 ef
 ab
 vn
-Jm
+xp
 tW
 kO
 kO
@@ -4600,7 +4610,7 @@ ab
 ab
 tW
 tW
-Jm
+pN
 vn
 Jm
 Jm
@@ -4668,7 +4678,7 @@ Jm
 Jm
 Jm
 Au
-Jm
+xp
 Ro
 Jm
 Jm

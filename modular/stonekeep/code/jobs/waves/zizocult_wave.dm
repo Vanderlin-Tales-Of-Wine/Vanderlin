@@ -1,5 +1,5 @@
 /datum/migrant_role/sk/zizo/herald
-	name = "Cult Herald"
+	name = "Tiefling Herald"
 	greet_text = "In a epiphany your ancestral link with Zizo awoke, and as if guided by fate hellgoblins appeared to serve you in your quest to spread the influence of Zizo, a echo of the Apotheosis war."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -13,19 +13,19 @@
 /datum/outfit/job/stonekeep/antag/zherald/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
-	wrists = /obj/item/clothing/wrists/bracers
+	wrists = /obj/item/clothing/wrists/bracers/copper
 	head = /obj/item/clothing/head/helmet/ironpot/marauder
 	r_hand = /obj/item/weapon/whip/antique
 	neck = /obj/item/clothing/neck/coif
 	armor = /obj/item/clothing/armor/leather/jacket/sea/marauder
-	gloves =  /obj/item/clothing/gloves/angle
+	gloves =  /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/reagent_containers/glass/bottle/stronghealthpot
-	beltl = /obj/item/natural/cloth
+	beltl = /obj/item/weapon/knife/dagger/steel/dirk
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/polearm/spear/stone/copper
-	pants = /obj/item/clothing/pants/leather/heavy
-	backpack_contents = list(/obj/item/sleepingbag = 1)
+	pants = /obj/item/clothing/pants/trou/leather/heavy
+	backpack_contents = list(/obj/item/sleepingbag = 1, /obj/item/natural/cloth = 1, /obj/item/needle/thorn = 1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
@@ -50,6 +50,7 @@
 		H.change_stat(STATKEY_END, 3)
 		H.change_stat(STATKEY_CON, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_CABAL, TRAIT_GENERIC)
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/honorary = "Herald"
@@ -59,7 +60,7 @@
 		H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
 /datum/migrant_role/sk/zizo/hellgoblin
-	name = "Cult Goblin"
+	name = "Goblin Marauder"
 	greet_text = "Like the days of yore, you serve the Herald and Zizo fanatically, not because of some oath or reward, but because it is your nature. Aid the cult of Zizo, destroy livestock, defile the purity of this hateful world whose very air stings your skin, your body made of things not belonging in this world, and not wanted here."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(

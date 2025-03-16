@@ -192,7 +192,15 @@ GLOBAL_LIST_INIT(apprentices_positions, list(
 /datum/job/roguetown/servant/config_check()
 	return FALSE
 
-
+/datum/job/adventurer
+	flag = SK_ADVENTURER	// STONEKEEP EDIT
+	department_flag = OUTSIDERS	// STONEKEEP EDIT
+	total_positions = 8
+	spawn_positions = 8
+	allowed_races = ALL_STONEKEEP_PLAYER_RACES	// STONEKEEP EDIT
+	display_order = ADVENTURER_ORDER	// STONEKEEP EDIT
+	min_pq = 0	// STONEKEEP EDIT
+	selection_color = "#d7d8df"		// STONEKEEP EDIT
 
 /datum/job/bandit
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES

@@ -98,8 +98,7 @@
 				beltl = /obj/item/flint
 				backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/natural/worms = 1, /obj/item/weapon/shovel/small = 1)
 			else
-				shirt = /obj/item/clothing/shirt/dress/gen/random
-				armor = /obj/item/clothing/armor/gambeson/light/striped
+				armor = /obj/item/clothing/shirt/dress/gen/random
 				shoes = /obj/item/clothing/shoes/boots/leather
 				neck = /obj/item/storage/belt/pouch/coins/poor
 				head = /obj/item/clothing/head/fisherhat
@@ -166,7 +165,7 @@
 			else
 				H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) //Female nobles get the male noble's bow, but are less trained than an Assassin disguising as a Hunter. Balance.
 				H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, -1, TRUE)
-				shirt = /obj/item/clothing/shirt/dress/silkdress/random
+				armor = /obj/item/clothing/shirt/dress/silkdress/random
 				head = /obj/item/clothing/head/hatfur
 				cloak = /obj/item/clothing/cloak/raincloak/furcloak
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow

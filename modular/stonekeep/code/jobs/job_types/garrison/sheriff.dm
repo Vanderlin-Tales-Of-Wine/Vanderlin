@@ -21,6 +21,7 @@
 	give_bank_account = 120
 	min_pq = 0
 
+	selection_color = "#a13322"
 	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
 
 /datum/job/stonekeep/sheriff/after_spawn(mob/living/L, mob/M, latejoin = TRUE)

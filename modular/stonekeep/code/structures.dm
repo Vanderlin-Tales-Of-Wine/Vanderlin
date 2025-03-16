@@ -17,7 +17,10 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 
 /obj/structure/flora/grass/thorn_bush
-	alpha = 220
+	alpha = 200
+
+/obj/structure/throne
+	name = "throne"
 
 // =================================================================================
 /*----------------\
@@ -29,7 +32,7 @@
 	brightness = 9
 /obj/machinery/light/fueled/firebowl/Initialize()
 	. = ..()
-	brightness = 9
+	brightness = 10
 	light_outer_range =  9
 
 /obj/machinery/light/fueled/wallfire
@@ -237,6 +240,11 @@
 // Placeholder shrines. Migth get better code at some point but use for now
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple
 	icon = 'modular/stonekeep/icons/temple.dmi'
+/obj/machinery/light/fueled/wallfire/candle/lamp/temple/Initialize()
+	light_outer_range =  6
+	brightness = 9
+	. = ..()
+
 
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/noc
 	icon_state = "noc1"
@@ -351,8 +359,9 @@
 	. = ..()
 	if(!in_range(src, user))
 		return
-	if((!isgoblin(user)))	// so far only goblins fit into it to climb down
-		return
+	if(!isgoblin(user))	// ROGTODO test it works
+		if(!user.job == "Beggar")
+			return
 	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 	if(!do_after(user, 3 SECONDS, src))
 		return
@@ -498,6 +507,7 @@
 /obj/structure/flora/tree/neu/pine/Initialize()
 	. = ..()
 	icon_state = "pine"
+	dir = pick(GLOB.cardinals)
 
 /obj/structure/flora/tree/neu/pine_dead
 	name = "dead tree"
@@ -546,9 +556,6 @@
 
 /obj/structure/flora/rock/pebbles/gray
 	icon_state = "gray"
-/obj/structure/flora/rock/pebbles/Initialize()
-	. = ..()
-	dir = pick(GLOB.alldirs)
 
 /obj/structure/flora/rock/pebbles/brown
 	icon_state = "brown"
@@ -557,7 +564,7 @@
 	icon_state = "bogmix1"
 /obj/structure/flora/rock/pebbles/bogmix/Initialize()
 	. = ..()
-	icon_state = "bogmix_[rand(1,2)]"
+	icon_state = "bogmix[rand(1,2)]"
 	dir = pick(GLOB.alldirs)
 
 
@@ -616,7 +623,7 @@
 								I = new /obj/item/weapon/polearm/woodstaff/quarterstaff/steel(user.loc)
 						if(5)
 							if(HAS_TRAIT(user, TRAIT_DODGEEXPERT))
-								I = new /obj/item/clothing/pants/leather/heavy(user.loc)
+								I = new /obj/item/clothing/pants/trou/leather/heavy(user.loc)
 							if(HAS_TRAIT(user, TRAIT_MEDIUMARMOR))
 								I = new /obj/item/clothing/wrists/bracers(user.loc)
 							if(HAS_TRAIT(user, TRAIT_HEAVYARMOR))
@@ -969,9 +976,5 @@
 
 
 
-
-/turf/closed/wall/mineral/stone/window
-	color = "#706b6a"
-/turf/closed/wall/mineral/stone/window/Initialize()
-	. = ..()
-	color = "#ffffff"
+/obj/structure/flora/grass/swampweed
+	icon = 'modular/stonekeep/icons/pigflora.dmi'

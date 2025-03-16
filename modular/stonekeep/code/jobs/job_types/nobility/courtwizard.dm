@@ -11,7 +11,6 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Aasimar"
 	)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
@@ -30,12 +29,11 @@
 	..()
 	head = /obj/item/clothing/head/wizhat/gen
 	backr = /obj/item/storage/backpack/satchel
-	armor = /obj/item/clothing/shirt/robe/black
 	cloak = /obj/item/clothing/cloak/black_cloak
+	armor = /obj/item/clothing/shirt/robe/black
 	id = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/mage
-	backl = /obj/item/weapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/shortboots
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/killersice = 1)
 	if(H.mind)
@@ -50,15 +48,17 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 		if(H.age == AGE_OLD)
+			var/prev_real_name = H.real_name
+			var/prev_name = H.name
+			var/honorary = "Archmage"
+			H.real_name = "[honorary] [prev_real_name]"
+			H.name = "[honorary] [prev_name]"
 			armor = /obj/item/clothing/shirt/robe/courtmage
+			head = /obj/item/clothing/head/wizhat
 			H.change_stat("speed", -1)
 			H.change_stat("intelligence", 1)
 			if(H.dna.species.id == "human")
 				belt = /obj/item/storage/belt/leather/plaquegold
-				cloak = null
-				head = /obj/item/clothing/head/wizhat
-				if(H.gender == FEMALE)
-					armor = /obj/item/clothing/shirt/robe/courtmage
 				if(H.gender == MALE)
 					armor = /obj/item/clothing/shirt/robe/wizard
 					H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
@@ -67,7 +67,7 @@
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		H.virginity = TRUE
 		H.change_stat("strength", -2)
-		H.change_stat("intelligence", 5)
+		H.change_stat("intelligence", 4)
 		H.change_stat("constitution", -2)
 		H.change_stat("speed", -2)
 		H.mind.adjust_spellpoints(8)
@@ -76,11 +76,13 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
+
+
 //............... Unique Court Mage Stuff ...........................
-/*
+/obj/item/clothing/head/wizhat
 /obj/item/clothing/head/wizhat/equipped(mob/living/user, slot)
 	. = ..()
-	if(user.mind && user.mind.assigned_role == "Court Magician")
+	if(user.mind && user.mind.assigned_role == "Court Wizard")
 		if(slot == SLOT_HEAD && istype(user))
 			user.apply_status_effect(/datum/status_effect/buff/thinking_cap)
 		else
@@ -95,8 +97,8 @@
 /datum/status_effect/buff/thinking_cap
 	id = "thinkingcap"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/thinking_cap
-	effectedstats = list("intelligence" = 2)
-	duration = 240 MINUTES
+	effectedstats = list("intelligence" = 1)
+	duration = 180 MINUTES
 
 /datum/status_effect/buff/thinking_cap/on_apply()
 	. = ..()
@@ -111,7 +113,7 @@
 		C.add_stress(/datum/stressevent/wheresmyhat)
 
 /datum/stressevent/wheresmyhat
-	timer = 0
+	timer = 10 MINUTES
 	stressadd = 1
 	desc = "<span class='red'>I miss my hat....</span>"
 
@@ -120,4 +122,4 @@
 	desc = "<span class='nicegreen'>My hat deflects mind-clouding rays of Zizo...</span>\n"
 	icon = 'icons/mob/actions/roguespells.dmi'
 	icon_state = ""
-*/
+

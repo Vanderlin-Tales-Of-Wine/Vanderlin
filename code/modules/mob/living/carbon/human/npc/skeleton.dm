@@ -196,7 +196,7 @@
 		if(7) //Ex Wife
 			r_hand = /obj/item/cooking/pan
 			head = /obj/item/clothing/head/armingcap
-			shirt = /obj/item/clothing/shirt/dress/gen/brown
+			armor = /obj/item/clothing/shirt/dress/gen/brown
 
 
 ///////////////////////////////////////////////////////////// EVENTMIN SKELETONGS

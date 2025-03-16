@@ -1,34 +1,33 @@
-/datum/job/roguetown/butler
+/datum/job/stonekeep/butler
 	title = "Butler"
-	flag = BUTLER
-	department_flag = PEASANTS
+	flag = SK_SERVANT
+	department_flag = NOBLEMEN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 
 	f_title = "Maid"
 	allowed_races = list(
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar"
+		"Dwarf"
 	)
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	tutorial = "Your blade is a charcuterie of artisanal cheeses and meat, your armor wit and classical training. You are part of the royal family now, and hold a distinguished position as the head of the royal household staff. You wear their colors and have a semblance of dignity, for without you and the servants under your command the court would have all starved to death."
-	outfit = /datum/outfit/job/roguetown/butler
-	display_order = JDO_BUTLER
+	outfit = /datum/outfit/job/stonekeep/butler
+	display_order = SERVANT_ORDER
 	bypass_lastclass = TRUE
 	min_pq = -10
-	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
+	give_bank_account = 25 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
-/datum/outfit/job/roguetown/butler/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/butler/pre_equip(mob/living/carbon/human/H)
 	..()
-	backpack_contents = list(/obj/item/book/manners = 1)
-	mask = /obj/item/clothing/face/spectacles
+	backr = /obj/item/storage/backpack/satchel
+	belt = /obj/item/storage/belt/leather
+	beltl = /obj/item/storage/belt/pouch/coins/mid
+	beltr = /obj/item/storage/keyring/butler
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // A well educated head of servants should at least have skilled literacy level
@@ -48,21 +47,15 @@
 		H.change_stat("endurance", 1)
 
 	if(H.gender == MALE)
-		pants = /obj/item/clothing/pants/tights
-		shirt = /obj/item/clothing/shirt/undershirt/guard
+		pants = /obj/item/clothing/pants/tights/uncolored
+		shirt = /obj/item/clothing/shirt/undershirt/uncolored
 		shoes = /obj/item/clothing/shoes/nobleboot
-		belt = /obj/item/storage/belt/leather/plaquesilver
-		beltr = /obj/item/storage/keyring/butler
-		beltl = /obj/item/storage/belt/pouch/coins/mid
 		armor = /obj/item/clothing/armor/leather/vest/butler
-		backr = /obj/item/storage/backpack/satchel
 
 	else
-		armor = /obj/item/clothing/shirt/dress/gen/maid
-		shirt = /obj/item/clothing/shirt/undershirt
-		shoes = /obj/item/clothing/shoes/ridingboots
+		pants = /obj/item/clothing/pants/tights/stockings/white
+		shirt = /obj/item/clothing/shirt/dress/gen/maid
+		shoes = /obj/item/clothing/shoes/simpleshoes
 		cloak = /obj/item/clothing/cloak/apron
 		belt = /obj/item/storage/belt/leather/cloth/lady
-		beltr = /obj/item/storage/keyring/butler
-		beltl = /obj/item/storage/belt/pouch/coins/mid
-		backr = /obj/item/storage/backpack/satchel
+

@@ -7,10 +7,9 @@
 	spawn_positions = 1
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
-	allowed_sexes = list(MALE, FEMALE) //same as town guard
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Elf",
 		"Half-Elf",
 		"Dwarf"
 	)
@@ -58,7 +57,7 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)

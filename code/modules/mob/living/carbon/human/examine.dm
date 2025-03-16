@@ -135,7 +135,8 @@
 				. += "<span class='userdanger'>BANDIT!</span>"
 			if(mind && mind.special_role == "Vampire Lord")
 				. += "<span class='userdanger'>A MONSTER!</span>"
-
+			if(mind && mind.special_role == "Tiefling Herald")	// STONEKEEP EDIT
+				. += "<span class='userdanger'>Has a evil aura!</span>"
 		var/list/known_frumentarii = user.mind?.cached_frumentarii
 		if(name in known_frumentarii)
 			. += span_greentext("<b>[m1] an agent of the court!</b>")
@@ -145,7 +146,7 @@
 				. += span_green("A member of the Thieves Guild.")
 
 			if(HAS_TRAIT(src, TRAIT_CABAL) && HAS_TRAIT(user, TRAIT_CABAL))
-				. += span_purple("A fellow seeker of Her ascension.")
+				. += span_purple("A fellow wanderer on the path of ZIZO.")	// STONEKEEP EDIT
 
 	if(HAS_TRAIT(src, TRAIT_MANIAC_AWOKEN))
 		. += span_userdanger("MANIAC!")

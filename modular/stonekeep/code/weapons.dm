@@ -61,6 +61,8 @@
 	icon = 'modular/stonekeep/icons/weapons_64.dmi'
 	icon_state = "crusher"
 
+/obj/item/weapon/polearm/spear/stone/copper	// ROGTODO check it works
+	icon = 'icons/roguetown/weapons/64.dmi'
 
 //................ Onehanders ............... //
 /obj/item/weapon/mace/steel
@@ -76,8 +78,7 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -6,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 	return ..()
 
-/obj/item/weapon/sword/rapier
-	dropshrink = 0.6
+
 
 /obj/item/weapon/knife/hunting
 	icon = 'modular/stonekeep/icons/weapons.dmi'
@@ -148,11 +149,19 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 	return ..()
 
+
+//................ Rapiers ............... //
+/obj/item/weapon/sword/rapier
+	dropshrink = 0.7
+
 /obj/item/weapon/sword/rapier/dec
 	icon_state = "decrapier"
 	desc = "A rapier decorated with gold inlaid on its hilt. A fine weapon, fit for nobility."
 	sellprice = 80
 
-//................ Lord's Rapier ............... //
 /obj/item/weapon/sword/rapier/dec/lord
 	sellprice = 180
+
+
+/obj/item/weapon/whip/antique
+	name = "war whip"

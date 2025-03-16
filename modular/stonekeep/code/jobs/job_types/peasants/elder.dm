@@ -22,17 +22,17 @@
 	give_bank_account = 60
 	min_pq = 0
 
+	selection_color = "#6c3e2f"
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
 	can_have_apprentices = FALSE
 
 /datum/outfit/job/stonekeep/elder/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/pants/leather
+	pants = /obj/item/clothing/pants/trou/leather/heavy
 	head = /obj/item/clothing/head/knitcap
-	armor = /obj/item/clothing/armor/leather/heavy/coat
+	armor = /obj/item/clothing/armor/leather/vest/butcher
 	shirt = /obj/item/clothing/shirt/tunic
 	shoes = /obj/item/clothing/shoes/boots
-	cloak = /obj/item/clothing/cloak/half
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	backl = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/black

@@ -127,6 +127,12 @@
 	name = "report on the olde tollhouse"
 	info = "My liege! Inspection of the olde tollhouse in the marshes revealed it to be in better shape than afeared. Some crenelation hath fallen off, but the lockes are still in good order, and the keyes kept in the Stewards chest still well accounted for. It could be restored to function should you wishe it liege."
 
+/obj/item/paper/angry_about_pigs
+	name = "letter from neighbour"
+	info = "Elder. Your pigs escaped yet again and plundered my cabbage patch before running west. Next time I will make ham of them. You have been warned."
+
+
+
 
 /obj/item/paper/feldsher_certificate
 	icon = 'modular/stonekeep/icons/misc.dmi'
@@ -929,55 +935,6 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	create_travel_tiles(location, travel_id, travel_goes_to_id, required_trait, path)
 */
 
-// =============================================================
-// ================		LANDMARKS		========================
-/obj/effect/landmark/start/sk_gravekeeper
-	name = "Gravekeeper"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_mason
-	name = "Mason"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_woodsman
-	name = "Woodsman"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_elder
-	name = "Village Elder"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_blacksmith
-	name = "Blacksmith"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_manatarms
-	name = "Man-at-arms"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_stevedore
-	name = "Stevedore"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_courtwiz
-	name = "Court Wizard"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_sheriff
-	name = "Sheriff"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_weaver
-	name = "Weaver"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_pilgrim
-	name = "Pilgrim"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/sk_nitemaster
-	name = "Nitemaster"
-	icon_state = "arrow"
 
 // =========================================================
 // ================		KEYS		========================
@@ -1064,3 +1021,17 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 
 /obj/item/storage/keyring/servinggirl
 	keys = list(/obj/item/key/tavern, /obj/item/key/bathhouse)
+
+
+/obj/item/storage/meatbag
+	dropshrink = 0.8
+
+
+/obj/item/paper/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -1,"nx" = 13,"ny" = -1,"wx" = 4,"wy" = 0,"ex" = 2,"ey" = -1,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 2,"sflip" = 0,"wflip" = 0,"eflip" = 8)
+			if("onbelt")
+				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)

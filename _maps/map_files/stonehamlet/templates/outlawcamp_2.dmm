@@ -84,14 +84,14 @@
 /area/rogue/indoors/shelter/rtfield)
 "uz" = (
 /obj/item/storage/meatbag,
-/obj/structure/rack/rogue,
+/obj/structure/rack,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "wv" = (
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "wW" = (
-/obj/structure/flora/grass,
+/obj/effect/spawner/map_spawner/outlawtree,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "xd" = (
@@ -190,15 +190,15 @@
 /area/rogue/outdoors/rtfield/outlaw)
 
 (1,1,1) = {"
-xd
-xd
-xd
-xd
-xd
+wW
 wv
-xd
-xd
+wW
+wv
+wW
+wv
+wW
 zg
+VP
 VP
 VP
 zg
@@ -207,61 +207,61 @@ zg
 VP
 VP
 zg
-xd
-xd
+wW
+wW
 "}
 (2,1,1) = {"
-xd
-xd
-xd
+wW
+wW
 wv
-xd
-xd
-xd
+wW
+wW
 wv
+wW
 VP
+mK
 yv
 aV
 VP
 wv
 VP
 tV
-mK
+lZ
 VP
 wv
-xd
+wv
 "}
 (3,1,1) = {"
-xd
-wv
-xd
-xd
 wv
 wv
-xd
-wv
-VP
-mK
-mK
-VP
-wv
-VP
-mK
-mK
-VP
-wv
-xd
-"}
-(4,1,1) = {"
-xd
-xd
-xd
-xd
 wW
 wv
-xd
+wv
+wW
 wv
 VP
+mK
+mK
+mK
+Ry
+wv
+VP
+mK
+mK
+VP
+wv
+wW
+"}
+(4,1,1) = {"
+wW
+wW
+wv
+wW
+wW
+wv
+wW
+VP
+mK
 mK
 mK
 Ry
@@ -271,7 +271,7 @@ Ft
 mK
 VP
 wv
-xd
+wv
 "}
 (5,1,1) = {"
 zg
@@ -281,8 +281,8 @@ dc
 wv
 wv
 wv
-wv
 VP
+lZ
 ue
 mK
 VP
@@ -292,7 +292,7 @@ VP
 WU
 zg
 wv
-xd
+wW
 "}
 (6,1,1) = {"
 VP
@@ -302,8 +302,8 @@ yW
 yW
 Am
 sM
-wv
 zg
+VP
 VP
 VP
 zg
@@ -337,10 +337,10 @@ Am
 wv
 "}
 (8,1,1) = {"
-xd
-xd
-xd
-dc
+wW
+wv
+wW
+wW
 xd
 zg
 VP
@@ -358,10 +358,10 @@ yW
 yW
 "}
 (9,1,1) = {"
-xd
 wv
-xd
-xd
+wW
+wv
+wv
 zg
 VP
 uz
@@ -379,10 +379,10 @@ Am
 Am
 "}
 (10,1,1) = {"
-xd
+wW
 wv
-xd
-xd
+wW
+wW
 VP
 tV
 mK
@@ -400,10 +400,10 @@ wv
 Am
 "}
 (11,1,1) = {"
-xd
 wv
+wW
 wv
-xd
+wW
 VP
 ta
 mK
@@ -421,10 +421,10 @@ yW
 Am
 "}
 (12,1,1) = {"
-xd
+wW
 wv
-xd
-xd
+wW
+wv
 zg
 VP
 lZ
@@ -442,11 +442,11 @@ yW
 wv
 "}
 (13,1,1) = {"
-xd
-xd
 wv
-xd
-xd
+wW
+wW
+wv
+wW
 zg
 VP
 VP
@@ -464,12 +464,12 @@ wv
 "}
 (14,1,1) = {"
 wv
-xd
-xd
-xd
-xd
-xd
-xd
+wv
+wv
+wW
+wW
+wv
+wW
 xd
 wv
 wv
@@ -485,12 +485,12 @@ wv
 "}
 (15,1,1) = {"
 xd
+wW
+wW
 wv
-xd
-xd
-xd
-xd
-xd
+wv
+wW
+wv
 zg
 VP
 VP
@@ -505,13 +505,13 @@ zg
 wv
 "}
 (16,1,1) = {"
-xd
-xd
 wv
-xd
+wW
 wv
-xd
-xd
+wW
+wW
+wv
+wW
 VP
 mK
 mK
@@ -520,23 +520,23 @@ VP
 wv
 VP
 fB
-mK
+lZ
 mK
 VP
 wv
 "}
 (17,1,1) = {"
-xd
-xd
-xd
+wW
 wv
-xd
+wW
 wv
-xd
+wv
+wW
+wv
 VP
 Ch
 ON
-mK
+lZ
 VP
 or
 VP
@@ -548,18 +548,18 @@ VF
 "}
 (18,1,1) = {"
 wv
-xd
-xd
+wW
 wv
-xd
-xd
-xd
+wv
+wW
+wv
+wW
 zg
 VP
 VP
 VP
 zg
-xd
+wW
 VP
 tV
 mK
@@ -568,23 +568,23 @@ VP
 Wj
 "}
 (19,1,1) = {"
-xd
-xd
-xd
+wW
+wv
+wW
 wv
 wv
+wW
+wv
+wW
+wW
+wv
+wW
 xd
-xd
-xd
-xd
-xd
-xd
-xd
-xd
+wv
 zg
 VP
 VP
 VP
 zg
-xd
+wW
 "}

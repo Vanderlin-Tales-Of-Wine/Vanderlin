@@ -20,8 +20,8 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "fB" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
-/turf/open/floor/dirt/road,
+/obj/effect/spawner/map_spawner/outlawtree,
+/turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "gE" = (
 /obj/structure/bed/shit,
@@ -60,6 +60,10 @@
 "jq" = (
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
+"jJ" = (
+/obj/machinery/light/fueled/campfire/longlived,
+/turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/outlaw)
 "kb" = (
 /obj/structure/toilet,
@@ -282,9 +286,9 @@
 /turf/closed/wall/mineral/decowood,
 /area/rogue/outdoors/rtfield/outlaw)
 "WU" = (
-/obj/structure/roguetent,
-/turf/open/floor/dirt,
-/area/rogue/indoors/shelter/rtfield)
+/obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield/outlaw)
 "XA" = (
 /obj/item/reagent_containers/glass/bottle,
 /turf/open/floor/dirt/road,
@@ -299,57 +303,57 @@
 /area/rogue/outdoors/rtfield/outlaw)
 
 (1,1,1) = {"
-xd
-xd
-xd
-xd
-xd
+fB
 wv
-xd
-xd
+fB
+wv
+fB
+wv
+fB
 zg
+VP
 VP
 VP
 zg
 wv
-zg
 VP
 VP
-zg
+VP
+VP
 xd
-xd
+fB
 "}
 (2,1,1) = {"
-xd
-xd
-xd
 wv
-xd
-xd
-xd
-or
+fB
+wv
+fB
+wv
+fB
+wv
 VP
+mK
 yv
 aV
 VP
 wv
 VP
 gE
-tV
+lZ
 VP
 wv
-xd
+wv
 "}
 (3,1,1) = {"
-xd
+fB
 wv
-xd
-xd
-qa
-or
-xd
-or
+fB
+wv
+fB
+wv
+fB
 VP
+mK
 Op
 hw
 VP
@@ -359,18 +363,18 @@ mK
 mK
 VP
 wv
-xd
+fB
 "}
 (4,1,1) = {"
-xd
-xd
+wv
+wv
 xd
 xd
 wW
 wv
 xd
-or
 VP
+mK
 Um
 wK
 Ry
@@ -380,7 +384,7 @@ Ft
 mK
 VP
 wv
-xd
+wv
 "}
 (5,1,1) = {"
 zg
@@ -390,18 +394,18 @@ dc
 or
 qa
 DF
-or
 VP
+lZ
 ue
 RK
 VP
 ya
-zg
 VP
-WU
-zg
+VP
+hP
+VP
 wv
-xd
+fB
 "}
 (6,1,1) = {"
 VP
@@ -411,8 +415,8 @@ yW
 yW
 Am
 sM
-or
 zg
+VP
 VP
 VP
 zg
@@ -438,7 +442,7 @@ yW
 wv
 yW
 Am
-fB
+Am
 yW
 yW
 yW
@@ -446,10 +450,10 @@ Am
 wv
 "}
 (8,1,1) = {"
-xd
-xd
-xd
-dc
+fB
+fB
+wv
+fB
 xd
 zg
 VP
@@ -460,17 +464,17 @@ wv
 CS
 Ta
 yW
-Zd
+jJ
 Am
 Cx
 yW
 yW
 "}
 (9,1,1) = {"
-xd
 wv
-xd
-xd
+wv
+fB
+wv
 zg
 VP
 uz
@@ -488,10 +492,10 @@ Am
 Am
 "}
 (10,1,1) = {"
-xd
+fB
+fB
 wv
-xd
-xd
+fB
 VP
 tV
 kQ
@@ -509,8 +513,8 @@ wv
 Am
 "}
 (11,1,1) = {"
-xd
 wv
+fB
 wv
 xd
 VP
@@ -522,7 +526,7 @@ VP
 NB
 Am
 kz
-wv
+WU
 Am
 Am
 Am
@@ -530,9 +534,9 @@ yW
 Am
 "}
 (12,1,1) = {"
-xd
+fB
 wv
-xd
+fB
 xd
 zg
 VP
@@ -551,11 +555,11 @@ yW
 wv
 "}
 (13,1,1) = {"
-xd
-xd
 wv
-xd
-xd
+fB
+fB
+wv
+fB
 zg
 VP
 VP
@@ -572,14 +576,14 @@ yW
 wv
 "}
 (14,1,1) = {"
+fB
 wv
-xd
-xd
-xd
-xd
-xd
-xd
-xd
+wv
+fB
+fB
+wv
+fB
+wv
 or
 or
 wv
@@ -593,17 +597,17 @@ wv
 wv
 "}
 (15,1,1) = {"
-xd
 wv
-xd
-xd
-xd
-xd
-xd
+fB
+fB
+wv
+wv
+fB
+wv
 zg
 VP
 VP
-WU
+hP
 zg
 wv
 zg
@@ -614,13 +618,13 @@ zg
 wv
 "}
 (16,1,1) = {"
-xd
-xd
+fB
 wv
-xd
+fB
 wv
-xd
-xd
+fB
+wv
+fB
 VP
 Hf
 mK
@@ -635,17 +639,17 @@ VP
 wv
 "}
 (17,1,1) = {"
-xd
-xd
-xd
+fB
 wv
-xd
+fB
+fB
+fB
 wv
-xd
+fB
 VP
 Ch
 ON
-tV
+lZ
 VP
 or
 VP
@@ -657,38 +661,38 @@ wv
 "}
 (18,1,1) = {"
 wv
-xd
-xd
+fB
 wv
-xd
-xd
-xd
+wv
+wv
+fB
+wv
 zg
 VP
 VP
 VP
 zg
-xd
+fB
 VP
-tV
+lZ
 tV
 tV
 VP
 Wj
 "}
 (19,1,1) = {"
-xd
-xd
+fB
+wv
+fB
+fB
+fB
+wv
+fB
+fB
+wv
+fB
 xd
 wv
-wv
-xd
-xd
-xd
-xd
-xd
-xd
-xd
 xd
 zg
 VP

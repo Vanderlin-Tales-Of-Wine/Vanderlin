@@ -79,14 +79,14 @@
 	H.set_blindness(0)
 	switch(background_choice)
 		if("Spymaster")	// flexible poison/offensive
-			beltr = /obj/item/weapon/sword/rapier/dec
+			beltr = /obj/item/weapon/sword/sabre/dec
 			armor = /obj/item/clothing/armor/leather/jacket/hand
-			backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/poison = 1)
+			backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/poison = 1, /obj/item/paper/scroll/frumentarii = 1)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Consort")	// medical support focus
 			beltr = /obj/item/weapon/knife/dagger/steel
 			armor = /obj/item/clothing/shirt/robe/elegantgown
-			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/antidote = 1, /obj/item/reagent_containers/glass/bottle/healthpot = 1)
+			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/antidote = 1, /obj/item/reagent_containers/glass/bottle/healthpot = 1, /obj/item/paper/scroll/frumentarii = 1)
 
 
 

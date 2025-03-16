@@ -16,7 +16,6 @@
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
 							/obj/structure/flora/tree/neu/bush = 1,
 							/obj/structure/flora/grass/bush_meagre = 2,
-							/obj/structure/flora/grass/herb/random = 2,
 							/obj/structure/flora/rogueflower/random = 1,
 							/obj/structure/flora/grass = 10,
 							/obj/structure/table/wood/treestump = 1,
@@ -91,36 +90,46 @@
 	startTurfY = 1
 
 /datum/mapGenerator/wetlands
-	modules = list(/datum/mapGeneratorModule/ambushing/wetlands,/datum/mapGeneratorModule/wetlands, /datum/mapGeneratorModule/wetwater, /datum/mapGeneratorModule/wetwaterdeep, /datum/mapGeneratorModule/wetgrass,/datum/mapGeneratorModule/wetdirt,/datum/mapGeneratorModule/wetlandsred)
+	modules = list(/datum/mapGeneratorModule/ambushing/wetlands,/datum/mapGeneratorModule/wetlands, /datum/mapGeneratorModule/wetgrassier,/datum/mapGeneratorModule/wetwater, /datum/mapGeneratorModule/wetwaterdeep, /datum/mapGeneratorModule/wetgrass,/datum/mapGeneratorModule/wetdirt,/datum/mapGeneratorModule/wetlandsred)
 
 /datum/mapGeneratorModule/wetlands
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
 	spawnableAtoms = list(
 							/obj/structure/flora/grass/bush_meagre = 1,
-							/obj/structure/flora/grass/herb/random = 2,
-							/obj/structure/flora/grass = 10,
-							/obj/item/natural/rock = 4,
-							/obj/item/natural/stone = 6,
-							/obj/structure/flora/grass/swampweed = 6,
-							/obj/item/grown/log/tree/stick = 1,
-
+							/obj/structure/flora/grass/herb/random = 1,
+							/obj/structure/flora/grass = 1,
+							/obj/item/natural/stone = 2,
+							/obj/structure/flora/grass/swampweed = 1,
+							/obj/item/grown/log/tree/stick = 0.1,
+							/obj/structure/flora/rock/pebbles/bogmix = 1,
 							)
-	spawnableTurfs = list(/turf/open/water/swamp = 2, /turf/open/floor/dirt = 2)
+	spawnableTurfs = list(/turf/open/floor/dirt/muddie = 2)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
+	excluded_turfs = list(/turf/open/floor/dirt/road)
+
+/datum/mapGeneratorModule/wetgrassier
+	clusterCheckFlags = CLUSTER_CHECK_NONE
+	allowed_turfs = list(/turf/open/floor/grass)
+	spawnableAtoms = list(
+							/obj/structure/flora/grass = 9,
+							)
+	spawnableTurfs = list(/turf/open/floor/dirt = 2)
+	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
+
 
 /datum/mapGeneratorModule/wetwater
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	spawnableAtoms = list(/obj/structure/flora/grass/water = 5,
-						/obj/structure/flora/grass/water/reeds = 20,
-						/obj/structure/flora/rogueflower/reedbush = 5,
+						/obj/structure/flora/grass/water/reeds = 10,
+						/obj/structure/flora/rogueflower/reedbush = 4,
 						/obj/structure/kneestingers = 20)
 	allowed_turfs = list(/turf/open/water/swamp)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 
 /datum/mapGeneratorModule/wetwaterdeep
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/rogueflower/reedbush = 5)
+	spawnableAtoms = list(/obj/structure/flora/rogueflower/reedbush = 4)
 	allowed_turfs = list(/turf/open/water/swamp/deep)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 
@@ -134,14 +143,13 @@
 /datum/mapGeneratorModule/wetgrass
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
-							/obj/structure/flora/grass/bush_meagre = 3,
+							/obj/structure/flora/grass/bush_meagre = 2,
 							/obj/structure/flora/grass/maneater = 1,
-							/obj/structure/flora/grass/herb/random = 5,
-							/obj/structure/flora/grass = 5,
-							/obj/structure/chair/bench/ancientlog = 1,
-							/obj/structure/flora/grass/swampweed = 6,
-							/obj/item/grown/log/tree/stick = 2,
-							/obj/structure/flora/grass/maneater/real = 2,
+							/obj/structure/flora/grass/herb/random = 4,
+							/obj/structure/flora/grass = 3,
+							/obj/structure/flora/grass/swampweed = 1,
+							/obj/item/grown/log/tree/stick = 1,
+							/obj/structure/flora/grass/maneater/real = 1,
 							)
 	allowed_turfs = list(/turf/open/floor/grass)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
@@ -149,10 +157,11 @@
 
 /datum/mapGeneratorModule/wetdirt
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/rock/pebbles/bogmix = 3,
+	spawnableAtoms = list(/obj/structure/flora/rock/pebbles/bogmix = 6,
 						/obj/structure/flora/rock/pebbles/brown = 1)
 	allowed_turfs = list(/turf/open/floor/dirt)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
+	excluded_turfs = list(/turf/open/floor/dirt/road)
 
 /datum/mapGeneratorModule/ambushing/wetlands
 	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
@@ -169,7 +178,7 @@
 	startTurfY = 1
 
 /datum/mapGenerator/murderwoods
-	modules = list(/datum/mapGeneratorModule/ambushing/murderwoods,/datum/mapGeneratorModule/murderwoods_undertree,/datum/mapGeneratorModule/murderwoodsgrassturf,/datum/mapGeneratorModule/murderwoods,/datum/mapGeneratorModule/murderwoodsgrassyel ,/datum/mapGeneratorModule/murderwoodsroad,/datum/mapGeneratorModule/murderwoodsgrass,/datum/mapGeneratorModule/murderwoodswaterturf)
+	modules = list(/datum/mapGeneratorModule/ambushing/murderwoods,/datum/mapGeneratorModule/murderwoods_undertree,/datum/mapGeneratorModule/murderwoods,/datum/mapGeneratorModule/murderwoodsgrassyel ,/datum/mapGeneratorModule/murderwoodsroad,/datum/mapGeneratorModule/murderwoodsgrass,/datum/mapGeneratorModule/murderwoodswaterturf)
 
 /datum/mapGeneratorModule/murderwoods
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -177,7 +186,7 @@
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 	spawnableAtoms = list(/obj/structure/flora/newtree = 5,
 							/obj/structure/flora/grass/bush_meagre = 6,
-							/obj/structure/flora/grass/thorn_bush = 2,
+							/obj/structure/flora/grass/thorn_bush = 1,
 							/obj/structure/flora/grass = 80,
 							/obj/item/natural/stone = 5,
 							/obj/item/natural/rock = 6,
@@ -191,14 +200,7 @@
 /datum/mapGeneratorModule/murderwoodsroad
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt/road)
-	spawnableAtoms = list(/obj/item/natural/stone = 3,/obj/item/grown/log/tree/stick = 2)
-
-/datum/mapGeneratorModule/murderwoodsgrassturf
-	clusterCheckFlags = CLUSTER_CHECK_NONE
-	allowed_turfs = list(/turf/open/floor/dirt)
-	excluded_turfs = list(/turf/open/floor/dirt/road)
-	spawnableTurfs = list(/turf/open/floor/grass = 10)
-	allowed_areas = list(/area/rogue/outdoors/woods)
+	spawnableAtoms = list(/obj/item/natural/stone = 1,/obj/item/grown/log/tree/stick = 0.1)
 
 /datum/mapGeneratorModule/murderwoods_undertree
 	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS
@@ -217,13 +219,13 @@
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
 							/obj/structure/flora/grass/bush_meagre = 4,
-							/obj/structure/flora/grass = 65,
-							/obj/structure/flora/grass/herb/random = 1,
-							/obj/structure/flora/rogueflower/random = 2,
+							/obj/structure/flora/grass = 30,
+							/obj/structure/flora/grass/herb/random = 0.5,
+							/obj/structure/flora/rogueflower/random = 1,
 							/obj/item/natural/stone = 3,
 							/obj/item/natural/rock = 1,
 							/obj/item/grown/log/tree/stick = 3,
-							/obj/structure/chair/bench/ancientlog = 3)
+							/obj/structure/chair/bench/ancientlog = 2)
 
 /datum/mapGeneratorModule/murderwoodsgrassyel
 	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS
@@ -232,12 +234,11 @@
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
 							/obj/structure/flora/grass/bush_meagre = 3,
-							/obj/structure/flora/grass = 60,
+							/obj/structure/flora/grass = 20,
 							/obj/structure/flora/rogueflower/random = 1,
-							/obj/item/natural/stone = 4,
-							/obj/item/natural/rock = 2,
+							/obj/item/natural/stone = 2,
 							/obj/item/grown/log/tree/stick = 3,
-							/obj/structure/chair/bench/ancientlog = 3)
+							/obj/structure/chair/bench/ancientlog = 1)
 
 /datum/mapGeneratorModule/murderwoodswaterturf
 	clusterCheckFlags = CLUSTER_CHECK_SAME_ATOMS
@@ -247,7 +248,7 @@
 	spawnableAtoms = list(/obj/structure/flora/grass/water = 20)
 
 /datum/mapGeneratorModule/ambushing/murderwoods
-	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=15)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	allowed_turfs = list(/turf/open/floor/grass)
 

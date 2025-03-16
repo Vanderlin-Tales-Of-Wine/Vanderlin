@@ -25,7 +25,7 @@
 	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss, /turf/open/floor/cobble, /turf/open/floor/dirt, /turf/open/floor/grass)
 
 /turf/open/floor/ruinedwood/spiral
-	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss, /turf/open/floor/cobble)
+	canSmoothWith = list(/turf/open/floor/cobble, /turf/open/floor/herringbone)
 
 /turf/open/floor/ruinedwood/spiral/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -33,7 +33,20 @@
 /turf/open/floor/ruinedwood/decayed
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "wood_decayed"
-	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss)
+	canSmoothWith = list(/turf/closed/mineral,
+		/turf/closed/mineral,
+		/turf/closed/wall/mineral/stonebrick,
+		/turf/closed/wall/mineral/wood,
+		/turf/closed/wall/mineral/wooddark,
+		/turf/closed/wall/mineral/decowood,
+		/turf/closed/wall/mineral/decostone,
+		/turf/closed/wall/mineral/stone,
+		/turf/closed/wall/mineral/stone/moss,
+		/turf/open/floor/cobble,
+		/turf/open/floor/cobblerock,
+		/turf/open/floor/grass,
+		/turf/open/floor/dirt
+		)
 /turf/open/floor/ruinedwood/decayed/Initialize()
 	. = ..()
 	dir = pick(GLOB.alldirs)
@@ -62,15 +75,16 @@
 /turf/open/floor/cobblerock
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list()
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/open/floor/dirt,
+						/turf/open/floor/grass,)
 
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
 //	smooth = SMOOTH_BORDER
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_TRUE | SMOOTH_DIAGONAL
 	canSmoothWith = list(
 						/turf/open/floor/grass,
 						/turf/open/floor/grass/red,
@@ -167,7 +181,7 @@
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	neighborlay = "cobstonemoss"
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/dirt)
+	canSmoothWith = list(/turf/open/floor/dirt, /turf/open/floor/grass)
 	max_integrity = 1200
 
 /turf/open/floor/cobblemoss/turf_destruction(damage_flag)
@@ -212,17 +226,16 @@
 /turf/open/floor/grass
 	desc = "Grass, sodden in mud and bogwater."
 	icon = 'modular/stonekeep/icons/turfs.dmi'
+	neighborlay = "grass"
 	canSmoothWith = list(
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
-						/turf/open/floor/hay,
+						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/grass/yel,
-	/turf/open/floor/grass/red,
-	/turf/open/floor/snow,
-	/turf/open/floor/cobble/mossy,
-	/turf/open/floor/ruinedwood/decayed,
+						/turf/open/floor/grass/red,
 						)
+
 /turf/open/floor/grass/Initialize()
 	. = ..()
 	if(icon_state == "grass")
@@ -236,18 +249,17 @@
 	. = ..()
 
 /turf/open/floor/grass/mixyel
-	icon = 'icons/turf/roguefloor.dmi'
-	neighborlay = "yelmixedge"
-	smooth = SMOOTH_MORE
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	neighborlay = "grass_yelmix"
+	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 	/turf/open/floor/grass/yel,
 	/turf/open/floor/grass/red,
-	/turf/open/floor/snow,
-	/turf/open/floor/cobblerock)
+	/turf/open/floor/snow)
 
 /turf/open/floor/grass/yel
 	icon = 'modular/stonekeep/icons/turfs.dmi'
-	smooth = SMOOTH_MORE
+	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 	/turf/open/floor/snow,
 	)
@@ -255,10 +267,10 @@
 /turf/open/floor/grass/red
 	name = "red grass"
 	desc = "Grass, ripe with Dendor's blood."
-	icon = 'icons/turf/roguefloor.dmi'
-	icon_state = "grass_red"
-	neighborlay = "grass_rededge"
-	smooth = SMOOTH_MORE
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "grass_bog"
+	neighborlay = "grass_bog"
+	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 	/turf/open/floor/snow,
 	)
@@ -274,22 +286,13 @@
 /*	..................   Snow   ................... */
 /turf/open/floor/snow/patchy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
-	canSmoothWith = list(/turf/open/floor/naturalstone,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold
+	canSmoothWith = list(
+						/turf/open/floor/snow
 						)
 
 /turf/open/floor/snow
 	icon = 'modular/stonekeep/icons/turfs.dmi'
-	canSmoothWith = list(/turf/open/floor/naturalstone,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
+	canSmoothWith = list(
 						/turf/open/floor/snow/rough)
 
 /turf/open/floor/snow/rough
@@ -300,67 +303,61 @@
 /*	..................   Dirt   ................... */
 
 /turf/open/floor/dirt
+//	smooth = SMOOTH_MORE
+	smooth = SMOOTH_MORE | SMOOTH_BORDER
 	canSmoothWith = list(
 						/turf/open/floor/cobblerock/alt,
 						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
-						/turf/open/floor/snow/rough,
-						/turf/open/floor/hay,
 						/turf/open/floor/dirt/muddie,
-						/turf/open/floor/ruinedwood/decayed)
+						)
 
-/turf/open/floor/dirt/road/old
-	icon = 'modular/stonekeep/icons/turfs.dmi'
-	icon_state = "oldroad"
-	neighborlay = "oldroad"
+/turf/open/floor/dirt/Initialize()
+	if(istype(loc, /area/rogue/outdoors/bog/wetlands))
+		icon = 'modular/stonekeep/icons/turfs.dmi'
+		icon_state = "olddirt"
+		neighborlay = "olddirt"
+	..()
+
+/turf/open/floor/dirt/road
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral,
 						/turf/open/floor/dirt,
 						/turf/open/floor/dirt/muddie,
-						/turf/open/floor/hay)
+						/turf/open/floor/grass,
+						/turf/open/floor/cobblerock/alt,
+						)
 
-/turf/open/floor/dirt/old
-	desc = "The dirt is dark and smell ancient."
-	icon_state = "olddirt"
-	icon = 'modular/stonekeep/icons/turfs.dmi'
-	neighborlay = "olddirt"
+/turf/open/floor/dirt/road/Initialize()
+	. = ..()
+	hidden_truffles = FALSE
+	hidden_toxicshrooms = FALSE
+	if(istype(loc, /area/rogue/outdoors/bog/wetlands))
+		icon = 'modular/stonekeep/icons/turfs.dmi'
+		icon_state = "oldroad"
+		neighborlay = "oldroad"
 
-/turf/open/floor/dirt/old/become_muddy()
-	if(!muddy)
-		water_level = max(water_level-100,0)
-		muddy = TRUE
-		icon_state = "oldmud[rand (1,3)]"
-		name = "oldmud"
-		slowdown = 2
-		footstep = FOOTSTEP_MUD
-		barefootstep = FOOTSTEP_MUD
-		heavyfootstep = FOOTSTEP_MUD
-		bloodiness = 20
 
 /turf/open/floor/dirt/muddie
 	desc = "Your feet sink into this soft ground easily."
 	icon_state = "mud1"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
-	neighborlay = "mud1"
+	neighborlay = "mud"
 	muddy = TRUE
 	footstep = FOOTSTEP_MUD
 	barefootstep = FOOTSTEP_MUD
 	heavyfootstep = FOOTSTEP_MUD
-	canSmoothWith = list()
+//	canSmoothWith = list()	ROGTODO test is this correct settings for the mud smooth?
+	smooth = SMOOTH_FALSE
+
 
 /turf/open/floor/dirt/muddie/Initialize()
 	. = ..()
 	icon_state = "mud[rand (1,3)]"
 	dir = pick(GLOB.cardinals)
-
-
+	hidden_truffles = FALSE
+	hidden_toxicshrooms = FALSE
 
 // =================================================================
 // ====================		Misc floors		========================
@@ -394,7 +391,7 @@
 /turf/open/floor/hay/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
-/obj/effect/decal/haycorner	// ROGTODO is this necesary?
+/obj/effect/decal/haycorner
 	name = ""
 	desc = ""
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -499,3 +496,18 @@
 	opacity = FALSE
 	max_integrity = 800
 	explosion_block = 2
+
+
+// Windows mapping help
+
+/turf/closed/wall/mineral/stone/window
+	color = "#706b6a"
+/turf/closed/wall/mineral/stone/window/Initialize()
+	. = ..()
+	color = "#ffffff"
+
+/turf/closed/wall/mineral/wood/window
+	color = "#706b6a"
+/turf/closed/wall/mineral/wood/window/Initialize()
+	. = ..()
+	color = "#ffffff"

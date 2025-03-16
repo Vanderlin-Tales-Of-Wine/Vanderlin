@@ -276,7 +276,7 @@
 	base_intents = list(/datum/intent/simple/critterbite)
 
 /mob/living/simple_animal/hostile/retaliate/spider
-	base_intents = list(/datum/intent/simple/bite)
+	base_intents = list(/datum/intent/simple/critterbite)
 
 /datum/intent/simple/trollrip
 	name = "trollrip"
