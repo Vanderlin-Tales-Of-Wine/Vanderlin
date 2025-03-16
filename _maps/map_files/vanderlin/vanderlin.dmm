@@ -472,7 +472,7 @@
 /area/rogue/outdoors/river)
 "arF" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/soap/bath{
+/obj/item/bath/soap{
 	pixel_x = -8;
 	pixel_y = 7
 	},
@@ -5744,7 +5744,7 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/item/soap/bath{
+/obj/item/bath/soap{
 	pixel_x = -9;
 	pixel_y = 8
 	},
@@ -10862,7 +10862,7 @@
 	pixel_y = 1
 	},
 /obj/structure/table/wood/plain_alt,
-/obj/item/soap/bath{
+/obj/item/bath/soap{
 	pixel_x = -8;
 	pixel_y = 7
 	},
@@ -14624,7 +14624,7 @@
 /area/rogue/outdoors/rtfield)
 "kpk" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /obj/structure/fake_machine/mail,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
@@ -16250,7 +16250,7 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /turf/open/floor/blocks{
 	icon_state = "paving"
 	},

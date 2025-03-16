@@ -1666,7 +1666,7 @@
 /area/rogue/outdoors/town/roofs)
 "bRz" = (
 /obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /obj/item/natural/cloth,
 /turf/open/floor/herringbone,
 /area/rogue/under/town/basement)
@@ -8457,7 +8457,7 @@
 /area/rogue/indoors/town/manor)
 "jsE" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "jtd" = (
@@ -15115,7 +15115,7 @@
 /area/rogue/indoors/town/church)
 "qBm" = (
 /obj/structure/closet/crate/chest,
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /turf/open/floor/tile{

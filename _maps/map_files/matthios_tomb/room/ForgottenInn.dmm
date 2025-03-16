@@ -162,7 +162,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "vn" = (
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /turf/open/water/bath,
 /area/rogue/indoors/shelter)
 "vp" = (
@@ -210,7 +210,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "Ae" = (
-/obj/item/soap/bath,
+/obj/item/bath/soap,
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
 	},
