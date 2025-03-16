@@ -70,11 +70,8 @@
 		var/is_apprentice = mind?.apprentice
 		if(islatejoin)
 			is_returning = TRUE
-		if(user.mind?.do_i_know(src?.mind) || user == src || isobserver(user))
-			statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
-		else
-			// the name should be unknown too but can't do that until there is a neat way to recognize a new person.
-			statement_of_identity += ("<EM>[used_name]</EM>, the [race_name].")
+
+		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
 		. += statement_of_identity
 
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people

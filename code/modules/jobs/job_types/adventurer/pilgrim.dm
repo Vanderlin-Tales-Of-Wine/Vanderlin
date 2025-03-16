@@ -19,7 +19,6 @@
 	same_job_respawn_delay = 0
 	bypass_lastclass = TRUE
 	can_have_apprentices = FALSE
-	is_foreigner = TRUE
 
 
 /datum/job/pilgrim/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
