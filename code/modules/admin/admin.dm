@@ -938,7 +938,7 @@
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 
-/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list, excommunicate = FALSE as num|null in list(TRUE,FALSE))
+/datum/admins/proc/anoint_priest(mob/living/carbon/human/M in GLOB.human_list)
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
@@ -951,7 +951,8 @@
 		return
 	if(is_priest_job(M.mind.assigned_role))
 		return
-	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
+	var/appointment_type = browser_alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", DEFAULT_INPUT_CHOICES)
+	if(appointment_type == CHOICE_NO)
 		return
 
 	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
@@ -966,14 +967,13 @@
 			HL.job = "Ex-Priest"
 
 
-			if(excommunicate)
-				GLOB.excommunicated_players |= HL.real_name
-				HL.cleric?.excommunicate()
-			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, coronate_lord)
-			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchexcommunicate)
-			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchcurse)
-			HL.verbs -= TYPE_PROC_REF(/mob/living/carbon/human, churchannouncement)
+			HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
+			HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
+			HL.verbs -= /mob/living/carbon/human/proc/churchcurse
+			HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
 			priest_job?.remove_spells(HL)
+			GLOB.excommunicated_players |= HL.real_name
+			HL.cleric?.excommunicate()
 
 	priest_job?.add_spells(M)
 	M.mind.set_assigned_role(/datum/job/priest)

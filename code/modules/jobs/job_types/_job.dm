@@ -23,10 +23,10 @@
 	/// How many players can be this job
 	var/total_positions = 0
 
-	/// How many players can spawn in as this job
+	/// How many players can spawn in as this job rondstart
 	var/spawn_positions = 0
 
-	/// How many players have this job
+	/// How many players currently have this job
 	var/current_positions = 0
 
 	/// Whether this job clears a slot when you get a rename prompt.
@@ -188,6 +188,11 @@
 	if(is_foreigner)
 		ADD_TRAIT(spawned, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
+	if(can_have_apprentices)
+		spawned.mind.apprentice_training_skills = trainable_skills.Copy()
+		spawned.mind.max_apprentices = max_apprentices
+		spawned.mind.apprentice_name = apprentice_name
+
 	add_spells(spawned)
 
 	var/list/used_stats = ((spawned.gender == FEMALE) && jobstats_f) ? jobstats_f : jobstats
@@ -215,12 +220,15 @@
 		SScrediticons.processing += spawned
 
 	if(cmode_music)
-		spawned << load_resource(cmode_music, -1)
+		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
 
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
 		announce_head(joining_mob, head_announce)
+
+/datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
+	//RT: UNIMPLEMENTED
 
 //Used for a special check of whether to allow a client to latejoin as this job.
 /datum/job/proc/special_check_latejoin(client/C)
@@ -249,10 +257,6 @@
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
 	var/datum/outfit/chosen_outfit = (gender == FEMALE && equipping.outfit_female) ? equipping.outfit_female : equipping.outfit
 	equipOutfit(chosen_outfit, visual_only)
-
-
-/datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
-	//RT: UNIMPLEMENTED
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/job/proc/player_old_enough(client/C)
@@ -410,6 +414,13 @@
 	dna.update_dna_identity()
 
 /* ROGUETOWN */
+
+/datum/job/proc/adjust_current_positions(offset)
+	if((current_positions + offset) < 0)
+		message_admins("Something was about to set current_positions for [title] to less than zero! Please send the stack trace to a developer")
+		stack_trace("tried to adjust current positions to less-than-zero")
+
+	current_positions = max(current_positions + offset, 0)
 
 /datum/job/proc/add_spells(mob/living/H)
 	if(spells && H.mind)

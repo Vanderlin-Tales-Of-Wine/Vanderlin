@@ -257,14 +257,22 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 			return "You are currently banned from [jobtitle]."
 		if(JOB_UNAVAILABLE_PLAYTIME)
 			return "You do not have enough relevant playtime for [jobtitle]."
-		if(JOB_UNAVAILABLE_ACCOUNTAGE)
-			return "Your account is not old enough for [jobtitle]."
 		if(JOB_UNAVAILABLE_SLOTFULL)
 			return "[jobtitle] is already filled to capacity."
+		if(JOB_UNAVAILABLE_AGE)
+			return "[jobtitle] is not for those of your age."
 		if(JOB_UNAVAILABLE_RACE)
 			return "[jobtitle] is not meant for your kind."
-		if(JOB_UNAVAILABLE_PATRON)
+		if(JOB_UNAVAILABLE_SEX)
+			return "[jobtitle] is not meant for your sex."
+		if(JOB_UNAVAILABLE_DEITY)
 			return "[jobtitle] requires more faith."
+		if(JOB_UNAVAILABLE_QUALITY)
+			return "[jobtitle] requires higher player quality."
+		if(JOB_UNAVAILABLE_PATREON)
+			return "Your patreon tier is not high enough for [jobtitle]."
+		if(JOB_UNAVAILABLE_ACCOUNTAGE)
+			return "Your account is not old enough for [jobtitle]."
 		if(JOB_UNAVAILABLE_LASTCLASS)
 			return "You have played [jobtitle] recently."
 		if(JOB_UNAVAILABLE_JOB_COOLDOWN)
@@ -348,18 +356,17 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 		if(!client.triumph_ids.Find("race_all"))
 			return JOB_UNAVAILABLE_RACE
 /*	if(length(job.allowed_patrons) && !(client.prefs.selected_patron.type in job.allowed_patrons))
-		return JOB_UNAVAILABLE_PATRON */
+		return JOB_UNAVAILABLE_DEITY */
 	if(job.plevel_req > client.patreonlevel())
-		testing("PATREONLEVEL [client.patreonlevel()] req [job.plevel_req]")
-		return JOB_UNAVAILABLE_GENERIC
+		return JOB_UNAVAILABLE_PATREON
 	if(!isnull(job.min_pq) && (get_playerquality(ckey) < job.min_pq))
-		return JOB_UNAVAILABLE_GENERIC
+		return JOB_UNAVAILABLE_QUALITY
 	if(length(job.allowed_sexes) && !(client.prefs.gender in job.allowed_sexes))
-		return JOB_UNAVAILABLE_RACE
+		return JOB_UNAVAILABLE_SEX
 	if(length(job.allowed_ages) && !(client.prefs.age in job.allowed_ages))
-		return JOB_UNAVAILABLE_RACE
+		return JOB_UNAVAILABLE_AGE
 	if((client.prefs.lastclass == job.title) && !job.bypass_lastclass)
-		return JOB_UNAVAILABLE_GENERIC
+		return JOB_UNAVAILABLE_LASTCLASS
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(rank)

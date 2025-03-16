@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(job)
 	JobDebug("Player: [player] is now Rank: [job.get_informed_title(player)], JCP:[job.current_positions], JPL:[position_limit]")
 	player.mind.set_assigned_role(job)
 	unassigned -= player
-	job.current_positions++
+	job.adjust_current_positions(1)
 	. = TRUE //V:
 
 	if(!latejoin)

@@ -44,7 +44,7 @@
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
 	if(departing_mob.mind)
 		mob_job = SSjob.GetJob(departing_mob.mind.assigned_role)
-		mob_job.current_positions = max(0, mob_job.current_positions - 1)
+		mob_job.adjust_current_positions(-1)
 	if(!length(departing_mob.contents))
 		dat += " none."
 	else

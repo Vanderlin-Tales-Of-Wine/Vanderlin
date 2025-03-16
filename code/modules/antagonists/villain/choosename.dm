@@ -4,13 +4,15 @@
 		return
 	var/old_name = real_name
 	if(!stat)
+		/*
 		if(job)
 			var/datum/job/j = SSjob.GetJob(job)
 			if(!j.antag_job)
 				j.current_positions--
+		*/
 
 		MOBTIMER_SET(src, MT_MIRRORTIME)
-		
+
 		var/begin_time = world.time
 		var/new_name = input(src, "What should your [input] name be?", "VANDERLIN")
 		if(world.time > begin_time + 60 SECONDS)
