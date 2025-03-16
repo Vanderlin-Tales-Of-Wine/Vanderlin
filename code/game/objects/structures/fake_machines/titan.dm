@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Set Taxes",
 		"Change Position",
 		"Appoint regent",
-		"Nevermind",
+		"Cancel",
 	)
 
 /// Returns all commands of the THROAT in a single string.
@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return FALSE
 	if(!is_worthy(checked_mob) && !has_to_be_worthy)
 		return FALSE
-	if(check_cooldown(checked_mob))
+	if(!check_cooldown(checked_mob))
 		return FALSE
 	return TRUE
 
@@ -99,17 +99,25 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(findtext(message, "help") && is_valid_mob(user))
 		help()
 	if(findtext(message, "make announcement") && perform_check(user, FALSE))
+		say("All will hear your word.")
+		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_MAKE_ANNOUNCEMENT
 	if(findtext(message, "make decree") && perform_check(user))
+		say("Speak and they will obey.")
+		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_MAKE_DECREE
 	if(findtext(message, "make law") && perform_check(user))
 		say("Speak and they will obey.")
+		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+		playsound()
 		mode = MODE_MAKE_LAW
 	if(findtext(message, "remove law") && perform_check(user))
 		remove_law(message)
 	if(findtext(message, "purge laws") && perform_check(user))
 		purge_laws()
 	if(findtext(message, "declare outlaw") && perform_check(user))
+		say("Who should be outlawed?")
+		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_DECLARE_OUTLAW
 	if(findtext(message, "set taxes") && perform_check(user))
 		set_taxes()
@@ -147,7 +155,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /// Tries summoning the crown to the user's hand
 /obj/structure/fake_machine/titan/proc/summon_crown(mob/living/carbon/human/user)
 	if(!SSroguemachine.crown)
-		new /obj/item/clothing/head/crown/serpcrown(src.loc)
+		var/crown = new /obj/item/clothing/head/crown/serpcrown(src.loc)
+		user.put_in_hands(crown)
 		say("The crown is summoned!")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
@@ -213,20 +222,12 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/make_announcement(mob/living/carbon/human/user, raw_message)
 	if(!SScommunications.can_announce(user))
 		return
-	var/datum/antagonist/prebel/rebel_datum = user.mind?.has_antag_datum(/datum/antagonist/prebel)
-	if(rebel_datum)
-		if(rebel_datum.rev_team)
-			if(rebel_datum.rev_team.members.len < 3)
-				to_chat(user, "<span class='warning'>I need more folk on my side to declare victory.</span>")
-			else
-				for(var/datum/objective/prebel/obj in user.mind.get_all_objectives())
-					obj.completed = TRUE
-				if(!SSmapping.retainer.head_rebel_decree)
-					user.mind.adjust_triumphs(1)
-				SSmapping.retainer.head_rebel_decree = TRUE
-	if(perform_check(user))
-		make_announcement(user, raw_message)
+	if(!perform_check(user, FALSE))
+		reset_mode()
+		return FALSE
+	priority_announce(html_decode(user.treat_message(raw_message)), "The [user.get_role_title()] Speaks", 'sound/misc/alert.ogg', "Captain")
 	reset_mode()
+	return TRUE
 
 /// Makes a decree
 /obj/structure/fake_machine/titan/proc/make_decree(mob/living/carbon/human/user, raw_message)
@@ -244,12 +245,14 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			SSmapping.retainer.head_rebel_decree = TRUE
 	GLOB.lord_decrees += raw_message
 	SScommunications.make_announcement(user, TRUE, raw_message)
+	reset_mode()
 
 /obj/structure/fake_machine/titan/proc/make_law(mob/living/carbon/human/user, raw_message)
 	if(!SScommunications.can_announce(user))
 		return
 	GLOB.laws_of_the_land += raw_message
 	priority_announce("[length(GLOB.laws_of_the_land)]. [raw_message]", "A LAW IS DECLARED", 'sound/misc/lawdeclaration.ogg', "Captain")
+	reset_mode()
 
 /// Removes a law
 /obj/structure/fake_machine/titan/proc/remove_law(raw_message)
@@ -257,12 +260,14 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	var/law_index = text2num(clean_message) || 0
 	if(!law_index || !GLOB.laws_of_the_land[law_index])
 		say("That law doesn't exist!")
+		reset_mode()
 		return FALSE
 	say("That law shall be gone!")
 	playsound(src, 'sound/misc/machineyes.ogg', 100, FALSE, -1)
 	var/law_text = GLOB.laws_of_the_land[law_index]
 	GLOB.laws_of_the_land -= law_text
 	priority_announce("[law_index]. [law_text]", "A LAW IS ABOLISHED", 'sound/misc/lawdeclaration.ogg', "Captain")
+	reset_mode()
 	return TRUE
 
 /// Removes all laws
@@ -391,6 +396,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				declare_outlaw(speaker, original_message)
 			if(MODE_MAKE_DECREE)
 				make_decree(speaker, raw_message)
+
 #undef MODE_NONE
 #undef MODE_MAKE_ANNOUNCEMENT
 #undef MODE_MAKE_LAW
