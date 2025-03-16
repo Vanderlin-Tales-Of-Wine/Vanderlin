@@ -302,6 +302,9 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	if(HAS_TRAIT(user, TRAIT_KNOWKEEPPLANS))
 		..()
 
+/proc/know_keep_door_password(mob/living/carbon/human/H)
+	var/obj/structure/mineral_door/secret/D = GLOB.keep_doors[1]
+	to_chat(H, span_notice("The keep's secret doors answer to: '[D.open_phrase]'"))
 
 ///// THIEVES GUILD DOORS /////
 /obj/structure/mineral_door/secret/thieves_guild

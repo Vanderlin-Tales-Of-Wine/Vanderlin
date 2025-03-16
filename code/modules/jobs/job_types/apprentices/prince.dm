@@ -39,6 +39,8 @@
 		Q.advsetup = 1
 		Q.invisibility = INVISIBILITY_MAXIMUM
 		Q.become_blind("advsetup")
+		if(GLOB.keep_doors.len > 0)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 
 /datum/advclass/heir
 	displays_adv_job = FALSE

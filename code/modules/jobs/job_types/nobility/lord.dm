@@ -44,6 +44,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		SSfamilytree.AddRoyal(L, FAMILY_MOTHER)
 		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
 		to_chat(world, "<br>")
+		if(ishuman(L) && GLOB.keep_doors.len > 0)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), L), 70)
 
 /datum/outfit/job/lord
 	job_bitflag = BITFLAG_ROYALTY

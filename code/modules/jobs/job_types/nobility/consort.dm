@@ -37,6 +37,8 @@
 			SSfamilytree.AddRoyal(H, FAMILY_MOTHER)
 		else
 			SSfamilytree.AddRoyal(H, FAMILY_FATHER)
+		if(GLOB.keep_doors.len > 0)
+			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 
 /datum/outfit/job/consort
 	job_bitflag = BITFLAG_ROYALTY
