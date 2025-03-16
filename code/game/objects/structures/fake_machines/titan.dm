@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/get_commands()
 	. += jointext(command_list, ", ")
 
-/obj/structure/fake_machine/titan/proc/is_valid_mob(mob/living/carbon/checked_mob)
+/obj/structure/fake_machine/titan/proc/is_valid_mob(mob/living/carbon/human/checked_mob)
 	if(!istype(checked_mob))
 		say("Get off me vile creature!")
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	return TRUE
 
 /// Checks if the mob sitting on the throne is worthy, has to be monarch or regent
-/obj/structure/fake_machine/titan/proc/is_worthy(mob/living/carbon/checked_mob)
+/obj/structure/fake_machine/titan/proc/is_worthy(mob/living/carbon/human/checked_mob)
 	if(!(SSticker.rulermob == checked_mob || SSticker.regent_mob == checked_mob))
 		say("You are not worthy!")
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
@@ -66,11 +66,10 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	return TRUE
 
 /// Check if the mob has the crown
-/obj/structure/fake_machine/titan/proc/has_crown(mob/living/carbon/checked_mob)
-	if(checked_mob.head)
-		if(!istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
-			say("You need the crown!")
-			return FALSE
+/obj/structure/fake_machine/titan/proc/has_crown(mob/living/carbon/human/checked_mob)
+	if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
+		say("You need the crown!")
+		return FALSE
 	return TRUE
 
 /// Check if we are ready to perform a command
@@ -160,11 +159,13 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		say("The crown is summoned!")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+		return
 
 	var/obj/item/clothing/head/crown/serpcrown/crown = SSroguemachine.crown
 
 	if(!ismob(crown.loc))//You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
 		crown.anti_stall()
+		var/crown = new /obj/item/clothing/head/crown/serpcrown(src.loc)
 		user.put_in_hands(crown)
 		say("The crown is summoned!")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
