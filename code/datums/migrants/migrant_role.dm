@@ -18,13 +18,15 @@
 	var/greet_text
 	/// Whether to grant a lit torch upon spawn
 	var/grant_lit_torch = FALSE
-		/// Whether to show wanderer examine like adventurers or pilgrims
-	var/show_wanderer_examine = TRUE
+	/// Whether to show them as foreigners
+	var/is_foreigner = TRUE
 	var/advjob_examine = TRUE
 	var/banned_leprosy = TRUE
 	var/banned_lunatic = TRUE
 
 /datum/migrant_role/proc/after_spawn(mob/living/carbon/human/character)
+	if(is_foreigner)
+		ADD_TRAIT(character, TRAIT_FOREIGNER, TRAIT_GENERIC)
 	return
 
 /datum/migrant_role/pilgrim

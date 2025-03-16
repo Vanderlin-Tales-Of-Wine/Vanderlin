@@ -1,7 +1,7 @@
 /datum/advclass/pilgrim/rare/merchant
 	name = "Travelling Merchant"
-	tutorial = "You are a travelling merchant, possibly either of local origin or from far away lands. \
-	You've picked up many wears on your various adventures, now it's time to peddle them back to these locals."
+	tutorial = "You are a travelling merchant from far away lands. \
+	You've picked up many wears on your various adventures, now it's time to peddle them to these locals."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -61,3 +61,4 @@
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)

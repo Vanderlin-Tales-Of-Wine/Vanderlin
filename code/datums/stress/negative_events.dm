@@ -221,6 +221,11 @@
 	stressadd = 2
 	desc = "<span class='red'>They are plotting against me in evil tongues..</span>"
 
+/datum/stressevent/paraforeigner
+	timer = 2 MINUTES
+	stressadd = 2
+	desc = "<span class='red'>A foreigner... are they planning to invade us?</span>"
+
 /datum/stressevent/crowd
 	timer = 2 MINUTES
 	stressadd = 2

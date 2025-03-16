@@ -5143,7 +5143,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "tower";
+	lockid = "hand";
 	name = "Meeting Room"
 	},
 /turf/open/floor/wood,
@@ -11406,7 +11406,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "igW" = (
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},
@@ -13890,7 +13890,7 @@
 	dir = 1
 	},
 /obj/item/paper/scroll,
-/obj/structure/feedinghole,
+/obj/structure/fake_machine/submission,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "jRn" = (
@@ -16857,7 +16857,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "mkm" = (
-/obj/structure/feedinghole,
+/obj/structure/fake_machine/submission,
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
 "mku" = (
@@ -18124,7 +18124,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = 32
 	},
@@ -19295,7 +19295,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "nYW" = (
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},
@@ -23548,7 +23548,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},

@@ -25,6 +25,7 @@
 	bypass_lastclass = TRUE
 	min_pq = 5
 	can_have_apprentices = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/adept
 	name = "Adept"
