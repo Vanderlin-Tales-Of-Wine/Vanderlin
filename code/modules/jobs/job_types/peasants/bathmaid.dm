@@ -46,7 +46,7 @@
 		armor = /obj/item/clothing/armor/leather/jacket/sea
 
 // Washing Implements
-
+// TODO: Make this a subtype of soap, what are you doing guys come on
 /obj/item/bath/soap
 	name = "herbal soap"
 	desc = "A body soap infused with various herbs to create a floral smell."
