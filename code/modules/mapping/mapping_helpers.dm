@@ -52,6 +52,7 @@
 	baseturf = /turf/open/lava/smooth
 
 /obj/effect/mapping_helpers
+	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""
 	var/late = FALSE
 
