@@ -7,7 +7,7 @@
 	if(door.lockid != null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but lockid was already set!")
 		return
-	if (access_string == null)
+	if(access_string == null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but had nothing to assign!")
 		return
 	door.lockid = access_string
