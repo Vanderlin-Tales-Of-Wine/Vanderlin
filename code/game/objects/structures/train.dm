@@ -36,14 +36,14 @@
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
-	if(!do_after(user, 5 SECONDS, target))
+	if(!do_after(user, 5 SECONDS, src))
 		in_use = FALSE
 		return
 	in_use = FALSE
 	update_icon() //the section below handles roles and admin logging
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
 	if(departing_mob.mind)
-		mob_job = SSjob.GetJob(departing_mob.mind.assigned_role)
+		mob_job = departing_mob.mind.assigned_role
 		mob_job.adjust_current_positions(-1)
 	if(!length(departing_mob.contents))
 		dat += " none."
