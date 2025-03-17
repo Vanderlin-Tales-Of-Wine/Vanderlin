@@ -286,40 +286,28 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
 	var/datum/job/job = SSjob.GetJob(rank)
 	//TODO: This fucking sucks.
-	if(has_world_trait(/datum/world_trait/skeleton_siege))
-		if(is_skeleton_job(job))
-			return JOB_UNAVAILABLE_GENERIC
-		else
+	if(is_skeleton_job(job))
+		if(has_world_trait(/datum/world_trait/skeleton_siege))
 			return JOB_AVAILABLE
-	else
-		if(is_skeleton_job(job))
+		else
 			return JOB_UNAVAILABLE_GENERIC
 
-	if(has_world_trait(/datum/world_trait/goblin_siege))
-		if(is_goblin_job(job))
-			return JOB_UNAVAILABLE_GENERIC
-		else
+	if(is_goblin_job(job))
+		if(has_world_trait(/datum/world_trait/goblin_siege))
 			return JOB_AVAILABLE
-	else
-		if(is_goblin_job(job))
+		else
 			return JOB_UNAVAILABLE_GENERIC
 
-	if(has_world_trait(/datum/world_trait/rousman_siege))
-		if(is_rousman_job(job))
-			return JOB_UNAVAILABLE_GENERIC
-		else
+	if(is_rousman_job(job))
+		if(has_world_trait(/datum/world_trait/rousman_siege))
 			return JOB_AVAILABLE
-	else
-		if(is_rousman_job(job))
+		else
 			return JOB_UNAVAILABLE_GENERIC
 
-	if(has_world_trait(/datum/world_trait/death_knight))
-		if(is_deathknight_job(job))
-			return JOB_UNAVAILABLE_GENERIC
-		else
+	if(is_deathknight_job(job))
+		if(has_world_trait(/datum/world_trait/death_knight))
 			return JOB_AVAILABLE
-	else
-		if(is_deathknight_job(job))
+		else
 			return JOB_UNAVAILABLE_GENERIC
 
 	if(!(job.job_flags & JOB_NEW_PLAYER_JOINABLE))
