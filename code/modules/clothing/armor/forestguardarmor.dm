@@ -50,6 +50,7 @@
 	bloody_icon = 'icons/effects/blood.dmi'
 	bloody_icon_state = "helmetblood"
 	flags_inv = HIDEEARS|HIDEHAIR|HIDEFACIALHAIR|HIDEFACE
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	sellprice = VALUE_IRON_HELMET
 	var/picked = FALSE
 
