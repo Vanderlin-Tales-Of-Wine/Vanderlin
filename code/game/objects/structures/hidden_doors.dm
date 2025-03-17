@@ -98,7 +98,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		if(findtext(message2recognize, "set phrase"))
 			var/new_pass = stripped_input(H, "What should the new close phrase be?")
 			open_phrase = new_pass
-			send_speech(span_purple("It is done..."), 2, src, message_language = lang)
+			send_speech(span_purple("It is done, [flavor_name()]..."), 2, src, message_language = lang)
 			return TRUE
 
 	if(findtext(message2recognize, open_phrase) && locked)
@@ -213,6 +213,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		)
 	return pick(close_word)
 
+
 /proc/magic_word()
 	var/list/magic_word = list(
 		"sesame",
@@ -250,6 +251,24 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		"psydon"
 		)
 	return pick(magic_word)
+
+/proc/flavor_name()
+	var/list/flavor_name = list(
+		"my friend",
+		"love",
+		"my love",
+		"honey",
+		"darling",
+		"stranger",
+		"companion",
+		"mate",
+		"you harlot",
+		"comrade",
+		"fellow",
+		"chum",
+		"bafoon"
+		)
+	return pick(flavor_name)
 
 /obj/structure/mineral_door/secret/proc/set_phrase(new_phrase)
 	open_phrase = new_phrase

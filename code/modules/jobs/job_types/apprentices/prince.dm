@@ -41,6 +41,7 @@
 		Q.become_blind("advsetup")
 		if(GLOB.keep_doors.len > 0)
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+		ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/advclass/heir
 	displays_adv_job = FALSE
@@ -82,7 +83,6 @@
 		H.change_stat(STATKEY_LCK, 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/advclass/heir/aristocrat
 	name = "Sheltered Aristocrat"
@@ -95,7 +95,6 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/pouch/coins/rich
@@ -141,7 +140,6 @@
 	ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_UGLY, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/key/manor
 	beltr = /obj/item/storage/belt/pouch/coins/rich
