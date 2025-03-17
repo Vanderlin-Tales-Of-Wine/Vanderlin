@@ -391,10 +391,14 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "nJ" = (
-/obj/structure/mineral_door/secret{
-	locked = 0
+/obj/effect/mapping_helpers/secret_door_creator{
+	override_floor = 0;
+	redstone_id = 881
 	},
-/turf/open/floor/tile/masonic/spiral,
+/obj/structure/lever/hidden{
+	redstone_id = 881
+	},
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
 "nY" = (
 /obj/item/soap,
