@@ -94,7 +94,6 @@
 #include "code\__DEFINES\particle_weather.dm"
 #include "code\__DEFINES\particles.dm"
 #include "code\__DEFINES\patreon.dm"
-#include "code\__DEFINES\playerquality.dm"
 #include "code\__DEFINES\plexora.dm"
 #include "code\__DEFINES\pollution.dm"
 #include "code\__DEFINES\preferences.dm"
