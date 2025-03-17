@@ -1,3 +1,6 @@
+///Whether we should not attempt to clean.
+#define DO_NOT_CLEAN "do_not_clean"
+
 //Cleaning tool strength
 // 1 is also a valid cleaning strength but completely unused so left undefined
 #define CLEAN_WEAK 			2

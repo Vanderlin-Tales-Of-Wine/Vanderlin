@@ -3,18 +3,18 @@
 /obj/effect/decal/cleanable/sigil/N,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "aY" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/table/vtable,
 /obj/item/storage/belt/pouch,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "bv" = (
 /turf/open/floor/rooftop{
 	dir = 4
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "bO" = (
 /obj/item/bath/soap{
 	pixel_y = -5
@@ -23,67 +23,64 @@
 	locked = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "cO" = (
+/obj/item/statue/steel,
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
 "cV" = (
-/obj/item/coin/copper/pile,
-/turf/open/water/bath,
-/area/rogue)
+/turf/open/water/swamp/deep,
+/area/rogue/under/cavewet)
 "dh" = (
 /obj/structure/stairs/d,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "dT" = (
 /obj/effect/decal/cleanable/sigil/NW,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "gI" = (
 /obj/structure/stairs,
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
 "hR" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "iZ" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "kc" = (
 /obj/item/bath/soap{
 	pixel_y = -5
 	},
-/obj/item/coin/copper/pile,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
 "kJ" = (
-/mob/living/simple_animal/hostile/skeleton/spear,
-/obj/item/coin/copper/pile,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
 "mh" = (
 /obj/structure/closet/crate/crafted_closet/inn,
-/mob/living/simple_animal/hostile/skeleton/guard,
+/obj/item/statue/silver,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mx" = (
 /obj/effect/decal/cleanable/sigil/SW,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "mF" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "nn" = (
-/mob/living/simple_animal/hostile/skeleton/guard,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "nu" = (
 /turf/open/floor/rooftop{
 	dir = 8
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "nx" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/rack/shelf/big,
@@ -95,14 +92,14 @@
 	pixel_x = 14
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "oY" = (
 /obj/structure/mineral_door/swing_door,
 /obj/item/bath/soap{
 	pixel_y = -5
 	},
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
 "pA" = (
 /obj/structure/rack/shelf/big,
 /obj/item/perfume/random{
@@ -113,14 +110,16 @@
 	pixel_x = 12
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pQ" = (
 /obj/effect/decal/cleanable/sigil/W,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "pR" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "rS" = (
 /obj/item/soap{
 	pixel_x = -3;
@@ -128,15 +127,15 @@
 	},
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "sm" = (
-/obj/item/coin/copper/pile,
-/turf/open/floor/tile,
-/area/rogue)
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "tE" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "tJ" = (
 /obj/structure/rack/shelf/big,
 /obj/item/perfume/random{
@@ -147,49 +146,75 @@
 	pixel_y = 27
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
+"tT" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/obj/structure/closet/crate/drawer/inn,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "uR" = (
 /turf/open/floor/rooftop{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "vx" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
+"wy" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/water/swamp/deep,
+/area/rogue/under/cavewet)
 "wQ" = (
 /obj/effect/decal/cleanable/sigil/E,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "xx" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/water/bath,
-/area/rogue)
+/turf/open/transparent/openspace,
+/area/rogue/indoors/shelter)
+"xY" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/tile,
+/area/rogue/under/cavewet)
+"zi" = (
+/obj/structure/bed/shit,
+/obj/item/statue/iron,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
+"zv" = (
+/obj/structure/bed/shit,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "Ao" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/closet/crate/drawer/inn,
+/obj/item/gem/blue,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "AL" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
+"Bd" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "BX" = (
-/mob/living/simple_animal/hostile/skeleton/spear,
+/obj/item/gem/violet,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
 "CA" = (
 /obj/item/storage/belt/pouch,
 /obj/structure/table/vtable/v2,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "CU" = (
 /obj/effect/decal/cleanable/sigil/S,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Ey" = (
 /turf/closed/wall/mineral/decowood,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "EQ" = (
 /obj/structure/table/vtable,
 /obj/item/weapon/knife/dagger/silver{
@@ -197,43 +222,42 @@
 	pixel_x = 6
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Fc" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "Fx" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "FL" = (
 /obj/effect/decal/cleanable/sigil/NE,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Gb" = (
 /obj/structure/mineral_door/wood/fancywood{
 	locked = 1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Gp" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
+/mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Hv" = (
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
 "JI" = (
 /turf/open/water/swamp/deep,
-/area/rogue)
+/area/rogue/under/cave)
 "Ko" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/bed/shit,
-/mob/living/simple_animal/hostile/skeleton,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "KT" = (
 /obj/structure/rack/shelf/big,
 /obj/item/perfume/random{
@@ -244,12 +268,16 @@
 	pixel_x = 13
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Mj" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/mob/living/simple_animal/hostile/skeleton/spear,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
+"Pa" = (
+/obj/structure/bed/shit,
+/obj/item/statue/iron/deformed,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter)
 "Ph" = (
 /obj/structure/table/vtable/v2,
 /obj/item/weapon/knife/dagger/silver{
@@ -266,7 +294,7 @@
 	pixel_x = 10
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "PM" = (
 /obj/effect/decal/cleanable/sigil,
 /obj/item/reagent_containers/powder/ozium{
@@ -292,55 +320,57 @@
 	pixel_x = 14
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "PQ" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qs" = (
 /obj/effect/decal/cleanable/sigil/SE,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Qw" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "RG" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "TQ" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "UB" = (
 /obj/item/bath/soap{
 	pixel_y = -5
 	},
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
 "UT" = (
 /turf/open/water/bath,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Vw" = (
 /mob/living/carbon/human/species/zizombie/npc/militiamen,
+/obj/item/clothing/ring/gold/gemerald,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "Yr" = (
 /turf/open/floor/rooftop,
-/area/rogue)
+/area/rogue/under/cave)
 "Yy" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/tile,
-/area/rogue)
+/area/rogue/under/cavewet)
 "YP" = (
 /obj/structure/bed/shit,
-/mob/living/simple_animal/hostile/skeleton,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/indoors/shelter)
 "YZ" = (
 /turf/closed/wall/mineral/decowood/vert,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Zi" = (
 /turf/closed/indestructible/roguewindow,
-/area/rogue)
+/area/rogue/indoors/shelter)
 
 (1,1,1) = {"
 RG
@@ -418,8 +448,8 @@ YZ
 YZ
 YZ
 YZ
-JI
-JI
+cV
+cV
 YZ
 YZ
 YZ
@@ -435,18 +465,18 @@ RG
 mF
 JI
 YZ
-BX
 UT
-UB
-cO
+UT
+kc
+vx
 Hv
-JI
-JI
+cV
+cV
 Hv
-cO
-UB
-BX
-kJ
+vx
+kc
+UT
+UT
 YZ
 JI
 mF
@@ -460,10 +490,10 @@ YZ
 UB
 UT
 UT
-cO
+vx
 YZ
-JI
-JI
+cV
+cV
 YZ
 Yy
 UT
@@ -484,10 +514,10 @@ UT
 UT
 cO
 YZ
-JI
-JI
+cV
+cV
 YZ
-cO
+vx
 UT
 UB
 UT
@@ -501,18 +531,18 @@ RG
 mF
 JI
 YZ
-cO
-cO
-cO
-sm
+vx
+vx
+vx
+vx
 YZ
-JI
-JI
+cV
+cV
 YZ
-cO
-cO
-cO
-cO
+vx
+vx
+vx
+vx
 YZ
 JI
 mF
@@ -527,10 +557,10 @@ oY
 YZ
 YZ
 YZ
-cO
 vx
-cO
-cO
+xY
+vx
+vx
 YZ
 YZ
 YZ
@@ -544,20 +574,20 @@ RG
 mF
 mF
 JI
-JI
-JI
-JI
-JI
-JI
-cO
+cV
+cV
+cV
+wy
+cV
+vx
 gI
 YZ
 vx
-JI
-JI
-JI
-JI
-JI
+cV
+cV
+cV
+cV
+cV
 JI
 mF
 mF
@@ -566,20 +596,20 @@ mF
 iZ
 mF
 JI
-JI
-JI
-JI
-JI
-JI
+cV
+cV
+cV
+cV
+cV
 vx
 gI
 YZ
-cO
-JI
-JI
-JI
-JI
-JI
+vx
+cV
+wy
+cV
+cV
+cV
 JI
 mF
 Fc
@@ -593,10 +623,10 @@ Hv
 YZ
 YZ
 YZ
-cO
 vx
-cO
-cO
+vx
+vx
+vx
 YZ
 YZ
 YZ
@@ -611,18 +641,18 @@ RG
 mF
 JI
 YZ
-cO
-cO
-cO
-cO
+vx
+vx
+vx
+vx
 YZ
-JI
-JI
+cV
+cV
 YZ
-cO
-cO
-cO
-cO
+vx
+vx
+vx
+vx
 YZ
 JI
 mF
@@ -633,18 +663,18 @@ RG
 mF
 JI
 YZ
-xx
+Mj
 UT
 kc
-cO
+vx
 YZ
-JI
-JI
+cV
+cV
 YZ
 Yy
 UT
 UT
-UB
+kc
 YZ
 JI
 mF
@@ -655,18 +685,18 @@ RG
 mF
 JI
 YZ
-BX
 UT
 UT
-cO
+kJ
+vx
 YZ
-JI
-JI
-YZ
-cO
-UB
 cV
-BX
+cV
+YZ
+vx
+kc
+UT
+kJ
 YZ
 JI
 mF
@@ -677,17 +707,17 @@ RG
 mF
 JI
 YZ
-BX
 UT
 UT
-cO
+UT
+vx
 oY
-JI
-JI
+cV
+cV
 oY
-cO
+vx
 UT
-UT
+kJ
 BX
 YZ
 JI
@@ -704,8 +734,8 @@ YZ
 YZ
 YZ
 YZ
-JI
-JI
+cV
+cV
 YZ
 YZ
 YZ
@@ -876,9 +906,9 @@ RG
 TQ
 uR
 Ey
-YP
-pR
-YP
+zv
+nn
+Pa
 Ey
 dT
 pQ
@@ -887,7 +917,7 @@ EQ
 Ey
 KT
 Vw
-pR
+nn
 Ey
 Yr
 TQ
@@ -908,8 +938,8 @@ CU
 CA
 Ey
 nx
-pR
-pR
+nn
+nn
 Ey
 Yr
 TQ
@@ -920,18 +950,18 @@ RG
 TQ
 uR
 Ey
-YP
-pR
+zi
+nn
 YP
 Ey
 FL
 wQ
 Qs
-pR
+nn
 Ey
 pA
-pR
-pR
+nn
+nn
 Ey
 Yr
 TQ
@@ -942,18 +972,18 @@ RG
 TQ
 uR
 Ey
-pR
-pR
+nn
+nn
 pR
 Ey
 nn
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
 tJ
-pR
-pR
+nn
+nn
 Ey
 Yr
 TQ
@@ -968,10 +998,10 @@ Ey
 rS
 Ey
 Ey
-pR
-pR
-pR
-pR
+nn
+nn
+nn
+nn
 Ey
 Ey
 bO
@@ -986,18 +1016,18 @@ Qw
 TQ
 uR
 Zi
-pR
-pR
-pR
-pR
-pR
-TQ
+nn
+nn
+nn
+nn
+nn
+xx
 dh
-pR
-pR
+nn
+sm
 PQ
-pR
-pR
+nn
+nn
 Zi
 Yr
 TQ
@@ -1008,18 +1038,18 @@ Qw
 TQ
 uR
 Zi
-pR
-pR
-pR
-pR
-pR
-TQ
+nn
+nn
+nn
+nn
+nn
+xx
 dh
-pR
-pR
+nn
+nn
 hR
-pR
-pR
+nn
+nn
 Zi
 Yr
 TQ
@@ -1034,10 +1064,10 @@ Ey
 Gb
 Ey
 Ey
-pR
-pR
-pR
-pR
+nn
+nn
+nn
+nn
 Ey
 Ey
 Gb
@@ -1052,18 +1082,18 @@ RG
 TQ
 uR
 Ey
-pR
-pR
-pR
+Gp
+nn
+nn
 Ey
 nn
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
-pR
-pR
-pR
+sm
+nn
+nn
 Ey
 Yr
 TQ
@@ -1074,18 +1104,18 @@ RG
 TQ
 uR
 Ey
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
 aY
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
 mh
-pR
-pR
+nn
+nn
 Ey
 Yr
 TQ
@@ -1097,17 +1127,17 @@ TQ
 uR
 Ey
 Ao
-pR
-pR
+nn
+nn
 Ey
 Ph
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
-Ao
-pR
-pR
+tT
+nn
+sm
 Ey
 Yr
 TQ
@@ -1119,17 +1149,17 @@ TQ
 uR
 Ey
 Fx
-pR
-pR
+nn
+Bd
 Ey
 Gp
-pR
-pR
-pR
+nn
+nn
+nn
 Ey
 Fx
-pR
-pR
+nn
+nn
 Ey
 Yr
 TQ

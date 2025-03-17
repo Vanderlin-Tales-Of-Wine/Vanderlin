@@ -6,8 +6,8 @@
 	faction = "Station"
 	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
 				sewing articles of protection, padding, and fashion for serf and noble alike."
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 1
+	spawn_positions = 1
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
@@ -36,6 +36,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/red

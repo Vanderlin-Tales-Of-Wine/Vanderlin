@@ -45,7 +45,7 @@
 /*
 	mobs also got ckeys p simple
 */
-/mob/proc/adjust_triumphs(amt, counted = TRUE)
+/mob/proc/adjust_triumphs(amt, counted = TRUE, reason)
 	if(!ckey)
 		return
 	else
@@ -55,8 +55,8 @@
 	if(amt > 0)
 		if(counted)
 			SSticker.tri_gained += amt
-		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.</font>")
+		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.[reason ? " REASON: [reason]" : ""]</font>")
 	else if(amt < 0)
 		if(counted)
 			SSticker.tri_lost += amt
-		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.</font>")
+		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.[reason ? " REASON: [reason]" : ""]</font>")

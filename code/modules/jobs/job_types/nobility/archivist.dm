@@ -62,6 +62,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.change_stat(STATKEY_STR, -1)

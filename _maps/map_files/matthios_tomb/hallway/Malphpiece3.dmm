@@ -66,7 +66,6 @@
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "w" = (
-/mob/living/simple_animal/hostile/skeleton,
 /obj/item/clothing/shirt/tunic/blue,
 /obj/item/gem/blue,
 /obj/item/clothing/shoes/boots,
@@ -77,6 +76,8 @@
 /obj/item/clothing/head/hatblu,
 /obj/item/clothing/cloak/raincloak/blue,
 /obj/item/clothing/gloves/leather/black,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "x" = (
@@ -162,6 +163,11 @@
 /obj/item/natural/cloth,
 /turf/open/floor/churchmarble,
 /area/rogue/outdoors/caves)
+"Z" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/retaliate/spider/mutated,
+/turf/open/floor/churchmarble,
+/area/rogue/outdoors/caves)
 
 (1,1,1) = {"
 c
@@ -228,7 +234,7 @@ t
 t
 p
 z
-a
+Z
 y
 z
 a
@@ -246,7 +252,7 @@ t
 "}
 (4,1,2) = {"
 B
-a
+Z
 z
 S
 a

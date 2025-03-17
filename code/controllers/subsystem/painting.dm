@@ -31,15 +31,11 @@ SUBSYSTEM_DEF(paintings)
 	if(!filename)
 		return list()
 	var/json_file = file("data/player_generated_paintings/[filename].json")
-	testing("playerfilebegin")
 	if(fexists(json_file))
-		testing("playerfile1")
 		var/list/contents = json_decode(file2text(json_file))
 		if(isnull(contents))
-			testing("playerfile2")
 			return list()
 		return contents
-	testing("playerfile4")
 	return list()
 
 
