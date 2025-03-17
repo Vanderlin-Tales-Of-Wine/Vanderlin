@@ -92,7 +92,7 @@
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 
 /datum/migrant_wave/knight
-	name = "The Knightly journey"
+	name = "The Knightly Journey"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/knight
 	downgrade_wave = /datum/migrant_wave/knight_down
@@ -104,7 +104,7 @@
 	greet_text = "The weight of Psydon's cross is heavy, the vows you have undertaken heavier, a Knight and their squire has took to the road to fullfill them."
 
 /datum/migrant_wave/knight_down
-	name = "The Knightly journey"
+	name = "The Knightly Journey"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/knight
 	can_roll = FALSE

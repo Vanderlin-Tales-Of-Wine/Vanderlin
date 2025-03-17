@@ -5,6 +5,8 @@
 
 	icon = 'icons/effects/dungeon_helper.dmi'
 	icon_state = "helper"
+	invisibility = INVISIBILITY_ABSTRACT
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/top = FALSE
 

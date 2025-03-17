@@ -179,6 +179,8 @@
 	major_pot = /datum/alch_cauldron_recipe/disease_cure
 	med_pot = /datum/alch_cauldron_recipe/health_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/alch/horn
 	name = "troll horn"
