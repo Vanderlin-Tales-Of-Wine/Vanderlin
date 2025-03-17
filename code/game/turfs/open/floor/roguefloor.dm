@@ -680,7 +680,8 @@
 	icon_state = "newstone2"
 /turf/open/floor/blocks/newstone/alt
 	icon_state = "bluestone"
-
+/turf/open/floor/blocks/newstone/alt
+	icon_state = "snowblocks"
 /turf/open/floor/blocks/paving
 	icon_state = "paving"
 /turf/open/floor/blocks/paving/vert
@@ -934,8 +935,6 @@
 	ChangeTurf(/turf/open/floor/dirt, flags = CHANGETURF_INHERIT_AIR)
 	new /obj/item/natural/stone(src)
 
-
-
 /turf/open/floor/cobble/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
@@ -943,24 +942,24 @@
 	. = ..()
 	icon_state = "cobblestone[rand(1,3)]"
 
+/turf/open/floor/cobble/alt
+	icon_state = "cobblestonealt1"
+	neighborlay = "cobbleedgealt"
+
+/turf/open/floor/cobble/alt/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
+
+/turf/open/floor/cobble/alt/Initialize()
+	. = ..()
+	icon_state = "cobblestonealt[rand(1,3)]"
+
 /turf/open/floor/cobble/mossy
 	icon_state = "mossystone1"
-	footstep = FOOTSTEP_STONE
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_HARD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	landsound = 'sound/foley/jumpland/stoneland.wav'
-	neighborlay = "cobbleedge"
-	smooth = SMOOTH_TRUE
+	neighborlay = "mossyedgealt"
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/dirt,
 						/turf/open/floor/grass,
-						/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
-						/turf/open/floor/snow/rough)
+						/turf/open/floor/snow)
 
 /turf/open/floor/cobble/mossy/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -968,6 +967,17 @@
 /turf/open/floor/cobble/mossy/Initialize()
 	. = ..()
 	icon_state = "mossystone[rand(1,3)]"
+
+/turf/open/floor/cobble/snow
+	icon_state = "snowcobble1"
+	neighborlay = "snowcobbleedge"
+
+/turf/open/floor/cobble/snow/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
+
+/turf/open/floor/cobble/snow/Initialize()
+	. = ..()
+	icon_state = "snowcobble[rand(1,3)]"
 
 /turf/open/floor/cobblerock
 	icon_state = "cobblerock"
@@ -990,6 +1000,11 @@
 /turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
+
+/turf/open/floor/cobblerock/alt
+	icon_state = "cobblealt"
+
+/*	..................   Bigger decals for mappers   ................... */
 /obj/effect/decal/cobbleedge
 	name = ""
 	desc = ""
@@ -997,6 +1012,24 @@
 	icon_state = "cobblestone_edges"
 	mouse_opacity = 0
 
+/obj/effect/decal/cobbleedge/alt
+	icon_state = "cobblestonealt_edges"
+
+/obj/effect/decal/cobbleedge/mossy/alt
+	icon_state = "mossystonealt_edges"
+
+/obj/effect/decal/cobbleedge/mossy/snow
+	icon_state = "snowcobble_edges"
+
+/obj/effect/decal/cobblerockedge
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "cobble_edges"
+
+/obj/effect/decal/cobblerockedge/alt
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "cobblealt_edges"
+
+/*	..................   Miscellany   ................... */
 /turf/open/floor/tile
 	icon_state = "chess"
 	landsound = 'sound/foley/jumpland/tileland.wav'
@@ -1007,7 +1040,6 @@
 	footstepstealth = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/closed/mineral,
-						/turf/closed/mineral,
 						/turf/closed/wall/mineral/stonebrick,
 						/turf/closed/wall/mineral/wood,
 						/turf/closed/wall/mineral/wooddark,
@@ -1022,29 +1054,6 @@
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough)
-
-/turf/open/floor/cobble/alt
-	icon_state = "cobblestonealt1"
-
-/turf/open/floor/cobble/alt/Initialize()
-	. = ..()
-	icon_state = "cobblestonealt[rand(1,3)]"
-
-/turf/open/floor/cobblerock/alt
-	icon_state = "cobblealt"
-
-/obj/effect/decal/cobbleedge/alt
-	icon_state = "cobblestonealt_edges"
-
-/turf/open/floor/cobble/mossy/alt
-	icon_state = "mossystonealt1"
-
-/turf/open/floor/cobble/mossy/alt/Initialize()
-	. = ..()
-	icon_state = "mossystonealt[rand(1,3)]"
-
-
-/*	..................   Miscellany   ................... */
 
 /turf/open/floor/tile/turf_destruction(damage_flag)
 	. = ..()
