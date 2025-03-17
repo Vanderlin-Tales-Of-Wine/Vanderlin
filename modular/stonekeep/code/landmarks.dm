@@ -237,3 +237,18 @@
 	icon_state = "arrow"
 
 
+/obj/effect/landmark/start/sk_mig_bogroad
+	name = "Migration Bog Road"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_bogroad/Initialize()
+	. = ..()
+	GLOB.bogroad_starts += loc
+
+/obj/effect/landmark/start/sk_mig_forestroad
+	name = "Migration Embassy"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_forestroad/Initialize()
+	. = ..()
+	GLOB.forestroad_starts += loc

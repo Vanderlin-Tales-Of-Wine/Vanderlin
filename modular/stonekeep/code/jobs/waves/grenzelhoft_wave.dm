@@ -8,7 +8,10 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/grenz_count
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+
+/datum/migrant_role/sk/grenzelhoft/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.forestroad_starts_starts))
 
 /datum/outfit/job/sk_migration/grenz_count/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -63,7 +66,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/grenz_countess
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/grenz_countess/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -118,7 +120,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/grenz_preacher
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/grenz_preacher/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -142,14 +143,12 @@
 		H.set_patron(/datum/patron/psydon)
 		H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-
 /datum/migrant_role/sk/grenzelhoft/swordmaster
 	name = "Grenzelhoft Swordmaster"
 	greet_text = "Your liege, the count and the countess have both took the duty gaved by the Kaiser itself to voyage to the Isle of Enigma, ensure their survival and obey their orders."
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen", "Dwarf")
 	outfit = /datum/outfit/job/sk/adventurer/swordmaster
-	show_wanderer_examine = FALSE
 
 /datum/migrant_role/sk/grenzelhoft/mercenary
 	name = "Grenzelhoft Mercenary"
@@ -157,7 +156,6 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Humen", "Dwarf")
 	outfit = /datum/advclass/mercenary/sk/grenzelhoft
-	show_wanderer_examine = FALSE
 
 
 /datum/migrant_wave/grenzelhoft_visit

@@ -167,7 +167,7 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 40,
 				/mob/living/simple_animal/hostile/retaliate/spider/hairy = 10)
-	first_time_text = "MURDERWOODS"
+	first_time_text = "MURDER WOODS"
 	converted_type = /area/rogue/indoors/shelter/woods
 
 

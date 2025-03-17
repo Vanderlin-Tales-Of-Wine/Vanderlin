@@ -9,7 +9,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/haiduk/khan
 	grant_lit_torch = FALSE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/haiduk/khan/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -64,7 +63,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/haiduk/raider
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/haiduk/raider/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -106,7 +104,6 @@
 	greet_text = "Chosen to come with the raid for being reliable and a hard worker. Build a camp, tend wound, make food, whatever the warriors want, you better do or you will end up in the cooking pot next."
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/sk_migration/haiduk/haiduk_slave
-	show_wanderer_examine = FALSE
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/sk_migration/haiduk/haiduk_slave/pre_equip(mob/living/carbon/human/H)

@@ -96,9 +96,9 @@
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/herb/random = 1,
+							/obj/structure/flora/grass/herb/random = 0.5,
 							/obj/item/natural/stone = 1,
-							/obj/structure/flora/grass/swampweed = 1,
+							/obj/structure/flora/grass/swampweed = 0.2,
 							/obj/structure/flora/rock/pebbles/bogmix = 4,
 							)
 	spawnableTurfs = list(/turf/open/floor/dirt/muddie = 2)
@@ -237,7 +237,7 @@
 	spawnableAtoms = list(/obj/structure/flora/grass/water = 20)
 
 /datum/mapGeneratorModule/ambushing/murderwoods
-	spawnableAtoms = list(/obj/effect/landmark/ambush=15)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=8)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	allowed_turfs = list(/turf/open/floor/grass)
 

@@ -1041,21 +1041,4 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	icon = 'icons/roguetown/mob/monster/crow.dmi'
 
 
-/datum/looping_sound/wiseloop
-	mid_sounds = list('sound/music/tree.ogg')
-	mid_length = 1200
-	volume = 80
-	extra_range = -1
 
-
-/obj/structure/flora/tree/wise
-	var/datum/looping_sound/wiseloop/soundloop
-
-/obj/structure/flora/tree/wise/Initialize()
-	. = ..()
-	soundloop = new(src, FALSE)
-	soundloop.start()
-
-/obj/structure/flora/tree/wise/Destroy()
-	soundloop.stop()
-	. = ..()

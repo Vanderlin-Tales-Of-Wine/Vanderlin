@@ -109,6 +109,18 @@
 			 /obj/structure/flora/grass/thorn_bush = 10,
 			 /obj/structure/flora/tree = 5)
 
+
+/*	..................  Dendor Shrine Spawner  ................... */
+/obj/effect/spawner/map_spawner/dendorshrine
+	icon = 'icons/roguetown/misc/tallstructure.dmi'
+	icon_state = "shrine_dendor_saiga"
+	color = "#ffe13a"
+	spawned = list(
+		/obj/structure/fluff/psycross/crafted/shrine/dendor_volf= 35,
+		/obj/structure/fluff/psycross/crafted/shrine/dendor_saiga = 35,
+		/obj/structure/fluff/psycross/crafted/shrine/dendor_gote = 100
+		)
+
 /*	..................  Mountain Tree Spawner  ................... */
 /obj/effect/spawner/map_spawner/mountain_tree
 	icon = 'modular/stonekeep/icons/misc.dmi'
@@ -168,8 +180,10 @@
 			/obj/structure/closet/dirthole/closed/loot = 2,
 			/obj/structure/closet/dirthole = 10)
 
-
-
+/*	..................  Bridge Spawner  ................... */
+/obj/effect/spawner/map_spawner/bridgerandom
+	probby = 50
+	spawned = list(/turf/open/floor/blocks/moss)
 
 
 /*	..................   Random Alcohol   ................... */
@@ -389,3 +403,11 @@
 	probby = 50
 	spawned = list(
 		/mob/living/simple_animal/pet/cat/cabbit = 100)
+
+/obj/effect/spawner/map_spawner/maybe_pig
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
+	probby = 50
+	spawned = list(
+		/mob/living/simple_animal/hostile/retaliate/trufflepig = 90,
+		/obj/effect/decal/remains/pig = 10)

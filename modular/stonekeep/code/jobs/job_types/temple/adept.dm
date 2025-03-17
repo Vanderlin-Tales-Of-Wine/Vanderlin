@@ -22,6 +22,7 @@
 	bypass_lastclass = TRUE
 	min_pq = -10
 	can_have_apprentices = FALSE
+	is_foreigner = TRUE
 
 /datum/outfit/job/stonekeep/adept
 	name = "Adept"

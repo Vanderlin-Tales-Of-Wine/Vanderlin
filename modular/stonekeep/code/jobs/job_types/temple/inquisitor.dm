@@ -18,6 +18,7 @@
 	display_order = INQUISITOR_ORDER
 	min_pq = 0
 	bypass_lastclass = TRUE
+	is_foreigner = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
 /datum/job/stonekeep/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
@@ -88,7 +89,6 @@
 		H.set_patron(/datum/patron/psydon)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	H.verbs |= /mob/living/carbon/human/proc/faith_test

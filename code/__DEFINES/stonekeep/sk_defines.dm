@@ -6,6 +6,9 @@
 GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
 GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"))
 
+GLOBAL_LIST_EMPTY(bogroad_starts)
+GLOBAL_LIST_EMPTY(forestroad_starts)
+
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 
 /mob/living/carbon/human

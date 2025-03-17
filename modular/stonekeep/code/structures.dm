@@ -32,15 +32,20 @@
 	brightness = 10
 	bulb_power = 1.5
 
+/obj/machinery/light/fueled/firebowl/standing
+	brightness = 9
+	bulb_power = 1.2
+/obj/machinery/light/fueled/firebowl/standing/blue
+	brightness = 10
+	bulb_power = 1.3
 
 /obj/machinery/light/fueled/wallfire
-	brightness = 9
-	bulb_power = 1.1
+	brightness = 10
+	bulb_power = 1.3
 
 /obj/machinery/light/fueled/hearth/big_fireplace
 	brightness = 11
-	bulb_power = 1.3
-
+	bulb_power = 1.4
 
 /obj/machinery/light/fueled/torchholder
 	brightness = 7
@@ -48,7 +53,7 @@
 
 /obj/machinery/light/fueled/campfire
 	brightness = 8
-	bulb_power = 1.1
+	bulb_power = 1.2
 
 /obj/machinery/light/fueled/torchholder/empty
 	lacks_torch = TRUE
@@ -551,6 +556,37 @@
 	dir = pick(GLOB.alldirs)
 
 
+/datum/looping_sound/wiseloop
+	mid_sounds = list('sound/music/tree.ogg')
+	mid_length = 1200
+	volume = 80
+	extra_range = -1
+
+/obj/structure/flora/tree/wise
+	var/datum/looping_sound/wiseloop/soundloop
+
+/obj/structure/flora/tree/wise/Initialize()
+	. = ..()
+	soundloop = new(src, FALSE)
+	soundloop.start()
+
+/obj/structure/flora/tree/wise/Destroy()
+	soundloop.stop()
+	. = ..()
+
+/obj/structure/flora/tree/wise/examine(mob/living/carbon/user)
+	. = ..()
+	switch(user.patron?.type)
+		if(/datum/patron/divine/dendor)
+			to_chat(user, "<span class='warning'>I feel at peace.</span>")
+			user.add_stress(/datum/stressevent/moment_of_calm)
+		else
+			to_chat(user, "<span class='warning'>Life is not so bad after all.</span>")
+
+/datum/stressevent/moment_of_calm
+	timer = 10 MINUTES
+	stressadd = -3
+	desc = span_green("I feel at peace.")
 
 // =========================================================================
 // =========================	MATTHIOS IDOL	============================
@@ -961,3 +997,15 @@
 
 /obj/structure/flora/grass/swampweed
 	icon = 'modular/stonekeep/icons/pigflora.dmi'
+
+
+// XYLIX MAZE
+/obj/structure/fluff/statue/xylix
+	desc = "Some mad God no doubt."
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "xylix_smile"
+	pixel_x = -32
+	pixel_y = -16
+
+/obj/structure/fluff/statue/xylix/frown
+	icon_state = "xylix_frown"

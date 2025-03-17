@@ -5,7 +5,10 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+
+/datum/migrant_role/sk/heartfelt/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.bogroad_starts_starts))
 
 /datum/outfit/job/sk_migration/heart_lord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -42,7 +45,6 @@
 		H.change_stat(STATKEY_LCK, 2)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	if(!HAS_TRAIT(H, TRAIT_KAIZOKU))
 		ADD_TRAIT(H, TRAIT_KAIZOKU, TRAIT_GENERIC)
 		to_chat(H, "<span class='info'I am an Islander, and I respectively have the culture of one.</span>")
@@ -68,7 +70,6 @@
 		"Ogrun",
 		"Undine")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/heart_shrinemaiden/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -90,8 +91,7 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_SPD, 1)
 
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	if(H.patron != /datum/patron/divine/abyssor)
 		H.patron = GLOB.patronlist[/datum/patron/divine/abyssor]
 		to_chat(H, "<span class='warning'>I am a Abyssanctum, loyal to The World Whale. May the tides of fate guide me to honor.")
@@ -111,7 +111,6 @@
 	outfit = /datum/outfit/job/sk_migration/heart_bodyguard
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 /datum/outfit/job/sk_migration/heart_bodyguard/pre_equip(mob/living/carbon/human/H)
 	..()
 
@@ -181,7 +180,6 @@
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	H.cure_blind("TRAIT_GENERIC")
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	if(!HAS_TRAIT(H, TRAIT_KAIZOKU))
 		ADD_TRAIT(H, TRAIT_KAIZOKU, TRAIT_GENERIC)
 		to_chat(H, "<span class='info'I am an Islander, and I respectively have the culture of one.</span>")

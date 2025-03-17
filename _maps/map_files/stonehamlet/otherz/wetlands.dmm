@@ -113,8 +113,11 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors)
 "cM" = (
-/obj/structure/roguewindow/curtain,
-/turf/open/floor/blocks,
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/weapon/hammer/wood,
+/obj/item/weapon/chisel,
+/obj/item/weapon/pick,
+/turf/open/floor/cobble,
 /area/rogue/indoors)
 "da" = (
 /obj/machinery/light/fueled/firebowl/stump,
@@ -168,7 +171,7 @@
 /area/rogue/indoors)
 "dY" = (
 /obj/structure/rack,
-/obj/item/ammo_holder/quiver/arrows,
+/obj/item/weapon/axe/iron,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "ef" = (
@@ -314,6 +317,12 @@
 /obj/structure/chair/stool,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"hz" = (
+/obj/effect/landmark/start/sk_mig_bogroad{
+	dir = 1
+	},
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/bog/wetlands)
 "hC" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -1021,6 +1030,12 @@
 "Hs" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/wetlands/gator)
+"HB" = (
+/obj/effect/landmark/start/sk_mig_bogroad{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/rogue/outdoors/bog/wetlands)
 "HQ" = (
 /turf/closed/wall/mineral/stone/window/moss/red,
 /area/rogue/outdoors/bog/wetlands)
@@ -65118,8 +65133,8 @@ wJ
 wJ
 Rd
 Rd
+dz
 cM
-bA
 bA
 cn
 fi
@@ -66077,7 +66092,7 @@ Rd
 Rd
 Rd
 PU
-Rd
+hz
 tT
 "}
 (122,1,2) = {"
@@ -66279,7 +66294,7 @@ wJ
 wJ
 wJ
 zx
-wJ
+HB
 tT
 "}
 (123,1,2) = {"
@@ -66481,7 +66496,7 @@ Rd
 Rd
 Rd
 PU
-Rd
+hz
 tT
 "}
 (124,1,2) = {"

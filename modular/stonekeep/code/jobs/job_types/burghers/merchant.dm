@@ -58,6 +58,7 @@
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)
 
 	H.change_stat("intelligence", 2)
 	H.change_stat("perception", 1)

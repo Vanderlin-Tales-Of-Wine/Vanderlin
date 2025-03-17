@@ -7,7 +7,6 @@
 	)
 	outfit = /datum/outfit/job/stonekeep/antag/zherald
 	grant_lit_torch = FALSE
-	show_wanderer_examine = FALSE
 	antag_datum = /datum/antagonist/zizocultist/leader
 
 /datum/outfit/job/stonekeep/antag/zherald/pre_equip(mob/living/carbon/human/H)
@@ -46,7 +45,7 @@
 		eyes = new /obj/item/organ/eyes/night_vision/zombie
 		eyes.Insert(H)
 
-		H.change_stat(STATKEY_STR, 3)
+		H.change_stat(STATKEY_STR, 4)
 		H.change_stat(STATKEY_END, 3)
 		H.change_stat(STATKEY_CON, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -76,7 +75,6 @@
 	)
 	outfit = /datum/outfit/job/stonekeep/antag/zhellgobbo
 	grant_lit_torch = FALSE
-	show_wanderer_examine = FALSE
 //	antag_datum = /datum/antagonist/hellgoblin
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)

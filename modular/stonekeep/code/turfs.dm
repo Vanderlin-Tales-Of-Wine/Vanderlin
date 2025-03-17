@@ -76,19 +76,14 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass,
-						/turf/open/floor/snow,)
+	canSmoothWith = list(/turf/open/floor)
 
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
-//	smooth = SMOOTH_BORDER
-//	smooth = SMOOTH_TRUE | SMOOTH_DIAGONAL
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass,
-						/turf/open/floor/snow,)
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(/turf/open/floor)
 
 /turf/open/floor/cobblerock/alt/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -102,9 +97,7 @@
 	icon_state = "cobblerock_red"
 	neighborlay = "cobblerock_red"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass,
-						/turf/open/floor/snow,)
+	canSmoothWith = list(/turf/open/floor)
 
 /turf/open/floor/cobble/mossy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -302,8 +295,7 @@
 /*	..................   Dirt   ................... */
 
 /turf/open/floor/dirt
-//	smooth = SMOOTH_MORE
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 //						/turf/open/floor/cobblerock/alt,
 						/turf/open/floor/grass,
@@ -313,15 +305,16 @@
 						)
 
 /turf/open/floor/dirt/Initialize()
-	if(istype(loc, /area/rogue/outdoors/bog/wetlands))
-		icon = 'modular/stonekeep/icons/turfs.dmi'
-		icon_state = "olddirt"
-		neighborlay = "olddirt"
+	if(icon_state == "olddirt")
+		if(istype(loc, /area/rogue/outdoors/bog/wetlands))
+			icon = 'modular/stonekeep/icons/turfs.dmi'
+			icon_state = "olddirt"
+			neighborlay = "olddirt"
 	..()
 
 /turf/open/floor/dirt/road
 	smooth = SMOOTH_MORE | SMOOTH_BORDER
-	neighborlay = "roadedge"
+	neighborlay = "oldroad"
 	canSmoothWith = list(/turf/open/floor,
 						/turf/closed/mineral,
 						/turf/closed/wall/mineral,
@@ -338,7 +331,7 @@
 	if(istype(loc, /area/rogue/outdoors/bog/wetlands))
 		icon = 'modular/stonekeep/icons/turfs.dmi'
 		icon_state = "oldroad"
-		neighborlay = "oldroad"
+//		neighborlay = "oldroad"
 
 
 /turf/open/floor/dirt/muddie
@@ -351,7 +344,6 @@
 	barefootstep = FOOTSTEP_MUD
 	heavyfootstep = FOOTSTEP_MUD
 	canSmoothWith = list()	//ROGTODO test is this correct settings for the mud smooth?
-//	smooth = SMOOTH_FALSE
 
 
 /turf/open/floor/dirt/muddie/Initialize()

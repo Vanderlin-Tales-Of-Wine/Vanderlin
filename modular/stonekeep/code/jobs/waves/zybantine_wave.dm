@@ -12,7 +12,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/zyb_emir
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/zyb_emir/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -61,7 +60,7 @@
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 
 /datum/migrant_role/sk/zybantine_guard
@@ -75,7 +74,6 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/zyb_guard
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/zyb_guard/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -112,7 +110,6 @@
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 /datum/migrant_role/sk/zybantine_qatil
@@ -128,7 +125,6 @@
 		"Rakshari"
 	)
 	outfit = /datum/outfit/job/sk_migration/zyb_qatil
-	show_wanderer_examine = FALSE
 
 /datum/outfit/job/sk_migration/zyb_qatil/pre_equip(mob/living/carbon/human/H)
 	..()
