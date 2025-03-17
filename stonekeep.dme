@@ -2104,7 +2104,6 @@
 #include "modular\stonekeep\code\jobs\job_types\adventurer\types\combat\rare\witchhunter.dm"
 #include "modular\stonekeep\code\jobs\job_types\burghers\blacksmith.dm"
 #include "modular\stonekeep\code\jobs\job_types\burghers\feldsher.dm"
-#include "modular\stonekeep\code\jobs\job_types\burghers\hammerite.dm"
 #include "modular\stonekeep\code\jobs\job_types\burghers\innkeep.dm"
 #include "modular\stonekeep\code\jobs\job_types\burghers\mason.dm"
 #include "modular\stonekeep\code\jobs\job_types\burghers\merchant.dm"
