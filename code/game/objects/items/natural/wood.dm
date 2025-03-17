@@ -125,6 +125,8 @@
 	lumber = /obj/item/natural/wood/plank
 	lumber_alt = /obj/item/grown/log/tree/stick
 	lumber_amount = 2
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/grown/log/tree/stick
 	seed = null
@@ -243,3 +245,7 @@
 	static_debris = null
 	firefuel = 60 MINUTES // Extremely poweful fuel.
 	w_class = WEIGHT_CLASS_SMALL
+	smeltresult = null
+	lumber = null
+	lumber_alt = null
+	lumber_amount = 0

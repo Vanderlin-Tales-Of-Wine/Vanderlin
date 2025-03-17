@@ -101,7 +101,7 @@
 	density = TRUE
 	anchored = TRUE
 	opacity = TRUE
-	layer = CLOSED_DOOR_LAYER
+	layer = OPEN_DOOR_LAYER
 
 	icon = 'icons/roguetown/misc/doors.dmi'
 	icon_state = "wcg"
@@ -207,10 +207,17 @@
 	update_icon()
 	isSwitchingStates = FALSE
 
+/obj/structure/mineral_door/proc/set_init_layer()
+	if(density)
+		layer = CLOSED_DOOR_LAYER
+	else
+		layer = initial(layer)
+
 /obj/structure/mineral_door/Initialize()
 	. = ..()
 	if(!base_state)
 		base_state = icon_state
+	set_init_layer()
 	air_update_turf(TRUE)
 	if(lockhash)
 		GLOB.lockhashes += lockhash
@@ -662,7 +669,6 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 1000
 	damage_deflection = 12
-	layer = ABOVE_MOB_LAYER
 	keylock = TRUE
 	icon = 'icons/roguetown/misc/doors.dmi'
 	blade_dulling = DULLING_BASHCHOP
@@ -723,7 +729,6 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 1000
 	damage_deflection = 12
-	layer = ABOVE_MOB_LAYER
 	opacity = FALSE
 	windowed = TRUE
 	keylock = FALSE
@@ -902,7 +907,6 @@
 	resistance_flags = null
 	max_integrity = 1000
 	damage_deflection = 15
-	layer = ABOVE_MOB_LAYER
 	keylock = TRUE
 	icon = 'icons/roguetown/misc/doors.dmi'
 	blade_dulling = DULLING_BASH

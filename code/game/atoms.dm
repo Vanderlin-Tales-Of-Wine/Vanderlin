@@ -414,27 +414,26 @@
 		//SNIFFING
 		if (user.zone_selected == BODY_ZONE_PRECISE_NOSE && get_dist(src, user) <= 1)
 			// if atom's path is item/reagent_containers/glass/carafe
-			var/is_closed = FALSE
+			var/is_not_closed = FALSE
 			if (istype(src, /obj/item/reagent_containers/glass/carafe))
 				var/obj/item/reagent_containers/glass/carafe/A = src
-				is_closed = A.closed
+				is_not_closed = !A.closed
 			else if (istype(src, /obj/item/reagent_containers/glass/bottle))
 				var/obj/item/reagent_containers/glass/bottle/A = src
-				is_closed = A.closed
+				is_not_closed = !A.closed
 			else if (istype(src, /obj/item/reagent_containers/glass/alchemical))
 				var/obj/item/reagent_containers/glass/alchemical/A = src
-				is_closed = A.closed
-			if (is_closed == FALSE && reagents.total_volume) // if the container is open, and there's liquids in there
-				user.visible_message("<span class='info'>[user] takes a whiff of the [src]</span>")
-				. += "<span class='notice'>I smell [src.reagents.generate_scent_message()].</span>"
+				is_not_closed = !A.closed
+			if (is_not_closed && reagents.total_volume) // if the container is open, and there's liquids in there
+				user.visible_message(span_info("[user] takes a whiff of [src]."))
+				. += span_notice("I smell [src.reagents.generate_scent_message()].")
 				if (HAS_TRAIT(user, TRAIT_LEGENDARY_ALCHEMIST))
-					var/full_reagents = ""
+					var/list/full_reagents = list()
 					for (var/datum/reagent/R in reagents.reagent_list)
-						if (R.volume > 0)
-							if (full_reagents)
-								full_reagents += ", "
+						if(R.volume > 0)
 							full_reagents += "[lowertext(R.name)]"
-					. += "<span class='notice'>My expert nose lets me distinguish this liquid as [full_reagents].</span>"
+					if(length(full_reagents))
+						. += span_notice("I can identity this smell as [full_reagents.Join(", ")].")
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
 /// Updates the icon of the atom
@@ -1046,7 +1045,7 @@
 	user.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
-		var/reverse_message = "has [what_done] [ssource] [postfix]"
+		var/reverse_message = "has been [what_done] by [ssource][postfix]"
 		target.log_message(reverse_message, LOG_ATTACK, color="orange", log_globally=FALSE)
 
 /**

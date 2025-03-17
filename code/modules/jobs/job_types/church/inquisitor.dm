@@ -14,6 +14,7 @@
 		"Aasimar"
 	)
 	allowed_sexes = list(MALE, FEMALE)
+	is_foreigner = TRUE
 
 	tutorial = "A recent arrival from Grenzelhoft, you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. You have been sent by your leader, the Holy Bishop, to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	whitelist_req = FALSE

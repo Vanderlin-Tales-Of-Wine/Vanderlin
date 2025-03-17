@@ -288,3 +288,144 @@
 	south_offset = 10
 	east_offset = 10
 	west_offset = 10
+
+/datum/map_template/dungeon/hallway/SmallCubeStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/SmallCubeStone.dmm"
+	id = "SmallCubeStone"
+	width = 4
+	height = 4
+
+	north_offset = 2
+	south_offset = 2
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/SmallCubeStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/SmallCubeStone2.dmm"
+	id = "SmallCubeStone2"
+	width = 5
+	height = 5
+
+	north_offset = 2
+	south_offset = 2
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/LongSliverStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/LongSliverStone.dmm"
+	id = "LongSliverStone"
+	width = 8
+	height = 1
+
+	north_offset = 4
+	south_offset = 4
+
+/datum/map_template/dungeon/hallway/LongSliverStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/LongSliverStone2.dmm"
+	id = "LongSliverStone2"
+	width = 1
+	height = 8
+
+	east_offset = 4
+	west_offset = 4
+
+/datum/map_template/dungeon/hallway/TinySliverStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/TinySliverStone.dmm"
+	id = "TinySliverStone"
+	width = 4
+	height = 1
+
+	north_offset = 2
+	south_offset = 2
+
+/datum/map_template/dungeon/hallway/TinySliverStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/TinySliverStone2.dmm"
+	id = "TinySliverStone2"
+	width = 1
+	height = 4
+
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/SmallSliceStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/SmallSliceStone.dmm"
+	id = "SmallSliceStone"
+	width = 5
+	height = 1
+
+	north_offset = 2
+	south_offset = 2
+
+/datum/map_template/dungeon/hallway/SmallSliceStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/SmallSliceStone2.dmm"
+	id = "SmallSliceStone2"
+	width = 1
+	height = 5
+
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/SliceStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/SliceStone.dmm"
+	id = "SliceStone"
+	width = 2
+	height = 5
+
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/SliceStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/SliceStone2.dmm"
+	id = "SliceStone2"
+	width = 5
+	height = 2
+
+	north_offset = 2
+	south_offset = 2
+
+/datum/map_template/dungeon/hallway/CaveTEast
+	mappath = "_maps/map_files/matthios_tomb/hallway/CaveTEast.dmm"
+	id = "CaveTEast"
+	width = 10
+	height = 15
+
+	north_offset = 4
+	south_offset = 4
+	east_offset = 7
+
+/datum/map_template/dungeon/hallway/CaveTWest
+	mappath = "_maps/map_files/matthios_tomb/hallway/CaveTWest.dmm"
+	id = "CaveTWest"
+	width = 10
+	height = 15
+
+	north_offset = 4
+	south_offset = 4
+	west_offset = 7
+
+/datum/map_template/dungeon/hallway/HolyGrailHall
+	mappath = "_maps/map_files/matthios_tomb/hallway/HolyGrailHall.dmm"
+	id = "HolyGrailHall"
+	width = 15
+	height = 25
+
+	east_offset = 4
+	west_offset = 4
+
+/datum/map_template/dungeon/hallway/LongHallStone2
+	mappath = "_maps/map_files/matthios_tomb/hallway/LongHallStone2.dmm"
+	id = "LongHallStone2"
+	width = 10
+	height = 5
+
+	east_offset = 2
+	west_offset = 2
+
+/datum/map_template/dungeon/hallway/LongHallStone
+	mappath = "_maps/map_files/matthios_tomb/hallway/LongHallStone.dmm"
+	id = "LongHallStone"
+	width = 5
+	height = 10
+
+	north_offset = 2
+	south_offset = 2

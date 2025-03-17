@@ -28,9 +28,9 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 
 
 /obj/item/reagent_containers/glass/bottle/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/paper) && !istype(I, /obj/item/paper/scroll))
-		if (!can_label_bottle)
-			return
+	if(I.type == /obj/item/paper)
+		if(!can_label_bottle)
+			return ..()
 		var/input = input(user, "What would you like to label this bottle as?", "", "") as text
 		if(!input)
 			if (original_name)
@@ -43,17 +43,15 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 			return ..()
 		if (!original_name)
 			original_name = name
-		to_chat(user, span_notice("You label this as a [input] [original_name]."))
-		name ="[input] [original_name]"
+		to_chat(user, span_notice("You label this as \a [input] [original_name]."))
+		name = "[input] [original_name]"
 		if (name != original_name)
 			if (original_icon_state == null)
 				original_icon_state = icon_state
 				icon_state = "[icon_state]_message"
-	if(reagents.total_volume)
-		return
 	if(closed)
 		return
-	if(istype(I, /obj/item/paper/scroll))
+	if(!reagents.total_volume && istype(I, /obj/item/paper/scroll))
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/paper/scroll/P = I

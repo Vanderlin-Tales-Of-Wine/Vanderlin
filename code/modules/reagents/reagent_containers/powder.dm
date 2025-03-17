@@ -8,6 +8,8 @@
 	volume = 15
 	list_reagents = null
 	sellprice = 10
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/reagent_containers/powder/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
 	. = ..()
