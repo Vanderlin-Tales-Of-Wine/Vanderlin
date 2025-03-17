@@ -766,6 +766,12 @@
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bog/wetlands)
+"uR" = (
+/obj/effect/landmark/start/sk_mig_bogevil{
+	dir = 4
+	},
+/turf/open/floor/dirt/muddie,
+/area/rogue/outdoors/bog/wetlands)
 "uY" = (
 /obj/structure/flora/grass/water,
 /turf/open/floor/dirt/muddie,
@@ -42226,9 +42232,9 @@ Mi
 Mi
 gg
 gg
-at
-at
-at
+uR
+uR
+uR
 gg
 gg
 gg
@@ -45268,7 +45274,7 @@ wJ
 wJ
 WH
 WH
-gz
+wJ
 wJ
 wJ
 at
@@ -48101,7 +48107,7 @@ wJ
 wJ
 wJ
 wJ
-wJ
+rm
 wJ
 wJ
 wJ

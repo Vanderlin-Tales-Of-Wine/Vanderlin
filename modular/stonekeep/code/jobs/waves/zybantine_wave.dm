@@ -5,13 +5,16 @@
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
 	)
 	outfit = /datum/outfit/job/sk_migration/zyb_emir
 	grant_lit_torch = TRUE
+
+/datum/migrant_role/sk/zybantine/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.forestroad_starts))
 
 /datum/outfit/job/sk_migration/zyb_emir/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -60,22 +63,23 @@
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 
-/datum/migrant_role/sk/zybantine_guard
+/datum/migrant_role/sk/zybantine/janissary
 	name = "Zybantine Janissary"
-	greet_text = "You are a slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
-	allowed_sexes = list(MALE,FEMALE)
+	greet_text = "You are a castrated slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
+	allowed_sexes = list(MALE)
 	allowed_races = list("Humen",
+		"Dwarf",
 		"Half-Elf",
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/sk_migration/zyb_guard
+	outfit = /datum/outfit/job/sk_migration/zyb_janissary
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/sk_migration/zyb_guard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/zyb_janissary/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	head = /obj/item/clothing/head/helmet/sallet/zybantine
@@ -110,9 +114,10 @@
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_LIMPDICK, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
-/datum/migrant_role/sk/zybantine_qatil
+/datum/migrant_role/sk/zybantine/qatil
 	name = "Qatil"
 	greet_text = "You are the Emir's confident and most loyal protector, you shan't let them die in these wretched lands."
 	allowed_sexes = list(MALE, FEMALE)
@@ -173,8 +178,8 @@
 	downgrade_wave = /datum/migrant_wave/zybantine_wave_down
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
-		/datum/migrant_role/sk/zybantine_qatil = 1,
-		/datum/migrant_role/sk/zybantine_guard = 2
+		/datum/migrant_role/sk/zybantine/qatil = 1,
+		/datum/migrant_role/sk/zybantine/janissary = 2
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands."
 
@@ -186,8 +191,8 @@
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
-		/datum/migrant_role/sk/zybantine_qatil = 1,
-		/datum/migrant_role/sk/zybantine_guard = 1
+		/datum/migrant_role/sk/zybantine/qatil = 1,
+		/datum/migrant_role/sk/zybantine/janissary = 1
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately most of your guards died on the way here."
 
@@ -198,6 +203,6 @@
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
-		/datum/migrant_role/sk/zybantine_qatil = 1,
+		/datum/migrant_role/sk/zybantine/qatil = 1,
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately your guards died on the way here."

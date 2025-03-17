@@ -50,7 +50,7 @@
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-/datum/migrant_role/dwarven_company/weaponsmith
+/datum/migrant_role/sk/dwarf_mountaineers/weaponsmith
 	name = "Weapon Smith"
 	greet_text = " You are the weaponsmith of a dwarven expedition, obey your foremand as they lead you in Malum's name into the tomb of Matthios."
 	outfit = /datum/outfit/job/dwarven_company/weaponsmith
@@ -109,7 +109,7 @@
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
 
-/datum/migrant_role/dwarven_company/armorsmith
+/datum/migrant_role/sk/dwarf_mountaineers/armorsmith
 	name = "Armor Smith"
 	greet_text = " You are the armorsmith of a dwarven expedition, obey your foremand as they lead you in Malum's name into the tomb of Matthios."
 	outfit = /datum/outfit/job/dwarven_company/armorsmith
@@ -175,9 +175,9 @@
 	downgrade_wave = /datum/migrant_wave/dwarven_company_down
 	weight = 15
 	roles = list(
-		/datum/migrant_role/dwarven_company/captain = 1,
-		/datum/migrant_role/dwarven_company/weaponsmith = 2,
-		/datum/migrant_role/dwarven_company/armorsmith = 2
+		/datum/migrant_role/sk/dwarf_mountaineers/captain = 1,
+		/datum/migrant_role/sk/dwarf_mountaineers/weaponsmith = 2,
+		/datum/migrant_role/sk/dwarf_mountaineers/armorsmith = 2
 	)
 	greet_text = "The way to Matthios's tomb is opened. Malum has called for all dwarves bold enough to go in, and we shall answer."
 
@@ -188,9 +188,9 @@
 	downgrade_wave = /datum/migrant_wave/dwarven_company_down_one
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/dwarven_company/captain = 1,
-		/datum/migrant_role/dwarven_company/armorsmith = 1,
-		/datum/migrant_role/dwarven_company/weaponsmith = 1
+		/datum/migrant_role/sk/dwarf_mountaineers/captain = 1,
+		/datum/migrant_role/sk/dwarf_mountaineers/armorsmith = 1,
+		/datum/migrant_role/sk/dwarf_mountaineers/weaponsmith = 1
 	)
 	greet_text = "The way to Matthios's tomb is opened. Malum has called for all dwarves bold enough to go in, and we shall answer."
 
@@ -200,7 +200,7 @@
 	shared_wave_type = /datum/migrant_wave/dwarven_company
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/dwarven_company/captain = 1,
+		/datum/migrant_role/sk/dwarf_mountaineers/captain = 1,
 	)
 	greet_text = "The way to Matthios's tomb is opened. Malum has called for all dwarves bold enough to go in, and we shall answer."
 

@@ -731,6 +731,12 @@
 	desc = "Fashionably fitted with shining bronze buttons."
 
 
+/obj/item/clothing/shirt/tunic/yellow
+	color = CLOTHING_MAGE_YELLOW
+
+/obj/item/clothing/cloak/cape/yellow
+	color = CLOTHING_MAGE_YELLOW
+
 // ==============================	GLOVES	====================================
 // =============================================================================
 /obj/item/clothing/gloves/reinforced

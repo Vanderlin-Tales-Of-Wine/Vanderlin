@@ -9,6 +9,10 @@
 	grant_lit_torch = FALSE
 	antag_datum = /datum/antagonist/zizocultist/leader
 
+/datum/migrant_role/sk/zizo/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.mountainevil_starts))
+
 /datum/outfit/job/stonekeep/antag/zherald/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots

@@ -13,7 +13,12 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/dwarfin)
 "bn" = (
-/obj/effect/spawner/map_spawner/beartrap_obvious,
+/turf/closed/basic,
+/area/rogue/outdoors/mountains/decap)
+"bB" = (
+/obj/machinery/light/fueled/campfire{
+	fueluse = 50
+	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "bY" = (
@@ -158,11 +163,9 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/under/cavelava)
 "mu" = (
-/obj/machinery/light/fueled/campfire{
-	fueluse = 50
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains)
+/obj/effect/landmark/start/sk_mig_mountainroad,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/mountains/decap)
 "mv" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -254,7 +257,11 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/caves)
 "sN" = (
-/obj/item/reagent_containers/glass/bottle/waterskin,
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/mountains/decap)
+"tj" = (
+/obj/structure/bed/sleepingbag,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "tC" = (
@@ -316,6 +323,12 @@
 	},
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/caves)
+"vt" = (
+/obj/item/rope,
+/obj/item/reagent_containers/food/snacks/meat/salami/slice,
+/obj/item/storage/sack,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "vH" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/dwarfin)
@@ -541,7 +554,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/cavelava)
 "KP" = (
-/obj/structure/chair/stool,
+/obj/item/natural/bundle/stick,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "Lo" = (
@@ -579,10 +592,6 @@
 "MS" = (
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/dwarfin)
-"MX" = (
-/obj/structure/bed/sleepingbag,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains)
 "MY" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavelava)
@@ -660,7 +669,7 @@
 /turf/open/water,
 /area/rogue/outdoors)
 "Tc" = (
-/obj/item/natural/bundle/stick,
+/obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "Tv" = (
@@ -694,10 +703,18 @@
 "VO" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/deception)
+"Wi" = (
+/obj/effect/spawner/map_spawner/beartrap_obvious,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "Wz" = (
 /obj/structure/bars,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/caves)
+"WG" = (
+/obj/structure/chair/stool,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "Xf" = (
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/mountains)
@@ -725,9 +742,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/cavelava)
 "Zt" = (
-/obj/item/rope,
-/obj/item/reagent_containers/food/snacks/meat/salami/slice,
-/obj/item/storage/sack,
+/obj/effect/landmark/start/sk_mig_mountainevil{
+	dir = 4
+	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "Zy" = (
@@ -33386,8 +33403,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZO
-ZO
+ZZ
+ZZ
 ZO
 ZF
 ZF
@@ -33518,19 +33535,19 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZO
-ZO
-ZO
-ZO
-ZO
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZO
 ZO
 ZO
 ZO
 ZF
-ZF
-ZF
-ZO
+ZZ
+ZZ
+ZZ
 ZO
 ZO
 ZO
@@ -33650,20 +33667,20 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZF
-ZF
-ZF
-ZO
-ZO
-ZO
-ZO
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZZ
 ZZ
 ZZ
@@ -33783,17 +33800,17 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
-ZO
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZZ
 ZZ
 ZZ
@@ -50027,8 +50044,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZY
-ZY
+ZZ
+ZZ
 ZY
 ZY
 ZY
@@ -50159,19 +50176,19 @@ ZZ
 ZZ
 ZZ
 ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZY
 ZY
 ZY
 ZY
 ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
+ZZ
+ZZ
+ZZ
 ZY
 ZY
 ZY
@@ -50291,22 +50308,22 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZO
-ZF
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZZ
 ZZ
 ZZ
@@ -50424,18 +50441,18 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZO
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
+ZZ
 ZZ
 ZZ
 ZZ
@@ -50735,9 +50752,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+bn
+bn
+bn
 ZZ
 ZZ
 ZZ
@@ -50865,8 +50882,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-MX
-sw
+Zt
+Zt
 Zt
 ZZ
 ZZ
@@ -50994,10 +51011,10 @@ ZZ
 ZZ
 ZZ
 ZZ
-sN
-sw
-sw
-sw
+ZZ
+Zt
+Zt
+Zt
 sw
 ZZ
 ZZ
@@ -51123,13 +51140,13 @@ ZZ
 ZZ
 ZZ
 ZZ
-Tc
+ZZ
 sw
 Ak
-mu
-KP
 sw
 sw
+bB
+ZZ
 ZZ
 ZZ
 ZZ
@@ -51259,7 +51276,7 @@ sw
 sw
 sw
 sw
-sw
+ZZ
 ZZ
 ZZ
 ZZ
@@ -51516,8 +51533,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-bn
+sw
+sw
 sw
 ZZ
 ZZ
@@ -51647,7 +51664,7 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
+sw
 sw
 ZZ
 ZZ
@@ -55906,9 +55923,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+tj
+sw
+vt
 ZZ
 ZZ
 ZZ
@@ -56035,11 +56052,11 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Tc
+sw
+sw
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -56164,13 +56181,13 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+KP
+sw
+Ak
+bB
+WG
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -56295,12 +56312,12 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+sw
+sw
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -56426,9 +56443,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -56558,8 +56575,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
+Wi
+sw
 ZZ
 ZZ
 ZZ
@@ -56688,8 +56705,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-XX
 ZZ
+sw
 ZZ
 ZZ
 ZZ
@@ -66668,8 +66685,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZY
-ZY
+ZZ
+ZZ
 ZY
 ZY
 ZY
@@ -66796,23 +66813,23 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+bn
+mu
+ZF
+ZF
+XX
+XX
+ZF
+ZF
+ZF
 ZY
 ZY
 ZY
 ZY
 ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
+ZF
+ZF
+ZF
 ZY
 ZY
 ZY
@@ -66926,28 +66943,28 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
+bn
+mu
+ZF
+ZF
+ZF
+ZF
+XX
+XX
+XX
+ZF
+ZF
+XX
+XX
+XX
+XX
+XX
+ZF
+XX
+ZF
+ZF
+XX
+XX
 XX
 XX
 XX
@@ -67056,30 +67073,30 @@ ZZ
 ZZ
 ZZ
 ZZ
+bn
+mu
+ZF
+sN
 ZZ
 ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
-ZY
+XX
 ZF
 ZF
 ZF
+XX
+ZF
+ZF
+ZF
+ZF
+XX
+XX
+ZF
+ZF
+XX
+XX
 ZF
 ZF
 XX

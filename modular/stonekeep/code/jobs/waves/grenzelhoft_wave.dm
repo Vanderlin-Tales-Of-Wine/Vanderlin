@@ -11,7 +11,7 @@
 
 /datum/migrant_role/sk/grenzelhoft/after_spawn(mob/living/carbon/human/character)
 	. = ..()
-	character.forceMove(pick(GLOB.forestroad_starts_starts))
+	character.forceMove(pick(GLOB.forestroad_starts))
 
 /datum/outfit/job/sk_migration/grenz_count/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -8,6 +8,10 @@ GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"
 
 GLOBAL_LIST_EMPTY(bogroad_starts)
 GLOBAL_LIST_EMPTY(forestroad_starts)
+GLOBAL_LIST_EMPTY(mountainroad_starts)
+GLOBAL_LIST_EMPTY(bogevil_starts)
+GLOBAL_LIST_EMPTY(forestevil_starts)
+GLOBAL_LIST_EMPTY(mountainevil_starts)
 
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 

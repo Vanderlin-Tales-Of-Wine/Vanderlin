@@ -901,6 +901,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /proc/nopain(mob/user, turf/C)
 	for(var/mob/living/carbon/human/H in C.contents)
 		ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
+		ADD_TRAIT(user, TRAIT_LIMPDICK, TRAIT_GENERIC) // STONEKEEP EDIT
 		to_chat(H.mind, "<span class='notice'>I no longer feel pain, but it has come at a terrible cost.</span>")
 		H.change_stat(STATKEY_STR, -2)
 		H.change_stat(STATKEY_CON, -3)

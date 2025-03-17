@@ -129,7 +129,7 @@
 /datum/migrant_wave/conscript_labor
 	name = "Forced labor gang"
 	max_spawns = 2
-	shared_wave_type = /datum/migrant_wave/knight
+	shared_wave_type = /datum/migrant_wave/knight_errant
 	downgrade_wave = /datum/migrant_wave/conscript_labor_down
 	weight = 40
 	roles = list(

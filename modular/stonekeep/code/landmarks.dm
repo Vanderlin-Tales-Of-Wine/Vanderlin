@@ -246,9 +246,42 @@
 	GLOB.bogroad_starts += loc
 
 /obj/effect/landmark/start/sk_mig_forestroad
-	name = "Migration Embassy"
+	name = "Migration Forest Road"
 	icon_state = "arrow"
 	delete_after_roundstart = FALSE
 /obj/effect/landmark/start/sk_mig_forestroad/Initialize()
 	. = ..()
 	GLOB.forestroad_starts += loc
+
+/obj/effect/landmark/start/sk_mig_mountainroad
+	name = "Migration Mountain Road"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_mountainroad/Initialize()
+	. = ..()
+	GLOB.mountainroad_starts += loc
+
+
+/obj/effect/landmark/start/sk_mig_bogevil
+	name = "Migration Bog Evil"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_bogevil/Initialize()
+	. = ..()
+	GLOB.bogevil_starts += loc
+
+/obj/effect/landmark/start/sk_mig_forestevil
+	name = "Migration Forest Evil"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_forestevil/Initialize()
+	. = ..()
+	GLOB.forestevil_starts += loc
+
+/obj/effect/landmark/start/sk_mig_mountainevil
+	name = "Migration Mountain Evil"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_mountainevil/Initialize()
+	. = ..()
+	GLOB.mountainevil_starts += loc

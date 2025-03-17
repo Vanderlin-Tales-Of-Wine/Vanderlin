@@ -8,7 +8,7 @@
 
 /datum/migrant_role/sk/heartfelt/after_spawn(mob/living/carbon/human/character)
 	. = ..()
-	character.forceMove(pick(GLOB.bogroad_starts_starts))
+	character.forceMove(pick(GLOB.bogroad_starts))
 
 /datum/outfit/job/sk_migration/heart_lord/pre_equip(mob/living/carbon/human/H)
 	..()

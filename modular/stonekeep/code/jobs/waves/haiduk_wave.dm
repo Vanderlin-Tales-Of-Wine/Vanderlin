@@ -10,6 +10,10 @@
 	outfit = /datum/outfit/job/sk_migration/haiduk/khan
 	grant_lit_torch = FALSE
 
+/datum/migrant_role/sk/haiduk/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.bogevil_starts))
+
 /datum/outfit/job/sk_migration/haiduk/khan/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
