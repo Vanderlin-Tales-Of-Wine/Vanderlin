@@ -103,7 +103,6 @@
 		target.visible_message("<span class='notice'>[target] is revived by holy light!</span>", "<span class='green'>I awake from the void.</span>")
 		target.apply_status_effect(/datum/status_effect/debuff/revive)
 		if(target.mind && revive_pq && !HAS_TRAIT(target, TRAIT_IWASREVIVED) && user?.ckey)
-			adjust_playerquality(revive_pq, user.ckey)
 			ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")
 		return ..()
 	return FALSE
