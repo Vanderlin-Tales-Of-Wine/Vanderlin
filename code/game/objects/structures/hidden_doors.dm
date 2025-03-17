@@ -213,7 +213,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		)
 	return pick(close_word)
 
-
 /proc/magic_word()
 	var/list/magic_word = list(
 		"sesame",
