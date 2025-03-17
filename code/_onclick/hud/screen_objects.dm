@@ -1755,8 +1755,8 @@
 		rmb_intent = possible_rmb_intents[index]
 
 	if(hud_used?.rmb_intent)
-        hud_used.rmb_intent.update_icon()
-        hud_used.rmb_intent.collapse_intents()
+		hud_used.rmb_intent.update_icon()
+		hud_used.rmb_intent.collapse_intents()
 
 /atom/movable/screen/time
 	name = "Sir Sun"
