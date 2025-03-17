@@ -521,8 +521,8 @@
 
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
-	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply)]</b>"
+	if(ply.assigned_role && ply.current)
+		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply.current)]</b>"
 	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
