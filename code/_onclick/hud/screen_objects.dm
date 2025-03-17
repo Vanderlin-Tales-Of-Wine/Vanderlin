@@ -1740,6 +1740,23 @@
 				hud_used.rmb_intent.update_icon()
 				hud_used.rmb_intent.collapse_intents()
 
+/// Cycles through right-mouse-button intents. Loops.
+/mob/living/proc/cycle_rmb_intent()
+	if(!length(possible_rmb_intents))
+		return
+
+    // Find the index of the current intent
+	var/index = possible_rmb_intents.Find(rmb_intent)
+
+	if(index == -1)
+		rmb_intent = possible_rmb_intents[1]
+	else
+		index = (index % length(possible_rmb_intents)) + 1
+		rmb_intent = possible_rmb_intents[index]
+
+	if(hud_used?.rmb_intent)
+        hud_used.rmb_intent.update_icon()
+        hud_used.rmb_intent.collapse_intents()
 
 /atom/movable/screen/time
 	name = "Sir Sun"
