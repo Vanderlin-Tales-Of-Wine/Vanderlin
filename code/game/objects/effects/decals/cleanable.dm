@@ -7,6 +7,7 @@
 	var/mergeable_decal = TRUE //when two of these are on a same tile or do we need to merge them into just one?
 	var/beauty = 0
 	obj_flags = CAN_BE_HIT
+	var/minimum_clean_strength = CLEAN_WEAK
 
 /obj/effect/decal/cleanable/Initialize(mapload)
 	. = ..()
@@ -32,11 +33,15 @@
 		SSblackbox.record_feedback("tally", "station_mess_destroyed", 1, name)
 	return ..()
 
+/obj/effect/decal/cleanable/proc/lazy_init_reagents()
+	return
+
 /obj/effect/decal/cleanable/proc/replace_decal(obj/effect/decal/cleanable/C) // Returns true if we should give up in favor of the pre-existing decal
 	if(mergeable_decal)
 		return TRUE
 
 /obj/effect/decal/cleanable/attackby(obj/item/W, mob/user, params)
+	lazy_init_reagents()
 	if(istype(W, /obj/item/reagent_containers/glass))
 		if(src.reagents && W.reagents)
 			. = 1 //so the containers don't splash their content on the src while scooping.
@@ -100,3 +105,8 @@
 		return bloodiness
 	else
 		return 0
+
+/obj/effect/decal/cleanable/wash_act(clean)
+	. = ..()
+	if(clean >= minimum_clean_strength)
+		qdel(src)

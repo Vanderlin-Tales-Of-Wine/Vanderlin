@@ -40,6 +40,10 @@
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/grass,
 /area/rogue/indoors)
+"bu" = (
+/obj/effect/landmark/start/lich,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/woods)
 "bK" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
@@ -819,6 +823,10 @@
 /obj/structure/fluff/railing/stonehedge,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
+"GZ" = (
+/obj/effect/landmark/start/lich,
+/turf/open/floor/naturalstone,
+/area/rogue/indoors/cave)
 "Hd" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -1119,6 +1127,10 @@
 "RH" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/dirt,
+/area/rogue/outdoors/woods)
+"RM" = (
+/obj/effect/landmark/start/lich,
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods)
 "Sb" = (
 /turf/open/floor/cobble,
@@ -8073,7 +8085,7 @@ Wh
 Wh
 Nn
 Nn
-Nn
+GZ
 Nn
 Nn
 eF
@@ -12361,7 +12373,7 @@ wV
 UR
 UR
 UR
-UR
+RM
 UR
 tR
 tR
@@ -40492,7 +40504,7 @@ Zf
 Sy
 cA
 QC
-cA
+bu
 QC
 Gh
 wV

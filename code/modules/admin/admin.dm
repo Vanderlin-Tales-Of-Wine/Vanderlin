@@ -21,13 +21,55 @@
 	if(!check_rights())
 		return
 
+	show_player_panel_next(M)
+
+/client/proc/show_player_panel_next(mob/M)
+	holder?.show_player_panel_next(M)
+
+/datum/admins/proc/show_player_panel_next(mob/M, clicked_flag = null)
 	log_admin("[key_name(usr)] checked the individual player panel for [key_name(M)][isobserver(usr)?"":" while in game"].")
 
 	if(!M)
 		to_chat(usr, "<span class='warning'>I seem to be selecting a mob that doesn't exist anymore.</span>")
 		return
 
-	var/body = "<html><head><title>Options for [M.key]</title></head>"
+	var/body = "<html><head><title>Options for [M.key]</title><style>"
+	body += "<style>"
+	body += "html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }"
+	body += "#container { display: flex; flex-direction: row; align-items: flex-start; width: 100%; overflow-x: hidden; flex-wrap: nowrap; }"
+	body += "#left { flex: 2; padding-right: 10px; min-width: 0; }"
+	body += "#skills-section, #languages-section, #stats-section { display: none; background: white; border: 1px solid black; padding: 10px; width: 100%; box-sizing: border-box; max-width: 100%; overflow-x: hidden; word-wrap: break-word; }"
+	body += "#right { flex: 1; border-left: 2px solid black; padding-left: 10px; max-height: 500px; overflow-y: auto; width: 250px; min-width: 250px; box-sizing: border-box; position: relative; }"
+	body += "#right-header { display: flex; justify-content: space-around; padding: 5px; background: white; border-bottom: 2px solid black; position: sticky; top: 0; z-index: 10; }"
+	body += "#right-header button { flex: 1; margin: 2px; padding: 5px; cursor: pointer; font-weight: bold; border: none; background-color: #ddd; border-radius: 5px; }"
+	body += "#right-header button:hover { background-color: #ccc; }"
+
+	body += "</style>"
+
+	body += "<script>"
+	body += "function toggleSection(section) {"
+	body += "    localStorage.setItem('activeSection', section);"
+	body += "    document.getElementById('skills-section').style.display = (section === 'skills') ? 'block' : 'none';"
+	body += "    document.getElementById('languages-section').style.display = (section === 'languages') ? 'block' : 'none';"
+	body += "	 document.getElementById('stats-section').style.display = (section === 'stats') ? 'block' : 'none';"
+	body += "}"
+
+	body += "function refreshAndKeepSection(section) {"
+	body += "    localStorage.setItem('activeSection', section);"
+	body += "    location.reload();"
+	body += "}"
+
+	body += "window.onload = function() {"
+	body += "    var activeSection = \"[clicked_flag]\";"
+	body += "    if (activeSection !== \"0\" && activeSection !== \"\") {"
+	body += "        toggleSection(activeSection);"
+	body += "    }"
+	body += "}"
+	body += "</script>"
+
+	body +="</head>"
+	body += "<body><div id='container'>"
+	body += "<div id='left'>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -51,6 +93,8 @@
 		body += "<br><br>Player Quality: [pq] ([pq_num])"
 		body += "<br><a href='?_src_=holder;[HrefToken()];editpq=add;mob=[REF(M)]'>\[Modify PQ\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];showpq=add;mob=[REF(M)]'>\[Check PQ\]</a> "
+		body += "<br><a href='?_src_=holder;[HrefToken()];edittriumphs=add;mob=[REF(M)]'>\[Modify Triumphs\]</a> "
+		body += "<a href='?_src_=holder;[HrefToken()];showtriumphs=add;mob=[REF(M)]'>\[Check Triumphs\]</a> "
 		body += "<br>"
 		body += "<a href='?_src_=holder;[HrefToken()];roleban=add;mob=[REF(M)]'>\[Role Ban Panel\]</a> "
 
@@ -121,10 +165,81 @@
 	body += "<A href='?_src_=holder;[HrefToken()];subtlemessage=[REF(M)]'>Subtle message</A> | "
 	//body += "<A href='?_src_=holder;[HrefToken()];languagemenu=[REF(M)]'>Language Menu</A>"
 
+	body += "</div>"
+
+	body += "<div id='right'>"
+	body += "<div id='right-header'>"
+	body += "<button onclick=\"toggleSection('skills')\">Skills</button>"
+	body += "<button onclick=\"toggleSection('languages')\">Languages</button>"
+	body += "<button onclick=\"toggleSection('stats')\">Stats</button>"
+	body += "</div>"
+
+
+	body += "<div id='skills-section'>"
+	body += "<h3>Skills</h3><ul>"
+	if(M.mind)
+		for(var/skill_type in SSskills.all_skills)
+			var/datum/skill/skill = GetSkillRef(skill_type)
+			if(skill in M.mind.known_skills)
+				body += "<li>[initial(skill.name)]: [M.mind.known_skills[skill]] "
+			else
+				body += "<li>[initial(skill.name)]: 0"
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];increase_skill=[REF(M)];skill=[skill.type]'>+</a> "
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];decrease_skill=[REF(M)];skill=[skill.type]'>-</a></li>"
+	body += "</ul></div>"
+
+	body += "<div id='languages-section'>"
+	body += "<h3>Languages</h3><ul>"
+	for(var/datum/language/ld as anything in GLOB.all_languages)
+		body += "<li>[initial(ld.name)] - "
+		if (M.mind?.language_holder?.has_language(ld))
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];remove_language=[REF(M)];language=[ld]'>Remove</a></li>"
+		else
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_language=[REF(M)];language=[ld]'>Grant</a></li>"
+	body += "</ul></div>"
+
+	body += "<div id='stats-section'>"
+	body += "<h3>Stats</h3><ul>"
+	if(isliving(M))
+		var/mob/living/living = M
+		body += "<li>Strength: [living.STASTR] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_STR]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_STR]'>-</a></li>"
+
+		body += "<li>Perception: [living.STAPER] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_PER]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_PER]'>-</a></li>"
+
+		body += "<li>Endurance: [living.STAEND] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_END]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_END]'>-</a></li>"
+
+		body += "<li>Constitution: [living.STACON] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_CON]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_CON]'>-</a></li>"
+
+		body += "<li>Intelligence: [living.STAINT] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_INT]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_INT]'>-</a></li>"
+
+		body += "<li>Speed: [living.STASPD] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_SPD]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_SPD]'>-</a></li>"
+
+		body += "<li>Luck: [living.STALUC] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=[STATKEY_LCK]'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=[STATKEY_LCK]'>-</a></li>"
+	body += "</ul></div>"
+
+
+	body += "</div>"
+	body += "</div>"
+
+
 	body += "<br>"
 	body += "</body></html>"
 
-	usr << browse(body, "window=adminplayeropts-[REF(M)];size=550x515")
+	usr << browse(body, "window=adminplayeropts-[REF(M)];size=800x600")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Player Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -188,6 +303,20 @@
 
 	check_pq_menu(M.ckey)
 
+/datum/admins/proc/checktriumphs(mob/living/M in GLOB.mob_list)
+	set name = "Check Triumphs"
+	set desc = "Check a mob's Triumphs"
+	set category = null
+
+	if(!check_rights())
+		return
+
+	if(!M.ckey)
+		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		return
+
+	check_triumphs_menu(M.ckey)
+
 /datum/admins/proc/admin_sleep(mob/living/M in GLOB.mob_list)
 	set name = "Toggle Sleeping"
 	set desc = "Toggle a mob's sleeping state"
@@ -223,6 +352,34 @@
 		if("Custom")
 			type = "custom"
 	SSvote.initiate_vote(type, usr.key)
+
+/datum/admins/proc/adjusttriumphs(mob/living/M in GLOB.mob_list)
+	set name = "Adjust Triumphs"
+	set desc = "Adjust a player's triumphs"
+	set category = null
+
+	if(!check_rights())
+		return
+
+	if(!M.ckey)
+		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		return
+
+	var/ckey = lowertext(M.ckey)
+	var/admin = lowertext(usr.key)
+
+	if(!fexists("data/player_saves/[copytext(ckey,1,2)]/[ckey]/preferences.sav"))
+		to_chat(src, "<span class='boldwarning'>User does not exist.</span>")
+		return
+
+	var/amt2change = input("How much to modify the triumphs by? (-100 to 100))") as null|num
+	if(!check_rights(R_ADMIN,0))
+		amt2change = CLAMP(amt2change, -100, 100)
+	var/raisin = stripped_input("State a short reason for this change", "Game Master", "", null)
+	if(!amt2change && !raisin)
+		return
+	M.adjust_triumphs(amt2change, FALSE)
+	to_chat(M.client, "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">Your Triumphs has been adjusted by [amt2change] by [admin] for reason: [raisin]</span></span>")
 
 /datum/admins/proc/adjustpq(mob/living/M in GLOB.mob_list)
 	set name = "Adjust PQ"
@@ -382,6 +539,16 @@
 	log_admin("[key_name(usr)] toggled OOC.")
 	message_admins("[key_name_admin(usr)] toggled OOC.")
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle OOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+
+/datum/admins/proc/togglelooc()
+	set category = "Server"
+	set desc="Toggle dis bitch"
+	set name="Toggle LOOC"
+	toggle_looc()
+	log_admin("[key_name(usr)] toggled LOOC.")
+	message_admins("[key_name_admin(usr)] toggled LOOC.")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleoocdead()
 	set category = "Server"
@@ -817,3 +984,10 @@
 	M.verbs |= /mob/living/carbon/human/proc/churchannouncement
 	removeomen(OMEN_NOPRIEST)
 	priority_announce("Astrata has anointed [M.real_name] as the new head of the Church of the Ten!", title = "Astrata Shines!", sound = 'sound/misc/bell.ogg')
+
+/datum/admins/proc/fix_death_area()
+	set category = "GameMaster"
+	set desc="Toggle dis bitch"
+	set name="Fix Death Arena"
+	SSdeath_arena.admin_reset()
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

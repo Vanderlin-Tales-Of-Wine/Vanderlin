@@ -82,7 +82,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs(partner)
 		stairs.dir = dir
-	add_abstract_elastic_data("crafting", "[name]", 1)
+	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
 /obj/structure/stairs/stone/d/OnCrafted(dirin, mob/user)
@@ -95,7 +95,7 @@
 		if(!stairs)
 			stairs = new /obj/structure/stairs/stone(partner)
 		stairs.dir = dir
-	add_abstract_elastic_data("crafting", "[name]", 1)
+	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
 /obj/structure/stairs/Initialize(mapload)

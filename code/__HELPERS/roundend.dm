@@ -95,6 +95,7 @@
 	if(client)
 		client.show_game_over()
 	status_flags |= GODMODE
+	ai_controller?.set_ai_status(AI_STATUS_OFF)
 
 /mob/living/do_game_over()
 	..()
@@ -385,7 +386,6 @@
 	else
 		content = file2text(filename)
 	roundend_report.set_content(content)
-	roundend_report.stylesheets = list()
 //	roundend_report.add_stylesheet("roundend", 'html/browser/roundend.css')
 //	roundend_report.add_stylesheet("font-awesome", 'html/font-awesome/css/all.min.css')
 	roundend_report.open(FALSE)

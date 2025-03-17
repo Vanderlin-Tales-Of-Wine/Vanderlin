@@ -57,6 +57,7 @@
 	if(!isspawn)
 		owner.adjust_skillrank(/datum/skill/combat/wrestling, 6, TRUE)
 		owner.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
+		owner.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		ADD_TRAIT(owner.current, TRAIT_NOBLE, TRAIT_GENERIC)
 	owner.special_role = name
 	owner.current.set_patron(/datum/patron/divine/noc) // Spurned by the scorching light of Astrata, the Moon Prince Noc has taken you under his wing.

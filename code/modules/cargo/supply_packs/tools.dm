@@ -153,7 +153,7 @@
 	contains = /obj/item/fishingrod
 
 /datum/supply_pack/tools/bait
-	name = "Fishing Grub"
+	name = "Deluxe Fishing Bait"
 	cost = 6
 	contains = /obj/item/fishing/bait/deluxe
 

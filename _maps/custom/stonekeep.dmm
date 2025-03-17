@@ -5114,7 +5114,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/under/town/sewer)
 "sl" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /obj/effect/landmark/start/villager,
 /turf/open/floor/woodturned,
@@ -8485,7 +8485,7 @@
 	},
 /area/rogue/indoors/town/church)
 "EX" = (
-/obj/structure/window/stained,
+/obj/structure/window/stained/silver,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
 "EY" = (
@@ -9161,7 +9161,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
 "Ht" = (
-/obj/structure/window/stained{
+/obj/structure/window/stained/silver{
 	opacity = 0
 	},
 /turf/open/floor/blocks,

@@ -1,11 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "c" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "d" = (
 /obj/structure/closet/crate/chest/crafted,
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long,
@@ -15,29 +15,27 @@
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "e" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "f" = (
 /obj/structure/fluff/railing/fence{
 	dir = 4
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
 "g" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "h" = (
 /obj/structure/table/wood/counter,
-/obj/item/coin/copper,
-/obj/item/coin/copper,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "j" = (
 /turf/open/floor/dirt/road,
-/area/rogue)
+/area/rogue/under/cave)
 "k" = (
 /obj/structure/rack,
 /obj/item/weapon/shield/wood{
@@ -48,110 +46,101 @@
 	},
 /obj/item/weapon/shield/tower,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "l" = (
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "n" = (
 /obj/structure/table/wood/counter/end{
 	dir = 4
 	},
-/obj/item/coin/copper,
+/obj/item/clothing/ring/silver,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "p" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "q" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "r" = (
 /obj/structure/closet/crate/drawer/inn,
-/obj/item/coin/copper/pile,
+/obj/item/ingot/silver,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "s" = (
-/obj/structure/table/wood/counter,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/dirt/road,
+/area/rogue/under/cave)
 "t" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "u" = (
 /obj/structure/mineral_door/wood/green,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "x" = (
-/obj/structure/fluff/railing/fence{
-	dir = 4
-	},
-/mob/living/simple_animal/hostile/skeleton/bow,
-/turf/open/floor/dirt,
-/area/rogue)
-"y" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
-/turf/open/floor/dirt,
-/area/rogue)
-"z" = (
-/turf/open/floor/dirt,
-/area/rogue)
-"C" = (
-/mob/living/simple_animal/hostile/skeleton/guard,
+/mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
-"D" = (
-/obj/structure/fluff/railing/fence,
-/mob/living/simple_animal/hostile/skeleton/bow,
+/area/rogue/under/cave)
+"y" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cave)
+"z" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/dirt,
+/area/rogue/under/cave)
+"C" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
+"D" = (
+/mob/living/carbon/human/species/skeleton/npc/warrior,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
 "E" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/naturalstone,
-/area/rogue)
-"F" = (
-/mob/living/simple_animal/hostile/skeleton/bow,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "G" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "I" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue)
+/area/rogue/under/cave)
 "J" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "K" = (
 /turf/closed/wall/mineral/wooddark/window,
-/area/rogue)
+/area/rogue/under/cave)
 "L" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "M" = (
 /obj/structure/bed/wool,
-/mob/living/simple_animal/hostile/skeleton/guard,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "N" = (
 /obj/structure/mineral_door/wood/green,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "O" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "P" = (
 /obj/item/bomb{
 	pixel_x = 9;
@@ -163,11 +152,11 @@
 	},
 /obj/structure/rack/shelf/big,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "Q" = (
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "S" = (
 /obj/structure/rack,
 /obj/item/clothing/armor/leather,
@@ -180,18 +169,18 @@
 	pixel_x = -6
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "T" = (
 /obj/structure/fluff/buysign,
 /obj/structure/fluff/buysign{
 	desc = " Store Closed"
 	},
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "U" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cave)
 "W" = (
 /obj/structure/rack,
 /obj/item/weapon/sword/iron{
@@ -205,25 +194,25 @@
 	pixel_x = -1
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 "X" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "Y" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "Z" = (
 /obj/structure/table/wood/counter/end{
 	dir = 8
 	},
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 a
@@ -267,8 +256,8 @@ a
 I
 l
 l
+x
 l
-C
 l
 I
 a
@@ -284,7 +273,7 @@ a
 I
 l
 n
-s
+h
 h
 Z
 I
@@ -316,7 +305,7 @@ p
 p
 p
 I
-z
+y
 K
 u
 K
@@ -331,24 +320,24 @@ p
 p
 p
 p
-z
+y
 c
-z
-z
+y
+y
 j
 z
-z
+y
 c
-z
-z
-z
+y
+y
+y
 p
 "}
 (8,1,1) = {"
 t
 p
 p
-z
+y
 j
 j
 j
@@ -358,24 +347,24 @@ j
 j
 j
 j
-z
+y
 E
 "}
 (9,1,1) = {"
 p
 p
 p
-z
+y
 c
-z
+y
 z
 j
-z
-z
+y
+y
 c
-z
-z
-z
+y
+y
+y
 p
 "}
 (10,1,1) = {"
@@ -385,11 +374,11 @@ T
 p
 U
 y
+y
+s
+y
 z
-j
-z
-z
-D
+c
 p
 p
 p
@@ -401,11 +390,11 @@ a
 a
 a
 a
-x
+f
 f
 j
 f
-x
+f
 a
 a
 p
@@ -419,9 +408,9 @@ a
 a
 p
 p
-z
+y
 j
-z
+y
 p
 p
 a
@@ -436,9 +425,9 @@ p
 p
 p
 p
-z
-z
-z
+y
+y
+y
 p
 p
 a
@@ -522,7 +511,7 @@ p
 p
 I
 r
-l
+D
 l
 l
 l
@@ -541,7 +530,7 @@ I
 M
 l
 l
-l
+C
 d
 I
 a
@@ -573,9 +562,9 @@ e
 Q
 l
 l
-F
 l
-F
+x
+l
 l
 l
 G

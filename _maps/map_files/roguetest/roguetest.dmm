@@ -98,10 +98,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "as" = (
-/obj/structure/waterwheel,
-/turf/open/water/river{
-	dir = 8
-	},
+/obj/structure/soil/debug_soil/random,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "at" = (
 /turf/closed/mineral/bedrock,
@@ -1153,16 +1151,17 @@
 /area/rogue/outdoors)
 "mx" = (
 /obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/dirt/road,
+/turf/open/water/river{
+	dir = 4
+	},
 /area/rogue/indoors)
 "mY" = (
-/obj/structure/rotation_piece,
+/obj/structure/irrigation_channel,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "ne" = (
-/obj/structure/rotation_piece/cog/large,
-/turf/open/floor/dirt/road,
-/area/rogue/indoors)
+/turf/open/transparent/openspace,
+/area/rogue)
 "oH" = (
 /obj/structure/lever{
 	redstone_id = "test2"
@@ -1173,6 +1172,10 @@
 /obj/structure/dungeon_entry,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/vault)
+"pY" = (
+/obj/structure/water_pump,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "qw" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/cobble,
@@ -1250,18 +1253,32 @@
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
+"zZ" = (
+/obj/structure/apiary,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "Az" = (
 /obj/structure/rotation_piece/cog{
 	dir = 4
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"AI" = (
+/obj/structure/waterwheel,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/indoors)
 "AO" = (
 /obj/structure/rotation_piece{
 	dir = 8
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"Bv" = (
+/obj/structure/water_pipe,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
 "BE" = (
 /obj/structure/minecart_rail{
 	dir = 4
@@ -1272,9 +1289,29 @@
 /obj/structure/gearbox,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"CZ" = (
+/obj/machinery/light/fueled/torchholder/r,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/indoors)
+"DW" = (
+/obj/machinery/light/fueled/torchholder/l,
+/obj/structure/soil/debug_soil/random,
+/turf/open/floor/dirt/road,
+/area/rogue/indoors)
+"Fc" = (
+/obj/structure/water_vent,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors)
 "Fo" = (
 /obj/effect/landmark/start/consort,
 /turf/open/floor/carpet/lord/left,
+/area/rogue/indoors)
+"Fx" = (
+/turf/open/water/river{
+	dir = 4
+	},
 /area/rogue/indoors)
 "Hl" = (
 /obj/structure/minecart_rail{
@@ -1313,6 +1350,10 @@
 	dir = 8
 	},
 /turf/open/floor/carpet/lord/right,
+/area/rogue/indoors)
+"TJ" = (
+/obj/structure/fermentation_keg/distiller,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors)
 "Ua" = (
 /obj/structure/water_pipe,
@@ -1811,13 +1852,13 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -2062,19 +2103,19 @@ aa
 aa
 ab
 mx
-aj
-aj
-aj
-aj
-mx
+as
+as
+as
+as
+DW
+as
+as
+as
+as
+DW
+as
+as
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2318,20 +2359,20 @@ at
 at
 at
 ab
-aj
-as
-ne
-aj
+Fx
 mY
-Nb
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
+mY
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2575,20 +2616,20 @@ Ua
 Ua
 Ua
 ab
-Nb
-mY
-Nb
-aj
-aj
-aj
+Fx
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -2832,20 +2873,20 @@ al
 al
 Ua
 ab
-aj
-aj
-aj
-aj
-aj
-aj
+Fx
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
+as
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -3089,6 +3130,13 @@ Ua
 Ua
 Ua
 ab
+AI
+Nb
+aj
+aj
+aj
+aj
+aj
 aj
 aj
 aj
@@ -3096,13 +3144,6 @@ aj
 aj
 aj
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -3346,20 +3387,20 @@ al
 al
 al
 ab
+CZ
+pY
+Bv
+TJ
+aj
+zc
+aj
+zZ
+aj
+aj
 zc
 aj
 aj
-aj
-aj
-zc
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aa
 aa
 aa
@@ -4883,7 +4924,7 @@ cN
 cN
 su
 Ua
-al
+Fc
 aj
 aj
 aj
@@ -67597,19 +67638,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv
@@ -67854,19 +67895,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv
@@ -68111,19 +68152,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv
@@ -68368,19 +68409,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv
@@ -68625,19 +68666,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv
@@ -68882,19 +68923,19 @@ Uv
 Uv
 Uv
 Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
+ne
 Uv
 Uv
 Uv

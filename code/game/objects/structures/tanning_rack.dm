@@ -1,6 +1,6 @@
 /obj/machinery/tanningrack
 	name = "drying rack"
-	desc = "A tanning rack for the preparation and curing of hides into leather, it can be moved with the help of a wooden stake."
+	desc = "A drying rack for the preparation of food or curing of hides into leather, it can be moved with the help of a wooden stake."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "dryrack"
 	var/obj/item/natural/hide/hide
@@ -47,7 +47,7 @@
 			if(!do_after(user, work_time))
 				return
 			playsound(src,pick('sound/items/book_open.ogg','sound/items/book_page.ogg'), 100, FALSE)
-			hide = null
+			QDEL_NULL(hide)
 			user.mind.add_sleep_experience(/datum/skill/craft/tanning, user.STAINT * 2) //these numbers may need some revision
 			update_icon()
 			for(var/i = 0; i < pieces_to_spawn; i++)

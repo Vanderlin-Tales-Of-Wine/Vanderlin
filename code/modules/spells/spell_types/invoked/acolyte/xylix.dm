@@ -19,13 +19,16 @@
 	var/forced_speak = input(user, "What should they say?", "Vicious Mimicry")
 	if(!forced_speak)
 		return FALSE
+	if(get_dist(user, victim) > 7)
+		to_chat(user, span_warning("[victim] is too far away from you!"))
+		return FALSE
 	var/list/bannedwords = list("zizo","graggar","matthios","baotha","inhumen","heresy")
 	forced_speak = sanitize_hear_message(forced_speak)
 	for(var/T in bannedwords)  //astrata smites naughty xylixans
 		if(findtext(forced_speak, T))
 			if(isliving(user))
 				var/mob/living/L = user
-				L.add_stress(/datum/stressevent/psycurse)
+				L.add_stress(/datum/stressevent/psycurselight)
 				L.adjust_divine_fire_stacks(6)
 				L.IgniteMob()
 			return ..()
@@ -33,6 +36,7 @@
 	victim.say(forced_speak, forced = "spell")
 	victim.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!", LOG_GAME)
 	user.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!", LOG_GAME)
+	user.emote("laugh")
 	return ..()
 
 /obj/effect/proc_holder/spell/invoked/wheel

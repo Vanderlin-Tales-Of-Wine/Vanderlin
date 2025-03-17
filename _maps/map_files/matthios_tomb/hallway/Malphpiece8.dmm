@@ -49,7 +49,6 @@
 /area/rogue/outdoors/caves)
 "gI" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/ore/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
@@ -94,7 +93,6 @@
 /area/rogue/outdoors/caves)
 "sK" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/statue/gold/loot,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
@@ -109,14 +107,12 @@
 /area/rogue/outdoors/caves)
 "tx" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/statue/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
 /area/rogue/outdoors/caves)
 "uc" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/clothing/ring/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
@@ -165,7 +161,6 @@
 "Gb" = (
 /obj/machinery/light/fueled/torchholder/r,
 /obj/effect/landmark/chest_or_mimic,
-/obj/item/coin/copper/pile,
 /obj/item/reagent_containers/glass/bottle/stronghealthpot,
 /obj/item/reagent_containers/food/snacks/cheddar/aged,
 /turf/open/floor/blocks/paving/vert,
@@ -209,7 +204,6 @@
 /area/rogue/outdoors/caves)
 "UY" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/reagent_containers/glass/cup/golden,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,
@@ -220,7 +214,6 @@
 /area/rogue/outdoors/caves)
 "WO" = (
 /obj/structure/table/wood/nice/decorated_alt,
-/obj/item/coin/gold,
 /obj/item/ingot/gold,
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/carpet,

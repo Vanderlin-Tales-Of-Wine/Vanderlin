@@ -90,33 +90,17 @@
 					if(owner.pixelshift_y <= maximum_pixel_shift)
 						owner.pixelshift_y++
 						owner.pixelshifted = TRUE
-					else
-						owner.Move(get_step(owner, NORTH))
-						owner.pixelshift_y = -16
-						owner.pixelshifted = TRUE
 				if(EAST)
 					if(owner.pixelshift_x <= maximum_pixel_shift)
 						owner.pixelshift_x++
-						owner.pixelshifted = TRUE
-					else
-						owner.Move(get_step(owner, EAST))
-						owner.pixelshift_x = -16
 						owner.pixelshifted = TRUE
 				if(SOUTH)
 					if(owner.pixelshift_y >= -maximum_pixel_shift)
 						owner.pixelshift_y--
 						owner.pixelshifted = TRUE
-					else
-						owner.Move(get_step(owner, SOUTH))
-						owner.pixelshift_y = 16
-						owner.pixelshifted = TRUE
 				if(WEST)
 					if(owner.pixelshift_x >= -maximum_pixel_shift)
 						owner.pixelshift_x--
-						owner.pixelshifted = TRUE
-					else
-						owner.Move(get_step(owner, WEST))
-						owner.pixelshift_x = 16
 						owner.pixelshifted = TRUE
 			owner.set_mob_offsets("pixel_shift", _x = owner.pixelshift_x, _y = owner.pixelshift_y)
 

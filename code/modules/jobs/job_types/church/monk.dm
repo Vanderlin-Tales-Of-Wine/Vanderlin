@@ -58,6 +58,8 @@
 			shoes = /obj/item/clothing/shoes/sandals
 			armor = /obj/item/clothing/shirt/robe/eora
 			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
+			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
+			H.virginity = FALSE
 		if(/datum/patron/divine/noc)
 			head = /obj/item/clothing/head/roguehood/nochood
 			neck = /obj/item/clothing/neck/psycross/noc
@@ -66,11 +68,10 @@
 			armor = /obj/item/clothing/shirt/robe/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/pestra)
-			head = /obj/item/clothing/head/roguehood/brown
+			head = /obj/item/clothing/head/padded/pestra
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
-			shirt = /obj/item/clothing/shirt/undershirt/green
 			shoes = /obj/item/clothing/shoes/sandals
-			armor = /obj/item/clothing/shirt/robe/phys
+			armor = /obj/item/clothing/shirt/robe/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			head = /obj/item/clothing/head/padded/briarthorns
@@ -129,6 +130,9 @@
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 2) // For casting lots of spells, and working long hours without sleep at the church
 		H.change_stat(STATKEY_PER, -1)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
