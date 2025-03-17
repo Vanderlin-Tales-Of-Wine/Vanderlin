@@ -8,10 +8,7 @@
 // END_PREFERENCES
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
-#include "_maps\map_files\vanderlin\Rosewood boggate(1).dmm"
-#include "_maps\map_files\vanderlin\otherz\vanderlin_bog.dmm"
-#include "_maps\map_files\vanderlin\otherz\vanderlin_forest.dmm"
-#include "_maps\map_files\vanderlin\otherz\vanderlin_mountain.dmm"
+#include "_maps\Rosewood boggate(1).dmm"
 #include "_maps\templates\bog_shack_small.dm"
 #include "_maps\templates\malum_anvil_dungeon_large.dm"
 #include "_maps\templates\sk_dungeons.dm"
