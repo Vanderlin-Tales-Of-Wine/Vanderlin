@@ -680,7 +680,7 @@
 	icon_state = "newstone2"
 /turf/open/floor/blocks/newstone/alt
 	icon_state = "bluestone"
-/turf/open/floor/blocks/newstone/alt
+/turf/open/floor/blocks/snow
 	icon_state = "snowblocks"
 /turf/open/floor/blocks/paving
 	icon_state = "paving"
@@ -927,7 +927,13 @@
 	neighborlay = "cobbleedge"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass)
+						/turf/open/floor/grass,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/cold,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough)
 	max_integrity = 1200
 
 /turf/open/floor/cobble/turf_destruction(damage_flag)
@@ -956,10 +962,6 @@
 /turf/open/floor/cobble/mossy
 	icon_state = "mossystone1"
 	neighborlay = "mossyedgealt"
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/dirt,
-						/turf/open/floor/grass,
-						/turf/open/floor/snow)
 
 /turf/open/floor/cobble/mossy/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -1000,9 +1002,12 @@
 /turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
 
-
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblealt"
+
+/turf/open/floor/cobblerock/snow
+	icon_state = "snowcobblerock"
+	neighborlay = "snowcobblerock"
 
 /*	..................   Bigger decals for mappers   ................... */
 /obj/effect/decal/cobbleedge
@@ -1015,18 +1020,20 @@
 /obj/effect/decal/cobbleedge/alt
 	icon_state = "cobblestonealt_edges"
 
-/obj/effect/decal/cobbleedge/mossy/alt
+/obj/effect/decal/cobbleedge/mossy
 	icon_state = "mossystonealt_edges"
 
-/obj/effect/decal/cobbleedge/mossy/snow
+/obj/effect/decal/cobbleedge/snow
 	icon_state = "snowcobble_edges"
 
 /obj/effect/decal/cobblerockedge
+	name = ""
+	desc = ""
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "cobble_edges"
+	mouse_opacity = 0
 
 /obj/effect/decal/cobblerockedge/alt
-	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "cobblealt_edges"
 
 /*	..................   Miscellany   ................... */
