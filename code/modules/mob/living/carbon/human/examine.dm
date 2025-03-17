@@ -33,7 +33,7 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 	var/obscure_name
-	var/race_name = dna.species.name
+	var/race_name = dna?.species.name
 	var/self_inspect = FALSE
 
 	var/m1 = "[t_He] [t_is]"
