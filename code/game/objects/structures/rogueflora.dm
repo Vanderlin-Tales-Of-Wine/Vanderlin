@@ -287,6 +287,16 @@
 	var/list/looty = list()
 	var/bushtype
 
+/obj/structure/flora/grass/bush/update_icon()
+	icon_state = "bush"
+
+/obj/structure/flora/grass/bush/tundra
+	name = "tundra bush"
+	icon_state = "bush_tundra"
+
+/obj/structure/flora/grass/bush/tundra/update_icon()
+	icon_state = "bush_tundra"
+
 /obj/structure/flora/grass/bush/Initialize()
 	if(prob(88))
 		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/jacksberry=5,
@@ -332,10 +342,6 @@
 			if(!looty.len)
 				to_chat(user, "<span class='warning'>Picked clean... I should try later.</span>")
 #endif
-
-
-/obj/structure/flora/grass/bush/update_icon()
-	icon_state = "bush"
 
 /obj/structure/flora/grass/bush/CanPass(atom/movable/mover, turf/target)
 	if(mover.throwing)
@@ -419,6 +425,14 @@
 	. = ..()
 	icon_state = "bushwall[pick(1,2)]"
 
+/obj/structure/flora/grass/bush/wall/tundra
+	name = "tundra great bush"
+	icon_state = "bushwall1_tundra"
+
+/obj/structure/flora/grass/bush/wall/tundra/Initialize()
+	. = ..()
+	icon_state = "bushwall[pick(1,2)]_tundra"
+
 /obj/structure/flora/grass/bush/wall/update_icon()
 	return
 
@@ -439,6 +453,13 @@
 /obj/structure/flora/grass/bush/wall/tall/Initialize()
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]"
+
+/obj/structure/flora/grass/bush/wall/tall/tundra
+	icon_state = "tallbush1_tundra"
+
+/obj/structure/flora/grass/bush/wall/tall/tundra/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,2)]_tundra"
 
 // fyrituis bush
 /obj/structure/flora/grass/pyroclasticflowers
@@ -804,6 +825,13 @@
 			icon_state = "bush_berry[rand(1,3)]"
 		else
 			icon_state = "bush[rand(1, 3)]"
+
+/obj/structure/flora/grass/bush_meagre/tundra
+	name = "tundra bush"
+	icon_state = "bush1_tundra"
+
+/obj/structure/flora/grass/bush_meagre/tundra/update_icon()
+	icon_state = "bush[rand(1,3)]_tundra"
 
 /obj/structure/flora/grass/bush_meagre/Initialize()
 	if(silky)
