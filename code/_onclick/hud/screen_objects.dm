@@ -1745,7 +1745,7 @@
 	if(!length(possible_rmb_intents))
 		return
 
-    // Find the index of the current intent
+	// Find the index of the current intent
 	var/index = possible_rmb_intents.Find(rmb_intent)
 
 	if(index == -1)
