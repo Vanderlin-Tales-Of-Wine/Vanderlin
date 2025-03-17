@@ -1,20 +1,27 @@
 /obj/item/clothing/armor/leather/advanced/forrester
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "forrester armour"
-	desc = "Armour worn by the Veterans of the Goblin War, who presently serve in the Forest Guard of Vanderlin."
+	name = "forrester's armour"
+	desc = "Armour worn by the veterans of the Goblin War, who presently serve in the forest guard."
+	icon = 'icons/roguetown/clothing/special/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	icon_state = "foresthide"
 	prevent_crits = ALL_EXCEPT_STAB
 
 /obj/item/clothing/cloak/forrestercloak
-	name = "forrester cloak"
-	desc = "A cloak worn by the Forest Guards of Vanderlin."
+	name = "forrester's cloak"
+	desc = "A cloak worn by the forest guards."
+	icon = 'icons/roguetown/clothing/special/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	icon_state = "forestcloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
-	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
+
+/obj/item/clothing/cloak/forrestercloak/snow
+	icon_state = "snowcloak"
 
 /obj/item/clothing/cloak/forrestercloak/ComponentInitialize()
 	. = ..()
@@ -22,15 +29,16 @@
 
 
 /obj/item/clothing/cloak/wardencloak
-	name = "warden cloak"
-	desc = "A cloak worn by the Veteran Warden of Vanderlin's Forest Guard"
+	name = "warden's cloak"
+	desc = "A cloak worn by the veteran warden of the Forest Guard."
+	icon = 'icons/roguetown/clothing/special/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	icon_state = "wardencloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
-	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
-	inhand_mod = TRUE
 
 /obj/item/clothing/cloak/wardencloak/ComponentInitialize()
 	. = ..()
@@ -38,8 +46,10 @@
 
 /obj/item/clothing/head/helmet/visored/warden
 	name = "wardens's helmet"
-	desc = "A strange helmet adorned with antlers worn by the Warden of the Forest"
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	desc = "A strange helmet adorned with antlers worn by the warden of the forest."
+	icon = 'icons/roguetown/clothing/special/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/warden_64x64.dmi'
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	icon_state = "wardenhelm"
@@ -67,7 +77,9 @@
 
 /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	name = "skullmet"
-	desc = "A crude helmet constructed with the skull of various beasts of Dendor"
+	desc = "A crude helmet constructed with the skull of various beasts of Dendor."
+	icon = 'icons/roguetown/clothing/special/forest_guard.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/forest_guard.dmi'
 	icon_state = "skullmet_volf"
 
 /obj/item/clothing/head/helmet/medium/decorated/skullmet/attack_right(mob/user)
