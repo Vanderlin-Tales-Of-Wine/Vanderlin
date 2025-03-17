@@ -1233,12 +1233,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"vU" = (
-/obj/effect/mapping_helpers/secret_door_creator{
-	redstone_id = "hiddendoortesting"
-	},
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
 "vV" = (
 /obj/structure/ladder,
 /turf/open/floor/cobble,
@@ -1319,12 +1313,6 @@
 	dir = 4
 	},
 /area/rogue/indoors)
-"FF" = (
-/obj/structure/lever/hidden{
-	redstone_id = "hiddendoortesting"
-	},
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
 "Hl" = (
 /obj/structure/minecart_rail{
 	dir = 5
@@ -1353,12 +1341,6 @@
 "QR" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/woods)
-"Re" = (
-/obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = "hiddendoortesting"
-	},
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors)
 "Sz" = (
 /obj/structure/boiler,
 /turf/open/floor/dirt/road,
@@ -9331,7 +9313,7 @@ cs
 ct
 aJ
 aJ
-vU
+ah
 bD
 am
 bP
@@ -9588,7 +9570,7 @@ al
 ai
 al
 ai
-FF
+ah
 bE
 am
 bS
@@ -9845,7 +9827,7 @@ al
 ai
 al
 ai
-Re
+ah
 bF
 am
 am
