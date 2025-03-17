@@ -71,7 +71,7 @@
 		if(islatejoin)
 			is_returning = TRUE
 
-		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
+		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
 		. += statement_of_identity
 
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people

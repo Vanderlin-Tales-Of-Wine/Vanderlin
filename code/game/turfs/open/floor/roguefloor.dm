@@ -315,8 +315,6 @@
 	bloodiness = 20
 	dirt_amt = 3
 
-	spread_chance = 8
-
 /turf/open/floor/dirt
 	name = "dirt"
 	desc = "The dirt is pocked with the scars of countless wars."

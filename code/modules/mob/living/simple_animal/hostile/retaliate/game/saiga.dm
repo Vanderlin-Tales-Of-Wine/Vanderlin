@@ -70,8 +70,8 @@
 						/obj/item/alch/bone = 1,
 						/obj/item/natural/head/saiga = 1)
 
-	health = FEMALE_MOOBEAST_HEALTH
-	maxHealth = FEMALE_MOOBEAST_HEALTH
+	health = FEMALE_SAIGA_HEALTH
+	maxHealth = FEMALE_SAIGA_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
 					/obj/item/reagent_containers/food/snacks/produce/oat,
 					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
@@ -104,6 +104,12 @@
 	gender = PLURAL
 	icon_state = "skele"
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
+
+/mob/living/simple_animal/hostile/retaliate/saiga/Initialize()
+	. = ..()
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/get_sound(input)
 	switch(input)
@@ -187,8 +193,8 @@
 						/obj/item/alch/sinew = 2,
 						/obj/item/alch/bone = 1)
 
-	health = MALE_MOOBEAST_HEALTH
-	maxHealth = MALE_MOOBEAST_HEALTH
+	health = MALE_SAIGA_HEALTH
+	maxHealth = MALE_SAIGA_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
 					/obj/item/reagent_containers/food/snacks/produce/oat,
 					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
@@ -246,6 +252,7 @@
 	. = ..()
 	if(tame)
 		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")

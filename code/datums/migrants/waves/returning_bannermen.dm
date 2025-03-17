@@ -1,5 +1,6 @@
-/*datum/migrant_role/sergeant_at_arms
-	name = "Serjeant at arms"
+/*
+/datum/migrant_role/sergeant_at_arms
+	name = "Serjeant-At-Arms"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and the mens under your command have returned upon fullfiling your task."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -244,7 +245,7 @@
 			backr = /obj/item/weapon/polearm/halberd/bardiche
 
 /datum/migrant_wave/returning_bannermen
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	max_spawns = 2
 	shared_wave_type = /datum/migrant_wave/knight
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down
@@ -259,7 +260,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_one
 	can_roll = FALSE
@@ -273,7 +274,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_one
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_two
 	can_roll = FALSE
@@ -286,7 +287,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_two
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_three
 	can_roll = FALSE
@@ -298,7 +299,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_three
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_four
 	can_roll = FALSE
@@ -309,7 +310,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_four
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	can_roll = FALSE
 	roles = list(

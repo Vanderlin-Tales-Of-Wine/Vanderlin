@@ -44,6 +44,7 @@
 	name = "truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle
@@ -52,45 +53,41 @@
 	tastes = list("mushroom" = 1)
 	sellprice = 30
 	rotprocess = null
-/obj/item/reagent_containers/food/snacks/truffles/Initialize()
-	icon_state = pick("mushroom1_full","mushroom1_full","mushroom1_full")
-	. = ..()
+	biting = TRUE
+
 /obj/item/reagent_containers/food/snacks/cooked/truffle
-	name = "truffles"
+	name = "cooked truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	color = "#835b4f"
 	tastes = list("delicious truffles" = 2)
-/obj/item/reagent_containers/food/snacks/cooked/truffle/Initialize()
-	icon_state = pick("mushroom1_full","mushroom1_full","mushroom1_full")
-	. = ..()
+	biting = TRUE
 
 /obj/item/reagent_containers/food/snacks/toxicshrooms
 	name = "truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
 	cooked_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
 	fried_type = /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
 	cooked_smell = /datum/pollutant/food/truffles
 	color = "#ab7d6f"
 	tastes = list("mushroom" = 1)
-/obj/item/reagent_containers/food/snacks/toxicshrooms/Initialize()
-	icon_state = pick("mushroom1_full","mushroom1_full","mushroom1_full")
-	. = ..()
+	biting = TRUE
+
 /obj/item/reagent_containers/food/snacks/cooked/truffle_toxic
-	name = "truffles"
+	name = "cooked truffles"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "mushroom1_full"
+	base_icon_state = "mushroom1_full"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 6)
 	color = "#835b4f"
-/obj/item/reagent_containers/food/snacks/cooked/truffle_toxic/Initialize()
-	icon_state = pick("mushroom1_full","mushroom1_full","mushroom1_full")
-	. = ..()
-
-
+	tastes = list("off-putting" = 2)
+	biting = TRUE
 
 //	........   Truffle Pig   ................
 /mob/living/simple_animal/hostile/retaliate/trufflepig
