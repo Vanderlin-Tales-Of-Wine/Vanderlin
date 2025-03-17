@@ -236,11 +236,7 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	slowdown = 0
 	smooth = SMOOTH_TRUE
-	canSmoothWith = list(/turf/open/floor/grass,
-						/turf/open/floor/grass/red,
-						/turf/open/floor/grass/yel,
-						/turf/open/floor/grass/cold,
-						/turf/open/floor/snow,
+	canSmoothWith = list(/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough)
 	neighborlay = "snowedge"
