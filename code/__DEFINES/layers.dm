@@ -101,6 +101,7 @@
 //#define AREA_LAYER 10
 #define MASSIVE_OBJ_LAYER 11
 #define POINT_LAYER 12
+#define POINT_PLANE 5
 
 #define CHAT_LAYER 12.1
 
