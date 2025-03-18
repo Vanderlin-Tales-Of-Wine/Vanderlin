@@ -180,9 +180,10 @@
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 
 /datum/advclass/consort/courtesan/night_spy
-	name = "Night-Mother's Spy Consort"
+	name = "Thieves Guild Spy Consort"
 	tutorial = "Raised by the guild to report on all the Monarch's action. Using your honeyed words and charm have brought you right to being a ruler's beloved consort."
 	outfit = /datum/outfit/job/consort/courtesan/spy
+	pickprob = 15
 
 	category_tags = list(CTAG_CONSORT)
 
@@ -201,6 +202,10 @@
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/remember_thief_password
+	if(GLOB.thieves_guild_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_thief_password), H), 50)
 
 /obj/effect/proc_holder/spell/self/convertrole/servant
 	name = "Recruit Servant"

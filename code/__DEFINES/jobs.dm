@@ -258,6 +258,8 @@
 
 #define JDO_MERCENARY 35
 
+#define JDO_THIEF 35.5
+
 #define JDO_VAGRANT 36
 #define JDO_ORPHAN 37
 

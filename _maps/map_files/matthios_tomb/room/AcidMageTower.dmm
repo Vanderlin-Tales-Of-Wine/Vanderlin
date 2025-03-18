@@ -391,7 +391,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "nJ" = (
-/obj/structure/mineral_door/secret/rogue{
+/obj/structure/mineral_door/secret{
 	locked = 0
 	},
 /turf/open/floor/tile/masonic/spiral,
@@ -609,7 +609,7 @@
 /area/rogue/indoors)
 "vW" = (
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/secret/rogue{
+/obj/structure/mineral_door/secret{
 	locked = 0
 	},
 /turf/open/floor/churchrough,
