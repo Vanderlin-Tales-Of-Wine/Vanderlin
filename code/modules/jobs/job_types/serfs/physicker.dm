@@ -22,6 +22,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	outfit = /datum/outfit/job/physicker
+	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
 /datum/outfit/job/physicker/pre_equip(mob/living/carbon/human/H)
 	..()

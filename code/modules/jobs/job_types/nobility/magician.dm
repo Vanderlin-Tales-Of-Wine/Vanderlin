@@ -52,6 +52,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		if(H.age == AGE_OLD)
 			armor = /obj/item/clothing/shirt/robe/courtmage
 			H.change_stat(STATKEY_SPD, -1)

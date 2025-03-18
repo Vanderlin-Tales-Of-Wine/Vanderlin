@@ -3,7 +3,8 @@
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "arrow"
 	layer = POINT_LAYER
-	duration = 25
+	plane = POINT_PLANE
+	duration = 3 SECONDS
 
 /obj/effect/temp_visual/point/still
 	icon_state = "arrow_still"
