@@ -78,6 +78,7 @@ SUBSYSTEM_DEF(role_class_handler)
 	We will cache it per server session via an assc list with a ckey leading to the datum.
 */
 /datum/controller/subsystem/role_class_handler/proc/setup_class_handler(mob/living/carbon/human/H, advclass_rolls_override = null)
+	CRASH("setup_class_handler was called without a passed mob in args!")
 	// insure they somehow aren't closing the datum they got and opening a new one w rolls
 	var/datum/class_select_handler/GOT_IT = class_select_handlers[H.client.ckey]
 	if(GOT_IT)
