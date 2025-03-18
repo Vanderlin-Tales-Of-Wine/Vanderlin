@@ -70,6 +70,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -77,6 +78,9 @@
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, 1)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron) // This creates the cleric holder used for devotion spells
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	C.grant_spells_priest(H)
@@ -257,7 +261,7 @@
 	if(!recruit.mind)
 		return FALSE
 	//only orphans who aren't apprentices
-	if(recruit.job == "Orphan" && !recruit.mind.apprentice)
+	if(recruit.mind.assigned_role == "Orphan" && !recruit.mind.apprentice)
 		return FALSE
 	//need to see their damn face
 	if(!recruit.get_face_name(null))

@@ -33,7 +33,7 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 	var/obscure_name
-	var/race_name = dna.species.name
+	var/race_name = dna?.species.name
 	var/self_inspect = FALSE
 
 	var/m1 = "[t_He] [t_is]"
@@ -71,7 +71,7 @@
 		if(islatejoin)
 			is_returning = TRUE
 
-		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title][is_apprentice ? ", apprentice of [src.mind.our_apprentice_name]" : ""].")
+		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
 		. += statement_of_identity
 
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
@@ -536,6 +536,9 @@
 	if(!appears_dead)
 		if(skipface && user.has_flaw(/datum/charflaw/hunted))
 			user.add_stress(/datum/stressevent/hunted)
+
+	if(!obscure_name && (flavortext || headshot_link))
+		. += "<a href='?src=[REF(src)];task=view_flavor_text;'>Examine closer</a>"
 
 	var/list/lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
 	for(var/line in lines)

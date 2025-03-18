@@ -103,7 +103,7 @@
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/ash = 1,
 				/obj/item/reagent_containers/food/snacks/fat =1 )
-	craftdiff = 2
+	craftdiff = 1
 
 /datum/crafting_recipe/dendor/shrine/saiga
 	name = "stinging shrine to Dendor (unique)"
