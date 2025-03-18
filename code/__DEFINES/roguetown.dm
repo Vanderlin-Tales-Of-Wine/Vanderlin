@@ -93,7 +93,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define STRESS_BAD 3
 #define STRESS_NEUTRAL 2
 #define STRESS_GOOD 1
-#define STRESS_VGOOD 0
+#define STRESS_VGOOD -1
 
 /*	........   Nutrition defines   ................ */
 #define MEAL_FILLING 30
