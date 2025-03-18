@@ -226,7 +226,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("rats")
+	faction = list(FACTION_RATS)
 	name = "rousman"
 	real_name = "rousman"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

@@ -67,7 +67,6 @@
 			self_inspect = TRUE
 		var/used_title = get_role_title()
 		var/is_returning = FALSE
-		var/is_apprentice = mind?.apprentice
 		if(islatejoin)
 			is_returning = TRUE
 
