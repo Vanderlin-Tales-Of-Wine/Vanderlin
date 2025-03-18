@@ -138,8 +138,8 @@
 		J?.add_spells(HU)
 		SSticker.rulermob = HU
 		GLOB.badomens -= OMEN_NOLORD
-		say("By the authority of the gods, I pronounce you Ruler of all Vanderlin!")
-		priority_announce("[real_name] the [get_role_title()] has named [HU.real_name] the inheritor of Vanderlin!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
+		say("By the authority of the gods, I pronounce you Ruler of all [SSmapping.config.map_name]!")
+		priority_announce("[real_name] the [get_role_title()] has named [HU.real_name] the inheritor of [SSmapping.config.map_name]!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
 		return
 
 /mob/living/carbon/human/proc/churchexcommunicate()

@@ -1,0 +1,10 @@
+{
+    "map_name": "Rosewood",
+    "map_path": "map_files/vanderlin",
+    "map_file": "rosewood.dmm",
+	"traits": [{"Up": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Down": true, "Turf Weather Effects": true}],
+	"minetype": null,
+	"space_empty_levels": 0,
+	"space_ruin_levels": 0,
+	"custom_area_sound": "sound/misc/stings/Rosewood.ogg"
+}

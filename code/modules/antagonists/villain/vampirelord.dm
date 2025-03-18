@@ -413,7 +413,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, "I am already the Master of Vanderlin.")
+		to_chat(src, "I am already the Master of [SSmapping.config.map_name].")
 		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
@@ -547,7 +547,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/datum/antagonist/vampirelord/lord = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
 	if(user.mind.special_role != "Vampire Lord")
 		return
-	var/choice = input(user,"What to do?", "VANDERLIN") as anything in useoptions|null
+	var/choice = input(user,"What to do?", "[SSmapping.config.map_name]") as anything in useoptions|null
 	switch(choice)
 		if("Grow Power")
 			if(lord.vamplevel == 4)
@@ -568,7 +568,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					return
 				if(do_after(user, 10 SECONDS))
 					lord.handle_vitae(-500)
-					var/naming = input(user, "Select a name for the amulet.", "VANDERLIN") as text|null
+					var/naming = input(user, "Select a name for the amulet.", "[SSmapping.config.map_name]") as text|null
 					var/obj/item/clothing/neck/portalamulet/P = new(src.loc)
 					if(naming)
 						P.name = naming
