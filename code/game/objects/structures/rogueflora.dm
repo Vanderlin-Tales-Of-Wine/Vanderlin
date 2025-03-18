@@ -455,6 +455,7 @@
 	icon_state = "tallbush[pick(1,2)]"
 
 /obj/structure/flora/grass/bush/wall/tall/tundra
+	name = "tundra great bush"
 	icon_state = "tallbush1_tundra"
 
 /obj/structure/flora/grass/bush/wall/tall/tundra/Initialize()
