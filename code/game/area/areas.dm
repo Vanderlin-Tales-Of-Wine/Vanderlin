@@ -299,7 +299,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	T.maptext_x = 12
 	T.maptext_y = 64
 	var/map_sound = SSmapping.config.custom_area_sound
-	to_chat(world, map_sound)
 	if(A.custom_area_sound)
 		playsound_local(src, A.custom_area_sound, 125, FALSE)
 	else if(map_sound)
