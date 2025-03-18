@@ -1,21 +1,32 @@
 
 //Could be bitflags, but that would require a good amount of translations, which eh, either way works for me
 /// When the event is combat oriented (spawning monsters, inherently hostile antags)
-#define TAG_GOD "god"
-#define TAG_BOON "boon"
-#define TAG_CURSE "curse"
-#define TAG_HAUNTED "haunted"
-#define TAG_COMBAT "combat"
-#define TAG_RAID "raid"
-#define TAG_TRADE "trade"
-#define TAG_WIDESPREAD "widespread"
-#define TAG_VILLIAN "villian"
-#define TAG_MEDICAL "medical"
-#define TAG_ALCHEMY "alchemy"
-#define TAG_NATURE "nature"
-#define TAG_WORK "work"
-#define TAG_WATER "water"
-#define TAG_MAGICAL "magical"
+#define TAG_GOD "god"                          // (Base tag)
+#define TAG_BOON "boon"                        // Eora
+#define TAG_CURSE "curse"                      // (Unused by gods, reserved/defined)
+#define TAG_HAUNTED "haunted"                  // Noc, Necra
+#define TAG_COMBAT "combat"                    // (Unused by gods, reserved/defined)
+#define TAG_RAID "raid"                        // Ravox
+#define TAG_TRADE "trade"                      // Abyssor, Matthios
+#define TAG_WIDESPREAD "widespread"            // Eora
+#define TAG_VILLIAN "villian"                  // (Unused by gods, reserved/defined)
+#define TAG_MEDICAL "medical"                  // Pestra
+#define TAG_ALCHEMY "alchemy"                  // Pestra
+#define TAG_NATURE "nature"                    // Pestra, Dendor
+#define TAG_WORK "work"                        // Malum
+#define TAG_WATER "water"                      // Abyssor
+#define TAG_MAGICAL "magical"                  // Noc, Zizo
+#define TAG_BATTLE "battle"                    // Graggar
+#define TAG_BLOOD "blood"                      // Graggar
+#define TAG_WAR "war"                          // Graggar
+#define TAG_GAMBLE "gamble"                    // Zizo
+#define TAG_TRICKERY "trickery"                // Zizo
+#define TAG_UNEXPECTED "unexpected"            // Zizo
+#define TAG_INSANITY "insanity"                // Baotha
+#define TAG_MAGIC "magic"                      // Baotha
+#define TAG_DISASTER "disaster"                // Baotha
+#define TAG_CORRUPTION "corruption"            // Matthios
+#define TAG_LOOT "loot"                        // Matthios
 
 #define EVENT_TRACK_MUNDANE "Mundane"
 #define EVENT_TRACK_MODERATE "Moderate"
