@@ -37,7 +37,6 @@
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
 	var/keylock = FALSE
-	var/lockhash
 	var/lockid = null
 	var/masterkey = FALSE
 	throw_speed = 1
@@ -54,24 +53,6 @@
 	. = ..()
 	update_icon()
 	PopulateContents()
-
-	if(lockhash)
-		GLOB.lockhashes += lockhash
-	else if(keylock)
-		if(lockid)
-			if(GLOB.lockids[lockid])
-				lockhash = GLOB.lockids[lockid]
-			else
-				lockhash = rand(1000,9999)
-				while(lockhash in GLOB.lockhashes)
-					lockhash = rand(1000,9999)
-				GLOB.lockhashes += lockhash
-				GLOB.lockids[lockid] = lockhash
-		else
-			lockhash = rand(1000,9999)
-			while(lockhash in GLOB.lockhashes)
-				lockhash = rand(1000,9999)
-			GLOB.lockhashes += lockhash
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
@@ -260,11 +241,11 @@
 	if(user in src)
 		return
 	if(istype(W, /obj/item/key) || istype(W, /obj/item/storage/keyring))
-		if(trykeylock(W, user))
-			return
+		trykeylock(W, user)
+		return
 	if(istype(W, /obj/item/lockpick))
-		if(trypicklock(W, user))
-			return
+		trypicklock(W, user)
+		return
 	if(src.tool_interact(W,user))
 		return 1 // No afterattack
 	return ..()
@@ -282,26 +263,28 @@
 		var/obj/item/storage/keyring/R = I
 		if(!R.contents.len)
 			return
-		var/list/keysy = shuffle(R.contents.Copy())
-		for(var/obj/item/key/K in keysy)
-			if(user.cmode)
-				if(!do_after(user, 1 SECONDS, src))
-					break
-			if(K.lockhash == lockhash)
+		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
+			if(!do_after(user, 0.5 SECONDS, src))
+				break
+			if((lockcheck(K)))
 				togglelock(user)
-				return TRUE
-			else
-				if(user.cmode)
-					playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
-		playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 		return
-	else
-		var/obj/item/key/K = I
-		if(K.lockhash == lockhash)
-			togglelock(user)
-			return TRUE
-		else
-			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+	var/obj/item/key/K = I
+	if(lockcheck(K))
+		togglelock(user)
+
+/obj/structure/closet/proc/lockcheck(obj/item/key/K)
+	if(K.lockid != lockid)
+		rattle()
+		return FALSE
+	return TRUE
+
+/obj/structure/closet/proc/rattle()
+	playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+	var/oldx = pixel_x
+	animate(src, pixel_x = oldx+1, time = 0.5)
+	animate(pixel_x = oldx-1, time = 0.5)
+	animate(pixel_x = oldx, time = 0.5)
 
 /obj/structure/closet/proc/trypicklock(obj/item/I, mob/user)
 	if(opened)
@@ -353,7 +336,7 @@
 				if(lockprogress >= locktreshold)
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives way.</span>")
 					togglelock(user)
-					return TRUE
+					return
 				else
 					continue
 			else
@@ -361,7 +344,6 @@
 				I.take_damage(1, BRUTE, "blunt")
 				to_chat(user, "<span class='warning'>Clack.</span>")
 				continue
-		return
 
 /obj/structure/closet/proc/tool_interact(obj/item/W, mob/user)//returns TRUE if attackBy call shouldnt be continued (because tool was used/closet was of wrong type), FALSE if otherwise
 	. = FALSE

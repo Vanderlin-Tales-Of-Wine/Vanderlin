@@ -7,25 +7,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0.75
 	throwforce = 0
-	var/lockhash = 0
 	var/lockid = null
 	drop_sound = 'sound/items/gems (1).ogg'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK|ITEM_SLOT_RING
 
 	grid_height = 64
 	grid_width = 32
-
-/obj/item/key/Initialize()
-	. = ..()
-	if(lockid)
-		if(GLOB.lockids[lockid])
-			lockhash = GLOB.lockids[lockid]
-		else
-			lockhash = rand(100,999)
-			while(lockhash in GLOB.lockhashes)
-				lockhash = rand(100,999)
-			GLOB.lockhashes += lockhash
-			GLOB.lockids[lockid] = lockhash
 
 /obj/item/lockpick
 	name = "lockpick"
@@ -66,7 +53,7 @@
 	icon_state = "brownkey"
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0.75
-	var/lockhash = 0
+	var/lockid = null
 
 /obj/item/key_custom_blank/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
@@ -76,22 +63,28 @@
 	if(!input)
 		return
 	to_chat(user, span_notice("You set the key ID to [input]."))
-	lockhash = 10000 + input //having custom lock ids start at 10000 leaves it outside the range that opens normal doors, so you can't make a key that randomly unlocks existing key ids like the church
+	lockid = "[input]"
 
 /obj/item/key_custom_blank/attack_right(mob/user)
 	if(istype(user.get_active_held_item(), /obj/item/key))
 		var/obj/item/key/held = user.get_active_held_item()
-		src.lockhash = held.lockhash
-		to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
-	else if(istype(user.get_active_held_item(), /obj/item/customlock))
+		if(held.lockid)
+			src.lockid = held.lockid
+			to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
+		return
+	if(istype(user.get_active_held_item(), /obj/item/customlock))
 		var/obj/item/customlock/held = user.get_active_held_item()
-		src.lockhash = held.lockhash
-		to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
-	else if(istype(user.get_active_held_item(), /obj/item/weapon/hammer) && src.lockhash != 0)
-		var/obj/item/key/custom/F = new (get_turf(src))
-		F.lockhash = src.lockhash
-		F.lockid = lockhash
-		to_chat(user, span_notice("You finish [F]."))
+		if(held.lockid)
+			src.lockid = held.lockid
+			to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
+		return
+	if(istype(user.get_active_held_item(), /obj/item/weapon/hammer))
+		if(!src.lockid)
+			to_chat(user, span_notice("[src] is not ready."))
+			return
+		var/obj/item/key/custom/custom = new(get_turf(src))
+		custom.lockid = src.lockid
+		to_chat(user, span_notice("You finish [custom]."))
 		qdel(src)
 
 /obj/item/key/lord
@@ -115,27 +108,26 @@
 	if(istype(target, /obj/structure/closet))
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
-			lockhash = C.lockhash
+			lockid = C.lockid
 	if(istype(target, /obj/structure/mineral_door))
 		var/obj/structure/mineral_door/D = target
 		if(D.masterkey)
-			lockhash = D.lockhash
+			lockid = D.lockid
 
 /obj/item/key/lord/pre_attack_right(target, user, params)
 	. = ..()
 	if(istype(target, /obj/structure/closet))
 		var/obj/structure/closet/C = target
 		if(C.masterkey)
-			lockhash = C.lockhash
+			lockid = C.lockid
 	if(istype(target, /obj/structure/mineral_door))
 		var/obj/structure/mineral_door/D = target
 		if(D.masterkey)
-			lockhash = D.lockhash
+			lockid = D.lockid
 
 /obj/item/key/lord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	lockhash = GLOB.lockids[lockid]
-
+	lockid = initial(lockid)
 
 /obj/item/key/manor
 	name = "manor key"
