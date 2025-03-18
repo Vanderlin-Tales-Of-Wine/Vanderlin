@@ -4956,9 +4956,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "dCD" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/key/apartments/apartment1,
 /obj/item/broom,
 /obj/item/natural/cloth,
@@ -5624,9 +5622,7 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manorgate)
 "dZB" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "dZC" = (
@@ -10383,9 +10379,8 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "hwc" = (
-/obj/structure/mineral_door/bars{
-	lockid = "graveyard"
-	},
+/obj/structure/mineral_door/bars,
+/obj/effect/mapping_helpers/door/access/church/grave,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/town)
 "hwx" = (
@@ -10420,9 +10415,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "hxl" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "hxv" = (
@@ -11189,9 +11182,8 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "hYc" = (
-/obj/structure/mineral_door/bars{
-	lockid = "garrison"
-	},
+/obj/structure/mineral_door/bars,
+/obj/effect/mapping_helpers/door/access/garrison/garrison,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/outdoors/town)
 "hYs" = (
@@ -25571,9 +25563,7 @@
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "sMx" = (
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/cloak/stole/red,
 /obj/item/clothing/cloak/chasuble,
 /obj/item/storage/backpack/satchel,
@@ -30632,9 +30622,7 @@
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
 "wqa" = (
-/obj/structure/closet/crate/chest/crate{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/chest/crate,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
 /obj/item/reagent_containers/food/snacks/egg,
@@ -32146,9 +32134,7 @@
 /area/rogue/indoors/butchershop)
 "xuY" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/closet/crate/crafted_closet{
-	lockid = "butler"
-	},
+/obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
 "xvu" = (
