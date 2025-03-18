@@ -188,7 +188,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		"break",
 		"reveal",
 		"unbar",
-		//"gape", There's already enough people on this server saying "gape necra"
+		"gape", //You wanted this.
 		"extend",
 		"widen",
 		"unfold",
