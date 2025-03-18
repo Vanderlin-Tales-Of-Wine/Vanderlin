@@ -14,7 +14,7 @@ Format:
 endmap
 
 map rosewood
-	#minplayers 90
+	minplayers 90
 	votable
 endmap
 

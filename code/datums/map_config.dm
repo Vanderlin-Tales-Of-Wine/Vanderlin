@@ -109,17 +109,17 @@
 		log_world("map_config space_empty_levels is not a number!")
 		return
 
-	temp = json["custom_area_sound"]
-	if (istext(temp))
-		if(!findtextEx(temp, new /regex("\\.ogg$"))) //makes sure this is an ogg file
-			log_world("map_config [temp] is not a valid .ogg file!")
+	var/soundTemp = json["custom_area_sound"]
+	if (istext(soundTemp))
+		if(!findtextEx(soundTemp, new /regex("\\.ogg$"))) //makes sure this is an ogg file
+			log_world("map_config [soundTemp] is not a valid .ogg file!")
 			return
-		var/soundFile = file(temp)
+		var/soundFile = file(soundTemp)
 		if(!soundFile)
-			log_world("map_config custom_area_sound not found at [temp]!")
+			log_world("map_config custom_area_sound not found at [soundTemp]!")
 			return
 		custom_area_sound = soundFile
-	else if (!isnull(temp))
+	else if (!isnull(soundTemp))
 		log_world("map_config custom_area_sound is not a string!")
 		return
 
