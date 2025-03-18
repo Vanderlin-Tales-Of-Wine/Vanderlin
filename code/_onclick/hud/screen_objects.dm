@@ -1746,13 +1746,15 @@
 		return
 
 	// Find the index of the current intent
-	var/index = possible_rmb_intents.Find(rmb_intent)
+	var/index = possible_rmb_intents.Find(rmb_intent.type)
+	var/A
 
 	if(index == -1)
-		rmb_intent = possible_rmb_intents[1]
+		A = possible_rmb_intents[1]
 	else
 		index = (index % length(possible_rmb_intents)) + 1
-		rmb_intent = possible_rmb_intents[index]
+		A = possible_rmb_intents[index]
+	rmb_intent = new A()
 
 	if(hud_used?.rmb_intent)
 		hud_used.rmb_intent.update_icon()
