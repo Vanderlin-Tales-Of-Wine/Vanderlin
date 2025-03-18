@@ -25,7 +25,7 @@
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 					category = "humans"
-					mob_data += list("job" = H.mind.assigned_role, "species" = H.dna.species.name)
+					mob_data += list("job" = H.mind.assigned_role.title, "species" = H.dna.species.name)
 			else
 				category = "others"
 				mob_data += list("typepath" = m.type)
@@ -522,14 +522,9 @@
 
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
-	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role]</b>"
-	var/usede = ply.key
-	if(ply.key)
-		usede = ckey(ply.key)
-		if(ckey(ply.key) in GLOB.anonymize)
-//			if(check_whitelist(ckey(ply.key)))
-			usede = get_fake_key(ckey(ply.key))
+	if(ply.assigned_role && ply.current)
+		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply.current)]</b>"
+	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
 		if(ply.current.real_name != ply.name)

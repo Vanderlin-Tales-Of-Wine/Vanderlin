@@ -163,21 +163,21 @@
 	if(istype(P, /obj/item/natural/feather))
 		if(user.is_literate() && open)
 			if(signedname)
-				to_chat(user, "<span class='warning'>[signedname]</span>")
+				to_chat(user, span_warning("[signedname]"))
 				return
 			switch(alert("Sign your name?",,"Yes","No"))
+				if("No")
+					return
 				if("Yes")
-					if(user.mind && user.mind.assigned_role)
+					if(user.mind?.assigned_role)
 						if(do_after(user, 2 SECONDS, src))
 							signedname = user.real_name
-							signedjob = user.mind.assigned_role
+							signedjob = user.mind.assigned_role.get_informed_title(user)
 							icon_state = "contractsigned"
-							user.visible_message("<span class='notice'>[user] signs the [src].</span>")
+							user.visible_message(span_notice("[user] signs [src]."), span_notice("I sign [src]."))
 							update_icon_state()
 							playsound(src, 'sound/items/write.ogg', 100, FALSE)
 							rebuild_info()
-				if("No")
-					return
 
 /obj/item/paper/scroll/cargo/proc/rebuild_info()
 	info = null
@@ -299,7 +299,7 @@
 
 /obj/item/merctoken
 	name = "mercenary token"
-	desc = "A small, palm-fitting bound scroll - a minuature writ of commendation for a mercenary under MGE. Present to a Guild representative for signing."
+	desc = "A small, palm-fitting bound scroll - a minuature writ of commendation for a mercenary under MGE."
 	icon_state = "merctoken"
 	icon = 'icons/roguetown/items/misc.dmi'
 	w_class = WEIGHT_CLASS_TINY
@@ -310,39 +310,39 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	var/signee = null
 	var/signeejob = null
-	var/signed = 0
+
+/obj/item/merctoken/examine(mob/user)
+	. = ..()
+	if(!signee)
+		. += span_info("Present to a Guild representative for signing.")
+	else
+		. += span_info("SIGNEE: [signee], [signeejob] of Vanderlin.")
 
 /obj/item/merctoken/attackby(obj/item/P, mob/living/carbon/human/user, params)
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(!user.can_read(src))
-			to_chat(user, "<span class='warning'>Even a reader would find these verba incomprehensible.</span>")
+			to_chat(user, span_warning("Even a reader would find these verba incomprehensible."))
 			return
-		if(signed == 1)
-			to_chat(user, "<span class='warning'>This token has already been signed.</span>")
+		if(signee)
+			to_chat(user, span_warning("This token has already been signed."))
 			return
-		if(user.can_read(src))
-			if(user.mind.assigned_role == "Mercenary")
-				to_chat(user, "<span class='warning'>Signing my own commendation would only befool me.</span>")
-				return
-			if(user.mind.assigned_role != "Merchant")
-				to_chat(user, "<span class='warning'>This is incomprehensible.</span>")
-				return
-			if(user.mind.assigned_role == "Merchant")
-				signee = user.real_name
-				signeejob = user.mind.assigned_role
-				visible_message("<span class='warning'>[user] writes their name down on the token.</span>")
-				playsound(src, 'sound/items/write.ogg', 100, FALSE)
-				desc = "A small, palm-fitting bound scroll that can be sent by mail to the Guild. Most of the fine print is unintelligible, save for one bold SIGNEE: [signee], [signeejob] of Vanderlin."
-				signed = 1
-				return
+		if(!is_merchant_job(user.mind.assigned_role))
+			if(is_mercenary_job(user.mind.assigned_role))
+				to_chat(user, span_warning("I can not sign my own commendation."))
+			else
+				to_chat(user, span_warning("This is incomprehensible."))
+			return
 		else
+			signee = user.real_name
+			signeejob = user.mind.assigned_role.get_informed_title(user)
+			visible_message(span_warning("[user] writes [user.p_their()] name on [src]."))
+			playsound(src, 'sound/items/write.ogg', 100, FALSE)
 			return
 
 
 /obj/item/paper/scroll/frumentarii/roundstart/Initialize()
 	. = ..()
 	real_names |= GLOB.roundstart_court_agents
-
 
 /obj/item/paper/scroll/frumentarii
 	name = "Frumentarii scroll"
