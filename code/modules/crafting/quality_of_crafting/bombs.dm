@@ -3,8 +3,8 @@
 	skillcraft = /datum/skill/craft/bombs
 	craftdiff = 2
 
-/datum/repeatable_crafting_recipe/bomb
-	name = "bottle bomb"
+/datum/repeatable_crafting_recipe/bomb/homemade
+	name = "homemade bottle bomb"
 
 	requirements = list(
 		/obj/item/natural/cloth = 1,

@@ -504,6 +504,7 @@
 						prob2craft += ((10-L.STAINT)*-1)*2
 				if(prob2craft < 1)
 					to_chat(user, "<span class='danger'>I lack the skills for this...</span>")
+					move_products(list(), user)
 					move_items_back(to_delete, user)
 					return
 				else
