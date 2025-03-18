@@ -49,6 +49,8 @@
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/book))
 			I.forceMove(src)
+		if(istype(I, /obj/item/recipe_book))
+			I.forceMove(src)
 	update_icon()
 
 /obj/structure/bookcase/attack_hand(mob/living/user)
@@ -106,6 +108,6 @@
 		books -= listed_book
 
 	for(var/i = 1 to random_books)
-		var/obj/item/recipe_book/book = pick(books)
+		var/obj/item/recipe_book/book = pick_n_take(books)
 		new book(src)
 	update_icon()

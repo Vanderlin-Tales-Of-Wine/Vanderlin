@@ -27,6 +27,10 @@
 	. = ..()
 	if(coin_amount >= 1)
 		set_quantity(floor(coin_amount))
+		setup_denomination()
+
+/obj/item/coin/proc/setup_denomination()
+	return
 
 /obj/item/coin/getonmobprop(tag)
 	. = ..()
@@ -79,10 +83,140 @@
 	update_icon()
 	update_transform()
 
+/obj/item/coin/get_displayed_price(mob/user)
+	return FALSE  // Coins never show generic price text
+
 /obj/item/coin/examine(mob/user)
 	. = ..()
-	if(quantity > 1)
-		. += "<span class='info'>\Roman [quantity] coins.</span>"
+	var/denomination = quantity == 1 ? name : plural_name
+	var/intelligence = user.mind?.current.STAINT
+
+	if(quantity > 1)  // Just so you don't count single coins
+		var/list/skill_data = coin_skill(user, quantity)
+		var/fuzzy_quantity = CLAMP(quantity + skill_data["error"], 1,  (quantity > 20) ? INFINITY : 20) // Cap at 20 only for small stacks)
+		var/uncertainty_phrases = list("maybe","you think","roughly","perhaps","around","probably")
+
+		switch(intelligence)						// Intelligence-based messaging
+			if(0 to 6)
+				user.visible_message(span_info("You see [user] clumsily start counting the coins"),span_notice("You clumsily start counting the coins..."))
+			if(7 to 9)
+				user.visible_message(span_info("You see [user] start counting the coins"),span_notice("You start counting the coins..."))
+			if(10 to 13)
+				user.visible_message(span_info("You see [user] count the coins"),span_notice("You start counting the coins..."))
+			if(14 to INFINITY)
+				user.visible_message(span_info("You see [user] effortlessly tally the coins!"),span_notice("You effortlessly tally the stack."))
+
+		if(!do_after(user, skill_data["delay"]))
+			return
+
+		var/estimated_value = fuzzy_quantity * sellprice
+		estimated_value = CLAMP(estimated_value, sellprice, INFINITY)
+		var/description = "[quantity_to_words(fuzzy_quantity)] [denomination]"
+		var/value_text
+		if(intelligence >= 10)
+			value_text = "[estimated_value] mammon"
+		else
+			value_text = "~[estimated_value] mammon"
+			if(intelligence <= 7)
+				value_text = "[pick(uncertainty_phrases)] [value_text]"
+				if(prob(30))
+					value_text += "?"
+		. += span_info("[description] ([value_text])")
+	else
+		. += span_info("One [name] ([sellprice] mammon)")
+
+
+/obj/item/coin/attack_hand(mob/user)
+	if(user.get_inactive_held_item() == src && quantity > 1)
+		var/intended = input(user, "How many [plural_name] to split?", null, 1) as null|num
+		if(QDELETED(src) || !user.is_holding(src))
+			return
+		intended = clamp(intended, 0, quantity)
+		intended = round(intended, 1)
+		if(!intended || intended >= quantity)
+			return
+
+		var/list/skill_data = coin_skill(user, intended)		// Get skill-based parameters
+		var/delay_time = skill_data["delay"]
+		var/error = skill_data["error"]
+
+		if(delay_time > 5 SECONDS)			// Chat feedback
+			user.visible_message(span_notice("Coins clatter as [user] fumbles."),span_warning("You lose count while separating the coins!"))
+		else if(delay_time >= 1 SECONDS)
+			user.visible_message(span_notice("[user] carefully counts out coins..."),span_notice("You concentrate on separating the stack..."))
+		else if(delay_time == 0)
+			user.visible_message(span_notice("[user] instantly splits the coin stack!"),span_notice("You effortlessly divide the coins."))
+
+		if(delay_time > 0 && !do_after(user, delay_time))	// Make sure people don't move to cancel the delay
+			return
+
+		var/actual = intended + error		// Apply error safely
+		actual = clamp(actual, 1, quantity - 1)
+
+		var/obj/item/coin/new_coins = new type()	// Split coins
+		new_coins.set_quantity(actual)
+		new_coins.heads_tails = last_merged_heads_tails
+		set_quantity(quantity - actual)
+
+		user.put_in_hands(new_coins)
+		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
+		return
+	..()
+
+/obj/item/coin/proc/coin_skill(mob/user, intended)		// Coin counting and splitting
+	var/intelligence = user.mind?.current.STAINT
+	var/perception = user.mind?.current.STAPER
+	var/speed = user.mind?.current.STASPD
+	var/mathematics_skill = user.mind?.get_skill_level(/datum/skill/labor/mathematics) || 0
+	var/list/skill_data = list("delay" = 1 SECONDS,"error" = 0)
+
+	var/base_tier	// Base intelligence tiers
+	switch(intelligence)
+		if(0 to 6)
+			base_tier = 1 			// Low INT
+		if(7 to 9)
+			base_tier = 2			// Below average INT
+		if(10 to 11)
+			base_tier = 3			// Average INT
+		if(14 to INFINITY)
+			base_tier = 4	// Very High INT
+		else base_tier = 3 // Default for 12-13
+
+	// Apply mathematics tier boost
+	var/tier_boost = clamp(mathematics_skill - 1, 0, 4) // +1 tier for level 2, +2 for level 3+, etc.
+	var/effective_tier = clamp(base_tier + tier_boost, 1, 4)
+
+	switch(effective_tier)	// Set values based on effective tier
+		if(1) // Very low INT
+			skill_data["error"] = rand(-3,3)
+			skill_data["delay"] = 3 SECONDS
+		if(2) // Below Average INT
+			skill_data["error"] = rand(-1,1)
+			if(prob(10))
+				skill_data["error"] += rand(-2,2)
+		if(3) // Average INT
+			if(prob(5))
+				skill_data["error"] = rand(-1,1)
+		if(4) // Genius
+			skill_data["delay"] = 0
+
+	if(perception < 7 && mathematics_skill == 0)	// Secondary stat modifiers
+		skill_data["error"] += rand(-1,1)
+	if(speed < 5)
+		skill_data["delay"] += 0.5 SECONDS
+
+	return skill_data
+
+
+/obj/item/coin/proc/quantity_to_words(amount)
+	switch(amount)
+		if(1 to 4) return "A few"
+		if(5 to 9) return "Several"
+		if(10 to 14) return "A dozen or so"
+		if(15 to 19) return "A large number of"
+		if(20) return "A full stack of"
+		if(21 to INFINITY) return "An unbelieavably big stack of"
+		else return "Some"
 
 /obj/item/coin/proc/merge(obj/item/coin/G, mob/user)
 	if(!G)
@@ -125,29 +259,6 @@
 	user.put_in_active_hand(new type(user.loc, 1))
 	set_quantity(quantity - 1)
 
-/obj/item/coin/attack_hand(mob/user)
-	if(user.get_inactive_held_item() == src && quantity > 1)
-		var/amt_text = " (1 to [quantity])"
-		if(quantity == 1)
-			amt_text = ""
-		var/amount = input(user, "How many [plural_name] to split?[amt_text]", null, round(quantity/2, 1)) as null|num
-		if(QDELETED(src) || !user.is_holding(src))
-			return
-		amount = clamp(amount, 0, quantity)
-		amount = round(amount, 1) // no taking non-integer coins
-		if(!amount)
-			return
-		if(amount >= quantity)
-			return ..()
-		var/obj/item/coin/new_coins = new type()
-		new_coins.set_quantity(amount)
-		new_coins.heads_tails = last_merged_heads_tails
-		set_quantity(quantity - amount)
-
-		user.put_in_hands(new_coins)
-		playsound(loc, 'sound/foley/coins1.ogg', 100, TRUE, -2)
-		return
-	..()
 
 
 /obj/item/coin/attack_self(mob/living/user)
@@ -216,7 +327,7 @@
 //GOLD
 /obj/item/coin/gold
 	name = "zenar"
-	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down."
+	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down. It's valued at 10 mammon per coin."
 	icon_state = "g1"
 	sellprice = 10
 	base_type = CTYPE_GOLD
@@ -226,7 +337,7 @@
 // SILVER
 /obj/item/coin/silver
 	name = "ziliqua"
-	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages."
+	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages. It's valued at 5 mammon per coin."
 	icon_state = "s1"
 	sellprice = 5
 	base_type = CTYPE_SILV
@@ -235,7 +346,7 @@
 // COPPER
 /obj/item/coin/copper
 	name = "zenny"
-	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver."
+	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver. It's valued at 1 mammon per coin."
 	icon_state = "c1"
 	sellprice = 1
 	base_type = CTYPE_COPP

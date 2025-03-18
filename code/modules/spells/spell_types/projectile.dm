@@ -82,7 +82,7 @@
 	var/check_antimagic = TRUE
 	var/check_holy = FALSE
 
-/obj/effect/proc_holder/spell/targeted/projectile/proc/fire_projectile(atom/target, mob/user)
+/obj/effect/proc_holder/spell/targeted/projectile/fire_projectile(atom/target, mob/user)
 	var/obj/projectile/magic/spell/projectile = new proj_type()
 
 	if(update_projectile)

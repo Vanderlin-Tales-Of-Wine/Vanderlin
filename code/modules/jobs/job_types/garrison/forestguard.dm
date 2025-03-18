@@ -1,10 +1,24 @@
 /datum/job/forestguard
 	title = "Forest Guard"
+	tutorial = "You've been keeping the streets clean of neer-do-wells and taffers for most of your time in the garrison.\
+	You've been through the wringer - having been a soldier in the short-lived Goblin Wars. \
+	You've emerged through it, beaten to hell.\
+	Alive, but you wouldn't call it living. \
+	\n\n\
+	A fellow soldier had been given the title of Forest Warden for his valorant efforts \
+	and he's plucked you from one dangerous position into another. \
+	Atleast with the battle-brothers by your side, you will never die alone."
 	flag = FORGUARD
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_FORGUARD
+	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3
+	min_pq = 5
+	bypass_lastclass = TRUE
+	selection_color = "#0d6929"
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_races = list(
@@ -13,16 +27,7 @@
 		"Half-Elf",
 		"Dwarf",
 	)
-	tutorial = "You've been keeping the streets clean of neer-do-wells and taffers for most of your time in the garrison.\
-			You've been through the wringer - having been a soldier in the short-lived Goblin Wars. You've emerged through it, beaten to hell.\
-			Alive, but you wouldn't call it living. A fellow soldier had been given the title of Forest Warden for his valorant\
-			efforts,and he's plucked you from one dangerous position into another. Atleast with the battle-brothers by your side, you will never die alone."
-	display_order = JDO_FORGUARD
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	selection_color = "#0d6929"
 	give_bank_account = 30
-	min_pq = 5
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 	outfit = /datum/outfit/job/forestguard
@@ -33,22 +38,20 @@
 
 /datum/outfit/job/forestguard/pre_equip(mob/living/carbon/human/H)
 	..()
-	cloak = /obj/item/clothing/cloak/raincloak/green
+	cloak = /obj/item/clothing/cloak/forrestercloak
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/trou/leather
-	shoes = /obj/item/clothing/shoes/boots/furlinedboots
+	shoes = /obj/item/clothing/shoes/boots
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	gloves = /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather
 	backl = /obj/item/storage/backpack/satchel
 
-/datum/job/forestguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/forestguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 // Axes Maces and Swords
 /datum/advclass/forestguard/infantry
@@ -59,8 +62,8 @@
 
 /datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/chainmail/iron
-	head = /obj/item/clothing/head/helmet/leather/advanced
+	armor = /obj/item/clothing/armor/leather/advanced/forrester
+	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/gorget
 	beltl = /obj/item/weapon/mace/steel/morningstar
 	beltr = /obj/item/weapon/axe/iron
@@ -88,6 +91,7 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_SPD, 1)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Bows and Knives
 /datum/advclass/forestguard/ranger
@@ -98,8 +102,8 @@
 
 /datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/leather/advanced
-	head = /obj/item/clothing/head/roguehood/green
+	armor = /obj/item/clothing/armor/leather/advanced/forrester
+	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/knife/cleaver/combat
 	beltr = /obj/item/ammo_holder/quiver/arrows
@@ -127,6 +131,7 @@
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_SPD, 3)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
 
 // Hand to Hand
 /datum/advclass/forestguard/brawler
@@ -137,8 +142,8 @@
 
 /datum/outfit/job/forestguard/brawler/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/leather/advanced
-	head = /obj/item/clothing/head/roguehood/green
+	armor = /obj/item/clothing/armor/leather/advanced/forrester
+	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar
 	beltr = /obj/item/weapon/axe/iron
@@ -165,3 +170,4 @@
 		H.change_stat(STATKEY_SPD, -2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

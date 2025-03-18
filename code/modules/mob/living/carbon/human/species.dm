@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon_override_m
 	var/icon_override_f
 	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
-	var/sexes = 1		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
+	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
 	var/patreon_req
 	var/max_age = 75
 	var/list/offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
@@ -43,7 +43,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hair_alpha = 255	// the alpha used by the hair. 255 is completely solid, 0 is transparent.
 
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
-	var/exotic_blood = ""	// If my race wants to bleed something other than bog standard blood, change this to reagent id.
 	var/datum/blood_type/exotic_bloodtype //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
 	var/meat = /obj/item/reagent_containers/food/snacks/meat/human //What the species drops on gibbing
 	var/liked_food = NONE
@@ -211,6 +210,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					message = replacetextEx(message, " [key]", " [value]")
 
 		var/list/species_accent = get_accent_list()
+		var/mob/living/carbon/human/human
+		if(ismob(source))
+			human = source
+			if((human.accent != ACCENT_DEFAULT))
+				species_accent = human.return_accent_list()
+
 		if(species_accent)
 			if(message[1] != "*")
 				message = " [message]"
@@ -432,7 +437,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_hexcolor(list/L)
 	return L
 
-/datum/species/proc/get_skin_list()
+/datum/species/proc/get_skin_list() as /list
+	RETURN_TYPE(/list)
 	return GLOB.skin_tones
 
 /datum/species/proc/get_hairc_list()
@@ -1632,14 +1638,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/doafter_flags = I.edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
 	return do_after(H, min((I.equip_delay_self - H.STASPD), 1), timed_action_flags = doafter_flags)
 
-/datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/// Equips the necessary species-relevant gear before putting on the rest of the uniform.
+/datum/species/proc/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	return
 
-/datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.update_mutant_bodyparts()
+/datum/species/proc/post_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	return
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
-	if(chem.type == exotic_blood)
+	if(chem.type == exotic_bloodtype)
 		H.blood_volume = min(H.blood_volume + round(chem.volume, 0.1), BLOOD_VOLUME_MAXIMUM)
 		H.reagents.del_reagent(chem.type)
 		return TRUE
@@ -2346,7 +2353,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!actual_damage)
 			nodmg = TRUE
 			H.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
-			if(I)
+			if(!QDELETED(I))
 				I.take_damage(1, BRUTE, I.damage_type)
 		if(!nodmg)
 			var/datum/wound/crit_wound = affecting.bodypart_attacked_by(user.used_intent.blade_class, (Iforce * weakness) * ((100-(armor_block))/100), user, selzone, crit_message = TRUE)

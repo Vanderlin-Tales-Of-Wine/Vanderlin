@@ -283,10 +283,12 @@
 /datum/config_entry/number/max_law_len
 	config_entry_value = 1024
 
+/// TO BE DELETED
 /datum/config_entry/number/overflow_cap
 	config_entry_value = -1
 	min_val = -1
 
+/// TO BE DELETED
 /datum/config_entry/string/overflow_job
 	config_entry_value = "None"
 

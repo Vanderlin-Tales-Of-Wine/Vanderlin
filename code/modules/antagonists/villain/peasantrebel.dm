@@ -44,9 +44,9 @@
 /datum/antagonist/prebel/can_be_owned(datum/mind/new_owner)
 	. = ..()
 	if(.)
-		if(new_owner.assigned_role in GLOB.noble_positions)
+		if(new_owner.assigned_role.title in GLOB.noble_positions)
 			return FALSE
-		if(new_owner.assigned_role in GLOB.garrison_positions)
+		if(new_owner.assigned_role.title in GLOB.garrison_positions)
 			return FALSE
 		if(new_owner.unconvertable)
 			return FALSE
@@ -110,9 +110,9 @@
 		return FALSE
 	if(!can_be_owned(candidate.mind))
 		return FALSE
-	if(candidate.mind.assigned_role in GLOB.noble_positions)
+	if(candidate.mind.assigned_role.title in GLOB.noble_positions)
 		return FALSE
-	if(candidate.mind.assigned_role in GLOB.garrison_positions)
+	if(candidate.mind.assigned_role.title in GLOB.garrison_positions)
 		return FALSE
 	var/mob/living/carbon/C = candidate //Check to see if the potential rev is implanted
 	if(!istype(C)) //Can't convert simple animals
@@ -172,13 +172,18 @@
 	return TRUE
 
 /datum/team/prebels
-	name = "Peasant Rebels"
+	name = "\improper Peasant Rebellion"
+	member_name = "rebel"
 	var/list/offers2join = list()
 
 /datum/objective/prebel
 	name = "Rebellion"
-	explanation_text = "Put a rebel on the throne with the crown, and make a new decree."
-	team_explanation_text = "Put a rebel on the throne with the crown, and make a new decree."
+	explanation_text = "Put a rebel on the throne with the crown and make a new decree."
+	team_explanation_text = "Put a rebel on the throne with the crown and make a new decree."
+
+/datum/team/prebels/New(starting_members)
+	. = ..()
+	add_objective(new /datum/objective/prebel)
 
 /datum/team/prebels/proc/update_objectives(initial = FALSE)
 	if(!(locate(/datum/objective/prebel) in objectives))
@@ -193,29 +198,7 @@
 
 	addtimer(CALLBACK(src,PROC_REF(update_objectives)),INGAME_ROLE_HEAD_UPDATE_PERIOD,TIMER_UNIQUE)
 
-
-/datum/team/prebels/roundend_report()
-	to_chat(world, "<span class='header'> * [name] * </span>")
-	to_chat(world, "[printplayerlist(members)]")
-
-	if(objectives.len)
-		var/win = TRUE
-		var/objective_count = 1
-		for(var/datum/objective/objective in objectives)
-			if(objective.check_completion())
-				to_chat(world, "<B>Goal #[objective_count]</B>: [objective.explanation_text] <span class='greentext'>TRIUMPH!</span>")
-				playsound(world, 'sound/misc/triumph.ogg', 100, FALSE, pressure_affected = FALSE)
-			else
-				to_chat(world, "<B>Goal #[objective_count]</B>: [objective.explanation_text] <span class='redtext'>FAIL.</span>")
-				playsound(world, 'sound/misc/fail.ogg', 100, FALSE, pressure_affected = FALSE)
-				win = FALSE
-			objective_count++
-		if(win)
-			for(var/datum/mind/M in members)
-				if(considered_alive(M))
-					M.adjust_triumphs(5)
-			to_chat(world, "<span class='greentext'>The Peasant Rebellion has TRIUMPHED!</span>")
-		else
-			to_chat(world, "<span class='redtext'>The Peasant Rebellion has FAILED!</span>")
-		for(var/X in offers2join)
-			to_chat(world,"[X]")
+/datum/team/prebels/roundend_success()
+	for(var/datum/mind/M in members)
+		if(considered_alive(M))
+			M.adjust_triumphs(5)

@@ -60,9 +60,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	mob.log_talk(raw_msg, LOG_OOC)
 
-	var/keyname = ckey
-	if(ckey in GLOB.anonymize)
-		keyname = get_fake_key(ckey)
+	var/keyname = get_display_ckey(ckey)
 	var/color2use = prefs.voice_color
 	if(!color2use)
 		color2use = "#FFFFFF"
@@ -132,9 +130,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	mob.log_talk(raw_msg, LOG_OOC)
 
-	var/keyname = ckey
-	if(ckey in GLOB.anonymize)
-		keyname = get_fake_key(ckey)
+	var/keyname = get_display_ckey(ckey)
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	var/color2use = prefs.voice_color
 	if(!color2use)
@@ -167,6 +163,16 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 	else //otherwise just toggle it
 		GLOB.ooc_allowed = !GLOB.ooc_allowed
 	message_admins("<B>The OOC channel has been globally [GLOB.ooc_allowed ? "enabled" : "disabled"].</B>")
+
+/proc/toggle_looc(toggle = null)
+	if(toggle != null) //if we're specifically en/disabling ooc
+		if(toggle != GLOB.looc_allowed)
+			GLOB.looc_allowed = toggle
+		else
+			return
+	else //otherwise just toggle it
+		GLOB.looc_allowed = !GLOB.looc_allowed
+	message_admins("<B>The LOOC channel has been globally [GLOB.looc_allowed ? "enabled" : "disabled"].</B>")
 
 /proc/toggle_dooc(toggle = null)
 	if(toggle != null)
