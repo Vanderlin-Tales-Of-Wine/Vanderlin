@@ -210,7 +210,7 @@
 	icon_state = "rustkey"
 	lockid = ACCESS_VETERAN
 
-/obj/item/key/doctor
+/obj/item/key/feldsher
 	name = "doctor's key"
 	desc = "The key to the Fledsher's own clinic."
 	icon_state = "birdkey"

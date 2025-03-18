@@ -259,8 +259,11 @@
 /obj/item/storage/keyring/mayor
 	keys = list(/obj/item/key/veteran, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor)
 
-/obj/item/storage/keyring/doctor
-	keys = list(/obj/item/key/doctor, /obj/item/key/manor, /obj/item/key/clinic)
+/obj/item/storage/keyring/feldsher
+	keys = list(/obj/item/key/feldsher, /obj/item/key/manor, /obj/item/key/clinic)
+
+/obj/item/storage/keyring/physicker
+	keys = list(/obj/item/key/clinic)
 
 /obj/item/storage/keyring/veteran
 	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)

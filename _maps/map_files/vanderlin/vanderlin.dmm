@@ -27521,7 +27521,7 @@
 	pixel_x = -12;
 	pixel_y = 12
 	},
-/obj/item/key/doctor{
+/obj/item/key/feldsher{
 	pixel_x = 9;
 	pixel_y = 3
 	},
@@ -28003,7 +28003,7 @@
 /area/rogue/indoors/town/warehouse)
 "urn" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
-/obj/item/key/doctor{
+/obj/item/key/feldsher{
 	pixel_y = 9
 	},
 /turf/open/floor/ruinedwood/spiralfade,
