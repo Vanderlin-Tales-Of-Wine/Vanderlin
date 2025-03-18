@@ -15,7 +15,6 @@
 #define ACCESS_TOWER "tower"
 #define ACCESS_WAREHOUSE "warehouse"
 #define ACCESS_ARTIFICER "artificer"
-#define ACCESS_BATHHOUSE "bathhouse"
 
 // Town Garrison (Including forest)
 #define ACCESS_GARRISON "garrison"

@@ -3998,7 +3998,7 @@
 /area/rogue/outdoors/rtfield/safe)
 "cMV" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/town/bathhouse,
+/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
@@ -11700,7 +11700,7 @@
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Sauna"
 	},
-/obj/effect/mapping_helpers/door/access/town/bathhouse,
+/obj/effect/mapping_helpers/door/access/town/apothecary,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "iuM" = (
@@ -12245,9 +12245,9 @@
 /area/rogue/indoors/town/magician)
 "iLj" = (
 /obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/key/apothecary,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
+/obj/item/key/apothecary/spare,
+/obj/item/key/apothecary/spare,
+/obj/item/key/apothecary/spare,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "iLu" = (
@@ -25981,7 +25981,7 @@
 /obj/structure/mineral_door/wood/window{
 	name = "Bathhouse"
 	},
-/obj/effect/mapping_helpers/door/access/town/bathhouse,
+/obj/effect/mapping_helpers/door/access/town/apothecary,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "tbo" = (
@@ -31240,7 +31240,7 @@
 /obj/structure/mineral_door/wood/window{
 	name = "Bathhouse"
 	},
-/obj/effect/mapping_helpers/door/access/town/bathhouse,
+/obj/effect/mapping_helpers/door/access/town/apothecary,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "wJB" = (

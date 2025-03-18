@@ -43,9 +43,6 @@
 /obj/effect/mapping_helpers/door/access/town/apothecary
 	access_string = ACCESS_APOTHECARY
 
-/obj/effect/mapping_helpers/door/access/town/bathhouse
-	access_string = ACCESS_BATHHOUSE
-
 /obj/effect/mapping_helpers/door/access/town/doctor
 	access_string = ACCESS_FELDSHER
 
