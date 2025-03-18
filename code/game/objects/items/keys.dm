@@ -211,8 +211,8 @@
 	lockid = ACCESS_VETERAN
 
 /obj/item/key/feldsher
-	name = "doctor's key"
-	desc = "The key to the Fledsher's own clinic."
+	name = "feldsher's key"
+	desc = "The key to the Feldsher's own clinic."
 	icon_state = "birdkey"
 	lockid = ACCESS_FELDSHER
 
