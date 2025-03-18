@@ -1044,8 +1044,6 @@
 /area/rogue/indoors/town/magician)
 "aJh" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "garrison";
 	name = "guard's barracks"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -12144,8 +12142,6 @@
 /area/rogue/outdoors/mountains)
 "iHn" = (
 /obj/structure/mineral_door/wood/green{
-	locked = 1;
-	lockid = "tailor";
 	name = "Tailor Shop"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -14393,8 +14389,6 @@
 /area/rogue/indoors/town/shop)
 "kiQ" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "garrison";
 	name = "guard's quarters"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -20990,8 +20984,6 @@
 /area/rogue/indoors/town/bath)
 "psi" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "garrison";
 	name = "guard's barracks"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -22065,8 +22057,6 @@
 /area/rogue/indoors/town/shop)
 "qlG" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "garrison";
 	name = "guard's barracks"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -29593,8 +29583,6 @@
 /area/rogue/outdoors/town)
 "vzr" = (
 /obj/structure/mineral_door/wood/green{
-	locked = 1;
-	lockid = "tailor";
 	name = "Tailor Shop"
 	},
 /obj/effect/mapping_helpers/door/locker,
