@@ -1,10 +1,19 @@
+/*
+ * T: Skeletons should honestly just be a species.
+ * In fact, they normally are on other codebases.
+ * This will need refactoring for sure.
+ */
+
 /datum/job/skeleton
 	title = "Skeleton"
+	tutorial = null
 	flag = SKELETON
 	department_flag = UNDEAD
-	faction = "Station"
-	total_positions = -1
+	job_flags = (JOB_EQUIP_RANK)
+	faction = FACTION_STATION //this seems wrong?
+	total_positions = -1 //this also seems wrong?
 	spawn_positions = 0
+	antag_job = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -18,71 +27,91 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = ""
+
+	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
 	outfit = /datum/outfit/job/skeleton
-	show_in_credits = FALSE
 	give_bank_account = FALSE
 
-/datum/job/skeleton/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/skeleton/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		if(M.mind)
-			M.mind.special_role = "skeleton"
-			M.mind.assigned_role = "skeleton"
-			M.mind.current.job = null
-		if(H.dna && H.dna.species)
-			H.dna.species.species_traits |= NOBLOOD
-			H.dna.species.soundpack_m = new /datum/voicepack/skeleton()
-			H.dna.species.soundpack_f = new /datum/voicepack/skeleton()
-		var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		O = H.get_bodypart(BODY_ZONE_L_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		H.regenerate_limb(BODY_ZONE_R_ARM)
-		H.regenerate_limb(BODY_ZONE_L_ARM)
-		for(var/obj/item/bodypart/B in H.bodyparts)
-			B.skeletonize()
-		H.remove_all_languages()
-		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
-		H.update_a_intents()
-		H.cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		if(eyes)
-			eyes.Remove(H,1)
-			QDEL_NULL(eyes)
-		eyes = new /obj/item/organ/eyes/night_vision/zombie
-		eyes.Insert(H)
-		H.ambushable = FALSE
-		H.underwear = "Nude"
-		if(H.charflaw)
-			QDEL_NULL(H.charflaw)
-		H.update_body()
-		H.mob_biotypes = MOB_UNDEAD
-		H.faction = list("undead")
-		H.name = "skeleton"
-		H.real_name = "skeleton"
-		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOSTAMINA, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOBREATH, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOSLEEP, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
-		H.silent = TRUE		// makes them unable to audible emote or speak, no more sexy moan zombies
-		H.grant_language(/datum/language/hellspeak)
+	var/mob/living/carbon/human/H = spawned
+	if(spawned.mind)
+		spawned.mind.special_role = "Skeleton"
+		spawned.job = null //?
+	if(H.dna && H.dna.species)
+		H.dna.species.species_traits |= NOBLOOD
+		H.dna.species.soundpack_m = new /datum/voicepack/skeleton()
+		H.dna.species.soundpack_f = new /datum/voicepack/skeleton()
+	var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_ARM)
+	if(O)
+		O.drop_limb()
+		qdel(O)
+	O = H.get_bodypart(BODY_ZONE_L_ARM)
+	if(O)
+		O.drop_limb()
+		qdel(O)
+	H.regenerate_limb(BODY_ZONE_R_ARM)
+	H.regenerate_limb(BODY_ZONE_L_ARM)
+	for(var/obj/item/bodypart/B in H.bodyparts)
+		B.skeletonize()
+	H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
+	H.update_a_intents()
+
+	var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(H, TRUE)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(H)
+	H.ambushable = FALSE
+	H.underwear = "Nude"
+	if(H.charflaw)
+		QDEL_NULL(H.charflaw)
+	H.update_body()
+	H.mob_biotypes = MOB_UNDEAD
+	H.faction = list(FACTION_UNDEAD)
+	ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBREATH, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
 
 /datum/outfit/job/skeleton/pre_equip(mob/living/carbon/human/H)
+	..()
+
+	H.TOTALSTR = rand(8,10)
+	H.TOTALSPD = rand(7,10)
+	H.TOTALINT = 1
+	H.TOTALCON = 3
+
+/* RAIDER SKELETONS */
+/datum/job/skeleton/raider
+	title = "Skeleton Raider"
+	outfit = /datum/outfit/job/skeleton/raider
+
+/datum/job/skeleton/raider/after_spawn(mob/living/carbon/spawned, client/player_client)
+	..()
+	spawned.name = "skeleton"
+	spawned.real_name = "skeleton"
+
+	spawned.remove_all_languages()
+	spawned.grant_language(/datum/language/hellspeak)
+	spawned.silent = TRUE	// makes them unable to audible emote or speak, no more sexy moan zombies
+
+	ADD_TRAIT(spawned, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
+	ADD_TRAIT(spawned, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
+
+	var/datum/antagonist/new_antag = new /datum/antagonist/skeleton()
+	spawned.mind.add_antag_datum(new_antag)
+
+
+/datum/outfit/job/skeleton/raider/pre_equip(mob/living/carbon/human/H)
 	..()
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	if(prob(50))
@@ -144,10 +173,27 @@
 			var/obj/item/weapon/flail/militia/P = new()
 			H.put_in_hands(P, forced = TRUE)
 
-	H.TOTALSTR = rand(8,10)
+
+/* CULT SUMMONS */
+/datum/job/skeleton/zizoid
+	title = "Cult Summon"
+	outfit = /datum/outfit/job/skeleton/zizoid
+	cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
+
+/datum/job/skeleton/zizoid/after_spawn(mob/living/spawned, client/player_client)
+	..()
+
+	var/mob/living/carbon/human/H = spawned
+	H.mind?.special_role = "Cult Summon"
+	H.mind?.current.job = null
+	H.set_patron(/datum/patron/inhumen/zizo)
+
+/datum/outfit/job/skeleton/zizoid/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.TOTALSTR = rand(8,17)
 	H.TOTALSPD = rand(7,10)
 	H.TOTALINT = 1
 	H.TOTALCON = 3
-	var/datum/antagonist/new_antag = new /datum/antagonist/skeleton()
-	H.mind.add_antag_datum(new_antag)
 
+	H.verbs |= /mob/living/carbon/human/proc/praise
+	H.verbs |= /mob/living/carbon/human/proc/communicate

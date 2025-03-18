@@ -1,23 +1,24 @@
 /datum/job/orphan
 	title = "Orphan"
+	tutorial = "Before you could even form words, you were abandoned, or perhaps lost. \
+	Ever since, you have lived in the Orphanage under the Matron's care. \
+	Will you make something of yourself, or will you die in the streets as a nobody?"
 	flag = ORPHAN
 	department_flag = YOUNGFOLK
-	faction = "Station"
+	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_ORPHAN
+	faction = FACTION_STATION
 	total_positions = 12
 	spawn_positions = 12
+	min_pq = 2
+	bypass_lastclass = TRUE
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	allowed_ages = list(AGE_CHILD)
 
-	tutorial = "Your parents are dead and you have no home. Will you make something of yourself or will you die in the streets as a nobody."
-
 	outfit = /datum/outfit/job/orphan
-	display_order = JDO_ORPHAN
-	show_in_credits = FALSE
-	min_pq = 2
-	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 	can_have_apprentices = FALSE
-	bypass_lastclass = TRUE
+	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
 /datum/job/orphan/New()
 	. = ..()
