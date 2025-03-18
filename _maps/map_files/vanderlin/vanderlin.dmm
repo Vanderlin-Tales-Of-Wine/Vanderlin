@@ -10415,7 +10415,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "hxl" = (
-/obj/structure/closet/crate/crafted_closet
+/obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "hxv" = (
