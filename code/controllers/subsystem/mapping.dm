@@ -205,8 +205,9 @@ SUBSYSTEM_DEF(mapping)
 	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaforest.json")
 	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkamountain.json")
 	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaswamp.json")*/
+	//VANDERLIN TODO: FIX THIS DOG SHIT!!!
 	#ifndef LOWMEMORYMODE
-	if(config.map_name == "Vanderlin") // Vanderlin
+	if(config.map_name == "Vanderlin" || config.map_name == "Rosewood") // Vanderlin
 		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_forest.json")
 		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_mountain.json")
 		//otherZ += load_map_config("_maps/map_files/roguetown/otherz/smalldecap.json")

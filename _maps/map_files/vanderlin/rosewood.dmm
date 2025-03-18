@@ -9443,7 +9443,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/closed/mineral,
+/turf/open/floor/cobble,
 /area/rogue/outdoors/exposed/church)
 "fHY" = (
 /obj/structure/fluff/railing/wood,
