@@ -131,6 +131,7 @@
 	name = "iron fork"
 	icon_state = "fork_iron"
 
+/// DEPRECIATED. USE /obj/item/plate instead.
 /obj/item/kitchen/platter
 	name = "platter"
 	desc = "Made from wood."
@@ -142,6 +143,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	base_item = /obj/item/kitchen/platter
 
+/// DEPRECIATED. USE /obj/item/plate/clay instead.
 /obj/item/kitchen/platter/clay
 	desc = "Made from fired clay."
 	icon_state = "platter_clay"
@@ -160,6 +162,7 @@
 	..()
 	qdel(src)
 
+/// DEPRECIATED. USE /obj/item/plate/copper instead.
 /obj/item/kitchen/platter/copper
 	desc = "Made from thin metal."
 	icon_state = "platter_copper"

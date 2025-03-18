@@ -2906,11 +2906,11 @@
 /area/rogue)
 "xe" = (
 /obj/structure/table/wood/plain,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter{
+/obj/item/plate,
+/obj/item/plate{
 	pixel_y = 3
 	},
-/obj/item/kitchen/platter{
+/obj/item/plate{
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/peppermill{
