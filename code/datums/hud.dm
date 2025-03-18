@@ -5,9 +5,27 @@ GLOBAL_LIST_EMPTY(all_huds)
 //GLOBAL HUD LIST
 GLOBAL_LIST_INIT(huds, list(
 	ROGUE_HUD_MARRIED = new/datum/atom_hud/antag(),
-	ANTAG_HUD_TRAITOR = new/datum/atom_hud/antag/hidden(),
+	ANTAG_HUD_HIDDEN = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_REV = new/datum/atom_hud/antag(),
+
+	ANTAG_HUD_NECROMANCER
 	))
+
+#define ROGUE_HUD_MARRIED			0
+#define ANTAG_HUD_HIDDEN			1
+#define ANTAG_HUD_HIDDEN			2
+#define ANTAG_HUD_REV				3
+#define ANTAG_HUD_REV_HEAD			4
+#define ANTAG_HUD_NECROMANCER		5
+#define ANTAG_HUD_SKELETON			6
+#define ANTAG_HUD_VAMPLORD			7
+#define ANTAG_HUD_VAMP				8
+#define ANTAG_HUD_WEREWOLF			9
+#define ANTAG_HUD_WEREWOLF_LESSER	10
+#define ANTAG_HUD_ZIZOID			11
+#define ANTAG_HUD_ZIZOID_LACKEY		12
+#define ANTAG_HUD_BANDIT			13
+
 
 /datum/atom_hud
 	var/list/atom/hudatoms = list() //list of all atoms which display this hud

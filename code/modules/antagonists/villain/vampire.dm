@@ -12,7 +12,7 @@
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_VAMP
 	antag_hud_name = "vampire"
 	confess_lines = list(
 		"I WANT YOUR BLOOD!",

@@ -3,7 +3,7 @@
 	name = "Assassin"
 	roundend_category = "assassins"
 	antagpanel_category = "Assassin"
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_GENERIC
 	antag_hud_name = "assassin"
 	show_name_in_check_antagonists = TRUE
 	confess_lines = list(

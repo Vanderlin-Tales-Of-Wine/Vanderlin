@@ -11,8 +11,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "vampire"
+	antag_hud_type = ANTAG_HUD_VAMPLORD
+	antag_hud_name = "vamp_lord"
 	confess_lines = list(
 		"I AM ANCIENT",
 		"I AM THE LAND",

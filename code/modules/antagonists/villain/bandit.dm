@@ -4,7 +4,7 @@
 	roundend_category = "bandits"
 	antagpanel_category = "Bandit"
 	job_rank = ROLE_BANDIT
-	antag_hud_type = ANTAG_HUD_TRAITOR
+	antag_hud_type = ANTAG_HUD_BANDIT
 	antag_hud_name = "bandit"
 	var/tri_amt
 	var/contrib
