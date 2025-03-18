@@ -56,7 +56,7 @@
 	mask = /obj/item/clothing/face/goggles
 	backl = /obj/item/storage/backpack/backpack
 	id = /obj/item/clothing/ring/silver/makers_guild
-	backpack_contents = list(/obj/item/weapon/hammer/steel = 1, /obj/item/key/artificer = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/weapon/knife/villager)
+	backpack_contents = list(/obj/item/weapon/hammer/steel = 1, /obj/item/flashlight/flare/torch/lantern, /obj/item/weapon/knife/villager)
 
 	H.change_stat(STATKEY_STR, 1)
 	H.change_stat(STATKEY_INT, 2)

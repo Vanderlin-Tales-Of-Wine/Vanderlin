@@ -47,7 +47,7 @@
 		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/armorsmith
+		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -59,7 +59,7 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/armorsmith
+		beltr = /obj/item/key/blacksmith
 		backl =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -113,7 +113,7 @@
 		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/weaponsmith
+		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		backl =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
@@ -126,7 +126,7 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/weaponsmith
+		beltr = /obj/item/key/blacksmith
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
