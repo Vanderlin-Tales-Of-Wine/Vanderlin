@@ -72,10 +72,20 @@
 	popup.open(FALSE)
 	client.prefs.migrant.viewer = TRUE
 
+	if(winexists(client, "migration"))
+		winset(client, "migration", "on-close=\".windowclose [REF(src)]\"")
+
 /datum/migrant_pref/Topic(href, href_list)
 	var/client/client = prefs.parent
 	if(!client)
 		return
+
+	if(href_list["close"])
+		if(active)
+			client.prefs.migrant.set_active(FALSE)
+		hide_ui()
+		return
+
 	switch(href_list["task"])
 		if("toggle_active")
 			set_active(!active)
@@ -90,7 +100,6 @@
 		return
 	client.mob << browse(null, "window=migration")
 	client.prefs.migrant.viewer = FALSE
-
 
 /mob/living/carbon/human/proc/adv_hugboxing_start()
 	to_chat(src, span_warning("I will be in danger once I start moving."))
