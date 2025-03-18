@@ -238,7 +238,7 @@
 			else if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
 				testing("User is holding a confession.")
 				held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
-			if(!held_confession?.signed) // Check to see if the confession is already signed.
+			if(!held_confession?.signed && held_confession) // Check to see if the confession is already signed.
 				// held_confession.bad_type = "AN EVILDOER" // In case new antags are added with confession lines but have yet to be added here.
 				//this is no longer reliable as all patrons have confess lines now
 				switch(antag_type)
