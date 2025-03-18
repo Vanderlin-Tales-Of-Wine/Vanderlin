@@ -314,7 +314,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#47b2e0"
 	random_reagent_color = TRUE
 	taste_description = "bitterness"
-	scent_description = "berries"
+	scent_description = "berry"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
 /datum/reagent/berrypoison/on_mob_life(mob/living/carbon/M)

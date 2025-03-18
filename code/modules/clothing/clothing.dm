@@ -449,7 +449,7 @@ BLIND     // can't see anything
 	hoodtoggled = FALSE
 	if(ishuman(hood.loc))
 		var/mob/living/carbon/H = hood.loc
-		H.transferItemToLoc(hood, src, TRUE)
+		H.transferItemToLoc(hood, get_turf(src), TRUE)
 		hood.moveToNullspace()
 		H.update_inv_wear_suit()
 		H.update_inv_cloak()

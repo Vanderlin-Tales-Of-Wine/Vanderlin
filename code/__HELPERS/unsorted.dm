@@ -652,7 +652,9 @@ will handle it, but:
 	SEND_SIGNAL(tile, COMSIG_COMPONENT_CLEAN_ACT, clean)
 	for(var/obj/effect/E in tile)
 		if(is_cleanable(E))
-			qdel(E)
+			var/obj/effect/decal/cleanable/cleanable = E
+			if(clean >= cleanable.minimum_clean_strength)
+				qdel(E)
 
 /proc/wash_mob(mob/living/L, clean = CLEAN_WEAK)
 	SEND_SIGNAL(L, COMSIG_COMPONENT_CLEAN_ACT, clean)

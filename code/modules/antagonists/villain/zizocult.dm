@@ -19,19 +19,16 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	name = "Zizoid Cultist"
 	islesser = FALSE
 
-/proc/iszizolackey(mob/living/M)
-	return istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/zizocultist)
-
-/proc/iszizocultist(mob/living/M)
-	return istype(M) && M.mind && M.mind.has_antag_datum(/datum/antagonist/zizocultist/leader)
+#define iszizolackey(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist))
+#define iszizocultist(A) (A.mind?.has_antag_datum(/datum/antagonist/zizocultist/leader))
 
 /datum/antagonist/zizocultist/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	if(istype(examined_datum, /datum/antagonist/zizocultist/leader))
-		return "<span class='boldnotice'>OUR LEADER!</span>"
+		return span_boldnotice("OUR LEADER!")
 	if(istype(examined_datum, /datum/antagonist/zizocultist))
-		return "<span class='boldnotice'>A lackey for the future.</span>"
+		return span_boldnotice("A lackey for the future.")
 	if(istype(examined_datum, /datum/antagonist/assassin))
-		return "<span class='boldnotice'>A GRAGGAROID! A CULTIST OF GRAGGAR!</span>"
+		return span_boldnotice("A GRAGGAROID! A CULTIST OF GRAGGAR!")
 
 /datum/antagonist/zizocultist/on_gain()
 	. = ..()
@@ -69,11 +66,11 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
 
 /datum/antagonist/zizocultist/greet()
-	to_chat(owner, "<span class='danger'>I'm a lackey to the LEADER. A new future begins.</span>")
+	to_chat(owner, span_danger("I'm a lackey to the LEADER. A new future begins."))
 	owner.announce_objectives()
 
 /datum/antagonist/zizocultist/leader/greet()
-	to_chat(owner, "<span class='danger'>I'm a cultist to the ALMIGHTY. They call it the UNSPEAKABLE. I require LACKEYS to make my RITUALS easier. I SHALL ASCEND.</span>")
+	to_chat(owner, span_danger("I'm a cultist to the ALMIGHTY. They call it the UNSPEAKABLE. I require LACKEYS to make my RITUALS easier. I SHALL ASCEND."))
 	owner.announce_objectives()
 
 /datum/antagonist/zizocultist/can_be_owned(datum/mind/new_owner)
@@ -81,11 +78,11 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	if(.)
 		if(new_owner.current == SSticker.rulermob)
 			return FALSE
-		if(new_owner.assigned_role in GLOB.noble_positions)
+		if(new_owner.assigned_role.title in GLOB.noble_positions)
 			return FALSE
-		if(new_owner.assigned_role in GLOB.garrison_positions)
+		if(new_owner.assigned_role.title in GLOB.garrison_positions)
 			return FALSE
-		if(new_owner.assigned_role in GLOB.church_positions)
+		if(new_owner.assigned_role.title in GLOB.church_positions)
 			return FALSE
 		if(new_owner.unconvertable)
 			return FALSE
@@ -513,68 +510,20 @@ GLOBAL_LIST_EMPTY(ritualslist)
 	function = /proc/skeletaljaunt
 
 /proc/skeletaljaunt(mob/user, turf/C)
-	for(var/mob/living/carbon/human/H in C.contents)
-		if(H == user)
+	for(var/mob/living/carbon/human/target in C.contents)
+		if(target == user)
 			return
-		if(iszizocultist(H))
-			to_chat(H.mind, "<span class='danger'>\"I'm not gonna let my strongest follower become a mindless brute.\"</span>")
+		if(iszizocultist(target))
+			to_chat(target.mind, span_danger("\"I will not let my strongest follower become a mindless brute.\""))
 			return
-		if(H.mind)
-			H.mind.special_role = "Cult Summon"
-			H.mind.assigned_role = "Cult Summon"
-			H.mind.current.job = null
-		H.dna.species.species_traits |= NOBLOOD
-		H.dna.species.soundpack_m = new /datum/voicepack/skeleton()
-		H.dna.species.soundpack_f = new /datum/voicepack/skeleton()
-		var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		O = H.get_bodypart(BODY_ZONE_L_ARM)
-		if(O)
-			O.drop_limb()
-			qdel(O)
-		H.regenerate_limb(BODY_ZONE_R_ARM)
-		H.regenerate_limb(BODY_ZONE_L_ARM)
-		for(var/obj/item/bodypart/BP in H.bodyparts)
-			BP.skeletonize()
-		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
-		H.update_a_intents()
-		H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
-		H.set_patron(/datum/patron/inhumen/zizo)
-		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
-		if(eyes)
-			eyes.Remove(H,1)
-			QDEL_NULL(eyes)
-		eyes = new /obj/item/organ/eyes/night_vision/zombie
-		eyes.Insert(H)
-		H.ambushable = FALSE
-		H.underwear = "Nude"
-		if(H.charflaw)
-			QDEL_NULL(H.charflaw)
-		H.update_body()
-		H.mob_biotypes = MOB_UNDEAD
-		H.faction = list("undead")
 
-		H.TOTALSPD = rand(7,10)
-		H.TOTALINT = 1
-		H.TOTALCON = 3
-		H.TOTALSTR = rand(8,17)
+		var/static/datum/job/summon_job = SSjob.GetJobType(/datum/job/skeleton/zizoid)
+		target.mind?.set_assigned_role(summon_job)
+		target.dress_up_as_job(summon_job)
+		summon_job.after_spawn(target, target.client)
 
-		H.verbs |= /mob/living/carbon/human/proc/praise
-		H.verbs |= /mob/living/carbon/human/proc/communicate
-
-		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOSTAMINA, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOBREATH, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOSLEEP, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_SHOCKIMMUNE, TRAIT_GENERIC)
-		to_chat(H, "<span class='userdanger'>I am returned to serve. I will obey, so that I may return to rest.</span>")
-		to_chat(H, "<span class='userdanger'>My master is [user].</span>")
+		to_chat(target, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
+		to_chat(target, span_userdanger("My master is [user]."))
 		break
 
 /datum/ritual/thecall
@@ -595,7 +544,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			if(HL.real_name == P.info)
 				if(HL.has_status_effect(/datum/status_effect/debuff/sleepytime))
-					if(HL.mind.assigned_role in GLOB.church_positions)
+					if(HL.mind.assigned_role.title in GLOB.church_positions)
 						to_chat(HL.mind, "<span class='warning'>I sense an unholy presence loom near my soul.</span>")
 						return
 					if(HL == SSticker.rulermob)
@@ -632,8 +581,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 			first_names = GLOB.first_names_female
 		else
 			first_names = GLOB.first_names_male
+		A.apply_prefs_to(H)
 		A.real_name = "[pick(first_names)]"
-		A.copy_to(H)
 		H.dna.update_dna_identity()
 		break
 

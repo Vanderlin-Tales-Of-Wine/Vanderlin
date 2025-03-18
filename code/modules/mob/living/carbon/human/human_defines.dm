@@ -85,21 +85,13 @@
 	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/parrot))
 	var/lastpuke = 0
 	var/last_fire_update
-	var/account_id
+	var/account_id //! DEPRECATED
 
 	canparry = TRUE
 	candodge = TRUE
 
 	dodgecd = FALSE
 	dodgetime = 0
-
-	var/list/possibleclass = list()
-	var/list/special_classes = list()
-	var/list/shuffle_special= list()
-	var/list/shuffle_combat = list()
-	var/classesunlocked = FALSE
-	var/advsetup = 0
-
 
 //	var/alignment = ALIGNMENT_TN
 
@@ -124,6 +116,9 @@
 	var/funeral = FALSE // Whether the body has received rites or not.
 
 	var/datum/devotion/cleric_holder/cleric = null // Used for cleric_holder for priests
+
+	var/headshot_link = null
+	var/flavortext = null
 
 	var/confession_points = 0 // Used to track how many confessions the Inquisitor has gotten signed. Used to buy items at mailboxes.
 	var/purchase_history = null // Used to track what the Inquisitor has bought from the mailbox.

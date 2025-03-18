@@ -16,16 +16,16 @@
 /datum/round_event_control/antagonist/proc/check_required()
 	if(!length(exclusive_roles))
 		return TRUE
-	for (var/mob/M in GLOB.mob_living_list)
-		if (M.stat == DEAD)
+	for(var/mob/M in GLOB.mob_living_list)
+		if(M.stat == DEAD)
 			continue // Dead players cannot count as passing requirements
-		if(M.mind && (M.mind.assigned_role in exclusive_roles))
+		if(M.mind && (M.mind.assigned_role.title in exclusive_roles))
 			return TRUE
 
 /datum/round_event_control/antagonist/proc/trim_candidates(list/candidates)
 	if(length(needed_job))
 		for(var/mob/living/candidate in candidates)
-			if(!(candidate.mind?.assigned_role in needed_job))
+			if(!(candidate.mind?.assigned_role.title in needed_job))
 				candidates -= candidate
 	return candidates
 
@@ -40,14 +40,14 @@
 		for(var/mob/living/player as anything in GLOB.mob_living_list)
 			if(!player.mind)
 				continue
-			if(player.mind.assigned_role in enemy_roles)
+			if(player.mind.assigned_role.title in enemy_roles)
 				job_check++
 				enemy_players += player
 	else
 		for(var/mob/M in GLOB.mob_living_list)
 			if (M.stat == DEAD)
 				continue // Dead players cannot count as opponents
-			if (M.mind && (M.mind.assigned_role in enemy_roles))
+			if (M.mind && (M.mind.assigned_role.title in enemy_roles))
 				job_check++ // Checking for "enemies" (such as sec officers). To be counters, they must either not be candidates to that
 				enemy_players += M
 

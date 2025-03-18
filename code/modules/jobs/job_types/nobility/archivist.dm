@@ -1,11 +1,17 @@
 /datum/job/archivist
 	title = "Archivist"
-	tutorial = "A well-traveled and well-learned seeker of knowledge, the Archivist's mind has been touched by Noc himself. They settled in Vanderlin some time ago, coming to Vanderlin with the hope of unraveling its mysteries. If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
+	tutorial = "A well-traveled and well-learned seeker of knowledge, \
+	the Archivist's mind has been touched by Noc himself. \
+	They settled in Vanderlin some time ago, coming to the peninsula of Vanderlin with the hope of unraveling its mysteries. \
+	If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
 	flag = ARCHIVIST
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = 19 //lol?
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -16,12 +22,10 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
 	outfit = /datum/outfit/job/archivist
-	display_order = 19
+	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	give_bank_account = 100
-	min_pq = 1
 
 /datum/outfit/job/archivist
 	job_bitflag = BITFLAG_ROYALTY
@@ -62,6 +66,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.change_stat(STATKEY_STR, -1)

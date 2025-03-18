@@ -1,50 +1,50 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cavewet)
 "i" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "n" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "s" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavewet)
 "t" = (
 /obj/structure/stairs/stone{
 	dir = 4
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "D" = (
 /obj/structure/stairs/stone{
 	dir = 8
 	},
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "H" = (
 /turf/open/floor/naturalstone,
-/area/rogue)
+/area/rogue/under/cavewet)
 "S" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "T" = (
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "U" = (
 /turf/open/floor/dirt,
-/area/rogue)
+/area/rogue/under/cavewet)
 "Z" = (
 /obj/structure/stairs/stone{
 	dir = 8
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cavewet)
 
 (1,1,1) = {"
 a
