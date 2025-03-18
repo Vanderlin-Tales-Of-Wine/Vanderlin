@@ -92,8 +92,8 @@
 			if(istype(user.used_intent, /datum/intent/lord_silence))
 				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
 				H.set_silence(20 SECONDS)
-				log_message("[HU] has silenced [H] with the master's rod!")
-				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>", LOG_ATTACK)
+				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
+				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
 				return
 
 /obj/item/weapon/mace/stunmace
