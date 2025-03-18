@@ -12258,6 +12258,8 @@
 "iLj" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/key/apothecary,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "iLu" = (
