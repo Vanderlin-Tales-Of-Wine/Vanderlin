@@ -35,13 +35,13 @@ GLOBAL_VAR(lordsecondary)
 	)
 	var/prim
 	var/sec
-	var/choice = browser_input_list(src, "Choose a Primary Color", "[SSmapping.config.map_name]", lordcolors)
+	var/choice = browser_input_list(src, "Choose a Primary Color", "VANDERLIN", lordcolors)
 	if(!choice)
 		GLOB.lordcolor = list()
 		return
 	prim = lordcolors[choice]
 	lordcolors -= choice
-	choice = browser_input_list(src, "Choose a Secondary Color", "[SSmapping.config.map_name]", lordcolors)
+	choice = browser_input_list(src, "Choose a Secondary Color", "VANDERLIN", lordcolors)
 	if(!choice)
 		GLOB.lordcolor = list()
 		return
