@@ -58,7 +58,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	armor = /obj/item/clothing/armor/brigandine // Wear the King's colors.
 	shoes = /obj/item/clothing/shoes/boots/armor/light
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/manorguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel
