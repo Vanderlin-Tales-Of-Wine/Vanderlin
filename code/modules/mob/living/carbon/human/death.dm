@@ -64,7 +64,7 @@
 			zombie_check()
 
 	if(client || mind)
-		SSticker.deaths++
+		GLOB.vanderlin_stats["Deaths"]++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

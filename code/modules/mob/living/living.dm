@@ -72,7 +72,7 @@
 		playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
-		SSticker.moatfallers++
+		GLOB.vanderlin_stats["Moat_Fallers"]++
 	return ..()
 
 /mob/living/proc/ZImpactDamage(turf/T, levels)

@@ -1,6 +1,19 @@
 #define POPCOUNT_SURVIVORS "survivors"					//Not dead at roundend
 #define POPCOUNT_ESCAPEES "escapees"					//Not dead and on centcom/shuttles marked as escaped
 
+GLOBAL_LIST_INIT(vanderlin_stats, list(
+	"Deaths" = 0,
+	"Moat_Fallers" = 0,
+	"Ankles_Broken" = 0,
+	"People_Smiten" = 0,
+	"Blood_spilt" = 0,
+	"People_Gibbed" = 0,
+	"TRIUMPH(s)_Awarded" = 0,
+	"TRIUMPH(s)_Stolen" = 0,
+	"Drugs_Snorted" = 0,
+	"Beards_Shaved" = 0,
+))
+
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
 	gather_antag_data()
 	var/json_file = file("[GLOB.log_directory]/round_end_data.json")
@@ -299,15 +312,15 @@
 /datum/controller/subsystem/ticker/proc/stats_report()
 	var/list/shit = list()
 	shit += "<br><span class='bold'>Δ--------------------Δ</span><br>"
-	shit += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [deaths]"
-	shit += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [moatfallers]"
+	shit += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [GLOB.vanderlin_stats["Deaths"]]"
+	shit += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_stats["Moat_Fallers"]]"
 	shit += "<br><font color='#700000'><span class='bold'>Ankles Broken:</span></font> [holefall]"
 	shit += "<br><font color='#ffee00'><span class='bold'>People Smiten:</span></font> [pplsmited]"
 	shit += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(blood_lost / 100, 1)]L"
 	shit += "<br><font color='#af2323'><span class='bold'>People Gibbed:</span></font> [gibbs]"
 	shit += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [tri_gained]"
 	shit += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [tri_lost * -1]"
-	shit += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [snort]"
+	shit += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_stats["Drugs_Snorted"]]"
 	shit += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [beardshavers]"
 //	if(cuckers.len)
 //		shit += "<br><font color='#4e488a'><span class='bold'>Adulterers:</span></font> "

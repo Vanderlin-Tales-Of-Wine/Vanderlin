@@ -57,13 +57,13 @@ SUBSYSTEM_DEF(elastic)
 
 	round_data["blood_lost"] = round(SSticker.blood_lost / 100, 1)
 	round_data["ankles_broken"] = SSticker.holefall
-	round_data["deaths"] = SSticker.deaths
-	round_data["moat_fallers"] = SSticker.moatfallers
+	round_data["deaths"] = GLOB.vanderlin_stats["Deaths"]
+	round_data["moat_fallers"] = GLOB.vanderlin_stats["Moat_Fallers"]
 	round_data["smited"] = SSticker.pplsmited
 	round_data["gibbed"] = SSticker.gibbs
 	round_data["triumph_gained"] = SSticker.tri_gained
 	round_data["triumph_lost"] = SSticker.tri_lost
-	round_data["snorted_drugs"] = SSticker.snort
+	round_data["snorted_drugs"] = GLOB.vanderlin_stats["Drugs_Snorted"]
 	round_data["beards_shaved"] = SSticker.beardshavers
 
 	return round_data
