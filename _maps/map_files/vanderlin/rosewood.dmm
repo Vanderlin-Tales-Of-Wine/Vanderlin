@@ -175,6 +175,13 @@
 /obj/structure/meathook,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/soilsons)
+"aem" = (
+/obj/structure/window/openclose{
+	dir = 4;
+	icon_state = "woodwindowdir"
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town)
 "aeD" = (
 /obj/structure/rack/shelf/big,
 /obj/structure/rack/shelf,
@@ -2809,14 +2816,6 @@
 /obj/structure/closet/crate/crafted_closet,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manorgate)
-"bMw" = (
-/obj/structure/table/wood/reinforced_alter,
-/obj/structure/bars/bent,
-/obj/structure/bars/passage/shutter{
-	redstone_id = "merchantlockdown"
-	},
-/turf/closed,
-/area/rogue/indoors/town/shop)
 "bMC" = (
 /turf/closed/mineral,
 /area/rogue/under/cavelava)
@@ -2874,7 +2873,7 @@
 	lockid = "garrison";
 	name = "garrison door"
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
 "bNf" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
@@ -5534,13 +5533,6 @@
 /obj/structure/bonepile,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
-"dpb" = (
-/obj/structure/mineral_door/wood/fancywood{
-	lockid = "manor";
-	name = "Keep Entrance"
-	},
-/turf/closed,
-/area/rogue/indoors/town/manor)
 "dpc" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border"
@@ -7388,6 +7380,10 @@
 /obj/item/clothing/shirt/robe/courtmage,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
+"evf" = (
+/obj/structure/window/openclose/reinforced,
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town)
 "evq" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/key/apartments/apartment22,
@@ -8269,7 +8265,7 @@
 /area/rogue/under/town/basement)
 "fay" = (
 /obj/structure/table/wood/counter/end,
-/turf/closed,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "faz" = (
 /obj/item/natural/rock{
@@ -8443,7 +8439,7 @@
 	lockid = "house1";
 	name = "House I"
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town)
 "ffL" = (
 /obj/structure/bed/shit,
@@ -10948,7 +10944,10 @@
 /area/rogue/indoors/town)
 "gFu" = (
 /obj/structure/curtain/bounty,
-/turf/closed/indestructible/roguewindow,
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town)
 "gFF" = (
 /obj/structure/fluff/wallclock/l,
@@ -13081,6 +13080,12 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
+"hSF" = (
+/obj/structure/bars{
+	alpha = 190
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/garrison)
 "hSH" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobblerock,
@@ -15519,13 +15524,6 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/outdoors/town)
-"jxY" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "manor"
-	},
-/turf/closed,
-/area/rogue/under/town/basement)
 "jyc" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
 /obj/effect/landmark/start/veteran,
@@ -16501,7 +16499,7 @@
 /obj/structure/window/openclose{
 	dir = 1
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/steward)
 "jZI" = (
 /obj/machinery/light/fueled/chand,
@@ -16675,7 +16673,10 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
 "kfV" = (
-/turf/closed/indestructible/roguewindow,
+/obj/structure/window/openclose/reinforced{
+	dir = 4
+	},
+/turf/open/floor/hexstone,
 /area/rogue/indoors/town)
 "kfW" = (
 /obj/structure/lever/hidden{
@@ -16897,7 +16898,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/floor/dirt/road,
+/turf/open/floor/church,
 /area/rogue/outdoors/rtfield/safe)
 "kpy" = (
 /obj/structure/spider/stickyweb,
@@ -17326,6 +17327,10 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/orphanage)
+"kAU" = (
+/obj/structure/window/openclose,
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town)
 "kBh" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -17948,7 +17953,7 @@
 /area/rogue/indoors/town)
 "kTX" = (
 /obj/structure/stairs/stone/church,
-/turf/open/transparent/openspace,
+/turf/open/floor/church,
 /area/rogue/outdoors)
 "kUe" = (
 /obj/structure/fluff/railing/border{
@@ -18504,6 +18509,12 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/green,
+/area/rogue/indoors/town)
+"lix" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town)
 "liC" = (
 /obj/effect/decal/cobbleedge{
@@ -22034,7 +22045,11 @@
 "ntv" = (
 /obj/structure/bars/alt,
 /obj/structure/curtain/bounty,
-/turf/closed/indestructible/roguewindow,
+/obj/structure/window/openclose{
+	dir = 4;
+	icon_state = "woodwindowdir"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
 "ntF" = (
 /obj/structure/flora/grass,
@@ -23628,6 +23643,14 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
+"ola" = (
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "house7";
+	name = "House VII"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "oll" = (
 /obj/structure/spider/stickyweb,
 /obj/structure/spider/stickyweb{
@@ -24280,7 +24303,7 @@
 	dir = 8;
 	icon_state = "woodwindowdir"
 	},
-/turf/closed,
+/turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/garrison)
 "oGj" = (
 /obj/structure/fluff/railing/border{
@@ -26116,7 +26139,7 @@
 /area/rogue/indoors/town/garrison)
 "pIJ" = (
 /obj/structure/stairs/stone/church,
-/turf/open/floor/dirt/road,
+/turf/open/floor/church,
 /area/rogue/outdoors/rtfield/safe)
 "pJg" = (
 /obj/structure/mineral_door/swing_door,
@@ -27785,7 +27808,7 @@
 	name = "Steward";
 	dir = 1
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/steward)
 "qQi" = (
 /obj/structure/chair/wood/alt/chair3{
@@ -28559,7 +28582,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 4
 	},
-/turf/closed,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "rmL" = (
 /obj/item/natural/stone{
@@ -29999,7 +30022,7 @@
 /area/rogue)
 "sgf" = (
 /obj/structure/table/wood/counter,
-/turf/closed,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "sgr" = (
 /turf/open/floor/carpet/red,
@@ -30052,7 +30075,7 @@
 /obj/structure/stairs/stone/church{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/church,
 /area/rogue/outdoors)
 "shT" = (
 /obj/structure/table/vtable/v2,
@@ -30094,10 +30117,6 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/twig,
 /area/rogue/under/town/basement)
-"sjm" = (
-/obj/structure/window/solid,
-/turf/closed,
-/area/rogue/indoors/town/manor)
 "sjr" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -30848,7 +30867,7 @@
 	lockid = "manor";
 	name = "Keep Entrance"
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "sIL" = (
 /obj/structure/fluff/railing/wood,
@@ -31615,7 +31634,7 @@
 	lockid = "walls";
 	name = "keep gate door"
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/manorgate)
 "tgv" = (
 /obj/structure/fluff/railing/border{
@@ -33063,7 +33082,7 @@
 /obj/structure/window/openclose{
 	icon_state = "woodwindowdir"
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/steward)
 "uai" = (
 /obj/structure/closet/crate/crafted_closet,
@@ -34602,7 +34621,7 @@
 	lockid = "walls";
 	name = "gatekeeper's balcony"
 	},
-/turf/closed,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/manorgate)
 "uTL" = (
 /obj/structure/fluff/railing/wood,
@@ -34964,6 +34983,13 @@
 "vdO" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/town/caverogue)
+"vdR" = (
+/obj/structure/window/openclose{
+	dir = 8;
+	icon_state = "woodwindowdir"
+	},
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/town)
 "vdT" = (
 /obj/structure/rack,
 /turf/open/floor/metal/barograte,
@@ -36291,7 +36317,7 @@
 	lockid = "clinic";
 	locked = 1
 	},
-/turf/closed/basic,
+/turf/open/floor/churchmarble,
 /area/rogue/outdoors)
 "vSt" = (
 /obj/effect/mapping_helpers/secret_door_creator{
@@ -37902,7 +37928,7 @@
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/turf/closed,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
 "wTC" = (
 /obj/structure/bed/hay,
@@ -38084,10 +38110,6 @@
 	},
 /turf/open/floor/grass/cold,
 /area/rogue/indoors/soilsons)
-"wYz" = (
-/obj/structure/window/stained,
-/turf/closed/wall/mineral/decostone,
-/area/rogue/indoors/town/clinic_large)
 "wYG" = (
 /obj/structure/table/wood/plain,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -80550,115 +80572,115 @@ fVy
 
 (1,1,2) = {"
 auQ
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
 cEh
 cEh
 cEh
@@ -80751,7 +80773,7 @@ cee
 sug
 "}
 (2,1,2) = {"
-lBl
+auQ
 mAe
 mAe
 mAe
@@ -80953,7 +80975,7 @@ omR
 cee
 "}
 (3,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -81155,7 +81177,7 @@ omR
 cee
 "}
 (4,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -81357,7 +81379,7 @@ omR
 cee
 "}
 (5,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -81559,7 +81581,7 @@ omR
 cee
 "}
 (6,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -81761,7 +81783,7 @@ omR
 cee
 "}
 (7,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -81963,7 +81985,7 @@ omR
 cee
 "}
 (8,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -82165,7 +82187,7 @@ omR
 cee
 "}
 (9,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -82367,7 +82389,7 @@ omR
 cee
 "}
 (10,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -82569,7 +82591,7 @@ omR
 cee
 "}
 (11,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -82771,7 +82793,7 @@ omR
 cee
 "}
 (12,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -82973,7 +82995,7 @@ omR
 cee
 "}
 (13,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -83175,7 +83197,7 @@ omR
 cee
 "}
 (14,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -83377,7 +83399,7 @@ omR
 cee
 "}
 (15,1,2) = {"
-lBl
+auQ
 mAe
 pQs
 pQs
@@ -100983,7 +101005,7 @@ lla
 lla
 lla
 lla
-jxY
+aoN
 lla
 rMp
 eiJ
@@ -102498,7 +102520,7 @@ omp
 uJD
 uJD
 xup
-bMw
+ndi
 jsR
 mIz
 tIc
@@ -102867,15 +102889,15 @@ omp
 omp
 pmI
 wLl
-cbC
-cbC
+hSF
+hSF
 wLl
 oKA
 omp
 gkA
 wLl
-cbC
-cbC
+hSF
+hSF
 wLl
 jKl
 oho
@@ -107110,7 +107132,7 @@ omp
 eCR
 bmM
 bmM
-kfV
+aem
 bmM
 bmM
 bmM
@@ -107916,7 +107938,7 @@ its
 its
 its
 gzt
-kfV
+kAU
 hQw
 hQw
 hQw
@@ -108124,13 +108146,13 @@ hQw
 hQw
 jbZ
 pDw
-kfV
+lix
 omp
 pmI
 wIX
 omp
 omp
-kfV
+evf
 olA
 olA
 xgK
@@ -120748,104 +120770,104 @@ cEh
 "}
 (200,1,2) = {"
 auQ
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
 cEh
 cEh
 cEh
@@ -121056,7 +121078,7 @@ auQ
 auQ
 auQ
 auQ
-jQm
+cEh
 cEh
 cEh
 cEh
@@ -133759,7 +133781,7 @@ dHO
 jJr
 jJr
 dHO
-wYz
+rbr
 fEd
 rzR
 fEd
@@ -133961,7 +133983,7 @@ dHO
 dHO
 dHO
 dHO
-wYz
+rbr
 fEd
 pMU
 fEd
@@ -147526,7 +147548,7 @@ ntv
 rdQ
 ntv
 rdQ
-gZE
+ola
 rdQ
 grI
 jSq
@@ -148925,9 +148947,9 @@ grI
 grI
 rdQ
 rdQ
-kfV
+vdR
 rdQ
-kfV
+vdR
 rdQ
 rdQ
 grI
@@ -161352,165 +161374,165 @@ cEh
 
 (1,1,4) = {"
 auQ
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-lBl
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
-jQm
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+auQ
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
+cEh
 cEh
 cEh
 cEh
@@ -166401,7 +166423,7 @@ gTU
 cEh
 "}
 (26,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -166603,7 +166625,7 @@ gTU
 cEh
 "}
 (27,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -166805,7 +166827,7 @@ gTU
 cEh
 "}
 (28,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -167007,7 +167029,7 @@ gTU
 cEh
 "}
 (29,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -167209,7 +167231,7 @@ gTU
 cEh
 "}
 (30,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -167411,7 +167433,7 @@ gTU
 cEh
 "}
 (31,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -167613,7 +167635,7 @@ gTU
 cEh
 "}
 (32,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -167815,7 +167837,7 @@ gTU
 cEh
 "}
 (33,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -168017,7 +168039,7 @@ gTU
 cEh
 "}
 (34,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -168219,7 +168241,7 @@ gTU
 cEh
 "}
 (35,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -168421,7 +168443,7 @@ gTU
 cEh
 "}
 (36,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -168623,7 +168645,7 @@ gTU
 cEh
 "}
 (37,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -168825,7 +168847,7 @@ gTU
 cEh
 "}
 (38,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -169027,7 +169049,7 @@ gTU
 cEh
 "}
 (39,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -169229,7 +169251,7 @@ gTU
 cEh
 "}
 (40,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -169431,7 +169453,7 @@ gTU
 cEh
 "}
 (41,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -169633,7 +169655,7 @@ gTU
 cEh
 "}
 (42,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -169835,7 +169857,7 @@ gTU
 cEh
 "}
 (43,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -170037,7 +170059,7 @@ gTU
 cEh
 "}
 (44,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -170239,7 +170261,7 @@ gTU
 cEh
 "}
 (45,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -170441,7 +170463,7 @@ gTU
 cEh
 "}
 (46,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -170643,7 +170665,7 @@ gTU
 cEh
 "}
 (47,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -170845,7 +170867,7 @@ gTU
 cEh
 "}
 (48,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -171047,7 +171069,7 @@ gTU
 cEh
 "}
 (49,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -171249,7 +171271,7 @@ gTU
 cEh
 "}
 (50,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -171451,7 +171473,7 @@ gTU
 cEh
 "}
 (51,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -171653,7 +171675,7 @@ gTU
 cEh
 "}
 (52,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -171855,7 +171877,7 @@ gTU
 cEh
 "}
 (53,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -172057,7 +172079,7 @@ gTU
 cEh
 "}
 (54,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -172259,7 +172281,7 @@ gTU
 cEh
 "}
 (55,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -172461,7 +172483,7 @@ gTU
 cEh
 "}
 (56,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -172663,7 +172685,7 @@ gTU
 cEh
 "}
 (57,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -172865,7 +172887,7 @@ gTU
 cEh
 "}
 (58,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -173067,7 +173089,7 @@ gTU
 cEh
 "}
 (59,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -173269,7 +173291,7 @@ gTU
 cEh
 "}
 (60,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -173471,7 +173493,7 @@ gTU
 cEh
 "}
 (61,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -173673,7 +173695,7 @@ gTU
 cEh
 "}
 (62,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -173875,7 +173897,7 @@ gTU
 cEh
 "}
 (63,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -174077,7 +174099,7 @@ gTU
 cEh
 "}
 (64,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -174279,7 +174301,7 @@ gTU
 cEh
 "}
 (65,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -174481,7 +174503,7 @@ gTU
 cEh
 "}
 (66,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -174683,7 +174705,7 @@ gTU
 cEh
 "}
 (67,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -174885,7 +174907,7 @@ gTU
 cEh
 "}
 (68,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -175087,7 +175109,7 @@ gTU
 cEh
 "}
 (69,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -175289,7 +175311,7 @@ gTU
 cEh
 "}
 (70,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -175491,7 +175513,7 @@ gTU
 cEh
 "}
 (71,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -175693,7 +175715,7 @@ gTU
 cEh
 "}
 (72,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -175895,7 +175917,7 @@ gTU
 cEh
 "}
 (73,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -176097,7 +176119,7 @@ gTU
 cEh
 "}
 (74,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -176299,7 +176321,7 @@ gTU
 cEh
 "}
 (75,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -176501,7 +176523,7 @@ gTU
 cEh
 "}
 (76,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -176703,7 +176725,7 @@ gTU
 cEh
 "}
 (77,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -176905,7 +176927,7 @@ gTU
 cEh
 "}
 (78,1,4) = {"
-lBl
+auQ
 lBl
 lBl
 lBl
@@ -177745,8 +177767,8 @@ hfl
 pfK
 hfl
 hfl
-sjm
-sjm
+aIO
+aIO
 hfl
 hfl
 pfK
@@ -221372,7 +221394,7 @@ fEe
 fEe
 mSD
 mSD
-dpb
+sIK
 mSD
 mSD
 mSD
