@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /datum/patron/proc/punish_prayer(mob/living/follower)
 	follower.adjust_divine_fire_stacks(100)
 	follower.IgniteMob()
-	SSticker.pplsmited++
+	GLOB.vanderlin_round_stats["people_smitten"]++
 	follower.add_stress(/datum/stressevent/psycurse)
 
 /// The follower has prayed in a special way to the patron and is being rewarded.

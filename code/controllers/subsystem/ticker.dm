@@ -79,16 +79,6 @@ SUBSYSTEM_DEF(ticker)
 	var/failedstarts = 0
 	var/list/manualmodes = list()
 
-	//**ROUNDEND STATS**
-	var/blood_lost = 0
-	var/tri_gained = 0
-	var/tri_lost = 0
-	var/holefall = 0 // ankles broken
-	var/pplsmited = 0 // people sm
-	var/gibbs = 0 // gibs been
-	var/beardshavers = 0 // beards shaven, includes  more than dwarves
-	// var/list/cuckers = list()
-
 	var/end_party = FALSE
 	var/last_lobby = 0
 	var/reboot_anyway

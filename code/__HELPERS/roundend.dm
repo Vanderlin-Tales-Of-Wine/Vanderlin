@@ -1,17 +1,17 @@
 #define POPCOUNT_SURVIVORS "survivors"					//Not dead at roundend
 #define POPCOUNT_ESCAPEES "escapees"					//Not dead and on centcom/shuttles marked as escaped
 
-GLOBAL_LIST_INIT(vanderlin_stats, list(
-	"Deaths" = 0,
-	"Moat_Fallers" = 0,
-	"Ankles_Broken" = 0,
-	"People_Smiten" = 0,
-	"Blood_spilt" = 0,
-	"People_Gibbed" = 0,
-	"TRIUMPH(s)_Awarded" = 0,
-	"TRIUMPH(s)_Stolen" = 0,
-	"Drugs_Snorted" = 0,
-	"Beards_Shaved" = 0,
+GLOBAL_LIST_INIT(vanderlin_round_stats, list(
+	"deaths" = 0,
+	"moat_fallers" = 0,
+	"ankles_broken" = 0,
+	"people_smitten" = 0,
+	"blood_spilt" = 0,
+	"people_gibbed" = 0,
+	"triumphs_awarded" = 0,
+	"triumphs_stolen" = 0,
+	"drugs_snorted" = 0,
+	"beards_shaved" = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
@@ -310,28 +310,24 @@ GLOBAL_LIST_INIT(vanderlin_stats, list(
 	return
 
 /datum/controller/subsystem/ticker/proc/stats_report()
-	var/list/shit = list()
-	shit += "<br><span class='bold'>Δ--------------------Δ</span><br>"
-	shit += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [GLOB.vanderlin_stats["Deaths"]]"
-	shit += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_stats["Moat_Fallers"]]"
-	shit += "<br><font color='#700000'><span class='bold'>Ankles Broken:</span></font> [holefall]"
-	shit += "<br><font color='#ffee00'><span class='bold'>People Smiten:</span></font> [pplsmited]"
-	shit += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(blood_lost / 100, 1)]L"
-	shit += "<br><font color='#af2323'><span class='bold'>People Gibbed:</span></font> [gibbs]"
-	shit += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [tri_gained]"
-	shit += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [tri_lost * -1]"
-	shit += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_stats["Drugs_Snorted"]]"
-	shit += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [beardshavers]"
-//	if(cuckers.len)
-//		shit += "<br><font color='#4e488a'><span class='bold'>Adulterers:</span></font> "
-//		for(var/x in cuckers.len)
-//			shit += "[x]"
+	var/list/data = list()
+	data += "<br><span class='bold'>Δ--------------------Δ</span><br>"
+	data += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
+	data += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats["moat_fallers"]]"
+	data += "<br><font color='#700000'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats["ankles_broken"]]"
+	data += "<br><font color='#ffee00'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats["people_smitten"]]"
+	data += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)]L"
+	data += "<br><font color='#af2323'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
+	data += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [GLOB.vanderlin_round_stats["triumphs_awarded"]]"
+	data += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [GLOB.vanderlin_round_stats["triumphs_stolen"] * -1]"
+	data += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats["drugs_snorted"]]"
+	data += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats["beards_shaved"]]"
 	if(GLOB.confessors.len)
-		shit += "<br><font color='#93cac7'><span class='bold'>Confessors:</span></font> "
+		data += "<br><font color='#93cac7'><span class='bold'>Confessors:</span></font> "
 		for(var/x in GLOB.confessors)
-			shit += "[x]"
-	shit += "<br><br><span class='bold'>∇--------------------∇</span>"
-	to_chat(world, "[shit.Join()]")
+			data += "[x]"
+	data += "<br><br><span class='bold'>∇--------------------∇</span>"
+	to_chat(world, "[data.Join()]")
 	return
 
 /datum/controller/subsystem/ticker/proc/standard_reboot()

@@ -11,12 +11,12 @@
 
 	if(amt > 0)
 		if(counted)
-			SSticker.tri_gained += amt
+			GLOB.vanderlin_round_stats["triumphs_awarded"] += amt
 		if(current)
 			to_chat(current, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.</font>")
 	else if(amt < 0)
 		if(counted)
-			SSticker.tri_lost += amt
+			GLOB.vanderlin_round_stats["triumphs_stolen"] += amt
 		if(current)
 			to_chat(current, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.</font>")
 
@@ -35,11 +35,11 @@
 
 	if(amt > 0)
 		if(counted)
-			SSticker.tri_gained += amt
+			GLOB.vanderlin_round_stats["triumphs_awarded"] += amt
 		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.</font>")
 	else if(amt < 0)
 		if(counted)
-			SSticker.tri_lost += amt
+			GLOB.vanderlin_round_stats["triumphs_stolen"] += amt
 		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.</font>")
 
 /*
@@ -54,9 +54,9 @@
 
 	if(amt > 0)
 		if(counted)
-			SSticker.tri_gained += amt
+			GLOB.vanderlin_round_stats["triumphs_awarded"] += amt
 		to_chat(src, "\n<font color='purple'>[amt] TRIUMPH(S) awarded.[reason ? " REASON: [reason]" : ""]</font>")
 	else if(amt < 0)
 		if(counted)
-			SSticker.tri_lost += amt
+			GLOB.vanderlin_round_stats["triumphs_stolen"] += amt
 		to_chat(src, "\n<font color='purple'>[amt*-1] TRIUMPH(S) lost.[reason ? " REASON: [reason]" : ""]</font>")

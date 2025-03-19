@@ -55,16 +55,16 @@ SUBSYSTEM_DEF(elastic)
 /datum/controller/subsystem/elastic/proc/get_round_data()
 	var/list/round_data = list()
 
-	round_data["blood_lost"] = round(SSticker.blood_lost / 100, 1)
-	round_data["ankles_broken"] = SSticker.holefall
-	round_data["deaths"] = GLOB.vanderlin_stats["Deaths"]
-	round_data["moat_fallers"] = GLOB.vanderlin_stats["Moat_Fallers"]
-	round_data["smited"] = SSticker.pplsmited
-	round_data["gibbed"] = SSticker.gibbs
-	round_data["triumph_gained"] = SSticker.tri_gained
-	round_data["triumph_lost"] = SSticker.tri_lost
-	round_data["snorted_drugs"] = GLOB.vanderlin_stats["Drugs_Snorted"]
-	round_data["beards_shaved"] = SSticker.beardshavers
+	round_data["blood_lost"] = round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)
+	round_data["ankles_broken"] = GLOB.vanderlin_round_stats["ankles_broken"]
+	round_data["deaths"] = GLOB.vanderlin_round_stats["deaths"]
+	round_data["moat_fallers"] = GLOB.vanderlin_round_stats["moat_fallers"]
+	round_data["smited"] = GLOB.vanderlin_round_stats["people_smitten"]
+	round_data["gibbed"] = GLOB.vanderlin_round_stats["people_gibbed"]
+	round_data["triumph_gained"] = GLOB.vanderlin_round_stats["triumphs_awarded"]
+	round_data["triumph_lost"] = GLOB.vanderlin_round_stats["triumphs_stolen"]
+	round_data["snorted_drugs"] = GLOB.vanderlin_round_stats["drugs_snorted"]
+	round_data["beards_shaved"] = GLOB.vanderlin_round_stats["beards_shaved"]
 
 	return round_data
 
