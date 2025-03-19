@@ -136,7 +136,7 @@
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	name = "zizombie"
 	real_name = "zizombie"
 	mob_biotypes |= MOB_UNDEAD
@@ -208,7 +208,7 @@
 			if(B.rotted && amount < 16 MINUTES)
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 5)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()

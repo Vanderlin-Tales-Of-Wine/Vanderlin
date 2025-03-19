@@ -7,6 +7,7 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	icon = 'icons/roguetown/weapons/32.dmi'
+	icon_state = "huntingknife"
 	gripsprite = FALSE
 	dropshrink = 0.8
 	thrown_bclass = BCLASS_CUT
@@ -32,7 +33,8 @@
 
 /obj/item/weapon/knife/Initialize()
 	. = ..()
-	AddElement(/datum/element/tipped_item)
+	AddElement(/datum/element/tipped_item, _max_reagents = 10, _dip_amount = 5, _inject_amount = 0.5)
+
 /obj/item/weapon/knife/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -287,6 +289,7 @@
 	icon_state = "pdagger"
 	melting_material = null
 	embedding = list("embed_chance" = 0) // Embedding the cursed dagger has the potential to cause duping issues. Keep it like this unless you want to do a lot of bug hunting.
+	resistance_flags = INDESTRUCTIBLE
 
 /obj/item/weapon/knife/dagger/steel/profane/examine(mob/user)
 	. = ..()

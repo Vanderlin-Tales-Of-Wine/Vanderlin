@@ -1,12 +1,19 @@
 /datum/job/captain
 	title = "Captain"
+	tutorial = "Law and Order, your divine reason for existence. \
+	You have been given command over the garrison to help keep order and peace within the city, \
+	and defend it against the many dangers of the peninsula."
 	flag = CAPTAIN
 	department_flag = NOBLEMEN
-	faction = "Station"
+	display_order = JDO_CAPTAIN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 15
+	bypass_lastclass = TRUE
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -14,28 +21,22 @@
 		"Aasimar",
 		"Dwarf"
 	)
-	allowed_sexes = list(MALE, FEMALE)
-	display_order = JDO_CAPTAIN
-	tutorial = "Law and Order, your divine reason for existence. You have been given command over the garrison to help keep order and peace within the city and defend it against the many dangers of the island."
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/captain
-	give_bank_account = 120
-	min_pq = 15
 
+	outfit = /datum/outfit/job/captain
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
+	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
 
-/datum/job/captain/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/captain/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		var/prev_real_name = H.real_name
-		var/prev_name = H.name
-		var/honorary = "Sir"
-		if(H.gender == FEMALE)
-			honorary = "Dame"
-		H.real_name = "[honorary] [prev_real_name]"
-		H.name = "[honorary] [prev_name]"
+	var/mob/living/carbon/human/H = spawned
+	var/prev_real_name = H.real_name
+	var/prev_name = H.name
+	var/honorary = "Sir"
+	if(H.gender == FEMALE)
+		honorary = "Dame"
+	H.real_name = "[honorary] [prev_real_name]"
+	H.name = "[honorary] [prev_name]"
 
 /datum/outfit/job/captain
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON
@@ -72,6 +73,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, 3)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_INT, 1)
@@ -113,7 +115,7 @@
 	if(!length(recruitment))
 		to_chat(user, span_warning("There are no potential recruits in range."))
 		return
-	var/inputty = input(user, "Select a potential recruit!", "[name]") as anything in recruitment
+	var/inputty = input(user, "Select a potential recruit!", "[name]") as null|anything in recruitment
 	if(inputty)
 		var/mob/living/carbon/human/recruit = recruitment[inputty]
 		if(!QDELETED(recruit) && (recruit in get_hearers_in_view(recruitment_range, user)))
@@ -163,7 +165,7 @@
 	new_role = "Garrison Recruit"
 	overlay_state = "recruit_guard"
 	recruitment_faction = "Garrison"
-	recruitment_message = "Join the Guarrison, %RECRUIT!"
+	recruitment_message = "Join the Garrison, %RECRUIT!"
 	accept_message = "I swear fealty to the Crown and its garrison!"
 	refuse_message = "I refuse."
 
@@ -172,3 +174,12 @@
 	if(!.)
 		return
 	recruit.verbs |= /mob/proc/haltyell
+
+/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard
+	name = "Recruit Forest Guard"
+	new_role = "Forest Garrison Recruit"
+	overlay_state = "recruit_guard"
+	recruitment_faction = "Forest Garrison"
+	recruitment_message = "Join the Forest Garrison, %RECRUIT!"
+	accept_message = "I swear to protect the forest!"
+	refuse_message = "I refuse."

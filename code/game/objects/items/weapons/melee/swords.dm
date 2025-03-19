@@ -332,6 +332,7 @@
 	desc = "Straight iron blade, simple cutting edge, no nonsense and a popular northern blade."
 	icon_state = "imesser"
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/axe/chop)
+	gripped_intents = list(/datum/intent/sword/chop, /datum/intent/sword/thrust)
 	minstr = 8 // Heavy blade used by orcs
 	wbalance = EASY_TO_DODGE
 	sellprice = 20
@@ -835,7 +836,8 @@
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/swords
 	max_blade_int = 300
-	wdefense = 5
+	wdefense = GREAT_PARRY
+	wbalance = DODGE_CHANCE_NORMAL
 
 /obj/item/weapon/estoc/getonmobprop(tag)
 	. = ..()
@@ -892,7 +894,7 @@
 
 /datum/intent/sword/thrust/estoc
 	name = "thrust"
-	penfactor = 50
+	penfactor = AP_SWORD_THRUST+10 //30 total
 	recovery = 20
 	clickcd = 10
 
@@ -905,9 +907,9 @@
 	blade_class = BCLASS_STAB
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	reach = 2
-	penfactor = 30
-	damfactor = 1.2
+	penfactor = AP_SWORD_THRUST+30 //50 total
 	chargetime = 5
+	no_early_release = TRUE
 	recovery = 20
 	clickcd = 10
 

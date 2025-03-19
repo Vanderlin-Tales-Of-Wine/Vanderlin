@@ -239,6 +239,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/artificer
 	name = "Artificer"
+	icon_state = "arrow"
 
 /obj/effect/landmark/start/scribe
 	name = "Scribe"
@@ -310,6 +311,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/hand
 	name = "Hand"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/courtagent
+	name = "Court Agent"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/hunter
@@ -386,12 +391,23 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	. = ..()
 	GLOB.bandit_starts += loc
 
-/obj/effect/landmark/start/admin
+/obj/effect/landmark/start/lich
+	name = "Lich"
+	icon = 'icons/mob/landmarks.dmi'
+	icon_state = "arrow"
+	jobspawn_override = list("Lich")
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/bandit/Initialize()
+	. = ..()
+	GLOB.lich_starts += loc
+
+/obj/effect/landmark/admin
 	name = "admin"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/admin/Initialize()
+/obj/effect/landmark/admin/Initialize()
 	. = ..()
 	GLOB.admin_warp += loc
 

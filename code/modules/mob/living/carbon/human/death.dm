@@ -84,7 +84,7 @@
 				SSroguemachine.death_queue += texty
 				break
 
-		var/yeae = TRUE
+		var/yeae = TRUE //! TRUE if we were killed on a cross and socially rejected
 		if(buckled)
 			if(istype(buckled, /obj/structure/fluff/psycross) || istype(buckled, /obj/machinery/light/fueled/campfire/pyre))
 				if((real_name in GLOB.excommunicated_players) || (real_name in GLOB.heretical_players))
@@ -100,18 +100,16 @@
 			if(!istype(src, /mob/living/carbon/human/species/skeleton/death_arena) && get_triumphs() > 0)
 				adjust_triumphs(-1)
 
-		if(job == "Monarch")
-			for(var/mob/living/carbon/human/HU in GLOB.player_list)
-				if(!HU.stat)
-					if(is_in_roguetown(HU))
+		if(mind && yeae)
+			// Omens are handled here
+			if((is_lord_job(mind.assigned_role)))
+				addomen(OMEN_NOLORD)
+				for(var/mob/living/carbon/human/HU in GLOB.player_list)
+					if(HU.stat <= CONSCIOUS && is_in_roguetown(HU))
 						HU.playsound_local(get_turf(HU), 'sound/music/lorddeath.ogg', 80, FALSE, pressure_affected = FALSE)
 
-		if(yeae)
-			if(mind)
-				if((mind.assigned_role == "Monarch"))
-					addomen(OMEN_NOLORD)			// Re-adding at Ook's request.
-				if(mind.assigned_role == "Priest")
-					addomen(OMEN_NOPRIEST)	// message changed to reflect only priest for now, change it if more roles added. (Priest dying causes Bad Omen)
+			if(is_priest_job(mind.assigned_role))
+				addomen(OMEN_NOPRIEST)
 
 		if(!gibbed && yeae)
 			for(var/mob/living/carbon/human/HU in viewers(7, src))

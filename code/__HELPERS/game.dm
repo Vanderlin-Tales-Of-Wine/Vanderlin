@@ -389,8 +389,9 @@ block( \
 //	SEND_SOUND(M, 'sound/misc/roundstart.ogg') //Alerting them to their consideration
 	if(flashwindow)
 		window_flash(M.client)
-	switch(ignore_category ? askuser(M,Question,"Please answer in [DisplayTimeText(poll_time)]!","Yes","No","Never for this round", StealFocus=0, Timeout=poll_time) : askuser(M,Question,"Please answer in [DisplayTimeText(poll_time)]!","Yes","No", StealFocus=0, Timeout=poll_time))
-		if(1)
+	var/options = ignore_category ? list(CHOICE_YES, CHOICE_NO, CHOICE_NEVER) : DEFAULT_INPUT_CHOICES
+	switch(browser_alert(M, Question, "Please answer in [DisplayTimeText(poll_time)]!", options))
+		if(CHOICE_YES)
 			to_chat(M, "<span class='notice'>Choice registered: Yes.</span>")
 			if(time_passed + poll_time <= world.time)
 				to_chat(M, "<span class='danger'>Sorry, you answered too late to be considered!</span>")
@@ -398,10 +399,10 @@ block( \
 				candidates -= M
 			else
 				candidates += M
-		if(2)
+		if(CHOICE_NO)
 			to_chat(M, "<span class='danger'>Choice registered: No.</span>")
 			candidates -= M
-		if(3)
+		if(CHOICE_NEVER)
 			var/list/L = GLOB.poll_ignore[ignore_category]
 			if(!L)
 				GLOB.poll_ignore[ignore_category] = list()
@@ -471,7 +472,7 @@ block( \
 	var/mob/living/carbon/human/new_character = new//The mob being spawned.
 	SSjob.SendToLateJoin(new_character)
 
-	G_found.client.prefs.copy_to(new_character)
+	G_found.client.prefs.safe_transfer_prefs_to(new_character)
 	new_character.dna.update_dna_identity()
 	new_character.key = G_found.key
 
@@ -536,3 +537,32 @@ block( \
 		return FALSE
 
 	return pick(possible_loc)
+
+/// Assoc list of ckeys to fake names.
+/// Is not cleaned, but that shouldn't be an issue.
+GLOBAL_LIST_EMPTY(fake_ckeys)
+
+/// Returns this user's display ckey, used in OOC contexts.
+/proc/get_display_ckey(key)
+	if(!key || !istext(key))
+		return "some invalid"
+	var/ckey = ckey(key)
+
+	if(!(ckey in GLOB.anonymize))
+		return ckey
+	if(GLOB.fake_ckeys[ckey])
+		return GLOB.fake_ckeys[ckey]
+
+	//Generating a new one instead
+	var/valid_name
+	do
+		var/name_attempt = "[capitalize(pick(GLOB.first_names))] [pick(GLOB.ooctitle)]"
+		for(var/X in GLOB.fake_ckeys)
+			if(GLOB.fake_ckeys[X] == name_attempt)
+				continue
+
+		valid_name = name_attempt
+	while(!valid_name)
+
+	GLOB.fake_ckeys[ckey] = valid_name
+	return valid_name

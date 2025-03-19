@@ -123,7 +123,8 @@
 				return martial_art_result
 
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
-		retaliate(P.firer)
+		if(!P.nodamage && isliving(P.firer))
+			retaliate(P.firer)
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
 				visible_message("<span class='danger'>The [P.name] gets reflected by [src]!</span>", \
@@ -235,7 +236,7 @@
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
 	retaliate(user)
-	..()
+	. = ..()
 
 
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user)

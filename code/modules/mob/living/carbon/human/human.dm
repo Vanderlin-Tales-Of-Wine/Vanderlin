@@ -146,10 +146,6 @@
 		if(VD)
 			if(statpanel("Stats"))
 				stat("Vitae:",VD.vitae)
-		if((mind.assigned_role == "Shepherd") || (mind.assigned_role == "Witch Hunter"))
-			if(statpanel("Status"))
-				stat("Confessions sent: [GLOB.confessors.len]")
-
 	return
 
 /mob/living/carbon/human/show_inv(mob/user)
@@ -609,6 +605,13 @@
 					return TRUE
 	. = ..()
 
+/mob/proc/return_accent_list()
+	if(!accent)
+		return
+	if(accent == ACCENT_NONE)
+		return
+	return GLOB.accent_list[accent]
+
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_piggyback(mob/living/carbon/target)
 	return (istype(target) && target.stat == CONSCIOUS)
@@ -750,5 +753,5 @@
 	var/turf/turf = get_turf(loc)
 	if(turf)
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
-			faction |= "matthios"
+			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src

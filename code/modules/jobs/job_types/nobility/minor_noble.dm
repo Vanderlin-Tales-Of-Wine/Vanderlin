@@ -3,6 +3,15 @@
 	tutorial = "The blood of a noble family runs through your veins. You are the living proof that the minor houses \
 	of Vanderlin still exist in spite of the Monarch. You have many mammons to your name, but with wealth comes \
 	danger, so keep your wits and tread lightly..."
+	display_order = JDO_MINOR_NOBLE
+	flag = MINOR_NOBLE
+	department_flag = NOBLEMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+	min_pq = 1
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -15,15 +24,9 @@
 		"Aasimar",
 		"Rakshari"
 	)
+
 	outfit = /datum/outfit/job/noble
-	faction = "Station"
-	display_order = JDO_MINOR_NOBLE
-	flag = MINOR_NOBLE
-	department_flag = NOBLEMEN
 	apprentice_name = "Servant"
-	total_positions = 2
-	spawn_positions = 2
-	min_pq = 1
 	give_bank_account = 60
 
 /datum/outfit/job/noble
@@ -46,6 +49,7 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/music, rand(1,2), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_INT, 1)
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel

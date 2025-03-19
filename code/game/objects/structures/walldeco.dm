@@ -119,7 +119,7 @@
 	desc = ""
 	icon_state = "churchslate"
 	mouse_opacity = 0
-	layer = BELOW_MOB_LAYER+0.1
+	layer = TURF_DECAL_LAYER
 
 /obj/structure/fluff/walldeco/stone/Initialize()
 	icon_state = "walldec[rand(1,6)]"
@@ -376,3 +376,9 @@
 /obj/structure/fluff/walldeco/vinez/offset
 	icon_state = "vinez"
 	pixel_y = 32
+
+/obj/structure/fluff/walldeco/vinez/blue
+	icon_state = "vinez_blue"
+
+/obj/structure/fluff/walldeco/vinez/red
+	icon_state = "vinez_red"

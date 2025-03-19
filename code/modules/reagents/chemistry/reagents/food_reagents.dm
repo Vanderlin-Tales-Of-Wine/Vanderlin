@@ -136,6 +136,10 @@
 	..()
 	. = 1
 
+/datum/reagent/consumable/sugar/molasses
+	name ="Molasses"
+	color = "#835c5c"
+
 /datum/reagent/consumable/sodiumchloride
 	name = "Table Salt"
 	description = "A salt made of sodium chloride. Commonly used to season food."
