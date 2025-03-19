@@ -1789,67 +1789,67 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("tail_lizard")
 					var/new_tail
-					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL:", "THE BALANCEE", GLOB.tails_list_lizard)
+					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL", "THE BODY", GLOB.tails_list_lizard)
 					if(new_tail)
 						features["tail_lizard"] = new_tail
 
 				if("tail_human")
 					var/new_tail
-					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL:", "THE BALANCEE", pref_species.tails_list())
+					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL", "THE BODY", pref_species.tails_list())
 					if(new_tail)
 						features["tail_human"] = new_tail
 
 				if("snout")
 					var/new_snout
-					new_snout = browser_input_list(user, "SELECT YOUR HERO'S SNOUT:", "THE SCENT",  GLOB.snouts_list)
+					new_snout = browser_input_list(user, "SELECT YOUR HERO'S SNOUT", "THE BODY",  GLOB.snouts_list)
 					if(new_snout)
 						features["snout"] = new_snout
 
 				if("horns")
 					var/new_horns
-					new_horns = browser_input_list(user, "SELECT YOUR HERO'S HORNS:", "THE HORN", pref_species.horns_list())
+					new_horns = browser_input_list(user, "SELECT YOUR HERO'S HORNS", "THE BODY", pref_species.horns_list())
 					if(new_horns)
 						features["horns"] = new_horns
 
 				if("ears")
 					var/new_ears
-					new_ears = browser_input_list(user, "SELECT YOUR HERO'S EARS", "THE MIND", pref_species.ears_list())
+					new_ears = browser_input_list(user, "SELECT YOUR HERO'S EARS", "THE BODY", pref_species.ears_list())
 					if(new_ears)
 						features["ears"] = new_ears
 
 				if("wings")
 					var/new_wings
-					new_wings = browser_input_list(user, "SELECT YOUR HERO'S WINGS:", "Character Preference", GLOB.r_wings_list)
+					new_wings = browser_input_list(user, "SELECT YOUR HERO'S WINGS", "THE BODY", GLOB.r_wings_list)
 					if(new_wings)
 						features["wings"] = new_wings
 
 				if("frills")
 					var/new_frills
-					new_frills = browser_input_list(user, "SELECT YOUR HERO'S FRILLS:", "Character Preference", GLOB.frills_list)
+					new_frills = browser_input_list(user, "SELECT YOUR HERO'S FRILLS", "THE BODY", GLOB.frills_list)
 					if(new_frills)
 						features["frills"] = new_frills
 
 				if("spines")
 					var/new_spines
-					new_spines = input(user, "SELECT YOUR HERO'S SPINES:", "Character Preference") as null|anything in GLOB.spines_list
+					new_spines = input(user, "SELECT YOUR HERO'S SPINES", "THE BODY") as null|anything in GLOB.spines_list
 					if(new_spines)
 						features["spines"] = new_spines
 
 				if("body_markings")
 					var/new_body_markings
-					new_body_markings = input(user, "SELECT YOUR HERO'S BODY MARKINGS:", "Character Preference") as null|anything in GLOB.body_markings_list
+					new_body_markings = input(user, "SELECT YOUR HERO'S BODY MARKINGS", "THE BODY") as null|anything in GLOB.body_markings_list
 					if(new_body_markings)
 						features["body_markings"] = new_body_markings
 
 				if("legs")
 					var/new_legs
-					new_legs = input(user, "SELECT YOUR HERO'S LEGS:", "Character Preference") as null|anything in GLOB.legs_list
+					new_legs = input(user, "SELECT YOUR HERO'S LEGS", "THE BODY") as null|anything in GLOB.legs_list
 					if(new_legs)
 						features["legs"] = new_legs
 
 				if("s_tone")
 					var/listy = pref_species.get_skin_list()
-					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]", "THE SUN", listy)
+					var/new_s_tone = browser_input_list(user, "CHOOSE YOUR HERO'S [uppertext(pref_species.skin_tone_wording)]", "THE BODY", listy)
 					if(new_s_tone)
 						skin_tone = listy[new_s_tone]
 
@@ -1857,7 +1857,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 						to_chat(user, "Sorry this is a patreon exclusive feature.")
 					else
-						var/accent = input(user, "Choose your character's accent:", "Character Preference") as null|anything in GLOB.accent_list
+						var/accent = browser_input_list(user, "SELECT YOUR HERO'S DIALECT", "THE MIND", GLOB.accent_list, accent)
 						if(accent)
 							selected_accent = accent
 
@@ -1927,9 +1927,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if (!isnull(desiredlength))
 						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
 				if("gender")
-					var/pickedGender = "male"
-					if(gender == "male")
-						pickedGender = "female"
+					var/pickedGender = MALE
+					if(gender == MALE)
+						pickedGender = FEMALE
 					if(pickedGender && pickedGender != gender)
 						gender = pickedGender
 						real_name = real_name = pref_species.random_name(gender,1)
