@@ -1,9 +1,15 @@
 /datum/job/prince
 	title = "Prince"
 	f_title = "Princess"
+	tutorial = "You’ve never felt the gnawing of the winter, \
+	never known the bite of hunger and certainly have never known a honest day's work. \
+	You are as free as any bird in the sky, \
+	and you may revel in your debauchery for as long as your parents remain upon the throne: \
+	But someday you’ll have to grow up, and that will be the day your carelessness will cost you more than a few mammons."
 	flag = PRINCE
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	allowed_races = list(
@@ -21,8 +27,6 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	advclass_cat_rolls = list(CTAG_HEIR = 20)
 
-	tutorial = "You’ve never felt the gnawing of the winter, never known the bite of hunger and certainly have never known a honest day's work. You are as free as any bird in the sky, and you may revel in your debauchery for as long as your parents remain upon the throne: But someday you’ll have to grow up, and that will be the day your carelessness will cost you more than a few mammons."
-
 	display_order = JDO_PRINCE
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
@@ -31,14 +35,12 @@
 	can_have_apprentices = FALSE
 
 
-/datum/job/prince/after_spawn(mob/living/H, mob/M, latejoin)
+/datum/job/prince/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(H, FAMILY_PROGENY)
-	if(ishuman(H))
-		var/mob/living/carbon/human/Q = H
-		Q.advsetup = 1
-		Q.invisibility = INVISIBILITY_MAXIMUM
-		Q.become_blind("advsetup")
+	SSfamilytree.AddRoyal(spawned, FAMILY_PROGENY)
+	spawned.advsetup = 1
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 /datum/advclass/heir
 	displays_adv_job = FALSE
@@ -73,6 +75,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_CON, 1)
@@ -119,6 +122,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_STR, -1)
 		H.change_stat(STATKEY_INT, 2)

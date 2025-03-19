@@ -1,26 +1,32 @@
 /datum/job/jailor
 	title = "Jailor"
+	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum. \
+	Men, ripping apart one another for their own entertainment-- \
+	not for sport, not for sadism, for blood. \
+	You now live in this kingdom - a quiet peaceful place \
+	compared to the Asylum you once warded, \
+	having once kept bloodthirsty churls locked in the dark."
 	flag = JAILOR
 	department_flag = GARRISON
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_JAILOR
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
-	tutorial = "Your eyes have laid bare upon true terror in the Crimson Valley Asylum - men, ripping apart one another for \
-	their own entertainment - not for sport, not for sadism, for blood. You now live in this kingdom - a quiet peaceful place \
-	compared to the Asylum you once warded, having once kept bloodthirsty churls locked in the dark."
+	min_pq = 4
+
+	allowed_ages = list(AGE_OLD, AGE_IMMORTAL) // He's a wierd elderly man that is fucking jacked- this will make for a memorable character I think.
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list( // They're from Crimson Valley Asylum- only a select of houses are in position of guard there.
 		"Humen",
 		"Dwarf",
 		"Elf",
 		"Half-Elf"
 	)
-	allowed_ages = list(AGE_OLD, AGE_IMMORTAL) // He's a wierd elderly man that is fucking jacked- this will make for a memorable character I think.
-	allowed_sexes = list(MALE, FEMALE)
+
 	outfit = /datum/outfit/job/jailor
-	cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
 	give_bank_account = 25
-	min_pq = 4
+	cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
 
 /datum/outfit/job/jailor
 	job_bitflag = BITFLAG_GARRISON

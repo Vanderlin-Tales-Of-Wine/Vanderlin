@@ -1,8 +1,18 @@
 /datum/job/templar
 	title = "Templar"
+	tutorial = "Templars are warriors who have forsaken wealth and title \
+	in lieu of service to the church, due to either zealotry or a past shame. \
+	They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. \
+	Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	flag = 0 //unset!!
 	department_flag = CHURCHMEN
-	faction = "Station"
-	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_TEMPLAR
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+	min_pq = 8
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -12,12 +22,9 @@
 		"Half-Elf",
 	)
 	allowed_patrons = ALL_TEMPLAR_PATRONS
+
 	outfit = /datum/outfit/job/templar
-	total_positions = 2
-	spawn_positions = 2
-	display_order = JDO_TEMPLAR
 	give_bank_account = 0
-	min_pq = 8
 
 /datum/outfit/job/templar
 	name = "Templar"
@@ -100,11 +107,14 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 	switch(H.patron?.type)
 		if(/datum/patron/divine/abyssor)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)

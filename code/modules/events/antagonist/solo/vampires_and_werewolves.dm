@@ -70,12 +70,16 @@
 		vampire = !vampire
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves/proc/add_werewolf(datum/mind/antag_mind)
+	if(!antag_mind)
+		CRASH("add_werewolf was called without an antag datum!")
 	antag_mind.add_antag_datum(/datum/antagonist/werewolf)
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves/proc/add_vampire(datum/mind/antag_mind)
+	if(!antag_mind)
+		CRASH("add_vampire was called without an antag datum!")
 	if(!leader)
 		var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
-		J?.current_positions = max(J?.current_positions-1, 0)
+		J?.adjust_current_positions(-1)
 		antag_mind.current.unequip_everything()
 		antag_mind.add_antag_datum(/datum/antagonist/vampirelord)
 		leader = TRUE
@@ -83,7 +87,7 @@
 	else
 		if(!antag_mind.has_antag_datum(/datum/antagonist/vampirelord))
 			var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
-			J?.current_positions = max(J?.current_positions-1, 0)
+			J?.adjust_current_positions(-1)
 			antag_mind.current.unequip_everything()
 			antag_mind.add_antag_datum(/datum/antagonist/vampirelord/lesser)
 		return

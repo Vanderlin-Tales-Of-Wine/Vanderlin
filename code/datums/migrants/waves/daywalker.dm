@@ -39,9 +39,9 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE) // Blade 3 Trinity
-		H.change_stat("strength", 1)
-		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 2)
+		H.change_stat(STATKEY_STR, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_END, 2)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

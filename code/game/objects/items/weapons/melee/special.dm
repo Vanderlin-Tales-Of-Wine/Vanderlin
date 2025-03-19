@@ -85,12 +85,14 @@
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
 				HU.visible_message("<span class='warning'>[HU] electrocutes [H] with \the [src].</span>")
 				H.electrocute_act(5, src)
+				log_message("[HU] has shocked [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm electrocuted by the scepter!</span>")
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
 				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
 				H.set_silence(20 SECONDS)
+				log_message("[HU] has silenced [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
 				return
 

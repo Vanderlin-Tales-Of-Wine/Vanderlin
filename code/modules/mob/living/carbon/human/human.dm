@@ -150,10 +150,6 @@
 		if(VD)
 			if(statpanel("Stats"))
 				stat("Vitae:",VD.vitae)
-		if((mind.assigned_role == "Shepherd") || (mind.assigned_role == "Witch Hunter"))
-			if(statpanel("Status"))
-				stat("Confessions sent: [GLOB.confessors.len]")
-
 	return
 
 /mob/living/carbon/human/show_inv(mob/user)
@@ -767,5 +763,5 @@
 	var/turf/turf = get_turf(loc)
 	if(turf)
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
-			faction |= "matthios"
+			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src

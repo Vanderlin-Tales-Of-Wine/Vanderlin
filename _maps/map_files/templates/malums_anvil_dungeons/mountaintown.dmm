@@ -2660,8 +2660,8 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Lr" = (
 /obj/structure/rack/shelf/big,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
+/obj/item/plate,
+/obj/item/plate,
 /obj/item/weapon/knife/villager,
 /obj/item/kitchen/fork/iron,
 /obj/item/kitchen/fork/iron,

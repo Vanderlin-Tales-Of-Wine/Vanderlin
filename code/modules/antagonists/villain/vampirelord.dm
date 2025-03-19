@@ -53,10 +53,13 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampirelord/on_gain()
+	var/mob/living/carbon/human/vampire = owner
+	vampire.adv_hugboxing_end() // shitty workaround for adventurers and pilgrims becoming vamp
 	SSmapping.retainer.vampires |= owner
 	. = ..()
 	owner.special_role = name
-	owner.purge_combat_knowledge()
+	if(!isspawn)
+		owner.purge_combat_knowledge()
 	move_to_spawnpoint()
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")

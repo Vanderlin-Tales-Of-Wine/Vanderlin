@@ -1,11 +1,21 @@
 /datum/job/undertaker
 	title = "Gravetender"
+	tutorial = "As a servant of Necra, you embody the sanctity of her domain, \
+	ensuring the dead rest peacefully within the earth. \
+	You are the bane of grave robbers and necromancers, \
+	and your holy magic brings undead back into Necra's embrace: \
+	the only rightful place for lost souls."
 	flag = GRAVETENDER
 	department_flag = CHURCHMEN
-	faction = "Station"
+	display_order = JDO_GRAVETENDER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3
+	min_pq = -10
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Rakshari",
@@ -17,14 +27,10 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = "As a servant of Necra, you embody the sanctity of her domain, ensuring the dead rest peacefully within the earth. You are the bane of grave robbers and necromancers, and your holy magic brings undead back into Necra's embrace: the only rightful place for lost souls."
 	allowed_patrons = list(/datum/patron/divine/necra)
 
 	outfit = /datum/outfit/job/undertaker
-	display_order = JDO_GRAVETENDER
 	give_bank_account = TRUE
-	min_pq = -10
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 
 /datum/outfit/job/undertaker
@@ -51,6 +57,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_END, 2)

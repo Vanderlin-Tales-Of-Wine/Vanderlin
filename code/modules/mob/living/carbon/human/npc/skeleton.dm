@@ -1,11 +1,13 @@
 /mob/living/carbon/human/species/skeleton
 	name = "skeleton"
 
+	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+	icon_state = "skeleton"
 	race = /datum/species/human/northern
 	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest, /obj/item/bodypart/head, /obj/item/bodypart/l_arm,
 					/obj/item/bodypart/r_arm, /obj/item/bodypart/r_leg, /obj/item/bodypart/l_leg)
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	var/skel_outfit = /datum/outfit/job/npc/skeleton
 	ambushable = FALSE
 	rot_type = null
@@ -72,7 +74,7 @@
 		QDEL_NULL(src.charflaw)
 	update_body()
 	mob_biotypes = MOB_UNDEAD
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	name = "skeleton"
 	real_name = "skeleton"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)

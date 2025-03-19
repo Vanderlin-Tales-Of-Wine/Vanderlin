@@ -130,7 +130,7 @@
 		to_chat(user, "You feel the power of Dendor course through your thumb.")
 		user.visible_message("<font color='green'>[user]'s thumb turns green.</font>")
 		return TRUE
-	user.faction |= "plants"
+	user.faction |= FACTION_PLANTS
 
 	var/turf/T = get_turf(targets[1])
 	user.visible_message("<font color='green'>[user] points at [T]!</font>")
@@ -195,14 +195,14 @@
 
 /datum/proc/add_vinemark(atom/target, mob/living/carbon/user) // makes vines ignore them essentially
 	var/mob/living/mob_target = target
-	mob_target.faction |= "plants"
+	mob_target.faction |= FACTION_PLANTS
 	playsound(user, 'sound/magic/ahh2.ogg', 55, TRUE)
 	user.visible_message("[user] marks [mob_target] forehead.")
 	to_chat(target, "<font color='green'> The vines has marked you as one of its own.")
 
 /datum/proc/remove_vinemark(atom/target, mob/living/carbon/user)
 	var/mob/living/mob_target = target
-	mob_target.faction -= "plants"
+	mob_target.faction -= FACTION_PLANTS
 	playsound(user, 'sound/magic/swap.ogg', 55, TRUE)
 	user.visible_message("[user] removes the mark from [mob_target] forehead.")
 	to_chat(target, "<font color='red'> The vines have forsaken you.")

@@ -18,7 +18,7 @@
 			if (isnewplayer(C.mob))
 				entry += " - <font color='darkgray'><b>In Lobby</b></font>"
 				if(C.ckey in GLOB.anonymize)
-					entry += " (as [get_fake_key(C.ckey)])"
+					entry += " (as [GLOB.fake_ckeys[ckey]])"
 			else
 				if(ishuman(C.mob))
 					var/mob/living/carbon/human/H = C.mob
@@ -47,11 +47,7 @@
 			Lines += entry
 	else
 		for(var/client/C in GLOB.clients)
-			if(C.whitelisted())
-				wled++
-			var/usedkey = C.ckey
-			if(C.ckey in GLOB.anonymize)
-				usedkey = get_fake_key(C.ckey)
+			var/usedkey = get_display_ckey(C.key)
 			Lines += "<span class='info'>[usedkey]</span>"
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"

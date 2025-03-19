@@ -64,7 +64,7 @@
 	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
 	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
-	L.faction = list("undead")
+	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
@@ -111,6 +111,7 @@
 	H.mind.set_skillrank(/datum/skill/combat/swords, 2, TRUE)
 	H.mind.set_skillrank(/datum/skill/combat/knives, 5, TRUE)
 	H.mind.set_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 	//H.mind.set_skillrank(/datum/skill/misc/treatment, 4, TRUE)
 
 	H.change_stat(STATKEY_STR, -1)
@@ -155,7 +156,7 @@
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
 		B.skeletonize(FALSE)
 
-	bigbad.faction = list("undead")
+	bigbad.faction = list(FACTION_UNDEAD)
 	if(bigbad.charflaw)
 		QDEL_NULL(bigbad.charflaw)
 	bigbad.mob_biotypes |= MOB_UNDEAD

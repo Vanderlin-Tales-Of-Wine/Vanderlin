@@ -3,6 +3,14 @@
 	tutorial = "Some say Dendor brings bountiful harvests - this much is true, but rot brings forth life. \
 	From life brings decay, and from decay brings life. Like your father before you, you let milk rot into cheese. \
 	This is your duty, this is your call."
+	flag = CHEESEMAKER
+	department_flag = PEASANTS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CHEESEMAKER
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -15,13 +23,8 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	faction = "Station"
+
 	outfit = /datum/outfit/job/cheesemaker
-	department_flag = PEASANTS
-	flag = CHEESEMAKER
-	display_order = JDO_CHEESEMAKER
-	total_positions = 2
-	spawn_positions = 2
 
 /datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()

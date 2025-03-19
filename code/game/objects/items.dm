@@ -1315,4 +1315,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(altgripped || wielded)
 			ungrip(M, FALSE)
 
-
+/obj/item/proc/get_displayed_price(mob/user)
+	if(get_real_price() > 0 && (HAS_TRAIT(user, TRAIT_SEEPRICES) || simpleton_price))
+		return span_info("Value: [get_real_price()] mammon")
+	return FALSE

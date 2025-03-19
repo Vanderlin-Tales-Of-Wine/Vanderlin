@@ -52,6 +52,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/weaponsmithing, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/smelting, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(1,2,2), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 		if(H.age == AGE_OLD) // Wise still on every field, but gimped stats from age.
 			H.change_stat(STATKEY_END, -1)

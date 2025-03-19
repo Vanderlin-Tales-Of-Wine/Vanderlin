@@ -1,8 +1,9 @@
 /datum/job/rousman
 	title = "Rousman"
+	tutorial = ""
 	flag = GRAVETENDER
 //	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -18,13 +19,11 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = ""
 
 	outfit = /datum/outfit/job/rousman
-	show_in_credits = FALSE
 	give_bank_account = FALSE
 
-/datum/job/rousman/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
+/datum/outfit/job/rousman/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
 	return  H.change_mob_type(/mob/living/carbon/human/species/rousman, delete_old_mob = TRUE)
 
@@ -66,3 +65,5 @@
 			r_hand = /obj/item/weapon/flail
 		if(5) //Mace
 			r_hand = /obj/item/weapon/mace/spiked
+
+	weapons = 4
