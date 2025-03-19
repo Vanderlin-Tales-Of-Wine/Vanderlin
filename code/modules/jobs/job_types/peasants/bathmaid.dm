@@ -1,33 +1,33 @@
-/*
+/**
+ * This job used to do exactly what you think it does,
+ * but now that we are PG-13, it only exists to be used
+ * in adminbusses and smites.
+ */
 /datum/job/nitemaiden
 	title = "Nitemaiden"
-	flag = JESTER
+	tutorial = "Oh no."
 	department_flag = PEASANTS
-	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	job_flags = (JOB_EQUIP_RANK)
+	faction = FACTION_STATION
+	total_positions = 0
+	spawn_positions = 0
 
+	allowed_sexes = list(FEMALE)
 	allowed_races =  ALL_PLAYER_RACES_BY_NAME
+	allowed_ages = ALL_AGES_LIST
 
-	tutorial = "You should not see this.."
-
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	outfit = /datum/outfit/job/nitemaiden
-	display_order = JDO_NITEMAIDEN
-	give_bank_account = TRUE
 	min_pq = -20
-	can_random = FALSE
-	bypass_lastclass = TRUE
 
 /datum/outfit/job/nitemaiden/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt
 	armor = /obj/item/clothing/shirt/dress/gen/sexy
-	neck = /obj/item/storage/belt/pouch/nitemaiden
+	//neck = /obj/item/storage/belt/pouch/nitemaiden
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/key/nitemaiden
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
+	//ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE) // To wrestle people out of the baths
@@ -44,9 +44,9 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/sea
-*/
-// Washing Implements
 
+// Washing Implements
+// TODO: Make this a subtype of soap, what are you doing guys come on
 /obj/item/bath/soap
 	name = "herbal soap"
 	desc = "A body soap infused with various herbs to create a floral smell."

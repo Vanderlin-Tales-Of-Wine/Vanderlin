@@ -131,6 +131,7 @@
 	name = "iron fork"
 	icon_state = "fork_iron"
 
+/// DEPRECIATED. USE /obj/item/plate instead.
 /obj/item/kitchen/platter
 	name = "platter"
 	desc = "Made from wood."
@@ -142,6 +143,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	base_item = /obj/item/kitchen/platter
 
+/// DEPRECIATED. USE /obj/item/plate/clay instead.
 /obj/item/kitchen/platter/clay
 	desc = "Made from fired clay."
 	icon_state = "platter_clay"
@@ -160,6 +162,7 @@
 	..()
 	qdel(src)
 
+/// DEPRECIATED. USE /obj/item/plate/copper instead.
 /obj/item/kitchen/platter/copper
 	desc = "Made from thin metal."
 	icon_state = "platter_copper"
@@ -390,12 +393,12 @@
 	metabolization_rate = 0.3
 
 /datum/reagent/consumable/soup/stew/gross/on_mob_life(mob/living/carbon/M)
-	if(M.mind.assigned_role == "Beggar") // beggars gets revitalized, a little
+	if(is_vagrant_job(M.mind.assigned_role)) // beggars gets revitalized, a little
 		M.adjustBruteLoss(-0.1)
 		M.adjustFireLoss(-0.1)
 		M.adjust_energy(2)
 		return
-	if(HAS_TRAIT(M, TRAIT_NASTY_EATER ))
+	if(HAS_TRAIT(M, TRAIT_NASTY_EATER))
 		return
 	if(prob(8))
 		to_chat(M, span_danger(pick(

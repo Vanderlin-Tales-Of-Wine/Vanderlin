@@ -1,109 +1,105 @@
 GLOBAL_LIST_INIT(noble_positions, list(
-	"Monarch",
-	"Consort",
-	"Hand",
-	"Prince",
-	"Captain",
-	"Steward",
-	"Court Magician",
-	"Archivist",
-	"Merchant",
-	"Feldsher",
-	"Apothecary",
-	"Noble"
-	))
+	/datum/job/lord::title,
+	/datum/job/consort::title,
+	/datum/job/hand::title,
+	/datum/job/prince::title,
+	/datum/job/captain::title,
+	/datum/job/steward::title,
+	/datum/job/magician::title,
+	/datum/job/archivist::title,
+	/datum/job/merchant::title,
+	/datum/job/feldsher::title,
+	/datum/job/apothecary::title,
+	/datum/job/minor_noble::title,
+))
+GLOBAL_PROTECT(noble_positions)
 
 GLOBAL_LIST_INIT(garrison_positions, list(
-	"Royal Knight",
-	"Veteran",
-	"City Watchmen",
-	"Men-at-arms",
-	"Jailor",
-	"Dungeoneer",
-	"Town Elder",
-	"Forest Warden",
-	"Forest Guard"
+	/datum/job/royalguard::title,
+	/datum/job/veteran::title,
+	/datum/job/guardsman::title,
+	/datum/job/men_at_arms::title,
+	/datum/job/jailor::title,
+	/datum/job/dungeoneer::title,
+	/datum/job/mayor::title,
+	/datum/job/forestwarden::title,
+	/datum/job/forestguard::title,
 	))
+GLOBAL_PROTECT(garrison_positions)
 
 GLOBAL_LIST_INIT(church_positions, list(
-	"Priest",
-	"Acolyte",
-	"Gravetender",
-	"Inquisitor",
-	"Confessor",
-	"Templar",
-	"Adept"
+	/datum/job/priest::title,
+	/datum/job/monk::title,
+	/datum/job/undertaker::title,
+	/datum/job/inquisitor::title,
+	// "Confessor",
+	/datum/job/templar::title,
+	/datum/job/adept::title,
 	))
+GLOBAL_PROTECT(church_positions)
 
 GLOBAL_LIST_INIT(serf_positions, list(
-	"Innkeep",
-	"Armorer",
-	"Weaponsmith",
-	"Tailor",
-	"Alchemist",
-	"Artificer",
-	"Matron",
-	"Physicker",
-	"Scribe",
+	/datum/job/innkeep::title,
+	/datum/job/armorsmith::title,
+	/datum/job/weaponsmith::title,
+	/datum/job/tailor::title,
+	/datum/job/alchemist::title,
+	/datum/job/artificer::title,
+	/datum/job/matron::title,
+	/datum/job/physicker::title,
+	/datum/job/scribe::title,
 	))
+GLOBAL_PROTECT(serf_positions)
 
 GLOBAL_LIST_INIT(peasant_positions, list(
-	"Soilson",
-	"Miner",
-	"Stevedore",
-	"Butcher",
-	"Cook",
-	"Carpenter",
-	"Jester",
-	"Hunter",
-	"Fisher",
-	"Cheesemaker",
-	"Butler",
-	"Mercenary",
-	"Bard",
-	"Prisoner",
-	"Beggar",
-	"Adventurer",
-	"Pilgrim",
-	"Bandit",
+	/datum/job/farmer::title,
+	/datum/job/miner::title,
+	/datum/job/grabber::title,
+	/datum/job/butcher::title,
+	/datum/job/cook::title,
+	/datum/job/carpenter::title,
+	/datum/job/jester::title,
+	/datum/job/hunter::title,
+	/datum/job/fisher::title,
+	/datum/job/cheesemaker::title,
+	/datum/job/butler::title,
+	/datum/job/mercenary::title,
+	/datum/job/bard::title,
+	/datum/job/prisoner::title,
+	/datum/job/vagrant::title,
+	/datum/job/adventurer::title,
+	/datum/job/pilgrim::title,
+	/datum/job/bandit::title,
 ))
+GLOBAL_PROTECT(peasant_positions)
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Squire",
-	"Smithy Apprentice",
-	"Magician's Apprentice",
-	"Servant",
-	"Orphan"
+	/datum/job/squire::title,
+	/datum/job/bapprentice::title,
+	/datum/job/wapprentice::title,
+	/datum/job/servant::title,
+	/datum/job/orphan::title,
 	))
+GLOBAL_PROTECT(apprentices_positions)
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(
-	"Innkeepers Son",
-	"Orphan",
-	"Churchling",
+	/datum/job/innkeep_son::title,
+	/datum/job/orphan::title,
+	/datum/job/churchling::title,
 ))
+GLOBAL_PROTECT(youngfolk_positions)
 
 GLOBAL_LIST_INIT(allmig_positions, list(
 	"Adventurer",
-	"Pilgrim"
+	"Pilgrim",
 	))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
-	"Adventurer"
-	))
-
-GLOBAL_LIST_INIT(roguefight_positions, list(
-	"Red Captain",
-	"Red Caster",
-	"Red Ranger",
-	"Red Fighter",
-	"Green Captain",
-	"Green Caster",
-	"Green Ranger",
-	"Green Fighter"
+	"Adventurer",
 	))
 
 GLOBAL_LIST_INIT(test_positions, list(
-	"Tester"
+	"Tester",
 	))
 
 GLOBAL_LIST_EMPTY(job_assignment_order)
@@ -131,7 +127,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 GLOBAL_LIST_INIT(exp_specialmap, list(
 	EXP_TYPE_LIVING = list(), // all living mobs
 	EXP_TYPE_ANTAG = list(),
-	EXP_TYPE_GHOST = list() // dead people, observers
+	EXP_TYPE_GHOST = list(), // dead people, observers
 ))
 GLOBAL_PROTECT(exp_jobsmap)
 GLOBAL_PROTECT(exp_specialmap)
@@ -143,6 +139,6 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(!job_title)
 		return list()
 
-	for(var/datum/job/J in SSjob.occupations)
-		if(J.title == job_title)
-			return J.department_head //this is a list
+	for(var/datum/job/job as anything in SSjob.joinable_occupations)
+		if(job.title == job_title)
+			return job.department_head //this is a list

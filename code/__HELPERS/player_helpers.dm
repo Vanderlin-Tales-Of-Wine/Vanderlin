@@ -20,7 +20,7 @@
 			var/datum/job/J = SSjob.GetJob(L.job)
 			if(!J)
 				continue
-			J.current_positions = max(J.current_positions-1, 0)
+			J.adjust_current_positions(-1)
 			reopened_jobs += L.job
 
 //////////////////////////

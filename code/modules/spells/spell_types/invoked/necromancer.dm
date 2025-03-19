@@ -199,7 +199,7 @@
 	set_patron(master.patron)
 	copy_known_languages_from(master,FALSE)
 	mob_biotypes = MOB_UNDEAD
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	ambushable = FALSE
 	underwear = "Nude"
 

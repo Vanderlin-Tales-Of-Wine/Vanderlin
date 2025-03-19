@@ -2,7 +2,14 @@
 	title = "Miner"
 	tutorial = "The depths of the hills, the ends of the lands - deeper and deeper below, you seek salt, ores, rocks - \
 	the heat and encroaching darkness shepherds you, giving forth your living... Soon enough, the earth will swallow you whole."
-	faction = "Station"
+	flag = MINER
+	department_flag = PEASANTS
+	display_order = JDO_MINER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	total_positions = 12
+	spawn_positions = 12
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -15,12 +22,8 @@
 		"Half-Orc",
 		"Rakshari"
 	)
+
 	outfit = /datum/outfit/job/miner
-	flag = MINER
-	department_flag = PEASANTS
-	display_order = JDO_MINER
-	total_positions = 12
-	spawn_positions = 12
 
 /datum/outfit/job/miner/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -363,6 +363,9 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	if(!HAS_TRAIT(M, TRAIT_NASTY_EATER) && !HAS_TRAIT(M, TRAIT_ORGAN_EATER))
 		M.add_nausea(9)
 		M.adjustToxLoss(2)
+	else if(volume >= 1.5 && HAS_TRAIT(M, TRAIT_ORGAN_EATER))
+		M.apply_status_effect(/datum/status_effect/buff/foodbuff)
+		M.reagents.remove_reagent(/datum/reagent/organpoison, 1.5)
 	return ..()
 
 /datum/reagent/stampoison
