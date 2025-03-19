@@ -78,7 +78,7 @@
 		var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
 		J?.adjust_current_positions(-1)
 		antag_mind.current.unequip_everything()
-		antag_mind.add_antag_datum(/datum/antagonist/vampirelord)
+		antag_mind.add_antag_datum(/datum/antagonist/vampire/lord)
 		leader = TRUE
 		return
 	else
