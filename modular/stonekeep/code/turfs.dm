@@ -78,15 +78,15 @@
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor)
 
+/turf/open/floor/cobblerock/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
+
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblerock_alt"
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "cobblerock_alt"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor)
-
-/turf/open/floor/cobblerock/alt/cardinal_smooth(adjacencies)
-	smooth(adjacencies)
 
 /turf/open/floor/cobblerock/alt/Initialize()
 	. = ..()
@@ -249,6 +249,11 @@
 	/turf/open/floor/grass/red,
 	/turf/open/floor/snow)
 
+/turf/open/floor/grass/mixyel/Initialize()
+	. = ..()
+	dir = pick(GLOB.cardinals)
+
+
 /turf/open/floor/grass/yel
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	smooth = SMOOTH_TRUE
@@ -297,11 +302,11 @@
 /turf/open/floor/dirt
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
-//						/turf/open/floor/cobblerock/alt,
+						/turf/open/floor/cobblerock/alt,
 						/turf/open/floor/grass,
 						/turf/open/floor/snow,
 						/turf/open/floor/dirt/muddie,
-//						/turf/open/floor/dirt/road,
+						/turf/open/floor/dirt/road,
 						)
 
 /turf/open/floor/dirt/Initialize()
@@ -313,12 +318,10 @@
 	..()
 
 /turf/open/floor/dirt/road
-	smooth = SMOOTH_MORE | SMOOTH_BORDER
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	smooth = SMOOTH_TRUE | SMOOTH_BORDER
 	neighborlay = "oldroad"
-	canSmoothWith = list(/turf/open/floor,
-						/turf/closed/mineral,
-						/turf/closed/wall/mineral,
-						/turf/open/floor/grass,
+	canSmoothWith = list(/turf/open/floor/grass,
 						/turf/open/floor/snow,
 						/turf/open/floor/dirt/,
 						/turf/open/floor/dirt/muddie,
@@ -329,10 +332,7 @@
 	hidden_truffles = FALSE
 	hidden_toxicshrooms = FALSE
 	if(istype(loc, /area/rogue/outdoors/bog/wetlands))
-		icon = 'modular/stonekeep/icons/turfs.dmi'
 		icon_state = "oldroad"
-//		neighborlay = "oldroad"
-
 
 /turf/open/floor/dirt/muddie
 	desc = "Your feet sink into this soft ground easily."

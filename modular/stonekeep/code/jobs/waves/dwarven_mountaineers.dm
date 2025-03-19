@@ -1,3 +1,10 @@
+/* Notes-
+Dwarf focus, got some mining/smithing skills.
+Encouraged to go clear the Outpost dungeon, but can do anything really.
+Fairly low power, got some crafting options.
+Spawn in the mountain area.
+*/
+
 /datum/migrant_role/sk/dwarf_mountaineers/mountaineer
 	name = "Mountaineer"
 	greet_text = "You are a member of a dwarven's expedition, here to make contact with your kin in the Outpost northeast of the hamlet, and help secure your clans influence in the region."

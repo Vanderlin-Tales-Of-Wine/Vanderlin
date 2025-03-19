@@ -11,7 +11,7 @@
 		"Dark Elf"
 	)
 	outfit = /datum/outfit/job/sk/adventurer/assassin
-	category_tags = list(CTAG_PILGRIM)
+	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 2
 	min_pq = -10
 	pickprob = 100

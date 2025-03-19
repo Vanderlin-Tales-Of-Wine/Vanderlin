@@ -1,4 +1,10 @@
-/datum/migrant_role/sk/knight_errant
+/* Notes-
+Strong knight and weak squire with some crafting/bow skills
+Bit overpowered, but comparable to rare adventurers.
+Spawns in forest area.
+*/
+
+/datum/migrant_role/sk/errant/knight
 	name = "Knight Errant"
 	greet_text = "You are an Knight Errant, you have embarked alongside your squire on a voyage to fullfil your knightly vows."
 	outfit = /datum/outfit/job/sk_migration/knight_errant
@@ -6,6 +12,11 @@
 	allowed_sexes = list(MALE)
 	grant_lit_torch = TRUE
 	advjob_examine = FALSE
+
+/datum/migrant_role/sk/errant/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.forestroad_starts))
+
 /datum/outfit/job/sk_migration/knight_errant/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/helmet/heavy/chevalier
@@ -46,7 +57,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
-/datum/migrant_role/sk/errant_squire
+/datum/migrant_role/sk/errant/squire
 	name = "Errant Squire"
 	greet_text = "You are the squire of an knight errant, they have taken you under their custody as you have shown great talents, if you keep it on, you might become a knight yourself."
 	outfit = /datum/outfit/job/sk_migration/errant_squire
@@ -98,8 +109,8 @@
 	downgrade_wave = /datum/migrant_wave/knight_errant_down
 	weight = 10
 	roles = list(
-		/datum/migrant_role/sk/knight_errant = 1,
-		/datum/migrant_role/sk/errant_squire = 1,
+		/datum/migrant_role/sk/errant/knight = 1,
+		/datum/migrant_role/sk/errant/squire = 1,
 	)
 	greet_text = "The weight of your chosen Quest grows heavier as time passes, but at least a friend makes the road less gloomy."
 
@@ -109,6 +120,6 @@
 	shared_wave_type = /datum/migrant_wave/knight_errant
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/sk/knight_errant = 1,
+		/datum/migrant_role/sk/errant/knight = 1,
 	)
 	greet_text = "The weight of your chosen Quest grows heavier as time passes. Yours is a lonely road."

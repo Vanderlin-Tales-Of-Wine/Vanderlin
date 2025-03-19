@@ -1,3 +1,9 @@
+/* Notes-
+Grenzelhoft lord embassy wave.
+Mostly freeform flavor, count + wife duo.
+Spawn in the forest area.
+*/
+
 /datum/migrant_role/sk/grenzelhoft/count
 	name = "Grenzelhoft Count"
 	greet_text = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Peninsula of Vanderlin alongside his beloved convoy and spouse."

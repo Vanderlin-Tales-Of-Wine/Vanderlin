@@ -43,6 +43,10 @@
 	brightness = 10
 	bulb_power = 1.3
 
+/obj/machinery/light/fueled/wallfire/candle
+	brightness = 8
+	bulb_power = 1
+
 /obj/machinery/light/fueled/hearth/big_fireplace
 	brightness = 11
 	bulb_power = 1.4
@@ -226,11 +230,6 @@
 // Placeholder shrines. Migth get better code at some point but use for now
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple
 	icon = 'modular/stonekeep/icons/temple.dmi'
-/obj/machinery/light/fueled/wallfire/candle/lamp/temple/Initialize()
-	light_outer_range =  6
-	brightness = 9
-	. = ..()
-
 
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/noc
 	icon_state = "noc1"
@@ -333,8 +332,6 @@
 
 
 
-/obj/structure/flora/rock/pile
-	density = FALSE
 
 /obj/structure/chimney
 	desc = "Too narrow for a normal sized person to squeeze through. Covered in soot."
@@ -343,10 +340,10 @@
 	icon_state = "chimney"
 /obj/structure/chimney/MouseDrop_T(obj/O, mob/living/carbon/user)
 	. = ..()
-//	var/mob/living/carbon/H = user
 	if(!in_range(src, user))
 		return
-	if(!user.mind.get_skill_level(/datum/skill/misc/climbing) >= 3)	// Climb 4 and above can chimney climb
+	if(user.mind.get_skill_level(/datum/skill/misc/climbing) <= 4)	// Climb 4 and above can chimney climb
+		to_chat(user, "<span class='warning'>I would not fit in a chimney, stop thinking foolish things.</span>")
 		return
 	playsound(src, 'sound/foley/ladder.ogg', 100, FALSE)
 	if(!do_after(user, 3 SECONDS, src))
@@ -358,9 +355,9 @@
 	destination = locate(chimney.x, chimney.y, chimney.z - 1)
 	if(isliving(user))
 		mob_move_travel_z_level(user, destination)
-	user.adjustBruteLoss(5)		// Climber takes some damage
-	user.AdjustStun(30)
-	user.AdjustKnockdown(20)
+	user.adjustBruteLoss(pick(5,15))		// Climber takes some damage
+	user.AdjustStun(pick(40,50))
+	user.AdjustKnockdown(pick(25,30))
 
 
 /obj/structure/bars/cemetery/vines
@@ -470,6 +467,13 @@
 
 // =================================================================
 // =========================	FLORA	============================
+
+/obj/structure/flora/grass/update_icon()
+	. = ..()
+	alpha = 220
+
+/obj/structure/flora/rock/pile
+	density = FALSE
 
 /obj/structure/flora/tree/neu
 	name = "BUGREPORT MORONGOLOID HAS USED TEMPLATE TREE"

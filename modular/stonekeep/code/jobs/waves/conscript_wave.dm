@@ -1,19 +1,22 @@
-// Idea is shit stat old guy with ok gear and great skills + peasants with random as hell stats and dogshit equipment.
+/* Notes-
+Conscripts supposed to be low-powered and kinda fun wave. Spawns in the bog.
+Idea is shit stat old guy with ok gear and great skills + peasants with random as hell stats and dogshit equipment.
+Their default should be aligned with the crown and have some limited objective, currently defaulted to restoring the bog tollhouse.
+*/
 
 /datum/migrant_role/conscript/old_serjeant
-	name = "Old Serjeant"
+	name = "Old Serjeant"	// ROGTODO name is questionable, mayeb its ok. The no eye doesnt work.
 	greet_text = "A trusted veteran soldier, you were sent out by the King to conscript peasants for restoring the old tollhouse in the wetlands."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_ages = AGE_OLD
+	allowed_ages = list(AGE_OLD)
 	allowed_races = list(
 		"Humen",
 		"Dwarf",
 		"Half-Elf",
 		"Elf")
-	grant_lit_torch = TRUE
+	grant_lit_torch = FALSE
 	is_foreigner = FALSE
 	outfit = /datum/outfit/job/sk_migration/conscript/serjeant
-	var/forced_flaw = /datum/charflaw/noeyer
 
 /datum/outfit/job/sk_migration/conscript/serjeant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -29,6 +32,17 @@
 	beltl = /obj/item/storage/keyring/guard
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/signal_horn = 1, /obj/item/key/tollhouse = 1)
+	switch(rand(1,2))	// ROGTODO some sort of check to prevent double blindness due to picked flaw cyclops
+		if(1)
+			mask = /obj/item/clothing/face/eyepatch/left
+			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+			head?.add_wound(/datum/wound/facial/eyes/left/permanent)
+			H.update_fov_angles()
+		else
+			mask = /obj/item/clothing/face/eyepatch
+			var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
+			head?.add_wound(/datum/wound/facial/eyes/right/permanent)
+			H.update_fov_angles()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -52,6 +66,7 @@
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 	H.verbs |= /mob/proc/haltyell
+	l_hand = /obj/item/flashlight/flare/torch/prelit
 
 /datum/migrant_role/conscript/peasant
 	name = "Peasant Conscript"
@@ -126,11 +141,11 @@
 	. = ..()
 	character.forceMove(pick(GLOB.bogroad_starts))
 
-/datum/migrant_wave/conscript_labor
-	name = "Forced labor gang"
+/datum/migrant_wave/conscripts
+	name = "New Conscripts"
 	max_spawns = 2
 	shared_wave_type = /datum/migrant_wave/knight_errant
-	downgrade_wave = /datum/migrant_wave/conscript_labor_down
+	downgrade_wave = /datum/migrant_wave/conscripts_down
 	weight = 40
 	roles = list(
 		/datum/migrant_role/conscript/old_serjeant = 1,
@@ -138,9 +153,9 @@
 	)
 	greet_text = "Your task is to restore the old tollhouse and bring order to the wetlands."
 
-/datum/migrant_wave/conscript_labor_down
-	name = "Forced labor gang"
-	shared_wave_type = /datum/migrant_wave/conscript_labor
+/datum/migrant_wave/conscripts_down
+	name = "New Conscripts"
+	shared_wave_type = /datum/migrant_wave/conscripts
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/conscript/old_serjeant = 1,

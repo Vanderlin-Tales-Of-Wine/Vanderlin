@@ -14,6 +14,8 @@ GLOBAL_LIST_EMPTY(forestevil_starts)
 GLOBAL_LIST_EMPTY(mountainevil_starts)
 
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
+#define CTAG_SKHAND			"CAT_SKHAND"
+#define CTAG_SKWOODSMAN		"CAT_SKWOODSMAN"
 
 /mob/living/carbon/human
 	// Another Boolean. But this time entirely for Kaizoku content to define those whom Abyssariads considers 'impure', and for champions.

@@ -1,4 +1,9 @@
-// ==========	Updated to new Kaizoku garrison	====================
+/* Notes-
+The idea is Kaizoku warriors are the garrison, a force sent from a foreign lord to support his ally.
+Honor-focused, theyre supposed to swear loyalty to the monarch publically on the start of the week to reinforce this.
+Archers, spearmen, scouts, theyre meant to be on par with adventurer fighters and the like, but less than rare knights and
+the like.
+*/
 /datum/job/stonekeep/garrison
 	title = "Man-at-arms"
 	flag = SK_GUARD
@@ -27,6 +32,14 @@
 	min_pq = -10
 
 	cmode_music = 'modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg'
+
+/datum/outfit/job/stonekeep/garrison // Reminder message
+	var/oath = "<br><br><font color='#855b14'><span class='bold'>Remember to renew your oath of loyalty to the Monarch in person at the start of the week.</span></font><br><br>"
+
+/datum/outfit/job/stonekeep/garrison/post_equip(mob/living/carbon/human/H)
+	..()
+	to_chat(H, oath)
+
 
 /datum/job/stonekeep/garrison/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
@@ -72,7 +85,7 @@ Design philosphy:
 - Fencer, specializes in swords and daggers. - Dodge expert, no armor training
 */
 
-/datum/advclass/garrison/footman
+/datum/advclass/sk/garrison/footman
 	name = "Garrison Footman"
 	tutorial = "You are a footman in the garrison levy. You are well versed in holding the line with a shield while wielding a trusty sword, axe, or mace in the other hand."
 	outfit = /datum/outfit/job/stonekeep/garrison/footman
@@ -105,14 +118,14 @@ Design philosphy:
 	H.change_stat(STATKEY_END, 2)
 	H.change_stat(STATKEY_CON, 1)
 
-/datum/advclass/garrison/pikeman
+/datum/advclass/sk/garrison/spearman
 	name = "Garrison Spearman"
-	tutorial = "You are a pikeman in the garrison levy. You are less fleet of foot compared to the rest, but you are burly and well practiced with spears, pikes, billhooks - all the various polearms for striking enemies from a distance."
-	outfit = /datum/outfit/job/stonekeep/garrison/pikeman
+	tutorial = "Chosen for size and brawn, wielding polearms. You are less fleet of foot compared to the rest, but you are burly and well practiced with spears, pikes, billhooks - all the various polearms for striking enemies from a distance."
+	outfit = /datum/outfit/job/stonekeep/garrison/spearman
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/stonekeep/garrison/pikeman/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/spearman/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/chainmail/tatami
@@ -146,7 +159,7 @@ Design philosphy:
 			var/obj/item/weapon/polearm/halberd/bardiche/naginata/P = new()
 			H.put_in_hands(P, forced = TRUE)
 
-/datum/advclass/garrison/archer
+/datum/advclass/sk/garrison/archer
 	name = "Garrison Archer"
 	tutorial = "You are an archer in the garrison levy. Your training with bows and crossbows makes you a formidable threat when perched atop the walls or rooftops, raining arrows or bolts down upon foes with impunity."
 	outfit = /datum/outfit/job/stonekeep/garrison/archer
@@ -186,14 +199,14 @@ Design philosphy:
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
-/datum/advclass/garrison/fencer
+/datum/advclass/sk/garrison/scout
 	name = "Garrison Scout"
 	tutorial = "You are a fencer in the garrison levy. If nothing else you know a simple truth, there are few problems that cannot be resolved with quick feet and the precise application of a deft blade."
-	outfit = /datum/outfit/job/stonekeep/garrison/fencer
+	outfit = /datum/outfit/job/stonekeep/garrison/scout
 
 	category_tags = list(CTAG_GARRISON)
 
-/datum/outfit/job/stonekeep/garrison/fencer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/garrison/scout/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, "<span class='warning'>My clan was bound to sworn to the king's cause under the Heavenly Emperor's will. As an Ashigaru retainer, their lineage is held in high regard, and I shall serve their bloodline as I would my daimyo.")
 	armor = /obj/item/clothing/armor/leather/splint/kikko

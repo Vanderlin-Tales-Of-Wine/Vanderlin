@@ -49,21 +49,21 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		var/prev_real_name = H.real_name
-		var/prev_name = H.name
-		var/honorary = "Emir"
-		if(H.gender == FEMALE)
-			honorary = "Amirah"
-		H.real_name = "[honorary] [prev_real_name]"
-		H.name = "[honorary] [prev_name]"
-		if(!H.has_language(/datum/language/zybantine))
-			H.grant_language(/datum/language/zybantine)
-			to_chat(H, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
-		H.change_stat(STATKEY_INT, 1)
-		H.change_stat(STATKEY_END, 2)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	var/prev_real_name = H.real_name
+	var/prev_name = H.name
+	var/honorary = "Emir"
+	if(H.gender == FEMALE)
+		honorary = "Amirah"
+	H.real_name = "[honorary] [prev_real_name]"
+	H.name = "[honorary] [prev_name]"
+	if(!H.has_language(/datum/language/zybantine))
+		H.grant_language(/datum/language/zybantine)
+		to_chat(H, "<span class='info'>I can speak Zybean with ,z before my speech.</span>")
+	H.change_stat(STATKEY_INT, 1)
+	H.change_stat(STATKEY_END, 2)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 
 
 /datum/migrant_role/sk/zybantine/janissary
@@ -170,20 +170,67 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
 
+
+/datum/migrant_role/sk/zyb/slave	// ROGTODO gear and skills I guess.
+	name = "Zybantine Slave"
+	greet_text = "Chosen to come with the embassy, to do chores and keep the Emir comfortable, as well as possibly being a gift for the Monarch."
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	outfit = /datum/outfit/job/sk_migration/zyb/slave
+	grant_lit_torch = TRUE
+
+/datum/outfit/job/sk_migration/zyb/slave/pre_equip(mob/living/carbon/human/H)
+	..()
+	mask = /obj/item/clothing/mask/exoticsilkmask
+	neck = /obj/item/clothing/neck/slave_collar
+	belt =/obj/item/storage/belt/leather/exoticsilk
+	shirt = /obj/item/clothing/shirt/exoticsilkbra
+	if(H.mind)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+
+		H.change_stat(STATKEY_STR, -4)
+		H.change_stat(STATKEY_END, 2)
+		ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
+		H.cmode_music = 'sound/music/cmode/unused/combat_barbarian.ogg'
+
+
 /datum/migrant_wave/zybantine_wave
 	name = "The Ziggurat expedition"
 	max_spawns = 1
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/heartfelt)
 	weight = 25
-	downgrade_wave = /datum/migrant_wave/zybantine_wave_down
+	downgrade_wave = /datum/migrant_wave/zybantine_wave_down_one
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
 		/datum/migrant_role/sk/zybantine/qatil = 1,
-		/datum/migrant_role/sk/zybantine/janissary = 2
+		/datum/migrant_role/sk/zybantine/janissary = 1
 	)
 	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands."
 
-/datum/migrant_wave/zybantine_wave_down
+/datum/migrant_wave/zybantine_wave_down_one
+	name = "The Ziggurat expedition"
+	max_spawns = 1
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/heartfelt)
+	downgrade_wave = /datum/migrant_wave/zybantine_wave_down_two
+	can_roll = FALSE
+	roles = list(
+		/datum/migrant_role/sk/zybantine/emir = 1,
+		/datum/migrant_role/sk/zybantine/qatil = 1,
+		/datum/migrant_role/sk/zyb/slave = 1,
+	)
+	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately most of your guards died on the way here."
+
+/datum/migrant_wave/zybantine_wave_down_two
 	name = "The Ziggurat expedition"
 	max_spawns = 1
 	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/heartfelt)
@@ -191,10 +238,21 @@
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
-		/datum/migrant_role/sk/zybantine/qatil = 1,
-		/datum/migrant_role/sk/zybantine/janissary = 1
+		/datum/migrant_role/sk/zyb/slave = 1,
 	)
-	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately most of your guards died on the way here."
+	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately your guards died on the way here."
+
+/datum/migrant_wave/zybantine_wave_down_three
+	name = "The Ziggurat expedition"
+	max_spawns = 1
+	shared_wave_type = list(/datum/migrant_wave/grenzelhoft_visit,/datum/migrant_wave/zybantine_wave,/datum/migrant_wave/heartfelt)
+	can_roll = FALSE
+	roles = list(
+		/datum/migrant_role/sk/zybantine/emir = 1,
+		/datum/migrant_role/sk/zybantine/qatil = 1,
+	)
+	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately your slaves died on the way here."
+
 
 /datum/migrant_wave/zybantine_wave_down_last
 	name = "The Ziggurat expedition"
@@ -203,6 +261,6 @@
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/sk/zybantine/emir = 1,
-		/datum/migrant_role/sk/zybantine/qatil = 1,
+		/datum/migrant_role/sk/zybantine/janissary = 1,
 	)
-	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately your guards died on the way here."
+	greet_text = "The Mercator Guild sent you, respected Zybantinian to seek favorable business proposals in these lands. Unfortunately your slaves died on the way here."

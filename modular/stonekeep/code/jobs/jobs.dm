@@ -1,8 +1,13 @@
 /* Notes: the global lists copied to the main files, seems to work better when loaded there.
-Adventurer and pilgrim jobs - its either untick in config or comment out. I commented out, to maintain most compatibility with Vanderlin.
-The regular jobs disabled via the config lines in this document. That method doesnt work with advclass
-The new jobs use the /datum/outfit/job/sk typepath for outfits so they are easy to find in the select equipment drop down admin menu (rclick mob for it)
+
+Adventurer and pilgrim jobs - Vanderlin ones commented out in their files. Its either that, untick them, or make new duplicate adv job branches.
+This causes some conflicts when updated, but its easy to solve. Just accept both changes if it happens, make sure file is still commented out, done.
+Migrant waves : same as above
+
+The regular jobs disabled via the config lines in this document. That method doesnt work with advclasss or migrant waves.
+The new jobs use the /datum/outfit/job/sk typepath for outfits so they are easy to find in the select euipment drop down admin menu (rclick mob for it)
 They also use /stonekeep/ in their datum path to be easily sortable.
+
 Some jobs moved to waves, the more exotic/foreign ones mostly belong there to avoid oversaturation.*/
 
 
@@ -14,9 +19,10 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Steward",
 	"Court Magician",
 	"Archivist",
-	"Servant",
+	"Butler",
 	"Jester",
-	"Noble"
+	"Noble",
+	"Court Wizard"
 	))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
@@ -24,7 +30,7 @@ GLOBAL_LIST_INIT(garrison_positions, list(
 	"Royal Knight",
 	"Veteran",
 	"Garrison Guard",
-	"Men-at-arms",
+	"Man-at-arms",
 	"Town Elder",
 	"Squire",
 	))
@@ -45,8 +51,9 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	"Innkeep",
 	"Feldsher",
 	"Blacksmith",
+ 	"Mason",
 	"Weaver",
-	"Niteman",
+	"Nitemaster",
 	))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
@@ -55,12 +62,23 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Stevedore",
 	"Cook",
 	"Woodsman",
+	"Nitemaiden",
 	"Prisoner",
-	"Beggar",
-	"Mercenary"
+	"Mercenary",
+	"Beggar"
 	))
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
+	"Servant"
+	))
+
+GLOBAL_LIST_INIT(youngfolk_positions, list(
+	"Prisoner",
+))
+
+GLOBAL_LIST_INIT(allmig_positions, list(
+	"Adventurer",
+	"Pilgrim"
 	))
 */
 

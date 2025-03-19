@@ -89,6 +89,7 @@
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
+/*
 		H.set_species(/datum/species/goblin)
 		if(M.mind)
 			M.mind.special_role = "goblin"
@@ -123,6 +124,7 @@
 		H.faction = list("orcs")
 		H.name = "goblin"
 		H.real_name = "goblin"
+*/
 		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
@@ -141,7 +143,7 @@
 	head = pick(/obj/item/clothing/head/helmet/goblin, /obj/item/clothing/head/helmet/leather/goblin)
 	r_hand = pick(/obj/item/weapon/mace/spiked, /obj/item/weapon/flail, /obj/item/weapon/sword/sabre/scythe)
 	l_hand = /obj/item/weapon/shield/wood
-	belt = /obj/item/storage/belt/leather/rope/haiduk
+	belt = /obj/item/storage/belt/leather/rope/survival
 	shoes = /obj/item/clothing/shoes/sandals
 	neck = pick(/obj/item/clothing/neck/gorget, /obj/item/clothing/neck/coif)
 

@@ -398,15 +398,17 @@
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 
-//................ Padded Coif edit............... //
-/obj/item/clothing/neck/coif/cloth
-	dropshrink = 0.6
-
-
 /obj/item/clothing/head/crown/serpcrown/surplus
 	icon = 'icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
 
+//................ Padded Coif edit............... //
+/obj/item/clothing/neck/coif/cloth
+	dropshrink = 0.6
+
+//................ Rain hood edit............... //
+/obj/item/clothing/head/hooded/rainhood
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 
 // =============================================================================
 // ==============================	CLOAKS	====================================
@@ -457,6 +459,10 @@
 //................ Iron breastplate ............... //
 /obj/item/clothing/armor/cuirass/iron
 	icon = 'modular/stonekeep/icons/clothing.dmi'
+
+//................ Steel cuirass ............... //
+/obj/item/clothing/armor/cuirass
+	icon_state = "cuirasse"
 
 //................ Silk Jacket ............... //
 /obj/item/clothing/armor/leather/jacket/niteman
@@ -525,6 +531,7 @@
 	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
 	icon_state = "desertgown"
 	item_state = "desertgown"
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 /obj/item/clothing/shirt/robe/monkcloth	// kinda sus
 	name = "monks robes"
@@ -720,6 +727,28 @@
 		if(!L.client)
 			return
 		INVOKE_ASYNC(src, PROC_REF(get_player_input))
+
+/obj/item/clothing/shirt/tunic/noblecoat/court
+	picked = TRUE
+	colorgrenz = FALSE
+
+/obj/item/clothing/shirt/tunic/noblecoat/court/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/shirt/tunic/noblecoat/court/lordcolor(primary,secondary)
+	detail_color = secondary
+	update_icon()
+	if(ismob(loc))
+		var/mob/L = loc
+		L.update_inv_armor()
+
+/obj/item/clothing/shirt/tunic/noblecoat/court/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
 
 
 /obj/item/clothing/shirt/robe/weaver/Initialize()
@@ -1144,3 +1173,103 @@
 /obj/item/clothing/armor/brigandine/coatplates
 	desc = "A heavy armor made of smaller overlapping plates. \
 			It is said to have been invented by the most famous Haiduk khan Möngke, but as with most tales, no one knows for sure."
+
+/obj/item/clothing/neck/slave_collar
+	name = "cursed collar"
+	desc = "Siaves of value are often decorated with these unbreakable collars. Their manufacture is a well hidden Zybantean secret."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "collar"
+	allowed_race = ALL_PLAYER_RACES_BY_NAME
+	allowed_sex = list(MALE,FEMALE)
+	slot_flags = ITEM_SLOT_NECK
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/hide/cured
+
+/obj/item/clothing/neck/slave_collar/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/neck/slave_collar/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
+/obj/item/clothing/mask/exoticsilkmask
+	name = "exotic silk mask"
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "exoticsilkmask"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	body_parts_covered = NECK|MOUTH
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	sewrepair = TRUE
+
+/obj/item/clothing/shirt/exoticsilkbra
+	name = "exotic silks"
+	desc = "Fanciful gold laced silks barely able to conceal what little it covers."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "exoticsilkbra"
+	item_state = "exoticsilkbra"
+	gender = PLURAL
+	body_parts_covered = CHEST|ARMS|VITALS
+	sewrepair = TRUE
+
+/obj/item/storage/belt/leather/exoticsilk
+	name = "silk loincloth"
+	desc = "A flimsy coverage."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "exoticbelt"
+	item_state = "exoticbelt"
+
+//
+//   Velvet Dress
+//
+
+/obj/item/clothing/shirt/dress/velvetdress
+	name = "velvet dress"
+	desc = "A dress made with the finest velvet, befitting a person of high standing"
+	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
+	icon_state = "velvetdress"
+	item_state = "velvetdress"
+	detail_tag = "_detail"
+
+/obj/item/clothing/shirt/dress/velvetdress/court/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/shirt/dress/velvetdress/court/lordcolor(primary,secondary)
+	detail_color = secondary
+	update_icon()
+	if(ismob(loc))
+		var/mob/L = loc
+		L.update_inv_armor()
+
+/obj/item/clothing/shirt/dress/velvetdress/court/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+
+//
+//   Noble dress
+//
+
+/obj/item/clothing/shirt/dress/nobledress
+	name = "noble dress"
+	desc = "a noble dress, fit for a person of high standing"
+	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
+	icon_state = "nobledress"
+	item_state = "nobledress"
+

@@ -1,3 +1,9 @@
+/* Notes-
+Kaizoku lord embassy wave.
+Mostly freeform flavor, could do coups/hostile takeovers.
+Spawn in the bog area.
+*/
+
 /datum/migrant_role/sk/heartfelt/lord
 	name = "Lord of Heartfelt"
 	greet_text = "You are the proud Lord of Heartfelt, from the Fog Isles. Here to ask for aid, to claim a new throne or some more nebulous purpose."
