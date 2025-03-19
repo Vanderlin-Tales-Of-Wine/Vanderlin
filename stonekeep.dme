@@ -1898,6 +1898,8 @@
 #include "code\modules\procedural_mapping\mapGeneratorModules\mountains.dm"
 #include "code\modules\procedural_mapping\mapGeneratorModules\rogueoutdoors.dm"
 #include "code\modules\procedural_mapping\mapGenerators\cellular.dm"
+#include "code\modules\procedural_mapping\rosewood\cave.dm"
+#include "code\modules\procedural_mapping\rosewood\field.dm"
 #include "code\modules\procedural_mapping\vanderlin\anvil.dm"
 #include "code\modules\projectiles\gun.dm"
 #include "code\modules\projectiles\projectile.dm"
