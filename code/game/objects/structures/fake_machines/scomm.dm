@@ -33,7 +33,7 @@
 		. += "<span class='warning'>Uhhh... I can't read them...</span>"
 		return
 	for(var/i in 1 to length(GLOB.laws_of_the_land))
-		. += span_info("[i]" + ". " + "[GLOB.laws_of_the_land[i]]")
+		. += span_info("[i]. [GLOB.laws_of_the_land[i]]")
 
 /obj/structure/fake_machine/scomm/process()
 	if(world.time > next_decree)
