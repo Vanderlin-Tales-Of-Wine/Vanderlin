@@ -485,7 +485,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "</td>"
 					mutant_category = 0
 
-			if(pref_species.horns_list())
+			if(length(pref_species.horns_list()))
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
 
@@ -576,7 +576,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "</td>"
 					mutant_category = 0
 
-			if(pref_species.tails_list())
+			if(length(pref_species.tails_list()))
 				dat += APPEARANCE_CATEGORY_COLUMN
 
 				dat += "<h3>Tail</h3>"
@@ -588,7 +588,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "</td>"
 					mutant_category = 0
 
-			if(pref_species.ears_list())
+			if(length(pref_species.ears_list()))
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
 

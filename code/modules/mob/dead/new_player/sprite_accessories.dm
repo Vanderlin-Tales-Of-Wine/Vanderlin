@@ -1196,11 +1196,11 @@
 	color_src = SKINCOLOR
 	offsetti = TRUE
 
-/datum/sprite_accessory/ears/elfh //halfelfs are humens techincally
+/datum/sprite_accessory/ears/elfh //halfelfs are humens techincally, horcs also use these akshually
 	icon = 'icons/roguetown/mob/bodies/attachments.dmi'
 	name = "ElfH"
 	icon_state = "elf"
-	specuse = list("human")
+	specuse = list("human", "halforc")
 	color_src = SKINCOLOR
 	offsetti = TRUE
 
