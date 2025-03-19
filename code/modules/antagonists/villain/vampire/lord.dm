@@ -10,6 +10,7 @@
 	var/list/datum/antagonist/vampire/lesser/thralls = list()
 
 /datum/antagonist/vampire/lord/on_gain()
+	owner.purge_combat_knowledge()
 	. = ..()
 
 	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
