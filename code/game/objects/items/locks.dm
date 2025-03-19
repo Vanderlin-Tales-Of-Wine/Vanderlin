@@ -7,6 +7,13 @@
 	dropshrink = 0.75
 	var/lockid = null
 
+/obj/item/customlock/examine()
+	. += ..()
+	if(src.lockid)
+		. += span_info("It has been etched with [src.lockid].")
+		return
+	. += span_info("Its pins can be set with a hammer or copied from an existing lock or key.")
+
 /obj/item/customlock/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/weapon/hammer))
 		var/input = input(user, "What would you like to set the lock ID to?", "", 0) as num
@@ -18,15 +25,17 @@
 		return
 	if(istype(I, /obj/item/key))
 		var/obj/item/key/K = I
-		if(istype(I, /obj/item/key/custom))
+		if(istype(K, /obj/item/key/custom) && !K.lockid)
 			var/obj/item/key/custom/CK = I
 			if(CK.idtoset == src.lockid)
 				to_chat(user, span_notice("[I] twists cleanly in [src].")) //this makes no sense since the teeth aren't formed yet but i want people to be able to check whether the locks theyre making actually fi
 				return
+			to_chat(user, span_warning("[I] jams in [src]!"))
+			return
 		if(K.lockid == src.lockid)
 			to_chat(user, span_notice("[I] twists cleanly in [src]."))
-		else
-			to_chat(user, span_warning("[I] jams in [src]!"))
+			return
+		to_chat(user, span_warning("[I] jams in [src]!"))
 
 /obj/item/customlock/attack_right(mob/user)
 	var/held = user.get_active_held_item()

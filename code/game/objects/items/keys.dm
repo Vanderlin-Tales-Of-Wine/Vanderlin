@@ -39,15 +39,13 @@
 
 /obj/item/key/custom/examine()
 	. += ..()
-	if(src.idtoset)
-		. += span_info("It has been marked with [src.idtoset], but has not been finished.")
-		return
 	if(src.lockid)
 		. += span_info("It has been etched with [src.lockid].")
 		. += span_info("It can have a name etched with a hammer.")
 		return
-	. += span_info("It has no teeth, they can be set with a hammer or copied from an existing lock or key.")
-
+	. += span_info("Its teeth can be set with a hammer or copied from an existing lock or key.")
+	if(src.idtoset)
+		. += span_info("It has been marked with [src.idtoset], but has not been finished.")
 
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
