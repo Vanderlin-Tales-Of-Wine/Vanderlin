@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
+GLOBAL_VAR_INIT(normal_ooc_colour, "#4972bc")
 GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for OOC. Otherwise, use a custom colour.
 
 //client/verb/ooc(msg as text)
@@ -203,7 +203,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 	set hidden = FALSE
 	if(!holder)
 		return
-	GLOB.OOC_COLOR = null
+	GLOB.OOC_COLOR = GLOB.normal_ooc_colour
 	if(!check_rights(0))
 		return
 /client/verb/colorooc()
