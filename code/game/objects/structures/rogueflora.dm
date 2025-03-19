@@ -362,12 +362,8 @@
 		return TRUE
 	if(isliving(mover))
 		var/mob/living/living_mover = mover
-		living_mover.SetImmobilized(1 SECONDS)
 		if(living_mover.stat > CONSCIOUS || living_mover.resting)
 			to_chat(living_mover, span_warning("I do not have the strength to free myself from [src]..."))
-			return FALSE
-		if(!do_after(mover, 1 SECONDS, src) || !prob(40)) //you gotta STRUGGLE boy.
-			to_chat(living_mover, span_danger("I am struggling to get out of [src]."))
 			return FALSE
 		return TRUE
 	return FALSE
@@ -379,7 +375,7 @@
 		return
 
 	var/mob/living/L = AM
-	L.Immobilize(5 DECISECONDS)
+	L.Immobilize(1 SECONDS)
 
 	if(L.m_intent == MOVE_INTENT_RUN)
 		L.visible_message(span_warning("[L] crashes into \a [src]!"), span_danger("I run into \a [src]."))
@@ -398,7 +394,7 @@
 		var/obj/item/bodypart/BP = pick(H.bodyparts)
 		BP.receive_damage(10)
 		var/was_hard_collision = (H.m_intent == MOVE_INTENT_RUN || H.throwing || H.atom_flags & Z_FALLING)
-		if((prob(20) || was_hard_collision) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
+		if((was_hard_collision && prob(10)) && !HAS_TRAIT(src, TRAIT_PIERCEIMMUNE))
 			var/obj/item/natural/thorn/TH = new(src.loc)
 			BP.add_embedded_object(TH, silent = TRUE)
 			to_chat(H, span_danger("\A [TH] impales my [BP.name]."))
