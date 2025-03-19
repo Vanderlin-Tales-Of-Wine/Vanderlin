@@ -204,7 +204,6 @@ SUBSYSTEM_DEF(mapping)
 	for(var/map_json in config.other_z)
 		otherZ += load_map_config(map_json)
 	#endif
-
 	#ifndef NO_DUNGEON
 	otherZ += load_map_config("_maps/map_files/vanderlin/otherz/dungeon.json")
 	#endif
