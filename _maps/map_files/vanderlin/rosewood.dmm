@@ -5482,7 +5482,7 @@
 /area/rogue/indoors/town/manorgate)
 "dnK" = (
 /obj/structure/fluff/walldeco/customflag{
-	name = "vanderlin flag"
+	name = "rosewood flag"
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manorgate)
@@ -7721,7 +7721,7 @@
 /area/rogue/indoors/town/garrison)
 "eJl" = (
 /obj/structure/fluff/walldeco/customflag{
-	name = "vanderlin flag"
+	name = "rosewood flag"
 	},
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/manor)
@@ -12042,7 +12042,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "hkC" = (
 /obj/structure/fluff/walldeco/customflag{
-	name = "vanderlin flag"
+	name = "rosewood flag"
 	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/town)
