@@ -391,7 +391,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				//	dat += APPEARANCE_CATEGORY_COLUMN
 
 				//dat += "<h3>Eye Color</h3>"
-				dat += "<b>Eye Color: </b><a href='?_src_=prefs;preference=eyes;task=input'>Change </a>"
+				dat += "<b>Eye Color: </b><a href='?_src_=prefs;preference=eyes;task=input'>Change</a>"
 				//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Lock" : "Unlock"]</A>"
 				dat += "<br>"
 				dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
@@ -485,20 +485,18 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "</td>"
 					mutant_category = 0
 
-			/*
-			if("horns" in pref_species.default_features)
+			if(length(pref_species.horns_list()) > 1) // don't show if there's less than 2 options
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
 
 				dat += "<h3>Horns</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=horns;task=input'>[features["horns"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=horns;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
-			*/
 
 			if("frills" in pref_species.default_features)
 				if(!mutant_category)
@@ -506,7 +504,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Frills</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=frills;task=input'>[features["frills"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=frills;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -519,7 +517,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Spines</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=spines;task=input'>[features["spines"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=spines;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -532,7 +530,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Body Markings</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=body_markings;task=input'>[features["body_markings"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=body_markings;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -545,7 +543,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Legs</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=legs;task=input'>[features["legs"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=legs;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -558,7 +556,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Moth wings</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=moth_wings;task=input'>[features["moth_wings"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=moth_wings;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -571,33 +569,32 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				dat += "<h3>Moth markings</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=moth_markings;task=input'>[features["moth_markings"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=moth_markings;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
-			/*
-			if("tail_human" in pref_species.default_features)
-				if(!mutant_category)
-					dat += APPEARANCE_CATEGORY_COLUMN
+
+			if(length(pref_species.tails_list()) > 1) // don't show if there's less than 2 options
+				dat += APPEARANCE_CATEGORY_COLUMN
 
 				dat += "<h3>Tail</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=tail_human;task=input'>[features["tail_human"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=tail_human;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
-			*/
-			if(("ears" in pref_species.default_features) && !pref_species.use_f)
+
+			if(length(pref_species.ears_list()) > 1) // don't show if there's less than 2 options
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
 
-				dat += "<h3>Ears</h3>"
+				dat += "<h3>Ears:</h3>"
 
-				dat += "<a href='?_src_=prefs;preference=ears;task=input'>[features["ears"]]</a><BR>"
+				dat += "<a href='?_src_=prefs;preference=ears;task=input'>Change</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -1792,25 +1789,25 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("tail_lizard")
 					var/new_tail
-					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_lizard
+					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL:", "THE BALANCEE", GLOB.tails_list_lizard)
 					if(new_tail)
 						features["tail_lizard"] = new_tail
 
 				if("tail_human")
 					var/new_tail
-					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
+					new_tail = browser_input_list(user, "SELECT YOUR HERO'S TAIL:", "THE BALANCEE", pref_species.tails_list())
 					if(new_tail)
 						features["tail_human"] = new_tail
 
 				if("snout")
 					var/new_snout
-					new_snout = input(user, "Choose your character's snout:", "Character Preference") as null|anything in GLOB.snouts_list
+					new_snout = browser_input_list(user, "SELECT YOUR HERO'S SNOUT:", "THE SCENT",  GLOB.snouts_list)
 					if(new_snout)
 						features["snout"] = new_snout
 
 				if("horns")
 					var/new_horns
-					new_horns = input(user, "Choose your character's horns:", "Character Preference") as null|anything in pref_species.ears_list()
+					new_horns = browser_input_list(user, "SELECT YOUR HERO'S HORNS:", "THE HORN", pref_species.horns_list())
 					if(new_horns)
 						features["horns"] = new_horns
 
@@ -1822,31 +1819,31 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("wings")
 					var/new_wings
-					new_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.r_wings_list
+					new_wings = browser_input_list(user, "SELECT YOUR HERO'S WINGS:", "Character Preference", GLOB.r_wings_list)
 					if(new_wings)
 						features["wings"] = new_wings
 
 				if("frills")
 					var/new_frills
-					new_frills = input(user, "Choose your character's frills:", "Character Preference") as null|anything in GLOB.frills_list
+					new_frills = browser_input_list(user, "SELECT YOUR HERO'S FRILLS:", "Character Preference", GLOB.frills_list)
 					if(new_frills)
 						features["frills"] = new_frills
 
 				if("spines")
 					var/new_spines
-					new_spines = input(user, "Choose your character's spines:", "Character Preference") as null|anything in GLOB.spines_list
+					new_spines = input(user, "SELECT YOUR HERO'S SPINES:", "Character Preference") as null|anything in GLOB.spines_list
 					if(new_spines)
 						features["spines"] = new_spines
 
 				if("body_markings")
 					var/new_body_markings
-					new_body_markings = input(user, "Choose your character's body markings:", "Character Preference") as null|anything in GLOB.body_markings_list
+					new_body_markings = input(user, "SELECT YOUR HERO'S BODY MARKINGS:", "Character Preference") as null|anything in GLOB.body_markings_list
 					if(new_body_markings)
 						features["body_markings"] = new_body_markings
 
 				if("legs")
 					var/new_legs
-					new_legs = input(user, "Choose your character's legs:", "Character Preference") as null|anything in GLOB.legs_list
+					new_legs = input(user, "SELECT YOUR HERO'S LEGS:", "Character Preference") as null|anything in GLOB.legs_list
 					if(new_legs)
 						features["legs"] = new_legs
 

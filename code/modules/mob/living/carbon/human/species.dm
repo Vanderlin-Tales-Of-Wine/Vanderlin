@@ -454,18 +454,34 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/ears_list()
 	if(!GLOB.ears_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/ears, GLOB.ears_list)
-	var/list/spec_hair = list()
+	var/list/ears = list()
 	var/datum/sprite_accessory/X
 	for(var/O in GLOB.ears_list)
 		X = GLOB.ears_list[O]
 		if(X)
 			if(id in X.specuse)
-				spec_hair += X.name
-	if(spec_hair.len)
-		return spec_hair
+				ears += X.name
+	if(ears.len)
+		return ears
 	else
-		spec_hair += "None"
-		return spec_hair
+		ears += "None"
+		return ears
+
+/datum/species/proc/horns_list()
+	if(!GLOB.horns_list.len)
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/ears, GLOB.horns_list)
+	var/list/horns = list()
+	var/datum/sprite_accessory/X
+	for(var/O in GLOB.horns_list)
+		X = GLOB.horns_list[O]
+		if(X)
+			if(id in X.specuse)
+				horns += X.name
+	if(horns.len)
+		return horns
+	else
+		horns += "None"
+		return horns
 
 /datum/species/proc/tails_list()
 	if(!GLOB.tails_list_human.len)
@@ -634,7 +650,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.accessory = "Nothing"
 	if(H.dna)
 		H.dna.real_name = H.real_name
-		var/list/features = random_features()
+		var/list/features = get_random_species_features()
 		if(default_features["ears"])
 			features["ears"] = default_features["ears"]
 		if(default_features["tail_human"])
@@ -644,6 +660,22 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	H.update_hair()
 	H.update_body_parts()
 
+/datum/species/proc/get_random_species_features()
+	initialize_features()
+	. = list()
+	.["mcolor"] = pick("FFFFFF","7F7F7F", "7FFF7F", "7F7FFF", "FF7F7F", "7FFFFF", "FF7FFF", "FFFF7F")
+	.["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
+	.["tail_lizard"] = pick(GLOB.tails_list_lizard)
+	.["tail_human"] = pick(tails_list())
+	.["wings"] = "None"
+	.["snout"] = pick(GLOB.snouts_list)
+	.["horns"] = pick(horns_list())
+	.["ears"] = pick(ears_list())
+	.["frills"] = pick(GLOB.frills_list)
+	.["spines"] = pick(GLOB.spines_list)
+	.["body_markings"] = pick(GLOB.body_markings_list)
+	.["legs"] = "Normal Legs"
+	.["caps"] = pick(GLOB.caps_list)
 
 /datum/species/proc/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
 	// Drop the items the new species can't wear

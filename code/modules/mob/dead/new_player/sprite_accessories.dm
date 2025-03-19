@@ -1178,9 +1178,7 @@
 /datum/sprite_accessory/ears
 	icon = 'icons/mob/mutant_bodyparts.dmi'
 
-/datum/sprite_accessory/ears/none
-	name = "None"
-	icon_state = null
+	specuse = list()
 
 /datum/sprite_accessory/ears/elf
 	icon = 'icons/roguetown/mob/bodies/attachments.dmi'
