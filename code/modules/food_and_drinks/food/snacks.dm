@@ -312,11 +312,13 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
-		var/mob/living/location = loc
-		var/obj/item/trash_item = generate_trash(location)
+		var/atom/current_loc = loc
 		qdel(src)
-		if(istype(location))
-			location.put_in_hands(trash_item)
+		if(isliving(current_loc))
+			var/mob/living/mob_location = current_loc
+			mob_location.put_in_hands(generate_trash(mob_location))
+		else
+			generate_trash(current_loc.drop_location())
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
