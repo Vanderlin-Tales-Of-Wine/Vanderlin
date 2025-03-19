@@ -1,11 +1,18 @@
 /datum/job/cook
 	title = "Cook"
+	tutorial = "Slice, chop, and into the pot... \
+	you work closely with the innkeep to prepare meals for all the hungry mouths of Vanderlin. \
+	You've spent more nites than you can count cutting meat and vegetables until your fingers are bloody and raw, but it's honest work."
 	flag = COOK
 	department_flag = PEASANTS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 3
+	min_pq = -20
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -15,12 +22,9 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	tutorial = "Slice, chop, and into the pot... you work closely with the innkeep to prepare meals for all the hungry mouths of Vanderlin. You've spent more nites than you can count cutting meat and vegetables until your fingers are bloody and raw, but it's honest work."
 
 	outfit = /datum/outfit/job/cook
 	display_order = JDO_COOK
-	bypass_lastclass = TRUE
-	min_pq = -20
 	give_bank_account = 8
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 

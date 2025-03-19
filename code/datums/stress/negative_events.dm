@@ -27,7 +27,7 @@
 */
 /datum/stressevent/miasmagas
 	timer = 10 SECONDS
-	stressadd = 2
+	stressadd = 1
 	desc = "<span class='red'>Smells like death here.</span>"
 
 /datum/stressevent/peckish

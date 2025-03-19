@@ -1,10 +1,18 @@
 /datum/job/monk
 	title = "Acolyte"
+	tutorial = "Chores, exercise, prayer... and more chores. \
+	You are a humble acolyte at the temple in Vanderlin, \
+	not yet a trained guardian or an ordained priest. \
+	But who else would keep the fires lit and the floors clean?"
 	flag = MONK
 	department_flag = CHURCHMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MONK
+	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
+	min_pq = -10
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -14,14 +22,10 @@
 		"Dark Elf",
 		"Aasimar"
 	)
-	tutorial = "Chores, exercise, prayer... and more chores. You are a humble acolyte at the temple in Vanderlin, not yet a trained guardian or an ordained priest. But who else would keep the fires lit and the floors clean?"
 	allowed_patrons = ALL_TEMPLE_PATRONS
-	outfit = /datum/outfit/job/monk
 
-	display_order = JDO_MONK
+	outfit = /datum/outfit/job/monk
 	give_bank_account = TRUE
-	min_pq = -10
-	bypass_lastclass = TRUE
 
 /datum/outfit/job/monk
 	name = "Acolyte"
@@ -130,6 +134,9 @@
 		H.change_stat(STATKEY_INT, 1)
 		H.change_stat(STATKEY_END, 2) // For casting lots of spells, and working long hours without sleep at the church
 		H.change_stat(STATKEY_PER, -1)
+		if(!H.has_language(/datum/language/celestial)) // For discussing church matters with the other Clergy
+			H.grant_language(/datum/language/celestial)
+			to_chat(H, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
 
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(H, H.patron)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

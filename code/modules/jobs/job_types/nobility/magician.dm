@@ -1,10 +1,18 @@
 /datum/job/magician
 	title = "Court Magician"
+	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. \
+	A scholar of Noc, or a secret worshipper of Zizo. \
+	Indebted to the ruler for funding yils of mystical studies in these dark times, \
+	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	flag = WIZARD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MAGICIAN
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 6
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -15,15 +23,9 @@
 	)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
-	display_order = JDO_MAGICIAN
-	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
-	Indebted to the ruler for funding yils of mystical studies in these dark times, \
-	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
+
 	outfit = /datum/outfit/job/magician
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 	give_bank_account = 120
-	min_pq = 6
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 
 /datum/outfit/job/magician
@@ -52,6 +54,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
 		if(H.age == AGE_OLD)
 			armor = /obj/item/clothing/shirt/robe/courtmage
 			H.change_stat(STATKEY_SPD, -1)

@@ -1,53 +1,47 @@
 /datum/job/hand
 	title = "Hand"
+	tutorial = "You owe everything to your liege. \
+	You are the most trusted of the ruler- their sibling, in fact. \
+	You have played spymaster and confidant to the Noble-Family for so long that you are a vault of intrigue, \
+	something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. \
+	You have killed more men with those lips than any blademaster could ever claim to.\
+	You can add and remove agents with your Frumentarii scroll"
 	flag = HAND
 	department_flag = NOBLEMEN
-	faction = "Station"
+	display_order = JDO_HAND
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 10
+	bypass_lastclass = TRUE
+
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
 		"Half-Elf",
 		"Dwarf"
 	)
-	allowed_sexes = list(MALE, FEMALE)
+
 	outfit = /datum/outfit/job/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
-	display_order = JDO_HAND
-	tutorial = "You owe everything to your liege. You are the most trusted of the ruler- their sibling, in fact. You have played spymaster and confidant to the Noble-Family for so long that you are a vault of intrigue, something you exploit with potent conviction. Let no man ever forget whose ear you whisper into. Youve killed more men with those lips than any blademaster could ever claim to. You can add and remove agents with your Frumentarii scroll."
-	bypass_lastclass = TRUE
-	whitelist_req = FALSE
 	give_bank_account = 120
-	min_pq = 10
-
-/*
-/datum/job/hand/special_job_check(mob/dead/new_player/player)
-	if(!player)
-		return
-	if(!player.ckey)
-		return
-	for(var/mob/dead/new_player/Lord in GLOB.player_list)
-		if(Lord.mind.assigned_role == "King")
-			if(Lord.brohand == player.ckey)
-				return TRUE
-*/
 
 /datum/outfit/job/hand
 	job_bitflag = BITFLAG_ROYALTY
 	shoes = /obj/item/clothing/shoes/nobleboot/thighboots
 	belt = /obj/item/storage/belt/leather/steel
 
-/datum/job/hand/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/hand/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(L, FAMILY_OMMER)
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
+	var/mob/living/carbon/human/H = spawned
+	H.advsetup = 1
+	H.invisibility = INVISIBILITY_MAXIMUM
+	H.become_blind("advsetup")
 
-		addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
+	addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
 
 /datum/job/hand/proc/know_agents(mob/living/carbon/human/H)
 	if(!GLOB.roundstart_court_agents.len)
@@ -88,6 +82,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, 2)
 		H.change_stat(STATKEY_PER, 3)
 		H.change_stat(STATKEY_INT, 3)
@@ -134,6 +129,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE) // not like they're gonna break into the vault.
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_SPD, 4)
@@ -145,7 +141,9 @@
 
 /datum/advclass/hand/advisor
 	name = "Advisor"
-	tutorial = " You have played researcher and confidant to the Noble-Family for so long that you are a vault of knowledge, something you exploit with potent conviction. Let no man ever forget the knowledge you wield. You've read more books than any blademaster or spymaster could ever claim to."
+	tutorial = " You have played researcher and confidant to the Noble-Family for so long that you are a vault of knowledge, \
+	something you exploit with potent conviction. Let no man ever forget the knowledge you wield. \
+	You've read more books than any blademaster or spymaster could ever claim to."
 	outfit = /datum/outfit/job/hand/advisor
 
 	category_tags = list(CTAG_HAND)
@@ -170,6 +168,7 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_INT, rand(4,5))
 		H.change_stat(STATKEY_PER, 3)
 	if(H.age == AGE_OLD)

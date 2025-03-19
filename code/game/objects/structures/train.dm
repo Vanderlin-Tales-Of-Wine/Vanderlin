@@ -10,6 +10,14 @@
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/in_use = FALSE
+	var/static/list/uncryoable = list(
+		/datum/job/lord,
+		/datum/job/hand,
+		/datum/job/prince,
+		/datum/job/consort,
+		/datum/job/priest,
+		/datum/job/captain,
+	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)
 	if(!isliving(user) || user.incapacitated())
@@ -19,16 +27,15 @@
 	if(in_use) // Someone's already going in.
 		return
 	var/mob/living/carbon/human/departing_mob = dropping
-	var/datum/job/mob_job
-	var/static/list/uncryoable = list(/datum/job/lord::title , /datum/job/hand::title , /datum/job/prince::title , /datum/job/consort::title , /datum/job/priest::title , /datum/job/captain::title)
 	if(departing_mob != user && departing_mob.client)
 		to_chat(user, span_warning("This one retains their free will. It's their choice if they want to leave for Kingsfield or not."))
 		return //prevents people from forceghosting others
 	if(departing_mob.stat == DEAD)
 		say("The dead cannot leave for Kingsfield, ensure they get a proper burial in Vanderlin.")
 		return
-	if(departing_mob.mind?.assigned_role in uncryoable)
-		say("Surely you Jest M'lady/M'lord, you have a kingdom to rule over!")
+	if(is_type_in_list(departing_mob.mind?.assigned_role, uncryoable))
+		var/title = departing_mob.gender == FEMALE ? "lady" : "lord"
+		say("Surely you jest, my [title], you have a kingdom to rule over!")
 		return //prevents noble roles from cryoing as per request of Aberra
 	if(alert("Are you sure you want to [departing_mob == user ? "leave for Kingsfield (you" : "send this person to Kingfield (they"] will be removed from the current round, the job slot freed)?", "Departing", "Confirm", "Cancel") != "Confirm")
 		return //doublechecks that people actually want to leave the round
@@ -36,15 +43,15 @@
 		return //Things have changed since the alert happened.
 	say("[user] [departing_mob == user ? "is departing for Kingsfield" : "is sending [departing_mob] to Kingsfield!"]")
 	in_use = TRUE //Just sends a simple message to chat that some-one is leaving
-	if(!do_after(user, 50, target = src))
+	if(!do_after(user, 5 SECONDS, src))
 		in_use = FALSE
 		return
 	in_use = FALSE
 	update_icon() //the section below handles roles and admin logging
 	var/dat = "[key_name(user)] has despawned [departing_mob == user ? "themselves" : departing_mob], job [departing_mob.job], at [AREACOORD(src)]. Contents despawned along:"
 	if(departing_mob.mind)
-		mob_job = SSjob.GetJob(departing_mob.mind.assigned_role)
-		mob_job.current_positions = max(0, mob_job.current_positions - 1)
+		var/datum/job/mob_job = departing_mob.mind.assigned_role
+		mob_job.adjust_current_positions(-1)
 	if(!length(departing_mob.contents))
 		dat += " none."
 	else
