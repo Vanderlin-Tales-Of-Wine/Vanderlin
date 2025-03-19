@@ -210,7 +210,7 @@ SUBSYSTEM_DEF(mapping)
 	//For all maps
 	otherZ += load_map_config("_maps/map_files/shared/underworld.json")
 	#ifndef NO_DUNGEON
-	otherZ += load_map_config("_maps/map_files/vanderlin/dungeon.json")
+	otherZ += load_map_config("_maps/map_files/shared/dungeon.json")
 	#endif
 	if(otherZ.len)
 		for(var/datum/map_config/OtherZ in otherZ)
