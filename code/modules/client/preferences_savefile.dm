@@ -411,10 +411,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["headshot_link"]			>> headshot_link
 	if(!is_valid_headshot_link(null, headshot_link, TRUE))
 		headshot_link = null
-	//Check if they still have patreon status
-	if(!parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-		to_chat(parent, span_notice("Your patreon status has expired! Headshot removed."))
-		headshot_link = null
 
 	//Load flavor text
 	S["flavortext"]			>> flavortext
