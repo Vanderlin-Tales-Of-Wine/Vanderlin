@@ -136,7 +136,7 @@
 /datum/supply_pack/food/cutlery
 	name = "Set of Cutlery"
 	cost = 10
-	contains = list(/obj/item/kitchen/platter/clay,
+	contains = list(/obj/item/plate/clay,
 	/obj/item/reagent_containers/glass/bowl/clay,
 	/obj/item/reagent_containers/glass/cup,
 	/obj/item/kitchen/fork,
