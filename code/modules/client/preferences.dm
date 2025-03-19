@@ -1857,7 +1857,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 						to_chat(user, "Sorry this is a patreon exclusive feature.")
 					else
-						var/accent = browser_input_list(user, "SELECT YOUR HERO'S DIALECT", "THE MIND", GLOB.accent_list, accent)
+						var/accent = browser_input_list(user, "SELECT YOUR HERO'S DIALECT", "THE MIND", GLOB.accent_list, selected_accent)
 						if(accent)
 							selected_accent = accent
 
