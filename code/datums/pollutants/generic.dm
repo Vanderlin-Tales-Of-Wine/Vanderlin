@@ -14,10 +14,10 @@
 	scent = "a rotten scent"
 	color = "#76b418"
 
-/datum/pollutant/rot/breathe_act(mob/living/carbon/victim, amount)
+/datum/pollutant/rot/breathe_act(mob/living/carbon/victim, amount, total_amount)
 	. = ..()
-	if(amount > 3)
-		victim.reagents.add_reagent(/datum/reagent/miasmagas , 1)
+	if(amount/total_amount >= 0.15)
+		victim.reagents.add_reagent(/datum/reagent/miasmagas, 1)
 
 /datum/pollutant/steam
 	name = "Steam Scent"
