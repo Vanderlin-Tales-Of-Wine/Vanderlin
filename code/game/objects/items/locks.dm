@@ -1,7 +1,4 @@
-
-
-//custom lock unfinished
-/obj/item/customlock
+/obj/item/customlock //custom lock unfinished
 	name = "unfinished lock"
 	desc = "A lock without its pins set. Endless possibilities..."
 	icon = 'icons/roguetown/items/keys.dmi'
@@ -20,35 +17,38 @@
 		lockid = "[input]"
 		return
 	if(istype(I, /obj/item/key))
-		var/obj/item/key/ID = I
-		if(ID.lockid == src.lockid)
+		var/obj/item/key/K = I
+		if(istype(I, /obj/item/key/custom))
+			var/obj/item/key/custom/CK = I
+			if(CK.idtoset == src.lockid)
+				to_chat(user, span_notice("[I] twists cleanly in [src].")) //this makes no sense since the teeth aren't formed yet but i want people to be able to check whether the locks theyre making actually fi
+				return
+		if(K.lockid == src.lockid)
 			to_chat(user, span_notice("[I] twists cleanly in [src]."))
 		else
-			to_chat(user, span_warning("[I] jams in [src]."))
-		return
-	if(istype(I, /obj/item/key_custom_blank))
-		var/obj/item/key_custom_blank/ID = I
-		if(ID.lockid == src.lockid)
-			to_chat(user, span_notice("[I] twists cleanly in [src].")) //this makes no sense since the teeth aren't formed yet but i want people to be able to check whether the locks theyre making actually fit
-		else
-			to_chat(user, span_warning("[I] jams in [src]."))
+			to_chat(user, span_warning("[I] jams in [src]!"))
 
 /obj/item/customlock/attack_right(mob/user)
-	if(istype(user.get_active_held_item(), /obj/item/key))//i need to figure out how to avoid these massive if/then trees, this sucks
-		var/obj/item/key/held = user.get_active_held_item()
-		if(held.lockid)
-			src.lockid = held.lockid
-			to_chat(user, span_notice("You align the lock's internals to [held].")) //locks for non-custom keys
-		return
-	if(istype(user.get_active_held_item(), /obj/item/key_custom_blank))
-		var/obj/item/key_custom_blank/held = user.get_active_held_item()
-		if(held.lockid)
-			src.lockid = held.lockid
+	var/held = user.get_active_held_item()
+	if(istype(held, /obj/item/key))//i need to figure out how to avoid these massive if/then trees, this sucks
+		var/obj/item/key/K = held
+		if(istype(K, /obj/item/key/custom) && !K.lockid)
+			var/obj/item/key/custom/CK = held
+			if(!CK.idtoset)
+				to_chat(user, span_warning("[held] has no teeth!"))
+				return
+			src.lockid = CK.idtoset
 			to_chat(user, span_notice("You align the lock's internals to [held]."))
+			return
+		if(!K.lockid)
+			to_chat(user, span_warning("[held] has no teeth!"))
+			return
+		src.lockid = K.lockid
+		to_chat(user, span_notice("You align the lock's internals to [held].")) //locks for non-custom keys
 		return
-	else if(istype(user.get_active_held_item(), /obj/item/weapon/hammer))
+	if(istype(held, /obj/item/weapon/hammer))
 		if(!src.lockid)
-			to_chat(user, span_notice("[src] is not ready."))
+			to_chat(user, span_notice("[src] is not ready, its pins are not set!"))
 			return
 		var/obj/item/customlock/finished/F = new (get_turf(src))
 		F.lockid = src.lockid

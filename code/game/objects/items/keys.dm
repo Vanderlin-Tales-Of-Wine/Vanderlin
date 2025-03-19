@@ -35,57 +35,73 @@
 	name = "custom key"
 	desc = "A custom key designed by a blacksmith."
 	icon_state = "brownkey"
+	var/idtoset = null
+
+/obj/item/key/custom/examine()
+	. += ..()
+	if(src.idtoset)
+		. += span_info("It has been marked with [src.idtoset], but has not been finished.")
+		return
+	if(src.lockid)
+		. += span_info("It has been etched with [src.lockid].")
+		. += span_info("It can have a name etched with a hammer.")
+		return
+	. += span_info("It has no teeth, they can be set with a hammer or copied from an existing lock or key.")
+
 
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
-		return
-	var/input = (input(user, "What would you name this key?", "", "") as text)
-	if(!input)
-		return
-	name = input + " key"
-	to_chat(user, span_notice("You rename the key to [name]."))
-
-//custom key blank
-/obj/item/key_custom_blank//i'd prefer not to make a seperate item for this honestly
-	name = "blank custom key"
-	desc = "A key without its teeth carved in. Endless possibilities..."
-	icon = 'icons/roguetown/items/keys.dmi'
-	icon_state = "brownkey"
-	w_class = WEIGHT_CLASS_TINY
-	dropshrink = 0.75
-	var/lockid = null
-
-/obj/item/key_custom_blank/attackby(obj/item/I, mob/user, params)
-	if(!istype(I, /obj/item/weapon/hammer))
+		return ..()
+	if(src.lockid) // lockid means finalised key
+		var/input = (input(user, "What would you name this key?", "", "") as text)
+		if(!input)
+			return
+		name = input + " key"
+		to_chat(user, span_notice("You rename the key to [name]."))
 		return
 	var/input = input(user, "What would you like to set the key ID to?", "", 0) as num
 	input = abs(input)
 	if(!input)
 		return
 	to_chat(user, span_notice("You set the key ID to [input]."))
-	lockid = "[input]"
+	idtoset = "[input]"
 
-/obj/item/key_custom_blank/attack_right(mob/user)
-	if(istype(user.get_active_held_item(), /obj/item/key))
-		var/obj/item/key/held = user.get_active_held_item()
-		if(held.lockid)
-			src.lockid = held.lockid
+/obj/item/key/custom/attack_right(mob/user)
+	if(src.lockid)
+		to_chat(user, span_warning("[src] has been finished, it cannot be adjusted again!"))
+		return
+	var/held = user.get_active_held_item()
+	if(istype(held, /obj/item/key))
+		var/obj/item/key/K = held
+		if(istype(K, /obj/item/key/custom) && !K.lockid)
+			var/obj/item/key/custom/CK = held
+			if(!CK.idtoset)
+				to_chat(user, span_warning("[held] has no teeth!"))
+				return
+			src.idtoset = CK.idtoset
 			to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
-		return
-	if(istype(user.get_active_held_item(), /obj/item/customlock))
-		var/obj/item/customlock/held = user.get_active_held_item()
-		if(held.lockid)
-			src.lockid = held.lockid
-			to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
-		return
-	if(istype(user.get_active_held_item(), /obj/item/weapon/hammer))
-		if(!src.lockid)
-			to_chat(user, span_notice("[src] is not ready."))
 			return
-		var/obj/item/key/custom/custom = new(get_turf(src))
-		custom.lockid = src.lockid
-		to_chat(user, span_notice("You finish [custom]."))
-		qdel(src)
+		if(!K.lockid)
+			to_chat(user, span_warning("[held] has no teeth!"))
+			return
+		src.idtoset = K.lockid
+		to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
+		return
+	if(istype(held, /obj/item/customlock))
+		var/obj/item/customlock/L = held
+		if(!L.lockid)
+			to_chat(user, span_warning("[held] has not had its pins set!"))
+			return
+		src.idtoset = L.lockid
+		to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
+		return
+	if(istype(held, /obj/item/weapon/hammer))
+		if(!src.idtoset)
+			to_chat(user, span_warning("[src] is not ready, its teeth are not set!"))
+			return
+		src.lockid = src.idtoset
+		src.idtoset = null
+		to_chat(user, span_notice("You finish [src]."))
 
 /obj/item/key/lord
 	name = "master key"
