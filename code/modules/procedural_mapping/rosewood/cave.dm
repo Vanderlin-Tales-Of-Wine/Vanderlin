@@ -13,17 +13,17 @@
 				/datum/mapGeneratorModule/rosewoodcave/wet)
 
 /datum/mapGeneratorModule/rosewoodcave
-	clusterCheckFlags = CLUSTER_CHECK_SAMES
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	clusterMax = 3
-	clusterMin = 2
+	clusterMin = 1
 	allowed_turfs = list(/turf/open/floor/naturalstone)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 	spawnableAtoms = list(/obj/structure/roguerock = 5,
 							/obj/item/natural/stone = 10,
 							/obj/item/natural/rock = 3,
-							/obj/item/natural/rock/random = 1)
-	spawnableTurfs = list(/turf/open/floor/cobblerock = 15,
-							/turf/open/floor/dirt = 5)
+							/obj/item/natural/rock/random = 0.5)
+	spawnableTurfs = list(/turf/open/floor/cobblerock = 25,
+							/turf/open/floor/dirt = 10)
 	allowed_areas = list(/area/rogue/under/town/caverogue,
 							/area/rogue/under/cavewet)
 
@@ -33,10 +33,9 @@
 	clusterMin = 2
 	allowed_turfs = list(/turf/open/floor/dirt)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
-	spawnableAtoms = list(/obj/structure/kneestingers = 1,
-							/obj/structure/flora/grass/herb/random = 1,
+	spawnableAtoms = list(/obj/structure/flora/grass/herb/random = 1,
 							/obj/item/grown/log/tree/stick = 4,
-							/obj/structure/flora/grass/bush/tundra = 2)
+							/obj/structure/flora/grass/bush_meagre/tundra = 1)
 	spawnableTurfs = list()
 	allowed_areas = list(/area/rogue/under/town/caverogue,
 							/area/rogue/under/cavewet)
@@ -45,7 +44,7 @@
 	clusterCheckFlags = CLUSTER_CHECK_NONE
 	allowed_turfs = list(/turf/open/water/sewer)
 	excluded_turfs = list()
-	spawnableAtoms = list(/obj/structure/kneestingers = 6,
+	spawnableAtoms = list(/obj/structure/kneestingers = 10,
 							/obj/structure/flora/grass/water = 4,
 							/obj/structure/flora/grass/water/reeds = 2)
 	spawnableTurfs = list()
@@ -56,7 +55,7 @@
 	allowed_turfs = list(/turf/open/water/cleanshallow)
 	excluded_turfs = list()
 	spawnableAtoms = list(/obj/structure/kneestingers = 3,
-							/obj/structure/flora/grass/water = 2,
-							/obj/structure/flora/grass/water/reeds = 6)
+							/obj/structure/flora/grass/water = 4,
+							/obj/structure/flora/grass/water/reeds = 8)
 	spawnableTurfs = list()
 	allowed_areas = list(/area/rogue/under/cavewet)
