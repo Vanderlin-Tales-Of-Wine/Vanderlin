@@ -78,6 +78,8 @@ SUBSYSTEM_DEF(role_class_handler)
 	We will cache it per server session via an assc list with a ckey leading to the datum.
 */
 /datum/controller/subsystem/role_class_handler/proc/setup_class_handler(mob/living/carbon/human/H, advclass_rolls_override = null)
+	if(!H)
+		CRASH("setup_class_handler was called without a passed mob in args!")
 	// insure they somehow aren't closing the datum they got and opening a new one w rolls
 	var/datum/class_select_handler/GOT_IT = class_select_handlers[H.client.ckey]
 	if(GOT_IT)
@@ -117,36 +119,32 @@ SUBSYSTEM_DEF(role_class_handler)
 	Since this is class handler related, might as well also have the class handler send itself into the params
 */
 /datum/controller/subsystem/role_class_handler/proc/finish_class_handler(mob/living/carbon/human/H, datum/advclass/picked_class, datum/class_select_handler/related_handler, plus_factor, special_session_queue)
-	if(!picked_class || !related_handler || !H) // ????????? This is realistically only going to happen when someones doubling up or trying to href exploit
+	if(!picked_class || !related_handler || !H) // Extreme edge case but is possible, likely href exploit or late activation
 		return FALSE
-	if(!(picked_class.maximum_possible_slots == -1)) // Is the class not set to infinite?
-		if(picked_class.total_slots_occupied >= picked_class.maximum_possible_slots) // are the occupied slots greater than or equal to the current maximum possible slots on the datum?
-			related_handler.rolled_class_is_full(picked_class) //If so we inform the datum in the off-chance some desyncing is occurring so we don't have a deadslot in their options.
-			return FALSE // Along with stop here as they didn't get it.
+	if(picked_class.maximum_possible_slots != -1)
+		if(picked_class.total_slots_occupied >= picked_class.maximum_possible_slots)
+			related_handler.rolled_class_is_full(picked_class)
+			return FALSE
 
 
 	H.advsetup = FALSE // This is actually on a lot of shit, so its a ghetto selector protector if u need one
 	picked_class.equipme(H)
 	H.invisibility = 0
-	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory // dis line sux its basically a loop anyways if i remember
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory //locate() still iterates over contents
 	qdel(GET_IT_OUT)
 	H.cure_blind("advsetup")
 
-	//If we get any plus factor at all, we run the datums boost proc on the human also.
 	if(plus_factor)
 		picked_class.boost_by_plus_power(plus_factor, H)
 
 
-	// In retrospect, If I don't just delete these Ill have to actually attempt to keep track of when a byond browser window is actually open lol
-	// soooo..... this will be the place where we take it out, as it means they finished class selection, and we can safely delete the handler.
+	// We don't track open browsers, so we need to force close them here
 	related_handler.ForceCloseMenus() // force menus closed
 
-	// Remove the key from the list and with it the value too
 	class_select_handlers.Remove(related_handler.linked_client.ckey)
-	// Call qdel on it
 	qdel(related_handler)
 
-	adjust_class_amount(picked_class, 1) // adjust the amount here, we are handling one guy right now.
+	adjust_class_amount(picked_class, 1) // we are handling one guy right now.
 
 // A dum helper to adjust the class amount, we could do it elsewhere but this will also inform any relevant class handlers open.
 /datum/controller/subsystem/role_class_handler/proc/adjust_class_amount(datum/advclass/target_datum, amount)
