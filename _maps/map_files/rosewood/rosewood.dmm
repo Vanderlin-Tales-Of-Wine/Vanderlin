@@ -2978,8 +2978,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "bQE" = (
-/obj/structure/table/wood/reinforced,
-/obj/structure/fluff/globe,
+/obj/structure/table/vtable,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "bQK" = (
@@ -12163,8 +12162,10 @@
 /turf/open/floor/carpet/red,
 /area/rogue/under/town/basement)
 "hqM" = (
-/obj/structure/table/wood/reinforced,
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/table/wood/reinforced_alt{
+	dir = 4
+	},
 /turf/open/floor/tile/masonic,
 /area/rogue/indoors/town/manor)
 "hqS" = (
@@ -15290,12 +15291,16 @@
 	},
 /area/rogue/indoors/town)
 "jpC" = (
-/mob/living/simple_animal/hostile/retaliate/wolf,
+/mob/living/simple_animal/hostile/retaliate/troll/keep{
+	name = "Alma"
+	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "jpD" = (
-/obj/structure/table/wood/reinforced,
 /obj/structure/fake_machine/atm,
+/obj/structure/table/wood/reinforced_alt{
+	dir = 8
+	},
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "jpF" = (
@@ -21133,6 +21138,10 @@
 	},
 /turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/merc_guild)
+"mPG" = (
+/obj/structure/fluff/globe,
+/turf/open/floor/tile/masonic,
+/area/rogue/indoors/town/manor)
 "mPH" = (
 /obj/structure/stairs/stone{
 	dir = 8;
@@ -21707,6 +21716,12 @@
 	icon_state = "iron_line"
 	},
 /area/rogue/under/town/sewer)
+"nhw" = (
+/mob/living/simple_animal/hostile/retaliate/troll/keep{
+	name = "Pyotr"
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "nhC" = (
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/town/basement)
@@ -22048,10 +22063,6 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
-"ntO" = (
-/mob/living/simple_animal/hostile/retaliate/wolf,
-/turf/open/floor/cobble,
-/area/rogue/under/town/basement)
 "ntV" = (
 /obj/structure/table/wood/large/corner_alt{
 	dir = 1
@@ -24931,6 +24942,12 @@
 	},
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/rtfield/safe)
+"oUU" = (
+/mob/living/simple_animal/hostile/retaliate/troll/keep{
+	name = "Grigor"
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "oUZ" = (
 /obj/structure/stairs{
 	dir = 4
@@ -26728,13 +26745,6 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/wood,
 /area/rogue/outdoors/town)
-"qcM" = (
-/obj/item/paper{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/turf/closed/wall/mineral/decostone,
-/area/rogue/indoors/town/manor)
 "qcZ" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/theatre)
@@ -28015,6 +28025,7 @@
 /area/rogue/under/town/sewer)
 "qTc" = (
 /obj/structure/fake_machine/scomm/r,
+/obj/structure/table/vtable/v2,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "qTk" = (
@@ -31541,11 +31552,6 @@
 /obj/item/recipe_book/survival,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/smithy)
-"tbM" = (
-/obj/structure/table/wood/reinforced,
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/manor)
 "tcd" = (
 /obj/structure/fake_machine/scomm/r,
 /turf/open/floor/carpet/lord/right,
@@ -31708,7 +31714,9 @@
 	pixel_x = 1;
 	pixel_y = -11
 	},
-/obj/item/reagent_containers/food/snacks/fryfish/shrimp,
+/obj/item/reagent_containers/food/snacks/fryfish/shrimp{
+	desc = "No... this... this can't be..."
+	},
 /obj/item/clothing/head/cookhat/chef{
 	pixel_y = 6
 	},
@@ -32903,6 +32911,7 @@
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 32
 	},
+/obj/structure/table/vtable,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "tPC" = (
@@ -34127,12 +34136,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "uDO" = (
-/obj/structure/fluff/globe{
-	pixel_y = 8;
-	pixel_x = 15
-	},
-/obj/structure/table/wood/reinforced,
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/structure/table/wood/reinforced_alt{
+	dir = 8
+	},
 /turf/open/floor/tile/masonic{
 	dir = 4
 	},
@@ -36385,13 +36392,6 @@
 /obj/structure/bookcase/random/myths,
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
-"vTs" = (
-/obj/item/paper{
-	pixel_x = -6;
-	pixel_y = 5
-	},
-/turf/closed/mineral,
-/area/rogue/under/town/caverogue)
 "vTv" = (
 /turf/open/floor/carpet,
 /area/rogue/under/town/caverogue)
@@ -37077,7 +37077,7 @@
 /obj/machinery/light/fueled/wallfire{
 	pixel_y = 32
 	},
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/vtable/v2,
 /turf/open/floor/carpet/lord/left,
 /area/rogue/indoors/town/manor)
 "wpX" = (
@@ -38320,8 +38320,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "xdk" = (
-/obj/structure/table/wood/reinforced,
 /obj/structure/fake_machine/scomm,
+/obj/structure/table/wood/reinforced_alt{
+	dir = 4
+	},
 /turf/open/floor/carpet/lord/left,
 /area/rogue/indoors/town/manor)
 "xdm" = (
@@ -97815,9 +97817,9 @@ isX
 aZj
 jpC
 jyq
-ntO
 jyq
-aZj
+jyq
+oUU
 aZj
 aZj
 isX
@@ -98020,7 +98022,7 @@ jyq
 jyq
 jyq
 aZj
-jpC
+aZj
 aZj
 kpd
 jyq
@@ -98420,9 +98422,9 @@ jyq
 isX
 aZj
 aZj
-jpC
 aZj
-jpC
+aZj
+aZj
 aZj
 aZj
 aZj
@@ -98621,12 +98623,12 @@ hqJ
 jyq
 isX
 aZj
-ntO
-aZj
+jyq
+nhw
 aZj
 jyq
 jyq
-ntO
+jyq
 aZj
 isX
 nZD
@@ -104901,7 +104903,7 @@ rMp
 rMp
 rMp
 rMp
-qcM
+rMp
 rMp
 rMp
 wbI
@@ -105304,7 +105306,7 @@ rof
 rof
 rof
 rof
-vTs
+rof
 rof
 rof
 rof
@@ -180041,7 +180043,7 @@ dsf
 ePb
 qgV
 rEG
-ePb
+mPG
 qgV
 ePb
 vmC
@@ -181252,7 +181254,7 @@ scb
 dmu
 rMp
 bQE
-tbM
+scb
 lwg
 lwg
 scb
