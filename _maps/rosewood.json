@@ -1,6 +1,6 @@
 {
     "map_name": "Rosewood",
-    "map_path": "map_files/vanderlin",
+    "map_path": "map_files/rosewood",
     "map_file": "rosewood.dmm",
 	"traits": [
 		{"Up": true, "Turf Weather Effects": true},
