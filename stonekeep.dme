@@ -1305,6 +1305,7 @@
 #include "code\modules\clothing\head\helmets\leather.dm"
 #include "code\modules\clothing\head\helmets\misc.dm"
 #include "code\modules\clothing\neck\_neck.dm"
+#include "code\modules\clothing\neck\keffiyeh.dm"
 #include "code\modules\clothing\neck\mercmedal.dm"
 #include "code\modules\clothing\neck\misc.dm"
 #include "code\modules\clothing\neck\psycross.dm"
