@@ -688,6 +688,7 @@
 				message_param = "kisses %t on the brow."
 			else
 				message_param = "kisses %t on \the [parse_zone(H.zone_selected)]."
+			GLOB.vanderlin_round_stats["kisses_made"]++
 	playsound(target.loc, pick('sound/vo/kiss (1).ogg','sound/vo/kiss (2).ogg'), 100, FALSE, -1)
 
 // ............... L ..................
@@ -704,6 +705,11 @@
 	if(. && iscarbon(user))
 		var/mob/living/carbon/C = user
 		return !C.silent
+
+/datum/emote/living/laugh/run_emote(mob/user, params, type_override, intentional, targetted)
+	. = ..()
+	if(.)
+		GLOB.vanderlin_round_stats["laughs_made"]++
 
 /mob/living/carbon/human/verb/emote_laugh()
 	set name = "Laugh"

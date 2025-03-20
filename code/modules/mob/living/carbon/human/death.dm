@@ -65,6 +65,8 @@
 
 	if(client || mind)
 		GLOB.vanderlin_round_stats["deaths"]++
+		if(is_noble())
+			GLOB.vanderlin_round_stats["noble_deaths"]++
 
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 	var/obj/item/organ/heart/H = getorganslot(ORGAN_SLOT_HEART)

@@ -77,6 +77,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 		return FALSE
 
 	. = TRUE //the prayer has succeeded by this point forward
+	GLOB.vanderlin_round_stats["prayers_made"]++
 
 	if(findtext(prayer, name))
 		reward_prayer(follower)

@@ -3,6 +3,7 @@
 
 GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	"deaths" = 0,
+	"noble_deaths" = 0,
 	"moat_fallers" = 0,
 	"ankles_broken" = 0,
 	"people_smitten" = 0,
@@ -12,6 +13,15 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	"triumphs_stolen" = 0,
 	"drugs_snorted" = 0,
 	"beards_shaved" = 0,
+	"trees_cut" = 0,
+	"prayers_made" = 0,
+	"fish_caught" = 0,
+	"items_pickpocketed" = 0,
+	"masterworks_forged" = 0,
+	"taxes_collected" = 0,
+	"organs_eaten" = 0,
+	"kisses_made" = 0,
+	"laughs_made" = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
@@ -188,8 +198,6 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 
 	players_report()
 
-	stats_report()
-
 	SSvote.initiate_vote("map", "Psydon")
 
 	CHECK_TICK
@@ -307,27 +315,6 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 			last.roundend_report_footer()
 
 
-	return
-
-/datum/controller/subsystem/ticker/proc/stats_report()
-	var/list/data = list()
-	data += "<br><span class='bold'>Δ--------------------Δ</span><br>"
-	data += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
-	data += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats["moat_fallers"]]"
-	data += "<br><font color='#700000'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats["ankles_broken"]]"
-	data += "<br><font color='#ffee00'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats["people_smitten"]]"
-	data += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)]L"
-	data += "<br><font color='#af2323'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
-	data += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [GLOB.vanderlin_round_stats["triumphs_awarded"]]"
-	data += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [GLOB.vanderlin_round_stats["triumphs_stolen"] * -1]"
-	data += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats["drugs_snorted"]]"
-	data += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats["beards_shaved"]]"
-	if(GLOB.confessors.len)
-		data += "<br><font color='#93cac7'><span class='bold'>Confessors:</span></font> "
-		for(var/x in GLOB.confessors)
-			data += "[x]"
-	data += "<br><br><span class='bold'>∇--------------------∇</span>"
-	to_chat(world, "[data.Join()]")
 	return
 
 /datum/controller/subsystem/ticker/proc/standard_reboot()
@@ -509,6 +496,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	set waitfor = 0
 	to_chat(C,"<a href='byond://?src=[C];playerlistrogue=1'>* SHOW PLAYER LIST *</a>")
 	to_chat(C,"<a href='byond://?src=[C];commendsomeone=1'>* Commend a Character *</a>")
+	to_chat(C,"<a href='byond://?src=[C];viewstats=1'>* View Statistics *</a>")
+	C.show_round_stats()
 	C.commendation_popup()
 
 /datum/action/report

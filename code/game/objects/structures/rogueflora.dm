@@ -75,6 +75,7 @@
 /obj/structure/flora/tree/obj_destruction(damage_flag)
 	if(stump_type)
 		new stump_type(loc)
+	GLOB.vanderlin_round_stats["trees_cut"]++
 	. = ..()
 
 
