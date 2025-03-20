@@ -236,12 +236,12 @@ SUBSYSTEM_DEF(vote)
 						break
 					choices.Add(option)
 			if("endround")
-				var/rng = rand(0, 999)
+				var/rng = rand(1, 1000)
 				if(rng > 200) // 80%
 					initiator_key = pick("Astrata", "Noc", "Dendor", "Abyssor", "Necra", "Ravox", "Xylix", "Pestra", "Malum", "Eora")
 				else if(rng > 50) // 15%
 					initiator_key = pick("Zizo", "Graggar", "Matthios", "Baotha")
-				else if (rng > 0) // 4.9%
+				else if (rng > 1) // 4.9%
 					initiator_key = "Psydon"
 				else
 					initiator_key = "Graggazo" // 0.1%
