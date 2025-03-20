@@ -5,7 +5,7 @@
 */
 
 /datum/map_adjustment/template
-	map_file_name = "vanderlin.dmm"
+	map_file_name = "roguetest.dmm"
 	blacklisted_jobs = list(
 		"Forest Guard",
 		"Beggar"
