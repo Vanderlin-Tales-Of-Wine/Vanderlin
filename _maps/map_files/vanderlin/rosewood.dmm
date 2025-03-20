@@ -3329,9 +3329,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "cbC" = (
-/obj/structure/bars{
-	alpha = 190
-	},
+/obj/structure/bars,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/garrison)
 "cbD" = (
@@ -13055,9 +13053,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "hSF" = (
-/obj/structure/bars{
-	alpha = 190
-	},
+/obj/structure/bars,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
 "hSH" = (
@@ -20959,6 +20955,15 @@
 /obj/structure/table/wood/reinforced,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
+"mKN" = (
+/obj/structure/mineral_door/bars{
+	lockid = "dungeon";
+	locked = 1
+	},
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/under/town/basement)
 "mKQ" = (
 /obj/effect/landmark/start/sapprentice{
 	dir = 4
@@ -27481,7 +27486,7 @@
 /area/rogue/indoors/town/dwarfin)
 "qDx" = (
 /obj/structure/mineral_door/bars{
-	lockid = "Taven";
+	lockid = "tavern";
 	name = "Fighting Pit"
 	},
 /turf/open/floor/blocks,
@@ -29018,6 +29023,12 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"rym" = (
+/obj/structure/bars,
+/turf/open/floor/metal{
+	icon_state = "plating2"
+	},
+/area/rogue/under/town/basement)
 "ryq" = (
 /obj/structure/table/wood/large/corner_new{
 	dir = 10
@@ -37752,7 +37763,7 @@
 /area/rogue/indoors/town/tavern)
 "wMD" = (
 /obj/structure/bars/passage{
-	redstone_id = "armorsmith"
+	redstone_id = "weaponsmith"
 	},
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/smithy)
@@ -38485,12 +38496,6 @@
 /obj/structure/fake_machine/scomm,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
-"xjY" = (
-/obj/structure/bars{
-	alpha = 190
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/town/basement)
 "xki" = (
 /obj/structure/well/climb_down,
 /turf/open/floor/dirt,
@@ -38616,9 +38621,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "xon" = (
-/obj/structure/bars{
-	alpha = 190
-	},
+/obj/structure/bars,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/garrison)
 "xoE" = (
@@ -56475,11 +56478,11 @@ qRF
 qRF
 tuM
 tuM
-rbI
-rbI
-aUd
-nhc
-knK
+uqd
+uqd
+eQX
+drS
+tSa
 tuM
 qRF
 qRF
@@ -56676,12 +56679,12 @@ qRF
 qRF
 tuM
 tuM
-rbI
-rbI
+uqd
+uqd
 fVJ
 xXR
 fVJ
-gGq
+fwA
 tuM
 qRF
 qRF
@@ -56877,13 +56880,13 @@ tuM
 qRF
 qRF
 tuM
-rbI
-rbI
+uqd
+uqd
 fVJ
 fVJ
 fVJ
 fVJ
-gGq
+fwA
 tuM
 qRF
 qRF
@@ -56898,13 +56901,13 @@ jyq
 jyq
 uqd
 uqd
-xjY
-xjY
+kpd
+kpd
 qDx
-xjY
-xjY
+kpd
+kpd
 uqd
-xjY
+kpd
 tuM
 tuM
 ids
@@ -57079,13 +57082,13 @@ ids
 qRF
 qRF
 tuM
-rbI
+uqd
 aao
 vOT
 fVJ
 vOT
 fhX
-sMh
+hUt
 tuM
 qRF
 qRF
@@ -57106,7 +57109,7 @@ aZj
 aZj
 aZj
 pTt
-xjY
+kpd
 tuM
 tuM
 ids
@@ -57281,7 +57284,7 @@ ids
 qRF
 qRF
 tuM
-rbI
+uqd
 uqd
 vOT
 vOT
@@ -57300,7 +57303,7 @@ ipx
 mwa
 lpo
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -57308,7 +57311,7 @@ aZj
 aZj
 aZj
 aZj
-xjY
+kpd
 tuM
 tuM
 ids
@@ -57483,8 +57486,8 @@ ids
 qRF
 qRF
 ids
-rbI
-uqd
+rym
+vOT
 vOT
 vOT
 vOT
@@ -57502,7 +57505,7 @@ jLj
 wJt
 jyq
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -57685,8 +57688,8 @@ tuM
 qRF
 qRF
 ids
-rbI
-uqd
+mKN
+vOT
 vOT
 lPL
 lPL
@@ -57704,7 +57707,7 @@ tex
 sAc
 jyq
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -57712,7 +57715,7 @@ aZj
 aZj
 aZj
 aZj
-xjY
+kpd
 tuM
 tuM
 tuM
@@ -57887,8 +57890,8 @@ tuM
 qRF
 qRF
 ids
-rbI
-uqd
+rym
+vOT
 vOT
 lPL
 lPL
@@ -57906,7 +57909,7 @@ tex
 iRH
 jyq
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -57914,7 +57917,7 @@ aZj
 rmj
 aZj
 aZj
-xjY
+kpd
 tuM
 tuM
 tuM
@@ -58089,7 +58092,7 @@ tuM
 qRF
 qRF
 ids
-rbI
+uqd
 uqd
 vOT
 lPL
@@ -58108,7 +58111,7 @@ tex
 vku
 jyq
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -58116,7 +58119,7 @@ aZj
 aZj
 aZj
 aZj
-xjY
+kpd
 tuM
 tuM
 tuM
@@ -58310,7 +58313,7 @@ jLj
 wJt
 jyq
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -58512,7 +58515,7 @@ njP
 sbD
 tDO
 jyq
-xjY
+kpd
 aZj
 aZj
 aZj
@@ -58520,7 +58523,7 @@ aZj
 aZj
 aZj
 aZj
-xjY
+kpd
 tuM
 tuM
 ids
@@ -58722,7 +58725,7 @@ aZj
 aZj
 aZj
 pTt
-xjY
+kpd
 tuM
 tuM
 ids
@@ -58918,13 +58921,13 @@ jyq
 jyq
 uqd
 uqd
-xjY
-xjY
+kpd
+kpd
 qDx
-xjY
-xjY
+kpd
+kpd
 uqd
-xjY
+kpd
 tuM
 ids
 ids
