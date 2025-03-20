@@ -3518,6 +3518,10 @@
 /obj/structure/fermentation_keg,
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
+"cuY" = (
+/obj/item/ash,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "cvb" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -19773,6 +19777,13 @@
 /obj/structure/giantfur/small,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"oqX" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/chest/gold,
+/obj/item/coin/copper/pile,
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "ori" = (
 /obj/structure/rack,
 /obj/item/weapon/mace/woodclub/train_sword{
@@ -32507,6 +32518,13 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
 /area/rogue/under/town/sewer)
+"xEf" = (
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
+/obj/effect/landmark/events/haunts,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/town/basement)
 "xEm" = (
 /obj/structure/stairs{
 	dir = 4
@@ -98192,7 +98210,7 @@ ejP
 bas
 bas
 bJN
-nZf
+oqX
 phh
 xBz
 mwT
@@ -99203,7 +99221,7 @@ bas
 bas
 idR
 bJN
-bET
+cuY
 nMZ
 gOl
 gOl
@@ -137792,7 +137810,7 @@ jkj
 xsd
 guQ
 ldm
-hpB
+xEf
 phh
 cGL
 cGL
