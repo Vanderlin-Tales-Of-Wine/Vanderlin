@@ -203,3 +203,88 @@
 	icon = 'icons/roguetown/mob/cabbit.dmi'
 	icon_state = "cabbit_remains"
 
+/// Rosewood trolls
+
+/mob/living/simple_animal/hostile/retaliate/troll/rosewood
+	icon = 'icons/roguetown/mob/monster/trolls.dmi'
+	name = "troll"
+	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs."
+	icon_state = "Troll"
+	icon_living = "Troll"
+	icon_dead = "Trolld"
+	pixel_x = -16
+
+	faction = list("orcs")
+	footstep_type = FOOTSTEP_MOB_HEAVY
+	emote_hear = null
+	emote_see = null
+	verb_say = "groans"
+	verb_ask = "grunts"
+	verb_exclaim = "roars"
+	verb_yell = "roars"
+
+	turns_per_move = 2
+	see_in_dark = 10
+	move_to_delay = 7
+	vision_range = 6
+	aggro_vision_range = 6
+
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/alch/horn = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/natural/hide = 2,
+						/obj/item/alch/horn = 2)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
+						/obj/item/natural/hide = 3,
+						/obj/item/alch/horn = 2)
+
+	health = TROLL_HEALTH
+	maxHealth = TROLL_HEALTH
+	food_type = list(
+					/obj/item/bodypart,
+					/obj/item/organ)
+
+	base_intents = list(/datum/intent/unarmed/claw, /datum/intent/simple/bigbite)
+	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
+	melee_damage_lower = 40
+	melee_damage_upper = 60
+	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
+
+	TOTALCON = 16
+	TOTALSTR = 16
+	TOTALSPD = 2
+	TOTALEND = 17
+
+	remains_type = /obj/effect/decal/remains/troll
+
+/mob/living/simple_animal/hostile/retaliate/troll/caerbannog/rosewood
+	name = "cabbit of the Cairne Bog"
+	desc = "That's no ordinary cabbit..."
+	icon = 'icons/roguetown/mob/cabbit.dmi'
+	icon_state = "cabbit_evil"
+	icon_living = "cabbit_evil"
+	icon_dead = "cabbit_evil_dead"
+	speak = list("HISSS", "GHRHRHRHL")
+	speak_emote = list("squeaks")
+	emote_hear = list("raises its ears.", "hisses.")
+	emote_see = list("turns his head around.", "stands with its hindlegs in guard.")
+	health = 160
+	maxHealth = 160
+	move_to_delay = 3 // FAST.
+	attack_sound = list('sound/vo/mobs/rat/aggro (1).ogg', 'sound/vo/mobs/rat/aggro (2).ogg', 'sound/vo/mobs/rat/aggro (3).ogg')
+	TOTALCON = 5
+	TOTALSTR = 5
+	TOTALSPD = 10
+	TOTALEND = 5
+	remains_type = /obj/effect/decal/remains/cabbit
+	melee_damage_lower = 20
+	melee_damage_upper = 40
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
+							/obj/item/alch/sinew = 1,
+							/obj/item/alch/bone = 1)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
+							/obj/item/alch/sinew = 2,
+							/obj/item/alch/bone = 1,
+							/obj/item/natural/fur/cabbit = 1)
