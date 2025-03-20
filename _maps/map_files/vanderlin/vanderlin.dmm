@@ -1908,7 +1908,7 @@
 "bpO" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/indoors/town/manor)
+/area/rogue/under/town/basement)
 "bpR" = (
 /obj/structure/fluff/railing/wood,
 /obj/machinery/light/fueledstreet/midlamp,
@@ -4472,6 +4472,9 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/sewer)
+"diD" = (
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/under/town/basement)
 "diG" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 1
@@ -15320,7 +15323,7 @@
 	redstone_id = 519
 	},
 /turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors/town/manor)
+/area/rogue/under/town/basement)
 "kTv" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -175157,8 +175160,8 @@ jPA
 wzo
 cIc
 cIc
-xGB
-xGB
+rDr
+rDr
 kTp
 jnP
 jPA
@@ -175359,9 +175362,9 @@ jPA
 wzo
 cIc
 cIc
-xGB
-xly
-xly
+rDr
+diD
+diD
 hPk
 jPA
 jPA
@@ -175561,9 +175564,9 @@ jPA
 wzo
 cIc
 cIc
-xGB
-xly
-xGB
+rDr
+diD
+rDr
 dOM
 jPA
 jPA
@@ -175763,9 +175766,9 @@ jPA
 wzo
 cIc
 cIc
-xGB
+rDr
 bpO
-xGB
+rDr
 uAe
 adY
 mga
