@@ -277,10 +277,8 @@
 
 	return max(0, minimal_player_age - C.player_age)
 
+//Unused as of now
 /datum/job/proc/config_check()
-	return TRUE
-
-/datum/job/proc/map_check()
 	return TRUE
 
 /datum/outfit/job
