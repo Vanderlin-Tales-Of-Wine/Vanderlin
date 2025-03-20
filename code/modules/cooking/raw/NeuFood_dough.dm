@@ -500,6 +500,17 @@
 			modified = TRUE
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			name = "[name] & mett"
+			add_overlay("metted")
+			tastes = list("bread" = 1,"spicy raw meat" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR + 2)
+			foodtype = GRAIN | MEAT | VEGETABLES
+			modified = TRUE
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/breadslice/toast

@@ -1,10 +1,23 @@
 /datum/job/prisoner
 	title = "Prisoner"
+	tutorial = "For a crime, or false allegation; as a hostage against another, \
+	or held for ransom: your fate until this day has been ill-starred save its first. \
+	You are of noble birth. Perhaps your story, which none but you recall, \
+	will move some pity from callous hearts or promises of riches parole your release. \
+	Maybe your old associates conspire now to release you in a daring rescue. \
+	Yet it is far surer that your tears will rust this cursed mask \
+	than the sun shine upon your face a freed soul once more." // changed to reduce dictation of character. Nikov.
 	flag = GRAVETENDER
 	department_flag = PEASANTS
-	faction = "Station"
+	display_order = JDO_PRISONER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 2
+	min_pq = -100
+	can_random = FALSE
+	banned_leprosy = FALSE
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -18,15 +31,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = "For a crime, or false allegation; as a hostage against another, or held for ransom: your fate until this day has been ill-starred save its first. You are of noble birth. Perhaps your story, which none but you recall, will move some pity from callous hearts or promises of riches parole your release. Maybe your old associates conspire now to release you in a daring rescue. Yet it is far surer that your tears will rust this cursed mask than the sun shine upon your face a freed soul once more." // changed to reduce dictation of character. Nikov.
 
 	outfit = /datum/outfit/job/prisoner
-	banned_leprosy = FALSE
-	display_order = JDO_PRISONER
 	give_bank_account = 173
-	min_pq = -100
-	can_random = FALSE
-	bypass_lastclass = TRUE
 
 	cmode_music = 'sound/music/cmode/towner/CombatPrisoner.ogg'
 	can_have_apprentices = FALSE
@@ -51,6 +58,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE) // per suggestion. N.
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_STR, -1) // Malnutrition. N.
 		H.change_stat(STATKEY_PER, 2) // Few distractions, idle mind, focused senses. N.
 		H.change_stat(STATKEY_INT, 2) // Given Noble trait it makes no sense they are idiots. N.

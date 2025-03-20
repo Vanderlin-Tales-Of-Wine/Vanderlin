@@ -217,14 +217,12 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "ahM" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "ahZ" = (
@@ -450,6 +448,7 @@
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 1
 	},
+/obj/effect/landmark/start/courtagent,
 /turf/open/floor/church,
 /area/rogue/indoors/town/manor)
 "ark" = (
@@ -1223,7 +1222,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "aOs" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/inquisition)
@@ -2105,7 +2104,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "bwq" = (
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
 	},
@@ -4059,14 +4058,14 @@
 /obj/item/reagent_containers/glass/bowl,
 /obj/item/reagent_containers/glass/bowl,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "cOg" = (
@@ -4142,11 +4141,11 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "cRl" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/weaponsmith{
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle/r,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/smithy)
 "cRr" = (
@@ -5144,7 +5143,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "tower";
+	lockid = "hand";
 	name = "Meeting Room"
 	},
 /turf/open/floor/wood,
@@ -5306,14 +5305,12 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "dPz" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
 /obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "dPH" = (
@@ -8075,6 +8072,14 @@
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
+"fJX" = (
+/obj/machinery/light/fueled/oven{
+	pixel_x = -32
+	},
+/obj/machinery/light/fueled/hearth,
+/obj/item/cooking/pan,
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "fKk" = (
 /obj/machinery/light/fueled/hearth,
 /turf/open/floor/ruinedwood/turned/darker,
@@ -8162,6 +8167,20 @@
 	lockid = "apartment3";
 	locked = 1;
 	name = "Apartment III"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
+"fNc" = (
+/obj/structure/closet/crate/chest/crate,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/food/snacks/meat/steak,
+/obj/item/reagent_containers/powder/flour{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/powder/flour{
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
@@ -10335,6 +10354,10 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
+"htx" = (
+/obj/structure/train,
+/turf/open/floor/metal,
+/area/rogue/under/town/sewer)
 "htM" = (
 /obj/structure/chair/stool{
 	pixel_y = 5
@@ -11029,8 +11052,6 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "hSv" = (
-/obj/structure/table/stone_small,
-/obj/item/clothing/neck/psycross/silver/malum_steel,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
@@ -11385,7 +11406,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "igW" = (
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},
@@ -11419,10 +11440,10 @@
 /turf/open/floor/carpet,
 /area/rogue/indoors/town)
 "iix" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/weaponsmith{
 	dir = 8
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -11813,7 +11834,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "iwO" = (
@@ -12747,7 +12768,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town)
 "jbT" = (
-/obj/structure/bed,
+/obj/structure/bed/hay,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/cell)
 "jbY" = (
@@ -12945,6 +12966,13 @@
 	dir = 8
 	},
 /area/rogue/outdoors/town/roofs)
+"jjY" = (
+/obj/structure/mannequin{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "jkg" = (
 /turf/open/floor/church,
 /area/rogue/indoors/town)
@@ -13862,7 +13890,7 @@
 	dir = 1
 	},
 /obj/item/paper/scroll,
-/obj/structure/feedinghole,
+/obj/structure/fake_machine/submission,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
 "jRn" = (
@@ -14261,13 +14289,6 @@
 "kfl" = (
 /turf/closed/wall/mineral/decowood,
 /area/rogue/indoors/town/shop)
-"kfv" = (
-/obj/structure/mineral_door/bars{
-	lockid = "blacksmith";
-	name = "Shrine of Malum"
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/smithy)
 "kfx" = (
 /obj/structure/window/openclose{
 	dir = 1
@@ -15088,12 +15109,8 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "kJK" = (
-/obj/structure/bed/mediocre{
-	pixel_y = 0
-	},
-/obj/item/bedsheet/pelt{
-	pixel_y = 0
-	},
+/obj/structure/bed/mediocre,
+/obj/item/bedsheet/pelt,
 /obj/effect/landmark/start/dungeoneer{
 	dir = 8
 	},
@@ -16840,7 +16857,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/clinic_large)
 "mkm" = (
-/obj/structure/feedinghole,
+/obj/structure/fake_machine/submission,
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
 "mku" = (
@@ -18107,7 +18124,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = 32
 	},
@@ -19031,11 +19048,11 @@
 /turf/open/floor/carpet,
 /area/rogue/under/town/sewer)
 "nMT" = (
-/obj/structure/bed,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "nMZ" = (
@@ -19114,7 +19131,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town)
 "nRb" = (
-/obj/structure/fluff/buysign,
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
 	},
@@ -19276,7 +19295,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "nYW" = (
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},
@@ -19895,7 +19914,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "ozw" = (
-/obj/structure/bed,
+/obj/structure/bed/wool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "ozI" = (
@@ -20965,6 +20984,10 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/shop)
+"pqV" = (
+/obj/structure/rack/shelf/big,
+/turf/open/floor/wood,
+/area/rogue/indoors/town)
 "pra" = (
 /obj/item/natural/stone,
 /turf/open/floor/dirt,
@@ -21446,12 +21469,12 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/butchershop)
 "pLv" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/armorsmith,
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/bed/wool,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
 "pLB" = (
@@ -22820,13 +22843,11 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qPE" = (
-/obj/structure/bed{
-	pixel_y = 2
-	},
-/obj/structure/bed{
-	pixel_y = 11
-	},
 /obj/effect/landmark/start/orphan,
+/obj/structure/bed/wool,
+/obj/structure/bed/wool{
+	pixel_y = 12
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "qPG" = (
@@ -23415,10 +23436,6 @@
 "rkC" = (
 /turf/closed/wall/mineral/wooddark/end,
 /area/rogue/indoors/town/smithy)
-"rkS" = (
-/obj/structure/bars,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/town/smithy)
 "rkX" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -23531,7 +23548,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/obj/structure/feedinghole{
+/obj/structure/fake_machine/submission{
 	pixel_y = 0;
 	pixel_x = -32
 	},
@@ -23857,7 +23874,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "rEq" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/steward)
@@ -26737,8 +26754,8 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/orphanage)
 "tAe" = (
-/obj/structure/fluff/sellsign{
-	name = "TRAIN SERVICE UNAVAILABLE"
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
@@ -27779,6 +27796,12 @@
 	},
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/steward)
+"ujH" = (
+/obj/structure/fluff/walldeco/bigpainting/lake{
+	pixel_x = 0
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town)
 "ukg" = (
 /obj/machinery/light/fueled/torchholder{
 	pixel_y = 26
@@ -28221,14 +28244,14 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -31308,6 +31331,13 @@
 /obj/structure/stairs/fancy/r,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
+"wLs" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/closed/wall/mineral/wood,
+/area/rogue/indoors/town)
 "wLx" = (
 /obj/structure/fluff/walldeco/painting/queen{
 	pixel_y = 32
@@ -31410,6 +31440,12 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town)
+"wOQ" = (
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
+/turf/open/floor/blocks,
+/area/rogue/outdoors/town)
 "wOR" = (
 /obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/powder/flour,
@@ -32433,8 +32469,8 @@
 	},
 /area/rogue/under/town/basement)
 "xEN" = (
-/obj/structure/bed,
 /obj/effect/landmark/start/armorsmith,
+/obj/structure/bed/wool,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/smithy)
 "xEP" = (
@@ -32701,7 +32737,9 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "xOF" = (
-/obj/structure/fluff/buysign,
+/obj/structure/fluff/buysign{
+	name = "Train to Kingsfield Reinstated"
+	},
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
@@ -58844,7 +58882,7 @@ oGi
 lfU
 lfU
 kDp
-hbV
+htx
 kDp
 qXV
 qXV
@@ -95164,7 +95202,7 @@ uOB
 qBL
 wiM
 hSy
-rkS
+weA
 hSv
 tQB
 ehF
@@ -95366,8 +95404,8 @@ uOB
 fTF
 weA
 weA
-rkS
-kfv
+weA
+weA
 tQB
 elp
 elp
@@ -98025,7 +98063,7 @@ lsl
 lsl
 lsl
 lsl
-lsl
+wOQ
 eCc
 iSk
 iSk
@@ -173957,13 +173995,13 @@ jjT
 jjT
 iBK
 acx
-acx
-acx
-hhO
-acx
-acx
-acx
-acx
+fdp
+jjT
+jjT
+jjT
+jjT
+jjT
+jjT
 fdp
 dtq
 ahZ
@@ -174160,13 +174198,13 @@ dtq
 iBK
 acx
 fdp
-jjT
-jjT
-jjT
-jjT
-jjT
-jjT
-fdp
+dtq
+dtq
+dtq
+dtq
+dtq
+dtq
+dtq
 dtq
 jNi
 iGx
@@ -174363,13 +174401,13 @@ iBK
 mEy
 fdp
 dtq
+fNc
+vxh
+fJX
+qDs
 dtq
-dtq
-kkI
-dtq
-dtq
-dtq
-dtq
+jjY
+ePm
 iGx
 iGx
 dtq
@@ -174564,16 +174602,16 @@ dtq
 iBK
 acx
 fdp
-dtq
-hJs
-dhG
+wLs
+ocA
+ocA
 ocA
 ocA
 dtq
+pqV
 iGx
-ePm
+iGx
 lCy
-iGx
 dtq
 iBK
 iBK
@@ -174767,9 +174805,9 @@ iBK
 acx
 fdp
 dtq
-qDs
-ocA
+ujH
 lyI
+ocA
 ocA
 iGs
 iGx
@@ -174969,7 +175007,7 @@ iBK
 jjT
 fdp
 dtq
-wnm
+ocA
 ocA
 cBH
 cBH

@@ -9,78 +9,74 @@
 	pixel_x = -13
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "bN" = (
 /obj/structure/chair/bench/church/mid,
 /turf/open/floor/carpet/lord/center,
-/area/rogue)
+/area/rogue/under/cave)
 "eB" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "hk" = (
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "hn" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/floor/wood,
-/area/rogue)
-"hC" = (
-/obj/machinery/light/fueled/chand,
-/turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "hZ" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8;
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "iw" = (
 /obj/structure/chair/bench/church/mid,
 /obj/structure/chair/bench/church/mid,
 /turf/open/floor/carpet/lord/center,
-/area/rogue)
+/area/rogue/under/cave)
 "kB" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "lg" = (
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "ms" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "oQ" = (
 /obj/effect/dungeon_directional_helper/north,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "qt" = (
 /turf/open/floor/hexstone{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "rp" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4;
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "sE" = (
 /obj/structure/fluff/walldeco/painting/castle,
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cave)
 "tj" = (
 /obj/structure/table/church,
 /obj/item/reagent_containers/glass/cup/golden{
@@ -92,21 +88,21 @@
 	pixel_x = 5
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "vb" = (
 /obj/structure/table/vtable/v2,
 /obj/item/statue/gold{
 	pixel_y = 14
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "vj" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1;
 	locked = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "vv" = (
 /obj/structure/table/church,
 /obj/structure/table/church/m,
@@ -119,19 +115,19 @@
 	desc = "A long dead kings Blade, Forgotten to time yet master in work."
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "wo" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "yY" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "zk" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -145,70 +141,69 @@
 	pixel_y = -8
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "zw" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "Ab" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "BU" = (
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "Cf" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "CC" = (
 /obj/structure/chair/bench/church/r,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/right,
-/area/rogue)
+/area/rogue/under/cave)
 "CT" = (
 /obj/structure/closet/crate/crafted_closet/inn/chest,
 /obj/item/clothing/shirt/robe/black,
 /obj/item/clothing/shirt/robe/mage,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "DK" = (
 /turf/closed/mineral/bedrock,
-/area/rogue)
+/area/rogue/under/cave)
 "EZ" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "FB" = (
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cave)
 "GG" = (
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Hm" = (
 /obj/structure/fluff/walldeco/bigpainting/lake,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "HK" = (
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "Ip" = (
 /obj/machinery/light/fueled/chand,
-/obj/item/coin/copper,
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/under/cave)
 "JM" = (
 /obj/structure/chair/wood/alt/chair_noble/red,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "KU" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1;
@@ -217,24 +212,24 @@
 /turf/open/floor/hexstone{
 	dir = 1
 	},
-/area/rogue)
+/area/rogue/under/cave)
 "Ll" = (
 /obj/effect/dungeon_directional_helper/east,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Ls" = (
 /obj/structure/chair/bench/church,
 /turf/open/floor/carpet/lord/left,
-/area/rogue)
+/area/rogue/under/cave)
 "LH" = (
 /obj/structure/fluff/walldeco/painting/crown,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "Ob" = (
 /obj/structure/chair/bench/church/mid,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/center,
-/area/rogue)
+/area/rogue/under/cave)
 "Oc" = (
 /obj/item/ingot/gold,
 /obj/item/ingot/gold{
@@ -246,37 +241,37 @@
 	pixel_x = 5
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Ox" = (
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "OA" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "QC" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "Rn" = (
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/carpet/lord/right,
-/area/rogue)
+/area/rogue/under/cave)
 "RJ" = (
 /turf/closed/wall/mineral/stone,
-/area/rogue)
+/area/rogue/under/cave)
 "RZ" = (
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Tf" = (
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "TG" = (
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "UK" = (
 /obj/structure/chair/bench/throne,
 /obj/item/reagent_containers/glass/bottle/redwine{
@@ -294,33 +289,33 @@
 	name = "Wine Drenched Skeleton"
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "VG" = (
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/cobblerock,
-/area/rogue)
+/area/rogue/under/cave)
 "Wp" = (
 /obj/structure/table/vtable,
 /obj/item/statue/gold/loot{
 	pixel_y = 11
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "WG" = (
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/stone/moss,
-/area/rogue)
+/area/rogue/under/cave)
 "Xm" = (
 /obj/structure/table/church{
 	dir = 1
 	},
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 "Yw" = (
 /obj/structure/chair/bench/church,
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/carpet/lord/left,
-/area/rogue)
+/area/rogue/under/cave)
 "YM" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -329,11 +324,11 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /turf/open/floor/wood,
-/area/rogue)
+/area/rogue/under/cave)
 "ZE" = (
 /obj/structure/mirror/fancy,
 /turf/open/floor/hexstone,
-/area/rogue)
+/area/rogue/under/cave)
 
 (1,1,1) = {"
 DK
@@ -715,11 +710,11 @@ qt
 Tf
 Ox
 BU
-hC
+Ip
 BU
 Ip
 BU
-hC
+Ip
 BU
 BU
 YM

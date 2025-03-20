@@ -1,24 +1,37 @@
 /datum/element/tipped_item
 	element_flags = ELEMENT_DETACH
+	var/max_reagents = 1
+	var/dip_amount = 0.5
+	var/inject_amount = 1
+	var/attack_injects = TRUE
+	var/show_examine = TRUE
 
-/datum/element/tipped_item/Attach(atom/movable/target, amount)
+/datum/element/tipped_item/Attach(atom/movable/target, _max_reagents = 1, _dip_amount = 0.5, _inject_amount = 1, _attack_injects = TRUE, _show_examine = TRUE)
 	. = ..()
 	if(!ismovableatom(target))
 		return ELEMENT_INCOMPATIBLE
+	max_reagents = _max_reagents
+	dip_amount = _dip_amount
+	inject_amount = _inject_amount
+	attack_injects = _attack_injects
+	show_examine = _show_examine
 	if(!target.reagents)
-		target.create_reagents(1)
+		target.create_reagents(max_reagents)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(target, COMSIG_ITEM_ATTACK_OBJ, PROC_REF(check_dip))
 	RegisterSignal(target, COMSIG_ITEM_PRE_ATTACK, PROC_REF(check_dip))
 	RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, PROC_REF(try_inject))
 
 /datum/element/tipped_item/Detach(datum/source, force)
 	. = ..()
-	UnregisterSignal(source, list(COMSIG_PARENT_EXAMINE, COMSIG_ITEM_PRE_ATTACK, COMSIG_ITEM_AFTERATTACK))
+	UnregisterSignal(source, list(COMSIG_PARENT_EXAMINE, COMSIG_ITEM_ATTACK_OBJ, COMSIG_ITEM_PRE_ATTACK, COMSIG_ITEM_AFTERATTACK))
 
 /datum/element/tipped_item/proc/check_dip(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
 	SIGNAL_HANDLER
 
 	if(!istype(attacked_container))
+		return
+	if(!attacked_container.reagents.total_volume)
 		return
 	if(!(attacked_container.reagents.flags & DRAINABLE))
 		return
@@ -28,21 +41,25 @@
 		return
 
 	INVOKE_ASYNC(src, PROC_REF(start_dipping), dipper, attacked_container, attacker)
-	return COMPONENT_NO_ATTACK
+	return COMPONENT_NO_ATTACK | COMPONENT_NO_ATTACK_OBJ
 
 /datum/element/tipped_item/proc/start_dipping(obj/item/dipper, obj/item/reagent_containers/attacked_container, mob/living/attacker, params)
 	if(!do_after(attacker, 2 SECONDS, attacked_container))
 		return
-	attacked_container.reagents.trans_to(dipper, 0.5, transfered_by = attacker)
+	attacked_container.reagents.trans_to(dipper, dip_amount, transfered_by = attacker)
 	attacker.visible_message(span_danger("[attacker] dips [dipper] in [attacked_container]!"), "You dip [dipper] in [attacked_container]!", vision_distance = 2)
 
-/datum/element/tipped_item/proc/try_inject(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)
+/datum/element/tipped_item/proc/try_inject(obj/item/source, atom/target, mob/user, proximity_flag = TRUE, click_parameters)
+	if(!attack_injects)
+		return
 	if(!proximity_flag)
 		return
 	if(isliving(target))
-		source.reagents.trans_to(target, 1, transfered_by = user)
+		source.reagents.trans_to(target, inject_amount, transfered_by = user)
 
 /datum/element/tipped_item/proc/on_examine(atom/movable/source, mob/user, list/examine_list)
+	if(!show_examine)
+		return
 	if(source.reagents.total_volume)
 		var/reagent_color = mix_color_from_reagents(source.reagents.reagent_list)
-		examine_list += span_red("Has been dipped in <font color=[reagent_color]>something</font>!")
+		examine_list += span_info("[source] has been dipped in <font color=[reagent_color]>something</font>!")
