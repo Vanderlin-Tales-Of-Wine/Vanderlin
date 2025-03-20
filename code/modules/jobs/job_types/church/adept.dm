@@ -1,11 +1,20 @@
 /datum/job/adept
 	title = "Adept"
+	tutorial = "You were a convicted criminal, the lowest scum of Vanderlin. \
+	Your master, the Inquisitor, saved you from the gallows \
+	and has given you true purpose in service to Psydon. \
+	You will not let him down."
 	flag = MONK
 	department_flag = CHURCHMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_SHEPHERD
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+	min_pq = 5
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -16,14 +25,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	allowed_sexes = list(MALE, FEMALE)
-	tutorial = "You were a convicted criminal, the lowest scum of Vanderlin. Your master, the Inquisitor, saved you from the gallows and has given you true purpose in service to Psydon. You will not let him down."
 
 	outfit = /datum/outfit/job/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)
-	display_order = JDO_SHEPHERD
-	bypass_lastclass = TRUE
-	min_pq = 5
 	can_have_apprentices = FALSE
 	is_foreigner = TRUE
 
@@ -147,9 +151,8 @@
 		H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 		GLOB.outlawed_players += H.real_name // Lore
 
-/datum/job/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
+/datum/job/adept/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	if(H)
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")

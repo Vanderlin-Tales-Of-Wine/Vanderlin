@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon_override_m
 	var/icon_override_f
 	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
-	var/sexes = 1		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
+	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
 	var/patreon_req
 	var/max_age = 75
 	var/list/offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
@@ -437,7 +437,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_hexcolor(list/L)
 	return L
 
-/datum/species/proc/get_skin_list()
+/datum/species/proc/get_skin_list() as /list
+	RETURN_TYPE(/list)
 	return GLOB.skin_tones
 
 /datum/species/proc/get_hairc_list()
@@ -1637,11 +1638,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/doafter_flags = I.edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
 	return do_after(H, min((I.equip_delay_self - H.STASPD), 1), timed_action_flags = doafter_flags)
 
-/datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/// Equips the necessary species-relevant gear before putting on the rest of the uniform.
+/datum/species/proc/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	return
 
-/datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.update_mutant_bodyparts()
+/datum/species/proc/post_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	return
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.type == exotic_bloodtype)
