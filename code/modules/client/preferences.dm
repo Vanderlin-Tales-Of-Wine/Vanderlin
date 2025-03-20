@@ -103,7 +103,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		(RANDOM_SKIN_TONE) = TRUE,
 		(RANDOM_EYE_COLOR) = TRUE
 	)
-	var/list/friendlyGenders = list("Male" = "male", "Female" = "female")
 	var/phobia = "spiders"
 
 	var/list/custom_names = list()
