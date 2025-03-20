@@ -102,6 +102,7 @@ All foods are distributed among various categories. Use common sense.
 	var/plated_iconstate // used in afterattack to switch the above on or off
 	var/base_icon_state // used for procs manipulating icons when sliced and the like
 	var/biting // if TRUE changes the icon state to the bitecount, for stuff like handpies. Will break unless you also set a base_icon_state
+	var/rot_away_timer
 
 /datum/intent/food
 	name = "feed"
@@ -177,6 +178,7 @@ All foods are distributed among various categories. Use common sense.
 		slice_path = null
 		cooktime = 0
 		modified = TRUE
+		rot_away_timer = QDEL_IN(src, 10 MINUTES)
 		return TRUE
 
 
@@ -310,11 +312,13 @@ All foods are distributed among various categories. Use common sense.
 	eater.taste(reagents)
 
 	if(!reagents.total_volume)
-		var/mob/living/location = loc
-		var/obj/item/trash_item = generate_trash(location)
+		var/atom/current_loc = loc
 		qdel(src)
-		if(istype(location))
-			location.put_in_hands(trash_item)
+		if(isliving(current_loc))
+			var/mob/living/mob_location = current_loc
+			mob_location.put_in_hands(generate_trash(mob_location))
+		else
+			generate_trash(current_loc.drop_location())
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
@@ -621,6 +625,7 @@ All foods are distributed among various categories. Use common sense.
 	if(contents)
 		for(var/atom/movable/something in contents)
 			something.forceMove(drop_location())
+	deltimer(rot_away_timer)
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/attack_animal(mob/M)

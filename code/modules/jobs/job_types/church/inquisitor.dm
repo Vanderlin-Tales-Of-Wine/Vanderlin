@@ -1,11 +1,20 @@
 /datum/job/inquisitor
 	title = "Inquisitor"
+	tutorial = "A recent arrival from Grenzelhoft, \
+	you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. \
+	You have been sent by your leader, the Holy Bishop, \
+	to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
 	flag = PURITAN
 	department_flag = CHURCHMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PURITAN
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 15
+	bypass_lastclass = TRUE
 
+	allowed_races = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -13,25 +22,19 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_sexes = list(MALE, FEMALE)
-
-	tutorial = "A recent arrival from Grenzelhoft, you are a member of the secretive lodges that have held to the service of Psydon since the Apotheosis War. You have been sent by your leader, the Holy Bishop, to assign the local Priest in combatting the increasing number of heretics and monsters infiltrating Vanderlin."
-	whitelist_req = FALSE
 
 	outfit = /datum/outfit/job/inquisitor
-	display_order = JDO_PURITAN
-	min_pq = 15
-	bypass_lastclass = TRUE
+	is_foreigner = TRUE
 	cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 
-/datum/job/inquisitor/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/inquisitor/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(!L.mind)
+	if(!spawned.mind)
 		return
-	if(L.mind.has_antag_datum(/datum/antagonist))
+	if(spawned.mind.has_antag_datum(/datum/antagonist))
 		return
 	var/datum/antagonist/new_antag = new /datum/antagonist/purishep()
-	L.mind.add_antag_datum(new_antag)
+	spawned.mind.add_antag_datum(new_antag)
 
 /datum/outfit/job/inquisitor
 	name = "Inquisitor"
@@ -79,6 +82,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_PER, 2)
@@ -235,7 +239,7 @@
 			else if(user.is_holding_item_of_type(/obj/item/paper/confession)) // This code is to process gettin a signed confession through torture.
 				testing("User is holding a confession.")
 				held_confession = user.is_holding_item_of_type(/obj/item/paper/confession)
-			if(!held_confession?.signed) // Check to see if the confession is already signed.
+			if(!held_confession?.signed && held_confession) // Check to see if the confession is already signed.
 				// held_confession.bad_type = "AN EVILDOER" // In case new antags are added with confession lines but have yet to be added here.
 				//this is no longer reliable as all patrons have confess lines now
 				switch(antag_type)

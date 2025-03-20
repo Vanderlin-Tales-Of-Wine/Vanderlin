@@ -79,7 +79,7 @@
 	craftdiff = 2
 
 /datum/repeatable_crafting_recipe/leather/cloak
-	name = "leather cloak"
+	name = "leather raincloak"
 	requirements = list(
 		/obj/item/natural/hide/cured = 2,
 	)

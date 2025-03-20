@@ -222,7 +222,7 @@
 		else
 			adminhelp(reply)													//sender has left, adminhelp instead
 
-#define IRC_AHELP_USAGE "Usage: ticket <close|resolve|icissue|reject|reopen \[ticket #\]|list>"
+#define IRC_AHELP_USAGE "Usage: ticket <close|resolve|icissue|mentorissue|reject|reopen \[ticket #\]|list>"
 /proc/IrcPm(target,msg,sender)
 	target = ckey(target)
 	var/client/C = GLOB.directory[target]
@@ -247,6 +247,10 @@
 				if(ticket)
 					ticket.ICIssue(irc_tagged)
 					return "Ticket #[ticket.id] successfully marked as IC issue"
+			if("mentorissue")
+				if(ticket)
+					ticket.mentorissue(irc_tagged)
+					return "Ticket #[ticket.id] successfully marked as mechanics issue"
 			if("reject")
 				if(ticket)
 					ticket.Reject(irc_tagged)

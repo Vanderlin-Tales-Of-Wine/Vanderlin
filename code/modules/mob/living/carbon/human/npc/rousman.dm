@@ -226,7 +226,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	if(src.charflaw)
 		QDEL_NULL(src.charflaw)
 	update_body()
-	faction = list("rats")
+	faction = list(FACTION_RATS)
 	name = "rousman"
 	real_name = "rousman"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -260,7 +260,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 			if(B.rotted && amount < 16 MINUTES)
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 10)
+					T.pollute_turf(/datum/pollutant/rot, 5)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()

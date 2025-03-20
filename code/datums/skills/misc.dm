@@ -63,8 +63,11 @@
 
 /datum/skill/misc/medicine
 	name = "Medicine"
-	desc = "Medicine is a skill that represents your character's ability to heal others. The higher your skill in Medicine, the more effective your healing will be." //Placeholder description.
+	desc = "Medicine is a skill that represents your character's ability to perform medicine on others. The higher your skill in Medicine, the better you can treat your patients and the faster you can perform surgery on them."
 	dream_cost_base = 3
+	dreams = list(
+		"...your hands move with practiced precision, needle and thread dancing through torn flesh like a tailor at their loom... the scent of blood and old herbs clings to you as you whisper a prayer to stave off infection... the battle rages on, but your patient will not fall today..."
+	)
 
 /datum/skill/misc/sewing
 	name = "Sewing"
