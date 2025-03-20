@@ -34,22 +34,12 @@
 		var/datum/sprite_accessory/S = X
 		if(!S)
 			continue
-		if(S.gender == NEUTER)
-			H.dna.features["horns"] = X
-			break
-		if(H.gender == S.gender)
-			H.dna.features["horns"] = X
-			break
+
 	for(var/X in H.dna.species.tails_list())
 		var/datum/sprite_accessory/S = X
 		if(!S)
 			continue
-		if(S.gender == NEUTER)
-			H.dna.features["tail_human"] = X
-			break
-		if(H.gender == S.gender)
-			H.dna.features["tail_human"] = X
-			break
+
 	H.dna.features["frills"] = pick(GLOB.frills_list)
 	H.dna.features["spines"] = pick(GLOB.spines_list)
 	H.dna.features["body_markings"] = pick(GLOB.body_markings_list)
