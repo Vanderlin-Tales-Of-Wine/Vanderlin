@@ -3606,7 +3606,7 @@
 	dir = 8;
 	name = "executive cuck chair"
 	},
-/turf/open/floor/blocks,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "cyV" = (
 /obj/structure/fluff/railing/border{
@@ -3944,7 +3944,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/blocks,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "cKd" = (
 /obj/structure/bed/wool,
@@ -5311,7 +5311,7 @@
 	name = "Rex";
 	desc = "So that's where he went..."
 	},
-/turf/open/floor/blocks,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "dPz" = (
 /obj/effect/landmark/start/orphan,
@@ -6533,7 +6533,8 @@
 /area/rogue/outdoors/river)
 "eEv" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 513
+	redstone_id = 513;
+	floor_turf = /turf/open/floor/ruinedwood/spiral
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -18930,7 +18931,8 @@
 /area/rogue/indoors/town)
 "nJM" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 512
+	redstone_id = 512;
+	floor_turf = /turf/open/floor/ruinedwood/spiral
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -28051,7 +28053,8 @@
 /area/rogue/indoors/town/clinic_large)
 "uqb" = (
 /obj/structure/fluff/wallclock,
-/turf/open/floor/blocks,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "uqd" = (
 /obj/structure/fake_machine/scomm/l,
@@ -136555,11 +136558,11 @@ jpU
 cyI
 dPm
 rDr
-bET
-bET
-nMZ
-bET
-xFJ
+guQ
+guQ
+ldm
+guQ
+hpB
 xGB
 svT
 eBo
@@ -136754,14 +136757,14 @@ vgJ
 vgJ
 rDr
 uqb
-bET
-bET
+guQ
+guQ
 rDr
-bET
+guQ
 rDr
 rDr
 rDr
-bET
+guQ
 xGB
 svT
 cGL
@@ -136960,10 +136963,10 @@ fRo
 rDr
 rDr
 cKa
-nMZ
-mVx
+ldm
+hma
 rDr
-bET
+guQ
 xGB
 svT
 cGL
@@ -137165,7 +137168,7 @@ rDr
 rDr
 rDr
 rDr
-nMZ
+ldm
 xGB
 svT
 cGL
@@ -137366,8 +137369,8 @@ xGB
 xGB
 nyB
 rDr
-bET
-bET
+guQ
+guQ
 xGB
 wYj
 cGL
