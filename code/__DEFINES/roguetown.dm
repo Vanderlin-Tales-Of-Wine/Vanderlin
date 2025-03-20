@@ -325,9 +325,10 @@ Thing can move up or down an armor class by significant changes to coverage & cr
 #define ARMOR_MAILLE		list("blunt" = 55, "slash" = 55, "stab" = 55, "piercing" = 40, "fire" = 0, "acid" = 0)
 #define ARMOR_MAILLE_GOOD	list("blunt" = 60, "slash" = 60, "stab" = 60, "piercing" = 45, "fire" = 0, "acid" = 0)
 #define ARMOR_SCALE			list("blunt" = 65, "slash" = 65, "stab" = 65, "piercing" = 65, "fire" = 0, "acid" = 0)
+#define ARMOR_BRIGANDINE	list("blunt" = 70, "slash" = 70, "stab" = 70, "piercing" = 50, "fire" = 0, "acid" = 0)
 
 // Heavy AC
-#define ARMOR_PLATE_BAD		list("blunt" = 70, "slash" = 70, "stab" = 70, "piercing" = 50, "fire" = 0, "acid" = 0)
+#define ARMOR_PLATE_BAD		list("blunt" = 75, "slash" = 75, "stab" = 75, "piercing" = 55, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE			list("blunt" = 85, "slash" = 85, "stab" = 85, "piercing" = 70, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE_GOOD	list("blunt" = 90, "slash" = 90, "stab" = 90, "piercing" = 85, "fire" = 0, "acid" = 0)
 

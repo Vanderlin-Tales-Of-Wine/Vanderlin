@@ -5,12 +5,12 @@
 
 /datum/supply_pack/instruments/mbox
 	name = "Dwarven Music Box"
-	cost = 150
+	cost = 90
 	contains = /obj/item/dmusicbox
 
 /datum/supply_pack/instruments/flute
 	name = "Flute"
-	cost = 10
+	cost = 15
 	contains = /obj/item/instrument/flute
 
 /datum/supply_pack/instruments/harp
@@ -40,7 +40,7 @@
 
 /datum/supply_pack/instruments/hurdygurdy
 	name = "Hurdy-Gurdy"
-	cost = 30
+	cost = 25
 	contains = list(/obj/item/instrument/hurdygurdy)
 
 /datum/supply_pack/instruments/viola
@@ -50,5 +50,5 @@
 
 /datum/supply_pack/instruments/vocals
 	name = "Vocalist's Talisman"
-	cost = 40
+	cost = 35
 	contains = list(/obj/item/instrument/vocals)
