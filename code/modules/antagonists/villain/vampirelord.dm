@@ -413,7 +413,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	set name = "Demand Submission"
 	set category = "VAMPIRE"
 	if(SSmapping.retainer.king_submitted)
-		to_chat(src, "I am already the Master of Vanderlin.")
+		to_chat(src, "I am already the Master of [SSmapping.config.map_name].")
 		return
 	for(var/mob/living/carbon/human/H in oview(1))
 		if(SSticker.rulermob == H)
