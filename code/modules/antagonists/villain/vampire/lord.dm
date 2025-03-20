@@ -7,7 +7,7 @@
 		"FIRSTBORNE CHILD OF KAIN!",
 	)
 	var/obj/structure/vampire/bloodpool/mypool
-	var/list/datum/antagonist/vampire/lesser/thralls = list()
+	var/vamplevel = 0
 
 /datum/antagonist/vampire/lord/on_gain()
 	owner.purge_combat_knowledge()

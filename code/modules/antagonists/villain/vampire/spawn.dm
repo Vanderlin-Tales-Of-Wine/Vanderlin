@@ -19,19 +19,11 @@
 		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
 
 /datum/antagonist/vampire/lesser/handle_vitae(change, tribute)
-	var/tempcurrent
-	if(change > 0)
-		tempcurrent += change
-		if(tempcurrent > vmax)
-			tempcurrent = vmax // to prevent overflow
-	if(change < 0)
-		tempcurrent += change
-		if(tempcurrent < 0)
-			tempcurrent = 0 // to prevent excessive negative.
-	vitae = tempcurrent
+	vitae = clamp(vitae + change, 0, vmax)
 	. = ..()
 
 /mob/living/carbon/human/proc/spawn_pick_class()
+//TODO: This should just be an advclass spawn
 	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Thief", "Treasure Hunter", "Mage")
 	var/list/visoptions = list()
 
@@ -56,5 +48,8 @@
 	to_chat(owner.current, span_userdanger("We are awakened from our slumber, Spawn of the feared Vampire Lord."))
 	. = ..()
 
+/datum/antagonist/vampire/lesser/vamp_look()
+	. = ..()
+
 /datum/antagonist/vampire/lesser/move_to_spawnpoint()
-	owner.current.forceMove(pick(GLOB.vlordspawn_starts))
+	owner.current.forceMove(pick(GLOB.vspawn_starts))

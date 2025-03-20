@@ -13,11 +13,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		"CHILD OF KAIN!",
 	)
 	var/isspawn = FALSE
-	var/disguised = FALSE
-	var/ascended = FALSE
+	var/disguised = FALSE //! spawn
+	var/ascended = FALSE //! lord
 	var/starved = FALSE
 	var/sired = FALSE
-	var/vamplevel = 0
 	var/vitae = 1000
 	var/vmax = 2000
 	COOLDOWN_DECLARE(last_transform)
@@ -49,7 +48,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampire/on_gain()
-	var/mob/living/carbon/human/vampire = owner
+	var/mob/living/carbon/human/vampire = owner.current
 	vampire.adv_hugboxing_end() // shitty workaround for adventurers and pilgrims becoming vamp
 	SSmapping.retainer.vampires |= owner
 	. = ..()
