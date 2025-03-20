@@ -66,14 +66,14 @@
 
 	if(!moveup)
 		if(!prob(proab)) // Roll again, this time negatively, for consequences.
-			user.visible_message("<span class='warning'>[user] ruins the bar!</span>")
-			skill_quality -= 1 // The more you fuck up, the less quality the end result will be.
-			bar_health -= craftdiff // Difficulty of the recipe adds to how critical the failure is
+			user.visible_message("<span class='warning'>[user] strikes poorly!</span>")
+			skill_quality -= 0.5
+			bar_health -= craftdiff / 1.2
 			if(parent)
 				var/obj/item/P = parent
 				switch(skill_level)
 					if(0)
-						bar_health -= 25 // 4 strikes and you're out, buddy.
+						bar_health -= 20 // 5 bad hits and ruined.
 					if(1 to 3)
 						bar_health -= floor(20 / skill_level)
 					if(4)
@@ -81,13 +81,13 @@
 					if(5 to 6)
 						var/mob/living/L = user
 						if(L.stat_roll(STATKEY_LCK,4,10,TRUE)) // Unlucky, not unskilled.
-							bar_health -= craftdiff
+							bar_health -= craftdiff / 1.2
 				if(bar_health <= 0)
 					user.visible_message("<span class='danger'>[user] destroys the bar!</span>")
 					qdel(P)
 			return FALSE
 		else
-			user.visible_message("<span class='warning'>[user] fumbles the bar!</span>")
+			user.visible_message("<span class='warning'>[user] fumbles slightly but recovers.</span>")
 			return FALSE
 
 	else
@@ -146,14 +146,28 @@
 		if(BLACKSMITH_LEVEL_COMPETENT)
 			modifier = 1
 		if(BLACKSMITH_LEVEL_FINE)
-			I.name = "fine [I.name]"
-			modifier = 1.1
+			if(prob(70))
+				I.name = "fine [I.name]"
+				modifier = 1.1
+			else
+				modifier = 1
 		if(BLACKSMITH_LEVEL_FLAWLESS)
-			I.name = "flawless [I.name]"
-			modifier = 1.2
+			if(prob(55))
+				I.name = "flawless [I.name]"
+				modifier = 1.2
+			else
+				I.name = "fine [I.name]"
+				modifier = 1.1
 		if(BLACKSMITH_LEVEL_LEGENDARY to INFINITY)
-			I.name = "masterwork [I.name]"
-			modifier = 1.3
+			if(prob(20))
+				I.name = "masterwork [I.name]"
+				modifier = 1.3
+			else if(prob(70))
+				I.name = "flawless [I.name]"
+				modifier = 1.2
+			else
+				I.name = "fine [I.name]"
+				modifier = 1.1
 
 	if(!modifier) // Sanity.
 		return
