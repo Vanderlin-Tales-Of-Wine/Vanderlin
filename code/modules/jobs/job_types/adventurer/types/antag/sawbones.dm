@@ -1,6 +1,6 @@
 /datum/advclass/sawbones // doctor class. like the pilgrim, but more evil
 	name = "Sawbones"
-	tutorial = "It was an accident! Your patient wasn't using his second kidney, anyway. After an unfortunate 'misunderstanding' with the town and your medical practice, you know practice medicine on the run with your new associates. Business has never been better!"
+	tutorial = "An unholy practictioner of medicine and when necessary -- murder. You joined hands with Brigands to ensure that your coin purse and your rumbling belly are always satisfied."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/sawbones
 	category_tags = list(CTAG_BANDIT)
@@ -19,7 +19,7 @@
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/storage/backpack/satchel/surgbag
 	backpack_contents = list(/obj/item/natural/worms/leech = 1, /obj/item/natural/cloth = 2,)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)
@@ -27,11 +27,13 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE) //needed for getting into hideout
-	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 	H.change_stat(STATKEY_INT, 3)
+	H.change_stat(STATKEY_SPD, 1)
+	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_LCK, 1)
 	if(H.age == AGE_OLD)
 		H.change_stat(STATKEY_SPD, -1)
@@ -39,3 +41,4 @@
 		H.change_stat(STATKEY_PER, 1)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)

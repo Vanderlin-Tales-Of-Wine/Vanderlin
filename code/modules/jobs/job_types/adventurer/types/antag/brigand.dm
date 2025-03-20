@@ -1,6 +1,6 @@
 /datum/advclass/brigand //Strength class, starts with axe or flails and medium armor training
 	name = "Brigand"
-	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
+	tutorial = "Cast from society for your violent tendencies, at a young age your temper and natural talent for murder had you branded and hunted by the catchpoles, it was only here among the Brigands of Matthios that your talents could finally be put to good use."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
@@ -34,9 +34,10 @@
 	neck = /obj/item/clothing/neck/coif
 	head = /obj/item/clothing/head/helmet/leather/volfhelm
 	armor = /obj/item/clothing/armor/leather/hide
+	H.mind.special_role = "Bandit"
 	H.change_stat(STATKEY_STR, 3)
-	H.change_stat(STATKEY_END, 2)
-	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 3)
+	H.change_stat(STATKEY_CON, 3)
 	H.change_stat(STATKEY_INT, -3)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.adjust_blindness(-3)

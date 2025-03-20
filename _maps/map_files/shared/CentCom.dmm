@@ -2082,7 +2082,13 @@
 /area/rogue/indoors)
 "nh" = (
 /obj/structure/rack,
-/obj/item/clothing/neck/coif,
+/obj/item/clothing/shoes/boots,
+/obj/item/clothing/shoes/boots,
+/obj/item/clothing/pants/chainlegs/iron,
+/obj/item/clothing/pants/trou/leather,
+/obj/item/clothing/pants/trou/leather,
+/obj/item/clothing/pants/trou/leather/advanced,
+/obj/item/clothing/wrists/bracers/leather,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "ni" = (
@@ -3154,8 +3160,19 @@
 /obj/item/clothing/head/roguehood/eora,
 /turf/open/floor/wood,
 /area/rogue)
+"xq" = (
+/obj/machinery/light/fueled/cauldron,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/woods_safe)
 "xt" = (
 /turf/open/floor/dirt/road,
+/area/rogue/outdoors/woods_safe)
+"xC" = (
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1;
+	locked = 1
+	},
+/turf/open/floor/grass,
 /area/rogue/outdoors/woods_safe)
 "xI" = (
 /obj/structure/closet/crate/coffin/vampire,
@@ -3235,11 +3252,13 @@
 "yo" = (
 /obj/structure/rack,
 /obj/item/weapon/mace/cudgel,
+/obj/item/weapon/whip,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "yq" = (
 /obj/structure/rack,
 /obj/item/weapon/knife/dagger,
+/obj/item/weapon/sword/scimitar/falchion,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "yv" = (
@@ -3293,6 +3312,8 @@
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/clothing/face/shepherd/rag,
 /obj/item/clothing/face/shepherd/rag,
+/obj/item/clothing/face/facemask/copper,
+/obj/item/clothing/face/facemask/copper,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "yR" = (
@@ -4079,6 +4100,14 @@
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/leather/headscarf,
 /obj/item/clothing/head/helmet/leather/headscarf,
+/obj/item/clothing/head/helmet/leather,
+/obj/item/clothing/head/helmet/leather,
+/obj/item/clothing/head/helmet/leather/advanced,
+/obj/item/clothing/head/helmet/leather/advanced,
+/obj/item/clothing/head/helmet/nasal,
+/obj/item/clothing/head/helmet/skullcap,
+/obj/item/clothing/head/helmet/kettle,
+/obj/item/clothing/neck/coif,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "Hu" = (
@@ -4553,6 +4582,10 @@
 "Mc" = (
 /obj/structure/rack,
 /obj/item/clothing/head/helmet/leather/volfhelm,
+/obj/item/clothing/armor/leather/splint,
+/obj/item/clothing/armor/leather/splint,
+/obj/item/clothing/armor/cuirass/copperchest,
+/obj/item/clothing/armor/cuirass/iron,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/bandit_lair)
 "Mg" = (
@@ -5739,6 +5772,8 @@
 "Xk" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/ore/coal,
+/obj/item/ore/iron,
+/obj/item/ore/iron,
 /obj/item/ore/iron,
 /obj/item/ore/iron,
 /turf/open/floor/dirt/road,
@@ -7938,7 +7973,7 @@ xt
 so
 so
 FR
-xt
+Sn
 xt
 xt
 xt
@@ -8068,7 +8103,7 @@ xt
 xt
 xt
 xt
-xt
+Sn
 xt
 xt
 xt
@@ -8198,7 +8233,7 @@ so
 Kn
 Kn
 so
-so
+xC
 so
 so
 so
@@ -8328,7 +8363,7 @@ xt
 xt
 xt
 xt
-xt
+Sn
 xt
 xt
 xt
@@ -8458,7 +8493,7 @@ Ed
 xt
 so
 so
-Kn
+fT
 FR
 Te
 xt
@@ -8563,7 +8598,7 @@ xt
 Qy
 Qy
 xt
-xt
+xq
 xt
 Lg
 xt

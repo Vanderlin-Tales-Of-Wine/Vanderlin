@@ -1,6 +1,6 @@
 /datum/advclass/roguemage //mage class - like the adventurer mage, but more evil.
 	name = "Rogue Mage"
-	tutorial = "Those fools at the academy laughed at you and cast you from the ivory tower of higher learning and magickal practice. No matter - you will ascend to great power one day, but first you need wealth - vast amounts of it. Show those fools in the town what REAL magic looks like."
+	tutorial = "Cast aside by your masters for unholy experimentation, you lived for a time in hiding in the forest where you eventually met the unsavory followers of Matthios who took you in as family, one of their own. Amongst your brigand friends you now have opportunity to attain the wealth and power necessary for your to rise above those who once looked down on you."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/roguemage
 	category_tags = list(CTAG_BANDIT)
@@ -23,6 +23,7 @@
 
 	r_hand = /obj/item/weapon/polearm/woodstaff
 	if(H.mind)
+		H.mind.special_role = "Bandit"
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -50,5 +51,6 @@
 		H.change_stat(STATKEY_INT, 3)
 		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_END, -1)
-		H.mind.adjust_spellpoints(1)
+		H.mind.adjust_spellpoints(6)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/acidsplash5e)

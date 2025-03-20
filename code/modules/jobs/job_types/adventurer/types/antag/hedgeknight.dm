@@ -1,6 +1,6 @@
 /datum/advclass/hedgeknight //heavy knight class - just like black knight adventurer class. starts with heavy armor training and plate, but less weapon skills than brigand, sellsword and knave
 	name = "Hedge Knight"
-	tutorial = "A noble fallen from grace, your tarnished armor sits upon your shoulders as a heavy reminder of the life you've lost. Take back what is rightfully yours."
+	tutorial = "A noble fallen from grace, your tarnished armor sits upon your shoulders as a heavy reminder of the life you've lost. Amongst all your friends, you are the most despised within the Kingdom. Your crimes innumerable, but necessary for your dreams to become reality."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/bandit/hedgeknight
 	category_tags = list(CTAG_BANDIT)
@@ -20,7 +20,8 @@
 	beltr = /obj/item/weapon/sword/long
 	backr = /obj/item/storage/backpack/satchel/black
 	backl = /obj/item/weapon/shield/tower/metal
-	backpack_contents = list(/obj/item/weapon/knife/dagger = 1)
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1)
+	H.mind.special_role = "Bandit"
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
@@ -36,8 +37,8 @@
 	H.mind.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 	H.change_stat(STATKEY_STR, 2)
-	H.change_stat(STATKEY_END, 1)
-	H.change_stat(STATKEY_CON, 2)
+	H.change_stat(STATKEY_END, 2)
+	H.change_stat(STATKEY_CON, 3)
 	H.change_stat(STATKEY_INT, 1)
 	H.change_stat(STATKEY_SPD, 1)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
