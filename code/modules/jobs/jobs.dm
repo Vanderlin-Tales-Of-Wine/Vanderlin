@@ -11,6 +11,12 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	/datum/job/feldsher::title,
 	/datum/job/apothecary::title,
 	/datum/job/minor_noble::title,
+	/datum/job/stonekeep/lord::title,
+	/datum/job/stonekeep/hand::title,
+	/datum/job/stonekeep/steward::title,
+	/datum/job/stonekeep/butler::title,
+	/datum/job/stonekeep/courtwizard::title,
+	/datum/job/stonekeep/jester::title,
 ))
 GLOBAL_PROTECT(noble_positions)
 
@@ -24,15 +30,21 @@ GLOBAL_LIST_INIT(garrison_positions, list(
 	/datum/job/mayor::title,
 	/datum/job/forestwarden::title,
 	/datum/job/forestguard::title,
+	/datum/job/stonekeep/sheriff::title,
+	/datum/job/stonekeep/garrison::title,
+	/datum/job/stonekeep/veteran::title,
+	/datum/job/stonekeep/squire::title,
 	))
 GLOBAL_PROTECT(garrison_positions)
 
 GLOBAL_LIST_INIT(church_positions, list(
-	/datum/job/stonekeep/priest::title,
 	/datum/job/monk::title,
 	/datum/job/undertaker::title,
-	/datum/job/stonekeep/inquisitor::title,
 	// "Confessor",
+	/datum/job/stonekeep/priest::title,
+	/datum/job/stonekeep/acolyte::title,
+	/datum/job/stonekeep/gravekeeper::title,
+	/datum/job/stonekeep/inquisitor::title,
 	/datum/job/stonekeep/templar::title,
 	/datum/job/stonekeep/adept::title,
 	))
@@ -48,6 +60,12 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
 	/datum/job/scribe::title,
+	/datum/job/stonekeep/merchant::title,
+	/datum/job/stonekeep/innkeep::title,
+	/datum/job/stonekeep/blacksmith::title,
+	/datum/job/stonekeep/feldsher::title,
+	/datum/job/stonekeep/mason::title,
+	/datum/job/stonekeep/nitemaster::title,
 	))
 GLOBAL_PROTECT(serf_positions)
 
@@ -70,6 +88,15 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/adventurer::title,
 	/datum/job/pilgrim::title,
 	/datum/job/bandit::title,
+	/datum/job/stonekeep/beggar::title,
+	/datum/job/stonekeep/cook::title,
+	/datum/job/stonekeep/elder::title,
+	/datum/job/stonekeep/mercenary::title,
+	/datum/job/stonekeep/nitemaiden::title,
+	/datum/job/stonekeep/soilson::title,
+	/datum/job/stonekeep/stevedore::title,
+	/datum/job/stonekeep/weaver::title,
+	/datum/job/stonekeep/woodsman::title,
 ))
 GLOBAL_PROTECT(peasant_positions)
 

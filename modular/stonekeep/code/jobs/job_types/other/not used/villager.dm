@@ -3,7 +3,7 @@
 	title = "Towner"
 	flag = ADVENTURER
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	allowed_races = ALL_PLAYER_RACES_BY_NAME

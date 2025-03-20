@@ -2,7 +2,7 @@
 	title = "Inquisitor"
 	flag = SK_INQUISITOR
 	department_flag = CHURCHMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 

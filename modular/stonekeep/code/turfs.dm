@@ -225,6 +225,7 @@
 						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/grass/yel,
 						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/transition,
 						/turf/open/floor/dirt/muddie
 						)
 
@@ -252,6 +253,11 @@
 /turf/open/floor/grass/mixyel/Initialize()
 	. = ..()
 	dir = pick(GLOB.cardinals)
+
+/turf/open/floor/grass/transition
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "grass_transy"
+	neighborlay = "grass_transy"
 
 
 /turf/open/floor/grass/yel
@@ -356,8 +362,20 @@
 // =================================================================
 // ====================		Misc floors		========================
 
+
 /turf/open/water/bath
 	wash_in = FALSE
+
+/turf/open/floor/naturalstone
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+						/turf/open/floor/cobblerock,
+						/turf/open/floor/grass,
+						/turf/open/floor/snow,
+						/turf/open/floor/dirt,
+						)
+/turf/open/floor/naturalstone/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
 
 
 /turf/open/floor/naturalstone/rough

@@ -9,14 +9,14 @@
 		"Dark Elf",
 		"Aasimar",
 	)
-	outfit = /datum/outfit/job/sk_migration/zyb_emir
+	outfit = /datum/outfit/job/sk_migration/zyb/emir
 	grant_lit_torch = TRUE
 
 /datum/migrant_role/sk/zybantine/after_spawn(mob/living/carbon/human/character)
 	. = ..()
 	character.forceMove(pick(GLOB.forestroad_starts))
 
-/datum/outfit/job/sk_migration/zyb_emir/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/zyb/emir/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	gloves = /obj/item/clothing/gloves/leather
@@ -76,10 +76,10 @@
 		"Tiefling",
 		"Dark Elf"
 	)
-	outfit = /datum/outfit/job/sk_migration/zyb_janissary
+	outfit = /datum/outfit/job/sk_migration/zyb/janissary
 	grant_lit_torch = TRUE
 
-/datum/outfit/job/sk_migration/zyb_janissary/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/zyb/janissary/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shalal
 	head = /obj/item/clothing/head/helmet/sallet/zybantine
@@ -129,9 +129,9 @@
 		"Dark Elf",
 		"Rakshari"
 	)
-	outfit = /datum/outfit/job/sk_migration/zyb_qatil
+	outfit = /datum/outfit/job/sk_migration/zyb/qatil
 
-/datum/outfit/job/sk_migration/zyb_qatil/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/zyb/qatil/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
@@ -187,16 +187,15 @@
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 
 		H.change_stat(STATKEY_STR, -4)
 		H.change_stat(STATKEY_END, 2)

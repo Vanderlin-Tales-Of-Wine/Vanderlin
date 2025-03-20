@@ -1,7 +1,6 @@
 /datum/job/stonekeep/woodsman
 	title = "Woodsman"
 	tutorial = "Living on the outskirts of civliziation, you got roots in the local community, but spend most of your time alone in the forest."
-	faction = "Station"
 	allowed_sexes = list(MALE,FEMALE)
 	flag = SK_WOODSMAN
 	department_flag = PEASANTS
@@ -82,19 +81,19 @@
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 
-/datum/advclass/sk/woodsman/woodcutter
-	name = "Woodcutter"
+/datum/advclass/sk/woodsman/lumberjack
+	name = "Lumberjack"
 	tutorial = "Rugged, hard-working, rustic. The trees themselves provide you with what you need to survive, and perhaps prosper."
-	outfit = /datum/outfit/job/stonekeep/woodsman_woodcutter
+	outfit = /datum/outfit/job/stonekeep/woodsman_lumberjack
 	category_tags = list(CTAG_SKWOODSMAN)
 
-/datum/outfit/job/stonekeep/woodsman_woodcutter/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/woodsman_lumberjack/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguehood/random/heavy
 	wrists = /obj/item/clothing/wrists/bracers/leather
 	armor = /obj/item/clothing/armor/gambeson/light/striped
 	beltl = /obj/item/weapon/knife/villager
-	r_hand = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
+	backl = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 	shoes = /obj/item/clothing/shoes/shortboots
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/key/woodsman = 1)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)

@@ -2,7 +2,6 @@
 	title = "Sheriff"
 	flag = SK_SHERIFF
 	department_flag = GARRISON
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -15,11 +14,8 @@
 	allowed_sexes = list(MALE)
 	display_order = SHERIFF_ORDER
 	tutorial = "Appointed by your liege Lord to uphold their Law and be their champion in times of strife. You command the garrison, to help keep order and peace within the Lords demesne and defend it against the many dangers of the land."
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/stonekeep/sheriff
 	give_bank_account = 120
-	min_pq = 0
 
 	selection_color = "#a13322"
 	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'

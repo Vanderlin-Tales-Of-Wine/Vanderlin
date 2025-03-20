@@ -2,7 +2,6 @@
 	title = "Cook"
 	flag = SK_COOK
 	department_flag = PEASANTS
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 
@@ -19,9 +18,9 @@
 
 	outfit = /datum/outfit/job/stonekeep/cook
 	display_order = COOK_ORDER
-	bypass_lastclass = TRUE
 	min_pq = -50
 	give_bank_account = 8
+	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/stonekeep/cook/pre_equip(mob/living/carbon/human/H)

@@ -3,7 +3,7 @@
 	tutorial = "As a long-standing and dedicated member of the Maker's Guild, you have risen to the illustrious rank of Master Builder. \
 				Your work is praise to Malum, either through excavation or construction, \
 				if only you had the time to rebuild what has been lost to the ruin of time."
-	faction = "Station"
+	faction = FACTION_STATION
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/stonekeep/hammerite

@@ -640,6 +640,8 @@
 /obj/item/clothing/shirt/dress/gen/sexy
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 
+/obj/item/clothing/armor/gambeson/heavy/dress
+	slot_flags = ITEM_SLOT_ARMOR
 
 //................ Sheriff Brigandine ............... //
 /obj/item/clothing/armor/brigandine/sheriff
@@ -1201,9 +1203,9 @@
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon_state = "exoticsilkmask"
-	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	flags_inv = HIDEFACIALHAIR
 	body_parts_covered = NECK|MOUTH
-	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	slot_flags = ITEM_SLOT_MASK
 	sewrepair = TRUE
 
 /obj/item/clothing/shirt/exoticsilkbra
@@ -1239,6 +1241,15 @@
 	icon_state = "velvetdress"
 	item_state = "velvetdress"
 	detail_tag = "_detail"
+
+/obj/item/clothing/shirt/dress/velvetdress/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/clothing/shirt/dress/velvetdress/court/Initialize()
 	. = ..()

@@ -2,7 +2,7 @@
 	title = "Maker's Apprentice"
 	flag = APPRENTICE
 	department_flag = APPRENTICES
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 

@@ -2,7 +2,6 @@
 	title = "Innkeep"
 	flag = SK_INNKEEP
 	department_flag = SERFS
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -18,9 +17,7 @@
 
 	outfit = /datum/outfit/job/stonekeep/innkeep
 	display_order = INNKEEP_ORDER
-	bypass_lastclass = TRUE
 	give_bank_account = 60
-	min_pq = 0
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/stonekeep/innkeep/pre_equip(mob/living/carbon/human/H)

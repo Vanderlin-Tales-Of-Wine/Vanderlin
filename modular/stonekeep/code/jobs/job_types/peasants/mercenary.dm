@@ -2,9 +2,8 @@
 	title = "Mercenary"
 	flag = SK_MERCENARY
 	department_flag = PEASANTS
-	faction = "Station"
-	total_positions = 6
-	spawn_positions = 6
+	total_positions = 3
+	spawn_positions = 3
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -21,7 +20,6 @@
 	gold is the great hypocritical lubricant in life, founding empires, driving brothers to kill one another.  <br><br>\
 	You care not. Another day, another mammon.<br>"
 	display_order = MERCENARY_ORDER
-	bypass_lastclass = TRUE
 	give_bank_account = 3
 	min_pq = -10
 	outfit = null

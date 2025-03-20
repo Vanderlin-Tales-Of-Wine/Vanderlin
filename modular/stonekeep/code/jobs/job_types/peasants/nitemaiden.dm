@@ -6,7 +6,6 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	title = "Nitemaiden"
 	flag = SK_BATHMAID
 	department_flag = PEASANTS
-	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
 
@@ -23,8 +22,6 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	Your work requires a valid certificate from the Feldsher that you are not carrying any diseases that might bring ruin. \
 	Working for the Nitemaster, you are supposed to give them half of your earnings at least, and is expected to seek the help of the Feldsher should the various homebrewed contraceptives fail."
 	display_order = BATHMAID_ORDER
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/stonekeep/nitemaiden	//Default outfit.
 	advclass_cat_rolls = list(CTAG_NITEMAIDEN= 20)	//Handles class selection.
@@ -45,10 +42,8 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 /datum/outfit/job/stonekeep/nitemaiden
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/key/bathhouse
-	beltl = /obj/item/storage/belt/pouch/coins/poor
+	beltl = /obj/item/storage/belt/pouch/nitemaiden
 	shoes = /obj/item/clothing/shoes/shortboots
-	r_hand = /obj/item/paper/feldsher_certificate/maybe
-
 
 /datum/outfit/job/stonekeep/nitemaiden/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -129,7 +124,7 @@ Design philosphy:
 	throw_speed = 1
 	throw_range = 7
 	var/cleanspeed = 35 //slower than mop
-	var/uses = 10
+	uses = 10
 
 /obj/item/bath/soap/ComponentInitialize()
 	. = ..()
@@ -201,3 +196,10 @@ Design philosphy:
 		uses -= 1
 		if(uses == 0)
 			qdel(src)
+
+
+/obj/item/storage/belt/pouch/nitemaiden
+	populate_contents = list(
+		/obj/item/paper/feldsher_certificate/maybe,
+		/obj/item/natural/cloth,
+	)

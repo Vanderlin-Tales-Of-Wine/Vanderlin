@@ -1,8 +1,7 @@
-/datum/job/roguetown/squire
+/datum/job/stonekeep/squire
 	title = "Squire"
 	flag = SK_SQUIRE
 	department_flag = GARRISON
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 
@@ -16,15 +15,14 @@
 
 	tutorial = "You've always had greater aspirations than the simple life of a peasant. You and your friends practiced the basics, swordfighting with sticks and loosing arrows into hay bale targets. The Captain took notice of your potential, and recruited you as a personal ward. Learn from the garrison and train hard... maybe one dae you will be honored with knighthood."
 
-	outfit = /datum/outfit/job/roguetown/squire
+	outfit = /datum/outfit/job/stonekeep/squire
 	display_order = SQUIRE_ORDER
 	give_bank_account = TRUE
 	min_pq = -15
-	bypass_lastclass = TRUE
 	selection_color = "#304529"
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/roguetown/squire/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/stonekeep/squire/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/coif/cloth
 	armor = /obj/item/clothing/armor/gambeson
 	cloak = /obj/item/clothing/cloak/stabard/guard
@@ -61,15 +59,4 @@
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
-	H.adjust_blindness(-3)
-	var/weapons = list("Spear","Shield & Sword")
-	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)
-		if("Spear")
-			r_hand = /obj/item/weapon/polearm/spear
-			H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
-		if("Shield & Sword")
-			backr = /obj/item/weapon/shield/wood
-			beltr = /obj/item/weapon/sword
 

@@ -3,10 +3,8 @@
 	tutorial = "A well-traveled and well-learned seeker of knowledge, the Archivist's mind has been touched by Noc himself. They settled in Vanderlin some time ago, coming to the Isle of Enigma with the hope of unraveling its mysteries. If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
 	flag = SK_ARCHIVIST
 	department_flag = NOBLEMEN
-	faction = "Station"
 	total_positions = 0
 	spawn_positions = 0
-	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -21,7 +19,6 @@
 	outfit = /datum/outfit/job/stonekeep/archivist
 	display_order = 9
 	give_bank_account = 100
-	min_pq = 0
 	allowed_patrons = list(/datum/patron/divine/noc)
 
 /datum/outfit/job/stonekeep/archivist/pre_equip(mob/living/carbon/human/H)

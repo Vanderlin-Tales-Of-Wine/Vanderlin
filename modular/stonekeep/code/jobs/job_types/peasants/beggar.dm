@@ -1,12 +1,11 @@
-
 /datum/job/stonekeep/beggar
 	title = "Beggar"
 	flag = SK_BEGGAR
+//	flag = APPRENTICE	ROGTODO again, their apprenrtice system, is it something good or bad.
 	department_flag = PEASANTS
-	faction = "Station"
 	total_positions = 15
 	spawn_positions = 15
-
+	min_pq = -100
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -17,16 +16,13 @@
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/beggar
-	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
 	tutorial = "The smell of filth and sweat no longer bother you, the glances of disgust or pity others give you familiar  ; the only reason you've not dead in a mud pit already is because you are tough as a old leather sole, hardned by ratbites, sticks and stones."
 	display_order = BEGGAR_ORDER
-	show_in_credits = FALSE
 	can_random = FALSE
 
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
-	can_have_apprentices = FALSE
 
 /datum/job/stonekeep/beggar/New()
 	. = ..()

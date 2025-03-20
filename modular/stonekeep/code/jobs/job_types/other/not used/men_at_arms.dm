@@ -4,7 +4,7 @@
 	flag = WATCHMAN
 	department_flag = GARRISON
 	display_order = JDO_WATCHMAN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	tutorial = "The Monarch has hired you to guard their Keep, man the gates, patrol the keep insure any intruders are not within the boundaries of your liege's domain."

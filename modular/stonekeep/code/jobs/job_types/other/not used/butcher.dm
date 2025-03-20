@@ -2,7 +2,7 @@
 	title = "Butcher"
 	flag = BEASTMASTER
 	department_flag = PEASANTS
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 

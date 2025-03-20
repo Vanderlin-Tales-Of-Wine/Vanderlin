@@ -2,7 +2,6 @@
 	title = "Veteran"
 	flag = SK_VETERAN
 	department_flag = GARRISON
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -18,7 +17,6 @@
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 	display_order = VETERAN_ORDER
 	give_bank_account = 35
-	min_pq = 0
 	can_have_apprentices = FALSE
 	outfit = /datum/outfit/job/stonekeep/veteran
 

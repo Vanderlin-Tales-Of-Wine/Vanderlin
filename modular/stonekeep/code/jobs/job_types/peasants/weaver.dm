@@ -2,14 +2,11 @@
 	title = "Weaver"
 	flag = SK_WEAVER
 	department_flag = PEASANTS
-	faction = "Station"
 	tutorial = "Cloth, linen, silk and leather. You've tirelessly studied and poured your life into \
 				sewing articles of protection, padding, and fashion for serf and noble alike."
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = list("Humen","Elf","Aasimar","Half-Elf","Dwarf")
-	give_bank_account = TRUE
-	bypass_lastclass = TRUE
 	display_order = WEAVER_ORDER
 	min_pq = -50
 

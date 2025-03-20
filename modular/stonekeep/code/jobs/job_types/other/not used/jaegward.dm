@@ -4,7 +4,7 @@
 	tutorial = "In the olden daes your profession guarded pilgrims and slew great beasts in the Murderwoods, \
 				todae you plunder the forests for meat and decent wood in hopes of surviving another winter. \
 				Your life is a testament to the fickleness of Dendor."
-	faction = "Station"
+	faction = FACTION_STATION
 	allowed_sexes = list(MALE,FEMALE)
 	flag = HUNTER
 	department_flag = PEASANTS

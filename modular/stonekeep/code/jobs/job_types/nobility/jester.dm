@@ -2,7 +2,6 @@
 	title = "Jester"
 	flag = SK_JESTER
 	department_flag = NOBLEMEN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -24,7 +23,6 @@
 	spells = list(/obj/effect/proc_holder/spell/self/telljoke,/obj/effect/proc_holder/spell/self/telltragedy,/obj/effect/proc_holder/spell/self/fart)
 	outfit = /datum/outfit/job/stonekeep/jester
 	display_order = 10
-	bypass_lastclass = TRUE
 	min_pq = -20
 	give_bank_account = TRUE
 

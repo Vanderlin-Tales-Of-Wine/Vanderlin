@@ -152,7 +152,6 @@
 
 /obj/item/storage/belt/leather/rope/survival
 	populate_contents = list(
-		/obj/item/needle/thorn,
 		/obj/item/natural/cloth,
 	)
 

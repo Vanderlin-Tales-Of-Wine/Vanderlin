@@ -2,7 +2,7 @@
 	title = "Mayor"
 	flag = MAYOR
 	department_flag = GARRISON
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 
@@ -83,7 +83,7 @@
 	f_title = "Town Militiawoman"
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_CITYWATCHMEN

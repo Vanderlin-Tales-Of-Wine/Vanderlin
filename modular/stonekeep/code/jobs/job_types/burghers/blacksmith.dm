@@ -2,7 +2,6 @@
 	title = "Blacksmith"
 	flag = SK_BLACKSMITH
 	department_flag = SERFS
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 
@@ -13,7 +12,6 @@
 
 	outfit = /datum/outfit/job/stonekeep/blacksmith
 	display_order = BLACKSMITH_ORDER
-	bypass_lastclass = TRUE
 	give_bank_account = 30
 	min_pq = -25
 

@@ -8,7 +8,6 @@ the like.
 	title = "Man-at-arms"
 	flag = SK_GUARD
 	department_flag = GARRISON
-	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 
@@ -23,8 +22,6 @@ the like.
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	tutorial = "You are a soldier in the town garrison, an Ashigaru from the Fog Islands. Treaties and alliances matter little to you, your Lord has ordered you to obey the local ruler and their Sheriff, maintaining order."
 	display_order = GARRISON_ORDER
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/stonekeep/garrison	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.

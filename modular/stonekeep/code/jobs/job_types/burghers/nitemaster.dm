@@ -3,7 +3,6 @@
 	f_title = "Nitematron"
 	flag = SK_NITEMAN
 	department_flag = NOBLEMEN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -22,8 +21,6 @@
 	outfit = /datum/outfit/job/stonekeep/nitemaster
 	display_order = NITEMAN_ORDER
 	give_bank_account = 120
-	min_pq = 0
-	bypass_lastclass = TRUE
 
 /datum/outfit/job/stonekeep/nitemaster/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -2,7 +2,6 @@
 	title = "Mason"
 	flag = SK_MASON
 	department_flag = SERFS
-	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 
@@ -19,7 +18,6 @@
 
 	outfit = /datum/outfit/job/stonekeep/mason
 	display_order = MASON_ORDER
-	bypass_lastclass = TRUE
 	give_bank_account = 8
 	min_pq = -50
 

@@ -2,7 +2,7 @@
 	title = "Acolyte"
 	flag = SK_ACOLYTE
 	department_flag = CHURCHMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
 

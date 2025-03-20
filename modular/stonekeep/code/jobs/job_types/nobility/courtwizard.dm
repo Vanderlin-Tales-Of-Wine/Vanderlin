@@ -2,7 +2,6 @@
 	title = "Court Wizard"
 	flag = SK_WIZARD
 	department_flag = NOBLEMEN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 
@@ -19,10 +18,8 @@
 	Indebted to the ruler for funding yils of mystical studies in these dark times, \
 	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	outfit = /datum/outfit/job/stonekeep/courtwizard
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
+
 	give_bank_account = 120
-	min_pq = 0
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 
 /datum/outfit/job/stonekeep/courtwizard/pre_equip(mob/living/carbon/human/H)

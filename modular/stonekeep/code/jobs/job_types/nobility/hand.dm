@@ -2,7 +2,6 @@
 	title = "Hand"
 	flag = SK_HAND
 	department_flag = NOBLEMEN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = list(
@@ -16,10 +15,7 @@
 	display_order = HAND_ORDER
 	tutorial = "Advisor, spymaster, confidante, your ties with the ruler are deep and personal."
 	advclass_cat_rolls = list(CTAG_SKHAND = 20)
-	bypass_lastclass = TRUE
-	whitelist_req = FALSE
 	give_bank_account = 120
-	min_pq = 0
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
 /datum/job/stonekeep/hand/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
