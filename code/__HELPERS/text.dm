@@ -8,8 +8,6 @@
  *			Misc
  */
 
-
-
 /proc/format_table_name(table as text)
 	return CONFIG_GET(string/feedback_tableprefix) + table
 
@@ -113,6 +111,12 @@
 				non_whitespace = 1
 	if(non_whitespace)
 		return text		//only accepts the text if it has some non-spaces
+
+/**
+ * stuff like `copytext(input, length(input))` will trim the last character of the input,
+ * because DM does it so it copies until the char BEFORE the `end` arg, so we need to bump `end` by 1 in these cases.
+ */
+#define PREVENT_CHARACTER_TRIM_LOSS(integer) (integer + 1) //thank you gummie
 
 // Used to get a properly sanitized input, of max_length
 // no_trim is self explanatory but it prevents the input from being trimed if you intend to parse newlines or whitespace.
@@ -299,7 +303,7 @@
 /proc/trim(text, max_length)
 	if(max_length)
 		text = copytext(text, 1, max_length)
-	return trim_left(trim_right(text))
+	return trimtext(text) || ""
 
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(t as text)

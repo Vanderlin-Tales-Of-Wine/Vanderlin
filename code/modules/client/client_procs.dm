@@ -43,6 +43,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if(href_list["schizohelp"])
+		answer_schizohelp(locate(href_list["schizohelp"]))
+		return
+
+	if(href_list["delete_painting"])
+		if(!holder)
+			return
+		SSpaintings.del_player_painting(href_list["id"])
+		SSpaintings.update_paintings()
+
 	// asset_cache
 	var/asset_cache_job
 	if(href_list["asset_cache_confirm_arrival"])
@@ -119,7 +129,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		return
 
 	if(href_list["commendsomeone"])
-		commendation_popup()
+		commendation_popup(TRUE)
 		return
 
 	switch(href_list["_src_"])
@@ -142,18 +152,27 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	switch(href_list["action"])
 		if("openLink")
 			src << link(href_list["link"])
-	if (hsrc)
+
+	if(hsrc)
 		var/datum/real_src = hsrc
 		if(QDELETED(real_src))
 			return
 
+	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
+	//overloaded
+	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
+		return
+
 	..()	//redirect to hsrc.Topic()
 
-/client/proc/commendation_popup()
+/client/proc/commendation_popup(intentional = FALSE)
 	if(SSticker.current_state != GAME_STATE_FINISHED)
 		return
 	if(commendedsomeone)
 		return
+	if(!intentional)
+		if(browser_alert(src, "DOES ANY SOUL DESERVE COMMENDATION?", "THE CURTAINS CLOSE", reverseRange(DEFAULT_INPUT_CHOICES), 20 SECONDS) != CHOICE_YES)
+			return
 	var/list/selections = GLOB.character_ckey_list.Copy()
 	if(!selections.len)
 		return
@@ -170,64 +189,28 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			selection_w_title[real_name] = ckey
 		else
 			selection_w_title["[real_name], [H.get_role_title()]"] = ckey
-	var/selection = input(src,"Which Character?") as null|anything in sortList(selection_w_title)
+	if(!selection_w_title)
+		ASYNC {
+			browser_alert(src, "this dude really playing VANDERLIN all by himself lmfaoooo")
+		}
+	var/selection = browser_input_list(src, "WHO RECIEVES YOUR COMMENDATION?", null, shuffle(selection_w_title), pick(selection_w_title))
 	if(!selection)
 		return
 	if(commendedsomeone)
 		return
 	var/theykey = selection_w_title[selection]
 	if(theykey == ckey)
-		to_chat(src,"You can't commend yourself.")
+		ASYNC {
+			browser_alert(src,"YOU MAY NOT COMMEND YOURSELF", "THE EGO")
+		}
 		return
 	if(theykey)
 		commendedsomeone = TRUE
 		add_commend(theykey, ckey)
-		to_chat(src,"[selection] commended.")
+		to_chat(src, "You have COMMENDED [selection].")
 		log_game("COMMEND: [ckey] commends [theykey].")
 		log_admin("COMMEND: [ckey] commends [theykey].")
 	return
-
-/client/Topic(href, href_list, hsrc)
-	if(href_list["schizohelp"])
-		answer_schizohelp(locate(href_list["schizohelp"]))
-		return
-
-	if(href_list["delete_painting"])
-		if(!holder)
-			return
-		SSpaintings.del_player_painting(href_list["id"])
-		SSpaintings.update_paintings()
-	switch(href_list["_src_"])
-		if("holder")
-			hsrc = holder
-		if("usr")
-			hsrc = mob
-		if("prefs")
-			if (inprefs)
-				return
-			inprefs = TRUE
-			. = prefs.process_link(usr,href_list)
-			inprefs = FALSE
-			return
-		if("vars")
-			return view_var_Topic(href,href_list,hsrc)
-		if("chat")
-			return chatOutput.Topic(href, href_list)
-
-	switch(href_list["action"])
-		if("openLink")
-			src << link(href_list["link"])
-	if (hsrc)
-		var/datum/real_src = hsrc
-		if(QDELETED(real_src))
-			return
-
-	//fun fact: Topic() acts like a verb and is executed at the end of the tick like other verbs. So we have to queue it if the server is
-	//overloaded
-	if(hsrc && hsrc != holder && DEFAULT_TRY_QUEUE_VERB(VERB_CALLBACK(src, PROC_REF(_Topic), hsrc, href, href_list)))
-		return
-
-	..()	//redirect to hsrc.Topic()
 
 ///dumb workaround because byond doesnt seem to recognize the Topic() typepath for /datum/proc/Topic() from the client Topic,
 ///so we cant queue it without this

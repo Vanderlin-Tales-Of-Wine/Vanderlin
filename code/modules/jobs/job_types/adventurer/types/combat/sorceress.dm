@@ -1,6 +1,6 @@
 /datum/advclass/combat/sorceress
 	name = "Sorceress"
-	tutorial = "In some places in Psydonia, women are banned from the study of magic. Those that do even then are afforded the title Sorceress in honor of their resolve."
+	tutorial = "In some places in Psydonia, women such as you are banned from the study of magic. However, in having overcome such discrimination to pursue magic, you have earned the title \"Sorceress\" in honor of your resolve."
 	allowed_sexes = list(FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -17,6 +17,9 @@
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
+
+/datum/outfit/job/adventurer/sorceress
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/outfit/job/adventurer/sorceress/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -43,7 +43,7 @@
 			continue
 		if(is_banned_from(living.client.ckey, ROLE_ASPIRANT))
 			continue
-		if(!(living.mind?.assigned_role in helping))
+		if(!(living.mind?.assigned_role.title in helping))
 			continue
 		if(living.mind in setup_minds)
 			continue

@@ -16,26 +16,19 @@ SUBSYSTEM_DEF(communications)
 	else
 		. = TRUE
 
-/datum/controller/subsystem/communications/proc/make_announcement(mob/living/user, is_silicon, input)
-	if(is_silicon)
-		if(user.job)
-			var/datum/job/J = SSjob.GetJob(user.job)
-			var/used_title = J.title
-			if(user.gender == FEMALE && J.f_title)
-				used_title = J.f_title
-			priority_announce(html_decode(user.treat_message(input)), "The [used_title] Decrees", 'sound/misc/alert.ogg', "Captain")
-			silicon_message_cooldown = world.time + 5 SECONDS
+/datum/controller/subsystem/communications/proc/make_announcement(mob/living/user, decree = FALSE, input)
+	var/used_title
+	if(user.job)
+		var/datum/job/job = SSjob.GetJob(user.job)
+		used_title = job ? "The [job.get_informed_title(user)]" : "Someone"
+
+	if(decree)
+		priority_announce(html_decode(user.treat_message(input)), "[used_title] Decrees", 'sound/misc/alert.ogg', "Captain")
+		silicon_message_cooldown = world.time + 5 SECONDS
 	else
-		if(user.job)
-			var/datum/job/J = SSjob.GetJob(user.job)
-			var/used_title = J.title
-			if(user.gender == FEMALE && J.f_title)
-				used_title = J.f_title
-			priority_announce(html_decode(user.treat_message(input)), "The [used_title] Speaks", 'sound/misc/bell.ogg', "Captain")
-			nonsilicon_message_cooldown = world.time + 5 SECONDS
-		else
-			priority_announce(html_decode(user.treat_message(input)), "Someone Speaks", 'sound/misc/bell.ogg', "Captain")
-			nonsilicon_message_cooldown = world.time + 5 SECONDS
+		priority_announce(html_decode(user.treat_message(input)), "[used_title] Speaks", 'sound/misc/bell.ogg', "Captain")
+		nonsilicon_message_cooldown = world.time + 5 SECONDS
+
 	user.log_talk(input, LOG_SAY, tag="priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has made a priority announcement.")
 

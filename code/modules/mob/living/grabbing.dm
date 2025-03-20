@@ -22,6 +22,7 @@
 	var/list/dependents = list()
 	var/handaction
 	var/bleed_suppressing = 0.5 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
+	var/chokehold = FALSE
 
 /atom/movable //reference to all obj/item/grabbing
 	var/list/grabbedby = list()
@@ -182,6 +183,12 @@
 	else if(!user.cmode && M.cmode)
 		combat_modifier -= 0.3
 
+	if(sublimb_grabbed == BODY_ZONE_PRECISE_NECK && grab_state > 0) //grabbing aggresively the neck
+		if(user && (M.dir == turn(get_dir(M,user), 180))) //is behind the grabbed
+			chokehold = TRUE
+
+	if(chokehold)
+		combat_modifier += 0.15
 
 	combat_modifier *= ((skill_diff * 0.1) + 1)
 
@@ -190,18 +197,23 @@
 			if(!(M.status_flags & CANPUSH) || HAS_TRAIT(M, TRAIT_PUSHIMMUNE))
 				to_chat(user, "<span class='warning'>Can't get a grip!</span>")
 				return FALSE
+			user.adjust_stamina(1) //main stamina consumption in grippedby() struggle
 			M.grippedby(user)
 		if(/datum/intent/grab/choke)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M) && M != user)
+					user.adjust_stamina(rand(1,3))
 					var/mob/living/carbon/C = M
 					if(get_location_accessible(C, BODY_ZONE_PRECISE_NECK))
 						if(prob(23))
 							C.emote("choke")
-						C.adjustOxyLoss(user.STASTR)
-					C.visible_message("<span class='danger'>[user] [pick("chokes", "strangles")] [C]!</span>", \
-									"<span class='userdanger'>[user] [pick("chokes", "strangles")] me!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
-					to_chat(user, "<span class='danger'>I [pick("choke", "strangle")] [C]!</span>")
+						if(chokehold)
+							C.adjustOxyLoss(user.STASTR * 1.2)
+						else
+							C.adjustOxyLoss(user.STASTR)
+						C.visible_message(span_danger("[user] [pick("chokes", "strangles")] [C][chokehold ? " with a chokehold" : ""]!"), \
+								span_userdanger("[user] [pick("chokes", "strangles")] me[chokehold ? " with a chokehold" : ""]!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE, user)
+						to_chat(user, span_danger("I [pick("choke", "strangle")] [C][chokehold ? " with a chokehold" : ""]!"))
 		if(/datum/intent/grab/hostage)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(ishuman(M) && M != user)
@@ -221,61 +233,99 @@
 		if(/datum/intent/grab/twist)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(iscarbon(M))
+					user.adjust_stamina(rand(3,8))
 					twistlimb(user)
 		if(/datum/intent/grab/twistitem)
 			if(limb_grabbed && grab_state > 0) //this implies a carbon victim
 				if(ismob(M))
+					user.adjust_stamina(rand(3,8))
 					twistitemlimb(user)
 		if(/datum/intent/grab/remove)
 			if(isitem(sublimb_grabbed))
+				user.adjust_stamina(rand(3,8))
 				removeembeddeditem(user)
 			else
 				user.stop_pulling()
 		if(/datum/intent/grab/shove)
 			if(!(user.mobility_flags & MOBILITY_STAND))
-				to_chat(user, "<span class='warning'>I must stand..</span>")
+				to_chat(user, "<span class='warning'>I must stand up first.</span>")
 				return
 			if(!(M.mobility_flags & MOBILITY_STAND))
 				if(user.loc != M.loc)
-					to_chat(user, "<span class='warning'>I must be above them.</span>")
+					to_chat(user, "<span class='warning'>I must be on top of them.</span>")
 					return
 				if(src == user.r_grab)
 					if(!user.l_grab || user.l_grab.grabbed != M)
-						to_chat(user, "<span class='warning'>I must grab them with both hands.</span>")
+						to_chat(user, span_warning("I must grab them with my left hand too."))
 						return
 				if(src == user.l_grab)
 					if(!user.r_grab || user.r_grab.grabbed != M)
-						to_chat(user, "<span class='warning'>I must grab them with both hands.</span>")
+						to_chat(user, span_warning("I must grab them with my right hand too."))
 						return
-				if(user.STASTR > M.STASTR)
-					M.visible_message("<span class='danger'>[user] pins [M] to the ground!</span>", \
-									"<span class='userdanger'>[user] pins me to the ground!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
-					M.Knockdown(300)
-					M.Immobilize(300)
-					user.Immobilize(30)
-				else
-					if(prob(23))
-						M.visible_message("<span class='danger'>[user] pins [M] to the ground briefly!</span>", \
-										"<span class='userdanger'>[user] pins me to the ground briefly!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
-						M.Knockdown(100)
-						M.Immobilize(100)
-						user.Immobilize(50)
-					else
-						M.visible_message("<span class='warning'>[user] tries to pin [M]!</span>", \
-										"<span class='danger'>[user] tries to pin me down!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
+				user.adjust_stamina(rand(1,3))
+				M.visible_message(span_danger("[user] pins [M] to the ground!"), \
+								span_userdanger("[user] pins me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+				M.Stun(max(20 + (skill_diff * 10) + (user.STASTR * 5) - (M.STACON * 5) * combat_modifier, 1))
+				user.Immobilize(max(20 - skill_diff, 1))
+				user.changeNext_move(max(20 - skill_diff, CLICK_CD_GRABBING))
+				user.adjust_stamina(rand(3,8))
 			else
-				if(user.STASTR > M.STASTR)
-					M.visible_message("<span class='danger'>[user] shoves [M] to the ground!</span>", \
-									"<span class='userdanger'>[user] shoves me to the ground!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
-					M.Knockdown(10)
-				else
-					if(prob(23))
-						M.visible_message("<span class='danger'>[user] shoves [M] to the ground!</span>", \
-										"<span class='userdanger'>[user] shoves me to the ground!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
-						M.Knockdown(1)
+				user.adjust_stamina(rand(5,15))
+				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
+					M.Knockdown(max(10 + (skill_diff * 2), 1))
+					playsound(src,"genblunt",100,TRUE)
+					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M)
+						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
+						span_userdanger("[user] throws me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
 					else
-						M.visible_message("<span class='warning'>[user] tries to shove [M]!</span>", \
-										"<span class='danger'>[user] tries to shove me!</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE)
+						M.visible_message(span_danger("[user] tackles [M] to the ground!"), \
+						span_userdanger("[user] tackles me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
+						user.set_resting(TRUE, TRUE)
+				else
+					M.visible_message(span_warning("[user] tries to shove [M]!"), \
+									span_danger("[user] tries to shove me!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+				user.changeNext_move(CLICK_CD_GRABBING)
+		if(/datum/intent/grab/disarm)
+			var/obj/item/I
+			if(sublimb_grabbed == BODY_ZONE_PRECISE_L_HAND && M.active_hand_index == 1)
+				I = M.get_active_held_item()
+			else
+				if(sublimb_grabbed == BODY_ZONE_PRECISE_R_HAND && M.active_hand_index == 2)
+					I = M.get_active_held_item()
+				else
+					I = M.get_inactive_held_item()
+			user.adjust_stamina(rand(3,8))
+			var/probby = clamp((((3 + (((user.STASTR - M.STACON)/4) + skill_diff)) * 10) * combat_modifier), 5, 95)
+			if(I)
+				if(M.mind)
+					if(I.associated_skill)
+						probby -= M.mind.get_skill_level(I.associated_skill) * 5
+				if(I.wielded)
+					probby -= 20
+				if(prob(probby))
+					M.dropItemToGround(I, force = FALSE, silent = FALSE)
+					user.dropItemToGround(src, force = TRUE, silent = TRUE)
+					if(!QDELETED(I))
+						user.put_in_active_hand(I)
+						M.visible_message(span_danger("[user] takes [I] from [M]'s hand!"), \
+									span_userdanger("[user] takes [I] from my hand!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+						playsound(src.loc, 'sound/combat/weaponr1.ogg', 100, FALSE, -1) //sound queue to let them know that they got disarmed
+					user.changeNext_move(CLICK_CD_MELEE)//avoids instantly attacking with the new weapon
+				else
+					probby += 5
+					if(prob(probby))
+						M.dropItemToGround(I, force = FALSE, silent = FALSE)
+						M.visible_message(span_danger("[user] disarms [M] of [I]!"), \
+								span_userdanger("[user] disarms me of [I]!"), span_hear("I hear aggressive shuffling!"), COMBAT_MESSAGE_RANGE)
+						M.Stun(6)//slight delay to pick up the weapon
+					else
+						user.Immobilize(10)
+						M.Immobilize(10)
+						M.visible_message(span_notice("[user.name] struggles to disarm [M.name]!"))
+						playsound(src.loc, 'sound/foley/struggle.ogg', 100, FALSE, -1)
+			else
+				to_chat(user, span_warning("They aren't holding anything in that hand!"))
+				return
 
 /obj/item/grabbing/proc/twistlimb(mob/living/user) //implies limb_grabbed and sublimb are things
 	var/mob/living/carbon/C = grabbed
@@ -422,9 +472,9 @@
 		playsound(C.loc, "smashlimb", 100, FALSE, -1)
 	else
 		C.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
-	C.visible_message("<span class='danger'>[user] smashes [C]'s [limb_grabbed] into [A]![C.next_attack_msg.Join()]</span>", \
-					"<span class='userdanger'>[user] smashes my [limb_grabbed] into [A]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
-	to_chat(user, "<span class='warning'>I smash [C]'s [limb_grabbed] against [A].[C.next_attack_msg.Join()]</span>")
+	C.visible_message("<span class='danger'>[user] smashes [C]'s [limb_grabbed.name] into [A]![C.next_attack_msg.Join()]</span>", \
+					"<span class='userdanger'>[user] smashes my [limb_grabbed.name] into [A]![C.next_attack_msg.Join()]</span>", "<span class='hear'>I hear a sickening sound of pugilism!</span>", COMBAT_MESSAGE_RANGE, user)
+	to_chat(user, "<span class='warning'>I smash [C]'s [limb_grabbed.name] against [A].[C.next_attack_msg.Join()]</span>")
 	C.next_attack_msg.Cut()
 	log_combat(user, C, "limbsmashed [limb_grabbed] ")
 
@@ -435,6 +485,8 @@
 	candodge = FALSE
 	canparry = FALSE
 	no_attack = TRUE
+	misscost = 2
+	releasedrain = 2
 
 /datum/intent/grab/move
 	name = "grab move"
@@ -481,6 +533,10 @@
 	desc = ""
 	icon_state = "intake"
 
+/datum/intent/grab/disarm
+	name = "disarm"
+	desc = ""
+	icon_state = "intake"
 
 /obj/item/grabbing/bite
 	name = "bite"

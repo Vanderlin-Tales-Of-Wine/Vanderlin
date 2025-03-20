@@ -1,35 +1,29 @@
 
 /datum/job/vagrant
 	title = "Beggar"
+	tutorial = "The stench of your piss-laden clothes dont bug you anymore, \
+	the glances of disgust and loathing others give you is just a friendly greeting; \
+	the only reason you've not been killed already is because volfs are known to be repelled by decaying flesh. \
+	You're going to be a solemn reminder of what happens when something unwanted is born into this world."
 	flag = APPRENTICE
 	department_flag = PEASANTS
-	faction = "Station"
+	display_order = JDO_VAGRANT
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 15
 	spawn_positions = 15
-
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Rakshari"
-	)
-	outfit = /datum/outfit/job/vagrant
+	min_pq = -100
 	bypass_lastclass = TRUE
 	banned_leprosy = FALSE
 
-	tutorial = "The stench of your piss-laden clothes dont bug you anymore, the glances of disgust and loathing others give you is just a friendly greeting; the only reason you've not been killed already is because volfs are known to be repelled by decaying flesh. You're going to be a solemn reminder of what happens when something unwanted is born into this world."
-	display_order = JDO_VAGRANT
-	show_in_credits = FALSE
-	min_pq = -100
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	outfit = /datum/outfit/job/vagrant
 	can_random = FALSE
 
-	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/job/vagrant/New()
 	. = ..()

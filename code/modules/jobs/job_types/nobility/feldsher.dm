@@ -1,18 +1,20 @@
 /datum/job/feldsher
 	title = "Feldsher"
+	tutorial = "You have seen countless wounds over your time. \
+	Stitched the sores of blades, sealed honey over the bubous of plague. \
+	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. \
+	At least the Apothecary understands you."
 	flag = FELDSHER
 	department_flag = NOBLEMEN
-	faction = "Station"
+	display_order = JDO_FELDSHER
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	outfit = /datum/outfit/job/feldsher
-	display_order = JDO_FELDSHER
-	tutorial = "You have seen countless wounds over your time. Stitched the sores of blades, sealed honey over the bubous of plague. \
-	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. At least the Apothecary understands you."
-	give_bank_account = 100
 	min_pq = 2
 
 	//Reason all races allowed is you are basically a very talented court physician; even 'lower races' would find this to be one of the only ways to obtain a sort of nobility.
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Rakshari",
@@ -24,8 +26,10 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	allowed_sexes = list(MALE, FEMALE)
 
+
+	outfit = /datum/outfit/job/feldsher
+	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 
 /datum/outfit/job/feldsher
@@ -54,6 +58,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

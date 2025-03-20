@@ -1,10 +1,17 @@
 /datum/job/innkeep
 	title = "Innkeep"
+	tutorial = "Liquor, lodging, and lavish meals... your business is the beating heart of Vanderlin. \
+	You're the one who provides the the hardworking townsfolk with a place to eat and drink their sorrows away, \
+	and accommodations for weary travelers passing through."
 	flag = INNKEEP
 	department_flag = SERFS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_INNKEEP
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = -10
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -16,13 +23,8 @@
 		"Aasimar"
 	)
 
-	tutorial = "Liquor, lodging, and lavish meals... your business is the beating heart of Vanderlin. You're the one who provides the the hardworking townsfolk with a place to eat and drink their sorrows away, and accommodations for weary travelers passing through."
-
 	outfit = /datum/outfit/job/innkeep
-	display_order = JDO_INNKEEP
-	bypass_lastclass = TRUE
 	give_bank_account = 60
-	min_pq = -10
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
 /datum/outfit/job/innkeep/pre_equip(mob/living/carbon/human/H)
@@ -34,6 +36,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 2, TRUE)
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights/random
 		shirt = /obj/item/clothing/shirt/shortshirt/random

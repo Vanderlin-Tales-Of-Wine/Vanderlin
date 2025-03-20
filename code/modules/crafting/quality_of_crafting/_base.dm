@@ -257,7 +257,7 @@
 			storage_contents |= item
 
 	if(check_around_owner)
-		for(var/turf/listed_turf in range(1, user))
+		for(var/turf/listed_turf in (range(0, user) + orange(1, get_turf(user))))
 			for(var/obj/item in listed_turf.contents)
 				usable_contents |= item
 
@@ -271,7 +271,7 @@
 				storage_contents |= item
 
 		if(check_around_owner)
-			for(var/turf/listed_turf in range(1, user))
+			for(var/turf/listed_turf in (range(0, user) + orange(1, get_turf(user))))
 				for(var/obj/item in listed_turf.contents)
 					usable_contents |= item
 		var/list/copied_requirements = requirements.Copy()
@@ -589,7 +589,7 @@
 		if(!length(copied_requirements) && !length(copied_reagent_requirements) && !length(copied_tool_usage))
 			if(crafting_message)
 				user.visible_message(span_small("[user] [crafting_message]."), span_small("I [crafting_message]."))
-			if(do_after(user, craft_time, attacked_item))
+			if(do_after(user, craft_time))
 				var/prob2craft = 25
 				var/prob2fail = 1
 				if(craftdiff)
@@ -652,6 +652,11 @@
 
 				for(var/obj/item/deleted in to_delete)
 					to_delete -= deleted
+					var/datum/component/storage/STR = deleted.GetComponent(/datum/component/storage)
+					if(STR)
+						var/list/things = STR.contents()
+						for(var/obj/item/I in things)
+							STR.remove_from_storage(I, get_turf(src))
 					qdel(deleted)
 				if(user.mind && skillcraft)
 					if(isliving(user))
