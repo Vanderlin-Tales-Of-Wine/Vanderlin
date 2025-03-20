@@ -352,6 +352,8 @@
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "petrignome"
 	smeltresult = null
+	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
+	attacked_sound = 	'modular/stonekeep/sound/stone_scrape.ogg'
 
 /obj/structure/fluff/shipssprote
 	name = ""
@@ -1068,3 +1070,9 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 		C.remove_stress(/datum/stressevent/sadfate)
 
 
+
+/obj/item/reagent_containers/glass/bottle/antidote
+	name = "antidote potion"
+
+/obj/item/reagent_containers/glass/bottle/healthpot
+	name = "health potion"

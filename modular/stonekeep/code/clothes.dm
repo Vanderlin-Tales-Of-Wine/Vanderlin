@@ -1237,12 +1237,15 @@
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon_state = "velvetdress"
 	item_state = "velvetdress"
-	detail_tag = "_detail"
+//	detail_tag = "_detail"
+//	color = CLOTHING_WHITE
+//	detail_color = "#422413"
+//	alternate_worn_layer =  WRISTSLEEVE_LAYER
 
-/obj/item/clothing/shirt/dress/velvetdress/update_icon()
+/obj/item/clothing/shirt/dress/velvetdress/courtupdate_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -1258,7 +1261,7 @@
 	else
 		GLOB.lordcolor += src
 
-/obj/item/clothing/shirt/dress/velvetdress/court/lordcolor(primary,secondary)
+/obj/item/clothing/shirt/dress/velvetdress/court/lordcolor(secondary)
 	detail_color = secondary
 	update_icon()
 	if(ismob(loc))
@@ -1268,6 +1271,10 @@
 /obj/item/clothing/shirt/dress/velvetdress/court/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
+
+
+
+
 
 
 //
