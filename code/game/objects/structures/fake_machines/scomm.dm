@@ -33,7 +33,7 @@
 		. += "<span class='warning'>Uhhh... I can't read them...</span>"
 		return
 	for(var/i in 1 to length(GLOB.laws_of_the_land))
-		. += "<span class='small'>[i]. [GLOB.laws_of_the_land[i]]</span>"
+		. += span_info("[i]. [GLOB.laws_of_the_land[i]]")
 
 /obj/structure/fake_machine/scomm/process()
 	if(world.time > next_decree)
@@ -67,7 +67,7 @@
 		contents += "[i]. <span class='info'>[GLOB.lord_decrees[i]]</span><BR>"
 	if(!canread)
 		contents = stars(contents)
-	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 220)
+	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
 
