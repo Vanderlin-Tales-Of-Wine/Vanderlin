@@ -139,23 +139,23 @@
 
 /datum/species/tieberian/get_hairc_list()
 	var/static/list/hair_colors = sortList(list(
-		"black - oil" = "#181a1d",
-		"black - cave" = "#201616",
-		"black - rogue" = "#2b201b",
-		"black - midnight" = "#1d1b2b",
+		"black - oil" = "181a1d",
+		"black - cave" = "201616",
+		"black - rogue" = "2b201b",
+		"black - midnight" = "1d1b2b",
 
-		"blond - pale" = "#9d8d6e",
-		"blond - dirty" = "#88754f",
-		"blond - drywheat" = "#d5ba7b",
-		"blond - strawberry" = "#c69b71",
+		"blond - pale" = "9d8d6e",
+		"blond - dirty" = "88754f",
+		"blond - drywheat" = "d5ba7b",
+		"blond - strawberry" = "c69b71",
 
-		"purple - arcane" = "#3f2f42",
+		"purple - arcane" = "3f2f42",
 
-		"blue - abyss" = "#09282d",
+		"blue - abyss" = "09282d",
 
-		"red - demonic" = "#480808",
-		"red - impish" = "#641010",
-		"red - rubescent" = "#8d5858"
+		"red - demonic" = "480808",
+		"red - impish" = "641010",
+		"red - rubescent" = "8d5858"
 	))
 
 	return hair_colors
