@@ -616,7 +616,7 @@
 "jR" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/clothing/cloak/stabard/templar/malum,
-/obj/item/clothing/head/helmet/heavy/necked/malumhelm,
+/obj/item/clothing/head/helmet/heavy/necked/malum,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "jS" = (
