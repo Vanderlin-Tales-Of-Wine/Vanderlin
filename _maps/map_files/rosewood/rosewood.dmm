@@ -921,6 +921,7 @@
 /area/rogue/indoors/town/bath)
 "aBE" = (
 /obj/structure/closet/crate/drawer,
+/obj/item/storage/belt/pouch/coins/mid,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "aBL" = (
@@ -3140,6 +3141,10 @@
 "bNW" = (
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/garrison)
+"bNY" = (
+/obj/structure/fake_machine/scomm/r,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/town/magician)
 "bOa" = (
 /obj/structure/table/wood{
 	icon_state = "map4"
@@ -7809,6 +7814,10 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/shop)
+"epD" = (
+/obj/structure/fake_machine/scomm/r,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "epQ" = (
 /obj/structure/mineral_door/wood/red{
 	lockid = "apartment7";
@@ -8648,7 +8657,8 @@
 "eUP" = (
 /obj/structure/mineral_door/wood/violet{
 	lockid = "manor";
-	name = "Servant Access"
+	name = "Servant Access";
+	locked = 1
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
@@ -9174,6 +9184,12 @@
 /obj/structure/fluff/walldeco/psybanner,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/church)
+"fjc" = (
+/obj/structure/window/openclose/reinforced{
+	dir = 1
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town/manor)
 "fju" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -14943,6 +14959,11 @@
 	pixel_x = 32;
 	desc = "One of the many Queens to bless the land. Her boot kicks were said to be the finest in the land."
 	},
+/obj/item/rope/chain,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/clothing/cloak/tabard/knight,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "iAP" = (
@@ -15199,12 +15220,10 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
 "iKB" = (
-/obj/structure/window/openclose{
-	icon_state = "woodwindowdir";
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/indoors/town/manor)
+/obj/structure/flora/grass/bush/tundra,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/town)
 "iKM" = (
 /obj/structure/bookcase/random/legends,
 /turf/open/floor/blocks/newstone,
@@ -18333,7 +18352,8 @@
 "kBk" = (
 /obj/structure/mineral_door/wood/violet{
 	lockid = "manor";
-	name = "Servant Access"
+	name = "Servant Access";
+	locked = 1
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor)
@@ -21243,6 +21263,12 @@
 	},
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/soilsons)
+"mje" = (
+/obj/structure/fake_machine/scomm{
+	pixel_y = -32
+	},
+/turf/open/floor/herringbone,
+/area/rogue/indoors/town/magician)
 "mjl" = (
 /obj/structure/mineral_door/bars{
 	lockid = "puritan";
@@ -21962,7 +21988,6 @@
 "mCH" = (
 /obj/structure/closet/crate/crafted_closet/inn/chest,
 /obj/item/book/manners,
-/obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/manor)
 "mCK" = (
@@ -22490,6 +22515,11 @@
 /area/rogue/indoors/town/dwarfin)
 "mQH" = (
 /obj/structure/closet/crate/crafted_closet/dark,
+/obj/item/rope/chain,
+/obj/item/flashlight/flare/torch/lantern,
+/obj/item/clothing/cloak/tabard/knight,
+/obj/item/reagent_containers/food/snacks/hardtack,
+/obj/item/reagent_containers/food/snacks/hardtack,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "mQW" = (
@@ -22602,7 +22632,8 @@
 "mTY" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "manor";
-	name = "Keep Entrance"
+	name = "Keep Entrance";
+	locked = 1
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
@@ -26071,6 +26102,10 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
+/obj/item/clothing/shirt/undershirt/fancy,
+/obj/item/clothing/shoes/boots,
+/obj/item/clothing/pants/tights/black,
+/obj/item/clothing/armor/leather/jacket/handjacket,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "oKU" = (
@@ -26324,6 +26359,9 @@
 /obj/structure/fluff/walldeco/med3{
 	pixel_x = 32;
 	pixel_y = -1
+	},
+/obj/structure/fake_machine/scomm{
+	pixel_y = -32
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
@@ -29303,6 +29341,9 @@
 /area/rogue/outdoors/town)
 "qFG" = (
 /obj/structure/table/vtable/v2,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/natural/feather,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "qFT" = (
@@ -40593,6 +40634,14 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/river)
+"wRs" = (
+/obj/structure/mineral_door/wood/fancywood{
+	lockid = "manor";
+	name = "Keep Entrance";
+	locked = 1
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/manor)
 "wRw" = (
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/smithy)
@@ -41670,7 +41719,8 @@
 "xBM" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "manor";
-	name = "Keep Entrance"
+	name = "Keep Entrance";
+	locked = 1
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
@@ -93073,9 +93123,9 @@ pRV
 pRV
 uoc
 tIz
-kZF
-kZF
 jUD
+kZF
+kZF
 uOQ
 cNT
 kZF
@@ -93689,7 +93739,7 @@ qBR
 kZF
 kZF
 kZF
-kZF
+bNY
 qBR
 kZF
 ahL
@@ -93878,7 +93928,7 @@ pgZ
 ydD
 ydD
 ydD
-ydD
+mje
 nQK
 wye
 wye
@@ -99562,7 +99612,7 @@ pvU
 pvU
 ndV
 ndV
-enI
+wRs
 jnM
 cwC
 cwC
@@ -100607,7 +100657,7 @@ cwC
 jnM
 jnM
 leA
-pro
+iKB
 chQ
 chQ
 chQ
@@ -101214,7 +101264,7 @@ jnM
 jnM
 jnM
 jnM
-pmI
+epD
 chQ
 chQ
 aDF
@@ -101416,7 +101466,7 @@ jnM
 jnM
 jnM
 qMy
-qMy
+jae
 chQ
 chQ
 chQ
@@ -102390,7 +102440,7 @@ pvU
 pvU
 ndV
 ndV
-enI
+wRs
 jnM
 jnM
 jnM
@@ -140147,9 +140197,9 @@ eme
 eme
 eme
 eme
-uHM
+mYC
 ykV
-uHM
+mYC
 eme
 eme
 eme
@@ -142571,9 +142621,9 @@ eme
 eme
 eme
 eme
-uHM
+mYC
 ykV
-uHM
+mYC
 eme
 eme
 eme
@@ -179957,7 +180007,7 @@ eOY
 nYJ
 kpA
 uRb
-wZD
+hGG
 krN
 krN
 aOA
@@ -180159,7 +180209,7 @@ bGg
 kUi
 pgf
 pgf
-wZD
+hGG
 krN
 krN
 aOA
@@ -180966,7 +181016,7 @@ ePb
 qgV
 ePb
 qgV
-iKB
+hGG
 krN
 krN
 vlL
@@ -181168,7 +181218,7 @@ qgV
 ePb
 qgV
 ePb
-iKB
+hGG
 krN
 krN
 krN
@@ -181572,7 +181622,7 @@ fAF
 lMC
 fhi
 bGg
-wZD
+hGG
 krN
 krN
 krN
@@ -181774,7 +181824,7 @@ tpq
 kXJ
 fhi
 bGg
-wZD
+hGG
 krN
 krN
 krN
@@ -181976,7 +182026,7 @@ oWn
 brL
 fhi
 bGg
-wZD
+hGG
 krN
 krN
 krN
@@ -182380,7 +182430,7 @@ ePb
 qgV
 ePb
 qgV
-iKB
+hGG
 krN
 krN
 krN
@@ -182582,7 +182632,7 @@ qgV
 ePb
 qgV
 ePb
-iKB
+hGG
 krN
 krN
 vlL
@@ -183391,7 +183441,7 @@ bGg
 sJh
 pgf
 pgf
-wZD
+hGG
 krN
 krN
 aOA
@@ -183593,7 +183643,7 @@ sNF
 iDM
 oWu
 oWu
-wZD
+hGG
 krN
 krN
 aOA
@@ -184398,7 +184448,7 @@ fAF
 lMC
 hbG
 bGg
-ybG
+fjc
 krN
 krN
 krN
@@ -184802,7 +184852,7 @@ eDd
 brL
 hbG
 bGg
-ybG
+fjc
 krN
 krN
 qJE
