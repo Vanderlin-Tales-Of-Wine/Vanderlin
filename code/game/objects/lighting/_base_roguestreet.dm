@@ -1,6 +1,8 @@
 /obj/machinery/light/fueledstreet
+	name = "street lamp"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "slamp1"
+	var/state_suffix = "1"
 	base_state = "slamp"
 	brightness = 10
 	//nightshift_allowed = FALSE
@@ -31,7 +33,7 @@
 
 /obj/machinery/light/fueledstreet/update_icon()
 	if(on)
-		icon_state = "[base_state]1"
+		icon_state = "[base_state][state_suffix]"
 	else
 		icon_state = "[base_state]0"
 
@@ -50,6 +52,26 @@
 
 /obj/machinery/light/fueledstreet/update_icon()
 	if(on)
-		icon_state = "[base_state]1"
+		icon_state = "[base_state][state_suffix]"
 	else
 		icon_state = "[base_state]0"
+
+//SLOP CODE :)))) it'll do but i'm not happy with where we are for the sprites for these.
+/obj/machinery/light/fueledstreet/blue
+	icon_state = "slamp3"
+	bulb_colour = "#6cfdff"
+	base_state = "slamp"
+	state_suffix = "3"
+
+/obj/machinery/light/fueledstreet/blue/midlamp
+	icon = 'icons/roguetown/misc/64x64.dmi'
+	icon_state = "midlamp3"
+	base_state = "midlamp"
+	state_suffix = "3"
+	pixel_x = -16
+	density = TRUE
+
+/obj/machinery/light/fueledstreet/blue/wall
+	icon_state = "wlamp3"
+	base_state = "wlamp"
+	state_suffix = "3"
