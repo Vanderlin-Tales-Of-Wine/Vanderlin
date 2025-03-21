@@ -84,6 +84,8 @@
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
 				HU.visible_message("<span class='warning'>[HU] electrocutes [H] with \the [src].</span>")
+				user.Beam(target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS) // LIGHTNING
+				playsound(user, 'sound/magic/lightningshock.ogg', 70, TRUE)
 				H.electrocute_act(5, src)
 				log_message("[HU] has shocked [H] with the master's rod!", LOG_ATTACK)
 				to_chat(H, "<span class='danger'>I'm electrocuted by the scepter!</span>")
