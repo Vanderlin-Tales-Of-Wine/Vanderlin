@@ -1,6 +1,8 @@
 /mob/living/carbon/human/species/skeleton
 	name = "skeleton"
 
+	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+	icon_state = "skeleton"
 	race = /datum/species/human/northern
 	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest, /obj/item/bodypart/head, /obj/item/bodypart/l_arm,
