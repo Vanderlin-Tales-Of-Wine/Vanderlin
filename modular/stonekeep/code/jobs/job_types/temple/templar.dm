@@ -2,9 +2,8 @@
 	title = "Templar"
 	flag = 	SK_TEMPLAR
 	department_flag = CHURCHMEN
-	faction = FACTION_STATION
 	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest, while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
-	allowed_sexes = list(MALE, FEMALE)
+
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -18,7 +17,6 @@
 	spawn_positions = 2
 	display_order = TEMPLAR_ORDER
 	give_bank_account = 10
-	min_pq = 0
 
 /datum/outfit/job/stonekeep/templar
 	name = "Templar"
@@ -32,27 +30,27 @@
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
 			neck = /obj/item/clothing/neck/psycross/silver/astrata
-			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
+			head = /obj/item/clothing/head/helmet/heavy/bucket/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/noc)
 			neck = /obj/item/clothing/neck/psycross/noc
-			head = /obj/item/clothing/head/helmet/heavy/necked/noc
+			head = /obj/item/clothing/head/helmet/heavy/bucket/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
-			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+			head = /obj/item/clothing/head/helmet/heavy/bucket/dendor
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
 			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/psycross/silver/necra
-			head = /obj/item/clothing/head/helmet/heavy/necked/necra
+			head = /obj/item/clothing/head/helmet/heavy/bucket/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
 			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
-			head = /obj/item/clothing/head/helmet/heavy/necked/pestrahelm
+			head = /obj/item/clothing/head/helmet/pestracage
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 		if(/datum/patron/divine/eora)
@@ -64,26 +62,27 @@
 			H.virginity = FALSE
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
-			head = /obj/item/clothing/head/helmet/heavy/necked/ravox
+			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
-			head = /obj/item/clothing/head/helmet/heavy/necked/malumhelm
+			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/malum
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		if(/datum/patron/divine/abyssor)
+			head = /obj/item/clothing/head/helmet/heavy/bucket/abyssor
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 
 
 	armor = /obj/item/clothing/armor/chainmail/hauberk
-	shirt = /obj/item/clothing/armor/gambeson
+	shirt = /obj/item/clothing/armor/gambeson/light
 	pants = /obj/item/clothing/pants/tights/random
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/storage/keyring/priest = 1)
+	backpack_contents = list(/obj/item/key/church = 1)
 	backr = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/storage/belt/pouch/coins/poor

@@ -1076,3 +1076,14 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 
 /obj/item/reagent_containers/glass/bottle/healthpot
 	name = "health potion"
+
+
+/obj/item/storage/keyring/priest
+	keys = list(/obj/item/key/priest, /obj/item/key/church, /obj/item/key/graveyard, /obj/item/key/inquisition)
+
+
+// =========================================================
+// ============		Underworld Toll added	================
+/mob/living/carbon/spirit/Initialize(mapload, cubespawned=FALSE, mob/spawner)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(give_patron_toll)), 10 SECONDS)

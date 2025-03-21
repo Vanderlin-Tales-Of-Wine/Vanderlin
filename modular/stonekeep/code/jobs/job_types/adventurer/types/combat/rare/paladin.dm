@@ -7,9 +7,9 @@
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/sk/adventurer/paladin
-	maximum_possible_slots = 1
+	maximum_possible_slots = 0
 	min_pq = 2
-	pickprob = 15
+	pickprob = 0
 	category_tags = list(CTAG_ADVENTURER)
 
 /datum/outfit/job/sk/adventurer/paladin/pre_equip(mob/living/carbon/human/H)

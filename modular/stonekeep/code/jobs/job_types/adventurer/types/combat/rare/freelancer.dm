@@ -7,7 +7,7 @@
 	allowed_races = list("Humen")
 	outfit = /datum/outfit/job/sk/adventurer/lancer
 	maximum_possible_slots = 1
-	pickprob = 15
+	pickprob = 10
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'

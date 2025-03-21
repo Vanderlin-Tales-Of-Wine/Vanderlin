@@ -61,6 +61,7 @@
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_armor.dmi'
 	icon_state = "nanbandoc"
 	item_state = "nanbandoc"
+	body_parts_covered = CHEST
 
 /obj/item/clothing/armor/plate/full/nanbando
 	name = "nanban-do-gusoku"
@@ -754,7 +755,7 @@
 	sleeved = 'modular/stonekeep/kaizoku/icons/clothing/feet.dmi'
 	desc = "A tabi reinforced in dragon bones and asbestos, making it fire immune. Not very protective against physical damage, but still fairly durable."
 	armor = ARMOR_LEATHER_BAD
-	max_integrity = INTEGRITY_STANDARD
+	max_integrity = INTEGRITY_STRONG
 	armor_class = AC_MEDIUM
 	heat_protection = LEGS|FEET
 	body_parts_covered = LEGS|FEET
@@ -861,7 +862,7 @@
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/gloves.dmi'
 	mob_overlay_icon = 'modular/stonekeep/kaizoku/icons/clothing/gloves.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/clothingicon/gloves.dmi'
-
+	armor = ARMOR_PLATE_BAD
 
 // =================================================================
 // ========================		HEAD	============================

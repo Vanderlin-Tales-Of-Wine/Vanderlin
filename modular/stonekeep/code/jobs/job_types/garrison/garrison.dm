@@ -25,7 +25,7 @@ the like.
 
 	outfit = /datum/outfit/job/stonekeep/garrison	//Default outfit.
 	advclass_cat_rolls = list(CTAG_GARRISON = 20)	//Handles class selection.
-	give_bank_account = 30
+	give_bank_account = 20
 	min_pq = -10
 
 	cmode_music = 'modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg'

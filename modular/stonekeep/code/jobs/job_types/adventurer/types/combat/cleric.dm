@@ -37,8 +37,8 @@
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
 			neck = /obj/item/clothing/neck/chaincoif
-		if(/datum/patron/divine/dendor)	// good helmet but no money
-			head = /obj/item/clothing/head/helmet/heavy/necked/dendorhelm
+		if(/datum/patron/divine/dendor)
+			head = /obj/item/clothing/head/antlerhood
 			neck = /obj/item/clothing/neck/coif
 			wrists = /obj/item/clothing/neck/psycross/silver/dendor
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak

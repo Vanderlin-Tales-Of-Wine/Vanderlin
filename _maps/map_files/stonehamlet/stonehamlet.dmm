@@ -2912,10 +2912,9 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/bath/redhouse)
 "euB" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "priest";
-	name = "confession chamber"
+/obj/structure/bars/passage{
+	name = "cell";
+	redstone_id = "inq_cell2"
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
@@ -5942,6 +5941,12 @@
 	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/hamlet)
+"iXZ" = (
+/obj/structure/lever{
+	redstone_id = "inq_cell1"
+	},
+/turf/open/floor/church,
+/area/rogue/indoors/town/church)
 "iYH" = (
 /obj/structure/roguerock,
 /turf/open/floor/grass,
@@ -6269,6 +6274,12 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern/saiga)
+"jxG" = (
+/obj/structure/lever{
+	redstone_id = "inq_cell2"
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/church)
 "jya" = (
 /obj/structure/bars/cemetery/vines,
 /obj/structure/flora/grass,
@@ -9014,6 +9025,13 @@
 /obj/effect/spawner/map_spawner/hauntz_random,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/plague_district)
+"nsM" = (
+/obj/structure/bars/passage{
+	name = "cell";
+	redstone_id = "inq_cell1"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/church)
 "ntk" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -9502,6 +9520,21 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/catacombs)
+"oeF" = (
+/obj/item/key/graveyard,
+/obj/item/storage/keyring,
+/obj/item/storage/keyring,
+/obj/item/key/church,
+/obj/item/key/graveyard,
+/obj/structure/closet/crate/chest/neu{
+	locked = 1;
+	lockid = "priest";
+	name = "key chest"
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "vertw"
+	},
+/area/rogue/indoors/town/church)
 "oeY" = (
 /obj/item/clothing/shirt/tunic/random,
 /obj/structure/closet/crate/drawer/random{
@@ -40852,7 +40885,7 @@ shr
 shr
 shr
 shr
-shr
+byK
 byK
 bni
 bni
@@ -41054,9 +41087,9 @@ shr
 shr
 shr
 shr
-shr
 byK
-byK
+bni
+bni
 bni
 bni
 byK
@@ -41256,9 +41289,9 @@ shr
 shr
 shr
 shr
-shr
 byK
-byK
+bni
+bni
 bni
 bni
 byK
@@ -41458,13 +41491,13 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
 bni
 bni
+bni
 byK
-shr
+uei
 uei
 cNr
 bAb
@@ -41660,7 +41693,6 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
 uei
@@ -41668,6 +41700,7 @@ nSO
 uei
 uei
 uei
+iXZ
 jUS
 jUS
 jUS
@@ -41862,7 +41895,6 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
 uei
@@ -41870,6 +41902,7 @@ ouh
 ouh
 sCp
 nVy
+jUS
 jUS
 uTH
 uTH
@@ -42064,14 +42097,14 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
 uei
 vRH
 ouh
 sCp
-euB
+nsM
+jUS
 jUS
 vTE
 jUS
@@ -42266,7 +42299,6 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
 uei
@@ -42274,6 +42306,7 @@ ouh
 ouh
 sCp
 nVy
+jUS
 bqM
 cyu
 jUS
@@ -42468,9 +42501,9 @@ shr
 shr
 shr
 shr
-shr
 byK
 bni
+uei
 uei
 uei
 uei
@@ -42670,8 +42703,8 @@ shr
 shr
 shr
 shr
-shr
 byK
+bni
 bni
 bni
 bni
@@ -42681,7 +42714,7 @@ uei
 aSe
 iCB
 iCB
-iCB
+jxG
 iCB
 iCB
 iCB
@@ -42872,7 +42905,7 @@ shr
 shr
 shr
 shr
-shr
+byK
 byK
 byK
 byK
@@ -120049,7 +120082,7 @@ jUg
 jUg
 jUg
 jbx
-jUg
+oeF
 fzJ
 rZi
 lPu

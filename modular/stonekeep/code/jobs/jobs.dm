@@ -253,3 +253,4 @@ GLOBAL_LIST_INIT(allmig_positions, list(
 	bypass_lastclass = TRUE
 	whitelist_req = FALSE
 	can_have_apprentices = FALSE
+	allowed_sexes = list(MALE, FEMALE)

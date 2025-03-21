@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/job/sk/adventurer/crusader
 	category_tags = list(CTAG_ADVENTURER)
 	maximum_possible_slots = 1
-	pickprob = 20
+	pickprob = 10
 	min_pq = 0
 
 /datum/outfit/job/sk/adventurer/crusader

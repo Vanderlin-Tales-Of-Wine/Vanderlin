@@ -5,7 +5,7 @@
 	allowed_races = list("Aasimar")
 	outfit = /datum/outfit/job/sk/adventurer/bulwark
 	maximum_possible_slots = 1
-	pickprob = 15 // Same as the other very rare classes
+	pickprob = 10
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
