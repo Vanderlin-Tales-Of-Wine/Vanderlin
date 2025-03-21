@@ -35,11 +35,6 @@ SUBSYSTEM_DEF(job)
 
 	for(var/job_type in all_jobs)
 		var/datum/job/job = new job_type()
-		if(!job.config_check())
-			continue
-		if(SSmapping.map_adjustment && (job.title in SSmapping.map_adjustment.blacklisted_jobs))
-			testing("Removed [job.type] due to map config");
-			continue
 		all_occupations += job
 		name_occupations[job.title] = job
 		type_occupations[job_type] = job
