@@ -48,6 +48,11 @@
 				icon_state = "[base_state]0"
 			return
 
+/obj/machinery/light/fueled/firebowl/firebowlb
+	icon_state = "stonefireb1"
+	base_state = "stonefireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
