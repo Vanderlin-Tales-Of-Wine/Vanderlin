@@ -40,8 +40,11 @@ SUBSYSTEM_DEF(job)
 		type_occupations[job_type] = job
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
 			joinable_occupations += job
-	return TRUE
 
+	if(SSmapping.map_adjustment)
+		JobDebug("Running map_adjustment.job_change()")
+		SSmapping.map_adjustment.job_change()
+	return TRUE
 
 /datum/controller/subsystem/job/proc/GetJob(rank)
 	if(!length(all_occupations))

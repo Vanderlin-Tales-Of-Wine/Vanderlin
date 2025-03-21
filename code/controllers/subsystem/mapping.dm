@@ -59,6 +59,7 @@ SUBSYSTEM_DEF(mapping)
 #else
 		config = load_map_config(error_if_missing = FALSE)
 #endif
+
 /datum/controller/subsystem/mapping/PreInit()
 	// After assigning a config datum to var/config, we check which map ajudstment fits the current config
 	for(var/datum/map_adjustment/each_adjust as anything in subtypesof(/datum/map_adjustment))
@@ -77,10 +78,10 @@ SUBSYSTEM_DEF(mapping)
 		var/old_config = config
 		config = global.config.defaultmap
 		if(!config || config.defaulted)
-			to_chat(world, "<span class='boldannounce'>Unable to load next or default map config, defaulting to Box Station</span>")
+			to_chat(world, "<span class='boldannounce'>Unable to load next or default map config, defaulting to Vanderlin</span>")
 			config = old_config
 	if(map_adjustment)
-		map_adjustment.job_change()
+		map_adjustment.on_mapping_init()
 		log_world("Applied '[map_adjustment.map_file_name]' map adjustment: on_mapping_init()")
 	loadWorld()
 	repopulate_sorted_areas()
