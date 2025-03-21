@@ -91,6 +91,51 @@
 /datum/antagonist/vampire/lord/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlord_starts))
 
+/datum/antagonist/vampire/lord/proc/grow_in_power()
+	if(vamplevel >= 3)
+		return
+	switch(vamplevel)
+		if(0)
+			batform = new
+			owner.current.AddSpell(batform)
+			for(var/obj/structure/vampire/portalmaker/S in GLOB.vampire_objects)
+				S.unlocked = TRUE
+			for(var/statkey in MOBSTATS)
+				owner.current.change_stat(statkey, 2)
+			to_chat(owner, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
+		if(1)
+			owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
+			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
+			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
+			owner.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
+			gas = new
+			owner.current.AddSpell(gas)
+			for(var/S in MOBSTATS)
+				owner.current.change_stat(S, 2)
+			to_chat(owner, "<font color='red'>My power is returning. I can once again access my spells. I have also regained usage of my mist form.</font>")
+		if(2)
+			for(var/obj/structure/vampire/necromanticbook/S in GLOB.vampire_objects)
+				S.unlocked = TRUE
+			owner.current.verbs |= /mob/living/carbon/human/proc/blood_strength
+			owner.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
+			owner.current.RemoveSpell(/obj/effect/proc_holder/spell/targeted/transfix)
+			owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix/master)
+			for(var/S in MOBSTATS)
+				owner.current.change_stat(S, 2)
+			to_chat(owner, span_notice("My dominion over others minds and my own body returns to me. I am nearing perfection. The armies of the dead shall now answer my call."))
+		if(3)
+			owner.current.visible_message("<font color='red'>[owner.current] is enveloped in dark crimson, a horrific sound echoing in the area. They are evolved.</font>","<font color='red'>I AM ANCIENT, I AM THE LAND. EVEN THE SUN BOWS TO ME.</font>")
+			ascended = TRUE
+			SSmapping.retainer.ascended = TRUE
+			for(var/datum/mind/thrall in SSmapping.retainer.vampires)
+				if(thrall.special_role == "Vampire Spawn")
+					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_strength
+					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
+					thrall.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
+					for(var/S in MOBSTATS)
+						thrall.current.change_stat(S, 2)
+	vamplevel++
+
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)

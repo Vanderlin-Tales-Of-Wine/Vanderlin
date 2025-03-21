@@ -26,10 +26,10 @@
 	to_chat(user, span_boldnotice("Blood level: [current]"))
 
 /obj/structure/vampire/bloodpool/attack_hand(mob/living/user)
-	var/datum/antagonist/vampire/lord = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
+	var/datum/antagonist/vampire/lord/lord = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
 	if(!lord)
 		return
-	switch(input(user,"What to do?", "VANDERLIN") as anything in useoptions|null)
+	switch(browser_input_list(user, "What to do?", "VANDERLIN", useoptions))
 		if("Grow Power")
 			if(lord.vamplevel >= length(levelup_thresholds))
 				to_chat(user, span_warning("I have already reached my pinnacle."))
@@ -37,7 +37,7 @@
 
 			var/next_level = levelup_thresholds[lord.vamplevel - 1] //1 index moment
 
-			if(alert(user, "Increase vampire level? Cost:[next_level]", "ASCENSION", "Yes", "No") == "Yes")
+			if(browser_alert(user, "Increase vampire level?\nCost:[next_level]", "ASCENSION", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				if(!check_withdraw(-next_level))
 					to_chat(user, span_warning("I do not have enough vitae."))
 					return
@@ -46,17 +46,17 @@
 					to_chat(user, span_warning("My growth has been interrupted."))
 					return
 
-				to_chat(user, span_greentext("My power grows."))
 				lord.handle_vitae(-next_level)
+				to_chat(user, span_greentext("My power grows."))
 				lord.grow_in_power()
 				user.playsound_local(get_turf(src), 'sound/misc/batsound.ogg', 100, FALSE, pressure_affected = FALSE)
 
 		if("Shape Amulet")
-			if(alert(user, "Craft a new amulet Cost:500", "WORLD ANCHOR", "Yes", "No") == "Yes")
+			if(browser_alert(user, "Craft a new amulet?\nCost:500", "WORLD ANCHOR", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				if(!check_withdraw(-500))
 					to_chat(user, span_warning("I do not have enough vitae."))
 					return
-				if(do_after(user, 10 SECONDS))
+				if(do_after(user, 10 SECONDS, src))
 					lord.handle_vitae(-500)
 					var/naming = input(user, "Select a name for the amulet.", "VANDERLIN") as text|null
 					var/obj/item/clothing/neck/portalamulet/P = new(src.loc)
@@ -65,11 +65,11 @@
 					user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 
 		if("Shape Armor")
-			if(alert(user, "Craft a new set of armor? Cost:5000", "WICKED PLATE", "Yes", "No") == "Yes")
+			if(browser_alert(user, "Craft a new set of armor?\nCost:5000", "WICKED PLATE", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				if(!check_withdraw(-5000))
 					to_chat(user, span_warning("I do not have enough vitae."))
 					return
-				if(do_after(user, 10 SECONDS))
+				if(do_after(user, 10 SECONDS, src))
 					lord.handle_vitae(-5000)
 					new /obj/item/clothing/pants/platelegs/vampire (src.loc)
 					new /obj/item/clothing/pants/platelegs/vampire (src.loc)
@@ -77,7 +77,7 @@
 					new /obj/item/clothing/armor/cuirass/vampire (src.loc)
 					new /obj/item/clothing/shoes/boots/armor/vampire (src.loc)
 					new /obj/item/clothing/head/helmet/heavy/savoyard (src.loc)
-				user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
+					user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /obj/structure/vampire/bloodpool/proc/update_pool(change)
 	var/tempmax = 8000
