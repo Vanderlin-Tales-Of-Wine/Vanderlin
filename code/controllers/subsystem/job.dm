@@ -42,7 +42,6 @@ SUBSYSTEM_DEF(job)
 			joinable_occupations += job
 
 	if(SSmapping.map_adjustment)
-		JobDebug("Running map_adjustment.job_change()")
 		SSmapping.map_adjustment.job_change()
 	return TRUE
 
