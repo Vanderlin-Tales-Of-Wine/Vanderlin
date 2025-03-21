@@ -17929,6 +17929,14 @@
 	pixel_x = 11;
 	pixel_y = 10
 	},
+/obj/item/storage/magebag/apprentice{
+	pixel_x = 13;
+	pixel_y = -5
+	},
+/obj/item/storage/magebag/apprentice{
+	pixel_x = 13;
+	pixel_y = -5
+	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "kyd" = (
@@ -19394,6 +19402,10 @@
 /obj/structure/rack/shelf/biggest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
+"llT" = (
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/town)
 "llW" = (
 /obj/structure/chair/bench/church/mid{
 	dir = 1;
@@ -31362,6 +31374,10 @@
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
+"rYr" = (
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/town)
 "rYs" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/snow/rough,
@@ -41347,6 +41363,11 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/river)
+"xGZ" = (
+/obj/structure/soil,
+/obj/item/reagent_containers/food/snacks/produce/manabloom,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/town)
 "xHa" = (
 /obj/structure/window/openclose/reinforced{
 	dir = 4
@@ -91166,7 +91187,7 @@ uoc
 veT
 uiv
 uiv
-kEx
+xGZ
 kEx
 dzE
 huA
@@ -91569,7 +91590,7 @@ bGL
 wSF
 aNi
 uiv
-gYK
+llT
 gYK
 its
 hHy
@@ -91974,7 +91995,7 @@ taA
 lye
 roc
 gYK
-its
+rYr
 its
 sbq
 dzE
@@ -93588,7 +93609,7 @@ kcl
 iEU
 uoc
 veT
-kEx
+xGZ
 gYK
 gYK
 huA
@@ -93790,7 +93811,7 @@ taA
 taA
 taA
 lye
-kEx
+xGZ
 gYK
 gYK
 cth
