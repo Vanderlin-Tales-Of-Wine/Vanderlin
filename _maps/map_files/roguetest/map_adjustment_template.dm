@@ -7,8 +7,8 @@
 /datum/map_adjustment/template
 	map_file_name = "roguetest.dmm"
 	blacklisted_jobs = list(
-		"Forest Guard",
-		"Beggar"
+		/datum/job/forestguard,
+		/datum/job/vagrant
 		)
 
 /datum/map_adjustment/template/job_change()
