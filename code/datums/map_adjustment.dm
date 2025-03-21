@@ -14,6 +14,11 @@
 	/// Jobs that this station map won't use
 	var/list/blacklisted_jobs
 
+/// called on map config is loaded.
+/// You need to change things manually here.
+/datum/map_adjustment/proc/on_mapping_init()
+	return
+
 /// called upon job datum creation. Override this proc to change.
 /datum/map_adjustment/proc/job_change()
 	for(var/title in blacklisted_jobs)
@@ -22,7 +27,7 @@
 		job.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
 	return
 
-/// * job_name<string/JOB_DEFINES>: 	JOB_NAME macros from jobs.dm
+/// * job_name<datum/job/J>: 			Datum of the job that's being adjusted
 /// * spawn_positions<number>: 			Sets the number of roundstart positions of this job, when spawning at roundstart
 /// * total_positions<number, null>: 	Sets the number of total positions of this job, including roundstart and latejoin
 /datum/map_adjustment/proc/change_job_position(datum/job/J, spawn_positions, total_positions = null)
