@@ -97,7 +97,16 @@
 	icon_state = "cobblerock_red"
 	neighborlay = "cobblerock_red"
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor)
+	canSmoothWith = list(
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/patchy,
+						/turf/open/floor/snow/rough,
+						/turf/open/floor/grass/mixyel,
+						/turf/open/floor/grass/yel,
+						/turf/open/floor/grass/red,
+						/turf/open/floor/grass/transition,
+						/turf/open/floor/dirt/muddie
+						)
 
 /turf/open/floor/cobble/mossy
 	icon = 'modular/stonekeep/icons/turfs.dmi'

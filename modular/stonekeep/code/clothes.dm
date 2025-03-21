@@ -415,7 +415,7 @@
 /obj/item/clothing/head/helmet/heavy/bucket/templar
 	icon_state = "astrata"
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	icon = 'modular/stonekeep/icons/clothing.dmi
+	icon = 'modular/stonekeep/icons/clothing.dmi'
 
 /obj/item/clothing/head/helmet/heavy/bucket/templar/noc
 	icon_state = "noc"
@@ -498,7 +498,7 @@
 // ==============================	ARMOR	====================================
 
 /obj/item/clothing/armor/rare	// already got huge armor values. Lets balance with crappy integrity. OP classes no fun for everyone else.
-	max_integrity = INTEGRITY_AVERAGE
+	max_integrity = INTEGRITY_STANDARD
 
 /obj/item/clothing/armor/leather/vest/bard
 	name = "leather vest"

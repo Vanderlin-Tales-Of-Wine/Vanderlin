@@ -15,7 +15,7 @@
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
 	spawnableAtoms = list(/obj/structure/flora/tree = 1,
 							/obj/structure/flora/tree/neu/bush = 1,
-							/obj/structure/flora/grass/bush_meagre = 2,
+							/obj/structure/flora/grass/bush_meagre = 1,
 							/obj/structure/flora/rogueflower/random = 1,
 							/obj/structure/flora/grass = 10,
 							/obj/structure/table/wood/treestump = 1,
@@ -75,7 +75,7 @@
 	allowed_areas = list(/area/rogue/outdoors/rtfield/outlaw)
 
 /datum/mapGeneratorModule/ambushing/stonehamlet
-	spawnableAtoms = list(/obj/effect/landmark/ambush=15)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=10)
 	allowed_turfs = list(/turf/open/floor/dirt)
 	allowed_areas = list(/area/rogue/outdoors/rtfield/hamlet,/area/rogue/outdoors/rtfield/plague_district, /area/rogue/outdoors/rtfield/outlaw)
 	excluded_turfs = list(/turf/open/floor/dirt/road)

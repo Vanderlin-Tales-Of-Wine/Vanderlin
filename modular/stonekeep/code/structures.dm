@@ -444,6 +444,14 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "weaver"
 
+/obj/structure/fluff/walldeco/xylixhint
+	icon_state = "wall_funny"
+	pixel_y = 32
+	alpha = 210
+
+/obj/structure/fluff/walldeco/xylixhint/sad
+	icon_state = "wall_sad"
+
 
 
 /obj/structure/fluff/railing/fence/palisade_alt

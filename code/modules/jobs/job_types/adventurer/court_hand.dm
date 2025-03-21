@@ -7,7 +7,7 @@ datum/job/adventurer/courtagent
 	Garrison and Court members know who you are."
 	job_flags = (JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	total_positions = 0
-	spawn_positions = 2
+	spawn_positions = 0
 	min_pq = 10
 
 	outfit = null
