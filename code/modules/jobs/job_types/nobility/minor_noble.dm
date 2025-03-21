@@ -18,11 +18,7 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc",
-		"Aasimar",
-		"Rakshari"
+		"Aasimar"
 	)
 
 	outfit = /datum/outfit/job/noble

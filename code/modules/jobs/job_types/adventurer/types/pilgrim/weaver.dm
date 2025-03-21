@@ -1,13 +1,7 @@
 /datum/advclass/pilgrim/weaver
 	name = "Weaver"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Humen",
-	"Elf",
-	"Half-Elf",
-	"Dwarf",
-	"Tiefling",
-	"Aasimar"
-	)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/adventurer/seamstress
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Weaver"

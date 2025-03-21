@@ -19,7 +19,6 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Dark Elf",
 		"Aasimar"
 	)
 	allowed_patrons = ALL_TEMPLE_PATRONS

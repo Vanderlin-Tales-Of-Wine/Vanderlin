@@ -25,7 +25,6 @@
 		"Dark Elf",
 		"Aasimar",
 		"Half-Orc",
-		"Kobold",
 	)
 
 

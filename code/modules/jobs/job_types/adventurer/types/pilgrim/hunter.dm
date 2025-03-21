@@ -5,15 +5,13 @@
 	allowed_sexes = list(MALE)
 	allowed_races = list(
 		"Humen",
-		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/hunter
 

@@ -8,7 +8,6 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Dark Elf",
 		"Aasimar"
 	)
 

@@ -10,7 +10,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/sorceress
 	maximum_possible_slots = 2

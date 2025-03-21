@@ -2,14 +2,7 @@
 	name = "Deprived" // challenge run
 	greet_text = "You were once a highwayman, a monster of the road - but you have since ditched your sinful ways, leaving society behind in wake of your regrets. Nothing erases the past, and you can find absolution only in the catharsis of death. Let the wildlife shepherd your soul to Necra."
 	outfit = /datum/outfit/job/deprived
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar")
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	grant_lit_torch = TRUE
 
 /datum/outfit/job/deprived/pre_equip(mob/living/carbon/human/H)

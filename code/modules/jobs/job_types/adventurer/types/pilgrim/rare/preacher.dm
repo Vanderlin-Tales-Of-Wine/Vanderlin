@@ -6,7 +6,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Dwarf"
+		"Dwarf",
 	)
 	outfit = /datum/outfit/job/adventurer/preacher
 	category_tags = list(CTAG_PILGRIM)
