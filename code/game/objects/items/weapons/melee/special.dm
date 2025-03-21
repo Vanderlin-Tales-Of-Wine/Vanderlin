@@ -19,6 +19,13 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
+	var/list/static/rod_jobs = GLOB.noble_positions | GLOB.garrison_positions | list(
+		/datum/job/jester::title,
+		/datum/job/servant::title,
+		/datum/job/adventurer/courtagent::title,
+		/datum/job/butler::title,
+		/datum/job/squire::title,
+	)
 
 	grid_height = 96
 	grid_width = 32
