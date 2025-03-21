@@ -59,19 +59,20 @@
 	. = ..()
 	if(get_dist(user, target) > 7)
 		return
-
 	user.changeNext_move(CLICK_CD_MELEE)
-	user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
+
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/HU = user
 
-		if((HU.job != "Monarch"))
+		if(!is_lord_job(HU.mind?.assigned_role))
 			to_chat(user, "<span class='danger'>The rod doesn't obey me.</span>")
 			return
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
+
+			user.visible_message("<span class='warning'>[user] points [src] at [target].</span>")
 
 			if(H == HU)
 				return
@@ -79,7 +80,7 @@
 			if(H.anti_magic_check())
 				return
 
-			if(!(H.job in GLOB.rod_jobs))
+			if(!((H.mind?.assigned_role.title in GLOB.noble_positions) || (H.mind?.assigned_role.title in GLOB.garrison_positions)))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
