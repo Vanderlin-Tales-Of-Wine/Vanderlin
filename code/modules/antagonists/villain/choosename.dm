@@ -4,13 +4,15 @@
 		return
 	var/old_name = real_name
 	if(!stat)
+		/*
 		if(job)
 			var/datum/job/j = SSjob.GetJob(job)
 			if(!j.antag_job)
 				j.current_positions--
+		*/
 
 		MOBTIMER_SET(src, MT_MIRRORTIME)
-		
+
 		var/begin_time = world.time
 		var/new_name = input(src, "What should your [input] name be?", "VANDERLIN")
 		if(world.time > begin_time + 60 SECONDS)
@@ -34,9 +36,7 @@
 		if(gender == MALE)
 			real_name = "Lord [real_name]"
 	mind.name = real_name
-	var/fakekey = ckey
-	if(ckey in GLOB.anonymize)
-		fakekey = get_fake_key(ckey)
+	var/fakekey = get_display_ckey(ckey)
 	GLOB.character_list[mobid] = "[fakekey] was [real_name] ([input])<BR>"
 	if(GLOB.character_ckey_list[old_name])
 		GLOB.character_ckey_list -= old_name

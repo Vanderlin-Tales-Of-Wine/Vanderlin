@@ -30,6 +30,9 @@
 	..()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/music/lichintro.ogg', 80, FALSE, pressure_affected = FALSE)
 
+/datum/antagonist/lich/proc/move_to_spawnpoint()
+	owner.current.forceMove(pick(GLOB.lich_starts))
+
 /datum/antagonist/lich/proc/skele_look()
 	var/mob/living/carbon/human/L = owner.current
 	L.hairstyle = "Bald"
@@ -61,7 +64,7 @@
 	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
 	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
-	L.faction = list("undead")
+	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
@@ -94,20 +97,22 @@
 	beltl = /obj/item/weapon/knife/dagger/steel
 	r_hand = /obj/item/weapon/polearm/woodstaff
 
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	//H.mind.adjust_skillrank(/datum/skill/misc/treatment, 4, TRUE)
+	H.mind.purge_combat_knowledge(TRUE) // purge all their combat skills first
+	H.mind.set_skillrank(/datum/skill/misc/reading, 6, TRUE)
+	H.mind.set_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
+	H.mind.set_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	H.mind.set_skillrank(/datum/skill/misc/riding, 4, TRUE)
+	H.mind.set_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+	H.mind.set_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.set_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+	H.mind.set_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+	H.mind.set_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+	H.mind.set_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+	H.mind.set_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.mind.set_skillrank(/datum/skill/combat/knives, 5, TRUE)
+	H.mind.set_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 4, TRUE)
+	//H.mind.set_skillrank(/datum/skill/misc/treatment, 4, TRUE)
 
 	H.change_stat(STATKEY_STR, -1)
 	H.change_stat(STATKEY_INT, 5)
@@ -151,7 +156,7 @@
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
 		B.skeletonize(FALSE)
 
-	bigbad.faction = list("undead")
+	bigbad.faction = list(FACTION_UNDEAD)
 	if(bigbad.charflaw)
 		QDEL_NULL(bigbad.charflaw)
 	bigbad.mob_biotypes |= MOB_UNDEAD

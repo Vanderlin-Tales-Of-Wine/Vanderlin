@@ -1,5 +1,5 @@
 /datum/migrant_role/sergeant_at_arms
-	name = "Serjeant at arms"
+	name = "Serjeant-At-Arms"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and the mens under your command have returned upon fullfiling your task."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -9,7 +9,7 @@
 		"Half-Elf",
 		"Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 	outfit = /datum/outfit/job/serjeant_at_arms
 
 /datum/outfit/job/serjeant_at_arms/pre_equip(mob/living/carbon/human/H)
@@ -68,7 +68,7 @@
 		"Half-Elf",
 		"Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 /datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/trou/leather
@@ -115,7 +115,7 @@
 	outfit = /datum/outfit/job/crossbow_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar", "Half-Elf", "Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/crossbow_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -164,7 +164,7 @@
 	outfit = /datum/outfit/job/footman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/footman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -204,7 +204,7 @@
 	outfit = /datum/outfit/job/pikeman_bannerman
 	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/pikeman_bannerman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -244,7 +244,7 @@
 			backr = /obj/item/weapon/polearm/halberd/bardiche
 
 /datum/migrant_wave/returning_bannermen
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	max_spawns = 2
 	shared_wave_type = /datum/migrant_wave/knight
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down
@@ -259,7 +259,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_one
 	can_roll = FALSE
@@ -273,7 +273,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_one
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_two
 	can_roll = FALSE
@@ -286,7 +286,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_two
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_three
 	can_roll = FALSE
@@ -298,7 +298,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_three
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	downgrade_wave = /datum/migrant_wave/returning_bannermen_down_four
 	can_roll = FALSE
@@ -309,7 +309,7 @@
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, as it is done, you now return."
 
 /datum/migrant_wave/returning_bannermen_down_four
-	name = "The Bannermen's return"
+	name = "The Bannermen's Return"
 	shared_wave_type = /datum/migrant_wave/returning_bannermen
 	can_roll = FALSE
 	roles = list(

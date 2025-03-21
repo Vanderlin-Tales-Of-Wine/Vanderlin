@@ -335,7 +335,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through GLOB.data_core.
 		This isn't an exact science but it does the trick more often than not.*/
-		var/id = md5("[G_found.real_name][G_found.mind.assigned_role]")
+		var/id = md5("[G_found.real_name][G_found.mind.assigned_role.title]")
 
 		record_found = find_record("id", id, GLOB.data_core.locked)
 
@@ -346,7 +346,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.hardset_dna(record_found.fields["identity"], record_found.fields["enzymes"], record_found.fields["name"], record_found.fields["blood_type"], new record_found.fields["species"], record_found.fields["features"])
 	else
 		var/datum/preferences/A = new()
-		A.copy_to(new_character)
+		A.safe_transfer_prefs_to(new_character)
 		A.real_name = G_found.real_name
 		new_character.dna.update_dna_identity()
 
@@ -356,8 +356,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		G_found.mind.transfer_to(new_character)	//be careful when doing stuff like this! I've already checked the mind isn't in use
 	else
 		new_character.mind_initialize()
-	if(!new_character.mind.assigned_role)
-		new_character.mind.assigned_role = "Adventurer"//If they somehow got a null assigned role.
+	if(is_unassigned_job(new_character.mind.assigned_role))
+		new_character.mind.set_assigned_role(/datum/job/adventurer)
 
 	new_character.key = G_found.key
 
@@ -371,7 +371,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/admin = key_name_admin(src)
 	var/player_key = G_found.key
 
-	SSjob.EquipRank(new_character, new_character.mind.assigned_role, 1)//Or we simply equip them.
+	SSjob.EquipRank(new_character, new_character.mind.assigned_role, src)//Or we simply equip them.
 
 	var/msg = "<span class='adminnotice'>[admin] has respawned [player_key] as [new_character.real_name].</span>"
 	message_admins(msg)

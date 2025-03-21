@@ -66,13 +66,6 @@
 		"...you sit by the table in your dreary hovel, staring at the wooden bowl of soup given to you by your mother... you blink and look around the tavern, before your vision returns to the bowl... you feel comforted..."
 	)
 
-/datum/skill/craft/medicine
-	name = "Medicinecraft"
-	desc = "Medicinecraft is a skill that represents your character's ability to perform medicine on others. The higher your skill in Medicinecraft, the better you can treat your patients and the faster you can perform surgery on them."
-	dreams = list(
-		"...you exhume the last meal he ate... keeling over and examining the empty void, you see the inklings of a garden sprouting inside the cadaver..."
-	)
-
 /datum/skill/craft/alchemy
 	name = "Alchemy"
 	desc = "Alchemy is a skill that represents your character's ability to craft potions. The higher your skill in Alchemy, the better you can identify potions and ingredients."
@@ -107,10 +100,4 @@
 	desc = "Skinning is a skill that represents your character's ability to skin animals. The higher your skill in Skinning, the better the hides you can get from animals and the more you can get from them."
 	dreams = list(
 		"...you stare down at the rabbit, its eyes wide and unblinking... you feel the knife in your hand, and the blood on your hands... and the warmth of the pelt..."
-	)
-/datum/skill/craft/tailor
-	name = "Clothesmaking"
-	desc = "Tailoring is a skill that represents your character's ability to craft clothing. The higher your skill in Tailoring, the better the clothes you can create and the more you can make with your materials."
-	dreams = list(
-		"...the needle moves in and out of the fabric, the thread trailing behind it... but the thread is your life, and the fabric is your soul... you feel the needle prick your finger, and you see the blood stain the cloth..."
 	)

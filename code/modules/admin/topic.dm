@@ -367,7 +367,7 @@
 			return
 
 		if (SSticker.HasRoundStarted())
-			if (askuser(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", "Yes", "Cancel", Timeout = null) == 1)
+			if(browser_alert(usr, "The game has already started. Would you like to save this as the default mode effective next round?", "Save mode", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				SSticker.save_mode(href_list["c_mode2"])
 			HandleCMode()
 			return
@@ -376,7 +376,7 @@
 		message_admins("<span class='adminnotice'>[key_name_admin(usr)] set the mode as [GLOB.master_mode].</span>")
 		to_chat(world, "<span class='adminnotice'><b>The mode is now: [GLOB.master_mode]</b></span>")
 		Game() // updates the main game menu
-		if (askuser(usr, "Would you like to save this as the default mode for the server?", "Save mode", "Yes", "No", Timeout = null) == 1)
+		if(browser_alert(usr, "Would you like to save this as the default mode for the server?", "Save mode", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 			SSticker.save_mode(GLOB.master_mode)
 		HandleCMode()
 
@@ -568,7 +568,7 @@
 
 		//Job + antagonist
 		if(M.mind)
-			special_role_description = "Role: <b>[M.mind.assigned_role]</b>; Antagonist: <font color='red'><b>[M.mind.special_role]</b></font>"
+			special_role_description = "Role: <b>[M.mind.assigned_role.title]</b>; Antagonist: <font color='red'><b>[M.mind.special_role]</b></font>"
 		else
 			special_role_description = "Role: <i>Mind datum missing</i> Antagonist: <i>Mind datum missing</i>"
 
@@ -610,7 +610,7 @@
 
 		var/Add = href_list["addjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Add)
 				job.total_positions += 1
 				break
@@ -624,7 +624,7 @@
 
 		var/Add = href_list["customjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Add)
 				var/newtime = null
 				newtime = input(usr, "How many jebs do you want?", "Add wanted posters", "[newtime]") as num|null
@@ -642,7 +642,7 @@
 
 		var/Remove = href_list["removejobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Remove && job.total_positions - job.current_positions > 0)
 				job.total_positions -= 1
 				break
@@ -655,7 +655,7 @@
 
 		var/Unlimit = href_list["unlimitjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Unlimit)
 				job.total_positions = -1
 				break
@@ -668,7 +668,7 @@
 
 		var/Limit = href_list["limitjobslot"]
 
-		for(var/datum/job/job in SSjob.occupations)
+		for(var/datum/job/job in SSjob.joinable_occupations)
 			if(job.title == Limit)
 				job.total_positions = job.current_positions
 				break
@@ -1089,6 +1089,12 @@
 		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
 		var/client/mob_client = M.client
 		check_pq_menu(mob_client.key)
+	else if(href_list["showtriumphs"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = locate(href_list["mob"]) in GLOB.mob_list
+		var/client/mob_client = M.client
+		check_triumphs_menu(mob_client.ckey)
 
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))

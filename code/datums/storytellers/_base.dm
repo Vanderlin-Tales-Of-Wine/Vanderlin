@@ -92,7 +92,7 @@
 				continue
 		var/point_gain = base_point * point_gains_multipliers[track] * mode.point_gain_multipliers[track]
 		if(track == EVENT_TRACK_OMENS)
-			point_gain *= length(GLOB.badomens)
+			point_gain *= 2 + length(GLOB.badomens)
 		if(mode.allow_pop_scaling)
 			point_gain *= mode.current_pop_scale_multipliers[track]
 		mode.event_track_points[track] += point_gain
@@ -194,7 +194,10 @@
 		SSgamemode.current_roundstart_event = bought_event
 		mode.TriggerEvent(bought_event, forced)
 	else
-		mode.schedule_event(bought_event, 3 MINUTES, total_cost, _forced = forced)
+		if(track == EVENT_TRACK_OMENS)
+			mode.schedule_event(bought_event, 3 MINUTES, total_cost, _forced = forced, omen = TRUE)
+		else
+			mode.schedule_event(bought_event, 3 MINUTES, total_cost, _forced = forced)
 	SSgamemode.triggered_round_events |= bought_event.name
 
 /// Calculates the weights of the events from a passed track.

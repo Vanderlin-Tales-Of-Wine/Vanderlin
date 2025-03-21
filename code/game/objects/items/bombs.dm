@@ -10,7 +10,7 @@
 	throw_speed = 0.5
 	var/fuze = 50
 	var/lit = FALSE
-	var/prob2fail = 10
+	var/prob2fail = 5
 	var/lit_state = "clear_bomb_lit"
 	grid_width = 32
 	grid_height = 64
@@ -62,15 +62,14 @@
 	if(T)
 		if(lit)
 			if(!skipprob && prob(prob2fail))
-				snuff()
+				playsound(T, 'sound/items/firesnuff.ogg', 100) //changed to always smash if it fails
+				new /obj/item/natural/glass/shard (T)
 			else
 				explosion(T, light_impact_range = 1, hotspot_range = 2, smoke = TRUE, soundin = pick('sound/misc/explode/bottlebomb (1).ogg','sound/misc/explode/bottlebomb (2).ogg'))
 		else
-			if(prob(prob2fail))
-				snuff()
-			else
-				playsound(T, 'sound/items/firesnuff.ogg', 100)
-				new /obj/item/natural/glass/shard (T)
+			playsound(T, 'sound/items/firesnuff.ogg', 100)
+			new /obj/item/natural/glass/shard (T)
+
 	qdel(src)
 
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

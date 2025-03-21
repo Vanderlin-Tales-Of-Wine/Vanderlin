@@ -71,3 +71,5 @@
 	var/vitae_pool = 5000
 
 	var/next_smell = 0
+
+	var/advsetup = 0

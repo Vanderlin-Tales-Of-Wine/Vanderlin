@@ -14,8 +14,10 @@
 	var/ignores_checks
 	/// Whether the scheduled event will override the announcement change. If null it won't. TRUE = force yes. FALSE = force no.
 	var/announce_change
+	///are we an omen event?
+	var/omen = FALSE
 
-/datum/scheduled_event/New(datum/round_event_control/passed_event, passed_time, passed_cost, passed_ignore, passed_announce)
+/datum/scheduled_event/New(datum/round_event_control/passed_event, passed_time, passed_cost, passed_ignore, passed_announce, omen)
 	. = ..()
 	event = passed_event
 	start_time = passed_time
@@ -25,6 +27,7 @@
 	/// Add a fake occurence to make the weightings/checks properly respect the scheduled event.
 	event.add_occurence()
 	fakes_occurence = TRUE
+	src.omen = omen
 
 /datum/scheduled_event/proc/remove_occurence()
 	if(fakes_occurence)

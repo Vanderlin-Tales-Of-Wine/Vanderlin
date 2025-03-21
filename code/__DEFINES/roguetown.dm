@@ -66,7 +66,6 @@ GLOBAL_LIST_INIT(curse_names, list())
 
 GLOBAL_LIST_INIT(lockhashes, list())
 GLOBAL_LIST_INIT(lockids, list())
-GLOBAL_LIST_EMPTY(credits_icons)
 GLOBAL_LIST_EMPTY(confessors)
 
 GLOBAL_LIST_INIT(wolf_prefixes, list("Red", "Moon", "Bloody", "Hairy", "Eager", "Sharp"))
@@ -93,7 +92,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define STRESS_BAD 3
 #define STRESS_NEUTRAL 2
 #define STRESS_GOOD 1
-#define STRESS_VGOOD 0
+#define STRESS_VGOOD -1
 
 /*	........   Nutrition defines   ................ */
 #define MEAL_FILLING 30
@@ -325,7 +324,6 @@ Thing can move up or down an armor class by significant changes to coverage & cr
 #define ARMOR_MAILLE_IRON	list("blunt" = 45, "slash" = 45, "stab" = 50, "piercing" = 30, "fire" = 0, "acid" = 0)
 #define ARMOR_MAILLE		list("blunt" = 55, "slash" = 55, "stab" = 55, "piercing" = 40, "fire" = 0, "acid" = 0)
 #define ARMOR_MAILLE_GOOD	list("blunt" = 60, "slash" = 60, "stab" = 60, "piercing" = 45, "fire" = 0, "acid" = 0)
-
 #define ARMOR_SCALE			list("blunt" = 65, "slash" = 65, "stab" = 65, "piercing" = 65, "fire" = 0, "acid" = 0)
 
 // Heavy AC
@@ -540,3 +538,8 @@ BCLASS_TWIST)
 		"Windmill"="windmill_bascinet",\
 		"Oathtaker"="oathtaker_bascinet",\
 		"Skull"="skull_bascinet")
+
+#define SKULLMET_ICONS list(\
+		"volf"="skullmet_volf",\
+		"bear"="skullmet_bear",\
+		"gote"="skullmet_goat")
