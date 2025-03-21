@@ -125,6 +125,8 @@
 	bitesize = 5
 	fried_type = null
 	tastes = list("salted meat" = 1)
+	rotprocess = null
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	faretype = FARE_POOR
 
 
