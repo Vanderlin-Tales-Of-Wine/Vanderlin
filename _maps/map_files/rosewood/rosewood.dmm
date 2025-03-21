@@ -252,6 +252,12 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/garrison)
+"ahF" = (
+/obj/structure/window/openclose/reinforced{
+	dir = 1
+	},
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town/manor)
 "ahL" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/indoors/town/magician)
@@ -3161,10 +3167,6 @@
 "bNW" = (
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/garrison)
-"bNY" = (
-/obj/structure/fake_machine/scomm/r,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/town/magician)
 "bOa" = (
 /obj/structure/table/wood{
 	icon_state = "map4"
@@ -5776,6 +5778,10 @@
 /obj/structure/chair/bench/couch/redleft,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
+"did" = (
+/obj/structure/fake_machine/scomm/r,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "dif" = (
 /turf/open/floor/wood,
 /area/rogue/outdoors/town)
@@ -7837,10 +7843,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/shop)
-"epD" = (
-/obj/structure/fake_machine/scomm/r,
-/turf/open/floor/cobble,
-/area/rogue/outdoors/town)
 "epQ" = (
 /obj/structure/mineral_door/wood/red{
 	lockid = "apartment7";
@@ -7991,6 +7993,12 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
+"ewl" = (
+/obj/structure/fake_machine/scomm{
+	pixel_y = -32
+	},
+/turf/open/floor/herringbone,
+/area/rogue/indoors/town/magician)
 "ewq" = (
 /obj/structure/fluff/walldeco/painting/seraphina{
 	pixel_y = 32
@@ -9208,12 +9216,6 @@
 /obj/structure/fluff/walldeco/psybanner,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/church)
-"fjc" = (
-/obj/structure/window/openclose/reinforced{
-	dir = 1
-	},
-/turf/open/floor/hexstone,
-/area/rogue/indoors/town/manor)
 "fju" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -14798,6 +14800,11 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/manor)
+"iux" = (
+/obj/structure/flora/grass/bush/tundra,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/town)
 "iuC" = (
 /obj/structure/bookcase/random_recipes,
 /obj/item/book/yeoldecookingmanual,
@@ -15269,10 +15276,11 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/tavern)
 "iKB" = (
-/obj/structure/flora/grass/bush/tundra,
-/obj/machinery/light/fueled/wallfire/candle/blue/l,
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors/town)
+/obj/structure/fluff/walldeco/painting/skull{
+	pixel_x = 32
+	},
+/turf/open/floor/carpet/lord/right,
+/area/rogue/indoors/town/manor)
 "iKM" = (
 /obj/structure/bookcase/random/legends,
 /turf/open/floor/blocks/newstone,
@@ -21358,12 +21366,6 @@
 	},
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/soilsons)
-"mje" = (
-/obj/structure/fake_machine/scomm{
-	pixel_y = -32
-	},
-/turf/open/floor/herringbone,
-/area/rogue/indoors/town/magician)
 "mjl" = (
 /obj/structure/mineral_door/bars{
 	lockid = "puritan";
@@ -31041,6 +31043,10 @@
 	icon_state = "plating2"
 	},
 /area/rogue/under/town/basement)
+"ryo" = (
+/obj/structure/fake_machine/scomm/r,
+/turf/open/floor/ruinedwood/spiralfade,
+/area/rogue/indoors/town/magician)
 "ryq" = (
 /obj/structure/table/wood/large/corner_new{
 	dir = 10
@@ -32233,7 +32239,7 @@
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue)
+/area/rogue/outdoors/mountains)
 "sgf" = (
 /obj/structure/table/wood/counter,
 /turf/open/floor/blocks/stonered,
@@ -36770,11 +36776,11 @@
 	},
 /area/rogue/indoors/town/theatre)
 "uGM" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
+/obj/structure/fluff/walldeco/painting/castle{
+	pixel_x = -32
 	},
-/turf/open/transparent/openspace,
-/area/rogue)
+/turf/open/floor/carpet/lord/left,
+/area/rogue/indoors/town/manor)
 "uHb" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -38277,6 +38283,12 @@
 /obj/item/recipe_book/arcyne,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
+"vuW" = (
+/obj/structure/fluff/walldeco/painting/crown{
+	pixel_x = -32
+	},
+/turf/open/floor/carpet/lord/left,
+/area/rogue/indoors/town/manor)
 "vvb" = (
 /obj/structure/stairs/stone{
 	dir = 1;
@@ -39683,8 +39695,13 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/rtfield)
 "wjw" = (
-/turf/closed/wall/mineral/wood,
-/area/rogue/under/town/caverogue)
+/obj/structure/mineral_door/wood/fancywood{
+	lockid = "manor";
+	name = "Keep Entrance";
+	locked = 1
+	},
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/manor)
 "wjz" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -40606,6 +40623,8 @@
 /obj/structure/closet/crate/crafted_closet{
 	lockid = "butler"
 	},
+/obj/item/reagent_containers/food/snacks/produce/wheat,
+/obj/item/reagent_containers/food/snacks/produce/wheat,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "wLl" = (
@@ -40814,14 +40833,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/river)
-"wRs" = (
-/obj/structure/mineral_door/wood/fancywood{
-	lockid = "manor";
-	name = "Keep Entrance";
-	locked = 1
-	},
-/turf/open/floor/cobble,
-/area/rogue/indoors/town/manor)
 "wRw" = (
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/smithy)
@@ -93924,7 +93935,7 @@ qBR
 kZF
 kZF
 kZF
-bNY
+ryo
 qBR
 kZF
 ahL
@@ -94113,7 +94124,7 @@ pgZ
 ydD
 ydD
 ydD
-mje
+ewl
 nQK
 wye
 wye
@@ -99797,7 +99808,7 @@ pvU
 pvU
 ndV
 ndV
-wRs
+wjw
 jnM
 cwC
 cwC
@@ -100842,7 +100853,7 @@ cwC
 jnM
 jnM
 leA
-iKB
+iux
 chQ
 chQ
 chQ
@@ -101449,7 +101460,7 @@ jnM
 jnM
 jnM
 jnM
-epD
+did
 chQ
 chQ
 aDF
@@ -102625,7 +102636,7 @@ pvU
 pvU
 ndV
 ndV
-wRs
+wjw
 jnM
 jnM
 jnM
@@ -139772,17 +139783,17 @@ uHM
 bZg
 dtd
 dtd
-dtd
-dtd
-bZg
-dtd
-dtd
-dtd
-dtd
+uGM
 dtd
 bZg
 dtd
 dtd
+dtd
+dtd
+dtd
+bZg
+dtd
+vuW
 dtd
 dtd
 dtd
@@ -180183,7 +180194,7 @@ dtd
 mwD
 dtd
 eOY
-dtd
+vuW
 dtd
 dtd
 dtd
@@ -181372,7 +181383,7 @@ lBl
 lBl
 rof
 rof
-wjw
+hfl
 hfl
 hfl
 hfl
@@ -183812,7 +183823,7 @@ pOm
 pOm
 pOm
 pOm
-pOm
+iKB
 pOm
 pOm
 pOm
@@ -184633,7 +184644,7 @@ fAF
 lMC
 hbG
 bGg
-fjc
+ahF
 krN
 krN
 krN
@@ -184840,7 +184851,7 @@ krN
 krN
 vlL
 sfS
-uGM
+fpE
 nuH
 ehP
 ehP
@@ -185037,7 +185048,7 @@ eDd
 brL
 hbG
 bGg
-fjc
+ahF
 krN
 krN
 qJE
