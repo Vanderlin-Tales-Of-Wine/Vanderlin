@@ -25,7 +25,7 @@
 /// * job_name<string/JOB_DEFINES>: 	JOB_NAME macros from jobs.dm
 /// * spawn_positions<number>: 			Sets the number of roundstart positions of this job, when spawning at roundstart
 /// * total_positions<number, null>: 	Sets the number of total positions of this job, including roundstart and latejoin
-/datum/map_adjustment/proc/change_job_position(var/datum/job/J, spawn_positions, total_positions = null)
+/datum/map_adjustment/proc/change_job_position(datum/job/J, spawn_positions, total_positions = null)
 	SHOULD_NOT_OVERRIDE(TRUE) // no reason to override for a new behaviour
 	PROTECTED_PROC(TRUE) // no reason to call this outside of /map_adjustment datum. (I didn't add _underbar_ to the proc name because you use this frequently)
 	if(!J)
