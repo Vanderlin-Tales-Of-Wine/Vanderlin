@@ -129,7 +129,7 @@
 #undef PROGRESSBAR_HEIGHT
 
 /obj/effect/world_progressbar
-	icon = 'icons/effects/progessbar.dmi'
+	icon = 'icons/effects/progressbar.dmi'
 	icon_state = "prog_bar_0"
 	plane = SPLASHSCREEN_PLANE
 	layer = HUD_LAYER
