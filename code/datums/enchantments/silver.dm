@@ -39,45 +39,17 @@
 		if(vamp_datum && affected != AFFECTED_VLORD)
 			target.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 			if(vamp_datum.disguised)
-				visible_message("<font color='white'>The silver weapon manifests [target]'s curse!</font>")
+				target.visible_message("<font color='white'>[target]'s curse manifests!</font>", ignored_mobs = list(target))
 		last_used[source] = world.time
 		return
 	else if (istype(vamp_datum, /datum/antagonist/vampire/lord))
-		//Unaffected but vlord means we are vamplevel 4
+		//Unaffected but having vlord means we are vamplevel 4
 		user.Stun(10)
 		user.Paralyze(10)
 		user.adjustFireLoss(25)
 		user.fire_act(1,10)
-		to_chat(user, span_danger("The silver enchantment fails!"))
-		H.visible_message(H, span_userdanger("This feeble metal cannot hurt me, I AM THE ANCIENT!"))
-
-	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
-	var/datum/antagonist/vampire/lesser/V = H.mind.has_antag_datum(/datum/antagonist/vampire/lesser)
-	var/datum/antagonist/vampire/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampire/)
-	if(V_lord)
-		if(V_lord.vamplevel < 4 && !V)
-			H.Knockdown(10)
-			H.Paralyze(10)
-			to_chat(H, span_userdanger("I'm hit by my BANE!"))
-			H.adjustFireLoss(25)
-			H.fire_act(1,10)
-			last_used |= source
-			last_used[source] = world.time
-		if(V_lord.vamplevel == 4 && !V)
-			s_user.Stun(10)
-			s_user.Paralyze(10)
-			s_user.adjustFireLoss(25)
-			s_user.fire_act(1,10)
-			to_chat(s_user, "<font color='red'> The silver weapon fails!</font>")
-	if(W && W.transformed == TRUE)
-		to_chat(H, span_userdanger("I'm hit by my BANE!"))
-		H.Stun(10)
-		//knockdown
-		H.Paralyze(10)
-		H.adjustFireLoss(25)
-		H.fire_act(1,10)
-		last_used |= source
-		last_used[source] = world.time
+		to_chat(user, span_userdanger("The silver enchantment fails!"))
+		target.visible_message(span_userdanger("[user] suddenly bursts into flames!"), span_greentextbig("Feeble metal cannot hurt me, I AM THE ANCIENT!"))
 
 /datum/enchantment/silver/on_equip(obj/item/i, mob/living/carbon/human/user)
 	var/affected = affected_by_bane(user)
