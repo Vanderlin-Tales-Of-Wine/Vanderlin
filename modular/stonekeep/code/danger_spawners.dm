@@ -194,10 +194,11 @@
 	probby = 50
 	color = "#ffce0b"
 	spawned = list(
-		/mob/living/simple_animal/hostile/skeleton = 4,
+		/mob/living/simple_animal/hostile/skeleton = 5,
 		/obj/effect/decal/remains/neu/human = 50,
 		/obj/effect/decal/remains/neu/humanc = 45,
-		/obj/item/clothing/ring/silver = 1
+		/obj/item/coin/silver = 1,
+		/obj/item/clothing/ring/silver = 1,
 		)
 
 /*	..................   Catacomb Random   ................... */

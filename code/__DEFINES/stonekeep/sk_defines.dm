@@ -3,6 +3,8 @@
 
 #define isgoblin(A) (is_species(A, /datum/species/goblin))
 
+#ifdef MATURESERVER
+
 GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
 GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"))
 

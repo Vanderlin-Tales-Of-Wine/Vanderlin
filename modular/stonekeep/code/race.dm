@@ -185,6 +185,7 @@
 	Aasimar are known for their incredible strength and resilience, and are a prized addition to any shield wall. \
 	However, they possess less capacity for independent thought due to their wartime construction."
 
+	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt_aasimar.dmi'
 	hairyness = ""
 	specstats = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
 	specstats_f = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
