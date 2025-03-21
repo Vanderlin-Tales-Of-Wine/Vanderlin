@@ -210,10 +210,13 @@
 	var/list/observers = null
 
 	///List of progress bars this mob is currently seeing for actions
-	var/list/progressbars = null	//for stacking do_after bars
+	var/list/progressbars = null
+
+	///For storing what do_after's someone has, key = string, value = amount of interactions of that type happening.
+	var/list/do_afters
 
 	/// Set to TRUE when the mob is in the middle of a do_after. Not to be changed directly.
-	var/doing = FALSE
+	var/doing = FALSE //! DEPRECATED
 
 	///Allows a datum to intercept all click calls this mob is the source of
 	var/datum/click_intercept

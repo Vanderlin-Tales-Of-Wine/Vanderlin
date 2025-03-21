@@ -225,20 +225,27 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
  * @param {boolean} progress - Whether to display a progress bar / cogbar. \
  * @param {datum/callback} extra_checks - Additional checks to perform before the action is executed. \
  *
- * ~~@param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.~~ \
- * ~~@param {number} max_interact_count - The maximum amount of interactions allowed.~~
+ * @param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set. \
+ * @param {number} max_interact_count - The maximum amount of interactions allowed. \
  * @param {boolean} hidden - By default, any action 1 second or longer shows a cog over the user while it is in progress. If hidden is set to TRUE, the cog will not be shown.
  */
-/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, hidden = FALSE)
+/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1, hidden = FALSE)
 	if(!user)
 		return FALSE
 	if(!isnum(delay))
 		CRASH("do_after was passed a non-number delay: [delay || "null"].")
+
 	/* V: */
-	if(user.doing)
+	if(!(timed_action_flags & IGNORE_USER_DOING) && user.doing())
 		return FALSE
-	user.doing = TRUE
 	/* :V */
+	if(!interaction_key && target)
+		interaction_key = target //Use the direct ref to the target
+	if(interaction_key) //Do we have a interaction_key now?
+		var/current_interaction_count = LAZYACCESS(user.do_afters, interaction_key) || 0
+		if(current_interaction_count >= max_interact_count) //We are at our peak
+			return FALSE
+		LAZYSET(user.do_afters, interaction_key, current_interaction_count + 1)
 
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
@@ -279,7 +286,6 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			user_loc = user.loc
 
 		if(QDELETED(user) \
-			|| (!user.doing) /* V: */ \
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
@@ -294,19 +300,39 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			. = FALSE
 			break
 
-	/* */
-	user.doing = FALSE
-	/* */
 	if(!QDELETED(progbar))
 		progbar.end_progress()
 
 	cog?.remove(.)
+
+	if(interaction_key)
+		var/reduced_interaction_count = (LAZYACCESS(user.do_afters, interaction_key) || 0) - 1
+		if(reduced_interaction_count > 0) // Not done yet!
+			LAZYSET(user.do_afters, interaction_key, reduced_interaction_count)
+			return
+		// all out, let's clear er out fully
+		LAZYREMOVE(user.do_afters, interaction_key)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
 	return
+
+/// Returns the total amount of do_afters this mob is taking part in
+/mob/proc/do_after_count()
+	var/count = 0
+	for(var/key in do_afters)
+		count += do_afters[key]
+	return count
+
+/* V: */
+/// Returns TRUE if the mob is in a do_after.
+/mob/proc/doing()
+	for(var/key in do_afters)
+		if(do_afters[key] > 0)
+			return TRUE
+/* :V */
 
 /proc/is_species(A, species_datum)
 	. = FALSE
