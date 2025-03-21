@@ -405,6 +405,7 @@
 #include "code\datums\blood_types.dm"
 #include "code\datums\callback.dm"
 #include "code\datums\chatmessage.dm"
+#include "code\datums\cogbar.dm"
 #include "code\datums\datacore.dm"
 #include "code\datums\datum.dm"
 #include "code\datums\datumvars.dm"

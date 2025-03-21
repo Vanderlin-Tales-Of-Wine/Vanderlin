@@ -3,7 +3,7 @@
 
 /datum/progressbar
 	/// The progress bar visual element.
-	var/obj/effect/world_progressbar/bar
+	var/image/bar
 	///The target where this progress bar is applied and where it is shown.
 	var/atom/bar_loc
 	/// The mob whose client sees the progress bar.
@@ -31,8 +31,10 @@
 		return
 
 	goal = goal_number
-	bar_loc = get_turf(User) //V: /tg/ uses target as bar_loc
-	bar = new /obj/effect/world_progressbar(bar_loc) //V
+	bar_loc = target
+	bar = image('icons/effects/progressbar.dmi', bar_loc, "prog_bar_0")
+	bar.plane = ABOVE_HUD_PLANE
+	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	user = User
 
 	LAZYADDASSOC(user.progressbars, bar_loc, src)
@@ -85,7 +87,7 @@
 
 	if(!user_client) //Disconnected, already gone.
 		return
-	//user_client.images -= bar
+	user_client.images -= bar
 	user_client = null
 
 /// Called by user's Login(), it transfers the progress bar image to the new client.
@@ -105,7 +107,7 @@
 /datum/progressbar/proc/add_prog_bar_image_to_client()
 	bar.pixel_y = 0
 	bar.alpha = 0
-	//user_client.images += bar
+	user_client.images += bar
 	animate(bar, pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)), alpha = 255, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
 /// Updates the progress bar image visually.
@@ -127,12 +129,3 @@
 
 #undef PROGRESSBAR_ANIMATION_TIME
 #undef PROGRESSBAR_HEIGHT
-
-/obj/effect/world_progressbar
-	icon = 'icons/effects/progressbar.dmi'
-	icon_state = "prog_bar_0"
-	plane = SPLASHSCREEN_PLANE
-	layer = HUD_LAYER
-	appearance_flags = RESET_ALPHA | RESET_COLOR | RESET_TRANSFORM | KEEP_APART
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	appearance_flags = APPEARANCE_UI_IGNORE_ALPHA

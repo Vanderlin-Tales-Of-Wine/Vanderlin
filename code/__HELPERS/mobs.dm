@@ -227,21 +227,22 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
  *
  * ~~@param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.~~ \
  * ~~@param {number} max_interact_count - The maximum amount of interactions allowed.~~
+ * @param {boolean} hidden - By default, any action 1 second or longer shows a cog over the user while it is in progress. If hidden is set to TRUE, the cog will not be shown.
  */
-/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
+/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, hidden = FALSE)
 	if(!user)
 		return FALSE
 	if(!isnum(delay))
 		CRASH("do_after was passed a non-number delay: [delay || "null"].")
-	/* */
+	/* V: */
 	if(user.doing)
 		return FALSE
 	user.doing = TRUE
-	/* */
+	/* :V */
 
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
-	var/user_dir = user.dir
+	var/user_dir = user.dir /* V: */
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -253,8 +254,14 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 		delay *= user.do_after_coefficent()
 
 	var/datum/progressbar/progbar
+	var/datum/cogbar/cog
+
 	if(progress)
-		progbar = new(user, delay, target || user)
+		if(user.client)
+			progbar = new(user, delay, target || user)
+
+		if(!hidden && delay >= 1 SECONDS)
+			cog = new(user)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
@@ -292,6 +299,8 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	/* */
 	if(!QDELETED(progbar))
 		progbar.end_progress()
+
+	cog?.remove(.)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
