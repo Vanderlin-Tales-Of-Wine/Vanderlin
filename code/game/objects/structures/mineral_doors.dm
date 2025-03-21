@@ -479,21 +479,21 @@
 			to_chat(user, span_info("You have no keys."))
 			return
 		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
-			if(!do_after(user, 0.5 SECONDS, src))
+			var/combat = user.cmode
+			if(combat && !do_after(user, 1 SECONDS, src))
+				door_rattle()
 				break
-			if(lockcheck(K, user))
+			if(K.lockid == lockid)
 				lock_toggle(user)
 				break
+			if(combat)
+				door_rattle()
 		return
 	var/obj/item/key/K = I
-	if(lockcheck(K, user))
-		lock_toggle(user)
-
-/obj/structure/mineral_door/proc/lockcheck(obj/item/key/K)
 	if(K.lockid != lockid)
 		door_rattle()
-		return FALSE
-	return TRUE
+		return
+	lock_toggle(user)
 
 /obj/structure/mineral_door/proc/lock_toggle(mob/user)
 	if(isSwitchingStates || door_opened)

@@ -264,20 +264,21 @@
 		if(!R.contents.len)
 			return
 		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
-			if(!do_after(user, 0.5 SECONDS, src))
+			var/combat = user.cmode
+			if(combat && !do_after(user, 1 SECONDS, src))
+				rattle()
 				break
-			if((lockcheck(K)))
+			if(K.lockid == lockid)
 				togglelock(user)
+				break
+			if(combat)
+				rattle()
 		return
 	var/obj/item/key/K = I
-	if(lockcheck(K))
-		togglelock(user)
-
-/obj/structure/closet/proc/lockcheck(obj/item/key/K)
 	if(K.lockid != lockid)
 		rattle()
-		return FALSE
-	return TRUE
+		return
+	togglelock(user)
 
 /obj/structure/closet/proc/rattle()
 	playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
@@ -459,28 +460,20 @@
 	broken = TRUE //applies to secure lockers only
 	open()
 
-/obj/structure/closet/proc/togglelock(mob/living/user, silent)
+/obj/structure/closet/proc/togglelock(mob/living/user)
+	if(opened)
+		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(locked)
 		user.visible_message("<span class='warning'>[user] unlocks [src].</span>", \
 			"<span class='notice'>I unlock [src].</span>")
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
-		locked = 0
+		locked = FALSE
 	else
 		user.visible_message("<span class='warning'>[user] locks [src].</span>", \
 			"<span class='notice'>I lock [src].</span>")
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
-		locked = 1
-
-/obj/structure/closet/emag_act(mob/user)
-	if(secure && !broken)
-		user.visible_message("<span class='warning'>Sparks fly from [src]!</span>",
-						"<span class='warning'>I scramble [src]'s lock, breaking it open!</span>",
-						"<span class='hear'>I hear a faint electrical spark.</span>")
-		playsound(src, "sparks", 50, TRUE)
-		broken = TRUE
-		locked = FALSE
-		update_icon()
+		locked = TRUE
 
 /obj/structure/closet/get_remote_view_fullscreens(mob/user)
 	if(user.stat == DEAD || !(user.sight & (SEEOBJS|SEEMOBS)))
