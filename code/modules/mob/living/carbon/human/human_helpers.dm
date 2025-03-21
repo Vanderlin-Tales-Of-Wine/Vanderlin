@@ -169,7 +169,7 @@
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		eye_color = random_eye_color()
 	if(randomise_flags & RANDOMIZE_FEATURES)
-		dna.features = random_features()
+		dna.features = dna.species.get_random_species_features()
 
 /*
 * Family Tree subsystem helpers

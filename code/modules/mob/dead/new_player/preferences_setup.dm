@@ -38,7 +38,7 @@
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		eye_color = random_eye_color()
 	if(randomise_flags & RANDOMIZE_FEATURES)
-		features = random_features()
+		features = pref_species.get_random_species_features()
 
 
 /// Randomizes our character preferences according to enabled randomise preferences.
@@ -80,29 +80,30 @@
 		skin_tone = skins[pick(skins)]
 	if(randomise[RANDOM_EYE_COLOR])
 		eye_color = random_eye_color()
-	features = random_features()
-
-	if(pref_species.default_features["ears"])
-		features["ears"] = pref_species.default_features["ears"]
-	for(var/X in GLOB.horns_list.Copy())
-		var/datum/sprite_accessory/S = GLOB.horns_list[X]
-		if(!(pref_species in S.specuse))
-			continue
-		if(S.gender == NEUTER)
-			features["horns"] = X
+	features = pref_species.get_random_species_features()
+	for(var/horn in pref_species.horns_list())
+		var/datum/sprite_accessory/checking_horns = horn
+		if(checking_horns.gender == NEUTER)
+			features["horns"] = horn
 			break
-		if(gender == S.gender)
-			features["horns"] = X
+		if(gender == checking_horns.gender)
+			features["horns"] = horn
 			break
-	for(var/X in GLOB.tails_list_human.Copy())
-		var/datum/sprite_accessory/S = GLOB.tails_list_human[X]
-		if(!(pref_species in S.specuse))
-			continue
-		if(S.gender == NEUTER)
-			features["tail_human"] = X
+	for(var/tail in pref_species.tails_list())
+		var/datum/sprite_accessory/checking_tail = tail
+		if(checking_tail.gender == NEUTER)
+			features["tail_human"] = tail
 			break
-		if(gender == S.gender)
-			features["tail_human"] = X
+		if(gender == checking_tail.gender)
+			features["tail_human"] = tail
+			break
+	for(var/ears in pref_species.ears_list())
+		var/datum/sprite_accessory/checking_ears = ears
+		if(checking_ears.gender == NEUTER)
+			features["ears"] = ears
+			break
+		if(gender == checking_ears.gender)
+			features["ears"] = ears
 			break
 	accessory = "Nothing"
 

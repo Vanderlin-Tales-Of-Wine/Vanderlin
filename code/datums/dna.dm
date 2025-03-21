@@ -131,7 +131,7 @@
 		human_blood_type = newblood_type
 	unique_enzymes = generate_unique_enzymes()
 	uni_identity = generate_uni_identity()
-	features = random_features()
+	features = species.get_random_species_features()
 
 
 /datum/dna/stored //subtype used by brain mob's stored_dna

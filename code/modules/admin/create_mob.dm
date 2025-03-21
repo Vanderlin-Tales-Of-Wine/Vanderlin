@@ -30,30 +30,16 @@
 	H.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
 	H.dna.features["tail_lizard"] = pick(GLOB.tails_list_lizard)
 	H.dna.features["snout"] = pick(GLOB.snouts_list)
-	for(var/X in GLOB.horns_list.Copy())
-		var/datum/sprite_accessory/S = GLOB.horns_list[X]
+	for(var/X in H.dna.species.horns_list())
+		var/datum/sprite_accessory/S = X
 		if(!S)
 			continue
-		if(!(H.dna.species.id in S.specuse))
-			continue
-		if(S.gender == NEUTER)
-			H.dna.features["horns"] = X
-			break
-		if(H.gender == S.gender)
-			H.dna.features["horns"] = X
-			break
-	for(var/X in GLOB.tails_list_human.Copy())
-		var/datum/sprite_accessory/S = GLOB.tails_list_human[X]
+
+	for(var/X in H.dna.species.tails_list())
+		var/datum/sprite_accessory/S = X
 		if(!S)
 			continue
-		if(!(H.dna.species.id in S.specuse))
-			continue
-		if(S.gender == NEUTER)
-			H.dna.features["tail_human"] = X
-			break
-		if(H.gender == S.gender)
-			H.dna.features["tail_human"] = X
-			break
+
 	H.dna.features["frills"] = pick(GLOB.frills_list)
 	H.dna.features["spines"] = pick(GLOB.spines_list)
 	H.dna.features["body_markings"] = pick(GLOB.body_markings_list)
