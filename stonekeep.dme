@@ -2172,6 +2172,7 @@
 #include "modular\stonekeep\code\jobs\waves\knight_errant_wave.dm"
 #include "modular\stonekeep\code\jobs\waves\zizocult_wave.dm"
 #include "modular\stonekeep\code\jobs\waves\zybantine_wave.dm"
+#include "modular\stonekeep\code\mob\bear.dm"
 #include "modular\stonekeep\code\mob\gator.dm"
 #include "modular\stonekeep\code\mob\mob.dm"
 #include "modular\stonekeep\code\roguecrafting\carpentry.dm"

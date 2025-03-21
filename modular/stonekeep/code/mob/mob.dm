@@ -281,9 +281,9 @@
 	base_intents = list(/datum/intent/simple/critterbite)
 
 /datum/intent/simple/trollrip
-	name = "trollrip"
+	name = "horrific bite"
 	icon_state = "instrike"
-	attack_verb = list("claws", "gnashes", "viciously bites")
+	attack_verb = list("gores", "gnashes", "viciously bites")
 	animname = "blank22"
 	blade_class = BCLASS_CHOP
 	hitsound = "smallslash"
@@ -291,7 +291,7 @@
 	penfactor = 20
 	swingdelay = 2 SECONDS
 	candodge = TRUE
-	canparry = TRUE
+	canparry = FALSE
 
 /datum/intent/simple/critterbite
 	name = "bite"

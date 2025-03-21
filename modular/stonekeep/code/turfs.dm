@@ -101,6 +101,7 @@
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
+						/turf/open/floor/grass,
 						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/grass/yel,
 						/turf/open/floor/grass/red,

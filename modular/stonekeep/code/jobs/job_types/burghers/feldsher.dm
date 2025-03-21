@@ -10,15 +10,11 @@
 	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. At least the Apothecary understands you."
 	give_bank_account = 100
 
-	//Reason all races allowed is you are basically a very talented court physician; even 'lower races' would find this to be one of the only ways to obtain a sort of nobility.
 	allowed_races = list(
 		"Humen",
-		"Rakshari",
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
 		"Aasimar"
 	)
 	allowed_sexes = list(MALE, FEMALE)

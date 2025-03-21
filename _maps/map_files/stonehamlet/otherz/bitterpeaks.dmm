@@ -3,6 +3,10 @@
 /mob/living/simple_animal/hostile/retaliate/goat,
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/decap)
+"av" = (
+/obj/effect/decal/remains/neu/human,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "aP" = (
 /obj/item/natural/rock/iron,
 /turf/open/floor/snow/patchy,
@@ -20,10 +24,20 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"cm" = (
+/obj/effect/decal/cleanable/blood_neu/random,
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 6
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "cn" = (
 /obj/effect/landmark/mapGenerator/cave/lava,
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavelava)
+"gL" = (
+/turf/open/floor/naturalstone/rough,
+/area/rogue/under/mountains)
 "gO" = (
 /obj/effect/landmark/start/adventurerlate,
 /turf/open/floor/snow/patchy,
@@ -39,6 +53,12 @@
 "ps" = (
 /turf/closed,
 /area/rogue)
+"pz" = (
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 9
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "sw" = (
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
@@ -54,10 +74,28 @@
 /obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/mountains/decap)
+"uF" = (
+/obj/effect/decal/cleanable/blood_neu/random,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
+"uV" = (
+/obj/effect/gibspawner/human,
+/turf/open/floor/naturalstone/rough,
+/area/rogue/under/mountains)
 "vt" = (
 /obj/item/rope,
 /obj/item/reagent_containers/food/snacks/meat/salami/slice,
 /obj/item/storage/sack,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
+"vU" = (
+/obj/effect/spawner/map_spawner/loot/armor,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
+"xg" = (
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 10
+	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "xQ" = (
@@ -78,9 +116,20 @@
 /obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
+"Dh" = (
+/obj/effect/decal/cleanable/blood_neu/tracks,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "Eq" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains/decap)
+"Ih" = (
+/obj/effect/decal/cleanable/blood_neu/random,
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 5
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "JE" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "sk_offmap";
@@ -95,9 +144,19 @@
 "OV" = (
 /turf/open/lava,
 /area/rogue/under/mountains)
+"Pj" = (
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 4
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "Qy" = (
 /turf/closed/mineral/random/med,
 /area/rogue/under/cavelava)
+"Qz" = (
+/obj/effect/decal/remains/neu/generic,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "RN" = (
 /obj/effect/spawner/map_spawner/mountain_tree,
 /turf/open/floor/snow,
@@ -130,6 +189,11 @@
 /obj/structure/chair/stool,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"WO" = (
+/mob/living/simple_animal/hostile/retaliate/cavebear,
+/obj/effect/decal/cleanable/blood_neu/tracks,
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains)
 "Xf" = (
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/mountains)
@@ -151,6 +215,12 @@
 "Zy" = (
 /turf/closed/basic,
 /area/rogue)
+"ZD" = (
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 4
+	},
+/turf/open/floor/naturalstone/rough,
+/area/rogue/under/mountains)
 "ZF" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
@@ -58692,8 +58762,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
+gL
+gL
 ZZ
 ZZ
 ZZ
@@ -58820,13 +58890,13 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+gL
+sw
+uF
+av
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -58949,15 +59019,15 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+gL
+Qz
+uF
+sw
+sw
+sw
+vU
+sw
+Qz
 ZZ
 ZZ
 ZZ
@@ -59079,16 +59149,16 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+sw
+pz
+Dh
+WO
+Dh
+uF
+sw
+gL
 ZZ
 ZZ
 ZZ
@@ -59208,17 +59278,17 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+gL
+sw
+gL
+sw
+Pj
+sw
+sw
+uV
+Qz
+sw
+gL
 ZZ
 ZZ
 ZF
@@ -59338,17 +59408,17 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+sw
+sw
+Pj
+uF
+gL
+gL
+uF
+gL
+sw
 ZZ
 ZZ
 ZF
@@ -59468,17 +59538,17 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+pz
+Dh
+Dh
+Dh
+cm
+sw
+gL
+sw
+sw
+sw
+sw
 ZZ
 ZZ
 ZZ
@@ -59597,17 +59667,17 @@ ZZ
 ZZ
 ZZ
 ZZ
+gL
+Pj
+sw
+sw
+sw
+Qz
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+av
 ZZ
 ZZ
 ZZ
@@ -59726,18 +59796,18 @@ ZZ
 ZZ
 ZZ
 ZZ
+sw
+sw
+Pj
+sw
+gL
+gL
 ZZ
 ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
 ZZ
 ZZ
 ZZ
@@ -59855,11 +59925,11 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+sw
+Pj
+gL
 ZZ
 ZZ
 ZZ
@@ -59985,10 +60055,10 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+gL
+Pj
 ZZ
 ZZ
 ZZ
@@ -60115,10 +60185,10 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+gL
+sw
+gL
+Pj
 ZZ
 ZZ
 ZZ
@@ -60245,11 +60315,11 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+gL
+sw
+sw
+Pj
+sw
 ZZ
 ZZ
 ZZ
@@ -60377,9 +60447,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+sw
+Ih
+xg
 ZZ
 ZZ
 ZZ
@@ -60508,9 +60578,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+sw
+Pj
+sw
 ZZ
 ZZ
 ZZ
@@ -60638,9 +60708,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+gL
+ZD
+sw
 ZZ
 ZZ
 ZZ
@@ -60768,9 +60838,9 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+gL
+Pj
+sw
 ZZ
 ZZ
 ZZ
@@ -60898,9 +60968,9 @@ XX
 XX
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
+sw
+sw
+gL
 ZZ
 ZZ
 ZZ

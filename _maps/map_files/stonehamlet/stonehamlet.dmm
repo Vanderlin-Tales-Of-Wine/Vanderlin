@@ -15011,7 +15011,7 @@
 /area/rogue/outdoors/exposed/townhamlet)
 "way" = (
 /obj/structure/fluff/railing/border,
-/obj/machinery/light/fueled/firebowl/standing/lamp,
+/obj/machinery/light/fueled/firebowl/standing,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor/stone)
 "waC" = (
@@ -75521,8 +75521,8 @@ vNu
 qoZ
 qoZ
 qoZ
-oTH
-oTH
+qoZ
+qoZ
 ibJ
 nLN
 tPb
@@ -75720,9 +75720,9 @@ oOI
 oTH
 oTH
 oTH
-qoZ
 oTH
-qoZ
+oTH
+oTH
 oTH
 qoZ
 tSQ
@@ -76128,7 +76128,7 @@ doR
 xGo
 nBJ
 oTH
-oTH
+qoZ
 mQb
 nBJ
 cHv
@@ -76524,7 +76524,7 @@ bGM
 uEy
 khB
 chD
-qoZ
+oTH
 nIl
 pKh
 bpR
@@ -76912,7 +76912,7 @@ hkd
 ddu
 cnH
 tgY
-mLd
+iow
 iow
 lXv
 ahK
@@ -76936,7 +76936,7 @@ rep
 xGo
 nBJ
 oTH
-oTH
+qoZ
 qoZ
 qoZ
 tSQ
@@ -77130,15 +77130,15 @@ ahK
 ahK
 ahK
 qoZ
+oTH
+nBJ
+uxt
+uxt
+uxt
+uxt
+nBJ
+oTH
 qoZ
-nBJ
-uxt
-uxt
-uxt
-uxt
-nBJ
-oTH
-oTH
 qoZ
 gIz
 udo
@@ -77332,8 +77332,8 @@ ahK
 ahK
 qoZ
 qoZ
-qoZ
-qoZ
+oTH
+oTH
 oTH
 oTH
 oTH
@@ -77538,7 +77538,7 @@ qoZ
 qoZ
 oTH
 oTH
-oTH
+qoZ
 qoZ
 qoZ
 qoZ
@@ -78528,7 +78528,7 @@ ddu
 wvY
 cnH
 tgY
-mLd
+iow
 xAY
 lXv
 ahK

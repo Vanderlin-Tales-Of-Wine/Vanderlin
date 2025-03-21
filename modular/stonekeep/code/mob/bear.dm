@@ -1,47 +1,47 @@
-/mob/living/simple_animal/hostile/retaliate/gator
-	icon = 'modular/stonekeep/icons/mobs/gator.dmi'
-	name = "gator"
-	desc = "Vicious and patient creachers; tales have been told of passersby being grabbed and dragged underwater, never to be seen again."
-	icon_state = "gator"
-	icon_living = "gator"
-	icon_dead = "gator-dead"
+/mob/living/simple_animal/hostile/retaliate/cavebear
+	icon = 'modular/stonekeep/icons/mobs/bear.dmi'
+	name = "cave bear"
+	desc = "Feral rage, hunger, these beasts are powerful and fast."
+	icon_state = "bear"
+	icon_living = "bear"
+	icon_dead = "bear-dead"
 	pixel_x = -32
 	pixel_y = 1
 
-	faction = list("gators")
+	faction = list("bears")
 	turns_per_move = 4
 	move_to_delay = 2
 	vision_range = 5
 	aggro_vision_range = 5
 
-	// One of these daes, they'll drop Gator leather
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/mince = 1,
-						/obj/item/alch/bone = 2)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
-						/obj/item/alch/sinew = 1,
-						/obj/item/alch/bone = 4)
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 2)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 4,
+						/obj/item/alch/sinew = 2,
+						/obj/item/bearpelt = 1)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 5,
+						/obj/item/alch/sinew = 4,
+						/obj/item/bearpelt = 1)
 
-	health = GATOR_HEALTH
-	maxHealth = GATOR_HEALTH
+	health = BOGTROLL_HEALTH
+	maxHealth = BOGTROLL_HEALTH
 	food_type = list(/obj/item/bodypart,
 					/obj/item/organ,
 					/obj/item/reagent_containers/food/snacks/meat)
 
 	base_intents = list(/datum/intent/simple/trollrip)
 	attack_sound = list('modular/stonekeep/sound/vo/mobs/gator/gatorattack1.ogg', 'modular/stonekeep/sound/vo/mobs/gator/gatorattack2.ogg')
-	melee_damage_lower = 25
-	melee_damage_upper = 35
+	melee_damage_lower = 35
+	melee_damage_upper = 40
 
-	TOTALCON = 10
-	TOTALSTR = 14
-	TOTALSPD = 2
+	TOTALCON = 14
+	TOTALSTR = 18
+	TOTALSPD = 6
 	TOTALEND = 8
 
 	retreat_distance = 0
 	minimum_distance = 0
 	deaggroprob = 0
-	defprob = 35
+	defprob = 20
 	defdrain = 5
 	attack_same = FALSE
 	retreat_health = 0.2
@@ -50,7 +50,7 @@
 	stat_attack = UNCONSCIOUS
 	body_eater = TRUE
 
-	ai_controller = /datum/ai_controller/mole // to-do
+	ai_controller = /datum/ai_controller/volf
 	AIStatus = AI_OFF
 	can_have_ai = FALSE
 
@@ -78,11 +78,6 @@
 /mob/living/simple_animal/hostile/retaliate/gator/update_icon()
 	cut_overlays()
 	..()
-	if(stat != DEAD)
-		var/mutable_appearance/eye_lights = mutable_appearance(icon, "gator-eyes")
-		eye_lights.plane = 19
-		eye_lights.layer = 19
-		add_overlay(eye_lights)
 
 /mob/living/simple_animal/hostile/retaliate/gator/get_sound(input)
 	switch(input)

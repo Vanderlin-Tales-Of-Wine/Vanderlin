@@ -1087,3 +1087,67 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 /mob/living/carbon/spirit/Initialize(mapload, cubespawned=FALSE, mob/spawner)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(give_patron_toll)), 10 SECONDS)
+
+
+// =============================================
+// ============		Bear pelt	================
+
+/obj/item/bearpelt
+	name = "rolled up bear pelt"
+	desc = "Weighs a ton, but it provides a comfortable bedding."
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'
+	righthand_file = 'modular/stonekeep/icons/onmob/righthand.dmi'
+	experimental_inhand = FALSE
+	icon_state = "bearpelt_rolled"
+	w_class =  WEIGHT_CLASS_HUGE
+	grid_height = 96
+	grid_width = 96
+
+/obj/item/bearpelt/MiddleClick(mob/user, params)
+	..()
+	var/turf/T = get_turf(loc)
+	if(!isfloorturf(T))
+		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
+		return
+	for(var/obj/A in T)
+		if(A.density && !(A.flags_1 & ON_BORDER_1))
+			to_chat(user, "<span class='warning'>There is already something here!</span>")
+			return
+	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
+	if(do_after(user, 5 SECONDS, src, (IGNORE_HELD_ITEM)))
+		new /obj/structure/bed/bear(get_turf(src))
+		qdel(src)
+
+/obj/structure/bed/bear
+	name = "bear pelt"
+	icon = 'modular/stonekeep/icons/bear.dmi'
+	alpha = 240
+	max_buckled_mobs = 2
+	attacked_sound = 'sound/foley/cloth_rip.ogg'
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	debris = list(/obj/item/natural/fur/mole = 1)
+	pixel_y = -16
+	pixel_x = -16
+	var/mob/living/goldilocks
+
+/obj/structure/bed/bear/MiddleClick(mob/user, params)
+	. = ..()
+	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
+	if(do_after(user, 10 SECONDS, target = src))
+		user.put_in_hands(new /obj/item/bearpelt(get_turf(src)))
+		qdel(src)
+
+/obj/structure/bed/bear/post_buckle_mob(mob/living/M)
+	. = ..()
+	M.set_mob_offsets("bed_buckle", _x = 0, _y = 0)
+	if(length(buckled_mobs) > 1 && !goldilocks) //  Push the second buckled mob a bit higher from the normal lying position
+		M.set_mob_offsets("bed_buckle", _x = 0, _y = 12)
+		goldilocks = M
+
+/obj/structure/bed/bear/post_unbuckle_mob(mob/living/M)
+	..()
+	M.reset_offsets("bed_buckle")
+	if(M == goldilocks)
+		goldilocks = null
+
