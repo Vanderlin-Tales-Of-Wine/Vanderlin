@@ -13,5 +13,4 @@
 
 /datum/map_adjustment/template/job_change()
 	. = ..()
-	change_job_position("Consort", 2)
-	change_job_position("Inquisitor", 0)
+	change_job_position(/datum/job/consort, 2)
