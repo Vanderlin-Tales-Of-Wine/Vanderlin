@@ -52,10 +52,14 @@
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
 
+/obj/machinery/light/fueled/firebowl/stumpb
+	icon_state = "stumpfireb1"
+	base_state = "stumpfireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
-
 
 /obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
