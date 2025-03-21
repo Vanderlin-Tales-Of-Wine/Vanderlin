@@ -59,6 +59,7 @@ SUBSYSTEM_DEF(mapping)
 #else
 		config = load_map_config(error_if_missing = FALSE)
 #endif
+/datum/controller/subsystem/mapping/PreInit()
 	// After assigning a config datum to var/config, we check which map ajudstment fits the current config
 	for(var/datum/map_adjustment/each_adjust as anything in subtypesof(/datum/map_adjustment))
 		if(initial(each_adjust.map_file_name) != config.map_file)
