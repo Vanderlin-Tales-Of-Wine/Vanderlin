@@ -87,7 +87,7 @@
 			if(H.anti_magic_check())
 				return
 
-			if(!((H.mind?.assigned_role.title in GLOB.noble_positions) || (H.mind?.assigned_role.title in GLOB.garrison_positions)))
+			if(!((H.mind?.assigned_role.title in rod_jobs)))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
