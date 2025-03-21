@@ -19,8 +19,7 @@
 	for(var/title in blacklisted_jobs)
 		change_job_position(title, 0)
 		var/datum/job/job = SSjob.GetJob(title)
-		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
-			job.job_flags -= JOB_NEW_PLAYER_JOINABLE
+		job.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
 	return
 
 /// * job_name<string/JOB_DEFINES>: 	JOB_NAME macros from jobs.dm
