@@ -19,7 +19,7 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
-	var/list/static/rod_jobs = GLOB.noble_positions | GLOB.garrison_positions | list(
+	var/list/rod_jobs = list(
 		/datum/job/jester::title,
 		/datum/job/servant::title,
 		/datum/job/adventurer/courtagent::title,
@@ -29,6 +29,11 @@
 
 	grid_height = 96
 	grid_width = 32
+
+/obj/item/weapon/lordscepter/Initialize()
+	. = ..()
+	rod_jobs |= GLOB.noble_positions
+	rod_jobs |= GLOB.garrison_positions
 
 /datum/intent/lordbash
 	name = "bash"
