@@ -2384,7 +2384,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "HI" = (
 /obj/item/storage/sack,
-/obj/item/reagent_containers/food/snacks/potato_baked{
+/obj/item/reagent_containers/food/snacks/potato/baked{
 	pixel_x = -6
 	},
 /obj/structure/table/wood/plain_alt,
@@ -3019,7 +3019,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "QT" = (
 /obj/structure/gate/bars/preopen{
-	redstone_id = trollgate
+	redstone_id = "trollgate"
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3551,7 +3551,7 @@
 	},
 /obj/structure/lever{
 	pixel_y = 17;
-	redstone_id = trollgate
+	redstone_id = "trollgate"
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)

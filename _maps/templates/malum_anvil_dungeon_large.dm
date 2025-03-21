@@ -6,10 +6,10 @@
 /datum/map_template/mountaintown
 	name = "MountaintownDungeon"
 	id = "mountaintown_anvildungeon"
-	mappath = "_maps/map_files/templates/malums_anvil_dungeons/mountaintown.dmm"
+	mappath = "_maps/templates/malums_anvil_dungeons/mountaintown.dmm"
 
 // Embercradle designed by Blank
 /datum/map_template/embercradle
 	name = "EmbercradleDungeon"
 	id = "embercradle_anvildungeon"
-	mappath = "_maps/map_files/templates/malums_anvil_dungeons/embercradle.dmm"
+	mappath = "_maps/templates/malums_anvil_dungeons/embercradle.dmm"

@@ -4,7 +4,7 @@
 	type_weight = 0
 
 /datum/map_template/dungeon/entry/tented
-	mappath = "_maps/map_files/matthios_tomb/entry/Tented Entrance.dmm"
+	mappath = "_maps/matthios_tomb/entry/Tented Entrance.dmm"
 	id = "tented"
 	width = 15
 	height = 15
@@ -15,7 +15,7 @@
 	west_offset = 8
 
 /datum/map_template/dungeon/entry/eastentrance
-	mappath = "_maps/map_files/matthios_tomb/entry/eastentrance.dmm"
+	mappath = "_maps/matthios_tomb/entry/eastentrance.dmm"
 	id = "eastentrance"
 	width = 25
 	height = 35
@@ -25,7 +25,7 @@
 	west_offset = 18
 
 /datum/map_template/dungeon/entry/Northernentrance
-	mappath = "_maps/map_files/matthios_tomb/entry/Northernentrance.dmm"
+	mappath = "_maps/matthios_tomb/entry/Northernentrance.dmm"
 	id = "Northernentrance"
 	width = 45
 	height = 25
