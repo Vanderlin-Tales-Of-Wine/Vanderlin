@@ -5,50 +5,57 @@
 
 /obj/structure/vampire/portalmaker/attack_hand(mob/living/user)
 	var/list/possibleportals = list()
-	var/list/sendpossibleportals = list()
-	var/datum/antagonist/vampire/lord/lord = user.mind.has_antag_datum(/datum/antagonist/vampire)
-	if(!lord)
+	var/datum/antagonist/vampire/lord/lord_datum = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
+	if(!lord_datum)
 		return
-	if(!lord.mypool.check_withdraw(-1000))
-		to_chat(user, "This costs 1000 vitae, I lack that.")
-		return
+
+	. = TRUE
+
 	if(!unlocked)
-		to_chat(user, "I've yet to regain this aspect of my power!")
+		to_chat(user, span_warning("I've yet to regain this aspect of my power!"))
 		return
-	var/list/choices = list("Return", "Sending", "CANCEL")
-	var/inputportal = input(user, "Which type of portal?", "Portal Type") as anything in choices
-	switch(inputportal)
-		if("Return")
+
+	if(!lord_datum.has_vitae(1000))
+		to_chat(user, span_warning("This costs 1000 vitae, I lack that."))
+		return
+	var/list/choices = list("RETURN", "SENDING", CHOICE_CANCEL)
+	switch(browser_input_list(user, "Which type of portal?", "Portal Type", choices))
+		if(CHOICE_CANCEL)
+			return
+
+		if("RETURN")
 			for(var/obj/item/clothing/neck/portalamulet/P in GLOB.vampire_objects)
 				possibleportals += P
-			var/atom/choice = input(user, "Choose an area to open the portal", "Choices") as null|anything in possibleportals
+			var/atom/choice = browser_input_list(user, "Choose an area to open the portal", "Choices", possibleportals)
 			if(!choice)
 				return
 			user.visible_message("[user] begins to summon a portal.", "I begin to summon a portal.")
-			if(do_after(user, 3 SECONDS))
-				lord.handle_vitae(-1000)
-				if(istype(choice, /obj/item/clothing/neck/portalamulet))
-					var/obj/item/clothing/neck/portalamulet/A = choice
-					A.uses -= 1
-					var/obj/effect/landmark/vteleportdestination/VR = new(A.loc)
-					VR.amuletname = A.name
-					create_portal_return(A.name, 3000)
-					user.playsound_local(get_turf(src), 'sound/misc/portalactivate.ogg', 100, FALSE, pressure_affected = FALSE)
-					if(A.uses <= 0)
-						A.visible_message("[A] shatters!")
-						qdel(A)
-		if("Sending")
+			if(!do_after(user, 3 SECONDS, src))
+				return
+
+			lord_datum.handle_vitae(-1000)
+			if(istype(choice, /obj/item/clothing/neck/portalamulet))
+				var/obj/item/clothing/neck/portalamulet/A = choice
+				A.uses -= 1
+				var/obj/effect/landmark/vteleportdestination/VR = new(A.loc)
+				VR.amuletname = A.name
+				create_portal_return(A.name, 3000)
+				user.playsound_local(get_turf(src), 'sound/misc/portalactivate.ogg', 100, FALSE, pressure_affected = FALSE)
+				if(A.uses <= 0)
+					A.visible_message("[A] shatters!")
+					qdel(A)
+		if("SENDING")
 			if(sending)
 				to_chat(user, "A portal is already active!")
 				return
 			for(var/obj/item/clothing/neck/portalamulet/P in GLOB.vampire_objects)
-				sendpossibleportals += P
-			var/atom/choice = input(user, "Choose an area to open the portal to", "Choices") as null|anything in sendpossibleportals
+				possibleportals += P
+			var/atom/choice = browser_input_list(user, "Choose an area to open the portal to", "Choices", possibleportals)
 			if(!choice)
 				return
 			user.visible_message("[user] begins to summon a portal.", "I begin to summon a portal.")
-			if(do_after(user, 3 SECONDS))
-				lord.handle_vitae(-1000)
+			if(do_after(user, 3 SECONDS, src))
+				lord_datum.handle_vitae(-1000)
 				if(istype(choice, /obj/item/clothing/neck/portalamulet))
 					var/obj/item/clothing/neck/portalamulet/A = choice
 					A.uses -= 1
@@ -59,8 +66,6 @@
 						qdel(A)
 					create_portal()
 					user.playsound_local(get_turf(src), 'sound/misc/portalactivate.ogg', 100, FALSE, pressure_affected = FALSE)
-		if("CANCEL")
-			return
 
 /obj/structure/vampire/portal
 	name = "Eerie Portal"

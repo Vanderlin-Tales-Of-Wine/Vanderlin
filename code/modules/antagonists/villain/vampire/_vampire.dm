@@ -158,6 +158,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		H.fire_act(1, 5)
 		handle_vitae(-10)
 
+/datum/antagonist/vampire/proc/has_vitae(change)
+	return (vitae >= change)
+
 /datum/antagonist/vampire/proc/handle_vitae(change, tribute)
 	if(vitae <= 20)
 		if(!starved)

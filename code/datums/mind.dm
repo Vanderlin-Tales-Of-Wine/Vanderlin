@@ -736,7 +736,7 @@
 		output += "<B>Objectives:</B>"
 		var/obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>Objective #[obj_count++]</B>: [objective.explanation_text]"
+			output += "<br><B>[objective.flavor] #[obj_count++]</B>: [objective.explanation_text]"
 //			var/list/datum/mind/other_owners = objective.get_owners() - src
 //			if(other_owners.len)
 //				output += "<ul>"

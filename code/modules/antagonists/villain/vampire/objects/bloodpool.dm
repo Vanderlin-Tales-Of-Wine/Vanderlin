@@ -80,8 +80,11 @@
 					user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 
 /obj/structure/vampire/bloodpool/proc/update_pool(change)
+	if(!change)
+		return
+
 	var/tempmax = 8000
-	for(var/datum/mind/V in SSmapping.retainer.vampires)
+	for(var/datum/mind/V as anything in SSmapping.retainer.vampires)
 		if(V.special_role == "vampirespawn")
 			tempmax += 4000
 	if(maximum != tempmax)
@@ -91,9 +94,9 @@
 	if(debug)
 		maximum = 999999
 		current = 999999
-	if(change)
-		current += change
 
+	current += change
+	
 /obj/structure/vampire/bloodpool/proc/check_withdraw(change)
 	if(change < 0)
 		if(abs(change) > current)

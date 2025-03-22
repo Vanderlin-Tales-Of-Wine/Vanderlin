@@ -18,6 +18,8 @@
 
 /datum/antagonist/vampire/lesser/handle_vitae(change, tribute)
 	vitae = clamp(vitae + change, 0, vmax)
+	if(tribute)
+		team?.vitae_pool?.update_pool(tribute)
 	. = ..()
 
 /mob/living/carbon/human/proc/spawn_pick_class()

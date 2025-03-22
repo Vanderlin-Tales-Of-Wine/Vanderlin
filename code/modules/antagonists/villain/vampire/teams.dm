@@ -5,7 +5,12 @@
 	var/datum/mind/lord
 	var/datum/objective/protect/lord_protect //not an ideal variable
 
+	var/power_level
+	var/obj/structure/vampire/bloodpool/vitae_pool
+
 /datum/team/vampire/New(starting_members)
+	vitae_pool = locate() in GLOB.vampire_objects
+
 	lord_protect = new()
 	lord_protect.triumph_count = 3
 	lord_protect.target_role_type = TRUE
@@ -35,7 +40,7 @@
 	if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		if(lord)
 			stack_trace("vampire team had two lords assigned, which should be impossible")
-			to_chat(new_member, span_warning("Alas, I am not a Lord of these spawns. I will serve [lord.name]"))
+			to_chat(new_member, span_warning("Alas, I am not the Lord of these lands. I will serve [lord.name]."))
 			var/datum/antagonist/vampire/lord/our_datum = vamp_datum
 			var/datum/antagonist/vampire/lord/their_datum = lord.has_antag_datum(/datum/antagonist/vampire/lord)
 			our_datum.vamplevel = their_datum.vamplevel
@@ -63,6 +68,8 @@
 
 /datum/antagonist/vampire/get_team()
 	return team
+
+/* --- OBJECTIVES --- */
 
 /datum/objective/conquer
 	name = "conquer"

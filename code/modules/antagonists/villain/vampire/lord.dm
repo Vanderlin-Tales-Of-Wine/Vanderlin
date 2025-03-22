@@ -6,7 +6,6 @@
 		"I AM THE LAND!",
 		"FIRSTBORNE CHILD OF KAIN!",
 	)
-	var/obj/structure/vampire/bloodpool/mypool
 	var/vamplevel = 0
 	var/ascended = FALSE
 
@@ -18,7 +17,6 @@
 
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
-	mypool = locate(/obj/structure/vampire/bloodpool) in GLOB.vampire_objects
 	equip()
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "Lord"), 5 SECONDS)
 
@@ -42,9 +40,9 @@
 	return TRUE
 
 /datum/antagonist/vampire/lord/on_life(mob/user)
-	vitae = mypool.current
 	if(ascended)
 		return
+	vitae = team.vitae_pool.current
 	. = ..()
 
 /datum/antagonist/vampire/lord/exposed_to_sunlight()
@@ -58,9 +56,7 @@
 	to_chat(H, span_warning("That was too close. I must avoid the sun."))
 
 /datum/antagonist/vampire/lord/handle_vitae(change, tribute)
-	mypool.update_pool(change)
-	if(tribute)
-		mypool.update_pool(tribute)
+	team.vitae_pool.update_pool(change)
 	. = ..()
 
 /datum/antagonist/vampire/lord/move_to_spawnpoint()
