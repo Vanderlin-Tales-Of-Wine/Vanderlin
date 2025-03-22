@@ -18,8 +18,8 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "cC" = (
-/obj/structure/bars/passage,
-/turf/open/floor/blocks,
+/mob/living/carbon/human/species/orc/skilled/savage,
+/turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "dA" = (
 /obj/item/weapon/mace/goden/steel/warhammer,
@@ -203,9 +203,8 @@
 /turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "nQ" = (
-/obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
-/turf/open/floor/metal,
+/mob/living/carbon/human/species/orc/skilled/savage,
+/turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "oj" = (
 /obj/structure/fluff/walldeco/stone{
@@ -259,6 +258,7 @@
 /obj/effect/decal/shadow_floor{
 	dir = 9
 	},
+/mob/living/carbon/human/species/orc/skilled/savage,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "qz" = (
@@ -495,10 +495,6 @@
 	},
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
-"FK" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
-/turf/open/floor/blocks/moss,
-/area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Gl" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/concrete,
@@ -607,8 +603,8 @@
 /turf/open/floor/blocks,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Pk" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /obj/effect/decal/shadow_floor,
+/mob/living/carbon/human/species/orc/skilled/looter,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Pl" = (
@@ -793,7 +789,6 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Wz" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/orc_warrior,
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 9
 	},
@@ -837,6 +832,7 @@
 /obj/effect/decal/shadow_floor{
 	dir = 8
 	},
+/mob/living/carbon/human/species/orc/skilled/savage,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Yt" = (
@@ -1174,7 +1170,7 @@ bS
 WT
 im
 Ap
-DR
+cC
 Os
 Os
 Os
@@ -1377,7 +1373,7 @@ Po
 vf
 vf
 vf
-vf
+eE
 vf
 gk
 vf
@@ -1392,7 +1388,7 @@ vf
 vf
 vf
 vf
-Vf
+nQ
 Vf
 vf
 vf
@@ -1410,14 +1406,14 @@ Po
 Po
 Po
 vf
-vf
-vf
-eE
+Zs
+Zs
+co
 vf
 Dt
 vf
-eE
-vf
+co
+Zs
 Ra
 xp
 or
@@ -1450,7 +1446,7 @@ Zs
 co
 dV
 IZ
-Pk
+Kk
 co
 Zs
 Fw
@@ -1461,7 +1457,7 @@ Os
 Os
 Os
 Os
-cC
+Os
 Vf
 Vf
 xo
@@ -1554,7 +1550,7 @@ Yt
 Yt
 Ro
 pV
-nQ
+IM
 gf
 Yt
 XX
@@ -1639,7 +1635,7 @@ Vf
 Vf
 Vf
 nA
-FK
+Vf
 Vf
 Vf
 Vf
@@ -1733,7 +1729,7 @@ IM
 Kk
 XT
 XT
-Zj
+Zs
 vf
 Po
 Po
@@ -1764,11 +1760,11 @@ Zs
 Zs
 co
 Zs
-vf
-vf
-eE
-vf
-vf
+IZ
+Zs
+co
+Zs
+Zs
 vf
 Po
 Po
@@ -1795,16 +1791,16 @@ Po
 Po
 Po
 vf
+Zs
+Zs
+co
+Zs
+IZ
+Zs
+co
+Zs
+Zj
 vf
-vf
-eE
-vf
-vf
-Po
-Po
-Po
-Po
-Po
 Po
 Po
 Po
@@ -1829,17 +1825,17 @@ Po
 Po
 Po
 Po
-Po
-Po
-Po
-Po
-Po
-Po
-Po
-Po
-Po
-Po
-Po
+vf
+vf
+vf
+eE
+vf
+vf
+vf
+eE
+vf
+vf
+vf
 Po
 Po
 Po

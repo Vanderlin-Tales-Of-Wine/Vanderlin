@@ -81,11 +81,14 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
 "lc" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
+/obj/effect/decal/cleanable/blood_neu/tracks{
+	dir = 4
+	},
+/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "lD" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
+/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
 "mA" = (
@@ -174,7 +177,6 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/sumpgrotto)
 "ua" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /obj/item/reagent_containers/glass/bottle/beer/voddena,
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
@@ -251,7 +253,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
 "Dv" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
+/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/sumpgrotto)
 "DL" = (
@@ -318,8 +320,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "PO" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
 /obj/effect/decal/cleanable/blood_neu/tracks,
+/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Qr" = (
@@ -387,10 +389,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Yk" = (
-/obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave,
-/obj/effect/decal/cleanable/blood_neu/tracks{
-	dir = 4
-	},
+/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "YB" = (
@@ -760,9 +759,9 @@ ab
 ab
 mA
 HZ
-Ay
+lD
 rY
-lc
+ab
 oP
 oP
 oP
@@ -831,7 +830,7 @@ Ay
 Ay
 lD
 oP
-lc
+ab
 YB
 oP
 gp
@@ -2034,7 +2033,7 @@ ef
 RN
 Jm
 qt
-lc
+ab
 Jm
 RN
 ef
@@ -2099,10 +2098,10 @@ ef
 ef
 qr
 Jm
+Jm
+Jm
+Jm
 Dv
-Jm
-Jm
-Jm
 kO
 jS
 RN
@@ -2236,7 +2235,7 @@ Jm
 kO
 kO
 Jm
-lc
+ab
 ab
 ab
 ab
@@ -2340,7 +2339,7 @@ ef
 ef
 ab
 ab
-lc
+ab
 ab
 ab
 ab
@@ -2669,7 +2668,7 @@ Jm
 jS
 Jm
 ab
-lc
+ab
 ab
 ab
 ab
@@ -2804,7 +2803,7 @@ Jm
 ab
 ab
 ab
-Dv
+Jm
 ab
 RN
 ef
@@ -2850,7 +2849,7 @@ ab
 ab
 YU
 ab
-Ay
+lD
 Tf
 ab
 Ay
@@ -2939,7 +2938,7 @@ ef
 ef
 RN
 jS
-Dv
+Jm
 ab
 HZ
 RN
@@ -2983,7 +2982,7 @@ FJ
 ab
 ab
 bH
-lc
+ab
 Ay
 oP
 Is
@@ -3062,7 +3061,7 @@ ef
 ef
 RN
 ab
-Dv
+Jm
 Jm
 ab
 RN
@@ -3074,7 +3073,7 @@ ef
 ef
 RN
 ab
-ab
+Yk
 ab
 RN
 ef
@@ -3113,7 +3112,7 @@ ab
 ab
 ab
 ab
-Yk
+bH
 Ay
 tG
 rY
@@ -3132,7 +3131,7 @@ qt
 kO
 Jm
 ab
-lc
+ab
 ab
 ab
 ef
@@ -3180,7 +3179,7 @@ Qr
 ab
 ab
 ab
-bH
+lc
 Ay
 Ay
 ab
@@ -3197,7 +3196,7 @@ ef
 RN
 Jm
 kO
-Dv
+Jm
 ab
 ab
 ab
@@ -3385,7 +3384,7 @@ RD
 ab
 ab
 ab
-lc
+ab
 ab
 ab
 pu
@@ -3450,10 +3449,10 @@ ef
 ef
 ef
 ab
-lc
 ab
 ab
 ab
+Yk
 ab
 RN
 ef
@@ -3483,7 +3482,7 @@ gp
 SY
 Ay
 ab
-ab
+Yk
 ab
 Qr
 ab

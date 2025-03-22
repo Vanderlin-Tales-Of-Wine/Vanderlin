@@ -455,6 +455,15 @@
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES|MOUTH
 	max_integrity = INTEGRITY_STRONGEST
 
+/obj/item/clothing/neck/monke
+	name = "collar"
+	desc = "Fits snug."
+	icon_state = "surgcollar"
+	item_state = "surgcollar"
+	armor =  ARMOR_LEATHER_BAD
+	prevent_crits = MINOR_CRITICALS
+
+
 
 // =============================================================================
 // ==============================	CLOAKS	====================================
@@ -582,8 +591,8 @@
 	item_state = "desertgown"
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
-/obj/item/clothing/shirt/robe/monkcloth	// kinda sus
-	name = "monks robes"
+/obj/item/clothing/shirt/robe/prior
+	name = "prior robes"
 	desc = ""
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
@@ -594,7 +603,7 @@
 	l_sleeve_status = SLEEVE_NOMOD
 
 /obj/item/clothing/armor/leather/vest/monk
-	name = "monks robes"
+	name = "monk robes"
 	desc = "Comes with a leather vest."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
@@ -1293,6 +1302,9 @@
 //	color = CLOTHING_WHITE
 //	detail_color = "#422413"
 //	alternate_worn_layer =  WRISTSLEEVE_LAYER
+/obj/item/clothing/shirt/dress/velvetdress/sleeveless
+	icon_state = "velvetdress_less"
+	item_state = "velvetdress_less"
 
 /obj/item/clothing/shirt/dress/velvetdress/court/update_icon()
 	cut_overlays()

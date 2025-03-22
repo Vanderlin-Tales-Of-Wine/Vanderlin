@@ -111,5 +111,5 @@
 		pants = /obj/item/clothing/pants/tights/black
 	else
 		backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/cloth = 1, /obj/item/lockpickring/mundane = 1, /obj/item/reagent_containers/glass/bottle/antidote = 1, /obj/item/reagent_containers/glass/bottle/healthpot = 1, /obj/item/paper/scroll/frumentarii = 1)
-		armor = /obj/item/clothing/shirt/dress/velvetdress
+		armor = /obj/item/clothing/shirt/dress/velvetdress/sleeveless
 

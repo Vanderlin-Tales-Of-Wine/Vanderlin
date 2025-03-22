@@ -566,6 +566,10 @@
 /mob/living/carbon/human/species/goblin/skilled/ambush/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
+/mob/living/carbon/human/species/goblin/skilledambush/hell/after_creation()
+	..()
+	equipOutfit(new /datum/outfit/job/npc/goblin)
+
 /*
 /mob/living/carbon/human/species/goblin/skilled/hell/after_creation(mob/living/carbon/C)
 	..()
@@ -574,6 +578,10 @@
 /mob/living/carbon/human/species/goblin/skilled/ambush/cave
 	name = "cave goblin"
 	race = /datum/species/goblin/cave
+
+/mob/living/carbon/human/species/goblin/skilledambush/cave/after_creation()
+	..()
+	equipOutfit(new /datum/outfit/job/npc/goblin)
 
 /mob/living/carbon/human/species/goblin/skilled/ambush/sea
 	name = "sea goblin"
@@ -627,6 +635,62 @@
 
 
 
+/mob/living/carbon/human/species/zizombie/npc/monk/after_creation()
+	..()
+	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	equipOutfit(new /datum/outfit/job/species/zizombie/npc/monk)
+	aggressive=1
+	mode = AI_IDLE
+	dodgetime = 15
+	canparry = FALSE
+	flee_in_pain = FALSE
+	wander = TRUE
+
+/mob/living/carbon/human/species/zizombie/npc/prior/after_creation()
+	..()
+	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	equipOutfit(new /datum/outfit/job/species/zizombie/npc/prior)
+	aggressive=1
+	mode = AI_IDLE
+	dodgetime = 15
+	canparry = FALSE
+	flee_in_pain = FALSE
+	wander = TRUE
+
+/datum/outfit/job/species/zizombie/npc/monk/pre_equip(mob/living/carbon/human/H)
+	..()
+	pants = /obj/item/clothing/pants/trou
+	armor = /obj/item/clothing/armor/leather/vest/monk
+	neck = /obj/item/clothing/neck/monke
+	belt = /obj/item/storage/belt/leather/rope
+	shoes = /obj/item/clothing/shoes/sandals/geta
+	H.TOTALSTR = 14
+	H.TOTALSPD = 10
+	H.TOTALCON = 10
+	H.TOTALEND = 20
+	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+
+/datum/outfit/job/species/zizombie/npc/prior/pre_equip(mob/living/carbon/human/H)
+	..()
+	mask = /obj/item/clothing/face/kaizoku/menpo/facemask
+	armor = /obj/item/clothing/shirt/robe/prior
+	wrists = /obj/item/clothing/wrists/bracers/bonebracer
+	belt = /obj/item/storage/belt/leather/shalal
+	pants = /obj/item/clothing/pants/trou
+	shoes = /obj/item/clothing/shoes/sandals/geta
+	H.TOTALSTR = 15
+	H.TOTALSPD = 12
+	H.TOTALCON = 10
+	H.TOTALEND = 20
+	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 
 
 

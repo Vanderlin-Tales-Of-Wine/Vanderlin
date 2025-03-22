@@ -1491,12 +1491,12 @@
 	name = "iron men-yoroi"
 	icon_state = "menyoroi"
 	desc = "Ever since the Onis has been dignified on Abyssariad fold, they have been exalted in war masks - and this became their default pattern for menpos ever since. "
-	max_integrity = 100
+	max_integrity = INTEGRITY_WORST
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	resistance_flags = FIRE_PROOF
-	armor = list("melee" = 80, "bullet" = 50, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = ARMOR_PLATE_BAD
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = PLATEHIT
 	flags_inv = HIDEFACE
@@ -1510,7 +1510,7 @@
 /obj/item/clothing/face/kaizoku/menpo/half
 	name = "iron half mempo"
 	icon_state = "ironmempo"
-	max_integrity = 100
+	max_integrity = INTEGRITY_WORST
 	desc = "A cheaper menpo portraying the lower part of a Ogrun's head. It covers only the neck and the mouth."
 	body_parts_covered = NECK|MOUTH
 	flags_cover = HEADCOVERSMOUTH | MASKCOVERSMOUTH
@@ -1518,8 +1518,8 @@
 /obj/item/clothing/face/kaizoku/menpo/steel
 	name = "steel men-yoroi"
 	icon_state = "smenyoroi"
-	max_integrity = 200
-	armor = list("melee" = 80, "bullet" = 50, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	max_integrity = INTEGRITY_STANDARD
+	armor = ARMOR_PLATE
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 
 /obj/item/clothing/face/kaizoku/menpo/steel/half
@@ -1531,7 +1531,7 @@
 	flags_cover = HEADCOVERSMOUTH | MASKCOVERSMOUTH
 
 /obj/item/clothing/face/kaizoku/menpo/facemask
-	name = "iron Merkkin mask"
+	name = "iron mask"
 	icon_state = "irontribal"
 	desc = "The old, barely used mask of the almost extinct Merkpeople, with fish-like characteristics. Usually used by Undines."
 	max_integrity = 100
@@ -1606,7 +1606,7 @@
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	resistance_flags = FIRE_PROOF
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = ARMOR_LEATHER_GOOD
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT)
 	flags_inv = HIDEFACE
 	body_parts_covered = EYES | EARS | NOSE //Allows them to use their mouth due to the mouth opening.
@@ -1827,7 +1827,7 @@
 /obj/item/clothing/pants/trou/tobi/dragonslayer
 	desc = "Baggy pants of abyssariad design. This one is coated in asbestos, and may be just as dangerous."
 	color = "#3d4681"
-	armor = list("melee" = 20, "bullet" = 0, "laser" = 75,"energy" = 75, "bomb" = 75, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 30, "slash" = 30, "stab" = 20, "piercing" = 10, "fire" = 100, "acid" = 0)
 
 /obj/item/clothing/pants/trou/leather/fur
 	name = "thick tobi"
@@ -1885,8 +1885,8 @@
 	icon_state = "marauder_leg"
 	item_state = "marauder_leg"
 	sewrepair = FALSE
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
-	max_integrity = 200
+	armor = ARMOR_LEATHER
+	max_integrity =  INTEGRITY_POOR
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT)
 	armor_class = AC_MEDIUM
 	body_parts_covered = GROIN|LEGS|FEET
@@ -1913,8 +1913,8 @@
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/pants.dmi'
 	mob_overlay_icon = 'modular/stonekeep/kaizoku/icons/clothing/pants.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/helpers/sleeves_pants.dmi'
-	max_integrity = 100
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	max_integrity = INTEGRITY_WORST
+	armor = ARMOR_LEATHER_BAD
 	prevent_crits = list(BCLASS_CHOP, BCLASS_BLUNT)
 	body_parts_covered = LEGS|FEET
 	gender = PLURAL
@@ -2191,7 +2191,7 @@
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/wrists.dmi'
 	mob_overlay_icon ='modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 0)
+	armor = list("blunt" = 5, "slash" = 5, "stab" = 5, "piercing" = 5, "fire" = 100, "acid" = 50)
 	heat_protection = ARMS|HANDS
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
@@ -2207,7 +2207,7 @@
 /obj/item/clothing/wrists/bracers/bonebracer
 	name = "bone bracers"
 	desc = "the bracers made of bone, usually created and used by tribalistic Undines."
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = ARMOR_PADDED
 	icon = 'modular/stonekeep/kaizoku/icons/clothingicon/wrists.dmi'
 	mob_overlay_icon ='modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'
 	sleeved = 'modular/stonekeep/kaizoku/icons/clothing/wrists.dmi'

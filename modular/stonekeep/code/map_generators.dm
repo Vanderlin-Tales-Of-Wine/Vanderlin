@@ -294,18 +294,18 @@
 	startTurfY = 1
 
 /datum/mapGenerator/bitterpeaks
-	modules = list(/datum/mapGeneratorModule/ambushing/bitterpeaks,/datum/mapGeneratorModule/snowpatchy,/datum/mapGeneratorModule/snowfull)
+	modules = list(/datum/mapGeneratorModule/ambushing/bitterpeaks,/datum/mapGeneratorModule/snowpatchy,/datum/mapGeneratorModule/snowfull,/datum/mapGeneratorModule/snowgrass, /datum/mapGeneratorModule/lavacave)
 
 /datum/mapGeneratorModule/snowpatchy
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/snow/patchy)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/bush_meagre = 6,
-							/obj/structure/flora/grass/thorn_bush = 2,
-							/obj/structure/flora/grass/herb/salvia = 10,
+							/obj/structure/flora/grass/bush_meagre = 1,
+							/obj/structure/flora/grass/thorn_bush = 1,
+							/obj/structure/flora/grass/herb/salvia = 1,
 							/obj/item/natural/stone = 4,
 							/obj/item/natural/rock = 3,
-							/obj/structure/flora/grass/pyroclasticflowers = 10,
+							/obj/structure/flora/grass/pyroclasticflowers = 1,
 							)
 	spawnableTurfs = list(/turf/open/floor/snow = 2)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
@@ -314,18 +314,36 @@
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/snow)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/bush_meagre = 6,
-							/obj/structure/flora/grass/thorn_bush = 2,
-							/obj/structure/flora/grass/herb/salvia = 10,
-							/obj/item/natural/rock = 3,
-							/obj/structure/flora/grass/pyroclasticflowers = 10,
+							/obj/item/natural/rock = 2,
+							 /obj/structure/flora/rock/pebbles/gray = 2,
 							)
-	spawnableTurfs = list(/turf/open/floor/snow = 2)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
 	excluded_turfs = list(/turf/open/floor/snow/patchy)
 
+/datum/mapGeneratorModule/snowgrass
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
+	allowed_turfs = list(/turf/open/floor/grass/cold)
+	spawnableAtoms = list(
+							/obj/structure/flora/grass/bush_meagre = 3,
+							/obj/structure/flora/grass/herb/salvia = 1,
+							/obj/structure/flora/rogueflower/random = 1,
+							/obj/structure/flora/grass/pyroclasticflowers = 1,
+							)
+	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
+
+/datum/mapGeneratorModule/lavacave
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
+	allowed_turfs = list(/turf/open/floor/naturalstone)
+	spawnableAtoms = list(
+							/obj/structure/flora/grass/bush_meagre = 3,
+							/obj/structure/flora/grass/herb/salvia = 1,
+							/obj/structure/flora/rogueflower/random = 1,
+							/obj/structure/flora/grass/pyroclasticflowers = 1,
+							)
+	allowed_areas = list(/area/rogue/under/cavelava)
+	spawnableTurfs = list(/turf/open/floor/naturalstone/rough = 2)
 
 /datum/mapGeneratorModule/ambushing/bitterpeaks
-	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
-	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
-	allowed_turfs = list(/turf/open/floor/snow)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=10)
+	allowed_areas = list(/area/rogue/outdoors/mountains/decap, /area/rogue/under/cavelava)
+	allowed_turfs = list(/turf/open/floor/snow, /turf/open/floor/naturalstone/rough)

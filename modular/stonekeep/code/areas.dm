@@ -61,6 +61,12 @@
 	droning_sound_dusk = null
 	droning_sound_night = 'sound/music/area/churchnight.ogg'
 
+/area/rogue/indoors/town/bath/redhouse
+	name = "baths"
+	droning_sound = 'sound/music/area/Fulminate.ogg'
+
+
+
 
 /area/rogue/outdoors/rtfield/plague_district
 	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 40, /mob/living/carbon/human/species/zizombie/npc/peasant = 40)
@@ -108,6 +114,19 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/mole = 50,
 				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 50)
+
+/area/rogue/under/lavamonastery
+	name = "danger(monastery)"
+	icon_state = "cavelava"
+	ambientsounds = AMB_CAVELAVA
+	ambientnight = AMB_CAVELAVA
+	spookysounds = SPOOKY_CAVE
+	spookynight = SPOOKY_CAVE
+	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Syzygy.ogg'
+	converted_type = /area/rogue/outdoors/exposed/decap
+
+/area/rogue/under/cavelava
+	first_time_text = ""
 
 /area/rogue/outdoors/rtfield/spooky		// haunts ambush and dug down hidden treasure
 	ambush_mobs = list(/mob/living/simple_animal/hostile/haunt = 50)

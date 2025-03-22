@@ -543,10 +543,6 @@
 /obj/item/ingot/steel,
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost)
-"Qe" = (
-/obj/structure/bars/passage,
-/turf/open/floor/blocks,
-/area/rogue/under/catacombs/dwarfoutpost)
 "Qs" = (
 /obj/structure/kneestingers,
 /turf/open/water/swamp,
@@ -1286,7 +1282,7 @@ UA
 UA
 UA
 UA
-Qe
+UA
 sZ
 sZ
 Tm

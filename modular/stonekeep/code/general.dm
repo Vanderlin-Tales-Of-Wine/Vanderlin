@@ -312,7 +312,6 @@
 	desc = ""
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "floor1"
-	alpha = 200
 	nomouseover = TRUE
 	nomouseover = TRUE
 	var/wash_precent = 0

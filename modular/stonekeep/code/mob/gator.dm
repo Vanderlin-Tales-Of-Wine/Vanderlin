@@ -34,7 +34,7 @@
 	melee_damage_upper = 35
 
 	TOTALCON = 10
-	TOTALSTR = 14
+	TOTALSTR = 16
 	TOTALSPD = 2
 	TOTALEND = 8
 
@@ -50,7 +50,7 @@
 	stat_attack = UNCONSCIOUS
 	body_eater = TRUE
 
-	ai_controller = /datum/ai_controller/mole // to-do
+	ai_controller = /datum/ai_controller/big_rat
 	AIStatus = AI_OFF
 	can_have_ai = FALSE
 
@@ -60,9 +60,9 @@
 	if(prob(33))
 		gender = FEMALE
 	update_icon()
-
-	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
+// runtimes
+//	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
+//	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
 	//ADD_TRAIT(src, TRAIT_GENERIC) // to-do
 
 /mob/living/simple_animal/hostile/retaliate/gator/find_food()

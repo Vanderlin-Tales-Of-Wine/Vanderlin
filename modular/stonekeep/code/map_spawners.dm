@@ -411,3 +411,12 @@
 	spawned = list(
 		/mob/living/simple_animal/hostile/retaliate/trufflepig = 90,
 		/obj/effect/decal/remains/pig = 10)
+
+/obj/effect/spawner/map_spawner/maybe_gote
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "animal"
+	probby = 50
+	spawned = list(
+		/mob/living/simple_animal/hostile/retaliate/goat = 40,
+		/mob/living/simple_animal/hostile/retaliate/goatmale = 50,
+		/mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10)
