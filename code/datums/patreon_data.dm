@@ -22,7 +22,7 @@
 	assign_access_rank()
 
 /datum/patreon_data/proc/fetch_key_and_rank()
-	var/datum/DBQuery/query_get_key = SSdbcore.NewQuery("SELECT patreon_key, patreon_rank FROM [format_table_name("player")] WHERE ckey = :ckey", list("ckey" = owner.ckey))
+	var/datum/DBQuery/query_get_key = SSdbcore.NewQuery("SELECT patreon_key, patreon_rank FROM [format_table_name("player")] WHERE ckey = :ckey", list("ckey" = owner.ckey), db = TRUE)
 	if(query_get_key.warn_execute())
 		if(query_get_key.NextRow())
 			client_key = query_get_key.item[1]

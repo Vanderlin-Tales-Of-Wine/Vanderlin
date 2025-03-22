@@ -29,6 +29,11 @@
 		return INITIALIZE_HINT_QDEL
 	update_icon_state()
 
+/obj/item/gem/on_consume(mob/living/eater)
+	. = ..()
+	if(attuned)
+		eater.mana_pool.adjust_attunement(attuned, 0.1)
+
 ///This is a switch incase anyone would like to add more...
 /obj/item/gem/update_icon_state()
 	if(icon_state == "aros")
@@ -92,6 +97,7 @@
 	//color = "#ff00008c"
 	icon_state = "ruby_cut"
 	sellprice = 100
+	attuned = /datum/attunement/fire
 
 /obj/item/gem/black
 	name = "onyxa"
@@ -99,6 +105,7 @@
 	color = "#200013dd"
 	sellprice = 76
 	dropshrink = 0.7
+	attuned = /datum/attunement/dark
 
 /// riddle
 

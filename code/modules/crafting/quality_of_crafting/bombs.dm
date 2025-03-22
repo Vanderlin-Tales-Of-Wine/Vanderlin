@@ -17,3 +17,4 @@
 	output = /obj/item/bomb/homemade
 	craft_time = 1 SECONDS
 	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE

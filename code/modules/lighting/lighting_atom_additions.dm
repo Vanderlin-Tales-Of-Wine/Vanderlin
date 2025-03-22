@@ -35,6 +35,9 @@
 	. = ..()
 	if(light_system == MOVABLE_LIGHT)
 		AddComponent(/datum/component/overlay_lighting)
+	if (has_initial_mana_pool && can_have_mana_pool())
+		mana_pool = initialize_mana_pool()
+		after_manapool_init()
 
 ///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
 /atom/movable/proc/update_dynamic_luminosity()

@@ -23,6 +23,7 @@
 	associated_skill = /datum/skill/misc/medicine
 	miracle = FALSE
 	devotion_cost = 0 //Doctors are not clerics
+	uses_mana = FALSE
 
 /obj/effect/proc_holder/spell/invoked/diagnose/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))

@@ -353,10 +353,10 @@
 
 //Shamelessly stolen multitool code
 /obj/item/contraption/linker
-	name = "engineering linker"
+	name = "engineering wrench"
 	desc = "This strange contraption is able to connect machinery through an unknown calibration method, allowing them to communicate over long distances."
-	icon = 'icons/roguetown/items/misc.dmi'
-	icon_state = "multitool"
+	icon = 'icons/obj/wrenches.dmi'
+	icon_state = "brasswrench"
 	w_class = WEIGHT_CLASS_NORMAL
 	tool_behaviour = TOOL_MULTITOOL
 	var/datum/buffer // simple machine buffer for device linkage

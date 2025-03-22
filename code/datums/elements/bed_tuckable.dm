@@ -42,9 +42,9 @@
 	to_chat(tucker, span_notice("You lay [tucked] out on [target_bed]."))
 	tucked.dir = target_bed.dir
 	tucked.pixel_x = target_bed.dir & EAST ? -x_offset : x_offset
-	tucked.pixel_y = y_offset
+	tucked.pixel_y = y_offset + target_bed.pixel_y
 	tucked.layer = ABOVE_MOB_LAYER
-	tucked.plane = -2
+	tucked.plane = GAME_PLANE_UPPER
 	if(starting_angle)
 		rotation_degree = target_bed.dir & EAST ? starting_angle + 180 : starting_angle
 		tucked.transform = turn(tucked.transform, rotation_degree)

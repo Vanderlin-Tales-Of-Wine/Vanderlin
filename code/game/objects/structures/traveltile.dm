@@ -74,6 +74,19 @@
 		return get_turf(travel)
 	return null
 
+/obj/structure/fluff/traveltile/proc/return_connected_turfs()
+	if(!aportalgoesto)
+		return list()
+
+	var/list/travels = list()
+	for(var/obj/structure/fluff/traveltile/travel in shuffle(GLOB.traveltiles))
+		if(travel == src)
+			continue
+		if(travel.aportalid != aportalgoesto)
+			continue
+		travels |= get_turf(travel)
+	return travels
+
 /obj/structure/fluff/traveltile/attack_ghost(mob/dead/observer/user)
 	if(!user.Adjacent(src))
 		return

@@ -26,6 +26,7 @@
 	var/charging_slowdown = 0
 	var/obj/inhand_requirement = null
 	var/overlay_state = null
+	var/list/attunements
 
 
 /obj/effect/proc_holder/Initialize()
@@ -183,6 +184,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/miracle = FALSE
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLBLOCK
+	var/uses_mana = TRUE
 
 	action_icon_state = "spell0"
 	action_icon = 'icons/mob/actions/roguespells.dmi'
@@ -212,6 +214,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		var/newdrain = releasedrain
 		//skill block
 		newdrain = newdrain - (releasedrain * (ranged_ability_user.mind.get_skill_level(associated_skill) * 0.05))
+		var/charged_modifier = 100 - ranged_ability_user.client.chargedprog
+		if(charged_modifier != 0)
+			newdrain *= max(1, min(5.60 * log(0.0144 * charged_modifier + 1.297) - 0.607, 10))//chat I think this is math
+
 		//int block
 		if(ranged_ability_user.STAINT > 10)
 			newdrain = newdrain - (releasedrain * (ranged_ability_user.STAINT * 0.02))
@@ -226,10 +232,15 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return newdrain
 		else
 			return 0.1
+
 	return releasedrain
 
 
 /obj/effect/proc_holder/spell/proc/cast_check(skipcharge = 0, mob/user = usr) //checks if the spell can be cast based on its settings; skipcharge is used when an additional cast_check is called inside the spell
+	if(user.mmb_intent && !skipcharge)
+		if(SEND_SIGNAL(user?.mmb_intent, COMSIG_SPELL_BEFORE_CAST))
+			return FALSE
+
 	if(player_lock)
 		if(!user.mind || !(src in user.mind.spell_list) && !(src in user.mob_spell_list))
 			to_chat(user, "<span class='warning'>I shouldn't have this spell! Something's wrong.</span>")
@@ -453,6 +464,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				var/datum/effect_system/smoke_spread/sleeping/smoke = new
 				smoke.set_up(smoke_amt, location)
 				smoke.start()
+	if(ismob(usr))
+		var/mob/living/user = usr
+		if(user.mmb_intent)
+			SEND_SIGNAL(user.mmb_intent, COMSIG_SPELL_AFTER_CAST, targets)
 
 
 /obj/effect/proc_holder/spell/proc/cast(list/targets,mob/user = usr)

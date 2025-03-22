@@ -23,10 +23,20 @@
 	name = "harpoon gun"
 	desc = "Steam powered harpoon gun, lets you fly around, and subdue outlaws."
 
-	icon = 'icons/obj/harpoon.dmi'
-	icon_state = "grapple_gun"
+	icon = 'icons/obj/guns/harpoon.dmi'
+	icon_state = "harpoon"
+	twohands_required = TRUE
 
-	var/static/mutable_appearance/hook_overlay = new(icon = 'icons/obj/harpoon.dmi', icon_state = "grapple_gun_hooked")
+	gripped_intents = list(/datum/intent/mace/smash/heavy, /datum/intent/mace/thrust) //its practically a mace at this size
+	possible_item_intents = list(/datum/intent/mace/strike)
+	pixel_y = -16
+	pixel_x = -16
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	bigboy = TRUE
+	wlength = WLENGTH_LONG
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
 
 	///is the hook retracted
 	var/retracted_hook = TRUE
@@ -39,11 +49,16 @@
 	var/datum/looping_sound/harpoon/harpoon_sound
 	///our stored_launch
 	var/atom/stored_launch
+	///are we leashed (hit a mob)
+	var/leashed = FALSE
+	var/datum/component/leash/leash
+	var/mob/living/leash_target
 
 /obj/item/harpoon_gun/Initialize(mapload)
 	. = ..()
 	harpoon_sound = new(src)
 	update_overlays()
+	AddComponent(/datum/component/steam_storage, 300, 0)
 
 /obj/item/harpoon_gun/afterattack(atom/target, mob/living/user, proximity)
 	. = ..()
@@ -71,6 +86,8 @@
 	if(user.CanReach(attacked_atom))
 		return
 
+	if(!SEND_SIGNAL(src, COMSIG_ATOM_STEAM_USE, 50))
+		return
 	. |= TRUE
 
 	var/atom/bullet = fire_projectile(/obj/projectile/grapple_hook, attacked_atom, 'sound/zipline_fire.ogg')
@@ -82,14 +99,56 @@
 	update_overlays()
 
 
+/obj/item/harpoon_gun/proc/setup_leash(mob/living/target, mob/firer)
+	leash = target.AddComponent(/datum/component/leash, src, 5, null, null, "chain", 'icons/effects/beam.dmi', FALSE, CALLBACK(src, PROC_REF(break_callback)))
+	leashed = TRUE
+	leash_target = target
+
+	target.apply_damage(15, BRUTE, firer.zone_selected)
+	RegisterSignal(leash_target, COMSIG_PARENT_EXAMINE, PROC_REF(leashed_examine))
+
+/obj/item/harpoon_gun/proc/leashed_examine(datum/source, mob/user, list/examine_list)
+	examine_list += "<a href='byond://?src=[REF(src)];pull_harpoon=1'>You have a harpoon stuck in you!</a>"
+
+/obj/item/harpoon_gun/Topic(href, href_list)
+	. = ..()
+	if(href_list["pull_harpoon"])
+		if(leash_target != usr)
+			return
+		leash_target.visible_message(span_danger("[leash_target] starts to remove the harpoon embedded in them!"), span_danger("You start to remove the harpoon embedded in you!"))
+		if(!do_after(leash_target, 5 SECONDS, src))
+			return
+		QDEL_NULL(leash)
+		leashed = FALSE
+		UnregisterSignal(leash_target, COMSIG_PARENT_EXAMINE)
+		leash_target = null
+
+/obj/item/harpoon_gun/proc/reel()
+	leash.set_distance(max(1, leash.distance - 1))
+	if(leash.distance == 1)
+		QDEL_NULL(leash)
+		leashed = FALSE
+		UnregisterSignal(leash_target, COMSIG_PARENT_EXAMINE)
+		leash_target = null
+		return
+
+/obj/item/harpoon_gun/proc/break_callback()
+	QDEL_NULL(leash)
+	leashed = FALSE
+	UnregisterSignal(leash_target, COMSIG_PARENT_EXAMINE)
+	leash_target = null
+
 /obj/item/harpoon_gun/proc/on_grapple_hit(datum/source, atom/movable/firer, atom/target, Angle)
 	SIGNAL_HANDLER
-
 	UnregisterSignal(source, list(COMSIG_PROJECTILE_SELF_ON_HIT, COMSIG_PARENT_PREQDELETED))
 	QDEL_NULL(zipline)
 	var/mob/living/user = harpooner?.resolve()
 	if(isnull(user) || isnull(target))
 		cancel_hook()
+		return
+
+	if(ismob(target))
+		setup_leash(target, firer)
 		return
 
 	zipline = user.Beam(target, icon_state = "chain", maxdistance = 9, time = INFINITY)
@@ -98,10 +157,28 @@
 	RegisterSignal(user, COMSIG_MOVABLE_PRE_THROW, PROC_REF(apply_throw_traits))
 	stored_launch = target
 
+/obj/item/harpoon_gun/attack_right(mob/user)
+	if(leashed)
+		user.visible_message(span_danger("[user] starts to retract [src]."), span_danger("You start to retract [src]."))
+		if(!do_after(user, 2.5 SECONDS, src))
+			return
+		QDEL_NULL(leash)
+		leashed = FALSE
+		leash_target = null
+	. = ..()
+
+
 /obj/item/harpoon_gun/attack_self(mob/user)
 	. = ..()
-	launch_user(stored_launch)
-	stored_launch = null
+	if(leashed)
+		user.visible_message(span_danger("[user] starts to reel in [src]."), span_danger("You start to reel in [src]."))
+		if(!do_after(user, 2.5 SECONDS, src))
+			return
+		reel()
+
+	else
+		launch_user(stored_launch)
+		stored_launch = null
 
 /obj/item/harpoon_gun/proc/on_grapple_fail(datum/source)
 	SIGNAL_HANDLER
@@ -166,16 +243,18 @@
 	harpooner = null
 	retracted_hook = TRUE
 	harpoon_sound.stop()
-	update_overlays()
+	update_icon_state()
 
-/obj/item/harpoon_gun/update_overlays()
+/obj/item/harpoon_gun/update_icon_state()
 	. = ..()
 	if(retracted_hook)
-		. += hook_overlay
+		icon_state = "[initial(icon_state)]_extended"
+	else
+		icon_state = initial(icon_state)
 
 /obj/projectile/grapple_hook
 	name = "grapple hook"
-	icon = 'icons/obj/harpoon.dmi'
+	icon = 'icons/obj/guns/harpoon.dmi'
 	icon_state = "grapple_gun_hook"
 	damage = 0
 	range = 9

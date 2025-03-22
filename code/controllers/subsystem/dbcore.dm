@@ -15,6 +15,7 @@ SUBSYSTEM_DEF(dbcore)
 	var/list/active_queries = list()
 
 	var/connection  // Arbitrary handle returned from rust_g.
+	var/connection_cross   // Arbitrary handle returned from rust_g.
 
 /datum/controller/subsystem/dbcore/Initialize()
 	//We send warnings to the admins during subsystem init, as the clients will be New'd and messages
@@ -103,6 +104,48 @@ SUBSYSTEM_DEF(dbcore)
 		log_sql("Connect() failed | [last_error]")
 		++failed_connections
 
+/datum/controller/subsystem/dbcore/proc/Connect_Cross()
+	if(IsConnected())
+		return TRUE
+
+	if(failed_connection_timeout <= world.time) //it's been more than 5 seconds since we failed to connect, reset the counter
+		failed_connections = 0
+
+	if(failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to connect for 5 seconds.
+		failed_connection_timeout = world.time + 50
+		return FALSE
+
+	if(!CONFIG_GET(flag/sql_enabled))
+		return FALSE
+
+	var/user = CONFIG_GET(string/feedback_login)
+	var/pass = CONFIG_GET(string/feedback_password)
+	var/db = "monkestation"
+	var/address = CONFIG_GET(string/address)
+	var/port = CONFIG_GET(number/port)
+	var/timeout = max(CONFIG_GET(number/async_query_timeout), CONFIG_GET(number/blocking_query_timeout))
+	var/thread_limit = CONFIG_GET(number/bsql_thread_limit)
+
+	var/result = json_decode(rustg_sql_connect_pool(json_encode(list(
+		"host" = address,
+		"port" = port,
+		"user" = user,
+		"pass" = pass,
+		"db_name" = db,
+		"max_threads" = 5,
+		"read_timeout" = timeout,
+		"write_timeout" = timeout,
+		"max_threads" = thread_limit,
+	))))
+	. = (result["status"] == "ok")
+	if (.)
+		connection_cross = result["handle"]
+	else
+		connection_cross = null
+		last_error = result["data"]
+		log_sql("Connect() failed | [last_error]")
+		++failed_connections
+
 /datum/controller/subsystem/dbcore/proc/CheckSchemaVersion()
 	if(CONFIG_GET(flag/sql_enabled))
 		if(Connect())
@@ -176,12 +219,15 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/ReportError(error)
 	last_error = error
 
-/datum/controller/subsystem/dbcore/proc/NewQuery(sql_query, arguments)
+/datum/controller/subsystem/dbcore/proc/NewQuery(sql_query, arguments, db)
 	if(IsAdminAdvancedProcCall())
 		log_admin_private("ERROR: Advanced admin proc call led to sql query: [sql_query]. Query has been blocked")
 		message_admins("ERROR: Advanced admin proc call led to sql query. Query has been blocked")
 		return FALSE
-	return new /datum/DBQuery(connection, sql_query, arguments)
+	if(!db)
+		return new /datum/DBQuery(connection, sql_query, arguments)
+	else
+		return new /datum/DBQuery(connection_cross, sql_query, arguments)
 
 /datum/controller/subsystem/dbcore/proc/QuerySelect(list/querys, warn = FALSE, qdel = FALSE)
 	if (!islist(querys))

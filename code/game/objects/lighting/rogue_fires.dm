@@ -48,14 +48,23 @@
 				icon_state = "[base_state]0"
 			return
 
+/obj/machinery/light/fueled/firebowl/firebowlb
+	icon_state = "stonefireb1"
+	base_state = "stonefireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
 
+/obj/machinery/light/fueled/firebowl/stumpb
+	icon_state = "stumpfireb1"
+	base_state = "stumpfireb"
+	bulb_colour = "#6cfdff"
+
 /obj/machinery/light/fueled/firebowl/church
 	icon_state = "churchfire1"
 	base_state = "churchfire"
-
 
 /obj/machinery/light/fueled/firebowl/standing
 	name = "standing fire"
@@ -339,6 +348,7 @@
 	on = FALSE
 	cookonme = TRUE
 	soundloop = /datum/looping_sound/fireloop
+	var/heat_time = 100
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
 	var/datum/looping_sound/boilloop/boilloop

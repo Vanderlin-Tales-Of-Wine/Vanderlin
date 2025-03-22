@@ -12,6 +12,10 @@
 	antimagic_allowed = TRUE
 	charge_max = 15 SECONDS
 	miracle = FALSE
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/invoked/strengthen_undead/cast(list/targets, mob/living/user)
 	. = ..()
@@ -48,6 +52,9 @@
 	antimagic_allowed = TRUE
 	charge_max = 15 SECONDS
 	miracle = FALSE
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+	)
 
 /obj/effect/proc_holder/spell/invoked/eyebite/cast(list/targets, mob/living/user)
 	. = ..()
@@ -75,6 +82,10 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	charge_max = 30 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 1,
+	)
 
 
 /**
@@ -255,6 +266,10 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	charge_max = 15 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/blood = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/self/command_undead
 	name = "Command Undead"

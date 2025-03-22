@@ -176,6 +176,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	cmode = 1
 
 	var/remains_type
+	var/binded = FALSE
 
 	var/botched_butcher_results
 	var/perfect_butcher_results
@@ -324,6 +325,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/proc/handle_automated_movement()
 	set waitfor = FALSE
+	if(binded)
+		return
 	if(ai_controller)
 		return
 	if(!stop_automated_movement && wander && !doing)
@@ -531,6 +534,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/handle_fire()
 	. = ..()
+	if(!on_fire)
+		return TRUE
 	if(fire_stacks + divine_fire_stacks > 0)
 		apply_damage(5, BURN)
 		if(fire_stacks + divine_fire_stacks > 5)

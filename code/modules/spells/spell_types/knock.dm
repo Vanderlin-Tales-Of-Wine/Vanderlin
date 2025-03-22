@@ -11,6 +11,9 @@
 	invocation_type = "whisper"
 	range = 3
 	cooldown_min = 300 //20 deciseconds reduction per rank
+	attunements = list(
+		/datum/attunement/aeromancy = 0.2,
+	)
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/cast(list/targets,mob/user = usr)
 //	SEND_SOUND(user, sound('sound/blank.ogg'))

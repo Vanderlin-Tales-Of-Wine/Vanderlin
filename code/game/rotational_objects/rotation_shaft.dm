@@ -72,7 +72,7 @@
 	return surrounding
 
 /obj/structure/rotation_piece/cog/update_animation_effect()
-	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute)
+	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
 		animate(src, icon_state = "1", time = 1)
 		return
 	var/frame_stage = 1 / ((rotations_per_minute / 60) * 4)
@@ -141,7 +141,7 @@
 	return rotations_per_minute
 
 /obj/structure/rotation_piece/cog/large/update_animation_effect()
-	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute)
+	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
 		animate(src, icon_state = "l1", time = 1)
 		return
 	var/frame_stage = 1 / ((rotations_per_minute / 60) * 4)

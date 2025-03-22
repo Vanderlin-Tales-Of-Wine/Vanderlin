@@ -108,6 +108,7 @@
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 
 	/// The current intent of the mob
+	var/uses_intents = TRUE
 	var/datum/intent/a_intent = INTENT_HELP//Living
 	var/datum/intent/o_intent = INTENT_HELP
 	var/datum/rmb_intent/rmb_intent //Living
@@ -285,3 +286,5 @@
 	var/music_playing = FALSE
 	/// Tracker for amount of turfs we sprinted over, for things like bumping and charging
 	var/sprinted_tiles = 0
+	///how many tiles we can move while casting
+	var/cast_move = 0

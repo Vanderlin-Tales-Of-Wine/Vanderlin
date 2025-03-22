@@ -115,7 +115,7 @@
 	craftdiff = 4
 
 /datum/artificer_recipe/contraptions/linker
-	name = "Engineering Linker (+1 Gold)"
+	name = "Engineering Wrench (+1 Gold)"
 	required_item = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/ingot/gold = 1)
 	created_item = /obj/item/contraption/linker

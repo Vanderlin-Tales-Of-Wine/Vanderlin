@@ -491,6 +491,13 @@
 #define SKIN_COLOR_VAQUERO	"a74a4a" //Earthly red
 #define SKIN_COLOR_ARLENNETH "9197C5" //Lavendar blue
 
+//KOBOLD SKIN TONES
+#define SKIN_COLOR_EMBERHIDE "8B3A2F"//White - Pale
+#define SKIN_COLOR_STONEPAW "6D6D6D" //White - Tan
+#define SKIN_COLOR_SUNSTREAK "b77614" //White - Tan
+#define SKIN_COLOR_MOONSHADE "C0C0C0" //Middle-eastern
+#define SKIN_COLOR_SANDSWEPT "fcccb3" //White - Tan
+
 //SPECIAL SKIN TONES
 #define SKIN_COLOR_ROT "878f79" //Sickly green
 

@@ -1,8 +1,8 @@
 /obj/structure/water_vent
 	name = "water vent"
 	desc = "Shoots out liquids."
-	icon = 'icons/roguetown/misc/vents.dmi'
-	icon_state = "vent"
+	icon = 'icons/obj/structures/rotation_devices/water_vent.dmi'
+	icon_state = "pipevent"
 
 	accepts_water_input = TRUE
 
@@ -37,3 +37,10 @@
 		if(WEST)
 			matrix.Turn(270)
 	emitter.transform = matrix
+
+/obj/structure/water_vent/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
+	mouseover.maptext_height = 96
+	var/datum/reagent/reagent = input.carrying_reagent
+	return {"<span style='font-size:8pt;font-family:"Pterra";color:#808000;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
+			Input Pressure:[input ? input.water_pressure : "0"]
+			Fluid:[reagent ? initial(reagent.name) : "Nothing"]</span>"}

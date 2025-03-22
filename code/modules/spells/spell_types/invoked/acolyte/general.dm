@@ -247,6 +247,7 @@
 	associated_skill = /datum/skill/misc/music
 	charge_max = 30 SECONDS
 	range = 7
+	uses_mana = FALSE
 
 /obj/effect/proc_holder/spell/invoked/mockery/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
