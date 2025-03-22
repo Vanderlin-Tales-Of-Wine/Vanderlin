@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
-	var/ooccolor = "#c43b23"
+	var/ooccolor = null
 	var/asaycolor = "#ff4500"			//This won't change the color for current admins, only incoming ones.
 	var/triumphs = 0
 	var/enable_tips = TRUE
@@ -103,7 +103,6 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 		(RANDOM_SKIN_TONE) = TRUE,
 		(RANDOM_EYE_COLOR) = TRUE
 	)
-	var/list/friendlyGenders = list("Male" = "male", "Female" = "female")
 	var/phobia = "spiders"
 
 	var/list/custom_names = list()
@@ -763,7 +762,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					dat += "<b>BYOND Membership Publicity:</b> <a href='?_src_=prefs;preference=publicity'>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</a><br>"
 
 				if(unlock_content || check_rights_for(user.client, R_ADMIN))
-					dat += "<b>OOC Color:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
+					dat += "<b>OOC Color:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.OOC_COLOR];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'>Change</a><br>"
 
 			dat += "</td>"
 
@@ -1708,21 +1707,21 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 				if("headshot")
 					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
-						to_chat(user, "Sorry this is a patreon exclusive feature.")
-					else
-						to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
-						to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
-						to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 325x325 pixels, so the more square the photo, the better it will look.</span>")
-						var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
-						if(!new_headshot_link)
-							return
-						var/is_valid_link = is_valid_headshot_link(user, new_headshot_link, FALSE)
-						if(!is_valid_link)
-							to_chat(user, span_notice("Failed to update headshot"))
-							return
-						headshot_link = new_headshot_link
-						to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
-						log_game("[user] has set their Headshot image to '[headshot_link]'.")
+						to_chat(user, "This is a patreon exclusive feature, your headshot link will be applied but others will only be able to view it if you are a patreon supporter.")
+
+					to_chat(user, "<span class='notice'>Please use an image of the head and shoulder area to maintain immersion level. Lastly, ["<span class='bold'>do not use a real life photo or use any image that is less than serious.</span>"]</span>")
+					to_chat(user, "<span class='notice'>If the photo doesn't show up properly in-game, ensure that it's a direct image link that opens properly in a browser.</span>")
+					to_chat(user, "<span class='notice'>Keep in mind that the photo will be downsized to 325x325 pixels, so the more square the photo, the better it will look.</span>")
+					var/new_headshot_link = input(user, "Input the headshot link (https, hosts: gyazo, lensdump, imgbox, catbox):", "Headshot", headshot_link) as text|null
+					if(!new_headshot_link)
+						return
+					var/is_valid_link = is_valid_headshot_link(user, new_headshot_link, FALSE)
+					if(!is_valid_link)
+						to_chat(user, span_notice("Failed to update headshot"))
+						return
+					headshot_link = new_headshot_link
+					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
+					log_game("[user] has set their Headshot image to '[headshot_link]'.")
 
 				if("species")
 					var/list/crap = list()
