@@ -8,6 +8,7 @@
 	)
 	var/obj/structure/vampire/bloodpool/mypool
 	var/vamplevel = 0
+	var/ascended = FALSE
 
 /datum/antagonist/vampire/lord/on_gain()
 	owner.purge_combat_knowledge()
@@ -15,16 +16,14 @@
 
 	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
 
-	forge_objectives()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
-	for(var/obj/structure/vampire/bloodpool/mansion in GLOB.vampire_objects)
-		mypool = mansion
+	mypool = locate(/obj/structure/vampire/bloodpool) in GLOB.vampire_objects
 	equip()
-	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[type]"), 5 SECONDS)
+	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "Lord"), 5 SECONDS)
 
 /datum/antagonist/vampire/lord/greet()
-	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to these trespassers upon my domain."))
+	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to trespassers upon my domain."))
 	. = ..()
 
 /datum/antagonist/vampire/lord/equip()
@@ -44,6 +43,8 @@
 
 /datum/antagonist/vampire/lord/on_life(mob/user)
 	vitae = mypool.current
+	if(ascended)
+		return
 	. = ..()
 
 /datum/antagonist/vampire/lord/exposed_to_sunlight()
@@ -61,32 +62,6 @@
 	if(tribute)
 		mypool.update_pool(tribute)
 	. = ..()
-
-/datum/antagonist/vampire/lord/proc/forge_objectives()
-	var/list/primary = pick(list("1", "2","3"))
-	var/list/secondary = pick(list("1", "2", "3"))
-	switch(primary)
-		if("1")
-			var/datum/objective/vampirelord/conquer/T = new
-			objectives += T
-		if("2")
-			var/datum/objective/vampirelord/ascend/T = new
-			objectives += T
-		if("3")
-			var/datum/objective/vampirelord/destroy/T = new
-			objectives += T
-	switch(secondary)
-		if("1")
-			var/datum/objective/vampirelord/infiltrate/one/T = new
-			objectives += T
-		if("2")
-			var/datum/objective/vampirelord/infiltrate/two/T = new
-			objectives += T
-		if("3")
-			var/datum/objective/vampirelord/spread/T = new
-			objectives += T
-	var/datum/objective/vlordsurvive/survive = new
-	objectives += survive
 
 /datum/antagonist/vampire/lord/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlord_starts))

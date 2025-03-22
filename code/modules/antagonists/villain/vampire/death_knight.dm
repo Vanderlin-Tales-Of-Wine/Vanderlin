@@ -14,20 +14,12 @@
 	for(var/datum/mind/MF in get_minds("Death Knight"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
-	add_objective(/datum/objective/vlordserve)
 	greet()
-	
+
 /datum/antagonist/skeleton/knight/greet()
 	to_chat(owner.current, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))
 	owner.announce_objectives()
 	..()
-
-/datum/antagonist/skeleton/knight/proc/add_objective(datum/objective/O)
-	var/datum/objective/V = new O
-	objectives += V
-
-/datum/antagonist/skeleton/knight/proc/remove_objective(datum/objective/O)
-	objectives -= O
 
 /datum/antagonist/skeleton/knight/roundend_report()
 	var/traitorwin = TRUE

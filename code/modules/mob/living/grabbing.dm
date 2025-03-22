@@ -670,16 +670,13 @@
 							var/used_vitae = 750
 
 							if(C.vitae_pool >= 750)
-								VDrinker.handle_vitae(750, 750)
-								C.vitae_pool -= 760
 								to_chat(user, "<span class='love'>...And empowering!</span>")
-							else if(C.vitae_pool < 750) // In case someone already drank from their vitae.
-								var/vitaeleft = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
-								VDrinker.handle_vitae(vitaeleft, vitaeleft)
-								C.vitae_pool -= vitaeleft
-								to_chat(user, "<span class='notice'>...But alas, only leftovers...</span>")
 							else
-								to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
+								used_vitae = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
+								to_chat(user, "<span class='warning'>...But alas, only leftovers...</span>")
+							VDrinker.handle_vitae(used_vitae, used_vitae)
+							C.vitae_pool -= used_vitae
+
 						else
 							VDrinker.handle_vitae(500, 500)
 							C.vitae_pool -= 500

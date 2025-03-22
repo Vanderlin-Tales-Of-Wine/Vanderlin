@@ -1098,9 +1098,6 @@ rough example of the "cone" made by the 3 dirs checked
 /proc/stack_trace(msg)
 	CRASH(msg)
 
-/datum/proc/stack_trace(msg)
-	CRASH(msg)
-
 GLOBAL_REAL_VAR(list/stack_trace_storage)
 /proc/gib_stack_trace()
 	stack_trace_storage = list()

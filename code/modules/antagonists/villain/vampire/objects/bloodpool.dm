@@ -35,7 +35,7 @@
 				to_chat(user, span_warning("I have already reached my pinnacle."))
 				return
 
-			var/next_level = levelup_thresholds[lord.vamplevel - 1] //1 index moment
+			var/next_level = levelup_thresholds[lord.vamplevel + 1]
 
 			if(browser_alert(user, "Increase vampire level?\nCost:[next_level]", "ASCENSION", DEFAULT_INPUT_CHOICES) == CHOICE_YES)
 				if(!check_withdraw(-next_level))

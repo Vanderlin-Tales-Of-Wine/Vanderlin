@@ -19,7 +19,7 @@
 	earliest_start = 0 SECONDS
 
 	typepath = /datum/round_event/antagonist/solo/vampire
-	antag_datum = /datum/antagonist/vampire
+	antag_datum = /datum/antagonist/vampire/lord
 
 	restricted_roles = list(
 		"Monarch",

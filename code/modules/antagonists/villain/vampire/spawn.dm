@@ -3,15 +3,13 @@
 	antag_hud_name = "Vspawn"
 	confess_lines = list(
 		"THE CRIMSON MASTER CALLS!",
-		"MY MASTER COMMANDS",
+		"MY MASTER COMMANDS!",
 		"THE SUN IS THE ANATHEMA OF OUR MASTER!",
 	)
-	isspawn = TRUE
 
 /datum/antagonist/vampire/lesser/on_gain()
 	. = ..()
 
-	add_objective(/datum/objective/vlordserve)
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 	equip()
@@ -50,6 +48,8 @@
 
 /datum/antagonist/vampire/lesser/vamp_look()
 	. = ..()
+	var/mob/living/carbon/human/V = owner.current
+	V.vampire_disguise()
 
 /datum/antagonist/vampire/lesser/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vspawn_starts))

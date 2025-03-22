@@ -60,8 +60,7 @@
 	var/list/secondary = pick(list("1", "2"))
 	switch(primary)
 		if("1")
-			var/datum/objective/werewolf/conquer/T = new
-			objectives += T
+			objectives += new /datum/objective/dominate/werewolf()
 		if("2")
 			var/datum/objective/werewolf/spread/T = new
 			objectives += T
