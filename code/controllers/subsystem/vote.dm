@@ -241,10 +241,8 @@ SUBSYSTEM_DEF(vote)
 					initiator_key = pick("Astrata", "Noc", "Dendor", "Abyssor", "Necra", "Ravox", "Xylix", "Pestra", "Malum", "Eora")
 				else if(rng > 50) // 15%
 					initiator_key = pick("Zizo", "Graggar", "Matthios", "Baotha")
-				else if (rng > 1) // 4.9%
-					initiator_key = "Psydon"
 				else
-					initiator_key = "Graggazo" // 0.1%
+					initiator_key = "Psydon"
 				choices.Add("Continue Playing","End Round")
 			if("storyteller")
 				choices.Add(SSgamemode.storyteller_vote_choices())
