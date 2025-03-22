@@ -5,7 +5,7 @@
 
 /datum/supply_pack/instruments/mbox
 	name = "Dwarven Music Box"
-	cost = 90
+	cost = 150
 	contains = /obj/item/dmusicbox
 
 /datum/supply_pack/instruments/flute

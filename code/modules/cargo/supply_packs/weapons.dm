@@ -8,8 +8,13 @@
 	cost = 25
 	contains = /obj/item/weapon/sword/short
 
+/datum/supply_pack/weapons/sword_iron
+	name = "Iron Arming Sword"
+	cost = 27
+	contains = /obj/item/weapon/sword/iron
+
 /datum/supply_pack/weapons/sword
-	name = "Steel Sword"
+	name = "Steel Arming Sword"
 	cost = 30
 	contains = /obj/item/weapon/sword
 
@@ -19,7 +24,12 @@
 	contains = /obj/item/weapon/sword/long/greatsword/zwei
 
 /datum/supply_pack/weapons/mace
-	name = "Steel Mace"
+	name = "Iron Mace"
+	cost = 28
+	contains = /obj/item/weapon/mace
+
+/datum/supply_pack/weapons/smace
+	name = "Flanged Steel Mace"
 	cost = 28
 	contains = /obj/item/weapon/mace/steel
 
@@ -29,6 +39,11 @@
 	contains = /obj/item/weapon/mace/goden
 
 /datum/supply_pack/weapons/axe
+	name = "Iron Axe"
+	cost = 26
+	contains = /obj/item/weapon/axe
+
+/datum/supply_pack/weapons/saxe
 	name = "Steel Axe"
 	cost = 29
 	contains = /obj/item/weapon/axe/steel
@@ -40,10 +55,15 @@
 
 /datum/supply_pack/weapons/huntingknife
 	name = "Iron Hunting Knife"
-	cost = 10
+	cost = 17
 	contains = /obj/item/weapon/knife/hunting
 
 /datum/supply_pack/weapons/dagger
+	name = "Iron Dagger"
+	cost = 22
+	contains = /obj/item/weapon/knife/dagger
+
+/datum/supply_pack/weapons/sdagger
 	name = "Steel Dagger"
 	cost = 26
 	contains = /obj/item/weapon/knife/dagger/steel
@@ -54,8 +74,13 @@
 	contains = /obj/item/weapon/polearm/spear
 
 /datum/supply_pack/weapons/flail
+	name = "Military Flail"
+	cost = 29
+	contains = /obj/item/weapon/flail
+
+/datum/supply_pack/weapons/sflail
 	name = "Steel Flail"
-	cost = 30
+	cost = 32
 	contains = /obj/item/weapon/flail/sflail
 
 /datum/supply_pack/weapons/whip

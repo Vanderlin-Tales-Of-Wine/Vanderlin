@@ -70,7 +70,7 @@
 
 /datum/supply_pack/armor/studleather_masterwork
 	name = "Masterwork Leather Armor"
-	cost = 53
+	cost = 63
 	contains = /obj/item/clothing/armor/leather/masterwork
 
 /datum/supply_pack/armor/chainmail_iron
@@ -124,7 +124,7 @@
 	contains = /obj/item/clothing/gloves/chain/iron
 
 /datum/supply_pack/armor/plate_gloves
-	name = "Heavy Plate Gloves" // get gpt to analyze prices. explain what an ingot is worth, average coinage of persons and etc
+	name = "Heavy Plate Gloves"
 	cost = 34
 	contains = /obj/item/clothing/gloves/plate
 

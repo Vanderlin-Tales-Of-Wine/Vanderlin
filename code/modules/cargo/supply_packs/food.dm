@@ -64,12 +64,12 @@
 
 /datum/supply_pack/food/grenzelbeer
 	name = "Grenzelhoftian Bitter Beer"
-	cost = 15
+	cost = 19
 	contains = /obj/item/reagent_containers/glass/bottle/beer/hagwoodbitter
 
 /datum/supply_pack/food/elfbeer
 	name = "Elvish Beer"
-	cost = 30
+	cost = 33
 	contains = /obj/item/reagent_containers/glass/bottle/beer/aurorian
 
 /datum/supply_pack/food/elfcab
@@ -79,47 +79,47 @@
 
 /datum/supply_pack/food/butterhair
 	name = "Dwarvish Butterhairs"
-	cost = 40
+	cost = 41
 	contains = /obj/item/reagent_containers/glass/bottle/beer/butterhairs
 
 /datum/supply_pack/food/stonebeard
 	name = "Stonebeards Reserve"
-	cost = 35
+	cost = 37
 	contains = /obj/item/reagent_containers/glass/bottle/beer/stonebeardreserve
 
 /datum/supply_pack/food/voddena
 	name = "Dwarven Voddena"
-	cost = 30
+	cost = 35
 	contains = /obj/item/reagent_containers/glass/bottle/beer/voddena
 
 /datum/supply_pack/food/winezybantu
 	name = "Zybantu Wine"
-	cost = 15
+	cost = 20
 	contains = /obj/item/reagent_containers/glass/bottle/wine
 
 /datum/supply_pack/food/winegrenzel
 	name = "Grenzelhoftian Sour Wine"
-	cost = 20
+	cost = 25
 	contains = /obj/item/reagent_containers/glass/bottle/wine/sourwine
 
 /datum/supply_pack/food/winevalorred
 	name = "Valorian Red Wine"
-	cost = 40
+	cost = 45
 	contains = /obj/item/reagent_containers/glass/bottle/redwine
 
 /datum/supply_pack/food/winevalorwhite
 	name = "Valorian White Wine"
-	cost = 30
+	cost = 35
 	contains = /obj/item/reagent_containers/glass/bottle/whitewine
 
 /datum/supply_pack/food/elfred
 	name = "Elvish Red Wine"
-	cost = 103
+	cost = 154
 	contains = /obj/item/reagent_containers/glass/bottle/elfred
 
 /datum/supply_pack/food/elfblue
 	name = "Valmora Blue Wine"
-	cost = 165
+	cost = 305
 	contains = /obj/item/reagent_containers/glass/bottle/elfblue
 
 /datum/supply_pack/food/meat
