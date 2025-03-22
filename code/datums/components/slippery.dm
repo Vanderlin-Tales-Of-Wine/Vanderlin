@@ -5,14 +5,16 @@
 	var/lube_flags
 	var/slip_chance = 50
 	var/datum/callback/callback
+	var/slip_probability = 0
 
-/datum/component/slippery/Initialize(_knockdown, _lube_flags = NONE, datum/callback/_callback, _paralyze, _force_drop = FALSE, _slip_chance)
+/datum/component/slippery/Initialize(_knockdown, _lube_flags = NONE, datum/callback/_callback, _paralyze, _force_drop = FALSE, _slip_probability = 100)
 	knockdown_time = max(_knockdown, 0)
 	paralyze_time = max(_paralyze, 0)
 	force_drop_items = _force_drop
 	lube_flags = _lube_flags
 	slip_chance = _slip_chance
 	callback = _callback
+	slip_probability = _slip_probability
 	RegisterSignal(parent, list(COMSIG_MOVABLE_CROSSED, COMSIG_ATOM_ENTERED), PROC_REF(Slip))
 	RegisterSignal(parent, COMSIG_ITEM_WEARERCROSSED, PROC_REF(Slip_on_wearer))
 
@@ -23,10 +25,10 @@
 
 /datum/component/slippery/proc/Slip(datum/source, atom/movable/AM)
 	var/mob/victim = AM
-	if(prob(slip_chance))
-		if(istype(victim) && !victim.is_flying() && victim.slip(knockdown_time, parent, lube_flags, paralyze_time, force_drop_items) && callback)
-			callback.Invoke(victim)
-
+	if(!prob(slip_probability))
+		return
+	if(istype(victim) && !victim.is_flying() && victim.slip(knockdown_time, parent, lube_flags, paralyze_time, force_drop_items) && callback)
+		callback.Invoke(victim)
 
 /datum/component/slippery/proc/Slip_on_wearer(datum/source, atom/movable/AM, mob/living/crossed)
 	if(crossed.lying && !crossed.buckle_lying)

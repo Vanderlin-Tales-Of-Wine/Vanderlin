@@ -492,6 +492,7 @@
 	name = "Musical Buff"
 	desc = "My skills are improved by music!"
 	icon_state = "intelligence"
+	alert_group = ALERT_BUFF
 
 // TIER 1 - WEAK
 /datum/status_effect/bardicbuff/intelligence

@@ -2233,7 +2233,7 @@
 	},
 /area/rogue/indoors/town/church)
 "crn" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/double_pelt,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town)
@@ -5937,7 +5937,7 @@
 /area/rogue/indoors/town/manor)
 "gyi" = (
 /obj/item/bedsheet/double_pelt,
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /turf/open/floor/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -17894,12 +17894,12 @@
 /area/rogue/indoors/town)
 "tLW" = (
 /obj/structure/rack,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
 /obj/item/plate/tray,
 /obj/item/plate/tray,
 /obj/item/plate/tray,
@@ -19800,10 +19800,10 @@
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
 /obj/item/kitchen/spoon,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
-/obj/item/kitchen/platter,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
 /obj/item/kitchen/fork/iron,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)

@@ -4,7 +4,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	grant_lit_torch = TRUE
 	outfit = /datum/outfit/job/gaoler
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -97,7 +97,7 @@
 	outfit = /datum/outfit/job/mig_guard
 	allowed_races = list("Humen","Dwarf","Aasimar")
 	grant_lit_torch = TRUE
-	show_wanderer_examine = FALSE
+	is_foreigner = FALSE
 
 /datum/outfit/job/mig_guard/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -133,7 +133,7 @@
 	H.verbs |= /mob/proc/haltyell
 
 /datum/migrant_wave/prisoner_convoy
-	name = "The prisoners convoy"
+	name = "The Prisoners' Convoy"
 	max_spawns = 3
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
 	downgrade_wave = /datum/migrant_wave/prisoner_convoy_down
@@ -146,7 +146,7 @@
 	greet_text = "Nobody escape the rule of Vanderlin's monarchs. Some have fled to the neighbouring kingdom, Heartfelt and got caught, they are now on their way back."
 
 /datum/migrant_wave/prisoner_convoy_down
-	name = "The prisoners convoy"
+	name = "The Prisoners' Convoy"
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
 	downgrade_wave = /datum/migrant_wave/prisoner_convoy_down_two
 	can_roll = FALSE
@@ -158,7 +158,7 @@
 	greet_text = "Nobody escape the rule of Vanderlin's monarchs. Some have fled to the neighbouring kingdom, Heartfelt and got caught, they are now on their way back."
 
 /datum/migrant_wave/prisoner_convoy_down_two
-	name = "The prisoners convoy"
+	name = "The Prisoner Convoy"
 	shared_wave_type = /datum/migrant_wave/prisoner_convoy
 	can_roll = FALSE
 	roles = list(

@@ -185,6 +185,15 @@
 	else
 		return ..()
 
+/obj/structure/window/openclose/reinforced
+	desc = "A glass window. This one looks reinforced with a metal mesh."
+	icon_state = "reinforcedwindowdir"
+	base_state = "reinforcedwindow"
+	max_integrity = 800
+	integrity_failure = 0.1
+	metalizer_result = null
+	smeltresult = /obj/item/ingot/iron
+
 /obj/structure/window/proc/open_up(mob/user)
 	visible_message("<span class='info'>[user] opens [src].</span>")
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)

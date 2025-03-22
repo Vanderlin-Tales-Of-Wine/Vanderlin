@@ -41,6 +41,7 @@
 	output = /obj/item/ammo_casing/caseless/dart
 	craftdiff = 0
 	uses_attacked_atom = TRUE
+	output_amount = 2
 
 /datum/repeatable_crafting_recipe/survival/rope
 	name = "rope"

@@ -25,7 +25,7 @@
 		if(L.anti_magic_check(TRUE, TRUE))
 			return FALSE
 		playsound(user, 'sound/items/flint.ogg', 150, FALSE)
-		L.adjust_divine_fire_stacks(5)
+		L.adjust_divine_fire_stacks(3.5)
 		L.IgniteMob()
 		// addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, ExtinguishMob)), 7 SECONDS)
 		return ..()
@@ -62,8 +62,6 @@
 	miracle = TRUE
 	devotion_cost = 100
 //	req_inhand = list(/obj/item/coin/gold)
-	/// Amount of PQ gained for reviving people
-	var/revive_pq = PQ_GAIN_REVIVE
 
 /obj/effect/proc_holder/spell/invoked/revive/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
@@ -102,8 +100,7 @@
 		target.update_body()
 		target.visible_message("<span class='notice'>[target] is revived by holy light!</span>", "<span class='green'>I awake from the void.</span>")
 		target.apply_status_effect(/datum/status_effect/debuff/revive)
-		if(target.mind && revive_pq && !HAS_TRAIT(target, TRAIT_IWASREVIVED) && user?.ckey)
-			adjust_playerquality(revive_pq, user.ckey)
+		if(target.mind && !HAS_TRAIT(target, TRAIT_IWASREVIVED))
 			ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")
 		return ..()
 	return FALSE

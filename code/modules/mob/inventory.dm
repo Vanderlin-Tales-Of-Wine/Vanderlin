@@ -161,7 +161,7 @@
 	held_items[hand_index] = I
 	I.layer = ABOVE_HUD_LAYER
 	I.plane = ABOVE_HUD_PLANE
-	I.equipped(src, ITEM_SLOT_HANDS)
+	I.equipped(src, SLOT_HANDS)
 	if(QDELETED(I)) // this is here because some ABSTRACT items like slappers and circle hands could be moved from hand to hand then delete, which meant you'd have a null in your hand until you cleared it (say, by dropping it)
 		held_items[hand_index] = null
 		return FALSE
@@ -176,6 +176,12 @@
 		hud_used.throw_icon?.update_icon()
 		hud_used.give_intent?.update_icon()
 	givingto = null
+	if((istype(I, /obj/item/weapon) || istype(I, /obj/item/gun) || I.force >= 15) && !forced && client)
+		// is this the right hand?
+		var/right_hand = FALSE
+		if(hand_index == LEFT_HANDS)
+			right_hand = TRUE
+		log_message("[key_name(src)] has equipped [I] in their [right_hand ? "right hand" : "left hand"], combat mode: [cmode ? "COMBAT" : "PASSIVE"].", LOG_ATTACK, color="#3333ff") // into attack logs
 	return hand_index
 
 //Puts the item into the first available left hand if possible and calls all necessary triggers/updates. returns 1 on success.

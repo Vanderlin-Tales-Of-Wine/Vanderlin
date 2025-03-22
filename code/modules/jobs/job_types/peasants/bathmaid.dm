@@ -1,33 +1,33 @@
-/*
+/**
+ * This job used to do exactly what you think it does,
+ * but now that we are PG-13, it only exists to be used
+ * in adminbusses and smites.
+ */
 /datum/job/nitemaiden
 	title = "Nitemaiden"
-	flag = JESTER
+	tutorial = "Oh no."
 	department_flag = PEASANTS
-	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	job_flags = (JOB_EQUIP_RANK)
+	faction = FACTION_STATION
+	total_positions = 0
+	spawn_positions = 0
 
+	allowed_sexes = list(FEMALE)
 	allowed_races =  ALL_PLAYER_RACES_BY_NAME
+	allowed_ages = ALL_AGES_LIST
 
-	tutorial = "You should not see this.."
-
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	outfit = /datum/outfit/job/nitemaiden
-	display_order = JDO_NITEMAIDEN
-	give_bank_account = TRUE
 	min_pq = -20
-	can_random = FALSE
-	bypass_lastclass = TRUE
 
 /datum/outfit/job/nitemaiden/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/shortboots
 	shirt = /obj/item/clothing/shirt/undershirt
 	armor = /obj/item/clothing/shirt/dress/gen/sexy
-	neck = /obj/item/storage/belt/pouch/nitemaiden
+	//neck = /obj/item/storage/belt/pouch/nitemaiden
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/key/nitemaiden
-	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
+	//ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE) // To wrestle people out of the baths
@@ -44,9 +44,9 @@
 		shoes = /obj/item/clothing/shoes/boots/leather
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/sea
-*/
-// Washing Implements
 
+// Washing Implements
+// TODO: Make this a subtype of soap, what are you doing guys come on
 /obj/item/bath/soap
 	name = "DO NOT USE"
 	desc = "If you're seeing this, you shouldn't."
@@ -57,12 +57,12 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 35 //slower than mop
 	var/uses = 10
+	var/slip_chance = 10
 
 /obj/item/bath/soap/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/slippery, 80)
+	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
 
 /obj/item/bath/soap/examine(mob/user)
 	. = ..()
@@ -81,48 +81,48 @@
 				msg = "It's started to get a little smaller than it used to be, but it'll definitely still last for a while."
 			else
 				msg = "It's seen some light use, but it's still pretty fresh."
-	. += "<span class='notice'>[msg]</span>"
+	. += span_notice("[msg]")
 
 /obj/item/bath/soap/attack(mob/living/carbon/human/target, mob/living/carbon/user)
 	user.changeNext_move(CLICK_CD_MELEE)
 	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
 	if(!istype(bathspot, /turf/open/water/bath))
-		to_chat(user, span_warning("They must be in the bath water!"))
+		to_chat(user, span_warning("[target] must be in bath water to be cleaned."))
 		return
 	if(!ishuman(target))
-		to_chat(user, span_warning("They don't want to be soaped..."))
+		to_chat(user, span_warning("[target] refuses to be soaped!"))
 		return
 
 	if(istype(target.wear_armor, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with armor on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with armor on."))
 		return
 
 	if(istype(target.wear_shirt, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with clothing on."))
 		return
 
 	if(istype(target.cloak, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with clothing on."))
 		return
 
 	if(istype(target.wear_pants, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with pants on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with pants on."))
 		return
 
 	if(istype(target.shoes, /obj/item/clothing))
-		to_chat(user, span_warning("Can't get a proper bath with shoes on."))
+		to_chat(user, span_warning("[target] can't be properly bathed with shoes on."))
 		return
 
-	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")	// Applies the special bonus only if Nitemaiden using the soap
+	user.visible_message(span_info("[user] begins scrubbing [target] with [src]."))
 	playsound(src.loc, pick('sound/items/soaping.ogg'), 100)
 	if(do_after(user, 5 SECONDS, target))
-		if(user.job == "Nitemaiden")
-			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
+		if(user != target)
+			user.visible_message(span_info("[user] expertly scrubs and soothes [target] with [src]."))
 			to_chat(target, span_warning("I feel so relaxed and clean!"))
 			target.apply_status_effect(/datum/status_effect/buff/clean_plus)
 		else
-			user.visible_message(span_info("[user] tries their best to scrub [target] with the [src]."))
-			to_chat(target, span_warning("Ouch! That hurts!"))
+			user.add_stress(/datum/stressevent/clean)
+			user.visible_message(span_info("[user] cleans [user.p_them()]self with [src]."))
 		uses -= 1
 		if(uses == 0)
 			qdel(src)

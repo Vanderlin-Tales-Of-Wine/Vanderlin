@@ -20,6 +20,7 @@
 /turf/closed/wall/mineral/stone/window
 	name = "stone murder hole"
 	desc = "A wall of stone with convenient small indents on it, perfect to let loose arrows against invaders."
+	icon_state = "stonewindow"
 	opacity = FALSE
 	max_integrity = 800
 	explosion_block = 2
@@ -41,6 +42,7 @@
 
 /turf/closed/wall/mineral/stone/window/moss
 	icon = 'icons/turf/walls/mossy_stone.dmi'
+	icon_state = "stonewindow"
 	climbdiff = 4
 
 /turf/closed/wall/mineral/stone/moss/blue
@@ -133,6 +135,7 @@
 /turf/closed/wall/mineral/wood/window
 	name = "wooden window"
 	desc = "A window with a rough-hewn wooden frame."
+	icon_state = "woodwindow"
 	opacity = FALSE
 	max_integrity = 550
 
@@ -367,6 +370,7 @@
 	icon_state = "decostone-cand-red"
 
 /turf/closed/dungeon_void
+	name = "thick dungeon shroud"
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "shroud1"
 
