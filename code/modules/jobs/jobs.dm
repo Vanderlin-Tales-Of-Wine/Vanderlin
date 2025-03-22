@@ -17,6 +17,7 @@ GLOBAL_PROTECT(noble_positions)
 GLOBAL_LIST_INIT(garrison_positions, list(
 	/datum/job/royalguard::title,
 	/datum/job/veteran::title,
+	/datum/job/sheriff::title,
 	/datum/job/guardsman::title,
 	/datum/job/men_at_arms::title,
 	/datum/job/jailor::title,
