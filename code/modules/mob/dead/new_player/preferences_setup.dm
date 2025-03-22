@@ -30,11 +30,11 @@
 			hairs = pref_species.get_oldhc_list()
 		else
 			hairs = pref_species.get_hairc_list()
-		hair_color = hairs[pick(hairs)]
+		hair_color = pick_assoc(hairs)
 		facial_hair_color = hair_color
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		var/list/skin_list = pref_species.get_skin_list()
-		skin_tone = skin_list[pick(skin_list)]
+		skin_tone = pick_assoc(skin_list)
 	if(randomise_flags & RANDOMIZE_EYE_COLOR)
 		eye_color = random_eye_color()
 	if(randomise_flags & RANDOMIZE_FEATURES)
@@ -73,11 +73,11 @@
 			hairs = pref_species.get_oldhc_list()
 		else
 			hairs = pref_species.get_hairc_list()
-		hair_color = hairs[pick(hairs)]
+		hair_color = pick_assoc(pick(hairs))
 		facial_hair_color = hair_color
 	if(randomise[RANDOM_SKIN_TONE])
 		var/list/skins = pref_species.get_skin_list()
-		skin_tone = skins[pick(skins)]
+		skin_tone = pick_assoc(skins)
 	if(randomise[RANDOM_EYE_COLOR])
 		eye_color = random_eye_color()
 	features = random_features()
