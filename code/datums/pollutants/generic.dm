@@ -8,7 +8,7 @@
 
 /datum/pollutant/rot
 	name = "Rotten Scent"
-	pollutant_flags = POLLUTANT_SMELL|POLLUTANT_BREATHE_ACT
+	pollutant_flags = POLLUTANT_SMELL
 	smell_intensity = 1
 	descriptor = "smell"
 	scent = "a rotten scent"

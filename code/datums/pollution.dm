@@ -119,7 +119,7 @@
 		qdel(src)
 		return
 	for(var/type in pollutants)
-		pollutants[type] -= amount_to_scrub * (pollutants[type] / total_amount)
+		pollutants[type] -= amount_to_scrub * pollutants[type] / total_amount
 	total_amount -= amount_to_scrub
 	update_height()
 	handle_overlay()
