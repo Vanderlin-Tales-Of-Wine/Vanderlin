@@ -1,5 +1,5 @@
-GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwise, use a custom colour.
-GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
+GLOBAL_VAR_INIT(normal_ooc_colour, "#4972bc")
+GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for OOC. Otherwise, use a custom colour.
 
 //client/verb/ooc(msg as text)
 
@@ -60,10 +60,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	mob.log_talk(raw_msg, LOG_OOC)
 
-	var/keyname = ckey
-	if(ckey in GLOB.anonymize)
-		keyname = get_fake_key(ckey)
+	var/keyname = get_display_ckey(ckey)
 	var/color2use = prefs.voice_color
+	var/admin_message_color = prefs.ooccolor
 	if(!color2use)
 		color2use = "#FFFFFF"
 	else
@@ -76,7 +75,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		if(C.prefs.chat_toggles & CHAT_OOC)
 			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
 			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
+				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[admin_message_color ? admin_message_color : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
 			to_chat(C, msg_to_send)
 
 
@@ -132,9 +131,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	mob.log_talk(raw_msg, LOG_OOC)
 
-	var/keyname = ckey
-	if(ckey in GLOB.anonymize)
-		keyname = get_fake_key(ckey)
+	var/keyname = get_display_ckey(ckey)
 	//The linkify span classes and linkify=TRUE below make ooc text get clickable chat href links if you pass in something resembling a url
 	var/color2use = prefs.voice_color
 	if(!color2use)
@@ -143,6 +140,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		color2use = "#[color2use]"
 	var/chat_color = "#c5c5c5"
 	var/msg_to_send = ""
+	var/admin_message_color = prefs.ooccolor
 
 	for(var/client/C in GLOB.clients)
 		var/real_key = C.holder ? "([key])" : ""
@@ -153,7 +151,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
 			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='#4972bc'><span class='message linkify'>[msg]</span></font>"
+				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[admin_message_color ? admin_message_color : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
 
 			to_chat(C, msg_to_send)
 
@@ -190,10 +188,10 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 // OOC colors require a refactoring
 
 /client/proc/set_ooc(newColor as color)
-	set name = "Set Player OOC Color"
+	set name = "Set Default OOC Color"
 	set desc = ""
 	set category = "Fun"
-	set hidden = 1
+	set hidden = FALSE
 	if(!holder)
 		return
 	GLOB.OOC_COLOR = sanitize_ooccolor(newColor)
@@ -201,49 +199,15 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		return
 
 /client/proc/reset_ooc()
-	set name = "Reset Player OOC Color"
+	set name = "Reset Default OOC Color"
 	set desc = ""
 	set category = "Fun"
-	set hidden = 1
-	if(!holder)
-		return
-	GLOB.OOC_COLOR = null
-	if(!check_rights(0))
-		return
-/client/verb/colorooc()
-	set name = "Set Your OOC Color"
-	set category = "Preferences"
-	set hidden = 1
+	set hidden = FALSE
 	if(!holder)
 		return
 	if(!check_rights(0))
 		return
-	if(!holder || !check_rights_for(src, R_ADMIN))
-		if(!is_content_unlocked())
-			return
-
-	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color", prefs.ooccolor) as color|null
-	if(new_ooccolor)
-		prefs.ooccolor = sanitize_ooccolor(new_ooccolor)
-		prefs.save_preferences()
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Set OOC Color") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	return
-
-/client/verb/resetcolorooc()
-	set name = "Reset Your OOC Color"
-	set desc = ""
-	set category = "Preferences"
-	set hidden = 1
-	if(!holder)
-		return
-	if(!check_rights(0))
-		return
-	if(!holder || !check_rights_for(src, R_ADMIN))
-		if(!is_content_unlocked())
-			return
-
-		prefs.ooccolor = initial(prefs.ooccolor)
-		prefs.save_preferences()
+	GLOB.OOC_COLOR = GLOB.normal_ooc_colour
 
 //Checks admin notice
 /client/verb/admin_notice()

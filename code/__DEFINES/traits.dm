@@ -82,6 +82,8 @@
 #define TRAIT_IWASUNZOMBIFIED "iwasunzombified" //prevents PQ gain from curing a zombie twice
 #define TRAIT_ZIZOID_HUNTED "zizoidhunted" // Used to signal character has been marked by death by the Zizoid cult
 #define TRAIT_LEPROSY "Leprosy"
+#define TRAIT_BEAUTIFUL "Beautiful"
+#define TRAIT_UGLY "Ugly"
 #define TRAIT_SCHIZO_FLAW "Schizophrenic"
 
 // JOB RELATED TRAITS
@@ -146,6 +148,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_GRAVEROBBER = "Necra favors my grim deeds, I can unearth graves without being cursed by her.",
 	TRAIT_MISSING_NOSE = span_warning("I struggle to breathe."),
 	TRAIT_DISFIGURED = span_warning("No one can recognize me..."),
+	TRAIT_BEAUTIFUL = span_love("My face was shaped by the gods!"),
+	TRAIT_UGLY = span_necrosis("Do not look in the mirror."),
 	TRAIT_SPELLBLOCK = span_warning("I cannot cast any spells."),
 	TRAIT_ANTIMAGIC = "I am immune to most forms of magic.",
 	TRAIT_ANTISCRYING = "I am immune to most forms of magical divination.",
@@ -169,6 +173,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
+	TRAIT_FOREIGNER = span_notice("I'm not from around here."),,
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..." //N/A change this, this sucks
 	))
 
@@ -233,12 +238,14 @@ GLOBAL_LIST_INIT(roguetraits, list(
 
 #define HAS_TRAIT(target, trait) (target.status_traits ? (target.status_traits[trait] ? TRUE : FALSE) : FALSE)
 #define HAS_TRAIT_FROM(target, trait, source) (target.status_traits ? (target.status_traits[trait] ? (source in target.status_traits[trait]) : FALSE) : FALSE)
+#define HAS_TRAIT_NOT_FROM(target, trait, source) (HAS_TRAIT(target, trait) && (length(target.status_traits[trait] - source) > 0))
 
 /*
 Remember to update _globalvars/traits.dm if you're adding/removing/renaming traits.
 */
 
 //mob traits
+#define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
@@ -323,6 +330,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_ZOMBIE_IMMUNE "zombie_immune" //immune to zombie infection
 #define TRAIT_NO_BITE "no_bite" //prevents biting
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
+#define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 #define TRAIT_UNTARGETTABLE "untargettable" //can't be targetted by basic mobs
@@ -364,6 +372,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define GLASSES_TRAIT "glasses"
 #define VEHICLE_TRAIT "vehicle" // inherited from riding vehicles
 #define INNATE_TRAIT "innate"
+#define BUCKLED_TRAIT "buckled" //trait associated to being buckled
+#define CHOKEHOLD_TRAIT "chokehold" //trait associated to being held in a chokehold
+#define RESTING_TRAIT "resting" //trait associated to resting
 
 // unique trait sources, still defines
 #define TRAIT_BESTIALSENSE "bestial-sense"
@@ -404,6 +415,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define SLEEPING_CARP_TRAIT "sleeping_carp"
 #define MADE_UNCLONEABLE "made-uncloneable"
 #define TIMESTOP_TRAIT "timestop"
+#define PULLED_WHILE_SOFTCRIT_TRAIT "pulled-while-softcrit"
 #define ADVENTURER_TRAIT "adventurer"
 #define TRAIT_LONGSTRIDER "longstrider"
 #define TRAIT_GUIDANCE "guidance"

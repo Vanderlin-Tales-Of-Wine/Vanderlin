@@ -311,9 +311,8 @@
 			user.say(m)
 
 /obj/item/book/bibble/attack(mob/living/M, mob/user)
-	if(user.mind && user.mind.assigned_role == "Priest")
+	if(is_priest_job(user.mind?.assigned_role))
 		if(!user.can_read(src))
-			//to_chat(user, "<span class='warning'>I don't understand these scribbly black lines.</span>")
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
 		user.visible_message("<span class='notice'>[user] blesses [M].</span>")
@@ -700,7 +699,7 @@
 			ckey = user.ckey
 			select_icon = newicon
 			icon_state = "paperwrite"
-			to_chat(user, "<span class='notice'>You have successfully written the manuscript.</span>")
+			to_chat(user, "<span class='notice'>You have successfully authored and titled the manuscript.</span>")
 			var/complete = input(user, "Is the manuscript finished?") in list("Yes", "No")
 			if(complete == "Yes" && compiled_pages)
 				written = TRUE
@@ -708,7 +707,7 @@
 			to_chat(user, "<span class='notice'>You must fill out all fields to complete the manuscript.</span>")
 		return
 	else if(istype(P, /obj/item/natural/feather) && written)
-		to_chat(user, "<span class='notice'>The manuscript has already been written.</span>")
+		to_chat(user, "<span class='notice'>The manuscript has already been authored and titled.</span>")
 		return
 	return ..()
 
@@ -867,9 +866,8 @@ ____________End of Example*/
 			user.say(m)
 
 /obj/item/book/psybibble/attack(mob/living/M, mob/user)
-	if(user.mind && user.mind.assigned_role == "Preacher")
+	if(is_priest_job(user.mind.assigned_role))
 		if(!user.can_read(src))
-			//to_chat(user, "<span class='warning'>I don't understand these scribbly black lines.</span>")
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
 		user.visible_message("<span class='notice'>[user] blesses [M].</span>")

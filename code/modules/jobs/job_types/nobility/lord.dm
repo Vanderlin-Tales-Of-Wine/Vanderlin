@@ -3,11 +3,18 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/lord
 	title = "Monarch"
+	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, \
+	you are the absolute authority of these lands and at the center of every plot within it. \
+	Every man, woman and child is envious of your position \
+	and would replace you in less than a heartbeat: Show them the error in their ways."
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_LORD
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 1
+	min_pq = 25
 
 	spells = list(
 		/obj/effect/proc_holder/spell/self/grant_title,
@@ -20,30 +27,33 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		"Half-Elf"
 	)
 	outfit = /datum/outfit/job/lord
-	display_order = JDO_LORD
-	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error in their ways."
 	bypass_lastclass = TRUE
-	whitelist_req = FALSE
-	min_pq = 25
 	give_bank_account = 500
 	selection_color = "#7851A9"
 
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	can_have_apprentices = FALSE
 
-/datum/job/lord/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/lord/get_informed_title(mob/mob)
+	if(mob.gender == FEMALE)
+		return "Queen"
+
+	return "King"
+
+//TODO: MOVE THIS INTO TICKER INIT
+/datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(L)
-		SSticker.select_ruler()
-		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob, lord_color_choice)), 50)
-	if(L.gender == MALE)
-		SSfamilytree.AddRoyal(L, FAMILY_FATHER)
-		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is King of Vanderlin.</span></span></b>")
-		to_chat(world, "<br>")
+	SSticker.select_ruler()
+	addtimer(CALLBACK(spawned, TYPE_PROC_REF(/mob, lord_color_choice)), 5 SECONDS)
+	var/ruler_title
+	if(spawned.gender == MALE)
+		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
+		ruler_title = "King"
 	else
-		SSfamilytree.AddRoyal(L, FAMILY_MOTHER)
-		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
-		to_chat(world, "<br>")
+		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
+		ruler_title = "Queen"
+	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
+	to_chat(world, "<br>")
 
 /datum/outfit/job/lord
 	job_bitflag = BITFLAG_ROYALTY
@@ -69,6 +79,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.change_stat(STATKEY_STR, 1)
@@ -104,13 +115,12 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-//	SSticker.rulermob = H
 
 /datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
 	flag = LORD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_LORD

@@ -181,7 +181,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	var/perfect_butcher_results
 
 	var/obj/item/udder/udder = null
-	var/obj/item/gudder/gudder = null
+	var/datum/reagent/milk_reagent = null
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -193,6 +193,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!loc)
 		stack_trace("Simple animal being instantiated in nullspace")
 	update_simplemob_varspeed()
+	if(milk_reagent)
+		udder = new(src, milk_reagent)
 //	if(dextrous)
 //		AddComponent(/datum/component/personal_crafting)
 
@@ -213,12 +215,19 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if (T && AIStatus == AI_Z_OFF)
 		SSidlenpcpool.idle_mobs_by_zlevel[T.z] -= src
 
+	qdel(udder)
+	udder = null
+
 	return ..()
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user, params)
+	if(!stat && istype(O, /obj/item/reagent_containers/glass))
+		if(udder)
+			changeNext_move(20) // milking sound length
+			udder.milkAnimal(O, user)
+			return TRUE
 	if(!is_type_in_list(O, food_type))
-		..()
-		return
+		return ..()
 	else
 		if(!stat)
 			user.visible_message("<span class='info'>[user] hand-feeds [O] to [src].</span>", "<span class='notice'>I hand-feed [O] to [src].</span>")
@@ -226,7 +235,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			qdel(O)
 			food = min(food + 30, 100)
 			if(tame && owner == user)
-				return
+				return TRUE
 			var/realchance = tame_chance
 			if(realchance)
 				if(user.mind)
@@ -235,6 +244,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					tamed(user)
 				else
 					tame_chance += bonus_tame_chance
+			return TRUE
+	. = ..()
 
 ///Extra effects to add when the mob is tamed, such as adding a riding component
 /mob/living/simple_animal/proc/tamed(mob/user)
@@ -607,8 +618,15 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	else
 		..()
 
+/mob/living/simple_animal/update_resting()
+	if(resting)
+		ADD_TRAIT(src, TRAIT_IMMOBILIZED, RESTING_TRAIT)
+	else
+		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, RESTING_TRAIT)
+	return ..()
+
 /mob/living/simple_animal/update_mobility(value_otherwise = TRUE)
-	if(IsUnconscious() || IsParalyzed() || IsStun() || IsKnockdown() || IsParalyzed() || stat || resting)
+	if(HAS_TRAIT_NOT_FROM(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT))
 		drop_all_held_items()
 		mobility_flags = NONE
 	else if(buckled)
@@ -809,8 +827,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 				var/amt = user.mind.get_skill_level(/datum/skill/misc/riding)
 				if(amt)
 					amt = clamp(amt, 0, 4) //higher speed amounts are a little wild. Max amount achieved at expert riding.
-					riding_datum.vehicle_move_delay -= (amt/5 + 2)
-				riding_datum.vehicle_move_delay -= 3
+					riding_datum.vehicle_move_delay -= (amt/5 + 1.5)
+					riding_datum.vehicle_move_delay -= 3
 			if(loc != oldloc)
 				var/obj/structure/mineral_door/MD = locate() in loc
 				if(MD && !MD.ridethrough)
@@ -880,10 +898,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 				if(production > 0)
 					production--
 					udder.generateMilk()
-			if(gudder)						// for goat milk
-				if(production > 0)
-					production--
-					gudder.generateMilk()
 			if(pooprog >= 100)
 				pooprog = 0
 				poop()
@@ -894,25 +908,28 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			playsound(src, "fart", 50, TRUE)
 			new pooptype(loc)
 
-//................. UDDER (MOO-BEAST) .......................//
+//................. UDDER .......................//
 /obj/item/udder
 	name = "udder"
+	var/datum/reagent/milk_reagent = /datum/reagent/consumable/milk
 
-/obj/item/udder/Initialize()
+/obj/item/udder/Initialize(mapload, datum/reagent/reagent)
 	create_reagents(100)
-	reagents.add_reagent(/datum/reagent/consumable/milk, rand(0,20))
+	if(reagent)
+		milk_reagent = reagent
+	reagents.add_reagent(milk_reagent, rand(0,20))
 	. = ..()
 
 /obj/item/udder/proc/generateMilk()
-	reagents.add_reagent(/datum/reagent/consumable/milk, 1)
+	reagents.add_reagent(milk_reagent, 1)
 
 /obj/item/udder/proc/milkAnimal(obj/O, mob/living/user = usr)
 	var/obj/item/reagent_containers/glass/G = O
 	if(G.reagents.total_volume >= G.volume)
 		to_chat(user, span_warning("[O] is full."))
 		return
-	if(!reagents.has_reagent(/datum/reagent/consumable/milk, 5))
-		to_chat(user, span_warning("The udder is dry. Wait a bit longer..."))
+	if(!reagents.has_reagent(milk_reagent, 5))
+		to_chat(user, span_warning("[src] is dry. Wait a bit longer..."))
 		user.changeNext_move(10)
 		return
 	if(do_after(user, 1 SECONDS, src))
@@ -920,5 +937,5 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		user.visible_message(span_notice("[user] milks [src] using \the [O]"))
 		playsound(O, pick('sound/vo/mobs/cow/milking (1).ogg', 'sound/vo/mobs/cow/milking (2).ogg'), 100, TRUE, -1)
 		user.Immobilize(1 SECONDS)
-		user.changeNext_move(10)
+		user.changeNext_move(1 SECONDS)
 

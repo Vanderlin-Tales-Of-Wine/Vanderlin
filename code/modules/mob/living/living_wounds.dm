@@ -160,24 +160,31 @@
 	if(user)
 		if(user.stat_roll(STATKEY_LCK,2,10))
 			dam += 10
+	var/crit_classes = list()
 	if(bclass in GLOB.fracture_bclasses)
-		var/fracture_type = /datum/wound/fracture/chest
-		if(check_zone(zone_precise) == BODY_ZONE_HEAD)
-			fracture_type = /datum/wound/fracture/head
-		used = round((health / maxHealth) * 20 + (dam / 3), 1)
-		if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
-			used += 10
-		if(prob(used))
-			attempted_wounds += fracture_type
+		crit_classes += "fracture"
 	if(bclass in GLOB.artery_bclasses)
-		if(user)
-			if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
-				dam += 30
-			else if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
-				dam += 30
-		used = round(max(dam / 3, 1), 1)
-		if(prob(used))
-			attempted_wounds += /datum/wound/artery/chest
+		crit_classes += "artery"
+
+	switch(pick(crit_classes))
+		if("fracture")
+			if(user && istype(user.rmb_intent, /datum/rmb_intent/strong))
+				dam += 10
+			used = round((health / maxHealth) * 20 + (dam / 3), 1)
+			if(prob(used))
+				var/fracture_type = /datum/wound/fracture/chest
+				if(check_zone(zone_precise) == BODY_ZONE_HEAD)
+					fracture_type = /datum/wound/fracture/head
+				attempted_wounds += fracture_type
+		if("artery")
+			if(user)
+				if((bclass in GLOB.artery_strong_bclasses) && istype(user.rmb_intent, /datum/rmb_intent/strong))
+					dam += 30
+				else if(istype(user.rmb_intent, /datum/rmb_intent/aimed))
+					dam += 30
+			used = round(max(dam / 3, 1), 1)
+			if(prob(used))
+				attempted_wounds += /datum/wound/artery/chest
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = simple_add_wound(wound_type, silent, crit_message)

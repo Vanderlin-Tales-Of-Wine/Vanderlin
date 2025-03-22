@@ -10,7 +10,7 @@
 /datum/species/tieberian
 	name = "Tiefling"
 	id = "tiefling"
-	desc = "Also known as Infernal-Spawn, Hell-Bloods, Surface-Devils, and perhaps in a more humourous manner, <i>thief</i>-lings. \
+	desc = "Also known as Infernal-Spawn, Hell-Bloods, Surface-Devils, and perhaps in a more humorous manner, <i>thief</i>-lings. \
 	\n\n\
 	Their treatment ranges from shunning to distrust, depending on the region. \
 	Shopkeeps and merchants always keep a wary eye out when a tiefling passes by. \
@@ -27,7 +27,7 @@
 	If to make matters worse, their hellish progenitors have left them a destiny of misfortune, \
 	though perhaps their immunity to fire opens new opportunities... \
 	\n\n\
-	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
+	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Progenitor"
 
@@ -139,23 +139,23 @@
 
 /datum/species/tieberian/get_hairc_list()
 	var/static/list/hair_colors = sortList(list(
-		"black - oil" = "#181a1d",
-		"black - cave" = "#201616",
-		"black - rogue" = "#2b201b",
-		"black - midnight" = "#1d1b2b",
+		"black - oil" = "181a1d",
+		"black - cave" = "201616",
+		"black - rogue" = "2b201b",
+		"black - midnight" = "1d1b2b",
 
-		"blond - pale" = "#9d8d6e",
-		"blond - dirty" = "#88754f",
-		"blond - drywheat" = "#d5ba7b",
-		"blond - strawberry" = "#c69b71",
+		"blond - pale" = "9d8d6e",
+		"blond - dirty" = "88754f",
+		"blond - drywheat" = "d5ba7b",
+		"blond - strawberry" = "c69b71",
 
-		"purple - arcane" = "#3f2f42",
+		"purple - arcane" = "3f2f42",
 
-		"blue - abyss" = "#09282d",
+		"blue - abyss" = "09282d",
 
-		"red - demonic" = "#480808",
-		"red - impish" = "#641010",
-		"red - rubescent" = "#8d5858"
+		"red - demonic" = "480808",
+		"red - impish" = "641010",
+		"red - rubescent" = "8d5858"
 	))
 
 	return hair_colors

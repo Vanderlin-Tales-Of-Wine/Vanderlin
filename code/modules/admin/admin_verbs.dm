@@ -25,6 +25,8 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/client/proc/jumptokey,
 	/datum/admins/proc/checkpq,
 	/datum/admins/proc/adjustpq,
+	/datum/admins/proc/checktriumphs,
+	/datum/admins/proc/adjusttriumphs,
 	/client/proc/jumptomob,
 	/client/proc/returntolobby,
 	/datum/verbs/menu/Admin/verb/playerpanel,
@@ -42,7 +44,6 @@ GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 GLOBAL_PROTECT(admin_verbs_admin)
 /world/proc/AVerbsAdmin()
 	return list(
-	/client/proc/adjusttriumph,
 	/client/proc/end_party,		/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
@@ -108,6 +109,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_prayer_sound,
 	/client/proc/colorasay,
 	/client/proc/resetasaycolor,
+	/client/proc/set_personal_admin_ooc_color,
+	/client/proc/reset_personal_admin_ooc_color,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,
