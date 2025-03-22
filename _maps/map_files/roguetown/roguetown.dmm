@@ -8158,7 +8158,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff";
+	lockid = "captain";
 	name = "captain's room door"
 	},
 /obj/effect/decal/cobbleedge{
@@ -9682,7 +9682,7 @@
 "kGu" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
@@ -14155,9 +14155,6 @@
 "ptC" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/river)
-"ptP" = (
-/turf/open/floor/carpet,
-/area/rogue/indoors/town)
 "puo" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -21188,7 +21185,7 @@
 /obj/structure/bed,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/bedsheet/fabric,
-/obj/effect/landmark/start/sheriff,
+/obj/effect/landmark/start/captain,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "xlf" = (
@@ -22069,7 +22066,7 @@
 /area/rogue/indoors/town/garrison)
 "ykO" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "sheriff";
+	lockid = "captain";
 	name = "captain's office door"
 	},
 /turf/open/floor/ruinedwood{
@@ -106019,8 +106016,8 @@ oiP
 sjf
 jWo
 eww
-ptP
-ptP
+hYG
+hYG
 xHv
 tgV
 tgV
@@ -106177,7 +106174,7 @@ sjf
 vTw
 fqb
 bwO
-ptP
+hYG
 fMz
 qFq
 qlQ

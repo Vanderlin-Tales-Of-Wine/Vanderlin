@@ -1183,7 +1183,7 @@
 "bsB" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/garrison)
@@ -2424,7 +2424,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/church/chapel)
 "cOl" = (
-/obj/effect/landmark/start/sheriff{
+/obj/effect/landmark/start/captain{
 	dir = 1
 	},
 /turf/open/floor/dirt,
@@ -4249,10 +4249,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/garrison)
-"eEM" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/concrete,
-/area/rogue/outdoors/exposed/under/basement)
 "eFD" = (
 /obj/item/weapon/shield/wood,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -10081,7 +10077,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/garrison)
@@ -17171,9 +17167,6 @@
 /obj/item/plate/tray,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/tavern)
-"smY" = (
-/turf/open/floor/dirt,
-/area/rogue/outdoors/town)
 "snE" = (
 /obj/effect/spawner/map_spawner/tree,
 /obj/structure/flora/grass,
@@ -18563,7 +18556,7 @@
 "tLe" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
@@ -21275,9 +21268,6 @@
 	dir = 8
 	},
 /area/rogue/outdoors/town/roofs)
-"wsP" = (
-/turf/open/floor/dirt,
-/area/rogue/indoors)
 "wvP" = (
 /obj/structure/bars/cemetery,
 /obj/structure/flora/grass,
@@ -35514,7 +35504,7 @@ ygq
 gtw
 qio
 gtw
-eEM
+anm
 usN
 lEl
 gtw
@@ -38720,8 +38710,8 @@ riq
 bWe
 cke
 cke
-wsP
-wsP
+biW
+biW
 tqO
 psp
 psp
@@ -56513,7 +56503,7 @@ rAW
 ogl
 rAW
 dvI
-smY
+jGc
 pov
 kTK
 nKA
@@ -56703,12 +56693,12 @@ xZX
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
-smY
+jGc
 pKw
-smY
+jGc
 nKA
 nKA
 nKA
@@ -58053,10 +58043,10 @@ lfI
 ozQ
 pms
 iLK
-smY
+jGc
 pKw
 xHC
-smY
+jGc
 pKw
 xHC
 kGQ
@@ -58080,7 +58070,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 xrF
 xrF
 xHC
@@ -58248,7 +58238,7 @@ pms
 pms
 cCn
 pKw
-smY
+jGc
 xHC
 pKw
 pKw
@@ -58265,8 +58255,8 @@ gey
 hUy
 nKA
 nKA
-smY
-smY
+jGc
+jGc
 pKw
 pKw
 kmR
@@ -58440,7 +58430,7 @@ slK
 lfI
 pms
 cCn
-smY
+jGc
 xrF
 tFN
 qer
@@ -59212,7 +59202,7 @@ ozQ
 pzz
 slK
 slK
-smY
+jGc
 lfI
 pms
 tEb
@@ -59223,7 +59213,7 @@ pgK
 gBZ
 pgK
 qer
-smY
+jGc
 nKA
 nZC
 nKA
@@ -59426,7 +59416,7 @@ dxB
 mFe
 pKw
 pKw
-smY
+jGc
 nKA
 iId
 mRE
@@ -59481,7 +59471,7 @@ xkE
 gcU
 hPR
 cke
-wsP
+biW
 gcU
 dZq
 gcU
@@ -59621,7 +59611,7 @@ mFe
 mFe
 pKw
 pKw
-smY
+jGc
 iId
 twz
 dTc
@@ -59815,7 +59805,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 iId
 kmR
 gcr
@@ -60204,7 +60194,7 @@ mFe
 pKw
 pKw
 pKw
-smY
+jGc
 nKA
 nKA
 nKA
@@ -60223,7 +60213,7 @@ pKw
 lfI
 ozQ
 nKz
-smY
+jGc
 xCC
 jgY
 wAB
@@ -60383,15 +60373,11 @@ vWg
 dxL
 heN
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
-smY
-pKw
-pKw
-pKw
-pKw
+jGc
 pKw
 pKw
 pKw
@@ -60404,7 +60390,11 @@ pKw
 pKw
 pKw
 pKw
-smY
+pKw
+pKw
+pKw
+pKw
+jGc
 bOM
 pKw
 xHC
@@ -60416,7 +60406,7 @@ xHC
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 byF
 rij
@@ -60565,8 +60555,8 @@ xWa
 vfu
 vZm
 asj
-smY
-smY
+jGc
+jGc
 tZR
 gFs
 pKE
@@ -60574,43 +60564,43 @@ fGK
 tZR
 pCp
 nXK
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pdq
-smY
+jGc
 pKw
-smY
+jGc
 pKw
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pKw
-smY
+jGc
 pdq
-smY
-smY
-smY
+jGc
+jGc
+jGc
 pKw
-smY
+jGc
 pKw
-smY
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
+jGc
 pdq
-smY
-smY
+jGc
+jGc
 pKw
 pKw
-smY
-smY
-smY
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
+jGc
+jGc
+jGc
 pdq
 byF
 vxz
@@ -60772,7 +60762,7 @@ ygV
 vWg
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
@@ -60780,7 +60770,7 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 pKw
 pKw
 pKw
@@ -60801,10 +60791,10 @@ pKw
 pKw
 pKw
 pKw
-smY
+jGc
 ygV
 jFj
-smY
+jGc
 pKw
 mUT
 vTh
@@ -60973,7 +60963,7 @@ lfI
 uXz
 pKw
 pKw
-smY
+jGc
 rpx
 xrF
 awX
@@ -61167,7 +61157,7 @@ mwG
 rrI
 xIT
 pKw
-smY
+jGc
 rSm
 pSa
 pSa
@@ -61554,8 +61544,8 @@ mes
 iFi
 gvb
 nKA
-smY
-smY
+jGc
+jGc
 pSa
 rSm
 kFZ
@@ -61571,7 +61561,7 @@ tKP
 hZE
 pSa
 iUY
-smY
+jGc
 pKw
 pKw
 lVe
@@ -61943,7 +61933,7 @@ iIr
 mwG
 dTE
 nKA
-smY
+jGc
 rSm
 pSa
 gdc
@@ -62744,7 +62734,7 @@ dZd
 wwJ
 dZd
 pjU
-smY
+jGc
 pms
 bXs
 nAp
@@ -62935,10 +62925,10 @@ lfI
 lfI
 ozQ
 lfI
-smY
+jGc
 ozQ
-smY
-smY
+jGc
+jGc
 pms
 bXs
 xDL
@@ -63125,13 +63115,13 @@ bPA
 tZR
 tZR
 oFX
-smY
+jGc
 lfI
 lfI
-smY
+jGc
 lfI
 pKw
-smY
+jGc
 pms
 pms
 bXs
@@ -63319,7 +63309,7 @@ cjO
 vWe
 wks
 bHN
-smY
+jGc
 lfI
 jma
 pKw
@@ -63514,10 +63504,10 @@ lfI
 pKw
 mRF
 pKw
-smY
-smY
+jGc
+jGc
 lfI
-smY
+jGc
 mvo
 lfI
 pms
@@ -63703,14 +63693,14 @@ wpE
 kkq
 xPW
 xrF
-smY
+jGc
 pKw
-smY
+jGc
 odw
-smY
-smY
-smY
-smY
+jGc
+jGc
+jGc
+jGc
 lfI
 mFe
 ozQ
@@ -63904,7 +63894,7 @@ cDx
 cDx
 oII
 pKw
-smY
+jGc
 jGc
 oII
 oII
@@ -64098,7 +64088,7 @@ tcZ
 cDx
 wVF
 pKw
-smY
+jGc
 czT
 ePz
 ePz
@@ -64292,7 +64282,7 @@ geB
 oAV
 sCi
 vVI
-smY
+jGc
 pLb
 eSc
 aVL
@@ -64486,7 +64476,7 @@ hOu
 oAV
 bmb
 xQc
-smY
+jGc
 dFG
 frr
 frr
@@ -65244,8 +65234,8 @@ aOi
 rEh
 rWn
 evu
-wsP
-wsP
+biW
+biW
 evu
 iBh
 cDx
@@ -65284,7 +65274,7 @@ hDi
 uTy
 evu
 cke
-wsP
+biW
 nNx
 bXs
 bXs
@@ -66442,7 +66432,7 @@ jkx
 xEi
 xXs
 cke
-wsP
+biW
 bXs
 nAp
 hDi
@@ -66987,8 +66977,8 @@ xmP
 uVp
 gcU
 wkp
-wsP
-wsP
+biW
+biW
 gcU
 fHF
 noV
@@ -67182,7 +67172,7 @@ rMM
 hDi
 hDi
 hLi
-wsP
+biW
 gcU
 hPt
 fyZ
@@ -67375,8 +67365,8 @@ ftC
 rMM
 fHF
 iBU
-wsP
-wsP
+biW
+biW
 gcU
 boT
 opd
@@ -67582,7 +67572,7 @@ cke
 gcU
 gqY
 cke
-wsP
+biW
 gcU
 fHF
 gcU
@@ -67763,7 +67753,7 @@ fHF
 rMM
 uVp
 hDi
-wsP
+biW
 ifj
 gcU
 boT
@@ -67771,7 +67761,7 @@ hPt
 lvw
 pkn
 gcU
-wsP
+biW
 cke
 dKI
 cke
@@ -67958,15 +67948,15 @@ hDi
 gcU
 hDi
 wYZ
-wsP
+biW
 gcU
 hPt
 hPt
 sTm
 eDG
 iBU
-wsP
-wsP
+biW
+biW
 hDi
 gcU
 rkT
@@ -68150,9 +68140,9 @@ gcU
 lZD
 cke
 cke
-wsP
+biW
 cke
-wsP
+biW
 rkT
 gxx
 nDJ
@@ -69131,7 +69121,7 @@ sVh
 rMM
 gcU
 hgQ
-wsP
+biW
 gqY
 gcU
 rMM
@@ -69319,7 +69309,7 @@ nDJ
 nDJ
 gcU
 biW
-wsP
+biW
 gcU
 rMM
 gxx
@@ -69712,9 +69702,9 @@ gcU
 fHF
 rMM
 gcU
-wsP
+biW
 yhE
-wsP
+biW
 gcU
 rMM
 rMM

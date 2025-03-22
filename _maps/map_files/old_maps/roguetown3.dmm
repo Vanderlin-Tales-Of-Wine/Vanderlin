@@ -951,7 +951,7 @@
 /turf/open/floor/wood,
 /area/rogue)
 "adu" = (
-/obj/effect/landmark/start/sheriff{
+/obj/effect/landmark/start/captain{
 	icon_state = "arrow";
 	dir = 1
 	},
@@ -4287,7 +4287,7 @@
 "anE" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -4320,7 +4320,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -4375,7 +4375,7 @@
 /area/rogue)
 "anR" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -4478,7 +4478,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/wood,
 /area/rogue)
@@ -10995,9 +10995,6 @@
 	lockid = "nightman"
 	},
 /turf/open/floor/wood,
-/area/rogue/indoors/town)
-"aIP" = (
-/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
 "aIQ" = (
 /obj/structure/closet/crate/chest,
@@ -98391,7 +98388,7 @@ atV
 aIp
 aIF
 aIJ
-aIP
+aII
 aIU
 aIR
 aJf

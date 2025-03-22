@@ -593,7 +593,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -4119,7 +4119,7 @@
 /area/rogue/indoors/town/manor)
 "pr" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -6952,7 +6952,7 @@
 	},
 /area/rogue/outdoors/town)
 "zM" = (
-/obj/effect/landmark/start/sheriff{
+/obj/effect/landmark/start/captain{
 	dir = 1
 	},
 /turf/open/floor/carpet/lord/center,
@@ -7597,11 +7597,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/outdoors/town)
-"Ci" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "Cj" = (
 /obj/structure/fake_machine/money/r,
 /turf/open/floor/tile{
@@ -7668,9 +7663,6 @@
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/open/transparent/openspace,
-/area/rogue)
-"Cv" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "Cx" = (
@@ -11306,7 +11298,7 @@
 "UY" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -11354,7 +11346,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
@@ -85549,7 +85541,7 @@ Ey
 Ey
 Ey
 Ey
-Cv
+rw
 "}
 (3,1,4) = {"
 Ey
@@ -97876,7 +97868,7 @@ zv
 vW
 xX
 nP
-Ci
+nP
 nP
 Cb
 vW

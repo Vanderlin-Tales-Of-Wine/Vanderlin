@@ -1969,7 +1969,7 @@
 	},
 /area/rogue/indoors/town/manor)
 "hd" = (
-/obj/effect/landmark/start/sheriff{
+/obj/effect/landmark/start/captain{
 	dir = 1
 	},
 /turf/open/floor/carpet/lord/center,
@@ -9550,7 +9550,7 @@
 "Gv" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -9668,7 +9668,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -10054,7 +10054,7 @@
 /area/rogue/indoors/town/garrison)
 "Ie" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/ruinedwood{
 	icon_state = "horzw"
@@ -10411,7 +10411,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
@@ -11615,11 +11615,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/shop)
-"No" = (
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/shop)
 "Np" = (
 /obj/item/roguemachine/merchant,
 /turf/open/floor/ruinedwood{
@@ -11725,9 +11720,6 @@
 	endTurfX = 128;
 	endTurfY = 128
 	},
-/turf/open/transparent/openspace,
-/area/rogue)
-"NF" = (
 /turf/open/transparent/openspace,
 /area/rogue)
 "NG" = (
@@ -85094,7 +85086,7 @@ DH
 DH
 DH
 DH
-NF
+bQ
 "}
 (3,1,4) = {"
 DH
@@ -97421,7 +97413,7 @@ qP
 wY
 JY
 Bw
-No
+Bw
 Bw
 Bw
 wY
