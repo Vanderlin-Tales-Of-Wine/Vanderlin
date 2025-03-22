@@ -8,7 +8,7 @@
 	recipe_name = "three Blank Keys"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/key_custom_blank
+	created_item = /obj/item/key/custom
 	createmultiple = TRUE
 	createditem_num = 2
 	craftdiff = 0

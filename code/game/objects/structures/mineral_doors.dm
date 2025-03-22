@@ -128,7 +128,6 @@
 	var/last_bump = null
 	var/brokenstate = 0
 	var/keylock = FALSE
-	var/lockhash = 0
 	var/lockid = null
 	var/lockbroken = 0
 	var/locksound = 'sound/foley/doors/woodlock.ogg'
@@ -219,24 +218,8 @@
 		base_state = icon_state
 	set_init_layer()
 	air_update_turf(TRUE)
-	if(lockhash)
-		GLOB.lockhashes += lockhash
-	else if(keylock)
+	if(keylock)
 		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
-		if(lockid)
-			if(GLOB.lockids[lockid])
-				lockhash = GLOB.lockids[lockid]
-			else
-				lockhash = rand(1000,9999)
-				while(lockhash in GLOB.lockhashes)
-					lockhash = rand(1000,9999)
-				GLOB.lockhashes += lockhash
-				GLOB.lockids[lockid] = lockhash
-		else
-			lockhash = rand(1000,9999)
-			while(lockhash in GLOB.lockhashes)
-				lockhash = rand(1000,9999)
-			GLOB.lockhashes += lockhash
 
 /obj/structure/mineral_door/Move()
 	var/turf/T = loc
@@ -490,104 +473,41 @@
 	if(lockbroken)
 		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I,/obj/item/storage/keyring))
+	if(istype(I, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
-		if(!R.contents.len)
+		if(!length(R.contents))
+			to_chat(user, span_info("You have no keys."))
 			return
-		var/list/keysy = shuffle(R.contents.Copy())
-		for(var/obj/item/key/K in keysy)
-			if(user.cmode)
-				if(!do_after(user, 1 SECONDS, src))
-					break
-			if(K.lockhash == lockhash)
+		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
+			var/combat = user.cmode
+			if(combat && !do_after(user, 1 SECONDS, src))
+				door_rattle()
+				break
+			if(K.lockid == lockid)
 				lock_toggle(user)
 				break
-			else
-				if(user.cmode)
-					door_rattle()
+			if(combat)
+				door_rattle()
 		return
-	else
-		var/obj/item/key/K = I
-		if(K.lockhash == lockhash)
-			lock_toggle(user, is_right)
-			return
-		else
-			door_rattle()
+	var/obj/item/key/K = I
+	if(K.lockid != lockid)
+		door_rattle()
 		return
+	lock_toggle(user)
 
-/obj/structure/mineral_door/proc/trypicklock(obj/item/I, mob/user)
-	if(door_opened || isSwitchingStates)
-		to_chat(user, span_warning("This cannot be picked while it is open."))
-		return
-	if(!keylock)
-		return
-	if(lockbroken)
-		to_chat(user, span_warning("The lock to this door is broken."))
-		user.changeNext_move(CLICK_CD_MELEE)
-	else
-		var/lockprogress = 0
-		var/locktreshold = 100
-
-		var/obj/item/lockpick/P = I
-		var/mob/living/L = user
-
-		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
-		var/perbonus = L.STAPER/5
-		var/picktime = 7 SECONDS
-		var/pickchance = 35
-		var/moveup = 10
-
-		picktime -= (pickskill * 10)
-		picktime = clamp(picktime, 10, 70)
-
-		moveup += (pickskill * 3)
-		moveup = clamp(moveup, 10, 30)
-
-		pickchance += pickskill * 10
-		pickchance += perbonus
-		pickchance *= P.picklvl
-		pickchance = clamp(pickchance, 1, 95)
-
-
-
-		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, src))
-				break
-			if(prob(pickchance))
-				lockprogress += moveup
-				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
-				to_chat(user, span_warning("Click..."))
-				if(L.mind)
-					var/amt2raise = L.STAINT
-					var/boon = L.mind.get_learning_boon(/datum/skill/misc/lockpicking)
-					L.mind.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
-				if(lockprogress >= locktreshold)
-					to_chat(user, span_warning("The locking mechanism gives."))
-					lock_toggle(user)
-					break
-				else
-					continue
-			else
-				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
-				I.take_damage(1, BRUTE, "blunt")
-				to_chat(user, span_warning("Clack."))
-				continue
-		return
-
-/obj/structure/mineral_door/proc/lock_toggle(mob/user, is_right = FALSE)
+/obj/structure/mineral_door/proc/lock_toggle(mob/user)
 	if(isSwitchingStates || door_opened)
 		return
 	if(locked)
 		user.visible_message(span_warning("[user] unlocks [src]."), \
 			span_notice("I unlock [src]."))
 		playsound(src, unlocksound, 100)
-		locked = 0
+		locked = FALSE
 	else
 		user.visible_message(span_warning("[user] locks [src]."), \
 			span_notice("I lock [src]."))
 		playsound(src, locksound, 100)
-		locked = 1
-
+		locked = TRUE
 
 /obj/structure/mineral_door/setAnchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
@@ -611,8 +531,6 @@
 /obj/structure/mineral_door/OnCrafted(dirin, user)
 	. = ..()
 	keylock = FALSE
-	GLOB.lockhashes.Remove(lockhash)
-	lockhash = 0
 
 /////////////////////// TOOL OVERRIDES ///////////////////////
 
