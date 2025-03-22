@@ -6792,10 +6792,10 @@
 /area/rogue/indoors/town/manor)
 "eKc" = (
 /obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/weapon/flail/sflail,
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,
 /obj/item/ammo_holder/quiver/bolts,
 /obj/item/book/law,
+/obj/item/weapon/mace/warhammer/steel,
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/town/garrison)
 "eKg" = (
@@ -10197,9 +10197,9 @@
 "hgh" = (
 /obj/structure/winch{
 	dir = 1;
-	redstone_id = "towngatenorth";
+	redstone_id = "towngatesouth";
 	name = "winch (south)";
-	gid = "towngatenorth"
+	gid = "towngatesouth"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
@@ -26782,8 +26782,8 @@
 /area/rogue/under/cave)
 "tkw" = (
 /obj/structure/gate/bars/preopen{
-	gid = "keepgatenorth";
-	redstone_id = "keepgatenorth"
+	gid = "towngatenorth";
+	redstone_id = "towngatenorth"
 	},
 /turf/open/floor/metal/barograte,
 /area/rogue/outdoors/town)
@@ -32492,9 +32492,9 @@
 /obj/structure/fluff/wallclock,
 /obj/structure/winch{
 	dir = 1;
-	redstone_id = "towngatesouth";
-	name = "winch (south)";
-	gid = "towngatesouth"
+	redstone_id = "towngatenorth";
+	name = "winch (north)";
+	gid = "towngatenorth"
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
