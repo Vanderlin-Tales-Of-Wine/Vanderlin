@@ -359,9 +359,16 @@
 	lockid = "butcher"
 
 /obj/item/key/walls
+	name = "wall key"
 	desc = "This is a rusty key for the walls."
 	icon_state = "rustkey"
 	lockid = "walls"
+
+/obj/item/key/gatemaster
+	name = "gatemaster's key"
+	desc = "This well maintained key belongs to the master of the keep's gate."
+	icon_state = "rustkey"
+	lockid = "gatemaster"
 
 /obj/item/key/church
 	name = "church key"
