@@ -324,8 +324,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 
 /client/verb/fix_chat()
 	set name = "{FIX CHAT}"
-	set category = "Options"
-	set hidden = 1
+	set category = "OOC"
 	if(!check_rights(0))
 		return
 	if (!chatOutput || !istype(chatOutput))
