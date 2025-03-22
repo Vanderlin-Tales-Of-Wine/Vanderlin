@@ -325,8 +325,6 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 /client/verb/fix_chat()
 	set name = "{FIX CHAT}"
 	set category = "OOC"
-	if(!check_rights(0))
-		return
 	if (!chatOutput || !istype(chatOutput))
 		var/action = alert(src, "Invalid Chat Output data found!\nRecreate data?", "Wot?", "Recreate Chat Output data", "Cancel")
 		if (action != "Recreate Chat Output data")
