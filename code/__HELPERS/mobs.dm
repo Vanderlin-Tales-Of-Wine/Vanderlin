@@ -239,8 +239,9 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	if(!(timed_action_flags & IGNORE_USER_DOING) && user.doing())
 		return FALSE
 	/* :V */
-	if(!interaction_key && target)
-		interaction_key = target //Use the direct ref to the target
+
+	if(!interaction_key)
+		interaction_key = target || "doafter_unspecified" /* V */
 	if(interaction_key) //Do we have a interaction_key now?
 		var/current_interaction_count = LAZYACCESS(user.do_afters, interaction_key) || 0
 		if(current_interaction_count >= max_interact_count) //We are at our peak
@@ -249,7 +250,7 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
-	var/user_dir = user.dir /* V: */
+	var/user_dir = user.dir /* V */
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -303,7 +304,7 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	if(!QDELETED(progbar))
 		progbar.end_progress()
 
-	cog?.remove(.)
+	cog?.remove(.) /* V */
 
 	if(interaction_key)
 		var/reduced_interaction_count = (LAZYACCESS(user.do_afters, interaction_key) || 0) - 1
