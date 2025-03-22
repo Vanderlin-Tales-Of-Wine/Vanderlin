@@ -12,7 +12,7 @@
 	var/cleanspeed = 0.75 SECONDS
 	var/clean_effectiveness = 50
 	force_string = "robust... against filth"
-	var/uses = 50
+	var/uses = 100
 	var/slip_chance = 15
 
 /obj/item/soap/ComponentInitialize()
@@ -24,7 +24,21 @@
 				clean_effectiveness,
 				CALLBACK(src, PROC_REF(should_clean)),
 				CALLBACK(src, PROC_REF(on_clean_success)),
-				CALLBACK(src, PROC_REF(on_clean_ineffective)))
+				CALLBACK(src, PROC_REF(on_clean_ineffective)),
+				)
+
+/obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	if(isitem(atom_to_clean) && atom_to_clean.reagents && atom_to_clean.is_open_container())
+		return DO_NOT_CLEAN
+	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
+
+/obj/item/soap/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
+	if(clean_succeeded)
+		decreaseUses(user, 5)
+
+obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
+	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
+
 
 /obj/item/soap/examine(mob/user)
 	. = ..()
@@ -44,19 +58,6 @@
 			else
 				msg = "It's seen some light use, but it's still pretty fresh."
 	. += span_notice("[msg]")
-
-/obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
-	//catch for buckets, bottles, bins and what not
-	if(isitem(atom) && atom_to_clean.reagents && atom_to_clean.is_open_container())
-		return DO_NOT_CLEAN
-	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
-
-/obj/item/soap/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
-	if(clean_succeeded)
-		decreaseUses(user, 2)
-
-obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
-	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
 
 /**
  * Decrease the number of uses the bar of soap has.
@@ -101,13 +102,23 @@ obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
 			target.update_body()
 			return TRUE
 
-	var/turf/bathspot = get_turf(target)				// Checks for being in a bath and being undressed
-	if(!istype(bathspot, /turf/open/water/bath))
-		to_chat(user, span_warning("They must be in the bath water!"))
-		return FALSE
+
 	if(!ishuman(target))
 		to_chat(user, span_warning("They don't want to be soaped..."))
 		return FALSE
+
+	var/turf/T = get_turf(target)
+	if(!istype(T, /turf/open/water))
+		if(istype(T, /turf/open/lava) && user == target) //shits and giggles
+			to_chat(user, span_warning("Why am I doing this..."))
+		else
+			to_chat(user, span_warning("They must be in water!"))
+			return FALSE
+	else
+		var/turf/open/water/bathspot = T
+		if(!bathspot.wash_in)
+			to_chat(user, span_warning("I can't bathe in this..."))
+			return FALSE
 
 	if(istype(target.head, /obj/item/clothing) || istype(target.wear_armor, /obj/item/clothing) || istype(target.wear_shirt, /obj/item/clothing) || istype(target.cloak, /obj/item/clothing))
 		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
@@ -123,8 +134,9 @@ obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
 		return FALSE
 
 	user.visible_message("<span class='info'>[user] begins scrubbing [target] with the [src].</span>")
-	playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
+	playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 	if(do_after(user, 5 SECONDS, target))
+		playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 		scrub_scrub(target, user)
 		return TRUE
 	return FALSE
@@ -158,7 +170,7 @@ obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
 /obj/item/soap/bath
 	name = "herbal soap"
 	desc = "A soap made from various herbs."
-	uses = 30
+	uses = 40
 
 //Only get the buff if you use the good stuff
 /obj/item/soap/bath/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
