@@ -89,16 +89,16 @@
 	if(baited && reel && hook && line)
 		return ..()
 
-	if(istype(I, /obj/item/fishing/bait) || istype(I, /obj/item/natural/worms) || istype(I, /obj/item/natural/bundle/worms) || istype(I, /obj/item/reagent_containers/food/snacks))
+	if(istype(I, /obj/item/fishing/bait) || istype(I, /obj/item/natural/worms) || istype(I, /obj/item/bundle/worms) || istype(I, /obj/item/reagent_containers/food/snacks))
 		if(istype(I, /obj/item/fishing/bait) || istype(I, /obj/item/natural/worms))
 			if(!baited)
 				I.forceMove(src)
 				baited = I
 				user.visible_message("<span class='notice'>[user] hooks something to [src].</span>", "<span class='notice'>I hook [I] to [src].</span>")
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
-		else if(istype(I, /obj/item/natural/bundle/worms))
+		else if(istype(I, /obj/item/bundle/worms))
 			if(!baited)
-				var/obj/item/natural/bundle/worms/W = I
+				var/obj/item/bundle/worms/W = I
 				baited = new W.stacktype(src)
 				W.amount--
 				if(W.amount == 1)

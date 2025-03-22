@@ -143,6 +143,7 @@
 	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP
 	lumber_amount = 0
 	lumber = null
+	bundletype = /obj/item/bundle/stick
 
 /obj/item/grown/log/tree/stick/Crossed(mob/living/L)
 	. = ..()
@@ -170,8 +171,20 @@
 
 /obj/item/grown/log/tree/stick/attackby(obj/item/I, mob/living/user, params)
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I, /obj/item/natural/bundle/stick))
-		var/obj/item/natural/bundle/stick/B = I
+	if(user.used_intent?.blade_class == BCLASS_CUT)
+		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
+		if(do_after(user, 2 SECONDS))
+			user.visible_message("<span class='notice'>[user] sharpens [src].</span>")
+			var/obj/item/grown/log/tree/stake/S = new /obj/item/grown/log/tree/stake(get_turf(src.loc))
+			if(user.is_holding(src))
+				user.dropItemToGround(src)
+				user.put_in_hands(S)
+			qdel(src)
+		else
+			user.visible_message("<span class='warning'>[user] sharpens [src].</span>")
+		return
+	if(istype(I, /obj/item/bundle/stick))
+		var/obj/item/bundle/stick/B = I
 		if(B.amount < B.maxamount)
 			to_chat(user, span_notice("I add [src] to [B]."))
 			B.amount += 1
@@ -179,16 +192,6 @@
 			qdel(src)
 		return
 	return ..()
-
-/obj/item/grown/log/tree/stick/attack_right(mob/living/user)
-	. = ..()
-	var/obj/item/I = user.get_active_held_item()
-	if(istype(I, /obj/item/grown/log/tree/stick))
-		var/obj/item/natural/bundle/stick/F = new(src.loc)
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(F)
-		to_chat(user, "You collect the [F.stackname] into a bundle.")
 
 /obj/item/grown/log/tree/stake
 	name = "stake"
@@ -216,11 +219,11 @@
 	firefuel = 5 MINUTES
 	w_class = WEIGHT_CLASS_NORMAL
 	smeltresult = /obj/item/ash
-	bundletype = /obj/item/natural/bundle/plank
+	bundletype = /obj/item/bundle/plank
 
-/obj/item/natural/bundle/plank
+/obj/item/bundle/plank
 	name = "wooden planks"
-	icon_state = "planks1"
+	icon_state = "planks2"
 	possible_item_intents = list(/datum/intent/use)
 	desc = "Wooden planks bundled together for easy handling."
 	force = 0
@@ -232,10 +235,7 @@
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/wood/plank
 	stackname = "plank"
-	icon1 = "planks1"
-	icon1step = 5
-	icon2 = "planks2"
-	icon2step = 10
+	iconstatename = "planks"
 	smeltresult = /obj/item/ash
 
 /obj/item/grown/log/tree/small/essence

@@ -55,7 +55,7 @@
 			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/healthpot, /obj/item/reagent_containers/glass/bottle/healthpot, /obj/item/reagent_containers/glass/bottle/healthpot, /obj/item/reagent_containers/glass/bottle/manapot)
 			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		if("SILK")		// Travelling silk trader
-			backpack_contents = list(/obj/item/natural/bundle/silk = 2, /obj/item/natural/fur = 1, /obj/item/natural/bundle/fibers = 2, /obj/item/clothing/shirt/dress/silkdress, /obj/item/clothing/shirt/undershirt/puritan)
+			backpack_contents = list(/obj/item/bundle/silk = 2, /obj/item/natural/fur = 1, /obj/item/bundle/fibers = 2, /obj/item/clothing/shirt/dress/silkdress, /obj/item/clothing/shirt/undershirt/puritan)
 			H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		if("GEMS")		// Travelling high-end merchant
 			backpack_contents = list(/obj/item/gem/yellow, /obj/item/gem/yellow, /obj/item/gem/green, /obj/item/gem/green, /obj/item/gem/violet)
