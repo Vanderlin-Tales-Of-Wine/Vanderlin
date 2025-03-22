@@ -220,6 +220,8 @@
 							return
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
+						// if(start_T.z != end_T.z && (!(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND)))
+						// 	return
 						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY))
 							while(end_T.z > start_T.z)
 								end_T = GET_TURF_BELOW(end_T)
