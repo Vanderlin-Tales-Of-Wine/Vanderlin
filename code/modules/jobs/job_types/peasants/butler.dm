@@ -31,6 +31,12 @@
 	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
+/datum/job/butler/after_spawn(mob/living/H, mob/M, latejoin)
+	. = ..()
+	if(ishuman(H) && GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+
+
 /datum/outfit/job/butler/pre_equip(mob/living/carbon/human/H)
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
@@ -52,6 +58,8 @@
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_END, 1)
+		ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights

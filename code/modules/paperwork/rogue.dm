@@ -413,6 +413,16 @@
 	info += "</div>"
 
 
+/obj/item/paper/scroll/keep_plans
+	name = "Keep Architectural Drawings"
+	desc = "Paper etched with the floor plans for the entire keep."
+
+/obj/item/paper/scroll/keep_plans/read(mob/user)
+	to_chat(user, span_purple("<b>These look like secret passages...</b>"))
+	ADD_TRAIT(user, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	user.playsound_local(user, 'sound/misc/notice (2).ogg', 100, FALSE)
+
+
 /obj/item/paper/scroll/sold_manifest
 	name = "Shipping Manifest"
 	old_render = FALSE

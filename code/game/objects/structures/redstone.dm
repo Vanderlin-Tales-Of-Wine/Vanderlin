@@ -131,6 +131,9 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		toggled = !toggled
 		playsound(src, 'sound/foley/lever.ogg', 100, extrarange = 3)
 
+/obj/structure/lever/hidden/onkick(mob/user) // nice try
+	return FALSE
+
 /obj/structure/lever/wall/attack_hand(mob/user)
 	. = ..()
 	icon_state = "leverwall[toggled]"
