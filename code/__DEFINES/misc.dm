@@ -497,3 +497,4 @@ GLOBAL_LIST_INIT(pda_styles, sortList(list(MONO, VT, ORBITRON, SHARE)))
 /// Used to prevent important slowdowns from being abused by drugs like kronkaine
 #define IGNORE_SLOWDOWNS (1<<4)
 #define IGNORE_USER_DIR_CHANGE (1<<5)
+#define IGNORE_USER_DOING (1<<6)
