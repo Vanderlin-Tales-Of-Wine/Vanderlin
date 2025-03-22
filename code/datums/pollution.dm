@@ -71,7 +71,7 @@
 		if(!(pollutant.pollutant_flags & POLLUTANT_BREATHE_ACT))
 			continue
 		var/amount = pollutants[type]
-		pollutant.breathe_act(victim, amount)
+		pollutant.breathe_act(victim, amount, total_amount)
 
 /// When a user smells this pollution
 /datum/pollution/proc/smell_act(mob/living/sniffer)
@@ -119,7 +119,7 @@
 		qdel(src)
 		return
 	for(var/type in pollutants)
-		pollutants[type] -= amount_to_scrub * (pollutants[type] / total_amount)
+		pollutants[type] -= max(floor(amount_to_scrub * (pollutants[type] / total_amount)),1)
 	total_amount -= amount_to_scrub
 	update_height()
 	handle_overlay()
