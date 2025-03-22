@@ -53,8 +53,7 @@
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
 			headdy.icon_state = "skull"
-			headdy.headpricemi = 3 //N/A THIS SHIT DOESNT WORK, WHY, HAS I EVER?
-			headdy.headpricemax = 10
+			headdy.headprice = rand(3,10)
 	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
 	if(O)
 		O.drop_limb()

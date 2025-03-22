@@ -27,7 +27,7 @@
 	if(istype(H, /obj/item/paper) && (HAS_TRAIT(user, TRAIT_BURDEN)))
 		if(!user.transferItemToLoc(H, src))
 			return
-		to_chat(user, "<span class='notice'>I pin the [H] to the noticeboard.</span>")
+		to_chat(user, "<span class='notice'>I feed the [H] to the [src].</span>")
 	return ..()
 
 /obj/structure/fake_machine/hailer/interact(mob/user)
@@ -39,7 +39,7 @@
 	var/dat = "<B>[name]</B><BR>"
 	for(var/obj/item/H in src)
 		if(istype(H, /obj/item/paper))
-			dat += "<A href='byond://?src=[REF(src)];read=[REF(H)]'>[H.name]</A> [auth ? "<A href='byond://?src=[REF(src)];write=[REF(H)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(H)]'>Remove</A><A href='byond://?src=[REF(src)];rename=[REF(H)]'>Rename</A>": ""]<BR>"
+			dat += "<A href='byond://?src=[REF(src)];read=[REF(H)]'>[H.name]</A> [auth ? "<A href='byond://?src=[REF(src)];write=[REF(H)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(H)]'>Remove</A> <A href='byond://?src=[REF(src)];rename=[REF(H)]'>Rename</A>": ""]<BR>"
 		else
 			dat += "<A href='byond://?src=[REF(src)];read=[REF(H)]'>[H.name]</A> [auth ? "<A href='byond://?src=[REF(src)];remove=[REF(H)]'>Remove</A>" : ""]<BR>"
 	user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=HAILER")
@@ -75,11 +75,16 @@
 		if(istype(I) && I.loc == src)
 			usr.examinate(I)
 
-	if(href_list["rename"])
+	if(href_list["rename"]) //this doesnt even update the menu in real time, people are gonna think it aint workin' for sure, lol, lmao - the clown
 		var/obj/item/I = locate(href_list["rename"]) in contents
-		var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling", null, MAX_NAME_LEN)
-		if((loc == usr && usr.stat == CONSCIOUS))
-			I.name = "paper[(n_name ? text("- '[n_name]'") : null)]"
+		var/obj/item/P = usr.is_holding_item_of_type(/obj/item/natural/feather)
+		if(P)
+			if(istype(I) && I.loc == src)
+				add_fingerprint(usr)
+				var/n_name = stripped_input(usr, "give your notice a header!", "Paper Labelling", null, MAX_NAME_LEN)
+				I.name = "[(n_name ? text("- '[n_name]'") : null)]"
+				return
+		to_chat(usr, "<span class='warning'>You'll need something to write with!</span>")
 
 /obj/structure/fake_machine/hailerboard
 	name = "HAILER BOARD"
@@ -98,7 +103,7 @@
 	var/dat = "<B>[name]</B><BR>"
 	for(var/obj/item/H in SSroguemachine.hailer)
 		if(istype(H, /obj/item/paper))
-			dat += "<A href='byond://?src=[REF(src)];read=[REF(H)]'>[H.name]</A>]<BR>"
+			dat += "<A href='byond://?src=[REF(src)];read=[REF(H)]'>[H.name]</A><BR>"
 
 	user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=HAILER BOARD")
 	onclose(user, "HAILER BOARD")
@@ -107,5 +112,5 @@
 	..()
 	if(href_list["read"])
 		var/obj/item/I = locate(href_list["read"]) in SSroguemachine.hailer.contents
-		if(istype(I) && I.loc == src)
+		if(istype(I) && I.loc == SSroguemachine.hailer)
 			usr.examinate(I)

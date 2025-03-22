@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
-	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..." //N/A change this
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..." //N/A change this, this sucks
 	))
 
 // trait accessor defines

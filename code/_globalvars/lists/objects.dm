@@ -47,8 +47,6 @@ GLOBAL_LIST_INIT(rod_jobs, list(
 	"Hetman of Mount Decapitation",
 ))
 
-GLOBAL_VAR(ringstatue)
-
 /* COLORS */
 GLOBAL_LIST_INIT(peasant_dyes, list(
 	"Linen" = CLOTHING_LINEN,

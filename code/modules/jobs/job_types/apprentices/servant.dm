@@ -103,3 +103,16 @@
 	..()
 	if(H.mind)
 		neck = /obj/item/key/matron
+
+/datum/advclass/servant/gaffer_assistant
+	name = "Gaffer's Servant"
+	tutorial = "I maybe be easy to dismiss when compared to the usual guild member, but I'm still an asset here! loyal to not just the guild and Gaffer, but to whomever has the one ring. best to keep away from that thing too, it just screams \"cursed\""
+	outfit = /datum/outfit/job/servant/gaffer_assistant
+	maximum_possible_slots = 1
+
+	category_tags = list(CTAG_SERVANT)
+
+/datum/outfit/job/servant/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.mind)
+		neck = /obj/item/key/gaffer

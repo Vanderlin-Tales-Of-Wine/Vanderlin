@@ -252,19 +252,21 @@
 	icon_state = "ring_protection" //N/A change this
 	sellprice = 0
 
+/obj/item/clothing/ring/gold/burden/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, type)
+
 /obj/item/clothing/ring/gold/burden/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_BURDEN))
 		. += "An ancient ring made of pyrite amalgam, an engraved quote is hidden in the inner bridge; \"Heavy is the head that bows\"" //N/A change the quote its too fucking cheese
+		user.add_stress(/datum/stressevent/ring_madness)
 	else
 		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
 
 
-/obj/item/clothing/ring/gold/burden/attack_hand(mob/user) //N/A this is going to cause issues with offering the ring to people, lol, lmao
+/obj/item/clothing/ring/gold/burden/attack_hand(mob/user)
 	. = ..()
-	pick_up_maybe_this_fixes_it(user)
-
-/obj/item/clothing/ring/gold/burden/proc/pick_up_maybe_this_fixes_it(mob/user) //this prevents a runtime
 	if(!user.mind)
 		return
 
@@ -274,15 +276,13 @@
 	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "PICKED UP THE RING", "Yes", "No")
 	var/gaffed_time = world.time
 
-	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //N/A this is a cheap and bad fix that probably doesnt work
-		to_chat(user, span_danger("The ring slips from your trembling hands..."))
+	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //fix the double &&s this is ass
 		user.dropItemToGround(src, force = TRUE)
 		return
 
 	if((gaffed == "Yes") && user.is_holding(src))
-		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
-		//user.dropItemToGround(SLOT_RING) //N/A this is just a stand in for "remove the shit you have", doesnt actually work.
 		user.equip_to_slot_if_possible(src, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
 		return TRUE
 
 	else
@@ -298,13 +298,12 @@
 	if(user.ckey)
 		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
 		return
-	REMOVE_TRAIT (src, TRAIT_NODROP, type)
 	user.dropItemToGround(src, force = TRUE)
 
 /obj/item/clothing/ring/gold/burden/dropped(mob/user, slot)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 SECONDS)
-	REMOVE_TRAIT (user, TRAIT_BURDEN, "burdened")
+	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
 
 /obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
 	if(ismob(loc))
@@ -317,9 +316,11 @@
 	. = ..()
 	if(slot == SLOT_RING && istype(user))
 		ADD_TRAIT(user, TRAIT_BURDEN, type)
-		ADD_TRAIT(src, TRAIT_NODROP, type)
+		return
+	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first."))
+
 
 /obj/item/clothing/ring/gold/burden/Destroy()
-	var/obj/structure/fluff/statue/gaffer/ringstuff = GLOB.ringstatue
-	ringstuff.on_ring_death_it_dies_because_its_head_eater_cause_hes_magic()
+	SEND_GLOBAL_SIGNAL(src, COMSIG_GAFFER_RING_DESTROYED)
 	. = ..()
+

@@ -965,7 +965,7 @@
 
 /obj/item/rogueweapon/sword/long/replica/examine(mob/user)
 	. = ..()
-	if(user.job == "Gaffer")
+	if(user.mind.assigned_role == "Gaffer")
 		. += "A useless vanity piece I commissioned after retiring my bow, unusable in battle, but light enough to forget its on your back" //N/A
 	else
 		. += "A hollow replica of the usual longsword design presumebly made for showsake, useless in real battle"

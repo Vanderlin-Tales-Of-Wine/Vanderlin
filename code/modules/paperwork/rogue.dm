@@ -327,7 +327,7 @@
 			if(user.mind.assigned_role != "Gaffer")
 				to_chat(user, "<span class='warning'>This is incomprehensible.</span>")
 				return
-			if(user.mind.assigned_role == "Gaffer")
+			if(user.mind.assigned_role == "Gaffer") //this is signed by the Gaffer instead of people with the ring since the token gives triumphs and not just everyone should be trusted with that
 				signee = user.real_name
 				signeejob = user.mind.assigned_role
 				visible_message("<span class='warning'>[user] writes their name down on the token.</span>")

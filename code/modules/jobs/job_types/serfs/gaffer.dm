@@ -3,16 +3,19 @@
 	flag = GAFFER
 	department_flag = SERFS
 	faction = "Station"
-	total_positions = 0
+	total_positions = 1
 	spawn_positions = 1
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes, it makes it feel more like "it could've been anyone, but you got me"
+	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes,
+	//it makes it feel more like "it could've been anyone, but you got me"
+	//having said that I am gate keeping the moment felinids are in the damn game
+	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL) //AGE_OLD with the ring on? I say unlikely - clown
 	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen\
-	 as the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two\
-	 things: administrative work, and feeding the monstrous Head Eater. Act as the\
-	 Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters\
-	 or bandits. For the Head Eater hungers..."
+	as the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two\
+	things: administrative work, and feeding the monstrous Head Eater. Act as the\
+	Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters\
+	or bandits. For the Head Eater hungers..."
 
 	display_order = JDO_GAFFER
 	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg' //N/A don't forget to credit @mechadh for this in the PR
@@ -78,5 +81,5 @@
 	recruitment_faction = "Mercenaries"
 	recruitment_message = "Hey, %RECRUIT, you ever considered going full time?"
 	accept_message = "For coin and glory!"
-	refuse_message = "Please fuck off." //N/A change this
+	refuse_message = "I refuse."
 	charge_max = 100

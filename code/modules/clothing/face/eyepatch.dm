@@ -22,5 +22,6 @@
 	max_integrity = 20
 	integrity_failure = 0.5
 	body_parts_covered = RIGHT_EYE
+	block2add = FALSE
 	resistance_flags = FLAMMABLE
 	salvage_amount = 1

@@ -71,24 +71,7 @@
 	desc = "from a cabbit."
 	icon_state = "wool2"
 
-
 /obj/item/natural/head
-	var/headprice = 0
-	var/headpricemi
-	var/headpricemax
-	var/statichead_price = FALSE
-
-/obj/item/natural/head/Initialize()
-	. = ..()
-	if(!statichead_price)
-		return
-
-	headprice = rand(headpricemi, headpricemax)
-
-/obj/item/natural/head/examine(mob/user)
-	. = ..()
-	if(headprice > 0 && (HAS_TRAIT(user, TRAIT_BURDEN)))
-		. += "<span class='info'>Value: [headprice] would be paid for this head</span>"
 
 /obj/item/natural/head/volf
 	name = "volf head"
@@ -108,8 +91,6 @@
 	grid_height = 64
 	grid_width = 64
 	headprice = 3
-
-//N/A set the size for these before ship and add headeater sell mount
 
 /obj/item/natural/head/troll
 	name = "troll head"

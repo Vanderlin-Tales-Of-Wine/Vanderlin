@@ -104,3 +104,13 @@
 	stolen_painting = /obj/item/painting/crown
 
 /obj/structure/fluff/walldeco/painting/lorehead1 //N/A actually make these
+	desc = "lol1."
+	icon_state = "crownpainting_deployed"
+	stolen_painting = /obj/item/painting/lorehead/one
+
+/obj/item/painting/lorehead/one
+	icon_state = "crownpainting"
+	desc = "lol1."
+	sellprice = 40
+	headprice = 5
+	deployed_structure = /obj/structure/fluff/walldeco/painting/crown

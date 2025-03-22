@@ -221,8 +221,7 @@
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.headpricemi = 7 //N/A THIS SHIT DOESNT WORK, WHY, HAS I EVER?
-			headdy.headpricemax = 20
+			headdy.headprice = rand(7,20)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)
