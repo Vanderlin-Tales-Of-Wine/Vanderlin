@@ -140,6 +140,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 		color2use = "#[color2use]"
 	var/chat_color = "#c5c5c5"
 	var/msg_to_send = ""
+	var/admin_message_color = prefs.ooccolor
 
 	for(var/client/C in GLOB.clients)
 		var/real_key = C.holder ? "([key])" : ""
@@ -150,7 +151,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 
 			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
 			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
+				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[admin_message_color ? admin_message_color : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
 
 			to_chat(C, msg_to_send)
 
@@ -187,7 +188,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 // OOC colors require a refactoring
 
 /client/proc/set_ooc(newColor as color)
-	set name = "Set Default Admin OOC Color"
+	set name = "Set Default OOC Color"
 	set desc = ""
 	set category = "Fun"
 	set hidden = FALSE
@@ -198,15 +199,15 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 		return
 
 /client/proc/reset_ooc()
-	set name = "Reset Default Admin OOC Color"
+	set name = "Reset Default OOC Color"
 	set desc = ""
 	set category = "Fun"
 	set hidden = FALSE
 	if(!holder)
 		return
-	GLOB.OOC_COLOR = GLOB.normal_ooc_colour
 	if(!check_rights(0))
 		return
+	GLOB.OOC_COLOR = GLOB.normal_ooc_colour
 
 //Checks admin notice
 /client/verb/admin_notice()
