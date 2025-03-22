@@ -132,7 +132,9 @@
 	///the maximum amount of apprentices that the owner can have
 	var/max_apprentices = 1
 	///if this is set its the name bestowed to the new apprentice otherwise its just name the [job_name] apprentice.
-	var/apprentice_name //this is unused?
+	var/apprentice_name
+	///do we magic?
+	var/magic_user = FALSE
 
 
 /datum/job/New()
@@ -168,6 +170,10 @@
 /datum/job/proc/after_spawn(mob/living/spawned, client/player_client)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_SPAWN, src, spawned, player_client)
+
+	if(magic_user)
+		spawned.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+
 	for(var/trait in mind_traits)
 		ADD_TRAIT(spawned.mind, trait, JOB_TRAIT)
 

@@ -199,13 +199,24 @@
 			if(P.facepull)
 				mob.setDir(turn(mob.dir, 180))
 	if(mob.used_intent?.movement_interrupt && mob.atkswinging == "left" && charging)
-		to_chat(src, "<span class='warning'>I lost my concentration!</span>")
-		mob.stop_attack(FALSE)
-		mob.changeNext_move(CLICK_CD_MELEE)
+		if(mob.cast_move < mob.used_intent?.move_limit)
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
+			mob.cast_move++
+		else
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
+			mob.stop_attack(FALSE)
+			mob.changeNext_move(CLICK_CD_MELEE)
+			mob.cast_move = 0
 	if(mob.mmb_intent?.movement_interrupt && mob.atkswinging == "middle" && charging)
-		to_chat(src, "<span class='warning'>I lost my concentration!</span>")
-		mob.stop_attack(FALSE)
-		mob.changeNext_move(CLICK_CD_MELEE)
+		if(mob.cast_move < mob.used_intent?.move_limit)
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
+			mob.cast_move++
+		else
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
+			mob.stop_attack(FALSE)
+			mob.changeNext_move(CLICK_CD_MELEE)
+			mob.cast_move = 0
+
 /**
  * Checks to see if you're being grabbed and if so attempts to break it
  *
@@ -231,6 +242,12 @@
 //			return mob.resist_grab(1)
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
+			return TRUE
+	var/mob/living/simple_animal/bound = mob.pulling
+	if(istype(bound))
+		if(bound?.binded)
+			move_delay = world.time + 10
+			to_chat(src, span_warning("[bound] is bound in a summoning circle. I can't move them!"))
 			return TRUE
 
 /**

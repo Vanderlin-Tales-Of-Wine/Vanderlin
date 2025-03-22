@@ -15,7 +15,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 	outfit = /datum/outfit/job/adventurer/masterchef
 

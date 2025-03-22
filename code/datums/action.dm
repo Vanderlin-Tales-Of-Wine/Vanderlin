@@ -30,6 +30,9 @@
 	if(desc)
 		button.desc = desc
 
+/datum/action/proc/get_owner()
+	return owner
+
 /datum/action/proc/link_to(Target)
 	target = Target
 
@@ -321,6 +324,8 @@
 		return FALSE
 	if(target)
 		var/obj/effect/proc_holder/S = target
+		if(owner.ranged_ability && S != owner.ranged_ability)
+			owner.ranged_ability.deactivate(owner)
 		S.Click()
 		return TRUE
 
@@ -405,6 +410,14 @@
 		if(next_use_time > world.time)
 			START_PROCESSING(SSfastprocess, src)
 
+/// Intercepts client owner clicks to activate the ability
+/datum/action/cooldown/proc/InterceptClickOn(mob/living/user, params, atom/target)
+	if(!IsAvailable())
+		return FALSE
+	if(!target)
+		return FALSE
+
+	return TRUE
 
 /datum/action/language_menu
 	name = "Language Menu"

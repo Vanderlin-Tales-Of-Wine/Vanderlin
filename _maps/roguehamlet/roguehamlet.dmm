@@ -19912,9 +19912,6 @@
 /obj/item/book/nitebeast,
 /obj/item/book/tales1,
 /obj/item/book/granter/spell/smoke,
-/obj/item/book/mimery{
-	name = "The Way of Silence"
-	},
 /obj/item/book/tales3,
 /obj/item/book/arcyne,
 /obj/item/book/magicaltheory,

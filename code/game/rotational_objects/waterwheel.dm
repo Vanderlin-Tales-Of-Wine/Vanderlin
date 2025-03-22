@@ -8,6 +8,7 @@
 	layer = 5
 	stress_generator = TRUE
 	rotation_structure = TRUE
+	directional = FALSE
 
 /obj/structure/waterwheel/LateInitialize()
 	. = ..()
@@ -19,7 +20,7 @@
 		set_stress_generation(1024)
 
 /obj/structure/waterwheel/update_animation_effect()
-	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute)
+	if(!rotation_network || rotation_network?.overstressed || !rotations_per_minute || !rotation_network?.total_stress)
 		animate(src, icon_state = "1", time = 1)
 		return
 	var/frame_stage = 1 / ((rotations_per_minute / 60) * 4)

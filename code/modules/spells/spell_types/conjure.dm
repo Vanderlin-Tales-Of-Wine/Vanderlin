@@ -43,6 +43,7 @@
 				QDEL_IN(summoned_object, summon_lifespan)
 
 			post_summon(summoned_object, user)
+	return TRUE
 
 /obj/effect/proc_holder/spell/aoe_turf/conjure/proc/post_summon(atom/summoned_object, mob/user)
 	return
@@ -53,11 +54,10 @@
 	invocation_type = "none"
 	include_user = TRUE
 	range = -1
-	clothes_req = FALSE
 	var/obj/item/item
 	var/item_type = /obj/item/banhammer
 	school = "conjuration"
-	charge_max = 150
+	recharge_time = 150
 	cooldown_min = 10
 	var/delete_old = TRUE //TRUE to delete the last summoned object if it's still there, FALSE for infinite item stream weeeee
 

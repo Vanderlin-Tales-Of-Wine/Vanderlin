@@ -23,6 +23,10 @@
 	var/plural_name
 	var/rigged_outcome = 0 //1 for heads, 2 for tails
 
+/obj/item/coin/on_consume(mob/living/eater)
+	. = ..()
+	eater.sellprice += quantity * sellprice
+
 /obj/item/coin/Initialize(mapload, coin_amount)
 	. = ..()
 	if(coin_amount >= 1)

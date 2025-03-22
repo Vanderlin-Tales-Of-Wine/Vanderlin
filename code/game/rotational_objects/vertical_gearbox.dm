@@ -11,7 +11,7 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if(direction != dir && direction != GLOB.reverse_dir[dir])
+			if(direction != dir && direction != GLOB.reverse_dir[dir] && !istype(structure, /obj/structure/minecart_rail))
 				continue
 			if(structure.rotation_network)
 				if(rotation_network)
@@ -53,7 +53,7 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if(direction != dir && direction != GLOB.reverse_dir[dir])
+			if(direction != dir && direction != GLOB.reverse_dir[dir]  && !istype(structure, /obj/structure/minecart_rail))
 				continue
 			if(!(structure in network.connected))
 				continue

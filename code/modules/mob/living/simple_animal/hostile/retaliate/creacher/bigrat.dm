@@ -54,6 +54,26 @@
 	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/big_rat
 
+	food_type = list(
+		/obj/item/reagent_containers/food/snacks/cheddarslice,
+		/obj/item/reagent_containers/food/snacks/cheese_wedge,
+		/obj/item/reagent_containers/food/snacks/cheddar,
+		/obj/item/reagent_containers/food/snacks/cheese,
+	)
+	tame_chance = 25
+	bonus_tame_chance = 15
+
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy,
+		/datum/pet_command/follow/wolf,
+		/datum/pet_command/point_targeting/attack,
+		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+	)
+
 /obj/effect/decal/remains/bigrat
 	name = "remains"
 	gender = PLURAL
@@ -64,6 +84,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
 	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE
 	if(prob(33))

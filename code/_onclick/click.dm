@@ -115,15 +115,16 @@
 			used_hand = 2
 			if(next_rmove > world.time)
 				return
-		if(used_intent.get_chargetime())
-			if(used_intent.no_early_release && client?.chargedprog < 100)
-				var/adf = used_intent.clickcd
-				if(istype(rmb_intent, /datum/rmb_intent/aimed))
-					adf = round(adf * 1.4)
-				if(istype(rmb_intent, /datum/rmb_intent/swift))
-					adf = round(adf * 0.6)
-				changeNext_move(adf,used_hand)
-				return
+		if(uses_intents)
+			if(used_intent?.get_chargetime())
+				if(used_intent.no_early_release && client?.chargedprog < 100)
+					var/adf = used_intent.clickcd
+					if(istype(rmb_intent, /datum/rmb_intent/aimed))
+						adf = round(adf * 1.4)
+					if(istype(rmb_intent, /datum/rmb_intent/swift))
+						adf = round(adf * 0.6)
+					changeNext_move(adf,used_hand)
+					return
 	if(modifiers["right"])
 		if(oactive)
 			if(atkswinging != "right")
@@ -169,12 +170,12 @@
 	if(modifiers["shift"])
 		ShiftClickOn(A)
 		return
-//	if(modifiers["alt"]) // alt and alt-gr (rightalt)
-//		AltClickOn(A)
-//		return
-//	if(modifiers["ctrl"])
-//		CtrlClickOn(A)
-//		return
+	if(modifiers["alt"]) // alt and alt-gr (rightalt)
+		AltClickOn(A)
+		return
+	if(modifiers["ctrl"])
+		CtrlClickOn(A)
+		return
 	if(modifiers["right"])
 		testing("right")
 		if(!oactive)
@@ -543,6 +544,7 @@
 	if(atomy[AB].loc != src)
 		return
 	var/AE = atomy[AB]
+	user.cast_move = 0
 	user.used_intent = user.a_intent
 	user.UnarmedAttack(AE,1,params)
 
@@ -592,6 +594,7 @@
 	. = SEND_SIGNAL(src, COMSIG_MOB_ALTCLICKON, A)
 	if(. & COMSIG_MOB_CANCEL_CLICKON)
 		return
+	A.AltClick(src)
 
 /atom/proc/AltClick(mob/user)
 	SEND_SIGNAL(src, COMSIG_CLICK_ALT, user)
@@ -798,7 +801,7 @@
 			A.rmb_self(src)
 		else
 			rmb_on(A, params)
-	else if(used_intent.rmb_ranged)
+	else if(uses_intents && used_intent.rmb_ranged)
 		used_intent.rmb_ranged(A, src) //get the message from the intent
 	if(isturf(A.loc))
 		face_atom(A)

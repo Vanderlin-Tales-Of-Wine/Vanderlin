@@ -331,3 +331,6 @@
 	var/list/traumas = get_traumas_type(resilience = resilience)
 	for(var/X in traumas)
 		qdel(X)
+
+/obj/item/organ/brain/smooth
+	icon_state = "brain-smooth"

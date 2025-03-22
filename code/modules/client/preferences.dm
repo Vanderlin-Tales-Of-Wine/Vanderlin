@@ -1729,7 +1729,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/species/bla = GLOB.species_list[A]
 						bla = new bla()
 						if(user.client)
-							if(bla.patreon_req > user.client.patreonlevel())
+							if(bla.patreon_req && !user.client.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 								continue
 						else
 							continue

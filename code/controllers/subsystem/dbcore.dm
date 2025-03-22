@@ -15,6 +15,8 @@ SUBSYSTEM_DEF(dbcore)
 	var/list/active_queries = list()
 
 	var/connection  // Arbitrary handle returned from rust_g.
+	var/connection_cross   // Arbitrary handle returned from rust_g.
+	var/shutting_down = FALSE
 
 /datum/controller/subsystem/dbcore/Initialize()
 	//We send warnings to the admins during subsystem init, as the clients will be New'd and messages
@@ -39,8 +41,10 @@ SUBSYSTEM_DEF(dbcore)
 
 /datum/controller/subsystem/dbcore/Recover()
 	connection = SSdbcore.connection
+	connection_cross = SSdbcore.connection_cross
 
 /datum/controller/subsystem/dbcore/Shutdown()
+	shutting_down = TRUE
 	//This is as close as we can get to the true round end before Disconnect() without changing where it's called, defeating the reason this is a subsystem
 	if(SSdbcore.Connect())
 		var/datum/DBQuery/query_round_shutdown = SSdbcore.NewQuery(
@@ -51,6 +55,8 @@ SUBSYSTEM_DEF(dbcore)
 		qdel(query_round_shutdown)
 	if(IsConnected())
 		Disconnect()
+	if(IsConnectedCross())
+		DisconnectCross()
 
 //nu
 /datum/controller/subsystem/dbcore/can_vv_get(var_name)
@@ -101,6 +107,48 @@ SUBSYSTEM_DEF(dbcore)
 		connection = null
 		last_error = result["data"]
 		log_sql("Connect() failed | [last_error]")
+		++failed_connections
+
+/datum/controller/subsystem/dbcore/proc/Connect_Cross()
+	if(IsConnectedCross())
+		return TRUE
+
+	if(failed_connection_timeout <= world.time) //it's been more than 5 seconds since we failed to connect, reset the counter
+		failed_connections = 0
+
+	if(failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to connect for 5 seconds.
+		failed_connection_timeout = world.time + 50
+		return FALSE
+
+	if(!CONFIG_GET(flag/sql_enabled))
+		return FALSE
+
+	var/user = CONFIG_GET(string/feedback_login)
+	var/pass = CONFIG_GET(string/feedback_password)
+	var/db = "monkestation"
+	var/address = CONFIG_GET(string/address)
+	var/port = CONFIG_GET(number/port)
+	var/timeout = max(CONFIG_GET(number/async_query_timeout), CONFIG_GET(number/blocking_query_timeout))
+	var/thread_limit = CONFIG_GET(number/bsql_thread_limit)
+
+	var/result = json_decode(rustg_sql_connect_pool(json_encode(list(
+		"host" = address,
+		"port" = port,
+		"user" = user,
+		"pass" = pass,
+		"db_name" = db,
+		"max_threads" = 5,
+		"read_timeout" = timeout,
+		"write_timeout" = timeout,
+		"max_threads" = thread_limit,
+	))))
+	. = (result["status"] == "ok")
+	if (.)
+		connection_cross = result["handle"]
+	else
+		connection_cross = null
+		last_error = result["data"]
+		log_sql("Connect_Cross() failed | [last_error]")
 		++failed_connections
 
 /datum/controller/subsystem/dbcore/proc/CheckSchemaVersion()
@@ -161,6 +209,19 @@ SUBSYSTEM_DEF(dbcore)
 		rustg_sql_disconnect_pool(connection)
 	connection = null
 
+/datum/controller/subsystem/dbcore/proc/DisconnectCross()
+	failed_connections = 0
+	if (connection_cross)
+		rustg_sql_disconnect_pool(connection_cross)
+	connection_cross = null
+
+/datum/controller/subsystem/dbcore/proc/IsConnectedCross()
+	if (!CONFIG_GET(flag/sql_enabled))
+		return FALSE
+	if (!connection_cross)
+		return FALSE
+	return json_decode(rustg_sql_connected(connection_cross))["status"] == "online"
+
 /datum/controller/subsystem/dbcore/proc/IsConnected()
 	if (!CONFIG_GET(flag/sql_enabled))
 		return FALSE
@@ -176,12 +237,11 @@ SUBSYSTEM_DEF(dbcore)
 /datum/controller/subsystem/dbcore/proc/ReportError(error)
 	last_error = error
 
-/datum/controller/subsystem/dbcore/proc/NewQuery(sql_query, arguments)
-	if(IsAdminAdvancedProcCall())
-		log_admin_private("ERROR: Advanced admin proc call led to sql query: [sql_query]. Query has been blocked")
-		message_admins("ERROR: Advanced admin proc call led to sql query. Query has been blocked")
-		return FALSE
-	return new /datum/DBQuery(connection, sql_query, arguments)
+/datum/controller/subsystem/dbcore/proc/NewQuery(sql_query, arguments, db)
+	if(!db)
+		return new /datum/DBQuery(connection, sql_query, arguments)
+	else
+		return new /datum/DBQuery(connection_cross, sql_query, arguments)
 
 /datum/controller/subsystem/dbcore/proc/QuerySelect(list/querys, warn = FALSE, qdel = FALSE)
 	if (!islist(querys))
@@ -202,6 +262,22 @@ SUBSYSTEM_DEF(dbcore)
 		if (qdel)
 			qdel(query)
 
+/**
+ * Creates and executes a query without waiting for or tracking the results.
+ * Query is executed asynchronously (without blocking) and deleted afterwards - any results or errors are discarded.
+ *
+ * Arguments:
+ * * sql_query - The SQL query string to execute
+ * * arguments - List of arguments to pass to the query for parameter binding
+ * * allow_during_shutdown - If TRUE, allows query to be created during subsystem shutdown. Generally, only cleanup queries should set this.
+ */
+/datum/controller/subsystem/dbcore/proc/FireAndForget(sql_query, arguments, allow_during_shutdown = FALSE)
+	var/datum/DBQuery/query = NewQuery(sql_query, arguments, allow_during_shutdown)
+	if(!query)
+		return
+	ASYNC
+		query.Execute()
+		qdel(query)
 
 /*
 Takes a list of rows (each row being an associated list of column => value) and inserts them via a single mass query.

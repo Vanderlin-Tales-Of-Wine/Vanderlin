@@ -884,3 +884,6 @@ GLOBAL_LIST_INIT(binary, list("0","1"))
 		return json_decode(data)
 	catch
 		return
+
+/proc/remove_all_spaces(text)
+	return replacetext_char(text, " ", "")

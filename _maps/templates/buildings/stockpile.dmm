@@ -1,0 +1,109 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/mineral/bedrock,
+/area/template_noop)
+"f" = (
+/obj/machinery/light/fueled/firebowl/church,
+/obj/effect/decal/cobbleedge/alt{
+	dir = 6
+	},
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"r" = (
+/obj/effect/building_node/stockpile,
+/turf/open/floor/cobble/alt,
+/area/template_noop)
+"t" = (
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"v" = (
+/turf/open/floor/blocks,
+/area/template_noop)
+"z" = (
+/turf/open/floor/cobble/alt,
+/area/template_noop)
+"H" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 4
+	},
+/turf/open/floor/dirt,
+/area/template_noop)
+"N" = (
+/turf/open/floor/dirt,
+/area/template_noop)
+"Q" = (
+/obj/structure/closet/crate/chest/wicker{
+	pixel_y = -3;
+	pixel_x = -6
+	},
+/turf/open/floor/blocks,
+/area/template_noop)
+"R" = (
+/obj/structure/closet/crate/crafted_closet/inn/chest,
+/obj/structure/closet/crate/crafted_closet/inn/chest{
+	pixel_y = 10
+	},
+/turf/open/floor/dirt,
+/area/template_noop)
+"S" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 10
+	},
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"U" = (
+/obj/effect/decal/cobbleedge/alt{
+	dir = 4
+	},
+/turf/open/floor/cobblerock,
+/area/template_noop)
+"V" = (
+/obj/structure/fermentation_keg{
+	layer = 2.8
+	},
+/obj/structure/fermentation_keg{
+	pixel_x = 16;
+	pixel_y = -8
+	},
+/obj/structure/fermentation_keg{
+	pixel_y = -16;
+	layer = 3
+	},
+/turf/open/floor/dirt,
+/area/template_noop)
+
+(1,1,1) = {"
+V
+t
+z
+S
+N
+"}
+(2,1,1) = {"
+t
+N
+z
+f
+N
+"}
+(3,1,1) = {"
+v
+z
+r
+R
+a
+"}
+(4,1,1) = {"
+t
+z
+H
+a
+a
+"}
+(5,1,1) = {"
+a
+U
+v
+z
+Q
+"}

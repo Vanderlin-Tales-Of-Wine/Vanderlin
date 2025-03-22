@@ -19234,9 +19234,6 @@
 /obj/item/book/granter/spell/smoke,
 /obj/item/book/granter/spell/knock,
 /obj/item/book/granter/spell/forcewall,
-/obj/item/book/mimery{
-	name = "The Way of Silence"
-	},
 /obj/item/book/tales3,
 /obj/item/book/arcyne,
 /turf/open/floor/tile,

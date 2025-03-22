@@ -56,6 +56,28 @@
 	taste_description = "green tea"
 
 
+
+/datum/reagent/medicine/soporpot
+	name = "Soporific Poison"
+	description = "Weakens those it enters."
+	reagent_state = LIQUID
+	color = "#fcefa8"
+	taste_description = "drowsyness"
+	overdose_threshold = 0
+	metabolization_rate = 1 * REAGENTS_METABOLISM
+	alpha = 225
+
+/datum/reagent/medicine/soporpot/on_mob_life(mob/living/carbon/M)
+	M.confused += 1
+	M.dizziness += 1
+	M.adjust_energy(-25)
+	if(M.stamina > 75)
+		M.drowsyness += 2
+	else
+		M.adjust_stamina(15)
+	..()
+	. = 1
+
 /datum/reagent/toxin/venom
 	name = "Venom"
 	description = "An exotic poison extracted from highly toxic fauna. Causes scaling amounts of toxin damage and bruising depending and dosage. Often decays into Histamine."
@@ -165,3 +187,31 @@
 		return
 	reac_volume = round(reac_volume,0.1)
 	T.acid_act(acidpwr, reac_volume)
+
+/datum/reagent/toxin/manabloom_juice
+	name = "Manabloom Juice"
+	description = "A potent mana regeneration extract, it however has the issue of stopping your bodies ability to naturally disperse mana."
+	glows = TRUE
+	color = "#6eb9e4"
+	taste_description = "flowers"
+	metabolization_rate = 0.1 //this shit will kill you
+
+/datum/reagent/toxin/manabloom_juice/on_mob_metabolize(mob/living/L)
+	. = ..()
+	if(!L.mana_pool)
+		return
+
+	L.mana_pool.halt_mana_disperse("manabloom")
+
+/datum/reagent/toxin/manabloom_juice/on_mob_life(mob/living/carbon/M)
+	. = ..()
+	if(!M.mana_pool)
+		return
+	M.mana_pool.adjust_mana(volume)
+
+/datum/reagent/toxin/manabloom_juice/on_mob_end_metabolize(mob/living/L)
+	. = ..()
+	if(!L.mana_pool)
+		return
+
+	L.mana_pool.restore_mana_disperse("manabloom")

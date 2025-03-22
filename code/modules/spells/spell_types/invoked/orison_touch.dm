@@ -4,7 +4,6 @@
 	name = "Orison"
 	overlay_state = "thaumaturgy"
 	desc = "The basic precept of holy magic orients around the power of prayer and soliciting a Divine Patron for a tiny sliver of Their might."
-	clothes_req = FALSE
 	drawmessage = "I calm my mind and prepare to draw upon an orison."
 	dropmessage = "I return my mind to the now."
 	school = "transmutation"

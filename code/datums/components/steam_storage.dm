@@ -25,7 +25,11 @@
 
 	RegisterSignal(parent, COMSIG_ATOM_STEAM_USE, PROC_REF(try_use_steam))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(register_usage))
-	RegisterSignal(parent, COMSIG_ATOM_STEAM_USE, PROC_REF(try_increase_steam))
+	RegisterSignal(parent, COMSIG_ATOM_STEAM_INCREASE, PROC_REF(try_increase_steam))
+	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+
+/datum/component/steam_storage/proc/on_examine(datum/source, mob/user, list/examine_list)
+	examine_list += "The steam gauge reads around [(current_steam / maximum_steam) * 100]% filled."
 
 /datum/component/steam_storage/proc/try_use_steam(atom/source, amount_used, id)
 	if((!id && tank_id) && source != parent)
@@ -38,7 +42,7 @@
 	return TRUE
 
 /datum/component/steam_storage/proc/try_proxy_use_steam(mob/proxy, atom/source, amount_used, id)
-	if((!id && tank_id) && source != parent)
+	if(tank_id && id != tank_id)
 		return FALSE
 
 	if(amount_used > current_steam)

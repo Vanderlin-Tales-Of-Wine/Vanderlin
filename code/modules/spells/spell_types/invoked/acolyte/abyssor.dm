@@ -16,7 +16,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	miracle = TRUE
-	charge_max = 15 SECONDS
+	recharge_time = 15 SECONDS
 	devotion_cost = 40
 
 /obj/item/reagent_containers/food/snacks/fish/swordfish
@@ -62,7 +62,7 @@
 /obj/effect/proc_holder/spell/self/summon_trident
 	name = "Summon Trident"
 	overlay_state = "lightning"
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 	req_items = list(/obj/item/clothing/neck/psycross/silver/abyssor)
 	invocation = "Let Abyssor's wrath be known."
 	invocation_type = "shout"
@@ -201,7 +201,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 20 SECONDS
+	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 50
 

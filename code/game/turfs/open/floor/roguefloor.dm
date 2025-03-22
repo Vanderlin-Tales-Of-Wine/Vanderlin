@@ -309,6 +309,9 @@
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/grass,
 						/turf/open/floor/snow)
+
+	spread_chance = 8
+
 	neighborlay = "dirtedge"
 	var/muddy = FALSE
 	var/bloodiness = 20
@@ -637,6 +640,9 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	icon = 'icons/turf/greenstone.dmi'
+
+/turf/open/floor/greenstone/runed
+	icon_state = "greenstoneruned"
 
 /turf/open/floor/hexstone
 	icon_state = "hexstone"

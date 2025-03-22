@@ -447,6 +447,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 
 	new /obj/effect/temp_visual/point(src,invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 
 	return TRUE
 
@@ -467,6 +468,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	var/turf/our_tile = get_turf(src)
 	var/obj/visual = new /obj/effect/temp_visual/point/still(our_tile, invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 2, easing = EASE_OUT)
 
 	lastpoint = world.time
@@ -793,26 +795,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 					continue
 				statpanel(listed_turf.name, null, A)
 
-
-//	if(mind)
-//		add_spells_to_statpanel(mind.spell_list)
-//	add_spells_to_statpanel(mob_spell_list)
-
-/**
- * Convert a list of spells into a displyable list for the statpanel
- *
- * Shows charge and other important info
- */
-/mob/proc/add_spells_to_statpanel(list/spells)
-	for(var/obj/effect/proc_holder/spell/S in spells)
-		if(S.can_be_cast_by(src))
-			switch(S.charge_type)
-				if("recharge")
-					statpanel("[S.panel]","[S.charge_counter/10.0]/[S.charge_max/10]",S)
-				if("charges")
-					statpanel("[S.panel]","[S.charge_counter]/[S.charge_max]",S)
-				if("holdervar")
-					statpanel("[S.panel]","[S.holder_var_type] [S.holder_var_amount]",S)
 
 #define MOB_FACE_DIRECTION_DELAY 1
 

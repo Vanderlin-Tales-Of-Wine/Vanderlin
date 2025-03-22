@@ -27,8 +27,8 @@
 	for(var/new_blood in blood_DNA_to_add)
 		var/datum/blood_type/blood = GLOB.blood_types[blood_DNA_to_add[new_blood]]
 		blood?.set_up_blood(src, first_dna == 0)
-		var/datum/reagent/blood_reagent = blood.reagent_type
-		if(initial(blood_reagent.glows))
+		var/datum/reagent/blood_reagent = blood?.reagent_type
+		if(initial(blood_reagent?.glows))
 			glows = TRUE
 
 	update_icon()

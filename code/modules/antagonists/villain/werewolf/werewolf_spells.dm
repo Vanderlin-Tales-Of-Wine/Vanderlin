@@ -3,7 +3,7 @@
 	desc = "!"
 	overlay_state = "howl"
 	antimagic_allowed = TRUE
-	charge_max = 600 //1 minute
+	recharge_time = 600 //1 minute
 	ignore_cockblock = TRUE
 	var/use_language = FALSE
 
@@ -39,7 +39,7 @@
 	desc = "!"
 	overlay_state = "claws"
 	antimagic_allowed = TRUE
-	charge_max = 20 //2 seconds
+	recharge_time = 20 //2 seconds
 	ignore_cockblock = TRUE
 	var/extended = FALSE
 

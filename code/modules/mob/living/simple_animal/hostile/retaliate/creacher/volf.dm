@@ -64,6 +64,16 @@
 	AIStatus = AI_OFF
 	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/volf
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy/wolf,
+		/datum/pet_command/follow/wolf,
+		/datum/pet_command/point_targeting/attack,
+		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+	)
 
 /obj/effect/decal/remains/wolf
 	name = "remains"
@@ -73,6 +83,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/wolf/Initialize()
 	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/ai_flee_while_injured, 0.75, retreat_health)
 
 	gender = MALE

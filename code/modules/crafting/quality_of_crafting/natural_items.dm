@@ -291,7 +291,7 @@
 		/obj/item/grown/log/tree= 1,
 	)
 	tool_usage = list(
-		/obj/item/weapon/knife = list("starts to whittle", "start whittle", 'sound/items/wood_sharpen.ogg'),
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
 	)
 	attacked_atom = /obj/item/grown/log/tree
 	starting_atom= /obj/item/weapon/knife

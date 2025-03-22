@@ -123,7 +123,7 @@
 	name = "RECRUIT REBELS"
 	desc = "!"
 	antimagic_allowed = TRUE
-	charge_max = 150
+	recharge_time = 150
 
 /obj/effect/proc_holder/spell/self/rebelconvert/cast(list/targets,mob/user = usr)
 	..()

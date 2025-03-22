@@ -14,7 +14,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 8 SECONDS	// the cooldown
+	recharge_time = 8 SECONDS	// the cooldown
 	miracle = TRUE
 	devotion_cost = 45
 
@@ -58,7 +58,7 @@
 	sound = 'sound/magic/revive.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	miracle = TRUE
 	devotion_cost = 100
 //	req_inhand = list(/obj/item/coin/gold)

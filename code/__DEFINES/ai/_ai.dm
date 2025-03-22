@@ -69,9 +69,7 @@
 #define BB_FIND_MOM_TYPES "BB_find_mom_types"
 ///list of types of mobs we must ignore
 #define BB_IGNORE_MOM_TYPES "BB_ignore_mom_types"
-/// Typecache of weakrefs to mobs this mob is friends with, will follow their instructions and won't attack them
-#define BB_FRIENDS_LIST "BB_friends_list"
-
+F
 ///are we ready to breed?
 #define BB_BREED_READY "BB_breed_ready"
 ///maximum kids we can have
