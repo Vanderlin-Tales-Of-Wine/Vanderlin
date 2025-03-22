@@ -47,7 +47,7 @@
 	clothing_flags = CANT_SLEEP_IN
 
 	armor_class = AC_HEAVY
-	armor = ARMOR_PLATE_BAD
+	armor = ARMOR_BRIGANDINE
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
 	prevent_crits = ALL_EXCEPT_STAB
@@ -117,6 +117,8 @@
 	icon_state = "coat_of_plates"
 	blocksound = PLATEHIT
 	sellprice = VALUE_SNOWFLAKE_STEEL
+	armor = ARMOR_PLATE_BAD
+	// add armor plate bad from defines
 
 	max_integrity = INTEGRITY_STRONG
 

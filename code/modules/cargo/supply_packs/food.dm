@@ -5,36 +5,36 @@
 
 /datum/supply_pack/food/healthpot
 	name = "Healing Potion"
-	cost = 14
+	cost = 24
 	contains = /obj/item/reagent_containers/glass/bottle/healthpot
 
 /datum/supply_pack/food/manapot
 	name = "Manna Potion"
-	cost = 14
+	cost = 18
 	contains = /obj/item/reagent_containers/glass/bottle/manapot
 
 /datum/supply_pack/food/stronghealthpot
 
 	name = "Strong Healing Potion"
-	cost = 28
+	cost = 38
 	contains = /obj/item/reagent_containers/glass/bottle/stronghealthpot
 
 /datum/supply_pack/food/strongmanapot
 
 	name = "Strong Manna Potion"
-	cost = 28
+	cost = 32
 	contains = /obj/item/reagent_containers/glass/bottle/strongmanapot
 
 /datum/supply_pack/food/antidote
 
 	name = "Antidote Potion"
-	cost = 14
+	cost = 16
 	contains = /obj/item/reagent_containers/glass/bottle/antidote
 
 /datum/supply_pack/food/diseasecure
 
 	name = "Disease Cure Potion"
-	cost = 28
+	cost = 32
 	contains = /obj/item/reagent_containers/glass/bottle/diseasecure
 
 /datum/supply_pack/food/water
@@ -64,37 +64,37 @@
 
 /datum/supply_pack/food/grenzelbeer
 	name = "Grenzelhoftian Bitter Beer"
-	cost = 20
+	cost = 19
 	contains = /obj/item/reagent_containers/glass/bottle/beer/hagwoodbitter
 
 /datum/supply_pack/food/elfbeer
 	name = "Elvish Beer"
-	cost = 35
+	cost = 33
 	contains = /obj/item/reagent_containers/glass/bottle/beer/aurorian
 
 /datum/supply_pack/food/elfcab
 	name = "Elvish Fireleaf"
-	cost = 40
+	cost = 35
 	contains = /obj/item/reagent_containers/glass/bottle/beer/fireleaf
 
 /datum/supply_pack/food/butterhair
 	name = "Dwarvish Butterhairs"
-	cost = 50
+	cost = 41
 	contains = /obj/item/reagent_containers/glass/bottle/beer/butterhairs
 
 /datum/supply_pack/food/stonebeard
 	name = "Stonebeards Reserve"
-	cost = 45
+	cost = 37
 	contains = /obj/item/reagent_containers/glass/bottle/beer/stonebeardreserve
 
 /datum/supply_pack/food/voddena
 	name = "Dwarven Voddena"
-	cost = 40
+	cost = 35
 	contains = /obj/item/reagent_containers/glass/bottle/beer/voddena
 
 /datum/supply_pack/food/winezybantu
 	name = "Zybantu Wine"
-	cost = 15
+	cost = 20
 	contains = /obj/item/reagent_containers/glass/bottle/wine
 
 /datum/supply_pack/food/winegrenzel
@@ -104,7 +104,7 @@
 
 /datum/supply_pack/food/winevalorred
 	name = "Valorian Red Wine"
-	cost = 50
+	cost = 45
 	contains = /obj/item/reagent_containers/glass/bottle/redwine
 
 /datum/supply_pack/food/winevalorwhite
@@ -114,12 +114,12 @@
 
 /datum/supply_pack/food/elfred
 	name = "Elvish Red Wine"
-	cost = 165
+	cost = 154
 	contains = /obj/item/reagent_containers/glass/bottle/elfred
 
 /datum/supply_pack/food/elfblue
 	name = "Valmora Blue Wine"
-	cost = 320
+	cost = 305
 	contains = /obj/item/reagent_containers/glass/bottle/elfblue
 
 /datum/supply_pack/food/meat
@@ -134,7 +134,7 @@
 
 /datum/supply_pack/food/cheese
 	name = "Cheese Wheel"
-	cost = 30
+	cost = 25
 	contains = /obj/item/reagent_containers/food/snacks/cheddar
 
 /datum/supply_pack/food/salami

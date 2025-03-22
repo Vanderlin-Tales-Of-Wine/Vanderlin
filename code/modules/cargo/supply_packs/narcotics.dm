@@ -43,3 +43,13 @@
 	name = "Perfume"
 	cost = 25
 	contains = list(/obj/item/perfume/random)
+
+/datum/supply_pack/narcotics/poison
+	name = "Poison"
+	cost = 25
+	contains = /obj/item/reagent_containers/glass/bottle/poison
+
+/datum/supply_pack/narcotics/spoison
+	name = "Stamina Poison"
+	cost = 22
+	contains = /obj/item/reagent_containers/glass/bottle/stampoison
