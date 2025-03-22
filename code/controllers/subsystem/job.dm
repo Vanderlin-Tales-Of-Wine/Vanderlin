@@ -21,8 +21,6 @@ SUBSYSTEM_DEF(job)
 	SSmapping.HACK_LoadMapConfig()
 	if(!length(all_occupations))
 		SetupOccupations()
-	if(CONFIG_GET(flag/load_jobs_from_txt))
-		LoadJobs()
 	generate_selectable_species()
 	return ..()
 
@@ -37,19 +35,15 @@ SUBSYSTEM_DEF(job)
 
 	for(var/job_type in all_jobs)
 		var/datum/job/job = new job_type()
-		if(!job.config_check())
-			continue
-		if(!job.map_check())	//Even though we initialize before mapping, this is fine because the config is loaded at new
-			testing("Removed [job.type] due to map config");
-			continue
 		all_occupations += job
 		name_occupations[job.title] = job
 		type_occupations[job_type] = job
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
 			joinable_occupations += job
 
+	if(SSmapping.map_adjustment)
+		SSmapping.map_adjustment.job_change()
 	return TRUE
-
 
 /datum/controller/subsystem/job/proc/GetJob(rank)
 	if(!length(all_occupations))
@@ -595,14 +589,6 @@ SUBSYSTEM_DEF(job)
 		return C.holder.auto_deadmin()
 	else if((job.auto_deadmin_role_flags & DEADMIN_POSITION_SILICON) && (CONFIG_GET(flag/auto_deadmin_silicons) || (C.prefs?.toggles & DEADMIN_POSITION_SILICON))) //in the event there's ever psuedo-silicon roles added, ie synths.
 		return C.holder.auto_deadmin()
-
-/datum/controller/subsystem/job/proc/LoadJobs()
-	var/jobstext = file2text("[global.config.directory]/jobs.txt")
-	for(var/datum/job/job as anything in joinable_occupations)
-		var/regex/jobs = new("[job.title]=(-1|\\d+),(-1|\\d+)")
-		jobs.Find(jobstext)
-		job.total_positions = text2num(jobs.group[1])
-		job.spawn_positions = text2num(jobs.group[2])
 
 /datum/controller/subsystem/job/proc/HandleFeedbackGathering()
 	for(var/datum/job/job as anything in joinable_occupations)
