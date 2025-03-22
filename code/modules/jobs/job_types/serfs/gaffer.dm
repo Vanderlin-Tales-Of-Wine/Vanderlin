@@ -3,6 +3,7 @@
 	flag = GAFFER
 	department_flag = SERFS
 	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
 	total_positions = 1
 	spawn_positions = 1
 
