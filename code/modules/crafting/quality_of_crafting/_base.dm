@@ -292,120 +292,12 @@
 					user.transferItemToLoc(active_item, get_turf(user), TRUE)
 					active_item = null
 
-			if(isnull(active_item))
-				for(var/obj/item/item in usable_contents)
-					if(!length(copied_requirements))
-						break
-					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
-						continue
-					if(istype(item, /obj/item/natural/bundle))
-						var/obj/item/natural/bundle/bundle = item
-						var/early_continue = TRUE
-						var/bundle_path = bundle.stacktype
-						var/early_break = FALSE
-						for(var/path in copied_requirements)
-							if(QDELETED(item))
-								break
-							if(!ispath(bundle_path, path))
-								continue
-							bundle.amount--
-							var/obj/item/sub_item = new bundle_path(get_turf(item))
-							usable_contents += sub_item
-							if(bundle.amount == 0)
-								usable_contents -= item
-								qdel(item)
-							user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
-							if(do_after(user, ground_use_time, item))
-								if(put_items_in_hand)
-									user.put_in_active_hand(sub_item)
-								for(var/requirement in copied_requirements)
-									if(!istype(sub_item, requirement))
-										continue
-									copied_requirements[requirement]--
-									active_item = sub_item
-									early_break = TRUE
-									early_continue = FALSE
-									break
-
-						if(early_break)
-							break
-						if(early_continue)
-							continue
-
-					user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
-					if(do_after(user, ground_use_time, item))
-						user.put_in_active_hand(item)
-						active_item = item
-					break
-
-			if(isnull(active_item))
-				for(var/obj/item/item in storage_contents)
-					if(!length(copied_requirements))
-						break
-					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
-						continue
-					if(istype(item, /obj/item/natural/bundle))
-						var/early_continue = TRUE
-						var/bundle_path = item:stacktype
-						var/early_break = FALSE
-						for(var/path in copied_requirements)
-							if(QDELETED(item))
-								break
-							if(!ispath(bundle_path, path))
-								continue
-							item:amount--
-							var/obj/item/sub_item = new bundle_path(get_turf(item))
-							usable_contents += sub_item
-							if(item:amount == 0)
-								usable_contents -= item
-								qdel(item)
-							to_chat(user, "You start grabbing [item] from your bag.")
-							if(do_after(user, storage_use_time, item))
-								SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
-								if(put_items_in_hand)
-									user.put_in_active_hand(sub_item)
-								for(var/requirement in copied_requirements)
-									if(!istype(sub_item, requirement))
-										continue
-									copied_requirements[requirement]--
-									active_item = sub_item
-									early_break = TRUE
-									early_continue = FALSE
-									break
-
-						if(early_break)
-							break
-						if(early_continue)
-							continue
-
-					to_chat(user, "You start grabbing [item] from your bag.")
-					if(do_after(user, storage_use_time, item))
-						SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
-						user.put_in_active_hand(item)
-						active_item = item
-					break
-
-			if(!is_type_in_list(active_item, copied_requirements))
-				move_items_back(to_delete, user)
-				return
-
-			for(var/requirement in copied_requirements)
-				if(!istype(active_item, requirement))
-					continue
-				copied_requirements[requirement]--
-				if(copied_requirements[requirement] <= 0)
-					copied_requirements -= requirement
-				usable_contents -= active_item
-				to_delete += active_item
-				active_item.forceMove(locate(1,1,1)) ///the fucking void of items
-
 		for(var/obj/item/item in usable_contents)
 			if(!length(copied_requirements))
 				break
 			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 				continue
 			if(istype(item, /obj/item/natural/bundle))
-				var/continue_early = TRUE
 				var/early_ass_break = FALSE
 				var/bundle_path = item:stacktype
 				for(var/path in copied_requirements)
@@ -414,6 +306,8 @@
 					if(!ispath(bundle_path, path))
 						continue
 					for(var/i = 1 to item:amount)
+						if(QDELETED(item))
+							break
 						if(!(bundle_path in copied_requirements))
 							continue
 						if(early_ass_break)
@@ -423,10 +317,10 @@
 						if(item:amount == 0)
 							usable_contents -= item
 							qdel(item)
-						user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
-						if(do_after(user, ground_use_time, item))
+						user.visible_message(span_small("[user] starts grabbing \a [sub_item] from [item]."), span_small("I start grabbing \a [sub_item] from [item]."))
+						if(do_after(user, ground_use_time, sub_item))
 							if(put_items_in_hand)
-								user.put_in_active_hand(item)
+								user.put_in_active_hand(sub_item)
 							for(var/requirement in copied_requirements)
 								if(!istype(sub_item, requirement))
 									continue
@@ -435,12 +329,13 @@
 								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
 								if(copied_requirements[requirement] <= 0)
 									copied_requirements -= requirement
-									continue_early = FALSE
 									early_ass_break = TRUE
+									if(item:amount == 1) // to remove 1 count bundles
+										new bundle_path(get_turf(item))
+										usable_contents -= item
+										qdel(item)
 									break
-				if(continue_early)
-					continue
-
+				continue
 
 			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
 			if(do_after(user, ground_use_time, item))
