@@ -363,7 +363,7 @@
 	name = "Decorated Bascinet (+Cloth)"
 	recipe_name = "a decorated bascinet"
 	req_bar = /obj/item/ingot/steel
-	additional_items = list(/obj/item/ingot/steel,/obj/item/natural/cloth)
+	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
 
