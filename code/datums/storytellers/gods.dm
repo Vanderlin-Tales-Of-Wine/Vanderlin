@@ -159,6 +159,7 @@
 	always_votable = TRUE
 
 	tag_multipliers = list(
+		TAG_MAGICAL = 1.2,
 		TAG_GAMBLE = 1.5,
 		TAG_TRICKERY = 1.3,
 		TAG_UNEXPECTED = 1.2,
