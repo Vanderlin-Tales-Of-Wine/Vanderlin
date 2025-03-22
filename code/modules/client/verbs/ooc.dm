@@ -62,6 +62,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 
 	var/keyname = get_display_ckey(ckey)
 	var/color2use = prefs.voice_color
+	var/admin_message_color = prefs.ooccolor
 	if(!color2use)
 		color2use = "#FFFFFF"
 	else
@@ -74,7 +75,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 		if(C.prefs.chat_toggles & CHAT_OOC)
 			msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[chat_color]'><span class='message linkify'>[msg]</span></font>"
 			if(holder)
-				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[C.prefs.ooccolor ? C.prefs.ooccolor : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
+				msg_to_send = "<font color='[color2use]'><EM>[keyname][real_key]:</EM></font> <font color='[admin_message_color ? admin_message_color : GLOB.OOC_COLOR]'><span class='message linkify'>[msg]</span></font>"
 			to_chat(C, msg_to_send)
 
 
