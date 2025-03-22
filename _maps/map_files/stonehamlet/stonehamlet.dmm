@@ -663,7 +663,7 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/redhouse)
 "bgs" = (
-/turf/open/floor/cobblerock,
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/exposed/townhamlet)
 "bhl" = (
 /obj/structure/fluff/railing/border{
@@ -821,7 +821,7 @@
 /area/rogue/indoors/town/manor/stone)
 "btJ" = (
 /obj/structure/fake_machine/stockpile,
-/turf/open/floor/cobblerock/alt,
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/exposed/townhamlet)
 "buI" = (
 /obj/item/reagent_containers/food/snacks/butter,
@@ -1120,7 +1120,7 @@
 /obj/structure/floordoor/gatehatch/outer{
 	redstone_id = "gatelava"
 	},
-/turf/open/floor/cobblerock/alt,
+/turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/exposed/townhamlet)
 "bTe" = (
 /obj/item/candle/yellow/lit/infinite{
@@ -3385,6 +3385,12 @@
 	},
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
+/area/rogue/outdoors/exposed/townhamlet)
+"fdC" = (
+/obj/effect/decal/shadow_floor{
+	dir = 4
+	},
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/exposed/townhamlet)
 "feg" = (
 /obj/structure/flora/grass/bush_meagre,
@@ -6578,7 +6584,7 @@
 /area/rogue/outdoors/rtfield/hamlet)
 "jRi" = (
 /obj/machinery/light/fueled/torchholder/c,
-/turf/open/floor/cobblerock/alt,
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/exposed/townhamlet)
 "jRO" = (
 /obj/structure/ladder,
@@ -10072,7 +10078,7 @@
 	})
 "oOI" = (
 /obj/machinery/light/fueled/lanternpost/fixed,
-/turf/open/floor/cobblerock/alt,
+/turf/open/floor/blocks/moss,
 /area/rogue/outdoors/exposed/townhamlet)
 "oON" = (
 /obj/structure/fake_machine/vendor{
@@ -12095,7 +12101,7 @@
 /area/rogue/under/town/caverogue/saltmine)
 "rBj" = (
 /obj/structure/well/climb_down,
-/turf/open/floor/grass,
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/rtfield/hamlet)
 "rBu" = (
 /obj/structure/table/wood{
@@ -15040,7 +15046,7 @@
 /area/rogue/indoors/town/tavern/saiga)
 "wbZ" = (
 /obj/structure/fluff/walldeco/wantedposter,
-/turf/open/floor/cobblerock/alt,
+/turf/open/floor/cobblemoss,
 /area/rogue/outdoors/exposed/townhamlet)
 "wch" = (
 /obj/structure/table/wood/reinforced_alt{
@@ -15732,6 +15738,9 @@
 /obj/item/statue/silver,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/vault)
+"xcF" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/outdoors/rtfield/hamlet)
 "xcG" = (
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decowood,
@@ -64435,9 +64444,9 @@ kTh
 kTh
 qEB
 kTh
-kTh
-kTh
-kTh
+xcF
+xcF
+xcF
 bWX
 nsz
 bWX
@@ -64637,9 +64646,9 @@ kTh
 kTh
 tED
 kTh
-kTh
+xcF
 rBj
-kTh
+xcF
 ckV
 ckV
 bWX
@@ -64839,9 +64848,9 @@ kTh
 kTh
 woq
 kTh
-kTh
-kTh
-kTh
+xcF
+xcF
+xcF
 ckV
 qhZ
 bWX
@@ -65011,7 +65020,7 @@ whQ
 kTh
 kTh
 bWX
-bWX
+xcF
 bWX
 bWX
 bWX
@@ -65213,7 +65222,7 @@ ekS
 kTh
 kTh
 kTh
-bWX
+xcF
 osF
 bWX
 bWX
@@ -65415,7 +65424,7 @@ kTh
 kTh
 kTh
 kTh
-bWX
+xcF
 osF
 bWX
 bWX
@@ -65617,7 +65626,7 @@ kTh
 kTh
 kTh
 kTh
-bWX
+xcF
 osF
 lmg
 bWX
@@ -73893,10 +73902,10 @@ aEO
 aKv
 qoZ
 qoZ
-bgs
+oTH
 qoZ
-bgs
-bgs
+oTH
+oTH
 qoZ
 qoZ
 qoZ
@@ -74096,17 +74105,17 @@ qoZ
 qoZ
 qoZ
 qoZ
-bgs
-bgs
-bgs
-bgs
-qoZ
-bgs
-bgs
-qoZ
-qoZ
+oTH
+oTH
+oTH
+oTH
 qoZ
 oTH
+oTH
+qoZ
+qoZ
+qoZ
+qoZ
 qoZ
 qoZ
 qoZ
@@ -74710,7 +74719,7 @@ aKi
 aKi
 aKi
 mgq
-oTH
+nBJ
 qoZ
 qoZ
 oTH
@@ -74913,7 +74922,7 @@ aKi
 aKi
 chD
 jRi
-oTH
+nBJ
 qoZ
 qoZ
 qoZ
@@ -75114,11 +75123,11 @@ pnR
 sLe
 aKi
 chD
-oTH
-oTH
+nBJ
+bgs
 qoZ
 qoZ
-oTH
+qoZ
 muH
 dzx
 uqi
@@ -75317,10 +75326,10 @@ jyi
 cdi
 chD
 btJ
-oTH
+bgs
 qoZ
 qoZ
-oTH
+qoZ
 ibJ
 qKP
 siH
@@ -75518,7 +75527,7 @@ vNu
 vNu
 vNu
 vNu
-qoZ
+bgs
 qoZ
 qoZ
 qoZ
@@ -75717,13 +75726,13 @@ bXJ
 vbI
 qyP
 oOI
-oTH
-oTH
-oTH
-oTH
-oTH
-oTH
-oTH
+bgs
+bgs
+bgs
+nBJ
+nBJ
+bgs
+bgs
 qoZ
 tSQ
 ibJ
@@ -75918,14 +75927,14 @@ dzz
 bXJ
 nTE
 qyP
-oTH
+bgs
 nBJ
 nBJ
 nBJ
 nBJ
 nBJ
+bgs
 nBJ
-oTH
 qoZ
 qoZ
 qoZ
@@ -76120,14 +76129,14 @@ paZ
 bXJ
 sjt
 jUw
-oTH
+bgs
 nIl
 mce
 mce
 doR
 xGo
 nBJ
-oTH
+bgs
 qoZ
 mQb
 nBJ
@@ -76322,15 +76331,15 @@ bXJ
 bXJ
 sjt
 afw
-oTH
+nBJ
 nIl
 pKh
 pKh
 qgw
 cNS
 nBJ
-oTH
-oTH
+bgs
+bgs
 giW
 nBJ
 uoM
@@ -76524,15 +76533,15 @@ bGM
 uEy
 khB
 chD
-oTH
+bgs
 nIl
 pKh
 bpR
 oFm
 alm
 nBJ
-oTH
-oTH
+bgs
+nBJ
 giW
 nBJ
 oON
@@ -76733,8 +76742,8 @@ eCA
 qgw
 cNS
 nBJ
-oTH
-oTH
+bgs
+bgs
 fNO
 nBJ
 ibJ
@@ -76928,14 +76937,14 @@ nrB
 ahK
 ahK
 qoZ
-oTH
+bgs
 nIl
 ugX
 ugX
 rep
 xGo
-nBJ
-oTH
+bgs
+bgs
 qoZ
 qoZ
 qoZ
@@ -77130,14 +77139,14 @@ ahK
 ahK
 ahK
 qoZ
-oTH
+nBJ
 nBJ
 uxt
 uxt
 uxt
-uxt
+fdC
 nBJ
-oTH
+nBJ
 qoZ
 qoZ
 gIz
@@ -77323,32 +77332,32 @@ iZV
 sNs
 sNs
 vDh
+ahK
+qoZ
+qoZ
+ahK
+ahK
+ahK
+ahK
 qoZ
 qoZ
 qoZ
-ahK
-ahK
-ahK
-ahK
+bgs
+bgs
+bgs
+bgs
+bgs
+nBJ
 qoZ
 qoZ
 oTH
-oTH
-oTH
-oTH
-oTH
-oTH
-oTH
-oTH
-qoZ
-qoZ
 qoZ
 qoZ
 ahK
 ahK
 ahK
 ahK
-ahK
+qoZ
 qoZ
 qoZ
 ahK
@@ -77524,20 +77533,10 @@ mEs
 ahK
 lvm
 bra
-oTH
-oTH
+lcu
+lcu
+ahK
 qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-qoZ
-oTH
-oTH
 qoZ
 qoZ
 qoZ
@@ -77554,7 +77553,7 @@ qoZ
 qoZ
 qoZ
 oTH
-qoZ
+oTH
 qoZ
 qoZ
 qoZ
@@ -77562,6 +77561,16 @@ qoZ
 qoZ
 qoZ
 oTH
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
 qoZ
 qoZ
 qoZ
@@ -77727,8 +77736,8 @@ uQi
 lrA
 bra
 bSh
-oTH
-oTH
+lcu
+lcu
 qoZ
 qoZ
 oTH
@@ -77744,7 +77753,7 @@ qoZ
 qoZ
 oTH
 qoZ
-qoZ
+oTH
 qoZ
 oTH
 oTH
@@ -77928,30 +77937,21 @@ mEs
 ahK
 lvm
 bra
-oTH
-oTH
+lcu
+lcu
 qoZ
 qoZ
 qoZ
-oTH
-oTH
-oTH
-qoZ
-qoZ
-oTH
-oTH
-oTH
-oTH
-qoZ
-oTH
-oTH
-oTH
 qoZ
 qoZ
 qoZ
-oTH
-oTH
-oTH
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
 qoZ
 qoZ
 qoZ
@@ -77959,6 +77959,15 @@ qoZ
 qoZ
 qoZ
 oTH
+oTH
+oTH
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
 qoZ
 qoZ
 qoZ
@@ -78153,7 +78162,7 @@ qoZ
 qoZ
 qoZ
 qoZ
-qoZ
+oTH
 qoZ
 qoZ
 qoZ

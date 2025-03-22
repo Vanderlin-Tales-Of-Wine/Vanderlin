@@ -290,7 +290,7 @@
 
 
 /turf/open/floor/grass/cold
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'modular/stonekeep/icons/turfs.dmi'
 
 /turf/open/floor/grass/hell
 	icon = 'icons/turf/roguefloor.dmi'
