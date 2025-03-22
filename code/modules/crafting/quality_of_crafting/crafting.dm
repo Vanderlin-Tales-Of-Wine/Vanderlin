@@ -243,8 +243,8 @@
 		/obj/item/grown/log/tree/small= 1,
 		/obj/item/grown/log/tree/stick = 1,
 	)
-	starting_atom = /obj/item/grown/log/tree/small
-	attacked_atom = /obj/item/grown/log/tree/stick
+	attacked_atom = /obj/item/grown/log/tree/small
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/weapon/shovel/small
 	craft_time = 2 SECONDS
 
