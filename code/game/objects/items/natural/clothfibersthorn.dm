@@ -66,11 +66,60 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
+
+	var/datum/component/cleaner_component = null
+	var/clean_speed = 0.4 SECONDS
+	var/volume = 10
 	var/static/wet_max = 12
 	var/wet = 0
+
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
 	obj_flags = CAN_BE_HIT //enables splashing on by containers
+
+/obj/item/natural/cloth/Initialize(mapload, vol)
+	. = ..()
+	if(isnum(vol) && vol > 0)
+		volume = vol
+	create_reagents(volume, reagent_flags)
+
+
+/obj/item/natural/cloth/ComponentInitialize()
+	. = ..()
+	cleaner_component = AddComponent(/datum/component/cleaner,
+									clean_speed,
+									CLEAN_MEDIUM,
+									100,
+									TRUE,
+									CALLBACK(src, PROC_REF(on_pre_clean)),
+									CALLBACK(src, PROC_REF(on_clean_success)),
+									CALLBACK(src, PROC_REF(on_clean_ineffective)),
+									)
+
+/obj/item/natural/cloth/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	if(!wet)
+		return DO_NOT_CLEAN
+	if(ismob(atom_to_clean))
+		return DO_NOT_CLEAN
+	if(isitem(atom_to_clean) && atom_to_clean.reagents && atom_to_clean.is_open_container())
+		return DO_NOT_CLEAN
+	if(!check_allowed_items(atom_to_clean))
+		return DO_NOT_CLEAN
+
+	// overly complicated effectiveness calculations
+	var/pWater = reagents.get_reagent_amount(/datum/reagent/water) / reagents.total_volume
+	var/pDirtyWater = reagents.get_reagent_amount(/datum/reagent/water/gross) / reagents.total_volume
+	var/pSoap = reagents.get_reagent_amount(/datum/reagent/soap) / reagents.total_volume
+	var/effectiveness = 0.1 + (pWater * 0.6 + pDirtyWater * 0.4) * CLAMP(LERP(1, 2, pSoap / (pWater + pDirtyWater), 1, 2))
+
+
+	return TRUE
+
+/obj/item/natural/cloth/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
+
+obj/item/natural/cloth/proc/on_clean_ineffective(atom/target, mob/living/user)
+	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
+
 
 /obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()

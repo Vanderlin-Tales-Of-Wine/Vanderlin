@@ -9,7 +9,7 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 0.75 SECONDS
+	var/clean_speed = 0.75 SECONDS
 	var/clean_effectiveness = 50
 	force_string = "robust... against filth"
 	var/uses = 100
@@ -19,18 +19,21 @@
 	. = ..()
 	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
 	AddComponent(/datum/component/cleaner,
-				cleanspeed,
+				clean_speed,
 				CLEAN_MEDIUM,
 				clean_effectiveness,
+				TRUE,
 				CALLBACK(src, PROC_REF(should_clean)),
 				CALLBACK(src, PROC_REF(on_clean_success)),
 				CALLBACK(src, PROC_REF(on_clean_ineffective)),
 				)
 
 /obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	if(ismob(atom_to_clean))
+		return DO_NOT_CLEAN
 	if(isitem(atom_to_clean) && atom_to_clean.reagents && atom_to_clean.is_open_container())
 		return DO_NOT_CLEAN
-	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
+	if(check_allowed_items(atom_to_clean)) ? TRUE : DO_NOT_CLEAN
 
 /obj/item/soap/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
 	if(clean_succeeded)
