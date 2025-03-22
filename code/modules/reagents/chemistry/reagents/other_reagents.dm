@@ -291,7 +291,7 @@
 /datum/reagent/soap/add_to_member(obj/effect/abstract/liquid_turf/adder)
 	. = ..()
 	if(!adder.GetComponent(/datum/component/slippery))
-		adder.AddComponent(/datum/component/slippery, 50)
+		adder.AddComponent(/datum/component/slippery, 30)
 
 /datum/reagent/soap/remove_from_member(obj/effect/abstract/liquid_turf/remover)
 	. = ..()

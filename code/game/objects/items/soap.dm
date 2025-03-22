@@ -9,15 +9,22 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 7
-	var/cleanspeed = 0.75 SECONDS // clean time in exchange for a lot more use
+	var/cleanspeed = 0.75 SECONDS
+	var/clean_effectiveness = 50
 	force_string = "robust... against filth"
-	var/uses = 100
-	var/slip_chance = 10
+	var/uses = 50
+	var/slip_chance = 15
 
 /obj/item/soap/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/slippery, 8, NONE, null, 0, FALSE, slip_chance)
-	AddComponent(/datum/component/cleaner, cleanspeed, CLEAN_STRONG, CALLBACK(src, PROC_REF(should_clean)), CALLBACK(src, PROC_REF(decreaseUses))) //less scaling for soapies
+	AddComponent(/datum/component/cleaner,
+				cleanspeed,
+				CLEAN_MEDIUM,
+				clean_effectiveness,
+				CALLBACK(src, PROC_REF(should_clean)),
+				CALLBACK(src, PROC_REF(on_clean_success)),
+				CALLBACK(src, PROC_REF(on_clean_ineffective)))
 
 /obj/item/soap/examine(mob/user)
 	. = ..()
@@ -38,18 +45,45 @@
 				msg = "It's seen some light use, but it's still pretty fresh."
 	. += span_notice("[msg]")
 
+/obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
+	//catch for buckets, bottles, bins and what not
+	if(isitem(atom) && atom_to_clean.reagents && atom_to_clean.is_open_container())
+		return DO_NOT_CLEAN
+	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
+
+/obj/item/soap/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
+	if(clean_succeeded)
+		decreaseUses(user, 2)
+
+obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
+	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
+
+/**
+ * Decrease the number of uses the bar of soap has.
+ *
+ * Arguments
+ * * user - The mob that is using the soap to clean.
+ * * amount - the amount of soap to use.
+ */
+/obj/item/soap/proc/decreaseUses(mob/living/user, amount)
+	uses-= amount
+	if(uses <= 0)
+		noUses(user)
+
+/obj/item/soap/proc/noUses(mob/user)
+	to_chat(user, span_warning("[src] crumbles into tiny bits!"))
+	qdel(src)
+
+
 /obj/item/soap/attack(mob/living/carbon/human/target, mob/living/carbon/user)
 	user.changeNext_move(CLICK_CD_MELEE)
-	//how much reagent we're using on each use
 
 	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
 		if(target.is_mouth_covered())
 			to_chat(user, span_warning("Their mouth is blocked!"))
 			return FALSE
 
-		if(user != target)
-			var/obj/item/grabbing/I = user.get_inactive_held_item()
-			if(!(ishuman(I?.grabbed) && I?.grabbed == target)) // gotta have the target in your offhand
+			if(user != target && user.get_inactive_held_item()?.grabbed == target) // gotta have the target in your offhand
 				to_chat(user, span_warning("I can't hold them still if I don't grab them!"))
 				return FALSE
 		user.visible_message("<span class='warning'>\the [user] starts to wash \the [target]'s mouth out with [src.name]...</span>", "<span class='notice'>I start to wash \the [target]'s mouth out with [src.name]...</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
@@ -75,7 +109,7 @@
 		to_chat(user, span_warning("They don't want to be soaped..."))
 		return FALSE
 
-	if(istype(target.head, /obj/item/clothing) || istype(target.wear_armor, /obj/item/clothing) || istype(target.wear_shirt, /obj/item/clothing) || istype(target.wear_neck) || istype(target.wear_pants, /obj/item/clothing))
+	if(istype(target.head, /obj/item/clothing) || istype(target.wear_armor, /obj/item/clothing) || istype(target.wear_shirt, /obj/item/clothing) || istype(target.cloak, /obj/item/clothing))
 		to_chat(user, span_warning("Can't get a proper bath with clothing on."))
 		return FALSE
 	if(istype(target.gloves, /obj/item/clothing))
@@ -103,56 +137,31 @@
 		to_chat(user, span_warning("It's not open."))
 		return
 	if(r.total_volume >= r.maximum_volume)
-		to_chat(user, span_warning("There's no room to add soap."))
+		to_chat(user, span_warning("There's no room to add it."))
 		return
 	var/datum/reagent/wawa = r.get_reagent_amount(/datum/reagent/water)
 	if(!wawa)
-		to_chat(user, span_warning("The soap needs clean water to dissolve."))
+		to_chat(user, span_warning("This needs clean water to dissolve."))
 		return
 	var/amt2Add = min(10, wawa, r.maximum_volume - r.total_volume)
 	if(do_after(user, 2 SECONDS, O))
 		var/datum/reagents/reagents = new()
 		reagents.add_reagent(/datum/reagent/soap, amt2Add)
 		reagents.trans_to(O, reagents.total_volume, transfered_by = user, method = TOUCH)
-		to_chat(user, span_info("I dissolve some of the soap in the water."))
+		to_chat(user, span_info("I dissolve some of the [name] in the water."))
 
 /obj/item/soap/proc/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
 	wash_atom(target, CLEAN_STRONG)
 	user.visible_message(span_info("[user] scrubs [target] with the [src]."))
-	uses -= 5
-	if(uses == 0)
-		qdel(src)
-
+	decreaseUses(5)
 
 /obj/item/soap/bath
 	name = "herbal soap"
 	desc = "A soap made from various herbs."
-	uses = 25
+	uses = 30
 
 //Only get the buff if you use the good stuff
 /obj/item/soap/bath/scrub_scrub(mob/living/carbon/human/target, mob/living/carbon/user)
 	. = ..()
 	to_chat(target, span_green("I feel so relaxed and clean!"))
 	target.apply_status_effect(/datum/status_effect/buff/clean_plus)
-
-/obj/item/soap/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
-	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
-
-/**
- * Decrease the number of uses the bar of soap has.
- *
- * Arguments
- * * source - the source of the cleaning
- * * target - The atom that is being cleaned
- * * user - The mob that is using the soap to clean.
- */
-/obj/item/soap/proc/decreaseUses(datum/source, atom/target, mob/living/user, clean_succeeded)
-	if(!clean_succeeded)
-		return
-	uses--
-	if(uses <= 0)
-		noUses(user)
-
-/obj/item/soap/proc/noUses(mob/user)
-	to_chat(user, span_warning("[src] crumbles into tiny bits!"))
-	qdel(src)

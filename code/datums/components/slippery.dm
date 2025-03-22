@@ -3,7 +3,6 @@
 	var/knockdown_time = 0
 	var/paralyze_time = 0
 	var/lube_flags
-	var/slip_chance = 50
 	var/datum/callback/callback
 	var/slip_probability = 0
 
@@ -12,7 +11,6 @@
 	paralyze_time = max(_paralyze, 0)
 	force_drop_items = _force_drop
 	lube_flags = _lube_flags
-	slip_chance = _slip_chance
 	callback = _callback
 	slip_probability = _slip_probability
 	RegisterSignal(parent, list(COMSIG_MOVABLE_CROSSED, COMSIG_ATOM_ENTERED), PROC_REF(Slip))

@@ -9,25 +9,35 @@
 	var/base_cleaning_duration
 	/// Determines what this cleaner can wash off, [the available options are found here](code/__DEFINES/cleaning.html).
 	var/cleaning_strength
+	/// How probable is this to actually clean what you want it to? Percent.
+	var/cleaning_effectiveness
 	/// Gets called before you start cleaning, returns TRUE/FALSE whether the clean should actually wash tiles, or DO_NOT_CLEAN to not clean at all.
 	var/datum/callback/pre_clean_callback
 	/// Gets called when something is successfully cleaned.
 	var/datum/callback/on_cleaned_callback
+	/// Gets called if cleaning was a success but ineffective.
+	var/datum/callback/on_cleaned_ineffective_callback
+
 
 /datum/component/cleaner/Initialize(
 	base_cleaning_duration = 3 SECONDS,
 	cleaning_strength = CLEAN_MEDIUM,
+	cleaning_effectiveness = 100,
 	datum/callback/pre_clean_callback = null,
 	datum/callback/on_cleaned_callback = null,
+	datum/callback/on_cleaned_ineffective_callback = null
 )
 	src.base_cleaning_duration = base_cleaning_duration
 	src.cleaning_strength = cleaning_strength
+	src.cleaning_effectiveness = cleaning_effectiveness
 	src.pre_clean_callback = pre_clean_callback
 	src.on_cleaned_callback = on_cleaned_callback
+	src.on_cleaned_ineffective_callback = on_cleaned_ineffective_callback
 
 /datum/component/cleaner/Destroy(force)
 	pre_clean_callback = null
 	on_cleaned_callback = null
+	on_cleaned_ineffective_callback = null
 	return ..()
 
 /datum/component/cleaner/RegisterWithParent()
@@ -75,8 +85,11 @@
 	var/clean_succeeded = FALSE
 	if(do_after(user, base_cleaning_duration, target = target))
 		clean_succeeded = TRUE
-		user.visible_message(span_small("[user] finishes cleaning [target]!"), span_small("You finish cleaning [target]."))
-		if(clean_target)
-			wash_atom(target, cleaning_strength)
+		if(prob(cleaning_effectiveness))
+			user.visible_message(span_small("[user] finishes cleaning [target]!"), span_small("You finish cleaning [target]."))
+			if(clean_target)
+				wash_atom(target, cleaning_strength)
+		else
+			on_cleaned_ineffective_callback?.InvokeAsync(target, user)
 
 	on_cleaned_callback?.Invoke(source, target, user, clean_succeeded)
