@@ -375,6 +375,7 @@
 			else
 				break
 
+
 		if(length(copied_reagent_requirements))
 			var/obj/item/inactive_held = user.get_inactive_held_item()
 			for(var/obj/item/reagent_containers/container in storage_contents)
