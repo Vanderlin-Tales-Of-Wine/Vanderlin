@@ -203,7 +203,7 @@
 						to_chat(ghost, span_warning("My funeral rites were undone!"))
 			human.funeral = FALSE
 		if(target.stat < DEAD)
-			remove_client_colour(/datum/client_colour/monochrome/death)
+			target.remove_client_colour(/datum/client_colour/monochrome/death)
 		return ..()
 	return FALSE
 
