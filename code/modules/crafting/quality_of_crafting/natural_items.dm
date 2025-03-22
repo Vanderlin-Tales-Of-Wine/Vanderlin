@@ -381,7 +381,7 @@
 		/obj/item/natural/fibers = 3,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/cloak/wickercloak
 	craftdiff = 0
 
@@ -393,7 +393,7 @@
 		/obj/item/natural/fibers = 2,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/neck/bogcowl
 	craftdiff = 0
 
