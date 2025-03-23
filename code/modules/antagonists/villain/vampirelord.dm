@@ -53,9 +53,10 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampirelord/on_gain()
-	var/mob/living/carbon/human/vampire = owner.current
-	vampire.adv_hugboxing_end() // shitty workaround for adventurers and pilgrims becoming vamp
 	SSmapping.retainer.vampires |= owner
+	if(ishuman(owner.current))
+		var/mob/living/carbon/human/vampdude = owner.current
+		vampdude.adv_hugboxing_cancel()
 	. = ..()
 	owner.special_role = name
 	if(!isspawn)
