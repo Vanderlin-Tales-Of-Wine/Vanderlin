@@ -19,21 +19,10 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
-	var/list/rod_jobs = list(
-		/datum/job/jester::title,
-		/datum/job/servant::title,
-		/datum/job/adventurer/courtagent::title,
-		/datum/job/butler::title,
-		/datum/job/squire::title,
-	)
+	var/static/list/rod_jobs = null
 
 	grid_height = 96
 	grid_width = 32
-
-/obj/item/weapon/lordscepter/Initialize()
-	. = ..()
-	rod_jobs |= GLOB.noble_positions
-	rod_jobs |= GLOB.garrison_positions
 
 /datum/intent/lordbash
 	name = "bash"
@@ -91,6 +80,15 @@
 
 			if(H.anti_magic_check())
 				return
+
+			if(!rod_jobs)
+				rod_jobs = GLOB.noble_positions | GLOB.garrison_positions | list(
+				/datum/job/jester::title,
+				/datum/job/servant::title,
+				/datum/job/adventurer/courtagent::title,
+				/datum/job/butler::title,
+				/datum/job/squire::title,
+			)
 
 			if(!((H.mind?.assigned_role.title in rod_jobs)))
 				return
