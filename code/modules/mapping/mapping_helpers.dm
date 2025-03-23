@@ -172,33 +172,35 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 		located.put_in_hands(weapon)
 	qdel(src)
 
-/obj/effect/mapping_helpers/door
-	name = "door helper parent"
+/obj/effect/mapping_helpers/access
+	name = "access helper parent"
 	layer = DOOR_HELPER_LAYER
-	late = FALSE
 
-/obj/effect/mapping_helpers/door/Initialize(mapload)
+/obj/effect/mapping_helpers/access/Initialize()
 	. = ..()
-	if(!mapload)
-		log_mapping("[src] spawned outside of mapload!")
-		return
+	var/static/list/valid = list(
+		/obj/structure/fake_machine/vendor, \
+		/obj/structure/fake_machine/merchantvend, \
+		/obj/structure/mineral_door, \
+		/obj/structure/closet
+	)
 
-	var/obj/structure/mineral_door/door = locate(/obj/structure/mineral_door) in loc
-	if(!door)
-		log_mapping("[src] failed to find a door at [AREACOORD(src)]")
-		return
+	for(var/obj/target in src.loc)
+		if(is_type_in_list(target, valid))
+			payload(valid)
+			return
 
-	payload(door)
+	log_mapping("[src] failed to find a target at [AREACOORD(src)]")
 
-/obj/effect/mapping_helpers/door/proc/payload(obj/structure/mineral_door/payload)
+/obj/effect/mapping_helpers/access/proc/payload(obj/payload)
 	return
 
-/obj/effect/mapping_helpers/door/locker
-	name = "door locker helper"
+/obj/effect/mapping_helpers/access/locker
+	name = "access lock helper"
 	icon_state = "door_locker"
 
-/obj/effect/mapping_helpers/door/locker/payload(obj/structure/mineral_door/door)
-	if(door.locked)
-		log_mapping("[src] at [AREACOORD(src)] tried to lock [door] but it's already locked!")
+/obj/effect/mapping_helpers/access/locker/payload(obj/payload)
+	if(payload.locked)
+		log_mapping("[src] at [AREACOORD(src)] tried to lock [payload] but it's already locked!")
 		return
-	door.locked = TRUE
+	payload.locked = TRUE

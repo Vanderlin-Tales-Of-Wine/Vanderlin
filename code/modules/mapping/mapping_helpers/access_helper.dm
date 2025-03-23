@@ -1,113 +1,113 @@
-/obj/effect/mapping_helpers/door/access
-	name = "door access helper"
-	icon_state = "access_helper"
-	var/access_string = null
+/obj/effect/mapping_helpers/access/keyset
+	name = "keyid access helper"
+	icon_state = "list(access_helper")
+	var/list/accesses
 
-/obj/effect/mapping_helpers/door/access/payload(obj/structure/mineral_door/door)
-	if(door.lockid != null)
-		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but lockid was already set!")
+/obj/effect/mapping_helpers/access/keyset/payload(obj/payload)
+	if(!length(src.accesses))
+		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but had nothing to assign!")
 		return
-	if(access_string == null)
-		log_mapping("[src] at [AREACOORD(src)] tried to set lockid, but had nothing to assign!")
+	if(payload.lockids != null)
+		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but lockid was already set!")
 		return
-	door.lockid = access_string
+	payload.lockids += src.accesses
 
 // Town locks
-/obj/effect/mapping_helpers/door/access/town
-	color = "#5a5454"
+/obj/effect/mapping_helpers/access/keyset/town
+	color = "#58431e"
 
-/obj/effect/mapping_helpers/door/access/town/tailor
-	access_string = ACCESS_TAILOR
+/obj/effect/mapping_helpers/access/keyset/town/tailor
+	accesses = list(ACCESS_TAILOR)
 
-/obj/effect/mapping_helpers/door/access/town/smith
-	access_string = ACCESS_SMITH
+/obj/effect/mapping_helpers/access/keyset/town/smith
+	accesses = list(ACCESS_SMITH)
 
-/obj/effect/mapping_helpers/door/access/town/inn
-	access_string = ACCESS_INN
+/obj/effect/mapping_helpers/access/keyset/town/inn
+	accesses = list(ACCESS_INN)
 
-/obj/effect/mapping_helpers/door/access/town/clinic
-	access_string = ACCESS_CLINIC
+/obj/effect/mapping_helpers/access/keyset/town/clinic
+	accesses = list(ACCESS_CLINIC)
 
-/obj/effect/mapping_helpers/door/access/town/merchant
-	access_string = ACCESS_MERCHANT
+/obj/effect/mapping_helpers/access/keyset/town/merchant
+	accesses = list(ACCESS_MERCHANT)
 
-/obj/effect/mapping_helpers/door/access/town/soilson
-	access_string = ACCESS_FARM
+/obj/effect/mapping_helpers/access/keyset/town/soilson
+	accesses = list(ACCESS_FARM)
 
-/obj/effect/mapping_helpers/door/access/town/butcher
-	access_string = ACCESS_BUTCHER
+/obj/effect/mapping_helpers/access/keyset/town/butcher
+	accesses = list(ACCESS_BUTCHER)
 
-/obj/effect/mapping_helpers/door/access/town/apothecary
-	access_string = ACCESS_APOTHECARY
+/obj/effect/mapping_helpers/access/keyset/town/apothecary
+	accesses = list(ACCESS_APOTHECARY)
 
-/obj/effect/mapping_helpers/door/access/town/doctor
-	access_string = ACCESS_FELDSHER
+/obj/effect/mapping_helpers/access/keyset/town/doctor
+	accesses = list(ACCESS_FELDSHER)
 
-/obj/effect/mapping_helpers/door/access/town/matron
-	access_string = ACCESS_MATRON
+/obj/effect/mapping_helpers/access/keyset/town/matron
+	accesses = list(ACCESS_MATRON)
 
-/obj/effect/mapping_helpers/door/access/town/mercenary
-	access_string = ACCESS_MERC
+/obj/effect/mapping_helpers/access/keyset/town/mercenary
+	accesses = list(ACCESS_MERC)
 
-/obj/effect/mapping_helpers/door/access/town/tower
-	access_string = ACCESS_TOWER
+/obj/effect/mapping_helpers/access/keyset/town/tower
+	accesses = list(ACCESS_TOWER)
 
-/obj/effect/mapping_helpers/door/access/town/warehouse
-	access_string = ACCESS_WAREHOUSE
+/obj/effect/mapping_helpers/access/keyset/town/warehouse
+	accesses = list(ACCESS_WAREHOUSE)
 
 // Town Garrison
-/obj/effect/mapping_helpers/door/access/garrison
+/obj/effect/mapping_helpers/access/keyset/garrison
 	color = "#b02323"
 
-/obj/effect/mapping_helpers/door/access/garrison/garrison
-	access_string = ACCESS_GARRISON
+/obj/effect/mapping_helpers/access/keyset/garrison/general
+	accesses = list(ACCESS_GARRISON)
 
-/obj/effect/mapping_helpers/door/access/garrison/captain
-	access_string = ACCESS_CAPTAIN
+/obj/effect/mapping_helpers/access/keyset/garrison/captain
+	accesses = list(ACCESS_CAPTAIN)
 
-/obj/effect/mapping_helpers/door/access/garrison/forest
-	access_string = ACCESS_FOREST
+/obj/effect/mapping_helpers/access/keyset/garrison/forest
+	accesses = list(ACCESS_FOREST)
 
-/obj/effect/mapping_helpers/door/access/garrison/gate
-	access_string = ACCESS_GATE
+/obj/effect/mapping_helpers/access/keyset/garrison/gate
+	accesses = list(ACCESS_GATE)
 
 // Church locks
-/obj/effect/mapping_helpers/door/access/church
+/obj/effect/mapping_helpers/access/keyset/church
 	color = "#eaed3e"
 
-/obj/effect/mapping_helpers/door/access/church/church
-	access_string = ACCESS_CHURCH
+/obj/effect/mapping_helpers/access/keyset/church/general
+	accesses = list(ACCESS_CHURCH)
 
-/obj/effect/mapping_helpers/door/access/church/priest
-	access_string = ACCESS_PRIEST
+/obj/effect/mapping_helpers/access/keyset/church/priest
+	accesses = list(ACCESS_PRIEST)
 
-/obj/effect/mapping_helpers/door/access/church/inquisition
-	access_string = ACCESS_RITTER
+/obj/effect/mapping_helpers/access/keyset/church/inquisition
+	accesses = list(ACCESS_RITTER)
 
-/obj/effect/mapping_helpers/door/access/church/grave
-	access_string = ACCESS_GRAVE
+/obj/effect/mapping_helpers/access/keyset/church/grave
+	accesses = list(ACCESS_GRAVE)
 
 // Manor locks
-/obj/effect/mapping_helpers/door/access/manor
+/obj/effect/mapping_helpers/access/keyset/manor
 	color = "#a926ad"
 
-/obj/effect/mapping_helpers/door/access/manor/manor
-	access_string = ACCESS_MANOR
+/obj/effect/mapping_helpers/access/keyset/manor/general
+	accesses = list(ACCESS_MANOR)
 
-/obj/effect/mapping_helpers/door/access/manor/gate
-	access_string = ACCESS_MANOR_GATE
+/obj/effect/mapping_helpers/access/keyset/manor/gate
+	accesses = list(ACCESS_MANOR_GATE)
 
-/obj/effect/mapping_helpers/door/access/manor/steward
-	access_string = ACCESS_STEWARD
+/obj/effect/mapping_helpers/access/keyset/manor/steward
+	accesses = list(ACCESS_STEWARD)
 
-/obj/effect/mapping_helpers/door/access/manor/dungeon
-	access_string = ACCESS_DUNGEON
+/obj/effect/mapping_helpers/access/keyset/manor/dungeon
+	accesses = list(ACCESS_DUNGEON)
 
-/obj/effect/mapping_helpers/door/access/manor/hand
-	access_string = ACCESS_HAND
+/obj/effect/mapping_helpers/access/keyset/manor/hand
+	accesses = list(ACCESS_HAND)
 
-/obj/effect/mapping_helpers/door/access/manor/lord
-	access_string = ACCESS_LORD
+/obj/effect/mapping_helpers/access/keyset/manor/lord
+	accesses = list(ACCESS_LORD)
 
-/obj/effect/mapping_helpers/door/access/manor/vault
-	access_string = ACCESS_VAULT
+/obj/effect/mapping_helpers/access/keyset/manor/vault
+	accesses = list(ACCESS_VAULT)

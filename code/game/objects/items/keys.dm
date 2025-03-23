@@ -8,7 +8,6 @@
 	dropshrink = 0.75
 	throwforce = 0
 	var/lockhash = 0
-	var/lockid = null
 	drop_sound = 'sound/items/gems (1).ogg'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH|ITEM_SLOT_NECK|ITEM_SLOT_RING
 
@@ -26,6 +25,9 @@
 				lockhash = rand(100,999)
 			GLOB.lockhashes += lockhash
 			GLOB.lockids[lockid] = lockhash
+
+/obj/item/key/get_access()
+	return src.lockids.Copy()
 
 /obj/item/lockpick
 	name = "lockpick"

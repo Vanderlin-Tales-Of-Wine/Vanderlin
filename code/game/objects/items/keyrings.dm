@@ -10,16 +10,17 @@
 	w_class = WEIGHT_CLASS_TINY
 	dropshrink = 0
 	throwforce = 0
-	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	experimental_inhand = FALSE
 	dropshrink = 0.7
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	component_type = /datum/component/storage/concrete/grid/keyring
+	var/list/keys = list() //Used to generate starting keys on initialization, check contents instead for actual keys
+	var/list/combined_access
 
 /obj/item/storage/keyring/Initialize()
 	. = ..()
-	for(var/X in keys)
+	for(var/X as anything in keys)
 		var/obj/item/key/new_key = new X(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
@@ -35,7 +36,7 @@
 
 /obj/item/storage/keyring/update_icon()
 	. = ..()
-	switch(contents.len)
+	switch(length(src.contents))
 		if(0)
 			icon_state = "keyring0"
 		if(1)
@@ -50,20 +51,38 @@
 			icon_state = "keyring5"
 
 /obj/item/storage/keyring/proc/update_desc()
-	if(contents.len)
-		desc = span_info("Holds \Roman[contents.len] key\s, including:")
-		for(var/obj/item/key/KE in contents)
-			desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
-	else
-		desc = ""
+	if(!length(src.contents))
+		src.desc = initial(src.desc)
+		return
+	src.desc += span_info(" Holds \Roman[length(src.contents)] key\s, including:")
+	for(var/obj/item/key/KE in contents)
+		src.desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
+
+/obj/item/storage/keyring/proc/refresh_keys()
+	LAZYCLEARLIST(src.combined_access)
+
+	if(!length(src.contents))
+		return
+
+	for(var/obj/item/key/K in src.contents)
+		if(!length(K.lockids))
+			continue
+		src.combined_access |= K.get_access()
+
+/obj/item/storage/keyring/get_access()
+	if(LAZYLEN(src.combined_access))
+		return src.combined_access
+	return ..()
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	update_desc()
+	refresh_keys()
 
 /obj/item/storage/keyring/Exited(atom/movable/gone, direction)
 	. = ..()
 	update_desc()
+	refresh_keys()
 
 /obj/item/storage/keyring/getonmobprop(tag)
 	. = ..()
