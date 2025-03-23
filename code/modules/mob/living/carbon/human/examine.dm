@@ -70,7 +70,24 @@
 		if(islatejoin)
 			is_returning = TRUE
 
-		statement_of_identity += ("<EM>[used_name]</EM>, the [is_returning ? "returning " : ""][race_name] [used_title].")
+		// building the examine identity
+		statement_of_identity += "<EM>[used_name]</EM>"
+
+		var/appendage_to_name
+		if(is_returning && race_name && !HAS_TRAIT(src, TRAIT_FOREIGNER)) // latejoined? Foreigners can never be returning because they never lived here in the first place
+			appendage_to_name += " returning"
+
+		if(race_name) // race name
+			appendage_to_name += " [race_name]"
+
+		if(used_title && !HAS_TRAIT(src, TRAIT_FOREIGNER)) // job name, don't show job of foreigners.
+			appendage_to_name += ", [used_title]"
+
+		if(appendage_to_name) // if we got any of those paramaters add it to their name
+			statement_of_identity += " the [appendage_to_name]"
+
+		statement_of_identity += "." // comma at the end
+		// full name with all paramaters would be: "John Serf the returning Rakshari, Minnie Bonnickers smithy apprentice.""
 		. += statement_of_identity
 
 		if(GLOB.lord_titles[real_name]) //should be tied to known persons but can't do that until there is a way to recognise new people
