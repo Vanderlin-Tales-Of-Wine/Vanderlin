@@ -16,6 +16,8 @@
 	var/last_progress = 0
 	/// Variable to ensure smooth visual stacking on multiple progress bars.
 	var/listindex = 0
+	///Where to draw the progress bar above the icon
+	var/offset_y
 
 /datum/progressbar/New(mob/User, goal_number, atom/target)
 	. = ..()
@@ -32,7 +34,12 @@
 
 	goal = goal_number
 	bar_loc = target
-	bar = image('icons/effects/progressbar.dmi', bar_loc, "prog_bar_0")
+
+	var/list/icon_offsets = target.get_oversized_icon_offsets()
+	var/offset_x = icon_offsets["x"]
+	offset_y = icon_offsets["y"]
+
+	bar = image('icons/effects/progressbar.dmi', bar_loc, "prog_bar_0", pixel_x = offset_x)
 	bar.plane = ABOVE_HUD_PLANE
 	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	user = User
@@ -56,8 +63,8 @@
 				continue
 			progress_bar.listindex--
 
-			progress_bar.bar.pixel_y = 32 + (PROGRESSBAR_HEIGHT * (progress_bar.listindex - 1))
-			var/dist_to_travel = 32 + (PROGRESSBAR_HEIGHT * (progress_bar.listindex - 1)) - PROGRESSBAR_HEIGHT
+			progress_bar.bar.pixel_y = world.icon_size + offset_y + (PROGRESSBAR_HEIGHT * (progress_bar.listindex - 1))
+			var/dist_to_travel = world.icon_size + offset_y + (PROGRESSBAR_HEIGHT * (progress_bar.listindex - 1)) - PROGRESSBAR_HEIGHT
 			animate(progress_bar.bar, pixel_y = dist_to_travel, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
 		LAZYREMOVEASSOC(user.progressbars, bar_loc, src)
@@ -108,7 +115,7 @@
 	bar.pixel_y = 0
 	bar.alpha = 0
 	user_client.images += bar
-	animate(bar, pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)), alpha = 255, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
+	animate(bar, pixel_y = world.icon_size + offset_y + (PROGRESSBAR_HEIGHT * (listindex - 1)), alpha = 255, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
 /// Updates the progress bar image visually.
 /datum/progressbar/proc/update(progress)
