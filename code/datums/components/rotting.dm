@@ -118,6 +118,21 @@
 /datum/component/rot/gibs
 	amount = 0.005
 
+/datum/component/rot/stinky_person
+	soundloop = null
+	var/static/list/clean_moodlets = list(/datum/stressevent/clean, /datum/stressevent/clean_plus)
+
+/datum/component/rot/stinky_person/process()
+	..()
+	var/mob/living/L = parent
+	var/turf/open/T = L.loc
+	if(istype(T))
+		if(iscarbon(L))
+			var/mob/living/carbon/stinky = L
+			for(clean_moodlets in stinky.positive_stressors)
+				return
+		T.pollute_turf(/datum/pollutant/rot, 0.01)
+
 /datum/looping_sound/fliesloop
 	mid_sounds = list('sound/misc/fliesloop.ogg')
 	mid_length = 60
