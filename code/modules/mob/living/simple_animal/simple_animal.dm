@@ -326,7 +326,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	set waitfor = FALSE
 	if(ai_controller)
 		return
-	if(!stop_automated_movement && wander && !doing)
+	if(!stop_automated_movement && wander && !doing())
 		if(ssaddle && has_buckled_mobs())
 			return 0
 		if((isturf(loc) || allow_movement_on_non_turfs) && (mobility_flags & MOBILITY_MOVE))		//This is so it only moves if it's not inside a closet, gentics machine, etc.

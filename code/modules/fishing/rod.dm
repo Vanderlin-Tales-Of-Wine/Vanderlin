@@ -80,8 +80,8 @@
 	no_attack = TRUE
 
 /obj/item/fishingrod/attack_self(mob/user)
-	if(user.doing)
-		user.doing = 0
+	if(user.doing())
+		user.stop_all_doing()
 	else
 		..()
 
@@ -273,11 +273,10 @@
 /obj/item/fishingrod/afterattack(obj/target, mob/user, proximity, params)
 	if(!check_allowed_items(target,target_self=1) \
 	|| (user.used_intent.type != ROD_CAST && user.used_intent.type != ROD_AUTO) \
-	|| user.doing \
+	|| user.doing() \
 	|| !isliving(user) \
 	|| !user.loc
 	)
-
 		return
 
 	if(user.client)
@@ -495,7 +494,7 @@
 	if(!check_allowed_items(target,target_self=1))
 		return ..()
 	if(user.used_intent.type != ROD_CAST)
-		if(user.used_intent.type == ROD_AUTO && !user.doing)
+		if(user.used_intent.type == ROD_AUTO && !user.doing())
 			if(target in range(user,5))
 				user.visible_message("<span class='warning'>[user] casts a line!</span>", \
 									"<span class='notice'>I cast a line.</span>")
@@ -566,7 +565,6 @@
 		var/initialfish = fishhealth
 		var/facestate = 1
 		createui(fisher)
-		fisher.doing = TRUE
 		fishtarget = 90
 
 		while(currentlyfishing)
@@ -742,7 +740,6 @@
 					var/obj/item/fishing/bait/specialmaker = baited
 					specialmaker.makespecial(caughtthing2)
 
-	fisher.doing = FALSE
 	stopgame(fisher)
 	qdel(baited)
 	baited = null

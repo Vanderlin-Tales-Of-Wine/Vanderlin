@@ -313,6 +313,7 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
 			/* V: */ \
+			|| (!DOING_INTERACTION(user, interaction_key)) \
 			|| (!(timed_action_flags & IGNORE_USER_DIR_CHANGE) && user.dir != user_dir) \
 			/* :V */ \
 			|| (extra_checks && !extra_checks.Invoke()))
@@ -331,12 +332,7 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	cog?.remove(.) /* V */
 
 	if(interaction_key)
-		var/reduced_interaction_count = (LAZYACCESS(user.do_afters, interaction_key) || 0) - 1
-		if(reduced_interaction_count > 0) // Not done yet!
-			LAZYSET(user.do_afters, interaction_key, reduced_interaction_count)
-			return
-		// all out, let's clear er out fully
-		LAZYREMOVE(user.do_afters, interaction_key)
+		user.stop_doing(interaction_key)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
@@ -357,6 +353,24 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 	for(var/key in do_afters)
 		if(do_afters[key] > 0)
 			return TRUE
+
+/// Clears out all do_afters with a specified interaction key
+/mob/proc/stop_doing(interaction_key)
+	if(!interaction_key)
+		return
+
+	var/reduced_interaction_count = (LAZYACCESS(do_afters, interaction_key) || 0) - 1
+	if(reduced_interaction_count > 0) // Not done yet!
+		LAZYSET(do_afters, interaction_key, reduced_interaction_count)
+		return
+	// all out, let's clear er out fully
+	LAZYREMOVE(do_afters, interaction_key)
+
+/// Stops all do_afters
+/mob/proc/stop_all_doing()
+	for(var/interaction_key in do_afters)
+		LAZYREMOVE(do_afters, interaction_key)
+
 /* :V */
 
 /proc/is_species(A, species_datum)
