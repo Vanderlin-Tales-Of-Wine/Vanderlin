@@ -290,7 +290,9 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
+			/* V: */ \
 			|| (!(timed_action_flags & IGNORE_USER_DIR_CHANGE) && user.dir != user_dir) \
+			/* :V */ \
 			|| (extra_checks && !extra_checks.Invoke()))
 			. = FALSE
 			break
