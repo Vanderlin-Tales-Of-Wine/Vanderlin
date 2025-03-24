@@ -1,11 +1,21 @@
+#define MAX_POWER 4
+
 /datum/team/vampire
 	name = "\improper Vampires"
 	member_name = "child of Kain"
 
+	/// The Vampire Lord that commands this team. Can only ever be one, others will be relegated to thralls.
 	var/datum/mind/lord
-	var/datum/objective/protect/lord_protect //not an ideal variable
+	/// The objective to protect the Lord.
+	var/datum/objective/protect/lord_protect //! not an ideal variable but can't guarantee the Lord spawns first
 
-	var/power_level
+	/// Lazy-list of all vampire spawns.
+	var/list/datum/mind/thralls = null
+	/// Lazy-list of all death knights.
+	var/list/datum/mind/knights = null
+
+	/// The current power level of the Lord. Maximum is 4.
+	var/power_level = 0
 	var/obj/structure/vampire/bloodpool/vitae_pool
 
 /datum/team/vampire/New(starting_members)
@@ -34,13 +44,14 @@
 /datum/team/vampire/add_member(datum/mind/new_member)
 	. = ..()
 	var/datum/antagonist/vampire/vamp_datum = new_member.has_antag_datum(/datum/antagonist/vampire)
+	var/datum/antagonist/skeleton
 
 	vamp_datum.objectives |= objectives
 
 	if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		if(lord)
 			stack_trace("vampire team had two lords assigned, which should be impossible")
-			to_chat(new_member, span_warning("Alas, I am not the Lord of these lands. I will serve [lord.name]."))
+			to_chat(new_member, span_warning("Alas, I am not the Lord of this land. I will serve [lord.name]."))
 			var/datum/antagonist/vampire/lord/our_datum = vamp_datum
 			var/datum/antagonist/vampire/lord/their_datum = lord.has_antag_datum(/datum/antagonist/vampire/lord)
 			our_datum.vamplevel = their_datum.vamplevel
@@ -54,6 +65,9 @@
 
 	//if we're still here then we're a minion, just show the objectives to ourselves
 	new_member.announce_objectives()
+
+/datum/team/vampire/remove_member(datum/mind/member)
+	. = ..()
 
 /datum/antagonist/vampire/create_team(datum/team/vampire/new_team)
 	var/static/datum/team/vampire/vampire_team //only one team for now
@@ -88,8 +102,7 @@
 /datum/objective/ascend/check_completion()
 	var/datum/team/vampire/vampire_team = team
 	var/datum/antagonist/vampire/lord/lord_datum = vampire_team.lord?.has_antag_datum(/datum/antagonist/vampire/lord)
-	if(lord_datum?.ascended)
-		return TRUE
+	return lord_datum?.ascended
 
 /datum/objective/infiltrate
 	abstract_type = /datum/objective/infiltrate
@@ -98,8 +111,7 @@
 
 /datum/objective/infiltrate/check_completion()
 	for(var/datum/mind/mind as anything in team.members)
-		if(mind.current.job in jobs_to_check)
-			return TRUE
+		return (mind.current.job in jobs_to_check)
 
 /datum/objective/infiltrate/church
 	name = "infiltrate church"
@@ -126,14 +138,17 @@
 
 /datum/objective/spread
 	name = "spread"
-	explanation_text = "Spread this Curse to 10 mortals."
+	explanation_text = "Spread the Curse to 10 mortals."
 	triumph_count = 5
 
 /datum/objective/spread/check_completion()
-	if(length(team.members) >= 10)
-		return TRUE
+	var/datum/team/vampire/vamp_team = team
+
+	return (LAZYLEN(vamp_team.thralls) >= 10)
 
 /datum/objective/vampire/stock
 	name = "stock"
 	explanation_text = "Have a crimson crucible with 30000 vitae."
 	triumph_count = 1
+
+#undef MAX_POWER

@@ -24,8 +24,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/cache_skin
 	var/cache_eyes
 	var/cache_hair
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
-	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
 
 /datum/antagonist/vampire/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
 	if(istype(examined_datum, /datum/antagonist/vampire/lesser))
@@ -53,7 +51,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(ishuman(owner.current))
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
-	if(is_adventurer_job(owner.assigned_role) || istype(owner.assigned_role, /datum/job/pilgrim))
+	if(is_adventurer_job(owner.assigned_role) || is_pilgrim_job(owner.assigned_role))
 		message_admins("[owner.current.key] HAS BECOME A VAMPIRE AS AN ADVENTURER OR PILGRIM, IF THEY ARE INVISIBLE AND CANNOT PLAY, YELL AT SADBOYSUSS")
 	. = ..()
 	owner.special_role = name
@@ -83,9 +81,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(!silent && owner.current)
 		to_chat(owner.current,span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null
-	if(!isnull(batform))
-		owner.current.RemoveSpell(batform)
-		QDEL_NULL(batform)
 	return ..()
 
 /datum/antagonist/vampire/proc/after_gain()

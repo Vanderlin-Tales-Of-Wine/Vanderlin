@@ -8,6 +8,8 @@
 	)
 	var/vamplevel = 0
 	var/ascended = FALSE
+	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
+	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
 
 /datum/antagonist/vampire/lord/on_gain()
 	owner.purge_combat_knowledge()
@@ -19,6 +21,13 @@
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
 	equip()
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "Lord"), 5 SECONDS)
+
+/datum/antagonist/vampire/lord/on_removal()
+	if(!isnull(batform))
+		owner.current.RemoveSpell(batform)
+		QDEL_NULL(batform)
+	. = ..()
+
 
 /datum/antagonist/vampire/lord/greet()
 	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to trespassers upon my domain."))
@@ -65,8 +74,9 @@
 /datum/antagonist/vampire/lord/proc/grow_in_power()
 	if(vamplevel >= 3)
 		return
-	switch(vamplevel)
-		if(0)
+
+	switch(++vamplevel)
+		if(1)
 			batform = new
 			owner.current.AddSpell(batform)
 			for(var/obj/structure/vampire/portalmaker/S in GLOB.vampire_objects)
@@ -74,7 +84,7 @@
 			for(var/statkey in MOBSTATS)
 				owner.current.change_stat(statkey, 2)
 			to_chat(owner, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
-		if(1)
+		if(2)
 			owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
@@ -84,7 +94,7 @@
 			for(var/S in MOBSTATS)
 				owner.current.change_stat(S, 2)
 			to_chat(owner, "<font color='red'>My power is returning. I can once again access my spells. I have also regained usage of my mist form.</font>")
-		if(2)
+		if(3)
 			for(var/obj/structure/vampire/necromanticbook/S in GLOB.vampire_objects)
 				S.unlocked = TRUE
 			owner.current.verbs |= /mob/living/carbon/human/proc/blood_strength
@@ -94,7 +104,7 @@
 			for(var/S in MOBSTATS)
 				owner.current.change_stat(S, 2)
 			to_chat(owner, span_notice("My dominion over others minds and my own body returns to me. I am nearing perfection. The armies of the dead shall now answer my call."))
-		if(3)
+		if(4)
 			owner.current.visible_message("<font color='red'>[owner.current] is enveloped in dark crimson, a horrific sound echoing in the area. They are evolved.</font>","<font color='red'>I AM ANCIENT, I AM THE LAND. EVEN THE SUN BOWS TO ME.</font>")
 			ascended = TRUE
 			SSmapping.retainer.ascended = TRUE
@@ -105,7 +115,6 @@
 					thrall.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 					for(var/S in MOBSTATS)
 						thrall.current.change_stat(S, 2)
-	vamplevel++
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
