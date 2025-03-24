@@ -39,7 +39,7 @@
 
 /datum/looping_sound/musloop
 	mid_sounds = list()
-	mid_length = 18000 // This is 30 minutes- just in case something wierd happens.
+	mid_length = 30 MINUTES
 	volume = 50
 	extra_range = 6
 	falloff = 0
@@ -190,37 +190,24 @@
 			to_chat(user, span_info("I make \the [src] quieter."))
 	update_icon()
 
-/obj/structure/fake_machine/musicbox/attackby(obj/item/useitem, mob/living/user, params)
-	. = ..()
-	user.changeNext_move(CLICK_CD_MELEE)
-	if(lockid)
-		if(istype(useitem, /obj/item/key))
-			var/obj/item/key/K = useitem
-			if(K.lockid == lockid || K.lockid == "lord") // All locks obey THE King's master key.
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				if(locked==TRUE)
-					user.visible_message(span_info("[user] locks \the [src]."),span_info("I lock \the [src]."))
-				else
-					user.visible_message(span_info("[user] unlocks \the [src]."),span_info("I unlock \the [src]."))
-				return
-			else
-				playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-				to_chat(user, "<span class='warning'>Wrong key.</span>")
-				return
-		if(istype(useitem, /obj/item/storage/keyring))
-			var/obj/item/storage/keyring/K = useitem
-			for(var/obj/item/key/KE in K.contents)
-				if(KE.lockid == lockid)
-					locked = !locked
-					playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-					return
+/obj/structure/fake_machine/musicbox/attackby(obj/item/I, mob/living/user, params)
+	if(!src.lockid || !I.has_access())
+		return ..()
+	if(src.check_access(I))
+		src.locked = !src.locked
+		user.visible_message( \
+			span_info("[user] [src.locked ? "locks" : "unlocks"] \the [src]."), \
+			span_info("I [src.locked ? "lock" : "unlock"] \the [src]."))
+		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
+		return
+	to_chat(user, span_info("I lack the key for \the [src]."))
+	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
 
 /obj/structure/fake_machine/musicbox/mannor
-	lockid = "mannor"
+	lockids = list(ACCESS_MANOR)
 
 /obj/structure/fake_machine/musicbox/tavern
-	lockid = "tavern"
+	lockids = list(ACCESS_INN)
 	curvol = 30
 	playuponspawn = TRUE
 	init_curfile = list(\
