@@ -49,6 +49,11 @@
 	if(src.idtoset)
 		. += span_info("It has been marked with [src.idtoset], but has not been finished.")
 
+/obj/item/key/custom/get_access()
+	if(src.idtoset)
+		return list(src.idtoset)
+	return ..()
+
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/weapon/hammer))
 		return ..()
@@ -67,41 +72,22 @@
 	idtoset = "[input]"
 
 /obj/item/key/custom/attack_right(mob/user)
-	if(src.lockid)
+	if(length(src.lockids))
 		to_chat(user, span_warning("[src] has been finished, it cannot be adjusted again!"))
 		return
 	var/held = user.get_active_held_item()
-	if(istype(held, /obj/item/key))
-		var/obj/item/key/K = held
-		if(istype(K, /obj/item/key/custom) && !K.lockid)
-			var/obj/item/key/custom/CK = held
-			if(!CK.idtoset)
-				to_chat(user, span_warning("[held] has no teeth!"))
-				return
-			src.idtoset = CK.idtoset
-			to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
-			return
-		if(!K.lockid)
-			to_chat(user, span_warning("[held] has no teeth!"))
-			return
-		src.idtoset = K.lockid
-		to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
-		return
-	if(istype(held, /obj/item/customlock))
-		var/obj/item/customlock/L = held
-		if(!L.lockid)
-			to_chat(user, span_warning("[held] has not had its pins set!"))
-			return
-		src.idtoset = L.lockid
-		to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
-		return
 	if(istype(held, /obj/item/weapon/hammer))
 		if(!src.idtoset)
 			to_chat(user, span_warning("[src] is not ready, its teeth are not set!"))
 			return
-		src.lockid = src.idtoset
+		src.lockids = list(src.idtoset)
 		src.idtoset = null
 		to_chat(user, span_notice("You finish [src]."))
+		return
+	if(!src.copy_access(held))
+		to_chat(user, span_warning("I cannot forge a key from [held]!"))
+		return
+	to_chat(user, span_notice("I forge the key based on the workings of [held]."))
 
 /obj/item/key/lord
 	name = "master key"

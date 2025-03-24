@@ -8,7 +8,7 @@
 	armor = list("blunt" = 50, "slash" = 50, "stab" = 50,  "piercing" = 20, "fire" = 90, "acid" = 50)
 	max_integrity = 150
 	integrity_failure = 0.33
-	var/locked = FALSE
+	locked = FALSE
 	var/open = TRUE
 	var/obj/item/weapon/sword/long/heirloom
 
