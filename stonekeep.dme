@@ -1720,7 +1720,6 @@
 #include "code\modules\jobs\job_types\garrison\mayor.dm"
 #include "code\modules\jobs\job_types\garrison\men_at_arms.dm"
 #include "code\modules\jobs\job_types\garrison\royalguard.dm"
-#include "code\modules\jobs\job_types\garrison\sheriff.dm"
 #include "code\modules\jobs\job_types\garrison\veteran.dm"
 #include "code\modules\jobs\job_types\nobility\archivist.dm"
 #include "code\modules\jobs\job_types\nobility\captain.dm"

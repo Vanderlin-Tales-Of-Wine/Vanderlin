@@ -214,9 +214,6 @@
 /obj/item/storage/keyring/guard
 	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison)
 
-/obj/item/storage/keyring/sheriff
-	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/sheriff)
-
 /obj/item/storage/keyring/manorguard
 	keys = list(/obj/item/key/manor, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls)
 
