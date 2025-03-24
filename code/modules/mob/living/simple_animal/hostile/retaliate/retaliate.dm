@@ -173,7 +173,7 @@
 	set waitfor = FALSE
 	if(ai_controller)
 		return ..()
-	if(!stop_automated_movement && wander && !doing)
+	if(!stop_automated_movement && wander && !doing())
 		if(ssaddle && has_buckled_mobs())
 			return FALSE
 		if(find_food())
