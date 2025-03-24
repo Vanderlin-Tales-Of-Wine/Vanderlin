@@ -501,3 +501,13 @@
 
 /// Humans are slowed by the difference between bodytemp and BODYTEMP_COLD_DAMAGE_LIMIT divided by this
 #define COLD_SLOWDOWN_FACTOR				20
+
+//FURRY COLORS
+#define ORANGE_FUR "de7642"
+#define LIGHTGREY_FUR "a8aa97"
+#define DARKGREY_FUR "677881"
+#define LIGHTORANGE_FUR "da672a"
+#define LIGHTBROWN_FUR "6d4530"
+#define WHITEBROWN_FUR "c69b83"
+#define DARKBROWN_FUR "3b2e27"
+#define BLACK_FUR	 "271f1a"

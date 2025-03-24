@@ -438,6 +438,7 @@ ROUNDSTART_RACES halfelf
 ROUNDSTART_RACES elfs
 ROUNDSTART_RACES elfd
 ROUNDSTART_RACES aasimar
+ROUNDSTART_RACES half-kin
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
 #ROUNDSTART_RACES lizard

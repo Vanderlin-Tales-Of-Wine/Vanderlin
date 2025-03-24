@@ -33,8 +33,8 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_ENDURANCE = 1)
 	enflamed_icon = "widefire"
+/*
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
 		ORGAN_SLOT_HEART = /obj/item/organ/heart,
@@ -46,6 +46,7 @@
 		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
 		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
 		)
+*/
 	bodypart_features = list(
 		/datum/bodypart_feature/hair/head,
 		/datum/bodypart_feature/hair/facial,
@@ -55,11 +56,9 @@
 		/datum/customizer/bodypart_feature/hair/head/humanoid,
 		/datum/customizer/bodypart_feature/hair/facial/humanoid,
 		/datum/customizer/bodypart_feature/accessory,
-		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/organ/ears/demihuman,
 		/datum/customizer/organ/horns/demihuman,
 		/datum/customizer/organ/tail/demihuman,
-		/datum/customizer/organ/wings/anthro,
 		)
 	body_markings = list(
 		/datum/body_marking/tonage,
@@ -84,36 +83,20 @@
 /datum/species/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
 
-/datum/species/demihuman/on_species_gain(mob/living/carbon/foreign, datum/species/old_species)
-	..()
-	languages(foreign)
-
-/datum/species/demihuman/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
-
-/datum/species/demihuman/get_random_features()
+/datum/species/demihuman/random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	var/main_color
-	var/random = rand(1,8)
 	//Choose from a variety of mostly brightish, animal, matching colors
-	switch(random)
-		if(1)
-			main_color = ORANGE_FUR
-		if(2)
-			main_color = LIGHTGREY_FUR
-		if(3)
-			main_color = DARKGREY_FUR
-		if(4)
-			main_color = LIGHTORANGE_FUR
-		if(5)
-			main_color = LIGHTBROWN_FUR
-		if(6)
-			main_color = WHITEBROWN_FUR
-		if(7)
-			main_color = DARKBROWN_FUR
-		if(8)
-			main_color = BLACK_FUR
+	main_color = pick(
+		ORANGE_FUR,
+		LIGHTGREY_FUR,
+		DARKGREY_FUR,
+		LIGHTORANGE_FUR,
+		LIGHTBROWN_FUR,
+		WHITEBROWN_FUR,
+		DARKBROWN_FUR,
+		BLACK_FUR,
+	)
 	returned["mcolor"] = main_color
 	returned["mcolor2"] = main_color
 	returned["mcolor3"] = main_color
@@ -121,16 +104,15 @@
 
 /datum/species/demihuman/get_skin_list()
 	return list(
-		"Grenzelhoft" = SKIN_COLOR_GRENZELHOFT,
-		"Hammerhold" = SKIN_COLOR_HAMMERHOLD,
-		"Avar" = SKIN_COLOR_AVAR,
-		"Rockhill" = SKIN_COLOR_ROCKHILL,
-		"Otava" = SKIN_COLOR_OTAVA,
-		"Etrusca" = SKIN_COLOR_ETRUSCA,
-		"Gronn" = SKIN_COLOR_GRONN,
-		"North Raneshen (Chorodiaki)" = SKIN_COLOR_GIZA,
-		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
-		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
-		"Naledi" = SKIN_COLOR_NALEDI,
-		"Kazengun" = SKIN_COLOR_KAZENGUN,
+		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
+		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
+		"Tundra" = SKIN_COLOR_TUNDRA, // - (White 2)
+		"Continental" = SKIN_COLOR_CONTINENTAL, // - (White 3)
+		"Temperate" = SKIN_COLOR_TEMPERATE, // - (White 4)
+		"Coastal" = SKIN_COLOR_COASTAL, // - (Latin)
+		"Subtropical" = SKIN_COLOR_SUBTROPICAL, // - (Mediterranean)
+		"Tropical Dry" = SKIN_COLOR_TROPICALDRY, // - (Mediterranean 2)
+		"Tropical Wet" = SKIN_COLOR_TROPICALWET, // - (Latin 2)
+		"Desert" = SKIN_COLOR_DESERT, //  - (Middle-east)
+		"Crimson Lands" = SKIN_COLOR_CRIMSONLANDS, // - (Black)
 	)

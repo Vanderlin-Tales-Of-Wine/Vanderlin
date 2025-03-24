@@ -62,7 +62,8 @@ SUBSYSTEM_DEF(familytree)
 		/datum/species/tieberian,
 		/datum/species/aasimar,
 		/datum/species/rakshari,
-		/datum/species/halforc
+		/datum/species/halforc,
+		/datum/species/demihuman,
 		)
 
 /datum/controller/subsystem/familytree/Initialize()
