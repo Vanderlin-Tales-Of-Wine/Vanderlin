@@ -55,6 +55,9 @@
 #define ORGAN_SLOT_PARASITE_EGG "parasite_egg"
 #define ORGAN_SLOT_REGENERATIVE_CORE "regen_core"
 
+#define ORGAN_SLOT_HORNS "horns"
+#define ORGAN_SLOT_TAIL_FEATURE "tail_feature"
+
 #define BODYPART_FEATURE_HAIR "hair"
 #define BODYPART_FEATURE_FACIAL_HAIR "facehair"
 #define BODYPART_FEATURE_ACCESSORY "accessory"

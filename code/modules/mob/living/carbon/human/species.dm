@@ -491,6 +491,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/qualifies_for_rank(rank, list/features)
 	return 1
 
+/datum/species/proc/get_random_features()
+	var/list/returned = MANDATORY_FEATURE_LIST
+	returned["mcolor"] = random_color()
+	returned["mcolor2"] = random_color()
+	returned["mcolor3"] = random_color()
+	return returned
+
 //Will regenerate missing organs
 /datum/species/proc/regenerate_organs(mob/living/carbon/C,datum/species/old_species,replace_current=TRUE)
 	var/obj/item/organ/brain/brain = C.getorganslot(ORGAN_SLOT_BRAIN)

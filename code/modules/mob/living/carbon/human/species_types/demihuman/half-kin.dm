@@ -83,7 +83,7 @@
 /datum/species/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
 
-/datum/species/demihuman/random_features()
+/datum/species/demihuman/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	var/main_color
 	//Choose from a variety of mostly brightish, animal, matching colors
