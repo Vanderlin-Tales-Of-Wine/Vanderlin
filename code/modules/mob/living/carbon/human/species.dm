@@ -693,7 +693,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		ADD_TRAIT(C, X, SPECIES_TRAIT)
 
 	for(var/component in components_to_add)
-		AddComponent(component)
+		C.AddComponent(component)
 
 	if(TRAIT_TOXIMMUNE in inherent_traits)
 		C.setToxLoss(0, TRUE, TRUE)
