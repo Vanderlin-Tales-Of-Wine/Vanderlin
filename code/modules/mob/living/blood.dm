@@ -168,7 +168,7 @@
 		blood_volume = max(blood_volume - amt, 0)
 		GLOB.vanderlin_round_stats["blood_spilt"] += amt
 		if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
-			add_drip_floor(src.loc, amt)
+			add_drip_floor(get_turf(src), amt)
 		var/vol2use
 		if(amt > 1)
 			vol2use = 'sound/misc/bleed (1).ogg'

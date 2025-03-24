@@ -144,6 +144,10 @@
 	hsover.hud = src
 	static_inventory += hsover
 
+	mana_over =  new /atom/movable/screen/mana_over()
+	mana_over.hud = src
+	static_inventory += mana_over
+
 	fov = new /atom/movable/screen/fov()
 	fov.hud = src
 	static_inventory += fov
@@ -399,6 +403,10 @@
 
 	energy = new /atom/movable/screen/energy()
 	infodisplay += energy
+
+	mana = new /atom/movable/screen/mana()
+	infodisplay += mana
+
 
 	for(var/atom/movable/screen/inventory/inv in (static_inventory + toggleable_inventory))
 		if(inv.slot_id)

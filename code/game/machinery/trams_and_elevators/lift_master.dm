@@ -802,6 +802,12 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 					sold_count[initial(inside.name)]++
 					sold_items[initial(inside.name)] += FLOOR(inside.sellprice * sell_modifer, 1)
 
+			if(istype(listed_atom, /obj/item/clothing/head/mob_holder))
+				var/obj/item/clothing/head/mob_holder/holder = listed_atom
+				for(var/obj/item/item in holder.held_mob.get_equipped_items())
+					item.forceMove(get_turf(holder))
+				to_chat(holder.held_mob, span_boldwarning("You have been sold."))
+				qdel(holder.held_mob) //so long my friend
 			qdel(listed_atom)
 
 		spawn_coins(total_coin_value, platform)
@@ -833,13 +839,3 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				manifest.count = count.Copy()
 				manifest.items = items.Copy()
 				manifest.rebuild_info()
-
-///Returns the src and all recursive contents as a list.
-/atom/proc/get_all_contents(ignore_flag_1)
-	. = list(src)
-	var/i = 0
-	while(i < length(.))
-		var/atom/checked_atom = .[++i]
-		if(checked_atom.flags_1 & ignore_flag_1)
-			continue
-		. += checked_atom.contents
