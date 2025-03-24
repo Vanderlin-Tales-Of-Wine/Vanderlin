@@ -33,10 +33,9 @@
 /obj/structure/pillory/OnCrafted(dirin, mob/user)
 	. = ..()
 	for(var/obj/item/customlock/finished/lock in contents)
-		lockcheck = list(lock.lockhash)
+		lockcheck = list(lock.lockid)
 		qdel(lock)
 		desc = "To keep the criminals locked! This has a custom lock installed."
-		return
 
 /obj/structure/pillory/examine(mob/user)
 	. = ..()
@@ -64,7 +63,7 @@
 		return
 	if(istype(P, /obj/item/key))
 		var/obj/item/key/K = P
-		if((K.lockid in lockcheck) || (K.lockhash in lockcheck))
+		if((K.lockid in lockcheck))
 			togglelock(user)
 			return
 		else
@@ -74,12 +73,11 @@
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
 		for(var/obj/item/key/KE in K.contents)
-			if((KE.lockid in lockcheck) || (KE.lockhash in lockcheck))
+			if((KE.lockid in lockcheck))
 				togglelock(user)
 				return
-		to_chat(user, span_warning("Wrong key."))
+		to_chat(user, span_warning("I lack the key."))
 		playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
-		return
 
 /obj/structure/pillory/proc/togglelatch(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)

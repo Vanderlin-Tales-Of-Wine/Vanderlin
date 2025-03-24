@@ -73,7 +73,7 @@
 			hairs = pref_species.get_oldhc_list()
 		else
 			hairs = pref_species.get_hairc_list()
-		hair_color = pick_assoc(pick(hairs))
+		hair_color = pick_assoc(hairs)
 		facial_hair_color = hair_color
 	if(randomise[RANDOM_SKIN_TONE])
 		var/list/skins = pref_species.get_skin_list()
