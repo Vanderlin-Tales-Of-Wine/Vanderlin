@@ -39,37 +39,6 @@
 
 	armor = ARMOR_PADDED_GOOD
 
-/obj/item/clothing/armor/gambeson/heavy/guard
-	color = CLOTHING_PLUM_PURPLE
-
-/obj/item/clothing/armor/gambeson/heavy/guard/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/armor/gambeson/heavy/guard/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-/obj/item/clothing/armor/gambeson/heavy/guardsecond
-	color = CLOTHING_BLOOD_RED
-
-/obj/item/clothing/armor/gambeson/heavy/guardsecond/Initialize()
-	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
-
-/obj/item/clothing/armor/gambeson/heavy/guardsecond/lordcolor(primary,secondary)
-	if(secondary)
-		color = secondary
-
-/obj/item/clothing/armor/gambeson/heavy/guardsecond/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
 
 /obj/item/clothing/armor/gambeson/apothecary
 	name = "apothecary overcoat"
