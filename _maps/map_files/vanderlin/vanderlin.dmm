@@ -1983,6 +1983,7 @@
 /obj/effect/landmark/start/armorsmith{
 	dir = 4
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/smithy)
 "bqV" = (
@@ -2428,6 +2429,11 @@
 /obj/structure/fluff/telescope,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
+"bCZ" = (
+/obj/machinery/light/fueled/forge,
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/smithy)
 "bDv" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
@@ -5932,6 +5938,7 @@
 /area/rogue/indoors/town/smithy)
 "edD" = (
 /obj/structure/fake_machine/mail,
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "edW" = (
@@ -9284,6 +9291,10 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/basement)
+"gxd" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/cobblerock,
+/area/rogue/indoors/town/smithy)
 "gxy" = (
 /turf/open/floor/rooftop{
 	dir = 4
@@ -9780,6 +9791,15 @@
 /obj/structure/fluff/telescope,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/town/roofs)
+"gMU" = (
+/obj/structure/table/wood/reinforced_alter,
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/smithy)
 "gNi" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/flora/grass,
@@ -9908,6 +9928,11 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/sewer)
+"gRV" = (
+/obj/structure/window/solid,
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/smithy)
 "gRX" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -11349,6 +11374,7 @@
 /obj/machinery/anvil,
 /obj/item/weapon/tongs,
 /obj/item/weapon/hammer/iron,
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/smithy)
 "hUA" = (
@@ -12186,6 +12212,10 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manorgate)
+"iAk" = (
+/obj/merge_conflict_marker,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/smithy)
 "iAr" = (
 /obj/structure/fluff/sellsign{
 	name = "Weaponsmith"
@@ -13082,6 +13112,7 @@
 	pixel_y = 14;
 	pixel_x = -3
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/smithy)
 "jdj" = (
@@ -13144,6 +13175,7 @@
 /obj/item/storage/crucible/random{
 	pixel_y = 12
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone,
 /area/rogue/indoors/town/smithy)
 "jgF" = (
@@ -15408,6 +15440,10 @@
 "kJo" = (
 /turf/open/floor/woodturned,
 /area/rogue/under/town/sewer)
+"kJu" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/herringbone,
+/area/rogue/indoors/town/smithy)
 "kJJ" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/blocks,
@@ -15602,6 +15638,10 @@
 "kRp" = (
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/tavern)
+"kRu" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/smithy)
 "kRA" = (
 /obj/structure/table/wood/plain_alt,
 /obj/machinery/light/fueled/wallfire/candle{
@@ -16582,6 +16622,7 @@
 /mob/living/simple_animal/pet/cat/cabbit{
 	name = "Tongs"
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "lIK" = (
@@ -17346,6 +17387,7 @@
 /obj/structure/handcart{
 	dir = 4
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "mrq" = (
@@ -19953,6 +19995,10 @@
 	},
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/manor)
+"ojn" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/smithy)
 "ojs" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
@@ -20267,6 +20313,7 @@
 /area/rogue/indoors/town/manor)
 "oyt" = (
 /obj/structure/rack,
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/smithy)
 "oyv" = (
@@ -20381,6 +20428,10 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"oCY" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/cobble,
+/area/rogue/indoors/town/smithy)
 "oDh" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -20675,6 +20726,10 @@
 /obj/item/clothing/shoes/nobleboot,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"oMR" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "oMT" = (
 /obj/structure/chair/sofa{
 	name = "enchanted sofa"
@@ -21015,6 +21070,7 @@
 /obj/effect/landmark/start/armorsmith{
 	dir = 4
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "oZQ" = (
@@ -23090,6 +23146,13 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
+"qDg" = (
+/obj/machinery/anvil,
+/obj/item/weapon/hammer/iron,
+/obj/item/weapon/tongs,
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/smithy)
 "qDs" = (
 /obj/machinery/light/fueled/hearth,
 /obj/item/reagent_containers/glass/bucket/pot{
@@ -24169,6 +24232,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/smithy)
 "rvG" = (
@@ -24700,6 +24764,11 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
+"rND" = (
+/obj/item/bin/water/gross,
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/smithy)
 "rNS" = (
 /obj/structure/flora/grass/bush_meagre,
 /obj/structure/fluff/railing/wood{
@@ -27372,6 +27441,10 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
+"tBg" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/metal/barograte,
+/area/rogue/outdoors/town)
 "tBn" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
@@ -28069,6 +28142,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/grass,
 /obj/structure/flora/grass/bush,
+/obj/merge_conflict_marker,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "tZa" = (
@@ -29514,6 +29588,10 @@
 /obj/structure/fluff/signage,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
+"uWf" = (
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks,
+/area/rogue/outdoors/town)
 "uWi" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/bookcase/random_recipes,
@@ -29839,6 +29917,7 @@
 /obj/structure/rack,
 /obj/item/flint,
 /obj/item/flint,
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/smithy)
 "vkE" = (
@@ -31269,6 +31348,7 @@
 /obj/item/ore/coal,
 /obj/item/ore/coal,
 /obj/item/ore/coal,
+/obj/merge_conflict_marker,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "wom" = (
@@ -32025,6 +32105,7 @@
 /area/rogue/outdoors/rtfield/safe)
 "wMo" = (
 /obj/machinery/light/fueled/wallfire/candle,
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "wMs" = (
@@ -32209,6 +32290,7 @@
 	lockid = "blacksmith";
 	name = "Armoursmith"
 	},
+/obj/merge_conflict_marker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "wSL" = (
@@ -33085,6 +33167,11 @@
 	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"xBF" = (
+/obj/structure/flora/grass/bush_meagre,
+/obj/merge_conflict_marker,
+/turf/open/floor/grass,
+/area/rogue/outdoors/town)
 "xBT" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/concrete,
@@ -33836,6 +33923,15 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"ygb" = (
+/obj/machinery/light/fueled/smelter,
+/obj/item/storage/crucible/random{
+	pixel_y = 12;
+	pixel_x = 3
+	},
+/obj/merge_conflict_marker,
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/indoors/town/smithy)
 "ygd" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /turf/open/floor/ruinedwood/chevron,
@@ -93668,7 +93764,7 @@ aWH
 uXe
 liC
 elp
-lsl
+uWf
 mgv
 wdY
 kip
@@ -93869,8 +93965,8 @@ elp
 elp
 elp
 elp
-elp
-elp
+oMR
+oMR
 tJX
 aPk
 mvi
@@ -94070,8 +94166,8 @@ ohB
 uSV
 elp
 elp
-uSV
-elp
+tBg
+oMR
 elp
 elp
 nOJ
@@ -94274,7 +94370,7 @@ elp
 elp
 elp
 elp
-elp
+oMR
 elp
 ggM
 lsl
@@ -94473,9 +94569,9 @@ uzI
 tYW
 qBL
 tTU
+gRV
 lzw
-lzw
-tTU
+iAk
 lzw
 lzw
 tTU
@@ -94672,7 +94768,7 @@ qBL
 hsv
 oXQ
 mbB
-oXQ
+xBF
 tTU
 nJO
 mqW
@@ -94874,13 +94970,13 @@ qBL
 tTU
 tTU
 tTU
-tTU
+iAk
 qBL
 wok
 uOB
-svp
-svp
-svp
+ojn
+ojn
+ojn
 auy
 uBE
 tTU
@@ -95078,11 +95174,11 @@ pMR
 xfp
 jgB
 eHV
+kJu
 uOB
-uOB
-svp
+ojn
 jda
-svp
+ojn
 dqq
 lpz
 tTU
@@ -95278,12 +95374,12 @@ mCU
 dFv
 cTk
 qBL
-pMR
+ygb
 svp
 vJy
-pnI
-pnI
-pnI
+kRu
+kRu
+kRu
 pnI
 aAQ
 lpz
@@ -95480,9 +95576,9 @@ sSS
 sSS
 pnI
 edv
+kRu
 pnI
-pnI
-pnI
+kRu
 aHp
 lIG
 uOB
@@ -95684,10 +95780,10 @@ cKB
 tja
 pnI
 oZO
-sSS
+oCY
 bqz
-dFv
-uOB
+gxd
+kJu
 qBL
 nmz
 tTU
@@ -95885,10 +95981,10 @@ uOB
 gbp
 qBL
 wMo
-mCU
-sSS
-sSS
-mCU
+rND
+oCY
+oCY
+rND
 uOB
 qBL
 wiM
@@ -96086,10 +96182,10 @@ fvY
 pnI
 pnI
 tpt
-pnI
-aFU
-sSS
-dFv
+kRu
+qDg
+oCY
+gxd
 hUw
 uOB
 fTF
@@ -96289,9 +96385,9 @@ tpt
 tTU
 qBL
 edD
-sTi
-dFv
-sSS
+bCZ
+gxd
+oCY
 sTi
 uOB
 jNK
@@ -96490,9 +96586,9 @@ lsl
 lsl
 lsl
 hRa
-pnI
-dFv
-dFv
+kRu
+gxd
+gxd
 dFv
 bva
 uOB
@@ -96693,7 +96789,7 @@ lsl
 eYq
 qBL
 wSe
-fTF
+gMU
 fTF
 tTU
 tTU
