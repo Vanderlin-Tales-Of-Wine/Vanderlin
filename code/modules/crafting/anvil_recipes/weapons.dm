@@ -301,6 +301,15 @@
 	created_item = /obj/item/weapon/sword/long/greatsword/zwei
 	craftdiff = 3
 
+/datum/anvil_recipe/weapons/iron/chain_whip
+	name = "Chain Whip (+chain)"
+	recipe_name = "a whip made from chains"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/rope/chain)
+	created_item = /obj/item/weapon/whip/chain
+	craftdiff = 3
+
 // STEEL GEAR - Fancy gear for Knights
 
 /datum/anvil_recipe/weapons/steel/axe_steel
