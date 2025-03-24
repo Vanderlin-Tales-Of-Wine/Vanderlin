@@ -25,7 +25,7 @@
 	base_cleaning_duration = 3 SECONDS,
 	cleaning_strength = CLEAN_MEDIUM,
 	cleaning_effectiveness = 100,
-	downgrade_on_ineffective = TRUE
+	downgrade_on_ineffective = TRUE,
 	datum/callback/pre_clean_callback = null,
 	datum/callback/on_cleaned_callback = null,
 	datum/callback/on_cleaned_ineffective_callback = null

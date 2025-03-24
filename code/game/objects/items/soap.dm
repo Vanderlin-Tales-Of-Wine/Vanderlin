@@ -33,7 +33,7 @@
 		return DO_NOT_CLEAN
 	if(isitem(atom_to_clean) && atom_to_clean.reagents && atom_to_clean.is_open_container())
 		return DO_NOT_CLEAN
-	if(check_allowed_items(atom_to_clean)) ? TRUE : DO_NOT_CLEAN
+	return check_allowed_items(atom_to_clean) ? TRUE : DO_NOT_CLEAN
 
 /obj/item/soap/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
 	if(clean_succeeded)

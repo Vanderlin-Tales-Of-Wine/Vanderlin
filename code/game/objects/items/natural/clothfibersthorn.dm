@@ -67,7 +67,7 @@
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
 
-	var/datum/component/cleaner_component = null
+	var/datum/component/cleaner/cleaner_component = null
 	var/clean_speed = 0.4 SECONDS
 	var/volume = 10
 	var/static/wet_max = 12
@@ -81,7 +81,7 @@
 	. = ..()
 	if(isnum(vol) && vol > 0)
 		volume = vol
-	create_reagents(volume, reagent_flags)
+	create_reagents(volume)
 
 
 /obj/item/natural/cloth/ComponentInitialize()
@@ -96,9 +96,7 @@
 									CALLBACK(src, PROC_REF(on_clean_ineffective)),
 									)
 
-/obj/item/natural/cloth/proc/should_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
-	if(!wet)
-		return DO_NOT_CLEAN
+/obj/item/natural/cloth/proc/on_pre_clean(datum/cleaning_source, atom/atom_to_clean, mob/living/cleaner)
 	if(ismob(atom_to_clean))
 		return DO_NOT_CLEAN
 	if(isitem(atom_to_clean) && atom_to_clean.reagents && atom_to_clean.is_open_container())
@@ -107,17 +105,26 @@
 		return DO_NOT_CLEAN
 
 	// overly complicated effectiveness calculations
+	// explanation/graph https://www.desmos.com/calculator/sjzjfkeupd
 	var/pWater = reagents.get_reagent_amount(/datum/reagent/water) / reagents.total_volume
 	var/pDirtyWater = reagents.get_reagent_amount(/datum/reagent/water/gross) / reagents.total_volume
 	var/pSoap = reagents.get_reagent_amount(/datum/reagent/soap) / reagents.total_volume
-	var/effectiveness = 0.1 + (pWater * 0.6 + pDirtyWater * 0.4) * CLAMP(LERP(1, 2, pSoap / (pWater + pDirtyWater), 1, 2))
+	var/effectiveness = 0.1 + pWater * CLEAN_EFFECTIVENESS_WATER + pDirtyWater * CLEAN_EFFECTIVENESS_DIRTY_WATER
+	effectiveness *= LERP(1, CLEAN_EFFECTIVENESS_SOAP, pSoap)
 
-
+	cleaner_component.cleaning_effectiveness = effectiveness % 1
+	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + floor(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
+	message_admins("[pWater]\n[pDirtyWater]\n[pSoap]\n[effectiveness]\n\t[cleaner_component.cleaning_effectiveness]\n\t[cleaner_component.cleaning_strength]")
 	return TRUE
 
 /obj/item/natural/cloth/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
+	if(isturf(target))
+		var/turf/T = target
+		T.add_liquid_from_reagents(reagents, amount = 1)
+	else
+		reagents.remove_any(1)
 
-obj/item/natural/cloth/proc/on_clean_ineffective(atom/target, mob/living/user)
+/obj/item/natural/cloth/proc/on_clean_ineffective(atom/target, mob/living/user)
 	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
 
 
@@ -157,7 +164,7 @@ obj/item/natural/cloth/proc/on_clean_ineffective(atom/target, mob/living/user)
 	if(user.client && ((O in user.client.screen) && !user.is_holding(O)))
 		to_chat(user, span_warning("I need to take that [O.name] off before cleaning it!"))
 		return
-	if(istype(O, /obj/effect/decal/cleanable))
+	/*if(istype(O, /obj/effect/decal/cleanable))
 		var/cleanme = TRUE
 		if(istype(O, /obj/effect/decal/cleanable/blood))
 			if(!wet)
@@ -193,7 +200,7 @@ obj/item/natural/cloth/proc/on_clean_ineffective(atom/target, mob/living/user)
 			for(var/obj/effect/decal/cleanable/C in T)
 				qdel(C)
 			wet = max(wet-0.50, 0)
-	playsound(user, "clothwipe", 100, TRUE)
+	playsound(user, "clothwipe", 100, TRUE)*/
 
 
 // BANDAGING

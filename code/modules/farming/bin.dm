@@ -69,7 +69,7 @@
 			user.visible_message("<span class='warning'>[user] kicks over [src]!</span>", \
 				"<span class='warning'>I kick over [src]!</span>")
 			kover = TRUE
-			chem_splash(loc, 2, list(reagents))
+			chem_splash(loc, 2, list(reagents), adminlog = TRUE)
 			var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 			if(STR)
 				var/list/things = STR.contents()
