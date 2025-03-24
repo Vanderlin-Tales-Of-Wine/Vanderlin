@@ -16,7 +16,8 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dwarf"
+		"Dwarf",
+		"Kobold",
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)

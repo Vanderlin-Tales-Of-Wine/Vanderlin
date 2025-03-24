@@ -1,0 +1,242 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/grass,
+/area/rogue/outdoors)
+"b" = (
+/obj/structure/arcyne_wall/greater/caster,
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"c" = (
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"d" = (
+/obj/structure/mineral_door/wood/deadbolt/arcyne/caster{
+	dir = 8
+	},
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"e" = (
+/turf/open/floor/greenstone/runed,
+/area/rogue/outdoors)
+"f" = (
+/obj/structure/mineral_door/wood/deadbolt/arcyne/caster{
+	dir = 4
+	},
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"g" = (
+/obj/structure/mineral_door/wood/deadbolt/arcyne/caster,
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"h" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"i" = (
+/obj/machinery/light/fueled/firebowl/standing/blue,
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"j" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/greenstone,
+/area/rogue/outdoors)
+"k" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/greenstone/runed,
+/area/rogue/outdoors)
+
+(1,1,1) = {"
+a
+b
+b
+b
+b
+b
+g
+b
+b
+b
+b
+b
+a
+"}
+(2,1,1) = {"
+b
+b
+c
+h
+e
+c
+c
+c
+e
+h
+c
+b
+b
+"}
+(3,1,1) = {"
+b
+c
+e
+b
+b
+b
+f
+b
+b
+b
+e
+c
+b
+"}
+(4,1,1) = {"
+b
+c
+b
+b
+c
+e
+c
+c
+c
+b
+b
+e
+b
+"}
+(5,1,1) = {"
+b
+e
+b
+i
+e
+c
+c
+c
+c
+i
+b
+c
+b
+"}
+(6,1,1) = {"
+b
+c
+b
+e
+c
+c
+c
+e
+c
+c
+b
+c
+b
+"}
+(7,1,1) = {"
+b
+c
+b
+e
+e
+e
+e
+e
+e
+e
+b
+e
+b
+"}
+(8,1,1) = {"
+b
+e
+b
+e
+c
+c
+c
+e
+c
+c
+b
+c
+b
+"}
+(9,1,1) = {"
+b
+c
+b
+i
+e
+c
+c
+c
+c
+i
+b
+e
+b
+"}
+(10,1,1) = {"
+b
+c
+b
+b
+c
+e
+c
+c
+c
+b
+b
+c
+b
+"}
+(11,1,1) = {"
+b
+c
+e
+b
+b
+b
+d
+b
+b
+b
+e
+c
+b
+"}
+(12,1,1) = {"
+b
+b
+c
+j
+c
+e
+c
+c
+c
+k
+c
+b
+b
+"}
+(13,1,1) = {"
+a
+b
+b
+b
+b
+b
+d
+b
+b
+b
+b
+b
+a
+"}

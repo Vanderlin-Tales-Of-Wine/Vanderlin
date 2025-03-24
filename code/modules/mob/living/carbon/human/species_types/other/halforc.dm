@@ -19,7 +19,7 @@
 	\n\n\
 	A Half-Orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
 	\n\n\
-	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
+	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Clan"
 

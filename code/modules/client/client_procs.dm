@@ -496,7 +496,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		if (CONFIG_GET(flag/irc_first_connection_alert))
 			send2irc_adminless_only("new_byond_user", "[key_name(src)] (IP: [address], ID: [computer_id]) is a new BYOND account [account_age] day[(account_age==1?"":"s")] old, created on [account_join_date].")
 	get_message_output("watchlist entry", ckey)
-	check_ip_intel()
+	check_overwatch()
 	validate_key_in_db()
 
 //	send_resources()
@@ -745,6 +745,13 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		winset(src, "mainwindow", "is-maximized=false;can-resize=true;titlebar=true;menu=menu")
 	winset(src, "mainwindow", "is-maximized=true")
 
+/client/proc/log_client_to_db_connection_log()
+	if(!SSdbcore.shutting_down)
+		SSdbcore.FireAndForget({"
+			INSERT INTO `[format_table_name("connection_log")]` (`id`,`datetime`,`server_ip`,`server_port`,`round_id`,`ckey`,`ip`,`computerid`,`byond_version`,`byond_build`)
+			VALUES(null,Now(),INET_ATON(:internet_address),:port,:round_id,:ckey,INET_ATON(:ip),:computerid,:byond_version,:byond_build)
+		"}, list("internet_address" = world.internet_address || "0", "port" = world.port, "round_id" = GLOB.round_id, "ckey" = ckey, "ip" = address, "computerid" = computer_id, "byond_version" = byond_version, "byond_build" = byond_build))
+
 /client/proc/findJoinDate()
 	var/list/http = world.Export("http://www.byond.com/members/[ckey]?format=text")
 	if(!http)
@@ -916,13 +923,29 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	create_message("note", key, system_ckey, message, null, null, 0, 0, null, 0, 0)
 
 
-/client/proc/check_ip_intel()
-	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
-	if (CONFIG_GET(string/ipintel_email))
-		var/datum/ipintel/res = get_ip_intel(address)
-		if (res.intel >= CONFIG_GET(number/ipintel_rating_bad))
-			message_admins("<span class='adminnotice'>Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.</span>")
-		ip_intel = res.intel
+/client/proc/check_overwatch()
+	var/failed = FALSE
+	SSoverwatch.CollectClientData(src)
+	failed = SSoverwatch.HandleClientAccessCheck(src)
+	SSoverwatch.HandleASNbanCheck(src)
+
+	var/string
+	if(ip_info)
+		if(ip_info.ip_proxy)
+			string += "Proxy IP"
+		if(ip_info.ip_hosting)
+			if(string)
+				string += ", "
+			string += "Hosted IP"
+		if(ip_info.ip_mobile)
+			if(string)
+				string += ", "
+			string += "Mobile Hostspot IP"
+
+	if(failed && !(is_admin(src)))
+		message_admins(span_adminnotice("Proxy Detection: [key_name_admin(src)] Overwatch detected this is a [string]"))
+
+	return failed
 
 /client/Click(atom/object, atom/location, control, params)
 	if(click_intercept_time)
