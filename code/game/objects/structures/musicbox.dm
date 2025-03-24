@@ -88,11 +88,9 @@
 /obj/structure/fake_machine/musicbox/examine(mob/user)
 	. = ..()
 	. += "Volume: [curvol]/100"
-	if(lockid)
-		if(locked)
-			. += span_info("It's locked- under a [lockid] key!")
-		else
-			. += span_info("It's unlocked- under a [lockid] key!")
+	if(src.keylock && src.has_access())
+		. += span_info("It's [src.locked ? "locked" : "unlocked"].")
+		. += span_info("It's keyhole has [src.access2string()] etched next to it.")
 
 /obj/structure/fake_machine/musicbox/proc/playmusic(mode="TOGGLE") // "TOGGLE" | "START" | "STOP"
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
@@ -191,8 +189,11 @@
 	update_icon()
 
 /obj/structure/fake_machine/musicbox/attackby(obj/item/I, mob/living/user, params)
-	if(!src.lockid || !I.has_access())
+	if(!I.has_access())
 		return ..()
+	if(!src.keylock || src.has_access())
+		to_chat(user, span_notice("\The [src] has no lock."))
+		return
 	if(src.check_access(I))
 		src.locked = !src.locked
 		user.visible_message( \
@@ -205,9 +206,13 @@
 
 /obj/structure/fake_machine/musicbox/mannor
 	lockids = list(ACCESS_MANOR)
+	locked = TRUE
+	keylock = TRUE
 
 /obj/structure/fake_machine/musicbox/tavern
 	lockids = list(ACCESS_INN)
+	locked = TRUE
+	keylock = TRUE
 	curvol = 30
 	playuponspawn = TRUE
 	init_curfile = list(\

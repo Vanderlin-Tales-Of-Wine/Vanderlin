@@ -134,7 +134,7 @@
 	var/rattlesound = 'sound/foley/doors/lockrattle.ogg'
 	var/kickthresh = 15
 	var/bump_closed = TRUE
-	var/can_add_lock = TRUE
+	can_add_lock = TRUE
 
 	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
 
@@ -217,7 +217,7 @@
 	set_init_layer()
 	air_update_turf(TRUE)
 	if(keylock)
-		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), src.lockpick_difficulty)
 
 /obj/structure/mineral_door/Move()
 	var/turf/T = loc
@@ -393,29 +393,33 @@
 
 /obj/structure/mineral_door/attackby(obj/item/I, mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
-	if(istype(I, /obj/item/key) || istype(I, /obj/item/storage/keyring))
-		if(!locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
-			door_rattle()
+	if(!I.has_access())
+		if(!istype(I, repair_cost_first) || !istype(I, repair_cost_second))
+			return ..()
+		if(!src.repairable)
+			to_chat(user, span_notice("[src] cannot be repaired."))
 			return
-		trykeylock(I, user)
-	if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-		repairdoor(I,user)
-	else
-		return ..()
+		if(!user.mind?.get_skill_level(src.repair_skill) > SKILL_LEVEL_NONE)
+			to_chat(user, span_notice("I lack the skill in [src.repair_skill] to repair [src]."))
+			return
+		src.repairdoor(I, user)
+		return
+	if(!src.locked)
+		to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
+		src.door_rattle()
+		return
+	src.trykeylock(I, user)
 
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
-		if(locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
-			door_rattle()
-			return
-		trykeylock(item, user)
-		return
-	else
+	if(!item.has_access())
 		return ..()
+	if(src.locked)
+		to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
+		src.door_rattle()
+		return
+	src.trykeylock(item, user)
 
 /obj/structure/mineral_door/proc/repairdoor(obj/item/I, mob/user)
 	if(brokenstate)
@@ -466,32 +470,20 @@
 /obj/structure/mineral_door/proc/trykeylock(obj/item/I, mob/user, is_right = FALSE)
 	if(door_opened || isSwitchingStates)
 		return
-	if(!keylock)
+	if(!src.keylock || !src.has_access())
+		to_chat(user, span_notice("[src] has no lock."))
 		return
 	if(lockbroken)
-		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
+		to_chat(user, span_warning("The lock on [src] is broken."))
+		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/R = I
-		if(!length(R.contents))
-			to_chat(user, span_info("You have no keys."))
-			return
-		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
-			var/combat = user.cmode
-			if(combat && !do_after(user, 1 SECONDS, src))
-				door_rattle()
-				break
-			if(K.lockid == lockid)
-				lock_toggle(user)
-				break
-			if(combat)
-				door_rattle()
+	if(!I.has_access())
 		return
-	var/obj/item/key/K = I
-	if(K.lockid != lockid)
-		door_rattle()
+	if(src.check_access(I))
+		src.lock_toggle(user)
 		return
-	lock_toggle(user)
+	to_chat(user, span_notice("I lack the key to [src]."))
+	src.door_rattle()
 
 /obj/structure/mineral_door/proc/lock_toggle(mob/user)
 	if(isSwitchingStates || door_opened)

@@ -13,6 +13,7 @@
 	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = GAME_PLANE_UPPER
+	keylock = TRUE
 	locked = FALSE
 	lockids = list(ACCESS_GARRISON, ACCESS_DUNGEON)
 	var/latched = FALSE
@@ -32,14 +33,15 @@
 
 /obj/structure/pillory/OnCrafted(dirin, mob/user)
 	. = ..()
-	for(var/obj/item/customlock/finished/lock in contents)
-		src.lockids = lock.get_access()
-		qdel(lock)
-		desc += " This has a custom lock installed."
+	src.keylock = FALSE
+	src.can_add_lock = TRUE
+	src.lockids = null
 
 /obj/structure/pillory/examine(mob/user)
 	. = ..()
-	. += span_info("It is [latched ? "latched" : "unlatched"] and [locked ? "locked." : "unlocked."]")
+	. += span_info("It is [latched ? "latched" : "unlatched"].")
+	if(src.keylock)
+		. += span_info("It is [locked ? "locked" : "unlocked"].")
 
 /obj/structure/pillory/attack_right(mob/living/user)
 	. = ..()
@@ -58,8 +60,11 @@
 	if(!latched)
 		to_chat(user, span_warning("\The [src] is not latched shut!"))
 		return
-	if(!length(src.lockids) || !I.has_access())
+	if(!I.has_access())
 		return ..()
+	if(!src.keylock || !src.has_access())
+		to_chat(user, span_warning("\the [src] has no lock!"))
+		return
 	if(src.check_access(I))
 		src.togglelock(user)
 		return

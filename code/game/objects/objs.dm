@@ -50,10 +50,22 @@
 	var/list/lockids
 	/// Whether this obj is locked
 	var/locked = FALSE
-	/// If this obj has a keylock
+	/// If this obj has a keylock, it can be locked without it but locking is not controlled by a key
 	var/keylock = FALSE
+	/// If we don't have a keylock can we add one?
+	var/can_add_lock = FALSE
 	/// If the master key can open this regardless of access
 	var/master_unlockable = FALSE
+	/**
+	 * How hard it is to lockpick this obj
+	 * 1-3 LEGENDARY
+	 * 4-6 MASTER
+	 * 7-9 EXPERT
+	 * 10-15 SKILLED
+	 * 16-20 NOVICE
+	 * 20-100 BASIC
+	 */
+	var/lockpick_difficulty = 20
 
 	vis_flags = VIS_INHERIT_PLANE
 

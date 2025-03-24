@@ -39,6 +39,7 @@
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE
+	can_add_lock = TRUE
 
 /obj/structure/closet/pre_sell()
 	open()
@@ -234,48 +235,38 @@
 	..()
 
 
-/obj/structure/closet/attackby(obj/item/W, mob/user, params)
+/obj/structure/closet/attackby(obj/item/I, mob/user, params)
 	if(user in src)
 		return
-	if(istype(W, /obj/item/key) || istype(W, /obj/item/storage/keyring))
-		trykeylock(W, user)
+	if(istype(I, /obj/item/lockpick))
+		trypicklock(I, user)
 		return
-	if(istype(W, /obj/item/lockpick))
-		trypicklock(W, user)
+	if(I.has_access())
+		if(!src.keylock || !src.has_access())
+			to_chat(user, span_notice("[src] has no lock."))
+			return
+		if(src.broken)
+			to_chat(user, span_warning("The lock on [src] is broken."))
+			return
+		if(src.check_access(I))
+			src.togglelock(user)
+			return
+		to_chat(user, span_notice("I lack the key to [src]."))
+		src.rattle()
 		return
-	if(src.tool_interact(W,user))
+	if(src.tool_interact(I, user))
 		return 1 // No afterattack
 	return ..()
 
-/obj/structure/closet/proc/trykeylock(obj/item/I, mob/user)
+/obj/structure/closet/proc/togglelock(mob/living/user)
 	if(opened)
 		return
-	if(!keylock)
-		to_chat(user, "<span class='warning'>There's no lock on this.</span>")
-		return
-	if(broken)
-		to_chat(user, "<span class='warning'>The lock is broken.</span>")
-		return
-	if(istype(I,/obj/item/storage/keyring))
-		var/obj/item/storage/keyring/R = I
-		if(!R.contents.len)
-			return
-		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
-			var/combat = user.cmode
-			if(combat && !do_after(user, 1 SECONDS, src))
-				rattle()
-				break
-			if(K.lockid == lockid)
-				togglelock(user)
-				break
-			if(combat)
-				rattle()
-		return
-	var/obj/item/key/K = I
-	if(K.lockid != lockid)
-		rattle()
-		return
-	togglelock(user)
+	user.changeNext_move(CLICK_CD_MELEE)
+	src.locked = !src.locked
+	user.visible_message(
+		span_warning("[user] [src.locked ? "locks" : "unlocks"] [src]."), \
+		span_notice("I [src.locked ? "lock" : "unlock"] [src]."))
+	playsound(src, 'sound/foley/doors/lock.ogg', 100)
 
 /obj/structure/closet/proc/rattle()
 	playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
@@ -456,21 +447,6 @@
 	locked = FALSE //applies to critter crates and secure lockers only
 	broken = TRUE //applies to secure lockers only
 	open()
-
-/obj/structure/closet/proc/togglelock(mob/living/user)
-	if(opened)
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	if(locked)
-		user.visible_message("<span class='warning'>[user] unlocks [src].</span>", \
-			"<span class='notice'>I unlock [src].</span>")
-		playsound(src, 'sound/foley/doors/lock.ogg', 100)
-		locked = FALSE
-	else
-		user.visible_message("<span class='warning'>[user] locks [src].</span>", \
-			"<span class='notice'>I lock [src].</span>")
-		playsound(src, 'sound/foley/doors/lock.ogg', 100)
-		locked = TRUE
 
 /obj/structure/closet/get_remote_view_fullscreens(mob/user)
 	if(user.stat == DEAD || !(user.sight & (SEEOBJS|SEEMOBS)))

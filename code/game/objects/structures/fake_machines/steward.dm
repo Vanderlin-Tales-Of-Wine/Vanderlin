@@ -15,13 +15,17 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	lockid = list(ACCESS_STEWARD)
+	lockids = list(ACCESS_STEWARD)
 	locked = TRUE
+	keylock = TRUE
 	var/current_tab = TAB_MAIN
 
-/obj/structure/fake_machine/steward/attackby(obj/item/P, mob/user, params)
-	if(!islist(I.get_access()))
+/obj/structure/fake_machine/steward/attackby(obj/item/I, mob/user, params)
+	if(!I.has_access())
 		return ..()
+	if(!src.keylock || !src.has_access())
+		to_chat(user, span_warning("[src] has no lock!"))
+		return
 	if(src.check_access(I))
 		src.locked = !src.locked
 		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))

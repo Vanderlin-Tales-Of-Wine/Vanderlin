@@ -11,6 +11,7 @@
 	layer = BELOW_OBJ_LAYER
 	lockids = list(ACCESS_MERCHANT)
 	locked = TRUE
+	keylock = TRUE
 	var/list/held_items = list()
 	var/budget = 0
 	var/wgain = 0
@@ -63,21 +64,26 @@
 		var/money = I.get_real_price()
 		src.budget += money
 		qdel(I)
-		to_chat(user, span_info("I put [money] mammon in [src]."))
+		to_chat(user, span_info("I put [money] mammon in \the [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	if(!has_access(I)) // Maybe this should be rclick so you can sell keys
-		src.add_merchandise(I)
+	if(!I.has_access()) // Maybe this should be rclick so you can sell keys
+		src.add_merchandise(I, user)
+		return
+	if(!src.keylock || !src.has_access())
+		to_chat(user, span_warning("\The [src] has no lock!"))
 		return
 	if(src.check_access(I))
 		src.locked = !src.locked
-		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
+		user.visible_message( \
+			span_warning("[user] [src.locked ? "locks" : "unlocks"] \the [src]."), \
+			span_notice("I [src.locked ? "lock" : "unlock"] \the [src]."))
 		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
 		return
 	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-	to_chat(user, span_info("I lack the key for [src]."))
+	to_chat(user, span_info("I lack the key for \the [src]."))
 
-/obj/structure/fake_machine/vendor/proc/add_mechandise(/obj/item/I)
+/obj/structure/fake_machine/vendor/proc/add_merchandise(obj/item/I, mob/user)
 	if(src.locked)
 		to_chat(user, span_info("I cannot put [I] in [src] while it's locked."))
 		return
@@ -90,7 +96,7 @@
 	src.held_items[I] = list()
 	src.held_items[I]["NAME"] = I.name
 	src.held_items[I]["PRICE"] = 0
-	P.forceMove(src)
+	I.forceMove(src)
 	playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 	update_icon()
 

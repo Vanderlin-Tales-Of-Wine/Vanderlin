@@ -8,13 +8,10 @@
 
 /obj/item/customlock/examine()
 	. += ..()
-	if(src.lockid)
-		. += span_info("It has been etched with [src.lockid].")
+	if(src.get_access())
+		. += span_info("It has been etched with [src.access2string()].")
 		return
 	. += span_info("Its pins can be set with a hammer or copied from an existing lock or key.")
-
-/obj/item/customlock/get_access()
-	return src.lockids.Copy()
 
 /obj/item/customlock/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/weapon/hammer))
@@ -23,7 +20,7 @@
 		if(!input)
 			return
 		to_chat(user, span_notice("You set the lock ID to [input]."))
-		lockid = "[input]"
+		src.lockids = list("[input]")
 		return
 	if(!src.check_access(I))
 		to_chat(user, span_warning("[I] jams in [src]!"))
@@ -61,30 +58,15 @@
 
 /obj/item/customlock/finished/attack_right(mob/user)//does nothing. probably better ways to do this but whatever
 
-/obj/item/customlock/finished/attack_obj(obj/structure/S, mob/living/user)
-	if(istype(S, /obj/structure/closet))
-		var/obj/structure/closet/closet = S
-		if(closet.keylock == TRUE)
-			to_chat(user, span_warning("[S] already has a lock."))
-			return
-		closet.keylock = TRUE
-		closet.lockid = src.lockid
-		if(src.holdname)
-			closet.name = (src.holdname + " " + closet.name)
-		to_chat(user, span_notice("You add [src] to [S]."))
-		qdel(src)
+/obj/item/customlock/finished/attack_obj(obj/O, mob/living/user)
+	if(!O.can_add_lock)
+		to_chat(user, span_warning("A lock can't be added to [O]."))
 		return
-	if(istype(S, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/door = S
-		if(!door.can_add_lock)
-			to_chat(user, span_warning("A lock can't be added to [S]."))
-		if(door.keylock == TRUE)
-			to_chat(user, span_warning("[S] already has a lock."))
-			return
-		door.keylock = TRUE
-		door.lockid = src.lockid
-		if(src.holdname)
-			door.name = src.holdname
-		to_chat(user, span_notice("You add [src] to [door]."))
-		qdel(src)
-
+	if(O.keylock)
+		to_chat(user, span_warning("[O] already has a lock."))
+		return
+	if(src.holdname)
+		O.name = src.holdname
+	O.copy_access(src)
+	to_chat(user, span_notice("You fit [src] to [O]."))
+	qdel(src)

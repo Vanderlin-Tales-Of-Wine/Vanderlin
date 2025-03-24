@@ -122,6 +122,7 @@
 	layer = BELOW_OBJ_LAYER
 	lockids = list(ACCESS_MERCHANT)
 	locked = TRUE
+	keylock = TRUE
 	var/list/held_items = list()
 	var/budget = 0
 	var/upgrade_flags
@@ -141,7 +142,7 @@
 	budget2change(src.budget)
 	set_light(0)
 
-/obj/structure/fake_machine/merchantvend/attackby(obj/item/P, mob/user, params)
+/obj/structure/fake_machine/merchantvend/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
 		var/money = I.get_real_price()
 		src.budget += money
@@ -149,8 +150,11 @@
 		to_chat(user, span_info("I put [money] mammon in [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	if(!islist(I.get_access()))
+	if(!I.has_access())
 		return ..()
+	if(!src.keylock || !src.has_access())
+		to_chat(user, span_warning("[src] has no lock!"))
+		return
 	if(src.check_access(I))
 		src.locked = !src.locked
 		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
