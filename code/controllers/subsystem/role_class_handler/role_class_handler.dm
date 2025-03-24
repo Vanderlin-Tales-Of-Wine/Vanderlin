@@ -157,3 +157,14 @@ SUBSYSTEM_DEF(role_class_handler)
 
 				if(target_datum in found_menu.rolled_classes) // We found the target datum in one of the classes they rolled aka in the list of options they got visible,
 					found_menu.rolled_class_is_full(target_datum) //  inform the datum of its error.
+
+/datum/controller/subsystem/role_class_handler/proc/cancel_class_handler(mob/living/carbon/human/H)
+	H.advsetup = FALSE
+	H.invisibility = 0
+	var/atom/movable/screen/advsetup/GET_IT_OUT = locate() in H.hud_used.static_inventory //locate() still iterates over contents
+	qdel(GET_IT_OUT)
+	H.cure_blind("advsetup")
+
+	var/datum/class_select_handler/related_handler = class_select_handlers[H.client.ckey]
+	related_handler?.ForceCloseMenus() // force menus closed
+	qdel(related_handler)

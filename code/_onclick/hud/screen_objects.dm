@@ -693,7 +693,7 @@
 
 /atom/movable/screen/advsetup/New(client/C) //TODO: Make this use INITIALIZE_IMMEDIATE, except its not easy
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(check_mob)), 30)
+	addtimer(CALLBACK(src, PROC_REF(check_mob)), 3 SECONDS)
 
 /atom/movable/screen/advsetup/Destroy()
 	hud.static_inventory -= src

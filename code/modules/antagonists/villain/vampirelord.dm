@@ -53,9 +53,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	remove_antag_hud(antag_hud_type, M)
 
 /datum/antagonist/vampirelord/on_gain()
-	var/mob/living/carbon/human/vampire = owner
-	vampire.adv_hugboxing_end() // shitty workaround for adventurers and pilgrims becoming vamp
 	SSmapping.retainer.vampires |= owner
+	if(ishuman(owner.current))
+		var/mob/living/carbon/human/vampdude = owner.current
+		vampdude.adv_hugboxing_cancel()
+	if(is_adventurer_job(owner.assigned_role) || istype(owner.assigned_role, /datum/job/pilgrim))
+		message_admins("[owner.current.key] HAS BECOME A VAMPIRE AS AN ADVENTURER OR PILGRIM, IF THEY ARE INVISIBLE AND CANNOT PLAY, YELL AT SADBOYSUSS")
 	. = ..()
 	owner.special_role = name
 	if(!isspawn)

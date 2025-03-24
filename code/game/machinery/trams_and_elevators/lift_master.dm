@@ -833,13 +833,3 @@ GLOBAL_LIST_EMPTY(active_lifts_by_type)
 				manifest.count = count.Copy()
 				manifest.items = items.Copy()
 				manifest.rebuild_info()
-
-///Returns the src and all recursive contents as a list.
-/atom/proc/get_all_contents(ignore_flag_1)
-	. = list(src)
-	var/i = 0
-	while(i < length(.))
-		var/atom/checked_atom = .[++i]
-		if(checked_atom.flags_1 & ignore_flag_1)
-			continue
-		. += checked_atom.contents
