@@ -14,7 +14,6 @@
 	var/secure = FALSE //secure locker or not, also used if overriding a non-secure locker with a secure door overlay to add fancy lights
 	var/opened = FALSE
 	var/welded = FALSE
-	var/locked = FALSE
 	var/large = TRUE
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	var/breakout_time = 1200
@@ -36,10 +35,8 @@
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
-	var/keylock = FALSE
 	var/lockhash
-	var/lockid = null
-	var/masterkey = FALSE
+	mmaster_unlockable = FALSE
 	throw_speed = 1
 	throw_range = 1
 	anchored = FALSE

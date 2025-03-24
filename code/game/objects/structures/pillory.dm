@@ -13,10 +13,10 @@
 	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	plane = GAME_PLANE_UPPER
+	locked = FALSE
+	lockids = list(ACCESS_GARRISON, ACCESS_DUNGEON)
 	var/latched = FALSE
-	var/locked = FALSE
 	var/base_icon = "pillory_single"
-	var/list/lockcheck = list("dungeon", "garrison")
 
 /obj/structure/pillory/double
 	icon_state = "pillory_double"

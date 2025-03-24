@@ -68,8 +68,6 @@
 	var/playing = FALSE // If music is playing or not. playmusic() deals with this don't mess with it.
 	var/curvol = 50 // The current volume at which audio is played. MAPPERS MAY TOUCH THIS.
 	var/playuponspawn = FALSE // Does the music box start playing music when it first spawns in? MAPPERS MAY TOUCH THIS.
-	var/locked = FALSE
-	var/lockid = null
 
 /obj/structure/fake_machine/musicbox/Initialize()
 	. = ..()

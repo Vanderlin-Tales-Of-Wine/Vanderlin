@@ -109,6 +109,7 @@
 	integrity_failure = 0.5
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 50, "acid" = 50)
 	CanAtmosPass = ATMOS_PASS_DENSITY
+	master_unlockable = TRUE
 
 	var/ridethrough = FALSE
 
@@ -124,17 +125,13 @@
 	var/windowed = FALSE
 	var/base_state = null
 
-	var/locked = FALSE
 	var/last_bump = null
 	var/brokenstate = 0
-	var/keylock = FALSE
 	var/lockhash = 0
-	var/lockid = null
 	var/lockbroken = 0
 	var/locksound = 'sound/foley/doors/woodlock.ogg'
 	var/unlocksound = 'sound/foley/doors/woodlock.ogg'
 	var/rattlesound = 'sound/foley/doors/lockrattle.ogg'
-	var/masterkey = TRUE //if masterkey can open this regardless
 	var/kickthresh = 15
 	var/bump_closed = TRUE
 	var/can_add_lock = TRUE

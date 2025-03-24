@@ -46,6 +46,15 @@
 
 	var/animate_dmg = TRUE
 
+	/// Lockids to use for access requirements
+	var/list/lockids
+	/// Whether this obj is locked
+	var/locked = FALSE
+	/// If this obj has a keylock
+	var/keylock = FALSE
+	/// If the master key can open this regardless of access
+	var/master_unlockable = FALSE
+
 	vis_flags = VIS_INHERIT_PLANE
 
 /obj/vv_edit_var(vname, vval)
