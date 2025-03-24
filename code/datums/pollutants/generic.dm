@@ -16,7 +16,7 @@
 
 /datum/pollutant/rot/breathe_act(mob/living/carbon/victim, amount)
 	. = ..()
-	if(amount > 3)
+	if(amount > 0.5)
 		victim.reagents.add_reagent(/datum/reagent/miasmagas , 1)
 
 /datum/pollutant/steam
