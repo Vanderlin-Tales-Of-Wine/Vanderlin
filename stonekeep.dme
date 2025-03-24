@@ -1484,6 +1484,7 @@
 #include "code\modules\hydroponics\grown.dm"
 #include "code\modules\hydroponics\growninedible.dm"
 #include "code\modules\hydroponics\grown\towercap.dm"
+#include "code\modules\jobs\access.dm"
 #include "code\modules\jobs\job_exp.dm"
 #include "code\modules\jobs\jobs.dm"
 #include "code\modules\jobs\job_types\_job.dm"
