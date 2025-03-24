@@ -32,7 +32,7 @@
 /obj/structure/closet/crate/chest/merchant
 	lockid = "shop"
 	locked = TRUE
-	masterkey = TRUE
+	master_unlockable = TRUE
 
 /obj/structure/closet/crate/chest/lootbox/PopulateContents()
 	var/list/loot = list(

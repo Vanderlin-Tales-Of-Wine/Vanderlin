@@ -100,7 +100,7 @@
 	name = "master key"
 	desc = "The Lord's key."
 	icon_state = "bosskey"
-	lockid = "lord"
+	lockids = list(ACCESS_LORD)
 
 /obj/item/key/lord/Initialize()
 	. = ..()
@@ -111,33 +111,6 @@
 	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
 	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
-
-/obj/item/key/lord/pre_attack(target, user, params)
-	. = ..()
-	if(istype(target, /obj/structure/closet))
-		var/obj/structure/closet/C = target
-		if(C.masterkey)
-			lockhash = C.lockhash
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
-		if(D.masterkey)
-			lockhash = D.lockhash
-
-/obj/item/key/lord/pre_attack_right(target, user, params)
-	. = ..()
-	if(istype(target, /obj/structure/closet))
-		var/obj/structure/closet/C = target
-		if(C.masterkey)
-			lockhash = C.lockhash
-	if(istype(target, /obj/structure/mineral_door))
-		var/obj/structure/mineral_door/D = target
-		if(D.masterkey)
-			lockhash = D.lockhash
-
-/obj/item/key/lord/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	. = ..()
-	lockhash = GLOB.lockids[lockid]
-
 
 /obj/item/key/manor
 	name = "manor key"

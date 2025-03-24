@@ -25,7 +25,7 @@
 /obj/structure/closet/crate/chest/steward
 	lockid = "steward"
 	locked = TRUE
-	masterkey = TRUE
+	master_unlockable = TRUE
 
 /datum/stock/import/wheat
 	name = "Crate of Wheat"
