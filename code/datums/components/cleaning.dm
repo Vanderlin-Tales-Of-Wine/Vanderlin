@@ -85,13 +85,13 @@
 /datum/component/cleaner/proc/clean(datum/source, atom/target, mob/living/user, clean_target = TRUE)
 	//do the cleaning
 	user.changeNext_move(base_cleaning_duration)
-	user.visible_message(span_small("[user] starts to clean [target]!"), span_small("You start to clean [target]..."))
+	//user.visible_message(span_small("[user] starts to clean [target]!"), span_small("You start to clean [target]..."))
 	var/clean_succeeded = FALSE
 	if(do_after(user, base_cleaning_duration, target = target))
 		clean_succeeded = TRUE
 		var/was_effective = prob(cleaning_effectiveness)
 		if(was_effective || downgrade_on_ineffective)
-			user.visible_message(span_small("[user] finishes cleaning [target]!"), span_small("You finish cleaning [target]."))
+			user.visible_message(span_small("[user] cleans [target]."), span_small("You finish clean [target]."))
 			if(clean_target)
 				wash_atom(target, was_effective ? cleaning_strength : cleaning_strength - 1)
 		if(!was_effective)

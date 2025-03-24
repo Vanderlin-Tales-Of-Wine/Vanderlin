@@ -112,7 +112,8 @@
 					log_combat(thrownby, target, "splashed (thrown) [english_list(reagents.reagent_list)]")
 					message_admins("[ADMIN_LOOKUPFLW(thrownby)] splashed (thrown) [english_list(reagents.reagent_list)] on [target] at [ADMIN_VERBOSEJMP(target)].")
 				reagents.reaction(M, TOUCH)
-				chem_splash(loc, 2, list(reagents))
+				chem_splash(M.loc, 2, list(reagents))
+				playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 				log_combat(user, M, "splashed", R)
 				return
 			else if(user.used_intent.type == INTENT_POUR)
@@ -210,10 +211,11 @@
 		chem_splash(target.loc, 2, list(reagents))
 		return
 
-/obj/item/reagent/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
+/obj/item/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
 	if(spillable && reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 		chem_splash(T, 2, list(reagents))
-
+		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>", \
+								"<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>")
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user)
 	if(user.used_intent.type == INTENT_GENERIC)

@@ -79,7 +79,7 @@
 	. = ..()
 	if(isnum(vol) && vol > 0)
 		volume = vol
-	create_reagents(volume, AMOUNT_VISIBLE)
+	create_reagents(volume, TRANSPARENT)
 
 
 /obj/item/natural/cloth/ComponentInitialize()
@@ -110,8 +110,10 @@
 	var/effectiveness = 0.1 + pWater * CLEAN_EFFECTIVENESS_WATER + pDirtyWater * CLEAN_EFFECTIVENESS_DIRTY_WATER
 	effectiveness *= LERP(1, CLEAN_EFFECTIVENESS_SOAP, pSoap)
 
-	cleaner_component.cleaning_effectiveness = effectiveness % 1
-	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + floor(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
+	cleaner_component.cleaning_effectiveness = (effectiveness * 100) % 100
+	cleaner_component.cleaning_strength = CLAMP(CLEAN_WEAK + ceil(effectiveness), CLEAN_WEAK, CLEAN_IMPRESSIVE)
+	//message_admins("\n[pWater]\n[pDirtyWater]\n[pSoap]\n[effectiveness]\n\t[cleaner_component.cleaning_effectiveness]\n\t[cleaner_component.cleaning_strength]")
+	playsound(cleaner, pick('sound/foley/cloth_wipe (1).ogg','sound/foley/cloth_wipe (2).ogg', 'sound/foley/cloth_wipe (3).ogg'), 100, FALSE)
 	return TRUE
 
 /obj/item/natural/cloth/proc/on_clean_success(datum/source, atom/target, mob/living/user, clean_succeeded)
@@ -119,7 +121,7 @@
 		if(isturf(target))
 			var/turf/T = target
 			T.add_liquid_from_reagents(reagents, amount = 1)
-		reagents.remove_any(1)
+		reagents.remove_all(1)
 
 /obj/item/natural/cloth/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning, bypass_equip_delay_self)
 	. = ..()
