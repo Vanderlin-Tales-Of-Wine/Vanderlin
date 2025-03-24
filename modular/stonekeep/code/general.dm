@@ -134,28 +134,28 @@
 
 
 
-/obj/item/paper/feldsher_certificate
+/obj/item/paper/certificate
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "certificate"
-	name = "feldsher health certificate"
-	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
-	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date. (signed by the town feldsher, the date is a few weeks ago)"
-
-
-/obj/item/paper/feldsher_certificate/update_icon_state()
+/obj/item/paper/certificate/update_icon_state()
 	icon_state = "certificate"
-
-/obj/item/paper/feldsher_certificate/expired
-	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
-	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signed by the town feldsher, the date is half a year ago)"
-/obj/item/paper/feldsher_certificate/fake
-	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
-	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signature is undreadable, the date is a few weeks ago)"
-/obj/item/paper/feldsher_certificate/Initialize()
+/obj/item/paper/certificate/Initialize()
 	..()
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "certificate"
-/obj/item/paper/feldsher_certificate/maybe/New()
+
+/obj/item/paper/certificate/health
+	name = "feldsher health certificate"
+	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
+	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date. (signed by the town feldsher, the date is a few weeks ago)"
+/obj/item/paper/certificate/expired_health
+	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
+	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signed by the town feldsher, the date is half a year ago)"
+/obj/item/paper/certificate/fake_health
+	info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
+	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signature is undreadable, the date is a few weeks ago)"
+
+/obj/item/paper/certificate/maybe/New()
 	. = ..()
 	if(prob(50))
 		info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
@@ -164,6 +164,12 @@
 		info = "The wearer hath passed the feldshers monthly inspection as mandated by the pestilence laws, and is not a bearer of maladies to infect our towne.   \
 	Thus they are allowede legally to ply the nitemaidens trade. I so swear on this date.  (signed by the town feldsher, the date is half a year ago)"
 
+/obj/item/paper/certificate/adventurer
+	name = "adventurer guild certificate"
+	info = "The wearer hath been approved by the Guild Master as a reputable Adventurer."
+/obj/item/paper/certificate/adventurer_fake
+	name = "adventurer guild certificate"
+	info = "The wearer hath been approved by the Guild Master as a reputable Adventurer. It lacks a wax seal."
 
 /obj/item/paper/townhouse_deed
 	icon = 'modular/stonekeep/icons/misc.dmi'
@@ -313,7 +319,6 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "floor1"
 	nomouseover = TRUE
-	nomouseover = TRUE
 	var/wash_precent = 0
 	COOLDOWN_DECLARE(wash_cooldown)
 
@@ -326,7 +331,7 @@
 		qdel(src)
 	COOLDOWN_START(src, wash_cooldown, 15 SECONDS)
 
-/obj/effect/decal/cleanable/blood_neu/Initialize(mapload)
+/obj/effect/decal/cleanable/blood_neu/Initialize()
 	. = ..()
 	pixel_x = rand(-5,5)
 	pixel_y = rand(5,5)
@@ -336,7 +341,7 @@
 	GLOB.weather_act_upon_list -= src
 	return ..()
 
-/obj/effect/decal/cleanable/blood_neu/random/Initialize(mapload)
+/obj/effect/decal/cleanable/blood_neu/random/Initialize()
 	. = ..()
 	icon_state = pick("floor1", "floor2", "floor3", "floor4", "floor5", "floor6", "splatter1", "splatter2", "splatter3", "splatter4", "splatter5", "splatter6", "gibl1", "gibl2", "gibl3", "gibl4", "gibl5")
 

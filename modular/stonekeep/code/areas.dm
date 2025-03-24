@@ -206,13 +206,24 @@
 				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 5,
 				/mob/living/simple_animal/hostile/retaliate/mole = 10)
 
+/area/rogue/indoors/towerofwise
+	name = "danger (tower of the wise)"
+	icon_state = "cave"
 
 /area/rogue/indoors/cave/volf
-	name = "volf cave"
+	name = "danger (volf cave)"
+	icon_state = "cave"
+
+/area/rogue/indoors/cave/bear
+	name = "danger (bear cave)"
+	icon_state = "cave"
+
+/area/rogue/indoors/shelter/woods/spider
+	name = "danger (spider nest)"
 	icon_state = "cave"
 
 /area/rogue/indoors/cave/spider
-	name = "spider cave"
+	name = "danger (spider cave)"
 	icon_state = "cave"
 
 /area/rogue/outdoors/town/amphitheatre

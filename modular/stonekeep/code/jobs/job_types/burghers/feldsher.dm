@@ -56,3 +56,16 @@
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	H.mind.teach_crafting_recipe(/datum/crafting_recipe/license_nitemaiden)
+
+/*	.................   Unique Feldsher recipes   ................... */
+/datum/crafting_recipe/license_nitemaiden
+	name = "Produce a icense (Nitemaiden)"
+	time = 4 SECONDS
+	reqs = list(/obj/item/paper = 1,
+		/obj/item/natural/feather = 1)
+	result = /obj/item/paper/certificate/health
+	category = CAT_NONE
+
+
+

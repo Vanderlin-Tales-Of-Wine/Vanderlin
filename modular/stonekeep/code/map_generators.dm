@@ -300,12 +300,10 @@
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/snow/patchy)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/bush_meagre = 1,
 							/obj/structure/flora/grass/thorn_bush = 1,
-							/obj/structure/flora/grass/herb/salvia = 1,
+							/obj/item/grown/log/tree/stick = 1,
 							/obj/item/natural/stone = 4,
 							/obj/item/natural/rock = 3,
-							/obj/structure/flora/grass/pyroclasticflowers = 1,
 							)
 	spawnableTurfs = list(/turf/open/floor/snow = 2)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
@@ -335,10 +333,8 @@
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/naturalstone)
 	spawnableAtoms = list(
-							/obj/structure/flora/grass/bush_meagre = 3,
-							/obj/structure/flora/grass/herb/salvia = 1,
-							/obj/structure/flora/rogueflower/random = 1,
-							/obj/structure/flora/grass/pyroclasticflowers = 1,
+							/obj/item/natural/stone = 4,
+							/obj/item/natural/rock = 3,
 							)
 	allowed_areas = list(/area/rogue/under/cavelava)
 	spawnableTurfs = list(/turf/open/floor/naturalstone/rough = 2)

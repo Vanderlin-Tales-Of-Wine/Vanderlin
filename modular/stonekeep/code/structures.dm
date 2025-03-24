@@ -440,9 +440,15 @@
 	layer = ABOVE_NORMAL_TURF_LAYER
 
 /obj/structure/fluff/walldeco/weaversign
-	name = "weaver sign"
+	name = "weaver"
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "weaver"
+
+/obj/structure/fluff/walldeco/advsign
+	name = "adventurers guild"
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "advguild"
+
 
 /obj/structure/fluff/walldeco/xylixhint
 	icon_state = "wall_funny"
@@ -471,7 +477,9 @@
 /obj/structure/fermentation_keg
 	icon = 'modular/stonekeep/icons/brewing.dmi'
 
-
+/obj/structure/barricade
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+	destroy_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 
 // =================================================================
 // =========================	FLORA	============================
@@ -601,6 +609,66 @@
 	timer = 10 MINUTES
 	stressadd = -3
 	desc = span_green("I feel at peace.")
+
+
+/obj/structure/flora/shroom_tree_neu
+	name = "shroom"
+	desc = "A huge inedible mushroom, prized by dwarves for their shroomwood."
+	icon = 'modular/stonekeep/icons/pigflora64.dmi'
+	icon_state = "shroomtree_1"
+	var/base_icon_state = "shroomtree"
+	opacity = 0
+	density = 0
+	max_integrity = 120
+	blade_dulling = DULLING_CUT
+	pixel_x = -16
+	layer = 4.81
+	attacked_sound = 'sound/misc/woodhit.ogg'
+	destroy_sound = 'sound/misc/woodhit.ogg'
+	static_debris = list( /obj/item/grown/log/tree/small = 1)
+	dir = SOUTH
+
+/obj/structure/flora/shroom_tree_neu/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_][rand(1,4)]"
+	pixel_x += rand(2,-2)
+	pixel_y += rand(2,-2)
+
+/obj/structure/flora/shroom_tree_neu/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
+		return 1
+	if(get_dir(loc, target) == dir)
+		return 0
+	return 1
+
+/obj/structure/flora/shroom_tree_neu/CheckExit(atom/movable/mover as mob|obj, turf/target)
+	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
+		return 1
+	if(get_dir(mover.loc, target) == dir)
+		return 0
+	return 1
+
+/obj/structure/flora/shroom_tree_neu/fire_act(added, maxstacks)
+	if(added > 5)
+		return ..()
+
+/obj/structure/flora/shroom_tree_neu/obj_destruction(damage_flag)
+	var/obj/structure/S = new /obj/structure/table/wood/treestump/shroomstumpneu(loc)
+	S.icon_state = "[base_icon_state]stump"
+	. = ..()
+
+/obj/structure/table/wood/treestump/shroomstumpneu
+	name = "shroom stump"
+	desc = "It was a very happy shroom. Not anymore."
+	icon_state = "shroomtreestump"
+	desc = "Here once stood a mighty nether-cap, you feel a great sadness."
+	opacity = 0
+	icon = 'modular/stonekeep/icons/pigflora64.dmi'
+	alpha = 255
+	pixel_x = -16
+	climb_offset = 14
+	stump_loot = /obj/item/reagent_containers/food/snacks/truffles
+
 
 // =========================================================================
 // =========================	MATTHIOS IDOL	============================

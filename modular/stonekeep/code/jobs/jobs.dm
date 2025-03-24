@@ -109,8 +109,6 @@ GLOBAL_LIST_INIT(allmig_positions, list(
 	return FALSE
 
 // TEMPLE
-/datum/job/priest/config_check()
-	return FALSE
 /datum/job/monk/config_check()
 	return FALSE
 /datum/job/undertaker/config_check()
@@ -187,8 +185,6 @@ GLOBAL_LIST_INIT(allmig_positions, list(
 /datum/job/servant/config_check()
 	return FALSE
 // NOBLE
-/datum/job/lord/config_check()
-	return FALSE
 /datum/job/consort/config_check()
 	return FALSE
 /datum/job/hand/config_check()

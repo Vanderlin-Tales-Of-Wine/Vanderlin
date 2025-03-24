@@ -236,6 +236,10 @@
 	name = "Nitemaster"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/sk_guildmaster
+	name = "Guild Master"
+	icon_state = "arrow"
+
 
 /obj/effect/landmark/start/sk_mig_bogroad
 	name = "Migration Bog Road"

@@ -52,7 +52,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
 		ruler_title = "Queen"
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
+	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title]."))]</b>")
 	to_chat(world, "<br>")
 
 /datum/outfit/job/lord

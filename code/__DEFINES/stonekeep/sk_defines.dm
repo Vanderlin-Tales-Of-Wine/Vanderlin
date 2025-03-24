@@ -38,9 +38,8 @@ GLOBAL_LIST_EMPTY(mountainevil_starts)
 #define SK_JESTER		(1<<7)
 
 #define SK_SHERIFF		(1<<0)
-#define SK_VETERAN		(1<<1)
-#define SK_GUARD		(1<<2)
-#define SK_SQUIRE		(1<<3)
+#define SK_GUARD		(1<<1)
+#define SK_SQUIRE		(1<<2)
 
 #define SK_PRIEST		(1<<0)
 #define SK_ACOLYTE		(1<<1)
@@ -51,10 +50,11 @@ GLOBAL_LIST_EMPTY(mountainevil_starts)
 
 #define SK_MERCHANT		(1<<0)
 #define SK_INNKEEP		(1<<1)
-#define SK_FELDSHER		(1<<2)
-#define SK_BLACKSMITH	(1<<3)
-#define SK_MASON		(1<<4)
-#define SK_NITEMAN		(1<<5)
+#define SK_GUILDMASTER	(1<<2)
+#define SK_FELDSHER		(1<<3)
+#define SK_BLACKSMITH	(1<<4)
+#define SK_MASON		(1<<5)
+#define SK_NITEMAN		(1<<6)
 
 #define SK_ELDER		(1<<0)
 #define SK_SOILSON		(1<<1)
@@ -82,7 +82,6 @@ GLOBAL_LIST_EMPTY(mountainevil_starts)
 #define JESTER_ORDER		9
 
 #define SHERIFF_ORDER		11
-#define VETERAN_ORDER		12
 #define GARRISON_ORDER		13
 #define SQUIRE_ORDER		15
 
@@ -94,6 +93,7 @@ GLOBAL_LIST_EMPTY(mountainevil_starts)
 #define ADEPT_ORDER			28
 
 #define MERCHANT_ORDER		31
+#define GUILDMASTER_ORDER	32
 #define INNKEEP_ORDER		33
 #define FELDSHER_ORDER		34
 #define BLACKSMITH_ORDER	35

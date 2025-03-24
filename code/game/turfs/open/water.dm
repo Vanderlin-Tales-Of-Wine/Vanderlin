@@ -212,9 +212,9 @@
 	.  = ..()
 	if(!mapped)
 		START_PROCESSING(SSobj, src)
-	else
-		if(prob(rand(0,1)))
-			new /obj/item/bottlemessage/ancient(src.loc)
+//	else	// STONEKEEP EDIT
+//		if(prob(rand(0,1)))
+//			new /obj/item/bottlemessage/ancient(src.loc)
 	water_overlay = new(src)
 	water_top_overlay = new(src)
 	update_icon()

@@ -826,6 +826,12 @@
 /obj/item/clothing/cloak/cape/yellow
 	color = CLOTHING_MAGE_YELLOW
 
+/obj/item/clothing/cloak/half/guildmaster
+	name = "guild master cloak"
+	icon_state = "guardcloak"
+	color = "#491b1b"
+	inhand_mod = FALSE
+
 // ==============================	GLOVES	====================================
 // =============================================================================
 /obj/item/clothing/gloves/reinforced

@@ -4,9 +4,9 @@ Idea is shit stat old guy with ok gear and great skills + peasants with random a
 Their default should be aligned with the crown and have some limited objective, currently defaulted to restoring the bog tollhouse.
 */
 
-/datum/migrant_role/conscript/old_serjeant
-	name = "Old Serjeant"	// ROGTODO name is questionable, mayeb its ok. The no eye doesnt work.
-	greet_text = "A trusted veteran soldier, you were sent out by the King to conscript peasants for restoring the old tollhouse in the wetlands."
+/datum/migrant_role/conscript/veteran
+	name = "Old Veteran"
+	greet_text = "An old hand at soldiering, you were sent out by the King to conscript peasants for restoring the old tollhouse in the wetlands."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_OLD)
 	allowed_races = list(
@@ -16,9 +16,10 @@ Their default should be aligned with the crown and have some limited objective, 
 		"Elf")
 	grant_lit_torch = FALSE
 	is_foreigner = FALSE
-	outfit = /datum/outfit/job/sk_migration/conscript/serjeant
+	outfit = /datum/outfit/job/sk_migration/conscript/veteran
+	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 
-/datum/outfit/job/sk_migration/conscript/serjeant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/conscript/veteran/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	pants = /obj/item/clothing/pants/trou/leather
@@ -28,7 +29,6 @@ Their default should be aligned with the crown and have some limited objective, 
 	neck = /obj/item/clothing/neck/gorget
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltr = /obj/item/weapon/sword/arming
 	beltl = /obj/item/storage/keyring/guard
 	backl = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/signal_horn = 1, /obj/item/key/tollhouse = 1)
@@ -61,12 +61,37 @@ Their default should be aligned with the crown and have some limited objective, 
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_END, 2)
+		H.change_stat(STATKEY_SPD, -1)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 	H.cmode_music = 'sound/music/cmode/garrison/CombatGarrison.ogg'
 	H.verbs |= /mob/proc/haltyell
 	l_hand = /obj/item/flashlight/flare/torch/prelit
+
+/datum/advclass/sk/veteran/club
+	name = "Godendag"
+	tutorial = "The godendag is your weapon of choice."
+	outfit = /datum/outfit/job/stonekeep/veteran/goden
+	category_tags = list(CTAG_VETERAN )
+
+/datum/outfit/job/stonekeep/veteran/goden/pre_equip(mob/living/carbon/human/H)
+	..()
+	r_hand = /obj/item/weapon/mace/goden
+	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+
+/datum/advclass/sk/veteran/shield
+	name = "Shield and Sword"
+	tutorial = "The godendag is your weapon of choice."
+	outfit = /datum/outfit/job/stonekeep/veteran/shield
+	category_tags = list(CTAG_VETERAN )
+
+/datum/outfit/job/stonekeep/veteran/shield/pre_equip(mob/living/carbon/human/H)
+	..()
+	backr = /obj/item/weapon/shield/heater
+	beltr = /obj/item/weapon/sword/arming
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+
 
 /datum/migrant_role/conscript/peasant
 	name = "Peasant Conscript"
@@ -148,7 +173,7 @@ Their default should be aligned with the crown and have some limited objective, 
 	downgrade_wave = /datum/migrant_wave/conscripts_down
 	weight = 40
 	roles = list(
-		/datum/migrant_role/conscript/old_serjeant = 1,
+		/datum/migrant_role/conscript/veteran = 1,
 		/datum/migrant_role/conscript/peasant = 2
 	)
 	greet_text = "Your task is to restore the old tollhouse and bring order to the wetlands."
@@ -158,7 +183,7 @@ Their default should be aligned with the crown and have some limited objective, 
 	shared_wave_type = /datum/migrant_wave/conscripts
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/conscript/old_serjeant = 1,
+		/datum/migrant_role/conscript/veteran = 1,
 //		/datum/migrant_role/conscript/peasant = 1
 	)
 	greet_text = "Your task is to restore the old tollhouse and bring order to the wetlands."

@@ -151,12 +151,12 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 	//#define is__job(job_type) (istype(job_type, /datum/job/)) //template for easy filling in
 	#define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
 // Nobility
-	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord) || istype(job_type, /datum/job/stonekeep/lord))
+	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
 	#define is_consort_job(job_type) (istype(job_type, /datum/job/consort))
 	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant) || istype(job_type, /datum/job/stonekeep/merchant))
 // Garrison
 // Church
-	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest) || istype(job_type, /datum/job/stonekeep/priest) )
+	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest))
 	#define is_monk_job(job_type) (istype(job_type, /datum/job/monk) || istype(job_type, /datum/job/stonekeep/acolyte))
 	#define is_inquisitor_job(job_type) (istype(job_type, /datum/job/inquisitor) || istype(job_type, /datum/job/stonekeep/inquisitor))
 	#define is_adept_job(job_type) (istype(job_type, /datum/job/adept) || istype(job_type, /datum/job/stonekeep/adept))

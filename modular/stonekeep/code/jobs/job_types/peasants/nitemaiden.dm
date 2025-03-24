@@ -24,7 +24,7 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 	display_order = BATHMAID_ORDER
 
 	outfit = /datum/outfit/job/stonekeep/nitemaiden	//Default outfit.
-	advclass_cat_rolls = list(CTAG_NITEMAIDEN= 20)	//Handles class selection.
+	advclass_cat_rolls = list(CTAG_NITEMAIDEN= 20)
 	give_bank_account = 25
 	min_pq = -25
 
@@ -200,6 +200,6 @@ Design philosphy:
 
 /obj/item/storage/belt/pouch/nitemaiden
 	populate_contents = list(
-		/obj/item/paper/feldsher_certificate/maybe,
+		/obj/item/paper/certificate/maybe,
 		/obj/item/natural/cloth,
 	)

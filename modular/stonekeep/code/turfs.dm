@@ -52,6 +52,19 @@
 	. = ..()
 	dir = pick(GLOB.alldirs)
 
+/turf/open/floor/raisedwood
+	name = "wood platform"
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "stageoak"
+	footstep = FOOTSTEP_WOOD
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_WOOD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	damage_deflection = 8
+	max_integrity = 800
+	color = "#cfcad6"
+
 /*	..................   Stone floors   ................... */
 /turf/open/floor/hexstone
 	icon = 'modular/stonekeep/icons/turfs.dmi'
@@ -231,7 +244,6 @@
 	neighborlay = "grass"
 	canSmoothWith = list(
 						/turf/open/floor/snow,
-						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough,
 						/turf/open/floor/grass/mixyel,
 						/turf/open/floor/grass/yel,
@@ -303,7 +315,8 @@
 /turf/open/floor/snow/patchy
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	canSmoothWith = list(
-						/turf/open/floor/snow
+						/turf/open/floor/snow,
+						/turf/open/floor/grass/cold
 						)
 	neighborlay = "snowpatchy"
 
@@ -378,6 +391,19 @@
 
 // =================================================================
 // ====================		Misc floors		========================
+
+/turf/open/water/cavepond
+	name = "water"
+	desc = "Clear water in a muddy pond."
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+	icon_state = "pond"
+	neighborlay_override = "grass_yeledge"
+	canSmoothWith = list(
+						/turf/open/floor/grass/yel,
+						)
+/turf/open/water/cavepond/Initialize()
+	.  = ..()
+	icon_state = "pond"
 
 
 /turf/open/water/bath

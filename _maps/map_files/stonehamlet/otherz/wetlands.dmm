@@ -887,6 +887,10 @@
 /obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
+"LR" = (
+/obj/structure/noose/gallows,
+/turf/open/floor/grass,
+/area/rogue/outdoors/bog)
 "Mi" = (
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/bog/wetlands/gator)
@@ -64884,7 +64888,7 @@ dz
 pS
 pS
 pS
-pS
+LR
 wJ
 wJ
 WH

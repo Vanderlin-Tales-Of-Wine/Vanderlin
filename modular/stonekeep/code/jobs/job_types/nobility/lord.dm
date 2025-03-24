@@ -1,43 +1,10 @@
-/datum/job/stonekeep/lord
-	title = "Monarch"
-	flag = SK_LORD
-	department_flag = NOBLEMEN
-	total_positions = 0
-	spawn_positions = 1
-
-	spells = list(
-		/obj/effect/proc_holder/spell/self/grant_title,
-		/obj/effect/proc_holder/spell/self/grant_nobility,
-	)
-
+/datum/job/lord
+	min_pq = 0
 	allowed_races = list(
 		"Humen"
 	)
 	outfit = /datum/outfit/job/stonekeep/lord
-	display_order = 1
 	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error in their ways."
-	bypass_lastclass = TRUE
-	whitelist_req = FALSE
-
-	give_bank_account = 500
-	selection_color = "#7851A9"
-
-	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
-	can_have_apprentices = FALSE
-
-/datum/job/stonekeep/lord/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(L)
-		SSticker.select_ruler()
-		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob, lord_color_choice)), 50)
-	if(L.gender == MALE)
-		SSfamilytree.AddRoyal(L, FAMILY_FATHER)
-		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is King of Vanderlin.</span></span></b>")
-		to_chat(world, "<br>")
-	else
-		SSfamilytree.AddRoyal(L, FAMILY_MOTHER)
-		to_chat(world, "<b><span class='notice'><span class='big'>[L.real_name] is Queen of Vanderlin.</span></span></b>")
-		to_chat(world, "<br>")
 
 /datum/outfit/job/stonekeep/lord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -95,9 +62,9 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-//	SSticker.rulermob = H
 
-/datum/job/roguetown/exlord //just used to change the lords title
+
+/datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
 	flag = LORD
 	department_flag = NOBLEMEN

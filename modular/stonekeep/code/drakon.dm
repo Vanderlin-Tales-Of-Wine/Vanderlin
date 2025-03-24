@@ -22,6 +22,7 @@
 /obj/item/weapon/polearm/halberd/bardiche/warcutter/drakon
 	name = "culling axe"
 	desc = "Once, mounds made of humen skulls marked the boundaries of ancient evil. For such work this was made."
+	icon_state = "culling"
 	icon = 'modular/stonekeep/icons/onmob/drakon_64.dmi'
 	wbalance = DODGE_CHANCE_NORMAL
 	max_blade_int = 300
