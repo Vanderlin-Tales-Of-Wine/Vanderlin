@@ -1017,30 +1017,31 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	return 0
 
 //For creating consistent icons for human looking simple animals
-/proc/get_flat_human_icon(icon_id, datum/job/J, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override = null)
+/proc/get_flat_human_icon(icon_id, datum/job/job, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override = null)
 	var/static/list/humanoid_icon_cache = list()
-	if(!icon_id || !humanoid_icon_cache[icon_id])
-		var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
-
-		if(prefs)
-			prefs.copy_to(body,TRUE,FALSE)
-		if(J)
-			J.equip(body, TRUE, FALSE, outfit_override = outfit_override)
-		else if (outfit_override)
-			body.equipOutfit(outfit_override,visualsOnly = TRUE)
-
-
-		var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
-		for(var/D in showDirs)
-			body.setDir(D)
-			var/icon/partial = getFlatIcon(body)
-			out_icon.Insert(partial,dir=D)
-
-		humanoid_icon_cache[icon_id] = out_icon
-		dummy_key? unset_busy_human_dummy(dummy_key) : qdel(body)
-		return out_icon
-	else
+	if(icon_id && humanoid_icon_cache[icon_id])
 		return humanoid_icon_cache[icon_id]
+
+	var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
+
+	if(prefs)
+		prefs.apply_prefs_to(body, TRUE)
+
+	var/datum/outfit/outfit = outfit_override || job?.outfit
+	if(job)
+		body.dna.species.pre_equip_species_outfit(job, body, TRUE)
+	if(outfit)
+		body.equipOutfit(outfit, TRUE)
+
+	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
+	for(var/D in showDirs)
+		body.setDir(D)
+		var/icon/partial = getFlatIcon(body, defdir=D)
+		out_icon.Insert(partial,dir=D)
+
+	humanoid_icon_cache[icon_id] = out_icon
+	dummy_key ? unset_busy_human_dummy(dummy_key) : qdel(body)
+	return out_icon
 
 //Hook, override to run code on- wait this is images
 //Images have dir without being an atom, so they get their own definition.
@@ -1183,3 +1184,88 @@ GLOBAL_LIST_INIT(freon_color_matrix, list("#2E5E69", "#60A2A8", "#A1AFB1", rgb(0
 
 	var/icon/I = getFlatIcon(thing)
 	return icon2html(I, target)
+
+/**
+ * Center's an image.
+ * Requires:
+ * The Image
+ * The x dimension of the icon file used in the image
+ * The y dimension of the icon file used in the image
+ * eg: center_image(image_to_center, 32,32)
+ * eg2: center_image(image_to_center, 96,96)
+**/
+/proc/center_image(image/I, x_dimension = 0, y_dimension = 0)
+	if(!I)
+		return
+
+	if(!x_dimension || !y_dimension)
+		return
+
+	if((x_dimension == world.icon_size) && (y_dimension == world.icon_size))
+		return I
+
+	//Offset the image so that it's bottom left corner is shifted this many pixels
+	//This makes it infinitely easier to draw larger inhands/images larger than world.iconsize
+	//but still use them in game
+	var/x_offset = -((x_dimension/world.icon_size)-1)*(world.icon_size*0.5)
+	var/y_offset = -((y_dimension/world.icon_size)-1)*(world.icon_size*0.5)
+
+	//Correct values under world.icon_size
+	if(x_dimension < world.icon_size)
+		x_offset *= -1
+	if(y_dimension < world.icon_size)
+		y_offset *= -1
+
+	I.pixel_x = x_offset
+	I.pixel_y = y_offset
+
+	return I
+
+///Flickers an overlay on an atom
+/proc/flick_overlay_static(O, atom/A, duration)
+	set waitfor = 0
+	if(!A || !O)
+		return
+	A.add_overlay(O)
+	sleep(duration)
+	A.cut_overlay(O)
+
+/atom/proc/Shake(pixelshiftx = 15, pixelshifty = 15, duration = 250)
+	var/initialpixelx = pixel_x
+	var/initialpixely = pixel_y
+	var/shiftx = rand(-pixelshiftx,pixelshiftx)
+	var/shifty = rand(-pixelshifty,pixelshifty)
+	animate(src, pixel_x = pixel_x + shiftx, pixel_y = pixel_y + shifty, time = 0.2, loop = duration)
+	pixel_x = initialpixelx
+	pixel_y = initialpixely
+
+
+///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
+/proc/icon_exists(file, state, scream)
+	var/static/list/icon_states_cache = list()
+	if(icon_states_cache[file]?[state])
+		return TRUE
+
+	if(icon_states_cache[file]?[state] == FALSE)
+		return FALSE
+
+	var/list/states = icon_states(file)
+
+	if(!icon_states_cache[file])
+		icon_states_cache[file] = list()
+
+	if(state in states)
+		icon_states_cache[file][state] = TRUE
+		return TRUE
+	else
+		icon_states_cache[file][state] = FALSE
+		if(scream)
+			stack_trace("Icon Lookup for state: [state] in file [file] failed.")
+		return FALSE
+
+/// Returns a list containing the width and height of an icon file
+/proc/get_icon_dimensions(icon_path)
+	if (isnull(GLOB.icon_dimensions[icon_path]))
+		var/icon/my_icon = icon(icon_path)
+		GLOB.icon_dimensions[icon_path] = list("width" = my_icon.Width(), "height" = my_icon.Height())
+	return GLOB.icon_dimensions[icon_path]

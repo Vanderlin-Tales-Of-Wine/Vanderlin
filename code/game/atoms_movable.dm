@@ -184,8 +184,7 @@
 	if(ismob(AM))
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
-		if(M.doing)
-			M.doing = FALSE
+		M.stop_all_doing()
 		if(!supress_message)
 			M.visible_message("<span class='warning'>[src] grabs [M].</span>", \
 				"<span class='danger'>[src] grabs you.</span>")

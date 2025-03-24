@@ -16,4 +16,4 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	sound = 'sound/magic/heal.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 5 SECONDS */
+	recharge_time = 5 SECONDS */

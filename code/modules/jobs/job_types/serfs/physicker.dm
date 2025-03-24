@@ -4,9 +4,14 @@
 				residence as feldshers in, often end up becoming wandering physickers. \
 				Capable doctors nonetheless, they journey from place to place offering \
 				their services."
-	faction = "Station"
 	flag = PHYSICKER
 	department_flag = SERFS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_PHYSICKER
+	faction = FACTION_STATION
+	total_positions = 2
+	spawn_positions = 2
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -18,9 +23,7 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	display_order = JDO_PHYSICKER
-	total_positions = 2
-	spawn_positions = 2
+
 	outfit = /datum/outfit/job/physicker
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
 

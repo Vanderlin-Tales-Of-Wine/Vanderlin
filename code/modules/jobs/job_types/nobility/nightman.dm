@@ -1,11 +1,20 @@
 /datum/job/apothecary
 	title = "Apothecary"
+	tutorial = "You know every plant growing on these grounds and in the woods like the back of your hand. \
+	You are tasked with mixing tinctures and supplying the town and Feldsher with medicine for pain... or pleasure. \
+	For a price, of course. \
+	You have been known to kill men who cross you or your work-partner."
 	flag = NIGHTMAN
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_APOTHECARY
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
+	bypass_lastclass = TRUE
 
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Dwarf",
@@ -17,14 +26,8 @@
 		"Half-Orc"
 	)
 
-	tutorial = "You know every plant growing on these grounds and in the woods like the back of your hand. You are tasked with mixing tinctures and supplying the town and Feldsher with medicine for pain... or pleasure. For a price, of course. You have been known to kill men who cross you or your work-partner."
-
-	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/apothecary
-	display_order = JDO_APOTHECARY
 	give_bank_account = 100
-	min_pq = 1
-	bypass_lastclass = TRUE
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/outfit/job/apothecary/pre_equip(mob/living/carbon/human/H)

@@ -1,8 +1,7 @@
 /datum/advclass/pilgrim/rare/crusader
 	name = "Totod Order Emissary"
-	tutorial = "The Crusaders are knights who have pledged \
-	their wealth and lands to the Church, taking up the banner \
-	of the Totod Order dedicated to retaking Valoria. \
+	tutorial = "The Crusaders are knights who have pledged their wealth and lands to the Church, \
+	taking up the banner of the Totod Order dedicated to retaking Valoria. \
 	Three cults provide knights for the Order: Astrata, Necra and Psydon. \
 	You were sent to Vanderlin by the Order to get any and all assistance from the faithful for the Crusade."
 	allowed_sexes = list(MALE, FEMALE)
@@ -32,10 +31,8 @@
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots/armor/light
 	backr = /obj/item/weapon/shield/tower/metal
-	backl = /obj/item/clothing/cloak/cape/crusader
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/silver
-	backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
 
 	switch(H.patron?.name)
 		if("Astrata")
@@ -81,10 +78,13 @@
 		beltr = /obj/item/ammo_holder/quiver/bolts
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		backl = /obj/item/storage/backpack/satchel/black
+		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1)
 	// Males are sword and shield based
 	else
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+		beltr = /obj/item/storage/belt/pouch/coins/rich
 	// Finally, grant us the language
 
 	if(!H.has_language(/datum/language/oldpsydonic))

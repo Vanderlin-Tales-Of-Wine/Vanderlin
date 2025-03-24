@@ -12,7 +12,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 10 SECONDS
+	recharge_time = 10 SECONDS
 	devotion_cost = 10
 	miracle = TRUE
 
@@ -181,7 +181,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 20 SECONDS
+	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 45
 
@@ -231,7 +231,7 @@
 	releasedrain = 30
 	antimagic_allowed = TRUE
 	invocation_type = "shout"
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 
 /obj/effect/proc_holder/spell/self/barbrage/cast(list/targets,mob/living/user = usr)
 	user.emote("rage", forced = TRUE)
@@ -245,8 +245,9 @@
 	name = "Vicious Mockery"
 	releasedrain = 50
 	associated_skill = /datum/skill/misc/music
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	range = 7
+	uses_mana = FALSE
 
 /obj/effect/proc_holder/spell/invoked/mockery/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))

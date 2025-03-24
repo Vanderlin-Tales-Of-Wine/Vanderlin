@@ -371,7 +371,6 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			if(has_flaw(/datum/charflaw/addiction/alcoholic))
 				sate_addiction()
 		if(drunkenness >= 3)
-//			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "drunk", /datum/mood_event/drunk)
 			if(prob(3))
 				slurring += 2
 			jitteriness = max(jitteriness - 3, 0)
@@ -380,24 +379,6 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			remove_stress(/datum/stressevent/drunk)
 		if(drunkenness >= 11 && slurring < 5)
 			slurring += 1.2
-/*
-		if(mind && (mind.assigned_role == "Scientist" || mind.assigned_role == "Research Director"))
-			if(SSresearch.science_tech)
-				if(drunkenness >= 12.9 && drunkenness <= 13.8)
-					drunkenness = round(drunkenness, 0.01)
-					var/ballmer_percent = 0
-					if(drunkenness == 13.35) // why run math if I dont have to
-						ballmer_percent = 1
-					else
-						ballmer_percent = (-abs(drunkenness - 13.35) / 0.9) + 1
-					if(prob(5))
-						say(pick(GLOB.ballmer_good_msg), forced = "ballmer")
-					SSresearch.science_tech.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = BALLMER_POINTS * ballmer_percent))
-				if(drunkenness > 26) // by this point you're into windows ME territory
-					if(prob(5))
-						SSresearch.science_tech.remove_point_list(list(TECHWEB_POINT_TYPE_GENERIC = BALLMER_POINTS))
-						say(pick(GLOB.ballmer_windows_me_msg), forced = "ballmer")
-*/
 		if(drunkenness >= 41)
 			if(prob(25))
 				confused += 2
@@ -427,7 +408,6 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 
 		if(drunkenness >= 91)
 			adjustToxLoss(5)
-//			adjustOrganLoss(ORGAN_SLOT_BRAIN, 0.4)
 			if(prob(20) && !stat)
 				to_chat(src, "<span class='warning'>Just a quick nap...</span>")
 				Sleeping(900)

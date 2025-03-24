@@ -185,6 +185,15 @@
 	output = /obj/item/storage/backpack/satchel
 	craftdiff = 1
 
+/datum/repeatable_crafting_recipe/leather/magepouch
+	name = "summoners pouch"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/storage/magebag
+	craftdiff = 1
+
 /datum/repeatable_crafting_recipe/leather/meatbag
 	name = "game satchel"
 	attacked_atom = /obj/item/natural/hide

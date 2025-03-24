@@ -7,6 +7,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	return list(
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
+	/client/proc/adjust_personal_see_leylines,
 	/client/proc/spawn_liquid,
 	/client/proc/remove_liquid,
 	/client/proc/adjust_pq,
@@ -109,6 +110,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_prayer_sound,
 	/client/proc/colorasay,
 	/client/proc/resetasaycolor,
+	/client/proc/set_personal_admin_ooc_color,
+	/client/proc/reset_personal_admin_ooc_color,
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,

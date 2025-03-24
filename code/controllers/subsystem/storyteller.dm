@@ -325,9 +325,9 @@ SUBSYSTEM_DEF(gamemode)
 						break
 				if(real)
 					continue
-			if(restricted_roles && (candidate.mind.assigned_role in restricted_roles))
+			if(restricted_roles && (candidate.mind.assigned_role.title in restricted_roles))
 				continue
-			if(length(required_roles) && !(candidate.mind.assigned_role in required_roles))
+			if(length(required_roles) && !(candidate.mind.assigned_role.title in required_roles))
 				continue
 
 		if(be_special)
@@ -1048,6 +1048,8 @@ SUBSYSTEM_DEF(gamemode)
 	var/list/storytellers_with_votes = list()
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
+		if(!istype(living))
+			continue
 		if(!roundstart)
 			if(!living.mind)
 				continue

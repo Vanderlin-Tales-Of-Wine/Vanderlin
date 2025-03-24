@@ -12,7 +12,7 @@
 	range = 5
 	overlay_state = "blesscrop"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -22,6 +22,10 @@
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 15
+	attunements = list(
+		/datum/attunement/earth = 0.5,
+		/datum/attunement/life = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/targeted/blesscrop/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -47,7 +51,7 @@
 	name = "Beastial Senses"
 	desc = "Grants the Dendorite a keen sense of smell and excellent vision, to better hunt with."
 	overlay_state = "bestialsense"
-	charge_max = 12 MINUTES
+	recharge_time = 12 MINUTES
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	invocation = "Beast-Lord, lend me the eyes of the zad, the nose of the volf."
 	invocation_type = "whisper"
@@ -55,6 +59,9 @@
 	releasedrain = 30
 	miracle = TRUE
 	devotion_cost = 15
+	attunements = list(
+		/datum/attunement/earth = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/self/beastsense/cast(list/targets,mob/living/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -79,7 +86,7 @@
 	range = 5
 	overlay_state = "tamebeast"
 	releasedrain = 30
-	charge_max = 6 MINUTES
+	recharge_time = 6 MINUTES
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -89,6 +96,21 @@
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 60
+	attunements = list(
+		/datum/attunement/earth = 1,
+	)
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy,
+		/datum/pet_command/follow/wolf,
+		/datum/pet_command/point_targeting/attack,
+		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+		/datum/pet_command/aggressive,
+		/datum/pet_command/calm,
+	)
 
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -96,9 +118,13 @@
 	for(var/mob/living/simple_animal/hostile/retaliate/B in oview(2))
 		if((B.mob_biotypes & MOB_UNDEAD))
 			continue
-		B.aggressive = 0
+		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)
+		if(!commands)
+			B.AddComponent(/datum/component/obeys_commands, pet_commands)
+		B.ai_controller?.add_to_top(/datum/ai_planning_subtree/pet_planning)
 		B.ai_controller?.CancelActions()
-		B.tamed(user)
+		B.ai_controller.set_blackboard_key(BB_PET_TARGETING_DATUM, new /datum/targetting_datum/basic/not_friends())
+		B.befriend(user)
 	return ..()
 
 
@@ -119,7 +145,7 @@
 	sound = 'sound/items/dig_shovel.ogg'
 	invocation = "By the Treefather's will, entwine and restrain."
 	invocation_type = "whisper"
-	charge_max = 50 SECONDS
+	recharge_time = 50 SECONDS
 	devotion_cost = 15
 
 /obj/effect/proc_holder/spell/invoked/entangler/cast(list/targets, mob/living/user)
@@ -130,7 +156,7 @@
 		to_chat(user, "You feel the power of Dendor course through your thumb.")
 		user.visible_message("<font color='green'>[user]'s thumb turns green.</font>")
 		return TRUE
-	user.faction |= "plants"
+	user.faction |= FACTION_PLANTS
 
 	var/turf/T = get_turf(targets[1])
 	user.visible_message("<font color='green'>[user] points at [T]!</font>")
@@ -195,14 +221,14 @@
 
 /datum/proc/add_vinemark(atom/target, mob/living/carbon/user) // makes vines ignore them essentially
 	var/mob/living/mob_target = target
-	mob_target.faction |= "plants"
+	mob_target.faction |= FACTION_PLANTS
 	playsound(user, 'sound/magic/ahh2.ogg', 55, TRUE)
 	user.visible_message("[user] marks [mob_target] forehead.")
 	to_chat(target, "<font color='green'> The vines has marked you as one of its own.")
 
 /datum/proc/remove_vinemark(atom/target, mob/living/carbon/user)
 	var/mob/living/mob_target = target
-	mob_target.faction -= "plants"
+	mob_target.faction -= FACTION_PLANTS
 	playsound(user, 'sound/magic/swap.ogg', 55, TRUE)
 	user.visible_message("[user] removes the mark from [mob_target] forehead.")
 	to_chat(target, "<font color='red'> The vines have forsaken you.")
@@ -214,7 +240,7 @@
 	range = 1
 	overlay_state = "kneestinger"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	sound = 'sound/items/dig_shovel.ogg'
@@ -222,6 +248,9 @@
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	invocation = "Treefather light the way."
 	invocation_type = "whisper" //can be none, whisper, emote and shout
+	attunements = list(
+		/datum/attunement/earth = 0.6,
+	)
 
 /obj/effect/proc_holder/spell/targeted/conjure_kneestingers/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
@@ -247,7 +276,7 @@
 	name = "Troll Shape"
 	desc = "Borrow power from the Troll, his favored beast."
 	overlay_state = "trollshape"
-	charge_max = 12 MINUTES // cast once every 30 minutes, lasts for 3 minutes || Monkey station edit, changed it down from 30 to 12!
+	recharge_time = 12 MINUTES // cast once every 30 minutes, lasts for 3 minutes || Monkey station edit, changed it down from 30 to 12!
 	req_items = list(/obj/item/clothing/neck/psycross/silver/dendor)
 	invocation = "DENDOR; LEND ME YOUR POWER!!"
 	invocation_type = "shout"
@@ -255,6 +284,10 @@
 	releasedrain = 100
 	miracle = TRUE
 	devotion_cost = 100
+	attunements = list(
+		/datum/attunement/earth = 0.7,
+		/datum/attunement/polymorph = 0.5,
+	)
 
 /obj/effect/proc_holder/spell/self/trollshape/cast(list/targets,mob/living/user = usr)
 	. = ..()

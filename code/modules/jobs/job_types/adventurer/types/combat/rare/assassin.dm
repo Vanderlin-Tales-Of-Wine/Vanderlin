@@ -8,6 +8,7 @@
 		"Half-Elf",
 		"Dwarf",
 		"Tiefling",
+		"Kobold",
 		"Dark Elf"
 	)
 	outfit = /datum/outfit/job/adventurer/assassin
