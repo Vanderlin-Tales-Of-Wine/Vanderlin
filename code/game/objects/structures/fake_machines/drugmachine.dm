@@ -116,52 +116,46 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
+	lockids = list("nightman")
+	locked = TRUE
 	var/list/held_items = list()
-	var/locked = TRUE
 	var/budget = 0
 	var/upgrade_flags
 	var/current_cat = "1"
 
 /obj/structure/fake_machine/drugmachine/Initialize()
 	. = ..()
-	update_icon()
-
-/obj/structure/fake_machine/drugmachine/update_icon()
-	cut_overlays()
-	if(obj_broken)
-		set_light(0)
-		return
 	set_light(1, 1, 1, l_color =  "#8f06b5")
-	add_overlay(mutable_appearance(icon, "vendor-merch"))
 
+/obj/structure/fake_machine/drugmachine/obj_break(damage_flag)
+	. = ..()
+	budget2change(src.budget)
+	set_light(0)
 
-/obj/structure/fake_machine/drugmachine/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/key))
-		var/obj/item/key/K = P
-		if(K.lockid == "nightman")
-			locked = !locked
-			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-			update_icon()
-			return attack_hand(user)
-		else
-			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
-			return
-	if(istype(P, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == "nightman")
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				update_icon()
-				return attack_hand(user)
-	if(istype(P, /obj/item/coin))
-		budget += P.get_real_price()
-		qdel(P)
-		update_icon()
-		playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
+/obj/structure/fake_machine/drugmachine/Destroy()
+	. = ..()
+	budget2change(src.budget)
+	set_light(0)
+
+/obj/structure/fake_machine/drugmachine/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/coin))
+		var/money = I.get_real_price()
+		src.budget += money
+		qdel(I)
+		to_chat(user, span_info("I put [money] mammon in [src]."))
+		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	..()
+	if(!islist(I.get_access()))
+		return ..()
+	if(src.check_access(I))
+		src.locked = !src.locked
+		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
+		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
+		if(src.locked)
+			return
+		return attack_hand(user)
+	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
+	to_chat(user, span_info("Ilack the key for [src]."))
 
 /obj/structure/fake_machine/drugmachine/Topic(href, href_list)
 	. = ..()
@@ -269,20 +263,5 @@
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 400)
 	popup.set_content(contents)
 	popup.open()
-
-/obj/structure/fake_machine/drugmachine/obj_break(damage_flag)
-	..()
-	budget2change(budget)
-	set_light(0)
-	update_icon()
-	icon_state = "goldvendor0"
-
-/obj/structure/fake_machine/drugmachine/Destroy()
-	set_light(0)
-	return ..()
-
-/obj/structure/fake_machine/drugmachine/Initialize()
-	. = ..()
-	update_icon()
 
 #undef UPGRADE_NOTAX

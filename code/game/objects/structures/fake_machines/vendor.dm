@@ -9,55 +9,90 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
+	lockids = list(ACCESS_MERCHANT)
+	locked = TRUE
 	var/list/held_items = list()
-	var/locked = TRUE
 	var/budget = 0
 	var/wgain = 0
-	var/keycontrol = "merchant"
-	var/funynthing = FALSE
+	/// Max amount of items we can sell
+	var/max_merchanise = 15
+	/// Overlay used when theres items inside and we are locked
+	var/filled_overlay = "vendor-gen"
+	/// Light color used when theres items inside and we are locked
+	var/lighting_color = "#cf7214"
 
-/obj/structure/fake_machine/vendor/attackby(obj/item/P, mob/user, params)
+/obj/structure/fake_machine/vendor/Initialize()
+	. = ..()
+	update_icon()
 
-	if(istype(P, /obj/item/key))
-		var/obj/item/key/K = P
-		if(K.lockid == keycontrol)
-			locked = !locked
-			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-			update_icon()
-			return attack_hand(user)
-		else
-			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
-			return
-	if(istype(P, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == keycontrol)
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				update_icon()
-				return attack_hand(user)
-	if(istype(P, /obj/item/coin))
-		budget += P.get_real_price()
-		qdel(P)
-		update_icon()
-		playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
+/obj/structure/fake_machine/vendor/obj_break(damage_flag)
+	. = ..()
+	for(var/obj/item/I as anything in held_items)
+		I.forceMove(src.loc)
+		held_items -= I
+	budget2change(budget)
+	update_icon()
+
+/obj/structure/fake_machine/vendor/Destroy()
+	for(var/obj/item/I as anything in held_items)
+		I.forceMove(src.loc)
+		held_items -= I
+	budget2change(budget)
+	set_light(0)
+	. = ..()
+
+/obj/structure/fake_machine/vendor/update_icon()
+	if(!src.locked || src.obj_broken)
+		src.icon_state = "streetvendor0"
+		if(length(src.overlays))
+			cut_overlays()
+		set_light(0)
+		return
+	src.icon_state = "streetvendor1"
+	if(!length(src.held_items))
+		if(length(src.overlays))
+			cut_overlays()
+		set_light(0)
+		return
+	set_light(1, 1, 1, l_color = src.lighting_color)
+	if(!length(src.overlays))
+		add_overlay(mutable_appearance(src.icon, src.filled_overlay))
+
+/obj/structure/fake_machine/vendor/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/coin))
+		var/money = I.get_real_price()
+		src.budget += money
+		qdel(I)
+		to_chat(user, span_info("I put [money] mammon in [src]."))
+		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
-	if(!locked)
-		if(P.w_class <= WEIGHT_CLASS_BULKY)
-			testing("startadd")
-			if(held_items.len < 15)
-				held_items[P] = list()
-				held_items[P]["NAME"] = P.name
-				held_items[P]["PRICE"] = 0
-				P.forceMove(src)
-				playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
-				return attack_hand(user)
-			else
-				to_chat(user, "<span class='warning'>Full.</span>")
-				return
-	..()
+	if(!has_access(I)) // Maybe this should be rclick so you can sell keys
+		src.add_merchandise(I)
+		return
+	if(src.check_access(I))
+		src.locked = !src.locked
+		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
+		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
+		return
+	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
+	to_chat(user, span_info("I lack the key for [src]."))
 
+/obj/structure/fake_machine/vendor/proc/add_mechandise(/obj/item/I)
+	if(src.locked)
+		to_chat(user, span_info("I cannot put [I] in [src] while it's locked."))
+		return
+	if(I.w_class > WEIGHT_CLASS_BULKY)
+		to_chat(user, span_info("[I] is too big for [src]!"))
+		return
+	if(length(src.held_items) > src.max_merchanise)
+		to_chat(user, span_info("[src] is full!"))
+		return
+	src.held_items[I] = list()
+	src.held_items[I]["NAME"] = I.name
+	src.held_items[I]["PRICE"] = 0
+	P.forceMove(src)
+	playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
+	update_icon()
 
 /obj/structure/fake_machine/vendor/Topic(href, href_list)
 	. = ..()
@@ -181,47 +216,57 @@
 	popup.set_content(contents)
 	popup.open()
 
-/obj/structure/fake_machine/vendor/obj_break(damage_flag)
-	..()
-	for(var/obj/item/I in held_items)
-		I.forceMove(src.loc)
-		held_items -= I
-	budget2change(budget)
-	set_light(0)
-	update_icon()
-	icon_state = "streetvendor0"
+/obj/structure/fake_machine/vendor/inn
+	lockids = list(ACCESS_INN)
 
-/obj/structure/fake_machine/vendor/Initialize()
+/obj/structure/fake_machine/vendor/inn/Initialize()
 	. = ..()
+	for(var/X in list(/obj/item/key/roomi, /obj/item/key/roomii, /obj/item/key/roomiii))
+		var/obj/I = new X(src)
+		held_items[I] = list()
+		held_items[I]["NAME"] = I.name
+		held_items[I]["PRICE"] = 20
+	var/obj/I = new /obj/item/key/roomhunt(src)
+	held_items[I] = list()
+	held_items[I]["NAME"] = I.name
+	held_items[I]["PRICE"] = 40
 	update_icon()
 
-/obj/structure/fake_machine/vendor/update_icon()
-	cut_overlays()
-	if(obj_broken)
-		set_light(0)
-		return
-	if(!locked)
-		icon_state = "streetvendor0"
-		return
-	else
-		icon_state = "streetvendor1"
-	if(held_items.len)
-		set_light(1, 1, 1, l_color = "#1b7bf1")
-		add_overlay(mutable_appearance(icon, "vendor-gen"))
+/obj/structure/fake_machine/vendor/steward
+	lockids = list(ACCESS_STEWARD)
+	light_color = "#1b7bf1"
+	filled_overlay = "vendor-merch"
 
-/obj/structure/fake_machine/vendor/Destroy()
-	for(var/obj/item/I in held_items)
-		I.forceMove(src.loc)
-		held_items -= I
-	set_light(0)
-	return ..()
+/obj/structure/fake_machine/vendor/steward/Initialize()
+	. = ..()
+	for(var/X in list(/obj/item/key/shops/shop1, /obj/item/key/shops/shop2, /obj/item/key/shops/shop3, /obj/item/key/shops/shop4))
+		var/obj/I = new X(src)
+		held_items[I] = list()
+		held_items[I]["NAME"] = I.name
+		held_items[I]["PRICE"] = 5
+	for(var/X in list(/obj/item/key/houses/house2, /obj/item/key/houses/house3))
+		var/obj/I = new X(src)
+		held_items[I] = list()
+		held_items[I]["NAME"] = I.name
+		held_items[I]["PRICE"] = 100
+	var/obj/I = new /obj/item/key/houses/house7(src)
+	held_items[I] = list()
+	held_items[I]["NAME"] = I.name
+	held_items[I]["PRICE"] = 120
+	update_icon()
+
+/obj/structure/fake_machine/vendor/apothecary
+	lockids = list("nightman")
+	lighting_color = "#8f06b5"
+	filled_overlay = "vendor-drug"
 
 /obj/structure/fake_machine/vendor/centcom
 	name = "LANDLORD"
 	desc = "Give this thing money, and you will immediately buy a neat property in the capital."
 	max_integrity = 0
 	icon_state = "streetvendor1"
-	keycontrol = "dhjlashfdg"
+	lockids = list()
+	locked = FALSE
 	var/list/cachey = list()
 
 /obj/structure/fake_machine/vendor/centcom/attack_hand(mob/living/user)
@@ -254,42 +299,3 @@
 				user.adjust_triumphs(1)
 				say("[user] HAS BEEN UPGRADED TO A NOBLE BEDCHAMBER!")
 				playsound(src, 'sound/misc/machinelong.ogg', 100, FALSE, -1)
-
-/obj/structure/fake_machine/vendor/inn
-	keycontrol = "tavern"
-
-/obj/structure/fake_machine/vendor/inn/Initialize()
-	. = ..()
-	for(var/X in list(/obj/item/key/roomi,/obj/item/key/roomii,/obj/item/key/roomiii))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 20
-	for(var/X in list(/obj/item/key/roomhunt))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 40
-	update_icon()
-
-/obj/structure/fake_machine/vendor/steward
-	keycontrol = "steward"
-
-/obj/structure/fake_machine/vendor/steward/Initialize()
-	. = ..()
-	for(var/X in list(/obj/item/key/shops/shop1,/obj/item/key/shops/shop2,/obj/item/key/shops/shop3,/obj/item/key/shops/shop4))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 5
-	for(var/X in list(/obj/item/key/houses/house2,/obj/item/key/houses/house3))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 100
-	for(var/X in list(/obj/item/key/houses/house7))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 120
-	update_icon()

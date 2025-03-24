@@ -15,34 +15,20 @@
 	max_integrity = 0
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
-	var/locked = FALSE
+	lockid = list(ACCESS_STEWARD)
+	locked = TRUE
 	var/current_tab = TAB_MAIN
 
 /obj/structure/fake_machine/steward/attackby(obj/item/P, mob/user, params)
-	if(istype(P, /obj/item/key))
-		var/obj/item/key/K = P
-		if(K.lockid == "steward" || K.lockid == "lord")
-			locked = !locked
-			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-			update_icon()
-			return
-		else
-			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-			to_chat(user, "<span class='warning'>Wrong key.</span>")
-			return
-	if(istype(P, /obj/item/storage/keyring))
-		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/key/KE in K.contents)
-			if(KE.lockid == "steward" || KE.lockid == "lord")
-				locked = !locked
-				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-				update_icon()
-				return
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-		to_chat(user, "<span class='warning'>Wrong key.</span>")
+	if(!islist(I.get_access()))
+		return ..()
+	if(src.check_access(I))
+		src.locked = !src.locked
+		to_chat(user, span_info("I [src.locked ? "lock" : "unlock"] [src]."))
+		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
 		return
-	return ..()
-
+	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
+	to_chat(user, span_info("I lack the key for [src]."))
 
 /obj/structure/fake_machine/steward/Topic(href, href_list)
 	. = ..()
