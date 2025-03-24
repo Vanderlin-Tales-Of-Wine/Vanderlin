@@ -6275,15 +6275,9 @@
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/woods_safe)
 "epA" = (
-/obj/effect/mapping_helpers/door/access/town/tower,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/magician)
 "epU" = (
@@ -12399,11 +12393,9 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "iHy" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/structure/mineral_door/wood/violet,
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
 "iHC" = (
@@ -21235,10 +21227,10 @@
 /area/rogue/under/town/basement)
 "plh" = (
 /obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "mage";
 	name = "Cell Door"
 	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "plm" = (
@@ -21352,11 +21344,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "ppy" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/violet,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "ppM" = (
@@ -21702,11 +21692,9 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "pDe" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/violet,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
 "pDn" = (
@@ -25086,11 +25074,11 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/river)
 "scI" = (
-/obj/effect/mapping_helpers/door/access/town/tower,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet{
 	name = "Wizard's Tower"
 	},
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/magician)
 "sdC" = (
@@ -27393,15 +27381,9 @@
 	},
 /area/rogue/outdoors/town)
 "tDX" = (
-/obj/effect/mapping_helpers/door/access/town/tower,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/magician)
 "tEr" = (
@@ -28143,15 +28125,9 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "udw" = (
-/obj/effect/mapping_helpers/door/access/town/tower,
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
-/obj/merge_conflict_marker,
+/obj/effect/mapping_helpers/door/access/manor/mage,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/magician)
 "udT" = (
