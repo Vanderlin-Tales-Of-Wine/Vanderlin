@@ -23,7 +23,7 @@
 	new /obj/item/reagent_containers/food/snacks/hardtack(src)
 
 /obj/structure/closet/crate/chest/steward
-	lockid = "steward"
+	lockids = list(ACCESS_STEWARD)
 	locked = TRUE
 	master_unlockable = TRUE
 

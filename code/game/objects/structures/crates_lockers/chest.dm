@@ -30,7 +30,7 @@
 	base_icon_state = "chestweird1"
 
 /obj/structure/closet/crate/chest/merchant
-	lockid = "shop"
+	lockids = list("shop")
 	locked = TRUE
 	master_unlockable = TRUE
 

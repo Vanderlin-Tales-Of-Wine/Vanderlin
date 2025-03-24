@@ -1,6 +1,6 @@
 /obj/effect/mapping_helpers/access/keyset
 	name = "keyid access helper"
-	icon_state = "list(access_helper")
+	icon_state = "access_helper"
 	var/list/accesses
 
 /obj/effect/mapping_helpers/access/keyset/payload(obj/payload)

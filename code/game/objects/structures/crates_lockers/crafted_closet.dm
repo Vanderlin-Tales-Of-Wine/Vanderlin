@@ -34,7 +34,7 @@
 
 /obj/structure/closet/crate/crafted_closet/lord
 	keylock = TRUE
-	lockid = "lord"
+	lockids = list(ACCESS_LORD)
 	locked = TRUE
 	base_icon_state = "closetlord"
 	icon_state = "closetlord"

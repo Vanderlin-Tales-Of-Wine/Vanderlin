@@ -197,8 +197,8 @@
 		var/obj/structure/mineral_door/wood/I = O
 		var/obj/structure/mineral_door/wood/new_door = new I.metalizer_result(get_turf(I))
 		new_door.locked = I.locked
-		if(I.lockid)
-			new_door.lockid = I.lockid
+		if(I.keylock)
+			new_door.copy_access(I)
 		qdel(I)
 	else
 		var/obj/I = O
