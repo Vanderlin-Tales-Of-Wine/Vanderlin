@@ -135,14 +135,13 @@
 
 #define GARRISON		(1<<1)
 
-#define SHERIFF     (1<<0)
-#define GUARDSMAN	(1<<1)
-#define WATCHMAN	(1<<2)
-#define JAILOR	    (1<<3)
-#define DUNGEONEER	(1<<4)
-#define MAYOR       (1<<5)
-#define FORWARDEN   (1<<6)
-#define FORGUARD    (1<<7)
+#define GUARDSMAN	(1<<0)
+#define WATCHMAN	(1<<1)
+#define JAILOR	    (1<<2)
+#define DUNGEONEER	(1<<3)
+#define MAYOR       (1<<4)
+#define FORWARDEN   (1<<5)
+#define FORGUARD    (1<<6)
 
 #define CHURCHMEN		(1<<2)
 
@@ -225,8 +224,7 @@
 #define JDO_VET 7.1
 #define JDO_ROYALGUARD 7.2
 #define JDO_MENATARMS 8
-#define JDO_SHERIFF 8.1
-#define JDO_CITYWATCHMEN 8.2
+#define JDO_CITYWATCHMEN 8.1
 #define JDO_DUNGEONEER 9
 #define JDO_JAILOR 9.1
 #define JDO_SQUIRE 10

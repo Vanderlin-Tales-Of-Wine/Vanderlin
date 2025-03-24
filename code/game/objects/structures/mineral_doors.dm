@@ -24,7 +24,7 @@
 			return 4
 		if("warehouse")
 			return 3
-		if("sheriff")
+		if("captain")
 			return 3
 		if("merchant")
 			return 2
