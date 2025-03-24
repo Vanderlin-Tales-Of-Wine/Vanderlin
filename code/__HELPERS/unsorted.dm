@@ -390,27 +390,6 @@ Turf and target are separate in case you want to teleport some distance from a t
 			assembled += A
 	return assembled
 
-//Step-towards method of determining whether one atom can see another. Similar to viewers()
-/proc/can_see(atom/source, atom/target, length=5) // I couldnt be arsed to do actual raycasting :I This is horribly inaccurate.
-	var/turf/current = get_turf(source)
-	var/turf/target_turf = get_turf(target)
-	var/steps = 1
-	if(current != target_turf)
-		current = get_step_towards(current, target_turf)
-		while(current != target_turf)
-			if(steps > length)
-				return 0
-			if(current.opacity)
-				return 0
-			for(var/thing in current)
-				var/atom/A = thing
-				if(A.opacity)
-					return 0
-			current = get_step_towards(current, target_turf)
-			steps++
-
-	return 1
-
 /proc/is_blocked_turf(turf/T, exclude_mobs)
 	if(T.density)
 		return 1
@@ -549,11 +528,6 @@ Turf and target are separate in case you want to teleport some distance from a t
 					turfs += T
 	return turfs
 
-/proc/get_cardinal_dir(atom/A, atom/B)
-	var/dx = abs(B.x - A.x)
-	var/dy = abs(B.y - A.y)
-	return get_dir(A, B) & (rand() * (dx+dy) < dy ? 3 : 12)
-
 //chances are 1:value. anyprob(1) will always return true
 /proc/anyprob(value)
 	return (rand(1,value)==value)
@@ -616,13 +590,6 @@ will handle it, but:
 	. = bounds_dist(A, B) + sqrt((((A.pixel_x+B.pixel_x)**2) + ((A.pixel_y+B.pixel_y)**2)))
 	if(centered)
 		. += world.icon_size
-
-/proc/get(atom/loc, type)
-	while(loc)
-		if(istype(loc, type))
-			return loc
-		loc = loc.loc
-	return null
 
 /proc/can_embed(obj/item/weapon)
 	if(HAS_TRAIT(weapon, TRAIT_NODROP) || HAS_TRAIT(weapon, TRAIT_NOEMBED))
@@ -771,18 +738,10 @@ GLOBAL_LIST_INIT(WALLITEMS_INVERSE, typecacheof(list(
 		return FALSE
 	if(initator.dir == target.dir) //mobs are facing the same direction
 		return FACING_SAME_DIR
-	if(is_A_facing_B(initator,target) && is_A_facing_B(target,initator)) //mobs are facing each other
+	if(is_source_facing_target(initator,target) && is_source_facing_target(target,initator)) //mobs are facing each other
 		return FACING_EACHOTHER
 	if(initator.dir + 2 == target.dir || initator.dir - 2 == target.dir || initator.dir + 6 == target.dir || initator.dir - 6 == target.dir) //Initating mob is looking at the target, while the target mob is looking in a direction perpendicular to the 1st
 		return FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR
-
-/proc/random_step(atom/movable/AM, steps, chance)
-	var/initial_chance = chance
-	while(steps > 0)
-		if(prob(chance))
-			step(AM, pick(GLOB.alldirs))
-		chance = max(chance - (initial_chance / steps), 0)
-		steps--
 
 /proc/living_player_count()
 	var/living_player_count = 0
@@ -834,156 +793,6 @@ GLOBAL_LIST_INIT(WALLITEMS_INVERSE, typecacheof(list(
 	if(istype(D))
 		return !QDELETED(D)
 	return 0
-
-//Compare A's dir, the clockwise dir of A and the anticlockwise dir of A
-//To the opposite dir of the dir returned by get_dir(B,A)
-//If one of them is a match, then A is facing B
-/proc/is_A_facing_B(atom/A,atom/B)
-	if(!istype(A) || !istype(B))
-		return FALSE
-	if(isliving(A))
-		var/mob/living/LA = A
-		if(!(LA.mobility_flags & MOBILITY_STAND))
-			return FALSE
-	var/goal_dir = get_dir(A,B)
-	var/clockwise_A_dir = turn(A.dir, -45)
-	var/anticlockwise_A_dir = turn(A.dir, 45)
-
-	if(A.dir == goal_dir || clockwise_A_dir == goal_dir || anticlockwise_A_dir == goal_dir)
-		return TRUE
-	return FALSE
-
-
-/*
-rough example of the "cone" made by the 3 dirs checked
-
-* \
-*  \
-*   >
-*     <
-*      \
-*       \
-*B --><-- A
-*       /
-*      /
-*     <
-*    >
-*   /
-*  /
-
-*/
-
-
-//Center's an image.
-//Requires:
-//The Image
-//The x dimension of the icon file used in the image
-//The y dimension of the icon file used in the image
-// eg: center_image(I, 32,32)
-// eg2: center_image(I, 96,96)
-
-/proc/center_image(image/I, x_dimension = 0, y_dimension = 0)
-	if(!I)
-		return
-
-	if(!x_dimension || !y_dimension)
-		return
-
-	if((x_dimension == world.icon_size) && (y_dimension == world.icon_size))
-		return I
-
-	//Offset the image so that it's bottom left corner is shifted this many pixels
-	//This makes it infinitely easier to draw larger inhands/images larger than world.iconsize
-	//but still use them in game
-	var/x_offset = -((x_dimension/world.icon_size)-1)*(world.icon_size*0.5)
-	var/y_offset = -((y_dimension/world.icon_size)-1)*(world.icon_size*0.5)
-
-	//Correct values under world.icon_size
-	if(x_dimension < world.icon_size)
-		x_offset *= -1
-	if(y_dimension < world.icon_size)
-		y_offset *= -1
-
-	I.pixel_x = x_offset
-	I.pixel_y = y_offset
-
-	return I
-
-//ultra range (no limitations on distance, faster than range for distances > 8); including areas drastically decreases performance
-/proc/urange(dist=0, atom/center=usr, orange=0, areas=0)
-	if(!dist)
-		if(!orange)
-			return list(center)
-		else
-			return list()
-
-	var/list/turfs = RANGE_TURFS(dist, center)
-	if(orange)
-		turfs -= get_turf(center)
-	. = list()
-	for(var/V in turfs)
-		var/turf/T = V
-		. += T
-		. += T.contents
-		if(areas)
-			. |= T.loc
-
-//similar function to range(), but with no limitations on the distance; will search spiralling outwards from the center
-/proc/spiral_range(dist=0, center=usr, orange=0)
-	var/list/L = list()
-	var/turf/t_center = get_turf(center)
-	if(!t_center)
-		return list()
-
-	if(!orange)
-		L += t_center
-		L += t_center.contents
-
-	if(!dist)
-		return L
-
-
-	var/turf/T
-	var/y
-	var/x
-	var/c_dist = 1
-
-
-	while( c_dist <= dist )
-		y = t_center.y + c_dist
-		x = t_center.x - c_dist + 1
-		for(x in x to t_center.x+c_dist)
-			T = locate(x,y,t_center.z)
-			if(T)
-				L += T
-				L += T.contents
-
-		y = t_center.y + c_dist - 1
-		x = t_center.x + c_dist
-		for(y in t_center.y-c_dist to y)
-			T = locate(x,y,t_center.z)
-			if(T)
-				L += T
-				L += T.contents
-
-		y = t_center.y - c_dist
-		x = t_center.x + c_dist - 1
-		for(x in t_center.x-c_dist to x)
-			T = locate(x,y,t_center.z)
-			if(T)
-				L += T
-				L += T.contents
-
-		y = t_center.y - c_dist + 1
-		x = t_center.x - c_dist
-		for(y in y to t_center.y+c_dist)
-			T = locate(x,y,t_center.z)
-			if(T)
-				L += T
-				L += T.contents
-		c_dist++
-
-	return L
 
 //similar function to RANGE_TURFS(), but will search spiralling outwards from the center (like the above, but only turfs)
 /proc/spiral_range_turfs(dist=0, center=usr, orange=0, list/outlist = list(), tick_checked)
@@ -1039,66 +848,8 @@ rough example of the "cone" made by the 3 dirs checked
 
 	return L
 
-/atom/proc/contains(atom/A)
-	if(!A)
-		return 0
-	for(var/atom/location = A.loc, location, location = location.loc)
-		if(location == src)
-			return 1
-
-/proc/flick_overlay_static(O, atom/A, duration)
-	set waitfor = 0
-	if(!A || !O)
-		return
-	A.add_overlay(O)
-	sleep(duration)
-	A.cut_overlay(O)
-
-
-/proc/get_closest_atom(type, list, source)
-	var/closest_atom
-	var/closest_distance
-	for(var/A in list)
-		if(!istype(A, type))
-			continue
-		var/distance = get_dist(source, A)
-		if(!closest_atom)
-			closest_distance = distance
-			closest_atom = A
-		else
-			if(closest_distance > distance)
-				closest_distance = distance
-				closest_atom = A
-	return closest_atom
-
-
-/proc/pick_closest_path(value, list/matches = get_fancy_list_of_atom_types())
-	if (value == FALSE) //nothing should be calling us with a number, so this is safe
-		value = input("Enter type to find (blank for all, cancel to cancel)", "Search for type") as null|text
-		if (isnull(value))
-			return
-	value = trim(value)
-	if(!isnull(value) && value != "")
-		matches = filter_fancy_list(matches, value)
-
-	if(matches.len==0)
-		return
-
-	var/chosen
-	if(matches.len==1)
-		chosen = matches[1]
-	else
-		chosen = input("Select a type", "Pick Type", matches[1]) as null|anything in sortList(matches)
-		if(!chosen)
-			return
-	chosen = matches[chosen]
-	return chosen
-
 //gives us the stack trace from CRASH() without ending the current proc.
 /proc/stack_trace(msg)
-	CRASH(msg)
-
-/datum/proc/stack_trace(msg)
 	CRASH(msg)
 
 GLOBAL_REAL_VAR(list/stack_trace_storage)
@@ -1158,39 +909,6 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 	while(length(str) < 5)
 		str = "0" + str
 	. = str
-
-/atom/proc/Shake(pixelshiftx = 15, pixelshifty = 15, duration = 250)
-	var/initialpixelx = pixel_x
-	var/initialpixely = pixel_y
-	var/shiftx = rand(-pixelshiftx,pixelshiftx)
-	var/shifty = rand(-pixelshifty,pixelshifty)
-	animate(src, pixel_x = pixel_x + shiftx, pixel_y = pixel_y + shifty, time = 0.2, loop = duration)
-	pixel_x = initialpixelx
-	pixel_y = initialpixely
-
-
-///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
-/proc/icon_exists(file, state, scream)
-	var/static/list/icon_states_cache = list()
-	if(icon_states_cache[file]?[state])
-		return TRUE
-
-	if(icon_states_cache[file]?[state] == FALSE)
-		return FALSE
-
-	var/list/states = icon_states(file)
-
-	if(!icon_states_cache[file])
-		icon_states_cache[file] = list()
-
-	if(state in states)
-		icon_states_cache[file][state] = TRUE
-		return TRUE
-	else
-		icon_states_cache[file][state] = FALSE
-		if(scream)
-			stack_trace("Icon Lookup for state: [state] in file [file] failed.")
-		return FALSE
 
 /proc/weightclass2text(w_class)
 	switch(w_class)
@@ -1256,9 +974,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 
 #define UNTIL(X) while(!(X)) stoplag()
-
-/proc/pass(...)
-	return
 
 /proc/get_mob_or_brainmob(occupant)
 	var/mob/living/mob_occupant
@@ -1440,10 +1155,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	for(var/i in L)
 		if(condition.Invoke(i))
 			. |= i
-/proc/generate_items_inside(list/items_list,where_to)
-	for(var/each_item in items_list)
-		for(var/i in 1 to items_list[each_item])
-			new each_item(where_to)
 
 /proc/num2sign(numeric)
 	if(numeric > 0)

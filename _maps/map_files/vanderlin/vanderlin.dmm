@@ -25061,13 +25061,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/item/key_custom_blank,
-/obj/item/key_custom_blank{
+/obj/item/key/custom,
+/obj/item/key/custom{
 	pixel_y = 6;
 	pixel_z = null;
 	pixel_x = -6
 	},
-/obj/item/key_custom_blank{
+/obj/item/key/custom{
 	pixel_y = 4;
 	pixel_z = null;
 	pixel_x = 4
