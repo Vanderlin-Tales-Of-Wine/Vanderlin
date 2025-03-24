@@ -7,6 +7,7 @@ GLOBAL_PROTECT(admin_verbs_default)
 	return list(
 	/client/proc/check_pq,
 	/client/proc/spawn_pollution,
+	/client/proc/adjust_personal_see_leylines,
 	/client/proc/spawn_liquid,
 	/client/proc/remove_liquid,
 	/client/proc/adjust_pq,

@@ -13,7 +13,7 @@
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	devotion_cost = 30
 
 /obj/effect/proc_holder/spell/invoked/blindness/cast(list/targets, mob/user = usr)
@@ -32,7 +32,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	range = 3
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
@@ -56,12 +56,12 @@
 /obj/effect/proc_holder/spell/invoked/darkvision
 	name = "Darkvision"
 	desc = "Be granted truesight, the better to behold the truth of the world with."
-	clothes_req = list(/obj/item/clothing/neck/psycross/noc)
+	req_items = list(/obj/item/clothing/neck/psycross/noc)
 	invocation = "Noc, bestow upon me your vision."
 	invocation_type = "Whisper" //can be none, whisper, emote and shout
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 15 MINUTES
+	recharge_time = 15 MINUTES
 	devotion_cost = 40
 
 /obj/effect/proc_holder/spell/self/darkvision/cast(list/targets, mob/living/user)
@@ -69,7 +69,7 @@
 	if(do_after(user, 4 SECONDS))
 		to_chat(user, span_notice("Your prayer is answered, the darkness lowers its veil."))
 		playsound(get_turf(user), 'sound/magic/magic_nulled.ogg', 60, TRUE, -1)
-		user.apply_status_effect(/datum/status_effect/buff/darkvision)
+		user.apply_status_effect(/datum/status_effect/buff/duration_modification/darkvision)
 		return ..()
 	return FALSE
 
@@ -77,11 +77,11 @@
 	name = "Moonlit Dagger"
 	desc = "Fire off a piercing moonlit-dagger, smiting unholy creechers!"
 	overlay_state = "moondagger"
-	clothes_req = list(/obj/item/clothing/neck/psycross/noc)
+	req_items = list(/obj/item/clothing/neck/psycross/noc)
 	invocation = "Begone foul beasts!"
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	associated_skill = /datum/skill/magic/holy
-	charge_max = 40 SECONDS
+	recharge_time = 40 SECONDS
 	devotion_cost = 40
 	projectile_type = /obj/projectile/magic/moondagger
 

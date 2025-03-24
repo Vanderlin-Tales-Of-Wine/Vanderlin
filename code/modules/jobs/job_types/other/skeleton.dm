@@ -25,7 +25,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'

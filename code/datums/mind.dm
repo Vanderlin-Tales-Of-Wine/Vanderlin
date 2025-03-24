@@ -143,6 +143,7 @@
 
 	var/list/apprentices = list()
 
+	var/has_studied = FALSE
 	/// Variable that lets the event picker see if someones getting chosen or not
 	var/picking = FALSE
 	///the bitflag our job applied

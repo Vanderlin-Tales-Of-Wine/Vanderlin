@@ -69,7 +69,7 @@
 	chargedloop = /datum/looping_sound/invokeholy
 	chargetime = 50
 	chargedrain = 0.5
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	req_items = list(/obj/item/clothing/neck/psycross)
