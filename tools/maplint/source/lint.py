@@ -396,9 +396,6 @@ class Lint:
     disabled: bool = False
 
     def __init__(self, data):
-        if "disabled" in data:
-            return
-
         expect(isinstance(data, dict), "Lint must be a dictionary.")
 
         if "help" in data:
