@@ -83,9 +83,9 @@
             "label": "Build All (unit tests)"
         },
         {
-			"command": "${command:dreammaker.reparse}",
-			"group": "build",
-			"label": "dm: reparse"
-		},
+            "command": "${command:dreammaker.reparse}",
+            "group": "build",
+            "label": "dm: reparse"
+        },
     ]
 }
