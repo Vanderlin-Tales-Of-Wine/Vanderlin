@@ -20,7 +20,8 @@
 		"Dark Elf",
 		"Aasimar",
 		"Half-Orc",
-		"Rakshari"
+		"Rakshari",
+		"Kobold",
 	)
 
 	outfit = /datum/outfit/job/miner

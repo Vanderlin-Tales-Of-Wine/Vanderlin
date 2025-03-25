@@ -15,7 +15,10 @@
 /datum/targetting_datum/basic
 
 /datum/targetting_datum/basic/can_attack(mob/living/living_mob, atom/the_target)
-	if(isturf(the_target) || !the_target) // bail out on invalids
+	if(isturf(the_target) || !the_target ) // bail out on invalids
+		return FALSE
+	var/mob/living/simple_animal/attacker = living_mob
+	if(attacker.binded == TRUE)
 		return FALSE
 
 	if(ismob(the_target)) //Target is in godmode, ignore it.
@@ -31,7 +34,7 @@
 	if(HAS_TRAIT(the_target, TRAIT_UNTARGETTABLE))
 		return FALSE
 
-	if(isturf(the_target.loc) && living_mob.z != the_target.z)
+	if(!isturf(the_target.loc))
 		return FALSE
 
 	if(isliving(the_target)) //Targetting vs living mobs

@@ -10,7 +10,7 @@
 	for(var/direction in GLOB.cardinals)
 		var/turf/step_back = get_step(src, direction)
 		for(var/obj/structure/structure in step_back.contents)
-			if((structure.dir != direction && structure.dir != GLOB.reverse_dir[direction]) && !istype(structure, /obj/structure/gearbox))
+			if((structure.dir != direction && structure.dir != GLOB.reverse_dir[direction]) && !istype(structure, /obj/structure/gearbox) && !istype(structure, /obj/structure/minecart_rail))
 				continue
 			if(structure.rotation_network)
 				if(rotation_network)
@@ -34,6 +34,7 @@
 			if(!(structure in network.connected))
 				continue
 			surrounding |= structure
+	return surrounding
 
 /obj/structure/gearbox/find_and_propagate(list/checked, first = FALSE)
 	if(!length(checked))

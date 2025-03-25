@@ -305,7 +305,7 @@
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
 	index = members.len
-	if(members[index] != /area/template_noop)		
+	if(members[index] != /area/template_noop)
 		var/atype = members[index]
 		world.preloader_setup(members_attributes[index], atype)//preloader for assigning  set variables on atom creation
 		var/atom/instance = areaCache[atype]
@@ -332,6 +332,9 @@
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf,placeOnTop)
+		if(isturf(T))
+			T.pixel_y = 0
+			T.pixel_x = 0
 
 	if(T)
 		//if others /turf are presents, simulates the underlays piling effect
@@ -340,6 +343,9 @@
 			var/underlay = T.appearance
 			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf,placeOnTop)//instance new turf
 			T.underlays += underlay
+			if(isturf(T))
+				T.pixel_y = 0
+				T.pixel_x = 0
 			index++
 
 	//finally instance all remainings objects/mobs

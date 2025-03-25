@@ -11,6 +11,7 @@
 		"Dark Elf",
 		"Tiefling",
 		"Aasimar",
+		"Kobold",
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/sfighter

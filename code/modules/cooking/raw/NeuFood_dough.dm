@@ -411,7 +411,7 @@
 	else
 		icon_state = "[base_icon_state]_slice"
 
-/obj/item/reagent_containers/food/snacks/bread/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/bread/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -625,6 +625,7 @@
 			tastes = list("savory sausage" = 1)
 			icon_state = "grenzbun"
 			base_icon_state = "grenzbun"
+			faretype = FARE_NEUTRAL
 			foodtype = GRAIN | MEAT
 			modified = TRUE
 			meal_properties()

@@ -77,7 +77,7 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/living_user = user
-	if(user.doing)
+	if(user.doing())
 		return
 	if(user.used_intent.type != INTENT_DISARM)
 		return

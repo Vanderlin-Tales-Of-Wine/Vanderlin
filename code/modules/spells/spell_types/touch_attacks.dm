@@ -15,7 +15,7 @@
 /obj/effect/proc_holder/spell/targeted/touch/proc/remove_hand(recharge = FALSE)
 	QDEL_NULL(attached_hand)
 	if(recharge)
-		charge_counter = charge_max
+		charge_counter = recharge_time
 
 /obj/effect/proc_holder/spell/targeted/touch/proc/on_hand_destroy(obj/item/melee/touch_attack/hand)
 	if(hand != attached_hand)
@@ -54,4 +54,8 @@
 			to_chat(user, "<span class='warning'>My hands are full!</span>")
 		return FALSE
 	to_chat(user, "<span class='notice'>[drawmessage]</span>")
+	adjust_hand_charges()
 	return TRUE
+
+/obj/effect/proc_holder/spell/targeted/touch/proc/adjust_hand_charges()
+	return
