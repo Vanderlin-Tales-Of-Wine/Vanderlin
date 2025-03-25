@@ -412,6 +412,8 @@ class Lint:
         all_failures: list[MaplintError] = []
         (width, height) = map_data.size()
 
+        if self.disabled:
+            return
         for pop, contents in map_data.pops.items():
             for typepath_extra, rules in self.rules.items():
                 for content_index, content in enumerate(contents):

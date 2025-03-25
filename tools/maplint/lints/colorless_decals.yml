@@ -4,3 +4,4 @@ help: Colorless turf_decal detected! Please delete it or replace it with the des
 
 =/obj/effect/turf_decal/trimline:
   banned: TRUE
+disabled: true

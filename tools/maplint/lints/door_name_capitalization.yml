@@ -3,3 +3,4 @@ help: "Please upper-case your door names."
   banned_variables:
     name:
       deny: { pattern: '.*\s(?!of|and|to)[a-z].*' }
+disabled: true

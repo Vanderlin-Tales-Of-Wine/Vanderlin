@@ -3,3 +3,4 @@ help: "Use the directional variants when possible."
   banned_variables:
     pixel_x:
     pixel_y:
+disabled: true
