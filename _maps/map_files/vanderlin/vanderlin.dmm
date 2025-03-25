@@ -497,9 +497,9 @@
 /area/rogue/outdoors/river)
 "arF" = (
 /obj/structure/table/wood/plain_alt,
-/obj/item/soap/bath{
+/obj/item/soap{
 	pixel_x = -8;
-	pixel_y = 7
+	pixel_y = 6
 	},
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
@@ -18860,6 +18860,14 @@
 	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/church/inquisition)
+"nvx" = (
+/obj/structure/table/wood/reinf_long,
+/obj/item/soap{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/turf/open/floor/tile/bfloorz,
+/area/rogue/indoors/town/bath)
 "nwm" = (
 /obj/item/bin/water,
 /turf/open/floor/churchrough,
@@ -20623,14 +20631,15 @@
 /area/rogue/indoors/town)
 "oMa" = (
 /obj/structure/rack/shelf/biggest,
+/obj/item/soap,
 /obj/item/natural/bundle/cloth{
 	amount = 10;
 	pixel_y = -5
 	},
 /obj/item/natural/bundle/cloth{
 	amount = 10;
-	pixel_x = 1;
-	pixel_y = 6
+	pixel_x = 0;
+	pixel_y = 7
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
@@ -51214,7 +51223,7 @@ mQV
 mQV
 rQh
 obH
-uwq
+nvx
 rQh
 kwV
 kwV
