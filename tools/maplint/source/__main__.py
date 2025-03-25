@@ -67,7 +67,7 @@ def main(args):
     for lint_filename in lint_filenames:
         try:
             data = yaml.safe_load(lint_filename.read_text())
-            if "disabed" in data:
+            if "disabled" in data:
                 return
             lints[lint_filename] = lint.Lint(data)
         except MaplintError as error:
