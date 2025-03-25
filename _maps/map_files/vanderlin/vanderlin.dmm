@@ -33537,6 +33537,9 @@
 "xDw" = (
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/bath)
+"xDM" = (
+/turf/closed/mineral/random/high_nonval,
+/area/rogue/under/cavewet)
 "xDY" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/churchbrick,
@@ -104285,7 +104288,7 @@ nxk
 nxk
 nxk
 nxk
-bKn
+nxk
 hVU
 wDN
 txh
@@ -104487,7 +104490,7 @@ nxk
 nxk
 nxk
 nxk
-bKn
+nxk
 hVU
 jtm
 cFn
@@ -104496,7 +104499,7 @@ cFn
 cFn
 wDN
 quZ
-bKn
+nxk
 nxk
 vtv
 vtv
@@ -104689,7 +104692,7 @@ nxk
 nxk
 nxk
 nxk
-bKn
+nxk
 hVU
 jed
 cFn
@@ -104698,7 +104701,7 @@ cFn
 wDN
 wDN
 quZ
-bKn
+nxk
 nxk
 nxk
 nxk
@@ -104891,16 +104894,16 @@ nxk
 nxk
 nxk
 nxk
-bKn
+nxk
 hVU
 hVU
 cFn
 wDN
 wDN
-aSw
-aSw
-quZ
-bKn
+xDM
+xDM
+xDM
+aKf
 nxk
 nxk
 nxk
@@ -105093,16 +105096,16 @@ nxk
 nxk
 aKf
 aKf
-bKn
-bKn
+nxk
+nxk
 aSw
 aSw
 aSw
 aSw
-aSw
-bKn
-bKn
-bKn
+xDM
+aKf
+aKf
+nxk
 nxk
 nxk
 nxk
@@ -105296,13 +105299,13 @@ nxk
 nxk
 nxk
 nxk
-bKn
-bKn
-bKn
-bKn
-bKn
-bKn
-bKn
+aKf
+aKf
+aKf
+aKf
+aKf
+aKf
+nxk
 nxk
 nxk
 nxk
