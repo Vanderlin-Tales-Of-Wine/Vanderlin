@@ -1,4 +1,4 @@
-disabled: true
+disabled: "disabled"
 help: "Please upper-case your door names."
 /obj/machinery/door:
   banned_variables:
