@@ -23658,7 +23658,7 @@
 /area/rogue/indoors/town/church/chapel)
 "qOT" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = 516;
+	redstone_id = 517;
 	floor_turf = /turf/open/floor/ruinedwood/spiral;
 	override_floor = 1
 	},
