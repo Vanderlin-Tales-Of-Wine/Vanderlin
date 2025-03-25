@@ -146,6 +146,12 @@
 	SSdroning.kill_rain(owner.client)
 	owner.set_typing_indicator(FALSE)
 
+/datum/status_effect/incapacitating/sleeping/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
+
 /datum/status_effect/incapacitating/sleeping/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
 	var/area/this_area = get_area(owner)
