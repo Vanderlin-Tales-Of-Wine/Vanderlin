@@ -209,6 +209,7 @@
 							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
 		reagents.reaction(target, TOUCH)
 		chem_splash(target.loc, 2, list(reagents))
+		playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		return
 
 /obj/item/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
