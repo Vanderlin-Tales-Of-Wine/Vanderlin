@@ -10,7 +10,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Kobold",
+		"Rakshari",
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/mage

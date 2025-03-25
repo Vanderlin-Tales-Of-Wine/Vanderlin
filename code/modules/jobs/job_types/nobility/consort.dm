@@ -17,7 +17,8 @@
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dwarf"
 	)
 
 	outfit = /datum/outfit/job/consort

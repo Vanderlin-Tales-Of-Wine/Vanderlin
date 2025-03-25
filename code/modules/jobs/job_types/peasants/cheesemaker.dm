@@ -12,19 +12,7 @@
 	spawn_positions = 2
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
-
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/cheesemaker
 
 /datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)

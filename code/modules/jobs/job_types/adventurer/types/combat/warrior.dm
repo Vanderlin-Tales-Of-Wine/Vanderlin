@@ -11,8 +11,8 @@
 		"Dark Elf",
 		"Tiefling",
 		"Aasimar",
-		"Kobold",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/sfighter
 	category_tags = list(CTAG_ADVENTURER)

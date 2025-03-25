@@ -6,18 +6,7 @@
 	As a master carpenter, you transform trees into anything from furniture to entire fortifications."
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/adventurer/mastercarpenter
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	maximum_possible_slots = 1

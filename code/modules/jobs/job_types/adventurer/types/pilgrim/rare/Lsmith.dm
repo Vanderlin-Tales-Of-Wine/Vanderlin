@@ -7,7 +7,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Dwarf"
+		"Dwarf",
 	)
 	outfit = /datum/outfit/job/adventurer/masterblacksmith
 	maximum_possible_slots = 1

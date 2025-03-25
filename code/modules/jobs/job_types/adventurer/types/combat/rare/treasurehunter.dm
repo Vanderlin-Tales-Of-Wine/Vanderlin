@@ -11,8 +11,8 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Kobold",
-		"Aasimar"
+		"Aasimar",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/gravedigger
 	min_pq = 0

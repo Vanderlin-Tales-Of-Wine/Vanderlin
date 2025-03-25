@@ -57,16 +57,7 @@
 	name = "Prisoner"
 	greet_text = "You had fled Vanderlin, took refuge in Heartfelt yet the lords over there caught you and thus handed you over to those who seeked you before."
 	outfit = /datum/outfit/job/mig_prisoner
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Kobold",
-		"Half-Orc")
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 /datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -96,7 +87,13 @@
 	name = "Guard"
 	greet_text = "You are apart of a convoy returning prisoners to Vanderlin. Obey the gaoler and ensure the prisoners get back to the dungeons."
 	outfit = /datum/outfit/job/mig_guard
-	allowed_races = list("Humen","Dwarf","Aasimar")
+	allowed_races = list(
+		"Humen",
+		"Elf",
+		"Half-Elf",
+		"Dwarf",
+		"Aasimar",
+	)
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 

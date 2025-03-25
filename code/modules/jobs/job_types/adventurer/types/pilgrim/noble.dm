@@ -8,10 +8,7 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Half-Orc"
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/adventurer/noble
 	category_tags = list(CTAG_PILGRIM)

@@ -15,9 +15,7 @@
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Kobold",
+		"Half-Elf"
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)

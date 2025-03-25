@@ -3,18 +3,7 @@
 	tutorial = "Craftsmen who have mastered the art of curdling milks \
 				into delicious and long lasting wheels of cheese."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/adventurer/cheesemaker
 
 	category_tags = list(CTAG_PILGRIM)

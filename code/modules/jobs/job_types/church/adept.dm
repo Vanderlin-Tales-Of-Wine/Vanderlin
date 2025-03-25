@@ -23,7 +23,8 @@
 		"Dark Elf",
 		"Tiefling",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari",
 	)
 
 	outfit = /datum/outfit/job/adept
