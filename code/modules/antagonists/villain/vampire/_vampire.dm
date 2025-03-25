@@ -163,7 +163,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		H.fire_act(1, 5)
 		adjust_vitae(-10)
 
-/datum/antagonist/vampire/proc/final/has_vitae(change)
+/datum/antagonist/vampire/proc/has_vitae(change)
 	return (vitae >= change)
 
 /datum/antagonist/vampire/proc/adjust_vitae(change, tribute)
