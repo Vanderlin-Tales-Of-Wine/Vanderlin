@@ -61,7 +61,7 @@
 	. = ..()
 
 /datum/antagonist/vampire/lord/exposed_to_sunlight()
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/human/H = owner.current
 	to_chat(H, span_warning("ASTRATA spurns me! I must get out of Her rays!")) // VLord is more punished for daylight excursions.
 	var/turf/N = H.loc
 	if(N.can_see_sky())

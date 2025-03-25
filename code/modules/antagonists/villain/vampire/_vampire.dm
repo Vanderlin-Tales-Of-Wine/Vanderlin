@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	handle_vitae()
 
 /datum/antagonist/vampire/proc/exposed_to_sunlight()
-	var/mob/living/H = owner
+	var/mob/living/H = owner.current
 	if(!disguised)
 		H.fire_act(1, 5)
 		adjust_vitae(-10)
