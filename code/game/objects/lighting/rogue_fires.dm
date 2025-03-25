@@ -71,13 +71,6 @@
 	icon_state = "standingb1"
 	base_state = "standingb"
 
-/obj/machinery/light/fueled/firebowl/standing/blue/burn_out()
-	return FALSE
-
-/obj/machinery/light/fueled/firebowl/standing/blue/extinguish()
-	return FALSE
-
-
 /obj/machinery/light/fueled/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
 	icon_state = "[base_state]over"
 
@@ -346,6 +339,7 @@
 	on = FALSE
 	cookonme = TRUE
 	soundloop = /datum/looping_sound/fireloop
+	var/heat_time = 100
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
 	var/datum/looping_sound/boilloop/boilloop

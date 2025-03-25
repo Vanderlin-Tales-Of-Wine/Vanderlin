@@ -41,6 +41,7 @@
 	output = /obj/item/ammo_casing/caseless/dart
 	craftdiff = 0
 	uses_attacked_atom = TRUE
+	output_amount = 2
 
 /datum/repeatable_crafting_recipe/survival/rope
 	name = "rope"
@@ -290,7 +291,7 @@
 		/obj/item/grown/log/tree= 1,
 	)
 	tool_usage = list(
-		/obj/item/weapon/knife = list("starts to whittle", "start whittle", 'sound/items/wood_sharpen.ogg'),
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
 	)
 	attacked_atom = /obj/item/grown/log/tree
 	starting_atom= /obj/item/weapon/knife
@@ -380,7 +381,7 @@
 		/obj/item/natural/fibers = 3,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/cloak/wickercloak
 	craftdiff = 0
 
@@ -392,7 +393,7 @@
 		/obj/item/natural/fibers = 2,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/neck/bogcowl
 	craftdiff = 0
 

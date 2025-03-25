@@ -411,7 +411,7 @@
 	else
 		icon_state = "[base_icon_state]_slice"
 
-/obj/item/reagent_containers/food/snacks/bread/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/bread/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -497,6 +497,17 @@
 			tastes = list("butter" = 1)
 			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 			foodtype = GRAIN | DAIRY
+			modified = TRUE
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
+			qdel(I)
+	if(istype(I, /obj/item/reagent_containers/food/snacks/meat/mince/beef/mett))
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
+		if(do_after(user, short_cooktime, src))
+			name = "[name] & mett"
+			add_overlay("metted")
+			tastes = list("bread" = 1,"spicy raw meat" = 1)
+			bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR + 2)
+			foodtype = GRAIN | MEAT | VEGETABLES
 			modified = TRUE
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, (user.STAINT*0.2))
 			qdel(I)
@@ -614,6 +625,7 @@
 			tastes = list("savory sausage" = 1)
 			icon_state = "grenzbun"
 			base_icon_state = "grenzbun"
+			faretype = FARE_NEUTRAL
 			foodtype = GRAIN | MEAT
 			modified = TRUE
 			meal_properties()
@@ -998,6 +1010,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 6
+	faretype = FARE_FINE
 
 /obj/item/reagent_containers/food/snacks/cheesecake_poison_slice
 	name = "cheesecake slice"
@@ -1005,6 +1018,7 @@
 	base_icon_state = "cheesecake_slice"
 	dropshrink = 0.8
 	slices_num = 0
+	bitesize = 2
 	biting = TRUE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/berrypoison = 6)
 	tastes = list("cake"=1, "sour berry" = 1, "creamy cheese"=1)
@@ -1012,4 +1026,5 @@
 	foodtype = GRAIN | DAIRY | SUGAR
 	rotprocess = SHELFLIFE_DECENT
 	plateable = TRUE
+	faretype = FARE_FINE
 

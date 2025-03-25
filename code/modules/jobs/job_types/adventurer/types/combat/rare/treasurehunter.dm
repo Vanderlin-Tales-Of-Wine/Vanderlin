@@ -11,6 +11,7 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
+		"Kobold",
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/adventurer/gravedigger

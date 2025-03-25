@@ -85,9 +85,6 @@
 	///used to make a special mouse cursor, this one for mouse up icon
 	var/mouse_down_icon = null
 
-	///Used for ip intel checking to identify evaders, disabled because of issues with traffic
-	var/ip_intel = "Disabled"
-
 	///datum that controls the displaying and hiding of tooltips
 	var/datum/tooltip/tooltips
 
@@ -140,8 +137,6 @@
 
 	var/list/current_weathers = list()
 	var/last_lighting_update = 0
-
-	var/list/open_popups = list()
 
 	var/loop_sound = FALSE
 	var/rain_sound = FALSE

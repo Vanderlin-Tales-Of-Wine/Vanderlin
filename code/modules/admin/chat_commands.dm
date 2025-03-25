@@ -32,7 +32,7 @@
 
 /datum/tgs_chat_command/ahelp
 	name = "ahelp"
-	help_text = "<ckey|ticket #> <message|ticket <close|resolve|icissue|reject|reopen <ticket #>|list>>"
+	help_text = "<ckey|ticket #> <message|ticket <close|resolve|icissue|mentorissue|reject|reopen <ticket #>|list>>"
 	admin_only = TRUE
 
 /datum/tgs_chat_command/ahelp/Run(datum/tgs_chat_user/sender, params)

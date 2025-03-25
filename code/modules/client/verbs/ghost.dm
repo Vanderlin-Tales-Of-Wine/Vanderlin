@@ -21,19 +21,21 @@
 	set category = "Spirit"
 
 	switch(alert("Begin the long walk in the Underworld to your judgement?",,"Yes","No"))
+		if("No")
+			to_chat(usr, span_warning("You have second thoughts."))
 		if("Yes")
 			if(isroguespirit(mob)) //HONEYPOT CODE, REMOVE LATER
 				message_admins("[key] IS TRYING TO CRASH THE SERVER BY SPAWNING SPIRITS AS A SPIRIT!")
 				return
-			if((mob.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(mob, TRAIT_ZIZOID_HUNTED)) && (world.time <= mob.mob_timers["lastdied"] + 60 SECONDS))
+			if((mob.has_flaw(/datum/charflaw/hunted) || HAS_TRAIT(mob, TRAIT_ZIZOID_HUNTED)) && !MOBTIMER_FINISHED(mob, MT_LASTDIED, 60 SECONDS))
 				to_chat(mob, span_warning("Graggar's influence is currently preventing me from fleeing to the Underworld!"))
 				return
 			var/datum/mind/mind = mob.mind
 			// Check if the player's job is hiv+
-			var/datum/job/target_job = SSjob.GetJob(mind?.assigned_role)
+			var/datum/job/target_job = mind?.assigned_role //this shouldn't possibly be null but it can be sometimes ???
 			if(target_job)
 				if(target_job.job_reopens_slots_on_death)
-					target_job.current_positions = max(0, target_job.current_positions - 1)
+					target_job.adjust_current_positions(-1)
 				if(target_job.same_job_respawn_delay)
 					// Store the current time for the player
 					GLOB.job_respawn_delays[src.ckey] = world.time + target_job.same_job_respawn_delay
@@ -56,5 +58,3 @@
 			var/area/rogue/underworld/underworld = get_area(spawn_loc)
 			underworld.Entered(O, null)
 			verbs -= /client/proc/descend
-		if("No")
-			usr << "You have second thoughts."

@@ -165,7 +165,7 @@
 /area/rogue/outdoors/bog)
 "cf" = (
 /obj/structure/mineral_door/wood/donjon{
-	lockid = "garrison"
+	lockid = "forrestgarrison"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
@@ -3007,7 +3007,7 @@
 "Pl" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
-	lockid = "garrison"
+	lockid = "forrestgarrison"
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)

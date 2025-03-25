@@ -3,7 +3,7 @@
 	var/turf/turf = get_turf(loc)
 	if(turf)
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
-			faction |= "matthios"
+			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src
 
 /mob/living/Initialize()
@@ -18,7 +18,7 @@
 	init_faith()
 
 /mob/living/Destroy()
-	if("matthios" in faction)
+	if(FACTION_MATTHIOS in faction)
 		SSmobs.matthios_mobs -= src
 	surgeries = null
 	if(LAZYLEN(status_effects))
@@ -336,10 +336,14 @@
 		if(I)
 			if(I.wlength > WLENGTH_NORMAL)
 				CZ = TRUE
-			else //we have a short/medium weapon, so allow hitting legs
+			else if(HAS_TRAIT(L, TRAIT_TINY) && !HAS_TRAIT(src, TRAIT_TINY)) //midget variant, allows neck no head
+				acceptable = list(BODY_ZONE_R_ARM,BODY_ZONE_L_ARM,BODY_ZONE_PRECISE_R_HAND,BODY_ZONE_PRECISE_L_HAND,BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_NECK, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
+			else if(!HAS_TRAIT(L, TRAIT_TINY)) //we have a short/medium weapon, so allow hitting legs
 				acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 		else
-			if(!CZ) //we are punching, no legs
+			if(HAS_TRAIT(L, TRAIT_TINY) && !HAS_TRAIT(src, TRAIT_TINY)  && (!CZ)) //tiny punches
+				acceptable = list(BODY_ZONE_R_ARM,BODY_ZONE_L_ARM,BODY_ZONE_PRECISE_R_HAND,BODY_ZONE_PRECISE_L_HAND,BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_CHEST, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG, BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)
+			else if(!HAS_TRAIT(L, TRAIT_TINY) && (!CZ)) //we are punching, no legs
 				acceptable = list(BODY_ZONE_HEAD, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_L_ARM, BODY_ZONE_PRECISE_NECK, BODY_ZONE_PRECISE_R_EYE,BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 	else if(!(L.mobility_flags & MOBILITY_STAND) && (mobility_flags & MOBILITY_STAND)) //we are prone, victim is standing
 		if(I)
@@ -397,6 +401,7 @@
 			M.visible_message(span_warning("[M] slips from [src]'s grip."), \
 					span_warning("I slip from [src]'s grab."))
 			log_combat(src, M, "tried grabbing", addition="passive grab")
+			stop_pulling()
 			return
 
 		log_combat(src, M, "grabbed", addition="passive grab")
@@ -418,7 +423,7 @@
 			O.icon_state = zone_selected
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				C.grippedby(src)
 			if(!supress_message)
@@ -434,7 +439,7 @@
 				O.sublimb_grabbed = M.simple_limb_hit(zone_selected)
 			put_in_hands(O)
 			O.update_hands(src)
-			if(HAS_TRAIT(src, TRAIT_STRONG_GRABBER) || item_override)
+			if((HAS_TRAIT(src, TRAIT_STRONG_GRABBER) && cmode) || item_override)
 				supress_message = TRUE
 				M.grippedby(src)
 			if(!supress_message)
@@ -617,32 +622,28 @@
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
 			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
 				set_resting(FALSE, FALSE)
 				return TRUE
 		else
 			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+			return FALSE
 
 /mob/living/proc/toggle_rest()
 	set name = "Rest/Stand"
 	set category = "IC"
 	set hidden = 1
-	if(stat)
-		return
-	if(pulledby)
-		to_chat(src, "<span class='warning'>I'm grabbed!</span>")
-		return
 	if(resting)
-		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='info'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
-				set_resting(FALSE, FALSE)
-		else
-			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+		stand_up()
 	else
-		set_resting(TRUE, FALSE)
+		lay_down()
 
+///Proc to hook behavior to the change of value in the resting variable.
 /mob/living/proc/set_resting(rest, silent = TRUE)
+	if(rest == resting)
+		return
+
+	. = rest
 	resting = rest
 	update_resting()
 	if(rest == resting)
@@ -657,7 +658,7 @@
 			else
 				playsound(src, 'sound/foley/toggleup.ogg', 100, FALSE)
 		else
-			to_chat(src, "<span class='warning'>I fail to get up!</span>")
+			to_chat(src, "<span class='warning'>I fail to get up.</span>")
 	update_cone_show()
 	SEND_SIGNAL(src, COMSIG_LIVING_SET_RESTING, rest)
 
@@ -1021,23 +1022,40 @@
 	. = TRUE
 
 	var/wrestling_diff = 0
-	var/resist_chance = 50
+	var/resist_chance = BASE_GRAB_RESIST_CHANCE
 	var/mob/living/L = pulledby
+	var/combat_modifier = 1
 
 	if(mind)
 		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
 		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
 
-	resist_chance += ((STACON - L.STACON) * 10)
+	if(restrained())
+		combat_modifier -= 0.25
 
+	if(!(L.mobility_flags & MOBILITY_STAND) && mobility_flags & MOBILITY_STAND)
+		combat_modifier += 0.1
 	if(!(mobility_flags & MOBILITY_STAND))
-		resist_chance += -20 + min((wrestling_diff * 5), -20) //Can improve resist chance at high skill difference
+		combat_modifier -= 0.1
+
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
-		resist_chance += -20 + max((wrestling_diff * 10), 0)
-		resist_chance = max(resist_chance, 50 + min((wrestling_diff * 5), 0))
-	else
-		resist_chance = max(resist_chance, 70 + min((wrestling_diff * 5), 0))
+		combat_modifier -= 0.1
+
+	var/atom/puller_hand = pulledby.get_active_held_item()
+	if(puller_hand && !istype(puller_hand, /obj/item/grabbing)) // so you can't pummel them with a weapon
+		combat_modifier += 0.2
+
+	if(cmode && !L.cmode)
+		combat_modifier += 0.3
+	else if(!cmode && L.cmode)
+		combat_modifier -= 0.3
+
+	for(var/obj/item/grabbing/G in grabbedby)
+		if(G.chokehold)
+			combat_modifier -= 0.15
+
+	resist_chance = clamp((((4 + (((STASTR - L.STASTR)/2) + wrestling_diff)) * 10 + rand(-5, 10)) * combat_modifier), 5, 95)
 
 	if(moving_resist && client) //we resisted by trying to move
 		client.move_delay = world.time + 20
@@ -1050,16 +1068,16 @@
 		pulledby.stop_pulling()
 
 		var/wrestling_cooldown_reduction = 0
-		if(pulledby?.mind?.get_skill_level("wrestling"))
-			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level("wrestling")
-		TIMER_COOLDOWN_START(src, "broke_free", max(0, 1.5 SECONDS - wrestling_cooldown_reduction))
+		if(pulledby?.mind?.get_skill_level(/datum/skill/combat/wrestling))
+			wrestling_cooldown_reduction = 0.2 SECONDS * pulledby.mind.get_skill_level(/datum/skill/combat/wrestling)
+		TIMER_COOLDOWN_START(src, "broke_free", max(0, 2.2 SECONDS - wrestling_cooldown_reduction))
 
 		return FALSE
 	else
 		adjust_stamina(rand(5,15))
 		var/shitte = ""
-//		if(client?.prefs.showrolls)
-//			shitte = " ([resist_chance]%)"
+		if(client?.prefs.showrolls)
+			shitte = " ([resist_chance]%)"
 		visible_message("<span class='warning'>[src] struggles to break free from [pulledby]'s grip!</span>", \
 						"<span class='warning'>I struggle against [pulledby]'s grip![shitte]</span>", null, null, pulledby)
 		to_chat(pulledby, "<span class='warning'>[src] struggles against my grip!</span>")
@@ -1333,6 +1351,8 @@
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
+	if (HAS_TRAIT(src, TRAIT_NOFIRE))
+		return
 	if((fire_stacks > 0 || divine_fire_stacks > 0) && !on_fire)
 		testing("ignis")
 		on_fire = TRUE
@@ -1376,7 +1396,8 @@
 /mob/living/proc/spreadFire(mob/living/L)
 	if(!istype(L))
 		return
-
+	if(HAS_TRAIT(L, TRAIT_NOFIRE) || HAS_TRAIT(src, TRAIT_NOFIRE))
+		return
 	if(on_fire && fire_stacks > 0)
 		if(L.on_fire) // If they were also on fire
 			var/firesplit = (fire_stacks + L.fire_stacks)/2
@@ -1426,10 +1447,9 @@
 	var/has_legs = get_num_legs()
 	var/has_arms = get_num_arms()
 	var/paralyzed = IsParalyzed()
-	var/stun = IsStun()
 	var/knockdown = IsKnockdown()
 	var/ignore_legs = get_leg_ignore()
-	var/canmove = !IsImmobilized() && !stun && conscious && !paralyzed && !buckled && (!stat_softcrit || !pulledby) && !chokehold && !IsFrozen() && (has_arms || ignore_legs || has_legs)
+	var/canmove = !HAS_TRAIT(src, TRAIT_IMMOBILIZED) && (has_arms || ignore_legs || has_legs)
 	if(canmove)
 		mobility_flags |= MOBILITY_MOVE
 	else
@@ -1483,7 +1503,7 @@
 	else
 		mobility_flags |= MOBILITY_PULL
 
-	var/canitem = !paralyzed && !stun && conscious && !chokehold && !restrained && has_arms
+	var/canitem = !paralyzed && !IsStun() && conscious && !chokehold && !restrained && has_arms
 	if(canitem)
 		mobility_flags |= (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
 	else
@@ -1542,9 +1562,6 @@
 	for(var/obj/effect/proc_holder/A in abilities)
 		statpanel("[A.panel]",A.get_panel_text(),A)
 
-/mob/living/lingcheck()
-	return LINGHIVE_NONE
-
 /mob/living/forceMove(atom/destination)
 //	stop_pulling()
 //	if(buckled)
@@ -1582,15 +1599,69 @@
 /mob/living/MouseDrop(mob/over)
 	. = ..()
 	var/mob/living/user = usr
+	if(HAS_TRAIT(src, TRAIT_TINY) && isturf(over.loc))
+		if(stat == DEAD || !Adjacent(over))
+			return
+		if(incapacitated())
+			return
+		for(var/obj/item/grabbing/G in grabbedby)
+			if(G.grab_state == GRAB_AGGRESSIVE)
+				return
+		var/datum/component/storage = over.GetComponent(/datum/component/storage)
+		if(storage)
+			var/obj/item/clothing/head/mob_holder/holder = new(get_turf(src), src)
+			visible_message(span_warning("[src] starts to climb into [over]."), span_warning("You start to climb into [over]."))
+			if(do_after(src, 1.2 SECONDS, over))
+				if(over.loc == src)
+					return
+				if(!SEND_SIGNAL(over, COMSIG_TRY_STORAGE_INSERT, holder, null, TRUE, TRUE))
+					qdel(holder)
+
+	if(HAS_TRAIT(src, TRAIT_TINY) && ismob(over) && over != src)
+		if(stat == DEAD || !Adjacent(over))
+			return
+		if(incapacitated())
+			return
+		for(var/obj/item/grabbing/G in grabbedby)
+			if(G.grab_state == GRAB_AGGRESSIVE)
+				return
+		var/list/pickable_items = list()
+		for(var/obj/item/item in over.get_all_contents())
+			var/datum/component/storage = item.GetComponent(/datum/component/storage)
+			if(storage)
+				pickable_items |= item
+		var/obj/item/picked = input(src, "What bag do you want to crawl into?") as null|anything in pickable_items
+		if(!picked)
+			return
+		var/obj/item/clothing/head/mob_holder/holder = new(get_turf(src), src)
+		visible_message(span_warning("[src] starts to climb into [picked] on [over]."), span_warning("You start to climb into [picked] on [over]."))
+		if(do_after(src, 3 SECONDS, over))
+			if(picked.loc == src)
+				return
+			if(!SEND_SIGNAL(picked, COMSIG_TRY_STORAGE_INSERT, holder, null, TRUE, TRUE))
+				qdel(holder)
+
 	if(!istype(over) || !istype(user))
 		return
 	if(!over.Adjacent(src) || (user != src) || !canUseTopic(over))
 		return
-	if(can_be_held)
-		mob_try_pickup(over)
 
-/mob/living/proc/mob_pickup(mob/living/L)
-	return
+/mob/living/MouseDrop_T(atom/dropping, atom/user)
+	var/mob/living/U = user
+	if(!user.Adjacent(src))
+		return
+	if(isliving(dropping))
+		var/mob/living/M = dropping
+		if((M.can_be_held ||  HAS_TRAIT(M, TRAIT_TINY)) && U.cmode)
+			M.mob_try_pickup(U)//blame kevinz
+			return//dont open the mobs inventory if you are picking them up
+	. = ..()
+
+
+/mob/living/proc/mob_pickup(mob/living/user)
+	var/obj/item/clothing/head/mob_holder/holder = new(get_turf(src), src)
+	user.visible_message(span_warning("[user] scoops up [src]!"))
+	user.put_in_hands(holder)
 
 /mob/living/proc/mob_try_pickup(mob/living/user)
 	if(!ishuman(user))
@@ -1681,13 +1752,6 @@
 /mob/living/proc/can_look_up()
 	return !((next_move > world.time) || incapacitated(ignore_restraints = TRUE))
 
-/**
- * look_up Changes the perspective of the mob to any openspace turf above the mob
- *
- * This also checks if an openspace turf is above the mob before looking up or resets the perspective if already looking up
- *
- */
-
 /mob/living/proc/look_around()
 	if(!client)
 		return
@@ -1758,6 +1822,12 @@
 	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	flick_overlay(I, list(C), 30)
 
+/**
+ * look_up Changes the perspective of the mob to any openspace turf above the mob
+ *
+ * This also checks if an openspace turf is above the mob before looking up or resets the perspective if already looking up
+ *
+ */
 /mob/proc/look_up()
 	return
 
@@ -1810,10 +1880,8 @@
 		return
 	reset_perspective(ceiling)
 	update_cone_show()
-//	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking)) //We stop looking up if we move.
 
 /mob/living/proc/look_further(turf/T)
-
 	if(client.perspective != MOB_PERSPECTIVE)
 		stop_looking()
 		return
@@ -1888,3 +1956,50 @@
 	reset_perspective()
 	update_cone_show()
 //	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
+
+/// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
+/mob/living/proc/befriend(mob/living/new_friend)
+	SHOULD_CALL_PARENT(TRUE)
+	var/friend_ref = REF(new_friend)
+	if (faction.Find(friend_ref))
+		return FALSE
+	faction |= friend_ref
+	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
+	return TRUE
+
+/// Proc for removing a friend you added with the proc 'befriend'. Returns true if you removed a friend.
+/mob/living/proc/unfriend(mob/living/old_friend)
+	SHOULD_CALL_PARENT(TRUE)
+	var/friend_ref = REF(old_friend)
+	if (!faction.Find(friend_ref))
+		return FALSE
+	faction -= friend_ref
+	ai_controller?.remove_thing_from_blackboard_key(BB_FRIENDS_LIST, old_friend)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
+	return TRUE
+
+///Reports the event of the change in value of the buckled variable.
+/mob/living/proc/set_buckled(new_buckled)
+	if(new_buckled == buckled)
+		return
+	SEND_SIGNAL(src, COMSIG_LIVING_SET_BUCKLED, new_buckled)
+	. = buckled
+	buckled = new_buckled
+	if(buckled)
+		if(!.)
+			ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+	else if(.)
+		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+
+/mob/living/set_pulledby(new_pulledby)
+	. = ..()
+	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
+		return
+	if(pulledby)
+		if(!. && stat == SOFT_CRIT)
+			ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
+	else if(. && stat == SOFT_CRIT)
+		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)

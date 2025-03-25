@@ -22,7 +22,7 @@
 	var/iparrybonus = 0
 	var/idodgebonus = 0
 	var/chargetime = 0 //if above 0, this attack must be charged to reach full damage
-	var/chargedrain = 0 //how mcuh fatigue is removed every second when at max charge
+	var/chargedrain = 0 //how much fatigue is removed every second when at max charge
 	var/releasedrain = 1 //drain when we go off, regardless
 	var/misscost = 1	//extra drain from missing only, ALSO APPLIED IF ENEMY DODGES
 	var/tranged = 0
@@ -51,6 +51,7 @@
 	var/miss_sound //THESE ARE FOR UNARMED MISSING ATTACKS
 
 	var/item_damage_type = "blunt"
+	var/move_limit = 0
 
 /datum/intent/Destroy()
 	if(chargedloop)
@@ -100,6 +101,13 @@
 		return chargetime
 	else
 		return 0
+
+/datum/intent/proc/spell_cannot_activate()
+	to_chat(mastermob, span_warning("I am too drained for this."))
+	return FALSE
+
+/datum/intent/proc/get_owner()
+	return mastermob
 
 /datum/intent/proc/get_chargedrain()
 	if(chargedrain)
@@ -254,6 +262,7 @@
 	chargetime = 0
 	warnie = "aimwarn"
 	warnoffset = 0
+	move_limit = 6
 	charge_pointer = 'icons/effects/mousemice/charge/spell_charging.dmi'
 	charged_pointer = 'icons/effects/mousemice/charge/spell_charged.dmi'
 
@@ -361,7 +370,7 @@
 /datum/intent/unarmed/punch
 	name = "punch"
 	icon_state = "inpunch"
-	attack_verb = list("punches", "jabs", "clocks", "strikes")
+	attack_verb = list("punches", "jabs", "clocks")
 	chargetime = 0
 	animname = "punch"
 	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
@@ -380,7 +389,7 @@
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message("<span class='red'>[user] taunts [M]!</span>", "<span class='warning'>I red [M]!</span>", ignored_mobs = targetl)
+		user.visible_message(span_red("[user] taunts [M]!"), span_red("I taunt [M]!"), ignored_mobs = targetl)
 		user.emote("taunt")
 		if(M.client)
 			M.taunted(user)
@@ -393,7 +402,7 @@
 /datum/intent/unarmed/shove
 	name = "shove"
 	icon_state = "inshove"
-	attack_verb = list("shoves", "pushes")
+	attack_verb = list("shoves")
 	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
@@ -420,10 +429,10 @@
 	chargetime = 0
 	noaa = TRUE
 	rmb_ranged = TRUE
-	releasedrain = 10
-	misscost = 5
+	releasedrain = 8
+	misscost = 6.5
 	candodge = TRUE
-	canparry = FALSE
+	canparry = TRUE
 	item_damage_type = "blunt"
 
 /datum/intent/unarmed/grab/rmb_ranged(atom/target, mob/user)

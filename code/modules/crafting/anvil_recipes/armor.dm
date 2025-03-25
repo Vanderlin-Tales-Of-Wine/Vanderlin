@@ -214,7 +214,7 @@
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/haubergeon
-	name = "Maille"
+	name = "Haubergeon"
 	recipe_name = "a Haubergeon"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/armor/chainmail
@@ -363,7 +363,7 @@
 	name = "Decorated Bascinet (+Cloth)"
 	recipe_name = "a decorated bascinet"
 	req_bar = /obj/item/ingot/steel
-	additional_items = list(/obj/item/ingot/steel,/obj/item/natural/cloth)
+	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 2
 

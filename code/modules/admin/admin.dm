@@ -84,6 +84,11 @@
 
 	if(M.client)
 		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br><br><b>CentCom Ban DB: </b> "
+		if(CONFIG_GET(string/centcom_ban_db))
+			body += "<a href='byond://?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
+		else
+			body += "<i>Disabled</i>"
 		body += "<br><br><b>Show related accounts by:</b> "
 		body += "\[ <a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a> | "
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a> \]"
@@ -93,6 +98,8 @@
 		body += "<br><br>Player Quality: [pq] ([pq_num])"
 		body += "<br><a href='?_src_=holder;[HrefToken()];editpq=add;mob=[REF(M)]'>\[Modify PQ\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];showpq=add;mob=[REF(M)]'>\[Check PQ\]</a> "
+		body += "<br><a href='?_src_=holder;[HrefToken()];edittriumphs=add;mob=[REF(M)]'>\[Modify Triumphs\]</a> "
+		body += "<a href='?_src_=holder;[HrefToken()];showtriumphs=add;mob=[REF(M)]'>\[Check Triumphs\]</a> "
 		body += "<br>"
 		body += "<a href='?_src_=holder;[HrefToken()];roleban=add;mob=[REF(M)]'>\[Role Ban Panel\]</a> "
 
@@ -301,6 +308,20 @@
 
 	check_pq_menu(M.ckey)
 
+/datum/admins/proc/checktriumphs(mob/living/M in GLOB.mob_list)
+	set name = "Check Triumphs"
+	set desc = "Check a mob's Triumphs"
+	set category = null
+
+	if(!check_rights())
+		return
+
+	if(!M.ckey)
+		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		return
+
+	check_triumphs_menu(M.ckey)
+
 /datum/admins/proc/admin_sleep(mob/living/M in GLOB.mob_list)
 	set name = "Toggle Sleeping"
 	set desc = "Toggle a mob's sleeping state"
@@ -336,6 +357,34 @@
 		if("Custom")
 			type = "custom"
 	SSvote.initiate_vote(type, usr.key)
+
+/datum/admins/proc/adjusttriumphs(mob/living/M in GLOB.mob_list)
+	set name = "Adjust Triumphs"
+	set desc = "Adjust a player's triumphs"
+	set category = null
+
+	if(!check_rights())
+		return
+
+	if(!M.ckey)
+		to_chat(src, "<span class='warning'>There is no ckey attached to this mob.</span>")
+		return
+
+	var/ckey = lowertext(M.ckey)
+	var/admin = lowertext(usr.key)
+
+	if(!fexists("data/player_saves/[copytext(ckey,1,2)]/[ckey]/preferences.sav"))
+		to_chat(src, "<span class='boldwarning'>User does not exist.</span>")
+		return
+
+	var/amt2change = input("How much to modify the triumphs by? (-100 to 100))") as null|num
+	if(!check_rights(R_ADMIN,0))
+		amt2change = CLAMP(amt2change, -100, 100)
+	var/raisin = stripped_input("State a short reason for this change", "Game Master", "", null)
+	if(!amt2change && !raisin)
+		return
+	M.adjust_triumphs(amt2change, FALSE)
+	to_chat(M.client, "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message linkify\">Your Triumphs has been adjusted by [amt2change] by [admin] for reason: [raisin]</span></span>")
 
 /datum/admins/proc/adjustpq(mob/living/M in GLOB.mob_list)
 	set name = "Adjust PQ"
@@ -721,7 +770,7 @@
 
 	dat += "<table>"
 
-	for(var/j in SSjob.occupations)
+	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
 		count++
 		var/J_title = html_encode(job.title)
@@ -877,6 +926,14 @@
 	message_admins("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 	log_game("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 
+/client/proc/adjust_personal_see_leylines()
+	set category = "GameMaster"
+	set name = "Hide Current Z-Level Leylines"
+	set desc = "Hides Leylines on the current z-level from your vision."
+
+	toggled_leylines = !toggled_leylines
+	mob.hud_used?.plane_masters_update()
+
 /client/proc/spawn_pollution()
 	set category = "GameMaster"
 	set name = "Spawn Pollution"
@@ -898,37 +955,41 @@
 	set category = "GameMaster"
 	set name = "Anoint New Priest"
 	set desc = "Choose a new priest. The previous one will be excommunicated."
+
 	if(!check_rights())
 		return
 	if(!istype(M))
 		return
 	if(!M.mind)
 		return
-	if(M.mind.assigned_role == "Priest")
+	if(is_priest_job(M.mind.assigned_role))
 		return
-	if(alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", "Yes", "No") != "Yes")
+	var/appointment_type = browser_alert(usr, "Are you sure you want to anoint [M.real_name] as the new Priest?", "Confirmation", DEFAULT_INPUT_CHOICES)
+	if(appointment_type == CHOICE_NO)
 		return
-	var/datum/job/J = SSjob.GetJobType(/datum/job/priest)
-	for(var/mob/living/carbon/human/HL in GLOB.human_list)
-		if(HL.mind)
-			var/found = FALSE
-			if(HL.mind.assigned_role == "Priest") //this really needs to use job datums in the future
-				HL.mind.assigned_role = "Towner"
-				found = TRUE
-			if(HL.job == "Priest")
-				HL.job = "Ex-Priest"
-				found = TRUE
-			if(found)
-				GLOB.excommunicated_players |= HL.real_name
-				HL.cleric?.excommunicate()
-				HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
-				HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
-				HL.verbs -= /mob/living/carbon/human/proc/churchcurse
-				HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
-				J?.remove_spells(HL)
 
-	J?.add_spells(M)
-	M.mind.assigned_role = "Priest"
+	var/datum/job/priest_job = SSjob.GetJobType(/datum/job/priest)
+	//demote the old priest
+	for(var/mob/living/carbon/human/HL in GLOB.human_list)
+		//TODO: this fucking sucks, just locate the priest
+		if(!HL.mind)
+			continue
+
+		if(is_priest_job(HL.mind.assigned_role))
+			HL.mind.set_assigned_role(/datum/job/villager)
+			HL.job = "Ex-Priest"
+
+
+			HL.verbs -= /mob/living/carbon/human/proc/coronate_lord
+			HL.verbs -= /mob/living/carbon/human/proc/churchexcommunicate
+			HL.verbs -= /mob/living/carbon/human/proc/churchcurse
+			HL.verbs -= /mob/living/carbon/human/proc/churchannouncement
+			priest_job?.remove_spells(HL)
+			GLOB.excommunicated_players |= HL.real_name
+			HL.cleric?.excommunicate()
+
+	priest_job?.add_spells(M)
+	M.mind.set_assigned_role(/datum/job/priest)
 	M.job = "Priest"
 	M.set_patron(/datum/patron/divine/astrata)
 	var/datum/devotion/cleric_holder/C = new /datum/devotion/cleric_holder(M, M.patron)

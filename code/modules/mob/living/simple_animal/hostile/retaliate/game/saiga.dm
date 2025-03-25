@@ -23,12 +23,7 @@
 	..()
 	deaggroprob = 30
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 8), TEXT_SOUTH = list(0, 8), TEXT_EAST = list(-2, 8), TEXT_WEST = list(2, 8)))
-		D.set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
+		AddComponent(/datum/component/riding/saiga)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/UniqueAttack()
 	if(istype(target, /obj/structure/vine))
@@ -70,8 +65,8 @@
 						/obj/item/alch/bone = 1,
 						/obj/item/natural/head/saiga = 1)
 
-	health = FEMALE_MOOBEAST_HEALTH
-	maxHealth = FEMALE_MOOBEAST_HEALTH
+	health = FEMALE_SAIGA_HEALTH
+	maxHealth = FEMALE_SAIGA_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
 					/obj/item/reagent_containers/food/snacks/produce/oat,
 					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
@@ -104,6 +99,12 @@
 	gender = PLURAL
 	icon_state = "skele"
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'
+
+/mob/living/simple_animal/hostile/retaliate/saiga/Initialize()
+	. = ..()
+	if(tame)
+		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/saiga/get_sound(input)
 	switch(input)
@@ -187,8 +188,8 @@
 						/obj/item/alch/sinew = 2,
 						/obj/item/alch/bone = 1)
 
-	health = MALE_MOOBEAST_HEALTH
-	maxHealth = MALE_MOOBEAST_HEALTH
+	health = MALE_SAIGA_HEALTH
+	maxHealth = MALE_SAIGA_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/produce/wheat,
 					/obj/item/reagent_containers/food/snacks/produce/oat,
 					/obj/item/reagent_containers/food/snacks/produce/jacksberry,
@@ -246,6 +247,7 @@
 	. = ..()
 	if(tame)
 		tamed(owner)
+	ADD_TRAIT(src, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/taunted(mob/user)
 	emote("aggro")
@@ -258,13 +260,7 @@
 	..()
 	deaggroprob = 20
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 8), TEXT_SOUTH = list(0, 8), TEXT_EAST = list(-2, 8), TEXT_WEST = list(2, 8)))
-		D.set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
-
+		AddComponent(/datum/component/riding/saiga)
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck/eat_plants()
 	//..()

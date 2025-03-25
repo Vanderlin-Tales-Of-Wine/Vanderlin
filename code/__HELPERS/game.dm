@@ -1,11 +1,3 @@
-//supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
-#define RANGE_TURFS(RADIUS, CENTER) \
-block( \
-	locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-	locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-)
-
-#define Z_TURFS(ZLEVEL) block(locate(1,1,ZLEVEL), locate(world.maxx, world.maxy, ZLEVEL))
 #define CULT_POLL_WAIT 2400
 
 /proc/get_area_name(atom/X, format_text = FALSE)
@@ -389,8 +381,9 @@ block( \
 //	SEND_SOUND(M, 'sound/misc/roundstart.ogg') //Alerting them to their consideration
 	if(flashwindow)
 		window_flash(M.client)
-	switch(ignore_category ? askuser(M,Question,"Please answer in [DisplayTimeText(poll_time)]!","Yes","No","Never for this round", StealFocus=0, Timeout=poll_time) : askuser(M,Question,"Please answer in [DisplayTimeText(poll_time)]!","Yes","No", StealFocus=0, Timeout=poll_time))
-		if(1)
+	var/options = ignore_category ? list(CHOICE_YES, CHOICE_NO, CHOICE_NEVER) : DEFAULT_INPUT_CHOICES
+	switch(browser_alert(M, Question, "Please answer in [DisplayTimeText(poll_time)]!", options))
+		if(CHOICE_YES)
 			to_chat(M, "<span class='notice'>Choice registered: Yes.</span>")
 			if(time_passed + poll_time <= world.time)
 				to_chat(M, "<span class='danger'>Sorry, you answered too late to be considered!</span>")
@@ -398,10 +391,10 @@ block( \
 				candidates -= M
 			else
 				candidates += M
-		if(2)
+		if(CHOICE_NO)
 			to_chat(M, "<span class='danger'>Choice registered: No.</span>")
 			candidates -= M
-		if(3)
+		if(CHOICE_NEVER)
 			var/list/L = GLOB.poll_ignore[ignore_category]
 			if(!L)
 				GLOB.poll_ignore[ignore_category] = list()
@@ -411,11 +404,16 @@ block( \
 		else
 			candidates -= M
 
-/proc/pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE)
+/proc/pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, new_players = FALSE)
 	var/list/candidates = list()
 
 	for(var/mob/dead/observer/G in GLOB.player_list)
 		candidates += G
+	if(new_players)
+		for(var/mob/dead/new_player/G as anything in GLOB.new_player_list)
+			if(!G.client)
+				continue
+			candidates += G
 
 	return pollCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category, flashwindow, candidates)
 
@@ -446,8 +444,8 @@ block( \
 
 	return result
 
-/proc/pollCandidatesForMob(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, mob/M, ignore_category = null)
-	var/list/L = pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category)
+/proc/pollCandidatesForMob(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, mob/M, ignore_category = null, new_players = FALSE)
+	var/list/L = pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category, new_players = new_players)
 	if(!M || QDELETED(M) || !M.loc)
 		return list()
 	return L
@@ -471,7 +469,7 @@ block( \
 	var/mob/living/carbon/human/new_character = new//The mob being spawned.
 	SSjob.SendToLateJoin(new_character)
 
-	G_found.client.prefs.copy_to(new_character)
+	G_found.client.prefs.safe_transfer_prefs_to(new_character)
 	new_character.dna.update_dna_identity()
 	new_character.key = G_found.key
 
@@ -536,3 +534,36 @@ block( \
 		return FALSE
 
 	return pick(possible_loc)
+
+/// Assoc list of ckeys to fake names.
+/// Is not cleaned, but that shouldn't be an issue.
+GLOBAL_LIST_EMPTY(fake_ckeys)
+
+/// Returns this user's display ckey, used in OOC contexts.
+/proc/get_display_ckey(key)
+	if(!key || !istext(key))
+		return "some invalid"
+	var/ckey = ckey(key)
+
+	if(!(ckey in GLOB.anonymize))
+		return ckey
+	if(GLOB.fake_ckeys[ckey])
+		return GLOB.fake_ckeys[ckey]
+
+	//Generating a new one instead
+	var/valid_name
+	do
+		var/name_attempt = "[capitalize(pick(GLOB.first_names))] [pick(GLOB.ooctitle)]"
+		for(var/X in GLOB.fake_ckeys)
+			if(GLOB.fake_ckeys[X] == name_attempt)
+				continue
+
+		valid_name = name_attempt
+	while(!valid_name)
+
+	GLOB.fake_ckeys[ckey] = valid_name
+	return valid_name
+
+/// Returns if the given client is an admin, REGARDLESS of if they're deadminned or not.
+/proc/is_admin(client/client)
+	return !isnull(GLOB.admin_datums[client.ckey]) || !isnull(GLOB.deadmins[client.ckey])

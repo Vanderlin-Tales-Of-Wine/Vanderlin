@@ -1,6 +1,6 @@
 /datum/advclass/combat/mage
 	name = "Mage"
-	tutorial = "Mages are usually grown-up apprentices of wizards. They are seeking adventure, using their arcyne knowledge to aid other adventurers."
+	tutorial = "Either a apprentice studing under a wizard or an ambitious autodidact, you have finally set out to Vanderlin to gain more knowledge. You seek adventure, using your arcyne knowledge to aid others in need."
 	allowed_sexes = list(MALE)
 	allowed_races = list(
 		"Humen",
@@ -10,6 +10,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
+		"Kobold",
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/mage
@@ -19,20 +20,21 @@
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
 /datum/outfit/job/adventurer/mage
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/outfit/job/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	head = /obj/item/clothing/head/roguehood/mage
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope
 	backr = /obj/item/storage/backpack/satchel
+	beltr = /obj/item/storage/magebag/apprentice
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
+	backpack_contents = list(/obj/item/chalk = 1, /obj/item/book/granter/spellbook/apprentice = 1)
 	r_hand = /obj/item/weapon/polearm/woodstaff
 	if(H.mind)
-		if(H.patron != /datum/patron/divine/noc)
-			H.set_patron(/datum/patron/divine/noc)
-
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
@@ -50,5 +52,4 @@
 		H.change_stat(STATKEY_END, -1)
 		H.change_stat(STATKEY_SPD, -2)
 		H.mind.adjust_spellpoints(7)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)

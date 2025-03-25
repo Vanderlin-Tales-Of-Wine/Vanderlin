@@ -12,7 +12,7 @@
 	#define MT_FREAKOUT "freakout"
 
 	#define MT_LASTDIED "lastdied"
-	#define MT_DEATHDIED "deathdied" //???
+	#define MT_DEATHDIED "deathdied" //! flag
 
 	#define MT_LASTOXYDAM "lastoxydam"
 	#define MT_PUKE "puke"
@@ -47,3 +47,4 @@
 	// I've separated then here for clarity's sake.
 
 	#define MT_PAINSTUN "painstun"
+	#define MT_INVISIBILITY "invisible"

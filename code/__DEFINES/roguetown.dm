@@ -1,7 +1,7 @@
 //used in various places
-#define ALL_RACES_LIST			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie")
+#define ALL_RACES_LIST			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
 
-#define ALL_PLAYER_RACES_BY_NAME		list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Half-Orc", "Aasimar")
+#define ALL_PLAYER_RACES_BY_NAME		list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Half-Orc", "Aasimar", "Kobold")
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 #define ALL_CLERIC_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
@@ -64,9 +64,6 @@ GLOBAL_LIST_INIT(curse_names, list())
 			else
 				return pick('sound/combat/hits/armor/light_blunt (1).ogg','sound/combat/hits/armor/light_blunt (2).ogg','sound/combat/hits/armor/light_blunt (3).ogg')
 
-GLOBAL_LIST_INIT(lockhashes, list())
-GLOBAL_LIST_INIT(lockids, list())
-GLOBAL_LIST_EMPTY(credits_icons)
 GLOBAL_LIST_EMPTY(confessors)
 
 GLOBAL_LIST_INIT(wolf_prefixes, list("Red", "Moon", "Bloody", "Hairy", "Eager", "Sharp"))
@@ -93,7 +90,7 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define STRESS_BAD 3
 #define STRESS_NEUTRAL 2
 #define STRESS_GOOD 1
-#define STRESS_VGOOD 0
+#define STRESS_VGOOD -1
 
 /*	........   Nutrition defines   ................ */
 #define MEAL_FILLING 30
@@ -325,11 +322,11 @@ Thing can move up or down an armor class by significant changes to coverage & cr
 #define ARMOR_MAILLE_IRON	list("blunt" = 45, "slash" = 45, "stab" = 50, "piercing" = 30, "fire" = 0, "acid" = 0)
 #define ARMOR_MAILLE		list("blunt" = 55, "slash" = 55, "stab" = 55, "piercing" = 40, "fire" = 0, "acid" = 0)
 #define ARMOR_MAILLE_GOOD	list("blunt" = 60, "slash" = 60, "stab" = 60, "piercing" = 45, "fire" = 0, "acid" = 0)
-
 #define ARMOR_SCALE			list("blunt" = 65, "slash" = 65, "stab" = 65, "piercing" = 65, "fire" = 0, "acid" = 0)
+#define ARMOR_BRIGANDINE	list("blunt" = 70, "slash" = 70, "stab" = 70, "piercing" = 50, "fire" = 0, "acid" = 0)
 
 // Heavy AC
-#define ARMOR_PLATE_BAD		list("blunt" = 70, "slash" = 70, "stab" = 70, "piercing" = 50, "fire" = 0, "acid" = 0)
+#define ARMOR_PLATE_BAD		list("blunt" = 75, "slash" = 75, "stab" = 75, "piercing" = 55, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE			list("blunt" = 85, "slash" = 85, "stab" = 85, "piercing" = 70, "fire" = 0, "acid" = 0)
 #define ARMOR_PLATE_GOOD	list("blunt" = 90, "slash" = 90, "stab" = 90, "piercing" = 85, "fire" = 0, "acid" = 0)
 
@@ -540,3 +537,8 @@ BCLASS_TWIST)
 		"Windmill"="windmill_bascinet",\
 		"Oathtaker"="oathtaker_bascinet",\
 		"Skull"="skull_bascinet")
+
+#define SKULLMET_ICONS list(\
+		"volf"="skullmet_volf",\
+		"bear"="skullmet_bear",\
+		"gote"="skullmet_goat")

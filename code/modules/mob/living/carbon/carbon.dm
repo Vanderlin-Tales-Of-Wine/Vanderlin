@@ -134,8 +134,14 @@
 	var/hurt = TRUE
 	if(hit_atom.density && isturf(hit_atom))
 		if(hurt)
-			Paralyze(20)
+			if(IsOffBalanced())
+				Paralyze(20)
+			else
+				Immobilize(1 SECONDS)
+			if(prob(20))
+				emote("scream") // lifeweb reference ?? xd
 			take_bodypart_damage(10,check_armor = TRUE)
+			playsound(src,"genblunt",100,TRUE)
 	if(iscarbon(hit_atom) && hit_atom != src)
 		var/mob/living/carbon/victim = hit_atom
 		if(victim.movement_type & FLYING)
@@ -203,10 +209,7 @@
 					if(!throwable_mob.buckled)
 						thrown_thing = throwable_mob
 						thrown_speed = 1
-						if(STASTR > throwable_mob.STACON)
-							thrown_range = 4
-						else
-							thrown_range = 1
+						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
@@ -215,6 +218,10 @@
 							return
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY))
+							while(end_T.z > start_T.z)
+								end_T = GET_TURF_BELOW(end_T)
+
 						if(start_T && end_T)
 							log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
 				else
@@ -223,9 +230,13 @@
 
 		else if(!CHECK_BITFIELD(I.item_flags, ABSTRACT) && !HAS_TRAIT(I, TRAIT_NODROP))
 			thrown_thing = I
-			if(I.swingsound)
+			if(istype(thrown_thing, /obj/item/clothing/head/mob_holder))
+				var/obj/item/clothing/head/mob_holder/old = thrown_thing
+				thrown_thing = thrown_thing:held_mob
+				old.release()
 				used_sound = pick(I.swingsound)
-			dropItemToGround(I, silent = TRUE)
+			else
+				dropItemToGround(I, silent = TRUE)
 
 			if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
 				to_chat(src, "<span class='notice'>I set [I] down gently on the ground.</span>")
@@ -367,7 +378,7 @@
 
 /mob/living/carbon/proc/cuff_resist(obj/item/I, breakouttime = 1 MINUTES, cuff_break = 0)
 	if(I.item_flags & BEING_REMOVED)
-		to_chat(src, "<span class='warning'>You're already attempting to remove [I]!</span>")
+		to_chat(src, span_warning("I'm already trying to get out of \the [I]\s!"))
 		return
 	I.item_flags |= BEING_REMOVED
 	breakouttime = I.slipouttime
@@ -377,18 +388,18 @@
 	if(STASTR > 15 || (mind && mind.has_antag_datum(/datum/antagonist/zombie)) )
 		cuff_break = INSTANT_CUFFBREAK
 	if(!cuff_break)
-		to_chat(src, "<span class='notice'>I attempt to remove [I]...</span>")
+		to_chat(src, span_notice("I try to get out of \the [I]\s..."))
 		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='danger'>I fail to remove [I]!</span>")
+			to_chat(src, span_danger("I fail to get out of \the [I]\s!"))
 
 	else if(cuff_break == FAST_CUFFBREAK)
-		to_chat(src, "<span class='notice'>I attempt to break [I]...</span>")
+		to_chat(src, span_notice("I attempt to break \the [I]\s..."))
 		if(do_after(src, breakouttime, timed_action_flags = (IGNORE_HELD_ITEM)))
 			clear_cuffs(I, cuff_break)
 		else
-			to_chat(src, "<span class='danger'>I fail to break [I]!</span>")
+			to_chat(src, span_danger("I fail to break \the [I]\s!"))
 
 	else if(cuff_break == INSTANT_CUFFBREAK)
 		clear_cuffs(I, cuff_break)
@@ -526,8 +537,7 @@
 		return 0
 	return ..()
 
-/mob/living/carbon
-	var/nausea = 0
+/mob/living/carbon/var/nausea = 0
 
 /mob/living/carbon/proc/add_nausea(amt)
 	nausea = clamp(nausea + amt, 0, 300)
@@ -675,8 +685,7 @@
 		remove_movespeed_modifier(MOVESPEED_ID_CARBON_SOFTCRIT, TRUE)
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
-/mob/living/carbon
-	var/lightning_flashing = FALSE
+/mob/living/carbon/var/lightning_flashing = FALSE
 
 /mob/living/carbon/update_sight()
 	if(!client)
@@ -688,7 +697,10 @@
 	if(!E)
 		update_tint()
 	else
-		see_invisible = E.see_invisible
+		if(HAS_TRAIT(src, TRAIT_SEE_LEYLINES))
+			see_invisible = SEE_INVISIBLE_LEYLINES
+		else
+			see_invisible = E.see_invisible
 		see_in_dark = E.see_in_dark
 		sight |= E.sight_flags
 		if(!isnull(E.lighting_alpha))
@@ -931,10 +943,6 @@
 		else
 			hud_used.healths.icon_state = "health7"
 
-/mob/living/carbon/proc/update_internals_hud_icon(internal_state = 0)
-	if(hud_used && hud_used.internals)
-		hud_used.internals.icon_state = "internal[internal_state]"
-
 /mob/living/carbon/update_stat()
 	if(status_flags & GODMODE)
 		return
@@ -1031,7 +1039,7 @@
 			O.Remove(src)
 			O.forceMove(drop_location())
 	if(organs_amt)
-		to_chat(user, "<span class='notice'>I retrieve some of [src]\'s internal organs!</span>")
+		to_chat(user, "<span class='notice'>I retrieve some of [src]'s internal organs!</span>")
 
 /mob/living/carbon/ExtinguishMob(itemz = TRUE)
 	if(itemz)

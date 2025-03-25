@@ -137,7 +137,7 @@
 
 /atom/proc/OnCrafted(dirin, mob/user)
 	SHOULD_CALL_PARENT(TRUE)
-	add_abstract_elastic_data("crafting", "[name]", 1)
+	add_abstract_elastic_data(ELASCAT_CRAFTING, "[name]", 1)
 	return
 
 /obj/structure/OnCrafted(dirin, mob/user)
@@ -149,7 +149,7 @@
 
 
 /datum/component/personal_crafting/proc/construct_item(mob/user, datum/crafting_recipe/R)
-	if(user.doing)
+	if(user.doing())
 		return
 	var/list/contents = get_surroundings(user)
 //	var/send_feedback = 1
@@ -403,8 +403,13 @@
 				Deletion -= AM
 				partlist[A] -= 1
 	while(Deletion.len)
-		var/DL = Deletion[Deletion.len]
+		var/atom/DL = Deletion[Deletion.len]
 		Deletion.Cut(Deletion.len)
+		var/datum/component/storage/STR = DL.GetComponent(/datum/component/storage)
+		if(STR)
+			var/list/things = STR.contents()
+			for(var/obj/item/I in things)
+				STR.remove_from_storage(I, get_turf(src))
 		qdel(DL)
 
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)
@@ -555,7 +560,7 @@
 // new crafting button interaction
 
 /datum/component/personal_crafting/proc/roguecraft(location, control, params, mob/user)
-	if(user.doing)
+	if(user.doing())
 		return
 	var/area/A = get_area(user)
 	if(!A.can_craft_here())

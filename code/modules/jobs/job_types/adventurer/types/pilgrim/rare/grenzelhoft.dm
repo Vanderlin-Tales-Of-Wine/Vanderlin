@@ -46,6 +46,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/honorary = "Count"
@@ -60,3 +61,4 @@
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)

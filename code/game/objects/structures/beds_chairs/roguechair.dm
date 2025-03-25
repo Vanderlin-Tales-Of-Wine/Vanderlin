@@ -272,7 +272,6 @@
 /obj/structure/bed/inn/double
 	icon_state = "double"
 	max_buckled_mobs = 2
-	pixel_y = 0
 	sleepy = 3
 	debris = list(/obj/item/grown/log/tree/small = 2)
 	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before they unbuckle.
@@ -291,17 +290,34 @@
 
 // ------------ DECENT BEDS ----------------------
 /obj/structure/bed/wool
+	name = "wool bed"
+	desc = "A comfy bed, made from soft cloth"
 	icon_state = "woolbed"
 	sleepy = 2
 
-/obj/structure/bed/wooldouble
+/obj/structure/bed/wool/double
+	name = "big wool bed"
+	desc = "A large soft bed, could fit two people."
 	icon_state = "double_wool"
-	pixel_y = 0
-	sleepy = 2
 	debris = list(/obj/item/grown/log/tree/small = 2)
+	/// The mob who buckled to this bed second, to avoid other mobs getting pixel-shifted before they unbuckle.
+	var/mob/living/goldilocks
+
+/obj/structure/bed/wool/double/post_buckle_mob(mob/living/target)
+	. = ..()
+	if(length(buckled_mobs) > 1 && !goldilocks) //  Push the second buckled mob a bit higher from the normal lying position
+		target.set_mob_offsets("bed_buckle", _x = 0, _y = 12)
+		goldilocks = target
+
+/obj/structure/bed/wool/double/post_unbuckle_mob(mob/living/target)
+	. = ..()
+	if(target == goldilocks)
+		goldilocks = null
 
 // ------------ ACCEPTABLE BEDS ----------------------
 /obj/structure/bed/hay
+	name = "hay bed"
+	desc = "A bed padded with hay. At least your not sleeping on the floor."
 	icon_state = "haybed"
 	sleepy = 1
 	debris = list(/obj/item/grown/log/tree/small = 1)
@@ -316,8 +332,6 @@
 	desc = "A hide of a slain bear. It looks like someone sleeps on it often."
 	icon = 'icons/turf/floors/bear.dmi'
 	icon_state = "bear"
-	pixel_x = -16
-	pixel_y = -27
 	sleepy = 1
 
 

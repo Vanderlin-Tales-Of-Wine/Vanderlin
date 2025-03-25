@@ -102,8 +102,14 @@
 	alpha = 173
 
 /datum/reagent/medicine/manapot/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_energy(30)
+	M.mana_pool.adjust_mana(4)
+	..()
+
+/datum/reagent/medicine/manapot/weak
+	name = "Weak Mana Potion"
+
+/datum/reagent/medicine/manapot/weak/on_mob_life(mob/living/carbon/M)
+	M.mana_pool.adjust_mana(2)
 	..()
 
 /datum/reagent/medicine/strongmana
@@ -116,9 +122,9 @@
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_energy(120)
+	M.mana_pool.adjust_mana(8)
 	..()
+
 
 /datum/reagent/medicine/stampot
 	name = "Stamina Potion"
@@ -314,7 +320,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#47b2e0"
 	random_reagent_color = TRUE
 	taste_description = "bitterness"
-	scent_description = "berries"
+	scent_description = "berry"
 	metabolization_rate = REAGENTS_SLOW_METABOLISM
 
 /datum/reagent/berrypoison/on_mob_life(mob/living/carbon/M)
@@ -363,6 +369,9 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	if(!HAS_TRAIT(M, TRAIT_NASTY_EATER) && !HAS_TRAIT(M, TRAIT_ORGAN_EATER))
 		M.add_nausea(9)
 		M.adjustToxLoss(2)
+	else if(volume >= 1.5 && HAS_TRAIT(M, TRAIT_ORGAN_EATER))
+		M.apply_status_effect(/datum/status_effect/buff/foodbuff)
+		M.reagents.remove_reagent(/datum/reagent/organpoison, 1.5)
 	return ..()
 
 /datum/reagent/stampoison

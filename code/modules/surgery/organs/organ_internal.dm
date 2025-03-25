@@ -50,7 +50,8 @@
 	var/bodypart_emissive_blocker = TRUE
 	/// Type of organ DNA that this organ will create.
 	var/organ_dna_type = /datum/organ_dna
-
+	/// What food typepath should be used when eaten
+	var/food_type = /obj/item/reagent_containers/food/snacks/organ
 
 /obj/item/organ/proc/Insert(mob/living/carbon/M, special = 0, drop_if_replaced = TRUE)
 	if(!iscarbon(M) || owner == M)
@@ -112,40 +113,53 @@
 
 /obj/item/organ/examine(mob/user)
 	. = ..()
+
+	. += span_notice("It should be inserted in the [parse_zone(zone)].")
+
 	if(organ_flags & ORGAN_FAILING)
 		if(status == ORGAN_ROBOTIC)
-			to_chat(user, ("<span class='warning'>[src] seems to be broken!"))
+			. += span_warning("[src] seems to be broken.")
 			return
-		to_chat(user, ("<span class='warning'>[src] has decayed for too long, and has turned a sickly color! It doesn't look like it will work anymore!"))
+		. += span_warning("[src] has decayed for too long, and has turned a sickly color. Only Pestra herself could restore it its functionality.")
 		return
 	if(damage > high_threshold)
-		to_chat(user, ("<span class='warning'>[src] is starting to look discolored."))
-
+		. += span_warning("[src] is starting to look discolored.")
 
 /obj/item/organ/proc/prepare_eat(mob/living/carbon/human/user)
-	var/obj/item/reagent_containers/food/snacks/organ/S = new
+	var/obj/item/reagent_containers/food/snacks/organ/S = new food_type()
 	S.name = name
 	S.desc = desc
 	S.icon = icon
 	S.icon_state = icon_state
 	S.w_class = w_class
-
+	if(damage > high_threshold)
+		S.eat_effect = /datum/status_effect/debuff/rotfood
+	S.rotprocess = S.rotprocess * ((high_threshold - damage) / high_threshold)
 	return S
 
 /obj/item/reagent_containers/food/snacks/organ
 	name = "appendix"
 	icon_state = "appendix"
 	icon = 'icons/obj/surgery.dmi'
-	list_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/organpoison = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR, /datum/reagent/organpoison = 1)
 	grind_results = list(/datum/reagent/organpoison = 3)
 	foodtype = RAW | MEAT | GROSS
 	eat_effect = /datum/status_effect/debuff/uncookedfood
+	rotprocess = 5 MINUTES
 
-/obj/item/reagent_containers/food/snacks/organ/On_Consume(mob/living/eater)
-	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER))
-		eat_effect = /datum/status_effect/buff/foodbuff
+/obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
+	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
+		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	. = ..()
 	eat_effect = initial(eat_effect)
+
+/obj/item/reagent_containers/food/snacks/organ/heart
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
+	grind_results = list(/datum/reagent/organpoison = 6)
+
+/obj/item/reagent_containers/food/snacks/organ/lungs
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT, /datum/reagent/organpoison = 2)
+	grind_results = list(/datum/reagent/organpoison = 6)
 
 /obj/item/organ/Initialize()
 	. = ..()

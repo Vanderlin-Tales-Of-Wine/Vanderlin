@@ -153,6 +153,7 @@
 		)
 	result_type = /obj/structure/noose
 	craftsound = 'sound/foley/noose_idle.ogg'
+	craftdiff = 0
 
 /datum/slapcraft_recipe/carpentry/structure/noose/check_craft_requirements(mob/user, turf/T)
 	var/turf/checking = get_step_multiz(T, UP)
@@ -160,10 +161,26 @@
 		return FALSE
 	if(istype(checking,/turf/open/transparent/openspace))
 		return FALSE
-	for(var/obj/structure/noose/N in T)
+	if(locate(/obj/structure/noose) in T)
 		return FALSE
 	return TRUE
 
+/datum/slapcraft_recipe/carpentry/structure/lanternpost
+	name = "lantern post"
+	steps = list(
+		/datum/slapcraft_step/item/small_log,
+		/datum/slapcraft_step/item/small_log/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/stick,
+		/datum/slapcraft_step/item/stick/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/machinery/light/fueled/lanternpost/unfixed
+
+/datum/slapcraft_recipe/carpentry/structure/lanternpost/check_craft_requirements(mob/user, turf/T)
+	if((locate(/obj/machinery/light/fueled/lanternpost) in T)||(locate(/obj/machinery/light/fueledstreet) in T)||(locate(/obj/structure/noose) in T))
+		return FALSE
+	return ..()
 
 /datum/slapcraft_recipe/carpentry/structure/psycrss
 	name = "wooden cross"
@@ -293,8 +310,8 @@
 		)
 	result_type = /obj/structure/closet/crate/coffin
 
-/datum/slapcraft_recipe/carpentry/structure/nicebed
-	name = "nice bed"
+/datum/slapcraft_recipe/carpentry/structure/haybed
+	name = "hay bed"
 	steps = list(
 		/datum/slapcraft_step/item/plank,
 		/datum/slapcraft_step/item/plank/second,
@@ -302,8 +319,78 @@
 		/datum/slapcraft_step/item/cloth,
 		/datum/slapcraft_step/use_item/sewing/needle,
 		)
-	result_type = /obj/structure/bed
+	result_type = /obj/structure/bed/hay
 	craftdiff = 2
+
+/datum/slapcraft_recipe/carpentry/structure/woolbed
+	name = "wool bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/wool
+	craftdiff = 4
+
+/datum/slapcraft_recipe/carpentry/structure/woolbed/double
+	name = "double wool bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/item/plank/third,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/cloth/third,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/wool/double
+
+/datum/slapcraft_recipe/carpentry/structure/nicebed
+	name = "nice bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/fur,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed
+	craftdiff = 5
+
+/datum/slapcraft_recipe/carpentry/structure/inn_bed
+	name = "nice bed without sheets"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/fur,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/inn
+	craftdiff = 5
+
+/datum/slapcraft_recipe/carpentry/structure/inn_bed/double
+	name = "double nice bed"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/cloth,
+		/datum/slapcraft_step/item/cloth/second,
+		/datum/slapcraft_step/item/cloth/third,
+		/datum/slapcraft_step/item/cloth/fourth,
+		/datum/slapcraft_step/item/fur,
+		/datum/slapcraft_step/item/fur/second,
+		/datum/slapcraft_step/use_item/sewing/needle,
+		)
+	result_type = /obj/structure/bed/inn/double
 
 /datum/slapcraft_recipe/carpentry/structure/sign
 	name = "custom sign"
@@ -438,4 +525,16 @@
 		/datum/slapcraft_step/use_item/carpentry/hammer/second,
 		)
 	result_type = /obj/structure/meathook
+	craftdiff = 1
+
+/datum/slapcraft_recipe/carpentry/structure/spider_nest
+	name = "spider nesting house"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/plank/third,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/structure/spider/nest/constructed
 	craftdiff = 1

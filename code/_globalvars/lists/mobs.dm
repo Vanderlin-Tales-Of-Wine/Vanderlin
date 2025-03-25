@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(aiEyes)
 GLOBAL_LIST_EMPTY(language_datum_instances)
 GLOBAL_LIST_EMPTY(all_languages)
 
-GLOBAL_LIST_EMPTY(sentient_disease_instances)
+GLOBAL_LIST_EMPTY(species_list)
 
 GLOBAL_LIST_EMPTY(latejoin_ai_cores)
 
@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(emote_list)
 
 GLOBAL_LIST_INIT(dangerous_turfs, typecacheof(list(
 	/turf/open/lava,
-	/turf/open/transparent/openspace,
+	/turf/open/transparent,
 	/turf/open/water/acid,
 	)))
 

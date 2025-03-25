@@ -8,7 +8,7 @@
 	recipe_name = "three Blank Keys"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/key_custom_blank
+	created_item = /obj/item/key/custom
 	createmultiple = TRUE
 	createditem_num = 2
 	craftdiff = 0
@@ -263,11 +263,13 @@
 	created_item = /obj/item/reagent_containers/glass/bucket/pot/copper
 
 /datum/anvil_recipe/tools/platter
-	name = "Platter (copper)"
+	name = "2x Platters (copper)"
 	recipe_name = "a platter"
 	req_bar = /obj/item/ingot/copper
-	created_item = /obj/item/kitchen/platter/copper
+	created_item = /obj/item/plate/copper
 	craftdiff = 1
+	createmultiple = TRUE
+	createditem_num = 1
 
 /datum/anvil_recipe/tools/hoe/copper
 	name = "Copper Hoe (+Stick x2)"

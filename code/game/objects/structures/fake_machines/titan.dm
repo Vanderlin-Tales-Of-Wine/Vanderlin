@@ -377,9 +377,28 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 //	. = ..()
 	if(speaker == src)
 		return
-	if(speaker.loc != loc)
+	if(!user.job)
 		return
-	if(obj_broken)
+	else
+		var/datum/job/job = SSjob.GetJob(user.job)
+		if(!is_lord_job(job))
+			return
+
+	if(raw_message in GLOB.outlawed_players)
+		GLOB.outlawed_players -= raw_message
+		priority_announce("[raw_message] is no longer an outlaw in Vanderlin lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		return FALSE
+	var/found = FALSE
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
+		if(H.real_name == raw_message)
+			found = TRUE
+	if(!found)
+		return FALSE
+	GLOB.outlawed_players += raw_message
+	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+
+/obj/structure/fake_machine/titan/proc/make_law(mob/living/user, raw_message)
+	if(!SScommunications.can_announce(user))
 		return
 	var/message2recognize = sanitize_hear_message(original_message)
 

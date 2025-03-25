@@ -109,7 +109,7 @@
 
 	var/stress_median = stress_amount / stress_cycles
 
-	if(stress_median <= -1)
+	if(stress_median <= 1.0)
 		// Unstressed, happy
 		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
 		dream_dust += 100
@@ -188,7 +188,7 @@
 		</html>
 	"}
 	var/datum/browser/popup = new(user, "dreams", "<center>Dreams</center>", 350, 450)
-	popup.set_window_options("can_close=0")
+	popup.set_window_options(can_close = FALSE)
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
 
@@ -292,6 +292,9 @@
 /datum/sleep_adv/proc/finish()
 	if(!mind.current)
 		return
+	if(mind.has_studied)
+		mind.has_studied = FALSE
+		to_chat(mind.current, span_smallnotice("I feel like I can study my tome again..."))
 	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
 	close_ui()
 

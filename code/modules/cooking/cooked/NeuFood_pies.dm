@@ -98,6 +98,8 @@
 	filling_color = "#394da5"
 /obj/item/reagent_containers/food/snacks/pieslice/good/apple
 	filling_color = "#eca48c"
+/obj/item/reagent_containers/food/snacks/pieslice/good/pear
+	filling_color = "#edd28c"
 
 // -------------- MEAT PIE -----------------
 /obj/item/reagent_containers/food/snacks/pie/cooked/meat // bae item
@@ -191,6 +193,21 @@
 	. = ..()
 	good_quality_descriptors()
 
+// -------------- PEAR PIE -----------------
+/obj/item/reagent_containers/food/snacks/pie/cooked/pear
+	name = "pear pie"
+	desc = ""
+	slices_num = 4
+	list_reagents = list(/datum/reagent/consumable/nutriment = FRUITPIE_NUTRITION)
+	tastes = list("pears and butterdough" = 1)
+/obj/item/reagent_containers/food/snacks/pie/cooked/pear/good
+	eat_effect = /datum/status_effect/buff/foodbuff
+	slice_path = /obj/item/reagent_containers/food/snacks/pieslice/good/pear
+	tastes = list("baked pears and crispy butterdough" = 1)
+/obj/item/reagent_containers/food/snacks/pie/cooked/pear/good/New()
+	. = ..()
+	good_quality_descriptors()
+
 /*--------\
 | Handpie |
 \--------*/		// dwarven pie on the go, good shelflife until bitten, made from pie dough and mince, truffles or jacksberries
@@ -258,7 +275,7 @@
 	. = ..()
 	good_quality_descriptors()
 
-/obj/item/reagent_containers/food/snacks/handpie/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/handpie/on_consume(mob/living/eater)
 	..()
 	icon_state = "handpie[bitecount]"
 	if(bitecount == 1)

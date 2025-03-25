@@ -703,9 +703,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if (!istype(target))
 		return
 
-	var/icon/I = icon(target.icon,target.icon_state,target.dir)
-
-	var/orbitsize = (I.Width()+I.Height())*0.5
+	var/list/icon_dimensions = get_icon_dimensions(target.icon)
+	var/orbitsize = (icon_dimensions["width"] + icon_dimensions["height"]) * 0.5
 	orbitsize -= (orbitsize/world.icon_size)*(world.icon_size*0.25)
 
 	var/rot_seg
@@ -919,7 +918,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return FALSE
 
 	target.key = key
-	target.faction = list("neutral")
+	target.faction = list(FACTION_NEUTRAL)
 	return TRUE
 
 //this is a mob verb instead of atom for performance reasons
@@ -1035,13 +1034,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		name = client.prefs.real_name
 
 /mob/dead/observer/proc/set_ghost_appearance()
-	if((!client) || (!client.prefs))
+	if(!client?.prefs)
 		return
 
-	if(client.prefs.randomise[RANDOM_NAME])
-		client.prefs.real_name = random_unique_name(gender)
-	if(client.prefs.randomise[RANDOM_BODY])
-		client.prefs.random_character(gender)
+	client.prefs.apply_character_randomization_prefs()
 
 	if(HAIR in client.prefs.pref_species.species_traits)
 		hairstyle = client.prefs.hairstyle

@@ -12,7 +12,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 5 SECONDS //very stupidly simple spell
+	recharge_time = 5 SECONDS //very stupidly simple spell
 	miracle = TRUE
 	devotion_cost = 5 //come on, this is very basic
 
@@ -23,6 +23,7 @@
 	associated_skill = /datum/skill/misc/medicine
 	miracle = FALSE
 	devotion_cost = 0 //Doctors are not clerics
+	uses_mana = FALSE
 
 /obj/effect/proc_holder/spell/invoked/diagnose/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
@@ -46,7 +47,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 60 SECONDS //attaching a limb is pretty intense
+	recharge_time = 60 SECONDS //attaching a limb is pretty intense
 	miracle = TRUE
 	devotion_cost = 80
 
@@ -146,11 +147,9 @@
 	sound = 'sound/magic/revive.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	miracle = TRUE
 	devotion_cost = 100
-	/// Amount of PQ gained for curing zombos
-	var/unzombification_pq = PQ_GAIN_UNZOMBIFY
 
 /obj/effect/proc_holder/spell/invoked/cure_rot/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
@@ -177,8 +176,7 @@
 			target.Unconscious(20 SECONDS)
 			target.emote("breathgasp")
 			target.Jitter(100)
-			if(unzombification_pq && !HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED) && user?.ckey)
-				adjust_playerquality(unzombification_pq, user.ckey)
+			if(!HAS_TRAIT(target, TRAIT_IWASUNZOMBIFIED))
 				ADD_TRAIT(target, TRAIT_IWASUNZOMBIFIED, "[type]")
 		var/datum/component/rot/rot = target.GetComponent(/datum/component/rot)
 		if(rot)
@@ -205,6 +203,8 @@
 					if(ghost)
 						to_chat(ghost, span_warning("My funeral rites were undone!"))
 			human.funeral = FALSE
+		if(target.stat < DEAD)
+			target.remove_client_colour(/datum/client_colour/monochrome/death)
 		return ..()
 	return FALSE
 

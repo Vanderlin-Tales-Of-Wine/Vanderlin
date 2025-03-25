@@ -1,7 +1,7 @@
 /datum/ai_controller/troll
 	movement_delay = 0.7 SECONDS
 
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/hybrid_pathing
 
 	blackboard = list(
 		BB_TARGETTING_DATUM = new /datum/targetting_datum/basic/allow_items()

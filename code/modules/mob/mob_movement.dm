@@ -164,15 +164,29 @@
 			if(L.m_intent == MOVE_INTENT_RUN && L.sprinted_tiles > 0)
 				L.toggle_rogmove_intent(MOVE_INTENT_WALK)
 
+	var/old_direct = mob.dir
+
 	. = ..()
 
 	if((direct & (direct - 1)) && mob.loc == n) //moved diagonally successfully
 		add_delay *= 2
-	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay))
+
+	var/after_glide = 0
+	if(visual_delay)
+		after_glide = visual_delay
+	else
+		after_glide = DELAY_TO_GLIDE_SIZE(add_delay)
+
+	mob.set_glide_size(after_glide)
+
 	move_delay += add_delay
 	if(.) // If mob is null here, we deserve the runtime
 		if(mob.throwing)
 			mob.throwing.finalize(FALSE)
+
+		// At this point we've moved the client's attached mob. This is one of the only ways to guess that a move was done
+		// as a result of player input and not because they were pulled or any other magic.
+		SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_MOVED, direct, old_direct)
 
 	var/atom/movable/P = mob.pulling
 	if(P)
@@ -185,22 +199,24 @@
 			if(P.facepull)
 				mob.setDir(turn(mob.dir, 180))
 	if(mob.used_intent?.movement_interrupt && mob.atkswinging == "left" && charging)
-		to_chat(src, "<span class='warning'>I lost my concentration!</span>")
-		mob.stop_attack(FALSE)
-		mob.changeNext_move(CLICK_CD_MELEE)
+		if(mob.cast_move < mob.used_intent?.move_limit)
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
+			mob.cast_move++
+		else
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
+			mob.stop_attack(FALSE)
+			mob.changeNext_move(CLICK_CD_MELEE)
+			mob.cast_move = 0
 	if(mob.mmb_intent?.movement_interrupt && mob.atkswinging == "middle" && charging)
-		to_chat(src, "<span class='warning'>I lost my concentration!</span>")
-		mob.stop_attack(FALSE)
-		mob.changeNext_move(CLICK_CD_MELEE)
+		if(mob.cast_move < mob.used_intent?.move_limit)
+			to_chat(src, "<span class='warning'>I am starting to lose focus!</span>")
+			mob.cast_move++
+		else
+			to_chat(src, "<span class='warning'>I lost my concentration!</span>")
+			mob.stop_attack(FALSE)
+			mob.changeNext_move(CLICK_CD_MELEE)
+			mob.cast_move = 0
 
-	for(var/datum/browser/X in open_popups)
-		if(!X.no_close_movement)
-	//		var/datum/browser/popup = new(mob, X, "", 5, 5)
-	//		popup.set_content()
-	//		popup.open()
-	//		popup.close()
-			mob << browse(null, "window=[X.window_id]")
-			open_popups -= X
 /**
  * Checks to see if you're being grabbed and if so attempts to break it
  *
@@ -226,6 +242,12 @@
 //			return mob.resist_grab(1)
 			move_delay = world.time + 10
 			to_chat(src, "<span class='warning'>I can't move!</span>")
+			return TRUE
+	var/mob/living/simple_animal/bound = mob.pulling
+	if(istype(bound))
+		if(bound?.binded)
+			move_delay = world.time + 10
+			to_chat(src, span_warning("[bound] is bound in a summoning circle. I can't move them!"))
 			return TRUE
 
 /**
@@ -628,6 +650,7 @@
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 					if(!H.check_armor_skill())
+						to_chat(H, span_info("Your armor is too heavy to run in!"))
 						return
 			m_intent = MOVE_INTENT_RUN
 	if(hud_used && hud_used.static_inventory)

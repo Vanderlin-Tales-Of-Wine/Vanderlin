@@ -19,13 +19,7 @@
 	..()
 	deaggroprob = 50
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-2, 6), TEXT_WEST = list(2, 6)))
-		D.set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
-
+		AddComponent(/datum/component/riding/gote)
 
 /mob/living/simple_animal/hostile/retaliate/goat/update_icon()
 	cut_overlays()
@@ -103,7 +97,7 @@
 	tame_chance = 25
 	bonus_tame_chance = 15
 	pooptype = /obj/item/natural/poo/horse
-	var/milkies = TRUE
+	milk_reagent = /datum/reagent/consumable/milk/gote
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	attack_verb_continuous = "headbutts"
@@ -117,27 +111,6 @@
 	childtype = list(/mob/living/simple_animal/hostile/retaliate/goat/goatlet = 90, /mob/living/simple_animal/hostile/retaliate/goat/goatlet/boy = 10)
 	can_buckle = TRUE
 	remains_type = /obj/effect/decal/remains/cow
-
-
-
-/mob/living/simple_animal/hostile/retaliate/goat/Initialize()
-	. = ..()
-	if(milkies)
-		gudder = new()
-
-/mob/living/simple_animal/hostile/retaliate/goat/Destroy()
-	qdel(gudder)
-	gudder = null
-	..()
-
-/mob/living/simple_animal/hostile/retaliate/goat/attackby(obj/item/O, mob/user, params)
-	if(!stat && istype(O, /obj/item/reagent_containers/glass))
-		changeNext_move(20) // milking sound length
-		if(gudder)
-			gudder.milkAnimal(O, user)
-			return 1
-	else
-		return ..()
 
 /mob/living/simple_animal/hostile/retaliate/goat/get_sound(input)
 	switch(input)
@@ -266,12 +239,7 @@
 	..()
 	deaggroprob = 20
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 6), TEXT_SOUTH = list(0, 6), TEXT_EAST = list(-2, 6), TEXT_WEST = list(2, 6)))
-		D.set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
+		AddComponent(/datum/component/riding/gote)
 
 /mob/living/simple_animal/hostile/retaliate/goatmale/Initialize()
 	..()
@@ -378,7 +346,7 @@
 
 	health = CALF_HEALTH
 	maxHealth = CALF_HEALTH
-	milkies = FALSE
+	milk_reagent = null
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	melee_damage_lower = 1

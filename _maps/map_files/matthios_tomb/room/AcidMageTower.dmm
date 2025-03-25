@@ -48,12 +48,6 @@
 /obj/item/reagent_containers/food/snacks/bread/raisin/poison,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
-"bD" = (
-/obj/structure/mineral_door/secret/wizard{
-	lockid = "Acid2"
-	},
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "ch" = (
 /obj/structure/closet/crate/crafted_closet/lord,
 /obj/effect/spawner/map_spawner/loot/armor,
@@ -84,10 +78,6 @@
 /obj/structure/forcefield_weak,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
-"dd" = (
-/obj/machinery/light/fueled/oven,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/indoors)
 "dm" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
 /turf/open/floor/blocks,
@@ -103,6 +93,10 @@
 /obj/structure/toilet,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/churchrough,
+/area/rogue/indoors)
+"dZ" = (
+/mob/living/carbon/human/species/skeleton/npc/peasant,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "ec" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -164,6 +158,7 @@
 /area/rogue/indoors)
 "gj" = (
 /obj/effect/decal/cleanable/food/egg_smudge,
+/obj/machinery/light/fueled/oven,
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
 "gm" = (
@@ -377,7 +372,6 @@
 /area/rogue/indoors)
 "nr" = (
 /obj/item/book/yeoldecookingmanual,
-/mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "nt" = (
@@ -693,7 +687,8 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors)
 "zh" = (
-/obj/structure/mineral_door/secret/wizard{
+/obj/structure/mineral_door/wood/red{
+	locked = 1;
 	lockid = "Acid1"
 	},
 /turf/open/floor/churchrough,
@@ -701,12 +696,6 @@
 "zD" = (
 /obj/item/alch/coaldust,
 /turf/open/floor/tile/masonic/spiral,
-/area/rogue/indoors)
-"zJ" = (
-/obj/structure/mineral_door/secret/wizard{
-	locked = 0
-	},
-/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "Ai" = (
 /obj/structure/closet/crate/chest/lootbox,
@@ -729,7 +718,7 @@
 "BU" = (
 /obj/item/natural/wood/plank,
 /obj/item/grown/log/tree/stick,
-/mob/living/simple_animal/hostile/skeleton/bow,
+/mob/living/carbon/human/species/skeleton/npc/peasant,
 /turf/open/floor/churchbrick,
 /area/rogue/indoors)
 "Ce" = (
@@ -847,12 +836,6 @@
 /turf/open/lava/acid,
 /area/rogue/indoors/cave)
 "EY" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALSPD = 15;
-	TOTALSTR = 14
-	},
 /obj/item/clothing/pants/platelegs/rust,
 /obj/item/clothing/armor/plate/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
@@ -860,6 +843,13 @@
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/weapon/sword/scimitar/falchion,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALCON = 15;
+	TOTALEND = 15;
+	TOTALSPD = 15;
+	TOTALSTR = 14;
+	candodge = 0
+	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors)
 "Ff" = (
@@ -1101,7 +1091,8 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	TOTALCON = 15;
 	TOTALEND = 15;
-	TOTALSTR = 15
+	TOTALSTR = 15;
+	candodge = 0
 	},
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
@@ -1113,7 +1104,7 @@
 /turf/open/floor/tile,
 /area/rogue/indoors)
 "Oo" = (
-/obj/structure/bed/wooldouble,
+/obj/structure/bed/wool/double,
 /obj/item/bedsheet/fabric_double,
 /obj/item/clothing/ring/gold/protection,
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -1128,11 +1119,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/cave)
 "Pc" = (
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/obj/structure/mineral_door/secret/wizard{
-	locked = 0
-	},
-/turf/open/floor/churchrough,
+/obj/effect/decal/cleanable/food/mess/rotting,
+/obj/machinery/light/fueled/oven,
+/turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
 "Pg" = (
 /obj/structure/bookcase/random/archive,
@@ -1168,11 +1157,8 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "Qs" = (
-/obj/structure/mineral_door/secret/wizard{
-	lockid = "Acid1"
-	},
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/ruinedwood/spiral,
+/obj/structure/mineral_door/wood/red,
+/turf/open/floor/churchrough,
 /area/rogue/indoors)
 "QC" = (
 /obj/structure/table/stone_small,
@@ -1198,13 +1184,6 @@
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/indoors/cave)
-"QY" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/secret/wizard{
-	locked = 0
-	},
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "Rm" = (
 /obj/structure/flora/grass/herb/random,
 /obj/structure/gravemarker,
@@ -1346,9 +1325,6 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15
-	},
 /obj/item/clothing/gloves/plate/rust,
 /obj/item/clothing/head/helmet/heavy/rust,
 /obj/item/clothing/shoes/boots/armor/light/rust,
@@ -1357,6 +1333,10 @@
 /obj/item/weapon/sword/arming,
 /obj/item/weapon/shield/tower/buckleriron,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	TOTALCON = 15;
+	candodge = 0
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors)
 "Wy" = (
@@ -1405,23 +1385,6 @@
 /obj/structure/forcefield_weak,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
-"YE" = (
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 8
-	},
-/obj/structure/mineral_door/secret/wizard{
-	locked = 0
-	},
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
-"YL" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/obj/structure/mineral_door/secret/wizard{
-	locked = 0
-	},
-/turf/open/floor/tile/masonic/spiral,
-/area/rogue/indoors)
 "YO" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors)
@@ -1951,7 +1914,7 @@ oy
 sp
 He
 QG
-bD
+zh
 EU
 rR
 tQ
@@ -1984,18 +1947,18 @@ sp
 sp
 sp
 sp
-zJ
+zh
 sp
 ai
 eQ
 sp
 sp
-bD
+zh
 sp
 sp
 ta
 sp
-YE
+Qs
 sp
 HP
 MQ
@@ -2013,7 +1976,7 @@ uk
 gU
 oy
 oy
-dd
+sp
 gj
 BH
 BH
@@ -2045,8 +2008,8 @@ xY
 uk
 uk
 oy
-dd
-uq
+sp
+Pc
 DL
 CX
 qX
@@ -2147,11 +2110,11 @@ BH
 DL
 Ff
 RN
-QY
+Qs
 XD
 vW
 fr
-Pc
+Qs
 pa
 pa
 Jr
@@ -2881,7 +2844,7 @@ sp
 sp
 sp
 sp
-YL
+zh
 sp
 sp
 Ld
@@ -3013,10 +2976,10 @@ Zi
 FV
 sp
 Ng
-KF
+dZ
 nr
 KF
-zh
+Qs
 CF
 CF
 gd

@@ -58,7 +58,7 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	grind_results = list(/datum/reagent/floure = 10)
+	grind_results = list(/datum/reagent/flour = 10)
 	dropshrink = 0.9
 	mill_result = /obj/item/reagent_containers/powder/flour
 
@@ -78,7 +78,7 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	grind_results = list(/datum/reagent/floure = 10)
+	grind_results = list(/datum/reagent/flour = 10)
 /obj/item/reagent_containers/food/snacks/produce/oat/examine(mob/user)
 	var/farminglvl = user.mind?.get_skill_level(/datum/skill/labor/farming)
 	. += ..()
@@ -106,7 +106,7 @@
 	var/equippedloc = null
 	var/list/bitten_names = list()
 
-/obj/item/reagent_containers/food/snacks/produce/apple/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/apple/on_consume(mob/living/eater)
 	..()
 	if(ishuman(eater))
 		var/mob/living/carbon/human/H = eater
@@ -209,7 +209,7 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/on_consume(mob/living/eater)
 	..()
 	update_icon()
 

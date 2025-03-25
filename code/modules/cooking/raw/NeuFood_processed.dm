@@ -92,7 +92,7 @@
 	else
 		icon_state = "salumoi_slice"
 
-/obj/item/reagent_containers/food/snacks/meat/salami/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/meat/salami/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -125,6 +125,8 @@
 	bitesize = 5
 	fried_type = null
 	tastes = list("salted meat" = 1)
+	rotprocess = null
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	faretype = FARE_POOR
 
 
@@ -168,7 +170,7 @@
 	else
 		icon_state = "saloslice"
 
-/obj/item/reagent_containers/food/snacks/fat/salo/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/fat/salo/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -196,9 +198,11 @@
 	taste_description = "gote milk"
 
 /datum/reagent/consumable/milk/salted_gote
+	name = "salted gote milk"
 	taste_description = "salty gote-milk"
 
 /datum/reagent/consumable/milk/salted
+	name = "salted milk"
 	taste_description = "salty milk"
 
 
@@ -250,7 +254,7 @@
 	else
 		icon_state = "butter_slice"
 
-/obj/item/reagent_containers/food/snacks/butter/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/butter/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -336,6 +340,9 @@
 	icon_state = "cheesewheel_1"
 	w_class = WEIGHT_CLASS_BULKY
 	do_random_pixel_offset = FALSE
+	grid_height = 32
+	grid_width = 96
+
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_start/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cheese))
@@ -355,6 +362,9 @@
 	icon_state = "cheesewheel_2"
 	w_class = WEIGHT_CLASS_BULKY
 	do_random_pixel_offset = FALSE
+	grid_height = 32
+	grid_width = 96
+
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_two/attackby(obj/item/I, mob/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
@@ -377,6 +387,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	do_random_pixel_offset = FALSE
 	var/mature_proc = PROC_REF(maturing_done)
+	grid_height = 32
+	grid_width = 96
 
 /obj/item/reagent_containers/food/snacks/foodbase/cheesewheel_three/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -438,6 +450,8 @@
 	become_rot_type = /obj/item/reagent_containers/food/snacks/cheddar/aged
 	slice_sound = TRUE
 	faretype = FARE_POOR
+	grid_height = 32
+	grid_width = 96
 
 /obj/item/reagent_containers/food/snacks/cheddar/aged
 	name = "wheel of aged cheese"
