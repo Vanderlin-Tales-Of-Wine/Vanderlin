@@ -9,6 +9,7 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
+		"Kobold",
 		"Aasimar")
 	grant_lit_torch = TRUE
 

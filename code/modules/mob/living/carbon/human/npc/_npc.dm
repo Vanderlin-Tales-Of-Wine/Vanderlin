@@ -150,7 +150,7 @@
 					O.climb_structure(src)
 					myPath = list()
 					break
-			myPath = get_path_to(src, turf_of_target, /turf/proc/Distance, MAX_RANGE_FIND + 1, 250,1)
+			myPath = get_path_to(src, turf_of_target, /turf/proc/Distance3D, MAX_RANGE_FIND + 1, 250,1)
 
 		if(myPath)
 			if(myPath.len > 0)
@@ -358,10 +358,12 @@
 					Weapon.attack_self(src)
 		rog_intent_change(1)
 		used_intent = a_intent
+		cast_move = 0
 		Weapon.melee_attack_chain(src, L)
 	else
 		rog_intent_change(4)
 		used_intent = a_intent
+		cast_move = 0
 		UnarmedAttack(L,1)
 
 	var/adf = ((used_intent.clickcd + 8) - round((src.STASPD - 10) / 2) - attack_speed)

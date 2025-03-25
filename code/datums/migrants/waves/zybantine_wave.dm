@@ -12,7 +12,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
 	)
 	outfit = /datum/outfit/job/zybantine_migration/emir
 	grant_lit_torch = TRUE
@@ -80,7 +80,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 	outfit = /datum/outfit/job/zybantine_migration/amirah
 	grant_lit_torch = TRUE
@@ -199,6 +200,7 @@
 	allowed_races = list("Humen",
 		"Elf",
 		"Half-Elf",
+		"Rakshari",
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
@@ -253,6 +255,7 @@
 	allowed_races = list(
 		"Humen",
 		"Elf",
+		"Rakshari",
 		"Half-Elf",
 		"Tiefling",
 		"Dark Elf",

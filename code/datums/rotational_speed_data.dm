@@ -9,6 +9,7 @@
 	var/last_stress_added = 0
 	var/accepts_water_input = FALSE
 	var/giving_stress = TRUE
+	var/directional = TRUE
 
 	var/obj/structure/water_pipe/input
 	var/obj/structure/water_pipe/output
@@ -20,17 +21,50 @@
 	if(rotation_structure || accepts_water_input)
 		return INITIALIZE_HINT_LATELOAD
 
+/obj/structure/ShiftClick(mob/user)
+	. = ..()
+	if(!user.Adjacent(src))
+		return
+	if(!rotation_structure && !istype(src, /obj/structure/water_pipe))
+		return
+	var/obj/item/contraption/linker/linker = user.get_active_held_item()
+	if(!istype(linker))
+		return
+
+	for(var/obj/item/rotation_contraption/item as anything in subtypesof(/obj/item/rotation_contraption))
+		if(istype(src, initial(item.placed_type)))
+			start_deconstruct(user, item)
+			return
+
+/obj/structure/proc/start_deconstruct(mob/user, obj/item/rotation_contraption/type)
+	user.visible_message(span_notice("[user] starts to disassemble [src]."), span_notice("You start to disassemble [src]."))
+	if(!do_after(user, 3 SECONDS, src))
+		return
+	new type(get_turf(src))
+	qdel(src)
+
 /obj/structure/Destroy()
 	if(rotation_network)
 		var/datum/rotation_network/old_network = rotation_network
 		rotation_network.remove_connection(src)
 		old_network.reassess_group(src)
 	. = ..()
+
 /obj/structure/return_rotation_chat(atom/movable/screen/movable/mouseover/mouseover)
 	mouseover.maptext_height = 96
 	return {"<span style='font-size:8pt;font-family:"Pterra";color:#e6b120;text-shadow:0 0 1px #fff, 0 0 2px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>
 			RPM:[rotations_per_minute ? rotations_per_minute : "0"]
 			[rotation_network.overstressed ? "Overstressed" : "Stress:[round(((rotation_network?.used_stress / max(1, rotation_network?.total_stress)) * 100), 1)]%"]</span>"}
+
+/obj/structure/setDir(newdir)
+	if(rotation_network)
+		var/datum/rotation_network/old_network = rotation_network
+		rotation_network.remove_connection(src)
+		old_network.reassess_group(src)
+		. = ..()
+		find_rotation_network()
+	else
+		. = ..()
 
 /obj/structure/LateInitialize()
 	. = ..()
@@ -40,6 +74,12 @@
 		setup_water()
 
 /obj/structure/proc/setup_water()
+	for(var/direction in GLOB.cardinals)
+		var/turf/cardinal_turf = get_step(src, direction)
+		for(var/obj/structure/water_pipe/structure in cardinal_turf)
+			if(!valid_water_connection(GLOB.reverse_dir[direction], structure))
+				continue
+			structure.set_connection(get_dir(structure, src))
 
 /obj/structure/proc/update_animation_effect()
 	return
@@ -53,8 +93,10 @@
 
 /obj/structure/proc/find_rotation_network()
 	var/turf/step_forward = get_step(src, dir)
+	if(!step_forward)
+		return
 	for(var/obj/structure/structure in step_forward.contents)
-		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir] && !istype(structure, /obj/structure/gearbox) && !istype(structure, /obj/structure/minecart_rail))
 			continue
 		if(structure.rotation_network)
 			if(rotation_network)
@@ -140,6 +182,7 @@
 		rotation_network.rebuild_group()
 	else
 		propagate_rotation_change(connector)
+	rotation_network.rebuild_group() // <=-- this is dumb as hell but for some reason if you perform a fucking dark ritual or someshit you can trick the game into lobotomizing itself.
 	return TRUE
 
 /obj/structure/proc/propagate_rotation_change(obj/structure/connector, list/checked, first = FALSE)
@@ -167,7 +210,7 @@
 	for(var/obj/structure/structure in step_forward.contents)
 		if(structure in checked)
 			continue
-		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir])
+		if(structure.dir != dir && structure.dir != GLOB.reverse_dir[dir] && !istype(structure, /obj/structure/gearbox) && !istype(structure, /obj/structure/minecart_rail))
 			continue
 		if(structure.rotation_network)
 			propagate_rotation_change(structure, checked, FALSE)
@@ -202,9 +245,11 @@
 /obj/structure/proc/rotation_break()
 	visible_message(span_warning("[src] breaks apart from the opposing directions!"))
 	playsound(src, 'sound/foley/cartdump.ogg', 75)
-	var/obj/item/rotation_contraption/new_contraption = new (get_turf(src))
-	new_contraption.set_type(src.type)
-	qdel(src)
+	for(var/obj/item/rotation_contraption/item as anything in subtypesof(/obj/item/rotation_contraption))
+		if(istype(src, initial(item.placed_type)))
+			new item(get_turf(src))
+			qdel(src)
+			return
 
 /obj/structure/proc/set_rotations_per_minute(speed)
 	if(speed > 256)
@@ -259,6 +304,8 @@
 
 	var/obj/structure/placed_type
 	var/in_stack = 1
+	var/directional = TRUE
+	var/can_stack = TRUE
 
 /obj/item/rotation_contraption/Initialize()
 	. = ..()
@@ -270,17 +317,17 @@
 
 	if(placed_type)
 		set_type(placed_type)
+	if(can_stack)
+		for(var/obj/item/rotation_contraption/contraption in loc)
+			if(contraption == src)
+				continue
+			if(!istype(contraption, src.type))
+				continue
+			if(placed_type != contraption.placed_type)
+				continue
 
-	for(var/obj/item/rotation_contraption/contraption in loc)
-		if(contraption == src)
-			continue
-		if(!istype(contraption, src.type))
-			continue
-		if(placed_type != contraption.placed_type)
-			continue
-
-		in_stack += contraption.in_stack
-		qdel(contraption)
+			in_stack += contraption.in_stack
+			qdel(contraption)
 	update_overlays()
 
 
@@ -310,6 +357,7 @@
 	name = initial(parent_type.name)
 	desc = initial(parent_type.desc)
 	placed_type = parent_type
+	directional = parent_type.directional
 
 /obj/item/rotation_contraption/attack_turf(turf/T, mob/living/user)
 	. = ..()
@@ -318,13 +366,24 @@
 	if(is_blocked_turf(T))
 		return
 	for(var/obj/structure/structure in T.contents)
-		if(structure.rotation_structure)
+		if(structure.rotation_structure && !ispath(placed_type, /obj/structure/water_pipe))
+			return
+
+		if(structure.accepts_water_input && !ispath(placed_type, /obj/structure/rotation_piece))
+			return
+
+		if(istype(structure, placed_type))
 			return
 
 	visible_message("[user] starts placing down [src]", "You start to place [src]")
 	if(!do_after(user, 1 SECONDS, T))
 		return
-	new placed_type(T)
+	var/obj/structure/structure = new placed_type(T)
+	if(directional)
+		var/direction = get_dir(user, T)
+		if(direction != NORTH && direction != SOUTH)
+			structure.setDir(get_dir(user, T))
+
 	in_stack--
 	if(in_stack <= 0)
 		qdel(src)
@@ -334,12 +393,14 @@
 /obj/item/rotation_contraption/update_overlays()
 	. = ..()
 	if(in_stack > 1)
-		name = "pile of [initial(placed_type.name)] x [in_stack]"
+		name = "pile of [initial(placed_type.name)]s x [in_stack]"
 	else
 		name = initial(placed_type.name)
 
 /obj/item/rotation_contraption/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
+	if(!can_stack)
+		return
 	if(!istype(I, src.type))
 		return
 	if(placed_type != I:placed_type)
@@ -352,3 +413,48 @@
 
 /obj/item/rotation_contraption/cog
 	placed_type = /obj/structure/rotation_piece/cog
+
+/obj/item/rotation_contraption/shaft
+	placed_type = /obj/structure/rotation_piece
+
+/obj/item/rotation_contraption/large_cog
+	placed_type = /obj/structure/rotation_piece/cog/large
+
+/obj/item/rotation_contraption/horizontal
+	placed_type = /obj/structure/gearbox
+
+/obj/item/rotation_contraption/vertical
+	placed_type = /obj/structure/vertical_gearbox
+
+/obj/item/rotation_contraption/waterwheel
+	placed_type = /obj/structure/waterwheel
+	directional = FALSE
+
+	grid_height = 96
+	grid_width = 96
+
+/obj/item/rotation_contraption/minecart_rail
+	placed_type = /obj/structure/minecart_rail
+
+	grid_height = 64
+	grid_width = 32
+
+/obj/item/rotation_contraption/water_pipe
+	placed_type = /obj/structure/water_pipe
+	directional = FALSE
+
+/obj/item/rotation_contraption/pump
+	placed_type = /obj/structure/water_pump
+	directional = FALSE
+	can_stack = FALSE
+
+	grid_height = 96
+	grid_width = 96
+
+/obj/item/rotation_contraption/boiler
+	placed_type = /obj/structure/boiler
+	directional = FALSE
+	can_stack = FALSE
+
+	grid_height = 96
+	grid_width = 96

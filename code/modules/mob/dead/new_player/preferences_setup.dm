@@ -73,7 +73,7 @@
 			hairs = pref_species.get_oldhc_list()
 		else
 			hairs = pref_species.get_hairc_list()
-		hair_color = pick_assoc(pick(hairs))
+		hair_color = pick_assoc(hairs)
 		facial_hair_color = hair_color
 	if(randomise[RANDOM_SKIN_TONE])
 		var/list/skins = pref_species.get_skin_list()
@@ -140,7 +140,7 @@
 	if(!(pref_species.name in GLOB.roundstart_races))
 		return FALSE
 	if(user)
-		if(pref_species.patreon_req > user.patreonlevel())
+		if(pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 			return FALSE
 	return TRUE
 

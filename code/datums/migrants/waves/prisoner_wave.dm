@@ -65,6 +65,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
+		"Kobold",
 		"Half-Orc")
 
 /datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/human/H)
