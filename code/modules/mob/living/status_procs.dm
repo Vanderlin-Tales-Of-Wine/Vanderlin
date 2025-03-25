@@ -126,9 +126,7 @@
 
 ///////////////////////////////// IMMOBILIZED ////////////////////////////////////
 /mob/living/proc/IsImmobilized() //If we're immobilized
-	if(has_status_effect(STATUS_EFFECT_IMMOBILIZED))
-		doing = 0
-		return has_status_effect(STATUS_EFFECT_IMMOBILIZED)
+	return has_status_effect(STATUS_EFFECT_IMMOBILIZED)
 
 /mob/living/proc/AmountImmobilized() //How many deciseconds remain in our Immobilized status effect
 	var/datum/status_effect/incapacitating/immobilized/I = IsImmobilized()

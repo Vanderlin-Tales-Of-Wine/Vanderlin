@@ -253,7 +253,7 @@ All foods are distributed among various categories. Use common sense.
 	else
 		..()
 
-/obj/item/reagent_containers/food/snacks/proc/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/on_consume(mob/living/eater)
 	if(!eater)
 		return
 
@@ -406,7 +406,7 @@ All foods are distributed among various categories. Use common sense.
 					amt2take = reagents.total_volume
 				reagents.trans_to(M, amt2take, transfered_by = user, method = INGEST)
 				bitecount++
-				On_Consume(M)
+				on_consume(M)
 				checkLiked(fraction, M)
 				if(bitecount >= bitesize)
 					qdel(src)
@@ -691,7 +691,7 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/on_consume(mob/living/eater)
 	..()
 	if(biting)
 		icon_state = "[base_icon_state][bitecount]"

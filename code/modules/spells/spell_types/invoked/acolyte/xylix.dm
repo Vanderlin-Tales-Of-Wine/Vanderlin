@@ -4,7 +4,7 @@
 	overlay_state = "mimicry"
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
-	charge_max = 1 MINUTES
+	recharge_time = 1 MINUTES
 	req_items = list(/obj/item/clothing/neck/psycross/silver/xylix)
 	miracle = TRUE
 	devotion_cost = 25
@@ -51,7 +51,7 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	req_items = list(/obj/item/clothing/neck/psycross/silver/xylix)
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	miracle = TRUE
 	devotion_cost = 35
 

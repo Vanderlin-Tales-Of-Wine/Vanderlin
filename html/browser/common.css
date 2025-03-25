@@ -11,6 +11,60 @@ body
 	height: 100vh;
 }
 
+.uiWrapper
+{
+	width: 100%;
+	height: 100%;
+}
+
+.uiTitle
+{
+	position: fixed;
+	box-sizing: border-box;
+	width: 100%;
+	top: 0;
+	left: 0;
+	font-family: Nosfer, TrueType;
+	padding: 6px 8px;
+	border-bottom: 2px solid #161616;
+	background: #000000;
+	color: #ae3636;
+	font-size: 1.25em;
+}
+
+.uiTitle.icon
+{
+	padding: 6px 8px 6px 42px;
+	background-position: 2px 50%;
+	background-repeat: no-repeat;
+}
+
+.uiContent
+{
+	box-sizing: border-box;
+	overflow: auto;
+	clear: both;
+	padding: 8px;
+	border-top: calc(2px + 16px + 1.25em) solid transparent; /* thanks box sizing */
+	height: 100%;
+	width: 100%;
+	font-family: Pterra, TrueType;
+
+	/* MODERN */
+	scrollbar-color: #7b5353 black;
+	scrollbar-width: thin;
+	caret-shape: block;
+
+	/* IE11 */
+	scrollbar-face-color: #000;
+	scrollbar-shadow-color: #7b5353;
+	scrollbar-highlight-color: #7b5353;
+	scrollbar-3dlight-color: #000;
+	scrollbar-darkshadow-color: #000;
+	scrollbar-track-color: #000;
+	scrollbar-arrow-color: #7b5353;
+}
+
 hr
 {
 	background-color: #000000;
@@ -127,45 +181,6 @@ h3
 h4
 {
 	font-size: 12px;
-}
-
-.uiWrapper
-{
-	width: 100%;
-	height: 100%;
-}
-
-.uiTitle
-{
-	position: fixed;
-	box-sizing: border-box;
-	width: 100%;
-	top: 0;
-	left: 0;
-	font-family: Nosfer, TrueType;
-	padding: 6px 8px;
-	border-bottom: 2px solid #161616;
-	background: #000000;
-	color: #ae3636;
-	font-size: 1.25em;
-}
-
-.uiTitle.icon
-{
-	padding: 6px 8px 6px 42px;
-	background-position: 2px 50%;
-	background-repeat: no-repeat;
-}
-
-.uiContent
-{
-	box-sizing: border-box;
-	clear: both;
-	padding: 8px;
-	padding-top: calc(8px + 2px + 16px + 1.25em);
-	height: 100%;
-	width: 100%;
-	font-family: Pterra, TrueType;
 }
 
 .good
@@ -442,18 +457,3 @@ input[type="text"]:focus, textarea:focus {
 	outline: none;
 }
 
-.uiContent * {
-	/* MODERN */
-	scrollbar-color: #7b5353 black;
-	scrollbar-width: thin;
-	caret-shape: block;
-
-	/* IE11 */
-	scrollbar-face-color: #000;
-	scrollbar-shadow-color: #7b5353;
-	scrollbar-highlight-color: #7b5353;
-	scrollbar-3dlight-color: #000;
-	scrollbar-darkshadow-color: #000;
-	scrollbar-track-color: #000;
-	scrollbar-arrow-color: #7b5353;
-}

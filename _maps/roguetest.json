@@ -2,7 +2,7 @@
     "map_name": "Roguetest",
     "map_path": "map_files/roguetest",
     "map_file": "roguetest.dmm",
-	"traits": [{"Up": true}, {"Down": true}],
+	"traits": [{"Up": true, "Leylines": true}, {"Down": true, "Leylines": true}],
 	"minetype": null,
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0
