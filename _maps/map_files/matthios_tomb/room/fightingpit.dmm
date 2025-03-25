@@ -157,7 +157,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cavewet)
 "Fo" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/under/cavewet)
 "Ga" = (
