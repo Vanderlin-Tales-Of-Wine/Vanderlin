@@ -396,12 +396,10 @@ class Lint:
     disabled: bool = False
 
     def __init__(self, data):
-        expect(isinstance(data, dict), "Lint must be a dictionary.")
-
         if "disabled" in data:
-            self.disabled = True
+            return
 
-        expect(isinstance(self.disabled, bool) or self.disabled is None, "Lint disabled must be a bool.")
+        expect(isinstance(data, dict), "Lint must be a dictionary.")
 
         if "help" in data:
             self.help = data.pop("help")
@@ -417,8 +415,6 @@ class Lint:
         all_failures: list[MaplintError] = []
         (width, height) = map_data.size()
 
-        if self.disabled:
-            return
         for pop, contents in map_data.pops.items():
             for typepath_extra, rules in self.rules.items():
                 for content_index, content in enumerate(contents):
