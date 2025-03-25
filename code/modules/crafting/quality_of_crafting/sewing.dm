@@ -511,11 +511,9 @@
 /datum/repeatable_crafting_recipe/sewing/weaving
 	abstract_type = /datum/repeatable_crafting_recipe/sewing/weaving
 	attacked_atom = /obj/machinery/loom
-	starting_atom = /obj/item/natural/silk
 	requirements = list(
 		/obj/item/natural/silk = 1
 	)
-	tool_usage = list()
 	craftdiff = 1
 
 /* craftdif of 1 = NOVICE */
@@ -680,7 +678,6 @@
 	output = /obj/item/clothing/armor/gambeson/heavy
 	requirements = list(/obj/item/natural/cloth = 6,
 				/obj/item/natural/fibers = 4)
-	starting_atom = /obj/item/natural/cloth
 	craftdiff = 4
 
 /datum/repeatable_crafting_recipe/sewing/weaving/armordress

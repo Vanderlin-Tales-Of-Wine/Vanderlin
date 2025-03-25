@@ -30,6 +30,9 @@
 	if(desc)
 		button.desc = desc
 
+/datum/action/proc/get_owner()
+	return owner
+
 /datum/action/proc/link_to(Target)
 	target = Target
 
@@ -84,7 +87,7 @@
 	button.locked = FALSE
 	button.id = null
 
-/datum/action/proc/Trigger()
+/datum/action/proc/Trigger(atom/target)
 	if(!IsAvailable())
 		return FALSE
 	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
@@ -321,6 +324,8 @@
 		return FALSE
 	if(target)
 		var/obj/effect/proc_holder/S = target
+		if(owner.ranged_ability && S != owner.ranged_ability)
+			owner.ranged_ability.deactivate(owner)
 		S.Click()
 		return TRUE
 
@@ -405,17 +410,15 @@
 		if(next_use_time > world.time)
 			START_PROCESSING(SSfastprocess, src)
 
-
-/datum/action/language_menu
-	name = "Language Menu"
-	desc = ""
-	button_icon_state = "language_menu"
-	check_flags = NONE
-
-/datum/action/language_menu/Trigger()
-	if(!..())
+/// Intercepts client owner clicks to activate the ability
+/datum/action/cooldown/proc/InterceptClickOn(mob/living/user, params, atom/target)
+	if(!IsAvailable())
 		return FALSE
-	if(ismob(owner))
-		var/mob/M = owner
-		var/datum/language_holder/H = M.get_language_holder()
-		H.open_language_menu(usr)
+	if(!target)
+		return FALSE
+
+	return TRUE
+
+/// To be implemented by subtypes (if not generic)
+/datum/action/cooldown/proc/Activate(atom/target)
+	StartCooldown()

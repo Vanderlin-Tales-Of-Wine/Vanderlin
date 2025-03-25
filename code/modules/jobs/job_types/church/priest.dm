@@ -15,6 +15,7 @@
 	min_pq = 20
 	bypass_lastclass = TRUE
 	selection_color = "#c2a45d"
+	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(

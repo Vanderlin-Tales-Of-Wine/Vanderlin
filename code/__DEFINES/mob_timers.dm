@@ -47,3 +47,4 @@
 	// I've separated then here for clarity's sake.
 
 	#define MT_PAINSTUN "painstun"
+	#define MT_INVISIBILITY "invisible"

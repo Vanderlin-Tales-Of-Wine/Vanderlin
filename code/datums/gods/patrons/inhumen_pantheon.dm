@@ -33,6 +33,7 @@
 		"LONG LIVE QUEEN ZIZO!",
 		"ZIZO SHOWED ME THE WAY!",
 	)
+	storyteller = /datum/storyteller/zizo
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"
@@ -48,6 +49,7 @@
 		"GRAGGAR WILL RAVAGE YOU!",
 		"GRAGGAR BRINGS UNHOLY DESTRUCTION!"
 	)
+	storyteller = /datum/storyteller/graggar
 
 /datum/patron/inhumen/matthios
 	name = "Matthios"
@@ -63,6 +65,7 @@
 		"MATTHIOS IS JUSTICE FOR THE COMMON MAN!",
 		"MATTHIOS IS MY LORD, I SHALL BE HIS MARTYR!",
 	)
+	storyteller = /datum/storyteller/matthios
 
 /datum/patron/inhumen/baotha
 	name = "Baotha"
@@ -78,6 +81,7 @@
 		"JOY AT ALL COSTS! BAOTHA'S TEACHINGS REIGN!",
 		"BAOTHA'S WHISPERS CALM MY MIND!",
 	)
+	storyteller = /datum/storyteller/baotha
 
 /// Maniac Patron
 /datum/patron/inhumen/graggar_zizo

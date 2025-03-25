@@ -16,8 +16,8 @@
 	if (!(target_key in controller.blackboard))
 		return
 
-	var/obj/effect/proc_holder/spell/using_action = controller.blackboard[ability_key]
-	if (!using_action?.recharging)
+	var/datum/action/cooldown/using_action = controller.blackboard[ability_key]
+	if (!using_action?.IsAvailable())
 		return
 
 	controller.queue_behavior(use_ability_behaviour, ability_key, target_key)
