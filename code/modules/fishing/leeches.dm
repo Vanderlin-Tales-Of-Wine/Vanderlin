@@ -201,7 +201,7 @@
 
 /obj/item/natural/worms/leech/parasite
 	name = "the parasite"
-	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes."
+	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes." (Use inhand to swap between draining blood, and giving blood.)
 	icon_state = "parasite"
 	dropshrink = 0.9
 	baitpenalty = 0
@@ -209,9 +209,10 @@
 	color = null
 	consistent = TRUE
 	drainage = 0
-	toxin_healing = -3
+	var/blood_sucking = 20
+	toxin_healing = -9
 	blood_storage = BLOOD_VOLUME_SURVIVE
-	blood_maximum = BLOOD_VOLUME_BAD
+	blood_maximum = BLOOD_VOLUME_MAXIMUM
 
 /obj/item/natural/worms/leech/parasite/update_icon()
 	. = ..()
