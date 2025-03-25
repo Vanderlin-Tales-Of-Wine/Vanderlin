@@ -208,13 +208,14 @@
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
 							"<span class='notice'>I splash the contents of [src] onto [target].</span>")
 		reagents.reaction(target, TOUCH)
+		playsound(target.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		chem_splash(target.loc, 2, list(reagents))
-		playsound(M.loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		return
 
 /obj/item/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
 	if(spillable && reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
 		chem_splash(T, 2, list(reagents))
+		playsound(T, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>", \
 								"<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>")
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)

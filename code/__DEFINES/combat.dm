@@ -177,6 +177,7 @@
 #define ROD_AUTO			/datum/intent/auto
 #define ROD_REEL			/datum/intent/reel
 
+#define INTENT_FILL			/datum/intent/fill
 #define INTENT_SPLASH		/datum/intent/splash
 #define INTENT_POUR			/datum/intent/pour
 
