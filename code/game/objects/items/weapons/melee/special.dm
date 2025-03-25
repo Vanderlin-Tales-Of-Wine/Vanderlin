@@ -19,6 +19,7 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
+	var/static/list/rod_jobs = null
 
 	grid_height = 96
 	grid_width = 32
@@ -80,7 +81,16 @@
 			if(H.anti_magic_check())
 				return
 
-			if(!((H.mind?.assigned_role.title in GLOB.noble_positions) || (H.mind?.assigned_role.title in GLOB.garrison_positions)))
+			if(!rod_jobs)
+				rod_jobs = GLOB.noble_positions | GLOB.garrison_positions | list(
+				/datum/job/jester::title,
+				/datum/job/servant::title,
+				/datum/job/adventurer/courtagent::title,
+				/datum/job/butler::title,
+				/datum/job/squire::title,
+			)
+
+			if(!((H.mind?.assigned_role.title in rod_jobs)))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))

@@ -1048,6 +1048,8 @@ SUBSYSTEM_DEF(gamemode)
 	var/list/storytellers_with_votes = list()
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
+		if(!istype(living))
+			continue
 		if(!roundstart)
 			if(!living.mind)
 				continue

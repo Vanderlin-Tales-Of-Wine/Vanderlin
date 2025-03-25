@@ -207,4 +207,4 @@
 	recruitment_message = "Join the keep's servants, %RECRUIT!"
 	accept_message = "I serve the Crown!"
 	refuse_message = "I refuse."
-	charge_max = 100
+	recharge_time = 100

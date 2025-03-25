@@ -7,7 +7,7 @@
 	if(QDELETED(target))
 		return
 	var/mob/living/pawn = controller.pawn
-	if(pawn.doing)
+	if(pawn.doing())
 		return
 	controller.queue_behavior(behavior, BB_BASIC_MOB_FOOD_TARGET, BB_TARGETTING_DATUM, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
 	return SUBTREE_RETURN_FINISH_PLANNING //we are going into battle...no distractions.

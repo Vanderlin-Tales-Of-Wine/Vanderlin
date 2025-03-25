@@ -1729,7 +1729,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/species/bla = GLOB.species_list[A]
 						bla = new bla()
 						if(user.client)
-							if(bla.patreon_req > user.client.patreonlevel())
+							if(bla.patreon_req && !user.client.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 								continue
 						else
 							continue
@@ -2225,7 +2225,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Sanitization checks to be performed before using these preferences.
 /datum/preferences/proc/sanitize_chosen_prefs()
-	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req > parent.patreonlevel()))
+	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK)))
 		pref_species = new /datum/species/human/northern
 		save_character()
 

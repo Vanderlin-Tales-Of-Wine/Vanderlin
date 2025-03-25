@@ -74,6 +74,9 @@
 /datum/round_event/antagonist/solo/vampires_and_werewolves/proc/add_vampire(datum/mind/antag_mind)
 	if(!antag_mind)
 		CRASH("add_vampire was called without an antag datum!")
+	if(ishuman(antag_mind.current))
+		var/mob/living/carbon/human/vampire = antag_mind.current
+		vampire.adv_hugboxing_cancel() // workaround for pilgrims and adventurers being in the adv_class pick menu
 	if(!leader)
 		var/datum/job/J = SSjob.GetJob(antag_mind.current?.job)
 		J?.adjust_current_positions(-1)
