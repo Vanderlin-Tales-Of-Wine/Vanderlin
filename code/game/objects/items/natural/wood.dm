@@ -196,7 +196,7 @@
 	. = ..()
 	var/obj/item/I = user.get_active_held_item()
 	if(istype(I, /obj/item/grown/log/tree/stick))
-		var/obj/item/natural/bundle/stick/F = new(src.loc)
+		var/obj/item/natural/bundle/stick/F = new(get_turf(user))
 		qdel(I)
 		qdel(src)
 		user.put_in_hands(F)
