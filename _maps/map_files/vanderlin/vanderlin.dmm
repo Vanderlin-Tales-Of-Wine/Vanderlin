@@ -26855,6 +26855,9 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "sXv" = (
+/obj/structure/fluff/psycross{
+	color = "#e09dda"
+	},
 /turf/open/floor/churchbrick,
 /area/rogue/outdoors/eora)
 "sXE" = (
