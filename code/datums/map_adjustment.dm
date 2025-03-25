@@ -27,14 +27,24 @@
 		J?.job_flags &= ~(JOB_NEW_PLAYER_JOINABLE)
 	return
 
-/// * job_type</datum/job/J>: 			Type of the bjo that's being adjusted
-/// * spawn_positions<number>: 			Sets the number of roundstart positions of this job, when spawning at roundstart
-/// * total_positions<number, null>: 	Sets the number of total positions of this job, including roundstart and latejoin
-/datum/map_adjustment/proc/change_job_position(job_type, spawn_positions, total_positions = null)
+/**
+ * job_type`</datum/job/J>`: Type of the job that's being adjusted \
+ * spawn_positions`<number, null>`: Roundstart positions, if null will not be adjusted \
+ * total_positions`<number, null>`: Latejoin positions, if null will use spawn_positions
+ **/
+/datum/map_adjustment/proc/change_job_position(job_type, spawn_positions = null, total_positions = null)
 	SHOULD_NOT_OVERRIDE(TRUE) // no reason to override for a new behaviour
 	PROTECTED_PROC(TRUE) // no reason to call this outside of /map_adjustment datum. (I didn't add _underbar_ to the proc name because you use this frequently)
-	var/datum/job/J = SSjob.GetJobType(job_type)
-	if(!J)
+	var/datum/job/adjusting_job = SSjob.GetJobType(job_type)
+	if(!adjusting_job)
 		CRASH("Failed to adjust a job position: [job_type]")
-	J.spawn_positions = spawn_positions
-	J.total_positions = total_positions || spawn_positions
+	if(isnull(spawn_positions) && isnull(total_positions))
+		CRASH("called without any positions to set")
+
+	if(isnum(spawn_positions))
+		adjusting_job.spawn_positions = spawn_positions
+
+	if(isnull(total_positions)) //we can have spawn slots but no total slots, see lord
+		total_positions = spawn_positions
+	if(isnum(total_positions))
+		adjusting_job.total_positions = total_positions
