@@ -17,7 +17,7 @@
 /area/rogue/under/cave)
 "da" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/dirt,
+/turf,
 /area/rogue/indoors/shelter)
 "di" = (
 /obj/structure/fluff/railing/border{
@@ -133,7 +133,7 @@
 /area/rogue/indoors/shelter)
 "yJ" = (
 /obj/structure/window/openclose,
-/turf/closed/wall/mineral/wooddark/vertical,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "zV" = (
 /obj/structure/closet/dirthole/grave,
@@ -732,28 +732,29 @@ Qq
 "}
 
 (1,1,2) = {"
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
 "}
 (2,1,2) = {"
+Qq
 vg
 vg
 vg
@@ -763,19 +764,19 @@ vg
 vg
 vg
 vg
-vg
-so
-so
-so
-so
-so
-so
-so
-so
-so
-vg
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+Qq
 "}
 (3,1,2) = {"
+Qq
 vg
 vg
 vg
@@ -785,19 +786,19 @@ vg
 vg
 vg
 vg
-vg
-so
 rQ
-so
-so
 rQ
-so
-so
 rQ
-so
-vg
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+Qq
 "}
 (4,1,2) = {"
+Qq
 vg
 vg
 vg
@@ -807,19 +808,19 @@ vg
 vg
 vg
 vg
-vg
-so
-rQ
-so
 rQ
 rQ
-so
-so
 rQ
-so
-vg
+rQ
+rQ
+rQ
+rQ
+rQ
+rQ
+Qq
 "}
 (5,1,2) = {"
+Qq
 vg
 vg
 vg
@@ -838,11 +839,10 @@ vg
 vg
 vg
 vg
-vg
-vg
+Qq
 "}
 (6,1,2) = {"
-vg
+Qq
 Dh
 vg
 vg
@@ -861,10 +861,10 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (7,1,2) = {"
-vg
+Qq
 TJ
 vg
 vg
@@ -883,10 +883,10 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (8,1,2) = {"
-vg
+Qq
 TJ
 vg
 vg
@@ -905,7 +905,7 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (9,1,2) = {"
 TJ
@@ -927,7 +927,7 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (10,1,2) = {"
 TJ
@@ -949,7 +949,7 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (11,1,2) = {"
 TJ
@@ -971,10 +971,10 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (12,1,2) = {"
-vg
+Qq
 TJ
 vg
 vg
@@ -993,10 +993,10 @@ vg
 vg
 vg
 vg
-vg
+Qq
 "}
 (13,1,2) = {"
-vg
+Qq
 TJ
 vg
 vg
@@ -1015,10 +1015,10 @@ Lw
 yJ
 Lw
 bp
-vg
+Qq
 "}
 (14,1,2) = {"
-vg
+Qq
 TJ
 vg
 vg
@@ -1037,10 +1037,10 @@ tn
 tn
 tn
 rV
-vg
+Qq
 "}
 (15,1,2) = {"
-vg
+Qq
 vg
 vg
 vg
@@ -1059,10 +1059,10 @@ tn
 tn
 tn
 rV
-vg
+Qq
 "}
 (16,1,2) = {"
-vg
+Qq
 vg
 vg
 vg
@@ -1081,13 +1081,13 @@ Na
 Na
 Lh
 rV
-vg
+Qq
 "}
 (17,1,2) = {"
-vg
-so
+Qq
 rQ
-so
+rQ
+rQ
 vg
 vg
 vg
@@ -1103,13 +1103,13 @@ so
 VC
 tn
 rV
-vg
+Qq
 "}
 (18,1,2) = {"
-vg
-so
+Qq
 rQ
-so
+rQ
+rQ
 vg
 vg
 vg
@@ -1125,13 +1125,13 @@ so
 VC
 tn
 rV
-vg
+Qq
 "}
 (19,1,2) = {"
-vg
-so
-so
-so
+Qq
+rQ
+rQ
+rQ
 vg
 vg
 vg
@@ -1147,27 +1147,27 @@ Lw
 Lw
 Lw
 bp
-vg
+Qq
 "}
 (20,1,2) = {"
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
-vg
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
+Qq
 "}

@@ -176,7 +176,7 @@
 /area/rogue/indoors/shelter)
 "vI" = (
 /obj/structure/window,
-/turf/closed/wall/mineral/decowood,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "wL" = (
 /obj/structure/table/wood/large/corner_alt,
@@ -348,12 +348,12 @@
 "LB" = (
 /obj/structure/window,
 /obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/decowood/vert,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "LU" = (
 /obj/structure/fluff/walldeco/vinez,
 /obj/structure/window,
-/turf/closed/wall/mineral/decowood/vert,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/shelter)
 "LZ" = (
 /obj/structure/chair/wood{
