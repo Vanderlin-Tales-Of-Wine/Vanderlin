@@ -22,8 +22,6 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
 		"Aasimar"
 	)
 
