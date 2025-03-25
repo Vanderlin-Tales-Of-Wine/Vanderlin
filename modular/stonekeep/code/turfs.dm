@@ -63,7 +63,7 @@
 	tiled_dirt = FALSE
 	damage_deflection = 8
 	max_integrity = 800
-	color = "#cfcad6"
+	color = "#beb9c5"
 
 /*	..................   Stone floors   ................... */
 /turf/open/floor/hexstone

@@ -569,6 +569,10 @@
 	icon_state = "stressg"
 
 
+
+
+
+
 /datum/status_effect/debuff/badvision
 	effectedstats = list("perception" = -6, "speed" = -2,"fortune" = -5)
 	duration = 100
