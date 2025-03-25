@@ -131,7 +131,7 @@
 			var/mob/living/carbon/stinky = L
 			for(clean_moodlets in stinky.positive_stressors)
 				return
-		T.pollute_turf(/datum/pollutant/rot, 0.1)
+		T.pollute_turf(/datum/pollutant/rot, 0.01)
 
 /datum/looping_sound/fliesloop
 	mid_sounds = list('sound/misc/fliesloop.ogg')
