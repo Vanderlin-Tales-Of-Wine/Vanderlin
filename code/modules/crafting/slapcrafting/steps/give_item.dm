@@ -133,3 +133,14 @@
 /datum/slapcraft_step/item/fur/second
 /datum/slapcraft_step/item/fur/third
 /datum/slapcraft_step/item/fur/fourth
+
+/datum/slapcraft_step/item/stoneblock
+	desc = "Add some stone blocks"
+	item_types = list(/obj/item/natural/stoneblock)
+
+/datum/slapcraft_step/item/stoneblock/second
+/datum/slapcraft_step/item/stoneblock/third
+
+/datum/slapcraft_step/item/candles
+	desc = "Add some candles."
+	item_types = list(/obj/item/candle)

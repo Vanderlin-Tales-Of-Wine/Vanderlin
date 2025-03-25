@@ -230,7 +230,7 @@
 
 /obj/item/proc/attack_turf(turf/T, mob/living/user)
 	if(T.max_integrity)
-		if(T.attacked_by(src, user))
+		if((T.flags_1 & CAN_BE_ATTACKED_1) && T.attacked_by(src, user))
 			user.do_attack_animation(T)
 			return TRUE
 
