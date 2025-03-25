@@ -63,6 +63,9 @@
 /obj/effect/mapping_helpers/door/access/town/warehouse
 	access_string = ACCESS_WAREHOUSE
 
+/obj/effect/mapping_helpers/door/access/town/bathhouse
+	access_string = ACCESS_BATHHOUSE
+
 // Town Garrison
 /obj/effect/mapping_helpers/door/access/garrison
 	color = "#b02323"

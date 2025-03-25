@@ -152,11 +152,6 @@
 	icon_state = "rustkey"
 	lockid = ACCESS_APOTHECARY
 
-/obj/item/key/apothecary/spare
-	name = "bathhouse key"
-	desc = "A key for the Bathhouse."
-	icon_state = "brownkey"
-
 /obj/item/key/blacksmith
 	name = "blacksmith key"
 	desc = "The master key for the town Smithy."
@@ -232,6 +227,12 @@
 	desc = "This key should open anything within the tower."
 	icon_state = "greenkey"
 	lockid = ACCESS_TOWER
+
+/obj/item/key/bathhouse
+	name = "bathhouse key"
+	desc = "A key for the Bathhouse."
+	icon_state = "brownkey"
+	lockid = ACCESS_BATHHOUSE
 
 // Garrison
 
