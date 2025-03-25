@@ -289,6 +289,8 @@
 								atkswinging = null
 								//update_warning()
 								return
+					if(cmode)
+						resolveAdjacentClick(T,W,params,used_hand) //hit the turf
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
 						do_attack_animation(T, visual_effect_icon = used_intent.animname)
