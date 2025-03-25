@@ -201,7 +201,7 @@
 
 /obj/item/natural/worms/leech/parasite
 	name = "the parasite"
-	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes." (Use inhand to swap between draining blood, and giving blood.)
+	desc = "A foul, wriggling creecher. Known to suck whole villages of their blood, these rare freeks have been domesticated for medical purposes."
 	icon_state = "parasite"
 	dropshrink = 0.9
 	baitpenalty = 0
@@ -209,7 +209,7 @@
 	color = null
 	consistent = TRUE
 	drainage = 0
-	var/blood_sucking = 20
+	blood_sucking = 20
 	toxin_healing = -9
 	blood_storage = BLOOD_VOLUME_SURVIVE
 	blood_maximum = BLOOD_VOLUME_MAXIMUM
@@ -227,6 +227,10 @@
 	else
 		user.visible_message("<span class='notice'>[user] squeezes [src].</span>",\
 							"<span class='notice'>I squeeze [src]. It will now extract blood.</span>")
+
+/obj/item/natural/worms/leech/parasite/examine(mob/user)
+	. = ..()
+	. += span_info("Use inhand to swap between taking blood, and giving.")
 
 /obj/item/natural/worms/leech/propaganda
 	name = "accursed leech"
