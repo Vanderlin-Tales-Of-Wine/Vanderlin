@@ -230,7 +230,7 @@
 
 /obj/item/natural/worms/leech/parasite/examine(mob/user)
 	. = ..()
-	. += span_info("Use inhand to swap between taking blood, and giving.")
+	. += span_info("Use inhand to swap between taking blood and giving blood.")
 
 /obj/item/natural/worms/leech/propaganda
 	name = "accursed leech"
