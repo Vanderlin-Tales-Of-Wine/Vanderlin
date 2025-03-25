@@ -715,6 +715,9 @@
 	. = ..()
 	pixel_x = -16
 
+/obj/structure/fluff/statue/astrata/bling
+	icon_state = "astrata_bling"
+
 /obj/structure/fluff/statue/knight/r
 	icon_state = "knightstatue_r"
 
