@@ -2,6 +2,7 @@
 	name = "Zybantine Emir"
 	greet_text = "An Emir hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to the Isle of the Enigma."
 	allowed_sexes = list(MALE)
+	allowed_ages = list(AGE_ADULT, AGE_CHILD)
 	allowed_races = list(
 		"Humen",
 		"Rakshari",
