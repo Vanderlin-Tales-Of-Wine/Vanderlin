@@ -8,6 +8,7 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
+		"Kobold",
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",

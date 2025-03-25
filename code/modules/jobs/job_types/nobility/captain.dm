@@ -1,12 +1,19 @@
 /datum/job/captain
 	title = "Captain"
+	tutorial = "Law and Order, your divine reason for existence. \
+	You have been given command over the garrison to help keep order and peace within the city, \
+	and defend it against the many dangers of the peninsula."
 	flag = CAPTAIN
 	department_flag = NOBLEMEN
-	faction = "Station"
+	display_order = JDO_CAPTAIN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 15
+	bypass_lastclass = TRUE
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
+	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -14,28 +21,22 @@
 		"Aasimar",
 		"Dwarf"
 	)
-	allowed_sexes = list(MALE, FEMALE)
-	display_order = JDO_CAPTAIN
-	tutorial = "Law and Order, your divine reason for existence. You have been given command over the garrison to help keep order and peace within the city and defend it against the many dangers of the island."
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/captain
-	give_bank_account = 120
-	min_pq = 15
 
+	outfit = /datum/outfit/job/captain
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
+	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/antag/CombatSausageMaker.ogg'
 
-/datum/job/captain/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/captain/after_spawn(mob/living/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		var/prev_real_name = H.real_name
-		var/prev_name = H.name
-		var/honorary = "Sir"
-		if(H.gender == FEMALE)
-			honorary = "Dame"
-		H.real_name = "[honorary] [prev_real_name]"
-		H.name = "[honorary] [prev_name]"
+	var/mob/living/carbon/human/H = spawned
+	var/prev_real_name = H.real_name
+	var/prev_name = H.name
+	var/honorary = "Sir"
+	if(H.gender == FEMALE)
+		honorary = "Dame"
+	H.real_name = "[honorary] [prev_real_name]"
+	H.name = "[honorary] [prev_name]"
 
 /datum/outfit/job/captain
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON
@@ -89,7 +90,7 @@
 	desc = "Recruit someone to your cause."
 	overlay_state = "recruit_bog"
 	antimagic_allowed = TRUE
-	charge_max = 100
+	recharge_time = 100
 	/// Role given if recruitment is accepted
 	var/new_role = "Beggar"
 	/// Faction shown to the user in the recruitment prompt

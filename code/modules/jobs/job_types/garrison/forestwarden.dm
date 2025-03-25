@@ -1,12 +1,22 @@
 /datum/job/forestwarden
 	title = "Forest Warden"
+	tutorial = "You were born in the forest. Alone, you've always felt home in the woods. \
+	In your tenure with the garrison, you've cleaved through the wildlife-- \
+	and for your service in the short-lived Goblin War, the king has granted you nobility. \
+	In turn, you've been entrusted to keep his lands clear of \
+	the foul creechers that taint his land. Alone, you will die in these woods."
 	flag = FORWARDEN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	display_order = JDO_FORWARDEN
+	min_pq = 8
+	bypass_lastclass = TRUE
+	selection_color = "#0d6929"
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard)
+
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	allowed_races = list(
@@ -15,16 +25,10 @@
 		"Half-Elf",
 		"Dwarf",
 	)
-	tutorial = "You were born in the forest. Alone, you've always felt home in the woods. In your tenure with the garrison, you've cleaved through the wildlife -\
-	and for your service in the short-lived Goblin War, the king has granted you nobility. In turn, you've been entrusted to keep his lands clear of the foul\
-	creechers that taint his land. Alone, you will die in these woods."
-	display_order = JDO_FORWARDEN
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	selection_color = "#0d6929"
+
 	outfit = /datum/outfit/job/forestwarden
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard)
 	give_bank_account = 45
-	min_pq = 8
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
 /datum/outfit/job/forestwarden
@@ -32,13 +36,13 @@
 
 /datum/outfit/job/forestwarden/pre_equip(mob/living/carbon/human/H)
 	..()
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	armor = /obj/item/clothing/armor/leather/splint
-	shirt = /obj/item/clothing/armor/chainmail/iron
-	pants = /obj/item/clothing/pants/trou/leather
-	shoes = /obj/item/clothing/shoes/boots/furlinedboots
+	cloak = /obj/item/clothing/cloak/wardencloak
+	armor = /obj/item/clothing/armor/plate
+	shirt = /obj/item/clothing/armor/chainmail
+	pants = /obj/item/clothing/pants/platelegs
+	shoes = /obj/item/clothing/shoes/boots
 	wrists = /obj/item/clothing/wrists/bracers/leather
-	head = /obj/item/clothing/head/helmet/kettle/slit
+	head = /obj/item/clothing/head/helmet/visored/warden
 	gloves = /obj/item/clothing/gloves/leather
 	neck = /obj/item/clothing/neck/bevor
 	belt = /obj/item/storage/belt/leather
@@ -71,6 +75,7 @@
 		H.change_stat(STATKEY_SPD, 1)
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)

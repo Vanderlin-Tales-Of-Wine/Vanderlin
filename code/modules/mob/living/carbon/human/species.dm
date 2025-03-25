@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/icon_override_m
 	var/icon_override_f
 	var/list/possible_ages = ALL_AGES_LIST_WITH_CHILD
-	var/sexes = 1		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
+	var/sexes = TRUE		// whether or not the race has sexual characteristics. at the moment this is only 0 for skeletons and shadows
 	var/patreon_req
 	var/max_age = 75
 	var/list/offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hairyness = null
 
 	var/custom_clothes = FALSE //append species id to clothing sprite name
+	var/custom_id
 	var/use_f = FALSE //males use female clothes. for elves
 	var/use_m = FALSE //females use male clothes. for aasimar women
 
@@ -437,7 +438,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_hexcolor(list/L)
 	return L
 
-/datum/species/proc/get_skin_list()
+/datum/species/proc/get_skin_list() as /list
+	RETURN_TYPE(/list)
 	return GLOB.skin_tones
 
 /datum/species/proc/get_hairc_list()
@@ -1018,15 +1020,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				hide_boob = TRUE
 
 		if(H.underwear)
+			if(H.age == AGE_CHILD)
+				H.underwear = "Youngling"
+				if(H.gender == FEMALE)
+					H.underwear = "FemYoungling"
+
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
 				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE)
+				if(H.gender == FEMALE && H.age != AGE_CHILD)
 					if(OFFSET_FACE_F in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else
+				else if(H.age != AGE_CHILD)
 					if(OFFSET_FACE in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]
@@ -1637,11 +1644,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/doafter_flags = I.edelay_type ? (IGNORE_USER_LOC_CHANGE) : (NONE)
 	return do_after(H, min((I.equip_delay_self - H.STASPD), 1), timed_action_flags = doafter_flags)
 
-/datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
+/// Equips the necessary species-relevant gear before putting on the rest of the uniform.
+/datum/species/proc/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
 	return
 
-/datum/species/proc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.update_mutant_bodyparts()
+/datum/species/proc/post_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only = FALSE)
+	return
 
 /datum/species/proc/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
 	if(chem.type == exotic_bloodtype)

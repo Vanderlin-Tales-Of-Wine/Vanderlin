@@ -58,9 +58,11 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/socks, GLOB.socks_list)
 	return pick(GLOB.socks_list)
 
+/// TO BE DELETED
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 
+/// TO BE DELETED, INTEGRATE INTO SPECIES DATUM
 /proc/random_features()
 	if(!GLOB.tails_list_human.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/human, GLOB.tails_list_human)
@@ -82,9 +84,32 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings, GLOB.body_markings_list)
 	if(!GLOB.wings_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/wings, GLOB.wings_list)
-	//For now we will always return none for tail_human and ears.
-	return(list("mcolor" = pick("FFFFFF","7F7F7F", "7FFF7F", "7F7FFF", "FF7F7F", "7FFFFF", "FF7FFF", "FFFF7F"),"ethcolor" = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)], "tail_lizard" = pick(GLOB.tails_list_lizard), "tail_human" = "None", "wings" = "None", "snout" = pick(GLOB.snouts_list), "horns" = pick(GLOB.horns_list), "ears" = "None", "frills" = pick(GLOB.frills_list), "spines" = pick(GLOB.spines_list), "body_markings" = pick(GLOB.body_markings_list), "legs" = "Normal Legs", "caps" = pick(GLOB.caps_list)))
+	return list(
+		"mcolor" = pick(
+			"FFFFFF",
+			"7F7F7F",
+			"7FFF7F",
+			"7F7FFF",
+			"FF7F7F",
+			"7FFFFF",
+			"FF7FFF",
+			"FFFF7F",
+		),
+		"ethcolor" = pick_assoc(GLOB.color_list_ethereal),
+		"tail_lizard" = pick(GLOB.tails_list_lizard),
+		"tail_human" = "TiebTail", //1: should be its own feature, 2: shouldn't be doing this...
+		"wings" = "None",
+		"snout" = pick(GLOB.snouts_list),
+		"horns" = pick(GLOB.horns_list),
+		"ears" = "ElfW", //horcs, tiefs, elves
+		"frills" = pick(GLOB.frills_list),
+		"spines" = pick(GLOB.spines_list),
+		"body_markings" = pick(GLOB.body_markings_list),
+		"legs" = "Normal Legs",
+		"caps" = pick(GLOB.caps_list)
+	)
 
+/// TO BE DELETED
 /proc/random_hairstyle(gender)
 	switch(gender)
 		if(MALE)
@@ -94,6 +119,7 @@
 		else
 			return pick(GLOB.hairstyles_list)
 
+/// TO BE DELETED
 /proc/random_facial_hairstyle(gender)
 	switch(gender)
 		if(MALE)
@@ -109,19 +135,6 @@
 			. = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
 			. = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
-
-		if(!findname(.))
-			break
-
-/proc/random_unique_lizard_name(gender, attempts_to_find_unique_name=10)
-	for(var/i in 1 to attempts_to_find_unique_name)
-		. = capitalize(lizard_name(gender))
-
-		if(!findname(.))
-			break
-/proc/random_unique_ethereal_name(attempts_to_find_unique_name=10)
-	for(var/i in 1 to attempts_to_find_unique_name)
-		. = capitalize(ethereal_name())
 
 		if(!findname(.))
 			break
@@ -208,9 +221,6 @@ GLOBAL_LIST_INIT(oldhc, sortList(list(
 		if("decay grey")
 			. = "#6a6a6a"
 
-
-GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
-
 //some additional checks as a callback for for do_afters that want to break on losing health or on the mob taking action
 /mob/proc/break_do_after_checks(list/checked_health, check_clicks)
 	if(check_clicks && next_move > world.time)
@@ -237,23 +247,32 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
  * @param {boolean} progress - Whether to display a progress bar / cogbar. \
  * @param {datum/callback} extra_checks - Additional checks to perform before the action is executed. \
  *
- * ~~@param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set.~~ \
- * ~~@param {number} max_interact_count - The maximum amount of interactions allowed.~~
+ * @param {string} interaction_key - The assoc key under which the do_after is capped, with max_interact_count being the cap. Interaction key will default to target if not set. \
+ * @param {number} max_interact_count - The maximum amount of interactions allowed. \
+ * @param {boolean} hidden - By default, any action 1 second or longer shows a cog over the user while it is in progress. If hidden is set to TRUE, the cog will not be shown.
  */
-/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks)
+/proc/do_after(mob/user, delay, atom/target = null, timed_action_flags = NONE, progress = TRUE, datum/callback/extra_checks, interaction_key, max_interact_count = 1, hidden = FALSE)
 	if(!user)
 		return FALSE
 	if(!isnum(delay))
 		CRASH("do_after was passed a non-number delay: [delay || "null"].")
-	/* */
-	if(user.doing)
+
+	/* V: */
+	if(!(timed_action_flags & IGNORE_USER_DOING) && user.doing())
 		return FALSE
-	user.doing = TRUE
-	/* */
+	/* :V */
+
+	if(!interaction_key)
+		interaction_key = target || "doafter_unspecified" /* V */
+	if(interaction_key) //Do we have a interaction_key now?
+		var/current_interaction_count = LAZYACCESS(user.do_afters, interaction_key) || 0
+		if(current_interaction_count >= max_interact_count) //We are at our peak
+			return FALSE
+		LAZYSET(user.do_afters, interaction_key, current_interaction_count + 1)
 
 	var/atom/user_loc = user.loc
 	var/atom/target_loc = target?.loc
-	var/user_dir = user.dir
+	var/user_dir = user.dir /* V */
 
 	var/drifting = FALSE
 	if(!user.Process_Spacemove(0) && user.inertia_dir)
@@ -265,8 +284,14 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 		delay *= user.do_after_coefficent()
 
 	var/datum/progressbar/progbar
+	var/datum/cogbar/cog
+
 	if(progress)
-		progbar = new(user, delay, target || user)
+		if(user.client)
+			progbar = new(user, delay, target || user)
+
+		if(!hidden && delay >= 1 SECONDS)
+			cog = new(user)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
@@ -284,11 +309,13 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			user_loc = user.loc
 
 		if(QDELETED(user) \
-			|| (!user.doing) /* V: */ \
 			|| (!(timed_action_flags & IGNORE_USER_LOC_CHANGE) && !drifting && user.loc != user_loc) \
 			|| (!(timed_action_flags & IGNORE_HELD_ITEM) && user.get_active_held_item() != holding) \
 			|| (!(timed_action_flags & IGNORE_INCAPACITATED) && HAS_TRAIT(user, TRAIT_INCAPACITATED)) \
+			/* V: */ \
+			|| (!DOING_INTERACTION(user, interaction_key)) \
 			|| (!(timed_action_flags & IGNORE_USER_DIR_CHANGE) && user.dir != user_dir) \
+			/* :V */ \
 			|| (extra_checks && !extra_checks.Invoke()))
 			. = FALSE
 			break
@@ -299,17 +326,52 @@ GLOBAL_LIST_EMPTY(species_list) //why is this here lmao
 			. = FALSE
 			break
 
-	/* */
-	user.doing = FALSE
-	/* */
 	if(!QDELETED(progbar))
 		progbar.end_progress()
+
+	cog?.remove(.) /* V */
+
+	if(interaction_key)
+		user.stop_doing(interaction_key)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
 	return
+
+/// Returns the total amount of do_afters this mob is taking part in
+/mob/proc/do_after_count()
+	var/count = 0
+	for(var/key in do_afters)
+		count += do_afters[key]
+	return count
+
+/* V: */
+/// Returns TRUE if the mob is in a do_after.
+/mob/proc/doing()
+	for(var/key in do_afters)
+		if(do_afters[key] > 0)
+			return TRUE
+
+/// Clears out all do_afters with a specified interaction key
+/mob/proc/stop_doing(interaction_key)
+	if(!interaction_key)
+		return
+
+	var/reduced_interaction_count = (LAZYACCESS(do_afters, interaction_key) || 0) - 1
+	if(reduced_interaction_count > 0) // Not done yet!
+		LAZYSET(do_afters, interaction_key, reduced_interaction_count)
+		return
+	// all out, let's clear er out fully
+	LAZYREMOVE(do_afters, interaction_key)
+
+/// Stops all do_afters
+/mob/proc/stop_all_doing()
+	for(var/interaction_key in do_afters)
+		LAZYREMOVE(do_afters, interaction_key)
+
+/* :V */
 
 /proc/is_species(A, species_datum)
 	. = FALSE

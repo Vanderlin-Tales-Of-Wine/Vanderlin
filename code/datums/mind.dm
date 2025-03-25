@@ -67,8 +67,8 @@
 	var/active = FALSE
 	/// the memory of this mind
 	var/memory
-	/// the job/role of this mind
-	var/assigned_role
+	/// Job datum indicating the mind's role. This should always exist after initialization, as a reference to a singleton.
+	var/datum/job/assigned_role
 	/// special role of this mind
 	var/special_role
 	/// list of roles this mind cannot roll
@@ -143,6 +143,7 @@
 
 	var/list/apprentices = list()
 
+	var/has_studied = FALSE
 	/// Variable that lets the event picker see if someones getting chosen or not
 	var/picking = FALSE
 	///the bitflag our job applied
@@ -153,6 +154,7 @@
 	src.key = key
 	soulOwner = src
 	martial_art = default_martial_art
+	set_assigned_role(SSjob.GetJobType(/datum/job/unassigned))
 	sleep_adv = new /datum/sleep_adv(src)
 
 /datum/mind/Destroy()
@@ -172,7 +174,7 @@
 			if(M.special_role == role)
 				is_role = TRUE
 			else
-				if(M.assigned_role == role)
+				if(M.assigned_role.title == role)
 					is_role = TRUE
 		if(is_role)
 			. += M
@@ -211,10 +213,8 @@
 			M.known_people[H.real_name]["VCOLOR"] = H.voice_color
 			var/used_title
 			if(H.job)
-				var/datum/job/J = SSjob.GetJob(H.job)
-				used_title = J.title
-				if(H.gender == FEMALE && J.f_title)
-					used_title = J.f_title
+				var/datum/job/job = SSjob.GetJob(H.job)
+				used_title = job.get_informed_title(H)
 			if(!used_title)
 				used_title = "Unknown"
 			M.known_people[H.real_name]["FJOB"] = used_title
@@ -1032,14 +1032,18 @@
 			if(istype(O,objective_type))
 				return TRUE
 
+/// Setter for the assigned_role job datum.
+/datum/mind/proc/set_assigned_role(datum/job/new_role)
+	if(!istype(new_role))
+		new_role = ispath(new_role) ? SSjob.GetJobType(new_role) : SSjob.GetJob(new_role)
+	if(assigned_role == new_role)
+		return assigned_role
+	. = assigned_role
+	assigned_role = new_role
+
 /mob/proc/sync_mind()
 	mind_initialize()	//updates the mind (or creates and initializes one if one doesn't exist)
-	mind.active = 1		//indicates that the mind is currently synced with a client
-
-/datum/mind/proc/has_martialart(string)
-	if(martial_art && martial_art.id == string)
-		return martial_art
-	return FALSE
+	mind.active = TRUE	//indicates that the mind is currently synced with a client
 
 /mob/dead/new_player/sync_mind()
 	return
@@ -1062,12 +1066,6 @@
 /mob/living/carbon/mind_initialize()
 	..()
 	last_mind = mind
-
-//HUMAN
-/mob/living/carbon/human/mind_initialize()
-	..()
-	if(!mind.assigned_role)
-		mind.assigned_role = "Unassigned" //default
 
 /**
  * Get a bonus multiplier dependant on age to apply to exp gains.
@@ -1145,11 +1143,8 @@
 	apprentices |= WEAKREF(youngling)
 	youngling.mind.apprentice = TRUE
 
-	var/datum/job/job_ref = SSjob.GetJob(current:job)
-	var/title = "[job_ref.title]"
-	if(youngling.gender == FEMALE && job_ref.f_title)
-		title = "[job_ref.f_title]"
-	title += " Apprentice"
+	var/datum/job/job = SSjob.GetJob(current:job)
+	var/title = "[job.get_informed_title(youngling)] Apprentice"
 	if(apprentice_name) //Needed for advclassses
 		title = apprentice_name
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"

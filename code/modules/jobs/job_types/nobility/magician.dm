@@ -1,10 +1,18 @@
 /datum/job/magician
 	title = "Court Magician"
+	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. \
+	A scholar of Noc, or a secret worshipper of Zizo. \
+	Indebted to the ruler for funding yils of mystical studies in these dark times, \
+	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	flag = WIZARD
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MAGICIAN
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 6
+	bypass_lastclass = TRUE
 
 	allowed_races = list(
 		"Humen",
@@ -15,16 +23,11 @@
 	)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
-	display_order = JDO_MAGICIAN
-	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
-	Indebted to the ruler for funding yils of mystical studies in these dark times, \
-	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
+
 	outfit = /datum/outfit/job/magician
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 	give_bank_account = 120
-	min_pq = 6
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
+	magic_user = TRUE
 
 /datum/outfit/job/magician
 	job_bitflag = BITFLAG_ROYALTY
@@ -35,12 +38,13 @@
 	backr = /obj/item/storage/backpack/satchel
 	armor = /obj/item/clothing/shirt/robe/black
 	cloak = /obj/item/clothing/cloak/black_cloak
+	neck = /obj/item/clothing/neck/mana_star
 	id = /obj/item/clothing/ring/gold
 	belt = /obj/item/storage/belt/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/mage
+	beltr = /obj/item/storage/magebag
 	backl = /obj/item/weapon/polearm/woodstaff
 	shoes = /obj/item/clothing/shoes/shortboots
-	backpack_contents = list(/obj/item/scrying = 1, /obj/item/reagent_containers/glass/bottle/killersice = 1)
+	backpack_contents = list(/obj/item/scrying = 1, /obj/item/chalk = 1,/obj/item/reagent_containers/glass/bottle/killersice = 1, /obj/item/book/granter/spellbook/master = 1, /obj/item/weapon/knife/dagger/silver/arcyne = 1, /obj/item/storage/keyring/mage = 1)
 	if(H.mind)
 		if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))
 			H.set_patron(/datum/patron/divine/noc)
@@ -74,8 +78,10 @@
 		H.change_stat(STATKEY_INT, 5)
 		H.change_stat(STATKEY_CON, -2)
 		H.change_stat(STATKEY_SPD, -2)
-		H.mind.adjust_spellpoints(8)
+		H.mind.adjust_spellpoints(17)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/aoe_turf/knock)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/ethereal_jaunt)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+
+		H.generate_random_attunements(rand(4,6))

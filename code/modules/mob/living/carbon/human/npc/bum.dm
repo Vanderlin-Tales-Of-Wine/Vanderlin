@@ -1,10 +1,10 @@
-GLOBAL_LIST_INIT(bum_quotes, world.file2list("strings/rt/bumlines.txt"))
-GLOBAL_LIST_INIT(bum_aggro, world.file2list("strings/rt/bumaggrolines.txt"))
+GLOBAL_LIST_INIT(bum_quotes, world.file2list('strings/rt/bumlines.txt'))
+GLOBAL_LIST_INIT(bum_aggro, world.file2list('strings/rt/bumaggrolines.txt'))
 
 /mob/living/carbon/human/species/human/northern/bum
 	aggressive=0
 	mode = AI_IDLE
-	faction = list("bums", "station")
+	faction = list(FACTION_BUMS, FACTION_STATION)
 	ambushable = FALSE
 	dodgetime = 30
 	flee_in_pain = TRUE

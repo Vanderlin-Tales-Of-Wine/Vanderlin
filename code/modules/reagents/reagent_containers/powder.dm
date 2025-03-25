@@ -250,3 +250,13 @@
 	volume = 15
 	list_reagents = list(/datum/reagent/blastpowder = 15)
 	sellprice = 15
+
+/obj/item/reagent_containers/powder/manabloom
+	name = "manabloom dust"
+	desc = "Crushed manabloom useful as a combat measure against mages."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "salt"
+	volume = 5
+	list_reagents = list(/datum/reagent/toxin/manabloom_juice = 5)
+	sellprice = 10
+	color = COLOR_CYAN

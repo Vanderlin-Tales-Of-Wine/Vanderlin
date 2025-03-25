@@ -1,13 +1,21 @@
 /datum/job/mayor
 	title = "Town Elder"
+	tutorial = "The crown may lead officially, \
+	but the townsfolk of Vanderlin look to you to manage the settlement and solve lesser issues. \
+	Remember the old ways of the law... not everything must end in bloodshed, \
+	but do what is necessary to maintain the peace."
 	flag = MAYOR
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_CHIEF
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 2
+	bypass_lastclass = TRUE
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -15,15 +23,10 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
-	tutorial = "The crown may lead officially, but the townsfolk of Vanderlin look to you to manage the settlement and solve lesser issues. Remember the old ways of the law... not everything must end in bloodshed, but do what is necessary to maintain the peace."
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
-	outfit = /datum/outfit/job/mayor
-	display_order = JDO_CHIEF
-	give_bank_account = 80
-	min_pq = 2
 
+	outfit = /datum/outfit/job/mayor
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
+	give_bank_account = 80
 	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
 	can_have_apprentices = FALSE
 
@@ -83,7 +86,7 @@
 	f_title = "Town Militiawoman"
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
 	display_order = JDO_CITYWATCHMEN
