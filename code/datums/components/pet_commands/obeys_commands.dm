@@ -31,6 +31,7 @@
 	RegisterSignal(parent, COMSIG_LIVING_UNFRIENDED, PROC_REF(remove_friend))
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(display_menu))
+	RegisterSignal(parent, COMSIG_CLICK_CTRL, PROC_REF(check_name))
 
 /datum/component/obeys_commands/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_LIVING_BEFRIENDED, COMSIG_LIVING_UNFRIENDED, COMSIG_PARENT_EXAMINE, COMSIG_CLICK_ALT))
@@ -73,6 +74,17 @@
 
 	INVOKE_ASYNC(src, PROC_REF(display_radial_menu), clicker)
 
+/datum/component/obeys_commands/proc/check_name(datum/source, mob/living/clicker)
+	var/mob/living/living_parent = parent
+	if (IS_DEAD_OR_INCAP(living_parent))
+		return
+	if(!living_parent.Adjacent(parent))
+		return
+	if (!(clicker in living_parent.ai_controller?.blackboard[BB_FRIENDS_LIST]))
+		return // Not our friend, can't boss us around
+
+	INVOKE_ASYNC(src, PROC_REF(prompt_name), clicker)
+
 /// Actually display the radial menu and then do something with the result
 /datum/component/obeys_commands/proc/display_radial_menu(mob/living/clicker)
 	var/list/radial_options = list()
@@ -88,3 +100,12 @@
 		return
 	var/datum/pet_command/picked_command = available_commands[pick]
 	picked_command.try_activate_command(clicker)
+
+/// Actually display the radial menu and then do something with the result
+/datum/component/obeys_commands/proc/prompt_name(mob/living/clicker)
+	var/new_name = input(clicker, "Choose a new name for [parent]", parent)
+	if(!new_name)
+		return
+	var/mob/living/living = parent
+	living.name = new_name
+	living.real_name = new_name
