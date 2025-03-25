@@ -24,16 +24,25 @@
 	dodgetime = 30
 	aggressive = 1
 	remains_type = null
+	botched_butcher_results = null
+	butcher_results = null
+	perfect_butcher_results = null
 	var/summoner = null
+	var/despawn_timer
 	var/timeleft = 5 MINUTES
+	del_on_death = TRUE
 
 	ai_controller = /datum/ai_controller/summon
 
 /mob/living/simple_animal/hostile/retaliate/wolf/familiar/Initialize(mapload, mob/user)
 	. = ..()
 	if(timeleft)
-		QDEL_IN(src, timeleft) //delete after it runs out, see code/modules/mob/living/simple_animal/rogue/creacher/familiar.dm for timeleft var
+		despawn_timer = QDEL_IN(src, timeleft) //delete after it runs out, see code/modules/mob/living/simple_animal/rogue/creacher/familiar.dm for timeleft var
 	summoner = user
+
+/mob/living/simple_animal/hostile/retaliate/wolf/familiar/Destroy()
+	deltimer(despawn_timer)
+	. = ..()
 
 /mob/living/simple_animal/hostile/retaliate/wolf/familiar/PickTarget(list/Targets)//Step 3, pick amongst the possible, attackable targets
 	if(target != null)//If we already have a target, but are told to pick again, calculate the lowest distance between all possible, and pick from the lowest distance targets
