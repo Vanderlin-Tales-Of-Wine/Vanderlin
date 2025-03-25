@@ -568,7 +568,7 @@
 	if(HAS_TRAIT(src, TRAIT_TOXINLOVER) && !force)
 		return TRUE
 
-	MOBTIMER_UNSET(src, MT_PUKE)
+	MOBTIMER_SET(src, MT_PUKE)
 
 	if(nutrition <= 50 && !blood)
 		if(message)
