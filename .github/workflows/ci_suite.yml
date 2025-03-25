@@ -50,6 +50,7 @@ jobs:
           tools/bootstrap/python tools/ci/validate_dme.py < stonekeep.dme
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test
+          tools/bootstrap/python -m tools.maplint.source
           ~/dreamchecker > ${GITHUB_WORKSPACE}/output-annotations.txt 2>&1
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v2
