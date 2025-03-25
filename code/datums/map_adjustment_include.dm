@@ -7,4 +7,3 @@
 */
 
 //#include "..\..\_maps\map_files\roguetest\map_adjustment_template.dm"
-#include "..\..\_maps\map_files\vanderlin\map_adjustment_vanderlin.dm"
