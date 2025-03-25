@@ -22,7 +22,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 
 

@@ -5,8 +5,10 @@
 
 /datum/ai_behavior/find_potential_targets/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
 	. = ..()
-
 	var/mob/living/living_mob = controller.pawn
+	if(living_mob.pet_passive)
+		finish_action(controller, succeeded = FALSE)
+		return
 	var/datum/targetting_datum/targetting_datum = controller.blackboard[targetting_datum_key]
 
 	if(living_mob.icon_state == "Trolla") //shitcode add a trait

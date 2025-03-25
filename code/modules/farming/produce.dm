@@ -106,7 +106,7 @@
 	var/equippedloc = null
 	var/list/bitten_names = list()
 
-/obj/item/reagent_containers/food/snacks/produce/apple/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/apple/on_consume(mob/living/eater)
 	..()
 	if(ishuman(eater))
 		var/mob/living/carbon/human/H = eater
@@ -209,7 +209,7 @@
 	update_icon()
 	..()
 
-/obj/item/reagent_containers/food/snacks/produce/jacksberry/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/produce/jacksberry/on_consume(mob/living/eater)
 	..()
 	update_icon()
 

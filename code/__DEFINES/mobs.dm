@@ -390,6 +390,11 @@
 
 #define SLEEP_CHECK_DEATH(X) sleep(X); if(QDELETED(src) || stat == DEAD) return;
 
+#define DOING_INTERACTION(user, interaction_key) (LAZYACCESS(user.do_afters, interaction_key))
+#define DOING_INTERACTION_LIMIT(user, interaction_key, max_interaction_count) ((LAZYACCESS(user.do_afters, interaction_key) || 0) >= max_interaction_count)
+#define DOING_INTERACTION_WITH_TARGET(user, target) (LAZYACCESS(user.do_afters, target))
+#define DOING_INTERACTION_WITH_TARGET_LIMIT(user, target, max_interaction_count) ((LAZYACCESS(user.do_afters, target) || 0) >= max_interaction_count)
+
 //defense intents
 #define INTENT_DODGE 1
 #define INTENT_PARRY 2
@@ -490,6 +495,13 @@
 #define SKIN_COLOR_ASTURIAS	"a23737" //Clay red
 #define SKIN_COLOR_VAQUERO	"a74a4a" //Earthly red
 #define SKIN_COLOR_ARLENNETH "9197C5" //Lavendar blue
+
+//KOBOLD SKIN TONES
+#define SKIN_COLOR_EMBERHIDE "8B3A2F"//White - Pale
+#define SKIN_COLOR_STONEPAW "6D6D6D" //White - Tan
+#define SKIN_COLOR_SUNSTREAK "b77614" //White - Tan
+#define SKIN_COLOR_MOONSHADE "C0C0C0" //Middle-eastern
+#define SKIN_COLOR_SANDSWEPT "fcccb3" //White - Tan
 
 //SPECIAL SKIN TONES
 #define SKIN_COLOR_ROT "878f79" //Sickly green

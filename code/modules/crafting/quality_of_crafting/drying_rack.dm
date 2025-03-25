@@ -62,7 +62,7 @@
 
 /datum/repeatable_crafting_recipe/saltfish
 	name = "saltfish"
-	output = /obj/item/reagent_containers/food/snacks/fat/salo
+	output = /obj/item/reagent_containers/food/snacks/saltfish
 	starting_atom = /obj/item/reagent_containers/food/snacks/fish
 	requirements = list(
 		/obj/item/reagent_containers/food/snacks/fish = 1,

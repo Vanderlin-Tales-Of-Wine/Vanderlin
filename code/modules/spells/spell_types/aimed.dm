@@ -28,10 +28,9 @@
 	if(active)
 		if(deactive_msg)
 			msg = "<span class='notice'>[deactive_msg]</span>"
-		if(charge_type == "recharge")
-			var/refund_percent = current_amount/projectile_amount
-			charge_counter = charge_max * refund_percent
-			start_recharge()
+		var/refund_percent = current_amount/projectile_amount
+		charge_counter = recharge_time * refund_percent
+		start_recharge()
 		active = FALSE
 		remove_ranged_ability(msg)
 		on_deactivation(user)
@@ -101,8 +100,7 @@
 	desc = ""
 	action_icon_state = "fireball0"
 	school = "evocation"
-	charge_max = 60
-	clothes_req = FALSE
+	recharge_time = 60
 	invocation = "ONI SOMA"
 	invocation_type = "shout"
 	range = 20
