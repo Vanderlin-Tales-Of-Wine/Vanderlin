@@ -1326,7 +1326,7 @@
 #include "code\modules\antagonists\villain\vampire\death_knight.dm"
 #include "code\modules\antagonists\villain\vampire\lord.dm"
 #include "code\modules\antagonists\villain\vampire\spawn.dm"
-#include "code\modules\antagonists\villain\vampire\teams.dm"
+#include "code\modules\antagonists\villain\vampire\team.dm"
 #include "code\modules\antagonists\villain\vampire\objects\bloodpool.dm"
 #include "code\modules\antagonists\villain\vampire\objects\necrobook.dm"
 #include "code\modules\antagonists\villain\vampire\objects\portal.dm"

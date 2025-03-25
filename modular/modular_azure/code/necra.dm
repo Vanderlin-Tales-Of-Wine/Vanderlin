@@ -94,12 +94,12 @@
 		if(L.stat == DEAD)
 			continue
 		if (L.mind)
-			var/datum/antagonist/vampire/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampire/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if (V && !V.disguised)
 				is_vampire = TRUE
 			if (L.mind.has_antag_datum(/datum/antagonist/zombie))
 				is_zombie = TRUE
-			if (L.mind.special_role == "Vampire Lord")
+			if (istype(V, /datum/antagonist/vampire/lord))
 				too_powerful = L
 				user.visible_message(span_warning("[user] suddenly pales before an unseen presence, and gasps!"), span_warning("The sound of rushing blood fills my ears and mind, drowning out my abrogation!"))
 				break

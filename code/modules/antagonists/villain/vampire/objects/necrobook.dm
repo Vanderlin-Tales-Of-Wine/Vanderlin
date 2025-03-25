@@ -12,12 +12,14 @@
 	if(!lord_datum)
 		return
 
-	if(!unlocked)
-		to_chat(user, "I have yet to regain this aspect of my power!")
-		return
+	var/datum/team/vampires/vamp_team = lord_datum.team
+	if(vamp_team.power_level < 3)
+		to_chat(user, span_warning("I have yet to regain this aspect of my power."))
+		return TRUE
+
 	switch(browser_input_list(user, "What to do?", null, useoptions))
 		if("Create Death Knight")
-			if(browser_alert(user, "Create a Death Knight?\nCost:[DEATH_KNIGHT_COST]",null,DEFAULT_INPUT_CHOICES) != CHOICE_YES)
+			if(browser_alert(user, "Create a Death Knight?<BR>Cost:[DEATH_KNIGHT_COST]",null,DEFAULT_INPUT_CHOICES) != CHOICE_YES)
 				return
 			if(length(SSmapping.retainer.death_knights) >= 3)
 				to_chat(user, span_warning("I cannot summon any more death knights."))
@@ -31,7 +33,7 @@
 				to_chat(user, span_warning("I no longer have enough vitae."))
 				return
 
-			lord_datum.handle_vitae(DEATH_KNIGHT_COST)
+			lord_datum.adjust_vitae(DEATH_KNIGHT_COST)
 			user.playsound_local(get_turf(src), 'sound/misc/vcraft.ogg', 100, FALSE, pressure_affected = FALSE)
 			to_chat(user, span_notice("I have summoned a knight from the underworld. I need only wait for them to materialize."))
 			SSmapping.add_world_trait(/datum/world_trait/death_knight, -1)
@@ -43,14 +45,14 @@
 		if("Steal the Sun")
 			if(!can_steal_sun(lord_datum))
 				return
-			if(browser_alert(user, "Force Vanderlin into Night?\nCost:[SUN_STEAL_COST]","",DEFAULT_INPUT_CHOICES) != CHOICE_YES)
+			if(browser_alert(user, "Force Vanderlin into Night?<BR>Cost:[SUN_STEAL_COST]","",DEFAULT_INPUT_CHOICES) != CHOICE_YES)
 				return
 			if(!do_after(user, 10 SECONDS, src))
 				return
 			if(!can_steal_sun(lord_datum))
 				return
 
-			lord_datum.handle_vitae(SUN_STEAL_COST)
+			lord_datum.adjust_vitae(SUN_STEAL_COST)
 
 			GLOB.todoverride = "night"
 			sunstolen = TRUE

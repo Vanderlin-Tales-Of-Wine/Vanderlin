@@ -56,12 +56,13 @@ GLOBAL_LIST_EMPTY(antagonist_teams)
 		var/objective_count = 0
 		var/triumph_count = 0
 		for(var/datum/objective/objective as anything in objectives)
+			objective_count++
+			triumph_count++
 			if(objective.check_completion())
 				report += "<B>[objective.flavor] #[objective_count]</B>: [objective.explanation_text] [span_greentext("TRIUMPH!")]"
 			else
 				report += "<B>[objective.flavor] #[objective_count]</B>: [objective.explanation_text] [span_redtext("FAIL.")]"
 				win = FALSE
-			triumph_count++
 
 		var/result_sound
 		if(win)

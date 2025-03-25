@@ -27,7 +27,7 @@
 				user.visible_message("<span class='warning'>[user] drinks from [src]!</span>",\
 				"<span class='warning'>I drink from [src].</span>")
 				playsound(user.loc, 'sound/misc/drink_blood.ogg', 100, FALSE, -4)
-				VD.handle_vitae(50)
+				VD.adjust_vitae(50)
 				dead = TRUE
 				playsound(get_turf(user), 'sound/vo/mobs/rat/rat_death.ogg', 100, FALSE, -1)
 				icon_state = "srat1"

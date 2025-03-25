@@ -12,7 +12,7 @@
 		return FALSE
 	if(!MOBTIMER_FINISHED(src, MT_AMBUSHLAST, 5 MINUTES))
 		return FALSE
-	return ambushable
+	return ambushable || HAS_TRAIT(src, TRAIT_NOAMBUSH)
 
 /mob/living/proc/consider_ambush()
 	if(!prob(AMBUSH_CHANCE))

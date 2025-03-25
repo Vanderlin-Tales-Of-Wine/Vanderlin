@@ -4,7 +4,6 @@
 
 /datum/antagonist/skeleton/knight/on_gain()
 	. = ..()
-	owner.current.verbs |= /mob/living/carbon/human/proc/vampire_telepathy
 	owner.unknow_all_people()
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)

@@ -1,12 +1,13 @@
 /datum/antagonist/vampire/lord
 	name = "Vampire Lord"
-	antag_hud_name = "Vspawn"
+	antag_hud_name = "vampire"
+	autojoin_team = TRUE
 	confess_lines = list(
 		"I AM ANCIENT!",
 		"I AM THE LAND!",
 		"FIRSTBORNE CHILD OF KAIN!",
 	)
-	var/vamplevel = 0
+
 	var/ascended = FALSE
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
@@ -17,17 +18,22 @@
 
 	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
 
+	equip()
+	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
+
+/datum/antagonist/vampire/lord/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 	owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
-	equip()
-	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "Lord"), 5 SECONDS)
 
 /datum/antagonist/vampire/lord/on_removal()
 	if(!isnull(batform))
 		owner.current.RemoveSpell(batform)
 		QDEL_NULL(batform)
-	. = ..()
 
+	owner.current.verbs -= /mob/living/carbon/human/proc/demand_submission
+	owner.current.verbs -= /mob/living/carbon/human/proc/punish_spawn
+
+	. = ..()
 
 /datum/antagonist/vampire/lord/greet()
 	to_chat(owner.current, span_userdanger("I am ancient. I am the Land. And I am now awoken to trespassers upon my domain."))
@@ -44,7 +50,7 @@
 	eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(owner.current)
 	H.equipOutfit(/datum/outfit/job/vamplord)
-	H.set_patron(/datum/patron/psydon) //Servant forever of he who is forgotten.
+	H.set_patron(/datum/patron/godless)
 
 	return TRUE
 
@@ -56,65 +62,22 @@
 
 /datum/antagonist/vampire/lord/exposed_to_sunlight()
 	var/mob/living/carbon/human/H = owner
-	to_chat(H, span_warning("Astrata spurns me! I must get out of her rays!")) // VLord is more punished for daylight excursions.
+	to_chat(H, span_warning("ASTRATA spurns me! I must get out of Her rays!")) // VLord is more punished for daylight excursions.
 	var/turf/N = H.loc
 	if(N.can_see_sky())
 		if(N.get_lumcount() > 0.15)
 			H.fire_act(3)
-			handle_vitae(-500)
-	to_chat(H, span_warning("That was too close. I must avoid the sun."))
+			adjust_vitae(-500)
 
-/datum/antagonist/vampire/lord/handle_vitae(change, tribute)
+/datum/antagonist/vampire/lord/adjust_vitae(change, tribute)
 	team.vitae_pool.update_pool(change)
+
+/datum/antagonist/vampire/lord/handle_vitae()
 	. = ..()
+	vitae = team.vitae_pool.current
 
 /datum/antagonist/vampire/lord/move_to_spawnpoint()
 	owner.current.forceMove(pick(GLOB.vlord_starts))
-
-/datum/antagonist/vampire/lord/proc/grow_in_power()
-	if(vamplevel >= 3)
-		return
-
-	switch(++vamplevel)
-		if(1)
-			batform = new
-			owner.current.AddSpell(batform)
-			for(var/obj/structure/vampire/portalmaker/S in GLOB.vampire_objects)
-				S.unlocked = TRUE
-			for(var/statkey in MOBSTATS)
-				owner.current.change_stat(statkey, 2)
-			to_chat(owner, "<font color='red'>I am refreshed and have grown stronger. The visage of the bat is once again available to me. I can also once again access my portals.</font>")
-		if(2)
-			owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
-			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
-			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-			owner.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
-			gas = new
-			owner.current.AddSpell(gas)
-			for(var/S in MOBSTATS)
-				owner.current.change_stat(S, 2)
-			to_chat(owner, "<font color='red'>My power is returning. I can once again access my spells. I have also regained usage of my mist form.</font>")
-		if(3)
-			for(var/obj/structure/vampire/necromanticbook/S in GLOB.vampire_objects)
-				S.unlocked = TRUE
-			owner.current.verbs |= /mob/living/carbon/human/proc/blood_strength
-			owner.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
-			owner.current.RemoveSpell(/obj/effect/proc_holder/spell/targeted/transfix)
-			owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix/master)
-			for(var/S in MOBSTATS)
-				owner.current.change_stat(S, 2)
-			to_chat(owner, span_notice("My dominion over others minds and my own body returns to me. I am nearing perfection. The armies of the dead shall now answer my call."))
-		if(4)
-			owner.current.visible_message("<font color='red'>[owner.current] is enveloped in dark crimson, a horrific sound echoing in the area. They are evolved.</font>","<font color='red'>I AM ANCIENT, I AM THE LAND. EVEN THE SUN BOWS TO ME.</font>")
-			ascended = TRUE
-			SSmapping.retainer.ascended = TRUE
-			for(var/datum/mind/thrall in SSmapping.retainer.vampires)
-				if(thrall.special_role == "Vampire Spawn")
-					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_strength
-					thrall.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
-					thrall.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
-					for(var/S in MOBSTATS)
-						thrall.current.change_stat(S, 2)
 
 /datum/outfit/job/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -135,7 +98,6 @@
 	cloak = /obj/item/clothing/cloak/cape/puritan
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel/black
-	H.ambushable = FALSE
 
 /*------VERBS-----*/
 
@@ -157,7 +119,7 @@
 		to_chat(src, span_warning("[ruler] is still conscious."))
 		return
 
-	switch(alert(ruler, "Submit and Pledge Allegiance to Lord [name]?", "SUBMISSION", "Yes", "No"))
+	switch(alert(ruler, "Submit and Pledge Allegiance to [name]?", "SUBMISSION", "Yes", "No"))
 		if("Yes")
 			SSmapping.retainer.king_submitted = TRUE
 		if("No")

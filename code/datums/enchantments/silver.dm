@@ -17,7 +17,7 @@
 
 	if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		var/datum/antagonist/vampire/lord/lord_datum = vamp_datum
-		return (lord_datum.vamplevel < 4) ? AFFECTED_VLORD : UNAFFECTED
+		return (!lord_datum.ascended) ? AFFECTED_VLORD : UNAFFECTED
 
 	if(wolf_datum?.transformed == TRUE || vamp_datum)
 		return AFFECTED
@@ -42,7 +42,7 @@
 				target.visible_message("<font color='white'>[target]'s curse manifests!</font>", ignored_mobs = list(target))
 		last_used[source] = world.time
 		return
-	else if (istype(vamp_datum, /datum/antagonist/vampire/lord))
+	else if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		//Unaffected but having vlord means we are vamplevel 4
 		user.Stun(10)
 		user.Paralyze(10)

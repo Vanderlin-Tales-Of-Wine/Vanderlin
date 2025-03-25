@@ -49,7 +49,7 @@
 			H.blood_volume = max(H.blood_volume-45, 0)
 			if(H.vitae_pool >= 500) // You'll only get vitae IF they have vitae.
 				H.vitae_pool -= 500
-				VDrinker.handle_vitae(500)
+				VDrinker.adjust_vitae(500)
 			var/boon = sender.mind?.get_learning_boon(/datum/skill/magic/blood)
 			var/amt2raise = sender.STAINT*2
 			sender.mind?.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)

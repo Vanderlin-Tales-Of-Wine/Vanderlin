@@ -1,38 +1,41 @@
 GLOBAL_LIST_EMPTY(vampire_objects)
 
+#define VITAE_LEVEL_STARVING 20
+#define VITAE_LEVEL_HUNGRY 100
+#define VITAE_LEVEL_FED 200
+
 /datum/antagonist/vampire
 	name = "Vampire"
 	roundend_category = "Vampires"
 	antagpanel_category = "Vampire"
 	job_rank = ROLE_VAMPIRE
 	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "vampire"
+	antag_hud_name = "Vspawn"
 	confess_lines = list(
 		"I WANT YOUR BLOOD!",
 		"DRINK THE BLOOD!",
 		"CHILD OF KAIN!",
 	)
 
-	var/datum/team/vampire/team = null
+	/// This vampire's Team.
+	var/datum/team/vampires/team = null
+	/// If the vampire will autojoin on spawn.
+	var/autojoin_team = FALSE //! shouldn't exist, need to find a better method
 
-	var/disguised = FALSE //! spawn
-	var/starved = FALSE
-	var/sired = FALSE
 	var/vitae = 1000
 	var/vmax = 2000
+
 	COOLDOWN_DECLARE(last_transform)
+	var/disguised = FALSE //! spawn
 	var/cache_skin
 	var/cache_eyes
 	var/cache_hair
 
 /datum/antagonist/vampire/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
-	if(istype(examined_datum, /datum/antagonist/vampire/lesser))
-		return span_boldnotice("A vampire spawn.")
 	if(istype(examined_datum, /datum/antagonist/vampire/lord))
-		return span_boldnotice("A vampire lord!")
+		return span_boldnotice("Kaine's firstborn!")
 	if(istype(examined_datum, /datum/antagonist/vampire))
-		return span_boldnotice("A wandering vampire.")
-
+		return span_boldnotice("A child of Kaine.")
 	if(istype(examined_datum, /datum/antagonist/zombie))
 		return span_boldnotice("Another deadite.")
 	if(istype(examined_datum, /datum/antagonist/skeleton))
@@ -48,14 +51,15 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampire/on_gain()
 	SSmapping.retainer.vampires |= owner
+	move_to_spawnpoint()
+	owner.special_role = name
+
 	if(ishuman(owner.current))
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
 	if(is_adventurer_job(owner.assigned_role) || is_pilgrim_job(owner.assigned_role))
 		message_admins("[owner.current.key] HAS BECOME A VAMPIRE AS AN ADVENTURER OR PILGRIM, IF THEY ARE INVISIBLE AND CANNOT PLAY, YELL AT SADBOYSUSS")
-	. = ..()
-	owner.special_role = name
-	move_to_spawnpoint()
+
 	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_NOSTAMINA, "[type]")
@@ -66,16 +70,18 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_NOSLEEP, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_VAMPMANSION, "[type]")
-
 	ADD_TRAIT(owner.current, TRAIT_VAMP_DREAMS, "[type]")
+	ADD_TRAIT(owner.current, TRAIT_NOAMBUSH, "[type]")
+
 	owner.current.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
-	owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
-	owner.current.verbs |= /mob/living/carbon/human/proc/vampire_telepathy
 	vamp_look()
+	. = ..()
 	after_gain()
 	greet()
-	return ..()
+
+/datum/antagonist/vampire/proc/after_gain()
+	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
 
 /datum/antagonist/vampire/on_removal()
 	if(!silent && owner.current)
@@ -83,7 +89,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	owner.special_role = null
 	return ..()
 
-/datum/antagonist/vampire/proc/after_gain()
+/datum/antagonist/vampire/proc/move_to_spawnpoint()
 	return
 
 /datum/antagonist/vampire/proc/equip()
@@ -148,36 +154,60 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			if(disguised)
 				to_chat(H, span_warning("My disguise fails!"))
 				H.vampire_undisguise(src)
-	handle_vitae(-1)
+	adjust_vitae(-1)
+	handle_vitae()
 
 /datum/antagonist/vampire/proc/exposed_to_sunlight()
 	var/mob/living/H = owner
 	if(!disguised)
 		H.fire_act(1, 5)
-		handle_vitae(-10)
+		adjust_vitae(-10)
 
-/datum/antagonist/vampire/proc/has_vitae(change)
+/datum/antagonist/vampire/proc/final/has_vitae(change)
 	return (vitae >= change)
 
-/datum/antagonist/vampire/proc/handle_vitae(change, tribute)
-	if(vitae <= 20)
-		if(!starved)
-			to_chat(owner, span_userdanger("I starve, my power dwindles! I am so weak!"))
-			starved = TRUE
-			for(var/S in MOBSTATS)
-				owner.current.change_stat(S, -5)
-	else
-		if(starved)
-			starved = FALSE
-			for(var/S in MOBSTATS)
-				owner.current.change_stat(S, 5)
+/datum/antagonist/vampire/proc/adjust_vitae(change, tribute)
+	if(tribute)
+		team?.vitae_pool?.update_pool(tribute)
+	vitae = clamp(vitae + change, 0, vmax)
 
-/datum/antagonist/vampire/proc/move_to_spawnpoint()
-	return
+/datum/antagonist/vampire/proc/handle_vitae()
+	//copy-paste from hunger code
+	switch(vitae)
+		if(VITAE_LEVEL_HUNGRY to VITAE_LEVEL_FED)
+			owner.current.apply_status_effect(/datum/status_effect/debuff/thirstyt1)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt3)
+		if(VITAE_LEVEL_STARVING to VITAE_LEVEL_HUNGRY)
+			owner.current.apply_status_effect(/datum/status_effect/debuff/thirstyt2)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt3)
+		if(-INFINITY to VITAE_LEVEL_STARVING)
+			owner.current.apply_status_effect(/datum/status_effect/debuff/thirstyt3)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt1)
+			owner.current.remove_status_effect(/datum/status_effect/debuff/thirstyt2)
+			if(prob(3))
+				playsound(get_turf(owner.current), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
+
+/datum/antagonist/vampire/create_team(datum/team/vampires/new_team)
+	var/static/datum/team/vampires/vampire_team //only one team for now
+	if(!new_team)
+		if(!vampire_team)
+			vampire_team = new()
+		if(autojoin_team)
+			new_team = vampire_team
+
+	if(istype(new_team) && (new_team != vampire_team))
+		message_admins("[owner.name] just revealed that a second vampire team exists, this is pretty bad, should notify coders")
+		stack_trace("two vampire teams were created, and the wrong one tried to be assigned")
+
+	team = new_team
+
+/datum/antagonist/vampire/get_team()
+	return team
 
 /obj/structure/vampire
 	icon = 'icons/roguetown/topadd/death/vamp-lord.dmi'
-	var/unlocked = FALSE
 	density = TRUE
 
 /obj/structure/vampire/Initialize()

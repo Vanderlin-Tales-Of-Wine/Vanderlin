@@ -28,12 +28,12 @@
 	if(istype(examined_datum, /datum/antagonist/werewolf))
 		return span_boldnotice("An elder lupine kin.")
 	if(examiner.Adjacent(examined))
-		if(istype(examined_datum, /datum/antagonist/vampire/lesser))
-			if(transformed)
-				return span_boldwarning("A lesser Vampire.")
-		if(istype(examined_datum, /datum/antagonist/vampire))
+		if(istype(examined_datum, /datum/antagonist/vampire/lord))
 			if(transformed)
 				return span_boldwarning("An Ancient Vampire. I must be careful!")
+		if(istype(examined_datum, /datum/antagonist/vampire))
+			if(transformed)
+				return span_boldwarning("A lesser Vampire.")
 
 /datum/antagonist/werewolf/on_gain()
 	owner.special_role = name

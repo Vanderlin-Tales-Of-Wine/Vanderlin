@@ -680,11 +680,11 @@
 							else
 								used_vitae = C.vitae_pool // We assume they're left with 250 vitae or less, so we take it all
 								to_chat(user, "<span class='warning'>...But alas, only leftovers...</span>")
-							VDrinker.handle_vitae(used_vitae, used_vitae)
+							VDrinker.adjust_vitae(used_vitae, used_vitae)
 							C.vitae_pool -= used_vitae
 
 						else
-							VDrinker.handle_vitae(500, 500)
+							VDrinker.adjust_vitae(500, 500)
 							C.vitae_pool -= 500
 				else
 					to_chat(user, span_warning("No more vitae from this blood..."))
@@ -697,7 +697,7 @@
 				var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire)
 				C.blood_volume = max(C.blood_volume-45, 0)
 				if(C.vitae_pool >= 250)
-					VDrinker.handle_vitae(250, 250)
+					VDrinker.adjust_vitae(250, 250)
 				else
 					to_chat(user, "<span class='warning'>And yet, not enough vitae can be extracted from them... Tsk.</span>")
 
@@ -712,17 +712,16 @@
 	log_combat(user, C, "drank blood from ")
 
 	if(ishuman(C) && C.mind)
-		var/datum/antagonist/vampire/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
+		var/datum/antagonist/vampire/lord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampire/lord)
 		if(C.blood_volume <= BLOOD_VOLUME_SURVIVE)
 			switch(alert(user, "Would you like to sire a new spawn?","THE CURSE OF KAIN","Yes","No"))
 				if("Yes")
 					user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
 					if(do_after(user, 3 SECONDS))
 						C.visible_message(span_red("[C] rises as a new spawn!"))
-						if(istype(VDrinker, /datum/antagonist/vampire))
-							var/datum/antagonist/vampire/lesser/new_antag = new /datum/antagonist/vampire/lesser()
-							new_antag.sired = TRUE
-							C.mind.add_antag_datum(new_antag)
+						if(istype(VDrinker, /datum/antagonist/vampire/lord))
+							var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire()
+							C.mind.add_antag_datum(new_antag, VDrinker.team)
 						sleep(20)
 						C.fully_heal()
 				if("No")

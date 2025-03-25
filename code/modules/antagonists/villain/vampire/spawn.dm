@@ -1,6 +1,7 @@
 /datum/antagonist/vampire/lesser
 	name = "Vampire Spawn"
 	antag_hud_name = "Vspawn"
+	autojoin_team = TRUE
 	confess_lines = list(
 		"THE CRIMSON MASTER CALLS!",
 		"MY MASTER COMMANDS!",
@@ -10,20 +11,11 @@
 /datum/antagonist/vampire/lesser/on_gain()
 	. = ..()
 
-	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
-
 	equip()
-	if(!sired)
-		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
-
-/datum/antagonist/vampire/lesser/handle_vitae(change, tribute)
-	vitae = clamp(vitae + change, 0, vmax)
-	if(tribute)
-		team?.vitae_pool?.update_pool(tribute)
-	. = ..()
+	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
 
 /mob/living/carbon/human/proc/spawn_pick_class()
-//TODO: This should just be an advclass spawn
+	//! TODO: This should just be an advclass spawn
 	var/list/classoptions = list("Bard", "Fisher", "Hunter", "Miner", "Peasant", "Carpenter", "Cheesemaker", "Blacksmith", "Carpenter", "Thief", "Treasure Hunter", "Mage")
 	var/list/visoptions = list()
 
@@ -38,11 +30,9 @@
 			equipOutfit(A.outfit)
 			return
 
-/datum/antagonist/vampire/lord/equip()
+/datum/antagonist/vampire/lesser/equip()
 	. = ..()
-
 	owner.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
-	owner.current.ambushable = FALSE
 
 /datum/antagonist/vampire/lesser/greet()
 	to_chat(owner.current, span_userdanger("We are awakened from our slumber, Spawn of the feared Vampire Lord."))

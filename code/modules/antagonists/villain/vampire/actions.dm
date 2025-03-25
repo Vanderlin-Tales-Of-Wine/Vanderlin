@@ -2,17 +2,19 @@
 	set name = "Telepathy"
 	set category = "VAMPIRE"
 
-	var/mob/living/carbon/human/H = src
-	var/msg = input("Send a message.", "Command") as text|null
-	var/message = "<span style = \"font-size:110%; font-weight:bold\"><span style = 'color:#960000'>A message from </span><span style = 'color:#[H.voice_color]'>[src.real_name]</span><span class = 'hellspeak'>: [msg]</span></span>"
+	if(!mind)
+		return
+	var/datum/team/vampires/vamp_team = locate() in GLOB.antagonist_teams //not ideal
+	if(!vamp_team)
+		return
+	var/msg = browser_input_text(src, "Send a message", "COMMAND", max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	if(!msg)
 		return
-	for(var/datum/mind/V in SSmapping.retainer.vampires)
-		to_chat(V, message)
-	for(var/datum/mind/D in SSmapping.retainer.death_knights)
-		to_chat(D, message)
-	for(var/mob/dead/observer/rogue/arcaneeye/A in GLOB.mob_list)
-		to_chat(A, message)
+	if(stat > CONSCIOUS)
+		return
+
+	var/message = span_bold("<span style='color:#960000'>A message from </span><span style = 'color:#[voice_color]'>[real_name]</span><span class='hellspeak'>: [msg]</span>")
+	to_chat(vamp_team.members, message)
 
 // Spells
 /obj/effect/proc_holder/spell/targeted/transfix
@@ -237,7 +239,7 @@
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
-	VD.handle_vitae(-500)
+	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/bloodstrength)
 	to_chat(src, "<span class='greentext'>! NIGHT MUSCLES !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -283,7 +285,7 @@
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
-	VD.handle_vitae(-500)
+	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/celerity)
 	to_chat(src, "<span class='greentext'>! QUICKENING !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -331,7 +333,7 @@
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)
 	var/amt2raise = licker.STAINT*2
 	usr.mind.adjust_experience(/datum/skill/magic/blood, floor(amt2raise * boon), FALSE)
-	VD.handle_vitae(-500)
+	VD.adjust_vitae(-500)
 	apply_status_effect(/datum/status_effect/buff/fortitude)
 	to_chat(src, "<span class='greentext'>! ARMOR OF DARKNESS !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
@@ -405,7 +407,7 @@
 		to_chat(src, "<span class='warning'>I can't cast it yet!</span>")
 	to_chat(src, "<span class='greentext'>! REGENERATE !</span>")
 	src.playsound_local(get_turf(src), 'sound/misc/vampirespell.ogg', 100, FALSE, pressure_affected = FALSE)
-	VD.handle_vitae(-500)
+	VD.adjust_vitae(-500)
 	// Gain experience towards blood magic
 	var/mob/living/carbon/human/licker = usr
 	var/boon = usr.mind?.get_learning_boon(/datum/skill/magic/blood)

@@ -9,7 +9,7 @@
 
 	if(istype(vamp_datum, /datum/antagonist/vampire/lord))
 		var/datum/antagonist/vampire/lord/lord_datum = vamp_datum
-		if(lord_datum.vamplevel < 4)
+		if(!lord_datum.ascended)
 			to_chat(user, span_userdanger("I've consumed silver, it is my BANE!"))
 			user.Knockdown(10)
 			user.Paralyze(10)
