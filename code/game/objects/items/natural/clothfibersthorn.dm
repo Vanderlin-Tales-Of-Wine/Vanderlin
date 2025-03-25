@@ -184,7 +184,7 @@
 	wring_cloth(user.loc, user)
 	return
 
-/obj/item/natural/cloth/proc/soak_cloth(var/atom/target, mob/living/user)
+/obj/item/natural/cloth/proc/soak_cloth(atom/target, mob/living/user)
 	if(reagents.total_volume == reagents.maximum_volume)
 		to_chat(user, span_warning("The [src.name] is already soaked."))
 		return
@@ -217,7 +217,7 @@
 				user.visible_message(span_small("[user] soaks the [src.name]."), span_small("I soak the [src.name]."), vision_distance = 2)
 				playsound(T, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 25, FALSE)
 
-/obj/item/natural/cloth/proc/wring_cloth(var/atom/target, mob/living/user)
+/obj/item/natural/cloth/proc/wring_cloth(atom/target, mob/living/user)
 	if(reagents.total_volume == 0)
 		to_chat(user, span_warning("Nothing to wring out."))
 		return
