@@ -80,7 +80,7 @@
 	if(findonerotten)
 		var/turf/open/T = C.loc
 		if(istype(T) && amount < 16 MINUTES)
-			T.pollute_turf(/datum/pollutant/rot, 10)
+			T.pollute_turf(/datum/pollutant/rot, 9)
 			if(soundloop && soundloop.stopped && !is_zombie)
 				soundloop.start()
 		else
@@ -110,7 +110,7 @@
 			soundloop.start()
 		var/turf/open/T = get_turf(L)
 		if(istype(T)  && amount < 16 MINUTES)
-			T.pollute_turf(/datum/pollutant/rot, 10)
+			T.pollute_turf(/datum/pollutant/rot, 9)
 	if(amount > 20 MINUTES)
 		qdel(R)
 		return L.dust(drop_items=TRUE)
