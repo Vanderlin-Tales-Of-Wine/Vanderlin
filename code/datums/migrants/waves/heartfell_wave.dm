@@ -8,6 +8,7 @@
 
 /datum/outfit/job/heartfelt/lord/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shirt = /obj/item/clothing/shirt/undershirt
 	belt = /obj/item/storage/belt/leather/black
 	neck = /obj/item/clothing/neck/gorget
