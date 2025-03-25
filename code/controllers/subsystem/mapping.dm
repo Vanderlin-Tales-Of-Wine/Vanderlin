@@ -214,18 +214,16 @@ SUBSYSTEM_DEF(mapping)
 	var/list/otherZ = list()
 
 	#ifndef LOWMEMORYMODE
-	if(config.map_name == "Vanderlin") // Vanderlin
-		otherZ += load_map_config("_maps/map_files/vanderlin/vanderlin_forest.json")
-		otherZ += load_map_config("_maps/map_files/vanderlin/vanderlin_mountain.json")
-		otherZ += load_map_config("_maps/map_files/vanderlin/vanderlin_bog.json")
-		// Add dungeon map files here later, maybe we can pick from a list of them?
+	for(var/map_json in config.other_z)
+		otherZ += load_map_config(map_json)
 	#endif
-	//For all maps
-	otherZ += load_map_config("_maps/map_files/shared/underworld.json")
 	#ifndef NO_DUNGEON
 	otherZ += load_map_config("_maps/map_files/shared/dungeon.json")
 	#endif
-	if(otherZ.len)
+
+	//For all maps
+	otherZ += load_map_config("_maps/map_files/shared/underworld.json")
+	if(length(otherZ))
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)
 
@@ -256,7 +254,7 @@ SUBSYSTEM_DEF(mapping)
 	if(config.map_path == "custom")
 		fdel("_maps/custom/[config.map_file]")
 		// And as the file is now removed set the next map to default.
-		next_map_config = load_map_config(default_to_box = TRUE)
+		next_map_config = load_map_config(default_to_van = TRUE)
 
 
 /datum/controller/subsystem/mapping/proc/maprotate()
@@ -315,7 +313,7 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM)
 	if(!VM.MakeNextMap())
-		next_map_config = load_map_config(default_to_box = TRUE)
+		next_map_config = load_map_config(default_to_van = TRUE)
 		message_admins("Failed to set new map with next_map.json for [VM.map_name]! Using default as backup!")
 		return
 
