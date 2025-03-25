@@ -398,6 +398,11 @@ class Lint:
     def __init__(self, data):
         expect(isinstance(data, dict), "Lint must be a dictionary.")
 
+        if "disabled" in data:
+            self.disabled = True
+
+        expect(isinstance(self.disabled, bool) or self.disabled is None, "Lint disabled must be a bool.")
+
         if "help" in data:
             self.help = data.pop("help")
 

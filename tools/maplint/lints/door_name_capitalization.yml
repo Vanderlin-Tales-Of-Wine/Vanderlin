@@ -1,6 +1,6 @@
+disabled: true
 help: "Please upper-case your door names."
 /obj/machinery/door:
   banned_variables:
     name:
       deny: { pattern: '.*\s(?!of|and|to)[a-z].*' }
-disabled: true
