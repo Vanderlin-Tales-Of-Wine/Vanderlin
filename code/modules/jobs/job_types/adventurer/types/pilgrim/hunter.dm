@@ -12,7 +12,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 	outfit = /datum/outfit/job/adventurer/hunter
 
@@ -75,7 +76,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 	outfit = /datum/outfit/job/adventurer/hunter // Everything is the same
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)

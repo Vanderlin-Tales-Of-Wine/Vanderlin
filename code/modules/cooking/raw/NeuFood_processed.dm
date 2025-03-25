@@ -92,7 +92,7 @@
 	else
 		icon_state = "salumoi_slice"
 
-/obj/item/reagent_containers/food/snacks/meat/salami/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/meat/salami/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -125,6 +125,8 @@
 	bitesize = 5
 	fried_type = null
 	tastes = list("salted meat" = 1)
+	rotprocess = null
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	faretype = FARE_POOR
 
 
@@ -168,7 +170,7 @@
 	else
 		icon_state = "saloslice"
 
-/obj/item/reagent_containers/food/snacks/fat/salo/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/fat/salo/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -196,9 +198,11 @@
 	taste_description = "gote milk"
 
 /datum/reagent/consumable/milk/salted_gote
+	name = "salted gote milk"
 	taste_description = "salty gote-milk"
 
 /datum/reagent/consumable/milk/salted
+	name = "salted milk"
 	taste_description = "salty milk"
 
 
@@ -250,7 +254,7 @@
 	else
 		icon_state = "butter_slice"
 
-/obj/item/reagent_containers/food/snacks/butter/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/butter/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)

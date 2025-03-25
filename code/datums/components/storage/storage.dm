@@ -183,7 +183,6 @@
 
 /datum/component/storage/proc/attack_self(datum/source, mob/M)
 	if(locked)
-//		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
 		return FALSE
 	if((M.get_active_held_item() == parent) && allow_quick_empty)
 		quick_empty(M)
@@ -193,7 +192,6 @@
 		return FALSE
 	. = COMPONENT_NO_ATTACK
 	if(locked)
-//		to_chat(M, "<span class='warning'>[parent] seems to be locked!</span>")
 		return FALSE
 	var/obj/item/I = O
 	if(collection_mode == COLLECT_ONE)

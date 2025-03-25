@@ -38,6 +38,7 @@
 
 /obj/item
 	var/submitted_to_stockpile
+	var/list/attunement_values
 
 /*
 * Weird proc that prevents

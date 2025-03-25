@@ -120,3 +120,7 @@
 	status_flags &= ~GODMODE
 	REMOVE_TRAIT(src, TRAIT_PACIFISM, "hugbox")
 	to_chat(src, span_danger("My joy is gone! Danger surrounds me."))
+
+/mob/living/carbon/human/proc/adv_hugboxing_cancel()
+	adv_hugboxing_end()
+	SSrole_class_handler.cancel_class_handler(src)

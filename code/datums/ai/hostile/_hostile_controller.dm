@@ -7,7 +7,7 @@
 		BB_VISION_RANGE = BB_HOSTILE_VISION_RANGE,
 		BB_HOSTILE_ATTACK_WORD = "growls",
 	)
-	ai_movement = /datum/ai_movement/basic_avoidance
+	ai_movement = /datum/ai_movement/hybrid_pathing
 
 	idle_behavior = /datum/idle_behavior/idle_random_walk/hostile_tameable
 
