@@ -29774,7 +29774,7 @@
 /area/rogue/indoors/town)
 "qSu" = (
 /obj/structure/soil,
-/obj/structure/manaflower,
+/obj/structure/wild_plant/nospread/manabloom,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "qSz" = (
@@ -30536,7 +30536,7 @@
 /area/rogue/under/town/caverogue)
 "roc" = (
 /obj/structure/soil,
-/obj/structure/manaflower,
+/obj/structure/wild_plant/nospread/manabloom,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "roe" = (
