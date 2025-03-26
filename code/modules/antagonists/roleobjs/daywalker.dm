@@ -36,7 +36,7 @@
 	return (GLOB.daywalker_vlords || GLOB.daywalker_vlessers >= 4) //still give him a W if he killed 4 lessers
 
 /datum/antagonist/daywalker/roundend_report()
-	var/str = "The [name] [owner.name] killed [GLOB.daywalker_vlessers] vampire lords and [GLOB.daywalker_vlords] lesser vampires."
+	var/str = "The [name] [owner.name] killed [GLOB.daywalker_vlords ? "0"] vampire lords and [GLOB.daywalker_vlessers ? "0"] lesser vampires."
 	if(GLOB.daywalker_vlords || GLOB.daywalker_vlessers >= 4)
 		to_chat(world, span_greentext(str))
 	else
