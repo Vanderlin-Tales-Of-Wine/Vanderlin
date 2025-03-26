@@ -26483,7 +26483,7 @@
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/magician)
 "sKU" = (
-/turf/open/floor/transparent/plank,
+/turf/open/floor/plank,
 /area/rogue/outdoors/mountains)
 "sLd" = (
 /turf/open/floor/cobble/mossy,
