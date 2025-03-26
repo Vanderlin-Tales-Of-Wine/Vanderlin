@@ -5,7 +5,6 @@
 
 #define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
 #define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Aasimar", "Kobold")
-#define RACES_PLAYER_NONHERETICAL_NONEXOTIC		list("Humen", "Half-Elf", "Elf", "Aasimar")
 #define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc")
 
 #define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar")
