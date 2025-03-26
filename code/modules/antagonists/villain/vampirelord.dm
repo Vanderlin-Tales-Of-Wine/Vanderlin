@@ -112,8 +112,12 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		equip_lord()
 		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "VAMPIRE LORD"), 5 SECONDS)
 		greet()
-		var/datum/migrant_wave/blade = MIGRANT_WAVE(/datum/migrant_wave/daywalker)
-		blade?.can_roll = TRUE //It's open season.
+
+	var/list/suckheads = get_antag_minds(/datum/antagonist/vampirelord)
+	if(suckheads.len > 6)
+		var/datum/migrant_wave/daywalker = MIGRANT_WAVE(/datum/migrant_wave/daywalker)
+		daywalker?.can_roll = TRUE //It's open season.
+
 	return ..()
 
 // OLD AND EDITED

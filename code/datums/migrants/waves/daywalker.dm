@@ -54,7 +54,7 @@
 	name = "Astrata's Daywalker"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/daywalker
-	weight = 2
+	weight = 8
 	//gets set to true in the presence of a vampire lord
 	can_roll = FALSE
 
