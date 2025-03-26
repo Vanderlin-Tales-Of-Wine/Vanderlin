@@ -3,7 +3,7 @@
 	tutorial = "A serf with no particular proficiency of their own, born poor \
 				and more likely to die poor. Farm workers, carriers, handymen."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/peasant
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Handyman"

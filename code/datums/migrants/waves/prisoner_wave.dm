@@ -57,7 +57,7 @@
 	name = "Prisoner"
 	greet_text = "You had fled Vanderlin, took refuge in Heartfelt yet the lords over there caught you and thus handed you over to those who seeked you before."
 	outfit = /datum/outfit/job/mig_prisoner
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 /datum/outfit/job/mig_prisoner/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -3,7 +3,7 @@
 	tutorial = "As a woodsmen or women, you have dedicated your life to both felling \
 	trees and bending wood to your will. With enough practice, your only limit is your imagination."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/carpenter
 
 	category_tags = list(CTAG_PILGRIM)

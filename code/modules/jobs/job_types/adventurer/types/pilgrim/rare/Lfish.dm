@@ -5,7 +5,7 @@
 	tutorial = "Seafarers who have mastered the tides, and are able to catch any fish with ease \
 	no matter the body of water. They have learned to thrive off the gifts of Abyssor, not simply survive."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/fishermaster
 
 	maximum_possible_slots = 1

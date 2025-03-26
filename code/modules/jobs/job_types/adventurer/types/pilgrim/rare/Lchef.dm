@@ -6,7 +6,7 @@
 	You received an early education from the guild of culinary arts and have traveled across Psydonia, cooking exotic masterpieces for wealthy merchants and nobility alike. \
 	Now you find yourself approaching Vanderlin... perhaps this will be a perfect location to prepare your next great feast?"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/masterchef
 
 	maximum_possible_slots = 1

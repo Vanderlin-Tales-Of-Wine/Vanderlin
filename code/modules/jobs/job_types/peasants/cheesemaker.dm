@@ -12,7 +12,7 @@
 	spawn_positions = 2
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/cheesemaker
 
 /datum/outfit/job/cheesemaker/pre_equip(mob/living/carbon/human/H)

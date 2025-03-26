@@ -3,7 +3,7 @@
 	tutorial = "Simple folk with an affinity for catching fish out of any body of water, \
 				they are decent cooks and swimmers, living off the gifts of Abyssor."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/fisher
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Fisher Apprentice"

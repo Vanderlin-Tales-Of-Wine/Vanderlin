@@ -6,7 +6,7 @@
 	the last ones in a party to die. Their wish is to experience \
 	the greatest adventures of the age and write amazing songs about them."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/adventurer/bard
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"

@@ -14,7 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/servant
 	give_bank_account = TRUE

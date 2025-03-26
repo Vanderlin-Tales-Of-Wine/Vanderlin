@@ -2,7 +2,7 @@
 	name = "Brigand"
 	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit_brigand.ogg'
