@@ -95,8 +95,8 @@
 	grid_height = 64
 
 /obj/item/smokebomb/attack_self(mob/user)
-    ..()
-    explode()
+	..()
+	explode()
 
 /obj/item/smokebomb/ex_act()
 	if(!QDELETED(src))
