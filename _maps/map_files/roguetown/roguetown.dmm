@@ -1627,10 +1627,10 @@
 /area/rogue/outdoors/town/roofs)
 "bPx" = (
 /obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/bath)
 "bPG" = (
@@ -6200,7 +6200,7 @@
 /obj/item/key/artificer,
 /obj/item/key/mercenary,
 /obj/item/key/tavern,
-/obj/item/key/doctor,
+/obj/item/key/feldsher,
 /turf/open/floor/tile/tilerg,
 /area/rogue/indoors/town)
 "gMl" = (
@@ -13976,7 +13976,7 @@
 /area/rogue/under/cave)
 "pmn" = (
 /obj/structure/closet/crate/crafted_closet/inn/south,
-/obj/item/key/doctor{
+/obj/item/key/feldsher{
 	pixel_y = 9
 	},
 /turf/open/floor/ruinedwood{
