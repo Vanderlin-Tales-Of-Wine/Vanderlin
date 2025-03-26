@@ -116,5 +116,6 @@
     var/datum/effect_system/smoke_spread/S = new /datum/effect_system/smoke_spread
     S.set_up(radius, T)
     S.start()
-    new /obj/item/ash(T)
+	if(prob(25))
+		new /obj/item/ash(T)
     qdel(src)
