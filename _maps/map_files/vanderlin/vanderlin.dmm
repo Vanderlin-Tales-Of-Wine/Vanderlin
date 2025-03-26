@@ -10813,6 +10813,9 @@
 /obj/item/coin/silver/pile,
 /obj/item/coin/copper/pile,
 /obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "hCq" = (
@@ -32704,6 +32707,9 @@
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/clinic_large)
 "xly" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "xlX" = (
