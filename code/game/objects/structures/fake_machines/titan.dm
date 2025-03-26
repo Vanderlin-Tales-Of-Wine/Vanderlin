@@ -94,6 +94,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/has_crown(mob/living/carbon/human/checked_mob)
 	if(!checked_mob.head || !istype(checked_mob.head, /obj/item/clothing/head/crown/serpcrown))
 		say("You need the crown!")
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 		return FALSE
 	return TRUE
 
@@ -111,7 +112,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return FALSE
 	if(!has_crown(checked_mob))
 		return FALSE
-	if(!is_worthy(checked_mob) && !has_to_be_worthy)
+	if(!is_worthy(checked_mob) && has_to_be_worthy)
 		return FALSE
 	if(!check_cooldown(checked_mob))
 		return FALSE
@@ -119,10 +120,12 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /obj/structure/fake_machine/titan/proc/recognize_command(mob/living/carbon/human/user, message)
 	// message is already sanitized
-	if(findtext(message, "summon crown") && is_valid_mob(user))
-		summon_crown(user)
 	if(findtext(message, "help") && is_valid_mob(user))
 		help()
+	if(findtext(message, "summon crown") && is_valid_mob(user))
+		summon_crown(user)
+	if(findtext(message, "summon key") && perform_check(user, FALSE))
+		summon_key(user)
 	if(findtext(message, "make announcement") && perform_check(user, FALSE))
 		say("All will hear your word.")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
@@ -144,9 +147,12 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_DECLARE_OUTLAW
 	if(findtext(message, "set taxes") && perform_check(user))
-		set_taxes()
-	if(findtext_char(message, "change position") && perform_check(user))
-		change_position()
+		set_taxes(user)
+	if(findtext(message, "change position") && perform_check(user))
+		change_position(user)
+	if(findtext(message, "appoint regent") && perform_check(user))
+		appoint_regent(user)
+
 
 /obj/structure/fake_machine/titan/obj_break(damage_flag)
 	..()
@@ -180,7 +186,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/summon_crown(mob/living/carbon/human/user)
 	var/obj/item/clothing/head/crown/serpcrown/crown = SSroguemachine.crown
 
-	if(!crown || !ismob(crown)) //You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
+	if(!crown || !ismob(crown.loc)) //You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
 		var/new_crown = recreate_crown()
 		user.put_in_hands(new_crown)
 		return
@@ -223,18 +229,16 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		user.put_in_hands(new_key)
 
 /// Makes an announcement
-/obj/structure/fake_machine/titan/proc/make_announcement(mob/living/carbon/human/user, raw_message)
-	if(!SScommunications.can_announce(user))
-		return
+/obj/structure/fake_machine/titan/proc/make_announcement(mob/living/carbon/human/user, message)
 	if(!perform_check(user, FALSE))
 		reset_mode()
 		return FALSE
-	priority_announce(html_decode(user.treat_message(raw_message)), "The [user.get_role_title()] Speaks", 'sound/misc/alert.ogg', "Captain")
+	priority_announce(html_decode(user.treat_message(message)), "[user.real_name], The [user.get_role_title()] Speaks", 'sound/misc/alert.ogg', "Captain")
 	reset_mode()
 	return TRUE
 
 /// Makes a decree
-/obj/structure/fake_machine/titan/proc/make_decree(mob/living/carbon/human/user, raw_message)
+/obj/structure/fake_machine/titan/proc/make_decree(mob/living/carbon/human/user, message)
 	if(!SScommunications.can_announce(user))
 		return
 	var/datum/antagonist/prebel/rebel_datum = user.mind?.has_antag_datum(/datum/antagonist/prebel)
@@ -247,20 +251,20 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			if(!SSmapping.retainer.head_rebel_decree)
 				user.mind.adjust_triumphs(1)
 			SSmapping.retainer.head_rebel_decree = TRUE
-	GLOB.lord_decrees += raw_message
-	SScommunications.make_announcement(user, TRUE, raw_message)
+	GLOB.lord_decrees += message
+	SScommunications.make_announcement(user, TRUE, message)
 	reset_mode()
 
-/obj/structure/fake_machine/titan/proc/make_law(mob/living/carbon/human/user, raw_message)
+/obj/structure/fake_machine/titan/proc/make_law(mob/living/carbon/human/user, message)
 	if(!SScommunications.can_announce(user))
 		return
-	GLOB.laws_of_the_land += raw_message
-	priority_announce("[length(GLOB.laws_of_the_land)]. [raw_message]", "A LAW IS DECLARED", 'sound/misc/lawdeclaration.ogg', "Captain")
+	GLOB.laws_of_the_land += message
+	priority_announce("[length(GLOB.laws_of_the_land)]. [message]", "A LAW IS DECLARED", 'sound/misc/lawdeclaration.ogg', "Captain")
 	reset_mode()
 
 /// Removes a law
-/obj/structure/fake_machine/titan/proc/remove_law(raw_message)
-	var/clean_message = replacetext(raw_message, "remove law", "")
+/obj/structure/fake_machine/titan/proc/remove_law(message)
+	var/clean_message = replacetext(message, "remove law", "")
 	var/law_index = text2num(clean_message) || 0
 	if(!law_index || !GLOB.laws_of_the_land[law_index])
 		say("That law doesn't exist!")
@@ -282,28 +286,29 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	priority_announce("All laws of the land have been purged!", "LAWS PURGED", 'sound/misc/lawspurged.ogg', "Captain")
 
 /// Declares someone an outlaw
-/obj/structure/fake_machine/titan/proc/declare_outlaw(mob/living/carbon/human/user, raw_message)
+/obj/structure/fake_machine/titan/proc/declare_outlaw(mob/living/carbon/human/user, message)
 	say("Who should be outlawed?")
 	playsound(src, 'sound/misc/machinequestion.ogg', 100, FALSE, -1)
-	if(!SScommunications.can_announce(user))
-		return
 
-	if(raw_message in GLOB.outlawed_players)
-		GLOB.outlawed_players -= raw_message
-		priority_announce("[raw_message] is no longer an outlaw in Vanderlin lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	if(message in GLOB.outlawed_players)
+		GLOB.outlawed_players -= message
+		priority_announce("[message] is no longer an outlaw in Vanderlin lands.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 		return FALSE
 	var/found = FALSE
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(H.real_name == raw_message)
+	for(var/mob/living/carbon/human/to_be_outlawed in GLOB.player_list)
+		if(to_be_outlawed.real_name == message)
 			found = TRUE
 	if(!found)
+		say("That person doesn't exist!")
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+		reset_mode()
 		return FALSE
-	GLOB.outlawed_players += raw_message
-	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	GLOB.outlawed_players += message
+	priority_announce("[message] has been declared an outlaw and must be captured or slain.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 	return TRUE
 
 /// Sets the taxes of the realm
-/obj/structure/fake_machine/titan/proc/set_taxes(mob/living/carbon/human/user, raw_message)
+/obj/structure/fake_machine/titan/proc/set_taxes(mob/living/carbon/human/user)
 	if(!Adjacent(user))
 		return
 	var/newtax = input(user, "Set a new tax percentage (1-99)", src, SStreasury.tax_value*100) as null|num
@@ -314,16 +319,21 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			return
 		newtax = CLAMP(newtax, 1, 99)
 		SStreasury.tax_value = newtax / 100
-		priority_announce("The new tax in Vanderlin shall be [newtax] percent.", "The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("The new tax in Vanderlin shall be [newtax] percent.", "[user.real_name], The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /// Changes the job of a nearby mob
 /obj/structure/fake_machine/titan/proc/change_position(mob/living/carbon/human/user)
 	if(!Adjacent(user))
 		return
+	var/list/mob/possible_mobs = orange(2, src)
+	if(!possible_mobs)
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+		say("No one around!")
+		return
+
 	say("Who should change their post?")
 	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 
-	var/list/mob/possible_mobs = orange(2, src)
 	var/mob/victim = input(user, "Who should change their post?", src, null) as null|mob in possible_mobs - user
 	if(isnull(victim) || !Adjacent(user))
 		return
@@ -351,7 +361,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(!SScommunications.can_announce(user))
 		return
 
-	priority_announce("Henceforth, the vassal known as [victim.real_name] shall have the title of [new_pos].", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	priority_announce("Henceforth, the vassal known as [victim.real_name] shall have the title of [new_pos].", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /// Appoints a regent to the throne
 /obj/structure/fake_machine/titan/proc/appoint_regent(mob/living/carbon/human/user)
@@ -361,16 +371,18 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return FALSE
 	if(SSticker.regent_mob)
 		var/mob/living/carbon/human/regent = SSticker.regent_mob
-		priority_announce("[regent.real_name] is no longer regent.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("[regent.real_name] is no longer regent.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 		return TRUE
-
-	if(!Adjacent(user))
-		return
 	var/list/mob/living/carbon/possible_mobs = orange(2, src)
+	if(!possible_mobs)
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
+		say("No one around!")
+		return
 	var/mob/living/carbon/new_regent = input(user, "Who will rule when you sleep?", src, null) as null|mob in possible_mobs - user
 	if(isnull(new_regent) || !Adjacent(user))
 		return
-	priority_announce("[new_regent.real_name] has been appointed regent.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	priority_announce("[new_regent.real_name] has been appointed regent.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	SSticker.regent_mob = new_regent
 
 /// Return mode to NONE
 /obj/structure/fake_machine/titan/proc/reset_mode()
