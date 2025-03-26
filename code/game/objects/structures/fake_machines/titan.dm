@@ -46,6 +46,31 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Cancel",
 	)
 
+/// Destroys the current crown with a cool message and returns a new crown.
+/obj/structure/fake_machine/titan/proc/recreate_crown()
+	if(SSroguemachine.crown)
+		var/obj/item/clothing/head/crown/serpcrown/old_crown = SSroguemachine.crown
+		old_crown.anti_stall()
+
+	say("The crown is summoned!")
+	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+	playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+	src.visible_message(span_warning("Ashes circle around the THROAT and the crown rematerialises!"))
+	return new /obj/item/clothing/head/crown/serpcrown(src.loc)
+
+/// Destroys the current master key with a cool message and returns a new key.
+/obj/structure/fake_machine/titan/proc/recreate_key()
+	if(SSroguemachine.key)
+		var/obj/item/key/lord/old_master_key = SSroguemachine.key
+		old_master_key.anti_stall()
+
+	say("The key is summoned!")
+	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
+	playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+	src.visible_message(span_warning("The key flies around the THROAT and gently falls down!"))
+
+	return new /obj/item/key/lord
+
 /// Returns all commands of the THROAT in a single string.
 /obj/structure/fake_machine/titan/proc/get_commands()
 	. += jointext(command_list, ", ")
@@ -93,6 +118,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	return TRUE
 
 /obj/structure/fake_machine/titan/proc/recognize_command(mob/living/carbon/human/user, message)
+	// message is already sanitized
 	if(findtext(message, "summon crown") && is_valid_mob(user))
 		summon_crown(user)
 	if(findtext(message, "help") && is_valid_mob(user))
@@ -108,7 +134,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	if(findtext(message, "make law") && perform_check(user))
 		say("Speak and they will obey.")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-		playsound()
 		mode = MODE_MAKE_LAW
 	if(findtext(message, "remove law") && perform_check(user))
 		remove_law(message)
@@ -153,23 +178,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /// Tries summoning the crown to the user's hand
 /obj/structure/fake_machine/titan/proc/summon_crown(mob/living/carbon/human/user)
-	if(!SSroguemachine.crown)
-		var/crown = new /obj/item/clothing/head/crown/serpcrown(src.loc)
-		user.put_in_hands(crown)
-		say("The crown is summoned!")
-		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
-		return
-
 	var/obj/item/clothing/head/crown/serpcrown/crown = SSroguemachine.crown
 
-	if(!ismob(crown.loc))//You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
-		crown.anti_stall()
-		var/crown = new /obj/item/clothing/head/crown/serpcrown(src.loc)
-		user.put_in_hands(crown)
-		say("The crown is summoned!")
-		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+	if(!crown || !ismob(crown)) //You MUST MUST MUST keep the Crown on a person to prevent it from being summoned (magical interference)
+		var/new_crown = recreate_crown()
+		user.put_in_hands(new_crown)
 		return
 
 	if(ishuman(crown.loc))
@@ -184,40 +197,30 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 				playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 				return
 		else
-			crown_holder.dropItemToGround(crown, TRUE) //If you're dead, forcedrop it, then move it.
-	crown.forceMove(src.loc)
-	user.put_in_hands(crown)
-	say("The crown is summoned!")
-	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-	playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+			crown_holder.dropItemToGround(crown, TRUE) //If you're dead, forcedrop it, then kill it for the kool message..
+
+	var/new_crown = recreate_crown()
+	user.put_in_hands(new_crown)
 
 /// Tries summoning the master key to the user's hand
 /obj/structure/fake_machine/titan/proc/summon_key(mob/living/carbon/human/user)
-	if(SSroguemachine.key)
-		var/obj/item/key/lord/master_key = SSroguemachine.key
-		if(!master_key)
-			master_key = new /obj/item/key/lord(src.loc)
-		if(master_key && !ismob(master_key.loc))
-			master_key.anti_stall()
-			master_key = new /obj/item/key/lord(src.loc)
-			user.put_in_hands(master_key)
-			say("The key is summoned!")
+	var/obj/item/key/lord/master_key = SSroguemachine.key
+
+	if(!master_key || !ismob(master_key.loc))
+		var/new_key = recreate_key()
+		user.put_in_hands(new_key)
+		return
+
+	if(ishuman(master_key.loc))
+		var/mob/living/carbon/human/key_holder = master_key.loc
+		if(key_holder.stat != DEAD)
+			say("[key_holder.real_name] holds the key!")
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-			playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 			return
-		if(ishuman(master_key.loc))
-			var/mob/living/carbon/human/key_holder = master_key.loc
-			if(key_holder.stat != DEAD)
-				say("[key_holder.real_name] holds the key!")
-				playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-				return
-			else
-				key_holder.dropItemToGround(master_key, TRUE) //If you're dead, forcedrop it, then move it.
-		master_key.forceMove(src.loc)
-		user.put_in_hands(master_key)
-		say("The key is summoned!")
-		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-		playsound(src, 'sound/misc/hiss.ogg', 100, FALSE, -1)
+		else
+			key_holder.dropItemToGround(master_key, TRUE) //If you're dead, forcedrop it, then move it.
+		var/new_key = recreate_key()
+		user.put_in_hands(new_key)
 
 /// Makes an announcement
 /obj/structure/fake_machine/titan/proc/make_announcement(mob/living/carbon/human/user, raw_message)
@@ -374,48 +377,30 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	mode = MODE_NONE
 
 /obj/structure/fake_machine/titan/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)
-//	. = ..()
+	. = ..()
 	if(speaker == src)
 		return
-	if(!user.job)
+	if(speaker.loc != loc)
 		return
-	else
-		var/datum/job/job = SSjob.GetJob(user.job)
-		if(!is_lord_job(job))
-			return
-
-	if(raw_message in GLOB.outlawed_players)
-		GLOB.outlawed_players -= raw_message
-		priority_announce("[raw_message] is no longer an outlaw in Vanderlin lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
-		return FALSE
-	var/found = FALSE
-	for(var/mob/living/carbon/human/H in GLOB.player_list)
-		if(H.real_name == raw_message)
-			found = TRUE
-	if(!found)
-		return FALSE
-	GLOB.outlawed_players += raw_message
-	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
-
-/obj/structure/fake_machine/titan/proc/make_law(mob/living/user, raw_message)
-	if(!SScommunications.can_announce(user))
+	if(obj_broken)
 		return
-	var/message2recognize = sanitize_hear_message(original_message)
 
-	if(findtext(message2recognize, "nevermind") || findtext(message2recognize, "cancel"))
+	var/sanitized_message = sanitize_hear_message(raw_message)
+
+	if(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel"))
 		reset_mode()
 	else
 		switch(mode)
 			if(MODE_NONE)
-				recognize_command(speaker, message2recognize)
+				recognize_command(user, sanitized_message)
 			if(MODE_MAKE_ANNOUNCEMENT)
-				make_announcement(speaker, message2recognize)
+				make_announcement(user, sanitized_message)
 			if(MODE_MAKE_LAW)
-				make_law(speaker, message2recognize)
+				make_law(user, sanitized_message)
 			if(MODE_DECLARE_OUTLAW)
-				declare_outlaw(speaker, original_message)
+				declare_outlaw(user, sanitized_message)
 			if(MODE_MAKE_DECREE)
-				make_decree(speaker, raw_message)
+				make_decree(user, sanitized_message)
 
 #undef MODE_NONE
 #undef MODE_MAKE_ANNOUNCEMENT
