@@ -1,7 +1,7 @@
 /obj/structure/closet/crate/miningcar
 	name = "mine cart"
 	desc = "A cart for use on rails. Or off rails, if you're so inclined."
-	icon = "/icons/obj/track.dmi"
+	icon = 'icons/obj/track.dmi'
 	icon_state = "minecart"
 	base_icon_state = "minecart"
 	drag_slowdown = 2
