@@ -401,24 +401,23 @@
 	gender = MALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
-
 /datum/sprite_accessory/hair/brute
-    name = "Brute"
-    icon_state = "brute" // vanderlin edit
-    gender = MALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Brute"
+	icon_state = "brute"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/manbun
-    name = "Manbun"
-    icon_state = "manbun"
-    gender = MALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Manbun"
+	icon_state = "manbun"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/smith
-    name = "Smith"
-    icon_state = "smith"
-    gender = MALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Smith"
+	icon_state = "smith"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /////////////////////////////
 // GIRLY Hair Definitions  //
@@ -654,40 +653,40 @@
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
 /datum/sprite_accessory/hair/alemaid
-    name = "Ale Maid"
-    icon_state = "alemaid"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Ale Maid"
+	icon_state = "alemaid"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/beekeeper
-    name = "Bee Keeper"
-    icon_state = "beekeeper"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Bee Keeper"
+	icon_state = "beekeeper"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/brat
-    name = "Brat"
-    icon_state = "brat"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Brat"
+	icon_state = "brat"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/poet
-    name = "Poet"
-    icon_state = "poet"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Poet"
+	icon_state = "poet"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/sheildsister
-    name = "Shield Sister"
-    icon_state = "shieldsister"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Shield Sister"
+	icon_state = "shieldsister"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/warriorqueen
-    name = "Warrior Queen"
-    icon_state = "warrior_queen"
-    gender = FEMALE
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Warrior Queen"
+	icon_state = "warrior_queen"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 //////////////////////////////
 // UNISEX Hair Definitions  //
@@ -719,23 +718,23 @@
 	specuse = list("elf")
 
 /datum/sprite_accessory/hair/sellsword
-    name = "Sellsword"
-    icon_state = "sellsword"
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
-    gender = NEUTER
-    under_layer = TRUE
+	name = "Sellsword"
+	icon_state = "sellsword"
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	gender = NEUTER
+	under_layer = TRUE
 
 /datum/sprite_accessory/hair/sworddancer
-    name = "Sword Dancer"
-    icon_state = "sworddancer"
-    gender = NEUTER
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Sword Dancer"
+	icon_state = "sworddancer"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /datum/sprite_accessory/hair/traveller
-    name = "Traveller"
-    icon_state = "traveller"
-    gender = NEUTER
-    specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
+	name = "Traveller"
+	icon_state = "traveller"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling")
 
 /*
 /datum/sprite_accessory/hair/felfhair_fatherless
