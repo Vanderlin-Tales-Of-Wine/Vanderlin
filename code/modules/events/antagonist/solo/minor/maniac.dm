@@ -6,7 +6,7 @@
 	)
 	antag_datum = /datum/antagonist/maniac
 	roundstart = TRUE
-	antag_flag = ROLE_VILLAIN
+	antag_flag = ROLE_MANIAC
 	shared_occurence_type = SHARED_MINOR_THREAT
 	minor_roleset = TRUE
 
