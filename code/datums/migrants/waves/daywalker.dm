@@ -2,9 +2,10 @@
 	name = "Daywalker"
 	greet_text = "Some knaves are always trying to wade upstream. You witnessed your entire village be consumed by a subservient vampiric horde - the local Priest grabbed you, and brought you to a remote Monastery; ever since then you've sworn revenge against the restless dead. The Templars showed you everything you needed to know. You walk in the day, so that the undead may only walk in the night."
 	outfit = /datum/outfit/job/daywalker
-	antag_datum = /datum/antagonist/purishep
+	antag_datum = /datum/antagonist/daywalker
 	allowed_races = list("Humen")
 	grant_lit_torch = TRUE
+
 
 /datum/outfit/job/daywalker/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -16,7 +17,7 @@
 	pants = /obj/item/clothing/pants/tights/black
 	shoes = /obj/item/clothing/shoes/boots
 	backr = /obj/item/storage/backpack/satchel
-	backl = /obj/item/weapon/sword/forgotten
+	backl = /obj/item/weapon/sword/long/forgotten
 	belt = /obj/item/storage/belt/leather/steel
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	id = /obj/item/clothing/ring/silver
@@ -49,6 +50,13 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+	var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(H,1)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/zombie
+	eyes.Insert(H)
+
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim //ARE YOU A FUCKING VAMPIRE?
 	H.cmode_music = 'sound/music/cmode/antag/combat_vamp2.ogg'
 
@@ -56,8 +64,11 @@
 	name = "Astrata's Daywalker"
 	max_spawns = 1
 	shared_wave_type = /datum/migrant_wave/daywalker
-	weight = 1
+	weight = 2
+	//gets set to true in the presence of a vampire lord
+	can_roll = FALSE
+
 	roles = list(
 		/datum/migrant_role/daywalker = 1,
 	)
-	greet_text = "You give the Monarch's demense a message. You tell them it's open season on all suckheads."
+	greet_text = "\"There are worse things out there than vampires. You.\""

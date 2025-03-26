@@ -296,6 +296,11 @@
 	stressadd = 1
 	desc = "<span class='red'>I'm dead... what comes next?</span>"
 
+/datum/stressevent/daywalker // When a vampire sees the daywalker
+	timer = 4 MINUTES
+	stressadd = 4
+	desc = "<span class='red'>THE DAYWALKER IS HERE!</span>"
+
 /datum/stressevent/oziumoff
 	stressadd = 20
 	desc = "<span class='blue'>I need another hit.</span>"
