@@ -120,12 +120,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /obj/structure/fake_machine/titan/proc/recognize_command(mob/living/carbon/human/user, message)
 	// message is already sanitized
-	if(findtext(message, "help") && is_valid_mob(user))
-		help()
-	if(findtext(message, "summon crown") && is_valid_mob(user))
-		summon_crown(user)
-	if(findtext(message, "summon key") && perform_check(user, FALSE))
-		summon_key(user)
 	if(findtext(message, "make announcement") && perform_check(user, FALSE))
 		say("All will hear your word.")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
@@ -138,21 +132,26 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		say("Speak and they will obey.")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_MAKE_LAW
-	if(findtext(message, "remove law") && perform_check(user))
-		remove_law(message)
-	if(findtext(message, "purge laws") && perform_check(user))
-		purge_laws()
 	if(findtext(message, "declare outlaw") && perform_check(user))
 		say("Who should be outlawed?")
 		playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 		mode = MODE_DECLARE_OUTLAW
+	if(findtext(message, "help") && is_valid_mob(user))
+		help()
+	if(findtext(message, "summon crown") && is_valid_mob(user))
+		summon_crown(user)
+	if(findtext(message, "summon key") && perform_check(user, FALSE))
+		summon_key(user)
+	if(findtext(message, "remove law") && perform_check(user))
+		remove_law(message)
+	if(findtext(message, "purge laws") && perform_check(user))
+		purge_laws()
 	if(findtext(message, "set taxes") && perform_check(user))
 		set_taxes(user)
 	if(findtext(message, "change position") && perform_check(user))
 		change_position(user)
 	if(findtext(message, "appoint regent") && perform_check(user))
 		appoint_regent(user)
-
 
 /obj/structure/fake_machine/titan/obj_break(damage_flag)
 	..()
@@ -239,8 +238,6 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /// Makes a decree
 /obj/structure/fake_machine/titan/proc/make_decree(mob/living/carbon/human/user, message)
-	if(!SScommunications.can_announce(user))
-		return
 	var/datum/antagonist/prebel/rebel_datum = user.mind?.has_antag_datum(/datum/antagonist/prebel)
 	if(rebel_datum)
 		if(rebel_datum.rev_team?.members.len < 3)
@@ -287,12 +284,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /// Declares someone an outlaw
 /obj/structure/fake_machine/titan/proc/declare_outlaw(mob/living/carbon/human/user, message)
-	say("Who should be outlawed?")
-	playsound(src, 'sound/misc/machinequestion.ogg', 100, FALSE, -1)
 
 	if(message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= message
 		priority_announce("[message] is no longer an outlaw in Vanderlin lands.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		reset_mode()
 		return FALSE
 	var/found = FALSE
 	for(var/mob/living/carbon/human/to_be_outlawed in GLOB.player_list)
@@ -305,21 +301,26 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		return FALSE
 	GLOB.outlawed_players += message
 	priority_announce("[message] has been declared an outlaw and must be captured or slain.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	reset_mode()
 	return TRUE
 
 /// Sets the taxes of the realm
 /obj/structure/fake_machine/titan/proc/set_taxes(mob/living/carbon/human/user)
 	if(!Adjacent(user))
+		reset_mode()
 		return
 	var/newtax = input(user, "Set a new tax percentage (1-99)", src, SStreasury.tax_value*100) as null|num
 	if(newtax)
 		if(!Adjacent(user))
+			reset_mode()
 			return
 		if(findtext(num2text(newtax), "."))
+			reset_mode()
 			return
 		newtax = CLAMP(newtax, 1, 99)
 		SStreasury.tax_value = newtax / 100
 		priority_announce("The new tax in Vanderlin shall be [newtax] percent.", "[user.real_name], The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+	reset_mode()
 
 /// Changes the job of a nearby mob
 /obj/structure/fake_machine/titan/proc/change_position(mob/living/carbon/human/user)
@@ -399,9 +400,8 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 	var/sanitized_message = sanitize_hear_message(raw_message)
 
-	if(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel"))
+	if(!(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel")))
 		reset_mode()
-	else
 		switch(mode)
 			if(MODE_NONE)
 				recognize_command(speaker, sanitized_message)
