@@ -131,7 +131,7 @@
 	craftdiff = 3
 
 /datum/artificer_recipe/contraptions/coolingbackpack
-	name = "Cooling Backpack (+1 Backpack, +2 Cogs)" // why are these recipes capitalized differently than every other crafting recipe my ocddddddddddd
+	name = "Cooling Backpack (+1 Backpack, +2 Cogs)"
 	required_item = /obj/item/ingot/bronze
 	created_item = /obj/item/storage/backpack/backpack/artibackpack
 	additional_items = list(/obj/item/gear/metal = 2, /obj/item/storage/backpack/backpack)
