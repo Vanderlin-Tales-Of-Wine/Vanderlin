@@ -6,4 +6,4 @@
 	This file separation can support different servers using their own maps, especially supporting downstreams
 */
 
-//#include "..\..\_maps\map_files\roguetest\map_adjustment_template.dm"
+#include "..\..\_maps\map_files\rosewood\map_adjustment_rosewood.dm"
