@@ -211,7 +211,7 @@
 					if(!throwable_mob.buckled)
 						thrown_thing = throwable_mob
 						thrown_speed = 1
-						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
+						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 0)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
@@ -220,9 +220,7 @@
 							return
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
-						// if(start_T.z != end_T.z && (!(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND)))
-						// 	return
-						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY))
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || !(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
 							while(end_T.z > start_T.z)
 								end_T = GET_TURF_BELOW(end_T)
 

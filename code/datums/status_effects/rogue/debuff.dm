@@ -138,6 +138,12 @@
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/drym)
 
+/datum/status_effect/debuff/thirstyt1/refresh()
+	. = ..()
+	if(iscarbon(owner))
+		var/mob/living/carbon/C = owner
+		C.add_stress(/datum/stressevent/drym)
+
 /datum/status_effect/debuff/thirstyt1/on_remove()
 	. = ..()
 	if(iscarbon(owner))

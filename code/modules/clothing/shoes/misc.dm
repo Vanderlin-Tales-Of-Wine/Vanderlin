@@ -58,8 +58,7 @@
 	item_state = "simpleshoe"
 	resistance_flags = null
 	color = CLOTHING_OLD_LEATHER
-	salvage_amount = 1
-	salvage_result = /obj/item/natural/hide/cured
+	salvage_result = null
 
 /obj/item/clothing/shoes/simpleshoes/white
 	color = null
