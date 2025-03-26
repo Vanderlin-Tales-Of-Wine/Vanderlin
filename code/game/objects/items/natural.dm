@@ -215,7 +215,7 @@
 	name = "infernal ash"
 	icon_state = "infernalash"
 	desc = "Ash burnt and burnt once again. Smells of brimstone and hellfire. Still has embers within."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -229,7 +229,7 @@
 	name = "hellhound fang"
 	icon_state = "hellhound_fang"
 	desc = "A sharp fang that glows bright red, no matter how long it's left to cool."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -244,7 +244,7 @@
 	name = "molten core"
 	icon_state = "wessence"
 	desc = "A molten orb of rock and magick. It gives off waves of magical heat and energy."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -259,7 +259,7 @@
 	name = "abyssal flame"
 	icon_state = "abyssalflame"
 	desc = "A  flickering, black flame contained in a crystal; the heart of an archfiend. Or atleast, what passes for one. It pulses with dense thrums of magick."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -275,7 +275,7 @@
 	name = "fairy dust"
 	icon_state = "fairy_dust"
 	desc = "A glittering powder from a fae sprite."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -291,7 +291,7 @@
 	name = "iridescent scales"
 	icon_state = "iridescent_scale"
 	desc = "Tiny, colorful scales from a glimmerwing, they shine with inate magic"
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -307,7 +307,7 @@
 	name = "heartwood core"
 	icon_state = "heartwood_core"
 	desc = "A piece of enchanted wood imbued with the dryad’s essence. Merely holding it transports one's mind to ancient times."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -322,7 +322,7 @@
 	name = "sylvan essence"
 	icon_state = "sylvanessence"
 	desc = "A swirling, multicolored liquid with emitting a dizzying array of lights."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 	attunement_values = list(
@@ -338,7 +338,7 @@
 	name = "elemental mote"
 	icon_state = "mote"
 	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -355,7 +355,7 @@
 	name = "elemental shard"
 	icon_state = "shard"
 	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -372,7 +372,7 @@
 	name = "elemental fragment"
 	icon_state = "fragment"
 	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -389,7 +389,7 @@
 	name = "elemental relic"
 	icon_state = "relic"
 	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
@@ -407,7 +407,7 @@
 	name = "voidstone"
 	icon_state = "voidstone"
 	desc = "An incredibly rare substance torn from creatures immune to magick. This material forsakes Noc's gifts."
-	resistance_flags = FLAMMABLE
+	resistance_flags = FIRE_PROOF
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
