@@ -19,7 +19,7 @@
 		return
 
 	//water turf eats reagents
-	if(istype(T, /turf/open/water))
+	if(istype(epicenter, /turf/open/water))
 		for(var/datum/reagents/R in reactants)
 			R.clear_reagents()
 		return
