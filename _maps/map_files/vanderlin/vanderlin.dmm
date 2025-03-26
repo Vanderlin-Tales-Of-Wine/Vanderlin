@@ -424,9 +424,7 @@
 	icon_state = "barsbent";
 	layer = 2.81
 	},
-/obj/structure/fake_machine/vendor{
-	keycontrol = "blacksmith"
-	},
+/obj/structure/fake_machine/vendor/blacksmith,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/smithy)
 "apt" = (
@@ -6608,9 +6606,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/river)
 "esY" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "butcher"
-	},
+/obj/structure/fake_machine/vendor/butcher,
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 4
 	},
@@ -8537,9 +8533,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town)
 "fJi" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "soilson"
-	},
+/obj/structure/fake_machine/vendor/soilson,
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/outdoors/rtfield/safe)
 "fJn" = (
@@ -8627,8 +8621,8 @@
 /area/rogue/indoors/town/steward)
 "fLH" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "fME" = (
@@ -13474,7 +13468,7 @@
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Sauna"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "jiP" = (
@@ -13965,6 +13959,9 @@
 /area/rogue/under/town/sewer)
 "jCs" = (
 /obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/apothecary,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "jCy" = (
@@ -14570,9 +14567,7 @@
 	icon_state = "barsbent";
 	layer = 2.81
 	},
-/obj/structure/fake_machine/vendor{
-	keycontrol = "blacksmith"
-	},
+/obj/structure/fake_machine/vendor/blacksmith,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/smithy)
 "jWf" = (
@@ -15211,9 +15206,7 @@
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town)
 "ksA" = (
-/obj/structure/fake_machine/vendor{
-	keycontrol = "tavern"
-	},
+/obj/structure/fake_machine/vendor/inn,
 /turf/closed/wall/mineral/wooddark,
 /area/rogue/indoors/town/tavern)
 "ksM" = (
@@ -15393,8 +15386,8 @@
 /area/rogue/indoors/town/orphanage)
 "kAK" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "kBa" = (
@@ -19292,9 +19285,7 @@
 	icon_state = "barsbent";
 	layer = 2.81
 	},
-/obj/structure/fake_machine/vendor{
-	keycontrol = "nightmaiden"
-	},
+/obj/structure/fake_machine/vendor/apothecary,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "nAe" = (
@@ -23267,8 +23258,8 @@
 /area/rogue/outdoors/river)
 "qza" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/town/apothecary,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/twig,
 /area/rogue/indoors/town)
 "qzm" = (
@@ -24731,7 +24722,7 @@
 /obj/structure/mineral_door/wood/window{
 	name = "Bathhouse"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "rFj" = (
@@ -27952,7 +27943,7 @@
 /obj/structure/mineral_door/wood/window{
 	name = "Bathhouse"
 	},
-/obj/effect/mapping_helpers/door/access/town/apothecary,
+/obj/effect/mapping_helpers/door/access/town/bathhouse,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "tLS" = (
