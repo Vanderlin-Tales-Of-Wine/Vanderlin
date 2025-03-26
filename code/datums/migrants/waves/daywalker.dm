@@ -61,4 +61,4 @@
 	roles = list(
 		/datum/migrant_role/daywalker = 1,
 	)
-	greet_text = "\"There are worse things out there than vampires. You.\""
+	greet_text = "There are worse things out there than vampires. You."
