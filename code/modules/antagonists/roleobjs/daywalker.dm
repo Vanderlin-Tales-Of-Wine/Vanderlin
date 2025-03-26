@@ -11,7 +11,7 @@
 /datum/antagonist/daywalker/on_gain()
 	if(owner.current && ishuman(owner.current))
 		var/mob/living/carbon/human/H = owner.current
-		ADD_TRAIT(H, TRAIT_ZJUMP, src)
+		ADD_TRAIT(H, TRAIT_ZJUMP, "[type]")
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
 			eyes.Remove(H, 1)
@@ -29,6 +29,9 @@
 	return ..()
 
 /datum/antagonist/daywalker/on_removal()
+	if(owner.current && ishuman(owner.current))
+		var/mob/living/carbon/human/H = owner.current
+		REMOVE_TRAIT(H, TRAIT_ZJUMP, "[type]")
 	return ..()
 
 
