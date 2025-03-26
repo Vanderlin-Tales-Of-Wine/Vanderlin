@@ -444,7 +444,7 @@
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue)
+/area/rogue/under/town/basement)
 "aqu" = (
 /obj/structure/bars,
 /obj/structure/bars/passage/shutter/open{
@@ -1567,6 +1567,10 @@
 /obj/structure/flora/grass/water/reeds,
 /turf/open/water,
 /area/rogue/outdoors/river)
+"aZU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/closed/wall/mineral/wood,
+/area/rogue/under/town/basement)
 "aZW" = (
 /obj/item/reagent_containers/glass/bottle/manapot,
 /obj/item/reagent_containers/glass/bottle/healthpot,
@@ -2808,9 +2812,6 @@
 "bQk" = (
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/town)
-"bQI" = (
-/turf/open/floor/plank,
-/area/rogue/under/town/caverogue)
 "bRe" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/hexstone,
@@ -15458,7 +15459,7 @@
 "kCn" = (
 /obj/structure/stairs/stone/d,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue)
+/area/rogue/under/town/basement)
 "kCA" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	lockid = "priest"
@@ -15656,9 +15657,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
-"kJg" = (
-/turf/open/floor/blocks,
-/area/rogue/under/town/caverogue)
 "kJo" = (
 /turf/open/floor/woodturned,
 /area/rogue/under/town/sewer)
@@ -103288,8 +103286,8 @@ vgJ
 aJo
 aJo
 vgJ
-rDr
-rDr
+vgJ
+vgJ
 rDr
 hEF
 bET
@@ -103491,9 +103489,9 @@ aJo
 aJo
 vgJ
 rDr
+rDr
+rDr
 bET
-res
-fRk
 rDr
 rDr
 rDr
@@ -103694,8 +103692,8 @@ jns
 vgJ
 rDr
 rmA
-rDr
-rDr
+bET
+fRk
 rDr
 vgJ
 vgJ
@@ -103897,8 +103895,8 @@ vgJ
 rDr
 rDr
 rDr
-vgJ
-vgJ
+rDr
+rDr
 vgJ
 vgJ
 vgJ
@@ -104291,7 +104289,7 @@ nxk
 nxk
 nxk
 nxk
-nxk
+bKn
 hVU
 wDN
 txh
@@ -104493,7 +104491,7 @@ nxk
 nxk
 nxk
 nxk
-nxk
+bKn
 hVU
 jtm
 cFn
@@ -104695,7 +104693,7 @@ nxk
 nxk
 nxk
 nxk
-nxk
+bKn
 hVU
 jed
 cFn
@@ -104897,7 +104895,7 @@ nxk
 nxk
 nxk
 nxk
-nxk
+bKn
 hVU
 hVU
 cFn
@@ -105099,14 +105097,14 @@ nxk
 nxk
 aKf
 aKf
-nxk
-nxk
+bKn
+bKn
 aSw
 aSw
 aSw
 aSw
 xDM
-aKf
+bKn
 aKf
 nxk
 nxk
@@ -105302,13 +105300,13 @@ nxk
 nxk
 nxk
 nxk
-aKf
-aKf
-aKf
-aKf
-aKf
-aKf
-nxk
+bKn
+bKn
+bKn
+bKn
+bKn
+bKn
+bKn
 nxk
 nxk
 nxk
@@ -139034,7 +139032,7 @@ jkj
 jco
 cdk
 guQ
-ojK
+aZU
 guQ
 phh
 xni
@@ -143884,16 +143882,16 @@ vgJ
 vgJ
 vgJ
 vgJ
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
+rDr
+rDr
+rDr
+rDr
+rDr
+rDr
+rDr
+rDr
+rDr
+rDr
 vgJ
 vgJ
 vgJ
@@ -144086,16 +144084,16 @@ vgJ
 vgJ
 vgJ
 vgJ
-cbf
-qmr
+rDr
+rzJ
 kCn
-kJg
-bQI
-bQI
-kJg
+res
+rzJ
+rzJ
+bET
 aqt
-qmr
-cbf
+rzJ
+rDr
 fkZ
 vgJ
 vgJ
@@ -144288,16 +144286,16 @@ fkZ
 fkZ
 fkZ
 fkZ
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
-cbf
+rDr
+rDr
+rDr
+rDr
+uzQ
+uzQ
+wDN
+rDr
+rDr
+rDr
 fkZ
 fkZ
 fkZ
