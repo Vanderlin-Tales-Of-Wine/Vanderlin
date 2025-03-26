@@ -5,15 +5,16 @@
 	show_name_in_check_antagonists = TRUE
 	increase_votepwr = FALSE
 	isgoodguy = TRUE
-	antag_flags = FLAG_FAKE_ANTAG | ROLE_DAYWALKER
+	job_rank = ROLE_DAYWALKER
+	antag_flags = FLAG_FAKE_ANTAG
 
 /datum/antagonist/daywalker/on_gain()
 	if(owner.current && ishuman(owner.current))
-		var/mob/carbon/H = owner.current
-		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+		var/mob/living/carbon/human/H = owner.current
+		ADD_TRAIT(H, TRAIT_ZJUMP, src)
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
-			eyes.Remove(H,1)
+			eyes.Remove(H, 1)
 			QDEL_NULL(eyes)
 		eyes = new /obj/item/organ/eyes/night_vision/zombie
 		eyes.Insert(H)
