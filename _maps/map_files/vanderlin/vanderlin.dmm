@@ -10565,7 +10565,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/soilsons)
 "hlR" = (
-/obj/structure/fluff/statue/femalestatue,
+/obj/structure/fluff/statue/femalestatue{
+	icon_state = "5"
+	},
 /turf/open/floor/churchbrick,
 /area/rogue/outdoors/eora)
 "hlT" = (
