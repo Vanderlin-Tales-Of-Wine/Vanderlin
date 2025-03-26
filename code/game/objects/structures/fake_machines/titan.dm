@@ -392,15 +392,15 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	else
 		switch(mode)
 			if(MODE_NONE)
-				recognize_command(user, sanitized_message)
+				recognize_command(speaker, sanitized_message)
 			if(MODE_MAKE_ANNOUNCEMENT)
-				make_announcement(user, sanitized_message)
+				make_announcement(speaker, sanitized_message)
 			if(MODE_MAKE_LAW)
-				make_law(user, sanitized_message)
+				make_law(speaker, sanitized_message)
 			if(MODE_DECLARE_OUTLAW)
-				declare_outlaw(user, sanitized_message)
+				declare_outlaw(speaker, sanitized_message)
 			if(MODE_MAKE_DECREE)
-				make_decree(user, sanitized_message)
+				make_decree(speaker, sanitized_message)
 
 #undef MODE_NONE
 #undef MODE_MAKE_ANNOUNCEMENT
