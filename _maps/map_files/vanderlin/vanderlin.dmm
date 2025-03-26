@@ -5433,6 +5433,12 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
+"dMw" = (
+/obj/structure/ladder{
+	pixel_y = 2
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "dMz" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -6798,7 +6804,8 @@
 "eEv" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = 513;
-	floor_turf = /turf/open/floor/ruinedwood/spiral
+	floor_turf = /turf/open/floor/ruinedwood/spiral;
+	override_floor = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -15560,6 +15567,12 @@
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/church)
+"kGz" = (
+/obj/structure/ladder{
+	pixel_y = 2
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/town/basement)
 "kGO" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/bath)
@@ -19564,7 +19577,8 @@
 "nJM" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
 	redstone_id = 512;
-	floor_turf = /turf/open/floor/ruinedwood/spiral
+	floor_turf = /turf/open/floor/ruinedwood/spiral;
+	override_floor = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -22222,7 +22236,7 @@
 /obj/structure/closet/crate/chest/gold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/blocks,
-/area/rogue/indoors/town/manor)
+/area/rogue/under/town/basement)
 "pJU" = (
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/butchershop)
@@ -32643,7 +32657,9 @@
 /area/rogue/under/cave)
 "wTX" = (
 /obj/effect/mapping_helpers/secret_door_creator/keep{
-	redstone_id = "Cuck"
+	redstone_id = "Cuck";
+	floor_turf = /turf/open/floor/ruinedwood/spiral;
+	override_floor = 1
 	},
 /turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors/town/manor)
@@ -59043,7 +59059,7 @@ kHz
 bET
 tHe
 bUM
-mVx
+dMw
 bUM
 vgJ
 vgJ
@@ -93976,7 +93992,7 @@ alA
 gOl
 nMZ
 bET
-jSN
+bET
 pJn
 gOl
 lwc
@@ -94178,8 +94194,8 @@ jPp
 bJN
 rDr
 bET
-jSN
-adF
+bET
+nMZ
 gOl
 rLE
 qIB
@@ -99824,7 +99840,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-cbf
+rDr
 rDr
 bET
 rDr
@@ -139845,7 +139861,7 @@ phh
 cGL
 cGL
 phh
-hma
+kGz
 guQ
 ojK
 ojK
@@ -142484,9 +142500,9 @@ vHr
 beI
 beI
 vgJ
-nyB
-nyB
-nyB
+rDr
+rDr
+rDr
 vgJ
 vgJ
 vgJ
@@ -142687,7 +142703,7 @@ beI
 beI
 vgJ
 rDr
-rDr
+rdM
 rDr
 vgJ
 vgJ
@@ -182279,9 +182295,9 @@ acx
 acx
 acx
 acx
-bET
-rDr
-rDr
+vgJ
+vgJ
+vgJ
 vgJ
 vgJ
 vgJ
@@ -182481,8 +182497,8 @@ acx
 acx
 acx
 acx
-bET
-bET
+rDr
+rDr
 rDr
 vgJ
 vgJ
@@ -182683,7 +182699,7 @@ acx
 acx
 acx
 acx
-rDr
+bET
 bET
 rDr
 vgJ
