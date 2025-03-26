@@ -15,11 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_races = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 
 	outfit = /datum/outfit/job/inquisitor
 	is_foreigner = TRUE

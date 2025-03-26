@@ -15,17 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf",
-		"Elf",
-		"Half-Elf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-
+	allowed_races = RACES_PLAYER_NONEXOTIC
 	outfit = /datum/outfit/job/apothecary
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'

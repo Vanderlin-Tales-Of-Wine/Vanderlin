@@ -14,12 +14,7 @@
 	bypass_lastclass = TRUE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)

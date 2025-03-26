@@ -195,17 +195,7 @@
 	name = "Zybantine Soldier"
 	greet_text = "You are a slave soldier from the Ziggurat sent as an escort to the emirs on a foreign land, do not fail them."
 	allowed_sexes = list(MALE,FEMALE)
-	allowed_races = list("Humen",
-		"Elf",
-		"Half-Elf",
-		"Rakshari",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Raskhari"
-	)
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/zybantine_migration/zybantine_guard
 	grant_lit_torch = TRUE
 
@@ -258,7 +248,6 @@
 		"Half-Elf",
 		"Tiefling",
 		"Dark Elf",
-		"Rakshari"
 	)
 	outfit = /datum/outfit/job/zybantine_migration/qatil
 
