@@ -214,10 +214,16 @@
 
 /obj/item/reagent_containers/glass/attack_turf(turf/T, mob/living/user)
 	if(spillable && reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-		chem_splash(T, 2, list(reagents))
-		playsound(T, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+		//catch for walls
+		var/turf/newT = T
+		while(istype(T, /turf/closed) && newT != user.loc)
+			newT = get_step(newT, get_dir(newT, user.loc))
+		reagents.reaction(T, TOUCH)
+		chem_splash(newT, 2, list(reagents))
+		playsound(newT, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 		user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>", \
 								"<span class='danger'>[user] splashes the contents of [src] onto [T]!</span>")
+
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user)
 	if(user.used_intent.type == INTENT_GENERIC)
