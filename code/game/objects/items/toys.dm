@@ -94,6 +94,7 @@
 	var/card_throw_speed = 1
 	var/card_throw_range = 7
 	var/list/card_attack_verb = list("attacked")
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/cards/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] is slitting [user.p_their()] wrists with \the [src]! It looks like [user.p_they()] [user.p_have()] a crummy hand!"))
@@ -110,7 +111,7 @@
 	icon = 'icons/obj/toy.dmi'
 	deckstyle = "syndicate"
 	icon_state = "deck_syndicate_full"
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	var/cooldown = 0
 	var/list/cards = list()
 
