@@ -17,6 +17,7 @@
 #define ROLE_LICH				"Lich"
 #define ROLE_ASPIRANT			"Aspirant"
 #define ROLE_BOUND_BEAST		"Bound Beast"
+#define ROLE_DAYWALKER			"Daywalker"
 
 #define ROLE_NECRO_SKELETON		"Necromancer Skeleton"
 
