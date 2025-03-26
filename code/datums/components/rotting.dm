@@ -80,7 +80,7 @@
 	if(findonerotten)
 		var/turf/open/T = C.loc
 		if(istype(T) && amount < 16 MINUTES)
-			T.pollute_turf(/datum/pollutant/rot, 10)
+			T.pollute_turf(/datum/pollutant/rot, 50)
 			if(soundloop && soundloop.stopped && !is_zombie)
 				soundloop.start()
 		else
@@ -108,15 +108,30 @@
 	if(amount > 10 MINUTES)
 		if(soundloop && soundloop.stopped)
 			soundloop.start()
-		var/turf/open/T = L.loc
-		if(istype(T) && amount < 16 MINUTES)
-			T.pollute_turf(/datum/pollutant/rot, 10)
+		var/turf/open/T = get_turf(L)
+		if(istype(T)  && amount < 16 MINUTES)
+			T.pollute_turf(/datum/pollutant/rot, 50)
 	if(amount > 20 MINUTES)
 		qdel(R)
 		return L.dust(drop_items=TRUE)
 
 /datum/component/rot/gibs
 	amount = 0.005
+
+/datum/component/rot/stinky_person
+	soundloop = null
+	var/static/list/clean_moodlets = list(/datum/stressevent/clean, /datum/stressevent/clean_plus)
+
+/datum/component/rot/stinky_person/process()
+	..()
+	var/mob/living/L = parent
+	var/turf/open/T = L.loc
+	if(istype(T))
+		if(iscarbon(L))
+			var/mob/living/carbon/stinky = L
+			for(clean_moodlets in stinky.positive_stressors)
+				return
+		T.pollute_turf(/datum/pollutant/rot, 0.01)
 
 /datum/looping_sound/fliesloop
 	mid_sounds = list('sound/misc/fliesloop.ogg')
