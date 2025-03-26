@@ -41,7 +41,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE) // some motherfuckers are always trying to ice skate uphill		H.change_stat(STATKEY_STR, 1)
-		H.change_stat(STATKEY_CON, 2)
+		H.change_stat(STATKEY_CON, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_PER, 2)
 		H.change_stat(STATKEY_SPD, 2)
