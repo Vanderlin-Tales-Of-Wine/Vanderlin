@@ -668,10 +668,6 @@
 /obj/item/weapon/tongs,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
-"bF" = (
-/obj/structure/window/stained/yellow,
-/turf/closed/basic,
-/area/rogue/indoors/vampire_manor)
 "bG" = (
 /obj/structure/mineral_door/wood{
 	lockid = "mansionvampire"
@@ -2435,8 +2431,6 @@
 /area/rogue/indoors/bandit_lair)
 "rj" = (
 /obj/structure/table/wood/reinforced,
-/obj/structure/table/wood/reinforced,
-/obj/structure/table/wood/reinforced,
 /obj/item/clothing/shirt/undershirt,
 /obj/item/clothing/shirt/undershirt,
 /obj/item/clothing/shirt/undershirt,
@@ -3708,15 +3702,6 @@
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/bandit_lair)
-"Il" = (
-/obj/structure/table/wood/counter{
-	dir = 1
-	},
-/obj/structure/table/wood{
-	icon_state = "longtable"
-	},
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue)
 "In" = (
 /obj/structure/rack,
 /obj/item/weapon/axe/iron,
@@ -4402,15 +4387,6 @@
 /obj/structure/bed/shit,
 /turf/open/floor/cobble,
 /area/rogue/indoors/bandit_lair)
-"QL" = (
-/obj/structure/chair/wood/alt{
-	dir = 1
-	},
-/obj/structure/chair/wood/alt{
-	dir = 1
-	},
-/turf/open/floor/ruinedwood/chevron,
-/area/rogue)
 "QX" = (
 /obj/item/bin/water/gross,
 /obj/structure/fluff/walldeco/maidendrape,
@@ -5294,10 +5270,6 @@
 /area/rogue/indoors/bandit_lair)
 "Zl" = (
 /turf/open/floor/herringbone,
-/area/rogue/indoors/vampire_manor)
-"Zq" = (
-/obj/structure/mineral_door/wood,
-/turf/closed,
 /area/rogue/indoors/vampire_manor)
 "Zt" = (
 /turf/open/floor/dirt/road,
@@ -10330,7 +10302,7 @@ bM
 tU
 bM
 VJ
-Il
+Vj
 jn
 HJ
 an
@@ -11005,7 +10977,7 @@ yE
 yE
 yE
 yE
-Zq
+cp
 yE
 yE
 yE
@@ -11493,7 +11465,7 @@ Fg
 fy
 Np
 Vd
-QL
+sI
 sZ
 SP
 ga
@@ -11913,7 +11885,7 @@ OQ
 jZ
 jZ
 HC
-bF
+ct
 dU
 cT
 cT
@@ -12429,7 +12401,7 @@ Iw
 Iw
 Iw
 Iw
-bF
+ct
 Zl
 bO
 cf
@@ -12949,7 +12921,7 @@ Iw
 Iw
 Iw
 Iw
-bF
+ct
 Zl
 bO
 cj

@@ -4931,11 +4931,6 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/manor)
-"fso" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/open/floor/grass,
-/turf/open/floor/blocks,
-/area/rogue/outdoors/town)
 "fsZ" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt/road,
@@ -5605,7 +5600,6 @@
 	},
 /area/rogue/indoors/town/tavern)
 "giM" = (
-/obj/structure/stairs,
 /obj/structure/stairs,
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/rtfield)
@@ -7933,10 +7927,6 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
-"iKD" = (
-/turf/closed/wall/mineral/craftstone,
-/turf/closed/wall/mineral/stone/moss,
-/area/rogue/indoors/town/bath)
 "iKX" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -8800,7 +8790,6 @@
 /obj/structure/curtain/bounty{
 	color = "grey"
 	},
-/turf/closed/wall/mineral/wooddark/window,
 /area/rogue/indoors)
 "jOa" = (
 /obj/structure/chair/wood/alt/fancy{
@@ -11084,12 +11073,6 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /turf/open/floor/woodturned,
 /area/rogue/outdoors/town/roofs)
-"mlW" = (
-/obj/structure/window/solid,
-/turf/closed/wall/mineral/roofwall/middle{
-	dir = 1
-	},
-/area/rogue/indoors/town/dwarfin)
 "mlZ" = (
 /obj/structure/ladder,
 /turf/open/floor/ruinedwood{
@@ -11902,11 +11885,6 @@
 /obj/structure/bed/mediocre,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/church)
-"ncH" = (
-/obj/effect/decal/cleanable/generic,
-/turf/open/floor/grass,
-/turf/open/floor/blocks,
-/area/rogue/outdoors/town)
 "nde" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = 32
@@ -14155,9 +14133,6 @@
 "ptC" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/river)
-"ptP" = (
-/turf/open/floor/carpet,
-/area/rogue/indoors/town)
 "puo" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -16004,7 +15979,6 @@
 /obj/structure/flora/grass,
 /obj/structure/flora/grass/pyroclasticflowers,
 /turf/open/floor/grass,
-/turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "rDM" = (
 /obj/structure/fluff/railing/border{
@@ -16092,10 +16066,6 @@
 	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
-"rIG" = (
-/turf/open/water/sewer,
-/turf/open/water/sewer,
-/area/rogue/under/town/sewer)
 "rJt" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/cloth,
@@ -18983,11 +18953,6 @@
 /obj/structure/chair/wood/alt/fancy,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
-"uSP" = (
-/obj/structure/flora/grass,
-/turf/open/floor/grass,
-/turf/open/floor/cobble,
-/area/rogue/outdoors/town)
 "uTf" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -41908,7 +41873,7 @@ jPs
 xug
 czv
 czv
-rIG
+czv
 guT
 czv
 czv
@@ -64209,10 +64174,10 @@ vjc
 uQu
 iKq
 vOa
-fso
-ncH
+mXt
+iKq
 rDD
-uSP
+uQu
 uQz
 qGS
 tDt
@@ -64841,7 +64806,7 @@ jeX
 nQR
 vTl
 taZ
-iKD
+bjg
 qpk
 qpk
 qpk
@@ -104447,7 +104412,7 @@ fJn
 oiP
 oiP
 sjf
-mlW
+wXU
 bAa
 bAa
 kjU
@@ -106019,8 +105984,8 @@ oiP
 sjf
 jWo
 eww
-ptP
-ptP
+hYG
+hYG
 xHv
 tgV
 tgV
@@ -106177,7 +106142,7 @@ sjf
 vTw
 fqb
 bwO
-ptP
+hYG
 fMz
 qFq
 qlQ

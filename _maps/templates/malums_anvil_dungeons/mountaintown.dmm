@@ -984,6 +984,18 @@
 /obj/item/grown/log/tree/stick,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/mountains/anvil/dungeon)
+"nk" = (
+/obj/item/storage/sack,
+/obj/item/reagent_containers/food/snacks/potato/baked{
+	pixel_x = -6
+	},
+/obj/structure/table/wood/plain_alt,
+/obj/item/reagent_containers/glass/bottle{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/dungeon)
 "no" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/tile/kitchen,
@@ -1332,6 +1344,19 @@
 /obj/effect/decal/cleanable/blood/footprints,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"rS" = (
+/obj/structure/fluff/railing/border{
+	icon_state = "border"
+	},
+/obj/structure/table/wood/large/corner_blue{
+	dir = 6
+	},
+/obj/structure/lever{
+	pixel_y = 17;
+	redstone_id = "trollgate"
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/under/mountains/anvil/dungeon)
 "rX" = (
 /obj/structure/bed/sleepingbag,
 /turf/open/floor/naturalstone,
@@ -2382,18 +2407,6 @@
 /obj/structure/chair/bench/church/smallbench,
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)
-"HI" = (
-/obj/item/storage/sack,
-/obj/item/reagent_containers/food/snacks/potato/baked{
-	pixel_x = -6
-	},
-/obj/structure/table/wood/plain_alt,
-/obj/item/reagent_containers/glass/bottle{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon)
 "HN" = (
 /obj/item/natural/fur/mole,
 /turf/open/floor/wood/nosmooth,
@@ -3017,12 +3030,6 @@
 /obj/item/chair/stool/bar,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"QT" = (
-/obj/structure/gate/bars/preopen{
-	redstone_id = "trollgate"
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "QY" = (
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/blocks,
@@ -3357,6 +3364,12 @@
 	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"VK" = (
+/obj/structure/gate/bars/preopen{
+	redstone_id = "trollgate"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "VP" = (
 /turf/open/floor/blocks{
 	icon_state = "bluestone"
@@ -3542,19 +3555,6 @@
 	},
 /turf/open/floor/tile/kitchen,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"XQ" = (
-/obj/structure/fluff/railing/border{
-	icon_state = "border"
-	},
-/obj/structure/table/wood/large/corner_blue{
-	dir = 6
-	},
-/obj/structure/lever{
-	pixel_y = 17;
-	redstone_id = "trollgate"
-	},
-/turf/open/floor/churchmarble,
-/area/rogue/under/mountains/anvil/dungeon)
 "XR" = (
 /obj/item/weapon/polearm/spear/bronze{
 	pixel_y = -12
@@ -4409,7 +4409,7 @@ Te
 nR
 rq
 rq
-QT
+VK
 rq
 rq
 Px
@@ -4426,7 +4426,7 @@ rq
 rq
 rq
 rq
-QT
+VK
 Lt
 rq
 UD
@@ -8414,7 +8414,7 @@ dD
 (8,1,2) = {"
 Ho
 FU
-HI
+nk
 RT
 RT
 RT
@@ -8766,7 +8766,7 @@ dD
 FU
 Wc
 De
-XQ
+rS
 gy
 gy
 gy
