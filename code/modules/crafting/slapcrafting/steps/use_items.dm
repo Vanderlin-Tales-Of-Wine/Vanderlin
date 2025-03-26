@@ -1,5 +1,5 @@
 /datum/slapcraft_step/use_item/sewing/needle
-	desc =  "Using a needle sew the seams."
+	desc =  "Using a needle sew the seams"
 	item_types = list(/obj/item/needle)
 
 /datum/slapcraft_step/use_item/carpentry/hammer
@@ -14,7 +14,7 @@
 	. *= hammer.time_multiplier
 
 /datum/slapcraft_step/use_item/masonry/hammer
-	desc = "Hammer the stones."
+	desc = "Hammer the stones"
 	start_verb = "for"
 	item_types = list(/obj/item/weapon/hammer)
 
@@ -38,7 +38,7 @@
 	. *= hammer.time_multiplier
 
 /datum/slapcraft_step/use_item/masonry/chisel
-	desc = "Chisel the rock."
+	desc = "Chisel the rock"
 	start_verb = "for"
 	item_types = list(/obj/item/weapon/chisel)
 
