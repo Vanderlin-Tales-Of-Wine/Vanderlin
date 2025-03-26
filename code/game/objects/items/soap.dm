@@ -40,7 +40,7 @@
 	if(clean_succeeded)
 		decreaseUses(user, 5)
 
-obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
+/obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
 	to_chat(user, span_warning("This isn't working very well. I should use it with a bucket and a rag."))
 
 
@@ -88,9 +88,11 @@ obj/item/soap/proc/on_clean_ineffective(atom/target, mob/living/user)
 			to_chat(user, span_warning("Their mouth is blocked!"))
 			return FALSE
 
-		if(user != target && user.get_inactive_held_item()?.grabbed == target) // gotta have the target in your offhand
-			to_chat(user, span_warning("I can't hold them still if I don't grab them!"))
-			return FALSE
+		if(user != target)
+			var/obj/item/grabbing/G = user.get_active_held_item()
+			if(!istype(G) || !ishuman(G.grabbed) || G.grabbed != target) // gotta have the target in your offhand
+				to_chat(user, span_warning("I can't hold them still if I don't grab them!"))
+				return FALSE
 		user.visible_message("<span class='warning'>\the [user] starts to wash \the [target]'s mouth out with [src.name]...</span>", "<span class='notice'>I start to wash \the [target]'s mouth out with [src.name]...</span>") //washes mouth out with soap sounds better than 'the soap' here			if(user.zone_selected == "mouth")
 		// how this looks vvv https://www.desmos.com/calculator/55fpadxol5
 		if(do_after(user, (20 / user.STASPD + 2) SECONDS, target))
