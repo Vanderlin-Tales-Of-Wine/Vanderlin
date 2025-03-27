@@ -15,7 +15,8 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Aasimar"
+		"Aasimar",
+		"Dark Elf"
 	)
 
 	outfit = /datum/outfit/job/alchemist

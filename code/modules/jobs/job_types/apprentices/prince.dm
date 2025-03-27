@@ -14,8 +14,9 @@
 	spawn_positions = 2
 	allowed_races = list(
 		"Humen",
+		"Elf",
 		"Half-Elf",
-		"Elf"
+		"Dwarf"
 	)
 
 	spells = list(
@@ -61,7 +62,7 @@
 	armor = /obj/item/clothing/armor/cuirass
 	shoes = /obj/item/clothing/shoes/nobleboot
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/weapon/sword
+	beltl = /obj/item/weapon/sword/rapier
 	beltr = /obj/item/key/manor
 	neck = /obj/item/storage/belt/pouch/coins/rich
 	backr = /obj/item/storage/backpack/satchel
@@ -86,6 +87,7 @@
 		H.change_stat(STATKEY_LCK, 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
 /datum/advclass/heir/aristocrat
 	name = "Sheltered Aristocrat"

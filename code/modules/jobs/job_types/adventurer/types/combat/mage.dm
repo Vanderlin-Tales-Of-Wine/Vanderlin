@@ -39,6 +39,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		if(H.age == AGE_OLD)
 			head = /obj/item/clothing/head/wizhat/gen

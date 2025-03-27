@@ -1,18 +1,12 @@
 /datum/advclass/pilgrim/rare/zybantine
 	name = "Zybantine Emir"
-	tutorial = "An Emir hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to Vanderlin."
+	tutorial = "An Emir hailing from the Zybantine Empire, here on business for the Mercator's Guild to Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Dark Elf"
 	)
 	outfit = /datum/outfit/job/adventurer/zybantine
 	category_tags = list(CTAG_PILGRIM)

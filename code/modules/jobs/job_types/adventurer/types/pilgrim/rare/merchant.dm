@@ -5,9 +5,15 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
+		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Aasimar"
+		"Dwarf",
+		"Tiefling",
+		"Dark Elf",
+		"Aasimar",
+		"Half-Orc",
+		"Kobold"
 	)
 	outfit = /datum/outfit/job/adventurer/merchant
 	category_tags = list(CTAG_PILGRIM)
@@ -60,6 +66,5 @@
 		if("GEMS")		// Travelling high-end merchant
 			backpack_contents = list(/obj/item/gem/yellow, /obj/item/gem/yellow, /obj/item/gem/green, /obj/item/gem/green, /obj/item/gem/violet)
 			H.mind?.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FOREIGNER, TRAIT_GENERIC)

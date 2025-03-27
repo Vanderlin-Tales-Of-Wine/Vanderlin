@@ -80,3 +80,4 @@
 		beltl = /obj/item/ammo_holder/quiver/arrows
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/wine = 1, /obj/item/reagent_containers/glass/cup/silver = 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
