@@ -59,7 +59,7 @@
 		return TRUE
 	stamina = CLAMP(stamina+added, 0, maximum_stamina)
 	if(internal_regen && added < 0)
-		adjust_energy(added * -1)
+		adjust_energy(added)
 	if(added >= 5)
 		if(energy <= 0)
 			if(iscarbon(src))

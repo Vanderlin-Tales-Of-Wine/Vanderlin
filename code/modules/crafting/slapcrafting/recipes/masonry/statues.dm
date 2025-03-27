@@ -164,7 +164,7 @@
 	result_type = /obj/structure/fluff/statue/astrata
 	craftdiff = 5
 
-/datum/slapcraft_recipe/masonry/structure/statue/astrata
+/datum/slapcraft_recipe/masonry/structure/statue/astratabling
 	name = "astrata statue (bling)"
 	steps = list(
 		/datum/slapcraft_step/structure/carving_block,

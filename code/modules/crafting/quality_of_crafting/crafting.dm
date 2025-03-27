@@ -120,6 +120,20 @@
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
+/datum/repeatable_crafting_recipe/crafting/stake
+	name = "wooden stake"
+	requirements = list(
+		/obj/item/grown/log/tree/stick= 1,
+	)
+	tool_usage = list(
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
+	)
+	attacked_atom = /obj/item/grown/log/tree/stick
+	starting_atom  = /obj/item/weapon/knife
+	output = /obj/item/grown/log/tree/stake
+	craftdiff = 0
+	uses_attacked_atom = FALSE
+
 /datum/repeatable_crafting_recipe/crafting/spoon
 	name = "wooden spoon"
 	requirements = list(
@@ -272,20 +286,6 @@
 	attacked_atom = /obj/item/grown/log/tree/stick
 	starting_atom  = /obj/item/weapon/knife
 	output = /obj/item/clothing/face/cigarette/pipe/crafted
-	uses_attacked_atom = FALSE
-
-/datum/repeatable_crafting_recipe/crafting/stake
-	name = "wooden stake"
-	requirements = list(
-		/obj/item/grown/log/tree/stick= 1,
-	)
-	tool_usage = list(
-		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
-	)
-	attacked_atom = /obj/item/grown/log/tree/stick
-	starting_atom  = /obj/item/weapon/knife
-	output = /obj/item/grown/log/tree/stake
-	craftdiff = 0
 	uses_attacked_atom = FALSE
 
 /datum/repeatable_crafting_recipe/crafting/broom
