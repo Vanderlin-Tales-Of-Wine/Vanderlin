@@ -23,14 +23,14 @@
 	id = "bog_shack_small_1"
 	//Mapppath is a direct pointer to the DMM file of your mini map, make sure no typos! The map file can be anywhere as long as this is set properly.
 	//Do NOT include (checkmark) the .dmm file! Just stick it in a folder and you're done with it.
-	mappath = "_maps/map_files/templates/lil_bog_shack/bog_shack_small_1.dmm"
+	mappath = "_maps/templates/lil_bog_shack/bog_shack_small_1.dmm"
 
 /datum/map_template/bog_shack_small_2
 	name = "Bog Shack Variant 2"
 	id = "bog_shack_small_2"
-	mappath = "_maps/map_files/templates/lil_bog_shack/bog_shack_small_2.dmm"
+	mappath = "_maps/templates/lil_bog_shack/bog_shack_small_2.dmm"
 
 /datum/map_template/bog_shack_small_3
 	name = "Bog Shack Variant 3"
 	id = "bog_shack_small_3"
-	mappath = "_maps/map_files/templates/lil_bog_shack/bog_shack_small_3.dmm"
+	mappath = "_maps/templates/lil_bog_shack/bog_shack_small_3.dmm"
