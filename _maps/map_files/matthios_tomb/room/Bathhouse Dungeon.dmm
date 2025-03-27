@@ -26,13 +26,6 @@
 	},
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors)
-"aK" = (
-/obj/structure/stairs/stone/church,
-/obj/structure/stairs/stone/church{
-	dir = 8
-	},
-/turf/open/floor/blocks/green,
-/area/rogue/indoors)
 "aV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/grass,
@@ -820,12 +813,6 @@
 /obj/effect/spawner/map_spawner/loot/weapon,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/church,
-/area/rogue/indoors)
-"sE" = (
-/obj/structure/window/stained/silver,
-/obj/structure/window/stained/silver,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/hexstone,
 /area/rogue/indoors)
 "sF" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -2337,7 +2324,7 @@ PU
 ea
 aV
 dE
-sE
+xG
 KY
 zw
 ey
@@ -2589,7 +2576,7 @@ pa
 pa
 Hc
 oQ
-aK
+oQ
 Ap
 SR
 NL
