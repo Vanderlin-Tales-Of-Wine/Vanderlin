@@ -365,7 +365,6 @@
 			r_hand = /obj/item/weapon/flail/towner
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_END, 1)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
