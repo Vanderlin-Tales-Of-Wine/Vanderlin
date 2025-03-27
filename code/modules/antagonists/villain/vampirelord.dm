@@ -116,6 +116,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	var/list/suckheads = get_antag_minds(/datum/antagonist/vampirelord)
 	if(suckheads.len > 6)
 		var/datum/migrant_wave/daywalker = MIGRANT_WAVE(/datum/migrant_wave/daywalker)
+		message_admins("Vampire spawns sufficient. Daywalker migrant has been enabled.")
 		daywalker?.can_roll = TRUE //It's open season.
 
 	return ..()
