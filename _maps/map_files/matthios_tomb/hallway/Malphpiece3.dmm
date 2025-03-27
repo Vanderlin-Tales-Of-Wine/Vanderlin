@@ -40,7 +40,6 @@
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobblerock/alt,
-/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "o" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
@@ -123,7 +122,6 @@
 /obj/structure/fluff/walldeco/vinez/r,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/cobblerock/alt,
-/turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "I" = (
 /obj/structure/chair/wood/alt/chair_noble,
@@ -133,7 +131,6 @@
 /obj/structure/fluff/walldeco/vinez/l,
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /obj/item/reagent_containers/glass/bottle/whitewine,
-/turf/open/floor/cobblerock/alt,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/outdoors/caves)
 "O" = (

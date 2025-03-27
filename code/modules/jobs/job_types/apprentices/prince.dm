@@ -41,6 +41,9 @@
 	spawned.advsetup = 1
 	spawned.invisibility = INVISIBILITY_MAXIMUM
 	spawned.become_blind("advsetup")
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 50)
+	ADD_TRAIT(spawned, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/advclass/heir
 	displays_adv_job = FALSE

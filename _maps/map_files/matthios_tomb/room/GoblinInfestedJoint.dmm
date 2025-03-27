@@ -991,11 +991,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/indoors/shelter)
-"Mb" = (
-/obj/structure/mineral_door/bars,
-/obj/structure/mineral_door/bars,
-/turf/open/floor/grass,
-/area/rogue/under/cave)
 "Mo" = (
 /obj/structure/kneestingers,
 /turf/open/floor/dirt,
@@ -1025,13 +1020,6 @@
 /area/rogue/under/cave)
 "Nt" = (
 /turf/open/floor/hexstone,
-/area/rogue/under/cave)
-"Nv" = (
-/obj/structure/bars/grille,
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/turf/closed/mineral/bedrock,
 /area/rogue/under/cave)
 "Nw" = (
 /turf/closed/wall/mineral/decostone/end,
@@ -1904,7 +1892,7 @@ Yy
 Kn
 Kn
 Xn
-Mb
+SB
 IA
 Yj
 Xn
@@ -2638,7 +2626,7 @@ uu
 Lp
 Lp
 Lp
-Nv
+in
 Nt
 Nt
 uC
