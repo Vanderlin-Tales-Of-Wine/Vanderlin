@@ -453,3 +453,50 @@
 	output = /obj/item/flint
 	craftdiff = 0
 	skillcraft = /datum/skill/craft/engineering
+
+
+/datum/repeatable_crafting_recipe/crafting/normalbait
+	name = "bait"
+	output = /obj/item/bait
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/wheat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/wheat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/sweetbait
+	name = "sweet bait - Apple"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/apple = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/berrybait
+	name = "sweet bait - Berry"
+	output = /obj/item/bait/sweet
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/jacksberry = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/jacksberry
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE
+
+/datum/repeatable_crafting_recipe/crafting/bloodbait
+	name = "blood bait"
+	output = /obj/item/bait/bloody
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/meat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/meat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+	subtypes_allowed = TRUE
