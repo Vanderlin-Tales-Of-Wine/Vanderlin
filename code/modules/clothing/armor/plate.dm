@@ -23,10 +23,11 @@
 	desc = "Full plate. Leg protecting tassets, groin cup, armored vambraces."
 	icon_state = "plate"
 	item_state = "plate"
-	equip_delay_self = 8 SECONDS
-	unequip_delay_self = 7 SECONDS
+	equip_delay_self = 60 SECONDS
+	unequip_delay_self = 60 SECONDS
+	equip_delay_other = 7 SECONDS  //now need to be helped out of your full plate
+	strip_delay = 7 SECONDS
 	sellprice = VALUE_FULL_PLATE
-
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_FULL
 

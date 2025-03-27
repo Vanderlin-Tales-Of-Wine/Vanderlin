@@ -58,7 +58,7 @@
 	..()
 	pants = /obj/item/clothing/pants/tights
 	shirt = /obj/item/clothing/shirt/undershirt/guard
-	armor = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/cuirass
 	shoes = /obj/item/clothing/shoes/nobleboot
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/sword

@@ -9,8 +9,8 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_TEMPLAR
 	faction = FACTION_STATION
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 4
+	spawn_positions = 4
 	min_pq = 8
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -87,8 +87,8 @@
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 
 
-	armor = /obj/item/clothing/armor/chainmail/hauberk
-	shirt = /obj/item/clothing/armor/gambeson
+	armor = /obj/item/clothing/armor/plate
+	shirt = /obj/item/clothing/armor/chainmail/hauberk
 	pants = /obj/item/clothing/pants/chainlegs
 	shoes = /obj/item/clothing/shoes/boots
 	backl = /obj/item/storage/backpack/satchel

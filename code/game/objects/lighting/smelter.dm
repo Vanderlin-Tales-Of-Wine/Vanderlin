@@ -198,6 +198,7 @@
 
 					if(steelalloy == 7)
 						testing("STEEL ALLOYED")
+						maxore = 3
 						alloy = /obj/item/ingot/steel
 					else if(bronzealloy == 7)
 						testing("BRONZE ALLOYED")

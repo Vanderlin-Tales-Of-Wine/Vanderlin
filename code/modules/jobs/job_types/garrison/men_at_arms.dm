@@ -11,8 +11,8 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_MENATARMS
 	faction = FACTION_STATION
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 3
+	spawn_positions = 3
 	min_pq = 6
 	bypass_lastclass = TRUE
 
@@ -36,8 +36,6 @@
 
 /datum/outfit/job/watchman/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	wrists = /obj/item/clothing/wrists/bracers/leather
-	pants = /obj/item/clothing/pants/trou/leather/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/storage/keyring/manorguard
@@ -49,8 +47,55 @@
 	spawned.become_blind("advsetup")
 
 
+/datum/advclass/menatarms/watchman_foot
+	name = "Footman Men-At-Arms"
+	tutorial = "You once warded the town, beating the poor and killing the senseless. \
+	Now you get to stare at them in the eyes, watching as they bleed, \
+	exanguinated personally by one of the Monarch's best. \
+	You are poor, and your belly is yet full. \
+	\n\
+	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
+	outfit = /datum/outfit/job/watchman/foot
+
+	category_tags = list(CTAG_MENATARMS)
+
+/datum/outfit/job/watchman/foot/pre_equip(mob/living/carbon/human/H) //new footman
+	..()
+	head = /obj/item/clothing/head/helmet/visored/sallet
+	cloak = /obj/item/clothing/cloak/stabard/guard
+	armor = /obj/item/clothing/armor/cuirass
+	wrists = /obj/item/clothing/wrists/bracers
+	pants = /obj/item/clothing/pants/chainlegs
+	shirt = /obj/item/clothing/armor/chainmail/hauberk
+	neck = /obj/item/clothing/neck/chaincoif
+	gloves = /obj/item/clothing/gloves/chain
+	beltr = /obj/item/weapon/sword/arming
+	backr = /obj/item/weapon/shield/tower/metal
+	backl = /obj/item/storage/backpack/satchel
+	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
+	if(H.mind)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.change_stat(STATKEY_STR, 2)
+		H.change_stat(STATKEY_PER, -1)
+		H.change_stat(STATKEY_END, 1)
+		H.change_stat(STATKEY_CON, 1)
+		H.verbs |= /mob/proc/haltyell
+		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+
 /datum/advclass/menatarms/watchman_pikeman
-	name = "Pikeman Men-At-Arms"
+	name = "Footman Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you get to stare at them in the eyes, watching as they bleed, \
 	exanguinated personally by one of the Monarch's best. \
@@ -63,11 +108,13 @@
 
 /datum/outfit/job/watchman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/helmet/kettle
+	head = /obj/item/clothing/head/helmet/visored/sallet
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/cuirass
+	wrists = /obj/item/clothing/wrists/bracers
+	pants = /obj/item/clothing/pants/chainlegs
 	shirt = /obj/item/clothing/armor/chainmail
-	neck = /obj/item/clothing/neck/chaincoif/iron
+	neck = /obj/item/clothing/neck/chaincoif
 	gloves = /obj/item/clothing/gloves/chain
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/weapon/polearm/spear/billhook
@@ -77,6 +124,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
@@ -92,7 +140,7 @@
 		H.change_stat(STATKEY_SPD, 1)
 		H.verbs |= /mob/proc/haltyell
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
 /datum/advclass/menatarms/watchman_swordsmen
 	name = "Fencer Men-At-Arms"
@@ -108,6 +156,8 @@
 /datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
+	wrists = /obj/item/clothing/wrists/bracers/leather
+	pants = /obj/item/clothing/pants/trou/leather/guard
 	cloak = /obj/item/clothing/cloak/stabard/guard
 	armor = /obj/item/clothing/armor/leather/advanced
 	shirt = /obj/item/clothing/armor/gambeson
@@ -145,18 +195,22 @@
 
 	category_tags = list(CTAG_MENATARMS)
 
-/datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/watchman/ranger/pre_equip(mob/living/carbon/human/H) //changed to swords rather than cudgels to be in line with rest
 	..()
-	head = /obj/item/clothing/head/helmet/kettle
+	head = /obj/item/clothing/head/helmet/visored/sallet
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/armor/leather/hide
-	shirt = /obj/item/clothing/armor/gambeson/heavy
-	beltr = /obj/item/weapon/mace/cudgel
-	neck = /obj/item/clothing/neck/chaincoif/iron
-	gloves = /obj/item/clothing/gloves/leather
+	armor = /obj/item/clothing/armor/cuirass
+	wrists = /obj/item/clothing/wrists/bracers
+	pants = /obj/item/clothing/pants/chainlegs
+	shirt = /obj/item/clothing/armor/chainmail
+	neck = /obj/item/clothing/neck/chaincoif
+	gloves = /obj/item/clothing/gloves/chain
+	beltr = /obj/item/weapon/sword/arming
+	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	backr = /obj/item/ammo_holder/quiver/bolts
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
@@ -174,11 +228,4 @@
 		H.verbs |= /mob/proc/haltyell
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		var/weapontypec = pickweight(list("Bow" = 6, "Crossbow" = 4)) // Rolls for either a bow or a Crossbow
-		switch(weapontypec)
-			if("Bow")
-				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
-				backr = /obj/item/ammo_holder/quiver/arrows
-			if("Crossbow")
-				backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-				backr = /obj/item/ammo_holder/quiver/bolts
+		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

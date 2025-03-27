@@ -42,7 +42,7 @@
 	H.change_stat(STATKEY_CON, 2)
 	H.change_stat(STATKEY_INT, -2)
 	var/armortype = pickweight(list("Cloak" = 5, "Hide" = 3, "Helmet" = 2))
-	var/weapontype = pickweight(list("Sword" = 4, "Club" = 3, "Axe" = 2)) //clubs and axes share a weapon type
+	var/weapontype = pickweight(list("Sword" = 3, "Axe" = 4)) //removed clubs, replaced with 2h varients cause barb
 	switch(armortype)
 		if("Cloak")
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
@@ -52,13 +52,10 @@
 			head = /obj/item/clothing/head/helmet/horned
 	switch(weapontype)
 		if("Sword")
-			beltr = /obj/item/weapon/sword/iron
+			backl = /obj/item/weapon/sword/long/greatsword/zwei
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		if("Club")
-			beltr = /obj/item/weapon/mace/woodclub
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		if("Axe")
-			beltr = /obj/item/weapon/axe/iron
+			backl = /obj/item/weapon/polearm/halberd/bardiche/warcutter
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)

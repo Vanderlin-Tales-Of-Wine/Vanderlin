@@ -14,8 +14,8 @@
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/sorceress
-	maximum_possible_slots = 2
-	min_pq = 0
+	maximum_possible_slots = 3
+	min_pq = 5
 	category_tags = list(CTAG_ADVENTURER)
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 

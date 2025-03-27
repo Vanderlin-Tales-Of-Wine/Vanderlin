@@ -49,24 +49,24 @@
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
 
-/datum/outfit/job/royalguard/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/royalguard/pre_equip(mob/living/carbon/human/H) //updated to full plate - because knights /should/ have it
 	..()
-	pants = /obj/item/clothing/pants/chainlegs
+	pants = /obj/item/clothing/pants/platelegs
 	cloak = /obj/item/clothing/cloak/tabard/knight/guard
-	neck = /obj/item/clothing/neck/gorget
+	neck = /obj/item/clothing/neck/bevor
 	shirt = /obj/item/clothing/armor/gambeson/arming
-	armor = /obj/item/clothing/armor/brigandine // Wear the King's colors.
-	shoes = /obj/item/clothing/shoes/boots/armor/light
+	armor = /obj/item/clothing/armor/plate/full
+	shoes = /obj/item/clothing/shoes/boots/armor
 	beltl = /obj/item/storage/keyring/mguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/shield/tower/metal
 	r_hand = /obj/item/weapon/polearm/halberd
-	if(prob(30))
-		head = /obj/item/clothing/head/helmet/visored/knight
-	else
-		head = /obj/item/clothing/head/helmet/sallet
+	head = /obj/item/clothing/head/helmet/visored/knight
+	wrists = /obj/item/clothing/wrists/bracers
+	gloves = /obj/item/clothing/gloves/plate
+
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

@@ -47,10 +47,11 @@
 	gloves = /obj/item/clothing/gloves/plate
 	pants = /obj/item/clothing/pants/platelegs/captain
 	armor = /obj/item/clothing/armor/captain
-	neck = /obj/item/clothing/neck/gorget
-	shirt = /obj/item/clothing/shirt/undershirt/guard
-	shoes = /obj/item/clothing/shoes/boots
+	neck = /obj/item/clothing/neck/bevor
+	shirt = /obj/item/clothing/armor/gambeson/arming
+	shoes = /obj/item/clothing/shoes/boots/armor
 	backr = /obj/item/storage/backpack/satchel
+	wrists = /obj/item/clothing/wrists/bracers
 	backl = /obj/item/weapon/shield/tower/metal
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/weapon/sword/sabre
