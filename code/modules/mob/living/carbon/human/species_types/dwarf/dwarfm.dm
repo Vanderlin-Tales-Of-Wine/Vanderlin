@@ -129,7 +129,7 @@
 	var/static/list/last_names = world.file2list('strings/rt/names/dwarf/dwarmlast.txt')
 	return last_names
 
-	/datum/species/dwarf/mountain/get_accent_list()
+/datum/species/dwarf/mountain/get_accent_list()
 	return strings("dwarf_replacement.json", "dwarf")
 
 /*------------------\
