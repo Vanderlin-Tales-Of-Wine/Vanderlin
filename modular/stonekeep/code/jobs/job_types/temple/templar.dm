@@ -32,48 +32,48 @@
 			neck = /obj/item/clothing/neck/psycross/silver/astrata
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/noc)
 			neck = /obj/item/clothing/neck/psycross/noc
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/dendor
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
-			H.cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/psycross/silver/necra
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
-			H.cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
 			head = /obj/item/clothing/head/helmet/pestracage
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/eora)
 			head = /obj/item/clothing/head/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
 			neck = /obj/item/clothing/neck/chaincoif
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
-			H.cmode_music = 'sound/music/cmode/church/CombatEora.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 			H.virginity = FALSE
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/malum
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/abyssor
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
-			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 
 

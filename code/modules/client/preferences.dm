@@ -415,12 +415,13 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				//dat += "<b>Body Detail:</b> <a href='?_src_=prefs;preference=bdetail;task=input'>None</a>"
 				//if(gender == FEMALE)
 				//	dat += "<br>"
-
+/*	STONEKEEP EDIT
 				dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 				if(headshot_link != null)
 					dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
 				dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
 				dat += "<br></td>"
+*/
 				//dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
 			else if(use_skintones || mutant_colors)
 				dat += "</td>"
@@ -1704,7 +1705,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 							to_chat(user, "<font color='red'>This voice color is too dark for mortals.</font>")
 							return
 						voice_color = sanitize_hexcolor(new_voice)
-
+/*	STONEKEEP EDIT
 				if("headshot")
 					if(!user.client?.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 						to_chat(user, "This is a patreon exclusive feature, your headshot link will be applied but others will only be able to view it if you are a patreon supporter.")
@@ -1722,7 +1723,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					headshot_link = new_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
-
+*/
 				if("species")
 					var/list/crap = list()
 					for(var/A in GLOB.roundstart_races)
@@ -1764,7 +1765,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						charflaw = C
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
-
+/* STONEKEEP EDIT
 				if("flavortext")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts. NSFW descriptions are prohibited.</span>"]</span>")
 					var/new_flavortext = input(user, "Input your character description:", "Flavortext", flavortext) as message|null
@@ -1777,7 +1778,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					flavortext = new_flavortext
 					to_chat(user, "<span class='notice'>Successfully updated flavortext</span>")
 					log_game("[user] has set their flavortext'.")
-
+*/
 				if("mutant_color")
 					var/new_mutantcolor = input(user, "Choose your character's alien/mutant color:", "Character Preference","#"+features["mcolor"]) as color|null
 					if(new_mutantcolor)
