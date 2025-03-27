@@ -163,12 +163,6 @@
 "cd" = (
 /turf/closed/mineral/coal,
 /area/rogue/outdoors/bog)
-"cf" = (
-/obj/structure/mineral_door/wood/donjon,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter/bog)
 "cg" = (
 /obj/structure/lever/wall{
 	dir = 8;
@@ -747,12 +741,6 @@
 /obj/machinery/light/fueled/smelter,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
-"jr" = (
-/obj/structure/stairs/stone/church{
-	dir = 1
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "jC" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -815,6 +803,11 @@
 /obj/structure/stairs/fancy/r,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"kN" = (
+/obj/structure/chair/stool,
+/mob/living/carbon/human/species/goblin/npc/ambush/sea,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/shelter/bog)
 "kR" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	pixel_y = -2;
@@ -855,6 +848,12 @@
 	dir = 10
 	},
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter/bog)
+"lk" = (
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "lm" = (
 /obj/structure/fluff/railing/border{
@@ -1059,6 +1058,11 @@
 /obj/item/clothing/gloves/leather,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"of" = (
+/obj/structure/mineral_door/wood/green,
+/obj/effect/mapping_helpers/door/access/garrison/forest,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter/bog)
 "on" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -1115,10 +1119,6 @@
 	},
 /mob/living/carbon/human/species/orc/warrior,
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter/bog)
-"oJ" = (
-/obj/structure/window/solid,
-/turf/closed/wall/mineral/decowood,
 /area/rogue/indoors/shelter/bog)
 "oM" = (
 /obj/machinery/light/fueled/campfire,
@@ -1503,17 +1503,16 @@
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/shelter/bog)
+"ue" = (
+/obj/structure/window/solid,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/indoors/shelter/bog)
 "uf" = (
 /obj/structure/table/wood{
 	dir = 8;
 	icon_state = "largetable"
 	},
 /turf/open/floor/ruinedwood/turned,
-/area/rogue/indoors/shelter/bog)
-"uj" = (
-/obj/structure/window/stained/silver,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "um" = (
 /obj/structure/table/wood{
@@ -1528,6 +1527,10 @@
 /area/rogue/indoors/shelter/bog)
 "uo" = (
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter/bog)
+"up" = (
+/obj/structure/window,
+/turf/open/floor/woodturned/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "us" = (
 /obj/structure/wallladder,
@@ -1692,10 +1695,6 @@
 /obj/machinery/light/fueled/torchholder,
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors/shelter/bog)
-"wm" = (
-/obj/structure/window/stained/silver,
-/turf/closed,
-/area/rogue/indoors/shelter/bog)
 "wo" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/outdoors/bog)
@@ -1729,19 +1728,6 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
-"xe" = (
-/obj/structure/table/vtable/v2,
-/obj/item/paper{
-	pixel_y = 1;
-	pixel_x = -8
-	},
-/obj/structure/table/vtable/v2,
-/obj/item/natural/feather{
-	pixel_x = 7;
-	pixel_y = 2
-	},
-/turf/open/floor/woodturned/nosmooth,
-/area/rogue/indoors/shelter/bog)
 "xh" = (
 /obj/structure/fermentation_keg/random/water,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1828,6 +1814,10 @@
 	pixel_y = 9
 	},
 /turf/open/floor/churchmarble,
+/area/rogue/indoors/shelter/bog)
+"xS" = (
+/obj/structure/fluff/walldeco/painting/skull,
+/turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/shelter/bog)
 "yd" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
@@ -1917,12 +1907,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
-"zC" = (
-/obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter/bog)
 "zD" = (
 /mob/living/carbon/human/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
@@ -2008,11 +1992,6 @@
 /obj/structure/bed/bear,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
-"AL" = (
-/obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter/bog)
 "AQ" = (
 /obj/structure/table/vtable,
 /obj/item/clothing/face/cigarette/rollie,
@@ -2095,10 +2074,6 @@
 /obj/effect/landmark/mapGenerator/mountain,
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains)
-"BX" = (
-/obj/structure/window/stained/silver,
-/turf/closed/wall/mineral/decostone/long,
-/area/rogue/indoors/shelter/bog)
 "Cd" = (
 /obj/structure/window/openclose,
 /turf/closed/wall/mineral/decowood,
@@ -2121,6 +2096,12 @@
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
+"Cu" = (
+/obj/structure/mineral_door/wood/donjon,
+/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter/bog)
 "Cv" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -2366,6 +2347,18 @@
 /mob/living/carbon/human/species/human/northern/bum/ambush,
 /turf/open/floor/concrete,
 /area/rogue/indoors/shelter/bog)
+"FF" = (
+/obj/structure/table/vtable/v2,
+/obj/item/paper{
+	pixel_y = 1;
+	pixel_x = -8
+	},
+/obj/item/natural/feather{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/turf/open/floor/woodturned/nosmooth,
+/area/rogue/indoors/shelter/bog)
 "FG" = (
 /obj/structure/fluff/customsign{
 	wrotesign = "MINES. CLOSED FOR GOBLIN INFESTATION!!"
@@ -2434,10 +2427,6 @@
 	redstone_id = "southernlichgate"
 	},
 /turf/open/floor/churchmarble,
-/area/rogue/indoors/shelter/bog)
-"GN" = (
-/obj/structure/window,
-/turf/closed/wall/mineral/decowood,
 /area/rogue/indoors/shelter/bog)
 "GP" = (
 /obj/machinery/light/fueled/firebowl/stump,
@@ -2964,6 +2953,12 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
+"OD" = (
+/obj/structure/stairs/stone/church{
+	dir = 1
+	},
+/turf/open/floor/churchmarble,
+/area/rogue/outdoors/mountains)
 "OM" = (
 /obj/structure/fluff/telescope,
 /turf/open/floor/churchmarble,
@@ -3009,12 +3004,6 @@
 /area/rogue/outdoors/bog)
 "Pk" = (
 /turf/closed/wall/mineral/stone/window/moss,
-/area/rogue/indoors/shelter/bog)
-"Pl" = (
-/obj/structure/mineral_door/wood/donjon,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
-/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "Pm" = (
 /obj/structure/chair/wood/alt,
@@ -3064,6 +3053,11 @@
 /turf/open/floor/rooftop/green{
 	dir = 8
 	},
+/area/rogue/indoors/shelter/bog)
+"Qb" = (
+/obj/structure/window/stained/silver,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Qj" = (
 /obj/structure/fermentation_keg/random/beer,
@@ -3168,10 +3162,6 @@
 "Rs" = (
 /obj/structure/fermentation_keg/random/beer,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue/indoors/shelter/bog)
-"RB" = (
-/obj/structure/fluff/walldeco/painting/crown,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "RC" = (
 /obj/structure/flora/grass/herb/euphrasia,
@@ -3410,6 +3400,11 @@
 /mob/living/carbon/human/species/orc/tribal,
 /turf/open/floor/twig,
 /area/rogue/indoors/shelter/bog)
+"Us" = (
+/obj/structure/table/wood/plain_alt,
+/obj/structure/fluff/millstone,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/indoors/shelter/bog)
 "Uv" = (
 /obj/effect/spawner/map_spawner/tree,
 /turf/open/floor/grass,
@@ -3438,12 +3433,6 @@
 /obj/item/coin/copper/pile,
 /obj/item/coin/silver/pile,
 /turf/open/floor/churchmarble,
-/area/rogue/indoors/shelter/bog)
-"UK" = (
-/obj/structure/table/wood/plain_alt,
-/obj/structure/table/wood/plain_alt,
-/obj/structure/fluff/millstone,
-/turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "UL" = (
 /obj/structure/stairs/stone/church{
@@ -3498,6 +3487,12 @@
 	pixel_y = 12
 	},
 /turf/open/floor/churchmarble,
+/area/rogue/indoors/shelter/bog)
+"Vl" = (
+/obj/structure/mineral_door/wood/donjon,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/mapping_helpers/door/access/garrison/forest,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "Vy" = (
 /obj/item/chair/stool/bar,
@@ -3563,6 +3558,12 @@
 /obj/structure/bonepile,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
+"Wl" = (
+/obj/structure/mineral_door/wood/green,
+/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors/shelter/bog)
 "Wn" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/dirt/road,
@@ -3601,12 +3602,6 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue/indoors/shelter/bog)
-"WM" = (
-/obj/structure/chair/stool,
-/obj/structure/chair/stool,
-/mob/living/carbon/human/species/goblin/npc/ambush/sea,
-/turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "WO" = (
 /obj/structure/fermentation_keg/random/beer,
@@ -3647,11 +3642,6 @@
 	},
 /obj/item/book/advice_soup,
 /turf/open/floor/ruinedwood/turned,
-/area/rogue/indoors/shelter/bog)
-"Xm" = (
-/obj/structure/window/stained/silver,
-/obj/structure/fluff/walldeco/vinez,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/shelter/bog)
 "Xp" = (
 /obj/machinery/light/fueled/wallfire,
@@ -3746,6 +3736,11 @@
 "Zb" = (
 /obj/structure/rack,
 /obj/item/clothing/pants/chainlegs/iron,
+/turf/open/floor/churchmarble,
+/area/rogue/indoors/shelter/bog)
+"Zf" = (
+/obj/structure/window/stained/silver,
+/obj/structure/fluff/walldeco/vinez,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/shelter/bog)
 "Zm" = (
@@ -5520,7 +5515,7 @@ OW
 SM
 Qm
 Xc
-oJ
+ue
 VG
 VG
 VG
@@ -6934,7 +6929,7 @@ Xc
 Xc
 Xc
 Xc
-oJ
+ue
 kZ
 kZ
 kZ
@@ -7136,7 +7131,7 @@ Xc
 Xc
 vh
 Xc
-oJ
+ue
 kZ
 La
 kZ
@@ -7537,7 +7532,7 @@ La
 ml
 Rs
 uG
-UK
+Us
 Eg
 oo
 ml
@@ -13070,7 +13065,7 @@ hi
 Kw
 Ag
 rP
-BX
+KI
 SJ
 SJ
 SJ
@@ -13263,7 +13258,7 @@ Vd
 hi
 Kw
 hi
-uj
+Qb
 rP
 rF
 rP
@@ -13465,7 +13460,7 @@ Vd
 rP
 rP
 rP
-BX
+KI
 rP
 rP
 rP
@@ -13866,7 +13861,7 @@ hi
 hi
 rP
 rF
-BX
+KI
 rP
 rF
 rP
@@ -14674,7 +14669,7 @@ rP
 rP
 rP
 vc
-BX
+KI
 rP
 vc
 rP
@@ -15081,7 +15076,7 @@ Vd
 rP
 hi
 rP
-BX
+KI
 rP
 hi
 rP
@@ -15283,7 +15278,7 @@ Vd
 BQ
 hi
 hi
-BX
+KI
 rP
 vc
 rP
@@ -15494,7 +15489,7 @@ hi
 hi
 Ag
 rP
-BX
+KI
 SJ
 SJ
 SJ
@@ -26450,7 +26445,7 @@ hf
 hf
 hf
 hf
-zC
+Wl
 hf
 hf
 hf
@@ -27049,7 +27044,7 @@ uo
 uo
 uo
 uo
-AL
+of
 uo
 uo
 uo
@@ -27460,7 +27455,7 @@ hf
 hf
 hf
 hf
-AL
+of
 hf
 hf
 hf
@@ -28062,7 +28057,7 @@ Xx
 fn
 fn
 Xx
-Pl
+Cu
 uo
 uo
 uo
@@ -29477,7 +29472,7 @@ Xx
 YW
 YW
 Xx
-cf
+Vl
 uo
 uo
 uo
@@ -29884,7 +29879,7 @@ Xx
 hf
 hf
 hf
-AL
+of
 hf
 hf
 hf
@@ -31500,7 +31495,7 @@ hf
 hf
 hf
 hf
-AL
+of
 hf
 hf
 La
@@ -32106,7 +32101,7 @@ Pk
 hf
 hf
 hf
-zC
+Wl
 hf
 hf
 hf
@@ -35973,7 +35968,7 @@ nl
 ml
 ml
 ml
-GN
+up
 ml
 ml
 La
@@ -36781,7 +36776,7 @@ yi
 yi
 lC
 lC
-xe
+FF
 xD
 ml
 La
@@ -42584,7 +42579,7 @@ gJ
 Cd
 ac
 ac
-WM
+kN
 ci
 RQ
 ac
@@ -45315,7 +45310,7 @@ Hl
 Hl
 Bz
 xK
-Cd
+lk
 hh
 hh
 hh
@@ -46325,7 +46320,7 @@ JF
 ro
 Xc
 OW
-Cd
+lk
 hh
 hh
 hh
@@ -53859,7 +53854,7 @@ OM
 rP
 rP
 Vd
-bh
+xS
 id
 rP
 Kw
@@ -54060,13 +54055,13 @@ Cj
 xP
 rP
 eI
-BX
+KI
 cK
 rP
 rP
 rP
 rP
-wm
+KI
 rP
 rP
 rF
@@ -54451,7 +54446,7 @@ eh
 hh
 eh
 yd
-jr
+OD
 hh
 hh
 hh
@@ -54463,7 +54458,7 @@ hh
 Cj
 DY
 rP
-BX
+KI
 rP
 rP
 vO
@@ -54653,7 +54648,7 @@ hh
 eh
 eh
 eh
-jr
+OD
 hh
 hh
 hh
@@ -54855,7 +54850,7 @@ eh
 eh
 eh
 yd
-jr
+OD
 hh
 hh
 hh
@@ -55069,7 +55064,7 @@ hh
 Cj
 rP
 rP
-BX
+KI
 rP
 rP
 vO
@@ -55474,13 +55469,13 @@ Cj
 rP
 rP
 eI
-Xm
+Zf
 rP
 rP
 hi
 rP
 rP
-wm
+KI
 rP
 rP
 vc
@@ -55677,7 +55672,7 @@ rP
 rP
 IU
 Vd
-RB
+TD
 xq
 rP
 AK
@@ -67448,12 +67443,12 @@ yK
 hf
 uo
 uo
-zC
+Wl
 uo
 uo
 uo
 uo
-AL
+of
 uo
 uo
 uo
@@ -67861,7 +67856,7 @@ hf
 hf
 hf
 hf
-zC
+Wl
 hf
 hf
 hf
@@ -70285,7 +70280,7 @@ Dh
 hf
 hf
 hf
-zC
+Wl
 hf
 hf
 hf
@@ -71493,7 +71488,7 @@ Tc
 lm
 lm
 Ep
-AL
+of
 Ep
 uo
 uo
@@ -71699,7 +71694,7 @@ uo
 Ep
 Ep
 Ep
-AL
+of
 Ep
 hf
 Dh
@@ -72302,7 +72297,7 @@ uo
 uo
 uo
 uo
-AL
+of
 uo
 uo
 uo
