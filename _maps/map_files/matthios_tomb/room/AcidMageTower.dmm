@@ -354,12 +354,6 @@
 "mJ" = (
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/cave)
-"mL" = (
-/obj/structure/window/stained/silver,
-/obj/structure/window/stained/silver,
-/obj/structure/curtain,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "mN" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/churchmarble,
@@ -391,10 +385,14 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors)
 "nJ" = (
-/obj/structure/mineral_door/secret/rogue{
-	locked = 0
+/obj/effect/mapping_helpers/secret_door_creator{
+	override_floor = 0;
+	redstone_id = 881
 	},
-/turf/open/floor/tile/masonic/spiral,
+/obj/structure/lever/hidden{
+	redstone_id = 881
+	},
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
 "nY" = (
 /obj/item/soap,
@@ -608,11 +606,11 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors)
 "vW" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/obj/structure/mineral_door/secret/rogue{
-	locked = 0
+/obj/effect/mapping_helpers/secret_door_creator{
+	override_floor = 0;
+	redstone_id = 882
 	},
-/turf/open/floor/churchrough,
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
 "wf" = (
 /obj/structure/toilet,
@@ -758,6 +756,12 @@
 /obj/effect/decal/cleanable/food/flour,
 /mob/living/simple_animal/hostile/retaliate/mole,
 /turf/open/floor/tile/kitchen,
+/area/rogue/indoors)
+"CY" = (
+/obj/structure/lever/hidden{
+	redstone_id = 882
+	},
+/turf/closed/wall/mineral/stonebrick,
 /area/rogue/indoors)
 "Dc" = (
 /obj/item/natural/rock/random_ore,
@@ -2144,7 +2148,7 @@ jm
 qN
 sp
 je
-sp
+CY
 dO
 sp
 cn
@@ -3016,7 +3020,7 @@ ve
 ve
 ve
 ve
-mL
+cn
 OG
 dr
 GZ

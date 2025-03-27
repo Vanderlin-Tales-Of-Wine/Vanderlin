@@ -1,8 +1,9 @@
 /obj/structure/closet/crate/miningcar
 	name = "mine cart"
 	desc = "A cart for use on rails. Or off rails, if you're so inclined."
-	icon_state = "miningcar"
-	base_icon_state = "miningcar"
+	icon = 'icons/obj/track.dmi'
+	icon_state = "minecart"
+	base_icon_state = "minecart"
 	drag_slowdown = 2
 	//open_sound = 'sound/machines/trapdoor/trapdoor_open.ogg'
 	//close_sound = 'sound/machines/trapdoor/trapdoor_shut.ogg'

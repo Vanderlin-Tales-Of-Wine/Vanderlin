@@ -291,7 +291,7 @@
 		spider.ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, movable)
 		spider.ai_controller.queue_behavior(/datum/ai_behavior/basic_melee_attack, BB_BASIC_MOB_CURRENT_TARGET, BB_PET_TARGETING_DATUM)
 
-	last_disturbed = world.time + 15 SECONDS
+	last_disturbed = world.time + 12 SECONDS
 
 /datum/proximity_monitor/advanced/spider_nest
 	field_shape = FIELD_SHAPE_RADIUS_SQUARE
