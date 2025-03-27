@@ -219,7 +219,7 @@
 /datum/controller/subsystem/ticker/proc/get_end_reason()
 	var/end_reason
 
-	if(!check_for_lord())
+	if(!check_for_lord(TRUE)) //TRUE forces the check, otherwise it will autofail.
 		end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
 						"Without a Monarch, they were doomed to be eaten by nite creachers.",
 						"Without a Monarch, they were doomed to become victims of Gehenna.",
