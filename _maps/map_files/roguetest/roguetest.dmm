@@ -786,8 +786,8 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "bY" = (
-/turf/closed/mineral/bedrock/cold,
-/area/rogue/outdoors/beach)
+/turf/closed/mineral/bedrock,
+/area)
 "bZ" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -1108,13 +1108,6 @@
 "cX" = (
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors)
-"ea" = (
-/obj/machinery/light/fueled/lanternpost/unfixed,
-/turf/closed/mineral/bedrock,
-/area/rogue/outdoors)
-"eD" = (
-/turf/open/floor/grass/cold,
-/area/rogue/outdoors)
 "eE" = (
 /obj/structure/trench,
 /obj/structure/rotation_piece/cog,
@@ -1123,12 +1116,6 @@
 "fe" = (
 /obj/structure/rotation_piece/cog/large,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"gf" = (
-/turf/closed/mineral/gold/cold,
-/area/rogue/outdoors)
-"gF" = (
-/turf/closed/mineral/iron/cold,
 /area/rogue/outdoors)
 "gM" = (
 /obj/structure/spider/nest,
@@ -1142,21 +1129,9 @@
 /obj/structure/fluff/millstone,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"hp" = (
-/turf/open/water/marsh,
-/area/rogue/outdoors)
-"hD" = (
-/turf/open/water/river,
-/area/rogue/outdoors)
-"hN" = (
-/turf/closed/mineral/coal/cold,
-/area/rogue/outdoors)
 "hP" = (
 /obj/item/weapon/polearm/woodstaff/aries,
 /turf/open/floor/cobble,
-/area/rogue/outdoors)
-"iY" = (
-/turf/open/floor/grass/mixyel,
 /area/rogue/outdoors)
 "jt" = (
 /obj/structure/trench,
@@ -1168,12 +1143,6 @@
 /obj/structure/waterwheel,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"kP" = (
-/turf/closed/mineral/random/cold/med,
-/area/rogue/outdoors)
-"lv" = (
-/turf/closed/mineral/tin/cold,
-/area/rogue/outdoors)
 "lY" = (
 /obj/structure/minecart_rail{
 	dir = 9
@@ -1183,9 +1152,6 @@
 "mo" = (
 /obj/structure/water_pump,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"mq" = (
-/turf/closed/mineral/random/med,
 /area/rogue/outdoors)
 "mx" = (
 /obj/machinery/light/fueled/torchholder/l,
@@ -1240,9 +1206,6 @@
 /obj/effect/landmark/observer_start,
 /turf/open/floor/cobble,
 /area/rogue/outdoors)
-"qR" = (
-/turf/closed/mineral/salt/cold,
-/area/rogue/outdoors)
 "qZ" = (
 /obj/structure/minecart_rail{
 	dir = 10
@@ -1266,10 +1229,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"sa" = (
-/obj/machinery/light/fueled/lanternpost/unfixed,
-/turf/open/floor/cobble,
-/area/rogue/outdoors)
 "ss" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors)
@@ -1279,25 +1238,12 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"sI" = (
-/obj/machinery/light/fueled/lanternpost/unfixed,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
 "sK" = (
 /obj/structure/lever{
 	redstone_id = "test3"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"sM" = (
-/obj/machinery/light/fueled/lanternpost/unfixed{
-	dir = 1
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"ta" = (
-/turf/closed/mineral/random/cold/high,
-/area/rogue)
 "tH" = (
 /obj/structure/water_dam{
 	dir = 1;
@@ -1324,12 +1270,6 @@
 /mob/living/simple_animal/hostile/retaliate/cow,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"wW" = (
-/turf/open/water/marsh/deep,
-/area/rogue/outdoors)
-"xe" = (
-/turf/closed/mineral,
-/area/rogue/outdoors)
 "xh" = (
 /obj/effect/landmark/start,
 /turf/open/floor/cobble,
@@ -1342,22 +1282,6 @@
 "xs" = (
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/concrete,
-/area/rogue/outdoors)
-"xS" = (
-/turf/open/water/cleanshallow/dirt,
-/area/rogue/outdoors)
-"xV" = (
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/outdoors)
-"ya" = (
-/turf/open/water/river/dirt{
-	dir = 1
-	},
-/area/rogue/outdoors)
-"yz" = (
-/turf/open/water/swamp/deep,
 /area/rogue/outdoors)
 "yP" = (
 /obj/structure/minecart_rail{
@@ -1375,11 +1299,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors)
-"zz" = (
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/outdoors)
 "zM" = (
 /obj/structure/minecart_rail,
 /turf/open/floor/cobble,
@@ -1388,9 +1307,6 @@
 /obj/structure/apiary,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
-"Ac" = (
-/turf/closed/mineral/random/cold/high,
-/area/rogue/outdoors)
 "Az" = (
 /obj/structure/rotation_piece/cog{
 	dir = 4
@@ -1409,12 +1325,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Bc" = (
-/turf/closed/mineral/random/cold/med,
-/area/rogue)
-"Bm" = (
-/turf/open/water/river/dirt,
-/area/rogue/outdoors)
 "Bv" = (
 /obj/structure/water_pipe,
 /turf/open/floor/dirt/road,
@@ -1424,11 +1334,6 @@
 	dir = 4
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"BW" = (
-/turf/open/water/river/blood{
-	dir = 4
-	},
 /area/rogue/outdoors)
 "CO" = (
 /obj/structure/gearbox,
@@ -1457,9 +1362,6 @@
 /obj/structure/stairs,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"EQ" = (
-/turf/open/water/blood,
-/area/rogue/outdoors)
 "Fc" = (
 /obj/structure/water_vent,
 /turf/open/floor/dirt/road,
@@ -1468,12 +1370,6 @@
 /obj/effect/landmark/start/consort,
 /turf/open/floor/carpet/lord/left,
 /area/rogue/indoors)
-"Fr" = (
-/obj/machinery/light/fueled/lanternpost/unfixed{
-	dir = 1
-	},
-/turf/open/floor/dirt,
-/area/rogue/outdoors)
 "Fx" = (
 /turf/open/water/river{
 	dir = 4
@@ -1484,11 +1380,6 @@
 	dir = 5
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Hq" = (
-/turf/open/water/river/dirt{
-	dir = 4
-	},
 /area/rogue/outdoors)
 "Hr" = (
 /obj/structure/minecart_rail{
@@ -1504,12 +1395,6 @@
 /mob/living/simple_animal/hostile/retaliate/spider,
 /turf/open/floor/concrete,
 /area/rogue/outdoors)
-"IT" = (
-/turf/closed/mineral/gemeralds/cold,
-/area/rogue/outdoors)
-"Ji" = (
-/turf/closed/mineral/random/cold,
-/area/rogue)
 "Jj" = (
 /obj/structure/minecart_rail{
 	dir = 4
@@ -1517,25 +1402,9 @@
 /obj/structure/closet/crate/miningcar,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
-"Jp" = (
-/turf/open/floor/grass/yel,
-/area/rogue/outdoors)
-"JM" = (
-/turf/closed/mineral/silver/cold,
-/area/rogue/outdoors)
-"JY" = (
-/turf/closed/mineral/bedrock/cold,
-/area/rogue/outdoors)
 "Kh" = (
 /obj/structure/vertical_gearbox,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Kw" = (
-/turf/open/floor/grass/red,
-/area/rogue/outdoors)
-"Lo" = (
-/obj/machinery/light/fueled/lanternpost/unfixed,
-/turf/open/floor/dirt,
 /area/rogue/outdoors)
 "Lv" = (
 /obj/structure/stairs{
@@ -1549,36 +1418,14 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors)
-"LD" = (
-/turf/closed/mineral/random/high,
-/area/rogue/outdoors)
-"LQ" = (
-/turf/open/water/river/dirt{
-	dir = 8
-	},
-/area/rogue/outdoors)
-"Md" = (
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors)
 "Mn" = (
 /obj/structure/rotation_piece,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"MJ" = (
-/turf/open/water/swamp,
-/area/rogue/outdoors)
-"MW" = (
-/turf/open/water/river{
-	dir = 1
-	},
 /area/rogue/outdoors)
 "Nb" = (
 /obj/structure/rotation_piece/cog,
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
-"Ng" = (
-/turf/closed/mineral/cold,
-/area/rogue/outdoors)
 "NF" = (
 /turf/closed/mineral/random/low_nonval,
 /area/rogue)
@@ -1594,9 +1441,6 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors)
-"OB" = (
-/turf/open/floor/grass,
-/area/rogue/outdoors)
 "Pq" = (
 /obj/structure/minecart_rail,
 /obj/structure/fluff/traveltile{
@@ -1604,9 +1448,6 @@
 	aportalgoesto = "test-in"
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"Qa" = (
-/turf/closed/mineral/random/cold,
 /area/rogue/outdoors)
 "QR" = (
 /turf/open/floor/dirt,
@@ -1627,9 +1468,6 @@
 "Sz" = (
 /obj/structure/boiler,
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors)
-"SS" = (
-/turf/closed/mineral/random,
 /area/rogue/outdoors)
 "SZ" = (
 /obj/structure/fluff/railing/wood,
@@ -1656,9 +1494,6 @@
 "Uv" = (
 /turf/closed,
 /area/rogue)
-"UT" = (
-/turf/open/floor/snow/rough,
-/area/rogue/outdoors)
 "UY" = (
 /obj/structure/minecart_rail{
 	dir = 9
@@ -1676,9 +1511,6 @@
 "WA" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors)
-"WB" = (
-/turf/open/floor/snow/patchy,
-/area/rogue/outdoors)
 "WC" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -1693,12 +1525,6 @@
 "XL" = (
 /obj/item/organ/heart,
 /turf/open/floor/concrete,
-/area/rogue/outdoors)
-"XX" = (
-/turf/open/water,
-/area/rogue/outdoors)
-"Ys" = (
-/turf/open/floor/snow,
 /area/rogue/outdoors)
 "Zs" = (
 /obj/structure/fluff/traveltile{
@@ -7597,21 +7423,21 @@ ca
 ax
 ab
 ab
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-at
-ea
-at
-at
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -7854,21 +7680,21 @@ cb
 ax
 ab
 ab
-ai
-ai
-ai
-ai
-sa
-aJ
-aJ
-XX
-XX
-XX
-XX
-XX
-Lo
-xe
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -8111,21 +7937,21 @@ bS
 ax
 ab
 ab
-Jp
-Jp
-Jp
-iY
-aJ
-BW
-aJ
-XX
-XX
-XX
-XX
-XX
-ai
-xe
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -8368,21 +8194,21 @@ cc
 ax
 ab
 ab
-Kw
-Kw
-Kw
-iY
-aJ
-BW
-aJ
-hp
-wW
-ai
-MJ
-yz
-ai
-xe
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -8625,21 +8451,21 @@ cd
 ax
 ab
 ab
-eD
-eD
-eD
-iY
-aJ
-EQ
-aJ
-hp
-wW
-ai
-MJ
-yz
-ai
-SS
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -8838,17 +8664,17 @@ ab
 bq
 bq
 bq
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
-Ji
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
 ab
 cF
 am
@@ -8882,21 +8708,21 @@ ce
 ax
 ab
 ab
-OB
-OB
-OB
-iY
-aJ
-EQ
-aJ
-hp
-wW
-ai
-MJ
-yz
-ai
-mq
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9095,17 +8921,17 @@ ab
 bq
 bq
 bq
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
-Bc
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
 ab
 pQ
 am
@@ -9135,25 +8961,25 @@ bC
 am
 am
 am
-cf
+bS
 ax
 ab
 ab
-sI
-al
-al
-al
-aJ
-aJ
-sa
-ai
-ai
-ai
-ai
-ai
-Lo
-LD
-at
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9352,17 +9178,17 @@ ab
 bq
 bq
 bq
-ta
-ta
-ta
-ta
-ta
-ta
-ta
-ta
-ta
-ta
-ta
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
+NF
 ab
 am
 am
@@ -9392,25 +9218,25 @@ am
 am
 am
 am
-am
-am
-am
-am
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-aJ
-ai
-Qa
-JY
+cf
+ax
+ab
+ab
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9653,21 +9479,21 @@ cg
 ax
 ab
 ab
-sM
-al
-al
-al
-al
-al
-Fr
-ai
-ai
-ai
-ai
-ai
-Fr
-kP
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -9910,21 +9736,21 @@ ch
 ax
 ab
 ab
-ai
-ai
-ai
-ai
-ai
-ai
-xS
-Hq
-ya
-ya
-ya
-ya
-ai
-Ac
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -10134,7 +9960,7 @@ NF
 NF
 NF
 NF
-am
+ab
 vW
 am
 am
@@ -10167,21 +9993,21 @@ ci
 ax
 ab
 ab
-Ys
-WB
-UT
-eD
-ai
-ai
-xS
-Bm
-Bm
-Bm
-Bm
-LQ
-ai
-Ng
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -10424,21 +10250,21 @@ cj
 ax
 ab
 ab
-Ys
-WB
-UT
-eD
-ai
-ai
-Md
-hD
-hD
-hD
-hD
-xV
-ai
-Ng
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -10681,21 +10507,21 @@ ax
 ax
 ab
 ab
-Ys
-WB
-UT
-eD
-Fr
-ai
-Md
-zz
-MW
-MW
-MW
-MW
-Fr
-Ac
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -10938,21 +10764,21 @@ ab
 ab
 ab
 ab
-Ys
-Ys
-Ys
-Ys
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-ai
-Ac
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -11194,22 +11020,22 @@ ac
 ac
 ac
 ac
-cq
-cq
-cq
-cq
 bY
-IT
-gf
-gF
-hN
-qR
-JM
-lv
-Ng
-Ng
-Ac
-JY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
@@ -11455,18 +11281,18 @@ ac
 ac
 ac
 ac
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
-bY
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 ac
 ac
