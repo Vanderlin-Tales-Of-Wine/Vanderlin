@@ -30,6 +30,7 @@
 	var/stressbuffer = 0
 	var/list/negative_stressors = list()
 	var/list/positive_stressors = list()
+	COOLDOWN_DECLARE(stress_indicator)
 
 /mob/living/carbon/adjust_stress(amt)
 	stressbuffer = stressbuffer + amt
@@ -87,11 +88,11 @@
 				if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 					play_mental_break_indicator()
 		if(stress > oldstress)
-			to_chat(src, "<span class='red'>I gain stress.</span>")
+			to_chat(src, span_red("I gain stress"))
 			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_stress_indicator()
 		else
-			to_chat(src, "<span class='green'>I gain peace.</span>")
+			to_chat(src, span_green("I gain peace."))
 			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_relief_indicator()
 		if(hud_used)
