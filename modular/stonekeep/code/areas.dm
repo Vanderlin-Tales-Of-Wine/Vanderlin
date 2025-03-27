@@ -233,8 +233,8 @@
 	name = "catacombs"
 	icon_state = "cavewet"
 	first_time_text = "The Catacombs"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
+//	ambientsounds = AMB_CAVEWATER
+//	ambientnight = AMB_CAVEWATER
 	spookysounds = SPOOKY_CAVE
 	spookynight = SPOOKY_CAVE
 	droning_sound = 'sound/music/area/caves.ogg'
@@ -259,9 +259,9 @@
 
 /area/rogue/under/catacombs/dwarfoutpost/orcy
 	ambush_types = list(
-				/turf/open/floor/blocks/newstone/alt)
+				/turf/open/water/cleanshallow)
 	ambush_mobs = list(
-				/mob/living/carbon/human/species/orc/skilled/savage = 50)
+				/mob/living/simple_animal/hostile/orc/savage/chopper = 50)
 
 /area/rogue/under/town/caverogue/saltmine
 	name = "salt mine"

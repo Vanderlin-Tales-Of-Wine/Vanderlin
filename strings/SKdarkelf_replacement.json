@@ -1,0 +1,46 @@
+{
+
+    "darkelf": {
+		"shi": "shee",
+		"thi": "zee",
+		"them ": "zem ",
+		"that ": "zat ",
+		"will": "weell",
+		"through": "zrough",
+		"throw": "zrow",
+		"though": "zough",
+		"thought": "zhoght",
+		"with": "weef",
+		"those": "zose",
+		"they": "zey",
+		"another": "anozer",
+		"other": "ozer",
+		"brother": "brozer",
+		"Mother" : "Mozer",
+		"Father" : "Fazer",
+		" yes ": " yis ",
+        	" and ": " et ",
+		"the ": "l' ",
+		"I ": "j' ",
+		"I'm ": "j' ",
+        	"bye": [
+           		 "adieu",
+			"au revoir"
+       		 ],
+		"cake": "gateau",
+      		  "captain": "capitaine",
+     		   "dad": "papa",
+        "hello": [
+            "'allo",
+            "bonjour",
+			"salut"
+        ],
+        "mom ": "mama ",
+	"shit": "merde",
+        "spaghetti": "macaroni",
+        "thanks": "merci",
+        "thank you": "merci",
+        "wine": "vine"
+		}
+
+}

@@ -6,7 +6,7 @@
 	spawn_positions = 1
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_STONEKEEP_PLAYER_RACES
+	allowed_races = list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer")
 	tutorial = "You've led a long life of adventuring, finally retiring to be a Guild Master. You help new adventurers find their feet, get a party, and veterans to hero--those belong to the men left rotting in the fields where you honed your ancient trade. You don't sleep well at night anymore, you don't like remembering what you've had to do to survive. Trading adventure for stable pay was the only logical solution, and maybe someday you'll get to lay down the blade and rest your weary body..."
 	allowed_ages = list( AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	display_order = GUILDMASTER_ORDER

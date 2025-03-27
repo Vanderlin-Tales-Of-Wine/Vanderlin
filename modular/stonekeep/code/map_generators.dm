@@ -340,6 +340,6 @@
 	spawnableTurfs = list(/turf/open/floor/naturalstone/rough = 2)
 
 /datum/mapGeneratorModule/ambushing/bitterpeaks
-	spawnableAtoms = list(/obj/effect/landmark/ambush=10)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=5)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap, /area/rogue/under/cavelava)
 	allowed_turfs = list(/turf/open/floor/snow, /turf/open/floor/naturalstone/rough)

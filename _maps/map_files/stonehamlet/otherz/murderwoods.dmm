@@ -822,6 +822,12 @@
 /obj/structure/fluff/walldeco/rags,
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/bandit_lair)
+"yK" = (
+/mob/living/simple_animal/hostile/retaliate/spider/hairy/giant{
+	name = "broodmother"
+	},
+/turf/open/floor/shroud,
+/area/rogue/indoors/shelter/woods/spider)
 "yP" = (
 /obj/structure/flora/rogueflower/fallenleaves,
 /turf/open/floor/grass/yel,
@@ -11147,7 +11153,7 @@ so
 so
 en
 en
-Wy
+so
 Wy
 so
 en
@@ -11480,7 +11486,7 @@ xt
 cR
 xt
 en
-Wy
+so
 so
 so
 so
@@ -11552,7 +11558,7 @@ so
 en
 so
 Wy
-Wy
+so
 en
 xt
 en
@@ -11682,7 +11688,7 @@ DA
 DA
 xt
 DA
-Wy
+so
 Wy
 so
 so
@@ -11876,7 +11882,7 @@ en
 so
 so
 so
-Wy
+so
 so
 so
 DA
@@ -12078,13 +12084,13 @@ so
 Wy
 Wy
 Wy
-Wy
+so
 cR
 so
-Wy
+so
 so
 en
-Wy
+so
 Wy
 Wy
 Wy
@@ -12122,7 +12128,7 @@ DA
 Wy
 Wy
 so
-Wy
+so
 so
 en
 en
@@ -12277,15 +12283,15 @@ so
 so
 so
 Wy
+so
+so
 Wy
-Wy
-Wy
-Wy
+so
 DA
 DA
 DA
 so
-Wy
+so
 Wy
 Wy
 Wy
@@ -12312,7 +12318,7 @@ Wy
 cM
 so
 Wy
-Wy
+so
 so
 en
 xt
@@ -12478,7 +12484,7 @@ cR
 vV
 Wy
 Wy
-Wy
+so
 en
 en
 so
@@ -13291,7 +13297,7 @@ DA
 en
 xt
 en
-Wy
+so
 Wy
 so
 en
@@ -13493,7 +13499,7 @@ en
 xt
 xt
 en
-Wy
+so
 Wy
 Wy
 so
@@ -13695,9 +13701,9 @@ xt
 xt
 en
 en
-en
+so
 Wy
-Wy
+so
 en
 xt
 xt
@@ -14106,7 +14112,7 @@ en
 xt
 cR
 DA
-Wy
+so
 so
 Wy
 so
@@ -14906,7 +14912,7 @@ so
 so
 Wy
 Wy
-Wy
+so
 VW
 cR
 en
@@ -15517,7 +15523,7 @@ so
 so
 so
 Wy
-Wy
+so
 so
 en
 xt
@@ -18347,7 +18353,7 @@ so
 DA
 Wy
 so
-Wy
+so
 Wy
 so
 en
@@ -25707,8 +25713,8 @@ xt
 xt
 xt
 cR
-Wy
-Wy
+so
+so
 so
 en
 en
@@ -26111,7 +26117,7 @@ xt
 xt
 en
 en
-Wy
+so
 Wy
 Wy
 Wy
@@ -27493,7 +27499,7 @@ so
 DA
 cR
 vV
-en
+so
 so
 so
 en
@@ -27691,11 +27697,11 @@ so
 so
 so
 en
-en
+so
 vV
-en
-en
-en
+so
+so
+so
 so
 en
 en
@@ -31510,7 +31516,7 @@ en
 DA
 en
 cR
-Wy
+so
 cR
 en
 cR
@@ -47830,7 +47836,7 @@ Ri
 hl
 Il
 Il
-Il
+yK
 Il
 Ri
 zQ

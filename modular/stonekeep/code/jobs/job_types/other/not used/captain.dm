@@ -84,4 +84,4 @@
 	desc = "Recruit someone to your cause."
 	overlay_state = "recruit_bog"
 	antimagic_allowed = TRUE
-	charge_max = 100
+	recharge_time  = 100

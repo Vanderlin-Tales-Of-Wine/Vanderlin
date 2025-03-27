@@ -365,7 +365,7 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 	if(!current_action)
 		return
 	desire_stop = TRUE
-	user.doing = FALSE
+//	user.doing = FALSE	doing refactored somehow runtimes, I dont know ROGTODO
 
 /datum/sex_controller/proc/stop_current_action()
 	if(!current_action)
@@ -373,7 +373,7 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 	var/datum/sex_action/action = SEX_ACTION(current_action)
 	action.on_finish(user, target)
 	desire_stop = FALSE
-	user.doing = FALSE
+//	user.doing = FALSE	doing refactored somehow runtimes, I dont know ROGTODO
 	current_action = null
 
 /datum/sex_controller/proc/try_start_action(action_type)

@@ -5,6 +5,15 @@
 
 #ifdef MATURESERVER
 
+#define VALID_HUNTING_AREAS list(\
+	/area/rogue/outdoors/bog,/area/rogue/outdoors/woods )
+
+proc/is_valid_hunting_area(area/A)
+	for(var/i in VALID_HUNTING_AREAS)
+		if(istype(A, i))
+			return TRUE
+	return FALSE
+
 GLOBAL_LIST_INIT(outlaw_quotes, world.file2list("strings/rt/outlawlines.txt"))
 GLOBAL_LIST_INIT(outlaw_aggro, world.file2list("strings/rt/outlawaggrolines.txt"))
 

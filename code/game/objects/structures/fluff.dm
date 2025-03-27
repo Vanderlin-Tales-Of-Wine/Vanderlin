@@ -1015,7 +1015,7 @@
 
 /obj/structure/fluff/psycross/crafted/shrine
 	density = TRUE
-	plane = -1	// to keep the 3d effect when mob behind it
+	plane = -3	// to keep the 3d effect when mob behind it
 	layer = 4.1
 	can_buckle = FALSE
 	dir = SOUTH

@@ -391,6 +391,20 @@
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 
+
+//................ Nomad Helmet ............... //
+/obj/item/clothing/head/helmet/nomad
+	name = "helmet"
+	icon_state = "nomadhelmet"
+	desc = ""
+	flags_inv = HIDEEARS
+	smeltresult = /obj/item/ingot/iron
+	sellprice = VALUE_IRON_HELMET
+
+	armor =  ARMOR_MAILLE_IRON
+	body_parts_covered = COVERAGE_HEAD
+	max_integrity = INTEGRITY_STRONG
+
 //................ Crown edit............... //
 /obj/item/clothing/head/crown/serpcrown
 	name = "royal crown"
@@ -463,7 +477,33 @@
 	armor =  ARMOR_LEATHER_BAD
 	prevent_crits = MINOR_CRITICALS
 
+/obj/item/clothing/face/facemask/steel
+	armor = ARMOR_PLATE_BAD
 
+/obj/item/clothing/face/facemask/steel/jarl
+	name = "jarl mask"
+	desc = "Belonged to the Master of Underrock Outpost once."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "jarlmask"
+	max_integrity = INTEGRITY_STRONGEST
+
+
+
+/obj/item/clothing/face/spectacles/delf
+	name = "dark elf sunshields"
+	desc = "A pair of dark elven sunshields: Deeply tinted glass designed to protect sensitive eyes from the wretched sun. Quite delicate, and usually only worn by the wealthy who have business aboveground."
+	flash_protect = FLASH_PROTECTION_WELDER
+	tint = 1
+	color ="#d1c6c6"
+
+/obj/item/clothing/face/spectacles/delf/equipped(mob/user, slot)
+	. = ..()
+	user.update_sight()
+
+/obj/item/clothing/face/spectacles/delf/dropped(mob/user)
+	. = ..()
+	user.update_sight()
 
 // =============================================================================
 // ==============================	CLOAKS	====================================

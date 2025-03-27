@@ -1,0 +1,78 @@
+{
+
+    "grenzelhoft": {
+		"good bye": [
+            "auf wiedersehen",
+            "tschüss"
+        ],
+		"goodbye":"auf wiedersehen",
+		"bye":"tschüss",
+
+		"asshole":"schweinhund",
+		"idiot":"dummkopf",
+		"fuck": "scheiße",
+		"shit": "scheiße",
+
+        "cat": "katze",
+        "dog": "hund",
+
+        "dad": "papa",
+        "father": "papa",
+        "family": "familie",
+        "friend": "freund",
+        "mom": "mutti",
+
+        "fire": "feuer",
+
+        "good": "gut",
+
+        "hey": "hallo",
+        "hi": "hallo",
+        "hello": [
+            "hallo",
+            "guten tag"
+        ],
+
+        "love": "liebe",
+        "my ": "mein ",
+
+        "no ": "nein ",
+
+        "small": "klein",
+
+        "thanks": "danke",
+        "thank you": "danke",
+        "that ": "das ",
+
+        "ugly": "hässlich",
+        "very": "sehr",
+        "with": "mit",
+
+        "w": "v",
+        "sun": "sonne",
+
+        "spear": "speer",
+        "sword": "schwert",
+        "helmet": "helm",
+        "house": "haus",
+        "lance": "lanze",
+
+        "day": "tag",
+        "yesterday": "yestertag",
+        "yes": "ja",
+        "yeah": "ja ja",
+        "young": "junge",
+
+        "captain": "kapitän",
+		"soldier": "soldat",
+		"kingdom": "reich",
+		"king": "könig",
+		"princ": "prinz",
+		"dragon": "drachen",
+		"witch": "vitch",
+		"necromancer": "nekromant",
+		"demon": "dämon",
+		"vampire": "vampir",
+		"goblin": "kobold"
+    }
+}

@@ -347,7 +347,96 @@
 			armor = /obj/item/clothing/armor/plate/orc/warlord
 			head = /obj/item/clothing/head/helmet/orc/warlord
 
+/mob/living/simple_animal/hostile/orc/savage
+	name = "savage orc"
+	desc = ""
+	icon = 'modular/stonekeep/icons/mobs/orcs.dmi'
+	icon_state = "sorc1"
+	icon_living = "sorc1"
+	icon_dead = "sorc1"
+	var/base_icon_state = "sorc"
+	maxHealth = 170
+	health = 170
+	base_intents = list(/datum/intent/simple/spear)
+	melee_damage_lower = 25
+	melee_damage_upper = 30
+	armor_penetration = 20
+	attack_verb_continuous = list("stabs", "slashes", "skewers")
+	attack_verb_simple = "stab"
+	attack_sound = 'sound/blank.ogg'
+	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
+			/obj/item/weapon/polearm/spear/bonespear,
+			/obj/effect/decal/cleanable/blood)
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+	speak = list("GRAAH!", "Kro!", "Bashmagh Kah!", "Zholem!", "Haha! Mogush!")
+/mob/living/simple_animal/hostile/orc/savage/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state][rand(1,4)]"
+	icon_living = "[base_icon_state][rand(1,4)]"
+	icon_dead = "[base_icon_state][rand(1,4)]"
 
+/mob/living/simple_animal/hostile/orc/savage/looter
+	name = "savage orc looter"
+	icon_state = "lorc1"
+	base_icon_state = "lorc"
+	maxHealth = 200
+	health = 200
+	base_intents = list(/datum/intent/simple/axe)
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	armor_penetration = 30
+	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
+			/obj/item/weapon/polearm/spear/bonespear,
+			/obj/effect/decal/cleanable/blood)
+/mob/living/simple_animal/hostile/orc/savage/looter/Initialize()
+	. = ..()
+	if(icon_state == "lorc2")
+		loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
+				/obj/item/weapon/knife/stone,
+				/obj/effect/decal/cleanable/blood)
+	if(icon_state == "lorc3")
+		loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
+				/obj/item/weapon/pick/paxe,
+				/obj/effect/decal/cleanable/blood)
+	if(icon_state == "lorc4")
+		loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
+				/obj/item/weapon/axe,
+				/obj/effect/decal/cleanable/blood)
+
+/mob/living/simple_animal/hostile/orc/savage/chopper
+	icon_state = "corc1"
+	base_icon_state = "corc"
+	base_intents = list(/datum/intent/simple/axe)
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	armor_penetration = 10
+	attack_verb_continuous = list("smashes", "slashes", "smacks")
+	attack_verb_simple = "clubs"
+	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc2,
+			/obj/item/weapon/mace/woodclub,
+			/obj/effect/decal/cleanable/blood)
+
+/mob/living/simple_animal/hostile/orc/savage/bow
+	name = "savage orc archer"
+	icon_state = "borc1"
+	base_icon_state = "borc"
+	projectiletype = /obj/projectile/bullet/reusable/arrow/orc
+	projectilesound = 'sound/combat/Ranged/flatbow-shot-01.ogg'
+	ranged = 1
+	retreat_distance = 2
+	minimum_distance = 5
+	ranged_cooldown_time = 60
+	check_friendly_fire = 1
+	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc2,
+			/obj/item/gun/ballistic/revolver/grenadelauncher/bow,
+			/obj/item/ammo_casing/caseless/arrow = 3,
+			/obj/effect/decal/cleanable/blood)
+	maxHealth = 100
+	health = 100
+
+	can_have_ai = FALSE //disable native ai
+	AIStatus = AI_OFF
+	ai_controller = /datum/ai_controller/orc_ranged
 // ===================================================================================
 
 /datum/job/stonekeep/madman
@@ -692,9 +781,74 @@
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 
+/mob/living/simple_animal/hostile/zizombie
+	name = "zizombie"
+	desc = ""
+	icon = 'modular/stonekeep/icons/mobs/zizombie.dmi'
+	icon_state = "zombie1"
+	icon_living = "zombie1"
+	icon_dead = "zombie_dead"
+	gender = MALE
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	robust_searching = 1
+	speak_chance = 5
+	turns_per_move = 1
+	move_to_delay = 1
+	TOTALCON = 14
+	TOTALSTR = 12
+	TOTALSPD = 10
+	maxHealth = 160
+	health = 160
+	harm_intent_damage = 15
+	melee_damage_lower = 20
+	melee_damage_upper = 25
+	vision_range = 7
+	aggro_vision_range = 9
+	retreat_distance = 0
+	minimum_distance = 0
+	limb_destroyer = 1
+	base_intents = list(/datum/intent/simple/claw)
+	attack_verb_continuous = "rips"
+	attack_verb_simple = "rend"
+	attack_sound = 'sound/blank.ogg'
+	canparry = FALSE
+	d_intent = INTENT_DODGE
+	speak_emote = list("moans")
+	loot = list(/obj/item/ash)
+	faction = list("Zizo")
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+	del_on_death = FALSE
+
+	can_have_ai = FALSE //disable native ai
+	AIStatus = AI_OFF
+	ai_controller = /datum/ai_controller/orc
+
+	remains_type = /obj/effect/decal/remains/neu/human
+
+/mob/living/simple_animal/hostile/zizombie/Initialize()
+	. = ..()
+	icon_state = "zombie[rand(1,4)]"
+	icon_living = "[icon_state]"
 
 
+/mob/living/simple_animal/hostile/zizombie/Life()
+	. = ..()
+	if(!target)
+		if(prob(3))
+			emote(pick( "moan"), TRUE)
 
+/mob/living/simple_animal/hostile/zizombie/get_sound(input)
+	switch(input)
+		if("moan")
+			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
+		if("death")
+			return pick('sound/vo/mobs/zombie/death (1).ogg','sound/vo/mobs/zombie/death (2).ogg','sound/vo/mobs/zombie/death (3).ogg')
+		if("aggro")
+			return pick('sound/vo/mobs/zombie/firescream (1).ogg','sound/vo/mobs/zombie/firescream (2).ogg','sound/vo/mobs/zombie/firescream (3).ogg')
+
+/mob/living/simple_animal/hostile/zizombie/death(gibbed)
+	emote("death")
+	..()
 
 /datum/outfit/job/cryptkeeper/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()

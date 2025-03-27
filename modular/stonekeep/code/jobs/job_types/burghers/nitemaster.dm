@@ -33,6 +33,8 @@
 		shoes = /obj/item/clothing/shoes/shortboots
 		armor = /obj/item/clothing/shirt/dress/stewarddress
 		cloak = /obj/item/clothing/cloak/cape/silk/dark
+	if(isdarkelf(H))
+		mask = /obj/item/clothing/face/spectacles/delf
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")

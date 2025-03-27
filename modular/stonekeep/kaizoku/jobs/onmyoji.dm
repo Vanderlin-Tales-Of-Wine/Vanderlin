@@ -75,4 +75,4 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball) //They are intended to have their own powers. I will make that later in the future with the help of another coder.
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/forcewall)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/forcewall_weak)

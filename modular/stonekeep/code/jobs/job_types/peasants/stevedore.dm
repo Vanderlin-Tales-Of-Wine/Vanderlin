@@ -27,8 +27,13 @@
 	..()
 /datum/outfit/job/stonekeep/stevedore/pre_equip(mob/living/carbon/human/H)
 	..()
-
+	head = /obj/item/clothing/head/headband/red
 	wrists = /obj/item/storage/keyring/stevedore
+	beltr = /obj/item/weapon/mace/cudgel
+	beltl = /obj/item/storage/belt/pouch/coins/poor
+	belt = /obj/item/storage/belt/leather/rope
+	pants = /obj/item/clothing/pants/tights/sailor
+	armor = /obj/item/clothing/armor/leather/jacket/sea
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // You get a cudgel for nonlethal self defense and that's it.
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -41,25 +46,13 @@
 		H.change_stat("strength", 1)
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/boots/leather
-		pants = /obj/item/clothing/pants/tights/sailor
-		head = /obj/item/clothing/head/headband/red
-		beltr = /obj/item/weapon/mace/cudgel
-		beltl = /obj/item/storage/belt/pouch/coins/poor
-		belt = /obj/item/storage/belt/leather/rope
-		armor = /obj/item/clothing/armor/leather/jacket/sea
 		shirt = /obj/item/clothing/shirt/undershirt/sailor/red
 		H.change_stat("endurance", 1)
 		H.change_stat("constitution", 1)
 		H.change_stat("strength", 1)//thug bodytype
 	else
 		shoes = /obj/item/clothing/shoes/gladiator
-		pants = /obj/item/clothing/pants/tights/sailor
-		beltr = /obj/item/weapon/mace/cudgel
-		beltl = /obj/item/storage/belt/pouch/coins/poor
-		belt = /obj/item/storage/belt/leather/rope
 		shirt = /obj/item/clothing/shirt/undershirt/sailor
-		armor = /obj/item/clothing/armor/leather/jacket/sea
-		head = /obj/item/clothing/head/headband
 		H.change_stat("endurance", 1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("speed", 1)

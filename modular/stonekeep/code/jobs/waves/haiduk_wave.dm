@@ -18,7 +18,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
 	wrists = /obj/item/clothing/wrists/bracers
-	head = /obj/item/clothing/head/helmet/horned
+	head = /obj/item/clothing/head/helmet/nomad
 	r_hand = /obj/item/weapon/whip
 	neck = /obj/item/clothing/neck/coif
 	armor = /obj/item/clothing/armor/cuirass/iron/rust

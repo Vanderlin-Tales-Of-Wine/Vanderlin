@@ -243,12 +243,11 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/machinery/light/fueled/torchholder
-	var/lacks_torch
 	var/unlit_torch
 /obj/machinery/light/fueled/torchholder/Initialize()
 	if(unlit_torch)
 		torchy = new /obj/item/flashlight/flare/torch(src)
-	else if(!lacks_torch)
+	else
 		torchy = new /obj/item/flashlight/flare/torch(src)
 		torchy.spark_act()
 	. = ..()
@@ -557,6 +556,10 @@
 	. = ..()
 	C.AddComponent(/datum/component/darkling)
 
+/datum/species/elf/dark/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	C.GetComponent(/datum/component/darkling).Destroy()			//Cleanup, in case you somehow change species. Like becoming a skeleton.
+
 /datum/status_effect/buff/darkling_darkly
 	id = "Darkling"
 	alert_type =  /atom/movable/screen/alert/status_effect/buff/darkling_darkly
@@ -606,7 +609,7 @@
 	else
 		icon_state = "tallowslice"
 
-/obj/item/reagent_containers/food/snacks/tallow/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/tallow/on_consume(mob/living/eater)
 	..()
 	changefood(slice_path, eater)
 
@@ -629,6 +632,7 @@
 	desc = ""
 	icon = 'modular/stonekeep/icons/64x64.dmi'
 	icon_state = "astrata"
+	plane = -3
 	pixel_x = -19
 
 /*	..................   Necra Shrine   ................... */
@@ -637,6 +641,7 @@
 	desc = ""
 	icon = 'modular/stonekeep/icons/64x64.dmi'
 	icon_state = "necra"
+	plane = -3
 	pixel_x = -16
 
 /*	..................   Dendor Shrine   ................... */
@@ -645,6 +650,7 @@
 	desc = ""
 	icon = 'modular/stonekeep/icons/64x64.dmi'
 	icon_state = "mystical"
+	plane = -3
 	pixel_x = -10
 
 /*	..................   Abyssor Shrine   ................... */
@@ -654,6 +660,7 @@
 	icon = 'modular/stonekeep/icons/96x96.dmi'
 	icon_state = "abyssor"
 	bound_width = 64
+	plane = -3
 	pixel_x = -25
 
 /*	..................   Abandoned Malum Shrine (Dromkis revenge)   ................... */	// Not meant to be craftable, its abandoned and got a reward for relight it, special for malumites
@@ -663,6 +670,7 @@
 	icon = 'modular/stonekeep/icons/64x64.dmi'
 	icon_state = "malum"
 	bound_width = 64
+	plane = -3
 	var/datum/looping_sound/fireloop/soundloop
 	var/refueled
 	var/on
@@ -679,18 +687,19 @@
 /obj/structure/fluff/psycross/crafted/shrine/malum/spark_act()
 	fire_act()
 /obj/structure/fluff/psycross/crafted/shrine/malum/fire_act(added, maxstacks)
-	if(!on)
-		playsound(src.loc, 'sound/items/firelight.ogg', 100)
-		soundloop = new /datum/looping_sound/fireloop(src,FALSE)
-		soundloop.start()
-		on = TRUE
-		name = "statue of Malum"
-		icon_state = "malum_fire"
-		set_light(5, 4, 30, l_color = LIGHT_COLOR_YELLOW)
-		update_icon()
-		soundloop.start()
-		malums_blessings()
-		return TRUE
+	if(refueled)
+		if(!on)
+			playsound(src.loc, 'sound/items/firelight.ogg', 100)
+			soundloop = new /datum/looping_sound/fireloop(src,FALSE)
+			soundloop.start()
+			on = TRUE
+			name = "statue of Malum"
+			icon_state = "malum_fire"
+			set_light(4, 3, 20, l_color = LIGHT_COLOR_YELLOW)
+			update_icon()
+			soundloop.start()
+			malums_blessings()
+			return TRUE
 /obj/structure/fluff/psycross/crafted/shrine/malum/Destroy()
 	QDEL_NULL(soundloop)
 	. = ..()
@@ -1158,4 +1167,5 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 	M.reset_offsets("bed_buckle")
 	if(M == goldilocks)
 		goldilocks = null
+
 

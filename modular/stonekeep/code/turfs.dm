@@ -306,6 +306,9 @@
 /turf/open/floor/grass/cold
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	neighborlay = "grass_cold"
+	canSmoothWith = list(/turf/open/floor/grass,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/rough)
 
 /turf/open/floor/grass/hell
 	icon = 'icons/turf/roguefloor.dmi'

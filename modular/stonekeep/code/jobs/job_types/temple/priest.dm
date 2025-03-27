@@ -7,6 +7,7 @@
 		"Aasimar"
 	)
 	tutorial = "You are a devoted follower of Astrata. The divine is all that matters in an immoral world. The Sun Queen and her pantheon rule over all, and you will preach their wisdom. It is up to you to shephard the flock into a Ten-fearing future."
+	display_order = PRIEST_ORDER
 	outfit = /datum/outfit/job/stonekeep/priest
 	min_pq = 0
 	selection_color = "#c2a45d"

@@ -151,7 +151,7 @@
 	name = "steel key"
 	desc = "Dwarven craftsmanship."
 	lockid = "outpost"
-
+	icon_state = "mazekey"
 
 /*	..................   Dwarf Underdweller Corpse   ................... */
 /obj/effect/mob_spawn/human/corpse/damaged/underdweller

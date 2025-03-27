@@ -281,7 +281,7 @@
 	overlay_icon = 'modular/stonekeep/kaizoku/icons/misc/spells.dmi'
 	chargedrain = 5
 	releasedrain = 30
-	charge_max = 50 SECONDS
+	recharge_time  = 50 SECONDS
 	range = 8
 	warnie = "aimwarn"
 	movement_interrupt = FALSE
@@ -291,7 +291,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 60 SECONDS
+	recharge_time  = 60 SECONDS
 	req_items = list(/obj/item/clothing/neck/psycross/silver/abyssanctum)
 	devotion_cost = 45
 
@@ -469,7 +469,7 @@
 
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 10 SECONDS
+	recharge_time  = 10 SECONDS
 	devotion_cost = -45
 
 /obj/projectile/magic/purify
@@ -541,7 +541,7 @@
 	invocation = "punches and spins, unleashing a surge of freezing energy."
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	charge_max = 10 SECONDS
+	recharge_time  = 10 SECONDS
 
 
 

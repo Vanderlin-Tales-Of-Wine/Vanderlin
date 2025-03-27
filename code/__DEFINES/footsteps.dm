@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(footstep, list(
 		'sound/foley/footsteps/FTCAR_A1.ogg',
 		'sound/foley/footsteps/FTCAR_A2.ogg',
 		'sound/foley/footsteps/FTCAR_A3.ogg',
-		'sound/foley/footsteps/FTCAR_A4.ogg'), 12, 0),
+		'sound/foley/footsteps/FTCAR_A4.ogg'), 10, 0),
 	FOOTSTEP_SAND = list(list(
 		'sound/foley/footsteps/FTDIR_A1.ogg',
 		'sound/foley/footsteps/FTDIR_A2.ogg',
@@ -93,18 +93,18 @@ GLOBAL_LIST_INIT(footstep, list(
 		'sound/foley/footsteps/FTMUD (2).ogg',
 		'sound/foley/footsteps/FTMUD (3).ogg',
 		'sound/foley/footsteps/FTMUD (4).ogg',
-		'sound/foley/footsteps/FTMUD (5).ogg'), 80, 0),
+		'sound/foley/footsteps/FTMUD (5).ogg'), 50, 0),
 ))
 //bare footsteps lists
 GLOBAL_LIST_INIT(barefootstep, list(
 	FOOTSTEP_HARD_BAREFOOT = list(list(
 		'sound/foley/footsteps/hardbarefoot (1).ogg',
 		'sound/foley/footsteps/hardbarefoot (2).ogg',
-		'sound/foley/footsteps/hardbarefoot (3).ogg'), 60, 0),
+		'sound/foley/footsteps/hardbarefoot (3).ogg'), 30, 0),
 	FOOTSTEP_SOFT_BAREFOOT = list(list(
 		'sound/foley/footsteps/softbarefoot (1).ogg',
 		'sound/foley/footsteps/softbarefoot (2).ogg',
-		'sound/foley/footsteps/softbarefoot (3).ogg'), 50, 0),
+		'sound/foley/footsteps/softbarefoot (3).ogg'), 25, 0),
 	FOOTSTEP_WATER = list(list(
 		'sound/foley/footsteps/FTWAT_1.ogg',
 		'sound/foley/footsteps/FTWAT_2.ogg',
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(barefootstep, list(
 		'sound/foley/footsteps/FTMUD (2).ogg',
 		'sound/foley/footsteps/FTMUD (3).ogg',
 		'sound/foley/footsteps/FTMUD (4).ogg',
-		'sound/foley/footsteps/FTMUD (5).ogg'), 100, 0),
+		'sound/foley/footsteps/FTMUD (5).ogg'), 50, 0),
 ))
 
 //claw footsteps lists
@@ -135,7 +135,7 @@ GLOBAL_LIST_INIT(clawfootstep, list(
 	FOOTSTEP_HARD_CLAW = list(list(
 		'sound/blank.ogg'), 90, 1),
 	FOOTSTEP_CARPET_BAREFOOT = list(list(
-		'sound/blank.ogg'), 25, -2),
+		'sound/blank.ogg'), 15, -2),
 	FOOTSTEP_SAND = list(list(
 		'sound/blank.ogg'), 25, 0),
 	FOOTSTEP_GRASS = list(list(
@@ -171,6 +171,6 @@ GLOBAL_LIST_INIT(heavyfootstep, list(
 		'sound/foley/footsteps/FTMUD (2).ogg',
 		'sound/foley/footsteps/FTMUD (3).ogg',
 		'sound/foley/footsteps/FTMUD (4).ogg',
-		'sound/foley/footsteps/FTMUD (5).ogg'), 100, 0),
+		'sound/foley/footsteps/FTMUD (5).ogg'), 50, 0),
 ))
 

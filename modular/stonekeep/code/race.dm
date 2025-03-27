@@ -43,10 +43,10 @@
 		"Arachnid Ichor" = SKIN_COLOR_ARACHNID_ICHOR, // - (Black-blue)
 		"Scorpion" = DELF_SCORPION, // - (Pale green)
 	))
-
+/*
 /datum/species/elf/dark/get_accent_list()
 	return strings("SKdarkelf_replacement.json", "darkelf")
-/*
+
 /datum/species/elf/dark/get_accent(mob/living/carbon/human/H)
 	return strings("SKdarkelf_replacement.json", "darkelf")
 */
@@ -254,6 +254,8 @@
 	specstats = list("strength" = 0, "perception" = 2, "intelligence" = 1, "constitution" = -1, "endurance" = 0, "speed" = 1, "fortune" = -1)
 	specstats_f = list("strength" = 0, "perception" = 3, "intelligence" = 1, "constitution" = -2, "endurance" = -1, "speed" = 1, "fortune" = -1)
 
+/datum/species/tieberian/get_accent_list()
+	return strings("SKtieflingreplacement.json", "tiefling")
 
 // =================================================================================
 /datum/species/rakshari

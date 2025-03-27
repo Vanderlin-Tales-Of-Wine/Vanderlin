@@ -101,6 +101,19 @@
 							/obj/item/natural/silk = 3)
 
 
+/mob/living/simple_animal/hostile/retaliate/spider/hairy/giant
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+							/obj/item/natural/silk = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
+							/obj/item/reagent_containers/food/snacks/spiderhoney = 1,
+							/obj/item/natural/silk = 3)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
+							/obj/item/reagent_containers/food/snacks/spiderhoney = 2,
+							/obj/item/natural/silk = 4)
+/mob/living/simple_animal/hostile/retaliate/spider/hairy/giant/Initialize()
+	. = ..()
+	resize = 1.5
+	update_transform()
 
 // ======================================================================
 /*	..................   Corpses   ................... */
@@ -208,12 +221,10 @@
 	outfit = /datum/outfit/deadunderdweller
 
 /datum/outfit/deadunderdweller
-	armor = /obj/item/clothing/armor/cuirass/iron
 	shirt = /obj/item/clothing/shirt/undershirt/sailor/red
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	backl = /obj/item/storage/backpack/backpack
-	head = /obj/item/clothing/head/helmet/leather/minershelm
 
 
 // ======================================================================

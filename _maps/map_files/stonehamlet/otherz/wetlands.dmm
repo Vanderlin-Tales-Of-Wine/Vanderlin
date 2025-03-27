@@ -236,7 +236,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "gN" = (
-/obj/machinery/light/fueled/torchholder/empty,
+/obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
 "gR" = (
@@ -298,7 +298,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors)
 "hR" = (
-/obj/machinery/light/fueled/torchholder/empty,
+/obj/machinery/light/fueled/torchholder/cold,
 /obj/item/paper,
 /obj/item/paper,
 /obj/item/paper,
@@ -943,7 +943,7 @@
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog/wetlands)
 "SM" = (
-/obj/machinery/light/fueled/torchholder/empty,
+/obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog/wetlands)
 "Tr" = (
