@@ -23,7 +23,6 @@ map vanderlin
 	votable
 endmap
 
-
 #until vanderlin is working roguetown should be default
 map roguetown
 	disabled

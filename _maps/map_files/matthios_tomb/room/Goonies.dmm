@@ -101,7 +101,7 @@
 /obj/structure/window/openclose{
 	dir = 8
 	},
-/turf/closed/indestructible/wooddark/hull,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cavewet)
 "cx" = (
 /obj/structure/bookcase/random,
@@ -136,7 +136,7 @@
 /obj/structure/window/openclose{
 	dir = 1
 	},
-/turf/closed/indestructible/wooddark/hull,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cavewet)
 "dg" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -1170,7 +1170,7 @@
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/closed/indestructible/wooddark/hull,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cavewet)
 "Dq" = (
 /obj/structure/statue/bone/skull/half,
@@ -1812,7 +1812,7 @@
 /area/rogue/under/cavewet)
 "Tj" = (
 /obj/structure/window/openclose,
-/turf/closed/indestructible/wooddark/hull,
+/turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cavewet)
 "Tp" = (
 /obj/structure/fluff/railing/border{
