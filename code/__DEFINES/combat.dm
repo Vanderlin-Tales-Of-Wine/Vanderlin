@@ -177,8 +177,14 @@
 #define ROD_AUTO			/datum/intent/auto
 #define ROD_REEL			/datum/intent/reel
 
+#define INTENT_FILL			/datum/intent/fill
 #define INTENT_SPLASH		/datum/intent/splash
 #define INTENT_POUR			/datum/intent/pour
+
+#define INTENT_SOAK			/datum/intent/soak
+#define INTENT_WRING		/datum/intent/wring
+
+#define INTENT_USE			/datum/intent/use
 
 //Intent blade class for dismember class
 #define BCLASS_BLUNT		"blunt"

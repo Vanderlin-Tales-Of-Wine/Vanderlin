@@ -2532,7 +2532,7 @@
 /area/rogue/under/cave)
 "Ch" = (
 /obj/effect/waterfall,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /obj/structure/trap/shock,
 /turf/open/water/bath,
 /area/rogue/under/cave)
@@ -2791,7 +2791,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "EA" = (
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "EC" = (
@@ -3639,7 +3639,7 @@
 /area/rogue/under/cave)
 "NX" = (
 /obj/structure/rack/shelf/biggest,
-/obj/item/bath/soap,
+/obj/item/soap/bath,
 /turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "Oc" = (
