@@ -133,7 +133,7 @@
 		return
 	if(caught_dreamer)
 		var/datum/antagonist/maniac/maniac = target.mind.has_antag_datum(/datum/antagonist/maniac)
-		target.Stun(rand(2, 4) SECONDS)
+		target.Stun(rand(0.5, 1) SECONDS)
 		var/pain_message = pick("NO!", "THEY GOT ME!", "AGH!")
 		to_chat(target, span_userdanger("[pain_message]"))
 		if(!maniac) //If they're a maniac, they don't freak out and get knocked down, they still get stunned.
