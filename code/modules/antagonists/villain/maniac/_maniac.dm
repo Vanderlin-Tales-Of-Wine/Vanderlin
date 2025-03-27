@@ -94,7 +94,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			owner.adjust_skillrank(/datum/skill/combat/knives, 6, TRUE)
 			owner.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
 			owner.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-			//owner.adjust_skillrank(/datum/skill/misc/treatment, 3, TRUE)
+			owner.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
@@ -228,11 +228,11 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		animate(clinet, dreamer.pixel_y)
 	for(var/datum/objective/objective in objectives)
 		objective.completed = TRUE
-	for(var/mob/connected_player in GLOB.player_list)
-		if(!connected_player.client)
-			continue
-		SEND_SOUND(connected_player, sound(null))
-		SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
+	// for(var/mob/connected_player in GLOB.player_list)
+	// 	if(!connected_player.client)
+	// 		continue
+	// 	SEND_SOUND(connected_player, sound(null))
+	// 	SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
 	var/mob/living/carbon/human/trey_liam = spawn_trey_liam()
 	if(trey_liam)
 		owner.adjust_triumphs(4) // Adjust triumphs here instead of at roundend
@@ -250,13 +250,14 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(brain)
 			qdel(brain)
 		cull_competitors(trey_liam)
+		SEND_SOUND(trey_liam, 'sound/villain/dreamer_win.ogg')
 		trey_liam.SetSleeping(25 SECONDS)
 		trey_liam.add_stress(/datum/stressevent/maniac_woke_up)
 		sleep(1.5 SECONDS)
 		to_chat(trey_liam, span_deadsay("<span class='reallybig'>... WHERE AM I? ...</span>"))
 		sleep(1.5 SECONDS)
 		var/static/list/slop_lore = list(
-			span_deadsay("... Rockhill? Vanderlin? No ... They doesn't exist ..."),
+			span_deadsay("... Rockhill? Vanderlin? No ... They don't exist ..."),
 			span_deadsay("... My name is Trey. Trey Liam, Scientific Overseer ..."),
 			span_deadsay("... I'm on the Aeon, a self sustaining ship, used to preserve what remains of humanity ..."),
 			span_deadsay("... Launched into the stars, preserving their memories ... Their personalities ..."),
@@ -356,6 +357,8 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	icon_state = "pylon"
 	icon = 'icons/roguetown/misc/mana_pylon.dmi'
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	plane = GAME_PLANE_UPPER
+	layer = ABOVE_MOB_LAYER
 	light_outer_range = MINIMUM_USEFUL_LIGHT_RANGE
 	light_color = COLOR_CYAN
 	density = TRUE
@@ -364,6 +367,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 	if(user.mind?.has_antag_datum(/datum/antagonist/maniac))
 		to_chat(user, span_notice("I begin plugging myself back into [src]."))
 		if(do_after(user, 10 SECONDS, src))
+			SEND_SOUND(user, sound(null))
 			var/mob/living/carbon/spirit/O = new /mob/living/carbon/spirit(get_turf(src))
 			O.ckey = user.ckey
 			O.returntolobby()
