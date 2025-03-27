@@ -1,4 +1,4 @@
-/datum/job/butler
+/*datum/job/butler
 	title = "Butler"
 	f_title = "Maid"
 	tutorial = "Your blade is a charcuterie of artisanal cheeses and meat, \
@@ -80,3 +80,20 @@
 		beltr = /obj/item/storage/keyring/butler
 		beltl = /obj/item/storage/belt/pouch/coins/mid
 		backr = /obj/item/storage/backpack/satchel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

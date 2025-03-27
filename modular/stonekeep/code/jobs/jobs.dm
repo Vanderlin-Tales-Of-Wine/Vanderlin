@@ -16,200 +16,7 @@ Thus the jobs in the noble_positions are labeeld as court and will primarily lis
 The word serf means something completely different than what the original maker of this list thought, its used for the burghers now, the "middle-class", the tradesmen, the guilds members.
 */
 
-/*
-GLOBAL_LIST_INIT(noble_positions, list(
-	"Monarch",
-	"Hand",
-	"Captain",
-	"Steward",
-	"Court Magician",
-	"Archivist",
-	"Butler",
-	"Jester",
-	"Noble",
-	"Court Wizard"
-	))
 
-GLOBAL_LIST_INIT(garrison_positions, list(
-	"Sheriff",
-	"Royal Knight",
-	"Veteran",
-	"Garrison Guard",
-	"Man-at-arms",
-	"Town Elder",
-	"Squire",
-	))
-
-GLOBAL_LIST_INIT(church_positions, list(
-	"Priest",
-	"Acolyte",
-	"Gravekeeper",
-	"Gravetender",
-	"Confessor",
-	"Templar",
-	"Inquisitor",
-	"Adept"
-	))
-
-GLOBAL_LIST_INIT(serf_positions, list(
-	"Merchant",
-	"Innkeep",
-	"Feldsher",
-	"Blacksmith",
- 	"Mason",
-	"Weaver",
-	"Nitemaster",
-	))
-
-GLOBAL_LIST_INIT(peasant_positions, list(
-	"Village Elder",
-	"Soilson",
-	"Stevedore",
-	"Cook",
-	"Woodsman",
-	"Nitemaiden",
-	"Prisoner",
-	"Mercenary",
-	"Beggar"
-	))
-
-GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Servant"
-	))
-
-GLOBAL_LIST_INIT(youngfolk_positions, list(
-	"Prisoner",
-))
-
-GLOBAL_LIST_INIT(allmig_positions, list(
-	"Adventurer",
-	"Pilgrim"
-	))
-*/
-
-
-// ===========		DISABLES VANDERLIN JOBS		=====
-
-// SERFS
-/datum/job/matron/config_check()
-	return FALSE
-/datum/job/scribe/config_check()
-	return FALSE
-/datum/job/artificer/config_check()
-	return FALSE
-/datum/job/physicker/config_check()
-	return FALSE
-/datum/job/armorsmith/config_check()
-	return FALSE
-/datum/job/weaponsmith/config_check()
-	return FALSE
-/datum/job/innkeep/config_check()
-	return FALSE
-/datum/job/tailor/config_check()
-	return FALSE
-
-// TEMPLE
-/datum/job/monk/config_check()
-	return FALSE
-/datum/job/undertaker/config_check()
-	return FALSE
-/datum/job/inquisitor/config_check()
-	return FALSE
-/datum/job/templar/config_check()
-	return FALSE
-/datum/job/adept/config_check()
-	return FALSE
-
-// YOUNG
-/datum/job/innkeep_son/config_check()
-	return FALSE
-/datum/job/orphan/config_check()
-	return FALSE
-/datum/job/churchling/config_check()
-	return FALSE
-
-// GARRISON
-/datum/job/royalguard/config_check()
-	return FALSE
-/datum/job/veteran/config_check()
-	return FALSE
-/datum/job/guardsman/config_check()
-	return FALSE
-/datum/job/men_at_arms/config_check()
-	return FALSE
-/datum/job/jailor/config_check()
-	return FALSE
-/datum/job/dungeoneer/config_check()
-	return FALSE
-/datum/job/mayor/config_check()
-	return FALSE
-/datum/job/forestwarden/config_check()
-	return FALSE
-/datum/job/forestguard/config_check()
-	return FALSE
-// PEASANT
-/datum/job/farmer/config_check()
-	return FALSE
-/datum/job/grabber/config_check()
-	return FALSE
-/datum/job/butcher/config_check()
-	return FALSE
-/datum/job/cook/config_check()
-	return FALSE
-/datum/job/carpenter/config_check()
-	return FALSE
-/datum/job/jester/config_check()
-	return FALSE
-/datum/job/fisher/config_check()
-	return FALSE
-/datum/job/cheesemaker/config_check()
-	return FALSE
-/datum/job/butler/config_check()
-	return FALSE
-/datum/job/mercenary/config_check()
-	return FALSE
-/datum/job/bard/config_check()
-	return FALSE
-/datum/job/prisoner/config_check()
-	return FALSE
-/datum/job/vagrant/config_check()
-	return FALSE
-/datum/job/hunter/config_check()
-	return FALSE
-/datum/job/miner/config_check()
-	return FALSE
-/datum/job/bapprentice/config_check()
-	return FALSE
-/datum/job/squire/config_check()
-	return FALSE
-/datum/job/servant/config_check()
-	return FALSE
-// NOBLE
-/datum/job/consort/config_check()
-	return FALSE
-/datum/job/hand/config_check()
-	return FALSE
-/datum/job/prince/config_check()
-	return FALSE
-/datum/job/captain/config_check()
-	return FALSE
-/datum/job/steward/config_check()
-	return FALSE
-/datum/job/magician/config_check()
-	return FALSE
-/datum/job/archivist/config_check()
-	return FALSE
-/datum/job/merchant/config_check()
-	return FALSE
-/datum/job/feldsher/config_check()
-	return FALSE
-/datum/job/apothecary/config_check()
-	return FALSE
-/datum/job/minor_noble/config_check()
-	return FALSE
-
-/datum/job/roguetown/servant/config_check()
-	return FALSE
 
 /datum/job/adventurer
 	flag = SK_ADVENTURER	// STONEKEEP EDIT
@@ -241,6 +48,16 @@ GLOBAL_LIST_INIT(allmig_positions, list(
 	allowed_races = ALL_STONEKEEP_PLAYER_RACES	// STONEKEEP EDIT
 	tutorial = "Pilgrims begin far outside of the town and must reach it in order to ply their various trades. Sometimes, they build their own settlements and enjoy the terrible nature."
 	display_order = PILGRIM_ORDER	// STONEKEEP EDIT
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	total_positions = 20
+	spawn_positions = 20
+	min_pq = -20
+	banned_leprosy = FALSE
+	bypass_lastclass = TRUE
+	outfit = null
+	outfit_female = null
+	advclass_cat_rolls = list(CTAG_PILGRIM = 15)
 
 /datum/job/stonekeep
 	min_pq = 0

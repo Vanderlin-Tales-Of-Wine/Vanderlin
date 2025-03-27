@@ -191,3 +191,8 @@
 
 /obj/item/weapon/whip/antique
 	name = "war whip"
+
+
+
+/obj/item/weapon/shield/tower
+	dropshrink = 0.8

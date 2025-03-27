@@ -427,9 +427,11 @@
 
 //................ Templar Helmets. I made the necked ones, I regreet it, better avoid overlap and muddled boundaries ............... //
 /obj/item/clothing/head/helmet/heavy/bucket/templar
+	name = "templar helmet"
 	icon_state = "astrata"
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon = 'modular/stonekeep/icons/clothing.dmi'
+	block2add = FOV_BEHIND
 
 /obj/item/clothing/head/helmet/heavy/bucket/templar/noc
 	icon_state = "noc"
@@ -489,6 +491,8 @@
 	max_integrity = INTEGRITY_STRONGEST
 
 
+/obj/item/clothing/neck/psycross/silver/pestra
+	icon_state = "pestra_alt"
 
 /obj/item/clothing/face/spectacles/delf
 	name = "dark elf sunshields"

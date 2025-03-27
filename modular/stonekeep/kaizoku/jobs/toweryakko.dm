@@ -11,7 +11,7 @@
 
 	)
 	outfit = /datum/outfit/job/roguetown/mercenary/toweryakko
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 

@@ -8,7 +8,7 @@
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/steppesman
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'

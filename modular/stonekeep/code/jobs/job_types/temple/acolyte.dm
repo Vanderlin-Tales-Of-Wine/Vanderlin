@@ -3,8 +3,11 @@
 	flag = SK_ACOLYTE
 	department_flag = CHURCHMEN
 	faction = FACTION_STATION
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order =  ACOLYTE_ORDER
 	total_positions = 4
 	spawn_positions = 4
+
 
 	allowed_races = list(
 		"Humen",
@@ -17,7 +20,7 @@
 	allowed_patrons = 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/abyssor, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 	outfit = /datum/outfit/job/stonekeep/acolyte
 
-	display_order =  ACOLYTE_ORDER
+
 	give_bank_account = TRUE
 	min_pq = -10
 	bypass_lastclass = TRUE
@@ -26,6 +29,7 @@
 	name = "Acolyte"
 	jobtype = /datum/job/stonekeep/acolyte
 	allowed_patrons = 	list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/abyssor, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
+	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/stonekeep/acolyte/pre_equip(mob/living/carbon/human/H)
 	..()

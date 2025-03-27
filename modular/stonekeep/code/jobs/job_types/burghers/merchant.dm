@@ -1,7 +1,11 @@
-/datum/job/stonekeep/merchant
+/datum/job/merchant
 	title = "Merchant"
 	flag = MERCHANT
 	department_flag = SERFS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	faction = FACTION_STATION
+	min_pq = 0
+	bypass_lastclass = TRUE
 	total_positions = 1
 	spawn_positions = 1
 
@@ -18,12 +22,16 @@
 		"Rakshari"
 	)
 
-	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. Counting coins is a simple pleasure for any person, but youve made it an artform. These people are addicted to your wares and you are the literal beating heart of this economy: Dont let these filthy-covered troglodytes ever forget that."
-
+	tutorial = "You were born into wealth, \
+	learning from before you could talk about the basics of mathematics. \
+	Counting coins is a simple pleasure for any person, but youve made it an artform. \
+	These people are addicted to your wares and you are the literal beating heart of this economy: \
+	Dont let these filthy-covered troglodytes ever forget that."
 	display_order = MERCHANT_ORDER
 	outfit = /datum/outfit/job/stonekeep/merchant
 	give_bank_account = 100
 	selection_color = "#2a348b"
+
 
 /datum/outfit/job/stonekeep/merchant/pre_equip(mob/living/carbon/human/H)
 	..()

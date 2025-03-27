@@ -1,10 +1,12 @@
-/datum/job/stonekeep/adept
+/datum/job/adept
 	title = "Adept"
 	flag = SK_ADEPT
 	department_flag = CHURCHMEN
 	faction = FACTION_STATION
 	total_positions = 0
 	spawn_positions = 0
+	bypass_lastclass = TRUE
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 
 	allowed_races = list(
 		"Humen",
@@ -26,7 +28,7 @@
 
 /datum/outfit/job/stonekeep/adept
 	name = "Adept"
-	jobtype = /datum/job/stonekeep/adept
+	jobtype = /datum/job/adept
 	allowed_patrons = list(/datum/patron/psydon)
 
 /datum/outfit/job/stonekeep/adept // Base outfit for Adepts, before loadouts

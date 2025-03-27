@@ -165,8 +165,9 @@
 	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/haiduk_raiders, /datum/migrant_wave/zizo_cult)
 	can_roll = FALSE
 	roles = list(
-//		/datum/migrant_role/sk/zizo/herald = 1,
-		/datum/job/goblin = 1)
+		/datum/migrant_role/sk/zizo/herald = 1,
+//		/datum/job/goblin = 1
+)
 	greet_text = "Haiduk Raiders appear! They may plunder, slave or sell their swords as mercenaries, who knows..."
 
 

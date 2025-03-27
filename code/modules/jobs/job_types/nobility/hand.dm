@@ -1,4 +1,4 @@
-/datum/job/hand
+/*datum/job/hand
 	title = "Hand"
 	tutorial = "You owe everything to your liege. \
 	You are the most trusted of the ruler- their sibling, in fact. \
@@ -182,3 +182,12 @@
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+
+
+
+
+
+
+
+
+*/

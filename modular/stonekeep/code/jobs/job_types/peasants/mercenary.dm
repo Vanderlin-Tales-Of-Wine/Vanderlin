@@ -1,9 +1,13 @@
-/datum/job/stonekeep/mercenary
+/datum/job/mercenary
 	title = "Mercenary"
 	flag = SK_MERCENARY
 	department_flag = PEASANTS
 	total_positions = 3
 	spawn_positions = 3
+
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -24,10 +28,10 @@
 	min_pq = -10
 	outfit = null
 	outfit_female = null
-	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
+	advclass_cat_rolls = list(CTAG_SKMERCENARY = 20)
 	is_foreigner = TRUE
 
-/datum/job/stonekeep/mercenary/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/mercenary/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L

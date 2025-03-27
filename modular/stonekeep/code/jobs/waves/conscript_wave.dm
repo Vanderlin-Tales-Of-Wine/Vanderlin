@@ -17,7 +17,7 @@ Their default should be aligned with the crown and have some limited objective, 
 	grant_lit_torch = FALSE
 	is_foreigner = FALSE
 	outfit = /datum/outfit/job/sk_migration/conscript/veteran
-	advclass_cat_rolls = list(CTAG_VETERAN = 20)
+	advclass_cat_rolls = list(CTAG_OLDVETERAN = 20)
 
 /datum/outfit/job/sk_migration/conscript/veteran/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -73,18 +73,18 @@ Their default should be aligned with the crown and have some limited objective, 
 	name = "Godendag"
 	tutorial = "The godendag is your weapon of choice."
 	outfit = /datum/outfit/job/stonekeep/veteran/goden
-	category_tags = list(CTAG_VETERAN )
+	category_tags = list(CTAG_OLDVETERAN )
 
 /datum/outfit/job/stonekeep/veteran/goden/pre_equip(mob/living/carbon/human/H)
 	..()
-	r_hand = /obj/item/weapon/mace/goden
+	backr = /obj/item/weapon/mace/goden
 	H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 
 /datum/advclass/sk/veteran/shield
 	name = "Shield and Sword"
-	tutorial = "The godendag is your weapon of choice."
+	tutorial = "A traditional choice."
 	outfit = /datum/outfit/job/stonekeep/veteran/shield
-	category_tags = list(CTAG_VETERAN )
+	category_tags = list(CTAG_OLDVETERAN )
 
 /datum/outfit/job/stonekeep/veteran/shield/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -184,7 +184,7 @@ Their default should be aligned with the crown and have some limited objective, 
 	can_roll = FALSE
 	roles = list(
 		/datum/migrant_role/conscript/veteran = 1,
-//		/datum/migrant_role/conscript/peasant = 1
+		/datum/migrant_role/conscript/peasant = 1
 	)
 	greet_text = "Your task is to restore the old tollhouse and bring order to the wetlands."
 

@@ -1,4 +1,4 @@
-/datum/job/merchant
+/*datum/job/merchant
 	title = "Merchant"
 	tutorial = "You were born into wealth, \
 	learning from before you could talk about the basics of mathematics. \
@@ -67,3 +67,21 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

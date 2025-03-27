@@ -105,8 +105,7 @@
 /*	..................   Zizombie Farmer Enemy    ................... */
 /obj/effect/spawner/map_spawner/enemy_fifty/zizombie_peasant
 	spawned = list(
-//		/obj/structure/idle_enemy/zizombie_farmer = 100
-		/mob/living/carbon/human/species/zizombie/npc/peasant = 100
+		/mob/living/simple_animal/hostile/zizombie = 100
 		)
 
 /*	..................   Hairy Spider Enemy   ................... */

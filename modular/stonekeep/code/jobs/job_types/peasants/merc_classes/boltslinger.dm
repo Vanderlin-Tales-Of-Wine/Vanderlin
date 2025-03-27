@@ -12,7 +12,7 @@
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/boltslinger
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 

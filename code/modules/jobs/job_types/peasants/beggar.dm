@@ -1,4 +1,4 @@
-
+/*
 /datum/job/vagrant
 	title = "Beggar"
 	tutorial = "The stench of your piss-laden clothes dont bug you anymore, \
@@ -66,3 +66,8 @@
 
 /datum/outfit/job/vagrant
 	name = "Beggar"
+
+
+
+
+*/

@@ -1,4 +1,4 @@
-/datum/job/innkeep
+/*datum/job/innkeep
 	title = "Innkeep"
 	tutorial = "Liquor, lodging, and lavish meals... your business is the beating heart of Vanderlin. \
 	You're the one who provides the the hardworking townsfolk with a place to eat and drink their sorrows away, \
@@ -57,3 +57,22 @@
 		beltr = /obj/item/reagent_containers/glass/bottle/beer/blackgoat
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_CON, 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

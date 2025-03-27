@@ -3,23 +3,19 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	/datum/job/consort::title,
 	/datum/job/hand::title,
 	/datum/job/prince::title,
-	/datum/job/captain::title,
 	/datum/job/steward::title,
 	/datum/job/magician::title,
 	/datum/job/archivist::title,
-	/datum/job/merchant::title,
-	/datum/job/feldsher::title,
 	/datum/job/apothecary::title,
+	/datum/job/butler::title,
 	/datum/job/minor_noble::title,
-	/datum/job/stonekeep/hand::title,
-	/datum/job/stonekeep/steward::title,
-	/datum/job/stonekeep/butler::title,
 	/datum/job/stonekeep/courtwizard::title,
 	/datum/job/stonekeep/jester::title,
 ))
 GLOBAL_PROTECT(noble_positions)
 
 GLOBAL_LIST_INIT(garrison_positions, list(
+	/datum/job/captain::title,	// STONEKEEP EDIT moved from noble positions
 	/datum/job/royalguard::title,
 	/datum/job/veteran::title,
 	/datum/job/guardsman::title,
@@ -29,26 +25,23 @@ GLOBAL_LIST_INIT(garrison_positions, list(
 	/datum/job/mayor::title,
 	/datum/job/forestwarden::title,
 	/datum/job/forestguard::title,
-	/datum/job/stonekeep/sheriff::title,
 	/datum/job/stonekeep/garrison::title,
-	/datum/job/stonekeep/squire::title,
+	/datum/job/squire::title,	// STONEKEEP EDIT moved from apprentice positions
 	))
 GLOBAL_PROTECT(garrison_positions)
 
 GLOBAL_LIST_INIT(church_positions, list(
-	/datum/job/monk::title,
-	/datum/job/undertaker::title,
-	// "Confessor",
 	/datum/job/priest::title,
+	/datum/job/undertaker::title,
 	/datum/job/stonekeep/acolyte::title,
 	/datum/job/stonekeep/gravekeeper::title,
 	/datum/job/stonekeep/inquisitor::title,
 	/datum/job/stonekeep/templar::title,
-	/datum/job/stonekeep/adept::title,
 	))
 GLOBAL_PROTECT(church_positions)
 
 GLOBAL_LIST_INIT(serf_positions, list(
+	/datum/job/merchant::title,
 	/datum/job/innkeep::title,
 	/datum/job/armorsmith::title,
 	/datum/job/weaponsmith::title,
@@ -58,9 +51,8 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
 	/datum/job/scribe::title,
+	/datum/job/feldsher::title,
 	/datum/job/stonekeep/guildmaster::title,
-	/datum/job/stonekeep/merchant::title,
-	/datum/job/stonekeep/innkeep::title,
 	/datum/job/stonekeep/blacksmith::title,
 	/datum/job/stonekeep/feldsher::title,
 	/datum/job/stonekeep/mason::title,
@@ -69,6 +61,7 @@ GLOBAL_LIST_INIT(serf_positions, list(
 GLOBAL_PROTECT(serf_positions)
 
 GLOBAL_LIST_INIT(peasant_positions, list(
+	/datum/job/stonekeep/elder::title,
 	/datum/job/farmer::title,
 	/datum/job/miner::title,
 	/datum/job/grabber::title,
@@ -79,18 +72,13 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	/datum/job/hunter::title,
 	/datum/job/fisher::title,
 	/datum/job/cheesemaker::title,
-	/datum/job/butler::title,
+
 	/datum/job/mercenary::title,
 	/datum/job/bard::title,
 	/datum/job/prisoner::title,
 	/datum/job/vagrant::title,
-	/datum/job/adventurer::title,
-	/datum/job/pilgrim::title,
 	/datum/job/bandit::title,
-	/datum/job/stonekeep/beggar::title,
 	/datum/job/stonekeep/cook::title,
-	/datum/job/stonekeep/elder::title,
-	/datum/job/stonekeep/mercenary::title,
 	/datum/job/stonekeep/nitemaiden::title,
 	/datum/job/stonekeep/soilson::title,
 	/datum/job/stonekeep/stevedore::title,
@@ -100,7 +88,6 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 GLOBAL_PROTECT(peasant_positions)
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
-	/datum/job/squire::title,
 	/datum/job/bapprentice::title,
 	/datum/job/wapprentice::title,
 	/datum/job/servant::title,
@@ -116,8 +103,8 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 GLOBAL_PROTECT(youngfolk_positions)
 
 GLOBAL_LIST_INIT(allmig_positions, list(
-	"Adventurer",
-	"Pilgrim",
+	/datum/job/adventurer::title,
+	/datum/job/pilgrim::title,
 	))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(

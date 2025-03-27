@@ -35,7 +35,7 @@
 	icon_state = "danger"
 	probby = 50
 	spawned = list(
-		/mob/living/carbon/human/species/zizombie/npc/peasant = 30,
+		/mob/living/simple_animal/hostile/zizombie = 30,
 		/obj/item/natural/worms = 10,
 		/obj/item/reagent_containers/food/snacks/rotten/mince = 5,
 		/obj/effect/decal/remains/bigrat = 5,

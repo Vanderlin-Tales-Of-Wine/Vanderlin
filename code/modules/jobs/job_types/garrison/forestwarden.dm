@@ -79,3 +79,15 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_FORAGER, TRAIT_GENERIC)
+
+
+
+
+/obj/effect/proc_holder/spell/self/convertrole/guard/forest_guard
+	name = "Recruit Forest Guard"
+	new_role = "Forest Garrison Recruit"
+	overlay_state = "recruit_guard"
+	recruitment_faction = "Forest Garrison"
+	recruitment_message = "Join the Forest Garrison, %RECRUIT!"
+	accept_message = "I swear to protect the forest!"
+	refuse_message = "I refuse."

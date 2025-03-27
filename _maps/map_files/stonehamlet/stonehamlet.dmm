@@ -544,7 +544,7 @@
 	dir = 1
 	},
 /obj/item/clothing/face/spectacles/delf,
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "aTu" = (
 /turf/open/floor/churchrough,
@@ -1898,7 +1898,7 @@
 "cVZ" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/storage/backpack/satchel,
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "cWc" = (
 /obj/structure/table/wood/reinforced_alter,
@@ -3046,7 +3046,7 @@
 /obj/structure/fluff/walldeco/painting/castle{
 	pixel_x = -32
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "eyJ" = (
 /obj/structure/fluff/railing/stonehedge{
@@ -3818,10 +3818,6 @@
 	icon_state = "iron_line"
 	},
 /area/rogue/under/town/basement)
-"fCz" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/ruinedwood/spiralfade,
-/area/rogue/indoors/town/shop)
 "fCH" = (
 /obj/structure/fluff/walldeco/psybanner/red,
 /turf/closed/wall/mineral/decostone,
@@ -5796,7 +5792,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 1
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "iBj" = (
 /turf/open/floor/dirt/muddie,
@@ -6303,6 +6299,7 @@
 /area/rogue/indoors/town/hamlet)
 "jkc" = (
 /obj/machinery/loom,
+/obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/hamlet)
 "jkl" = (
@@ -7207,7 +7204,7 @@
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "kBG" = (
 /obj/structure/fluff/walldeco/customflag{
@@ -8498,7 +8495,7 @@
 	pixel_x = 12;
 	redstone_id = "merchant"
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "msZ" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -11834,7 +11831,8 @@
 /area/rogue/indoors/town/shop)
 "qTA" = (
 /obj/structure/table/wood/long,
-/turf/open/floor/ruinedwood/spiralfade,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "qTD" = (
 /obj/structure/table/wood/large_new/blue{
@@ -12485,7 +12483,7 @@
 /obj/item/clothing/face/cigarette/pipe,
 /obj/item/storage/fancy/cigarettes/zig,
 /obj/item/storage/fancy/cigarettes/zig,
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "rLD" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -13058,7 +13056,7 @@
 /obj/structure/rack/shelf/biggest,
 /obj/item/storage/backpack/satchel,
 /obj/item/storage/backpack/backpack,
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "sGv" = (
 /obj/item/reagent_containers/glass/bucket/pot/stone,
@@ -14149,7 +14147,8 @@
 	pixel_y = 7
 	},
 /obj/item/dice/d6/ebony,
-/turf/open/floor/ruinedwood/spiralfade,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uqi" = (
 /obj/effect/landmark/start/sapprentice,
@@ -14425,7 +14424,7 @@
 "uGG" = (
 /obj/structure/mineral_door/swing_door/horizontal,
 /obj/machinery/light/fueled/wallfire/candle/open,
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uGT" = (
 /obj/structure/fluff/psycross/crafted/shrine/astrata{
@@ -14454,7 +14453,7 @@
 	icon_state = "wcv";
 	lockid = "shop"
 	},
-/turf/open/floor/ruinedwood/spiral,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uIx" = (
 /obj/structure/closet/crate/coffin,
@@ -14557,7 +14556,7 @@
 /obj/structure/table/wood/long{
 	dir = 10
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uTD" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -15842,7 +15841,7 @@
 /obj/structure/table/wood/reinf_long{
 	dir = 5
 	},
-/turf/open/floor/ruinedwood/spiralfade,
+/turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "wMk" = (
 /obj/structure/fluff/railing/fence,
@@ -74858,7 +74857,7 @@ ahK
 qoZ
 lVD
 upz
-fCz
+iAp
 eyx
 aSP
 uSu
@@ -75060,11 +75059,11 @@ ahK
 qoZ
 lVD
 sGc
-sjt
-sjt
-sjt
-sjt
-sjt
+iAp
+iAp
+iAp
+iAp
+iAp
 uIv
 aKi
 aKi
@@ -75262,8 +75261,8 @@ ahK
 qoZ
 lVD
 cVZ
-sjt
-sjt
+iAp
+iAp
 bXJ
 bXJ
 bXJ
@@ -75465,7 +75464,7 @@ qoZ
 lVD
 rLB
 msG
-sjt
+iAp
 bXJ
 iYM
 bXJ

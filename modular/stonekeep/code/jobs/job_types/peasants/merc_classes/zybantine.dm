@@ -12,7 +12,7 @@
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/zybantine
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg' //Forgive me, Combat_DesertRider, I'm sorry, I'll miss you.

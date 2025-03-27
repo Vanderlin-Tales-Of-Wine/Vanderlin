@@ -1,4 +1,4 @@
-/datum/job/stonekeep/beggar
+/datum/job/vagrant
 	title = "Beggar"
 	flag = SK_BEGGAR
 //	flag = APPRENTICE	ROGTODO again, their apprenrtice system, is it something good or bad.
@@ -24,7 +24,7 @@
 
 	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
-/datum/job/stonekeep/beggar/New()
+/datum/job/vagrant/New()
 	. = ..()
 	peopleknowme = list()
 
@@ -84,3 +84,5 @@
 	H.change_stat("constitution", -2)
 	H.change_stat("endurance", -1)
 
+/datum/outfit/job/vagrant
+	name = "Beggar"

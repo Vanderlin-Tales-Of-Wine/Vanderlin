@@ -7,7 +7,7 @@
 		"Elf",
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/blackoak
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 /datum/outfit/job/stonekeep/merc/blackoak/pre_equip(mob/living/carbon/human/H)

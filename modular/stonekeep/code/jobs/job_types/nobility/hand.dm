@@ -1,7 +1,11 @@
-/datum/job/stonekeep/hand
+/datum/job/hand
 	title = "Hand"
 	flag = SK_HAND
 	department_flag = NOBLEMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
+	display_order = HAND_ORDER
+	bypass_lastclass = TRUE
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = list(
@@ -12,23 +16,26 @@
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/stonekeep/hand
-	display_order = HAND_ORDER
+
 	tutorial = "Advisor, spymaster, confidante, your ties with the ruler are deep and personal."
 	advclass_cat_rolls = list(CTAG_SKHAND = 20)
 	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 
-/datum/job/stonekeep/hand/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/hand/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(L, FAMILY_OMMER)
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
+	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
+	var/mob/living/carbon/human/H = spawned
+	H.advsetup = 1
+	H.invisibility = INVISIBILITY_MAXIMUM
+	H.become_blind("advsetup")
 
-/datum/job/stonekeep/hand/proc/know_agents(mob/living/carbon/human/H)
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
+
+/datum/job/hand/proc/know_agents(mob/living/carbon/human/H)
 	if(!GLOB.roundstart_court_agents.len)
 		to_chat(H, span_notice("You begun the week with no agents."))
 	else

@@ -6,7 +6,7 @@
 		"Tiefling"
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/corsair
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
 	maximum_possible_slots = 5
 

@@ -8,6 +8,14 @@
 	)
 	tutorial = "You are a devoted follower of Astrata. The divine is all that matters in an immoral world. The Sun Queen and her pantheon rule over all, and you will preach their wisdom. It is up to you to shephard the flock into a Ten-fearing future."
 	display_order = PRIEST_ORDER
+	department_flag = CHURCHMEN
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	flag = PRIEST
+	faction = FACTION_STATION
+	total_positions = 1
+	spawn_positions = 1
+
+	bypass_lastclass = TRUE
 	outfit = /datum/outfit/job/stonekeep/priest
 	min_pq = 0
 	selection_color = "#c2a45d"

@@ -74,7 +74,7 @@
 	ADD_TRAIT(C, TRAIT_DARKVISION, SPECIES_TRAIT)
 
 /datum/species/kobold/check_roundstart_eligible()
-	return TRUE
+	return FALSE	// STONEKEEP EDIT
 
 /datum/species/kobold/get_span_language(datum/language/message_language)
 	if(!message_language)

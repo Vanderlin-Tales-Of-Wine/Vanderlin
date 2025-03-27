@@ -511,6 +511,7 @@
 /obj/structure/flora/tree/neu/acacia
 	name = "dead tree"
 	icon_state = "acacia_dead"
+	opacity = FALSE
 /obj/structure/flora/tree/neu/acacia/Initialize()
 	. = ..()
 	icon_state = "acacia_dead"
@@ -520,6 +521,7 @@
 	name = "pine tree"
 	desc = "A smell of amber and pine needles linger."
 	icon_state = "pine"
+	opacity = FALSE
 /obj/structure/flora/tree/neu/pine/Initialize()
 	. = ..()
 	icon_state = "pine"
@@ -529,6 +531,7 @@
 	name = "dead tree"
 	desc = "A faint smell of amber and pine needles linger."
 	icon_state = "pine_dead"
+	opacity = FALSE
 /obj/structure/flora/tree/neu/pine_dead/Initialize()
 	. = ..()
 	icon_state = "pine_dead"
@@ -543,6 +546,7 @@
 	static_debris = list(/obj/item/grown/log/tree/stick = 1)
 	pixel_x = -16
 	alpha = 255
+	opacity = FALSE
 /obj/structure/flora/tree/neu/bush/Initialize()
 	. = ..()
 	icon_state = "deadbush_[rand(1,3)]"
@@ -813,3 +817,8 @@
 
 /obj/structure/fluff/statue/xylix/frown
 	icon_state = "xylix_frown"
+
+
+/obj/structure/bars/cemetery
+	plane = -5
+	layer = 3

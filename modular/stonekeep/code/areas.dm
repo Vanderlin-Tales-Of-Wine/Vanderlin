@@ -69,7 +69,7 @@
 
 
 /area/rogue/outdoors/rtfield/plague_district
-	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 40, /mob/living/carbon/human/species/zizombie/npc/peasant = 40)
+	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 40, /mob/living/simple_animal/hostile/zizombie = 40)
 	first_time_text = "PLAGUE DISTRICT"
 	color = "#d4da75"
 	name = "danger (plague district)"

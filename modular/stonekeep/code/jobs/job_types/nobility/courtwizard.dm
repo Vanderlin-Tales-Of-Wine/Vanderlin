@@ -4,6 +4,14 @@
 	department_flag = NOBLEMEN
 	total_positions = 1
 	spawn_positions = 1
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MAGICIAN
+	faction = FACTION_STATION
+	total_positions = 1
+	spawn_positions = 1
+	min_pq = 0
+	bypass_lastclass = TRUE
+
 
 	allowed_races = list(
 		"Humen",
@@ -13,7 +21,6 @@
 	)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
-	display_order = JDO_MAGICIAN
 	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. A scholar of Noc, or a secret worshipper of Zizo. \
 	Indebted to the ruler for funding yils of mystical studies in these dark times, \
 	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
@@ -73,6 +80,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
+		H.generate_random_attunements(rand(4,6))
 
 
 //............... Unique Court Mage Stuff ...........................

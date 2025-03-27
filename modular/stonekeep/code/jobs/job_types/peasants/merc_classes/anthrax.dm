@@ -4,7 +4,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dark Elf")
 	outfit = /datum/outfit/job/stonekeep/merc/anthrax
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'

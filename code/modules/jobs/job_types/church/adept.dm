@@ -1,4 +1,4 @@
-/datum/job/adept
+/*datum/job/adept
 	title = "Adept"
 	tutorial = "You were a convicted criminal, the lowest scum of Vanderlin. \
 	Your master, the Inquisitor, saved you from the gallows \
@@ -156,3 +156,11 @@
 	spawned.advsetup = TRUE
 	spawned.invisibility = INVISIBILITY_MAXIMUM
 	spawned.become_blind("advsetup")
+
+
+
+
+
+
+
+*/

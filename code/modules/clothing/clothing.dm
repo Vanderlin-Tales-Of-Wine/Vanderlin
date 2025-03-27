@@ -86,11 +86,11 @@
 	if(do_sound_chain)
 		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/chain (1).ogg',\
 													'sound/foley/footsteps/armor/chain (2).ogg',\
-													'sound/foley/footsteps/armor/chain (3).ogg'), 100)
+													'sound/foley/footsteps/armor/chain (3).ogg'), 80)	// STONEKEEP EDIT
 	else if(do_sound_plate)
 		AddComponent(/datum/component/squeak, list('sound/foley/footsteps/armor/plate (1).ogg',\
 													'sound/foley/footsteps/armor/plate (2).ogg',\
-													'sound/foley/footsteps/armor/plate (3).ogg'), 100)
+													'sound/foley/footsteps/armor/plate (3).ogg'), 80)	// STONEKEEP EDIT
 
 	if(hoodtype)
 		MakeHood()

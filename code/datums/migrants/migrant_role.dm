@@ -46,7 +46,7 @@
 
 /datum/migrant_role/mercenary
 	name = "Mercenary"
-	advclass_cat_rolls = list(CTAG_MERCENARY = 20)
+	advclass_cat_rolls = list(CTAG_SKMERCENARY = 20)	// STONEKEEP EDIT
 	grant_lit_torch = TRUE
 
 /datum/migrant_role/lich

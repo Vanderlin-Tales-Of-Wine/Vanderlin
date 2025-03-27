@@ -655,9 +655,7 @@
 /mob/living/carbon/human/species/goblin/skilled/ambush/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
-/mob/living/carbon/human/species/goblin/skilledambush/hell/after_creation()
-	..()
-	equipOutfit(new /datum/outfit/job/npc/goblin)
+
 
 /*
 /mob/living/carbon/human/species/goblin/skilled/hell/after_creation(mob/living/carbon/C)
@@ -810,11 +808,11 @@
 	base_intents = list(/datum/intent/simple/claw)
 	attack_verb_continuous = "rips"
 	attack_verb_simple = "rend"
-	attack_sound = 'sound/blank.ogg'
+	attack_sound = 'sound/combat/wooshes/bladed/wooshmed (1).ogg'
+	dodge_sound = 'sound/combat/dodge.ogg'
 	canparry = FALSE
 	d_intent = INTENT_DODGE
 	speak_emote = list("moans")
-	loot = list(/obj/item/ash)
 	faction = list("Zizo")
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	del_on_death = FALSE
@@ -829,7 +827,6 @@
 	. = ..()
 	icon_state = "zombie[rand(1,4)]"
 	icon_living = "[icon_state]"
-
 
 /mob/living/simple_animal/hostile/zizombie/Life()
 	. = ..()
@@ -848,7 +845,18 @@
 
 /mob/living/simple_animal/hostile/zizombie/death(gibbed)
 	emote("death")
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	..()
+	var/turf/deathspot = get_turf(src)
+	new /obj/effect/decal/remains/neu/human(deathspot)
+	update_icon()
+	sleep(10)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/zizombie/taunted(mob/user)
+	..()
+	emote("aggro")
+
 
 /datum/outfit/job/cryptkeeper/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()

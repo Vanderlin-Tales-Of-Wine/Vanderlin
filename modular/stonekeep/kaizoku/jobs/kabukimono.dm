@@ -15,7 +15,7 @@
 		"Undine"
 	)
 	outfit = /datum/outfit/job/roguetown/mercenary/kabukimaru
-	category_tags = list(CTAG_MERCENARY)
+	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
 /datum/outfit/job/roguetown/mercenary/kabukimaru/pre_equip(mob/living/carbon/human/H)

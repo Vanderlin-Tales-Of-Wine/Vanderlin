@@ -190,6 +190,13 @@
 	specstats = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
 	specstats_f = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
 
+	species_traits = list(EYECOLOR,HAIR,LIPS,OLDGREY)
+
+	customizers = list(
+		/datum/customizer/organ/eyes/humanoid,
+		/datum/customizer/bodypart_feature/hair/head/humanoid,
+		/datum/customizer/bodypart_feature/accessory,
+	)
 
 /datum/species/aasimar/get_skin_list()
 	return sortList(list(
@@ -199,6 +206,23 @@
 		"Gaeia" = "db904f",
 		"Celestial" = "e1c565",
 		"Olympia" = "cfdd9e",
+	))
+
+
+/datum/species/aasimar/get_hairc_list()
+	return sortList(list(
+	"white - silver" = "d3d9e3",
+	"white - alabaster" = "fffffc",
+	"white - skies" = "a1b4d4",
+
+	"blond - sunlight" = "f3f797",
+	"blond - strawberry" = "c69b71",
+	"blond - pale" = "9d8d6e",
+
+	"red - flame" = "ab4637",
+	"red - sunset" = "bf6821",
+	"red - blood" = "822b2b",
+	"red - maroon" = "612929"
 	))
 
 // =================================================================================

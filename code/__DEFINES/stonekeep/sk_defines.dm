@@ -1,6 +1,9 @@
 #define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
 #define ALL_STONEKEEP_RACES_NORMALSPRITE		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun")	// for clothes without dwarf sprites
 
+
+#define CTAG_SKMERCENARY 	"CAT_SKMERCENART"  		// Mercenary classes
+
 #define isgoblin(A) (is_species(A, /datum/species/goblin))
 
 #ifdef MATURESERVER
@@ -27,6 +30,7 @@ GLOBAL_LIST_EMPTY(mountainevil_starts)
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 #define CTAG_SKHAND			"CAT_SKHAND"
 #define CTAG_SKWOODSMAN		"CAT_SKWOODSMAN"
+#define CTAG_OLDVETERAN		"CAT_OLDVETERAN"
 
 /mob/living/carbon/human
 	// Another Boolean. But this time entirely for Kaizoku content to define those whom Abyssariads considers 'impure', and for champions.

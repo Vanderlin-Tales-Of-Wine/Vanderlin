@@ -153,18 +153,18 @@ GLOBAL_LIST_INIT(RATS_DONT_EAT, typecacheof(list(
 // Nobility
 	#define is_lord_job(job_type) (istype(job_type, /datum/job/lord))
 	#define is_consort_job(job_type) (istype(job_type, /datum/job/consort))
-	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant) || istype(job_type, /datum/job/stonekeep/merchant))
+	#define is_merchant_job(job_type) (istype(job_type, /datum/job/merchant) )
 // Garrison
 // Church
 	#define is_priest_job(job_type) (istype(job_type, /datum/job/priest))
 	#define is_monk_job(job_type) (istype(job_type, /datum/job/monk) || istype(job_type, /datum/job/stonekeep/acolyte))
 	#define is_inquisitor_job(job_type) (istype(job_type, /datum/job/inquisitor) || istype(job_type, /datum/job/stonekeep/inquisitor))
-	#define is_adept_job(job_type) (istype(job_type, /datum/job/adept) || istype(job_type, /datum/job/stonekeep/adept))
+	#define is_adept_job(job_type) (istype(job_type, /datum/job/adept))
 // Serfs
 // Peasantry
 	#define is_adventurer_job(job_type) (istype(job_type, /datum/job/adventurer))
-	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary) || istype(job_type, /datum/job/stonekeep/mercenary))
-	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant) || istype(job_type, /datum/job/stonekeep/beggar))
+	#define is_mercenary_job(job_type) (istype(job_type, /datum/job/mercenary) )
+	#define is_vagrant_job(job_type) (istype(job_type, /datum/job/vagrant) )
 // Villains
 	#define is_skeleton_job(job_type) (istype(job_type, /datum/job/skeleton)) //template for easy filling in
 	#define is_rousman_job(job_type) (istype(job_type, /datum/job/rousman)) //template for easy filling in

@@ -1,4 +1,4 @@
-/datum/job/steward
+/*datum/job/steward
 	title = "Steward"
 	tutorial = "Coin, Coin, Coin! Oh beautiful coin: \
 	You're addicted to it, and you hold the position as the King's personal treasurer of both coin and information. \
@@ -21,7 +21,7 @@
 		"Half-Elf",
 		"Dwarf"
 	)
-	
+
 	outfit = /datum/outfit/job/steward
 	give_bank_account = 100
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
@@ -62,3 +62,18 @@
 		H.change_stat(STATKEY_CON, -2)
 		H.change_stat(STATKEY_SPD, -2)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
