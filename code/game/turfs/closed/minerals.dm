@@ -45,6 +45,21 @@
 	. = ..()
 	lastminer = null
 
+// Inlined version of the bump click element. way faster this way, the element's nice but it's too much overhead
+/turf/closed/mineral/Bumped(atom/movable/bumped_atom)
+	. = ..()
+	if(!isliving(bumped_atom))
+		return
+
+	var/mob/living/bumping = bumped_atom
+
+	var/obj/item/held_item = bumping.get_active_held_item()
+	// !held_item exists to be nice to snow. the other bit is for pickaxes obviously
+	if(!held_item)
+		INVOKE_ASYNC(bumping, TYPE_PROC_REF(/mob, ClickOn), src)
+	else if(held_item.tool_behaviour == TOOL_MINING)
+		attackby(held_item, bumping)
+
 /turf/closed/mineral/LateInitialize()
 	. = ..()
 	if (mineralType && mineralAmt && spread && spreadChance)
@@ -121,7 +136,7 @@
 			if(prob(23))
 				new rockType(src)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)
-	else if(user.stat_roll(STATKEY_LCK,2,10))
+	else if(user?.stat_roll(STATKEY_LCK,2,10))
 		var/newthing = pickweight(list(/obj/item/natural/rock/salt = 2, /obj/item/natural/rock/iron = 1, /obj/item/natural/rock/coal = 2))
 //		to_chat(user, "<span class='notice'>Bonus ducks!</span>")
 		new newthing(src)
@@ -222,7 +237,7 @@
 /turf/closed/mineral/random/high
 	icon_state = "minrandhigh"
 	mineralChance = 70
-	mineralSpawnChanceList = list(/turf/closed/mineral/gold = 15 , /turf/closed/mineral/iron = 25, /turf/closed/mineral/silver = 15)//, /turf/closed/mineral/gemeralds = 10)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 15, /turf/closed/mineral/cinnabar = 5, /turf/closed/mineral/gold = 15 , /turf/closed/mineral/iron = 25, /turf/closed/mineral/silver = 15)//, /turf/closed/mineral/rogue/gemeralds = 10)
 
 /turf/closed/mineral/random/low_nonval
 	icon_state = "cticbad"
@@ -237,22 +252,22 @@
 /turf/closed/mineral/random/high_nonval
 	icon_state = "cticgood"
 	mineralChance = 70
-	mineralSpawnChanceList = list(/turf/closed/mineral/copper = 15,/turf/closed/mineral/tin = 15, /turf/closed/mineral/iron = 25, /turf/closed/mineral/coal = 20)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 10, /turf/closed/mineral/copper = 15,/turf/closed/mineral/tin = 15, /turf/closed/mineral/iron = 25, /turf/closed/mineral/coal = 20)
 
 /turf/closed/mineral/random/low_valuable
 	icon_state = "gsgbad"
 	mineralChance = 30
-	mineralSpawnChanceList = list(/turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 10, /turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
 
 /turf/closed/mineral/random/med_valuable
 	icon_state = "gsgmed"
 	mineralChance = 50
-	mineralSpawnChanceList = list(/turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 10, /turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
 
 /turf/closed/mineral/random/high_valuable
 	icon_state = "gsggood"
 	mineralChance = 70
-	mineralSpawnChanceList = list(/turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
+	mineralSpawnChanceList = list(/turf/closed/mineral/mana_crystal = 10, /turf/closed/mineral/gold = 40 , /turf/closed/mineral/gemeralds = 20, /turf/closed/mineral/silver = 40)
 
 
 
@@ -290,6 +305,26 @@
 	rockType = /obj/item/natural/rock/salt
 	spreadChance = 12
 	spread = 3
+
+/turf/closed/mineral/cinnabar
+	icon_state = "mingold"
+	mineralType = /obj/item/ore/cinnabar
+	rockType = /obj/item/natural/rock/cinnabar
+	spreadChance = 23
+	spread = 5
+
+/turf/closed/mineral/mana_crystal
+	icon_state = "mingold"
+	mineralType = /obj/item/mana_battery/mana_crystal/standard
+	rockType = /obj/item/natural/rock/mana_crystal
+	spreadChance = 23
+	spread = 5
+
+/obj/item/natural/rock/mana_crystal
+	mineralType = /obj/item/mana_battery/mana_crystal/standard
+
+/obj/item/natural/rock/cinnabar
+	mineralType = /obj/item/ore/cinnabar
 
 /turf/closed/mineral/iron
 	icon_state = "ironbad"

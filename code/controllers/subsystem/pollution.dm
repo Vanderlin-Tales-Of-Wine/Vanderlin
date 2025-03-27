@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(pollution)
 			if(TICK_CHECK_LOW)
 				return
 		dissapation_ticker++
-		if(dissapation_ticker >= TICKS_TO_DISSIPATE)
+		if(dissapation_ticker >= TICKS_TO_DISSIPATE * 4)
 			pollution_task = POLLUTION_TASK_DISSIPATE
 			dissapation_ticker = 0
 			current_run_cache = all_polution.Copy()

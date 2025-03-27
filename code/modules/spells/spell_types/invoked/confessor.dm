@@ -5,7 +5,7 @@
 	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
-	charge_max = 10 SECONDS
+	recharge_time = 10 SECONDS
 	sound = 'sound/magic/swap.ogg'
 	associated_skill = /datum/skill/magic/holy
 	warnie = "sydwarning"

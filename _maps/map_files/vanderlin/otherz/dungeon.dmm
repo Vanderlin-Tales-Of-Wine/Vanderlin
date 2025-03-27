@@ -10,13 +10,6 @@
 /obj/structure/roguetent/preopen,
 /turf/open/floor/hexstone,
 /area/rogue)
-"e" = (
-/obj/structure/stairs,
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/floor/hexstone,
-/area/rogue)
 "f" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue)
@@ -19818,7 +19811,7 @@ O
 W
 W
 f
-e
+u
 W
 W
 W

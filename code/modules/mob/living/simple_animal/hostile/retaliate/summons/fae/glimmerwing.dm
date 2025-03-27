@@ -1,0 +1,80 @@
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing
+	icon = 'icons/mob/summonable/32x32.dmi'
+	name = "glimmerwing"
+	icon_state = "glimmerwing"
+	icon_living = "glimmerwing"
+	icon_dead = "vvd"
+	summon_primer = "You are a glimmerwing, a moderate sized fae. You spend time wandering forests, cursing unweary travellers. Now you've been pulled from your home into a new world, that is decidedly less wild and natural. How you react to these events, only time can tell."
+	tier = 2
+	gender = MALE
+	emote_hear = null
+	emote_see = null
+	speak_chance = 1
+	turns_per_move = 6
+	see_in_dark = 6
+	move_to_delay = 6
+	base_intents = list(/datum/intent/simple/bite)
+	butcher_results = list()
+	faction = list("fae")
+	mob_biotypes = MOB_ORGANIC|MOB_BEAST
+	health = 170
+	maxHealth = 170
+	melee_damage_lower = 15
+	melee_damage_upper = 17
+	vision_range = 7
+	aggro_vision_range = 9
+	environment_smash = ENVIRONMENT_SMASH_NONE
+	simple_detect_bonus = 20
+	ranged = FALSE
+	retreat_distance = 0
+	minimum_distance = 0
+	food_type = list()
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+	pooptype = null
+	STACON = 7
+	STASTR = 9
+	STASPD = 15
+	simple_detect_bonus = 20
+	deaggroprob = 0
+	defprob = 40
+	defdrain = 10
+	del_on_deaggro = 44 SECONDS
+	retreat_health = 0.3
+	food = 0
+	attack_sound = list()
+	dodgetime = 40
+	aggressive = 1
+	var/drug_cd
+
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing/Initialize()
+	. = ..()
+
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing/death(gibbed)
+	..()
+	var/turf/deathspot = get_turf(src)
+	new /obj/item/natural/iridescentscale(deathspot)
+	new /obj/item/natural/iridescentscale(deathspot)
+	new /obj/item/natural/iridescentscale(deathspot)
+	new /obj/item/natural/iridescentscale(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
+	new /obj/item/natural/fairydust(deathspot)
+	update_icon()
+	spill_embedded_objects()
+	qdel(src)
+
+/mob/living/simple_animal/hostile/retaliate/fae/glimmerwing/AttackingTarget()
+	if(SEND_SIGNAL(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, target) & COMPONENT_HOSTILE_NO_PREATTACK)
+		return FALSE //but more importantly return before attack_animal called
+	SEND_SIGNAL(src, COMSIG_HOSTILE_ATTACKINGTARGET, target)
+	in_melee = TRUE
+	if(!target)
+		return
+	if(world.time >= src.drug_cd + 25 SECONDS)
+		var/mob/living/targetted = target
+		targetted.apply_status_effect(/datum/status_effect/buff/seelie_drugs)
+		targetted.visible_message(span_danger("[src] dusts [target] with some kind of powder!"))
+		targetted.adjustToxLoss(15)
+		src.drug_cd = world.time
+	return target.attack_animal(src)

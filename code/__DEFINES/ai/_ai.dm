@@ -69,9 +69,7 @@
 #define BB_FIND_MOM_TYPES "BB_find_mom_types"
 ///list of types of mobs we must ignore
 #define BB_IGNORE_MOM_TYPES "BB_ignore_mom_types"
-/// Typecache of weakrefs to mobs this mob is friends with, will follow their instructions and won't attack them
-#define BB_FRIENDS_LIST "BB_friends_list"
-
+F
 ///are we ready to breed?
 #define BB_BREED_READY "BB_breed_ready"
 ///maximum kids we can have
@@ -81,6 +79,11 @@
 
 #define BB_NEST_LIST "BB_nestlist"
 #define BB_NEST_IGNORE_LIST "BB_nest_ignore"
+
+///the bee hive we live inside
+#define BB_CURRENT_HOME "BB_current_home"
+#define BB_HOME_PATH "BB_home_path"
+
 /// Converts a probability/second chance to probability/seconds_per_tick chance
 /// For example, if you want an event to happen with a 10% per second chance, but your proc only runs every 5 seconds, do `if(prob(100*SPT_PROB_RATE(0.1, 5)))`
 #define SPT_PROB_RATE(prob_per_second, seconds_per_tick) (1 - (1 - (prob_per_second)) ** (seconds_per_tick))
