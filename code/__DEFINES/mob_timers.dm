@@ -17,6 +17,7 @@
 	#define MT_LASTOXYDAM "lastoxydam"
 	#define MT_PUKE "puke"
 
+	#define MT_STRESS "stress"
 /* CURSES */
 	#define MT_CURSE_PESTRA "curse_pestra"
 	#define MT_CURSE_BAOTHA "curse_baotha"
@@ -47,4 +48,3 @@
 	// I've separated then here for clarity's sake.
 
 	#define MT_PAINSTUN "painstun"
-	#define MT_INVISIBILITY "invisible"
