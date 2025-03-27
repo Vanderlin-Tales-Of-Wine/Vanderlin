@@ -435,6 +435,8 @@
 #include "code\datums\http_request.dm"
 #include "code\datums\hud.dm"
 #include "code\datums\ip_info.dm"
+#include "code\datums\map_adjustment.dm"
+#include "code\datums\map_adjustment_include.dm"
 #include "code\datums\map_config.dm"
 #include "code\datums\mind.dm"
 #include "code\datums\movement_detector.dm"

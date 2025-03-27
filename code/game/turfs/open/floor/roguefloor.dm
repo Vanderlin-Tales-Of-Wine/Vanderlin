@@ -231,6 +231,14 @@
 						/turf/open/floor/snow/rough,
 						/turf/open/floor/snow/patchy)
 
+/turf/open/floor/grass/eora
+	icon_state = "hellgrass"
+	neighborlay = "hellgrassedge"
+	canSmoothWith = list(/turf/open/floor/grass,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/rough,
+						/turf/open/floor/snow/patchy)
+
 /*	..................   Snow   ................... */
 
 /turf/open/floor/snow

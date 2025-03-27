@@ -6,7 +6,7 @@
 "aV" = (
 /obj/structure/lever/wall{
 	dir = 8;
-	redstone_id = northgatematt
+	redstone_id = "northgatematt"
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
@@ -39,10 +39,6 @@
 	pixel_y = 6
 	},
 /turf/open/floor/carpet/red,
-/area/rogue/indoors/shelter)
-"el" = (
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/closed/wall/mineral/stone,
 /area/rogue/indoors/shelter)
 "er" = (
 /obj/structure/fermentation_keg,
@@ -297,7 +293,7 @@
 /area/rogue/under/cave)
 "LT" = (
 /obj/structure/gate{
-	redstone_id = northgatematt
+	redstone_id = "northgatematt"
 	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
@@ -872,7 +868,7 @@ CE
 AR
 CE
 AR
-el
+qX
 CE
 CE
 CE
@@ -1142,7 +1138,7 @@ CE
 CE
 CE
 AR
-el
+qX
 CE
 CE
 CE
