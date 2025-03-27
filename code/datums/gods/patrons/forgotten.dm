@@ -1,7 +1,7 @@
 /datum/patron/psydon
 	name = "Psydon"
 	domain = "God of Humenity, Dreams and Creation"
-	desc = "Deceased, slain by Necra in His final moments. She ripped His body apart to create The Ten... but He's still out there somewhere, right?"
+	desc = "Deceased, slain by Necra in His final moments. She ripped His body apart to create The Ten... but He'll return when the Ten are gone, right?"
 	flaws = "Grudge-Holding, Judgemental, Self-Sacrificing"
 	worshippers = "Grenzelhofters, Inquisitors, Heroes"
 	sins = "Apostasy, Demon Worship, Betraying thy Father"
@@ -20,3 +20,14 @@
 
 	to_chat(follower, span_danger("I can not talk to Him... I need His cross on my neck!"))
 	return FALSE
+
+/datum/patron/psydon/progressive
+	name = "Progressive Psydon"
+	desc = "Necra divided His body apart in an act of mercy to create The Ten, and as inheritors of His will it's only natural that they take over His position, right?"
+	flaws = "Fatalistic, Sentimental, Acquiescent"
+	worshippers = "Idealistic Dreamers, Optimists, Diplomats"
+	confess_lines = list(
+		"PSYDON AND THE TEN ARE THE RIGHTFUL GODS!",
+		"MAY THE SUCCESSORS CARRY ON HIS LEGACY!",
+		"PSYDON LIVES THROUGH THE TEN!",
+	)

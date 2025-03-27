@@ -20,6 +20,9 @@
 		if(/datum/patron/psydon)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/psycross/g
+		if(/datum/patron/psydon/progressive)
+			head = /obj/item/clothing/head/helmet/heavy/bucket/gold
+			wrists = /obj/item/clothing/neck/psycross/g
 		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/helmet/heavy/necked/astrata
 			wrists = /obj/item/clothing/neck/psycross/silver/astrata
