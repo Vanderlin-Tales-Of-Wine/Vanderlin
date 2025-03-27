@@ -724,8 +724,10 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
 "iN" = (
-/obj/structure/window/openclose,
-/turf/closed/wall/mineral/decowood/vert,
+/obj/structure/window/openclose{
+	dir = 4
+	},
+/turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "iO" = (
 /turf/open/floor/carpet,
@@ -1364,6 +1366,10 @@
 	dir = 8
 	},
 /area/rogue/outdoors/bog)
+"si" = (
+/obj/structure/window/openclose,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/shelter/bog)
 "sl" = (
 /obj/item/weapon/tongs,
 /turf/open/floor/dirt,
@@ -2095,8 +2101,10 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/mountains)
 "Cd" = (
-/obj/structure/window/openclose,
-/turf/closed/wall/mineral/decowood,
+/obj/structure/window/openclose{
+	dir = 1
+	},
+/turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/shelter/bog)
 "Ce" = (
 /obj/structure/stairs{
@@ -42571,7 +42579,7 @@ gJ
 gJ
 gJ
 gJ
-Cd
+si
 ac
 ac
 WM
@@ -42975,7 +42983,7 @@ La
 La
 La
 La
-Cd
+si
 RQ
 ac
 ac
@@ -82366,7 +82374,7 @@ hh
 hh
 hh
 hh
-Cd
+si
 WW
 rb
 oB
@@ -82972,7 +82980,7 @@ hh
 hh
 hh
 hh
-Cd
+si
 WW
 rb
 oB

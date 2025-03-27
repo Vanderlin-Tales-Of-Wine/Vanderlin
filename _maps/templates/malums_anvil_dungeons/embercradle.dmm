@@ -2201,6 +2201,17 @@
 /obj/item/reagent_containers/food/snacks/cheddar,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"Ef" = (
+/obj/item/reagent_containers/food/snacks/potato/baked,
+/obj/structure/spider/stickyweb,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Eg" = (
 /obj/effect/decal/remains/wolf,
 /turf/open/floor/cobblerock,
@@ -2650,10 +2661,6 @@
 "Jd" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
-/area/rogue/under/mountains/anvil/dungeon)
-"Jf" = (
-/obj/structure/mineral_door/wood,
-/turf/closed,
 /area/rogue/under/mountains/anvil/dungeon)
 "Js" = (
 /obj/structure/fluff/railing/fence{
@@ -3212,11 +3219,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
-"Qs" = (
-/obj/item/reagent_containers/food/snacks/potato/baked,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "QA" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
@@ -5319,7 +5321,7 @@ Xc
 Xc
 Xc
 FM
-Qs
+Ef
 lJ
 eq
 Ds
@@ -10469,7 +10471,7 @@ kZ
 kZ
 kZ
 Cb
-Jf
+wJ
 kZ
 kZ
 kZ
