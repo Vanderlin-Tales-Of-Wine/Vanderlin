@@ -684,9 +684,7 @@
 /area/rogue/under/cave)
 "JL" = (
 /obj/structure/window/solid,
-/obj/structure/window/solid,
-/obj/structure/window/solid,
-/turf/closed/indestructible/roguewindow,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "JQ" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -794,13 +792,6 @@
 	pixel_y = 12
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
-"Or" = (
-/obj/structure/window/solid,
-/obj/structure/window,
-/obj/structure/window/solid,
-/obj/structure/window/solid,
-/turf/closed/indestructible/roguewindow,
 /area/rogue/under/cave)
 "Pb" = (
 /obj/machinery/light/fueled/torchholder/r,
@@ -1118,7 +1109,7 @@ IZ
 "}
 (6,1,1) = {"
 IZ
-oJ
+zT
 et
 hh
 WT
@@ -2059,7 +2050,7 @@ IZ
 IZ
 IZ
 IZ
-Or
+JL
 JL
 JL
 JL
