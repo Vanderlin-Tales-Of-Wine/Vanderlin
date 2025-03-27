@@ -571,7 +571,3 @@
 //Should return new turf
 /turf/proc/Melt()
 	return ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-
-/turf/OnCrafted(dirin, mob/user)
-	. = ..()
-	flags_1 |= CAN_BE_ATTACKED_1
