@@ -12,7 +12,10 @@
 
 	restricted_roles = list(
 		"Monarch",
-		"Consort"
+		"Consort",
+		"Orphan",
+		"Churchling",
+		"Innkeepers Son"
 	)
 
 	base_antags = 1
