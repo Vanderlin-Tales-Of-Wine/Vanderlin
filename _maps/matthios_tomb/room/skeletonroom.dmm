@@ -37,11 +37,6 @@
 	},
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
-"iw" = (
-/obj/structure/chair/bench/church/mid,
-/obj/structure/chair/bench/church/mid,
-/turf/open/floor/carpet/lord/center,
-/area/rogue/under/cave)
 "kB" = (
 /obj/structure/chair/wood/alt/chair_noble/red{
 	dir = 8
@@ -104,7 +99,6 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "vv" = (
-/obj/structure/table/church,
 /obj/structure/table/church/m,
 /obj/item/clothing/ring/active/nomag{
 	pixel_x = 23;
@@ -321,7 +315,6 @@
 	dir = 1
 	},
 /obj/structure/table/wood/plain_alt,
-/obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/glass/bottle/wine/sourwine,
 /turf/open/floor/wood,
 /area/rogue/under/cave)
@@ -405,7 +398,7 @@ Wp
 lg
 lg
 Ob
-iw
+bN
 bN
 bN
 bN
