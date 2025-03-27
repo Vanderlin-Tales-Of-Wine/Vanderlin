@@ -8,9 +8,9 @@
 	map_file_name = "rosewood.dmm"
 	var/list/knifeEars = list(
 		/datum/job/lord,
-		/datum/job/consort,
 		/datum/job/prince,
 		/datum/job/hand,
+		/datum/job/captain
 	)
 
 /datum/map_adjustment/rosewood/job_change()
