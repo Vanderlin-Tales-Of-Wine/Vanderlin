@@ -668,7 +668,7 @@
 
 /turf/open/water/blood
 	name = "blood"
-	desc = "A pool of sanguine liquid"
+	desc = "A pool of sanguine liquid."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "rockb"
 	water_level = 2

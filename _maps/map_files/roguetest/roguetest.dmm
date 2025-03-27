@@ -1266,6 +1266,10 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"sa" = (
+/obj/machinery/light/fueled/lanternpost/unfixed,
+/turf/open/floor/cobble,
+/area/rogue/outdoors)
 "ss" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors)
@@ -1421,6 +1425,11 @@
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"BW" = (
+/turf/open/water/river/blood{
+	dir = 4
+	},
+/area/rogue/outdoors)
 "CO" = (
 /obj/structure/gearbox,
 /turf/open/floor/dirt/road,
@@ -1447,6 +1456,9 @@
 "EI" = (
 /obj/structure/stairs,
 /turf/open/floor/dirt/road,
+/area/rogue/outdoors)
+"EQ" = (
+/turf/open/water/blood,
 /area/rogue/outdoors)
 "Fc" = (
 /obj/structure/water_vent,
@@ -7846,9 +7858,9 @@ ai
 ai
 ai
 ai
-Lo
-ai
-ai
+sa
+aJ
+aJ
 XX
 XX
 XX
@@ -8103,9 +8115,9 @@ Jp
 Jp
 Jp
 iY
-ai
-ai
-ai
+aJ
+BW
+aJ
 XX
 XX
 XX
@@ -8360,9 +8372,9 @@ Kw
 Kw
 Kw
 iY
-ai
-ai
-ai
+aJ
+BW
+aJ
 hp
 wW
 ai
@@ -8617,9 +8629,9 @@ eD
 eD
 eD
 iY
-ai
-ai
-ai
+aJ
+EQ
+aJ
 hp
 wW
 ai
@@ -8874,9 +8886,9 @@ OB
 OB
 OB
 iY
-ai
-ai
-ai
+aJ
+EQ
+aJ
 hp
 wW
 ai
@@ -9131,9 +9143,9 @@ sI
 al
 al
 al
-al
-al
-Lo
+aJ
+aJ
+sa
 ai
 ai
 ai
