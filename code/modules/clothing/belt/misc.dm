@@ -422,6 +422,7 @@
 	max_integrity = 400
 	equip_sound = 'sound/blank.ogg'
 	//content_overlays = FALSE
+	sellprice = 250
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/gold
