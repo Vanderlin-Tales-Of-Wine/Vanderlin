@@ -625,13 +625,12 @@
 
 /turf/open/water/marsh/deep
 	name = "marshwater"
-	desc = "A heavy layer of weeds and algae cover the surface of the water."
+	desc = "A heavy layer of weeds and algae cover the surface of the deep water."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "dirtW4"
 	water_level = 3
 	slowdown = 20
-	wash_in = FALSE
-	water_reagent = /datum/reagent/water/gross/marshy
+	swim_skill = TRUE
 
 /turf/open/water/marsh/deep/Initialize()
 	icon_state = "dirt"
@@ -655,11 +654,7 @@
 /turf/open/water/cleanshallow/dirt
 	name = "water"
 	desc = "Clear and shallow water, what a blessing!"
-	icon = 'icons/turf/roguefloor.dmi'
-	icon_state = "dirtW2"
-	water_level = 2
-	slowdown = 15
-	water_reagent = /datum/reagent/water
+	icon_state = "dirtW5"
 
 /turf/open/water/cleanshallow/Initialize()
 	icon_state = "dirt"
