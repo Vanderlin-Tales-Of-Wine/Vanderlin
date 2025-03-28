@@ -41,7 +41,7 @@
 
 /datum/component/storage/concrete/grid/keyring/New(datum/P, ...)
 	. = ..()
-	can_hold = typecacheof(list(/obj/item/key))
+	set_holdable(typecacheof(list(/obj/item/key)))
 
 /datum/component/storage/concrete/grid/belt/knife_belt
 	screen_max_rows = 6
@@ -49,7 +49,7 @@
 
 /datum/component/storage/concrete/grid/belt/knife_belt/New(datum/P, ...)
 	. = ..()
-	can_hold = typecacheof(list(/obj/item/weapon/knife/throwingknife))
+	set_holdable(typecacheof(list(/obj/item/weapon/knife/throwingknife)))
 
 
 /datum/component/storage/concrete/grid/belt/cloth
@@ -121,7 +121,61 @@
 		typecacheof(list(/obj/item/reagent_containers/food/snacks/egg)
 	))
 
-/datum/component/storage/concrete/headhook
+/datum/component/storage/concrete/grid/magebag
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 5
+
+/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/natural/infernalash,
+		/obj/item/natural/hellhoundfang,
+		/obj/item/natural/moltencore,
+		/obj/item/natural/abyssalflame,
+		/obj/item/natural/fairydust,
+		/obj/item/natural/iridescentscale,
+		/obj/item/natural/heartwoodcore,
+		/obj/item/natural/sylvanessence,
+		/obj/item/natural/elementalmote,
+		/obj/item/natural/elementalshard,
+		/obj/item/natural/elementalfragment,
+		/obj/item/natural/elementalrelic,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/leyline,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/mana_battery/mana_crystal,
+		/obj/item/ash,
+		))
+
+/datum/component/storage/concrete/grid/magebag
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 5
+
+/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/natural/infernalash,
+		/obj/item/natural/hellhoundfang,
+		/obj/item/natural/moltencore,
+		/obj/item/natural/abyssalflame,
+		/obj/item/natural/fairydust,
+		/obj/item/natural/iridescentscale,
+		/obj/item/natural/heartwoodcore,
+		/obj/item/natural/sylvanessence,
+		/obj/item/natural/elementalmote,
+		/obj/item/natural/elementalshard,
+		/obj/item/natural/elementalfragment,
+		/obj/item/natural/elementalrelic,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/leyline,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/mana_battery/mana_crystal,
+		/obj/item/ash,
+		))
+
+/datum/component/storage/concrete/grid/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 6
 	screen_max_columns = 4 //N/A fix later
@@ -133,7 +187,7 @@
 	allow_dump_out = TRUE
 	insert_preposition = "in"
 
-/datum/component/storage/concrete/headhook/New(datum/P, ...)
+/datum/component/storage/concrete/grid/headhook/New(datum/P, ...)
 	. = ..()
 	set_holdable(
 		typecacheof(list(/obj/item/natural/head/volf,
@@ -148,7 +202,7 @@
 		/obj/item/bodypart/head/zizombie)
 	))
 
-/datum/component/storage/concrete/headhook/bronze
+/datum/component/storage/concrete/grid/headhook/bronze
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 8
 	screen_max_columns = 6
@@ -160,7 +214,7 @@
 	allow_dump_out = TRUE
 	insert_preposition = "in"
 
-/datum/component/storage/concrete/headhook/bronze/New(datum/P, ...) //N/A set the rows right
+/datum/component/storage/concrete/grid/headhook/bronze/New(datum/P, ...) //N/A set the rows right
 	. = ..()
 	set_holdable(
 		typecacheof(list(/obj/item/natural/head/volf,
@@ -185,3 +239,31 @@
 	if(!storing.melting_material)
 		return FALSE
 	. = ..()
+
+/datum/component/storage/concrete/grid/anvil_bin
+	max_w_class = WEIGHT_CLASS_HUGE
+	screen_max_rows = 8
+	screen_max_columns = 4
+
+/datum/component/storage/concrete/grid/anvil_bin/show_to(mob/M)
+	var/obj/structure/material_bin/source = src.parent
+	if(!source.opened)
+		return FALSE
+	. = ..()
+
+/datum/component/storage/concrete/grid/anvil_bin/can_be_inserted(obj/item/storing, stop_messages, mob/user, worn_check, params, storage_click)
+	var/obj/structure/material_bin/source = src.parent
+	if(!source.opened)
+		return FALSE
+	. = ..()
+
+/datum/component/storage/concrete/grid/kobold_storage
+	max_w_class = WEIGHT_CLASS_HUGE
+	screen_max_columns = 2
+	screen_max_rows = 3
+
+/datum/component/storage/concrete/grid/kobold_storage/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/clothing/head/mob_holder,
+		))

@@ -207,3 +207,9 @@
 			visible_message(span_danger("The werewolf bites into [src] and thrashes!"))
 		else
 			visible_message(span_danger("[user] bites [src]! What is wrong with them?"))
+		if(HAS_TRAIT(user, TRAIT_POISONBITE))
+			if(src.reagents)
+				var/poison = user.STACON/2
+				src.reagents.add_reagent(/datum/reagent/toxin/venom, poison/2)
+				src.reagents.add_reagent(/datum/reagent/medicine/soporpot, poison)
+				to_chat(user, span_warning("Your fangs inject venom into [src]!"))

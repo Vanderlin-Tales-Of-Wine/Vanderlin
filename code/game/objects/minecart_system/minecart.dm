@@ -1,13 +1,15 @@
 /obj/structure/closet/crate/miningcar
 	name = "mine cart"
 	desc = "A cart for use on rails. Or off rails, if you're so inclined."
-	icon_state = "miningcar"
-	base_icon_state = "miningcar"
+	icon = 'icons/obj/track.dmi'
+	icon_state = "minecart"
+	base_icon_state = "minecart"
 	drag_slowdown = 2
 	//open_sound = 'sound/machines/trapdoor/trapdoor_open.ogg'
 	//close_sound = 'sound/machines/trapdoor/trapdoor_shut.ogg'
 	can_buckle = TRUE
 	buckle_lying = FALSE
+	horizontal = FALSE
 	/// Whether we're on a set of rails or just on the ground
 	var/on_rails = FALSE
 	/// How many turfs we are travelling, also functions as speed (more momentum = faster)
@@ -264,6 +266,13 @@
 		if(!rail)
 			momentum -= 3
 
+	for(var/obj/structure/fluff/traveltile/travel in get_turf(src))
+		for(var/turf/open/viable_turfs in travel.return_connected_turfs())
+			for(var/obj/structure/minecart_rail/rail in viable_turfs)
+				if(rail.dir & (dir|GLOB.reverse_dir[dir]))
+					forceMove(viable_turfs)
+					return NONE
+
 	if(can_travel_on_turf(get_step(src, dir)))
 		return NONE
 	// Trying to turn
@@ -325,14 +334,94 @@
 	if(istype(get_turf(src), /turf/open/transparent/openspace))
 		return TRUE //we can land
 
+	var/obj/structure/minecart_rail/located_rail = locate(/obj/structure/minecart_rail) in get_turf(src)
+
 	for(var/obj/structure/minecart_rail/rail in next_turf)
-		if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
-			return TRUE
+		if(!located_rail ||( located_rail?.dir in GLOB.cardinals))
+			if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+				return TRUE
+		else
+			var/coming_dir = get_dir(src, next_turf)
+			switch(located_rail.dir)
+				if(SOUTHWEST)
+					if(coming_dir == NORTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
+				if(SOUTHEAST)
+					if(coming_dir == NORTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHEAST)
+					if(coming_dir == SOUTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHWEST)
+					if(coming_dir == SOUTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
+
+	for(var/obj/structure/fluff/traveltile/travel in next_turf)
+		for(var/turf/open/viable_turfs in travel.return_connected_turfs())
+			for(var/obj/structure/minecart_rail/rail in viable_turfs)
+				if(!located_rail || (located_rail?.dir in GLOB.cardinals))
+					if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+						return TRUE
+				else
+					var/coming_dir = get_dir(src, next_turf)
+					switch(located_rail.dir)
+						if(SOUTHWEST)
+							if(coming_dir == NORTH || coming_dir == WEST)
+								return TRUE
+							else
+								return FALSE
+						if(SOUTHEAST)
+							if(coming_dir == NORTH || coming_dir == EAST)
+								return TRUE
+							else
+								return FALSE
+						if(NORTHEAST)
+							if(coming_dir == SOUTH || coming_dir == EAST)
+								return TRUE
+							else
+								return FALSE
+						if(NORTHWEST)
+							if(coming_dir == SOUTH || coming_dir == WEST)
+								return TRUE
+							else
+								return FALSE
 
 	var/turf/above_next = GET_TURF_ABOVE(next_turf)
 	for(var/obj/structure/minecart_rail/rail in above_next)
-		if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
-			return TRUE
+		if(!located_rail || (located_rail?.dir in GLOB.cardinals))
+			if(rail.dir & (dir_to_check|GLOB.reverse_dir[dir_to_check]))
+				return TRUE
+		else
+			var/coming_dir = get_dir(src, next_turf)
+			switch(located_rail.dir)
+				if(SOUTHWEST)
+					if(coming_dir == NORTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
+				if(SOUTHEAST)
+					if(coming_dir == NORTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHEAST)
+					if(coming_dir == SOUTH || coming_dir == EAST)
+						return TRUE
+					else
+						return FALSE
+				if(NORTHWEST)
+					if(coming_dir == SOUTH || coming_dir == WEST)
+						return TRUE
+					else
+						return FALSE
 
 	return FALSE
 
@@ -361,10 +450,10 @@
 			visible_message(span_warning("[src] breaks open!"))
 		return
 
-	var/throw_distance = clamp(ceil(momentum / 3) - 4, 1, 20)
+	var/throw_distance = clamp(ceil(momentum / 3) - 4, 1, 255)
 	var/turf/some_distant_turf = get_edge_target_turf(src, dir)
 	for(var/atom/movable/yeeten in to_yeet)
-		yeeten.throw_at(some_distant_turf, throw_distance, 3)
+		yeeten.throw_at(some_distant_turf, throw_distance, 3 + FLOOR(momentum * 0.01, 1))
 
 	if(was_open)
 		visible_message(span_warning("[src] spills its contents!"))
@@ -384,6 +473,18 @@
 
 	rotation_structure = TRUE
 	stress_use = 64
+	redstone_structure = TRUE
+
+	var/secondary_direction
+
+	var/static/list/directions = list(
+		"Southwest" = SOUTHWEST,
+		"Southeast" = SOUTHEAST,
+		"Northwest" = NORTHEAST,
+		"Northeast" = NORTHWEST,
+		"Straight" = NORTH,
+		"Sideways" = WEST,
+	)
 
 /obj/structure/minecart_rail/Initialize(mapload)
 	. = ..()
@@ -416,6 +517,34 @@
 				if(dir == WEST || dir == EAST)
 					rail.pixel_y = 7
 				rail.icon_state = "vertical_track"
+
+/obj/structure/minecart_rail/redstone_triggered(mob/user)
+	. = ..()
+	if(!secondary_direction)
+		return
+	var/last_direction = secondary_direction
+	secondary_direction = dir
+	setDir(last_direction)
+
+/obj/structure/minecart_rail/attack_right(mob/user)
+	. = ..()
+	var/obj/item/held_item = user.get_active_held_item()
+	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
+		rotate_direction(user)
+		return
+
+	var/choice = browser_input_list(user, "Choose a direction to have it cycle to.", src, list("South Left Turn", "South Right Turn", "North Right Turn", "Straight", "Sideways", "North Left Turn"))
+	if(!choice)
+		return
+
+	secondary_direction = directions[choice]
+
+/obj/structure/minecart_rail/proc/rotate_direction(mob/user)
+	var/choice = browser_input_list(user, "Choose a direction to rotate it.", src, list("South Left Turn", "South Right Turn", "North Right Turn", "Straight", "Sideways", "North Left Turn"))
+	if(!choice)
+		return
+
+	setDir(directions[choice])
 
 /obj/structure/minecart_rail/update_animation_effect()
 	. = ..()

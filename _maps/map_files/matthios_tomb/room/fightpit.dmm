@@ -9,12 +9,9 @@
 /area/rogue/under/cave)
 "aT" = (
 /obj/structure/window/stained/silver,
-/turf/closed/wall/mineral/stonebrick,
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "be" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
 /obj/structure/stairs/stone,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
@@ -29,12 +26,6 @@
 	dir = 4
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"cp" = (
-/obj/structure/table/wood/counter/end{
-	dir = 8
-	},
-/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "cA" = (
 /obj/item/clothing/gloves/chain/iron,
@@ -114,19 +105,15 @@
 /area/rogue/under/cave)
 "ka" = (
 /obj/structure/chair/bench/church/mid,
-/obj/structure/chair/bench/church/mid,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "kU" = (
 /obj/structure/mineral_door/wood/donjon{
-	dir = 4
-	},
-/obj/structure/mineral_door/wood/donjon{
 	dir = 8;
 	locked = 1
 	},
-/turf/closed/wall/mineral/stonebrick,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "ld" = (
 /obj/structure/rack/shelf/biggest,
@@ -257,9 +244,6 @@
 /obj/structure/table/wood/counter{
 	dir = 1
 	},
-/obj/structure/table/wood/counter{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/cooked/sausage,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
@@ -301,7 +285,7 @@
 	dir = 4;
 	locked = 1
 	},
-/turf/closed/wall/mineral/stonebrick,
+/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "xX" = (
 /turf/open/transparent/openspace,
@@ -550,9 +534,6 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/under/cave)
 "Vr" = (
-/obj/structure/table/wood/counter{
-	dir = 8
-	},
 /obj/structure/rack/shelf/big,
 /obj/item/reagent_containers/glass/cup/silver{
 	pixel_x = 6;
@@ -612,10 +593,6 @@
 	dir = 1
 	},
 /turf/open/floor/ruinedwood/darker,
-/area/rogue/under/cave)
-"ZY" = (
-/obj/structure/table/wood/counter,
-/turf/open/floor/hexstone,
 /area/rogue/under/cave)
 
 (1,1,1) = {"
@@ -1007,8 +984,8 @@ pT
 pT
 mX
 mX
-ZY
-cp
+pT
+pT
 pT
 qk
 pT

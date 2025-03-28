@@ -46,7 +46,7 @@
 /datum/artificer_recipe/general/keys
 	name = "5x Blank Custom Keys"
 	required_item = /obj/item/ingot/bronze
-	created_item = /obj/item/key_custom_blank
+	created_item = /obj/item/key/custom
 	hammers_per_item = 5
 	craftdiff = 1
 	created_amount = 5
@@ -131,7 +131,7 @@
 	craftdiff = 4
 
 /datum/artificer_recipe/contraptions/linker
-	name = "Engineering Linker (+1 Gold)"
+	name = "Engineering Wrench (+1 Gold)"
 	required_item = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/ingot/gold = 1)
 	created_item = /obj/item/contraption/linker
