@@ -40,8 +40,7 @@
 		"them": "thaim",
 		"their": "thair",
 		"that": "thon",
-		"this": "thiis",
-		"than": "nor",
+		"than ": "nor ",
 		"thank": [
 			"thaenk",
                         "dank"
@@ -627,7 +626,7 @@
  		"scold": "scaud",
  		"scorch": "birsle",
  		"scowl": "scoul",
- 		"seem": "kythe",
+ 		"seem": "kyeem",
  		"servant": "knecht",
  		"shake": "shak",
  		"shall": "sall",
