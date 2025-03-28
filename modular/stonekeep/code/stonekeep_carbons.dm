@@ -795,11 +795,11 @@
 	TOTALCON = 14
 	TOTALSTR = 12
 	TOTALSPD = 10
-	maxHealth = 160
-	health = 160
+	maxHealth = 180
+	health = 180
 	harm_intent_damage = 15
-	melee_damage_lower = 20
-	melee_damage_upper = 25
+	melee_damage_lower = 22
+	melee_damage_upper = 27
 	vision_range = 7
 	aggro_vision_range = 9
 	retreat_distance = 0
@@ -811,6 +811,8 @@
 	attack_sound = 'sound/combat/wooshes/bladed/wooshmed (1).ogg'
 	dodge_sound = 'sound/combat/dodge.ogg'
 	canparry = FALSE
+	candodge = TRUE
+	dodge_prob = 15
 	d_intent = INTENT_DODGE
 	speak_emote = list("moans")
 	faction = list("Zizo")
@@ -845,7 +847,6 @@
 
 /mob/living/simple_animal/hostile/zizombie/death(gibbed)
 	emote("death")
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	..()
 	var/turf/deathspot = get_turf(src)
 	new /obj/effect/decal/remains/neu/human(deathspot)
@@ -853,9 +854,6 @@
 	sleep(10)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/zizombie/taunted(mob/user)
-	..()
-	emote("aggro")
 
 
 /datum/outfit/job/cryptkeeper/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added

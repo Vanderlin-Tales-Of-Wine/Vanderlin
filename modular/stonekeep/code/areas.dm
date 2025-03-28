@@ -10,6 +10,12 @@
 	droning_sound_night = 'sound/music/area/deliverer.ogg'
 	converted_type = /area/rogue/outdoors/exposed/townhamlet
 
+/area/rogue/indoors/town/hamlet/advguild
+	name = "adventurers guild"
+	droning_sound = 'sound/music/area/advguild.ogg'
+	droning_sound_dusk = 'sound/music/area/advguild.ogg'
+	droning_sound_night = 'sound/music/area/advguild.ogg'
+
 /area/rogue/outdoors/exposed/townhamlet
 	name = "stone hamlet"
 	icon_state = "town"
@@ -69,7 +75,10 @@
 
 
 /area/rogue/outdoors/rtfield/plague_district
-	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 40, /mob/living/simple_animal/hostile/zizombie = 40)
+	ambush_mobs = list(/mob/living/simple_animal/hostile/zizombie)
+	ambush_times = list("night","dusk", "dawn")
+	ambush_types = list(
+				/turf/open/floor/dirt)
 	first_time_text = "PLAGUE DISTRICT"
 	color = "#d4da75"
 	name = "danger (plague district)"

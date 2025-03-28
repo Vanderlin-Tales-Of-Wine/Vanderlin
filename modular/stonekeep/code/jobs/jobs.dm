@@ -67,3 +67,18 @@ The word serf means something completely different than what the original maker 
 	whitelist_req = FALSE
 	can_have_apprentices = FALSE
 	allowed_sexes = list(MALE, FEMALE)
+
+/datum/job/goblin
+	allowed_races = list(
+		"Humen",
+		"Rakshari",
+		"Elf",
+		"Half-Elf",
+		"Dwarf",
+		"Tiefling",
+		"Dark Elf",
+		"Aasimar",
+		"Half-Orc",
+		"Kobold",
+		"Changeling","Skylancer","Ogrun","Undine",
+	)

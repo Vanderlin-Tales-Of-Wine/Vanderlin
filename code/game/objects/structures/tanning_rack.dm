@@ -42,8 +42,9 @@
 			var/skill_level = user.mind.get_skill_level(/datum/skill/craft/tanning)
 			var/work_time = (12 SECONDS - (skill_level * 15))
 			var/pieces_to_spawn = rand(1, min(skill_level + 1, 6)) //Random number from 1 to skill level
-			var/sound_played = FALSE
+//			var/sound_played = FALSE
 			to_chat(user, span_warning("I begin scraping the hide's skin..."))
+			playsound(src, 'sound/foley/shaving.ogg', 80, TRUE, -1)	// STONEKEEP EDIT
 			if(!do_after(user, work_time))
 				return
 			playsound(src,pick('sound/items/book_open.ogg','sound/items/book_page.ogg'), 100, FALSE)
@@ -51,14 +52,14 @@
 			user.mind.add_sleep_experience(/datum/skill/craft/tanning, user.STAINT * 2) //these numbers may need some revision
 			update_icon()
 			for(var/i = 0; i < pieces_to_spawn; i++)
-				if(prob(skill_level + CLAMP((user.STALUC - 10)*2,0,100)))
-					new /obj/item/natural/cured/essence(get_turf(user))
-					if(!sound_played)
-						sound_played = TRUE
-						to_chat(user, span_warning("Dendor provides..."))
-						playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
-				else
-					new /obj/item/natural/hide/cured(get_turf(user))
+//				if(prob(skill_level + CLAMP((user.STALUC - 10)*2,0,100)))		STONEKEEP EDIT
+//					new /obj/item/natural/cured/essence(get_turf(user))
+//					if(!sound_played)
+//						sound_played = TRUE
+//						to_chat(user, span_warning("Dendor provides..."))
+//						playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
+//				else
+				new /obj/item/natural/hide/cured(get_turf(user))
 			return
 		else
 			to_chat(user, span_warning("I need to anchor this down with a wooden stake before I can work this hide."))

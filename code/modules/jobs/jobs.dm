@@ -51,7 +51,6 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
 	/datum/job/scribe::title,
-	/datum/job/feldsher::title,
 	/datum/job/stonekeep/guildmaster::title,
 	/datum/job/stonekeep/blacksmith::title,
 	/datum/job/stonekeep/feldsher::title,

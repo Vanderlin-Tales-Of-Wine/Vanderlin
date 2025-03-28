@@ -9,7 +9,6 @@
 		"Elf",
 		"Half-Elf",
 		"Dwarf",
-		"Tiefling",
 		"Aasimar"
 	)
 	outfit = /datum/outfit/job/stonekeep/woodsman
@@ -39,8 +38,8 @@
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
@@ -76,8 +75,8 @@
 	beltl = /obj/item/storage/meatbag
 	backpack_contents = list(/obj/item/restraints/legcuffs/beartrap = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/weapon/knife/hunting = 1, /obj/item/key/woodsman = 1, /obj/item/bait = 2)
 	H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/taming, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 
@@ -98,5 +97,5 @@
 	backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/key/woodsman = 1)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)

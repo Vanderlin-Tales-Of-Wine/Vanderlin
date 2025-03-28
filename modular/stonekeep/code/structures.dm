@@ -449,6 +449,12 @@
 	icon = 'modular/stonekeep/icons/structure.dmi'
 	icon_state = "innsaiga"
 
+/obj/structure/fluff/walldeco/trolltrophy
+	name = "troll trophy"
+	desc = "The skull of a troll, mounted on a wall."
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "trolltrophy"
+
 /obj/structure/fluff/walldeco/banner_drakon
 	name = "banner of the drakon"
 	icon = 'modular/stonekeep/icons/structure.dmi'
@@ -822,3 +828,28 @@
 /obj/structure/bars/cemetery
 	plane = -5
 	layer = 3
+
+
+/obj/structure/plaguepile
+	icon = 'modular/stonekeep/icons/structure.dmi'
+	icon_state = "plaguepile"
+	density = TRUE
+	var/datum/looping_sound/fliesloop/soundloop
+
+/obj/structure/plaguepile/Initialize()
+	. = ..()
+	soundloop = new(src, FALSE)
+	soundloop.start()
+
+/obj/structure/plaguepile/Destroy()
+	soundloop.stop()
+	. = ..()
+
+/obj/structure/plaguepile/examine(mob/living/carbon/user)
+	. = ..()
+	switch(user.patron?.type)
+		if(/datum/patron/divine/necra)
+			to_chat(user, "<span class='warning'>They are with the Undermaiden now, may they rest well.</span>")
+		else
+			to_chat(user, "<span class='warning'>Horrific...</span>")
+			user.add_stress(/datum/stressevent/viewgib)

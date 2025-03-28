@@ -10,7 +10,9 @@
 		"Humen",
 		"Dwarf",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dark Elf",
+		"Tiefling"
 	)
 
 	tutorial = "Even nobles can be disgraced and fall on hard times, despite inheriting a fine bathhouse building. <br>\

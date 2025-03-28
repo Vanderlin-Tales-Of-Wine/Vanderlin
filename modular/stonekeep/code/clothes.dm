@@ -547,6 +547,26 @@
 	name = "leather apron"
 	armor = ARMOR_WEAK
 
+/obj/item/clothing/cloak/half
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf")
+
+/obj/item/clothing/cloak/half/guard
+	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	allowed_race = list("human", "tiefling", "elf", "aasimar")
+
+/obj/item/clothing/cloak/half/guardsecond
+	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	allowed_race = list("human", "tiefling", "elf", "aasimar")
+
+/obj/item/clothing/cloak/half/vet
+	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	allowed_race = list("human", "tiefling", "elf", "aasimar")
+
 // =============================================================================
 // ==============================	ARMOR	====================================
 

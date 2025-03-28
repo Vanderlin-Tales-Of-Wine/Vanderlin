@@ -83,14 +83,16 @@
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
-	return  H.change_mob_type(/mob/living/carbon/human/species/goblin, delete_old_mob = TRUE)
+	return  H.change_mob_type(/mob/living/carbon/human/species/goblin/hell, null, null, delete_old_mob = TRUE)
 
 /datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
 /*
-		H.set_species(/datum/species/goblin)
+		H.set_species(/datum/species/goblin/hell)
+		H.change_mob_type(/mob/living/carbon/human/species/goblin/hell, delete_old_mob = TRUE)
+
 		if(M.mind)
 			M.mind.special_role = "goblin"
 			M.mind.assigned_role = "goblin"
@@ -99,17 +101,13 @@
 			H.dna.species.species_traits |= NOBLOOD
 			H.dna.species.soundpack_m = new /datum/voicepack/goblin()
 			H.dna.species.soundpack_f = new /datum/voicepack/goblin()
-		var/obj/item/headdy = H.get_bodypart("head")
-		if(headdy)
-			headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
-			headdy.icon_state = "[H.dna.species.id]_head"
-			headdy.sellprice = rand(7,20)
 		H.regenerate_limb(BODY_ZONE_R_ARM)
 		H.regenerate_limb(BODY_ZONE_L_ARM)
+
 		H.remove_all_languages()
 		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 		H.update_a_intents()
-
+*/
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
 			eyes.Remove(H,1)
@@ -124,12 +122,13 @@
 		H.faction = list("orcs")
 		H.name = "goblin"
 		H.real_name = "goblin"
-*/
+
 		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 		H.grant_language(/datum/language/hellspeak)
 		H.set_patron(/datum/patron/inhumen/zizo)
+		H.forceMove(pick(GLOB.mountainevil_starts))
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -165,10 +164,10 @@
 	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/haiduk_raiders, /datum/migrant_wave/zizo_cult)
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/sk/zizo/herald = 1,
-//		/datum/job/goblin = 1
+//		/datum/migrant_role/sk/zizo/herald = 1,
+		/datum/migrant_role/sk/zizo/hellgoblin = 1
 )
-	greet_text = "Haiduk Raiders appear! They may plunder, slave or sell their swords as mercenaries, who knows..."
+	greet_text = "Zizo is your master, and too long has these lands been allowed to forget."
 
 
 

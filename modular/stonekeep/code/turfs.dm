@@ -401,13 +401,15 @@
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "pond"
 	neighborlay_override = "grass_yeledge"
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 						/turf/open/floor/grass/yel,
 						)
 /turf/open/water/cavepond/Initialize()
 	.  = ..()
 	icon_state = "pond"
-
+/turf/open/water/cavepond/cardinal_smooth(adjacencies)
+	smooth(adjacencies)
 
 /turf/open/water/bath
 	wash_in = FALSE
