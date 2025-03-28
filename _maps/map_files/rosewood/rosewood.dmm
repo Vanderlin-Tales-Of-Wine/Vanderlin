@@ -145,6 +145,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/villager{
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker");
 	dir = 1
 	},
 /turf/open/floor/carpet,
@@ -933,6 +934,16 @@
 "aAB" = (
 /turf/closed/wall/mineral/decostone/moss/blue/cand,
 /area/rogue/under/cavewet)
+"aAV" = (
+/obj/structure/chair/wood/alt{
+	dir = 1
+	},
+/obj/effect/landmark/start/villager{
+	dir = 1;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
+/turf/open/floor/carpet,
+/area/rogue/indoors/town/tavern)
 "aBa" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -2019,7 +2030,10 @@
 /area/rogue/indoors/town/orphanage)
 "bjY" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /obj/structure/bed/wool,
 /obj/item/bedsheet/pelt,
 /turf/open/floor/ruinedwood/spiral,
@@ -5221,7 +5235,10 @@
 /area/rogue/indoors/town/shop)
 "cSj" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /obj/structure/bed/wool,
 /obj/item/bedsheet/pelt,
 /turf/open/floor/ruinedwood/spiral,
@@ -6088,7 +6105,10 @@
 "dqw" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/cloth,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "dqH" = (
@@ -8464,7 +8484,8 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/villager{
-	dir = 4
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
 	},
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32;
@@ -8797,7 +8818,9 @@
 /area/rogue/indoors)
 "eVX" = (
 /obj/structure/chair/stool,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "eWb" = (
@@ -10724,7 +10747,10 @@
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/cloth,
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "gay" = (
@@ -13648,7 +13674,10 @@
 /area/rogue/outdoors)
 "hEZ" = (
 /obj/structure/bed/mediocre,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /obj/item/bedsheet/pelt,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
@@ -16666,7 +16695,10 @@
 "jxo" = (
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/cloth,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "jxt" = (
@@ -18975,7 +19007,9 @@
 /area/rogue/indoors/town/bath)
 "kLm" = (
 /obj/structure/chair/wood/alt,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
 "kLu" = (
@@ -33932,7 +33966,10 @@
 /obj/structure/bed/mediocre,
 /obj/item/bedsheet/cloth,
 /obj/machinery/light/fueled/wallfire/candle/l,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "sVj" = (
@@ -35039,7 +35076,10 @@
 "tys" = (
 /obj/structure/bed/mediocre,
 /obj/machinery/light/fueled/wallfire/candle/r,
-/obj/effect/landmark/start/villager,
+/obj/effect/landmark/start/villager{
+	dir = 4;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
+	},
 /obj/item/bedsheet/pelt,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
@@ -43245,7 +43285,8 @@
 	},
 /obj/structure/chair/stool,
 /obj/effect/landmark/start/villager{
-	dir = 8
+	dir = 8;
+	jobspawn_override = list("Hunter","Lumberjack","Physicker","Bard","Carpenter","Cheesemaker")
 	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
@@ -100483,7 +100524,7 @@ gDj
 ggC
 rOK
 wRS
-aeb
+aAV
 gDj
 gDj
 jWo
