@@ -15,7 +15,7 @@
 
 /datum/outfit/job/adventurer/barbarian
 	allowed_patrons = list(/datum/patron/divine/ravox, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/dendor, /datum/patron/godless, /datum/patron/inhumen/graggar)
-
+STONEKEEP EDIT*/
 /datum/outfit/job/adventurer/barbarian/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
@@ -71,4 +71,4 @@
 
 
 
-STONEKEEP EDIT*/
+
