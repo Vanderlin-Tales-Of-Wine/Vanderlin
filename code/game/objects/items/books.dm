@@ -607,7 +607,7 @@
 			user.put_in_hands(PB)
 		return qdel(src)
 
-	if(istype(I, /obj/item/paper))
+	if((I.type == /obj/item/paper) || (I.type == /obj/item/paper/scroll))
 		var/obj/item/paper/inserted_paper = I
 		if(length(pages) == 8)
 			to_chat(user, span_warning("I can not find a place to put [inserted_paper] into [src]..."))

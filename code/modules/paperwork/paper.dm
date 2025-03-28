@@ -391,9 +391,9 @@
 	if(mailer)
 		return ..()
 
-	if(istype(P, /obj/item/paper)) //Make a manuscript
+	if(P.type == /obj/item/paper) //Make a manuscript
 		if(user.mind.get_skill_level(/datum/skill/misc/reading) <= 0)
-			to_chat(user, span_warning("I fumble with [src] for a bit."))
+			to_chat(user, span_warning("I fumble with [src] and fail to form the manuscript!"))
 			user.changeNext_move(2 SECONDS, user.active_hand_index) //lmao
 			return
 
