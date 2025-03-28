@@ -86,8 +86,8 @@
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "tree1"
 	spawned = list(/obj/structure/flora/tree =95,
-			 /obj/structure/flora/grass/bush_meagre = 5,
-			 /obj/structure/table/wood/treestump = 1)
+			/obj/structure/flora/grass/bush_meagre = 5,
+			/obj/structure/table/wood/treestump = 1)
 
 /*	..................  Outlaw Tree Spawner  ................... */
 /obj/effect/spawner/map_spawner/outlawtree
@@ -95,9 +95,9 @@
 	icon_state = "tree1"
 	probby = 50
 	spawned = list(/obj/structure/flora/tree = 40,
-			 /obj/structure/flora/grass/bush_meagre = 5,
-			 /obj/structure/table/wood/treestump = 5,
-			 /obj/structure/flora/grass/thorn_bush = 20)
+			/obj/structure/flora/grass/bush_meagre = 5,
+			/obj/structure/table/wood/treestump = 5,
+			/obj/structure/flora/grass/thorn_bush = 20)
 
 /*	..................  Ruined Farm Spawner  ................... */
 /obj/effect/spawner/map_spawner/ruinedfarmgrowth
@@ -105,9 +105,9 @@
 	icon_state = "tree3"
 	probby = 50
 	spawned = list(/obj/structure/flora/tree/neu/bush =30,
-			 /obj/structure/flora/grass/bush_meagre = 20,
-			 /obj/structure/flora/grass/thorn_bush = 10,
-			 /obj/structure/flora/tree = 5)
+			/obj/structure/flora/grass/bush_meagre = 20,
+			/obj/structure/flora/grass/thorn_bush = 10,
+			/obj/structure/flora/tree = 5)
 
 
 /*	..................  Dendor Shrine Spawner  ................... */
@@ -127,11 +127,11 @@
 	icon_state = "tree3"
 	probby = 50
 	spawned = list(/obj/structure/flora/tree/neu/pine =40,
-			 /obj/structure/flora/tree/neu/pine_dead = 10,
-			 /obj/structure/flora/tree/neu/bush = 10,
-			 /obj/structure/flora/rock/pebbles = 5,
-			 /obj/structure/flora/rock/pebbles/gray = 5,
-			 /obj/structure/roguerock = 5)
+			/obj/structure/flora/tree/neu/pine_dead = 10,
+			/obj/structure/flora/tree/neu/bush = 10,
+			/obj/structure/flora/rock/pebbles = 5,
+			/obj/structure/flora/rock/pebbles/gray = 5,
+			/obj/structure/roguerock = 5)
 
 /*	..................  Mountain Flowers  ................... */
 /obj/effect/spawner/map_spawner/mountain_flowers
@@ -163,10 +163,10 @@
 	color = "#88f78f"
 	probby = 50
 	spawned = list(/obj/structure/roguerock = 10,
-			 /obj/item/natural/rock = 10,
-			 /obj/structure/flora/rock/pebbles = 20,
-			 /obj/item/natural/stone = 10,
-			 /obj/structure/flora/rock/pebbles/bogmix = 10)
+			/obj/item/natural/rock = 10,
+			/obj/structure/flora/rock/pebbles = 20,
+			/obj/item/natural/stone = 10,
+			/obj/structure/flora/rock/pebbles/bogmix = 10)
 
 /*	..................  Grave Spawner  ................... */
 /obj/effect/spawner/map_spawner/graverandom
