@@ -619,9 +619,9 @@
 	water_reagent = /datum/reagent/water/gross/marshy
 
 /turf/open/water/marsh/Initialize()
+	.  = ..()
 	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
-	.  = ..()
 
 /turf/open/water/marsh/deep
 	name = "marshwater"
@@ -631,11 +631,6 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
-
-/turf/open/water/marsh/deep/Initialize()
-	icon_state = "dirt"
-	dir = pick(GLOB.cardinals)
-	.  = ..()
 
 /turf/open/water/cleanshallow
 	name = "water"
@@ -647,9 +642,10 @@
 	water_reagent = /datum/reagent/water
 
 /turf/open/water/cleanshallow/Initialize()
+	.  = ..()
 	icon_state = "rock"
 	dir = pick(GLOB.cardinals)
-	.  = ..()
+
 
 /turf/open/water/cleanshallow/dirt
 	name = "water"
@@ -657,9 +653,10 @@
 	icon_state = "dirtW5"
 
 /turf/open/water/cleanshallow/Initialize()
+	.  = ..()
 	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
-	.  = ..()
+
 
 /turf/open/water/blood
 	name = "blood"
@@ -671,9 +668,10 @@
 	water_reagent = /datum/reagent/blood
 
 /turf/open/water/blood/Initialize()
+	.  = ..()
 	icon_state = "rock"
 	dir = pick(GLOB.cardinals)
-	.  = ..()
+
 
 /turf/open/water/river
 	name = "water"
@@ -708,8 +706,9 @@
 		water_top_overlay.dir = dir
 
 /turf/open/water/river/Initialize()
-	icon_state = "rocky"
 	.  = ..()
+	icon_state = "rocky"
+
 
 /turf/open/water/river/LateInitialize()
 	. = ..()
