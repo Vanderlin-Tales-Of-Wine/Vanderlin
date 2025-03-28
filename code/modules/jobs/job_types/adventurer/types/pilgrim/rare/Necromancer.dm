@@ -12,20 +12,13 @@
 	min_pq = 15
 	category_tags = list(CTAG_PILGRIM)
 	pickprob = 100
+	displays_adv_job = FALSE
+
 	cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
 
 /datum/outfit/job/adventurer/necromancer/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
-	shoes = /obj/item/clothing/shoes/simpleshoes
-	armor = /obj/item/clothing/shirt/robe/mage
-	belt = /obj/item/storage/belt/leather/rope
-	backr = /obj/item/storage/backpack/satchel
-	beltr = /obj/item/storage/magebag/apprentice
-	beltl = /obj/item/reagent_containers/glass/bottle/manapot
-	r_hand = /obj/item/weapon/polearm/woodstaff
-	backpack_contents = list(/obj/item/chalk = 1)
-
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
@@ -50,7 +43,6 @@
 	H.mind.adjust_spellpoints(0)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/learnspell)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/command_undead)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/strengthen_undead)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/raise_undead_lesser)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/eyebite)
@@ -59,6 +51,54 @@
 
 	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
-
-	H.faction = list("undead")
+	H.faction = list(FACTION_UNDEAD)
 	H.set_patron(/datum/patron/inhumen/zizo)
+
+	H.become_blind("TRAIT_GENERIC")
+	H.advjob = "Necromancer"
+	// Necromancers being illegal have a variety of disguises to choose from.
+	var/disguises = list("Beggar", "Sorceress", "Noble")
+	var/disguisechoice = input("Choose your cover", "Available disguises") as anything in disguises
+
+	if(disguisechoice)
+		H.advjob = disguisechoice
+
+	switch(disguisechoice)
+		if("Beggar") //The sole "town" disguise available.
+			H.job = "Beggar"
+			belt = /obj/item/storage/belt/leather/rope
+			backr = /obj/item/storage/backpack/satchel
+			beltr = /obj/item/storage/magebag/apprentice
+			r_hand = /obj/item/weapon/polearm/woodstaff
+			backpack_contents = list(/obj/item/chalk = 1, /obj/item/reagent_containers/glass/bottle/manapot =1,/obj/item/weapon/knife/dagger/silver/arcyne = 1)
+			armor = /obj/item/clothing/shirt/rags
+		if("Sorceress")
+			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE) //Have to know to play the part.
+			shoes = /obj/item/clothing/shoes/simpleshoes
+			armor = /obj/item/clothing/shirt/robe/mage
+			belt = /obj/item/storage/belt/leather/rope
+			backr = /obj/item/storage/backpack/satchel
+			beltr = /obj/item/storage/magebag/apprentice
+			r_hand = /obj/item/weapon/polearm/woodstaff
+			backpack_contents = list(/obj/item/chalk = 1, /obj/item/reagent_containers/glass/bottle/manapot =1,/obj/item/weapon/knife/dagger/silver/arcyne = 1)
+		if("Noble")
+			var/prev_real_name = H.real_name
+			var/prev_name = H.name
+			var/honorary = "Lady"
+			H.real_name = "[honorary] [prev_real_name]"
+			H.name = "[honorary] [prev_name]"
+			shoes = /obj/item/clothing/shoes/boots
+			backl = /obj/item/storage/backpack/satchel
+			neck = /obj/item/storage/belt/pouch/coins/poor //Spent all their money on expensive clothing.
+			belt = /obj/item/storage/belt/leather/assassin
+			id = /obj/item/clothing/ring/silver
+			H.mind?.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, -1, TRUE)
+			shirt = /obj/item/clothing/shirt/dress/silkdress/random
+			head = /obj/item/clothing/head/hatfur
+			cloak = /obj/item/clothing/cloak/raincloak/furcloak
+			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+			beltr = /obj/item/weapon/knife/dagger/steel/special
+			beltl = /obj/item/ammo_holder/quiver/arrows
+			backpack_contents = list(/obj/item/chalk = 1, /obj/item/reagent_containers/glass/bottle/manapot =1,/obj/item/weapon/knife/dagger/silver/arcyne = 1)
+	H.cure_blind("TRAIT_GENERIC")
