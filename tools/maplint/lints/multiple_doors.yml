@@ -1,4 +1,3 @@
-/turf/closed:
+/obj/structure/mineral_door:
   banned_neighbors:
   - /obj/structure/mineral_door
-  - /obj/structure/window
