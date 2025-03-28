@@ -653,7 +653,7 @@
 
 /turf/open/water/cleanshallow/dirt
 	name = "water"
-	desc = "Clear and shallow water, what a blessing!"
+	desc = "Clear and shallow water, mostly untainted by surrounding soil."
 	icon_state = "dirtW5"
 
 /turf/open/water/cleanshallow/Initialize()
