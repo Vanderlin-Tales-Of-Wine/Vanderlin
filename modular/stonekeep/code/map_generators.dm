@@ -313,7 +313,7 @@
 	allowed_turfs = list(/turf/open/floor/snow)
 	spawnableAtoms = list(
 							/obj/item/natural/rock = 2,
-							 /obj/structure/flora/rock/pebbles/gray = 2,
+							/obj/structure/flora/rock/pebbles/gray = 2,
 							)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap)
 	excluded_turfs = list(/turf/open/floor/snow/patchy)
