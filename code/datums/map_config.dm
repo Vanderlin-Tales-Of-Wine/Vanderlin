@@ -17,6 +17,9 @@
 	var/map_name = "Dun Manor"
 	var/map_path = "map_files/dun_manor"
 	var/map_file = "dun_manor.dmm"
+	var/list/travel_maps //We do not want to initialize the list here. No reason to keep it in memory. Should either be a list of text paths in .json or "disabled" to turn off travel maps entirely.
+	var/underworld_map = "map_files/roguetown/otherz/underworld.json" //Default underworld. Should be a path just like this in the .json map file. Can be turned off with "disabled".
+	var/dungeon_map = "map_files/vanderlin/otherz/dungeon.json" //Default dungeon. Can be turned off with "disabled".
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -82,6 +85,39 @@
 		log_world("map_file missing from json!")
 		return
 
+	var/temp = json["travel_maps"]
+	if(islist(temp))
+		for(var/json_path in temp)
+			if(!fexists("_maps/[json_path]"))
+				log_world("One or more travel .json files do not exist! Running default.")
+				temp = null
+				break
+		travel_maps = temp //Now we either have a list with existing .json files or a nulled list.
+
+	else //Not a list. It either doesn't exist as a difinition or is disabled.
+		if(temp != "disabled") //If we didn't manually disable this, defaults to Roguetown travel maps.
+			travel_maps = list("map_files/roguetown/otherz/smallforest.json", "map_files/roguetown/otherz/smalldecap.json", "map_files/roguetown/otherz/smallswamp.json")
+
+	temp = json["underworld_map"]
+	if(istext(temp)) //We only care about this if it changed.
+		if(temp != "disabled")
+			if(!fexists("_maps/[temp]"))
+				log_world("The underworld .json file does not exist! Running default.")
+			else
+				underworld_map = temp
+		else //If we disabled it.
+			underworld_map = null
+
+	temp = json["dungeon_map"]
+	if(istext(temp))
+		if(temp != "disabled")
+			if(!fexists("_maps/[temp]"))
+				log_world("The dungeon .json file does not exist! Running default.")
+			else
+				dungeon_map = temp
+		else //If we disabled it.
+			dungeon_map = null
+
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
 	if (islist(traits))
@@ -95,7 +131,7 @@
 		log_world("map_config traits is not a list!")
 		return
 
-	var/temp = json["space_ruin_levels"]
+	temp = json["space_ruin_levels"]
 	if (isnum(temp))
 		space_ruin_levels = temp
 	else if (!isnull(temp))
