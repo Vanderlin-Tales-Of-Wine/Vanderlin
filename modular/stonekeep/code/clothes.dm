@@ -581,6 +581,8 @@
 //................ Iron breastplate ............... //
 /obj/item/clothing/armor/cuirass/iron
 	icon = 'modular/stonekeep/icons/clothing.dmi'
+/obj/item/clothing/armor/cuirass/iron/shadowplate
+	icon = 'icons/roguetown/clothing/armor.dmi'
 
 //................ Steel cuirass ............... //
 /obj/item/clothing/armor/cuirass

@@ -43,7 +43,7 @@
 			if(get_location_accessible(src, BODY_ZONE_PRECISE_GROIN, skipundies = TRUE))
 				if(underwear == "Nude")
 					return
-				if(do_after(user, 30, needhand = 1, target = src))
+				if(do_after(user, 30, target = src))
 					cached_underwear = underwear
 					underwear = "Nude"
 					update_body()
