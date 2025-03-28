@@ -193,3 +193,6 @@
 	var/combined_armor = max(torso_class, acc_class)
 	worn_armor_class = combined_armor
 	return worn_armor_class
+
+//necromancer things
+var/necrotarget = FALSE

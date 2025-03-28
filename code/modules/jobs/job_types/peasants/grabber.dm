@@ -37,7 +37,7 @@
 
 	wrists = /obj/item/storage/keyring/stevedore
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE) // You get a cudgel for nonlethal self defense and that's it.
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Eventually becoming the Merchant's thugs
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)//they can use the merchant machine and that's it

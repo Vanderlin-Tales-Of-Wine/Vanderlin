@@ -30,6 +30,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	beltl = /obj/item/weapon/mace
+	backl = /obj/item/weapon/shield/wood
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	switch(H.patron?.type)
@@ -85,7 +86,7 @@
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)

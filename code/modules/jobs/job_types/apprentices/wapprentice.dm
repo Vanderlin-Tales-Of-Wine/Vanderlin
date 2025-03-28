@@ -34,6 +34,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE) //mana bloom farming
+		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)

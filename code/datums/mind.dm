@@ -1149,3 +1149,22 @@
 		title = apprentice_name
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
+
+//necromancer stuff
+/datum/mind/proc/adjust_undeadmax(points)
+	undeadmax += points
+
+/datum/mind/proc/adjust_undeadcurrent(points)
+	undeadcurrent += points
+
+/datum/mind/proc/set_undeadnecr(name)
+	undeadnecr = name
+
+/datum/mind/proc/set_undeadcurrent(value)
+	undeadcurrent = value
+
+//Necromancer Trackers
+	var/undeadcurrent = 0
+	var/undeadmax = 3
+	var/undeadcurrent = FALSE
+	var/undeadnecro = null

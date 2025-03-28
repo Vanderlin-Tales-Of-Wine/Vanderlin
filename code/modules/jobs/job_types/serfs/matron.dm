@@ -21,10 +21,9 @@
 		"Dwarf",
 		"Tiefling",
 		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
+		"Aasimar"
 	)
-	
+
 	outfit = /datum/outfit/job/matron
 	give_bank_account = 35
 	can_have_apprentices = TRUE
@@ -60,6 +59,9 @@
 		H.grant_language(/datum/language/thievescant)
 		to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
 		ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) //Makes the Matron a bit more agile
+		ADD_TRAIT(H, TRAIT_SEEPRICES, type) //Able to act as a fence
+
 		shirt = /obj/item/clothing/shirt/dress/gen/black
 		armor = /obj/item/clothing/armor/leather/vest/black
 		pants = /obj/item/clothing/pants/trou/beltpants
