@@ -25,7 +25,7 @@
 	give_bank_account = 500
 	apprentice_name = "Servant"
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
-
+	noble_income = 22
 
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
