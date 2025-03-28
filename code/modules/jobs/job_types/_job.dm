@@ -135,6 +135,8 @@
 	var/apprentice_name
 	///do we magic?
 	var/magic_user = FALSE
+	///Do we get passive income every day from our noble estates?
+	var/noble_income = FALSE
 
 
 /datum/job/New()
@@ -221,6 +223,8 @@
 			SStreasury.create_bank_account(spawned, give_bank_account)
 		else
 			SStreasury.create_bank_account(spawned)
+		if(noble_income)
+			SStreasury.noble_incomes[spawned] = noble_income
 
 	if(job_flags & JOB_SHOW_IN_CREDITS)
 		SScrediticons.processing += spawned

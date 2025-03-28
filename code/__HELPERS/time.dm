@@ -81,6 +81,7 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 			GLOB.dayspassed++
 			if(GLOB.dayspassed == 8)
 				GLOB.dayspassed = 1
+			SStreasury.distribute_estate_incomes()
 		for(var/mob/living/player in GLOB.mob_list)
 			if(player.stat != DEAD && player.client)
 				player.do_time_change()
