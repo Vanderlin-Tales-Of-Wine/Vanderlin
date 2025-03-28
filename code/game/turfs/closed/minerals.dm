@@ -266,7 +266,8 @@
 	/turf/closed/mineral/coal/cold = 20,
 	/turf/closed/mineral/copper/cold = 10,
 	/turf/closed/mineral/tin/cold = 10,
-	/turf/closed/mineral/silver/cold = 1)
+	/turf/closed/mineral/silver/cold = 1
+	)
 
 /turf/closed/mineral/random/high
 	icon_state = "minrandhigh"
