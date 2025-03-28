@@ -618,7 +618,7 @@
 	if(resting)
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
 			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
 				set_resting(FALSE, FALSE)
 				return TRUE
 		else
@@ -629,20 +629,10 @@
 	set name = "Rest/Stand"
 	set category = "IC"
 	set hidden = 1
-	if(stat)
-		return
-	if(pulledby)
-		to_chat(src, "<span class='warning'>I'm grabbed!</span>")
-		return
 	if(resting)
-		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='info'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE)))
-				set_resting(FALSE, FALSE)
-		else
-			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+		stand_up()
 	else
-		set_resting(TRUE, FALSE)
+		lay_down()
 
 ///Proc to hook behavior to the change of value in the resting variable.
 /mob/living/proc/set_resting(rest, silent = TRUE)
