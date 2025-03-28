@@ -67,6 +67,8 @@
 	ADD_TRAIT(L, TRAIT_HEAVYARMOR, "[type]")
 	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
 	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
+	ADD_TRAIT(L, TRAIT_SPECIALUNDEAD, "[type]")
+
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
 	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)

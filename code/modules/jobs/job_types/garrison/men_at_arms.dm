@@ -95,9 +95,9 @@
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
 /datum/advclass/menatarms/watchman_pikeman
-	name = "Footman Men-At-Arms"
+	name = "Pikeman Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	Now you get to stare at them in the eyes, watching as they bleed, \
+	Now you get to stare at them in the eyes, as you lunge with your spear, \
 	exanguinated personally by one of the Monarch's best. \
 	You are poor, and your belly is yet full. \
 	\n\
@@ -142,50 +142,8 @@
 		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
-/datum/advclass/menatarms/watchman_swordsmen
-	name = "Fencer Men-At-Arms"
-	tutorial = "You once warded the town, beating the poor and killing the senseless. \
-	You were quite a good dancer, you've blended that skill with your blade- \
-	exanguinated personally by one of the Monarch's best. \
-	You are poor, and your belly is yet full. \
-	\n\
-	<i>TALK WITH YOUR BRETHREN, TAKE SHIFTS MANNING THE GATE!</i>"
-	outfit = /datum/outfit/job/watchman/swordsmen
-	category_tags = list(CTAG_MENATARMS)
-
-/datum/outfit/job/watchman/swordsmen/pre_equip(mob/living/carbon/human/H)
-	..()
-	head = pick(/obj/item/clothing/head/roguehood/guard, /obj/item/clothing/head/roguehood/guardsecond)
-	wrists = /obj/item/clothing/wrists/bracers/leather
-	pants = /obj/item/clothing/pants/trou/leather/guard
-	cloak = /obj/item/clothing/cloak/stabard/guard
-	armor = /obj/item/clothing/armor/leather/advanced
-	shirt = /obj/item/clothing/armor/gambeson
-	neck = /obj/item/clothing/neck/gorget
-	gloves = /obj/item/clothing/gloves/chain
-	beltr = /obj/item/weapon/sword/rapier
-	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
-	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.change_stat(STATKEY_END, 2)
-		H.change_stat(STATKEY_SPD, 2)
-		ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_KNOWBANDITS, TRAIT_GENERIC)
-		H.verbs |= /mob/proc/haltyell
-
 /datum/advclass/menatarms/watchman_ranger
-	name = "Archer Men-At-Arms"
+	name = "Crossbow Men-At-Arms"
 	tutorial = "You once warded the town, beating the poor and killing the senseless. \
 	Now you stare at them from above, raining hell down upon the knaves and the curs that see you a traitor. \
 	You are poor, and your belly is yet full. \
@@ -210,7 +168,7 @@
 	backr = /obj/item/ammo_holder/quiver/bolts
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel/special)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)

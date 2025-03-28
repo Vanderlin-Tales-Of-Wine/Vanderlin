@@ -89,7 +89,6 @@
 /obj/effect/proc_holder/spell/invoked/raise_undead_lesser
 	name = "Lesser Raise Undead"
 	desc = "Reanimate a corpse as a skeleton. You can maintain three sapient skeletons, the rest will be mindless. The body must have all limbs."
-	clothes_req = FALSE
 	range = 7
 	overlay_state = "raiseskele"
 	sound = list('sound/magic/magnet.ogg')
@@ -100,8 +99,11 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	charge_max = 30 SECONDS
-	chargedrain = 2
+	recharge_time = 30 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 1,
+	)
 
 
 /**
@@ -176,6 +178,8 @@
 
 	return FALSE
 
+/mob/living/carbon/human/proc/set_necrotarget(value)
+	necrotarget = value
 
 //**
 /obj/effect/proc_holder/spell/invoked/raise_undead_lesser/cast(list/targets, mob/living/carbon/human/user)
@@ -236,7 +240,7 @@
 				target.turn_to_minion(user, target.ckey)
 				target.visible_message(span_warning("[target.real_name]'s eyes light up with an evil glow."), runechat_message = TRUE)
 				user.mind.adjust_undeadcurrent(1)
-				target.mind.set_undeadcurrent(TRUE)
+				target.mind.set_amundead(TRUE)
 				target.mind.set_undeadnecro(user)
 				target.set_necrotarget(FALSE)
 				return TRUE
@@ -251,7 +255,7 @@
 				target.turn_to_minion(user, C.ckey)
 				target.visible_message(span_warning("[target.real_name]'s eyes light up with an eerie glow."), runechat_message = TRUE)
 				user.mind.adjust_undeadcurrent(1)
-				target.mind.set_undeadcurrent(TRUE)
+				target.mind.set_amundead(TRUE)
 				target.mind.set_undeadnecro(user)
 
 			//no candidates, raise as npc
@@ -266,7 +270,7 @@
 	else if(user.mind.undeadcurrent >= user.mind.undeadmax)
 		to_chat(user, span_warning("I cannot sustain another self aware skeleton, this one shall be mindless.."))
 		to_chat(target, span_warning("I feel my soul being drawn downward as a foreign presence invades my body!"))
-		target.client.try_descend() //Couldn't figure out how to eject to ghost despite spending like an hour looking, so instead shunt to underworld. Let them skip the waiting line
+		target.client.descend()
 		target.turn_to_minion(user)
 		target.visible_message(span_warning("[target.real_name]'s eyes light up with a weak glow."), runechat_message = TRUE)
 
@@ -277,14 +281,14 @@
 	return FALSE
 
 /mob/living/proc/handle_necromancy()
-	if(src.mind.undeadcurrent == FALSE)
+	if(src.mind.amundead == FALSE)
 		return
 	if(src.mind.undeadnecro == null)
 		return
 	var/mob/living/carbon/human/user = src.mind.undeadnecro
 	user.mind.adjust_undeadcurrent(-1)
 	to_chat(user, span_warning("One of my sapient skeleton's bindings has come undone, I may now raise another."))
-	src.mind.set_undeadcurrent(FALSE)
+	src.mind.set_amundead(FALSE)
 	src.mind.set_undeadnecro(null)
 
 /**
@@ -445,19 +449,6 @@
 		var/mob/living/carbon/M = target
 		M.reagents.add_reagent(/datum/reagent/toxin, 3)
 
-/obj/effect/proc_holder/spell/self/command_undead
-	name = "Command Undead"
-	desc = "Broadcast a message to all your undead minions!"
-	overlay_state = "raiseskele"
-	sound = list('sound/magic/magnet.ogg')
-	invocation = "Zuth'gorash vel'thar dral'oth!"
-	invocation_type = "whisper"
-	antimagic_allowed = TRUE
-	chargedloop = /datum/looping_sound/invokegen
-	charge_max = 15 SECONDS
-	chargedrain = 1
-	cost = 2
-	xp_gain = TRUE
 
 /obj/effect/proc_holder/spell/self/command_undead/cast(mob/user = usr)
 	..()
@@ -479,21 +470,21 @@
 	name = "Release Unlife"
 	cost = 1
 	desc = "Revoke the unlife of a misbehaving minions, banishing the soul straight to the underworld. Allowing you to raise the corpse once more with a different, more malleable soul."
-	clothes_req = FALSE
 	range = 7
 	overlay_state = "raiseskele"
 	sound = list('sound/magic/magnet.ogg')
 	releasedrain = 40
-	chargedrain = 1
-	chargetime = 2 SECONDS
+	chargetime = 60
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
-	invocation = "Hgf'ant'Zeshlesh!"
-	invocation_type = "shout"
-	charge_max = 2 SECONDS
-	xp_gain = TRUE
+	associated_skill = /datum/skill/magic/arcane
+	recharge_time = 15 SECONDS
+	attunements = list(
+		/datum/attunement/dark = 0.4,
+		/datum/attunement/death = 1,
+	)
 
 /obj/effect/proc_holder/spell/invoked/revoke_unlife/cast(list/targets, mob/living/carbon/human/user)
 	. = ..()
@@ -521,5 +512,5 @@
 	to_chat(target, span_warning("I have disappointed my Master! I feel Zizo's scythe catch upon my very soul!"))
 	target.death()
 	sleep(1 SECONDS)
-	target.client.try_descend()
+	target.client.descend()
 	to_chat(user, span_warning("The disappointment is no more, its husk free for a more.. Malleable soul."))

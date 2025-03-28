@@ -79,6 +79,11 @@
 	var/spell_points
 	/// amount of spell points this mind has used
 	var/used_spell_points
+	//necromancer things
+	var/undeadcurrent = 0
+	var/undeadmax = 3
+	var/amundead = FALSE
+	var/undeadnecro = null
 
 	var/linglink
 	var/datum/martial_art/martial_art
@@ -533,6 +538,17 @@
 /datum/mind/proc/adjust_spellpoints(points)
 	spell_points += points
 	check_learnspell() //check if we need to add or remove the learning spell
+/datum/mind/proc/adjust_undeadmax(points)
+	undeadmax += points
+
+/datum/mind/proc/adjust_undeadcurrent(points)
+	undeadcurrent += points
+
+/datum/mind/proc/set_undeadnecro(name)
+	undeadnecro = name
+
+/datum/mind/proc/set_amundead(value)
+	amundead = value
 
 /**
  * Gets the skill's singleton and returns the result of its get_skill_speed_modifier
@@ -1150,21 +1166,3 @@
 	youngling.mind.our_apprentice_name = "[current.real_name]'s [title]"
 	to_chat(current, span_notice("[youngling.real_name] has become your apprentice."))
 
-//necromancer stuff
-/datum/mind/proc/adjust_undeadmax(points)
-	undeadmax += points
-
-/datum/mind/proc/adjust_undeadcurrent(points)
-	undeadcurrent += points
-
-/datum/mind/proc/set_undeadnecr(name)
-	undeadnecr = name
-
-/datum/mind/proc/set_undeadcurrent(value)
-	undeadcurrent = value
-
-//Necromancer Trackers
-	var/undeadcurrent = 0
-	var/undeadmax = 3
-	var/undeadcurrent = FALSE
-	var/undeadnecro = null

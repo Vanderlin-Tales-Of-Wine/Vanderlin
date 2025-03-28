@@ -139,6 +139,9 @@
 
 	rot_type = /datum/component/rot/corpse
 
+	//necromancer things
+	var/necrotarget = FALSE
+
 //Checking the highest armor class worn
 //Limb armors use the second highest armor class
 /mob/living/carbon/human/proc/check_armor_class()
@@ -194,5 +197,4 @@
 	worn_armor_class = combined_armor
 	return worn_armor_class
 
-//necromancer things
-var/necrotarget = FALSE
+

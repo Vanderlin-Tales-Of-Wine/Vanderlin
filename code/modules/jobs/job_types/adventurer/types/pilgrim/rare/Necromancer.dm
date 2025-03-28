@@ -4,16 +4,17 @@ tutorial = "From a young age you have been different, where others see death, yo
 allowed_sexes = list(FEMALE)
 allowed_races = list(
 "Half-Elf",
-"Dark Elf",
+"Dark Elf"
 )
-outfit = /datum/outfit/job/roguetown/adventurer/necromancer
+
+outfit = /datum/outfit/job/pilgrim/necromancer
 maximum_possible_slots = 2
 min_pq = 15
 category_tags = list(CTAG_PILGRIM)
 pickprob = 100
 cmode_music = 'sound/music/combat_cult.ogg'
 
-/datum/outfit/job/roguetown/adventurer/necromancer/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/pilgrim/necromancer/pre_equip(mob/living/carbon/human/H)
 ..()
 shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 armor = /obj/item/clothing/suit/roguetown/shirt/robe/necromancer
@@ -61,5 +62,6 @@ H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/revoke_unlife)
 
 ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+
 H.faction = list("undead")
 H.set_patron(/datum/patron/zizo)

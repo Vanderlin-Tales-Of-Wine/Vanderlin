@@ -17,6 +17,7 @@
 #define TRAIT_VILLAIN					"Villain"
 #define TRAIT_CRITICAL_RESISTANCE		"Critical Resistance"
 #define TRAIT_CRITICAL_WEAKNESS		"Critical Weakness"
+#define TRAIT_SPECIALUNDEAD "Powerful Undead" //Prevents necromancers from instakilling vampires and liches by turning them into skeletons. Any new undead faction should either get this trait or a similar trait
 #define TRAIT_MANIAC_AWOKEN			"Awoken"
 #define TRAIT_NOSTAMINA				"Indefatigable" //for ai
 #define TRAIT_NOSLEEP				"Fatal Insomnia" //for thralls
