@@ -776,11 +776,10 @@
 	icon = 'icons/roguetown/misc/ay.dmi'
 	icon_state = "3"
 	pixel_x = -32
-	pixel_y = -16
 
 /obj/structure/fluff/statue/musician/OnCrafted(dirin, mob/user)
 	. = ..()
-	if(prob(5))
+	if(prob(20))
 		icon_state = "xylix"
 
 /obj/structure/fluff/telescope
