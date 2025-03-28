@@ -2373,6 +2373,8 @@
 	pixel_y = 9;
 	pixel_x = 9
 	},
+/obj/item/kitchen/rollingpin,
+/obj/item/weapon/knife/stone,
 /turf/open/floor/cobble,
 /area/rogue/indoors/bandit_lair)
 "qo" = (
