@@ -116,7 +116,7 @@
 						continue
 					manuel_name_to_path |= initial(book.name)
 					manuel_name_to_path[initial(book.name)] = book
-			choice = input(user, "Choose an option for \the [src]") in manuel_name_to_path
+			choice = input(user, "Choose an option for \the [src]") as null|anything in manuel_name_to_path
 			if(choice)
 				start_printing(user, manuel_name_to_path[choice])
 
