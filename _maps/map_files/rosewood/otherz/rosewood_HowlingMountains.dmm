@@ -4623,6 +4623,13 @@
 "KY" = (
 /obj/item/ore/gold,
 /obj/effect/decal/cleanable/sigil/E,
+/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
+	blood_volume = 4000;
+	health = 8000;
+	name = "Tsere The Insurmountable";
+	maxHealth = 8000;
+	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
+	},
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "KZ" = (
@@ -6575,14 +6582,8 @@
 /obj/effect/decal/cleanable/sigil,
 /obj/item/clothing/armor/medium/scale{
 	name = "Drakeleaf Scalemail";
-	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this."
-	},
-/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
-	blood_volume = 4000;
-	health = 8000;
-	name = "Tsere The Insurmountable";
-	maxHealth = 8000;
-	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
+	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this.";
+	armor = list("blunt" = 90, "slash" = 90, "stab" = 80, "piercing" = 80, "fire" = 0, "acid" = 0)
 	},
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
