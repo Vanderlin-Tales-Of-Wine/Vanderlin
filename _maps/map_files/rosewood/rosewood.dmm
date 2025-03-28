@@ -6682,18 +6682,6 @@
 	},
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
-"dGh" = (
-/obj/structure/fluff/signage{
-	name = "TEMPOARARY ORE VEIN - SOUTH EAST"
-	},
-/obj/structure/fluff/signage{
-	dir = 8;
-	name = "Mines - South";
-	pixel_y = 22;
-	pixel_x = -1
-	},
-/turf/open/floor/grass/yel,
-/area/rogue/under/cavelava)
 "dGx" = (
 /obj/effect/decal/shadow_floor{
 	dir = 8
@@ -23105,12 +23093,6 @@
 	},
 /turf/open/floor/cobble/alt,
 /area/rogue/under/town/basement)
-"mVV" = (
-/obj/structure/fluff/signage{
-	name = "TEMPOARARY ORE VEIN"
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/under/cavelava)
 "mWc" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/transparent/openspace,
@@ -30515,6 +30497,9 @@
 	},
 /turf/open/floor/snow,
 /area/rogue/outdoors/rtfield/safe)
+"qYM" = (
+/turf/open/floor/wood/nosmooth,
+/area/rogue/outdoors/town)
 "qYU" = (
 /obj/structure/bookcase/random/archive,
 /turf/open/floor/blocks/newstone,
@@ -87156,7 +87141,7 @@ qix
 qix
 qix
 qIT
-dGh
+crh
 qIT
 qix
 qix
@@ -90196,7 +90181,7 @@ bMC
 qIT
 qIT
 qIT
-mVV
+qix
 qix
 qix
 qix
@@ -158202,11 +158187,11 @@ ehP
 jgf
 jgf
 atW
-tOX
-tOX
-tOX
-tOX
-tOX
+qYM
+qYM
+qYM
+qYM
+qYM
 aML
 ehP
 ehP
@@ -158404,11 +158389,11 @@ ehP
 ehP
 ehP
 gQO
-tOX
-tOX
-tOX
-tOX
-tOX
+qYM
+qYM
+qYM
+qYM
+qYM
 aML
 ehP
 ehP
