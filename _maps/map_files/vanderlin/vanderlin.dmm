@@ -6652,11 +6652,6 @@
 	},
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town)
-"eAp" = (
-/obj/structure/window/solid,
-/obj/structure/window/solid,
-/turf/open/floor/wood,
-/area/rogue/indoors/town)
 "eBo" = (
 /obj/machinery/light/fueled/chand,
 /turf/open/transparent/openspace,
@@ -13445,10 +13440,6 @@
 	pixel_x = 10;
 	pixel_y = -2
 	},
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "largetable"
-	},
 /obj/item/reagent_containers/glass/alchemical{
 	pixel_x = -6;
 	pixel_y = -11
@@ -16881,7 +16872,6 @@
 /area/rogue/indoors/town/church)
 "lGW" = (
 /obj/structure/stairs/fancy/l,
-/obj/structure/stairs/fancy/c,
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "lGX" = (
@@ -17950,7 +17940,6 @@
 /area/rogue/outdoors/town)
 "mBt" = (
 /obj/structure/chair/bench/ultimacouch/r,
-/obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "mBw" = (
@@ -32606,7 +32595,6 @@
 /area/rogue/indoors/town)
 "wKv" = (
 /obj/structure/stairs/fancy/l,
-/obj/structure/stairs/fancy/r,
 /turf/open/floor/carpet/lord/right,
 /area/rogue/indoors/town/manor)
 "wLk" = (
@@ -132772,7 +132760,7 @@ acx
 acx
 iSk
 iSk
-eAp
+fvJ
 ayo
 hIO
 iGx
