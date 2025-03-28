@@ -668,6 +668,27 @@ SUBSYSTEM_DEF(plexora)
 
 		recipient.externalreplyamount = EXTERNALREPLYCOUNT
 
+/datum/world_topic/plx_relayadminsay
+	keyword = "PLX_relayadminsay"
+	require_comms_key = TRUE
+
+/datum/world_topic/plx_relayadminsay/Run(list/input)
+	var/sender = input["sender"]
+	var/msg = input["message"]
+
+	msg = emoji_parse(copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN))
+	if(!msg)
+		return
+
+	msg = keywords_lookup(msg)
+
+	// TODO: Load sender's color prefs? idk
+	msg = span_adminsay("[span_prefix("ADMIN (DISCORD):")] <EM>[sender]</EM>: <span class='message linkify'>[msg]</span>")
+
+	to_chat(GLOB.admins,msg)
+
+	SSblackbox.record_feedback("tally", "admin_say_relay", 1, "Asay external") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 #undef AUTH_HEADER
 #undef TOPIC_EMITTER
 
