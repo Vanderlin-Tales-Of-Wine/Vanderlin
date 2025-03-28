@@ -371,8 +371,8 @@
 	desc = "an iron hook for storing 8 heads"
 	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
-	icon_state = ""
-	item_state = ""
+	icon_state = "knife" //N/A change this
+	item_state = "knife"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 300
@@ -388,8 +388,8 @@
 	desc = "a bronze hook for storing 16 heads"
 	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
-	icon_state = ""
-	item_state = ""
+	icon_state = "knife"
+	item_state = "knife"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 400
@@ -409,3 +409,20 @@
 	. = ..()
 	if(length(contents))
 		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
+
+/obj/item/storage/hip/headhook/royal
+	name = "royal head hook"
+	desc = "a golden hook for storing 16 heads, befitting of any king's hunt"
+	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "knife"
+	item_state = "knife"
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 400
+	equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	bloody_icon_state = "bodyblood"
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/gold
+	component_type = /datum/component/storage/concrete/headhook/bronze

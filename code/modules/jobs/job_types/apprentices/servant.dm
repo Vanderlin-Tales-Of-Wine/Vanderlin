@@ -96,8 +96,9 @@
 		neck = /obj/item/key/matron
 
 /datum/advclass/servant/gaffer_assistant
-	name = "Gaffer's Servant"
-	tutorial = "I maybe be easy to dismiss when compared to the usual guild member, but I'm still an asset here! loyal to not just the guild and Gaffer, but to whomever has the one ring. best to keep away from that thing too, it just screams \"cursed\""
+	name = "Ring's Servant"
+	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
+	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
 	outfit = /datum/outfit/job/servant/gaffer_assistant
 	maximum_possible_slots = 1
 

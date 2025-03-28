@@ -123,8 +123,8 @@
 
 /datum/component/storage/concrete/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
-	screen_max_rows = 4
-	screen_max_columns = 6 //N/A fix later
+	screen_max_rows = 6
+	screen_max_columns = 4 //N/A fix later
 	click_gather = TRUE
 	collection_mode = COLLECT_EVERYTHING
 	dump_time = 0
@@ -150,8 +150,8 @@
 
 /datum/component/storage/concrete/headhook/bronze
 	max_w_class = WEIGHT_CLASS_NORMAL
-	screen_max_rows = 6
-	screen_max_columns = 8
+	screen_max_rows = 8
+	screen_max_columns = 6
 	click_gather = TRUE
 	collection_mode = COLLECT_EVERYTHING
 	dump_time = 0

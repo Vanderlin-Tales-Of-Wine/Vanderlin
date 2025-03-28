@@ -1164,9 +1164,10 @@
 
 /obj/structure/fluff/statue/gaffer/Initialize()
 	. = ..()
-	RegisterSignal(src, COMSIG_GAFFER_RING_DESTROYED, PROC_REF(ringdied))
+	RegisterSignal(SSdcs, COMSIG_GAFFER_RING_DESTROYED, PROC_REF(ringdied))
 
-/obj/structure/fluff/statue/gaffer/proc/ringdied()
+/obj/structure/fluff/statue/gaffer/proc/ringdied(datum/source)
+	SIGNAL_HANDLER
 	if(ring_destroyed == FALSE)
 		ring_destroyed = TRUE
 
@@ -1184,17 +1185,23 @@
 
 /obj/structure/fluff/statue/gaffer/attack_hand(mob/living/user)
 	. = ..()
-	if(ring_destroyed == TRUE)
-		to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
-		var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "TOUCHED THE RING", "Yes", "No")
+	if(!user.mind)
+		return
+	if(!ring_destroyed)
+		return
+	to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
+	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "TOUCHED THE RING", "Yes", "No")
 
-		if(gaffed == "No" && !ring_destroyed == FALSE)
-			to_chat(user, span_danger("yes...best to leave it alone."))
-			return
+	if(gaffed == "No" && ring_destroyed == TRUE)
+		to_chat(user, span_danger("yes...best to leave it alone."))
+		return
 
-		if((gaffed == "Yes") && Adjacent(user) && !ring_destroyed == FALSE)
-			var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
-			user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
-			to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows it self around your palm"))
-			ring_destroyed = FALSE
+	if((gaffed == "Yes") && Adjacent(user) && ring_destroyed == TRUE)
+		var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
+		user.put_in_hands(ring)
+		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows it self into your palm"))
+		ring_destroyed = FALSE
+
 

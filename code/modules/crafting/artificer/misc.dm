@@ -68,6 +68,14 @@
 	hammers_per_item = 6
 	craftdiff = 3
 
+/datum/artificer_recipe/gold/headhook //N/A hard to say where this belongs to so going to keep it here
+	name = "Royal Headhook"
+	required_item = /obj/item/ingot/gold
+	created_item = /obj/item/storage/hip/headhook/royal
+	additional_items = list(/obj/item/ingot/silver, /obj/item/natural/silk = 2)
+	hammers_per_item = 6
+	craftdiff = 4
+
 // --------- TOOLS -----------
 
 /datum/artificer_recipe/tools

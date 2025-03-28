@@ -278,9 +278,11 @@
 
 	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //fix the double &&s this is ass
 		user.dropItemToGround(src, force = TRUE)
+		to_chat(user, span_danger("With great effort, the ring slides off your palm to the floor below"))
 		return
 
 	if((gaffed == "Yes") && user.is_holding(src))
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
 		user.equip_to_slot_if_possible(src, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
 		return TRUE
@@ -294,7 +296,7 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
 
-/obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user)
+/obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user) //dont ask me why this isn't handled on on_mob_death, there was a reason once but it was a month ago and I no longer remember it.
 	if(user.ckey)
 		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
 		return
@@ -304,6 +306,12 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 SECONDS)
 	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
+	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change this later
+
+/obj/item/clothing/ring/gold/burden/proc/psstt()
+	if(!ismob(loc))
+		playsound(src, 'sound/vo/psst.ogg', 50)
+		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change to 10 to 20 seconds
 
 /obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
 	if(ismob(loc))
@@ -314,13 +322,20 @@
 
 /obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
 	. = ..()
-	if(slot == SLOT_RING && istype(user))
-		ADD_TRAIT(user, TRAIT_BURDEN, type)
+	if(slot == SLOT_RING && istype(user)) //this will hopefully be a natural HEADEATER tutorial when HEADEATER is a proper thing
+		//say("good choice") as much as I love the aesthetic of the ring speech bubble being in the inventory screen, cant make it whisper like this
+		var/message = pick(
+				"<span class='danger'>New...bearer...</span>",
+				"<span class='danger'>The...Guild...</span>",
+				"<span class='danger'>Feed...it...</span>",
+				"<span class='danger'>I...see...you...</span>",
+				"<span class='danger'>Serve...me...</span>")
+		to_chat(user, "the ring whispers, \"[message]\"")
 		return
-	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first."))
+	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first.")) // this makes no fucking sense, choose what, the pop up? where is my immersion clown! - clown
 
 
 /obj/item/clothing/ring/gold/burden/Destroy()
-	SEND_GLOBAL_SIGNAL(src, COMSIG_GAFFER_RING_DESTROYED)
+	SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
 	. = ..()
 

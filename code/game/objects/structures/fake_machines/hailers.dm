@@ -17,17 +17,19 @@
 	if((!HAS_TRAIT(user, TRAIT_BURDEN)))
 		to_chat(user, "<span class='notice'>stranger danger! the [src] closes its teeth as you extend your hand to it</span>")
 		return
-	if(!istype(H, /obj/item/paper))
-		to_chat(user, "<span class='notice'>the [src] only accepts paper</span>")
-		return
 	if(istype(H, /obj/item/reagent_containers/powder/salt)) //mmmm, salt.
 		to_chat(user, "<span class='notice'>the [src]'s tongue slips between its bronze teeth to lap at the salt in [user]'s hand, finishing with effectionate licks across their palm... gross </span>")
+		say("mmmpphh... grrrrrhh... hhhrrrnnn...")
 		qdel(H)
+		return
+	if(!istype(H, /obj/item/paper))
+		to_chat(user, "<span class='notice'>the [src] only accepts paper</span>")
 		return
 	if(istype(H, /obj/item/paper) && (HAS_TRAIT(user, TRAIT_BURDEN)))
 		if(!user.transferItemToLoc(H, src))
 			return
 		to_chat(user, "<span class='notice'>I feed the [H] to the [src].</span>")
+		say("Bbbllrrr... fffrrrtt... brrrhh...")
 	return ..()
 
 /obj/structure/fake_machine/hailer/interact(mob/user)
@@ -93,6 +95,23 @@
 	icon_state = "mail"
 	density = FALSE
 	blade_dulling = DULLING_BASH
+
+/obj/structure/fake_machine/hailerboard/Initialize()
+	. = ..()
+	START_PROCESSING(SSslowobj, src)
+
+/obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
+	. = ..()
+	if(prob(75))
+		switch(rand(1,4))
+			if(1)
+				say("BbbRRRMMMPHHH... GGRRRRNNN!!")
+			if(2)
+				say("GGGGRRRRR... BLLRRTTT!!")
+			if(3)
+				say("NNNGGGRRBB... MMPHHH!!")
+			if(4)
+				say("Hhbbbh...Mhhaamm--maaahrhh...")
 
 /obj/structure/fake_machine/hailerboard/attack_hand(mob/user)
 	. = ..()

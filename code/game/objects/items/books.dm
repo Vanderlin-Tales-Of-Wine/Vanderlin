@@ -900,5 +900,5 @@ ____________End of Example*/
 /obj/item/book/rogue/howtogaffer
 	name = "Dont be a gaff, the guild masters manual"
 	desc = ""
-	bookfile = "AdviceSoup.json" //N/A change this
+	bookfile = "Gaff.json" //N/A change this
 	random_cover = TRUE
