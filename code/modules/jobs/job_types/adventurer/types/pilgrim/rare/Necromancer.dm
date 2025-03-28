@@ -1,4 +1,4 @@
-/datum/advclass/pilgrim/rare/Necromancer
+/datum/advclass/pilgrim/rare/necromancer
 name = "Necromancer"
 tutorial = "From a young age you have been different, where others see death, you see the raw clay of creation. With every corpse you raise and every soul you shackle, you walk the path of Zizo, dreaming of the day you, too, will claim divinity."
 allowed_sexes = list(FEMALE)
@@ -7,23 +7,24 @@ allowed_races = list(
 "Dark Elf"
 )
 
-outfit = /datum/outfit/job/pilgrim/necromancer
+outfit = /datum/outfit/job/adventurer/necromancer
 maximum_possible_slots = 2
 min_pq = 15
 category_tags = list(CTAG_PILGRIM)
 pickprob = 100
 cmode_music = 'sound/music/combat_cult.ogg'
 
-/datum/outfit/job/pilgrim/necromancer/pre_equip(mob/living/carbon/human/H)
-..()
-shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
-armor = /obj/item/clothing/suit/roguetown/shirt/robe/necromancer
-pants = /obj/item/clothing/under/roguetown/trou/leather
-belt = /obj/item/storage/belt/rogue/leather/rope
-backr = /obj/item/storage/backpack/rogue/satchel
-beltl = /obj/item/reagent_containers/glass/bottle/rogue/manapot
-beltr = /obj/item/rogueweapon/knife/hunting
-r_hand = /obj/item/rogueweapon/polearm/woodstaff
+/datum/outfit/job/adventurer/necromancer/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+	shoes = /obj/item/clothing/shoes/simpleshoes
+	armor = /obj/item/clothing/shirt/robe/mage
+	belt = /obj/item/storage/belt/leather/rope
+	backr = /obj/item/storage/backpack/satchel
+	beltr = /obj/item/storage/magebag/apprentice
+	beltl = /obj/item/reagent_containers/glass/bottle/manapot
+	r_hand = /obj/item/weapon/polearm/woodstaff
+	backpack_contents = list(/obj/item/chalk = 1)
 
 
 if(H.mind)
@@ -64,4 +65,4 @@ ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
 ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 
 H.faction = list("undead")
-H.set_patron(/datum/patron/zizo)
+H.set_patron(/datum/patron/inhumen/zizo)
