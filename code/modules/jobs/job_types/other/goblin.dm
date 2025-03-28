@@ -45,7 +45,7 @@
 	if(headdy)
 		headdy.icon = 'icons/roguetown/mob/monster/goblins.dmi'
 		headdy.icon_state = "[H.dna.species.id]_head"
-		headdy.headprice = rand(7, 20)
+		headdy.headprice = rand(7,20)
 	H.regenerate_limb(BODY_ZONE_R_ARM)
 	H.regenerate_limb(BODY_ZONE_L_ARM)
 	H.remove_all_languages()

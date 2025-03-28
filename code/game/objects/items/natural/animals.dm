@@ -72,6 +72,7 @@
 	icon_state = "wool2"
 
 /obj/item/natural/head
+	possible_item_intents = list(/datum/intent/use)
 
 /obj/item/natural/head/volf
 	name = "volf head"
@@ -147,6 +148,7 @@
 	desc = "the head of a fiery gote."
 	icon_state = "gotehead"
 	layer = 3.1
+	headprice = 2
 
 //RTD make this a storage item and make clickign on animals with things put it in storage
 /obj/item/natural/saddle
