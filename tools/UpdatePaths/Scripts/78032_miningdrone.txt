@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/mining_drone : /mob/living/basic/mining_drone{@OLD}
