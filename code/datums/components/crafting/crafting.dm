@@ -145,6 +145,10 @@
 	. = ..()
 
 /datum/crafting_recipe/proc/TurfCheck(mob/user, turf/T)
+	if(istype(T, /turf/open/water))
+		return FALSE
+	if(istype(T, /turf/open/lava))
+		return FALSE
 	return TRUE
 
 
@@ -170,9 +174,6 @@
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
 	if(!R.TurfCheck(user, T))
-		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
-		return
-	if(istype(T, /turf/open/water))
 		to_chat(user, "<span class='warning'>I can't craft on [T].</span>")
 		return
 	if(isturf(R.result))
