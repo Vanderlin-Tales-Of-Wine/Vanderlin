@@ -2,7 +2,7 @@
 
 /obj/structure/fake_machine/hailer
 	name = "HAILER"
-	desc = ""
+	desc = "A machine that shares the parchment fed to it to all existing HAILERBOARDs for viewing"
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "mail"
 	density = FALSE
@@ -24,6 +24,7 @@
 		return
 	if(!istype(H, /obj/item/paper))
 		to_chat(user, "<span class='notice'>the [src] only accepts paper</span>")
+		say("GRRRRHHH!!...GRAAAAGH")
 		return
 	if(istype(H, /obj/item/paper) && (HAS_TRAIT(user, TRAIT_BURDEN)))
 		if(!user.transferItemToLoc(H, src))
@@ -57,7 +58,7 @@
 		if(istype(I) && I.loc == src)
 			I.forceMove(usr.loc)
 			usr.put_in_hands(I)
-
+			say("kchaak... khaa...")
 
 
 	if(href_list["write"])
@@ -90,7 +91,7 @@
 
 /obj/structure/fake_machine/hailerboard
 	name = "HAILER BOARD"
-	desc = ""
+	desc = "A notice board that shows all the notices the Gaffer has put up"
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "mail"
 	density = FALSE
@@ -103,15 +104,15 @@
 /obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
 	. = ..()
 	if(prob(75))
-		switch(rand(1,4))
-			if(1)
-				say("BbbRRRMMMPHHH... GGRRRRNNN!!")
-			if(2)
-				say("GGGGRRRRR... BLLRRTTT!!")
-			if(3)
-				say("NNNGGGRRBB... MMPHHH!!")
-			if(4)
-				say("Hhbbbh...Mhhaamm--maaahrhh...")
+		var/message = pick(
+				"<span class='danger'>BbbRRRMMMPHHH... GGRRRRNNN!!</span>",
+				"<span class='danger'>GGGGRRRRR... BLLRRTTT!!</span>",
+				"<span class='danger'>NNNGGGRRBB... MMPHHH!!</span>",
+				"<span class='danger'>Hhbbbh...Mhhaamm--maaahrhh...</span>")
+		say("[message]")
+
+	if(prob(25)) //don't know what the point of this is, seems weird but grungussuss told me to and I said :salute: regime knows best
+		return
 
 /obj/structure/fake_machine/hailerboard/attack_hand(mob/user)
 	. = ..()
