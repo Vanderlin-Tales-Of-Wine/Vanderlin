@@ -3,6 +3,13 @@
 //defaults to box
 //  -Cyberboss
 
+///Default travel maps loaded if no travel maps are specified. If other maps are specified, should be a list of paths in .json. Turned off with "disabled"
+#define TRAVEL_DEFAULT_LIST list("map_files/roguetown/otherz/smallforest.json", "map_files/roguetown/otherz/smalldecap.json", "map_files/roguetown/otherz/smallswamp.json")
+///Default underworld loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
+#define UNDERWORLD_DEFAULT_PATH "map_files/roguetown/otherz/underworld.json"
+///Default dungeon loaded in. Other maps can be specified in .json with a path or turned off with "disabled"
+#define DUNGEON_DEFAULT_PATH "map_files/vanderlin/otherz/dungeon.json"
+
 /datum/map_config
 	// Metadata
 	var/config_filename = "_maps/dun_manor.json"
@@ -17,9 +24,9 @@
 	var/map_name = "Dun Manor"
 	var/map_path = "map_files/dun_manor"
 	var/map_file = "dun_manor.dmm"
-	var/list/travel_maps //We do not want to initialize the list here. No reason to keep it in memory. Should either be a list of text paths in .json or "disabled" to turn off travel maps entirely.
-	var/underworld_map = "map_files/roguetown/otherz/underworld.json" //Default underworld. Should be a path just like this in the .json map file. Can be turned off with "disabled".
-	var/dungeon_map = "map_files/vanderlin/otherz/dungeon.json" //Default dungeon. Can be turned off with "disabled".
+	var/list/travel_maps = null //We do not want to initialize the list here. No reason to keep it in memory.
+	var/underworld_map = UNDERWORLD_DEFAULT_PATH
+	var/dungeon_map = DUNGEON_DEFAULT_PATH
 
 	var/traits = null
 	var/space_ruin_levels = 7
@@ -96,7 +103,7 @@
 
 	else //Not a list. It either doesn't exist as a difinition or is disabled.
 		if(temp != "disabled") //If we didn't manually disable this, defaults to Roguetown travel maps.
-			travel_maps = list("map_files/roguetown/otherz/smallforest.json", "map_files/roguetown/otherz/smalldecap.json", "map_files/roguetown/otherz/smallswamp.json")
+			travel_maps = TRAVEL_DEFAULT_LIST
 
 	temp = json["underworld_map"]
 	if(istext(temp)) //We only care about this if it changed.
@@ -158,3 +165,7 @@
 
 /datum/map_config/proc/MakeNextMap()
 	return config_filename == "data/next_map.json" || fcopy(config_filename, "data/next_map.json")
+
+#undef TRAVEL_DEFAULT_LIST
+#undef UNDERWORLD_DEFAULT_PATH
+#undef DUNGEON_DEFAULT_PATH
