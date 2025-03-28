@@ -91,6 +91,13 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	planning_subtrees = typepaths_of_new_subtrees
 	init_subtrees()
 
+/datum/ai_controller/proc/add_to_top(datum/ai_planning_subtree/tree)
+	var/list/new_trees = list()
+	new_trees += tree
+	for(var/datum/ai_planning_subtree/listed_tree as anything in planning_subtrees)
+		new_trees |= listed_tree.type
+	replace_planning_subtrees(new_trees)
+
 ///Loops over the subtrees in planning_subtrees and looks at the ai_controllers to grab a reference, ENSURE planning_subtrees ARE TYPEPATHS AND NOT INSTANCES/REFERENCES BEFORE EXECUTING THIS
 /datum/ai_controller/proc/init_subtrees()
 	if(!LAZYLEN(planning_subtrees))

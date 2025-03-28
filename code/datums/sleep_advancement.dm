@@ -292,6 +292,9 @@
 /datum/sleep_adv/proc/finish()
 	if(!mind.current)
 		return
+	if(mind.has_studied)
+		mind.has_studied = FALSE
+		to_chat(mind.current, span_smallnotice("I feel like I can study my tome again..."))
 	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
 	close_ui()
 

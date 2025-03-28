@@ -2089,7 +2089,7 @@
 "xr" = (
 /obj/structure/window/stained,
 /obj/structure/bars,
-/turf/closed/wall/mineral/decostone,
+/turf/open/floor/herringbone,
 /area/rogue/under/cave)
 "xs" = (
 /obj/structure/stairs/stone{
@@ -3773,7 +3773,7 @@
 /obj/structure/window/stained,
 /obj/structure/bars,
 /obj/machinery/light/fueled/wallfire/candle,
-/turf/closed/wall/mineral/decostone,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "PL" = (
 /mob/living/simple_animal/hostile/retaliate/troll,
@@ -4518,6 +4518,11 @@
 /obj/effect/spawner/map_spawner/loot,
 /obj/structure/spider/stickyweb,
 /turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/cave)
+"Yf" = (
+/obj/structure/window/stained,
+/obj/structure/bars,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "Yh" = (
 /obj/item/natural/glass/shard,
@@ -7343,7 +7348,7 @@ ZO
 Sj
 Sj
 nq
-xr
+Yf
 Bj
 su
 wK
@@ -7415,7 +7420,7 @@ Rg
 Wx
 Sj
 Sj
-xr
+Yf
 CH
 vJ
 Ix
@@ -7487,7 +7492,7 @@ ZO
 oz
 Wx
 SF
-xr
+Yf
 CH
 Fb
 Rl
@@ -7562,8 +7567,8 @@ oz
 zP
 zP
 PJ
-xr
-xr
+Yf
+Yf
 zP
 zP
 ep

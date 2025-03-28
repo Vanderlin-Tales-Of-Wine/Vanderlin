@@ -404,11 +404,16 @@
 		else
 			candidates -= M
 
-/proc/pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE)
+/proc/pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, ignore_category = null, flashwindow = TRUE, new_players = FALSE)
 	var/list/candidates = list()
 
 	for(var/mob/dead/observer/G in GLOB.player_list)
 		candidates += G
+	if(new_players)
+		for(var/mob/dead/new_player/G as anything in GLOB.new_player_list)
+			if(!G.client)
+				continue
+			candidates += G
 
 	return pollCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category, flashwindow, candidates)
 
@@ -439,8 +444,8 @@
 
 	return result
 
-/proc/pollCandidatesForMob(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, mob/M, ignore_category = null)
-	var/list/L = pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category)
+/proc/pollCandidatesForMob(Question, jobbanType, gametypeCheck, be_special_flag = 0, poll_time = 300, mob/M, ignore_category = null, new_players = FALSE)
+	var/list/L = pollGhostCandidates(Question, jobbanType, gametypeCheck, be_special_flag, poll_time, ignore_category, new_players = new_players)
 	if(!M || QDELETED(M) || !M.loc)
 		return list()
 	return L
@@ -558,3 +563,7 @@ GLOBAL_LIST_EMPTY(fake_ckeys)
 
 	GLOB.fake_ckeys[ckey] = valid_name
 	return valid_name
+
+/// Returns if the given client is an admin, REGARDLESS of if they're deadminned or not.
+/proc/is_admin(client/client)
+	return !isnull(GLOB.admin_datums[client.ckey]) || !isnull(GLOB.deadmins[client.ckey])

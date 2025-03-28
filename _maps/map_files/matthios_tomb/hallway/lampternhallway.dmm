@@ -25,13 +25,13 @@
 /area/rogue/under/cave)
 "v" = (
 /obj/structure/floordoor{
-	redstone_id = bladedancer
+	redstone_id = "bladedancer"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "w" = (
 /obj/structure/floordoor{
-	redstone_id = blades
+	redstone_id = "blades"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
@@ -39,7 +39,7 @@
 /obj/structure/bars/grille,
 /obj/structure/lever/wall{
 	dir = 8;
-	redstone_id = blades
+	redstone_id = "blades"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
@@ -54,7 +54,7 @@
 /obj/structure/bars/grille,
 /obj/structure/lever/wall{
 	dir = 4;
-	redstone_id = bladedancer
+	redstone_id = "bladedancer"
 	},
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
