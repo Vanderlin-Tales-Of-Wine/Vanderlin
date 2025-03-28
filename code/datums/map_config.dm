@@ -97,9 +97,9 @@
 		for(var/json_path in temp)
 			if(!fexists("_maps/[json_path]"))
 				log_world("One or more travel .json files do not exist! Running default.")
-				temp = null
+				temp = TRAVEL_DEFAULT_LIST
 				break
-		travel_maps = temp //Now we either have a list with existing .json files or a nulled list.
+		travel_maps = temp //Now we either have a list with the default travel locations or whatever the map specified.
 
 	else //Not a list. It either doesn't exist as a difinition or is disabled.
 		if(temp != "disabled") //If we didn't manually disable this, defaults to Roguetown travel maps.
