@@ -236,7 +236,13 @@
 	icon_state = "minranbad_ice"
 	smooth_icon = 'icons/turf/walls/cwall_cold.dmi'
 	mineralChance = 30
-	mineralSpawnChanceList = list(/turf/closed/mineral/salt/cold = 20, /turf/closed/mineral/copper/cold = 15, ,/turf/closed/mineral/tin/cold = 12, /turf/closed/mineral/iron/cold = 5, /turf/closed/mineral/coal/cold = 5)
+	mineralSpawnChanceList = list(
+	/turf/closed/mineral/salt/cold = 20,
+	/turf/closed/mineral/copper/cold = 15,
+	/turf/closed/mineral/tin/cold = 12,
+	/turf/closed/mineral/iron/cold = 5,
+	/turf/closed/mineral/coal/cold = 5,
+	)
 
 /turf/closed/mineral/random/med
 	icon_state = "minrandmed"
