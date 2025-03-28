@@ -90,6 +90,7 @@ GLOBAL_LIST_INIT(sex_actions, build_sex_actions())
 	var/can_do_sex = TRUE
 
 /mob/living/carbon/human/MiddleMouseDrop_T(mob/living/target, mob/living/user)
+	. = ..()
 	if(user.mmb_intent)
 		return ..()
 	if(!istype(target))

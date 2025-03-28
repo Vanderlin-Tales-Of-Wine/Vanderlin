@@ -1,4 +1,4 @@
-datum/job/adventurer/courtagent
+/datum/job/adventurer/courtagent
 	title = "Court Agent"
 	tutorial = "Whether acquired by merit, shrewd negotiation or fulfilled bounties, \
 	you have found yourself under the underhanded employ of the Hand. \

@@ -6,12 +6,10 @@
 
 #define isgoblin(A) (is_species(A, /datum/species/goblin))
 
-#ifdef MATURESERVER
-
 #define VALID_HUNTING_AREAS list(\
 	/area/rogue/outdoors/bog,/area/rogue/outdoors/woods )
 
-proc/is_valid_hunting_area(area/A)
+/proc/is_valid_hunting_area(area/A)
 	for(var/i in VALID_HUNTING_AREAS)
 		if(istype(A, i))
 			return TRUE
