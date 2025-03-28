@@ -381,7 +381,7 @@
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
-	component_type = /datum/component/storage/concrete/headhook
+	component_type = /datum/component/storage/concrete/grid/headhook
 
 /obj/item/storage/hip/headhook/bronze
 	name = "bronze head hook"
@@ -398,7 +398,7 @@
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/bronze
-	component_type = /datum/component/storage/concrete/headhook/bronze
+	component_type = /datum/component/storage/concrete/grid/headhook/bronze
 
 
 /obj/item/storage/hip/headhook/attackby(obj/item/H, mob/user, params)
@@ -426,4 +426,4 @@
 	bloody_icon_state = "bodyblood"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/gold
-	component_type = /datum/component/storage/concrete/headhook/bronze
+	component_type = /datum/component/storage/concrete/grid/headhook/bronze

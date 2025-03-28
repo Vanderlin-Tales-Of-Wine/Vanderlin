@@ -83,4 +83,3 @@
 	recruitment_message = "Hey, %RECRUIT, you ever considered going full time?"
 	accept_message = "For coin and glory!"
 	refuse_message = "I refuse."
-	charge_max = 100
