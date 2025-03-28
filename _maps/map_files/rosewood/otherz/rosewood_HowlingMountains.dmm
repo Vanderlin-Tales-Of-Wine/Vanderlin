@@ -6576,7 +6576,7 @@
 /obj/item/clothing/armor/medium/scale{
 	name = "Drakeleaf Scalemail";
 	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this.";
-	armor = list("blunt" = 90, "slash" = 90, "stab" = 65, "piercing" = 65, "fire" = 65, "acid" = 0)
+	armor = list("blunt" = 65, "slash" = 65, "stab" = 65, "piercing" = 65, "fire" = 65, "acid" = 0)
 	},
 /mob/living/simple_animal/hostile/retaliate/voiddragon/red{
 	blood_volume = 4000;
