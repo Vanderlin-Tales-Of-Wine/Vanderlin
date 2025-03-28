@@ -356,17 +356,17 @@
 /obj/item/coin/copper/pile/Initialize(mapload, coin_amount)
 	. = ..()
 	if(!coin_amount)
-		set_quantity(rand(4,19))
+		set_quantity(rand(4,14))
 
 /obj/item/coin/silver/pile/Initialize(mapload, coin_amount)
 	. = ..()
 	if(!coin_amount)
-		set_quantity(rand(4,19))
+		set_quantity(rand(4,14))
 
 /obj/item/coin/gold/pile/Initialize(mapload, coin_amount)
 	. = ..()
 	if(!coin_amount)
-		set_quantity(rand(4,19))
+		set_quantity(rand(4,14))
 
 #undef CTYPE_GOLD
 #undef CTYPE_SILV

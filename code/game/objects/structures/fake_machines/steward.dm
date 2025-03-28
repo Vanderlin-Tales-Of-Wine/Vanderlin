@@ -41,6 +41,11 @@
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 		to_chat(user, "<span class='warning'>Wrong key.</span>")
 		return
+	if(istype(P, /obj/item/coin))
+		SStreasury.give_money_treasury(P.get_real_price(), "NERVE MASTER deposit")
+		qdel(P)
+		playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
+		return
 	return ..()
 
 
