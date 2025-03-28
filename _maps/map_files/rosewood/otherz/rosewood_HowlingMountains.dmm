@@ -4623,13 +4623,6 @@
 "KY" = (
 /obj/item/ore/gold,
 /obj/effect/decal/cleanable/sigil/E,
-/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
-	blood_volume = 4000;
-	health = 8000;
-	name = "Tsere The Insurmountable";
-	maxHealth = 8000;
-	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
-	},
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "KZ" = (
@@ -6580,10 +6573,40 @@
 /area/rogue/under/mountains/anvil/lower)
 "ZV" = (
 /obj/effect/decal/cleanable/sigil,
-/obj/item/clothing/armor/medium/scale{
-	name = "Drakeleaf Scalemail";
-	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this.";
-	armor = list("blunt" = 90, "slash" = 90, "stab" = 80, "piercing" = 80, "fire" = 0, "acid" = 0)
+/obj/item/clothing/armor/plate/blkknight{
+	name = "Drakeleaf Plate";
+	desc = "Drakeleaf armor, made from the scales of Tsere herself. Wearing such a thing is a tribute to the great achievement this one has made."
+	},
+/obj/item/clothing/neck/blkknight{
+	name = "Tsere's Teeth";
+	desc = "Plucked from the maw of the mighty beast herself, these teeth are still just as sharp as before."
+	},
+/obj/item/clothing/head/helmet/heavy/blkknight{
+	name = "Drakeleaf Helm";
+	desc = "Drakeleaf armor, made from the scales of Tsere herself. Wearing such a thing is a tribute to the great achievement this one has made."
+	},
+/obj/item/clothing/gloves/plate/blk{
+	name = "Drakeleaf Gloves";
+	desc = "Drakeleaf armor, made from the scales of Tsere herself. Wearing such a thing is a tribute to the great achievement this one has made."
+	},
+/obj/item/clothing/shoes/boots/armor/blkknight{
+	name = "Drakeleaf Boots";
+	desc = "Drakeleaf armor, made from the scales of Tsere herself. Wearing such a thing is a tribute to the great achievement this one has made."
+	},
+/obj/item/clothing/pants/platelegs/blk{
+	name = "Drakeleaf Legs";
+	desc = "Drakeleaf armor, made from the scales of Tsere herself. Wearing such a thing is a tribute to the great achievement this one has made."
+	},
+/obj/item/weapon/sword/long/death{
+	desc = "Tsere's bone adorns this blade, its strength empowering each swing.";
+	name = "Tsere's Spine"
+	},
+/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
+	blood_volume = 4000;
+	health = 8000;
+	name = "Tsere The Insurmountable";
+	maxHealth = 8000;
+	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
 	},
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
