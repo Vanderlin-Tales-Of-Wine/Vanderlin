@@ -1293,13 +1293,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
-"jz" = (
-/obj/item/clothing/armor/medium/scale{
-	name = "Drakeleaf Scalemail";
-	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this."
-	},
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/dungeon)
 "jA" = (
 /obj/structure/bookcase,
 /obj/structure/fluff/walldeco/vinez/blue,
@@ -4051,16 +4044,6 @@
 "GK" = (
 /turf/open/floor/cobblerock/snow,
 /area/rogue/under/mountains/anvil/upper)
-"GM" = (
-/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
-	blood_volume = 4000;
-	health = 8000;
-	name = "Tsere The Insurmountable";
-	maxHealth = 8000;
-	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon)
 "GP" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/herringbone,
@@ -6590,6 +6573,17 @@
 /area/rogue/under/mountains/anvil/lower)
 "ZV" = (
 /obj/effect/decal/cleanable/sigil,
+/obj/item/clothing/armor/medium/scale{
+	name = "Drakeleaf Scalemail";
+	desc = "This scalemail is woven with dragon scales... it's heat from the red dragon can still be felt. No doubt you will be insurmountable wearing this."
+	},
+/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
+	blood_volume = 4000;
+	health = 8000;
+	name = "Tsere The Insurmountable";
+	maxHealth = 8000;
+	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
+	},
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 
@@ -67409,7 +67403,7 @@ Ky
 Ky
 YW
 ue
-jz
+xl
 jW
 Ae
 Cn
@@ -68423,7 +68417,7 @@ YW
 YW
 Cn
 bN
-GM
+Cn
 xl
 xl
 Cn
