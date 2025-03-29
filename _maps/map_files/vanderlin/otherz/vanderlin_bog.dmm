@@ -1953,6 +1953,10 @@
 /obj/structure/fluff/nest,
 /turf/open/floor/dirt,
 /area/rogue/indoors/shelter/bog)
+"zS" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/bog)
 "zW" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass,
@@ -29877,7 +29881,7 @@ bj
 Xx
 YW
 YW
-Xx
+zS
 Xx
 hf
 hf
