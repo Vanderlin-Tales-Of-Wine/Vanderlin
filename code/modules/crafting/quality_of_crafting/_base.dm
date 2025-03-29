@@ -67,8 +67,7 @@
 		if(!ispath(bundle_path, attacked_atom))
 			return FALSE
 
-
-	if(required_intent && user.used_intent != required_intent)
+	if(required_intent && user.used_intent.type != required_intent)
 		return FALSE
 
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)

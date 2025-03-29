@@ -53,7 +53,7 @@
 		playsound(src, destroy_sound, 100, TRUE)
 		qdel(src)
 		return TRUE
-	..()
+	. = ..()
 
 
 /obj/item/grown/log/tree/attack_right(mob/living/user)
