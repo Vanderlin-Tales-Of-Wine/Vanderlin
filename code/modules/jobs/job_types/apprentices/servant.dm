@@ -58,12 +58,12 @@
 /datum/advclass/servant/keep
 	name = "Keep's Servant"
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to."
-	outfit = /datum/outfit/job/servant_keep
+	outfit = /datum/outfit/job/servant/keep
 	maximum_possible_slots = 5
 
 	category_tags = list(CTAG_SERVANT)
 
-/datum/outfit/job/servant_keep/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/servant/keep/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		neck = /obj/item/key/manor
@@ -71,12 +71,12 @@
 /datum/advclass/servant/inn
 	name = "Innkeeper's Servant"
 	tutorial = "The Innkeeper needed waiters and here am I, serving the food, drinks and ensuring the rooms are clean."
-	outfit = /datum/outfit/job/servant_inn
+	outfit = /datum/outfit/job/servant/inn
 	maximum_possible_slots = 2
 
 	category_tags = list(CTAG_SERVANT)
 
-/datum/outfit/job/servant_inn/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/servant/inn/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		neck = /obj/item/key/tavern
@@ -85,12 +85,12 @@
 	name = "Matron's Servant"
 	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
 	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
-	outfit = /datum/outfit/job/servant_matron_assistant
+	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
 
 	category_tags = list(CTAG_SERVANT)
 
-/datum/outfit/job/servant_matron_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/servant/matron_assistant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		neck = /obj/item/key/matron
