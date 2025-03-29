@@ -211,7 +211,7 @@
 	name = "captain's key"
 	desc = "This key belongs to the Captain of the Guard."
 	icon_state = "cheesekey"
-	lockid = "sheriff"
+	lockid = "captain"
 
 /obj/item/key/merchant
 	name = "merchant's key"
