@@ -112,3 +112,6 @@
 
 /datum/species/halforc/get_accent_list()
 	return strings("halforc_replacement.json", "halforc")
+
+/datum/species/halforc/get_native_language()
+	return "Orcish"

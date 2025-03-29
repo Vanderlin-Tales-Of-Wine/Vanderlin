@@ -157,3 +157,6 @@
 
 /datum/species/aasimar/get_accent_list()
 	return strings("proper_replacement.json", "proper")
+
+/datum/species/aasimar/get_native_language()
+	return "Celestial"
