@@ -292,7 +292,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/bath)
 "ain" = (
 /obj/structure/fermentation_keg/water,
@@ -3013,7 +3013,7 @@
 	dir = 8;
 	icon_state = "stairs"
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/dwarfin)
 "bJU" = (
 /turf/open/floor/dirt/road,
@@ -5308,7 +5308,7 @@
 /obj/structure/stairs{
 	dir = 4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "cUg" = (
 /turf/open/floor/wood/nosmooth/saiga,
@@ -14212,7 +14212,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "hXW" = (
 /obj/structure/stairs/stone{
@@ -17291,7 +17291,7 @@
 	dir = 8
 	},
 /obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "jPl" = (
 /obj/structure/table/wood/reinforced_alt{
@@ -25149,7 +25149,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "oeb" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -25803,7 +25803,7 @@
 /obj/structure/fluff/walldeco/bigpainting/lake{
 	pixel_x = -4
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "owZ" = (
 /obj/structure/rack/shelf/biggest,
@@ -26832,7 +26832,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor)
 "oWu" = (
 /obj/structure/stairs/fancy/r{
@@ -28674,15 +28674,6 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
-"qak" = (
-/obj/structure/stairs/stone/church{
-	dir = 1
-	},
-/obj/structure/stairs/stone/church{
-	dir = 1
-	},
-/turf/open/floor/church,
-/area/rogue/indoors/town/church/chapel)
 "qap" = (
 /obj/structure/stairs/stone/church{
 	dir = 1
@@ -37802,7 +37793,7 @@
 	dir = 8;
 	icon_state = "stairs"
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/soilsons)
 "vch" = (
 /obj/structure/mineral_door/wood{
@@ -39353,7 +39344,7 @@
 /obj/structure/stairs{
 	dir = 1
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/clocktower)
 "vRE" = (
 /obj/structure/spider/stickyweb,
@@ -39786,7 +39777,7 @@
 	dir = 8;
 	icon_state = "stairs"
 	},
-/turf/open/transparent/openspace,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
 "wdD" = (
 /turf/open/floor/churchmarble,
@@ -42888,12 +42879,6 @@
 	name = "hotspring";
 	desc = "Clear and warm shallow water, it'll stave off the cold!"
 	},
-/area/rogue/outdoors/town)
-"xUm" = (
-/obj/structure/stairs/stone{
-	dir = 4
-	},
-/turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "xUN" = (
 /obj/structure/fluff/signage{
@@ -142507,7 +142492,7 @@ rWx
 fZS
 sQe
 yjF
-qak
+mcz
 yjF
 fAD
 nBN
@@ -143719,7 +143704,7 @@ gdl
 fZS
 sQe
 yjF
-qak
+mcz
 yjF
 vwb
 lCU
@@ -153728,9 +153713,9 @@ grI
 grI
 oqy
 its
-xUm
-xUm
-xUm
+vec
+vec
+vec
 sLW
 rOn
 cwC
