@@ -1215,6 +1215,7 @@
 #include "code\game\turfs\closed\minerals.dm"
 #include "code\game\turfs\closed\transparent.dm"
 #include "code\game\turfs\closed\walls.dm"
+#include "code\game\turfs\closed\wall\fake_window.dm"
 #include "code\game\turfs\closed\wall\mineral_walls.dm"
 #include "code\game\turfs\closed\wall\walls.dm"
 #include "code\game\turfs\open\_open.dm"
