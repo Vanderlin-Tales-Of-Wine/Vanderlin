@@ -88,7 +88,7 @@
 				if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 					play_mental_break_indicator()
 		if(stress > oldstress)
-			to_chat(src, span_red("I gain stress"))
+			to_chat(src, span_red("I gain stress."))
 			if(!rogue_sneaking && !HAS_TRAIT(src, TRAIT_IMPERCEPTIBLE))
 				play_stress_indicator()
 		else

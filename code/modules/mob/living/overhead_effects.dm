@@ -12,7 +12,7 @@
 	if(!species)
 		return
 	if(stat < UNCONSCIOUS)
-		COOLDOWN_START(src, stress_indicator, 10 SECONDS)
+		COOLDOWN_START(src, stress_indicator, 8 SECONDS)
 		var/list/offset_list
 		if(gender == FEMALE)
 			offset_list = species.offset_features[OFFSET_HEAD_F]
@@ -56,10 +56,10 @@
 	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/People, iname, I, seers)
 
 /mob/living/carbon/proc/play_stress_indicator()
-	play_overhead_indicator('icons/mob/overhead_effects.dmi', "stress", 15, OBJ_LAYER, soundin = 'sound/ddstress.ogg')
+	play_overhead_indicator('icons/mob/overhead_effects.dmi', "stress", 20, OBJ_LAYER, soundin = 'sound/ddstress.ogg')
 
 /mob/living/carbon/proc/play_relief_indicator()
-	play_overhead_indicator('icons/mob/overhead_effects.dmi', "relief", 15, OBJ_LAYER, soundin = 'sound/ddrelief.ogg')
+	play_overhead_indicator('icons/mob/overhead_effects.dmi', "relief", 20, OBJ_LAYER, soundin = 'sound/ddrelief.ogg')
 
 /mob/living/carbon/proc/play_mental_break_indicator()
-	play_overhead_indicator('icons/mob/overhead_effects.dmi', "mentalbreak", 25, OBJ_LAYER, soundin = 'sound/stressaffliction.ogg')
+	play_overhead_indicator('icons/mob/overhead_effects.dmi', "mentalbreak", 30, OBJ_LAYER, soundin = 'sound/stressaffliction.ogg')
