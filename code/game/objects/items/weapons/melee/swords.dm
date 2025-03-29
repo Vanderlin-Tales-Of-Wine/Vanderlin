@@ -952,6 +952,7 @@
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
 	dropshrink = 0.75
 	sellprice = 1
+	smeltresult = /obj/item/ingot/tin //the truth comes out
 
 /obj/item/weapon/sword/long/replica/death
 	color = CLOTHING_SOOT_BLACK

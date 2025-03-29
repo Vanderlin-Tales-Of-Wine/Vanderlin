@@ -124,7 +124,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /obj/item/bodypart/head/rousman/skeletonize()
 	. = ..()
 	icon_state = "rousman_skel_head"
-	sellprice = 2
+	headprice = 2
 
 
 /datum/species/rousman
