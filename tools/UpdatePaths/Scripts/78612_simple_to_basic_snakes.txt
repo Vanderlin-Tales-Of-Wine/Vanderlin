@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/retaliate/snake : /mob/living/basic/snake{@OLD}
