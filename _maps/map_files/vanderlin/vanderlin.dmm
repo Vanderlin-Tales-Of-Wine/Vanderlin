@@ -23798,6 +23798,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/river)
+"qFf" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/woods_safe)
 "qFU" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/paper/confession,
@@ -145439,7 +145443,7 @@ iSk
 iSk
 loN
 loN
-sXF
+qFf
 hGo
 hGo
 kMP
@@ -145641,7 +145645,7 @@ iSk
 iSk
 loN
 loN
-sXF
+qFf
 sXF
 sXF
 hGo
