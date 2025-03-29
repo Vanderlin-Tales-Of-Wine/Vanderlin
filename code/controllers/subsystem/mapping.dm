@@ -210,16 +210,19 @@ SUBSYSTEM_DEF(mapping)
 	var/list/otherZ = list()
 
 	#ifndef LOWMEMORYMODE
-	for(var/map_json in config.other_z)
-		otherZ += load_map_config(map_json)
+	if(config.other_z) //The list exists, and if it does, it should be non-empty.
+		for(var/json_path in config.other_z)
+			otherZ += load_map_config("_maps/[json_path]")
 	#endif
-	#ifndef NO_DUNGEON
-	otherZ += load_map_config("_maps/map_files/vanderlin/otherz/dungeon.json")
-	#endif
-
 	//For all maps
-	otherZ += load_map_config("_maps/map_files/roguetown/otherz/underworld.json")
-	if(length(otherZ))
+	if(config.underworld_z) //Should always load, but can be disabled for testing environments.
+		otherZ += load_map_config("_maps/[config.underworld_z]")
+	if(config.dungeon_z) //It may be disabled.
+		otherZ += load_map_config("_maps/[config.dungeon_z]")
+
+//	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
+	if(otherZ.len)
+
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)
 
