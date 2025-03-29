@@ -1,5 +1,0 @@
-﻿/turf/open/transparent/openspace:
-  banned_neighbors:
-  - /obj/structure/stairs
-  - /obj/structure/mineral_door
-  - /obj/strucutre/window
