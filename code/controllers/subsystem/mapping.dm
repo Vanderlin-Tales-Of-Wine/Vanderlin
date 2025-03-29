@@ -52,16 +52,12 @@ SUBSYSTEM_DEF(mapping)
 	///antag retainer
 	var/datum/antag_retainer/retainer
 
-/datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
-	if(!config)
-#ifdef FORCE_MAP
-		config = load_map_config(FORCE_MAP)
-#else
-		config = load_map_config(error_if_missing = FALSE)
-#endif
-
 /datum/controller/subsystem/mapping/PreInit()
-	HACK_LoadMapConfig()
+#ifdef FORCE_MAP
+	config = load_map_config(FORCE_MAP)
+#else
+	config = load_map_config(error_if_missing = FALSE)
+#endif
 	// After assigning a config datum to var/config, we check which map ajudstment fits the current config
 	for(var/datum/map_adjustment/each_adjust as anything in subtypesof(/datum/map_adjustment))
 		if(config.map_file && initial(each_adjust.map_file_name) != config.map_file)
@@ -148,7 +144,7 @@ SUBSYSTEM_DEF(mapping)
 	z_list = SSmapping.z_list
 	multiz_levels = SSmapping.multiz_levels
 
-#define INIT_ANNOUNCE(X) to_chat(world, "<span class='boldannounce'>[X]</span>"); log_world(X)
+#define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE)
 	. = list()
 	var/start_time = REALTIMEOFDAY
@@ -213,32 +209,17 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/otherZ = list()
 
-	//For Dakka map		BUNCH OF STONEKEEP EDITS BELOW
-/*	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkacoast.json")
-	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaforest.json")
-	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkamountain.json")*/
-	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/wetlands.json")
-	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/bitterpeaks.json")
-	otherZ += load_map_config("_maps/map_files/stonehamlet/otherz/murderwoods.json")
 	#ifndef LOWMEMORYMODE
-//	if(config.map_name == "Vanderlin") // Vanderlin
-//		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_forest.json")
-//		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_mountain.json")
-		//otherZ += load_map_config("_maps/map_files/roguetown/otherz/smalldecap.json")
-//		otherZ += load_map_config("_maps/map_files/vanderlin/otherz/vanderlin_bog.json")
-		// Add dungeon map files here later, maybe we can pick from a list of them?
-//	else //For Rogue map
-//		otherZ += load_map_config("_maps/map_files/roguetown/otherz/smallforest.json")
-//		otherZ += load_map_config("_maps/map_files/roguetown/otherz/smalldecap.json")
-//		otherZ += load_map_config("_maps/map_files/roguetown/otherz/smallswamp.json")
+	for(var/map_json in config.other_z)
+		otherZ += load_map_config(map_json)
 	#endif
-	//For all maps
-	otherZ += load_map_config("_maps/map_files/roguetown/otherz/underworld.json")
 	#ifndef NO_DUNGEON
 //	otherZ += load_map_config("_maps/map_files/vanderlin/otherz/dungeon.json")
 	#endif
-//	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
-	if(otherZ.len)
+
+	//For all maps
+	otherZ += load_map_config("_maps/map_files/roguetown/otherz/underworld.json")
+	if(length(otherZ))
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)
 
