@@ -2610,8 +2610,7 @@
 /area/rogue/indoors/villagegarrison)
 "bAO" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/town/basement)
@@ -5132,13 +5131,6 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
-"cQL" = (
-/obj/structure/stairs/stone{
-	dir = 8;
-	
-	},
-/turf/open/floor/cobble,
-/area/rogue/outdoors/town)
 "cQO" = (
 /obj/structure/table/wood/large_new{
 	icon_state = "alt_largetable"
@@ -11236,8 +11228,7 @@
 /area/rogue/indoors/town/tavern)
 "gqd" = (
 /obj/structure/stairs/stone{
-	dir = 4;
-	
+	dir = 4
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -14225,8 +14216,7 @@
 /area/rogue/indoors/town)
 "hXW" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/town)
@@ -14308,8 +14298,7 @@
 /area/rogue/indoors/town/tavern)
 "hZu" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -22759,8 +22748,7 @@
 /area/rogue/indoors/town/merc_guild)
 "mPH" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
@@ -24008,8 +23996,7 @@
 /area/rogue/indoors/town)
 "nAR" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	
+	dir = 1
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
@@ -24329,8 +24316,7 @@
 /area/rogue/indoors)
 "nLe" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor)
@@ -30815,8 +30801,7 @@
 /area/rogue/indoors/town)
 "rma" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
@@ -32464,8 +32449,7 @@
 /area/rogue/indoors/town/manor)
 "sgg" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	
+	dir = 1
 	},
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/town)
@@ -35277,8 +35261,7 @@
 /area/rogue/indoors/town/church/inquisition)
 "tFk" = (
 /obj/structure/stairs/stone{
-	dir = 4;
-	
+	dir = 4
 	},
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -37810,8 +37793,7 @@
 /area/rogue/outdoors/town)
 "vbO" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	
+	dir = 1
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
@@ -38605,8 +38587,7 @@
 /area/rogue/indoors/town/magician)
 "vvb" = (
 /obj/structure/stairs/stone{
-	dir = 1;
-	
+	dir = 1
 	},
 /turf/open/water/cleanshallow{
 	name = "hotspring";
@@ -42901,8 +42882,7 @@
 /area/rogue/indoors/soilsons)
 "xUj" = (
 /obj/structure/stairs/stone{
-	dir = 8;
-	
+	dir = 8
 	},
 /turf/open/water/cleanshallow{
 	name = "hotspring";
@@ -112351,8 +112331,8 @@ gzt
 oqy
 oqy
 oqy
-cQL
-cQL
+hcy
+hcy
 hqm
 omp
 eQv
