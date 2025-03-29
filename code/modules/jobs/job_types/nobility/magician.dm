@@ -1,9 +1,9 @@
 /datum/job/magician
 	title = "Court Magician"
-	tutorial = "Dream interpreter, soothsayer, astrologer and valued courtier. \
-	A scholar of Noc, or a secret worshipper of Zizo. \
-	Indebted to the ruler for funding yils of mystical studies in these dark times, \
-	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
+	tutorial = "A seer of dreams, a reader of stars, and a master of the arcane. Along a band of unlikely heros, you shaped the fate of these lands.\
+	Now the days of adventure are gone, replaced by dusty tomes and whispered prophecies. The ruler's coin funds your studies,\
+	but debt's both magical and mortal are never so easily repaid. With age comes wisdom, but also the creeping dread that your greatest spellwork\
+	may already be behind you."
 	flag = WIZARD
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

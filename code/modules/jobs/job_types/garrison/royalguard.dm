@@ -1,8 +1,9 @@
 /datum/job/royalguard
 	title = "Royal Knight"
-	tutorial = "You're an elite member of the Garrison, \
-	awarded with knighthood for your prowess and loyalty. \
-	Be a stalwart guardian for the royal family, and serve them until your dying breath."
+	tutorial = "You are a Knight of the royal garrison, elevated by your skill and unyielding loyalty.\
+	Sworn to protect the royal family, you stand as their shield, but your loyalty is not blind.\
+	You are bound to serve them, but should the monarch forget their place with the gods and the land,\
+	you are not above breaking your oath to restore the balance. Or are you?"
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

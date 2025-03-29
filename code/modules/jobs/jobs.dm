@@ -7,7 +7,6 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	/datum/job/steward::title,
 	/datum/job/magician::title,
 	/datum/job/archivist::title,
-	/datum/job/merchant::title,
 	/datum/job/feldsher::title,
 	/datum/job/apothecary::title,
 	/datum/job/minor_noble::title,
@@ -48,6 +47,7 @@ GLOBAL_LIST_INIT(serf_positions, list(
 	/datum/job/matron::title,
 	/datum/job/physicker::title,
 	/datum/job/scribe::title,
+	/datum/job/merchant::title,
 	))
 GLOBAL_PROTECT(serf_positions)
 
