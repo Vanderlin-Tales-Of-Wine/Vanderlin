@@ -251,6 +251,7 @@
 	name = "ring of burden"
 	icon_state = "ring_protection" //N/A change this
 	sellprice = 0
+	var/bearerdied = FALSE
 
 /obj/item/clothing/ring/gold/burden/Initialize()
 	. = ..()
@@ -318,6 +319,7 @@
 		return
 	visible_message(span_warning("[src] begins to twitch and shake violently, before crumbling into ash"))
 	new /obj/item/ash(loc)
+	bearerdied = TRUE
 	qdel(src)
 
 /obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
@@ -336,6 +338,8 @@
 
 
 /obj/item/clothing/ring/gold/burden/Destroy()
-	SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
-	. = ..()
+	if(bearerdied == TRUE)
+		SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
+		bearerdied = FALSE
+		. = ..()
 

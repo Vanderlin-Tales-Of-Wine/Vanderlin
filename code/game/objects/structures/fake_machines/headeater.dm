@@ -41,7 +41,7 @@
 		to_chat(user, span_danger("you are can't feed the [src] without carrying his burden"))
 		return
 
-	if(istype(H, /obj/item/painting/lorehead) && user.mind.assigned_role == "Gaffer") //this will hopefully be more thematic when the HEAD EATER is in its real form
+	if(istype(H, /obj/item/painting/lorehead) && is_gaffer_job(user.mind.assigned_role)) //this will hopefully be more thematic when the HEAD EATER is in its real form
 		to_chat(user, span_danger("as the [src] consumes [H] without a trace, you are hit with a wistful feeling, your past...gone in an instant."))
 		user.add_stress(/datum/stressevent/destroyed_past)
 		budget2change(H.headprice, user)

@@ -1188,7 +1188,7 @@
 
 /obj/structure/fluff/statue/gaffer //N/A change this
 	name = "Subdued Statue"
-	icon_state = "knightstatue_l"
+	icon_state = "subduedstatue"
 	anchored = TRUE
 	density = FALSE
 	opacity = 0
@@ -1205,7 +1205,13 @@
 	SIGNAL_HANDLER
 	if(ring_destroyed == FALSE)
 		ring_destroyed = TRUE
+		update_icon()
 
+/obj/structure/fluff/statue/gaffer/update_icon()
+	if(ring_destroyed == TRUE)
+		icon_state = "subduedstatue_hasring"
+	if(ring_destroyed == FALSE)
+		icon_state = "subduedstatue"
 
 /obj/structure/fluff/statue/gaffer/examine(mob/user)
 	. = ..()
@@ -1238,5 +1244,5 @@
 		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
 		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows it self into your palm"))
 		ring_destroyed = FALSE
-
+		update_icon()
 

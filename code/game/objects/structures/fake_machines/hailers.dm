@@ -121,16 +121,12 @@
 
 /obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
 	. = ..()
-	if(prob(75))
-		var/message = pick(
-				"<span class='danger'>BbbRRRMMMPHHH... GGRRRRNNN!!</span>",
-				"<span class='danger'>GGGGRRRRR... BLLRRTTT!!</span>",
-				"<span class='danger'>NNNGGGRRBB... MMPHHH!!</span>",
-				"<span class='danger'>Hhbbbh...Mhhaamm--maaahrhh...</span>")
-		say("[message]")
-
-	if(prob(25)) //don't know what the point of this is, seems weird but grungussuss told me to and I said :salute: regime knows best
-		return
+	var/message = pick(
+		"<span class='danger'>BbbRRRMMMPHHH... GGRRRRNNN!!</span>",
+		"<span class='danger'>GGGGRRRRR... BLLRRTTT!!</span>",
+		"<span class='danger'>NNNGGGRRBB... MMPHHH!!</span>",
+		"<span class='danger'>Hhbbbh...Mhhaamm--maaahrhh...</span>")
+	say("[message]")
 
 /obj/structure/fake_machine/hailerboard/attack_hand(mob/user)
 	. = ..()

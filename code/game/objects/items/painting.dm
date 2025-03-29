@@ -110,7 +110,7 @@
 
 /obj/structure/fluff/walldeco/painting/lorehead1/examine(mob/user)
 	. = ..()
-	if(user.mind.assigned_role == "Gaffer")
+	if(is_gaffer_job(user.mind.assigned_role))
 		. += "you weren't supposed to see this" //N/A
 	else
 		. += "you weren't supposed to see this"
@@ -125,7 +125,7 @@
 
 /obj/item/painting/lorehead/one/examine(mob/user)
 	. = ..()
-	if(user.mind.assigned_role == "Gaffer")
+	if(is_gaffer_job(user.mind.assigned_role))
 		. += "you weren't supposed to see this" //N/A
 	else
 		. += "you weren't supposed to see this"

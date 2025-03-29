@@ -2635,7 +2635,9 @@
 	},
 /area/rogue/indoors/town/manor)
 "bJV" = (
-/obj/structure/lever/hidden,
+/obj/structure/lever/hidden{
+	redstone_id = "gaffer"
+	},
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/under/town/caverogue)
 "bKc" = (
@@ -4097,7 +4099,7 @@
 "cHK" = (
 /obj/structure/mineral_door/wood/green{
 	locked = 1;
-	lockid = "gaffer"
+	lockid = "mercanary"
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
@@ -8795,6 +8797,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
+"fXf" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	name = "Mercenary Secret Door";
+	redstone_id = "gaffer"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/merc_guild)
 "fXr" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
@@ -12371,7 +12380,7 @@
 "iyr" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/book/rogue/howtogaffer,
-/turf/open/floor/ruinedwood,
+/turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "iyN" = (
 /turf/open/transparent/openspace,
@@ -23057,7 +23066,6 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/town/caverogue)
 "qmF" = (
-/obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/carpet/red,
 /area/rogue/under/town/caverogue)
@@ -24116,6 +24124,13 @@
 /obj/machinery/light/fueled/firebowl/church,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/church)
+"qZr" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	name = "Mercenary Secret Door";
+	redstone_id = "gaffer1"
+	},
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/indoors/town/merc_guild)
 "qZy" = (
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/wood,
@@ -30708,6 +30723,10 @@
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town)
+"vxK" = (
+/obj/structure/fake_machine/hailerboard/l,
+/turf/open/floor/blocks,
+/area/rogue/outdoors/town)
 "vxV" = (
 /obj/item/ash,
 /turf/open/floor/blocks,
@@ -32406,7 +32425,7 @@
 /obj/structure/chair/wood/alt/fancy{
 	dir = 4
 	},
-/turf/open/floor/ruinedwood,
+/turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "wHp" = (
 /obj/structure/fluff/railing/border{
@@ -34469,7 +34488,7 @@
 /area/rogue/outdoors/town)
 "ylq" = (
 /obj/structure/lever/hidden{
-	redstone_id = "mercenary"
+	redstone_id = "gaffer1"
 	},
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/merc_guild)
@@ -89184,7 +89203,7 @@ mMJ
 mMJ
 mMJ
 mMJ
-oUp
+qZr
 mLO
 pGO
 pGO
@@ -89584,7 +89603,7 @@ vgJ
 bTj
 bTj
 bJV
-oUp
+fXf
 jMD
 dxb
 qGJ
@@ -93229,7 +93248,7 @@ eYq
 lsl
 elp
 kYw
-lsl
+vxK
 lsl
 gpj
 elp
