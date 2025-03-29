@@ -71,7 +71,7 @@
 		if(!(pollutant.pollutant_flags & POLLUTANT_BREATHE_ACT))
 			continue
 		var/amount = pollutants[type]
-		pollutant.breathe_act(victim, amount)
+		pollutant.breathe_act(victim, amount, total_amount)
 
 /// When a user smells this pollution
 /datum/pollution/proc/smell_act(mob/living/sniffer)
@@ -119,7 +119,7 @@
 		qdel(src)
 		return
 	for(var/type in pollutants)
-		pollutants[type] -= amount_to_scrub * pollutants[type] / total_amount
+		pollutants[type] -= max(floor(amount_to_scrub * (pollutants[type] / total_amount)),1)
 	total_amount -= amount_to_scrub
 	update_height()
 	handle_overlay()
@@ -177,7 +177,9 @@
 		if(!isopenturf(open_turf) || QDELING(open_turf) || QDELETED(open_turf.pollution))
 			continue
 		var/datum/pollution/cached_pollution = open_turf.pollution
-		for(var/type in cached_pollution.pollutants)
+		for(var/datum/pollutant/type in cached_pollution.pollutants)
+			if(type.pollutant_flags & POLLUTION_DO_NOT_SPREAD)
+				continue
 			if(!total_share_pollutants[type])
 				total_share_pollutants[type] = 0
 			total_share_pollutants[type] += cached_pollution.pollutants[type]

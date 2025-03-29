@@ -77,6 +77,7 @@
 	toggle_icon_state = TRUE
 	experimental_onhip = TRUE
 	salvage_amount = 1
+	gas_transfer_coefficient = 0.3
 
 /obj/item/clothing/face/shepherd/AdjustClothes(mob/user)
 	if(loc == user)
@@ -89,6 +90,7 @@
 			if(ishuman(user))
 				var/mob/living/carbon/H = user
 				H.update_inv_wear_mask()
+			gas_transfer_coefficient = 0
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
 			flags_inv = HIDEFACE|HIDEFACIALHAIR
@@ -116,6 +118,7 @@
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	sewrepair = TRUE
+	gas_transfer_coefficient = 0.3
 
 /obj/item/clothing/face/phys
 	name = "physicker's mask"
@@ -127,6 +130,7 @@
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	sewrepair = TRUE
+	gas_transfer_coefficient = 0.3
 
 /obj/item/clothing/face/facemask/copper
 	name = "copper mask"
@@ -181,7 +185,7 @@
 	smeltresult = /obj/item/alch/bone
 
 /obj/item/clothing/face/facemask/goldmask
-	name = "Gold Mask"
+	name = "gold mask"
 	icon_state = "goldmask"
 	max_integrity = 150
 	sellprice = 100
