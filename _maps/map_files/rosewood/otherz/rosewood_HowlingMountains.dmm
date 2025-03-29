@@ -3120,9 +3120,7 @@
 /obj/structure/mineral_door/wood/fancywood,
 /obj/structure/fluff/walldeco/vinez/red,
 /obj/effect/mapping_helpers/door/locker,
-/turf/closed/wall/mineral/decostone/long{
-	dir = 1
-	},
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "zl" = (
 /obj/structure/flora/tree/burnt,
@@ -3164,9 +3162,7 @@
 "zw" = (
 /obj/structure/mineral_door/wood/fancywood,
 /obj/structure/fluff/walldeco/vinez/red,
-/turf/closed/wall/mineral/decostone/long{
-	dir = 1
-	},
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "zx" = (
 /turf/open/floor/naturalstone,
@@ -4608,11 +4604,6 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
-"Lf" = (
-/obj/structure/mineral_door/wood/fancywood,
-/obj/structure/fluff/walldeco/vinez/red,
-/turf/closed/wall/mineral/decostone/long,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "Li" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/mountains/anvil/lower)
@@ -4728,9 +4719,7 @@
 "LV" = (
 /obj/structure/mineral_door/wood/fancywood,
 /obj/effect/mapping_helpers/door/locker,
-/turf/closed/wall/mineral/decostone/long{
-	dir = 1
-	},
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "LW" = (
 /obj/structure/fluff/walldeco/painting/queen,
@@ -4910,11 +4899,6 @@
 /obj/effect/spawner/map_spawner/loot,
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/herringbone,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Nf" = (
-/obj/structure/mineral_door/wood/fancywood,
-/obj/effect/mapping_helpers/door/locker,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ng" = (
 /obj/structure/flora/shroom_tree,
@@ -6198,12 +6182,6 @@
 	},
 /mob/living/simple_animal/hostile/retaliate/infernal/imp,
 /turf/open/floor/ruinedwood/spiral,
-/area/rogue/under/mountains/anvil/dungeon/lower)
-"Xk" = (
-/obj/structure/mineral_door/wood/fancywood,
-/obj/structure/fluff/walldeco/vinez/red,
-/obj/effect/mapping_helpers/door/locker,
-/turf/closed/wall/mineral/decostone/long,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Xl" = (
 /obj/machinery/light/fueledstreet/blue{
@@ -7835,7 +7813,7 @@ cB
 Oa
 hI
 nS
-Xk
+zj
 nS
 hI
 ZA
@@ -7845,7 +7823,7 @@ ZA
 Oa
 Tf
 nS
-Xk
+zj
 zT
 hI
 ZA
@@ -8008,7 +7986,7 @@ Oa
 hI
 hd
 nS
-Xk
+zj
 zT
 VO
 hI
@@ -8030,7 +8008,7 @@ cB
 cB
 hI
 nS
-Xk
+zj
 nS
 hI
 Oa
@@ -8054,7 +8032,7 @@ ZA
 Oa
 Tf
 nS
-Xk
+zj
 nS
 VO
 hI
@@ -8217,7 +8195,7 @@ No
 Oa
 hI
 zT
-Xk
+zj
 nS
 Tf
 cB
@@ -8403,7 +8381,7 @@ cB
 cB
 hI
 zT
-Xk
+zj
 nS
 hd
 Tf
@@ -8427,7 +8405,7 @@ cB
 cB
 hI
 nS
-Xk
+zj
 nS
 hI
 ZA
@@ -8618,7 +8596,7 @@ UQ
 cH
 hI
 zT
-Nf
+LV
 nS
 hI
 Oa
@@ -8844,7 +8822,7 @@ hd
 zT
 VO
 zT
-Nf
+LV
 nS
 nS
 Tf
@@ -8869,7 +8847,7 @@ zj
 Rs
 hI
 nS
-Xk
+zj
 nS
 zT
 hI
@@ -9463,7 +9441,7 @@ dI
 cH
 hI
 zT
-Nf
+LV
 zT
 VO
 nS
@@ -10055,7 +10033,7 @@ cB
 cB
 cB
 nS
-Lf
+zw
 nS
 zT
 zT
@@ -10475,7 +10453,7 @@ Oa
 hI
 VO
 nS
-Xk
+zj
 nS
 hd
 hI
@@ -11048,7 +11026,7 @@ MP
 hI
 hd
 nS
-Xk
+zj
 zT
 VO
 cB
@@ -11445,7 +11423,7 @@ WD
 dI
 hI
 zT
-Nf
+LV
 nS
 VO
 hI
@@ -11474,7 +11452,7 @@ wp
 hI
 zT
 nS
-Nf
+LV
 zT
 VO
 nS
@@ -12290,7 +12268,7 @@ Lk
 No
 Tf
 nS
-Xk
+zj
 zT
 VO
 Tf
@@ -12300,7 +12278,7 @@ nS
 hd
 hd
 nS
-Nf
+LV
 zT
 hI
 Oa
@@ -12456,7 +12434,7 @@ Oa
 hI
 VO
 zT
-Xk
+zj
 zT
 hI
 cB
@@ -12859,7 +12837,7 @@ QL
 Oa
 hI
 zT
-Xk
+zj
 nS
 VO
 cB
@@ -13659,7 +13637,7 @@ ZA
 vC
 hI
 zT
-Nf
+LV
 zT
 VO
 VO
@@ -13856,7 +13834,7 @@ wp
 Oa
 hI
 zT
-Nf
+LV
 zT
 hI
 QL
@@ -14286,7 +14264,7 @@ cB
 hd
 hd
 nS
-Xk
+zj
 zT
 VO
 hI
@@ -14871,7 +14849,7 @@ hI
 hI
 hI
 zT
-Xk
+zj
 nS
 hd
 hd
@@ -15068,7 +15046,7 @@ zj
 ZA
 Tf
 nS
-Nf
+LV
 zT
 hI
 Oa
@@ -15091,7 +15069,7 @@ hI
 Oa
 hI
 zT
-Lf
+zw
 nS
 nS
 Tf
@@ -15304,7 +15282,7 @@ hI
 zT
 hd
 nS
-Xk
+zj
 nS
 hd
 zT
@@ -15679,7 +15657,7 @@ ZA
 hI
 VO
 nS
-Lf
+zw
 Tf
 dI
 dl
@@ -16076,7 +16054,7 @@ cB
 cB
 hI
 nS
-Lf
+zw
 nS
 hI
 Oa
@@ -16107,7 +16085,7 @@ hI
 QL
 hI
 zT
-Lf
+zw
 nS
 hd
 nS
@@ -16296,7 +16274,7 @@ lj
 ZA
 hI
 zT
-Nf
+LV
 zT
 VO
 hI
@@ -16304,7 +16282,7 @@ Oa
 Tf
 nS
 nS
-Nf
+LV
 zT
 hI
 QL
@@ -16701,7 +16679,7 @@ hI
 zT
 VO
 zT
-Nf
+LV
 zT
 hI
 dl
@@ -16926,7 +16904,7 @@ Oa
 hI
 nS
 nS
-Xk
+zj
 zT
 hd
 nS
@@ -17119,7 +17097,7 @@ hI
 nS
 VO
 nS
-Xk
+zj
 nS
 hI
 Oa
@@ -17500,7 +17478,7 @@ ZA
 hI
 VO
 zT
-Nf
+LV
 nS
 hd
 hI
@@ -17521,7 +17499,7 @@ dl
 hI
 zT
 zT
-Nf
+LV
 nS
 nS
 hI
@@ -18357,7 +18335,7 @@ dI
 ZA
 Tf
 nS
-Xk
+zj
 zT
 hI
 cB
@@ -18733,7 +18711,7 @@ Oa
 Tf
 nS
 zT
-Nf
+LV
 zT
 zT
 hI
@@ -19367,7 +19345,7 @@ wp
 MP
 Tf
 nS
-Xk
+zj
 nS
 hI
 cB
@@ -19541,7 +19519,7 @@ cB
 cB
 cB
 zT
-Xk
+zj
 nS
 Tf
 dI
@@ -19561,7 +19539,7 @@ dI
 dI
 Tf
 nS
-Xk
+zj
 nS
 hd
 zT
@@ -19769,7 +19747,7 @@ hI
 hI
 QL
 Tf
-Xk
+zj
 nS
 hd
 VO
@@ -20773,7 +20751,7 @@ Ed
 dI
 Tf
 nS
-Nf
+LV
 zT
 VO
 nS
@@ -20954,7 +20932,7 @@ Oa
 hI
 hd
 nS
-Xk
+zj
 nS
 zT
 hI
@@ -20984,7 +20962,7 @@ hI
 nS
 hd
 nS
-Nf
+LV
 zT
 hI
 ZA
@@ -21381,7 +21359,7 @@ ZA
 Tf
 hd
 nS
-Nf
+LV
 zT
 hd
 hI
@@ -21389,7 +21367,7 @@ ZA
 hI
 VO
 nS
-Xk
+zj
 nS
 Tf
 ZA
@@ -22133,7 +22111,7 @@ cB
 hI
 zT
 zT
-Nf
+LV
 zT
 zT
 hI
@@ -22957,7 +22935,7 @@ hI
 hd
 hd
 nS
-Xk
+zj
 nS
 hd
 hd
@@ -23009,7 +22987,7 @@ dl
 dl
 MP
 hI
-Xk
+zj
 nS
 Tf
 Oa
@@ -23167,7 +23145,7 @@ hI
 hI
 hd
 nS
-Xk
+zj
 zT
 cB
 cB
@@ -24019,7 +23997,7 @@ dl
 dI
 Tf
 nS
-Xk
+zj
 zT
 hI
 Oa
@@ -24613,14 +24591,14 @@ hI
 VO
 VO
 nS
-Xk
+zj
 nS
 VO
 hI
 ZA
 Tf
 zT
-Nf
+LV
 nS
 hd
 nS
@@ -25018,7 +24996,7 @@ nS
 hd
 VO
 zT
-Lf
+zw
 nS
 nS
 Tf
@@ -25999,7 +25977,7 @@ ZA
 Tf
 hd
 nS
-Xk
+zj
 nS
 Tf
 Oa
@@ -26432,7 +26410,7 @@ zT
 hd
 hd
 zT
-Nf
+LV
 zT
 cB
 hI
@@ -31049,7 +31027,7 @@ hI
 zT
 zT
 zT
-Nf
+LV
 nS
 hd
 hI
@@ -31260,7 +31238,7 @@ ZA
 Tf
 hd
 nS
-Nf
+LV
 zT
 VO
 VO
@@ -31490,7 +31468,7 @@ LV
 ZA
 hI
 zT
-Xk
+zj
 nS
 hd
 zT
@@ -32045,7 +32023,7 @@ hI
 zT
 zT
 zT
-Nf
+LV
 nS
 nS
 nS
@@ -32876,7 +32854,7 @@ tA
 Tf
 hd
 zT
-Nf
+LV
 zT
 hd
 hd
@@ -33255,7 +33233,7 @@ VO
 ZA
 hI
 nS
-Xk
+zj
 nS
 hd
 hd
@@ -33266,7 +33244,7 @@ cH
 Tf
 nS
 zT
-Nf
+LV
 zT
 nS
 hI
@@ -33274,7 +33252,7 @@ Rs
 hI
 VO
 nS
-Lf
+zw
 nS
 hI
 ZA
@@ -33669,14 +33647,14 @@ cH
 Tf
 zT
 zT
-Nf
+LV
 nS
 nS
 hd
 hd
 zT
 zT
-Xk
+zj
 nS
 hd
 hd
@@ -33859,7 +33837,7 @@ hI
 hI
 Tf
 nS
-Xk
+zj
 nS
 hI
 dl
@@ -33910,7 +33888,7 @@ ZA
 ZA
 hI
 zT
-Lf
+zw
 nS
 hd
 Tf
@@ -34309,7 +34287,7 @@ hI
 cB
 cB
 cB
-Nf
+LV
 nS
 nS
 Tf
@@ -34900,7 +34878,7 @@ fT
 cH
 qz
 nL
-Nf
+LV
 se
 nS
 zT
@@ -35078,7 +35056,7 @@ Oa
 hI
 VO
 nS
-Xk
+zj
 nS
 hI
 cB
@@ -36133,7 +36111,7 @@ cB
 cB
 zT
 zT
-Xk
+zj
 nS
 hd
 nS
@@ -36499,7 +36477,7 @@ hI
 nS
 zT
 nS
-Lf
+zw
 nS
 nS
 hI
@@ -36507,7 +36485,7 @@ Oa
 Tf
 nS
 nS
-Xk
+zj
 nS
 hI
 Oa
@@ -36677,7 +36655,7 @@ cB
 cB
 hI
 nS
-Xk
+zj
 nS
 hI
 cH
@@ -37535,7 +37513,7 @@ Tf
 Tf
 nS
 nS
-Nf
+LV
 zT
 VO
 VO
@@ -37687,7 +37665,7 @@ cB
 hI
 zT
 nS
-Xk
+zj
 Tf
 Oa
 ZA
@@ -38099,7 +38077,7 @@ zT
 hd
 hd
 nS
-Xk
+zj
 zT
 VO
 hd
@@ -38561,7 +38539,7 @@ zj
 Oa
 hI
 nS
-Nf
+LV
 zT
 nS
 Tf
@@ -38738,7 +38716,7 @@ MP
 hI
 nS
 nS
-Xk
+zj
 zT
 VO
 hd
@@ -38967,7 +38945,7 @@ ZA
 hI
 zT
 nS
-Xk
+zj
 hI
 Oa
 tA
@@ -39146,7 +39124,7 @@ Oa
 hI
 nS
 nS
-Lf
+zw
 zT
 zT
 hI
@@ -39319,7 +39297,7 @@ QL
 Oa
 hI
 zT
-Lf
+zw
 nS
 Tf
 ZA
@@ -39513,7 +39491,7 @@ nS
 VO
 hd
 nS
-Xk
+zj
 zT
 VO
 hd
@@ -39921,7 +39899,7 @@ hI
 zT
 hd
 nS
-Xk
+zj
 zT
 VO
 hI
@@ -40177,7 +40155,7 @@ VO
 VO
 zT
 zT
-Nf
+LV
 zT
 VO
 hI
@@ -40976,7 +40954,7 @@ hI
 Lk
 hI
 zT
-Lf
+zw
 nS
 VO
 VO
@@ -40984,7 +40962,7 @@ zT
 hI
 Oa
 hI
-Nf
+LV
 zT
 hd
 zT
@@ -42142,7 +42120,7 @@ ZA
 Tf
 nS
 zT
-Nf
+LV
 nS
 hd
 nS
@@ -42170,7 +42148,7 @@ hI
 zT
 hd
 nS
-Xk
+zj
 nS
 Tf
 tA
@@ -42180,7 +42158,7 @@ hI
 hI
 tA
 hI
-Nf
+LV
 nS
 zT
 zT
@@ -42337,7 +42315,7 @@ cB
 cB
 hI
 nS
-Xk
+zj
 hI
 ZA
 ZA
@@ -42587,7 +42565,7 @@ ZA
 ZA
 hI
 nS
-Lf
+zw
 zT
 hI
 ZA
@@ -42595,7 +42573,7 @@ hI
 nS
 hd
 nS
-Nf
+LV
 zT
 hI
 hI
@@ -42751,7 +42729,7 @@ dI
 hI
 nS
 nS
-Xk
+zj
 nS
 Tf
 cH
@@ -43180,12 +43158,12 @@ hI
 zT
 nS
 nS
-Nf
+LV
 nS
 Tf
 hI
 zT
-Lf
+zw
 nS
 VO
 hI
@@ -43607,7 +43585,7 @@ zT
 zT
 VO
 zT
-Nf
+LV
 nS
 nS
 Tf
@@ -43770,13 +43748,13 @@ fT
 hI
 hd
 nS
-Xk
+zj
 nS
 Tf
 Oa
 Tf
 nS
-Xk
+zj
 zT
 hI
 Rs
@@ -43968,7 +43946,7 @@ hI
 Tf
 Tf
 nS
-Xk
+zj
 QL
 hI
 hI
@@ -44014,7 +43992,7 @@ hI
 nS
 hd
 nS
-Nf
+LV
 zT
 hI
 cB
@@ -44765,7 +44743,7 @@ ZA
 ZA
 hI
 nS
-Xk
+zj
 nS
 hd
 hI
@@ -44802,16 +44780,16 @@ hI
 tA
 ZA
 Tf
-Xk
+zj
 nS
 hI
 ZA
 hI
 zT
-Xk
+zj
 nS
 nS
-Xk
+zj
 VV
 hI
 cH
