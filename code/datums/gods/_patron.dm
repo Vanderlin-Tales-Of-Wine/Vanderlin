@@ -8,6 +8,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /datum/patron
 	/// Name of the god
 	var/name
+	/// Display name of the patron in the prefs menu
+	var/display_name
 	/// Domain of the god, such as earth, fire, water, murder etc
 	var/domain = "Bad coding practices"
 	/// Description of the god
