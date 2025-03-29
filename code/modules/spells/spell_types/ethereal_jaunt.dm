@@ -78,6 +78,7 @@
 	anchored = TRUE
 	invisibility = 60
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	flags_1 = PREVENT_CONTENTS_EXPLOSION_1
 
 /obj/effect/dummy/phased_mob/spell_jaunt/Destroy()
 	// Eject contents if deleted somehow
