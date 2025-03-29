@@ -2,7 +2,18 @@
     "map_name": "Stone Hamlet",
     "map_path": "map_files/stonehamlet",
     "map_file": "stonehamlet.dmm",
-	"traits": [{"Up": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Down": true, "Turf Weather Effects": true}],
+	"traits": [
+		{"Up": true, "Turf Weather Effects": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true},
+		{"Down": true, "Turf Weather Effects": true}
+	],
+	"other_z": [
+		"_maps/map_files/stonehamlet/otherz/wetlands.json",
+		"_maps/map_files/stonehamlet/otherz/bitterpeaks.json",
+		"_maps/map_files/stonehamlet/otherz/murderwoods.json"
+	],
 	"minetype": null,
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0
