@@ -9,6 +9,15 @@
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
 
+/obj/structure/fake_machine/hailer/r
+	pixel_y = 0
+	pixel_x = 32
+
+/obj/structure/fake_machine/hailer/l
+	pixel_y = 0
+	pixel_x = -32
+
+
 /obj/structure/fake_machine/hailer/Initialize(mapload)
 	. = ..()
 	SSroguemachine.hailer = src
@@ -96,6 +105,15 @@
 	icon_state = "mail"
 	density = FALSE
 	blade_dulling = DULLING_BASH
+	pixel_y = 32
+
+/obj/structure/fake_machine/hailerboard/r
+	pixel_y = 0
+	pixel_x = 32
+
+/obj/structure/fake_machine/hailerboard/l
+	pixel_y = 0
+	pixel_x = -32
 
 /obj/structure/fake_machine/hailerboard/Initialize()
 	. = ..()

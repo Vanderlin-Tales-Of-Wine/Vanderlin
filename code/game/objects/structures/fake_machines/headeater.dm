@@ -16,12 +16,20 @@
 
 /obj/structure/fake_machine/headeater
 	name = "head eating HAILER"
-	desc = "seems like its here on the behalf of something else"
+	desc = "A machine that feeds on certain heads for coin, this itteration seems unfinished, what a sell out"
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "mail"
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
+
+/obj/structure/fake_machine/headeater/r
+	pixel_y = 0
+	pixel_x = 32
+
+/obj/structure/fake_machine/headeater/l
+	pixel_y = 0
+	pixel_x = -32
 
 /obj/structure/fake_machine/headeater/attackby(obj/item/H, mob/user, params)
 	. = ..()
