@@ -1,13 +1,70 @@
 {
 
-    "spanish": {
+    "spanish": { 
+                "god": "deidad",
+	        "de": "dee",
+	        "shit": "mierda",
 		"thi": "thee",
 		"s": "ss",
 		"r": "rr",
 		"ish": "eesh",
 		"is": "es",
-		"thanks": "gracias",
-		"in": "en"
+	        "help": "ayuda",
+	        "ha": "ja",
+                "haha": "jaja",
+		"thanks": [ 
+			"gracias",
+		        "te lo agradezco",
+			"muchas gracias"
+		         ],
+	        "thank you": [ 
+			"gracias",
+		        "te lo agradezco",
+			"muchas gracias"
+		         ],
+		"in": "en",
+	        "cc": "ts",
+	        "z": "th", 
+	        "please": "por favor",
+	        "bye":    [
+			"adiós",
+                        "hasta luego",
+			"nos vemos"
+		],
+                "goodbye" :[
+			"adiós",
+			"hasta luego",
+			"nos vemos"
+		],
+	        "brother": "hermano",
+	        "sister": "hermana",
+	        "mom": "mamá",
+	        "mother": "madre",
+	        "dad": "papá",
+	        "father": "padre",
+	        "hello": [
+			"hola",
+			"buenas"
+		],
+	        "hi": [
+			"hola",
+			"buenas"
+		],
+	        "hey": "ey",
+	        "my": "mi",
+	        "wine": "vino",
+	        "captain": "capitán",
+	        "king": "rey",
+	        "monarch": "monarca",
+                "queen": "reina",
+	        "guard": "guarda",
+	        "guitar": "guitarra",
+	        "fucking": [
+			"puto",
+			"maldito"
+		],
+	        "curse": "maldición",
+	        "curses": "maldiciónes"
 		}
 		
 }
