@@ -456,7 +456,7 @@
 
 
 /datum/repeatable_crafting_recipe/crafting/normalbait
-	name = "bait"
+	name = "bait (wheat)"
 	output = /obj/item/bait
 	requirements = list(
 		/obj/item/natural/cloth = 1,
@@ -466,8 +466,19 @@
 	attacked_atom = /obj/item/natural/cloth
 	uses_attacked_atom = TRUE
 
+/datum/repeatable_crafting_recipe/crafting/normalbait
+	name = "bait (oat)"
+	output = /obj/item/bait
+	requirements = list(
+		/obj/item/natural/cloth = 1,
+		/obj/item/reagent_containers/food/snacks/produce/oat = 2,
+	)
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/oat
+	attacked_atom = /obj/item/natural/cloth
+	uses_attacked_atom = TRUE
+
 /datum/repeatable_crafting_recipe/crafting/sweetbait
-	name = "sweet bait - Apple"
+	name = "sweet bait (apple)"
 	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
@@ -478,7 +489,7 @@
 	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/crafting/berrybait
-	name = "sweet bait - Berry"
+	name = "sweet bait (berry)"
 	output = /obj/item/bait/sweet
 	requirements = list(
 		/obj/item/natural/cloth = 1,
