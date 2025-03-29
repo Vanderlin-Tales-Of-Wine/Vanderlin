@@ -50,7 +50,9 @@ SUBSYSTEM_DEF(familytree)
 		"Jailor",
 		"Orphan",
 		"Innkeepers Son",
-		"Churchling"
+		"Churchling"//,
+		//"Gaffer", have to ask if Gaffer x Matron is good, I dont even like it my self but its interesting for balance
+		//"Matron"
 		)
 	//This creates 2 families for each race roundstart so that siblings dont fail to be added to a family.
 	var/list/preset_family_species = list(

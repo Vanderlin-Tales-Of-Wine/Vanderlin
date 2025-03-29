@@ -316,3 +316,11 @@
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/weapon/hammer/copper
 	i_type = "Tools"
+
+/datum/anvil_recipe/tools/headhook
+	name = "Iron Headhook"
+	recipe_name = "An iron headhook"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/natural/fibers = 2)
+	created_item = /obj/item/storage/hip/headhook
+	craftdiff = 3

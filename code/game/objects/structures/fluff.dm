@@ -1180,3 +1180,63 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+//..................................................................................................................................
+/*------------------------------------------------------------------------------------------------------------------------------------\
+|  Gaffer shit, yes I'm making my own place here just for that and maaan its cozy, in this gated community for my self and no one else |
+\------------------------------------------------------------------------------------------------------------------------------------*/
+
+/obj/structure/fluff/statue/gaffer //N/A change this
+	name = "Subdued Statue"
+	icon_state = "knightstatue_l"
+	anchored = TRUE
+	density = FALSE
+	opacity = 0
+	blade_dulling = DULLING_BASHCHOP
+	max_integrity = 999999
+	deconstructible = FALSE
+	var/ring_destroyed = FALSE
+
+/obj/structure/fluff/statue/gaffer/Initialize()
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GAFFER_RING_DESTROYED, PROC_REF(ringdied))
+
+/obj/structure/fluff/statue/gaffer/proc/ringdied(datum/source)
+	SIGNAL_HANDLER
+	if(ring_destroyed == FALSE)
+		ring_destroyed = TRUE
+
+
+/obj/structure/fluff/statue/gaffer/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		. += "slumped and tortured, broken body pertrified and in pain, its chest rose and fell in synch with mine banishing any doubt left, it is me! my own visage glares back at me!"  //this is ass, get better material man -clown
+		user.add_stress(/datum/stressevent/ring_madness)
+		return
+	if(ring_destroyed == TRUE)
+		. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading, in its palms is a glowing ring..."
+		return
+	. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading" //N/A change this
+
+/obj/structure/fluff/statue/gaffer/attack_hand(mob/living/user)
+	. = ..()
+	if(!user.mind)
+		return
+	if(!ring_destroyed)
+		return
+	to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
+	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "TOUCHED THE RING", "Yes", "No")
+
+	if(gaffed == "No" && ring_destroyed == TRUE)
+		to_chat(user, span_danger("yes...best to leave it alone."))
+		return
+
+	if((gaffed == "Yes") && Adjacent(user) && ring_destroyed == TRUE)
+		var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
+		user.put_in_hands(ring)
+		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows it self into your palm"))
+		ring_destroyed = FALSE
+
+

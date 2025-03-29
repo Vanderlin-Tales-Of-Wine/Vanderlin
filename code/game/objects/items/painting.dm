@@ -102,3 +102,30 @@
 	desc = "A painting of a kingly crown resting on a book."
 	icon_state = "crownpainting_deployed"
 	stolen_painting = /obj/item/painting/crown
+
+/obj/structure/fluff/walldeco/painting/lorehead1 //N/A actually make these
+	desc = ""
+	icon_state = "crownpainting_deployed"
+	stolen_painting = /obj/item/painting/lorehead/one
+
+/obj/structure/fluff/walldeco/painting/lorehead1/examine(mob/user)
+	. = ..()
+	if(user.mind.assigned_role == "Gaffer")
+		. += "you weren't supposed to see this" //N/A
+	else
+		. += "you weren't supposed to see this"
+
+
+/obj/item/painting/lorehead/one
+	icon_state = "crownpainting"
+	desc = ""
+	sellprice = 40
+	headprice = 5
+	deployed_structure = /obj/structure/fluff/walldeco/painting/crown
+
+/obj/item/painting/lorehead/one/examine(mob/user)
+	. = ..()
+	if(user.mind.assigned_role == "Gaffer")
+		. += "you weren't supposed to see this" //N/A
+	else
+		. += "you weren't supposed to see this"

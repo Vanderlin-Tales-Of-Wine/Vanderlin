@@ -17,6 +17,7 @@
 		/datum/job/consort,
 		/datum/job/priest,
 		/datum/job/captain,
+		/datum/job/gaffer //no leaving for bozo ring bearer, only relief is death. (it opening the slot back up is gonna bork the ring code)
 	)
 
 /obj/structure/train/MouseDrop_T(atom/dropping, mob/user)

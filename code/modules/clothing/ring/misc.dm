@@ -243,3 +243,99 @@
 		return
 	UnregisterSignal(wearer, COMSIG_MOB_UNEQUIPPED_ITEM)
 	wearer.remove_status_effect(/datum/status_effect/buff/noc)
+
+
+// ................... Ring of Burden ....................... (Gaffer's ring, there should only be one of these at one time)
+
+/obj/item/clothing/ring/gold/burden
+	name = "ring of burden"
+	icon_state = "ring_protection" //N/A change this
+	sellprice = 0
+
+/obj/item/clothing/ring/gold/burden/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, type)
+
+/obj/item/clothing/ring/gold/burden/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		. += "An ancient ring made of pyrite amalgam, an engraved quote is hidden in the inner bridge; \"Heavy is the head that bows\"" //N/A change the quote its too fucking cheese
+		user.add_stress(/datum/stressevent/ring_madness)
+	else
+		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
+
+
+/obj/item/clothing/ring/gold/burden/attack_hand(mob/user)
+	. = ..()
+	if(!user.mind)
+		return
+
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		return TRUE
+
+	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "PICKED UP THE RING", "Yes", "No")
+	var/gaffed_time = world.time
+
+	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //fix the double &&s this is ass
+		user.dropItemToGround(src, force = TRUE)
+		to_chat(user, span_danger("With great effort, the ring slides off your palm to the floor below"))
+		return
+
+	if((gaffed == "Yes") && user.is_holding(src))
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
+		user.equip_to_slot_if_possible(src, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		to_chat(user, span_danger("A constricting weight grows around your neck as you adorn the ring"))
+		return TRUE
+
+	else
+		return
+
+
+
+/obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+
+/obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user) //dont ask me why this isn't handled on on_mob_death, there was a reason once but it was a month ago and I no longer remember it.
+	if(user.ckey)
+		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+		return
+	user.dropItemToGround(src, force = TRUE)
+
+/obj/item/clothing/ring/gold/burden/dropped(mob/user, slot)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 SECONDS)
+	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
+	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change this later
+
+/obj/item/clothing/ring/gold/burden/proc/psstt()
+	if(!ismob(loc))
+		playsound(src, 'sound/vo/psst.ogg', 50)
+		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change to 10 to 20 seconds
+
+/obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
+	if(ismob(loc))
+		return
+	visible_message(span_warning("[src] begins to twitch and shake violently, before crumbling into ash"))
+	new /obj/item/ash(loc)
+	qdel(src)
+
+/obj/item/clothing/ring/gold/burden/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_RING && istype(user)) //this will hopefully be a natural HEADEATER tutorial when HEADEATER is a proper thing
+		//say("good choice") as much as I love the aesthetic of the ring speech bubble being in the inventory screen, cant make it whisper like this
+		var/message = pick(
+				"<span class='danger'>New...bearer...</span>",
+				"<span class='danger'>The...Guild...</span>",
+				"<span class='danger'>Feed...it...</span>",
+				"<span class='danger'>I...see...you...</span>",
+				"<span class='danger'>Serve...me...</span>")
+		to_chat(user, "the ring whispers, \"[message]\"")
+		return
+	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first.")) // this makes no fucking sense, choose what, the pop up? where is my immersion clown! - clown
+
+
+/obj/item/clothing/ring/gold/burden/Destroy()
+	SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
+	. = ..()
+

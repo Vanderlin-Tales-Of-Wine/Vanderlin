@@ -148,6 +148,87 @@
 		/obj/item/ash,
 		))
 
+/datum/component/storage/concrete/grid/magebag
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 5
+
+/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/natural/infernalash,
+		/obj/item/natural/hellhoundfang,
+		/obj/item/natural/moltencore,
+		/obj/item/natural/abyssalflame,
+		/obj/item/natural/fairydust,
+		/obj/item/natural/iridescentscale,
+		/obj/item/natural/heartwoodcore,
+		/obj/item/natural/sylvanessence,
+		/obj/item/natural/elementalmote,
+		/obj/item/natural/elementalshard,
+		/obj/item/natural/elementalfragment,
+		/obj/item/natural/elementalrelic,
+		/obj/item/natural/obsidian,
+		/obj/item/natural/leyline,
+		/obj/item/reagent_containers/food/snacks/produce/manabloom,
+		/obj/item/mana_battery/mana_crystal,
+		/obj/item/ash,
+		))
+
+/datum/component/storage/concrete/grid/headhook
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 6
+	screen_max_columns = 4 //N/A fix later
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	allow_dump_out = TRUE
+	insert_preposition = "in"
+
+/datum/component/storage/concrete/grid/headhook/New(datum/P, ...)
+	. = ..()
+	set_holdable(
+		typecacheof(list(/obj/item/natural/head/volf,
+		/obj/item/natural/head/saiga,
+		/obj/item/natural/head/rous,
+		/obj/item/natural/head/spider,
+		/obj/item/natural/head/bug,
+		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head/rousman,
+		/obj/item/bodypart/head,
+		/obj/item/bodypart/head/orc,
+		/obj/item/bodypart/head/zizombie)
+	))
+
+/datum/component/storage/concrete/grid/headhook/bronze
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 6
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	allow_dump_out = TRUE
+	insert_preposition = "in"
+
+/datum/component/storage/concrete/grid/headhook/bronze/New(datum/P, ...) //N/A set the rows right
+	. = ..()
+	set_holdable(
+		typecacheof(list(/obj/item/natural/head/volf,
+		/obj/item/natural/head/saiga,
+		/obj/item/natural/head/rous,
+		/obj/item/natural/head/spider,
+		/obj/item/natural/head/bug,
+		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head/rousman,
+		/obj/item/bodypart/head,
+		/obj/item/bodypart/head/orc,
+		/obj/item/bodypart/head/zizombie)
+	))
+
 /datum/component/storage/concrete/grid/crucible
 	screen_max_rows = 5
 	screen_max_columns = 3
