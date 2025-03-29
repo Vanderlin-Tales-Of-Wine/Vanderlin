@@ -2,8 +2,18 @@
     "map_name": "Vanderlin",
     "map_path": "map_files/vanderlin",
     "map_file": "vanderlin.dmm",
-	"travel_maps": ["map_files/vanderlin/otherz/vanderlin_forest.json", "map_files/vanderlin/otherz/vanderlin_mountain.json", "map_files/vanderlin/otherz/vanderlin_bog.json"],
-	"traits": [{"Up": true, "Turf Weather Effects": true}, {"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true}, {"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true}, {"Up": true, "Down": true, "Turf Weather Effects": true}, {"Down": true, "Turf Weather Effects": true}],
+	"traits": [
+		{"Up": true, "Turf Weather Effects": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true, "Leylines": true},
+		{"Up": true, "Down": true, "Turf Weather Effects": true},
+		{"Down": true, "Turf Weather Effects": true}
+	],
+	"other_z": [
+		"_maps/map_files/vanderlin/otherz/vanderlin_forest.json",
+		"_maps/map_files/vanderlin/otherz/vanderlin_mountain.json",
+		"_maps/map_files/vanderlin/otherz/vanderlin_bog.json"
+	],
 	"minetype": null,
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0

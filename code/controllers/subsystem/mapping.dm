@@ -52,16 +52,12 @@ SUBSYSTEM_DEF(mapping)
 	///antag retainer
 	var/datum/antag_retainer/retainer
 
-/datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
-	if(!config)
-#ifdef FORCE_MAP
-		config = load_map_config(FORCE_MAP)
-#else
-		config = load_map_config(error_if_missing = FALSE)
-#endif
-
 /datum/controller/subsystem/mapping/PreInit()
-	HACK_LoadMapConfig()
+#ifdef FORCE_MAP
+	config = load_map_config(FORCE_MAP)
+#else
+	config = load_map_config(error_if_missing = FALSE)
+#endif
 	// After assigning a config datum to var/config, we check which map ajudstment fits the current config
 	for(var/datum/map_adjustment/each_adjust as anything in subtypesof(/datum/map_adjustment))
 		if(config.map_file && initial(each_adjust.map_file_name) != config.map_file)
@@ -148,7 +144,7 @@ SUBSYSTEM_DEF(mapping)
 	z_list = SSmapping.z_list
 	multiz_levels = SSmapping.multiz_levels
 
-#define INIT_ANNOUNCE(X) to_chat(world, "<span class='boldannounce'>[X]</span>"); log_world(X)
+#define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 /datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE)
 	. = list()
 	var/start_time = REALTIMEOFDAY
@@ -213,13 +209,8 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/otherZ = list()
 
-	//For Dakka map
-/*	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkacoast.json")
-	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaforest.json")
-	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkamountain.json")
-	otherZ += load_map_config("_maps/map_files/dakkatown/otherz/dakkaswamp.json")*/
 	#ifndef LOWMEMORYMODE
-	if(config.travel_maps) //The list exists, and if it does, it should be non-empty.
+	if(config.other_z) //The list exists, and if it does, it should be non-empty.
 		for(var/json_path in config.travel_maps)
 			otherZ += load_map_config("_maps/[json_path]")
 	#endif
@@ -231,6 +222,7 @@ SUBSYSTEM_DEF(mapping)
 
 //	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
 	if(otherZ.len)
+
 		for(var/datum/map_config/OtherZ in otherZ)
 			LoadGroup(FailedZs, OtherZ.map_name, OtherZ.map_path, OtherZ.map_file, OtherZ.traits, ZTRAITS_STATION)
 

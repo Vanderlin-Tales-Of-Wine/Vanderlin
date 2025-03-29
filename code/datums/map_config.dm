@@ -32,6 +32,8 @@
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
 
+	var/list/other_z
+
 /proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
 	testing("loading map config [filename]")
 	var/datum/map_config/config = new
@@ -152,6 +154,19 @@
 		log_world("map_config space_empty_levels is not a number!")
 		return
 
+	var/list/other_z = json["other_z"]
+	var/list/final_z
+	for(var/map_path in other_z)
+		var/map_file = file(map_path)
+		if(!map_file)
+			stack_trace("tried to load another z-level that didn't exist")
+			continue
+		if(map_path in final_z)
+			stack_trace("tried to add two of the same z-level")
+			continue
+		LAZYOR(final_z, map_path)
+
+	src.other_z = final_z
 	defaulted = FALSE
 	return TRUE
 #undef CHECK_EXISTS
