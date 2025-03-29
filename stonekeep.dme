@@ -1306,6 +1306,7 @@
 #include "code\modules\antagonists\_common\antag_hud.dm"
 #include "code\modules\antagonists\_common\antag_spawner.dm"
 #include "code\modules\antagonists\_common\antag_team.dm"
+#include "code\modules\antagonists\roleobjs\daywalker.dm"
 #include "code\modules\antagonists\roleobjs\prisoner.dm"
 #include "code\modules\antagonists\roleobjs\purishep.dm"
 #include "code\modules\antagonists\roleobjs\skeleton.dm"

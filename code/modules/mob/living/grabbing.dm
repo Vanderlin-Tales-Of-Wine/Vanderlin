@@ -744,6 +744,9 @@
 			if(!VDrinker.isspawn)
 				switch(alert(user, "Would you like to sire a new spawn?","VAMPIRE","Yes","No"))
 					if("Yes")
+						if(user.mind.has_antag_datum(/datum/antagonist/daywalker))
+							to_chat(user, "<span class='warning'>The Daywalker is already a vampire.</span>")
+							return
 						user.visible_message(span_red("[user] begins to infuse dark magic into [C]."))
 						if(do_after(user, 3 SECONDS))
 							C.visible_message(span_red("[C] rises as a new spawn!"))

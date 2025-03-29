@@ -43,6 +43,16 @@
 			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
 			if(VD)
 				dust(just_ash=TRUE,drop_items=TRUE)
+				var/list/allDW = get_antag_minds(/datum/antagonist/daywalker)
+				for(var/datum/mind/mindDW in allDW)
+					var/mob/DW = mindDW.current
+					if(DW && get_dist(src, DW.loc) < 3)
+						if(mind.has_antag_datum(/datum/antagonist/vampirelord, FALSE))
+							DW.adjust_triumphs(3)
+							GLOB.daywalker_vlords++
+						else
+							DW.adjust_triumphs(1)
+							GLOB.daywalker_vlessers++
 				return
 
 		var/datum/antagonist/lich/L = mind.has_antag_datum(/datum/antagonist/lich)

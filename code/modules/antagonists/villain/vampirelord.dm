@@ -43,6 +43,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		return span_boldnotice("Another deadite.")
 	if(istype(examined_datum, /datum/antagonist/skeleton))
 		return span_boldnotice("Another deadite.")
+	if(istype(examined_datum, /datum/antagonist/daywalker))
+		examiner.add_stress(/datum/stressevent/daywalker)
+		return span_userdanger("IT'S THE FUCKING DAYWALKER!")
 
 /datum/antagonist/vampirelord/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
@@ -103,11 +106,19 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		finalize_vampire()
 		owner.current.verbs |= /mob/living/carbon/human/proc/demand_submission
 		owner.current.verbs |= /mob/living/carbon/human/proc/punish_spawn
+
 		for(var/obj/structure/vampire/bloodpool/mansion in GLOB.vampire_objects)
 			mypool = mansion
 		equip_lord()
 		addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "VAMPIRE LORD"), 5 SECONDS)
 		greet()
+
+	var/list/suckheads = get_antag_minds(/datum/antagonist/vampirelord)
+	if(suckheads.len > 6)
+		var/datum/migrant_wave/daywalker = MIGRANT_WAVE(/datum/migrant_wave/daywalker)
+		message_admins("Vampire spawns sufficient. Daywalker migrant has been enabled.")
+		daywalker?.can_roll = TRUE //It's open season.
+
 	return ..()
 
 // OLD AND EDITED
