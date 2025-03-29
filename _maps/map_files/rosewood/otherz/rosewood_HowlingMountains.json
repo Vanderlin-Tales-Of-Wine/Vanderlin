@@ -2,5 +2,8 @@
     "map_name": "Howling Mountains",
     "map_path": "map_files/rosewood/otherz",
     "map_file": "rosewood_HowlingMountains.dmm",
-	"traits": [{"Up": true, "Leylines": true}, {"Up": true, "Down": true, "Leylines": true}, {"Down": true}]
+	"traits": [
+        {"Up": true, "Leylines": true},
+        {"Down": true, "Leylines": true}
+    ]
 }

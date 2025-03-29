@@ -2,5 +2,9 @@
     "map_name": "Rosewood Forest",
     "map_path": "map_files/rosewood/otherz",
     "map_file": "rosewood_forest.dmm",
-	"traits": [{"Up": true, "Leylines": true}, {"Up": true, "Down": true, "Leylines": true}, {"Down": true}]
+	"traits": [
+        {"Up": true, "Leylines": true},
+        {"Up": true, "Down": true, "Leylines": true},
+        {"Down": true}
+    ]
 }

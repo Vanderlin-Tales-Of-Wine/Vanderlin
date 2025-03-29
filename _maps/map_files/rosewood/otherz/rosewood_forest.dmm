@@ -1009,10 +1009,6 @@
 "Zb" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/woods)
-"Zd" = (
-/turf/open/floor/grass/cold,
-/turf/open/floor/dirt/road,
-/area/rogue/outdoors/woods)
 "ZQ" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -25690,7 +25686,7 @@ jV
 jV
 jV
 DG
-Zd
+dA
 dA
 jV
 jV
