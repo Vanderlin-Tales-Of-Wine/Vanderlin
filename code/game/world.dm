@@ -396,8 +396,8 @@ GLOBAL_PROTECT(tracy_init_reason)
 	var/s = ""
 	s += "<center><a href=\"https://discord.gg/zNAGFDcQ\">"
 #ifdef MATURESERVER
-	s += "<big><b>Vanderlin - Now 24/7 (Hosted by Monkestation)</b></big></a><br>"
-	s += "<b>Dark Medieval Fantasy Roleplay<b><br>"
+	s += "<big><b>Stonekeep (Hosted by blood sacrifice)</b></big></a><br>"
+	s += "<b>Dark Fantasy Roleplay<b><br>"
 
 #else
 	s += "<big><b>ROGUEWORLD</b></big></a><br>"

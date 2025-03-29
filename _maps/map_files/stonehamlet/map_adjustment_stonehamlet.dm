@@ -45,7 +45,6 @@
 /datum/job/farmer,
 /datum/job/grabber,
 /datum/job/templar,
-/datum/job/cook,
 /datum/job/undertaker,
 /datum/job/men_at_arms,
 /datum/job/magician,

@@ -1,4 +1,4 @@
-/datum/job/stonekeep/stevedore
+/datum/job/grabber
 	title = "Stevedore"
 	flag = SK_STEVEDORE
 	department_flag = PEASANTS
@@ -23,7 +23,7 @@
 	display_order = STEVEDORE_ORDER
 	cmode_music = 'sound/music/cmode/towner/CombatTowner.ogg'
 
-/datum/job/stonekeep/stevedore/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/grabber/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 /datum/outfit/job/stonekeep/stevedore/pre_equip(mob/living/carbon/human/H)
 	..()

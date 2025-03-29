@@ -808,7 +808,7 @@
 	dir = SOUTH
 	debris = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 1)
 	prob2findstuff = 18
-	var/prob2findgoodie = 15	// base % to find good stuff in the bush, gets modded by fortune and perception
+	var/prob2findgoodie = 20	// base % to find good stuff in the bush, gets modded by fortune and perception
 	var/tobacco
 	var/berries
 	var/silky	// just for bog bushes, its part of a whole thing, don't add bog bushes outside bog
@@ -941,6 +941,6 @@
 	pixel_x = -16
 	pixel_y = -1
 	silky = TRUE
-
+	prob2findgoodie = 70
 
 

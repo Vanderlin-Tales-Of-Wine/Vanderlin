@@ -586,7 +586,7 @@
 		var/mob/living/L = AM
 		if(L.z == z)
 			L.consider_ambush()
-			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 100, TRUE)
+			playsound(src, pick('sound/foley/touch1.ogg','sound/foley/touch2.ogg','sound/foley/touch3.ogg'), 50, TRUE)
 	. = ..()
 
 /obj/structure/flora/rock/pebbles/gray/Initialize()

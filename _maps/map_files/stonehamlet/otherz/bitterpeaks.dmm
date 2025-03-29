@@ -280,7 +280,7 @@
 	pixel_x = -16;
 	pixel_y = 0
 	},
-/turf/open/floor/cobblerock/red,
+/turf/open/floor/churchbrick,
 /area/rogue/under/mountains/anvil/lower)
 "jc" = (
 /obj/structure/rack,
@@ -474,9 +474,6 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains/decap)
-"pp" = (
-/turf/open/floor/cobblemoss,
-/area/rogue/under/lavamonastery)
 "ps" = (
 /turf/closed,
 /area/rogue)
@@ -536,6 +533,12 @@
 /obj/structure/bed/shit,
 /turf/open/floor/dirt,
 /area/rogue/indoors/vampire_manor)
+"sF" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/closed/wall/mineral/decostone/end{
+	dir = 8
+	},
+/area/rogue/indoors/towerofwise)
 "sN" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /turf/open/floor/snow/patchy,
@@ -591,6 +594,13 @@
 /obj/structure/closet/crate/coffin/vampire,
 /turf/open/floor/blocks,
 /area/rogue/indoors/vampire_manor)
+"uR" = (
+/obj/structure/fluff/walldeco/pillar/ionic{
+	pixel_x = 9;
+	pixel_y = -1
+	},
+/turf/closed/wall/mineral/stonebrick/sandstone,
+/area/rogue/under/lavamonastery)
 "uT" = (
 /obj/effect/decal/cleanable/sigil/W,
 /turf/open/floor/naturalstone,
@@ -742,6 +752,14 @@
 /obj/structure/fluff/walldeco/banner_drakon/alt,
 /turf/open/floor/cobble,
 /area/rogue/indoors/vampire_manor)
+"yi" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/walldeco/pillar/ionic{
+	pixel_x = -16;
+	pixel_y = 0
+	},
+/turf/open/floor/blocks/moss,
+/area/rogue/under/lavamonastery)
 "yr" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/old_crate,
@@ -781,6 +799,10 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/towerofwise)
+"Af" = (
+/obj/machinery/light/fueled/firebowl/church,
+/turf/open/floor/cobblerock/red,
+/area/rogue/under/mountains/anvil/lower)
 "Ak" = (
 /obj/item/natural/stone{
 	pixel_x = -11;
@@ -789,6 +811,12 @@
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
+"An" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/closed/wall/mineral/decostone/end{
+	dir = 4
+	},
+/area/rogue/indoors/towerofwise)
 "As" = (
 /obj/structure/flora/rock/pebbles/gray,
 /turf/open/floor/snow/patchy,
@@ -834,8 +862,7 @@
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "Ca" = (
-/obj/machinery/light/fueled/firebowl/church,
-/turf/open/floor/cobblerock/red,
+/turf/open/floor/churchbrick,
 /area/rogue/under/mountains/anvil/lower)
 "Cl" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -854,7 +881,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "Cz" = (
-/turf/closed/wall/mineral/craftstone,
+/turf/closed/wall/mineral/stonebrick/sandstone,
 /area/rogue/under/lavamonastery)
 "Dh" = (
 /obj/effect/decal/cleanable/blood_neu/tracks,
@@ -894,8 +921,15 @@
 	pixel_x = 16;
 	pixel_y = 0
 	},
-/turf/open/floor/cobblerock/red,
+/turf/open/floor/churchbrick,
 /area/rogue/under/mountains/anvil/lower)
+"EL" = (
+/obj/structure/fluff/walldeco/pillar/ionic{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/turf/closed/wall/mineral/stonebrick/sandstone,
+/area/rogue/under/lavamonastery)
 "Fe" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/naturalstone,
@@ -908,6 +942,14 @@
 /obj/machinery/light/fueled/forge,
 /turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
+"FM" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/walldeco/pillar/ionic{
+	pixel_x = -16;
+	pixel_y = 0
+	},
+/turf/open/floor/cobblemoss,
+/area/rogue/under/lavamonastery)
 "Gl" = (
 /obj/effect/spawner/map_spawner/maybe_gote,
 /turf/open/floor/snow/patchy,
@@ -1088,7 +1130,9 @@
 /area/rogue/under/mountains/anvil/lower)
 "Nd" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone,
+/turf/closed/wall/mineral/decostone/long{
+	dir = 1
+	},
 /area/rogue/indoors/towerofwise)
 "Nj" = (
 /obj/structure/stairs/stone{
@@ -1102,7 +1146,7 @@
 /area/rogue/under/lavamonastery)
 "Nm" = (
 /obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/naturalstone,
+/turf/open/floor/churchbrick,
 /area/rogue/under/mountains/anvil/lower)
 "Nn" = (
 /obj/structure/flora/grass/thorn_bush,
@@ -1145,7 +1189,7 @@
 /area/rogue/indoors/cave/bear)
 "PC" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/closed/wall/mineral/craftstone,
+/turf/closed/wall/mineral/stonebrick/sandstone,
 /area/rogue/under/lavamonastery)
 "PJ" = (
 /obj/structure/chair/bench/church,
@@ -1252,6 +1296,12 @@
 "SI" = (
 /turf/open/water,
 /area/rogue/outdoors)
+"SN" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/closed/wall/mineral/decostone/end{
+	dir = 1
+	},
+/area/rogue/indoors/towerofwise)
 "SV" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/chair/stool,
@@ -1311,6 +1361,10 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/mountains/decap)
+"UD" = (
+/obj/machinery/light/fueled/firebowl/church,
+/turf/open/floor/churchbrick,
+/area/rogue/under/mountains/anvil/lower)
 "Vd" = (
 /turf/closed/mineral/random,
 /area/rogue/under/mountains)
@@ -1468,6 +1522,10 @@
 "XX" = (
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/decap)
+"Yq" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/churchbrick,
+/area/rogue/under/mountains/anvil/lower)
 "Yy" = (
 /turf/open/floor/cobblerock/red,
 /area/rogue/under/mountains/anvil/lower)
@@ -1533,6 +1591,10 @@
 "Zy" = (
 /turf/closed/basic,
 /area/rogue)
+"ZA" = (
+/obj/machinery/light/fueled/firebowl/church,
+/turf/open/floor/cobblerock/red,
+/area/rogue/under/cavelava)
 "ZD" = (
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
@@ -21119,14 +21181,14 @@ gp
 gp
 gp
 gp
+ZA
 gp
 gp
 gp
 gp
 gp
 gp
-gp
-gp
+ZA
 gp
 gp
 gp
@@ -21636,9 +21698,9 @@ oZ
 oZ
 oZ
 oZ
-Yy
-Yy
-Yy
+Ca
+Ca
+UD
 Yy
 Yy
 xX
@@ -21768,7 +21830,7 @@ BM
 BM
 BM
 BM
-Yy
+Ca
 Yy
 Yy
 bI
@@ -21781,7 +21843,7 @@ bI
 Yy
 Yy
 Yy
-Yy
+Af
 dR
 Yy
 Xl
@@ -22028,20 +22090,20 @@ fu
 uT
 wG
 BM
-Yy
-Yy
+Ca
+Ca
 EH
-Yy
-Yy
+Ca
+Ca
 EH
-Yy
-Yy
+Ca
+Ca
 EH
-Yy
-Yy
+Ca
+Ca
 EH
-Yy
-Yy
+Ca
+Ca
 oZ
 Yy
 Yy
@@ -22288,20 +22350,20 @@ iw
 wm
 wU
 BM
-Yy
-Yy
+Ca
+Ca
 iJ
-Yy
-Yy
+Ca
+Ca
 iJ
-Yy
-Yy
+Ca
+Ca
 iJ
-Yy
-Yy
+Ca
+Ca
 iJ
-Wo
-Yy
+Yq
+Ca
 oZ
 Yy
 Yy
@@ -22548,7 +22610,7 @@ BM
 BM
 BM
 BM
-Yy
+Ca
 Yy
 Yy
 PJ
@@ -22561,7 +22623,7 @@ PJ
 Xl
 Yy
 Yy
-Yy
+Af
 dR
 Yy
 Yy
@@ -22676,9 +22738,9 @@ oZ
 oZ
 oZ
 oZ
-Yy
-Yy
-Yy
+Ca
+Ca
+UD
 Yy
 Yy
 XV
@@ -23199,14 +23261,14 @@ gp
 gp
 gp
 gp
+ZA
 gp
 gp
 gp
 gp
 gp
 gp
-gp
-gp
+ZA
 gp
 gp
 gp
@@ -30987,13 +31049,13 @@ VO
 Sm
 ZZ
 ZZ
-Nd
-Nd
-Nd
+Cq
 WX
 WX
-Nd
-Nd
+WX
+WX
+WX
+SN
 ZZ
 ZZ
 Sm
@@ -31767,13 +31829,13 @@ ZZ
 VO
 Sm
 ZZ
-Nd
-Nd
-Nd
+Cq
 WX
-Nd
-Nd
-Nd
+WX
+WX
+WX
+WX
+SN
 ZZ
 ZZ
 ZZ
@@ -38632,11 +38694,11 @@ Cz
 kn
 kn
 Mg
+FM
 Mg
 Mg
 Mg
-Mg
-Mg
+FM
 Ta
 Ma
 kn
@@ -38888,7 +38950,7 @@ Cz
 cw
 Mg
 Mg
-Cz
+uR
 Mg
 kn
 Mg
@@ -38901,7 +38963,7 @@ Mg
 Mg
 Ta
 Ta
-Cz
+uR
 zx
 KH
 KH
@@ -39148,7 +39210,7 @@ Cz
 ky
 kn
 Mg
-pp
+EL
 kn
 Mg
 Mg
@@ -39161,7 +39223,7 @@ Mg
 Ta
 Mg
 Mg
-Cz
+EL
 zx
 KH
 KH
@@ -39542,11 +39604,11 @@ PC
 dw
 PC
 Mg
+yi
 Ta
-Ta
 Mg
 Mg
-Mg
+FM
 Mg
 Cz
 eJ
@@ -47628,13 +47690,13 @@ Ze
 Ze
 VO
 VO
-Nd
+Cq
 WX
 WX
 WX
 WX
 WX
-Nd
+SN
 VO
 Ze
 Ze
@@ -48408,13 +48470,13 @@ Sm
 Ze
 Ze
 VO
-Nd
+Cq
 WX
 WX
 WX
 WX
 WX
-Nd
+SN
 VO
 VO
 ZZ
@@ -64275,7 +64337,7 @@ WX
 Ri
 WX
 WX
-WX
+SN
 ZY
 ZY
 ZY
@@ -64535,7 +64597,7 @@ Jy
 Jy
 Jy
 Jy
-Nd
+sF
 ay
 XX
 XX
@@ -64795,7 +64857,7 @@ Jy
 Jy
 Jy
 Jy
-Nd
+An
 ay
 XX
 XX
@@ -65055,7 +65117,7 @@ WX
 Ri
 WX
 WX
-WX
+SN
 ZY
 ZY
 XX

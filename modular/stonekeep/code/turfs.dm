@@ -186,6 +186,18 @@
 /turf/open/floor/sandstone/old
 	icon_state = "sandstone_old"
 
+/turf/open/floor/church
+	canSmoothWith = list(/turf/closed/mineral,
+						/turf/closed/mineral,
+						/turf/closed/wall/mineral/stonebrick,
+						/turf/closed/wall/mineral/wood,
+						/turf/closed/wall/mineral/wooddark,
+						/turf/closed/wall/mineral/stone,
+						/turf/closed/wall/mineral/stone/moss,)
+
+/turf/open/floor/churchrough
+	icon = 'modular/stonekeep/icons/turfs.dmi'
+
 /turf/open/floor/cobblemoss
 	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "cobstonemoss"

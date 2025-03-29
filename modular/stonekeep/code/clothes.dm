@@ -70,16 +70,17 @@
 	worn_y_dimension = 64
 	armor = ARMOR_PLATE_BAD
 
-/obj/item/clothing/head/roguehood/monk
-	name = "pashmina"
-	desc = "A slim hood with thin, yet dense fabric. Stretchy and malleable, allowing for full flexibility and mobility."
+/obj/item/clothing/head/roguehood/shawl
+	name = "shawl"
+	desc = "A thin piece of cloth tied around the neck, can be pulled up to cover the hair for modesty, or to protect against the environment."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	icon_state = "monkhood"
-	item_state = "monkhood"
-/obj/item/clothing/head/roguehood/monk/Initialize()
-	. = ..()
-	color = pick(GLOB.peasant_dyes)
+	icon_state = "shawl"
+	item_state = "shawl"
+	color = "#8c4f4f"
+/obj/item/clothing/head/roguehood/shawl/Initialize()
+	color = pick( CLOTHING_PEASANT_BROWN, CLOTHING_SPRING_GREEN, CLOTHING_CHESTNUT, CLOTHING_YELLOW_OCHRE)
+	..()
 
 /obj/item/clothing/head/archercap
 	name = "archer's cap"

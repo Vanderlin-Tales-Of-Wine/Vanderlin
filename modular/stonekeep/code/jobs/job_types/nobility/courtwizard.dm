@@ -26,6 +26,7 @@
 	only wisdom and arcane knowledge amassed during a long life will allow a mage to unlock their full potential."
 	outfit = /datum/outfit/job/stonekeep/courtwizard
 
+	magic_user = TRUE
 	give_bank_account = 120
 	cmode_music = 'sound/music/cmode/nobility/CombatCourtMagician.ogg'
 
@@ -39,7 +40,7 @@
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltr = /obj/item/storage/keyring/mage
 	shoes = /obj/item/clothing/shoes/shortboots
-	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/killersice = 1)
+	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/killersice = 1,  /obj/item/chalk = 1)
 	if(H.mind)
 		if(!(H.patron == /datum/patron/divine/noc || /datum/patron/inhumen/zizo))
 			H.set_patron(/datum/patron/divine/noc)

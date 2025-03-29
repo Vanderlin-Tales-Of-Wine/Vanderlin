@@ -1,4 +1,4 @@
-/datum/job/stonekeep/jester
+/datum/job/jester
 	title = "Jester"
 	flag = SK_JESTER
 	department_flag = NOBLEMEN

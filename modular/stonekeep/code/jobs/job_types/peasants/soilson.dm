@@ -65,7 +65,7 @@
 	else
 		head = /obj/item/clothing/head/armingcap
 		if(prob(50))
-			head = /obj/item/clothing/head/shawl
+			head = /obj/item/clothing/head/roguehood/shawl
 		armor = /obj/item/clothing/shirt/dress/gen/random
 		shirt = /obj/item/clothing/shirt/undershirt
 		shoes = /obj/item/clothing/shoes/simpleshoes
