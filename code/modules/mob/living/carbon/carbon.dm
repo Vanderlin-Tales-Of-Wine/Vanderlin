@@ -118,9 +118,8 @@
 				done_step = possible_steps[possible_steps[1]]
 			if(done_step?.try_op(user, src, user.zone_selected, I, user.used_intent, try_to_fail))
 				return TRUE
-		else
-			to_chat(user, span_warning("You're unable to perform surgery!"))
 		if(I.item_flags & SURGICAL_TOOL)
+			to_chat(user, span_warning("You're unable to perform surgery!"))
 			return TRUE
 	/*
 	for(var/datum/surgery/S in surgeries)
