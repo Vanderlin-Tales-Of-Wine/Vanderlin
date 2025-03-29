@@ -198,6 +198,7 @@
 
 					if(steelalloy == 7)
 						testing("STEEL ALLOYED")
+						maxore = 3
 						alloy = /obj/item/ingot/steel
 					else if(bronzealloy == 7)
 						testing("BRONZE ALLOYED")
@@ -227,6 +228,7 @@
 								ore -= I
 								ore += R
 								qdel(I)
+					maxore = initial(maxore)
 					playsound(src,'sound/misc/smelter_fin.ogg', 100, FALSE)
 					visible_message("<span class='notice'>\The [src] finished smelting.</span>")
 					cooking = 31

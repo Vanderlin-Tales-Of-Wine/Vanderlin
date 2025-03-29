@@ -8,8 +8,8 @@
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
 	display_order = JDO_CITYWATCHMEN
 	faction = FACTION_STATION
-	total_positions = 8
-	spawn_positions = 8
+	total_positions = 10
+	spawn_positions = 10
 	min_pq = 4
 	bypass_lastclass = TRUE
 
@@ -67,17 +67,18 @@
 /datum/outfit/job/guardsman/footman/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
-	armor = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/chainmail/iron
+	gloves = /obj/item/clothing/gloves/chain
 	shirt = /obj/item/clothing/armor/gambeson
-	backr = /obj/item/weapon/shield/heater
+	backr = /obj/item/weapon/shield/wood
 	backl = /obj/item/storage/backpack/satchel
-	beltr = /obj/item/weapon/sword/short
+	beltr = /obj/item/weapon/sword/scimitar/messer
 	beltl = /obj/item/weapon/mace/cudgel
-	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/weapon/knife/dagger/steel/special)
+	backpack_contents = list(/obj/item/storage/keyring/guard)
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main weapon
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE) // Main
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE) // Main off-hand weapon
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Backup
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) // Off-hand weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
@@ -107,10 +108,11 @@
 	armor = /obj/item/clothing/armor/gambeson/heavy
 	shirt = pick(/obj/item/clothing/shirt/undershirt/guard, /obj/item/clothing/shirt/undershirt/guardsecond)
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	gloves = /obj/item/clothing/gloves/leather
 	backl = /obj/item/storage/backpack/satchel
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	beltl = /obj/item/weapon/mace/cudgel
-	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/weapon/knife/dagger/steel/special)
+	backpack_contents = list(/obj/item/storage/keyring/guard)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE) // Main Weapon
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE) // You don't even have access to crossbows
@@ -146,14 +148,14 @@
 
 /datum/outfit/job/guardsman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/chainmail
+	armor = /obj/item/clothing/armor/chainmail/iron
 	shirt = /obj/item/clothing/armor/gambeson
 	neck = /obj/item/clothing/neck/gorget
 	backl = /obj/item/storage/backpack/satchel
+	gloves = /obj/item/clothing/gloves/chain
 	backr = /obj/item/weapon/polearm/spear
-	beltl = /obj/item/weapon/sword/short
 	beltr = /obj/item/weapon/mace/cudgel
-	backpack_contents = list(/obj/item/storage/keyring/guard, /obj/item/weapon/knife/dagger/steel/special)
+	backpack_contents = list(/obj/item/storage/keyring/guard)
 
 	//Stats for class
 	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)

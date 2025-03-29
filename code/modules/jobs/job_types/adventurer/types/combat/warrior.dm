@@ -89,4 +89,4 @@
 	H.change_stat(STATKEY_END, 1)
 	H.change_stat(STATKEY_CON, 1)
 	H.change_stat(STATKEY_INT, -1) // Muscle brains
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC) // MEDIUM armor training only, this is not a rare drifter, they shouldn't have more armor training than a garrison guard
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) //Starts with no money&no contacts - something to work towards

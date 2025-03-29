@@ -21,7 +21,7 @@
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)
 
 	is_foreigner = TRUE
-	job_reopens_slots_on_death = FALSE //no endless stream of bandits, unless the migration waves deem it so
+	job_reopens_slots_on_death = TRUE //Keeps the threat rolling throughout the round...
 	same_job_respawn_delay = 30 MINUTES
 
 	can_have_apprentices = FALSE

@@ -47,7 +47,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/riding, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/bombs, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, pick(1,2,3,4,5,6), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(1,2,3,4,5,6), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, pick(1,2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(1,2,3,4,5), TRUE)

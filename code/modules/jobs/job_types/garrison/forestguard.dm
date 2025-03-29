@@ -65,7 +65,7 @@
 /datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
 	..()
 	neck = /obj/item/clothing/neck/gorget
-	beltl = /obj/item/weapon/mace/steel/morningstar
+	beltl = /obj/item/weapon/mace/cudgel
 	beltr = /obj/item/weapon/axe/iron
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell
@@ -102,7 +102,7 @@
 
 /datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/chaincoif
+	neck = /obj/item/clothing/neck/chaincoif/iron
 	beltl = /obj/item/weapon/knife/cleaver/combat
 	beltr = /obj/item/ammo_holder/quiver/arrows
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long
@@ -140,8 +140,8 @@
 
 /datum/outfit/job/forestguard/brawler/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/chaincoif
-	beltl = /obj/item/weapon/mace/steel/morningstar
+	neck = /obj/item/clothing/neck/chaincoif/iron
+	beltl = /obj/item/weapon/mace/cudgel
 	beltr = /obj/item/weapon/axe/iron
 	backpack_contents = list(/obj/item/weapon/knife/hunting = 1, /obj/item/rope/chain = 1, /obj/item/key/forrestgarrison = 1, /obj/item/storage/belt/pouch/coins/poor)
 	H.verbs |= /mob/proc/haltyell

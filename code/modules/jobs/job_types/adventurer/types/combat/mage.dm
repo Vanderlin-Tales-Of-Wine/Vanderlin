@@ -15,8 +15,8 @@
 	)
 	outfit = /datum/outfit/job/adventurer/mage
 	category_tags = list(CTAG_ADVENTURER)
-	min_pq = 0
-	maximum_possible_slots = 2
+	min_pq = 5 //Has some major grief potential so increased PQ to 5
+	maximum_possible_slots = 3
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
 /datum/outfit/job/adventurer/mage
@@ -39,6 +39,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 		if(H.age == AGE_OLD)
 			head = /obj/item/clothing/head/wizhat/gen

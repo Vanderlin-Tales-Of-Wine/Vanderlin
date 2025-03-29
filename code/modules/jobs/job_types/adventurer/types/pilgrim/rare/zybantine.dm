@@ -1,18 +1,12 @@
 /datum/advclass/pilgrim/rare/zybantine
 	name = "Zybantine Emir"
-	tutorial = "An Emir hailing from the Zybantu Ziggurat, here on business for the Mercator's Guild to Vanderlin."
+	tutorial = "An Emir hailing from the Zybantine Empire, here on business for the Mercator's Guild to Vanderlin."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
-		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Dark Elf"
 	)
 	outfit = /datum/outfit/job/adventurer/zybantine
 	category_tags = list(CTAG_PILGRIM)
@@ -52,7 +46,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE) //less armor than the grenz - sword to compensate
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		var/prev_real_name = H.real_name

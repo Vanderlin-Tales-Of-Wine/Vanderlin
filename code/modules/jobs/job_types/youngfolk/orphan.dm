@@ -51,7 +51,12 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.STALUC = rand(1, 20)
 	H.change_stat(STATKEY_INT, round(rand(-4,4)))
 	H.change_stat(STATKEY_CON, -1)
 	H.change_stat(STATKEY_END, -1)
+	H.change_stat(STATKEY_SPD, 2)
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	H.grant_language(/datum/language/thievescant)
+

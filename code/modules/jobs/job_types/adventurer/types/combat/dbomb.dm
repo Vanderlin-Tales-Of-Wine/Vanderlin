@@ -1,8 +1,10 @@
 /datum/advclass/combat/dbomb
-	name = "Dwarven Bombardier"
-	tutorial = "Tinkering Dwarves that like to blow things up."
+	name = "Bombardier"
+	tutorial = "Tinkerer that like to blow things up."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Dwarf")
+	allowed_races = list(
+		"Dwarf",
+		"Kobold")
 	outfit = /datum/outfit/job/adventurer/dbomb
 	min_pq = 0
 	category_tags = list(CTAG_ADVENTURER)
