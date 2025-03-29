@@ -33,6 +33,8 @@
 #define ACCESS_HAND "hand"
 #define ACCESS_LORD "lord"
 #define ACCESS_VAULT "vault"
+#define ACCESS_MAGE "mage"
+#define ACCESS_MAGE_GUILD "mageguild"
 
 // Shops
 #define ACCESS_SHOP_I "shop1"

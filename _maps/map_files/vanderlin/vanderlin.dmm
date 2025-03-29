@@ -315,13 +315,6 @@
 "alA" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
-"amb" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "garrison"
-	},
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/indoors/town/garrison)
 "amf" = (
 /obj/structure/window/openclose,
 /turf/open/floor/ruinedwood{
@@ -4329,13 +4322,6 @@
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
-"cSn" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "lord"
-	},
-/turf/open/floor/blocks,
-/area/rogue/under/town/basement)
 "cSs" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -8694,6 +8680,16 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
+"fUT" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcv";
+	locked = 1;
+	lockid = "mage"
+	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/woodturned,
+/area/rogue/indoors/town/magician)
 "fUX" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/weapon/sword/rapier/dec,
@@ -12624,8 +12620,10 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage_guild"
+	lockid = "mage"
 	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
 "iHC" = (
@@ -20277,10 +20275,6 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "ojO" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "garrison"
-	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/cell)
 "ojT" = (
@@ -21706,8 +21700,10 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage_guild"
+	lockid = "mage"
 	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "ppM" = (
@@ -22064,8 +22060,9 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage_guild"
+	lockid = "mage"
 	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
 "pDn" = (
@@ -25401,9 +25398,10 @@
 /area/rogue/indoors/town)
 "saD" = (
 /obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "lord"
+	lockid = "manor"
 	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/garrison/garrison,
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
 "saK" = (
@@ -30285,6 +30283,16 @@
 	},
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town/roofs)
+"vnA" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcv";
+	locked = 1;
+	lockid = "mage"
+	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/turf/open/floor/woodturned,
+/area/rogue/indoors/town/magician)
 "vnF" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
@@ -57603,7 +57611,7 @@ bYe
 tHe
 tHe
 jZU
-cSn
+bET
 jZU
 bUM
 rsP
@@ -131560,7 +131568,7 @@ acx
 acx
 cBJ
 sKT
-pDe
+vnA
 sKT
 sKT
 sKT
@@ -135283,8 +135291,8 @@ aqK
 maf
 aIA
 hOh
-amb
-amb
+nCb
+nCb
 hOh
 wbN
 xMB
@@ -170750,11 +170758,11 @@ qmr
 shM
 shM
 gwg
-pDe
+fUT
 cBJ
 cBJ
 cBJ
-pDe
+fUT
 gwg
 cBJ
 dRD
