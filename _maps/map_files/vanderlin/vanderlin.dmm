@@ -955,7 +955,6 @@
 "aFz" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Jester";
 	vips = list("Jester");
 	redstone_id = 615
@@ -2766,7 +2765,6 @@
 "bOJ" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "matthiosroom"
@@ -3320,7 +3318,6 @@
 	pixel_y = 7
 	},
 /obj/item/clothing/shirt/robe/eora{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/clothing/head/roguehood/eora{
@@ -5564,7 +5561,6 @@
 "dQe" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "King, Queen, Prince, Hand, Butler, Servant";
 	vips = list("King","Queen","Prince","Hand","Butler","Servant");
 	redstone_id = 612
@@ -12022,13 +12018,6 @@
 "iqd" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
-"iqg" = (
-/obj/structure/bars/pipe{
-	dir = 4;
-	pixel_x = -8
-	},
-/turf/closed/wall/mineral/stone,
-/area/rogue/under/town/basement)
 "iqh" = (
 /turf/closed/wall/mineral/wooddark/vertical,
 /area/rogue/indoors/town/smithy)
@@ -12635,7 +12624,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage"
+	lockid = "mage_guild"
 	},
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
@@ -14850,7 +14839,6 @@
 "kgd" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "doorroom"
@@ -15131,7 +15119,6 @@
 "koj" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "orphanstorage"
@@ -18346,7 +18333,6 @@
 "mQL" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Jester";
 	vips = list("Jester");
 	redstone_id = 615
@@ -21720,7 +21706,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage"
+	lockid = "mage_guild"
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
@@ -22078,7 +22064,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "mage"
+	lockid = "mage_guild"
 	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
@@ -22709,7 +22695,6 @@
 	},
 /obj/item/paper/scroll/keep_plans,
 /obj/item/paper/scroll/keep_plans{
-	pixel_x = 0;
 	pixel_y = 9
 	},
 /turf/open/floor/blocks,
@@ -25416,7 +25401,9 @@
 /area/rogue/indoors/town)
 "saD" = (
 /obj/structure/mineral_door/bars{
-	lockid = "manor"
+	lockid = "lord";
+	locked = 1;
+	max_integrity = 10000
 	},
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
@@ -130978,7 +130965,7 @@ wGx
 wGx
 cBJ
 bUM
-iqg
+bUM
 bUM
 rDr
 vgJ

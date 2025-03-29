@@ -387,6 +387,12 @@
 	icon_state = "greenkey"
 	lockid = "tower"
 
+/obj/item/key/mage_guild
+	name = "mage guild key"
+	desc = "A key of jade that opens the door to the magicians guild tower."
+	icon_state = "greenkey"
+	lockid = "mage_guild"
+
 /obj/item/key/mage
 	name = "magicians's key"
 	desc = "This is the Court Magician's key. It watches you..."
