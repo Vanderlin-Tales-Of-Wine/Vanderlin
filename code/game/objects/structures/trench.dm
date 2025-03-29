@@ -61,7 +61,8 @@
 			if(water.dir == direction)
 				continue
 
-		var/turf/open/water/river/creatable/W = new(get_turf(src))
+		var/turf/source_turf = get_turf(src)
+		var/turf/open/water/river/creatable/W = source_turf.PlaceOnTop(/turf/open/water/river/creatable)
 		W.water_reagent = water.water_reagent
 		W.try_set_parent(water)
 		W.update_icon()

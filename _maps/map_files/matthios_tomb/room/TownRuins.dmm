@@ -258,7 +258,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "gt" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/dirt,
 /area/rogue/under/cave)
 "gx" = (
@@ -521,7 +521,7 @@
 /turf/closed/wall/mineral/decostone/cand,
 /area/rogue/under/cave)
 "mv" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/plank,
 /area/rogue/under/cave)
 "my" = (
@@ -665,7 +665,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/cave)
 "qv" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/closed/wall/mineral/wooddark/slitted,
 /area/rogue/under/cave)
 "qz" = (
@@ -754,7 +754,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
 "ss" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "st" = (
@@ -952,7 +952,7 @@
 /area/rogue/under/cave)
 "wM" = (
 /obj/structure/flora/grass,
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/effect/decal/cleanable/blood/footprints,
 /obj/item/chair/fancy,
 /turf/open/floor/grass,
@@ -1293,7 +1293,7 @@
 /turf/open/floor/wood/nosmooth,
 /area/rogue/under/cave)
 "DD" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/structure/mineral_door/wood/fancywood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
@@ -1305,7 +1305,7 @@
 /turf/open/floor/tile,
 /area/rogue/under/cave)
 "Ec" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/cave)
 "En" = (
@@ -1397,7 +1397,7 @@
 /area/rogue/under/cave)
 "Fy" = (
 /obj/structure/fluff/walldeco/vinez/l,
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "FC" = (
@@ -1471,7 +1471,7 @@
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
 "Ii" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/hexstone,
 /area/rogue/under/cave)
 "Im" = (
@@ -1636,7 +1636,7 @@
 /turf/open/floor/churchbrick,
 /area/rogue/under/cave)
 "Lu" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/structure/mineral_door/wood/fancywood,
 /turf/open/floor/carpet,
 /area/rogue/under/cave)
@@ -2176,7 +2176,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
 "Vh" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/ruinedwood,
 /area/rogue/under/cave)
 "Vq" = (
@@ -2346,7 +2346,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "YJ" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
 "YL" = (
