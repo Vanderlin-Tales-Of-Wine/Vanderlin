@@ -467,14 +467,6 @@
 /obj/machinery/light/fueledstreet/blue,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cavewet)
-"anY" = (
-/obj/structure/window/stained,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
-/area/rogue/indoors/town/church/inquisition)
 "aoj" = (
 /obj/machinery/light/fueled/wallfire/candle{
 	pixel_y = -32;
@@ -2619,7 +2611,7 @@
 "bAO" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/closed/wall/mineral/decostone,
 /area/rogue/under/town/basement)
@@ -4474,11 +4466,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church/chapel)
-"cwI" = (
-/obj/structure/window/stained,
-/obj/structure/window/stained,
-/turf/open/floor/churchmarble,
-/area/rogue/indoors/town/clinic_large)
 "cwK" = (
 /obj/structure/bars,
 /obj/structure/bars,
@@ -5148,7 +5135,7 @@
 "cQL" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
@@ -7040,12 +7027,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
 "dQL" = (
-/obj/structure/table/wood/large/corner_alt{
-	dir = 8
-	},
-/obj/structure/table/wood/large/corner_alt{
-	dir = 1
-	},
+/obj/structure/table/wood/plain,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
 "dQT" = (
@@ -7198,13 +7180,6 @@
 	icon_state = "plating2"
 	},
 /area/rogue/outdoors/town)
-"dWn" = (
-/obj/structure/table/wood/large/corner_alt{
-	dir = 1
-	},
-/obj/item/key/houses/house6,
-/turf/open/floor/ruinedwood,
-/area/rogue/indoors/town)
 "dWs" = (
 /obj/structure/bars,
 /turf/open/floor/blocks,
@@ -9628,12 +9603,6 @@
 /obj/structure/fake_machine/mail/l,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town)
-"fqQ" = (
-/obj/structure/table/wood/large/corner_alt{
-	dir = 8
-	},
-/turf/open/floor/ruinedwood/turned,
-/area/rogue/indoors/town)
 "frm" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/key/apartments/apartment18,
@@ -9966,13 +9935,6 @@
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/magician)
-"fAd" = (
-/obj/structure/stairs/stone{
-	dir = 8;
-	icon_state = "stonestairs"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/under/town/basement)
 "fAj" = (
 /obj/structure/lever/wall{
 	dir = 4;
@@ -11275,7 +11237,7 @@
 "gqd" = (
 /obj/structure/stairs/stone{
 	dir = 4;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -11285,7 +11247,8 @@
 /area/rogue/indoors/town/manor)
 "gqB" = (
 /obj/structure/table/wood/large/corner_alt{
-	dir = 5
+	dir = 5;
+	pixel_x = -6
 	},
 /obj/machinery/light/fueled/oven{
 	pixel_y = -32
@@ -12209,12 +12172,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
-"gQS" = (
-/obj/structure/window,
-/obj/structure/window,
-/obj/structure/curtain/bounty,
-/turf/open/floor/ruinedwood,
-/area/rogue/indoors/town)
 "gRd" = (
 /obj/structure/chair/bench/couch,
 /turf/open/floor/carpet/stellar,
@@ -12807,6 +12764,11 @@
 "hgB" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains)
+"hgP" = (
+/obj/structure/closet/crate/drawer,
+/obj/item/key/houses/house6,
+/turf/open/floor/ruinedwood/turned,
+/area/rogue/indoors/town)
 "hho" = (
 /obj/structure/table/wood/plain_alt,
 /obj/structure/table/wood/plain_alt,
@@ -14264,7 +14226,7 @@
 "hXW" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/town)
@@ -14347,7 +14309,7 @@
 "hZu" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -16879,15 +16841,6 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
-"jAW" = (
-/obj/structure/chair/wood/alt{
-	dir = 4
-	},
-/obj/structure/chair/wood/alt{
-	dir = 4
-	},
-/turf/open/floor/ruinedwood/turned/darker,
-/area/rogue/indoors/soilsons)
 "jBa" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1;
@@ -17281,11 +17234,6 @@
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/shop)
-"jMy" = (
-/obj/structure/chair/stool/crafted,
-/obj/structure/chair/stool/crafted,
-/turf/open/floor/wood,
-/area/rogue/indoors/town/tavern)
 "jMz" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/herringbone,
@@ -17902,7 +17850,8 @@
 /area/rogue/indoors/town/bath)
 "ken" = (
 /obj/structure/table/wood/large/corner_alt{
-	dir = 1
+	dir = 1;
+	pixel_x = -6
 	},
 /obj/item/key/houses/house7,
 /turf/open/floor/hexstone,
@@ -18059,15 +18008,6 @@
 	},
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/orphanage)
-"kma" = (
-/obj/structure/window/stained,
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
-/area/rogue/indoors/town/church/inquisition)
 "kmh" = (
 /obj/structure/closet/crate/chest/crafted,
 /obj/item/natural/chaff/wheat,
@@ -18218,10 +18158,6 @@
 "kpA" = (
 /obj/structure/stairs/fancy/r{
 	dir = 8
-	},
-/obj/structure/stairs/stone{
-	dir = 8;
-	icon_state = "stonestairs"
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
@@ -19511,6 +19447,12 @@
 	icon_state = "map2"
 	},
 /turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/town/manor)
+"kXK" = (
+/obj/structure/stairs/fancy/r{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "kXM" = (
 /obj/structure/fake_machine/stockpile,
@@ -21077,13 +21019,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs)
-"lSH" = (
-/obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town)
 "lSL" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/wood,
@@ -22825,7 +22760,7 @@
 "mPH" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
@@ -23831,9 +23766,6 @@
 /area/rogue/indoors/town)
 "ntV" = (
 /obj/structure/table/wood/large/corner_alt{
-	dir = 1
-	},
-/obj/structure/table/wood/large/corner_alt{
 	dir = 4
 	},
 /turf/open/floor/hexstone,
@@ -24077,7 +24009,7 @@
 "nAR" = (
 /obj/structure/stairs/stone{
 	dir = 1;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
@@ -24398,7 +24330,7 @@
 "nLe" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor)
@@ -25164,7 +25096,6 @@
 "odf" = (
 /obj/structure/window/solid,
 /obj/structure/curtain/bounty,
-/obj/structure/window/solid,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/steward)
 "odj" = (
@@ -25257,11 +25188,10 @@
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
 "oeJ" = (
-/obj/structure/stairs/stone{
-	dir = 8;
-	icon_state = "stonestairs"
+/obj/structure/stairs/fancy/l{
+	dir = 8
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "oeS" = (
 /obj/structure/window/stained,
@@ -25326,12 +25256,6 @@
 	},
 /turf/open/floor/churchbrick,
 /area/rogue/indoors/town/church/inquisition)
-"ogG" = (
-/obj/structure/table/wood/large/corner_alt{
-	dir = 9
-	},
-/turf/open/floor/ruinedwood/turned,
-/area/rogue/indoors/town)
 "ogN" = (
 /obj/structure/closet/crate/chest/neu_iron,
 /turf/open/floor/tile/masonic{
@@ -25353,6 +25277,12 @@
 	},
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/town)
+"ohp" = (
+/obj/structure/stairs/fancy/l{
+	dir = 4
+	},
+/turf/open/floor/ruinedwood/darker,
+/area/rogue/indoors/town/manor)
 "ohs" = (
 /obj/structure/table/stone_small,
 /obj/structure/fluff/walldeco/church/line,
@@ -26919,11 +26849,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
 "oWu" = (
-/obj/structure/stairs/stone{
-	dir = 4;
-	icon_state = "stonestairs"
+/obj/structure/stairs/fancy/r{
+	dir = 4
 	},
-/turf/open/floor/ruinedwood/darker,
+/turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "oWY" = (
 /obj/machinery/light/fueled/wallfire{
@@ -30887,7 +30816,7 @@
 "rma" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/sewer)
@@ -32536,7 +32465,7 @@
 "sgg" = (
 /obj/structure/stairs/stone{
 	dir = 1;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/town)
@@ -35349,7 +35278,7 @@
 "tFk" = (
 /obj/structure/stairs/stone{
 	dir = 4;
-	icon_state = "stonestairs"
+	
 	},
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -36391,6 +36320,12 @@
 /obj/item/key/nitemaiden,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/bath)
+"upU" = (
+/obj/structure/stairs/fancy/r{
+	dir = 8
+	},
+/turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/town/manor)
 "uqd" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/under/town/basement)
@@ -36602,11 +36537,7 @@
 "uuc" = (
 /obj/structure/window/stained,
 /obj/structure/fake_machine/scomm,
-/turf/closed/wall/mineral/craftstone{
-	climbdiff = 3;
-	name = "Grooved Wall";
-	desc = "You think you can climb this durable wall"
-	},
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/church/inquisition)
 "uuq" = (
 /obj/effect/mapping_helpers/door/access/manor/manor,
@@ -37426,6 +37357,12 @@
 /obj/item/restraints/legcuffs/beartrap/armed/camouflage,
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/rtfield)
+"uPe" = (
+/obj/structure/stairs/fancy/l{
+	dir = 4
+	},
+/turf/open/floor/carpet/lord/center,
+/area/rogue/indoors/town/manor)
 "uPl" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /obj/structure/fluff/walldeco/psybanner/red,
@@ -37502,10 +37439,6 @@
 "uRb" = (
 /obj/structure/stairs/fancy/l{
 	dir = 8
-	},
-/obj/structure/stairs/stone{
-	dir = 8;
-	icon_state = "stonestairs"
 	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
@@ -37878,7 +37811,7 @@
 "vbO" = (
 /obj/structure/stairs/stone{
 	dir = 1;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
@@ -38673,7 +38606,7 @@
 "vvb" = (
 /obj/structure/stairs/stone{
 	dir = 1;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/water/cleanshallow{
 	name = "hotspring";
@@ -42969,7 +42902,7 @@
 "xUj" = (
 /obj/structure/stairs/stone{
 	dir = 8;
-	icon_state = "stonestairs"
+	
 	},
 /turf/open/water/cleanshallow{
 	name = "hotspring";
@@ -74271,7 +74204,7 @@ rof
 hhK
 xcE
 xcE
-hhK
+xcE
 xcE
 hhK
 xcE
@@ -74472,8 +74405,8 @@ bUK
 xcE
 xcE
 xcE
-hhK
-hhK
+xcE
+xcE
 hhK
 hhK
 xcE
@@ -74674,8 +74607,8 @@ qIb
 gir
 xcE
 xcE
-hhK
-hhK
+xcE
+xcE
 hhK
 xcE
 qJl
@@ -74876,8 +74809,8 @@ pQs
 mRH
 xcE
 xcE
-hhK
-hhK
+xcE
+xcE
 hhK
 xcE
 qJl
@@ -96040,7 +95973,7 @@ cfL
 iNo
 iNo
 iNo
-cwI
+nQE
 iNo
 iNo
 rCU
@@ -103664,8 +103597,8 @@ jyq
 lla
 lla
 sHE
-fAd
-fAd
+hZu
+hZu
 ujW
 kyK
 bqg
@@ -131444,7 +131377,7 @@ uEG
 ilP
 wSH
 cgP
-jAW
+cgP
 qVA
 qzV
 cDC
@@ -136463,7 +136396,7 @@ hjO
 dif
 dif
 dif
-lSH
+nAR
 jKl
 grI
 grI
@@ -136665,7 +136598,7 @@ aML
 dif
 dif
 flj
-lSH
+nAR
 jKl
 grI
 grI
@@ -140443,7 +140376,7 @@ bGg
 bGg
 bGg
 bGg
-oeJ
+upU
 oeJ
 rMp
 sSB
@@ -143675,7 +143608,7 @@ bGg
 bGg
 bGg
 bGg
-oWu
+uPe
 oWu
 rMp
 sSB
@@ -180928,7 +180861,7 @@ gDj
 vYi
 gDj
 cbD
-jMy
+qll
 qjP
 qoV
 uoe
@@ -184278,8 +184211,8 @@ pOm
 pOm
 sNF
 iDM
-oWu
-oWu
+ohp
+kXK
 qAk
 krN
 krN
@@ -186551,7 +186484,7 @@ nAw
 bFq
 bFq
 voH
-gQS
+crE
 grI
 grI
 grI
@@ -191802,7 +191735,7 @@ grI
 grI
 grI
 tKF
-viM
+hgP
 kum
 kum
 kum
@@ -192210,7 +192143,7 @@ kum
 kum
 kum
 kum
-ogG
+kum
 vEK
 lvO
 grI
@@ -192412,7 +192345,7 @@ qPX
 qPX
 qPX
 qPX
-dWn
+qPX
 mBR
 lvO
 grI
@@ -192612,8 +192545,8 @@ bGO
 wGm
 kum
 eBM
-ogG
-fqQ
+kum
+dQL
 dQL
 vEK
 lvO
@@ -197655,15 +197588,15 @@ cYa
 tuz
 mZI
 cYa
-anY
-anY
-anY
+xJq
+xJq
+xJq
 cYa
 uuc
 cYa
-kma
-anY
-anY
+oeS
+xJq
+xJq
 cYa
 qWY
 phH
