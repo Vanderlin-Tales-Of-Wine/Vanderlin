@@ -15,16 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Dark Elf",
-		"Tiefling",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/adept
 	advclass_cat_rolls = list(CTAG_ADEPT = 20)

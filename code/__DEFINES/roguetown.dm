@@ -1,7 +1,19 @@
 //used in various places
-#define ALL_RACES_LIST			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
+#define ALL_RACES_LIST					list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
 
-#define ALL_PLAYER_RACES_BY_NAME		list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Half-Orc", "Aasimar", "Kobold")
+#define RACES_PLAYER_ALL				list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold")
+
+#define RACES_PLAYER_NONDISCRIMINATED	list("Humen", "Half-Elf", "Elf", "Dwarf", "Aasimar")
+#define RACES_PLAYER_NONHERETICAL		list("Humen", "Rakshari", "Half-Elf", "Elf", "Aasimar", "Kobold")
+#define RACES_PLAYER_NONEXOTIC			list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc")
+
+#define RACES_PLAYER_GRENZ				list("Humen", "Dwarf", "Aasimar")
+#define RACES_PLAYER_ELF				list("Half-Elf", "Elf")
+#define RACES_PLAYER_ELF_D				list("Half-Elf", "Dark Elf", "Elf")
+
+#define RACES_PLAYER_PATREON			list("Kobold")
+
+
 
 #define ALL_TEMPLE_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)
 #define ALL_CLERIC_PATRONS 		list(/datum/patron/divine/astrata, /datum/patron/divine/noc, /datum/patron/divine/dendor, /datum/patron/divine/abyssor, /datum/patron/divine/necra, /datum/patron/divine/ravox, /datum/patron/divine/xylix, /datum/patron/divine/pestra, /datum/patron/divine/malum, /datum/patron/divine/eora)

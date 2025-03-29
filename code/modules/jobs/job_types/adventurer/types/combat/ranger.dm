@@ -10,8 +10,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Kobold",
-		"Half-Orc"
+		"Half-Orc",
+		"Rakshari"
 	)
 	outfit = /datum/outfit/job/adventurer/ranger
 	min_pq = 0

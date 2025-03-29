@@ -13,18 +13,7 @@
 	spawn_positions = 4
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Rakshari"
-	)
-
+	allowed_races = RACES_PLAYER_ALL
 	outfit = /datum/outfit/job/bard
 
 /datum/outfit/job/bard/pre_equip(mob/living/carbon/human/H)

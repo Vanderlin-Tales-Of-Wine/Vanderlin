@@ -20,7 +20,7 @@ GLOBAL_VAR_INIT(adventurer_hugbox_duration_still, 3 MINUTES)
 	min_pq = 2
 	bypass_lastclass = TRUE
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = null
 	outfit_female = null
