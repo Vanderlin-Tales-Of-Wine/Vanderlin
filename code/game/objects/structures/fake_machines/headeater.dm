@@ -18,7 +18,7 @@
 	name = "head eating HAILER"
 	desc = "A machine that feeds on certain heads for coin, this itteration seems unfinished, what a sell out"
 	icon = 'icons/roguetown/misc/machines.dmi'
-	icon_state = "mail"
+	icon_state = "headeater"
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32

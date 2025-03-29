@@ -4,7 +4,7 @@
 	name = "HAILER"
 	desc = "A machine that shares the parchment fed to it to all existing HAILERBOARDs for viewing"
 	icon = 'icons/roguetown/misc/machines.dmi'
-	icon_state = "mail"
+	icon_state = "hailer"
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
@@ -102,7 +102,7 @@
 	name = "HAILER BOARD"
 	desc = "A notice board that shows all the notices the Gaffer has put up"
 	icon = 'icons/roguetown/misc/machines.dmi'
-	icon_state = "mail"
+	icon_state = "hailerboard"
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32

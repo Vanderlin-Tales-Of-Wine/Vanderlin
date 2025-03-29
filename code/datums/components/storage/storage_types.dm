@@ -195,8 +195,8 @@
 		/obj/item/natural/head/rous,
 		/obj/item/natural/head/spider,
 		/obj/item/natural/head/bug,
-		/obj/item/natural/head/mole,
 		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head/rousman,
 		/obj/item/bodypart/head,
 		/obj/item/bodypart/head/orc,
 		/obj/item/bodypart/head/zizombie)
@@ -222,8 +222,8 @@
 		/obj/item/natural/head/rous,
 		/obj/item/natural/head/spider,
 		/obj/item/natural/head/bug,
-		/obj/item/natural/head/mole,
 		/obj/item/bodypart/head/goblin,
+		/obj/item/bodypart/head/rousman,
 		/obj/item/bodypart/head,
 		/obj/item/bodypart/head/orc,
 		/obj/item/bodypart/head/zizombie)

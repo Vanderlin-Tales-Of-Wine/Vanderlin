@@ -96,7 +96,7 @@
 /obj/item/natural/head/troll
 	name = "troll head"
 	desc = "the head of a giant troll."
-	icon_state = "saigahead"
+	icon_state = "trollhead"
 	layer = 3.1
 	w_class = WEIGHT_CLASS_HUGE
 	twohands_required = TRUE
@@ -106,7 +106,7 @@
 /obj/item/natural/head/rous
 	name = "rous head"
 	desc = "the head of an unusually large rat."
-	icon_state = "saigahead"
+	icon_state = "roushead"
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
@@ -116,7 +116,7 @@
 /obj/item/natural/head/spider
 	name = "honeyspider head"
 	desc = "the head of a venomous honeyspider."
-	icon_state = "saigahead"
+	icon_state = "spiderhead"
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
@@ -126,7 +126,7 @@
 /obj/item/natural/head/bug
 	name = "bogbug head"
 	desc = "the head of a gross bogbug."
-	icon_state = "saigahead"
+	icon_state = "boghead"
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
@@ -136,10 +136,10 @@
 /obj/item/natural/head/mole
 	name = "mole head"
 	desc = "the head of a lesser mole."
-	icon_state = "saigahead"
+	icon_state = "molehead"
 	layer = 3.1
-	grid_height = 64
-	grid_width = 64
+	w_class = WEIGHT_CLASS_HUGE
+	twohands_required = TRUE
 	headpricemi = 3
 	headpricemax = 7
 
