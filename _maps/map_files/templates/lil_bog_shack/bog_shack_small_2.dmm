@@ -112,10 +112,6 @@
 "t" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bog)
-"u" = (
-/turf/open/transparent/openspace,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/bog)
 "v" = (
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
@@ -263,7 +259,7 @@ b
 (1,1,2) = {"
 t
 t
-u
+t
 t
 t
 t
@@ -275,7 +271,7 @@ t
 (2,1,2) = {"
 t
 t
-u
+t
 t
 t
 t
@@ -287,7 +283,7 @@ t
 (3,1,2) = {"
 t
 t
-u
+t
 v
 v
 v

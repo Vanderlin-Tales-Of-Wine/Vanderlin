@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/pirate/@SUBTYPES : /mob/living/basic/trooper/pirate/@SUBTYPES{@OLD}

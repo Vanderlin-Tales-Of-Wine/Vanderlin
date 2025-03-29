@@ -811,10 +811,10 @@
 /datum/status_effect/buff/powered_steam_armor
 	id = "powered_steam"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/powered_steam_armor
-	effectedstats = list(STATKEY_END = 2, STATKEY_CON = 2, STATKEY_INT = 2, STATKEY_STR = 2, STATKEY_SPD = 2)
+	effectedstats = list(STATKEY_END = 2, STATKEY_CON = 2, STATKEY_STR = 2, STATKEY_SPD = 2)
 	duration = -1
 
 /atom/movable/screen/alert/status_effect/buff/powered_steam_armor
 	name = "Powered Steam Armor"
-	desc = "The armor is powered I feel unstoppable."
+	desc = "The armor is powered. I feel unstoppable."
 	icon_state = "buff"

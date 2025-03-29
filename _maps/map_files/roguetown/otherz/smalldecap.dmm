@@ -1695,15 +1695,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains/decap)
-"Px" = (
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/cobblerock,
-/area/rogue/under/cavelava)
 "PB" = (
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/naturalstone,
@@ -11088,7 +11079,7 @@ Aa
 Aa
 Aa
 Aa
-Px
+IJ
 Jc
 Jc
 Jc
