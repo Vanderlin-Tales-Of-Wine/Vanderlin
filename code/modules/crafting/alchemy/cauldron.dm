@@ -44,15 +44,6 @@
 	brewing = 0
 	..()
 
-/*
-/obj/machinery/light/fueled/cauldron/examine(mob/user)
-	if(ingredients.len)//ingredients.len
-		DISABLE_BITFIELD(reagents.flags, AMOUNT_VISIBLE)
-	else
-		ENABLE_BITFIELD(reagents.flags, AMOUNT_VISIBLE)
-	. = ..()
-*/
-
 /obj/machinery/light/fueled/cauldron/process()
 	..()
 	update_icon()

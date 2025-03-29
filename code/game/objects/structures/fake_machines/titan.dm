@@ -21,10 +21,13 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 	blade_dulling = DULLING_BASH
 	integrity_failure = 0.5
 	max_integrity = 0
-	flags_1 = HEAR_1
 	anchored = TRUE
 	var/mode = 0
 
+
+/obj/structure/fake_machine/titan/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/structure/fake_machine/titan/obj_break(damage_flag)
 	..()

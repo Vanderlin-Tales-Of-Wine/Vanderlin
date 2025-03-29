@@ -430,7 +430,7 @@ GLOBAL_LIST_INIT(visual_ui_id_to_type, list())
 	if (element_flags & MINDUI_FLAG_TOOLTIP)
 		var/mob/M = get_user()
 		if (M)
-			close_tooltip(M)
+			closeToolTip(M)
 
 
 ////////////////// MOVABLE ////////////////////////

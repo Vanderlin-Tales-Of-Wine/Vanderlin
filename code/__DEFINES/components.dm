@@ -182,6 +182,8 @@
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbed)
 
+#define COMSIG_MOB_CREATED_CALLOUT "mob_created_callout"
+
 #define COMSIG_MOB_CLICKON "mob_clickon"						//from base of mob/clickon(): (atom/A, params)
 #define COMSIG_MOB_MIDDLECLICKON "mob_middleclickon"			//from base of mob/MiddleClickOn(): (atom/A)
 #define COMSIG_MOB_ALTCLICKON "mob_altclickon"				//from base of mob/AltClickOn(): (atom/A)
@@ -440,5 +442,9 @@
 
 #define COMSIG_CANCEL_TURF_BREAK "cancel_turf_break_comsig"
 #define COMSIG_MOUSE_ENTERED "comsig_mouse_entered"
+/// signal sent when a mouse is hovering over us, sent by atom/proc/on_mouse_entered
+#define COMSIG_ATOM_MOUSE_ENTERED "mouse_entered"
 
 #define COMSIG_HABITABLE_HOME "comsig_habitable_home"
+
+#define COMSIG_COMBAT_TARGET_SET "comsig_combat_target_set"

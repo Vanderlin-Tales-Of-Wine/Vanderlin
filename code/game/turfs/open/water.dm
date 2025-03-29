@@ -33,6 +33,7 @@
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
 	neighborlay_override = "edge"
+	path_weight = 90
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
 	var/water_volume = 100 // 100 is 1 bucket. Minimum of 10 to count as a water tile
@@ -681,6 +682,7 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
+	path_weight = 150
 	var/river_processing
 	var/river_processes = TRUE
 	swimdir = TRUE

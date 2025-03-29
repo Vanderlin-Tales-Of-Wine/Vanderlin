@@ -13,6 +13,7 @@
 	description = "Talk with other admins."
 
 /datum/keybinding/admin/admin_say/down(client/user)
+	. = ..()
 	user.get_admin_say()
 	return TRUE
 
@@ -24,6 +25,7 @@
 	description = "Go ghost"
 
 /datum/keybinding/admin/admin_ghost/down(client/user)
+	. = ..()
 	user.admin_ghost()
 	return TRUE
 
@@ -35,6 +37,7 @@
 	description = "Opens up the new player panel"
 
 /datum/keybinding/admin/player_panel_new/down(client/user)
+	. = ..()
 	user.holder.player_panel_new()
 	return TRUE
 
@@ -46,6 +49,7 @@
 	description = "Toggles buildmode"
 
 /datum/keybinding/admin/toggle_buildmode_self/down(client/user)
+	. = ..()
 	user.togglebuildmodeself()
 	return TRUE
 
@@ -57,6 +61,7 @@
 	description = "Enters stealth mode"
 
 /datum/keybinding/admin/stealthmode/down(client/user)
+	. = ..()
 	user.stealth()
 	return TRUE
 
@@ -67,6 +72,7 @@
 	description = "Toggles ghost-like invisibility (Don't abuse this)"
 
 /datum/keybinding/admin/invisimin/down(client/user)
+	. = ..()
 	user.invisimin()
 	return TRUE
 
@@ -77,6 +83,7 @@
 	description = "Allows you to send a message to dead chat"
 
 /datum/keybinding/admin/deadsay/down(client/user)
+	. = ..()
 	user.get_dead_say()
 	return TRUE
 
@@ -87,5 +94,6 @@
 	description = "Toggles the admin context menu."
 
 /datum/keybinding/admin/toggle_rightclick_menu/down(client/user)
+	. = ..()
 	user.toggle_context_menu()
 	return TRUE

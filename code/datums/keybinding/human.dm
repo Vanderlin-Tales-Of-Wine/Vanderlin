@@ -47,6 +47,7 @@
 	description = "Focus in a direction."
 
 /datum/keybinding/human/fixeye/down(client/user)
+	. = ..()
 	var/mob/living/carbon/human/H = user.mob
 	H.toggle_eye_intent(H)
 	return TRUE

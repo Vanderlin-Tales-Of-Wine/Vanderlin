@@ -83,33 +83,13 @@
 				if(C.obj_integrity > 1)
 					if(d_type in C.prevent_crits)
 						return TRUE
-/*
-/mob/proc/checkwornweight()
-	return 0
 
-/mob/living/carbon/human/checkwornweight()
-	var/weight = 0
-	var/list/body_parts = list(head, wear_mask, wear_wrists, wear_shirt, wear_neck, wear_armor, wear_pants, back, gloves, shoes, belt, s_store, glasses, ears, wear_ring) //Everything but pockets. Pockets are l_store and r_store. (if pockets were allowed, putting something armored, gloves or hats for example, would double up on the armor)
-	for(var/bp in body_parts)
-		if(!bp)
-			continue
-		if(bp && istype(bp , /obj/item/clothing))
-			var/obj/item/clothing/C = bp
-			if(C.eweight)
-				weight +=  C.eweight
-	return max(weight, 0)
-*/
 /mob/living/carbon/human/on_hit(obj/projectile/P)
 	if(dna && dna.species)
 		dna.species.on_hit(P, src)
 
 
 /mob/living/carbon/human/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
-	if(istype(P, /obj/projectile/bullet))
-		if((P.damage_type == BURN) || (P.damage_type == BRUTE))
-			if(!P.nodamage && P.damage < src.health && isliving(P.firer))
-				retaliate(P.firer)
-
 	if(dna && dna.species)
 		var/spec_return = dna.species.bullet_act(P, src, def_zone)
 		if(spec_return)
@@ -123,8 +103,6 @@
 				return martial_art_result
 
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
-		if(!P.nodamage && isliving(P.firer))
-			retaliate(P.firer)
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
 				visible_message("<span class='danger'>The [P.name] gets reflected by [src]!</span>", \
@@ -210,9 +188,6 @@
 		throwpower = I.throwforce
 		if(I.thrownby == src) //No throwing stuff at myself to trigger hit reactions
 			return ..()
-		else
-			if(ismob(I.thrownby))
-				retaliate(I.thrownby)
 	if(check_shields(AM, throwpower, "\the [AM.name]", THROWN_PROJECTILE_ATTACK))
 		hitpush = FALSE
 		skipcatch = TRUE
@@ -235,7 +210,6 @@
 /mob/living/carbon/human/grippedby(mob/living/user, instant = FALSE)
 	if(wear_pants)
 		wear_pants.add_fingerprint(user)
-	retaliate(user)
 	. = ..()
 
 
@@ -262,16 +236,12 @@
 	SSblackbox.record_feedback("nested tally", "item_used_for_combat", 1, list("[I.force]", "[I.type]"))
 	SSblackbox.record_feedback("tally", "zone_targeted", 1, useder)
 
-	if(I.force)
-		retaliate(user)
-
 	// the attacked_by code varies among species
 	return dna.species.spec_attacked_by(I, user, affecting, used_intent, src, useder)
 
 /mob/living/carbon/human/attack_hand(mob/user)
 	if(..())	//to allow surgery to return properly.
 		return
-	retaliate(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		dna.species.spec_attack_hand(H, src)
@@ -284,8 +254,6 @@
 	if(M.used_intent.type == INTENT_HELP)
 		..() //shaking
 		return 0
-
-	retaliate(M)
 
 	if(M.used_intent.type == INTENT_DISARM) //Always drop item in hand, if no item, get stunned instead.
 		var/obj/item/I = get_active_held_item()
@@ -352,8 +320,6 @@
 		next_attack_msg.Cut()
 		if(nodmg)
 			return FALSE
-		else
-			retaliate(M)
 
 /mob/living/carbon/human/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	..()

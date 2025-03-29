@@ -8,12 +8,15 @@
 	blade_dulling = DULLING_BASH
 	max_integrity = 0
 	pixel_y = 32
-	flags_1 = HEAR_1
 	anchored = TRUE
 	var/next_decree = 0
 	var/listening = TRUE
 	var/speaking = TRUE
 	var/dictating = FALSE
+
+/obj/structure/fake_machine/scomm/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/structure/fake_machine/scomm/r
 	pixel_y = 0
@@ -171,11 +174,15 @@
 	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_RING
 
 	w_class = WEIGHT_CLASS_SMALL
-	flags_1 = HEAR_1
 	muteinmouth = TRUE
 	var/listening = TRUE
 	var/speaking = TRUE
 	sellprice = 35
+
+/obj/item/scomstone/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+
 //wip
 /obj/item/scomstone/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_MELEE)

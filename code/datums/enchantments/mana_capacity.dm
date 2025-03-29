@@ -14,7 +14,7 @@
 		return
 	affecting_mobs[source] |= equipper
 
-	equipper.mana_pool?.set_max_mana(equipper.mana_pool.maximum_mana_capacity + hardcap_increase)
+	equipper.mana_pool?.set_max_mana(equipper.mana_pool.maximum_mana_capacity + hardcap_increase, change_softcap = FALSE)
 
 
 /datum/enchantment/mana_capacity/on_drop(datum/source, mob/living/carbon/user)

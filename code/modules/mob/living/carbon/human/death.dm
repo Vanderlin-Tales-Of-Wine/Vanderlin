@@ -116,7 +116,7 @@
 				if(HU.RomanticPartner(src))
 					HU.adjust_triumphs(-1)
 				if(HU != src && !HAS_TRAIT(HU, TRAIT_BLIND))
-					if(!HAS_TRAIT(HU, TRAIT_VILLAIN) && mode == AI_OFF) //temporary measure for npc skeletons
+					if(!HAS_TRAIT(HU, TRAIT_VILLAIN)) //temporary measure for npc skeletons
 						if(HU.dna?.species && dna?.species)
 							if(HU.dna.species.id == dna.species.id)
 								var/mob/living/carbon/D = HU

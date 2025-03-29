@@ -46,8 +46,8 @@
 			Input Pressure:[input ? input.water_pressure : "0"] "}
 
 /obj/structure/steam_recharger/proc/remove_placed(mob/user)
-	placed_atom.forceMove(get_turf(src))
-	if(user)
+	placed_atom?.forceMove(get_turf(src))
+	if(user && placed_atom)
 		user.put_in_hand(placed_atom)
 	placed_atom = null
 	update_overlays()

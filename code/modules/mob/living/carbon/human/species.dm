@@ -1985,8 +1985,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			"<span class='danger'>[attack_message_local][target.next_attack_msg.Join()]</span>", null, COMBAT_MESSAGE_RANGE)
 		target.next_attack_msg.Cut()
 
-		target.retaliate(user)
-
 /*		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
 			target.visible_message("<span class='danger'>[user] knocks [target] down!</span>", \
 							"<span class='danger'>You're knocked down by [user]!</span>", "<span class='hear'>I hear aggressive shuffling followed by a loud thud!</span>", COMBAT_MESSAGE_RANGE, user)
@@ -2356,7 +2354,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	var/actual_damage = Iforce
 	if(Iforce)
-		H.retaliate(user)
 
 		var/weakness = H.check_weakness(I, user)
 		actual_damage = apply_damage(Iforce * weakness, I.damtype, def_zone, armor_block, H)

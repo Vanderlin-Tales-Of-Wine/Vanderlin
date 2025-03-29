@@ -157,7 +157,7 @@
 	..()
 
 /atom/movable/screen/movable/action_button/MouseExited()
-	close_tooltip(usr)
+	closeToolTip(usr)
 	..()
 
 /datum/hud/proc/get_action_buttons_icons()
@@ -216,7 +216,7 @@
 	var/coord_col = "+[col-1]"
 	var/coord_col_offset = 4 + 2 * col
 
-	var/coord_row = "[row ? row : "+0"]"
+	var/coord_row = "[row ? "+[row]" : "+0"]"
 
 	return "WEST[coord_col]:[coord_col_offset],SOUTH[coord_row]:3"
 

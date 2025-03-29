@@ -5,10 +5,15 @@
 	ask_verb = "questions"
 	exclaim_verb = "shouts"
 	key = "e"
-	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
-	space_chance = 66
+	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD
+	space_chance = 75 //very high due to the potential length of each syllable
+	sentence_chance = 10
+	between_word_sentence_chance = 5
+	between_word_space_chance = 95
+	additional_syllable_low = -1
+	additional_syllable_high = 0
 	default_priority = 80
-	icon_state = "asse"
+	icon_state = "elf"
 	spans = list(SPAN_ELF)
 	syllables = list(
 "ac",
@@ -164,3 +169,7 @@
 "aig",
 "ile",
 "tea")
+
+	mutual_understanding = list(
+		/datum/language/dwarvish = 33,
+	)

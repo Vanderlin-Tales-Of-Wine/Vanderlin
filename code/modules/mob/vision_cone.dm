@@ -257,8 +257,6 @@
 		var/mob/living/carbon/human/H = src
 		if(H.resting || H.lying)
 			return hide_cone()
-		if(!H.client && (H.mode != AI_OFF))
-			return hide_cone()
 	return show_cone()
 
 /mob/proc/update_fov_angles()

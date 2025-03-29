@@ -435,6 +435,7 @@
 						/turf/closed/wall/mineral)
 	neighborlay = "dirtedge"
 	slowdown = 0
+	path_weight = 10
 
 /turf/open/floor/dirt/road/attack_right(mob/user)
 	return

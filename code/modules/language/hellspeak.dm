@@ -5,10 +5,15 @@
 	ask_verb = "asks"
 	exclaim_verb = "shouts"
 	key = "h"
-	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
-	space_chance = 60
+	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD
+	space_chance = 12
+	sentence_chance = 0
+	between_word_sentence_chance = 10
+	between_word_space_chance = 75
+	additional_syllable_low = 0
+	additional_syllable_high = 3
 	default_priority = 80
-	icon_state = "asse"
+	icon_state = "infernal"
 	spans = list(SPAN_HELL)
 	syllables = list(
 "ad",

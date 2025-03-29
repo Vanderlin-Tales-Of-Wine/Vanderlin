@@ -303,6 +303,12 @@
 	check_flags = NONE
 	background_icon_state = "bg_spell"
 
+/datum/action/spell_action/proc/Activate()
+	return
+
+/datum/action/spell_action/proc/Deactivate()
+	return
+
 /datum/action/spell_action/New(Target)
 	..()
 	var/obj/effect/proc_holder/S = target

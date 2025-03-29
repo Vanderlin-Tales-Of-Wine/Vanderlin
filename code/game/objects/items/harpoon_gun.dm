@@ -105,7 +105,10 @@
 	leash_target = target
 
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(leashed_examine))
-	target.apply_damage(15, BRUTE, firer.zone_selected)
+	if(istype(firer))
+		target.apply_damage(15, BRUTE, firer.zone_selected)
+	else
+		target.apply_damage(15, BRUTE, BODY_ZONE_CHEST)
 
 /obj/item/harpoon_gun/proc/leashed_examine(datum/source, mob/user, list/examine_list)
 	examine_list += "<a href='byond://?src=[REF(src)];pull_harpoon=1'>You have a harpoon stuck in you!</a>"
