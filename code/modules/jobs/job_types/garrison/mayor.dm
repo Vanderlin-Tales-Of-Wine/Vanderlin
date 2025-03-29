@@ -1,9 +1,9 @@
 /datum/job/mayor
 	title = "Town Elder"
-	tutorial = "You were once a wanderer, an unremarkable soul who alongside the Veteran, Matron, and Court Magician, carved your name into history.\
-	Now, the days of adventure are long past. You sit as the Towns beloved Elder, while the crown may rule from afar, the people\
+	tutorial = "You were once a wanderer, an unremarkable soul who, alongside the Veteran, Matron, and Court Magician, carved your name into history.\
+	Now, the days of adventure are long past. You sit as the town's beloved elder; while the crown may rule from afar, the people\
 	look to you to settle disputes, mend rifts, and keep the true peace in town. Not every conflict must end in bloodshed,\
-	but when it must you will do what is necessary, as you always have."
+	but when it must, you will do what is necessary, as you always have."
 	flag = MAYOR
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

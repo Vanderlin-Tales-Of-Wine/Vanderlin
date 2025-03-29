@@ -1,8 +1,8 @@
 /datum/job/veteran
 	title = "Veteran"
-	tutorial = "You are a renouned adventurer, once hailed as a savior of these lands, at least while everyone still remembered.\
-	Alongside the Matron, Court Magician, and beloved Town Elder you rose from nothing to everything in the blink of an eye.\
-	Nowadays however, your bones ache, you've retired your sword, and the glory has faded. You wonder what your old friends are doing."
+	tutorial = "You are a renowned adventurer, once hailed as a savior of these lands, at least while everyone still remembered.\
+	Alongside the matron, court magician, and beloved town elder, you rose from nothing to everything in the blink of an eye.\
+	Nowadays, however, your bones ache, you've retired your sword, and the glory has faded. You wonder what your old friends are doing."
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	display_order = JDO_VET

@@ -4,9 +4,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 /datum/job/lord
 	title = "Monarch"
 	tutorial = "Elevated to your throne through a web of intrigue, political maneuvering, and divine sanction, you are the\
-	unquestioned authority of these lands. The Curch has bestowed upon you the legitimacy of the gods themselves, and now\
-	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and\
-	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them\
+	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now\
+	You sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and\
+	would replace you in the blink of an eye. But remember, it's not envy that keeps you in place; it is your will. Show them\
 	the error of their ways."
 	flag = LORD
 	department_flag = NOBLEMEN

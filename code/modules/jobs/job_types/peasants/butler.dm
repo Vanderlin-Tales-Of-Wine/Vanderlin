@@ -3,7 +3,7 @@
 	f_title = "Maid"
 	tutorial = "You are the master of the household staff, ensuring that meals are served, chambers are kept, and the court is kept clean.\
 	Though you wear the royal colors, you hold no true authority. A servant among servants,\
-	yet without your guidance chaos would reign in the kitchens and halls."
+	yet without your guidance chaos would reign in the kitchen and halls."
 	flag = BUTLER
 	department_flag = PEASANTS
 	display_order = JDO_BUTLER
