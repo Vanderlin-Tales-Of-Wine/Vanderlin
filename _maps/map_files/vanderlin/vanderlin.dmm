@@ -4927,9 +4927,12 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "duc" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/closed/mineral,
-/area/rogue/under/town/caverogue)
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "garrison"
+	},
+/turf/open/floor/ruinedwood/turned/darker,
+/area/rogue/indoors/town/garrison)
 "duE" = (
 /obj/structure/bars/pipe{
 	dir = 1;
@@ -20271,6 +20274,10 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "ojO" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "garrison"
+	},
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/cell)
 "ojT" = (
@@ -89139,7 +89146,7 @@ kTV
 kTV
 vgJ
 vgJ
-duc
+vgJ
 vgJ
 vgJ
 vgJ
@@ -135280,8 +135287,8 @@ aqK
 maf
 aIA
 hOh
-nCb
-nCb
+duc
+duc
 hOh
 wbN
 xMB
