@@ -37,6 +37,7 @@
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
 	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	spawned.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6)
 
 /datum/outfit/job/consort
 	job_bitflag = BITFLAG_ROYALTY
