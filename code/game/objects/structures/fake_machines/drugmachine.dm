@@ -185,6 +185,7 @@
 			budget -= cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				SStreasury.give_money_treasury(tax_amt, "goldface import tax")
+				GLOB.vanderlin_round_stats["taxes_collected"] += tax_amt
 		else
 			say("Not enough!")
 			return
