@@ -211,14 +211,14 @@ SUBSYSTEM_DEF(mapping)
 
 	#ifndef LOWMEMORYMODE
 	if(config.other_z) //The list exists, and if it does, it should be non-empty.
-		for(var/json_path in config.travel_maps)
+		for(var/json_path in config.other_z)
 			otherZ += load_map_config("_maps/[json_path]")
 	#endif
 	//For all maps
-	if(config.underworld_map) //Should always load, but can be disabled for testing environments.
-		otherZ += load_map_config("_maps/[config.underworld_map]")
-	if(config.dungeon_map) //It may be disabled.
-		otherZ += load_map_config("_maps/[config.dungeon_map]")
+	if(config.underworld_z) //Should always load, but can be disabled for testing environments.
+		otherZ += load_map_config("_maps/[config.underworld_z]")
+	if(config.dungeon_z) //It may be disabled.
+		otherZ += load_map_config("_maps/[config.dungeon_z]")
 
 //	otherZ += load_map_config("_maps/map_files/roguetown/otherz/special.json")
 	if(otherZ.len)

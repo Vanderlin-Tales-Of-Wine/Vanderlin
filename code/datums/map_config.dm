@@ -24,15 +24,13 @@
 	var/map_name = "Dun Manor"
 	var/map_path = "map_files/dun_manor"
 	var/map_file = "dun_manor.dmm"
-	var/list/travel_maps = null //We do not want to initialize the list here. No reason to keep it in memory.
-	var/underworld_map = UNDERWORLD_DEFAULT_PATH
-	var/dungeon_map = DUNGEON_DEFAULT_PATH
+	var/list/other_z = null //We do not want to initialize the list here. No reason to keep it in memory.
+	var/underworld_z = UNDERWORLD_DEFAULT_PATH
+	var/dungeon_z = DUNGEON_DEFAULT_PATH
 
 	var/traits = null
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
-
-	var/list/other_z
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_box, delete_after, error_if_missing = TRUE)
 	testing("loading map config [filename]")
@@ -94,38 +92,41 @@
 		log_world("map_file missing from json!")
 		return
 
-	var/temp = json["travel_maps"]
+	var/temp = json["other_z"]
 	if(islist(temp))
-		for(var/json_path in temp)
-			if(!fexists("_maps/[json_path]"))
-				log_world("One or more travel .json files do not exist! Running default.")
-				temp = TRAVEL_DEFAULT_LIST
-				break
-		travel_maps = temp //Now we either have a list with the default travel locations or whatever the map specified.
-
-	else //Not a list. It either doesn't exist as a difinition or is disabled.
+		var/list/final_z = list()
+		for(var/map_path in temp)
+			if(!file(map_path))
+				stack_trace("Tried to load another z-level that didn't exist.")
+				continue
+			if(map_path in final_z)
+				stack_trace("Tried to add two of the same z-level.")
+				continue
+			LAZYOR(final_z, map_path)
+		other_z = final_z
+	else //Not a list. It either doesn't exist as a definition or is disabled.
 		if(temp != "disabled") //If we didn't manually disable this, defaults to Roguetown travel maps.
-			travel_maps = TRAVEL_DEFAULT_LIST
+			other_z = TRAVEL_DEFAULT_LIST
 
-	temp = json["underworld_map"]
+	temp = json["underworld_z"]
 	if(istext(temp)) //We only care about this if it changed.
 		if(temp != "disabled")
 			if(!fexists("_maps/[temp]"))
 				log_world("The underworld .json file does not exist! Running default.")
 			else
-				underworld_map = temp
+				underworld_z = temp
 		else //If we disabled it.
-			underworld_map = null
+			underworld_z = null
 
-	temp = json["dungeon_map"]
+	temp = json["dungeon_z"]
 	if(istext(temp))
 		if(temp != "disabled")
 			if(!fexists("_maps/[temp]"))
 				log_world("The dungeon .json file does not exist! Running default.")
 			else
-				dungeon_map = temp
+				dungeon_z = temp
 		else //If we disabled it.
-			dungeon_map = null
+			dungeon_z = null
 
 	traits = json["traits"]
 	// "traits": [{"Linkage": "Cross"}, {"Space Ruins": true}]
@@ -154,19 +155,6 @@
 		log_world("map_config space_empty_levels is not a number!")
 		return
 
-	var/list/other_z = json["other_z"]
-	var/list/final_z
-	for(var/map_path in other_z)
-		var/map_file = file(map_path)
-		if(!map_file)
-			stack_trace("tried to load another z-level that didn't exist")
-			continue
-		if(map_path in final_z)
-			stack_trace("tried to add two of the same z-level")
-			continue
-		LAZYOR(final_z, map_path)
-
-	src.other_z = final_z
 	defaulted = FALSE
 	return TRUE
 #undef CHECK_EXISTS
