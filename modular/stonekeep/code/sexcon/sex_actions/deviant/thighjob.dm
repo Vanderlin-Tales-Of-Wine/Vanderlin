@@ -57,7 +57,7 @@
 /datum/sex_action/force_thighjob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] jerks [target] with their thighs."))
-	playsound(user, 'modular/stonekeep/sound/sexcon/fap.ogg', 30, TRUE, -2, ignore_walls = FALSE)
+	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(target, user)
 
 	user.sexcon.perform_sex_action(target, 2, 4, TRUE)

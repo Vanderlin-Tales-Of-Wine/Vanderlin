@@ -5,6 +5,9 @@
  *						*
  * * * * * * * * * * * **/
 
+/obj/item/clothing
+	allowed_race = ALL_RACES_FOR_REAL
+
 // =============================================================================
 // ==============================	HEAD	====================================
 
@@ -482,14 +485,16 @@
 /obj/item/clothing/face/facemask/steel
 	armor = ARMOR_PLATE_BAD
 
-/obj/item/clothing/face/facemask/steel/jarl
-	name = "jarl mask"
-	desc = "Belonged to the Master of Underrock Outpost once."
+
+
+/obj/item/clothing/head/helmet/heavy/necked/varyag
+	name = "varyag helmet"
+	desc = ""
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	icon_state = "jarlmask"
-	max_integrity = INTEGRITY_STRONGEST
-
+	icon_state = "varyag"
+	armor = ARMOR_MAILLE
+	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/neck/psycross/silver/pestra
 	icon_state = "pestra_alt"
@@ -550,7 +555,7 @@
 /obj/item/clothing/cloak/half
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	allowed_race = list("human", "tiefling", "elf", "aasimar", "dwarf")
+	allowed_race = ALL_RACES_FOR_REAL
 
 /obj/item/clothing/cloak/half/guard
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -566,6 +571,26 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	allowed_race = list("human", "tiefling", "elf", "aasimar")
+
+/obj/item/clothing/cloak/captain
+	name = "sheriffs cape"
+	desc = "A cape with fine embroidery and heraldry."
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+
+
+/obj/item/clothing/cloak/volfmantle
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	alternate_worn_layer = BACK_LAYER
+	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+
+/obj/item/clothing/cloak/wickercloak
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+
 
 // =============================================================================
 // ==============================	ARMOR	====================================
@@ -898,6 +923,74 @@
 	color = "#491b1b"
 	inhand_mod = FALSE
 
+//
+//   Velvet Dress
+//
+
+/obj/item/clothing/shirt/dress/velvetdress
+	name = "velvet dress"
+	desc = "A dress made with the finest velvet, befitting a person of high standing"
+	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "velvetdress"
+	item_state = "velvetdress"
+//	detail_tag = "_detail"
+//	color = CLOTHING_WHITE
+//	detail_color = "#422413"
+//	alternate_worn_layer =  WRISTSLEEVE_LAYER
+/obj/item/clothing/shirt/dress/velvetdress/sleeveless
+	icon_state = "velvetdress_less"
+	item_state = "velvetdress_less"
+
+/obj/item/clothing/shirt/dress/velvetdress/court/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/shirt/dress/velvetdress/court/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	else
+		GLOB.lordcolor += src
+
+/obj/item/clothing/shirt/dress/velvetdress/court/lordcolor(secondary)
+	detail_color = secondary
+	update_icon()
+	if(ismob(loc))
+		var/mob/L = loc
+		L.update_inv_armor()
+
+/obj/item/clothing/shirt/dress/velvetdress/court/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+
+/obj/item/clothing/shirt/dress/nobledress
+	name = "noble dress"
+	desc = "a noble dress, fit for a person of high standing"
+	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
+	icon_state = "nobledress"
+	item_state = "nobledress"
+
+
+/obj/item/clothing/armor/medium/surcoat
+	color = CLOTHING_WINESTAIN_RED
+
+/obj/item/clothing/armor/brigandine/coatplates
+	desc = "A heavy armor made of smaller overlapping plates. \
+			It is said to have been invented by the most famous Haiduk khan Möngke, but as with most tales, no one knows for sure."
+
+
 // ==============================	GLOVES	====================================
 // =============================================================================
 /obj/item/clothing/gloves/reinforced
@@ -938,6 +1031,22 @@
 
 /obj/item/storage/belt/leather/plaquegold
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+/obj/item/storage/belt/leather/rope/survival
+	populate_contents = list(
+		/obj/item/natural/cloth,
+	)
+
+/obj/item/storage/belt/pouch
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+
+/obj/item/storage/belt/leather/exoticsilk
+	name = "silk loincloth"
+	desc = "A flimsy coverage."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	icon_state = "exoticbelt"
+	item_state = "exoticbelt"
 
 
 // =============================================================================
@@ -1246,6 +1355,7 @@
 	body_parts_covered = CHEST|GROIN
 
 
+
 //.................Guild Clothing..................//
 
 //Maker's Guild - CLOTHING_WINESTAIN_RED, CLOTHING_SOOT_BLACK
@@ -1278,33 +1388,7 @@
 /obj/item/clothing/pants/trou/artipants
 	name = "masonry trousers"
 
-/obj/item/clothing/cloak/captain
-	name = "sheriffs cape"
-	desc = "A cape with fine embroidery and heraldry."
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 
-
-
-/obj/item/clothing/armor/medium/surcoat
-	color = CLOTHING_WINESTAIN_RED
-
-
-
-/obj/item/clothing/cloak/volfmantle
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	alternate_worn_layer = BACK_LAYER
-	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
-
-/obj/item/clothing/cloak/wickercloak
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
-
-/obj/item/clothing/armor/brigandine/coatplates
-	desc = "A heavy armor made of smaller overlapping plates. \
-			It is said to have been invented by the most famous Haiduk khan Möngke, but as with most tales, no one knows for sure."
 
 /obj/item/clothing/neck/slave_collar
 	name = "cursed collar"
@@ -1312,7 +1396,6 @@
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	icon_state = "collar"
-	allowed_race = ALL_PLAYER_RACES_BY_NAME
 	allowed_sex = list(MALE,FEMALE)
 	slot_flags = ITEM_SLOT_NECK
 	salvage_amount = 1
@@ -1349,78 +1432,49 @@
 	body_parts_covered = CHEST|ARMS|VITALS
 	sewrepair = TRUE
 
-/obj/item/storage/belt/leather/exoticsilk
-	name = "silk loincloth"
-	desc = "A flimsy coverage."
-	icon = 'modular/stonekeep/icons/clothing.dmi'
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	icon_state = "exoticbelt"
-	item_state = "exoticbelt"
 
-//
-//   Velvet Dress
-//
 
-/obj/item/clothing/shirt/dress/velvetdress
-	name = "velvet dress"
-	desc = "A dress made with the finest velvet, befitting a person of high standing"
-	body_parts_covered = CHEST|GROIN|LEGS|VITALS
-	icon = 'modular/stonekeep/icons/clothing.dmi'
-	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	icon_state = "velvetdress"
-	item_state = "velvetdress"
-//	detail_tag = "_detail"
-//	color = CLOTHING_WHITE
-//	detail_color = "#422413"
-//	alternate_worn_layer =  WRISTSLEEVE_LAYER
-/obj/item/clothing/shirt/dress/velvetdress/sleeveless
-	icon_state = "velvetdress_less"
-	item_state = "velvetdress_less"
 
-/obj/item/clothing/shirt/dress/velvetdress/court/update_icon()
-	cut_overlays()
-	if(get_detail_tag())
-		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
-		pic.appearance_flags = RESET_COLOR
-		if(get_detail_color())
-			pic.color = get_detail_color()
-		add_overlay(pic)
 
-/obj/item/clothing/shirt/dress/velvetdress/court/Initialize()
+
+// =============================================================================
+// ==============================	ARTEFACTS	================================
+// Unique stuff only found in dungeons, intended to be tied into adventurer guild rewards/level up/certifications
+
+/obj/item
+	var/adventurer_artefact
+
+/obj/item/examine(mob/user)
 	. = ..()
-	if(GLOB.lordprimary)
-		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
-	else
-		GLOB.lordcolor += src
+	if(adventurer_artefact)
+		. += span_notice("It is an artefact.")
 
-/obj/item/clothing/shirt/dress/velvetdress/court/lordcolor(secondary)
-	detail_color = secondary
-	update_icon()
-	if(ismob(loc))
-		var/mob/L = loc
-		L.update_inv_armor()
-
-/obj/item/clothing/shirt/dress/velvetdress/court/Destroy()
-	GLOB.lordcolor -= src
-	return ..()
-
-
-
-
-
-
-//
-//   Noble dress
-//
-
-/obj/item/clothing/shirt/dress/nobledress
-	name = "noble dress"
-	desc = "a noble dress, fit for a person of high standing"
-	body_parts_covered = CHEST|GROIN|LEGS|VITALS
+/obj/item/clothing/face/facemask/steel/jarl
+	name = "jarl mask"
+	desc = "Belonged to the Master of Underrock Outpost once."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	sleeved = 'modular/stonekeep/icons/onmob/sleeves.dmi'
-	icon_state = "nobledress"
-	item_state = "nobledress"
+	icon_state = "jarlmask"
+	max_integrity = INTEGRITY_STRONGEST
+	adventurer_artefact = TRUE
+/obj/item/instrument/accord/artefact
+	name = "masterwork accordion"
+	desc = "A complex piece of dwarven engineering. This one has keys of ivory, runed brass fittings, and a quality that far exceeds most instruments."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	adventurer_artefact = TRUE
 
+/obj/item/clothing/head/helmet/heavy/rust/artefact
+	desc = "A rusted barbute. Once belonged to a enterprising young adventurer who ended up in the pond."
+	color = "#d8d9d8"
+	adventurer_artefact = TRUE
+/obj/item/clothing/armor/cuirass/iron/rust/artefact
+	desc = "Old but still serviceable. Once belonged to a enterprising young adventurer who ended up in the pond."
+	color = "#d8d9d8"
+	adventurer_artefact = TRUE
+
+/obj/item/reagent_containers/glass/bottle/elfred/artefact
+	desc = "A bottle gilded with a silver cork-seal and covered in webs. Obviously some old and rare wine."
+	adventurer_artefact = TRUE
+/obj/item/clothing/neck/psycross/silver/dendor/artefact
+	desc = "Nature is a body of which we are but its entrails. This amulet is old and worn, once belonging to a very devout Dendorite who sacrificed themselves to the tree-dwelling predators of their home when age made them unfit for survival."
+	adventurer_artefact = TRUE

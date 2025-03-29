@@ -765,6 +765,11 @@
 "xi" = (
 /turf/open/floor/grass/transition,
 /area/rogue/outdoors/river)
+"xl" = (
+/obj/effect/decal/remains/neu/human,
+/obj/effect/spawner/map_spawner/artefact_spidernest,
+/turf/open/floor/shroud,
+/area/rogue/indoors/shelter/woods/spider)
 "xo" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/ruinedwood,
@@ -47432,7 +47437,7 @@ Ri
 Ri
 Ri
 zQ
-eu
+xl
 vB
 Il
 Il

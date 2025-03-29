@@ -1,6 +1,6 @@
-#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
+#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Rakshari", "Half-orc", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
 #define ALL_STONEKEEP_RACES_NORMALSPRITE		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun")	// for clothes without dwarf sprites
-
+#define ALL_RACES_FOR_REAL			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold",  "abyssariad")
 
 #define CTAG_SKMERCENARY 	"CAT_SKMERCENART"  		// Mercenary classes
 
@@ -24,6 +24,7 @@ GLOBAL_LIST_EMPTY(mountainroad_starts)
 GLOBAL_LIST_EMPTY(bogevil_starts)
 GLOBAL_LIST_EMPTY(forestevil_starts)
 GLOBAL_LIST_EMPTY(mountainevil_starts)
+GLOBAL_LIST_EMPTY(zizo_starts)
 
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 #define CTAG_SKHAND			"CAT_SKHAND"

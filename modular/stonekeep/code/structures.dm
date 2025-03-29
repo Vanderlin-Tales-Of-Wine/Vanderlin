@@ -226,23 +226,31 @@
 // Placeholder shrines. Migth get better code at some point but use for now
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple
 	icon = 'modular/stonekeep/icons/temple.dmi'
+	brightness = 10
+	bulb_power = 1.1
 
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/noc
+	name = "shrine to Noc"
 	icon_state = "noc1"
 	base_state = "noc"
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/pestra
+	name = "shrine to Pestra"
 	icon_state = "pestra1"
 	base_state = "pestra"
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/xylix
+	name = "shrine to Xylix"
 	icon_state = "xylix1"
 	base_state = "xylix"
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/eora
+	name = "shrine to Eora"
 	icon_state = "eora1"
 	base_state = "eora"
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/malum
+	name = "shrine to Malum"
 	icon_state = "malum1"
 	base_state = "malum"
 /obj/machinery/light/fueled/wallfire/candle/lamp/temple/ravox
+	name = "shrine to Ravox"
 	icon_state = "ravox1"
 	base_state = "ravox"
 

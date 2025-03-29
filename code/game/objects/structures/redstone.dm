@@ -453,7 +453,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	redstone_structure = TRUE
 
 /obj/structure/floordoor/gatehatch/Initialize()
-	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 40)
+	AddComponent(/datum/component/squeak, list('sound/foley/footsteps/FTMET_A1.ogg','sound/foley/footsteps/FTMET_A2.ogg','sound/foley/footsteps/FTMET_A3.ogg','sound/foley/footsteps/FTMET_A4.ogg'), 30)
 	return ..()
 
 /obj/structure/floordoor/gatehatch/redstone_triggered(mob/user)

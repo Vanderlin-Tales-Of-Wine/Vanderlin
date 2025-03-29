@@ -301,6 +301,7 @@
 /area/rogue/under/cave/sumpgrotto)
 "Lf" = (
 /obj/effect/decal/remains/neu/human,
+/obj/effect/spawner/map_spawner/artefact_sumpgrotto,
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
 "LD" = (

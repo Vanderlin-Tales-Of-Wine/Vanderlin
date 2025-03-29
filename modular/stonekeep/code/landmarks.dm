@@ -289,3 +289,11 @@
 /obj/effect/landmark/start/sk_mig_mountainevil/Initialize()
 	. = ..()
 	GLOB.mountainevil_starts += loc
+
+/obj/effect/landmark/start/sk_mig_zizo
+	name = "Zizo Spawn"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+/obj/effect/landmark/start/sk_mig_zizo/Initialize()
+	. = ..()
+	GLOB.zizo_starts += loc

@@ -11,7 +11,7 @@
 
 /datum/migrant_role/sk/zizo/after_spawn(mob/living/carbon/human/character)
 	. = ..()
-	character.forceMove(pick(GLOB.mountainevil_starts))
+	character.forceMove(pick(GLOB.zizo_starts))
 
 /datum/outfit/job/stonekeep/antag/zherald/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -150,7 +150,7 @@
 /datum/migrant_wave/zizo_cult
 	name = "The Cult of Apotheosis"
 	max_spawns = 1
-	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/haiduk_raiders, /datum/migrant_wave/zizo_cult)
+	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/varyag_raiders, /datum/migrant_wave/zizo_cult)
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/zizo_cult_down
 	roles = list(
@@ -161,7 +161,7 @@
 /datum/migrant_wave/zizo_cult_down
 	name = "The Cult of Apotheosis"
 	max_spawns = 1
-	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/haiduk_raiders, /datum/migrant_wave/zizo_cult)
+	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/varyag_raiders, /datum/migrant_wave/zizo_cult)
 	can_roll = FALSE
 	roles = list(
 //		/datum/migrant_role/sk/zizo/herald = 1,

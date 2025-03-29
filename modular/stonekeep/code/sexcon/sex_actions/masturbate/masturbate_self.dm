@@ -8,10 +8,12 @@
 		return FALSE
 	return TRUE
 
-/datum/sex_action/masturbate_vagina/can_perform(mob/living/user, mob/living/target)
+/datum/sex_action/masturbate_vagina/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_GROIN))
+		return FALSE
+	if(!user.underwear == "Nude")
 		return FALSE
 	if(user.gender == MALE)
 		return FALSE
@@ -23,7 +25,7 @@
 /datum/sex_action/masturbate_vagina/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures herself."))
-	playsound(user, 'modular/stonekeep/sound/sexcon/fap.ogg', 30, TRUE, -2, ignore_walls = FALSE)
+	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)
 
@@ -52,6 +54,8 @@
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_GROIN))
 		return FALSE
+	if(!user.underwear == "Nude")
+		return FALSE
 	if(user.gender == FEMALE)
 		return FALSE
 	if(!user.sexcon.can_use_penis())
@@ -64,7 +68,7 @@
 /datum/sex_action/masturbate_penis/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures himself."))
-	playsound(user, 'modular/stonekeep/sound/sexcon/fap.ogg', 30, TRUE, -2, ignore_walls = FALSE)
+	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 0, TRUE)
 
@@ -99,7 +103,7 @@
 /datum/sex_action/masturbate_anus/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures their whistler."))
-	playsound(user, 'modular/stonekeep/sound/sexcon/fap.ogg', 30, TRUE, -2, ignore_walls = FALSE)
+	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 6, TRUE)
 	user.sexcon.handle_passive_ejaculation()

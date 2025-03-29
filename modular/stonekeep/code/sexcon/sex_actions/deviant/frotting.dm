@@ -29,7 +29,7 @@
 /datum/sex_action/frotting/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] frots against [target]."))
-	playsound(user, 'modular/stonekeep/sound/sexcon/fap.ogg', 20, TRUE, -2, ignore_walls = FALSE)
+	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 20, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 1, 4, TRUE)
 	user.sexcon.handle_passive_ejaculation()

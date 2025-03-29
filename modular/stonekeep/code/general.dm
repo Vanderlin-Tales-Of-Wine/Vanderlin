@@ -518,7 +518,7 @@
 */
 // =============================================================================
 // ================		DARK ELF DARKLING SYSTEM		========================
-
+/* disabled for now, annoying to make darkling component actually work ROGTODO
 /datum/status_effect/debuff/darkling_glare
 	id = "darkling_glare"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/darkling_glare
@@ -570,7 +570,7 @@
 	name = "Darkling"
 	desc = "You are at home in the dark. Unbothered. In your lane. Moisturized."
 	icon_state = "stressg"
-
+*/
 
 
 
@@ -884,75 +884,10 @@
 
 
 
-
-
-
 /obj/item/reagent_containers/glass/bottle
 	dropshrink = 0.7
 
 
-/*	could not get this to work. Randomiszes where travel tiles appear, from BS/RW branch, see their map for examples.
-GLOBAL_LIST_EMPTY(travel_tile_locations)
-
-/obj/effect/landmark/travel_tile_location
-	name = "travel tile location"
-
-/obj/effect/landmark/travel_tile_location/Initialize()
-	. = ..()
-	GLOB.travel_tile_locations += src
-
-/obj/effect/landmark/travel_tile_location/Destroy()
-	GLOB.travel_tile_locations -= src
-	. = ..()
-
-GLOBAL_LIST_EMPTY(travel_spawn_points)
-
-/obj/effect/landmark/travel_spawn_point
-	name = "travel spawn point"
-	icon_state = "generic_event"
-	var/taken = FALSE
-
-/obj/effect/landmark/travel_spawn_point/Initialize()
-	. = ..()
-	GLOB.travel_spawn_points += src
-
-/obj/effect/landmark/travel_spawn_point/Destroy()
-	GLOB.travel_spawn_points -= src
-	. = ..()
-
-/proc/get_free_travel_spawn_point()
-	var/list/shuffled = shuffle(GLOB.travel_spawn_points)
-	for(var/obj/effect/landmark/travel_spawn_point/point as anything in shuffled)
-		if(point.taken)
-			continue
-		point.taken = TRUE
-		return point.loc
-	return null
-
-/proc/create_travel_tiles(atom/location, travel_id, travel_goes_to_id, required_trait, tile_path)
-	for(var/obj/effect/landmark/travel_tile_location/landmark as anything in GLOB.travel_tile_locations)
-		if(get_dist(location, landmark) > 5)
-			continue
-		// Create travel tile here
-		var/obj/structure/fluff/traveltile/tile = new tile_path(landmark.loc)
-		tile.aportalid = travel_id
-		tile.aportalgoesto = travel_goes_to_id
-		tile.required_trait = required_trait
-		tile.hide_if_needed()
-
-/datum/controller/subsystem/mapping/proc/spawn_random_travel_tiles()
-	spawn_random_travel_transition("vampexit", "vampin", TRAIT_VAMPMANSION, /obj/structure/fluff/traveltile/vampire)
-	spawn_random_travel_transition("banditexit", "banditin", TRAIT_BANDITCAMP, /obj/structure/fluff/traveltile/bandit)
-//Uncomment to have random transitions, instead of in the sewers exclusively. Duh.
-//	spawn_random_travel_transition("goblinexit", "goblinin", TRAIT_GOBLINCAMP, /obj/structure/fluff/traveltile/goblin)
-
-/datum/controller/subsystem/mapping/proc/spawn_random_travel_transition(travel_id, travel_goes_to_id, required_trait, path)
-	var/atom/location = get_free_travel_spawn_point()
-	if(!location)
-		log_world("Unable to find spot for random travel transition: [travel_id] [travel_goes_to_id]")
-		return
-	create_travel_tiles(location, travel_id, travel_goes_to_id, required_trait, path)
-*/
 
 
 // =========================================================
@@ -1169,3 +1104,7 @@ GLOBAL_LIST_EMPTY(travel_spawn_points)
 		goldilocks = null
 
 
+/datum/component/storage/concrete/grid/cloak
+	max_w_class = WEIGHT_CLASS_SMALL
+	screen_max_rows = 2
+	screen_max_columns = 1

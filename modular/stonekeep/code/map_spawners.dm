@@ -43,6 +43,36 @@
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
 		/mob/living/simple_animal/hostile/retaliate/bigrat = 5)
 
+/*	..................   Outpost Artefact  ................... */ // Idea is to have artefacts corresponding to "difficulty level" of dungeon, that can be traded for certification ie copper level adventurer can turn in their copper in +
+// a bronze level artefact to level up and get a bronze ring. Using some sort of machine in the adventurers guild.
+// copper, bronze, iron, silver, gold
+/obj/effect/spawner/map_spawner/artefact_outpost	// silver
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "artefact"
+	probby = 100
+	spawned = list(
+		/obj/item/clothing/face/facemask/steel/jarl = 50,
+		/obj/item/instrument/accord/artefact = 50,)
+
+/*	..................   Sump Grotto Artefact  ................... */
+/obj/effect/spawner/map_spawner/artefact_sumpgrotto	// iron
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "artefact"
+	probby = 100
+	spawned = list(
+		/obj/item/clothing/head/helmet/heavy/rust/artefact = 50,
+		/obj/item/clothing/armor/cuirass/iron/rust/artefact = 50,)
+
+/*	..................   Spider Nest Artefact  ................... */
+/obj/effect/spawner/map_spawner/artefact_spidernest	// bronze
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "artefact"
+	probby = 100
+	spawned = list(
+		/obj/item/reagent_containers/glass/bottle/elfred/artefact = 50,
+		/obj/item/clothing/neck/psycross/silver/dendor/artefact = 50,)
+
+
 // ===================================================================================
 
 /*	..................  Maybe Trap Spawner  ................... */

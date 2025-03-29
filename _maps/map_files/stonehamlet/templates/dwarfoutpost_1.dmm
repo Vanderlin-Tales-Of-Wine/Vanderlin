@@ -603,8 +603,7 @@
 /obj/structure/closet/crate/crafted_closet/lord{
 	locked = 0
 	},
-/obj/effect/spawner/map_spawner/loot/jewelry,
-/obj/item/clothing/face/facemask/steel/jarl,
+/obj/effect/spawner/map_spawner/artefact_outpost,
 /turf/open/floor/herringbone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Ft" = (

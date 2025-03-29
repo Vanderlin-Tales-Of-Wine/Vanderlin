@@ -22,7 +22,7 @@
 	give_bank_account = TRUE
 	min_pq = -25
 	bypass_lastclass = TRUE
-	cmode_music = 'sound/music/cmode/church/CombatGravekeeper.ogg'
+	cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
 
 /datum/outfit/job/stonekeep/gravekeeper
 	allowed_patrons = list(/datum/patron/divine/necra)
