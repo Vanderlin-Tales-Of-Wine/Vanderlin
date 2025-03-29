@@ -295,24 +295,24 @@
 
 /obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 MINUTES)
 
 /obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user) //dont ask me why this isn't handled on on_mob_death, there was a reason once but it was a month ago and I no longer remember it.
 	if(user.ckey)
-		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 MINUTES)
 		return
 	user.dropItemToGround(src, force = TRUE)
 
 /obj/item/clothing/ring/gold/burden/dropped(mob/user, slot)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 MINUTES)
 	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
-	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change this later
+	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A change this later
 
 /obj/item/clothing/ring/gold/burden/proc/psstt()
 	if(!ismob(loc))
 		playsound(src, 'sound/vo/psst.ogg', 50)
-		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(1,2) SECONDS) //N/A change to 10 to 20 seconds
+		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A change to 10 to 20 seconds
 
 /obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
 	if(ismob(loc))

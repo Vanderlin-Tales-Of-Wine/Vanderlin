@@ -22,7 +22,7 @@
 	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg' //N/A don't forget to credit @mechadh for this in the PR
 	outfit = /datum/outfit/job/gaffer
 	give_bank_account = 105
-	min_pq = 0 //N/A fix be ship
+	min_pq = 8 //N/A fix be ship
 	selection_color = "#3b150e"
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
