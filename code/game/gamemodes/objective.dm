@@ -228,7 +228,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/protect//The opposite of killing a dude.
 	name = "protect"
-	martyr_compatible = 1
+	martyr_compatible = TRUE
 	var/target_role_type = FALSE
 	var/human_check = TRUE
 
@@ -288,6 +288,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		if(!considered_alive(M))
 			return FALSE
 	return TRUE
+
+/datum/objective/survive/one
 
 /datum/objective/survive/exist //Like survive, but works for silicons and zombies and such.
 	name = "survive nonhuman"

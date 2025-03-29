@@ -12,7 +12,7 @@
 	buckle_lying = FALSE
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 
-	ambushable = 1
+	ambushable = TRUE //! DEPRECATED VAR, USE TRAIT_NOAMBUSH
 
 	voice_pitch = 1
 

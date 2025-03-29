@@ -49,8 +49,5 @@
 
 /datum/migrant_role/vampire
 	name = "Adventurer"
-	antag_datum = /datum/antagonist/vampirelord/lesser/migrant
+	antag_datum = /datum/antagonist/vampire
 	advclass_cat_rolls = list(CTAG_ADVENTURER = 5)
-
-/datum/antagonist/vampirelord/lesser/migrant/move_to_spawnpoint()
-	return
