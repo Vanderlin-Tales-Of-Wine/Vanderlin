@@ -26,11 +26,11 @@
 
 /mob/living/proc/set_patron(datum/patron/new_patron)
 	if(!new_patron)
-		return TRUE
+		return FALSE
 	if(ispath(new_patron))
 		new_patron = GLOB.patronlist[new_patron]
 	if(!istype(new_patron))
-		return TRUE
+		return FALSE
 	if(patron && !ispath(patron))
 		patron.on_remove(src)
 		mana_pool?.remove_attunements(patron)
