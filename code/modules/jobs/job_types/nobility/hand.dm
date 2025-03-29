@@ -13,6 +13,9 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	spells = list(
+		/obj/effect/proc_holder/spell/self/grant_title,
+	)
 	min_pq = 10
 	bypass_lastclass = TRUE
 
