@@ -2,7 +2,7 @@
 	name = "Paladin"
 	tutorial = "Paladins are former noblemen and clerics who have dedicated themselves to great combat prowess. Often, they were promised redemption for past sins if they crusaded in the name of the gods."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_PLAYER_GRENZ
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/adventurer/paladin
 	maximum_possible_slots = 1
 	min_pq = 2

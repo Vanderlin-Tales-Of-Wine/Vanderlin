@@ -3,7 +3,7 @@
 	tutorial = "Craftsmen who have mastered the art of curdling milks \
 				into delicious and long lasting wheels of cheese."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_PLAYER_ALL
+
 	outfit = /datum/outfit/job/adventurer/cheesemaker
 
 	category_tags = list(CTAG_PILGRIM)
