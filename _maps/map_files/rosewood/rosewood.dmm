@@ -21144,8 +21144,8 @@
 /area/rogue/outdoors/mountains)
 "lYi" = (
 /obj/structure/fluff/traveltile{
-	aportalgoesto = "vanderlin-forest_town-forest";
-	aportalid = "vanderlin-forest_town-town"
+	aportalgoesto = "rosewood-forest-town";
+	aportalid = "rosewood-town-forest"
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield)

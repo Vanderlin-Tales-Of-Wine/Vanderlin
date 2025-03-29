@@ -231,10 +231,6 @@
 /obj/structure/window/openclose/reinforced,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
-"jM" = (
-/obj/structure/fluff/traveltile,
-/turf/open/floor/cobble,
-/area/rogue/outdoors/woods)
 "jV" = (
 /turf/open/floor/snow,
 /area/rogue/outdoors/woods)
@@ -41685,8 +41681,8 @@ id
 id
 id
 EL
-jM
-jM
+EL
+EL
 id
 id
 id
