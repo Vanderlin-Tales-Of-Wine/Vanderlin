@@ -5073,8 +5073,9 @@
 /turf/open/floor/wood,
 /area/rogue/outdoors/rtfield/safe)
 "dyU" = (
-/obj/structure/mineral_door/wood/donjon,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/structure/mineral_door/wood/donjon{
+	lockid = "forrestgarrison"
+	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/metal,
 /area/rogue/indoors/town/cell)
@@ -21134,9 +21135,9 @@
 /area/rogue/under/cave)
 "oJD" = (
 /obj/structure/mineral_door/wood/green{
-	name = "forrest garrison barracks"
+	name = "forrest garrison barracks";
+	lockid = "forrestgarrison"
 	},
-/obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
@@ -25807,9 +25808,9 @@
 /area/rogue/indoors/town/magician)
 "sbF" = (
 /obj/structure/mineral_door/wood/donjon{
-	dir = 4
+	dir = 4;
+	lockid = "forrestgarrison"
 	},
-/obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/metal{
 	icon_state = "plating2"
@@ -26712,9 +26713,9 @@
 /area/rogue/outdoors/mountains)
 "sFL" = (
 /obj/structure/mineral_door/wood/green{
-	name = "forrest warden bedroom"
+	name = "forrest warden bedroom";
+	lockid = "forrestgarrison"
 	},
-/obj/effect/mapping_helpers/door/access/garrison/forest,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/villagegarrison)
@@ -28815,8 +28816,10 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
 "tZW" = (
-/obj/structure/mineral_door/wood/window,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
+/obj/structure/mineral_door/wood/window{
+	lockid = "forrestgarrison"
+	},
+/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/villagegarrison)
 "uaz" = (
@@ -32739,10 +32742,10 @@
 /area/rogue/indoors/town/manor)
 "wLk" = (
 /obj/structure/mineral_door/wood/green{
-	name = "forrest garrison"
+	name = "forrest garrison";
+	lockid = "forrestgarrison"
 	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/villagegarrison)
 "wLs" = (
