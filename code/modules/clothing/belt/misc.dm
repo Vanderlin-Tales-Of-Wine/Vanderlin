@@ -368,11 +368,11 @@
 
 /obj/item/storage/hip/headhook
 	name = "head hook"
-	desc = "an iron hook for storing 8 heads"
+	desc = "an iron hook for storing 6 heads"
 	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
-	icon_state = "knife" //N/A change this
-	item_state = "knife"
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "ironheadhook" //N/A change this
+	item_state = "ironheadhook"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 300
@@ -385,11 +385,11 @@
 
 /obj/item/storage/hip/headhook/bronze
 	name = "bronze head hook"
-	desc = "a bronze hook for storing 16 heads"
+	desc = "a bronze hook for storing 12 heads"
 	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
-	icon_state = "knife"
-	item_state = "knife"
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "bronzeheadhook"
+	item_state = "bronzeheadhook"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	max_integrity = 400
