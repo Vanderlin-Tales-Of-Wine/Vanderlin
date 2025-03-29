@@ -46,6 +46,16 @@
 			item_in_source.moveToNullspace()
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, item_in_source, null, TRUE, TRUE, FALSE)
 
+/obj/item/storage/on_enter_storage(datum/component/storage/concrete/S)
+	. = ..()
+	for(var/atom/movable/item in contents)
+		item.on_enter_storage(S)
+
+/obj/item/storage/on_exit_storage(datum/component/storage/concrete/S)
+	. = ..()
+	for(var/atom/movable/item in contents)
+		item.on_exit_storage(S)
+
 /datum/component/storage
 	screen_max_columns = 3
 	screen_max_rows = 8

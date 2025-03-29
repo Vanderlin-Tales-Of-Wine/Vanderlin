@@ -23,8 +23,8 @@
 	var/list/broken_states
 	var/list/burnt_states
 
-	///the chance this turf has to spread, basically 1.5% by default
-	spread_chance = 1.5
+	///the chance this turf has to spread, basically 1.75% by default
+	spread_chance = 1.75
 	///means fires last at base 9 seconds
 	burn_power = 9
 

@@ -291,7 +291,10 @@
 								return
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
-						do_attack_animation(T, visual_effect_icon = used_intent.animname)
+						if(get_dist(get_turf(src), T) <= used_intent.reach)
+							do_attack_animation(T, visual_effect_icon = used_intent.animname)
+						else
+							do_attack_animation(get_ranged_target_turf(src, get_dir(src, T), 1), visual_effect_icon = used_intent.animname)
 						if(W)
 							playsound(get_turf(src), pick(W.swingsound), 100, FALSE)
 							var/adf = used_intent.clickcd

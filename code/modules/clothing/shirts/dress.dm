@@ -56,6 +56,8 @@
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon_state = "silkdress"
 	color = CLOTHING_LINEN
+	salvage_result = /obj/item/natural/silk
+	salvage_amount = 1
 
 /obj/item/clothing/shirt/dress/silkdress/princess
 	color = CLOTHING_CHALK_WHITE

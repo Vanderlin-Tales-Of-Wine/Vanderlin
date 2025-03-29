@@ -16,6 +16,8 @@
 
 	armor = ARMOR_WEAK
 	prevent_crits = MINOR_CRITICALS
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/head/padded/deathface
 	name = "death shroud"

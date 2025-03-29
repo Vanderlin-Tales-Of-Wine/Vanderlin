@@ -163,7 +163,7 @@
 		user.visible_message(span_notice("[user] gestures at \the [target.name], arcyne power slowly scouring it away..."), span_notice("I begin to scour \the [target.name] away with my arcyne power..."))
 		if(do_after(user, cleanspeed, target))
 			to_chat(user, span_notice("I expunge \the [target.name] with my mana."))
-			qdel(target)
+			wash_atom(get_turf(target), CLEAN_MEDIUM)
 			return TRUE
 		return FALSE
 	else
@@ -172,8 +172,7 @@
 			to_chat(user, span_notice("I render \the [target.name] clean."))
 			for (var/obj/effect/decal/cleanable/C in target)
 				qdel(C)
-			target.remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
-			SEND_SIGNAL(target, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_MEDIUM)
+			wash_atom(target, CLEAN_MEDIUM)
 			return TRUE
 		return FALSE
 

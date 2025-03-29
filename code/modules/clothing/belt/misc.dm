@@ -247,6 +247,14 @@
 	bloody_icon_state = "bodyblood"
 	component_type = /datum/component/storage/concrete/grid/backpack
 
+/obj/item/storage/backpack/backpack/artibackpack
+	name = "cooling backpack"
+	desc = "A leather backpack with complex bronze pipework coursing through it. It hums and vibrates constantly."
+	icon_state = "artibackpack"
+	item_state = "artibackpack"
+	resistance_flags = FIRE_PROOF
+	sewrepair = FALSE
+
 /obj/item/storage/backpack/satchel/surgbag
 	name = "surgery bag"
 	desc = "Contains all the phreakish devices one needs to cut a person up."

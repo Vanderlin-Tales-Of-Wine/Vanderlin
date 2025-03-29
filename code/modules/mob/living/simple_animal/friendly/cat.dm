@@ -206,7 +206,7 @@
 			step(src, dir)
 			personal_space()
 		if(isracist) // But only judgemental ones hiss at dark elves.
-			if((isdarkelf(M)))  // l´cursed bonbonbon
+			if((isdarkelf(M)) || ishalforc(M) || istiefling(M))  // l´cursed bonbonbon
 				visible_message("<span class='notice'>\The [src] hisses at [M] and recoils in disgust.</span>")
 				icon_state = "[icon_living]"
 				set_resting(FALSE)

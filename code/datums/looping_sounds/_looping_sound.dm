@@ -9,11 +9,15 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 	for(var/channel = 1 to channel_count)
 		reserved_channels |= SSsounds.reserve_sound_channel(src)
 
-/datum/sound_group/torches
-	channel_count = 150
+// /datum/sound_group/torches
+// 	channel_count = 150
 
 /datum/sound_group/fire_loop
 	channel_count = 150
+
+/datum/sound_group/instruments
+	channel_count = 20 // definitely more than enough
+
 /*
 	parent	(the source of the sound)			The source the sound comes from
 

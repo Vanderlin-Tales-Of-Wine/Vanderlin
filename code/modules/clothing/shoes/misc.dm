@@ -8,6 +8,8 @@
 	item_state = "nobleboots"
 	armor = list("blunt" = 20, "slash" = 20, "stab" = 20,  "piercing" = 15, "fire" = 0, "acid" = 0)
 	sellprice = 10
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/nobleboot/thighboots
 	name = "thigh boots"
@@ -24,6 +26,8 @@
 	icon_state = "shortboots"
 	item_state = "shortboots"
 	armor = list("blunt" = 10, "slash" = 10, "stab" = 10,  "piercing" = 0, "fire" = 0, "acid" = 0)
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/ridingboots
 	name = "riding boots"
@@ -34,6 +38,8 @@
 	icon_state = "ridingboots"
 	item_state = "ridingboots"
 	sellprice = 10
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/apothboots
 	name = "apothecary boots"
@@ -52,8 +58,7 @@
 	item_state = "simpleshoe"
 	resistance_flags = null
 	color = CLOTHING_OLD_LEATHER
-	salvage_amount = 1
-	salvage_result = /obj/item/natural/hide/cured
+	salvage_result = null
 
 /obj/item/clothing/shoes/simpleshoes/white
 	color = null
@@ -80,6 +85,8 @@
 	gender = PLURAL
 	icon_state = "gladiator"
 	item_state = "gladiator"
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/sandals
 	name = "sandals"
@@ -87,6 +94,8 @@
 	gender = PLURAL
 	icon_state = "sandals"
 	item_state = "sandals"
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/hoplite
 	name = "ancient sandals"

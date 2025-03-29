@@ -8,6 +8,8 @@
 	item_state = "blackboots"
 	armor = list("blunt" = 15, "slash" = 15, "stab" = 15,  "piercing" = 5, "fire" = 0, "acid" = 0)
 	sellprice = 10
+	salvage_result = /obj/item/natural/hide/cured
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/boots/armor
 	name = "plated boots"
@@ -63,9 +65,8 @@
 	armor = list("blunt" = 20, "slash" = 20, "stab" = 20,  "piercing" = 10, "fire" = 0, "acid" = 0)
 	resistance_flags = FLAMMABLE
 	sellprice = 10
-	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
-
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/boots/leather/advanced
 	name = "hardened leather boots"
@@ -93,6 +94,8 @@
 	item_state = "furlinedboots"
 	sewrepair = TRUE
 	armor = list("blunt" = 30, "slash" = 10, "stab" = 20,  "piercing" = 0, "fire" = 0, "acid" = 0)
+	salvage_result = /obj/item/natural/fur
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/boots/furlinedanklets
 	name = "fur lined anklets"
@@ -103,6 +106,8 @@
 	sewrepair = TRUE
 	armor = list("blunt" = 30, "slash" = 10, "stab" = 20,  "piercing" = 0, "fire" = 0, "acid" = 0)
 	is_barefoot = TRUE
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/fur
 
 /obj/item/clothing/shoes/boots/clothlinedanklets
 	name = "cloth lined anklets"
@@ -113,7 +118,8 @@
 	is_barefoot = TRUE
 	sewrepair = TRUE
 	armor = list("blunt" = 5, "slash" = 5, "stab" = 5,  "piercing" = 0, "fire" = 0, "acid" = 0) //Thinks its fair for a piece of cloth and fiber.
-
+	salvage_result = /obj/item/natural/cloth
+	salvage_amount = 1
 
 /obj/item/clothing/shoes/boots/armor/vampire
 	name = "ancient ceremonial boots"

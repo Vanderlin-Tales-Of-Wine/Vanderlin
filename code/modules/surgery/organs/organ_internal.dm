@@ -329,6 +329,16 @@
 /obj/item/organ/proc/update_accessory_colors()
 	return
 
+/obj/item/organ/on_enter_storage(datum/component/storage/concrete/S)
+	. = ..()
+	if(recursive_loc_check(src, /obj/item/storage/backpack/backpack/artibackpack))
+		organ_flags |= ORGAN_FROZEN
+
+/obj/item/organ/on_exit_storage(datum/component/storage/concrete/S)
+	. = ..()
+	if(!recursive_loc_check(src, /obj/item/storage/backpack/backpack/artibackpack))
+		organ_flags &= ~ORGAN_FROZEN
+
 //Looking for brains?
 //Try code/modules/mob/living/carbon/brain/brain_item.dm
 

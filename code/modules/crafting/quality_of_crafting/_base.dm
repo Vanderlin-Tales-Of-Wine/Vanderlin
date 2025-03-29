@@ -53,6 +53,8 @@
 	var/uses_attacked_atom = FALSE
 	///do we also count subtypes?
 	var/subtypes_allowed = FALSE
+	///do we also count reagent subtypes?
+	var/reagent_subtypes_allowed = FALSE
 	///list of types we pass before deletion to the child
 	var/list/pass_types_in_end = list()
 
@@ -379,60 +381,73 @@
 			var/obj/item/inactive_held = user.get_inactive_held_item()
 			for(var/obj/item/reagent_containers/container in storage_contents)
 				for(var/required_path as anything in copied_reagent_requirements)
-					var/reagent_value = container.reagents.get_reagent_amount(required_path)
-					if(!reagent_value)
-						continue
-					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
-					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, container))
+					var/list/reagent_paths = list(required_path)
+					if(reagent_subtypes_allowed)
+						reagent_paths |= subtypesof(required_path)
+					for(var/possible_reagent_path in reagent_paths)
+						if(!copied_reagent_requirements[required_path])
+							break
+						var/reagent_value = container.reagents.get_reagent_amount(possible_reagent_path)
+						if(!reagent_value)
 							continue
-						user.put_in_active_hand(container)
-					if(istype(container, /obj/item/reagent_containers/glass/bottle))
-						var/obj/item/reagent_containers/glass/bottle/bottle = container
-						if(bottle.closed)
-							bottle.rmb_self(user)
-					if(!do_after(user, reagent_use_time, container))
-						continue
-					playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
-					if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
-						container.reagents.remove_reagent(required_path, reagent_value)
-						copied_reagent_requirements[required_path] -= reagent_value
-					else
-						container.reagents.remove_reagent(required_path, copied_reagent_requirements[required_path])
-						copied_reagent_requirements -= required_path
-					if(put_items_in_hand)
-						SEND_SIGNAL(inactive_held, COMSIG_TRY_STORAGE_INSERT, container, null, TRUE, TRUE)
+						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
+						if(put_items_in_hand)
+							if(!do_after(user, storage_use_time, container))
+								continue
+							user.put_in_active_hand(container)
+						if(istype(container, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/bottle = container
+							if(bottle.closed)
+								bottle.rmb_self(user)
+						if(!do_after(user, reagent_use_time, container))
+							continue
+						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
+						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
+							container.reagents.remove_reagent(possible_reagent_path, reagent_value)
+							copied_reagent_requirements[required_path] -= reagent_value
+							break
+						else
+							container.reagents.remove_reagent(possible_reagent_path, copied_reagent_requirements[required_path])
+							copied_reagent_requirements -= required_path
+						if(put_items_in_hand)
+							SEND_SIGNAL(inactive_held, COMSIG_TRY_STORAGE_INSERT, container, null, TRUE, TRUE)
 
 			for(var/obj/item/reagent_containers/container in usable_contents)
 				for(var/required_path as anything in copied_reagent_requirements)
-					var/reagent_value = container.reagents.get_reagent_amount(required_path)
-					if(!reagent_value)
-						continue
-					var/turf/container_loc = get_turf(container)
-					var/stored_pixel_x = container.pixel_x
-					var/stored_pixel_y = container.pixel_y
-					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
-					if(put_items_in_hand)
-						if(!do_after(user, ground_use_time, container))
+					var/list/reagent_paths = list(required_path)
+					if(reagent_subtypes_allowed)
+						reagent_paths |= subtypesof(required_path)
+					for(var/possible_reagent_path in reagent_paths)
+						if(!copied_reagent_requirements[required_path])
+							break
+						var/reagent_value = container.reagents.get_reagent_amount(possible_reagent_path)
+						if(!reagent_value)
 							continue
-						user.put_in_active_hand(container)
-					if(istype(container, /obj/item/reagent_containers/glass/bottle))
-						var/obj/item/reagent_containers/glass/bottle/bottle = container
-						if(bottle.closed)
-							bottle.rmb_self(user)
-					if(!do_after(user, reagent_use_time, container))
-						continue
-					playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
-					if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
-						container.reagents.remove_reagent(required_path, reagent_value)
-						copied_reagent_requirements[required_path] -= reagent_value
-					else
-						container.reagents.remove_reagent(required_path, copied_reagent_requirements[required_path])
-						copied_reagent_requirements -= required_path
-					if(put_items_in_hand)
-						user.transferItemToLoc(container, container_loc, TRUE)
-						container.pixel_x = stored_pixel_x
-						container.pixel_y = stored_pixel_y
+						var/turf/container_loc = get_turf(container)
+						var/stored_pixel_x = container.pixel_x
+						var/stored_pixel_y = container.pixel_y
+						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
+						if(put_items_in_hand)
+							if(!do_after(user, ground_use_time, container))
+								continue
+							user.put_in_active_hand(container)
+						if(istype(container, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/bottle = container
+							if(bottle.closed)
+								bottle.rmb_self(user)
+						if(!do_after(user, reagent_use_time, container))
+							continue
+						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
+						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
+							container.reagents.remove_reagent(possible_reagent_path, reagent_value)
+							copied_reagent_requirements[required_path] -= reagent_value
+						else
+							container.reagents.remove_reagent(possible_reagent_path, copied_reagent_requirements[required_path])
+							copied_reagent_requirements -= required_path
+						if(put_items_in_hand)
+							user.transferItemToLoc(container, container_loc, TRUE)
+							container.pixel_x = stored_pixel_x
+							container.pixel_y = stored_pixel_y
 
 
 		if(length(copied_tool_usage))
@@ -504,6 +519,7 @@
 						prob2craft += ((10-L.STAINT)*-1)*2
 				if(prob2craft < 1)
 					to_chat(user, "<span class='danger'>I lack the skills for this...</span>")
+					move_products(list(), user)
 					move_items_back(to_delete, user)
 					return
 				else

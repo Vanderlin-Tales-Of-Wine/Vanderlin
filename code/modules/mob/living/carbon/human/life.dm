@@ -54,9 +54,8 @@
 					if(!mind.antag_datums || !mind.antag_datums.len)
 						allmig_reward++
 						to_chat(src, span_danger("Nights Survived: \Roman[allmig_reward]"))
-						if(allmig_reward >= 3)
+						if(allmig_reward > 0 && allmig_reward % 3 == 0)
 							adjust_triumphs(1)
-							allmig_reward = 0
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		if(MOBTIMER_FINISHED(src, MT_LEPERBLEED, 6 MINUTES))
 			if(prob(10))
