@@ -5520,9 +5520,8 @@
 "dOM" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/double_pelt,
-/obj/effect/landmark/start/gaffer,
-/turf/open/floor/ruinedwood,
-/area/rogue/indoors/town/merc_guild)
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/caverogue)
 "dPj" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile,
@@ -5928,6 +5927,10 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/under/town/sewer)
+"eaK" = (
+/obj/structure/fluff/walldeco/painting,
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/town/caverogue)
 "eaL" = (
 /obj/structure/table/wood/large/corner,
 /turf/open/floor/dirt/road,
@@ -23052,6 +23055,11 @@
 "qmr" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/town/caverogue)
+"qmF" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/obj/structure/closet/crate/drawer,
+/turf/open/floor/carpet/red,
+/area/rogue/under/town/caverogue)
 "qmW" = (
 /obj/structure/bars/passage/shutter{
 	redstone_id = "stewardwarehouse"
@@ -28519,10 +28527,8 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "tYS" = (
-/obj/structure/closet/crate/drawer{
-	pixel_y = 3
-	},
-/turf/open/floor/ruinedwood,
+/obj/structure/closet/crate/crafted_closet/inn,
+/turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "tYW" = (
 /obj/structure/fluff/railing/wood{
@@ -32257,9 +32263,8 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "wDD" = (
-/obj/structure/closet/crate/crafted_closet/inn,
 /obj/machinery/light/fueled/wallfire/candle/l,
-/turf/open/floor/ruinedwood,
+/turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "wDN" = (
 /turf/open/floor/naturalstone,
@@ -89575,7 +89580,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
+bTj
 bTj
 bJV
 oUp
@@ -89777,8 +89782,8 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
-bTj
+eaK
+qmF
 wDD
 pjc
 jMD
@@ -89979,9 +89984,9 @@ vgJ
 vgJ
 vgJ
 vgJ
-vgJ
 bTj
 dOM
+mCL
 pjc
 jMD
 aCk
