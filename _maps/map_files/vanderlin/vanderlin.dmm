@@ -26418,6 +26418,13 @@
 /obj/structure/closet/crate/chest/neu,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/outdoors/river)
+"sJQ" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "lord"
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "sJX" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -57593,7 +57600,7 @@ bYe
 tHe
 tHe
 jZU
-bET
+sJQ
 jZU
 bUM
 rsP
