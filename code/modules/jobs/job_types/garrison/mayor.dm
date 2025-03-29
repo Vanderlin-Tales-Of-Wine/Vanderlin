@@ -1,6 +1,6 @@
 /datum/job/mayor
 	title = "Town Elder"
-	tutorial = "You were once a wanderer, an unremarkable soul who, alongside the Veteran, Matron, and Court Magician, carved your name into history.\
+	tutorial = "You were once a wanderer, an unremarkable soul who, alongside your old adventuring party, carved your name into history.\
 	Now, the days of adventure are long past. You sit as the town's beloved elder; while the crown may rule from afar, the people\
 	look to you to settle disputes, mend rifts, and keep the true peace in town. Not every conflict must end in bloodshed,\
 	but when it must, you will do what is necessary, as you always have."

@@ -1,8 +1,8 @@
 /datum/job/magician
 	title = "Court Magician"
-	tutorial = "A seer of dreams, a reader of stars, and a master of the arcane. Along with a band of unlikely heroes, you shaped the fate of these lands.\
+	tutorial = "A seer of dreams, a reader of stars, and a master of the arcane. Along a band of unlikely hero's, you shaped the fate of these lands.\
 	Now the days of adventure are gone, replaced by dusty tomes and whispered prophecies. The ruler's coin funds your studies,\
-	but debts, both magical and mortal, are never so easily repaid. With age comes wisdom, but also the creeping dread that your greatest spellwork\
+	but debt's both magical and mortal are never so easily repaid. With age comes wisdom, but also the creeping dread that your greatest spell work\
 	may already be behind you."
 	flag = WIZARD
 	department_flag = NOBLEMEN

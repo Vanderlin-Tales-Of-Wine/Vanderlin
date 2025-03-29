@@ -1,8 +1,10 @@
 /datum/job/veteran
 	title = "Veteran"
-	tutorial = "You are a renowned adventurer, once hailed as a savior of these lands, at least while everyone still remembered.\
-	Alongside the matron, court magician, and beloved town elder, you rose from nothing to everything in the blink of an eye.\
-	Nowadays, however, your bones ache, you've retired your sword, and the glory has faded. You wonder what your old friends are doing."
+	tutorial = "There isn't a way to kill a man you havent practiced in the tapestries of war itself. \
+    You wouldn't call yourself a hero-- \
+    those belong to the men left rotting in the fields where you honed your ancient trade. \
+    Tired of senseless killing for men with crowns, you traded stability for a life of adventure. You returned a hero and savior of the lands, but those glory days with your old adventurer party are long gone. \
+	The honor has faded, your weary body aches, and your sword gathers dust. Sometimes you wonder how your old friends are doing."
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	display_order = JDO_VET
