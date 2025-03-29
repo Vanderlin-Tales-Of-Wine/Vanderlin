@@ -82,5 +82,10 @@
             "dependsOn": "dm: reparse",
             "label": "Build All (unit tests)"
         },
+        {
+            "command": "${command:dreammaker.reparse}",
+            "group": "build",
+            "label": "dm: reparse"
+        },
     ]
 }
