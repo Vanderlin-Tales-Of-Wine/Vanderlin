@@ -11,6 +11,7 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
+		"Kobold",
 		"Half-Orc")
 	grant_lit_torch = TRUE
 

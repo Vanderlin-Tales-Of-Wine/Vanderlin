@@ -115,7 +115,7 @@
 			if(!ispath(path, required_path))
 				continue
 			if(!subtypes_allowed && (path in subtypesof(required_path)))
-				return FALSE
+				continue
 			if(total_list[path] < requirements[required_path])
 				return FALSE
 			copied_requirements -= required_path

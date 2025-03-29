@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(emote_list)
 
 GLOBAL_LIST_INIT(dangerous_turfs, typecacheof(list(
 	/turf/open/lava,
-	/turf/open/transparent/openspace,
+	/turf/open/transparent,
 	/turf/open/water/acid,
 	)))
 

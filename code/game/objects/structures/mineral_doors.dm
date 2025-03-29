@@ -137,6 +137,7 @@
 	var/kickthresh = 15
 	var/bump_closed = TRUE
 	var/can_add_lock = TRUE
+	var/can_knock = TRUE
 
 	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
 
@@ -297,13 +298,16 @@
 				return
 		if(world.time >= last_bump+20)
 			last_bump = world.time
-			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
-			user.visible_message(span_warning("[user] knocks on [src]."), \
-				span_notice("I knock on [src]."))
+			if(can_knock)
+				playsound(src, 'sound/foley/doors/knocking.ogg', 100)
+				user.visible_message(span_warning("[user] knocks on [src]."), \
+					span_notice("I knock on [src]."))
 		return
 	return TryToSwitchState(user)
 
 /obj/structure/mineral_door/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density

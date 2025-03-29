@@ -141,8 +141,7 @@
 	if(!isliving(user))
 		return
 	var/mob/living/L = user.mob
-	if(L.doing)
-		L.doing = 0
+	L.stop_all_doing()
 	L.submit()
 	return TRUE
 
@@ -157,8 +156,7 @@
 	var/mob/living/L = user.mob
 	if(!istype(L))
 		return FALSE
-	if(L.doing)
-		L.doing = 0
+	L.stop_all_doing()
 	L.resist()
 	return TRUE
 

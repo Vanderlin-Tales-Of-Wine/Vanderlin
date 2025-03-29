@@ -45,7 +45,10 @@
 #define TRAIT_THIEVESGUILD				"Thieves Guild Member"
 #define TRAIT_ENGINEERING_GOGGLES		"Engineering Goggles"
 #define TRAIT_SEEPRICES				    "Golden Blood" //See prices
+#define TRAIT_SEE_LEYLINES				"Magical Visions"
+#define TRAIT_POISONBITE				"Poison Bite"
 #define TRAIT_FORAGER					"Foraging Knowledge" //Can tell which berries are good to eat when examining
+#define TRAIT_TINY 						"Tiny"
 
 // Divine patron trait bonuses:
 #define TRAIT_SOUL_EXAMINE				"Blessing of Necra"  //can check bodies to see if they have departed
@@ -73,6 +76,7 @@
 #define TRAIT_PUNISHMENT_CURSE "PunishmentCurse"
 #define TRAIT_BANDITCAMP "banditcamp"
 #define TRAIT_KNOWBANDITS "knowbandits"
+#define TRAIT_KNOWKEEPPLANS "knowkeepplans"
 #define TRAIT_VAMPMANSION "vampiremansion"
 #define TRAIT_VAMP_DREAMS "vamp_dreams"
 #define TRAIT_INHUMENCAMP "inhumencamp"
@@ -172,6 +176,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BLACKLEG = "I can cheat by rigging coin and dice, and peek at cards.",
 	TRAIT_MATTHIOS_EYES = span_notice("I have a sense for what the most valuable item someone has is."),
 	TRAIT_CRATEMOVER = "I am able to drag heavy objects without any difficulty.",
+	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
+	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
 	))
 
@@ -419,3 +425,5 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_GUIDANCE "guidance"
 
 #define TRAIT_I_AM_INVISIBLE_ON_A_BOAT "invisible_on_tram"
+///Trait given by /datum/element/relay_attacker
+#define TRAIT_RELAYING_ATTACKER "relaying_attacker"

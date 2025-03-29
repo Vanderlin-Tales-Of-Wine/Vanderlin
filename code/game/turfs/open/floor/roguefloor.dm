@@ -231,6 +231,14 @@
 						/turf/open/floor/snow/rough,
 						/turf/open/floor/snow/patchy)
 
+/turf/open/floor/grass/eora
+	icon_state = "hellgrass"
+	neighborlay = "hellgrassedge"
+	canSmoothWith = list(/turf/open/floor/grass,
+						/turf/open/floor/snow,
+						/turf/open/floor/snow/rough,
+						/turf/open/floor/snow/patchy)
+
 /*	..................   Snow   ................... */
 
 /turf/open/floor/snow
@@ -309,6 +317,9 @@
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/grass,
 						/turf/open/floor/snow)
+
+	spread_chance = 8
+
 	neighborlay = "dirtedge"
 	var/muddy = FALSE
 	var/bloodiness = 20
@@ -637,6 +648,9 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	icon = 'icons/turf/greenstone.dmi'
+
+/turf/open/floor/greenstone/runed
+	icon_state = "greenstoneruned"
 
 /turf/open/floor/hexstone
 	icon_state = "hexstone"

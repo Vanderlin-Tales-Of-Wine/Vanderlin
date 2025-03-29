@@ -5,12 +5,14 @@
 	action_icon_state = "knock"
 	overlay_state = "knock"
 	school = "transmutation"
-	charge_max = 100
-	clothes_req = FALSE
+	recharge_time = 100
 	invocation = "AULIE OXIN FIERA"
 	invocation_type = "whisper"
 	range = 3
 	cooldown_min = 300 //20 deciseconds reduction per rank
+	attunements = list(
+		/datum/attunement/aeromancy = 0.2,
+	)
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/cast(list/targets,mob/user = usr)
 //	SEND_SOUND(user, sound('sound/blank.ogg'))

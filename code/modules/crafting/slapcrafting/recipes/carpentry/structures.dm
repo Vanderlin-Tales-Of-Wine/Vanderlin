@@ -526,3 +526,15 @@
 		)
 	result_type = /obj/structure/meathook
 	craftdiff = 1
+
+/datum/slapcraft_recipe/carpentry/structure/spider_nest
+	name = "spider nesting house"
+	steps = list(
+		/datum/slapcraft_step/item/plank,
+		/datum/slapcraft_step/item/plank/second,
+		/datum/slapcraft_step/use_item/carpentry/hammer,
+		/datum/slapcraft_step/item/plank/third,
+		/datum/slapcraft_step/use_item/carpentry/hammer/second,
+		)
+	result_type = /obj/structure/spider/nest/constructed
+	craftdiff = 1

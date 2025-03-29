@@ -147,7 +147,7 @@
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	rotprocess = 5 MINUTES
 
-/obj/item/reagent_containers/food/snacks/organ/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
 		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	. = ..()

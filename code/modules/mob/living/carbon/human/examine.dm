@@ -574,6 +574,10 @@
 					. += "profane dagger whispers, [span_danger("\"That's [real_name]! Strike their heart!\"")]"
 					break
 
+	if(HAS_TRAIT(user, TRAIT_SEEPRICES) && sellprice)
+		. += "Is worth around [sellprice] mammons."
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
+
 /mob/living/proc/status_effect_examines(pronoun_replacement) //You can include this in any mob's examine() to show the examine texts of status effects!
 	var/list/dat = list()
 	if(!pronoun_replacement)
