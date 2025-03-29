@@ -1316,11 +1316,6 @@
 /obj/item/natural/feather,
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/town/basement)
-"aPo" = (
-/obj/structure/table/wood/plain,
-/obj/structure/table/wood/plain,
-/turf/open/floor/greenstone,
-/area/rogue/under/town/basement)
 "aPy" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/table/wood/plain,
@@ -12760,11 +12755,6 @@
 /obj/item/key/houses/house6,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
-"hho" = (
-/obj/structure/table/wood/plain_alt,
-/obj/structure/table/wood/plain_alt,
-/turf/open/floor/ruinedwood/darker,
-/area/rogue/outdoors/town/roofs)
 "hhB" = (
 /turf/closed/wall/mineral/pipe{
 	dir = 8;
@@ -20217,7 +20207,8 @@
 /area/rogue/indoors/town/manor)
 "luL" = (
 /obj/structure/table/wood/large/corner{
-	dir = 6
+	dir = 6;
+	pixel_x = -6
 	},
 /obj/item/coin/copper/pile,
 /obj/item/coin/copper/pile{
@@ -21181,7 +21172,6 @@
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "lZd" = (
-/obj/structure/table/wood/large/corner,
 /obj/structure/table/wood/large/corner{
 	dir = 4
 	},
@@ -29895,7 +29885,6 @@
 /area/rogue/outdoors/town)
 "qMG" = (
 /obj/structure/table/wood/plain_alt,
-/obj/structure/table/wood/plain_alt,
 /obj/item/dice,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
@@ -36061,13 +36050,6 @@
 	},
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/town)
-"uip" = (
-/obj/structure/window/openclose{
-	icon_state = "woodwindowdir";
-	dir = 1
-	},
-/turf/closed/wall/mineral/decowood,
-/area/rogue/indoors/town/tavern)
 "uir" = (
 /obj/structure/window/openclose{
 	dir = 1;
@@ -37476,11 +37458,6 @@
 "uSy" = (
 /turf/closed/wall/mineral/wooddark/end,
 /area/rogue/indoors/soilsons)
-"uSA" = (
-/obj/structure/window,
-/obj/structure/curtain/bounty,
-/turf/closed/wall/mineral/decowood,
-/area/rogue/indoors/town)
 "uSE" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -49288,7 +49265,7 @@ sey
 wLI
 aNm
 nYy
-aPo
+nYy
 nYy
 aNm
 aNm
@@ -143466,7 +143443,7 @@ qjP
 kel
 uoe
 uoe
-uip
+kBO
 vaI
 grI
 grI
@@ -187869,7 +187846,7 @@ gCa
 aML
 mmy
 aML
-uSA
+hjO
 aML
 rdQ
 aML
@@ -220941,7 +220918,7 @@ krN
 krN
 krN
 cFM
-hho
+cHw
 xyh
 nuE
 ehP
