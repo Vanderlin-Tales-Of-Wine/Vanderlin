@@ -21,6 +21,7 @@
 	craft_time = 1 SECONDS
 	uses_attacked_atom = TRUE
 	subtypes_allowed = TRUE
+	reagent_subtypes_allowed = TRUE
 
 /datum/repeatable_crafting_recipe/bomb/smokebomb
 	name = "smoke bomb"
