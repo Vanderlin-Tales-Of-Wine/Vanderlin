@@ -2639,7 +2639,7 @@
 	redstone_id = "gaffer"
 	},
 /turf/closed/wall/mineral/craftstone,
-/area/rogue/under/town/caverogue)
+/area/rogue/indoors/town/merc_guild)
 "bKc" = (
 /obj/structure/window/openclose{
 	dir = 4
@@ -2882,8 +2882,8 @@
 /turf/open/floor/blocks/paving,
 /area/rogue/indoors/town/dwarfin)
 "bTj" = (
-/turf/closed/wall/mineral/craftstone,
-/area/rogue/under/town/caverogue)
+/turf/open/floor/blocks/newstone/alt,
+/area/rogue/outdoors/town)
 "bTq" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_end"
@@ -5524,7 +5524,7 @@
 /obj/item/bedsheet/double_pelt,
 /obj/effect/landmark/start/gaffer,
 /turf/open/floor/carpet/red,
-/area/rogue/under/town/caverogue)
+/area/rogue/indoors/town/merc_guild)
 "dPj" = (
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/tile,
@@ -5933,7 +5933,7 @@
 "eaK" = (
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/craftstone,
-/area/rogue/under/town/caverogue)
+/area/rogue/indoors/town/merc_guild)
 "eaL" = (
 /obj/structure/table/wood/large/corner,
 /turf/open/floor/dirt/road,
@@ -16097,7 +16097,7 @@
 /area/rogue/indoors/town/tavern)
 "kYw" = (
 /obj/structure/fluff/statue/gaffer,
-/turf/open/floor/cobble,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/outdoors/town)
 "kYB" = (
 /obj/structure/fermentation_keg/random/water,
@@ -23068,7 +23068,7 @@
 "qmF" = (
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/carpet/red,
-/area/rogue/under/town/caverogue)
+/area/rogue/indoors/town/merc_guild)
 "qmW" = (
 /obj/structure/bars/passage/shutter{
 	redstone_id = "stewardwarehouse"
@@ -30725,7 +30725,7 @@
 /area/rogue/indoors/town)
 "vxK" = (
 /obj/structure/fake_machine/hailerboard/l,
-/turf/open/floor/blocks,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/outdoors/town)
 "vxV" = (
 /obj/item/ash,
@@ -34266,7 +34266,7 @@
 /obj/effect/landmark/start/gaffer{
 	dir = 8
 	},
-/turf/open/floor/cobble,
+/turf/open/floor/blocks/newstone/alt,
 /area/rogue/outdoors/town)
 "ybp" = (
 /obj/structure/fluff/walldeco/church/line,
@@ -88797,9 +88797,9 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
-bTj
+jMD
+jMD
+jMD
 vgJ
 vgJ
 vgJ
@@ -88996,10 +88996,10 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
-bTj
-bTj
+jMD
+jMD
+jMD
+jMD
 mMJ
 ylq
 jMD
@@ -89198,7 +89198,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 mMJ
 mMJ
 mMJ
@@ -89400,7 +89400,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 mMJ
 jMD
 jMD
@@ -89600,8 +89600,8 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
+jMD
+jMD
 bJV
 fXf
 jMD
@@ -90004,7 +90004,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 dOM
 mCL
 pjc
@@ -90206,8 +90206,8 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
+jMD
+jMD
 tYS
 pjc
 jMD
@@ -90407,8 +90407,8 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
+jMD
+jMD
 eXO
 pjc
 pjc
@@ -90609,7 +90609,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 cBo
 mMJ
 mCL
@@ -90811,7 +90811,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 wwk
 eya
 mCL
@@ -91013,7 +91013,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 wwk
 mCL
 mCL
@@ -91215,7 +91215,7 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
+jMD
 kSy
 mMJ
 mCL
@@ -91417,8 +91417,8 @@ vgJ
 vgJ
 vgJ
 vgJ
-bTj
-bTj
+jMD
+jMD
 eOB
 mMJ
 jMD
@@ -93246,7 +93246,7 @@ snb
 nEc
 eYq
 lsl
-elp
+bTj
 kYw
 vxK
 lsl
