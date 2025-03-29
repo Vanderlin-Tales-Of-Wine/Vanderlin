@@ -6601,13 +6601,7 @@
 	desc = "Tsere's bone adorns this blade, its strength empowering each swing.";
 	name = "Tsere's Spine"
 	},
-/mob/living/simple_animal/hostile/retaliate/voiddragon/red{
-	blood_volume = 4000;
-	health = 8000;
-	name = "Tsere The Insurmountable";
-	maxHealth = 8000;
-	desc = "Her scales shimmer in the blue light, her form is death, her gaze is wisdom, her wings cut all. This is Tsere... The Insurmountable."
-	},
+/mob/living/simple_animal/hostile/retaliate/voiddragon/red/tsere,
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 
