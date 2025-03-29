@@ -25401,9 +25401,8 @@
 /area/rogue/indoors/town)
 "saD" = (
 /obj/structure/mineral_door/bars{
-	lockid = "lord";
 	locked = 1;
-	max_integrity = 10000
+	lockid = "lord"
 	},
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/town)
