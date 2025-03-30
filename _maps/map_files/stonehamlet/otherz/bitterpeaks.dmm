@@ -161,7 +161,7 @@
 /area/rogue/indoors/vampire_manor)
 "dR" = (
 /obj/structure/window/stained/zizo,
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/lower)
 "eo" = (
 /obj/structure/bookcase,
@@ -1253,7 +1253,7 @@
 "Ri" = (
 /obj/structure/window/stained/yellow,
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone,
+/turf/open/floor/hexstone,
 /area/rogue/indoors/towerofwise)
 "Rw" = (
 /obj/structure/rack,

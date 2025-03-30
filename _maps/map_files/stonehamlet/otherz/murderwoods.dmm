@@ -188,7 +188,6 @@
 /obj/effect/spawner/map_spawner/enemy_fifty/volf,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
 	name = "vulf cave"
 	})
 "gq" = (

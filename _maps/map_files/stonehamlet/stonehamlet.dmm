@@ -427,9 +427,7 @@
 "aHl" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "aHu" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	desc = "The heavy doors keyhole is fitted for a ring.";
