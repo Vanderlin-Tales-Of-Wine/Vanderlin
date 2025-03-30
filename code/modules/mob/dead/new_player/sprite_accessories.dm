@@ -213,12 +213,6 @@
 	gender = MALE
 	specuse = list("human")
 
-/datum/sprite_accessory/hair/helmet
-	name = "Helmet hair"
-	icon_state = "helmet"
-	gender = MALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/heroic
 	name = "Heroic"
 	icon_state = "heroic"
@@ -1156,6 +1150,12 @@
 /datum/sprite_accessory/hair/head/shorthair6
 	name = "Short Hair (Alt)"
 	icon_state = "shorthair_alt"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
+/datum/sprite_accessory/hair/helmet
+	name = "Helmet Hair"
+	icon_state = "helmet"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
