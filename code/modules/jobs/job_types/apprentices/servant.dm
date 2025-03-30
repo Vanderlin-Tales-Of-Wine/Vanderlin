@@ -16,7 +16,6 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	outfit = /datum/outfit/job/servant
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE

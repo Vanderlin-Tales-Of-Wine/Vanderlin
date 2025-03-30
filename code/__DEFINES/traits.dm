@@ -10,6 +10,7 @@
 #define TRAIT_NOBLE					"Noble Blooded"
 #define TRAIT_EMPATH					"Empath"
 #define TRAIT_BREADY					"Battleready"
+#define TRAIT_HEARING_SENSITIVE 		"hearing_sensitive"
 #define TRAIT_MEDIUMARMOR				"Mail Training"
 #define TRAIT_HEAVYARMOR				"Plate Training"
 #define TRAIT_DODGEEXPERT              "Fast Reflexes"

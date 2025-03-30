@@ -50,7 +50,7 @@
 /datum/patreon_data/proc/has_access(rank)
 	if(!access_rank)
 		assign_access_rank()
-	if(owner.holder)
+	if(owner.holder || (owner.ckey in GLOB.deadmins))
 		return TRUE
 	if(rank <= access_rank)
 		return TRUE
