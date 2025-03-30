@@ -399,19 +399,20 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 	var/sanitized_message = sanitize_hear_message(raw_message)
 
-	if(!(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel")))
+	if(findtext(sanitized_message, "nevermind") || findtext(sanitized_message, "cancel"))
 		reset_mode()
-		switch(mode)
-			if(MODE_NONE)
-				recognize_command(speaker, sanitized_message)
-			if(MODE_MAKE_ANNOUNCEMENT)
-				make_announcement(speaker, sanitized_message)
-			if(MODE_MAKE_LAW)
-				make_law(speaker, sanitized_message)
-			if(MODE_DECLARE_OUTLAW)
-				declare_outlaw(speaker, sanitized_message)
-			if(MODE_MAKE_DECREE)
-				make_decree(speaker, sanitized_message)
+		return
+	switch(mode)
+		if(MODE_NONE)
+			recognize_command(speaker, sanitized_message)
+		if(MODE_MAKE_ANNOUNCEMENT)
+			make_announcement(speaker, sanitized_message)
+		if(MODE_MAKE_LAW)
+			make_law(speaker, sanitized_message)
+		if(MODE_DECLARE_OUTLAW)
+			declare_outlaw(speaker, sanitized_message)
+		if(MODE_MAKE_DECREE)
+			make_decree(speaker, sanitized_message)
 
 #undef MODE_NONE
 #undef MODE_MAKE_ANNOUNCEMENT
