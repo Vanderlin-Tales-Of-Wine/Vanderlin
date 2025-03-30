@@ -388,6 +388,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define INNATE_TRAIT "innate"
 #define CRIT_HEALTH_TRAIT "crit_health"
 #define OXYLOSS_TRAIT "oxyloss"
+#define BLOODLOSS_TRAIT "bloodloss"
 #define BUCKLED_TRAIT "buckled" //trait associated to being buckled
 #define CHOKEHOLD_TRAIT "chokehold" //trait associated to being held in a chokehold
 #define RESTING_TRAIT "resting" //trait associated to resting
