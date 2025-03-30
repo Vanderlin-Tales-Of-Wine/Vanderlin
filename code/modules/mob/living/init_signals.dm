@@ -25,4 +25,3 @@
 ///Called when TRAIT_DEATHCOMA is removed from the mob.
 /mob/living/proc/on_deathcoma_trait_loss(datum/source)
 	REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)
-	
