@@ -13,7 +13,6 @@
 	for(var/datum/mind/MF in get_minds("Death Knight"))
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
-	greet()
 
 /datum/antagonist/skeleton/knight/greet()
 	to_chat(owner.current, span_userdanger("I am returned to serve. I will obey, so that I may return to rest."))

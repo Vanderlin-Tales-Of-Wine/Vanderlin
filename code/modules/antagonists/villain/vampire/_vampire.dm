@@ -75,7 +75,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	vamp_look()
 	. = ..()
 	after_gain()
-	greet()
 
 /datum/antagonist/vampire/proc/after_gain()
 	owner.current.verbs |= /mob/living/carbon/human/proc/disguise_button
