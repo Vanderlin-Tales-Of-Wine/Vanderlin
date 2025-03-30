@@ -42,7 +42,7 @@ Examples can be as simple or as complex as you would like. Let's start with a ve
     ui.open()
 ```
 
-This is the proc that defines our interface. There's a bit going on here, so let's break it down. First, we override the ui_interact proc on our object. This will be called by `interact` for you, which is in turn called by `attack_hand` (or `attack_self` for items). `ui_interact` is also called to update a UI (hence the `try_update_ui`), so we accept an existing UI to update. The `state` is a default argument so that a caller can overload it with named arguments (`ui_interact(state = overloaded_state)`) if needed.
+This is the proc that defines our interface. There's a bit going on here, so let's break it down. First, we override the ui_interact proc on our object. This will be called by `interact` for you, which is in turn called by `attack_hand` (or `attack_self` for items). `ui_interact` is also called to update a UI (hence the `try_update_ui`), so we accept an existing UI to update. The `state` is a default argument so that a requester can overload it with named arguments (`ui_interact(state = overloaded_state)`) if needed.
 
 Inside the `if(!ui)` block (which means we are creating a new UI), we choose our template, title, and size; we can also set various options like `style` (for themes), or autoupdate. These options will be elaborated on later (as will `ui_state`s).
 

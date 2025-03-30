@@ -109,6 +109,13 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"co" = (
+/obj/structure/mineral_door/wood/fancywood{
+	lockid = "manor";
+	name = "Manor"
+	},
+/turf/open/floor/cobble,
+/area/rogue/under/mountains/anvil/dungeon)
 "cr" = (
 /obj/machinery/light/fueled/torchholder/l,
 /obj/structure/handcart{
@@ -487,10 +494,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"ig" = (
-/obj/structure/mineral_door/wood,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/under/mountains/anvil/dungeon)
 "il" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/cobblerock,
@@ -2201,17 +2204,6 @@
 /obj/item/reagent_containers/food/snacks/cheddar,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Ef" = (
-/obj/item/reagent_containers/food/snacks/potato/baked,
-/obj/structure/spider/stickyweb,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "Eg" = (
 /obj/effect/decal/remains/wolf,
 /turf/open/floor/cobblerock,
@@ -3253,6 +3245,16 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
+"Rf" = (
+/obj/item/reagent_containers/food/snacks/potato/baked,
+/obj/structure/spider/stickyweb,
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/cobblerock,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Rq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -3704,13 +3706,6 @@
 "WZ" = (
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"Xa" = (
-/obj/structure/mineral_door/wood/fancywood{
-	lockid = "manor";
-	name = "Manor"
-	},
-/turf/closed/wall/mineral/stone,
-/area/rogue/under/mountains/anvil/dungeon)
 "Xc" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -5321,7 +5316,7 @@ Xc
 Xc
 Xc
 FM
-Ef
+Rf
 lJ
 eq
 Ds
@@ -10202,7 +10197,7 @@ hH
 Cb
 kZ
 kZ
-ig
+wJ
 Cb
 kZ
 kZ
@@ -10278,7 +10273,7 @@ gh
 eC
 vf
 im
-Xa
+co
 mA
 oR
 mA

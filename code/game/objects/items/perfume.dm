@@ -54,7 +54,7 @@
 	uses_remaining--
 	update_icon()
 	if(target == user)
-		user.visible_message(span_notice("[user] sprays \themself with \the [src]."), span_notice("You spray yourself with \the [src]."))
+		user.visible_message(span_notice("[user] sprays [user.p_them()]self with \the [src]."), span_notice("You spray yourself with \the [src]."))
 	else
 		user.visible_message(span_notice("[user] sprays [target] with \the [src]."), span_notice("You spray [target] with \the [src]."))
 	var/turf/my_turf = get_turf(user)

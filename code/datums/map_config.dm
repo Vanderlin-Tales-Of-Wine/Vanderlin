@@ -21,9 +21,7 @@
 	var/traits = null
 	var/space_ruin_levels = 7
 	var/space_empty_levels = 1
-
-	var/custom_area_sound = null
-	var/list/other_z
+	var/other_z = list()
 
 /proc/load_map_config(filename = "data/next_map.json", default_to_van, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
@@ -108,20 +106,6 @@
 		space_empty_levels = temp
 	else if (!isnull(temp))
 		log_world("map_config space_empty_levels is not a number!")
-		return
-
-	var/soundTemp = json["custom_area_sound"]
-	if (istext(soundTemp))
-		if(!findtextEx(soundTemp, new /regex("\\.ogg$"))) //makes sure this is an ogg file
-			log_world("map_config [soundTemp] is not a valid .ogg file!")
-			return
-		var/soundFile = file(soundTemp)
-		if(!soundFile)
-			log_world("map_config custom_area_sound not found at [soundTemp]!")
-			return
-		custom_area_sound = soundFile
-	else if (!isnull(soundTemp))
-		log_world("map_config custom_area_sound is not a string!")
 		return
 
 	var/list/other_z = json["other_z"]
