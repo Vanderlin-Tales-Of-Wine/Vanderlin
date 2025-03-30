@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 		"Declare Outlaw",
 		"Set Taxes",
 		"Change Position",
-		"Appoint regent",
+		"Appoint Regent",
 		"Cancel",
 	)
 
@@ -325,7 +325,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 /obj/structure/fake_machine/titan/proc/change_position(mob/living/carbon/human/user)
 	if(!Adjacent(user))
 		return
-	var/list/mob/possible_mobs = orange(2, src)
+	var/list/mob/living/carbon/human/possible_mobs = orange(2, src)
+	for(var/living/carbon/human/mob in possible_mobs)
+		if(mob == SSticker.rulermob) // remove the ruler from possible mobs if he is here
+			possible_mobs -= mob
+
 	if(!possible_mobs)
 		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 		say("No one around!")
