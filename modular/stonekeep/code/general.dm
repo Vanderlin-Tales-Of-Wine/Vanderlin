@@ -182,13 +182,13 @@
 	icon_state = "certificate"
 
 
+
 // =================================================================================
 /*------\
 | Items |
 \------*/
 
-/obj/item/clothing/head/peaceflower
-	icon = 'modular/stonekeep/icons/misc.dmi'
+
 
 /obj/item/reagent_containers/glass/bucket/pot/copper
 	icon = 'modular/stonekeep/icons/cooking.dmi'
@@ -966,6 +966,11 @@
 	icon_state = "spikekey"
 	lockid = "tollhouse"
 
+/obj/item/key/adventurersguild
+	name = "guild key"
+	desc = "This key is stamped with the Adventurers Guild emblem, two gauntlets shaking hands."
+	icon_state = "mazekey"
+	lockid = "adventurer"
 
 /obj/item/storage/keyring/nitemaster
 	keys = list(/obj/item/key/nitemaster, /obj/item/key/bathhouse)
@@ -1108,3 +1113,39 @@
 	max_w_class = WEIGHT_CLASS_SMALL
 	screen_max_rows = 2
 	screen_max_columns = 1
+
+
+/obj/item/clothing/ring/adventurer/copper
+	name = "copper certification"
+	desc = "The wearer is rated as a novice adventurer."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "copper"
+	sellprice = 2
+
+/obj/item/clothing/ring/adventurer/bronze
+	name = "bronze certification"
+	desc = "The wearer is rated as a proven adventurer."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "bronze"
+	sellprice = 2
+
+/obj/item/clothing/ring/adventurer/iron
+	name = "iron certification"
+	desc = "The wearer is rated as a skilled adventurer."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "iron"
+	sellprice = 2
+
+/obj/item/clothing/ring/adventurer/silver
+	name = "silver certification"
+	desc = "The wearer is rated as a experienced adventurer."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "silver"
+	sellprice = 2
+
+/obj/item/clothing/ring/adventurer/gold
+	name = "gold certification"
+	desc = "The wearer is rated as a very skilled adventurer."
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "gold"
+	sellprice = 2

@@ -486,7 +486,8 @@
 /obj/item/clothing/face/facemask/steel
 	armor = ARMOR_PLATE_BAD
 
-
+/obj/item/clothing/head/peaceflower
+	icon = 'modular/stonekeep/icons/misc.dmi'
 
 /obj/item/clothing/head/helmet/heavy/necked/varyag
 	name = "varyag helmet"
@@ -514,6 +515,7 @@
 /obj/item/clothing/face/spectacles/delf/dropped(mob/user)
 	. = ..()
 	user.update_sight()
+
 
 // =============================================================================
 // ==============================	CLOAKS	====================================

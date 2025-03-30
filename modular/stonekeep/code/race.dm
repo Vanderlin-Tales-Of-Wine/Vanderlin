@@ -29,7 +29,6 @@
 	specstats = list("strength" = -1, "perception" = -1, "intelligence" = 1, "constitution" = 0, "endurance" = 1, "speed" = 2, "fortune" = 0)
 	specstats_f = list("strength" = 0, "perception" = -1, "intelligence" = 1, "constitution" = 1, "endurance" = 0, "speed" = 1, "fortune" = 0)
 
-
 #define DELF_SCORPION "B8CEAD"
 
 /datum/species/elf/dark/get_skin_list()
@@ -43,6 +42,10 @@
 		"Arachnid Ichor" = SKIN_COLOR_ARACHNID_ICHOR, // - (Black-blue)
 		"Scorpion" = DELF_SCORPION, // - (Pale green)
 	))
+/datum/species/elf/dark/on_species_gain(mob/living/carbon/C, datum/species/old_species, datum/preferences/pref_load)
+	. = ..()
+	ADD_TRAIT(C, TRAIT_DARKLING, SPECIES_TRAIT)
+
 /*
 /datum/species/elf/dark/get_accent_list()
 	return strings("SKdarkelf_replacement.json", "darkelf")

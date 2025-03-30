@@ -9,6 +9,7 @@
 	outfit = /datum/outfit/job/stonekeep/merc/blackoak
 	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
+	cmode_music = 'sound/music/cmode/combat_hellish2.ogg'
 
 /datum/outfit/job/stonekeep/merc/blackoak/pre_equip(mob/living/carbon/human/H)
 	..()

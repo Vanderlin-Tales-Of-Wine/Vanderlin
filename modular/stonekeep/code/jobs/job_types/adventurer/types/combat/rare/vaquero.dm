@@ -6,7 +6,7 @@
 	allowed_races = list("Tiefling")
 	outfit = /datum/outfit/job/sk/adventurer/vaquero
 	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
-	cmode_music = 'sound/music/cmode/adventurer/combat_vaquero.ogg'
+	cmode_music = 'sound/music/cmode/combat_duelist.ogg'
 	category_tags = list(CTAG_ADVENTURER)
 	min_pq = 0
 	pickprob = 30

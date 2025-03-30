@@ -22,7 +22,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
 
 	selection_color = "#a13322"
-	cmode_music = 'sound/music/cmode/garrison/CombatManAtArms.ogg'
+	cmode_music = 'sound/music/cmode/combat_quarte.ogg'
 
 /datum/job/captain/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

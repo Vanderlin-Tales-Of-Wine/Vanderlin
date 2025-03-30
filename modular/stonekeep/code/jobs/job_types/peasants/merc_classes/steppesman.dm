@@ -11,7 +11,7 @@
 	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
+	cmode_music = 'sound/music/cmode/combat_steppe.ogg'
 
 /datum/outfit/job/stonekeep/merc/steppesman/pre_equip(mob/living/carbon/human/H)
 	..()

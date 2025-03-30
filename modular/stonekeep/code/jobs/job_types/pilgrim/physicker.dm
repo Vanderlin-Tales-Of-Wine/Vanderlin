@@ -19,6 +19,7 @@
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	apprentice_name = "Physicker Apprentice"
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 /datum/outfit/job/sk/pilgrim/physicker/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -24,7 +24,7 @@
 	min_pq = -50
 	give_bank_account = 8
 	can_have_apprentices = TRUE
-	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 /datum/outfit/job/stonekeep/cook/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -7,7 +7,7 @@
 	)
 	outfit = /datum/outfit/job/stonekeep/merc/corsair
 	category_tags = list(CTAG_SKMERCENARY)
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	cmode_music = 'sound/music/cmode/combat_duelist.ogg'
 	maximum_possible_slots = 5
 
 /datum/outfit/job/stonekeep/merc/corsair

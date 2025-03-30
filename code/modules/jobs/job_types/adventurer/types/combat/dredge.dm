@@ -1,4 +1,4 @@
-/datum/advclass/combat/dredge
+/*datum/advclass/combat/dredge
 	name = "Dredge"
 	tutorial = "Peasants and nobles. Saints, sinners, madmen and thieves - who you once were is now irrelevant. \
 	Cast from your home for what is undoubtedly a heinous act of violence, your travels have washed you up upon this \
@@ -796,3 +796,17 @@
 			to_chat(H,span_info("\
 			I smoke ozium.")
 			)
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

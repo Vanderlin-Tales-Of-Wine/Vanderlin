@@ -8,7 +8,6 @@
 	outfit = /datum/outfit/job/sk_migration/varyag
 	grant_lit_torch = TRUE
 
-
 /datum/migrant_role/sk/varyag/after_spawn(mob/living/carbon/human/character)
 	. = ..()
 	character.forceMove(pick(GLOB.mountainevil_starts))
@@ -16,9 +15,17 @@
 /datum/outfit/job/sk_migration/varyag/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/leather/rope/survival
+	beltl = /obj/item/weapon/knife/stone
 	pants = /obj/item/clothing/pants/trou
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
-
+	if(prob(25))
+		cloak = /obj/item/clothing/cloak/volfmantle
+	if(prob(15))
+		cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
+	if(prob(10))
+		neck = 	/obj/item/clothing/neck/elfears
+	if(prob(5))
+		neck = 	/obj/item/clothing/neck/menears
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -27,6 +34,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 
@@ -47,16 +55,18 @@
 			head = /obj/item/clothing/head/helmet/heavy/necked/varyag
 			armor = /obj/item/clothing/armor/leather/hide
 
-	var/gear2choose = pickweight(list("Shield" = 1, "Battleaxe" = 1))
+	var/gear2choose = pickweight(list("Shield" = 1, "Battleaxe" = 1, "Spear" = 1))
 	switch(gear2choose)
 		if("Shield")
 			backr = /obj/item/weapon/shield/wood
-			beltr = /obj/item/weapon/axe/battle/ono
+			beltr = /obj/item/weapon/axe
 		if("Battleaxe")
 			beltr = /obj/item/weapon/axe/battle
 			wrists = /obj/item/clothing/wrists/bracers/leather
-
-
+		if("Spear")
+			backr = /obj/item/weapon/shield/wood
+			var/obj/item/weapon/polearm/spear/P = new()
+			H.put_in_hands(P, forced = TRUE)
 
 /datum/migrant_wave/varyag_raiders
 	name = "The Varyag Raiders"

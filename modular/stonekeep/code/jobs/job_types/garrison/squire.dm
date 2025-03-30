@@ -24,6 +24,7 @@
 	min_pq = -15
 	selection_color = "#304529"
 	can_have_apprentices = FALSE
+	cmode_music = 'sound/music/cmode/combat_quarte.ogg'
 
 /datum/outfit/job/stonekeep/squire/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/coif/cloth

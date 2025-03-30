@@ -1941,7 +1941,17 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/shop)
 "cWO" = (
-/obj/structure/closet/crate/chest/neu,
+/obj/structure/closet/crate/chest/neu{
+	locked = 1;
+	lockid = "adventurer"
+	},
+/obj/item/clothing/ring/adventurer/bronze,
+/obj/item/clothing/ring/adventurer/bronze,
+/obj/item/clothing/ring/adventurer/bronze,
+/obj/item/clothing/ring/adventurer/bronze,
+/obj/item/clothing/ring/adventurer/copper,
+/obj/item/clothing/ring/adventurer/copper,
+/obj/item/clothing/ring/adventurer/copper,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern/saiga)
 "cXo" = (
@@ -2302,16 +2312,16 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/exposed/townhamlet)
 "duu" = (
-/obj/effect/decal/remains/neu/human,
-/obj/effect/decal/remains/neu/human{
-	pixel_x = 11;
-	pixel_y = 19
-	},
 /obj/effect/decal/remains/neu/humanc{
 	pixel_x = -12;
 	pixel_y = -4
 	},
 /obj/item/clothing/neck/psycross/silver/pestra,
+/obj/structure/plaguepile,
+/obj/effect/decal/cleanable/blood/gibs/body{
+	pixel_x = 9;
+	pixel_y = 14
+	},
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "duL" = (
@@ -3808,7 +3818,10 @@
 /area/rogue/indoors/town/dwarfin)
 "fBi" = (
 /obj/item/natural/bundle/worms,
-/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/blood/gibs/old{
+	pixel_x = -7;
+	pixel_y = -10
+	},
 /obj/structure/plaguepile,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -14180,6 +14193,20 @@
 	},
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/manor/stone)
+"tVH" = (
+/obj/structure/closet/crate/chest/neu{
+	locked = 1;
+	lockid = "adventurer"
+	},
+/obj/item/clothing/ring/adventurer/iron,
+/obj/item/clothing/ring/adventurer/iron,
+/obj/item/clothing/ring/adventurer/iron,
+/obj/item/clothing/ring/adventurer/iron,
+/obj/item/clothing/ring/adventurer/silver,
+/obj/item/clothing/ring/adventurer/silver,
+/obj/item/clothing/ring/adventurer/silver,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern/saiga)
 "tWa" = (
 /obj/structure/rack,
 /obj/item/ammo_casing/caseless/bullet,
@@ -16378,7 +16405,10 @@
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor/stone)
 "xap" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/decal/cleanable/blood/gibs/body{
+	pixel_x = 7;
+	pixel_y = 11
+	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
 "xaq" = (
@@ -17058,6 +17088,16 @@
 "yhr" = (
 /turf/open/floor/snow/patchy,
 /area/rogue/outdoors/mountains)
+"yht" = (
+/obj/structure/closet/crate/chest/neu{
+	locked = 1;
+	lockid = "adventurer"
+	},
+/obj/item/clothing/ring/adventurer/gold,
+/obj/item/clothing/ring/adventurer/gold,
+/obj/item/clothing/ring/adventurer/gold,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern/saiga)
 "yhA" = (
 /obj/structure/fluff/railing/border{
 	dir = 1;
@@ -67375,17 +67415,17 @@ ckV
 ckV
 ckV
 ckV
-kTh
-kTh
-kTh
-kTh
-kTh
-kTh
-brc
-kTh
-kTh
-kTh
-kTh
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -67581,15 +67621,15 @@ ckV
 ckV
 ckV
 ckV
-kTh
-kTh
-kTh
-kTh
-kTh
-kTh
-kTh
-kTh
-brc
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -67777,22 +67817,22 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-kTh
-kTh
-brc
 kTh
 kTh
 kTh
+kTh
+kTh
+kTh
+kTh
+kTh
+kTh
+kTh
+kTh
+ckV
+ckV
+ckV
+ckV
+ckV
 bWX
 bWX
 brc
@@ -67984,17 +68024,17 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
 kTh
 kTh
 kTh
+kTh
+kTh
+kTh
+kTh
+kTh
+ckV
+ckV
+ckV
 brc
 bWX
 kTh
@@ -68190,14 +68230,14 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
-ckV
-ckV
-ckV
 kTh
 kTh
+kTh
+kTh
+kTh
+ckV
+ckV
+ckV
 kTh
 brc
 kTh
@@ -68395,12 +68435,12 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
-ckV
 kTh
 kTh
+kTh
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -68599,11 +68639,11 @@ brc
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
 kTh
 kTh
+ckV
+ckV
+ckV
 aNL
 kTh
 kTh
@@ -68802,10 +68842,10 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
 kTh
+ckV
+ckV
+ckV
 brc
 kTh
 kTh
@@ -69005,10 +69045,10 @@ kTh
 kTh
 brc
 kTh
-ckV
-ckV
-ckV
 kTh
+ckV
+ckV
+ckV
 kTh
 oTP
 brc
@@ -69207,10 +69247,10 @@ kTh
 brc
 kTh
 kTh
-ckV
-ckV
-ckV
 kTh
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -69410,9 +69450,9 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
 kTh
+ckV
+ckV
 kTh
 brc
 kTh
@@ -69612,10 +69652,10 @@ kTh
 brc
 kTh
 kTh
-ckV
-ckV
-ckV
 kTh
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -69817,7 +69857,7 @@ kTh
 kTh
 ckV
 ckV
-kTh
+ckV
 kTh
 kTh
 bWX
@@ -70017,9 +70057,9 @@ kTh
 brc
 kTh
 kTh
-ckV
-ckV
 kTh
+ckV
+ckV
 brc
 kTh
 kTh
@@ -70219,9 +70259,9 @@ aNL
 kTh
 kTh
 kTh
-ckV
-ckV
 kTh
+ckV
+ckV
 kTh
 brc
 kTh
@@ -70421,10 +70461,10 @@ kTh
 kTh
 kTh
 kTh
-ckV
-ckV
-ckV
 kTh
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -70626,7 +70666,7 @@ kTh
 kTh
 ckV
 ckV
-kTh
+ckV
 kTh
 brc
 kTh
@@ -70826,7 +70866,7 @@ kTh
 brc
 kTh
 kTh
-ckV
+kTh
 ckV
 ckV
 kTh
@@ -86191,7 +86231,7 @@ cpN
 kTh
 ckV
 ckV
-kTh
+ckV
 ckV
 ckV
 ckV
@@ -86391,21 +86431,21 @@ ckV
 ckV
 ckV
 ckV
-kTh
-kTh
+ckV
 kTh
 kTh
 kTh
 kTh
 ckV
-kTh
 ckV
 ckV
 ckV
 ckV
-kTh
-kTh
-kTh
+ckV
+ckV
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -86582,14 +86622,14 @@ qoZ
 ahK
 ahK
 kTh
-kTh
-ckV
-ckV
-kTh
 ckV
 ckV
 ckV
-kTh
+ckV
+ckV
+ckV
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -86809,12 +86849,12 @@ dio
 kTh
 wiK
 kTh
-kTh
 ckV
 ckV
 ckV
 ckV
-kTh
+ckV
+ckV
 kTh
 wiK
 kTh
@@ -87018,7 +87058,7 @@ kTh
 kTh
 ckV
 ckV
-kTh
+ckV
 kTh
 kTh
 kTh
@@ -87221,7 +87261,7 @@ kTh
 kTh
 kTh
 ckV
-kTh
+ckV
 brc
 kTh
 kTh
@@ -87423,8 +87463,8 @@ kTh
 kTh
 brc
 kTh
-kTh
-kTh
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -87626,8 +87666,8 @@ kTh
 kTh
 kTh
 kTh
-kTh
-kTh
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -88032,7 +88072,7 @@ kTh
 kTh
 kTh
 ckV
-kTh
+ckV
 kTh
 kTh
 brc
@@ -88236,7 +88276,7 @@ kTh
 kTh
 ckV
 ckV
-kTh
+ckV
 kTh
 kTh
 kTh
@@ -88439,7 +88479,7 @@ kTh
 kTh
 kTh
 ckV
-kTh
+ckV
 kTh
 kTh
 kTh
@@ -88845,10 +88885,10 @@ kTh
 kTh
 kTh
 kTh
-kTh
 ckV
 ckV
-kTh
+ckV
+ckV
 kTh
 kTh
 kTh
@@ -89250,16 +89290,16 @@ wiK
 kTh
 brc
 brc
-kTh
-kTh
+ckV
+ckV
 kTh
 cpN
-kTh
 ckV
 ckV
 ckV
 ckV
-kTh
+ckV
+ckV
 kTh
 pEt
 ckV
@@ -89453,7 +89493,7 @@ kTh
 kTh
 kTh
 brc
-kTh
+ckV
 ckV
 kTh
 kTh
@@ -89657,7 +89697,7 @@ kTh
 kTh
 kTh
 ckV
-kTh
+ckV
 kTh
 wiK
 kTh
@@ -90465,7 +90505,7 @@ kTh
 kTh
 brc
 kTh
-kTh
+ckV
 kTh
 kTh
 wiK
@@ -91071,7 +91111,7 @@ kTh
 kTh
 kTh
 kTh
-kTh
+ckV
 kTh
 kTh
 wiK
@@ -91879,7 +91919,7 @@ kTh
 kTh
 kTh
 ckV
-kTh
+ckV
 kTh
 brc
 kTh
@@ -92080,7 +92120,7 @@ shr
 shr
 kTh
 ckV
-kTh
+ckV
 kTh
 kTh
 kTh
@@ -95408,7 +95448,7 @@ sVA
 sVA
 sVA
 sVA
-lzi
+pXA
 qti
 lzi
 vQl
@@ -120485,7 +120525,7 @@ sSk
 ngU
 ngU
 ngU
-cWO
+tVH
 bBI
 sNs
 sNs
@@ -120687,7 +120727,7 @@ vGt
 ngU
 ngU
 ngU
-cWO
+yht
 bBI
 sNs
 sNs

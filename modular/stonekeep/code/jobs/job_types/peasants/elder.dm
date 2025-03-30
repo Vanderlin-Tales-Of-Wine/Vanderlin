@@ -19,7 +19,7 @@
 	give_bank_account = 60
 
 	selection_color = "#6c3e2f"
-	cmode_music = 'sound/music/cmode/towner/CombatMayor.ogg'
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 
 /datum/outfit/job/stonekeep/elder/pre_equip(mob/living/carbon/human/H)

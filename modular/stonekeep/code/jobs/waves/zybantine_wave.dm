@@ -63,7 +63,7 @@
 	H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	H.cmode_music = 'sound/music/cmode/combat_desertrider.ogg'
 
 
 /datum/migrant_role/sk/zybantine/janissary
@@ -115,7 +115,7 @@
 		H.change_stat(STATKEY_END, 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIMPDICK, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
+	H.cmode_music = 'sound/music/cmode/combat_desertrider.ogg'
 
 /datum/migrant_role/sk/zybantine/qatil
 	name = "Qatil"
@@ -168,7 +168,7 @@
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander3.ogg'
+	H.cmode_music = 'sound/music/cmode/combat_desertrider.ogg'
 
 
 /datum/migrant_role/sk/zyb/slave	// ROGTODO gear and skills I guess.
@@ -200,7 +200,7 @@
 		H.change_stat(STATKEY_STR, -4)
 		H.change_stat(STATKEY_END, 2)
 		ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
-		H.cmode_music = 'sound/music/cmode/unused/combat_barbarian.ogg'
+		H.cmode_music = 'sound/music/cmode/combat_desertrider.ogg'
 
 
 /datum/migrant_wave/zybantine_wave

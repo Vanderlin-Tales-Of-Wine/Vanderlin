@@ -21,8 +21,8 @@
 	tutorial = "The smell of filth and sweat no longer bother you, the glances of disgust or pity others give you familiar  ; the only reason you've not dead in a mud pit already is because you are tough as a old leather sole, hardned by ratbites, sticks and stones."
 	display_order = BEGGAR_ORDER
 	can_random = FALSE
+	cmode_music = 'sound/music/cmode/combat_bum.ogg'
 
-	cmode_music = 'sound/music/cmode/towner/CombatBeggar.ogg'
 
 /datum/job/vagrant/New()
 	. = ..()

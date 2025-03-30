@@ -15,7 +15,7 @@
 	category_tags = list(CTAG_SKMERCENARY)
 	maximum_possible_slots = 5
 
-	cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg' //Forgive me, Combat_DesertRider, I'm sorry, I'll miss you.
+	cmode_music = 'sound/music/cmode/combat_desertrider.ogg'
 
 /datum/outfit/job/stonekeep/merc/zybantine/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -23,6 +23,7 @@
 	outfit = /datum/outfit/job/stonekeep/nitemaster
 	display_order = NITEMAN_ORDER
 	give_bank_account = 120
+	cmode_music = 'sound/music/cmode/combat_hellish2.ogg'
 
 /datum/outfit/job/stonekeep/nitemaster/pre_equip(mob/living/carbon/human/H)
 	..()

@@ -16,6 +16,7 @@
 	outfit = /datum/outfit/job/sk/pilgrim/smith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 /datum/outfit/job/sk/pilgrim/smith/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -72,5 +73,4 @@
 		shoes = /obj/item/clothing/shoes/shortboots
 
 	if(H.dna.species.id == "dwarf")
-		head = /obj/item/clothing/head/helmet/leather/minershelm
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'

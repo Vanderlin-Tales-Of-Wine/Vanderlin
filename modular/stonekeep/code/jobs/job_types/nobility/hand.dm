@@ -20,7 +20,7 @@
 	tutorial = "Advisor, spymaster, confidante, your ties with the ruler are deep and personal."
 	advclass_cat_rolls = list(CTAG_SKHAND = 20)
 	give_bank_account = 120
-	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
+	cmode_music = 'sound/music/cmode/combat_quarte.ogg'
 
 /datum/job/hand/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()

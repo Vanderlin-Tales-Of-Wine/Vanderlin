@@ -13,6 +13,7 @@
 	give_bank_account = 100
 	can_have_apprentices = FALSE
 	outfit = /datum/outfit/job/stonekeep/guildmaster
+	cmode_music = 'sound/music/cmode/combat_hellish2.ogg'
 
 /datum/outfit/job/stonekeep/guildmaster/pre_equip(mob/living/carbon/human/H)
 	armor = /obj/item/clothing/shirt/tunic/red
@@ -26,7 +27,6 @@
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/storage/backpack/satchel
 	backpack_contents = list(/obj/item/key/veteran = 1, /obj/item/reagent_containers/food/snacks/hardtack = 1)
-	H.cmode_music = 'sound/music/cmode/combat_hellish.ogg'
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

@@ -63,7 +63,7 @@
 		H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
 /datum/migrant_role/sk/zizo/hellgoblin
-	name = "Goblin Marauder"
+	name = "Hellgoblin Servant"
 	greet_text = "Like the days of yore, you serve the Herald and Zizo fanatically, not because of some oath or reward, but because it is your nature. Aid the cult of Zizo, destroy livestock, defile the purity of this hateful world whose very air stings your skin, your body made of things not belonging in this world, and not wanted here."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -83,16 +83,16 @@
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
-	return  H.change_mob_type(/mob/living/carbon/human/species/goblin/hell, null, null, delete_old_mob = TRUE)
+	return  H.change_mob_type(new_type = /mob/living/carbon/human/species/goblin/hell, location = H.loc, new_name = "Hell goblin", delete_old_mob = TRUE)
 
 /datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
-/*
+
 		H.set_species(/datum/species/goblin/hell)
 		H.change_mob_type(/mob/living/carbon/human/species/goblin/hell, delete_old_mob = TRUE)
-
+/*
 		if(M.mind)
 			M.mind.special_role = "goblin"
 			M.mind.assigned_role = "goblin"
@@ -103,11 +103,18 @@
 			H.dna.species.soundpack_f = new /datum/voicepack/goblin()
 		H.regenerate_limb(BODY_ZONE_R_ARM)
 		H.regenerate_limb(BODY_ZONE_L_ARM)
+		H.update_body()
+		H.update_hair()
+		H.update_body_parts(redraw = TRUE)
 
+		H.faction = list("orcs", "zizo")
+		H.name = "goblin"
+		H.real_name = "goblin"
+*/
 		H.remove_all_languages()
 		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 		H.update_a_intents()
-*/
+
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
 			eyes.Remove(H,1)
@@ -118,17 +125,15 @@
 		H.underwear = "Nude"
 		if(H.charflaw)
 			QDEL_NULL(H.charflaw)
-		H.update_body()
-		H.faction = list("orcs")
-		H.name = "goblin"
-		H.real_name = "goblin"
+
+
 
 		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 		H.grant_language(/datum/language/hellspeak)
 		H.set_patron(/datum/patron/inhumen/zizo)
-		H.forceMove(pick(GLOB.mountainevil_starts))
+		H.forceMove(pick(GLOB.zizo_starts))
 
 /datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -154,8 +159,9 @@
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/zizo_cult_down
 	roles = list(
-		/datum/migrant_role/sk/zizo/herald = 1,
-		/datum/migrant_role/sk/zizo/hellgoblin = 2)
+		/datum/migrant_role/sk/zizo/herald = 2,
+//		/datum/migrant_role/sk/zizo/hellgoblin = 2
+		)
 	greet_text = "Zizo is your master, and too long has these lands been allowed to forget."
 
 /datum/migrant_wave/zizo_cult_down
@@ -164,8 +170,8 @@
 	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/varyag_raiders, /datum/migrant_wave/zizo_cult)
 	can_roll = FALSE
 	roles = list(
-//		/datum/migrant_role/sk/zizo/herald = 1,
-		/datum/migrant_role/sk/zizo/hellgoblin = 1
+		/datum/migrant_role/sk/zizo/herald = 1,
+//		/datum/migrant_role/sk/zizo/hellgoblin = 1
 )
 	greet_text = "Zizo is your master, and too long has these lands been allowed to forget."
 

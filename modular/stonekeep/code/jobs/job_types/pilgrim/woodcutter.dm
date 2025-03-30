@@ -16,6 +16,7 @@
 	outfit = /datum/outfit/job/sk/pilgrim/woodcutter
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Woodcutter"
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 /datum/outfit/job/sk/pilgrim/woodcutter/pre_equip(mob/living/carbon/human/H)
 	..()

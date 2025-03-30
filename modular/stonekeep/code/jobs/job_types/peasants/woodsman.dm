@@ -19,6 +19,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	apprentice_name = "Forager"
+	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
 /datum/job/stonekeep/woodsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
