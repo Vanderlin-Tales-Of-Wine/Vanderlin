@@ -701,31 +701,31 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 
 /client/proc/deadmin()
-    set name = "Deadmin"
-    set category = "Admin"
-    set desc = ""
+	set name = "Deadmin"
+	set category = "Admin"
+	set desc = ""
 
-    if (!holder)
-        return
+	if (!holder)
+		return
 
-    // Handle antag HUD if active
-    if (has_antag_hud())
-        toggle_combo_hud()
+	// Handle antag HUD if active
+	if (has_antag_hud())
+		toggle_combo_hud()
 
-    // Deactivate admin holder
-    holder.deactivate()
+	// Deactivate admin holder
+	holder.deactivate()
 
-    // Ensure the admin stops hearing ghosts like a mortal
-    if (prefs)
-        prefs.chat_toggles &= ~CHAT_GHOSTEARS   // Explicitly remove ghost hearing
-        prefs.save_preferences()
-        to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
+	// Ensure the admin stops hearing ghosts like a mortal
+	if (prefs)
+		prefs.chat_toggles &= ~CHAT_GHOSTEARS   // Explicitly remove ghost hearing
+		prefs.save_preferences()
+		to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
 
-    // Messaging
-    to_chat(src, "<span class='interface'>I am now a normal player.</span>")
-    log_admin("[src] deadmined themself.")
-    message_admins("[src] deadmined themself.")
-    SSblackbox.record_feedback("tally", "admin_verb", 1, "Deadmin")
+	// Messaging
+	to_chat(src, "<span class='interface'>I am now a normal player.</span>")
+	log_admin("[src] deadmined themself.")
+	message_admins("[src] deadmined themself.")
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Deadmin")
 
 /client/proc/readmin()
 	set name = "Readmin"
