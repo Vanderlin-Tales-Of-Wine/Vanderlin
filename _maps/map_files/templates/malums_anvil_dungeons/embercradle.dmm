@@ -487,10 +487,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"ig" = (
-/obj/structure/mineral_door/wood,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/under/mountains/anvil/dungeon)
 "il" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/cobblerock,
@@ -2651,10 +2647,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon)
-"Jf" = (
-/obj/structure/mineral_door/wood,
-/turf/closed,
-/area/rogue/under/mountains/anvil/dungeon)
 "Js" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -3212,11 +3204,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon)
-"Qs" = (
-/obj/item/reagent_containers/food/snacks/potato_baked,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/cobblerock,
-/area/rogue/under/mountains/anvil/dungeon/lower)
 "QA" = (
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/cobble,
@@ -3707,7 +3694,7 @@
 	lockid = "manor";
 	name = "Manor"
 	},
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Xc" = (
 /turf/closed/mineral/bedrock,
@@ -5319,7 +5306,7 @@ Xc
 Xc
 Xc
 FM
-Qs
+xL
 lJ
 eq
 Ds
@@ -10200,7 +10187,7 @@ hH
 Cb
 kZ
 kZ
-ig
+wJ
 Cb
 kZ
 kZ
@@ -10469,7 +10456,7 @@ kZ
 kZ
 kZ
 Cb
-Jf
+wJ
 kZ
 kZ
 kZ

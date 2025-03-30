@@ -3019,7 +3019,7 @@
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "QT" = (
 /obj/structure/gate/bars/preopen{
-	redstone_id = trollgate
+	redstone_id = "trollgate"
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
@@ -3551,7 +3551,7 @@
 	},
 /obj/structure/lever{
 	pixel_y = 17;
-	redstone_id = trollgate
+	redstone_id = "trollgate"
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/under/mountains/anvil/dungeon)

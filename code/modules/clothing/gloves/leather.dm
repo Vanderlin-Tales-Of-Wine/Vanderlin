@@ -11,7 +11,7 @@
 	armor = ARMOR_PADDED_BAD
 	prevent_crits = CUT_AND_MINOR_CRITS
 	max_integrity = INTEGRITY_POOR
-	salvage_result = /obj/item/natural/hide/cured
+	salvage_result = null
 
 /obj/item/clothing/gloves/leather/black
 	color = CLOTHING_SOOT_BLACK

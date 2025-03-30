@@ -342,8 +342,8 @@
 		/obj/item/ammo_casing/caseless/arrow= 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
-	starting_atom = /obj/item/ammo_casing/caseless/arrow
-	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
+	attacked_atom = /obj/item/ammo_casing/caseless/arrow
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
 	output = /obj/item/ammo_casing/caseless/arrow/pyro
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering
@@ -356,8 +356,8 @@
 		/obj/item/ammo_casing/caseless/bolt= 1,
 		/obj/item/reagent_containers/food/snacks/produce/fyritius = 1,
 	)
-	starting_atom = /obj/item/ammo_casing/caseless/bolt
-	attacked_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
+	attacked_atom = /obj/item/ammo_casing/caseless/bolt
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/fyritius
 	output = /obj/item/ammo_casing/caseless/bolt/pyro
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering
