@@ -1536,7 +1536,7 @@
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Clocktower Entrance"
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/clocktower)
 "aWl" = (
@@ -2603,7 +2603,7 @@
 /area/rogue/indoors/town/garrison)
 "bFA" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -10127,7 +10127,7 @@
 /obj/structure/mineral_door/wood{
 	name = "Clock Tower"
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/concrete,
 /area/rogue/under/town/basement)
@@ -11784,7 +11784,7 @@
 /area/rogue/indoors/town)
 "ibP" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
 "ibS" = (
@@ -13313,7 +13313,7 @@
 /obj/structure/mineral_door/wood{
 	name = "ale cellar"
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
@@ -14486,7 +14486,7 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/manor)
@@ -16411,7 +16411,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/town/sewer)
 "lkR" = (
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/structure/mineral_door/wood/window{
 	name = "Keep Entrance"
 	},
@@ -16597,7 +16597,7 @@
 /obj/structure/mineral_door/wood/fancywood{
 	name = "Clocktower Entrance"
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -17256,7 +17256,7 @@
 /obj/structure/mineral_door/wood{
 	name = "Gatekeep"
 	},
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
@@ -19878,7 +19878,7 @@
 /area/rogue/under/town/sewer)
 "nMR" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
@@ -29751,7 +29751,7 @@
 	name = "Clock Tower"
 	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/lord,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "uEn" = (
