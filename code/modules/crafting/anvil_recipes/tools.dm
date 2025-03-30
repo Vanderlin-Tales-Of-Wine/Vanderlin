@@ -316,3 +316,20 @@
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/weapon/hammer/copper
 	i_type = "Tools"
+
+/datum/anvil_recipe/tools/chisel
+	name = "Steel Chisel"
+	recipe_name = "a Chisel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/weapon/chisel
+	i_type = "Tools"
+
+/datum/anvil_recipe/tools/chisel/iron
+	name = "Iron Chisel"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/weapon/chisel/iron
+
+/datum/anvil_recipe/tools/chisel/bronze
+	name = "Bronze Chisel"
+	req_bar = /obj/item/ingot/bronze
+	created_item = /obj/item/weapon/chisel/bronze

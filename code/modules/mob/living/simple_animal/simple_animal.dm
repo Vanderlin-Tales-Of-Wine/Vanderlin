@@ -186,7 +186,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
-	GLOB.simple_animals[AIStatus] += src
+	if(!(AIStatus in GLOB.simple_animals))
+		GLOB.simple_animals |= "[AIStatus]"
+		GLOB.simple_animals["[AIStatus]"] = list()
+
+	GLOB.simple_animals["[AIStatus]"] += src
 	if(gender == PLURAL)
 		gender = pick(MALE,FEMALE)
 	if(!real_name)
@@ -200,7 +204,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //		AddComponent(/datum/component/personal_crafting)
 
 /mob/living/simple_animal/Destroy()
-	GLOB.simple_animals[AIStatus] -= src
+	GLOB.simple_animals["[AIStatus]"] -= src
 	if (SSnpcpool.state == SS_PAUSED && LAZYLEN(SSnpcpool.currentrun))
 		SSnpcpool.currentrun -= src
 
@@ -256,7 +260,28 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 /mob/living/simple_animal/proc/tamed(mob/user)
 	INVOKE_ASYNC(src, PROC_REF(emote), "lower_head", null, null, null, TRUE)
 	tame = TRUE
-	befriend(user)
+	if(user)
+		befriend(user)
+	pet_passive = TRUE
+
+	if(ai_controller)
+		ai_controller.can_idle = FALSE
+		var/static/list/pet_commands = list(
+			/datum/pet_command/idle,
+			/datum/pet_command/free,
+			/datum/pet_command/good_boy,
+			/datum/pet_command/follow,
+			/datum/pet_command/attack,
+			/datum/pet_command/fetch,
+			/datum/pet_command/play_dead,
+			/datum/pet_command/protect_owner,
+			/datum/pet_command/aggressive,
+			/datum/pet_command/calm,
+		)
+		var/datum/component/obeys_commands/commands = GetComponent(/datum/component/obeys_commands)
+		if(!commands)
+			AddComponent(/datum/component/obeys_commands, pet_commands)
+
 	stop_automated_movement_when_pulled = TRUE
 	if(user)
 		owner = user
@@ -867,8 +892,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					SSidlenpcpool.idle_mobs_by_zlevel[T.z] -= src
 				else
 					SSidlenpcpool.idle_mobs_by_zlevel[T.z] += src
-			GLOB.simple_animals[AIStatus] -= src
-			GLOB.simple_animals[togglestatus] += src
+			GLOB.simple_animals["[AIStatus]"] -= src
+			if(!(togglestatus in GLOB.simple_animals))
+				GLOB.simple_animals["[togglestatus]"] = list()
+			GLOB.simple_animals["[togglestatus]"] += src
 			AIStatus = togglestatus
 		else
 			stack_trace("Something attempted to set simple animals AI to an invalid state: [togglestatus]")

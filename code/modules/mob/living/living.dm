@@ -1580,8 +1580,25 @@
 		if (registered_z)
 			SSmobs.clients_by_zlevel[registered_z] -= src
 		if (client)
+			//Check the amount of clients exists on the Z level we're leaving from,
+			//this excludes us because at this point we are not registered to any z level.
+			var/old_level_new_clients = (registered_z ? SSmobs.clients_by_zlevel[registered_z].len : null)
+			if(registered_z && old_level_new_clients == 0)
+				if(SSmapping.level_has_any_trait(registered_z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)) && !SSmapping.level_has_any_trait(new_z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+					for(var/datum/ai_controller/controller as anything in GLOB.ai_controllers_by_zlevel[registered_z])
+						controller.set_ai_status(AI_STATUS_OFF)
+
 			if (new_z)
+				//Check the amount of clients exists on the Z level we're moving towards, excluding ourselves.
+				var/new_level_old_clients = SSmobs.clients_by_zlevel[new_z].len
 				SSmobs.clients_by_zlevel[new_z] += src
+
+				if(new_level_old_clients == 0) //No one was here before, wake up all the AIs.
+					for (var/datum/ai_controller/controller as anything in GLOB.ai_controllers_by_zlevel[new_z])
+						//We don't set them directly on, for instances like AIs acting while dead and other cases that may exist in the future.
+						//This isn't a problem for AIs with a client since the client will prevent this from being called anyway.
+						controller.set_ai_status(controller.get_expected_ai_status())
+
 				for (var/I in length(SSidlenpcpool.idle_mobs_by_zlevel[new_z]) to 1 step -1) //Backwards loop because we're removing (guarantees optimal rather than worst-case performance), it's fine to use .len here but doesn't compile on 511
 					var/mob/living/simple_animal/SA = SSidlenpcpool.idle_mobs_by_zlevel[new_z][I]
 					if (SA)
@@ -2026,6 +2043,10 @@
 	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
 
 	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
+
+	if(src in SSmobs.matthios_mobs)
+		SSmobs.matthios_mobs -= src
+	
 	return TRUE
 
 /// Proc for removing a friend you added with the proc 'befriend'. Returns true if you removed a friend.

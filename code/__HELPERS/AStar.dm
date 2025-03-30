@@ -60,35 +60,36 @@ Actual Adjacent procs :
 /proc/HeapPathWeightCompare(datum/PathNode/a, datum/PathNode/b)
 	return b.f - a.f
 
-/proc/get_path_to(caller, end, dist, maxnodes, maxnodedepth = 30, mintargetdist, adjacent = /turf/proc/reachableTurftest, id = null, turf/exclude = null, simulated_only = TRUE)
-	var/l = SSpathfinder.mobs.getfree(caller)
+/proc/get_path_to(requester, end, dist, maxnodes, maxnodedepth = 30, mintargetdist, adjacent = /turf/proc/reachableTurftest, id = null, turf/exclude = null, simulated_only = TRUE, check_z_levels = TRUE)
+	var/l = SSpathfinder.mobs.getfree(requester)
 	while (!l)
 		stoplag(3)
-		l = SSpathfinder.mobs.getfree(caller)
-	var/list/path = AStar(caller, end, dist, maxnodes, maxnodedepth, mintargetdist, adjacent, id, exclude, simulated_only)
+		l = SSpathfinder.mobs.getfree(requester)
+	var/list/path = AStar(requester, end, dist, maxnodes, maxnodedepth, mintargetdist, adjacent, id, exclude, simulated_only, check_z_levels)
 	SSpathfinder.mobs.found(l)
 	if (!path)
 		path = list()
 	return path
 
-/proc/AStar(caller, _end, dist, maxnodes, maxnodedepth = 30, mintargetdist, adjacent = /turf/proc/reachableTurftest, id = null, turf/exclude = null, simulated_only = TRUE)
+/proc/AStar(requester, _end, dist, maxnodes, maxnodedepth = 30, mintargetdist, adjacent = /turf/proc/reachableTurftest, id = null, turf/exclude = null, simulated_only = TRUE, check_z_levels = TRUE)
 	var/turf/end = get_turf(_end)
-	var/turf/start = get_turf(caller)
+	var/turf/start = get_turf(requester)
 	if (!start || !end)
 		stack_trace("Invalid A* start or destination")
 		return FALSE
 	if (start == end)
 		return FALSE
-	if (maxnodes && call(start, dist)(end) > maxnodes)
+	if (maxnodes && start.Distance3D(end) > maxnodes)
 		return FALSE
-	maxnodedepth = maxnodes
+	if(maxnodes)
+		maxnodedepth = maxnodes
 
 	var/datum/Heap/open = new /datum/Heap(/proc/HeapPathWeightCompare)
 	var/list/openc = new()
 	var/list/path = null
 
 	// Important: Initialize with bf=63 to enable all 6 directions (bits 0-5)
-	var/datum/PathNode/cur = new /datum/PathNode(start, null, 0, call(start, dist)(end), 0, 63)
+	var/datum/PathNode/cur = new /datum/PathNode(start, null, 0, start.Distance3D(end), 0, 63)
 	open.Insert(cur)
 	openc[start] = cur
 
@@ -100,12 +101,11 @@ Actual Adjacent procs :
 
 		// Only consider "close enough" if on the same Z-level
 		var/closeenough = FALSE
-		if (cur.source.z == end.z)
+		if (!check_z_levels || cur.source.z == end.z)
 			if (mintargetdist)
-				closeenough = call(cur.source, dist)(end) <= mintargetdist
+				closeenough = cur.source.Distance3D(end) <= mintargetdist
 			else
-				closeenough = call(cur.source, dist)(end) < 1
-
+				closeenough = cur.source.Distance3D(end) < 1
 
 		if (is_destination || closeenough)
 			path = new()
@@ -125,6 +125,9 @@ Actual Adjacent procs :
 					if (i < 4) // Cardinal directions (bits 0-3)
 						T = get_step(cur.source, 1 << i)
 					else // Z-level movement (bits 4-5)
+						// Only process z-level movement if check_z_levels is TRUE
+						if (!check_z_levels)
+							continue
 						T = get_turf_zchange(cur.source, i)
 
 					if (!T || T == exclude)
@@ -139,10 +142,11 @@ Actual Adjacent procs :
 					else // For z-level movement
 						r = 1 << (9 - i) // bit 4 (UP) corresponds to bit 5 (DOWN) and vice versa
 
-					var/newg = cur.g + call(cur.source, dist)(T)
+					var/newg = cur.g + cur.source.Distance3D(T)
 
+					newg += cur.source.path_weight
 					// Apply a larger penalty for changing z-levels to prefer same-level paths
-					if (i >= 4)
+					if (i >= 4 && check_z_levels)
 						newg += 10 // Increased penalty to make same-level paths more preferred
 
 					if (CN)
@@ -151,10 +155,10 @@ Actual Adjacent procs :
 						else
 							CN.bf &= ~(1 << (9 - i)) // Clear reverse z-level direction
 
-						if (newg < CN.g && call(cur.source, adjacent)(caller, T, id, simulated_only))
+						if (newg < CN.g && cur.source.reachableTurftest(requester, T, id, simulated_only))
 							CN.setp(cur, newg, CN.h, cur.nt + 1)
 							open.ReSort(CN)
-					else if (call(cur.source, adjacent)(caller, T, id, simulated_only))
+					else if (cur.source.reachableTurftest(requester, T, id, simulated_only))
 						// For new nodes, initialize with all directions except the one we came from
 						var/new_bf = 63
 						if (i < 4)
@@ -162,7 +166,7 @@ Actual Adjacent procs :
 						else
 							new_bf &= ~(1 << (9 - i))
 
-						CN = new(T, cur, newg, call(T, dist)(end), cur.nt + 1, new_bf)
+						CN = new(T, cur, newg, T.Distance3D(end), cur.nt + 1, new_bf)
 						open.Insert(CN)
 						openc[T] = CN
 
@@ -219,7 +223,7 @@ Actual Adjacent procs :
 
 	return null
 
-/turf/proc/reachableTurftest(caller, turf/T, ID, simulated_only = TRUE)
+/turf/proc/reachableTurftest(requester, turf/T, ID, simulated_only = TRUE, check_z_levels = TRUE)
 	if (!T || !istype(T))
 		return FALSE
 
@@ -236,22 +240,22 @@ Actual Adjacent procs :
 			return FALSE
 
 	// Same z-level movement - use standard check
-	if (T.z == z)
-		return !LinkBlockedWithAccess(T, caller, ID)
+	if (!check_z_levels || T.z == z)
+		return !LinkBlockedWithAccess(T, requester, ID)
 
 	// Z-level transition - check if it's a valid stair transition
-	if (abs(T.z - z) == 1)
+	if (check_z_levels && abs(T.z - z) == 1)
 		if (T.z > z) // Moving up
 			// Check if we can reach T via stairs
 			var/turf/stair_dest = get_turf_zchange(src, 4) // 4 = UP
-			return (stair_dest == T) && !LinkBlockedWithAccess(T, caller, ID)
+			return (stair_dest == T) && !LinkBlockedWithAccess(T, requester, ID)
 		else // Moving down
 			// Check if we can reach T via stairs
 			var/turf/stair_dest = get_turf_zchange(src, 5) // 5 = DOWN
 
 			// Only consider the destination valid if it came from get_turf_zchange
 			// This prevents the pathfinder from considering direct below/above turfs as valid
-			return (stair_dest == T) && !LinkBlockedWithAccess(T, caller, ID)
+			return (stair_dest == T) && !LinkBlockedWithAccess(T, requester, ID)
 
 	return FALSE
 
@@ -264,20 +268,20 @@ Actual Adjacent procs :
 	var/dz = abs(z - T.z) * 5 // Weight z-level differences higher
 	return (dx + dy + dz)
 
-/turf/proc/LinkBlockedWithAccess(turf/T, caller, ID)
+/turf/proc/LinkBlockedWithAccess(turf/T, requester, ID)
 	var/adir = get_dir(src, T)
 	var/rdir = ((adir & MASK_ODD)<<1)|((adir & MASK_EVEN)>>1)
 	for(var/obj/O in T)
-		if(!O.CanAStarPass(ID, rdir, caller))
+		if(!O.CanAStarPass(ID, rdir, requester))
 			return TRUE
 	for(var/obj/O in src)
-		if(!O.CanAStarPass(ID, adir, caller))
+		if(!O.CanAStarPass(ID, adir, requester))
 			return TRUE
 
 	for(var/mob/living/M in T)
-		if(!M.CanPass(caller, src))
+		if(!M.CanPass(requester, src))
 			return TRUE
 	for(var/obj/structure/M in T)
-		if(!M.CanPass(caller, src))
+		if(!M.CanPass(requester, src))
 			return TRUE
 	return FALSE
