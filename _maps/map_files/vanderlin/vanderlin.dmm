@@ -12080,15 +12080,6 @@
 "iqd" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
-"iqe" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/obj/structure/fake_machine/hailerboard/l,
-/turf/open/floor/metal{
-	icon_state = "plating2"
-	},
-/area/rogue/outdoors/town)
 "iqg" = (
 /obj/structure/bars/pipe{
 	dir = 4;
@@ -94082,7 +94073,7 @@ tPF
 rqD
 phf
 tPF
-iqe
+tPF
 tPF
 wMg
 wMg
