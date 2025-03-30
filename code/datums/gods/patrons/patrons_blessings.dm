@@ -107,14 +107,14 @@
 
 
 /// Starts a timer to auto-remove the blessing after duration expires
-/mob/living/proc/start_blessing_duration_timer(var/blessing_path, var/duration)
+/mob/living/proc/start_blessing_duration_timer(blessing_path, duration)
 	spawn(duration)
 		if(has_status_effect(blessing_path))
 			remove_status_effect(blessing_path)
 			to_chat(src, span_warning("Your blessing fades with time..."))
 
 /// Monitors if the mob falls asleep, removing the blessing if so
-/mob/living/proc/start_blessing_sleep_monitor(var/blessing_path)
+/mob/living/proc/start_blessing_sleep_monitor(blessing_path)
 	spawn while(has_status_effect(blessing_path))
 		if(IsSleeping())
 			remove_status_effect(blessing_path)
@@ -124,7 +124,7 @@
 
 /// Dynamically modifies the alert description for the active blessing
 /// Can be used to customize Trollshape or any other active buff's description
-/mob/living/proc/modify_blessing_alert_desc(var/blessing_path, var/new_desc)
+/mob/living/proc/modify_blessing_alert_desc(blessing_path, new_desc)
 	if(!blessing_path || !new_desc)
 		return FALSE
 
@@ -143,7 +143,7 @@
 	return FALSE
 
 /// Returns the active status effect datum for the given type if it exists on the mob
-/mob/living/proc/get_status_effect(var/path)
+/mob/living/proc/get_status_effect(path)
 	if(!status_effects)
 		return null
 	for(var/datum/status_effect/B in status_effects)
