@@ -18,7 +18,7 @@
 	. = ..()
 	if(victim.wear_mask && ((3 / victim.wear_mask.gas_transfer_coefficient) >= amount))
 		return
-	if(amount > 3 && (amount/total_amount >= 0.25))
+	if(amount > 3 && (amount / total_amount >= 0.25))
 		victim.reagents.add_reagent(/datum/reagent/miasmagas, 1)
 
 /datum/pollutant/steam
