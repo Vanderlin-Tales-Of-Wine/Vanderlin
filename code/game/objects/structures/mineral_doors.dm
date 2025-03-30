@@ -26,7 +26,7 @@
 			return 3
 		if(ACCESS_MERCHANT)
 			return 5
-		if(ACCESS_TAVERNZ)
+		if(ACCESS_TAVERN)
 			return 5
 		if(ACCESS_SMITH)
 			return 3
