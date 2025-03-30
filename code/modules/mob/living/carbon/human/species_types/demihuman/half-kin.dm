@@ -1,11 +1,10 @@
 /mob/living/carbon/human/species/demihuman
-	race = /datum/species/demihuman
+	race = /datum/species/human/demihuman
 
-/datum/species/demihuman
+/datum/species/human/demihuman
 	name = "Half-Kin"
 	id = "demihuman"
-	desc = "The inevitable union between wildkin and some form of humanity or another. While they also experience animalistic tendencies akin to their full-blooded ancestors, their intermingling with others has stemmed the severity of such primordial impulses. (Half-kin are not a template race to play your own custom race. If you play a half-kin, you are expected to roleplay to the setting and the race's lore.)<br>\
-	(+1 Endurance, +1 Perception)"
+	desc = "The inevitable union between wildkin and some form of humanity or another. While they also experience animalistic tendencies akin to their full-blooded ancestors, their intermingling with others has stemmed the severity of such primordial impulses. (Half-kin are not a template race to play your own custom race. If you play a half-kin, you are expected to roleplay to the setting and the race's lore.)<br>\"
 	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY,MUTCOLORS_PARTSONLY)
@@ -77,13 +76,13 @@
 		/datum/descriptor_choice/prominent_four_wild,
 	)
 
-/datum/species/demihuman/check_roundstart_eligible()
+/datum/species/human/demihuman/check_roundstart_eligible()
 	return TRUE
 
-/datum/species/demihuman/qualifies_for_rank(rank, list/features)
+/datum/species/human/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
 
-/datum/species/demihuman/get_random_features()
+/datum/species/human/demihuman/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
 	var/main_color
 	//Choose from a variety of mostly brightish, animal, matching colors
@@ -102,7 +101,7 @@
 	returned["mcolor3"] = main_color
 	return returned
 
-/datum/species/demihuman/get_skin_list()
+/datum/species/human/demihuman/get_skin_list()
 	return list(
 		"Ice Cap" = SKIN_COLOR_ICECAP, // - (Pale)
 		"Arctic" = SKIN_COLOR_ARCTIC, // - (White 1)
