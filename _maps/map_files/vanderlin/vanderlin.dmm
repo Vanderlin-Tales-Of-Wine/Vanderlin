@@ -25529,7 +25529,9 @@
 	},
 /area/rogue/indoors/town/magician)
 "rNl" = (
-/obj/item/reagent_containers/food/snacks/smallrat,
+/obj/item/reagent_containers/food/snacks/smallrat{
+	name = "Ico"
+	},
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/merc_guild)
 "rNp" = (
