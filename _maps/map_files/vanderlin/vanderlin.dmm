@@ -13159,7 +13159,6 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town)
 "jbS" = (
-/obj/structure/chair/bench/ultimacouch/r,
 /obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
@@ -20608,18 +20607,6 @@
 /obj/structure/guillotine,
 /turf/open/floor/wood,
 /area/rogue/outdoors/town)
-"onR" = (
-/obj/structure/mineral_door/wood/green{
-	name = "forrest warden bedroom"
-	},
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "ooa" = (
 /obj/structure/chair/wood/alt/chair_noble/purple{
 	dir = 1
@@ -31406,7 +31393,6 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "vUf" = (
-/obj/structure/mineral_door/wood,
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
@@ -137137,7 +137123,7 @@ uVx
 uVx
 uVx
 uVx
-onR
+uVx
 uVx
 uVx
 uVx
