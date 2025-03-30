@@ -1,6 +1,0 @@
-{
-    "map_name": "rogueworld",
-    "map_path": "map_files/roguetown/otherz",
-    "map_file": "rogueworld.dmm",
-	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Down": true}]
-}

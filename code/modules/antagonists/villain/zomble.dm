@@ -120,8 +120,6 @@
 		zombie.dna.species.soundpack_f = soundpack_f
 	zombie.base_intents = base_intents
 	zombie.update_a_intents()
-	zombie.aggressive = FALSE
-	zombie.mode = AI_OFF
 	if(zombie.charflaw)
 		zombie.charflaw.ephemeral = FALSE
 	zombie.update_body()
@@ -193,8 +191,8 @@
 	base_intents = zombie.base_intents
 	zombie.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
 	zombie.update_a_intents()
-	zombie.aggressive = TRUE
-	zombie.mode = AI_IDLE
+	if(!zombie.client)
+		zombie.ai_controller = new /datum/ai_controller/human_npc(zombie)
 
 	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(zombie, drop_if_replaced = FALSE)

@@ -579,35 +579,20 @@
 	alert_type = /atom/movable/screen/alert/status_effect/bardbuff/awaken
 	effectedstats = list(STATKEY_LCK = 1)
 
-/datum/status_effect/bardicbuff/awaken/on_apply()
-	if(iscarbon(owner))
-		var/mob/living/carbon/O = owner
-		if(owner.mind?.has_antag_datum(/datum/antagonist))
-			if(owner.mind.isactuallygood()) // Check for "good antags"
-				for(var/S in effectedstats)
-					owner.change_stat(S, effectedstats[S])
-				if(O.has_status_effect(/datum/status_effect/debuff/sleepytime))
-					O.remove_status_effect(/datum/status_effect/debuff/sleepytime)
-					O.tiredness = 0
-					if(O.IsSleeping())
-						O.SetSleeping(0) // WAKE UP!
-					O.adjust_triumphs(1) // Before people start crying about muh triumph lost
-					to_chat(O, span_nicegreen("Astrata's blessed light cleanses away your tiredness!"))
-			else
-				return
-		else
-			for(var/S in effectedstats)
-				owner.change_stat(S, effectedstats[S])
-			if(O.has_status_effect(/datum/status_effect/debuff/sleepytime))
-				O.remove_status_effect(/datum/status_effect/debuff/sleepytime)
-				O.tiredness = 0
-				if(O.IsSleeping())
-					O.SetSleeping(0) // GRAB A BRUSH AND PUT A LITTLE MAKEUP
-				O.adjust_triumphs(1) // Before people start crying about muh triumph lost
-				to_chat(O, span_nicegreen("Astrata's blessed light cleanses away your tiredness!"))
-			else
-				return
+/atom/movable/screen/alert/status_effect/bardbuff/awaken
+	name = "Awaken!"
 
+/datum/status_effect/bardicbuff/awaken/tick()
+	for (var/mob/living/carbon/human/H in hearers(7, owner))
+		if (!H.client)
+			continue
+		if(!H.can_hear())
+			continue
+		if(H.mind?.has_antag_datum(/datum/antagonist))
+			if(!H.mind?.isactuallygood())
+				continue
+		H.adjust_energy(H.max_energy * 0.002)
+		H.adjust_stamina(-H.maximum_stamina * 0.02, internal_regen = FALSE)
 
 /datum/status_effect/buff/magicknowledge
 	id = "intelligence"
@@ -811,10 +796,10 @@
 /datum/status_effect/buff/powered_steam_armor
 	id = "powered_steam"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/powered_steam_armor
-	effectedstats = list(STATKEY_END = 2, STATKEY_CON = 2, STATKEY_INT = 2, STATKEY_STR = 2, STATKEY_SPD = 2)
+	effectedstats = list(STATKEY_END = 2, STATKEY_CON = 2, STATKEY_STR = 2, STATKEY_SPD = 2)
 	duration = -1
 
 /atom/movable/screen/alert/status_effect/buff/powered_steam_armor
 	name = "Powered Steam Armor"
-	desc = "The armor is powered I feel unstoppable."
+	desc = "The armor is powered. I feel unstoppable."
 	icon_state = "buff"

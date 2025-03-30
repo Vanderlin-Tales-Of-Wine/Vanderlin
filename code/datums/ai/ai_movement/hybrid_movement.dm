@@ -1,7 +1,7 @@
 ///Uses Byond's basic obstacle avoidance mvovement unless the target is on a z-level different to ours
 /datum/ai_movement/hybrid_pathing
 	requires_processing = TRUE
-	max_pathing_attempts = 4
+	max_pathing_attempts = 12
 	max_path_distance = 30
 	var/fallbacking = FALSE
 	var/fallback_fail = 0
@@ -17,7 +17,14 @@
 		var/turf/target_turf = get_step_towards(movable_pawn, controller.current_movement_target)
 		var/turf/end_turf = get_turf(controller.current_movement_target)
 		var/advanced = TRUE
-		if(end_turf?.z == movable_pawn?.z && !length(controller.movement_path))
+
+		var/mob/cliented_mob = controller.current_movement_target
+		var/cliented = FALSE
+		if(istype(cliented_mob))
+			if(cliented_mob.client)
+				cliented = TRUE
+
+		if(end_turf?.z == movable_pawn?.z && !length(controller.movement_path) && !cliented)
 			advanced = FALSE
 			var/can_move = TRUE
 
@@ -62,20 +69,25 @@
 
 			var/generate_path = FALSE // set to TRUE when we either have no path, or we failed a step
 			if(length(controller.movement_path))
+				var/turf/last_turf = controller.movement_path[length(controller.movement_path)]
 				var/turf/next_step = controller.movement_path[1]
 				if(next_step.z != movable_pawn.z)
 					movable_pawn.Move(next_step)
 				else
 					step_to(movable_pawn, next_step, controller.blackboard[BB_CURRENT_MIN_MOVE_DISTANCE], controller.movement_delay)
 
+				if(last_turf != get_turf(controller.current_movement_target))
+					generate_path = TRUE
+
 				// this check if we're on exactly the next tile may be overly brittle for dense pawns who may get bumped slightly
 				// to the side while moving but could maybe still follow their path without needing a whole new path
 				if(get_turf(movable_pawn) == next_step || (istype(next_step, /turf/open/transparent) && get_turf(movable_pawn) == GET_TURF_BELOW(next_step)))
 					controller.movement_path.Cut(1,2)
-					var/turf/double_checked = controller.movement_path[1]
+					if(length(controller.movement_path))
+						var/turf/double_checked = controller.movement_path[1]
 
-					if(get_turf(movable_pawn) == double_checked) //the way z-level stacks work is that it adds the openspace and belowspace so we cull both here
-						controller.movement_path.Cut(1,2)
+						if(get_turf(movable_pawn) == double_checked) //the way z-level stacks work is that it adds the openspace and belowspace so we cull both here
+							controller.movement_path.Cut(1,2)
 
 					if(!length(controller.movement_path) && fallbacking)
 						fallbacking = FALSE

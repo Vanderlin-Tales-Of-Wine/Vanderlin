@@ -7,13 +7,15 @@
 /datum/pet_command/idle
 	command_name = "Stay"
 	command_desc = "Command your pet to stay idle in this location."
-	radial_icon = 'icons/obj/objects.dmi'
-	radial_icon_state = "dogbed"
+	radial_icon_state = "halt"
 	speech_commands = list("sit", "stay", "stop")
 	command_feedback = "sits"
 
 /datum/pet_command/idle/execute_action(datum/ai_controller/controller)
 	return SUBTREE_RETURN_FINISH_PLANNING // This cancels further AI planning
+
+/datum/pet_command/idle/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to stay idle!"
 
 /**
  * # Pet Command: Stop
@@ -22,14 +24,16 @@
 /datum/pet_command/free
 	command_name = "Loose"
 	command_desc = "Allow your pet to resume its natural behaviours."
-	radial_icon = 'icons/mob/actions/actions_spells.dmi'
-	radial_icon_state = "repulse"
+	radial_icon_state = "free"
 	speech_commands = list("free", "loose")
 	command_feedback = "relaxes"
 
 /datum/pet_command/free/execute_action(datum/ai_controller/controller)
 	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
 	return // Just move on to the next planning subtree.
+
+/datum/pet_command/free/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to go free!"
 
 /**
  * # Pet Command: Follow
@@ -38,17 +42,21 @@
 /datum/pet_command/follow
 	command_name = "Follow"
 	command_desc = "Command your pet to accompany you."
-	radial_icon = 'icons/testing/turf_analysis.dmi'
-	radial_icon_state = "red_arrow"
+	radial_icon_state = "follow"
 	speech_commands = list("heel", "follow")
-	command_feedback = "follows"
+	callout_type = /datum/callout_option/move
+	///the behavior we use to follow
+	var/follow_behavior = /datum/ai_behavior/pet_follow_friend
 
 /datum/pet_command/follow/set_command_active(mob/living/parent, mob/living/commander)
 	. = ..()
 	set_command_target(parent, commander)
 
+/datum/pet_command/follow/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to follow!"
+
 /datum/pet_command/follow/execute_action(datum/ai_controller/controller)
-	controller.queue_behavior(/datum/ai_behavior/pet_follow_friend, BB_CURRENT_PET_TARGET)
+	controller.queue_behavior(follow_behavior, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
 /**
@@ -58,13 +66,15 @@
 /datum/pet_command/play_dead
 	command_name = "Play Dead"
 	command_desc = "Play a macabre trick."
-	radial_icon = 'icons/roguetown/mob/cabbit.dmi'
-	radial_icon_state = "cabbit_dead"
+	radial_icon_state = "play_dead"
 	speech_commands = list("play dead") // Don't get too creative here, people talk about dying pretty often
 
 /datum/pet_command/play_dead/execute_action(datum/ai_controller/controller)
 	controller.queue_behavior(/datum/ai_behavior/play_dead)
 	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/play_dead/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to play dead!"
 
 /**
  * # Pet Command: Good Boy
@@ -81,11 +91,9 @@
 	switch (parent.gender)
 		if (MALE)
 			speech_commands += "good boy"
-			speech_commands += "dobro boy"
 			return
 		if (FEMALE)
 			speech_commands += "good girl"
-			speech_commands += "dobro girl"
 			return
 	// If we get past this point someone has finally added a non-binary dog
 
@@ -99,16 +107,37 @@
 	parent.emote("spin")
 	return SUBTREE_RETURN_FINISH_PLANNING
 
+/*
+/**
+ * # Pet Command: Use ability
+ * Use an an ability that does not require any targets
+ */
+/datum/pet_command/untargeted_ability
+	///untargeted ability we will use
+	var/ability_key
+
+/datum/pet_command/untargeted_ability/execute_action(datum/ai_controller/controller)
+	var/datum/action/cooldown/ability = controller.blackboard[ability_key]
+	if(!ability?.IsAvailable())
+		return
+	controller.queue_behavior(/datum/ai_behavior/use_mob_ability, ability_key)
+	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
+	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/untargeted_ability/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to use an ability!"
+*/
+
 /**
  * # Pet Command: Attack
  * Tells a pet to chase and bite the next thing you point at
  */
-/datum/pet_command/point_targeting/attack
+/datum/pet_command/attack
 	command_name = "Attack"
 	command_desc = "Command your pet to attack things that you point out to it."
-	radial_icon = 'icons/effects/effects.dmi'
-	radial_icon_state = "bite"
-
+	radial_icon_state = "attack"
+	requires_pointing = TRUE
+	callout_type = /datum/callout_option/attack
 	speech_commands = list("attack", "sic", "kill")
 	command_feedback = "growl"
 	pointed_reaction = "and growls"
@@ -118,7 +147,7 @@
 	var/attack_behaviour = /datum/ai_behavior/basic_melee_attack
 
 // Refuse to target things we can't target, chiefly other friends
-/datum/pet_command/point_targeting/attack/set_command_target(mob/living/parent, atom/target)
+/datum/pet_command/attack/set_command_target(mob/living/parent, atom/target)
 	if (!target)
 		return
 	var/mob/living/living_parent = parent
@@ -132,28 +161,32 @@
 		return
 	return ..()
 
+/datum/pet_command/attack/retrieve_command_text(atom/living_pet, atom/target)
+	return isnull(target) ? null : "signals [living_pet] to attack [target]!"
+
 /// Display feedback about not targeting something
-/datum/pet_command/point_targeting/attack/proc/refuse_target(mob/living/parent, atom/target)
+/datum/pet_command/attack/proc/refuse_target(mob/living/parent, atom/target)
 	var/mob/living/living_parent = parent
-	living_parent.say(refuse_reaction)
+	living_parent.say("[refuse_reaction]")
 	living_parent.visible_message(span_notice("[living_parent] refuses to attack [target]."))
 
-/datum/pet_command/point_targeting/attack/execute_action(datum/ai_controller/controller)
+/datum/pet_command/attack/execute_action(datum/ai_controller/controller)
 	controller.queue_behavior(attack_behaviour, BB_CURRENT_PET_TARGET, targeting_strategy_key)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
 /**
  * # Breed command. breed with a partner!
  */
-/datum/pet_command/point_targeting/breed
+/datum/pet_command/breed
 	command_name = "Breed"
 	command_desc = "Command your pet to attempt to breed with a partner."
-	radial_icon = 'icons/effects/effects.dmi'
-	radial_icon_state = "heart"
+	requires_pointing = TRUE
+	radial_icon_state = "breed"
 	speech_commands = list("breed", "consummate")
+	///the behavior we use to make babies
 	var/datum/ai_behavior/reproduce_behavior = /datum/ai_behavior/make_babies
 
-/datum/pet_command/point_targeting/breed/set_command_target(mob/living/parent, atom/target)
+/datum/pet_command/breed/set_command_target(mob/living/parent, atom/target)
 	if(isnull(target) || !isliving(target))
 		return
 	if(!HAS_TRAIT(parent, TRAIT_MOB_BREEDER) || !HAS_TRAIT(target, TRAIT_MOB_BREEDER))
@@ -167,28 +200,34 @@
 		return
 	return ..()
 
-/datum/pet_command/point_targeting/breed/execute_action(datum/ai_controller/controller)
+/datum/pet_command/breed/execute_action(datum/ai_controller/controller)
 	if(is_type_in_list(controller.blackboard[BB_CURRENT_PET_TARGET], controller.blackboard[BB_BABIES_PARTNER_TYPES]))
 		controller.queue_behavior(reproduce_behavior, BB_CURRENT_PET_TARGET)
 		controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
+/datum/pet_command/breed/retrieve_command_text(atom/living_pet, atom/target)
+	return isnull(target) ? null : "signals [living_pet] to breed with [target]!"
+
 /**
  * # Pet Command: Targetted Ability
  * Tells a pet to use some kind of ability on the next thing you point at
  */
-/datum/pet_command/point_targeting/use_ability
+/datum/pet_command/use_ability
 	command_name = "Use ability"
 	command_desc = "Command your pet to use one of its special skills on something that you point out to it."
 	radial_icon = 'icons/mob/actions/actions_spells.dmi'
 	radial_icon_state = "projectile"
+	requires_pointing = TRUE
 	speech_commands = list("shoot", "blast", "cast")
 	command_feedback = "growl"
 	pointed_reaction = "and growls"
 	/// Blackboard key where a reference to some kind of mob ability is stored
 	var/pet_ability_key
+	/// The AI behavior to use for the ability
+	var/ability_behavior = /datum/ai_behavior/pet_use_ability
 
-/datum/pet_command/point_targeting/use_ability/execute_action(datum/ai_controller/controller)
+/datum/pet_command/use_ability/execute_action(datum/ai_controller/controller)
 	if (!pet_ability_key)
 		return
 	var/datum/action/cooldown/using_action = controller.blackboard[pet_ability_key]
@@ -196,13 +235,17 @@
 		return
 	// We don't check if the target exists because we want to 'sit attentively' if we've been instructed to attack but not given one yet
 	// We also don't check if the cooldown is over because there's no way a pet owner can know that, the behaviour will handle it
-	controller.queue_behavior(/datum/ai_behavior/pet_use_ability, pet_ability_key, BB_CURRENT_PET_TARGET)
+	controller.queue_behavior(ability_behavior, pet_ability_key, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/use_ability/retrieve_command_text(atom/living_pet, atom/target)
+	return isnull(target) ? null : "signals [living_pet] to use an ability on [target]!"
 
 /datum/pet_command/protect_owner
 	command_name = "Protect owner"
 	command_desc = "Your pet will run to your aid."
 	hidden = TRUE
+	callout_type = /datum/callout_option/guard
 	///the range our owner needs to be in for us to protect him
 	var/protect_range = 9
 	///the behavior we will use when he is attacked
@@ -233,6 +276,9 @@
 	. = ..()
 	set_command_target(parent, victim)
 
+/datum/pet_command/protect_owner/valid_callout_target(mob/living/requester, datum/callout_option/callout, atom/target)
+	return target == requester || get_dist(requester, target) <= 1
+
 /datum/pet_command/protect_owner/proc/set_attacking_target(atom/source, mob/living/attacker)
 	var/mob/living/owner = weak_parent.resolve()
 	if(isnull(owner))
@@ -250,45 +296,59 @@
 	if(isliving(attacker) && can_see(owner, attacker, protect_range))
 		set_command_active(owner, attacker)
 
-// Some flavor additions for wolf-related pet commands
-/datum/pet_command/good_boy/wolf
-	speech_commands = list("good wolf")
+/**
+ * # Fish command: command the mob to fish at the next fishing spot you point at. Requires the profound fisher component
+ */
+/datum/pet_command/fish
+	command_name = "Fish"
+	command_desc = "Command your pet to try fishing at a nearby fishing spot."
+	requires_pointing = TRUE
+	radial_icon_state = "fish"
+	speech_commands = list("fish")
 
-/datum/pet_command/follow/wolf
-	// Nordic-themed for a bit of extra flavor
-	speech_commands = list("heel", "follow", "fylgja", "fyl")
-
-/datum/pet_command/calm
-	command_name = "Calm"
-	command_desc = "Makes the pet calm"
-
-	speech_commands = list("calm")
-
-/datum/pet_command/calm/execute_action(datum/ai_controller/controller)
-	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
-	var/mob/living/parent = weak_parent.resolve()
-	if (!parent)
-		return SUBTREE_RETURN_FINISH_PLANNING
-
-	parent.pet_passive = TRUE
+/datum/pet_command/fish/execute_action(datum/ai_controller/controller)
+	if(controller.blackboard_key_exists(BB_CURRENT_PET_TARGET))
+		controller.queue_behavior(/datum/ai_behavior/fishing/wolf, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
-/datum/pet_command/aggressive
-	command_name = "Aggressive"
-	command_desc = "Makes the pet calm"
+/datum/pet_command/fish/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to go fish!"
 
-	speech_commands = list("aggressive")
+/datum/pet_command/move
+	command_name = "Move"
+	command_desc = "Command your pet to move to a location!"
+	requires_pointing = TRUE
+	radial_icon_state = "move"
+	speech_commands = list("move", "walk")
+	///the behavior we use to walk towards targets
+	var/datum/ai_behavior/walk_behavior = /datum/ai_behavior/travel_towards
 
-/datum/pet_command/aggressive/execute_action(datum/ai_controller/controller)
-	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
-	var/mob/living/parent = weak_parent.resolve()
-	if (!parent)
-		return SUBTREE_RETURN_FINISH_PLANNING
+/datum/pet_command/move/set_command_target(mob/living/parent, atom/target)
+	if(isnull(target) || !can_see(parent, target, 9))
+		return FALSE
+	return ..()
 
-	parent.pet_passive = FALSE
+/datum/pet_command/move/execute_action(datum/ai_controller/controller)
+	if(controller.blackboard_key_exists(BB_CURRENT_PET_TARGET))
+		controller.queue_behavior(walk_behavior, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
-/datum/pet_command/point_targeting/home
+/datum/pet_command/move/retrieve_command_text(atom/living_pet, atom/target)
+	return "signals [living_pet] to move!"
+
+/datum/pet_command/go_home
+	command_name = "Go Home"
+	command_desc = "Sends your pet home."
+	radial_icon = 'icons/roguetown/mob/cabbit.dmi'
+	radial_icon_state = "cabbit_dead"
+	speech_commands = list("go home") // Don't get too creative here, people talk about dying pretty often
+
+/datum/pet_command/go_home/execute_action(datum/ai_controller/controller)
+	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
+	controller.queue_behavior(/datum/ai_behavior/enter_exit_home/no_cooldown)
+	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/home
 	command_name = "Set Home"
 	command_desc = "Command your pet to make the targetted area its home."
 	radial_icon = 'icons/mob/actions/actions_spells.dmi'
@@ -296,8 +356,9 @@
 	speech_commands = list("new home")
 	command_feedback = "nods"
 	pointed_reaction = "and nods"
+	requires_pointing = TRUE
 
-/datum/pet_command/point_targeting/home/execute_action(datum/ai_controller/controller)
+/datum/pet_command/home/execute_action(datum/ai_controller/controller)
 	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
 	var/obj/structure/target = controller.blackboard[BB_CURRENT_PET_TARGET]
 	if(!target)
@@ -310,14 +371,42 @@
 	controller.set_blackboard_key(BB_CURRENT_HOME, target)
 	return SUBTREE_RETURN_FINISH_PLANNING
 
-/datum/pet_command/go_home
-	command_name = "Go Home"
-	command_desc = "Sends your pet home."
-	radial_icon = 'icons/roguetown/mob/cabbit.dmi'
-	radial_icon_state = "cabbit_dead"
-	speech_commands = list("go home") // Don't get too creative here, people talk about dying pretty often
+/datum/pet_command/aggressive
+	command_name = "Aggressive"
+	command_desc = "Makes the pet aggressive"
+	speech_commands = list("aggressive")
 
-/datum/pet_command/go_home/execute_action(datum/ai_controller/controller)
-	controller.clear_blackboard_key(BB_ACTIVE_PET_COMMAND)
-	controller.queue_behavior(/datum/ai_behavior/enter_exit_home/no_cooldown)
+/datum/pet_command/aggressive/execute_action(datum/ai_controller/controller)
+	var/mob/living/parent = weak_parent.resolve()
+	if (!parent)
+		return SUBTREE_RETURN_FINISH_PLANNING
+
+	parent.pet_passive = FALSE
+	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/calm
+	command_name = "Calm"
+	command_desc = "Makes the pet calm"
+	speech_commands = list("calm")
+
+/datum/pet_command/calm/execute_action(datum/ai_controller/controller)
+	var/mob/living/parent = weak_parent.resolve()
+	if (!parent)
+		return SUBTREE_RETURN_FINISH_PLANNING
+
+	parent.pet_passive = TRUE
+	return SUBTREE_RETURN_FINISH_PLANNING
+
+/datum/pet_command/truffle_sniff
+	command_name = "Truffle Sniff"
+	command_desc = "Sniffs for truffle"
+	speech_commands = list("sniff")
+	radial_icon_state = "sniff"
+	command_feedback = "perks up"
+	pointed_reaction = "and perks up"
+	requires_pointing = TRUE
+
+/datum/pet_command/truffle_sniff/execute_action(datum/ai_controller/controller)
+	if(controller.blackboard_key_exists(BB_CURRENT_PET_TARGET))
+		controller.queue_behavior(/datum/ai_behavior/truffle_sniff, BB_CURRENT_PET_TARGET)
 	return SUBTREE_RETURN_FINISH_PLANNING

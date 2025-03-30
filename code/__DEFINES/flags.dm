@@ -25,11 +25,10 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PROCESSING_PROJECTILE	(1<<5)
 #define PROCESSING_TODCHANGE	(1<<6)
 #define PROCESSING_INCONE		(1<<7)
-#define PROCESSING_HUMANNPC		(1<<8)
-#define PROCESSING_WATERLEVEL	(1<<9)
-#define PROCESSING_LIGHTING		(1<<10)
-#define PROCESSING_LOBBY	(1<<11)
-#define PROCESSING_DAMOVERLAYS	(1<<12)
+#define PROCESSING_WATERLEVEL	(1<<8)
+#define PROCESSING_LIGHTING		(1<<9)
+#define PROCESSING_LOBBY	(1<<10)
+#define PROCESSING_DAMOVERLAYS	(1<<11)
 
 //FLAGS BITMASK
 
@@ -70,6 +69,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define NO_LAVA_GEN_1				(1<<6)
 /// Blocks ruins spawning on the turf
 #define NO_RUINS_1					(1<<10)
+/// If a turf can be damaged when attacked by items
+#define CAN_BE_ATTACKED_1			(1<<11)
 
 /*
 	These defines are used specifically with the atom/pass_flags bitmask
