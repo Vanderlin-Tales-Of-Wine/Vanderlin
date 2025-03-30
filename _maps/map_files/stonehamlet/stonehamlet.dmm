@@ -1400,9 +1400,7 @@
 	layer = 4.11
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "ceP" = (
 /obj/structure/closet/crate/crafted_closet/dark,
 /obj/item/clothing/head/nun,
@@ -1842,9 +1840,7 @@
 	dir = 1
 	},
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "cPI" = (
 /obj/structure/chair/stool,
 /obj/effect/landmark/start/squire{
@@ -1866,18 +1862,14 @@
 /area/rogue/outdoors/rtfield/plague_district)
 "cRV" = (
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "cSg" = (
 /obj/structure/table/wood/treestump{
 	pixel_x = -7
 	},
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "cSl" = (
 /obj/effect/spawner/map_spawner/skel_or_remains,
 /turf/open/floor/dirt/muddie,
@@ -3962,9 +3954,7 @@
 /area/rogue/outdoors/rtfield/plague_district)
 "fIY" = (
 /turf/open/floor/cobblemoss,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "fIZ" = (
 /turf/closed/wall/mineral/wood/window,
 /area/rogue/indoors/town/manor/stone)
@@ -7658,9 +7648,7 @@
 	icon_state = "stairs"
 	},
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "kXK" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -7919,9 +7907,7 @@
 "ltT" = (
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "luo" = (
 /obj/structure/table/wood/large/corner_new{
 	dir = 6
@@ -9118,9 +9104,7 @@
 "mTZ" = (
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "mUd" = (
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -10479,9 +10463,7 @@
 /area/rogue/indoors/town/garrison)
 "oOz" = (
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "oOI" = (
 /obj/machinery/light/fueled/lanternpost/fixed,
 /turf/open/floor/blocks/moss,
@@ -10763,9 +10745,7 @@
 /area/rogue/indoors/soilsons)
 "piO" = (
 /turf/open/transparent/openspace,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "piR" = (
 /obj/structure/fluff/railing/fence{
 	dir = 1
@@ -12200,9 +12180,7 @@
 "rbV" = (
 /mob/living/simple_animal/hostile/retaliate/cow,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "rcj" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/ruinedwood/spiral,
@@ -12302,9 +12280,7 @@
 	dir = 1
 	},
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "rja" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
@@ -12320,9 +12296,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "rjC" = (
 /obj/structure/table/wood/large_new/red{
 	dir = 9
@@ -13043,9 +13017,7 @@
 /area/rogue/indoors/town/shop)
 "smQ" = (
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "snD" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/natural/bundle/cloth{
@@ -13343,9 +13315,7 @@
 "sId" = (
 /obj/structure/chair/bench/ancientlog,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "sIe" = (
 /obj/structure/fluff/railing/border{
 	dir = 8;
@@ -14626,9 +14596,7 @@
 	pixel_y = -1
 	},
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "uAg" = (
 /obj/structure/bed,
 /obj/item/bedsheet/pelt,
@@ -15095,9 +15063,7 @@
 "vgl" = (
 /obj/structure/well/climb_down,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "vgm" = (
 /obj/structure/bed/wool,
 /obj/item/bedsheet/pelt,
@@ -15850,9 +15816,7 @@
 	dir = 4
 	},
 /turf/open/floor/dirt/road,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "woq" = (
 /obj/structure/fluff/railing/stonehedge{
 	dir = 1;
@@ -16174,9 +16138,7 @@
 	},
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/grass,
-/area/rogue/outdoors/rtfield{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50, /mob/living/carbon/human/species/human/northern/bum/ambush = 30)
-	})
+/area/rogue/outdoors/rtfield)
 "wLE" = (
 /obj/effect/decal/shadow_floor{
 	dir = 8

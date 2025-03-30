@@ -289,7 +289,7 @@
 /area/rogue/indoors/vampire_manor)
 "jx" = (
 /obj/structure/window/stained/yellow,
-/turf/closed/wall/mineral/craftstone,
+/turf/open/floor/metal/barograte,
 /area/rogue/indoors/vampire_manor)
 "jD" = (
 /obj/effect/decal/cleanable/dirt/dust,
