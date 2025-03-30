@@ -750,12 +750,6 @@
 	gender = FEMALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
-/datum/sprite_accessory/hair/head/countryponytailalt
-	name = "Ponytail (Country Alt)"
-	icon_state = "countryalt"
-	gender = FEMALE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 //////////////////////////////
 // UNISEX Hair Definitions  //
 //////////////////////////////
@@ -1144,6 +1138,12 @@
 /datum/sprite_accessory/hair/head/ponytailwitcher
 	name = "Ponytail (Witcher)"
 	icon_state = "ponytail_witcher"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
+/datum/sprite_accessory/hair/head/countryponytailalt
+	name = "Ponytail (Country Alt)"
+	icon_state = "countryalt"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
