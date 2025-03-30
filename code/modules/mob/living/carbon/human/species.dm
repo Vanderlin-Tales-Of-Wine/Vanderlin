@@ -218,13 +218,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 // PROCS //
 ///////////
 
-
+/// returns the accent list for this species
 /datum/species/proc/get_accent_list()
 	return
 
+/// returns the id for the species language
 /datum/species/proc/get_native_language()
 	return
 
+/// applies accents and filters to the message on say input before outputting it
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
 	var/language = speech_args[SPEECH_LANGUAGE]
@@ -298,6 +300,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	speech_args[SPEECH_MESSAGE] = trim(message)
 
+/// checks if a feature is able to be used
 /datum/species/proc/is_bodypart_feature_slot_allowed(mob/living/carbon/human/human, feature_slot)
 	switch(feature_slot)
 		if(BODYPART_FEATURE_FACIAL_HAIR)
