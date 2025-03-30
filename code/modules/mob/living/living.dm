@@ -1991,7 +1991,7 @@
 		if(UNCONSCIOUS)
 			cure_blind(UNCONSCIOUS_BLIND)
 		if(DEAD)
-			// do nothing
+			pass()
 	switch(stat) //Current stat.
 		if(CONSCIOUS)
 			if(. >= UNCONSCIOUS)
@@ -2046,7 +2046,7 @@
 
 	if(src in SSmobs.matthios_mobs)
 		SSmobs.matthios_mobs -= src
-	
+
 	return TRUE
 
 /// Proc for removing a friend you added with the proc 'befriend'. Returns true if you removed a friend.
