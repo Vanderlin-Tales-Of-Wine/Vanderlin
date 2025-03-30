@@ -79,7 +79,7 @@
 					findonerotten = TRUE
 	if(findonerotten)
 		var/turf/open/T = C.loc
-		if(istype(T) && amount < 16 MINUTES)
+		if(istype(T) && amount < 16 MINUTES && !(FACTION_MATTHIOS in C.faction))
 			T.pollute_turf(/datum/pollutant/rot, 9)
 			if(soundloop && soundloop.stopped && !is_zombie)
 				soundloop.start()
@@ -109,7 +109,7 @@
 		if(soundloop && soundloop.stopped)
 			soundloop.start()
 		var/turf/open/T = get_turf(L)
-		if(istype(T)  && amount < 16 MINUTES)
+		if(istype(T)  && amount < 16 MINUTES && !(FACTION_MATTHIOS in L.faction))
 			T.pollute_turf(/datum/pollutant/rot, 9)
 	if(amount > 20 MINUTES)
 		qdel(R)
