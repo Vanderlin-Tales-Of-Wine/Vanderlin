@@ -1625,14 +1625,6 @@
 /obj/structure/fluff/statue/gargoyle/moss,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town/roofs)
-"bPx" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/obj/item/key/bathhouse,
-/turf/open/floor/wood/nosmooth,
-/area/rogue/indoors/town/bath)
 "bPG" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -4957,6 +4949,13 @@
 /obj/machinery/light/fueled/campfire/longlived,
 /turf/open/floor/dirt/road,
 /area/rogue/under/cave)
+"fvS" = (
+/obj/structure/bed,
+/obj/machinery/light/fueled/wallfire/candle,
+/obj/item/bedsheet/fabric,
+/obj/effect/landmark/start/captain,
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town/garrison)
 "fwS" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -6187,22 +6186,6 @@
 "gLE" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
-"gMj" = (
-/obj/structure/closet/crate/chest/neu_iron,
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
-/obj/item/key/feldsher,
-/turf/open/floor/tile/tilerg,
-/area/rogue/indoors/town)
 "gMl" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
@@ -8144,18 +8127,6 @@
 /obj/structure/chair/wood/alt/fancy,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/manor)
-"iYB" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcr";
-	locked = 1;
-	lockid = "sheriff";
-	name = "captain's room door"
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/rogue/indoors/town/garrison)
 "iYI" = (
 /obj/structure/stairs{
 	dir = 4
@@ -9668,13 +9639,6 @@
 /obj/item/book/necra,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
-"kGu" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcr";
-	lockid = "sheriff"
-	},
-/turf/open/floor/blocks,
-/area/rogue/indoors/town/garrison)
 "kGv" = (
 /turf/closed/wall/mineral/roofwall/middle,
 /area/rogue/outdoors/mountains)
@@ -9972,6 +9936,15 @@
 	},
 /turf/open/floor/blocks/bluestone,
 /area/rogue/indoors/town)
+"kYI" = (
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/item/key/feldsher{
+	pixel_y = 9
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "kYN" = (
 /obj/structure/stairs,
 /turf/open/floor/wood/nosmooth,
@@ -10155,6 +10128,14 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"lkD" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/town/bath)
 "lkN" = (
 /obj/structure/fluff/walldeco/maidensigil,
 /turf/open/floor/cobble,
@@ -13965,6 +13946,22 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/dwarfin)
+"plG" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/item/key/manor,
+/obj/item/key/walls,
+/obj/item/key/blacksmith,
+/obj/item/key/steward,
+/obj/item/key/church,
+/obj/item/key/dungeon,
+/obj/item/key/graveyard,
+/obj/item/key/garrison,
+/obj/item/key/artificer,
+/obj/item/key/mercenary,
+/obj/item/key/tavern,
+/obj/item/key/feldsher,
+/turf/open/floor/tile/tilerg,
+/area/rogue/indoors/town)
 "plN" = (
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
@@ -13974,15 +13971,6 @@
 	},
 /turf/open/water/river,
 /area/rogue/under/cave)
-"pmn" = (
-/obj/structure/closet/crate/crafted_closet/inn/south,
-/obj/item/key/feldsher{
-	pixel_y = 9
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "pmv" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/woodturned,
@@ -14477,6 +14465,13 @@
 "pNY" = (
 /turf/open/floor/wood,
 /area/rogue/indoors/town/dwarfin)
+"pOe" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcr";
+	lockid = "captain"
+	},
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/garrison)
 "pQf" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/grass,
@@ -18919,6 +18914,15 @@
 "uQz" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/town)
+"uQE" = (
+/obj/structure/mineral_door/wood/window{
+	lockid = "captain";
+	name = "captain's office door"
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "horzw"
+	},
+/area/rogue/indoors/town/garrison)
 "uRd" = (
 /obj/structure/floordoor/gatehatch/outer{
 	redstone_id = "gatelava"
@@ -19050,6 +19054,18 @@
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/mountains)
+"uYt" = (
+/obj/structure/mineral_door/wood{
+	icon_state = "wcr";
+	locked = 1;
+	lockid = "captain";
+	name = "captain's room door"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/garrison)
 "uYA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/wooddark/vertical,
@@ -21149,13 +21165,6 @@
 	},
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town)
-"xkQ" = (
-/obj/structure/bed,
-/obj/machinery/light/fueled/wallfire/candle,
-/obj/item/bedsheet/fabric,
-/obj/effect/landmark/start/sheriff,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/garrison)
 "xlf" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/coin/gold/pile,
@@ -22031,15 +22040,6 @@
 "ykq" = (
 /obj/structure/chair/wood/alt,
 /turf/open/floor/concrete,
-/area/rogue/indoors/town/garrison)
-"ykO" = (
-/obj/structure/mineral_door/wood/window{
-	lockid = "sheriff";
-	name = "captain's office door"
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "horzw"
-	},
 /area/rogue/indoors/town/garrison)
 "ylc" = (
 /obj/structure/rack,
@@ -60111,7 +60111,7 @@ kOQ
 sSM
 iUq
 gwA
-gMj
+plG
 mHs
 oOl
 gwA
@@ -87437,7 +87437,7 @@ cDN
 cDN
 cDN
 nvl
-ykO
+uQE
 oXi
 bzO
 kqV
@@ -87912,7 +87912,7 @@ qvm
 lvb
 qvm
 lvb
-iYB
+uYt
 eCr
 tfO
 oiP
@@ -88694,7 +88694,7 @@ oXi
 oXi
 rRI
 wVe
-xkQ
+fvS
 bzO
 hmg
 xdI
@@ -89756,7 +89756,7 @@ doW
 doW
 doW
 whI
-bPx
+lkD
 eqA
 eqA
 eqA
@@ -105827,7 +105827,7 @@ oiP
 sjf
 vTw
 tgV
-pmn
+kYI
 pSc
 tvr
 mWk
@@ -112395,9 +112395,9 @@ lvb
 qvm
 eiK
 eiK
-kGu
+pOe
 tfO
-kGu
+pOe
 eiK
 eiK
 eiK

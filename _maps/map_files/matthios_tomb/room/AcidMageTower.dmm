@@ -354,12 +354,6 @@
 "mJ" = (
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/cave)
-"mL" = (
-/obj/structure/window/stained/silver,
-/obj/structure/window/stained/silver,
-/obj/structure/curtain,
-/turf/open/floor/churchrough,
-/area/rogue/indoors)
 "mN" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/churchmarble,
@@ -3026,7 +3020,7 @@ ve
 ve
 ve
 ve
-mL
+cn
 OG
 dr
 GZ

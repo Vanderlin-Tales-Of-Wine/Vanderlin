@@ -43,3 +43,6 @@
 	"blonde - moonlight" = "dfc999",
 	"red - autumn" = "a34332"
 	))
+
+/datum/species/elf/get_native_language()
+	return "Elfish"
