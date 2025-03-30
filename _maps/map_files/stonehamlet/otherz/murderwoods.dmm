@@ -187,9 +187,7 @@
 "gn" = (
 /obj/effect/spawner/map_spawner/enemy_fifty/volf,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "gq" = (
 /obj/structure/stairs/stone{
 	dir = 8
@@ -292,10 +290,7 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/decal/remains/neu/human,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "jj" = (
 /obj/structure/flora/tree,
 /turf/open/floor/grass,
@@ -349,10 +344,7 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/remains/neu/humanc,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "kM" = (
 /obj/structure/fluff/railing/fence{
 	icon_state = "fence_bandit";
@@ -420,10 +412,7 @@
 	},
 /obj/effect/spawner/map_spawner/enemy_fifty/volf,
 /turf/open/floor/naturalstone/rough,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "na" = (
 /obj/effect/spawner/map_spawner/grass_low,
 /turf/open/floor/grass,
@@ -481,10 +470,7 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/item/clothing/shirt/undershirt/priest,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "oK" = (
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8;
@@ -525,10 +511,7 @@
 	dir = 5
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "pC" = (
 /obj/effect/landmark/start/adventurer{
 	dir = 4
@@ -553,10 +536,7 @@
 /area/rogue/outdoors/woods/stone)
 "qr" = (
 /turf/open/floor/naturalstone/rough,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "qz" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/grass/water,
@@ -589,10 +569,7 @@
 "se" = (
 /obj/item/clothing/head/helmet/leather,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "so" = (
 /turf/open/floor/grass/mixyel,
 /area/rogue/outdoors/woods/stone)
@@ -630,10 +607,7 @@
 	dir = 9
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "tG" = (
 /turf/open/floor/hay,
 /area/rogue/indoors/bandit_lair)
@@ -692,10 +666,7 @@
 /obj/item/clothing/shirt/dress/gen/random,
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "vc" = (
 /obj/structure/bars,
 /turf/open/floor/dirt,
@@ -712,10 +683,7 @@
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/effect/decal/remains/neu/human,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "vB" = (
 /obj/effect/spawner/map_spawner/loot/coin/low,
 /turf/open/floor/shroud,
@@ -799,10 +767,7 @@
 "xX" = (
 /obj/effect/decal/remains/neu/human,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "yc" = (
 /obj/structure/flora/grass/water,
 /turf/open/floor/dirt,
@@ -937,10 +902,7 @@
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/remains/cabbit,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "CE" = (
 /obj/machinery/light/fueled/campfire/densefire,
 /turf/open/floor/dirt/road,
@@ -963,10 +925,7 @@
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/effect/decal/remains/cabbit,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Dx" = (
 /obj/structure/flora/grass/water,
 /turf/open/water/river,
@@ -1007,10 +966,7 @@
 "Ey" = (
 /obj/effect/decal/remains/cabbit,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "ED" = (
 /obj/structure/flora/grass/water,
 /turf/open/water/river{
@@ -1065,10 +1021,7 @@
 "FL" = (
 /obj/effect/decal/remains/neu/generic,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "FZ" = (
 /turf/closed/wall/mineral/tent,
 /area/rogue/indoors)
@@ -1110,10 +1063,7 @@
 "GK" = (
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Ha" = (
 /obj/effect/spawner/map_spawner/grass_low,
 /turf/open/floor/grass/transition,
@@ -1137,10 +1087,7 @@
 /area/rogue/outdoors/woods/stone)
 "HX" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Il" = (
 /turf/open/floor/shroud,
 /area/rogue/indoors/shelter/woods/spider)
@@ -1211,10 +1158,7 @@
 /obj/effect/decal/remains/cabbit,
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Ko" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass/transition,
@@ -1224,17 +1168,11 @@
 	dir = 10
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Ks" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "KN" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -1278,10 +1216,7 @@
 "LG" = (
 /obj/effect/decal/cleanable/blood_neu/tracks,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "LL" = (
 /obj/structure/flora/grass/water,
 /turf/open/water/river{
@@ -1316,10 +1251,7 @@
 "Ne" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "Nk" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/river)
@@ -1588,10 +1520,7 @@
 "VH" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "VO" = (
 /turf/open/floor/dirt,
 /area/rogue/indoors/cave/volf)
@@ -1600,10 +1529,7 @@
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/wolf = 50);
-	name = "vulf cave"
-	})
+/area/rogue/indoors/cave/volf)
 "VW" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/grass/transition,

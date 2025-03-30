@@ -225,6 +225,8 @@
 /area/rogue/indoors/cave/volf
 	name = "danger (volf cave)"
 	icon_state = "cave"
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/wolf)
 
 /area/rogue/indoors/cave/bear
 	name = "danger (bear cave)"
