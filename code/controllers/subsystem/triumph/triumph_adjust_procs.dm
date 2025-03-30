@@ -34,12 +34,12 @@
 /datum/mind/proc/adjust_triumphs(amt, counted = TRUE, reason)
 	if(!key)
 		return
-	call(GLOBAL_PROC_REF(adjust_triumphs))(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
 
 /client/proc/adjust_triumphs(amt, counted = TRUE, reason)
-	call(GLOBAL_PROC_REF(adjust_triumphs))(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
 
 /mob/proc/adjust_triumphs(amt, counted = TRUE, reason)
 	if(!key)
 		return
-	call(GLOBAL_PROC_REF(adjust_triumphs))(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
