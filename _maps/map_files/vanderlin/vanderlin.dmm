@@ -28712,13 +28712,6 @@
 	},
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
-"uhy" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/obj/structure/fluff/railing/border,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 "uhE" = (
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/wood,
@@ -139940,7 +139933,7 @@ bkg
 eZL
 eZL
 bkg
-uhy
+mwV
 uVx
 uVx
 uVx
