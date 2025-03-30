@@ -121,7 +121,6 @@
 /obj/item/storage/fancy/cigarettes/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 6
 	STR.set_holdable(list(/obj/item/clothing/face/cigarette, /obj/item/lighter))
 
 /obj/item/storage/fancy/cigarettes/examine(mob/user)
@@ -189,6 +188,7 @@
 	desc = ""
 	icon_state = "zig"
 	spawn_type = /obj/item/clothing/face/cigarette/rollie/nicotine
+	component_type = /datum/component/storage/concrete/grid/zigbox
 
 /obj/item/storage/fancy/cigarettes/zig/empty
 	spawn_type = null

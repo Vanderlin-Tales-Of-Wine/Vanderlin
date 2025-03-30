@@ -1881,6 +1881,7 @@
 #include "code\modules\mob\living\living_wounds.dm"
 #include "code\modules\mob\living\login.dm"
 #include "code\modules\mob\living\logout.dm"
+#include "code\modules\mob\living\overhead_effects.dm"
 #include "code\modules\mob\living\roguetownprocs.dm"
 #include "code\modules\mob\living\say.dm"
 #include "code\modules\mob\living\stats.dm"

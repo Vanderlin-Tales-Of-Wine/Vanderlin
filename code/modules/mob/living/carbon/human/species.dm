@@ -175,15 +175,19 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_accent_list()
 	return
 
+/datum/species/proc/get_native_language()
+	return   
+
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
+	var/language = speech_args[SPEECH_LANGUAGE] 
+
 	if(message)
 		var/list/accent_words = strings("spellcheck.json", "spellcheck")
-
-		//var/failed = FALSE
 		var/mob/living/carbon/human/H
 		if(ismob(source))
 			H = source
+
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))
@@ -193,43 +197,58 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(H)
 					to_chat(H, "<span class='warning'>[key] -> [value]</span>")
 				amtfail++
-				//failed = TRUE
 
 			message = replacetextEx(message, "[key]", "[value]")
 
-	if(message)
-		if(message[1])
-			if(message[1] != "*")
-				message = " [message]"
-				var/list/accent_words = strings("accent_universal.json", "universal")
+	if(message && message[1] && message[1] != "*")
+		message = " [message]"
 
-				for(var/key in accent_words)
-					var/value = accent_words[key]
-					if(islist(value))
-						value = pick(value)
+		var/list/accent_words = strings("accent_universal.json", "universal")
+		for(var/key in accent_words)
+			var/value = accent_words[key]
+			if(islist(value))
+				value = pick(value)
 
-					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-					message = replacetextEx(message, " [key]", " [value]")
+			message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+			message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+			message = replacetextEx(message, " [key]", " [value]")
 
 		var/list/species_accent = get_accent_list()
 		var/mob/living/carbon/human/human
+		var/special_accent = FALSE
 		if(ismob(source))
 			human = source
-			if((human.accent != ACCENT_DEFAULT))
+			if(human.accent != ACCENT_DEFAULT)
 				species_accent = human.return_accent_list()
+				special_accent = TRUE
 
-		if(species_accent)
-			if(message[1] != "*")
-				message = " [message]"
-				for(var/key in species_accent)
-					var/value = species_accent[key]
-					if(islist(value))
-						value = pick(value)
 
-					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-					message = replacetextEx(message, " [key]", " [value]")
+		if(ismob(source))
+			var/nativelang = get_native_language()
+			var/language_check
+			
+			var/list/language_map = list(
+				/datum/language/common = "Imperial",
+				/datum/language/elvish = "Elfish",
+				/datum/language/dwarvish = "Dwarfish",
+				/datum/language/hellspeak = "Infernal",
+				/datum/language/orcish = "Orcish",
+				/datum/language/celestial = "Celestial",
+				/datum/language/zybantine = "Zybean"
+			)
+			
+			if (language in language_map)
+				language_check = language_map[language]
+			if(nativelang != language_check || special_accent)
+				if(species_accent)
+					for(var/key in species_accent)
+						var/value = species_accent[key]
+						if(islist(value))
+							value = pick(value)
+
+						message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+						message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+						message = replacetextEx(message, " [key]", " [value]")
 
 	speech_args[SPEECH_MESSAGE] = trim(message)
 

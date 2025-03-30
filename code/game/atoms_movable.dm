@@ -849,19 +849,19 @@
 	*/
 	if(A == src)
 		return
-	var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(get_turf(src), get_dir(src, A))
-	atk.icon_state = visual_effect_icon
-	atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	if(get_turf(A) == get_turf(src))
-		return
-	if(atk.dir & NORTH)
-		atk.pixel_y = 32
-	else if(atk.dir & SOUTH)
-		atk.pixel_y = -32
-	if(atk.dir & EAST)
-		atk.pixel_x = 32
-	else if(atk.dir & WEST)
-		atk.pixel_x = -32
+	var/dist = get_dist(src, A)
+	var/turf/first_step = get_step(src, get_dir(src, A))
+	if(dist >= 1)	//1 tile range attack, no need for any loops
+		var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(first_step, get_dir(src, A))
+		atk.icon_state = visual_effect_icon
+		atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	if(dist > 1)	//2+ tiles, we algo
+		for(var/i = 1, i<dist, i++)
+			var/turf/next_step = get_step(first_step, get_dir(first_step, A))
+			var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(next_step, get_dir(first_step, A))
+			atk.icon_state = visual_effect_icon
+			atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+			first_step = next_step
 
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'

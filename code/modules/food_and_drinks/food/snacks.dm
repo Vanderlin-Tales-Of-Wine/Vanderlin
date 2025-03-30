@@ -140,7 +140,7 @@ All foods are distributed among various categories. Use common sense.
 	if(rotprocess)
 		var/obj/structure/closet/crate/chest/chest = locate(/obj/structure/closet/crate/chest) in get_turf(src)
 		var/obj/structure/fake_machine/vendor = locate(/obj/structure/fake_machine/vendor) in get_turf(src)
-		if(!chest && !vendor)
+		if(!chest && !vendor && !istype(loc, /obj/item/storage/backpack/backpack/artibackpack))
 			var/obj/structure/table/located = locate(/obj/structure/table) in loc
 			if(located)
 				warming -= 5
@@ -319,6 +319,7 @@ All foods are distributed among various categories. Use common sense.
 			mob_location.put_in_hands(generate_trash(mob_location))
 		else
 			generate_trash(current_loc.drop_location())
+	update_icon()
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user)
 	return
@@ -408,7 +409,7 @@ All foods are distributed among various categories. Use common sense.
 				bitecount++
 				on_consume(M)
 				checkLiked(fraction, M)
-				if(bitecount >= bitesize)
+				if(bitecount >= bitesize && !QDELETED(src))
 					qdel(src)
 				return TRUE
 		playsound(M.loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
@@ -618,7 +619,7 @@ All foods are distributed among various categories. Use common sense.
 	if(eater.dropItemToGround(src))
 		qdel(src)
 	var/obj/item/I = new path(T)
-	eater.put_in_active_hand(I)
+	eater.put_in_active_hand(I, ignore_animation = TRUE)
 
 /obj/item/reagent_containers/food/snacks/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -691,9 +692,9 @@ All foods are distributed among various categories. Use common sense.
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/on_consume(mob/living/eater)
-	..()
-	if(biting)
+/obj/item/reagent_containers/food/snacks/update_icon()
+	. = ..()
+	if(biting && bitecount)
 		icon_state = "[base_icon_state][bitecount]"
 
 
