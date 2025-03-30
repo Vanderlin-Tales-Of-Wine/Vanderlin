@@ -14,7 +14,6 @@
 	#define MT_LASTDIED "lastdied"
 	#define MT_DEATHDIED "deathdied" //! flag
 
-	#define MT_LASTOXYDAM "lastoxydam"
 	#define MT_PUKE "puke"
 
 /* CURSES */

@@ -8,6 +8,7 @@
 
 /mob/living/Initialize()
 	. = ..()
+	register_init_signals()
 	update_a_intents()
 	swap_rmb_intent(num=1)
 	if(unique_name)
@@ -534,8 +535,6 @@
 /mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(incapacitated())
 		return FALSE
-	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
-		return FALSE
 	return ..()
 
 /mob/living/_pointed(atom/pointing_at)
@@ -685,15 +684,19 @@
 /mob/living/is_drawable(mob/user, allowmobs = TRUE)
 	return (allowmobs && reagents && can_inject(user))
 
+///Sets the current mob's health value. Do not call directly if you don't know what you are doing, use the damage procs, instead.
+/mob/living/proc/set_health(new_value)
+	. = health
+	health = min(new_value, maxHealth)
+
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
-	health = min(health, maxHealth)
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS) && !HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		// You dont have any blood and your not bloodloss immune? Dead.
 		if(blood_volume <= 0)
-			health = 0
+			set_health(NONE)
 	update_stat()
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
@@ -706,7 +709,7 @@
 		GLOB.dead_mob_list -= src
 		GLOB.alive_mob_list += src
 		set_suicide(FALSE)
-		stat = UNCONSCIOUS //the mob starts unconscious,
+		set_stat(UNCONSCIOUS) //the mob starts unconscious,
 		updatehealth() //then we check if the mob should wake up.
 		update_mobility()
 		update_sight()
@@ -788,7 +791,6 @@
 /mob/living/proc/can_be_revived()
 	. = TRUE
 	if(health <= HEALTH_THRESHOLD_DEAD)
-//		return ("no")
 		return FALSE
 
 
@@ -1441,7 +1443,6 @@
 /mob/living/proc/update_mobility()
 	var/stat_softcrit = stat == SOFT_CRIT
 	var/stat_conscious = (stat == CONSCIOUS) || stat_softcrit
-	var/conscious = !IsUnconscious() && stat_conscious && !HAS_TRAIT(src, TRAIT_DEATHCOMA)
 	var/chokehold = pulledby && pulledby.grab_state >= GRAB_NECK
 	var/restrained = restrained()
 	var/has_legs = get_num_legs()
@@ -1460,7 +1461,7 @@
 		if(I.walking_stick)
 			stickstand = TRUE
 
-	var/canstand_involuntary = conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) ) && !(buckled && buckled.buckle_lying)
+	var/canstand_involuntary = stat_conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) ) && !(buckled && buckled.buckle_lying)
 
 	if(canstand_involuntary)
 		mobility_flags |= MOBILITY_CANSTAND
@@ -1503,7 +1504,7 @@
 	else
 		mobility_flags |= MOBILITY_PULL
 
-	var/canitem = !paralyzed && !IsStun() && conscious && !chokehold && !restrained && has_arms
+	var/canitem = !paralyzed && !IsStun() && stat_conscious && !chokehold && !restrained && has_arms
 	if(canitem)
 		mobility_flags |= (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
 	else
@@ -1957,29 +1958,16 @@
 	update_cone_show()
 //	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
 
-/// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
-/mob/living/proc/befriend(mob/living/new_friend)
-	SHOULD_CALL_PARENT(TRUE)
-	var/friend_ref = REF(new_friend)
-	if (faction.Find(friend_ref))
-		return FALSE
-	faction |= friend_ref
-	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
-
-	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
-	return TRUE
-
-/// Proc for removing a friend you added with the proc 'befriend'. Returns true if you removed a friend.
-/mob/living/proc/unfriend(mob/living/old_friend)
-	SHOULD_CALL_PARENT(TRUE)
-	var/friend_ref = REF(old_friend)
-	if (!faction.Find(friend_ref))
-		return FALSE
-	faction -= friend_ref
-	ai_controller?.remove_thing_from_blackboard_key(BB_FRIENDS_LIST, old_friend)
-
-	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
-	return TRUE
+/mob/living/set_stat(new_stat)
+	. = ..()
+	if(isnull(.))
+		return
+	switch(.) //Previous stat.
+		if(UNCONSCIOUS)
+			cure_blind(UNCONSCIOUS_BLIND)
+	switch(stat) //Current stat.
+		if(UNCONSCIOUS)
+			become_blind(UNCONSCIOUS_BLIND)
 
 ///Reports the event of the change in value of the buckled variable.
 /mob/living/proc/set_buckled(new_buckled)
@@ -2003,3 +1991,27 @@
 			ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
 	else if(. && stat == SOFT_CRIT)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
+
+/// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
+/mob/living/proc/befriend(mob/living/new_friend)
+	SHOULD_CALL_PARENT(TRUE)
+	var/friend_ref = REF(new_friend)
+	if (faction.Find(friend_ref))
+		return FALSE
+	faction |= friend_ref
+	ai_controller?.insert_blackboard_key_lazylist(BB_FRIENDS_LIST, new_friend)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_BEFRIENDED, new_friend)
+	return TRUE
+
+/// Proc for removing a friend you added with the proc 'befriend'. Returns true if you removed a friend.
+/mob/living/proc/unfriend(mob/living/old_friend)
+	SHOULD_CALL_PARENT(TRUE)
+	var/friend_ref = REF(old_friend)
+	if (!faction.Find(friend_ref))
+		return FALSE
+	faction -= friend_ref
+	ai_controller?.remove_thing_from_blackboard_key(BB_FRIENDS_LIST, old_friend)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
+	return TRUE

@@ -54,7 +54,7 @@
 				if(prob(3))
 					blur_eyes(6)
 					to_chat(src, "<span class='warning'>I feel faint.</span>")
-				if(prob(3) && !IsUnconscious())
+				if(prob(3) && stat < UNCONSCIOUS)
 					Unconscious(rand(5 SECONDS,10 SECONDS))
 					to_chat(src, "<span class='warning'>I feel drained.</span>")
 				remove_status_effect(/datum/status_effect/debuff/bleedingworse)

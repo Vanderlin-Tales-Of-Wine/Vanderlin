@@ -1,7 +1,7 @@
 /mob/living/brain/death(gibbed)
 	if(stat == DEAD)
 		return
-	stat = DEAD
+	set_stat(DEAD)
 
 	return ..()
 
