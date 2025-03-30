@@ -1069,6 +1069,7 @@
 
 	var/message = "has [what_done] [sattacker]'s attack!; defended with: [defending_atom ? defending_atom : "hands"], attacked with: [attacking_atom ? attacking_atom : "hands"][saddition ? " [saddition]" : ""]."
 	defender.log_message(message, LOG_ATTACK, color="red")
+	attacker.log_message(message, LOG_ATTACK, color="red", FALSE) // log it in the attacker's personal log too.
 
 /atom/movable/proc/add_filter(name,priority,list/params)
 	if(!filter_data)
