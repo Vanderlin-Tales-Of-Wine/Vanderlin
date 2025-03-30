@@ -2393,7 +2393,7 @@
 /area/rogue/indoors/town/clocktower)
 "bBu" = (
 /obj/effect/landmark/hammer/dev_text{
-	name = the red carpet design is the bear dying and the gaffer bleeding out next to the them.
+	name = theredcarpetdesignisthebeardyingandthegafferbleedingoutnexttothethem.
 	},
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/merc_guild)
@@ -7444,6 +7444,11 @@
 /obj/machinery/light/fueled/wallfire/candle/l,
 /obj/structure/closet/crate/chest,
 /obj/structure/mirror/fancy,
+/obj/item/reagent_containers/glass/cup/silver,
+/obj/item/reagent_containers/glass/bowl/iron,
+/obj/item/kitchen/spoon/iron,
+/obj/item/kitchen/fork/iron,
+/obj/item/reagent_containers/glass/bottle/wine,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/merc_guild)
 "eYp" = (
@@ -23073,6 +23078,8 @@
 /area/rogue/under/town/caverogue)
 "qmF" = (
 /obj/structure/closet/crate/drawer,
+/obj/effect/spawner/map_spawner/loot/coin/med,
+/obj/effect/spawner/map_spawner/loot/coin/low,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "qmW" = (
@@ -28550,6 +28557,12 @@
 /area/rogue/outdoors/town)
 "tYS" = (
 /obj/structure/closet/crate/crafted_closet/inn,
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/head/bardhat,
+/obj/item/clothing/head/chaperon/greyscale/random{
+	pixel_x = -6;
+	pixel_y = 2
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/merc_guild)
 "tYW" = (
