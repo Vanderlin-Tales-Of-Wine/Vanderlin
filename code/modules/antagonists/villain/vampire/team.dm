@@ -22,6 +22,10 @@
 
 /datum/team/vampires/New(starting_members)
 	vitae_pool = locate() in GLOB.vampire_objects
+	if(vitae_pool.owner_team)
+		message_admins("Why is there a second vampire team, admins? Did one of you do this? \n\
+			The game is going to break now, I hope you're happy.")
+	vitae_pool.owner_team = src
 
 	lord_protect = new()
 	lord_protect.triumph_count = 3

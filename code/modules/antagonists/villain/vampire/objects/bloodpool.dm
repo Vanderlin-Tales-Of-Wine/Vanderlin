@@ -8,7 +8,6 @@
 	icon_state = "vat"
 	var/maximum = 8000
 	var/current = 8000
-	var/debug = FALSE
 	var/list/useoptions = list("Grow Power", "Shape Amulet", "Shape Armor")
 	var/list/levelup_thresholds = list(
 		VAMPCOST_ONE,
@@ -16,6 +15,8 @@
 		VAMPCOST_THREE,
 		VAMPCOST_FOUR,
 	)
+
+	var/datum/team/vampires/owner_team
 
 /obj/structure/vampire/bloodpool/Initialize()
 	. = ..()
@@ -88,19 +89,11 @@
 	if(!change)
 		return
 
-	var/tempmax = 8000
-	for(var/datum/mind/V as anything in SSmapping.retainer.vampires)
-		if(V.special_role == "vampirespawn")
-			tempmax += 4000
-	if(maximum != tempmax)
-		maximum = tempmax
-		if(current > maximum)
-			current = maximum
-	if(debug)
-		maximum = 999999
-		current = 999999
+	maximum = 8000
+	if(owner_team)
+		maximum += 4000 * length(owner_team.thralls)
 
-	current += change
+	current = clamp(current + change, 0, maximum)
 
 /obj/structure/vampire/bloodpool/proc/check_withdraw(change)
 	if(change < 0)
