@@ -2054,10 +2054,7 @@
 "dee" = (
 /obj/item/grown/log/tree/stick,
 /turf/open/water/cleanshallow,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 30, /mob/living/carbon/human/species/skeleton/npc/ambush = 10);
-	first_time_text = "CATACOMBS"
-	})
+/area/rogue/under/cave)
 "dep" = (
 /obj/structure/table/wood/large_new/yellow{
 	dir = 5
@@ -2337,10 +2334,7 @@
 /area/rogue/outdoors/exposed/under/basement)
 "dxe" = (
 /turf/open/water/cleanshallow,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 30, /mob/living/carbon/human/species/skeleton/npc/ambush = 10);
-	first_time_text = "CATACOMBS"
-	})
+/area/rogue/under/cave)
 "dxA" = (
 /obj/structure/handcart{
 	dir = 4;
@@ -2745,10 +2739,7 @@
 "eaQ" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 30, /mob/living/carbon/human/species/skeleton/npc/ambush = 10);
-	first_time_text = "CATACOMBS"
-	})
+/area/rogue/under/cave)
 "ebb" = (
 /obj/structure/fluff/railing/border{
 	dir = 5;
@@ -2905,10 +2896,7 @@
 /area/rogue/indoors/town/shop)
 "eoD" = (
 /turf/closed/mineral,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 30, /mob/living/carbon/human/species/skeleton/npc/ambush = 10);
-	first_time_text = "CATACOMBS"
-	})
+/area/rogue/under/cave)
 "epD" = (
 /obj/effect/spawner/map_spawner/tree,
 /obj/structure/flora/grass,
@@ -3145,10 +3133,7 @@
 /area/rogue/indoors/town/church)
 "eAI" = (
 /turf/open/floor/naturalstone,
-/area/rogue/under/cave{
-	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/bigrat = 30, /mob/living/carbon/human/species/skeleton/npc/ambush = 10);
-	first_time_text = "CATACOMBS"
-	})
+/area/rogue/under/cave)
 "eAK" = (
 /obj/structure/barricade/rogue{
 	layer = 2
