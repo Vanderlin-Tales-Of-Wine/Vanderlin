@@ -487,10 +487,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet,
 /area/rogue/under/mountains/anvil/dungeon/lower)
-"ig" = (
-/obj/structure/mineral_door/wood,
-/turf/closed/wall/mineral/stonebrick,
-/area/rogue/under/mountains/anvil/dungeon)
 "il" = (
 /mob/living/simple_animal/hostile/skeleton/bow,
 /turf/open/floor/cobblerock,
@@ -3698,7 +3694,7 @@
 	lockid = "manor";
 	name = "Manor"
 	},
-/turf/closed/wall/mineral/stone,
+/turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
 "Xc" = (
 /turf/closed/mineral/bedrock,
@@ -10191,7 +10187,7 @@ hH
 Cb
 kZ
 kZ
-ig
+wJ
 Cb
 kZ
 kZ

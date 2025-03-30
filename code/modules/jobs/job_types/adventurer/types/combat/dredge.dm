@@ -14,7 +14,7 @@
 	..()
 	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick (1,2), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick (1,2), TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, pick(1,2), TRUE)
+	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/knives, pick(0,0,0,0,0,1,1,1,1,2,), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(1,2,3), TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, pick(0,1,2), TRUE)
@@ -277,6 +277,7 @@
 			beltl = /obj/item/weapon/axe/iron
 			beltr = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 			to_chat(H,span_info("\
 			I prefer a practical instrument of war.")
@@ -285,6 +286,7 @@
 			backr = /obj/item/weapon/polearm/halberd/bardiche/woodcutter
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.change_stat(STATKEY_SPD, -1) // big boy
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatIntense.ogg'
 			to_chat(H,span_info("\
@@ -295,6 +297,7 @@
 			beltr = /obj/item/weapon/knife/dagger
 			wrists = /obj/item/rope/chain
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 			to_chat(H,span_info("\
 			I do not need skill to win a fight, only raw strength. Clubs are my tool of war.")
@@ -305,6 +308,7 @@
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_LCK, 1)
 			H.change_stat(STATKEY_SPD, 1)
 			H.change_stat(STATKEY_END, 2)
@@ -316,6 +320,7 @@
 			backr =	/obj/item/weapon/hammer/sledgehammer
 			beltl = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.change_stat(STATKEY_SPD, -1) // big boy
 			H.cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 			to_chat(H,span_info("\
@@ -327,6 +332,7 @@
 			r_hand = /obj/item/weapon/sword/scimitar/messer
 			l_hand = /obj/item/weapon/sword/scimitar/messer
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.change_stat(STATKEY_STR, 1)
 			H.change_stat(STATKEY_SPD, -2)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander.ogg'
@@ -337,6 +343,7 @@
 			beltl = /obj/item/weapon/knife/dagger
 			beltr = /obj/item/weapon/knife/dagger
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_STR, -1)
 			H.change_stat(STATKEY_SPD, 2)
 			H.cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
@@ -348,6 +355,7 @@
 			backr = /obj/item/weapon/sickle/scythe
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_END, 1)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatMonk.ogg'
 			to_chat(H,span_info("\
@@ -367,6 +375,7 @@
 			beltl = /obj/item/weapon/shield/tower/buckleriron
 			r_hand = /obj/item/weapon/shield/tower
 			H.mind?.adjust_skillrank(/datum/skill/combat/shields, pick(2,2,3), TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.change_stat(STATKEY_CON, 2)
 			H.change_stat(STATKEY_SPD, -3)
 			H.change_stat(STATKEY_PER, -3)
@@ -379,6 +388,7 @@
 			backr = /obj/item/weapon/polearm/spear
 			beltr = /obj/item/weapon/shield/tower/buckleriron
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 			to_chat(H,span_info("\
 			I'm a cautious sort, I prefer to keep my enemies at range.")
@@ -387,6 +397,7 @@
 			beltl = /obj/item/weapon/sword/rapier
 			beltr = /obj/item/weapon/shield/tower/buckleriron
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 			to_chat(H,span_info("\
 			Fighting is an art, and I am an artist.")
@@ -396,6 +407,7 @@
 			beltr = /obj/item/weapon/knife/dagger/steel
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
 			to_chat(H,span_info("\
 			There's nothing more intimidating than someone with a weapon in each hand.")
@@ -406,6 +418,7 @@
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/church/CombatInquisitor.ogg'
 			to_chat(H,span_info("\
 			I prefer the weaponry of a bygone age.")
@@ -414,6 +427,7 @@
 			beltl = /obj/item/weapon/sword/iron
 			backr = /obj/item/weapon/shield/wood
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 			to_chat(H,span_info("\
 			I'm a practical person, the sword is my weapon of choice.")
@@ -436,11 +450,12 @@
 			Like a wounded bird, I endure the rain with grace. With my sword I take fate into my own hands and strangle it.")
 			)
 		if("Mage")
+			H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 			r_hand = /obj/item/weapon/polearm/woodstaff
 			head = /obj/item/clothing/head/roguehood/mage
 			armor = /obj/item/clothing/shirt/robe/mage
 			beltl = /obj/item/reagent_containers/glass/bottle/manapot
-			beltr = /obj/item/weapon/knife/dagger
+			beltr = /obj/item/book/granter/spellbook/apprentice
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
@@ -459,6 +474,7 @@
 			beltr = /obj/item/weapon/sword/short
 			H.change_stat(STATKEY_END, 1)
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.cmode_music = 'sound/music/cmode/adventurer/CombatWarrior.ogg'
 			to_chat(H,span_info("\
 			Two swords, nothing beats that!")
@@ -471,6 +487,7 @@
 			shirt = /obj/item/clothing/shirt/undershirt/black
 			head = /obj/item/clothing/head/menacing
 			H.mind?.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_END, 2)
 			H.change_stat(STATKEY_SPD, -1)
@@ -484,6 +501,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.change_stat(STATKEY_SPD, 1)
 			H.change_stat(STATKEY_STR, 1)
 			H.cmode_music = 'sound/music/cmode/Adventurer/CombatMonk.ogg'
@@ -514,7 +532,6 @@
 		if("Sailor")
 			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
-			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 			H.change_stat(STATKEY_STR, -1)
 			to_chat(H,span_info("\
