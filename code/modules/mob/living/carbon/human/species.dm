@@ -213,7 +213,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	/// stats to adjust on this species on spawn for females
 	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-	var/amtfail = 0
 
 ///////////
 // PROCS //
@@ -244,7 +243,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(findtextEx(message,key))
 				if(H)
 					to_chat(H, "<span class='warning'>[key] -> [value]</span>")
-				amtfail++
 
 			message = replacetextEx(message, "[key]", "[value]")
 
