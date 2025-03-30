@@ -274,15 +274,6 @@
 	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood{
-	name = "ale cellar"
-	},
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "aiC" = (
@@ -3482,15 +3473,6 @@
 	name = "Keep Entrance"
 	},
 /obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/fancywood{
-	name = "Keep Entrance"
-	},
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor)
 "cke" = (
@@ -8137,14 +8119,6 @@
 	name = "Clocktower Entrance"
 	},
 /obj/effect/mapping_helpers/door/access/manor/atarms,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/fancywood{
-	name = "Clocktower Entrance"
-	},
-/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/clocktower)
 "fzb" = (
@@ -8170,10 +8144,6 @@
 /obj/structure/chair/stool,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
-"fzw" = (
-/obj/structure/stairs/fancy/l,
-/turf/open/floor/carpet/lord/right,
-/area/rogue/indoors/town/manor)
 "fzA" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	name = "Inquisition's Storage"
@@ -10411,10 +10381,6 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
-"hcv" = (
-/obj/structure/stairs/fancy/l,
-/turf/open/floor/carpet/lord/center,
-/area/rogue/indoors/town/manor)
 "hcM" = (
 /obj/structure/table/wood{
 	icon_state = "map3"
@@ -13194,6 +13160,7 @@
 /area/rogue/indoors/town)
 "jbS" = (
 /obj/structure/chair/bench/ultimacouch/r,
+/obj/structure/chair/bench/couchablack/r,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
 "jbT" = (
@@ -15445,15 +15412,6 @@
 	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/atarms,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood{
-	name = "guard's barracks"
-	},
-/obj/effect/mapping_helpers/door/access/garrison/garrison,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "kAa" = (
@@ -15895,15 +15853,6 @@
 	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/bars{
-	name = "Cell Door"
-	},
-/obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/cell)
 "kPZ" = (
@@ -18081,16 +18030,8 @@
 /obj/structure/mineral_door/wood/violet{
 	name = "servants quarters"
 	},
-/obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/violet{
-	name = "servants quarters"
-	},
-/obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/tile,
 /area/rogue/under/town/basement)
 "mAn" = (
@@ -20782,15 +20723,6 @@
 	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/vault,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood{
-	name = "vault"
-	},
-/obj/effect/mapping_helpers/door/access/manor/vault,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/vault)
 "ouv" = (
@@ -21206,15 +21138,6 @@
 	},
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/atarms,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood{
-	name = "Clock Tower"
-	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "oIt" = (
@@ -22901,11 +22824,6 @@
 /turf/open/floor/tile/tilerg,
 /area/rogue/indoors/town/bath)
 "pZP" = (
-/obj/structure/mineral_door/wood,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 1
 	},
@@ -23328,21 +23246,11 @@
 /turf/open/floor/carpet/lord/center,
 /area/rogue/indoors/town/manor)
 "qpZ" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	name = "Archivist's Chambers"
-	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/structure/mineral_door/wood/violet{
 	name = "Archivist's Chambers"
 	},
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "qqq" = (
@@ -23854,13 +23762,6 @@
 /obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/manor/atarms,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "qIX" = (
@@ -27221,13 +27122,6 @@
 /obj/structure/mineral_door/wood{
 	name = "Baths"
 	},
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
@@ -29498,6 +29392,13 @@
 	dir = 1
 	},
 /area/rogue/indoors/town/manor)
+"uAk" = (
+/obj/effect/mapping_helpers/door/access/manor/manor,
+/obj/structure/mineral_door/wood/violet{
+	name = "Archivist's Chambers"
+	},
+/turf/open/floor/blocks,
+/area/rogue/under/town/basement)
 "uAo" = (
 /obj/structure/stairs,
 /turf/open/floor/hexstone,
@@ -29891,15 +29792,6 @@
 	name = "Cell Door"
 	},
 /obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/bars{
-	name = "Cell Door"
-	},
-/obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/cell)
 "uLu" = (
@@ -30860,14 +30752,6 @@
 /obj/structure/mineral_door/wood/violet{
 	name = "Linens"
 	},
-/obj/effect/mapping_helpers/door/access/manor/dungeon,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/violet{
-	name = "Linens"
-	},
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
@@ -31523,12 +31407,6 @@
 /area/rogue/indoors/town/church)
 "vUf" = (
 /obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
@@ -32649,13 +32527,6 @@
 "wGs" = (
 /obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood,
-/obj/effect/mapping_helpers/door/access/manor/manor,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
 "wGv" = (
@@ -53490,7 +53361,7 @@ lBA
 lBA
 huh
 jEP
-qpZ
+uAk
 bUM
 tHe
 tHe
@@ -141161,7 +141032,7 @@ xGB
 cGL
 cGL
 cGL
-hcv
+idR
 gcd
 gcd
 xGB
@@ -141363,7 +141234,7 @@ xGB
 cGL
 cGL
 cGL
-fzw
+qyM
 qIB
 qIB
 xGB
