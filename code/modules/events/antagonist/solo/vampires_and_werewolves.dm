@@ -58,7 +58,7 @@
 	var/leader = FALSE
 
 /datum/round_event/antagonist/solo/vampires_and_werewolves/start()
-	var/vampire = FALSE
+	var/vampire = TRUE
 	for(var/datum/mind/antag_mind as anything in setup_minds)
 		if(vampire)
 			add_vampire(antag_mind)
