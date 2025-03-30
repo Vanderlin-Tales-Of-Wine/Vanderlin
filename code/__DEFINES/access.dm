@@ -18,6 +18,7 @@
 #define ACCESS_FOREST "forest"
 #define ACCESS_CAPTAIN "captain"
 #define ACCESS_GATE "gate"
+#define ACCESS_GATEMASTER "gatemaster"
 
 // Church
 #define ACCESS_CHURCH "church"

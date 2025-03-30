@@ -1118,7 +1118,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
 "gM" = (
-/obj/structure/spider/nest,
+/obj/structure/spider/nest/constructed,
 /turf/open/floor/concrete,
 /area/rogue/outdoors)
 "hd" = (
@@ -12288,7 +12288,7 @@ cp
 cp
 cp
 cp
-cp
+DY
 cp
 cp
 cp

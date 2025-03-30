@@ -71,6 +71,9 @@
 /obj/effect/mapping_helpers/door/access/garrison/gate
 	access_string = ACCESS_GATE
 
+/obj/effect/mapping_helpers/door/access/garrison/gatemaster
+	access_string = ACCESS_GATEMASTER
+
 // Church locks
 /obj/effect/mapping_helpers/door/access/church
 	color = "#eaed3e"
