@@ -13,7 +13,7 @@
 	//having said that I am gate keeping the moment felinids are in the damn game
 	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL) //AGE_OLD with the ring on? I say unlikely - clown
 	tutorial = "Forced out of your old adventure party, you applied to the Mercanary guild. Eventually becoming\
-	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two\
+	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two \
 	things: administrative work, and feeding the monstrous Head Eater. Act as the\
 	Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters\
 	or bandits. For the Head Eater hungers..."
@@ -73,6 +73,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 5, TRUE)
 
 
 /obj/effect/proc_holder/spell/self/convertrole/mercenary

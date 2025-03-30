@@ -17770,7 +17770,7 @@
 /obj/structure/lever/hidden{
 	redstone_id = "gaff2"
 	},
-/turf/closed/wall/mineral/stone,
+/turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/town/merc_guild)
 "mnP" = (
 /obj/structure/mineral_door/wood/deadbolt,
