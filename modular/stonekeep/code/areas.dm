@@ -218,6 +218,9 @@
 				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 5,
 				/mob/living/simple_animal/hostile/retaliate/mole = 10)
 
+/area/rogue/under/town/caverogue/deep
+	first_time_text = "DEEP MINESHAFT"
+
 /area/rogue/indoors/towerofwise
 	name = "danger (tower of the wise)"
 	icon_state = "cave"

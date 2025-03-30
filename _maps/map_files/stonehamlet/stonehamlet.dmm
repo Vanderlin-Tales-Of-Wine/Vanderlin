@@ -1555,9 +1555,7 @@
 "cqn" = (
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/blocks/moss,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "crg" = (
 /obj/machinery/light/fueled/wallfire/candle/lamp/lamptern{
 	pixel_x = -18;
@@ -1718,9 +1716,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "cGA" = (
 /obj/effect/spawner/map_spawner/plaguedist_thing,
 /turf/open/floor/dirt/road,
@@ -2134,9 +2130,7 @@
 /obj/item/natural/stone,
 /obj/machinery/light/fueled/torchholder/c,
 /turf/open/floor/naturalstone,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "dlg" = (
 /obj/structure/fluff/statue/gargoyle,
 /turf/open/floor/blocks/moss,
@@ -3886,9 +3880,7 @@
 	pixel_y = 18
 	},
 /turf/open/floor/naturalstone/rough,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "fEm" = (
 /obj/structure/fluff/walldeco/psybanner/red{
 	pixel_x = 3
@@ -4050,9 +4042,7 @@
 	pixel_y = -1
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "fQf" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -4155,9 +4145,7 @@
 "gah" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks/moss,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "gao" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
@@ -4241,9 +4229,7 @@
 "geB" = (
 /obj/structure/ladder,
 /turf/open/floor/woodturned,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "geH" = (
 /obj/structure/fluff/statue,
 /turf/open/floor/blocks/moss,
@@ -4760,9 +4746,7 @@
 /area/rogue/indoors/town/church/chapel)
 "gTP" = (
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "gTS" = (
 /turf/open/floor/wood,
 /area/rogue/indoors/town/bath/redhouse)
@@ -5519,9 +5503,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "hTX" = (
 /obj/structure/rack,
 /obj/item/weapon/sickle,
@@ -5644,9 +5626,7 @@
 "icB" = (
 /obj/structure/ladder,
 /turf/open/floor/wood,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "idg" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -5834,9 +5814,7 @@
 /area/rogue/indoors/town/manor/stone)
 "iuA" = (
 /turf/closed/wall/mineral/wooddark,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "ivo" = (
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/dirt,
@@ -6294,9 +6272,7 @@
 /area/rogue/under/catacombs)
 "jcq" = (
 /turf/open/floor/wood,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "jcw" = (
 /obj/structure/fluff/railing/border{
 	dir = 1;
@@ -7163,9 +7139,7 @@
 /area/rogue/indoors/town/bath/redhouse)
 "kmW" = (
 /turf/open/floor/woodturned,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "kmY" = (
 /obj/structure/table/wood/long{
 	dir = 4
@@ -9082,9 +9056,7 @@
 	},
 /obj/structure/fluff/railing/wood,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "mRQ" = (
 /obj/effect/spawner/map_spawner/loot/common,
 /turf/open/floor/ruinedwood/decayed,
@@ -11846,9 +11818,7 @@
 	icon_state = "woodrailing"
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "qFT" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/item/clothing/cloak/raincloak/mortus,
@@ -13457,9 +13427,7 @@
 /obj/structure/ladder,
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/woodturned,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "sUA" = (
 /turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/bath/redhouse)
@@ -13822,9 +13790,7 @@
 /area/rogue/indoors/town/tavern/saiga)
 "tvh" = (
 /turf/closed/mineral/bedrock,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "tvm" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -13940,9 +13906,7 @@
 	dir = 1
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "tGL" = (
 /turf/open/water/bath/pool{
 	dir = 1
@@ -14036,9 +14000,7 @@
 	pixel_y = -1
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "tMN" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/instrument/harp,
@@ -15450,9 +15412,7 @@
 "vKc" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "vKG" = (
 /obj/structure/bars/pipe{
 	dir = 1;
@@ -15703,9 +15663,7 @@
 /area/rogue/outdoors/exposed/under/basement)
 "wew" = (
 /turf/open/floor/blocks/moss,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "weL" = (
 /obj/structure/stairs{
 	dir = 4
@@ -15964,9 +15922,7 @@
 "wyz" = (
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone/rough,
-/area/rogue/under/town/caverogue{
-	first_time_text = "DEEP MINESHAFT"
-	})
+/area/rogue/under/town/caverogue/deep)
 "wyS" = (
 /obj/effect/decal/remains/neu/generic,
 /turf/open/floor/dirt/road,
