@@ -284,12 +284,11 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 /// Declares someone an outlaw
 /obj/structure/fake_machine/titan/proc/declare_outlaw(mob/living/carbon/human/user, message)
-
 	if(message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= message
 		priority_announce("[message] is no longer an outlaw in Vanderlin lands.", "[user.real_name], The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 		reset_mode()
-		return FALSE
+		return
 	var/found = FALSE
 	for(var/mob/living/carbon/human/to_be_outlawed in GLOB.player_list)
 		if(to_be_outlawed.real_name == message)
