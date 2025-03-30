@@ -181,6 +181,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
 	))
 
+#define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
+#define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
+
 // trait accessor defines
 #define ADD_TRAIT(target, trait, source) \
 	do { \
@@ -189,6 +192,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 			target.status_traits = list(); \
 			_L = target.status_traits; \
 			_L[trait] = list(source); \
+			SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
 			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
 		} else { \
 			_L = target.status_traits; \
@@ -196,8 +200,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				_L[trait] |= list(source); \
 			} else { \
 				_L[trait] = list(source); \
+				SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
+				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
 			} \
-			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait);\
 		} \
 	} while (0)
 #define REMOVE_TRAIT(target, trait, sources) \
@@ -217,6 +222,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 			};\
 			if (!length(_L[trait])) { \
 				_L -= trait; \
+				SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(trait)); \
 				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
 			}; \
 			if (!length(_L)) { \
@@ -230,13 +236,16 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		var/list/_S = sources; \
 		if (_L) { \
 			for (var/_T in _L) { \
-				_L[_T] &= _S;\
+				_L[_T] &= _S; \
 				if (!length(_L[_T])) { \
-					_L -= _T } \
+					_L -= _T; \
+					SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(_T)); \
+					SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
+					}; \
 				};\
-				if (!length(_L)) { \
-					target.status_traits = null\
-				};\
+			if (!length(_L)) { \
+				target.status_traits = null\
+			};\
 		}\
 	} while (0)
 
@@ -250,6 +259,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 //mob traits
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
+#define TRAIT_KNOCKEDOUT		"knockedout" //! Forces the user to stay unconscious.
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
