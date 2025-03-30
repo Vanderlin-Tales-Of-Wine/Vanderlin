@@ -8,12 +8,12 @@
 	spawn_positions = 1
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-	//I say we let all races be the gaffer, this is job concerns the adventurers guild, and those come in all types and sizes,
-	//it makes it feel more like "it could've been anyone, but you got me"
+	//I say we let all races be the gaffer, this is job concerns the adventurers and mercs, and those come in all types and sizes,
+	//so it fits better with the wild cards that is this demographic of people
 	//having said that I am gate keeping the moment felinids are in the damn game
 	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL) //AGE_OLD with the ring on? I say unlikely - clown
-	tutorial = "Most don't make it long in the life of an adventurer, but you did. Long enough to be chosen\
-	as the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two\
+	tutorial = "Forced out of your old adventure party, you applied to the Mercanary guild. Eventually becoming\
+	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two\
 	things: administrative work, and feeding the monstrous Head Eater. Act as the\
 	Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters\
 	or bandits. For the Head Eater hungers..."

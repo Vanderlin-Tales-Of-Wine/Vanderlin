@@ -2391,6 +2391,12 @@
 	icon_state = "iron_end"
 	},
 /area/rogue/indoors/town/clocktower)
+"bBu" = (
+/obj/effect/landmark/hammer/dev_text{
+	name = the red carpet design is the bear dying and the gaffer bleeding out next to the them.
+	},
+/turf/open/floor/ruinedwood,
+/area/rogue/indoors/town/merc_guild)
 "bBC" = (
 /obj/structure/table/wood{
 	icon_state = "longtable_mid";
@@ -90410,7 +90416,7 @@ vgJ
 jMD
 jMD
 eXO
-pjc
+bBu
 pjc
 jMD
 dxb
