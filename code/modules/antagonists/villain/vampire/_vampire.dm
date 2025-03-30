@@ -57,10 +57,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(ishuman(owner.current))
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
-	if(is_adventurer_job(owner.assigned_role) || is_pilgrim_job(owner.assigned_role))
-		message_admins("[owner.current.key] HAS BECOME A VAMPIRE AS AN ADVENTURER OR PILGRIM, IF THEY ARE INVISIBLE AND CANNOT PLAY, YELL AT SADBOYSUSS")
 
-	ADD_TRAIT(owner.current, TRAIT_CRITICAL_WEAKNESS, "[type]") //half assed but necessary otherwise these guys be invincible
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(owner.current, TRAIT_NOHUNGER, "[type]")
