@@ -318,7 +318,7 @@
 	i_type = "Tools"
 
 /datum/anvil_recipe/tools/headhook
-	name = "Iron Headhook"
+	name = "Iron Headhook (+Fibers x2)"
 	recipe_name = "An iron headhook"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/natural/fibers = 2)
