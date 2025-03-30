@@ -5614,14 +5614,8 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/church/inquisition)
 "dQe" = (
-/obj/effect/mapping_helpers/secret_door_creator{
-	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
-	vip_message = "King, Queen, Prince, Hand, Butler, Servant";
-	vips = list("King","Queen","Prince","Hand","Butler","Servant");
-	redstone_id = 612
-	},
-/turf/closed/wall/mineral/wood,
+/obj/structure/mineral_door/wood/deadbolt,
+/turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "dQk" = (
 /turf/open/transparent/openspace,
@@ -6873,12 +6867,6 @@
 /obj/item/reagent_containers/glass/bottle/redwine,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield)
-"eEb" = (
-/obj/structure/lever/hidden{
-	redstone_id = 612
-	},
-/turf/closed/wall/mineral/wood,
-/area/rogue/indoors/town/manor)
 "eEn" = (
 /obj/structure/fluff/statue/gargoyle/moss,
 /obj/machinery/light/fueled/torchholder,
@@ -27669,12 +27657,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/tavern)
-"teH" = (
-/obj/structure/lever/hidden{
-	redstone_id = 612
-	},
-/turf/closed/wall/mineral/decostone,
-/area/rogue/indoors/town/manor)
 "teI" = (
 /obj/machinery/light/fueled/torchholder{
 	dir = 4
@@ -219490,8 +219472,8 @@ wzo
 cIc
 gOl
 gOl
-teH
-eEb
+gOl
+phh
 ldg
 qua
 viu
