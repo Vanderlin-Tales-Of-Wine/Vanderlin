@@ -1,7 +1,6 @@
 /datum/slapcraft_step/item/cloth
 	desc = "Add some cloth."
 	item_types = list(/obj/item/natural/cloth)
-	blacklist_item_types = list(/obj/item/natural/cloth/bandit)
 
 /datum/slapcraft_step/item/cloth/second
 /datum/slapcraft_step/item/cloth/third
