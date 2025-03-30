@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/sexes = TRUE
 	/// whether picking this race requires being a patreon supporter
 	var/patreon_req
-	/// sprite offsets for different clothes of this species' mob
+	/// sprite offsets for different clothes and items this species' equips
 	var/list/offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
 	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
 	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
@@ -167,13 +167,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/changesource_flags = NONE
 	/// Wording for skin tone on examine and on character setup
 	var/skin_tone_wording = "Skin Tone"
-
-	// value for replacing skin tone/origin term
+	/// value for replacing skin tone/origin term
 	var/alt_origin
-
-		/// List of bodypart features of this species
+	/// List of bodypart features of this species
 	var/list/bodypart_features
-
 	/// List of descriptor choices this species gets in preferences customization
 	var/list/descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -188,7 +185,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		/datum/descriptor_choice/prominent_three,
 		/datum/descriptor_choice/prominent_four,
 	)
-
 	/// List of organ customizers for preferences to customize organs.
 	var/list/customizers
 	/// List of possible body marking sets that the player can choose from in customization
@@ -197,11 +193,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	)
 	/// List all of body markings that the player can choose from in customization. Body markings from sets get added to here
 	var/list/body_markings
-
-	///can we be a youngling?
-	var/can_be_youngling = TRUE
+	/// child icon file path
 	var/child_icon = 'icons/roguetown/mob/bodies/c/child.dmi'
+	/// child damage icon file path
 	var/child_dam_icon = 'icons/roguetown/mob/bodies/dam/dam_child.dmi'
+	/// sprite offsets for different clothes and items this species' equips, but for children
 	var/list/offset_features_child = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0),\
 	OFFSET_CLOAK = list(0,-4), OFFSET_FACEMASK = list(0,-4), OFFSET_HEAD = list(0,-4), \
 	OFFSET_FACE = list(0,-4), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
@@ -213,9 +209,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	OFFSET_NECK_F = list(0,-4), OFFSET_MOUTH_F = list(0,-4), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
 
-	///Statkey = bonus stat, - for malice.
+	/// stats to adjust on this species on spawn for males
 	var/list/specstats = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
-	///Statkey = bonus stat, - for malice.
+	/// stats to adjust on this species on spawn for females
 	var/list/specstats_f = list(STATKEY_STR = 0, STATKEY_PER = 0, STATKEY_END = 0,STATKEY_CON = 0, STATKEY_INT = 0, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	var/amtfail = 0
 
