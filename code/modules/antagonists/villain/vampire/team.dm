@@ -198,11 +198,6 @@
 /datum/objective/spread/check_completion()
 	var/datum/team/vampires/vamp_team = team
 
-	return (LAZYLEN(vamp_team.thralls) >= 10)
-
-/datum/objective/vampire/stock
-	name = "stock"
-	explanation_text = "Have a crimson crucible with 30000 vitae."
-	triumph_count = 1
+	return (LAZYLEN(vamp_team?.thralls) >= 10)
 
 #undef MAX_POWER

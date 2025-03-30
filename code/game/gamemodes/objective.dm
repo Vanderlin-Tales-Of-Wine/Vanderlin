@@ -289,8 +289,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			return FALSE
 	return TRUE
 
-/datum/objective/survive/one
-
 /datum/objective/survive/exist //Like survive, but works for silicons and zombies and such.
 	name = "survive nonhuman"
 
