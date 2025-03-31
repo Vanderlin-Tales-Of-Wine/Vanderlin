@@ -424,7 +424,7 @@ GLOBAL_LIST_INIT(t2buffrunerituallist, generate_t2buff_rituallist())
 	blacklisted = FALSE
 	tier = 4
 	required_atoms = list(/obj/item/natural/moltencore = 1, /obj/item/natural/obsidian = 3, /obj/item/natural/melded/t3 =1)
-	mob_to_summon = /mob/living/simple_animal/hostile/retaliate/bigrat//temporary rat 4 testing
+	mob_to_summon = /mob/living/simple_animal/hostile/retaliate/infernal/fiend//temporary rat 4 testing
 
 /datum/runerituals/summoning/sprite
 	name = "summoning sprite"

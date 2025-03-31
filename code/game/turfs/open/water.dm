@@ -33,6 +33,7 @@
 	heavyfootstep = null
 	landsound = 'sound/foley/jumpland/waterland.wav'
 	neighborlay_override = "edge"
+	path_weight = 90
 	var/datum/reagent/water_reagent = /datum/reagent/water
 	var/mapped = TRUE // infinite source of water
 	var/water_volume = 100 // 100 is 1 bucket. Minimum of 10 to count as a water tile
@@ -522,6 +523,9 @@
 /datum/reagent/water/gross/sewer
 	color = "#705a43"
 
+/datum/reagent/water/gross/marshy
+	color = "#60b17b"
+
 /turf/open/water/sewer/Initialize()
 	icon_state = "paving"
 	.  = ..()
@@ -605,6 +609,30 @@
 				BP.add_embedded_object(I, silent = TRUE)
 				return .
 
+/turf/open/water/marsh
+	name = "marshwater"
+	desc = "A heavy layer of weeds and algae cover the surface of the water."
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "dirtW3"
+	water_level = 2
+	slowdown = 15
+	wash_in = FALSE
+	water_reagent = /datum/reagent/water/gross/marshy
+
+/turf/open/water/marsh/Initialize()
+	.  = ..()
+	icon_state = "dirt"
+	dir = pick(GLOB.cardinals)
+
+/turf/open/water/marsh/deep
+	name = "marshwater"
+	desc = "A heavy layer of weeds and algae cover the surface of the deep water."
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "dirtW4"
+	water_level = 3
+	slowdown = 20
+	swim_skill = TRUE
+
 /turf/open/water/cleanshallow
 	name = "water"
 	desc = "Clear and shallow water, what a blessing!"
@@ -615,9 +643,35 @@
 	water_reagent = /datum/reagent/water
 
 /turf/open/water/cleanshallow/Initialize()
+	.  = ..()
 	icon_state = "rock"
 	dir = pick(GLOB.cardinals)
+
+
+/turf/open/water/cleanshallow/dirt
+	name = "water"
+	desc = "Clear and shallow water, mostly untainted by surrounding soil."
+	icon_state = "dirtW5"
+
+/turf/open/water/cleanshallow/Initialize()
 	.  = ..()
+	icon_state = "dirt"
+	dir = pick(GLOB.cardinals)
+
+
+/turf/open/water/blood
+	name = "blood"
+	desc = "A pool of sanguine liquid."
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "rockb"
+	water_level = 2
+	slowdown = 15
+	water_reagent = /datum/reagent/blood
+
+/turf/open/water/blood/Initialize()
+	.  = ..()
+	icon_state = "rock"
+	dir = pick(GLOB.cardinals)
 
 
 /turf/open/water/river
@@ -628,6 +682,7 @@
 	water_level = 3
 	slowdown = 20
 	swim_skill = TRUE
+	path_weight = 150
 	var/river_processing
 	var/river_processes = TRUE
 	swimdir = TRUE
@@ -653,8 +708,9 @@
 		water_top_overlay.dir = dir
 
 /turf/open/water/river/Initialize()
-	icon_state = "rock"
 	.  = ..()
+	icon_state = "rocky"
+
 
 /turf/open/water/river/LateInitialize()
 	. = ..()
@@ -696,6 +752,22 @@
 					A.ConveyorMove(pick(viable_cardinals))
 			else
 				A.ConveyorMove(dir)
+
+/turf/open/water/river/dirt
+	icon_state = "rivermovealt-dir"
+	water_reagent = /datum/reagent/water/gross/sewer
+
+/turf/open/water/river/dirt/Initialize()
+	.  = ..()
+	icon_state = "dirty"
+
+/turf/open/water/river/blood
+	icon_state = "rivermovealt2-dir"
+	water_reagent = /datum/reagent/blood
+
+/turf/open/water/river/blood/Initialize()
+	.  = ..()
+	icon_state = "rocky"
 
 /turf/open/water/acid // holy SHIT
 	name = "acid pool"

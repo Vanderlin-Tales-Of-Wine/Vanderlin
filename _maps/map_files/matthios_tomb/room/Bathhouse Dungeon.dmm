@@ -26,13 +26,6 @@
 	},
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors)
-"aK" = (
-/obj/structure/stairs/stone/church,
-/obj/structure/stairs/stone/church{
-	dir = 8
-	},
-/turf/open/floor/blocks/green,
-/area/rogue/indoors)
 "aV" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/grass,
@@ -342,6 +335,12 @@
 /obj/structure/fluff/walldeco/painting/skull,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
+"gQ" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors)
 "gX" = (
 /turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/indoors)
@@ -383,13 +382,6 @@
 	dir = 6
 	},
 /turf/open/water/bath,
-/area/rogue/indoors)
-"iC" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
-/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "iO" = (
 /obj/item/instrument/vocals,
@@ -821,12 +813,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/church,
 /area/rogue/indoors)
-"sE" = (
-/obj/structure/window/stained/silver,
-/obj/structure/window/stained/silver,
-/obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/hexstone,
-/area/rogue/indoors)
 "sF" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/spawner/map_spawner/loot,
@@ -1201,6 +1187,13 @@
 /obj/structure/fluff/walldeco/vinez,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors)
+"BB" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors)
 "BN" = (
 /mob/living/carbon/human/species/zizombie/npc/GRENZEL,
 /turf/open/floor/blocks,
@@ -1557,12 +1550,6 @@
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"Ku" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors)
 "KA" = (
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
@@ -1715,13 +1702,6 @@
 /obj/effect/spawner/map_spawner/loot/rare,
 /turf/open/floor/grass,
 /area/rogue/indoors)
-"Od" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/obj/item/soap/bath,
-/turf/open/floor/metal/barograte,
-/area/rogue/indoors)
 "Of" = (
 /obj/structure/table/wood/reinforced_alt,
 /obj/item/reagent_containers/glass/cup/silver,
@@ -1849,6 +1829,13 @@
 "Ra" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
+/area/rogue/indoors)
+"Re" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/obj/item/soap/bath,
+/obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
+/turf/open/floor/metal/barograte,
 /area/rogue/indoors)
 "Rs" = (
 /obj/effect/dungeon_directional_helper/west,
@@ -2337,7 +2324,7 @@ PU
 ea
 aV
 dE
-sE
+xG
 KY
 zw
 ey
@@ -2589,7 +2576,7 @@ pa
 pa
 Hc
 oQ
-aK
+oQ
 Ap
 SR
 NL
@@ -2886,7 +2873,7 @@ jW
 uK
 Yu
 ni
-Ku
+gQ
 QR
 oG
 sV
@@ -2918,7 +2905,7 @@ SR
 SR
 SA
 ni
-Od
+BB
 MY
 xK
 my
@@ -2950,7 +2937,7 @@ SR
 SR
 As
 ni
-iC
+Re
 IG
 qz
 dX
@@ -2982,7 +2969,7 @@ Yu
 SA
 Yu
 Ap
-iC
+Re
 gj
 Ll
 ni

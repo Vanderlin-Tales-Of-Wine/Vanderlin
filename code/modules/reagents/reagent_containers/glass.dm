@@ -148,7 +148,7 @@
 	testing("attackobj1")
 
 	if(!spillable)
-		return
+		return ..()
 
 
 	if(target.is_refillable() && (user.used_intent.type == INTENT_POUR)) //Something like a glass. Player probably wants to transfer TO it.

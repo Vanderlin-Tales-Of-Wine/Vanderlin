@@ -59,10 +59,10 @@
 		/datum/pet_command/free,
 		/datum/pet_command/good_boy,
 		/datum/pet_command/follow,
-		/datum/pet_command/point_targeting/home,
+		/datum/pet_command/home,
 		/datum/pet_command/go_home,
-		/datum/pet_command/point_targeting/attack,
-		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
 		/datum/pet_command/play_dead,
 		/datum/pet_command/protect_owner,
 		/datum/pet_command/aggressive,
@@ -227,6 +227,18 @@
 	var/datum/proximity_monitor/advanced/spider_nest/field
 
 	var/last_disturbed = 0
+
+/obj/structure/spider/nest/attack_hand(mob/user)
+	. = ..()
+	var/honey = FLOOR(total_processed * 0.01, 1)
+	if(!honey)
+		return
+	user.visible_message(span_warning("[user] starts to collect the honey from [src]!"), span_warning("You start to collect the honey from [src]!"))
+	if(!do_after(user, 5 SECONDS * honey, src))
+		return
+	for(var/i = 1 to honey)
+		new /obj/item/reagent_containers/food/snacks/spiderhoney(get_turf(src))
+	total_processed -= honey * 100
 
 /obj/structure/spider/nest/Initialize()
 	. = ..()

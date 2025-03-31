@@ -720,6 +720,11 @@
 /obj/structure/trap/wall_projectile/fireball,
 /turf/open/floor/herringbone,
 /area/rogue/under/cave)
+"gP" = (
+/obj/structure/window/stained,
+/obj/structure/bars,
+/turf/open/floor/herringbone,
+/area/rogue/under/cave)
 "gS" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/ingot/gold,
@@ -1601,6 +1606,11 @@
 	},
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/under/cave)
+"rv" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/soap/bath,
+/turf/open/floor/tile/bath,
+/area/rogue/under/cave)
 "rx" = (
 /obj/structure/trap/shock,
 /turf/open/floor/hexstone,
@@ -1712,6 +1722,11 @@
 /obj/structure/stairs/stone,
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
+"sV" = (
+/obj/structure/window/stained,
+/obj/structure/bars,
+/turf/open/floor/tile/masonic/inverted,
+/area/rogue/under/cave)
 "te" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobble,
@@ -1786,6 +1801,12 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/cobble,
+/area/rogue/under/cave)
+"tO" = (
+/obj/structure/window/stained,
+/obj/structure/bars,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/tile/masonic/inverted,
 /area/rogue/under/cave)
 "tR" = (
 /obj/item/ammo_casing/caseless/arrow,
@@ -1864,6 +1885,12 @@
 "uw" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/cobblerock,
+/area/rogue/under/cave)
+"uy" = (
+/obj/effect/waterfall,
+/obj/item/soap/bath,
+/obj/structure/trap/shock,
+/turf/open/water/bath,
 /area/rogue/under/cave)
 "uE" = (
 /obj/structure/fluff/nest,
@@ -2085,11 +2112,6 @@
 	icon_state = "iron_line";
 	dir = 4
 	},
-/area/rogue/under/cave)
-"xr" = (
-/obj/structure/window/stained,
-/obj/structure/bars,
-/turf/closed/wall/mineral/decostone,
 /area/rogue/under/cave)
 "xs" = (
 /obj/structure/stairs/stone{
@@ -2530,12 +2552,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave)
-"Ch" = (
-/obj/effect/waterfall,
-/obj/item/soap/bath,
-/obj/structure/trap/shock,
-/turf/open/water/bath,
-/area/rogue/under/cave)
 "Ci" = (
 /obj/machinery/light/fueled/wallfire{
 	pixel_x = -32;
@@ -2789,10 +2805,6 @@
 "Ez" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/cobble,
-/area/rogue/under/cave)
-"EA" = (
-/obj/item/soap/bath,
-/turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "EC" = (
 /obj/structure/rack/shelf/biggest,
@@ -3637,11 +3649,6 @@
 /mob/living/carbon/human/species/orc/marauder,
 /turf/open/floor/cobblerock,
 /area/rogue/under/cave)
-"NX" = (
-/obj/structure/rack/shelf/biggest,
-/obj/item/soap/bath,
-/turf/open/floor/tile/bath,
-/area/rogue/under/cave)
 "Oc" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/cobblerock,
@@ -3768,12 +3775,6 @@
 	pixel_y = 0
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/cave)
-"PJ" = (
-/obj/structure/window/stained,
-/obj/structure/bars,
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/closed/wall/mineral/decostone,
 /area/rogue/under/cave)
 "PL" = (
 /mob/living/simple_animal/hostile/retaliate/troll,
@@ -3999,6 +4000,10 @@
 "Sr" = (
 /obj/item/natural/glass/shard,
 /turf/open/transparent/openspace,
+/area/rogue/under/cave)
+"Sy" = (
+/obj/item/soap/bath,
+/turf/open/floor/tile/bath,
 /area/rogue/under/cave)
 "Sz" = (
 /obj/structure/stairs/stone,
@@ -7343,7 +7348,7 @@ ZO
 Sj
 Sj
 nq
-xr
+sV
 Bj
 su
 wK
@@ -7415,7 +7420,7 @@ Rg
 Wx
 Sj
 Sj
-xr
+sV
 CH
 vJ
 Ix
@@ -7487,7 +7492,7 @@ ZO
 oz
 Wx
 SF
-xr
+sV
 CH
 Fb
 Rl
@@ -7561,9 +7566,9 @@ Pq
 oz
 zP
 zP
-PJ
-xr
-xr
+tO
+sV
+sV
 zP
 zP
 ep
@@ -7637,7 +7642,7 @@ Sj
 SF
 Sj
 Wx
-xr
+gP
 DK
 ep
 zP
@@ -7709,7 +7714,7 @@ wf
 oz
 nq
 Wx
-xr
+gP
 ep
 mZ
 LB
@@ -9791,7 +9796,7 @@ aa
 zP
 kj
 mH
-Ch
+uy
 zP
 QF
 QF
@@ -10875,7 +10880,7 @@ zP
 zP
 QE
 SI
-EA
+Sy
 LI
 LI
 Ib
@@ -11021,7 +11026,7 @@ SI
 ut
 mH
 LI
-NX
+rv
 zP
 Tc
 jN

@@ -364,10 +364,6 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks/stonered,
 /area/rogue/under/cave)
-"oJ" = (
-/turf/open/floor/carpet/red,
-/turf/open/floor/dirt,
-/area/rogue/under/cave)
 "oX" = (
 /turf/open/water/swamp,
 /area/rogue/under/cave)
@@ -684,9 +680,7 @@
 /area/rogue/under/cave)
 "JL" = (
 /obj/structure/window/solid,
-/obj/structure/window/solid,
-/obj/structure/window/solid,
-/turf/closed/indestructible/roguewindow,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "JQ" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -794,13 +788,6 @@
 	pixel_y = 12
 	},
 /turf/open/floor/dirt,
-/area/rogue/under/cave)
-"Or" = (
-/obj/structure/window/solid,
-/obj/structure/window,
-/obj/structure/window/solid,
-/obj/structure/window/solid,
-/turf/closed/indestructible/roguewindow,
 /area/rogue/under/cave)
 "Pb" = (
 /obj/machinery/light/fueled/torchholder/r,
@@ -1118,7 +1105,7 @@ IZ
 "}
 (6,1,1) = {"
 IZ
-oJ
+zT
 et
 hh
 WT
@@ -1279,7 +1266,7 @@ IZ
 (11,1,1) = {"
 IZ
 CJ
-oJ
+zT
 hh
 Jl
 Jl
@@ -2059,7 +2046,7 @@ IZ
 IZ
 IZ
 IZ
-Or
+JL
 JL
 JL
 JL

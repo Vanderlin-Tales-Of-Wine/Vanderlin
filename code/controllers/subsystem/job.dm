@@ -18,7 +18,6 @@ SUBSYSTEM_DEF(job)
 	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
 
 /datum/controller/subsystem/job/Initialize(timeofday)
-	SSmapping.HACK_LoadMapConfig()
 	if(!length(all_occupations))
 		SetupOccupations()
 	generate_selectable_species()
