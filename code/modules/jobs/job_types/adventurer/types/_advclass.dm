@@ -111,6 +111,29 @@
 
 	return TRUE
 
+/*
+	Like check_requirements but we check a client's preference settings instead of a spawned mob
+	No pq chance since we are just checking, not being used for actual roll
+*/
+/datum/advclass/proc/check_client_requirements(client/the_client, dummy = FALSE)
+
+	var/list/local_allowed_sexes = list()
+	if(length(allowed_sexes))
+		local_allowed_sexes |= allowed_sexes
+
+	if(length(local_allowed_sexes) && !(the_client.prefs.gender in local_allowed_sexes))
+		return FALSE
+
+	if(length(allowed_races) && !(the_client.prefs.pref_species.name in allowed_races))
+		return FALSE
+
+	if(length(allowed_ages) && !(the_client.prefs.age in allowed_ages))
+		return FALSE
+
+	return TRUE
+
+
+
 // Basically the handler has a chance to plus up a class, heres a generic proc you can override to handle behavior related to it.
 // For now you just get an extra stat in everything depending on how many plusses you managed to get.
 /datum/advclass/proc/boost_by_plus_power(plus_factor, mob/living/carbon/human/H)

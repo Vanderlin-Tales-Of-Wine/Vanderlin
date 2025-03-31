@@ -131,7 +131,7 @@
 	if(previewJob)
 		mannequin.job = previewJob.title
 		var/datum/outfit/chosen_outfit
-		if(previewJob.advclass_cat_rolls?.len > 0 && visual_only)
+		if(length(previewJob.advclass_cat_rolls))
 			var/list/possible_classes = list()
 			if(SSrole_class_handler)
 				for(var/ctag in previewJob.advclass_cat_rolls)
