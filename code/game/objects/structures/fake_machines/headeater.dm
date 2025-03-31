@@ -38,7 +38,7 @@
 		return
 
 	if(!HAS_TRAIT(user, TRAIT_BURDEN))
-		to_chat(user, span_danger("you are can't feed the [src] without carrying his burden"))
+		to_chat(user, span_danger("you can't feed the [src] without carrying his burden"))
 		return
 
 	if(istype(H, /obj/item/painting/lorehead) && is_gaffer_job(user.mind.assigned_role)) //this will hopefully be more thematic when the HEAD EATER is in its real form
