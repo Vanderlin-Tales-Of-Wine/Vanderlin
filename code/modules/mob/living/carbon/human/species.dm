@@ -2388,7 +2388,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				var/can_impale = TRUE
 				if(!affecting)
 					can_impale = FALSE
-				else if(I.wlength > WLENGTH_SHORT && (affecting.body_zone != BODY_ZONE_CHEST))
+				else if(I.wlength > WLENGTH_SHORT && !(affecting.body_zone in list(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)))
 					can_impale = FALSE
 				if(can_impale && user.Adjacent(H))
 					affecting.add_embedded_object(I, silent = FALSE, crit_message = TRUE)
@@ -2405,7 +2405,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	knockback(I, H, user, nodmg, actual_damage)
 
 	H.send_item_attack_message(I, user, parse_zone(selzone))
-
+	SEND_SIGNAL(I, COMSIG_ITEM_SPEC_ATTACKEDBY, H, user, affecting, actual_damage)
 	if(nodmg)
 		return FALSE //dont play a sound
 
