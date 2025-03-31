@@ -2805,7 +2805,6 @@
 "bOJ" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "matthiosroom"
@@ -3380,7 +3379,6 @@
 	pixel_y = 7
 	},
 /obj/item/clothing/shirt/robe/eora{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/clothing/head/roguehood/eora{
@@ -6475,8 +6473,7 @@
 "eqm" = (
 /obj/structure/rack,
 /obj/item/weapon/sword/short{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /obj/item/weapon/sword/short{
 	pixel_x = 8;
@@ -12772,11 +12769,9 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "iHy" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/violet,
 /turf/open/floor/greenstone,
 /area/rogue/indoors/town/magician)
 "iHC" = (
@@ -15053,7 +15048,6 @@
 "kgd" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "doorroom"
@@ -15336,7 +15330,6 @@
 "koj" = (
 /obj/effect/mapping_helpers/secret_door_creator{
 	name = "Orphanage Secret Door";
-	floor_turf = /turf/open/floor/blocks;
 	vip_message = "Orphan";
 	vips = list("Orphan");
 	redstone_id = "orphanstorage"
@@ -16989,8 +16982,7 @@
 /obj/structure/rack,
 /obj/item/natural/bundle/cloth{
 	amount = 10;
-	pixel_x = 1;
-	pixel_y = 0
+	pixel_x = 1
 	},
 /obj/item/needle{
 	pixel_x = 2;
@@ -17770,7 +17762,6 @@
 /area/rogue/outdoors/rtfield)
 "miR" = (
 /obj/item/clothing/head/helmet/townwatch{
-	pixel_x = 0;
 	pixel_y = 2
 	},
 /obj/item/clothing/head/helmet/townwatch{
@@ -18031,7 +18022,6 @@
 	dir = 1
 	},
 /obj/item/book/law{
-	pixel_x = 0;
 	pixel_y = 9
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -20842,8 +20832,7 @@
 	pixel_y = 5
 	},
 /obj/item/grown/log/tree/small{
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /obj/item/grown/log/tree/small{
 	pixel_x = 5;
@@ -22038,11 +22027,9 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/under/town/basement)
 "plh" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "mage";
-	name = "Cell Door"
-	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/bars,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "pli" = (
@@ -22165,11 +22152,9 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/town)
 "ppy" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/violet,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "ppM" = (
@@ -22553,11 +22538,9 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "pDe" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
-	lockid = "mage"
-	},
+/obj/effect/mapping_helpers/door/access/manor/mage_guild,
+/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/violet,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/magician)
 "pDn" = (
@@ -23182,7 +23165,6 @@
 	},
 /obj/item/paper/scroll/keep_plans,
 /obj/item/paper/scroll/keep_plans{
-	pixel_x = 0;
 	pixel_y = 9
 	},
 /turf/open/floor/blocks,
@@ -24787,10 +24769,7 @@
 /obj/structure/table/wood/counter/end{
 	dir = 1
 	},
-/obj/item/natural/feather{
-	pixel_x = 0;
-	pixel_y = 0
-	},
+/obj/item/natural/feather,
 /obj/item/natural/feather{
 	pixel_x = 6;
 	pixel_y = 3
@@ -25208,8 +25187,7 @@
 	pixel_y = 9
 	},
 /obj/item/cooking/pan{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/tile/bfloorz,
@@ -26724,7 +26702,6 @@
 /obj/structure/rack/shelf/biggest,
 /obj/item/natural/bundle/cloth{
 	amount = 3;
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /obj/item/needle/thorn{
@@ -30635,20 +30612,16 @@
 "uYL" = (
 /obj/structure/rack,
 /obj/item/flashlight/flare/torch/lantern{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/flashlight/flare/torch/lantern{
-	pixel_x = 8;
-	pixel_y = 0
+	pixel_x = 8
 	},
 /obj/item/flashlight/flare/torch/lantern{
-	pixel_x = -5;
-	pixel_y = 0
+	pixel_x = -5
 	},
 /obj/item/flashlight/flare/torch/lantern{
-	pixel_x = 8;
-	pixel_y = 0
+	pixel_x = 8
 	},
 /obj/item/flint,
 /obj/item/flint{
