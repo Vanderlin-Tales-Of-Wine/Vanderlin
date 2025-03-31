@@ -11,7 +11,6 @@
 /datum/antagonist/vampire/lesser/on_gain()
 	. = ..()
 
-	equip()
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, spawn_pick_class), "[type]"), 5 SECONDS)
 
 /mob/living/carbon/human/proc/spawn_pick_class()
@@ -32,6 +31,18 @@
 
 /datum/antagonist/vampire/lesser/equip()
 	. = ..()
+
+	owner.unknow_all_people()
+	for(var/datum/mind/MF in get_minds())
+		owner.become_unknown_to(MF)
+	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
+		owner.i_know_person(MF)
+		owner.person_knows_me(MF)
+	for(var/datum/mind/MF in get_minds("Death Knight"))
+		owner.i_know_person(MF)
+		owner.person_knows_me(MF)
+
+
 	owner.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 
 /datum/antagonist/vampire/lesser/greet()

@@ -22,6 +22,22 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	/// If the vampire will autojoin on spawn.
 	var/autojoin_team = FALSE //! shouldn't exist, need to find a better method
 
+	/// TRAITs that the datum will grant. Static, should not be modified.
+	var/static/list/innate_traits = list(
+		TRAIT_STRONGBITE,
+		TRAIT_NOSTAMINA,
+		TRAIT_NOHUNGER,
+		TRAIT_NOBREATH,
+		TRAIT_NOPAIN,
+		TRAIT_TOXIMMUNE,
+		TRAIT_STEELHEARTED,
+		TRAIT_NOSLEEP,
+		TRAIT_VAMPMANSION,
+		TRAIT_VAMP_DREAMS,
+		TRAIT_NOAMBUSH,
+		TRAIT_DARKVISION,
+	)
+
 	var/vitae = 1000
 	var/vmax = 2000
 
@@ -44,10 +60,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampire/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	add_antag_hud(antag_hud_type, antag_hud_name, M)
+	for(var/trait as anything in innate_traits)
+		ADD_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
 	remove_antag_hud(antag_hud_type, M)
+	for(var/trait as anything in innate_traits)
+		REMOVE_TRAIT(M, trait, "[type]")
 
 /datum/antagonist/vampire/on_gain()
 	SSmapping.retainer.vampires |= owner
@@ -58,22 +78,13 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		var/mob/living/carbon/human/vampdude = owner.current
 		vampdude.adv_hugboxing_cancel()
 
-	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOSTAMINA, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOHUNGER, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOBREATH, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOPAIN, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_TOXIMMUNE, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOSLEEP, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_VAMPMANSION, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_VAMP_DREAMS, "[type]")
-	ADD_TRAIT(owner.current, TRAIT_NOAMBUSH, "[type]")
+
 
 	owner.current.cmode_music = 'sound/music/cmode/antag/CombatThrall.ogg'
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
 	vamp_look()
 	. = ..()
+	equip()
 	after_gain()
 
 /datum/antagonist/vampire/proc/after_gain()
@@ -81,7 +92,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampire/on_removal()
 	if(!silent && owner.current)
-		to_chat(owner.current,span_danger("I am no longer a [job_rank]!"))
+		to_chat(owner.current, span_danger("I am no longer a [job_rank]!"))
 	owner.special_role = null
 	return ..()
 
@@ -89,15 +100,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	return
 
 /datum/antagonist/vampire/proc/equip()
-	owner.unknow_all_people()
-	for(var/datum/mind/MF in get_minds())
-		owner.become_unknown_to(MF)
-	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
-		owner.i_know_person(MF)
-		owner.person_knows_me(MF)
-	for(var/datum/mind/MF in get_minds("Death Knight"))
-		owner.i_know_person(MF)
-		owner.person_knows_me(MF)
+	return
 
 /datum/antagonist/vampire/greet()
 	SHOULD_CALL_PARENT(TRUE)

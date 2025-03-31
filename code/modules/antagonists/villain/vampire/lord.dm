@@ -12,13 +12,20 @@
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/bat/batform //attached to the datum itself to avoid cloning memes, and other duplicates
 	var/obj/effect/proc_holder/spell/targeted/shapeshift/gaseousform/gas
 
+/datum/antagonist/vampire/lord/apply_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/M = mob_override || owner.current
+	ADD_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
+
+/datum/antagonist/vampire/lord/remove_innate_effects(mob/living/mob_override)
+	. = ..()
+	var/mob/living/M = mob_override || owner.current
+	REMOVE_TRAIT(M, TRAIT_HEAVYARMOR, "[type]")
+
 /datum/antagonist/vampire/lord/on_gain()
 	owner.purge_combat_knowledge()
 	. = ..()
 
-	ADD_TRAIT(owner.current, TRAIT_HEAVYARMOR, "[type]")
-
-	equip()
 	addtimer(CALLBACK(owner.current, TYPE_PROC_REF(/mob/living/carbon/human, choose_name_popup), "[name]"), 5 SECONDS)
 
 /datum/antagonist/vampire/lord/after_gain()
@@ -42,13 +49,18 @@
 /datum/antagonist/vampire/lord/equip()
 	. = ..()
 
+	owner.unknow_all_people()
+	for(var/datum/mind/MF in get_minds())
+		owner.become_unknown_to(MF)
+	for(var/datum/mind/MF in get_minds("Vampire Spawn"))
+		owner.i_know_person(MF)
+		owner.person_knows_me(MF)
+	for(var/datum/mind/MF in get_minds("Death Knight"))
+		owner.i_know_person(MF)
+		owner.person_knows_me(MF)
+
+
 	var/mob/living/carbon/human/H = owner.current
-	var/obj/item/organ/eyes/eyes = owner.current.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(owner.current,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/zombie
-	eyes.Insert(owner.current)
 	H.equipOutfit(/datum/outfit/job/vamplord)
 	H.set_patron(/datum/patron/godless)
 

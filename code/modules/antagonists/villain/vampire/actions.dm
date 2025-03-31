@@ -4,16 +4,23 @@
 
 	if(!mind)
 		return
-	var/datum/team/vampires/vamp_team = locate() in GLOB.antagonist_teams //not ideal
+
+	var/datum/antagonist/vampire/vamp_datum = mind.has_antag_datum(/datum/antagonist/vampire)
+	if(!vamp_datum)
+		return
+
+	var/datum/team/vampires/vamp_team = vamp_datum.team
 	if(!vamp_team)
 		return
+
+
 	var/msg = browser_input_text(src, "Send a message", "COMMAND", max_length = MAX_MESSAGE_LEN, multiline = TRUE)
 	if(!msg)
 		return
 	if(stat > CONSCIOUS)
 		return
 
-	var/message = span_bold("<span style='color:#960000'>A message from </span><span style = 'color:#[voice_color]'>[real_name]</span><span class='hellspeak'>: [msg]</span>")
+	var/message = span_narsie("<B>A message from <span style='color:#[voice_color]'>[real_name]</span>: [msg]</B>")
 	to_chat(vamp_team.members, message)
 
 // Spells
