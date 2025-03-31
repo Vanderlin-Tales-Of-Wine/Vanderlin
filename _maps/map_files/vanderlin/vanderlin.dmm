@@ -990,12 +990,10 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town/roofs)
 "aFz" = (
-/obj/effect/mapping_helpers/secret_door_creator{
-	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
-	vip_message = "Jester";
-	vips = list("Jester");
-	redstone_id = 615
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = 615;
+	floor_turf = /turf/open/floor/ruinedwood/spiral;
+	override_floor = 1
 	},
 /turf/closed/wall/mineral/roofwall/middle,
 /area/rogue/indoors/town/manor)
@@ -3761,7 +3759,7 @@
 /turf/open/floor/dirt,
 /area/rogue/under/cavelava)
 "cwe" = (
-/obj/structure/lever/hidden{
+/obj/structure/lever/hidden/keep{
 	redstone_id = 615
 	},
 /turf/closed/wall/mineral/wood,
@@ -18795,12 +18793,10 @@
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/dwarfin)
 "mQL" = (
-/obj/effect/mapping_helpers/secret_door_creator{
-	name = "Keep Secret Door";
-	floor_turf = /turf/open/floor/blocks;
-	vip_message = "Jester";
-	vips = list("Jester");
-	redstone_id = 615
+/obj/effect/mapping_helpers/secret_door_creator/keep{
+	redstone_id = 615;
+	floor_turf = /turf/open/floor/ruinedwood/spiral;
+	override_floor = 1
 	},
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors/town/manor)
@@ -22529,7 +22525,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town)
 "pBX" = (
-/obj/structure/lever/hidden{
+/obj/structure/lever/hidden/keep{
 	redstone_id = 615
 	},
 /turf/closed/wall/mineral/roofwall/middle,
@@ -29160,14 +29156,6 @@
 /obj/item/key/tailor,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/steward)
-"uaD" = (
-/obj/structure/lever/hidden{
-	redstone_id = 615
-	},
-/turf/closed/wall/mineral/roofwall/middle{
-	dir = 8
-	},
-/area/rogue/indoors/town/manor)
 "uaM" = (
 /obj/structure/mineral_door/wood/window{
 	locked = 1;
@@ -219688,7 +219676,7 @@ bpI
 gOl
 cGL
 phh
-uaD
+adY
 jnP
 iBK
 fdp
