@@ -5,15 +5,15 @@
 	allowed_races = list(
 		"Tiefling"
 	)
-	outfit = /datum/outfit/job/stonekeep/antag/zherald
+	outfit = /datum/outfit/job/sk_migration/antag/zherald
 	grant_lit_torch = FALSE
 	antag_datum = /datum/antagonist/zizocultist/leader
 
-/datum/migrant_role/sk/zizo/after_spawn(mob/living/carbon/human/character)
+/datum/migrant_role/sk/zizo/herald/after_spawn(mob/living/carbon/human/character)
 	. = ..()
 	character.forceMove(pick(GLOB.zizo_starts))
 
-/datum/outfit/job/stonekeep/antag/zherald/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/sk_migration/antag/zherald/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/boots/furlinedboots
 	wrists = /obj/item/clothing/wrists/bracers/copper
@@ -77,16 +77,15 @@
 		"Aasimar",
 		"Changeling","Skylancer","Ogrun","Undine"
 	)
-	outfit = /datum/outfit/job/stonekeep/antag/zhellgobbo
+	outfit = /datum/outfit/job/sk_migration/antag/zhellgobbo
 	grant_lit_torch = FALSE
 //	antag_datum = /datum/antagonist/hellgoblin
 
-/datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
+/datum/outfit/job/sk_migration/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
 	return  H.change_mob_type(new_type = /mob/living/carbon/human/species/goblin/hell, location = H.loc, new_name = "Hell goblin", delete_old_mob = TRUE)
 
 /datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
 	if(L)
 		var/mob/living/carbon/human/H = L
 
@@ -170,8 +169,8 @@
 	shared_wave_type = list(/datum/migrant_wave/evil_knight,/datum/migrant_wave/varyag_raiders, /datum/migrant_wave/zizo_cult)
 	can_roll = FALSE
 	roles = list(
-		/datum/migrant_role/sk/zizo/herald = 1,
-//		/datum/migrant_role/sk/zizo/hellgoblin = 1
+//		/datum/migrant_role/sk/zizo/herald = 1,
+		/datum/migrant_role/sk/zizo/hellgoblin = 1
 )
 	greet_text = "Zizo is your master, and too long has these lands been allowed to forget."
 
