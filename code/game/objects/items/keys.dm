@@ -262,6 +262,12 @@
 	icon_state = "greenkey"
 	lockid = ACCESS_MERC
 
+/obj/item/key/gaffer
+	name = "Mercenary guild master's key"
+	desc = "\"Humble\" would be a kinder word to use for its current state..."
+	icon_state = "rustkey"
+	lockid = ACCESS_GAFFER
+
 /obj/item/key/warehouse
 	name = "Warehouse key"
 	desc = "This key opens the Steward's warehouse."
@@ -790,9 +796,4 @@
 	icon_state = "mazekey"
 	lockid = "banditcamp"
 
-/obj/item/key/gaffer
-	name = "Mercenary guild master's key"
-	desc = "\"Humble\" would be a kinder word to use for its current state..."
-	icon_state = "rustkey"
-	lockid = "gaffer"
 
