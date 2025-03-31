@@ -103,7 +103,7 @@
 	icon_state = "crownpainting_deployed"
 	stolen_painting = /obj/item/painting/crown
 
-/obj/structure/fluff/walldeco/painting/lorehead1 //N/A actually make these
+/obj/structure/fluff/walldeco/painting/lorehead1
 	desc = ""
 	icon_state = "crownpainting_deployed"
 	stolen_painting = /obj/item/painting/lorehead/one
@@ -111,9 +111,9 @@
 /obj/structure/fluff/walldeco/painting/lorehead1/examine(mob/user)
 	. = ..()
 	if(is_gaffer_job(user.mind.assigned_role))
-		. += "you weren't supposed to see this" //N/A
+		. += "A trophy from my old days as an adventurer" //N/A
 	else
-		. += "you weren't supposed to see this"
+		. += "A trophy"
 
 
 /obj/item/painting/lorehead/one
@@ -126,6 +126,6 @@
 /obj/item/painting/lorehead/one/examine(mob/user)
 	. = ..()
 	if(is_gaffer_job(user.mind.assigned_role))
-		. += "you weren't supposed to see this" //N/A
+		. += "A trophy from my old days as an adventurer" //N/A
 	else
-		. += "you weren't supposed to see this"
+		. += "A trophy"

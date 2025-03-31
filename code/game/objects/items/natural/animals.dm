@@ -81,7 +81,7 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	headpricemi = 3
+	headpricemin = 3
 	headpricemax = 7
 
 /obj/item/natural/head/saiga
@@ -100,7 +100,7 @@
 	layer = 3.1
 	w_class = WEIGHT_CLASS_HUGE
 	twohands_required = TRUE
-	headpricemi = 80
+	headpricemin = 80
 	headpricemax = 230
 
 /obj/item/natural/head/rous
@@ -110,7 +110,7 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	headpricemi = 3
+	headpricemin = 3
 	headpricemax = 7
 
 /obj/item/natural/head/spider
@@ -120,7 +120,7 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	headpricemi = 4
+	headpricemin = 4
 	headpricemax = 20
 
 /obj/item/natural/head/bug
@@ -130,7 +130,7 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	headpricemi = 4
+	headpricemin = 4
 	headpricemax = 15
 
 /obj/item/natural/head/mole
@@ -140,7 +140,7 @@
 	layer = 3.1
 	w_class = WEIGHT_CLASS_HUGE
 	twohands_required = TRUE
-	headpricemi = 3
+	headpricemin = 3
 	headpricemax = 7
 
 /obj/item/natural/head/gote

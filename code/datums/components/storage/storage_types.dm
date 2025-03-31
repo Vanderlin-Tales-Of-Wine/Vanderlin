@@ -148,33 +148,6 @@
 		/obj/item/ash,
 		))
 
-/datum/component/storage/concrete/grid/magebag
-	max_w_class = WEIGHT_CLASS_NORMAL
-	screen_max_rows = 8
-	screen_max_columns = 5
-
-/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
-	. = ..()
-	set_holdable(list(
-		/obj/item/natural/infernalash,
-		/obj/item/natural/hellhoundfang,
-		/obj/item/natural/moltencore,
-		/obj/item/natural/abyssalflame,
-		/obj/item/natural/fairydust,
-		/obj/item/natural/iridescentscale,
-		/obj/item/natural/heartwoodcore,
-		/obj/item/natural/sylvanessence,
-		/obj/item/natural/elementalmote,
-		/obj/item/natural/elementalshard,
-		/obj/item/natural/elementalfragment,
-		/obj/item/natural/elementalrelic,
-		/obj/item/natural/obsidian,
-		/obj/item/natural/leyline,
-		/obj/item/reagent_containers/food/snacks/produce/manabloom,
-		/obj/item/mana_battery/mana_crystal,
-		/obj/item/ash,
-		))
-
 /datum/component/storage/concrete/grid/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 6

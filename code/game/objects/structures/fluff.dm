@@ -1225,10 +1225,10 @@
 
 //..................................................................................................................................
 /*------------------------------------------------------------------------------------------------------------------------------------\
-|  Gaffer shit, yes I'm making my own place here just for that and maaan its cozy, in this gated community for my self and no one else |
+|  Gaffer shit, yes I'm making my own place here just for that and maaan its cozy, in this gated community for myself and no one else |
 \------------------------------------------------------------------------------------------------------------------------------------*/
 
-/obj/structure/fluff/statue/gaffer //N/A change this
+/obj/structure/fluff/statue/gaffer
 	name = "Subdued Statue"
 	icon_state = "subduedstatue"
 	anchored = TRUE
@@ -1258,13 +1258,13 @@
 /obj/structure/fluff/statue/gaffer/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_BURDEN))
-		. += "slumped and tortured, broken body pertrified and in pain, its chest rose and fell in synch with mine banishing any doubt left, it is me! my own visage glares back at me!"  //this is ass, get better material man -clown
+		. += "slumped and tortured, broken body pertrified and in pain, its chest rose and fell in synch with mine banishing any doubt left, it is me! my own visage glares back at me!"
 		user.add_stress(/datum/stressevent/ring_madness)
 		return
 	if(ring_destroyed == TRUE)
-		. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading, in its palms is a glowing ring..."
+		. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out, pleading, in its palms is a glowing ring..."
 		return
-	. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out in pleading" //N/A change this
+	. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out, pleading"
 
 /obj/structure/fluff/statue/gaffer/attack_hand(mob/living/user)
 	. = ..()
@@ -1273,7 +1273,7 @@
 	if(!ring_destroyed)
 		return
 	to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
-	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "TOUCHED THE RING", "Yes", "No")
+	var/gaffed = alert(user, "Will you bear the burden?", "YOUR DESTINY", "Yes", "No")
 
 	if(gaffed == "No" && ring_destroyed == TRUE)
 		to_chat(user, span_danger("yes...best to leave it alone."))
@@ -1284,7 +1284,7 @@
 		ADD_TRAIT(user, TRAIT_BURDEN, type)
 		user.put_in_hands(ring)
 		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
-		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows it self into your palm"))
+		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows itself onto your palm"))
 		ring_destroyed = FALSE
 		update_icon()
 

@@ -260,7 +260,7 @@
 /obj/item/clothing/ring/gold/burden/examine(mob/user)
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_BURDEN))
-		. += "An ancient ring made of pyrite amalgam, an engraved quote is hidden in the inner bridge; \"Heavy is the head that bows\"" //N/A change the quote its too fucking cheese
+		. += "An ancient ring made of pyrite amalgam, an engraved quote is hidden in the inner bridge; \"Heavy is the head that bows\""
 		user.add_stress(/datum/stressevent/ring_madness)
 	else
 		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
@@ -274,7 +274,7 @@
 	if(HAS_TRAIT(user, TRAIT_BURDEN))
 		return TRUE
 
-	var/gaffed = alert(user, "Do you wish to be the next Gaffer?", "PICKED UP THE RING", "Yes", "No")
+	var/gaffed = alert(user, "Will you bear the burden?", "YOUR DESTINY", "Yes", "No")
 	var/gaffed_time = world.time
 
 	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //fix the double &&s this is ass
@@ -334,7 +334,7 @@
 				"<span class='danger'>Serve...me...</span>")
 		to_chat(user, "the ring whispers, \"[message]\"")
 		return
-	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first.")) // this makes no fucking sense, choose what, the pop up? where is my immersion clown! - clown
+	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing your destiny first."))
 
 
 /obj/item/clothing/ring/gold/burden/Destroy()

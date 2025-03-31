@@ -361,7 +361,7 @@
 	desc = span_red("A piece of my history is destroyed, how will they know my great past?")
 	timer = 10 MINUTES
 
-/datum/stressevent/ring_madness // ring bearer goes looks at HEAD EATER touched thing
+/datum/stressevent/ring_madness // ring bearer examines at HEAD EATER related thing
 	stressadd = 1
 	desc = span_red("It mocks me, toys with my mind!")
 	timer = 1 MINUTES

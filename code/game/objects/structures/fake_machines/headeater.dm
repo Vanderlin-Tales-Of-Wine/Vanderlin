@@ -3,7 +3,7 @@
 
 /obj/item //this whole thing is ineffective, find a better way of handling this stuff
 	var/headprice = 0
-	var/headpricemi
+	var/headpricemin
 	var/headpricemax
 
 

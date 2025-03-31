@@ -15,14 +15,14 @@
 	tutorial = "Forced out of your old adventure party, you applied to the Mercanary guild. Eventually becoming\
 	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two \
 	things: administrative work, and feeding the monstrous Head Eater. Act as the\
-	Mercenaries Guild master in town, and make sure your members bring back the heads of any slain monsters\
+	Mercenary Guild's master in town, and make sure your members bring back the heads of any slain monsters\
 	or bandits. For the Head Eater hungers..."
 
 	display_order = JDO_GAFFER
-	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg' //N/A don't forget to credit @mechadh for this in the PR
+	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg'
 	outfit = /datum/outfit/job/gaffer
-	give_bank_account = 60
-	min_pq = 8 //N/A fix be ship
+	give_bank_account = 20
+	min_pq = 8
 	selection_color = "#3b150e"
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/mercenary)
