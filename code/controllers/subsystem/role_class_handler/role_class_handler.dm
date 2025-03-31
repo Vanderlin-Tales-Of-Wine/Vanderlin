@@ -126,6 +126,10 @@ SUBSYSTEM_DEF(role_class_handler)
 			related_handler.rolled_class_is_full(picked_class)
 			return FALSE
 
+	if(!H.islatejoin)
+		if(picked_class.spawn_title && length(GLOB.jobspawn_overrides[picked_class.spawn_title]))
+			var/target = pick(GLOB.jobspawn_overrides[picked_class.spawn_title])
+			do_teleport(H, get_turf(target), forced = TRUE)
 
 	H.advsetup = FALSE // This is actually on a lot of shit, so its a ghetto selector protector if u need one
 	picked_class.equipme(H)

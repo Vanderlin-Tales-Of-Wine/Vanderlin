@@ -25,6 +25,9 @@
 	var/horse = FALSE
 	var/vampcompat = TRUE
 
+	///What /obj/effect/landmark/start do we "spawn" at (teleport to)
+	var/spawn_title = null
+
 	/// This class is immune to species-based swapped gender locks
 	var/immune_to_genderswap = FALSE
 
