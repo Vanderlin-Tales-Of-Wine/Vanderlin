@@ -1,12 +1,10 @@
 /datum/job/veteran
 	title = "Veteran"
-	tutorial = "You've known combat your entire life. \
-	There isn't a way to kill a man you havent practiced in the tapestries of war itself. \
+	tutorial = "There isn't a way to kill a man you havent practiced in the tapestries of war itself. \
 	You wouldn't call yourself a hero-- \
 	those belong to the men left rotting in the fields where you honed your ancient trade. \
-	You don't sleep well at night anymore, you don't like remembering what you've had to do to survive. \
-	Trading adventure for stable pay was the only logical solution, \
-	and maybe someday you'll get to lay down the blade and rest your weary body..."
+	Tired of senseless killing for men with crowns, you traded stability for a life of adventure. You returned a hero and savior of the lands, but those glory days with your old adventurer party are long gone. \
+	The honor has faded, your weary body aches, and your sword gathers dust. Sometimes you wonder how your old friends are doing."
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	display_order = JDO_VET

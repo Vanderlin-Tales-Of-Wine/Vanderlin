@@ -102,7 +102,7 @@
 	tool_usage = list(
 		/obj/item/weapon/hammer = list(span_notice("starts to hammer"), span_notice("start to hammer"), 'sound/items/bsmith2.ogg'),
 	)
-	attacked_atom = /obj/item/grown/log/tree/small
+	attacked_atom = /obj/item/ingot/iron
 	starting_atom= /obj/item/weapon/hammer
 	output = /obj/item/rotation_contraption/minecart_rail
 	output_amount = 3
