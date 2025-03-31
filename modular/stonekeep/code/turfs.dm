@@ -586,3 +586,8 @@
 /turf/closed/wall/mineral/wood/window/Initialize()
 	. = ..()
 	color = "#ffffff"
+
+
+//added missing states
+/turf/closed/wall/mineral/decostone/moss
+	icon = 'modular/stonekeep/icons/turfs.dmi'

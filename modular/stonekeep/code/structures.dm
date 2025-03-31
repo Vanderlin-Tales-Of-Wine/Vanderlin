@@ -474,13 +474,47 @@
 
 /obj/structure/fluff/walldeco/xylixhint
 	icon_state = "wall_funny"
-	pixel_y = 32
-	alpha = 210
-
-/obj/structure/fluff/walldeco/xylixhint/sad
+	alpha = 240
+/*
+/obj/structure/fluff/walldeco/xylixhint/Initialize()
+	. = ..()
+	if (GLOB.xylix_bad)
+		icon_state = "wall_sad"
+*/
+/obj/structure/fluff/walldeco/xylixhint/danger
 	icon_state = "wall_sad"
+/*
+/obj/structure/fluff/walldeco/xylixhint/danger/Initialize()
+	. = ..()
+	if (GLOB.xylix_bad)
+		icon_state = "wall_funny"
+*/
+
+// XYLIX MAZE
+/obj/structure/fluff/statue/xylix
+	desc = "Some mad God no doubt."
+	icon = 'modular/stonekeep/icons/96x96.dmi'
+	icon_state = "xylix_smile"
+	pixel_x = -32
+	pixel_y = 0
+/*
+/obj/structure/fluff/statue/xylix/Initialize()
+	. = ..()
+	if (GLOB.xylix_bad)
+		icon_state = "xylix_frown"
+*/
 
 
+/obj/structure/trap/bomb/hidden
+	alpha = 5
+/obj/structure/trap/poison/hidden
+	alpha = 5
+/obj/structure/trap/wall_projectile/hidden
+	alpha = 5
+/obj/structure/trap/shock/hidden
+	alpha = 5
+/obj/structure/trap/spike/hidden
+	alpha = 5
 
 /obj/structure/fluff/railing/fence/palisade_alt
 	icon_state = "fence_alt"
@@ -909,16 +943,8 @@
 	icon = 'modular/stonekeep/icons/pigflora.dmi'
 
 
-// XYLIX MAZE
-/obj/structure/fluff/statue/xylix
-	desc = "Some mad God no doubt."
-	icon = 'icons/roguetown/misc/ay.dmi'
-	icon_state = "xylix_smile"
-	pixel_x = -32
-	pixel_y = -16
 
-/obj/structure/fluff/statue/xylix/frown
-	icon_state = "xylix_frown"
+
 
 
 /obj/structure/bars/cemetery

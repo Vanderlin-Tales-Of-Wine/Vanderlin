@@ -207,7 +207,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/mountains)
 "fE" = (
-/mob/living/carbon/human/species/goblin/skilled/ambush/hell,
+/mob/living/carbon/human/species/goblin/npc/ambush/hell,
 /turf/open/floor/cobblerock/red,
 /area/rogue/under/mountains/anvil/lower)
 "fM" = (
@@ -534,9 +534,8 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/vampire_manor)
 "sF" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/end{
-	dir = 8
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 4
 	},
 /area/rogue/indoors/towerofwise)
 "sN" = (
@@ -812,9 +811,8 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "An" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/end{
-	dir = 4
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 8
 	},
 /area/rogue/indoors/towerofwise)
 "As" = (
@@ -870,10 +868,6 @@
 /obj/item/recipe_book/underworld,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/lavamonastery)
-"Cq" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/end,
-/area/rogue/indoors/towerofwise)
 "Cx" = (
 /obj/effect/landmark/start/sk_mig_zizo{
 	dir = 4
@@ -1129,8 +1123,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/lower)
 "Nd" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/long{
+/turf/closed/wall/mineral/decostone/moss/blue/long{
 	dir = 1
 	},
 /area/rogue/indoors/towerofwise)
@@ -1297,10 +1290,7 @@
 /turf/open/water,
 /area/rogue/outdoors)
 "SN" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/end{
-	dir = 1
-	},
+/turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/indoors/towerofwise)
 "SV" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1450,8 +1440,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/lavamonastery)
 "WX" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/wall/mineral/decostone/long,
+/turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/indoors/towerofwise)
 "Xf" = (
 /turf/closed/wall/mineral/craftstone,
@@ -31049,7 +31038,7 @@ VO
 Sm
 ZZ
 ZZ
-Cq
+SN
 WX
 WX
 WX
@@ -31829,7 +31818,7 @@ ZZ
 VO
 Sm
 ZZ
-Cq
+SN
 WX
 WX
 WX
@@ -47690,7 +47679,7 @@ Ze
 Ze
 VO
 VO
-Cq
+SN
 WX
 WX
 WX
@@ -48470,7 +48459,7 @@ Sm
 Ze
 Ze
 VO
-Cq
+SN
 WX
 WX
 WX
@@ -64331,7 +64320,7 @@ ZY
 ZY
 ZY
 ZY
-Cq
+SN
 WX
 WX
 Ri
@@ -65111,7 +65100,7 @@ ZY
 ZY
 ZY
 ZY
-Cq
+SN
 WX
 WX
 Ri

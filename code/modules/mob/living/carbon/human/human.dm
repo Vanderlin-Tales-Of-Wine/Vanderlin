@@ -138,7 +138,6 @@
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(sexcon)	//STONEKEEP EDIT
-	STOP_PROCESSING(SShumannpc, src)
 	QDEL_NULL(physiology)
 	GLOB.human_list -= src
 	return ..()

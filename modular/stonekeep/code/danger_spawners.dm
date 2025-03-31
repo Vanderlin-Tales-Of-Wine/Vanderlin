@@ -164,8 +164,7 @@
 /*	..................   Cave Goblin Enemy    ................... */
 /obj/effect/spawner/map_spawner/enemy_fifty/goblin_cave
 	spawned = list(
-//		/obj/structure/idle_enemy/cavegoblin = 100,
-		/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 100
+		/mob/living/carbon/human/species/goblin/npc/ambush/cave
 		)
 
 /*	..................   Cabbit Cabin Enemy    ................... */
@@ -413,21 +412,6 @@ range. How much processing this saves is unclear */
 	max_mobs = 1
 	range = 11
 	spawn_text = ""
-
-/*	..................   Cave Goblin Spawner   ................... */
-/obj/structure/idle_enemy/cavegoblin
-/obj/structure/idle_enemy/cavegoblin/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spawner/npc/cavegoblin)
-	icon_state = ""
-/datum/component/spawner/npc/cavegoblin
-	mob_types = list(/mob/living/carbon/human/species/goblin/skilled/ambush/cave )
-	spawn_time = 0
-	spawn_delay = 0
-	max_mobs = 1
-	range = 11
-	spawn_text = ""
-
 
 /*	..................   Cabbit Boss Spawner   ................... */
 /obj/structure/idle_enemy/cabbit_boss

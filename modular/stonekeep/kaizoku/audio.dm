@@ -56,19 +56,7 @@
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Sibilant.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Penumbra.ogg'
 	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Sibilant_night.ogg'
-/*
-	soundenv = 15
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/grass)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
-				/mob/living/simple_animal/hostile/retaliate/troll = 5,
-				/mob/living/carbon/human/species/goblin/skilled/ambush = 20,
-				/mob/living/simple_animal/hostile/retaliate/mole = 10)
-	first_time_text = "THE MURDERWOOD"
-	converted_type = /area/rogue/indoors/shelter/woods
-*/
+
 /area/rogue/indoors/shelter/woods
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Sussurus.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Diaspora.ogg'
@@ -95,17 +83,7 @@
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Torment.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'
 	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
-/*
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 20,
-				/mob/living/carbon/human/species/skeleton/skilled/unarmed = 5,
-				/mob/living/carbon/human/species/skeleton/skilled/fighter = 5)
-	converted_type = /area/rogue/outdoors/caves
-*/
+
 /area/rogue/outdoors/caves
 	droning_sound = 'modular/stonekeep/kaizoku/sound/ambience/Torment.ogg'
 	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'

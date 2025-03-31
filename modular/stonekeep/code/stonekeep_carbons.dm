@@ -17,8 +17,6 @@
 	configure_mind()
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	d_intent = INTENT_PARRY //these ones will parry instead of dodge, the higher the skill the more powerful this is of course
-	aggressive = TRUE
-	mode = AI_IDLE
 	dodgetime = 2 SECONDS
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -188,8 +186,6 @@
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_ZOMBIE_IMMUNE, TRAIT_GENERIC)
-	aggressive = TRUE
-	mode = AI_IDLE
 	dodgetime = 2 SECONDS
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -456,13 +452,7 @@
 	..()
 	gender = MALE
 	job = "Madman"
-	aggressive= TRUE
-	wander = TRUE
-	aggressive= TRUE
-	wander = TRUE
 	equipOutfit(new /datum/outfit/job/roguetown/human_npc/outlaw)
-
-
 
 /datum/outfit/job/roguetown/human_npc/skilled/pre_equip(mob/living/carbon/human/H)
 	H.STASTR = rand(8,10)
@@ -501,9 +491,7 @@
 /mob/living/carbon/human/species/human/northern/bum/skilled/madman/after_creation()
 	..()
 	job = "Beggar"
-	aggressive= TRUE
 	wander = FALSE
-
 
 // -------------------		OUTLAW		--------------------------
 /mob/living/carbon/human/species/human/northern/bum/skilled/outlaw
@@ -512,10 +500,7 @@
 	..()
 	gender = MALE
 	job = "Madman"
-	aggressive= TRUE
-	wander = TRUE
 	equipOutfit(new /datum/outfit/job/roguetown/human_npc/outlaw)
-
 
 
 /datum/outfit/job/roguetown/human_npc/outlaw/post_equip(mob/living/carbon/human/H)
@@ -612,80 +597,12 @@
 			l_hand = /obj/item/weapon/shield/wood
 
 
-// ===================================================================================
-// -------------------		GOBLIN		--------------------------
-/mob/living/carbon/human/species/goblin/skilled
-	aggressive = TRUE
-	mode = AI_IDLE
-	dodgetime = 5 SECONDS
-	flee_in_pain = TRUE
-	canparry = TRUE
-	wander = FALSE
-	ambushable = FALSE
-
-/mob/living/carbon/human/species/goblin/skilled/ambush
-	simpmob_attack = 35
-	simpmob_defend = 25
-	wander = TRUE
-	attack_speed = 2
-
-/mob/living/carbon/human/species/goblin/skilled/proc/configure_mind()
-	if(!mind)
-		mind = new /datum/mind(src)
-
-	mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
-	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
-
-/mob/living/carbon/human/species/goblin/skilled/after_creation()
-	..()
-	configure_mind()
-	d_intent = INTENT_PARRY //these ones will parry instead of dodge, the higher the skill the more powerful this is of course
-	ADD_TRAIT(src, TRAIT_ZOMBIE_IMMUNE, TRAIT_GENERIC)
-
-/mob/living/carbon/human/species/goblin/skilled/ambush/moon
-	name = "moon goblin"
-	race = /datum/species/goblin/moon
-
-/mob/living/carbon/human/species/goblin/skilled/ambush/hell
-	name = "hell goblin"
-	race = /datum/species/goblin/hell
 
 
 /*
 /mob/living/carbon/human/species/goblin/skilled/hell/after_creation(mob/living/carbon/C)
 	..()
 	C.grant_language(/datum/language/hellspeak)
-*/
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave
-	name = "cave goblin"
-	race = /datum/species/goblin/cave
-
-/mob/living/carbon/human/species/goblin/skilledambush/cave/after_creation()
-	..()
-	equipOutfit(new /datum/outfit/job/npc/goblin)
-
-/mob/living/carbon/human/species/goblin/skilled/ambush/sea
-	name = "sea goblin"
-	race = /datum/species/goblin/sea
-
-
-
-/* 	Can be put into pre_equip to lessen chance of crits, bit strong despite the low value
-	H.skin_armor = new /obj/item/clothing/armor/skin_armor/weak(H)
-
-/obj/item/clothing/armor/skin_armor/weak // since NPCs using crit weakness this is a way to give them a slightly longer life by reducing chance of crits
-	slot_flags = null
-	name = ""
-	desc = ""
-	icon_state = null
-	body_parts_covered = FULL_BODY
-	armor = list("melee" = 3, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 */
 
 
@@ -703,23 +620,10 @@
 	..()
 	QDEL_NULL(sexcon)
 
-
+/*
 /mob/living/carbon/human/species/zizombie/npc_idle()
-	if(world.time < next_idle)
-		return
-	next_idle = world.time + rand(30, 70)
-	if((mobility_flags & MOBILITY_MOVE) && isturf(loc) && wander)
-		if(prob(20))
-			var/turf/T = get_step(loc,pick(GLOB.cardinals))
-			if(!istype(T, /turf/open/transparent/openspace))
-				Move(T)
-		else
-			face_atom(get_step(src,pick(GLOB.cardinals)))
-	if(!wander && prob(10))
-		face_atom(get_step(src,pick(GLOB.cardinals)))
-	if(prob(3))
-		playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
-
+	playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
+*/
 
 
 /mob/living/carbon/human/species/zizombie/npc/monk/after_creation()
@@ -729,8 +633,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/monk)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = FALSE
 	flee_in_pain = FALSE
@@ -743,8 +645,6 @@
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/zizombie/npc/prior)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = FALSE
 	flee_in_pain = FALSE
@@ -856,52 +756,4 @@
 
 
 
-/datum/outfit/job/cryptkeeper/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
-	..()
-	wrists = /obj/item/clothing/wrists/bracers/leather
-	armor = /obj/item/clothing/armor/chainmail/iron
-	if(prob(50))
-		shirt = /obj/item/clothing/shirt/undershirt/vagrant
-	else
-		shirt = /obj/item/clothing/shirt/undershirt/vagrant/l
-	pants = /obj/item/clothing/pants/chainlegs/iron
-	head = /obj/item/clothing/head/helmet/leather
-	shoes = /obj/item/clothing/shoes/boots
 
-	H.TOTALSTR = rand(14,16)
-	H.TOTALSPD = 8
-	H.TOTALCON = 9
-	H.TOTALEND = 15
-	H.TOTALINT = 1
-
-	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
-	H.mind?.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-
-	H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-
-	H.set_patron(/datum/patron/inhumen/zizo)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-
-	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
-	/datum/rmb_intent/aimed,\
-	/datum/rmb_intent/strong,\
-	/datum/rmb_intent/swift,\
-	/datum/rmb_intent/riposte,\
-	/datum/rmb_intent/weak)
-	H.swap_rmb_intent(num=1) //dont want to mess with base NPCs too much out of fear of breaking them so I assigned the intents in the outfit
-
-	if(prob(50))
-		r_hand = /obj/item/weapon/sword
-	else
-		r_hand = /obj/item/weapon/polearm/halberd/bardiche/woodcutter

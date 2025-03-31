@@ -84,11 +84,11 @@
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
 	},
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "lD" = (
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/twig,
 /area/rogue/under/cave/sumpgrotto)
 "mA" = (
@@ -253,7 +253,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
 "Dv" = (
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/sumpgrotto)
 "DL" = (
@@ -322,7 +322,7 @@
 /area/rogue/under/cave/sumpgrotto)
 "PO" = (
 /obj/effect/decal/cleanable/blood_neu/tracks,
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Qr" = (
@@ -390,7 +390,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Yk" = (
-/mob/living/carbon/human/species/goblin/skilled/ambush/cave,
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "YB" = (

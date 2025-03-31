@@ -111,7 +111,7 @@
 	ambush_times = list("night","dusk")
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
-				/mob/living/carbon/human/species/goblin/skilled/ambush = 5,
+				/mob/living/carbon/human/species/goblin/npc/ambush = 5,
 				/mob/living/simple_animal/pet/cat/cabbit = 10)
 	first_time_text = "Stonehill Valley"
 	ambush_types = list(
@@ -125,7 +125,7 @@
 	ambush_times = list("day","dawn","night","dusk")
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/mole = 50,
-				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 50)
+				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 50)
 
 /area/rogue/under/lavamonastery
 	name = "danger(monastery)"
@@ -154,7 +154,7 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/troll = 20,
 				/mob/living/carbon/human/species/skeleton/skilled/fighter = 15,
-				/mob/living/carbon/human/species/goblin/skilled/ambush/hell = 50)
+				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 50)
 
 /area/rogue/outdoors/mountains/decap
 	name = "mt decapitation"
@@ -198,7 +198,7 @@
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/wolf = 40,
 				/mob/living/simple_animal/hostile/retaliate/spider/hairy = 10)
-	first_time_text = "MURDER- WOODS"
+	first_time_text = "THE MURDERWOODS"
 	converted_type = /area/rogue/indoors/shelter/woods
 
 
@@ -215,7 +215,7 @@
 				/turf/open/floor/dirt)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/skilled/ambush/cave = 5,
+				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 5,
 				/mob/living/simple_animal/hostile/retaliate/mole = 10)
 
 /area/rogue/under/town/caverogue/deep
@@ -249,7 +249,7 @@
 /area/rogue/under/catacombs
 	name = "catacombs"
 	icon_state = "cavewet"
-	first_time_text = "The Catacombs"
+	first_time_text = "Catacombs"
 //	ambientsounds = AMB_CAVEWATER
 //	ambientnight = AMB_CAVEWATER
 	spookysounds = SPOOKY_CAVE
@@ -263,6 +263,17 @@
 	ambush_mobs = list(
 				/mob/living/carbon/human/species/skeleton/skilled/unarmed = 30,
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 10)
+	converted_type = /area/rogue/outdoors/caves
+
+/area/rogue/under/xylix
+	name = "xylix maze"
+	icon_state = "cavewet"
+	first_time_text = "The Maze"
+	spookysounds = SPOOKY_CAVE
+	spookynight = SPOOKY_CAVE
+	droning_sound = 'sound/music/area/caves.ogg'
+	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'
+	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
 	converted_type = /area/rogue/outdoors/caves
 
 /area/rogue/under/catacombs/dwarfoutpost

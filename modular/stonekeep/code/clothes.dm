@@ -518,10 +518,10 @@
 
 
 /obj/item/clothing/head/helmet/nocpriest
-	name = "leather helmet"
-	desc = "A conical leather helmet. It's comfortable and won't protect much, but it's better than nothing."
-	icon = 'icons/roguetown/clothing/head.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	name = "moon headdress"
+	desc = "A silver crest, displaying the Moon Prince."
+	icon = 'modular/stonekeep/icons/clothing.dmi'
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/64x64.dmi'
 	icon_state = "nocpriest"
 	bloody_icon = 'icons/effects/blood64x64.dmi'
 	bloody_icon_state = "helmetblood_big"

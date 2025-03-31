@@ -3,6 +3,11 @@
 /obj/machinery/light/fueled/firebowl/cold,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
+"ah" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/trap/wall_projectile/hidden,
+/turf/open/floor/sandstone/old,
+/area/rogue/under/xylix)
 "ao" = (
 /obj/effect/spawner/map_spawner/bogtree,
 /turf/open/floor/grass/red,
@@ -48,6 +53,12 @@
 "bA" = (
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"bB" = (
+/obj/structure/trap/wall_projectile/hidden{
+	dir = 1
+	},
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "bC" = (
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/dirt,
@@ -82,6 +93,9 @@
 /obj/item/weapon/pick,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"cU" = (
+/turf/open/floor/blocks/paving,
+/area/rogue/under/xylix)
 "da" = (
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/dirt,
@@ -185,6 +199,9 @@
 /obj/item/reagent_containers/glass/bucket/wooden,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"fu" = (
+/turf/open/floor/sandstone,
+/area/rogue/under/xylix)
 "fS" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = 32
@@ -307,11 +324,20 @@
 /obj/item/natural/feather,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"ig" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/sandstone/old,
+/area/rogue/under/xylix)
 "iu" = (
 /obj/structure/closet/crate/crafted_closet/crafted,
 /obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"iE" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 8
+	},
+/area/rogue/under/xylix)
 "iN" = (
 /obj/structure/table/wood{
 	icon_state = "largetable"
@@ -430,6 +456,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/bog/wetlands)
+"lo" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"lr" = (
+/obj/structure/trap/wall_projectile/hidden,
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "lx" = (
 /obj/structure/ladder,
 /turf/open/floor/cobble,
@@ -594,6 +627,11 @@
 	},
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/bog/wetlands)
+"sz" = (
+/obj/structure/trap/wall_projectile/hidden,
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/sandstone/old,
+/area/rogue/under/xylix)
 "sC" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/floor/twig,
@@ -697,6 +735,12 @@
 	},
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/bog/wetlands)
+"vF" = (
+/obj/structure/fluff/statue/xylix{
+	pixel_y = 0
+	},
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "vQ" = (
 /obj/structure/fluff/railing/border{
 	dir = 5;
@@ -730,6 +774,9 @@
 "wg" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/bog/wetlands/gator)
+"wk" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
 "wt" = (
 /obj/effect/decal/shadow_floor{
 	dir = 1
@@ -773,6 +820,9 @@
 /obj/structure/fluff/psycross/crafted/shrine/abyssor,
 /turf/open/water/cleanshallow,
 /area/rogue/under/cavewet)
+"xG" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "xU" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/ruinedwood/decayed,
@@ -785,6 +835,9 @@
 /obj/structure/flora/shroom_tree_neu,
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/bog/wetlands/gator)
+"ym" = (
+/turf/closed/wall/mineral/decostone/moss/blue/cand,
+/area/rogue/under/xylix)
 "yp" = (
 /obj/machinery/light/fueled/firebowl/cold,
 /turf/open/floor/ruinedwood/decayed,
@@ -806,6 +859,11 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog/wetlands)
+"zK" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 4
+	},
+/area/rogue/under/xylix)
 "zZ" = (
 /obj/effect/landmark/ambush,
 /turf/open/water/swamp/deep,
@@ -871,6 +929,14 @@
 /obj/structure/flora/tree/burnt,
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/bog/wetlands)
+"Hd" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
+"Hr" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "Hs" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/wetlands/gator)
@@ -896,6 +962,10 @@
 "Ja" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains)
+"Js" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "JV" = (
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog/wetlands/gator)
@@ -906,6 +976,9 @@
 /obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog)
+"Lc" = (
+/turf/closed/wall/mineral/craftstone,
+/area/rogue/under/xylix)
 "LR" = (
 /obj/structure/noose/gallows,
 /turf/open/floor/grass,
@@ -927,6 +1000,9 @@
 "ON" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/outdoors/bog/wetlands)
+"Pk" = (
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "PM" = (
 /turf/open/floor/dirt/muddie,
 /area/rogue/outdoors/bog/wetlands/gator)
@@ -942,6 +1018,10 @@
 "Qy" = (
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/bog)
+"QV" = (
+/obj/structure/fluff/walldeco/xylixhint,
+/turf/open/floor/sandstone/old,
+/area/rogue/under/xylix)
 "Rb" = (
 /obj/structure/fake_machine/mail{
 	pixel_y = -32
@@ -961,10 +1041,20 @@
 "SC" = (
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog/wetlands)
+"SH" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "SM" = (
 /obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog/wetlands)
+"SR" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
 "Tr" = (
 /obj/item/natural/stone,
 /turf/open/floor/naturalstone,
@@ -983,6 +1073,12 @@
 "VO" = (
 /turf/closed/basic,
 /area/rogue)
+"VX" = (
+/turf/open/floor/blocks/paving/vert,
+/area/rogue/under/xylix)
+"VY" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
 "WH" = (
 /turf/open/floor/grass/red,
 /area/rogue/outdoors/bog/wetlands)
@@ -996,6 +1092,11 @@
 /obj/structure/flora/grass/water/reeds,
 /turf/open/floor/dirt/muddie,
 /area/rogue/outdoors/bog/wetlands)
+"Xn" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 1
+	},
+/area/rogue/under/xylix)
 "Xq" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/naturalstone,
@@ -1007,6 +1108,15 @@
 "Yf" = (
 /turf/closed/mineral/bedrock,
 /area/rogue/outdoors/bog/wetlands/gator)
+"Yt" = (
+/obj/structure/fluff/walldeco/xylixhint,
+/turf/closed/wall/mineral/decostone/moss/blue/cand,
+/area/rogue/under/xylix)
+"Zm" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
 
 (1,1,1) = {"
 VO
@@ -13651,18 +13761,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+lo
+VY
+ym
+Xn
+xG
+cU
+cU
+xG
+VY
+ym
+VY
+lo
 VO
 VO
 VO
@@ -13853,18 +13963,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Zm
+Pk
+SR
+Pk
+xG
+cU
+cU
+xG
+Pk
+SR
+Pk
+Zm
 VO
 VO
 VO
@@ -14055,18 +14165,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+ym
+Hd
+Pk
+vF
+xG
+cU
+cU
+xG
+Pk
+Pk
+Pk
+ym
 VO
 VO
 VO
@@ -14257,18 +14367,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+zK
+Pk
+Pk
+Pk
+xG
+cU
+cU
+xG
+Pk
+Pk
+Pk
+Zm
 VO
 VO
 VO
@@ -14459,20 +14569,20 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+xG
+xG
+xG
+xG
+xG
+cU
+cU
+xG
+Yt
+Pk
+Pk
+lo
+VY
+lo
 VO
 VO
 VO
@@ -14661,20 +14771,20 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+VX
+VX
+VX
+VX
+VX
+cU
+cU
+xG
+xG
+xG
+xG
+xG
+Hr
+Zm
 VO
 VO
 VO
@@ -14863,20 +14973,20 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+VX
+VX
+VX
+VX
+VX
+cU
+cU
+xG
+xG
+xG
+xG
+xG
+Hr
+Zm
 VO
 VO
 VO
@@ -15065,20 +15175,20 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+xG
+xG
+xG
+xG
+xG
+cU
+cU
+xG
+Yt
+Pk
+Pk
+lo
+VY
+lo
 VO
 VO
 VO
@@ -15267,18 +15377,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+iE
+Pk
+Pk
+Pk
+xG
+cU
+cU
+xG
+Pk
+Pk
+Pk
+Zm
 VO
 VO
 VO
@@ -15469,18 +15579,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+ym
+Hd
+Pk
+vF
+xG
+cU
+cU
+xG
+Pk
+Pk
+Pk
+ym
 VO
 VO
 VO
@@ -15671,18 +15781,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Zm
+Pk
+Js
+Pk
+xG
+cU
+cU
+xG
+Pk
+Js
+Pk
+Zm
 VO
 VO
 VO
@@ -15873,18 +15983,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+lo
+VY
+ym
+Xn
+xG
+cU
+cU
+xG
+wk
+ym
+VY
+lo
 VO
 VO
 VO
@@ -16075,18 +16185,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+lo
+VY
+VY
+Xn
+xG
+cU
+cU
+xG
+wk
+VY
+VY
+lo
 VO
 VO
 VO
@@ -16277,18 +16387,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+QV
+Pk
+QV
+Pk
+QV
+Pk
+QV
+Pk
+ah
+SH
+Lc
 VO
 VO
 VO
@@ -16479,18 +16589,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+Pk
+QV
+Pk
+QV
+Pk
+ig
+Pk
+ig
+Pk
+ig
+Lc
 VO
 VO
 VO
@@ -16681,18 +16791,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+ig
+Pk
+QV
+Pk
+ig
+lr
+ig
+Pk
+QV
+fu
+Lc
 VO
 VO
 VO
@@ -16883,18 +16993,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+bB
+ig
+Pk
+QV
+Pk
+ig
+Pk
+QV
+Pk
+QV
+Lc
 VO
 VO
 VO
@@ -17085,18 +17195,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+ig
+Pk
+QV
+Pk
+ig
+Pk
+QV
+Pk
+QV
+Pk
+Lc
 VO
 VO
 VO
@@ -17287,18 +17397,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+Pk
+ig
+Pk
+ig
+bB
+ig
+Pk
+ig
+Pk
+ig
+Lc
 VO
 VO
 VO
@@ -17489,18 +17599,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+QV
+Pk
+QV
+Pk
+ig
+Pk
+QV
+Pk
+sz
+Pk
+Lc
 VO
 VO
 VO
@@ -17691,18 +17801,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+Pk
+QV
+Pk
+QV
+Pk
+QV
+Pk
+ig
+Pk
+ig
+Lc
 VO
 VO
 VO
@@ -17893,18 +18003,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+QV
+Pk
+ig
+Pk
+QV
+Pk
+ig
+Pk
+ig
+Pk
+Lc
 VO
 VO
 VO
@@ -18095,18 +18205,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+Lc
+Hd
+ig
+bB
+ig
+Pk
+QV
+Pk
+ah
+Pk
+QV
+Lc
 VO
 VO
 VO
@@ -18297,18 +18407,18 @@ VO
 VO
 VO
 VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
-VO
+lo
+VY
+VY
+Xn
+xG
+cU
+cU
+xG
+wk
+VY
+VY
+lo
 VO
 VO
 VO

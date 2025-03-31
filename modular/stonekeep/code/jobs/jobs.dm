@@ -26,8 +26,6 @@ The word serf means something completely different than what the original maker 
 	min_pq = 0	// STONEKEEP EDIT
 	selection_color = "#d7d8df"		// STONEKEEP EDIT
 
-	department_flag = OUTSIDERS	// STONEKEEP EDIT
-	allowed_races = ALL_STONEKEEP_PLAYER_RACES	// STONEKEEP EDIT
 	tutorial = "Hero of nothing, adventurer by trade. \
 	Whatever led you to this fate is up to the wind to decide, \
 	and you've never fancied yourself for much other than the thrill. \

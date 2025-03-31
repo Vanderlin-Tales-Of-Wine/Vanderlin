@@ -1,4 +1,4 @@
-#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Rakshari", "Half-orc", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
+#define ALL_STONEKEEP_PLAYER_RACES		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Dwarf","Tiefling", "Aasimar", "Half-orc", "Changeling","Skylancer","Ogrun","Undine")	// the normal lineup sans Rakshari who are not generally available
 #define ALL_STONEKEEP_RACES_NORMALSPRITE		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun")	// for clothes without dwarf sprites
 #define ALL_RACES_FOR_REAL			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold",  "abyssariad")
 
@@ -25,7 +25,15 @@ GLOBAL_LIST_EMPTY(bogevil_starts)
 GLOBAL_LIST_EMPTY(forestevil_starts)
 GLOBAL_LIST_EMPTY(mountainevil_starts)
 GLOBAL_LIST_EMPTY(zizo_starts)
-
+/*
+GLOBAL_VAR_INIT(xylix_bad, FALSE)
+/proc/xylixcoinflip()
+	if(prob(99))
+		GLOB.xylix_bad = TRUE
+/datum/controller/global_vars/Initialize()
+	. = ..()
+	xylixcoinflip()
+*/
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 #define CTAG_SKHAND			"CAT_SKHAND"
 #define CTAG_SKWOODSMAN		"CAT_SKWOODSMAN"
