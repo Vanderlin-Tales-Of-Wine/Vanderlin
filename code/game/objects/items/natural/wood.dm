@@ -4,6 +4,9 @@
 	name = "log"
 	desc = "Refined lumber, ready for use or processing."
 	icon_state = "log"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	experimental_inhand = FALSE
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	blade_dulling = DULLING_CUT
 	max_integrity = 30
@@ -42,13 +45,15 @@
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 			else
 				new lumber(get_turf(src))
+		if(prob(10))
+			new /obj/effect/decal/cleanable/debris/wood(get_turf(src))
 		if(!skill_level)
 			to_chat(user, span_info("My poor skill has me ruin some of the timber..."))
 		user.mind.add_sleep_experience(/datum/skill/labor/lumberjacking, (user.STAINT*0.5))
 		playsound(src, destroy_sound, 100, TRUE)
 		qdel(src)
 		return TRUE
-	..()
+	. = ..()
 
 
 /obj/item/grown/log/tree/attack_right(mob/living/user)
@@ -114,6 +119,9 @@
 	name = "small log"
 	desc = "A smaller log that came from a larger log. Suitable for building."
 	icon_state = "logsmall"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	experimental_inhand = FALSE
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	max_integrity = 30
 	static_debris = list(/obj/item/grown/log/tree/stick = 3)
@@ -133,6 +141,10 @@
 	name = "stick"
 	desc = "A wooden stick, a mighty weapon to the imaginative."
 	icon_state = "stick1"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "stick"
+	experimental_inhand = FALSE
 	blade_dulling = 0
 	max_integrity = 20
 	static_debris = null
@@ -184,7 +196,7 @@
 	. = ..()
 	var/obj/item/I = user.get_active_held_item()
 	if(istype(I, /obj/item/grown/log/tree/stick))
-		var/obj/item/natural/bundle/stick/F = new(src.loc)
+		var/obj/item/natural/bundle/stick/F = new(get_turf(user))
 		qdel(I)
 		qdel(src)
 		user.put_in_hands(F)
@@ -194,6 +206,10 @@
 	name = "stake"
 	desc = "A sharpened piece of wood, fantastic for piercing"
 	icon_state = "stake"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "stake"
+	experimental_inhand = FALSE
 	force = 2
 	throwforce = 2
 	possible_item_intents = list(/datum/intent/stab, /datum/intent/pick)
@@ -213,6 +229,10 @@
 	name = "wood plank"
 	desc = "A wooden plank ready to be worked."
 	icon_state = "wplank"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "plank"
+	experimental_inhand = FALSE
 	firefuel = 5 MINUTES
 	w_class = WEIGHT_CLASS_NORMAL
 	smeltresult = /obj/item/ash
@@ -221,6 +241,10 @@
 /obj/item/natural/bundle/plank
 	name = "wooden planks"
 	icon_state = "planks1"
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
+	item_state = "plankbundle"
+	experimental_inhand = FALSE
 	possible_item_intents = list(/datum/intent/use)
 	desc = "Wooden planks bundled together for easy handling."
 	force = 0

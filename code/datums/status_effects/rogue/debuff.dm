@@ -20,12 +20,6 @@
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/peckish)
 
-/datum/status_effect/debuff/hungryt1/refresh()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/C = owner
-		C.add_stress(/datum/stressevent/peckish)
-
 /datum/status_effect/debuff/hungryt1/on_remove()
 	. = ..()
 	if(iscarbon(owner))
@@ -49,12 +43,6 @@
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/hungry)
 
-/datum/status_effect/debuff/hungryt2/refresh()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/C = owner
-		C.add_stress(/datum/stressevent/hungry)
-
 /datum/status_effect/debuff/hungryt2/on_remove()
 	. = ..()
 	if(iscarbon(owner))
@@ -73,12 +61,6 @@
 	icon_state = "hunger3"
 
 /datum/status_effect/debuff/hungryt3/on_apply()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/C = owner
-		C.add_stress(/datum/stressevent/starving)
-
-/datum/status_effect/debuff/hungryt3/refresh()
 	. = ..()
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
@@ -161,12 +143,6 @@
 		var/mob/living/carbon/C = owner
 		C.add_stress(/datum/stressevent/thirst)
 
-/datum/status_effect/debuff/thirstyt2/refresh()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/C = owner
-		C.add_stress(/datum/stressevent/thirst)
-
 /datum/status_effect/debuff/thirstyt2/on_remove()
 	. = ..()
 	if(iscarbon(owner))
@@ -185,12 +161,6 @@
 	icon_state = "thirst3"
 
 /datum/status_effect/debuff/thirstyt3/on_apply()
-	. = ..()
-	if(iscarbon(owner))
-		var/mob/living/carbon/C = owner
-		C.add_stress(/datum/stressevent/parched)
-
-/datum/status_effect/debuff/thirstyt3/refresh()
 	. = ..()
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
