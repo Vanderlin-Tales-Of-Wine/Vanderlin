@@ -13539,6 +13539,8 @@
 	locked = 1;
 	lockid = "gaffer"
 	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/gaffer,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "jjA" = (

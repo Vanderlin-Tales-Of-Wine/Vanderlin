@@ -10,6 +10,7 @@
 #define ACCESS_FELDSHER "doctor"
 #define ACCESS_MATRON "orphanage"
 #define ACCESS_MERC "mercenary"
+#define ACCESS_GAFFER "gaffer"
 #define ACCESS_TOWER "tower"
 #define ACCESS_WAREHOUSE "warehouse"
 
