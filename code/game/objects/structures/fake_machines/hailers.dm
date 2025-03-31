@@ -61,7 +61,7 @@
 	..()
 	usr.set_machine(src)
 	if(href_list["remove"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE))	//For when a player is handcuffed while they have the notice window open
+		if(!usr.canUseTopic(src, BE_CLOSE))	//For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/I = locate(href_list["remove"]) in contents
 		if(istype(I) && I.loc == src)
@@ -71,7 +71,7 @@
 
 
 	if(href_list["write"])
-		if(!usr.canUseTopic(parent_structure, BE_CLOSE)) //For when a player is handcuffed while they have the notice window open
+		if(!usr.canUseTopic(src, BE_CLOSE)) //For when a player is handcuffed while they have the notice window open
 			return
 		var/obj/item/P = locate(href_list["write"]) in contents
 		if(istype(P) && P.loc == src)
@@ -121,11 +121,13 @@
 
 /obj/structure/fake_machine/hailerboard/process()//hailer hails? damn
 	. = ..()
-	var/message = pick("BbbRRRMMMPHHH... GGRRRRNNN!!",
-	"GGGGRRRRR... BLLRRTTT!!",
-	"NNNGGGRRBB... MMPHHH!!",
-	"Hhbbbh...Mhhaamm--maaahrhh...")
+	var/message = pick(
+		"BbbRRRMMMPHHH... GGRRRRNNN!!",
+		"GGGGRRRRR... BLLRRTTT!!",
+		"NNNGGGRRBB... MMPHHH!!",
+		"Hhbbbh...Mhhaamm--maaahrhh...")
 	message = span_danger(message)
+	say(message)
 
 /obj/structure/fake_machine/hailerboard/attack_hand(mob/user)
 	. = ..()

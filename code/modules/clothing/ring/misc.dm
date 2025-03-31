@@ -265,7 +265,6 @@
 	else
 		. += "A very old golden ring appointing its wearer as the Mercenary guild master, its strangely missing the crown for the centre stone"
 
-
 /obj/item/clothing/ring/gold/burden/attack_hand(mob/user)
 	. = ..()
 	if(!user.mind)
@@ -277,7 +276,7 @@
 	var/gaffed = alert(user, "Will you bear the burden?", "YOUR DESTINY", "Yes", "No")
 	var/gaffed_time = world.time
 
-	if(gaffed == "No" && user.is_holding(src) || world.time > gaffed_time + 5 SECONDS && user.is_holding(src)) //fix the double &&s this is ass
+	if((gaffed == "No" || world.time > gaffed_time + 5 SECONDS) && user.is_holding(src))
 		user.dropItemToGround(src, force = TRUE)
 		to_chat(user, span_danger("With great effort, the ring slides off your palm to the floor below"))
 		return
@@ -295,11 +294,8 @@
 
 /obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 MINUTES)
-
-/obj/item/clothing/ring/gold/burden/proc/on_gaff_death(mob/living/user) //dont ask me why this isn't handled on on_mob_death, there was a reason once but it was a month ago and I no longer remember it.
 	if(user.ckey)
-		addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(on_mob_death),user), 5 MINUTES)
 		return
 	user.dropItemToGround(src, force = TRUE)
 
@@ -326,14 +322,15 @@
 	. = ..()
 	if(slot == SLOT_RING && istype(user)) //this will hopefully be a natural HEADEATER tutorial when HEADEATER is a proper thing
 		//say("good choice") as much as I love the aesthetic of the ring speech bubble being in the inventory screen, cant make it whisper like this
-		var/message = pick(
-				"<span class='danger'>New...bearer...</span>",
-				"<span class='danger'>The...Guild...</span>",
-				"<span class='danger'>Feed...it...</span>",
-				"<span class='danger'>I...see...you...</span>",
-				"<span class='danger'>Serve...me...</span>")
-		to_chat(user, "the ring whispers, \"[message]\"")
+		var/message = pick("New...bearer...",
+			"The...Guild...",
+			"Feed...it...",
+			"I...see...you...",
+			"Serve...me...")
+		message = span_danger(message)
+		to_chat(user, "The ring whispers, [message]")
 		return
+
 	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing your destiny first."))
 
 
