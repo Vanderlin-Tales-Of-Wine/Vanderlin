@@ -11,6 +11,11 @@
 	. = ..()
 	controller.queue_behavior(/datum/ai_behavior/target_from_retaliate_list, BB_BASIC_MOB_RETALIATE_LIST, target_key, targetting_datum_key, hiding_place_key)
 
+/datum/ai_planning_subtree/target_retaliate/bum/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+	. = ..()
+	controller.queue_behavior(/datum/ai_behavior/target_from_retaliate_list/bum, BB_BASIC_MOB_RETALIATE_LIST, target_key, targetting_datum_key, hiding_place_key)
+
+
 /// Places a mob which you can see and who has recently attacked you into some 'run away from this' AI keys
 /// Can use a different targetting datum than you use to select attack targets
 /// Not required if fleeing is the only target behaviour or uses the same target datum
@@ -74,3 +79,9 @@
 /// Returns the desired final target from the filtered list of enemies
 /datum/ai_behavior/target_from_retaliate_list/proc/pick_final_target(datum/ai_controller/controller, list/enemies_list)
 	return pick(enemies_list)
+
+/datum/ai_behavior/target_from_retaliate_list/bum/finish_action(datum/ai_controller/controller, succeeded, ...)
+	. = ..()
+	if(succeeded)
+		var/mob/living/pawn = controller.pawn
+		pawn.say(pick(GLOB.bum_aggro))
