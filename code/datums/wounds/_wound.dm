@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 
 /// Adds this wound to a given bodypart
 /datum/wound/proc/apply_to_bodypart(obj/item/bodypart/affected, silent = FALSE, crit_message = FALSE)
-	if(QDELETED(affected) || QDELETED(affected.owner))
+	if(QDELETED(src) || QDELETED(affected) || QDELETED(affected.owner))
 		return FALSE
 	if(bodypart_owner)
 		remove_from_bodypart()

@@ -145,6 +145,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/magic_power = 0
 	var/magicstone = FALSE
 	resistance_flags = FIRE_PROOF
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/natural/stone/Initialize()
 	icon_state = "stone[rand(1,4)]"

@@ -72,7 +72,7 @@
 	domain = "Goddess of Drugs, Self-Preservation, and Remorseless Joy"
 	desc = "Ascended, formerly disgraced tiefling consort notorious for having a mind elsewhere. Through Her envy and callous distaste, she traded her family's life for a shipment of powder. As she preaches to her followers, 'Joy at all costs!'"
 	flaws = "Enviousness, Self-Destruction, Willingness to Sacrifice Others"
-	worshippers = "Addicts, Gamblers, the Motherless and Maidenless"
+	worshippers = "Addicts, Hedonists, the Motherless and Maidenless"
 	sins = "Sobriety, Self-Sacrifice, Faltering Willpower"
 	boons = "You will never overdose on drugs."
 	added_traits = list(TRAIT_CRACKHEAD)
