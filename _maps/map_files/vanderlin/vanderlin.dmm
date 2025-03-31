@@ -22306,20 +22306,10 @@
 /area/rogue/indoors/town/garrison)
 "prG" = (
 /obj/structure/mineral_door/wood/donjon{
-	dir = 1;
-	lockid = "gaffer";
-	locked = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/donjon{
 	dir = 1
 	},
 /obj/effect/mapping_helpers/door/locker,
-/obj/effect/mapping_helpers/door/access/town/mercenary,
+/obj/effect/mapping_helpers/door/access/town/gaffer,
 /turf/open/floor/wood/nosmooth,
 /area/rogue/indoors/town/merc_guild)
 "prP" = (
@@ -22472,17 +22462,6 @@
 	dir = 8
 	},
 /area/rogue/under/town/sewer)
-"puJ" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/town/mercenary,
-/obj/effect/mapping_helpers/door/locker,
-/turf/closed/wall/mineral/craftstone,
-/area/rogue/indoors/town/merc_guild)
 "puW" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_end";
@@ -23975,10 +23954,7 @@
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/manor)
 "qCY" = (
-/obj/structure/mineral_door/wood/green{
-	locked = 1;
-	lockid = "gaffer"
-	},
+/obj/structure/mineral_door/wood/green,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/town/gaffer,
 /turf/open/floor/carpet/green,
@@ -92834,7 +92810,7 @@ vXv
 tWU
 xbY
 uFT
-puJ
+jMD
 pGO
 pGO
 pGO
