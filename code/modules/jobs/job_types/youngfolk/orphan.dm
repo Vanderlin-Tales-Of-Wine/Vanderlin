@@ -10,7 +10,7 @@
 	faction = FACTION_STATION
 	total_positions = 12
 	spawn_positions = 12
-	min_pq = 2
+	min_pq = 0
 	bypass_lastclass = TRUE
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
