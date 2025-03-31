@@ -21,6 +21,7 @@
 				B.update_bundle()
 				to_chat(user, span_notice("You add [src] to [W]."))
 				qdel(src)
+				user.changeNext_move(CLICK_CD_RANGE)
 			else
 				to_chat(user, span_warning("There's not enough space in [W]."))
 			return
