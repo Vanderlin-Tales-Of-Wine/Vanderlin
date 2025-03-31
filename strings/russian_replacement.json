@@ -15,16 +15,15 @@
 		"captain": "kapitan",
 		"king": "tsar",
 		"queen": "tsaritsa",
-		"monarch": "monarkh",
 		"monarchy": "monarkhiya",
+		"monarch": "monarkh",
 		"throne": "tron",
-		"prince": "prints",
 		"princess": "printsessa",
+		"prince": "prints",
 		"templar": "tampliyer",
 		"acolyte": "akolit",
 		"adventurer": "avantyurist",
 		"no": "nyet",
-		"fuck": "blyat",
 		"heretic": "yeritik",
 		"who": "kto",
 		"sir": "ser",
@@ -32,9 +31,10 @@
 		"bridge": "bridzh",
 		"bomb": "bomba",
 		"garrison": "garnizon",
-		"fuck you": "khuy tebe", // this will do for now
+		"go fuck yourself": "khuy tebe",
 		"fuck yourself": "khuy tebe",
-		"go fuck yourself": "khuy tebe"
+		"fuck you": "khuy tebe",
+		"fuck": "blyat"
 		}
 
 }
