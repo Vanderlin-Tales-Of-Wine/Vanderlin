@@ -245,7 +245,7 @@
 	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
 
 /obj/item/storage/keyring/niteman
-	keys = list(/obj/item/key/niteman, /obj/item/key/nitemaiden)
+	keys = list(/obj/item/key/niteman, /obj/item/key/nitemaiden, /obj/item/key/clinic)
 
 /obj/item/storage/keyring/gravetender
 	keys = list(/obj/item/key/church, /obj/item/key/graveyard)
