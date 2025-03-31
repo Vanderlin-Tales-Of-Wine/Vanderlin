@@ -153,6 +153,3 @@
 
 /datum/job/adept/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")

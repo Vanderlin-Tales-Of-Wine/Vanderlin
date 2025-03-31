@@ -22,12 +22,6 @@
 
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
 
-/datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
-	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
-
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)

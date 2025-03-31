@@ -32,9 +32,6 @@
 	var/mob/living/carbon/human/H = spawned
 	if(!H.mind)
 		return
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 	H.ambushable = FALSE
 
 /datum/outfit/job/bandit/post_equip(mob/living/carbon/human/H)
