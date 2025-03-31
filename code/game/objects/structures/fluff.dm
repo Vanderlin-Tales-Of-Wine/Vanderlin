@@ -1288,7 +1288,6 @@
 		ring_destroyed = FALSE
 		update_icon()
 
-
 /obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
 	. = ..()
 	if(dir == EAST)

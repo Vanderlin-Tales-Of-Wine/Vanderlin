@@ -290,8 +290,6 @@
 	else
 		return
 
-
-
 /obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
 	. = ..()
 	if(user.ckey)
@@ -332,7 +330,6 @@
 		return
 
 	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing your destiny first."))
-
 
 /obj/item/clothing/ring/gold/burden/Destroy()
 	if(bearerdied == TRUE)
