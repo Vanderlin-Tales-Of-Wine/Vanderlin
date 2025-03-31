@@ -100,16 +100,16 @@
 		if(total_slots_occupied >= maximum_possible_slots)
 			return FALSE
 
-	if(dummy) //dont do pq checks for dummy
-		return TRUE
+	if(!dummy) //dont do pq checks for dummy
+		if(min_pq != -100) // If someone sets this we actually do the check.
+			if(!(get_playerquality(H.client.ckey) >= min_pq))
+				return FALSE
 
-	if(min_pq != -100) // If someone sets this we actually do the check.
-		if(!(get_playerquality(H.client.ckey) >= min_pq))
+		var/pq_prob = pickprob + max((get_playerquality(H.client.ckey))/2, 0) // Takes the base pick rate of the rare class and adds the client's pq divided by 2 or 0, whichever is higher. Allows a maximum of 65 pick probability at 100 pq
+		if(!prob(pq_prob))
 			return FALSE
 
-	var/pq_prob = pickprob + max((get_playerquality(H.client.ckey))/2, 0) // Takes the base pick rate of the rare class and adds the client's pq divided by 2 or 0, whichever is higher. Allows a maximum of 65 pick probability at 100 pq
-	if(prob(pq_prob))
-		return TRUE
+	return TRUE
 
 // Basically the handler has a chance to plus up a class, heres a generic proc you can override to handle behavior related to it.
 // For now you just get an extra stat in everything depending on how many plusses you managed to get.

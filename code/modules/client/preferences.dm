@@ -1051,7 +1051,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 			"}
 
-			if(job.advclass_cat_rolls?.len > 0)
+			if(length(job.advclass_cat_rolls))
 				var/adv_class_text = "<b>Possible Advanced Classes:</b>"
 				var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
 				if(SSrole_class_handler)

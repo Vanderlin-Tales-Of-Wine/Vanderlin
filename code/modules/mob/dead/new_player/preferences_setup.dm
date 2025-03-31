@@ -130,7 +130,20 @@
 
 	if(previewJob)
 		mannequin.job = previewJob.title
-		mannequin.dress_up_as_job(previewJob, TRUE)
+		var/datum/outfit/chosen_outfit
+		if(previewJob.advclass_cat_rolls?.len > 0 && visual_only)
+			var/list/possible_classes = list()
+			if(SSrole_class_handler)
+				for(var/ctag in previewJob.advclass_cat_rolls)
+					for(var/datum/advclass/amogusclass in SSrole_class_handler.sorted_class_categories[ctag])
+						if(amogusclass.check_requirements(mannequin, dummy = TRUE))
+							possible_classes += amogusclass
+			if(possible_classes.len > 0)
+				var/datum/advclass/chosen_class = pick(possible_classes)
+				chosen_outfit = chosen_class.outfit
+		else
+			chosen_outfit = (gender == FEMALE && previewJob.outfit_female) ? previewJob.outfit_female : previewJob.outfit
+		mannequin.equipOutfit(chosen_outfit, visualsOnly = TRUE)
 
 	parent.show_character_previews(new /mutable_appearance(mannequin))
 	unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)

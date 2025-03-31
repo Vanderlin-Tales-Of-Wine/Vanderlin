@@ -105,7 +105,7 @@
 						continue
 					if(is_advclass_banned(H.ckey, CUR_AZZ.name))
 						continue
-					if(CUR_AZZ.check_requirements(H, dummy = FALSE))
+					if(CUR_AZZ.check_requirements(H))
 						testing("adding [CUR_AZZ] to sortlist")
 						local_insert_sortlist += CUR_AZZ
 
@@ -143,7 +143,7 @@
 				var/datum/advclass/FORCE_IT_IN = new uninstanced_azz_types
 				if(rolled_classes[FORCE_IT_IN])
 					continue
-				if(FORCE_IT_IN.check_requirements(H, dummy = FALSE))
+				if(FORCE_IT_IN.check_requirements(H))
 					rolled_classes[FORCE_IT_IN] = 0
 
 		if(forced_class_plusboost)

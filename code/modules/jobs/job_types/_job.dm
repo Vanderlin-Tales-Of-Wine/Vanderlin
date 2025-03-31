@@ -260,19 +260,8 @@
 	return
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
-	var/datum/outfit/chosen_outfit
-	if(equipping.advclass_cat_rolls?.len > 0 && visual_only)
-		var/list/possible_classes = list()
-		if(SSrole_class_handler)
-			for(var/ctag in equipping.advclass_cat_rolls)
-				for(var/datum/advclass/amogusclass in SSrole_class_handler.sorted_class_categories[ctag])
-					if(amogusclass.check_requirements(src, dummy = TRUE))
-						possible_classes += amogusclass
-		if(possible_classes.len > 0)
-			var/datum/advclass/chosen_class = pick(possible_classes)
-			chosen_outfit = chosen_class.outfit
-	else
-		chosen_outfit = (gender == FEMALE && equipping.outfit_female) ? equipping.outfit_female : equipping.outfit
+	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
+	var/datum/outfit/chosen_outfit = (gender == FEMALE && equipping.outfit_female) ? equipping.outfit_female : equipping.outfit
 	equipOutfit(chosen_outfit, visual_only)
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
