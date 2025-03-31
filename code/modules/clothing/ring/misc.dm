@@ -291,7 +291,6 @@
 	else
 		return
 
-
 /obj/item/clothing/ring/gold/burden/on_mob_death(mob/living/user)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_gaff_death),user), 5 MINUTES)
