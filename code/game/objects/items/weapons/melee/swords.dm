@@ -939,13 +939,13 @@
 //................ Gaffer's vanity sword ............... //
 
 /obj/item/weapon/sword/long/replica
-    name = "guild master's longsword"
-    desc = ""
-    force = 2
-    force_wielded = 5
-    max_integrity = 240
-    sellprice = 1
-    smeltresult = /obj/item/ingot/tin //the truth comes out
+	name = "guild master's longsword"
+	desc = ""
+	force = 2
+	force_wielded = 5
+	max_integrity = 240
+	sellprice = 1
+	smeltresult = /obj/item/ingot/tin //the truth comes out
 
 /obj/item/weapon/sword/long/replica/death
 	color = CLOTHING_SOOT_BLACK
