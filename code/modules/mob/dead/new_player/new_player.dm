@@ -541,6 +541,16 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/living/carbon/human/after_creation()
 	if(dna?.species)
 		dna.species.after_creation(src)
+		var/obj/item/organ/ears/cat/ears = new
+		var/obj/item/organ/tail/cat/tail = new
+		ears.Insert(src, drop_if_replaced=FALSE)
+		tail.Insert(src, drop_if_replaced=FALSE)
+		var/list/honorifics = list("[MALE]" = list("kun"), "[FEMALE]" = list("chan","tan"), "[NEUTER]" = list("san"), "[PLURAL]" = list("san")) //John Robust -> Robust-kun
+		var/list/names = splittext(src.real_name," ")
+		var/forename = names.len > 1 ? names[2] : names[1]
+		var/newname = "[forename]-[pick(honorifics["[src.gender]"])]"
+		fully_replace_character_name(src.real_name,newname)
+		update_mutant_bodyparts()
 	roll_mob_stats()
 
 /mob/dead/new_player/proc/transfer_character()
