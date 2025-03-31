@@ -75,8 +75,6 @@
 	maximum_possible_slots = 2
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	spawn_title = "Cook"
-
 	category_tags = list(CTAG_SERVANT)
 
 /datum/outfit/job/servant/inn/pre_equip(mob/living/carbon/human/H)
@@ -91,8 +89,6 @@
 	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-
-	spawn_title = "Orphan"
 
 	category_tags = list(CTAG_SERVANT)
 
