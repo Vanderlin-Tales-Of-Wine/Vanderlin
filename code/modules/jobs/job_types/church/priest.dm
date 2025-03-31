@@ -139,7 +139,7 @@
 			consort_job?.remove_spells(HL)
 
 	coronated.mind.set_assigned_role(/datum/job/lord)
-	coronated.job = lord_job.get_informed_title(coronated)
+	coronated.job = "Monarch" //Monarch is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
 	GLOB.badomens -= OMEN_NOLORD

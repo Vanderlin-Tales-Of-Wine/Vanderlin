@@ -21,6 +21,8 @@
 	var/assembly_weight_class = WEIGHT_CLASS_NORMAL
 	/// Suffix for the assembly name.
 	var/assembly_name_prefix = "incomplete"
+	/// Should the assembly be dense?
+	var/dense_assembly = FALSE
 
 	/// Category this recipe is in the handbook.
 	var/category = SLAP_CAT_MISC
@@ -45,6 +47,8 @@
 	var/offset_forward = FALSE
 	///Place finished result at user's location. Mutually exclusive with offset_forward.
 	var/offset_user = FALSE
+	/// Minimum do_after time when repeating failed crafts
+	var/repeat_perform_time = 0
 
 /datum/slapcraft_recipe/New()
 	. = ..()
@@ -221,20 +225,14 @@
 		if(!prob(prob2craft))
 			if(user.client?.prefs.showrolls)
 				to_chat(user, "<span class='danger'>I've failed to complete \the [name]. (Success chance: [prob2craft]%)</span>")
-				assembly.step_states[last_type] = FALSE
-				var/datum/slapcraft_step/next_step = assembly.recipe.next_suitable_step(user, last_item, assembly.step_states)
-				if(!next_step)
-					return
-				// Try and do it
-				next_step.perform(user, last_item, assembly)
-				return
-			to_chat(user, "<span class='danger'>I've failed to complete \the [name].</span>")
+			else
+				to_chat(user, "<span class='danger'>I've failed to complete \the [name].</span>")
 			assembly.step_states[last_type] = FALSE
 			var/datum/slapcraft_step/next_step = assembly.recipe.next_suitable_step(user, last_item, assembly.step_states)
 			if(!next_step)
 				return
 			// Try and do it
-			next_step.perform(user, last_item, assembly)
+			next_step.perform(user, last_item, assembly, minimum_perform_time = repeat_perform_time)
 			return
 
 	if(show_finish_text)

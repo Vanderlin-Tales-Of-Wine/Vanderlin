@@ -103,9 +103,9 @@
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
 		/datum/pet_command/good_boy,
-		/datum/pet_command/follow/wolf,
-		/datum/pet_command/point_targeting/attack,
-		/datum/pet_command/point_targeting/fetch,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
 		/datum/pet_command/play_dead,
 		/datum/pet_command/protect_owner,
 		/datum/pet_command/aggressive,
@@ -121,10 +121,12 @@
 		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)
 		if(!commands)
 			B.AddComponent(/datum/component/obeys_commands, pet_commands)
+		B.ai_controller.can_idle = FALSE
 		B.ai_controller?.add_to_top(/datum/ai_planning_subtree/pet_planning)
 		B.ai_controller?.CancelActions()
 		B.ai_controller.set_blackboard_key(BB_PET_TARGETING_DATUM, new /datum/targetting_datum/basic/not_friends())
 		B.befriend(user)
+		B.pet_passive = TRUE
 	return ..()
 
 

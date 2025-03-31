@@ -29,9 +29,7 @@
 	skel_outfit = null
 
 /mob/living/carbon/human/species/skeleton/npc
-	aggressive = 1
-	mode = AI_IDLE
-	wander = TRUE
+	ai_controller = /datum/ai_controller/human_npc
 	simpmob_attack = 40
 	simpmob_defend = 0
 	wander = TRUE
@@ -160,8 +158,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/peasant)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -210,8 +206,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/random)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -250,8 +244,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -329,8 +321,6 @@
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	d_intent = INTENT_PARRY //these ones will parry instead of dodge, making them much more dangerous
 	canparry = TRUE
 	flee_in_pain = FALSE

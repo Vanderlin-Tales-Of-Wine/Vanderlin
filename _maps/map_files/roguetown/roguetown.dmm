@@ -3535,7 +3535,7 @@
 	},
 /area/rogue/indoors/town/shop)
 "dSc" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "dSj" = (
@@ -8148,7 +8148,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
 	locked = 1;
-	lockid = "sheriff";
+	lockid = "captain";
 	name = "captain's room door"
 	},
 /obj/effect/decal/cobbleedge{
@@ -9671,7 +9671,7 @@
 "kGu" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcr";
-	lockid = "sheriff"
+	lockid = "captain"
 	},
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/garrison)
@@ -21153,7 +21153,7 @@
 /obj/structure/bed,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/bedsheet/fabric,
-/obj/effect/landmark/start/sheriff,
+/obj/effect/landmark/start/captain,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/garrison)
 "xlf" = (
@@ -22034,7 +22034,7 @@
 /area/rogue/indoors/town/garrison)
 "ykO" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "sheriff";
+	lockid = "captain";
 	name = "captain's office door"
 	},
 /turf/open/floor/ruinedwood{

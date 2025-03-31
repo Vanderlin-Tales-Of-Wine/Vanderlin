@@ -10,10 +10,16 @@
 //	smooth = SMOOTH_MORE
 //	canSmoothWith = list(/turf/closed/mineral, /turf/closed/mineral, /turf/closed/wall/mineral/stonebrick, /turf/closed/wall/mineral/wood, /turf/closed/wall/mineral/wooddark, /turf/closed/wall/mineral/decowood, /turf/closed/wall/mineral/decostone, /turf/closed/wall/mineral/stone, /turf/closed/wall/mineral/stone/moss, /turf/open/floor/cobble, /turf/open/floor/dirt, /turf/open/floor/grass)
 	neighborlay = "dirtedge"
+	damage_deflection = 8
+	max_integrity = 600
 
 /turf/open/floor/ruinedwood/Initialize()
 	dir = pick(GLOB.cardinals)
 	. = ..()
+
+/turf/open/floor/ruinedwood/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/ruinedwood/turned
 	icon_state = "wooden_floort"
@@ -52,6 +58,10 @@
 /turf/open/floor/twig/OnCrafted(dirin, mob/user)
 	. = ..()
 	dir = dirin
+
+/turf/open/floor/twig/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/wood
 	icon = 'icons/turf/floors/wood.dmi'
@@ -435,6 +445,7 @@
 						/turf/closed/wall/mineral)
 	neighborlay = "dirtedge"
 	slowdown = 0
+	path_weight = 10
 
 /turf/open/floor/dirt/road/attack_right(mob/user)
 	return
@@ -514,6 +525,10 @@
 		canSmoothWith += P
 //	queue_smooth(src)
 	. = ..()
+
+/turf/open/floor/dirt/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/underworld/road
 	name = "ash"
@@ -621,6 +636,10 @@
 	. = ..()
 	dir = pick(GLOB.cardinals)
 
+/turf/open/floor/blocks/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+
 /turf/open/floor/blocks/stonered
 	icon_state = "stoneredlarge"
 /turf/open/floor/blocks/stonered/tiny
@@ -648,6 +667,14 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	icon = 'icons/turf/greenstone.dmi'
+	damage_deflection = 10
+	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+
+/turf/open/floor/greenstone/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/greenstone/runed
 	icon_state = "greenstoneruned"
@@ -667,6 +694,8 @@
 						/turf/open/floor/snow)
 	damage_deflection = 10
 	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/hexstone/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -697,6 +726,8 @@
 
 	damage_deflection = 10
 	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/churchmarble/cardinal_smooth(adjacencies)
 	smooth(adjacencies)
@@ -724,6 +755,8 @@
 						/turf/open/floor/snow)
 	damage_deflection = 10
 	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/church/turf_destruction(damage_flag)
 	. = ..()
@@ -751,6 +784,8 @@
 						/turf/open/floor/snow)
 	damage_deflection = 10
 	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/churchbrick/turf_destruction(damage_flag)
 	. = ..()
@@ -778,6 +813,8 @@
 						/turf/open/floor/snow)
 	damage_deflection = 10
 	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/churchrough/turf_destruction(damage_flag)
 	. = ..()
@@ -813,7 +850,8 @@
 
 	damage_deflection = 10
 	max_integrity = 800
-
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/herringbone/turf_destruction(damage_flag)
 	. = ..()
@@ -912,9 +950,14 @@
 						/turf/open/floor/snow,
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/snow/rough)
+	max_integrity = 1200
 
 //turf/open/floor/cobblerock/cardinal_smooth(adjacencies)	// STONEKEEP EDIT
 //	smooth(adjacencies)
+
+/turf/open/floor/cobblerock/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/cobblerock/alt
 	icon_state = "cobblealt"
@@ -967,6 +1010,8 @@
 						/turf/open/floor/dirt,
 						/turf/open/floor/grass,
 						/turf/open/floor/snow)
+	damage_deflection = 10
+	max_integrity = 800
 
 /turf/open/floor/tile/turf_destruction(damage_flag)
 	. = ..()
@@ -1009,6 +1054,8 @@
 						/turf/open/floor/snow)
 	damage_deflection = 10
 	max_integrity = 1200
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 
 /turf/open/floor/concrete/turf_destruction(damage_flag)
 	. = ..()
@@ -1038,7 +1085,7 @@
 						/turf/open/floor/snow)
 	damage_deflection = 16
 	max_integrity = 1400
-
+	attacked_sound = list('sound/combat/hits/onmetal/grille (1).ogg', 'sound/combat/hits/onmetal/grille (2).ogg', 'sound/combat/hits/onmetal/grille (3).ogg')
 
 /turf/open/floor/metal/turf_destruction(damage_flag)
 	. = ..()
@@ -1144,6 +1191,10 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.wav'
 
+/turf/open/floor/naturalstone/turf_destruction(damage_flag)
+	. = ..()
+	return
+
 /turf/open/floor/plank
 	icon_state = "plank"
 	footstep = FOOTSTEP_WOOD
@@ -1151,6 +1202,12 @@
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/woodland.wav'
+	damage_deflection = 8
+	max_integrity = 1000
+
+/turf/open/floor/plank/turf_destruction(damage_flag)
+	. = ..()
+	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/plank/h
 	icon_state = "plank2"
@@ -1158,11 +1215,6 @@
 /turf/open/floor/tile/checker_green
 	icon_state = "tile"
 	color = "#94df5b"
-
-
-/turf/open/floor/naturalstone/turf_destruction(damage_flag)
-	. = ..()
-	return
 
 /turf/open/floor/sandstone
 	icon_state = "sandstone"
@@ -1172,3 +1224,27 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/grassland.wav'
 
+/*	..................  Platforms   ................... */
+/turf/open/floor/ruinedwood/platform
+	name = "wood platform"
+	desc = "A destructible platform to traverse gaps."
+	damage_deflection = 6
+	max_integrity = 600
+	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
+	attacked_sound = list('sound/combat/hits/onwood/fence_hit1.ogg','sound/combat/hits/onwood/fence_hit2.ogg','sound/combat/hits/onwood/fence_hit3.ogg')
+
+/turf/open/floor/twig/platform
+	name = "twig platform"
+	desc = "A destructible platform to traverse gaps."
+	damage_deflection = 4
+	max_integrity = 150
+	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
+	attacked_sound = list('sound/combat/hits/onwood/fence_hit1.ogg','sound/combat/hits/onwood/fence_hit2.ogg','sound/combat/hits/onwood/fence_hit3.ogg')
+
+/turf/open/floor/blocks/platform
+	name = "stone platform"
+	desc = "A destructible platform to traverse gaps."
+	damage_deflection = 8
+	max_integrity = 800
+	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
+	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')

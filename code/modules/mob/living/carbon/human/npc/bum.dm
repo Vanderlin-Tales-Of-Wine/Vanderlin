@@ -2,8 +2,7 @@ GLOBAL_LIST_INIT(bum_quotes, world.file2list('strings/rt/bumlines.txt'))
 GLOBAL_LIST_INIT(bum_aggro, world.file2list('strings/rt/bumaggrolines.txt'))
 
 /mob/living/carbon/human/species/human/northern/bum
-	aggressive=0
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_bum
 	faction = list(FACTION_BUMS, FACTION_STATION)
 	ambushable = FALSE
 	dodgetime = 30
@@ -35,7 +34,13 @@ GLOBAL_LIST_INIT(bum_aggro, world.file2list('strings/rt/bumaggrolines.txt'))
 /mob/living/carbon/human/species/human/northern/bum/should_target(mob/living/L)
 	if(L.stat != CONSCIOUS)
 		return FALSE
+/mob/living/carbon/human/species/human/northern/bum/Initialize()
 	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+
+/mob/living/carbon/human/species/human/northern/bum/ambush
+	ai_controller = /datum/ai_controller/human_bum/aggressive
+	wander = TRUE
 
 /mob/living/carbon/human/species/human/northern/bum/Initialize()
 	. = ..()

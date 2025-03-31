@@ -88,7 +88,7 @@
 		return 0
 	return 1
 
-/obj/structure/fluff/railing/CanAStarPass(ID, to_dir, caller)
+/obj/structure/fluff/railing/CanAStarPass(ID, to_dir, requester)
 	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
 		var/list/baddirs = list()
 		switch(dir)
@@ -694,6 +694,13 @@
 /obj/structure/fluff/statue/knight
 	icon_state = "knightstatue_l"
 
+/obj/structure/fluff/statue/OnCrafted(dirin, mob/user)
+	. = ..()
+	for(var/obj/structure/fluff/statue/carving_block in contents)
+		dir = carving_block.dir
+		qdel(carving_block)
+	update_icon_state()
+
 /obj/structure/fluff/statue/astrata
 	name = "statue of Astrata"
 	desc = "Astrata, the Sun Queen, reigns over light, order, and conquest. She is worshipped and feared in equal measure."
@@ -703,6 +710,13 @@
 	blade_dulling = DULLING_BASH
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
+
+/obj/structure/fluff/statue/astrata/OnCrafted(dirin, mob/user)
+	. = ..()
+	pixel_x = -16
+
+/obj/structure/fluff/statue/astrata/bling
+	icon_state = "astrata_bling"
 
 /obj/structure/fluff/statue/knight/r
 	icon_state = "knightstatue_r"
@@ -742,6 +756,31 @@
 	icon_state = "1"
 	pixel_x = -32
 	pixel_y = -16
+
+/obj/structure/fluff/statue/femalestatue/clean
+	icon_state = "12"
+
+/obj/structure/fluff/statue/femalestatue/alt
+	icon_state = "2"
+
+/obj/structure/fluff/statue/femalestatue/dancer
+	icon_state = "4"
+
+/obj/structure/fluff/statue/femalestatue/lying
+	icon_state = "5"
+
+/obj/structure/fluff/statue/femalestatue/cleanlying
+	icon_state = "52"
+
+/obj/structure/fluff/statue/musician
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "3"
+	pixel_x = -32
+
+/obj/structure/fluff/statue/musician/OnCrafted(dirin, mob/user)
+	. = ..()
+	if(prob(20))
+		icon_state = "xylix"
 
 /obj/structure/fluff/telescope
 	name = "telescope"
@@ -963,7 +1002,6 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	sellprice = 40
-	flags_1 = HEAR_1
 	var/chance2hear = 30
 	buckleverb = "crucifie"
 	can_buckle = 1
@@ -973,6 +1011,10 @@
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
 	var/shrine = FALSE	// used for some checks
+
+/obj/structure/fluff/psycross/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
@@ -1180,3 +1222,55 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+/obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "oknightstatue_l"
+	else if(dir == WEST)
+		icon_state = "oknightstatue_r"
+	else
+		icon_state = pick("oknightstatue_l", "oknightstatue_r")
+
+/obj/structure/fluff/statue/knightalt/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "knightstatue2_l"
+	else if(dir == WEST)
+		icon_state = "knightstatue2_r"
+	else
+		icon_state = pick("knightstatue2_l", "knightstatue2_r")
+
+/obj/structure/fluff/statue/carving_block
+	name = "carving block"
+	desc = "Ready for sculpting."
+	icon_state = "block"
+	density = TRUE
+	anchored = FALSE
+	max_integrity = 100
+	debris = list(/obj/item/natural/stoneblock = 1)
+	drag_slowdown = 3
+
+/obj/structure/fluff/statue/carving_block/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
+
+/obj/structure/fluff/statue/carving_block/proc/can_be_rotated(mob/user)
+	return TRUE
+
+/obj/structure/fluff/statue/carving_block/proc/can_user_rotate(mob/user)
+	var/mob/living/L = user
+
+	if(istype(L))
+		if(!user.canUseTopic(src, BE_CLOSE))
+			return FALSE
+		else
+			return TRUE
+	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
+		return TRUE
+	return FALSE
+
+/obj/structure/fluff/statue/carving_block/attack_right(mob/user)
+	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
+	if(rotcomp)
+		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)

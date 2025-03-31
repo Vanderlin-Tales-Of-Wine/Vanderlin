@@ -119,6 +119,7 @@
 			if(done_step?.try_op(user, src, user.zone_selected, I, user.used_intent, try_to_fail))
 				return TRUE
 		if(I.item_flags & SURGICAL_TOOL)
+			to_chat(user, span_warning("You're unable to perform surgery!"))
 			return TRUE
 	/*
 	for(var/datum/surgery/S in surgeries)
@@ -207,21 +208,24 @@
 				if(isliving(pulling))
 					var/mob/living/throwable_mob = pulling
 					if(!throwable_mob.buckled)
-						thrown_thing = throwable_mob
-						thrown_speed = 1
-						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
 						if(HAS_TRAIT(src, TRAIT_PACIFISM))
 							to_chat(src, "<span class='notice'>I gently let go of [throwable_mob].</span>")
 							return
+						thrown_thing = throwable_mob
+						thrown_speed = 1
+						thrown_range = round((STASTR/throwable_mob.STACON)*2)
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
-						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY))
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || !(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
 							while(end_T.z > start_T.z)
 								end_T = GET_TURF_BELOW(end_T)
-
+						if((end_T.z > start_T.z) && throwable_mob.cmode)
+							thrown_range -= 1
+						if(thrown_range <= 0)
+							return
 						if(start_T && end_T)
 							log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
 				else
