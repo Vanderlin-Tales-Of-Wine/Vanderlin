@@ -73,7 +73,7 @@
 			var/mob/living/carbon/human/H = spawnedmob
 			H.del_on_deaggro = 44 SECONDS
 			H.last_aggro_loss = world.time
-			H.retaliate(src)
+			H.ai_controller?.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, src)
 			mustype = 2
 	if(mustype == 1)
 		playsound(get_turf(src), pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)

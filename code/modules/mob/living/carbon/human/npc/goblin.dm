@@ -19,12 +19,15 @@
 	vitae_pool = 250 // Small, frail creechers with not so much vitality to gain from.
 
 /mob/living/carbon/human/species/goblin/npc
-	aggressive=1
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
 	flee_in_pain = TRUE
 
 	wander = FALSE
+
+/mob/living/carbon/human/species/rousman/npc/Initialize()
+	. = ..()
+	AddComponent(/datum/component/combat_noise, list("laugh" = 2))
 
 /mob/living/carbon/human/species/goblin/npc/ambush
 	simpmob_attack = 35
@@ -32,7 +35,7 @@
 	wander = TRUE
 	attack_speed = 2
 
-/mob/living/carbon/human/species/goblin/hell
+/mob/living/carbon/human/species/goblin/npc/hell
 	name = "hell goblin"
 	race = /datum/species/goblin/hell
 
@@ -204,12 +207,6 @@
 /mob/living/carbon/human/species/goblin/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
-
-/mob/living/carbon/human/species/goblin/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(2))
-			emote("laugh")
-	. = ..()
 
 /mob/living/carbon/human/species/goblin/after_creation()
 	..()

@@ -19,7 +19,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -58,6 +57,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 
 /obj/structure/mineral_door/secret/Initialize()
+	become_hearing_sensitive()
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 

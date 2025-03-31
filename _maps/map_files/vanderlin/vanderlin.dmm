@@ -7139,7 +7139,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "eOm" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "eOr" = (
@@ -8676,7 +8676,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "fRl" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/structure/closet/crate/chest/crafted,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
@@ -16518,7 +16518,7 @@
 	},
 /area/rogue/under/town/basement)
 "lmI" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
 	},
@@ -21753,7 +21753,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/safe)
 "pds" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/structure/rousman_hole,
 /turf/open/floor/tile{
 	icon_state = "greenstone"
@@ -22041,7 +22041,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/town/steward)
 "ppZ" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town)
 "pqI" = (
@@ -25081,7 +25081,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/outdoors/river)
 "rxQ" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
@@ -30631,7 +30631,7 @@
 /turf/open/floor/blocks/newstone,
 /area/rogue/under/town/basement)
 "vfM" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/wood,
@@ -31263,7 +31263,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "vFk" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /obj/structure/table/wood/large/corner{
 	dir = 9
 	},
@@ -33584,7 +33584,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "xhu" = (
-/obj/effect/decal/cleanable/glass,
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "xhH" = (

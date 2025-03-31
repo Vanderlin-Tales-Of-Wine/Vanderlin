@@ -18,8 +18,9 @@
 	if(isturf(the_target) || !the_target ) // bail out on invalids
 		return FALSE
 	var/mob/living/simple_animal/attacker = living_mob
-	if(attacker.binded == TRUE)
-		return FALSE
+	if(istype(attacker))
+		if(attacker.binded == TRUE)
+			return FALSE
 
 	if(ismob(the_target)) //Target is in godmode, ignore it.
 		var/mob/M = the_target
@@ -44,6 +45,8 @@
 	return FALSE
 
 /datum/targetting_datum/basic/proc/faction_check(mob/living/living_mob, mob/living/the_target)
+	if((living_mob in SSmobs.matthios_mobs) && (the_target in SSmobs.matthios_mobs))
+		return TRUE
 	return living_mob.faction_check_mob(the_target, exact_match = FALSE)
 
 /// Subtype which doesn't care about faction
