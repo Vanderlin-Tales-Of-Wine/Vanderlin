@@ -143,12 +143,37 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	outfit = /datum/outfit/job/servant
+	outfit = /datum/outfit/job/matron_assistant
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE
 
-/datum/outfit/job/servant/matron_assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/tapster/pre_equip(mob/living/carbon/human/H)
+
+
+/datum/outfit/job/matron_assistant/pre_equip(mob/living/carbon/human/H)
 	..()
+	shoes = /obj/item/clothing/shoes/simpleshoes
+	pants = /obj/item/clothing/pants/tights/uncolored
+	shirt = /obj/item/clothing/shirt/undershirt/uncolored
+	belt = /obj/item/storage/belt/leather/rope
+	beltl = /obj/item/storage/belt/pouch/coins/poor
+	neck = /obj/item/key/matron
+	if(H.gender == MALE)
+		armor = /obj/item/clothing/armor/leather/vest/black
+	else
+		cloak = /obj/item/clothing/cloak/apron
 	if(H.mind)
-		neck = /obj/item/key/matron
+		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
+		H.change_stat(STATKEY_SPD, 1)
+		H.change_stat(STATKEY_END, 1)
