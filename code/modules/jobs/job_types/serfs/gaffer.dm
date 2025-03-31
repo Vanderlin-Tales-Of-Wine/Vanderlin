@@ -21,7 +21,7 @@
 	display_order = JDO_GAFFER
 	cmode_music = 'sound/music/cmode/towner/CombatGaffer.ogg' //N/A don't forget to credit @mechadh for this in the PR
 	outfit = /datum/outfit/job/gaffer
-	give_bank_account = 105
+	give_bank_account = 60
 	min_pq = 8 //N/A fix be ship
 	selection_color = "#3b150e"
 
