@@ -939,30 +939,13 @@
 //................ Gaffer's vanity sword ............... //
 
 /obj/item/weapon/sword/long/replica
-	force_wielded = 5
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
-	icon_state = "longsword"
-	icon = 'icons/roguetown/weapons/64.dmi'
-	lefthand_file = 'icons/mob/inhands/weapons/roguebig_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/roguebig_righthand.dmi'
-	name = "guild master's longsword"
-	desc = ""
-	swingsound = BLADEWOOSH_LARGE
-	parrysound = "largeblade"
-	pickup_sound = "brandish_blade"
-	bigboy = TRUE
-	wlength = WLENGTH_LONG
-	gripsprite = TRUE
-	max_integrity = 240
-	pixel_y = -16
-	pixel_x = -16
-	inhand_x_dimension = 64
-	inhand_y_dimension = 64
-	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
-	dropshrink = 0.75
-	sellprice = 1
-	smeltresult = /obj/item/ingot/tin //the truth comes out
+    name = "guild master's longsword"
+    desc = ""
+    force = 2
+    force_wielded = 5
+    max_integrity = 240
+    sellprice = 1
+    smeltresult = /obj/item/ingot/tin //the truth comes out
 
 /obj/item/weapon/sword/long/replica/death
 	color = CLOTHING_SOOT_BLACK
