@@ -407,7 +407,18 @@
 	gender = MALE
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+/datum/sprite_accessory/hair/vagabond
+	name = "Vagabond"
+	icon_state = "vagabond"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
+
+/datum/sprite_accessory/hair/steward
+	name = "Steward"
+	icon_state = "steward"
+	gender = MALE
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
 /////////////////////////////
 // GIRLY Hair Definitions  //
