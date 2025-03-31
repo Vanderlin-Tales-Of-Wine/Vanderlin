@@ -12,7 +12,7 @@
 	//so it fits better with the wild cards that is this demographic of people
 	//having said that I am gate keeping the moment felinids are in the damn game
 	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL) //AGE_OLD with the ring on? I say unlikely - clown
-	tutorial = "Forced out of your old adventure party, you applied to the Mercanary guild. Eventually becoming\
+	tutorial = "Forced out of your old adventure party, you applied to the Mercenary guild. Eventually becoming\
 	the next Guild Master. Gone are the excitements of your past, today your life is engrossed with two \
 	things: administrative work, and feeding the monstrous Head Eater. Act as the\
 	Mercenary Guild's master in town, and make sure your members bring back the heads of any slain monsters\
