@@ -92,7 +92,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/orphanlate
 	name = "Orphanlate"
 	icon_state = "arrow"
-	jobspawn_override = list("Orphan")
+	jobspawn_override = list("Orphan", "Matron's Servant")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/mercenarylate
@@ -259,6 +259,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/cook
 	name = "Cook"
 	icon_state = "arrow"
+	jobspawn_override = list("Innkeeper's Servant")
 
 /obj/effect/landmark/start/gravedigger
 	name = "Gravetender"

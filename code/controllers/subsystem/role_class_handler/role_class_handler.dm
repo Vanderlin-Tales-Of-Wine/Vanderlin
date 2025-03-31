@@ -127,8 +127,8 @@ SUBSYSTEM_DEF(role_class_handler)
 			return FALSE
 
 	if(!H.islatejoin)
-		if(picked_class.spawn_title && length(GLOB.jobspawn_overrides[picked_class.spawn_title]))
-			var/target = pick(GLOB.jobspawn_overrides[picked_class.spawn_title])
+		if(length(GLOB.jobspawn_overrides[picked_class.name]))
+			var/target = pick(GLOB.jobspawn_overrides[picked_class.name])
 			do_teleport(H, get_turf(target), forced = TRUE)
 
 	H.advsetup = FALSE // This is actually on a lot of shit, so its a ghetto selector protector if u need one
