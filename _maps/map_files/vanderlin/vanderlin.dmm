@@ -29442,6 +29442,7 @@
 	dir = 8
 	},
 /obj/structure/fake_machine/mail/l,
+/obj/item/storage/hip/headhook,
 /turf/open/floor/carpet/green,
 /area/rogue/indoors/town/merc_guild)
 "upD" = (
