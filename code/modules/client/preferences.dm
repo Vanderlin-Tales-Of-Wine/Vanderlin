@@ -1051,6 +1051,23 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 			"}
 
+			if(job.advclass_cat_rolls?.len > 0)
+				var/adv_class_text = "<b>Possible Advanced Classes:</b>"
+				var/mob/living/carbon/human/dummy/mannequin = generate_or_wait_for_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+				if(SSrole_class_handler)
+					for(var/ctag in job.advclass_cat_rolls)
+						for(var/datum/advclass/possible_advclass in SSrole_class_handler.sorted_class_categories[ctag])
+							if(possible_advclass.check_requirements(mannequin, dummy = TRUE))
+								adv_class_text += "<br>[possible_advclass], [possible_advclass.pickprob + max((get_playerquality(user.client.ckey))/2, 0)]%"
+					HTML += {"
+						<div class='tutorialhover' style='display: inline-block;'>(?)
+							<span class='tutorial' style='text-align: left; width: 200px; margin-left: -100px;'>
+								[adv_class_text]
+							</span>
+						</div>
+					"}
+				unset_busy_human_dummy(DUMMY_HUMAN_SLOT_PREFERENCES)
+
 			HTML += "</td><td width='40%'>"
 
 			var/prefLevelLabel = "ERROR"

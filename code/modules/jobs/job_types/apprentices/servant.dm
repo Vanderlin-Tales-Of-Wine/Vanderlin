@@ -30,6 +30,15 @@
 
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
+	shoes = /obj/item/clothing/shoes/simpleshoes
+	pants = /obj/item/clothing/pants/tights/uncolored
+	shirt = /obj/item/clothing/shirt/undershirt/uncolored
+	belt = /obj/item/storage/belt/leather/rope
+	beltl = /obj/item/storage/belt/pouch/coins/poor
+	if(H.gender == MALE)
+		armor = /obj/item/clothing/armor/leather/vest/black
+	else
+		cloak = /obj/item/clothing/cloak/apron
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -44,15 +53,6 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/music, pick(0,1,1), TRUE)
 		H.change_stat(STATKEY_SPD, 1)
 		H.change_stat(STATKEY_END, 1)
-		shoes = /obj/item/clothing/shoes/simpleshoes
-		pants = /obj/item/clothing/pants/tights/uncolored
-		shirt = /obj/item/clothing/shirt/undershirt/uncolored
-		belt = /obj/item/storage/belt/leather/rope
-		beltl = /obj/item/storage/belt/pouch/coins/poor
-		if(H.gender == MALE)
-			armor = /obj/item/clothing/armor/leather/vest/black
-		else
-			cloak = /obj/item/clothing/cloak/apron
 
 /datum/advclass/servant/keep
 	name = "Keep's Servant"

@@ -78,8 +78,9 @@
 /*
 	Whoa! we are checking requirements here!
 	On the datum! Wow!
+	Dummy is if its not an actual player
 */
-/datum/advclass/proc/check_requirements(mob/living/carbon/human/H)
+/datum/advclass/proc/check_requirements(mob/living/carbon/human/H, dummy = FALSE)
 
 	var/list/local_allowed_sexes = list()
 	if(length(allowed_sexes))
@@ -98,6 +99,9 @@
 	if(maximum_possible_slots > -1)
 		if(total_slots_occupied >= maximum_possible_slots)
 			return FALSE
+
+	if(dummy) //dont do pq checks for dummy
+		return TRUE
 
 	if(min_pq != -100) // If someone sets this we actually do the check.
 		if(!(get_playerquality(H.client.ckey) >= min_pq))
