@@ -35,7 +35,8 @@
 	var/atom/target = controller.blackboard[hiding_location_key] || controller.blackboard[target_key]
 	if(!target)
 		return FALSE
-
+	var/mob/pawn = controller.pawn
+	pawn.emote("retreat")
 	plot_path_away_from(controller, target)
 	return ..()
 

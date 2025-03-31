@@ -11,6 +11,7 @@
 	description = ""
 
 /datum/keybinding/mob/face_north/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.northface()
 	return TRUE
@@ -24,6 +25,7 @@
 	description = ""
 
 /datum/keybinding/mob/face_east/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.eastface()
 	return TRUE
@@ -37,6 +39,7 @@
 	description = ""
 
 /datum/keybinding/mob/face_south/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.southface()
 	return TRUE
@@ -49,6 +52,7 @@
 	description = ""
 
 /datum/keybinding/mob/face_west/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.westface()
 	return TRUE
@@ -61,6 +65,7 @@
 	description = ""
 
 /datum/keybinding/mob/stop_pulling/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	if(!M.pulling)
 		to_chat(user, "<span class='notice'>I am not pulling anything.</span>")
@@ -75,6 +80,7 @@
 	description = "Held down to cycle to the other move intent, release to cycle back"
 
 /datum/keybinding/mob/toggle_move_intent/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.toggle_move_intent()
 	return TRUE
@@ -91,6 +97,7 @@
 	description = "Pressing this cycle to the opposite move intent, does not cycle back"
 
 /datum/keybinding/mob/toggle_move_intent_alternative/down(client/user)
+	. = ..()
 	var/mob/M = user.mob
 	M.toggle_move_intent()
 	return TRUE
@@ -102,6 +109,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_head_cycle/down(client/user)
+	. = ..()
 	user.body_toggle_head()
 	return TRUE
 
@@ -112,6 +120,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_neck/down(client/user)
+	. = ..()
 	user.body_neck()
 	return TRUE
 
@@ -122,6 +131,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_eyes/down(client/user)
+	. = ..()
 	user.body_eyes()
 	return TRUE
 
@@ -132,6 +142,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_r_arm/down(client/user)
+	. = ..()
 	user.body_r_arm()
 	return TRUE
 
@@ -142,6 +153,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_body_chest/down(client/user)
+	. = ..()
 	user.body_chest()
 	return TRUE
 
@@ -152,6 +164,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_left_arm/down(client/user)
+	. = ..()
 	user.body_l_arm()
 	return TRUE
 
@@ -162,6 +175,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_right_leg/down(client/user)
+	. = ..()
 	user.body_r_leg()
 	return TRUE
 
@@ -172,6 +186,7 @@
 	description = ""
 
 /datum/keybinding/mob/target_body_groin/down(client/user)
+	. = ..()
 	user.body_groin()
 	return TRUE
 
@@ -182,5 +197,6 @@
 	description = ""
 
 /datum/keybinding/mob/target_left_leg/down(client/user)
+	. = ..()
 	user.body_l_leg()
 	return TRUE

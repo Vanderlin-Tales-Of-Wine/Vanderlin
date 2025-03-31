@@ -125,8 +125,8 @@ rules:
   # max-classes-per-file: error
   ## Disallow the use of alert, confirm, and prompt
   # no-alert: error
-  ## Disallow the use of arguments.caller or arguments.callee
-  # no-caller: error
+  ## Disallow the use of arguments.requester or arguments.callee
+  # no-requester: error
   ## Disallow lexical declarations in case clauses
   # no-case-declarations: error
   ## Disallow division operators explicitly at the beginning of regular expressions
