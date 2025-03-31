@@ -354,6 +354,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Servant"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/tapster
+	name = "Tapster"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/matron_assistant
+	name = "Matron's Assistant"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/churchling
 	name = "Churchling"
 	icon_state = "arrow"
