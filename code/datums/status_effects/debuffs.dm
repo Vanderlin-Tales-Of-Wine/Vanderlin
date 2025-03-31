@@ -52,6 +52,16 @@
 	id = "knockdown"
 	alert_type = /atom/movable/screen/alert/status_effect/knocked_down
 
+/datum/status_effect/incapacitating/knockdown/on_apply()
+	. = ..()
+	if(!.)
+		return
+	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
+
+/datum/status_effect/incapacitating/knockdown/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
+	return ..()
+
 /atom/movable/screen/alert/status_effect/knocked_down
 	name = "Knocked Down"
 	desc = ""
@@ -77,6 +87,8 @@
 	desc = ""
 	icon_state = "immob"
 
+
+//PARALYZED
 /datum/status_effect/incapacitating/paralyzed
 	id = "paralyzed"
 	alert_type = /atom/movable/screen/alert/status_effect/paralyzed
@@ -87,16 +99,19 @@
 		return
 	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
+	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 
 /datum/status_effect/incapacitating/paralyzed/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_IMMOBILIZED, TRAIT_STATUS_EFFECT(id))
+	REMOVE_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 	return ..()
 
 /atom/movable/screen/alert/status_effect/paralyzed
 	name = "Paralyzed"
 	desc = ""
 	icon_state = "paralyze"
+
 
 //UNCONSCIOUS
 /datum/status_effect/incapacitating/unconscious
@@ -112,6 +127,7 @@
 /datum/status_effect/incapacitating/unconscious/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
 	return ..()
+
 
 //SLEEPING
 /datum/status_effect/incapacitating/sleeping
@@ -134,7 +150,7 @@
 
 /datum/status_effect/incapacitating/sleeping/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
-	
+
 	var/area/this_area = get_area(owner)
 	SSdroning.play_area_sound(this_area, owner.client)
 	SSdroning.play_loop(this_area, owner.client)

@@ -616,16 +616,16 @@
 	if(stat)
 		return
 	if(pulledby)
-		to_chat(src, "<span class='warning'>I'm grabbed!</span>")
+		to_chat(src, span_warning("I'm grabbed!"))
 		return
 	if(resting)
-		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
+		if(!HAS_TRAIT(src, TRAIT_FLOORED))
+			visible_message(span_notice("[src] begins standing up."), span_notice("I begin to stand up."))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_DOING | IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
 				set_resting(FALSE, FALSE)
 				return TRUE
 		else
-			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+			visible_message(span_warning("[src] struggles to stand up."), span_danger("I am struggling to stand up."))
 			return FALSE
 
 /mob/living/proc/toggle_rest()
@@ -1448,7 +1448,6 @@
 	var/has_legs = get_num_legs()
 	var/has_arms = get_num_arms()
 	var/paralyzed = IsParalyzed()
-	var/knockdown = IsKnockdown()
 	var/ignore_legs = get_leg_ignore()
 	var/canmove = !HAS_TRAIT(src, TRAIT_IMMOBILIZED) && (has_arms || ignore_legs || has_legs)
 	if(canmove)
@@ -1461,13 +1460,7 @@
 		if(I.walking_stick)
 			stickstand = TRUE
 
-	var/canstand_involuntary = stat_conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) ) && !(buckled && buckled.buckle_lying)
-
-	if(canstand_involuntary)
-		mobility_flags |= MOBILITY_CANSTAND
-	else
-		mobility_flags &= ~MOBILITY_CANSTAND
-
+	var/canstand_involuntary = !HAS_TRAIT(src, TRAIT_FLOORED) && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) )
 	var/canstand = canstand_involuntary && !resting
 
 	var/should_be_lying = !canstand
@@ -1989,7 +1982,7 @@
 			if(pulledby)
 				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
 		if(UNCONSCIOUS)
-			cure_blind(UNCONSCIOUS_BLIND)
+			cure_blind(UNCONSCIOUS_TRAIT)
 		if(DEAD)
 			pass()
 	switch(stat) //Current stat.
@@ -2004,7 +1997,7 @@
 				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
 			log_combat(src, src, "entered soft crit")
 		if(UNCONSCIOUS)
-			become_blind(UNCONSCIOUS_BLIND)
+			become_blind(UNCONSCIOUS_TRAIT)
 			log_combat(src, src, "lost consciousness")
 		if(DEAD)
 			log_combat(src, src, "died")
@@ -2020,8 +2013,11 @@
 	if(buckled)
 		if(!.)
 			ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+			if(buckled.buckle_lying)
+				ADD_TRAIT(src, TRAIT_FLOORED, BUCKLED_TRAIT)
 	else if(.)
 		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_FLOORED, BUCKLED_TRAIT)
 
 /mob/living/set_pulledby(new_pulledby)
 	. = ..()
