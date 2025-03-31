@@ -741,7 +741,6 @@
 /area/rogue/under/cavewet)
 "GA" = (
 /obj/structure/closet/crate/crafted_closet,
-/obj/structure/closet/crate/crafted_closet,
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/churchmarble,
 /area/rogue/under/cavewet)

@@ -1,11 +1,9 @@
 /datum/job/butler
 	title = "Butler"
 	f_title = "Maid"
-	tutorial = "Your blade is a charcuterie of artisanal cheeses and meat, \
-	your armor wit and classical training. You are part of the royal family now, \
-	and hold a distinguished position as the head of the royal household staff. \
-	You wear their colors and have a semblance of dignity, \
-	for without you and the servants under your command, the court would have all starved to death."
+	tutorial = "You are the master of the household staff, ensuring that meals are served, chambers are kept, and the court is kept clean.\
+	Though you wear the royal colors, you hold no true authority. A servant among servants,\
+	yet without your guidance chaos would reign in the kitchen and halls."
 	flag = BUTLER
 	department_flag = PEASANTS
 	display_order = JDO_BUTLER
@@ -31,6 +29,12 @@
 	give_bank_account = 30 // Along with the pouch, enough to purchase some ingredients from the farm and give hard working servants a silver here and there. Still need the assistance of the crown's coffers to do anything significant
 	cmode_music = 'sound/music/cmode/towner/CombatInn.ogg'
 
+/datum/job/butler/after_spawn(mob/living/H, mob/M, latejoin)
+	. = ..()
+	if(ishuman(H) && GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+
+
 /datum/outfit/job/butler/pre_equip(mob/living/carbon/human/H)
 	..()
 	backpack_contents = list(/obj/item/book/manners = 1)
@@ -52,6 +56,8 @@
 		H.change_stat(STATKEY_INT, 2)
 		H.change_stat(STATKEY_PER, 1)
 		H.change_stat(STATKEY_END, 1)
+		ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+
 
 	if(H.gender == MALE)
 		pants = /obj/item/clothing/pants/tights

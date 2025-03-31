@@ -140,6 +140,8 @@ GLOBAL_VAR(test_log)
 	ignore += typesof(/obj/effect/spawner)
 	ignore += typesof(/atom/movable/screen)
 
+	return ignore
+
 /proc/RunUnitTests()
 	CHECK_TICK
 

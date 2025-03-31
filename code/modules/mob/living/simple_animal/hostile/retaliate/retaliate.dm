@@ -79,6 +79,11 @@
 /mob/living/simple_animal/hostile/retaliate/attack_hand(mob/living/carbon/human/M)
 	. = ..()
 	if(M.used_intent.type == INTENT_HELP)
+		if(tame)
+			var/friend_ref = REF(M)
+			if(!(friend_ref in faction))
+				befriend(M)
+
 		if(enemies.len)
 			if(tame)
 				enemies = list()

@@ -1,1 +1,0 @@
-/mob/living/simple_animal/hostile/construct/harvester : /mob/living/basic/construct/harvester{@OLD}

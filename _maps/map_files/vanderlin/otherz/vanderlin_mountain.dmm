@@ -12,7 +12,6 @@
 /area/rogue/under/mountains/anvil/lower)
 "ak" = (
 /obj/structure/table/wood/plain,
-/obj/structure/table/wood/plain,
 /obj/item/clothing/head/tophat,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/darker,
@@ -274,10 +273,6 @@
 "eU" = (
 /turf/closed/mineral/random/med,
 /area/rogue/outdoors/mountains/anvil/lavaexposed)
-"eW" = (
-/obj/structure/window,
-/turf/closed,
-/area/rogue/outdoors/mountains/anvil/snowyforest)
 "eZ" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior,
 /turf/open/floor/cobble,
@@ -120060,10 +120055,10 @@ Pv
 Pv
 Pv
 qx
-eW
+QJ
 aC
 aC
-eW
+QJ
 qx
 Pv
 Pv
