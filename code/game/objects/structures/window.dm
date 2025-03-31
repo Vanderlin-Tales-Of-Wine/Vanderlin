@@ -203,7 +203,7 @@
 	var/icon
 	if(GLOB.tod == "night")
 		icon += "w-"
-	icon += src.icon_state
+	icon += initial(src.icon_state)
 	if(src.brokenstate)
 		src.icon_state = "[icon]br"
 		return
