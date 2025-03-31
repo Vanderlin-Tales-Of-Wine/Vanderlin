@@ -336,7 +336,6 @@
 		return
 	to_chat(user, span_danger("The moment the [src] is in your grasp, it fuses with the skin of your palm, you can't let it go without choosing first.")) // this makes no fucking sense, choose what, the pop up? where is my immersion clown! - clown
 
-
 /obj/item/clothing/ring/gold/burden/Destroy()
 	if(bearerdied == TRUE)
 		SEND_GLOBAL_SIGNAL(COMSIG_GAFFER_RING_DESTROYED, src)
