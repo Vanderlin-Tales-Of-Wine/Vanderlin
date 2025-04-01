@@ -31,6 +31,8 @@
 
 /datum/outfit/job/vagrant/pre_equip(mob/living/carbon/human/H)
 	..()
+	backr = /obj/item/storage/backpack/satchel/black
+	backpack_contents = list(/obj/item/lockpickring/mundane = 1)
 	if(prob(20))
 		head = /obj/item/clothing/head/knitcap
 	if(prob(5))
@@ -52,8 +54,8 @@
 			shirt = /obj/item/clothing/shirt/undershirt/vagrant/l
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, pick(1,2,3,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(1,2,3,4,5), TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick (1,2,3,4,5), TRUE) // thug lyfe
+		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, pick(4,5,6), TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, pick (4,5,6), TRUE) // thug lyfe
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, pick(2,3,4,5), TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, pick(1,2,3), TRUE) // Street-fu
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, pick(1,2,3), TRUE)
