@@ -207,7 +207,7 @@
 	neck = /obj/item/clothing/neck/psycross/silver/ravox
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
