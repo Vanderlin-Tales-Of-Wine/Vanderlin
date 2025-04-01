@@ -51,6 +51,7 @@
 	var/miss_sound //THESE ARE FOR UNARMED MISSING ATTACKS
 
 	var/item_damage_type = "blunt"
+	var/move_limit = 0
 
 /datum/intent/Destroy()
 	if(chargedloop)
@@ -100,6 +101,13 @@
 		return chargetime
 	else
 		return 0
+
+/datum/intent/proc/spell_cannot_activate()
+	to_chat(mastermob, span_warning("I am too drained for this."))
+	return FALSE
+
+/datum/intent/proc/get_owner()
+	return mastermob
 
 /datum/intent/proc/get_chargedrain()
 	if(chargedrain)
@@ -254,6 +262,7 @@
 	chargetime = 0
 	warnie = "aimwarn"
 	warnoffset = 0
+	move_limit = 6
 	charge_pointer = 'icons/effects/mousemice/charge/spell_charging.dmi'
 	charged_pointer = 'icons/effects/mousemice/charge/spell_charged.dmi'
 

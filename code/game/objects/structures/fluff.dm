@@ -56,6 +56,8 @@
 /obj/structure/fluff/railing/CanPass(atom/movable/mover, turf/target)
 //	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 //		return 1
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/projectile))
 		return 1
 	if(mover.throwing)
@@ -83,6 +85,24 @@
 		if(get_dir(loc, target) in baddirs)
 			return 0
 	else if(get_dir(loc, target) == dir)
+		return 0
+	return 1
+
+/obj/structure/fluff/railing/CanAStarPass(ID, to_dir, requester)
+	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
+		var/list/baddirs = list()
+		switch(dir)
+			if(SOUTHEAST)
+				baddirs = list(SOUTHEAST, SOUTH, EAST)
+			if(SOUTHWEST)
+				baddirs = list(SOUTHWEST, SOUTH, WEST)
+			if(NORTHEAST)
+				baddirs = list(NORTHEAST, NORTH, EAST)
+			if(NORTHWEST)
+				baddirs = list(NORTHWEST, NORTH, WEST)
+		if(to_dir in baddirs)
+			return 0
+	else if(to_dir == dir)
 		return 0
 	return 1
 
@@ -194,6 +214,8 @@
 					add_overlay(MA)
 
 /obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, target) == dir)
 		return 0
 	return 1
@@ -223,6 +245,8 @@
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 
 /obj/structure/bars/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(isobserver(mover))
 		return 1
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
@@ -431,6 +455,8 @@
 		// . += span_info("(Round Time: [gameTimestamp("hh:mm:ss", REALTIMEOFDAY - SSticker.round_start_irl)].)")
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return 1
@@ -642,6 +668,8 @@
 
 
 /obj/structure/fluff/statue/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return !density
@@ -666,6 +694,13 @@
 /obj/structure/fluff/statue/knight
 	icon_state = "knightstatue_l"
 
+/obj/structure/fluff/statue/OnCrafted(dirin, mob/user)
+	. = ..()
+	for(var/obj/structure/fluff/statue/carving_block in contents)
+		dir = carving_block.dir
+		qdel(carving_block)
+	update_icon_state()
+
 /obj/structure/fluff/statue/astrata
 	name = "statue of Astrata"
 	desc = "Astrata, the Sun Queen, reigns over light, order, and conquest. She is worshipped and feared in equal measure."
@@ -675,6 +710,13 @@
 	blade_dulling = DULLING_BASH
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
+
+/obj/structure/fluff/statue/astrata/OnCrafted(dirin, mob/user)
+	. = ..()
+	pixel_x = -16
+
+/obj/structure/fluff/statue/astrata/bling
+	icon_state = "astrata_bling"
 
 /obj/structure/fluff/statue/knight/r
 	icon_state = "knightstatue_r"
@@ -715,6 +757,31 @@
 	pixel_x = -32
 	pixel_y = -16
 
+/obj/structure/fluff/statue/femalestatue/clean
+	icon_state = "12"
+
+/obj/structure/fluff/statue/femalestatue/alt
+	icon_state = "2"
+
+/obj/structure/fluff/statue/femalestatue/dancer
+	icon_state = "4"
+
+/obj/structure/fluff/statue/femalestatue/lying
+	icon_state = "5"
+
+/obj/structure/fluff/statue/femalestatue/cleanlying
+	icon_state = "52"
+
+/obj/structure/fluff/statue/musician
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "3"
+	pixel_x = -32
+
+/obj/structure/fluff/statue/musician/OnCrafted(dirin, mob/user)
+	. = ..()
+	if(prob(20))
+		icon_state = "xylix"
+
 /obj/structure/fluff/telescope
 	name = "telescope"
 	desc = "A mysterious telescope pointing towards the stars."
@@ -749,6 +816,11 @@
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
 				H.update_damage_overlays()
+
+	if(message2send == "You can see noc rotating!")
+		if(do_after(H, 25, target = src))
+			to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
+			H.apply_status_effect(/datum/status_effect/buff/nocblessing)
 
 /obj/structure/fluff/globe
 	name = "globe"
@@ -930,7 +1002,6 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	sellprice = 40
-	flags_1 = HEAR_1
 	var/chance2hear = 30
 	buckleverb = "crucifie"
 	can_buckle = 1
@@ -940,6 +1011,10 @@
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
 	var/shrine = FALSE	// used for some checks
+
+/obj/structure/fluff/psycross/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
@@ -951,6 +1026,8 @@
 	M.reset_offsets("bed_buckle")
 
 /obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(shrine)
 		return
 	else if(get_dir(loc, mover) == dir)
@@ -980,7 +1057,7 @@
 
 /obj/structure/fluff/psycross/crafted/shrine
 	density = TRUE
-	plane = -1	// to keep the 3d effect when mob behind it
+	plane = -3	// to keep the 3d effect when mob behind it
 	layer = 4.1
 	can_buckle = FALSE
 	dir = SOUTH
@@ -1145,3 +1222,55 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+/obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "oknightstatue_l"
+	else if(dir == WEST)
+		icon_state = "oknightstatue_r"
+	else
+		icon_state = pick("oknightstatue_l", "oknightstatue_r")
+
+/obj/structure/fluff/statue/knightalt/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "knightstatue2_l"
+	else if(dir == WEST)
+		icon_state = "knightstatue2_r"
+	else
+		icon_state = pick("knightstatue2_l", "knightstatue2_r")
+
+/obj/structure/fluff/statue/carving_block
+	name = "carving block"
+	desc = "Ready for sculpting."
+	icon_state = "block"
+	density = TRUE
+	anchored = FALSE
+	max_integrity = 100
+	debris = list(/obj/item/natural/stoneblock = 1)
+	drag_slowdown = 3
+
+/obj/structure/fluff/statue/carving_block/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
+
+/obj/structure/fluff/statue/carving_block/proc/can_be_rotated(mob/user)
+	return TRUE
+
+/obj/structure/fluff/statue/carving_block/proc/can_user_rotate(mob/user)
+	var/mob/living/L = user
+
+	if(istype(L))
+		if(!user.canUseTopic(src, BE_CLOSE))
+			return FALSE
+		else
+			return TRUE
+	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
+		return TRUE
+	return FALSE
+
+/obj/structure/fluff/statue/carving_block/attack_right(mob/user)
+	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
+	if(rotcomp)
+		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)

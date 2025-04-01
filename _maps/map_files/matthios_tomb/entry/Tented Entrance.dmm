@@ -46,13 +46,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/cave)
-"s" = (
-/obj/structure/stairs,
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/floor/hexstone,
-/area/rogue/under/cave)
 "v" = (
 /turf/open/floor/hexstone,
 /area/rogue/indoors/shelter)
@@ -249,7 +242,7 @@ m
 v
 v
 Y
-s
+X
 a
 a
 a

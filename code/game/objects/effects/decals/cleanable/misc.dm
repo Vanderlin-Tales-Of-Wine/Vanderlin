@@ -44,23 +44,6 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/undeadash, 20)
 
-/obj/effect/decal/cleanable/glass
-	name = "tiny shards"
-	desc = ""
-	icon = 'icons/obj/shards.dmi'
-	icon_state = "tiny"
-	beauty = -100
-
-/obj/effect/decal/cleanable/glass/Initialize()
-	. = ..()
-	setDir(pick(GLOB.cardinals))
-
-/obj/effect/decal/cleanable/glass/ex_act()
-	qdel(src)
-
-/obj/effect/decal/cleanable/glass/plasma
-	icon_state = "plasmatiny"
-
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
 	desc = ""
@@ -219,3 +202,43 @@
 /obj/effect/decal/cleanable/dyes/Initialize()
 	color = pick(CLOTHING_ROYAL_TEAL, CLOTHING_BOG_GREEN, CLOTHING_ROYAL_PURPLE	)
 	..()
+
+//................	Debris decals (result from crafting or destroying items thats just visual)	............... //
+/obj/effect/decal/cleanable/debris
+	name = ""
+	desc = ""
+	icon = 'icons/obj/objects.dmi'
+	beauty = -20
+
+/obj/effect/decal/cleanable/debris/Initialize()
+	. = ..()
+	setDir(pick(GLOB.cardinals))
+
+/obj/effect/decal/cleanable/debris/glass
+	name = "glass shards"
+	icon = 'icons/obj/shards.dmi'
+	icon_state = "tiny"
+	beauty = -100
+
+/obj/effect/decal/cleanable/debris/glass/Crossed(mob/living/L)
+	. = ..()
+	playsound(loc,'sound/foley/glass_step.ogg', 50, FALSE)
+
+/obj/effect/decal/cleanable/debris/stone
+	name = "stone chippings"
+	icon_state = "pebbly"
+
+/obj/effect/decal/cleanable/debris/wood	// sawdust gets cleared by weather
+	name = "sawdust"
+	icon_state = "woody"
+
+/obj/effect/decal/cleanable/debris/wood/Initialize()
+	. = ..()
+	GLOB.weather_act_upon_list += src
+
+/obj/effect/decal/cleanable/debris/wood/Destroy()
+	. = ..()
+	GLOB.weather_act_upon_list -= src
+
+/obj/effect/decal/cleanable/debris/wood/weather_act_on(weather_trait, severity)
+	qdel(src)

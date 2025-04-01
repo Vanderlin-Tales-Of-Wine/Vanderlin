@@ -4,7 +4,7 @@
 	range = 8
 	overlay_state = "null"
 	releasedrain = 5
-	charge_max = 30
+	recharge_time = 30
 	max_targets = 0
 	cast_without_targets = TRUE
 	sound = 'sound/magic/webspin.ogg'

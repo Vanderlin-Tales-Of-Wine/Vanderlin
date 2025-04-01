@@ -53,6 +53,8 @@
 	var/uses_attacked_atom = FALSE
 	///do we also count subtypes?
 	var/subtypes_allowed = FALSE
+	///do we also count reagent subtypes?
+	var/reagent_subtypes_allowed = FALSE
 	///list of types we pass before deletion to the child
 	var/list/pass_types_in_end = list()
 
@@ -65,8 +67,7 @@
 		if(!ispath(bundle_path, attacked_atom))
 			return FALSE
 
-
-	if(required_intent && user.used_intent != required_intent)
+	if(required_intent && user.used_intent.type != required_intent)
 		return FALSE
 
 	var/obj/structure/table/table = locate(/obj/structure/table) in get_turf(attacked_atom)
@@ -115,7 +116,7 @@
 			if(!ispath(path, required_path))
 				continue
 			if(!subtypes_allowed && (path in subtypesof(required_path)))
-				return FALSE
+				continue
 			if(total_list[path] < requirements[required_path])
 				return FALSE
 			copied_requirements -= required_path
@@ -292,120 +293,12 @@
 					user.transferItemToLoc(active_item, get_turf(user), TRUE)
 					active_item = null
 
-			if(isnull(active_item))
-				for(var/obj/item/item in usable_contents)
-					if(!length(copied_requirements))
-						break
-					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
-						continue
-					if(istype(item, /obj/item/natural/bundle))
-						var/obj/item/natural/bundle/bundle = item
-						var/early_continue = TRUE
-						var/bundle_path = bundle.stacktype
-						var/early_break = FALSE
-						for(var/path in copied_requirements)
-							if(QDELETED(item))
-								break
-							if(!ispath(bundle_path, path))
-								continue
-							bundle.amount--
-							var/obj/item/sub_item = new bundle_path(get_turf(item))
-							usable_contents += sub_item
-							if(bundle.amount == 0)
-								usable_contents -= item
-								qdel(item)
-							user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
-							if(do_after(user, ground_use_time, item))
-								if(put_items_in_hand)
-									user.put_in_active_hand(sub_item)
-								for(var/requirement in copied_requirements)
-									if(!istype(sub_item, requirement))
-										continue
-									copied_requirements[requirement]--
-									active_item = sub_item
-									early_break = TRUE
-									early_continue = FALSE
-									break
-
-						if(early_break)
-							break
-						if(early_continue)
-							continue
-
-					user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
-					if(do_after(user, ground_use_time, item))
-						user.put_in_active_hand(item)
-						active_item = item
-					break
-
-			if(isnull(active_item))
-				for(var/obj/item/item in storage_contents)
-					if(!length(copied_requirements))
-						break
-					if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
-						continue
-					if(istype(item, /obj/item/natural/bundle))
-						var/early_continue = TRUE
-						var/bundle_path = item:stacktype
-						var/early_break = FALSE
-						for(var/path in copied_requirements)
-							if(QDELETED(item))
-								break
-							if(!ispath(bundle_path, path))
-								continue
-							item:amount--
-							var/obj/item/sub_item = new bundle_path(get_turf(item))
-							usable_contents += sub_item
-							if(item:amount == 0)
-								usable_contents -= item
-								qdel(item)
-							to_chat(user, "You start grabbing [item] from your bag.")
-							if(do_after(user, storage_use_time, item))
-								SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
-								if(put_items_in_hand)
-									user.put_in_active_hand(sub_item)
-								for(var/requirement in copied_requirements)
-									if(!istype(sub_item, requirement))
-										continue
-									copied_requirements[requirement]--
-									active_item = sub_item
-									early_break = TRUE
-									early_continue = FALSE
-									break
-
-						if(early_break)
-							break
-						if(early_continue)
-							continue
-
-					to_chat(user, "You start grabbing [item] from your bag.")
-					if(do_after(user, storage_use_time, item))
-						SEND_SIGNAL(item.loc, COMSIG_TRY_STORAGE_TAKE, item, user.loc, TRUE)
-						user.put_in_active_hand(item)
-						active_item = item
-					break
-
-			if(!is_type_in_list(active_item, copied_requirements))
-				move_items_back(to_delete, user)
-				return
-
-			for(var/requirement in copied_requirements)
-				if(!istype(active_item, requirement))
-					continue
-				copied_requirements[requirement]--
-				if(copied_requirements[requirement] <= 0)
-					copied_requirements -= requirement
-				usable_contents -= active_item
-				to_delete += active_item
-				active_item.forceMove(locate(1,1,1)) ///the fucking void of items
-
 		for(var/obj/item/item in usable_contents)
 			if(!length(copied_requirements))
 				break
 			if(!is_type_in_list(item, copied_requirements) && !istype(item, /obj/item/natural/bundle))
 				continue
 			if(istype(item, /obj/item/natural/bundle))
-				var/continue_early = TRUE
 				var/early_ass_break = FALSE
 				var/bundle_path = item:stacktype
 				for(var/path in copied_requirements)
@@ -414,6 +307,8 @@
 					if(!ispath(bundle_path, path))
 						continue
 					for(var/i = 1 to item:amount)
+						if(QDELETED(item))
+							break
 						if(!(bundle_path in copied_requirements))
 							continue
 						if(early_ass_break)
@@ -423,10 +318,10 @@
 						if(item:amount == 0)
 							usable_contents -= item
 							qdel(item)
-						user.visible_message(span_small("[user] starts picking up [sub_item]."), span_small("I start picking up [sub_item]."))
-						if(do_after(user, ground_use_time, item))
+						user.visible_message(span_small("[user] starts grabbing \a [sub_item] from [item]."), span_small("I start grabbing \a [sub_item] from [item]."))
+						if(do_after(user, ground_use_time, sub_item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), sub_item)))
 							if(put_items_in_hand)
-								user.put_in_active_hand(item)
+								user.put_in_active_hand(sub_item)
 							for(var/requirement in copied_requirements)
 								if(!istype(sub_item, requirement))
 									continue
@@ -435,15 +330,16 @@
 								sub_item.forceMove(locate(1,1,1)) ///the fucking void of items
 								if(copied_requirements[requirement] <= 0)
 									copied_requirements -= requirement
-									continue_early = FALSE
 									early_ass_break = TRUE
+									if(item:amount == 1) // to remove 1 count bundles
+										new bundle_path(get_turf(item))
+										usable_contents -= item
+										qdel(item)
 									break
-				if(continue_early)
-					continue
-
+				continue
 
 			user.visible_message(span_small("[user] starts picking up [item]."), span_small("I start picking up [item]."))
-			if(do_after(user, ground_use_time, item))
+			if(do_after(user, ground_use_time, item, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), item)))
 				if(put_items_in_hand)
 					user.put_in_active_hand(item)
 				for(var/requirement in copied_requirements)
@@ -484,60 +380,73 @@
 			var/obj/item/inactive_held = user.get_inactive_held_item()
 			for(var/obj/item/reagent_containers/container in storage_contents)
 				for(var/required_path as anything in copied_reagent_requirements)
-					var/reagent_value = container.reagents.get_reagent_amount(required_path)
-					if(!reagent_value)
-						continue
-					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
-					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, container))
+					var/list/reagent_paths = list(required_path)
+					if(reagent_subtypes_allowed)
+						reagent_paths |= subtypesof(required_path)
+					for(var/possible_reagent_path in reagent_paths)
+						if(!copied_reagent_requirements[required_path])
+							break
+						var/reagent_value = container.reagents.get_reagent_amount(possible_reagent_path)
+						if(!reagent_value)
 							continue
-						user.put_in_active_hand(container)
-					if(istype(container, /obj/item/reagent_containers/glass/bottle))
-						var/obj/item/reagent_containers/glass/bottle/bottle = container
-						if(bottle.closed)
-							bottle.rmb_self(user)
-					if(!do_after(user, reagent_use_time, container))
-						continue
-					playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
-					if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
-						container.reagents.remove_reagent(required_path, reagent_value)
-						copied_reagent_requirements[required_path] -= reagent_value
-					else
-						container.reagents.remove_reagent(required_path, copied_reagent_requirements[required_path])
-						copied_reagent_requirements -= required_path
-					if(put_items_in_hand)
-						SEND_SIGNAL(inactive_held, COMSIG_TRY_STORAGE_INSERT, container, null, TRUE, TRUE)
+						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
+						if(put_items_in_hand)
+							if(!do_after(user, storage_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
+								continue
+							user.put_in_active_hand(container)
+						if(istype(container, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/bottle = container
+							if(bottle.closed)
+								bottle.rmb_self(user)
+						if(!do_after(user, reagent_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
+							continue
+						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
+						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
+							container.reagents.remove_reagent(possible_reagent_path, reagent_value)
+							copied_reagent_requirements[required_path] -= reagent_value
+							break
+						else
+							container.reagents.remove_reagent(possible_reagent_path, copied_reagent_requirements[required_path])
+							copied_reagent_requirements -= required_path
+						if(put_items_in_hand)
+							SEND_SIGNAL(inactive_held, COMSIG_TRY_STORAGE_INSERT, container, null, TRUE, TRUE)
 
 			for(var/obj/item/reagent_containers/container in usable_contents)
 				for(var/required_path as anything in copied_reagent_requirements)
-					var/reagent_value = container.reagents.get_reagent_amount(required_path)
-					if(!reagent_value)
-						continue
-					var/turf/container_loc = get_turf(container)
-					var/stored_pixel_x = container.pixel_x
-					var/stored_pixel_y = container.pixel_y
-					user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
-					if(put_items_in_hand)
-						if(!do_after(user, ground_use_time, container))
+					var/list/reagent_paths = list(required_path)
+					if(reagent_subtypes_allowed)
+						reagent_paths |= subtypesof(required_path)
+					for(var/possible_reagent_path in reagent_paths)
+						if(!copied_reagent_requirements[required_path])
+							break
+						var/reagent_value = container.reagents.get_reagent_amount(possible_reagent_path)
+						if(!reagent_value)
 							continue
-						user.put_in_active_hand(container)
-					if(istype(container, /obj/item/reagent_containers/glass/bottle))
-						var/obj/item/reagent_containers/glass/bottle/bottle = container
-						if(bottle.closed)
-							bottle.rmb_self(user)
-					if(!do_after(user, reagent_use_time, container))
-						continue
-					playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
-					if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
-						container.reagents.remove_reagent(required_path, reagent_value)
-						copied_reagent_requirements[required_path] -= reagent_value
-					else
-						container.reagents.remove_reagent(required_path, copied_reagent_requirements[required_path])
-						copied_reagent_requirements -= required_path
-					if(put_items_in_hand)
-						user.transferItemToLoc(container, container_loc, TRUE)
-						container.pixel_x = stored_pixel_x
-						container.pixel_y = stored_pixel_y
+						var/turf/container_loc = get_turf(container)
+						var/stored_pixel_x = container.pixel_x
+						var/stored_pixel_y = container.pixel_y
+						user.visible_message(span_small("[user] starts to incorporate some liquid into [name]."), span_small("You start to pour some liquid into [name]."))
+						if(put_items_in_hand)
+							if(!do_after(user, ground_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
+								continue
+							user.put_in_active_hand(container)
+						if(istype(container, /obj/item/reagent_containers/glass/bottle))
+							var/obj/item/reagent_containers/glass/bottle/bottle = container
+							if(bottle.closed)
+								bottle.rmb_self(user)
+						if(!do_after(user, reagent_use_time, container, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), container)))
+							continue
+						playsound(get_turf(user), pick(container.poursounds), 100, TRUE)
+						if(reagent_value < copied_reagent_requirements[required_path]) //reagents are lost regardless as you kinda already poured them in no unpouring.
+							container.reagents.remove_reagent(possible_reagent_path, reagent_value)
+							copied_reagent_requirements[required_path] -= reagent_value
+						else
+							container.reagents.remove_reagent(possible_reagent_path, copied_reagent_requirements[required_path])
+							copied_reagent_requirements -= required_path
+						if(put_items_in_hand)
+							user.transferItemToLoc(container, container_loc, TRUE)
+							container.pixel_x = stored_pixel_x
+							container.pixel_y = stored_pixel_y
 
 
 		if(length(copied_tool_usage))
@@ -548,13 +457,13 @@
 						continue
 					var/list/tool_path_extra = copied_tool_usage[tool_path]
 					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, potential_tool))
+						if(!do_after(user, storage_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 							continue
 						user.put_in_active_hand(potential_tool)
 					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 2)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
-					if(!do_after(user, tool_use_time, potential_tool))
+					if(!do_after(user, tool_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 						continue
 					copied_tool_usage -= tool_path
 					if(put_items_in_hand)
@@ -570,13 +479,13 @@
 					var/stored_pixel_x = potential_tool.pixel_x
 					var/stored_pixel_y = potential_tool.pixel_y
 					if(put_items_in_hand)
-						if(!do_after(user, storage_use_time, potential_tool))
+						if(!do_after(user, storage_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 							continue
 						user.put_in_active_hand(potential_tool)
 					user.visible_message(span_small("[user] [tool_path_extra[1]]."), span_small("You [tool_path_extra[2]]."))
 					if(length(tool_path_extra) >= 3)
 						playsound(get_turf(user), tool_path_extra[3], 100, FALSE)
-					if(!do_after(user, tool_use_time, potential_tool))
+					if(!do_after(user, tool_use_time, potential_tool, extra_checks = CALLBACK(user, TYPE_PROC_REF(/atom/movable, CanReach), potential_tool)))
 						continue
 					copied_tool_usage -= tool_path
 					if(put_items_in_hand)
@@ -609,6 +518,7 @@
 						prob2craft += ((10-L.STAINT)*-1)*2
 				if(prob2craft < 1)
 					to_chat(user, "<span class='danger'>I lack the skills for this...</span>")
+					move_products(list(), user)
 					move_items_back(to_delete, user)
 					return
 				else

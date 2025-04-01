@@ -13,7 +13,7 @@
 	owner.update_mobility()
 	return ..()
 
-/datum/status_effect/frost_trap/proc/on_attacked(damage,type,zone)
+/datum/status_effect/frost_trap/proc/on_attacked(datum/source, damage,type,zone)
 	to_chat(owner, span_danger("The ice around me violently shatters; damaging me further!"))
 	owner.remove_status_effect(/datum/status_effect/frost_trap)
 	owner.update_mobility()

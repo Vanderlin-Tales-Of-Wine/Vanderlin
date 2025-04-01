@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/hairyness = null
 
 	var/custom_clothes = FALSE //append species id to clothing sprite name
+	var/custom_id
 	var/use_f = FALSE //males use female clothes. for elves
 	var/use_m = FALSE //females use male clothes. for aasimar women
 
@@ -78,6 +79,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/list/species_traits = list()
 	// generic traits tied to having the species
 	var/list/inherent_traits = list()
+	/// components to add when spawning
+	var/list/components_to_add = list()
 	var/inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	///List of factions the mob gain upon gaining this species.
 	var/list/inherent_factions
@@ -172,15 +175,19 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/species/proc/get_accent_list()
 	return
 
+/datum/species/proc/get_native_language()
+	return   
+
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
+	var/language = speech_args[SPEECH_LANGUAGE] 
+
 	if(message)
 		var/list/accent_words = strings("spellcheck.json", "spellcheck")
-
-		//var/failed = FALSE
 		var/mob/living/carbon/human/H
 		if(ismob(source))
 			H = source
+
 		for(var/key in accent_words)
 			var/value = accent_words[key]
 			if(islist(value))
@@ -190,43 +197,58 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if(H)
 					to_chat(H, "<span class='warning'>[key] -> [value]</span>")
 				amtfail++
-				//failed = TRUE
 
 			message = replacetextEx(message, "[key]", "[value]")
 
-	if(message)
-		if(message[1])
-			if(message[1] != "*")
-				message = " [message]"
-				var/list/accent_words = strings("accent_universal.json", "universal")
+	if(message && message[1] && message[1] != "*")
+		message = " [message]"
 
-				for(var/key in accent_words)
-					var/value = accent_words[key]
-					if(islist(value))
-						value = pick(value)
+		var/list/accent_words = strings("accent_universal.json", "universal")
+		for(var/key in accent_words)
+			var/value = accent_words[key]
+			if(islist(value))
+				value = pick(value)
 
-					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-					message = replacetextEx(message, " [key]", " [value]")
+			message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+			message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+			message = replacetextEx(message, " [key]", " [value]")
 
 		var/list/species_accent = get_accent_list()
 		var/mob/living/carbon/human/human
+		var/special_accent = FALSE
 		if(ismob(source))
 			human = source
-			if((human.accent != ACCENT_DEFAULT))
+			if(human.accent != ACCENT_DEFAULT)
 				species_accent = human.return_accent_list()
+				special_accent = TRUE
 
-		if(species_accent)
-			if(message[1] != "*")
-				message = " [message]"
-				for(var/key in species_accent)
-					var/value = species_accent[key]
-					if(islist(value))
-						value = pick(value)
 
-					message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
-					message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
-					message = replacetextEx(message, " [key]", " [value]")
+		if(ismob(source))
+			var/nativelang = get_native_language()
+			var/language_check
+			
+			var/list/language_map = list(
+				/datum/language/common = "Imperial",
+				/datum/language/elvish = "Elfish",
+				/datum/language/dwarvish = "Dwarfish",
+				/datum/language/hellspeak = "Infernal",
+				/datum/language/orcish = "Orcish",
+				/datum/language/celestial = "Celestial",
+				/datum/language/zybantine = "Zybean"
+			)
+			
+			if (language in language_map)
+				language_check = language_map[language]
+			if(nativelang != language_check || special_accent)
+				if(species_accent)
+					for(var/key in species_accent)
+						var/value = species_accent[key]
+						if(islist(value))
+							value = pick(value)
+
+						message = replacetextEx(message, " [uppertext(key)]", " [uppertext(value)]")
+						message = replacetextEx(message, " [capitalize(key)]", " [capitalize(value)]")
+						message = replacetextEx(message, " [key]", " [value]")
 
 	speech_args[SPEECH_MESSAGE] = trim(message)
 
@@ -690,6 +712,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	for(var/X in inherent_traits)
 		ADD_TRAIT(C, X, SPECIES_TRAIT)
 
+	for(var/component in components_to_add)
+		C.AddComponent(component)
+
 	if(TRAIT_TOXIMMUNE in inherent_traits)
 		C.setToxLoss(0, TRUE, TRUE)
 
@@ -1019,15 +1044,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				hide_boob = TRUE
 
 		if(H.underwear)
+			if(H.age == AGE_CHILD)
+				H.underwear = "Youngling"
+				if(H.gender == FEMALE)
+					H.underwear = "FemYoungling"
+
 			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[H.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
 				underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
-				if(H.gender == FEMALE)
+				if(H.gender == FEMALE && H.age != AGE_CHILD)
 					if(OFFSET_FACE_F in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE_F][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE_F][2]
-				else
+				else if(H.age != AGE_CHILD)
 					if(OFFSET_FACE in offsets)
 						underwear_overlay.pixel_x += offsets[OFFSET_FACE][1]
 						underwear_overlay.pixel_y += offsets[OFFSET_FACE][2]
@@ -1974,8 +2004,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			"<span class='danger'>[attack_message_local][target.next_attack_msg.Join()]</span>", null, COMBAT_MESSAGE_RANGE)
 		target.next_attack_msg.Cut()
 
-		target.retaliate(user)
-
 /*		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
 			target.visible_message("<span class='danger'>[user] knocks [target] down!</span>", \
 							"<span class='danger'>You're knocked down by [user]!</span>", "<span class='hear'>I hear aggressive shuffling followed by a loud thud!</span>", COMBAT_MESSAGE_RANGE, user)
@@ -2345,7 +2373,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	var/actual_damage = Iforce
 	if(Iforce)
-		H.retaliate(user)
 
 		var/weakness = H.check_weakness(I, user)
 		actual_damage = apply_damage(Iforce * weakness, I.damtype, def_zone, armor_block, H)
@@ -2361,7 +2388,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				var/can_impale = TRUE
 				if(!affecting)
 					can_impale = FALSE
-				else if(I.wlength > WLENGTH_SHORT && (affecting.body_zone != BODY_ZONE_CHEST))
+				else if(I.wlength > WLENGTH_SHORT && !(affecting.body_zone in list(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)))
 					can_impale = FALSE
 				if(can_impale && user.Adjacent(H))
 					affecting.add_embedded_object(I, silent = FALSE, crit_message = TRUE)
@@ -2378,7 +2405,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	knockback(I, H, user, nodmg, actual_damage)
 
 	H.send_item_attack_message(I, user, parse_zone(selzone))
-
+	SEND_SIGNAL(I, COMSIG_ITEM_SPEC_ATTACKEDBY, H, user, affecting, actual_damage)
 	if(nodmg)
 		return FALSE //dont play a sound
 

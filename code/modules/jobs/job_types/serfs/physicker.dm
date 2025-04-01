@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	backr = /obj/item/storage/backpack/satchel
-	backpack_contents =list(/obj/item/storage/keyring/physicker = 1)
+	backpack_contents = list(/obj/item/key/clinic = 1)
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys

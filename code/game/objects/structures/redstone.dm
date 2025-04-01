@@ -44,14 +44,6 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		multitool.set_buffer(src)
 	multitool.charge_deduction(src, user, 1)
 
-/obj/structure/LateInitialize()
-	. = ..()
-	if(redstone_id)
-		for(var/obj/structure/S in GLOB.redstone_objs)
-			if(S.redstone_id == redstone_id)
-				redstone_attached |= S
-				S.redstone_attached |= src
-
 /obj/structure/vv_edit_var(var_name, var_value)
 	switch (var_name)
 		if ("redstone_id")
@@ -131,6 +123,9 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		toggled = !toggled
 		playsound(src, 'sound/foley/lever.ogg', 100, extrarange = 3)
 
+/obj/structure/lever/hidden/onkick(mob/user) // nice try
+	return FALSE
+
 /obj/structure/lever/wall/attack_hand(mob/user)
 	. = ..()
 	icon_state = "leverwall[toggled]"
@@ -172,9 +167,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return FALSE
 
 /obj/structure/repeater/attack_right(mob/user)
-	. = ..()
 	if(user.get_active_held_item())
-		return
+		return ..()
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
 		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
@@ -347,9 +341,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return TRUE
 
 /obj/structure/activator/attack_right(mob/user)
-	. = ..()
 	if(user.get_active_held_item())
-		return
+		return ..()
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
 		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)

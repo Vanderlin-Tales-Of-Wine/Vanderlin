@@ -4,34 +4,52 @@
 	if(!lockid)
 		return 5
 	switch(lockid)
-		if("vault")
+		if(ACCESS_VAULT)
 			return 1
-		if("lord")
+		if(ACCESS_LORD)
 			return 1
-		if("manor")
+		if(ACCESS_MANOR)
 			return 2
-		if("guest")
+		if(ACCESS_GUEST)
 			return 2
-		if("butler")
-			return 3
-		if("dungeon")
+		if(ACCESS_DUNGEON)
 			return 2
-		if("garrison")
+		if(ACCESS_FOREST)
 			return 2
-		if("forrestgarrison")
+		if(ACCESS_GARRISON)
 			return 2
-		if("soilson")
+		if(ACCESS_FARM)
 			return 4
-		if("warehouse")
+		if(ACCESS_WAREHOUSE)
 			return 3
-		if("sheriff")
+		if(ACCESS_CAPTAIN)
 			return 3
-		if("merchant")
+		if(ACCESS_MERCHANT)
+			return 5
+		if(ACCESS_INN)
+			return 5
+		if(ACCESS_SMITH)
+			return 3
+		if(ACCESS_BUTCHER)
+			return 3
+		if(ACCESS_MANOR_GATE)
 			return 2
-		if("shop")
-			return 5
-		if("tavern")
-			return 5
+		if(ACCESS_PRIEST)
+			return 2
+		if(ACCESS_CHURCH)
+			return 3
+		if(ACCESS_TOWER)
+			return 3
+		if(ACCESS_MAGE)
+			return 2
+		if(ACCESS_ARTIFICER)
+			return 4
+		if(ACCESS_HAND)
+			return 1
+		if(ACCESS_STEWARD)
+			return 2
+		if(ACCESS_FELDSHER)
+			return 3
 		if("roomi")
 			return 6
 		if("roomii")
@@ -70,30 +88,6 @@
 			return 3
 		if("luxroomvi")
 			return 3
-		if("blacksmith")
-			return 3
-		if("butcher")
-			return 3
-		if("walls")
-			return 2
-		if("priest")
-			return 3
-		if("hpriest")
-			return 2
-		if("tower")
-			return 3
-		if("mage")
-			return 2
-		if("artificer")
-			return 4
-		if("confession")
-			return 1
-		if("hand")
-			return 1
-		if("steward")
-			return 2
-		if("doctor")
-			return 3
 		else
 			return 5
 /obj/structure/mineral_door
@@ -128,7 +122,6 @@
 	var/last_bump = null
 	var/brokenstate = 0
 	var/keylock = FALSE
-	var/lockhash = 0
 	var/lockid = null
 	var/lockbroken = 0
 	var/locksound = 'sound/foley/doors/woodlock.ogg'
@@ -138,6 +131,7 @@
 	var/kickthresh = 15
 	var/bump_closed = TRUE
 	var/can_add_lock = TRUE
+	var/can_knock = TRUE
 
 	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
 
@@ -219,24 +213,8 @@
 		base_state = icon_state
 	set_init_layer()
 	air_update_turf(TRUE)
-	if(lockhash)
-		GLOB.lockhashes += lockhash
-	else if(keylock)
+	if(keylock)
 		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
-		if(lockid)
-			if(GLOB.lockids[lockid])
-				lockhash = GLOB.lockids[lockid]
-			else
-				lockhash = rand(1000,9999)
-				while(lockhash in GLOB.lockhashes)
-					lockhash = rand(1000,9999)
-				GLOB.lockhashes += lockhash
-				GLOB.lockids[lockid] = lockhash
-		else
-			lockhash = rand(1000,9999)
-			while(lockhash in GLOB.lockhashes)
-				lockhash = rand(1000,9999)
-			GLOB.lockhashes += lockhash
 
 /obj/structure/mineral_door/Move()
 	var/turf/T = loc
@@ -314,13 +292,16 @@
 				return
 		if(world.time >= last_bump+20)
 			last_bump = world.time
-			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
-			user.visible_message(span_warning("[user] knocks on [src]."), \
-				span_notice("I knock on [src]."))
+			if(can_knock)
+				playsound(src, 'sound/foley/doors/knocking.ogg', 100)
+				user.visible_message(span_warning("[user] knocks on [src]."), \
+					span_notice("I knock on [src]."))
 		return
 	return TryToSwitchState(user)
 
 /obj/structure/mineral_door/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density
@@ -490,104 +471,41 @@
 	if(lockbroken)
 		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
 	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I,/obj/item/storage/keyring))
+	if(istype(I, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
-		if(!R.contents.len)
+		if(!length(R.contents))
+			to_chat(user, span_info("You have no keys."))
 			return
-		var/list/keysy = shuffle(R.contents.Copy())
-		for(var/obj/item/key/K in keysy)
-			if(user.cmode)
-				if(!do_after(user, 1 SECONDS, src))
-					break
-			if(K.lockhash == lockhash)
+		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
+			var/combat = user.cmode
+			if(combat && !do_after(user, 1 SECONDS, src))
+				door_rattle()
+				break
+			if(K.lockid == lockid)
 				lock_toggle(user)
 				break
-			else
-				if(user.cmode)
-					door_rattle()
+			if(combat)
+				door_rattle()
 		return
-	else
-		var/obj/item/key/K = I
-		if(K.lockhash == lockhash)
-			lock_toggle(user, is_right)
-			return
-		else
-			door_rattle()
+	var/obj/item/key/K = I
+	if(K.lockid != lockid)
+		door_rattle()
 		return
+	lock_toggle(user)
 
-/obj/structure/mineral_door/proc/trypicklock(obj/item/I, mob/user)
-	if(door_opened || isSwitchingStates)
-		to_chat(user, span_warning("This cannot be picked while it is open."))
-		return
-	if(!keylock)
-		return
-	if(lockbroken)
-		to_chat(user, span_warning("The lock to this door is broken."))
-		user.changeNext_move(CLICK_CD_MELEE)
-	else
-		var/lockprogress = 0
-		var/locktreshold = 100
-
-		var/obj/item/lockpick/P = I
-		var/mob/living/L = user
-
-		var/pickskill = user.mind.get_skill_level(/datum/skill/misc/lockpicking)
-		var/perbonus = L.STAPER/5
-		var/picktime = 7 SECONDS
-		var/pickchance = 35
-		var/moveup = 10
-
-		picktime -= (pickskill * 10)
-		picktime = clamp(picktime, 10, 70)
-
-		moveup += (pickskill * 3)
-		moveup = clamp(moveup, 10, 30)
-
-		pickchance += pickskill * 10
-		pickchance += perbonus
-		pickchance *= P.picklvl
-		pickchance = clamp(pickchance, 1, 95)
-
-
-
-		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, src))
-				break
-			if(prob(pickchance))
-				lockprogress += moveup
-				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
-				to_chat(user, span_warning("Click..."))
-				if(L.mind)
-					var/amt2raise = L.STAINT
-					var/boon = L.mind.get_learning_boon(/datum/skill/misc/lockpicking)
-					L.mind.adjust_experience(/datum/skill/misc/lockpicking, amt2raise * boon)
-				if(lockprogress >= locktreshold)
-					to_chat(user, span_warning("The locking mechanism gives."))
-					lock_toggle(user)
-					break
-				else
-					continue
-			else
-				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
-				I.take_damage(1, BRUTE, "blunt")
-				to_chat(user, span_warning("Clack."))
-				continue
-		return
-
-/obj/structure/mineral_door/proc/lock_toggle(mob/user, is_right = FALSE)
+/obj/structure/mineral_door/proc/lock_toggle(mob/user)
 	if(isSwitchingStates || door_opened)
 		return
 	if(locked)
 		user.visible_message(span_warning("[user] unlocks [src]."), \
 			span_notice("I unlock [src]."))
 		playsound(src, unlocksound, 100)
-		locked = 0
+		locked = FALSE
 	else
 		user.visible_message(span_warning("[user] locks [src]."), \
 			span_notice("I lock [src]."))
 		playsound(src, locksound, 100)
-		locked = 1
-
+		locked = TRUE
 
 /obj/structure/mineral_door/setAnchored(anchorvalue) //called in default_unfasten_wrench() chain
 	. = ..()
@@ -611,8 +529,6 @@
 /obj/structure/mineral_door/OnCrafted(dirin, user)
 	. = ..()
 	keylock = FALSE
-	GLOB.lockhashes.Remove(lockhash)
-	lockhash = 0
 
 /////////////////////// TOOL OVERRIDES ///////////////////////
 

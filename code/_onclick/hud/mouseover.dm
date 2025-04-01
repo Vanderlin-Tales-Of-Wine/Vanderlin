@@ -7,6 +7,11 @@
 	. = ..()
 	if(!nomouseover && name && ismob(usr))
 		handle_mouseover(location, control, params)
+	SEND_SIGNAL(usr, COMSIG_ATOM_MOUSE_ENTERED, src)
+
+/turf/MouseEntered(location, control, params)
+	. = ..()
+	SEND_SIGNAL(usr, COMSIG_MOUSE_ENTERED, src)
 
 /atom/MouseExited(params)
 	. = ..()
@@ -34,6 +39,9 @@
 		p.client.mouseovertext.maptext_height = 32
 		p.client.mouseovertext.maptext = {"<span style='font-size:8pt;font-family:"Pterra";color:[hover_color];text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;' class='center maptext '>[name]"}
 		p.client.screen |= p.client.mouseovertext
+	return TRUE
+
+/obj/item/soul/handle_mouseover(location, control, params)
 	return TRUE
 
 /obj/structure/handle_mouseover(location, control, params)

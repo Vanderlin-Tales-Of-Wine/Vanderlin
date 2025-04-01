@@ -274,7 +274,7 @@
 				if(prob(clamp((((4 + ((user.STASTR - (M.STACON+2))/2) + skill_diff) * 10 + rand(-5, 5)) * combat_modifier), 5, 95)))
 					M.Knockdown(max(10 + (skill_diff * 2), 1))
 					playsound(src,"genblunt",100,TRUE)
-					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M)
+					if(user.l_grab && user.l_grab.grabbed == M && user.r_grab && user.r_grab.grabbed == M && user.r_grab.grab_state == GRAB_AGGRESSIVE )
 						M.visible_message(span_danger("[user] throws [M] to the ground!"), \
 						span_userdanger("[user] throws me to the ground!"), span_hear("I hear a sickening sound of pugilism!"), COMBAT_MESSAGE_RANGE)
 					else
@@ -609,6 +609,12 @@
 								MOBTIMER_SET(user, MT_ZOMBIETRIUMPH)
 							playsound(C.loc, 'sound/combat/fracture/headcrush (2).ogg', 100, FALSE, -1)
 							return
+		if(HAS_TRAIT(user, TRAIT_POISONBITE))
+			if(C.reagents)
+				var/poison = user.STACON/2 //more peak species level, more poison
+				C.reagents.add_reagent(/datum/reagent/toxin/venom, poison/2)
+				C.reagents.add_reagent(/datum/reagent/medicine/soporpot, poison)
+				to_chat(user, span_warning("Your fangs inject venom into [C]!"))
 	else
 		C.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 	C.visible_message("<span class='danger'>[user] bites [C]'s [parse_zone(sublimb_grabbed)]![C.next_attack_msg.Join()]</span>", \

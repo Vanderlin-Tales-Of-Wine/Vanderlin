@@ -16,7 +16,8 @@
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dwarf"
+		"Dwarf",
+		"Kobold",
 	)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_CHILD)
@@ -36,7 +37,7 @@
 	pants = /obj/item/clothing/pants/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/manorguard
 
 /datum/job/squire/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()

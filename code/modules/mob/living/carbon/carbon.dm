@@ -119,6 +119,7 @@
 			if(done_step?.try_op(user, src, user.zone_selected, I, user.used_intent, try_to_fail))
 				return TRUE
 		if(I.item_flags & SURGICAL_TOOL)
+			to_chat(user, span_warning("You're unable to perform surgery!"))
 			return TRUE
 	/*
 	for(var/datum/surgery/S in surgeries)
@@ -207,18 +208,23 @@
 				if(isliving(pulling))
 					var/mob/living/throwable_mob = pulling
 					if(!throwable_mob.buckled)
-						thrown_thing = throwable_mob
-						thrown_speed = 1
-						thrown_range = max(round((STASTR/throwable_mob.STACON)*2), 1)
 						stop_pulling()
 						if(G.grab_state < GRAB_AGGRESSIVE)
 							return
 						if(HAS_TRAIT(src, TRAIT_PACIFISM))
 							to_chat(src, "<span class='notice'>I gently let go of [throwable_mob].</span>")
 							return
+						thrown_thing = throwable_mob
+						thrown_speed = 1
+						thrown_range = round((STASTR/throwable_mob.STACON)*2)
 						var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 						var/turf/end_T = get_turf(target)
-						if(start_T.z != end_T.z && (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+						if(!HAS_TRAIT(thrown_thing, TRAIT_TINY) || !(mobility_flags & MOBILITY_STAND) || (throwable_mob.cmode && throwable_mob.mobility_flags & MOBILITY_STAND))
+							while(end_T.z > start_T.z)
+								end_T = GET_TURF_BELOW(end_T)
+						if((end_T.z > start_T.z) && throwable_mob.cmode)
+							thrown_range -= 1
+						if(thrown_range <= 0)
 							return
 						if(start_T && end_T)
 							log_combat(src, throwable_mob, "thrown", addition="grab from tile in [AREACOORD(start_T)] towards tile at [AREACOORD(end_T)]")
@@ -228,9 +234,13 @@
 
 		else if(!CHECK_BITFIELD(I.item_flags, ABSTRACT) && !HAS_TRAIT(I, TRAIT_NODROP))
 			thrown_thing = I
-			if(I.swingsound)
+			if(istype(thrown_thing, /obj/item/clothing/head/mob_holder))
+				var/obj/item/clothing/head/mob_holder/old = thrown_thing
+				thrown_thing = thrown_thing:held_mob
+				old.release()
 				used_sound = pick(I.swingsound)
-			dropItemToGround(I, silent = TRUE)
+			else
+				dropItemToGround(I, silent = TRUE)
 
 			if(HAS_TRAIT(src, TRAIT_PACIFISM) && I.throwforce)
 				to_chat(src, "<span class='notice'>I set [I] down gently on the ground.</span>")
@@ -691,7 +701,10 @@
 	if(!E)
 		update_tint()
 	else
-		see_invisible = E.see_invisible
+		if(HAS_TRAIT(src, TRAIT_SEE_LEYLINES))
+			see_invisible = SEE_INVISIBLE_LEYLINES
+		else
+			see_invisible = E.see_invisible
 		see_in_dark = E.see_in_dark
 		sight |= E.sight_flags
 		if(!isnull(E.lighting_alpha))
@@ -933,10 +946,6 @@
 				hud_used.healths.icon_state = "health6"
 		else
 			hud_used.healths.icon_state = "health7"
-
-/mob/living/carbon/proc/update_internals_hud_icon(internal_state = 0)
-	if(hud_used && hud_used.internals)
-		hud_used.internals.icon_state = "internal[internal_state]"
 
 /mob/living/carbon/update_stat()
 	if(status_flags & GODMODE)

@@ -34,8 +34,9 @@
 /obj/effect/particle_effect/smoke/Initialize()
 	. = ..()
 	create_reagents(500)
+	var/turf/T = get_turf(src)
+	T.ImmediateCalculateAdjacentTurfs()
 	START_PROCESSING(SSobj, src)
-
 
 /obj/effect/particle_effect/smoke/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -219,7 +220,6 @@
 
 		var/where = "[AREACOORD(location)]"
 		if(carry.my_atom.fingerprintslast)
-			var/mob/M = get_mob_by_key(carry.my_atom.fingerprintslast)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last touched by [carry.my_atom.fingerprintslast].")
 		else
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")

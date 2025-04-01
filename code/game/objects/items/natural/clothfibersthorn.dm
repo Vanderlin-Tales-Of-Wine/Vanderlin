@@ -96,10 +96,6 @@
 	if(wet)
 		. += span_notice("It's wet!")
 
-/obj/item/natural/cloth/bandit
-	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_MASK
-	color = "#ff0000"
-
 // CLEANING
 
 /obj/item/natural/cloth/attack_obj(obj/O, mob/living/user)
@@ -354,21 +350,3 @@
 
 /obj/item/natural/bundle/bone/full
 	amount = 6
-
-/*/obj/item/alch/bone/attackby(obj/item/I, mob/living/user, params)
-	var/mob/living/carbon/human/H = user
-	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(I, /obj/item/alch/bone))
-		var/obj/item/natural/bundle/bone/F = new(src.loc)
-		H.put_in_hands(F)
-		H.visible_message("[user] ties the bones into a bundle.")
-		qdel(I)
-		qdel(src)
-	if(istype(I, /obj/item/natural/bundle/bone))
-		var/obj/item/natural/bundle/bone/B = I
-		if(B.amount < B.maxamount)
-			H.visible_message("[user] adds the [src] to the bundle.")
-			B.amount += 1
-			B.update_bundle()
-			qdel(src)
-	..()*/

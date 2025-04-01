@@ -23,6 +23,10 @@
 	var/plural_name
 	var/rigged_outcome = 0 //1 for heads, 2 for tails
 
+/obj/item/coin/on_consume(mob/living/eater)
+	. = ..()
+	eater.sellprice += quantity * sellprice
+
 /obj/item/coin/Initialize(mapload, coin_amount)
 	. = ..()
 	if(coin_amount >= 1)
@@ -98,13 +102,13 @@
 
 		switch(intelligence)						// Intelligence-based messaging
 			if(0 to 6)
-				user.visible_message(span_info("You see [user] clumsily start counting the coins"),span_notice("You clumsily start counting the coins..."))
+				user.visible_message(span_notice("[user] clumsily starts to count [src]."),span_notice("You clumsily start counting [src]..."), vision_distance = 2)
 			if(7 to 9)
-				user.visible_message(span_info("You see [user] start counting the coins"),span_notice("You start counting the coins..."))
+				user.visible_message(span_notice("[user] begins counting [src]."),span_notice("You begin counting [src]."), vision_distance = 2)
 			if(10 to 13)
-				user.visible_message(span_info("You see [user] count the coins"),span_notice("You start counting the coins..."))
+				user.visible_message(span_notice("[user] counts [src]."),span_notice("You count [src]."), vision_distance = 2)
 			if(14 to INFINITY)
-				user.visible_message(span_info("You see [user] effortlessly tally the coins!"),span_notice("You effortlessly tally the stack."))
+				user.visible_message(span_info("[user] effortlessly tallies [src]."),span_notice("You effortlessly tally [src]."), vision_distance = 2)
 
 		if(!do_after(user, skill_data["delay"]))
 			return
@@ -141,11 +145,11 @@
 		var/error = skill_data["error"]
 
 		if(delay_time > 5 SECONDS)			// Chat feedback
-			user.visible_message(span_notice("Coins clatter as [user] fumbles."),span_warning("You lose count while separating the coins!"))
+			user.visible_message(span_notice("[user] fumbles through [src]."),span_warning("You struggle to count while separating [src]!"), vision_distance = 2)
 		else if(delay_time >= 1 SECONDS)
-			user.visible_message(span_notice("[user] carefully counts out coins..."),span_notice("You concentrate on separating the stack..."))
+			user.visible_message(span_notice("[user] carefully counts out [src]."),span_notice("You concentrate on separating [src]"), vision_distance = 2)
 		else if(delay_time == 0)
-			user.visible_message(span_notice("[user] instantly splits the coin stack!"),span_notice("You effortlessly divide the coins."))
+			user.visible_message(span_notice("[user] splits [src]."),span_notice("You effortlessly divide [src]."), vision_distance = 2)
 
 		if(delay_time > 0 && !do_after(user, delay_time))	// Make sure people don't move to cancel the delay
 			return
