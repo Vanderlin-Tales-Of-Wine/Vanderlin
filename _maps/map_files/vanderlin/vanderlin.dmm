@@ -1055,9 +1055,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/steward)
 "aFk" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church)
