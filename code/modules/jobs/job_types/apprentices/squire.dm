@@ -37,7 +37,7 @@
 	pants = /obj/item/clothing/pants/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/manorguard
+	beltl = /obj/item/storage/keyring/mguard
 
 /datum/job/squire/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()

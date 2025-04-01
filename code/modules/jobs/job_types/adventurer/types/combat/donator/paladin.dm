@@ -17,7 +17,7 @@
 	H.virginity = TRUE
 
 	switch(H.patron?.type)
-		if(/datum/patron/psydon, /datum/patron/psydon/progressive)
+		if(/datum/patron/psydon)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/gold
 			wrists = /obj/item/clothing/neck/psycross/g
 		if(/datum/patron/divine/astrata)

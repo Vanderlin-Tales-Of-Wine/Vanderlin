@@ -34,7 +34,7 @@
 	armor = /obj/item/clothing/shirt/robe/phys
 	neck = /obj/item/clothing/neck/phys
 	r_hand = /obj/item/storage/backpack/satchel/surgbag
-	beltl = /obj/item/storage/keyring/physicker
+	beltl = /obj/item/key/clinic
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 	H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)

@@ -709,21 +709,11 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	if(!holder)
 		return
 
-	// Handle antag HUD if active
 	if(has_antag_hud())
 		toggle_combo_hud()
 
-	// Deactivate admin holder
 	holder.deactivate()
 
-	// Ensure the admin stops hearing ghosts like a mortal
-	if(prefs)
-		prefs.chat_toggles &= ~CHAT_GHOSTEARS   // Explicitly remove ghost hearing
-		prefs.chat_toggles &= ~CHAT_GHOSTWHISPER // Explicitly remove ghost whispers
-		prefs.save_preferences()
-		to_chat(src, "<span class='info'>I will hear like a mortal.</span>")
-
-	// Messaging
 	to_chat(src, "<span class='interface'>I am now a normal player.</span>")
 	log_admin("[src] deadmined themself.")
 	message_admins("[src] deadmined themself.")
@@ -738,7 +728,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	if(!A)
 		A = GLOB.admin_datums[ckey]
-		if(!A)
+		if (!A)
 			var/msg = " is trying to readmin but they have no deadmin entry"
 			message_admins("[key_name_admin(src)][msg]")
 			log_admin_private("[key_name(src)][msg]")
@@ -746,7 +736,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	A.associate(src)
 
-	if(!holder)
+	if (!holder)
 		return //This can happen if an admin attempts to vv themself into somebody elses's deadmin datum by getting ref via brute force
 
 	to_chat(src, "<span class='interface'>I am now an admin.</span>")

@@ -4,52 +4,34 @@
 	if(!lockid)
 		return 5
 	switch(lockid)
-		if(ACCESS_VAULT)
+		if("vault")
 			return 1
-		if(ACCESS_LORD)
+		if("lord")
 			return 1
-		if(ACCESS_MANOR)
+		if("manor")
 			return 2
-		if(ACCESS_GUEST)
+		if("guest")
 			return 2
-		if(ACCESS_DUNGEON)
+		if("butler")
+			return 3
+		if("dungeon")
 			return 2
-		if(ACCESS_FOREST)
+		if("garrison")
 			return 2
-		if(ACCESS_GARRISON)
+		if("forrestgarrison")
 			return 2
-		if(ACCESS_FARM)
+		if("soilson")
 			return 4
-		if(ACCESS_WAREHOUSE)
+		if("warehouse")
 			return 3
-		if(ACCESS_CAPTAIN)
+		if("captain")
 			return 3
-		if(ACCESS_MERCHANT)
+		if("merchant")
+			return 2
+		if("shop")
 			return 5
-		if(ACCESS_INN)
+		if("tavern")
 			return 5
-		if(ACCESS_SMITH)
-			return 3
-		if(ACCESS_BUTCHER)
-			return 3
-		if(ACCESS_MANOR_GATE)
-			return 2
-		if(ACCESS_PRIEST)
-			return 2
-		if(ACCESS_CHURCH)
-			return 3
-		if(ACCESS_TOWER)
-			return 3
-		if(ACCESS_MAGE)
-			return 2
-		if(ACCESS_ARTIFICER)
-			return 4
-		if(ACCESS_HAND)
-			return 1
-		if(ACCESS_STEWARD)
-			return 2
-		if(ACCESS_FELDSHER)
-			return 3
 		if("roomi")
 			return 6
 		if("roomii")
@@ -87,6 +69,30 @@
 		if("luxroomv")
 			return 3
 		if("luxroomvi")
+			return 3
+		if("blacksmith")
+			return 3
+		if("butcher")
+			return 3
+		if("walls")
+			return 2
+		if("priest")
+			return 3
+		if("hpriest")
+			return 2
+		if("tower")
+			return 3
+		if("mage")
+			return 2
+		if("artificer")
+			return 4
+		if("confession")
+			return 1
+		if("hand")
+			return 1
+		if("steward")
+			return 2
+		if("doctor")
 			return 3
 		else
 			return 5

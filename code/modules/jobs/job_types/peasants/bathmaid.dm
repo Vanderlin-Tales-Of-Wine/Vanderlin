@@ -26,7 +26,7 @@
 	armor = /obj/item/clothing/shirt/dress/gen/sexy
 	//neck = /obj/item/storage/belt/pouch/nitemaiden
 	belt = /obj/item/storage/belt/leather/rope
-	beltr = /obj/item/key/bathhouse
+	beltr = /obj/item/key/nitemaiden
 	//ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 
 	if(H.mind)

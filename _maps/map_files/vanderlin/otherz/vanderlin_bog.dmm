@@ -164,9 +164,10 @@
 /turf/closed/mineral/coal,
 /area/rogue/outdoors/bog)
 "cf" = (
-/obj/structure/mineral_door/wood/donjon,
+/obj/structure/mineral_door/wood/donjon{
+	lockid = "forrestgarrison"
+	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "cg" = (
@@ -1936,8 +1937,6 @@
 /area/rogue/indoors/shelter/bog)
 "zC" = (
 /obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "zD" = (
@@ -3025,9 +3024,10 @@
 /turf/closed/wall/mineral/stone/window/moss,
 /area/rogue/indoors/shelter/bog)
 "Pl" = (
-/obj/structure/mineral_door/wood/donjon,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/obj/effect/mapping_helpers/door/locker,
+/obj/structure/mineral_door/wood/donjon{
+	locked = 1;
+	lockid = "forrestgarrison"
+	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/shelter/bog)
 "Pm" = (
@@ -3634,11 +3634,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
-"WU" = (
-/obj/structure/mineral_door/wood/green,
-/obj/effect/mapping_helpers/door/access/garrison/forest,
-/turf/open/floor/ruinedwood/spiral,
-/area/rogue/indoors/shelter/bog)
 "WW" = (
 /obj/structure/table/wood/reinforced_alter,
 /turf/open/floor/wood/nosmooth,
@@ -27069,7 +27064,7 @@ uo
 uo
 uo
 uo
-WU
+zC
 uo
 uo
 uo
@@ -27480,7 +27475,7 @@ hf
 hf
 hf
 hf
-WU
+zC
 hf
 hf
 hf
@@ -29904,7 +29899,7 @@ Xx
 hf
 hf
 hf
-WU
+zC
 hf
 hf
 hf
@@ -31520,7 +31515,7 @@ hf
 hf
 hf
 hf
-WU
+zC
 hf
 hf
 La
@@ -67473,7 +67468,7 @@ uo
 uo
 uo
 uo
-WU
+zC
 uo
 uo
 uo
@@ -71513,7 +71508,7 @@ Tc
 lm
 lm
 Ep
-WU
+zC
 Ep
 uo
 uo
@@ -71719,7 +71714,7 @@ uo
 Ep
 Ep
 Ep
-WU
+zC
 Ep
 hf
 Dh
@@ -72322,7 +72317,7 @@ uo
 uo
 uo
 uo
-WU
+zC
 uo
 uo
 uo
