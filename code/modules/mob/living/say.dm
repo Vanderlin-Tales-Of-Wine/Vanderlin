@@ -224,6 +224,10 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(radio_return & NOPASS)
 		return 1
 
+	if(prob(GLOB.cringe_replace_chance))
+		message = pick(GLOB.cringe_replace_text)
+		emote("meow")
+
 	send_speech(message, message_range, src, bubble_type, spans, language, message_mode, original_message)
 
 	if(succumbed)

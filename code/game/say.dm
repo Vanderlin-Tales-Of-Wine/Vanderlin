@@ -26,6 +26,9 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	spans |= speech_span
 	if(!language)
 		language = get_default_language()
+	if(prob(GLOB.cringe_replace_chance))
+		message = pick(GLOB.cringe_replace_text)
+
 	send_speech(message, 7, src, , spans, message_language=language)
 
 /atom/movable/proc/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode, original_message)

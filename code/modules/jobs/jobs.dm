@@ -144,3 +144,15 @@ GLOBAL_PROTECT(exp_specialmap)
 			return job.department_head //this is a list
 
 GLOBAL_VAR_INIT(meow_chance, 1)
+
+GLOBAL_VAR_INIT(cringe_replace_chance, 5)
+
+GLOBAL_LIST_INIT(cringe_replace_text, list(
+	"Nyaaa~",
+	"Mrrp~",
+	"Mrrow~",
+	"Mggaow~",
+	"Meow~",
+	"Rawr~",
+	"Uwu~",
+))

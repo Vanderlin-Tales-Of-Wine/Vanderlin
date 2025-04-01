@@ -176,11 +176,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	return
 
 /datum/species/proc/get_native_language()
-	return   
+	return
 
 /datum/species/proc/handle_speech(datum/source, list/speech_args)
 	var/message = speech_args[SPEECH_MESSAGE]
-	var/language = speech_args[SPEECH_LANGUAGE] 
+	var/language = speech_args[SPEECH_LANGUAGE]
 
 	if(message)
 		var/list/accent_words = strings("spellcheck.json", "spellcheck")
@@ -226,7 +226,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(ismob(source))
 			var/nativelang = get_native_language()
 			var/language_check
-			
+
 			var/list/language_map = list(
 				/datum/language/common = "Imperial",
 				/datum/language/elvish = "Elfish",
@@ -236,7 +236,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				/datum/language/celestial = "Celestial",
 				/datum/language/zybantine = "Zybean"
 			)
-			
+
 			if (language in language_map)
 				language_check = language_map[language]
 			if(nativelang != language_check || special_accent)
@@ -2735,7 +2735,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ////////////////
 
 /datum/species/proc/can_wag_tail(mob/living/carbon/human/H)
-	return FALSE
+	return TRUE
 
 /datum/species/proc/is_wagging_tail(mob/living/carbon/human/H)
 	return FALSE
