@@ -14696,6 +14696,7 @@
 /obj/structure/rack,
 /obj/machinery/light/fueled/wallfire/candle,
 /obj/item/recipe_book/underworld,
+/obj/item/mortar,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town)
 "jPG" = (
@@ -19718,6 +19719,7 @@
 /obj/structure/table/wood/plain_alt,
 /obj/item/pestle,
 /obj/item/pestle,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town)
 "nwm" = (
