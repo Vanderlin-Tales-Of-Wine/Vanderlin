@@ -17,12 +17,13 @@
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dark Elf"
 	)
 
 	outfit = /datum/outfit/job/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
-	give_bank_account = 500
+	give_bank_account = 696
 	apprentice_name = "Servant"
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 
