@@ -90,6 +90,8 @@
 				used = list('sound/vo/male/gen/yawn (1).ogg','sound/vo/male/gen/yawn (2).ogg')
 			if("attnwhistle")
 				used = 'sound/vo/attn.ogg'
+			if("meow")
+				used = 'sound/mrrp-mggaow-meow/oranges_meow1.ogg'
 			if("psst")
 				used = 'sound/vo/psst.ogg'
 			if("moan")

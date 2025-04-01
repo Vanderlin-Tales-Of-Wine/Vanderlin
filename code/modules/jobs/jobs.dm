@@ -142,3 +142,5 @@ GLOBAL_PROTECT(exp_specialmap)
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(job.title == job_title)
 			return job.department_head //this is a list
+
+GLOBAL_VAR_INIT(meow_chance, 1)

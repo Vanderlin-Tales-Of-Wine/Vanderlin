@@ -173,7 +173,7 @@
 	emote_type = EMOTE_AUDIBLE
 
 /mob/living/carbon/human/verb/emote_meow()
-	set name = "meow"
+	set name = "Meow"
 	set category = "Noises"
 	emote("meow", intentional = FALSE)
 
@@ -183,13 +183,6 @@
 		var/mob/living/carbon/C = user
 		if(C.silent || !C.can_speak_vocal())
 			message = "makes a muffled meow."
-
-/datum/emote/living/meow/run_emote(mob/user, params, type_override, intentional, targetted)
-	. = ..()
-	if(user.gender == FEMALE)
-		playsound(user, pick('sound/mrrp-mggaow-meow/cat_meow1.ogg', 'sound/mrrp-mggaow-meow/cat_meow2.ogg', 'sound/mrrp-mggaow-meow/cat_meow3.ogg'))
-	else
-		playsound(user, 'sound/mrrp-mggaow-meow/oranges_meow1.ogg')
 
 /datum/emote/living/scream/agony
 	key = "agony"

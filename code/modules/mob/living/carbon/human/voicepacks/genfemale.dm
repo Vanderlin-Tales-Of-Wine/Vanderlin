@@ -85,6 +85,8 @@
 				used = list('sound/vo/female/gen/yawn (1).ogg','sound/vo/female/gen/yawn (2).ogg','sound/vo/female/gen/yawn (3).ogg')
 			if("attnwhistle")
 				used = 'sound/vo/attn.ogg'
+			if("meow")
+				used = list('sound/mrrp-mggaow-meow/cat_meow1.ogg', 'sound/mrrp-mggaow-meow/cat_meow2.ogg', 'sound/mrrp-mggaow-meow/cat_meow3.ogg')
 			if("psst")
 				used = 'sound/vo/psst.ogg'
 			if("moan")

@@ -90,6 +90,9 @@
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
+	if(prob(GLOB.meow_chance))
+		emote("meow")
+
 	if(stat != DEAD)
 		return 1
 
