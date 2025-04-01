@@ -770,10 +770,7 @@
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/town/dwarfin)
 "azG" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest";
-	locked = 1
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/blocks,
@@ -4733,10 +4730,7 @@
 	},
 /area/rogue/outdoors/river)
 "cYT" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest";
-	locked = 1
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/churchmarble,
@@ -5205,9 +5199,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/manor)
 "duO" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
@@ -9180,9 +9172,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "gaW" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
@@ -10100,10 +10090,7 @@
 /area/rogue/indoors/town/tavern)
 "gHA" = (
 /obj/machinery/light/fueled/wallfire/candle,
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest";
-	locked = 1
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/tile,
@@ -14765,9 +14752,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/magician)
 "jRv" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church/chapel)
@@ -15589,6 +15574,15 @@
 /obj/structure/chair/stool,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
+"koO" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	name = "Royal Crypt"
+	},
+/obj/effect/mapping_helpers/door/access/church/grave,
+/obj/effect/mapping_helpers/door/locker,
+/turf/open/floor/blocks,
+/area/rogue/indoors/town/church)
 "koP" = (
 /obj/structure/chair/bench/couch,
 /turf/open/floor/carpet/royalblack,
@@ -18511,9 +18505,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
 "mFe" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/church,
@@ -18929,8 +18921,6 @@
 /area/rogue/indoors/town/manor)
 "mRC" = (
 /obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "graveyard";
 	name = "Royal Crypt"
 	},
 /obj/effect/mapping_helpers/door/access/church/grave,
@@ -19462,6 +19452,14 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
+"nku" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	lockid = "priest"
+	},
+/obj/effect/mapping_helpers/door/access/church/church,
+/obj/structure/mineral_door/wood/donjon/stone,
+/turf/open/floor/church,
+/area/rogue/indoors/town/church/chapel)
 "nlg" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -21523,10 +21521,7 @@
 /turf/open/water/cleanshallow,
 /area/rogue/under/cave)
 "oJK" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "graveyard"
-	},
+/obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/access/church/grave,
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
@@ -23648,16 +23643,14 @@
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/steward)
 "qjJ" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/locker,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "qkc" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
+	lockid = ssssssssssss
 	},
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/hexstone,
@@ -29774,8 +29767,7 @@
 /area/rogue/indoors/town/warehouse)
 "uqS" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "graveyard"
+	locked = 1
 	},
 /obj/effect/mapping_helpers/door/access/church/grave,
 /obj/effect/mapping_helpers/door/locker,
@@ -31428,9 +31420,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/town/cell)
 "vvS" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/blocks/newstone/alt,
 /area/rogue/indoors/town/church)
@@ -33397,9 +33387,7 @@
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/clinic_large)
 "wLY" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/grave,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
@@ -34248,9 +34236,7 @@
 /turf/closed/mineral,
 /area/rogue/under/cavewet)
 "xsc" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/churchmarble,
 /area/rogue/indoors/town/church/chapel)
@@ -111797,7 +111783,7 @@ vgJ
 vgJ
 hJQ
 dsC
-mRC
+koO
 tMD
 dtJ
 box
@@ -152767,7 +152753,7 @@ qPJ
 qPJ
 wDT
 wcr
-jRv
+nku
 wcr
 fgm
 djm
