@@ -49,10 +49,10 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	var/ruler_title
 	if(spawned.gender == MALE)
 		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
-		ruler_title = "King"
+		ruler_title = "Kingy"
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
-		ruler_title = "Queen"
+		ruler_title = "Queenie"
 	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Nyanderlin."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
