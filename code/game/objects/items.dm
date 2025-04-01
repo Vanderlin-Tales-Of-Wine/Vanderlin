@@ -379,9 +379,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 				getmoboverlay(i,prop,behind=FALSE,mirrored=TRUE)
 				getmoboverlay(i,prop,behind=TRUE,mirrored=TRUE)
 
-	if(headpricemax)
-		headprice = rand(headpricemin, headpricemax)
-
 	. = ..()
 	for(var/path in actions_types)
 		new path(src)

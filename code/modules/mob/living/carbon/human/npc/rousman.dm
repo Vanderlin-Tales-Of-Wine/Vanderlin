@@ -207,7 +207,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/rousman()
 		src.dna.species.soundpack_f = new /datum/voicepack/rousman()
-		var/obj/item/headdy = get_bodypart("head")
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/rousman.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
