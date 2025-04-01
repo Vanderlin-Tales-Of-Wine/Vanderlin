@@ -168,7 +168,7 @@
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
 "aeT" = (
-/turf/open/water/cleanshallow,
+/turf/open/water/cleanshallow/dirt,
 /area/rogue/outdoors/woods_safe)
 "afl" = (
 /obj/effect/landmark/start/villager{
@@ -24901,10 +24901,6 @@
 /obj/item/reagent_containers/glass/bottle/poison,
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
-"rcP" = (
-/obj/structure/flora/newtree,
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors/woods_safe)
 "rcU" = (
 /obj/structure/dye_bin/luxury,
 /turf/open/floor/concrete,
@@ -28237,7 +28233,7 @@
 /area/rogue/under/town/basement)
 "trI" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/open/water/cleanshallow,
+/turf/open/water/cleanshallow/dirt,
 /area/rogue/outdoors/woods_safe)
 "tsz" = (
 /obj/structure/flora/grass/water/reeds,
@@ -30677,7 +30673,7 @@
 /area/rogue/outdoors/town)
 "uTe" = (
 /obj/structure/flora/grass,
-/turf/open/water/cleanshallow,
+/turf/open/water/cleanshallow/dirt,
 /area/rogue/outdoors/woods_safe)
 "uTi" = (
 /obj/structure/bed/inn/double,
@@ -147154,7 +147150,7 @@ ujr
 kMP
 hGo
 kMP
-rcP
+jgQ
 aeT
 aeT
 trI
