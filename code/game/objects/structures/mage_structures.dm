@@ -74,7 +74,6 @@ s
 	icon_state = "arcyne"
 	max_integrity = 2000
 	integrity_failure = 0
-	over_state = "arcyneopen"
 
 /obj/structure/mineral_door/wood/deadbolt/arcyne/caster
 	var/mob/caster
