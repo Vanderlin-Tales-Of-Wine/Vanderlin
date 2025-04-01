@@ -3855,7 +3855,7 @@
 /obj/structure/mineral_door/wood/violet{
 	name = "Wizard's Tower"
 	},
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/tile,
 /area/rogue/indoors/town/magician)
 "cvD" = (
@@ -25937,7 +25937,7 @@
 "rYr" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/magician)
 "rYI" = (
@@ -26344,7 +26344,7 @@
 "sof" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/magician)
 "soH" = (
@@ -30743,7 +30743,7 @@
 "vlt" = (
 /obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/violet,
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/magician)
 "vlI" = (
