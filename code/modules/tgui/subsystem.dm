@@ -212,7 +212,7 @@
 		if(!uiobj.len)
 			open_uis.Remove(src_object_key)
 
-	return 1 // Let the caller know we did it.
+	return 1 // Let the requester know we did it.
 
 /**
  * private

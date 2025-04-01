@@ -177,8 +177,7 @@
 	if(ckey) //player
 		src.ckey = ckey
 	else //npc
-		aggressive = 1
-		mode = AI_HUNT
+		ai_controller = new /datum/ai_controller/human_npc(src)
 		wander = TRUE
 
 	if(!mind)

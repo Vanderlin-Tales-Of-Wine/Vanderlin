@@ -26,7 +26,7 @@
 	var/deity
 	if(ishuman(src))
 		var/mob/living/carbon/human/human_user = src
-		deity = human_user.patron.name
+		deity = human_user.patron.display_name ? human_user.patron.display_name : human_user.patron.name
 	if(usr.job == "Chaplain")
 		cross.icon_state = "kingyellow"
 		font_color = "blue"
