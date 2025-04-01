@@ -41,14 +41,14 @@
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "az" = (
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/mountains/anvil/lower)
 "aA" = (
 /obj/effect/spawner/map_spawner/loot,
 /turf/open/floor/carpet/red,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "aD" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/lower)
 "aE" = (
 /obj/machinery/light/fueled/wallfire/candle/blue,
@@ -110,7 +110,7 @@
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/under/mountains/anvil/upper)
 "bh" = (
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/mountains/anvil/upper)
 "bi" = (
 /obj/structure/stairs/stone/reddish{
@@ -298,7 +298,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "cB" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "cC" = (
 /obj/structure/bookcase/random_recipes,
@@ -443,7 +443,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon)
 "dF" = (
-/turf/closed/mineral/random/high_valuable,
+/turf/closed/mineral/gemeralds/cold,
 /area/rogue/under/cavelava)
 "dG" = (
 /obj/structure/chair/bench/coucha,
@@ -1398,7 +1398,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "kA" = (
 /obj/structure/fluff/walldeco/vinez/red,
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "kB" = (
 /obj/structure/flora/shroom_tree,
@@ -1630,7 +1630,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "mP" = (
-/turf/closed/mineral/random/high_valuable,
+/turf/closed/mineral/gemeralds/cold,
 /area/rogue/under/mountains/anvil/upper)
 "mQ" = (
 /obj/structure/table/stone_small,
@@ -1671,6 +1671,9 @@
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/wall/mineral/craftstone,
 /area/rogue/indoors/mountains/anvil/surface/building)
+"nk" = (
+/turf/open/water/blood,
+/area/rogue/under/mountains/anvil/lower)
 "nl" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
@@ -1917,7 +1920,7 @@
 /area/rogue/under/mountains/anvil/lower)
 "pd" = (
 /obj/structure/arcyne_wall,
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "pf" = (
 /obj/structure/fluff/walldeco/vinez/red,
@@ -1958,7 +1961,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "ps" = (
 /obj/item/reagent_containers/glass/bottle/manapot,
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/mountains/anvil/upper)
 "pB" = (
 /obj/item/clothing/head/rare/elfplate/welfplate,
@@ -2342,7 +2345,7 @@
 /area/rogue/outdoors/mountains/anvil/snowyforest)
 "sy" = (
 /obj/structure/fluff/walldeco/vinez/red,
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "sC" = (
 /obj/structure/barricade/rogue,
@@ -2450,7 +2453,7 @@
 "tB" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "tG" = (
 /obj/structure/flora/grass/bush,
@@ -2712,7 +2715,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/upper)
 "vN" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/cavewet)
 "vO" = (
 /obj/effect/spawner/map_spawner/loot/coin/high,
@@ -2760,7 +2763,7 @@
 /turf/open/floor/volcanic,
 /area/rogue/under/mountains/anvil/dungeon)
 "wl" = (
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/cavelava)
 "wp" = (
 /obj/structure/wild_plant/nospread/manabloom,
@@ -2909,7 +2912,7 @@
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/under/mountains/anvil/lower)
 "xH" = (
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/cavewet)
 "xI" = (
 /obj/effect/decal/remains/human,
@@ -3196,7 +3199,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "zM" = (
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "zP" = (
 /obj/structure/table/stone_small,
@@ -3378,7 +3381,7 @@
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/lower)
 "Bk" = (
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/lower)
 "Bn" = (
 /obj/structure/table/wood/reinf_long{
@@ -3569,14 +3572,14 @@
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/upper)
 "Cy" = (
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/cavewet)
 "CD" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains/anvil/dungeon)
 "CE" = (
 /obj/item/reagent_containers/glass/bottle/strongmanapot,
-/turf/closed/mineral/random/high,
+/turf/closed/mineral/random/cold/high,
 /area/rogue/under/mountains/anvil/upper)
 "CK" = (
 /obj/structure/table/wood/counter{
@@ -4151,7 +4154,7 @@
 /area/rogue/under/mountains/anvil/upper)
 "HN" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/mineral/random/high_valuable,
+/turf/closed/mineral/gemeralds/cold,
 /area/rogue/under/mountains/anvil/upper)
 "HR" = (
 /obj/item/natural/wood/plank,
@@ -4507,7 +4510,7 @@
 /turf/open/floor/dirt/ambush,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Ky" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/dungeon)
 "KA" = (
 /obj/structure/spider/stickyweb{
@@ -4994,7 +4997,7 @@
 /area/rogue/indoors/mountains/anvil/surface/building)
 "NQ" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/upper)
 "NR" = (
 /mob/living/carbon/human/species/skeleton/npc/warrior/skilled,
@@ -5299,7 +5302,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/upper)
 "Qi" = (
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/cavelava)
 "Ql" = (
 /turf/open/floor/naturalstone,
@@ -5358,7 +5361,7 @@
 /area/rogue/under/mountains/anvil/upper)
 "QC" = (
 /obj/structure/fluff/walldeco/vinez/blue,
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "QD" = (
 /obj/structure/table/wood/plain,
@@ -5460,7 +5463,7 @@
 /area/rogue/under/mountains/anvil/dungeon)
 "Rp" = (
 /obj/effect/decal/cleanable/blood,
-/turf/closed/mineral/random/med,
+/turf/closed/mineral/random/cold/med,
 /area/rogue/under/mountains/anvil/upper)
 "Rr" = (
 /obj/structure/bookcase/random,
@@ -5894,7 +5897,7 @@
 /turf/open/floor/herringbone,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Vb" = (
-/turf/closed/mineral/bedrock,
+/turf/closed/mineral/bedrock/cold,
 /area/rogue/under/mountains/anvil/upper)
 "Vc" = (
 /obj/structure/spider/stickyweb,
@@ -5942,7 +5945,7 @@
 /turf/open/floor/grass/cold,
 /area/rogue/under/mountains/anvil/upper)
 "Vv" = (
-/turf/closed/mineral/random/high_valuable,
+/turf/closed/mineral/gemeralds/cold,
 /area/rogue/under/mountains/anvil/lower)
 "Vw" = (
 /mob/living/simple_animal/hostile/retaliate/leylinelycan{
@@ -32593,9 +32596,9 @@ Li
 az
 Vv
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 Vv
 az
 az
@@ -32794,11 +32797,11 @@ Li
 Nc
 RO
 Vv
-Li
-Li
-Li
-Li
-Li
+nk
+nk
+nk
+nk
+nk
 Vv
 Vv
 az
@@ -32996,12 +32999,12 @@ Li
 RO
 RO
 Vv
-Li
-Li
-Li
-Li
-Li
-Li
+nk
+nk
+nk
+nk
+nk
+nk
 Vv
 Vv
 az
@@ -33198,13 +33201,13 @@ az
 RO
 RO
 Vv
-Li
-Li
-Li
-Li
-Li
-Li
-Li
+nk
+nk
+nk
+nk
+nk
+nk
+nk
 Vv
 az
 az
@@ -33399,14 +33402,14 @@ Li
 az
 Vv
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 iK
 iK
-Li
-Li
-Li
+nk
+nk
+nk
 Vv
 Vv
 az
@@ -33600,16 +33603,16 @@ Li
 Li
 az
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 iK
 iK
 iK
 iK
-Li
-Li
-Li
+nk
+nk
+nk
 Vv
 az
 Bk
@@ -33802,16 +33805,16 @@ RO
 az
 az
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 iK
 iK
 iK
 iK
 iK
-Li
-Li
+nk
+nk
 Vv
 az
 Bk
@@ -34004,16 +34007,16 @@ RO
 az
 az
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 iK
 iK
 BL
 iK
 iK
-Li
-Li
+nk
+nk
 Vv
 az
 Bk
@@ -34206,16 +34209,16 @@ Bk
 Bk
 az
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 iK
 iK
 iK
 iK
 iK
-Li
-Li
+nk
+nk
 Vv
 az
 Bk
@@ -34409,14 +34412,14 @@ Bk
 az
 Vv
 Vv
-Li
-Li
-Li
-Li
+nk
+nk
+nk
+nk
 iK
-Li
-Li
-Li
+nk
+nk
+nk
 Vv
 Vv
 az
@@ -34613,12 +34616,12 @@ az
 Vv
 Vv
 Vv
-Li
-Li
-Li
-Li
-Li
-Li
+nk
+nk
+nk
+nk
+nk
+nk
 Vv
 az
 az
@@ -34816,9 +34819,9 @@ az
 az
 Vv
 Vv
-Li
-Li
-Li
+nk
+nk
+nk
 Vv
 Vv
 Vv
