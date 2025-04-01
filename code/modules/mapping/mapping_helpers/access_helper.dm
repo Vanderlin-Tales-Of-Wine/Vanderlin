@@ -22,6 +22,9 @@
 /obj/effect/mapping_helpers/door/access/town/smith
 	access_string = ACCESS_SMITH
 
+/obj/effect/mapping_helpers/door/access/town/artificer
+	access_string = ACCESS_ARTIFICER
+
 /obj/effect/mapping_helpers/door/access/town/inn
 	access_string = ACCESS_INN
 
@@ -46,6 +49,11 @@
 /obj/effect/mapping_helpers/door/access/town/matron
 	access_string = ACCESS_MATRON
 
+/obj/effect/mapping_helpers/door/access/town/elder
+	access_string = ACCESS_ELDER
+/obj/effect/mapping_helpers/door/access/town/veteran
+	access_string = ACCESS_VETERAN
+
 /obj/effect/mapping_helpers/door/access/town/mercenary
 	access_string = ACCESS_MERC
 
@@ -54,6 +62,9 @@
 
 /obj/effect/mapping_helpers/door/access/town/warehouse
 	access_string = ACCESS_WAREHOUSE
+
+/obj/effect/mapping_helpers/door/access/town/bathhouse
+	access_string = ACCESS_BATHHOUSE
 
 // Town Garrison
 /obj/effect/mapping_helpers/door/access/garrison
@@ -117,3 +128,12 @@
 
 /obj/effect/mapping_helpers/door/access/manor/mage_guild
 	access_string = ACCESS_MAGE_GUILD
+
+/obj/effect/mapping_helpers/door/access/manor/archive
+	access_string = ACCESS_ARCHIVE
+
+/obj/effect/mapping_helpers/door/access/manor/atarms
+	access_string = ACCESS_AT_ARMS
+
+/obj/effect/mapping_helpers/door/access/manor/guest
+	access_string = ACCESS_GUEST

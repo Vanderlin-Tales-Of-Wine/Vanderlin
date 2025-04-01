@@ -206,25 +206,22 @@
 	picks = list(/obj/item/lockpick, /obj/item/lockpick, /obj/item/lockpick)
 
 /obj/item/storage/keyring/captain
-	keys = list(/obj/item/key/captain, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/guest)
+	keys = list(/obj/item/key/captain, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/guest)
 
 /obj/item/storage/keyring/consort
-	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/consort, /obj/item/key/guest)
+	keys = list(/obj/item/key/dungeon, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/consort, /obj/item/key/guest)
 
 /obj/item/storage/keyring/guard
-	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison)
+	keys = list(/obj/item/key/garrison)
 
 /obj/item/storage/keyring/manorguard
-	keys = list(/obj/item/key/manor, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls)
+	keys = list(/obj/item/key/manor, /obj/item/key/dungeon, /obj/item/key/atarms, /obj/item/key/walls)
 
 /obj/item/storage/keyring/archivist
 	keys = list(/obj/item/key/archive, /obj/item/key/manor)
 
 /obj/item/storage/keyring/merchant
-	keys = list(/obj/item/key/shop, /obj/item/key/merchant, /obj/item/key/mercenary)
-
-/obj/item/storage/keyring/mguard
-	keys = list(/obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/manor, /obj/item/key/guest)
+	keys = list(/obj/item/key/merchant, /obj/item/key/mercenary)
 
 /obj/item/storage/keyring/mage
 	keys = list(/obj/item/key/manor, /obj/item/key/tower, /obj/item/key/mage_guild, /obj/item/key/mage)
@@ -236,55 +233,43 @@
 	keys = list(/obj/item/key/tavern, /obj/item/key/roomhunt, /obj/item/key/medroomiv, /obj/item/key/medroomiii, /obj/item/key/medroomii, /obj/item/key/medroomi, /obj/item/key/luxroomiv, /obj/item/key/luxroomiii, /obj/item/key/luxroomii, /obj/item/key/luxroomi)
 
 /obj/item/storage/keyring/priest
-	keys = list(/obj/item/key/priest, /obj/item/key/confession, /obj/item/key/church, /obj/item/key/graveyard, /obj/item/key/monastery, /obj/item/key/inquisition)
+	keys = list(/obj/item/key/priest, /obj/item/key/church, /obj/item/key/graveyard,  /obj/item/key/inquisition)
 
 /obj/item/storage/keyring/inquisitor
 	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
 
-/obj/item/storage/keyring/shepherd
-	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
-
-/obj/item/storage/keyring/niteman
-	keys = list(/obj/item/key/niteman, /obj/item/key/nitemaiden)
+/obj/item/storage/keyring/apothecary
+	keys = list(/obj/item/key/apothecary, /obj/item/key/bathhouse)
 
 /obj/item/storage/keyring/gravetender
 	keys = list(/obj/item/key/church, /obj/item/key/graveyard)
 
 /obj/item/storage/keyring/hand
-	keys = list(/obj/item/key/hand, /obj/item/key/steward, /obj/item/key/tavern, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/manor, /obj/item/key/guest)
+	keys = list(/obj/item/key/hand, /obj/item/key/steward, /obj/item/key/tavern, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms, /obj/item/key/manor, /obj/item/key/guest)
 
 /obj/item/storage/keyring/steward
 	keys = list(/obj/item/key/steward, /obj/item/key/vault, /obj/item/key/manor, /obj/item/key/warehouse)
 
 /obj/item/storage/keyring/dungeoneer
-	keys = list(/obj/item/key/dungeon, /obj/item/key/manor, /obj/item/key/garrison, /obj/item/key/walls)
+	keys = list(/obj/item/key/dungeon, /obj/item/key/manor, /obj/item/key/walls, /obj/item/key/atarms)
 
 /obj/item/storage/keyring/butler
-	keys = list(/obj/item/key/manor, /obj/item/key/butler)
+	keys = list(/obj/item/key/manor, /obj/item/key/guest)
 
 /obj/item/storage/keyring/jester
-	keys = list(/obj/item/key/manor, /obj/item/key/garrison, /obj/item/key/walls)
-
-/obj/item/storage/keyring/weaponsmith
-	keys = list(/obj/item/key/weaponsmith, /obj/item/key/blacksmith)
-
-/obj/item/storage/keyring/armorsmith
-	keys = list(/obj/item/key/armorsmith, /obj/item/key/blacksmith)
+	keys = list(/obj/item/key/manor, /obj/item/key/atarms, /obj/item/key/walls)
 
 /obj/item/storage/keyring/mayor
-	keys = list(/obj/item/key/veteran, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor, /obj/item/key/apartments/penthouse2)
+	keys = list(/obj/item/key/veteran, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson, /obj/item/key/manor)
 
-/obj/item/storage/keyring/doctor
-	keys = list(/obj/item/key/doctor, /obj/item/key/manor, /obj/item/key/clinic)
+/obj/item/storage/keyring/feldsher
+	keys = list(/obj/item/key/feldsher, /obj/item/key/manor, /obj/item/key/clinic)
 
 /obj/item/storage/keyring/physicker
-	keys = list(/obj/item/key/doctor, /obj/item/key/clinic)
+	keys = list(/obj/item/key/clinic)
 
 /obj/item/storage/keyring/veteran
-	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
-
-/obj/item/storage/keyring/tailor
-	keys = list(/obj/item/key/tailor)
+	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
 
 /obj/item/storage/keyring/stevedore
-	keys = list(/obj/item/key/warehouse, /obj/item/key/shop)
+	keys = list(/obj/item/key/warehouse, /obj/item/key/merchant)
