@@ -203,7 +203,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				_L[trait] = list(source); \
 				SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
 				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
-			} \
+			}; \
 		} \
 	} while (0)
 #define REMOVE_TRAIT(target, trait, sources) \
@@ -213,13 +213,13 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		if (sources && !islist(sources)) { \
 			_S = list(sources); \
 		} else { \
-			_S = sources\
+			_S = sources; \
 		}; \
 		if (_L && _L[trait]) { \
 			for (var/_T in _L[trait]) { \
 				if ((!_S && (_T != ROUNDSTART_TRAIT)) || (_T in _S)) { \
-					_L[trait] -= _T \
-				} \
+					_L[trait] -= _T; \
+				}; \
 			};\
 			if (!length(_L[trait])) { \
 				_L -= trait; \
@@ -227,7 +227,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
 			}; \
 			if (!length(_L)) { \
-				target.status_traits = null \
+				target.status_traits = null; \
 			}; \
 		} \
 	} while (0)
@@ -242,8 +242,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 					_L -= _T; \
 					SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(_T)); \
 					SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
-					}; \
-				};\
+				}; \
+			};\
 			if (!length(_L)) { \
 				target.status_traits = null\
 			};\
