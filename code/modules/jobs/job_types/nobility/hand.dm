@@ -187,7 +187,7 @@
 /datum/advclass/hand/bruiser
 	name = "Bruiser"
 	tutorial = "In your youth you had crept out of the court grounds to watch fights in the arena. The sights, the sounds, \
-	the art of war - it all made you strive to hone your body into a weapon. As adulthood reared its head, the way you treated \
+	the art of war.  As adulthood reared its head, the way you treated \
 	the peasantry made you take up penance - traveling between churches around the continent, taking up an oath to Ravox. \
 	To whom do your bonds lie - to your family, or to god?"
 	outfit = /datum/outfit/job/hand/bruiser
@@ -200,9 +200,10 @@
 	backpack_contents = list(/obj/item/weapon/knife/dagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/paper/scroll/frumentarii/roundstart = 1)
 	pants = /obj/item/clothing/pants/tights/black
 	head = /obj/item/clothing/head/helmet/leather/inquisitor
+	armor = /obj/item/clothing/armor/leather/jacket // Temporary, yell at Cannibal to finish this.
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
 	gloves = /obj/item/clothing/gloves/angle
-	wrists = /obj/item/clothing/wrists/bracers/leather
+	wrists = /obj/item/clothing/wrists/bracers
 	neck = /obj/item/clothing/neck/psycross/silver/ravox
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -215,11 +216,11 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // Uses leather armor, kind of needed.
 		H.change_stat(STATKEY_STR, 4)
 		H.change_stat(STATKEY_CON, 3)
-		H.change_stat(STATKEY_PER, -3)
 		H.change_stat(STATKEY_INT, -2)
-		H.change_stat(STATKEY_SPD, -1)
+		H.change_stat(STATKEY_SPD, -2) // He's NOT a dodger. Parry, parry, parry.
 		if(H.patron != /datum/patron/divine/ravox)
 			H.set_patron(/datum/patron/divine/ravox)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
