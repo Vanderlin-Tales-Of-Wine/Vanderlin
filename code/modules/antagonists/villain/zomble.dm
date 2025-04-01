@@ -123,10 +123,10 @@
 	if(zombie.charflaw)
 		zombie.charflaw.ephemeral = FALSE
 	zombie.update_body()
-	zombie.change_stat(STATKEY_STR, oldSTASTR - 7)
-	zombie.change_stat(STATKEY_SPD, oldSTASPD - 2)
-	zombie.change_stat(STATKEY_INT, oldSTAINT - 1)
-	zombie.change_stat(STATKEY_CON, oldSTACON - 5)
+	zombie.change_stat(STATKEY_STR, oldSTASTR - 12)
+	zombie.change_stat(STATKEY_SPD, oldSTASPD - 7)
+	zombie.change_stat(STATKEY_INT, oldSTAINT - 6)
+	zombie.change_stat(STATKEY_CON, oldSTACON - 11)
 	zombie.cmode_music = old_cmode_music
 	zombie.set_patron(patron)
 	owner.known_skills = stored_skills
@@ -220,10 +220,10 @@
 	oldSTASPD = zombie.STASPD
 	oldSTAINT = zombie.STAINT
 	oldSTACON = zombie.STACON
-	zombie.change_stat(STATKEY_STR, 7, TRUE)
-	zombie.change_stat(STATKEY_SPD, 2, TRUE)
-	zombie.change_stat(STATKEY_INT, 1, TRUE)
-	zombie.change_stat(STATKEY_CON, 5, TRUE)
+	zombie.change_stat(STATKEY_STR, 12, TRUE)
+	zombie.change_stat(STATKEY_SPD, 7, TRUE)
+	zombie.change_stat(STATKEY_INT, 6, TRUE)
+	zombie.change_stat(STATKEY_CON, 11, TRUE)
 
 	zombie.vitae_pool = 0 // Again, just in case.
 

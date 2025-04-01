@@ -99,7 +99,7 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
-			dreamer.STASTR = 16
+			dreamer.STASTR = 20
 			dreamer.STACON = 16
 			dreamer.STAEND = 16
 			if(heart) // clear any inscryptions, in case of being made maniac midround
