@@ -421,7 +421,7 @@
 ///obj/item/storage/hip/headhook/royal
 	//name = "royal head hook"
 	//desc = "a golden hook for storing 16 heads, befitting of any king's hunt"
-	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these, add them to crafting menu ingot plus 2 fiber
+	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these
 	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
 	//icon_state = "knife"
 	//item_state = "knife"

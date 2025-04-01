@@ -151,7 +151,7 @@
 /datum/component/storage/concrete/grid/headhook
 	max_w_class = WEIGHT_CLASS_NORMAL
 	screen_max_rows = 6
-	screen_max_columns = 4 //N/A fix later
+	screen_max_columns = 4
 	click_gather = TRUE
 	collection_mode = COLLECT_EVERYTHING
 	dump_time = 0
@@ -187,7 +187,7 @@
 	allow_dump_out = TRUE
 	insert_preposition = "in"
 
-/datum/component/storage/concrete/grid/headhook/bronze/New(datum/P, ...) //N/A set the rows right
+/datum/component/storage/concrete/grid/headhook/bronze/New(datum/P, ...)
 	. = ..()
 	set_holdable(
 		typecacheof(list(/obj/item/natural/head/volf,

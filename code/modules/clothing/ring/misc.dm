@@ -273,7 +273,7 @@
 	if(HAS_TRAIT(user, TRAIT_BURDEN))
 		return TRUE
 
-	var/gaffed = alert(user, "Will you bear the burden?", "YOUR DESTINY", "Yes", "No")
+	var/gaffed = alert(user, "Will you bear the burden? (Be the next Gaffer)", "YOUR DESTINY", "Yes", "No")
 	var/gaffed_time = world.time
 
 	if((gaffed == "No" || world.time > gaffed_time + 5 SECONDS) && user.is_holding(src))
@@ -301,12 +301,12 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 MINUTES)
 	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
-	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A change this later
+	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A
 
 /obj/item/clothing/ring/gold/burden/proc/psstt()
 	if(!ismob(loc))
 		playsound(src, 'sound/vo/psst.ogg', 50)
-		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A change to 10 to 20 seconds
+		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A
 
 /obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
 	if(ismob(loc))

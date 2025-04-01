@@ -79,7 +79,7 @@
 /obj/effect/proc_holder/spell/self/convertrole/mercenary
 	name = "Recruit Mercenary"
 	new_role = "Mercenary"
-	overlay_state = "recruit_servant" //N/A change this, maybe add multible recruitment messages later
+	overlay_state = "recruit_servant" //N/A change this
 	recruitment_faction = "Mercenaries"
 	recruitment_message = "Hey, %RECRUIT, you ever considered going full time?"
 	accept_message = "For coin and glory!"
