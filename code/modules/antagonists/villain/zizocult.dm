@@ -163,7 +163,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 // VERBS
 
 /mob/living/carbon/human/proc/praise()
-	set name = "Praise the Dark Lady!"
+	set name = "Praise the Master!"
 	set category = "ZIZO"
 
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())

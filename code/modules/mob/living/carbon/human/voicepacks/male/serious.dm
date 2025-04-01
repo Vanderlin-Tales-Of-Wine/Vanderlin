@@ -31,6 +31,8 @@
 				used = list('sound/vo/male/serious/sigh.ogg','sound/vo/male/serious/sigh (2).ogg')
 			if("whistle")
 				used = list('sound/vo/male/serious/whistle.ogg','sound/vo/male/serious/whistle (2).ogg')
+			if("sexmoanhvy")
+				used = list('modular/stonekeep/sound/sexcon/vo/male/moan (1).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (2).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (3).ogg')
 	if(!used)
 		used = ..(soundin)
 	return used

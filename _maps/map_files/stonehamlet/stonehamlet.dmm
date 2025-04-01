@@ -356,6 +356,10 @@
 /obj/structure/fluff/psycross,
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"azr" = (
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/town/bath/redhouse)
 "azz" = (
 /obj/structure/table/wood/long{
 	dir = 9
@@ -674,6 +678,12 @@
 	pixel_y = 3
 	},
 /turf/open/floor/blocks/stonered/tiny,
+/area/rogue/indoors/town/bath/redhouse)
+"bfL" = (
+/obj/effect/decal/shadow_floor{
+	dir = 8
+	},
+/turf/open/floor/tile/bath,
 /area/rogue/indoors/town/bath/redhouse)
 "bgs" = (
 /turf/open/floor/cobblemoss,
@@ -2144,13 +2154,13 @@
 	lockid = "steward";
 	name = "key chest"
 	},
-/obj/item/key/doctor,
+/obj/item/key/clinic,
 /obj/item/key/church,
 /obj/item/key/blacksmith,
 /obj/item/key/garrison,
 /obj/item/key/graveyard,
-/obj/item/key/nitemaiden,
-/obj/item/key/shop,
+/obj/item/key/bathhouse,
+/obj/item/key/merchant,
 /obj/item/key/soilson,
 /obj/item/key/tavern,
 /obj/item/key/warehouse,
@@ -2254,6 +2264,12 @@
 	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/hamlet)
+"dsb" = (
+/obj/effect/decal/shadow_floor{
+	dir = 1
+	},
+/turf/open/floor/tile/bath,
+/area/rogue/indoors/town/bath/redhouse)
 "dss" = (
 /obj/item/trash/applecore,
 /obj/item/neuFarm/seed/apple,
@@ -41619,12 +41635,12 @@ fJZ
 bsg
 bfK
 bsg
-fbR
+azr
 gqU
 dIi
 gqU
 fbR
-fbR
+dsb
 bsg
 oLr
 bsg
@@ -41821,12 +41837,12 @@ fJZ
 ahb
 bsg
 bsg
+azr
 fbR
 fbR
 fbR
 fbR
-fbR
-fbR
+dsb
 bsg
 bsg
 ahb
@@ -42022,14 +42038,14 @@ shr
 fJZ
 fJZ
 fJZ
-fbR
+fnY
 fbR
 oSE
 dYr
 dYr
 jYz
 fbR
-fbR
+fnY
 fJZ
 fJZ
 fJZ
@@ -43234,7 +43250,7 @@ shr
 fJZ
 fJZ
 fJZ
-fbR
+bfL
 fbR
 kkq
 lMY
@@ -43437,7 +43453,7 @@ fJZ
 ahb
 bsg
 bsg
-fbR
+azr
 fbR
 fbR
 fbR
@@ -43639,7 +43655,7 @@ fJZ
 bsg
 dJp
 bsg
-fbR
+azr
 deZ
 mih
 fbR

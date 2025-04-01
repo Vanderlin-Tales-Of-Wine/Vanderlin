@@ -17,6 +17,8 @@
 			used = list('sound/vo/male/knight/painscream (1).ogg','sound/vo/male/knight/painscream (2).ogg','sound/vo/male/knight/painscream (3).ogg')
 		if("rage")
 			used = list('sound/vo/male/knight/rage (1).ogg','sound/vo/male/knight/rage (2).ogg','sound/vo/male/knight/rage (3).ogg','sound/vo/male/knight/rage (4).ogg','sound/vo/male/knight/rage (5).ogg','sound/vo/male/knight/rage (6).ogg')
+		if("sexmoanhvy")
+			used = list('modular/stonekeep/sound/sexcon/vo/male/moan (1).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (2).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (3).ogg')
 	if(!used)
 		used = ..(soundin, modifiers)
 	return used

@@ -478,18 +478,17 @@
 /*
 /obj/structure/fluff/walldeco/xylixhint/Initialize()
 	. = ..()
-	if (GLOB.xylix_bad)
+	if (GLOB.xylix_bad == TRUE)
 		icon_state = "wall_sad"
 */
 /obj/structure/fluff/walldeco/xylixhint/danger
 	icon_state = "wall_sad"
-/*
+	/*
 /obj/structure/fluff/walldeco/xylixhint/danger/Initialize()
 	. = ..()
 	if (GLOB.xylix_bad)
 		icon_state = "wall_funny"
 */
-
 // XYLIX MAZE
 /obj/structure/fluff/statue/xylix
 	desc = "Some mad God no doubt."
@@ -500,11 +499,10 @@
 /*
 /obj/structure/fluff/statue/xylix/Initialize()
 	. = ..()
-	if (GLOB.xylix_bad)
+	if (GLOB.xylix_bad == TRUE)
 		icon_state = "xylix_frown"
+
 */
-
-
 /obj/structure/trap/bomb/hidden
 	alpha = 5
 /obj/structure/trap/poison/hidden
@@ -975,3 +973,13 @@
 		else
 			to_chat(user, "<span class='warning'>Horrific...</span>")
 			user.add_stress(/datum/stressevent/viewgib)
+
+
+/obj/structure/hellgoblin_circle
+	desc = ""
+	icon = 'icons/roguetown/misc/96x96.dmi'
+	icon_state = "circle"
+	alpha = 180
+	pixel_y = -32
+	pixel_x = -32
+	color = "#962121"

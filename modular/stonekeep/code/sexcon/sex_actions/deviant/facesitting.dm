@@ -1,5 +1,5 @@
 /datum/sex_action/facesitting
-	name = "mouth ride"
+	name = "ride on their mouth"
 
 /datum/sex_action/facesitting/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -18,6 +18,8 @@
 		return FALSE
 	// Target can't stand up
 	if(target.mobility_flags & MOBILITY_STAND)
+		return FALSE
+	if(user.underwear != "Nude")
 		return FALSE
 	return TRUE
 

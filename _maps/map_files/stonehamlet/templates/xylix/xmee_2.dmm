@@ -2,29 +2,36 @@
 "a" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
+"c" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "d" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"f" = (
-/obj/structure/trap/saw_blades,
+"e" = (
+/obj/structure/punji_sticks,
 /turf/open/water/river{
-	dir = 8
+	dir = 4
 	},
 /area/rogue/under/xylix)
-"g" = (
-/obj/structure/fluff/walldeco/vinez/blue,
+"m" = (
+/obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"h" = (
-/turf/open/floor/blocks/moss,
+"n" = (
+/turf/open/water/river{
+	dir = 1
+	},
 /area/rogue/under/xylix)
 "p" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end{
 	dir = 1
 	},
 /area/rogue/under/xylix)
-"v" = (
-/obj/structure/trap/saw_blades,
+"r" = (
+/turf/open/water/river,
+/area/rogue/under/xylix)
+"w" = (
 /turf/open/water/river{
 	dir = 4
 	},
@@ -33,17 +40,17 @@
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
 "D" = (
-/turf/open/water/river,
+/obj/structure/punji_sticks,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "E" = (
-/obj/structure/trap/saw_blades,
+/obj/structure/punji_sticks,
 /turf/open/water/river{
 	dir = 1
 	},
 /area/rogue/under/xylix)
 "I" = (
-/obj/structure/trap/poison,
-/obj/structure/fluff/walldeco/vinez/blue,
+/obj/structure/trap/spike/hidden,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "J" = (
@@ -54,27 +61,23 @@
 "K" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end,
 /area/rogue/under/xylix)
-"L" = (
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/under/xylix)
 "M" = (
+/obj/structure/punji_sticks,
 /turf/open/water/river{
 	dir = 8
 	},
 /area/rogue/under/xylix)
-"N" = (
-/obj/structure/trap/saw_blades,
+"O" = (
+/obj/structure/punji_sticks,
 /turf/open/water/river,
 /area/rogue/under/xylix)
-"O" = (
-/obj/structure/fluff/walldeco/vinez/blue,
-/turf/open/floor/cobblemoss,
+"T" = (
+/obj/structure/trap/spike/hidden,
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "V" = (
 /turf/open/water/river{
-	dir = 4
+	dir = 8
 	},
 /area/rogue/under/xylix)
 
@@ -83,8 +86,8 @@ a
 A
 A
 p
-h
-h
+d
+d
 d
 d
 K
@@ -94,150 +97,150 @@ a
 "}
 (2,1,1) = {"
 J
-I
-O
-O
 d
-h
-h
 d
-O
-O
-I
+a
+a
+d
+d
+a
+a
+d
+d
 J
 "}
 (3,1,1) = {"
 J
-O
-D
-D
-D
-D
-D
-D
-D
-V
-O
+e
+n
+n
+n
+n
+w
+n
+n
+E
+n
 J
 "}
 (4,1,1) = {"
 J
-O
-M
-D
-N
-D
-D
-D
+w
+m
+d
 V
+d
+D
+I
+d
 V
-O
+d
 J
 "}
 (5,1,1) = {"
 J
-O
-M
-M
-D
-D
+w
+d
 D
 V
+d
+d
+d
+c
 V
-V
-g
+c
 J
 "}
 (6,1,1) = {"
 J
-g
-M
-M
-D
-D
-V
-V
-V
-v
-g
+r
+r
+r
+r
+r
+r
+r
+r
+r
+c
 J
 "}
 (7,1,1) = {"
 J
-g
-M
-M
-M
-E
-L
 V
+d
+c
+d
+d
+M
+d
+D
 V
-V
-O
+d
 J
 "}
 (8,1,1) = {"
 J
-O
-f
-M
-M
-L
-L
-L
 V
+d
+T
+D
+d
 V
-O
+c
+d
+V
+I
 J
 "}
 (9,1,1) = {"
 J
-g
-M
-M
-M
-L
-L
-L
-L
+n
+n
+n
+n
+n
 V
-g
+n
+n
+E
+n
 J
 "}
 (10,1,1) = {"
 J
-O
-M
-L
-L
-L
-L
-E
-L
-L
-g
+c
+D
+d
+c
+w
+c
+c
+d
+d
+V
 J
 "}
 (11,1,1) = {"
 J
-I
+c
 d
-h
-d
+c
+c
+r
+r
 O
-O
-O
-O
-O
-I
+r
+r
+V
 J
 "}
 (12,1,1) = {"
 a
 d
-h
-h
-h
+c
+d
+d
 K
 A
 A

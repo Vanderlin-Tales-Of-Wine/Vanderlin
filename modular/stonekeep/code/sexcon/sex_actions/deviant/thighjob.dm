@@ -15,6 +15,8 @@
 		return FALSE
 	if(user.gender == FEMALE)
 		return FALSE
+	if(user.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/thighjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)

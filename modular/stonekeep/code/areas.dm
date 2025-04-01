@@ -276,6 +276,16 @@
 	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
 	converted_type = /area/rogue/outdoors/caves
 
+/area/rogue/under/zizochurch
+	name = "zizos church"
+	icon_state = "cavewet"
+	first_time_text = "Church of the Lost"
+	spookysounds = SPOOKY_CAVE
+	spookynight = SPOOKY_CAVE
+	droning_sound = 'sound/music/area/caves.ogg'
+	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'
+	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
+
 /area/rogue/under/catacombs/dwarfoutpost
 	name = "underrock outpost"
 	first_time_text = "Underrock Outpost"

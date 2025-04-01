@@ -62,7 +62,7 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 
 /datum/sex_controller/proc/do_message_signature(sigkey)
 	var/properkey = "[speed][force][sigkey]"
-	if(properkey == msg_signature && last_msg_signature + 4.0 SECONDS >= world.time)
+	if(properkey == msg_signature && last_msg_signature + 5.0 SECONDS >= world.time)
 		return FALSE
 	msg_signature = properkey
 	last_msg_signature = world.time
@@ -226,11 +226,10 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 		return
 	var/chosen_emote
 	switch(arousal_amt)
-		if(0 to 5)
+		if(0 to 3)
 			chosen_emote = "sexmoanlight"
-		if(5 to INFINITY)
+		if(3 to INFINITY)
 			chosen_emote = "sexmoanhvy"
-
 	last_moan = world.time
 	user.emote(chosen_emote, forced = TRUE)
 
@@ -560,3 +559,30 @@ Admin logging is provided for orgasms and if you try to initiate sex with corpse
 	. = ..()
 	pixel_x = rand(-8, 8)
 	pixel_y = rand(-8, 8)
+
+
+/datum/emote/living/carbon/human/sexmoanlight
+	key = "sexmoanlight"
+	emote_type = EMOTE_AUDIBLE
+	nomsg = TRUE
+	only_forced_audio = TRUE
+
+/datum/emote/living/carbon/human/sexmoanlight/can_run_emote(mob/living/user, status_check = TRUE , intentional)
+	. = ..()
+	if(. && iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(C.silent || !C.can_speak())
+			message = "makes a noise."
+
+/datum/emote/living/carbon/human/sexmoanhvy
+	key = "sexmoanhvy"
+	emote_type = EMOTE_AUDIBLE
+	nomsg = TRUE
+	only_forced_audio = TRUE
+
+/datum/emote/living/carbon/human/sexmoanhvy/can_run_emote(mob/living/user, status_check = TRUE , intentional)
+	. = ..()
+	if(. && iscarbon(user))
+		var/mob/living/carbon/C = user
+		if(C.silent || !C.can_speak())
+			message = "makes a noise."

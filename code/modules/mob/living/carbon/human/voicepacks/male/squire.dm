@@ -13,6 +13,8 @@
 			used = pick('sound/vo/male/squire/painscream (1).ogg','sound/vo/male/squire/painscream (2).ogg','sound/vo/male/squire/painscream (3).ogg')
 		if("rage")
 			used = 'sound/vo/male/squire/rage.ogg'
+		if("sexmoanhvy")
+			used = list('modular/stonekeep/sound/sexcon/vo/male/moan (1).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (2).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (3).ogg')
 	if(!used)
 		used = ..(soundin, modifiers)
 	return used

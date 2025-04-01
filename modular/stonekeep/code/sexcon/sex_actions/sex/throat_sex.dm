@@ -18,6 +18,8 @@
 		return FALSE
 	if(user.gender == FEMALE)
 		return
+	if(user.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/throat_sex/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -26,7 +28,10 @@
 
 /datum/sex_action/throat_sex/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] feeds [target]."))
+		if(prob(80))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] feeds [target]."))
+		else
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] thrusts between [target]'s lips."))
 	playsound(target, 'modular/stonekeep/sound/sexcon/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 

@@ -125,14 +125,14 @@
 		"Sundered" = SKIN_COLOR_SUNDERED, //  - (Orange)
 		"Zarkana" = SKIN_COLOR_ARCANA, // - (Dark violet)
 		"Zarconum" = SKIN_COLOR_ZARCONUM, // - (Pink)
-		"Flayer" = SKIN_COLOR_FLAYER, // - (Purple)
+//		"Flayer" = SKIN_COLOR_FLAYER, // - (Purple)
 		"Abyssium" = SKIN_COLOR_ABYSS, // - (Navy blue)
 		"Castillian" = SKIN_COLOR_CASTILLIAN, // - (Pale red)
 		"Asturias" = SKIN_COLOR_ASTURIAS, // - (Clay red)
 		"Vaquero" = SKIN_COLOR_VAQUERO, // - (Earthly red)
 		"Zanguine" = SKIN_COLOR_ZANGUINE, // - (Dark violet)
-		"Ash" = SKIN_COLOR_ASH, // - (Pale blue)
-		"Arlenneth" = SKIN_COLOR_ARLENNETH, // - (Lavender blue)
+//		"Ash" = SKIN_COLOR_ASH, // - (Pale blue)
+//		"Arlenneth" = SKIN_COLOR_ARLENNETH, // - (Lavender blue)
 	))
 
 	return skin_colors

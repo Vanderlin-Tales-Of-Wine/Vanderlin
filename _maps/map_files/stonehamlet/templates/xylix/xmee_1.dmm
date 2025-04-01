@@ -2,36 +2,27 @@
 "a" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
-"c" = (
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
 "d" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"e" = (
-/obj/structure/punji_sticks,
+"f" = (
+/obj/structure/trap/saw_blades,
 /turf/open/water/river{
-	dir = 4
+	dir = 8
 	},
 /area/rogue/under/xylix)
-"m" = (
-/obj/structure/punji_sticks,
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
-"n" = (
-/turf/open/water/river{
-	dir = 1
-	},
+"g" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/obj/structure/trap/poison,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "p" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end{
 	dir = 1
 	},
 /area/rogue/under/xylix)
-"r" = (
-/turf/open/water/river,
-/area/rogue/under/xylix)
-"w" = (
+"v" = (
+/obj/structure/trap/saw_blades,
 /turf/open/water/river{
 	dir = 4
 	},
@@ -40,17 +31,17 @@
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
 "D" = (
-/obj/structure/punji_sticks,
-/turf/open/floor/cobblemoss,
+/turf/open/water/river,
 /area/rogue/under/xylix)
 "E" = (
-/obj/structure/punji_sticks,
+/obj/structure/trap/saw_blades,
 /turf/open/water/river{
 	dir = 1
 	},
 /area/rogue/under/xylix)
 "I" = (
-/obj/structure/trap/spike/hidden,
+/obj/machinery/light/fueled/firebowl,
+/obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "J" = (
@@ -61,19 +52,27 @@
 "K" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end,
 /area/rogue/under/xylix)
+"L" = (
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/xylix)
 "M" = (
-/obj/structure/punji_sticks,
 /turf/open/water/river{
 	dir = 8
 	},
 /area/rogue/under/xylix)
-"O" = (
-/obj/structure/punji_sticks,
+"N" = (
+/obj/structure/trap/saw_blades,
 /turf/open/water/river,
+/area/rogue/under/xylix)
+"O" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "V" = (
 /turf/open/water/river{
-	dir = 8
+	dir = 4
 	},
 /area/rogue/under/xylix)
 
@@ -83,7 +82,7 @@ A
 A
 p
 d
-c
+d
 d
 d
 K
@@ -93,148 +92,148 @@ a
 "}
 (2,1,1) = {"
 J
+I
+O
+O
 d
 d
-a
-a
-c
-c
-a
-a
 d
 d
+O
+O
+I
 J
 "}
 (3,1,1) = {"
 J
-e
-n
-n
-n
-n
-w
-n
-n
-E
-n
+O
+D
+D
+D
+D
+D
+D
+D
+V
+g
 J
 "}
 (4,1,1) = {"
 J
-w
-a
-c
-V
-c
+O
+M
 D
-I
-d
+N
+D
+D
+D
 V
-d
+V
+O
 J
 "}
 (5,1,1) = {"
 J
-w
-d
+O
+M
+M
+D
+D
 D
 V
-c
-c
-d
-c
 V
-d
+V
+O
 J
 "}
 (6,1,1) = {"
 J
-r
-r
-r
-r
-r
-r
-r
-r
-r
-c
+O
+M
+M
+D
+D
+V
+V
+V
+v
+O
 J
 "}
 (7,1,1) = {"
 J
-V
-d
-c
-c
-d
+g
 M
-d
-D
+M
+M
+E
+L
 V
-c
+V
+V
+O
 J
 "}
 (8,1,1) = {"
 J
+O
+f
+M
+M
+L
+L
+L
 V
-d
-I
-m
-c
 V
-d
-c
-V
-I
+O
 J
 "}
 (9,1,1) = {"
 J
-n
-n
-n
-n
-n
+O
+M
+M
+M
+L
+L
+L
+L
 V
-n
-n
-E
-n
+O
 J
 "}
 (10,1,1) = {"
 J
-d
-D
-c
-d
-w
-d
-c
-c
-d
-V
+O
+M
+L
+L
+L
+L
+E
+L
+L
+O
 J
 "}
 (11,1,1) = {"
 J
+I
 d
 d
-c
-c
-r
-r
+d
 O
-r
-r
-V
+O
+g
+O
+O
+I
 J
 "}
 (12,1,1) = {"
 a
-c
-c
+d
+d
 d
 d
 K

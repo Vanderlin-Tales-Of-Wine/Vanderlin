@@ -266,23 +266,22 @@
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 
 	desc = "<b>Tiefling</b><br>\
-	Tieflings, also known as Infernal-Spawn, are a relatively new species in Grimoria\
-	Having shown up during the time of the Apotheosis War, \
-	descendants of mortals that willingly served and married Zizo Spawn in unholy union, \
-	they served as the chattel army under the forces of Zizo and Graggar. \
-	Due to their defeat and conversion, Tieflings have since been accepted, begrudgingly, as a proper Pantheon worshipping race. \
-	Their species has suffered vast tragedy throughout their short history, \
-	facing scrutiny, misjudgement and even genocide in the past. Wounding many tiefling psyche \
-	and leading to most seeking a solitary and nomadic life outside the watchful eyes of others. \
-	Tieflings can reproduce with mortals, but only produce more tieflings due to their strong Zizo taint, so no half-breeds exist. \
-	They also tend to be extremely perceptive and paranoid, as luck is rarely on their side \
-	and their unique anatomy makes them extremely susceptible to injury."
+	Tieflings, also known as Infernal-Spawn, are one of the younger peoples of Grimoria\
+	Having appeared during the time of the Apotheosis War, \
+	they are the offspring of of mortals who served Zizo and mated with their Spawn in unholy union. \
+	Legions of them served as the chattel army under the banners of Zizo and Graggar. \
+	After their crushing defeat, the Tieflings are said to have begged for mercy and were begrudgingly accepted, after proving for an age they could behave as a proper Pantheon worshipping race. \
+	Facing much persecution and prejudice, these people have survived pogroms with remarkable resilience , \
+	many seeking a solitary and nomadic life without relying on the wider society to survive. \
+	Tieflings are less capable of creating offspring than most peoples, and only produce more tieflings due to their strong Zizo taint, so no half-breeds exist. \
+	Most of them tend to be extremely perceptive and paranoid, as luck is rarely on their side \
+	and their peculiar anatomy with somewhat fragile, crystalline bones makes them susceptible to injury."
 
 	specstats = list("strength" = 0, "perception" = 2, "intelligence" = 1, "constitution" = -1, "endurance" = 0, "speed" = 1, "fortune" = -1)
 	specstats_f = list("strength" = 0, "perception" = 3, "intelligence" = 1, "constitution" = -2, "endurance" = -1, "speed" = 1, "fortune" = -1)
 
 /datum/species/tieberian/get_accent_list()
-	return strings("SKtieflingreplacement.json", "tiefling")
+	return strings("SKtiefling_replacement.json", "tiefling")
 
 // =================================================================================
 /datum/species/rakshari

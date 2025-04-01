@@ -25,15 +25,7 @@ GLOBAL_LIST_EMPTY(bogevil_starts)
 GLOBAL_LIST_EMPTY(forestevil_starts)
 GLOBAL_LIST_EMPTY(mountainevil_starts)
 GLOBAL_LIST_EMPTY(zizo_starts)
-/*
-GLOBAL_VAR_INIT(xylix_bad, FALSE)
-/proc/xylixcoinflip()
-	if(prob(99))
-		GLOB.xylix_bad = TRUE
-/datum/controller/global_vars/Initialize()
-	. = ..()
-	xylixcoinflip()
-*/
+
 #define CTAG_NITEMAIDEN		"CAT_NITEMAIDEN" 		// 2 choices, bathhouse only or inn focus.
 #define CTAG_SKHAND			"CAT_SKHAND"
 #define CTAG_SKWOODSMAN		"CAT_SKWOODSMAN"

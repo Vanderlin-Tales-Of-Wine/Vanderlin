@@ -5,13 +5,13 @@
 "d" = (
 /turf/closed/wall/mineral/decostone/moss/blue/cand,
 /area/rogue/under/xylix)
-"n" = (
-/mob/living/simple_animal/hostile/retaliate/wolf/familiar,
+"j" = (
+/mob/living/simple_animal/hostile/retaliate/troll,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "o" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/blocks/moss,
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "r" = (
 /obj/structure/lever{
@@ -24,7 +24,10 @@
 	dir = 1
 	},
 /area/rogue/under/xylix)
-"w" = (
+"D" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"H" = (
 /obj/structure/bars/passage{
 	layer = 2.1;
 	plane = -5;
@@ -32,19 +35,11 @@
 	},
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"D" = (
-/turf/closed/wall/mineral/decostone/moss/blue/long,
-/area/rogue/under/xylix)
 "I" = (
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"M" = (
-/obj/machinery/light/fueled/wallfire/candle/blue{
-	pixel_y = -32
-	},
-/turf/open/floor/cobblemoss,
-/area/rogue/under/xylix)
-"O" = (
+"J" = (
+/obj/structure/bars,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "P" = (
@@ -53,20 +48,11 @@
 	},
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"R" = (
-/mob/living/simple_animal/hostile/retaliate/wolf/familiar,
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
-"T" = (
-/obj/structure/bars,
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
 "U" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "V" = (
-/obj/structure/bars,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 
@@ -76,152 +62,152 @@ a
 P
 P
 a
-D
-D
+a
 D
 D
 a
+D
 D
 a
 "}
 (2,1,1) = {"
 s
 r
-O
-O
 V
+V
+H
 I
+o
 I
+P
 I
 I
 V
-I
-O
 "}
 (3,1,1) = {"
 s
 I
 I
-O
-w
-I
-R
+V
+J
 I
 I
-w
+I
+J
+V
 I
 I
 "}
 (4,1,1) = {"
-d
-o
-O
+s
+V
+V
+I
+H
+I
 I
 V
+P
+I
 V
-V
-V
-V
-V
-O
 I
 "}
 (5,1,1) = {"
 s
-O
+V
 I
 I
-O
-w
-O
-O
+J
+V
 I
 V
-O
-O
+J
+V
+V
+V
 "}
 (6,1,1) = {"
 s
 I
-O
-O
-O
 V
-I
-O
-R
+V
+H
+V
+j
+V
 P
-O
+I
+V
 a
 "}
 (7,1,1) = {"
 s
-O
-O
+V
+V
 I
-O
+J
 V
+I
+I
+J
+I
 V
-w
-V
-V
-O
 s
 "}
 (8,1,1) = {"
 s
+I
+I
 V
+H
+V
+I
+I
 P
 V
 I
-O
-I
-I
-I
-O
-M
-d
+s
 "}
 (9,1,1) = {"
-d
-o
+s
 I
-P
 I
-T
+I
+J
 P
-T
-V
+J
+P
+J
 I
 I
 s
 "}
 (10,1,1) = {"
 s
-O
-R
 V
 I
-P
-n
-O
-P
-O
-O
+I
+V
+V
+V
+V
+I
+V
+V
 s
 "}
 (11,1,1) = {"
 s
-O
-O
+o
 V
 I
-V
+I
+I
 U
 I
+I
 V
-O
-O
+o
 s
 "}
 (12,1,1) = {"

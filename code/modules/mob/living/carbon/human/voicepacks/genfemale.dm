@@ -91,4 +91,8 @@
 				used = list('sound/vo/female/gen/moan (1).ogg','sound/vo/female/gen/moan (2).ogg','sound/vo/female/gen/moan (3).ogg')
 			if("clap")
 				used = list('sound/vo/clap (1).ogg', 'sound/vo/clap (2).ogg', 'sound/vo/clap (3).ogg', 'sound/vo/clap (4).ogg')
+			if("sexmoanlight")
+				used = list('modular/stonekeep/sound/sexcon/vo/female/moan (1).ogg','modular/stonekeep/sound/sexcon/vo/female/moan (2).ogg','modular/stonekeep/sound/sexcon/vo/female/moan (3).ogg')
+			if("sexmoanhvy")
+				used = list('modular/stonekeep/sound/sexcon/vo/female/sexlight (1).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (2).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (3).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (4).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (5).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (6).ogg','modular/stonekeep/sound/sexcon/vo/female/sexlight (7).ogg')
 	return used

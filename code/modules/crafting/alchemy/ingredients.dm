@@ -228,13 +228,11 @@
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/transisdust
-	name = "transis dust"
-	desc = "A long mix of herb that product a special powder."
+	name = "useless dust"
+	desc = "Worthless."
 	icon_state = "transisdust"
 
-	major_pot = /datum/alch_cauldron_recipe/gender_potion
-	med_pot = /datum/alch_cauldron_recipe/gender_potion
-	minor_pot = /datum/alch_cauldron_recipe/gender_potion
+
 
 //BEGIN THE HERBS
 

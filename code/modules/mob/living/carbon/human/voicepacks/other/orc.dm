@@ -8,12 +8,13 @@
 		if("deathgurgle")
 			used = pick('sound/vo/mobs/orc/death (1).ogg','sound/vo/mobs/orc/death (2).ogg')
 		if("idle")
-			used = pick('sound/vo/mobs/orc/idle (1).ogg','sound/vo/mobs/orc/idle (2).ogg','sound/vo/mobs/orc/idle (3).ogg','sound/vo/mobs/orc/idle (4).ogg','sound/vo/mobs/orc/idle (5).ogg')
+			used = pick('sound/vo/mobs/orc/idle (1).ogg','sound/vo/mobs/orc/idle (2).ogg','sound/vo/mobs/orc/idle (4).ogg','sound/vo/mobs/orc/idle (5).ogg')
 		if("pain")
 			used = pick('sound/vo/mobs/orc/pain (1).ogg','sound/vo/mobs/orc/pain (2).ogg','sound/vo/mobs/orc/pain (3).ogg')
 		if("paincrit")
 			used = pick('sound/vo/mobs/orc/pain (1).ogg','sound/vo/mobs/orc/painscream (2).ogg','sound/vo/mobs/orc/pain (3).ogg','sound/vo/mobs/orc/painscream (4).ogg')
 		if("painscream")
 			used = pick('sound/vo/mobs/orc/painscream (1).ogg','sound/vo/mobs/orc/painscream (2).ogg','sound/vo/mobs/orc/painscream (3).ogg','sound/vo/mobs/orc/painscream (4).ogg')
-
+		if("sexmoanhvy")
+			used = pick('sound/vo/mobs/orc/idle (4).ogg','sound/vo/mobs/orc/idle (5).ogg')
 	return used

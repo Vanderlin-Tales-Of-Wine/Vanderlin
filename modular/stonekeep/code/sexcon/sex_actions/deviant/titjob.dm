@@ -21,6 +21,8 @@
 		return FALSE
 	if(target.gender == MALE)
 		return FALSE
+	if(user.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/titjob/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -28,7 +30,10 @@
 
 /datum/sex_action/titjob/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] taffs [target]'s bosom."))
+		if(prob(80))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] taffs [target]'s bosom."))
+		else
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] thrusts his pintle between [target]'s hills."))
 	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 20, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)

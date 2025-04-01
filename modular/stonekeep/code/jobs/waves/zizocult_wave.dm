@@ -7,7 +7,7 @@
 	)
 	outfit = /datum/outfit/job/sk_migration/antag/zherald
 	grant_lit_torch = FALSE
-	antag_datum = /datum/antagonist/zizocultist/leader
+//	antag_datum = /datum/antagonist/zizocultist/leader
 
 /datum/migrant_role/sk/zizo/herald/after_spawn(mob/living/carbon/human/character)
 	. = ..()
@@ -19,7 +19,7 @@
 	wrists = /obj/item/clothing/wrists/bracers/copper
 	head = /obj/item/clothing/head/helmet/ironpot/marauder
 	r_hand = /obj/item/weapon/whip/antique
-	neck = /obj/item/clothing/neck/coif
+	neck = /obj/item/clothing/neck/gorget/copper
 	armor = /obj/item/clothing/armor/leather/jacket/sea/marauder
 	gloves =  /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather/rope
@@ -42,6 +42,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 
+		H.faction = list("zizo")
 		var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
 		if(eyes)
 			eyes.Remove(H,1)
@@ -62,6 +63,13 @@
 		H.set_patron(/datum/patron/inhumen/zizo)
 		H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
 
+		SSmapping.retainer.cultists |= H
+//	owner.special_role = "Zizoid Lackey"
+		H.verbs |= /mob/living/carbon/human/proc/praise
+		H.verbs |= /mob/living/carbon/human/proc/communicate
+
+
+
 /datum/migrant_role/sk/zizo/hellgoblin
 	name = "Hellgoblin Servant"
 	greet_text = "Like the days of yore, you serve the Herald and Zizo fanatically, not because of some oath or reward, but because it is your nature. Aid the cult of Zizo, destroy livestock, defile the purity of this hateful world whose very air stings your skin, your body made of things not belonging in this world, and not wanted here."
@@ -77,21 +85,34 @@
 		"Aasimar",
 		"Changeling","Skylancer","Ogrun","Undine"
 	)
-	outfit = /datum/outfit/job/sk_migration/antag/zhellgobbo
+//	outfit = /datum/outfit/job/sk_migration/antag/zhellgobbo
 	grant_lit_torch = FALSE
 //	antag_datum = /datum/antagonist/hellgoblin
-
+/*
 /datum/outfit/job/sk_migration/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
 	. = ..()
 	return  H.change_mob_type(new_type = /mob/living/carbon/human/species/goblin/npc/hell, location = H.loc, new_name = "Hell goblin", delete_old_mob = TRUE)
+*/
+/datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/carbon/human/character)
+	. = ..()
+	character.forceMove(pick(GLOB.zizo_starts))
+	var/mob/living/carbon/human/species/goblin/npc/N = new (get_turf(src))
+	N.key = character.key
+	qdel(character)
 
-/datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	if(L)
-		var/mob/living/carbon/human/H = L
+/*
+		H.remove_all_languages()
+		H.grant_language(/datum/language/hellspeak)
+		H.set_patron(/datum/patron/inhumen/zizo)
+		H.forceMove(pick(GLOB.zizo_starts))
+*/
 
+
+
+/*
 		H.set_species(/datum/species/goblin/hell)
 		H.change_mob_type(/mob/living/carbon/human/species/goblin/npc/hell, delete_old_mob = TRUE)
-/*
+
 		if(M.mind)
 			M.mind.special_role = "goblin"
 			M.mind.assigned_role = "goblin"
@@ -109,8 +130,8 @@
 		H.faction = list("orcs", "zizo")
 		H.name = "goblin"
 		H.real_name = "goblin"
-*/
-		H.remove_all_languages()
+
+
 		H.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/simple/claw)
 		H.update_a_intents()
 
@@ -130,11 +151,9 @@
 		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOHUNGER, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-		H.grant_language(/datum/language/hellspeak)
-		H.set_patron(/datum/patron/inhumen/zizo)
-		H.forceMove(pick(GLOB.zizo_starts))
 
-/datum/outfit/job/stonekeep/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H)
+
+/datum/outfit/job/sk_migration/antag/zhellgobbo/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.TOTALSTR = rand(10, 12)
 	H.TOTALPER = rand(5, 7)
@@ -149,7 +168,7 @@
 	belt = /obj/item/storage/belt/leather/rope/survival
 	shoes = /obj/item/clothing/shoes/sandals
 	neck = pick(/obj/item/clothing/neck/gorget, /obj/item/clothing/neck/coif)
-
+*/
 
 /datum/migrant_wave/zizo_cult
 	name = "The Cult of Apotheosis"
@@ -158,7 +177,7 @@
 	weight = 25
 	downgrade_wave = /datum/migrant_wave/zizo_cult_down
 	roles = list(
-		/datum/migrant_role/sk/zizo/herald = 2,
+		/datum/migrant_role/sk/zizo/herald = 1,
 //		/datum/migrant_role/sk/zizo/hellgoblin = 2
 		)
 	greet_text = "Zizo is your master, and too long has these lands been allowed to forget."
@@ -181,45 +200,34 @@
 
 
 
-
 /*
 
-
-
-/datum/antagonist/hellgoblin
-	name = "Zizoid Lackey"
-	roundend_category = "zizoid cultists"
-	antagpanel_category = "Zizoid Cult"
-	job_rank = ROLE_ZIZOIDCULTIST
-	antag_hud_type = ANTAG_HUD_TRAITOR
-	antag_hud_name = "cultist"
-	confess_lines = list(
-		"DEATH TO THE TEN!",
-		"PRAISE ZIZO!",
-		"I AM THE FUTURE!",
-		"NO GODS! ONLY MASTERS!",
-	)
-
-/datum/antagonist/zizocultist/examine_friendorfoe(datum/antagonist/examined_datum, mob/examiner, mob/examined)
-	if(istype(examined_datum, /datum/antagonist/zizocultist/leader))
-		return "<span class='boldnotice'>OUR LEADER!</span>"
-	if(istype(examined_datum, /datum/antagonist/zizocultist))
-		return "<span class='boldnotice'>A lackey for the future.</span>"
-	if(istype(examined_datum, /datum/antagonist/assassin))
-		return "<span class='boldnotice'>A GRAGGAROID! A CULTIST OF GRAGGAR!</span>"
-
-/datum/antagonist/zizocultist/on_gain()
+/obj/effect/proc_holder/spell/invoked/summon_hellgoblin/cast(list/targets, mob/living/carbon/human/user)
 	. = ..()
-	var/mob/living/carbon/human/H = owner.current
-	SSmapping.retainer.cultists |= owner
-	H.set_patron(/datum/patron/inhumen/zizo)
 
-	owner.special_role = "Zizoid Lackey"
-	H.cmode_music = 'sound/music/cmode/antag/combat_cult.ogg'
+	user.say("Zizo! Anat'zharo!")
 
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_VILLAIN, TRAIT_GENERIC)
+	var/obj = targets[1]
 
-	add_objective(/datum/objective/zizoserve)
+	if(!obj || !istype(obj, /mob/living/carbon/human))
+		to_chat(user, span_warning("I need to cast this spell on a corpse."))
+		return FALSE
 
+
+		var/list/candidates = pollCandidatesForMob("Do you want to play as a Necromancer's minion?", null, null, null, 100, target, POLL_IGNORE_NECROMANCER_SKELETON)
+
+		// theres at least one candidate
+		if(LAZYLEN(candidates))
+			var/mob/C = pick(candidates)
+			target.turn_to_minion(user, C.ckey)
+			target.visible_message(span_warning("[target.real_name]'s eyes light up with an eerie glow."), runechat_message = TRUE)
+
+		//no candidates, raise as npc
+		else
+			target.turn_to_minion(user)
+			target.visible_message(span_warning("[target.real_name]'s eyes light up with a weak glow."), runechat_message = TRUE)
+
+		return TRUE
+
+	return FALSE
 */

@@ -1104,12 +1104,6 @@
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
 
-/datum/sprite_accessory/hair/thicklong_alt
-	name = "Thick Long (Alt)"
-	icon_state = "thicklong_alt"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
 /datum/sprite_accessory/hair/baum
 	name = "Baum"
 	icon_state = "baum"

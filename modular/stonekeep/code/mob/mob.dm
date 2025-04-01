@@ -373,3 +373,11 @@
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig
 	remains_type = /obj/effect/decal/remains/neu/generic
+
+
+/mob/living/carbon/human/species/goblin/npc/hell/after_creation()
+	. = ..()
+	faction = list("zizo")
+/mob/living/carbon/human/species/goblin/npc/ambush/hell/after_creation()
+	. = ..()
+	faction = list("zizo")

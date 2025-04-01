@@ -7,6 +7,10 @@
 	dir = 5;
 	icon_state = "pipe"
 	},
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
 /turf/open/floor/metal/barograte,
 /area/rogue/under/xylix)
 "d" = (
@@ -51,11 +55,27 @@
 /obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
+"A" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
 "C" = (
 /turf/closed/wall/mineral/decostone/moss/blue/cand,
 /area/rogue/under/xylix)
 "D" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"F" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
 /area/rogue/under/xylix)
 "O" = (
 /turf/open/floor/cobblemoss,
@@ -64,6 +84,13 @@
 /turf/closed/wall/mineral/decostone/moss/blue/end,
 /area/rogue/under/xylix)
 "V" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"X" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 
@@ -177,7 +204,7 @@ O
 s
 O
 V
-V
+X
 "}
 (9,1,1) = {"
 C
@@ -191,7 +218,7 @@ O
 s
 O
 V
-a
+A
 "}
 (10,1,1) = {"
 s
@@ -205,7 +232,7 @@ O
 q
 O
 V
-s
+F
 "}
 (11,1,1) = {"
 s
@@ -219,7 +246,7 @@ O
 O
 O
 O
-s
+F
 "}
 (12,1,1) = {"
 a
@@ -233,5 +260,5 @@ D
 D
 D
 D
-a
+A
 "}

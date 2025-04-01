@@ -14,12 +14,12 @@
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_GROIN))
 		return FALSE
-	if(!user.underwear == "Nude")
-		return FALSE
 	if(user.gender == FEMALE)
 		return FALSE
 	if(!user.sexcon.can_use_penis())
 		return
+	if(user.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/masturbate_penis_over/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -27,7 +27,10 @@
 
 /datum/sex_action/masturbate_penis_over/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures himself over [target]"))
+		if(prob(50))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures himself over [target]"))
+		else
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] strokes his pintle over [target]"))
 	playsound(user, 'modular/stonekeep/sound/sexcon/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	user.sexcon.perform_sex_action(user, 2, 4, TRUE)

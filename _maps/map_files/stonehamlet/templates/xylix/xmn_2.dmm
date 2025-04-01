@@ -16,12 +16,30 @@
 	dir = 5;
 	icon_state = "pipe"
 	},
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
 /turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"n" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "o" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end{
 	dir = 1
 	},
+/area/rogue/under/xylix)
+"r" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
 "s" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long{
@@ -49,6 +67,15 @@
 /area/rogue/under/xylix)
 "D" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"F" = (
+/obj/structure/bars/pipe{
+	dir = 1;
+	icon_state = "pipe"
+	},
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
 /area/rogue/under/xylix)
 "J" = (
 /turf/open/floor/cobblemoss,
@@ -170,7 +197,7 @@ J
 s
 V
 J
-J
+n
 "}
 (9,1,1) = {"
 s
@@ -184,7 +211,7 @@ V
 d
 V
 J
-a
+r
 "}
 (10,1,1) = {"
 s
@@ -198,7 +225,7 @@ V
 V
 V
 J
-s
+F
 "}
 (11,1,1) = {"
 s
@@ -212,7 +239,7 @@ A
 V
 J
 J
-s
+F
 "}
 (12,1,1) = {"
 a
@@ -226,5 +253,5 @@ P
 D
 D
 D
-a
+r
 "}

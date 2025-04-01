@@ -2,21 +2,18 @@
 "a" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
-"e" = (
-/obj/structure/bars/pipe{
-	dir = 9
-	},
-/turf/open/floor/metal/barograte,
+"d" = (
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"f" = (
-/obj/structure/bars/pipe{
-	dir = 5;
-	icon_state = "pipe"
-	},
-/turf/open/floor/metal/barograte,
+"n" = (
+/mob/living/simple_animal/hostile/retaliate/wolf/familiar,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"o" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
+"r" = (
+/obj/structure/lever{
+	redstone_id = "xylcageroom"
+	},
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "s" = (
@@ -24,187 +21,194 @@
 	dir = 1
 	},
 /area/rogue/under/xylix)
-"u" = (
-/turf/closed/wall/mineral/decostone/moss/blue/end,
-/area/rogue/under/xylix)
-"B" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
-/turf/open/floor/cobblemoss,
+"w" = (
+/obj/structure/bars/passage{
+	layer = 2.1;
+	plane = -5;
+	redstone_id = "xylcageroom"
+	},
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "D" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
-"J" = (
-/turf/open/floor/cobblemoss,
-/area/rogue/under/xylix)
-"O" = (
+"I" = (
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"P" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
+"O" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"V" = (
-/turf/closed/wall/mineral/decostone/moss/blue/cand,
+"P" = (
+/obj/structure/bars/passage{
+	redstone_id = "xylcageroom"
+	},
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
-"X" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/mob/living/simple_animal/hostile/haunt,
+"R" = (
+/mob/living/simple_animal/hostile/retaliate/wolf/familiar,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"T" = (
+/obj/structure/bars,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"V" = (
+/obj/structure/bars,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 
 (1,1,1) = {"
 a
-D
-D
+a
+P
+P
 a
 D
 D
 D
 D
-D
-D
+a
 D
 a
 "}
 (2,1,1) = {"
-J
-O
-J
 s
-J
+r
 O
-J
-O
-J
-J
-J
-s
-"}
-(3,1,1) = {"
-O
-O
-J
-s
-J
-O
-J
-J
-J
-J
-O
-s
-"}
-(4,1,1) = {"
-J
-J
 O
 V
-P
+I
+I
+I
+I
+V
+I
 O
-u
-D
-a
+"}
+(3,1,1) = {"
+s
+I
+I
 O
-J
-a
+w
+I
+R
+I
+I
+w
+I
+I
+"}
+(4,1,1) = {"
+s
+O
+O
+I
+V
+V
+V
+V
+V
+V
+O
+I
 "}
 (5,1,1) = {"
-J
-J
-J
-s
-J
-O
-J
-J
 s
 O
-J
-J
+I
+I
+O
+V
+O
+O
+I
+V
+O
+O
 "}
 (6,1,1) = {"
+s
+I
+O
+O
+O
+w
+I
+O
+R
+P
+O
 a
-J
-O
-s
-O
-O
-J
-J
-s
-J
-J
-e
 "}
 (7,1,1) = {"
 s
+d
 O
-J
-a
-D
-a
-J
+I
 O
 V
-P
+V
+w
+V
+V
 O
-f
+s
 "}
 (8,1,1) = {"
-V
-o
-J
 s
-a
 V
-X
-J
-s
-J
+P
+V
+I
 O
-J
+I
+I
+I
+O
+O
+s
 "}
 (9,1,1) = {"
 s
-J
-J
-a
-D
-a
 O
-O
-a
-D
-D
-a
+I
+P
+I
+T
+P
+T
+V
+I
+I
+s
 "}
 (10,1,1) = {"
 s
-J
 O
-J
-J
-J
-J
-J
+R
+V
+I
+P
+n
+O
+P
 O
 O
-J
 s
 "}
 (11,1,1) = {"
 s
-J
-J
-J
-O
-J
-B
 O
 O
-J
-J
+V
+I
+V
+I
+I
+V
+O
+d
 s
 "}
 (12,1,1) = {"
@@ -214,7 +218,7 @@ D
 D
 D
 D
-V
+D
 D
 D
 D

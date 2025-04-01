@@ -15,5 +15,6 @@
 			used = pick('sound/vo/mobs/gob/pain (1).ogg','sound/vo/mobs/gob/pain (2).ogg','sound/vo/mobs/gob/pain (3).ogg','sound/vo/mobs/gob/pain (4).ogg','sound/vo/mobs/gob/pain (5).ogg')
 		if("painscream")
 			used = pick('sound/vo/mobs/gob/painscream (1).ogg','sound/vo/mobs/gob/painscream (2).ogg','sound/vo/mobs/gob/painscream (3).ogg','sound/vo/mobs/gob/painscream (4).ogg','sound/vo/mobs/gob/painscream (5).ogg')
-
+		if("sexmoanhvy")
+			used = pick('sound/vo/mobs/gob/idle (1).ogg','sound/vo/mobs/gob/idle (5).ogg')
 	return used

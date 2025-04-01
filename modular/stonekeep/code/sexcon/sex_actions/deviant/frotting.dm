@@ -8,6 +8,10 @@
 		return
 	if(target.gender == FEMALE)
 		return
+	if(user.underwear != "Nude")
+		return FALSE
+	if(target.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/frotting/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)

@@ -96,5 +96,7 @@
 				used = list('sound/vo/male/gen/moan (1).ogg','sound/vo/male/gen/moan (2).ogg','sound/vo/male/gen/moan (3).ogg')
 			if("clap")
 				used = list('sound/vo/clap (1).ogg', 'sound/vo/clap (2).ogg', 'sound/vo/clap (3).ogg', 'sound/vo/clap (4).ogg')
+			if("sexmoanhvy")
+				used = list('modular/stonekeep/sound/sexcon/vo/male/moan (1).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (2).ogg','modular/stonekeep/sound/sexcon/vo/male/moan (3).ogg')
 
 	return used

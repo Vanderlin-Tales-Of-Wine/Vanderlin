@@ -5,89 +5,96 @@
 "d" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"i" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
+"h" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"m" = (
+/obj/structure/fluff/walldeco/xylixhint,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "o" = (
-/turf/open/floor/metal/barograte,
-/area/rogue/under/xylix)
-"r" = (
-/turf/closed/wall/mineral/decostone/moss/blue/cand,
-/area/rogue/under/xylix)
-"s" = (
-/turf/closed/wall/mineral/decostone/moss/blue/long{
-	dir = 1
+/obj/structure/trap/wall_projectile/hidden{
+	dir = 8
 	},
+/turf/open/floor/concrete,
 /area/rogue/under/xylix)
-"t" = (
+"p" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end{
 	dir = 8
 	},
 /area/rogue/under/xylix)
 "w" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
-/turf/open/floor/concrete,
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
 /area/rogue/under/xylix)
-"C" = (
+"x" = (
 /obj/structure/fluff/walldeco/xylixhint,
+/obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
-"D" = (
+"A" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
-"G" = (
-/obj/machinery/light/fueled/wallfire/candle/blue/r,
-/turf/open/floor/concrete,
-/area/rogue/under/xylix)
-"H" = (
+"D" = (
 /obj/structure/trap/wall_projectile/hidden{
 	dir = 4
 	},
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
-"I" = (
-/obj/machinery/light/fueled/wallfire/candle/blue{
-	pixel_y = -32
-	},
+"F" = (
+/obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
-"J" = (
-/obj/structure/trap/wall_projectile/hidden{
-	dir = 8
+"I" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 4
 	},
+/area/rogue/under/xylix)
+"J" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"K" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"M" = (
+/turf/open/floor/metal/barograte,
 /area/rogue/under/xylix)
 "O" = (
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
-"P" = (
-/turf/open/floor/blocks/moss,
+"R" = (
+/obj/structure/trap/wall_projectile/hidden{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "V" = (
-/turf/closed/wall/mineral/decostone/moss/blue/end{
-	dir = 4
-	},
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/concrete,
 /area/rogue/under/xylix)
 
 (1,1,1) = {"
 a
 a
-D
+A
 a
 d
-o
-o
+M
+M
 d
 a
-D
-D
+A
+A
 a
 "}
 (2,1,1) = {"
 a
-r
-i
+w
 O
 O
 O
@@ -95,124 +102,125 @@ O
 O
 O
 O
-I
-r
+O
+O
+w
 "}
 (3,1,1) = {"
 a
-s
-C
-t
 w
-t
+K
+V
+K
+V
+J
+V
+m
+V
+x
 w
-t
-w
-t
-C
-s
 "}
 (4,1,1) = {"
 a
-s
+w
 O
-s
+p
 O
-s
+p
+D
+p
 O
-s
-O
-s
-O
-s
+p
+F
+w
 "}
 (5,1,1) = {"
 a
-s
+w
 O
-s
-J
-s
-J
-s
-J
-s
+w
 O
-s
+w
+O
+w
+O
+w
+O
+w
 "}
 (6,1,1) = {"
 a
-s
+w
 O
-s
-H
-s
-J
-s
+w
+D
+w
+R
+w
 O
-s
+w
 O
-s
+w
 "}
 (7,1,1) = {"
 a
-s
+w
+o
+I
 O
-s
+I
+F
+I
 O
-s
-O
-s
-J
-s
-O
-s
+I
+F
+w
 "}
 (8,1,1) = {"
 a
-s
+w
 O
 V
-J
+o
 V
-J
-V
-O
+R
 V
 O
-s
+V
+O
+w
 "}
 (9,1,1) = {"
 a
-s
-G
+w
 O
-G
 O
-G
 O
-G
 O
-G
-s
+O
+O
+O
+O
+O
+w
 "}
 (10,1,1) = {"
 a
 a
-r
+a
 O
-r
+a
 O
-r
+a
 O
-r
+a
 O
-r
+a
 a
 "}
 (11,1,1) = {"
 a
-s
+w
 O
 O
 O
@@ -222,19 +230,19 @@ O
 O
 O
 O
-s
+w
 "}
 (12,1,1) = {"
 a
 a
-D
+A
 a
 d
-P
+h
 d
-P
+h
 a
-D
-D
+A
+A
 a
 "}

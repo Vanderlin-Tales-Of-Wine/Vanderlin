@@ -20,15 +20,22 @@
 		return FALSE
 	if(!user.sexcon.can_use_penis())
 		return
+	if(user.underwear != "Nude")
+		return FALSE
+	if(target.underwear != "Nude")
+		return FALSE
 	return TRUE
 
 /datum/sex_action/anal_sex/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_warning("[user] enters [target] from behind."))
+	user.visible_message(span_warning("[user] enters [target]'s whistler exit."))
 	playsound(target, list('modular/stonekeep/sound/sexcon/insert (1).ogg','modular/stonekeep/sound/sexcon/insert (2).ogg'), 20, TRUE, ignore_walls = FALSE)
 
 /datum/sex_action/anal_sex/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] taffs [target] from behind."))
+		if(prob(80))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] taffs [target]'s back gate."))
+		else
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] rods [target]'s whistler."))
 	playsound(target, 'modular/stonekeep/sound/sexcon/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
@@ -45,7 +52,7 @@
 	target.sexcon.handle_passive_ejaculation()
 
 /datum/sex_action/anal_sex/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	user.visible_message(span_warning("[user] pulls out of [target]."))
+	user.visible_message(span_warning("[user] pulls out of [target]'s rear entry."))
 
 /datum/sex_action/anal_sex/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.finished_check())
@@ -72,6 +79,10 @@
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_GROIN))
 		return FALSE
 	if(target.gender == FEMALE)
+		return FALSE
+	if(user.underwear != "Nude")
+		return FALSE
+	if(target.underwear != "Nude")
 		return FALSE
 	return TRUE
 

@@ -826,7 +826,7 @@
 //................ Sheriff Brigandine ............... //
 /obj/item/clothing/armor/brigandine/sheriff
 	detail_tag = "_det"
-	detail_color = COLOR_WHITE
+	detail_color = CLOTHING_ROYAL_PURPLE
 
 /obj/item/clothing/armor/brigandine/sheriff/update_icon()
 	cut_overlays()
@@ -1503,9 +1503,17 @@
 	color = "#d8d9d8"
 	adventurer_artefact = TRUE
 
-/obj/item/reagent_containers/glass/bottle/elfred/artefact
-	desc = "A bottle gilded with a silver cork-seal and covered in webs. Obviously some old and rare wine."
+/obj/item/reagent_containers/glass/bottle/tieflingwine_artefact
+	name = "rare winebottle"
+	list_reagents = list(/datum/reagent/consumable/ethanol/tiefling/delectable = 70)
+	desc = "Fragile glass bottle filled with a deep ruby red wine, glittering strangely."
 	adventurer_artefact = TRUE
+
 /obj/item/clothing/neck/psycross/silver/dendor/artefact
 	desc = "Nature is a body of which we are but its entrails. This amulet is old and worn, once belonging to a very devout Dendorite who sacrificed themselves to the tree-dwelling predators of their home when age made them unfit for survival."
+	adventurer_artefact = TRUE
+
+/obj/item/weapon/knife/dagger/steel/dirk/artefact
+	name = "dirk"
+	desc = "A rare ornamental dagger made of blacksteel."
 	adventurer_artefact = TRUE
