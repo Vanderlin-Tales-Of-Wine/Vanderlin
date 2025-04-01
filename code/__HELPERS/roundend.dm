@@ -109,9 +109,6 @@
 	if(ishostile(src))
 		var/mob/living/simple_animal/hostile/H = src
 		H.LoseTarget()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		H.mode = AI_OFF
 	if(client)
 		client.verbs += /client/proc/lobbyooc
 		client.verbs += /client/proc/commendsomeone

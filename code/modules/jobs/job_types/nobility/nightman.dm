@@ -38,7 +38,7 @@
 	pants = /obj/item/clothing/pants/trou/apothecary
 	gloves = /obj/item/clothing/gloves/leather/apothecary
 	belt = /obj/item/storage/belt/leather
-	beltr = /obj/item/storage/keyring/niteman
+	beltr = /obj/item/storage/keyring/apothecary
 	beltl = /obj/item/storage/belt/pouch/coins/mid
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
@@ -48,10 +48,8 @@
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)

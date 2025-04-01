@@ -54,7 +54,7 @@
 /obj/effect/proc_holder/spell/aimed/proc/on_deactivation(mob/user)
 	return
 
-/obj/effect/proc_holder/spell/aimed/InterceptClickOn(mob/living/caller, params, atom/target)
+/obj/effect/proc_holder/spell/aimed/InterceptClickOn(mob/living/requester, params, atom/target)
 	if(..())
 		return FALSE
 	var/ran_out = (current_amount <= 0)

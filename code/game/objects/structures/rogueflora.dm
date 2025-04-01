@@ -369,8 +369,8 @@
 		return TRUE
 	if(isliving(mover))
 		var/mob/living/living_mover = mover
-		if(living_mover.stat > CONSCIOUS || living_mover.resting)
-			to_chat(living_mover, span_warning("I do not have the strength to free myself from [src]..."))
+		if(living_mover.stat > CONSCIOUS && !living_mover.pulledby)
+			to_chat(living_mover, span_warning("I don't have the strength to free myself from [src]..."))
 			return FALSE
 		return TRUE
 	return FALSE
