@@ -1,0 +1,247 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"c" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"d" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"e" = (
+/obj/structure/punji_sticks,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+"m" = (
+/obj/structure/punji_sticks,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"n" = (
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"p" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"r" = (
+/turf/open/water/river,
+/area/rogue/under/xylix)
+"w" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+"A" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"D" = (
+/obj/structure/punji_sticks,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"E" = (
+/obj/structure/punji_sticks,
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"I" = (
+/obj/structure/trap/spike/hidden,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"J" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"K" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
+"M" = (
+/obj/structure/punji_sticks,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+"O" = (
+/obj/structure/punji_sticks,
+/turf/open/water/river,
+/area/rogue/under/xylix)
+"V" = (
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+
+(1,1,1) = {"
+a
+A
+A
+p
+d
+c
+d
+d
+K
+A
+A
+a
+"}
+(2,1,1) = {"
+J
+d
+d
+a
+a
+c
+c
+a
+a
+d
+d
+J
+"}
+(3,1,1) = {"
+J
+e
+n
+n
+n
+n
+w
+n
+n
+E
+n
+J
+"}
+(4,1,1) = {"
+J
+w
+a
+c
+V
+c
+D
+I
+d
+V
+d
+J
+"}
+(5,1,1) = {"
+J
+w
+d
+D
+V
+c
+c
+d
+c
+V
+d
+J
+"}
+(6,1,1) = {"
+J
+r
+r
+r
+r
+r
+r
+r
+r
+r
+c
+J
+"}
+(7,1,1) = {"
+J
+V
+d
+c
+c
+d
+M
+d
+D
+V
+c
+J
+"}
+(8,1,1) = {"
+J
+V
+d
+I
+m
+c
+V
+d
+c
+V
+I
+J
+"}
+(9,1,1) = {"
+J
+n
+n
+n
+n
+n
+V
+n
+n
+E
+n
+J
+"}
+(10,1,1) = {"
+J
+d
+D
+c
+d
+w
+d
+c
+c
+d
+V
+J
+"}
+(11,1,1) = {"
+J
+d
+d
+c
+c
+r
+r
+O
+r
+r
+V
+J
+"}
+(12,1,1) = {"
+a
+c
+c
+d
+d
+K
+A
+A
+A
+A
+A
+a
+"}

@@ -34,7 +34,7 @@
 	pants = /obj/item/clothing/pants/tights/guard
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/guard
 	beltr = /obj/item/storage/belt/pouch/coins/poor
 
 	if(H.gender == MALE && H.dna?.species)

@@ -1,0 +1,237 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"c" = (
+/obj/structure/bars/pipe{
+	dir = 5;
+	icon_state = "pipe"
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"d" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"i" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"p" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+"q" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+"s" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"t" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"v" = (
+/obj/structure/bars/pipe{
+	dir = 9
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"w" = (
+/mob/living/simple_animal/hostile/haunt,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"z" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"C" = (
+/turf/closed/wall/mineral/decostone/moss/blue/cand,
+/area/rogue/under/xylix)
+"D" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"O" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"P" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
+"V" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+
+(1,1,1) = {"
+a
+D
+a
+D
+D
+D
+C
+D
+D
+D
+D
+a
+"}
+(2,1,1) = {"
+O
+O
+s
+O
+V
+V
+z
+O
+O
+V
+O
+s
+"}
+(3,1,1) = {"
+V
+V
+C
+t
+a
+D
+D
+D
+a
+V
+V
+s
+"}
+(4,1,1) = {"
+V
+V
+s
+O
+s
+O
+O
+O
+s
+O
+V
+a
+"}
+(5,1,1) = {"
+V
+O
+a
+D
+a
+O
+p
+V
+s
+O
+O
+O
+"}
+(6,1,1) = {"
+a
+V
+O
+V
+O
+O
+s
+V
+C
+d
+O
+v
+"}
+(7,1,1) = {"
+a
+D
+i
+V
+P
+D
+C
+t
+s
+O
+O
+c
+"}
+(8,1,1) = {"
+s
+V
+V
+V
+O
+O
+O
+O
+s
+O
+V
+V
+"}
+(9,1,1) = {"
+C
+d
+a
+D
+D
+D
+a
+O
+s
+O
+V
+a
+"}
+(10,1,1) = {"
+s
+O
+a
+D
+D
+D
+a
+O
+q
+O
+V
+s
+"}
+(11,1,1) = {"
+s
+V
+O
+w
+V
+V
+O
+O
+O
+O
+O
+s
+"}
+(12,1,1) = {"
+a
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+a
+"}

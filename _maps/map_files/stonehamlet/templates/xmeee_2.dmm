@@ -1,0 +1,237 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"d" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/blocks,
+/area/rogue/under/xylix)
+"j" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/trap/bomb/hidden,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"p" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"y" = (
+/obj/machinery/light/fueled/wallfire/candle/blue,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"z" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/r,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"A" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"E" = (
+/obj/structure/trap/bomb/hidden,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"I" = (
+/obj/structure/fluff/walldeco/xylixhint,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"J" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"K" = (
+/turf/closed/wall/mineral/decostone/moss/blue/cand,
+/area/rogue/under/xylix)
+"L" = (
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"Q" = (
+/obj/structure/trap/bomb/hidden,
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"T" = (
+/obj/machinery/light/fueled/wallfire/candle/blue{
+	pixel_y = -32
+	},
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"V" = (
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"Y" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/concrete,
+/area/rogue/under/xylix)
+"Z" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
+
+(1,1,1) = {"
+a
+p
+p
+p
+p
+Z
+K
+A
+A
+A
+A
+a
+"}
+(2,1,1) = {"
+J
+I
+V
+I
+V
+I
+Y
+I
+V
+j
+T
+K
+"}
+(3,1,1) = {"
+J
+V
+I
+V
+I
+V
+L
+V
+L
+V
+L
+J
+"}
+(4,1,1) = {"
+J
+L
+V
+I
+V
+L
+E
+L
+V
+I
+V
+J
+"}
+(5,1,1) = {"
+J
+E
+L
+V
+I
+V
+L
+V
+I
+V
+I
+J
+"}
+(6,1,1) = {"
+J
+L
+V
+I
+V
+L
+V
+I
+V
+I
+V
+J
+"}
+(7,1,1) = {"
+J
+V
+L
+V
+L
+E
+L
+V
+L
+V
+L
+J
+"}
+(8,1,1) = {"
+J
+I
+V
+I
+V
+L
+V
+I
+V
+Q
+T
+K
+"}
+(9,1,1) = {"
+J
+V
+I
+V
+I
+V
+I
+V
+L
+V
+L
+J
+"}
+(10,1,1) = {"
+J
+I
+V
+L
+V
+I
+V
+L
+V
+L
+V
+J
+"}
+(11,1,1) = {"
+K
+y
+L
+E
+L
+V
+I
+z
+j
+V
+I
+J
+"}
+(12,1,1) = {"
+a
+d
+A
+A
+A
+A
+A
+K
+A
+A
+A
+a
+"}

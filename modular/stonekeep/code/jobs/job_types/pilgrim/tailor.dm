@@ -71,7 +71,6 @@
 
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/knife/scissors
-	beltl = /obj/item/storage/keyring/tailor
 	backr = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	if(H.gender == FEMALE)

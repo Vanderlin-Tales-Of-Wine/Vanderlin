@@ -1,0 +1,248 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"d" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"f" = (
+/obj/structure/trap/saw_blades,
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+"g" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"h" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"p" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"v" = (
+/obj/structure/trap/saw_blades,
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+"A" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"D" = (
+/turf/open/water/river,
+/area/rogue/under/xylix)
+"E" = (
+/obj/structure/trap/saw_blades,
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"I" = (
+/obj/structure/trap/poison,
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"J" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"K" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
+"L" = (
+/turf/open/water/river{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"M" = (
+/turf/open/water/river{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+"N" = (
+/obj/structure/trap/saw_blades,
+/turf/open/water/river,
+/area/rogue/under/xylix)
+"O" = (
+/obj/structure/fluff/walldeco/vinez/blue,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"V" = (
+/turf/open/water/river{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+
+(1,1,1) = {"
+a
+A
+A
+p
+h
+h
+d
+d
+K
+A
+A
+a
+"}
+(2,1,1) = {"
+J
+I
+O
+O
+d
+h
+h
+d
+O
+O
+I
+J
+"}
+(3,1,1) = {"
+J
+O
+D
+D
+D
+D
+D
+D
+D
+V
+O
+J
+"}
+(4,1,1) = {"
+J
+O
+M
+D
+N
+D
+D
+D
+V
+V
+O
+J
+"}
+(5,1,1) = {"
+J
+O
+M
+M
+D
+D
+D
+V
+V
+V
+g
+J
+"}
+(6,1,1) = {"
+J
+g
+M
+M
+D
+D
+V
+V
+V
+v
+g
+J
+"}
+(7,1,1) = {"
+J
+g
+M
+M
+M
+E
+L
+V
+V
+V
+O
+J
+"}
+(8,1,1) = {"
+J
+O
+f
+M
+M
+L
+L
+L
+V
+V
+O
+J
+"}
+(9,1,1) = {"
+J
+g
+M
+M
+M
+L
+L
+L
+L
+V
+g
+J
+"}
+(10,1,1) = {"
+J
+O
+M
+L
+L
+L
+L
+E
+L
+L
+g
+J
+"}
+(11,1,1) = {"
+J
+I
+d
+h
+d
+O
+O
+O
+O
+O
+I
+J
+"}
+(12,1,1) = {"
+a
+d
+h
+h
+h
+K
+A
+A
+A
+A
+A
+a
+"}

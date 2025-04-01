@@ -7,7 +7,7 @@
 	outfit = /datum/outfit/job/stonekeep/feldsher
 	display_order = FELDSHER_ORDER
 	tutorial = "You have seen countless wounds over your time. Stitched the sores of blades, sealed honey over the bubous of plague. \
-	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan. At least the Apothecary understands you."
+	A thousand deaths stolen from the Carriagemen, yet these people will still call you a charlatan."
 	give_bank_account = 100
 
 	allowed_races = list(
@@ -34,7 +34,7 @@
 	mask = /obj/item/clothing/face/feld
 	neck = /obj/item/clothing/neck/feld
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/doctor
+	beltl = /obj/item/key/clinic
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
