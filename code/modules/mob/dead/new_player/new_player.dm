@@ -541,10 +541,17 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/living/carbon/human/after_creation()
 	if(dna?.species)
 		dna.species.after_creation(src)
-		var/obj/item/organ/ears/cat/ears = new
-		var/obj/item/organ/tail/cat/tail = new
-		ears.Insert(src, drop_if_replaced=FALSE)
-		tail.Insert(src, drop_if_replaced=FALSE)
+		if(age == AGE_CHILD || dna.species.id == "kobold" || dna.species.id == "dwarf")
+			var/obj/item/organ/ears/cat/shorter/ears = new
+			var/obj/item/organ/tail/cat/shorter/tail = new
+			ears.Insert(src, drop_if_replaced=FALSE)
+			tail.Insert(src, drop_if_replaced=FALSE)
+		else
+			var/obj/item/organ/ears/cat/ears = new
+			var/obj/item/organ/tail/cat/tail = new
+			ears.Insert(src, drop_if_replaced=FALSE)
+			tail.Insert(src, drop_if_replaced=FALSE)
+
 		update_mutant_bodyparts()
 	roll_mob_stats()
 

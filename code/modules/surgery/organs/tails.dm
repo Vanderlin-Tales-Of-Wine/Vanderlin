@@ -18,6 +18,9 @@
 	desc = ""
 	tail_type = "Cat"
 
+/obj/item/organ/tail/cat/shorter
+	tail_type = "Cat_shorter"
+
 /obj/item/organ/tail/cat/Insert(mob/living/carbon/human/H, special = 0, drop_if_replaced = TRUE)
 	..()
 	if(istype(H))
