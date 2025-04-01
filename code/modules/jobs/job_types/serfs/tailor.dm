@@ -25,7 +25,7 @@
 	head = /obj/item/clothing/head/courtierhat
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/knife/scissors
-	beltl = /obj/item/storage/keyring/tailor
+	beltl = /obj/item/key/tailor
 	backr = /obj/item/storage/backpack/satchel
 	neck = /obj/item/storage/belt/pouch/coins/mid
 	backpack_contents = list(/obj/item/needle = 1, /obj/item/natural/bundle/cloth = 2, /obj/item/natural/bundle/fibers = 1, /obj/item/dye_pack/luxury = 1, /obj/item/book/advice_weaving = 1, /obj/item/weapon/knife/villager = 1)

@@ -129,7 +129,7 @@
 
 	retained_dust = dream_dust_modulo
 
-	sleep_adv_points += dream_points + 1
+	sleep_adv_points += max(dream_points, 1)
 	sleep_adv_cycle++
 
 	show_ui(mind.current)
@@ -295,7 +295,7 @@
 	if(mind.has_studied)
 		mind.has_studied = FALSE
 		to_chat(mind.current, span_smallnotice("I feel like I can study my tome again..."))
-	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
+	to_chat(mind.current, span_notice("...and that's all I dreamt of."))
 	close_ui()
 
 /datum/sleep_adv/Topic(href, list/href_list)

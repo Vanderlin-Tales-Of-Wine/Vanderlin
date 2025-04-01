@@ -19,7 +19,6 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-	flags_1 = HEAR_1
 
 	can_add_lock = FALSE
 	can_knock = FALSE
@@ -58,6 +57,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 
 /obj/structure/mineral_door/secret/Initialize()
+	become_hearing_sensitive()
 	open_phrase = open_word() + " " + magic_word()
 	. = ..()
 
@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/message2recognize = sanitize_hear_message(original_message)
 	var/isvip = FALSE
-	if (vip.Find(H.job) || vip.Find(H.get_role_title()))
+	if(H.job in vip || H.get_role_title() in vip)
 		isvip = TRUE
 
 	if(isvip)
