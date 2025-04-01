@@ -19450,14 +19450,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/safe)
-"nku" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "priest"
-	},
-/obj/effect/mapping_helpers/door/access/church/church,
-/obj/structure/mineral_door/wood/donjon/stone,
-/turf/open/floor/church,
-/area/rogue/indoors/town/church/chapel)
 "nlg" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -152749,7 +152741,7 @@ qPJ
 qPJ
 wDT
 wcr
-nku
+jRv
 wcr
 fgm
 djm
