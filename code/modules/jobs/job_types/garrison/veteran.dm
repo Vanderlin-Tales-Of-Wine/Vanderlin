@@ -30,11 +30,6 @@
 	give_bank_account = 35
 	can_have_apprentices = FALSE
 
-
-/datum/job/veteran/after_spawn(mob/living/spawned, client/player_client)
-	. = ..()
-	var/mob/living/carbon/human/H = spawned
-
 	if(istype(H.cloak, /obj/item/clothing/cloak/half/vet))
 		var/obj/item/clothing/S = H.cloak
 		var/index = findtext(H.real_name, " ")
