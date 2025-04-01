@@ -25,7 +25,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dark Elf"
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
@@ -37,9 +38,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/lord/get_informed_title(mob/mob)
 	if(mob.gender == FEMALE)
-		return "Queen"
+		return "Queenie"
 
-	return "King"
+	return "Kingy"
 
 //TODO: MOVE THIS INTO TICKER INIT
 /datum/job/lord/after_spawn(mob/living/spawned, client/player_client)
@@ -49,10 +50,10 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	var/ruler_title
 	if(spawned.gender == MALE)
 		SSfamilytree.AddRoyal(spawned, FAMILY_FATHER)
-		ruler_title = "King"
+		ruler_title = "Kingy"
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
-		ruler_title = "Queen"
+		ruler_title = "Queenie"
 	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
