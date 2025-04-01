@@ -23647,9 +23647,7 @@
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
 "qkc" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = ssssssssssss
-	},
+/obj/structure/mineral_door/wood/donjon/stone,
 /obj/effect/mapping_helpers/door/access/church/church,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/church)
