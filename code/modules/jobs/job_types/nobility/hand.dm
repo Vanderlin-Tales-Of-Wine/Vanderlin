@@ -218,7 +218,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // Uses leather armor, kind of needed.
 		H.change_stat(STATKEY_STR, 4)
-		H.change_stat(STATKEY_CON, 3)
+		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_INT, -2)
 		H.change_stat(STATKEY_SPD, -2) // He's NOT a dodger. Parry, parry, parry.
 		if(H.patron != /datum/patron/divine/ravox)
