@@ -180,7 +180,7 @@
 	if(!ishuman(spawned))
 		return
 
-	var/mob/living/carbon/human/humanguy = user
+	var/mob/living/carbon/human/humanguy = spawned
 
 	var/list/roundstart_experience
 
