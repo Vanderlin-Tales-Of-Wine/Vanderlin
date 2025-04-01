@@ -239,7 +239,7 @@
 	keys = list(/obj/item/key/inquisition, /obj/item/key/church)
 
 /obj/item/storage/keyring/apothecary
-	keys = list(/obj/item/key/apothecary, /obj/item/key/bathhouse)
+	keys = list(/obj/item/key/apothecary, /obj/item/key/bathhouse, /obj/item/key/clinic)
 
 /obj/item/storage/keyring/gravetender
 	keys = list(/obj/item/key/church, /obj/item/key/graveyard)
