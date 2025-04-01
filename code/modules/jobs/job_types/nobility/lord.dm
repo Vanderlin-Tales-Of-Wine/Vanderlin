@@ -26,11 +26,11 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		"Humen",
 		"Elf",
 		"Half-Elf",
-		"Dark Elf"
+		"Dark Elf",
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
-	give_bank_account = 500
+	give_bank_account = 420
 	selection_color = "#7851A9"
 
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	else
 		SSfamilytree.AddRoyal(spawned, FAMILY_MOTHER)
 		ruler_title = "Queenie"
-	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
+	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Nyanderlin."))]</b>")
 	to_chat(world, "<br>")
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 70)
@@ -82,7 +82,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/riding, 6, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
