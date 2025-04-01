@@ -229,7 +229,7 @@
 		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
 
-	if(length(previewJob.advclass_cat_rolls))
+	if(length(advclass_cat_rolls))
 		spawned.advsetup = TRUE
 		spawned.invisibility = INVISIBILITY_MAXIMUM
 		spawned.become_blind("advsetup")
