@@ -51,8 +51,8 @@
 	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,1), OFFSET_BACK_F = list(0,1), \
 	OFFSET_NECK_F = list(0,1), OFFSET_MOUTH_F = list(0,1), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,1), OFFSET_ARMOR_F = list(0,1), OFFSET_UNDIES_F = list(0,1))
-	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = 2, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
-	specstats_f = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = -1, STATKEY_CON = 1, STATKEY_END = 1, STATKEY_SPD = 0, STATKEY_LCK = -1)
+	specstats = list(STATKEY_STR = 2, STATKEY_PER = -2, STATKEY_INT = 0, STATKEY_CON = 1, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = 1, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = 0, STATKEY_END = 2, STATKEY_SPD = 0, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 
 /datum/species/halforc/check_roundstart_eligible()

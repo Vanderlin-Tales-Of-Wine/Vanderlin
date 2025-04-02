@@ -1,10 +1,10 @@
 	/*==============*
 	*				*
-	*	  Dwarf		*
+	*	  Kobold	*
 	*				*
 	*===============*/
 
-//	( + Poison Resistance )
+//	( + Dark Vision )
 
 /mob/living/carbon/human/species/kobold
 	race = /datum/species/kobold
@@ -23,18 +23,20 @@
 	skin_tone_wording = "Fur Color"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 
+
 	default_color = "FFFFFF"
 	use_skintones = 1
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF",, "wings" = "None")
-	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
-
+	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 2, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 2, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	mutanteyes = /obj/item/organ/eyes/darkvision
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	default_features = list("mcolor" = "#FFF", "wings" = "None")
 	use_skintones = 1
 	disliked_food = NONE
 	liked_food = NONE
+	mutanteyes = /obj/item/organ/eyes/darkvision
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon_m = 'icons/roguetown/mob/bodies/f/kobold.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/kobold.dmi'
@@ -62,8 +64,8 @@
 	OFFSET_FACE_F = list(0,-5), OFFSET_BELT_F = list(0,-5), OFFSET_BACK_F = list(0,-5), \
 	OFFSET_NECK_F = list(0,-5), OFFSET_MOUTH_F = list(0,-5), OFFSET_PANTS_F = list(0,0), \
 	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0))
-	specstats = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
-	specstats_f = list(STATKEY_STR = -4, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_CON = -4, STATKEY_END = 2, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
+	specstats_f = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 1, STATKEY_CON = 0, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
 	enflamed_icon = "widefire"
 	patreon_req = TRUE
 
@@ -72,6 +74,7 @@
 	C.AddComponent(/datum/component/abberant_eater, list(/obj/item/natural/dirtclod, /obj/item/natural/stone, /obj/item/coin, /obj/item/gem))
 	C.grant_language(/datum/language/common)
 	ADD_TRAIT(C, TRAIT_DARKVISION, SPECIES_TRAIT)
+	ADD_TRAIT(C, TRAIT_CRITICAL_WEAKNESS, SPECIES_TRAIT)
 
 /datum/species/kobold/check_roundstart_eligible()
 	return TRUE

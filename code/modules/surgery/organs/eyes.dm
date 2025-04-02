@@ -158,15 +158,15 @@
 	name = "fung-eye"
 	desc = ""
 
-/obj/item/organ/eyes/elf
-	name = "elf eyes"
-	desc = ""
+/obj/item/organ/eyes/darkvision
+	name = "glowing eyes"
+	desc = "these eyes glow with a bright light."
 	see_in_dark = 4
 	lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 
-/obj/item/organ/eyes/elf/less
-	name = "elf eyes"
-	desc = ""
+/obj/item/organ/eyes/darkvision/lesser
+	name = "dimly glowing eyes"
+	desc = "these eyes appear to glow faintly."
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
 
