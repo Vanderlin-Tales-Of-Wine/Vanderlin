@@ -14,6 +14,16 @@
 	created_item = /obj/item/weapon/knife/dagger/silver
 	craftdiff = 2
 
+/datum/anvil_recipe/weapons/silver/throwingknife/psydon
+	name = "Psydonian Tossblade x2"
+	recipe_name = "a couple Psydonian Tossblades"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/weapon/knife/throwingknife/psydon
+	createmultiple = TRUE
+	createditem_num = 1
+	craftdiff = 2
+
 /datum/anvil_recipe/weapons/silver/sword_silver
 	name = "Silver Sword"
 	recipe_name = "a Silver Sword"
@@ -177,6 +187,16 @@
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 0 // To train with
+
+/datum/anvil_recipe/weapons/iron/throwingknife
+	name = "Tossblade x2"
+	recipe_name = "a couple Tossblades"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/weapon/knife/throwingknife
+	createmultiple = TRUE
+	createditem_num = 1
+	craftdiff = 0
 
 /datum/anvil_recipe/weapons/iron/dagger_iron
 	name = "3x Villager Knives"
@@ -362,6 +382,16 @@
 	appro_skill = /datum/skill/craft/weaponsmithing
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/weapon/knife/dagger/steel
+	createmultiple = TRUE
+	createditem_num = 1
+	craftdiff = 2
+
+/datum/anvil_recipe/weapons/steel/throwingknife/steel
+	name = "2x Steel Tossblades"
+	recipe_name = "a couple Tossblades"
+	appro_skill = /datum/skill/craft/weaponsmithing
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/weapon/knife/throwingknife/steel
 	createmultiple = TRUE
 	createditem_num = 1
 	craftdiff = 2

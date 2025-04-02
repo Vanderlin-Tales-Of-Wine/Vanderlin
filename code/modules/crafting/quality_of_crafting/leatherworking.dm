@@ -94,6 +94,14 @@
 	)
 	output = /obj/item/storage/belt/leather
 
+/datum/repeatable_crafting_recipe/leather/belttoss
+	name = "tossblade belt"
+	requirements = list(
+		/obj/item/natural/hide/cured = 2,
+		/obj/item/natural/fibers = 1,
+	)
+	output = /obj/item/storage/belt/leather/knifebelt
+
 /datum/repeatable_crafting_recipe/leather/vest
 	name = "leather vest"
 	requirements = list(
