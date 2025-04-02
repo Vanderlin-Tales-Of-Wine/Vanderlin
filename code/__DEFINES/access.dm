@@ -39,6 +39,7 @@
 #define ACCESS_VAULT "vault"
 #define ACCESS_ARCHIVE "archive"
 #define ACCESS_MAGE "mage"
+#define ACCESS_MAGE_GUILD "mageguild"
 #define ACCESS_AT_ARMS "at_arms"
 #define ACCESS_GUEST "guest"
 

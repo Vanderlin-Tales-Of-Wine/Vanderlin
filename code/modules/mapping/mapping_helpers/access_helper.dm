@@ -126,6 +126,9 @@
 /obj/effect/mapping_helpers/door/access/manor/mage
 	access_string = ACCESS_MAGE
 
+/obj/effect/mapping_helpers/door/access/manor/mage_guild
+	access_string = ACCESS_MAGE_GUILD
+
 /obj/effect/mapping_helpers/door/access/manor/archive
 	access_string = ACCESS_ARCHIVE
 

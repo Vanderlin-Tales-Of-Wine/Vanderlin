@@ -324,6 +324,12 @@
 	icon_state = "eyekey"
 	lockid = ACCESS_MAGE
 
+/obj/item/key/mage_guild
+	name = "mage guild key"
+	desc = "A key of jade that opens the door to the magicians guild tower."
+	icon_state = "greenkey"
+	lockid = ACCESS_MAGE_GUILD
+
 /obj/item/key/atarms
 	name = "keep garrison key"
 	desc = "A key given to the Monarch's men-at-arms."
