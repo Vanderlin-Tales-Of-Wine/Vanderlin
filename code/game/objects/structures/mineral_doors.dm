@@ -148,35 +148,35 @@
 
 /obj/structure/mineral_door/Initialize()
 	. = ..()
-	src.set_init_layer()
-	src.air_update_turf(TRUE)
-	if(src.keylock)
-		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(src.lockid))
+	set_init_layer()
+	air_update_turf(TRUE)
+	if(keylock)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 
 /obj/structure/mineral_door/onkick(mob/user)
-	if(src.isSwitchingStates)
+	if(isSwitchingStates)
 		return
-	if(src.door_opened)
+	if(door_opened)
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 		user.visible_message(span_warning("[user] kicks [src] shut!"), \
 			span_notice("I kick [src] shut!"))
-		src.force_closed()
+		force_closed()
 		return
-	if(!src.locked)
+	if(!locked)
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 		user.visible_message(span_warning("[user] kicks open [src]!"), \
 			span_notice("I kick open [src]!"))
-		src.force_open()
+		force_open()
 		return
 	if(isliving(user))
 		var/mob/living/L = user
-		if(L.STASTR >= initial(src.kickthresh))
-			src.kickthresh--
-		if((prob(L.STASTR * 0.5) || src.kickthresh == 0) && (L.STASTR >= initial(src.kickthresh)))
+		if(L.STASTR >= initial(kickthresh))
+			kickthresh--
+		if((prob(L.STASTR * 0.5) || kickthresh == 0) && (L.STASTR >= initial(kickthresh)))
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 			user.visible_message(span_warning("[user] kicks open [src]!"), \
 				span_notice("I kick open [src]!"))
-			src.locked = FALSE
+			locked = FALSE
 			force_open()
 			return
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
@@ -222,7 +222,7 @@
 /obj/structure/mineral_door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
 	if(!ghostproof)
 		density = FALSE
-		. = step(user,get_dir(user,src.loc))
+		. = step(user, get_dir(user, loc))
 		density = TRUE
 
 /obj/structure/mineral_door/Bumped(atom/movable/AM)
@@ -330,47 +330,47 @@
 		Open(silent)
 
 /obj/structure/mineral_door/proc/Open(silent = FALSE)
-	if(src.isSwitchingStates || src.door_opened)
+	if(isSwitchingStates || door_opened)
 		return
-	src.isSwitchingStates = TRUE
+	isSwitchingStates = TRUE
 	if(!silent)
-		playsound(src, src.openSound, 90)
-	if(!src.windowed)
+		playsound(src, openSound, 90)
+	if(!windowed)
 		set_opacity(FALSE)
-	flick("[initial(src.icon_state)]opening", src)
+	flick("[initial(icon_state)]opening", src)
 	sleep(animate_time)
-	src.air_update_turf(1)
-	src.density = FALSE
-	src.door_opened = TRUE
-	src.layer = OPEN_DOOR_LAYER
-	src.update_icon()
-	src.isSwitchingStates = FALSE
+	air_update_turf(1)
+	update_icon()
+	density = FALSE
+	door_opened = TRUE
+	layer = OPEN_DOOR_LAYER
+	isSwitchingStates = FALSE
 
 	if(close_delay >= 0)
 		addtimer(CALLBACK(src, PROC_REF(Close), silent), close_delay)
 
 /obj/structure/mineral_door/proc/Close(silent = FALSE)
-	if(src.isSwitchingStates || !src.door_opened)
+	if(isSwitchingStates || !door_opened)
 		return
 	var/turf/T = get_turf(src)
 	for(var/mob/living/L in T)
 		return
-	src.isSwitchingStates = TRUE
+	isSwitchingStates = TRUE
 	if(!silent)
-		playsound(src, src.closeSound, 90)
-	flick("[initial(src.icon_state)]closing", src)
+		playsound(src, closeSound, 90)
+	flick("[initial(icon_state)]closing", src)
 	sleep(animate_time)
-	if(!src.windowed)
+	if(!windowed)
 		set_opacity(TRUE)
-	src.air_update_turf(1)
-	src.density = TRUE
-	src.door_opened = FALSE
-	src.layer = initial(src.layer)
-	src.update_icon()
-	src.isSwitchingStates = FALSE
+	air_update_turf(1)
+	update_icon()
+	density = TRUE
+	door_opened = FALSE
+	layer = initial(layer)
+	isSwitchingStates = FALSE
 
 /obj/structure/mineral_door/update_icon()
-	icon_state = "[initial(src.icon_state)][door_opened ? "open":""]"
+	icon_state = "[initial(icon_state)][door_opened ? "open":""]"
 
 /obj/structure/mineral_door/proc/door_rattle()
 	playsound(src, rattlesound, 100)
@@ -439,7 +439,7 @@
 					if(do_after(user, (30 SECONDS / user.mind.get_skill_level(repair_skill)), src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
-						icon_state = "[initial(src.icon_state)]"
+						icon_state = "[initial(icon_state)]"
 						density = TRUE
 						opacity = TRUE
 						brokenstate = FALSE
@@ -521,14 +521,14 @@
 /obj/structure/mineral_door/obj_break(damage_flag, mapload)
 	. = ..()
 	if(!brokenstate)
-		src.icon_state = "[initial(src.icon_state)]br"
-		src.density = FALSE
-		src.opacity = FALSE
-		src.brokenstate = TRUE
+		icon_state = "[initial(icon_state)]br"
+		density = FALSE
+		opacity = FALSE
+		brokenstate = TRUE
 
 /obj/structure/mineral_door/OnCrafted(dirin, user)
 	. = ..()
-	src.keylock = FALSE
+	keylock = FALSE
 
 /////////////////////// TOOL OVERRIDES ///////////////////////
 

@@ -32,10 +32,10 @@
 	update_icon()
 
 /obj/structure/window/update_icon()
-	if(src.brokenstate)
-		src.icon_state = "[src.icon_state]br"
+	if(brokenstate)
+		icon_state = "[icon_state]br"
 		return
-	src.icon_state = initial(src.icon_state)
+	icon_state = initial(icon_state)
 
 /obj/structure/window/attack_paw(mob/living/user)
 	attack_hand(user)
@@ -51,23 +51,23 @@
 		obj_break()
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	src.visible_message("<span class='info'>[user] knocks on [src].</span>")
+	visible_message("<span class='info'>[user] knocks on [src].</span>")
 	add_fingerprint(user)
 	playsound(src, 'sound/misc/glassknock.ogg', 100)
 
 /obj/structure/window/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
 	density = FALSE
-	. = step(user,get_dir(user,src.loc))
+	. = step(user, get_dir(user, loc))
 	density = TRUE
 
 /obj/structure/window/obj_break(damage_flag)
+	. = ..()
 	if(!brokenstate)
 		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 		new /obj/item/natural/glass/shard (get_turf(src))
 		climbable = TRUE
 		brokenstate = TRUE
-	update_icon()
-	..()
+		update_icon()
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && climbable && ((mover.pass_flags & PASSTABLE) || (mover.pass_flags & PASSGRILLE)))
@@ -203,14 +203,14 @@
 	var/icon
 	if(GLOB.tod == "night")
 		icon += "w-"
-	icon += initial(src.icon_state)
-	if(src.brokenstate)
-		src.icon_state = "[icon]br"
+	icon += initial(icon_state)
+	if(brokenstate)
+		icon_state = "[icon]br"
 		return
-	if(src.climbable)
-		src.icon_state = "[icon]op"
+	if(climbable)
+		icon_state = "[icon]op"
 		return
-	src.icon_state = "[icon]"
+	icon_state = "[icon]"
 
 /obj/structure/window/openclose/attack_right(mob/user)
 	if(get_dir(src,user) == lockdir)
@@ -229,7 +229,7 @@
 		to_chat(user, span_notice("I start trying to pry the window open..."))
 		if(do_after(user, 6 SECONDS, src))
 			playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
-			src.force_open()
+			force_open()
 	else
 		return ..()
 
