@@ -85,7 +85,7 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 
 	var/message2recognize = sanitize_hear_message(original_message)
 	var/isvip = FALSE
-	if(H.job in vip || H.get_role_title() in vip)
+	if((H.job in vip) || (H.get_role_title() in vip))
 		isvip = TRUE
 
 	if(isvip)

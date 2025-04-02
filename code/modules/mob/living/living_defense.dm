@@ -111,8 +111,13 @@
 			var/armor = run_armor_check(zone, damage_type, "", "",I.armor_penetration, damage = I.throwforce)
 			next_attack_msg.Cut()
 			var/nodmg = FALSE
-			if(!apply_damage(I.throwforce, damage_type, zone, armor))
+			var/damagetype = damage_type
+			switch(damage_type)
+				if("blunt", "slash", "stab", "piercing")
+					damagetype = BRUTE
+			if(!apply_damage(I.throwforce, damagetype, zone, armor))
 				nodmg = TRUE
+				next_attack_msg = span_warning(" Armor stops the damage.")
 				next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 			if(!nodmg)
 				if(iscarbon(src))
