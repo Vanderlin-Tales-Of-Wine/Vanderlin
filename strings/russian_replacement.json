@@ -1,6 +1,7 @@
 {
 
     "russian": {
+		"captain": "kapitan",
 		"c": "k",
 		"kh": "ch",
 		"r": "rr",
@@ -13,7 +14,6 @@
 		"good": "dobro",
 		"evil": "zlo",
 		"steward": "stewert",
-		"captain": "kapitan",
 		"king": "tsar",
 		"queen": "tsaritsa",
 		"monarchy": "monarkhiya",
