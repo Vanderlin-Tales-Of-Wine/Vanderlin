@@ -1,7 +1,7 @@
 {
-    "map_name": "Roguetown",
-    "map_path": "map_files/roguetown",
-    "map_file": "roguetown.dmm",
+	"map_name": "Roguetown",
+	"map_path": "map_files/roguetown",
+	"map_file": "roguetown.dmm",
 	"traits": [
 		{"Up": true},
 		{"Up": true, "Down": true, "Baseturf": "/turf/open/transparent/openspace"},
@@ -9,9 +9,9 @@
 		{"Down": true, "Baseturf": "/turf/open/transparent/openspace"}
 	],
 	"other_z": [
-		"_maps/map_files/roguetown/otherz/smallforest.json",
-		"_maps/map_files/roguetown/otherz/smalldecap.json",
-		"_maps/map_files/roguetown/otherz/smallswamp.json"
+		"_maps/map_files/roguetown/smallforest.json",
+		"_maps/map_files/roguetown/smalldecap.json",
+		"_maps/map_files/roguetown/smallswamp.json"
 	],
 	"minetype": null,
 	"space_empty_levels": 0,

@@ -1,6 +1,6 @@
 {
     "map_name": "Roguetest",
-    "map_path": "map_files/roguetest",
+    "map_path": "map_files/debug",
     "map_file": "roguetest.dmm",
 	"traits": [{"Up": true, "Leylines": true}, {"Down": true, "Leylines": true}],
 	"minetype": null,
