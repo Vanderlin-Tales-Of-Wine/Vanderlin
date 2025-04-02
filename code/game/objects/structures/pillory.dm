@@ -16,7 +16,7 @@
 	var/latched = FALSE
 	var/locked = FALSE
 	var/base_icon = "pillory_single"
-	var/list/lockcheck = list("dungeon", "garrison")
+	var/list/lockcheck = list(ACCESS_DUNGEON, ACCESS_GARRISON, ACCESS_AT_ARMS)
 
 /obj/structure/pillory/double
 	icon_state = "pillory_double"
