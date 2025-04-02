@@ -160,7 +160,7 @@
 		show_travel_tile(user)
 		the_tile.show_travel_tile(user)
 	if(user?.mind.active) // only log if they are an active player.
-		log_game(user, "[user.mind.key] has travelled to [loc_name[the_tile]] from ")
+		log_game(user, "[user.mind.key] has travelled to [the_tile.loc_name] from ")
 	mob_move_travel_z_level(user, get_turf(the_tile))
 
 /obj/structure/fluff/traveltile/proc/reveal_travel_trait_to_others(mob/living/user)
