@@ -58,40 +58,40 @@
 		to_chat(user, span_warning("I can't reach the lock!"))
 		return
 	if(!latched)
-		to_chat(user, span_warning("\The [ is not latched shut!"))
+		to_chat(user, span_warning("\The [src] is not latched shut!"))
 		return
 	if(!I.has_access())
 		return ..()
 	if(!keylock || !has_access())
-		to_chat(user, span_warning("\the [ has no lock!"))
+		to_chat(user, span_warning("\the [src] has no lock!"))
 		return
 	if(check_access(I))
 		togglelock(user)
 		return
-	to_chat(user, span_warning("I lack the key for \the [."))
-	playsound(get_turf(, 'sound/foley/doors/lockrattle.ogg', 100)
+	to_chat(user, span_warning("I lack the key for \the [src]."))
+	playsound(get_turf(src), 'sound/foley/doors/lockrattle.ogg', 100)
 
 /obj/structure/pillory/proc/togglelatch(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(locked)
-		to_chat(user, span_info("\The [ is locked."))
+		to_chat(user, span_info("\The [src] is locked."))
 		return
 	latched = !latched
 	user.visible_message( \
-		span_warning("[user] [latched ? "latches" : "unlatches"] \the [."), \
-		span_notice("I [latched ? "latch" : "unlatch"] \the ["))
-	playsound(get_turf(, 'sound/foley/doors/lock.ogg', 100)
+		span_warning("[user] [latched ? "latches" : "unlatches"] \the [src]."), \
+		span_notice("I [latched ? "latch" : "unlatch"] \the [src]"))
+	playsound(get_turf(src), 'sound/foley/doors/lock.ogg', 100)
 
 /obj/structure/pillory/proc/togglelock(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if (!latched)
-		to_chat(user, span_info("\The [ is not latched shut."))
+		to_chat(user, span_info("\The [src] is not latched shut."))
 		return
 	locked = !locked
 	user.visible_message( \
-		span_warning("[user] [locked ? "locks" : "unlocks"] \the [."), \
-		span_notice("I [locked ? "lock" : "unlock"] \the ["))
-	playsound(get_turf(, 'sound/foley/doors/lock.ogg', 100)
+		span_warning("[user] [locked ? "locks" : "unlocks"] \the [src]."), \
+		span_notice("I [locked ? "lock" : "unlock"] \the [src]"))
+	playsound(get_turf(src), 'sound/foley/doors/lock.ogg', 100)
 
 /obj/structure/pillory/buckle_mob(mob/living/M, force = FALSE, check_loc = TRUE)
 	if (!anchored)
@@ -114,7 +114,7 @@
 		if(G.grab_state == GRAB_AGGRESSIVE)
 			return ..(M, force, FALSE)
 
-	to_chat(usr, span_warning("I must grab them more forcefully to put them in [."))
+	to_chat(usr, span_warning("I must grab them more forcefully to put them in [src]."))
 	return FALSE
 
 /obj/structure/pillory/post_buckle_mob(mob/living/M)
@@ -156,7 +156,7 @@
 	if(latched)
 		if(isliving(user) && user.STASTR >= 18)
 			if(do_after(user, 2.5 SECONDS))
-				user.visible_message(span_warning("[user] breaks [ open!"))
+				user.visible_message(span_warning("[user] breaks [src] open!"))
 				locked = FALSE
 				latched = FALSE
 				return ..()

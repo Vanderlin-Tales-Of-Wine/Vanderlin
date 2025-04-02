@@ -179,15 +179,17 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/mapping_helpers/access/Initialize()
 	. = ..()
 	var/static/list/valid = list(
-		/obj/structure/fake_machine/vendor, \
-		/obj/structure/fake_machine/merchantvend, \
 		/obj/structure/mineral_door, \
-		/obj/structure/closet
+		/obj/structure/closet, \
+		/obj/structure/fake_machine/vendor, \
+		/obj/structure/fake_machine/merchantvend
 	)
 
-	for(var/obj/target in src.loc)
-		if(is_type_in_list(target, valid))
-			payload(valid)
+	// Get the first thing we find starting with doors and closets
+	for(var/thing as anything in valid)
+		var/obj/found = locate(thing) in loc
+		if(found)
+			payload(found)
 			return
 
 	log_mapping("[src] failed to find a target at [AREACOORD(src)]")
