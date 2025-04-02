@@ -23,8 +23,8 @@
 		return
 	if(length(src.keys) > 10)
 		stack_trace("Keyring [src] has too many keys and the list will get cut short!")
-	for(var/X as anything in keys)
-		var/obj/item/key/new_key = new X(loc)
+	for(var/X as anything in src.keys)
+		var/obj/item/key/new_key = new X(src.loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
 		LAZYREMOVE(src.keys, X)
