@@ -96,10 +96,6 @@
 	if(wet)
 		. += span_notice("It's wet!")
 
-/obj/item/natural/cloth/bandit
-	slot_flags = ITEM_SLOT_MOUTH|ITEM_SLOT_HIP|ITEM_SLOT_MASK
-	color = "#ff0000"
-
 // CLEANING
 
 /obj/item/natural/cloth/attack_obj(obj/O, mob/living/user)

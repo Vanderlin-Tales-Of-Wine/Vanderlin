@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(wisdoms, world.file2list("strings/rt/wisdoms.txt"))
 				original_icon_state = icon_state
 				icon_state = "[icon_state]_message"
 	if(closed)
-		return
+		return ..()
 	if(!reagents.total_volume && istype(I, /obj/item/paper/scroll))
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user

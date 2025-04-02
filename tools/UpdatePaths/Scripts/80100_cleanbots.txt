@@ -1,1 +1,0 @@
-/mob/living/simple_animal/bot/cleanbot/@SUBTYPES : /mob/living/basic/bot/cleanbot/@SUBTYPES{@OLD}

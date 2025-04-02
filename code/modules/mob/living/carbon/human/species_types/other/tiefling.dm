@@ -175,3 +175,6 @@
 
 /datum/species/tieberian/get_accent_list()
 	return strings("spanish_replacement.json", "spanish")
+
+/datum/species/tieberian/get_native_language()
+	return "Infernal"

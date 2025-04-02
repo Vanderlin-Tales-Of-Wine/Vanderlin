@@ -182,6 +182,8 @@
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbed)
 
+#define COMSIG_MOB_CREATED_CALLOUT "mob_created_callout"
+
 #define COMSIG_MOB_CLICKON "mob_clickon"						//from base of mob/clickon(): (atom/A, params)
 #define COMSIG_MOB_MIDDLECLICKON "mob_middleclickon"			//from base of mob/MiddleClickOn(): (atom/A)
 #define COMSIG_MOB_ALTCLICKON "mob_altclickon"				//from base of mob/AltClickOn(): (atom/A)
@@ -198,6 +200,8 @@
 #define COMSIG_MOB_ITEM_AFTERATTACK "mob_item_afterattack"		//from base of obj/item/afterattack(): (atom/target, mob/user, proximity_flag, click_parameters)
 #define COMSIG_MOB_ITEM_ATTACK_QDELETED "mob_item_attack_qdeleted"	//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, proxiumity_flag, click_parameters)
 #define COMSIG_MOB_ATTACK_RANGED "mob_attack_ranged"			//from base of mob/RangedAttack(): (atom/A, params)
+	#define COMPONENT_CANCEL_ATTACK_CHAIN (1<<0)
+#define COMSIG_MOB_POSTATTACK_RANGED "mob_postattack_ranged"
 #define COMSIG_MOB_THROW "mob_throw"							//from base of /mob/throw_item(): (atom/target)
 #define COMSIG_MOB_EXAMINATE "mob_examinate"					//from base of /mob/verb/examinate(): (atom/target)
 #define COMSIG_MOB_UPDATE_SIGHT "mob_update_sight"				//from base of /mob/update_sight(): ()
@@ -207,8 +211,9 @@
 	#define SPEECH_MESSAGE 1
 	// #define SPEECH_BUBBLE_TYPE 2
 	#define SPEECH_SPANS 3
-	/* #define SPEECH_SANITIZE 4
 	#define SPEECH_LANGUAGE 5
+	/* #define SPEECH_SANITIZE 4
+	
 	#define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
 #define COMSIG_MOB_DEADSAY "mob_deadsay" // from /mob/say_dead(): (mob/speaker, message)
@@ -285,6 +290,7 @@
 #define COMSIG_ITEM_AFTERATTACK "item_afterattack"				//from base of obj/item/afterattack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_ATTACK_QDELETED "item_attack_qdeleted"		//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_EQUIPPED "item_equip"						//from base of obj/item/equipped(): (/mob/equipper, slot)
+#define COMSIG_ITEM_SPEC_ATTACKEDBY "item_spec_attackedby"		//from base of datum/species/proc/spec_attacked_by: (atom/target, mob/user, params)
 /// A mob has just equipped an item. Called on [/mob] from base of [/obj/item/equipped()]: (/obj/item/equipped_item, slot)
 #define COMSIG_MOB_EQUIPPED_ITEM "mob_equipped_item"
 /// A mob has just unequipped an item.
@@ -440,5 +446,9 @@
 
 #define COMSIG_CANCEL_TURF_BREAK "cancel_turf_break_comsig"
 #define COMSIG_MOUSE_ENTERED "comsig_mouse_entered"
+/// signal sent when a mouse is hovering over us, sent by atom/proc/on_mouse_entered
+#define COMSIG_ATOM_MOUSE_ENTERED "mouse_entered"
 
 #define COMSIG_HABITABLE_HOME "comsig_habitable_home"
+
+#define COMSIG_COMBAT_TARGET_SET "comsig_combat_target_set"

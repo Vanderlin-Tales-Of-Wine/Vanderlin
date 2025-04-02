@@ -28,6 +28,7 @@
 
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	use_skintones = TRUE
+	use_skintones = TRUE
 	disliked_food = NONE
 	liked_food = NONE
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
@@ -65,6 +66,17 @@
 	. = ..()
 	C.AddComponent(/datum/component/abberant_eater, list(/obj/item/natural/dirtclod, /obj/item/natural/stone, /obj/item/coin, /obj/item/gem))
 	ADD_TRAIT(C, TRAIT_CRITICAL_WEAKNESS, SPECIES_TRAIT)
+
+
+/datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	..()
+	RegisterSignal(C, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	C.grant_language(/datum/language/common)
+
+/datum/species/kobold/on_species_loss(mob/living/carbon/C)
+	. = ..()
+	UnregisterSignal(C, COMSIG_MOB_SAY)
+	C.remove_language(/datum/language/common)
 
 
 /datum/species/kobold/on_species_gain(mob/living/carbon/C, datum/species/old_species)
