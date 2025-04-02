@@ -381,3 +381,39 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/hell/after_creation()
 	. = ..()
 	faction = list("zizo")
+
+
+/mob/living/simple_animal/hostile/retaliate/wolf/xylix
+	icon_state = "spiritw"
+	icon_living = "spiritw"
+	icon_dead = null
+	color = "#a58ba2"
+
+
+
+
+/mob/living/carbon/human/species/human/northern/bum/ambush/xylix
+	faction = list("xylix")
+	ambushable = FALSE
+	dodgetime = 1 SECONDS
+	flee_in_pain = FALSE
+	wander = FALSE
+
+/mob/living/carbon/human/species/human/northern/bum/ambush/xylix/after_creation()
+	..()
+	job = "Madman"
+	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	equipOutfit(new /datum/outfit/job/xylixjester)
+
+/datum/outfit/job/xylixjester/pre_equip(mob/living/carbon/human/H)
+	..()
+	shoes = /obj/item/clothing/shoes/jester
+	pants = /obj/item/clothing/pants/tights
+	shirt = /obj/item/clothing/shirt/jester
+	armor = /obj/item/clothing/armor/cuirass
+	belt = /obj/item/storage/belt/leather
+	beltl = /obj/item/storage/belt/pouch
+	head = /obj/item/clothing/head/jester
+	neck = /obj/item/clothing/neck/chaincoif
+	r_hand = /obj/item/weapon/mace/goden/steel/tetsubo

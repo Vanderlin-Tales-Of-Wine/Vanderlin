@@ -40,17 +40,18 @@
 	..()
 	head = /obj/item/clothing/head/helmet/bascinet
 	gloves = /obj/item/clothing/gloves/plate
-	pants = /obj/item/clothing/pants/platelegs
-	armor = /obj/item/clothing/armor/brigandine/sheriff
-	cloak = /obj/item/clothing/cloak/captain
+	wrists = /obj/item/clothing/wrists/bracers
+	pants = /obj/item/clothing/pants/trou/leather/heavy
+	armor = /obj/item/clothing/armor/plate
+	cloak = /obj/item/clothing/cloak/stabard/surcoat
 	neck = /obj/item/clothing/neck/bevor
-	shirt = /obj/item/clothing/shirt/undershirt/guard
+	shirt = /obj/item/clothing/armor/gambeson
 	shoes = /obj/item/clothing/shoes/boots/armor
 	backr = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/leather/black
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/weapon/mace/steel
-	r_hand = /obj/item/weapon/polearm/eaglebeak/lucerne/poleaxe
+	r_hand = /obj/item/weapon/knife/dagger/steel
 
 	backpack_contents = list(/obj/item/storage/keyring/captain = 1, /obj/item/signal_horn = 1, /obj/item/weapon/knife/dagger/steel = 1)
 	if(H.mind)

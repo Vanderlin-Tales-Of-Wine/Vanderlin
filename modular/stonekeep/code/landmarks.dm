@@ -171,6 +171,18 @@
 	id = "xmnn_2"
 	mappath = "_maps/map_files/stonehamlet/templates/xylix/xmnn_2.dmm"
 
+/obj/effect/landmark/map_load_mark/xylixmaze_wone
+	name = "simple room"
+	templates = list( "xmw_1", "xmw_2" )
+/datum/map_template/xylix_simpleroomi
+	name = "simple room"
+	id = "xmw_1"
+	mappath = "_maps/map_files/stonehamlet/templates/xylix/xmw_1.dmm"
+/datum/map_template/xylix_simpleroomii
+	name = "simple room"
+	id = "xmw_2"
+	mappath = "_maps/map_files/stonehamlet/templates/xylix/xmw_2.dmm"
+
 // ===================================================================================
 /*	..................   Dwarf Outpost Landmark sub-spawners  ................... */
 /obj/effect/spawner/map_spawner/outpost/dwarf_weapon

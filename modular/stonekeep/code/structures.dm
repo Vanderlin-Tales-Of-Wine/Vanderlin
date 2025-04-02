@@ -269,7 +269,7 @@
 /obj/structure/far_travel //Shamelessly jury-rigged from the way Fallout13 handles this and shamelessly borrowed from AzurePeak's further iteraiton of this system
 	name = "far travel"
 	desc = "Your heart yearns to wander.\n(Drag your sprite onto this to exit the round!)"
-	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon = 'modular/stonekeep/icons/turfs.dmi'
 	icon_state = "fartravel"
 	layer = TABLE_LAYER
 	density = TRUE

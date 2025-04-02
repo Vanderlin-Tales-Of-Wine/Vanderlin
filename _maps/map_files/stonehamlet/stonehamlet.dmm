@@ -2885,9 +2885,6 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/town/clinic_large)
-"eni" = (
-/turf/closed/wall/mineral/wooddark/horizontal,
-/area/rogue/indoors/shelter/mountains)
 "enq" = (
 /obj/structure/bookcase/random/myths,
 /obj/item/book/manners,
@@ -4361,12 +4358,6 @@
 	},
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor/stone)
-"guS" = (
-/turf/closed/wall/mineral/wooddark/end{
-	dir = 1;
-	icon_state = "endwooddark"
-	},
-/area/rogue/indoors/shelter/mountains)
 "guX" = (
 /obj/effect/decal/haycorner{
 	icon_state = "hayedge-s"
@@ -6680,6 +6671,7 @@
 /area/rogue/outdoors/rtfield/plague_district)
 "jEX" = (
 /obj/structure/rack,
+/obj/item/weapon/polearm/eaglebeak/lucerne/poleaxe,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor/stone)
 "jFk" = (
@@ -6889,9 +6881,6 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/church)
-"jXt" = (
-/turf/closed/wall/mineral/wooddark/end,
-/area/rogue/indoors/shelter/mountains)
 "jYz" = (
 /obj/structure/stairs/stone/reddish{
 	dir = 8
@@ -11272,12 +11261,6 @@
 	dir = 4
 	},
 /area/rogue/indoors)
-"pYl" = (
-/turf/closed/wall/mineral/wooddark/end{
-	dir = 8;
-	icon_state = "endwooddark"
-	},
-/area/rogue/indoors/shelter/mountains)
 "pYo" = (
 /turf/open/floor/tile/masonic/spiral,
 /area/rogue/indoors/town/vault)
@@ -12285,10 +12268,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern/saiga)
 "rka" = (
-/turf/closed/wall/mineral/wooddark/end{
-	dir = 4;
-	icon_state = "endwooddark"
-	},
+/turf/closed/wall/mineral/wood,
 /area/rogue/indoors/shelter/mountains)
 "rke" = (
 /obj/structure/fluff/signage{
@@ -13182,9 +13162,6 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
-"szX" = (
-/turf/closed/wall/mineral/wooddark,
-/area/rogue/indoors/shelter/mountains)
 "szY" = (
 /obj/structure/bars/pipe{
 	dir = 1;
@@ -13234,6 +13211,11 @@
 "sDW" = (
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/town/church/chapel)
+"sEx" = (
+/obj/structure/rack,
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/wood,
+/area/rogue/indoors/town/manor/stone)
 "sFI" = (
 /obj/structure/fluff/railing/border{
 	dir = 9;
@@ -16495,7 +16477,8 @@
 /turf/open/floor/cobble,
 /area/rogue/under/town/basement)
 "xmQ" = (
-/turf/closed/wall/mineral/wooddark/vertical,
+/obj/structure/barricade/rogue,
+/turf/closed/wall/mineral/wood,
 /area/rogue/indoors/shelter/mountains)
 "xnb" = (
 /obj/structure/fluff/statue/knight/r,
@@ -159801,7 +159784,7 @@ sMe
 bJJ
 iow
 jEX
-jEX
+sEx
 iow
 iow
 iow
@@ -183559,11 +183542,11 @@ sVT
 sVT
 nmy
 xKJ
-szX
-guS
 xmQ
+rka
 xmQ
-xmQ
+rka
+rka
 shr
 shr
 shr
@@ -183761,7 +183744,7 @@ sVT
 sVT
 wRn
 aav
-pYl
+rka
 hAJ
 hAJ
 dLD
@@ -184159,17 +184142,17 @@ shr
 shr
 shr
 xmQ
-jXt
-szX
+rka
+xmQ
 sVT
 mMz
 sVT
 mMz
-szX
-guS
+xmQ
+rka
 xmQ
 pFj
-xmQ
+rka
 shr
 shr
 shr
@@ -184362,7 +184345,7 @@ shr
 shr
 lNj
 kaw
-pYl
+rka
 mMz
 mMz
 sVT
@@ -184564,7 +184547,7 @@ shr
 shr
 lLU
 lLU
-eni
+rka
 kLJ
 sVT
 sVT
@@ -185170,7 +185153,7 @@ shr
 shr
 ylP
 ylP
-szX
+xmQ
 mkT
 mkT
 mMz

@@ -271,10 +271,9 @@
 	first_time_text = "The Maze"
 	spookysounds = SPOOKY_CAVE
 	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = 'modular/stonekeep/kaizoku/sound/ambience/Bucolic.ogg'
-	droning_sound_night = 'modular/stonekeep/kaizoku/sound/ambience/Nebula.ogg'
-	converted_type = /area/rogue/outdoors/caves
+	droning_sound = 'sound/music/area/xylixarea.ogg'
+	droning_sound_dusk = 'sound/music/area/xylixarea.ogg'
+	droning_sound_night = 'sound/music/area/xylixarea.ogg'
 
 /area/rogue/under/zizochurch
 	name = "zizos church"

@@ -374,6 +374,12 @@
 	},
 /turf/open/floor/herringbone,
 /area/rogue/indoors/vampire_manor)
+"mi" = (
+/obj/effect/landmark/hammer/dev_text{
+	name = "Add some minicave or something?"
+	},
+/turf/closed/mineral/bedrock,
+/area/rogue/under/mountains)
 "mj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/fluff/walldeco/fakeshelf,
@@ -55793,7 +55799,7 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
+mi
 ZZ
 ZZ
 ZZ

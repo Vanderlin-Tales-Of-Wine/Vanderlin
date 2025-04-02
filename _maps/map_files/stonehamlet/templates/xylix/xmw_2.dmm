@@ -1,0 +1,234 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"d" = (
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"e" = (
+/obj/structure/bars/pipe{
+	dir = 10
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"f" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+"s" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long{
+	dir = 1
+	},
+/area/rogue/under/xylix)
+"v" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/closed/wall/mineral/decostone/moss/blue,
+/area/rogue/under/xylix)
+"w" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"C" = (
+/obj/machinery/light/fueled/firebowl,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"D" = (
+/turf/closed/wall/mineral/decostone/moss/blue/long,
+/area/rogue/under/xylix)
+"H" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 8
+	},
+/area/rogue/under/xylix)
+"I" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 4
+	},
+/area/rogue/under/xylix)
+"P" = (
+/obj/structure/bars/pipe{
+	dir = 9
+	},
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"V" = (
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
+
+(1,1,1) = {"
+a
+D
+D
+a
+d
+V
+V
+d
+a
+D
+D
+a
+"}
+(2,1,1) = {"
+s
+V
+d
+s
+C
+d
+d
+C
+s
+d
+V
+s
+"}
+(3,1,1) = {"
+s
+d
+V
+a
+a
+d
+d
+a
+a
+V
+d
+s
+"}
+(4,1,1) = {"
+s
+V
+V
+d
+I
+d
+d
+I
+d
+V
+V
+s
+"}
+(5,1,1) = {"
+s
+d
+d
+d
+V
+V
+d
+V
+d
+d
+d
+s
+"}
+(6,1,1) = {"
+a
+D
+D
+D
+a
+V
+V
+a
+D
+D
+D
+a
+"}
+(7,1,1) = {"
+s
+V
+V
+d
+I
+V
+d
+I
+d
+V
+d
+s
+"}
+(8,1,1) = {"
+s
+V
+V
+d
+V
+d
+d
+V
+d
+V
+V
+s
+"}
+(9,1,1) = {"
+s
+d
+V
+d
+H
+d
+V
+H
+V
+V
+d
+s
+"}
+(10,1,1) = {"
+s
+d
+d
+a
+a
+d
+V
+a
+a
+V
+d
+s
+"}
+(11,1,1) = {"
+s
+d
+d
+s
+C
+V
+d
+C
+s
+V
+V
+s
+"}
+(12,1,1) = {"
+v
+w
+w
+v
+f
+P
+e
+d
+a
+D
+D
+a
+"}

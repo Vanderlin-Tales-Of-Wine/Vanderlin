@@ -3,220 +3,227 @@
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
 "d" = (
-/obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"r" = (
-/obj/structure/lever{
-	redstone_id = "xylcageroom"
+"f" = (
+/obj/structure/bars/pipe{
+	dir = 8
 	},
-/turf/open/floor/blocks/moss,
+/turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "s" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long{
 	dir = 1
 	},
 /area/rogue/under/xylix)
-"w" = (
-/obj/structure/bars/passage{
-	layer = 2.1;
-	plane = -5;
-	redstone_id = "xylcageroom"
+"y" = (
+/obj/structure/bars/pipe{
+	dir = 10
 	},
+/turf/open/floor/metal/barograte,
+/area/rogue/under/xylix)
+"B" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end,
+/area/rogue/under/xylix)
+"C" = (
+/obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "D" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
-"I" = (
-/turf/open/floor/blocks/moss,
+"F" = (
+/turf/closed/wall/mineral/decostone/moss/blue/end{
+	dir = 1
+	},
 /area/rogue/under/xylix)
-"O" = (
+"G" = (
+/obj/machinery/light/fueled/firebowl,
 /turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"H" = (
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/under/xylix)
 "P" = (
-/obj/structure/bars/passage{
-	redstone_id = "xylcageroom"
+/obj/structure/bars/pipe{
+	dir = 9
 	},
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
-"R" = (
-/mob/living/simple_animal/hostile/retaliate/wolf/xylix,
-/turf/open/floor/blocks/moss,
-/area/rogue/under/xylix)
-"T" = (
-/obj/structure/bars,
-/turf/open/floor/blocks/moss,
+/obj/structure/bars/pipe{
+	dir = 8
+	},
+/turf/open/floor/metal/barograte,
 /area/rogue/under/xylix)
 "V" = (
-/obj/structure/bars,
-/turf/open/floor/cobblemoss,
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 
 (1,1,1) = {"
 a
-a
-P
-P
-a
-D
-D
 D
 D
 a
-D
+d
+V
+V
+d
 a
+D
+D
+D
 "}
 (2,1,1) = {"
 s
-r
-O
-O
+C
 V
-I
-I
-I
-I
+d
+d
+d
 V
-I
-O
+d
+s
+a
+a
+a
 "}
 (3,1,1) = {"
 s
-I
-I
-O
-w
-I
-R
-I
-I
-w
-I
-I
+d
+V
+d
+V
+V
+V
+V
+s
+a
+a
+a
 "}
 (4,1,1) = {"
 s
-O
-O
-I
-V
-V
-V
-V
-V
-V
-O
-I
+d
+d
+a
+D
+D
+D
+D
+a
+a
+a
+a
 "}
 (5,1,1) = {"
 s
-O
-I
-I
-O
+d
 V
-O
-O
-I
-V
-O
-O
+s
+a
+a
+a
+a
+a
+a
+a
+a
 "}
 (6,1,1) = {"
 s
-I
-O
-O
-O
-w
-I
-O
-R
-P
-O
+d
+d
+a
+D
+D
+D
+D
+D
+D
+D
 a
 "}
 (7,1,1) = {"
 s
 d
-O
-I
-O
+d
+d
 V
 V
-w
 V
 V
-O
+V
+d
+C
 s
 "}
 (8,1,1) = {"
 s
+G
+d
+d
+d
+d
+d
 V
-P
 V
-I
-O
-I
-I
-I
-O
-O
-s
-"}
-(9,1,1) = {"
-s
-O
-I
-P
-I
-T
-P
-T
-V
-I
-I
-s
-"}
-(10,1,1) = {"
-s
-O
-R
-V
-I
-P
-R
-O
-P
-O
-O
-s
-"}
-(11,1,1) = {"
-s
-O
-O
-V
-I
-V
-I
-I
-V
-O
+d
 d
 s
 "}
-(12,1,1) = {"
+(9,1,1) = {"
+a
+D
+D
 a
 D
 D
 D
 D
+F
+d
+V
+s
+"}
+(10,1,1) = {"
+a
+a
+a
+s
+G
+V
+d
+d
+d
+V
+V
+s
+"}
+(11,1,1) = {"
+a
+a
+a
+s
+V
+V
+V
+V
+V
+d
+d
+s
+"}
+(12,1,1) = {"
+B
 D
 D
-D
-D
+H
+f
+P
+y
+d
+a
 D
 D
 a

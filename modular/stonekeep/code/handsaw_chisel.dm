@@ -30,22 +30,7 @@
 //................	Chisel	............... //
 /obj/item/weapon/chisel
 	icon = 'modular/stonekeep/icons/crafting.dmi'
-/*
-/obj/structure/roguerock/attackby(obj/item/W, mob/living/user, params)
-	. = ..()
-	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
-		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
-		if(do_after(user, 10 SECONDS))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
-			playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*1))
-			qdel(src)
-*/
+
 //................	Stone blocks	............... //
 /obj/item/natural/stoneblock
 	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'

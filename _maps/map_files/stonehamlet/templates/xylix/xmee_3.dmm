@@ -5,46 +5,30 @@
 "d" = (
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"o" = (
-/obj/effect/decal/shadow_floor{
-	dir = 4
-	},
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/under/xylix)
 "p" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end{
 	dir = 1
 	},
 /area/rogue/under/xylix)
 "s" = (
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/under/xylix)
-"u" = (
 /obj/structure/trap/shock,
 /turf/open/water/river{
-	dir = 4
+	dir = 1
 	},
 /area/rogue/under/xylix)
 "A" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long,
 /area/rogue/under/xylix)
 "C" = (
-/turf/open/water/river{
-	dir = 1
-	},
+/obj/structure/trap/shock,
+/turf/open/water/river,
 /area/rogue/under/xylix)
 "D" = (
 /turf/open/water/river,
 /area/rogue/under/xylix)
 "E" = (
-/obj/structure/trap/shock,
-/turf/open/water/river{
-	dir = 1
-	},
+/mob/living/carbon/human/species/rousman/ambush,
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "J" = (
 /turf/closed/wall/mineral/decostone/moss/blue/long{
@@ -54,20 +38,10 @@
 "K" = (
 /turf/closed/wall/mineral/decostone/moss/blue/end,
 /area/rogue/under/xylix)
-"M" = (
-/obj/structure/trap/shock,
-/turf/open/water/river{
-	dir = 8
-	},
-/area/rogue/under/xylix)
 "V" = (
 /turf/open/water/river{
-	dir = 4
+	dir = 1
 	},
-/area/rogue/under/xylix)
-"Y" = (
-/obj/structure/trap/shock,
-/turf/open/water/river,
 /area/rogue/under/xylix)
 "Z" = (
 /turf/open/floor/blocks/moss,
@@ -89,142 +63,142 @@ a
 "}
 (2,1,1) = {"
 J
-C
-C
-C
-C
-o
-o
+Z
 D
 D
 D
-V
+D
+D
+D
+D
+D
+C
 J
 "}
 (3,1,1) = {"
 J
-s
-C
-C
-s
-C
-s
-D
-s
-D
-u
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
 J
 "}
 (4,1,1) = {"
 J
-C
-C
-E
-C
-C
-D
-D
-D
-D
+s
 V
+V
+V
+V
+V
+V
+V
+V
+Z
 J
 "}
 (5,1,1) = {"
 J
-s
-C
-C
-V
-C
-D
-Y
-D
-D
-V
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
 J
 "}
 (6,1,1) = {"
 J
-M
-C
-C
-E
-C
+Z
 D
 D
-s
 D
-V
+D
+D
+D
+D
+D
+C
 J
 "}
 (7,1,1) = {"
 J
-s
-s
-C
-C
-C
-D
-D
-D
-D
-V
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
 J
 "}
 (8,1,1) = {"
 J
 s
-C
 V
-C
-C
-u
-D
-D
+V
+V
+V
+V
+V
+Z
 V
 V
 J
 "}
 (9,1,1) = {"
 J
-s
+Z
+Z
+Z
+Z
+Z
+Z
+Z
 E
-C
-C
-s
-D
-D
-s
-Y
-C
+Z
+Z
 J
 "}
 (10,1,1) = {"
 J
-s
-C
-C
-V
-C
 D
-V
+Z
 D
 D
-V
+D
+D
+D
+D
+D
+C
 J
 "}
 (11,1,1) = {"
 J
-s
-s
-C
-C
+Z
 E
-C
-C
-C
-C
-D
+Z
+Z
+Z
+Z
+Z
+Z
+Z
+Z
 J
 "}
 (12,1,1) = {"
