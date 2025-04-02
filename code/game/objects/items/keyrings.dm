@@ -19,7 +19,9 @@
 
 /obj/item/storage/keyring/Initialize()
 	. = ..()
-	for(var/X in keys)
+	if(length(src.keys) > 10)
+		warning("Keyring [src] has too many keys and the list will get cut short!")
+	for(var/X as anything in keys)
 		var/obj/item/key/new_key = new X(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
@@ -50,12 +52,12 @@
 			icon_state = "keyring5"
 
 /obj/item/storage/keyring/proc/update_desc()
-	if(contents.len)
-		desc = span_info("Holds \Roman[contents.len] key\s, including:")
-		for(var/obj/item/key/KE in contents)
-			desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
-	else
-		desc = ""
+	if(!length(src.contents))
+		src.desc = initial(src.desc)
+		return
+	src.desc = span_info("Holds \Roman[length(src.contents)] key\s, including:")
+	for(var/obj/item/key/KE in contents)
+		src.desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
@@ -245,7 +247,7 @@
 	keys = list(/obj/item/key/church, /obj/item/key/graveyard)
 
 /obj/item/storage/keyring/hand
-	keys = list(/obj/item/key/hand, /obj/item/key/steward, /obj/item/key/tavern, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms, /obj/item/key/manor, /obj/item/key/guest)
+	keys = list(/obj/item/key/hand, /obj/item/key/manor, /obj/item/key/steward, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms)
 
 /obj/item/storage/keyring/steward
 	keys = list(/obj/item/key/steward, /obj/item/key/vault, /obj/item/key/manor, /obj/item/key/warehouse)
