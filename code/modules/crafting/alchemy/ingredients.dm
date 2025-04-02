@@ -70,7 +70,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/antidote
 
 /obj/item/alch/waterdust
-	name = "water rune dust"
+	name = "water essentia"
 	icon_state = "water_runedust"
 	major_pot = /datum/alch_cauldron_recipe/int_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
@@ -91,7 +91,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/disease_cure
 
 /obj/item/alch/runedust
-	name = "rune dust"
+	name = "raw essentia"
 	icon_state = "runedust"
 	major_pot = /datum/alch_cauldron_recipe/int_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
@@ -112,14 +112,14 @@
 	minor_pot = /datum/alch_cauldron_recipe/big_health_potion
 
 /obj/item/alch/magicdust
-	name = "magic dust"
+	name = "pure essentia"
 	icon_state = "magic_runedust"
 	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
 /obj/item/alch/firedust
-	name = "fire rune dust"
+	name = "fire essentia"
 	icon_state = "fire_runedust"
 	major_pot = /datum/alch_cauldron_recipe/str_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
@@ -141,7 +141,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/str_potion
 
 /obj/item/alch/airdust
-	name = "air rune dust"
+	name = "air essentia"
 	icon_state = "air_runedust"
 	major_pot = /datum/alch_cauldron_recipe/spd_potion
 	med_pot = /datum/alch_cauldron_recipe/stamina_potion
@@ -162,7 +162,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/spd_potion
 
 /obj/item/alch/earthdust
-	name = "earth rune dust"
+	name = "earth essentia"
 	icon_state = "earth_runedust"
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
@@ -181,6 +181,12 @@
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 	grid_height = 32
 	grid_width = 32
+
+	attunement_values = list(
+		/datum/attunement/death = 0.05,
+		/datum/attunement/life = -0.1,
+		/datum/attunement/light = -0.1,
+	)
 
 /obj/item/alch/horn
 	name = "troll horn"
@@ -219,7 +225,7 @@
 
 	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
 	med_pot = /datum/alch_cauldron_recipe/lck_potion
-	minor_pot = /datum/alch_cauldron_recipe/doompoison
+	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/transisdust
 	name = "transis dust"

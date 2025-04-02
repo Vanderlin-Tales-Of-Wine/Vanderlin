@@ -1,6 +1,34 @@
 /datum/status_effect/buff
 	status_type = STATUS_EFFECT_REFRESH
 
+/datum/status_effect/buff/duration_modification
+	var/duration_modification = 0
+
+/datum/status_effect/buff/duration_modification/on_creation(mob/living/new_owner, duration_increase)
+	testing("oncreation")
+	if(new_owner)
+		owner = new_owner
+	if(owner)
+		LAZYADD(owner.status_effects, src)
+	if(!owner || !on_apply())
+		qdel(src)
+		return
+	if(duration != -1)
+		duration = world.time + duration + duration_increase
+	duration_modification = duration_increase
+	tick_interval = world.time + tick_interval
+	if(alert_type)
+		var/atom/movable/screen/alert/status_effect/A = owner.throw_alert(id, alert_type)
+		A?.attached_effect = src //so the alert can reference us, if it needs to
+		linked_alert = A //so we can reference the alert, if we need to
+	START_PROCESSING(SSfastprocess, src)
+	return TRUE
+
+/datum/status_effect/buff/duration_modification/refresh()
+	var/original_duration = initial(duration)
+	if(original_duration == -1)
+		return
+	duration = world.time + original_duration + duration_modification
 
 /datum/status_effect/buff/drunk
 	id = "drunk"
@@ -203,22 +231,22 @@
 	desc = "I am somewhat protected against falling from heights."
 	icon_state = "buff"
 
-/datum/status_effect/buff/featherfall
+/datum/status_effect/buff/duration_modification/featherfall
 	id = "featherfall"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/featherfall
 	duration = 1 MINUTES
 
-/datum/status_effect/buff/featherfall/on_apply()
+/datum/status_effect/buff/duration_modification/featherfall/on_apply()
 	. = ..()
 	to_chat(owner, span_warning("I feel lighter."))
 	ADD_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
 
-/datum/status_effect/buff/featherfall/on_remove()
+/datum/status_effect/buff/duration_modification/featherfall/on_remove()
 	. = ..()
 	to_chat(owner, span_warning("The feeling of lightness fades."))
 	REMOVE_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
 
-/datum/status_effect/buff/darkvision
+/datum/status_effect/buff/duration_modification/darkvision
 	id = "darkvision"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/darkvision
 	duration = 10 MINUTES
@@ -228,7 +256,7 @@
 	desc = span_nicegreen("I can see in the dark.")
 	icon_state = "buff"
 
-/datum/status_effect/buff/darkvision/on_apply()
+/datum/status_effect/buff/duration_modification/darkvision/on_apply()
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	var/obj/item/organ/eyes/eyes = H.getorgan(/obj/item/organ/eyes)
@@ -237,7 +265,7 @@
 	ADD_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
 	owner.update_sight()
 
-/datum/status_effect/buff/darkvision/on_remove()
+/datum/status_effect/buff/duration_modification/darkvision/on_remove()
 	. = ..()
 	to_chat(owner, span_warning("Darkness shrouds your senses once more."))
 	REMOVE_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
@@ -248,7 +276,7 @@
 	desc = "I am magically hastened."
 	icon_state = "buff"
 
-/datum/status_effect/buff/haste
+/datum/status_effect/buff/duration_modification/haste
 	id = "haste"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/haste
 	effectedstats = list(STATKEY_SPD = 3)
@@ -563,5 +591,215 @@
 		if(H.mind?.has_antag_datum(/datum/antagonist))
 			if(!H.mind?.isactuallygood())
 				continue
+		H.adjust_energy(H.max_energy * 0.002)
+		H.adjust_stamina(-H.maximum_stamina * 0.02, internal_regen = FALSE)
+
+/datum/status_effect/buff/magicknowledge
+	id = "intelligence"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/knowledge
+	effectedstats = list("intelligence" = 2)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/knowledge
+	name = "runic cunning"
+	desc = "I am magically astute."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicstrength
+	id = "strength"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/strength
+	effectedstats = list("strength" = 3)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/strength
+	name = "arcane reinforced strength"
+	desc = "I am magically strengthened."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicstrength/lesser
+	id = "lesser strength"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/strength/lesser
+	effectedstats = list("strength" = 1)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/strength/lesser
+	name = "lesser arcane strength"
+	desc = "I am magically strengthened."
+	icon_state = "buff"
+
+
+/datum/status_effect/buff/magicspeed
+	id = "speed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/speed
+	effectedstats = list("speed" = 3)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/speed
+	name = "arcane swiftness"
+	desc = "I am magically swift."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicspeed/lesser
+	id = "lesser speed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/speed/lesser
+	effectedstats = list("speed" = 1)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/speed/lesser
+	name = "arcane swiftness"
+	desc = "I am magically swift."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicendurance
+	id = "endurance"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance
+	effectedstats = list("endurance" = 3)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/endurance
+	name = "arcane endurance"
+	desc = "I am magically resilient."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicendurance/lesser
+	id = "lesser endurance"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance/lesser
+	effectedstats = list("endurance" = 1)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/endurance/lesser
+	name = "lesser arcane endurance"
+	desc = "I am magically resilient."
+	icon_state = "buff"
+
+
+/datum/status_effect/buff/magicconstitution
+	id = "constitution"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/constitution
+	effectedstats = list("constitution" = 3)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/constitution
+	name = "arcane constitution"
+	desc = "I feel reinforced by magick."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicconstitution/lesser
+	id = "lesser constitution"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/constitution/lesser
+	effectedstats = list("constitution" = 1)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/constitution/lesser
+	name = "lesser arcane constitution"
+	desc = "I feel reinforced by magick."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicperception
+	id = "perception"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/perception
+	effectedstats = list("perception" = 3)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/perception
+	name = "arcane perception"
+	desc = "I can see everything."
+	icon_state = "buff"
+
+/datum/status_effect/buff/magicperception/lesser
+	id = "lesser perception"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/perception/lesser
+	effectedstats = list("perception" = 1)
+	duration = 20 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/perception/lesser
+	name = "lesser arcane perception"
+	desc = "I can see somethings."
+	icon_state = "buff"
+/atom/movable/screen/alert/status_effect/bardbuff/awaken
+	name = "Awaken!"
+
+/datum/status_effect/bardicbuff/awaken/tick()
+	for (var/mob/living/carbon/human/H in hearers(7, owner))
+		if (!H.client)
+			continue
+		if(!H.can_hear())
+			continue
+		if(H.mind?.has_antag_datum(/datum/antagonist))
+			if(!H.mind?.isactuallygood())
+				continue
 		H.adjust_energy(1)
 		H.adjust_stamina(-0.5, internal_regen = FALSE)
+
+/datum/status_effect/debuff/cold
+	id = "Frostveiled"
+	alert_type =  /atom/movable/screen/alert/status_effect/debuff/cold
+	effectedstats = list("speed" = -2)
+	duration = 12 SECONDS
+
+/datum/status_effect/debuff/cold/on_apply()
+	. = ..()
+	var/mob/living/target = owner
+	var/newcolor = rgb(136, 191, 255)
+	target.add_atom_colour(newcolor, TEMPORARY_COLOUR_PRIORITY)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/atom, remove_atom_colour), TEMPORARY_COLOUR_PRIORITY, newcolor), 12 SECONDS)
+
+/atom/movable/screen/alert/status_effect/debuff/cold
+	name = "Cold"
+	desc = "Something has chilled me to the bone! It's hard to move."
+	icon_state = "muscles"
+
+/datum/status_effect/buff/frostbite
+	id = "frostbite"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/frostbite
+	duration = 20 SECONDS
+	effectedstats = list("speed" = -2)
+
+/atom/movable/screen/alert/status_effect/buff/frostbite
+	name = "Frostbite"
+	desc = "I can feel myself slowing down."
+	icon_state = "debuff"
+	color = "#00fffb"
+
+/datum/status_effect/buff/frostbite/on_apply()
+	. = ..()
+	var/mob/living/target = owner
+	target.update_vision_cone()
+	var/newcolor = rgb(136, 191, 255)
+	target.add_atom_colour(newcolor, TEMPORARY_COLOUR_PRIORITY)
+	addtimer(CALLBACK(target, TYPE_PROC_REF(/atom, remove_atom_colour), TEMPORARY_COLOUR_PRIORITY, newcolor), 20 SECONDS)
+	target.add_movespeed_modifier(MOVESPEED_ID_ADMIN_VAREDIT, update=TRUE, priority=100, multiplicative_slowdown=4, movetypes=GROUND)
+
+/datum/status_effect/buff/frostbite/on_remove()
+	var/mob/living/target = owner
+	target.update_vision_cone()
+	target.remove_movespeed_modifier(MOVESPEED_ID_ADMIN_VAREDIT, TRUE)
+	. = ..()
+
+/datum/status_effect/buff/nocblessing
+	id = "nocblessing"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/nocblessing
+	effectedstats = list("intelligence" = 1)
+	duration = 30 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/nocblessing
+	name = "Noc's blessing"
+	desc = "Gazing Noc helps me think."
+	icon_state = "buff"
+
+/datum/status_effect/buff/seelie_drugs
+	id = "seelie drugs"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
+	effectedstats = list("intelligence" = 2, "endurance" = 4, "speed" = -3)
+	duration = 20 SECONDS
+
+/datum/status_effect/buff/powered_steam_armor
+	id = "powered_steam"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/powered_steam_armor
+	effectedstats = list(STATKEY_END = 2, STATKEY_CON = 2, STATKEY_STR = 2, STATKEY_SPD = 2)
+	duration = -1
+
+/atom/movable/screen/alert/status_effect/buff/powered_steam_armor
+	name = "Powered Steam Armor"
+	desc = "The armor is powered. I feel unstoppable."
+	icon_state = "buff"

@@ -29,73 +29,73 @@
 /obj/structure/fake_machine/vendor/obj_break(damage_flag)
 	. = ..()
 	for(var/obj/item/I as anything in held_items)
-		I.forceMove(src.loc)
+		I.forceMove(loc)
 		held_items -= I
 	budget2change(budget)
 	update_icon()
 
 /obj/structure/fake_machine/vendor/Destroy()
 	for(var/obj/item/I as anything in held_items)
-		I.forceMove(src.loc)
+		I.forceMove(loc)
 		held_items -= I
 	budget2change(budget)
 	set_light(0)
 	. = ..()
 
 /obj/structure/fake_machine/vendor/update_icon()
-	if(!src.locked || src.obj_broken)
-		src.icon_state = "streetvendor0"
-		if(length(src.overlays))
+	if(!locked || obj_broken)
+		icon_state = "streetvendor0"
+		if(length(overlays))
 			cut_overlays()
 		set_light(0)
 		return
-	src.icon_state = "streetvendor1"
-	if(!length(src.held_items))
-		if(length(src.overlays))
+	icon_state = "streetvendor1"
+	if(!length(held_items))
+		if(length(overlays))
 			cut_overlays()
 		set_light(0)
 		return
-	set_light(1, 1, 1, l_color = src.lighting_color)
-	if(!length(src.overlays))
-		add_overlay(mutable_appearance(src.icon, src.filled_overlay))
+	set_light(1, 1, 1, l_color = lighting_color)
+	if(!length(overlays))
+		add_overlay(mutable_appearance(icon, filled_overlay))
 
 /obj/structure/fake_machine/vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
 		var/money = I.get_real_price()
-		src.budget += money
+		budget += money
 		qdel(I)
 		to_chat(user, span_info("I put [money] mammon in \the [src]."))
 		playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 		return attack_hand(user)
 	if(!I.has_access()) // Maybe this should be rclick so you can sell keys
-		src.add_merchandise(I, user)
+		add_merchandise(I, user)
 		return
-	if(!src.keylock || !src.has_access())
+	if(!keylock || !has_access())
 		to_chat(user, span_warning("\The [src] has no lock!"))
 		return
-	if(src.check_access(I))
-		src.locked = !src.locked
+	if(check_access(I))
+		locked = !locked
 		user.visible_message( \
-			span_warning("[user] [src.locked ? "locks" : "unlocks"] \the [src]."), \
-			span_notice("I [src.locked ? "lock" : "unlock"] \the [src]."))
+			span_warning("[user] [locked ? "locks" : "unlocks"] \the [src]."), \
+			span_notice("I [locked ? "lock" : "unlock"] \the [src]."))
 		playsound(get_turf(src), 'sound/misc/beep.ogg', 100, FALSE, -1)
 		return
 	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
 	to_chat(user, span_info("I lack the key for \the [src]."))
 
 /obj/structure/fake_machine/vendor/proc/add_merchandise(obj/item/I, mob/user)
-	if(src.locked)
+	if(locked)
 		to_chat(user, span_info("I cannot put [I] in [src] while it's locked."))
 		return
 	if(I.w_class > WEIGHT_CLASS_BULKY)
 		to_chat(user, span_info("[I] is too big for [src]!"))
 		return
-	if(length(src.held_items) > src.max_merchanise)
+	if(length(held_items) > max_merchanise)
 		to_chat(user, span_info("[src] is full!"))
 		return
-	src.held_items[I] = list()
-	src.held_items[I]["NAME"] = I.name
-	src.held_items[I]["PRICE"] = 0
+	held_items[I] = list()
+	held_items[I]["NAME"] = I.name
+	held_items[I]["PRICE"] = 0
 	I.forceMove(src)
 	playsound(get_turf(src), 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 	update_icon()
@@ -265,6 +265,24 @@
 	lockids = list("nightman")
 	lighting_color = "#8f06b5"
 	filled_overlay = "vendor-drug"
+
+/obj/structure/fake_machine/vendor/apothecary
+	name = "DRUG PEDDLER"
+	keycontrol = ACCESS_APOTHECARY
+
+/obj/structure/fake_machine/vendor/blacksmith
+	keycontrol = ACCESS_SMITH
+
+/obj/structure/fake_machine/vendor/inn
+	name = "INNKEEP"
+	keycontrol = ACCESS_INN
+
+/obj/structure/fake_machine/vendor/butcher
+	keycontrol = ACCESS_BUTCHER
+
+/obj/structure/fake_machine/vendor/soilson
+	name = "FARMHAND"
+	keycontrol = ACCESS_FARM
 
 /obj/structure/fake_machine/vendor/centcom
 	name = "LANDLORD"

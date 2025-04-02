@@ -11,7 +11,6 @@
 	density = TRUE
 	layer = MOB_LAYER
 	animate_movement = SLIDE_STEPS
-	flags_1 = HEAR_1
 	hud_possible = list(ANTAG_HUD)
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	throwforce = 10
@@ -108,6 +107,7 @@
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 
 	/// The current intent of the mob
+	var/uses_intents = TRUE
 	var/datum/intent/a_intent = INTENT_HELP//Living
 	var/datum/intent/o_intent = INTENT_HELP
 	var/datum/rmb_intent/rmb_intent //Living
@@ -215,9 +215,6 @@
 	///For storing what do_after's someone has, key = string, value = amount of interactions of that type happening.
 	var/list/do_afters
 
-	/// Set to TRUE when the mob is in the middle of a do_after. Not to be changed directly.
-	var/doing = FALSE //! DEPRECATED
-
 	///Allows a datum to intercept all click calls this mob is the source of
 	var/datum/click_intercept
 
@@ -288,3 +285,5 @@
 	var/music_playing = FALSE
 	/// Tracker for amount of turfs we sprinted over, for things like bumping and charging
 	var/sprinted_tiles = 0
+	///how many tiles we can move while casting
+	var/cast_move = 0

@@ -115,7 +115,7 @@
 	craftdiff = 4
 
 /datum/artificer_recipe/contraptions/linker
-	name = "Engineering Linker (+1 Gold)"
+	name = "Engineering Wrench (+1 Gold)"
 	required_item = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/ingot/gold = 1)
 	created_item = /obj/item/contraption/linker
@@ -129,6 +129,14 @@
 	additional_items = list(/obj/item/reagent_containers/glass/bottle/waterskin)
 	hammers_per_item = 8
 	craftdiff = 3
+
+/datum/artificer_recipe/contraptions/coolingbackpack
+	name = "Cooling Backpack (+1 Backpack, +2 Cogs)"
+	required_item = /obj/item/ingot/bronze
+	created_item = /obj/item/storage/backpack/backpack/artibackpack
+	additional_items = list(/obj/item/gear/metal = 2, /obj/item/storage/backpack/backpack)
+	hammers_per_item = 4
+	craftdiff = 5
 
 // --------- Ammo -----------
 

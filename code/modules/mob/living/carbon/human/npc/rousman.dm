@@ -34,12 +34,18 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	add_overlay(eye_overlay)
 
 /mob/living/carbon/human/species/rousman/npc
-	aggressive = 1
-	mode = AI_IDLE
+	ai_controller = /datum/ai_controller/human_npc
 	dodgetime = 13
 	canparry = TRUE
 	flee_in_pain = TRUE
 	wander = FALSE
+
+/mob/living/carbon/human/species/rousman/npc/Initialize()
+	. = ..()
+	AddComponent(/datum/component/combat_noise, list("scream" = 5, "laugh" = 1))
+
+/mob/living/carbon/human/species/rousman/ambush
+	ai_controller = /datum/ai_controller/human_npc
 
 /mob/living/carbon/human/species/rousman/ambush/after_creation()
 	. = ..()
@@ -47,8 +53,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/npc/rousman/ambush)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 13
 	canparry = TRUE
 	flee_in_pain = TRUE
@@ -197,14 +201,6 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
 
-/mob/living/carbon/human/species/rousman/handle_combat()
-	if(mode == AI_HUNT)
-		if(prob(5))
-			emote("scream")
-		else if(prob(1))
-			emote("laugh")
-	. = ..()
-
 /mob/living/carbon/human/species/rousman/after_creation()
 	..()
 	gender = MALE
@@ -260,7 +256,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 			if(B.rotted && amount < 16 MINUTES)
 				var/turf/open/T = C.loc
 				if(istype(T))
-					T.pollute_turf(/datum/pollutant/rot, 5)
+					T.pollute_turf(/datum/pollutant/rot, 10)
 	if(should_update)
 		if(amount > 20 MINUTES)
 			C.update_body()
@@ -380,7 +376,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	for(var/i = 1; i <= num_mobs; i++)
 		var/mob/living/carbon/human/species/rousman/ambush/A = new /mob/living/carbon/human/species/rousman/ambush(get_turf(src))
 		A.del_on_deaggro = 1 MINUTES
-		A.retaliate(ambushed_mob)
+		A.ai_controller?.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, ambushed_mob)
 	ambushed_mob.playsound_local(ambushed_mob, pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg','sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
 	already_ambushed = TRUE
 	icon_state = "rousman_hole_inactive"

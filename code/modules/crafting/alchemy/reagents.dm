@@ -102,8 +102,14 @@
 	alpha = 173
 
 /datum/reagent/medicine/manapot/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_energy(30)
+	M.mana_pool.adjust_mana(4)
+	..()
+
+/datum/reagent/medicine/manapot/weak
+	name = "Weak Mana Potion"
+
+/datum/reagent/medicine/manapot/weak/on_mob_life(mob/living/carbon/M)
+	M.mana_pool.adjust_mana(2)
 	..()
 
 /datum/reagent/medicine/strongmana
@@ -116,9 +122,9 @@
 	metabolization_rate = REAGENTS_METABOLISM * 3
 
 /datum/reagent/medicine/strongmana/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M,TRAIT_NOSTAMINA))
-		M.adjust_energy(120)
+	M.mana_pool.adjust_mana(8)
 	..()
+
 
 /datum/reagent/medicine/stampot
 	name = "Stamina Potion"
@@ -472,7 +478,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	metabolization_rate = 0.5
 
 /datum/reagent/toxin/fyritiusnectar/on_mob_life(mob/living/carbon/M)
-	if(volume > 0.49)
+	if(volume > 0.49 && prob(33))
 		M.add_nausea(9)
 		M.adjustFireLoss(2, 0)
 		M.adjust_fire_stacks(1)

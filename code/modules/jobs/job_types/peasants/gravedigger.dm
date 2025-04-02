@@ -25,7 +25,8 @@
 		"Tiefling",
 		"Dark Elf",
 		"Aasimar",
-		"Half-Orc"
+		"Half-Orc",
+		"Kobold",
 	)
 	allowed_patrons = list(/datum/patron/divine/necra)
 

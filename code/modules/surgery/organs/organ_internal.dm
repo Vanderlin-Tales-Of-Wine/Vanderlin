@@ -147,7 +147,7 @@
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	rotprocess = 5 MINUTES
 
-/obj/item/reagent_containers/food/snacks/organ/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/organ/on_consume(mob/living/eater)
 	if(HAS_TRAIT(eater, TRAIT_ORGAN_EATER) && eat_effect != /datum/status_effect/debuff/rotfood)
 		eat_effect = null // food buff handled in /datum/reagent/organpoison
 	. = ..()
@@ -328,6 +328,16 @@
 
 /obj/item/organ/proc/update_accessory_colors()
 	return
+
+/obj/item/organ/on_enter_storage(datum/component/storage/concrete/S)
+	. = ..()
+	if(recursive_loc_check(src, /obj/item/storage/backpack/backpack/artibackpack))
+		organ_flags |= ORGAN_FROZEN
+
+/obj/item/organ/on_exit_storage(datum/component/storage/concrete/S)
+	. = ..()
+	if(!recursive_loc_check(src, /obj/item/storage/backpack/backpack/artibackpack))
+		organ_flags &= ~ORGAN_FROZEN
 
 //Looking for brains?
 //Try code/modules/mob/living/carbon/brain/brain_item.dm

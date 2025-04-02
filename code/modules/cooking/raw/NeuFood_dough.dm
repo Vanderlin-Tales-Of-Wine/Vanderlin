@@ -390,10 +390,12 @@
 /*	.................   Bread   ................... */
 /obj/item/reagent_containers/food/snacks/bread
 	name = "bread loaf"
-	desc = "One of the staple foods of the world, with the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
-	icon_state = "loaf6"
+	desc = "One of the staple foods of commoners. With the decline of magic, the loss of bread-duplication has led to mass famines around Psydonia."
+	icon_state = "loaf"
 	base_icon_state = "loaf"
 	dropshrink = 0.8
+	biting = TRUE
+	bitesize = 5
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/breadslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
@@ -405,13 +407,13 @@
 	rotprocess = SHELFLIFE_LONG
 	become_rot_type = /obj/item/reagent_containers/food/snacks/stale_bread
 
-/obj/item/reagent_containers/food/snacks/bread/update_icon()
-	if(slices_num)
-		icon_state = "[base_icon_state][slices_num]"
-	else
-		icon_state = "[base_icon_state]_slice"
+/obj/item/reagent_containers/food/snacks/bread/slice(obj/item/W, mob/user)
+	. = ..()
+	if(. && !QDELETED(src))
+		bitecount++
+		update_icon()
 
-/obj/item/reagent_containers/food/snacks/bread/On_Consume(mob/living/eater)
+/obj/item/reagent_containers/food/snacks/bread/on_consume(mob/living/eater)
 	..()
 	if(slices_num)
 		if(bitecount == 1)
@@ -625,6 +627,7 @@
 			tastes = list("savory sausage" = 1)
 			icon_state = "grenzbun"
 			base_icon_state = "grenzbun"
+			faretype = FARE_NEUTRAL
 			foodtype = GRAIN | MEAT
 			modified = TRUE
 			meal_properties()

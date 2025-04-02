@@ -144,12 +144,16 @@
 	var/list/bounds
 	src.bounds = bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	for(var/I in gridSets)
-		var/datum/grid_set/gset = I
+	//used for sending the maxx and maxy expanded global signals at the end of this proc
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
+
+	for(var/datum/grid_set/gset as anything in gridSets)
 		var/ycrd = gset.ycrd + y_offset - 1
 		var/zcrd = gset.zcrd + z_offset - 1
 		if(!cropMap && ycrd > world.maxy)
 			world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
+			has_expanded_world_maxy = TRUE
 		var/zexpansion = zcrd > world.maxz
 		if(zexpansion)
 			if(cropMap)
@@ -175,6 +179,7 @@
 							break
 						else
 							world.maxx = xcrd
+							has_expanded_world_maxx = TRUE
 
 					if(xcrd >= 1)
 						var/model_key = copytext(line, tpos, tpos + key_len)
@@ -207,6 +212,9 @@
 			var/turf/T = t
 			//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 			T.AfterChange(CHANGETURF_IGNORE_AIR)
+
+	if(has_expanded_world_maxx || has_expanded_world_maxy)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
 
 	#ifdef TESTING
 	if(turfsSkipped)
@@ -305,7 +313,7 @@
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
 	index = members.len
-	if(members[index] != /area/template_noop)		
+	if(members[index] != /area/template_noop)
 		var/atype = members[index]
 		world.preloader_setup(members_attributes[index], atype)//preloader for assigning  set variables on atom creation
 		var/atom/instance = areaCache[atype]
@@ -332,6 +340,9 @@
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf,placeOnTop)
+		if(isturf(T))
+			T.pixel_y = 0
+			T.pixel_x = 0
 
 	if(T)
 		//if others /turf are presents, simulates the underlays piling effect
@@ -340,6 +351,9 @@
 			var/underlay = T.appearance
 			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf,placeOnTop)//instance new turf
 			T.underlays += underlay
+			if(isturf(T))
+				T.pixel_y = 0
+				T.pixel_x = 0
 			index++
 
 	//finally instance all remainings objects/mobs

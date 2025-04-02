@@ -4,13 +4,13 @@
 	var/list/accesses
 
 /obj/effect/mapping_helpers/access/keyset/payload(obj/payload)
-	if(!length(src.accesses))
+	if(!length(accesses))
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but had nothing to assign!")
 		return
 	if(payload.lockids != null)
 		log_mapping("[src] at [AREACOORD(src)] tried to set lockids, but lockid was already set!")
 		return
-	payload.lockids += src.accesses
+	payload.lockids += accesses
 
 // Town locks
 /obj/effect/mapping_helpers/access/keyset/town
@@ -24,6 +24,9 @@
 
 /obj/effect/mapping_helpers/access/keyset/town/inn
 	accesses = list(ACCESS_INN)
+
+/obj/effect/mapping_helpers/access/keyset/town/artificer
+	acesses = list(ACCESS_ARTIFICER)
 
 /obj/effect/mapping_helpers/access/keyset/town/clinic
 	accesses = list(ACCESS_CLINIC)
@@ -49,11 +52,20 @@
 /obj/effect/mapping_helpers/access/keyset/town/mercenary
 	accesses = list(ACCESS_MERC)
 
+/obj/effect/mapping_helpers/access/keyset/town/elder
+	acesses = list(ACCESS_ELDER)
+
+/obj/effect/mapping_helpers/access/keyset/town/veteran
+	acesses = list(ACCESS_VETERAN)
+
 /obj/effect/mapping_helpers/access/keyset/town/tower
 	accesses = list(ACCESS_TOWER)
 
 /obj/effect/mapping_helpers/access/keyset/town/warehouse
 	accesses = list(ACCESS_WAREHOUSE)
+
+/obj/effect/mapping_helpers/access/keyset/town/bathhouse
+	acesses = list(ACCESS_BATHHOUSE)
 
 // Town Garrison
 /obj/effect/mapping_helpers/access/keyset/garrison
@@ -111,3 +123,15 @@
 
 /obj/effect/mapping_helpers/access/keyset/manor/vault
 	accesses = list(ACCESS_VAULT)
+
+/obj/effect/mapping_helpers/access/keyset/manor/mage
+	acesses = list(ACCESS_MAGE)
+
+/obj/effect/mapping_helpers/access/keyset/manor/archive
+	acesses = list(ACCESS_ARCHIVE)
+
+/obj/effect/mapping_helpers/access/keyset/manor/atarms
+	acesses = list(ACCESS_AT_ARMS)
+
+/obj/effect/mapping_helpers/access/keyset/manor/guest
+	acesses = list(ACCESS_GUEST)

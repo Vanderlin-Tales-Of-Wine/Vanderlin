@@ -86,6 +86,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	. = ..()
 	update_config_movespeed()
 	update_movespeed(TRUE)
+	become_hearing_sensitive()
 
 /**
  * Generate the tag for this mob
@@ -447,6 +448,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 
 	new /obj/effect/temp_visual/point(src,invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 
 	return TRUE
 
@@ -467,6 +469,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	var/turf/our_tile = get_turf(src)
 	var/obj/visual = new /obj/effect/temp_visual/point/still(our_tile, invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 2, easing = EASE_OUT)
 
 	lastpoint = world.time
@@ -714,30 +717,23 @@ GLOBAL_VAR_INIT(mobids, 1)
 	// && check_rights(R_ADMIN,0)
 	var/ticker_time = world.time - SSticker.round_start_time
 	var/time_left = SSgamemode.round_ends_at - ticker_time
-	if(client && client.holder)
-		if(statpanel("Status"))
-			if (client)
-				stat(null, "Ping: [round(client.lastping, 1)]ms (Average: [round(client.avgping, 1)]ms)")
-			stat(null, "Map: [SSmapping.config?.map_name || "Loading..."]")
-			var/datum/map_config/cached = SSmapping.next_map_config
-			if(cached)
-				stat(null, "Next Map: [cached.map_name]")
-			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
-			stat(null, "Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSgamemode.roundvoteend)
-				stat("Round End: [DisplayTimeText(time_left)]")
-			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
-			stat(null, "TimeOfDay: [GLOB.tod]")
-			stat(null, "IC Time: [station_time_timestamp()] [station_time()]")
-			stat(null, "Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)")
-
 	if(client)
 		if(statpanel("RoundInfo"))
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			stat("TimeOfDay: [GLOB.tod]")
+			if(client?.holder)
+				stat("Round TrueTime: [worldtime2text()] [world.time]")
 			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
+			stat("Map: [SSmapping.config?.map_name || "Loading..."]")
+			var/datum/map_config/cached = SSmapping.next_map_config
+			if(cached)
+				stat("Next Map: [cached.map_name]")
+			stat("Time of Day: [GLOB.tod]")
+			if(client?.holder)
+				stat("Real Time: [station_time_timestamp()] [station_time()]")
+			stat("Ping: [round(client?.lastping, 1)]ms (Average: [round(client?.avgping, 1)]ms)")
+			stat("Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG: ([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)")
 
 	if(client && client.holder && check_rights(R_ADMIN,0))
 		if(statpanel("MC"))
@@ -793,26 +789,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 					continue
 				statpanel(listed_turf.name, null, A)
 
-
-//	if(mind)
-//		add_spells_to_statpanel(mind.spell_list)
-//	add_spells_to_statpanel(mob_spell_list)
-
-/**
- * Convert a list of spells into a displyable list for the statpanel
- *
- * Shows charge and other important info
- */
-/mob/proc/add_spells_to_statpanel(list/spells)
-	for(var/obj/effect/proc_holder/spell/S in spells)
-		if(S.can_be_cast_by(src))
-			switch(S.charge_type)
-				if("recharge")
-					statpanel("[S.panel]","[S.charge_counter/10.0]/[S.charge_max/10]",S)
-				if("charges")
-					statpanel("[S.panel]","[S.charge_counter]/[S.charge_max]",S)
-				if("holdervar")
-					statpanel("[S.panel]","[S.holder_var_type] [S.holder_var_amount]",S)
 
 #define MOB_FACE_DIRECTION_DELAY 1
 

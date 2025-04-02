@@ -4,34 +4,52 @@
 	if(!lockid)
 		return 5
 	switch(lockid)
-		if("vault")
+		if(ACCESS_VAULT)
 			return 1
-		if("lord")
+		if(ACCESS_LORD)
 			return 1
-		if("manor")
+		if(ACCESS_MANOR)
 			return 2
-		if("guest")
+		if(ACCESS_GUEST)
 			return 2
-		if("butler")
-			return 3
-		if("dungeon")
+		if(ACCESS_DUNGEON)
 			return 2
-		if("garrison")
+		if(ACCESS_FOREST)
 			return 2
-		if("forrestgarrison")
+		if(ACCESS_GARRISON)
 			return 2
-		if("soilson")
+		if(ACCESS_FARM)
 			return 4
-		if("warehouse")
+		if(ACCESS_WAREHOUSE)
 			return 3
-		if("sheriff")
+		if(ACCESS_CAPTAIN)
 			return 3
-		if("merchant")
+		if(ACCESS_MERCHANT)
+			return 5
+		if(ACCESS_INN)
+			return 5
+		if(ACCESS_SMITH)
+			return 3
+		if(ACCESS_BUTCHER)
+			return 3
+		if(ACCESS_MANOR_GATE)
 			return 2
-		if("shop")
-			return 5
-		if("tavern")
-			return 5
+		if(ACCESS_PRIEST)
+			return 2
+		if(ACCESS_CHURCH)
+			return 3
+		if(ACCESS_TOWER)
+			return 3
+		if(ACCESS_MAGE)
+			return 2
+		if(ACCESS_ARTIFICER)
+			return 4
+		if(ACCESS_HAND)
+			return 1
+		if(ACCESS_STEWARD)
+			return 2
+		if(ACCESS_FELDSHER)
+			return 3
 		if("roomi")
 			return 6
 		if("roomii")
@@ -69,30 +87,6 @@
 		if("luxroomv")
 			return 3
 		if("luxroomvi")
-			return 3
-		if("blacksmith")
-			return 3
-		if("butcher")
-			return 3
-		if("walls")
-			return 2
-		if("priest")
-			return 3
-		if("hpriest")
-			return 2
-		if("tower")
-			return 3
-		if("mage")
-			return 2
-		if("artificer")
-			return 4
-		if("confession")
-			return 1
-		if("hand")
-			return 1
-		if("steward")
-			return 2
-		if("doctor")
 			return 3
 		else
 			return 5
@@ -135,6 +129,7 @@
 	var/kickthresh = 15
 	var/bump_closed = TRUE
 	can_add_lock = TRUE
+	var/can_knock = TRUE
 
 	var/ghostproof = FALSE	// Set to true to stop dead players passing through closed ones. Only use this for special areas, not generally
 
@@ -217,7 +212,7 @@
 	set_init_layer()
 	air_update_turf(TRUE)
 	if(keylock)
-		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), src.lockpick_difficulty)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockpick_difficulty)
 
 /obj/structure/mineral_door/Move()
 	var/turf/T = loc
@@ -227,7 +222,7 @@
 /obj/structure/mineral_door/attack_ghost(mob/dead/observer/user)	// lets ghosts click on windows to transport across
 	if(!ghostproof)
 		density = FALSE
-		. = step(user,get_dir(user,src.loc))
+		. = step(user,get_dir(user,loc))
 		density = TRUE
 
 /obj/structure/mineral_door/Bumped(atom/movable/AM)
@@ -295,13 +290,16 @@
 				return
 		if(world.time >= last_bump+20)
 			last_bump = world.time
-			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
-			user.visible_message(span_warning("[user] knocks on [src]."), \
-				span_notice("I knock on [src]."))
+			if(can_knock)
+				playsound(src, 'sound/foley/doors/knocking.ogg', 100)
+				user.visible_message(span_warning("[user] knocks on [src]."), \
+					span_notice("I knock on [src]."))
 		return
 	return TryToSwitchState(user)
 
 /obj/structure/mineral_door/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	return !density
@@ -396,30 +394,30 @@
 	if(!I.has_access())
 		if(!istype(I, repair_cost_first) || !istype(I, repair_cost_second))
 			return ..()
-		if(!src.repairable)
+		if(!repairable)
 			to_chat(user, span_notice("[src] cannot be repaired."))
 			return
-		if(!user.mind?.get_skill_level(src.repair_skill) > SKILL_LEVEL_NONE)
-			to_chat(user, span_notice("I lack the skill in [src.repair_skill] to repair [src]."))
+		if(!user.mind?.get_skill_level(repair_skill) > SKILL_LEVEL_NONE)
+			to_chat(user, span_notice("I lack the skill in [repair_skill] to repair [src]."))
 			return
-		src.repairdoor(I, user)
+		repairdoor(I, user)
 		return
-	if(!src.locked)
+	if(!locked)
 		to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
-		src.door_rattle()
+		door_rattle()
 		return
-	src.trykeylock(I, user)
+	trykeylock(I, user)
 
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
 	if(!item.has_access())
 		return ..()
-	if(src.locked)
+	if(locked)
 		to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
-		src.door_rattle()
+		door_rattle()
 		return
-	src.trykeylock(item, user)
+	trykeylock(item, user)
 
 /obj/structure/mineral_door/proc/repairdoor(obj/item/I, mob/user)
 	if(brokenstate)
@@ -470,7 +468,7 @@
 /obj/structure/mineral_door/proc/trykeylock(obj/item/I, mob/user, is_right = FALSE)
 	if(door_opened || isSwitchingStates)
 		return
-	if(!src.keylock || !src.has_access())
+	if(!keylock || !has_access())
 		to_chat(user, span_notice("[src] has no lock."))
 		return
 	if(lockbroken)
@@ -479,11 +477,11 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(!I.has_access())
 		return
-	if(src.check_access(I))
-		src.lock_toggle(user)
+	if(check_access(I))
+		lock_toggle(user)
 		return
 	to_chat(user, span_notice("I lack the key to [src]."))
-	src.door_rattle()
+	door_rattle()
 
 /obj/structure/mineral_door/proc/lock_toggle(mob/user)
 	if(isSwitchingStates || door_opened)

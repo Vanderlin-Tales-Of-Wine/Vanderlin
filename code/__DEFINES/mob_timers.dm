@@ -8,6 +8,7 @@
 #define MOBTIMER_EXISTS(target, ident) (!!target.mob_timers[ident])
 #define MOBTIMER_FINISHED(target, ident, mt_time) (world.time >= (target.mob_timers[ident] + (mt_time)))
 
+// DEPRECIATED SYSTEM, DO NOT ADD MORE
 /* STATUS */
 	#define MT_FREAKOUT "freakout"
 

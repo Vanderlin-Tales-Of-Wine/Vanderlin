@@ -371,59 +371,45 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SKIN_TONE]'>[(randomise[RANDOM_SKIN_TONE]) ? "Lock" : "Unlock"]</A>"
 				dat += "<br>"
 
-			var/mutant_colors
 			if((MUTCOLORS in pref_species.species_traits) || (MUTCOLORS_PARTSONLY in pref_species.species_traits))
-
-				//if(!use_skintones)
-				//	dat += APPEARANCE_CATEGORY_COLUMN
-
 				dat += "<h3>Mutant color</h3>"
-
 				dat += "<span style='border: 1px solid #161616; background-color: #[features["mcolor"]];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color;task=input'>Change</a><BR>"
 
-				mutant_colors = TRUE
-
-
 			if((EYECOLOR in pref_species.species_traits) && !(NOEYESPRITES in pref_species.species_traits))
-
-				//if(!use_skintones && !mutant_colors)
-				//	dat += APPEARANCE_CATEGORY_COLUMN
-
-				//dat += "<h3>Eye Color</h3>"
 				dat += "<b>Eye Color: </b><a href='?_src_=prefs;preference=eyes;task=input'>Change </a>"
 				//dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_EYE_COLOR]'>[(randomise[RANDOM_EYE_COLOR]) ? "Lock" : "Unlock"]</A>"
 				dat += "<br>"
-				dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
-				dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
-				dat += "<br>"
-				//dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
-				//dat += "<br>"
-				//dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
-				//dat += "<br>" // These can be commented back in whenever someone figures out how to add markings to the menu. I'm a bad coder, so someone who's really smart and good at coding should take up my sword.
+
+			dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
+			dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=selected_accent;task=input'>[selected_accent]</a>"
+			dat += "<br>"
+			//dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+			//dat += "<br>"
+			//dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
+			//dat += "<br>" // These can be commented back in whenever someone figures out how to add markings to the menu. I'm a bad coder, so someone who's really smart and good at coding should take up my sword.
+			if(length(pref_species.descriptor_choices))
 				dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
 				dat += "<br>"
-				if(HAIR in pref_species.species_traits)
-					dat += "<b>Hairstyle:</b> <a href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
+			if(HAIR in pref_species.species_traits)
+				dat += "<b>Hairstyle:</b> <a href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
+				dat += "<br>"
+				if(gender == MALE || istype(pref_species, /datum/species/dwarf))
+					dat += "<b>Facial Hair:</b> <a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
 					dat += "<br>"
-					if(gender == MALE || istype(pref_species, /datum/species/dwarf))
-						dat += "<b>Facial Hair:</b> <a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
-						dat += "<br>"
-					dat += "<b>Hair Color: </b>  <a href='?_src_=prefs;preference=hair;task=input'>Change</a>"
-					dat += "<br>"
-				dat += "<b>Face Detail:</b> <a href='?_src_=prefs;preference=detail;task=input'>[detail]</a>"
-				//dat += "<br>"
-				//dat += "<b>Body Detail:</b> <a href='?_src_=prefs;preference=bdetail;task=input'>None</a>"
-				//if(gender == FEMALE)
-				//	dat += "<br>"
+				dat += "<b>Hair Color: </b>  <a href='?_src_=prefs;preference=hair;task=input'>Change</a>"
+				dat += "<br>"
+			dat += "<b>Face Detail:</b> <a href='?_src_=prefs;preference=detail;task=input'>[detail]</a>"
+			//dat += "<br>"
+			//dat += "<b>Body Detail:</b> <a href='?_src_=prefs;preference=bdetail;task=input'>None</a>"
+			//if(gender == FEMALE)
+			//	dat += "<br>"
 
-				dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
-				if(headshot_link != null)
-					dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
-				dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
-				dat += "<br></td>"
-				//dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
-			else if(use_skintones || mutant_colors)
-				dat += "</td>"
+			dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
+			if(headshot_link != null)
+				dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+			dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
+			dat += "<br></td>"
+			//dat += "<span style='border: 1px solid #161616; background-color: #[detail_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=detail_color;task=input'>Change</a>"
 
 			//if(HAIR in pref_species.species_traits)
 
@@ -1576,7 +1562,8 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/patron/patron = GLOB.patronlist[path]
 						if(!patron.name)
 							continue
-						patrons_named[patron.name] = patron
+						var/pref_name = patron.display_name ? patron.display_name : patron.name
+						patrons_named[pref_name] = patron
 					var/datum/faith/current_faith = GLOB.faithlist[selected_patron?.associated_faith] || GLOB.faithlist[initial(default_patron.associated_faith)]
 					var/god_input = browser_input_list(user, "SELECT YOUR HERO'S PATRON GOD", uppertext("\The [current_faith.name]"), patrons_named, selected_patron)
 					if(god_input)
@@ -1729,7 +1716,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 						var/datum/species/bla = GLOB.species_list[A]
 						bla = new bla()
 						if(user.client)
-							if(bla.patreon_req > user.client.patreonlevel())
+							if(bla.patreon_req && !user.client.patreon?.has_access(ACCESS_ASSISTANT_RANK))
 								continue
 						else
 							continue
@@ -2225,7 +2212,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 /// Sanitization checks to be performed before using these preferences.
 /datum/preferences/proc/sanitize_chosen_prefs()
-	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req > parent.patreonlevel()))
+	if(!(pref_species.name in GLOB.roundstart_races) || (pref_species.patreon_req && !parent.patreon?.has_access(ACCESS_ASSISTANT_RANK)))
 		pref_species = new /datum/species/human/northern
 		save_character()
 

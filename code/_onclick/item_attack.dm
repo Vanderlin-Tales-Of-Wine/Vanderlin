@@ -87,17 +87,30 @@
 		adf = round(adf * 1.4)
 	if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 		adf = round(adf * 0.6)
+
+	for(var/obj/item/clothing/worn_thing in get_equipped_items(include_pockets = TRUE))//checks clothing worn by src.
+	// Things that are supposed to be worn, being held = cannot block
+		if(isclothing(worn_thing))
+			if(worn_thing in held_items)
+				continue
+		// Things that are supposed to be held, being worn = cannot block
+		else if(!(worn_thing in held_items))
+			continue
+		worn_thing.hit_response(src, user) //checks if clothing has hit response. Refer to Items.dm
+
 	user.changeNext_move(adf)
 	return I.attack(src, user)
 
 /mob/living
 	var/tempatarget = null
 	var/pegleg = 0			//Handles check & slowdown for peglegs. Fuckin' bootleg, literally, but hey it at least works.
+	var/pet_passive = FALSE
 
 /obj/item/proc/attack(mob/living/M, mob/living/user)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, M, user) & COMPONENT_ITEM_NO_ATTACK)
 		return FALSE
-	SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, M, user)
+	if(SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, M, src))
+		return FALSE
 	if(item_flags & NOBLUDGEON)
 		return FALSE
 
@@ -159,10 +172,16 @@
 				add_fingerprint(user)
 		if(M.d_intent == INTENT_DODGE)
 			if(!user.used_intent.swingdelay)
-				user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname)
+				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
+					user.do_attack_animation(turf_before, visual_effect_icon = user.used_intent.animname)
+				else
+					user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
 		return
 	if(!user.used_intent.noaa)
-		user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+		if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
+			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+		else
+			user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, M), 1), visual_effect_icon = user.used_intent.animname)
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
 		var/offh = 0
 		var/obj/item/W = M.held_items[1]
@@ -492,7 +511,10 @@
 			if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
-			user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			else
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you
@@ -502,7 +524,10 @@
 			if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
-			user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			else
+				user.do_attack_animation(get_ranged_target_turf(user, get_dir(user, target), 1), visual_effect_icon = user.used_intent.animname)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 
@@ -527,11 +552,8 @@
 	var/message_hit_area = ""
 	if(hit_area)
 		message_hit_area = " in the [hit_area]"
-	var/attack_message = "[src] is [message_verb][message_hit_area] with [I]!"
-	var/attack_message_local = "I'm [message_verb][message_hit_area] with [I]!"
-	if(user in viewers(src, null))
-		attack_message = "[user] [message_verb] [src][message_hit_area] with [I]!"
-		attack_message_local = "[user] [message_verb] me[message_hit_area] with [I]!"
+	var/attack_message = "[user] [message_verb] [src][message_hit_area] with [I]!"
+	var/attack_message_local = "[user] [message_verb] me[message_hit_area] with [I]!"
 	visible_message("<span class='danger'>[attack_message][next_attack_msg.Join()]</span>",\
 		"<span class='danger'>[attack_message_local][next_attack_msg.Join()]</span>", null, COMBAT_MESSAGE_RANGE)
 	next_attack_msg.Cut()

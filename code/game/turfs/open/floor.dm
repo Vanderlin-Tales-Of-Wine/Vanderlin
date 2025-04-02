@@ -13,6 +13,7 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 
 	var/icon_regular_floor = "floor" //used to remember what icon the tile should have by default
 	var/icon_plating = "plating"
@@ -23,8 +24,8 @@
 	var/list/broken_states
 	var/list/burnt_states
 
-	///the chance this turf has to spread, basically 1.5% by default
-	spread_chance = 1.5
+	///the chance this turf has to spread, basically 1.75% by default
+	spread_chance = 1.75
 	///means fires last at base 9 seconds
 	burn_power = 9
 
