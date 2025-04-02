@@ -19,15 +19,15 @@
 
 /obj/item/storage/keyring/Initialize()
 	. = ..()
-	if(!length(src.keys))
+	if(!length(keys))
 		return
-	if(length(src.keys) > 10)
+	if(length(keys) > 10)
 		stack_trace("Keyring [src] has too many keys and the list will get cut short!")
-	for(var/X as anything in src.keys)
-		var/obj/item/key/new_key = new X(src.loc)
+	for(var/X as anything in keys)
+		var/obj/item/key/new_key = new X(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
-		LAZYREMOVE(src.keys, X)
+		LAZYREMOVE(keys, X)
 
 	update_icon()
 	update_desc()
@@ -55,12 +55,12 @@
 			icon_state = "keyring5"
 
 /obj/item/storage/keyring/proc/update_desc()
-	if(!length(src.contents))
-		src.desc = initial(src.desc)
+	if(!length(contents))
+		desc = initial(desc)
 		return
-	src.desc = span_info("Holds \Roman[length(src.contents)] key\s, including:")
+	desc = span_info("Holds \Roman[length(contents)] key\s, including:")
 	for(var/obj/item/key/KE in contents)
-		src.desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
+		desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
