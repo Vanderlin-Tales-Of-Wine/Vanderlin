@@ -159,7 +159,8 @@
 	if(invis_without_trait && !revealed_to.Find(user))
 		show_travel_tile(user)
 		the_tile.show_travel_tile(user)
-	log_game(user, "Has travelled to [loc_name[the_tile]] from ")
+	if(user?.mind.active) // only log if they are an active player.
+		log_game(user, "[user.mind.key] has travelled to [loc_name[the_tile]] from ")
 	mob_move_travel_z_level(user, get_turf(the_tile))
 
 /obj/structure/fluff/traveltile/proc/reveal_travel_trait_to_others(mob/living/user)
