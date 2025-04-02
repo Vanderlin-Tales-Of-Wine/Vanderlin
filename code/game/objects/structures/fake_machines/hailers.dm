@@ -146,6 +146,6 @@
 /obj/structure/fake_machine/hailerboard/Topic(href, href_list)
 	..()
 	if(href_list["read"])
-		var/obj/item/I = locate(href_list["read"]) in SSroguemachine.hailer.contents
-		if(istype(I) && I.loc == SSroguemachine.hailer)
-			usr.examinate(I)
+		var/obj/item/paper/I = locate(href_list["read"]) in SSroguemachine.hailer.contents
+		if(istype(I) && I.loc == SSroguemachine.hailer && in_range(src, usr))
+			I.read(usr, TRUE)
