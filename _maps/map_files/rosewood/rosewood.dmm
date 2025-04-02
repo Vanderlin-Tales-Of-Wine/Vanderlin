@@ -10391,7 +10391,9 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/town/sewer)
 "fTw" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/mineral_door/wood/window{
+	lockid = "theatre"
+	},
 /turf/open/floor/ruinedwood/turned/darker,
 /area/rogue/indoors/town/theatre)
 "fTI" = (
@@ -31741,6 +31743,15 @@
 /area/rogue/outdoors/town)
 "rRW" = (
 /obj/structure/table/wood/plain_alt,
+/obj/item/key/atarms,
+/obj/item/key/atarms{
+	pixel_y = 4;
+	pixel_x = -10
+	},
+/obj/item/key/atarms{
+	pixel_y = 7;
+	pixel_x = 11
+	},
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/manor)
 "rSf" = (
@@ -37517,8 +37528,8 @@
 /obj/structure/mineral_door/wood{
 	name = "guard's barracks"
 	},
-/obj/effect/mapping_helpers/door/access/garrison/garrison,
 /obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/manor/atarms,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
 "vaW" = (
@@ -40437,7 +40448,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor)
 "wCz" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/mineral_door/wood/window{
+	lockid = "theatre"
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/theatre)
 "wCA" = (
