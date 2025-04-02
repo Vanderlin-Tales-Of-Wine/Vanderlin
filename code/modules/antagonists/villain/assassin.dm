@@ -13,7 +13,6 @@
 		"THE DARK SUN GUIDES MY HAND!",
 	)
 	antag_flags = FLAG_FAKE_ANTAG
-	min_pq = 10
 
 /datum/antagonist/assassin/on_gain()
 	owner.current.cmode_music = list('sound/music/cmode/antag/CombatThrall.ogg', 'sound/music/cmode/antag/combat_werewolf.ogg')
