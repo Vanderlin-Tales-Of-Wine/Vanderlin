@@ -180,8 +180,6 @@
 	if(!ishuman(spawned))
 		return
 
-	var/mob/living/carbon/human/humanguy = spawned
-
 	var/list/roundstart_experience
 
 	roundstart_experience = skills
@@ -232,6 +230,7 @@
 		spawned.cmode_music = cmode_music
 
 	if(length(advclass_cat_rolls))
+		var/mob/living/carbon/human/humanguy = spawned
 		humanguy.advsetup = TRUE
 		humanguy.invisibility = INVISIBILITY_MAXIMUM
 		humanguy.become_blind("advsetup")
