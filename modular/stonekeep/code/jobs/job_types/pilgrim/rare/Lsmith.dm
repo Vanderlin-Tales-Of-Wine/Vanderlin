@@ -29,7 +29,7 @@
 	beltl = /obj/item/weapon/knife/hunting
 	cloak = /obj/item/clothing/cloak/apron/brown
 	gloves = /obj/item/clothing/gloves/leather
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/tongs=1, /obj/item/ore/coal=1, /obj/item/ore/iron=1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/tongs=1, /obj/item/ore/coal=2, /obj/item/ore/iron=1, /obj/item/natural/bundle/stoneblock/four = 1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)

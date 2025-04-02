@@ -31,7 +31,7 @@
 	pants = /obj/item/clothing/pants/trou
 
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/ore/coal=1, /obj/item/ore/iron=1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/ore/coal=2, /obj/item/ore/iron=1, , /obj/item/natural/bundle/stoneblock/four = 1)
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)

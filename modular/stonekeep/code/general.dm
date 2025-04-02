@@ -1149,3 +1149,8 @@
 	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "gold"
 	sellprice = 2
+
+
+
+/obj/item/natural/bundle/stoneblock/four
+	amount = 4

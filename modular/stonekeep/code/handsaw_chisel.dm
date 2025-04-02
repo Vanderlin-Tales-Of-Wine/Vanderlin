@@ -1,5 +1,3 @@
-#define BCLASS_CHISEL			"chisel"
-
 //................	Handsaw	............... //
 /obj/item/weapon/handsaw
 	force = 5
@@ -31,214 +29,11 @@
 
 //................	Chisel	............... //
 /obj/item/weapon/chisel
-	name = "chisel"
-	desc = "Add something to strike it with before doing stonework. Like a mallet or a stone."
-	icon_state = "chisel"
 	icon = 'modular/stonekeep/icons/crafting.dmi'
-	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'
-	righthand_file = 'modular/stonekeep/icons/onmob/righthand.dmi'
-	experimental_inhand = FALSE
-	experimental_onhip = FALSE
-	grid_width = 32
-	grid_height = 64
-	force = 10
-	throwforce = 2
-	possible_item_intents = list(/datum/intent/stab)
-	sharpness = IS_SHARP
-	dropshrink = 0.9
-	w_class = WEIGHT_CLASS_SMALL
-	wdefense = 0
-	blade_dulling = 0
-	max_integrity = 140
-	slot_flags = ITEM_SLOT_HIP
-	swingsound = list('sound/combat/wooshes/blunt/shovel_swing.ogg','sound/combat/wooshes/blunt/shovel_swing2.ogg')
-	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
-	associated_skill = /datum/skill/combat/knives
-	max_blade_int = 50
-	dropshrink = 0.9
-	var/already_assembled
-
-/obj/item/weapon/chisel/attackby(obj/item/W, mob/living/user, params)
-	. = ..()
-	if(already_assembled)
-		return
-
-	if(istype(W,/obj/item/natural/stoneblock))
-		playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
-		var/obj/item/weapon/chisel/assembly/stoneblock/F = new(src.loc)
-		qdel(W)
-		user.put_in_hands(F)
-		qdel(src)
-		return
-
-	else if(istype(W,/obj/item/natural/stone))
-		playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
-		var/obj/item/weapon/chisel/assembly/stone/F = new(src.loc)
-		qdel(W)
-		user.put_in_hands(F)
-		qdel(src)
-		return
-
-	else if(istype(W, /obj/item/weapon/hammer/steel))
-		playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
-		var/obj/item/weapon/chisel/assembly/hammerclaw/F = new(src.loc)
-		qdel(W)
-		user.put_in_hands(F)
-		qdel(src)
-		return
-
-	else if(istype(W, /obj/item/weapon/hammer/iron))
-		playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
-		var/obj/item/weapon/chisel/assembly/hammer/F = new(src.loc)
-		qdel(W)
-		user.put_in_hands(F)
-		qdel(src)
-		return
-
-	else if(istype(W, /obj/item/weapon/hammer/wood))
-		playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
-		var/obj/item/weapon/chisel/assembly/mallet/F = new(src.loc)
-		qdel(W)
-		user.put_in_hands(F)
-		qdel(src)
-		return
-
-//................	Chisel toolset	............... //
-/obj/item/weapon/chisel/assembly	// template
-	name = "chisel set"
-	desc = "Ready to shape stones when held in a steady grip. Can be separated easily."
-	grid_width = 64
-	grid_height = 64
-	possible_item_intents = list(/datum/intent/hit)
-	gripped_intents =  list(/datum/intent/chisel)
-	already_assembled = TRUE
-
-/obj/item/weapon/chisel/assembly/mallet
-	icon_state = "chiselm"
-	item_state = "hammer_w"
-/obj/item/weapon/chisel/assembly/mallet/attack_right(mob/user)
-	var/obj/item/weapon/chisel/F = new(user.loc)
-	var/obj/item/weapon/hammer/wood/E = new(user.loc)
-	user.put_in_hands(E)
-	playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-	qdel(src)
-	user.put_in_hands(F)
-
-/obj/item/weapon/chisel/assembly/hammer
-	icon_state = "chiselh"
-	item_state = "hammer_i"
-/obj/item/weapon/chisel/assembly/hammer/attack_right(mob/user)
-	var/obj/item/weapon/chisel/F = new(user.loc)
-	var/obj/item/weapon/hammer/iron/E = new(user.loc)
-	user.put_in_hands(E)
-	playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-	qdel(src)
-	user.put_in_hands(F)
-
-/obj/item/weapon/chisel/assembly/hammerclaw
-	icon_state = "chiselc"
-	item_state = "hammer_s"
-/obj/item/weapon/chisel/assembly/hammerclaw/attack_right(mob/user)
-	var/obj/item/weapon/chisel/F = new(user.loc)
-	var/obj/item/weapon/hammer/steel/E = new(user.loc)
-	user.put_in_hands(E)
-	playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-	qdel(src)
-	user.put_in_hands(F)
-
-/obj/item/weapon/chisel/assembly/stone
-	icon_state = "chisels"
-	item_state = "stone"
-/obj/item/weapon/chisel/assembly/stone/attack_right(mob/user)
-	var/obj/item/weapon/chisel/F = new(user.loc)
-	var/obj/item/natural/stone/E = new(user.loc)
-	user.put_in_hands(E)
-	playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-	qdel(src)
-	user.put_in_hands(F)
-
-/obj/item/weapon/chisel/assembly/stoneblock
-	icon_state = "chiselb"
-	item_state = "block"
-/obj/item/weapon/chisel/assembly/stoneblock/attack_right(mob/user)
-	var/obj/item/weapon/chisel/F = new(user.loc)
-	var/obj/item/natural/stoneblock/E = new(user.loc)
-	user.put_in_hands(E)
-	playsound(get_turf(user.loc), 'modular/stonekeep/sound/brick_drop.ogg', 100)
-	qdel(src)
-	user.put_in_hands(F)
-
-
-/datum/intent/chisel
-	name = "chisel"
-	icon_state = "inchisel"
-	attack_verb = list("chisels")
-	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
-	animname = "strike"
-	item_damage_type = "stab"
-	blade_class = BCLASS_CHISEL
-	chargetime = 0
-	swingdelay = 3
-
-
-
-/obj/item/natural/stone/attackby(obj/item/W, mob/living/user, params)
-	user.changeNext_move(CLICK_CD_MELEE)
-	var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
-	var/work_time = (35 - (skill_level * 5))
-	if(istype(W, /obj/item/natural/stone))
-		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message(span_info("[user] strikes the stones together."))
-		if(prob(10))
-			var/datum/effect_system/spark_spread/S = new()
-			var/turf/front = get_step(user,user.dir)
-			S.set_up(1, 1, front)
-			S.start()
-	if( user.used_intent.type == /datum/intent/chisel )
-		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the stone into a block.</span>")
-		if(do_after(user, work_time))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
-			playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-			qdel(src)
-			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
-		return
-	else if(istype(W, /obj/item/weapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
-	else
-		..()
-
-/obj/item/natural/stone/pre_attack_right(atom/A, mob/living/user, params)
-	user.changeNext_move(CLICK_CD_MELEE)
-	if(istype(A, /obj/item/natural/stone))
-		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message(span_info("[user] strikes the stones together."))
-		if(prob(10))
-			var/datum/effect_system/spark_spread/S = new()
-			var/turf/front = get_step(user,user.dir)
-			S.set_up(1, 1, front)
-			S.start()
-		return
-	if(istype(A, /obj/item/natural/rock))
-		user.visible_message(span_info("[user] strikes the stone against the rock.</span>"))
-		playsound(src.loc, 'sound/items/stonestone.ogg', 100)
-		if(prob(35))
-			var/datum/effect_system/spark_spread/S = new()
-			var/turf/front = get_step(user,user.dir)
-			S.set_up(1, 1, front)
-			S.start()
-		return
-	. = ..()
-
+/*
 /obj/structure/roguerock/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
-	if( user.used_intent.type == /datum/intent/chisel )
+	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
 		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
 		if(do_after(user, 10 SECONDS))
@@ -250,100 +45,16 @@
 			playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
 			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*1))
 			qdel(src)
-		return
-	else if(istype(W, /obj/item/weapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
-
-
-/obj/item/natural/rock/attackby(obj/item/W, mob/living/user, params)
-	user.changeNext_move(CLICK_CD_MELEE)
-	var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
-	var/work_time = (120 - (skill_level * 15))
-	if(user.cmode)
-		if(istype(W, /obj/item/natural/stone))
-			user.visible_message(span_info("[user] strikes the stone against the rock.</span>"))
-			playsound(src.loc, 'sound/items/stonestone.ogg', 100)
-			if(prob(35))
-				var/datum/effect_system/spark_spread/S = new()
-				var/turf/front = get_turf(src)
-				S.set_up(1, 1, front)
-				S.start()
-			return
-		if(istype(W, /obj/item/natural/rock))
-			playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-			user.visible_message(span_info("[user] strikes the rocks together."))
-			if(prob(10))
-				var/datum/effect_system/spark_spread/S = new()
-				var/turf/front = get_turf(src)
-				S.set_up(1, 1, front)
-				S.start()
-			return
-	if( user.used_intent.type == /datum/intent/chisel )
-		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
-		if(do_after(user, work_time))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
-			playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.5))
-			qdel(src)
-		return
-	else if(istype(W, /obj/item/weapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
-	..()
-
-
+*/
 //................	Stone blocks	............... //
 /obj/item/natural/stoneblock
-	name = "stone block"
-	desc = "A rectangular stone block for building."
-	icon = 'modular/stonekeep/icons/crafting.dmi'
-	icon_state = "stoneblock"
 	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'
 	righthand_file = 'modular/stonekeep/icons/onmob/righthand.dmi'
-	item_state = "block"
-	experimental_inhand = FALSE
-	drop_sound = 'modular/stonekeep/sound/brick_drop.ogg'
-	hitsound = 'modular/stonekeep/sound/brick_drop.ogg'
-	possible_item_intents = list(INTENT_GENERIC)
-	force = 10
-	throwforce = 18
-	w_class = WEIGHT_CLASS_SMALL
-	bundletype = /obj/item/natural/bundle/stoneblock
-	sellprice = 2
 
 //................ Stone block stack	............... //
 /obj/item/natural/bundle/stoneblock
-	name = "stack of stone blocks"
-	desc = "A stack of stone blocks."
-	icon_state = "stoneblockbundle1"
-	icon = 'modular/stonekeep/icons/crafting.dmi'
-	lefthand_file = 'modular/stonekeep/icons/onmob/lefthand.dmi'
-	righthand_file = 'modular/stonekeep/icons/onmob/righthand.dmi'
-	item_state = "block"
-	experimental_inhand = FALSE
-	grid_width = 64
-	grid_height = 64
-	base_width = 64
-	base_height = 64
-	drop_sound = 'modular/stonekeep/sound/brick_drop.ogg'
-	hitsound = list('sound/combat/hits/blunt/shovel_hit.ogg', 'sound/combat/hits/blunt/shovel_hit2.ogg', 'sound/combat/hits/blunt/shovel_hit3.ogg')
-	pickup_sound = 'modular/stonekeep/sound/brick_drop.ogg'
-	possible_item_intents = list(/datum/intent/use)
-	force = 2
-	throwforce = 0	// useless for throwing unless solo
-	throw_range = 2
-	w_class = WEIGHT_CLASS_NORMAL
-	stackname = "stone blocks"
-	stacktype = /obj/item/natural/stoneblock
-	maxamount = 4
-	icon1 = "stoneblockbundle2"
-	icon1step = 3
-	icon2 = "stoneblockbundle3"
-	icon2step = 4
-
+	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
+	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 
 
 
@@ -506,4 +217,3 @@
 	righthand_file = 'modular/stonekeep/icons/onmob/righthand.dmi'
 	item_state = "shard"
 
-/obj/effect/decal/cleanable/debris/stony	// temp ROGTODO
