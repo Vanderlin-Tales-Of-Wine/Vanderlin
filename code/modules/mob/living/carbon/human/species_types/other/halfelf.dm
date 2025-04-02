@@ -33,7 +33,7 @@
 	inherent_traits = list(TRAIT_NOMOBSWAP)
 	default_features = list("mcolor" = "FFF", "ears" = "ElfH", "wings" = "None")
 	mutant_bodyparts = list("ears")
-	mutanteyes = /obj/item/organ/eyes/elf/less
+//	mutanteyes = /obj/item/organ/eyes/elf/less
 	use_skintones = 1
 	possible_ages = list(AGE_CHILD, AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	disliked_food = NONE

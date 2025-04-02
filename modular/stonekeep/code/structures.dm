@@ -474,7 +474,6 @@
 
 /obj/structure/fluff/walldeco/xylixhint
 	icon_state = "wall_funny"
-	alpha = 240
 /*
 /obj/structure/fluff/walldeco/xylixhint/Initialize()
 	. = ..()
@@ -590,9 +589,11 @@
 	max_integrity = 80
 	destroy_sound = 'sound/misc/woodhit.ogg'
 	static_debris = list(/obj/item/grown/log/tree/stick = 1)
-	pixel_x = -16
+	pixel_x = -32
+	pixel_y = 6
 	alpha = 255
 	opacity = FALSE
+	density = FALSE
 /obj/structure/flora/tree/neu/bush/Initialize()
 	. = ..()
 	icon_state = "deadbush_[rand(1,3)]"
@@ -979,7 +980,18 @@
 	desc = ""
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "circle"
-	alpha = 180
+	alpha = 240
 	pixel_y = -32
 	pixel_x = -32
-	color = "#962121"
+	color = "#851616"
+
+
+/obj/structure/pressure_plate/onetime/triggerplate()
+	. = ..()
+	anchored = FALSE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/obj/structure/bars/passage/open
+	icon_state = "passage1"
+	density = FALSE
+

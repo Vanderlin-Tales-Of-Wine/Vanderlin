@@ -304,6 +304,9 @@
 /obj/effect/spawner/map_spawner/artefact_sumpgrotto,
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
+"LB" = (
+/turf/open/water/cleanshallow,
+/area/rogue/under/cave)
 "LD" = (
 /obj/structure/fluff/walldeco/rags/alt,
 /obj/structure/barricade/rogue,
@@ -379,6 +382,10 @@
 /obj/effect/decal/remains/mole,
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)
+"Tr" = (
+/obj/structure/well/climb_up,
+/turf/open/water/cleanshallow,
+/area/rogue/under/cave)
 "VB" = (
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 9
@@ -1378,8 +1385,8 @@ ef
 ef
 ef
 ef
-ef
-ef
+LB
+LB
 ef
 ef
 ab
@@ -1445,8 +1452,8 @@ ef
 ef
 ef
 ef
-ef
-ef
+Tr
+LB
 ef
 ef
 kE

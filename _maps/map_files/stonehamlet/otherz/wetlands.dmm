@@ -38,6 +38,10 @@
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
+"aM" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "aR" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "hamlet-bog-town";
@@ -80,7 +84,7 @@
 "bQ" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/bog/wetlands)
+/area/rogue/outdoors/bog)
 "bW" = (
 /turf/closed,
 /area/rogue/outdoors/bog/wetlands)
@@ -304,6 +308,10 @@
 /obj/machinery/light/fueled/torchholder/cold,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"gE" = (
+/obj/structure/bed/mediocre,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "gN" = (
 /obj/structure/stairs/stone/d,
 /obj/structure/barricade/rogue,
@@ -443,6 +451,12 @@
 "js" = (
 /turf/open/water/cleanshallow,
 /area/rogue/under/cavewet)
+"jx" = (
+/obj/structure/lever{
+	redstone_id = "xylcageroom"
+	},
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "jy" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 8;
@@ -452,6 +466,13 @@
 	},
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"jF" = (
+/obj/structure/pressure_plate/onetime{
+	redstone_id = "xylixgoodgate"
+	},
+/obj/structure/fluff/walldeco/xylixhint,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "jS" = (
 /obj/structure/table/wood/crafted,
 /turf/open/floor/ruinedwood,
@@ -482,6 +503,10 @@
 /obj/item/needle,
 /turf/open/floor/blocks,
 /area/rogue/indoors)
+"kr" = (
+/obj/item/clothing/ring/gold/protection,
+/turf/open/floor/sandstone/temple,
+/area/rogue/under/xylix)
 "kw" = (
 /obj/machinery/light/fueled/wallfire/candle/blue{
 	pixel_y = -32
@@ -507,6 +532,11 @@
 /obj/machinery/light/fueled/firebowl/stump,
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/bog/wetlands)
+"kL" = (
+/obj/structure/table/wood/crafted,
+/obj/item/weapon/knife/stone,
+/turf/open/floor/cobble,
+/area/rogue/indoors)
 "kW" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/wetlands/gator)
@@ -551,6 +581,10 @@
 /obj/effect/landmark/map_load_mark/xylixmaze_eone,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
+"lv" = (
+/obj/item/reagent_containers/glass/bucket/wooden/alter,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "lx" = (
 /obj/structure/ladder,
 /turf/open/floor/cobble,
@@ -594,6 +628,7 @@
 /area/rogue/outdoors/bog)
 "mr" = (
 /obj/effect/spawner/map_spawner/enemy_fifty/honey_spider,
+/obj/structure/spider/nest,
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "mt" = (
@@ -613,6 +648,7 @@
 /area/rogue/under/xylix)
 "ne" = (
 /obj/structure/rack/shelf/biggest,
+/obj/item/clothing/shirt/rags,
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors)
 "nf" = (
@@ -730,6 +766,12 @@
 /obj/structure/flora/rock/pebbles,
 /turf/open/floor/naturalstone/rough,
 /area/rogue/outdoors/bog/wetlands)
+"qD" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = -32
+	},
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "qI" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/bog)
@@ -797,7 +839,9 @@
 	plane = -6;
 	redstone_id = "xylixbackroute"
 	},
-/obj/structure/fluff/walldeco/vinez/blue,
+/obj/structure/fluff/walldeco/vinez/blue{
+	opacity = 1
+	},
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "sz" = (
@@ -824,7 +868,7 @@
 "tg" = (
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/dirt,
-/area/rogue/outdoors/bog/wetlands)
+/area/rogue/outdoors/bog)
 "tn" = (
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/dirt,
@@ -907,6 +951,12 @@
 "vi" = (
 /turf/open/lava/acid,
 /area/rogue/under/xylix)
+"vC" = (
+/obj/structure/bars/passage/open{
+	redstone_id = "xylixpressureroom"
+	},
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "vE" = (
 /obj/structure/fluff/railing/border{
 	dir = 9;
@@ -919,6 +969,12 @@
 	pixel_y = 0
 	},
 /turf/open/floor/sandstone/shaded,
+/area/rogue/under/xylix)
+"vN" = (
+/obj/structure/bars/passage{
+	redstone_id = "xylixgoodgate"
+	},
+/turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
 "vQ" = (
 /obj/structure/fluff/railing/border{
@@ -968,6 +1024,10 @@
 "wJ" = (
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog/wetlands)
+"wK" = (
+/mob/living/carbon/human/species/rousman/ambush,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "wL" = (
 /obj/effect/decal/shadow_floor{
 	dir = 1
@@ -1013,6 +1073,10 @@
 /obj/structure/ladder,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/bog/wetlands)
+"yd" = (
+/obj/structure/bed/mediocre,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "yk" = (
 /obj/structure/flora/shroom_tree_neu,
 /turf/open/floor/grass/red,
@@ -1048,7 +1112,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog/wetlands)
 "zD" = (
-/obj/item/ingot/gold,
+/obj/item/clothing/neck/talkstone,
 /turf/open/floor/sandstone/temple,
 /area/rogue/under/xylix)
 "zE" = (
@@ -1073,6 +1137,10 @@
 	},
 /turf/open/floor/blocks/moss,
 /area/rogue/under/xylix)
+"BB" = (
+/obj/item/weapon/hoe/stone,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "Cg" = (
 /obj/effect/spawner/map_spawner/bogtree,
 /turf/open/floor/grass/red,
@@ -1131,6 +1199,13 @@
 /obj/structure/flora/grass/water/reeds,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog/wetlands/gator)
+"Fy" = (
+/obj/structure/pressure_plate/onetime{
+	redstone_id = "xylixbadgate"
+	},
+/obj/structure/fluff/walldeco/xylixhint/danger,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "FA" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -1140,6 +1215,10 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/bog/wetlands)
+"FB" = (
+/obj/structure/well/climb_down,
+/turf/open/floor/dirt,
+/area/rogue/outdoors/bog)
 "FO" = (
 /obj/structure/flora/rock/pebbles,
 /turf/open/floor/dirt,
@@ -1150,9 +1229,19 @@
 "Gb" = (
 /turf/open/floor/twig,
 /area/rogue/outdoors/bog/wetlands)
+"Gu" = (
+/obj/structure/bars/passage{
+	redstone_id = "xylixbadgate"
+	},
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
 "GD" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/outdoors/bog/wetlands)
+"GH" = (
+/obj/structure/well/climb_up,
+/turf/open/water/cleanshallow,
+/area/rogue/under/cave)
 "GK" = (
 /obj/structure/fluff/traveltile{
 	aportalgoesto = "hamlet-bog-forest";
@@ -1170,6 +1259,9 @@
 	dir = 4
 	},
 /area/rogue/under/xylix)
+"He" = (
+/turf/open/floor/sandstone/temple,
+/area/rogue/under/xylix)
 "Hr" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/cobblemoss,
@@ -1178,8 +1270,13 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/bog/wetlands/gator)
 "Hu" = (
-/obj/item/ingot/gold,
-/mob/living/carbon/human/species/human/northern/bum/ambush/xylix,
+/mob/living/carbon/human/species/abyssariad/ogrun/insane,
+/obj/effect/mapping_helpers/floor_clothing_equipper,
+/obj/item/weapon/mace/cudgel/rungu,
+/obj/item/clothing/head/jester/artefact,
+/obj/item/clothing/pants/tights/jester,
+/obj/item/clothing/shirt/jester,
+/obj/item/clothing/shoes/jester,
 /turf/open/floor/sandstone/temple,
 /area/rogue/under/xylix)
 "Hy" = (
@@ -1217,6 +1314,9 @@
 "Ja" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/mountains)
+"Je" = (
+/turf/open/water/cleanshallow,
+/area/rogue/under/cave)
 "Jf" = (
 /obj/machinery/light/fueled/wallfire/candle/blue/r,
 /turf/open/water/sewer,
@@ -1271,6 +1371,12 @@
 /obj/structure/stairs/stone/d,
 /turf/open/floor/cobblemoss,
 /area/rogue/outdoors/bog/wetlands)
+"MR" = (
+/obj/structure/bars/passage/open{
+	redstone_id = "xylixpressureroom"
+	},
+/turf/open/floor/blocks/moss,
+/area/rogue/under/xylix)
 "Nb" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -1300,6 +1406,10 @@
 /area/rogue/under/xylix)
 "NB" = (
 /obj/structure/bars/pipe,
+/turf/open/floor/cobblemoss,
+/area/rogue/under/xylix)
+"NE" = (
+/mob/living/carbon/human/species/rousman/ambush,
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
 "NM" = (
@@ -1495,6 +1605,12 @@
 	dir = 1
 	},
 /area/rogue/under/xylix)
+"Zv" = (
+/obj/effect/landmark/hammer/dev_text{
+	name = "Hidden shrine add dungeon shit or something? FLESH OUT"
+	},
+/turf/open/floor/naturalstone,
+/area/rogue/under/cavewet)
 "ZB" = (
 /obj/structure/bars/pipe{
 	dir = 4
@@ -7061,16 +7177,16 @@ Sp
 Zm
 Zm
 xG
-xG
+vC
 ZU
-xG
 xG
 xG
 pA
 xG
 xG
+vC
 fu
-Zm
+fu
 Zm
 Lx
 Lx
@@ -7253,7 +7369,7 @@ sx
 xG
 xG
 cw
-cw
+lo
 cw
 cw
 cw
@@ -7263,7 +7379,7 @@ xG
 Zm
 Zm
 pA
-lo
+wk
 lo
 xG
 lo
@@ -7271,8 +7387,8 @@ VY
 VY
 VY
 VY
+VY
 lo
-Zm
 Zm
 Lx
 Lx
@@ -7457,10 +7573,10 @@ cw
 Ue
 Ue
 Ue
+lo
 Ue
 Ue
-Ue
-cw
+lo
 xG
 lo
 lo
@@ -7655,7 +7771,7 @@ Zm
 xG
 Zm
 mO
-cw
+lo
 Ue
 VM
 Rk
@@ -7859,11 +7975,11 @@ Zm
 mO
 cw
 Ue
-Ue
+lo
 Hu
-zD
+kr
 Nt
-Ue
+lo
 cw
 mO
 xG
@@ -7873,9 +7989,9 @@ xG
 Zm
 NM
 lo
-xG
+vC
 lo
-lo
+VY
 lo
 pA
 Zm
@@ -8058,12 +8174,12 @@ VO
 Zm
 xG
 Zm
-mO
+lo
 cw
 Ue
 VM
 zD
-zD
+He
 VM
 Ue
 cw
@@ -8079,7 +8195,7 @@ xG
 Zm
 xG
 Zm
-fu
+MR
 lo
 lo
 Lx
@@ -8262,17 +8378,17 @@ xG
 Zm
 mO
 cw
-VM
+lo
 Ue
 Nt
 Ue
-Nt
+lo
 Ue
 cw
 mO
 xG
 xG
-xG
+pA
 xG
 lo
 lo
@@ -8466,7 +8582,7 @@ xG
 cw
 Ue
 Ue
-Ue
+lo
 Ue
 Ue
 Ue
@@ -8666,12 +8782,12 @@ xG
 Zm
 xG
 xG
+lo
 cw
 cw
 cw
 cw
-cw
-cw
+lo
 xG
 xG
 Zm
@@ -8871,7 +8987,7 @@ xG
 xG
 mO
 mO
-mO
+lo
 mO
 xG
 xG
@@ -9075,7 +9191,7 @@ xG
 fu
 fu
 xG
-wk
+lo
 VY
 VY
 lo
@@ -9272,12 +9388,12 @@ fu
 wk
 VY
 VY
-VY
+lo
 xG
 fu
 fu
 xG
-wk
+lo
 VY
 VY
 lo
@@ -9472,16 +9588,16 @@ VO
 Zm
 xG
 Zm
+aC
 fu
-fu
+lo
+lo
+Gu
+vN
+lo
+lo
 xG
-xG
-xG
-fu
-xG
-xG
-xG
-xG
+Sp
 Zm
 VO
 VO
@@ -9677,10 +9793,10 @@ Zm
 xG
 fu
 xG
+Zm
 xG
 xG
-xG
-xG
+Zm
 xG
 xG
 xG
@@ -9877,15 +9993,15 @@ Zm
 fu
 Zm
 fu
-fu
+wK
+xG
+lo
 xG
 xG
-xG
-fu
-xG
+lo
 xG
 xG
-xG
+yd
 Zm
 VO
 VO
@@ -10081,10 +10197,10 @@ Zm
 fu
 fu
 xG
+Gu
 xG
 xG
-fu
-fu
+vN
 xG
 xG
 fu
@@ -10281,15 +10397,15 @@ Zm
 xG
 Zm
 fu
-xG
+NE
 fu
+Gu
+Fy
+jF
+vN
 xG
 xG
-xG
-xG
-xG
-xG
-fu
+gE
 Zm
 VO
 VO
@@ -10485,10 +10601,10 @@ Zm
 fu
 xG
 fu
-xG
+Gu
 xG
 fu
-xG
+vN
 xG
 xG
 fu
@@ -10685,15 +10801,15 @@ Zm
 xG
 Zm
 xG
+NE
 xG
-xG
-xG
+Gu
 fu
 fu
-xG
+vN
 xG
 fu
-fu
+gE
 Zm
 VO
 VO
@@ -10889,10 +11005,10 @@ Zm
 fu
 fu
 xG
+lo
 fu
 xG
-fu
-xG
+lo
 xG
 fu
 xG
@@ -11089,15 +11205,15 @@ Zm
 xG
 Zm
 xG
-xG
-xG
 fu
 xG
-fu
-fu
-fu
+Zm
+aM
+qD
+Zm
 fu
 xG
+yd
 Zm
 VO
 VO
@@ -11293,12 +11409,12 @@ Zm
 xG
 xG
 xG
+Zm
 fu
 fu
+Zm
 xG
 xG
-xG
-fu
 xG
 Zm
 VO
@@ -11495,13 +11611,13 @@ lo
 VY
 VY
 VY
-VY
-VY
 lo
-xG
 fu
 fu
-xG
+lo
+VY
+VY
+VY
 Zm
 VO
 VO
@@ -11697,13 +11813,13 @@ lo
 VY
 VY
 VY
-VY
-VY
 lo
-xG
 fu
 fu
-xG
+lo
+VY
+VY
+VY
 Zm
 VO
 VO
@@ -13916,7 +14032,7 @@ VO
 Zm
 xG
 lo
-xG
+jx
 fu
 fu
 xG
@@ -14568,7 +14684,7 @@ fu
 Pk
 Pk
 Pk
-ym
+lo
 fu
 lo
 VO
@@ -15982,7 +16098,7 @@ xG
 Pk
 Pk
 Pk
-ym
+Zm
 VO
 VO
 VO
@@ -30837,8 +30953,8 @@ hO
 hO
 hO
 hO
-hO
-hO
+Je
+Je
 hO
 hO
 AM
@@ -31039,8 +31155,8 @@ hO
 hO
 hO
 hO
-hO
-hO
+GH
+Je
 hO
 hO
 hO
@@ -66363,39 +66479,39 @@ pS
 pS
 fd
 pS
-oz
-oz
-oz
 pS
 pS
 pS
 pS
-fd
-pS
-fd
-fd
 pS
 pS
 pS
 fd
 pS
-pS
-oz
-oz
-oz
+fd
 fd
 pS
-oz
-oz
-oz
-oz
-oz
-oz
-oz
-oz
-oz
-oz
-oz
+pS
+pS
+fd
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
+pS
 fd
 pS
 pS
@@ -66801,10 +66917,10 @@ pS
 pS
 pS
 pS
-oz
+pS
 ay
-oz
-oz
+pS
+pS
 dz
 dz
 ds
@@ -67004,7 +67120,7 @@ pS
 pS
 pS
 pS
-oz
+pS
 oz
 pS
 dz
@@ -68621,7 +68737,7 @@ wJ
 wJ
 pS
 pS
-oz
+pS
 oz
 dz
 dz
@@ -68812,13 +68928,13 @@ wJ
 wJ
 wJ
 WE
-wP
-wP
-wP
-wP
-wP
-wP
-wP
+oz
+oz
+oz
+oz
+oz
+oz
+oz
 Jv
 wJ
 wJ
@@ -69014,13 +69130,13 @@ wJ
 wJ
 wJ
 WE
-wP
-wP
-wP
-wP
-wP
-wP
-wP
+oz
+oz
+oz
+oz
+oz
+oz
+oz
 Jv
 wJ
 wJ
@@ -69216,13 +69332,13 @@ wJ
 wJ
 wJ
 WE
-wP
-wP
-wP
-wP
-wP
-wP
-wP
+oz
+oz
+oz
+oz
+oz
+oz
+oz
 Jv
 wJ
 wJ
@@ -69419,12 +69535,12 @@ wJ
 wJ
 WE
 tg
-wP
+oz
 bQ
-wP
-wP
-wP
-wP
+oz
+oz
+oz
+BB
 Jv
 wJ
 wJ
@@ -69832,7 +69948,7 @@ Dt
 wJ
 wJ
 wJ
-wJ
+pS
 oz
 oz
 bC
@@ -70034,7 +70150,7 @@ Dt
 wJ
 wJ
 wJ
-wJ
+pS
 oz
 oz
 bC
@@ -70236,7 +70352,7 @@ Dt
 wJ
 wJ
 wJ
-wJ
+pS
 oz
 oz
 bC
@@ -70438,7 +70554,7 @@ Dt
 wJ
 wJ
 wJ
-wP
+oz
 oz
 oz
 bC
@@ -70631,7 +70747,7 @@ wJ
 wJ
 wJ
 Dt
-bA
+kL
 Qj
 Qj
 Qj
@@ -70640,7 +70756,7 @@ Dt
 wJ
 wJ
 wJ
-wP
+oz
 oz
 oz
 bC
@@ -70839,12 +70955,12 @@ Dt
 Dt
 Dt
 Dt
-wJ
-wJ
-wJ
-wP
-wP
-wP
+pS
+pS
+pS
+oz
+oz
+oz
 HW
 HW
 HW
@@ -71035,17 +71151,17 @@ wJ
 wJ
 wJ
 wJ
-wJ
-wJ
-WH
-wJ
-wJ
-wJ
-wJ
-wP
-wJ
-wP
-wP
+pS
+pS
+Qy
+pS
+pS
+pS
+pS
+oz
+pS
+oz
+oz
 HW
 HW
 HW
@@ -71237,16 +71353,16 @@ wJ
 wJ
 wJ
 wJ
-wJ
-wJ
-WH
-wJ
-wJ
-wJ
-wJ
-wP
-wP
-wP
+oz
+oz
+oz
+pS
+pS
+pS
+pS
+oz
+oz
+oz
 HW
 HW
 HW
@@ -71439,16 +71555,16 @@ wJ
 wJ
 wJ
 wJ
-wJ
-wJ
-wJ
-WH
-WH
-wJ
-wJ
-wP
-wP
-at
+oz
+FB
+lv
+Qy
+Qy
+pS
+pS
+oz
+oz
+pZ
 HW
 HW
 HW
@@ -71641,15 +71757,15 @@ dz
 dz
 dz
 wJ
-wJ
-wJ
-wJ
-wJ
-wJ
-wJ
-wJ
-wP
-at
+oz
+oz
+oz
+pS
+pS
+pS
+pS
+oz
+pZ
 HW
 HW
 HW
@@ -71843,14 +71959,14 @@ Qj
 Qj
 dz
 wJ
-wJ
-wJ
-wP
-wP
-wP
-wP
-wP
-Rd
+pS
+pS
+oz
+oz
+oz
+oz
+oz
+qI
 HW
 HW
 HW
@@ -72045,11 +72161,11 @@ Qj
 Qj
 dz
 wJ
-wJ
-wJ
-wP
-wP
-Rd
+pS
+pS
+oz
+oz
+qI
 HW
 HW
 HW
@@ -72247,11 +72363,11 @@ Qj
 Xd
 dz
 wJ
-wJ
-wJ
-wP
-Rd
-wP
+pS
+pS
+oz
+qI
+oz
 HW
 HW
 HW
@@ -76277,7 +76393,7 @@ HW
 HW
 HW
 HW
-bh
+Zv
 bh
 js
 js

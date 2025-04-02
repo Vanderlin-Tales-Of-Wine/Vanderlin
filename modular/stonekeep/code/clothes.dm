@@ -8,6 +8,18 @@
 /obj/item/clothing
 	allowed_race = ALL_RACES_FOR_REAL
 
+/obj/item/clothing/shoes/jester
+	allowed_race = ALL_RACES_FOR_REAL
+/obj/item/clothing/pants/tights
+	allowed_race = ALL_RACES_FOR_REAL
+/obj/item/clothing/shirt/jester
+	allowed_race = ALL_RACES_FOR_REAL
+/obj/item/clothing/armor/cuirass
+	allowed_race = ALL_RACES_FOR_REAL
+/obj/item/clothing/head/jester
+	allowed_race = ALL_RACES_FOR_REAL
+
+
 // =============================================================================
 // ==============================	HEAD	====================================
 

@@ -59,7 +59,7 @@
 /datum/mapGeneratorModule/outlawcamp
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass)
-	spawnableAtoms = list(	/obj/structure/flora/grass = 14,
+	spawnableAtoms = list(	/obj/structure/flora/grass = 24,
 							/obj/structure/flora/grass/thorn_bush = 6,
 							/obj/item/natural/stone = 1,
 							/obj/structure/flora/tree/neu/bush = 2,

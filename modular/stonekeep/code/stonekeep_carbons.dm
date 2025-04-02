@@ -712,3 +712,95 @@
 	name = "zizombie prior"
 	icon_state = "zizombie_prior"
 	icon_living = "zizombie_prior"
+
+
+
+// ===================================================================================
+/*	..................	The Insane Jester   ................... */
+
+/mob/living/carbon/human/species/abyssariad/ogrun/insane
+	ai_controller = /datum/ai_controller/human_bum/aggressive
+	faction = list("xylix")
+	ambushable = FALSE
+	dodgetime = 10
+	flee_in_pain = FALSE
+	possible_rmb_intents = list()
+	wander = FALSE
+
+/mob/living/carbon/human/species/abyssariad/ogrun/insane/Initialize()
+	. = ..()
+	AddElement(/datum/element/ai_retaliate)
+
+/mob/living/carbon/human/species/abyssariad/ogrun/insane/after_creation()
+	..()
+	job = "Madman"
+	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
+	equipOutfit(new /datum/outfit/job/xylixjester)
+	configure_mind()
+	d_intent = INTENT_PARRY //these ones will parry instead of dodge, the higher the skill the more powerful this is of course
+
+/mob/living/carbon/human/species/abyssariad/ogrun/insane/proc/configure_mind()
+	if(!mind)
+		mind = new /datum/mind(src)
+
+	mind.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/axesmaces, 5, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
+	mind.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
+	mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+
+/datum/outfit/job/xylixjester/pre_equip(mob/living/carbon/human/H)
+	..()
+	H.STASTR = rand(10,18)
+	H.STASPD = rand(9,18)
+	H.STACON = rand(8,18)
+	H.STAEND = rand(8,18)
+	H.STALUC = 18
+	H.STAINT = 7
+	H.set_patron(/datum/patron/divine/xylix)
+	H.real_name = "The Mad Piper"
+	H.name = "The Mad Piper"
+
+/obj/item/clothing/head/jester/artefact
+	name = "blessed jester hat"
+	desc = "Keeps funny people warm, and perhaps safe. If Xylix feels like it."
+	adventurer_artefact = TRUE
+	armor = ARMOR_PADDED_GOOD
+	max_integrity = INTEGRITY_STRONG
+	body_parts_covered = FULL_BODY
+
+/obj/item/clothing/head/jester/artefact/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(user.patron == /datum/patron/divine/xylix)
+		if(slot == SLOT_HEAD && istype(user))
+			user.apply_status_effect(/datum/status_effect/buff/xylix_cap)
+			body_parts_covered = FULL_BODY
+		else
+			user.remove_status_effect(/datum/status_effect/buff/xylix_cap)
+
+	else
+		body_parts_covered = COVERAGE_SKULL
+		return
+
+/obj/item/clothing/head/jester/artefact/dropped(mob/living/user, slot)
+	. = ..()
+	user.remove_status_effect(/datum/status_effect/buff/xylix_cap)
+
+/datum/status_effect/buff/xylix_cap
+	id = "xylixcap"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/xylix_cap
+	effectedstats = list("luck" = 2)
+	duration = 180 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/xylix_cap
+	name = "I feel lucky"
+	desc = "<span class='nicegreen'>My hat attracts lucky waves from Xylix...</span>\n"
+	icon = 'icons/mob/actions/roguespells.dmi'
+	icon_state = ""

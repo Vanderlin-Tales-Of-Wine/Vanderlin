@@ -218,7 +218,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/personality_modifier = 0
 	switch(stone_personality_rating)
 		if(10 to 22)
-			if(prob(3)) // Stone has a 3 percent chance to have a personality despite missing its roll
+			if(prob(1)) // Stone has a 3 percent chance to have a personality despite missing its roll
 				stone_title = "[stone_title] of [pick(GLOB.stone_personalities)]"
 				stone_desc += " [pick(GLOB.stone_personality_descs)]"
 				personality_modifier += rand(1,5) // Personality gives a stone some more power too
@@ -236,7 +236,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 	bonus_force = rand(0, max_force_range) // Your total bonus force is now between 1 and your sharpness/bluntness totals
 
-	if(prob(5)) // We hit the jackpot, a magical stone! JUST FOR ME!
+	if(prob(1)) // We hit the jackpot, a magical stone! JUST FOR ME!
 		filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 		var/magic_force = rand(1,10) //Roll, we need this seperate for now otherwise people will know the blunt/sharp boosts too
 		stone_title = "[pick(GLOB.stone_magic_names)] [stone_title] +[magic_force]"
