@@ -810,6 +810,7 @@
 			THE HIGH PRIESTESS: Look inside, listen to yourself. The answers you seek already lie within. Seek not others, for they shall seek you.")
 			)
 		if("TEmpress")
+			H.change_stat(STATKEY_SPD, -1)
 			to_chat(H,span_info("\
 			THE EMPRESS: Around and within, you see and understand everything. Breathe, intake, exhale - you are one, and one is all.")
 			)
@@ -822,15 +823,17 @@
 			THE EMPEROR: You know how much a life may cost, and thusly, you are the judge of it. Other men trust the little voice that chimes in your head.")
 			)
 		if("THiero")
+			H.change_stat(STATKEY_PER, -1)
 			to_chat(H,span_info("\
 			THE HIEROPHANT: From one source all things depend. And as such, you raise your head to the heavens, and soon know your next steps. One after the other.")
 			)
 		if("TLovers")
+			H.change_stat(STATKEY_END, -1)
 			to_chat(H,span_info("\
 			THE LOVERS: You are in a new place, you are a stranger in a strange land - you are at a crossroads, consider your destiny. Life is strengthened by the bonds we make.")
 			)
 		if("TChariot")
-			H.change_stat(STATKEY_INT, 1)
+			H.change_stat(STATKEY_SPD, 1)
 			H.change_stat(STATKEY_CON, -1)
 			to_chat(H,span_info("\
 			THE CHARIOT: Knowledge and mind, spirit and heart. Victory does not come only from meticulous planning, only through wisdom and purpose may you cleave a path forward.")
@@ -843,7 +846,7 @@
 			)
 		if("THermit")
 			H.change_stat(STATKEY_INT, 2)
-			H.change_stat(STATKEY_END, -1)
+			H.change_stat(STATKEY_END, -2)
 			to_chat(H,span_info("\
 			THE HERMIT: Decisions must age like wine. Sometimes it is best to seal yourself away, and allow yourself to ruminate upon your thoughts. Your mind is your library.")
 			)
@@ -886,7 +889,7 @@
 		if("TTower")
 			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_STR, 1)
-			H.change_stat(STATKEY_INT, -1)
+			H.change_stat(STATKEY_INT, -2)
 			H.change_stat(STATKEY_SPD, -1)
 			to_chat(H,span_info("\
 			THE TOWER: To make a strong man, muscles must be broken, time must be made to allow the body to reform. The man dies, the idea does not.")
@@ -910,13 +913,13 @@
 			THE SUN: Things will be good, now and forever. Wipe the dirt from your eyes and realize how good life truly is.")
 			)
 		if("TJudge")
-			H.change_stat(STATKEY_END, 1)
+			H.change_stat(STATKEY_CON, 1)
 			H.change_stat(STATKEY_SPD, -1)
 			to_chat(H,span_info("\
 			JUDGEMENT: Infront of you are two roads, one leads to hell, and the other worse - nothing stops you from stepping off of it, and changing the direction of your life.")
 			)
 		if("TWorld")
-			H.change_stat(STATKEY_LCK, 1) // Used to be 3, probably unwise.
+			H.change_stat(STATKEY_LCK, 1) // Used to be 3, probably unwise. Blame me for writing all of these while I was listening to someone ramble in a VC.
 			H.change_stat(STATKEY_PER, 1)
 			H.change_stat(STATKEY_INT, 1)
 			H.change_stat(STATKEY_SPD, -1)
