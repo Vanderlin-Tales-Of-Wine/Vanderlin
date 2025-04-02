@@ -1625,14 +1625,6 @@
 /obj/structure/fluff/statue/gargoyle/moss,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town/roofs)
-"bPx" = (
-/obj/structure/closet/crate/chest/neu_fancy,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
-/obj/item/key/nitemaiden,
-/turf/open/floor/wood/nosmooth,
-/area/rogue/indoors/town/bath)
 "bPG" = (
 /obj/structure/window/openclose{
 	dir = 8
@@ -3534,10 +3526,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/shop)
-"dSc" = (
-/obj/effect/decal/cleanable/glass,
-/turf/open/floor/grass,
-/area/rogue/outdoors/town)
 "dSj" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/ruinedwood/spiral,
@@ -4973,6 +4961,22 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/tavern)
+"fxD" = (
+/obj/structure/closet/crate/chest/neu_iron,
+/obj/item/key/manor,
+/obj/item/key/walls,
+/obj/item/key/blacksmith,
+/obj/item/key/steward,
+/obj/item/key/church,
+/obj/item/key/dungeon,
+/obj/item/key/graveyard,
+/obj/item/key/garrison,
+/obj/item/key/artificer,
+/obj/item/key/mercenary,
+/obj/item/key/tavern,
+/obj/item/key/feldsher,
+/turf/open/floor/tile/tilerg,
+/area/rogue/indoors/town)
 "fyu" = (
 /obj/structure/chair/bench/couchablack,
 /turf/open/floor/carpet,
@@ -6187,22 +6191,6 @@
 "gLE" = (
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield)
-"gMj" = (
-/obj/structure/closet/crate/chest/neu_iron,
-/obj/item/key/manor,
-/obj/item/key/walls,
-/obj/item/key/blacksmith,
-/obj/item/key/steward,
-/obj/item/key/church,
-/obj/item/key/dungeon,
-/obj/item/key/graveyard,
-/obj/item/key/garrison,
-/obj/item/key/artificer,
-/obj/item/key/mercenary,
-/obj/item/key/tavern,
-/obj/item/key/doctor,
-/turf/open/floor/tile/tilerg,
-/area/rogue/indoors/town)
 "gMl" = (
 /obj/structure/chair/wood/alt{
 	dir = 8
@@ -6830,6 +6818,14 @@
 /obj/machinery/light/fueled/wallfire/candle/blue,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
+"hzy" = (
+/obj/structure/closet/crate/chest/neu_fancy,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/obj/item/key/bathhouse,
+/turf/open/floor/wood/nosmooth,
+/area/rogue/indoors/town/bath)
 "hAp" = (
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop)
@@ -7632,6 +7628,10 @@
 /area/rogue/under/town/basement)
 "iqY" = (
 /obj/structure/flora/grass/bush/wall/tall,
+/turf/open/floor/grass,
+/area/rogue/outdoors/town)
+"iqZ" = (
+/obj/effect/decal/cleanable/debris/glass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
 "isd" = (
@@ -13974,15 +13974,6 @@
 	},
 /turf/open/water/river,
 /area/rogue/under/cave)
-"pmn" = (
-/obj/structure/closet/crate/crafted_closet/inn/south,
-/obj/item/key/doctor{
-	pixel_y = 9
-	},
-/turf/open/floor/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "pmv" = (
 /obj/machinery/light/fueled/firebowl,
 /turf/open/floor/woodturned,
@@ -18651,6 +18642,15 @@
 	},
 /turf/open/floor/church,
 /area/rogue/indoors/town/church)
+"uCN" = (
+/obj/structure/closet/crate/crafted_closet/inn/south,
+/obj/item/key/feldsher{
+	pixel_y = 9
+	},
+/turf/open/floor/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "uCP" = (
 /obj/item/bin/water,
 /turf/open/floor/woodturned,
@@ -60111,7 +60111,7 @@ kOQ
 sSM
 iUq
 gwA
-gMj
+fxD
 mHs
 oOl
 gwA
@@ -65175,7 +65175,7 @@ bbf
 iUq
 tDt
 uGU
-dSc
+iqZ
 tdH
 oli
 hnz
@@ -89756,7 +89756,7 @@ doW
 doW
 doW
 whI
-bPx
+hzy
 eqA
 eqA
 eqA
@@ -105827,7 +105827,7 @@ oiP
 sjf
 vTw
 tgV
-pmn
+uCN
 pSc
 tvr
 mWk

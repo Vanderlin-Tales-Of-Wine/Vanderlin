@@ -50,7 +50,7 @@
 	mask = /obj/item/clothing/face/feld
 	neck = /obj/item/clothing/neck/feld
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/doctor
+	beltl = /obj/item/storage/keyring/feldsher
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
