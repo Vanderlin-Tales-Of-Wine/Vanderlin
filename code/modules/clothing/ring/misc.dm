@@ -249,7 +249,7 @@
 
 /obj/item/clothing/ring/gold/burden
 	name = "ring of burden"
-	icon_state = "ring_protection" //N/A change this
+	icon_state = "ring_protection" //N/A change this to a real sprite after its made
 	sellprice = 0
 	var/bearerdied = FALSE
 
@@ -301,12 +301,12 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_ring_drop),user), 5 MINUTES)
 	REMOVE_TRAIT (user, TRAIT_BURDEN, type)
-	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A
+	addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS)
 
 /obj/item/clothing/ring/gold/burden/proc/psstt()
 	if(!ismob(loc))
 		playsound(src, 'sound/vo/psst.ogg', 50)
-		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS) //N/A
+		addtimer(CALLBACK(src, PROC_REF(psstt)), rand(10,20) SECONDS)
 
 /obj/item/clothing/ring/gold/burden/proc/on_ring_drop(mob/user, slot)
 	if(ismob(loc))

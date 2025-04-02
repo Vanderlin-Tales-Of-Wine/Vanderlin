@@ -60,7 +60,7 @@
 	created_amount = 2
 	craftdiff = 0
 
-/datum/artificer_recipe/bronze/headhook //N/A hard to say where this belongs to so going to keep it here
+/datum/artificer_recipe/bronze/headhook
 	name = "Bronze Headhook (+Fibers x2)"
 	required_item = /obj/item/ingot/bronze
 	created_item = /obj/item/storage/hip/headhook/bronze

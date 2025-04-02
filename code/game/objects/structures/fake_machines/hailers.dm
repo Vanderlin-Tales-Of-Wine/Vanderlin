@@ -1,4 +1,4 @@
-//N/A this is mostly a noticeboard clone, but it works!
+//this is mostly a noticeboard clone, but it works!
 
 /obj/structure/fake_machine/hailer
 	name = "HAILER"

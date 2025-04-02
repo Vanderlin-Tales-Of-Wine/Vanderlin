@@ -377,9 +377,9 @@
 /obj/item/storage/hip/headhook
 	name = "head hook"
 	desc = "an iron hook for storing 6 heads"
-	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these.
-	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
-	icon_state = "ironheadhook" //N/A change this
+	icon = 'icons/roguetown/clothing/belts.dmi'
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
+	icon_state = "ironheadhook"
 	item_state = "ironheadhook"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
@@ -394,7 +394,7 @@
 /obj/item/storage/hip/headhook/bronze
 	name = "bronze head hook"
 	desc = "a bronze hook for storing 12 heads"
-	icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these.
+	icon = 'icons/roguetown/clothing/belts.dmi'
 	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
 	icon_state = "bronzeheadhook"
 	item_state = "bronzeheadhook"
@@ -418,10 +418,10 @@
 	if(length(contents))
 		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
 
-///obj/item/storage/hip/headhook/royal
+///obj/item/storage/hip/headhook/royal //N/A uncomment this whole thing when this actually has sprites to use, everything else about it works fine
 	//name = "royal head hook"
 	//desc = "a golden hook for storing 16 heads, befitting of any king's hunt"
-	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A change these
+	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
 	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
 	//icon_state = "knife"
 	//item_state = "knife"

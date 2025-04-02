@@ -1,5 +1,5 @@
 //N/A lamerd version of the headeater until Aberra actually gives the thumbs up for the real one
-//doesnt even give headprices for assassin or bandits like I wanted
+//doesnt even give headprices for assassin or bandits like I wanted - the clown
 
 /obj/item/natural/head
 	var/headprice = 0

@@ -76,7 +76,7 @@
 /obj/effect/proc_holder/spell/self/convertrole/mercenary
 	name = "Recruit Mercenary"
 	new_role = "Mercenary"
-	overlay_state = "recruit_servant" //N/A change this
+	overlay_state = "recruit_servant" //N/A change this to the correct sprite when its made
 	recruitment_faction = "Mercenaries"
 	recruitment_message = "Hey, %RECRUIT, you ever considered going full time?"
 	accept_message = "For coin and glory!"

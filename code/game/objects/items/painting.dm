@@ -111,7 +111,7 @@
 /obj/structure/fluff/walldeco/painting/lorehead1/examine(mob/user)
 	. = ..()
 	if(is_gaffer_job(user.mind.assigned_role))
-		. += "A trophy from my old days as an adventurer" //N/A
+		. += "A trophy from my old days as an adventurer" //N/A change this examine text after sprites are made
 	else
 		. += "A trophy"
 
@@ -126,6 +126,6 @@
 /obj/item/painting/lorehead/one/examine(mob/user)
 	. = ..()
 	if(is_gaffer_job(user.mind.assigned_role))
-		. += "A trophy from my old days as an adventurer" //N/A
+		. += "A trophy from my old days as an adventurer" //N/A change this examine text after sprites are made
 	else
 		. += "A trophy"
