@@ -309,11 +309,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "ayj" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "innkeep";
-	name = "innkeepers room"
-	},
+/obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "ayl" = (
@@ -1333,8 +1329,11 @@
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/redhouse)
 "cbi" = (
-/obj/effect/decal/shadow_floor,
-/turf/open/floor/ruinedwood/spiralfade,
+/obj/structure/stairs{
+	dir = 4;
+	icon_state = "stairs"
+	},
+/turf/closed/mineral/bedrock,
 /area/rogue/under/town/basement)
 "cbp" = (
 /obj/structure/bed/inn{
@@ -1616,14 +1615,11 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/magician)
 "cxB" = (
-/obj/structure/closet/crate/drawer/inn{
-	lockid = "tavern";
-	name = "innkeepers drawer";
-	pixel_y = 4
+/obj/structure/bed/inn/double,
+/obj/item/bedsheet/double_pelt,
+/obj/effect/landmark/start/innkeep{
+	dir = 8
 	},
-/obj/item/reagent_containers/glass/bottle/wine,
-/obj/item/clothing/armor/leather/vest/innkeep,
-/obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet/green,
 /area/rogue/under/town/basement)
 "cxH" = (
@@ -2801,8 +2797,12 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/outdoors/town/roofs)
 "egQ" = (
-/obj/machinery/light/fueled/torchholder/l,
-/turf/open/floor/dirt/road,
+/obj/effect/decal/shadow_floor{
+	dir = 8
+	},
+/obj/item/instrument/lute,
+/obj/structure/table/wood/plain_alt,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "ehE" = (
 /turf/open/floor/ruinedwood/spiral,
@@ -3894,6 +3894,12 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
+"fFE" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/tile{
+	icon_state = "tavern"
+	},
+/area/rogue/indoors/town/tavern/saiga)
 "fFK" = (
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
@@ -9101,6 +9107,10 @@
 "mXc" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/book/yeoldecookingmanual,
+/obj/item/candle/yellow/lit{
+	pixel_x = -10;
+	pixel_y = -2
+	},
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "mXk" = (
@@ -12362,6 +12372,13 @@
 /obj/item/natural/cloth,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/exposed/under/basement)
+"rpF" = (
+/obj/structure/fermentation_keg/random/beer,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/wood,
+/area/rogue/indoors/town/tavern/saiga)
 "rpO" = (
 /obj/structure/table/wood/long{
 	dir = 8
@@ -12456,6 +12473,10 @@
 /obj/structure/table/wood/long,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
+"rxH" = (
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/dirt/road,
+/area/rogue/under/town/basement)
 "rxJ" = (
 /obj/structure/bookcase,
 /obj/item/book/tales3,
@@ -13839,12 +13860,15 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/garrison)
 "tAJ" = (
-/obj/effect/decal/shadow_floor{
-	dir = 8
+/obj/structure/closet/crate/drawer/inn{
+	lockid = "tavern";
+	name = "innkeepers drawer";
+	pixel_y = 4
 	},
-/obj/item/instrument/lute,
-/obj/structure/table/wood/plain_alt,
-/turf/open/floor/ruinedwood/spiralfade,
+/obj/item/reagent_containers/glass/bottle/wine,
+/obj/item/clothing/armor/leather/vest/innkeep,
+/obj/machinery/light/fueled/wallfire/candle,
+/turf/open/floor/carpet/green,
 /area/rogue/under/town/basement)
 "tCO" = (
 /obj/machinery/light/fueled/torchholder{
@@ -14161,11 +14185,12 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/town/basement)
 "tYa" = (
-/obj/structure/stairs{
-	dir = 4;
-	icon_state = "stairs"
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "innkeep";
+	name = "innkeepers room"
 	},
-/turf/closed/mineral/bedrock,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "tYA" = (
 /obj/structure/chair/wood/alt/chair3{
@@ -16016,12 +16041,8 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/hamlet/advguild)
 "wGO" = (
-/obj/structure/bed/inn/double,
-/obj/item/bedsheet/double_pelt,
-/obj/effect/landmark/start/innkeep{
-	dir = 8
-	},
-/turf/open/floor/carpet/green,
+/obj/effect/decal/shadow_floor,
+/turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "wHt" = (
 /obj/structure/fake_machine/steward,
@@ -16930,8 +16951,8 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/church)
 "ycm" = (
-/obj/machinery/light/fueled/wallfire/candle,
-/turf/open/floor/ruinedwood/spiralfade,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/cobblerock/alt,
 /area/rogue/under/town/basement)
 "ycs" = (
 /obj/structure/chair/wood/alt/chair3,
@@ -38402,13 +38423,13 @@ hda
 shr
 shr
 shr
+kJK
+kJK
+kJK
+kJK
+kJK
+kJK
 shr
-kJK
-kJK
-kJK
-kJK
-kJK
-kJK
 shr
 shr
 shr
@@ -38604,13 +38625,13 @@ hda
 shr
 shr
 shr
+kJK
+ayj
+tyu
+tyu
+tyu
+kJK
 shr
-kJK
-ycm
-tyu
-tyu
-tyu
-kJK
 shr
 shr
 shr
@@ -38806,13 +38827,13 @@ hda
 shr
 shr
 shr
-shr
+kJK
+cbi
+kJK
 kJK
 tYa
 kJK
-kJK
-ayj
-kJK
+shr
 shr
 shr
 shr
@@ -39008,13 +39029,13 @@ hda
 shr
 shr
 shr
-shr
 kJK
 kJK
 kJK
-ycm
+ayj
 tyu
 kJK
+shr
 shr
 shr
 shr
@@ -39210,13 +39231,13 @@ hda
 shr
 shr
 shr
-shr
 kJK
-tAJ
+egQ
 yiO
 yiO
 tyu
 kJK
+shr
 shr
 shr
 shr
@@ -39412,13 +39433,13 @@ hda
 shr
 shr
 shr
-shr
 kJK
 hCp
 hNF
 hNF
-cbi
+wGO
 kJK
+shr
 shr
 shr
 shr
@@ -39614,13 +39635,13 @@ hda
 shr
 shr
 shr
+kJK
+hNF
+hNF
+hNF
+wGO
+kJK
 shr
-kJK
-hNF
-hNF
-hNF
-cbi
-kJK
 shr
 shr
 shr
@@ -39816,10 +39837,9 @@ hda
 shr
 shr
 shr
-shr
 kJK
+tAJ
 cxB
-wGO
 hNF
 yaq
 kJK
@@ -39828,12 +39848,13 @@ shr
 shr
 shr
 shr
+shr
 apl
-lUR
+ycm
 lUR
 cMo
-egQ
 uND
+rxH
 lUR
 qQP
 eKW
@@ -40018,13 +40039,13 @@ hda
 shr
 shr
 shr
+kJK
+kJK
+kJK
+kJK
+kJK
+kJK
 shr
-kJK
-kJK
-kJK
-kJK
-kJK
-kJK
 shr
 shr
 shr
@@ -79412,7 +79433,7 @@ qoZ
 jFl
 oBb
 ngU
-iax
+rpF
 jFl
 nup
 ojA
@@ -81637,14 +81658,14 @@ bBI
 uLD
 ojA
 vyh
-jfG
+fFE
 jfG
 jfG
 ngU
 nLq
 pPt
 sLv
-ngU
+bPc
 ngU
 ngU
 jxh
