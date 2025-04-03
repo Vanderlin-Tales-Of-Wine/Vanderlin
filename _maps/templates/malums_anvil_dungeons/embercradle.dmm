@@ -3248,11 +3248,6 @@
 "Rf" = (
 /obj/item/reagent_containers/food/snacks/potato/baked,
 /obj/structure/spider/stickyweb,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/spider/stickyweb,
 /turf/open/floor/cobblerock,
 /area/rogue/under/mountains/anvil/dungeon/lower)
 "Rq" = (
@@ -3398,6 +3393,9 @@
 /obj/item/storage/belt/leather/plaquegold,
 /turf/open/floor/cobble,
 /area/rogue/under/mountains/anvil/dungeon)
+"Tp" = (
+/turf/closed/basic,
+/area/rogue/under/mountains/anvil/dungeon/lower)
 "Tx" = (
 /obj/structure/fluff/walldeco/moon,
 /obj/machinery/light/fueled/torchholder,
@@ -5181,7 +5179,7 @@ FM
 Xc
 Xc
 Xc
-Xc
+Tp
 Xc
 Xc
 Xc
