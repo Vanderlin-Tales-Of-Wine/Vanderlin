@@ -18,6 +18,11 @@
 	cost = 20
 	contains = /obj/item/lockpickring/mundane
 
+/datum/supply_pack/tools/keyrings
+	name = "Keyring"
+	cost = 7
+	contains = /obj/item/storage/keyring
+
 /datum/supply_pack/tools/needle
 	name = "Sewing Needle"
 	cost = 10
@@ -49,7 +54,7 @@
 	contains = /obj/item/flint
 
 /datum/supply_pack/tools/dyebin
-	name = "Fine dyes"
+	name = "Dye Bin"
 	cost = 150
 	contains = /obj/structure/dye_bin
 
@@ -157,12 +162,12 @@
 	contains = /obj/item/fishing/bait/deluxe
 
 /datum/supply_pack/tools/fishingline
-	name = "Premium Fishing line"
+	name = "Premium Fishing Line"
 	cost = 25
 	contains = /obj/item/fishing/reel/deluxe
 
 /datum/supply_pack/tools/fishinghook
-	name = "Premium Fishing hook"
+	name = "Premium Fishing Hook"
 	cost = 25
 	contains = /obj/item/fishing/hook/deluxe
 

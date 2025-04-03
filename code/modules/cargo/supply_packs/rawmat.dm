@@ -127,3 +127,21 @@
 	contains = list(
 		/obj/item/riddleofsteel
 	)
+
+/datum/supply_pack/rawmats/lumber
+	name = "Lumber"
+	cost = 30
+	contains = list(/obj/item/natural/wood/plank,
+	/obj/item/natural/wood/plank,
+	/obj/item/natural/wood/plank,
+	/obj/item/natural/wood/plank,
+	/obj/item/natural/wood/plank,)
+
+/datum/supply_pack/rawmats/blocks
+	name = "Stone Blocks"
+	cost = 30
+	contains = list(/obj/item/natural/bundle/stoneblock,
+	/obj/item/natural/bundle/stoneblock,
+	/obj/item/natural/bundle/stoneblock,
+	/obj/item/natural/bundle/stoneblock,
+	/obj/item/natural/bundle/stoneblock,)

@@ -1,9 +1,9 @@
 /datum/job/matron
 	title = "Matron"
 	tutorial = "You are the Matron of the orphanage, once a cunning rogue who walked the shadows alongside legends.\
-	Time has softened your step but not your wit, thanks to your kinship with your old adventuring party.\
-	Now, you rule with a firm, or gentle, hand. Ensuring the orphans under your care grow sharp, swift and self-sufficient.\
-	One dae, they might just be as skilled as you. Maybe a thieves guild legend you once were."
+	Time has softened your edge but not your wit, thanks to your unlikely kinship with your old adventuring party.\
+	Now, you guide the orphans with both a firm and gentle hand, ensuring they grow up sharp, swift, and self-sufficient.\
+	Perhaps one dae, those fledglings might leap from the your nest and soar to a greater legacy."
 	flag = JESTER
 	department_flag = PEASANTS
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
