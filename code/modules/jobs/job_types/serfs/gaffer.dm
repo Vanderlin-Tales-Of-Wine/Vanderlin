@@ -51,7 +51,7 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, type)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, type)
 
-	H.change_stat("speed", 1)
+	H.change_stat("speed", 2)
 	H.change_stat("perception", 1)
 	H.change_stat("strength", 1)
 
