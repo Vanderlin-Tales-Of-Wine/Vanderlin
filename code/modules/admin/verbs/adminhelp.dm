@@ -139,27 +139,33 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /obj/effect/statclick/ticket_list/Click()
 	GLOB.ahelp_tickets.BrowseTickets(current_state)
 
-//
-//TICKET DATUM
-//
-
+/**
+ * # Adminhelp Ticket
+ */
 /datum/admin_help
+	/// Unique ID of the ticket
 	var/id
+	/// The current name of the ticket
 	var/name
+	/// The current state of the ticket
 	var/state = AHELP_ACTIVE
-
+	/// The time at which the ticket was opened
 	var/opened_at
+	/// The time at which the ticket was closed
 	var/closed_at
-
-	var/client/initiator	//semi-misnomer, it's the person who ahelped/was bwoinked
+	/// Semi-misnomer, it's the person who ahelped/was bwoinked
+	var/client/initiator
+	/// The ckey of the initiator
 	var/initiator_ckey
+	/// The key name of the initiator
 	var/initiator_key_name
+	/// If any admins were online when the ticket was initialized
 	var/heard_by_no_admins = FALSE
-
-	var/list/_interactions	//use AddInteraction() or, preferably, admin_ticket_log()
-
+	/// The collection of interactions with this ticket. Use AddInteraction() or, preferably, admin_ticket_log()
+	var/list/ticket_interactions
+	/// Statclick holder for the ticket
 	var/obj/effect/statclick/ahelp/statclick
-
+	/// Static counter used for generating each ticket ID
 	var/static/ticket_counter = 0
 
 //call this on its own to create a ticket, don't manually assign current_ticket
@@ -189,7 +195,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	TimeoutVerb()
 
 	statclick = new(null, src)
-	_interactions = list()
+	ticket_interactions = list()
 
 	if(is_bwoink)
 		AddInteraction("<font color='blue'>[key_name_admin(usr)] PM'd [LinkedReplyName()]</font>")
@@ -218,7 +224,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	if(heard_by_no_admins && usr && usr.ckey != initiator_ckey)
 		heard_by_no_admins = FALSE
 		send2irc(initiator_ckey, "Ticket #[id]: Answered by [key_name(usr)]")
-	_interactions += "[time_stamp()]: [formatted_message]"
+	ticket_interactions += "[time_stamp()]: [formatted_message]"
 
 //Removes the ahelp verb and returns it after 2 minutes
 /datum/admin_help/proc/TimeoutVerb()
@@ -434,7 +440,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	else
 		dat += "<b>DISCONNECTED</b>[FOURSPACES][ClosureLinks(ref_src)]<br>"
 	dat += "<br><b>Log:</b><br><br>"
-	for(var/I in _interactions)
+	for(var/I in ticket_interactions)
 		dat += "[I]<br>"
 
 	usr << browse(dat.Join(), "window=ahelp[id];size=620x480")
@@ -476,6 +482,31 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			Resolve()
 		if("reopen")
 			Reopen()
+
+/datum/admin_help/proc/player_ticket_panel()
+	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Player Ticket</title></head>")
+	dat += "<b>State: "
+	switch(state)
+		if(AHELP_ACTIVE)
+			dat += "<font color='red'>OPEN</font></b>"
+		if(AHELP_RESOLVED)
+			dat += "<font color='green'>RESOLVED</font></b>"
+		if(AHELP_CLOSED)
+			dat += "CLOSED</b>"
+		else
+			dat += "UNKNOWN</b>"
+	dat += "\n[FOURSPACES]<A href='byond://?_src_=holder;[HrefToken(forceGlobal = TRUE)];player_ticket_panel=1'>Refresh</A>"
+	dat += "<br><br>Opened at: [gameTimestamp("hh:mm:ss", opened_at)] (Approx [DisplayTimeText(world.time - opened_at)] ago)"
+	if(closed_at)
+		dat += "<br>Closed at: [gameTimestamp("hh:mm:ss", closed_at)] (Approx [DisplayTimeText(world.time - closed_at)] ago)"
+	dat += "<br><br>"
+	dat += "<br><b>Log:</b><br><br>"
+	for(var/I in ticket_interactions)
+		dat += "[I]<br>"
+
+	var/datum/browser/player_panel = new(usr, "ahelp[id]", 0, 620, 480)
+	player_panel.set_content(dat.Join())
+	player_panel.open()
 
 //
 // TICKET STATCLICK
@@ -546,6 +577,34 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			current_ticket.Close()
 
 	new /datum/admin_help(msg, src, FALSE)
+
+/client/verb/view_latest_ticket()
+	set category = "Admin"
+	set name = "View Latest Ticket"
+
+	if(!current_ticket)
+		// Check if the client had previous tickets, and show the latest one
+		var/list/prev_tickets = list()
+		var/datum/admin_help/last_ticket
+		// Check all resolved tickets for this player
+		for(var/datum/admin_help/resolved_ticket in GLOB.ahelp_tickets.resolved_tickets)
+			if(resolved_ticket.initiator_ckey == ckey) // Initiator is a misnomer, it's always the non-admin player even if an admin bwoinks first
+				prev_tickets += resolved_ticket
+		// Check all closed tickets for this player
+		for(var/datum/admin_help/closed_ticket in GLOB.ahelp_tickets.closed_tickets)
+			if(closed_ticket.initiator_ckey == ckey)
+				prev_tickets += closed_ticket
+		// Take the most recent entry of prev_tickets and open the panel on it
+		if(LAZYLEN(prev_tickets))
+			last_ticket = pop(prev_tickets)
+			last_ticket.player_ticket_panel()
+			return
+
+		// client had no tickets this round
+		to_chat(src, span_warning("You have not had an ahelp ticket this round."))
+		return
+
+	current_ticket.player_ticket_panel()
 
 //
 // LOGGING
