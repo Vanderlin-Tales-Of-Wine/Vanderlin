@@ -116,11 +116,7 @@
 */
 /datum/advclass/proc/check_client_requirements(client/the_client, dummy = FALSE)
 
-	var/list/local_allowed_sexes = list()
-	if(length(allowed_sexes))
-		local_allowed_sexes |= allowed_sexes
-
-	if(length(local_allowed_sexes) && !(the_client.prefs.gender in local_allowed_sexes))
+	if(length(allowed_sexes) && !(the_client.prefs.gender in allowed_sexes))
 		return FALSE
 
 	if(length(allowed_races) && !(the_client.prefs.pref_species.name in allowed_races))
