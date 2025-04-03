@@ -60,6 +60,22 @@
 	created_amount = 2
 	craftdiff = 0
 
+/datum/artificer_recipe/bronze/headhook
+	name = "Bronze Headhook (+Fibers x2)"
+	required_item = /obj/item/ingot/bronze
+	created_item = /obj/item/storage/hip/headhook/bronze
+	additional_items = list(/obj/item/natural/fibers = 2)
+	hammers_per_item = 6
+	craftdiff = 3
+
+///datum/artificer_recipe/gold/headhook //this ones devsprite is so ass I am just going to make it inaccasible
+	//name = "Royal Headhook"
+	//required_item = /obj/item/ingot/gold
+	//created_item = /obj/item/storage/hip/headhook/royal
+	//additional_items = list(/obj/item/ingot/silver, /obj/item/natural/silk = 2)
+	//hammers_per_item = 6
+	//craftdiff = 4
+
 // --------- TOOLS -----------
 
 /datum/artificer_recipe/tools
