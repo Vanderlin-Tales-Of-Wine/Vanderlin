@@ -135,7 +135,7 @@
 			var/list/possible_classes = list()
 			if(SSrole_class_handler)
 				for(var/ctag in previewJob.advclass_cat_rolls)
-					for(var/datum/advclass/amogusclass in SSrole_class_handler.sorted_class_categories[ctag])
+					for(var/datum/advclass/class as anything in SSrole_class_handler.sorted_class_categories[ctag])
 						if(amogusclass.check_requirements(mannequin, dummy = TRUE))
 							possible_classes += amogusclass
 			if(possible_classes.len > 0)
