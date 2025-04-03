@@ -1,4 +1,4 @@
-/datum/job/stonekeep/courtwizard
+/datum/job/magician
 	title = "Court Wizard"
 	flag = SK_WIZARD
 	department_flag = NOBLEMEN

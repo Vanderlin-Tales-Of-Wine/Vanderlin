@@ -7,7 +7,7 @@
 /turf/open/floor/blocks,
 /area/rogue/under/xylix)
 "j" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /obj/structure/trap/bomb/hidden,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
@@ -42,12 +42,12 @@
 /turf/closed/wall/mineral/decostone/moss/blue/cand,
 /area/rogue/under/xylix)
 "L" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "Q" = (
 /obj/structure/trap/bomb/hidden,
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "T" = (

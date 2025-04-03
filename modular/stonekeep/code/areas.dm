@@ -173,10 +173,16 @@
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 
 // modifications to bog area
+/area/rogue/outdoors/bog
+	first_time_text = ""
 /area/rogue/outdoors/bog/wetlands
+	ambush_times = list("night","dawn","dusk")
 	ambush_types = list(
 				/turf/open/floor/dirt,
-				/turf/open/water/swamp)
+				/turf/open/floor/grass,
+				/turf/open/floor/grass/red,
+				/turf/open/water/swamp,
+				/turf/open/floor/dirt/muddie)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/bigrat = 20,
 				/mob/living/simple_animal/hostile/retaliate/spider = 20,
@@ -185,9 +191,6 @@
 	first_time_text = "TREACHEROUS WETLANDS"
 
 /area/rogue/outdoors/bog/wetlands/gator
-	ambush_types = list(
-				/turf/open/floor/dirt/muddie,
-				/turf/open/water/swamp)
 	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/gator = 10)
 

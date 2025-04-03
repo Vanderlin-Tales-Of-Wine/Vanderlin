@@ -739,6 +739,8 @@
 	equipOutfit(new /datum/outfit/job/xylixjester)
 	configure_mind()
 	d_intent = INTENT_PARRY //these ones will parry instead of dodge, the higher the skill the more powerful this is of course
+	real_name = "The Mad Piper"
+	name = "The Mad Piper"
 
 /mob/living/carbon/human/species/abyssariad/ogrun/insane/proc/configure_mind()
 	if(!mind)
@@ -765,8 +767,6 @@
 	H.STALUC = 18
 	H.STAINT = 7
 	H.set_patron(/datum/patron/divine/xylix)
-	H.real_name = "The Mad Piper"
-	H.name = "The Mad Piper"
 
 /obj/item/clothing/head/jester/artefact
 	name = "blessed jester hat"

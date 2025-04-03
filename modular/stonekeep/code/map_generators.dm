@@ -99,7 +99,8 @@
 							/obj/structure/flora/grass/herb/random = 0.5,
 							/obj/item/natural/stone = 1,
 							/obj/structure/flora/grass/swampweed = 0.2,
-							/obj/structure/flora/rock/pebbles/bogmix = 4,
+							/obj/structure/flora/rock/pebbles/bogmix = 5,
+							/obj/structure/flora/grass/water = 2,
 							)
 	spawnableTurfs = list(/turf/open/floor/dirt/muddie = 2)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
@@ -129,17 +130,18 @@
 
 /datum/mapGeneratorModule/wetgrass
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/tree = 1,
+	spawnableAtoms = list(
 							/obj/structure/flora/grass/bush_meagre = 2,
 							/obj/structure/flora/grass/maneater = 1,
-							/obj/structure/flora/grass/herb/random = 4,
-							/obj/structure/flora/grass = 5,
+							/obj/structure/flora/grass/herb/random = 5,
+							/obj/structure/flora/grass = 6,
+							/obj/structure/flora/grass/water = 6,
 							/obj/structure/flora/grass/swampweed = 1,
 							/obj/item/grown/log/tree/stick = 1,
 							/obj/structure/flora/grass/maneater/real = 1,
 							/obj/structure/flora/rock/pebbles/bogmix = 1,
 							)
-	allowed_turfs = list(/turf/open/floor/grass)
+	allowed_turfs = list(/turf/open/floor/grass, /turf/open/floor/grass/red)
 	spawnableTurfs = list(/turf/open/floor/dirt = 2)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 
@@ -154,9 +156,9 @@
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 
 /datum/mapGeneratorModule/ambushing/wetlands
-	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=30)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
-	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass, /turf/open/water/swamp)
+	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass, /turf/open/floor/grass/red, /turf/open/water/swamp, /turf/open/floor/dirt/muddie)
 
 // ===================================================================================
 /*	..................  StoneHamlet Murderwoods Mapgen  ................... */

@@ -55,12 +55,12 @@
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "K" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "L" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "M" = (

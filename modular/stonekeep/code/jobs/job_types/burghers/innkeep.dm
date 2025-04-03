@@ -51,7 +51,7 @@
 		shoes = /obj/item/clothing/shoes/shortboots
 		neck = /obj/item/storage/belt/pouch/coins/mid
 		belt = /obj/item/storage/belt/leather
-		beltl = /obj/item/storage/keyring/innkeep
+		beltl = /obj/item/storage/keyring/innkeep_hamlet
 		beltr = /obj/item/reagent_containers/glass/bottle/beer/blackgoat
 		H.change_stat("endurance", 1)
 		H.change_stat("constitution", 1)

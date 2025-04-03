@@ -44,8 +44,8 @@
 	bulb_power = 1.3
 
 /obj/machinery/light/fueled/wallfire/candle
-	brightness = 8
-	bulb_power = 1
+	brightness = 9
+	bulb_power = 1.1
 
 /obj/machinery/light/fueled/hearth/big_fireplace
 	brightness = 11
@@ -472,18 +472,21 @@
 /obj/structure/fluff/walldeco/banner_drakon/alt
 	icon_state = "drakonbanner_alt"
 
+
+
+
 /obj/structure/fluff/walldeco/xylixhint
 	icon_state = "wall_funny"
-/*
+
 /obj/structure/fluff/walldeco/xylixhint/Initialize()
 	. = ..()
-	if (GLOB.xylix_bad == TRUE)
+	if (GLOB.round_id % 2) // if round ID number is uneven
 		icon_state = "wall_sad"
-*/
-/obj/structure/fluff/walldeco/xylixhint/danger
+
+/obj/structure/fluff/walldeco/xylixhint_danger
 	icon_state = "wall_sad"
 	/*
-/obj/structure/fluff/walldeco/xylixhint/danger/Initialize()
+/obj/structure/fluff/walldeco/xylixhint_danger/Initialize()
 	. = ..()
 	if (GLOB.xylix_bad)
 		icon_state = "wall_funny"
@@ -689,23 +692,10 @@
 
 /obj/structure/flora/shroom_tree_neu/Initialize()
 	. = ..()
-	icon_state = "[base_icon_state]_[rand(1,4)]"
+	icon_state = "[base_icon_state]_[rand(1,7)]"
 	pixel_x += rand(2,-2)
 	pixel_y += rand(2,-2)
 
-/obj/structure/flora/shroom_tree_neu/CanPass(atom/movable/mover, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(loc, target) == dir)
-		return 0
-	return 1
-
-/obj/structure/flora/shroom_tree_neu/CheckExit(atom/movable/mover as mob|obj, turf/target)
-	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
-		return 1
-	if(get_dir(mover.loc, target) == dir)
-		return 0
-	return 1
 
 /obj/structure/flora/shroom_tree_neu/fire_act(added, maxstacks)
 	if(added > 5)

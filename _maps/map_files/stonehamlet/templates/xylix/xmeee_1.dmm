@@ -21,11 +21,11 @@
 /area/rogue/under/xylix)
 "D" = (
 /obj/structure/trap/bomb/hidden,
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "I" = (
-/obj/structure/fluff/walldeco/xylixhint/danger,
+/obj/structure/fluff/walldeco/xylixhint_danger,
 /turf/open/floor/concrete,
 /area/rogue/under/xylix)
 "J" = (

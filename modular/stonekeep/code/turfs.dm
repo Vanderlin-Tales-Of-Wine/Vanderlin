@@ -359,6 +359,8 @@
 						/turf/open/floor/snow/patchy,
 						/turf/open/floor/grass/cold,
 						)
+	spread_chance = 0.1
+
 
 /turf/open/floor/dirt/Initialize()
 	if(icon_state == "olddirt")
@@ -395,7 +397,7 @@
 	barefootstep = FOOTSTEP_MUD
 	heavyfootstep = FOOTSTEP_MUD
 	canSmoothWith = list()	//ROGTODO test is this correct settings for the mud smooth?
-
+	spread_chance = 0
 
 /turf/open/floor/dirt/muddie/Initialize()
 	. = ..()

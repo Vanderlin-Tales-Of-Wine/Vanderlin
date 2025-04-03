@@ -47,9 +47,7 @@
 /datum/job/templar,
 /datum/job/undertaker,
 /datum/job/men_at_arms,
-/datum/job/magician,
 
-/datum/job/jester,
 /datum/job/wapprentice,
 /datum/job/inquisitor,
 /datum/job/monk,

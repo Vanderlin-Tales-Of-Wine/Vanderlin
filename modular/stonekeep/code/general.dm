@@ -936,12 +936,6 @@
 	icon_state = "birdkey"
 	lockid = "innkeep"
 
-/obj/item/key/bathhouse
-	name = "bathhouse key"
-	desc = ""
-	icon_state = "brownkey"
-	lockid = "bathhouse"
-
 /obj/item/key/bathguesti
 	name = "bathguest key"
 	desc = ""

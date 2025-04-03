@@ -46,6 +46,7 @@
 
 		if(H.age == AGE_OLD)
 			H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/license_nitemaiden)
 	H.change_stat("strength", -1)
 	H.change_stat("intelligence", 4)
 	H.change_stat("constitution", -1)
@@ -55,7 +56,7 @@
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LEGENDARY_ALCHEMIST, TRAIT_GENERIC)
 	H?.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-	H.mind.teach_crafting_recipe(/datum/crafting_recipe/license_nitemaiden)
+
 
 /*	.................   Unique Feldsher recipes   ................... */
 /datum/crafting_recipe/license_nitemaiden
