@@ -34,9 +34,11 @@
 	requirements = list(
 		/obj/item/paper = 2,
 	)
-	attacked_atom = /obj/item/natural/feather
-	starting_atom = /obj/item/paper
-
+	tool_usage = list(
+		/obj/item/needle = list("starts to weave", "start to weave")
+	)
+	starting_atom = /obj/item/needle
+	attacked_atom = /obj/item/paper
 	craft_time = 3 SECONDS
 	crafting_message = "starts weaving a canvas"
 	craftdiff = 0
