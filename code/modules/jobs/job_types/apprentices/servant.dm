@@ -93,3 +93,17 @@
 	..()
 	if(H.mind)
 		neck = /obj/item/key/matron
+
+/datum/advclass/servant/gaffer_assistant
+	name = "Ring's Servant"
+	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
+	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
+	outfit = /datum/outfit/job/servant/gaffer_assistant
+	maximum_possible_slots = 1
+
+	category_tags = list(CTAG_SERVANT)
+
+/datum/outfit/job/servant/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.mind)
+		neck = /obj/item/key/gaffer
