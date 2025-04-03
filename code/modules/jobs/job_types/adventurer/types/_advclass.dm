@@ -78,9 +78,8 @@
 /*
 	Whoa! we are checking requirements here!
 	On the datum! Wow!
-	Dummy is if its not an actual player
 */
-/datum/advclass/proc/check_requirements(mob/living/carbon/human/H, dummy = FALSE)
+/datum/advclass/proc/check_requirements(mob/living/carbon/human/H)
 
 	var/list/local_allowed_sexes = list()
 	if(length(allowed_sexes))
@@ -90,7 +89,7 @@
 		return FALSE
 
 	if(length(allowed_races) && !(H.dna.species.name in allowed_races))
-		if(!dummy && !(H.client.triumph_ids.Find("race_all")))
+		if(!(H.client?.triumph_ids.Find("race_all")))
 			return FALSE
 
 	if(length(allowed_ages) && !(H.age in allowed_ages))
@@ -100,7 +99,7 @@
 		if(total_slots_occupied >= maximum_possible_slots)
 			return FALSE
 
-	if(!dummy) //dont do pq checks for dummy
+	if(H.client) //cant do pq checks if no client
 		if(min_pq != -100) // If someone sets this we actually do the check.
 			if(!(get_playerquality(H.client.ckey) >= min_pq))
 				return FALSE
