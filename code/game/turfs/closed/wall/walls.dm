@@ -430,7 +430,7 @@
 
 /turf/closed/wall/mineral/pipe
 	name = "metal wall"
-	icon = 'icons/turf/pipewall.dmi'
+	icon = 'icons/turf/walls/pipewall.dmi'
 	icon_state = "iron_box"
 	smooth = SMOOTH_MORE
 	blade_dulling = DULLING_BASH
