@@ -510,7 +510,7 @@
 			)
 		if("Gun")
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/pistol
-			beltr = /obj/item/storage/belt/pouch/bullets
+			beltr = /obj/item/ammo_holder/bullet
 			r_hand = /obj/item/reagent_containers/glass/bottle/aflask
 			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/aflask = 2)
 			H.mind?.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
