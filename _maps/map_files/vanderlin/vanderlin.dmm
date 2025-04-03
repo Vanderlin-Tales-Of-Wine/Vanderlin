@@ -2128,6 +2128,9 @@
 "bmP" = (
 /obj/structure/ladder,
 /obj/structure/ladder,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 4
+	},
 /turf/open/floor/blocks,
 /area/rogue/under/town/basement)
 "bnc" = (
@@ -4763,7 +4766,7 @@
 /area/rogue/outdoors/town/roofs)
 "dep" = (
 /obj/effect/landmark/start/nightman,
-/turf/open/floor/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "deB" = (
 /obj/structure/closet/crate/crafted_closet/inn,
@@ -10129,7 +10132,7 @@
 /area/rogue/indoors/town/bath)
 "gMu" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
-/turf/open/floor/blocks/stonered,
+/turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
 "gMw" = (
 /obj/structure/fluff/railing/border{
@@ -14941,9 +14944,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/tavern)
-"jWi" = (
-/turf/closed/wall/mineral/wood,
-/area/rogue/under/town/basement)
 "jWI" = (
 /obj/structure/toilet,
 /obj/structure/fluff/walldeco/chains,
@@ -18534,7 +18534,7 @@
 	dir = 4
 	},
 /turf/open/transparent/openspace,
-/area/rogue/under/town/basement)
+/area/rogue/indoors/town/manor)
 "mBH" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -22488,7 +22488,7 @@
 /area/rogue/under/town/basement)
 "psf" = (
 /obj/structure/fake_machine/drugmachine,
-/turf/open/floor/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "psk" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
@@ -23159,9 +23159,6 @@
 /turf/open/floor/churchbrick,
 /area/rogue/outdoors/eora)
 "pSp" = (
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town/magician)
@@ -23260,6 +23257,13 @@
 /obj/machinery/light/fueled/wallfire/candle,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor)
+"pVb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt/cobweb{
+	dir = 8
+	},
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/under/town/basement)
 "pVf" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -23467,9 +23471,6 @@
 	},
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt/cobweb{
-	dir = 8
-	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
 "qcE" = (
@@ -23892,7 +23893,7 @@
 /obj/structure/rack/shelf/biggest,
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /obj/item/reagent_containers/food/snacks/produce/swampweed_dried,
-/turf/open/floor/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "qsB" = (
 /obj/machinery/light/fueled/wallfire/candle/l,
@@ -26179,7 +26180,7 @@
 /obj/effect/mapping_helpers/door/access/manor/manor,
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	name = "Royal Guard's Chambers"
+	name = "Royal Guard's Storage"
 	},
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/cobble,
@@ -26243,7 +26244,7 @@
 /obj/structure/lever{
 	redstone_id = "nite_shutter"
 	},
-/turf/open/floor/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "rWb" = (
 /turf/closed/wall/mineral/roofwall/outercorner,
@@ -27988,7 +27989,7 @@
 "tdh" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/transparent/openspace,
-/area/rogue/under/town/basement)
+/area/rogue/indoors/town/manor)
 "tdG" = (
 /obj/item/natural/feather{
 	pixel_x = -15;
@@ -31724,6 +31725,15 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/open/floor/grass,
 /area/rogue/outdoors/town)
+"vFR" = (
+/obj/structure/mineral_door/wood/donjon{
+	name = "Makers Quarters"
+	},
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/artificer,
+/obj/structure/water_pipe,
+/turf/open/floor/blocks/stonered/tiny,
+/area/rogue/under/town/basement)
 "vFS" = (
 /obj/structure/stairs{
 	dir = 4
@@ -33326,7 +33336,7 @@
 /area/rogue/outdoors/mountains)
 "wHy" = (
 /obj/effect/landmark/start/feldsher,
-/turf/open/floor/blocks/stonered/tiny,
+/turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "wHY" = (
 /obj/machinery/light/fueled/wallfire{
@@ -61604,7 +61614,7 @@ uqB
 uqB
 uqB
 uqB
-nYI
+vFR
 jRY
 hkC
 nYI
@@ -92687,7 +92697,7 @@ alA
 alA
 gOl
 bmP
-rDr
+bUM
 jdk
 jdk
 mog
@@ -94561,9 +94571,9 @@ rQh
 rQh
 rVH
 qss
+kbf
+kbf
 meN
-kbf
-kbf
 kbf
 dep
 sJN
@@ -94763,9 +94773,9 @@ whf
 kGO
 whf
 psf
-meN
-kbf
 hJF
+kbf
+meN
 kbf
 wHy
 sJN
@@ -94965,7 +94975,7 @@ sUP
 iSk
 kGO
 rVO
-meN
+kbf
 kbf
 gMu
 xYh
@@ -137749,7 +137759,7 @@ snf
 snf
 snf
 qcu
-xGB
+pVb
 dTj
 hUg
 hUg
@@ -141174,7 +141184,7 @@ cGL
 cGL
 phh
 guQ
-jWi
+phh
 tdh
 tdh
 mBG
