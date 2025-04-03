@@ -150,10 +150,14 @@
 		msg = emoji_parse(msg)
 
 	var/keywordparsedmsg = keywords_lookup(msg)
+	// Stores a bit of html with our ckey, name, and a linkified string to click and rely to us with
+	var/name_key_with_link = key_name(src, TRUE, TRUE)
 
 	if(irc)
 		to_chat(src, "<span class='notice'>PM to-<b>Admins</b>: <span class='linkify'>[rawmsg]</span></span>")
-		var/datum/admin_help/AH = admin_ticket_log(src, "<font color='red'>Reply PM from-<b>[key_name(src, TRUE, TRUE)]</b> to <i>IRC</i>: [keywordparsedmsg]</font>")
+		var/datum/admin_help/AH = admin_ticket_log(src,
+		"<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>IRC</i>: [keywordparsedmsg]</font>",
+		player_message = "<font color='red'>Reply PM from-<b>[name_key_with_link]</b> to <i>External</i>: [msg]</font>")
 		ircreplyamount--
 		send2irc("[AH ? "#[AH.id] " : ""]Reply: [ckey]", rawmsg)
 	else
@@ -163,10 +167,11 @@
 				to_chat(src, "<span class='notice'>Admin PM to-<b>[key_name(recipient, src, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span></span>")
 
 				//omg this is dumb, just fill in both their tickets
-				var/interaction_message = "<font color='purple'>PM from-<b>[key_name(src, recipient, 1)]</b> to-<b>[key_name(recipient, src, 1)]</b>: [keywordparsedmsg]</font>"
-				admin_ticket_log(src, interaction_message)
-				if(recipient != src)	//reeee
-					admin_ticket_log(recipient, interaction_message)
+				var/interaction_message = "<font color='purple'>PM from-<b>[name_key_with_link]</b> to-<b>[key_name(recipient, TRUE, TRUE)]</b>: [keywords_lookup(msg)]</font>"
+				var/player_interaction_message = "<font color='purple'>PM from-<b>[key_name(src, TRUE, FALSE)]</b> to-<b>[key_name(recipient, TRUE, FALSE)]</b>: [msg]</font>"
+				admin_ticket_log(src,
+				interaction_message,
+				player_message = player_interaction_message)
 
 			else		//recipient is an admin but sender is not
 				var/replymsg = "Reply PM from-<b>[key_name(src, recipient, 1)]</b>: <span class='linkify'>[keywordparsedmsg]</span>"
