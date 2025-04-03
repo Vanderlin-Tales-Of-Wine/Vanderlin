@@ -25,7 +25,7 @@
 		/obj/item/reagent_containers/food/snacks/smallrat = 15,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 10,
 		/obj/item/coin/copper = 50,
-		/mob/living/carbon/human/species/human/northern/bum/skilled/madman  = 10,
+		/mob/living/carbon/human/species/human/northern/bum/ambush  = 10,
 		/mob/living/simple_animal/hostile/retaliate/bigrat = 10
 		)
 
@@ -40,7 +40,7 @@
 		/obj/effect/decal/cleanable/vomit = 10,
 		/obj/item/clothing/face/cigarette/rollie = 10,
 		/obj/item/weapon/knife/stone = 10,
-		/mob/living/carbon/human/species/human/northern/bum/skilled/madman = 25	)
+		/mob/living/carbon/human/species/human/northern/bum/ambush = 25	)
 
 /*	..................   Mines Danger   ................... */
 /obj/effect/spawner/map_spawner/mine_mole_maybe
@@ -286,7 +286,7 @@ range. How much processing this saves is unclear */
 	. = ..()
 	AddComponent(/datum/component/spawner/npc/hostile_bum)
 /datum/component/spawner/npc/hostile_bum
-	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/skilled/madman)
+	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/ambush)
 	spawn_time = 0
 	spawn_delay = 0
 	max_mobs = 1
