@@ -42,7 +42,7 @@
 /obj/item/natural/fur // a piece of skin with animal hair on it. Could be called a fur but its untanned and also encompasses rat skins and goat skins so pelt is more suitable at least to my ears.
 	name = "fur"
 	icon_state = "wool1"
-	desc = "pelt from one of Dendor's creachers."
+	desc = "Pelt from one of Dendor's creachers."
 	dropshrink = 0.90
 	force = 0
 	throwforce = 0
@@ -52,23 +52,23 @@
 	sellprice = 5
 
 /obj/item/natural/fur/gote
-	desc = "from a gote."
+	desc = "Pelt from a gote."
 	icon_state = "pelt_gote"
 
 /obj/item/natural/fur/volf
-	desc = "from a volf."
+	desc = "Pelt from a volf."
 	icon_state = "pelt_volf"
 
 /obj/item/natural/fur/mole
-	desc = "from a mole."
+	desc = "Pelt from a mole."
 	icon_state = "pelt_mole"
 
 /obj/item/natural/fur/rous
-	desc = "from a rous."
+	desc = "Pelt from a rous."
 	icon_state = "pelt_rous"
 
 /obj/item/natural/fur/cabbit
-	desc = "from a cabbit."
+	desc = "Pelt from a cabbit."
 	icon_state = "wool2"
 
 /obj/item/natural/head

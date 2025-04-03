@@ -59,7 +59,10 @@
 	contents += "<BR>"
 
 	for(var/datum/stock/stockpile/R in SStreasury.stockpile_datums)
-		contents += "[R.name] - [R.payout_price] - [R.demand2word()]"
+		var/message = "[R.name] - Payout: [R.get_payout_price()] - Stockpiled: [R.held_items]"
+		if(R.held_items >= R.oversupply_amount)
+			message += " - !OVERSUPPLIED!"
+		contents += message
 		contents += "<BR>"
 
 	return contents
@@ -84,21 +87,23 @@
 	popup.open()
 
 /obj/structure/fake_machine/stockpile/proc/attemptsell(obj/item/I, mob/H, message = TRUE, sound = TRUE)
-	for(var/datum/stock/R in SStreasury.stockpile_datums)
+	for(var/datum/stock/stockpile/R in SStreasury.stockpile_datums)
 		if(istype(I, /obj/item/natural/bundle))
 			var/obj/item/natural/bundle/B = I
 			if(B.stacktype == R.item_type)
-				R.held_items += B.amount
+				var/amt = 0
+				for(var/i in 1 to B.amount)
+					amt += R.get_payout_price(I)
+					R.held_items++
+				qdel(B)
 				if(message == TRUE)
 					stock_announce("[B.amount] units of [R.name] has been stockpiled.")
-				qdel(B)
 				if(sound == TRUE)
 					playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
-				var/amt = R.payout_price * B.amount
 				if(!SStreasury.give_money_account(amt, H, "+[amt] from [R.name] bounty") && message == TRUE)
 					say("No account found. Submit your fingers to a Meister for inspection.")
 			continue
-		else if(istype(I,R.item_type))
+		else if(I.type == R.item_type)
 			if(!R.check_item(I))
 				continue
 			var/amt = R.get_payout_price(I)
@@ -142,6 +147,8 @@
 		say("Bulk selling in progress...")
 		playsound(loc, 'sound/misc/hiss.ogg', 100, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
+		if(!SStreasury.find_account(user))
+			say("No account found. Submit your fingers to a Meister for inspection.")
 
 /datum/withdraw_tab
 	var/stockpile_index = -1
@@ -166,7 +173,7 @@
 	if(compact)
 		for(var/datum/stock/stockpile/A in SStreasury.stockpile_datums)
 			if(!A.withdraw_disabled)
-				contents += "<b>[A.name]:</b> <a href='byond://?src=[REF(parent_structure)];withdraw=[REF(A)]'>LCL: [A.held_items] at [A.withdraw_price]m</a><BR>"
+				contents += "<b>[A.name]:</b> <a href='byond://?src=[REF(parent_structure)];withdraw=[REF(A)]'>AMT: [A.held_items] at [A.withdraw_price]m</a><BR>"
 
 			else
 				contents += "<b>[A.name]:</b> Withdrawing Disabled..."
