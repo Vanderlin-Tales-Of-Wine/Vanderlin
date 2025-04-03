@@ -2641,10 +2641,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
-"bDy" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/blocks,
-/area/rogue/outdoors/town)
 "bDH" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -3965,10 +3961,6 @@
 	},
 /turf/open/floor/blocks/bluestone,
 /area/rogue/indoors/town)
-"czD" = (
-/mob/living/simple_animal/hostile/retaliate/troll,
-/turf/open/floor/cobblerock,
-/area/rogue/outdoors/town)
 "czE" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_corner";
@@ -95433,7 +95425,7 @@ elp
 elp
 ggM
 lsl
-czD
+ehF
 elp
 nlk
 blt
@@ -95616,7 +95608,7 @@ elp
 lsl
 lsl
 ehF
-czD
+ehF
 ggM
 xdr
 lsl
@@ -98047,7 +98039,7 @@ jdS
 elp
 ehF
 uSV
-czD
+ehF
 tRX
 jPH
 lsl
@@ -98465,7 +98457,7 @@ cyr
 lsl
 lsl
 eYq
-bDy
+lsl
 elp
 rnJ
 rnJ
