@@ -80,6 +80,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+			H.change_stat("perception", 1)
 
 /obj/effect/proc_holder/spell/self/convertrole/mercenary
 	name = "Recruit Mercenary"
