@@ -21,8 +21,7 @@
 						/obj/item/natural/fur/rous = 1,/obj/item/alch/bone = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/alch/sinew = 1,
-						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4,
-						/obj/item/natural/head/rous = 1)
+						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4)
 
 	health = ROUS_HEALTH
 	maxHealth = ROUS_HEALTH

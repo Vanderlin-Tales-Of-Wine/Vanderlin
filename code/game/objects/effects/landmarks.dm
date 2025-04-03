@@ -340,9 +340,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Feldsher"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/gaffer
-	name = "Gaffer"
-	icon_state = "arrow"
 //yrf
 
 /obj/effect/landmark/start/squire

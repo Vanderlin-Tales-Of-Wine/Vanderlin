@@ -12,7 +12,6 @@
 #define ACCESS_ELDER "elder"
 #define ACCESS_VETERAN "veteran"
 #define ACCESS_MERC "mercenary"
-#define ACCESS_GAFFER "gaffer"
 #define ACCESS_TOWER "tower"
 #define ACCESS_WAREHOUSE "warehouse"
 #define ACCESS_ARTIFICER "artificer"

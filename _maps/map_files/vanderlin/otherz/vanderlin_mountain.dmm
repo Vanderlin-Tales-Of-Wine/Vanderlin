@@ -1954,10 +1954,6 @@
 /obj/structure/table/wood/reinforced_alt,
 /turf/open/floor/blocks,
 /area/rogue/under/mountains/anvil/lower/building)
-"ET" = (
-/obj/structure/fake_machine/hailerboard,
-/turf/open/floor/naturalstone,
-/area/rogue/under/mountains/anvil/lower/building)
 "EW" = (
 /obj/item/weapon/pick/copper,
 /obj/item/natural/stone{
@@ -4890,8 +4886,8 @@ cB
 cB
 vV
 vV
-VB
-ET
+vV
+Ly
 Ly
 Ly
 Ly

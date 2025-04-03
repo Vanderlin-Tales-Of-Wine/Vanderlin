@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 /obj/item/bodypart/head/rousman/skeletonize()
 	. = ..()
 	icon_state = "rousman_skel_head"
-	headprice = 2
+	sellprice = 2
 
 
 /datum/species/rousman
@@ -207,11 +207,11 @@ GLOBAL_LIST_EMPTY(rousman_ambush_objects)
 	if(src.dna && src.dna.species)
 		src.dna.species.soundpack_m = new /datum/voicepack/rousman()
 		src.dna.species.soundpack_f = new /datum/voicepack/rousman()
-		var/obj/item/bodypart/head/headdy = get_bodypart("head")
+		var/obj/item/headdy = get_bodypart("head")
 		if(headdy)
 			headdy.icon = 'icons/roguetown/mob/monster/rousman.dmi'
 			headdy.icon_state = "[src.dna.species.id]_head"
-			headdy.headprice = rand(5,15)
+			headdy.sellprice = rand(7,20)
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)

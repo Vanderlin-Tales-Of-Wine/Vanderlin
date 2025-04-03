@@ -57,9 +57,6 @@
 /obj/effect/mapping_helpers/door/access/town/mercenary
 	access_string = ACCESS_MERC
 
-/obj/effect/mapping_helpers/door/access/town/gaffer
-	access_string = ACCESS_GAFFER
-
 /obj/effect/mapping_helpers/door/access/town/tower
 	access_string = ACCESS_TOWER
 
