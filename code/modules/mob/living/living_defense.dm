@@ -115,6 +115,8 @@
 			switch(damage_type)
 				if("blunt", "slash", "stab", "piercing")
 					damagetype = BRUTE
+				if("fire", "acid")
+					damagetype = BURN
 			if(!apply_damage(I.throwforce, damagetype, zone, armor))
 				nodmg = TRUE
 				next_attack_msg = span_warning(" Armor stops the damage.")
