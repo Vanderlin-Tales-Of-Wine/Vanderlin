@@ -510,6 +510,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 	for (var/interaction in player_interactions)
 		dat += "[interaction]<br>"
 
+	dat+= "<br><b>THIS IS AN EXPERIMENTAL FEATURE, REPORT ANY BUGS TO GITHUB!!</b><br>"
+
 	var/datum/browser/player_panel = new(usr, "ahelp[id]", 0, 620, 480)
 	player_panel.set_content(dat.Join())
 	player_panel.open()
