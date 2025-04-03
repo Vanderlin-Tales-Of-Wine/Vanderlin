@@ -38,19 +38,7 @@
 // When the signal is called: (signal arguments)
 // All signals send the source datum of the signal as the first argument
 
-// global signals
-// These are signals which can be listened to by any component on any parent
-// start global signals with "!", this used to be necessary but now it's just a formatting choice
-/// from base of datum/controller/subsystem/mapping/proc/add_new_zlevel(): (list/args)
-#define COMSIG_GLOB_NEW_Z "!new_z"
-/// called after a successful var edit somewhere in the world: (list/args)
-#define COMSIG_GLOB_VAR_EDIT "!var_edit"
-/// mob was created somewhere : (mob)
-#define COMSIG_GLOB_MOB_CREATED "!mob_created"
-/// mob died somewhere : (mob , gibbed)
-#define COMSIG_GLOB_MOB_DEATH "!mob_death"
-/// global living say plug - use sparingly: (mob/speaker , message)
-#define COMSIG_GLOB_LIVING_SAY_SPECIAL "!say_special"
+
 
 //////////////////////////////////////////////////////////////////
 
@@ -172,6 +160,8 @@
 #define COMSIG_MOVABLE_PRE_THROW "movable_pre_throw"			//from base of atom/movable/throw_at(): (list/args)
 	#define COMPONENT_CANCEL_THROW 1
 #define COMSIG_MOVABLE_POST_THROW "movable_post_throw"			//from base of atom/movable/throw_at(): (datum/thrownthing, spin)
+///from base of datum/thrownthing/finalize(): (obj/thrown_object, datum/thrownthing) used for when a throw is finished
+#define COMSIG_MOVABLE_THROW_LANDED "movable_throw_landed"
 #define COMSIG_MOVABLE_Z_CHANGED "movable_ztransit" 			//from base of atom/movable/onTransitZ(): (old_z, new_z)
 #define COMSIG_MOVABLE_SECLUDED_LOCATION "movable_secluded" 	//called when the movable is placed in an unaccessible area, used for stationloving: ()
 #define COMSIG_MOVABLE_HEAR "movable_hear"						//from base of atom/movable/Hear(): (proc args list(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode))
@@ -192,6 +182,8 @@
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbed)
 
+#define COMSIG_MOB_CREATED_CALLOUT "mob_created_callout"
+
 #define COMSIG_MOB_CLICKON "mob_clickon"						//from base of mob/clickon(): (atom/A, params)
 #define COMSIG_MOB_MIDDLECLICKON "mob_middleclickon"			//from base of mob/MiddleClickOn(): (atom/A)
 #define COMSIG_MOB_ALTCLICKON "mob_altclickon"				//from base of mob/AltClickOn(): (atom/A)
@@ -208,6 +200,8 @@
 #define COMSIG_MOB_ITEM_AFTERATTACK "mob_item_afterattack"		//from base of obj/item/afterattack(): (atom/target, mob/user, proximity_flag, click_parameters)
 #define COMSIG_MOB_ITEM_ATTACK_QDELETED "mob_item_attack_qdeleted"	//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, proxiumity_flag, click_parameters)
 #define COMSIG_MOB_ATTACK_RANGED "mob_attack_ranged"			//from base of mob/RangedAttack(): (atom/A, params)
+	#define COMPONENT_CANCEL_ATTACK_CHAIN (1<<0)
+#define COMSIG_MOB_POSTATTACK_RANGED "mob_postattack_ranged"
 #define COMSIG_MOB_THROW "mob_throw"							//from base of /mob/throw_item(): (atom/target)
 #define COMSIG_MOB_EXAMINATE "mob_examinate"					//from base of /mob/verb/examinate(): (atom/target)
 #define COMSIG_MOB_UPDATE_SIGHT "mob_update_sight"				//from base of /mob/update_sight(): ()
@@ -217,12 +211,15 @@
 	#define SPEECH_MESSAGE 1
 	// #define SPEECH_BUBBLE_TYPE 2
 	#define SPEECH_SPANS 3
-	/* #define SPEECH_SANITIZE 4
 	#define SPEECH_LANGUAGE 5
+	/* #define SPEECH_SANITIZE 4
+
 	#define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
 #define COMSIG_MOB_DEADSAY "mob_deadsay" // from /mob/say_dead(): (mob/speaker, message)
 	#define MOB_DEADSAY_SIGNAL_INTERCEPT 1
+///from base of /mob/verb/pointed: (atom/A)
+#define COMSIG_MOB_POINTED "mob_pointed"
 // /mob/living signals
 #define COMSIG_LIVING_SET_RESTING "comsig_set_resting"
 #define COMSIG_LIVING_RESIST "living_resist"					//from base of mob/living/resist() (/mob/living)
@@ -251,6 +248,11 @@
 	#define COMPONENT_CANT_TRACK 1
 ///from base of mob/living/death(): (gibbed)
 #define COMSIG_LIVING_DEATH "living_death"
+/// From /mob/living/befriend() : (mob/living/new_friend)
+#define COMSIG_LIVING_BEFRIENDED "living_befriended"
+/// From /mob/living/unfriend() : (mob/living/old_friend)
+#define COMSIG_LIVING_UNFRIENDED "living_unfriended"
+
 // /mob/living/carbon signals
 #define COMSIG_CARBON_SOUNDBANG "carbon_soundbang"					//from base of mob/living/carbon/soundbang_act(): (list(intensity))
 #define COMSIG_CARBON_ON_HANDLE_BLOOD "human_on_handle_blood"
@@ -288,6 +290,7 @@
 #define COMSIG_ITEM_AFTERATTACK "item_afterattack"				//from base of obj/item/afterattack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_ATTACK_QDELETED "item_attack_qdeleted"		//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_EQUIPPED "item_equip"						//from base of obj/item/equipped(): (/mob/equipper, slot)
+#define COMSIG_ITEM_SPEC_ATTACKEDBY "item_spec_attackedby"		//from base of datum/species/proc/spec_attacked_by: (atom/target, mob/user, params)
 /// A mob has just equipped an item. Called on [/mob] from base of [/obj/item/equipped()]: (/obj/item/equipped_item, slot)
 #define COMSIG_MOB_EQUIPPED_ITEM "mob_equipped_item"
 /// A mob has just unequipped an item.
@@ -305,7 +308,12 @@
 #define COMSIG_ITEM_MARK_RETRIEVAL "item_mark_retrieval"			//called before marking an object for retrieval, checked in /obj/effect/proc_holder/spell/targeted/summonitem/cast() : (mob/user)
 	#define COMPONENT_BLOCK_MARK_RETRIEVAL 1
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"					//from base of obj/item/hit_reaction(): (list/args)
+#define COMSIG_ITEM_HIT_RESPONSE "item_hit_response"
 #define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"                //called on item when crossed by something (): (/atom/movable, mob/living/crossed)
+
+//signal for gaffer ring destroyed, if you dont like my location send me rod directly into my
+
+#define COMSIG_GAFFER_RING_DESTROYED "gaffer_ring_destroyed"
 
 // /obj/item/clothing signals
 #define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
@@ -439,3 +447,12 @@
 #define COMSIG_XENO_MONKEY_CLICK_CTRL "xeno_monkey_click_ctrl"				//from monkey CtrlClickOn(): (/mob)
 
 #define COMSIG_PARENT_IMPREGNATE "comsig_mob_impregnate"
+
+#define COMSIG_CANCEL_TURF_BREAK "cancel_turf_break_comsig"
+#define COMSIG_MOUSE_ENTERED "comsig_mouse_entered"
+/// signal sent when a mouse is hovering over us, sent by atom/proc/on_mouse_entered
+#define COMSIG_ATOM_MOUSE_ENTERED "mouse_entered"
+
+#define COMSIG_HABITABLE_HOME "comsig_habitable_home"
+
+#define COMSIG_COMBAT_TARGET_SET "comsig_combat_target_set"

@@ -1,11 +1,13 @@
 /mob/living/carbon/human/species/skeleton
 	name = "skeleton"
 
+	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+	icon_state = "skeleton"
 	race = /datum/species/human/northern
 	gender = MALE
 	bodyparts = list(/obj/item/bodypart/chest, /obj/item/bodypart/head, /obj/item/bodypart/l_arm,
 					/obj/item/bodypart/r_arm, /obj/item/bodypart/r_leg, /obj/item/bodypart/l_leg)
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	var/skel_outfit = /datum/outfit/job/npc/skeleton
 	ambushable = FALSE
 	rot_type = null
@@ -27,9 +29,7 @@
 	skel_outfit = null
 
 /mob/living/carbon/human/species/skeleton/npc
-	aggressive = 1
-	mode = AI_IDLE
-	wander = TRUE
+	ai_controller = /datum/ai_controller/human_npc
 	simpmob_attack = 40
 	simpmob_defend = 0
 	wander = TRUE
@@ -49,6 +49,11 @@
 		src.dna.species.species_traits |= NOBLOOD
 		src.dna.species.soundpack_m = new /datum/voicepack/skeleton()
 		src.dna.species.soundpack_f = new /datum/voicepack/skeleton()
+		var/obj/item/bodypart/head/headdy = get_bodypart("head")
+		if(headdy)
+			headdy.icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+			headdy.icon_state = "skull"
+			headdy.headprice = rand(3,10)
 	var/obj/item/bodypart/O = src.get_bodypart(BODY_ZONE_R_ARM)
 	if(O)
 		O.drop_limb()
@@ -72,7 +77,7 @@
 		QDEL_NULL(src.charflaw)
 	update_body()
 	mob_biotypes = MOB_UNDEAD
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	name = "skeleton"
 	real_name = "skeleton"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
@@ -158,8 +163,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/peasant)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -208,8 +211,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/random)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -248,8 +249,6 @@
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	dodgetime = 15
 	canparry = TRUE
 	flee_in_pain = FALSE
@@ -327,8 +326,6 @@
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	equipOutfit(new /datum/outfit/job/species/skeleton/npc/warrior)
-	aggressive=1
-	mode = AI_IDLE
 	d_intent = INTENT_PARRY //these ones will parry instead of dodge, making them much more dangerous
 	canparry = TRUE
 	flee_in_pain = FALSE

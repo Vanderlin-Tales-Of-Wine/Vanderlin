@@ -1,20 +1,22 @@
 /datum/job/armorsmith
 	title = "Armorer"
+	tutorial = "You studied for many decades under your master with a few other apprentices to become an Armorer, \
+	a trade that certainly has seen a boom in revenue in recent times with many a bannerlord\
+	seeing the importance in maintaining a well-equipped army."
 	flag = BLACKSMITH
 	department_flag = SERFS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 0
+	bypass_lastclass = TRUE
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	tutorial = "You studied for many decades under your master with a few other apprentices to become an Armorer, a trade that certainly has seen a boom in revenue in recent times with many a bannerlord seeing the importance in maintaining a well-equipped army."
-
 	outfit = /datum/outfit/job/armorsmith
 	display_order = JDO_ARMORER
-	bypass_lastclass = TRUE
 	give_bank_account = 30
-	min_pq = 0
 
 /datum/outfit/job/armorsmith/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -47,7 +49,7 @@
 		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/armorsmith
+		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -59,7 +61,7 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/armorsmith
+		beltr = /obj/item/key/blacksmith
 		backl =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
@@ -67,16 +69,18 @@
 
 /datum/job/weaponsmith
 	title = "Weaponsmith"
+	tutorial = "You studied for many decades under your master with a few other apprentices to become a Weaponsmith, \
+	a trade that is as ancient as the secrets of steel itself! \
+	You've repaired the blades of cooks, the cracked hoes of peasants and greased the spears of many soldiers into war."
 	flag = BLACKSMITH
 	department_flag = SERFS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
-
-	tutorial = "You studied for many decades under your master with a few other apprentices to become a Weaponsmith, a trade that is as ancient as the secrets of steel itself! You've repaired the blades of cooks, the cracked hoes of peasants and greased the spears of many soldiers into war."
-
+	
 	outfit = /datum/outfit/job/weaponsmith
 	display_order = JDO_WSMITH
 	give_bank_account = 30
@@ -113,7 +117,7 @@
 		shirt = /obj/item/clothing/shirt/shortshirt
 		belt = /obj/item/storage/belt/leather
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/weaponsmith
+		beltr = /obj/item/key/blacksmith
 		cloak = /obj/item/clothing/cloak/apron/brown
 		backl =	/obj/item/weapon/hammer/sledgehammer
 		H.change_stat(STATKEY_STR, 1)
@@ -126,7 +130,7 @@
 		belt = /obj/item/storage/belt/leather
 		cloak = /obj/item/clothing/cloak/apron/brown
 		beltl = /obj/item/storage/belt/pouch/coins/poor
-		beltr = /obj/item/storage/keyring/weaponsmith
+		beltr = /obj/item/key/blacksmith
 		H.change_stat(STATKEY_STR, 1)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_SPD, -1)

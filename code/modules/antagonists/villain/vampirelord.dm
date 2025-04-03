@@ -54,6 +54,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/antagonist/vampirelord/on_gain()
 	SSmapping.retainer.vampires |= owner
+	if(ishuman(owner.current))
+		var/mob/living/carbon/human/vampdude = owner.current
+		vampdude.adv_hugboxing_cancel()
+	if(is_adventurer_job(owner.assigned_role) || istype(owner.assigned_role, /datum/job/pilgrim))
+		message_admins("[owner.current.key] HAS BECOME A VAMPIRE AS AN ADVENTURER OR PILGRIM, IF THEY ARE INVISIBLE AND CANNOT PLAY, YELL AT SADBOYSUSS")
 	. = ..()
 	owner.special_role = name
 	if(!isspawn)
@@ -1117,7 +1122,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/blood
 	antimagic_allowed = TRUE
-	charge_max = 10 SECONDS
+	recharge_time = 10 SECONDS
 	include_user = 0
 	max_targets = 1
 
@@ -1202,7 +1207,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/blood
 	antimagic_allowed = TRUE
-	charge_max = 10 SECONDS
+	recharge_time = 10 SECONDS
 	include_user = 0
 	max_targets = 0
 

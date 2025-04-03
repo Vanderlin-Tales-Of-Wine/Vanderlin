@@ -7,7 +7,7 @@
 	icon_dead = "Trolld"
 	pixel_x = -16
 
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	emote_hear = null
 	emote_see = null
@@ -28,7 +28,8 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
 						/obj/item/natural/hide = 3)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
-						/obj/item/natural/hide = 4)
+						/obj/item/natural/hide = 4,
+						/obj/item/natural/head/troll = 1)
 
 	health = BOGTROLL_HEALTH
 	maxHealth = BOGTROLL_HEALTH

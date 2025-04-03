@@ -85,7 +85,7 @@
 /obj/item/paper/scroll{
 	pixel_x = 0;
 	pixel_y = 0;
-	info = Hereliesthelegendaryknight,SerEdrictheProtector.Heprotectedtherealmfromgoblininvasions,skeletonhordes,andorcishraids.Hegoesdown,asperhapsthegreatestknightofalltime.
+	info = "Here lies the legendary knight,Ser Edric the Protector. He protected the realm from goblin invasions, skeletonhordes, and orcish raids. He goes down, as perhaps the greatest knight of all time."
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/caves)

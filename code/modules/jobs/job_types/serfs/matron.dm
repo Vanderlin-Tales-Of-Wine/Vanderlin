@@ -1,12 +1,20 @@
 /datum/job/matron
 	title = "Matron"
+	tutorial = "You are the Matron of the orphanage, once a cunning rogue who walked the shadows alongside legends.\
+	Time has softened your step but not your wit, thanks to your kinship with your old adventuring party.\
+	Now, you rule with a firm, or gentle, hand. Ensuring the orphans under your care grow sharp, swift and self-sufficient.\
+	One dae, they might just be as skilled as you. Maybe a thieves guild legend you once were."
 	flag = JESTER
 	department_flag = PEASANTS
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_MATRON
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 10
 
 	allowed_sexes = list(FEMALE)
+	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD, AGE_IMMORTAL)
 	allowed_races = list(
 		"Humen",
 		"Elf",
@@ -17,12 +25,9 @@
 		"Aasimar",
 		"Half-Orc"
 	)
-	tutorial = "You are the Matron of the orphanage, an old strict lady whom oversee the 'wellbeing' of the orphans, you show them your tricks and you'll make them just as good as you one day."
-	allowed_ages = list(AGE_MIDDLEAGED,AGE_OLD, AGE_IMMORTAL)
-	display_order = JDO_MATRON
+
 	outfit = /datum/outfit/job/matron
 	give_bank_account = 35
-	min_pq = 10
 	can_have_apprentices = TRUE
 	cmode_music = 'sound/music/cmode/nobility/CombatSpymaster.ogg'
 

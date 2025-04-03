@@ -1,7 +1,7 @@
 
 #define ENGSEC			(1<<0)
 
-#define CAPTAIN_SS13	(1<<0)
+//#define CAPTAIN	(1<<0)
 #define HOS				(1<<1)
 #define WARDEN			(1<<2)
 #define DETECTIVE		(1<<3)
@@ -46,14 +46,16 @@
 #define JOB_UNAVAILABLE_GENERIC 1
 #define JOB_UNAVAILABLE_BANNED 2
 #define JOB_UNAVAILABLE_PLAYTIME 3
-#define JOB_UNAVAILABLE_ACCOUNTAGE 4
-#define JOB_UNAVAILABLE_SLOTFULL 5
+#define JOB_UNAVAILABLE_SLOTFULL 4
+#define JOB_UNAVAILABLE_AGE 5
 #define JOB_UNAVAILABLE_RACE 6
 #define JOB_UNAVAILABLE_SEX 7
-#define JOB_UNAVAILABLE_WTEAM 8
-#define JOB_UNAVAILABLE_LASTCLASS 9
-#define JOB_UNAVAILABLE_PATRON 10
-#define JOB_UNAVAILABLE_JOB_COOLDOWN 11
+#define JOB_UNAVAILABLE_DEITY 8
+#define JOB_UNAVAILABLE_QUALITY 9
+#define JOB_UNAVAILABLE_PATREON 10
+#define JOB_UNAVAILABLE_LASTCLASS 11
+#define JOB_UNAVAILABLE_ACCOUNTAGE 12
+#define JOB_UNAVAILABLE_JOB_COOLDOWN 13
 
 #define DEFAULT_RELIGION "Christianity"
 #define DEFAULT_DEITY "Space Jesus"
@@ -92,6 +94,30 @@
 #define JOB_DISPLAY_ORDER_SECURITY_OFFICER 30
 #define JOB_DISPLAY_ORDER_AI 31
 #define JOB_DISPLAY_ORDER_CYBORG 32
+
+/* Job datum job_flags */
+/// Whether the mob is announced on arrival.
+#define JOB_ANNOUNCE_ARRIVAL (1<<0)
+/// Whether the mob is added to the crew manifest.
+#define JOB_SHOW_IN_CREDITS (1<<1)
+/// Whether the mob is equipped through SSjob.EquipRank() on spawn.
+#define JOB_EQUIP_RANK (1<<2)
+/// Whether the job is considered a regular crew member of the station. Equipment such as AI and cyborgs not included.
+#define JOB_CREW_MEMBER (1<<3)
+/// Whether this job can be joined through the new_player menu.
+#define JOB_NEW_PLAYER_JOINABLE (1<<4)
+
+#define FACTION_NONE "None"
+#define FACTION_NEUTRAL "Neutral"
+#define FACTION_STATION "Station" //V: Station means the main city
+#define FACTION_UNDEAD "Undead"
+#define FACTION_PLANTS "Plants"
+#define FACTION_VINES "Vines" //Seemingly unused
+#define FACTION_CABAL "Cabal"
+#define FACTION_RATS "Rats"
+#define FACTION_ORCS "Orcs"
+#define FACTION_BUMS "Bums"
+#define FACTION_MATTHIOS "Matthios"
 
 #define NOBLEMEN		(1<<0)
 
@@ -136,6 +162,7 @@
 #define MATRON 		(1<<6)
 #define PHYSICKER	(1<<7)
 #define SCRIBE		(1<<8)
+#define GAFFER		(1<<9)
 
 #define PEASANTS		(1<<4)
 
@@ -252,6 +279,7 @@
 #define JDO_CHIEF 32
 
 #define JDO_ADVENTURER 33
+#define JDO_GAFFER 33.1
 #define JDO_PILGRIM 34.2
 #define JDO_MIGRANT  34.3
 #define JDO_BANDIT 34.3

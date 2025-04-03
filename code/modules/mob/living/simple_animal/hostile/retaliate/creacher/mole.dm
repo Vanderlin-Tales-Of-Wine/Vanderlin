@@ -6,7 +6,7 @@
 	icon_living = "mole"
 	icon_dead = "mole_dead"
 
-	faction = list("orcs")
+	faction = list(FACTION_ORCS)
 	emote_hear = null
 	emote_see = null
 	turns_per_move = 2
@@ -28,7 +28,8 @@
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur/mole = 3,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1)
+						/obj/item/alch/bone = 1,
+						/obj/item/natural/head/mole = 1)
 
 	health = MOLE_HEALTH
 	maxHealth = MOLE_HEALTH

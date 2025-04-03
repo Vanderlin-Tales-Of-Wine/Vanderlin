@@ -42,21 +42,7 @@
 /atom/movable/screen/movable/action_button/Click(location,control,params)
 	if (!can_use(usr))
 		return
-/*
-	var/list/modifiers = params2list(params)
-	if(modifiers["shift"])
-		if(locked)
-			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
-			return TRUE
-		moved = 0
-		usr.update_action_buttons() //redraw buttons that are no longer considered "moved"
-		return TRUE
-	if(modifiers["ctrl"])
-		locked = !locked
-		to_chat(usr, "<span class='notice'>Action button \"[name]\" [locked ? "" : "un"]locked.</span>")
-		if(id && usr.client) //try to (un)remember position
-			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
-		return TRUE*/
+
 	if(usr.next_click > world.time)
 		return
 	usr.next_click = world.time + 1
@@ -171,7 +157,7 @@
 	..()
 
 /atom/movable/screen/movable/action_button/MouseExited()
-	close_tooltip(usr)
+	closeToolTip(usr)
 	..()
 
 /datum/hud/proc/get_action_buttons_icons()
@@ -219,17 +205,6 @@
 			if(reload_screen)
 				client.screen += B
 
-//		if(!button_number)
-//			hud_used.hide_actions_toggle.screen_loc = null
-//			return
-
-//	if(!hud_used.hide_actions_toggle.moved)
-//		hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number+1)
-//	else
-//		hud_used.hide_actions_toggle.screen_loc = hud_used.hide_actions_toggle.moved
-//	if(reload_screen)
-//		client.screen += hud_used.hide_actions_toggle
-
 
 
 #define AB_MAX_COLUMNS 12
@@ -241,7 +216,7 @@
 	var/coord_col = "+[col-1]"
 	var/coord_col_offset = 4 + 2 * col
 
-	var/coord_row = "[row ? -row : "+0"]"
+	var/coord_row = "[row ? "+[row]" : "+0"]"
 
 	return "WEST[coord_col]:[coord_col_offset],SOUTH[coord_row]:3"
 
@@ -249,7 +224,7 @@
 	var/row = round((number-1)/AB_MAX_COLUMNS)
 	var/col = ((number - 1)%(AB_MAX_COLUMNS)) + 1
 	var/x_offset = 32*(col-1) + 4 + 2*col
-	var/y_offset = -32*(row+1) + 26
+	var/y_offset = 32*(row+1) + 26
 
 	var/matrix/M = matrix()
 	M.Translate(x_offset,y_offset)

@@ -27,7 +27,6 @@
 	var/lastcardinal = 0
 	var/lastcardpress = 0
 	var/atom/movable/moving_from_pull		//attempt to resume grab after moving instead of before.
-	var/list/client_mobs_in_contents // This contains all the client mobs within this container
 	var/list/acted_explosions	//for explosion dodging
 	glide_size = 6
 	appearance_flags = TILE_BOUND|PIXEL_SCALE
@@ -44,7 +43,16 @@
 	var/blocks_emissive = FALSE
 	///Internal holder for emissive blocker object, do not use directly use blocks_emissive
 	var/atom/movable/emissive_blocker/em_block
-
+	/**
+	 * an associative lazylist of relevant nested contents by "channel", the list is of the form: list(channel = list(important nested contents of that type))
+	 * each channel has a specific purpose and is meant to replace potentially expensive nested contents iteration
+	 * do NOT add channels to this for little reason as it can add considerable memory usage.
+	 */
+	var/list/important_recursive_contents
+	///contains every client mob corresponding to every client eye in this container. lazily updated by SSparallax and is sparse:
+	///only the last container of a client eye has this list assuming no movement since SSparallax's last fire
+	var/list/client_mobs_in_contents
+	var/spatial_grid_key
 
 /atom/movable/Initialize(mapload)
 	. = ..()
@@ -58,7 +66,125 @@
 
 /atom/movable/Destroy()
 	QDEL_NULL(em_block)
+	if(spatial_grid_key)
+		SSspatial_grid.force_remove_from_grid(src)
+
+	LAZYCLEARLIST(client_mobs_in_contents)
+
+	LAZYCLEARLIST(important_recursive_contents)//has to be before moveToNullspace() so that we can exit our spatial_grid cell if we're in it
 	return ..()
+
+
+/atom/movable/Exited(atom/movable/gone, direction)
+	. = ..()
+
+	if(!LAZYLEN(gone.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in gone.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			recursive_contents[channel] -= gone.important_recursive_contents[channel]
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						// This relies on a nice property of the linked recursive and gridmap types
+						// They're defined in relation to each other, so they have the same value
+						SSspatial_grid.remove_grid_awareness(location, channel)
+			ASSOC_UNSETEMPTY(recursive_contents, channel)
+			UNSETEMPTY(location.important_recursive_contents)
+
+/atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+
+	if(!LAZYLEN(arrived.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in arrived.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						SSspatial_grid.add_grid_awareness(location, channel)
+			recursive_contents[channel] |= arrived.important_recursive_contents[channel]
+
+///allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
+/atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] += list(src)
+
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+
+/**
+ * removes the hearing sensitivity channel from the important_recursive_contents list of this and all nested locs containing us if there are no more sources of the trait left
+ * since RECURSIVE_CONTENTS_HEARING_SENSITIVE is also a spatial grid content type, removes us from the spatial grid if the trait is removed
+ *
+ * * trait_source - trait source define or ALL, if ALL, force removes hearing sensitivity. if a trait source define, removes hearing sensitivity only if the trait is removed
+ */
+/atom/movable/proc/lose_hearing_sensitivity(trait_source = TRAIT_GENERIC)
+	if(!HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+	REMOVE_TRAIT(src, TRAIT_HEARING_SENSITIVE, trait_source)
+	if(HAS_TRAIT(src, TRAIT_HEARING_SENSITIVE))
+		return
+
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+		recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE]))
+			SSspatial_grid.remove_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_HEARING)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+		UNSETEMPTY(location.important_recursive_contents)
+
+/atom/movable/proc/on_hearing_sensitive_trait_loss()
+	SIGNAL_HANDLER
+	UnregisterSignal(src, COMSIG_ATOM_REMOVE_TRAIT)
+	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
+		LAZYREMOVE(location.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE], src)
+
+///propogates ourselves through our nested contents, similar to other important_recursive_contents procs
+///main difference is that client contents need to possibly duplicate recursive contents for the clients mob AND its eye
+/mob/proc/enable_client_mobs_in_contents()
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.add_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] |= src
+
+	var/turf/our_turf = get_turf(src)
+	/// We got our awareness updated by the important recursive contents stuff, now we add our membership
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+
+///Clears the clients channel of this mob
+/mob/proc/clear_important_client_contents()
+	var/turf/our_turf = get_turf(src)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_CLIENT_MOBS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
+
 
 /atom/movable/proc/update_emissive_block()
 	if(blocks_emissive != EMISSIVE_BLOCK_GENERIC)
@@ -184,8 +310,7 @@
 	if(ismob(AM))
 		var/mob/M = AM
 		log_combat(src, M, "grabbed", addition="passive grab")
-		if(M.doing)
-			M.doing = FALSE
+		M.stop_all_doing()
 		if(!supress_message)
 			M.visible_message("<span class='warning'>[src] grabs [M].</span>", \
 				"<span class='danger'>[src] grabs you.</span>")
@@ -436,8 +561,25 @@
 	if (!inertia_moving)
 		inertia_next_move = world.time + inertia_move_delay
 		newtonian_move(Dir)
-	if (length(client_mobs_in_contents))
+	if (client_mobs_in_contents)
 		update_parallax_contents()
+
+	var/turf/old_turf = get_turf(OldLoc)
+	var/turf/new_turf = get_turf(src)
+
+	if(HAS_SPATIAL_GRID_CONTENTS(src))
+		if(old_turf && new_turf && (old_turf.z != new_turf.z \
+			|| GET_SPATIAL_INDEX(old_turf.x) != GET_SPATIAL_INDEX(new_turf.x) \
+			|| GET_SPATIAL_INDEX(old_turf.y) != GET_SPATIAL_INDEX(new_turf.y)))
+
+			SSspatial_grid.exit_cell(src, old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
+
+		else if(old_turf && !new_turf)
+			SSspatial_grid.exit_cell(src, old_turf)
+
+		else if(new_turf && !old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
 
 	return TRUE
 
@@ -850,19 +992,19 @@
 	*/
 	if(A == src)
 		return
-	var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(get_turf(src), get_dir(src, A))
-	atk.icon_state = visual_effect_icon
-	atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	if(get_turf(A) == get_turf(src))
-		return
-	if(atk.dir & NORTH)
-		atk.pixel_y = 32
-	else if(atk.dir & SOUTH)
-		atk.pixel_y = -32
-	if(atk.dir & EAST)
-		atk.pixel_x = 32
-	else if(atk.dir & WEST)
-		atk.pixel_x = -32
+	var/dist = get_dist(src, A)
+	var/turf/first_step = get_step(src, get_dir(src, A))
+	if(dist >= 1)	//1 tile range attack, no need for any loops
+		var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(first_step, get_dir(src, A))
+		atk.icon_state = visual_effect_icon
+		atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	if(dist > 1)	//2+ tiles, we algo
+		for(var/i = 1, i<dist, i++)
+			var/turf/next_step = get_step(first_step, get_dir(first_step, A))
+			var/obj/effect/temp_visual/dir_setting/attack_effect/atk = new(next_step, get_dir(first_step, A))
+			atk.icon_state = visual_effect_icon
+			atk.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+			first_step = next_step
 
 /obj/effect/temp_visual/dir_setting/attack_effect
 	icon = 'icons/effects/effects.dmi'
@@ -918,6 +1060,7 @@
 
 /* Language procs */
 /atom/movable/proc/get_language_holder(shadow=TRUE)
+	RETURN_TYPE(/datum/language_holder)
 	if(language_holder)
 		return language_holder
 	else
@@ -936,6 +1079,14 @@
 	var/datum/language_holder/H = get_language_holder()
 	. = H.get_random_understood_language()
 
+/// Gets a list of all mutually understood languages.
+/atom/movable/proc/get_partially_understood_languages()
+	return get_language_holder().get_partially_understood_languages()
+
+/// Grants partial understanding of a language.
+/atom/movable/proc/grant_partial_language(language, amount = 50)
+	return get_language_holder().grant_partial_language(language, amount)
+
 /atom/movable/proc/remove_language(datum/language/dt, body = FALSE)
 	var/datum/language_holder/H = get_language_holder(!body)
 	H.remove_language(dt, body)
@@ -943,6 +1094,14 @@
 /atom/movable/proc/remove_all_languages()
 	var/datum/language_holder/H = get_language_holder()
 	H.remove_all_languages()
+
+/// Removes partial understanding of a language.
+/atom/movable/proc/remove_partial_language(language)
+	return get_language_holder().remove_partial_language(language)
+
+/// Removes all partial languages.
+/atom/movable/proc/remove_all_partial_languages()
+	return get_language_holder().remove_all_partial_languages()
 
 /atom/movable/proc/has_language(datum/language/dt)
 	var/datum/language_holder/H = get_language_holder()

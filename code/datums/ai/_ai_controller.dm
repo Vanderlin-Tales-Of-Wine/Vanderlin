@@ -24,6 +24,8 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	var/list/behavior_cooldowns = list()
 	///The idle behavior this AI performs when it has no actions.
 	var/datum/idle_behavior/idle_behavior = null
+	///our current cell grid
+	var/datum/cell_tracker/our_cells
 	///Current status of AI (OFF/ON/IDLE)
 	var/ai_status
 	///Current movement target of the AI, generally set by decision making.
@@ -60,6 +62,11 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	///Time at which controller became inactive
 	var/inactive_timestamp
 
+	///Can this AI idle?
+	var/can_idle = TRUE
+	///What distance should we be checking for interesting things when considering idling/deidling? Defaults to AI_DEFAULT_INTERESTING_DIST
+	var/interesting_dist = AI_DEFAULT_INTERESTING_DIST
+
 
 /datum/ai_controller/New(atom/new_pawn)
 	change_ai_movement_type(ai_movement)
@@ -73,6 +80,7 @@ have ways of interacting with a specific atom and control it. They posses a blac
 /datum/ai_controller/Destroy(force, ...)
 	set_ai_status(AI_STATUS_OFF)
 	UnpossessPawn(FALSE)
+	our_cells = null
 	return ..()
 
 ///Sets the current movement target, with an optional param to override the movement behavior
@@ -91,13 +99,20 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	planning_subtrees = typepaths_of_new_subtrees
 	init_subtrees()
 
+/datum/ai_controller/proc/add_to_top(datum/ai_planning_subtree/tree)
+	var/list/new_trees = list()
+	new_trees += tree
+	for(var/datum/ai_planning_subtree/listed_tree as anything in planning_subtrees)
+		new_trees |= listed_tree.type
+	replace_planning_subtrees(new_trees)
+
 ///Loops over the subtrees in planning_subtrees and looks at the ai_controllers to grab a reference, ENSURE planning_subtrees ARE TYPEPATHS AND NOT INSTANCES/REFERENCES BEFORE EXECUTING THIS
 /datum/ai_controller/proc/init_subtrees()
 	if(!LAZYLEN(planning_subtrees))
 		return
 	var/list/temp_subtree_list = list()
 	for(var/subtree in planning_subtrees)
-		var/subtree_instance = SSai_controllers.ai_subtrees[subtree]
+		var/subtree_instance = GLOB.ai_subtrees[subtree]
 		temp_subtree_list += subtree_instance
 	planning_subtrees = temp_subtree_list
 
@@ -113,6 +128,10 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	pawn = new_pawn
 	pawn.ai_controller = src
 
+	var/turf/pawn_turf = get_turf(pawn)
+	if(pawn_turf)
+		GLOB.ai_controllers_by_zlevel[pawn_turf.z] += src
+
 	if(!continue_processing_when_client && istype(new_pawn, /mob))
 		var/mob/possible_client_holder = new_pawn
 		if(possible_client_holder.client)
@@ -122,8 +141,103 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	else
 		set_ai_status(AI_STATUS_ON)
 
+	RegisterSignal(pawn, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_changed_z_level))
 	RegisterSignal(pawn, COMSIG_MOB_LOGIN, PROC_REF(on_sentience_gained))
 	RegisterSignal(pawn, COMSIG_MOB_STATCHANGE, PROC_REF(on_stat_changed))
+
+	our_cells = new(interesting_dist, interesting_dist, 1)
+	set_new_cells()
+
+	RegisterSignal(pawn, COMSIG_MOVABLE_MOVED, PROC_REF(update_grid))
+
+///Can this pawn interact with objects?
+/datum/ai_controller/proc/ai_can_interact()
+	SHOULD_CALL_PARENT(TRUE)
+	return !QDELETED(pawn)
+
+///Interact with objects
+/datum/ai_controller/proc/ai_interact(target, combat_mode, list/modifiers)
+	if(!ai_can_interact())
+		return FALSE
+
+	var/atom/final_target = isdatum(target) ? target : blackboard[target] //incase we got a blackboard key instead
+
+	if(QDELETED(final_target))
+		return FALSE
+	var/params = list2params(modifiers)
+	var/mob/living/living_pawn = pawn
+	if(isnull(combat_mode))
+		living_pawn.ClickOn(final_target, params)
+		return TRUE
+
+	var/old_combat_mode = living_pawn.cmode
+	living_pawn.cmode = combat_mode
+	living_pawn.ClickOn(final_target, params)
+	living_pawn.cmode = old_combat_mode
+	return TRUE
+
+/datum/ai_controller/proc/update_grid(datum/source, datum/spatial_grid_cell/new_cell)
+	SIGNAL_HANDLER
+	set_new_cells()
+
+/datum/ai_controller/proc/set_new_cells()
+	var/turf/our_turf = get_turf(pawn)
+	if(isnull(our_turf))
+		return
+
+	var/list/cell_collections = our_cells.recalculate_cells(our_turf)
+
+	for(var/datum/old_grid as anything in cell_collections[2])
+		UnregisterSignal(old_grid, list(SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)))
+
+	for(var/datum/spatial_grid_cell/new_grid as anything in cell_collections[1])
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_enter))
+		RegisterSignal(new_grid, SPATIAL_GRID_CELL_EXITED(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS), PROC_REF(on_client_exit))
+	recalculate_idle()
+
+/datum/ai_controller/proc/should_idle()
+	if(!can_idle)
+		return FALSE
+	for(var/datum/spatial_grid_cell/grid as anything in our_cells.member_cells)
+		if(length(grid.client_contents))
+			return FALSE
+	return TRUE
+
+/datum/ai_controller/proc/recalculate_idle()
+	if(ai_status == AI_STATUS_OFF)
+		return
+	if(should_idle())
+		set_ai_status(AI_STATUS_IDLE)
+
+/datum/ai_controller/proc/on_client_enter(datum/source, atom/target)
+	SIGNAL_HANDLER
+	if(ai_status == AI_STATUS_IDLE)
+		set_ai_status(AI_STATUS_ON)
+
+/datum/ai_controller/proc/on_client_exit(datum/source, datum/exited)
+	SIGNAL_HANDLER
+	recalculate_idle()
+
+/datum/ai_controller/proc/get_current_turf()
+	var/mob/living/mob_pawn = pawn
+	var/turf/pawn_turf = get_turf(mob_pawn)
+	to_chat(world, "[pawn_turf]")
+
+///Called when the AI controller pawn changes z levels, we check if there's any clients on the new one and wake up the AI if there is.
+/datum/ai_controller/proc/on_changed_z_level(atom/source, old_z, new_z, same_z_layer, notify_contents)
+	SIGNAL_HANDLER
+	if (ismob(pawn))
+		var/mob/mob_pawn = pawn
+		if((mob_pawn?.client && !continue_processing_when_client))
+			return
+	if(old_z)
+		GLOB.ai_controllers_by_zlevel[old_z] -= src
+
+	if(new_z)
+		GLOB.ai_controllers_by_zlevel[new_z] += src
+		var/new_level_clients = SSmobs.clients_by_zlevel[new_z].len
+		if(new_level_clients)
+			set_ai_status(AI_STATUS_IDLE)
 
 ///Abstract proc for initializing the pawn to the new controller
 /datum/ai_controller/proc/TryPossessPawn(atom/new_pawn)
@@ -131,7 +245,12 @@ have ways of interacting with a specific atom and control it. They posses a blac
 
 ///Proc for deinitializing the pawn to the old controller
 /datum/ai_controller/proc/UnpossessPawn(destroy)
-	UnregisterSignal(pawn, list(COMSIG_MOB_LOGIN, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE))
+	UnregisterSignal(pawn, list(COMSIG_MOVABLE_Z_CHANGED, COMSIG_MOB_LOGIN, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE))
+	var/turf/pawn_turf = get_turf(pawn)
+	if(pawn_turf)
+		GLOB.ai_controllers_by_zlevel[pawn_turf.z] -= src
+	if(ai_status)
+		GLOB.ai_controllers_by_status[ai_status] -= src
 	pawn.ai_controller = null
 	pawn = null
 	if(destroy)
@@ -169,8 +288,11 @@ have ways of interacting with a specific atom and control it. They posses a blac
 	if(!pawn_turf)
 		CRASH("AI controller [src] controlling pawn ([pawn]) is not on a turf.")
 #endif
-	if(!length(SSmobs.clients_by_zlevel[pawn_turf?.z]))
-		return AI_STATUS_OFF
+	if(SSmapping.level_has_any_trait(pawn_turf?.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+		if(!length(SSmobs.clients_by_zlevel[pawn_turf?.z]))
+			return AI_STATUS_OFF
+	if(should_idle())
+		return AI_STATUS_IDLE
 	return AI_STATUS_ON
 
 ///Returns TRUE if the ai controller can actually run at the moment.
@@ -288,19 +410,27 @@ have ways of interacting with a specific atom and control it. They posses a blac
 /datum/ai_controller/proc/set_ai_status(new_ai_status)
 	if(ai_status == new_ai_status)
 		return FALSE //no change
+
+	//remove old status, if we've got one
+	if(ai_status)
+		GLOB.ai_controllers_by_status[ai_status] -= src
+	stop_previous_processing()
 	ai_status = new_ai_status
+	GLOB.ai_controllers_by_status[new_ai_status] += src
 	switch(ai_status)
 		if(AI_STATUS_ON)
-			SSai_controllers.active_ai_controllers += src
-			SSai_controllers.inactive_ai_controllers -= src
-			inactive_timestamp = null
 			START_PROCESSING(SSai_behaviors, src)
+		if(AI_STATUS_IDLE)
+			START_PROCESSING(SSidle_ai_behaviors, src)
 		if(AI_STATUS_OFF)
-			STOP_PROCESSING(SSai_behaviors, src)
-			SSai_controllers.active_ai_controllers -= src
-			SSai_controllers.inactive_ai_controllers += src
-			inactive_timestamp = world.time
 			CancelActions()
+
+/datum/ai_controller/proc/stop_previous_processing()
+	switch(ai_status)
+		if(AI_STATUS_ON)
+			STOP_PROCESSING(SSai_behaviors, src)
+		if(AI_STATUS_IDLE)
+			STOP_PROCESSING(SSidle_ai_behaviors, src)
 
 /datum/ai_controller/proc/PauseAi(time)
 	paused_until = world.time + time

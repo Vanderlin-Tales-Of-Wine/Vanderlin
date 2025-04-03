@@ -1,11 +1,16 @@
 #define GET_AI_BEHAVIOR(behavior_type) SSai_behaviors.ai_behaviors[behavior_type]
 #define HAS_AI_CONTROLLER_TYPE(thing, type) istype(thing?.ai_controller, type)
-#define AI_STATUS_ON		1
-#define AI_STATUS_OFF		2
+#define AI_STATUS_ON		"ai_on"
+#define AI_STATUS_OFF		"ai_off"
+#define AI_STATUS_IDLE      "ai_idle"
 
 ///Carbon checks
-#define SHOULD_RESIST(source) (source.on_fire || source.buckled || HAS_TRAIT(source, TRAIT_RESTRAINED) || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
+#define SHOULD_RESIST(source) (source.on_fire || source.buckled  || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
 #define IS_DEAD_OR_INCAP(source) (source.incapacitated() || source.stat)
+
+
+// How far should we, by default, be looking for interesting things to de-idle?
+#define AI_DEFAULT_INTERESTING_DIST 10
 
 ///Max pathing attempts before auto-fail
 #define MAX_PATHING_ATTEMPTS 30
@@ -69,18 +74,24 @@
 #define BB_FIND_MOM_TYPES "BB_find_mom_types"
 ///list of types of mobs we must ignore
 #define BB_IGNORE_MOM_TYPES "BB_ignore_mom_types"
-/// Typecache of weakrefs to mobs this mob is friends with, will follow their instructions and won't attack them
-#define BB_FRIENDS_LIST "BB_friends_list"
-
+F
 ///are we ready to breed?
 #define BB_BREED_READY "BB_breed_ready"
 ///maximum kids we can have
 #define BB_MAX_CHILDREN "BB_max_children"
 
+#define BB_MOB_EQUIP_TARGET "BB_equip_target"
+
 #define BB_WANDER_POINT "BB_wander_point"
 
 #define BB_NEST_LIST "BB_nestlist"
 #define BB_NEST_IGNORE_LIST "BB_nest_ignore"
+
+///the bee hive we live inside
+#define BB_CURRENT_HOME "BB_current_home"
+#define BB_HOME_PATH "BB_home_path"
+#define BB_WEAPON_TYPE "BB_weapon_type"
+#define BB_ARMOR_CLASS "BB_armorclass"
 /// Converts a probability/second chance to probability/seconds_per_tick chance
 /// For example, if you want an event to happen with a 10% per second chance, but your proc only runs every 5 seconds, do `if(prob(100*SPT_PROB_RATE(0.1, 5)))`
 #define SPT_PROB_RATE(prob_per_second, seconds_per_tick) (1 - (1 - (prob_per_second)) ** (seconds_per_tick))
@@ -88,3 +99,20 @@
 /// Like SPT_PROB_RATE but easier to use, simply put `if(SPT_PROB(10, 5))`
 #define SPT_PROB(prob_per_second_percent, seconds_per_tick) (prob(100*SPT_PROB_RATE((prob_per_second_percent)/100, (seconds_per_tick))))
 // )
+
+///our fishing target
+#define BB_FISHING_TARGET "BB_fishing_target"
+
+///key holding the list of things we are able to fish from
+#define BB_FISHABLE_LIST "BB_fishable_list"
+
+///key holding our cooldown between fishing attempts
+#define BB_FISHING_COOLDOWN "BB_fishing_cooldown"
+
+///key that holds the next time we will start fishing
+#define BB_FISHING_TIMER "BB_fishing_timer"
+
+///are we ONLY allowed to fish when we're hungry?
+#define BB_ONLY_FISH_WHILE_HUNGRY "BB_only_fish_while_hungry"
+
+#define BB_RESISTING "BB_resisting"

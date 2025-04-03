@@ -1,43 +1,32 @@
 /datum/job/servant
 	title = "Servant"
+	tutorial = "You work your fingers to the bone nearly every dae, \
+	and have naught to show for it but boney fingers. \
+	Perhaps this week you will finally be recognized, or allowed some respite?"
 	flag = SERVANT
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_SERVANT
+	faction = FACTION_STATION
 	total_positions = 9
 	spawn_positions = 9
-
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
-	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
-	advclass_cat_rolls = list(CTAG_SERVANT = 20)
-
-/datum/job/servant/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(L)
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-
-	tutorial = "You work your fingers to the bone nearly every dae, and have naught to show for it but boney fingers. Perhaps this week you will finally be recognized, or allowed some respite?"
-
-	outfit = /datum/outfit/job/servant
-	display_order = JDO_SERVANT
-	give_bank_account = TRUE
 	min_pq = -20
 	bypass_lastclass = TRUE
 
+	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
+	give_bank_account = TRUE
+
 	can_have_apprentices = FALSE
 
+	advclass_cat_rolls = list(CTAG_SERVANT = 20)
+
+/datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
+	..()
+	spawned.advsetup = TRUE
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
 
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -70,6 +59,7 @@
 	tutorial = "You are the faceless, nameless labor that keeps the royal court fed, washed, and attended to."
 	outfit = /datum/outfit/job/servant/keep
 	maximum_possible_slots = 5
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 
@@ -83,6 +73,7 @@
 	tutorial = "The Innkeeper needed waiters and here am I, serving the food, drinks and ensuring the rooms are clean."
 	outfit = /datum/outfit/job/servant/inn
 	maximum_possible_slots = 2
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 
@@ -93,9 +84,11 @@
 
 /datum/advclass/servant/matron_assistant
 	name = "Matron's Servant"
-	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
+	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
+	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
 	outfit = /datum/outfit/job/servant/matron_assistant
 	maximum_possible_slots = 2
+	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
 	category_tags = list(CTAG_SERVANT)
 
@@ -103,3 +96,17 @@
 	..()
 	if(H.mind)
 		neck = /obj/item/key/matron
+
+/datum/advclass/servant/gaffer_assistant
+	name = "Ring's Servant"
+	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
+	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
+	outfit = /datum/outfit/job/servant/gaffer_assistant
+	maximum_possible_slots = 1
+
+	category_tags = list(CTAG_SERVANT)
+
+/datum/outfit/job/servant/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.mind)
+		neck = /obj/item/key/gaffer

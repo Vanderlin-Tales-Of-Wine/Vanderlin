@@ -25,7 +25,7 @@
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
 					category = "humans"
-					mob_data += list("job" = H.mind.assigned_role, "species" = H.dna.species.name)
+					mob_data += list("job" = H.mind.assigned_role.title, "species" = H.dna.species.name)
 			else
 				category = "others"
 				mob_data += list("typepath" = m.type)
@@ -109,9 +109,6 @@
 	if(ishostile(src))
 		var/mob/living/simple_animal/hostile/H = src
 		H.LoseTarget()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		H.mode = AI_OFF
 	if(client)
 		client.verbs += /client/proc/lobbyooc
 		client.verbs += /client/proc/commendsomeone
@@ -219,7 +216,7 @@
 /datum/controller/subsystem/ticker/proc/get_end_reason()
 	var/end_reason
 
-	if(!check_for_lord())
+	if(!check_for_lord(TRUE)) //TRUE forces the check, otherwise it will autofail.
 		end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
 						"Without a Monarch, they were doomed to be eaten by nite creachers.",
 						"Without a Monarch, they were doomed to become victims of Gehenna.",
@@ -522,14 +519,9 @@
 
 /proc/printplayer(datum/mind/ply, fleecheck)
 	var/jobtext = ""
-	if(ply.assigned_role)
-		jobtext = " the <b>[ply.assigned_role]</b>"
-	var/usede = ply.key
-	if(ply.key)
-		usede = ckey(ply.key)
-		if(ckey(ply.key) in GLOB.anonymize)
-//			if(check_whitelist(ckey(ply.key)))
-			usede = get_fake_key(ckey(ply.key))
+	if(ply.assigned_role && ply.current)
+		jobtext = " the <b>[ply.assigned_role.get_informed_title(ply.current)]</b>"
+	var/usede = get_display_ckey(ply.key)
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
 		if(ply.current.real_name != ply.name)

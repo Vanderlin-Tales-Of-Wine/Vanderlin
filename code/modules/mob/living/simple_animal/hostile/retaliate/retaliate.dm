@@ -56,6 +56,9 @@
 	var/eat_forever
 	var/list/enemies = list()
 
+	var/tier = 0
+	var/summon_primer = null
+
 /mob/living/simple_animal/hostile/retaliate/onbite(mob/living/carbon/human/user)
 	visible_message(span_danger("[user] bites [src]!"))
 	playsound(src, "smallslash", 100, TRUE, -1)
@@ -76,6 +79,11 @@
 /mob/living/simple_animal/hostile/retaliate/attack_hand(mob/living/carbon/human/M)
 	. = ..()
 	if(M.used_intent.type == INTENT_HELP)
+		if(tame)
+			var/friend_ref = REF(M)
+			if(!(friend_ref in faction))
+				befriend(M)
+
 		if(enemies.len)
 			if(tame)
 				enemies = list()
@@ -170,7 +178,7 @@
 	set waitfor = FALSE
 	if(ai_controller)
 		return ..()
-	if(!stop_automated_movement && wander && !doing)
+	if(!stop_automated_movement && wander && !doing())
 		if(ssaddle && has_buckled_mobs())
 			return FALSE
 		if(find_food())
@@ -468,3 +476,4 @@
 	playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 	qdel(A)
 	food = max(food + 30, 100)
+	return TRUE

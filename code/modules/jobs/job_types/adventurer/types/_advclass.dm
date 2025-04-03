@@ -64,14 +64,13 @@
 	// Remove the stun first, then grant us the torch.
 	for(var/datum/status_effect/incapacitating/stun/S in H.status_effects)
 		H.remove_status_effect(S)
-
 	post_equip(H)
 
 /datum/advclass/proc/post_equip(mob/living/carbon/human/H)
-	addtimer(CALLBACK(H,TYPE_PROC_REF(/mob/living/carbon/human, add_credit)), 20)
+	addtimer(CALLBACK(SScrediticons, TYPE_PROC_REF(/datum/controller/subsystem/crediticons, add_credit), H), 2 SECONDS)
 	if(cmode_music)
 		H.cmode_music = cmode_music
-	sleep(5)
+	sleep(5 DECISECONDS) ///why
 	var/obj/item/flashlight/flare/torch/T = new()
 	T.spark_act()
 	H.put_in_hands(T, forced = TRUE)

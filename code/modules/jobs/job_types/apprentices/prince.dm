@@ -1,9 +1,15 @@
 /datum/job/prince
 	title = "Prince"
 	f_title = "Princess"
+	tutorial = "You’ve never felt the gnawing of the winter, \
+	never known the bite of hunger and certainly have never known a honest day's work. \
+	You are as free as any bird in the sky, \
+	and you may revel in your debauchery for as long as your parents remain upon the throne: \
+	But someday you’ll have to grow up, and that will be the day your carelessness will cost you more than a few mammons."
 	flag = PRINCE
 	department_flag = APPRENTICES
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	allowed_races = list(
@@ -21,8 +27,6 @@
 	cmode_music = 'sound/music/cmode/nobility/combat_noble.ogg'
 	advclass_cat_rolls = list(CTAG_HEIR = 20)
 
-	tutorial = "You’ve never felt the gnawing of the winter, never known the bite of hunger and certainly have never known a honest day's work. You are as free as any bird in the sky, and you may revel in your debauchery for as long as your parents remain upon the throne: But someday you’ll have to grow up, and that will be the day your carelessness will cost you more than a few mammons."
-
 	display_order = JDO_PRINCE
 	give_bank_account = TRUE
 	bypass_lastclass = TRUE
@@ -31,14 +35,15 @@
 	can_have_apprentices = FALSE
 
 
-/datum/job/prince/after_spawn(mob/living/H, mob/M, latejoin)
+/datum/job/prince/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	SSfamilytree.AddRoyal(H, FAMILY_PROGENY)
-	if(ishuman(H))
-		var/mob/living/carbon/human/Q = H
-		Q.advsetup = 1
-		Q.invisibility = INVISIBILITY_MAXIMUM
-		Q.become_blind("advsetup")
+	SSfamilytree.AddRoyal(spawned, FAMILY_PROGENY)
+	spawned.advsetup = 1
+	spawned.invisibility = INVISIBILITY_MAXIMUM
+	spawned.become_blind("advsetup")
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 50)
+	ADD_TRAIT(spawned, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/advclass/heir
 	displays_adv_job = FALSE
@@ -107,6 +112,7 @@
 		shirt = /obj/item/clothing/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/shortboots
 		pants = /obj/item/clothing/pants/tights/random
+		H.virginity = TRUE
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)
@@ -153,6 +159,7 @@
 		shirt = /obj/item/clothing/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/shortboots
 		pants = /obj/item/clothing/pants/tights/random
+		H.virginity = TRUE
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)

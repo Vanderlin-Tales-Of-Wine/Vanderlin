@@ -31,7 +31,7 @@
 	* other undead. Can be placed with
 	* haunts for army composition.
 	*/
-	faction = list("undead")
+	faction = list(FACTION_UNDEAD)
 	mob_biotypes = MOB_UNDEAD|MOB_SPIRIT
 	//Thats a ghost dude how would it leave a corpse?
 	del_on_death = TRUE

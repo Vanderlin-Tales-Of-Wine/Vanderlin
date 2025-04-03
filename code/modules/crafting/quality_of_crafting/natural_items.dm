@@ -291,11 +291,12 @@
 		/obj/item/grown/log/tree= 1,
 	)
 	tool_usage = list(
-		/obj/item/weapon/knife = list("starts to whittle", "start whittle", 'sound/items/wood_sharpen.ogg'),
+		/obj/item/weapon/knife = list(span_notice("starts to whittle"), span_notice("start to whittle"), 'sound/items/wood_sharpen.ogg'),
 	)
 	attacked_atom = /obj/item/grown/log/tree
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/weapon/polearm/woodstaff/quarterstaff
+	required_intent = /datum/intent/dagger/cut
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 
@@ -381,7 +382,7 @@
 		/obj/item/natural/fibers = 3,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/cloak/wickercloak
 	craftdiff = 0
 
@@ -393,7 +394,7 @@
 		/obj/item/natural/fibers = 2,
 	)
 	attacked_atom = /obj/item/natural/fibers
-	starting_atom= /obj/item/natural/dirtclod
+	starting_atom = /obj/item/grown/log/tree/stick
 	output = /obj/item/clothing/neck/bogcowl
 	craftdiff = 0
 

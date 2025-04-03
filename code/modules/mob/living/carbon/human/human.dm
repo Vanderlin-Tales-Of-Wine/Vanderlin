@@ -80,6 +80,8 @@
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
 	GLOB.human_list += src
+	if(flee_in_pain)
+		AddElement(/datum/element/ai_flee_while_in_pain)
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	var/mob/living/carbon/V = src
@@ -132,7 +134,6 @@
 		AddComponent(/datum/component/mood)
 
 /mob/living/carbon/human/Destroy()
-	STOP_PROCESSING(SShumannpc, src)
 	QDEL_NULL(physiology)
 	GLOB.human_list -= src
 	return ..()
@@ -146,10 +147,6 @@
 		if(VD)
 			if(statpanel("Stats"))
 				stat("Vitae:",VD.vitae)
-		if((mind.assigned_role == "Shepherd") || (mind.assigned_role == "Witch Hunter"))
-			if(statpanel("Status"))
-				stat("Confessions sent: [GLOB.confessors.len]")
-
 	return
 
 /mob/living/carbon/human/show_inv(mob/user)
@@ -757,5 +754,5 @@
 	var/turf/turf = get_turf(loc)
 	if(turf)
 		if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
-			faction |= "matthios"
+			faction |= FACTION_MATTHIOS
 			SSmobs.matthios_mobs |= src

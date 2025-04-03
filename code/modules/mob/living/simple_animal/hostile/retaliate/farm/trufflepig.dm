@@ -123,8 +123,8 @@
 	maxHealth = FEMALE_GOTE_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/truffles)
 	pooptype = /obj/item/natural/poo/horse
-	tame = TRUE
 	remains_type = /obj/effect/decal/remains/pig
+	tame = TRUE
 
 	base_intents = list(/datum/intent/simple/headbutt)
 	attack_verb_continuous = "bites"
@@ -138,7 +138,30 @@
 	can_buckle = TRUE
 	buckle_lying = FALSE
 	can_saddle = TRUE
+
+	ai_controller = /datum/ai_controller/pig
+	AIStatus = AI_OFF
+	can_have_ai = FALSE
+
+	var/static/list/pet_commands = list(
+			/datum/pet_command/idle,
+			/datum/pet_command/free,
+			/datum/pet_command/good_boy,
+			/datum/pet_command/follow,
+			/datum/pet_command/attack,
+			/datum/pet_command/fetch,
+			/datum/pet_command/play_dead,
+			/datum/pet_command/protect_owner,
+			/datum/pet_command/aggressive,
+			/datum/pet_command/calm,
+			/datum/pet_command/truffle_sniff,
+		)
+
 	var/hangry_meter = 0
+
+/mob/living/simple_animal/hostile/retaliate/trufflepig/Initialize()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	. = ..()
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig/get_sound(input)
 	switch(input)
@@ -167,12 +190,7 @@
 	..()
 	deaggroprob = 20
 	if(can_buckle)
-		var/datum/component/riding/D = LoadComponent(/datum/component/riding)
-		D.set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(-2, 4), TEXT_WEST = list(2, 4)))
-		D.set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
-		D.set_vehicle_dir_layer(NORTH, OBJ_LAYER)
-		D.set_vehicle_dir_layer(EAST, OBJ_LAYER)
-		D.set_vehicle_dir_layer(WEST, OBJ_LAYER)
+		AddComponent(/datum/component/riding/pig)
 
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig/Life()
@@ -217,6 +235,7 @@
 		hangry_meter = 0
 		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(O)
+
 	if(istype(O, /obj/item/reagent_containers/food/snacks/toxicshrooms))
 		visible_message("<span class='notice'>The pig munches the truffles reluctantly.</span>")
 		playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)

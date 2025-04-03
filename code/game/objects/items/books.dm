@@ -311,9 +311,8 @@
 			user.say(m)
 
 /obj/item/book/bibble/attack(mob/living/M, mob/user)
-	if(user.mind && user.mind.assigned_role == "Priest")
+	if(is_priest_job(user.mind?.assigned_role))
 		if(!user.can_read(src))
-			//to_chat(user, "<span class='warning'>I don't understand these scribbly black lines.</span>")
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
 		user.visible_message("<span class='notice'>[user] blesses [M].</span>")
@@ -867,9 +866,8 @@ ____________End of Example*/
 			user.say(m)
 
 /obj/item/book/psybibble/attack(mob/living/M, mob/user)
-	if(user.mind && user.mind.assigned_role == "Preacher")
+	if(is_priest_job(user.mind.assigned_role))
 		if(!user.can_read(src))
-			//to_chat(user, "<span class='warning'>I don't understand these scribbly black lines.</span>")
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
 		user.visible_message("<span class='notice'>[user] blesses [M].</span>")
@@ -898,3 +896,9 @@ ____________End of Example*/
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.remove_stress(/datum/stressevent/blessed)
+
+/obj/item/book/rogue/howtogaffer
+	name = "Dont be a gaff, the guild masters manual"
+	desc = "the author page has rotted off with time"
+	bookfile = "Gaff.json"
+	random_cover = TRUE

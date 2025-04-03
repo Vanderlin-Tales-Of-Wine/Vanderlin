@@ -176,6 +176,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	cmode = 1
 
 	var/remains_type
+	var/binded = FALSE
 
 	var/botched_butcher_results
 	var/perfect_butcher_results
@@ -185,7 +186,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
-	GLOB.simple_animals[AIStatus] += src
+	if(!(AIStatus in GLOB.simple_animals))
+		GLOB.simple_animals |= "[AIStatus]"
+		GLOB.simple_animals["[AIStatus]"] = list()
+
+	GLOB.simple_animals["[AIStatus]"] += src
 	if(gender == PLURAL)
 		gender = pick(MALE,FEMALE)
 	if(!real_name)
@@ -199,7 +204,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 //		AddComponent(/datum/component/personal_crafting)
 
 /mob/living/simple_animal/Destroy()
-	GLOB.simple_animals[AIStatus] -= src
+	GLOB.simple_animals["[AIStatus]"] -= src
 	if (SSnpcpool.state == SS_PAUSED && LAZYLEN(SSnpcpool.currentrun))
 		SSnpcpool.currentrun -= src
 
@@ -229,29 +234,54 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	if(!is_type_in_list(O, food_type))
 		return ..()
 	else
-		if(!stat)
-			user.visible_message("<span class='info'>[user] hand-feeds [O] to [src].</span>", "<span class='notice'>I hand-feed [O] to [src].</span>")
-			playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
-			qdel(O)
-			food = min(food + 30, 100)
-			if(tame && owner == user)
-				return TRUE
-			var/realchance = tame_chance
-			if(realchance)
-				if(user.mind)
-					realchance += (user.mind.get_skill_level(/datum/skill/labor/taming) * 20)
-				if(prob(realchance))
-					tamed(user)
-				else
-					tame_chance += bonus_tame_chance
+		if(try_tame(O, user))
 			return TRUE
 	. = ..()
+
+/mob/living/simple_animal/proc/try_tame(obj/item/O, mob/user)
+	if(!stat)
+		user.visible_message("<span class='info'>[user] hand-feeds [O] to [src].</span>", "<span class='notice'>I hand-feed [O] to [src].</span>")
+		playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
+		qdel(O)
+		food = min(food + 30, 100)
+		if(tame && owner == user)
+			return TRUE
+		var/realchance = tame_chance
+		if(realchance)
+			if(user.mind)
+				realchance += (user.mind.get_skill_level(/datum/skill/labor/taming) * 20)
+			if(prob(realchance))
+				tamed(user)
+			else
+				tame_chance += bonus_tame_chance
+		return TRUE
 
 ///Extra effects to add when the mob is tamed, such as adding a riding component
 /mob/living/simple_animal/proc/tamed(mob/user)
 	INVOKE_ASYNC(src, PROC_REF(emote), "lower_head", null, null, null, TRUE)
 	tame = TRUE
-	faction += "[REF(user)]"
+	if(user)
+		befriend(user)
+	pet_passive = TRUE
+
+	if(ai_controller)
+		ai_controller.can_idle = FALSE
+		var/static/list/pet_commands = list(
+			/datum/pet_command/idle,
+			/datum/pet_command/free,
+			/datum/pet_command/good_boy,
+			/datum/pet_command/follow,
+			/datum/pet_command/attack,
+			/datum/pet_command/fetch,
+			/datum/pet_command/play_dead,
+			/datum/pet_command/protect_owner,
+			/datum/pet_command/aggressive,
+			/datum/pet_command/calm,
+		)
+		var/datum/component/obeys_commands/commands = GetComponent(/datum/component/obeys_commands)
+		if(!commands)
+			AddComponent(/datum/component/obeys_commands, pet_commands)
+
 	stop_automated_movement_when_pulled = TRUE
 	if(user)
 		owner = user
@@ -301,6 +331,13 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		x.forceMove(get_turf(src))
 		buckle_mob(x, TRUE)
 
+/mob/proc/set_stat(new_stat)
+	if(new_stat == stat)
+		return
+	. = stat
+	stat = new_stat
+	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
+
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)
 		return
@@ -324,9 +361,11 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/proc/handle_automated_movement()
 	set waitfor = FALSE
+	if(binded)
+		return
 	if(ai_controller)
 		return
-	if(!stop_automated_movement && wander && !doing)
+	if(!stop_automated_movement && wander && !doing())
 		if(ssaddle && has_buckled_mobs())
 			return 0
 		if((isturf(loc) || allow_movement_on_non_turfs) && (mobility_flags & MOBILITY_MOVE))		//This is so it only moves if it's not inside a closet, gentics machine, etc.
@@ -515,6 +554,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			transform = transform.Turn(180)
 		density = FALSE
 		..()
+		SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, DEAD)
 
 /mob/living/simple_animal/proc/CanAttack(atom/the_target)
 	if(see_invisible < the_target.invisibility)
@@ -531,6 +571,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/handle_fire()
 	. = ..()
+	if(!on_fire)
+		return TRUE
 	if(fire_stacks + divine_fire_stacks > 0)
 		apply_damage(5, BURN)
 		if(fire_stacks + divine_fire_stacks > 5)
@@ -857,8 +899,10 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					SSidlenpcpool.idle_mobs_by_zlevel[T.z] -= src
 				else
 					SSidlenpcpool.idle_mobs_by_zlevel[T.z] += src
-			GLOB.simple_animals[AIStatus] -= src
-			GLOB.simple_animals[togglestatus] += src
+			GLOB.simple_animals["[AIStatus]"] -= src
+			if(!(togglestatus in GLOB.simple_animals))
+				GLOB.simple_animals["[togglestatus]"] = list()
+			GLOB.simple_animals["[togglestatus]"] += src
 			AIStatus = togglestatus
 		else
 			stack_trace("Something attempted to set simple animals AI to an invalid state: [togglestatus]")
@@ -939,3 +983,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		user.Immobilize(1 SECONDS)
 		user.changeNext_move(1 SECONDS)
 
+
+/mob/living/simple_animal/proc/handle_habitation(obj/structure/home)
+	SHOULD_CALL_PARENT(TRUE)
+	var/drop_location = (src in home.contents) ? get_turf(home) : home
+	forceMove(drop_location)

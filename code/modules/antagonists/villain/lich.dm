@@ -46,6 +46,10 @@
 	for(var/datum/mind/MF in get_minds())
 		owner.become_unknown_to(MF)
 	var/mob/living/carbon/human/L = owner.current
+
+	L.mana_pool.intrinsic_recharge_sources &= ~MANA_ALL_LEYLINES
+	L.mana_pool.set_intrinsic_recharge(MANA_SOULS)
+
 	ADD_TRAIT(L, TRAIT_NOSTAMINA, "[type]")
 	ADD_TRAIT(L, TRAIT_NOHUNGER, "[type]")
 	ADD_TRAIT(L, TRAIT_NOBREATH, "[type]")
@@ -64,7 +68,7 @@
 	ADD_TRAIT(L, TRAIT_CABAL, "[type]")
 	ADD_TRAIT(L, TRAIT_DEATHSIGHT, "[type]")
 	L.cmode_music = 'sound/music/cmode/antag/CombatLich.ogg'
-	L.faction = list("undead")
+	L.faction = list(FACTION_UNDEAD)
 	if(L.charflaw)
 		QDEL_NULL(L.charflaw)
 	L.mob_biotypes |= MOB_UNDEAD
@@ -156,7 +160,7 @@
 	for(var/obj/item/bodypart/B in bigbad.bodyparts)
 		B.skeletonize(FALSE)
 
-	bigbad.faction = list("undead")
+	bigbad.faction = list(FACTION_UNDEAD)
 	if(bigbad.charflaw)
 		QDEL_NULL(bigbad.charflaw)
 	bigbad.mob_biotypes |= MOB_UNDEAD

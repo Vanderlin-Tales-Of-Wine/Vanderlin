@@ -8,7 +8,7 @@
 	pixel_x = -16
 	pixel_y = -8
 
-	faction = list("rats")
+	faction = list(FACTION_RATS)
 	emote_hear = list("squeaks.")
 	emote_see = list("cleans its nose.")
 	turns_per_move = 3
@@ -21,7 +21,8 @@
 						/obj/item/natural/fur/rous = 1,/obj/item/alch/bone = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/steak = 1,
 						/obj/item/alch/sinew = 1,
-						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4)
+						/obj/item/natural/fur/rous = 1, /obj/item/alch/bone = 4,
+						/obj/item/natural/head/rous = 1)
 
 	health = ROUS_HEALTH
 	maxHealth = ROUS_HEALTH
@@ -54,6 +55,28 @@
 	can_have_ai = FALSE
 	ai_controller = /datum/ai_controller/big_rat
 
+	food_type = list(
+		/obj/item/reagent_containers/food/snacks/cheddarslice,
+		/obj/item/reagent_containers/food/snacks/cheese_wedge,
+		/obj/item/reagent_containers/food/snacks/cheddar,
+		/obj/item/reagent_containers/food/snacks/cheese,
+	)
+	tame_chance = 25
+	bonus_tame_chance = 15
+
+	var/static/list/pet_commands = list(
+		/datum/pet_command/idle,
+		/datum/pet_command/free,
+		/datum/pet_command/good_boy,
+		/datum/pet_command/follow,
+		/datum/pet_command/attack,
+		/datum/pet_command/fetch,
+		/datum/pet_command/play_dead,
+		/datum/pet_command/protect_owner,
+		/datum/pet_command/aggressive,
+		/datum/pet_command/calm,
+	)
+
 /obj/effect/decal/remains/bigrat
 	name = "remains"
 	gender = PLURAL
@@ -64,6 +87,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/bigrat/Initialize()
 	. = ..()
+	AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	gender = MALE
 	if(prob(33))

@@ -1,11 +1,16 @@
 /datum/job/archivist
 	title = "Archivist"
-	tutorial = "A well-traveled and well-learned seeker of knowledge, the Archivist's mind has been touched by Noc himself. They settled in Vanderlin some time ago, coming to Vanderlin with the hope of unraveling its mysteries. If they can expand their library and teach the masses, Psydonia may yet enter a new age of enlightenment."
+	tutorial = "A well-traveled and well-learned seeker of wisdom, the Archivist bears the mark of Noc's influence.\
+	Tasked with recording the court's events and educating the ungrateful whelps the monarch calls heirs.\
+	Your work may go unappreciated now, but one dae historians will sing of your dedication and insight."
 	flag = ARCHIVIST
 	department_flag = NOBLEMEN
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = 19 //lol?
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
@@ -16,18 +21,17 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 
 	outfit = /datum/outfit/job/archivist
-	display_order = 19
+	spells = list(/obj/effect/proc_holder/spell/self/learnspell, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	give_bank_account = 100
-	min_pq = 1
 
 /datum/outfit/job/archivist
 	job_bitflag = BITFLAG_ROYALTY
 
 /datum/outfit/job/archivist/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	if(H.dna.species.id == "Dwarf")
 		shirt = /obj/item/clothing/shirt/undershirt/puritan
 		armor = /obj/item/clothing/armor/leather/jacket/apothecary
@@ -43,6 +47,7 @@
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather/plaquesilver
 	beltl = /obj/item/storage/keyring/archivist
+	beltr = /obj/item/book/granter/spellbook/apprentice
 	backl = /obj/item/storage/backpack/satchel
 	neck = /obj/item/clothing/neck/psycross/noc
 	backpack_contents = list(/obj/item/literary/apprentice = 1)

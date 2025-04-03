@@ -1,11 +1,21 @@
 /datum/job/royalguard
 	title = "Royal Knight"
+	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion.\
+	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice.\
+	You are bound to serve them, but should the monarch forget their place with the gods and the land,\
+	Yet loyalty is not without its trials, and faith is tested in ways both seen and unseen. In the end, duty is a path one must walk carefully."
 	flag = GUARDSMAN
 	department_flag = GARRISON
-	faction = "Station"
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
+	display_order = JDO_ROYALGUARD
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
+	min_pq = 8
+	bypass_lastclass = TRUE
+	selection_color = "#920909"
 
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
@@ -14,38 +24,28 @@
 		"Dwarf",
 		"Aasimar"
 	)
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
-	tutorial = "You're an elite member of the Garrison, awarded with knighthood for your prowess and loyalty. Be a stalwart guardian for the royal family, and serve them until your dying breath."
-	display_order = JDO_ROYALGUARD
-	whitelist_req = FALSE
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/royalguard
 	give_bank_account = 30
-	min_pq = 8
-	selection_color = "#920909"
-
 	cmode_music = 'sound/music/cmode/nobility/CombatKnight.ogg'
 
-/datum/job/royalguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/royalguard/after_spawn(mob/living/carbon/human/spawned, client/player_client)
 	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		if(istype(H.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
-			var/obj/item/clothing/S = H.cloak
-			var/index = findtext(H.real_name, " ")
-			if(index)
-				index = copytext(H.real_name, 1,index)
-			if(!index)
-				index = H.real_name
-			S.name = "knight's tabard ([index])"
-		var/prev_real_name = H.real_name
-		var/prev_name = H.name
-		var/honorary = "Sir"
-		if(H.gender == FEMALE)
-			honorary = "Dame"
-		H.real_name = "[honorary] [prev_real_name]"
-		H.name = "[honorary] [prev_name]"
+	if(istype(spawned.cloak, /obj/item/clothing/cloak/tabard/knight/guard))
+		var/obj/item/clothing/S = spawned.cloak
+		var/index = findtext(spawned.real_name, " ")
+		if(index)
+			index = copytext(spawned.real_name, 1,index)
+		if(!index)
+			index = spawned.real_name
+		S.name = "knight's tabard ([index])"
+	var/prev_real_name = spawned.real_name
+	var/prev_name = spawned.name
+	var/honorary = "Sir"
+	if(spawned.gender == FEMALE)
+		honorary = "Dame"
+	spawned.real_name = "[honorary] [prev_real_name]"
+	spawned.name = "[honorary] [prev_name]"
 
 /datum/outfit/job/royalguard
 	job_bitflag = BITFLAG_GARRISON
@@ -58,7 +58,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	armor = /obj/item/clothing/armor/brigandine // Wear the King's colors.
 	shoes = /obj/item/clothing/shoes/boots/armor/light
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/manorguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel

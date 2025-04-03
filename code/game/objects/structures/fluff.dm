@@ -56,6 +56,8 @@
 /obj/structure/fluff/railing/CanPass(atom/movable/mover, turf/target)
 //	if(istype(mover) && (mover.pass_flags & PASSTABLE))
 //		return 1
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(istype(mover, /obj/projectile))
 		return 1
 	if(mover.throwing)
@@ -83,6 +85,24 @@
 		if(get_dir(loc, target) in baddirs)
 			return 0
 	else if(get_dir(loc, target) == dir)
+		return 0
+	return 1
+
+/obj/structure/fluff/railing/CanAStarPass(ID, to_dir, requester)
+	if(icon_state == "woodrailing" && (dir in CORNERDIRS))
+		var/list/baddirs = list()
+		switch(dir)
+			if(SOUTHEAST)
+				baddirs = list(SOUTHEAST, SOUTH, EAST)
+			if(SOUTHWEST)
+				baddirs = list(SOUTHWEST, SOUTH, WEST)
+			if(NORTHEAST)
+				baddirs = list(NORTHEAST, NORTH, EAST)
+			if(NORTHWEST)
+				baddirs = list(NORTHWEST, NORTH, WEST)
+		if(to_dir in baddirs)
+			return 0
+	else if(to_dir == dir)
 		return 0
 	return 1
 
@@ -194,6 +214,8 @@
 					add_overlay(MA)
 
 /obj/structure/fluff/railing/fence/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, target) == dir)
 		return 0
 	return 1
@@ -223,6 +245,8 @@
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 
 /obj/structure/bars/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(isobserver(mover))
 		return 1
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))
@@ -431,6 +455,8 @@
 		// . += span_info("(Round Time: [gameTimestamp("hh:mm:ss", REALTIMEOFDAY - SSticker.round_start_irl)].)")
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return 1
@@ -642,6 +668,8 @@
 
 
 /obj/structure/fluff/statue/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return !density
@@ -666,6 +694,13 @@
 /obj/structure/fluff/statue/knight
 	icon_state = "knightstatue_l"
 
+/obj/structure/fluff/statue/OnCrafted(dirin, mob/user)
+	. = ..()
+	for(var/obj/structure/fluff/statue/carving_block in contents)
+		dir = carving_block.dir
+		qdel(carving_block)
+	update_icon_state()
+
 /obj/structure/fluff/statue/astrata
 	name = "statue of Astrata"
 	desc = "Astrata, the Sun Queen, reigns over light, order, and conquest. She is worshipped and feared in equal measure."
@@ -675,6 +710,13 @@
 	blade_dulling = DULLING_BASH
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
+
+/obj/structure/fluff/statue/astrata/OnCrafted(dirin, mob/user)
+	. = ..()
+	pixel_x = -16
+
+/obj/structure/fluff/statue/astrata/bling
+	icon_state = "astrata_bling"
 
 /obj/structure/fluff/statue/knight/r
 	icon_state = "knightstatue_r"
@@ -715,6 +757,31 @@
 	pixel_x = -32
 	pixel_y = -16
 
+/obj/structure/fluff/statue/femalestatue/clean
+	icon_state = "12"
+
+/obj/structure/fluff/statue/femalestatue/alt
+	icon_state = "2"
+
+/obj/structure/fluff/statue/femalestatue/dancer
+	icon_state = "4"
+
+/obj/structure/fluff/statue/femalestatue/lying
+	icon_state = "5"
+
+/obj/structure/fluff/statue/femalestatue/cleanlying
+	icon_state = "52"
+
+/obj/structure/fluff/statue/musician
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "3"
+	pixel_x = -32
+
+/obj/structure/fluff/statue/musician/OnCrafted(dirin, mob/user)
+	. = ..()
+	if(prob(20))
+		icon_state = "xylix"
+
 /obj/structure/fluff/telescope
 	name = "telescope"
 	desc = "A mysterious telescope pointing towards the stars."
@@ -749,6 +816,11 @@
 			to_chat(H, "<span class='warning'>The blinding light causes you intense pain!</span>")
 			if(affecting && affecting.receive_damage(0, 5))
 				H.update_damage_overlays()
+
+	if(message2send == "You can see noc rotating!")
+		if(do_after(H, 25, target = src))
+			to_chat(H, span_warning("Noc's glow seems to help clear your thoughts."))
+			H.apply_status_effect(/datum/status_effect/buff/nocblessing)
 
 /obj/structure/fluff/globe
 	name = "globe"
@@ -930,7 +1002,6 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	sellprice = 40
-	flags_1 = HEAR_1
 	var/chance2hear = 30
 	buckleverb = "crucifie"
 	can_buckle = 1
@@ -940,6 +1011,10 @@
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
 	var/shrine = FALSE	// used for some checks
+
+/obj/structure/fluff/psycross/Initialize()
+	. = ..()
+	become_hearing_sensitive()
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
@@ -951,6 +1026,8 @@
 	M.reset_offsets("bed_buckle")
 
 /obj/structure/fluff/psycross/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	if(shrine)
 		return
 	else if(get_dir(loc, mover) == dir)
@@ -980,7 +1057,7 @@
 
 /obj/structure/fluff/psycross/crafted/shrine
 	density = TRUE
-	plane = -1	// to keep the 3d effect when mob behind it
+	plane = -3	// to keep the 3d effect when mob behind it
 	layer = 4.1
 	can_buckle = FALSE
 	dir = SOUTH
@@ -1003,7 +1080,8 @@
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
 	if(user.mind)
-		if((user.mind.assigned_role == "Priest")	||	(user.mind.assigned_role == "Acolyte") && (user.patron.type == /datum/patron/divine/eora))
+		if((is_priest_job(user.mind.assigned_role)) \
+			|| (is_monk_job(user.mind.assigned_role) && (user.patron.type == /datum/patron/divine/eora)))
 
 			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
 				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
@@ -1102,208 +1180,6 @@
 					return
 	return ..()
 
-
-/*
-/obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
-	if(user.mind)
-		if(user.mind.assigned_role == "Priest")
-			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
-				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
-					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
-					return FALSE
-				var/marriage
-				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W
-
-				//The MARRIAGE TEST BEGINS
-				if(A.bitten_names.len)
-					if(A.bitten_names.len == 2)
-						//Groom provides the surname that the bride will take
-						var/mob/living/carbon/human/thegroom
-						var/mob/living/carbon/human/thebride
-						//Did anyone get cold feet on the wedding?
-						for(var/mob/M in viewers(src, 7))
-							testing("check [M]")
-							if(thegroom && thebride)
-								break
-							if(!ishuman(M))
-								continue
-							var/mob/living/carbon/human/C = M
-							/*
-							* This is for making the first biters name
-							* always be applied to the groom.
-							* second. This seems to be the best way
-							* to use the least amount of variables.
-							*/
-							var/name_placement = 1
-							for(var/X in A.bitten_names)
-								//I think that guy is dead.
-								if(C.stat == DEAD)
-									continue
-								//That person is not a player or afk.
-								if(!C.client)
-									continue
-								//Gotta get a divorce first
-								if(C.IsWedded())
-									continue
-								if(C.real_name == X)
-									//I know this is very sloppy but its alot less code.
-									switch(name_placement)
-										if(1)
-											if(thegroom)
-												continue
-											thegroom = C
-										if(2)
-											if(thebride)
-												continue
-											thebride = C
-									testing("foundbiter [C.real_name]")
-								name_placement++
-
-						//WE FOUND THEM LETS GET THIS SHOW ON THE ROAD!
-						if(!thegroom || !thebride)
-							testing("fail22")
-							return
-						//Alright now for the boring surname formatting.
-						var/surname2use
-						var/index = findtext(thegroom.real_name, " ")
-						var/bridefirst
-						thegroom.original_name = thegroom.real_name
-						thebride.original_name = thebride.real_name
-						if(!index)
-							surname2use = thegroom.dna.species.random_surname()
-						else
-							/*
-							* This code prevents inheriting the last name of
-							* " of wolves" or " the wolf"
-							* remove this if you want "Skibbins of wolves" to
-							* have his bride become "Sarah of wolves".
-							*/
-							if(findtext(thegroom.real_name, " of ") || findtext(thegroom.real_name, " the "))
-								surname2use = thegroom.dna.species.random_surname()
-								thegroom.change_name(copytext(thegroom.real_name, 1,index))
-							else
-								surname2use = copytext(thegroom.real_name, index)
-								thegroom.change_name(copytext(thegroom.real_name, 1,index))
-						index = findtext(thebride.real_name, " ")
-						if(index)
-							thebride.change_name(copytext(thebride.real_name, 1,index))
-						bridefirst = thebride.real_name
-						thegroom.change_name(thegroom.real_name + surname2use)
-						thebride.change_name(thebride.real_name + surname2use)
-						thegroom.MarryTo(thebride)
-						thegroom.adjust_triumphs(1)
-						thebride.adjust_triumphs(1)
-						//Bite the apple first if you want to be the groom.
-						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
-						marriage = TRUE
-						qdel(A)
-
-				if(!marriage)
-					A.burn()
-					return
-*/
-/*
-		if(user.mind.assigned_role == "Acolyte"  && user.patron.type == /datum/patron/divine/eora)
-			if(istype(W, /obj/item/reagent_containers/food/snacks/produce/apple))
-				if(!istype(get_area(user), /area/rogue/indoors/town/church/chapel))
-					to_chat(user, "<span class='warning'>I need to do this in the chapel.</span>")
-					return FALSE
-				var/marriage
-				var/obj/item/reagent_containers/food/snacks/produce/apple/A = W
-
-				//The MARRIAGE TEST BEGINS
-				if(A.bitten_names.len)
-					if(A.bitten_names.len == 2)
-						//Groom provides the surname that the bride will take
-						var/mob/living/carbon/human/thegroom
-						var/mob/living/carbon/human/thebride
-						//Did anyone get cold feet on the wedding?
-						for(var/mob/M in viewers(src, 7))
-							testing("check [M]")
-							if(thegroom && thebride)
-								break
-							if(!ishuman(M))
-								continue
-							var/mob/living/carbon/human/C = M
-							/*
-							* This is for making the first biters name
-							* always be applied to the groom.
-							* second. This seems to be the best way
-							* to use the least amount of variables.
-							*/
-							var/name_placement = 1
-							for(var/X in A.bitten_names)
-								//I think that guy is dead.
-								if(C.stat == DEAD)
-									continue
-								//That person is not a player or afk.
-								if(!C.client)
-									continue
-								//Gotta get a divorce first
-								if(C.IsWedded())
-									continue
-								if(C.real_name == X)
-									//I know this is very sloppy but its alot less code.
-									switch(name_placement)
-										if(1)
-											if(thegroom)
-												continue
-											thegroom = C
-										if(2)
-											if(thebride)
-												continue
-											thebride = C
-									testing("foundbiter [C.real_name]")
-								name_placement++
-
-						//WE FOUND THEM LETS GET THIS SHOW ON THE ROAD!
-						if(!thegroom || !thebride)
-							testing("fail22")
-							return
-						//Alright now for the boring surname formatting.
-						var/surname2use
-						var/index = findtext(thegroom.real_name, " ")
-						var/bridefirst
-						thegroom.original_name = thegroom.real_name
-						thebride.original_name = thebride.real_name
-						if(!index)
-							surname2use = thegroom.dna.species.random_surname()
-						else
-							/*
-							* This code prevents inheriting the last name of
-							* " of wolves" or " the wolf"
-							* remove this if you want "Skibbins of wolves" to
-							* have his bride become "Sarah of wolves".
-							*/
-							if(findtext(thegroom.real_name, " of ") || findtext(thegroom.real_name, " the "))
-								surname2use = thegroom.dna.species.random_surname()
-								thegroom.change_name(copytext(thegroom.real_name, 1,index))
-							else
-								surname2use = copytext(thegroom.real_name, index)
-								thegroom.change_name(copytext(thegroom.real_name, 1,index))
-						index = findtext(thebride.real_name, " ")
-						if(index)
-							thebride.change_name(copytext(thebride.real_name, 1,index))
-						bridefirst = thebride.real_name
-						thegroom.change_name(thegroom.real_name + surname2use)
-						thebride.change_name(thebride.real_name + surname2use)
-						thegroom.MarryTo(thebride)
-						thegroom.adjust_triumphs(1)
-						thebride.adjust_triumphs(1)
-						//Bite the apple first if you want to be the groom.
-						priority_announce("[thegroom.real_name] has married [bridefirst]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
-						marriage = TRUE
-						qdel(A)
-
-				if(!marriage)
-					A.burn()
-					return
-
-	return ..()
-
-*/
-
-
 /obj/structure/fluff/psycross/copper/Destroy()
 	addomen("psycross")
 	..()
@@ -1346,3 +1222,120 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+//..................................................................................................................................
+/*------------------------------------------------------------------------------------------------------------------------------------\
+|  Gaffer shit, yes I'm making my own place here just for that and maaan its cozy, in this gated community for myself and no one else |
+\------------------------------------------------------------------------------------------------------------------------------------*/
+
+/obj/structure/fluff/statue/gaffer
+	name = "Subdued Statue"
+	icon_state = "subduedstatue"
+	anchored = TRUE
+	density = FALSE
+	opacity = 0
+	blade_dulling = DULLING_BASHCHOP
+	max_integrity = 999999
+	deconstructible = FALSE
+	var/ring_destroyed = FALSE
+
+/obj/structure/fluff/statue/gaffer/Initialize()
+	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GAFFER_RING_DESTROYED, PROC_REF(ringdied))
+
+/obj/structure/fluff/statue/gaffer/proc/ringdied(datum/source)
+	SIGNAL_HANDLER
+	if(ring_destroyed == FALSE)
+		ring_destroyed = TRUE
+		update_icon()
+
+/obj/structure/fluff/statue/gaffer/update_icon()
+	if(ring_destroyed == TRUE)
+		icon_state = "subduedstatue_hasring"
+	if(ring_destroyed == FALSE)
+		icon_state = "subduedstatue"
+
+/obj/structure/fluff/statue/gaffer/examine(mob/user)
+	. = ..()
+	if(HAS_TRAIT(user, TRAIT_BURDEN))
+		. += "slumped and tortured, broken body pertrified and in pain, its chest rose and fell in synch with mine banishing any doubt left, it is me! my own visage glares back at me!"
+		user.add_stress(/datum/stressevent/ring_madness)
+		return
+	if(ring_destroyed == TRUE)
+		. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out, pleading, in its palms is a glowing ring..."
+		return
+	. += "a statue depicting a decapitated man writhing in chains on the ground, it holds its hands out, pleading"
+
+/obj/structure/fluff/statue/gaffer/attack_hand(mob/living/user)
+	. = ..()
+	if(!user.mind)
+		return
+	if(!ring_destroyed)
+		return
+	to_chat(user, span_danger("As you extend your hand over to the glowing ring, you feel a shiver go up your spine, as if unseen eyes turned to glare at you..."))
+	var/gaffed = alert(user, "Will you bear the burden? (Be the next Gaffer)", "YOUR DESTINY", "Yes", "No")
+
+	if(gaffed == "No" && ring_destroyed == TRUE)
+		to_chat(user, span_danger("yes...best to leave it alone."))
+		return
+
+	if((gaffed == "Yes") && Adjacent(user) && ring_destroyed == TRUE)
+		var/obj/item/ring = new /obj/item/clothing/ring/gold/burden(loc)
+		ADD_TRAIT(user, TRAIT_BURDEN, type)
+		user.put_in_hands(ring)
+		user.equip_to_slot_if_possible(ring, SLOT_RING, FALSE, FALSE, TRUE, TRUE)
+		to_chat(user, span_danger("Once your hand is close enough to the ring, it jumps upwards and burrows itself onto your palm"))
+		ring_destroyed = FALSE
+		update_icon()
+
+/obj/structure/fluff/statue/knight/interior/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "oknightstatue_l"
+	else if(dir == WEST)
+		icon_state = "oknightstatue_r"
+	else
+		icon_state = pick("oknightstatue_l", "oknightstatue_r")
+
+/obj/structure/fluff/statue/knightalt/gen/update_icon_state()
+	. = ..()
+	if(dir == EAST)
+		icon_state = "knightstatue2_l"
+	else if(dir == WEST)
+		icon_state = "knightstatue2_r"
+	else
+		icon_state = pick("knightstatue2_l", "knightstatue2_r")
+
+/obj/structure/fluff/statue/carving_block
+	name = "carving block"
+	desc = "Ready for sculpting."
+	icon_state = "block"
+	density = TRUE
+	anchored = FALSE
+	max_integrity = 100
+	debris = list(/obj/item/natural/stoneblock = 1)
+	drag_slowdown = 3
+
+/obj/structure/fluff/statue/carving_block/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation,ROTATION_ALTCLICK | ROTATION_CLOCKWISE, CALLBACK(src, PROC_REF(can_user_rotate)),CALLBACK(src, PROC_REF(can_be_rotated)),null)
+
+/obj/structure/fluff/statue/carving_block/proc/can_be_rotated(mob/user)
+	return TRUE
+
+/obj/structure/fluff/statue/carving_block/proc/can_user_rotate(mob/user)
+	var/mob/living/L = user
+
+	if(istype(L))
+		if(!user.canUseTopic(src, BE_CLOSE))
+			return FALSE
+		else
+			return TRUE
+	else if(isobserver(user) && CONFIG_GET(flag/ghost_interaction))
+		return TRUE
+	return FALSE
+
+/obj/structure/fluff/statue/carving_block/attack_right(mob/user)
+	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
+	if(rotcomp)
+		rotcomp.HandRot(rotcomp,user,ROTATION_CLOCKWISE)

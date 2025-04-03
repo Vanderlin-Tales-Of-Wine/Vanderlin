@@ -1,10 +1,18 @@
 /datum/job/merchant
 	title = "Merchant"
+	tutorial = "Born a wastrel in the dirt, you clawed your way up. Either by luck or, gods forbid, effort to earn a place in the Merchant's Guild.\
+	Now, you are either a ruthless economist or a disgraced steward from distant lands. Where you came from no longer matters.\
+	What matters now is you make sure the fools around you keep buying what you sell. Everything has a price."
 	flag = MERCHANT
-	department_flag = NOBLEMEN
-	faction = "Station"
+	department_flag = SERFS
+	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE )
+	display_order = JDO_MERCHANT
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
+	min_pq = 1
+	bypass_lastclass = TRUE
+	selection_color = "#192bc2"
 
 	allowed_races = list(
 		"Humen",
@@ -16,16 +24,9 @@
 		"Aasimar",
 		"Rakshari",
 	)
-	tutorial = "You were born into wealth, learning from before you could talk about the basics of mathematics. Counting coins is a simple pleasure for any person, but youve made it an artform. These people are addicted to your wares and you are the literal beating heart of this economy: Dont let these filthy-covered troglodytes ever forget that."
-
-	display_order = JDO_MERCHANT
-	bypass_lastclass = TRUE
 
 	outfit = /datum/outfit/job/merchant
-	bypass_lastclass = TRUE
 	give_bank_account = 100
-	min_pq = 1
-	selection_color = "#192bc2"
 
 /datum/outfit/job/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -49,7 +50,6 @@
 		shoes = /obj/item/clothing/shoes/gladiator
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 
 	H.change_stat(STATKEY_INT, 2)
 	H.change_stat(STATKEY_PER, 1)
