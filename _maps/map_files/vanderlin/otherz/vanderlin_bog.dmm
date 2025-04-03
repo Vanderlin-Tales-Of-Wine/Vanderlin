@@ -528,6 +528,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/decostone,
 /area/rogue/indoors/shelter/bog)
+"gh" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/dirt,
+/area/rogue/indoors/shelter/bog)
 "gi" = (
 /obj/structure/flora/tree/wise,
 /turf/open/floor/grass,
@@ -29896,7 +29900,7 @@ bj
 Xx
 YW
 YW
-Xx
+gh
 Xx
 hf
 hf

@@ -449,6 +449,10 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
+"sp" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/grass,
+/area/rogue/outdoors/woods)
 "sA" = (
 /turf/open/water/river{
 	dir = 8
@@ -40862,7 +40866,7 @@ UM
 UR
 wV
 wV
-UR
+sp
 Jg
 zg
 Qd
