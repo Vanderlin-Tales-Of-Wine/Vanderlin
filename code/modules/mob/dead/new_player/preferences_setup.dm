@@ -136,8 +136,8 @@
 			if(SSrole_class_handler)
 				for(var/ctag in previewJob.advclass_cat_rolls)
 					for(var/datum/advclass/class as anything in SSrole_class_handler.sorted_class_categories[ctag])
-						if(amogusclass.check_requirements(mannequin, dummy = TRUE))
-							possible_classes += amogusclass
+						if(class.check_requirements(mannequin, dummy = TRUE))
+							possible_classes += class
 			if(possible_classes.len > 0)
 				var/datum/advclass/chosen_class = pick(possible_classes)
 				chosen_outfit = chosen_class.outfit
