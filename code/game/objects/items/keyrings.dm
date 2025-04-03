@@ -273,3 +273,6 @@
 
 /obj/item/storage/keyring/stevedore
 	keys = list(/obj/item/key/warehouse, /obj/item/key/merchant)
+
+/obj/item/storage/keyring/gaffer
+	keys = list(/obj/item/key/gaffer, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary)

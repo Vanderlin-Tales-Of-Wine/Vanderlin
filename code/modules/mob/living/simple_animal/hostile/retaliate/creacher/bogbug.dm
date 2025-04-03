@@ -19,7 +19,8 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 1,
 						/obj/item/natural/hide = 1)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
-						/obj/item/natural/hide = 2)
+						/obj/item/natural/hide = 2,
+						/obj/item/natural/head/bug = 1)
 
 	health = BOGBUG_HEALTH
 	maxHealth = BOGBUG_HEALTH

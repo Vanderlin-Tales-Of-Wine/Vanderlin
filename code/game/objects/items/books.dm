@@ -896,3 +896,9 @@ ____________End of Example*/
 	if(iscarbon(owner))
 		var/mob/living/carbon/C = owner
 		C.remove_stress(/datum/stressevent/blessed)
+
+/obj/item/book/rogue/howtogaffer
+	name = "Dont be a gaff, the guild masters manual"
+	desc = "the author page has rotted off with time"
+	bookfile = "Gaff.json"
+	random_cover = TRUE
