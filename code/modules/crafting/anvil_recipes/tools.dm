@@ -66,11 +66,13 @@
 	name = "Copper Cooking Pot"
 	created_item = /obj/item/reagent_containers/glass/bucket/pot/copper
 
-/datum/anvil_recipe/tools/copper/platter
-	name = "Copper Platter"
+/datum/anvil_recipe/tools/copper/platters
+	name = "2x Copper Platters"
 	recipe_name = "a platter"
 	created_item = /obj/item/kitchen/platter/copper
 	craftdiff = 1
+	createmultiple = TRUE
+	createditem_num = 1
 
 // --------- IRON -----------
 
@@ -277,6 +279,20 @@
 	createditem_num = 4
 	craftdiff = 0
 
+/datum/anvil_recipe/tools/iron/chisel
+	name = "Iron Chisel"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/weapon/chisel/iron
+	i_type = "Tools"
+
+/datum/anvil_recipe/tools/iron/headhook
+	name = "Iron Headhook (+Fibers x2)"
+	recipe_name = "An iron headhook"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/natural/fibers = 2)
+	created_item = /obj/item/storage/hip/headhook
+	craftdiff = 3
+
 // --------- STEEL -----------
 
 /datum/anvil_recipe/tools/steel
@@ -338,6 +354,12 @@
 	createditem_num = 2
 	craftdiff = 0
 
+/datum/anvil_recipe/tools/chisel
+	name = "Steel Chisel"
+	recipe_name = "a Chisel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/weapon/chisel
+	i_type = "Tools"
 // --------- SILVER -----------
 
 /datum/anvil_recipe/tools/silver
@@ -378,27 +400,11 @@
 	createmultiple = TRUE
 	createditem_num = 2
 
-/datum/anvil_recipe/tools/headhook
-	name = "Iron Headhook (+Fibers x2)"
-	recipe_name = "An iron headhook"
-	req_bar = /obj/item/ingot/iron
-	additional_items = list(/obj/item/natural/fibers = 2)
-	created_item = /obj/item/storage/hip/headhook
-	craftdiff = 3
-
-/datum/anvil_recipe/tools/chisel
-	name = "Steel Chisel"
-	recipe_name = "a Chisel"
-	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/weapon/chisel
-	i_type = "Tools"
-
-/datum/anvil_recipe/tools/chisel/iron
-	name = "Iron Chisel"
-	req_bar = /obj/item/ingot/iron
-	created_item = /obj/item/weapon/chisel/iron
-
-/datum/anvil_recipe/tools/chisel/bronze
+//////////////////////////////////////////////////////////////////////////////////////////////
+// MISC  // should probably be moved to artificer table
+///////////////////////////////////////////////
+/datum/anvil_recipe/tools/bronze/chisel
 	name = "Bronze Chisel"
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/weapon/chisel/bronze
+	i_type = "Tools"
