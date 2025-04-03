@@ -3,16 +3,20 @@
 	i_type = "Armor"
 	craftdiff = 1
 	abstract_type = /datum/anvil_recipe/armor
+//For the sake of keeping the code modular with the introduction of new metals, each recipe has had it's main resource added to it's datum
+//This way, we can avoid having to name things in strange ways and can simply have iron/cuirass, stee/cuirass, blacksteel/cuirass->
+//-> and not messy names like ibreastplate and hplate
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 // --------- COPPER -----------
 
 /datum/anvil_recipe/armor/copper
 	abstract_type = /datum/anvil_recipe/armor/copper
 	craftdiff = 0 // for starters
 	req_bar = /obj/item/ingot/copper
+///////////////////////////////////////////////
 
-// Copper Armor
-
+// COPPER ARMOR
 /datum/anvil_recipe/armor/copper/cuirass
 	name = "Copper heart protector"
 	recipe_name = "a very simple armor piece for the chest"
@@ -33,33 +37,27 @@
 	recipe_name = "a mask of copper"
 	created_item = /obj/item/clothing/face/facemask/copper
 
-// Neck Armor
-
+// NECK ARMOR
 /datum/anvil_recipe/armor/copper/gorget
 	name = "Copper neck protector"
 	recipe_name = "a neck protector"
 	created_item = /obj/item/clothing/neck/gorget/copper
 
-// Helmets
-
+// HELMETS
 /datum/anvil_recipe/armor/copper/cap
 	name = "Lamellar cap"
 	recipe_name = "a copper cap"
 	created_item = /obj/item/clothing/head/helmet/coppercap
 
-
-//For the sake of keeping the code modular with the introduction of new metals, each recipe has had it's main resource added to it's datum
-//This way, we can avoid having to name things in strange ways and can simply have iron/cuirass, stee/cuirass, blacksteel/cuirass->
-//-> and not messy names like ibreastplate and hplate
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 // --------- IRON -----------
 /datum/anvil_recipe/armor/iron
 	req_bar = /obj/item/ingot/iron
 	craftdiff = 1
 	abstract_type = /datum/anvil_recipe/armor/iron
+///////////////////////////////////////////////
 
-// Iron Armor
-
+// IRON ARMOR
 /datum/anvil_recipe/armor/iron/splint
 	name = "Splint Armor (+Hide)"
 	recipe_name = "durable light armor"
@@ -71,8 +69,7 @@
 	recipe_name = "a breastplate"
 	created_item = /obj/item/clothing/armor/cuirass/iron
 
-// Iron Chain Armor
-
+// IRON CHAIN ARMOR
 /datum/anvil_recipe/armor/iron/chainmail
 	name = "Iron Maille"
 	recipe_name = "maille shirt"
@@ -95,15 +92,13 @@
 	createmultiple = TRUE
 	createditem_num = 1
 
-// NecK
-
+// IRON NECK ARMOR
 /datum/anvil_recipe/armor/iron/gorget
 	name = "Iron Gorget"
 	recipe_name = "a gorget"
 	created_item = /obj/item/clothing/neck/gorget
 
-// Iron Helmets
-
+// IRON HELMETS
 /datum/anvil_recipe/armor/iron/pothelmet
 	name = "Pot Helmet"
 	recipe_name = "a sturdy iron helmet"
@@ -119,8 +114,7 @@
 	recipe_name = "a skullcap"
 	created_item = /obj/item/clothing/head/helmet/skullcap
 
-// Iron Plates
-
+// IRON PLATE ARMOR
 /datum/anvil_recipe/armor/iron/plate
 	name = "Iron Plate Armor (+Bar x2)"
 	recipe_name = "heavy armor made of iron plates"
@@ -149,15 +143,16 @@
 	createditem_num = 1
 	craftdiff = 2
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 // --------- STEEL -----------
 
 /datum/anvil_recipe/armor/steel
 	req_bar = /obj/item/ingot/steel
 	craftdiff = 2 // this is the good stuff
 	abstract_type = /datum/anvil_recipe/armor/steel
+///////////////////////////////////////////////
 
-// Steel Chain Armor
-
+// STEEL CHAIN ARMOR
 /datum/anvil_recipe/armor/steel/chainleg
 	name = "Chain Chausses"
 	recipe_name = "a pair of Chain Chausses"
@@ -187,8 +182,7 @@
 	createmultiple = TRUE
 	createditem_num = 1
 
-// Steel Armor
-
+// STEEL ARMOR
 /datum/anvil_recipe/armor/steel/cuirass
 	name = "Steel Cuirass"
 	recipe_name = "a Cuirass"
@@ -215,16 +209,14 @@
 	created_item = /obj/item/clothing/armor/plate
 	craftdiff = 3
 
-// Steel Neck Armor
-
+// STEEL NECK ARMOR
 /datum/anvil_recipe/armor/steel/bevor
 	name = "Bevor"
 	recipe_name = "a Bevor"
 	created_item = /obj/item/clothing/neck/bevor
 	craftdiff = 2
 
-// Steel Helmets
-
+// STEEL HELMETS
 /datum/anvil_recipe/armor/steel/helmetbuc
 	name = "Great Helm"
 	recipe_name = "a Bucket Helmet"
@@ -309,8 +301,7 @@
 	created_item = /obj/item/clothing/head/helmet/heavy/decorated/bascinet
 	craftdiff = 4
 
-// Steel Plate Armor
-
+// STEEL PLATE ARMOR
 /datum/anvil_recipe/armor/steel/platemask
 	name = "Steel Mask"
 	recipe_name = "a Face Mask"
@@ -348,31 +339,32 @@
 	created_item = /obj/item/clothing/shoes/boots/armor
 	craftdiff = 4
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 // --------- GOLD -----------
 /datum/anvil_recipe/armor/gold
 	req_bar = /obj/item/ingot/gold
 	craftdiff = 3 // harder to work with . mostly jewelry
 	abstract_type = /datum/anvil_recipe/armor/gold
+///////////////////////////////////////////////
 
 /datum/anvil_recipe/armor/gold/mask
 	name = "Gold Mask"
 	created_item = /obj/item/clothing/face/facemask/goldmask
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 //-------- SILVER -----------
-//datum/anvil_recipe/armor/silver
-//	req_bar = /obj/item/ingot/silver
-//	craftdiff = 3 // same as gold
-//	abstract_type = /datum/anvil_recipe/armor/silver
+//TODO :
+///////////////////////////////////////////////
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 // --------- BLACKSTEEL -----------
 /datum/anvil_recipe/armor/blacksteel
 	req_bar = /obj/item/ingot/blacksteel
 	craftdiff = 5 // this is the good stuff
 	abstract_type = /datum/anvil_recipe/armor/blacksteel
+///////////////////////////////////////////////
 
-// Blacksteel Plate Armor
-
+// BLACKSTEEL PLATE ARMOR
 /datum/anvil_recipe/armor/blacksteel/platechest
 	name = "Blacksteel Plate Armor (+Bar x3)"
 	additional_items = list(/obj/item/ingot/blacksteel, /obj/item/ingot/blacksteel, /obj/item/ingot/blacksteel)
