@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(fake_world)
 
 	for(var/turf/open/floor/plasteel/maniac/floor in fake_world_constructs)
 		floor.icon_state = "concretefloor1"
-		floor.icon = 'icons/turf/roguefloor.dmi'
+		floor.icon = 'icons/turf/floors.dmi'
 
 	for(var/obj/structure/bed/fake_world/bed in fake_world_constructs)
 		bed.icon_state = "inn_bed"
@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(fake_world)
 
 	for(var/turf/open/floor/underworld/space/sparkle_quiet/fake_world/space in fake_world_constructs)
 		space.icon_state = "grass"
-		space.icon = 'icons/turf/roguefloor.dmi'
+		space.icon = 'icons/turf/floors.dmi'
 
 	sleep(rand(0.1, 0.25) SECONDS)
 

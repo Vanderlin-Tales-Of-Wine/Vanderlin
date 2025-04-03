@@ -4,7 +4,7 @@
 	//- floor_tile is now a path, and not a tile obj
 	name = "floor"
 	desc = ""
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	baseturfs = /turf/open/transparent/openspace
 	smooth = SMOOTH_FALSE
 	neighborlay = ""
