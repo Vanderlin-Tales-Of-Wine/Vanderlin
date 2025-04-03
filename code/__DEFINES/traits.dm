@@ -95,6 +95,7 @@
 
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
+#define TRAIT_BURDEN "Burdened" //Gaffer stuff
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -191,6 +192,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_GOODLOVER = span_love("It's a lucky thing to share my bed."), //STONEKEEP EDIT
 	TRAIT_DARKLING = span_info("I am a creature of the dark and am sensitive to the light. The hateful sun is especially harsh on my eyes, and I prefer to sleep during the dae."), //STONEKEEP EDIT
 	TRAIT_KAIZOKU = "Whether by birth or by learning, I've inherited the Islander ways instead of Imperial culture.", //STONEKEEP EDIT
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
 	))
 
 // trait accessor defines
