@@ -32,15 +32,14 @@
 	name = "canvas"
 	output = /obj/item/canvas
 	requirements = list(
-		/obj/item/paper/scroll = 2,
+		/obj/item/paper = 2,
 	)
-	starting_atom = /obj/item/paper/scroll
-	attacked_atom = /obj/item/paper/scroll
+	attacked_atom = /obj/item/natural/feather
+	starting_atom = /obj/item/paper
 
 	craft_time = 3 SECONDS
 	crafting_message = "starts weaving a canvas"
 	craftdiff = 0
-	uses_attacked_atom = TRUE
 
 /datum/repeatable_crafting_recipe/paintbrush
 	name = "paint brush"
