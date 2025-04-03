@@ -156,3 +156,13 @@
 	name = "Crossbow Bolt"
 	cost = 2
 	contains = /obj/item/ammo_casing/caseless/bolt
+
+/datum/supply_pack/weapons/tossbladeiron
+	name = "Iron Tossblade Belt"
+	cost = 20
+	contains = /obj/item/storage/belt/leather/knifebelt/black/iron
+
+/datum/supply_pack/weapons/tossbladesteel
+	name = "Steel Tossblade Belt"
+	cost = 40
+	contains = /obj/item/storage/belt/leather/knifebelt/black/steel

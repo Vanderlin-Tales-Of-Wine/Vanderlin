@@ -28,7 +28,7 @@
 /datum/supply_pack/seeds/berry
 	name = "Berry"
 	cost = 5
-	contains = /obj/item/neuFarm/seed/berryrogue
+	contains = /obj/item/neuFarm/seed/berry
 
 /datum/supply_pack/seeds/onion
 	name = "Onion"

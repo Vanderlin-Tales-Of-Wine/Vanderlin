@@ -267,3 +267,15 @@ SUBSYSTEM_DEF(treasury)
 		var/how_much = noble_incomes[welfare_dependant]
 		give_money_treasury(how_much, silent = TRUE)
 		give_money_account(how_much, welfare_dependant, "Vanderlin Noble Estate")
+
+/datum/controller/subsystem/treasury/proc/find_account(target)
+	if(!target)
+		return
+	var/target_name = target
+	if(ismob(target))
+		var/mob/target_mob = target
+		target_name = target_mob.real_name
+	for(var/X in bank_accounts)
+		if(X == target)
+			return TRUE
+	return FALSE
