@@ -139,7 +139,7 @@
 					for(var/datum/advclass/class as anything in SSrole_class_handler.sorted_class_categories[ctag])
 						if(class.check_requirements(mannequin))
 							possible_classes += class
-			if(possible_classes.len > 0)
+			if(length(possible_classes))
 				var/datum/advclass/chosen_class = pick(possible_classes)
 				chosen_outfit = chosen_class.outfit
 		else
