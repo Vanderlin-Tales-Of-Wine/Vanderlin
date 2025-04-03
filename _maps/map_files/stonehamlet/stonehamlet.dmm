@@ -14795,6 +14795,7 @@
 /obj/structure/table/wood/long{
 	dir = 10
 	},
+/obj/item/bearpelt,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uSw" = (

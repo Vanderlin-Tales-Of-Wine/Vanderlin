@@ -75,7 +75,7 @@
 	allowed_areas = list(/area/rogue/outdoors/rtfield/outlaw)
 
 /datum/mapGeneratorModule/ambushing/stonehamlet
-	spawnableAtoms = list(/obj/effect/landmark/ambush=10)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=16)
 	allowed_turfs = list(/turf/open/floor/dirt)
 	allowed_areas = list(/area/rogue/outdoors/rtfield/hamlet,/area/rogue/outdoors/rtfield/plague_district, /area/rogue/outdoors/rtfield/outlaw)
 	excluded_turfs = list(/turf/open/floor/dirt/road)
@@ -133,10 +133,11 @@
 							/obj/structure/flora/grass/bush_meagre = 2,
 							/obj/structure/flora/grass/maneater = 1,
 							/obj/structure/flora/grass/herb/random = 4,
-							/obj/structure/flora/grass = 2,
+							/obj/structure/flora/grass = 5,
 							/obj/structure/flora/grass/swampweed = 1,
 							/obj/item/grown/log/tree/stick = 1,
 							/obj/structure/flora/grass/maneater/real = 1,
+							/obj/structure/flora/rock/pebbles/bogmix = 1,
 							)
 	allowed_turfs = list(/turf/open/floor/grass)
 	spawnableTurfs = list(/turf/open/floor/dirt = 2)
@@ -145,7 +146,7 @@
 
 /datum/mapGeneratorModule/wetdirt
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
-	spawnableAtoms = list(/obj/structure/flora/rock/pebbles/bogmix = 6,
+	spawnableAtoms = list(/obj/structure/flora/rock/pebbles/bogmix = 8,
 						/obj/structure/flora/rock/pebbles/brown = 1,
 						/obj/item/reagent_containers/food/snacks/fogdart = 2)
 	allowed_turfs = list(/turf/open/floor/dirt)
@@ -153,7 +154,7 @@
 	excluded_turfs = list(/turf/open/floor/dirt/road)
 
 /datum/mapGeneratorModule/ambushing/wetlands
-	spawnableAtoms = list(/obj/effect/landmark/ambush=8)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
 	allowed_areas = list(/area/rogue/outdoors/bog/wetlands)
 	allowed_turfs = list(/turf/open/floor/dirt, /turf/open/floor/grass, /turf/open/water/swamp)
 
@@ -237,7 +238,7 @@
 	spawnableAtoms = list(/obj/structure/flora/grass/water = 20)
 
 /datum/mapGeneratorModule/ambushing/murderwoods
-	spawnableAtoms = list(/obj/effect/landmark/ambush=8)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
 	allowed_areas = list(/area/rogue/outdoors/woods)
 	allowed_turfs = list(/turf/open/floor/grass)
 
@@ -340,6 +341,6 @@
 	spawnableTurfs = list(/turf/open/floor/naturalstone/rough = 2)
 
 /datum/mapGeneratorModule/ambushing/bitterpeaks
-	spawnableAtoms = list(/obj/effect/landmark/ambush=5)
+	spawnableAtoms = list(/obj/effect/landmark/ambush=20)
 	allowed_areas = list(/area/rogue/outdoors/mountains/decap, /area/rogue/under/cavelava)
 	allowed_turfs = list(/turf/open/floor/snow, /turf/open/floor/naturalstone/rough)
