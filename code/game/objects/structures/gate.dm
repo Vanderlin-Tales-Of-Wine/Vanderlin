@@ -43,7 +43,6 @@ GLOBAL_LIST_EMPTY(biggates)
 	icon_state = "bar1"
 	base_state = "bar"
 	opacity = FALSE
-	crush_damage_type = BCLASS_STAB
 	crush_damage_multiplier = 0.6
 
 /obj/structure/gate/bars/preopen
@@ -61,23 +60,31 @@ GLOBAL_LIST_EMPTY(biggates)
 	opacity = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
-/obj/gblock/opaque
+/obj/gblock/not_opaque
 	opacity = FALSE
 
 /obj/structure/gate/Initialize()
 	. = ..()
 	update_icon()
 	var/turf/T = loc
-	var/G = new /obj/gblock(T)
+	if(!opacity)
+		G = new /obj/gblock/not_opaque(T)
+	else
+		G = new /obj/gblock(T)
 	turfsy += T
 	blockers += G
 	T = get_step(T, EAST)
-	if(opacity)
-	G = new /obj/gblock(T)
+	if(!opacity)
+		G = new /obj/gblock/not_opaque(T)
+	else
+		G = new /obj/gblock(T)
 	turfsy += T
 	blockers += G
 	T = get_step(T, EAST)
-	G = new /obj/gblock(T)
+	if(!opacity)
+		G = new /obj/gblock/not_opaque(T)
+	else
+		G = new /obj/gblock(T)
 	turfsy += T
 	blockers += G
 	if(is_big_gate)
