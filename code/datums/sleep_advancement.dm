@@ -132,8 +132,6 @@
 	retained_dust = dream_dust_modulo
 
 	sleep_adv_points += max(dream_points, 1)
-	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE))
-		sleep_adv_points += 1
 	sleep_adv_cycle++
 
 	show_ui(mind.current)
