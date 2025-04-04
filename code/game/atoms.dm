@@ -1035,7 +1035,7 @@
 
 	if(ismob(target))
 		var/mob/attacked_mob = target
-		var/was_typing = attacked_mob.hud_typing
+		was_typing = attacked_mob.hud_typing
 
 	var/typing_info = was_typing ? " TARGET WAS TYPING" : ""
 
