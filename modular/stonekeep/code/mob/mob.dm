@@ -389,3 +389,86 @@
 	icon_dead = null
 	color = "#a58ba2"
 
+
+/mob/living/simple_animal/hostile/insanegnome
+	name = "insane gnome"
+	desc = "Trapped alive for decades in stone is not good for your mental balance."
+	icon = 'modular/stonekeep/icons/mobs/insanegnome.dmi'
+	icon_state = "gnome"
+	icon_living = "gnome"
+	icon_dead = "gnome_dead"
+	gender = MALE
+	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	robust_searching = 1
+	speak_chance = 5
+	turns_per_move = 1
+	move_to_delay = 1
+	TOTALCON = 14
+	TOTALSTR = 12
+	TOTALSPD = 10
+	maxHealth = 80
+	health = 80
+	harm_intent_damage = 15
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	vision_range = 7
+	aggro_vision_range = 9
+	retreat_distance = 0
+	minimum_distance = 0
+	limb_destroyer = 1
+	base_intents = list(/datum/intent/simple/claw)
+	attack_verb_continuous = "rips"
+	attack_verb_simple = "rend"
+	attack_sound = 'sound/combat/wooshes/bladed/wooshmed (1).ogg'
+	dodge_sound = 'sound/combat/dodge.ogg'
+	canparry = FALSE
+	candodge = TRUE
+	dodge_prob = 50
+	d_intent = INTENT_DODGE
+	speak_emote = list("moans")
+	faction = list("Zizo")
+	footstep_type = FOOTSTEP_MOB_BAREFOOT
+	del_on_death = FALSE
+
+	can_have_ai = FALSE //disable native ai
+	AIStatus = AI_OFF
+	ai_controller = /datum/ai_controller/orc
+
+	remains_type = /obj/effect/decal/cleanable/ash
+/*
+/mob/living/simple_animal/hostile/zizombie/Initialize()
+	. = ..()
+	if(icon_state == "zombie1")
+		icon_state = "zombie[rand(1,4)]"
+		icon_living = "[icon_state]"
+
+/mob/living/simple_animal/hostile/zizombie/taunted(mob/user)
+	. = ..()
+	emote("aggro")
+
+/mob/living/simple_animal/hostile/zizombie/Life()
+	. = ..()
+	if(!target)
+		if(prob(3))
+			emote(pick( "moan"), TRUE)
+
+/mob/living/simple_animal/hostile/zizombie/get_sound(input)
+	switch(input)
+		if("moan")
+			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
+		if("death")
+			return pick('sound/vo/mobs/zombie/death (1).ogg','sound/vo/mobs/zombie/death (2).ogg','sound/vo/mobs/zombie/death (3).ogg')
+		if("aggro")
+			return pick('sound/vo/mobs/zombie/firescream (1).ogg','sound/vo/mobs/zombie/firescream (2).ogg','sound/vo/mobs/zombie/firescream (3).ogg')
+		if("idle")
+			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
+
+/mob/living/simple_animal/hostile/zizombie/death(gibbed)
+	emote("death")
+	..()
+	var/turf/deathspot = get_turf(src)
+	new /obj/effect/decal/remains/neu/human(deathspot)
+	update_icon()
+	sleep(10)
+	qdel(src)
+*/

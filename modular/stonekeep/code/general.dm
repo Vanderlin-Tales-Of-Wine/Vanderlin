@@ -358,6 +358,89 @@
 	drop_sound = 'sound/foley/dropsound/brick_drop.ogg'
 	attacked_sound = 	'modular/stonekeep/sound/stone_scrape.ogg'
 
+/obj/item/statue/gnome/attackby(obj/item/W, mob/living/user, params)
+	user.changeNext_move(CLICK_CD_MELEE)
+	var/list/offhand_types = typecacheof(list(/obj/item/weapon/hammer, /obj/item/natural/stone, /obj/item/natural/stoneblock))
+	var/item = user.get_inactive_held_item()
+	if(user.used_intent.type == /datum/intent/chisel && is_type_in_typecache(item, offhand_types))
+		var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
+		var/work_time = (4 SECONDS - (skill_level * 5))
+		if(istype(W, /obj/item/weapon/chisel))
+			var/obj/item/weapon/chisel/chisel = W
+			work_time *= chisel.time_multiplier
+		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
+		user.visible_message("<span class='info'>[user] begins chiseling [src] into blocks.</span>")
+		if(do_after(user, work_time))
+			playsound(src.loc, 'sound/vo/male/gen/agony (1).ogg', 20)
+			sleep(4)
+			new /obj/item/natural/stoneblock(get_turf(src.loc))
+			if(prob(50))
+				new /obj/effect/decal/cleanable/debris/stone(get_turf(src))
+			playsound(src.loc, 'sound/foley/smash_rock.ogg', 100)
+			sleep(1)
+			user.visible_message(span_info("There is a faint cry of agony as the statue is demolished. Must be the wind."))
+			qdel(src)
+			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
+		return TRUE
+	if(istype(W, /obj/item/stonetofleshpotion))
+		playsound(src, 'sound/foley/waterenter.ogg', 100, FALSE)
+		qdel(W)
+		sleep(10)
+		small_shake()
+		sleep(1)
+		small_shake()
+		sleep(1)
+		small_shake()
+		sleep(1)
+		small_shake()
+		sleep(1)
+		small_shake()
+		sleep(1)
+		small_shake()
+		sleep(1)
+		big_shake()
+		sleep(1)
+		big_shake()
+		sleep(1)
+		big_shake()
+		sleep(1)
+		big_shake()
+		sleep(1)
+		big_shake()
+		playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
+		new /obj/effect/decal/cleanable/debris/stone(get_turf(src))
+		new /mob/living/simple_animal/hostile/insanegnome(get_turf(src))
+		sleep(1)
+		qdel(src)
+	. = ..()
+
+/obj/item/statue/gnome/proc/small_shake()
+	var/start_y = pixel_y
+	pixel_y = start_y + 1
+	sleep(1)
+	pixel_y = start_y  // Move down
+
+/obj/item/statue/gnome/proc/big_shake()
+	var/start_y = pixel_y
+	var/start_x = pixel_x
+	pixel_y = start_y + 2
+	sleep(1)
+	pixel_y = start_y  // Move down
+	pixel_x = start_x + 1
+	sleep(1)
+	pixel_x = start_x
+	pixel_y = start_y + 2
+	pixel_y = start_y  // Ensure it resets to the original position
+	pixel_x = start_x
+
+/obj/item/stonetofleshpotion
+	name = "strange clay bottle"
+	desc = "It is stenciled in small letter: LET THY FLESH TURN FROM STONE TO FLESH ONCE AGAINE!"
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "stonetoflesh"
+	sellprice = 10
+	adventurer_artefact = TRUE
+
 /obj/structure/fluff/shipssprote
 	name = ""
 	desc = ""
@@ -975,6 +1058,8 @@
 /obj/item/storage/keyring/servinggirl
 	keys = list(/obj/item/key/tavern, /obj/item/key/bathhouse)
 
+/obj/item/storage/keyring/merchant_hamlet
+	keys = list(/obj/item/key/merchant)
 
 /obj/item/storage/meatbag
 	dropshrink = 0.8
@@ -1148,3 +1233,6 @@
 
 /obj/item/natural/bundle/stoneblock/four
 	amount = 4
+
+
+

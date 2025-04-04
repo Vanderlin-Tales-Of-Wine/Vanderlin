@@ -69,9 +69,16 @@
 	icon_state = "artefact"
 	probby = 100
 	spawned = list(
-		/obj/item/weapon/knife/dagger/steel/dirk/artefact = 50,
+		obj/item/weapon/knife/dagger/steel/dirk/artefact = 50,
 		/obj/item/clothing/neck/psycross/silver/dendor/artefact = 50,)
 
+/*	..................   Tower of the Wise Artefact  ................... */
+/obj/effect/spawner/map_spawner/artefact_wisetower	// bronze
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "artefact"
+	probby = 100
+	spawned = list(
+		/obj/item/stonetofleshpotion = 100)
 
 // ===================================================================================
 

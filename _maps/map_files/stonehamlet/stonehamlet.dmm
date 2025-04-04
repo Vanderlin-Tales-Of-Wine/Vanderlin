@@ -59,9 +59,10 @@
 "afw" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
-	lockid = "merchant";
+	lockid = null;
 	name = "shop"
 	},
+/obj/effect/mapping_helpers/door/access/town/merchant,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/shop)
 "afT" = (
@@ -2164,6 +2165,7 @@
 /obj/structure/closet/crate/chest/neu_fancy{
 	locked = 1;
 	lockid = "steward";
+	masterkey = 1;
 	name = "key chest"
 	},
 /obj/item/key/clinic,
@@ -2912,7 +2914,6 @@
 /area/rogue/indoors/town/clinic_large)
 "enq" = (
 /obj/structure/bookcase/random/myths,
-/obj/item/book/manners,
 /obj/item/book/robber,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
@@ -8445,9 +8446,10 @@
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1;
 	locked = 1;
-	lockid = "shop";
+	lockid = null;
 	name = "shop backdoor"
 	},
+/obj/effect/mapping_helpers/door/access/town/merchant,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/shop)
 "mgB" = (
@@ -10488,9 +10490,10 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
 	locked = 1;
-	lockid = "merchant";
+	lockid = null;
 	name = "merchants room"
 	},
+/obj/effect/mapping_helpers/door/access/town/merchant,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/shop)
 "oRg" = (
@@ -13107,7 +13110,6 @@
 /turf/open/floor/dirt/road,
 /area/rogue/under/town/basement)
 "sqY" = (
-/obj/item/book/manners,
 /obj/structure/closet/crate/chest/neu{
 	lockid = "butler"
 	},
@@ -14769,8 +14771,9 @@
 "uIv" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
-	lockid = "shop"
+	lockid = null
 	},
+/obj/effect/mapping_helpers/door/access/town/merchant,
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "uIx" = (
@@ -31621,8 +31624,8 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
+byK
+byK
 byK
 byK
 byK
@@ -31823,9 +31826,9 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
+shr
+shr
 shr
 shr
 shr
@@ -32025,13 +32028,13 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 tkU
 tkU
 tkU
 tkU
+shr
+shr
 shr
 shr
 shr
@@ -32227,8 +32230,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 tkU
 wgW
@@ -32239,6 +32240,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 xZR
 iqw
@@ -32429,8 +32432,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 tkU
 wgW
@@ -32441,6 +32442,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 xZR
 xZR
@@ -32631,8 +32634,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 tkU
 wgW
@@ -32643,6 +32644,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 xZR
 xZR
@@ -32833,8 +32836,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 tkU
 tkU
@@ -32845,6 +32846,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 slK
 xZR
@@ -33035,8 +33038,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 shr
 shr
@@ -33047,6 +33048,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 hpI
 xZR
@@ -33237,8 +33240,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 shr
 shr
@@ -33249,6 +33250,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 ovk
 xZR
@@ -33439,8 +33442,6 @@ wNn
 wNn
 wNn
 wNn
-wNn
-wNn
 byK
 shr
 shr
@@ -33451,6 +33452,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 bUc
 xZR
@@ -33642,8 +33645,6 @@ byK
 byK
 byK
 byK
-byK
-byK
 shr
 shr
 shr
@@ -33653,6 +33654,8 @@ tkU
 tkU
 tkU
 tkU
+shr
+shr
 hxt
 oTd
 xZR
@@ -33847,14 +33850,14 @@ shr
 shr
 shr
 shr
+tkU
+tkU
+tkU
+tkU
+tkU
+tkU
 shr
 shr
-tkU
-tkU
-tkU
-tkU
-tkU
-tkU
 hxt
 cfB
 xZR
@@ -79693,7 +79696,7 @@ wjy
 cnH
 qle
 cnH
-lXv
+cnH
 cnH
 iXx
 sNs
@@ -92123,7 +92126,7 @@ shr
 shr
 shr
 kTh
-ckV
+kTh
 ckV
 kTh
 kTh
@@ -92324,9 +92327,9 @@ shr
 shr
 shr
 shr
+shr
 kWs
 ckV
-kTh
 brc
 kTh
 brc
