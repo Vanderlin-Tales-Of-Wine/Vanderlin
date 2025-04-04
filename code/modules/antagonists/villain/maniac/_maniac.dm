@@ -96,12 +96,14 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 			owner.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
 			owner.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 			var/obj/item/organ/heart/heart = dreamer.getorganslot(ORGAN_SLOT_HEART)
+			for(var/datum/status_effect/effect in dreamer.status_effects) //necessary to prevent exploits
+				dreamer.remove_status_effect(effect)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
-			dreamer.STASTR = 16
-			dreamer.STACON = 16
-			dreamer.STAEND = 16
+			dreamer.change_stat(STATKEY_STR, 16, set_stat = TRUE)
+			dreamer.change_stat(STATKEY_CON, 16, set_stat = TRUE)
+			dreamer.change_stat(STATKEY_END, 16, set_stat = TRUE)
 			if(heart) // clear any inscryptions, in case of being made maniac midround
 				heart.inscryptions = list()
 				heart.inscryption_keys = list()
@@ -130,9 +132,9 @@ GLOBAL_VAR_INIT(maniac_highlander, 0) // THERE CAN ONLY BE ONE!
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.set_patron(/datum/patron/inhumen/zizo)
-			dreamer.STASTR = STASTR
-			dreamer.STACON = STACON
-			dreamer.STAEND = STAEND
+			dreamer.change_stat(STATKEY_STR, STASTR - 16)
+			dreamer.change_stat(STATKEY_CON, STACON - 16)
+			dreamer.change_stat(STATKEY_END, STAEND - 16)
 			var/client/clinet = dreamer?.client
 			if(clinet) //clear screenshake animation
 				animate(clinet, dreamer.pixel_y)
