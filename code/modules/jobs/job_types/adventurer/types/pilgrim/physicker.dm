@@ -29,7 +29,7 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	backr = /obj/item/storage/backpack/satchel
-	barkl = /obj/item/storage/backpack/satchel/surgbag
+	backl = /obj/item/storage/backpack/satchel/surgbag
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
