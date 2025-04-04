@@ -17,7 +17,6 @@
 	if(stat < DEAD)
 		update_stat()
 
-
 ///Called when TRAIT_DEATHCOMA is added to the mob.
 /mob/living/proc/on_deathcoma_trait_gain(datum/source)
 	ADD_TRAIT(src, TRAIT_KNOCKEDOUT, TRAIT_DEATHCOMA)

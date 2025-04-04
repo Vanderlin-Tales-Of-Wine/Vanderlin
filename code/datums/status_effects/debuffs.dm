@@ -112,7 +112,6 @@
 	desc = ""
 	icon_state = "paralyze"
 
-
 //UNCONSCIOUS
 /datum/status_effect/incapacitating/unconscious
 	id = "unconscious"
@@ -127,7 +126,6 @@
 /datum/status_effect/incapacitating/unconscious/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
 	return ..()
-
 
 //SLEEPING
 /datum/status_effect/incapacitating/sleeping
@@ -150,7 +148,6 @@
 
 /datum/status_effect/incapacitating/sleeping/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_KNOCKEDOUT, TRAIT_STATUS_EFFECT(id))
-
 	var/area/this_area = get_area(owner)
 	SSdroning.play_area_sound(this_area, owner.client)
 	SSdroning.play_loop(this_area, owner.client)

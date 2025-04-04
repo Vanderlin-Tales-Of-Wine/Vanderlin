@@ -490,7 +490,6 @@
 	else if(getOxyLoss() <= 75)
 		REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)
 
-
 /mob/living/carbon/setOxyLoss(amount, updating_health = TRUE, forced = FALSE)
 	. = ..()
 	if(isnull(.))

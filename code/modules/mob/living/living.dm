@@ -2006,7 +2006,6 @@
 		if(DEAD)
 			log_combat(src, src, "died")
 
-
 ///Reports the event of the change in value of the buckled variable.
 /mob/living/proc/set_buckled(new_buckled)
 	if(new_buckled == buckled)
