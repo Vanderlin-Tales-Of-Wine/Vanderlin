@@ -551,15 +551,20 @@
 		return TRUE
 	if(stat == DEAD)
 		return TRUE
+	if(nausea <= 50 && MOBTIMER_EXISTS(src, MT_PUKE))
+		MOBTIMER_UNSET(src, MT_PUKE)
 	if(nausea >= 100)
+		if(!MOBTIMER_EXISTS(src, MT_PUKE))
+			MOBTIMER_SET(src, MT_PUKE)
+			to_chat(src, span_warning("I feel sick..."))
 		if(MOBTIMER_FINISHED(src, MT_PUKE, 16 SECONDS))
 			if(getorgan(/obj/item/organ/stomach))
 				MOBTIMER_SET(src, MT_PUKE)
-				to_chat(src, "<span class='warning'>I'm going to puke...</span>")
+				to_chat(src, span_warning("I'm going to puke..."))
 				addtimer(CALLBACK(src, PROC_REF(vomit), 50), rand(8 SECONDS, 15 SECONDS))
 		else
 			if(prob(3))
-				to_chat(src, "<span class='warning'>I feel sick...</span>")
+				to_chat(src, span_warning("I feel sick..."))
 
 	add_nausea(-1)
 

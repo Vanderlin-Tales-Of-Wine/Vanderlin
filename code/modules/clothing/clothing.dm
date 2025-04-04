@@ -434,6 +434,7 @@ BLIND     // can't see anything
 	block2add = initial(block2add)
 	body_parts_covered = initial(body_parts_covered)
 	prevent_crits = initial(prevent_crits)
+	gas_transfer_coefficient = initial(gas_transfer_coefficient)
 
 /obj/item/clothing/equipped(mob/user, slot)
 	if(hoodtype && slot != SLOT_ARMOR|SLOT_CLOAK)
