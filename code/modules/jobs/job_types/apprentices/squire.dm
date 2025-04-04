@@ -37,13 +37,10 @@
 	pants = /obj/item/clothing/pants/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/boots
 	belt = /obj/item/storage/belt/leather
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/manorguard
 
 /datum/job/squire/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 /datum/advclass/squire/lancer
 	name = "Pikeman Squire"

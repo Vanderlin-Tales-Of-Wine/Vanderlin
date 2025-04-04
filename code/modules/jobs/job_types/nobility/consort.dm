@@ -30,9 +30,6 @@
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
-	H.advsetup = TRUE
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 	SSfamilytree.AddRoyal(H, (H.gender == FEMALE) ? FAMILY_MOTHER : FAMILY_FATHER)
 	if(GLOB.keep_doors.len > 0)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)

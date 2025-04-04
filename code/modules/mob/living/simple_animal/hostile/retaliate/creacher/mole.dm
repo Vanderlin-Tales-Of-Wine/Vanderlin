@@ -28,7 +28,8 @@
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur/mole = 3,
 						/obj/item/alch/sinew = 2,
-						/obj/item/alch/bone = 1)
+						/obj/item/alch/bone = 1,
+						/obj/item/natural/head/mole = 1)
 
 	health = MOLE_HEALTH
 	maxHealth = MOLE_HEALTH

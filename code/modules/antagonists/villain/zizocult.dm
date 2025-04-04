@@ -168,6 +168,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
+	log_say("[src] has praised zizo! (zizo cultist verb)")
 
 /mob/living/carbon/human/proc/communicate()
 	set name = "Communicate with Cult"
