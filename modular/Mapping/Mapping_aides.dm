@@ -328,7 +328,7 @@
 /obj/structure/innocent_bush
 	name = "bush"
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/Trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	icon_state = "Trolls"
 	pixel_x = -16
 	layer = ABOVE_ALL_MOB_LAYER

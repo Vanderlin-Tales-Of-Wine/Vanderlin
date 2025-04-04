@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/retaliate/troll
-	icon = 'icons/roguetown/mob/monster/trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	name = "troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs."
 	icon_state = "Troll"
@@ -73,6 +73,7 @@
 	can_have_ai = FALSE
 
 	var/critvuln = FALSE
+	var/is_hidey = FALSE
 
 	//stone chucking ability
 	var/datum/action/cooldown/mob_cooldown/stone_throw/throwing_stone
@@ -164,11 +165,45 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
+/mob/living/simple_animal/hostile/retaliate/troll/LoseTarget()
+	..()
+	if(!is_hidey)
+		return
+	if(health > 0)
+		icon_state = "Trollso"
+
+/mob/living/simple_animal/hostile/retaliate/troll/Moved()
+	. = ..()
+	if(!is_hidey)
+		return
+	if(!icon_state == "Troll")
+		icon_state = "Troll"
+
+
+/mob/living/simple_animal/hostile/retaliate/troll/GiveTarget()
+	..()
+	if(!is_hidey)
+		return
+	icon_state = "Trolla"
+
+/mob/living/simple_animal/hostile/retaliate/troll/after_creation()
+	..()
+	if(!is_hidey)
+		return
+	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(src,1)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/nightmare
+	eyes.Insert(src)
+
 /mob/living/simple_animal/hostile/retaliate/troll/bog
 	name = "bog troll"
 	ai_controller = /datum/ai_controller/bog_troll
 	wander = FALSE		// bog trolls are ambush predators
 	turns_per_move = 4
+	is_hidey = TRUE
+
 	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
 						/obj/item/natural/hide = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
@@ -194,29 +229,14 @@
 	defprob = 30
 	defdrain = 13
 
-/mob/living/simple_animal/hostile/retaliate/troll/bog/LoseTarget()
-	..()
-	if(health > 0)
-		icon_state = "Trollso"
+/mob/living/simple_animal/hostile/retaliate/troll/cave
+	name = "cave troll"
+	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
 
-/mob/living/simple_animal/hostile/retaliate/troll/bog/Moved()
-	. = ..()
-	if(!icon_state == "Troll")
-		icon_state = "Troll"
-
-
-/mob/living/simple_animal/hostile/retaliate/troll/bog/GiveTarget()
-	..()
-	icon_state = "Trolla"
-
-/mob/living/simple_animal/hostile/retaliate/troll/bog/after_creation()
-	..()
-	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(src,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/nightmare
-	eyes.Insert(src)
+/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
+	is_hidey = TRUE
+	ai_controller = /datum/ai_controller/bog_troll
+	wander = FALSE
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.
