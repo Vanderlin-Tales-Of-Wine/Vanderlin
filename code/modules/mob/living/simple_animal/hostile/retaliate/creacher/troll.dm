@@ -59,6 +59,11 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
+	//ranged = TRUE
+	//ranged_cooldown = 5 SECONDS
+	//projectiletype = /obj/projectile/magic/acidsplash5e
+	//projectilesound = 'sound/vo/throat2.ogg'
+	//ranged_message = "spits"
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll
 	body_eater = TRUE
@@ -69,10 +74,16 @@
 
 	var/critvuln = FALSE
 
+	//stone chucking ability
+	var/datum/action/cooldown/mob_cooldown/stone_throw/throwing_stone
+
 /mob/living/simple_animal/hostile/retaliate/troll/Initialize()
 	. = ..()
 	if(critvuln)
 		ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
+	throwing_stone = new /datum/action/cooldown/mob_cooldown/stone_throw()
+	throwing_stone.Grant(src)
+	ai_controller.set_blackboard_key(BB_TARGETED_ACTION, throwing_stone)
 
 /mob/living/simple_animal/hostile/retaliate/troll/death(gibbed)
 	..()
@@ -153,6 +164,59 @@
 	gender = PLURAL
 	icon_state = "Trolld"
 
+/mob/living/simple_animal/hostile/retaliate/troll/bog
+	name = "bog troll"
+	ai_controller = /datum/ai_controller/bog_troll
+	wander = FALSE		// bog trolls are ambush predators
+	turns_per_move = 4
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/natural/hide = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/natural/hide = 3)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
+						/obj/item/natural/hide = 4)
+
+	health = BOGTROLL_HEALTH
+	maxHealth = BOGTROLL_HEALTH
+	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
+					/obj/item/bodypart,
+					/obj/item/organ)
+
+	base_intents = list(/datum/intent/simple/headbutt, /datum/intent/simple/bigbite)
+	melee_damage_lower = 30
+	melee_damage_upper = 50
+
+	TOTALCON = 16
+	TOTALSTR = 16
+	TOTALSPD = 3
+	TOTALEND = 15
+
+	defprob = 30
+	defdrain = 13
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog/LoseTarget()
+	..()
+	if(health > 0)
+		icon_state = "Trollso"
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog/Moved()
+	. = ..()
+	if(!icon_state == "Troll")
+		icon_state = "Troll"
+
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog/GiveTarget()
+	..()
+	icon_state = "Trolla"
+
+/mob/living/simple_animal/hostile/retaliate/troll/bog/after_creation()
+	..()
+	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
+	if(eyes)
+		eyes.Remove(src,1)
+		QDEL_NULL(eyes)
+	eyes = new /obj/item/organ/eyes/night_vision/nightmare
+	eyes.Insert(src)
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
 // The most foul, cruel and bad tempered feline-rodent you ever set eyes on.
