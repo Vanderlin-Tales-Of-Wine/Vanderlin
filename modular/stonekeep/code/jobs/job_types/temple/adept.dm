@@ -137,9 +137,3 @@
 		H.verbs |= /mob/living/carbon/human/proc/torture_victim
 		H.verbs |= /mob/living/carbon/human/proc/faith_test
 
-/datum/job/stonekeep/adept/after_spawn(mob/living/carbon/human/H, mob/M, latejoin = TRUE)
-	..()
-	if(H)
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")

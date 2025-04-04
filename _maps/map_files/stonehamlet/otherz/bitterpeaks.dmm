@@ -593,6 +593,7 @@
 /obj/item/paper,
 /obj/item/paper,
 /obj/item/book/granter/spell_points,
+/obj/effect/spawner/map_spawner/artefact_wisetower,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/towerofwise)
 "tj" = (

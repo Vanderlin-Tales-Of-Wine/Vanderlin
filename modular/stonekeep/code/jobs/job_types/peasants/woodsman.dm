@@ -21,14 +21,6 @@
 	apprentice_name = "Forager"
 	cmode_music = 'sound/music/cmode/combat_guard.ogg'
 
-/datum/job/stonekeep/woodsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
-
 /datum/outfit/job/stonekeep/woodsman/pre_equip(mob/living/carbon/human/H)
 	..()
 	pants = /obj/item/clothing/pants/tights/provisoner

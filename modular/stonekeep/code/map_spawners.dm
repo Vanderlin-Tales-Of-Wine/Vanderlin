@@ -69,7 +69,7 @@
 	icon_state = "artefact"
 	probby = 100
 	spawned = list(
-		obj/item/weapon/knife/dagger/steel/dirk/artefact = 50,
+		/obj/item/weapon/knife/dagger/steel/dirk/artefact = 50,
 		/obj/item/clothing/neck/psycross/silver/dendor/artefact = 50,)
 
 /*	..................   Tower of the Wise Artefact  ................... */

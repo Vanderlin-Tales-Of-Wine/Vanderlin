@@ -30,13 +30,6 @@ It´s pretty good. Also extra good mood boost for sex, but still a bit barebones
 
 	cmode_music = 'modular/stonekeep/kaizoku/sound/combat/combat_stormwarrior.ogg'
 
-/datum/job/stonekeep/nitemaiden/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(ishuman(L))
-		var/mob/living/carbon/human/H = L
-		H.advsetup = 1
-		H.invisibility = INVISIBILITY_MAXIMUM
-		H.become_blind("advsetup")
 
 //Universal stuff for all nitemaidens
 /datum/outfit/job/stonekeep/nitemaiden

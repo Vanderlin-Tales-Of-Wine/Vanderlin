@@ -1028,6 +1028,7 @@
 
 /obj/item/clothing/armor/medium/surcoat
 	color = CLOTHING_WINESTAIN_RED
+	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 
 /obj/item/clothing/armor/brigandine/coatplates
 	desc = "A heavy armor made of smaller overlapping plates. \
