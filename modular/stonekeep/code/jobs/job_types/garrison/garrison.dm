@@ -88,6 +88,13 @@ Design philosphy:
 	outfit = /datum/outfit/job/stonekeep/garrison/footman
 
 	category_tags = list(CTAG_GARRISON)
+	allowed_races = list(
+		"Humen",
+		"Changeling",
+		"Skylancer",
+		"Ogrun",
+		"Undine"
+	)
 
 /datum/outfit/job/stonekeep/garrison/footman/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -162,6 +169,13 @@ Design philosphy:
 	outfit = /datum/outfit/job/stonekeep/garrison/archer
 
 	category_tags = list(CTAG_GARRISON)
+	allowed_races = list(
+		"Humen",
+		"Changeling",
+		"Skylancer",
+		"Ogrun",
+		"Undine"
+	)
 
 /datum/outfit/job/stonekeep/garrison/archer/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -202,6 +216,13 @@ Design philosphy:
 	outfit = /datum/outfit/job/stonekeep/garrison/scout
 
 	category_tags = list(CTAG_GARRISON)
+	allowed_races = list(
+		"Humen",
+		"Changeling",
+		"Skylancer",
+		"Ogrun",
+		"Undine"
+	)
 
 /datum/outfit/job/stonekeep/garrison/scout/pre_equip(mob/living/carbon/human/H)
 	..()

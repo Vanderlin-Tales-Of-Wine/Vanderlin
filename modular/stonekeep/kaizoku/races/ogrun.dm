@@ -29,7 +29,7 @@
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
-	default_features = list("mcolor" = "FFF", "ears" = "ogrun", "horns" = "onihorn")
+	default_features = list("mcolor" = "FFF", "ears" = "Ogrun", "horns" = "Onihorn")
 	mutant_bodyparts = list("ears","horns")
 	use_skintones = 1
 	possible_ages = list(AGE_IMMORTAL) //Abyssariads are Immortal. However, Onis are the newest ones on the fold, and they become Orcs mentally if they stray away from Abyssor.
