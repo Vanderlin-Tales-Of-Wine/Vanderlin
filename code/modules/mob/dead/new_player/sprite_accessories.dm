@@ -1357,7 +1357,7 @@
 	gender = NEUTER
 	icon = 'icons/roguetown/mob/detail.dmi'
 	use_static = TRUE
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc", "abyssariad")
 
 /datum/sprite_accessory/detail/nothing
 	name = "Nothing"
@@ -1713,6 +1713,7 @@
 	specuse = list("tiefling")
 	color_src = SKINCOLOR
 	offsetti = TRUE
+
 
 /* Needs to be made selectable somehow. Tie to gender? Enable horn selection in char pref? I dunno. Sprites there anyways.
 /datum/sprite_accessory/horns/tieb_alt

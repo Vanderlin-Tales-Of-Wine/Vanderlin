@@ -37,7 +37,7 @@ Future plan:
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
-	default_features = list("mcolor" = "FFF", "ears" = "Upright", "tail_human" = "Onetail")
+	default_features = list("mcolor" = "FFF", "ears" = "Upright", "tail" = "Onetail" )
 	use_skintones = 1
 	possible_ages = list(AGE_IMMORTAL) //Abyssariads are Immortal. However, if they become stray from Abyssor - they suffer severe dementia, and after some decades, become Dais.
 //	skinned_type = /obj/item/stack/sheet/animalhide/human
@@ -67,8 +67,8 @@ Future plan:
 	// Qualities: +Dense muscles ; higher fast-twitch fiber
 	// =>Disadvantage: -Lower Stationary Acuity; They are better at noticing movements, bad at noticing stationary objects. Bad with bows by nature. Foxes have that IRL because of nightvision. At least they have more reason to have it than Dark Elves.
 	// -Low fat mass, high muscle mass. Streamlined body structure that minimizes resistance and maximizes intense muscular movements.
-	specstats = list("strength" = 1, "perception" = -2, "intelligence" = 2, "constitution" = -1, "endurance" = 1, "speed" = 1, "fortune" = 0) // Don't even bother making each gender different. Abyssariads are equals in championage.
-	specstats_f = list("strength" = 1, "perception" = -2, "intelligence" = 2, "constitution" = -1, "endurance" = 1, "speed" = 1, "fortune" = 0)
+	specstats = list("strength" = 0, "perception" = -2, "intelligence" = 2, "constitution" = -1, "endurance" = 1, "speed" = 1, "fortune" = 0) // Don't even bother making each gender different. Abyssariads are equals in championage.
+	specstats_f = list("strength" = 0, "perception" = -2, "intelligence" = 2, "constitution" = -1, "endurance" = 1, "speed" = 1, "fortune" = 0)
 	enflamed_icon = "widefire"
 	mutanttongue = /obj/item/organ/tongue/kitsune
 //	minrace_pq = 0

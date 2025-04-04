@@ -575,7 +575,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
-			*/
+
 			if(("ears" in pref_species.default_features) && !pref_species.use_f)
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
@@ -588,7 +588,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 				if(mutant_category >= MAX_MUTANT_ROWS)
 					dat += "</td>"
 					mutant_category = 0
-
+			*/
 			if(CONFIG_GET(flag/join_with_mutant_humans))
 
 				if(("wings" in pref_species.default_features) && GLOB.r_wings_list.len >1)

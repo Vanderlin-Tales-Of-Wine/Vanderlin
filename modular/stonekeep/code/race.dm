@@ -181,6 +181,7 @@
 	for their indifference to the suffering of their allies and unquestioning brutality. \
 	The aasimar who survived the war have been abandoned by Astrata, \
 	left to face an uncertain fate alongside the other races of Grimoria. \
+	\n\n\
 	It has been long since the Apotheosis and memories of their violent legacy have faded, \
 	but many still view these aasimar survivors as emotionally dull, stubborn, and simple-minded brutes... \
 	though this is not always the case. \
@@ -188,6 +189,7 @@
 	However, they possess less capacity for independent thought due to their wartime construction."
 
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mt_aasimar.dmi'
+	limbs_icon_f = 'icons/roguetown/mob/bodies/f/ft_aasimar.dmi'
 	hairyness = ""
 	specstats = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
 	specstats_f = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
@@ -207,7 +209,7 @@
 		"Empyrea" = "b7ad72",
 		"Gaeia" = "db904f",
 		"Celestial" = "e1c565",
-		"Olympia" = "cfdd9e",
+		"Olympia" = "b0b966",
 	))
 
 
@@ -265,11 +267,12 @@
 	possible_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 
 	desc = "<b>Tiefling</b><br>\
-	Tieflings, also known as Infernal-Spawn, are one of the younger peoples of Grimoria\
-	Having appeared during the time of the Apotheosis War, \
-	they are the offspring of of mortals who served Zizo and mated with their Spawn in unholy union. \
-	Legions of them served as the chattel army under the banners of Zizo and Graggar. \
-	After their crushing defeat, the Tieflings are said to have begged for mercy and were begrudgingly accepted, after proving for an age they could behave as a proper Pantheon worshipping race. \
+	Tieflings, also known as Infernal-Spawn, are one of the younger peoples of Grimoria, \
+	appearing during the time of the Apotheosis War. \
+	Said to be the offspring of of mortals who served Zizo and mated with their Spawn in unholy union, \
+	legions of them served as the chattel army under the banners of Zizo and Graggar. \
+	\n\n\
+	After their crushing defeat, Tieflings are said to have begged for mercy and were begrudgingly accepted, after abandoning their Lord. \
 	Facing much persecution and prejudice, these people have survived pogroms with remarkable resilience , \
 	many seeking a solitary and nomadic life without relying on the wider society to survive. \
 	Tieflings are less capable of creating offspring than most peoples, and only produce more tieflings due to their strong Zizo taint, so no half-breeds exist. \

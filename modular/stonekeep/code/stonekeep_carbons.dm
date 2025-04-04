@@ -620,11 +620,6 @@
 	..()
 	QDEL_NULL(sexcon)
 
-/*
-/mob/living/carbon/human/species/zizombie/npc_idle()
-	playsound(src, pick('modular/stonekeep/sound/vo/mobs/zizombie/zmoan1.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan2.ogg','modular/stonekeep/sound/vo/mobs/zizombie/zmoan3.ogg'), 100, FALSE)
-*/
-
 
 /mob/living/simple_animal/hostile/zizombie
 	name = "zizombie"
@@ -678,6 +673,10 @@
 		icon_state = "zombie[rand(1,4)]"
 		icon_living = "[icon_state]"
 
+/mob/living/simple_animal/hostile/zizombie/taunted(mob/user)
+	. = ..()
+	emote("aggro")
+
 /mob/living/simple_animal/hostile/zizombie/Life()
 	. = ..()
 	if(!target)
@@ -692,6 +691,8 @@
 			return pick('sound/vo/mobs/zombie/death (1).ogg','sound/vo/mobs/zombie/death (2).ogg','sound/vo/mobs/zombie/death (3).ogg')
 		if("aggro")
 			return pick('sound/vo/mobs/zombie/firescream (1).ogg','sound/vo/mobs/zombie/firescream (2).ogg','sound/vo/mobs/zombie/firescream (3).ogg')
+		if("idle")
+			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
 
 /mob/living/simple_animal/hostile/zizombie/death(gibbed)
 	emote("death")
