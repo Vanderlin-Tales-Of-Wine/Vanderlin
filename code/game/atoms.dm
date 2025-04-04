@@ -1030,6 +1030,14 @@
 /proc/log_combat(atom/user, atom/target, what_done, atom/object=null, addition=null)
 	var/ssource = key_name(user)
 	var/starget = key_name(target)
+	/// was the target typing a message when attacked?
+	var/was_typing
+
+	if(ismob(target))
+		var/mob/attacked_mob = target
+		var/was_typing = attacked_mob.hud_typing
+
+	var/typing_info = was_typing ? " TARGET WAS TYPING" : ""
 
 	var/mob/living/living_target = target
 	var/hp = istype(living_target) ? " (NEWHP: [living_target.health]) " : ""
@@ -1043,11 +1051,11 @@
 
 	var/postfix = "[sobject][saddition][hp]"
 
-	var/message = "has [what_done] [starget][postfix]"
+	var/message = "has [what_done] [starget][postfix][typing_info]"
 	user.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
-		var/reverse_message = "has been [what_done] by [ssource][postfix]"
+		var/reverse_message = "has been [what_done] by [ssource][postfix][typing_info]"
 		target.log_message(reverse_message, LOG_ATTACK, color="orange", log_globally=FALSE)
 
 /**
