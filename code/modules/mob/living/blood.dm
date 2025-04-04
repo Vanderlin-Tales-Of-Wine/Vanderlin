@@ -91,6 +91,7 @@
 			remove_status_effect(/datum/status_effect/debuff/bleeding)
 			remove_status_effect(/datum/status_effect/debuff/bleedingworse)
 			remove_status_effect(/datum/status_effect/debuff/bleedingworst)
+			REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, BLOODLOSS_TRAIT)
 			return
 
 	//Blood regeneration if there is some space
