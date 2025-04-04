@@ -110,7 +110,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 
 /area/rogue/outdoors/rtfield
-	name = "rockhill basin"
+	name = "town basin"
 	icon_state = "rtfield"
 	soundenv = 19
 	ambush_times = list("night","dawn","dusk","day")
