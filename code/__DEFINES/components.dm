@@ -213,7 +213,7 @@
 	#define SPEECH_SPANS 3
 	#define SPEECH_LANGUAGE 5
 	/* #define SPEECH_SANITIZE 4
-	
+
 	#define SPEECH_IGNORE_SPAM 6
 	#define SPEECH_FORCED 7 */
 #define COMSIG_MOB_DEADSAY "mob_deadsay" // from /mob/say_dead(): (mob/speaker, message)
@@ -290,6 +290,7 @@
 #define COMSIG_ITEM_AFTERATTACK "item_afterattack"				//from base of obj/item/afterattack(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_ATTACK_QDELETED "item_attack_qdeleted"		//from base of obj/item/attack_qdeleted(): (atom/target, mob/user, params)
 #define COMSIG_ITEM_EQUIPPED "item_equip"						//from base of obj/item/equipped(): (/mob/equipper, slot)
+#define COMSIG_ITEM_SPEC_ATTACKEDBY "item_spec_attackedby"		//from base of datum/species/proc/spec_attacked_by: (atom/target, mob/user, params)
 /// A mob has just equipped an item. Called on [/mob] from base of [/obj/item/equipped()]: (/obj/item/equipped_item, slot)
 #define COMSIG_MOB_EQUIPPED_ITEM "mob_equipped_item"
 /// A mob has just unequipped an item.
@@ -309,6 +310,10 @@
 #define COMSIG_ITEM_HIT_REACT "item_hit_react"					//from base of obj/item/hit_reaction(): (list/args)
 #define COMSIG_ITEM_HIT_RESPONSE "item_hit_response"
 #define COMSIG_ITEM_WEARERCROSSED "wearer_crossed"                //called on item when crossed by something (): (/atom/movable, mob/living/crossed)
+
+//signal for gaffer ring destroyed, if you dont like my location send me rod directly into my
+
+#define COMSIG_GAFFER_RING_DESTROYED "gaffer_ring_destroyed"
 
 // /obj/item/clothing signals
 #define COMSIG_CLOTHING_STEP_ACTION "clothing_step_action"			//from base of obj/item/clothing/shoes/proc/step_action(): ()
