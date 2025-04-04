@@ -11315,6 +11315,9 @@
 /obj/item/coin/silver/pile,
 /obj/item/coin/copper/pile,
 /obj/item/clothing/face/cigarette/rollie/cannabis,
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "hCo" = (
@@ -33888,6 +33891,9 @@
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
 "xly" = (
+/obj/machinery/light/fueled/wallfire/candle/l{
+	pixel_x = 32
+	},
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/manor)
 "xlH" = (
