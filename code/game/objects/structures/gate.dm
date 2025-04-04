@@ -19,7 +19,19 @@ GLOBAL_LIST_EMPTY(biggates)
 	var/gid
 	attacked_sound = list('sound/combat/hits/onmetal/sheet (1).ogg', 'sound/combat/hits/onmetal/sheet (2).ogg')
 	var/obj/structure/attached_to
-
+	/// this is dumb but I'm not refactoring this right meow.
+	var/is_big_gate = TRUE
+	/// which bodyparts we affect when crushing a carbon mob.
+	var/static/list/bodyparts_to_crush = list(
+			BODY_ZONE_HEAD,
+			BODY_ZONE_CHEST,
+			BODY_ZONE_L_ARM,
+			BODY_ZONE_R_ARM,
+			BODY_ZONE_L_LEG,
+			BODY_ZONE_R_LEG,
+		)
+	/// damage multiplier for crushing
+	var/crush_damage_multiplier = 1
 /obj/structure/gate/preopen
 	icon_state = "gate0"
 
@@ -31,6 +43,8 @@ GLOBAL_LIST_EMPTY(biggates)
 	icon_state = "bar1"
 	base_state = "bar"
 	opacity = FALSE
+	crush_damage_type = BCLASS_STAB
+	crush_damage_multiplier = 0.6
 
 /obj/structure/gate/bars/preopen
 	icon_state = "bar0"
@@ -47,23 +61,27 @@ GLOBAL_LIST_EMPTY(biggates)
 	opacity = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
+/obj/gblock/opaque
+	opacity = FALSE
+
 /obj/structure/gate/Initialize()
 	. = ..()
 	update_icon()
-	if(initial(opacity))
-		var/turf/T = loc
-		var/G = new /obj/gblock(T)
-		turfsy += T
-		blockers += G
-		T = get_step(T, EAST)
-		G = new /obj/gblock(T)
-		turfsy += T
-		blockers += G
-		T = get_step(T, EAST)
-		G = new /obj/gblock(T)
-		turfsy += T
-		blockers += G
-	GLOB.biggates += src
+	var/turf/T = loc
+	var/G = new /obj/gblock(T)
+	turfsy += T
+	blockers += G
+	T = get_step(T, EAST)
+	if(opacity)
+	G = new /obj/gblock(T)
+	turfsy += T
+	blockers += G
+	T = get_step(T, EAST)
+	G = new /obj/gblock(T)
+	turfsy += T
+	blockers += G
+	if(is_big_gate)
+		GLOB.biggates += src
 
 /obj/structure/gate/Destroy()
 	for(var/A in blockers)
@@ -114,7 +132,7 @@ GLOBAL_LIST_EMPTY(biggates)
 	sleep(10)
 	for(var/turf/T in turfsy)
 		for(var/mob/living/M in T)
-			M.gib()
+			crush(M)
 	density = initial(density)
 	opacity = initial(opacity)
 	layer = initial(layer)
@@ -122,6 +140,17 @@ GLOBAL_LIST_EMPTY(biggates)
 		B.opacity = TRUE
 	isSwitchingStates = FALSE
 	update_icon()
+
+/obj/structure/gate/proc/crush(mob/living/crushed_mob)
+	if(iscarbon(crushed_mob))
+		var/mob/living/carbon/crushed_carbon = crushed_mob
+		for(var/limb_index in bodyparts_to_crush)
+			var/limb_to_crush = crushed_carbon.get_bodypart(limb_index)
+			if(limb_to_crush)
+				crushed_carbon.apply_damage(crush_damage_multiplier * rand(120, 240), BRUTE, limb_to_crush, crushed_carbon.run_armor_check(limb_to_crush, "blunt"))
+		crushed_carbon.update_damage_overlays()
+		return
+	crushed_mob.gib()
 
 /obj/structure/winch
 	name = "winch"
