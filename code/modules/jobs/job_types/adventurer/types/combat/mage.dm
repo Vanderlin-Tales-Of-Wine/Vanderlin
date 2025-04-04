@@ -19,9 +19,6 @@
 	maximum_possible_slots = 2
 	cmode_music = 'sound/music/cmode/adventurer/CombatSorcerer.ogg'
 
-/datum/outfit/job/adventurer/mage
-	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
-
 /datum/outfit/job/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
