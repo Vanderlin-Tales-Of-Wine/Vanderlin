@@ -1978,7 +1978,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/shelter/bog)
 "Ad" = (
-/mob/living/simple_animal/hostile/retaliate/trollbog,
+/mob/living/simple_animal/hostile/retaliate/troll/bog,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave)
 "Ag" = (
