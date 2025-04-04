@@ -114,6 +114,9 @@
 				. += span_love(span_bold("[self_inspect ? "I am" : "[t_He] is"] [is_male ? "handsome" : "beautiful"]!"))
 			if(HAS_TRAIT(src, TRAIT_UGLY))
 				. += span_necrosis(span_bold("[self_inspect ? "I am" : "[t_He] is"] hideous."))
+			if(HAS_TRAIT(src, TRAIT_NOBLE))
+				. += span_notice("A noble!")
+
 
 		if(HAS_TRAIT(src, TRAIT_FOREIGNER) && !HAS_TRAIT(user, TRAIT_FOREIGNER))
 			. += span_phobia("A foreigner...")
@@ -153,9 +156,6 @@
 
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		. += span_necrosis("A LEPER...")
-
-	if(HAS_TRAIT(src, TRAIT_NOBLE))
-		. += span_notice("A noble!")
 
 	if(user != src)
 		var/datum/mind/Umind = user.mind
