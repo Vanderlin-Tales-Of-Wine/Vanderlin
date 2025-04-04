@@ -229,6 +229,12 @@
 		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
 
+	if(length(advclass_cat_rolls))
+		var/mob/living/carbon/human/humanguy = spawned
+		humanguy.advsetup = TRUE
+		humanguy.invisibility = INVISIBILITY_MAXIMUM
+		humanguy.become_blind("advsetup")
+
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
 		announce_head(joining_mob, head_announce)
@@ -316,7 +322,7 @@
 		else
 			H.set_patron(default_patron || pick(possiblegods))
 		if(old_patron != H.patron) // If the patron we selected first does not match the patron we end up with, display the message.
-			to_chat(H, "<span class='warning'>I've followed the word of [old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron].")
+			to_chat(H, "<span class='warning'>I've followed the word of [old_patron.display_name ? old_patron.display_name : old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron.display_name? H.patron.display_name : H.patron].")
 
 	if(H.mind)
 		if(H.dna)

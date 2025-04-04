@@ -16,18 +16,11 @@
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
 	allowed_races = ALL_PLAYER_RACES_BY_NAME
 
-	outfit = /datum/outfit/job/servant
 	give_bank_account = TRUE
 
 	can_have_apprentices = FALSE
 
 	advclass_cat_rolls = list(CTAG_SERVANT = 20)
-
-/datum/job/servant/after_spawn(mob/living/carbon/spawned, client/player_client)
-	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 /datum/outfit/job/servant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -97,3 +90,17 @@
 	..()
 	if(H.mind)
 		neck = /obj/item/key/matron
+
+/datum/advclass/servant/gaffer_assistant
+	name = "Ring's Servant"
+	tutorial = "I never had what it took to be a mercenary, but I offered my service to the guild regardless. \
+	my vow is to serve whomever has the ring of burden, but I know to avoid its curse my self"
+	outfit = /datum/outfit/job/servant/gaffer_assistant
+	maximum_possible_slots = 1
+
+	category_tags = list(CTAG_SERVANT)
+
+/datum/outfit/job/servant/gaffer_assistant/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.mind)
+		neck = /obj/item/key/gaffer
