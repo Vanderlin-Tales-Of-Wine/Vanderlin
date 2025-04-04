@@ -42,10 +42,10 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 ///// DOOR TYPES //////
 /obj/structure/mineral_door/secret/vault
 	vip = list(
-	/datum/job/lord
-	/datum/job/consort
-	/datum/job/steward
-	/datum/job/hand
+	/datum/job/lord,
+	/datum/job/consort,
+	/datum/job/steward,
+	/datum/job/hand,
 	)
 
 /obj/structure/mineral_door/secret/merchant
