@@ -24,7 +24,6 @@
 	gloves =  /obj/item/clothing/gloves/leather
 	belt = /obj/item/storage/belt/leather/rope
 	beltr = /obj/item/reagent_containers/glass/bottle/stronghealthpot
-	beltl = /obj/item/weapon/knife/dagger/steel/dirk
 	backr = /obj/item/storage/backpack/satchel
 	backl = /obj/item/weapon/polearm/spear/stone/copper
 	pants = /obj/item/clothing/pants/trou/leather/heavy
@@ -96,6 +95,7 @@
 /datum/migrant_role/sk/zizo/hellgoblin/after_spawn(mob/living/carbon/human/character)
 	. = ..()
 	character.forceMove(pick(GLOB.zizo_starts))
+	sleep(10)
 	var/mob/living/carbon/human/species/goblin/npc/N = new (get_turf(src))
 	N.key = character.key
 	qdel(character)

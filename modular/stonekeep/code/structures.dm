@@ -692,10 +692,10 @@
 
 /obj/structure/flora/shroom_tree_neu/Initialize()
 	. = ..()
-	icon_state = "[base_icon_state]_[rand(1,7)]"
+	icon_state = "[base_icon_state]_[rand(1,4)]"
+	dir = pick(GLOB.cardinals)
 	pixel_x += rand(2,-2)
 	pixel_y += rand(2,-2)
-
 
 /obj/structure/flora/shroom_tree_neu/fire_act(added, maxstacks)
 	if(added > 5)
