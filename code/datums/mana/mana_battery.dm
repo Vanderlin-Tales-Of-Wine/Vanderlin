@@ -221,6 +221,6 @@
 	maximum_mana_capacity = 1000
 	softcap = 1000
 	amount = 0
-	ethereal_recharge_rate = 0
+	ethereal_recharge_rate = 1
 	intrinsic_recharge_sources = MANA_ALL_PYLONS
 	draws_beams = TRUE
