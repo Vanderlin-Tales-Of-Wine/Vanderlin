@@ -263,6 +263,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(isliving(AM))
 		var/mob/living/L = AM
 		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
+		AM.log_message("has activated a pressure plate", LOG_GAME)
 		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
 
 /obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
