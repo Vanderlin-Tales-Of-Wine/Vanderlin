@@ -525,7 +525,6 @@
 #include "code\datums\ai\behaviours\hostile\melee_attack.dm"
 #include "code\datums\ai\controllers\big_rat.dm"
 #include "code\datums\ai\controllers\bog_bug.dm"
-#include "code\datums\ai\controllers\bog_troll.dm"
 #include "code\datums\ai\controllers\gote.dm"
 #include "code\datums\ai\controllers\headless.dm"
 #include "code\datums\ai\controllers\human_bum.dm"

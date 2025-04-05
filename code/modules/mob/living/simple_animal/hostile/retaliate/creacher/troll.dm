@@ -59,11 +59,6 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
-	//ranged = TRUE
-	//ranged_cooldown = 5 SECONDS
-	//projectiletype = /obj/projectile/magic/acidsplash5e
-	//projectilesound = 'sound/vo/throat2.ogg'
-	//ranged_message = "spits"
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll
 	body_eater = TRUE
@@ -232,10 +227,11 @@
 /mob/living/simple_animal/hostile/retaliate/troll/cave
 	name = "cave troll"
 	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
+	ai_controller = /datum/ai_controller/troll/cave
 
 /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
 	is_hidey = TRUE
-	ai_controller = /datum/ai_controller/bog_troll
+	ai_controller = /datum/ai_controller/troll/ambush
 	wander = FALSE
 
 // You know I had to. Hostile, killer cabbit. Strong. Fast. But not as durable.
