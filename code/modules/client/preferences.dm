@@ -1051,6 +1051,21 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 			"}
 
+			if(length(job.advclass_cat_rolls))
+				var/adv_class_text = "<b>Possible Advanced Classes:</b>"
+				if(SSrole_class_handler)
+					for(var/ctag in job.advclass_cat_rolls)
+						for(var/datum/advclass/possible_advclass in SSrole_class_handler.sorted_class_categories[ctag])
+							if(possible_advclass.check_client_requirements(user.client))
+								adv_class_text += "<br>[possible_advclass], [clamp(possible_advclass.pickprob + max((get_playerquality(user.client.ckey))/2, 0), 0, 100)]%"
+					HTML += {"
+						<div class='tutorialhover' style='display: inline-block;'>(?)
+							<span class='tutorial' style='text-align: left; width: 200px; margin-left: -100px;'>
+								[adv_class_text]
+							</span>
+						</div>
+					"}
+
 			HTML += "</td><td width='40%'>"
 
 			var/prefLevelLabel = "ERROR"
