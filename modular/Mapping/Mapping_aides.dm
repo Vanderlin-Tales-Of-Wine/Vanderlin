@@ -328,7 +328,7 @@
 /obj/structure/innocent_bush
 	name = "bush"
 	desc = "These large bushes are known to be well-liked by silkworms who make their nests in their dark depths."
-	icon = 'icons/roguetown/mob/monster/Trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/default_troll.dmi'
 	icon_state = "Trolls"
 	pixel_x = -16
 	layer = ABOVE_ALL_MOB_LAYER
@@ -340,30 +340,75 @@
 //	user.visible_message(span_noticesmall("[user] searches through [src]."))
 //	shake_camera(user, 2, 2)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/troll/bog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/attackby(obj/item, /mob/living/user, params)
 //	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
 //	shake_camera(user, 2, 2)
-	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/troll/bog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/Bumped(atom/movable/AM)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/troll/bog (get_turf(src))
 	qdel(src)
 
 /obj/structure/innocent_bush/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
 	sleep(4)
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-	new /mob/living/simple_animal/hostile/retaliate/trollbog (get_turf(src))
+	new /mob/living/simple_animal/hostile/retaliate/troll/bog (get_turf(src))
 	qdel(src)
 
+/obj/structure/innouous_rock
+	name = "mana crystal deposit"
+	desc = "These large mana crystals deposit are known to bring fortune to miners who ventures into the deep dark depths of the world."
+	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
+	icon_state = "Trolls"
+	pixel_x = -16
+	layer = ABOVE_ALL_MOB_LAYER
+	max_integrity = 500
+	density = TRUE
+	var/fake_rock = TRUE
 
+/obj/structure/innouous_rock/Initialize()
+	. = ..()
+	if(prob(50))
+		fake_rock = FALSE // 50/50 of it being real. have fun :)
+
+/obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
+	if(fake_rock)
+		spawn_troll()
+		return
+	to_chat(user, span_notice("You carefully detach the crystals from the rock..."))
+	if(!do_after(user, 3 SECONDS, src))
+		to_chat(user, span_warning("The crystals crumbles as you try to detach it!"))
+		qdel(src)
+		return
+	to_chat(user, span_warning("You sucessfully detach the crystals from the rock!"))
+	new /obj/item/natural/rock/mana_crystal(loc)
+	qdel(src)
+
+/obj/structure/innouous_rock/attackby(obj/item, mob/living/user, params)
+	. = ..()
+	if(fake_rock)
+		spawn_troll()
+
+/obj/structure/innouous_rock/Bumped(atom/movable/AM)
+	if(fake_rock)
+		spawn_troll()
+
+/obj/structure/innouous_rock/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(fake_rock)
+		spawn_troll()
+
+/obj/structure/innouous_rock/proc/spawn_troll()
+	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
+	new /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush (get_turf(src))
+	qdel(src)
 
 /*	..................   Misc   ................... */
 /obj/item/statue/silver/gnome
