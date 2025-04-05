@@ -30,7 +30,7 @@
 		H.mind?.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE) // Valor pleases you, Crom.
 
-	beltr = /obj/item/weapon/sword/arming // Arming is steel IIRC?
+	beltr = /obj/item/weapon/sword/arming
 	neck = /obj/item/clothing/neck/coif
 	pants = /obj/item/clothing/pants/loincloth
 	gloves = /obj/item/clothing/gloves/leather
