@@ -17,7 +17,7 @@
 		if(!open)
 			to_chat(user, "<span class='warning'>Open me.</span>")
 			return
-	..()
+	. = ..()
 
 /obj/item/paper/scroll/getonmobprop(tag)
 	. = ..()
