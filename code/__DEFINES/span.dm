@@ -13,7 +13,6 @@
 #define span_alertwarning(str) ("<span class='alertwarning'>" + str + "</span>")
 #define span_alien(str) ("<span class='alien'>" + str + "</span>")
 #define span_announce(str) ("<span class='announce'>" + str + "</span>")
-#define span_artery(str) ("<span class='artery'>" + str + "</span>")
 #define span_average(str) ("<span class='average'>" + str + "</span>")
 #define span_bad(str) ("<span class='bad'>" + str + "</span>")
 #define span_big(str) ("<span class='big'>" + str + "</span>")
@@ -84,7 +83,6 @@
 #define span_linkoffbad(str) ("<span class='linkoffbad'>" + str + "</span>")
 #define span_linkon(str) ("<span class='linkon'>" + str + "</span>")
 #define span_looc(str) ("<span class='looc'>" + str + "</span>")
-#define span_love(str) ("<span class='love'>" + str + "</span>")
 #define span_marooned(str) ("<span class='marooned'>" + str + "</span>")
 #define span_medal(str) ("<span class='medal'>" + str + "</span>")
 #define span_medradio(str) ("<span class='medradio'>" + str + "</span>")
@@ -157,3 +155,8 @@
 #define span_warningbig(str) ("<span class='warningbig'>" + str + "</span>")
 #define span_yell(str) ("<span class='yell'>" + str + "</span>")
 #define span_yellowteamradio(str) ("<span class='yellowteamradio'>" + str + "</span>")
+
+/* ROGUE */
+#define span_artery(str) ("<span class='artery'>" + str + "</span>")
+#define span_hellspeak(str) ("<span class='hellspeak'>" + str + "</span>")
+#define span_love(str) ("<span class='love'>" + str + "</span>")

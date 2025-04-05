@@ -228,7 +228,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/protect//The opposite of killing a dude.
 	name = "protect"
-	martyr_compatible = 1
+	martyr_compatible = TRUE
 	var/target_role_type = FALSE
 	var/human_check = TRUE
 

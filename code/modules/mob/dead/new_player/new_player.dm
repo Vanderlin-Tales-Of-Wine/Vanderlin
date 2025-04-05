@@ -286,6 +286,13 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 /mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
 	var/datum/job/job = SSjob.GetJob(rank)
 	//TODO: This fucking sucks.
+
+	if(is_skeleton_knight_job(job)) //has to be first because it's a subtype of skeleton
+		if(has_world_trait(/datum/world_trait/death_knight))
+			return JOB_AVAILABLE
+		else
+			return JOB_UNAVAILABLE_GENERIC
+
 	if(is_skeleton_job(job))
 		if(has_world_trait(/datum/world_trait/skeleton_siege))
 			return JOB_AVAILABLE
@@ -300,12 +307,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/Lore_Primer.json")
 
 	if(is_rousman_job(job))
 		if(has_world_trait(/datum/world_trait/rousman_siege))
-			return JOB_AVAILABLE
-		else
-			return JOB_UNAVAILABLE_GENERIC
-
-	if(is_deathknight_job(job))
-		if(has_world_trait(/datum/world_trait/death_knight))
 			return JOB_AVAILABLE
 		else
 			return JOB_UNAVAILABLE_GENERIC
