@@ -268,6 +268,9 @@
 /obj/item/storage/keyring/physicker
 	keys = list(/obj/item/key/clinic)
 
+/obj/item/storage/keyring/artificer
+	keys = list(/obj/item/key/artificer, /obj/item/key/blacksmith)
+
 /obj/item/storage/keyring/veteran
 	keys = list(/obj/item/key/veteran, /obj/item/key/dungeon, /obj/item/key/garrison, /obj/item/key/atarms, /obj/item/key/walls, /obj/item/key/elder, /obj/item/key/butcher, /obj/item/key/soilson)
 
