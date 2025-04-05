@@ -376,7 +376,8 @@
 /obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
 	spawn_troll()
 
-/obj/structure/innouous_rock/attackby(obj/item, /mob/living/user, params)
+/obj/structure/innouous_rock/attackby(obj/item, mob/living/user, params)
+	. = ..()
 	spawn_troll()
 
 /obj/structure/innouous_rock/Bumped(atom/movable/AM)
