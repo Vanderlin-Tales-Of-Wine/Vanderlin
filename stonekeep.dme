@@ -1490,6 +1490,7 @@
 #include "code\modules\clothing\pants\misc.dm"
 #include "code\modules\clothing\pants\plate_legs.dm"
 #include "code\modules\clothing\pants\skirt.dm"
+#include "code\modules\clothing\pants\stockings.dm"
 #include "code\modules\clothing\pants\tights.dm"
 #include "code\modules\clothing\pants\trousers.dm"
 #include "code\modules\clothing\quivers\_quiver.dm"
