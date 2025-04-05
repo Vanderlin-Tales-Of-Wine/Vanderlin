@@ -26,7 +26,7 @@
 	cloak = /obj/item/clothing/cloak/half/guildmaster
 	belt = /obj/item/storage/belt/leather
 	backr = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/key/veteran = 1, /obj/item/reagent_containers/food/snacks/hardtack = 1)
+	backpack_contents = list(/obj/item/key/adventurersguild = 1, /obj/item/reagent_containers/food/snacks/hardtack = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)

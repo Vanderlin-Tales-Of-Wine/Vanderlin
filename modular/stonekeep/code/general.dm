@@ -288,6 +288,9 @@
 		return
 	extinguish()
 
+/obj/item/flashlight/flare/torch/lantern/weather_act_on(weather_trait, severity)
+	return
+
 /obj/machinery/light/fueled/firebowl/standing/weather_act_on(weather_trait, severity)
 	if(weather_trait != PARTICLEWEATHER_RAIN)
 		return
@@ -372,12 +375,12 @@
 		user.visible_message("<span class='info'>[user] begins chiseling [src] into blocks.</span>")
 		if(do_after(user, work_time))
 			playsound(src.loc, 'modular/stonekeep/sound/vo/mobs/gnome/scream.ogg', 20)
-			sleep(4)
+			sleep(10)
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			if(prob(50))
 				new /obj/effect/decal/cleanable/debris/stone(get_turf(src))
 			playsound(src.loc, 'sound/foley/smash_rock.ogg', 100)
-			sleep(1)
+			sleep()
 			user.visible_message(span_info("There is a faint cry of agony as the statue is demolished. Must be the wind."))
 			qdel(src)
 			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
@@ -410,7 +413,8 @@
 		playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
 		new /obj/effect/decal/cleanable/debris/stone(get_turf(src))
 		new /mob/living/simple_animal/hostile/insanegnome(get_turf(src))
-		sleep(1)
+		playsound(src.loc, 'modular/stonekeep/sound/vo/mobs/gnome/laugh.ogg', 90)
+		sleep(3)
 		qdel(src)
 	. = ..()
 
@@ -440,6 +444,14 @@
 	icon_state = "stonetoflesh"
 	sellprice = 10
 	adventurer_artefact = TRUE
+/obj/item/stonetofleshpotion/throw_impact(atom/hit_atom, datum/thrownthing/thrownthing)
+	. = ..()
+	new /obj/effect/decal/cleanable/shreds/clay(get_turf(src))
+	playsound(get_turf(src), 'sound/foley/break_clay.ogg', 90, TRUE)
+	new /obj/effect/decal/cleanable/food/mess(get_turf(src))
+	qdel(src)
+
+
 
 /obj/structure/fluff/shipssprote
 	name = ""
@@ -458,19 +470,22 @@
 	icon_state = "deadite"
 	mouse_opacity = 0
 
-/obj/effect/decal/remains/neu
-	color = "#d6b3a5"
-	plane = -5
-	name = "remains"
-	gender = PLURAL
 
-/obj/effect/decal/remains/neu/human
+/obj/structure/remains
+	name = "remains"
+	icon = 'icons/effects/blood.dmi'
+	color = "#d6b3a5"
+	plane = GAME_PLANE
+	layer = BELOW_OPEN_DOOR_LAYER
+	gender = PLURAL
+	density = FALSE
+/obj/structure/remains/human
 	name = "humen remains"
 	icon_state = "remains"
-/obj/effect/decal/remains/neu/humanc
+/obj/structure/remains/humanc
 	name = "humen remains"
 	icon_state = "remainslarva"
-/obj/effect/decal/remains/neu/generic
+/obj/structure/remains/generic
 	name = "animal remains"
 	icon_state = "skele"
 	icon = 'icons/roguetown/mob/monster/saiga.dmi'

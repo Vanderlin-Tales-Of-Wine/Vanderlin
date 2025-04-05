@@ -127,7 +127,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "pN" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/cave/sumpgrotto)
 "qr" = (
@@ -300,7 +300,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/sumpgrotto)
 "Lf" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/spawner/map_spawner/artefact_sumpgrotto,
 /turf/open/water/swamp,
 /area/rogue/under/cave/sumpgrotto)

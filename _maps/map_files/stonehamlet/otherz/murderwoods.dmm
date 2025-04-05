@@ -139,14 +139,14 @@
 /turf/open/floor/grass/transition,
 /area/rogue/outdoors/woods/stone)
 "eu" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/shroud,
 /area/rogue/indoors/shelter/woods/spider)
 "eD" = (
 /turf/closed/wall/mineral/wood,
 /area/rogue/indoors)
 "eN" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/dirt,
 /area/rogue/indoors/cave/volf)
@@ -295,7 +295,7 @@
 /area/rogue/outdoors/woods/stone)
 "iV" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "jj" = (
@@ -349,7 +349,7 @@
 /area/rogue)
 "kJ" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "kM" = (
@@ -393,7 +393,7 @@
 /turf/open/floor/grass/transition,
 /area/rogue/outdoors/woods/stone)
 "mb" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/dirt,
 /area/rogue/indoors/cave/volf)
 "ml" = (
@@ -437,7 +437,7 @@
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/woods/stone)
 "oe" = (
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /turf/open/floor/dirt,
 /area/rogue/indoors/cave/volf)
 "og" = (
@@ -682,7 +682,7 @@
 "vz" = (
 /obj/effect/spawner/map_spawner/loot/weapon,
 /obj/effect/decal/cleanable/blood_neu/random,
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "vB" = (
@@ -733,7 +733,7 @@
 /turf/open/floor/grass/transition,
 /area/rogue/outdoors/river)
 "xl" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/spawner/map_spawner/artefact_spidernest,
 /turf/open/floor/shroud,
 /area/rogue/indoors/shelter/woods/spider)
@@ -765,7 +765,7 @@
 	},
 /area/rogue/outdoors/river)
 "xX" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "yc" = (
@@ -1015,7 +1015,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/woods/stone)
 "FL" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/volf)
 "FZ" = (
@@ -1376,7 +1376,7 @@
 	},
 /area/rogue/indoors)
 "QR" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/shroud,
 /area/rogue/indoors/shelter/woods/spider)
 "QX" = (

@@ -223,7 +223,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "pd" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -326,7 +326,7 @@
 /turf/open/floor/raisedwood,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "sR" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -624,7 +624,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "FK" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -633,7 +633,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "FN" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -902,7 +902,7 @@
 	},
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Ta" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -948,7 +948,7 @@
 /turf/open/floor/concrete,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "Vv" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -975,7 +975,7 @@
 /turf/open/floor/blocks/moss,
 /area/rogue/under/catacombs/dwarfoutpost/orcy)
 "VO" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},

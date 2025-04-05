@@ -366,13 +366,13 @@
 
 
 /mob/living/simple_animal/hostile/retaliate/saiga
-	remains_type = /obj/effect/decal/remains/neu/generic
+	remains_type = /obj/structure/remains/generic
 
 /mob/living/simple_animal/hostile/retaliate/saigabuck
-	remains_type = /obj/effect/decal/remains/neu/generic
+	remains_type = /obj/structure/remains/generic
 
 /mob/living/simple_animal/hostile/retaliate/trufflepig
-	remains_type = /obj/effect/decal/remains/neu/generic
+	remains_type = /obj/structure/remains/generic
 
 
 /mob/living/carbon/human/species/goblin/npc/hell/after_creation()
@@ -396,7 +396,7 @@
 	icon = 'modular/stonekeep/icons/mobs/insanegnome.dmi'
 	icon_state = "gnome"
 	icon_living = "gnome"
-	icon_dead = "gnome_dead"
+	icon_dead = "gnome_death"
 	gender = MALE
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	robust_searching = 1
@@ -425,7 +425,7 @@
 	candodge = TRUE
 	dodge_prob = 50
 	d_intent = INTENT_DODGE
-	speak_chance = 1
+	speak_chance = 10
 	speak_emote = list("idle")
 	faction = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
@@ -435,13 +435,18 @@
 	AIStatus = AI_OFF
 	ai_controller = /datum/ai_controller/orc
 
+
+/mob/living/simple_animal/hostile/insanegnome/Initialize()
+	. = ..()
+	emote(pick( "laugh"), TRUE)
+
 /mob/living/simple_animal/hostile/insanegnome/death(gibbed)
 	playsound(src.loc, 'modular/stonekeep/sound/vo/mobs/gnome/scream.ogg', 50)
 	..()
 	var/turf/deathspot = get_turf(src)
 	new  /obj/effect/decal/cleanable/ash(deathspot)
 	update_icon()
-	sleep(10)
+	sleep(20)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/insanegnome/taunted(mob/user)

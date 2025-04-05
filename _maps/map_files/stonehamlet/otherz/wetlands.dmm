@@ -180,7 +180,7 @@
 /obj/structure/fluff/walldeco/chains{
 	pixel_x = 5
 	},
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/bog)
 "dI" = (

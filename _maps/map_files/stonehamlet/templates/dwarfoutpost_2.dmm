@@ -243,7 +243,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/catacombs/dwarfoutpost)
 "oQ" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -283,7 +283,7 @@
 /turf/open/floor/hexstone,
 /area/rogue/under/catacombs/dwarfoutpost)
 "qZ" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},
@@ -817,7 +817,7 @@
 /area/rogue/under/catacombs/dwarfoutpost)
 "Yb" = (
 /obj/structure/flora/rock/pile,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	name = "dwarf remains";
 	plane = -3
 	},

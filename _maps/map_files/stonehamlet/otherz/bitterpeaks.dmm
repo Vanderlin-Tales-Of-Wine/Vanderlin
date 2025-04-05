@@ -12,7 +12,7 @@
 /turf/open/floor/snow,
 /area/rogue/outdoors/mountains/decap)
 "av" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/bear)
 "ay" = (
@@ -1292,7 +1292,7 @@
 /turf/closed/mineral/bedrock,
 /area/rogue/under/cavelava)
 "Qz" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/naturalstone,
 /area/rogue/indoors/cave/bear)
 "Rb" = (

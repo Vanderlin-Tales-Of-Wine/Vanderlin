@@ -11,7 +11,7 @@
 	spawn_positions = 1
 	min_pq = 0
 	bypass_lastclass = TRUE
-
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 	allowed_races = list(
 		"Humen",

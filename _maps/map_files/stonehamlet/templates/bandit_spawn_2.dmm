@@ -83,7 +83,7 @@
 	},
 /area/rogue/outdoors/woods/stone)
 "I" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/shroud,
 /area/rogue/under/mountains)
 "J" = (
@@ -123,7 +123,7 @@
 /turf/open/floor/naturalstone,
 /area/rogue/under/mountains)
 "T" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/shroud,
 /area/rogue/under/mountains)
 "U" = (

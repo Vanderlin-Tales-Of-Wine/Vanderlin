@@ -21,7 +21,6 @@
 /datum/outfit/job/sk/pilgrim/smith/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/leather
-
 	beltr = /obj/item/weapon/hammer/iron
 	beltl = /obj/item/weapon/tongs
 
@@ -31,7 +30,14 @@
 	pants = /obj/item/clothing/pants/trou
 
 	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/ore/coal=2, /obj/item/ore/iron=1, , /obj/item/natural/bundle/stoneblock/four = 1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/ore/coal=2, /obj/item/ore/iron=1, /obj/item/natural/bundle/stoneblock/four = 1)
+
+	if(H.gender == MALE)
+		shoes = /obj/item/clothing/shoes/boots/leather
+		shirt = /obj/item/clothing/shirt/shortshirt
+	else
+		armor = /obj/item/clothing/shirt/dress/gen/random
+		shoes = /obj/item/clothing/shoes/shortboots
 
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
@@ -65,12 +71,6 @@
 		H.change_stat("speed", -1)
 		ADD_TRAIT(H, TRAIT_MALUMFIRE, TRAIT_GENERIC)
 
-	if(H.gender == MALE)
-		shoes = /obj/item/clothing/shoes/boots/leather
-		shirt = /obj/item/clothing/shirt/shortshirt
-	else
-		armor = /obj/item/clothing/shirt/dress/gen/random
-		shoes = /obj/item/clothing/shoes/shortboots
 
 	if(H.dna.species.id == "dwarf")
 		H.cmode_music = 'sound/music/cmode/combat_dwarf.ogg'

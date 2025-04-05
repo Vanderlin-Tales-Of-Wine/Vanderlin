@@ -9,7 +9,6 @@
 		"Aasimar",
 		"Changeling",
 		"Skylancer",
-		"Ogrun",
 		"Undine"
 	)
 	outfit = /datum/outfit/job/sk/pilgrim/tailor
@@ -58,7 +57,6 @@
 		"Aasimar",
 		"Changeling",
 		"Skylancer",
-		"Ogrun",
 		"Undine"
 	)
 	outfit = /datum/outfit/job/sk/pilgrim/seamstress

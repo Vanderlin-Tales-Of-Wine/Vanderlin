@@ -193,16 +193,16 @@
 	color = "#ffce0b"
 	spawned = list(
 		/mob/living/simple_animal/hostile/skeleton = 5,
-		/obj/effect/decal/remains/neu/human = 50,
-		/obj/effect/decal/remains/neu/humanc = 45,
+		/obj/structure/remains/human = 50,
+		/obj/structure/remains/humanc = 45,
 		/obj/item/coin/silver = 1,
 		/obj/item/clothing/ring/silver = 1,
 		)
 
 /*	..................   Catacomb Random   ................... */
 /obj/effect/spawner/map_spawner/catacomb_random
-	icon_state = "srat"
-	icon = 'icons/roguetown/mob/monster/rat.dmi'
+	icon = 'modular/stonekeep/icons/misc.dmi'
+	icon_state = "danger"
 	probby = 50
 	color = "#ffce0b"
 	spawned = list(
@@ -210,7 +210,7 @@
 		/obj/item/clothing/pants/trou = 2,
 		/obj/item/flashlight/flare/torch/lantern = 1,
 		/obj/item/natural/worms = 20,
-		/obj/item/reagent_containers/food/snacks/smallrat = 5,
+		/obj/item/reagent_containers/food/snacks/smallrat = 10,
 		/obj/item/reagent_containers/food/snacks/smallrat/dead = 5,
 		/mob/living/simple_animal/hostile/retaliate/bigrat = 1,
 		)

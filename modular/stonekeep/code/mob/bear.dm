@@ -7,7 +7,6 @@
 	icon_dead = "bear-dead"
 	pixel_x = -32
 	pixel_y = 1
-	layer = 3.5
 
 	faction = list("bears")
 	turns_per_move = 4

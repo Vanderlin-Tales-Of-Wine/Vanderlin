@@ -29,6 +29,7 @@
 /datum/job/forestguard,
 /datum/job/jailor,
 /datum/job/dungeoneer,
+/datum/job/gaffer,
 
 /datum/job/butcher,
 /datum/job/carpenter,
@@ -51,8 +52,7 @@
 /datum/job/wapprentice,
 /datum/job/inquisitor,
 /datum/job/monk,
-/datum/job/farmer,
-/datum/job/feldsher,
+
 		)
 /*
 /datum/map_adjustment/stonehamlet/job_change()

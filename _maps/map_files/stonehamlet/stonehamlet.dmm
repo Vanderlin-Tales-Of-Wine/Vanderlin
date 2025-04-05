@@ -619,7 +619,7 @@
 /area/rogue/indoors/town/hamlet)
 "bbn" = (
 /obj/effect/spawner/map_spawner/skel_or_remains,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -1853,7 +1853,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "cRd" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/plague_district)
 "cRV" = (
@@ -2095,7 +2095,7 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/indoors/town/church)
 "dhl" = (
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /obj/effect/decal/cleanable/blood_neu/tracks{
 	dir = 4
 	},
@@ -2303,7 +2303,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/exposed/townhamlet)
 "duu" = (
-/obj/effect/decal/remains/neu/humanc{
+/obj/structure/remains/humanc{
 	pixel_x = -12;
 	pixel_y = -4
 	},
@@ -3600,7 +3600,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/church)
 "fmx" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
@@ -4185,10 +4185,10 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/hamlet)
 "gbE" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/item/coin/copper,
 /obj/item/coin/copper,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -4262,7 +4262,7 @@
 /turf/open/floor/cobblerock,
 /area/rogue/outdoors/exposed/under/basement)
 "gfO" = (
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
 "ggO" = (
@@ -4430,12 +4430,9 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/soilsons)
 "gwr" = (
-/obj/structure/window/openclose{
-	dir = 4;
-	icon_state = "woodwindowdir"
-	},
-/turf/open/floor/dirt/road,
-/area/rogue/indoors/shelter/rtfield)
+/obj/machinery/light/fueled/firebowl/standing,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield)
 "gwt" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt/road,
@@ -4498,7 +4495,7 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/manor/stone)
 "gzI" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
@@ -4933,7 +4930,7 @@
 /obj/structure/fluff/nest{
 	name = "patch of straw"
 	},
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
 "hhY" = (
@@ -5025,7 +5022,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
 "hpZ" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt,
 /area/rogue/under/catacombs)
 "hqs" = (
@@ -5412,7 +5409,7 @@
 /area/rogue/under/town/basement)
 "hNL" = (
 /obj/structure/fluff/psycross/crafted,
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/hamlet)
@@ -5576,7 +5573,7 @@
 /turf/open/floor/tile/bath,
 /area/rogue/indoors/town/bath/redhouse)
 "hWS" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/structure/flora/grass,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -5605,7 +5602,7 @@
 /turf/open/floor/carpet/hamlet,
 /area/rogue/indoors/town/bath/redhouse)
 "hZq" = (
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /obj/item/natural/worms,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -6195,7 +6192,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/exposed/townhamlet)
 "iXA" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/hay,
 /area/rogue/outdoors/rtfield/plague_district)
 "iXB" = (
@@ -6473,7 +6470,7 @@
 "jqU" = (
 /obj/structure/closet/dirthole/closed/loot,
 /obj/structure/flora/grass,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = -6;
 	pixel_y = 11
 	},
@@ -6870,8 +6867,8 @@
 	},
 /area/rogue/indoors/town/church)
 "jUn" = (
-/obj/effect/decal/remains/neu/human,
-/obj/effect/decal/remains/neu/humanc{
+/obj/structure/remains/human,
+/obj/structure/remains/humanc{
 	pixel_x = 3;
 	pixel_y = -7
 	},
@@ -7374,6 +7371,12 @@
 /obj/item/clothing/armor/gambeson,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/exposed/under/basement)
+"kCK" = (
+/obj/structure/remains/human,
+/obj/effect/decal/cleanable/blood_neu/random,
+/obj/item/natural/stone,
+/turf/open/floor/dirt,
+/area/rogue/under/catacombs)
 "kCO" = (
 /turf/closed/wall/mineral/stone/moss,
 /area/rogue/indoors/town/cell)
@@ -7751,10 +7754,10 @@
 /turf/open/floor/naturalstone,
 /area/rogue/outdoors/rtfield/hamlet)
 "lgX" = (
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_y = -5
 	},
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = 11;
 	pixel_y = 16
 	},
@@ -7857,7 +7860,7 @@
 /turf/open/floor/concrete,
 /area/rogue/indoors/town/magician)
 "lqO" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "lqW" = (
@@ -8735,7 +8738,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/exposed/townhamlet)
 "mwc" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /obj/item/natural/stone,
 /obj/structure/flora/rock/pile,
@@ -9071,7 +9074,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/exposed/townhamlet)
 "mQU" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /obj/structure/flora/grass,
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
@@ -9190,6 +9193,10 @@
 "mXV" = (
 /obj/item/bin/water/gross,
 /turf/open/floor/wood,
+/area/rogue/indoors/town/manor/stone)
+"mYi" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
 "mYF" = (
 /obj/structure/fluff/railing/border{
@@ -9360,7 +9367,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "nmv" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -9717,7 +9724,8 @@
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/dwarfin)
 "nMb" = (
-/turf/open/transparent/openspace,
+/obj/machinery/light/fueled/torchholder/l,
+/turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "nMx" = (
 /obj/machinery/light/fueled/firebowl/standing,
@@ -10523,7 +10531,7 @@
 /turf/closed/wall/mineral/decowood,
 /area/rogue/outdoors/rtfield/hamlet)
 "oPJ" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/cobble,
@@ -10736,7 +10744,7 @@
 /area/rogue/indoors/town/hamlet)
 "pfr" = (
 /obj/structure/flora/grass,
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 "pfN" = (
@@ -11628,7 +11636,7 @@
 	pixel_y = 2
 	},
 /obj/effect/spawner/map_spawner/skel_or_remains,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -11678,7 +11686,7 @@
 /area/rogue/outdoors/mountains)
 "qti" = (
 /obj/structure/closet/dirthole/grave,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	plane = -5
 	},
 /turf/open/floor/dirt/road,
@@ -11778,7 +11786,7 @@
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/hamlet)
 "qzH" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -13290,7 +13298,7 @@
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
 "sAX" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /obj/effect/decal/haycorner{
 	icon_state = "hayedge-sw"
 	},
@@ -13344,7 +13352,7 @@
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/church)
 "sGb" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/miasma,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -13551,7 +13559,7 @@
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town/hamlet)
 "sUR" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/effect/decal/cleanable/blood_neu/random,
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -13691,7 +13699,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/manor/stone)
 "thm" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/item/coin/copper,
 /obj/item/coin/copper,
 /turf/open/floor/dirt/muddie,
@@ -13861,7 +13869,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/hamlet)
 "tsu" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/rtfield/plague_district)
 "tsC" = (
@@ -14469,7 +14477,7 @@
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/mountains)
 "uov" = (
-/obj/effect/decal/remains/neu/humanc,
+/obj/structure/remains/humanc,
 /obj/structure/flora/grass,
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/plague_district)
@@ -14888,7 +14896,7 @@
 /turf/open/floor/tile/kitchen,
 /area/rogue/indoors/town/warehouse)
 "uNP" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt,
 /area/rogue/outdoors/rtfield/plague_district)
 "uQg" = (
@@ -15409,7 +15417,7 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/hamlet)
 "vwg" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/naturalstone,
 /area/rogue/under/catacombs)
 "vwJ" = (
@@ -15527,8 +15535,6 @@
 "vGY" = (
 /obj/structure/flora/grass/water,
 /obj/structure/flora/rogueflower/lavendergrass,
-/obj/structure/flora/rogueflower/lavendergrass,
-/obj/structure/flora/rogueflower/brflowers,
 /obj/structure/flora/rogueflower/brflowers,
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/exposed/manorgarri)
@@ -15742,6 +15748,10 @@
 /obj/item/natural/feather,
 /turf/open/floor/concrete,
 /area/rogue/under/town/basement)
+"vZW" = (
+/obj/machinery/light/fueled/torchholder/c,
+/turf/open/floor/grass,
+/area/rogue/outdoors/rtfield)
 "wai" = (
 /obj/structure/rack,
 /obj/item/rope/chain,
@@ -15946,11 +15956,12 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/hamlet)
 "wos" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
+/obj/machinery/light/fueled/wallfire/candle/lamp/lamptern{
+	pixel_x = 18;
+	pixel_y = 0
 	},
-/turf/open/floor/grass,
-/area/rogue/outdoors/exposed/townhamlet)
+/turf/open/floor/wood,
+/area/rogue/indoors/town/hamlet)
 "woD" = (
 /obj/structure/flora/grass,
 /mob/living/simple_animal/hostile/retaliate/goatmale{
@@ -16005,7 +16016,7 @@
 /turf/open/floor/cobble/mossy,
 /area/rogue/outdoors/exposed/manorgarri)
 "wrj" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/catacombs)
 "wrA" = (
@@ -16086,7 +16097,7 @@
 /turf/open/floor/naturalstone/rough,
 /area/rogue/under/town/caverogue/deep)
 "wyS" = (
-/obj/effect/decal/remains/neu/generic,
+/obj/structure/remains/generic,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "wzq" = (
@@ -16158,7 +16169,7 @@
 /area/rogue/under/cave/abandoned_mine)
 "wDQ" = (
 /obj/effect/decal/cleanable/food/mess/rotting,
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors/rtfield/plague_district)
 "wDW" = (
@@ -16214,8 +16225,7 @@
 /area/rogue/indoors/town)
 "wJJ" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+	dir = 1
 	},
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
@@ -16356,7 +16366,7 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/mountains)
 "wRC" = (
-/obj/effect/decal/remains/neu/human,
+/obj/structure/remains/human,
 /obj/item/coin/copper,
 /obj/item/coin/copper,
 /turf/open/floor/naturalstone,
@@ -16426,7 +16436,7 @@
 	pixel_y = 2
 	},
 /obj/effect/spawner/map_spawner/skel_or_remains,
-/obj/effect/decal/remains/neu/human{
+/obj/structure/remains/human{
 	pixel_x = -6;
 	pixel_y = 10
 	},
@@ -17273,6 +17283,7 @@
 /obj/item/ore/copper,
 /obj/item/ore/copper,
 /obj/item/ore/copper,
+/obj/item/ore/tin,
 /turf/open/floor/concrete,
 /area/rogue/under/town/basement)
 
@@ -48339,7 +48350,7 @@ gYf
 gYf
 gYf
 gYf
-gYf
+kCK
 gYf
 gYf
 fkd
@@ -57995,9 +58006,9 @@ kTh
 wiK
 wiK
 wiK
-mRt
-mRt
-mRt
+ckV
+ckV
+ckV
 kTh
 wiK
 wiK
@@ -58600,7 +58611,7 @@ kTh
 kTh
 kTh
 kTh
-kTh
+uCL
 ckV
 ckV
 ckV
@@ -75805,8 +75816,8 @@ ozH
 qoZ
 ahK
 ahK
-wos
-wos
+ahK
+ahK
 ahK
 ahK
 ahK
@@ -78419,13 +78430,13 @@ qoZ
 qoZ
 qoZ
 qoZ
-ahK
-ahK
-ahK
-ahK
-ahK
-ahK
-ahK
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
+qoZ
 qoZ
 qoZ
 cQp
@@ -117345,7 +117356,7 @@ nVK
 xsl
 nGK
 xsl
-wSM
+wos
 dms
 knX
 sNs
@@ -131790,7 +131801,7 @@ cRV
 smQ
 smQ
 smQ
-cRV
+gwr
 cRV
 cRV
 cRV
@@ -132596,15 +132607,15 @@ cRV
 alD
 tHN
 tHN
-alD
 tHN
-gwr
+tHN
+tHN
 tHN
 alD
 cRV
 cRV
 cRV
-sNs
+cRV
 sNs
 sNs
 sNs
@@ -132800,7 +132811,7 @@ alD
 kLn
 mul
 ige
-mul
+nMb
 nlT
 tHN
 mTZ
@@ -133409,7 +133420,7 @@ mul
 mul
 vMD
 alD
-cRV
+vZW
 cRV
 oOz
 cRV
@@ -158531,7 +158542,7 @@ sNs
 sNs
 cnH
 qwf
-izk
+mYi
 izk
 izk
 izk
@@ -173601,7 +173612,7 @@ sNs
 sNs
 sNs
 tHN
-nMb
+iFJ
 dIG
 wVi
 hIa

@@ -621,8 +621,6 @@
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 
-
-
 /obj/item/clothing/cloak/volfmantle
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
@@ -630,6 +628,7 @@
 	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 
 /obj/item/clothing/cloak/wickercloak
+	allowed_race = ALL_RACES_FOR_REAL
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK

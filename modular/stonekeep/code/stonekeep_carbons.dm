@@ -665,7 +665,7 @@
 	AIStatus = AI_OFF
 	ai_controller = /datum/ai_controller/orc
 
-	remains_type = /obj/effect/decal/remains/neu/human
+	remains_type = /obj/structure/remains/human
 
 /mob/living/simple_animal/hostile/zizombie/Initialize()
 	. = ..()
@@ -698,7 +698,7 @@
 	emote("death")
 	..()
 	var/turf/deathspot = get_turf(src)
-	new /obj/effect/decal/remains/neu/human(deathspot)
+	new /obj/structure/remains/human(deathspot)
 	update_icon()
 	sleep(10)
 	qdel(src)

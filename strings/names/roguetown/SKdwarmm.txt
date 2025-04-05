@@ -1,5 +1,5 @@
 Sondre
-Kolbjörn
+Kolbjørn
 Oddvar
 Trond
 Atle
@@ -21,8 +21,8 @@ Inge
 Aslak
 Torbjørn
 Eskil
-Jörgen
-Göran
+Jørgen
+Gøran
 Thor
 Torfinn
 Gunnar
@@ -38,5 +38,5 @@ Harald
 Tord
 Jörgen
 Jarl
-Björn
+Bjørn
 Mårten
