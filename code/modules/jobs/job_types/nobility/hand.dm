@@ -208,7 +208,7 @@
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -216,14 +216,15 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mathematics, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) // Uses leather armor, kind of needed.
 		H.change_stat(STATKEY_STR, 4)
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_INT, -2)
 		H.change_stat(STATKEY_SPD, -2) // He's NOT a dodger. Parry, parry, parry.
 		if(H.patron != /datum/patron/divine/ravox)
 			H.set_patron(/datum/patron/divine/ravox)
+
+	if(H.dna.species.id == "dwarf")
+		H.change_stat(STATKEY_STR, -1) // Get fucked.
+
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
