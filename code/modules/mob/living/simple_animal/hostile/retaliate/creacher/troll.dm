@@ -200,14 +200,6 @@
 	turns_per_move = 4
 	is_hidey = TRUE
 
-	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
-						/obj/item/natural/hide = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
-						/obj/item/natural/hide = 3)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 2,
-						/obj/item/natural/hide = 4,
-						/obj/item/natural/head/troll = 1)
-
 	health = BOGTROLL_HEALTH
 	maxHealth = BOGTROLL_HEALTH
 	food_type = list(/obj/item/reagent_containers/food/snacks/meat,
@@ -230,6 +222,22 @@
 	name = "cave troll"
 	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
 	ai_controller = /datum/ai_controller/troll/cave
+
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/alch/horn = 1,
+						/obj/item/natural/rock/mana_crystal = 1,
+						)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange = 1,
+						/obj/item/natural/hide = 2,
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/rock/mana_crystal = 2,
+						)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
+						/obj/item/natural/hide = 3,
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/head/troll = 1,
+						/obj/item/natural/rock/mana_crystal = 3,
+						)
 
 /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
 	is_hidey = TRUE
