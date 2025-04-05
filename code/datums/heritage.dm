@@ -261,6 +261,8 @@
 		mix_text += "tiefling+"
 	if(istype(dad_species, /datum/species/rakshari	) || istype(mom_species, /datum/species/rakshari	))
 		mix_text += "rakshari+"
+	if(istype(dad_species, /datum/species/human/demihuman	) || istype(mom_species, /datum/species/human/demihuman	))
+		mix_text += "half-kin+"
 
 	//If new hyrbids are made add the logic of their conception here.
 	if(istype(fledgling_species, mixes[mix_text]))
