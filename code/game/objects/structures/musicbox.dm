@@ -15,7 +15,7 @@
 	"Cure4Sorrow" = 'sound/music/jukeboxes/fuck/cure4sorrow.ogg',\
 	"Dangerous Radiation" = 'sound/music/jukeboxes/fuck/dangeradiation.ogg',\
 	"Pandora's Box" = 'sound/music/jukeboxes/fuck/fb-pandora.ogg',\
-	"Raspberry jam" = 'sound/music/jukeboxes/fuck/raspberryjam.ogg'\
+	"Raspberry jam" = 'sound/music/jukeboxes/fuck/raspberryjam.ogg',\
 	"Stardust Memories" = 'sound/music/jukeboxes/fuck/stardstm.ogg'\
 )
 #define MUSIC_TAVCAT_PARTY list(\
@@ -162,7 +162,7 @@
 		playmusic("TOGGLE")
 
 	if(button_selection=="Change Song")
-		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "MISC"=MUSIC_TAVCAT_MISC)
+		var/songlists_selection = input(user, "Which song list?", "\The [src]") as null | anything in list("CHILL"=MUSIC_TAVCAT_CHILL, "FUCK"=MUSIC_TAVCAT_FUCK, "PARTY"=MUSIC_TAVCAT_PARTY, "SCUM"=MUSIC_TAVCAT_SCUM, "DAMN"=MUSIC_TAVCAT_DAMN, "MISC"=MUSIC_TAVCAT_MISC)
 		playsound(loc, pick('sound/misc/keyboard_select (1).ogg','sound/misc/keyboard_select (2).ogg','sound/misc/keyboard_select (3).ogg','sound/misc/keyboard_select (4).ogg'), 100, FALSE, -1)
 		user.visible_message(span_info("[user] presses a button on \the [src]."),span_info("I press a button on \the [src]."))
 		var/chosen_songlists_selection = null
@@ -173,6 +173,8 @@
 		if(songlists_selection=="PARTY")
 			chosen_songlists_selection = MUSIC_TAVCAT_PARTY
 		if(songlists_selection=="SCUM")
+			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
+		if(songlists_selection=="DAMN")
 			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
 		if(songlists_selection=="MISC")
 			chosen_songlists_selection = MUSIC_TAVCAT_MISC
