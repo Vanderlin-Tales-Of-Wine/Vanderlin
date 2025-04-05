@@ -16,7 +16,12 @@
 	return 0
 
 /turf/open/get_slowdown(mob/user)
-	return slowdown + snow?.get_slowdown()
+	var/total_slowdown = slowdown
+	for(var/obj/obj in contents)
+		if(obj.obj_flags & BLOCK_Z_OUT_DOWN)
+			return slowdown
+		total_slowdown += obj.object_slowdown
+	return total_slowdown
 
 /turf
 	var/landsound = null

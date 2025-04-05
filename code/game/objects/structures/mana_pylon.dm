@@ -112,6 +112,15 @@
 
 
 /obj/structure/mana_pylon/proc/drain_mana(mob/living/user)
+	if(mana_pool.network_attunement)
+		var/list/mana_pools = list()
+		for (var/atom/movable/thing as anything in user.get_all_contents())
+			if (!isnull(thing.mana_pool) && thing.mana_pool.network_attunement == mana_pool.network_attunement)
+				mana_pools += thing.mana_pool
+
+		if(!length(mana_pools))
+			return
+
 	var/datum/beam/transfer_beam = user.Beam(src, icon_state = "drain_life", time = INFINITY)
 
 	var/failed = FALSE
