@@ -112,11 +112,18 @@
 		/datum/pet_command/calm,
 	)
 
+	var/static/list/tame_blacklist = list(
+		/mob/living/simple_animal/hostile/retaliate/troll/cave,
+		/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush,
+	)
+
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 	visible_message("<FONT COLOR='green'>[usr] soothes the beastblood with Dendor's whisper.</FONT><BR>")
 	for(var/mob/living/simple_animal/hostile/retaliate/B in oview(2))
 		if((B.mob_biotypes & MOB_UNDEAD))
+			continue
+		if(B.type in tame_blacklist)
 			continue
 		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)
 		if(!commands)

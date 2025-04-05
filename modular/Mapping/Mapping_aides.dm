@@ -372,19 +372,38 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500
 	density = TRUE
+	var/fake_rock = TRUE
+
+/obj/structure/innouous_rock/Initialize()
+	. = ..()
+	if(prob(50))
+		fake_rock = FALSE // 50/50 of it being real. have fun :)
 
 /obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
-	spawn_troll()
+	if(fake_rock)
+		spawn_troll()
+		return
+	to_chat(user, span_notice("You carefully detach the crystals from the rock..."))
+	if(!do_after(user, 3 SECONDS, src))
+		to_chat(user, span_warning("The crystals crumbles as you try to detach it!"))
+		qdel(src)
+		return
+	to_chat(user, span_warning("You sucessfully detach the crystals from the rock!"))
+	new /obj/item/natural/rock/mana_crystal(loc)
+	qdel(src)
 
 /obj/structure/innouous_rock/attackby(obj/item, mob/living/user, params)
 	. = ..()
-	spawn_troll()
+	if(fake_rock)
+		spawn_troll()
 
 /obj/structure/innouous_rock/Bumped(atom/movable/AM)
-	spawn_troll()
+	if(fake_rock)
+		spawn_troll()
 
 /obj/structure/innouous_rock/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	spawn_troll()
+	if(fake_rock)
+		spawn_troll()
 
 /obj/structure/innouous_rock/proc/spawn_troll()
 	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
