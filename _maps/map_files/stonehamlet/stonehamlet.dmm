@@ -4037,7 +4037,6 @@
 "fOD" = (
 /obj/structure/bookcase,
 /obj/item/recipe_book/underworld,
-/obj/item/recipe_book/survival,
 /obj/item/recipe_book/engineering,
 /obj/item/recipe_book/cooking,
 /turf/open/floor/ruinedwood/spiral,
