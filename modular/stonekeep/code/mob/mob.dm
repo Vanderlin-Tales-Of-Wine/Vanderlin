@@ -404,8 +404,8 @@
 	turns_per_move = 1
 	move_to_delay = 1
 	TOTALCON = 14
-	TOTALSTR = 12
-	TOTALSPD = 10
+	TOTALSTR = 6
+	TOTALSPD = 15
 	maxHealth = 80
 	health = 80
 	harm_intent_damage = 15
@@ -425,8 +425,9 @@
 	candodge = TRUE
 	dodge_prob = 50
 	d_intent = INTENT_DODGE
-	speak_emote = list("moans")
-	faction = list("Zizo")
+	speak_chance = 1
+	speak_emote = list("idle")
+	faction = list()
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	del_on_death = FALSE
 
@@ -434,41 +435,33 @@
 	AIStatus = AI_OFF
 	ai_controller = /datum/ai_controller/orc
 
-	remains_type = /obj/effect/decal/cleanable/ash
-/*
-/mob/living/simple_animal/hostile/zizombie/Initialize()
-	. = ..()
-	if(icon_state == "zombie1")
-		icon_state = "zombie[rand(1,4)]"
-		icon_living = "[icon_state]"
-
-/mob/living/simple_animal/hostile/zizombie/taunted(mob/user)
-	. = ..()
-	emote("aggro")
-
-/mob/living/simple_animal/hostile/zizombie/Life()
-	. = ..()
-	if(!target)
-		if(prob(3))
-			emote(pick( "moan"), TRUE)
-
-/mob/living/simple_animal/hostile/zizombie/get_sound(input)
-	switch(input)
-		if("moan")
-			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
-		if("death")
-			return pick('sound/vo/mobs/zombie/death (1).ogg','sound/vo/mobs/zombie/death (2).ogg','sound/vo/mobs/zombie/death (3).ogg')
-		if("aggro")
-			return pick('sound/vo/mobs/zombie/firescream (1).ogg','sound/vo/mobs/zombie/firescream (2).ogg','sound/vo/mobs/zombie/firescream (3).ogg')
-		if("idle")
-			return pick('sound/vo/mobs/zombie/idle (1).ogg','sound/vo/mobs/zombie/idle (2).ogg','sound/vo/mobs/zombie/idle (3).ogg')
-
-/mob/living/simple_animal/hostile/zizombie/death(gibbed)
-	emote("death")
+/mob/living/simple_animal/hostile/insanegnome/death(gibbed)
+	playsound(src.loc, 'modular/stonekeep/sound/vo/mobs/gnome/scream.ogg', 50)
 	..()
 	var/turf/deathspot = get_turf(src)
-	new /obj/effect/decal/remains/neu/human(deathspot)
+	new  /obj/effect/decal/cleanable/ash(deathspot)
 	update_icon()
 	sleep(10)
 	qdel(src)
-*/
+
+/mob/living/simple_animal/hostile/insanegnome/taunted(mob/user)
+	. = ..()
+	emote("aggro")
+
+/mob/living/simple_animal/hostile/insanegnome/Life()
+	. = ..()
+	if(!target)
+		if(prob(1))
+			emote(pick( "laugh"), TRUE)
+
+/mob/living/simple_animal/hostile/insanegnome/get_sound(input)
+	switch(input)
+		if("laugh")
+			return pick('modular/stonekeep/sound/vo/mobs/gnome/laugh.ogg','modular/stonekeep/sound/vo/mobs/gnome/giggle.ogg')
+		if("aggro")
+			return pick('modular/stonekeep/sound/vo/mobs/gnome/aggro (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/aggro (2).ogg')
+		if("idle")
+			return pick('modular/stonekeep/sound/vo/mobs/gnome/idle (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (2).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (3).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (4).ogg','modular/stonekeep/sound/vo/mobs/gnome/idle (5).ogg')
+		if("pain")
+			return pick('modular/stonekeep/sound/vo/mobs/gnome/pain (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (2).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (3).ogg')
+

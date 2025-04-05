@@ -3,13 +3,13 @@
 	stable_price = TRUE
 
 /datum/stock/import/crackers
-	name = "Bin of Rations"
+	name = "Crate of Rations"
 	desc = "Low moisture bread that keeps well."
-	item_type = /obj/item/bin/crackers
+	item_type = /obj/structure/closet/crate/chest/steward/crackers
 	export_price = 100
 	importexport_amt = 1
 
-/obj/item/bin/crackers/Initialize()
+/obj/structure/closet/crate/chest/steward/crackers/Initialize()
 	. = ..()
 	new /obj/item/reagent_containers/food/snacks/hardtack(src)
 	new /obj/item/reagent_containers/food/snacks/hardtack(src)

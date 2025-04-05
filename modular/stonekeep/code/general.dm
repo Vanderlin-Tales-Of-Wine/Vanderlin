@@ -371,7 +371,7 @@
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
 		user.visible_message("<span class='info'>[user] begins chiseling [src] into blocks.</span>")
 		if(do_after(user, work_time))
-			playsound(src.loc, 'sound/vo/male/gen/agony (1).ogg', 20)
+			playsound(src.loc, 'modular/stonekeep/sound/vo/mobs/gnome/scream.ogg', 20)
 			sleep(4)
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			if(prob(50))
@@ -1035,7 +1035,7 @@
 	name = "nitemasters key"
 	desc = "The master key of the bath house."
 	icon_state = "greenkey"
-	lockid = "nightmaster"
+	lockid = ACCESS_APOTHECARY
 
 /obj/item/key/tollhouse
 	name = "tollhouse key"
