@@ -8268,6 +8268,12 @@
 	},
 /turf/open/floor/tile/tilerg,
 /area/rogue/indoors/town)
+"eHH" = (
+/obj/structure/lever/hidden{
+	redstone_id = "MageTower"
+	},
+/turf/closed/wall/mineral/decostone,
+/area/rogue/indoors/town/magician)
 "eHY" = (
 /obj/structure/stairs{
 	dir = 8;
@@ -11499,6 +11505,10 @@
 /obj/structure/chair/wood/alt/chair3,
 /turf/open/floor/cobble,
 /area/rogue/indoors)
+"gAe" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/snow/patchy,
+/area/rogue/outdoors/mountains)
 "gAB" = (
 /obj/structure/fluff/walldeco/vinez/blue,
 /turf/closed/wall/mineral/pipe{
@@ -12152,6 +12162,10 @@
 	},
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town/roofs)
+"gTo" = (
+/obj/structure/flora/grass/bush/tundra,
+/turf/open/floor/snow/rough,
+/area/rogue/outdoors/mountains)
 "gTs" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -15233,6 +15247,12 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/under/town/basement)
+"iGa" = (
+/obj/structure/mineral_door/wood/donjon/stone,
+/obj/effect/mapping_helpers/door/locker,
+/obj/effect/mapping_helpers/door/access/town/tower,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "iGe" = (
 /obj/structure/bed/inn/double,
 /obj/item/bedsheet/fabric_double,
@@ -17818,9 +17838,6 @@
 /obj/item/clothing/shirt/robe/newmage/adept,
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/town/magician)
-"kec" = (
-/turf/open/water/bath,
-/area/rogue/under/cave)
 "kel" = (
 /obj/structure/bed/inn,
 /obj/item/bedsheet/pelt,
@@ -17998,6 +18015,10 @@
 /obj/effect/spawner/map_spawner/loot/potion_ingredient/herb,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
+"klz" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/cobblerock,
+/area/rogue/under/cave)
 "klN" = (
 /obj/structure/stairs{
 	dir = 1
@@ -25812,6 +25833,10 @@
 /obj/machinery/light/fueled/torchholder/l,
 /turf/open/floor/greenstone,
 /area/rogue/under/town/sewer)
+"ozX" = (
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
+/turf/open/floor/cobblerock,
+/area/rogue/outdoors/river)
 "oAi" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/plate,
@@ -25860,7 +25885,10 @@
 /turf/open/floor/twig,
 /area/rogue/under/cave)
 "oCp" = (
-/obj/structure/nocdevice,
+/obj/structure/nocdevice{
+	pixel_x = -3;
+	pixel_y = 0
+	},
 /turf/open/floor/wood,
 /area/rogue/indoors/town/magician)
 "oCR" = (
@@ -28187,7 +28215,8 @@
 /turf/open/floor/cobble/snow,
 /area/rogue/outdoors/town)
 "pOY" = (
-/turf/open/water/bath,
+/obj/effect/waterfall,
+/turf/open/water/cleanshallow,
 /area/rogue/outdoors/river)
 "pOZ" = (
 /obj/structure/flora/grass/water/reeds,
@@ -39499,6 +39528,10 @@
 /obj/machinery/light/fueled/oven/east,
 /turf/open/floor/blocks,
 /area/rogue/indoors/town/orphanage)
+"weQ" = (
+/obj/structure/flora/grass/bush_meagre/tundra,
+/turf/open/floor/snow/rough,
+/area/rogue/outdoors/mountains)
 "weU" = (
 /obj/structure/bars,
 /turf/open/water/cleanshallow,
@@ -40508,6 +40541,10 @@
 /obj/effect/mapping_helpers/door/locker,
 /turf/open/floor/ruinedwood/turned,
 /area/rogue/indoors/town)
+"wGq" = (
+/obj/structure/flora/newtree/snow,
+/turf/open/floor/snow/rough,
+/area/rogue/outdoors/mountains)
 "wGx" = (
 /obj/structure/table/vtable/v2,
 /obj/item/key/guest{
@@ -42842,6 +42879,13 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/orphanage)
+"ybV" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "MageTower";
+	name = "Mage Tower"
+	},
+/turf/closed/wall/mineral/decostone,
+/area/rogue/indoors/town/magician)
 "ych" = (
 /obj/machinery/light/fueled/campfire,
 /turf/open/floor/naturalstone,
@@ -42897,6 +42941,7 @@
 /area/rogue/indoors/town/bath)
 "ydD" = (
 /obj/structure/stairs/stone/church,
+/obj/machinery/light/fueled/wallfire/candle/blue/l,
 /turf/open/floor/cobble,
 /area/rogue/indoors/town/magician)
 "ydF" = (
@@ -52520,9 +52565,9 @@ pQs
 mKk
 mKk
 ePt
-dHb
+ozX
 uJz
-hWm
+klz
 hWm
 gKX
 gKX
@@ -52925,7 +52970,7 @@ mKk
 mKk
 mKk
 mKk
-hWm
+iGa
 gKX
 gKX
 gKX
@@ -53130,7 +53175,7 @@ ppS
 hWm
 hWm
 uJz
-kec
+dBq
 ruC
 eSB
 qJl
@@ -53333,7 +53378,7 @@ dHb
 phG
 phG
 kUa
-kec
+dBq
 ruC
 qJl
 qJl
@@ -53736,8 +53781,8 @@ dAP
 dAP
 phG
 phG
-kec
-kec
+dBq
+dBq
 ruC
 qJl
 qJl
@@ -53935,10 +53980,10 @@ pQs
 pQs
 nIj
 ppS
-pOY
+hjQ
 lIK
-kec
-kec
+dBq
+dBq
 ruC
 eSB
 qJl
@@ -92112,9 +92157,9 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
-sRW
+wGq
+hgB
+weQ
 ehP
 qJl
 qJl
@@ -92310,13 +92355,13 @@ ehP
 ehP
 ehP
 ehP
-sRW
+gTo
 ehP
 sRW
-sRW
-sRW
-sRW
-sRW
+weQ
+hgB
+cDt
+hgB
 qJl
 qJl
 uKF
@@ -92512,13 +92557,13 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
-sRW
-sRW
-sRW
-sRW
-sRW
+hgB
+cDt
+cDt
+hgB
+gTo
+cDt
+qhI
 qJl
 qJl
 uKF
@@ -92713,10 +92758,10 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
-sRW
-sRW
+qhI
+cDt
+gAe
+hgB
 eKW
 uoc
 cyT
@@ -92916,8 +92961,8 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
+cDt
+hgB
 tuo
 tuo
 wgm
@@ -93320,7 +93365,7 @@ ehP
 ehP
 ehP
 sRW
-sRW
+luc
 uoc
 qBU
 ikE
@@ -93329,8 +93374,8 @@ kBt
 fQP
 uoc
 uoc
-uoc
-uoc
+eHH
+ybV
 uoc
 uoc
 xcT
@@ -93521,8 +93566,8 @@ ehP
 ehP
 ehP
 ehP
-sRW
-sRW
+wGq
+hgB
 cyT
 xBV
 xBV
@@ -93723,8 +93768,8 @@ ehP
 ehP
 ehP
 ehP
-sRW
-sRW
+hgB
+hgB
 cyT
 tLQ
 kaD
@@ -93925,8 +93970,8 @@ ehP
 ehP
 ehP
 ehP
-sRW
-sRW
+gAe
+cDt
 aNi
 gNX
 fmq
@@ -94128,7 +94173,7 @@ ehP
 ehP
 sRW
 sRW
-sRW
+cDt
 tuo
 idT
 knr
@@ -94735,8 +94780,8 @@ ehP
 ehP
 ehP
 ehP
-sRW
-sRW
+weQ
+iEf
 uoc
 tuo
 aNi
@@ -94938,12 +94983,12 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
-sRW
-sRW
-sRW
-sRW
+hgB
+hgB
+cDt
+cDt
+hgB
+hgB
 sRj
 uKF
 mvp
@@ -95142,10 +95187,10 @@ ehP
 ehP
 sRW
 sRW
-sRW
-sRW
-sRW
-sRW
+iEf
+wGq
+cDt
+gAe
 sRj
 sRj
 axv
@@ -95346,8 +95391,8 @@ ehP
 ehP
 ehP
 sRW
-sRW
-sRW
+weQ
+cDt
 sRj
 sRj
 uKF
