@@ -2913,7 +2913,7 @@
 "eoj" = (
 /obj/structure/closet/crate/crafted_closet/lord{
 	locked = 0;
-	lockid = ACCESS_MERCHANT
+	lockid = "merchant"
 	},
 /obj/item/reagent_containers/powder/spice,
 /turf/open/floor/carpet/hamlet,
@@ -5778,7 +5778,7 @@
 "iox" = (
 /obj/structure/closet/crate/chest/neu{
 	locked = 1;
-	lockid = ACCESS_MERCHANT;
+	lockid = "merchant";
 	max_integrity = 20000
 	},
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow,

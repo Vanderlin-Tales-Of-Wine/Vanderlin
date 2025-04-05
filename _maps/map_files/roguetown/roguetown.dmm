@@ -11379,7 +11379,6 @@
 /turf/open/floor/wood,
 /area/rogue/indoors/town/shop)
 "mAc" = (
-/obj/item/bin/crackers,
 /turf/open/floor/hexstone,
 /area/rogue/indoors/town/church)
 "mAr" = (
