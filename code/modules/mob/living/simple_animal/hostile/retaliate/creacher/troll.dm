@@ -235,9 +235,14 @@
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
 						/obj/item/natural/hide = 3,
 						/obj/item/alch/horn = 2,
-						/obj/item/natural/head/troll = 1,
+						/obj/item/natural/head/troll/cave = 1,
 						/obj/item/natural/rock/mana_crystal = 3,
 						)
+
+	health = CAVETROLL_HEALTH
+	maxHealth = CAVETROLL_HEALTH
+	defprob = 35
+	defdrain = 15
 
 /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
 	is_hidey = TRUE
