@@ -6,28 +6,34 @@
         "That's a face not even Eora could love!",
         "I shall ne'er desist from thee, nor shall I ever disappoint thee much~",
         "Your brain is like a hardtack after a long voyage!",
-        "Look, look how terrible they are!"
+        "Look, look how terrible they are!",
+	"Never have I seen a thing as pitiful as you!"
 	],
     "elf_mockery": [
         "As graceful as a drunken mole, I see!",
         "I've fought zads more fierce than you!",
         "You're making this so easy, I'm losing confidence in myself... barely!",
         "OHH-HOH-HOH-HOH-HOH!",
-        "Uncultured churls, barely worth my words!"
+        "Uncultured churls, barely worth my words!",
+	"You've almost made me feel pity for you!",
+	"As swift as a stump, as bright as an orc!"
 	],
     "dwarf_mockery": [
         "If yer mind was as sharp as yer ears, we wouldn't be in this mess!",
         "Ye kick softer than a newborn saiga!",
         "Make it quick, dullard! T'is happy hour in the tavern!",
         "Ohh, is the milk drinker gonna cry?",
-        "Ye couldn't dent a grain a sand with a pick from Malum!"
+        "Ye couldn't dent a grain a sand with a pick from Malum!",
+	"Oh, lad! I had almost mistaken ye for a threat!"
 	],
     "tiefling_mockery": [
         "Oh wow, everyone, look at this fool with two left feet!",
         "You're not worth a wheat grain of what I can do!",
         "Good job Slowpoke Rodriguez, you almost had me! Almost!",
         "Come on, entertain me a little longer!",
-        "Dance with the devil and win a prize!"
+        "Dance with the devil and win a prize!",
+	"Oh, is this getting too hot for you to handle, now?",
+	"I didn't expect you to keep up, but this is just embarrassing!"
 	],
     "aasimar_mockery": [
         "Your imperfect body could never match the fires I was forged on.",
@@ -35,7 +41,9 @@
         "Your name shall be stricken down from the annals of history.",
         "I couldn't sing your praises even if I were forged to!",
         "What manner of blabbering creecher art thou?",
-        "Dost thou even hoist?"
+        "Dost thou even hoist?",
+	"Your form disgraces even your already disgraceful body.",
+	"You are less than a fool."
 	],
     "elfd_mockery": [
         "Hah! the air above must have dulled your wits!",
@@ -43,20 +51,28 @@
         "Keep swinging, it's almost adorable!",
         "Oh my, You're not a complete idiot, some parts are obviously missing!",
         "Even a mushroom in the Underdark has more grace than you.",
-        "Do you even know how to fight, or do you just flail and hope for a hit?"
+        "Do you even know how to fight, or do you just flail and hope for a hit?",
+	"A half-blind rous would pose me more of a threat!",
+	"Does the sun perhaps make you stupid as well, you mongrel?",
+	"You could not even compete with a mushroom, in terms of looks!"
 	],
     "halforc_mockery": [
         "Barrel-sharp, the wit on you.",
-        "Come closer, i will slap the shit out of you.",
+        "Come closer, I will slap the shit out of you.",
         "Ah, Fuck off, You sack of shit!",
         "You swing well, but miss terribly!",
-        "I'll bite your legs down!"
+        "I'll bite your legs down!",
+	"Weak, in more than your head!"
 	],
     "rakshari_mockery": [
         "You're terrible! Look, look how terrible they are!",
         "A gift for a loathsome neighbour.",
         "I desire that we become better strangers!",
-        " Behold, the fool of fools.",
-        "Behold, a most noisy cuck!"
+        "Behold, the fool of fools.",
+        "Behold, a most noisy cuck!",
+	"Oh, have I gotten your tongue?",
+	"A foolishly foolish fool, being nothing but one!",
+	"Not even a slaver could see any worth in you!",
+	"As mindful as a gote, I see!"
 	]
 }
