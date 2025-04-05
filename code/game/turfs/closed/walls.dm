@@ -3,7 +3,7 @@
 /turf/closed/wall
 	name = ""
 	desc = ""
-	icon = 'icons/turf/walls/wall.dmi'
+	icon = 'icons/turf/walls.dmi'
 	icon_state = "wall"
 	explosion_block = 1
 

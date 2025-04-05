@@ -13,7 +13,7 @@ GLOBAL_LIST_INIT(all_radial_directions, list(
 /obj/structure/industrial_lift
 	name = "lift platform"
 	desc = "A lightweight lift platform. It moves up and down."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "weird1"
 	density = FALSE
 	anchored = TRUE

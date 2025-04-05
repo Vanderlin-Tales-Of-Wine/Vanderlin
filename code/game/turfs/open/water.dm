@@ -456,7 +456,7 @@
 /turf/open/water/bath
 	name = "water"
 	desc = "Faintly yellow colored. Suspicious."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "bathtileW"
 	water_level = 2
 	slowdown = 15
@@ -482,7 +482,7 @@
 /turf/open/water/sewer
 	name = "sewage"
 	desc = "This dark water smells of dead rats."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "pavingW"
 	water_level = 1
 	slowdown = 1
@@ -533,7 +533,7 @@
 /turf/open/water/swamp
 	name = "murk"
 	desc = "Weeds and algae cover the surface of the water."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirtW2"
 	water_level = 2
 	slowdown = 20
@@ -612,7 +612,7 @@
 /turf/open/water/marsh
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the water."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirtW3"
 	water_level = 2
 	slowdown = 15
@@ -627,7 +627,7 @@
 /turf/open/water/marsh/deep
 	name = "marshwater"
 	desc = "A heavy layer of weeds and algae cover the surface of the deep water."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirtW4"
 	water_level = 3
 	slowdown = 20
@@ -636,7 +636,7 @@
 /turf/open/water/cleanshallow
 	name = "water"
 	desc = "Clear and shallow water, what a blessing!"
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "rockw2"
 	water_level = 2
 	slowdown = 15
@@ -662,7 +662,7 @@
 /turf/open/water/blood
 	name = "blood"
 	desc = "A pool of sanguine liquid."
-	icon = 'icons/turf/roguefloor.dmi'
+	icon = 'icons/turf/floors.dmi'
 	icon_state = "rockb"
 	water_level = 2
 	slowdown = 15
