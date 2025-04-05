@@ -2844,6 +2844,13 @@
 /obj/machinery/light/fueled/wallfire/candle/weak/r,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/town/church)
+"bFF" = (
+/obj/structure/chair/wood/alt{
+	dir = 4
+	},
+/obj/structure/fake_machine/hailerboard/l,
+/turf/open/floor/carpet,
+/area/rogue/outdoors/town)
 "bFK" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -3577,9 +3584,6 @@
 "bYT" = (
 /turf/open/floor/cobblerock,
 /area/rogue/indoors/soilsons)
-"bZa" = (
-/turf/open/water/sewer,
-/area/rogue/under/cave)
 "bZe" = (
 /obj/machinery/light/fueledstreet/blue/wall{
 	pixel_x = 0;
@@ -10651,6 +10655,7 @@
 /area/rogue/indoors/town)
 "fXL" = (
 /obj/structure/fake_machine/headeater,
+/obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cobblerock/alt,
 /area/rogue/indoors/town/merc_guild)
 "fYf" = (
@@ -17843,6 +17848,10 @@
 	},
 /turf/open/floor/naturalstone,
 /area/rogue/under/cavewet)
+"kbj" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/cobble/snow,
+/area/rogue/outdoors/rtfield/safe)
 "kbu" = (
 /obj/structure/mineral_door/wood,
 /obj/effect/mapping_helpers/door/access/town/apothecary,
@@ -21446,6 +21455,10 @@
 "mdG" = (
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town)
+"mdJ" = (
+/obj/structure/fake_machine/hailerboard,
+/turf/open/floor/cobblerock/snow,
+/area/rogue/outdoors/town)
 "mdQ" = (
 /turf/open/floor/churchrough,
 /area/rogue/indoors/town/church)
@@ -22524,11 +22537,6 @@
 	},
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/merc_guild)
-"mHp" = (
-/turf/open/water/river{
-	dir = 1
-	},
-/area/rogue/under/cave)
 "mHG" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -23619,11 +23627,6 @@
 /obj/effect/spawner/map_spawner/hauntz_random,
 /turf/open/floor/cobblerock/snow,
 /area/rogue/outdoors/town)
-"nlm" = (
-/turf/open/water/river{
-	dir = 4
-	},
-/area/rogue/under/cave)
 "nlK" = (
 /obj/machinery/light/fueled/torchholder/r,
 /turf/open/floor/blocks/stonered,
@@ -31045,10 +31048,6 @@
 /obj/item/book/law,
 /turf/open/floor/herringbone,
 /area/rogue/indoors/villagegarrison)
-"roR" = (
-/obj/machinery/light/fueled/wallfire/candle/blue,
-/turf/open/floor/snow/rough,
-/area/rogue/outdoors/mountains)
 "roU" = (
 /turf/closed/wall/mineral/decostone/moss/blue,
 /area/rogue/indoors/town/magician)
@@ -34164,6 +34163,7 @@
 /area/rogue/under/town/sewer)
 "sYF" = (
 /obj/structure/fluff/walldeco/bsmith,
+/obj/structure/fake_machine/hailerboard/l,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/town)
 "sZa" = (
@@ -35145,6 +35145,10 @@
 	},
 /turf/open/floor/grass/cold,
 /area/rogue/outdoors/town)
+"tyc" = (
+/obj/structure/fake_machine/hailerboard/r,
+/turf/open/floor/grass/cold,
+/area/rogue/outdoors/mountains)
 "tyl" = (
 /obj/structure/rack/shelf/biggest,
 /obj/item/flint{
@@ -43434,6 +43438,10 @@
 /obj/effect/landmark/start/adventurer,
 /turf/open/floor/carpet,
 /area/rogue/indoors/town/tavern)
+"ydk" = (
+/obj/structure/fake_machine/hailerboard,
+/turf/open/floor/cobble,
+/area/rogue/outdoors/town)
 "ydl" = (
 /obj/structure/table/wood/plain_alt,
 /obj/item/reagent_containers/glass/bottle/redwine{
@@ -54028,7 +54036,7 @@ fTm
 cKQ
 fTm
 fTm
-pQs
+qJl
 hhK
 hhK
 hhK
@@ -54432,7 +54440,7 @@ fTm
 cKQ
 fTm
 fTm
-pQs
+qJl
 hhK
 hhK
 hhK
@@ -54634,7 +54642,7 @@ fTm
 cKQ
 fTm
 fTm
-pQs
+qJl
 hhK
 hhK
 hhK
@@ -54836,7 +54844,7 @@ fTm
 cKQ
 fTm
 fTm
-pQs
+qJl
 rOz
 hhK
 hhK
@@ -55038,8 +55046,8 @@ fTm
 cKQ
 fTm
 fTm
-pQs
-pQs
+qJl
+qJl
 hhK
 hhK
 hhK
@@ -55240,7 +55248,7 @@ fTm
 cKQ
 fTm
 fTm
-pQs
+qJl
 rOz
 hhK
 hhK
@@ -55442,8 +55450,8 @@ fTm
 cKQ
 fTm
 fTm
-pQs
-pQs
+qJl
+qJl
 hhK
 hhK
 hhK
@@ -55644,8 +55652,8 @@ fTm
 cKQ
 fTm
 fTm
-pQs
-pQs
+qJl
+qJl
 hhK
 hhK
 hhK
@@ -58679,7 +58687,7 @@ xdm
 hhK
 hhK
 hhK
-nlm
+hhK
 qJl
 qJl
 qJl
@@ -58881,7 +58889,7 @@ xdm
 hhK
 hhK
 hhK
-nlm
+hhK
 qJl
 qJl
 qJl
@@ -59082,8 +59090,8 @@ hqf
 xdm
 hhK
 hhK
-nlm
-nlm
+hhK
+hhK
 qJl
 qJl
 qJl
@@ -59285,7 +59293,7 @@ xdm
 hhK
 hhK
 hhK
-nlm
+hhK
 qJl
 qJl
 qJl
@@ -71755,10 +71763,10 @@ qJl
 qJl
 qJl
 qJl
-sKt
-sKt
-sKt
-sKt
+qJl
+qJl
+qJl
+qJl
 tuM
 qRF
 qRF
@@ -71957,9 +71965,9 @@ aML
 aML
 aML
 aML
-sKt
-sKt
-sKt
+qJl
+qJl
+qJl
 fTm
 tuM
 qRF
@@ -71997,7 +72005,7 @@ qRF
 qRF
 qRF
 rbI
-sGM
+rbI
 hhK
 hhK
 xaA
@@ -72159,7 +72167,7 @@ rJJ
 hQw
 pmo
 aML
-sKt
+qJl
 rbI
 rbI
 fTm
@@ -72198,7 +72206,7 @@ qRF
 qRF
 qRF
 rbI
-sGM
+rbI
 qJl
 hhK
 hhK
@@ -72361,7 +72369,7 @@ hQw
 rJJ
 hQw
 aML
-sKt
+qJl
 rma
 rma
 fTm
@@ -72398,8 +72406,8 @@ gCS
 gRI
 qRF
 qRF
-bZa
-sGM
+qRF
+rbI
 qJl
 hhK
 hhK
@@ -72576,7 +72584,7 @@ aML
 aML
 aML
 aML
-qJl
+sKt
 tuM
 tuM
 qRF
@@ -72600,8 +72608,8 @@ qvA
 krM
 qRF
 qRF
-sGM
-sGM
+rbI
+rbI
 qJl
 hhK
 hhK
@@ -72778,8 +72786,8 @@ pmo
 rJJ
 hQw
 aML
-qJl
-qJl
+sKt
+sKt
 tuM
 tuM
 xLz
@@ -72802,7 +72810,7 @@ uqm
 krM
 qRF
 qRF
-sGM
+rbI
 qJl
 hhK
 hhK
@@ -72980,8 +72988,8 @@ hQw
 rJJ
 aML
 aML
-qJl
-qJl
+sKt
+sKt
 tuM
 tuM
 loV
@@ -72991,7 +72999,7 @@ uIk
 oUZ
 iaL
 iaL
-sKt
+qJl
 aML
 aML
 aML
@@ -73000,12 +73008,12 @@ qJl
 qJl
 qJl
 qJl
-sKt
+qJl
 rbI
 pLa
 pLa
-sGM
-pQs
+rbI
+qJl
 hhK
 hhK
 xcE
@@ -73182,27 +73190,27 @@ rJJ
 hQw
 icq
 aML
-qJl
-tuM
-tuM
-qRF
-qRF
-qRF
-tuM
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
-qJl
 sKt
+tuM
+tuM
+qRF
+qRF
+qRF
+tuM
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
+qJl
 rbI
 qRF
 qRF
@@ -73404,7 +73412,7 @@ qJl
 qJl
 qJl
 qJl
-sKt
+qJl
 rbI
 qRF
 hhK
@@ -73606,7 +73614,7 @@ qJl
 qJl
 qJl
 qJl
-sKt
+qJl
 rbI
 hhK
 hhK
@@ -73808,14 +73816,14 @@ qJl
 qJl
 qJl
 qJl
-sKt
-pQs
+qJl
+qJl
 hhK
 hhK
 xcE
 xcE
 xcE
-mHp
+xcE
 qJl
 qJl
 qJl
@@ -95987,8 +95995,8 @@ qPa
 iNo
 dHO
 dHO
-iNo
 qPa
+iNo
 cwC
 jnM
 kLy
@@ -96190,8 +96198,8 @@ rCU
 ngP
 ngP
 rCU
-qPa
-pmI
+iNo
+ydk
 jnM
 gzt
 gzt
@@ -103285,7 +103293,7 @@ pmI
 cwC
 cwC
 dif
-oDS
+bFF
 oDS
 nYv
 hmF
@@ -105534,7 +105542,7 @@ tIc
 tIc
 oHF
 sNW
-jnM
+mdJ
 jnM
 cwC
 jov
@@ -107704,8 +107712,8 @@ lFe
 vlY
 aXs
 bmM
-aln
-jnM
+bmM
+mdJ
 jnM
 cbC
 qKh
@@ -119345,7 +119353,7 @@ rcW
 qtS
 qtn
 hgB
-cDt
+tyc
 hgB
 hgB
 sRW
@@ -119546,9 +119554,9 @@ iWq
 iWq
 iWq
 iWq
-iWq
 rwU
-roR
+iWq
+sRW
 sRW
 iLx
 ehP
@@ -140704,7 +140712,7 @@ sop
 sop
 vVH
 rgb
-vXo
+kbj
 jlM
 nml
 gfy
@@ -140906,7 +140914,7 @@ sop
 sop
 vVH
 vVH
-vVH
+liE
 vVH
 sop
 sop
