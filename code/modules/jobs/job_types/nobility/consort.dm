@@ -14,8 +14,12 @@
 	bypass_lastclass = TRUE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
-	allowed_races = RACES_PLAYER_NONDISCRIMINATED
-
+	allowed_races = list(
+		"Humen",
+		"Half-Elf",
+		"Elf",
+		"Dwarf"
+	)
 	outfit = /datum/outfit/job/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
 	give_bank_account = 500
