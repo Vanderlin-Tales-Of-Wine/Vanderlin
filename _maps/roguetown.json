@@ -9,9 +9,9 @@
 		{"Down": true, "Baseturf": "/turf/open/transparent/openspace"}
 	],
 	"other_z": [
-		"_maps/map_files/roguetown/otherz/smallforest.json",
-		"_maps/map_files/roguetown/otherz/smalldecap.json",
-		"_maps/map_files/roguetown/otherz/smallswamp.json"
+		"map_files/roguetown/otherz/smallforest.json",
+		"map_files/roguetown/otherz/smalldecap.json",
+		"map_files/roguetown/otherz/smallswamp.json"
 	],
 	"minetype": null,
 	"space_empty_levels": 0,
