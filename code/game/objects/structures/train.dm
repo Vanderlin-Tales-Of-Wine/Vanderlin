@@ -32,7 +32,7 @@
 		to_chat(user, span_warning("This one retains their free will. It's their choice if they want to leave for Kingsfield or not."))
 		return //prevents people from forceghosting others
 	if(departing_mob.stat == DEAD)
-		say("The dead cannot leave for Kingsfield, ensure they get a proper burial in Vanderlin.")
+		say("The dead cannot leave for Kingsfield, ensure they get a proper burial in [SSmapping.config.map_name].")
 		return
 	if(is_type_in_list(departing_mob.mind?.assigned_role, uncryoable))
 		var/title = departing_mob.gender == FEMALE ? "lady" : "lord"
@@ -64,7 +64,7 @@
 		dat += "."
 	message_admins(dat)
 	log_admin(dat)
-	say(span_notice("[departing_mob == user ? "Out of their own volition, " : "Ushered by [user], "][departing_mob] is departing from Vanderlin."))
+	say(span_notice("[departing_mob == user ? "Out of their own volition, " : "Ushered by [user], "][departing_mob] is departing from [SSmapping.config.map_name]."))
 	var/mob/dead/new_player/newguy = new()
 	newguy.ckey = departing_mob.ckey
 	qdel(departing_mob)
