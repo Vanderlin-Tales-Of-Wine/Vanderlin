@@ -363,7 +363,32 @@
 	new /mob/living/simple_animal/hostile/retaliate/troll/bog (get_turf(src))
 	qdel(src)
 
+/obj/structure/innouous_rock
+	name = "mana crystal deposit"
+	desc = "These large mana crystals deposit are known to bring fortune to miners who ventures into the deep dark depths of the world."
+	icon = 'icons/roguetown/mob/monster/trolls/cave_troll.dmi'
+	icon_state = "Trolls"
+	pixel_x = -16
+	layer = ABOVE_ALL_MOB_LAYER
+	max_integrity = 500
+	density = TRUE
 
+/obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
+	spawn_troll()
+
+/obj/structure/innouous_rock/attackby(obj/item, /mob/living/user, params)
+	spawn_troll()
+
+/obj/structure/innouous_rock/Bumped(atom/movable/AM)
+	spawn_troll()
+
+/obj/structure/innouous_rock/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	spawn_troll()
+
+/obj/structure/innouous_rock/proc/spawn_troll()
+	playsound(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
+	new /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush (get_turf(src))
+	qdel(src)
 
 /*	..................   Misc   ................... */
 /obj/item/statue/silver/gnome
