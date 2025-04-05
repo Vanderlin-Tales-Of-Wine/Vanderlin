@@ -14,6 +14,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/toggle_throw_mode/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -30,6 +31,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/intent_one/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -53,6 +55,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/intent_two/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -67,6 +70,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/intent_three/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -81,6 +85,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/intent_four/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -111,6 +116,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/bite_intent/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -125,6 +131,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/jump_intent/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -139,6 +146,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/kick_intent/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob
@@ -153,6 +161,7 @@
 	category = CATEGORY_CARBON
 
 /datum/keybinding/carbon/steal_intent/down(client/user)
+	. = ..()
 	if (!iscarbon(user.mob))
 		return FALSE
 	var/mob/living/carbon/C = user.mob

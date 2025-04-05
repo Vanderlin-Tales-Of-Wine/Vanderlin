@@ -1062,13 +1062,16 @@
  */
 /proc/log_defense(atom/defender, atom/attacker, what_done, atom/defending_atom, atom/attacking_atom, addition=null)
 	var/sattacker = key_name(attacker)
+	var/sdefender = key_name(defender)
 
 	var/saddition = ""
 	if(addition)
 		saddition = " [addition]"
 
 	var/message = "has [what_done] [sattacker]'s attack!; defended with: [defending_atom ? defending_atom : "hands"], attacked with: [attacking_atom ? attacking_atom : "hands"][saddition ? " [saddition]" : ""]."
+	var/reverse_message = "attacked [sdefender], who has [what_done] it; attacked with: [attacking_atom ? attacking_atom : "hands"], defended with: [defending_atom ? defending_atom : "hands"][saddition ? " [saddition]" : ""]."
 	defender.log_message(message, LOG_ATTACK, color="red")
+	attacker.log_message(reverse_message, LOG_ATTACK, "red", FALSE) // log it in the attacker's personal log too, but not log globally because it was already done.
 
 /atom/movable/proc/add_filter(name,priority,list/params)
 	if(!filter_data)

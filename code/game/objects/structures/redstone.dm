@@ -44,14 +44,6 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		multitool.set_buffer(src)
 	multitool.charge_deduction(src, user, 1)
 
-/obj/structure/LateInitialize()
-	. = ..()
-	if(redstone_id)
-		for(var/obj/structure/S in GLOB.redstone_objs)
-			if(S.redstone_id == redstone_id)
-				redstone_attached |= S
-				S.redstone_attached |= src
-
 /obj/structure/vv_edit_var(var_name, var_value)
 	switch (var_name)
 		if ("redstone_id")
@@ -93,7 +85,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		L.changeNext_move(CLICK_CD_MELEE)
 		var/used_time = 10 SECONDS - (L.STASTR * 1 SECONDS)
 		user.visible_message("<span class='warning'>[user] pulls the lever.</span>")
-		log_game("[key_name(user)] pulled the lever with redstone id \"[redstone_id]\"")
+		user.log_message("pulled the lever with redstone id \"[redstone_id]\"", LOG_GAME)
 		if(do_after(user, used_time))
 			for(var/obj/structure/O in redstone_attached)
 				spawn(0) O.redstone_triggered(user)
@@ -106,6 +98,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
 		user.visible_message("<span class='warning'>[user] kicks the lever!</span>")
+		user.log_message("kicked the lever with redstone id \"[redstone_id]\"", LOG_GAME)
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 		if(prob(L.STASTR * 4))
 			for(var/obj/structure/O in redstone_attached)
@@ -125,7 +118,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
 		user.visible_message("<span class='warning'>[user] presses a hidden button.</span>")
-		log_game("[key_name(user)] pulled the lever with redstone id \"[redstone_id]\"")
+		user.log_message("pulled the lever with redstone id \"[redstone_id]\"", LOG_GAME)
 		for(var/obj/structure/O in redstone_attached)
 			spawn(0) O.redstone_triggered(user)
 		toggled = !toggled
@@ -175,9 +168,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return FALSE
 
 /obj/structure/repeater/attack_right(mob/user)
-	. = ..()
 	if(user.get_active_held_item())
-		return
+		return ..()
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
 		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)
@@ -271,6 +263,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(isliving(AM))
 		var/mob/living/L = AM
 		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
+		AM.log_message("has activated a pressure plate", LOG_GAME)
 		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
 
 /obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
@@ -350,9 +343,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return TRUE
 
 /obj/structure/activator/attack_right(mob/user)
-	. = ..()
 	if(user.get_active_held_item())
-		return
+		return ..()
 	var/datum/component/simple_rotation/rotcomp = GetComponent(/datum/component/simple_rotation)
 	if(rotcomp)
 		rotcomp.HandRot(null, user, ROTATION_CLOCKWISE)

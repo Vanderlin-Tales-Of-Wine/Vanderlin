@@ -296,6 +296,7 @@
 	attacked_atom = /obj/item/grown/log/tree
 	starting_atom= /obj/item/weapon/knife
 	output = /obj/item/weapon/polearm/woodstaff/quarterstaff
+	required_intent = /datum/intent/dagger/cut
 	craft_time = 5 SECONDS
 	uses_attacked_atom = FALSE
 

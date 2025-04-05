@@ -10,6 +10,7 @@
 #define TRAIT_NOBLE					"Noble Blooded"
 #define TRAIT_EMPATH					"Empath"
 #define TRAIT_BREADY					"Battleready"
+#define TRAIT_HEARING_SENSITIVE 		"hearing_sensitive"
 #define TRAIT_MEDIUMARMOR				"Mail Training"
 #define TRAIT_HEAVYARMOR				"Plate Training"
 #define TRAIT_DODGEEXPERT              "Fast Reflexes"
@@ -94,6 +95,7 @@
 
 #define TRAIT_MALUMFIRE "Professional Smith"
 #define TRAIT_CRATEMOVER "Crate Mover"
+#define TRAIT_BURDEN "Burdened" //Gaffer stuff
 
 // PATRON CURSE TRAITS
 #define TRAIT_CURSE "Curse" //source
@@ -122,7 +124,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_HATEWOMEN = "Double damage against female mobs.",
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_NOBLE = span_blue("I'm of noble blood."),
-	TRAIT_EMPATH = "I can notice when people are in pain.",
+	TRAIT_EMPATH = "I can notice when people are stressed.",
 	TRAIT_BREADY = "Defensive stance does not passively fatigue me.",
 	TRAIT_MEDIUMARMOR = "I can move freely in medium armor.",
 	TRAIT_HEAVYARMOR = "I can move freely in heavy armor.",
@@ -179,6 +181,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SEE_LEYLINES = "I can see the lines that make up this world.",
 	TRAIT_TINY = "I am small, its hard to look people in the eyes.",
 	TRAIT_FOREIGNER = span_notice("I'm not from around here."),
+	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
 	))
 
 // trait accessor defines
@@ -337,8 +340,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
-#define TRAIT_UNTARGETTABLE "untargettable" //can't be targetted by basic mobs
-#define TRAIT_IMPERCEPTIBLE "imperceptible" //! can't be percieved in any way
+#define TRAIT_IMPERCEPTIBLE "imperceptible" // can't be perceived in any way, likely due to invisibility
 
 //bodypart traits
 #define TRAIT_PARALYSIS	"paralysis" //Used for limb-based paralysis and full body paralysis

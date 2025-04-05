@@ -1,6 +1,7 @@
 {
 
     "russian": {
+		"captain": "kapitan",
 		"c": "k",
 		"kh": "ch",
 		"r": "rr",
@@ -11,7 +12,25 @@
 		"goodbye": "do svidania",
 		"farewell": "do svidania",
 		"good": "dobro",
-		"evil": "zlo"
+		"evil": "zlo",
+		"steward": "stewert",
+		"king": "tsar",
+		"queen": "tsaritsa",
+		"monarchy": "monarkhiya",
+		"monarch": "monarkh",
+		"throne": "tron",
+		"princess": "prinsessa",
+		"prince": "prints",
+		"adventurer": "avantyurist",
+		"no ": "nyet ",
+		"heretic": "eretik",
+		"who": "kto",
+		"sir": "ser",
+		"devil": "dyavol",
+		"bomb": "bomba",
+		"garrison": "garnizon",
+		"fuck": "blyat",
+		"stupid": "glupyy"
 		}
 
 }

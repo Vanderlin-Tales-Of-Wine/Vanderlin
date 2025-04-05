@@ -11,7 +11,6 @@
 	density = TRUE
 	layer = MOB_LAYER
 	animate_movement = SLIDE_STEPS
-	flags_1 = HEAR_1
 	hud_possible = list(ANTAG_HUD)
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	throwforce = 10

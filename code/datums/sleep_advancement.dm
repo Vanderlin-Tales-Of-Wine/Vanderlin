@@ -99,6 +99,8 @@
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
+	if(HAS_TRAIT(mind.current, TRAIT_TUTELAGE))
+		dream_dust += BASE_DREAM_DUST / 2
 
 	var/int = mind.current.STAINT
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
@@ -129,7 +131,7 @@
 
 	retained_dust = dream_dust_modulo
 
-	sleep_adv_points += dream_points + 1
+	sleep_adv_points += max(dream_points, 1)
 	sleep_adv_cycle++
 
 	show_ui(mind.current)
@@ -295,7 +297,7 @@
 	if(mind.has_studied)
 		mind.has_studied = FALSE
 		to_chat(mind.current, span_smallnotice("I feel like I can study my tome again..."))
-	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
+	to_chat(mind.current, span_notice("...and that's all I dreamt of."))
 	close_ui()
 
 /datum/sleep_adv/Topic(href, list/href_list)
