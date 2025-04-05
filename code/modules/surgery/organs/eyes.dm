@@ -71,6 +71,8 @@
 		else
 			eye_color = HMN.eye_color
 	for(var/datum/wound/facial/eyes/eye_wound as anything in M.get_wounds())
+		if(!istype(eye_wound))
+			continue
 		qdel(eye_wound)
 	M.update_tint()
 	owner.update_sight()

@@ -35,6 +35,8 @@
 		RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 	M.UnregisterSignal(M, COMSIG_MOB_SAY)
 	for(var/datum/wound/facial/ears/tongue_wound as anything in M.get_wounds())
+		if(!istype(tongue_wound))
+			continue
 		qdel(tongue_wound)
 
 /obj/item/organ/tongue/Remove(mob/living/carbon/M, special = FALSE, drop_if_replaced = TRUE)
