@@ -51,8 +51,15 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
+/datum/outfit/job/stonekeep/guildmaster
+	var/reminder = "<br><br><font color='#8b1d68'><span class='bold'>Help adventurers form parties, find quests, and demand proof of their skill in return for certifying them..</span></font><br><br>"
+
+/datum/outfit/job/stonekeep/guildmaster/post_equip(mob/living/carbon/human/H)
+	..()
+	to_chat(H, reminder)
+
 /datum/crafting_recipe/adventurer_license
-	name = "Produce a icense (Adventurer)"
+	name = "Produce a license (Adventurer)"
 	time = 4 SECONDS
 	req_table = TRUE
 	tools = /obj/item/natural/feather

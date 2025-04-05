@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(librarian)
 	name = "Librarian"
-	init_order = INIT_ORDER_PATH
+//	init_order = INIT_ORDER_PATH	Stonekeep edit, commenting out since it makes the current books unreadable and theres no db for the books on our branch as of yet.
 	flags = SS_NO_FIRE
 	var/list/books = list()
 

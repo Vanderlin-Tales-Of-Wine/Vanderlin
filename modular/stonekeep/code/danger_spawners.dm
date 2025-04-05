@@ -143,8 +143,7 @@
 /obj/effect/spawner/map_spawner/enemy_fifty/bushwacker
 	spawned = list(
 //		/obj/structure/idle_enemy/outlaw = 100
-		/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw = 50,
-		/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw = 50
+		/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw = 100,
 		)
 
 /*	..................   Volf Enemy   ................... */
@@ -325,7 +324,7 @@ range. How much processing this saves is unclear */
 	. = ..()
 	AddComponent(/datum/component/spawner/npc/outlaw)
 /datum/component/spawner/npc/outlaw
-	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw )
+	mob_types = list(/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw )
 	spawn_time = 0
 	spawn_delay = 0
 	max_mobs = 1

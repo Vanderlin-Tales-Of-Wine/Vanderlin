@@ -92,7 +92,7 @@
 	spookynight = SPOOKY_MYSTICAL
 
 /area/rogue/outdoors/rtfield/outlaw
-	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/skilled/outlaw = 50)
+	ambush_mobs = list(/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw = 50)
 	name = "danger (outlaws)"
 	first_time_text = ""
 	color = "#e9baa3"

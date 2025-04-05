@@ -25,6 +25,10 @@
 	},
 /turf/open/floor/grass,
 /area/rogue/outdoors/woods/stone)
+"bD" = (
+/obj/structure/flora/tree/neu/bush/young,
+/turf/open/floor/grass/transition,
+/area/rogue/outdoors/woods/stone)
 "bE" = (
 /obj/structure/flora/grass/water/reeds,
 /turf/open/floor/dirt/muddie,
@@ -707,6 +711,10 @@
 "vV" = (
 /turf/open/floor/grass/mixyel/under_tree,
 /area/rogue/outdoors/woods/stone)
+"vX" = (
+/obj/structure/flora/tree/neu/bush/young,
+/turf/open/floor/grass,
+/area/rogue/outdoors/woods/stone)
 "wb" = (
 /obj/structure/chair/stool,
 /turf/open/floor/dirt/road,
@@ -847,6 +855,10 @@
 /area/rogue/outdoors/woods/stone)
 "zW" = (
 /turf/open/floor/dirt,
+/area/rogue/outdoors/woods/stone)
+"Aq" = (
+/obj/structure/flora/tree/neu/bush/young,
+/turf/open/floor/grass/mixyel,
 /area/rogue/outdoors/woods/stone)
 "AL" = (
 /turf/open/floor/dirt,
@@ -1416,6 +1428,10 @@
 /turf/closed/wall/mineral/tent{
 	dir = 4
 	},
+/area/rogue/outdoors/woods/stone)
+"Sj" = (
+/obj/structure/flora/tree/neu/bush/young,
+/turf/open/floor/grass/yel,
 /area/rogue/outdoors/woods/stone)
 "So" = (
 /obj/structure/fluff/railing/fence{
@@ -12781,7 +12797,7 @@ re
 re
 so
 en
-xt
+vX
 xt
 xt
 en
@@ -14332,7 +14348,7 @@ VW
 VW
 xt
 xt
-en
+bD
 xt
 yX
 RC
@@ -17162,7 +17178,7 @@ yX
 yX
 xt
 xt
-xt
+vX
 en
 en
 so
@@ -17413,7 +17429,7 @@ re
 re
 so
 so
-Wy
+Sj
 so
 so
 en
@@ -19969,7 +19985,7 @@ AL
 vV
 en
 xt
-xt
+vX
 en
 so
 so
@@ -20337,7 +20353,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 xt
 yX
 yX
@@ -20494,7 +20510,7 @@ DA
 xt
 DA
 xt
-xt
+vX
 xt
 zW
 zW
@@ -21079,7 +21095,7 @@ en
 en
 so
 en
-xt
+vX
 xt
 xt
 VW
@@ -21539,7 +21555,7 @@ VW
 rt
 rt
 en
-xt
+vX
 xt
 en
 en
@@ -22266,7 +22282,7 @@ my
 en
 xt
 xt
-xt
+vX
 xt
 xt
 RC
@@ -22628,7 +22644,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 en
 so
 so
@@ -23182,7 +23198,7 @@ so
 so
 so
 so
-so
+Aq
 so
 en
 en
@@ -23501,7 +23517,7 @@ zW
 zW
 xt
 xt
-en
+bD
 xt
 xt
 xt
@@ -23561,7 +23577,7 @@ Wy
 so
 en
 xt
-xt
+vX
 xt
 xt
 xt
@@ -23983,7 +23999,7 @@ so
 so
 Ov
 so
-so
+Aq
 so
 en
 en
@@ -25207,7 +25223,7 @@ DA
 xt
 xt
 xt
-xt
+vX
 xt
 en
 en
@@ -25642,7 +25658,7 @@ kr
 xt
 xt
 xt
-en
+bD
 en
 xt
 xt
@@ -27427,7 +27443,7 @@ cR
 so
 so
 so
-so
+Aq
 so
 so
 so
@@ -27825,7 +27841,7 @@ so
 en
 xt
 xt
-xt
+vX
 en
 so
 cR
@@ -28861,7 +28877,7 @@ so
 en
 en
 en
-en
+bD
 so
 Wy
 Wy
@@ -29233,7 +29249,7 @@ Py
 zv
 so
 Wy
-Wy
+Sj
 so
 en
 so
@@ -29292,7 +29308,7 @@ en
 en
 en
 en
-xt
+vX
 xt
 xt
 xt
@@ -29619,7 +29635,7 @@ xt
 xt
 xt
 en
-so
+Aq
 so
 so
 so
@@ -30080,7 +30096,7 @@ Wy
 so
 en
 so
-so
+Aq
 so
 en
 Wy
@@ -30220,7 +30236,7 @@ xt
 cM
 xt
 xt
-xt
+vX
 xt
 xt
 cM
@@ -30868,7 +30884,7 @@ Wy
 Wy
 Wy
 Wy
-so
+Aq
 en
 so
 Wy
@@ -30879,7 +30895,7 @@ en
 en
 en
 xt
-xt
+vX
 en
 so
 Wy
@@ -31046,7 +31062,7 @@ xt
 vV
 DA
 xt
-xt
+vX
 xt
 en
 vV
@@ -31057,7 +31073,7 @@ rt
 Wy
 Wy
 so
-en
+bD
 en
 xt
 so
@@ -31641,7 +31657,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 xt
 xt
 xt
@@ -31876,7 +31892,7 @@ rt
 en
 so
 so
-so
+Aq
 so
 so
 en
@@ -32054,7 +32070,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 xt
 en
 cM
@@ -32608,7 +32624,7 @@ kr
 zW
 xt
 xt
-en
+bD
 en
 en
 so
@@ -32656,7 +32672,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 xt
 xt
 xt
@@ -32701,7 +32717,7 @@ en
 en
 so
 en
-so
+Aq
 so
 en
 en
@@ -32893,7 +32909,7 @@ en
 en
 so
 so
-en
+bD
 en
 en
 so
@@ -33053,7 +33069,7 @@ xt
 xt
 xt
 xt
-xt
+vX
 en
 cM
 rt
@@ -33303,14 +33319,14 @@ en
 cR
 so
 so
-so
+Aq
 so
 Wy
 so
 en
 en
 so
-Wy
+Sj
 Wy
 Wy
 Wy
@@ -33684,7 +33700,7 @@ cM
 cM
 en
 so
-so
+Aq
 so
 en
 xt
@@ -34709,7 +34725,7 @@ kr
 en
 en
 en
-so
+Aq
 so
 cR
 cM
@@ -35625,7 +35641,7 @@ so
 en
 en
 so
-Wy
+Sj
 Wy
 so
 so
@@ -35931,7 +35947,7 @@ so
 so
 cR
 en
-so
+Aq
 so
 en
 cM
@@ -36143,7 +36159,7 @@ DA
 en
 en
 so
-so
+Aq
 so
 so
 en
@@ -36304,7 +36320,7 @@ so
 en
 en
 so
-so
+Aq
 en
 na
 en
@@ -36473,7 +36489,7 @@ en
 xt
 en
 so
-so
+Aq
 Wy
 Wy
 Wy
@@ -38132,7 +38148,7 @@ so
 so
 so
 en
-so
+Aq
 so
 en
 so

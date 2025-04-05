@@ -598,7 +598,13 @@
 
 
 
+/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw
 
+/mob/living/carbon/human/species/human/northern/bum/ambush/outlaw/after_creation()
+	..()
+	gender = MALE
+	job = "Madman"
+	equipOutfit(new /datum/outfit/job/roguetown/human_npc/outlaw)
 /*
 /mob/living/carbon/human/species/goblin/skilled/hell/after_creation(mob/living/carbon/C)
 	..()

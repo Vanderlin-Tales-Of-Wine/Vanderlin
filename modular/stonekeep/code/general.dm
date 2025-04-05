@@ -1210,38 +1210,37 @@
 	screen_max_columns = 1
 
 
+/obj/item/clothing/ring/adventurer
+	dropshrink = 1
+	icon = 'modular/stonekeep/icons/misc.dmi'
+
 /obj/item/clothing/ring/adventurer/copper
 	name = "copper certification"
 	desc = "The wearer is rated as a novice adventurer."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "copper"
 	sellprice = 2
 
 /obj/item/clothing/ring/adventurer/bronze
 	name = "bronze certification"
 	desc = "The wearer is rated as a proven adventurer."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "bronze"
 	sellprice = 2
 
 /obj/item/clothing/ring/adventurer/iron
 	name = "iron certification"
 	desc = "The wearer is rated as a skilled adventurer."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "iron"
 	sellprice = 2
 
 /obj/item/clothing/ring/adventurer/silver
 	name = "silver certification"
 	desc = "The wearer is rated as a experienced adventurer."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "silver"
 	sellprice = 2
 
 /obj/item/clothing/ring/adventurer/gold
 	name = "gold certification"
 	desc = "The wearer is rated as a very skilled adventurer."
-	icon = 'modular/stonekeep/icons/misc.dmi'
 	icon_state = "gold"
 	sellprice = 2
 
@@ -1251,4 +1250,12 @@
 	amount = 4
 
 
+/obj/item/book/adventurersguild
+	name = "Adventuring, the guild masters manual"
+	desc = "Todd the Barbarian"
+	bookfile = "Adventuring.json"
+	random_cover = TRUE
 
+
+/obj/structure/fluff/walldeco/masonflag
+	icon = 'modular/stonekeep/icons/misc.dmi'
