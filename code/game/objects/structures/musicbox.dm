@@ -26,7 +26,7 @@
 	"Kick the Beat" = 'sound/music/jukeboxes/party/av_ktb.ogg',\
 	"dAnCe nAtion" = 'sound/music/jukeboxes/party/dance_nation_remix.ogg',\
 	"Imagine" = 'sound/music/jukeboxes/party/imagine.ogg',\
-	"My Glamorous Life" = "sound/music/jukeboxes/party/my_glamorous_life.ogg"\
+	"My Glamorous Life" = 'sound/music/jukeboxes/party/my_glamorous_life.ogg'\
 )
 #define MUSIC_TAVCAT_SCUM list(\
 	"Shades of Futility" = 'sound/music/jukeboxes/scum/fb-sofutile.ogg',\
@@ -50,7 +50,8 @@
 #define MUSIC_TAVCAT_MISC list(\
 	"Generic" = 'sound/music/jukeboxes/_misc/_generic.ogg',\
 	"AndreiKabak" = 'sound/music/jukeboxes/_misc/Andrei_Kabak-Pathologic.ogg',\
-	"Twyrine" = 'sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg'\
+	"Twyrine" = 'sound/music/jukeboxes/_misc/Twyrine-Pathologic2.ogg',\
+	"waitingroom" = 'sound/music/jukeboxes/_misc/waitingroom.ogg'\
 )
 
 /datum/looping_sound/musloop
@@ -175,7 +176,7 @@
 		if(songlists_selection=="SCUM")
 			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
 		if(songlists_selection=="DAMN")
-			chosen_songlists_selection = MUSIC_TAVCAT_SCUM
+			chosen_songlists_selection = MUSIC_TAVCAT_DAMN
 		if(songlists_selection=="MISC")
 			chosen_songlists_selection = MUSIC_TAVCAT_MISC
 		var/song_selection = input(user, "Which song do I play?", "\The [src]") as null | anything in chosen_songlists_selection
