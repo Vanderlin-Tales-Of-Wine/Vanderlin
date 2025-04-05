@@ -22395,7 +22395,7 @@
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv"
 	},
-/obj/effect/mapping_helpers/door/access/manor/mage,
+/obj/effect/mapping_helpers/door/access/town/tower,
 /turf/open/floor/metal{
 	icon_state = "plating2"
 	},
@@ -26933,8 +26933,6 @@
 /area/rogue/indoors/town/manorgate)
 "suN" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "blacksmith";
 	name = "Miners Quarters"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -34927,8 +34925,6 @@
 /area/rogue/outdoors/town)
 "xLv" = (
 /obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "blacksmith";
 	name = "Miners Quarters"
 	},
 /turf/open/floor/blocks/stonered/tiny,
