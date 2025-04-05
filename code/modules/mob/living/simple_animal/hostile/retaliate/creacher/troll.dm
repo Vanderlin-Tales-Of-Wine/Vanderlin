@@ -29,7 +29,8 @@
 						/obj/item/alch/horn = 2)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/strange= 2,
 						/obj/item/natural/hide = 3,
-						/obj/item/alch/horn = 2)
+						/obj/item/alch/horn = 2,
+						/obj/item/natural/head/troll = 1)
 
 	health = TROLL_HEALTH
 	maxHealth = TROLL_HEALTH
