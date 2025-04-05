@@ -4584,6 +4584,10 @@
 "RH" = (
 /turf/open/floor/dirt/road,
 /area/rogue/outdoors)
+"RI" = (
+/obj/structure/maniac_return_machine,
+/turf/open/floor/plasteel/maniac/damaged,
+/area/rogue)
 "RK" = (
 /obj/structure/table/wood/plain_alt,
 /turf/open/floor/hexstone,
@@ -10780,7 +10784,7 @@ Fz
 YI
 Sr
 kB
-AV
+RI
 Sr
 AV
 YI

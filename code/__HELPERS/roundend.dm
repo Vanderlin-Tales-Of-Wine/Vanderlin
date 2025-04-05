@@ -92,10 +92,10 @@
 /mob/proc/do_game_over()
 	if(SSticker.current_state != GAME_STATE_FINISHED)
 		return
-	if(client)
-		client.show_game_over()
 	status_flags |= GODMODE
 	ai_controller?.set_ai_status(AI_STATUS_OFF)
+	if(client)
+		client.show_game_over()
 
 /mob/living/do_game_over()
 	..()
@@ -525,12 +525,12 @@
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
 		if(ply.current.real_name != ply.name)
-			text += " <span class='redtext'>died</span>"
+			text += span_redtext(" died.")
 		else
 			if(ply.current.stat == DEAD)
-				text += " <span class='redtext'>died</span>"
+				text += span_redtext(" died.")
 			else
-				text += " <span class='greentext'>survived</span>"
+				text += span_greentext(" survived.")
 	return text
 
 /proc/printplayerlist(list/datum/mind/players,fleecheck)
