@@ -19,10 +19,15 @@
 
 /obj/item/storage/keyring/Initialize()
 	. = ..()
-	for(var/X in keys)
+	if(!length(keys))
+		return
+	if(length(keys) > 10)
+		stack_trace("Keyring [src] has too many keys and the list will get cut short!")
+	for(var/X as anything in keys)
 		var/obj/item/key/new_key = new X(loc)
 		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, FALSE))
 			qdel(new_key)
+		LAZYREMOVE(keys, X)
 
 	update_icon()
 	update_desc()
@@ -50,12 +55,12 @@
 			icon_state = "keyring5"
 
 /obj/item/storage/keyring/proc/update_desc()
-	if(contents.len)
-		desc = span_info("Holds \Roman[contents.len] key\s, including:")
-		for(var/obj/item/key/KE in contents)
-			desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
-	else
-		desc = ""
+	if(!length(contents))
+		desc = initial(desc)
+		return
+	desc = span_info("Holds \Roman[length(contents)] key\s, including:")
+	for(var/obj/item/key/KE in contents)
+		desc += span_info("\n- [KE.name ? "\A [KE.name]." : "An unknown key."]")
 
 /obj/item/storage/keyring/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
@@ -245,7 +250,7 @@
 	keys = list(/obj/item/key/church, /obj/item/key/graveyard)
 
 /obj/item/storage/keyring/hand
-	keys = list(/obj/item/key/hand, /obj/item/key/steward, /obj/item/key/tavern, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms, /obj/item/key/manor, /obj/item/key/guest)
+	keys = list(/obj/item/key/hand, /obj/item/key/manor, /obj/item/key/steward, /obj/item/key/church, /obj/item/key/merchant, /obj/item/key/dungeon, /obj/item/key/walls, /obj/item/key/garrison, /obj/item/key/forrestgarrison, /obj/item/key/atarms)
 
 /obj/item/storage/keyring/steward
 	keys = list(/obj/item/key/steward, /obj/item/key/vault, /obj/item/key/manor, /obj/item/key/warehouse)
@@ -273,3 +278,6 @@
 
 /obj/item/storage/keyring/stevedore
 	keys = list(/obj/item/key/warehouse, /obj/item/key/merchant)
+
+/obj/item/storage/keyring/gaffer
+	keys = list(/obj/item/key/gaffer, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary, /obj/item/key/mercenary)
