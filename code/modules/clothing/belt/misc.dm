@@ -371,3 +371,67 @@
 		var/obj/item/weapon/knife/throwingknife/psydon/A = new()
 		arrows += A
 	update_icon()
+
+///////////////////////////////////////////////
+
+/obj/item/storage/hip/headhook
+	name = "head hook"
+	desc = "an iron hook for storing 6 heads"
+	icon = 'icons/roguetown/clothing/belts.dmi'
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
+	icon_state = "ironheadhook"
+	item_state = "ironheadhook"
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 300
+	equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	bloody_icon_state = "bodyblood"
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/iron
+	component_type = /datum/component/storage/concrete/grid/headhook
+
+/obj/item/storage/hip/headhook/bronze
+	name = "bronze head hook"
+	desc = "a bronze hook for storing 12 heads"
+	icon = 'icons/roguetown/clothing/belts.dmi'
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "bronzeheadhook"
+	item_state = "bronzeheadhook"
+	slot_flags = ITEM_SLOT_HIP
+	w_class = WEIGHT_CLASS_NORMAL
+	max_integrity = 400
+	equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	bloody_icon_state = "bodyblood"
+	anvilrepair = /datum/skill/craft/blacksmithing
+	smeltresult = /obj/item/ingot/bronze
+	component_type = /datum/component/storage/concrete/grid/headhook/bronze
+
+
+/obj/item/storage/hip/headhook/attackby(obj/item/H, mob/user, params)
+	. = ..()
+	user.visible_message("[user] tries to put [H] into [src].", "You try to put [H] into [src].")
+
+/obj/item/storage/hip/headhook/examine(mob/user)
+	. = ..()
+	if(length(contents))
+		. += span_notice("[length(contents)] thing[length(contents) > 1 ? "s" : ""] in [src].")
+
+///obj/item/storage/hip/headhook/royal //N/A uncomment this whole thing when this actually has sprites to use, everything else about it works fine
+	//name = "royal head hook"
+	//desc = "a golden hook for storing 16 heads, befitting of any king's hunt"
+	//icon = 'icons/roguetown/clothing/belts.dmi' //N/A uncomment when a mob_overlay icon is made and added
+	//mob_overlay_icon = 'icons/roguetown/clothing/onmob/belts.dmi'
+	//icon_state = "knife"
+	//item_state = "knife"
+	//slot_flags = ITEM_SLOT_HIP
+	//w_class = WEIGHT_CLASS_NORMAL
+	//max_integrity = 400
+	//equip_sound = 'sound/blank.ogg'
+	//content_overlays = FALSE
+	//sellprice = 250
+	//bloody_icon_state = "bodyblood"
+	//anvilrepair = /datum/skill/craft/blacksmithing
+	//smeltresult = /obj/item/ingot/gold
+	//component_type = /datum/component/storage/concrete/grid/headhook/bronze
