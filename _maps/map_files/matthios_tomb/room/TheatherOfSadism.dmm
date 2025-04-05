@@ -227,7 +227,7 @@
 "ip" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/organ/eyes,
-/obj/item/organ/eyes/elf/less,
+/obj/item/organ/eyes/darkvision/lesser,
 /obj/item/organ/eyes/night_vision/werewolf,
 /obj/item/organ/stomach,
 /obj/item/organ/stomach,
@@ -330,7 +330,7 @@
 /obj/item/kitchen/fork/iron{
 	pixel_x = -10
 	},
-/obj/item/organ/eyes/elf,
+/obj/item/organ/eyes/darkvision,
 /turf/open/floor/blocks/stonered/tiny,
 /area/rogue/under/cave)
 "nn" = (
