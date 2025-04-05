@@ -4,12 +4,24 @@
 #define SLOT_MANNEQUIN_SHIRT "shirt"
 #define SLOT_MANNEQUIN_FEET "feet"
 #define SLOT_MANNEQUIN_GLOVES "gloves"
+#define SLOT_MANNEQUIN_WRISTS "wrists"
 #define SLOT_MANNEQUIN_ARMOR "armor"
-#define SLOT_MANNEQUIN_CLOAK "cloak"
+#define SLOT_MANNEQUIN_NECK "neck"
 #define SLOT_MANNEQUIN_BELT "belt"
 #define SLOT_MANNEQUIN_MASK "mask"
 #define SLOT_MANNEQUIN_HEAD "head"
 #define SLOT_MANNEQUIN_PANTS "pants"
+#define SLOT_MANNEQUIN_CLOAK "cloak"
+#define SLOT_MANNEQUIN_RING "ring"
+
+/*
+* Important note:
+* Cloaks and rings do not have a target zone and can only be equipped via the menu.
+* To summarize some comments, they were possibly excluded because they had no target zones,
+* and there was no menu. Now there is a menu.
+* I specifically left out hip and back slots so as not to display weapons/equipment.
+* I think it's best to keep mannequins for armor/clothing/jewelry.
+*/
 
 /*
 * If you are porting this from another codebase
@@ -49,7 +61,10 @@
 		SLOT_MANNEQUIN_FEET,
 		SLOT_MANNEQUIN_HEAD,
 		SLOT_MANNEQUIN_CLOAK,
+		SLOT_MANNEQUIN_NECK,
 		SLOT_MANNEQUIN_GLOVES,
+		SLOT_MANNEQUIN_WRISTS,
+		SLOT_MANNEQUIN_RING,
 		)
 
 	//Easily Editable Mapping Variables
@@ -66,11 +81,14 @@
 	var/mapping_shirt
 	var/mapping_shoes
 	var/mapping_gloves
+	var/mapping_ring
+	var/mapping_wrists
 	var/mapping_armor
 	var/mapping_belt
 	var/mapping_mask
 	var/mapping_head
 	var/mapping_cloak
+	var/mapping_neck
 
 //Code//
 /obj/structure/mannequin/New(turf/loc, list/items_to_wear)
@@ -120,36 +138,41 @@
 */
 /obj/structure/mannequin/Topic(href, href_list)
 	..()
-	if(usr.incapacitated() || !Adjacent(usr) || !(iscarbon(usr)) || tipped_over)
+	if(tipped_over || !(iscarbon(usr)) || usr.incapacitated() || !Adjacent(usr))
 		return
 	var/mob/living/carbon/user = usr
-	if(href_list["item"])
-		var/obj/item/item_in_hand = usr.get_active_held_item()
-		var/item_slot = href_list["item"]
+	switch(href_list["command"])
+		if("item_placement")
+			var/obj/item/item_in_hand = user.get_active_held_item()
+			var/item_slot = href_list["item_slot"]
 
-		var/targ_to_slot = MannequinEquipHelper(item_slot)
-		if(!item_in_hand)
-			if(clothing[targ_to_slot])
-				var/obj/item/I = clothing[targ_to_slot]
-				MannequinUnequip(null,targ_to_slot)
-				user.put_in_hand(I)
-				add_fingerprint(user)
-				to_chat(user, "You pick up \the [I] from \the [src].")
-		else
-			FinalEquipCheck(user, item_in_hand, item_slot)
-
-	//Utility Button Effects
-	if(href_list["turn"])
-		switch(dir)
-			if(NORTH)
-				dir = EAST
-			if(SOUTH)
-				dir = WEST
-			if(WEST)
-				dir = NORTH
-			//Safety Net
+			var/targ_to_slot = MannequinEquipHelper(item_slot)
+			if(!item_in_hand)
+				if(clothing[targ_to_slot])
+					var/obj/item/I = clothing[targ_to_slot]
+					MannequinUnequip(null,targ_to_slot)
+					user.put_in_hand(I)
+					add_fingerprint(user)
+					to_chat(user, "You pick up \the [I] from \the [src].")
 			else
-				dir = SOUTH
+				FinalEquipCheck(user, item_in_hand, item_slot)
+
+		//Utility Button Effects
+		if("turn_mannequin")
+			switch(dir)
+				if(NORTH)
+					dir = EAST
+				if(SOUTH)
+					dir = WEST
+				if(WEST)
+					dir = NORTH
+				//Safety Net
+				else
+					dir = SOUTH
+		else
+			if(user?.client)
+				user << browse(null, "window=mannequin[REF(src)]")
+			return
 	update_icon()
 	ShowInventory(user)
 
@@ -158,27 +181,24 @@
 	var/dat
 
 	dat += EquippableSlots()
-	dat += "<BR>---"
-	dat += "<BR>Turn Mannequin:<B><A href='byond://?src=\ref[src];turn=turn'>[dir2text(dir)]</A></B>"
-	dat += "<BR>"
-	dat += {"
-	<BR>
-	<BR><A href='byond://?src=\ref[user];mach_close=mob\ref[src]'>Close</A>
-	"}
+	dat += "<HR>Turn Mannequin:<B><A href='byond://?src=[REF(src)];command=turn_mannequin'>[dir2text(dir)]</A></B>"
+	dat += "<BR><A href='byond://?src=[REF(src)];command=close' style='position:absolute;right:50px'>Close</A>"
 
-	var/datum/browser/popup = new(user, "mannequin\ref[src]", "[src]", 340, 500)
+	var/datum/browser/noclose/popup = new(user, "mannequin[REF(src)]", "<div align='center'>Mannequin Fitting</div>", 275, 425)
+	//I don't think generating a new popup datum every ui update is a good thing, but what do I know. I'm so used to tgui.
 	popup.set_content(dat)
 	popup.open()
 
 //UI SLOTS
 /obj/structure/mannequin/proc/EquippableSlots()
-	. = ""
-	. += "<BR><B>Head:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_HEAD]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_HEAD])]</A>"
-	. += "<BR><B>Neck:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_NECK]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_CLOAK])]</A>"
-	. += "<BR><B>Mask:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_MOUTH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_MASK])]</A>"
-	. += "<BR><B>Armor:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_CHEST]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_ARMOR])]</A>"
-	. += "<BR><B>Shirt:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_STOMACH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_SHIRT])]</A>"
-	. += "<BR><B>Belt:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_GROIN]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_BELT])]</A>"
+	. += "<BR><B>Head:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_HEAD]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_HEAD])]</A>"
+	. += "<BR><B>Mask:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_MOUTH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_MASK])]</A>"
+	. += "<BR><B>Neck:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_NECK]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_NECK])]</A>"
+	. += "<BR><B>Cloak:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[SLOT_MANNEQUIN_CLOAK]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_CLOAK])]</A>" //No direct slot to equip.
+	. += "<BR><B>Armor:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_CHEST]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_ARMOR])]</A>"
+	. += "<BR><B>Shirt:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_STOMACH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_SHIRT])]</A>"
+	. += "<BR><B>Belt:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_GROIN]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_BELT])]</A>"
+	. += "<BR><B>Ring:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[SLOT_MANNEQUIN_RING]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_RING])]</A>" //No direct slot to equip.
 
 /obj/structure/mannequin/attackby(obj/item/I, mob/user)
 	if(user.cmode || user.a_intent == INTENT_HARM || user.a_intent == INTENT_DISARM)
@@ -203,21 +223,29 @@
 		if(cloth_to_examine)
 			switch(slot_cloth)
 				if(SLOT_MANNEQUIN_HEAD)
-					slot_examine = " on its head"
+					slot_examine = " on its head."
+				if(SLOT_MANNEQUIN_NECK)
+					slot_examine = " on its neck."
 				if(SLOT_MANNEQUIN_GLOVES)
-					slot_examine = " on its hands"
+					slot_examine = " on its hands."
+				if(SLOT_MANNEQUIN_WRISTS)
+					slot_examine = " around its arms."
 				if(SLOT_MANNEQUIN_BELT)
-					slot_examine = " about its waist"
+					slot_examine = " about its waist."
 				if(SLOT_MANNEQUIN_SHIRT)
-					slot_examine = " close to its skin"
+					slot_examine = " close to its skin."
 				if(SLOT_MANNEQUIN_ARMOR)
-					slot_examine = " over its body"
+					slot_examine = " over its body."
+				if(SLOT_MANNEQUIN_PANTS)
+					slot_examine = " on its legs."
 				if(SLOT_MANNEQUIN_FEET)
-					slot_examine = " on its feet"
+					slot_examine = " on its feet."
 				if(SLOT_MANNEQUIN_MASK)
-					slot_examine = " on its face"
+					slot_examine = " on its face."
 				if(SLOT_MANNEQUIN_CLOAK)
-					slot_examine = " around its neck"
+					slot_examine = " over its shoulders."
+				if(SLOT_MANNEQUIN_RING)
+					slot_examine = " around its finger."
 			msg += "Wearing [cloth_to_examine][slot_examine].<br>"
 	/*
 	* This is placed here due to the fact
@@ -359,6 +387,10 @@
 			sleeves = TRUE
 			clothing_layer = GLOVES_LAYER
 			overlay_icon = 'icons/roguetown/clothing/onmob/gloves.dmi'
+		if(SLOT_MANNEQUIN_WRISTS)
+			sleeves = TRUE
+			clothing_layer = WRISTS_LAYER
+			overlay_icon = 'icons/roguetown/clothing/onmob/wrists.dmi'
 		if(SLOT_MANNEQUIN_ARMOR)
 			sleeves = TRUE
 			clothing_layer = ARMOR_LAYER
@@ -381,10 +413,18 @@
 			is_female = FALSE
 			clothing_layer = HEAD_LAYER
 			overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+		if(SLOT_MANNEQUIN_NECK)
+			is_female = FALSE
+			clothing_layer = NECK_LAYER
+			overlay_icon = 'icons/roguetown/clothing/onmob/neck.dmi'
 		if(SLOT_MANNEQUIN_CLOAK)
 			sleeves = TRUE
 			clothing_layer = CLOAK_LAYER
 			overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+		if(SLOT_MANNEQUIN_RING)
+		//Rings are gendered, and most rings won't show up because there are currently a handful of ring onmob sprites.
+			clothing_layer = RING_LAYER
+			overlay_icon = 'icons/roguetown/clothing/onmob/rings.dmi'
 
 	if(worn_thing.alternate_worn_layer)
 		clothing_layer = worn_thing.alternate_worn_layer
@@ -416,6 +456,8 @@
 */
 /obj/structure/mannequin/proc/MakeSleeveLayer(obj/item/I, cloth_slot, layer2use = ARMORSLEEVE_LAYER, sleeveindex = 4)
 	switch(cloth_slot)
+		if(SLOT_MANNEQUIN_WRISTS)
+			layer2use = WRISTSLEEVE_LAYER
 		if(SLOT_MANNEQUIN_GLOVES)
 			layer2use = GLOVESLEEVE_LAYER
 		if(SLOT_MANNEQUIN_ARMOR)
@@ -526,11 +568,14 @@
 	SpawnQuickEquip(mapping_shirt, SLOT_MANNEQUIN_SHIRT)
 	SpawnQuickEquip(mapping_shoes, SLOT_MANNEQUIN_FEET)
 	SpawnQuickEquip(mapping_gloves, SLOT_MANNEQUIN_GLOVES)
+	SpawnQuickEquip(mapping_wrists, SLOT_MANNEQUIN_WRISTS)
 	SpawnQuickEquip(mapping_armor, SLOT_MANNEQUIN_ARMOR)
 	SpawnQuickEquip(mapping_belt, SLOT_MANNEQUIN_BELT)
 	SpawnQuickEquip(mapping_mask, SLOT_MANNEQUIN_MASK)
 	SpawnQuickEquip(mapping_head, SLOT_MANNEQUIN_HEAD)
+	SpawnQuickEquip(mapping_neck, SLOT_MANNEQUIN_NECK)
 	SpawnQuickEquip(mapping_cloak, SLOT_MANNEQUIN_CLOAK)
+	SpawnQuickEquip(mapping_ring, SLOT_MANNEQUIN_RING)
 
 //For simplifying the MapEquip() proc.
 /obj/structure/mannequin/proc/SpawnQuickEquip(obj/O, slot)
@@ -565,15 +610,19 @@
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL)
 			return ITEM_SLOT_HEAD
 		if(BODY_ZONE_PRECISE_NECK)
-			return ITEM_SLOT_CLOAK
+			return ITEM_SLOT_NECK
 		if(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 			return ITEM_SLOT_MASK
+		if(SLOT_MANNEQUIN_CLOAK)
+			return ITEM_SLOT_CLOAK
 		if(BODY_ZONE_CHEST)
 			return ITEM_SLOT_ARMOR
 		if(BODY_ZONE_PRECISE_STOMACH)
 			return ITEM_SLOT_SHIRT
 		if(BODY_ZONE_PRECISE_GROIN)
 			return ITEM_SLOT_BELT
+		if(SLOT_MANNEQUIN_RING)
+			return ITEM_SLOT_RING
 
 /*
 * Translates the item slot into a text
@@ -584,6 +633,8 @@
 		if(ITEM_SLOT_HEAD)
 			return "head"
 		if(ITEM_SLOT_CLOAK)
+			return "shoulders"
+		if(ITEM_SLOT_NECK)
 			return "neck"
 		if(ITEM_SLOT_MASK)
 			return "face"
@@ -593,10 +644,14 @@
 			return "belly"
 		if(ITEM_SLOT_BELT)
 			return "crotch"
+		if(ITEM_SLOT_RING)
+			return "finger"
 		if(ITEM_SLOT_PANTS)
 			return "legs"
 		if(ITEM_SLOT_GLOVES)
 			return "hands"
+		if(ITEM_SLOT_WRISTS)
+			return "wrists"
 		if(ITEM_SLOT_SHOES)
 			return "feet"
 	return "thing"
@@ -613,17 +668,23 @@
 		if(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_SKULL)
 			return SLOT_MANNEQUIN_HEAD
 		if(BODY_ZONE_PRECISE_NECK)
-			return SLOT_MANNEQUIN_CLOAK
+			return SLOT_MANNEQUIN_NECK
 		if(BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH)
 			return SLOT_MANNEQUIN_MASK
+		if(SLOT_MANNEQUIN_CLOAK)
+			return SLOT_MANNEQUIN_CLOAK
 		if(BODY_ZONE_CHEST)
 			return SLOT_MANNEQUIN_ARMOR
 		if(BODY_ZONE_PRECISE_STOMACH)
 			return SLOT_MANNEQUIN_SHIRT
 		if(BODY_ZONE_PRECISE_GROIN)
 			return SLOT_MANNEQUIN_BELT
+		if(SLOT_MANNEQUIN_RING)
+			return SLOT_MANNEQUIN_RING
 		if(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 			return SLOT_MANNEQUIN_PANTS
+		if(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
+			return SLOT_MANNEQUIN_WRISTS
 		if(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND)
 			return SLOT_MANNEQUIN_GLOVES
 		if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
@@ -657,6 +718,8 @@
 	switch(target_zone)
 		if(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 			return ITEM_SLOT_PANTS
+		if(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
+			return ITEM_SLOT_WRISTS
 		if(BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND)
 			return ITEM_SLOT_GLOVES
 		if(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT)
@@ -665,9 +728,10 @@
 
 /obj/structure/mannequin/male/EquippableSlots()
 	. = ..()
-	. += "<BR><B>Gloves:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
-	. += "<BR><B>Shoes:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
-	. += "<BR><B>Pants:</B> <A href='byond://?src=\ref[src];item=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
+	. += "<BR><B>Wrists:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_L_ARM]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_WRISTS])]</A>"
+	. += "<BR><B>Gloves:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
+	. += "<BR><B>Pants:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
+	. += "<BR><B>Shoes:</B> <A href='byond://?src=[REF(src)];command=item_placement;item_slot=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
 
 /obj/structure/mannequin/male/bodypartsNightmare()
 	var/isfemale = (gender == FEMALE ? "f" : "m")
@@ -678,9 +742,12 @@
 #undef SLOT_MANNEQUIN_SHIRT
 #undef SLOT_MANNEQUIN_FEET
 #undef SLOT_MANNEQUIN_GLOVES
+#undef SLOT_MANNEQUIN_WRISTS
 #undef SLOT_MANNEQUIN_ARMOR
 #undef SLOT_MANNEQUIN_CLOAK
+#undef SLOT_MANNEQUIN_NECK
 #undef SLOT_MANNEQUIN_BELT
+#undef SLOT_MANNEQUIN_RING
 #undef SLOT_MANNEQUIN_MASK
 #undef SLOT_MANNEQUIN_HEAD
 #undef SLOT_MANNEQUIN_PANTS
