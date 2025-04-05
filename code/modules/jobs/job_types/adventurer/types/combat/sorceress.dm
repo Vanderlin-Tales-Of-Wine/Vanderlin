@@ -2,17 +2,7 @@
 	name = "Sorceress"
 	tutorial = "In some places in Psydonia, women such as you are banned from the study of magic. However, in having overcome such discrimination to pursue magic, you have earned the title \"Sorceress\" in honor of your resolve."
 	allowed_sexes = list(FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Kobold",
-		"Half-Orc"
-	)
+
 	outfit = /datum/outfit/job/adventurer/sorceress
 	maximum_possible_slots = 2
 	min_pq = 0

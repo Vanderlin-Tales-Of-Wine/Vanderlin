@@ -15,7 +15,7 @@
 
 	advclass_cat_rolls = list(CTAG_TOWNER = 20)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = null
 	outfit_female = null

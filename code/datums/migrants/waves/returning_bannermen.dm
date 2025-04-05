@@ -2,12 +2,7 @@
 	name = "Serjeant-At-Arms"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and the mens under your command have returned upon fullfiling your task."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-		"Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 	outfit = /datum/outfit/job/serjeant_at_arms
@@ -62,11 +57,7 @@
 	name = "Bannermen Archer"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/archer_bannerman
-	allowed_races = list("Humen",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-		"Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 /datum/outfit/job/archer_bannerman/pre_equip(mob/living/carbon/human/H)
@@ -162,7 +153,7 @@
 	name = "Bannermen Footman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/footman_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 
@@ -202,7 +193,7 @@
 	name = "Bannermen Pikeman"
 	greet_text = "You were apart of an expedition sent by the King of Vanderlin to Kingsfield, you and your serjeant-at-arms have returned upon fullfiling your task."
 	outfit = /datum/outfit/job/pikeman_bannerman
-	allowed_races = list("Humen","Dwarf","Aasimar","Half-Elf","Elf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
 

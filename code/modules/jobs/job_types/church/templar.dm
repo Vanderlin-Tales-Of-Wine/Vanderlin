@@ -13,13 +13,7 @@
 	min_pq = 8
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 
 	outfit = /datum/outfit/job/templar

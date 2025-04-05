@@ -4,7 +4,8 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Dwarf",
-		"Dark Elf"
+		"Dark Elf",
+		"Kobold",
 	)
 	outfit = /datum/outfit/job/mercenary/underdweller
 	category_tags = list(CTAG_MERCENARY)
@@ -45,7 +46,7 @@
 		H.change_stat(STATKEY_END, 1)
 		H.change_stat(STATKEY_STR, 1)
 
-	if(H.dna.species.id == "dwarf")
+	if(H.dna.species.id == "dwarf" || H.dna.species.id == "kobold")
 		H.cmode_music = 'sound/music/cmode/adventurer/CombatOutlander2.ogg'
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)

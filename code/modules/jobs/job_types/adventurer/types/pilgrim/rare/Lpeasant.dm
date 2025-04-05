@@ -5,18 +5,7 @@
 	tutorial = "A veteran among the serfs that tend to cattle and fields of produce, \
 	able to handle almost every single task there is to do on a fief."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+
 	outfit = /datum/outfit/job/adventurer/farmermaster
 	maximum_possible_slots = 1
 	pickprob = 15

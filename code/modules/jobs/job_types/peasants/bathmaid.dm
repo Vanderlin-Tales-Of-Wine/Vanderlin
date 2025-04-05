@@ -13,7 +13,7 @@
 	spawn_positions = 0
 
 	allowed_sexes = list(FEMALE)
-	allowed_races =  ALL_PLAYER_RACES_BY_NAME
+	allowed_races =  RACES_PLAYER_ALL
 	allowed_ages = ALL_AGES_LIST
 
 	outfit = /datum/outfit/job/nitemaiden

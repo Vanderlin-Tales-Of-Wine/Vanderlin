@@ -4,11 +4,7 @@
 	name = "Sentinel"
 	tutorial = "Your overseers have sent you to this distant land as a scout. Your trusted steed, longbow, and spear will allow you to overcome any challenges on the road ahead."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Elf",
-		"Half-Elf",
-		"Dark Elf"
-	)
+	allowed_races = RACES_PLAYER_ELF_D
 	outfit = /datum/outfit/job/adventurer/sentinel
 	horse = /mob/living/simple_animal/hostile/retaliate/saigabuck/tame/saddled
 	outfit = /datum/outfit/job/adventurer/sentinel
