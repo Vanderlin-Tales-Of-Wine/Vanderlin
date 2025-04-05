@@ -728,6 +728,8 @@
 				else
 					caughtfish.name = "[sizedesc] [raritydesc] [caughtfish.name]"
 					caughtfish.sellprice *= costmod
+
+			GLOB.vanderlin_round_stats["fish_caught"]++
 		else//only occurs on special catch that most likely won't have special modifiers
 			if(turfcatch)
 				var/atom/caughtthing = new fishtype(targeted)

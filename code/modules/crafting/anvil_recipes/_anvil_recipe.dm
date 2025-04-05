@@ -155,6 +155,7 @@
 		if(BLACKSMITH_LEVEL_LEGENDARY to INFINITY)
 			I.name = "masterwork [I.name]"
 			modifier = 1.3
+			GLOB.vanderlin_round_stats["masterworks_forged"]++
 
 	if(!modifier) // Sanity.
 		return

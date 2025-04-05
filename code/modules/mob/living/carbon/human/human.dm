@@ -26,7 +26,7 @@
 				if(do_after(user, 5 SECONDS, src))
 					facial_hairstyle = "None"
 					update_hair()
-					SSticker.beardshavers++
+					GLOB.vanderlin_round_stats["beards_shaved"]++
 					if(dna?.species)
 						if(dna.species.id == "dwarf")
 							var/mob/living/carbon/V = src
@@ -88,8 +88,8 @@
 	var/obj/item/bodypart/affecting
 	var/dam = levels * rand(10,50)
 	V.add_stress(/datum/stressevent/felldown)
-	SSticker.moatfallers-- // If you get your ankles broken you fall. This makes sure only those that DIDN'T get damage get counted.
-	SSticker.holefall++
+	GLOB.vanderlin_round_stats["moat_fallers"]-- // If you get your ankles broken you fall. This makes sure only those that DIDN'T get damage get counted.
+	GLOB.vanderlin_round_stats["ankles_broken"]++
 	var/chat_message
 	switch(rand(1,4))
 		if(1)
