@@ -268,7 +268,7 @@
 		zombie.adjustBruteLoss(-INFINITY, updating_health = FALSE, forced = TRUE)
 		zombie.adjustFireLoss(-INFINITY, updating_health = FALSE, forced = TRUE)
 		zombie.heal_wounds(INFINITY) //Heal every wound that is not permanent
-	zombie.stat = UNCONSCIOUS //Start unconscious
+	zombie.set_stat(UNCONSCIOUS) //Start unconscious
 	zombie.updatehealth() //then we check if the mob should wake up
 	zombie.update_mobility()
 	zombie.update_sight()
