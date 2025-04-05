@@ -5287,6 +5287,7 @@
 /area/rogue/indoors/town/shop)
 "dzY" = (
 /obj/structure/chair/stool/crafted,
+/obj/effect/landmark/start/matron_assistant,
 /turf/open/floor/ruinedwood/darker,
 /area/rogue/indoors/town/orphanage)
 "dAv" = (
@@ -25196,6 +25197,7 @@
 /area/rogue/indoors/town)
 "rwi" = (
 /obj/structure/bed/wool,
+/obj/effect/landmark/start/tapster,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/under/town/basement)
 "rww" = (
