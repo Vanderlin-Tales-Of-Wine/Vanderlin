@@ -30,6 +30,27 @@
 	belt = /obj/item/storage/belt/leather
 	pants = /obj/item/clothing/pants/tights/black
 	backl = /obj/item/storage/backpack/satchel
+
+	if(H.dna.species.id == "human") // This statblock serves to smooth out racial stat-bonuses slightly. Makes room for the RNG to do its shitty work.
+		H.change_stat(STATKEY_END, -1)
+	if(H.dna.species.id == "dwarf")
+		H.change_stat(STATKEY_CON, -1)
+		H.change_stat(STATKEY_END, -1)
+	if(H.dna.species.id == "elf")
+		H.change_stat(STATKEY_SPD, -1)
+	if(H.dna.species.id == "aasimar")
+		H.change_stat(STATKEY_INT, -1)
+	if(H.dna.species.id == "tiefling")
+		H.change_stat(STATKEY_PER, -1)
+	if(H.dna.species.id == "halforc") // Get Fucked.
+		H.change_stat(STATKEY_STR, -1)
+		H.change_stat(STATKEY_CON, -1)
+	if(H.dna.species.id == "rakshari")
+		H.change_stat(STATKEY_SPD, -1)
+	if(H.dna.species.id == "kobold") // They have it bad enough as is... Oh my sweet lord do they have it bad.
+		H.change_stat(STATKEY_CON, 1)
+		H.change_stat(STATKEY_STR, 1)
+
 	var/armortype = pickweight(list("Warrior" = 4, "Splint" = 4, "HeavyG" = 4, "Hide" = 3, "Jacket" = 3, "Sailor" = 3, "Peon" = 3, "Ironplate" = 2, "Freak" = 3, "Psy" = 2, "Destitute" = 2, "Berserker" = 2, "Copper" = 1, "Noble" = 1, "BKnight" = 1)) // Armor / Armortype roll. It varies heavily. The more gimmicky / best stuff is generally the rarest
 	var/weapontype = pickweight(list("Axe" = 4, "BigAxe" = 3, "Mace" = 4, "Mage" = 1, "Shield" = 2, "BigMace" = 3, "Spear" = 3, "Messer" = 3, "LSword" = 3, "GSword" = 1, "Shovel" = 3, "Scythe" = 2, "Cutlass" = 3, "Falx" = 3, "Rapier" = 2, "Sword" = 4, "Sword2" = 3, "Flail" = 2, "Bow" = 1, "Fist" = 2, "Daggers" = 3, "MFlail" = 3, "Gun" = 1,)) // Weapon roll
 	var/randomjob = pickweight (list("Farmer" = 3, "Sailor" = 2, "Pickpocket" = 2, "Smith" = 2, "Fisher" = 3, "Doctor" = 2, "Steppes" = 2, "Smart" = 1, "Grappler" = 1, "Lumber" = 2, "Guard" = 2, "Bard" = 2, "Paranoiac" = 1, "Alch" = 2, "Torturer" = 1,)) // 'Job' roll, gives small skill benefits
