@@ -1251,7 +1251,7 @@
 	color = pick(GLOB.peasant_dyes)
 	..()
 /obj/item/clothing/pants/tights/stockings/white
-	color = CLOTHING_LINEN
+	color = CLOTHING_CHALK_WHITE
 /obj/item/clothing/pants/tights/stockings/black
 	color = CLOTHING_SOOT_BLACK
 /obj/item/clothing/pants/tights/stockings/blue

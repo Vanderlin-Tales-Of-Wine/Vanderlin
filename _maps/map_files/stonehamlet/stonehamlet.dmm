@@ -378,6 +378,9 @@
 /area/rogue/indoors/town/manor/stone)
 "aCD" = (
 /obj/structure/fermentation_keg/random/beer,
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -30
+	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/bath/redhouse)
 "aCH" = (
@@ -2906,8 +2909,9 @@
 	},
 /area/rogue/indoors/town/clinic_large)
 "enq" = (
-/obj/structure/bookcase/random/myths,
+/obj/structure/bookcase,
 /obj/item/book/robber,
+/obj/item/book/manners,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
 "eoj" = (
@@ -4948,9 +4952,6 @@
 /obj/structure/closet/crate/chest/neu,
 /obj/item/reagent_containers/powder/ozium,
 /obj/item/reagent_containers/powder/spice,
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -30
-	},
 /turf/open/floor/ruinedwood/chevron,
 /area/rogue/indoors/town/bath/redhouse)
 "hkd" = (
@@ -8030,7 +8031,6 @@
 /obj/machinery/light/fueled/wallfire/candle/r,
 /obj/structure/bookcase,
 /obj/item/book/abyssor,
-/obj/item/book/xylix,
 /turf/open/floor/ruinedwood{
 	icon_state = "vertw"
 	},
@@ -9546,7 +9546,7 @@
 /turf/open/floor/blocks/moss,
 /area/rogue/outdoors/town/roofs)
 "nxf" = (
-/obj/structure/bookcase/random/archive,
+/obj/structure/bookcase,
 /obj/item/book/nitebeast,
 /turf/open/floor/woodturned,
 /area/rogue/indoors/town/hamlet)
@@ -11069,7 +11069,7 @@
 	},
 /area/rogue/outdoors/town/roofs)
 "pDi" = (
-/obj/structure/bookcase/random/apocrypha,
+/obj/structure/bookcase,
 /obj/item/book/cardgame,
 /obj/item/book/festus,
 /turf/open/floor/ruinedwood/spiralfade,
@@ -11734,7 +11734,8 @@
 /turf/open/floor/dirt,
 /area/rogue/indoors/town/cell)
 "qwf" = (
-/obj/structure/bookcase/random,
+/obj/structure/bookcase,
+/obj/item/book/manners,
 /turf/open/floor/ruinedwood/spiral,
 /area/rogue/indoors/town/manor/stone)
 "qwv" = (
@@ -14073,7 +14074,6 @@
 /turf/open/floor/tile/masonic/single,
 /area/rogue/under/town/basement)
 "tKl" = (
-/obj/item/book/psybibleplayerbook,
 /obj/structure/bookcase,
 /obj/item/book/bibble,
 /obj/item/book/bookofpriests,
@@ -14147,7 +14147,7 @@
 /area/rogue/indoors/town/magician)
 "tOe" = (
 /obj/structure/closet/crate/crafted_closet/dark,
-/obj/item/book/bookofpriests,
+/obj/item/clothing/head/priestmask,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
 "tOG" = (
@@ -14558,7 +14558,7 @@
 /turf/open/floor/tile/masonic/inverted,
 /area/rogue/indoors/town/manor/stone)
 "usB" = (
-/obj/structure/bookcase/random/legends,
+/obj/structure/bookcase,
 /obj/item/book/law,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor/stone)
@@ -14599,7 +14599,7 @@
 /turf/open/floor/dirt/muddie,
 /area/rogue/under/catacombs)
 "uuO" = (
-/obj/structure/bookcase/random/thesis,
+/obj/structure/bookcase,
 /obj/item/book/beardling,
 /obj/item/book/tales1,
 /obj/item/book/blackmountain,
@@ -16787,7 +16787,6 @@
 /area/rogue/outdoors/exposed/townhamlet)
 "xCK" = (
 /obj/structure/closet/crate/crafted_closet/lord,
-/obj/item/weapon/knife/dagger/steel/special,
 /obj/item/storage/fancy/cigarettes/zig,
 /obj/item/clothing/gloves/angle/falcon,
 /turf/open/floor/ruinedwood/spiral,
@@ -164443,7 +164442,7 @@ pcc
 sUA
 sgb
 sgb
-lYb
+sUA
 hil
 xSL
 nUX
@@ -164645,7 +164644,7 @@ pcc
 kWA
 ddh
 qTD
-lYb
+sUA
 aCD
 xSL
 nUX
@@ -164847,7 +164846,7 @@ pcc
 cec
 fpe
 eZq
-lYb
+sUA
 lYb
 xSL
 nUX
@@ -165049,7 +165048,7 @@ pcc
 sUA
 svF
 svF
-lYb
+sUA
 pvp
 xSL
 nUX

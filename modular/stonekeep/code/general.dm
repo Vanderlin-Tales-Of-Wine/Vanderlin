@@ -566,8 +566,9 @@
 // makes barrels climbable, its really weird they arent.
 /obj/structure/fermentation_keg
 	climbable = TRUE
+	climb_time = 20
 	climb_offset = 16
-
+	drag_slowdown = 4
 
 /datum/supply_pack/rogue/narcotics/soap	// correct soap now
 	name = "Herbal Soap"

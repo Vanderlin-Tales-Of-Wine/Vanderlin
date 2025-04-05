@@ -20,6 +20,10 @@
 	min_pq = 0
 	selection_color = "#c2a45d"
 	cmode_music = 'sound/music/cmode/church/combat_templar.ogg'
+	spells = list(
+		/obj/effect/proc_holder/spell/self/convertrole/templar,
+		/obj/effect/proc_holder/spell/self/convertrole/monk,
+	)
 
 /datum/outfit/job/stonekeep/priest/pre_equip(mob/living/carbon/human/H)
 	..()
