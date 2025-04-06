@@ -5,7 +5,7 @@
 	allowed_races = list(
 		"Humen",
 		"Half-Elf",
-		"Tiefling",
+		"Dwarf",
 		"Half-Orc"
 	)
 	outfit = /datum/outfit/job/adventurer/barbarian

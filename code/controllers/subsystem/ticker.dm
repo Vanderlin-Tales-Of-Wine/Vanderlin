@@ -76,6 +76,8 @@ SUBSYSTEM_DEF(ticker)
 	var/list/royals_readied = list()
 	var/rulertype = "Monarch" // reports whether king or queen rules
 	var/rulermob = null // reports what the ruling mob is.
+	/// The appointed regent mob
+	var/regent_mob = null
 	var/failedstarts = 0
 	var/list/manualmodes = list()
 

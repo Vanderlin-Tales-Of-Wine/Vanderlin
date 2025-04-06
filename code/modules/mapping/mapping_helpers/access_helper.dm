@@ -26,7 +26,7 @@
 	accesses = list(ACCESS_INN)
 
 /obj/effect/mapping_helpers/access/keyset/town/artificer
-	acesses = list(ACCESS_ARTIFICER)
+	accesses = list(ACCESS_ARTIFICER)
 
 /obj/effect/mapping_helpers/access/keyset/town/clinic
 	accesses = list(ACCESS_CLINIC)
@@ -53,10 +53,13 @@
 	accesses = list(ACCESS_MERC)
 
 /obj/effect/mapping_helpers/access/keyset/town/elder
-	acesses = list(ACCESS_ELDER)
+	accesses = list(ACCESS_ELDER)
 
 /obj/effect/mapping_helpers/access/keyset/town/veteran
-	acesses = list(ACCESS_VETERAN)
+	accesses = list(ACCESS_VETERAN)
+
+/obj/effect/mapping_helpers/door/access/town/gaffer
+	accesses = list(ACCESS_GAFFER)
 
 /obj/effect/mapping_helpers/access/keyset/town/tower
 	accesses = list(ACCESS_TOWER)
@@ -65,7 +68,7 @@
 	accesses = list(ACCESS_WAREHOUSE)
 
 /obj/effect/mapping_helpers/access/keyset/town/bathhouse
-	acesses = list(ACCESS_BATHHOUSE)
+	accesses = list(ACCESS_BATHHOUSE)
 
 // Town Garrison
 /obj/effect/mapping_helpers/access/keyset/garrison
@@ -125,13 +128,13 @@
 	accesses = list(ACCESS_VAULT)
 
 /obj/effect/mapping_helpers/access/keyset/manor/mage
-	acesses = list(ACCESS_MAGE)
+	accesses = list(ACCESS_MAGE)
 
 /obj/effect/mapping_helpers/access/keyset/manor/archive
-	acesses = list(ACCESS_ARCHIVE)
+	accesses = list(ACCESS_ARCHIVE)
 
 /obj/effect/mapping_helpers/access/keyset/manor/atarms
-	acesses = list(ACCESS_AT_ARMS)
+	accesses = list(ACCESS_AT_ARMS)
 
 /obj/effect/mapping_helpers/access/keyset/manor/guest
-	acesses = list(ACCESS_GUEST)
+	accesses = list(ACCESS_GUEST)

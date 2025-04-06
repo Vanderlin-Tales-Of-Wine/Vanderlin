@@ -96,7 +96,7 @@
 		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()
-	visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
 	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
@@ -219,6 +219,12 @@
 	desc = "Why, a mercenary would not kick doors down."
 	icon_state = "greenkey"
 	lockids = list(ACCESS_MERC)
+
+/obj/item/key/gaffer
+	name = "Mercenary guild master's key"
+	desc = "\"Humble\" would be a kinder word to use for its current state..."
+	icon_state = "rustkey"
+	lockid = ACCESS_GAFFER
 
 /obj/item/key/warehouse
 	name = "Warehouse key"
@@ -695,47 +701,3 @@
 	icon_state = "mazekey"
 	lockids = list("banditcamp")
 
-/obj/item/key/butcher
-	name = "butcher's key"
-	icon_state = "rustkey"
-	lockids = list("butcher")
-
-/obj/item/key/elder
-	name = "elder's key"
-	icon_state = "rustkey"
-	lockids = list("elder")
-
-/obj/item/key/veteran
-	name = "veteran's key"
-	icon_state = "rustkey"
-	lockids = list("veteran")
-
-/obj/item/key/apothecary
-	name = "apothecary's key"
-	icon_state = "rustkey"
-	lockids = list("nightman")
-
-/obj/item/key/weaponsmith
-	name = "weaponsmith's key"
-	icon_state = "rustkey"
-	lockids = list("weaponsmith")
-
-/obj/item/key/armorsmith
-	name = "armorsmith's key"
-	icon_state = "rustkey"
-	lockids = list("armorsmith")
-
-/obj/item/key/tailor
-	name = "tailor's key"
-	icon_state = "rustkey"
-	lockids = list("tailor")
-
-/obj/item/key/matron
-	name = "matron key"
-	icon_state = "rustkey"
-	lockids = list("orphanage")
-
-/obj/item/key/clinic
-	name = "clinic key"
-	icon_state = "mazekey"
-	lockids = list("clinic")

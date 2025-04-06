@@ -132,6 +132,7 @@
 	budget2change(src.budget)
 	set_light(0)
 
+<<<<<<< HEAD
 /obj/structure/fake_machine/drugmachine/Destroy()
 	. = ..()
 	budget2change(src.budget)
@@ -155,7 +156,7 @@
 			return
 		return attack_hand(user)
 	playsound(get_turf(src), 'sound/misc/machineno.ogg', 100, FALSE, -1)
-	to_chat(user, span_info("Ilack the key for [src]."))
+	to_chat(user, span_info("I lack the key for [src]."))
 
 /obj/structure/fake_machine/drugmachine/Topic(href, href_list)
 	. = ..()
