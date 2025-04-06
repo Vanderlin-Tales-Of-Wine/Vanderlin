@@ -26933,6 +26933,7 @@
 /area/rogue/indoors/town/manorgate)
 "suN" = (
 /obj/structure/mineral_door/wood{
+	lockid = "miner";
 	name = "Miners Quarters"
 	},
 /obj/effect/mapping_helpers/door/locker,
@@ -34925,6 +34926,7 @@
 /area/rogue/outdoors/town)
 "xLv" = (
 /obj/structure/mineral_door/wood{
+	lockid = "miner";
 	name = "Miners Quarters"
 	},
 /turf/open/floor/blocks/stonered/tiny,
