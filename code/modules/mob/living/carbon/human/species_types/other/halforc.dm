@@ -2,7 +2,7 @@
 	race = /datum/species/halforc
 
 /datum/species/halforc
-	id = "halforc"
+	id = SPECIES_HALFORC
 	name = "Half-Orc"
 	desc = "The bastards of Graggar. \
 	\n\n\

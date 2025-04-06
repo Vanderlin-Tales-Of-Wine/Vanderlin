@@ -92,6 +92,7 @@
 #define SPECIES_AASIMAR "aasimar"
 #define SPECIES_DWARF "dwarf"
 #define SPECIES_ELF "elf"
+#define SPECIES_HALFORC "halforc"
 #define SPECIES_HUMAN "human"
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_RAKSHARI "rakshari"
