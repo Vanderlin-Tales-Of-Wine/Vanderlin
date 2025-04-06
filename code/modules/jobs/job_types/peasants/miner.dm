@@ -24,7 +24,6 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	belt = /obj/item/storage/belt/leather
 	neck = /obj/item/storage/belt/pouch/coins/poor
-	beltr = /obj/item/key/miner
 	beltl = /obj/item/weapon/pick
 	backr = /obj/item/weapon/shovel
 	backl = /obj/item/storage/backpack/backpack
