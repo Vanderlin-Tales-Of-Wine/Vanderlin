@@ -1075,8 +1075,8 @@
 	/// was the target typing a message when attacked?
 	var/was_typing
 
-	if(ismob(target))
-		var/mob/attacked_mob = target
+	if(ismob(defender))
+		var/mob/attacked_mob = defender
 		was_typing = attacked_mob.hud_typing
 
 	var/typing_info = was_typing ? " TARGET WAS TYPING" : ""
