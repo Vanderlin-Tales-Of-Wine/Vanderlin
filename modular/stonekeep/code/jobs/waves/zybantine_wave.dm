@@ -174,7 +174,7 @@
 /datum/migrant_role/sk/zyb/slave	// ROGTODO gear and skills I guess.
 	name = "Zybantine Slave"
 	greet_text = "Chosen to come with the embassy, to do chores and keep the Emir comfortable, as well as possibly being a gift for the Monarch."
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	outfit = /datum/outfit/job/sk_migration/zyb/slave
 	grant_lit_torch = TRUE
 

@@ -6,9 +6,7 @@
 
 
 
-#define NORMAL_TOWNER_RACES 	list("Humen","Elf","Half-Elf","Dwarf")
-#define EXPANDED_TOWNER_RACES 	list("Humen","Elf","Aasimar","Half-Elf","Dwarf")
-#define PEASANT_RACES 			list("Humen","Aasimar","Half-Elf","Dwarf")
+
 
 
 // =================================================================================

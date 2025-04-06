@@ -2,6 +2,10 @@
 #define ALL_STONEKEEP_RACES_NORMALSPRITE		list("Humen", "Half-Elf", "Dark Elf", "Elf", "Tiefling", "Aasimar", "Changeling","Skylancer","Ogrun")	// for clothes without dwarf sprites
 #define ALL_RACES_FOR_REAL			list("human", "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold",  "abyssariad")
 
+#define NORMAL_TOWNER_RACES 	list("Humen","Elf","Half-Elf","Dwarf")
+#define EXPANDED_TOWNER_RACES 	list("Humen","Elf","Aasimar","Half-Elf","Dwarf")
+#define PEASANT_RACES 			list("Humen","Aasimar","Half-Elf","Dwarf")
+
 #define CTAG_SKMERCENARY 	"CAT_SKMERCENART"  		// Mercenary classes
 
 #define isgoblin(A) (is_species(A, /datum/species/goblin))
