@@ -3,7 +3,7 @@
 
 /datum/species/rakshari
 	name = "Rakshari"
-	id = "rakshari"
+	id = SPECIES_RAKSHARI
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 
 	desc = "Their origins trace back to nomadic desert tribes, \
@@ -23,7 +23,7 @@
 	THIS IS A DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Tribal Identity"
-	use_skintones = 1
+	use_skintones = TRUE
 	default_color = "FFFFFF"
 	default_features = list("mcolor" = "FFF",, "wings" = "None")
 	specstats = list(STATKEY_STR = -2, STATKEY_PER = 2, STATKEY_INT = 0, STATKEY_CON = -2, STATKEY_END = 0, STATKEY_SPD = 2, STATKEY_LCK = 0)
