@@ -256,7 +256,8 @@
 	desc = "A intricate lunar observation machine, that allows its user to study the face of Noc in the sky, reflecting he true whereabouts of hidden beings.."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "nocdevice"
-	plane = -1
+	plane = 3
+	density = TRUE
 	layer = 4.2
 	var/mob/current_owner
 	var/last_scry

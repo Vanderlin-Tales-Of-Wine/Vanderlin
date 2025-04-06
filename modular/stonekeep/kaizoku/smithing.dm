@@ -3,11 +3,6 @@
 
 
 
-/datum/crafting_recipe
-	//crafting diff, every diff removes 25% chance to craft
-	var/req_imperial = FALSE
-	var/req_islander = FALSE
-
 //Kaizoku Smithing content. I humbly ask for help; A way in which only people with the trait "Kaizoku", being the ones able to make Kaizoku weapons and armor. In another hand,
 //they cannot make most (exceptions; the objects that have no abyssariad alternative) armors and weapons.
 

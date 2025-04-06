@@ -9,6 +9,12 @@
 /*-----------------\
 | Crafting Recipes |
 \-----------------*/
+
+/datum/crafting_recipe
+	var/req_imperial = FALSE
+	var/req_islander = FALSE
+
+
 /datum/crafting_recipe/roguetown/structure/stonetable
 	name = "stone table (long mid)"
 	result = /obj/structure/table/stone

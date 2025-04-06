@@ -4604,6 +4604,10 @@
 /obj/structure/fluff/walldeco/bigpainting/lake,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/hamlet/advguild)
+"gEE" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/blocks/moss,
+/area/rogue/under/town/caverogue/deep)
 "gEG" = (
 /obj/structure/fluff/walldeco/chains{
 	pixel_x = 8
@@ -9366,7 +9370,7 @@
 /turf/open/floor/grass,
 /area/rogue/outdoors/exposed/townhamlet)
 "ngB" = (
-/obj/effect/landmark/start/sk_pilgrim{
+/obj/effect/landmark/start/adventurer{
 	dir = 4
 	},
 /turf/open/floor/naturalstone,
@@ -9471,9 +9475,10 @@
 "nnH" = (
 /obj/structure/mineral_door/wood/donjon/stone{
 	locked = 1;
-	lockid = "manor";
+	lockid = null;
 	name = "armory"
 	},
+/obj/effect/mapping_helpers/door/access/garrison,
 /turf/open/floor/blocks,
 /area/rogue/outdoors/exposed/under/basement)
 "nnR" = (
@@ -12124,8 +12129,9 @@
 "qLr" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
-	lockid = "manor"
+	lockid = null
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/concrete,
 /area/rogue/outdoors/exposed/under/basement)
 "qLx" = (
@@ -12500,9 +12506,10 @@
 /area/rogue/outdoors/exposed/townhamlet)
 "rkr" = (
 /obj/structure/mineral_door/wood/green{
-	lockid = "manor";
+	lockid = null;
 	name = "wine cellar"
 	},
+/obj/effect/mapping_helpers/door/access/manor/manor,
 /turf/open/floor/cobble,
 /area/rogue/outdoors/exposed/under/basement)
 "rkz" = (
@@ -14238,9 +14245,10 @@
 "tLv" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "vault";
+	lockid = null;
 	name = "vault gate"
 	},
+/obj/effect/mapping_helpers/door/access/manor/vault,
 /turf/open/floor/hexstone,
 /area/rogue/outdoors/exposed/under/basement)
 "tMi" = (
@@ -14443,6 +14451,10 @@
 /obj/effect/mapping_helpers/door/access/town/warehouse,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
+"tZw" = (
+/mob/living/carbon/human/species/goblin/npc/ambush/cave,
+/turf/open/floor/dirt/road,
+/area/rogue/outdoors/mountains)
 "tZB" = (
 /obj/structure/rack,
 /obj/item/needle,
@@ -17057,7 +17069,7 @@
 "xMQ" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "vault";
+	lockid = null;
 	name = "vault gate"
 	},
 /obj/structure/fluff/walldeco/pillar/solomon{
@@ -17068,6 +17080,7 @@
 	pixel_x = 21;
 	pixel_y = 0
 	},
+/obj/effect/mapping_helpers/door/access/manor/vault,
 /turf/open/floor/hexstone,
 /area/rogue/outdoors/exposed/under/basement)
 "xNC" = (
@@ -88971,8 +88984,8 @@ shr
 shr
 shr
 shr
-shr
-shr
+kRf
+kRf
 shr
 shr
 shr
@@ -89148,33 +89161,33 @@ sNs
 sNs
 sNs
 qMp
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
 shr
 shr
 shr
@@ -89350,33 +89363,33 @@ sNs
 sNs
 sNs
 qMp
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
-shr
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
+kRf
 shr
 shr
 shr
@@ -117133,7 +117146,7 @@ aEO
 aEO
 aEO
 ncJ
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -117335,7 +117348,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -117537,7 +117550,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -117739,7 +117752,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -117941,7 +117954,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -118143,7 +118156,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -118345,7 +118358,7 @@ ahd
 jtB
 jtB
 jtB
-sNs
+jtB
 sNs
 sNs
 sNs
@@ -128937,7 +128950,7 @@ shr
 shr
 shr
 shr
-shr
+qMp
 sNs
 sNs
 sNs
@@ -169136,7 +169149,7 @@ shr
 shr
 shr
 shr
-shr
+qMp
 qgS
 qMp
 bdv
@@ -169338,7 +169351,7 @@ shr
 shr
 shr
 shr
-shr
+sNs
 qgS
 uMo
 gWX
@@ -185269,7 +185282,7 @@ lLU
 uTE
 rka
 iey
-mMz
+tZw
 sVT
 mMz
 nvf
@@ -185877,7 +185890,7 @@ eoD
 eoD
 eoD
 wew
-wew
+gEE
 shr
 shr
 shr

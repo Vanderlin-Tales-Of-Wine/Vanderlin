@@ -427,6 +427,7 @@
 	desc = "The royal circlet of bright gold rests lightly on my brow, I once thought only of the rights this circlet would endow. But once I took the crown to which I had been schooled and bred, I found it heavy on the heart, though light upon the head."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
+	dropshrink = 0.6
 
 /obj/item/clothing/head/crown/serpcrown/surplus
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -459,6 +460,7 @@
 	icon_state = "necra"
 
 /obj/item/clothing/head/helmet/heavy/bucket/templar/abyssor
+	desc = "A heavy bronze helmet of ancient design. The sea does not change with the times."
 	icon_state = "abyssor"
 
 /obj/item/clothing/head/helmet/heavy/bucket/templar/ravox

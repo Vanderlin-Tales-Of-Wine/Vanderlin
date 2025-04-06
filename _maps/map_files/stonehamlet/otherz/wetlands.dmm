@@ -958,7 +958,8 @@
 /area/rogue/outdoors/bog/wetlands)
 "vf" = (
 /obj/structure/fluff/railing/border{
-	dir = 4
+	dir = 5;
+	icon_state = "border"
 	},
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/bog/wetlands)
@@ -977,13 +978,6 @@
 	},
 /turf/open/floor/cobblemoss,
 /area/rogue/under/xylix)
-"vE" = (
-/obj/structure/fluff/railing/border{
-	dir = 9;
-	icon_state = "border"
-	},
-/turf/open/floor/ruinedwood/decayed,
-/area/rogue/outdoors/bog/wetlands)
 "vF" = (
 /obj/structure/fluff/statue/xylix{
 	pixel_y = 0
@@ -998,8 +992,7 @@
 /area/rogue/under/xylix)
 "vQ" = (
 /obj/structure/fluff/railing/border{
-	dir = 5;
-	icon_state = "border"
+	dir = 4
 	},
 /turf/open/floor/ruinedwood/decayed,
 /area/rogue/outdoors/bog/wetlands)
@@ -105979,9 +105972,9 @@ kA
 mx
 nx
 nx
+nx
 su
 kA
-vg
 sn
 tV
 vW
@@ -106183,7 +106176,7 @@ nx
 nx
 nx
 us
-vE
+us
 sn
 tV
 vW
@@ -107798,9 +107791,9 @@ no
 nx
 nx
 nx
-vf
-vQ
 nx
+vQ
+vf
 nx
 nx
 nx
@@ -107999,10 +107992,10 @@ kA
 mx
 nx
 nx
+nx
 su
 kA
 vg
-nx
 nx
 wY
 wY

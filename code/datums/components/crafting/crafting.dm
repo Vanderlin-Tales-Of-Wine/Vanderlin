@@ -157,6 +157,14 @@
 		return
 	if(!R)
 		return
+	if(R.req_imperial) //Requires Imperial or 'else' culture.
+		if(HAS_TRAIT(user, TRAIT_KAIZOKU))
+			to_chat(user, "<span class='warning'>I literally cannot fathom how imperials do this. Case hardening? Riveting? Fullering? Fluting? What is that?</span>")
+			return
+	if(R.req_islander) //Requires Fog-island/Heartfell culture.
+		if(!HAS_TRAIT(user, TRAIT_KAIZOKU))
+			to_chat(user, "<span class='warning'>I literally cannot fathom how islanders do this. Differential hardening? Steel folding? Lost-wax casting? Tatami? What is that?</span>")
+			return
 	var/list/contents = get_surroundings(user)
 //	var/send_feedback = 1
 	var/turf/T = get_step(user, user.dir)

@@ -470,3 +470,69 @@
 		if("pain")
 			return pick('modular/stonekeep/sound/vo/mobs/gnome/pain (1).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (2).ogg','modular/stonekeep/sound/vo/mobs/gnome/pain (3).ogg')
 
+/datum/sprite_accessory/hair/beartails
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/bowlcut
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/empress
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/foreigner_tief
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/gnomish_f
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/grumpy_f
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/hearth_f
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/hunter
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/junia
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/loosebraid
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/lover_tief
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/maid
+	name = "Maid"
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+	icon_state = "maid_f"
+	gender = FEMALE
+	specuse = list("human", "dwarf", "aasimar", "tiefling")
+
+/datum/sprite_accessory/hair/merc
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/miner_dwarf
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/noblesse
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/performer
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/soilbride
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/squire_f
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/squire_human
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/tiedup
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'
+
+/datum/sprite_accessory/hair/updo
+	icon = 'modular/stonekeep/icons/mobs/hair.dmi'

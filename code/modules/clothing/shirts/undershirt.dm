@@ -9,7 +9,7 @@
 
 /obj/item/clothing/shirt/undershirt/priest
 	name = "undervestments"
-	desc = ""
+	desc = "Thin cloth worn next to the skin."
 	icon_state = "priestunder"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
 

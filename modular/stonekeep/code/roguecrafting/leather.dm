@@ -336,7 +336,7 @@
 	name = "pants (heavy leather)"
 	result = /obj/item/clothing/pants/trou/leather/heavy
 	reqs = 	list(/obj/item/natural/hide/cured = 2, /obj/item/reagent_containers/food/snacks/tallow = 1)
-	craftdiff = 4
+	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/leather/pants_padded
 	name = "pants (padded leather)"
