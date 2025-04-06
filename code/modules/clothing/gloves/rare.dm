@@ -34,7 +34,7 @@
 	name = "dwarvish plate gauntlets"
 	desc = "Plated gauntlets of masterwork dwarven smithing, the pinnacle of protection for one's hands."
 	icon_state = "dwarfhand"
-	allowed_race = list("dwarf")
+	allowed_race = list(SPECIES_DWARF)
 	allowed_sex = list(MALE, FEMALE)
 
 /obj/item/clothing/gloves/rare/grenzelplate

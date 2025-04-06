@@ -132,7 +132,7 @@
 /obj/item/clothing/shirt/robe/nun
 	icon_state = "nun"
 	item_state = "nun"
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "dark elf", SPECIES_ELF, "half-elf", "dwarf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", "dark elf", SPECIES_ELF, "half-elf", SPECIES_DWARF, "aasimar")
 	allowed_sex = list(FEMALE)
 
 /obj/item/clothing/shirt/robe/feld

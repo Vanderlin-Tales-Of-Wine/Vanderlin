@@ -39,7 +39,7 @@
 	soundpack_m = /datum/voicepack/male/dwarf
 	soundpack_f = /datum/voicepack/female/dwarf
 
-	custom_id = "dwarf"
+	custom_id = SPECIES_DWARF
 	custom_clothes = TRUE
 
 	use_m = FALSE

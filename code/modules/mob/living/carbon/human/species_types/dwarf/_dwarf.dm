@@ -3,7 +3,7 @@
 
 /datum/species/dwarf
 	name = "Dwarfb"
-	id = "dwarf"
+	id = SPECIES_DWARF
 	max_age = 200
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 

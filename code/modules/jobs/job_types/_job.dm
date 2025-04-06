@@ -330,7 +330,7 @@
 			if(H.dna.species)
 				if(H.dna.species.id == SPECIES_ELF)
 					H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-				if(H.dna.species.id == "dwarf")
+				if(H.dna.species.id == SPECIES_DWARF)
 					H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
 	H.underwear_color = null
 	H.update_body()

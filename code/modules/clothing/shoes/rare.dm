@@ -38,7 +38,7 @@
 
 /obj/item/clothing/shoes/boots/rare/dwarfplate
 	name = "decorated dwarven plate boots"
-	allowed_race = list("dwarf")
+	allowed_race = list(SPECIES_DWARF)
 	allowed_sex = list(MALE, FEMALE)
 	desc = "Laced with golden bands, these dwarven plated boots glitter with glory as they are used to kick enemy's shins."
 	body_parts_covered = FEET|LEGS

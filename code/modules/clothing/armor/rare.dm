@@ -43,7 +43,7 @@
 	name = "dwarvish plate"
 	desc = "Plate armor made out of the sturdiest, finest dwarvish metal armor. It's as heavy and durable as it gets."
 	icon_state = "dwarfchest"
-	allowed_race = list("dwarf")
+	allowed_race = list(SPECIES_DWARF)
 
 /obj/item/clothing/armor/rare/grenzelplate
 	name = "grenzelhoftian plate regalia"
