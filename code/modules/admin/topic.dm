@@ -1176,8 +1176,8 @@
 
 		var/raisin = stripped_input(usr, "State a short reason for this change", "Game Master", null, null)
 		M.adjust_triumphs(amt2change, FALSE, raisin)
-		message_admins("[M.ckey] had PQ adjusted by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
-		log_admin("[M.ckey] had PQ adjusted by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
+		message_admins("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
+		log_admin("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
 
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))
