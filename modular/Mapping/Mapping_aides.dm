@@ -383,19 +383,36 @@
 	if(fake_rock)
 		spawn_troll()
 		return
+
 	to_chat(user, span_notice("You carefully detach the crystals from the rock..."))
 	if(!do_after(user, 3 SECONDS, src))
 		to_chat(user, span_warning("The crystals crumbles as you try to detach it!"))
 		qdel(src)
 		return
+
 	to_chat(user, span_warning("You sucessfully detach the crystals from the rock!"))
-	new /obj/item/natural/rock/mana_crystal(loc)
+	for(var/i in 1 to 3)
+		new /obj/item/mana_battery/mana_crystal/standard(loc)
 	qdel(src)
 
 /obj/structure/innouous_rock/attackby(obj/item, mob/living/user, params)
 	. = ..()
 	if(fake_rock)
 		spawn_troll()
+		return
+	if(!istype(item, /obj/item/weapon/pick/paxe))
+		return
+
+	to_chat(user, span_notice("You carefully detach the crystals from the rock..."))
+	if(!do_after(user, 1.5 SECONDS, src))
+		to_chat(user, span_warning("The crystals crumbles as you try to detach it!"))
+		qdel(src)
+		return
+
+	to_chat(user, span_warning("You sucessfully detach the crystals from the rock!"))
+	for(var/i in 1 to 3)
+		new /obj/item/mana_battery/mana_crystal/standard(loc)
+	qdel(src)
 
 /obj/structure/innouous_rock/Bumped(atom/movable/AM)
 	if(fake_rock)

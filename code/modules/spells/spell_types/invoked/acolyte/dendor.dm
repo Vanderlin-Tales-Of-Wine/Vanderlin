@@ -124,6 +124,7 @@
 		if((B.mob_biotypes & MOB_UNDEAD))
 			continue
 		if(B.type in tame_blacklist)
+			to_chat(user, span_warning("The [B.name] resists your soothing!"))
 			continue
 		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)
 		if(!commands)
