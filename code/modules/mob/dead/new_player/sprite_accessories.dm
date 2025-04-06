@@ -591,7 +591,7 @@
 	name = "Orc"
 	icon_state = "orc_f" // modified african_pigtails
 	gender = FEMALE
-	specuse = list("orc")
+	specuse = list(SPECIES_ORC)
 
 /datum/sprite_accessory/hair/performer
 	name = "Performer"

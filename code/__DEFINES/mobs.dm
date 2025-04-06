@@ -95,8 +95,11 @@
 #define SPECIES_HALFORC "halforc"
 #define SPECIES_HUMAN "human"
 #define SPECIES_KOBOLD "kobold"
+#define SPECIES_ORC "orc"
 #define SPECIES_RAKSHARI "rakshari"
 #define SPECIES_TIEFLING "tiefling"
+#define SPECIES_WEREWOLF "werewolf"
+#define SPECIES_ZIZOMBIE "zizombie"
 
 // Health/damage defines for carbon mobs
 #define HUMAN_MAX_OXYLOSS 3
