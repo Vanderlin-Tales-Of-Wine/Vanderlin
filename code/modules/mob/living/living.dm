@@ -8,6 +8,7 @@
 
 /mob/living/Initialize()
 	. = ..()
+	register_init_signals()
 	update_a_intents()
 	swap_rmb_intent(num=1)
 	if(unique_name)
@@ -534,8 +535,6 @@
 /mob/living/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(incapacitated())
 		return FALSE
-	if(HAS_TRAIT(src, TRAIT_DEATHCOMA))
-		return FALSE
 	return ..()
 
 /mob/living/_pointed(atom/pointing_at)
@@ -617,16 +616,16 @@
 	if(stat)
 		return
 	if(pulledby)
-		to_chat(src, "<span class='warning'>I'm grabbed!</span>")
+		to_chat(src, span_warning("I'm grabbed!"))
 		return
 	if(resting)
-		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message("<span class='notice'>[src] begins standing up.</span>")
-			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
+		if(!HAS_TRAIT(src, TRAIT_FLOORED))
+			visible_message(span_notice("[src] begins standing up."), span_notice("I begin to stand up."))
+			if(do_after(src, 2 SECONDS, timed_action_flags = (IGNORE_USER_DOING | IGNORE_USER_LOC_CHANGE | IGNORE_USER_DIR_CHANGE), interaction_key = DOAFTER_SOURCE_GETTING_UP))
 				set_resting(FALSE, FALSE)
 				return TRUE
 		else
-			src.visible_message("<span class='warning'>[src] tries to stand up.</span>")
+			visible_message(span_warning("[src] struggles to stand up."), span_danger("I am struggling to stand up."))
 			return FALSE
 
 /mob/living/proc/toggle_rest()
@@ -685,15 +684,19 @@
 /mob/living/is_drawable(mob/user, allowmobs = TRUE)
 	return (allowmobs && reagents && can_inject(user))
 
+///Sets the current mob's health value. Do not call directly if you don't know what you are doing, use the damage procs, instead.
+/mob/living/proc/set_health(new_value)
+	. = health
+	health = min(new_value, maxHealth)
+
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
-	health = min(health, maxHealth)
+	set_health(maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss())
 	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS) && !HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 		// You dont have any blood and your not bloodloss immune? Dead.
 		if(blood_volume <= 0)
-			health = 0
+			set_health(NONE)
 	update_stat()
 	SEND_SIGNAL(src, COMSIG_LIVING_HEALTH_UPDATE)
 
@@ -706,7 +709,7 @@
 		GLOB.dead_mob_list -= src
 		GLOB.alive_mob_list += src
 		set_suicide(FALSE)
-		stat = UNCONSCIOUS //the mob starts unconscious,
+		set_stat(UNCONSCIOUS) //the mob starts unconscious,
 		updatehealth() //then we check if the mob should wake up.
 		update_mobility()
 		update_sight()
@@ -788,7 +791,6 @@
 /mob/living/proc/can_be_revived()
 	. = TRUE
 	if(health <= HEALTH_THRESHOLD_DEAD)
-//		return ("no")
 		return FALSE
 
 
@@ -1441,13 +1443,11 @@
 /mob/living/proc/update_mobility()
 	var/stat_softcrit = stat == SOFT_CRIT
 	var/stat_conscious = (stat == CONSCIOUS) || stat_softcrit
-	var/conscious = !IsUnconscious() && stat_conscious && !HAS_TRAIT(src, TRAIT_DEATHCOMA)
 	var/chokehold = pulledby && pulledby.grab_state >= GRAB_NECK
 	var/restrained = restrained()
 	var/has_legs = get_num_legs()
 	var/has_arms = get_num_arms()
 	var/paralyzed = IsParalyzed()
-	var/knockdown = IsKnockdown()
 	var/ignore_legs = get_leg_ignore()
 	var/canmove = !HAS_TRAIT(src, TRAIT_IMMOBILIZED) && (has_arms || ignore_legs || has_legs)
 	if(canmove)
@@ -1460,13 +1460,7 @@
 		if(I.walking_stick)
 			stickstand = TRUE
 
-	var/canstand_involuntary = conscious && !stat_softcrit && !knockdown && !chokehold && !paralyzed && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) ) && !(buckled && buckled.buckle_lying)
-
-	if(canstand_involuntary)
-		mobility_flags |= MOBILITY_CANSTAND
-	else
-		mobility_flags &= ~MOBILITY_CANSTAND
-
+	var/canstand_involuntary = !HAS_TRAIT(src, TRAIT_FLOORED) && ( ignore_legs || ((has_legs >= 2) || (has_legs == 1 && stickstand)) )
 	var/canstand = canstand_involuntary && !resting
 
 	var/should_be_lying = !canstand
@@ -1503,7 +1497,7 @@
 	else
 		mobility_flags |= MOBILITY_PULL
 
-	var/canitem = !paralyzed && !IsStun() && conscious && !chokehold && !restrained && has_arms
+	var/canitem = !paralyzed && !IsStun() && stat_conscious && !chokehold && !restrained && has_arms
 	if(canitem)
 		mobility_flags |= (MOBILITY_USE | MOBILITY_PICKUP | MOBILITY_STORAGE)
 	else
@@ -1974,6 +1968,70 @@
 	update_cone_show()
 //	UnregisterSignal(src, COMSIG_MOVABLE_PRE_MOVE)
 
+/mob/living/set_stat(new_stat)
+	. = ..()
+	if(isnull(.))
+		return
+	switch(.) //Previous stat.
+		if(CONSCIOUS)
+			if(stat >= UNCONSCIOUS)
+				ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
+			//ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, STAT_TRAIT)
+			//ADD_TRAIT(src, TRAIT_INCAPACITATED, STAT_TRAIT)
+			ADD_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
+		if(SOFT_CRIT)
+			if(stat >= UNCONSCIOUS)
+				ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT) //adding trait sources should come before removing to avoid unnecessary updates
+			if(pulledby)
+				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
+		if(UNCONSCIOUS)
+			cure_blind(UNCONSCIOUS_TRAIT)
+	switch(stat) //Current stat.
+		if(CONSCIOUS)
+			if(. >= UNCONSCIOUS)
+				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
+			//REMOVE_TRAIT(src, TRAIT_HANDS_BLOCKED, STAT_TRAIT)
+			//REMOVE_TRAIT(src, TRAIT_INCAPACITATED, STAT_TRAIT)
+			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
+			log_combat(src, src, "regained consciousness")
+		if(SOFT_CRIT)
+			if(pulledby)
+				ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT) //adding trait sources should come before removing to avoid unnecessary updates
+			if(. >= UNCONSCIOUS)
+				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
+			log_combat(src, src, "entered soft crit")
+		if(UNCONSCIOUS)
+			become_blind(UNCONSCIOUS_TRAIT)
+			log_combat(src, src, "lost consciousness")
+		if(DEAD)
+			log_combat(src, src, "died")
+
+///Reports the event of the change in value of the buckled variable.
+/mob/living/proc/set_buckled(new_buckled)
+	if(new_buckled == buckled)
+		return
+	SEND_SIGNAL(src, COMSIG_LIVING_SET_BUCKLED, new_buckled)
+	. = buckled
+	buckled = new_buckled
+	if(buckled)
+		if(!.)
+			ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+			if(buckled.buckle_lying)
+				ADD_TRAIT(src, TRAIT_FLOORED, BUCKLED_TRAIT)
+	else if(.)
+		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
+		REMOVE_TRAIT(src, TRAIT_FLOORED, BUCKLED_TRAIT)
+
+/mob/living/set_pulledby(new_pulledby)
+	. = ..()
+	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
+		return
+	if(pulledby)
+		if(!. && stat == SOFT_CRIT)
+			ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
+	else if(. && stat == SOFT_CRIT)
+		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
+
 /// Proc for giving a mob a new 'friend', generally used for AI control and targeting. Returns false if already friends.
 /mob/living/proc/befriend(mob/living/new_friend)
 	SHOULD_CALL_PARENT(TRUE)
@@ -2001,26 +2059,3 @@
 
 	SEND_SIGNAL(src, COMSIG_LIVING_UNFRIENDED, old_friend)
 	return TRUE
-
-///Reports the event of the change in value of the buckled variable.
-/mob/living/proc/set_buckled(new_buckled)
-	if(new_buckled == buckled)
-		return
-	SEND_SIGNAL(src, COMSIG_LIVING_SET_BUCKLED, new_buckled)
-	. = buckled
-	buckled = new_buckled
-	if(buckled)
-		if(!.)
-			ADD_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
-	else if(.)
-		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, BUCKLED_TRAIT)
-
-/mob/living/set_pulledby(new_pulledby)
-	. = ..()
-	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
-		return
-	if(pulledby)
-		if(!. && stat == SOFT_CRIT)
-			ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
-	else if(. && stat == SOFT_CRIT)
-		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)

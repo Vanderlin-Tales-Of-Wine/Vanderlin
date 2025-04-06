@@ -714,7 +714,7 @@
 	var/mob/living/carbon/human/H = hud.mymob
 	if(H.mind && H.mind.antag_datums)
 		for(var/datum/antagonist/D in H.mind.antag_datums)
-			if(istype(D, /datum/antagonist/vampirelord) || istype(D, /datum/antagonist/vampire))
+			if(istype(D, /datum/antagonist/vampire))
 				qdel(src)
 				return
 	if(H.advsetup)

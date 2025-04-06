@@ -17,13 +17,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/watchman
 	advclass_cat_rolls = list(CTAG_MENATARMS = 20)
@@ -44,10 +38,6 @@
 
 /datum/job/men_at_arms/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
-
 
 /datum/advclass/menatarms/watchman_pikeman
 	name = "Pikeman Men-At-Arms"

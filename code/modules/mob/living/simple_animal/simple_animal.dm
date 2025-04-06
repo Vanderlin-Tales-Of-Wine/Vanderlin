@@ -331,13 +331,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		x.forceMove(get_turf(src))
 		buckle_mob(x, TRUE)
 
-/mob/proc/set_stat(new_stat)
-	if(new_stat == stat)
-		return
-	. = stat
-	stat = new_stat
-	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
-
 /mob/living/simple_animal/update_stat()
 	if(status_flags & GODMODE)
 		return
