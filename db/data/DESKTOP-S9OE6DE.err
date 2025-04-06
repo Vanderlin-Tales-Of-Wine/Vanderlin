@@ -1,0 +1,81 @@
+2025-04-06 21:38:17 0 [Note] Starting MariaDB 10.11.2-MariaDB source revision cafba8761af55ae16cc69c9b53a341340a845b36 as process 3420
+2025-04-06 21:38:17 0 [Note] InnoDB: The first data file './ibdata1' did not exist. A new tablespace will be created!
+2025-04-06 21:38:17 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2025-04-06 21:38:17 0 [Note] InnoDB: Number of transaction pools: 1
+2025-04-06 21:38:17 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2025-04-06 21:38:17 0 [Note] InnoDB: Initializing buffer pool, total size = 20.000MiB, chunk size = 1.000MiB
+2025-04-06 21:38:17 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-04-06 21:38:17 0 [Note] InnoDB: Setting file './ibdata1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2025-04-06 21:38:17 0 [Note] InnoDB: File './ibdata1' size is now 12.000MiB.
+2025-04-06 21:38:17 0 [Note] InnoDB: File system buffers for log disabled (block size=4096 bytes)
+2025-04-06 21:38:17 0 [Note] InnoDB: Doublewrite buffer not found: creating new
+2025-04-06 21:38:17 0 [Note] InnoDB: 128 rollback segments are active.
+2025-04-06 21:38:18 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2025-04-06 21:38:18 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2025-04-06 21:38:18 0 [Note] InnoDB: log sequence number 0; transaction id 3
+2025-04-06 21:38:18 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-04-06 21:38:18 0 [Note] mysqld.exe: SSPI: using principal name 'localhost', mech 'Negotiate'
+2025-04-06 21:38:22 0 [Note] Starting MariaDB 10.11.2-MariaDB source revision cafba8761af55ae16cc69c9b53a341340a845b36 as process 19624
+2025-04-06 21:38:22 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2025-04-06 21:38:22 0 [Note] InnoDB: Number of transaction pools: 1
+2025-04-06 21:38:22 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2025-04-06 21:38:22 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2025-04-06 21:38:22 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-04-06 21:38:22 0 [Note] InnoDB: File system buffers for log disabled (block size=4096 bytes)
+2025-04-06 21:38:22 0 [Note] InnoDB: 128 rollback segments are active.
+2025-04-06 21:38:22 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2025-04-06 21:38:22 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2025-04-06 21:38:22 0 [Note] InnoDB: log sequence number 46490; transaction id 14
+2025-04-06 21:38:22 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-04-06 21:38:22 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\data\ib_buffer_pool
+2025-04-06 21:38:22 0 [Note] mariadbd.exe: SSPI: using principal name 'localhost', mech 'Negotiate'
+2025-04-06 21:38:22 0 [Note] InnoDB: Buffer pool(s) load completed at 250406 21:38:22
+2025-04-06 21:38:22 0 [Note] Server socket created on IP: '::'.
+2025-04-06 21:38:22 0 [Note] Server socket created on IP: '0.0.0.0'.
+2025-04-06 21:38:22 0 [Note] C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\bin\mariadbd.exe: ready for connections.
+Version: '10.11.2-MariaDB'  socket: ''  port: 1338  mariadb.org binary distribution
+2025-04-06 21:45:36 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
+2025-04-06 21:45:41 0 [Note] Starting MariaDB 10.11.2-MariaDB source revision cafba8761af55ae16cc69c9b53a341340a845b36 as process 10320
+2025-04-06 21:45:41 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2025-04-06 21:45:41 0 [Note] InnoDB: Number of transaction pools: 1
+2025-04-06 21:45:41 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2025-04-06 21:45:41 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2025-04-06 21:45:41 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-04-06 21:45:41 0 [Note] InnoDB: File system buffers for log disabled (block size=4096 bytes)
+2025-04-06 21:45:41 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=46474
+2025-04-06 21:45:41 0 [Note] InnoDB: 128 rollback segments are active.
+2025-04-06 21:45:41 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2025-04-06 21:45:41 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2025-04-06 21:45:41 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2025-04-06 21:45:41 0 [Note] InnoDB: log sequence number 46658; transaction id 14
+2025-04-06 21:45:41 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-04-06 21:45:41 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\data\ib_buffer_pool
+2025-04-06 21:45:41 0 [Note] mariadbd.exe: SSPI: using principal name 'localhost', mech 'Negotiate'
+2025-04-06 21:45:41 0 [Note] Server socket created on IP: '::'.
+2025-04-06 21:45:41 0 [Note] Server socket created on IP: '0.0.0.0'.
+2025-04-06 21:45:41 0 [Note] InnoDB: Buffer pool(s) load completed at 250406 21:45:41
+2025-04-06 21:45:41 0 [Note] C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\bin\mariadbd.exe: ready for connections.
+Version: '10.11.2-MariaDB'  socket: ''  port: 1338  mariadb.org binary distribution
+2025-04-06 21:46:39 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
+2025-04-06 21:52:17 0 [Note] Starting MariaDB 10.11.2-MariaDB source revision cafba8761af55ae16cc69c9b53a341340a845b36 as process 1244
+2025-04-06 21:52:17 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+2025-04-06 21:52:17 0 [Note] InnoDB: Number of transaction pools: 1
+2025-04-06 21:52:17 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2025-04-06 21:52:17 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2025-04-06 21:52:17 0 [Note] InnoDB: Completed initialization of buffer pool
+2025-04-06 21:52:17 0 [Note] InnoDB: File system buffers for log disabled (block size=4096 bytes)
+2025-04-06 21:52:17 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=46490
+2025-04-06 21:52:17 0 [Note] InnoDB: 128 rollback segments are active.
+2025-04-06 21:52:17 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2025-04-06 21:52:17 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2025-04-06 21:52:17 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2025-04-06 21:52:17 0 [Note] InnoDB: log sequence number 46690; transaction id 14
+2025-04-06 21:52:17 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\data\ib_buffer_pool
+2025-04-06 21:52:17 0 [Note] Plugin 'FEEDBACK' is disabled.
+2025-04-06 21:52:17 0 [Note] mariadbd.exe: SSPI: using principal name 'localhost', mech 'Negotiate'
+2025-04-06 21:52:17 0 [Note] InnoDB: Buffer pool(s) load completed at 250406 21:52:17
+2025-04-06 21:52:17 0 [Note] Server socket created on IP: '::'.
+2025-04-06 21:52:17 0 [Note] Server socket created on IP: '0.0.0.0'.
+2025-04-06 21:52:17 0 [Note] C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\bin\mariadbd.exe: ready for connections.
+Version: '10.11.2-MariaDB'  socket: ''  port: 1338  mariadb.org binary distribution
+2025-04-06 22:02:02 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
