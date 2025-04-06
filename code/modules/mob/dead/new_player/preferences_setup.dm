@@ -130,7 +130,7 @@
 
 	if(previewJob)
 		mannequin.job = previewJob.title
-		pref_species.pre_equip_species_outfit(mannequin.job, mannequin, visual_only)
+		pref_species.pre_equip_species_outfit(mannequin.job, mannequin, visual_only = TRUE)
 		var/datum/outfit/chosen_outfit
 		if(length(previewJob.advclass_cat_rolls))
 			var/list/possible_classes = list()
