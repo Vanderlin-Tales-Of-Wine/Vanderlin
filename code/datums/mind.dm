@@ -684,7 +684,6 @@
 /datum/mind/proc/has_antag_datum(datum_type, check_subtypes = TRUE)
 	if(!datum_type)
 		CRASH("has_antag_datum was called without an antag datum specified!")
-	. = FALSE
 	for(var/a in antag_datums)
 		var/datum/antagonist/antag_datum_ref = a
 		if(check_subtypes && istype(antag_datum_ref, datum_type))
@@ -700,10 +699,6 @@
 	for(var/datum/antagonist/GG in antag_datums)
 		is_good_guy &&= GG.isgoodguy
 	return is_good_guy
-
-
-/datum/mind/proc/equip_traitor(employer = "The Syndicate", silent = FALSE, datum/antagonist/uplink_owner)
-	return
 
 /**
  * Link a new mobs mind to the creator of said mob. They will join any team they are currently on, and will only switch teams when their creator does.
@@ -737,7 +732,7 @@
 		output += "<B>Objectives:</B>"
 		var/obj_count = 1
 		for(var/datum/objective/objective in all_objectives)
-			output += "<br><B>Objective #[obj_count++]</B>: [objective.explanation_text]"
+			output += "<br><B>[objective.flavor] #[obj_count++]</B>: [objective.explanation_text]"
 //			var/list/datum/mind/other_owners = objective.get_owners() - src
 //			if(other_owners.len)
 //				output += "<ul>"

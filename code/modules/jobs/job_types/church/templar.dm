@@ -13,13 +13,7 @@
 	min_pq = 8
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Dwarf",
-		"Aasimar",
-		"Half-Elf",
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	allowed_patrons = ALL_TEMPLAR_PATRONS
 
 	outfit = /datum/outfit/job/templar
@@ -133,5 +127,5 @@
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 	if(H.dna?.species)
-		if(H.dna.species.id == "humen")
+		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

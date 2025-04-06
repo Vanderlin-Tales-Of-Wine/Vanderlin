@@ -13,7 +13,7 @@
 	min_pq = 2
 	bypass_lastclass = TRUE
 
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 	allowed_ages = list(AGE_CHILD)
 
 	outfit = /datum/outfit/job/orphan
