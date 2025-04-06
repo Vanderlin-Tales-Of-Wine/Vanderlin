@@ -170,6 +170,7 @@
 	if(istype(I, /obj/item/weapon))
 		var/obj/item/weapon/W = I
 		W.force *= modifier
+		W.force_wielded *= modifier
 		W.throwforce *= modifier
 		W.blade_int *= modifier
 		W.max_blade_int *= modifier

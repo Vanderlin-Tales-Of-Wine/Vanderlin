@@ -16,8 +16,7 @@
 	antag_job = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
-
+	allowed_races = RACES_PLAYER_ALL
 	cmode_music = 'sound/music/cmode/antag/combatskeleton.ogg'
 
 	outfit = /datum/outfit/job/skeleton

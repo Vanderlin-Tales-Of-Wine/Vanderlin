@@ -40,7 +40,7 @@
 		if(INTENT_DISARM)
 			var/mob/living/carbon/human/user = M
 			var/mob/living/simple_animal/target = src
-			if(!(user.mobility_flags & MOBILITY_STAND) || user.IsKnockdown())
+			if(HAS_TRAIT(src, TRAIT_FLOORED))
 				return FALSE
 			if(user == target)
 				return FALSE
@@ -160,7 +160,7 @@
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, "<span class='warning'>I don't want to harm [target]!</span>")
 		return FALSE
-	if(user.IsKnockdown())
+	if(HAS_TRAIT(src, TRAIT_FLOORED))
 		return FALSE
 	if(user == target)
 		return FALSE

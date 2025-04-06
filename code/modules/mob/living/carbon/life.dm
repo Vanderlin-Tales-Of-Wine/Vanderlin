@@ -66,7 +66,7 @@
 			mob_timers[MT_PAINSTUN] = world.time + 10 SECONDS
 			var/probby = 40 - (STAEND * 2)
 			probby = max(probby, 10)
-			if(lying || IsKnockdown())
+			if(lying || HAS_TRAIT(src, TRAIT_FLOORED))
 				if(prob(3) && (painpercent >= 80) )
 					emote("painmoan")
 			else

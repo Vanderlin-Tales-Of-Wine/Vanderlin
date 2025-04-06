@@ -2,10 +2,7 @@
 	name = "Grenzelhoft Count"
 	greet_text = "A Count hailing from the Grenzelhoft Imperiate, here on an official visit to the Peninsula of Vanderlin alongside his beloved convoy and spouse."
 	allowed_sexes = list(MALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/grenzelhoft_migration/count
 	grant_lit_torch = TRUE
 	is_foreigner = FALSE
