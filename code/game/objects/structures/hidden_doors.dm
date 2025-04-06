@@ -92,11 +92,8 @@ GLOBAL_LIST_EMPTY(thieves_guild_doors)
 		return FALSE
 
 	var/message2recognize = sanitize_hear_message(original_message)
-	var/isvip = FALSE
-	if(H?.mind.assigned_role in vip)
-		isvip = TRUE
 
-	if(isvip)
+	if(is_type_in_list(H.mind?.assigned_role, vip)) //are they a VIP?
 		if(findtext(message2recognize, "help"))
 			send_speech(span_purple("'say phrase'... 'set phrase'..."), 2, src, message_language = lang)
 			return TRUE
