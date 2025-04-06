@@ -29,7 +29,7 @@
 	beltr = /obj/item/storage/magebag
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	r_hand = /obj/item/weapon/polearm/woodstaff
-	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk/natural = 1)
+	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
