@@ -76,15 +76,15 @@ GLOBAL_LIST_EMPTY(biggates)
 		blocker_ref = /obj/gblock
 	blocker = new blocker_ref(current_turf)
 	turfsy += current_turf
-	blockers += G
+	blockers += blocker
 	current_turf = get_step(current_turf, EAST)
 	blocker = new blocker_ref(current_turf)
 	turfsy += current_turf
-	blockers += G
+	blockers += blocker
 	current_turf = get_step(current_turf, EAST)
 	blocker = new blocker_ref(current_turf)
 	turfsy += current_turf
-	blockers += G
+	blockers += blocker
 	if(is_big_gate)
 		GLOB.biggates += src
 
