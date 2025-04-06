@@ -7667,13 +7667,13 @@
 /turf/open/floor/cobble,
 /area/rogue/indoors/villagegarrison)
 "eWZ" = (
+/obj/effect/mapping_helpers/door/access/garrison/garrison,
+/obj/effect/mapping_helpers/door/locker,
 /obj/structure/mineral_door/wood/window{
 	name = "City Watch Garrison"
 	},
-/obj/effect/mapping_helpers/door/access/garrison/garrison,
-/obj/effect/mapping_helpers/door/locker,
-/turf/closed/basic,
-/area/rogue/outdoors/town)
+/turf/open/floor/hexstone,
+/area/rogue/indoors/town/garrison)
 "eXd" = (
 /obj/structure/fluff/walldeco/church/line,
 /obj/item/weapon/thresher/military{
@@ -34715,7 +34715,7 @@
 	},
 /obj/structure/fluff/walldeco/customflag,
 /turf/closed/wall/mineral/stone,
-/area/rogue/outdoors/town)
+/area/rogue/indoors/town/garrison)
 "xwx" = (
 /obj/structure/closet/crate/crafted_closet,
 /obj/item/storage/belt/pouch/coins/poor,
@@ -100890,10 +100890,10 @@ qgs
 qgs
 wjh
 xwq
-eCc
-eCc
+xJk
+xJk
 eWZ
-eCc
+xJk
 eoB
 qMe
 qMe
