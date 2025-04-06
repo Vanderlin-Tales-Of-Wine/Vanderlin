@@ -29,21 +29,17 @@
 	if(reason)
 		final_text += " REASON: [reason]"
 
-	to_chat(key_holder, "<font color='purple'>[final_text]</font>")
+	to_chat(key_holder, span_purple("[final_text]"))
 
-/*
-	Keep in mind the thing stored on the mind is a key
-	Thus we mus convert it to a ckey
-*/
 /datum/mind/proc/adjust_triumphs(amt, counted = TRUE, reason)
 	if(!key)
 		return
-	call(/proc/adjust_triumphs)(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
 
 /client/proc/adjust_triumphs(amt, counted = TRUE, reason)
-	call(/proc/adjust_triumphs)(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
 
 /mob/proc/adjust_triumphs(amt, counted = TRUE, reason)
 	if(!key)
 		return
-	call(/proc/adjust_triumphs)(src, amt, counted, reason) //sorry
+	global.adjust_triumphs(src, amt, counted, reason) //sorry
