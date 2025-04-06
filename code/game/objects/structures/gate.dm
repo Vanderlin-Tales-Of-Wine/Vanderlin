@@ -66,26 +66,24 @@ GLOBAL_LIST_EMPTY(biggates)
 /obj/structure/gate/Initialize()
 	. = ..()
 	update_icon()
-	var/turf/T = loc
+	var/turf/current_turf = loc
+	var/blocker_ref
+	var/blocker
+
 	if(!opacity)
-		G = new /obj/gblock/not_opaque(T)
+		blocker_ref = /obj/gblock/not_opaque
 	else
-		G = new /obj/gblock(T)
-	turfsy += T
+		blocker_ref = /obj/gblock
+	blocker = new blocker_ref(current_turf)
+	turfsy += current_turf
 	blockers += G
-	T = get_step(T, EAST)
-	if(!opacity)
-		G = new /obj/gblock/not_opaque(T)
-	else
-		G = new /obj/gblock(T)
-	turfsy += T
+	current_turf = get_step(current_turf, EAST)
+	blocker = new blocker_ref(current_turf)
+	turfsy += current_turf
 	blockers += G
-	T = get_step(T, EAST)
-	if(!opacity)
-		G = new /obj/gblock/not_opaque(T)
-	else
-		G = new /obj/gblock(T)
-	turfsy += T
+	current_turf = get_step(current_turf, EAST)
+	blocker = new blocker_ref(current_turf)
+	turfsy += current_turf
 	blockers += G
 	if(is_big_gate)
 		GLOB.biggates += src
@@ -149,6 +147,9 @@ GLOBAL_LIST_EMPTY(biggates)
 	update_icon()
 
 /obj/structure/gate/proc/crush(mob/living/crushed_mob)
+	crushed_mob.gib()
+
+/obj/structure/gate/bars/crush(mob/living/crushed_mob)
 	if(iscarbon(crushed_mob))
 		var/mob/living/carbon/crushed_carbon = crushed_mob
 		for(var/limb_index in bodyparts_to_crush)
