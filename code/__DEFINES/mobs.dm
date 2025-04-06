@@ -89,6 +89,9 @@
 #define DEVIL_BODYPART "devil"
 /*see __DEFINES/inventory.dm for bodypart bitflag defines*/
 
+/// used in various places
+#define ALL_RACES_LIST list(SPECIES_HUMAN, SPECIES_RAKSHARI, SPECIES_DWARF, SPECIES_ELF, SPECIES_TIEFLING, SPECIES_AASIMAR, SPECIES_HALFORC, SPECIES_ORC, SPECIES_ZIZOMBIE, SPECIES_KOBOLD)
+
 #define SPECIES_AASIMAR "aasimar"
 #define SPECIES_DWARF "dwarf"
 #define SPECIES_ELF "elf"
