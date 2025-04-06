@@ -391,15 +391,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, normal_ooc_colour)//If this is null, use the CSS for 
 /client/proc/self_notes()
 	set name = "View Admin Remarks"
 	set category = "OOC"
-	set desc = ""
-	set hidden = 1
-	if(!holder)
-		return
-	if(!check_rights(0))
-		return
-	if(!CONFIG_GET(flag/see_own_notes))
-		to_chat(usr, "<span class='notice'>Sorry, that function is not enabled on this server.</span>")
-		return
+	set desc = "View the notes that admins have written about you"
 
 	browse_messages(null, usr.ckey, null, TRUE)
 
