@@ -3,14 +3,13 @@
 	greet_text = "These lands have forfeited Psydon and the Tens, you came with a troop of devouts from Grenzelhoft to restore the True faith to them."
 	antag_datum = /datum/antagonist/purishep
 	outfit = /datum/outfit/job/inquisitor
-	allowed_races = list("Humen","Dwarf")
+	allowed_races = RACES_PLAYER_GRENZ
 
 /datum/migrant_role/crusader
 	name = "Crusaders"
 	greet_text = "Crusader of the True faith, you came from Grenzelhoft under the command of the Inquisitor, obey them as he lead you to smite the heatens."
 	outfit = /datum/outfit/job/adventurer/crusader
-	allowed_races = list("Humen","Dwarf")
-
+	allowed_races = RACES_PLAYER_GRENZ
 /datum/migrant_wave/crusade
 	name = "The Holy Crusade"
 	shared_wave_type = /datum/migrant_wave/crusade

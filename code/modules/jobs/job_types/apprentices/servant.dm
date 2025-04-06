@@ -15,7 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_ages = list(AGE_CHILD, AGE_ADULT, AGE_IMMORTAL)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/servant
 	give_bank_account = TRUE
@@ -129,7 +129,6 @@
 	title = "Matron's Assistant"
 	tutorial = "I once was an orphan, the matron took me in and now I am forever in her debt. \
 	That orphanage, those who were like me need guidance, I shall assist the matron in her tasks."
-
 	flag = SERVANT
 	department_flag = APPRENTICES
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)

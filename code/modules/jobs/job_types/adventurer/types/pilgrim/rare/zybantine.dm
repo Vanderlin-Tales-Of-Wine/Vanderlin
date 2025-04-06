@@ -7,12 +7,7 @@
 		"Rakshari",
 		"Elf",
 		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/adventurer/zybantine
 	category_tags = list(CTAG_PILGRIM)

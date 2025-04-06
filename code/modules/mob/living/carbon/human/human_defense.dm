@@ -264,7 +264,7 @@
 			to_chat(M, "<span class='danger'>I disarm [src]!</span>")
 		else if(!M.client || prob(5)) // only natural monkeys get to stun reliably, (they only do it occasionaly)
 			playsound(loc, 'sound/blank.ogg', 25, TRUE, -1)
-			if (src.IsKnockdown() && !src.IsParalyzed())
+			if(HAS_TRAIT(src, TRAIT_FLOORED) && !IsParalyzed())
 				Paralyze(40)
 				log_combat(M, src, "pinned")
 				visible_message("<span class='danger'>[M] pins [src] down!</span>", \

@@ -18,13 +18,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/town_militia)
 	allowed_sexes = list(MALE, FEMALE) //same as town guard
 	allowed_ages = list(AGE_OLD, AGE_IMMORTAL)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 	give_bank_account = 35
