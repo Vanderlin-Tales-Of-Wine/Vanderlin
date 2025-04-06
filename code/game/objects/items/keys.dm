@@ -112,7 +112,7 @@
 		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()
-	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	src.visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
 	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
