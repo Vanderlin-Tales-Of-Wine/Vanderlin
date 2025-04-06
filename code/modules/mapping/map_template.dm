@@ -65,7 +65,7 @@
 		y,
 		level.z_value,
 		no_changeturf = (SSatoms.initialized == INITIALIZATION_INSSATOMS),
-		placeOnTop = TRUE,
+		place_on_top = TRUE,
 	)
 	var/list/bounds = parsed.bounds
 	if(!bounds)
@@ -99,7 +99,7 @@
 	// ruins clogging up memory for the whole round.
 	var/datum/parsed_map/parsed = cached_map || new(file(mappath))
 	cached_map = keep_cached_map ? parsed : null
-	if(!parsed.load(T.x, T.y, T.z, cropMap=TRUE, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), placeOnTop=TRUE))
+	if(!parsed.load(T.x, T.y, T.z, no_changeturf=(SSatoms.initialized == INITIALIZATION_INSSATOMS), place_on_top=TRUE))
 		return
 	var/list/bounds = parsed.bounds
 	if(!bounds)

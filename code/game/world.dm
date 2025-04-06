@@ -481,6 +481,31 @@ GLOBAL_PROTECT(tracy_init_reason)
 	else
 		hub_password = "SORRYNOPASSWORD"
 
+/**
+
+
+ * Handles incresing the world's maxx var and intializing the new turfs and assigning them to the global area.
+
+
+ * If map_load_z_cutoff is passed in, it will only load turfs up to that z level, inclusive.
+
+
+ * This is because maploading will handle the turfs it loads itself.
+
+
+ */
+
+
+/world/proc/increase_max_x(new_maxx, map_load_z_cutoff = maxz)
+	if(new_maxx <= maxx)
+		return
+	maxx = new_maxx
+
+/world/proc/increase_max_y(new_maxy, map_load_z_cutoff = maxz)
+	if(new_maxy <= maxy)
+		return
+	maxy = new_maxy
+
 /world/proc/incrementMaxZ()
 	maxz++
 	SSmobs.MaxZChanged()

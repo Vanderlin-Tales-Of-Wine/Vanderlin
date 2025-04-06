@@ -18,7 +18,7 @@
 	selection_color = "#553e01"
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/farmer
 	give_bank_account = 20
