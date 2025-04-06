@@ -6,7 +6,7 @@
 //Newer sprite unused until we can get resize to properly work 100% of the time.
 //Maybe it does and I'm braindead, but I 'unno.
 	icon = 'icons/roguetown/mob/monster/poltergeist.dmi'
-	icon_state = "polter_initial"
+	icon_state = "polter0"
 	icon_living = "polter0"
 	icon_dead = "polter_initial"
 //End of sprite rant.
@@ -44,8 +44,6 @@
 
 /mob/living/simple_animal/hostile/retaliate/poltergeist/Initialize()
 	. = ..()
-	icon_state = "polter0"
-	icon_living = icon_state
 	timer = rand(1,5)
 	flick_timer = rand(1,15)
 
