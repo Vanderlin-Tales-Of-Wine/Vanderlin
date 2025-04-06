@@ -37,7 +37,7 @@
 	name = "nun's habit"
 	desc = "Habits worn by nuns of the pantheon's faith."
 	icon_state = "nun"
-	allowed_race = list("human", "tiefling", "elf", "dwarf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", "elf", "dwarf", "aasimar")
 
 /obj/item/clothing/head/fancyhat
 	name = "fancy hat"

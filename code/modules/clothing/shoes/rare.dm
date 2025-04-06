@@ -49,7 +49,7 @@
 
 /obj/item/clothing/shoes/boots/rare/grenzelplate
 	name = "grenzelhoft \"Elvenbane\" sabatons"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)
 	desc = "The sabatons that march to the tune of a glorious nation. It is said that the boots \
 			are gilded with the tears of once native elves of the Grenzeholft lands, \
@@ -62,7 +62,7 @@
 
 /obj/item/clothing/shoes/boots/rare/zybanplate
 	name = "zybantean segmented plate boots"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)
 	desc = "The segmented plate boots are a recent alteration to the Zybantu Elite, \
 			many old warriors decorate their own by tieing ribbons and other knick-knacks \

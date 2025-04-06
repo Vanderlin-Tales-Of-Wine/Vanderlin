@@ -49,7 +49,7 @@
 	name = "grenzelhoftian plate regalia"
 	desc = "Engraved on this masterwork of humen metallurgy lies \"Thrice Slain, Thrice Risen, Thrice Pronged\" alongside the symbol of Psydon in its neck guard."
 	icon_state = "human_swordchest"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)
 
 /obj/item/clothing/armor/rare/zybanplate
@@ -58,7 +58,7 @@
 			ensuring the wearer optimal defence with forgiving breathability. \
 			The sigil of the Zybantu Kataphractoe is embezzeled at the throat guard."
 	icon_state = "human_spearchest"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)
 
 // Aasimar hoplite armor, a very rare armor indeed

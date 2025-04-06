@@ -41,12 +41,12 @@
 	name = "grenzelhoftian plate gauntlets"
 	desc = "Battling the Zybantus led to the exchange of military ideas. The Grenzelhoft adopted refined chain and plate armaments to better allow their knights unmatchable resilience against the enemies of their Empire."
 	icon_state = "human_swordhand"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)
 
 /obj/item/clothing/gloves/rare/zybanplate
 	name = "kataphractoe claw gauntlets"
 	desc = "Interwoven beautifully with layers of silk, chain and plate, these gauntlets grant unmatched coverage while allowing maximum mobility. Both useful to the Zybantu's ever-growing slave-empire."
 	icon_state = "human_spearhand"
-	allowed_race = list("human")
+	allowed_race = list(SPECIES_HUMAN)
 	allowed_sex = list(MALE)

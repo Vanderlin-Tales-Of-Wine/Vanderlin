@@ -59,7 +59,7 @@
 			beltl = /obj/item/storage/belt/pouch/coins/poor
 			backpack_contents = list(/obj/item/flint)
 			if(H.dna?.species)
-				if(H.dna.species.id == "human")
+				if(H.dna.species.id == SPECIES_HUMAN)
 					backr = /obj/item/instrument/lute
 				if(H.dna.species.id == "dwarf")
 					backr = /obj/item/instrument/accord
@@ -218,7 +218,7 @@
 
 	H.change_stat(STATKEY_PER, 2)
 	H.change_stat(STATKEY_SPD, 2)
-	if(H.dna.species.id == "human")
+	if(H.dna.species.id == SPECIES_HUMAN)
 		if(H.gender == "male")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/assassin()
 		else
