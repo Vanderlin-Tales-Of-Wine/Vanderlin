@@ -154,9 +154,11 @@ GLOBAL_LIST_EMPTY(biggates)
 	if(iscarbon(crushed_mob))
 		var/mob/living/carbon/crushed_carbon = crushed_mob
 		for(var/limb_index in bodyparts_to_crush)
-			var/limb_to_crush = crushed_carbon.get_bodypart(limb_index)
+			var/obj/item/bodypart/limb_to_crush = crushed_carbon.get_bodypart(limb_index)
 			if(limb_to_crush)
-				crushed_carbon.apply_damage(crush_damage_multiplier * rand(120, 240), BRUTE, limb_to_crush, crushed_carbon.run_armor_check(limb_to_crush, "blunt"))
+				var/random_number = rand(120, 300)
+				crushed_carbon.apply_damage(crush_damage_multiplier * random_number, BRUTE, limb_to_crush, crushed_carbon.run_armor_check(limb_to_crush, "blunt"))
+				limb_to_crush.try_crit(BCLASS_STAB, random_number)
 		crushed_carbon.update_damage_overlays()
 		return
 	crushed_mob.gib()
