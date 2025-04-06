@@ -63,8 +63,8 @@
 	var/mutable_appearance/rotflies
 
 /datum/antagonist/zombie/examine_friendorfoe(datum/antagonist/examined_datum,mob/examiner,mob/examined)
-	if(istype(examined_datum, /datum/antagonist/vampirelord))
-		var/datum/antagonist/vampirelord/V = examined_datum
+	if(istype(examined_datum, /datum/antagonist/vampire))
+		var/datum/antagonist/vampire/V = examined_datum
 		if(!V.disguised)
 			return "<span class='boldnotice'>Another kind of deadite.</span>"
 	if(istype(examined_datum, /datum/antagonist/zombie))
@@ -120,8 +120,6 @@
 		zombie.dna.species.soundpack_f = soundpack_f
 	zombie.base_intents = base_intents
 	zombie.update_a_intents()
-	zombie.aggressive = FALSE
-	zombie.mode = AI_OFF
 	if(zombie.charflaw)
 		zombie.charflaw.ephemeral = FALSE
 	zombie.update_body()
@@ -193,8 +191,8 @@
 	base_intents = zombie.base_intents
 	zombie.base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
 	zombie.update_a_intents()
-	zombie.aggressive = TRUE
-	zombie.mode = AI_IDLE
+	if(!zombie.client)
+		zombie.ai_controller = new /datum/ai_controller/human_npc(zombie)
 
 	var/obj/item/organ/eyes/eyes = new /obj/item/organ/eyes/night_vision/zombie
 	eyes.Insert(zombie, drop_if_replaced = FALSE)
@@ -270,7 +268,7 @@
 		zombie.adjustBruteLoss(-INFINITY, updating_health = FALSE, forced = TRUE)
 		zombie.adjustFireLoss(-INFINITY, updating_health = FALSE, forced = TRUE)
 		zombie.heal_wounds(INFINITY) //Heal every wound that is not permanent
-	zombie.stat = UNCONSCIOUS //Start unconscious
+	zombie.set_stat(UNCONSCIOUS) //Start unconscious
 	zombie.updatehealth() //then we check if the mob should wake up
 	zombie.update_mobility()
 	zombie.update_sight()

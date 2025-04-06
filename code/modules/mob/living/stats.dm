@@ -26,15 +26,17 @@
 
 /mob/living/proc/set_patron(datum/patron/new_patron)
 	if(!new_patron)
-		return TRUE
+		return FALSE
 	if(ispath(new_patron))
 		new_patron = GLOB.patronlist[new_patron]
 	if(!istype(new_patron))
-		return TRUE
+		return FALSE
 	if(patron && !ispath(patron))
 		patron.on_remove(src)
+		mana_pool?.remove_attunements(patron)
 	patron = new_patron
 	patron.on_gain(src)
+	mana_pool?.set_attunements(patron)
 	return TRUE
 
 ///Rolls random stats base 10, +-1, for SPECIAL, and applies species stats and age stats.

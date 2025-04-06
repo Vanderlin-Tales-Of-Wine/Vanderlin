@@ -132,7 +132,9 @@
 	///the maximum amount of apprentices that the owner can have
 	var/max_apprentices = 1
 	///if this is set its the name bestowed to the new apprentice otherwise its just name the [job_name] apprentice.
-	var/apprentice_name //this is unused?
+	var/apprentice_name
+	///do we magic?
+	var/magic_user = FALSE
 
 
 /datum/job/New()
@@ -168,6 +170,10 @@
 /datum/job/proc/after_spawn(mob/living/spawned, client/player_client)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_SPAWN, src, spawned, player_client)
+
+	if(magic_user)
+		spawned.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
+
 	for(var/trait in mind_traits)
 		ADD_TRAIT(spawned.mind, trait, JOB_TRAIT)
 
@@ -223,6 +229,12 @@
 		DIRECT_OUTPUT(spawned, load_resource(cmode_music, -1)) //preload their combat mode music
 		spawned.cmode_music = cmode_music
 
+	if(length(advclass_cat_rolls))
+		var/mob/living/carbon/human/humanguy = spawned
+		humanguy.advsetup = TRUE
+		humanguy.invisibility = INVISIBILITY_MAXIMUM
+		humanguy.become_blind("advsetup")
+
 /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
 		announce_head(joining_mob, head_announce)
@@ -277,10 +289,8 @@
 
 	return max(0, minimal_player_age - C.player_age)
 
+//Unused as of now
 /datum/job/proc/config_check()
-	return TRUE
-
-/datum/job/proc/map_check()
 	return TRUE
 
 /datum/outfit/job
@@ -312,7 +322,7 @@
 		else
 			H.set_patron(default_patron || pick(possiblegods))
 		if(old_patron != H.patron) // If the patron we selected first does not match the patron we end up with, display the message.
-			to_chat(H, "<span class='warning'>I've followed the word of [old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron].")
+			to_chat(H, "<span class='warning'>I've followed the word of [old_patron.display_name ? old_patron.display_name : old_patron] in my younger years, but the path I tread todae has accustomed me to [H.patron.display_name? H.patron.display_name : H.patron].")
 
 	if(H.mind)
 		if(H.dna)

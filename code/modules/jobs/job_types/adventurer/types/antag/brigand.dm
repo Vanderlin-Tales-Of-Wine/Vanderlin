@@ -2,7 +2,6 @@
 	name = "Brigand"
 	tutorial = "Cast from society, you use your powerful physical might and endurance to take from those who are weaker from you."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/combat_bandit_brigand.ogg'
@@ -22,6 +21,7 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	belt = /obj/item/storage/belt/leather

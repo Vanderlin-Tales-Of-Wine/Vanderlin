@@ -19,12 +19,14 @@
 	\n\n\
 	A Half-Orc may look much like its monstrous progenitor, sporting tusks and natural strength. \
 	\n\n\
-	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. PLAY AT YOUR OWN RISK."
+	THIS IS AN <I>EXTREMELY</I> DISCRIMINATED SPECIES. EXPECT A MORE DIFFICULT EXPERIENCE. <B>NOBLES EVEN MORE SO.</B> PLAY AT YOUR OWN RISK."
 
 	skin_tone_wording = "Clan"
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
-	inherent_traits = list(TRAIT_NOMOBSWAP)
+	inherent_traits = list(TRAIT_NOMOBSWAP, TRAIT_NOSTINK)
+	// horcs are STINKY
+	components_to_add = list(/datum/component/rot/stinky_person)
 	default_features = list("mcolor" = "FFF", "ears" = "ElfH", "wings" = "None")
 	mutant_bodyparts = list("ears")
 	use_skintones = 1
@@ -110,3 +112,6 @@
 
 /datum/species/halforc/get_accent_list()
 	return strings("halforc_replacement.json", "halforc")
+
+/datum/species/halforc/get_native_language()
+	return "Orcish"

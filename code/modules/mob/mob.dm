@@ -86,6 +86,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	. = ..()
 	update_config_movespeed()
 	update_movespeed(TRUE)
+	become_hearing_sensitive()
 
 /**
  * Generate the tag for this mob
@@ -447,6 +448,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 
 	new /obj/effect/temp_visual/point(src,invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 
 	return TRUE
 
@@ -467,6 +469,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	var/turf/our_tile = get_turf(src)
 	var/obj/visual = new /obj/effect/temp_visual/point/still(our_tile, invisibility)
+	SEND_SIGNAL(src, COMSIG_MOB_POINTED, A)
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 2, easing = EASE_OUT)
 
 	lastpoint = world.time
@@ -714,30 +717,23 @@ GLOBAL_VAR_INIT(mobids, 1)
 	// && check_rights(R_ADMIN,0)
 	var/ticker_time = world.time - SSticker.round_start_time
 	var/time_left = SSgamemode.round_ends_at - ticker_time
-	if(client && client.holder)
-		if(statpanel("Status"))
-			if (client)
-				stat(null, "Ping: [round(client.lastping, 1)]ms (Average: [round(client.avgping, 1)]ms)")
-			stat(null, "Map: [SSmapping.config?.map_name || "Loading..."]")
-			var/datum/map_config/cached = SSmapping.next_map_config
-			if(cached)
-				stat(null, "Next Map: [cached.map_name]")
-			stat(null, "Round ID: [GLOB.rogue_round_id ? GLOB.rogue_round_id : "NULL"]")
-			stat(null, "Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			if(SSgamemode.roundvoteend)
-				stat("Round End: [DisplayTimeText(time_left)]")
-			stat(null, "Round TrueTime: [worldtime2text()] [world.time]")
-			stat(null, "TimeOfDay: [GLOB.tod]")
-			stat(null, "IC Time: [station_time_timestamp()] [station_time()]")
-			stat(null, "Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG:([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)")
-
 	if(client)
 		if(statpanel("RoundInfo"))
 			stat("Round ID: [GLOB.rogue_round_id]")
 			stat("Round Time: [gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)] [world.time - SSticker.round_start_time]")
-			stat("TimeOfDay: [GLOB.tod]")
+			if(client?.holder)
+				stat("Round TrueTime: [worldtime2text()] [world.time]")
 			if(SSgamemode.roundvoteend)
 				stat("Round End: [DisplayTimeText(time_left)]")
+			stat("Map: [SSmapping.config?.map_name || "Loading..."]")
+			var/datum/map_config/cached = SSmapping.next_map_config
+			if(cached)
+				stat("Next Map: [cached.map_name]")
+			stat("Time of Day: [GLOB.tod]")
+			if(client?.holder)
+				stat("Real Time: [station_time_timestamp()] [station_time()]")
+			stat("Ping: [round(client?.lastping, 1)]ms (Average: [round(client?.avgping, 1)]ms)")
+			stat("Time Dilation: [round(SStime_track.time_dilation_current,1)]% AVG: ([round(SStime_track.time_dilation_avg_fast,1)]%, [round(SStime_track.time_dilation_avg,1)]%, [round(SStime_track.time_dilation_avg_slow,1)]%)")
 
 	if(client && client.holder && check_rights(R_ADMIN,0))
 		if(statpanel("MC"))
@@ -793,26 +789,6 @@ GLOBAL_VAR_INIT(mobids, 1)
 					continue
 				statpanel(listed_turf.name, null, A)
 
-
-//	if(mind)
-//		add_spells_to_statpanel(mind.spell_list)
-//	add_spells_to_statpanel(mob_spell_list)
-
-/**
- * Convert a list of spells into a displyable list for the statpanel
- *
- * Shows charge and other important info
- */
-/mob/proc/add_spells_to_statpanel(list/spells)
-	for(var/obj/effect/proc_holder/spell/S in spells)
-		if(S.can_be_cast_by(src))
-			switch(S.charge_type)
-				if("recharge")
-					statpanel("[S.panel]","[S.charge_counter/10.0]/[S.charge_max/10]",S)
-				if("charges")
-					statpanel("[S.panel]","[S.charge_counter]/[S.charge_max]",S)
-				if("holdervar")
-					statpanel("[S.panel]","[S.holder_var_type] [S.holder_var_amount]",S)
 
 #define MOB_FACE_DIRECTION_DELAY 1
 
@@ -1049,13 +1025,14 @@ GLOBAL_VAR_INIT(mobids, 1)
  *
  * Calling this proc without an oldname will only update the mob and skip updating the pda, id and records ~Carn
  */
-/mob/proc/fully_replace_character_name(oldname,newname)
+/mob/proc/fully_replace_character_name(oldname, newname)
 	log_message("[src] name changed from [oldname] to [newname]", LOG_OWNERSHIP)
 	if(!newname)
-		return 0
+		return FALSE
 
 	log_played_names(ckey,newname)
 
+	GLOB.chosen_names += newname
 	real_name = newname
 	name = newname
 	if(mind)
@@ -1063,21 +1040,25 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(mind.key)
 			log_played_names(mind.key,newname) //Just in case the mind is unsynced at the moment.
 
+	GLOB.character_ckey_list[real_name] = ckey
+
 	if(oldname)
-		//update the datacore records! This is goig to be a bit costly.
+		GLOB.chosen_names -= oldname
+		//update the datacore records! This is going to be a bit costly.
 		replace_records_name(oldname,newname)
+		if(GLOB.character_ckey_list[oldname])
+			GLOB.character_ckey_list -= oldname
 
 		for(var/datum/mind/T in SSticker.minds)
 			for(var/datum/objective/obj in T.get_all_objectives())
 				// Only update if this player is a target
-				if(obj.target && obj.target.current && obj.target.current.real_name == name)
+				if(obj.target?.current?.real_name == name)
 					obj.update_explanation_text()
-	return 1
+	return TRUE
 
 ///Updates GLOB.data_core records with new name , see mob/living/carbon/human
 /mob/proc/replace_records_name(oldname,newname)
 	return
-
 
 /mob/proc/update_stat()
 	return
@@ -1286,6 +1267,12 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(I.item_flags & SLOWS_WHILE_IN_HAND)
 			. += I.slowdown
 
+/mob/proc/set_stat(new_stat)
+	if(new_stat == stat)
+		return
+	. = stat
+	stat = new_stat
+	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
 
 /mob/say_mod(input, message_mode)
 	var/customsayverb = findtext(input, "*")

@@ -15,7 +15,8 @@
 	allowed_races = list(
 		"Humen",
 		"Half-Elf",
-		"Elf"
+		"Elf",
+		"Dwarf"
 	)
 
 	spells = list(
@@ -38,9 +39,9 @@
 /datum/job/prince/after_spawn(mob/living/carbon/spawned, client/player_client)
 	. = ..()
 	SSfamilytree.AddRoyal(spawned, FAMILY_PROGENY)
-	spawned.advsetup = 1
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 50)
+	ADD_TRAIT(spawned, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/advclass/heir
 	displays_adv_job = FALSE
@@ -109,6 +110,7 @@
 		shirt = /obj/item/clothing/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/shortboots
 		pants = /obj/item/clothing/pants/tights/random
+		H.virginity = TRUE
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)
@@ -155,6 +157,7 @@
 		shirt = /obj/item/clothing/shirt/dress/royal/princess
 		shoes = /obj/item/clothing/shoes/shortboots
 		pants = /obj/item/clothing/pants/tights/random
+		H.virginity = TRUE
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, pick(0,1), TRUE)

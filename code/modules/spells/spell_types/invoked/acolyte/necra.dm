@@ -4,7 +4,7 @@
 	range = 5
 	overlay_state = "consecrateburial"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	sound = 'sound/magic/churn.ogg'
@@ -36,7 +36,7 @@
 	range = 5
 	overlay_state = "speakwithdead"
 	releasedrain = 30
-	charge_max = 75 SECONDS
+	recharge_time = 75 SECONDS
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -117,7 +117,7 @@
 	range = 5
 	overlay_state = "necra"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	req_items = list(/obj/item/clothing/neck/psycross/silver/necra)
@@ -140,13 +140,13 @@
 		if(L.stat == DEAD)
 			continue
 		if(L.mind)
-			var/datum/antagonist/vampirelord/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if(V)
 				if(!V.disguised)
 					isvampire = TRUE
 			if(L.mind.has_antag_datum(/datum/antagonist/zombie))
 				iszombie = TRUE
-			if(L.mind.special_role == "Vampire Lord")
+			if(istype(V, /datum/antagonist/vampire/lord))
 				user.visible_message("<span class='warning'>[L] overpowers being churned!</span>", "<span class='userdanger'>[L] is too strong, I am churned!</span>")
 				user.Stun(50)
 				user.throw_at(get_ranged_target_turf(user, get_dir(user,L), 7), 7, 1, L, spin = FALSE)

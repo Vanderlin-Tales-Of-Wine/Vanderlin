@@ -326,7 +326,7 @@
 		if(signee)
 			to_chat(user, span_warning("This token has already been signed."))
 			return
-		if(!is_merchant_job(user.mind.assigned_role))
+		if(!is_gaffer_job(user.mind.assigned_role))
 			if(is_mercenary_job(user.mind.assigned_role))
 				to_chat(user, span_warning("I can not sign my own commendation."))
 			else
@@ -411,6 +411,16 @@
 			info += "<s><li style='color:#610018;font-size:11px;font-family:\"Segoe Script\"'>[removed_name]</li></s><br/>"
 
 	info += "</div>"
+
+
+/obj/item/paper/scroll/keep_plans
+	name = "Keep Architectural Drawings"
+	desc = "Paper etched with the floor plans for the entire keep."
+
+/obj/item/paper/scroll/keep_plans/read(mob/user)
+	to_chat(user, span_purple("<b>These look like secret passages...</b>"))
+	ADD_TRAIT(user, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
+	user.playsound_local(user, 'sound/misc/notice (2).ogg', 100, FALSE)
 
 
 /obj/item/paper/scroll/sold_manifest

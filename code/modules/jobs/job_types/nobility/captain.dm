@@ -14,13 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Aasimar",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/captain
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
@@ -90,7 +84,7 @@
 	desc = "Recruit someone to your cause."
 	overlay_state = "recruit_bog"
 	antimagic_allowed = TRUE
-	charge_max = 100
+	recharge_time = 100
 	/// Role given if recruitment is accepted
 	var/new_role = "Beggar"
 	/// Faction shown to the user in the recruitment prompt

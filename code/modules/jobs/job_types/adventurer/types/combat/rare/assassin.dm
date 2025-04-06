@@ -2,20 +2,14 @@
 	name = "Assassin"
 	tutorial = "From a young age you have been drawn to blood, to hurting others. Eventually you found others like you, and a god who would bless your actions. Your cursed dagger has never led you astray, and with every stab you feel a little less empty."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf"
-	)
+
 	outfit = /datum/outfit/job/adventurer/assassin
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 2
 	min_pq = 0
 	pickprob = 100
 	displays_adv_job = FALSE //this prevents advjob from being set back to "Assassin" in equipme
+	min_pq = 10
 
 /datum/outfit/job/adventurer/assassin/pre_equip(mob/living/carbon/human/H)
 	..()

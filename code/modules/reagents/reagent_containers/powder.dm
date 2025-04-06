@@ -176,6 +176,7 @@
 	animate(pixel_y = -1, time = 1, flags = ANIMATION_RELATIVE)
 
 /datum/reagent/moondust/on_mob_end_metabolize(mob/living/M)
+	M.remove_status_effect(/datum/status_effect/buff/moondust)
 	animate(M.client)
 
 /datum/reagent/moondust/on_mob_life(mob/living/carbon/M)
@@ -223,6 +224,7 @@
 /datum/reagent/moondust_purest/on_mob_end_metabolize(mob/living/M)
 	animate(M.client)
 	M.clear_fullscreen("purest_kaif")
+	M.remove_status_effect(/datum/status_effect/buff/moondust_purest)
 
 /datum/reagent/moondust_purest/on_mob_life(mob/living/carbon/M)
 	if(M.reagents.has_reagent(/datum/reagent/moondust))
@@ -250,3 +252,13 @@
 	volume = 15
 	list_reagents = list(/datum/reagent/blastpowder = 15)
 	sellprice = 15
+
+/obj/item/reagent_containers/powder/manabloom
+	name = "manabloom dust"
+	desc = "Crushed manabloom useful as a combat measure against mages."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "salt"
+	volume = 5
+	list_reagents = list(/datum/reagent/toxin/manabloom_juice = 5)
+	sellprice = 10
+	color = COLOR_CYAN

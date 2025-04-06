@@ -8,7 +8,7 @@
 
 /datum/pollutant/rot
 	name = "Rotten Scent"
-	pollutant_flags = POLLUTANT_SMELL|POLLUTANT_BREATHE_ACT
+	pollutant_flags = POLLUTANT_SMELL
 	smell_intensity = 1
 	descriptor = "smell"
 	scent = "a rotten scent"
@@ -16,7 +16,8 @@
 
 /datum/pollutant/rot/breathe_act(mob/living/carbon/victim, amount)
 	. = ..()
-	victim.reagents.add_reagent(/datum/reagent/miasmagas , 1)
+	if(amount > 3)
+		victim.reagents.add_reagent(/datum/reagent/miasmagas , 1)
 
 /datum/pollutant/steam
 	name = "Steam Scent"

@@ -15,15 +15,10 @@
 	min_pq = 20
 	bypass_lastclass = TRUE
 	selection_color = "#c2a45d"
+	cmode_music = 'sound/music/cmode/church/CombatAstrata.ogg'
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/priest
 	spells = list(
@@ -138,7 +133,7 @@
 			consort_job?.remove_spells(HL)
 
 	coronated.mind.set_assigned_role(/datum/job/lord)
-	coronated.job = lord_job.get_informed_title(coronated)
+	coronated.job = "Monarch" //Monarch is used when checking if the ruler is alive, not "King" or "Queen". Can also pass it on and have the title change properly later.
 	lord_job?.add_spells(coronated)
 	SSticker.rulermob = coronated
 	GLOB.badomens -= OMEN_NOLORD

@@ -2,16 +2,7 @@
 	name = "Sorceress"
 	tutorial = "In some places in Psydonia, women such as you are banned from the study of magic. However, in having overcome such discrimination to pursue magic, you have earned the title \"Sorceress\" in honor of your resolve."
 	allowed_sexes = list(FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+
 	outfit = /datum/outfit/job/adventurer/sorceress
 	maximum_possible_slots = 2
 	min_pq = 0
@@ -23,12 +14,15 @@
 
 /datum/outfit/job/adventurer/sorceress/pre_equip(mob/living/carbon/human/H)
 	..()
+	H.mana_pool.set_intrinsic_recharge(MANA_ALL_LEYLINES)
 	shoes = /obj/item/clothing/shoes/simpleshoes
 	armor = /obj/item/clothing/shirt/robe/mage
 	belt = /obj/item/storage/belt/leather/rope
 	backr = /obj/item/storage/backpack/satchel
+	beltr = /obj/item/storage/magebag/apprentice
 	beltl = /obj/item/reagent_containers/glass/bottle/manapot
 	r_hand = /obj/item/weapon/polearm/woodstaff
+	backpack_contents = list(/obj/item/book/granter/spellbook/apprentice = 1, /obj/item/chalk = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)

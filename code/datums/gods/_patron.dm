@@ -2,12 +2,14 @@
 #define PRIEST_SPELLS "Priest"
 
 GLOBAL_LIST_EMPTY(patronlist)
-GLOBAL_LIST_EMPTY(patrons_by_faith)
-GLOBAL_LIST_EMPTY(preference_patrons)
+GLOBAL_LIST_EMPTY(patrons_by_faith) // Does not include patrons with preference_accessible as FALSE
+GLOBAL_LIST_EMPTY(preference_patrons) // Does not include patrons with preference_accessible as FALSE
 
 /datum/patron
 	/// Name of the god
 	var/name
+	/// Display name of the patron in the prefs menu
+	var/display_name
 	/// Domain of the god, such as earth, fire, water, murder etc
 	var/domain = "Bad coding practices"
 	/// Description of the god
@@ -40,7 +42,6 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 
 	///our traits thats applied by set_patron and removed when changed
 	var/list/added_traits
-	var/non_faith = FALSE
 
 	var/datum/storyteller/storyteller
 

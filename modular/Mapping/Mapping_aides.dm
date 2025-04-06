@@ -10,6 +10,7 @@
 	turns_per_move = 5
 	response_help_continuous = "passes through"
 	response_help_simple = "pass through"
+	base_intents = list()
 	a_intent = INTENT_HARM
 	healable = 0
 	speed = 0
@@ -234,6 +235,21 @@
 	else
 		return ..()
 
+/obj/effect/forcefield/wizard
+	var/mob/wizard
+
+/obj/effect/forcefield/wizard/Initialize(mapload, mob/summoner)
+	. = ..()
+	wizard = summoner
+
+/obj/effect/forcefield/wizard/CanPass(atom/movable/mover, turf/target)
+	if(mover == wizard)
+		return TRUE
+	if(ismob(mover))
+		var/mob/M = mover
+		if(M.anti_magic_check(chargecost = 0))
+			return TRUE
+	return FALSE
 
 /*	..................   NOC Device (Fixed scrying ball)   ................... */
 /obj/structure/nocdevice

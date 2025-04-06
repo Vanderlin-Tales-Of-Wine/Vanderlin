@@ -71,23 +71,84 @@
 	desc = "from a cabbit."
 	icon_state = "wool2"
 
+/obj/item/natural/head
+	possible_item_intents = list(/datum/intent/use)
+
 /obj/item/natural/head/volf
 	name = "volf head"
 	desc = "the head of a fearsome volf."
 	icon_state = "volfhead"
 	layer = 3.1
+	grid_height = 64
+	grid_width = 64
+	headpricemin = 3
+	headpricemax = 7
 
 /obj/item/natural/head/saiga
 	name = "saiga head"
 	desc = "the head of a proud saiga."
 	icon_state = "saigahead"
 	layer = 3.1
+	grid_height = 64
+	grid_width = 64
+	headprice = 3
+
+/obj/item/natural/head/troll
+	name = "troll head"
+	desc = "the head of a giant troll."
+	icon_state = "trollhead"
+	layer = 3.1
+	w_class = WEIGHT_CLASS_HUGE
+	twohands_required = TRUE
+	headpricemin = 80
+	headpricemax = 230
+
+/obj/item/natural/head/rous
+	name = "rous head"
+	desc = "the head of an unusually large rat."
+	icon_state = "roushead"
+	layer = 3.1
+	grid_height = 64
+	grid_width = 64
+	headpricemin = 3
+	headpricemax = 7
+
+/obj/item/natural/head/spider
+	name = "honeyspider head"
+	desc = "the head of a venomous honeyspider."
+	icon_state = "spiderhead"
+	layer = 3.1
+	grid_height = 64
+	grid_width = 64
+	headpricemin = 4
+	headpricemax = 20
+
+/obj/item/natural/head/bug
+	name = "bogbug head"
+	desc = "the head of a gross bogbug."
+	icon_state = "boghead"
+	layer = 3.1
+	grid_height = 64
+	grid_width = 64
+	headpricemin = 4
+	headpricemax = 15
+
+/obj/item/natural/head/mole
+	name = "mole head"
+	desc = "the head of a lesser mole."
+	icon_state = "molehead"
+	layer = 3.1
+	w_class = WEIGHT_CLASS_HUGE
+	twohands_required = TRUE
+	headpricemin = 3
+	headpricemax = 7
 
 /obj/item/natural/head/gote
 	name = "gote head"
 	desc = "the head of a fiery gote."
 	icon_state = "gotehead"
 	layer = 3.1
+	headprice = 2
 
 //RTD make this a storage item and make clickign on animals with things put it in storage
 /obj/item/natural/saddle
@@ -148,3 +209,9 @@
 			visible_message(span_danger("The werewolf bites into [src] and thrashes!"))
 		else
 			visible_message(span_danger("[user] bites [src]! What is wrong with them?"))
+		if(HAS_TRAIT(user, TRAIT_POISONBITE))
+			if(src.reagents)
+				var/poison = user.STACON/2
+				src.reagents.add_reagent(/datum/reagent/toxin/venom, poison/2)
+				src.reagents.add_reagent(/datum/reagent/medicine/soporpot, poison)
+				to_chat(user, span_warning("Your fangs inject venom into [src]!"))

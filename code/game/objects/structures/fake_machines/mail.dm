@@ -110,7 +110,7 @@
 			to_chat(user, span_warning("I do not know what this is, and I do not particularly care."))
 
 		var/mob/living/carbon/human/H = user
-		if(is_merchant_job(H.mind.assigned_role))
+		if(is_merchant_job(H.mind.assigned_role) || is_gaffer_job(H.mind.assigned_role))
 			to_chat(H, span_warning("This is of no use to me - I may give this to a mercenary so they may send it themselves."))
 			return
 		if(!is_mercenary_job(H.mind.assigned_role))

@@ -3,17 +3,7 @@
 	var/outfit
 	var/tutorial = "Choose me!"
 	var/list/allowed_sexes
-	var/list/allowed_races = list(
-	"Humen",
-	"Rakshari",
-	"Elf",
-	"Half-Elf",
-	"Dwarf",
-	"Tiefling",
-	"Dark Elf",
-	"Aasimar",
-	"Half-Orc"
-	)
+	var/list/allowed_races = RACES_PLAYER_ALL
 	var/list/allowed_patrons
 	var/list/allowed_ages
 	var/pickprob = 100

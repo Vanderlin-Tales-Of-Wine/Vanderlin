@@ -84,6 +84,11 @@
 
 	if(M.client)
 		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br><br><b>CentCom Ban DB: </b> "
+		if(CONFIG_GET(string/centcom_ban_db))
+			body += "<a href='byond://?_src_=holder;[HrefToken()];centcomlookup=[M.client.ckey]'>Search</a>"
+		else
+			body += "<i>Disabled</i>"
 		body += "<br><br><b>Show related accounts by:</b> "
 		body += "\[ <a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a> | "
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a> \]"
@@ -921,6 +926,14 @@
 	message_admins("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 	log_game("[key_name_admin(usr)] removed liquids with range [range] in [epicenter.loc.name]")
 
+/client/proc/adjust_personal_see_leylines()
+	set category = "GameMaster"
+	set name = "Hide Current Z-Level Leylines"
+	set desc = "Hides Leylines on the current z-level from your vision."
+
+	toggled_leylines = !toggled_leylines
+	mob.hud_used?.plane_masters_update()
+
 /client/proc/spawn_pollution()
 	set category = "GameMaster"
 	set name = "Spawn Pollution"
@@ -995,3 +1008,16 @@
 	set name="Fix Death Arena"
 	SSdeath_arena.admin_reset()
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle LOOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/toggle_debug_pathfinding()
+	set category = "GameMaster"
+	set desc="Pathfinding Debug"
+	set name="Pathfinding Debug"
+	var/mob/user = usr
+	if(!user.client.holder)
+		return
+
+	if(!user.client.holder.path_debug)
+		user.client.holder.path_debug = new(user.client.holder)
+	else
+		QDEL_NULL(user.client.holder.path_debug)

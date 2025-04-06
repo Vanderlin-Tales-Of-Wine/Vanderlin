@@ -16,7 +16,7 @@
 	associated_skill = /datum/skill/magic/holy
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
-	charge_max = 3 MINUTES
+	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	devotion_cost = 30
 
@@ -55,7 +55,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 3 MINUTES
+	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS
 	miracle = TRUE
 	charging_slowdown = 3
@@ -193,7 +193,7 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	chargetime = 2 SECONDS
 	miracle = TRUE
 	charging_slowdown = 3

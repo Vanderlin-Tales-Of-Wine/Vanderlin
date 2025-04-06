@@ -74,6 +74,19 @@
 		return get_turf(travel)
 	return null
 
+/obj/structure/fluff/traveltile/proc/return_connected_turfs()
+	if(!aportalgoesto)
+		return list()
+
+	var/list/travels = list()
+	for(var/obj/structure/fluff/traveltile/travel in shuffle(GLOB.traveltiles))
+		if(travel == src)
+			continue
+		if(travel.aportalid != aportalgoesto)
+			continue
+		travels |= get_turf(travel)
+	return travels
+
 /obj/structure/fluff/traveltile/attack_ghost(mob/dead/observer/user)
 	if(!user.Adjacent(src))
 		return
@@ -146,6 +159,7 @@
 	if(invis_without_trait && !revealed_to.Find(user))
 		show_travel_tile(user)
 		the_tile.show_travel_tile(user)
+	user.log_message("[user.mind.key] has travelled to [loc_name(the_tile)] from", LOG_GAME, color = "#0000ff")
 	mob_move_travel_z_level(user, get_turf(the_tile))
 
 /obj/structure/fluff/traveltile/proc/reveal_travel_trait_to_others(mob/living/user)

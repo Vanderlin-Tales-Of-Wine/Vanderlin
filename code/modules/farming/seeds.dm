@@ -76,6 +76,11 @@
 	plant_def_type = /datum/plant_def/oat
 	color = "#a3eca3"
 
+/obj/item/neuFarm/seed/manabloom
+	seed_identity = "manabloom seeds"
+	plant_def_type = /datum/plant_def/manabloom
+	color = "#a3cbec"
+
 /obj/item/neuFarm/seed/apple
 	seed_identity = "apple seeds"
 	plant_def_type = /datum/plant_def/apple

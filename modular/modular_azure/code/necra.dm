@@ -69,7 +69,7 @@
 	chargedloop = /datum/looping_sound/invokeholy
 	chargetime = 50
 	chargedrain = 0.5
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	max_targets = 0
 	cast_without_targets = TRUE
 	req_items = list(/obj/item/clothing/neck/psycross)
@@ -94,12 +94,12 @@
 		if(L.stat == DEAD)
 			continue
 		if (L.mind)
-			var/datum/antagonist/vampirelord/lesser/V = L.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampire/V = L.mind.has_antag_datum(/datum/antagonist/vampire)
 			if (V && !V.disguised)
 				is_vampire = TRUE
 			if (L.mind.has_antag_datum(/datum/antagonist/zombie))
 				is_zombie = TRUE
-			if (L.mind.special_role == "Vampire Lord")
+			if (istype(V, /datum/antagonist/vampire/lord))
 				too_powerful = L
 				user.visible_message(span_warning("[user] suddenly pales before an unseen presence, and gasps!"), span_warning("The sound of rushing blood fills my ears and mind, drowning out my abrogation!"))
 				break

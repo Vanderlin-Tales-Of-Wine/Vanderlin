@@ -27,6 +27,8 @@
 	var/obj/inhand_requirement = null
 	var/overlay_state = null
 
+	var/list/attunements
+	var/attuned_strength = 1
 
 /obj/effect/proc_holder/Initialize()
 	. = ..()
@@ -75,10 +77,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		remove_ranged_ability()
 	return ..()
 
-/obj/effect/proc_holder/proc/InterceptClickOn(mob/living/caller, params, atom/A)
-	if(caller.ranged_ability != src || ranged_ability_user != caller) //I'm not actually sure how these would trigger, but, uh, safety, I guess?
-		to_chat(caller, "<span class='info'><b>[caller.ranged_ability.name]</b> has been disabled.</span>")
-		caller.ranged_ability.remove_ranged_ability()
+/obj/effect/proc_holder/proc/InterceptClickOn(mob/living/requester, params, atom/A)
+	if(requester.ranged_ability != src || ranged_ability_user != requester) //I'm not actually sure how these would trigger, but, uh, safety, I guess?
+		to_chat(requester, "<span class='info'><b>[requester.ranged_ability.name]</b> has been disabled.</span>")
+		requester.ranged_ability.remove_ranged_ability()
 		return TRUE //TRUE for failed, FALSE for passed.
 	if(ranged_clickcd_override >= 0)
 		ranged_ability_user.next_click = world.time + ranged_clickcd_override
@@ -135,9 +137,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/school = "evocation" //not relevant at now, but may be important later if there are changes to how spells work. the ones I used for now will probably be changed... maybe spell presets? lacking flexibility but with some other benefit?
 
-	var/charge_type = "recharge" //can be recharge or charges, see charge_max and charge_counter descriptions; can also be based on the holder's vars now, use "holder_var" for that
-
-	var/charge_max = 50 //recharge time in deciseconds if charge_type = "recharge" or starting charges if charge_type = "charges"
+	var/recharge_time = 50 //recharge time in deciseconds if charge_type = "recharge" or starting charges if charge_type = "charges"
 	var/charge_counter = 0 //can only cast spells if it equals recharge, ++ each decisecond if charge_type = "recharge" or -- each cast if charge_type = "charges"
 	var/still_recharging_msg = "<span class='notice'>The spell is still recharging.</span>"
 	var/recharging = TRUE
@@ -147,8 +147,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/holder_var_type = "bruteloss" //only used if charge_type equals to "holder_var"
 	var/holder_var_amount = 20 //same. The amount adjusted with the mob's var when the spell is used
 
-	var/clothes_req = FALSE //see if it requires clothes
-	var/human_req = FALSE //spell can only be cast by humans
 	var/nonabstract_req = FALSE //spell can only be cast by mobs that are physical entities
 	var/stat_allowed = FALSE //see if it requires being conscious/alive, need to set to 1 for ghostpells
 	var/phase_allowed = FALSE // If true, the spell can be cast while phased, eg. blood crawling, ethereal jaunting
@@ -171,10 +169,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	var/sparks_spread = 0
 	var/sparks_amt = 0 //cropped at 10
-	var/smoke_spread = 0 //1 - harmless, 2 - harmful
-	var/smoke_amt = 0 //cropped at 10
-
-	var/centcom_cancast = TRUE //Whether or not the spell should be allowed on z2
 
 	var/list/req_items = list()		//required worn items to cast
 	var/req_inhand = null			//required inhand to cast
@@ -183,6 +177,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/miracle = FALSE
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLBLOCK
+	var/uses_mana = TRUE
 
 	action_icon_state = "spell0"
 	action_icon = 'icons/mob/actions/roguespells.dmi'
@@ -212,6 +207,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		var/newdrain = releasedrain
 		//skill block
 		newdrain = newdrain - (releasedrain * (ranged_ability_user.mind.get_skill_level(associated_skill) * 0.05))
+		var/charged_modifier = 100 - ranged_ability_user.client.chargedprog
+		if(charged_modifier != 0)
+			newdrain *= max(1, min(5.60 * log(0.0144 * charged_modifier + 1.297) - 0.607, 10))//chat I think this is math
+
 		//int block
 		if(ranged_ability_user.STAINT > 10)
 			newdrain = newdrain - (releasedrain * (ranged_ability_user.STAINT * 0.02))
@@ -226,10 +225,15 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return newdrain
 		else
 			return 0.1
+
 	return releasedrain
 
 
 /obj/effect/proc_holder/spell/proc/cast_check(skipcharge = 0, mob/user = usr) //checks if the spell can be cast based on its settings; skipcharge is used when an additional cast_check is called inside the spell
+	if(user.mmb_intent && !skipcharge)
+		if(SEND_SIGNAL(user?.mmb_intent, COMSIG_SPELL_BEFORE_CAST))
+			return FALSE
+
 	if(player_lock)
 		if(!user.mind || !(src in user.mind.spell_list) && !(src in user.mob_spell_list))
 			to_chat(user, "<span class='warning'>I shouldn't have this spell! Something's wrong.</span>")
@@ -238,11 +242,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		if(!(src in user.mob_spell_list))
 			testing("cast1")
 			return FALSE
-
-	var/turf/T = get_turf(user)
-	if(is_centcom_level(T.z) && !centcom_cancast) //Certain spells are not allowed on the centcom zlevel
-		to_chat(user, "<span class='warning'>I can't cast this spell here!</span>")
-		return FALSE
 
 	if(!skipcharge)
 		if(!charge_check(user))
@@ -287,9 +286,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				to_chat(H, "<span class='warning'>I don't have enough devotion!</span>")
 				return FALSE
 	else
-		if(clothes_req || human_req)
-			to_chat(user, "<span class='warning'>This spell can only be cast by humans!</span>")
-			return FALSE
 		if(nonabstract_req && (isbrain(user)))
 			to_chat(user, "<span class='warning'>This spell can only be cast by physical beings!</span>")
 			return FALSE
@@ -313,29 +309,16 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			return FALSE
 
 	if(!skipcharge)
-		switch(charge_type)
-			if("recharge")
-				charge_counter = 0 //doesn't start recharging until the targets selecting ends
-			if("charges")
-				charge_counter-- //returns the charge if the targets selecting fails
-			if("holdervar")
-				adjust_var(user, holder_var_type, holder_var_amount)
+		charge_counter = 0
 	if(action)
 		action.UpdateButtonIcon()
 	return TRUE
 
 /obj/effect/proc_holder/spell/proc/charge_check(mob/user, silent = FALSE)
-	switch(charge_type)
-		if("recharge")
-			if(charge_counter < charge_max)
-				if(!silent)
-					to_chat(user, still_recharging_msg)
-				return FALSE
-		if("charges")
-			if(!charge_counter)
-				if(!silent)
-					to_chat(user, "<span class='warning'>[name] has no charges left!</span>")
-				return FALSE
+	if(charge_counter < recharge_time)
+		if(!silent)
+			to_chat(user, still_recharging_msg)
+		return FALSE
 	return TRUE
 
 /obj/effect/proc_holder/spell/proc/invocation(mob/user = usr) //spelling the spell out and setting it on recharge/reducing charges amount
@@ -366,7 +349,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	START_PROCESSING(SSfastprocess, src)
 
 	still_recharging_msg = "<span class='warning'>[name] is still recharging!</span>"
-	charge_counter = charge_max
+	charge_counter = recharge_time
 
 /obj/effect/proc_holder/spell/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
@@ -388,16 +371,47 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	recharging = TRUE
 
 /obj/effect/proc_holder/spell/process()
-	if(recharging && charge_type == "recharge" && (charge_counter < charge_max))
+	if(recharging && (charge_counter < recharge_time))
 		charge_counter += 2	//processes 5 times per second instead of 10.
-		if(charge_counter >= charge_max)
+		if(charge_counter >= recharge_time)
 			action.UpdateButtonIcon()
-			charge_counter = charge_max
+			charge_counter = recharge_time
 			recharging = FALSE
+
+/obj/effect/proc_holder/spell/proc/set_attuned_strength(list/incoming_attunements)
+	var/total_value = 1
+	for(var/datum/attunement/attunement as anything in attunements)
+		if(!(attunement in incoming_attunements))
+			continue
+		if(attunements[attunement] < 0)
+			total_value += incoming_attunements[attunement] + attunements[attunement]
+		else
+			total_value += incoming_attunements[attunement] - attunements[attunement]
+	attuned_strength = total_value
+	return
 
 /obj/effect/proc_holder/spell/proc/perform(list/targets, recharge = TRUE, mob/user = usr) //if recharge is started is important for the trigger spells
 	before_cast(targets)
 	invocation(user)
+
+	var/list/datum/mana_pool/usable_pools = list()
+
+	for (var/atom/movable/thing as anything in user.get_all_contents())
+		if (!isnull(thing.mana_pool) && HAS_TRAIT(thing, TRAIT_POOL_AVAILABLE_FOR_CAST))
+			usable_pools += thing.mana_pool
+
+	if (!isnull(user.mana_pool))
+		usable_pools += user.mana_pool
+
+	var/list/total_attunements = GLOB.default_attunements.Copy()
+
+	for(var/datum/mana_pool/pool as anything in usable_pools)
+		for(var/negative_attunement in pool.negative_attunements)
+			total_attunements[negative_attunement] += pool.negative_attunements[negative_attunement]
+		for(var/attunement in pool.attunements)
+			total_attunements[attunement] += pool.attunements[attunement]
+
+	set_attuned_strength(total_attunements)
 	if(user && user.ckey)
 		user.log_message("<span class='danger'>cast the spell [name].</span>", LOG_ATTACK)
 	if(recharge)
@@ -440,19 +454,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			to_chat(target, text("[message]"))
 		if(sparks_spread)
 			do_sparks(sparks_amt, FALSE, location)
-		if(smoke_spread)
-			if(smoke_spread == 1)
-				var/datum/effect_system/smoke_spread/smoke = new
-				smoke.set_up(smoke_amt, location)
-				smoke.start()
-			else if(smoke_spread == 2)
-				var/datum/effect_system/smoke_spread/bad/smoke = new
-				smoke.set_up(smoke_amt, location)
-				smoke.start()
-			else if(smoke_spread == 3)
-				var/datum/effect_system/smoke_spread/sleeping/smoke = new
-				smoke.set_up(smoke_amt, location)
-				smoke.start()
+	if(ismob(usr))
+		var/mob/living/user = usr
+		if(user.mmb_intent)
+			SEND_SIGNAL(user.mmb_intent, COMSIG_SPELL_AFTER_CAST, targets)
 
 
 /obj/effect/proc_holder/spell/proc/cast(list/targets,mob/user = usr)
@@ -470,13 +475,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			. = range(distance,center)
 
 /obj/effect/proc_holder/spell/proc/revert_cast(mob/user = usr) //resets recharge or readds a charge
-	switch(charge_type)
-		if("recharge")
-			charge_counter = charge_max
-		if("charges")
-			charge_counter++
-		if("holdervar")
-			adjust_var(user, holder_var_type, -holder_var_amount)
+	charge_counter = recharge_time
 	if(action)
 		action.UpdateButtonIcon()
 
@@ -603,9 +602,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action.UpdateButtonIcon(status_only, force)
 
 /obj/effect/proc_holder/spell/proc/can_be_cast_by(mob/caster)
-	if((human_req || clothes_req) && !ishuman(caster))
-		return 0
-	return 1
+	return TRUE
 
 /obj/effect/proc_holder/spell/proc/los_check(mob/A,mob/B)
 	//Checks for obstacles from A to B
@@ -638,8 +635,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		return FALSE
 
 	if(!ishuman(user))
-		if(clothes_req || human_req)
-			return FALSE
 		if(nonabstract_req && (isbrain(user)))
 			return FALSE
 	if((invocation_type == "whisper" || invocation_type == "shout") && isliving(user))
@@ -661,9 +656,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 /obj/effect/proc_holder/spell/self/basic_heal //This spell exists mainly for debugging purposes, and also to show how casting works
 	name = "Lesser Heal"
 	desc = ""
-	human_req = TRUE
-	clothes_req = FALSE
-	charge_max = 100
+	recharge_time = 100
 	invocation = "Victus sano!"
 	invocation_type = "whisper"
 	school = "restoration"

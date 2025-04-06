@@ -1,0 +1,170 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/floor/dirt,
+/area/template_noop)
+"b" = (
+/turf/open/floor/cobble,
+/area/template_noop)
+"h" = (
+/turf/open/floor/carpet,
+/area/template_noop)
+"k" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = 26
+	},
+/turf/open/floor/dirt,
+/area/template_noop)
+"n" = (
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
+/obj/effect/foodspot,
+/turf/open/floor/naturalstone,
+/area/template_noop)
+"s" = (
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/twig,
+/area/template_noop)
+"u" = (
+/obj/effect/workspot,
+/turf/open/floor/carpet,
+/area/template_noop)
+"A" = (
+/turf/open/floor/blocks,
+/area/template_noop)
+"B" = (
+/turf/open/floor/twig,
+/area/template_noop)
+"C" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
+/obj/effect/foodspot,
+/turf/open/floor/cobble,
+/area/template_noop)
+"D" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = 26
+	},
+/obj/structure/rack/shelf/biggest,
+/obj/item/reagent_containers/glass/cup/wooden{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/glass/cup/wooden,
+/turf/open/floor/carpet,
+/area/template_noop)
+"O" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
+/obj/effect/foodspot,
+/obj/effect/building_node/bar,
+/turf/open/floor/cobble,
+/area/template_noop)
+"Q" = (
+/turf/closed/wall/mineral/wood,
+/area/template_noop)
+"S" = (
+/obj/structure/mineral_door/swing_door,
+/turf/open/floor/carpet,
+/area/template_noop)
+"T" = (
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
+/obj/effect/foodspot,
+/turf/open/floor/twig,
+/area/template_noop)
+"U" = (
+/obj/machinery/light/fueled/torchholder{
+	pixel_y = 26
+	},
+/turf/open/floor/cobble,
+/area/template_noop)
+"W" = (
+/obj/structure/fermentation_keg{
+	pixel_y = 13;
+	pixel_x = -7;
+	layer = 2.89
+	},
+/obj/structure/fermentation_keg{
+	pixel_y = 13;
+	pixel_x = 8
+	},
+/obj/structure/fermentation_keg{
+	pixel_y = 29;
+	pixel_x = -3;
+	layer = 2.91
+	},
+/turf/open/floor/twig,
+/area/template_noop)
+
+(1,1,1) = {"
+Q
+Q
+Q
+Q
+U
+A
+h
+"}
+(2,1,1) = {"
+Q
+D
+h
+S
+h
+b
+b
+"}
+(3,1,1) = {"
+Q
+s
+B
+T
+A
+b
+b
+"}
+(4,1,1) = {"
+Q
+s
+B
+O
+A
+h
+a
+"}
+(5,1,1) = {"
+Q
+u
+B
+C
+b
+A
+a
+"}
+(6,1,1) = {"
+Q
+W
+h
+C
+b
+A
+b
+"}
+(7,1,1) = {"
+Q
+n
+n
+Q
+k
+h
+b
+"}

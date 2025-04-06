@@ -21,12 +21,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	give_bank_account = 30
 	cmode_music = 'sound/music/cmode/garrison/CombatForestGarrison.ogg'
 
@@ -39,6 +34,8 @@
 /datum/outfit/job/forestguard/pre_equip(mob/living/carbon/human/H)
 	..()
 	cloak = /obj/item/clothing/cloak/forrestercloak
+	armor = /obj/item/clothing/armor/leather/advanced/forrester
+	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	pants = /obj/item/clothing/pants/trou/leather
 	shoes = /obj/item/clothing/shoes/boots
@@ -49,9 +46,6 @@
 
 /datum/job/forestguard/after_spawn(mob/living/carbon/spawned, client/player_client)
 	..()
-	spawned.advsetup = TRUE
-	spawned.invisibility = INVISIBILITY_MAXIMUM
-	spawned.become_blind("advsetup")
 
 // Axes Maces and Swords
 /datum/advclass/forestguard/infantry
@@ -62,8 +56,6 @@
 
 /datum/outfit/job/forestguard/infantry/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/leather/advanced/forrester
-	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/gorget
 	beltl = /obj/item/weapon/mace/steel/morningstar
 	beltr = /obj/item/weapon/axe/iron
@@ -102,8 +94,6 @@
 
 /datum/outfit/job/forestguard/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/leather/advanced/forrester
-	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/knife/cleaver/combat
 	beltr = /obj/item/ammo_holder/quiver/arrows
@@ -142,8 +132,6 @@
 
 /datum/outfit/job/forestguard/brawler/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/armor/leather/advanced/forrester
-	head = /obj/item/clothing/head/helmet/medium/decorated/skullmet
 	neck = /obj/item/clothing/neck/chaincoif
 	beltl = /obj/item/weapon/mace/steel/morningstar
 	beltr = /obj/item/weapon/axe/iron

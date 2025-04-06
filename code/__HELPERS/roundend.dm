@@ -115,10 +115,10 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 /mob/proc/do_game_over()
 	if(SSticker.current_state != GAME_STATE_FINISHED)
 		return
-	if(client)
-		client.show_game_over()
 	status_flags |= GODMODE
 	ai_controller?.set_ai_status(AI_STATUS_OFF)
+	if(client)
+		client.show_game_over()
 
 /mob/living/do_game_over()
 	..()
@@ -132,9 +132,6 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	if(ishostile(src))
 		var/mob/living/simple_animal/hostile/H = src
 		H.LoseTarget()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		H.mode = AI_OFF
 	if(client)
 		client.verbs += /client/proc/lobbyooc
 		client.verbs += /client/proc/commendsomeone
@@ -240,7 +237,7 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 /datum/controller/subsystem/ticker/proc/get_end_reason()
 	var/end_reason
 
-	if(!check_for_lord())
+	if(!check_for_lord(TRUE)) //TRUE forces the check, otherwise it will autofail.
 		end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
 						"Without a Monarch, they were doomed to be eaten by nite creachers.",
 						"Without a Monarch, they were doomed to become victims of Gehenna.",
@@ -526,12 +523,12 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	var/text = "<b>[usede]</b> was <b>[ply.name]</b>[jobtext] and"
 	if(ply.current)
 		if(ply.current.real_name != ply.name)
-			text += " <span class='redtext'>died</span>"
+			text += span_redtext(" died.")
 		else
 			if(ply.current.stat == DEAD)
-				text += " <span class='redtext'>died</span>"
+				text += span_redtext(" died.")
 			else
-				text += " <span class='greentext'>survived</span>"
+				text += span_greentext(" survived.")
 	return text
 
 /proc/printplayerlist(list/datum/mind/players,fleecheck)

@@ -227,6 +227,8 @@
 
 ///Can the mover object pass this atom, while heading for the target turf
 /atom/proc/CanPass(atom/movable/mover, turf/target)
+	if(istype(mover, /mob/camera))
+		return TRUE
 	return !density
 
 /**
@@ -1028,6 +1030,14 @@
 /proc/log_combat(atom/user, atom/target, what_done, atom/object=null, addition=null)
 	var/ssource = key_name(user)
 	var/starget = key_name(target)
+	/// was the target typing a message when attacked?
+	var/was_typing
+
+	if(ismob(target))
+		var/mob/attacked_mob = target
+		was_typing = attacked_mob.hud_typing
+
+	var/typing_info = was_typing ? " TARGET WAS TYPING" : ""
 
 	var/mob/living/living_target = target
 	var/hp = istype(living_target) ? " (NEWHP: [living_target.health]) " : ""
@@ -1041,11 +1051,11 @@
 
 	var/postfix = "[sobject][saddition][hp]"
 
-	var/message = "has [what_done] [starget][postfix]"
+	var/message = "has [what_done] [starget][postfix][typing_info]"
 	user.log_message(message, LOG_ATTACK, color="red")
 
 	if(user != target)
-		var/reverse_message = "has been [what_done] by [ssource][postfix]"
+		var/reverse_message = "has been [what_done] by [ssource][postfix][typing_info]"
 		target.log_message(reverse_message, LOG_ATTACK, color="orange", log_globally=FALSE)
 
 /**
@@ -1060,13 +1070,25 @@
  */
 /proc/log_defense(atom/defender, atom/attacker, what_done, atom/defending_atom, atom/attacking_atom, addition=null)
 	var/sattacker = key_name(attacker)
+	var/sdefender = key_name(defender)
+
+	/// was the target typing a message when attacked?
+	var/was_typing
+
+	if(ismob(defender))
+		var/mob/attacked_mob = defender
+		was_typing = attacked_mob.hud_typing
+
+	var/typing_info = was_typing ? " TARGET WAS TYPING" : ""
 
 	var/saddition = ""
 	if(addition)
 		saddition = " [addition]"
 
-	var/message = "has [what_done] [sattacker]'s attack!; defended with: [defending_atom ? defending_atom : "hands"], attacked with: [attacking_atom ? attacking_atom : "hands"][saddition ? " [saddition]" : ""]."
+	var/message = "has [what_done] [sattacker]'s attack!; defended with: [defending_atom ? defending_atom : "hands"], attacked with: [attacking_atom ? attacking_atom : "hands"][saddition ? " [saddition]" : ""][typing_info]."
+	var/reverse_message = "attacked [sdefender], who has [what_done] it; attacked with: [attacking_atom ? attacking_atom : "hands"], defended with: [defending_atom ? defending_atom : "hands"][saddition ? " [saddition]" : ""][typing_info]."
 	defender.log_message(message, LOG_ATTACK, color="red")
+	attacker.log_message(reverse_message, LOG_ATTACK, "red", FALSE) // log it in the attacker's personal log too, but not log globally because it was already done.
 
 /atom/movable/proc/add_filter(name,priority,list/params)
 	if(!filter_data)

@@ -3,10 +3,11 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/lord
 	title = "Monarch"
-	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, \
-	you are the absolute authority of these lands and at the center of every plot within it. \
-	Every man, woman and child is envious of your position \
-	and would replace you in less than a heartbeat: Show them the error in their ways."
+	tutorial = "Elevated to your throne through a web of intrigue, political maneuvering, and divine sanction, you are the\
+	unquestioned authority of these lands. The Church has bestowed upon you the legitimacy of the gods themselves, and now\
+	you sit at the center of every plot, and every whisper of ambition. Every man, woman, and child may envy your power and\
+	would replace you in the blink of an eye. But remember, its not envy that keeps you in place, it is your will. Show them\
+	the error of their ways."
 	flag = LORD
 	department_flag = NOBLEMEN
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
@@ -24,7 +25,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE
@@ -54,6 +56,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		ruler_title = "Queen"
 	to_chat(world, "<b>[span_notice(span_big("[spawned.real_name] is [ruler_title] of Vanderlin."))]</b>")
 	to_chat(world, "<br>")
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), spawned), 70)
 
 /datum/outfit/job/lord
 	job_bitflag = BITFLAG_ROYALTY
@@ -115,6 +119,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/job/exlord //just used to change the lords title
 	title = "Ex-Monarch"
@@ -143,7 +148,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	desc = "Grant someone a title of honor... Or shame."
 	overlay_state = "recruit_titlegrant"
 	antimagic_allowed = TRUE
-	charge_max = 100
+	recharge_time = 100
 	/// Maximum range for title granting
 	var/title_range = 3
 	/// Maximum length for the title
@@ -202,7 +207,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	name = "Grant Nobility"
 	desc = "Make someone a noble, or strip them of their nobility."
 	antimagic_allowed = TRUE
-	charge_max = 100
+	recharge_time = 100
 	/// Maximum range for nobility granting
 	var/nobility_range = 3
 

@@ -8,7 +8,7 @@
 	recipe_name = "three Blank Keys"
 	req_bar = /obj/item/ingot/iron
 	appro_skill = /datum/skill/craft/engineering // To train engineering
-	created_item = /obj/item/key_custom_blank
+	created_item = /obj/item/key/custom
 	createmultiple = TRUE
 	createditem_num = 2
 	craftdiff = 0
@@ -316,3 +316,28 @@
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/weapon/hammer/copper
 	i_type = "Tools"
+
+/datum/anvil_recipe/tools/headhook
+	name = "Iron Headhook (+Fibers x2)"
+	recipe_name = "An iron headhook"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/natural/fibers = 2)
+	created_item = /obj/item/storage/hip/headhook
+	craftdiff = 3
+
+/datum/anvil_recipe/tools/chisel
+	name = "Steel Chisel"
+	recipe_name = "a Chisel"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/weapon/chisel
+	i_type = "Tools"
+
+/datum/anvil_recipe/tools/chisel/iron
+	name = "Iron Chisel"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/weapon/chisel/iron
+
+/datum/anvil_recipe/tools/chisel/bronze
+	name = "Bronze Chisel"
+	req_bar = /obj/item/ingot/bronze
+	created_item = /obj/item/weapon/chisel/bronze

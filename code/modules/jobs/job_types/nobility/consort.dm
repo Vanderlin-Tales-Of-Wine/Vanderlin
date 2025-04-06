@@ -16,10 +16,10 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
 	allowed_races = list(
 		"Humen",
+		"Half-Elf",
 		"Elf",
-		"Half-Elf"
+		"Dwarf"
 	)
-
 	outfit = /datum/outfit/job/consort
 	advclass_cat_rolls = list(CTAG_CONSORT = 20)
 	give_bank_account = 500
@@ -30,10 +30,10 @@
 /datum/job/consort/after_spawn(mob/living/spawned, client/player_client)
 	..()
 	var/mob/living/carbon/human/H = spawned
-	H.advsetup = TRUE
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 	SSfamilytree.AddRoyal(H, (H.gender == FEMALE) ? FAMILY_MOTHER : FAMILY_FATHER)
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 
 /datum/outfit/job/consort
 	job_bitflag = BITFLAG_ROYALTY
@@ -207,4 +207,4 @@
 	recruitment_message = "Join the keep's servants, %RECRUIT!"
 	accept_message = "I serve the Crown!"
 	refuse_message = "I refuse."
-	charge_max = 100
+	recharge_time = 100

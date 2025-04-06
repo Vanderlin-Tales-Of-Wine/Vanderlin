@@ -211,6 +211,12 @@
 		if(!apply_damage(dam2do, BRUTE, def_zone, armor_block, user))
 			nodmg = TRUE
 			next_attack_msg += span_warning("Armor stops the damage.")
+			if(HAS_TRAIT(user, TRAIT_POISONBITE))
+				if(src.reagents)
+					var/poison = user.STACON/2
+					src.reagents.add_reagent(/datum/reagent/toxin/venom, poison/2)
+					src.reagents.add_reagent(/datum/reagent/medicine/soporpot, poison)
+					to_chat(user, span_warning("Your fangs inject venom into [src]!"))
 
 	if(!nodmg)
 		affecting.bodypart_attacked_by(BCLASS_BITE, dam2do, user, user.zone_selected, crit_message = TRUE)
@@ -461,8 +467,8 @@
 			if(INTENT_SPELL)
 				if(ranged_ability?.InterceptClickOn(src, params, A))
 					changeNext_move(mmb_intent.clickcd)
-					if(mmb_intent.releasedrain)
-						adjust_stamina(mmb_intent.releasedrain)
+					//if(mmb_intent.releasedrain)
+						//adjust_stamina(mmb_intent.releasedrain)
 				return
 
 //Return TRUE to cancel other attack hand effects that respect it.

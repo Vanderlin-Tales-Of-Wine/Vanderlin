@@ -13,17 +13,7 @@
 	min_pq = -20
 	bypass_lastclass = TRUE
 
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 
 	outfit = /datum/outfit/job/beastmaster

@@ -237,6 +237,9 @@
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /mob/living/carbon/attack_hand(mob/living/carbon/human/user)
+	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user) & COMPONENT_NO_ATTACK_HAND)
+		. = TRUE
+
 	if(!lying_attack_check(user))
 		return FALSE
 
@@ -476,3 +479,23 @@
 	var/obj/item/organ/ears/ears = getorganslot(ORGAN_SLOT_EARS)
 	if((istype(ears) && !ears.deaf) || (src.stat == DEAD)) // 2nd check so you can hear messages when beheaded
 		. = TRUE
+
+/mob/living/carbon/adjustOxyLoss(amount, updating_health = TRUE, forced = FALSE)
+	. = ..()
+	if(isnull(.))
+		return
+	if(. <= 75)
+		if(getOxyLoss() > 75)
+			ADD_TRAIT(src, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)
+	else if(getOxyLoss() <= 75)
+		REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)
+
+/mob/living/carbon/setOxyLoss(amount, updating_health = TRUE, forced = FALSE)
+	. = ..()
+	if(isnull(.))
+		return
+	if(. <= 75)
+		if(getOxyLoss() > 75)
+			ADD_TRAIT(src, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)
+	else if(getOxyLoss() <= 75)
+		REMOVE_TRAIT(src, TRAIT_KNOCKEDOUT, OXYLOSS_TRAIT)

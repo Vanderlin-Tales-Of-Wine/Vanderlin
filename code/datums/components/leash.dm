@@ -121,7 +121,7 @@
 	PRIVATE_PROC(TRUE)
 
 	if(beam_icon && beam_icon_state)
-		var/list/true_path= get_path_to(parent, get_turf(owner), /turf/proc/Distance, 33, 250, 1)
+		var/list/true_path= get_path_to(parent, get_turf(owner), /turf/proc/Distance3D, 33, 250, 1)
 		true_path |= list(get_turf(owner))
 		redraw_beams(true_path)
 
@@ -133,7 +133,7 @@
 	current_path_tick += 1
 	var/our_path_tick = current_path_tick
 
-	var/list/path = get_path_to(parent, get_turf(owner), /turf/proc/Distance, mintargetdist = distance)
+	var/list/path = get_path_to(parent, get_turf(owner), /turf/proc/Distance3D, mintargetdist = distance)
 
 	if (last_completed_path_tick > our_path_tick)
 		return

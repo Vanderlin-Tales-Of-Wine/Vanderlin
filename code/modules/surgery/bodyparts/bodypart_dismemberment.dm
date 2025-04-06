@@ -208,7 +208,7 @@
 	if(brainmob)
 		LB.brainmob = brainmob
 		LB.brainmob.forceMove(LB)
-		LB.brainmob.stat = DEAD
+		LB.brainmob.set_stat(DEAD)
 	brainmob = null
 	return TRUE
 

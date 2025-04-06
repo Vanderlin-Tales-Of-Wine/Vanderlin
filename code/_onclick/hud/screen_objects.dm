@@ -36,10 +36,13 @@
 	inspec += "<br><span class='notice'><b>[name]</b></span>"
 	if(desc)
 		inspec += "<br>[desc]"
+	inspec += "[extra_info(user)]"
 
 	inspec += "<br>----------------------"
 	to_chat(user, "[inspec.Join()]")
 
+/atom/movable/screen/proc/extra_info(mob/user)
+	return
 
 /atom/movable/screen/orbit()
 	return
@@ -693,7 +696,7 @@
 
 /atom/movable/screen/advsetup/New(client/C) //TODO: Make this use INITIALIZE_IMMEDIATE, except its not easy
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(check_mob)), 30)
+	addtimer(CALLBACK(src, PROC_REF(check_mob)), 3 SECONDS)
 
 /atom/movable/screen/advsetup/Destroy()
 	hud.static_inventory -= src
@@ -711,7 +714,7 @@
 	var/mob/living/carbon/human/H = hud.mymob
 	if(H.mind && H.mind.antag_datums)
 		for(var/datum/antagonist/D in H.mind.antag_datums)
-			if(istype(D, /datum/antagonist/vampirelord) || istype(D, /datum/antagonist/vampire))
+			if(istype(D, /datum/antagonist/vampire))
 				qdel(src)
 				return
 	if(H.advsetup)
@@ -1761,6 +1764,31 @@
 	if(SSParticleWeather.runningWeather.target_trait == PARTICLEWEATHER_RAIN)
 		add_overlay("rainlay")
 
+/atom/movable/screen/mana
+	name = "Mana Pool"
+	icon_state = "mana100"
+	icon = 'icons/mob/rogueheat.dmi'
+	screen_loc = mana_loc
+
+/atom/movable/screen/mana/extra_info(mob/user)
+	var/info = ""
+	for(var/datum/attunement/attunement as anything in user?.mana_pool.attunements)
+		var/value = user.mana_pool.attunements[attunement]
+		if(!value)
+			continue
+
+		switch(value)
+			if(0.01 to 0.4)
+				info += "<br> Minor [initial(attunement.name)] Attunment"
+			if(0.41 to 0.7)
+				info += "<br> Moderate [initial(attunement.name)] Attunment"
+			if(0.71 to 1.2)
+				info += "<br> Major [initial(attunement.name)] Attunment"
+			if(1.21 to INFINITY)
+				info += "<br> Apex [initial(attunement.name)] Attunment"
+
+	return info
+
 /atom/movable/screen/stamina
 	name = "stamina"
 	icon_state = "fat100"
@@ -1779,6 +1807,14 @@
 	icon_state = "heatstamover"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = stamina_loc
+	layer = HUD_LAYER+0.1
+
+/atom/movable/screen/mana_over
+	name = ""
+	mouse_opacity = 0
+	icon_state = "manaover"
+	icon = 'icons/mob/rogueheat.dmi'
+	screen_loc = mana_loc
 	layer = HUD_LAYER+0.1
 
 /atom/movable/screen/scannies

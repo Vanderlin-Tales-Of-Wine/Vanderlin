@@ -1,6 +1,7 @@
 /obj/structure/wild_plant
 	name = "wild "
 	desc = "A wild "
+	icon_state = "tea2"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	var/datum/plant_def/plant_type
 	var/spread_chance = 75
@@ -15,9 +16,14 @@
 
 	name = name + src.plant_type.name
 	desc = desc + src.plant_type.name
+
+	pixel_x = rand(-12, 12)
+	pixel_y = rand(-12, 12)
+
 	icon_state = "[src.plant_type.icon_state]2"
 
-
+/obj/structure/wild_plant/Crossed(mob/living/carbon/human/H)
+	playsound(src.loc, "plantcross", 80, FALSE, -1)
 
 /obj/structure/wild_plant/proc/try_spread()
 	var/list/dirs = GLOB.cardinals.Copy()
@@ -49,11 +55,6 @@
 	add_sleep_experience(user, /datum/skill/labor/farming, user.STAINT * 2)
 
 	var/farming_skill = user.mind.get_skill_level(/datum/skill/labor/farming)
-	var/chance_to_ruin = 50 - (farming_skill * 25)
-	if(prob(chance_to_ruin))
-		to_chat(user, span_warning("I ruin the produce..."))
-		qdel(src)
-		return
 	var/feedback = "I harvest the produce."
 	var/modifier = 0
 	var/chance_to_ruin_single = 75 - (farming_skill * 25)
@@ -84,3 +85,20 @@
 	incoming_type = pick(subtypesof(/datum/plant_def))
 	spread_chance = rand(25, 100)
 	. = ..()
+
+/obj/structure/wild_plant/manabloom/New(loc, datum/plant_def/incoming_type, spread_chance)
+	incoming_type = /datum/plant_def/manabloom
+	spread_chance = rand(25, 50)
+	. = ..()
+
+/obj/structure/wild_plant/nospread/New(loc, datum/plant_def/incoming_type, spread_chance)
+	spread_chance = 0
+	. = ..()
+
+/obj/structure/wild_plant/nospread/manabloom
+	icon_state = "manabloom2"
+
+/obj/structure/wild_plant/nospread/manabloom/New(loc, datum/plant_def/incoming_type, spread_chance)
+	incoming_type = /datum/plant_def/manabloom
+	. = ..()
+

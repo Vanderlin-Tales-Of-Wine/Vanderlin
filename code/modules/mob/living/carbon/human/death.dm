@@ -40,7 +40,7 @@
 
 	if(mind)
 		if(!gibbed)
-			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
+			var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
 			if(VD)
 				dust(just_ash=TRUE,drop_items=TRUE)
 				return
@@ -118,7 +118,7 @@
 				if(HU.RomanticPartner(src))
 					HU.adjust_triumphs(-1)
 				if(HU != src && !HAS_TRAIT(HU, TRAIT_BLIND))
-					if(!HAS_TRAIT(HU, TRAIT_VILLAIN) && mode == AI_OFF) //temporary measure for npc skeletons
+					if(!HAS_TRAIT(HU, TRAIT_VILLAIN)) //temporary measure for npc skeletons
 						if(HU.dna?.species && dna?.species)
 							if(HU.dna.species.id == dna.species.id)
 								var/mob/living/carbon/D = HU
@@ -141,7 +141,7 @@
 /mob/living/carbon/human/proc/zombie_check()
 	if(!mind)
 		return
-	if(mind.has_antag_datum(/datum/antagonist/vampirelord))
+	if(mind.has_antag_datum(/datum/antagonist/vampire))
 		return
 	if(mind.has_antag_datum(/datum/antagonist/werewolf))
 		return
@@ -174,8 +174,9 @@
 	if(!.)
 		return
 	var/datum/job/human_job = SSjob.GetJob(job)
-	switch(human_job.type)
-		if(/datum/job/lord)
-			removeomen(OMEN_NOLORD)
-		if(/datum/job/priest)
-			removeomen(OMEN_NOPRIEST)
+	if(human_job)
+		switch(human_job.type)
+			if(/datum/job/lord)
+				removeomen(OMEN_NOLORD)
+			if(/datum/job/priest)
+				removeomen(OMEN_NOPRIEST)

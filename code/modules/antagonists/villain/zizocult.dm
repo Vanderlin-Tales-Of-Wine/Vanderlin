@@ -51,7 +51,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		add_objective(/datum/objective/zizoserve)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 		H.change_stat(STATKEY_INT, -2)
-		greet()
 	else
 		add_objective(/datum/objective/zizo)
 		owner.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -60,7 +59,6 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		H.change_stat(STATKEY_END, 2)
 		H.change_stat(STATKEY_CON, 2)
 		H.change_stat(STATKEY_SPD, 1)
-		greet()
 		owner.special_role = ROLE_ZIZOIDCULTIST
 		owner.current.verbs |= /mob/living/carbon/human/proc/draw_sigil
 		owner.current.verbs |= /mob/living/carbon/human/proc/release_minion
@@ -170,6 +168,7 @@ GLOBAL_LIST_EMPTY(ritualslist)
 		return
 	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
 	playsound(src.loc, 'sound/vo/cult/praise.ogg', 45, 1)
+	log_say("[src] has praised zizo! (zizo cultist verb)")
 
 /mob/living/carbon/human/proc/communicate()
 	set name = "Communicate with Cult"
@@ -408,6 +407,8 @@ GLOBAL_LIST_EMPTY(ritualslist)
 /mob/living/carbon/human/proc/draw_sigil()
 	set name = "Draw Sigil"
 	set category = "ZIZO"
+	if(incapacitated() || stat >= UNCONSCIOUS)
+		return
 
 	var/list/runes = list("Servantry", "Transmutation", "Fleshcrafting")
 

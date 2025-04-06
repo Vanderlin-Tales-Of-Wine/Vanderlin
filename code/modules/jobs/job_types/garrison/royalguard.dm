@@ -1,8 +1,9 @@
 /datum/job/royalguard
 	title = "Royal Knight"
-	tutorial = "You're an elite member of the Garrison, \
-	awarded with knighthood for your prowess and loyalty. \
-	Be a stalwart guardian for the royal family, and serve them until your dying breath."
+	tutorial = "You are a knight of the royal garrison, elevated by your skill and steadfast devotion.\
+	Sworn to protect the royal family, you stand as their shield, upholding their rule with steel and sacrifice.\
+	You are bound to serve them, but should the monarch forget their place with the gods and the land,\
+	Yet loyalty is not without its trials, and faith is tested in ways both seen and unseen. In the end, duty is a path one must walk carefully."
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	job_flags = (JOB_ANNOUNCE_ARRIVAL | JOB_SHOW_IN_CREDITS | JOB_EQUIP_RANK | JOB_NEW_PLAYER_JOINABLE)
@@ -16,13 +17,7 @@
 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_IMMORTAL)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/royalguard
 	give_bank_account = 30
@@ -57,7 +52,7 @@
 	shirt = /obj/item/clothing/armor/gambeson/arming
 	armor = /obj/item/clothing/armor/brigandine // Wear the King's colors.
 	shoes = /obj/item/clothing/shoes/boots/armor/light
-	beltl = /obj/item/storage/keyring/mguard
+	beltl = /obj/item/storage/keyring/manorguard
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/weapon/sword/arming
 	backr = /obj/item/storage/backpack/satchel

@@ -13,16 +13,7 @@
 	spawn_positions = 2
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+	allowed_races = RACES_PLAYER_NONEXOTIC
 
 	outfit = /datum/outfit/job/physicker
 	cmode_music = 'sound/music/cmode/nobility/combat_physician.ogg'
@@ -34,7 +25,6 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	backr = /obj/item/storage/backpack/satchel
-	backpack_contents =list(/obj/item/storage/keyring/physicker = 1)
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys

@@ -337,7 +337,7 @@ SUBSYSTEM_DEF(gamemode)
 		//if(midround_antag_pref)
 			//continue
 
-		if(job_ban && is_banned_from(candidate.ckey, list(job_ban, ROLE_VILLAIN)))
+		if(job_ban && is_banned_from(candidate.ckey, list(job_ban, ROLE_MANIAC)))
 			continue
 		candidates += candidate
 	return candidates
@@ -1048,6 +1048,8 @@ SUBSYSTEM_DEF(gamemode)
 	var/list/storytellers_with_votes = list()
 	for(var/client/client in GLOB.clients)
 		var/mob/living/living = client.mob
+		if(!istype(living))
+			continue
 		if(!roundstart)
 			if(!living.mind)
 				continue

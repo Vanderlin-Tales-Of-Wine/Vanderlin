@@ -90,16 +90,6 @@
 	last_used = 0
 	is_silver = TRUE
 
-/obj/item/reagent_containers/glass/cup/silver/mob_can_equip(mob/living/M, mob/living/equipper, slot, disable_warning = FALSE, bypass_equip_delay_self = FALSE)
-	. = ..()
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if(H.dna && H.dna.species)
-			if(istype(H.dna.species, /datum/species/werewolf))
-				return FALSE
-	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
-		return FALSE
-
 /obj/item/reagent_containers/glass/cup/golden
 	name = "golden goblet"
 	desc = "A golden gilded goblet which gleams pathetically despite it's illustrious metal."
@@ -136,7 +126,7 @@
 	SplashReagents(location, TRUE)
 	// Start the break
 	playsound(location, "glassbreak", 100, TRUE)
-	new /obj/effect/decal/cleanable/glass (location)
+	new /obj/effect/decal/cleanable/debris/glass (location)
 	var/obj/item/natural/glass/shard/bottleshard = new(location)
 	bottleshard.pixel_x = rand(-6,6)
 	bottleshard.pixel_y = rand(-6,6)

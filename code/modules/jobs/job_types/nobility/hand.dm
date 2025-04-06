@@ -37,10 +37,10 @@
 	. = ..()
 	SSfamilytree.AddRoyal(spawned, FAMILY_OMMER)
 	var/mob/living/carbon/human/H = spawned
-	H.advsetup = 1
-	H.invisibility = INVISIBILITY_MAXIMUM
-	H.become_blind("advsetup")
 
+	if(GLOB.keep_doors.len > 0)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(know_keep_door_password), H), 50)
+	ADD_TRAIT(H, TRAIT_KNOWKEEPPLANS, TRAIT_GENERIC)
 	addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
 
 /datum/job/hand/proc/know_agents(mob/living/carbon/human/H)
