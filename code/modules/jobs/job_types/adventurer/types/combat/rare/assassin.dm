@@ -65,7 +65,7 @@
 					backr = /obj/item/instrument/accord
 				if(H.dna.species.id == SPECIES_ELF)
 					backr = /obj/item/instrument/harp
-				if(H.dna.species.id == "tiefling")
+				if(H.dna.species.id == SPECIES_TIEFLING)
 					backr = /obj/item/instrument/guitar
 		if("Beggar") //The sole "town" disguise available.
 			H.job = "Beggar"

@@ -96,6 +96,7 @@
 #define SPECIES_HUMAN "human"
 #define SPECIES_KOBOLD "kobold"
 #define SPECIES_RAKSHARI "rakshari"
+#define SPECIES_TIEFLING "tiefling"
 
 // Health/damage defines for carbon mobs
 #define HUMAN_MAX_OXYLOSS 3
