@@ -114,7 +114,7 @@
 	Like check_requirements but we check a client's preference settings instead of a spawned mob
 	No pq chance since we are just checking, not being used for actual roll
 */
-/datum/advclass/proc/check_client_requirements(client/the_client, dummy = FALSE)
+/datum/advclass/proc/check_client_requirements(client/the_client)
 
 	if(length(allowed_sexes) && !(the_client.prefs.gender in allowed_sexes))
 		return FALSE
