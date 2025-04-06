@@ -117,13 +117,19 @@
 		/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush,
 	)
 
+#define DENDOR_TAME_PROB_NONE 0
+#define DENDOR_TAME_PROB_LOW 25
+#define DENDOR_TAME_PROB_MEDIUM 50
+#define DENDOR_TAME_PROB_HIGH 75
+#define DENDOR_TAME_PROB_GURANTEED 100
+
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 	visible_message("<FONT COLOR='green'>[usr] soothes the beastblood with Dendor's whisper.</FONT><BR>")
 	for(var/mob/living/simple_animal/hostile/retaliate/B in oview(2))
 		if((B.mob_biotypes & MOB_UNDEAD))
 			continue
-		if(B.type in tame_blacklist)
+		if(!prob(B.dendor_taming_chance))
 			to_chat(user, span_warning("The [B.name] resists your soothing!"))
 			continue
 		var/datum/component/obeys_commands/commands = B.GetComponent(/datum/component/obeys_commands)

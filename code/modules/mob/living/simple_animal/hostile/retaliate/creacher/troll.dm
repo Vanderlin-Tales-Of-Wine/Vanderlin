@@ -60,6 +60,7 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
+	dendor_taming_chance = DENDOR_TAME_PROB_LOW
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll
 	body_eater = TRUE
