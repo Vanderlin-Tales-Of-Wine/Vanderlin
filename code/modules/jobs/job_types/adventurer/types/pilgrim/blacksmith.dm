@@ -3,17 +3,7 @@
 	tutorial = "Hardy worksmen that are at home in the forge, dedicating their lives \
 	to ceaselessly toil in dedication to Malum."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Kobold",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc"
-	)
+
 	outfit = /datum/outfit/job/adventurer/blacksmith
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Blacksmith Apprentice"

@@ -1,16 +1,8 @@
 /datum/advclass/pilgrim/woodcutter
 	name = "Woodcutter"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list("Humen",
-	"Elf",
-	"Dark Elf",
-	"Half-Elf",
-	"Tiefling",
-	"Dwarf",
-	"Aasimar",
-	"Half-Orc"
+	allowed_races = RACES_PLAYER_NONEXOTIC
 
-	)
 	outfit = /datum/outfit/job/adventurer/woodcutter
 	category_tags = list(CTAG_DISABLED)
 	apprentice_name = "Woodcutter"

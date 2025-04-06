@@ -184,6 +184,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_BURDEN = "I carry the Burden of HEAD EATER's hunger..."
 	))
 
+#define SIGNAL_ADDTRAIT(trait_ref) ("addtrait " + trait_ref)
+#define SIGNAL_REMOVETRAIT(trait_ref) ("removetrait " + trait_ref)
+
 // trait accessor defines
 #define ADD_TRAIT(target, trait, source) \
 	do { \
@@ -192,6 +195,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 			target.status_traits = list(); \
 			_L = target.status_traits; \
 			_L[trait] = list(source); \
+			SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
 			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
 		} else { \
 			_L = target.status_traits; \
@@ -199,8 +203,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 				_L[trait] |= list(source); \
 			} else { \
 				_L[trait] = list(source); \
-			} \
-			SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait);\
+				SEND_SIGNAL(target, SIGNAL_ADDTRAIT(trait)); \
+				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_ADD_TRAIT, target, trait); \
+			}; \
 		} \
 	} while (0)
 #define REMOVE_TRAIT(target, trait, sources) \
@@ -210,20 +215,21 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		if (sources && !islist(sources)) { \
 			_S = list(sources); \
 		} else { \
-			_S = sources\
+			_S = sources; \
 		}; \
 		if (_L && _L[trait]) { \
 			for (var/_T in _L[trait]) { \
 				if ((!_S && (_T != ROUNDSTART_TRAIT)) || (_T in _S)) { \
-					_L[trait] -= _T \
-				} \
+					_L[trait] -= _T; \
+				}; \
 			};\
 			if (!length(_L[trait])) { \
 				_L -= trait; \
+				SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(trait)); \
 				SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
 			}; \
 			if (!length(_L)) { \
-				target.status_traits = null \
+				target.status_traits = null; \
 			}; \
 		} \
 	} while (0)
@@ -233,13 +239,16 @@ GLOBAL_LIST_INIT(roguetraits, list(
 		var/list/_S = sources; \
 		if (_L) { \
 			for (var/_T in _L) { \
-				_L[_T] &= _S;\
+				_L[_T] &= _S; \
 				if (!length(_L[_T])) { \
-					_L -= _T } \
-				};\
-				if (!length(_L)) { \
-					target.status_traits = null\
-				};\
+					_L -= _T; \
+					SEND_SIGNAL(target, SIGNAL_REMOVETRAIT(_T)); \
+					SEND_GLOBAL_SIGNAL(COMSIG_ATOM_REMOVE_TRAIT, target, trait); \
+				}; \
+			};\
+			if (!length(_L)) { \
+				target.status_traits = null\
+			};\
 		}\
 	} while (0)
 
@@ -253,6 +262,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 //mob traits
 #define TRAIT_IMMOBILIZED		"immobilized" //! Prevents voluntary movement.
+#define TRAIT_KNOCKEDOUT		"knockedout" //! Forces the user to stay unconscious.
+#define TRAIT_FLOORED 			"floored" //! Prevents standing or staying up on its own.
 #define TRAIT_INCAPACITATED		"incapacitated"
 #define TRAIT_BLIND 			"blind"
 #define TRAIT_MUTE				"mute"
@@ -354,7 +365,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 // common trait sources
 #define TRAIT_GENERIC "generic"
-#define UNCONSCIOUS_BLIND "unconscious_blind"
+#define UNCONSCIOUS_TRAIT "unconscious"
 #define EYE_DAMAGE "eye_damage"
 #define GENETIC_MUTATION "genetic"
 #define OBESITY "obesity"
@@ -378,9 +389,14 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define GLASSES_TRAIT "glasses"
 #define VEHICLE_TRAIT "vehicle" // inherited from riding vehicles
 #define INNATE_TRAIT "innate"
-#define BUCKLED_TRAIT "buckled" //trait associated to being buckled
-#define CHOKEHOLD_TRAIT "chokehold" //trait associated to being held in a chokehold
-#define RESTING_TRAIT "resting" //trait associated to resting
+#define CRIT_HEALTH_TRAIT "crit_health"
+#define OXYLOSS_TRAIT "oxyloss"
+#define BLOODLOSS_TRAIT "bloodloss"
+#define BUCKLED_TRAIT "buckled" //! trait associated to being buckled
+#define CHOKEHOLD_TRAIT "chokehold" //! trait associated to being held in a chokehold
+#define RESTING_TRAIT "resting" //! trait associated to resting
+/// trait associated to a stat value or range of
+#define STAT_TRAIT "stat"
 
 // unique trait sources, still defines
 #define TRAIT_BESTIALSENSE "bestial-sense"
