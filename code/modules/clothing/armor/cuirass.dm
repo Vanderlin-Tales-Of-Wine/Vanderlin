@@ -69,7 +69,7 @@
 	desc = "More form over function, this armor is fit for demonstration of might rather than open combat. The aged gilding slowly tarnishes away."
 	icon_state = "shadowplate"
 	item_state = "shadowplate"
-	allowed_race = list("elf", "dark elf")
+	allowed_race = list(SPECIES_ELF, "dark elf")
 
 /obj/item/clothing/armor/cuirass/copperchest
 	name = "heart protector"

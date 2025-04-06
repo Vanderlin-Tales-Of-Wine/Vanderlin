@@ -11,7 +11,6 @@
 
 /datum/species/elf/dark
 	name = "Dark Elf"
-	id = "elf"
 	desc = "Zizo's conquered. \
 	\n\n\
 	These elves hail from an underground expanse of newly-reborn empires. \

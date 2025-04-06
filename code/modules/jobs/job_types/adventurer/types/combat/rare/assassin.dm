@@ -63,7 +63,7 @@
 					backr = /obj/item/instrument/lute
 				if(H.dna.species.id == "dwarf")
 					backr = /obj/item/instrument/accord
-				if(H.dna.species.id == "elf")
+				if(H.dna.species.id == SPECIES_ELF)
 					backr = /obj/item/instrument/harp
 				if(H.dna.species.id == "tiefling")
 					backr = /obj/item/instrument/guitar

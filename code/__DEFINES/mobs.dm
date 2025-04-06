@@ -90,6 +90,7 @@
 /*see __DEFINES/inventory.dm for bodypart bitflag defines*/
 
 #define SPECIES_HUMAN "human"
+#define SPECIES_ELF "elf"
 
 // Health/damage defines for carbon mobs
 #define HUMAN_MAX_OXYLOSS 3

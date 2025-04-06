@@ -24,7 +24,7 @@
 	name = "elvish plate helmet"
 	desc = "A bizarrely lightweight helmet of alloyed dark elven steel, offering unparalleled protection for elite bladesingers."
 	icon_state = "elfhead"
-	allowed_race = list("elf", "half-elf", "dark elf")
+	allowed_race = list(SPECIES_ELF, "half-elf", "dark elf")
 	clothing_flags = CANT_SLEEP_IN
 	armor_class = AC_MEDIUM
 	body_parts_covered = HEAD|HAIR|NOSE

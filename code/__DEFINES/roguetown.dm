@@ -1,5 +1,5 @@
 //used in various places
-#define ALL_RACES_LIST					list(SPECIES_HUMAN, "rakshari", "dwarf", "elf", "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
+#define ALL_RACES_LIST					list(SPECIES_HUMAN, "rakshari", "dwarf", SPECIES_ELF, "tiefling", "aasimar", "halforc", "orc", "zizombie", "kobold")
 
 /// All playable races from character selection menu.
 #define RACES_PLAYER_ALL				list("Humen", "Rakshari", "Half-Elf", "Dark Elf", "Elf", "Dwarf", "Tiefling", "Half-Orc", "Aasimar", "Kobold")

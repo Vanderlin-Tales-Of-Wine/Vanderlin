@@ -27,7 +27,7 @@
 	name = "dark elf plate"
 	desc = "A fine suit of sleek, moulded dark elf metal. Its interlocking nature and light weight allow for increased maneuverability."
 	icon_state = "elfchest"
-	allowed_race = list("elf", "half-elf", "dark elf")
+	allowed_race = list(SPECIES_ELF, "half-elf", "dark elf")
 	equip_delay_self = 2 SECONDS
 	unequip_delay_self = 2 SECONDS
 

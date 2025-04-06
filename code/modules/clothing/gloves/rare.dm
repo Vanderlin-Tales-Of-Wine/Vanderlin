@@ -23,7 +23,7 @@
 	name = "dark elf plate gauntlets"
 	desc = "Plate gauntlets of mystic dark elven alloy, lightweight yet incredibly protective. Typically worn by elite bladesingers."
 	icon_state = "elfhand"
-	allowed_race = list("elf", "half-elf", "dark elf")
+	allowed_race = list(SPECIES_ELF, "half-elf", "dark elf")
 
 /obj/item/clothing/gloves/rare/elfplate/welfplate
 	name = "elvish plate gauntlets"

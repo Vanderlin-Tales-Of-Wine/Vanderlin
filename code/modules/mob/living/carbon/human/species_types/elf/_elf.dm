@@ -3,7 +3,7 @@
 
 /datum/species/elf
 	name = "Elfb"
-	id = "elf"
+	id = SPECIES_ELF
 	max_age = 850
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
 

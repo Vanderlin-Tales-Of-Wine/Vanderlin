@@ -48,7 +48,7 @@
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 	body_parts_covered = CHEST|GROIN|VITALS
 	allowed_sex = list(MALE, FEMALE)
-	// allowed_race = list(SPECIES_HUMAN, "tiefling", "elf", "aasimar", "dwarf")
+	// allowed_race = list(SPECIES_HUMAN, "tiefling", SPECIES_ELF, "aasimar", "dwarf")
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	nodismemsleeves = TRUE
 	boobed = FALSE
@@ -84,7 +84,7 @@
 	toggle_icon_state = FALSE
 	color = CLOTHING_SOOT_BLACK
 	allowed_sex = list(MALE, FEMALE)
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "elf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", SPECIES_ELF, "aasimar")
 
 /obj/item/clothing/cloak/half/ComponentInitialize()
 	. = ..()
@@ -215,7 +215,7 @@
 //.............inquisitor cloaks......... (For inquisitors..)
 /obj/item/clothing/cloak/cape/puritan
 	icon_state = "puritan_cape"
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "elf", "dwarf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", SPECIES_ELF, "dwarf", "aasimar")
 
 /obj/item/clothing/cloak/cape/inquisitor
 	name = "Inquisitors Cloak"
@@ -308,4 +308,4 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "elf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", SPECIES_ELF, "aasimar")

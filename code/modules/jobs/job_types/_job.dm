@@ -328,7 +328,7 @@
 		if(H.dna)
 			H.dna.species.random_underwear(H.gender)
 			if(H.dna.species)
-				if(H.dna.species.id == "elf")
+				if(H.dna.species.id == SPECIES_ELF)
 					H.mind?.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 				if(H.dna.species.id == "dwarf")
 					H.mind?.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)

@@ -132,7 +132,7 @@
 /obj/item/clothing/shirt/robe/nun
 	icon_state = "nun"
 	item_state = "nun"
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "dark elf", "elf", "half-elf", "dwarf", "aasimar")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", "dark elf", SPECIES_ELF, "half-elf", "dwarf", "aasimar")
 	allowed_sex = list(FEMALE)
 
 /obj/item/clothing/shirt/robe/feld
@@ -159,7 +159,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	allowed_sex = list(MALE, FEMALE)
-	allowed_race = list(SPECIES_HUMAN, "tiefling", "aasimar", "elf")
+	allowed_race = list(SPECIES_HUMAN, "tiefling", "aasimar", SPECIES_ELF)
 	color = null
 	sellprice = 100
 
