@@ -85,7 +85,7 @@
 	icon_state = "aasimarhead"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	allowed_race = list("aasimar")
+	allowed_race = list(SPECIES_AASIMAR)
 	flags_inv = HIDEEARS
 	clothing_flags = CANT_SLEEP_IN
 	body_parts_covered = HEAD|EARS|HAIR

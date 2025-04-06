@@ -69,7 +69,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "aasimarplate"
-	allowed_race = list("aasimar")
+	allowed_race = list(SPECIES_AASIMAR)
 	smeltresult = /obj/item/ingot/bronze
 	sellprice = VALUE_SNOWFLAKE_STEEL+BONUS_VALUE_MODEST // It has great value to historical collectors
 

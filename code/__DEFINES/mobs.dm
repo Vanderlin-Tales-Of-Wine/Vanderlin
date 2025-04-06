@@ -89,6 +89,7 @@
 #define DEVIL_BODYPART "devil"
 /*see __DEFINES/inventory.dm for bodypart bitflag defines*/
 
+#define SPECIES_AASIMAR "aasimar"
 #define SPECIES_DWARF "dwarf"
 #define SPECIES_ELF "elf"
 #define SPECIES_HUMAN "human"
