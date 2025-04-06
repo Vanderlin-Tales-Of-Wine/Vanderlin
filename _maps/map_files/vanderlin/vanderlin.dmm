@@ -20241,7 +20241,7 @@
 /area/rogue/indoors/town)
 "nRb" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Carriage to Kingsfield"
 	},
 /obj/structure/industrial_lift/tram{
 	icon_state = "vertw"
@@ -28311,7 +28311,7 @@
 /area/rogue/indoors/town/orphanage)
 "tAe" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Carriage to Kingsfield"
 	},
 /turf/open/floor/herringbone,
 /area/rogue/under/town/sewer)
@@ -33275,7 +33275,7 @@
 /area/rogue/indoors/town)
 "wOQ" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Carriage to Kingsfield"
 	},
 /turf/open/floor/blocks,
 /area/rogue/outdoors/town)
@@ -34665,7 +34665,7 @@
 /area/rogue/under/town/basement)
 "xOF" = (
 /obj/structure/fluff/buysign{
-	name = "Train to Kingsfield Reinstated"
+	name = "Carriage to Kingsfield"
 	},
 /obj/structure/industrial_lift/tram,
 /turf/open/transparent/openspace,
