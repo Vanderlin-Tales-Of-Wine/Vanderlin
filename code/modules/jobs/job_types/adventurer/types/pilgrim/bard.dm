@@ -6,18 +6,7 @@
 	the last ones in a party to die. Their wish is to experience \
 	the greatest adventures of the age and write amazing songs about them."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+
 	outfit = /datum/outfit/job/adventurer/bard
 	category_tags = list(CTAG_PILGRIM)
 	apprentice_name = "Aspiring Bard"

@@ -2,7 +2,7 @@
 	name = "Thief"
 	tutorial = "A wandering thief, capable of breaking in and out of just about any secure location, and born to meet the sharp end of the guillotine. Just remember, murder is the mark of an amateur."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+
 	outfit = /datum/outfit/job/adventurer/rogue
 	min_pq = 5
 	category_tags = list(CTAG_ADVENTURER)

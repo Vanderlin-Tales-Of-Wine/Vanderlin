@@ -15,7 +15,8 @@
 	allowed_races = list(
 		"Humen",
 		"Half-Elf",
-		"Elf"
+		"Elf",
+		"Dwarf"
 	)
 
 	spells = list(

@@ -15,12 +15,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 
 	outfit = /datum/outfit/job/steward
 	give_bank_account = 100

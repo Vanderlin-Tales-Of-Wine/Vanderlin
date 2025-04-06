@@ -3,18 +3,7 @@
 	tutorial = "Peasants that thrive on the woods, hunting creechers for pelt and hide, \
 				or the boons of Dendor for their meat to sell, or consume."
 	allowed_sexes = list(MALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+
 	outfit = /datum/outfit/job/adventurer/hunter
 
 	category_tags = list(CTAG_PILGRIM)

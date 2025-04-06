@@ -25,7 +25,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	allowed_races = list(
 		"Humen",
 		"Elf",
-		"Half-Elf"
+		"Half-Elf",
+		"Dwarf"
 	)
 	outfit = /datum/outfit/job/lord
 	bypass_lastclass = TRUE

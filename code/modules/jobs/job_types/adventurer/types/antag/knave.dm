@@ -2,7 +2,6 @@
 	name = "Knave"
 	tutorial = "Not all followers of Matthios take by force. Thieves, poachers, and ne'er-do-wells of all forms steal from others from the shadows, long gone before their marks realize their misfortune."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
 	outfit = /datum/outfit/job/bandit/knave
 	category_tags = list(CTAG_BANDIT)
 	cmode_music = 'sound/music/cmode/antag/CombatBandit3.ogg'
