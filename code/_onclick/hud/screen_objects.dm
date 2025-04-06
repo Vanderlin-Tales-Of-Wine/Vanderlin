@@ -325,7 +325,7 @@
 		var/mob/M = usr
 		M.playsound_local(M, 'sound/misc/click.ogg', 100)
 	if(usr.stat == CONSCIOUS)
-		usr.dropItemToGround(usr.get_active_held_item())
+		usr.dropItemToGround(usr.get_active_held_item(), silent = FALSE)
 
 /atom/movable/screen/act_intent
 	name = "intent"
