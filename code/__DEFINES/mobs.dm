@@ -93,6 +93,7 @@
 #define SPECIES_DWARF "dwarf"
 #define SPECIES_ELF "elf"
 #define SPECIES_HUMAN "human"
+#define SPECIES_KOBOLD "kobold"
 
 // Health/damage defines for carbon mobs
 #define HUMAN_MAX_OXYLOSS 3
