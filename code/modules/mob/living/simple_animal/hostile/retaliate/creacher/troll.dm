@@ -60,7 +60,7 @@
 	food = 0
 	dodgetime = 50
 	aggressive = TRUE
-	dendor_taming_chance = DENDOR_TAME_PROB_LOW
+	dendor_taming_chance = DENDOR_TAME_PROB_HIGH
 //	stat_attack = UNCONSCIOUS
 	remains_type = /obj/effect/decal/remains/troll
 	body_eater = TRUE
@@ -244,6 +244,7 @@
 	maxHealth = CAVETROLL_HEALTH
 	defprob = 35
 	defdrain = 15
+	dendor_taming_chance = DENDOR_TAME_PROB_LOW
 
 /mob/living/simple_animal/hostile/retaliate/troll/cave/ambush
 	is_hidey = TRUE

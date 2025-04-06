@@ -117,12 +117,6 @@
 		/mob/living/simple_animal/hostile/retaliate/troll/cave/ambush,
 	)
 
-#define DENDOR_TAME_PROB_NONE 0
-#define DENDOR_TAME_PROB_LOW 25
-#define DENDOR_TAME_PROB_MEDIUM 50
-#define DENDOR_TAME_PROB_HIGH 75
-#define DENDOR_TAME_PROB_GURANTEED 100
-
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	playsound(get_turf(user), 'sound/vo/smokedrag.ogg', 100, TRUE)
 	visible_message("<FONT COLOR='green'>[usr] soothes the beastblood with Dendor's whisper.</FONT><BR>")
