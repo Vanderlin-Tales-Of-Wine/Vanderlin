@@ -349,6 +349,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NO_BITE "no_bite" //prevents biting
 #define TRAIT_HARDDISMEMBER		"hard_dismember"
 #define TRAIT_FOREIGNER "foreigner" // is this guy a foreigner?
+#define TRAIT_NOAMBUSH "no_ambush" //! mob cannot be ambushed for any reason
+
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 #define TRAIT_IMPERCEPTIBLE "imperceptible" // can't be perceived in any way, likely due to invisibility

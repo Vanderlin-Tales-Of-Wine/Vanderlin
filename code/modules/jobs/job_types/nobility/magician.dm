@@ -25,6 +25,7 @@
 
 /datum/outfit/job/magician
 	job_bitflag = BITFLAG_ROYALTY
+	allowed_patrons = list(/datum/patron/divine/noc, /datum/patron/inhumen/zizo)
 
 /datum/outfit/job/magician/pre_equip(mob/living/carbon/human/H)
 	..()
