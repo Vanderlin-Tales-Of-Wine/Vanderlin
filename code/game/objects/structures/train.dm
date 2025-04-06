@@ -1,10 +1,10 @@
 //AKA cryosleep.
 
 /obj/structure/train //Shamelessly jury-rigged from the way Fallout13 handles this and shamelessly borrowed from AzurePeak's further iteraiton of this system
-	name = "train"
+	name = "Carriage"
 	desc = "Your heart yearns to wander.\n(Drag your sprite onto this to exit the round!)"
-	icon = 'icons/roguetown/items/train.dmi'
-	icon_state = "train"
+	icon = 'icons/roguetown/underworld/enigma_carriage.dmi'
+	icon_state = "carriage_normal"
 	layer = TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
