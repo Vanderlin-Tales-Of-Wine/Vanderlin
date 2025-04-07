@@ -50,7 +50,7 @@
 	armor = ARMOR_BRIGANDINE
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
 
 /obj/item/clothing/armor/brigandine/update_icon()
@@ -82,7 +82,7 @@
 	armor = ARMOR_PLATE_BAD
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	max_integrity = INTEGRITY_STRONGEST
-	prevent_crits = ALL_EXCEPT_STAB
+	prevent_crits = ALL_EXCEPT_BLUNT
 	do_sound_plate = TRUE
 
 /obj/item/clothing/armor/captain/update_icon()
