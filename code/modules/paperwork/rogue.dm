@@ -257,10 +257,11 @@
 		var/fake = TRUE
 		if(confession_type == "patron")
 			var/list/divine_gods = list()
-			for(var/datum/patron/path as anything in GLOB.patrons_by_faith[/datum/faith/divine_pantheon])
+			for(var/datum/patron/path as anything in GLOB.patrons_by_faith[/datum/faith/divine_pantheon] + GLOB.patrons_by_faith[/datum/faith/psydon])
 				if(!path.name)
 					continue
-				divine_gods[path.name] = path
+				var/pref_name = path.display_name ? path.display_name : path.name
+				divine_gods[pref_name] = path
 			if(length(divine_gods)) // sanity check
 				var/fake_patron = input(M, "Who will you pretend your patron is?", "DECEPTION") as null|anything in divine_gods
 				if(!fake)
