@@ -295,6 +295,13 @@
 /datum/pot_recipe/drugs
 	abstract_type = /datum/pot_recipe/drugs
 
+/datum/pot_recipe/cooking/sugar
+	name = "boiled sugar"
+	cooking_time = 90 SECONDS
+	produced_reagent = /datum/reagent/consumable/sugar
+	required_items = list(/obj/item/reagent_containers/food/snacks/sugar = 1)
+	finished_smell = /datum/pollutant/food/sugar
+
 /datum/pot_recipe/drugs/drukqs
 	name = "drukqs"
 	cooking_time = 50 SECONDS

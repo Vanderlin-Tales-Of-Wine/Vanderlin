@@ -110,6 +110,71 @@
 		/obj/item/reagent_containers/food/snacks/produce/jacksberry/poison,
 	)
 
+/datum/repeatable_crafting_recipe/driedstrawberry
+	name = "dried strawberries"
+	output = /obj/item/reagent_containers/food/snacks/strawberry_dried
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/strawberry
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/strawberry = 1,
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 1.5 SECONDS
+	crafting_message = "starts drying some strawberries"
+	craftdiff = 0
+
+/datum/repeatable_crafting_recipe/driedtangerine
+	name = "dried tangerine"
+	output = /obj/item/reagent_containers/food/snacks/tangerine_dried
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/tangerine
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/tangerine = 1,
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 1.5 SECONDS
+	crafting_message = "starts drying some tangerine"
+	craftdiff = 0
+
+/datum/repeatable_crafting_recipe/driedplum
+	name = "dried plum"
+	output = /obj/item/reagent_containers/food/snacks/plum_dried
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/plum
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/plum = 1,
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 1.5 SECONDS
+	crafting_message = "starts drying a plum"
+	craftdiff = 0
+
+/datum/repeatable_crafting_recipe/driedapple
+	name = "dried apple"
+	output = /obj/item/reagent_containers/food/snacks/apple_dried
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/apple
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/apple = 1,
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 1.5 SECONDS
+	crafting_message = "starts drying an apple"
+	craftdiff = 0
+
+/datum/repeatable_crafting_recipe/driedpear
+	name = "dried pear"
+	output = /obj/item/reagent_containers/food/snacks/pear_dried
+	starting_atom = /obj/item/reagent_containers/food/snacks/produce/pear
+	requirements = list(
+		/obj/item/reagent_containers/food/snacks/produce/pear = 1,
+	)
+	attacked_atom = /obj/machinery/tanningrack
+
+	craft_time = 1.5 SECONDS
+	crafting_message = "starts drying a pear"
+	craftdiff = 0
+
 /datum/repeatable_crafting_recipe/parchment
 	name = "parchment"
 	output = /obj/item/paper
