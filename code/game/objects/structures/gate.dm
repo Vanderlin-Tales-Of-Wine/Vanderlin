@@ -30,8 +30,7 @@ GLOBAL_LIST_EMPTY(biggates)
 			BODY_ZONE_L_LEG,
 			BODY_ZONE_R_LEG,
 		)
-	/// damage multiplier for crushing
-	var/crush_damage_multiplier = 1
+
 /obj/structure/gate/preopen
 	icon_state = "gate0"
 
@@ -43,7 +42,6 @@ GLOBAL_LIST_EMPTY(biggates)
 	icon_state = "bar1"
 	base_state = "bar"
 	opacity = FALSE
-	crush_damage_multiplier = 0.6
 
 /obj/structure/gate/bars/preopen
 	icon_state = "bar0"
@@ -143,7 +141,7 @@ GLOBAL_LIST_EMPTY(biggates)
 	opacity = initial(opacity)
 	layer = initial(layer)
 	for(var/obj/gblock/B in blockers)
-		B.opacity = TRUE
+		B.opacity = initial(B.opacity)
 	isSwitchingStates = FALSE
 	update_icon()
 
@@ -156,9 +154,9 @@ GLOBAL_LIST_EMPTY(biggates)
 		for(var/limb_index in bodyparts_to_crush)
 			var/obj/item/bodypart/limb_to_crush = crushed_carbon.get_bodypart(limb_index)
 			if(limb_to_crush)
-				var/random_number = rand(120, 300)
-				crushed_carbon.apply_damage(crush_damage_multiplier * random_number, BRUTE, limb_to_crush, crushed_carbon.run_armor_check(limb_to_crush, "blunt"))
-				limb_to_crush.try_crit(BCLASS_STAB, random_number)
+				var/random_number = rand(50, 120)
+				if(crushed_carbon.apply_damage(random_number, BRUTE, limb_to_crush, crushed_carbon.run_armor_check(limb_to_crush, BCLASS_STAB)))
+					limb_to_crush.try_crit(BCLASS_STAB, random_number/7.5)
 		crushed_carbon.update_damage_overlays()
 		return
 	crushed_mob.gib()
