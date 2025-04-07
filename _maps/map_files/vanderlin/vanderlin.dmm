@@ -369,6 +369,12 @@
 /obj/structure/fluff/clock,
 /turf/open/floor/tile/checkeralt,
 /area/rogue/indoors/town/manor)
+"aly" = (
+/obj/structure/minecart_rail{
+	dir = 9
+	},
+/turf/open/floor/metal,
+/area/rogue/outdoors/rtfield/safe)
 "alA" = (
 /turf/closed/wall/mineral/decostone/long,
 /area/rogue/indoors/town/manor)
@@ -2141,12 +2147,6 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/wood,
 /area/rogue/indoors/town)
-"bor" = (
-/obj/structure/minecart_rail{
-	dir = 4
-	},
-/turf/open/floor/metal,
-/area/rogue/outdoors/rtfield/safe)
 "box" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/cobble,
@@ -2803,11 +2803,8 @@
 /turf/open/floor/dirt,
 /area/rogue/outdoors/town)
 "bHw" = (
-/obj/machinery/light/fueled/wallfire/candle{
-	pixel_y = -32
-	},
-/obj/structure/rack/shelf/biggest,
-/turf/open/floor/herringbone,
+/obj/structure/mineral_door/wood/window,
+/turf/closed/wall/mineral/stone,
 /area/rogue/indoors/town)
 "bHD" = (
 /obj/structure/fluff/railing/border{
@@ -4826,8 +4823,8 @@
 /obj/structure/minecart_rail{
 	dir = 4
 	},
-/turf/closed/wall/mineral/wooddark/slitted,
-/area/rogue/indoors/town)
+/turf/open/floor/metal,
+/area/rogue/outdoors/rtfield/safe)
 "deB" = (
 /obj/structure/closet/crate/crafted_closet/inn,
 /obj/item/key/apartments/apartment15,
@@ -9602,6 +9599,12 @@
 /obj/structure/fluff/clock,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/shop)
+"goz" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/closed/wall/mineral/wooddark/slitted,
+/area/rogue/indoors/town)
 "goJ" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -13372,10 +13375,6 @@
 "iPW" = (
 /turf/closed/mineral/random/med_valuable,
 /area/rogue/under/cave)
-"iPX" = (
-/obj/structure/mineral_door/wood/window,
-/turf/closed/wall/mineral/stone,
-/area/rogue/indoors/town)
 "iPY" = (
 /turf/closed/wall/mineral/pipe{
 	icon_state = "iron_end";
@@ -14114,6 +14113,12 @@
 "jnP" = (
 /turf/closed/wall/mineral/roofwall/middle,
 /area/rogue/indoors/town/manor)
+"joq" = (
+/obj/structure/minecart_rail{
+	dir = 1
+	},
+/turf/open/floor/metal,
+/area/rogue/outdoors/rtfield/safe)
 "jox" = (
 /obj/structure/fake_machine/scomm{
 	pixel_y = -32
@@ -15277,6 +15282,12 @@
 /obj/item/reagent_containers/glass/bottle/poison,
 /turf/open/floor/twig,
 /area/rogue/under/town/basement)
+"kbb" = (
+/obj/structure/minecart_rail{
+	dir = 2
+	},
+/turf/open/floor/metal,
+/area/rogue/outdoors/rtfield/safe)
 "kbf" = (
 /turf/open/floor/blocks/stonered,
 /area/rogue/indoors/town/bath)
@@ -22694,12 +22705,6 @@
 /obj/structure/fake_machine/mail,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/orphanage)
-"pxg" = (
-/obj/structure/minecart_rail{
-	dir = 2
-	},
-/turf/open/floor/metal,
-/area/rogue/outdoors/rtfield/safe)
 "pxw" = (
 /turf/closed/wall/mineral/stone,
 /area/rogue/outdoors/woods_safe)
@@ -22984,8 +22989,11 @@
 /turf/open/floor/ruinedwood,
 /area/rogue/outdoors/town/roofs)
 "pHQ" = (
+/obj/machinery/light/fueled/wallfire/candle{
+	pixel_y = -32
+	},
 /obj/structure/rack/shelf/biggest,
-/turf/open/floor/metal/barograte,
+/turf/open/floor/herringbone,
 /area/rogue/indoors/town)
 "pIz" = (
 /obj/structure/closet/crate/chest/old_crate,
@@ -23279,11 +23287,9 @@
 	},
 /area/rogue/indoors/town/manor)
 "pSV" = (
-/obj/structure/minecart_rail{
-	dir = 1
-	},
-/turf/open/floor/metal,
-/area/rogue/outdoors/rtfield/safe)
+/obj/structure/rack/shelf/biggest,
+/turf/open/floor/metal/barograte,
+/area/rogue/indoors/town)
 "pSW" = (
 /obj/machinery/light/fueled/firebowl/standing/blue,
 /obj/machinery/light/fueled/wallfire/candle/blue{
@@ -26288,12 +26294,6 @@
 "rQh" = (
 /turf/open/floor/tile/bfloorz,
 /area/rogue/indoors/town/bath)
-"rQm" = (
-/obj/structure/minecart_rail{
-	dir = 9
-	},
-/turf/open/floor/metal,
-/area/rogue/outdoors/rtfield/safe)
 "rQo" = (
 /obj/structure/handcart,
 /turf/open/floor/cobble,
@@ -97397,12 +97397,12 @@ fYR
 rnJ
 rnJ
 qly
-deA
+goz
 qly
 rnJ
-iPX
+bHw
 rnJ
-iPX
+bHw
 rnJ
 rnJ
 nlp
@@ -97807,7 +97807,7 @@ hHH
 qqE
 qqE
 qqE
-bHw
+pHQ
 rnJ
 aWD
 nlp
@@ -98009,7 +98009,7 @@ hxR
 tpc
 tpc
 cCY
-pHQ
+pSV
 tQk
 nlp
 mAU
@@ -102851,7 +102851,7 @@ aWD
 aWD
 mAU
 uQe
-bor
+deA
 uQe
 aWD
 aWD
@@ -103053,7 +103053,7 @@ aWD
 aWD
 aWD
 uQe
-bor
+deA
 uQe
 aWD
 nlp
@@ -103255,7 +103255,7 @@ nlp
 nEW
 nlp
 uQe
-bor
+deA
 uQe
 uQe
 uQe
@@ -103457,33 +103457,33 @@ aWD
 aWD
 nlp
 uQe
-rQm
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pSV
-pxg
-pxg
-pxg
-pxg
-pxg
+aly
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+joq
+kbb
+kbb
+kbb
+kbb
+kbb
 "}
 (136,1,2) = {"
 jUb
