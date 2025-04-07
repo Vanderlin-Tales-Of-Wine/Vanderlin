@@ -181,13 +181,14 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Left Column
 	data += "<td style='vertical-align: top; width: 50%; text-align: left; padding-right: 20px;'>"
-	data += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
+	data += "<br><font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
 	data += "<br><font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats["noble_deaths"]]"
 	data += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats["moat_fallers"]]"
 	data += "<br><font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats["ankles_broken"]]"
-	data += "<br><font color='#a70202'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
+	data += "<br><font color='#a73f02'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
+	data += "<br><font color='#be2727'><span class='bold'>Blood Spilt:</span></font> [round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)]L"
 	data += "<br><font color='#e6d927'><span class='bold'>People Smitten:</span></font> [GLOB.vanderlin_round_stats["people_smitten"]]"
-	data += "<br><font color='#af2323'><span class='bold'>Blood Spilt:</span></font> [round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)]L"
+	data += "<br><font color='#a027e6'><span class='bold'>Potions Brewed:</span></font> [GLOB.vanderlin_round_stats["potions_brewed"]]"
 	data += "<br><font color='#8f816b'><span class='bold'>Items Pickpocketed:</span></font> [GLOB.vanderlin_round_stats["items_pickpocketed"]]"
 	data += "<br><font color='#f5c02e'><span class='bold'>Taxes Collected:</span></font> [GLOB.vanderlin_round_stats["taxes_collected"]]"
 	data += "<br><font color='#90a037'><span class='bold'>Laughs Had:</span></font> [GLOB.vanderlin_round_stats["laughs_made"]]"
@@ -195,10 +196,11 @@ GLOBAL_LIST_EMPTY(respawncounts)
 
 	// Right Column
 	data += "<td style='vertical-align: top; width: 50%; text-align: left; padding-left: 20px;'>"
+	data += "<br><font color='#36959c'><span class='bold'>Triumphs Awarded:</span></font> [GLOB.vanderlin_round_stats["triumphs_awarded"]]"
+	data += "<br><font color='#a02fa4'><span class='bold'>Triumphs Stolen:</span></font> [GLOB.vanderlin_round_stats["triumphs_stolen"] * -1]"
 	data += "<br><font color='#d7da2f'><span class='bold'>Prayers Made:</span></font> [GLOB.vanderlin_round_stats["prayers_made"]]"
-	data += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [GLOB.vanderlin_round_stats["triumphs_awarded"]]"
-	data += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [GLOB.vanderlin_round_stats["triumphs_stolen"] * -1]"
-	data += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats["drugs_snorted"]]"
+	data += "<br><font color='#6e7c81'><span class='bold'>Graves Consecrated:</span></font> [GLOB.vanderlin_round_stats["graves_consecrated"]]"
+	data += "<br><font color='#ff00bf'><span class='bold'>Drugs Snorted:</span></font> [GLOB.vanderlin_round_stats["drugs_snorted"]]"
 	data += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [GLOB.vanderlin_round_stats["beards_shaved"]]"
 	data += "<br><font color='#836033'><span class='bold'>Trees Cut:</span></font> [GLOB.vanderlin_round_stats["trees_cut"]]"
 	data += "<br><font color='#4492a5'><span class='bold'>Fish Caught:</span></font> [GLOB.vanderlin_round_stats["fish_caught"]]"
@@ -222,7 +224,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font> "
 	data += "</div>"
 
-	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 450, 525)
+	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 450, 550)
 	popup.set_content(data.Join())
 	popup.open()
 

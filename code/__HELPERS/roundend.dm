@@ -22,6 +22,8 @@ GLOBAL_LIST_INIT(vanderlin_round_stats, list(
 	"organs_eaten" = 0,
 	"kisses_made" = 0,
 	"laughs_made" = 0,
+	"graves_consecrated" = 0,
+	"potions_brewed" = 0,
 ))
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
