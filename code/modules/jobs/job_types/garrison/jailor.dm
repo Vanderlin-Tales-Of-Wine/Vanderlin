@@ -21,7 +21,7 @@
 
 	outfit = /datum/outfit/job/jailor
 	give_bank_account = 25
-	cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
+	cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 
 /datum/outfit/job/jailor
 	job_bitflag = BITFLAG_GARRISON
