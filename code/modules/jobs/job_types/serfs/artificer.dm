@@ -44,7 +44,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/storage/belt/pouch/coins/mid
-	beltl = /obj/item/key/artificer
+	beltl = /obj/item/storage/keyring/artificer
 	mask = /obj/item/clothing/face/goggles
 	backl = /obj/item/storage/backpack/backpack
 	id = /obj/item/clothing/ring/silver/makers_guild
