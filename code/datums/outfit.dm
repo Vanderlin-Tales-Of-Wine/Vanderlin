@@ -68,7 +68,7 @@
 
 	var/armor = null
 
-	var/id = null
+	var/ring = null
 
 	///Type path of item to go in the right hand
 	var/r_hand = null
@@ -145,8 +145,6 @@
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	pre_equip(H, visualsOnly)
 
-	if(suit)
-		H.equip_to_slot_or_del(new suit(H),SLOT_ARMOR, TRUE)
 	if(belt)
 		H.equip_to_slot_or_del(new belt(H),SLOT_BELT, TRUE)
 	if(gloves)
@@ -159,8 +157,8 @@
 		H.equip_to_slot_or_del(new mask(H),SLOT_WEAR_MASK, TRUE)
 	if(neck)
 		H.equip_to_slot_or_del(new neck(H),SLOT_NECK, TRUE)
-	if(id)
-		H.equip_to_slot_or_del(new id(H),SLOT_RING, TRUE)
+	if(ring)
+		H.equip_to_slot_or_del(new ring(H),SLOT_RING, TRUE)
 	if(wrists)
 		H.equip_to_slot_or_del(new wrists(H),SLOT_WRISTS, TRUE)
 	if(cloak)
@@ -290,7 +288,7 @@
 
 /// Return a list of all the types that are required to disguise as this outfit type
 /datum/outfit/proc/get_chameleon_disguise_info()
-	var/list/types = list(suit, belt, gloves, shoes, head, mask, neck, glasses, id, l_pocket, r_pocket, r_hand, l_hand)
+	var/list/types = list(suit, belt, gloves, shoes, head, mask, neck, glasses, ring, l_pocket, r_pocket, r_hand, l_hand)
 	types += chameleon_extras
 	listclearnulls(types)
 	return types
@@ -309,7 +307,7 @@
 	.["mask"] = mask
 	.["neck"] = neck
 	.["glasses"] = glasses
-	.["id"] = id
+	.["ring"] = ring
 	.["l_pocket"] = l_pocket
 	.["r_pocket"] = r_pocket
 	.["r_hand"] = r_hand
@@ -340,7 +338,7 @@
 	mask = text2path(outfit_data["mask"])
 	neck = text2path(outfit_data["neck"])
 	glasses = text2path(outfit_data["glasses"])
-	id = text2path(outfit_data["id"])
+	ring = text2path(outfit_data["ring"])
 	l_pocket = text2path(outfit_data["l_pocket"])
 	r_pocket = text2path(outfit_data["r_pocket"])
 	r_hand = text2path(outfit_data["r_hand"])

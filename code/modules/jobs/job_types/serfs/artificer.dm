@@ -47,7 +47,7 @@
 	beltl = /obj/item/storage/keyring/artificer
 	mask = /obj/item/clothing/face/goggles
 	backl = /obj/item/storage/backpack/backpack
-	id = /obj/item/clothing/ring/silver/makers_guild
+	ring = /obj/item/clothing/ring/silver/makers_guild
 	backpack_contents = list(/obj/item/weapon/hammer/steel = 1, /obj/item/flashlight/flare/torch/lantern = 1, /obj/item/weapon/knife/villager = 1, /obj/item/weapon/chisel = 1)
 
 	H.change_stat(STATKEY_STR, 1)

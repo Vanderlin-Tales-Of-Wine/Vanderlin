@@ -216,7 +216,7 @@
 			pants = /obj/item/clothing/pants/tights/black
 			neck = /obj/item/clothing/neck/chaincoif/iron
 			head = /obj/item/clothing/head/fancyhat
-			id = /obj/item/clothing/ring/silver
+			ring = /obj/item/clothing/ring/silver
 			H.mind?.adjust_skillrank(/datum/skill/misc/reading, pick(2,3), TRUE)
 			H.mind?.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 			H.change_stat(STATKEY_INT, 2)
