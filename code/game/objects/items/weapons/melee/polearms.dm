@@ -392,7 +392,7 @@
 
 
 /obj/item/weapon/polearm/spear/bronze
-	name = "Bronze Spear"
+	name = "bronze spear"
 	desc = "A spear forged of bronze. Expensive but more durable than a regular iron one."
 	icon_state = "bronzespear"
 	max_blade_int = 200

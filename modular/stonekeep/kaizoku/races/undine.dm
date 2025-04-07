@@ -41,7 +41,6 @@
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 
 	hairyness = ""
-	use_f = FALSE
 	soundpack_m = /datum/voicepack/male/elf
 	soundpack_f = /datum/voicepack/female/elf
 //	minrace_pq = 0

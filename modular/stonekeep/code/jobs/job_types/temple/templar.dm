@@ -33,39 +33,57 @@
 			neck = /obj/item/clothing/neck/psycross/silver/astrata
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar
 			cloak = /obj/item/clothing/cloak/stabard/templar/astrata
+			backl = /obj/item/weapon/sword/long
+			beltr = /obj/item/weapon/knife/dagger
 		if(/datum/patron/divine/noc)
 			neck = /obj/item/clothing/neck/psycross/noc
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/noc
 			cloak = /obj/item/clothing/cloak/stabard/templar/noc
+			backr = /obj/item/weapon/shield/tower/buckleriron
+			beltr = /obj/item/weapon/sword/scimitar
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/psycross/silver/dendor
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/dendor
 			cloak = /obj/item/clothing/cloak/stabard/templar/dendor
+			backl = /obj/item/weapon/sword/long
+			beltr = /obj/item/weapon/knife/dagger
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/psycross/silver/necra
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/necra
 			cloak = /obj/item/clothing/cloak/stabard/templar/necra
+			backl = /obj/item/weapon/mace/warhammer
+			backr = /obj/item/weapon/shield/tower/metal
 		if(/datum/patron/divine/pestra)
 			neck = /obj/item/clothing/neck/psycross/silver/pestra
 			head = /obj/item/clothing/head/helmet/pestracage
 			cloak = /obj/item/clothing/cloak/stabard/templar/pestra
+			backr = /obj/item/weapon/shield/tower/metal
+			beltr = /obj/item/weapon/sword/scimitar/messer
 		if(/datum/patron/divine/eora)
 			head = /obj/item/clothing/head/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/psycross/silver/eora
 			neck = /obj/item/clothing/neck/chaincoif
 			cloak = /obj/item/clothing/cloak/stabard/templar/eora
+			backr = /obj/item/weapon/shield/tower/metal
+			beltr = /obj/item/weapon/sword
 			H.virginity = FALSE
 		if(/datum/patron/divine/ravox)
 			wrists = /obj/item/clothing/neck/psycross/silver/ravox
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/ravox
 			cloak = /obj/item/clothing/cloak/stabard/templar/ravox
+			backl = /obj/item/weapon/sword/long
+			beltr = /obj/item/weapon/knife/dagger
 		if(/datum/patron/divine/malum)
 			wrists = /obj/item/clothing/neck/psycross/silver/malum
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/malum
 			cloak = /obj/item/clothing/cloak/stabard/templar/malum
+			backl = /obj/item/weapon/mace/warhammer/steel
+			backr = /obj/item/weapon/shield/tower/metal
 		if(/datum/patron/divine/abyssor)
 			head = /obj/item/clothing/head/helmet/heavy/bucket/templar/abyssor
 			wrists = /obj/item/clothing/neck/psycross/silver/abyssor
+			backr = /obj/item/weapon/shield/wood/rattan
+			r_hand = /obj/item/weapon/polearm/spear/bronze
 			H.mind?.adjust_skillrank(/datum/skill/labor/fishing, 1, TRUE)
 
 
@@ -96,6 +114,10 @@
 	switch(H.patron?.type)
 		if(/datum/patron/divine/malum)
 			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+		if(/datum/patron/divine/necra)
+			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+		if(/datum/patron/divine/abyssor)
+			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 		else
 			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 
@@ -110,20 +132,5 @@
 		if(H.dna.species.id == "humen")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
-
-	H.adjust_blindness(-3)
-	var/weapons = list("Sword & Shield", "Longsword", "Warhammer & Shield")
-	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)
-		if("Sword & Shield")
-			backr = /obj/item/weapon/shield/tower/metal
-			beltr = /obj/item/weapon/sword
-		if( "Longsword")
-			backl = /obj/item/weapon/sword/long
-			beltr = /obj/item/weapon/knife/dagger
-		if( "Warhammer & Shield")
-			backl = /obj/item/weapon/mace/warhammer/steel
-			backr = /obj/item/weapon/shield/tower/metal
 
 

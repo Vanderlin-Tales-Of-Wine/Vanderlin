@@ -556,8 +556,9 @@
 	prevent_crits = CUT_AND_MINOR_CRITS
 	max_integrity = INTEGRITY_STRONG
 
-
-
+/obj/item/clothing/head/helmet/feld
+	name = "pestran cage-helmet"
+	mob_overlay_icon = 'modular/stonekeep/icons/onmob/64x64.dmi'
 
 // =============================================================================
 // ==============================	CLOAKS	====================================
