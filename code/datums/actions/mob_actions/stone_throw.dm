@@ -2,7 +2,7 @@
 	name = "Stone Throw"
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "explosion"
-	desc = "ChuckS a stone at someone"
+	desc = "Chucks a stone at someone"
 	cooldown_time = 15 SECONDS
 	check_flags = null
 
