@@ -102,6 +102,9 @@
 		)
 	H.mind?.teach_crafting_recipe(/datum/repeatable_crafting_recipe/reading/confessional)
 
+/mob/living/carbon/human
+	var/innocents_tortured = 0
+
 /mob/living/carbon/human/proc/torture_victim()
 	set name = "Extract Confession"
 	set category = "Inquisition"
@@ -262,11 +265,15 @@
 
 		if(length(confessions))
 			if(torture) // Only scream your confession if it's due to torture.
-				say(pick(confessions), spans = list("torture"))
+				say(pick(confessions), spans = list("torture"), forced = TRUE)
 			else
-				say(pick(confessions))
-			if(torture && !evil_doer)
-				interrogator?.add_stress(/datum/stressevent/innocenttortured)
+				say(pick(confessions), forced = TRUE)
+			if(torture && !evil_doer && interrogator)
+				testing("[interrogator] tortured innocent")
+				interrogator.innocents_tortured++
+				if(prob(CLAMP((interrogator.innocents_tortured-1)*40, 5, 95)))
+					interrogator.add_stress(/datum/stressevent/innocenttortured)
+					interrogator.innocents_tortured = 0
 			if(has_confessed) // This is to check if the victim has already confessed, if so just inform the torturer and return. This is so that the Inquisitor cannot get infinite confession points and get all of the things upon getting thier first heretic.
 				visible_message(span_warning("[name] has already signed a confession!"), "I have already signed a confession!")
 				return
@@ -340,11 +347,16 @@
 			return
 		else
 			if(torture) // Only scream your confession if it's due to torture.
-				say(pick(innocent_lines), spans = list("torture"))
-				interrogator?.add_stress(/datum/stressevent/innocenttortured)
+				say(pick(innocent_lines), spans = list("torture"), forced = TRUE)
+				if(interrogator)
+					testing("[interrogator] tortured innocent")
+					interrogator.innocents_tortured++
+					if(prob(CLAMP((interrogator.innocents_tortured-1)*40, 5, 95)))
+						interrogator.add_stress(/datum/stressevent/innocenttortured)
+						interrogator.innocents_tortured = 0
 			else
-				say(pick(innocent_lines))
+				say(pick(innocent_lines), forced = TRUE)
 			return
 	to_chat(src, span_good("I resist the torture!"))
-	say(pick(innocent_lines), spans = list("torture"))
+	say(pick(innocent_lines), spans = list("torture"), forced = TRUE)
 	return

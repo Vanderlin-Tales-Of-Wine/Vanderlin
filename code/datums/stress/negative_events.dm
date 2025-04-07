@@ -271,7 +271,7 @@
 	stressadd = 4
 	max_stacks = 3
 	stressadd_per_extra_stack = 4
-	desc = "<span class='red'>I tortured an innocent person!</span>"
+	desc = "<span class='red'>I've tortured too many innocents!</span>"
 	timer = 15 MINUTES
 
 /datum/stressevent/maniac
