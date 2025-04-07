@@ -44,7 +44,7 @@
 	set_holdable(typecacheof(list(/obj/item/key)))
 
 /datum/component/storage/concrete/grid/belt/knife_belt
-	screen_max_rows = 6
+	screen_max_rows = 4
 	screen_max_columns = 4
 
 /datum/component/storage/concrete/grid/belt/knife_belt/New(datum/P, ...)

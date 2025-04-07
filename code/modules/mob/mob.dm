@@ -1105,7 +1105,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return
 	if(!is_literate())
 		if(!silent)
-			to_chat(src, "<span class='warning'>I can't make sense of these verba.</span>")
+			to_chat(src, "<span class='warning'>I can't make sense of these verbs.</span>")
 		return
 	return TRUE
 

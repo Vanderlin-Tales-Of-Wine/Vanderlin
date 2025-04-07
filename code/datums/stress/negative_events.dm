@@ -263,18 +263,16 @@
 /datum/stressevent/tortured
 	stressadd = 3
 	max_stacks = 5
+	stressadd_per_extra_stack = 1
 	desc = "<span class='red'>I'm broken.</span>"
 	timer = 60 SECONDS
 
-/datum/stressevent/confessed
-	stressadd = 3
-	desc = "<span class='red'>I've confessed to sin.</span>"
-	timer = 15 MINUTES
-
-/datum/stressevent/confessedgood
-	stressadd = 1
-	desc = "<span class='red'>I've confessed to sin, it feels good.</span>"
-	timer = 15 MINUTES
+/datum/stressevent/innocenttortured
+	stressadd = 4
+	max_stacks = 3
+	stressadd_per_extra_stack = 4
+	desc = "<span class='red'>I tortured an innocent person!</span>"
+	timer = 5 MINUTES
 
 /datum/stressevent/maniac
 	stressadd = 4

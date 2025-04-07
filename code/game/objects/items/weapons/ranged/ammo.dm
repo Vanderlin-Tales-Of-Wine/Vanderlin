@@ -10,9 +10,9 @@
 | Bolts |
 \------*/
 
-/obj/item/ammo_casing/caseless/unembedded()
+/obj/item/ammo_casing/caseless/unembedded(mob/living/owner)
 	if(!QDELETED(src) && prob(25))
-		src.visible_message(span_warning("[src] breaks as it falls out!"), vision_distance = COMBAT_MESSAGE_RANGE)
+		owner.visible_message(span_warning("[src] breaks as it falls out!"), vision_distance = COMBAT_MESSAGE_RANGE)
 		qdel(src)
 		return TRUE
 
