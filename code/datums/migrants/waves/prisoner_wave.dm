@@ -50,7 +50,7 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "human")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
-	H.cmode_music = 'sound/music/cmode/garrison/CombatJailor.ogg'
+	H.cmode_music = 'sound/music/cmode/nobility/CombatDungeoneer.ogg'
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 
 /datum/migrant_role/mig_prisoner
