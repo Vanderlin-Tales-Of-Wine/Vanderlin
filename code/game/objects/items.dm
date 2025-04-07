@@ -1221,7 +1221,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/embedded(atom/embedded_target, obj/item/bodypart/part)
 	return
 
-/obj/item/proc/unembedded()
+/obj/item/proc/unembedded(mob/living/owner)
 	if(item_flags & DROPDEL && !QDELETED(src))
 		qdel(src)
 		return TRUE

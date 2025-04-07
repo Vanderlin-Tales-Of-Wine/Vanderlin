@@ -362,7 +362,7 @@
 		visible_message("<span class='warning'>[user] sends something.</span>")
 		playsound(loc, 'sound/magic/forgotten_bell.ogg', 80, FALSE, -1)
 		playsound(loc, 'sound/misc/disposalflush.ogg', 100, FALSE, -1)
-		for(var/mob/living/carbon/human/I in world) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
+		for(var/mob/living/carbon/human/I in GLOB.human_list) // Find all the living Inquisitors and Adepts and give them a triumph for the confession.
 			if(I.mind && (is_inquisitor_job(I.mind.assigned_role) || is_adept_job(I.mind.assigned_role)) && !(I.stat == DEAD))
 				if(is_inquisitor_job(I.mind.assigned_role))
 					I.confession_points += 5 // Increase the Inquisitor's confession count.

@@ -3,7 +3,7 @@
 
 /datum/enchantment/silver
 	enchantment_name = "Nightlurkers Bane"
-	examine_text = "It's a bane to all that lurk at night."
+	examine_text = span_silver("It's a bane to all who lurk at night.")
 	var/list/last_used = list()
 
 /datum/enchantment/silver/proc/affected_by_bane(mob/target)
