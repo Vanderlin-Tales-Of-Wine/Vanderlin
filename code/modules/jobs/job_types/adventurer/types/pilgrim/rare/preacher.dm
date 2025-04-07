@@ -4,10 +4,7 @@
 	the clothes on your back and the faith in your heart. \n\
 	Sway these nonbelievers to the right path!"
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Dwarf"
-	)
+	allowed_races = RACES_PLAYER_GRENZ
 	outfit = /datum/outfit/job/adventurer/preacher
 	category_tags = list(CTAG_PILGRIM)
 	maximum_possible_slots = 1

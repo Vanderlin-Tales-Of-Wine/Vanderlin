@@ -5,18 +5,7 @@
 				Capable doctors nonetheless, they journey from place to place offering \
 				their services."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_NONEXOTIC
 	outfit = /datum/outfit/job/adventurer/physicker
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	maximum_possible_slots = 2
@@ -29,11 +18,11 @@
 	shoes = /obj/item/clothing/shoes/boots/leather
 	shirt = /obj/item/clothing/shirt/undershirt/black
 	backr = /obj/item/storage/backpack/satchel
+	backl = /obj/item/storage/backpack/satchel/surgbag
 	pants = /obj/item/clothing/pants/tights/random
 	gloves = /obj/item/clothing/gloves/leather/phys
 	armor = /obj/item/clothing/shirt/robe/phys
 	neck = /obj/item/clothing/neck/phys
-	r_hand = /obj/item/storage/backpack/satchel/surgbag
 	beltl = /obj/item/storage/keyring/physicker
 
 	H.mind?.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)

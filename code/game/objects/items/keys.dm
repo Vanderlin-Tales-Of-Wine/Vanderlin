@@ -112,7 +112,7 @@
 		SSroguemachine.key = src
 
 /obj/item/key/lord/proc/anti_stall()
-	src.visible_message(span_warning("[src] crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	src.visible_message(span_warning("[src] flies up into the sky and into the direction of the keep!"))
 	SSroguemachine.key = null //Do not harddel.
 	qdel(src) //Anti-stall
 
@@ -261,6 +261,12 @@
 	desc = "Why, a mercenary would not kick doors down."
 	icon_state = "greenkey"
 	lockid = ACCESS_MERC
+
+/obj/item/key/gaffer
+	name = "Mercenary guild master's key"
+	desc = "\"Humble\" would be a kinder word to use for its current state..."
+	icon_state = "rustkey"
+	lockid = ACCESS_GAFFER
 
 /obj/item/key/warehouse
 	name = "Warehouse key"
@@ -789,3 +795,5 @@
 /obj/item/key/bandit
 	icon_state = "mazekey"
 	lockid = "banditcamp"
+
+
