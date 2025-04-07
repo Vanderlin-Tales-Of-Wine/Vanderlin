@@ -138,6 +138,16 @@
 	cost = 33
 	contains = /obj/item/clothing/pants/chainlegs
 
+/datum/supply_pack/armor/chainkilt_iron
+	name = "Iron Chain Kilt"
+	cost = 29
+	contains = /obj/item/clothing/pants/chainlegs/kilt
+
+/datum/supply_pack/armor/chainkilt_steel
+	name = "Steel Chain Kilt"
+	cost = 33
+	contains = /obj/item/clothing/pants/chainlegs/kilt/iron
+
 /datum/supply_pack/armor/light_armor_boots
 	name = "Iron Boots"
 	cost = 27

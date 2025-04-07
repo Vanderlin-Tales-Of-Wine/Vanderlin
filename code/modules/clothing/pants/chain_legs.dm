@@ -35,3 +35,20 @@
 	smeltresult = /obj/item/ingot/iron
 	armor = ARMOR_MAILLE_IRON
 	max_integrity = INTEGRITY_STRONG
+
+/obj/item/clothing/pants/chainlegs/kilt
+	name = "steel chain kilt"
+	desc = "Interlinked metal rings that drape down all the way to the ankles."
+	icon = 'icons/roguetown/clothing/pants_metal.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/pants_metal.dmi'
+	icon_state = "chainkilt"
+	item_state = "chainkilt"
+
+/obj/item/clothing/pants/chainlegs/kilt/iron
+	name = "iron chain kilt"
+	desc = "Interlinked metal rings that drape down all the way to the ankles."
+	icon_state = "ichainkilt"
+	item_state = "ichainkilt"
+	smeltresult = /obj/item/ingot/iron
+	armor = ARMOR_MAILLE_IRON
+	max_integrity = INTEGRITY_STRONG
