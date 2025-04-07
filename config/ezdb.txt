@@ -1,0 +1,7 @@
+SQL_ENABLED
+PORT 1338
+FEEDBACK_LOGIN root
+FEEDBACK_PASSWORD E1AGLB6jDaeqQr6L-43Lew4GleWZDNy0V-_Alqonx4jkgtRGHUUlgA
+FEEDBACK_DATABASE tgstation
+FEEDBACK_TABLEPREFIX
+DB_DAEMON C:\Users\the5t\OneDrive\Documents\GitHub\Vanderlin\db\bin\mariadbd.exe
