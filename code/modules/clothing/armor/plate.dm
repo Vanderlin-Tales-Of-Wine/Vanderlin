@@ -73,9 +73,9 @@
 	name = "decorated halfplate"
 	desc = "A halfplate decorated with an gold ornament on the chestplate. A status symbol that doesnt lose out on practicality. "
 	icon_state = "halfplate_decorated"
-	icon = 'icons/roguetown/clothing/special/captain.dmi'
-	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/captain.dmi'
-	sleeved = 'icons/roguetown/clothing/special/onmob/captain.dmi'
+	icon = 'icons/roguetown/clothing/special/decorated_armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/decorated_armor.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/decorated_armor.dmi'
 	sellprice = VALUE_LUXURY_THING
 
 /obj/item/clothing/armor/plate/decorated/corset
