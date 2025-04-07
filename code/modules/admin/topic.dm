@@ -1161,6 +1161,24 @@
 		var/client/mob_client = M.client
 		check_triumphs_menu(mob_client.ckey)
 
+	else if(href_list["edittriumphs"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/mob/M = (locate(href_list["mob"]) in GLOB.mob_list)
+		if(!M?.key)
+			alert(usr, "[M] does not have a key.")
+			return
+
+		var/amt2change = input(usr, "How much to modify the Triumphs by? (100 to -100)") as null|num
+		amt2change = clamp(amt2change, -100, 100)
+		if(!amt2change)
+			return
+
+		var/raisin = stripped_input(usr, "State a short reason for this change", "Game Master", null, null)
+		M.adjust_triumphs(amt2change, FALSE, raisin)
+		message_admins("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
+		log_admin("[usr.key] adjusted [M.key]'s triumphs by [amt2change] with [!raisin ? "no reason given" : "reason: [raisin]"].")
+
 	else if(href_list["roleban"])
 		if(!check_rights(R_ADMIN))
 			return
