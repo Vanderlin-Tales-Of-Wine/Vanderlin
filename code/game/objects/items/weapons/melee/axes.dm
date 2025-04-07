@@ -370,14 +370,14 @@
 	return ..()
 
 //................ Boarding Axe ............... //
-// Worse pick-axe. Iron.
+// Worse pick-axe. Iron instead of Steel.
 /obj/item/weapon/axe/boardingaxe
 	force = DAMAGE_AXE
 	force_wielded = DAMAGE_AXE_WIELD
 	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop,/datum/intent/pick)
 	name = "boarding axe"
 	desc = "The Boarding Axe - a tool used to cut nets, rigging, doors and necks."
-	icon_state = "boardingaxe"
+	icon_state = "boardingaxe" // Currently a codersprite kludged from the old steel axe sprite please replace this sweet fucking lord.
 	max_blade_int = 200
 	max_integrity = INTEGRITY_STANDARD
 	melting_material = /datum/material/iron
