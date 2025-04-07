@@ -484,7 +484,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	var/nnpa = CONFIG_GET(number/notify_new_player_age)
 	if (isnum(cached_player_age) && cached_player_age == -1) //first connection
 		if (nnpa >= 0)
-			message_admins("New user: [key_name_admin(src)] is connecting here for the first time.")
+			message_admins("New user: [key_name_admin(src)] [ADMIN_PP(src)] is connecting here for the first time.")
 			if (CONFIG_GET(flag/irc_first_connection_alert))
 				send2irc_adminless_only("New-user", "[key_name(src)] is connecting for the first time!")
 	else if (isnum(cached_player_age) && cached_player_age < nnpa)
@@ -943,7 +943,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 			string += "Mobile Hostspot IP"
 
 	if(failed && !(is_admin(src)))
-		message_admins(span_adminnotice("Proxy Detection: [key_name_admin(src)] Overwatch detected this is a [string]"))
+		message_admins(span_adminnotice("Proxy Detection: [key_name_admin(src)] [ADMIN_PP(src)] Overwatch detected this is a [string]"))
 
 	return failed
 
