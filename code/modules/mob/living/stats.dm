@@ -111,14 +111,21 @@
 	return TRUE
 
 /mob/living/proc/set_stat_modifier(source, stat_key, amount)
-	if(!source || !(stat_key in MOBSTATS) || !amount)
+	if(!source || !(stat_key in MOBSTATS) || !isnum(amount))
 		return
 
 	var/list/source_list = LAZYACCESS(stat_modifiers, source)
 
 	if(LAZYACCESS(source_list, stat_key) != amount)
-		LAZYSET(source_list, stat_key, amount)
-		LAZYSET(stat_modifiers, source, source_list)
+		if(!amount)
+			LAZYREMOVE(source_list, stat_key)
+		else
+			LAZYSET(source_list, stat_key, amount)
+
+		if(!LAZYLEN(source_list))
+			LAZYREMOVE(source_list, stat_key)
+		else
+			LAZYSET(stat_modifiers, source, source_list)
 
 		var/new_total = 0
 		for(var/existing_sources in stat_modifiers)
