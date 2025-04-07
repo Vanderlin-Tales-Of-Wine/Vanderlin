@@ -67,7 +67,7 @@
 				visible_message("<span class='warning'>[M]'s shove goes through [name]!</span>", \
 								"<span class='warning'>[M]'s shove goes through you!</span>", "<span class='hear'>I hear the sound scuffling of the damned!</span>", COMBAT_MESSAGE_RANGE, M)
 				to_chat(M, "<span class='danger'>My shove goes through [name]!</span>")
-			if(!IsUnconscious())
+			if(stat < UNCONSCIOUS)
 				M.do_attack_animation(src, ATTACK_EFFECT_DISARM)
 				if (prob(25))
 					Paralyze(40)

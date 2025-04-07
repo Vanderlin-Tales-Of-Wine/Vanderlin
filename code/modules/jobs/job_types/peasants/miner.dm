@@ -11,18 +11,7 @@
 	spawn_positions = 12
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Rakshari",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/miner
 
@@ -38,7 +27,7 @@
 	beltl = /obj/item/weapon/pick
 	backr = /obj/item/weapon/shovel
 	backl = /obj/item/storage/backpack/backpack
-	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1, /obj/item/key/artificer = 1)
+	backpack_contents = list(/obj/item/flint = 1, /obj/item/weapon/knife/villager = 1, /obj/item/storage/keyring/artificer = 1)
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/labor/mining, 4, TRUE)

@@ -14,18 +14,7 @@
 	bypass_lastclass = TRUE
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		"Humen",
-		"Rakshari",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Tiefling",
-		"Dark Elf",
-		"Aasimar",
-		"Half-Orc",
-		"Kobold",
-	)
+	allowed_races = RACES_PLAYER_ALL
 
 	outfit = /datum/outfit/job/artificer
 	give_bank_account = 8
@@ -55,7 +44,7 @@
 	shoes = /obj/item/clothing/shoes/simpleshoes/buckle
 	belt = /obj/item/storage/belt/leather
 	beltr = /obj/item/storage/belt/pouch/coins/mid
-	beltl = /obj/item/key/artificer
+	beltl = /obj/item/storage/keyring/artificer
 	mask = /obj/item/clothing/face/goggles
 	backl = /obj/item/storage/backpack/backpack
 	id = /obj/item/clothing/ring/silver/makers_guild

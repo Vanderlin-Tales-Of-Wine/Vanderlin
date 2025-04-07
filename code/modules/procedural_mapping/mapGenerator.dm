@@ -1,6 +1,5 @@
 //clusterCheckFlags defines
 //All based on clusterMin and clusterMax as guides
-
 //Individual defines
 #define CLUSTER_CHECK_NONE				0  			//No checks are done, cluster as much as possible
 #define CLUSTER_CHECK_DIFFERENT_TURFS	(1<<1)  //Don't let turfs of DIFFERENT types cluster

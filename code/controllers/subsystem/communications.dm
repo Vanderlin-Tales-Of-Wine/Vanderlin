@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(communications)
 		used_title = job ? "The [job.get_informed_title(user)]" : "Someone"
 
 	if(decree)
-		priority_announce(html_decode(user.treat_message(input)), "[used_title] Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce(html_decode(user.treat_message(input)), "[user.real_name], The [used_title] Decrees", 'sound/misc/alert.ogg', "Captain")
 		silicon_message_cooldown = world.time + 5 SECONDS
 	else
 		priority_announce(html_decode(user.treat_message(input)), "[used_title] Speaks", 'sound/misc/bell.ogg', "Captain")
