@@ -7,7 +7,7 @@
 //	adjustable = CAN_CADJUST
 
 /obj/item/clothing/pants/tights/random/Initialize()
-	color = pick(GLOB.peasant_dyes)
+	color = pick_assoc(GLOB.peasant_dyes)
 	..()
 
 /obj/item/clothing/pants/tights/uncolored
