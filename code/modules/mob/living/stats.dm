@@ -131,13 +131,13 @@
 			if(STATKEY_PER)
 				modified_perception = new_total
 				STAPER = clamp(base_perception + modified_perception, 1, 20)
-			if(STATKEY_INT)
+			if(STATKEY_END)
 				modified_endurance = new_total
 				STAEND = clamp(base_endurance + modified_endurance, 1, 20)
 			if(STATKEY_CON)
 				modified_constitution = new_total
 				STACON = clamp(base_constitution + modified_constitution, 1, 20)
-			if(STATKEY_END)
+			if(STATKEY_INT)
 				modified_intelligence = new_total
 				STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
 			if(STATKEY_SPD)
@@ -166,13 +166,13 @@
 		if(STATKEY_PER)
 			modified_perception = new_total
 			STAPER = clamp(base_perception + modified_perception, 1, 20)
-		if(STATKEY_INT)
+		if(STATKEY_END)
 			modified_endurance = new_total
 			STAEND = clamp(base_endurance + modified_endurance, 1, 20)
 		if(STATKEY_CON)
 			modified_constitution = new_total
 			STACON = clamp(base_constitution + modified_constitution, 1, 20)
-		if(STATKEY_END)
+		if(STATKEY_INT)
 			modified_intelligence = new_total
 			STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
 		if(STATKEY_SPD)
@@ -199,13 +199,13 @@
 			if(STATKEY_PER)
 				modified_perception -= adjustment
 				STAPER = clamp(base_perception + modified_perception, 1, 20)
-			if(STATKEY_INT)
+			if(STATKEY_END)
 				modified_endurance -= adjustment
 				STAEND = clamp(base_endurance + modified_endurance, 1, 20)
 			if(STATKEY_CON)
 				modified_constitution -= adjustment
 				STACON = clamp(base_constitution + modified_constitution, 1, 20)
-			if(STATKEY_END)
+			if(STATKEY_INT)
 				modified_intelligence -= adjustment
 				STAINT = clamp(base_intelligence + modified_intelligence, 1, 20)
 			if(STATKEY_SPD)
