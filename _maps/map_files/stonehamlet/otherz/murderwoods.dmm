@@ -364,6 +364,7 @@
 /area/rogue/indoors)
 "lA" = (
 /obj/structure/fluff/railing/fence{
+	icon = 'modular/stonekeep/icons/railing.dmi';
 	icon_state = "fence_bandit";
 	max_integrity = 600
 	},
@@ -1445,6 +1446,7 @@
 /area/rogue/outdoors/woods/stone)
 "Sw" = (
 /obj/structure/fluff/railing/fence{
+	icon = 'modular/stonekeep/icons/railing.dmi';
 	icon_state = "fence_bandit";
 	max_integrity = 600
 	},
