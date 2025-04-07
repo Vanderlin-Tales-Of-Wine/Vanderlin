@@ -77,6 +77,8 @@ SUBSYSTEM_DEF(elastic)
 	round_data["laughs_made"] = GLOB.vanderlin_round_stats["laughs_made"]
 	round_data["graves_consecrated"] = GLOB.vanderlin_round_stats["graves_consecrated"]
 	round_data["potions_brewed"] = GLOB.vanderlin_round_stats["potions_brewed"]
+	round_data["astrata_revivals"] = GLOB.vanderlin_round_stats["astrata_revivals"]
+	round_data["plants_harvested"] = GLOB.vanderlin_round_stats["plants_harvested"]
 
 	return round_data
 
