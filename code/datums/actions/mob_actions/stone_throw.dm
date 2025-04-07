@@ -24,7 +24,7 @@
 	icon = 'icons/roguetown/items/natural.dmi'
 	icon_state = "stonebig1"
 	name = "stone"
-	desc = "If you're reading this, you should scram..."
+	desc = "You should scram..."
 	layer = FLY_LAYER
 	plane = GAME_PLANE_UPPER
 	randomdir = FALSE
@@ -52,6 +52,6 @@
 		var/turf/closed/mineral/rock_turf = hit_turf
 		rock_turf.gets_drilled()
 	for(var/mob/living/mob in hit_turf.contents)
-		mob.adjustBruteLoss(30)
+		mob.take_overall_damage(30)
 		to_chat(mob, span_userdanger("You're hit by a big rock!"))
 	explosion(hit_turf, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, hotspot_range = exp_hotspot, soundin = explode_sound)

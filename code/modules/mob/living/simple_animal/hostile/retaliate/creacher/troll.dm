@@ -176,7 +176,6 @@
 	if(!icon_state == "Troll")
 		icon_state = "Troll"
 
-
 /mob/living/simple_animal/hostile/retaliate/troll/GiveTarget()
 	..()
 	if(!is_hidey)
