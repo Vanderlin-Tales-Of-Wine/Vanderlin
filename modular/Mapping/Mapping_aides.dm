@@ -373,12 +373,18 @@
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 500
 	density = TRUE
-	var/fake_rock = TRUE
+	///overrides the probability of it being a troll at init
+	var/safe_rock = FALSE
+	/// does it spawns a troll? varedit this for funsies!
+	var/fake_rock = FALSE
+
+/obj/structure/innouous_rock/safe
+	safe_rock = TRUE
 
 /obj/structure/innouous_rock/Initialize()
 	. = ..()
-	if(prob(50))
-		fake_rock = FALSE // 50/50 of it being real. have fun :)
+	if(!safe_rock && prob(50))
+		fake_rock = TRUE // 50/50 of it being real. have fun :)
 
 /obj/structure/innouous_rock/attack_hand(mob/living/carbon/human/user)
 	if(fake_rock)
