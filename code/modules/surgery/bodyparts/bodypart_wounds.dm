@@ -453,7 +453,7 @@
 		return FALSE
 	LAZYREMOVE(embedded_objects, embedder)
 	embedder.is_embedded = FALSE
-	embedder.unembedded()
+	embedder.unembedded(owner)
 	if(!QDELETED(embedder))
 		var/drop_location = owner?.drop_location() || drop_location()
 		if(drop_location)
