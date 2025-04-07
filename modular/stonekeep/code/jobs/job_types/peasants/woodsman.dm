@@ -4,13 +4,7 @@
 	allowed_sexes = list(MALE,FEMALE)
 	flag = SK_WOODSMAN
 	department_flag = PEASANTS
-	allowed_races = list(
-		"Humen",
-		"Elf",
-		"Half-Elf",
-		"Dwarf",
-		"Aasimar"
-	)
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	outfit = /datum/outfit/job/stonekeep/woodsman
 	min_pq = -25
 	give_bank_account = 15

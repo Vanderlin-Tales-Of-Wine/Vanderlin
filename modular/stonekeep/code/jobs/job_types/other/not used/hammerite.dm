@@ -5,7 +5,7 @@
 				if only you had the time to rebuild what has been lost to the ruin of time."
 	faction = FACTION_STATION
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = ALL_PLAYER_RACES_BY_NAME
+	allowed_races = ALL_STONEKEEP_PLAYER_RACES
 	outfit = /datum/outfit/job/stonekeep/hammerite
 	flag = MINER
 	department_flag = PEASANTS

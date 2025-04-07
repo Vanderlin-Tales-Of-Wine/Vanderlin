@@ -268,7 +268,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 			return
 		newtax = CLAMP(newtax, 1, 99)
 		SStreasury.tax_value = newtax / 100
-		priority_announce("The new tax in Vanderlin shall be [newtax] percent.", "The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("The new tax shall be [newtax] percent.", "The Generous [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 
 /obj/structure/fake_machine/titan/proc/give_job_popup(mob/living/carbon/human/user)
 	if(!Adjacent(user))
@@ -341,7 +341,7 @@ GLOBAL_LIST_EMPTY(roundstart_court_agents)
 
 	if(raw_message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= raw_message
-		priority_announce("[raw_message] is no longer an outlaw in Vanderlin lands.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
+		priority_announce("[raw_message] is no longer an outlaw.", "The [user.get_role_title()] Decrees", 'sound/misc/alert.ogg', "Captain")
 		return FALSE
 	var/found = FALSE
 	for(var/mob/living/carbon/human/H in GLOB.player_list)

@@ -878,15 +878,15 @@
 
 /datum/sprite_accessory/hair/kobeni_1
 	name = "Kobeni"
-	icon_state = "kobeni_1"
-	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
-
-/datum/sprite_accessory/hair/kobeni_2
-	name = "Kobeni (Alt)"
 	icon_state = "kobeni_2"
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+
+/*datum/sprite_accessory/hair/kobeni_2
+	name = "Kobeni (Alt)"
+	icon_state = "kobeni_2"
+	gender = NEUTER
+	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")*/
 
 /*datum/sprite_accessory/hair/gloomy_short
 	name = "Gloomy (Short)"
@@ -906,11 +906,11 @@
 	gender = NEUTER
 	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")*/
 
-/datum/sprite_accessory/hair/emo_long
-	name = "Emo Long (New)"
+/datum/sprite_accessory/hair/wastrel
+	name = "Wastrel"
 	icon_state = "emo_long"
 	gender = NEUTER
-	specuse = list("human", "dwarf", "elf", "aasimar", "tiefling", "halforc")
+	specuse = list("human", "elf", "aasimar", "tiefling", "halforc")
 
 /*datum/sprite_accessory/hair/dreadlocks_long
 	name = "Dreadlocks Long"

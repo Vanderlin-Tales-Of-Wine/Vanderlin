@@ -5722,6 +5722,10 @@
 /obj/item/book/advice_weaving,
 /turf/open/floor/ruinedwood/spiralfade,
 /area/rogue/indoors/town/manor/stone)
+"iiH" = (
+/obj/machinery/light/fueled/wallfire/candle/r,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "iiZ" = (
 /turf/closed/wall/mineral/wooddark/end{
 	dir = 4;
@@ -8834,6 +8838,10 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/naturalstone,
 /area/rogue/under/cave/abandoned_mine)
+"mwq" = (
+/obj/machinery/light/fueled/wallfire/candle/l,
+/turf/open/floor/ruinedwood/spiral,
+/area/rogue/indoors)
 "mwW" = (
 /obj/effect/spawner/map_spawner/outlawtree,
 /turf/open/floor/dirt,
@@ -11165,6 +11173,7 @@
 /obj/structure/fluff/walldeco/moon{
 	pixel_x = 32
 	},
+/obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
 /area/rogue/outdoors)
 "pCY" = (
@@ -74440,7 +74449,7 @@ kTh
 kTh
 kTh
 wiK
-kTh
+wiK
 kTh
 kTh
 wiK
@@ -77050,7 +77059,7 @@ shr
 shr
 wiK
 kTh
-kTh
+wiK
 kTh
 kTh
 kTh
@@ -77657,10 +77666,10 @@ wiK
 kTh
 kTh
 kTh
+wiK
 kTh
 kTh
-kTh
-kTh
+wiK
 kTh
 ckV
 ckV
@@ -78669,7 +78678,7 @@ brc
 brc
 kTh
 kTh
-kTh
+wiK
 kTh
 xdV
 ckV
@@ -80286,7 +80295,7 @@ brc
 kTh
 kTh
 kTh
-kTh
+wiK
 xdV
 brc
 ckV
@@ -81093,7 +81102,7 @@ kTh
 kTh
 kTh
 kTh
-bWX
+dDy
 bWX
 kTh
 brc
@@ -81291,7 +81300,7 @@ shr
 shr
 shr
 kTh
-kTh
+wiK
 kTh
 kTh
 kTh
@@ -81701,7 +81710,7 @@ kTh
 brc
 kTh
 kTh
-kTh
+wiK
 kTh
 ckV
 ckV
@@ -82506,7 +82515,7 @@ shr
 shr
 kTh
 kTh
-kTh
+wiK
 kTh
 kTh
 wiK
@@ -90715,7 +90724,7 @@ kTh
 kTh
 wiK
 wiK
-kTh
+wiK
 wiK
 wiK
 wiK
@@ -90917,7 +90926,7 @@ kTh
 kTh
 kTh
 wiK
-kTh
+wiK
 wiK
 kTh
 wiK
@@ -115653,8 +115662,8 @@ sNs
 sNs
 sNs
 sNs
-sNs
-sNs
+ril
+xDJ
 sNs
 sNs
 sNs
@@ -200312,7 +200321,7 @@ ehE
 roo
 cpr
 syU
-syU
+mwq
 syU
 oJJ
 ehE
@@ -200716,7 +200725,7 @@ ehE
 roo
 syU
 syU
-syU
+iiH
 aeB
 oJJ
 ehE

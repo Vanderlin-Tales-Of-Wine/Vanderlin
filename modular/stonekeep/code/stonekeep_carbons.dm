@@ -714,12 +714,13 @@
 	name = "zizombie monk"
 	icon_state = "zizombie_monk"
 	icon_living = "zizombie_monk"
+	dodge_prob = 40
 
 /mob/living/simple_animal/hostile/zizombie/prior
 	name = "zizombie prior"
 	icon_state = "zizombie_prior"
 	icon_living = "zizombie_prior"
-
+	dodge_prob = 70
 
 
 // ===================================================================================
@@ -811,3 +812,10 @@
 	desc = "<span class='nicegreen'>My hat attracts lucky waves from Xylix...</span>\n"
 	icon = 'icons/mob/actions/roguespells.dmi'
 	icon_state = ""
+
+/obj/item/bodypart/head/skelly_artefact
+	name = "skull of saint Pedro"
+	icon = 'icons/roguetown/mob/monster/skeletons.dmi'
+	icon_state = "skull"
+	headprice = 12
+	adventurer_artefact = TRUE

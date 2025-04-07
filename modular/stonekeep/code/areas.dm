@@ -113,7 +113,7 @@
 				/mob/living/simple_animal/hostile/retaliate/wolf = 60,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 5,
 				/mob/living/simple_animal/pet/cat/cabbit = 10)
-	first_time_text = "Stonehill Valley"
+	first_time_text = "the Valley"
 	ambush_types = list(
 				/turf/open/floor/dirt)
 

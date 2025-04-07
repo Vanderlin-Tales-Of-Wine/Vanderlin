@@ -50,6 +50,7 @@
 		H.mind.teach_crafting_recipe(/datum/crafting_recipe/adventurer_license)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BURDEN, type)
 
 /datum/outfit/job/stonekeep/guildmaster
 	var/reminder = "<br><br><font color='#8b1d68'><span class='bold'>Help adventurers form parties, find quests, and demand proof of their skill in return for certifying them..</span></font><br><br>"

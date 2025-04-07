@@ -592,11 +592,12 @@
 	max_integrity = 80
 	destroy_sound = 'sound/misc/woodhit.ogg'
 	static_debris = list(/obj/item/grown/log/tree/stick = 1)
-	pixel_x = -28
-	pixel_y = 6
+//	pixel_x = -28
+//	pixel_y = 6
 	alpha = 255
 	opacity = FALSE
-	density = FALSE
+	density = TRUE
+	pass_flags = PASSTABLE
 /obj/structure/flora/tree/neu/bush/Initialize()
 	. = ..()
 	icon_state = "deadbush_[rand(1,3)]"

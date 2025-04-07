@@ -73,16 +73,15 @@
 	shirt = /obj/item/clothing/armor/gambeson/light
 	pants = /obj/item/clothing/pants/tights/random
 	shoes = /obj/item/clothing/shoes/boots
-	backl = /obj/item/storage/backpack/satchel
-	backpack_contents = list(/obj/item/key/church = 1)
-	backr = /obj/item/weapon/shield/tower/metal
-	belt = /obj/item/storage/belt/leather/black
+
+	belt = /obj/item/storage/belt/leather/black/church
 	beltl = /obj/item/storage/belt/pouch/coins/poor
-	id = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/chain
 	if(H.mind)
 		H.mind?.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+		H.mind?.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -96,11 +95,10 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	switch(H.patron?.type)
 		if(/datum/patron/divine/malum)
-			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 4, TRUE)
-			beltr = /obj/item/weapon/mace/warhammer/steel
+			H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
 		else
-			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-			beltr = /obj/item/weapon/sword/long
+			H.mind?.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
@@ -111,3 +109,21 @@
 	if(H.dna?.species)
 		if(H.dna.species.id == "humen")
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
+
+
+	H.adjust_blindness(-3)
+	var/weapons = list("Sword & Shield", "Longsword", "Warhammer & Shield")
+	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
+	H.set_blindness(0)
+	switch(weapon_choice)
+		if("Sword & Shield")
+			backr = /obj/item/weapon/shield/tower/metal
+			beltr = /obj/item/weapon/sword
+		if( "Longsword")
+			backl = /obj/item/weapon/sword/long
+			beltr = /obj/item/weapon/knife/dagger
+		if( "Warhammer & Shield")
+			backl = /obj/item/weapon/mace/warhammer/steel
+			backr = /obj/item/weapon/shield/tower/metal
+
+

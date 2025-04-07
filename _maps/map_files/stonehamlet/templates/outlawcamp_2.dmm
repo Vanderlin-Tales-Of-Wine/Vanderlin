@@ -174,7 +174,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "Wj" = (
-/turf/closed/wall/mineral/decowood,
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "WU" = (
 /obj/structure/roguetent,
@@ -191,11 +192,11 @@
 
 (1,1,1) = {"
 wW
-wv
+Wj
 wW
-wv
+Wj
 wW
-wv
+Wj
 wW
 zg
 VP
@@ -213,10 +214,10 @@ wW
 (2,1,1) = {"
 wW
 wW
-wv
+Wj
 wW
 wW
-wv
+Wj
 wW
 VP
 mK
@@ -232,13 +233,13 @@ wv
 wv
 "}
 (3,1,1) = {"
-wv
-wv
+Wj
+Wj
 wW
-wv
-wv
+Wj
+Wj
 wW
-wv
+Wj
 VP
 mK
 mK
@@ -255,7 +256,7 @@ wW
 (4,1,1) = {"
 wW
 wW
-wv
+Wj
 wW
 wW
 wv
@@ -338,7 +339,7 @@ wv
 "}
 (8,1,1) = {"
 wW
-wv
+Wj
 wW
 wW
 xd
@@ -358,10 +359,10 @@ yW
 yW
 "}
 (9,1,1) = {"
-wv
+Wj
 wW
-wv
-wv
+Wj
+Wj
 zg
 VP
 uz
@@ -380,7 +381,7 @@ Am
 "}
 (10,1,1) = {"
 wW
-wv
+Wj
 wW
 wW
 VP
@@ -400,9 +401,9 @@ wv
 Am
 "}
 (11,1,1) = {"
-wv
+Wj
 wW
-wv
+Wj
 wW
 VP
 ta
@@ -422,9 +423,9 @@ Am
 "}
 (12,1,1) = {"
 wW
-wv
+Wj
 wW
-wv
+Wj
 zg
 VP
 lZ
@@ -442,10 +443,10 @@ yW
 wv
 "}
 (13,1,1) = {"
-wv
+Wj
 wW
 wW
-wv
+Wj
 wW
 zg
 VP
@@ -463,12 +464,12 @@ yW
 wv
 "}
 (14,1,1) = {"
-wv
-wv
-wv
+Wj
+Wj
+Wj
 wW
 wW
-wv
+Wj
 wW
 xd
 wv
@@ -487,10 +488,10 @@ wv
 xd
 wW
 wW
-wv
-wv
+Wj
+Wj
 wW
-wv
+Wj
 zg
 VP
 VP
@@ -505,12 +506,12 @@ zg
 wv
 "}
 (16,1,1) = {"
-wv
+Wj
 wW
-wv
+Wj
 wW
 wW
-wv
+Wj
 wW
 VP
 mK
@@ -527,12 +528,12 @@ wv
 "}
 (17,1,1) = {"
 wW
-wv
+Wj
 wW
 wv
-wv
+Wj
 wW
-wv
+Wj
 VP
 Ch
 ON
@@ -547,12 +548,12 @@ VP
 VF
 "}
 (18,1,1) = {"
-wv
+Wj
 wW
 wv
 wv
 wW
-wv
+Wj
 wW
 zg
 VP
@@ -565,22 +566,22 @@ tV
 mK
 tV
 VP
-Wj
+wv
 "}
 (19,1,1) = {"
 wW
-wv
+Wj
 wW
 wv
 wv
 wW
-wv
+Wj
 wW
 wW
-wv
+Wj
 wW
 xd
-wv
+Wj
 zg
 VP
 VP

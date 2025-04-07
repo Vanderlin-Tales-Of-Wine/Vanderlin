@@ -427,7 +427,7 @@
 	desc = "The royal circlet of bright gold rests lightly on my brow, I once thought only of the rights this circlet would endow. But once I took the crown to which I had been schooled and bred, I found it heavy on the heart, though light upon the head."
 	icon = 'modular/stonekeep/icons/clothing.dmi'
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
-	dropshrink = 0.6
+	dropshrink = 0.8
 
 /obj/item/clothing/head/crown/serpcrown/surplus
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -634,6 +634,15 @@
 	mob_overlay_icon = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	sleeved = 'modular/stonekeep/icons/onmob/clothes.dmi'
 	slot_flags =  ITEM_SLOT_BACK_L|ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+
+/obj/item/clothing/cloak/cape/yellow
+	color = CLOTHING_MAGE_YELLOW
+
+/obj/item/clothing/cloak/half/guildmaster
+	name = "guild master cloak"
+//	icon_state = "guardcloak"
+	color = "#491b1b"
+	inhand_mod = FALSE
 
 
 // =============================================================================
@@ -958,14 +967,6 @@
 /obj/item/clothing/shirt/tunic/yellow
 	color = CLOTHING_MAGE_YELLOW
 
-/obj/item/clothing/cloak/cape/yellow
-	color = CLOTHING_MAGE_YELLOW
-
-/obj/item/clothing/cloak/half/guildmaster
-	name = "guild master cloak"
-	icon_state = "guardcloak"
-	color = "#491b1b"
-	inhand_mod = FALSE
 
 //
 //   Velvet Dress
@@ -1030,6 +1031,8 @@
 /obj/item/clothing/armor/medium/surcoat
 	color = CLOTHING_WINESTAIN_RED
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
+	allowed_race = ALL_RACES_FOR_REAL
+	allowed_sex = list(MALE)	// overlay not added for female cant be arsed to sprite on rn ROGTODO
 
 /obj/item/clothing/armor/brigandine/coatplates
 	desc = "A heavy armor made of smaller overlapping plates. \
@@ -1080,6 +1083,11 @@
 /obj/item/storage/belt/leather/rope/survival
 	populate_contents = list(
 		/obj/item/natural/cloth,
+	)
+
+/obj/item/storage/belt/leather/black/church
+	populate_contents = list(
+		/obj/item/key/church,
 	)
 
 /obj/item/storage/belt/pouch

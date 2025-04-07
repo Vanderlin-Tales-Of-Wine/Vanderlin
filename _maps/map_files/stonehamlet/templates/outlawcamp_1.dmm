@@ -283,7 +283,8 @@
 /turf/open/floor/dirt/road,
 /area/rogue/indoors/shelter/rtfield)
 "Wj" = (
-/turf/closed/wall/mineral/decowood,
+/obj/structure/flora/grass/thorn_bush,
+/turf/open/floor/grass,
 /area/rogue/outdoors/rtfield/outlaw)
 "WU" = (
 /obj/effect/spawner/map_spawner/enemy_fifty/bushwacker,
@@ -304,11 +305,11 @@
 
 (1,1,1) = {"
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
 zg
 VP
@@ -324,13 +325,13 @@ xd
 fB
 "}
 (2,1,1) = {"
-wv
+Wj
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
-wv
+Wj
 VP
 mK
 yv
@@ -346,9 +347,9 @@ wv
 "}
 (3,1,1) = {"
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
 wv
 fB
@@ -366,8 +367,8 @@ wv
 fB
 "}
 (4,1,1) = {"
-wv
-wv
+Wj
+Wj
 xd
 xd
 wW
@@ -452,7 +453,7 @@ wv
 (8,1,1) = {"
 fB
 fB
-wv
+Wj
 fB
 xd
 zg
@@ -471,10 +472,10 @@ yW
 yW
 "}
 (9,1,1) = {"
-wv
-wv
+Wj
+Wj
 fB
-wv
+Wj
 zg
 VP
 uz
@@ -494,7 +495,7 @@ Am
 (10,1,1) = {"
 fB
 fB
-wv
+Wj
 fB
 VP
 tV
@@ -513,9 +514,9 @@ wv
 Am
 "}
 (11,1,1) = {"
-wv
+Wj
 fB
-wv
+Wj
 xd
 VP
 iD
@@ -535,7 +536,7 @@ Am
 "}
 (12,1,1) = {"
 fB
-wv
+Wj
 fB
 xd
 zg
@@ -555,10 +556,10 @@ yW
 wv
 "}
 (13,1,1) = {"
-wv
+Wj
 fB
 fB
-wv
+Wj
 fB
 zg
 VP
@@ -577,11 +578,11 @@ wv
 "}
 (14,1,1) = {"
 fB
-wv
-wv
+Wj
+Wj
 fB
 fB
-wv
+Wj
 fB
 wv
 or
@@ -597,11 +598,11 @@ wv
 wv
 "}
 (15,1,1) = {"
-wv
+Wj
 fB
 fB
-wv
-wv
+Wj
+Wj
 fB
 wv
 zg
@@ -619,11 +620,11 @@ wv
 "}
 (16,1,1) = {"
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
-wv
+Wj
 fB
 VP
 Hf
@@ -640,11 +641,11 @@ wv
 "}
 (17,1,1) = {"
 fB
-wv
+Wj
 fB
 fB
 fB
-wv
+Wj
 fB
 VP
 Ch
@@ -660,13 +661,13 @@ VP
 wv
 "}
 (18,1,1) = {"
-wv
+Wj
 fB
-wv
-wv
-wv
+Wj
+Wj
+Wj
 fB
-wv
+Wj
 zg
 VP
 VP
@@ -678,21 +679,21 @@ lZ
 tV
 tV
 VP
-Wj
+wv
 "}
 (19,1,1) = {"
 fB
-wv
+Wj
 fB
 fB
 fB
-wv
+Wj
 fB
 fB
-wv
+Wj
 fB
 xd
-wv
+Wj
 xd
 zg
 VP

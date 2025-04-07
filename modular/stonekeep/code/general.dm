@@ -570,6 +570,9 @@
 	climb_offset = 16
 	drag_slowdown = 4
 
+/obj/structure/closet/crate
+	drag_slowdown = 4
+
 /datum/supply_pack/rogue/narcotics/soap	// correct soap now
 	name = "Herbal Soap"
 	cost = 20

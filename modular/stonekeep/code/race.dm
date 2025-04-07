@@ -207,8 +207,17 @@
 	hairyness = ""
 	specstats = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
 	specstats_f = list("strength" = 1, "perception" = 0, "intelligence" = -2, "constitution" = 3, "endurance" = 1, "speed" = 0, "fortune" = -1)
-
 	species_traits = list(EYECOLOR,HAIR,LIPS,OLDGREY)
+	offset_features = list(OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
+	OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,0), OFFSET_HEAD = list(0,0), \
+	OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,0), \
+	OFFSET_NECK = list(0,0), OFFSET_MOUTH = list(0,0), OFFSET_PANTS = list(0,0), \
+	OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,0), OFFSET_UNDIES = list(0,0), \
+	OFFSET_ID_F = list(0,0), OFFSET_GLOVES_F = list(0,0), OFFSET_WRISTS_F = list(0,0), OFFSET_HANDS_F = list(0,0), \
+	OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,0), OFFSET_HEAD_F = list(0,0), \
+	OFFSET_FACE_F = list(0,0), OFFSET_BELT_F = list(0,0), OFFSET_BACK_F = list(0,0), \
+	OFFSET_NECK_F = list(0,-0), OFFSET_MOUTH_F = list(0,0), OFFSET_PANTS_F = list(0,0), \
+	OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0))
 
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
@@ -298,6 +307,27 @@
 
 /datum/species/tieberian/get_accent_list()
 	return strings("SKtiefling_replacement.json", "tiefling")
+
+/datum/species/tieberian/get_hairc_list()
+	var/static/list/hair_colors = sortList(list(
+		"black - oil" = "181a1d",
+		"black - cave" = "201616",
+		"black - rogue" = "2b201b",
+		"black - midnight" = "1d1b2b",
+		"black - hellbound" = "1e0909",
+
+		"purple - arcane" = "3f2f42",
+		"purple - etheral" = "5a3758",
+
+		"blue - abyss" = "09282d",
+		"blue - nightshade" = "0b1330",
+
+		"red - demonic" = "480808",
+		"red - impish" = "641010",
+		"red - rubescent" = "8d4949"
+	))
+
+	return hair_colors
 
 // =================================================================================
 /datum/species/rakshari

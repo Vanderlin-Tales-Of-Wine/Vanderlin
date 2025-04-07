@@ -6,7 +6,7 @@
 				sewing articles of protection, padding, and fashion for serf and noble alike."
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = list("Humen","Elf","Aasimar","Half-Elf","Dwarf")
+	allowed_races = RACES_PLAYER_NONDISCRIMINATED
 	display_order = WEAVER_ORDER
 	min_pq = -50
 
