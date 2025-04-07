@@ -143,10 +143,10 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALSTR = 15;
-	TOTALCON = 12;
-	TOTALEND = 12;
+	base_speed = 15;
+	base_strength = 15;
+	base_constitution = 12;
+	base_endurance = 12;
 	candodge = 0
 	},
 /obj/item/weapon/sword/rapier,
@@ -264,13 +264,13 @@
 /obj/item/clothing/head/crown/circlet,
 /obj/item/clothing/ring/gold/gemerald,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 17;
-	TOTALSTR = 14;
-	TOTALLUC = 14;
-	TOTALPER = 14;
-	TOTALINT = 15;
-	TOTALEND = 12;
-	TOTALCON = 12
+	base_speed = 17;
+	base_strength = 14;
+	base_fortune = 14;
+	base_perception = 14;
+	base_intelligence = 15;
+	base_endurance = 12;
+	base_constitution = 12
 	},
 /obj/item/clothing/shirt/robe/courtmage,
 /obj/item/clothing/neck/psycross/silver,
@@ -684,11 +684,11 @@
 /obj/item/weapon/sword/sabre/scythe,
 /obj/item/weapon/shield/tower/buckleriron,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALPER = 15;
-	TOTALSTR = 15;
-	TOTALCON = 12;
-	TOTALEND = 14;
+	base_speed = 15;
+	base_perception = 15;
+	base_strength = 15;
+	base_constitution = 12;
+	base_endurance = 14;
 	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
@@ -1115,10 +1115,10 @@
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/polearm/halberd,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 18;
-	TOTALSPD = 12;
-	TOTALCON = 14;
-	TOTALEND = 14;
+	base_strength = 18;
+	base_speed = 12;
+	base_constitution = 14;
+	base_endurance = 14;
 	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
@@ -1289,10 +1289,10 @@
 /obj/item/clothing/armor/cuirass/iron/rust,
 /obj/item/weapon/sword/long/greatsword/flamberge,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 11;
-	TOTALSTR = 18;
-	TOTALCON = 15;
-	TOTALEND = 15;
+	base_speed = 11;
+	base_strength = 18;
+	base_constitution = 15;
+	base_endurance = 15;
 	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,
@@ -1628,10 +1628,10 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/neck/psycross/g,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 12;
-	TOTALSTR = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
+	base_speed = 12;
+	base_strength = 15;
+	base_constitution = 14;
+	base_endurance = 14;
 	candodge = 0
 	},
 /turf/open/floor/churchbrick,
@@ -1650,10 +1650,10 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALSTR = 15;
-	TOTALCON = 12;
-	TOTALEND = 12;
+	base_speed = 15;
+	base_strength = 15;
+	base_constitution = 12;
+	base_endurance = 12;
 	candodge = 0
 	},
 /obj/item/weapon/sword/decorated,
@@ -1679,10 +1679,10 @@
 /obj/item/clothing/ring/gold/rontz,
 /obj/item/clothing/armor/cuirass/iron/rust,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 12;
-	TOTALEND = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 12;
+	base_endurance = 12;
 	candodge = 0
 	},
 /obj/item/weapon/sword/rapier,
@@ -2437,10 +2437,10 @@
 /obj/item/weapon/mace/steel,
 /obj/item/clothing/ring/silver/toper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALCON = 18;
-	TOTALEND = 15;
-	TOTALSTR = 14;
+	base_speed = 15;
+	base_constitution = 18;
+	base_endurance = 15;
+	base_strength = 14;
 	candodge = 0
 	},
 /obj/item/clothing/neck/psycross/silver,

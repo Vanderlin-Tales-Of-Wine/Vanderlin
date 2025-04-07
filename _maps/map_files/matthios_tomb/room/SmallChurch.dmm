@@ -686,13 +686,13 @@
 /area/rogue/under/cavewet)
 "EJ" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSPD = 15;
-	TOTALINT = 15;
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALLUC = 15;
-	TOTALPER = 15;
-	TOTALSTR = 15
+	base_speed = 15;
+	base_intelligence = 15;
+	base_constitution = 15;
+	base_endurance = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_strength = 15
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/head/helmet/skullcap/cult{
@@ -980,13 +980,13 @@
 "Qy" = (
 /obj/effect/decal/cleanable/blood/old,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALINT = 15;
-	TOTALLUC = 15;
-	TOTALPER = 15;
-	TOTALSPD = 15;
-	TOTALSTR = 15
+	base_constitution = 15;
+	base_endurance = 15;
+	base_intelligence = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_speed = 15;
+	base_strength = 15
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/head/helmet/skullcap/cult{

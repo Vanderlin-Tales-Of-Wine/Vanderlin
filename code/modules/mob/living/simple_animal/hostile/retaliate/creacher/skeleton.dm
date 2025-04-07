@@ -10,9 +10,9 @@
 	robust_searching = 1
 	turns_per_move = 1
 	move_to_delay = 3
-	TOTALCON = 9
-	TOTALSTR = 9
-	TOTALSPD = 8
+	base_constitution = 9
+	base_strength = 9
+	base_speed = 8
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 10

@@ -66,11 +66,11 @@
 /area/rogue/under/cave)
 "aO" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -127,11 +127,11 @@
 /area/rogue/under/cave)
 "bg" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -165,11 +165,11 @@
 /area/rogue/under/cave)
 "by" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -202,11 +202,11 @@
 /area/rogue/under/cave)
 "bU" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -445,11 +445,11 @@
 /area/rogue/under/cave)
 "eb" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -626,11 +626,11 @@
 /area/rogue/under/cave)
 "fC" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -928,11 +928,11 @@
 /area/rogue/under/cave)
 "jK" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -1045,13 +1045,13 @@
 "lr" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	real_name = "Forgotten King";
-	TOTALSPD = 20;
-	TOTALPER = 12;
-	TOTALINT = 18;
-	TOTALLUC = 20;
-	TOTALSTR = 12;
-	TOTALEND = 12;
-	TOTALCON = 12
+	base_speed = 20;
+	base_perception = 12;
+	base_intelligence = 18;
+	base_fortune = 20;
+	base_strength = 12;
+	base_endurance = 12;
+	base_constitution = 12
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/clothing/shirt/tunic/noblecoat,
@@ -1079,11 +1079,11 @@
 /obj/item/clothing/ring/silver/dorpel,
 /obj/item/clothing/cloak/half/guardsecond,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -1244,11 +1244,11 @@
 /area/rogue/under/cave)
 "ny" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -1321,11 +1321,11 @@
 /area/rogue/under/cave)
 "ot" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -1432,11 +1432,11 @@
 /area/rogue/under/cave)
 "pz" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -1907,11 +1907,11 @@
 /area/rogue/under/cave)
 "vd" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -2151,11 +2151,11 @@
 /area/rogue/under/cave)
 "yd" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -2173,13 +2173,13 @@
 /area/rogue/under/cave)
 "yf" = (
 /mob/living/carbon/human/species/orc/warlord/skilled{
-	TOTALSTR = 20;
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALSPD = 15;
-	TOTALINT = 5;
-	TOTALPER = 8;
-	TOTALLUC = 9
+	base_strength = 20;
+	base_constitution = 15;
+	base_endurance = 15;
+	base_speed = 15;
+	base_intelligence = 5;
+	base_perception = 8;
+	base_fortune = 9
 	},
 /turf/open/floor/cobble,
 /area/rogue/under/cave)
@@ -2642,11 +2642,11 @@
 /area/rogue/under/cave)
 "Ds" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -3349,11 +3349,11 @@
 /area/rogue/under/cave)
 "KH" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -3381,11 +3381,11 @@
 /area/rogue/under/cave)
 "KW" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -3411,11 +3411,11 @@
 /area/rogue/under/cave)
 "Lo" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -4374,11 +4374,11 @@
 /area/rogue/under/cave)
 "WE" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
@@ -4395,11 +4395,11 @@
 /area/rogue/under/cave)
 "WG" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 15;
-	TOTALSPD = 15;
-	TOTALCON = 14;
-	TOTALEND = 14;
-	TOTALLUC = 12;
+	base_strength = 15;
+	base_speed = 15;
+	base_constitution = 14;
+	base_endurance = 14;
+	base_fortune = 12;
 	candodge = 0;
 	real_name = "Undead Knight"
 	},
@@ -4441,13 +4441,13 @@
 /obj/machinery/light/fueled/chand,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
 	real_name = "Forgotten King";
-	TOTALSPD = 20;
-	TOTALPER = 12;
-	TOTALINT = 8;
-	TOTALLUC = 8;
-	TOTALSTR = 12;
-	TOTALEND = 8;
-	TOTALCON = 12
+	base_speed = 20;
+	base_perception = 12;
+	base_intelligence = 8;
+	base_fortune = 8;
+	base_strength = 12;
+	base_endurance = 8;
+	base_constitution = 12
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /obj/item/weapon/knife/dagger/steel,
@@ -4617,11 +4617,11 @@
 /area/rogue/under/cave)
 "YP" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	TOTALSTR = 18;
-	TOTALSPD = 15;
-	TOTALCON = 16;
-	TOTALEND = 16;
-	TOTALLUC = 14;
+	base_strength = 18;
+	base_speed = 15;
+	base_constitution = 16;
+	base_endurance = 16;
+	base_fortune = 14;
 	candodge = 0
 	},
 /obj/effect/mapping_helpers/floor_clothing_equipper,

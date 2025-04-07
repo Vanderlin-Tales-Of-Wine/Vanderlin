@@ -24,10 +24,10 @@
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
 	melee_damage_lower = 40
 	melee_damage_upper = 60
-	TOTALCON = 15
-	TOTALSTR = 16
-	TOTALSPD = 2
-	TOTALEND = 16
+	base_constitution = 15
+	base_strength = 16
+	base_speed = 2
+	base_endurance = 16
 	deaggroprob = 0
 	defprob = 20
 	defdrain = 15
@@ -58,10 +58,10 @@
 	melee_damage_upper = 550
 	health = 666666
 	maxHealth = 666666
-	TOTALCON = 66
-	TOTALSTR = 66
-	TOTALSPD = 66
-	TOTALEND = 66
+	base_constitution = 66
+	base_strength = 66
+	base_speed = 66
+	base_endurance = 66
 
 /mob/living/simple_animal/hostile/retaliate/blood/ascended/examine(mob/user)
 	. = ..()

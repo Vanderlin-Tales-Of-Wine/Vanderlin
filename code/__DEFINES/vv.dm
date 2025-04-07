@@ -101,6 +101,9 @@
 #define VV_HK_GIVE_CONTROL_TO_PLAYER "Give Control To Player"
 #define VV_HK_OFFER_GHOSTS "offer_ghosts"
 
+// /mob/living
+#define VV_HK_MODIFY_STATS "modstats"
+
 // /mob/living/carbon
 #define VV_HK_MODIFY_BODYPART "mod_bodypart"
 #define VV_HK_MODIFY_ORGANS "organs_modify"

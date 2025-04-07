@@ -29,13 +29,13 @@
 "j" = (
 /mob/living/simple_animal/hostile/demon{
 	name = "Bonetaker";
-	TOTALCON = 15;
-	TOTALEND = 15;
-	TOTALINT = 15;
-	TOTALLUC = 15;
-	TOTALPER = 15;
-	TOTALSPD = 18;
-	TOTALSTR = 20
+	base_constitution = 15;
+	base_endurance = 15;
+	base_intelligence = 15;
+	base_fortune = 15;
+	base_perception = 15;
+	base_speed = 18;
+	base_strength = 20
 	},
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/hexstone,

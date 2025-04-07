@@ -43,10 +43,10 @@
 	melee_damage_upper = 50
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
-	TOTALCON = 16
-	TOTALSTR = 16
-	TOTALSPD = 3
-	TOTALEND = 15
+	base_constitution = 16
+	base_strength = 16
+	base_speed = 3
+	base_endurance = 15
 
 	retreat_distance = 0
 	minimum_distance = 0

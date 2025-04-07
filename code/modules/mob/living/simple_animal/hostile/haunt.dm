@@ -35,7 +35,6 @@
 	speak_emote = list("growls")
 	limb_destroyer = 1
 	del_on_death = TRUE
-	TOTALLUC = 11
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	faction = list(FACTION_UNDEAD)
@@ -43,6 +42,8 @@
 	defdrain = 20
 	canparry = TRUE
 	var/obj/structure/bonepile/slavepile
+
+	base_fortune = 11
 
 /mob/living/simple_animal/hostile/haunt/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE
