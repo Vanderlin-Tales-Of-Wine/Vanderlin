@@ -159,7 +159,7 @@
 	if(invis_without_trait && !revealed_to.Find(user))
 		show_travel_tile(user)
 		the_tile.show_travel_tile(user)
-	user.log_message("[user.mind.key] has travelled to [loc_name(the_tile)] from", LOG_GAME, color = "#0000ff")
+	user.log_message("[user.mind?.key ? user.mind?.key : user.real_name] has travelled to [loc_name(the_tile)] from", LOG_GAME, color = "#0000ff")
 	mob_move_travel_z_level(user, get_turf(the_tile))
 
 /obj/structure/fluff/traveltile/proc/reveal_travel_trait_to_others(mob/living/user)
