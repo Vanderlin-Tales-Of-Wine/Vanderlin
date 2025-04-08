@@ -3,7 +3,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I start finding default values very unnerving...</span>"
-	lose_text = "<span class='notice'>I no longer feel afraid of default values.</span>"
+	lose_text = span_notice("I no longer feel afraid of default values.")
 	var/phobia_type
 	var/next_check = 0
 	var/next_scare = 0
@@ -22,7 +22,7 @@
 		phobia_type = pick(SStraumas.phobia_types)
 
 	gain_text = "<span class='warning'>I start finding [phobia_type] very unnerving...</span>"
-	lose_text = "<span class='notice'>I no longer feel afraid of [phobia_type].</span>"
+	lose_text = span_notice("I no longer feel afraid of [phobia_type].")
 	scan_desc += " of [phobia_type]"
 	trigger_words = SStraumas.phobia_words[phobia_type]
 	trigger_mobs = SStraumas.phobia_mobs[phobia_type]

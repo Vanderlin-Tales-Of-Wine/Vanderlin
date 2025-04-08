@@ -88,7 +88,7 @@
 
 	newA.reg_in_areas_in_z()
 
-	to_chat(creator, "<span class='notice'>I have created a new area, named [newA.name]. It is now weather proof, and constructing an APC will allow it to be powered.</span>")
+	to_chat(creator, span_notice("I have created a new area, named [newA.name]. It is now weather proof, and constructing an APC will allow it to be powered."))
 	return TRUE
 
 #undef BP_MAX_ROOM_SIZE

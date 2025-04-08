@@ -24,11 +24,11 @@
 
 	switch(M.nutrition)
 		if(NUTRITION_LEVEL_FAT to INFINITY)
-			user.visible_message("<span class='notice'>[user] forces [M.p_them()]self to eat \the [source].</span>", "<span class='notice'>I force myself to eat \the [source].</span>")
+			user.visible_message(span_notice("[user] forces [M.p_them()]self to eat \the [source]."), span_notice("I force myself to eat \the [source]."))
 		if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_FAT)
-			user.visible_message("<span class='notice'>[user] [eatverb]s \the [source].</span>", "<span class='notice'>I [eatverb] \the [source].</span>")
+			user.visible_message(span_notice("[user] [eatverb]s \the [source]."), span_notice("I [eatverb] \the [source]."))
 		if(0 to NUTRITION_LEVEL_STARVING)
-			user.visible_message("<span class='notice'>[user] hungrily [eatverb]s \the [source], gobbling it down!</span>", "<span class='notice'>I hungrily [eatverb] \the [source], gobbling it down!</span>")
+			user.visible_message(span_notice("[user] hungrily [eatverb]s \the [source], gobbling it down!"), span_notice("I hungrily [eatverb] \the [source], gobbling it down!"))
 			M.changeNext_move(CLICK_CD_MELEE * 0.5)
 
 	playsound(M.loc,'sound/misc/eat.ogg', rand(30,60), TRUE)

@@ -183,7 +183,7 @@
 	var/options = ignore_category ? list(CHOICE_YES, CHOICE_NO, CHOICE_NEVER) : DEFAULT_INPUT_CHOICES
 	switch(browser_alert(M, Question, "Please answer in [DisplayTimeText(poll_time)]!", options))
 		if(CHOICE_YES)
-			to_chat(M, "<span class='notice'>Choice registered: Yes.</span>")
+			to_chat(M, span_notice("Choice registered: Yes."))
 			if(time_passed + poll_time <= world.time)
 				to_chat(M, "<span class='danger'>Sorry, you answered too late to be considered!</span>")
 				SEND_SOUND(M, 'sound/blank.ogg')

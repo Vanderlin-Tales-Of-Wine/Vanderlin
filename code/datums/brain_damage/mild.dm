@@ -9,7 +9,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>Speaking clearly is getting harder.</span>"
-	lose_text = "<span class='notice'>I feel in control of my speech.</span>"
+	lose_text = span_notice("I feel in control of my speech.")
 
 /datum/brain_trauma/mild/stuttering/on_life()
 	owner.stuttering = min(owner.stuttering + 5, 25)
@@ -24,7 +24,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel dumber.</span>"
-	lose_text = "<span class='notice'>I feel smart again.</span>"
+	lose_text = span_notice("I feel smart again.")
 
 /datum/brain_trauma/mild/dumbness/on_gain()
 	ADD_TRAIT(owner, TRAIT_DUMB, TRAUMA_TRAIT)
@@ -65,7 +65,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>My head hurts!</span>"
-	lose_text = "<span class='notice'>The pressure inside my head starts fading.</span>"
+	lose_text = span_notice("The pressure inside my head starts fading.")
 
 /datum/brain_trauma/mild/concussion/on_life()
 	if(prob(5))
@@ -80,7 +80,7 @@
 			if(6 to 9)
 				owner.slurring += 30
 			if(10)
-				to_chat(owner, "<span class='notice'>I forget for a moment what you were doing.</span>")
+				to_chat(owner, span_notice("I forget for a moment what you were doing."))
 				owner.Stun(20)
 			if(11)
 				to_chat(owner, "<span class='warning'>I faint.</span>")
@@ -93,7 +93,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>My muscles feel oddly faint.</span>"
-	lose_text = "<span class='notice'>I feel in control of my muscles again.</span>"
+	lose_text = span_notice("I feel in control of my muscles again.")
 
 /datum/brain_trauma/mild/muscle_weakness/on_life()
 	var/fall_chance = 1
@@ -119,7 +119,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>My muscles feel oddly faint.</span>"
-	lose_text = "<span class='notice'>I feel in control of my muscles again.</span>"
+	lose_text = span_notice("I feel in control of my muscles again.")
 
 /datum/brain_trauma/mild/muscle_spasms/on_gain()
 	owner.apply_status_effect(STATUS_EFFECT_SPASMS)
@@ -134,7 +134,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>My throat itches incessantly...</span>"
-	lose_text = "<span class='notice'>My throat stops itching.</span>"
+	lose_text = span_notice("My throat stops itching.")
 
 /datum/brain_trauma/mild/nervous_cough/on_life()
 	if(prob(12) && !HAS_TRAIT(owner, TRAIT_SOOTHED_THROAT))
@@ -152,7 +152,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I lose my grasp on complex words.</span>"
-	lose_text = "<span class='notice'>I feel my vocabulary returning to normal again.</span>"
+	lose_text = span_notice("I feel my vocabulary returning to normal again.")
 
 	var/static/list/common_words = world.file2list("strings/1000_most_common.txt")
 
@@ -194,7 +194,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel a faint echo of my thoughts...</span>"
-	lose_text = "<span class='notice'>The faint echo fades away.</span>"
+	lose_text = span_notice("The faint echo fades away.")
 	var/list/hear_dejavu = list()
 	var/list/speak_dejavu = list()
 

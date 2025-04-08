@@ -190,7 +190,7 @@
 				M.throw_item(get_step(M,turn(M.dir, 90)), offhand = offh)
 			else
 				M.dropItemToGround(W)
-			M.visible_message("<span class='notice'>[user] disarms [M]!</span>", \
+			M.visible_message(span_notice("[user] disarms [M]!"), \
 							"<span class='boldwarning'>I'm disarmed by [user]!</span>")
 			return
 
@@ -202,7 +202,7 @@
 				M.throw_item(get_step(M,turn(M.dir, 270)), offhand = offh)
 			else
 				M.dropItemToGround(W)
-			M.visible_message("<span class='notice'>[user] disarms [M]!</span>", \
+			M.visible_message(span_notice("[user] disarms [M]!"), \
 							"<span class='boldwarning'>I'm disarmed by [user]!</span>")
 			return
 

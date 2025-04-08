@@ -25,7 +25,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel dead inside.</span>"
-	lose_text = "<span class='notice'>I feel alive again.</span>"
+	lose_text = span_notice("I feel alive again.")
 	var/active = FALSE
 
 /datum/brain_trauma/special/death_whispers/on_life()
@@ -51,7 +51,7 @@
 	name = "Existential Crisis"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='notice'>I feel less real.</span>"
+	gain_text = span_notice("I feel less real.")
 	lose_text = "<span class='warning'>I feel more substantial again.</span>"
 	var/obj/effect/abstract/sync_holder/veil/veil
 	var/next_crisis = 0
@@ -89,7 +89,7 @@
 
 /datum/brain_trauma/special/existential_crisis/proc/fade_in()
 	QDEL_NULL(veil)
-	to_chat(owner, "<span class='notice'>I fade back into reality.</span>")
+	to_chat(owner, span_notice("I fade back into reality."))
 	next_crisis = world.time + 600
 
 //base sync holder is in desynchronizer.dm

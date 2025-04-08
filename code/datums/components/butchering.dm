@@ -44,7 +44,7 @@
 */
 
 /datum/component/butchering/proc/startButcher(obj/item/source, mob/living/M, mob/living/user)
-	to_chat(user, "<span class='notice'>I begin to butcher [M]...</span>")
+	to_chat(user, span_notice("I begin to butcher [M]..."))
 	playsound(M.loc, butcher_sound, 50, TRUE, -1)
 	if(do_after(user, speed, M) && M.Adjacent(source))
 		Butcher(user, M)
@@ -97,8 +97,8 @@
 			new sinew (T)
 		meat.guaranteed_butcher_results.Remove(sinew)
 	if(butcher)
-		butcher.visible_message("<span class='notice'>[butcher] butchers [meat].</span>", \
-								"<span class='notice'>I butcher [meat].</span>")
+		butcher.visible_message(span_notice("[butcher] butchers [meat]."), \
+								span_notice("I butcher [meat]."))
 	ButcherEffects(meat)
 	meat.harvest(butcher)
 	meat.gib(FALSE, FALSE, TRUE)

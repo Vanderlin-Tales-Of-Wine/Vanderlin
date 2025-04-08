@@ -10,7 +10,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I forget how to speak!</span>"
-	lose_text = "<span class='notice'>I suddenly remember how to speak.</span>"
+	lose_text = span_notice("I suddenly remember how to speak.")
 
 /datum/brain_trauma/severe/mute/on_gain()
 	ADD_TRAIT(owner, TRAIT_MUTE, TRAUMA_TRAIT)
@@ -25,7 +25,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I have trouble forming words in my head...</span>"
-	lose_text = "<span class='notice'>I suddenly remember how languages work.</span>"
+	lose_text = span_notice("I suddenly remember how languages work.")
 	var/datum/language_holder/prev_language
 	var/datum/language_holder/mob_language
 
@@ -48,7 +48,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I can't see!</span>"
-	lose_text = "<span class='notice'>My vision returns.</span>"
+	lose_text = span_notice("My vision returns.")
 
 /datum/brain_trauma/severe/blindness/on_gain()
 	owner.become_blind(TRAUMA_TRAIT)
@@ -104,7 +104,7 @@
 			paralysis_traits = list(TRAIT_PARALYSIS_L_LEG)
 
 	gain_text = "<span class='warning'>I can't feel [subject] anymore!</span>"
-	lose_text = "<span class='notice'>I can feel [subject] again!</span>"
+	lose_text = span_notice("I can feel [subject] again!")
 
 /datum/brain_trauma/severe/paralysis/on_gain()
 	..()
@@ -128,7 +128,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I have a constant feeling of drowsiness...</span>"
-	lose_text = "<span class='notice'>I feel awake and aware again.</span>"
+	lose_text = span_notice("I feel awake and aware again.")
 
 /datum/brain_trauma/severe/narcolepsy/on_life()
 	..()
@@ -151,7 +151,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = ""
-	lose_text = "<span class='notice'>I feel like you could be safe on my own.</span>"
+	lose_text = span_notice("I feel like you could be safe on my own.")
 	var/stress = 0
 
 /datum/brain_trauma/severe/monophobia/on_gain()
@@ -159,7 +159,7 @@
 	if(check_alone())
 		to_chat(owner, "<span class='warning'>I feel really lonely...</span>")
 	else
-		to_chat(owner, "<span class='notice'>I feel safe, as long as you have people around you.</span>")
+		to_chat(owner, span_notice("I feel safe, as long as you have people around you."))
 
 /datum/brain_trauma/severe/monophobia/on_life()
 	..()
@@ -230,7 +230,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I can barely control my hands!</span>"
-	lose_text = "<span class='notice'>I feel in control of my hands again.</span>"
+	lose_text = span_notice("I feel in control of my hands again.")
 
 /datum/brain_trauma/severe/discoordination/on_gain()
 	ADD_TRAIT(owner, TRAIT_MONKEYLIKE, TRAUMA_TRAIT)
@@ -244,8 +244,8 @@
 	name = "Traumatic Non-Violence"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='notice'>I feel oddly peaceful.</span>"
-	lose_text = "<span class='notice'>I no longer feel compelled to not harm.</span>"
+	gain_text = span_notice("I feel oddly peaceful.")
+	lose_text = span_notice("I no longer feel compelled to not harm.")
 
 /datum/brain_trauma/severe/pacifism/on_gain()
 	ADD_TRAIT(owner, TRAIT_PACIFISM, TRAUMA_TRAIT)
@@ -260,7 +260,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel somewhat dazed.</span>"
-	lose_text = "<span class='notice'>I feel like a fog was lifted from my mind.</span>"
+	lose_text = span_notice("I feel like a fog was lifted from my mind.")
 
 /datum/brain_trauma/severe/hypnotic_stupor/on_lose() //hypnosis must be cleared separately, but brain surgery should get rid of both anyway
 	..()

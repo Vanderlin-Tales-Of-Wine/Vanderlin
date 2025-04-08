@@ -10,7 +10,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel a craving for darkness.</span>"
-	lose_text = "<span class='notice'>Light no longer bothers you.</span>"
+	lose_text = span_notice("Light no longer bothers you.")
 	var/next_damage_warning = 0
 
 /datum/brain_trauma/magic/lumiphobia/on_life()
@@ -29,7 +29,7 @@
 	desc = ""
 	scan_desc = ""
 	gain_text = "<span class='warning'>I feel a hateful presence close to you.</span>"
-	lose_text = "<span class='notice'>I feel the hateful presence fade away.</span>"
+	lose_text = span_notice("I feel the hateful presence fade away.")
 
 /datum/brain_trauma/magic/poltergeist/on_life()
 	..()
@@ -49,8 +49,8 @@
 	name = "Athaumasia"
 	desc = ""
 	scan_desc = ""
-	gain_text = "<span class='notice'>I realize that magic cannot be real.</span>"
-	lose_text = "<span class='notice'>I realize that magic might be real.</span>"
+	gain_text = span_notice("I realize that magic cannot be real.")
+	lose_text = span_notice("I realize that magic might be real.")
 
 /datum/brain_trauma/magic/antimagic/on_gain()
 	ADD_TRAIT(owner, TRAIT_ANTIMAGIC, TRAUMA_TRAIT)
