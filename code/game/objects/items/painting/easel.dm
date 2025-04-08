@@ -24,7 +24,7 @@
 		painting.pixel_y = painting.easel_offset
 		C.forceMove(get_turf(src))
 		C.layer = layer+0.1
-		user.visible_message("<span class='notice'>[user] puts \the [C] on \the [src].</span>","<span class='notice'>I place \the [C] on \the [src].</span>")
+		user.visible_message(span_notice("[user] puts \the [C] on \the [src]."),span_notice("I place \the [C] on \the [src]."))
 	else
 		return ..()
 

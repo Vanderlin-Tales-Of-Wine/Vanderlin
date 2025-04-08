@@ -724,7 +724,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(user, "clothwipe", 100, TRUE)
 	SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRONG)
-	user.visible_message("<span class='warning'>[user] wipes [src] down with its cloth.</span>","<span class='notice'>I wipe [src] down with its cloth.</span>")
+	user.visible_message("<span class='warning'>[user] wipes [src] down with its cloth.</span>",span_notice("I wipe [src] down with its cloth."))
 	return
 
 

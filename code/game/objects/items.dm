@@ -470,7 +470,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(href_list["inspect"])
 		if(!usr.canUseTopic(src, be_close=TRUE))
 			return
-		var/list/inspec = list("<span class='notice'>Properties of [src.name]</span>")
+		var/list/inspec = list(span_notice("Properties of [src.name]"))
 		if(minstr)
 			inspec += "\n<b>MIN.STR:</b> [minstr]"
 
@@ -607,7 +607,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>I start picking up [src]...</span>")
+		to_chat(user,span_notice("I start picking up [src]..."))
 		if(!do_after(user, (3 SECONDS * grav_power), src))
 			return
 
@@ -1040,7 +1040,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] lights [A] with [src].</span>"
+		. = span_notice("[user] lights [A] with [src].")
 	else
 		. = ""
 
@@ -1235,7 +1235,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(!wielded)
 			return
 		if(show_message)
-			to_chat(user, "<span class='notice'>I drop [src].</span>")
+			to_chat(user, span_notice("I drop [src]."))
 		show_message = FALSE
 	if(wielded)
 		wielded = FALSE
@@ -1250,7 +1250,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	else
 		user.update_inv_hands()
 	if(show_message)
-		to_chat(user, "<span class='notice'>I wield [src] normally.</span>")
+		to_chat(user, span_notice("I wield [src] normally."))
 	if(user.get_active_held_item() == src)
 		user.update_a_intents()
 	return
@@ -1260,7 +1260,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 	altgripped = TRUE
 	update_transform()
-	to_chat(user, "<span class='notice'>I wield [src] with an alternate grip</span>")
+	to_chat(user, span_notice("I wield [src] with an alternate grip"))
 	if(user.get_active_held_item() == src)
 		if(alt_intents)
 			user.update_a_intents()
@@ -1279,7 +1279,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		force = force_wielded
 	wdefense = wdefense + 1
 	update_transform()
-	to_chat(user, "<span class='notice'>I wield [src] with both hands.</span>")
+	to_chat(user, span_notice("I wield [src] with both hands."))
 	playsound(loc, pick('sound/combat/weaponr1.ogg','sound/combat/weaponr2.ogg'), 100, TRUE)
 	if(twohands_required)
 		if(!wielded)

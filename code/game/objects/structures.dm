@@ -122,7 +122,7 @@
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
 				user.visible_message("<span class='warning'>[user] climbs onto [src].</span>", \
-									"<span class='notice'>I climb onto [src].</span>")
+									span_notice("I climb onto [src]."))
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
@@ -137,7 +137,7 @@
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(obj_broken)
-			. += "<span class='notice'>It appears to be broken.</span>"
+			. += span_notice("It appears to be broken.")
 		var/examine_status = examine_status(user)
 		if(examine_status)
 			. += examine_status

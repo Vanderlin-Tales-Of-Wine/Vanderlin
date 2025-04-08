@@ -320,7 +320,7 @@
 		if(contents.len)
 			to_chat(usr, "<span class='warning'>There are too many things inside of [src] to fold it up!</span>")
 			return
-		visible_message("<span class='notice'>[usr] folds up [src].</span>")
+		visible_message(span_notice("[usr] folds up [src]."))
 		var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
 		usr.put_in_hands(B)
 		qdel(src)
@@ -408,7 +408,7 @@
 		if(contents.len)
 			to_chat(usr, "<span class='warning'>There are too many things inside of [src] to fold it up!</span>")
 			return
-		visible_message("<span class='notice'>[usr] folds up [src].</span>")
+		visible_message(span_notice("[usr] folds up [src]."))
 		var/obj/item/bodybag/B = foldedbag_instance || new foldedbag_path
 		usr.put_in_hands(B)
 		qdel(src)

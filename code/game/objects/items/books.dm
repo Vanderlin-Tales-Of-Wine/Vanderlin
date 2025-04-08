@@ -315,7 +315,7 @@
 		if(!user.can_read(src))
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
-		user.visible_message("<span class='notice'>[user] blesses [M].</span>")
+		user.visible_message(span_notice("[user] blesses [M]."))
 		playsound(user, 'sound/magic/bless.ogg', 100, FALSE)
 		return
 
@@ -367,7 +367,7 @@
 
 /obj/item/book/xylix/attack_self(mob/user)
 	user.update_inv_hands()
-	to_chat(user, "<span class='notice'>You feel laughter echo in your head.</span>")
+	to_chat(user, span_notice("You feel laughter echo in your head."))
 
 //player made books
 /obj/item/book/tales1
@@ -699,15 +699,15 @@
 			ckey = user.ckey
 			select_icon = newicon
 			icon_state = "paperwrite"
-			to_chat(user, "<span class='notice'>You have successfully authored and titled the manuscript.</span>")
+			to_chat(user, span_notice("You have successfully authored and titled the manuscript."))
 			var/complete = input(user, "Is the manuscript finished?") in list("Yes", "No")
 			if(complete == "Yes" && compiled_pages)
 				written = TRUE
 		else
-			to_chat(user, "<span class='notice'>You must fill out all fields to complete the manuscript.</span>")
+			to_chat(user, span_notice("You must fill out all fields to complete the manuscript."))
 		return
 	else if(istype(P, /obj/item/natural/feather) && written)
-		to_chat(user, "<span class='notice'>The manuscript has already been authored and titled.</span>")
+		to_chat(user, span_notice("The manuscript has already been authored and titled."))
 		return
 	return ..()
 
@@ -870,7 +870,7 @@ ____________End of Example*/
 		if(!user.can_read(src))
 			return
 		M.apply_status_effect(/datum/status_effect/buff/blessed)
-		user.visible_message("<span class='notice'>[user] blesses [M].</span>")
+		user.visible_message(span_notice("[user] blesses [M]."))
 		playsound(user, 'sound/magic/bless.ogg', 100, FALSE)
 		return
 

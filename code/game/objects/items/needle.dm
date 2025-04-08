@@ -165,12 +165,12 @@
 		use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)
-			doctor.visible_message("<span class='notice'>[doctor] sews \a [target_wound.name] on [doctor.p_them()]self.</span>", "<span class='notice'>I stitch \a [target_wound.name] on my [affecting].</span>")
+			doctor.visible_message(span_notice("[doctor] sews \a [target_wound.name] on [doctor.p_them()]self.")I span_notice("I stitch \a [target_wound.name] on my [affecting].")
 		else
 			if(affecting)
 				doctor.visible_message("<span class='notice'>[doctor] sews \a [target_wound.name] on [patient]'s [affecting].</span>", "<span class='notice'>I stitch \a [target_wound.name] on [patient]'s [affecting].</span>")
 			else
-				doctor.visible_message("<span class='notice'>[doctor] sews \a [target_wound.name] on [patient].</span>", "<span class='notice'>I stitch \a [target_wound.name] on [patient].</span>")
+				doctor.visible_message(span_notice("[doctor] sews \a [target_wound.name] on [patient].")I span_notice("I stitch \a [target_wound.name] on [patient].")
 		log_combat(doctor, patient, "sew", "needle")
 		return TRUE
 	return FALSE

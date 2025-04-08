@@ -42,8 +42,8 @@
 
 	else
 		if(icon_state == "[base_state]over")
-			user.visible_message("<span class='notice'>[user] starts to pick up [src]...</span>", \
-				"<span class='notice'>I start to pick up [src]...</span>")
+			user.visible_message(span_notice("[user] starts to pick up [src]..."), \
+				span_notice("I start to pick up [src]..."))
 			if(do_after(user, 3 SECONDS, src))
 				icon_state = "[base_state]0"
 			return
@@ -359,7 +359,7 @@
 			return
 	else
 		if(istype(W, /obj/item/reagent_containers/glass/bowl))
-			to_chat(user, "<span class='notice'>Remove the pot from the hearth first.</span>")
+			to_chat(user, span_notice("Remove the pot from the hearth first."))
 			return
 		if(istype(attachment, /obj/item/cooking/pan))
 			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks))
@@ -382,7 +382,7 @@
 		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
 			var/obj/item/reagent_containers/glass/bucket/pot/pot = attachment
 			if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-				to_chat(user, "<span class='notice'>Not enough water.</span>")
+				to_chat(user, span_notice("Not enough water."))
 				return TRUE
 			if(pot.reagents.chem_temp < 374)
 				to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
@@ -421,7 +421,7 @@
 		if(istype(attachment, /obj/item/cooking/pan))
 			if(food)
 				if(rawegg)
-					to_chat(user, "<span class='notice'>You throw away the raw egg.</span>")
+					to_chat(user, span_notice("You throw away the raw egg."))
 					rawegg = FALSE
 					qdel(food)
 					update_icon()

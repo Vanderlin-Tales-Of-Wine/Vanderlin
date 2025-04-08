@@ -17,8 +17,8 @@
 	// Ring the bell
 	last_ring_time = world.time
 	user.visible_message(
-		"<span class='notice'>[user] rings the [src].</span>",
-		"<span class='notice'>You ring the [src].</span>"
+		span_notice("[user] rings the [src]."),
+		span_notice("You ring the [src].")
 	)
 
 	// Play bell sound for everyone in the vicinity
@@ -44,8 +44,8 @@
 	// Ring the bell
 	last_ring_time = world.time
 	user.visible_message(
-		"<span class='notice'>[user] rings the [src].</span>",
-		"<span class='notice'>You ring the [src].</span>"
+		span_notice("[user] rings the [src]."),
+		span_notice("You ring the [src].")
 	)
 
 	// Play bell sound for everyone in the vicinity

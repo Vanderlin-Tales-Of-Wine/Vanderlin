@@ -14,9 +14,9 @@
 	playsound(user, pick('sound/blank.ogg'), 30, TRUE)
 	if(do_after(user, 5 SECONDS))
 		if(remarks.len)
-			to_chat(user, "<span class='notice'>[pick(remarks)]</span>")
+			to_chat(user, span_notice("[pick(remarks)]"))
 		else
-			to_chat(user, "<span class='notice'>I keep reading...</span>")
+			to_chat(user, span_notice("I keep reading..."))
 		return TRUE
 	return FALSE
 
@@ -26,13 +26,13 @@
 	return FALSE
 
 /obj/item/book/granter/proc/on_reading_start(mob/user)
-	to_chat(user, "<span class='notice'>I start reading [name]...</span>")
+	to_chat(user, span_notice("I start reading [name]..."))
 
 /obj/item/book/granter/proc/on_reading_stopped(mob/user)
-	to_chat(user, "<span class='notice'>I stop reading...</span>")
+	to_chat(user, span_notice("I stop reading..."))
 
 /obj/item/book/granter/proc/on_reading_finished(mob/user)
-	to_chat(user, "<span class='notice'>I finish reading [name]!</span>")
+	to_chat(user, span_notice("I finish reading [name]!"))
 
 /obj/item/book/granter/proc/onlearned(mob/user)
 	used = TRUE
@@ -84,7 +84,7 @@
 	return FALSE
 
 /obj/item/book/granter/action/on_reading_start(mob/user)
-	to_chat(user, "<span class='notice'>I start reading about [actionname]...</span>")
+	to_chat(user, span_notice("I start reading about [actionname]..."))
 
 /obj/item/book/granter/action/on_reading_finished(mob/user)
 	to_chat(user, "<span class='notice'>I feel like you've got a good handle on [actionname]!</span>")
@@ -104,7 +104,7 @@
 	for(var/crafting_recipe_type in crafting_recipe_types)
 		var/datum/crafting_recipe/R = crafting_recipe_type
 		user.mind.teach_crafting_recipe(crafting_recipe_type)
-		to_chat(user,"<span class='notice'>I learned how to make [initial(R.name)].</span>")
+		to_chat(user,span_notice("I learned how to make [initial(R.name)]."))
 
 //! --MAGICK SCROLLS-- !/
 
@@ -126,7 +126,7 @@
 	return FALSE
 
 /obj/item/book/granter/spell/on_reading_start(mob/user)
-	to_chat(user, "<span class='notice'>I start reading about casting [spellname]...</span>")
+	to_chat(user, span_notice("I start reading about casting [spellname]..."))
 
 /obj/item/book/granter/spell/on_reading_finished(mob/user)
 	to_chat(user, "<span class='notice'>I feel like you've experienced enough to cast [spellname]!</span>")

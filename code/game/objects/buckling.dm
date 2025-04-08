@@ -132,8 +132,8 @@
 	. = buckle_mob(M, check_loc = check_loc)
 	if(.)
 		if(M == user)
-			M.visible_message("<span class='notice'>[M] [buckleverb]s on [src].</span>",\
-				"<span class='notice'>I [buckleverb] on [src].</span>")
+			M.visible_message(span_notice("[M] [buckleverb]s on [src]."),\
+				span_notice("I [buckleverb] on [src]."))
 		else
 			M.visible_message("<span class='warning'>[user] [buckleverb]s [M] on [src]!</span>",\
 				"<span class='warning'>[user] [buckleverb]s me on [src]!</span>")
@@ -142,12 +142,12 @@
 	var/mob/living/M = unbuckle_mob(buckled_mob)
 	if(M)
 		if(M != user)
-			M.visible_message("<span class='notice'>[user] pulls [M] from [src].</span>",\
-				"<span class='notice'>[user] pulls me from [src].</span>",\
+			M.visible_message(span_notice("[user] pulls [M] from [src]."),\
+				span_notice("[user] pulls me from [src]."),\
 				"<span class='hear'>I hear metal clanking.</span>")
 		else
-			M.visible_message("<span class='notice'>[M] gets off of [src].</span>",\
-				"<span class='notice'>I get off of [src].</span>",\
+			M.visible_message(span_notice("[M] gets off of [src]."),\
+				span_notice("I get off of [src]."),\
 				"<span class='hear'>I hear metal clanking.</span>")
 		add_fingerprint(user)
 		if(isliving(M.pulledby))

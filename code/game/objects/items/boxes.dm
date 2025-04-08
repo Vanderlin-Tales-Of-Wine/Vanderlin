@@ -41,7 +41,7 @@
 	if(!ispath(foldable))
 		return
 
-	to_chat(user, "<span class='notice'>I fold [src] flat.</span>")
+	to_chat(user, span_notice("I fold [src] flat."))
 	var/obj/item/I = new foldable
 	qdel(src)
 	user.put_in_hands(I)

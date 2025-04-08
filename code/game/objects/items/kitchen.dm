@@ -44,10 +44,10 @@
 
 	if(forkload)
 		if(M == user)
-			M.visible_message("<span class='notice'>[user] eats a delicious forkful of food!</span>")
+			M.visible_message(span_notice("[user] eats a delicious forkful of food!"))
 			M.reagents.add_reagent(forkload.type, 1)
 		else
-			M.visible_message("<span class='notice'>[user] feeds [user] a delicious forkful of food!</span>")
+			M.visible_message(span_notice("[user] feeds [user] a delicious forkful of food!"))
 			M.reagents.add_reagent(forkload.type, 1)
 		icon_state = "fork"
 		forkload = null

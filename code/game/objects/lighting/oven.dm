@@ -50,7 +50,7 @@
 				food -= I
 				qdel(I)
 				food += C
-				visible_message("<span class='notice'>Something smells good!</span>")
+				visible_message(span_notice("Something smells good!"))
 				need_underlay_update = TRUE
 		update_icon()
 

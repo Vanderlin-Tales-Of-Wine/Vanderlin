@@ -77,8 +77,8 @@
 
 /obj/item/flashlight/flare/ignition_effect(atom/A, mob/user)
 	if(fuel && on)
-		. = "<span class='notice'>[user] lights [A] with [src] like a real \
-			badass.</span>"
+		. = span_notice("[user] lights [A] with [src] like a real \
+			badass.")
 	else
 		. = ""
 
@@ -112,7 +112,7 @@
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message("<span class='notice'>[user] lights \the [src].</span>", "<span class='notice'>I light \the [src]!</span>")
+		user.visible_message(span_notice("[user] lights \the [src].")I span_notice("I light \the [src]!")
 		force = on_damage
 //		damtype = "fire"
 		START_PROCESSING(SSobj, src)

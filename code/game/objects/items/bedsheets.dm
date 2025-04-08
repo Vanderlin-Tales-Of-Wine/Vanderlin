@@ -42,7 +42,7 @@ LINEN BINS
 	plane = -2
 	pixel_x = 0
 	pixel_y = 0
-	to_chat(sleeper, "<span class='notice'>I cover myself with [src].</span>")
+	to_chat(sleeper, span_notice("I cover myself with [src]."))
 	var/angle = sleeper.lying_prev
 	dir = angle2dir(angle + 180) // 180 flips it to be the same direction as the mob
 
@@ -59,7 +59,7 @@ LINEN BINS
 	UnregisterSignal(sleeper, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(sleeper, COMSIG_LIVING_SET_RESTING)
 	UnregisterSignal(sleeper, COMSIG_PARENT_QDELETING)
-	to_chat(sleeper, "<span class='notice'>I smooth [src] out beneath you.</span>")
+	to_chat(sleeper, span_notice("I smooth [src] out beneath you."))
 	layer = initial(layer)
 	plane = initial(plane)
 	signal_sleeper = null

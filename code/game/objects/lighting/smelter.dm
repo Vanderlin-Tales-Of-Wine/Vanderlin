@@ -145,7 +145,7 @@
 							ore += R
 							qdel(I)
 					playsound(src,'sound/misc/smelter_fin.ogg', 100, FALSE)
-					visible_message("<span class='notice'>\The [src] finished smelting.</span>")
+					visible_message(span_notice("\The [src] finished smelting."))
 					cooking = 21
 					actively_smelting = FALSE
 
@@ -230,6 +230,6 @@
 								qdel(I)
 					maxore = initial(maxore)
 					playsound(src,'sound/misc/smelter_fin.ogg', 100, FALSE)
-					visible_message("<span class='notice'>\The [src] finished smelting.</span>")
+					visible_message(span_notice("\The [src] finished smelting."))
 					cooking = 31
 					actively_smelting = FALSE

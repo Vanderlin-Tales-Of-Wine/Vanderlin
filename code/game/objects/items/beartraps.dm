@@ -59,8 +59,8 @@
 				anchored = FALSE
 				update_icon()
 				src.alpha = 255
-				C.visible_message("<span class='notice'>[C] disarms \the [src].</span>", \
-						"<span class='notice'>I disarm \the [src].</span>")
+				C.visible_message(span_notice("[C] disarms \the [src]."), \
+						span_notice("I disarm \the [src]."))
 				C.mind?.adjust_experience(/datum/skill/craft/traps, C.STAINT * boon, FALSE)
 				return FALSE
 			else
@@ -127,7 +127,7 @@
 				update_icon()
 				src.alpha = 80 // Set lower visibility for everyone
 				L.mind?.adjust_experience(/datum/skill/craft/traps, L.STAINT * boon, FALSE) // We learn how to set them better, little by little.
-				to_chat(user, "<span class='notice'>I arm |the [src].</span>")
+				to_chat(user, span_notice("I arm |the [src]."))
 			else
 				if(old)
 					user.visible_message("<span class='warning'>The old [src.name] breaks under stress!</span>")

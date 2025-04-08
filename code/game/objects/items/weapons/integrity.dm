@@ -49,7 +49,7 @@
 	if(max_blade_int)
 		if(istype(I, /obj/item/natural/stone))
 			playsound(src.loc, pick('sound/items/sharpen_long1.ogg','sound/items/sharpen_long2.ogg'), 100)
-			user.visible_message("<span class='notice'>[user] sharpens [src]!</span>")
+			user.visible_message(span_notice("[user] sharpens [src]!"))
 			degrade_bintegrity(0.5)
 			add_bintegrity(max_blade_int * 0.1)
 			if(prob(35))

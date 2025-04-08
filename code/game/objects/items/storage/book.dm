@@ -15,4 +15,4 @@
 	STR.max_items = 1
 
 /obj/item/storage/book/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>The pages of [title] have been cut out!</span>")
+	to_chat(user, span_notice("The pages of [title] have been cut out!"))

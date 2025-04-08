@@ -20,10 +20,10 @@
 		return
 	playsound(src.loc, 'sound/misc/handbell.ogg', 50, 1)
 
-	user.visible_message("<span class='notice'>[user] rings [src].</span>", span_notice("You ring [src]."))
+	user.visible_message(span_notice("[user] rings [src]."), span_notice("You ring [src]."))
 	for(var/mob/M in view(10, src.loc))
 		if(M != user && M.client)
-			to_chat(M, "<span class='notice'>You hear a small bell ringing.</span>")
+			to_chat(M, span_notice("You hear a small bell ringing."))
 
 	COOLDOWN_START(src, bell_ring, 4 SECONDS)
 
@@ -131,9 +131,9 @@
 			return
 		for(var/mob/M in GLOB.player_list) // @everyone
 			if(M.client && M.can_hear()) // Disregard NPC's with no mind and sleeping/unconscious people
-				to_chat(M, "<span class='notice'>[src] rings, echoing solemnly far and wide across the realm.</span>")
+				to_chat(M, span_notice("[src] rings, echoing solemnly far and wide across the realm."))
 				M.playsound_local(M, 'sound/misc/bell.ogg', 50, 1)
-		visible_message("<span class='notice'>[user] uses the [used_item] to ring the [src].</span>")
+		visible_message(span_notice("[user] uses the [used_item] to ring the [src]."))
 		COOLDOWN_START(src, bell_ring, 5 SECONDS)
 	else
 		return ..()
