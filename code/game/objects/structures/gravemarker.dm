@@ -43,4 +43,5 @@
 	for(var/obj/structure/closet/dirthole/hole in loc)
 		if(pacify_coffin(hole, user))
 			user.visible_message(span_rose("[user] consecrates [hole]."), span_rose("I consecrate [hole]."))
+			GLOB.vanderlin_round_stats["graves_consecrated"]++
 	return ..()

@@ -19,7 +19,7 @@
 	beltr = /obj/item/weapon/sword/rapier
 	belt = /obj/item/storage/belt/leather/steel
 	backr = /obj/item/storage/backpack/satchel
-	id = /obj/item/clothing/ring/silver
+	ring = /obj/item/clothing/ring/silver
 	H.virginity = TRUE
 
 	if(H.mind)

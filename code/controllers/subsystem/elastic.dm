@@ -55,16 +55,30 @@ SUBSYSTEM_DEF(elastic)
 /datum/controller/subsystem/elastic/proc/get_round_data()
 	var/list/round_data = list()
 
-	round_data["blood_lost"] = round(SSticker.blood_lost / 100, 1)
-	round_data["ankles_broken"] = SSticker.holefall
-	round_data["deaths"] = SSticker.deaths
-	round_data["moat_fallers"] = SSticker.moatfallers
-	round_data["smited"] = SSticker.pplsmited
-	round_data["gibbed"] = SSticker.gibbs
-	round_data["triumph_gained"] = SSticker.tri_gained
-	round_data["triumph_lost"] = SSticker.tri_lost
-	round_data["snorted_drugs"] = SSticker.snort
-	round_data["beards_shaved"] = SSticker.beardshavers
+	round_data["blood_lost"] = round(GLOB.vanderlin_round_stats["blood_spilt"] / 100, 1)
+	round_data["ankles_broken"] = GLOB.vanderlin_round_stats["ankles_broken"]
+	round_data["deaths"] = GLOB.vanderlin_round_stats["deaths"]
+	round_data["noble_deaths"] = GLOB.vanderlin_round_stats["noble_deaths"]
+	round_data["moat_fallers"] = GLOB.vanderlin_round_stats["moat_fallers"]
+	round_data["smited"] = GLOB.vanderlin_round_stats["people_smitten"]
+	round_data["gibbed"] = GLOB.vanderlin_round_stats["people_gibbed"]
+	round_data["triumph_gained"] = GLOB.vanderlin_round_stats["triumphs_awarded"]
+	round_data["triumph_lost"] = GLOB.vanderlin_round_stats["triumphs_stolen"]
+	round_data["snorted_drugs"] = GLOB.vanderlin_round_stats["drugs_snorted"]
+	round_data["beards_shaved"] = GLOB.vanderlin_round_stats["beards_shaved"]
+	round_data["trees_cut"] = GLOB.vanderlin_round_stats["trees_cut"]
+	round_data["prayers_made"] = GLOB.vanderlin_round_stats["prayers_made"]
+	round_data["fish_caught"] = GLOB.vanderlin_round_stats["fish_caught"]
+	round_data["items_pickpocketed"] = GLOB.vanderlin_round_stats["items_pickpocketed"]
+	round_data["masterworks_forged"] = GLOB.vanderlin_round_stats["masterworks_forged"]
+	round_data["taxes_collected"] = GLOB.vanderlin_round_stats["taxes_collected"]
+	round_data["organs_eaten"] = GLOB.vanderlin_round_stats["organs_eaten"]
+	round_data["kisses_made"] = GLOB.vanderlin_round_stats["kisses_made"]
+	round_data["laughs_made"] = GLOB.vanderlin_round_stats["laughs_made"]
+	round_data["graves_consecrated"] = GLOB.vanderlin_round_stats["graves_consecrated"]
+	round_data["potions_brewed"] = GLOB.vanderlin_round_stats["potions_brewed"]
+	round_data["astrata_revivals"] = GLOB.vanderlin_round_stats["astrata_revivals"]
+	round_data["plants_harvested"] = GLOB.vanderlin_round_stats["plants_harvested"]
 
 	return round_data
 

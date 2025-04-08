@@ -25,7 +25,7 @@
 		neck = /obj/item/storage/belt/pouch/coins/rich
 		cloak = /obj/item/clothing/cloak/raincloak/furcloak
 		beltr = /obj/item/weapon/sword/rapier
-		id = /obj/item/clothing/ring/silver
+		ring = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/nobleboot
 		backr = /obj/item/storage/backpack/satchel
 		backpack_contents = list(/obj/item/storage/belt/pouch/coins/rich = 1, /obj/item/flashlight/flare/torch/lantern = 1)

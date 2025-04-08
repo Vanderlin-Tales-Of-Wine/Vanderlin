@@ -1,6 +1,33 @@
 #define POPCOUNT_SURVIVORS "survivors"					//Not dead at roundend
 #define POPCOUNT_ESCAPEES "escapees"					//Not dead and on centcom/shuttles marked as escaped
 
+GLOBAL_LIST_INIT(vanderlin_round_stats, list(
+	"deaths" = 0,
+	"noble_deaths" = 0,
+	"moat_fallers" = 0,
+	"ankles_broken" = 0,
+	"people_smitten" = 0,
+	"blood_spilt" = 0,
+	"people_gibbed" = 0,
+	"triumphs_awarded" = 0,
+	"triumphs_stolen" = 0,
+	"drugs_snorted" = 0,
+	"beards_shaved" = 0,
+	"trees_cut" = 0,
+	"prayers_made" = 0,
+	"fish_caught" = 0,
+	"items_pickpocketed" = 0,
+	"masterworks_forged" = 0,
+	"taxes_collected" = 0,
+	"organs_eaten" = 0,
+	"kisses_made" = 0,
+	"laughs_made" = 0,
+	"graves_consecrated" = 0,
+	"potions_brewed" = 0,
+	"astrata_revivals" = 0,
+	"plants_harvested" = 0,
+))
+
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
 	gather_antag_data()
 	var/json_file = file("[GLOB.log_directory]/round_end_data.json")
@@ -172,8 +199,6 @@
 
 	players_report()
 
-	stats_report()
-
 	SSvote.initiate_vote("map", "Psydon")
 
 	CHECK_TICK
@@ -291,31 +316,6 @@
 			last.roundend_report_footer()
 
 
-	return
-
-/datum/controller/subsystem/ticker/proc/stats_report()
-	var/list/shit = list()
-	shit += "<br><span class='bold'>Δ--------------------Δ</span><br>"
-	shit += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [deaths]"
-	shit += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [moatfallers]"
-	shit += "<br><font color='#700000'><span class='bold'>Ankles Broken:</span></font> [holefall]"
-	shit += "<br><font color='#ffee00'><span class='bold'>People Smiten:</span></font> [pplsmited]"
-	shit += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(blood_lost / 100, 1)]L"
-	shit += "<br><font color='#af2323'><span class='bold'>People Gibbed:</span></font> [gibbs]"
-	shit += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [tri_gained]"
-	shit += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [tri_lost * -1]"
-	shit += "<br><font color='#f200ff'><span class='bold'>Drugs Snorted:</span></font> [snort]"
-	shit += "<br><font color='#0f555c'><span class='bold'>Beards Shaved:</span></font> [beardshavers]"
-//	if(cuckers.len)
-//		shit += "<br><font color='#4e488a'><span class='bold'>Adulterers:</span></font> "
-//		for(var/x in cuckers.len)
-//			shit += "[x]"
-	if(GLOB.confessors.len)
-		shit += "<br><font color='#93cac7'><span class='bold'>Confessors:</span></font> "
-		for(var/x in GLOB.confessors)
-			shit += "[x]"
-	shit += "<br><br><span class='bold'>∇--------------------∇</span>"
-	to_chat(world, "[shit.Join()]")
 	return
 
 /datum/controller/subsystem/ticker/proc/standard_reboot()
@@ -497,6 +497,8 @@
 	set waitfor = 0
 	to_chat(C,"<a href='byond://?src=[C];playerlistrogue=1'>* SHOW PLAYER LIST *</a>")
 	to_chat(C,"<a href='byond://?src=[C];commendsomeone=1'>* Commend a Character *</a>")
+	to_chat(C,"<a href='byond://?src=[C];viewstats=1'>* View Statistics *</a>")
+	C.show_round_stats()
 	C.commendation_popup()
 
 /datum/action/report
