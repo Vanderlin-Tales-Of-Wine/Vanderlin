@@ -183,7 +183,7 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<td style='vertical-align: top; width: 50%; text-align: left; padding-right: 20px;'>"
 	data += "<br><font color='#9b6937'><span class='bold'>Total Deaths:</span></font> [GLOB.vanderlin_round_stats["deaths"]]"
 	data += "<br><font color='#6b5ba1'><span class='bold'>Noble Deaths:</span></font> [GLOB.vanderlin_round_stats["noble_deaths"]]"
-	data += "<br><font color='#e6b327'><span class='bold'>Astrata Revivals:</span></font> [GLOB.vanderlin_round_stats["astrata_revivals"]]"
+	data += "<br><font color='#e6b327'><span class='bold'>Holy Revivals:</span></font> [GLOB.vanderlin_round_stats["astrata_revivals"]]"
 	data += "<br><font color='#825b1c'><span class='bold'>Moat Fallers:</span></font> [GLOB.vanderlin_round_stats["moat_fallers"]]"
 	data += "<br><font color='#ac5d5d'><span class='bold'>Ankles Broken:</span></font> [GLOB.vanderlin_round_stats["ankles_broken"]]"
 	data += "<br><font color='#a73f02'><span class='bold'>People Gibbed:</span></font> [GLOB.vanderlin_round_stats["people_gibbed"]]"
@@ -217,13 +217,13 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	data += "<br><span class='bold'>--------------------------------------------------------------------------</span><br>"
 	data += "</div>"
 
-	data += "<div style='text-align: center; margin-top: 10px;'>"
+	data += "<div style='text-align: center; margin-top: 10px; padding-right: 20px; padding-left: 20px;'>"
 	if(GLOB.confessors.len)
-		data += "<font color='#93cac7'><span class='bold'>Confessors:</span></font> "
+		data += "<font color='#93cac7'><span class='bold'>Confessions:</span></font>"
 		for(var/x in GLOB.confessors)
 			data += "[x]"
 	else
-		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font> "
+		data += "<font color='#93cac7'><span class='bold'>No confessions!</span></font>"
 	data += "</div>"
 
 	var/datum/browser/popup = new(src.mob, "vanderlin_stats", "<center>End Round Statistics</center>", 450, 550)
